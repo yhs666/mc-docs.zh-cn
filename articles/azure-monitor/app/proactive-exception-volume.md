@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 12/08/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d2fe64f1583f79f6003e7ba35bb781f8215b319a
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: efe290b0b78d1487720630f0d93f09302c0bb30c
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989324"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737268"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>异常卷的异常增加（预览）
 

@@ -3,21 +3,22 @@ title: Azure 状态监视器 v2 API 参考：启动跟踪 | Microsoft Docs
 description: 状态监视器 v2 API 参考。 Start-Trace。 从状态监视器和 Application Insights SDK 收集 ETW 日志。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
-manager: alexklim
+author: lingliw
+manager: digimobile
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: tilee
-ms.openlocfilehash: 083379cc43fe66d91bb024c2a4bea8b5d92d27d3
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+origin.date: 04/23/2019
+ms.date: 06/23/2019
+ms.author: v-lingwu
+ms.openlocfilehash: d1e6371c1e7a83b31df64b5d7e9ab9913ac22d8f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989261"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736601"
 ---
 # <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>状态监视器 v2 API：Start-ApplicationInsightsMonitoringTrace
 

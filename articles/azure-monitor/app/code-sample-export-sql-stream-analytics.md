@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 09/11/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: efb8f7afc3b72ed7d0ef8b71e8ed7c338a9c5348
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 3f462cd3aa004df67c817049964ac1bebf2ec90d
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989683"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737314"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>演练：使用流分析从 Application Insights 导出到 SQL
 本文说明如何使用[连续导出][export]和 [Azure 流分析](/stream-analytics/)，将遥测数据从 [Azure Application Insights][start] 移入 Azure SQL 数据库。 

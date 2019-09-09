@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: 39acccff59edf512bf452c977f67cd258ce927f4
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/16/2019
+ms.openlocfilehash: 8348b5877f89cbfb38079b7f8ad02716f43123f9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569599"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736738"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨域策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -48,10 +48,10 @@ ms.locfileid: "67569599"
 ### <a name="example"></a>示例  
   
 ```xml  
-<cross-domain>  
-    <cross-domain-policy>  
-        <allow-http-request-headers-from domain='*' headers='*' />  
-    </cross-domain-policy>  
+<cross-domain>
+    <cross-domain>
+        <allow-http-request-headers-from domain='*' headers='*' />
+    </cross-domain>
 </cross-domain>  
 ```  
   
@@ -64,9 +64,9 @@ ms.locfileid: "67569599"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站  
+- **策略节：** 入站
   
--   **策略范围：** 全局  
+- **策略范围：** 所有范围
   
 ##  <a name="CORS"></a> CORS  
  `cors` 策略向操作或 API 添加跨源资源共享 (CORS) 支持，以便从基于浏览器的客户端执行跨域调用。  
@@ -150,7 +150,7 @@ ms.locfileid: "67569599"
   
 -   **策略节：** 入站  
   
--   **策略范围：** 全局、产品、API、操作
+- **策略范围：** 所有范围
   
 ##  <a name="JSONP"></a> JSONP  
  `jsonp` 策略向操作或 API 添加填充型 JSON (JSONP) 支持，以便从基于 JavaScript 浏览器的客户端执行跨域调用。 JSONP 是 JavaScript 程序中使用的方法，用于从不同域中的服务器请求数据。 JSONP 规避了大多数 Web 浏览器强制实施的只能在同一域中访问网页的限制。  
@@ -186,9 +186,9 @@ ms.locfileid: "67569599"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 出站  
+- **策略节：** 出站
   
--   **策略范围：** 全局、产品、API、操作  
+- **策略范围：** 所有范围
   
 ## <a name="next-steps"></a>后续步骤
 

@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/26/2019
+origin.date: 04/26/2019
+ms.date: 05/26/2019
 ms.author: v-lingwu
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4b329ea0360296f34d2fb1f594c164a15384e6ce
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d5d9a3505c234e034c692962aa405991b690984d
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562449"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737240"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor 中具有动态阈值的指标警报
 

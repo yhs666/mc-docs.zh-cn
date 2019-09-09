@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47ccd68d26dc50ca8c67e03bb7b285f1f80ccaf1
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 7891cc901ec5bf922c4fca79a70fcc2fd5250efe
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989641"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737276"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 性能指标
 

@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
+origin.date: 08/06/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 53c3c2f3cc23aa3d11fc2645be9a3dd6ed707fde
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 131bb7b1e0adec951da55771c7f233c93917e48e
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989304"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737264"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 探查 Azure 中的生产应用程序
 ## <a name="enable-application-insights-profiler-for-your-application"></a>对应用程序启用 Application Insights Profiler

@@ -4,17 +4,18 @@ description: 本教程介绍如何使用 Azure Application Insights 发送警报
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
+origin.date: 04/10/2019
 ms.date: 6/4/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: digimobile
-ms.openlocfilehash: 71d508de7f0b865f097c90a257fb232544deafe3
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8804430e23373cab49ce354aee6221be9b08c6a3
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562517"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737214"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 监视和警报应用程序的运行状况
 

@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 11/15/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 129ae57ea6c96aa80e5b9c60efc3315fc2da785a
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 738dfef2703cd6c95a7a30795e6742c4d82747a9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989227"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737179"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用函数
 

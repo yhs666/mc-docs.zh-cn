@@ -5,14 +5,15 @@ services: advisor
 author: kasparks
 ms.service: advisor
 ms.topic: article
-ms.date: 04/03/2019
+origin.date: 04/03/2019
+ms.date: 04/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 459fd339f13fee51526e80217f30a35358e117c3
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 61488b91e429ad2990698d04b5e51f71c7d9af31
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571443"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736761"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>查看对你重要的 Azure 顾问建议
 

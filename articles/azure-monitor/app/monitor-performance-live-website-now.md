@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/20/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 05/24/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47d833ee50d7b65b1fb87b07706ce4ca492ccfcb
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 20c0eacfe9ff5dcc4c404e759ed2d9d36e32c95f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989692"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737278"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 

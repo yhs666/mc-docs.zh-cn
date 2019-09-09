@@ -4,17 +4,17 @@ description: 需要执行日志查询来检索 Azure Monitor 提供的日志数�
 services: log-analytics
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+origin.date: 06/16/2019
+ms.date: 08/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 846cfbc90ff8bd7b6c57f9a989ea39f8a935d485
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 66c635c35d4550f798328dc699be914d64aa20f1
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989698"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737165"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 日志的结构
 使用[日志查询](log-query-overview.md)快速洞察数据是 Azure Monitor 提供的一项强大功能。 若要创建高效且有用的查询，应该了解一些基本概念，例如，所需数据的位置及其构建方式。 本文将会介绍可帮助你入门的基本概念。

@@ -5,17 +5,18 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
+origin.date: 10/03/2018
 ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 04c8627d3b72474d5144d7de5b8d801af5f76a99
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 75ff88c05c7ffbe70eb36c23b54d462fbf235922
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514051"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737238"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>开始监视 ASP.NET Core Web 应用程序
 

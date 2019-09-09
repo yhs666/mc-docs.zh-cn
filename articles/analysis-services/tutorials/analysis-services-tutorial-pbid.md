@@ -9,12 +9,12 @@ origin.date: 04/25/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 798f06e1bdefc66e2a77def2beabb07da91633e6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 0ff0e15b1ba7c14d34558fa44fda9a0c8d031f9d
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993310"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500708"
 ---
 <!--Notice: Verify sucessfully-->
 
@@ -43,7 +43,11 @@ ms.locfileid: "69993310"
 
 在 **Azure 门户**中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
 
-    ![Get server name in Azure](./media/analysis-services-tutorial-pbid/aas-copy-server-name.png)
+<!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
+
+![在 Azure 中获取服务器名称](./media/analysis-services-tutorial-pbid/aas-copy-server-name.png)
+
+<!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
 ## <a name="connect-in-power-bi-desktop"></a>在 Power BI Desktop 中连接
 

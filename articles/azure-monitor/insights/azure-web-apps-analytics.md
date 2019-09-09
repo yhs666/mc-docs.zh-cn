@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 07/02/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f7207e951ea579f26c84f49c396c45a00c8617e5
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 4211635ebf0506605413ea03d4e06eff93cb8994
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989085"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736838"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>查看所有 Azure Web 应用资源的指标的分析数据
 

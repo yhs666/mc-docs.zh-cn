@@ -5,28 +5,31 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 01/21/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c6a95a291007b497194a648fce4ae27e4816a5f1
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: e901c1ac3cbdb8b3ce81076e128c6efea9ecf1fd
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309282"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254588"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
-下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。
+下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。
 
 | |  |
 |---|---|
 |**创建 Azure Cosmos DB 帐户、数据库和容器**||
 | [使用 SQL API 创建 Azure Cosmos DB 帐户](scripts/create-database-account-collections-cli.md?toc=%2fcli%2ftoc.json)| 创建单个 Azure Cosmos DB 帐户、数据库和容器。 |
 | [使用 Cosmos DB 的用于 MongoDB 的 API 创建 Azure Cosmos DB 帐户](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2ftoc.json) | 创建单个 Azure Cosmos DB 帐户、数据库和集合。 |
-|缩放 Azure Cosmos DB||
+| [使用 Gremlin API 创建 Azure Cosmos DB 帐户](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2ftoc.json) | 创建单个 Azure Cosmos DB 帐户、数据库和图。 |
+| [使用 Cassandra API 创建 Azure Cosmos DB 帐户](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2ftoc.json) | 创建单个 Azure Cosmos DB 帐户和数据库。 |
+| [使用表 API 创建 Azure Cosmos DB 帐户](scripts/create-table-database-account-cli.md?toc=%2fcli%2ftoc.json) | 创建单个 Azure Cosmos DB 帐户、数据库和表。 |
+|缩放 Azure Cosmos DB ||
 | [缩放容器吞吐量](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2ftoc.json) | 更改容器上预配的吞吐量。|
-| [将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md?toc=%2fcli%2ftoc.json)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
+| [将 Azure Cosmos 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md?toc=%2fcli%2ftoc.json)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
 | [获取帐户密钥](scripts/secure-get-account-key-cli.md?toc=%2fcli%2ftoc.json) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
 | [获取使用 Azure Cosmos DB 的用于 MongoDB 的 API 配置的 Cosmos 帐户的连接字符串](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2ftoc.json) | 获取用于将 MongoDB 应用连接到 Azure Cosmos DB 帐户的连接字符串。|
@@ -35,12 +38,9 @@ ms.locfileid: "54309282"
 |**高可用性、灾难恢复、备份和还原**||
 | [配置故障转移策略](scripts/ha-failover-policy-cli.md?toc=%2fcli%2ftoc.json)|为帐户所复制的每个区域设置故障转移优先级。|
 |**将 Azure Cosmos DB 连接到资源**||
-| [将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2ftoc.json)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
+| [将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2ftoc.json)|创建并连接 Azure Cosmos 数据库和 Azure Web 应用。|
 |||
 
-<!--Not Available on [Create a Gremlin API account](scripts/create-graph-database-account-cli.md)-->
-<!--Not Available on [Create a Cassandra API account](scripts/create-cassandra-database-account-cli.md)-->
-<!--Not Available on [Create a Table API account](scripts/create-table-database-account-cli.md)-->
 <!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
 <!--NOTICE: Line 35 Globally TO Multiple data-center-->
 

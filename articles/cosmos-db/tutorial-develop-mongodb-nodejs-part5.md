@@ -8,17 +8,17 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 47d79b4f102b1369e397c963ba7ee8596625c6c6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 46004c4ae4abdcff24a28da67a09f2b22405adb0
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626158"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254600"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Mongoose 连接到 Cosmos DB
 
@@ -39,7 +39,7 @@ ms.locfileid: "58626158"
 
 * 开始本教程之前，请先完成[第 4 部分](tutorial-develop-mongodb-nodejs-part4.md)中的步骤。
 
-* 本教程要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 本教程要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 * 本教程介绍生成应用程序的各个步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
 
@@ -53,43 +53,43 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
     npm i mongoose --save
     ```
 
-2. 在 **server** 文件夹中，创建名为 **mongo.js** 的文件。 将 Azure Cosmos DB 帐户的连接详细信息添加到此文件。
+1. 在 **server** 文件夹中，创建名为 **mongo.js** 的文件。 将 Azure Cosmos DB 帐户的连接详细信息添加到此文件。
 
-3. 将以下代码复制到 **mongo.js** 文件中。 该代码提供以下功能：
+1. 将以下代码复制到 **mongo.js** 文件中。 该代码提供以下功能：
 
-   * 需要 Mongoose。
-   * 替代 Mongo 约定，以使用 ES6/ES2015 和更高版本中内置的基本约定。
-   * 根据是在过渡、生产还是开发环境中操作，针对 env 文件发出调用以设置某些项目。 将在下一部分创建该文件。
-   * 请包含 env 文件中设置的 MongoDB 连接字符串。
-   * 创建调用 Mongoose 的 connect 函数。
+    * 需要 Mongoose。
+    * 替代 Mongo 约定，以使用 ES6/ES2015 和更高版本中内置的基本约定。
+    * 根据是在过渡、生产还是开发环境中操作，针对 env 文件发出调用以设置某些项目。 将在下一部分创建该文件。
+    * 请包含 env 文件中设置的 MongoDB 连接字符串。
+    * 创建调用 Mongoose 的 connect 函数。
 
-     ```javascript
-     const mongoose = require('mongoose');
-     /**
-     * Set to Node.js native promises
-     * Per https://mongoosejs.com/docs/promises.html
-     */
-     mongoose.Promise = global.Promise;
+        ```javascript
+        const mongoose = require('mongoose');
+        /**
+        * Set to Node.js native promises
+        * Per https://mongoosejs.com/docs/promises.html
+        */
+        mongoose.Promise = global.Promise;
 
-     const env = require('./env/environment');
+        const env = require('./env/environment');
 
-     // eslint-disable-next-line max-len
-     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.cn:${env.port}/${env.databaseName}?ssl=true`;
+        // eslint-disable-next-line max-len
+        const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.cn:${env.port}/${env.databaseName}?ssl=true`;
 
-     function connect() {
-     mongoose.set('debug', true);
-     return mongoose.connect(mongoUri, { useMongoClient: true });
-     }
+        function connect() {
+        mongoose.set('debug', true);
+        return mongoose.connect(mongoUri, { useMongoClient: true });
+        }
 
-     module.exports = {
-     connect,
-     mongoose
-     };
-     ```
+        module.exports = {
+        connect,
+        mongoose
+        };
+        ```
 
-4. 在“资源管理器”窗格中的“server”下，创建名为 **environment** 的文件夹。 在 **environment** 文件夹中创建名为 **environment.js** 的文件。
+1. 在“资源管理器”窗格中的“server”下，创建名为 **environment** 的文件夹。  在 **environment** 文件夹中创建名为 **environment.js** 的文件。
 
-5. 在 mongo.js 文件中，需要包含 `dbName`、`key` 和 `cosmosPort` 参数的值。 将以下代码复制到 **environment.js** 文件中：
+1. 在 mongo.js 文件中，需要包含 `dbName`、`key` 和 `cosmosPort` 参数的值。 将以下代码复制到 **environment.js** 文件中：
 
     ```javascript
     // TODO: replace if yours are different
@@ -123,86 +123,86 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
 
     你在本教程[第 4 部分](tutorial-develop-mongodb-nodejs-part4.md)中创建的 Azure Cosmos DB 帐户名为 \<cosmosdb-name>。
 
-1. 将主密钥作为 `key` 值复制到“environment.js”文件中。
+1. 将主密钥作为 `key` 值复制到“environment.js”文件中  。
 
 现在，应用程序拥有了连接到 Azure Cosmos DB 所需的所有必要信息。 
 
 ## <a name="create-a-hero-model"></a>创建 Hero 模型
 
-接下来，你需要通过定义模型文件来定义要存储在 Azure Cosmos DB 中的数据的架构。 使用以下步骤创建一个定义数据架构的 Hero 模型：
+接下来，你需要通过定义模型文件来定义要存储在 Azure Cosmos DB 中的数据的架构。 使用以下步骤创建一个定义数据架构的 Hero 模型  ：
 
-1. 在“资源管理器”窗格的“服务器”文件夹下，创建一个名为“hero.model.js”的文件。
+1. 在“资源管理器”窗格的“服务器”文件夹下，创建一个名为“hero.model.js”的文件   。
 
-1. 将以下代码复制到“hero.model.js”文件中。 此代码提供以下功能：
+1. 将以下代码复制到“hero.model.js”文件中  。 此代码提供以下功能：
 
-   * 需要 Mongoose。
-   * 使用 ID、name 和 saying 创建新架构。
-   * 通过使用该架构创建模型。
-   * 导出模型。 
-   * 将集合命名为“Heroes”而不是“Heros”（根据 Mongoose 复数形式命名规则，后者为集合的默认名称）。
+    * 需要 Mongoose。
+    * 使用 ID、name 和 saying 创建新架构。
+    * 通过使用该架构创建模型。
+    * 导出模型。 
+    * 将集合命名为“Heroes”而不是“Heros”（根据 Mongoose 复数形式命名规则，后者为集合的默认名称）   。
 
-   ```javascript
-   const mongoose = require('mongoose');
+        ```javascript
+        const mongoose = require('mongoose');
 
-   const Schema = mongoose.Schema;
+        const Schema = mongoose.Schema;
 
-   const heroSchema = new Schema(
-     {
-       id: { type: Number, required: true, unique: true },
-       name: String,
-       saying: String
-     },
-     {
-       collection: 'Heroes'
-     }
-   );
+        const heroSchema = new Schema(
+         {
+           id: { type: Number, required: true, unique: true },
+           name: String,
+           saying: String
+         },
+         {
+           collection: 'Heroes'
+         }
+        );
 
-   const Hero = mongoose.model('Hero', heroSchema);
+        const Hero = mongoose.model('Hero', heroSchema);
 
-   module.exports = Hero;
-   ```
+        module.exports = Hero;
+        ```
 
 ## <a name="create-a-hero-service"></a>创建 Hero 服务
 
-创建 Hero 模型后，需要定义一个服务用于读取数据，以及执行 list、create、delete 和 update 操作。 使用以下步骤创建一个 Hero 服务用于查询 Azure Cosmos DB 中的数据：
+创建 Hero 模型后，需要定义一个服务用于读取数据，以及执行 list、create、delete 和 update 操作。 使用以下步骤创建一个 Hero 服务用于查询 Azure Cosmos DB 中的数据： 
 
-1. 在“资源管理器”窗格中的“server”文件夹下，创建名为 **hero.service.js** 的文件。
+1. 在“资源管理器”窗格中的“server”文件夹下，创建名为 **hero.service.js** 的文件。 
 
 1. 将以下代码复制到 **hero.service.js** 文件中。 该代码提供以下功能：
 
-   * 获取创建的模型。
-   * 连接到数据库。
-   * 创建 `docquery` 变量，以便使用 `hero.find` 方法定义一个返回所有 Hero 的查询。
-   * 结合 `docquery.exec` 函数运行查询。该函数中的约定可以获取响应状态为 200 的所有 Hero 的列表。 
-   * 如果状态为 500，则发回错误消息。
-   * 由于使用的是模块，因此可以获取 Hero。 
+    * 获取创建的模型。
+    * 连接到数据库。
+    * 创建 `docquery` 变量，以便使用 `hero.find` 方法定义一个返回所有 Hero 的查询。
+    * 结合 `docquery.exec` 函数运行查询。该函数中的约定可以获取响应状态为 200 的所有 Hero 的列表。 
+    * 如果状态为 500，则发回错误消息。
+    * 由于使用的是模块，因此可以获取 Hero。 
 
-   ```javascript
-   const Hero = require('./hero.model');
+        ```javascript
+        const Hero = require('./hero.model');
 
-   require('./mongo').connect();
+        require('./mongo').connect();
 
-   function getHeroes() {
-     const docquery = Hero.find({});
-     docquery
-       .exec()
-       .then(heroes => {
-         res.status(200).json(heroes);
-       })
-       .catch(error => {
-         res.status(500).send(error);
-         return;
-       });
-   }
+        function getHeroes() {
+         const docquery = Hero.find({});
+         docquery
+           .exec()
+           .then(heroes => {
+             res.status(200).json(heroes);
+           })
+           .catch(error => {
+             res.status(500).send(error);
+             return;
+           });
+        }
 
-   module.exports = {
-     getHeroes
-   };
-   ```
+        module.exports = {
+         getHeroes
+        };
+        ```
 
 ## <a name="configure-routes"></a>配置路由
 
-接下来，需要设置路由用于处理 get、create、read 和 delete 请求的 URL。 路由方法指定回调函数（也称为“处理程序函数”）。 当应用程序接收到发往指定终结点和 HTTP 方法的请求时，会调用这些函数。 使用以下步骤添加 Hero 服务并定义路由：
+接下来，需要设置路由用于处理 get、create、read 和 delete 请求的 URL。 路由方法指定回调函数（也称为“处理程序函数”）。  当应用程序接收到发往指定终结点和 HTTP 方法的请求时，会调用这些函数。 使用以下步骤添加 Hero 服务并定义路由：
 
 1. 在 Visual Studio Code 中的 **routes.js** 文件内，注释掉发送示例 Hero 数据的 `res.send` 函数。 添加一行代码，以改为调用 `heroService.getHeroes` 函数。
 
@@ -233,21 +233,21 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
 
 接下来，请使用以下步骤运行应用：
 
-1. 在 Visual Studio Code 中保存所有更改。 在左侧选择“调试”按钮 ![Visual Studio Code 中的“调试”图标](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)，然后选择“开始调试”按钮 ![Visual Studio Code 中的“调试”图标](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)。
+1. 在 Visual Studio Code 中保存所有更改。 在左侧选择“调试”按钮 ![Visual Studio Code 中的“调试”图标](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)，然后选择“开始调试”按钮 ![Visual Studio Code 中的“调试”图标](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)。  
 
-1. 现在切换到浏览器。 打开“开发人员工具”和“网络”选项卡。转到 `http://localhost:3000`，其中显示了我们的应用程序。
+1. 现在切换到浏览器。 打开“开发人员工具”和“网络”选项卡。   转到 `http://localhost:3000`，其中显示了我们的应用程序。
 
     ![Azure 门户中的新 Azure Cosmos DB 帐户](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-尚无 Hero 存储在该应用中。 在本教程的下一部分，我们将添加放置、推送和删除功能。 然后，我们便可以使用与 Azure Cosmos DB 数据库建立的 Mongoose 连接，在 UI 中添加、更新和删除 Hero。 
+尚无 Hero 存储在该应用中。 在本教程的下一部分，我们将添加放置、推送和删除功能。 然后，可以使用与 Azure Cosmos 数据库的 Mongoose 连接，通过 UI 添加、更新和删除 hero。 
 
 ## <a name="clean-up-resources"></a>清理资源
 
 不再需要本教程中创建的资源时，可以删除相应的资源组、Azure Cosmos DB 帐户和所有相关资源。 使用以下步骤删除资源组：
 
  1. 转到在其中创建了 Azure Cosmos DB 帐户的资源组。
- 1. 选择“删除资源组”。
- 1. 确认要删除的资源组的名称，然后选择“删除”。
+ 1. 选择“删除资源组”  。
+ 1. 确认要删除的资源组的名称，然后选择“删除”。 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -256,4 +256,4 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
 > [!div class="nextstepaction"]
 > [第 6 部分：向应用添加 Post、Put 和 Delete 函数](tutorial-develop-mongodb-nodejs-part6.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

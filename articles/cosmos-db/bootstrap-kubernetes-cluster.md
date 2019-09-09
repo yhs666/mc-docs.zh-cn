@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 05/06/2019
 ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc3aa61d9b4c6bb8288736c35dae4f35f4cca48d
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: c6e1b44655afdd67a7e32efd722246224321aad7
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578636"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254746"
 ---
 <!--Previewed only, must submit with request-->
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>如何将 Azure Kubernetes 与 Azure Cosmos DB（预览版）配合使用
@@ -29,7 +29,7 @@ ms.locfileid: "69578636"
 <!--Not Available on  [overview](etcd-api-introduction.md)-->
 ## <a name="prerequisites"></a>先决条件
 
-1. 安装最新版本的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 可以下载特定于自己的操作系统的 Azure CLI 并进行安装。
+1. 安装最新版本的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 可以下载特定于自己的操作系统的 Azure CLI 并进行安装。
 
 1. 安装 [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) 版本的 Azure Kubernetes 引擎。 [Azure Kubernetes 引擎](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine)页面中提供了不同操作系统的安装说明。 只需查看链接的文档中“安装 AKS 引擎”部分中的步骤  。下载后，解压缩 zip 文件。
 

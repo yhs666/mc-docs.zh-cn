@@ -7,13 +7,13 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 05/08/2019
 ms.author: v-yiso
-ms.date: 07/22/2019
-ms.openlocfilehash: 26d2205162ca52e952f194550ad87eeb262667db
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 09/16/2019
+ms.openlocfilehash: 6f17e75dbb5d8b6ea1a6d832b51a134269b0d610
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878692"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736642"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>用于 Go 的 HDInsight SDK（预览版）
 
@@ -37,7 +37,7 @@ ms.locfileid: "68878692"
 首先需要使用 Azure 订阅对该 SDK 进行身份验证。  请遵循以下示例创建服务主体，然后使用该服务主体进行身份验证。 完成此操作后，将会获得 `ClustersClient` 的实例，其中包含可用于执行管理操作的许多函数（以下部分将概述这些函数）。
 
 > [!NOTE]
-> 除了以下示例中所示的方法以外，还有其他一些身份验证方法可能更符合你的需要。 此处概述了所有函数：[Azure SDK for Go 中的身份验证函数](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> 除了以下示例中所示的方法以外，还有其他一些身份验证方法可能更符合你的需要。 此处概述了所有函数：[Azure SDK for Go 中的身份验证函数](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>使用服务主体的身份验证示例
 

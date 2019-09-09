@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 07/11/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 16740fae3a016b7a7b361052c4145baab9ec6b0a
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 0ac6f1360771fb8f1f8f45574f61336983d927e6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989571"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736863"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>使用 Application Insights 监视 SharePoint site 站点
 Azure Application Insights 监视应用的可用性、性能和使用情况。 下面介绍如何为 SharePoint 站点设置它。

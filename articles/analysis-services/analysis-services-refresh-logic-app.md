@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/26/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: befbfce1d991818e3c6fa14d1411613b5f0c86c6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1547869d83d02296ce191fdbc914f09ebfd9ec1a
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993542"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500710"
 ---
 # <a name="refresh-with-logic-apps"></a>使用逻辑应用进行刷新
 
@@ -28,7 +28,9 @@ ms.locfileid: "69993542"
 ## <a name="design-the-logic-app"></a>设计逻辑应用
 
 > [!IMPORTANT]
-> 以下示例假设已禁用 Azure Analysis Services 防火墙。  如果启用了防火墙，则必须将请求发起方的公共 IP 地址列入 Azure Analysis Services 防火墙的白名单。 若要详细了解每个区域的逻辑应用 IP 范围，请参阅 [Azure 逻辑应用的限制和配置信息](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)。
+> 以下示例假设已禁用 Azure Analysis Services 防火墙。  如果启用了防火墙，则必须将请求发起方的公共 IP 地址列入 Azure Analysis Services 防火墙的白名单。 若要详细了解每个区域的逻辑应用 IP 范围，请参阅 [Azure 逻辑应用的限制和配置信息](../logic-apps/logic-apps-limits-and-config.md)。
+
+<!--Not Available on #firewall-configuration-ip-addresses-->
 
 ### <a name="prerequisites"></a>先决条件
 

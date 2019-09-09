@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 01/08/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 48f786c032f798fdc975d95ce953068bdd62118e
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 58ea4e4abec45ea6368c8f1147f170421dbcb953
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989648"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737282"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 导出数据模型
 此表列出了从 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK 发送到门户的遥测属性。

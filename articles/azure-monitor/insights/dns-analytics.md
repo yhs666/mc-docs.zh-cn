@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 03/20/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eb49cf7946648a04b2e50e826dbccb4ef1069fb2
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: ab561e4583588e10e56eb62e19ed10b13166a59b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989604"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737403"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>使用 DNS Analytics 预览解决方案收集有关 DNS 基础结构的见解
 
@@ -188,7 +188,3 @@ DNS 磁贴包括在其中收集数据的 DNS 服务器的数量。 它还包括�
 ## <a name="next-steps"></a>后续步骤
 
 [查询日志](../log-query/log-query-overview.md)以查看详细的 DNS 日志记录。
-
-
-
-

@@ -17,12 +17,12 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 588e454d0df72870b0872b9ad792f36a2f2d6279
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: fa5a26c48d6a2c2e8689cb0a8b8e44bfd8d7972e
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513496"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736820"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -372,7 +372,7 @@ GO
 | AzureStackAdminCredential | 必须 | Null | Azure AD 服务管理员凭据。 |
 | CertificateFilePath | 必须 | Null | 前面生成的标识应用程序证书文件的**完整路径**。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
-| 环境 | 可选 | AzureChinaCloud | 其中目标 Azure Active Directory Graph 服务可用的受支持云环境的名称。  允许的值：'AzureChinaCloud'。|
+| 环境 | 可选 | AzureCloud | 其中目标 Azure Active Directory Graph 服务可用的受支持云环境的名称。  允许的值：'AzureChinaCloud'。|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>创建 Active Directory 联合身份验证服务应用程序
 

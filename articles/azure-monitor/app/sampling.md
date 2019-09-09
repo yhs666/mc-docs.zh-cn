@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.reviewer: vitalyg
 ms.author: v-lingwu
-ms.openlocfilehash: 836af2fe4bd96f1c5cb45da4ac7c8e5e9d9565e4
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 1099513b959acc8c618877a6f0d06f5fe51c5d25
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989574"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737019"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 

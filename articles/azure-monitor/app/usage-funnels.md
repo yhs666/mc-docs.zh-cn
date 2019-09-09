@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 07/17/2017
 ms.date: 6/4/2019
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: dac76a38cd1807c6bb9295f8d48f75876927005d
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 8e697e1ccca4fc427ac927ebd05a308716c11074
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989518"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736582"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>使用 Application Insights 漏斗图了解客户如何使用你的应用程序
 

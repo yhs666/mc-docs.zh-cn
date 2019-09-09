@@ -3,7 +3,6 @@ title: Azure Monitor 术语更新 | Azure Docs
 description: 介绍最近对 Azure Monitor 服务进行的术语更改。
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -11,14 +10,15 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 02/18/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dfb46d14fac3e560b6aee8cb36af1f288d21aa86
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 516132a035a3e056e63976f84daed5e3aa5c565c
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989481"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737222"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor 命名和术语更改
 最近对 Azure Monitor 进行了重要更改，整合了不同的服务，目的是为 Azure 客户简化监视过程。 本文介绍最近在 Azure Monitor 文档中所做的名称和术语更改。

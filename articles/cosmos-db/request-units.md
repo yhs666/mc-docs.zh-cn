@@ -4,15 +4,15 @@ description: 了解如何指定和评估 Azure Cosmos DB 中的请求单位要�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 06/14/2019
-ms.date: 07/29/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2df979758753c5678757beb4e835659a54f3c480
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: df218cf8aa910c439d617922b6239afdd91d0418
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672188"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254872"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 

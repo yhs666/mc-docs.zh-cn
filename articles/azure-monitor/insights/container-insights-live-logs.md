@@ -5,21 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+origin.date: 07/12/2019
+ms.date: 07/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e911746b1e31190388e2a00023bbe75c4e1a2210
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: bcfa4d99b08622b828e54366b2fb0d6922952b72
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989082"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736994"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何实时查看日志和事件（预览）
 适用于容器的 Azure Monitor 包含一项功能，该功能目前为预览版，可以实时查看 Azure Kubernetes 服务 (AKS) 容器日志 (stdout/stderr) 和事件，不需运行 kubectl 命令。 选择任一选项后，“节点”、“控制器”和“容器”视图上的性能数据表下方将显示新窗格    。 它显示了容器引擎生成的实时日志记录和事件，可以进一步实时排查问题。

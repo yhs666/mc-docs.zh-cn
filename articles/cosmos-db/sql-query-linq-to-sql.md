@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/30/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: dceb7614dbc0c781cedee931bc0d633f264aae66
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: c50b34b17f47e6204ab16a0b518c159ed14de061
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672284"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254440"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
 
@@ -202,7 +202,7 @@ SQL .NET SDK 随附的 LINQ 提供程序支持以下运算符：
 
     ```csharp
       input.Select(family=>family.parents[0])
-          .Where(familyName == "Wakefield");
+          .Where(parent => parent.familyName == "Wakefield");
     ```
 
 - **SQL**

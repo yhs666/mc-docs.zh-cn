@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/10/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f1cae7ea66b04381d997d03cfb1bf4d4111e839e
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 5414d855eeea35a01a8fb9282c989d685b9f84f8
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819616"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254828"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 
@@ -52,7 +52,9 @@ ms.locfileid: "68819616"
 在开始学习本教程之前：
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 * [安装 Visual Studio 2019](https://www.visualstudio.com/) 版本 16.2 或更高版本，其中包含 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+    
     <!--Correct on version 16.2 for VS2019-->
+    
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>将 ASP.NET Web API 服务作为 Reliable Services 创建

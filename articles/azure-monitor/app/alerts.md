@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.reviewer: lagayhar
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 01/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3835ddf01fc9109f56b1ec7e5a0700e7fc2da9c9
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: e8c94ba157660435b80306d32b9f92c26e852b1d
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989529"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736831"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中设置警报
 当 Web 应用中的性能或使用情况指标发生变化时，[Azure Application Insights][start] 可发出警报。 

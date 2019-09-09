@@ -6,15 +6,16 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
+origin.date: 05/15/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c26231270ffbf86e4282c24518c57498101c49d0
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 24c23c8cb912a5772e678766b0061ec2b777e695
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818379"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736871"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 诊断 1.2 配置架构
 > [!NOTE]

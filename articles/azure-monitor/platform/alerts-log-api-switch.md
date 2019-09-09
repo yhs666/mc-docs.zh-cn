@@ -5,15 +5,16 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/30/2019
+origin.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 2c8525c12248055d54a77fb15250bf56ed5cbdcd
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: eee938c90ed6dbb73e52a09591c4bc7c3823bbb2
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989705"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737351"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切换日志警报的 API 首选项
 

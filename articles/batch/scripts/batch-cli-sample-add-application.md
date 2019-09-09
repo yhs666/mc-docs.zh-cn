@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6f7243a02f4c377413f4e5add10991da4ffea839
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654529"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737234"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 示例：向 Azure Batch 帐户添加应用程序
 

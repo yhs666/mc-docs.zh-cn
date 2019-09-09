@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: b79602eeccfddbe7b90b5118b368efe882753409
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 3ce7d0bd3bea5215c50fd06f4763e65ade11f0f0
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151390"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254814"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>如何使用 JavaScript 查询 API 在 Azure Cosmos DB 中编写存储过程和触发器
 
@@ -21,7 +21,7 @@ Azure Cosmos DB 允许使用流畅的 JavaScript 接口执行优化的查询，�
 <a name="stored-procedures"></a>
 ## <a name="stored-procedure-using-the-javascript-query-api"></a>使用 JavaScript 查询 API 的存储过程
 
-下面的代码示例是一个有关在存储过程的上下文中使用 JavaScript 查询 API 的示例。 此存储过程使用 `__.filter()` 方法插入一个由输入参数指定的 Azure Cosmos DB 项并更新元数据文档，其中 minSize、maxSize 和 totalSize 以输入项的大小属性为基础。
+下面的代码示例是一个有关在存储过程的上下文中使用 JavaScript 查询 API 的示例。 此存储过程插入由输入参数指定的 Azure Cosmos 项，并使用 `__ .filter()` 方法更新元数据文档，其中 minSize、maxSize 和 totalSize 基于输入项的 size 属性。
 
 > [!NOTE]
 > 使用 JavaScript 查询 API 时，`__`（双下划线）是 `getContext().getCollection()` 的别名。
@@ -36,13 +36,13 @@ function insertDocumentAndUpdateMetadata(item) {
     RETRY_WITH: 449,
   }
 
-  var isAccepted = __.createDocument(__.getSelfLink(), item, {}, function(err, item, options) {
+  var isAccepted = __ .createDocument(__ .getSelfLink(), item, {}, function(err, item, options) {
     if (err) throw err;
 
     // Check the item (ignore items with invalid/zero size and metadata itself) and call updateMetadata.
     if (!item.isMetadata && item.size > 0) {
       // Get the metadata. We keep it in the same container. it's the only item that has .isMetadata = true.
-      var result = __.filter(function(x) {
+      var result = __ .filter(function(x) {
         return x.isMetadata === true
       }, function(err, feed, options) {
         if (err) throw err;
@@ -65,7 +65,7 @@ function insertDocumentAndUpdateMetadata(item) {
         metaItem.totalSize += item.size;
 
         // Update/replace the metadata item in the store.
-        var isAccepted = __.replaceDocument(metaItem._self, metaItem, function(err) {
+        var isAccepted = __ .replaceDocument(metaItem._self, metaItem, function(err) {
           if (err) throw err;
           // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again
           //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).

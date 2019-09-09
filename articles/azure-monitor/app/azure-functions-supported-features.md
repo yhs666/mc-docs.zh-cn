@@ -5,19 +5,19 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
+origin.date: 4/23/2019
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 3906fac5e3d4a5383c2924fa86c594c58638e0b5
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: fb190fd049973e941658989b65afff9dbc13f43e
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989434"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737309"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>适用于 Azure Functions 的 Application Insights 支持功能
 

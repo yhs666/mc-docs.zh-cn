@@ -4,16 +4,16 @@ description: 本文说明了 Azure Cosmos DB 存在的区域以及不同云环�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: a772dd2d74d5179b19cf28b8aa06e3eb66df58d2
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 23074f2cb4e7a83fe1accf121253e3321337ade9
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171284"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254871"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Azure Cosmos DB 的区域可用性
 

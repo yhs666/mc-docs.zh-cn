@@ -4,16 +4,16 @@ description: 本文介绍 Azure Cosmos DB 如何弹性缩放吞吐量
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 62f76006b1143d46967f50a846094ad1f88c61d6
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: cce2794421213321b054d577f2f4848a8dd8c741
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171259"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254870"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>全局缩放预配的吞吐量 
 

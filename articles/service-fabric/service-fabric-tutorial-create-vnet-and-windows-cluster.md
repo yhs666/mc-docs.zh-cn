@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/13/2019
-ms.date: 04/29/2019
+origin.date: 07/22/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 37a6738f14dba87f8a0cab25b872924643856538
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 89c4e77c6fdc1a0eaa8f62bc1707fc7c22d33967
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "64871349"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254766"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教程：将运行 Windows 的 Service Fabric 群集部署到 Azure 虚拟网络
@@ -74,6 +74,8 @@ ms.locfileid: "64871349"
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
+<!--MOONCAKE: CUSTOMIZE -->
+
 > [!NOTE]
 > 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“core.windows.net”替换为“core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
@@ -87,6 +89,8 @@ ms.locfileid: "64871349"
 >     * 将 `westus` 替换为 `chinanorth`。
 > * 替换 [New-ServiceFabricClusterCertificate.ps1](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/New-ServiceFabricClusterCertificate.ps1) 中的 Location。
 >     * 将 `WestUS` 替换为 `chinanorth`。
+
+<!--MOONCAKE: CUSTOMIZE -->
 
 此模板将包含七个虚拟机和三个节点类型的安全群集部署到虚拟网络和网络安全组中。  其他示例模板可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到。 [azuredeploy.json][template] 部署若干资源，包括以下资源。
 
@@ -138,7 +142,7 @@ ms.locfileid: "64871349"
 如需其他应用程序端口，则需要调整 Microsoft.Network/loadBalancers 资源和 Microsoft.Network/networkSecurityGroups 资源，以允许传入流量   。
 
 ### <a name="windows-defender"></a>Windows Defender
-默认情况下，[Windows Defender 防病毒程序](https://docs.microsoft.com/zh-cn/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)已安装在 Windows Server 2016 上并在其上运行。 用户界面默认安装在一些 SKU 上，但不是必需的。 对于在模板中声明的每个节点类型/VM 规模集，将会使用 [Azure VM 防病毒扩展](/virtual-machines/extensions/iaas-antimalware-windows)排除 Service Fabric 目录和进程：
+默认情况下，[Windows Defender 防病毒程序](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)已安装在 Windows Server 2016 上并在其上运行。 用户界面默认安装在一些 SKU 上，但不是必需的。 对于在模板中声明的每个节点类型/VM 规模集，将会使用 [Azure VM 防病毒扩展](/virtual-machines/extensions/iaas-antimalware-windows)排除 Service Fabric 目录和进程：
 
 ```json
 {
@@ -170,16 +174,15 @@ ms.locfileid: "64871349"
 
 [azuredeploy.parameters.json][parameters] 参数文件声明用于部署群集和关联资源的多个值。 下面是要为部署修改的参数：
 
-
-|      **参数**    |**示例值**|                                                                                                                                                                        **说明**                                                                                                                                                                         |
-|-----------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     adminUserName     |    vmadmin      |                                                                                                  群集 VM 的管理员用户名。[VM 的用户名要求](/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm)。                                                                                                 |
-|     adminPassword     | Password#1234   |                                                                                                 群集 VM 的管理员密码。 [VM 的密码要求](/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)。                                                                                                 |
-|      clusterName      | mysfcluster123  |                                                                                                                          群集的名称。 仅可包含字母和数字。 长度可介于 3 到 23 个字符之间。                                                                                                                           |
-|       location        |   chinaeast     |                                                                                                                                                                 群集的位置。                                                                                                                                                                 |
-| certificateThumbprint |                 |                                   <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”。</p>                                   |
-|  certificateUrlValue  |                 |                <p>如果创建自签名证书或提供证书文件，则值应为空。 </p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如，“https:\//mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”。</p>                  |
-|   sourceVaultValue    |                 | <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p> |
+**参数** | **示例值** | **说明** 
+|---|---|---|
+|adminUserName|vmadmin| 群集 VM 的管理员用户名。 [VM 的用户名要求](/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm)。 |
+|adminPassword|Password#1234| 群集 VM 的管理员密码。 [VM 的密码要求](/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)。|
+|clusterName|mysfcluster123| 群集的名称。 仅可包含字母和数字。 长度可介于 3 到 23 个字符之间。|
+|location|chinaeast| 群集的位置。 |
+|certificateThumbprint|| <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”。</p> |
+|certificateUrlValue|| <p>如果创建自签名证书或提供证书文件，则值应为空。 </p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如，“https:\//mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”。</p>|
+|sourceVaultValue||<p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>设置 Azure Active Directory 客户端身份验证
 如果将 Service Fabric 群集部署在某个公共网络中，而该网络托管在 Azure 上，则对于客户端到节点型相互身份验证，建议如下：
@@ -201,6 +204,8 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 创建两个 Azure AD 应用程序来控制对群集的访问权限：一个 Web 应用程序和一个本机应用程序。 创建用于表示群集的应用程序后，请将用户分配到 [Service Fabric 支持的角色](service-fabric-cluster-security-roles.md)：只读和管理员。
 
 运行 `SetupApplications.ps1` 并提供租户 ID、群集名称和 Web 应用程序回复 URL 作为参数。 请指定用户的用户名和密码。 例如：
+
+<!--MOONCAKE: Add -Location 'china' in .\SetupApplications.ps1 parameters-->
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -Location 'china' -AddResourceAccess

@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 03/16/2018
 ms.date: 6/4/2019
 ms.reviewer: mazhar
 ms.author: v-lingwu
-ms.openlocfilehash: 8ef97f427d3b9ea117abb6a5d87bdec89115aa91
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: bc824563c6f3fdcabd030fe613e58e8f3df271ff
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989592"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737269"
 ---
 # <a name="walkthrough-enabling-telemetry-for-azure-dynamics-crm-online-using-application-insights"></a>演练：使用 Application Insights 为 Azure Dynamics CRM Online 启用遥测
 本文演示如何使用 [Azure Application Insights](/azure-monitor/) 从 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 获取遥测数据。 我们将引导完成向应用程序添加 Application Insights 脚本、捕获数据和数据可视化的完整过程。

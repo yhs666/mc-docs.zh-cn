@@ -1,6 +1,6 @@
 ---
-title: PowerShell 示例-审核-威胁检测-Azure SQL 数据库 | Microsoft Docs
-description: 在 Azure SQL 数据库中配置审核和威胁检测的 Azure PowerShell 示例脚本
+title: PowerShell 审核和高级威胁防护示例 - Azure SQL 数据库 | Microsoft Docs
+description: 在 Azure SQL 数据库中配置审核和高级威胁防护的 Azure PowerShell 示例脚本
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,20 +9,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-manager: craigg
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 1193a32525e436e98a91839b24d1cd247acd8dff
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.reviewer: carlrab, vanto
+origin.date: 08/05/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: e9865f3ad1d1571601baf52db3ad0ff00c22b36a
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855589"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373022"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>使用 PowerShell 配置 SQL 数据库审核和高级威胁防护
 
-此 PowerShell 脚本示例配置 SQL 数据库审核和威胁检测。
+此 PowerShell 脚本示例配置 SQL 数据库审核和高级威胁防护。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -116,7 +115,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 创建单一数据库或弹性池。 |
 | [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) | 创建存储帐户。 |
 | [Set-AzSqlDatabaseAuditing](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing) | 设置数据库的审核策略。 |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 在数据库上设置威胁检测策略。 |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 在数据库上设置高级威胁防护策略。 |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 

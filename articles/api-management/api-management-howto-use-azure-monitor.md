@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 06/15/2018
 ms.date: 07/15/2019
 ms.author: apimpm
-ms.openlocfilehash: ea733acc88bd889ea615bd6a116458c24655c0e8
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 80bdb8b26283e40991cf783eddcb247da83b420f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569663"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736716"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -60,8 +60,9 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
     ![指标](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. 从下拉列表中选择所需的指标。 例如，**成功的网关请求数**。 也可向图表添加更多指标。
-3. 图表显示成功的 API 调用的总数。
+1. 从下拉列表中选择所需的指标。 例如，“请求”  。 
+1. 该图显示 API 调用总数。
+1. 可以使用**请求**指标的维度来筛选该图表。 例如，单击“添加筛选器”  ，选择“后端响应代码”  ，输入 500 作为值。 现在，该图表显示了 API 后端中失败的请求数。   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>针对未经授权的请求设置警报规则
 

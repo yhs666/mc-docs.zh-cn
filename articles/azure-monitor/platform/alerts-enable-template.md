@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 4/27/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.component: metrics
-ms.openlocfilehash: 9f95984b64d62552e0440b7d4fd8e0cc222d1eb9
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.subservice: metrics
+ms.openlocfilehash: 69c8ccc83e32fc19baf8380ba0ef37bf9f0e1097
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989039"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737350"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建经典指标警报
 本文说明如何使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md) 配置 Azure 指标警报。 这样，便可以在创建资源时自动对资源设置警报，确保正确监视所有资源。

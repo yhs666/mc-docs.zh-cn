@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 查询 Azure SQL 数据库 | Microsoft Docs
+title: 使用 Java 查询 Azure SQL 数据库
 description: 介绍如何使用 Java 创建连接到 Azure SQL 数据库的程序并使用 T-SQL 语句对其进行查询。
 services: sql-database
 ms.service: sql-database
@@ -9,17 +9,17 @@ ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
-manager: digimobile
 origin.date: 03/25/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 7d8683db5160c7b6c96db4122cd43c2814bef711
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.custom: seo-java-july2019. seo-java-august2019
+ms.openlocfilehash: dee04351298e52afa0c6290ddf886e10982ab0e1
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544385"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372980"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入门：使用 Java 查询 Azure SQL 数据库
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>快速入门：使用 Java 连接到 Azure SQL 数据库并进行查询
 
 本文演示了如何使用 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
 
@@ -38,8 +38,7 @@ ms.locfileid: "69544385"
   |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
   |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
-  |||
-
+  
   > [!IMPORTANT]
   > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
@@ -57,7 +56,7 @@ ms.locfileid: "69544385"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
+2. 选择“SQL 数据库”  或打开“SQL 托管实例”  页。
 
 3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。 
 

@@ -5,21 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 04/05/2019
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 65e5f333eaae710748c96d7dee7ee145bf9aa4e6
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: ff23304b6576baa5d8c128b33db9d91786ba7418
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989120"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737375"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 

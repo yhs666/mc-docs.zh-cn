@@ -4,20 +4,20 @@ description: 介绍 Azure Monitor 中的指标：能够为近实时方案提供�
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 93cd452152130077707be7ff180e01a67b1cf63b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 80e0012386def72e2c3294426d25429e5e012f63
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989503"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736927"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor 中的指标
 

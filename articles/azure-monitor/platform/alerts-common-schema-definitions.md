@@ -5,15 +5,16 @@ author: anantr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/14/2019
+origin.date: 03/14/2019
+ms.date: 04/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: a75e9e903b60ccd880beab66b99daa56470fe688
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.subservice: alerts
+ms.openlocfilehash: e2c612db42c7f595c366fe17bcbf0e44a09150b3
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818400"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737243"
 ---
 # <a name="common-alert-schema-definitions"></a>常见警报架构定义
 

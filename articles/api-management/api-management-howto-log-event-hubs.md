@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 0e6f25ee90d0c6da1d56faeaa4e3eb5434367966
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 09/16/2019
+ms.openlocfilehash: c61816209b143189236ac1aadaddcad17ae7a775
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529305"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736717"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何在 Azure API 管理中将事件记录到 Azure 事件中心
 事件中心是一个高度可缩放的引入服务，每秒可以引入数百万的事件，使用户能够处理和分析连接设备和应用程序生成的海量数据。 事件中心充当事件管道的“前门”，将数据收集到事件中心后，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储这些数据。 事件中心可将事件流的生成与这些事件的使用分离开来，因此，事件使用者可以根据自己的计划访问事件。
@@ -41,7 +41,7 @@ ms.locfileid: "59529305"
 `https://{your service}.management.azure-api.cn/loggers/{new logger name}?api-version=2017-03-01`
 
 * 将 `{your service}` 替换为 API 管理服务实例的名称。
-* 将 `{new logger name}` 替换为新记录器的所需名称。 配置 [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) 策略时，将引用此名称
+* 将 `{new logger name}` 替换为新记录器的所需名称。 配置 [log-to-eventhub](/api-management/api-management-advanced-policies#log-to-eventhub) 策略时，将引用此名称
 
 将以下标头添加到请求：
 
@@ -93,12 +93,12 @@ ms.locfileid: "59529305"
 1. 浏览到自己的 APIM 实例。
 2. 选择“API”选项卡。
 3. 选择要将策略添加到的 API。 在此示例中，我们向 **Unlimited** 产品中的 **Echo API** 添加策略。
-4. 选择“所有操作”。
+4. 选择“所有操作”。 
 5. 选择屏幕顶部的“设计”选项卡。
 6. 在“入站或出站处理”窗口中，单击三角形（铅笔旁边）。
 7. 选择“代码编辑器”。 有关详细信息，请参阅[如何设置或编辑策略](set-edit-policies.md)。
 8. 将光标放在 `inbound` 或 `outbound` 策略部分中。
-9. 在右侧窗口中，选择“高级策略” > “记录到 EventHub”。 这会插入 `log-to-eventhub` 策略语句模板。
+9. 在右侧窗口中，选择“高级策略”   > “记录到 EventHub”  。 这会插入 `log-to-eventhub` 策略语句模板。
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
@@ -109,7 +109,7 @@ ms.locfileid: "59529305"
 
 可使用返回字符串作为 `log-to-eventhub` 元素值的任何表达式。 在此示例中，将记录包含日期和时间、服务名称、请求 ID、请求 IP 地址和操作名称的字符串。
 
-单击“保存”保存更新后的策略配置。 保存后，策略立即处于活动状态，并且事件记录到指定的事件中心。
+单击“保存”  保存更新后的策略配置。 保存后，策略立即处于活动状态，并且事件记录到指定的事件中心。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解有关 Azure 事件中心的详细信息

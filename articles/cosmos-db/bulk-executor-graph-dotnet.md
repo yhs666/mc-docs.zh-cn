@@ -1,38 +1,38 @@
 ---
-title: 使用图形 BulkExecutor .NET 库在 Azure Cosmos DB Gremlin API 中执行批量操作
-description: 了解如何使用 BulkExecutor 库将图形数据大规模导入 Azure Cosmos DB Gremlin API 容器中。
+title: 使用图批量执行程序 .NET 库在 Azure Cosmos DB Gremlin API 中执行批量操作
+description: 了解如何使用批量执行程序库将图数据大规模导入 Azure Cosmos DB Gremlin API 容器中。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 origin.date: 05/28/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ba143cfe32a073275c1a8a29b3a945b31fb38bd7
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 3f594c4b01fb1fa4fbb9901c95a0bbf378a49a55
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151526"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254632"
 ---
 <!--Verify sucessfully-->
-# <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>使用图形 BulkExecutor .NET 库在 Azure Cosmos DB Gremlin API 中执行批量操作
+# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>使用图批量执行程序 .NET 库在 Azure Cosmos DB Gremlin API 中执行批量操作
 
-本教程说明了如何使用 Azure Cosmos DB 的 BulkExecutor .NET 库将图形对象导入 Azure Cosmos DB Gremlin API 容器并对其进行更新。 此过程使用 [BulkExecutor 库](/cosmos-db/bulk-executor-overview)中的 Graph 类以编程方式创建顶点和边缘对象，然后按网络请求插入多个这样的对象。 可以通过 BulkExecutor 库来配置此行为，以便优化对数据库和本地内存资源的使用。
+本教程说明了如何使用 Azure Cosmos DB 的批量执行程序 .NET 库将图对象导入 Azure Cosmos DB Gremlin API 容器并对其进行更新。 此过程使用[批量执行程序库](/cosmos-db/bulk-executor-overview)中的 Graph 类以编程方式创建顶点和边缘对象，然后按网络请求插入多个这样的对象。 可以通过批量执行程序库来配置此行为，以便优化对数据库和本地内存资源的使用。
 
-与向数据库发送 Gremlin 查询以便在数据库中逐个地对命令进行评估和执行相反，使用 BulkExecutor 库会要求在本地创建和验证对象。 创建对象后，即可通过库将图形对象按顺序发送到数据库服务。 使用此方法时，数据引入速度最多可以提高到 100 倍，因此此方法特别适合初始数据迁移或定期数据移动操作。 有关详细信息，请访问 [Azure Cosmos DB 图形 BulkExecutor 示例应用程序](https://aka.ms/graph-bulkexecutor-sample)的 GitHub 页。
+与向数据库发送 Gremlin 查询以便在数据库中逐个地对命令进行评估和执行相反，使用批量执行程序库会要求在本地创建和验证对象。 创建对象后，即可通过库将图形对象按顺序发送到数据库服务。 使用此方法时，数据引入速度最多可以提高到 100 倍，因此此方法特别适合初始数据迁移或定期数据移动操作。 有关详细信息，请访问 [Azure Cosmos DB 图批量执行程序示例应用程序](https://aka.ms/graph-bulkexecutor-sample)的 GitHub 页。
 
 ## <a name="bulk-operations-with-graph-data"></a>对图形数据执行的批量操作
 
-[BulkExecutor 库](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet)包含一个 `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` 命名空间，用于提供创建和导入图形对象所需的功能。 
+[批量执行程序库](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet)包含一个 `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` 命名空间，用于提供创建和导入图对象所需的功能。 
 
 以下过程概述了如何将数据迁移用于 Gremlin API 容器：
 1. 从数据源检索记录。
 2. 根据获得的记录构造 `GremlinVertex` 和 `GremlinEdge` 对象，然后将其添加到 `IEnumerable` 数据结构中。 应该在应用程序的此部分实施检测和添加关系的逻辑，以免出现数据源不是图形数据库的情况。
 3. 使用[图形 BulkImportAsync 方法](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet)将图形对象插入集合中。
 
-与使用 Gremlin 客户端相比，此机制会提高数据迁移效率。 之所以会体验到这种效率提高，是因为使用 Gremlin 插入数据时，需要应用程序一次发送一个查询，该查询在创建数据之前需经历验证、评估和执行这几个阶段。 BulkExecutor 库会在应用程序中处理验证，并且会针对每个网络请求一次发送多个图形对象。
+    与使用 Gremlin 客户端相比，此机制会提高数据迁移效率。 之所以会体验到这种效率提高，是因为使用 Gremlin 插入数据时，需要应用程序一次发送一个查询，该查询在创建数据之前需经历验证、评估和执行这几个阶段。 批量执行程序库会在应用程序中处理验证，并且会针对每个网络请求一次发送多个图对象。
 
 ### <a name="creating-vertices-and-edges"></a>创建顶点和边缘
 
@@ -75,7 +75,7 @@ catch (Exception e)
 }
 ```
 
-有关 BulkExecutor 库的参数的详细信息，请参阅[“将数据批量导入 Azure Cosmos DB”主题](/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db)。
+有关批量执行程序库的参数的详细信息，请参阅[“将数据批量导入 Azure Cosmos DB”主题](/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db)。
 
 有效负载需实例化为 `GremlinVertex` 和 `GremlinEdge` 对象。 下面是创建这些对象的方法：
 
@@ -111,19 +111,21 @@ e.AddProperty("customProperty", "value");
 ```
 
 > [!NOTE]
-> BulkExecutor 实用程序不会在添加边缘之前自动检查是否存在顶点。 在运行 BulkImport 任务之前，需在应用程序中对此进行验证。
+> 批量执行程序实用工具不会在添加边缘之前自动检查是否存在顶点。 在运行 BulkImport 任务之前，需在应用程序中对此进行验证。
 
 ## <a name="sample-application"></a>示例应用程序
 
 ### <a name="prerequisites"></a>先决条件
 * 包含 Azure 开发工作负荷的 Visual Studio 2019。 一开始可以使用免费的 [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)。
 * Azure 订阅。 可以[在此创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+     
      <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
+     
 * 包含**不受限集合**的 Azure Cosmos DB Gremlin API 数据库。 本指南介绍了如何开始使用 [.NET 中的 Azure Cosmos DB Gremlin API](/cosmos-db/create-graph-dotnet)。
 * Git。 有关详细信息，请查看[“Git 下载”页](https://git-scm.com/downloads)。
 
 ### <a name="clone-the-sample-application"></a>克隆示例应用程序
-在本教程中，我们将通过在 GitHub 中托管的 [Azure Cosmos DB 图形 BulkExecutor 示例](https://aka.ms/graph-bulkexecutor-sample)来完成入门步骤。 此应用程序包含一个 .NET 解决方案，该解决方案随机生成顶点和边缘对象，然后执行批量插入，以便将内容插入指定的图形数据库帐户中。 若要获取应用程序，请运行下面的 `git clone` 命令：
+在本教程中，我们将使用 GitHub 中托管的 [Azure Cosmos DB 图批量执行程序示例](https://aka.ms/graph-bulkexecutor-sample)来完成入门步骤。 此应用程序包含一个 .NET 解决方案，该解决方案随机生成顶点和边缘对象，然后执行批量插入，以便将内容插入指定的图形数据库帐户中。 若要获取应用程序，请运行下面的 `git clone` 命令：
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git
@@ -134,7 +136,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 文件|说明
 ---|---
 `App.config`|在这里指定特定于应用程序和数据库的参数。 在连接到目标数据库和集合之前，应先修改此文件。
-`Program.cs`| 此文件包含在创建 `DocumentClient` 集合、处理清理和发送 BulkExecutor 请求之后的逻辑。
+`Program.cs`| 此文件包含在创建 `DocumentClient` 集合、处理清理和发送批量执行程序请求背后的逻辑。
 `Util.cs`| 此文件包含一个帮助程序类，该类包含在生成测试数据以及检查是否存在数据库和集合之后的逻辑。
 
 在 `App.config` 文件中，以下项是可以提供的配置值：
@@ -159,7 +161,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 Nuget 包的详细信息以及 Bulk Executor .Net 库的发行说明，请参阅 [Bulk Executor SDK 详细信息](sql-api-sdk-bulk-executor-dot-net.md)。 
-* 请查看[性能提示](/cosmos-db/bulk-executor-dot-net#performance-tips)，以便进一步优化 BulkExecutor 的使用。
+* 请查看[性能提示](/cosmos-db/bulk-executor-dot-net#performance-tips)，以便进一步优化批量执行程序的使用。
 * 请查看 [BulkExecutor.Graph 参考文章](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet)，以便更详细地了解在此命名空间中定义的类和方法。
 
 <!--Update_Description: wording update-->

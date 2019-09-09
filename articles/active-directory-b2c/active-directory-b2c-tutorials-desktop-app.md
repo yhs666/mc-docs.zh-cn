@@ -6,17 +6,17 @@ author: mmacy
 manager: celestedg
 ms.author: v-junlch
 origin.date: 02/04/2019
-ms.date: 07/23/2019
+ms.date: 09/02/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3dab0fb691b6dc8bb147543b4b86e02855cc70e3
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: c72d557f37ee83dcfb9787524d7d0a0b8a420908
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391586"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310758"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在本机客户端应用程序中启用身份验证
 
@@ -66,14 +66,14 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 1. 在 Visual Studio 中打开 `active-directory-b2c-wpf` 解决方案。
 2. 在 `active-directory-b2c-wpf` 项目中，打开 **App.xaml.cs** 文件并进行以下更新：
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.partner.onmschina.cn";
     private static string ClientId = "<application-ID>";
     ```
 
 3. 将 **PolicySignUpSignIn** 变量更新为你创建的用户流的名称。
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 

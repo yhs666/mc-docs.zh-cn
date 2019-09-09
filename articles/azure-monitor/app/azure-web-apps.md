@@ -5,17 +5,17 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
+origin.date: 04/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4bbde6e7e070f5b241ac61617d5fe36a99eea830
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 3131b34ddb0df00671a28ad2d913d404e9ecc860
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989681"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737312"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 

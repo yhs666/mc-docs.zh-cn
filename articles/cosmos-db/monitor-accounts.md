@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 9365c0339ff0379c881eb7a4683db8043153afac
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: bbad5ee6e045711c085fdf691df804ccf3ea19e6
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171407"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254601"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>监视 Azure Cosmos DB 中的性能和存储指标
 
@@ -49,6 +49,10 @@ ms.locfileid: "67171407"
 4.  “指标”页显示有关请求总数的详细信息。 
 
 ## <a name="set-up-alerts-in-the-portal"></a>在门户中设置警报
+
+<!--Not Available on [migration tool](../azure-monitor/platform/alerts-using-migration-tool.md)-->
+<!--Not Available on [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics)-->
+
 1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“所有服务”  、“Azure Cosmos DB”  ，并单击要设置性能指标警报的 Azure Cosmos DB 帐户的名称。
 2. 在资源菜单中，单击“警报规则”  打开“警报规则”页。  
     ![所选的警报规则部件的屏幕截图](./media/monitor-accounts/madocdb10.5.png)
@@ -68,7 +72,7 @@ ms.locfileid: "67171407"
 门户中可用的帐户级别指标（如帐户存储使用情况和请求总数）不可通过 SQL API 使用。 但是，可以使用 SQL API 在集合级别检索使用情况数据。 若要检索集合级别的数据，请执行以下操作：
 
 * 若要使用 REST API，请[对集合执行 GET](https://msdn.microsoft.com/library/mt489073.aspx)。 集合的配额和使用情况信息返回到响应中的 x-ms-resource-quota 和 x-ms-resource-usage 标头中。
-* 要使用 .NET SDK，请使用 [DocumentClient.ReadDocumentCollectionAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 方法，它返回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含大量使用情况属性，例如 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等。
+* 要使用 .NET SDK，请使用 [DocumentClient.ReadDocumentCollectionAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 方法，它返回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含大量使用情况属性，例如 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等。
 
 若要访问其他指标，请使用 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)。 可以通过调用以下命令检索可用的指标定义：
 

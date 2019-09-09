@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
+origin.date: 05/27/2017
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8d105277175ce9d42998b3e0118ca17e1855995e
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 3449a4172c8f05c516097b9288d7a923728c50f0
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989170"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737386"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自动化 runbook 收集 Log Analytics 中的数据
 
@@ -133,12 +133,12 @@ Azure 自动化包含用于[测试 runbook](../../automation/automation-testing-
 ![测试 runbook](media/runbook-datacollect/test-runbook.png)
 
 1. 单击“保存”保存 runbook  。
-2. 单击“测试窗格”，在测试环境中打开 runbook  。
-3. 由于 runbook 具有参数，所以系统会提示输入这些参数的值。 输入将从其中收集作业信息的的资源组的名称和自动化帐户。
-4. 单击“启动”以启动 runbook  。
-5. runbook 启动时的状态为“已排队”，之后变为“正在运行”状态   。
-6. runbook 应显示详细输出以及以 json 格式收集的作业。 如果未列出任何作业，则可能在过去一个小时内尚未在自动化帐户中创建任何作业。 尝试启动自动化帐户中的任何 runbook，然后再次执行测试。
-7. 确保所得输出未在对 Log Analytics 的 post 命令中显示任何错误。 应看到类似于下面的消息。
+1. 单击“测试窗格”，在测试环境中打开 runbook  。
+1. 由于 runbook 具有参数，所以系统会提示输入这些参数的值。 输入将从其中收集作业信息的的资源组的名称和自动化帐户。
+1. 单击“启动”以启动 runbook  。
+1. runbook 启动时的状态为“已排队”，之后变为“正在运行”状态   。
+1. runbook 应显示详细输出以及以 json 格式收集的作业。 如果未列出任何作业，则可能在过去一个小时内尚未在自动化帐户中创建任何作业。 尝试启动自动化帐户中的任何 runbook，然后再次执行测试。
+1. 确保所得输出未在对 Log Analytics 的 post 命令中显示任何错误。 应看到类似于下面的消息。
 
     ![发布输出](media/runbook-datacollect/post-output.png)
 

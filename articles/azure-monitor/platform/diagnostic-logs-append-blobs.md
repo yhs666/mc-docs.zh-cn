@@ -5,15 +5,16 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 07/06/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 12e87653e76549144b055810fdbe92a5c67614c4
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 8b5b2c4763cc728295ea4d476a5cd4963d6d45c4
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818228"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736890"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>为存档到存储帐户的 Azure Monitor 诊断日志的格式更改做准备
 

@@ -6,16 +6,17 @@ keywords: ''
 author: lingliw
 ms.author: v-lingwu
 ms.reviewer: mbullwin
+origin.date: 09/17/2018
 ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 4f02ef446679094baa6c897e91834b01aa8b6156
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: d3937d373321555895f244589616d8743a4528bd
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818363"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737285"
 ---
 # <a name="what-is-distributed-tracing"></a>什么是分布式跟踪？
 

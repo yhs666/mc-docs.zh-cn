@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/28/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: a12619f91b0fb4d412e4738f270ddc81033d7b5e
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: cc59a394d944713b3bf12e3268415d8f81fef378
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151456"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254789"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
 本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。
@@ -128,7 +128,7 @@ ms.locfileid: "67151456"
 祝贺！ 已使用 Azure Resource Manager 模板部署了 Azure Cosmos DB、应用服务 Web 应用以及示例 Web 应用程序。
 
 * 若要了解有关 Azure Cosmos DB 的详细信息，请单击[此处](https://www.azure.cn/home/features/cosmos-db/)。
-* 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](https://docs.azure.cn/zh-cn/app-service/)。
+* 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](https://docs.azure.cn/app-service/)。
 * 若要了解有关 Azure Resource Manager 模板的详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
 ## <a name="whats-changed"></a>发生的更改

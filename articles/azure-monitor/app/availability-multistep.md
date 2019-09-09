@@ -4,21 +4,21 @@ description: 设置多步骤 Web 测试以通过 Azure Application Insights 监�
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 07/25/2019
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 3f8d71cb744f31d24679dccc4a373aa870df87df
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: f1637abf5a36231965060519ef9340f65fd5ea6c
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989449"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737108"
 ---
 # <a name="multi-step-web-tests"></a>多步骤 Web 测试
 

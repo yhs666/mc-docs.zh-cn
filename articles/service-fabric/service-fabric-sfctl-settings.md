@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5978687bff87b1cdf9034d643c2f7ef9c203aa9f
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 75eabb0d27011a3335beb09068d34c20533e3d3f
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083919"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254705"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
 配置此 sfctl 实例的本地设置。
@@ -34,5 +33,4 @@ ms.locfileid: "54083919"
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!-- Update_Description: new articles on service fabric sfctl settings -->
-<!--ms.date: 01/14/2019 -->
+<!-- Update_Description: update meta properties -->

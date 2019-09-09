@@ -6,15 +6,16 @@ author: lingliw
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
+origin.date: 03/19/2016
 ms.date: 05/08/2019
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: f41d4bbfdfe0f15e715c116e292b58730b114d23
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 819481d5513e650e57553a4624e4a60e15df8f20
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513791"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737130"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](diagnostics-extension-overview.md)。

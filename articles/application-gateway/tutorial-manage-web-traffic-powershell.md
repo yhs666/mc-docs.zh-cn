@@ -5,16 +5,16 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 05/01/2019
-ms.date: 06/12/2019
+origin.date: 07/19/2019
+ms.date: 09/03/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1ff793b3886c51ef58f2819007f3bf7483495d65
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 03b8f25d037df69061a34bcfc03f75610ddbdab8
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027423"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310843"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>通过 Azure PowerShell 使用应用程序网关管理 Web 流量
 
@@ -67,7 +67,8 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location chinanorth `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
@@ -258,4 +259,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-powershell.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

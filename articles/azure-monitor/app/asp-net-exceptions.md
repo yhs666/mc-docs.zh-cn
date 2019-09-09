@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2019
+origin.date: 07/11/2019
+ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dc5930d66db455da5baa1a5cc1ee28c4aed2a257
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 69f3b3738e24140ff3d5857e7833ebab22f8bc35
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989479"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737313"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 诊断 Web 应用中的异常
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可报告实时 Web 应用中的异常。 可以将失败的请求与异常关联到客户端和服务器上的其他事件，从而快速诊断原因。

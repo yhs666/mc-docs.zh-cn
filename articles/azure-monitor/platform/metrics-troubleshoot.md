@@ -1,19 +1,20 @@
 ---
 title: 排查 Azure Monitor 指标图表问题
 description: 排查创建、自定义或解释指标图表时出现的问题
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: vitalyg
+origin.date: 05/20/2019
+ms.date: 06/20/2019
+ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 21f9dd760f4690eab606e70946a39e6495dfef17
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 251e359e54ee5af40767f5fa5ac0beccb24cd7db
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562866"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737391"
 ---
 # <a name="troubleshooting-metrics-charts"></a>排查指标图表问题
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 06/04/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 69e3f73c0e9081c35680654c6ad21a819e98b7d9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 62bd74c70f50c76855d6ddede86764c0f4dca238
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627682"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254852"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -115,11 +115,11 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
     await client.ReplaceOfferAsync(offer);
 ```
 
-请访问 [MSDN](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient) 以查看其他示例并了解更多有关服务方法的信息：
+请访问 [MSDN](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient) 以查看其他示例并了解更多有关服务方法的信息：
 
-* [**ReadOfferAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
-* [**ReadOffersFeedAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
-* [**ReplaceOfferAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
+* [**ReadOfferAsync**](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
+* [**ReadOffersFeedAsync**](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
+* [**ReplaceOfferAsync**](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
 <a name="ea-customer"></a>

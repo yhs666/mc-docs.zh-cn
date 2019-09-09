@@ -10,14 +10,15 @@ ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+origin.date: 01/29/2019
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6f4b59e5f8eef710626f78474c446ec9ab945149
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e76c39af6ba839436b9cb2731c637928c9d3d74d
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569627"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736752"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>使用 Azure 顾问提高资源的安全性
 

@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 08/19/2019
+ms.reviewer: mbullwin
+origin.date: 08/19/2019
+ms.date: 08/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0cf8d85a22d1bd3d8591b2f6ed8c11809a290fbb
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: eb42e3bb4d6a6b71ba8e1539677d67830d74166b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989345"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736559"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 

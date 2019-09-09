@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/20/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: b4239cc3e4ef9565fcc813bba4dac7f3f771e040
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: 2a56bbcf90a047e8a1fc916a32ed77bc5118e554
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667655"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254861"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
@@ -190,13 +190,14 @@ AMS 客户可以缩放其 AMS 帐户中的流式处理终结点、媒体处理�
 
 ### <a name="encoding-media-processors"></a>编码媒体处理器
 
-AMS 提供两个按需编码器：  Media Encoder Standard。 有关详细信息，请参阅 [Azure 点播媒体编码器的概述和比较](media-services-encode-asset.md)。 
+AMS 提供两个按需编码器：  Media Encoder Standard 和  Media Encoder Premium Workflow。 有关详细信息，请参阅 [Azure 按需媒体编码器的概述和比较](media-services-encode-asset.md)。 
 
 #### <a name="availability"></a>可用性
 
 |媒体处理器名称|状态|数据中心
 |---|---|---|
 |Media Encoder Standard|GA|全部|
+|媒体编码器高级工作流|GA|除中国以外|
 
 ### <a name="analytics-media-processors"></a>分析媒体处理器
 

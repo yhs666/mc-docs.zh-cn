@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 07/18/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 0cc13eaf16e14b47675e20ee64aa9f7324cd9689
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 14653c54b626f402a1bba334ea8ab51fcffe93b1
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989057"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737333"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>存档 Azure 诊断日志
 

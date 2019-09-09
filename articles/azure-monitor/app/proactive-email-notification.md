@@ -4,18 +4,18 @@ description: 使用 Azure Application Insights 监视应用程序跟踪，了解
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
+origin.date: 03/13/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 20805606d8897090c01fc45a96b8f9e56dde2790
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 22bf1480ccbbfd60ea058298990a45144c7433ed
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989322"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737270"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>智能检测电子邮件通知更改
 

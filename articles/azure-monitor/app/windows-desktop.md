@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 6/4/2019
+origin.date: 08/09/2019
+ms.date: 08/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 211185bf07e1cb1e9dc74f16beb61745adc4bb28
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: a0fc4e165ca10b60143fa46cd93a44a00b982f7c
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989406"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736552"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>监视经典 Windows 桌面应用中的使用情况和性能
 
@@ -55,7 +55,6 @@ using Microsoft.ApplicationInsights;
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 

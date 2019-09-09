@@ -3,21 +3,22 @@ title: Azure 状态监视器 v2 API 参考：禁用检测引擎 | Microsoft Docs
 description: 状态监视器 v2 API 参考。 Disable-InstrumentationEngine。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
-manager: alexklim
+author: lingliw
+manager: digimobile
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: tilee
-ms.openlocfilehash: 22c05a8448cba31bc647e4a11f5523400d469d6b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+origin.date: 03/07/2019
+ms.date: 6/4/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 8f3223bd8c6d7dc6fb7a2cd55a0c18b814630fa6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989551"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736535"
 ---
 # <a name="status-monitor-v2-api-disable-instrumentationengine"></a>状态监视器 v2 API：Disable-InstrumentationEngine
 

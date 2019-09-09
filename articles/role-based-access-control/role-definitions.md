@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 06/18/2019
-ms.date: 08/07/2019
+ms.date: 09/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 14df7229a324eb4f5d5038f6a7439911999ec075
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 2ba5dfeb12af84f8c7fb3811edf75a70b8413593
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878652"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310832"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解 Azure 资源的角色定义
 
@@ -164,7 +164,7 @@ Bob 的权限限制为[存储 Blob 数据参与者](built-in-roles.md#storage-bl
 | [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) | 1.1.0 或更高版本 |
 | [Azure CLI](/cli/install-azure-cli) | 2.0.30 或更高版本 |
 | [Azure for .NET](/dotnet/) | 2.8.0-preview 或更高版本 |
-| [Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install) | 15.0.0 或更高版本 |
+| [Azure SDK for Go](https://docs.microsoft.com/azure/go/azure-sdk-go-install) | 15.0.0 或更高版本 |
 | [Azure for Java](/java/) | 1.9.0 或更高版本 |
 | [Azure for Python](https://docs.microsoft.com/python/azure) | 0.40.0 或更高版本 |
 | [用于 Ruby 的 Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 或更高版本 |
@@ -233,4 +233,4 @@ Bob 的权限限制为[存储 Blob 数据参与者](built-in-roles.md#storage-bl
 * [Azure 资源的自定义角色](custom-roles.md)
 * [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

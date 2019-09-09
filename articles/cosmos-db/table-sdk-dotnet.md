@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 08/17/2018
-ms.date: 04/15/2019
-ms.openlocfilehash: 02ffaff2366e0ab32c23851c57b95d33ab71c559
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.date: 09/09/2019
+ms.openlocfilehash: f9e57f107627e002c2f64afc5e98bdc5eed48d2d
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615175"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254780"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
@@ -29,12 +29,13 @@ ms.locfileid: "59615175"
 |   |   |
 |---|---|
 |**SDK 下载**|[NuGet](https://aka.ms/acdbtablenuget)|
-|**API 文档**|[ 参考文档](https://aka.ms/acdbtableapiref)|
 |**快速入门**|[Azure Cosmos DB：使用 .NET 和表 API 生成应用](create-table-dotnet.md)|
 |**教程**|[Azure Cosmos DB：在 .NET 中使用表 API 进行开发](tutorial-develop-table-dotnet.md)|
 |**当前受支持的框架**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
+> .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 目前处于维护模式，不久将被弃用。 请升级到新的 .NET Standard 库 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) 来继续获取表 API 支持的最新功能。
+
 > 如果已在预览期间创建表 API 帐户，请[新建表 API 帐户](create-table-dotnet.md#create-a-database-account)，这样才能使用正式版表 API SDK。
 >
 
@@ -68,5 +69,4 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 
 若要了解有关 Azure Cosmos DB 表 API 的详细信息，请参阅 [Azure Cosmos DB 表 API 简介](table-introduction.md)。
 
-<!--Update_Description: new articles on table sdk dotnet -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

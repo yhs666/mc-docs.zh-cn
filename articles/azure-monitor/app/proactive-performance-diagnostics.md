@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 05/04/2017
 ms.date: 6/4/2019
 ms.reviewer: antonfr
 ms.author: v-lingwu
-ms.openlocfilehash: ed8c1d118560a36eed843eb5aa92ea04907b76ec
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: c402477045e230fc011ee2e40d58a6acb3826560
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989320"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737023"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 

@@ -11,16 +11,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-originate.date: 08/20/2019
+originate.date: 01/30/2019
 ms.date: 6/4/2019
 ms.reviewer: lmolkova
 ms.author: v-lingwu
-ms.openlocfilehash: 9b5eb37bed4a0fe37dcda024a67f7b378556d1a6
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 41c902dbc4971c6a3b114d9c09b32d4358b89e05
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989676"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737305"
 ---
 # <a name="application-insights-for-net-console-applications"></a>适用于 .NET 控制台应用程序的 Application Insights
 使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以监视 Web 应用程序的可用性、性能和使用情况。

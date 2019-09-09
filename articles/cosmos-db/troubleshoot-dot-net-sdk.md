@@ -9,12 +9,12 @@ ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 8c514e721ec0fa0ebf3f906b6286d35ef4198ce2
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 5470a462960094db446210978a8eeb04db2a4b5d
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672212"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254760"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>诊断和排查使用 Azure Cosmos DB .NET SDK 时遇到的问题
@@ -28,7 +28,7 @@ ms.locfileid: "68672212"
 * 查看[性能提示](performance-tips.md)并按照建议的做法进行操作。 这有助于防止缩放、延迟和其他性能问题。
 * 启用 SDK 日志记录以帮助排查问题。 启用日志记录可能会影响性能，因此，最好是只在排查问题时才启用日志记录。 可以启用以下日志：
     * 使用 Azure 门户[记录指标](monitor-accounts.md)。 门户指标显示 Azure Cosmos DB 遥测数据，这有助于确定问题是否与 Azure Cosmos DB 相关，或者是否由客户端造成。
-    * 记录点操作响应中的[诊断字符串](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)。
+    * 记录点操作响应中的[诊断字符串](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)。
     * 记录所有查询响应中的 [SQL 查询指标](sql-api-query-metrics.md) 
     * 遵循有关 [SDK 日志记录]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)的设置
 
@@ -82,7 +82,7 @@ ms.locfileid: "68672212"
 否则，将遇到连接问题。
 
 ### 请求速率过大<a name="request-rate-too-large"></a>
-“请求速率过大”或错误代码 429 表示请求正受到限制，因为消耗的吞吐量 (RU/s) 已超过预配的吞吐量。 SDK 会根据指定的[重试策略](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)自动重试请求。 如果经常遇到这种失败，请考虑增大集合的吞吐量。 检查[门户指标](use-metrics.md)，以确定是否收到了 429 错误。 查看[分区键](/cosmos-db/partitioning-overview#choose-partitionkey)，以确保均匀分配存储和请求量。 
+“请求速率过大”或错误代码 429 表示请求正受到限制，因为消耗的吞吐量 (RU/s) 已超过预配的吞吐量。 SDK 会根据指定的[重试策略](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)自动重试请求。 如果经常遇到这种失败，请考虑增大集合的吞吐量。 检查[门户指标](use-metrics.md)，以确定是否收到了 429 错误。 查看[分区键](/cosmos-db/partitioning-overview#choose-partitionkey)，以确保均匀分配存储和请求量。 
 
 ### <a name="slow-query-performance"></a>查询性能较低
 [查询指标](sql-api-query-metrics.md)有助于确定查询在哪个位置花费的时间最多。 在查询指标中，可以查看查询在客户端与后端上花费的时间。

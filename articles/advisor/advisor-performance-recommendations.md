@@ -6,18 +6,19 @@ documentationcenter: NA
 author: kasparks
 ms.service: advisor
 ms.topic: article
-ms.date: 01/29/2019
+origin.date: 01/29/2019
+ms.date: 04/12/2019
 ms.author: lingliw
-ms.openlocfilehash: 87a77c3aea93491e05096b78dbeaa1e0277eeb4a
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: fec5f53dbc39a81a90af55e86b4365523827fb03
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544709"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736655"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>使用 Azure 顾问提高 Azure 应用程序的性能
 
-Azure 顾问性能建议有助于提高关键业务应用程序的速度和响应能力。 可通过顾问从顾问仪表板的“性能”选项卡获取性能建议。
+Azure 顾问性能建议有助于提高关键业务应用程序的速度和响应能力。 可通过顾问从顾问仪表板的“性能”  选项卡获取性能建议。
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>减少流量管理器配置文件上的 DNS 生存时间，可更快地故障转移到正常运行的终结点
 <!--
@@ -79,7 +80,7 @@ Azure 顾问会检测 SQL 数据仓库是否具有高缓存使用百分比和低
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2.  在顾问仪表板中，单击“性能”选项卡。
+2.  在顾问仪表板中，单击“性能”  选项卡。
 
 ## <a name="next-steps"></a>后续步骤
 

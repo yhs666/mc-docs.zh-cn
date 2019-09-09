@@ -7,22 +7,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 01/21/2019
+ms.date: 09/09/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9053de6b56763baeed9d50e65f29b7b05a340ec2
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: ec991e0a64ad7c3438d43c1815b4c89c524ad278
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309057"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254653"
 ---
-# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
+# <a name="replicate-an-azure-cosmos-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Cosmos 数据库帐户复制到多个区域中并配置故障转移优先级
 
-此示例可使用 Azure CLI 将任何类型的 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级。
+此示例可使用 Azure CLI 将任何类型的 Azure Cosmos 数据库帐户复制到多个区域中并配置故障转移优先级。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -52,7 +52,10 @@ read -p "Press any key to add locations..."
 az cosmosdb update \
     --name $accountName \
     --resource-group $resourceGroupName \
-    --locations chinaeast=0 chinanorth=1 chinaeast2=2 chinanorth2=3
+    --locations regionName="China East" failoverPriority=0 \
+    --locations regionName="China North" failoverPriority=1 \
+    --locations regionName="China East 2" failoverPriority=2 \
+    --locations regionName="China North 2" failoverPriority=3
 
 read -p "Press any key to change failover regions..."
 
@@ -60,7 +63,10 @@ read -p "Press any key to change failover regions..."
 az cosmosdb update \
     --name $accountName \
     --resource-group $resourceGroupName \
-    --locations chinaeast=3 chinanorth=2 chinaeast2=1 chinanorth2=0
+    --locations regionName="China East" failoverPriority=3 \
+    --locations regionName="China North" failoverPriority=2 \
+    --locations regionName="China East 2" failoverPriority=1 \
+    --locations regionName="China North 2" failoverPriority=0
 
 ```
 
@@ -78,14 +84,14 @@ az group delete --name $resourceGroupName
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-update) | 更新 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb update](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-update) | 更新 Azure Cosmos DB 帐户。 |
+| [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

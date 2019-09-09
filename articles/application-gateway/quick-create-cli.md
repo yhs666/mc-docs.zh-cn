@@ -1,24 +1,24 @@
 ---
 title: 快速入门 - 使用 Azure 应用程序网关定向 Web 流量 - Azure CLI | Microsoft Docs
-description: 了解如何使用 Azure CLI 创建 Azure 应用程序网关，用以将 Web 流量重定向到后端池中的虚拟机。
+description: 了解如何使用 Azure CLI 创建 Azure 应用程序网关，用以将 Web 流量定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-origin.date: 01/08/2019
-ms.date: 05/20/2019
+origin.date: 07/19/2019
+ms.date: 09/03/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b76dbb1db105c497a454c3ca786e2a63548bc8ee
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: af8c0315a0f4a392be0e9ebd15aa007be2427a27
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960891"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310828"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
-本快速入门介绍如何使用 Azure CLI 创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
+本快速入门介绍如何使用 Azure CLI 创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 本文使用一个简单的设置，其中包含一个公共前端 IP、一个在应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求传递规则。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ### <a name="required-network-resources"></a>所需的网络资源 
 
-Azure 需要一个虚拟网络才能在创建的资源之间通信。  应用程序网关子网只能包含应用程序网关。 不允许其他资源。  可为应用程序网关创建新的子网，或者使用现有的子网。 本示例将创建两个子网：一个用于应用程序网关，另一个用于后端服务器。 可根据用例将应用程序网关的前端 IP 配置为公共或专用 IP。 本示例选择了公共前端 IP。
+Azure 需要一个虚拟网络才能在创建的资源之间通信。  应用程序网关子网只能包含应用程序网关。 不允许其他资源。  可为应用程序网关创建新的子网，或者使用现有的子网。 本示例将创建两个子网：一个用于应用程序网关，另一个用于后端服务器。 可根据用例将应用程序网关的前端 IP 配置为公共或专用 IP。 本示例将选择公共前端 IP。
 
 若要创建虚拟网络和子网，请使用 [az network vnet create](/cli/network/vnet#az-network-vnet-create)。 运行 [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 即可创建公共 IP 地址。
 
@@ -59,12 +59,14 @@ az network vnet subnet create `
   --address-prefix 10.0.2.0/24
 az network public-ip create `
   --resource-group myResourceGroupAG `
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress `
+  --allocation-method Static `
+  --sku Standard
 ```
 
 ### <a name="backend-servers"></a>后端服务器
 
-后端可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 在此示例中，将创建两个虚拟机，供 Azure 用作应用程序网关的后端服务器。 还可以在虚拟机上安装 IIS，以验证 Azure 是否已成功创建应用程序网关。
+后端可以具有 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 在此示例中，你将创建用作应用程序网关的后端服务器的两个虚拟机。 还会在虚拟机上安装 IIS 以测试应用程序网关。
 
 #### <a name="create-two-virtual-machines"></a>创建两个虚拟机
 
@@ -178,7 +180,7 @@ az network public-ip show `
     
 ![测试应用程序网关](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-刷新浏览器时，会看到另一 VM 的名称。 有效的响应中会确认已成功创建应用程序网关，并且它可以成功连接到后端。
+刷新浏览器时，会看到另一 VM 的名称。 这表示应用程序网关创建成功，可以与后端连接。
 
 ## <a name="clean-up-resources"></a>清理资源
 

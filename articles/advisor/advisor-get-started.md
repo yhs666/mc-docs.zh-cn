@@ -7,14 +7,15 @@ ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2019
+origin.date: 02/01/2019
+ms.date: 02/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 851b3b446d87e4908e8fc88aed167755da5e98e3
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 2872502f002463da1c7071e87eb834559c8a43e6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332047"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736764"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 

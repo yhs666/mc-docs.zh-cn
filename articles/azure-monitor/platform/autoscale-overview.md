@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 09/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: autoscale
-ms.openlocfilehash: 81ebf33050ead330d6d02e6009b13417b5b5f6d9
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: bee0f6f3f16d80011a7f25b0a3f3f5e376203bcb
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731275"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737369"
 ---
 # <a name="overview-of-autoscale-in-21vianet-azure-virtual-machines-cloud-services-and-web-apps"></a>世纪互联 Azure 虚拟机、云服务和 Web 应用自动缩放概述
 本文介绍了世纪互联 Azure 自动缩放的定义、其优点，以及如何开始使用它。  

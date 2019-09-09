@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 02/22/2016
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.component: autoscale
-ms.openlocfilehash: de1e0c9b2fff55a3cb3d910d15a3025bde500c8e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.subservice: autoscale
+ms.openlocfilehash: ead84e6b596773a6f6970f2b163d8397333c02dd
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818243"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736951"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
@@ -44,7 +45,6 @@ ms.locfileid: "68818243"
     | 规则 |CPU% < p |
     | **Profile** |**工作日上午时（无规则）** |
     | **Profile** |**产品发布日（无规则）** |
-
 
 4. 以下是用于进行此演练所假设的一个缩放方案。
 

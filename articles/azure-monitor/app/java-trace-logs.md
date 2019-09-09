@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 05/18/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8c48543abb9bc76e9d0c379bb20f6df795927b3b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 53d6f66c0954d5507ccd7e2c166cd9d8767a43ab
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989637"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737359"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 Java 跟踪日志
 如果使用 Logback 或 Log4J（v1.2 或 v2.0）进行跟踪，可将跟踪日志自动发送到 Application Insights，以便在其中发现和搜索日志。

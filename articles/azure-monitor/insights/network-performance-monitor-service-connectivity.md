@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 02/20/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ff5d6e083a2e3829db1d61ce693327e5edf4b434
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 73de60dede3e81727ae80554e7a7aed836019dea
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989667"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736633"
 ---
 # <a name="service-connectivity-monitor"></a>服务连接监视器
 

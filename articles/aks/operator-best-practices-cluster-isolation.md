@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/26/2018
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 65bb551e8bc4e6fbbb537ea1532cecedcc433eba
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: d2b8e298856a60842a4548b54f0295dd2042bfa3
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731243"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500737"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的群集隔离的最佳做法
 
@@ -68,6 +68,7 @@ AKS 或其他位置中的 Kubernetes 环境并不完全安全，因为可能存�
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
+
 [k8s-namespaces]: concepts-clusters-workloads.md#namespaces
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

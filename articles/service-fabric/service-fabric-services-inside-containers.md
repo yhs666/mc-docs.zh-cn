@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/23/2018
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 691e7da1f8e2eb33af2bbdbaacfcd29dd5cce598
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: b0d1a302707716097d7bea7f2557f86508759875
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819642"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254576"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>在 Windows 上容器化 Service Fabric Reliable Services 和 Reliable Actors
 

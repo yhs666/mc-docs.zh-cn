@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/29/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1c51f69437aa4f88dc3ae8e705b8fbd449952250
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 141cfefb741941b2479c855c341642f8aa5422ee
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204261"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254634"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教程：通过 CI/CD 将容器应用程序部署到 Service Fabric 群集
 
@@ -44,9 +44,9 @@ ms.locfileid: "57204261"
 
 ## <a name="prepare-a-publish-profile"></a>准备一个发布配置文件
 
-现在，你已[部署了一个容器应用程序](service-fabric-host-app-in-a-container.md)，可以设置持续集成了。  首先，在应用程序中准备一个发布配置文件，供要在 Azure DevOps 中执行的部署进程使用。  应当将发布配置文件配置为以你之前创建的群集为目标。  启动 Visual Studio 并打开一个现有的 Service Fabric 应用程序项目。  在“解决方案资源管理器”中，右键单击该应用程序并选择“发布...”。
+现在，你已[部署了一个容器应用程序](service-fabric-host-app-in-a-container.md)，可以设置持续集成了。  首先，在应用程序中准备一个发布配置文件，供要在 Azure DevOps 中执行的部署进程使用。  应当将发布配置文件配置为以你之前创建的群集为目标。  启动 Visual Studio 并打开一个现有的 Service Fabric 应用程序项目。  在“解决方案资源管理器”中，右键单击该应用程序并选择“发布...”。  
 
-在应用程序项目中选择一个要用于持续集成工作流的目标配置文件，例如 Cloud。  指定群集连接终结点。  选中“升级应用程序”复选框，以便应用程序针对 Azure DevOps 中的每个部署进行升级。  单击“保存”超链接将设置保存到发布配置文件，然后单击“取消”关闭对话框。
+在应用程序项目中选择一个要用于持续集成工作流的目标配置文件，例如 Cloud。  指定群集连接终结点。  选中“升级应用程序”复选框，以便应用程序针对 Azure DevOps 中的每个部署进行升级。   单击“保存”超链接将设置保存到发布配置文件，然后单击“取消”关闭对话框。  
 
 ![推送配置文件][publish-app-profile]
 
@@ -54,17 +54,17 @@ ms.locfileid: "57204261"
 
 将你的应用程序源文件共享到 Azure DevOps 中的一个团队项目，以便可以生成内部版本。
 
-通过在 Visual Studio 的右下角的状态栏中选择“添加到源代码管理” -> “Git”为项目创建一个新的本地 Git 存储库。
+通过在 Visual Studio 的右下角的状态栏中选择“添加到源代码管理” -> “Git”为项目创建一个新的本地 Git 存储库。  
 
-在“团队资源管理器”中的“推送”视图中，在“推送到 Azure DevOps”下选择“发布 Git 存储库”按钮。
+在“团队资源管理器”中的“推送”视图中，在“推送到 Azure DevOps”下选择“发布 Git 存储库”按钮。    
 
 ![推送 Git 存储库][push-git-repo]
 
-验证你的电子邮件地址并在“帐户”下拉列表中选择你的组织。 如果还没有组织，可能必须设置一个组织。 输入你的存储库名称并选择“发布存储库”。
+验证你的电子邮件地址并在“帐户”下拉列表中选择你的组织。  如果还没有组织，可能必须设置一个组织。 输入你的存储库名称并选择“发布存储库”。 
 
 ![推送 Git 存储库][publish-code]
 
-发布存储库会在你的帐户中创建一个与本地存储库同名的新团队项目。 若要在现有团队项目中创建存储库，请单击“存储库名称”旁边的“高级”并选择一个团队项目。 可以通过选择“在 web 上查看”来在 web 上查看代码。
+发布存储库会在你的帐户中创建一个与本地存储库同名的新团队项目。 若要在现有团队项目中创建存储库，请单击“存储库名称”旁边的“高级”并选择一个团队项目。   可以通过选择“在 web 上查看”来在 web 上查看代码。 
 
 ## <a name="configure-continuous-delivery-with-azure-pipelines"></a>使用 Azure Pipelines 配置持续交付
 
@@ -74,77 +74,77 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 
 ### <a name="create-a-build-definition"></a>创建生成定义
 
-打开新的团队项目，方法是：在 Web 浏览器中导航到 https://dev.azure.com，选择你的组织，后跟新项目。 
+打开新的团队项目，方法是：在 Web 浏览器中导航到 https://dev.azure.com ，选择你的组织，后跟新项目。 
 
-选择左面板上的“管道”选项，然后单击“新建管道”。
+选择左面板上的“管道”选项，然后单击“新建管道”   。
 
 >[!NOTE]
->如果没有看到生成定义模板，请确保已关闭“新 YAML 管道创建体验”功能。 此功能在 DevOps 帐户的“预览功能”部分中配置。
+>如果没有看到生成定义模板，请确保已关闭“新 YAML 管道创建体验”  功能。 此功能在 DevOps 帐户的“预览功能”  部分中配置。
 
 ![新建管道][new-pipeline]
 
-选择 **Azure Repos Git** 作为源，然后选择团队项目名称、项目存储库，以及 **master** 默认分库或者手动的和计划的生成。  然后单击“继续”。
+选择 **Azure Repos Git** 作为源，然后选择团队项目名称、项目存储库，以及 **master** 默认分库或者手动的和计划的生成。  然后单击“继续”  。
 
-在“选择模板”中，选择“支持 Docker 的 Azure Service Fabric 应用程序”模板，然后单击“应用”。
+在“选择模板”中，选择“支持 Docker 的 Azure Service Fabric 应用程序”模板，然后单击“应用”    。
 
 ![选择“生成模板”][select-build-template]
 
-在“任务”中，输入 **Hosted VS2017** 作为**代理池**。
+在“任务”中，输入 **Hosted VS2017** 作为**代理池**。 
 
 ![选择“任务”][task-agent-pool]
 
-单击“标记图像”。
+单击“标记图像”  。
 
-在“容器注册表类型”中，选择“Azure 容器注册表”。 选择一个 **Azure 订阅**，然后单击“授权”。 选择一个 **Azure 容器注册表**。
+在“容器注册表类型”中，选择“Azure 容器注册表”。   选择一个 **Azure 订阅**，然后单击“授权”。  选择一个 **Azure 容器注册表**。
 
 ![选择 Docker 标记映像][select-tag-images]
 
-单击“推送映像”。
+单击“推送映像”。 
 
-在“容器注册表类型”中，选择“Azure 容器注册表”。 选择一个 **Azure 订阅**，然后单击“授权”。 选择一个 **Azure 容器注册表**。
+在“容器注册表类型”中，选择“Azure 容器注册表”。   选择一个 **Azure 订阅**，然后单击“授权”。  选择一个 **Azure 容器注册表**。
 
 ![选择 Docker 推送映像][select-push-images]
 
-在“触发器”选项卡下，选中“启用持续集成”来启用持续集成。 在**分支筛选器**中，单击“+ 添加”，**分支规范**将默认为“主”。
+在“触发器”选项卡下，选中“启用持续集成”来启用持续集成。   在**分支筛选器**中，单击“+ 添加”  ，**分支规范**将默认为“主”  。
 
-在“保存生成管道和队列”对话框中，单击“保存并排队”以手动启动生成。
+在“保存生成管道和队列”对话框  中，单击“保存并排队”  以手动启动生成。
 
 ![选择“触发器”][save-and-queue]
 
-在推送或签入时也会触发生成。 若要检查生成进度，请切换到“生成”选项卡。在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。
+在推送或签入时也会触发生成。 若要检查生成进度，请切换到“生成”选项卡  。在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。
 
 ### <a name="create-a-release-definition"></a>创建发布定义
 
-选择左面板上的“管道”选项，然后选择“发布”和“+ 新建管道”。  在“选择模板”中，从列表中选择“Azure Service Fabric 部署”模板，然后单击“应用”。
+选择左面板上的“管道”选项，然后选择“发布”和“+ 新建管道”    。  在“选择模板”中，从列表中选择“Azure Service Fabric 部署”模板，然后单击“应用”    。
 
 ![选择发布模板][select-release-template]
 
-依次选择“任务”、“环境 1”和“+ 新建”来添加新的群集连接。
+依次选择“任务”、“环境 1”和“+ 新建”来添加新的群集连接。   
 
 ![添加群集连接][add-cluster-connection]
 
-在“添加新的 Service Fabric 连接”视图中，选择“基于证书”或“Azure Active Directory”身份验证。  指定连接名称“mysftestcluster”和群集终结点“tcp://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19000”（或要部署到的群集的终结点）。
+在“添加新的 Service Fabric 连接”视图中，选择“基于证书”或“Azure Active Directory”身份验证。     指定连接名称“mysftestcluster”和群集终结点“tcp://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19000”（或要部署到的群集的终结点）。
 
-对于基于证书的身份验证，请添加用于创建群集的服务器证书的**服务器证书指纹**。  在“客户端证书”中，添加客户端证书文件的 base-64 编码。 查看有关该字段的帮助弹出窗口，了解有关如何获取该证书的 base-64 编码表示形式的信息。 另请添加证书的**密码**。  如果没有单独的客户端证书，可以使用群集或服务器证书。
+对于基于证书的身份验证，请添加用于创建群集的服务器证书的**服务器证书指纹**。  在“客户端证书”中，添加客户端证书文件的 base-64 编码。  查看有关该字段的帮助弹出窗口，了解有关如何获取该证书的 base-64 编码表示形式的信息。 另请添加证书的**密码**。  如果没有单独的客户端证书，可以使用群集或服务器证书。
 
-对于 Azure Active Directory 凭据，请添加用于创建群集的服务器证书的**服务器证书指纹**，并在“用户名”和“密码”字段中添加用于连接群集的凭据。
+对于 Azure Active Directory 凭据，请添加用于创建群集的服务器证书的**服务器证书指纹**，并在“用户名”和“密码”字段中添加用于连接群集的凭据。  
 
-单击“添加”以保存群集连接。
+单击“添加”  以保存群集连接。
 
-在“代理阶段”下，单击“部署 Service Fabric 应用程序”。
-单击“Docker 设置”，然后单击“配置 Docker 设置”。 在“注册表凭据源”中，选择“Azure 资源管理器服务连接”。 然后，选择你的 **Azure 订阅**。
+在“代理阶段”下，单击“部署 Service Fabric 应用程序”  。
+单击“Docker 设置”  ，然后单击“配置 Docker 设置”  。 在“注册表凭据源”  中，选择“Azure 资源管理器服务连接”  。 然后，选择你的 **Azure 订阅**。
 
 ![发布管道代理][release-pipeline-agent]
 
-接下来，向管道添加一个生成项目，以便发布定义可以找到生成输出。 依次选择“管道”和“项目”->“+添加”。  在“源(生成定义)”中，选择前面创建的生成定义。  单击“添加”保存生成项目。
+接下来，向管道添加一个生成项目，以便发布定义可以找到生成输出。 依次选择“管道”和“项目”->“+添加”。     在“源(生成定义)”中，选择前面创建的生成定义。   单击“添加”保存生成项目。 
 
 ![添加项目][add-artifact]
 
-启用持续部署触发器，以便在生成完成时自动创建发布。 单击项目中的闪电图标启用触发器，然后单击“保存”以保存发布定义。
+启用持续部署触发器，以便在生成完成时自动创建发布。 单击项目中的闪电图标启用触发器，然后单击“保存”以保存发布定义。 
 
 ![启用触发器][enable-trigger]
 
-选择“+ 发布” -> “创建发布” -> “创建”，手动创建发布。 可以在“发布”选项卡中监视发布进度。
+选择“+ 发布” -> “创建发布” -> “创建”，手动创建发布    。 可以在“发布”  选项卡中监视发布进度。
 
 验证部署是否已成功且应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。
 
@@ -154,17 +154,17 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 
 在编写代码时，Visual Studio 会自动跟踪代码更改。 通过从右下角的状态栏中选择“挂起的更改”图标（![挂起的][pending]），将更改提交到本地 Git 存储库。
 
-在“团队资源管理器”的“更改”视图中，添加一条消息来说明所做的更新，然后提交更改。
+在“团队资源管理器”的“更改”视图中，添加一条消息来说明所做的更新，然后提交更改。 
 
 ![全部提交][changes]
 
-在“团队资源管理器”中选择“未发布的更改”状态栏图标（![未发布的更改][unpublished-changes]）或“同步”视图。 选择“推送”以更新 Azure DevOps 中的代码。
+在“团队资源管理器”中选择“未发布的更改”状态栏图标（![未发布的更改][unpublished-changes]）或“同步”视图。 选择“推送”以更新 Azure DevOps 中的代码。 
 
 ![推送更改][push]
 
 将更改推送到 Azure DevOps 会自动触发生成。  当生成定义成功完成时，会自动创建一个发布，并将开始升级群集上的应用程序。
 
-若要检查生成进度，请在 Visual Studio 中切换到“团队资源管理器”中的“生成”选项卡。  在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。
+若要检查生成进度，请在 Visual Studio 中切换到“团队资源管理器”中的“生成”选项卡。    在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。
 
 验证部署是否已成功且应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170815.3”。
 
@@ -192,9 +192,11 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 > * 创建发布定义
 > * 自动部署和升级应用程序
 
-在本教程的下一部分中，了解如何设置[容器监视](service-fabric-tutorial-monitoring-wincontainers.md)。
+
+<!--Not Available on  [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md)-->
 
 <!-- Image References -->
+
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/PublishCode.png
@@ -221,5 +223,4 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/NewServiceEndpointDialog.png
 
-<!--Update_Description: new articles on service fabric deploy container app with cicd vsts -->
-<!--ms.date: 03/04/2019-->
+<!--Update_Description: wording update -->

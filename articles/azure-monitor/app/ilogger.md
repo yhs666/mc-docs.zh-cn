@@ -4,18 +4,18 @@ description: 有关将 Azure Application Insights ILogger 提供程序与 ASP.NE
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
+origin.date: 02/19/2019
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 68813968b2b33e6f9d0dc04706533fe5884d606e
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 1bc40039f5127b896c564e00f4dc5f4d8501c4a4
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989643"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737280"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger 日志的 ApplicationInsightsLoggerProvider
 

@@ -8,12 +8,12 @@ origin.date: 04/10/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 1c16e2d1cf4ecefa501c726fed60427048e424a6
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 79a576dd7dc7ac8ec945c9dc5343bcc5e5c4cb66
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337346"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500706"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
 
@@ -40,7 +40,7 @@ ms.locfileid: "68337346"
 > * 设置测试网络环境
 > * 部署防火墙
 > * 创建默认路由
-> * 配置一个应用程序规则以允许访问 www.google.com
+> * 配置一个应用程序规则以允许访问 www.qq.com
 > * 配置网络规则，以允许访问外部 DNS 服务器
 > * 测试防火墙
 
@@ -170,11 +170,11 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## <a name="configure-an-application-rule"></a>配置应用程序规则
 
-此应用程序规则允许对 www.google.com 进行出站访问。
+此应用程序规则允许对 www.qq.com 进行出站访问。
 
 ```azurepowershell
-$AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
-  -Protocol http, https -TargetFqdn www.google.com
+$AppRule1 = New-AzFirewallApplicationRule -Name Allow-QQ -SourceAddress 10.0.2.0/24 `
+  -Protocol http, https -TargetFqdn www.qq.com
 
 $AppRuleCollection = New-AzFirewallApplicationRuleCollection -Name App-Coll01 `
   -Priority 200 -ActionType Allow -Rule $AppRule1
@@ -227,7 +227,7 @@ $NIC | Set-AzNetworkInterface
 3. 在 **SRV-Work** 上，打开 PowerShell 窗口并运行以下命令：
 
    ```
-   nslookup www.google.com
+   nslookup www.qq.com
    nslookup www.microsoft.com
    ```
 
@@ -236,14 +236,14 @@ $NIC | Set-AzNetworkInterface
 1. 运行以下命令：
 
    ```
-   Invoke-WebRequest -Uri https://www.google.com
-   Invoke-WebRequest -Uri https://www.google.com
+   Invoke-WebRequest -Uri https://www.qq.com
+   Invoke-WebRequest -Uri https://www.qq.com
 
    Invoke-WebRequest -Uri https://www.microsoft.com
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   www.google.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
+   www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
 
 现已验证防火墙规则可正常工作：
 

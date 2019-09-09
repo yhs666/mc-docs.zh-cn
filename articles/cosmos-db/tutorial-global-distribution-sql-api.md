@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 07/15/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 9e14fad810603b935828343d3c14b21e052f78c8
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 1e90f8b2cc72bf7ebe8198edd3cf90370055ee43
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672234"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254837"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -78,7 +78,8 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>Node.js、JavaScript 和 Python SDK
+## <a name="nodejsjavascript"></a>Node.js/JavaScript
+
 无需进行任何代码更改即可使用该 SDK。 在此情况下，SDK 会自动将读取和写入请求定向到当前写入区域。
 
 在每个 SDK 的 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 DocumentClient.ConnectionPolicy.PreferredLocations 的新属性。 此参数是采用区域名称列表的字符串数组。 名称已根据 [Azure 区域][regions]页中的“区域名称”列设置格式。 也可以在便捷对象 AzureDocuments.Regions 中使用预定义的常量
@@ -90,7 +91,9 @@ await docClient.OpenAsync().ConfigureAwait(false);
 >
 >
 
-下面是 Node.js/Javascript 的代码示例。 Python 和 Java 将遵循相同的模式。
+下面是 Node.js/Javascript 的代码示例。
+
+<!--MOONCAKE: CORRECT FOR China East 2-->
 
 ```JavaScript
 // Creating a ConnectionPolicy object
@@ -105,6 +108,36 @@ connectionPolicy.PreferredLocations = ['China North', 'China East','China East 2
 // initialize the connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 ```
+
+## <a name="python-sdk"></a>Python SDK
+
+以下代码演示如何使用 Python SDK 设置首选位置：
+
+```python
+
+connectionPolicy = documents.ConnectionPolicy()
+connectionPolicy.PreferredLocations = ['China North', 'China East', 'China East 2']
+client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
+
+```
+
+## <a name="java-v2-sdk"></a>Java V2 SDK
+
+以下代码演示如何使用 Java SDK 设置首选位置：
+
+```java
+ConnectionPolicy policy = new ConnectionPolicy();
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Arrays.asList("China East", "China North", "China East 2"));
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKeyOrResourceToken(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConnectionPolicy(policy)
+                .build();
+```
+
+<!--MOONCAKE: CORRECT FOR China East 2-->
 
 ## <a name="rest"></a>REST
 数据库帐户在多个区域中可用后，客户端可以通过对以下 URI 执行 GET 请求来查询该帐户的可用性。

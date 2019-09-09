@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/23/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 928e8960fcbe1758a5eb96d83980e615cea220a6
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 02bd79aa305a5b65b083832474a5b7a53d7bb011
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514172"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254823"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
@@ -36,14 +36,15 @@ az login
 
 # Create an account
 $resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname' # must be lower case.
+$accountName = 'myaccountname' # must be lower case and < 31 characters
 
 az cosmosdb create \
    --name $accountName \
    --resource-group $resourceGroupName \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations chinanorth=0 chinaeast=1 \
+   --locations regionName=ChinaNorth failoverPriority=0 \
+   --locations regionName=ChinaEast failoverPriority=1 \
    --enable-multiple-write-locations true
 ```
 
@@ -56,7 +57,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 # Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "China North"
-$accountName = "mycosmosaccount" # must be lower case.
+$accountName = "mycosmosaccount" # must be lower case and < 31 characters
 
 $locations = @(
     @{ "locationName"="China North"; "failoverPriority"=0 },
@@ -119,16 +120,16 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ```azurecli
 $resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
+$accountName = 'myaccountname' # must be lower case and <31 characters
 
 # Create an account with 1 region
-az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations chinanorth=0
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0
 
 # Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations chinanorth=0 chinaeast=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 --locations regionName=ChinaEast failoverPriority=1
 
 # Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations chinanorth=0
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0
 ```
 
 <a name="add-remove-regions-via-ps"></a>
@@ -138,7 +139,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --loc
 # Create an account with 1 region
 $resourceGroupName = "myResourceGroup"
 $location = "China North"
-$accountName = "mycosmosaccount" # must be lower case.
+$accountName = "mycosmosaccount" # must be lower case and <31 characters
 
 $locations = @( @{ "locationName"="China North"; "failoverPriority"=0 } )
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
@@ -228,7 +229,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 <a name="configure-multiple-write-regions-arm"></a>
 ### <a name="resource-manager-template"></a>Resource Manager 模板
 
-可通过部署用于创建帐户的资源管理器模板和设置 `enableMultipleWriteLocations: true` 来将一个帐户从单主数据库迁移到多主数据库。 以下 Azure 资源管理器模板是一个极简模板，该模板会在启用单区域和多主数据库的情况下为 SQL API 部署 Azure Cosmos 帐户。
+可通过部署用于创建帐户的资源管理器模板和设置 `enableMultipleWriteLocations: true` 来将一个帐户从单主数据库迁移到多主数据库。 以下 Azure 资源管理器模板是一个极简模板，它将为 SQL API 部署 Azure Cosmos 帐户，并启用两个区域和多个写入位置。
 
 ```json
 {
@@ -241,6 +242,18 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
         "location": {
             "type": "String",
             "defaultValue": "[resourceGroup().location]"
+        },
+        "primaryRegion":{
+            "type":"string",
+            "metadata": {
+                "description": "The primary replica region for the Cosmos DB account."
+            }
+        },
+        "secondaryRegion":{
+            "type":"string",
+            "metadata": {
+              "description": "The secondary replica region for the Cosmos DB account."
+          }
         }
     },
     "resources": [
@@ -254,10 +267,15 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
             "properties": {
                 "databaseAccountOfferType": "Standard",
                 "consistencyPolicy": { "defaultConsistencyLevel": "Session" },
-                "locations": [
+                "locations":
+                [
                     {
-                        "locationName": "[parameters('location')]",
+                        "locationName": "[parameters('primaryRegion')]",
                         "failoverPriority": 0
+                    },
+                    {
+                        "locationName": "[parameters('secondaryRegion')]",
+                        "failoverPriority": 1
                     }
                 ],
                 "enableMultipleWriteLocations": true
@@ -358,6 +376,7 @@ az cosmosdb failover-priority-change --name $accountName --resource-group $resou
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 <!--MOONCAKE: China East and China East 2 change each other.-->
+
 ```powershell
 # Assume account currently has regions with priority: China North = 0, China East = 1, China East 2 = 2
 $resourceGroupName = "myResourceGroup"
@@ -365,8 +384,8 @@ $accountName = "myaccountname"
 
 $failoverPolicies = @(
     @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East 2"; "failoverPriority"=1 },
-    @{ "locationName"="China East"; "failoverPriority"=2 }
+    @{ "locationName"="China East"; "failoverPriority"=1 },
+    @{ "locationName"="China East 2"; "failoverPriority"=2 }
 )
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
@@ -411,7 +430,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations chinanorth=0 chinaeast=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 --locations regionName=chinaeast failoverPriority=1
 ```
 
 <a name="enable-manual-failover-via-ps"></a>

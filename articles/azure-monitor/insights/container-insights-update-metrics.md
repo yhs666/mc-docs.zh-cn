@@ -3,22 +3,23 @@ title: 如何更新用于容器的 Azure Monitor 以启用指标 | Microsoft Doc
 description: 本文介绍如何更新用于容器的 Azure Monitor，以启用支持浏览聚合指标并针对其发出警报的自定义指标功能。
 services: azure-monitor
 documentationcenter: ''
-author: mgoedtel
-manager: carmonm
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
-ms.author: magoedte
-ms.openlocfilehash: 1f1ca41be2e335fbf5ac595f8944dc0a3143673d
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+origin.date: 05/06/2019
+ms.date: 06/12/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 0fa70e21b0f836ec92c61a80f9c26226a6ea600f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818497"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737399"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新用于容器的 Azure Monitor 以启用指标
 用于容器的 Azure Monitor 即将引入此项支持：从 Azure Kubernetes 服务 (AKS) 群集节点和 pod 收集指标，并将其写入 Azure Monitor 指标存储。 此项更改旨在更及时地呈现性能图表中的聚合计算结果（平均值、计数、最大值、最小值与总和），支持在 Azure 门户仪表板中固定性能图表，以及支持指标警报。

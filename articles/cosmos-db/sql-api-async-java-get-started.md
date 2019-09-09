@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 12/15/2018
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: c6a39a72e0a860558de699f85651d05fd0a7c913
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: b5f5f99fa5524c5ca2d1ad55ef50b51ea906971c
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672226"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254506"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>教程：使用异步 Java SDK 生成 Java 应用，以便管理存储在 SQL API 帐户中的数据
@@ -46,7 +46,7 @@ ms.locfileid: "68672226"
 
 * [Git](https://git-scm.com/downloads)。
 
-* [Java 开发工具包 (JDK) 8+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
+* [Java 开发工具包 (JDK) 8+](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
 
 * [Maven](https://maven.apache.org/download.cgi)。
 
@@ -119,7 +119,7 @@ client = new AsyncDocumentClient.Builder()
 <a name="CreateDatabase"></a>
 ## <a name="create-a-database"></a>创建数据库
 
-使用“DocumentClient”类的 `createDatabaseIfNotExists()` 方法创建 Azure Cosmos DB 数据库。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
+使用 DocumentClient 类的 `createDatabaseIfNotExists()` 方法创建 Azure Cosmos 数据库。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

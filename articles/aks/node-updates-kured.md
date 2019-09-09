@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/28/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 55922b481790eebacd1093c906cd7be14e5dafb6
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: ee49b71b4c11b03035719c6abeef3e0392942243
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731219"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500736"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>将安全更新和内核更新应用于 Azure Kubernetes 服务 (AKS) 中的 Linux 节点
 
@@ -98,11 +98,13 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 <!--Not Available on Windows Server nodes-->
 
 <!-- LINKS - external -->
+
 [kured]: https://github.com/weaveworks/kured
 [kured-install]: https://github.com/weaveworks/kured#installation
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
+
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

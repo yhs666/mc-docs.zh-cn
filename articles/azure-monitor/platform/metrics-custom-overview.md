@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 09/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 20660e00c843a8c78b47f393ac5f1790bb3b578d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 6daaa5d5a6ec6187ddb233e89c7d93c0186bdca8
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562325"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736756"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor 中的自定义指标
 

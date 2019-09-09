@@ -5,15 +5,16 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 5/31/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: b0cc561a6407ac6405f96ce86aecca40ad9f42fd
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 459bd540982fd9c40af36a6c6f8d1481043dcb9b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989067"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737335"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor 中的日志警报
 本文提供日志警报的详细信息，该警报是 [Azure 警报](../platform/alerts-overview.md)中支持的警报类型之一，允许用户使用 Azure 分析平台作为警报的基础。

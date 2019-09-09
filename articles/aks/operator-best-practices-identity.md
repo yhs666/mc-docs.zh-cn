@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/24/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29e825adfdfa49d5106e3e08905243e0e442ec0f
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 4def14cac6112ada2e68b15d4c55641244ffea8e
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731220"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500739"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的身份验证和授权的最佳做法
 
@@ -128,9 +128,11 @@ roleRef:
 * [高级 Kubernetes 计划程序功能][aks-best-practices-advanced-scheduler]
 
 <!-- EXTERNAL LINKS -->
+
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
 
 <!-- INTERNAL LINKS -->
+
 [aks-concepts-identity]: concepts-identity.md
 [aks-aad]: azure-ad-integration-cli.md
 

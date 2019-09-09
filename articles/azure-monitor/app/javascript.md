@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/20/2019
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/15/2019
+origin.date: 08/15/2019
+ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 81b08c82237f1e51b5781946e634f20abac26676
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 1ab76d63e8a0730d04f0991fe94f47aeb67902ca
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989634"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737358"
 ---
 # 适用于网页的 Application Insights <a name="set-up-application-insights-for-your-web-page"></a>
 

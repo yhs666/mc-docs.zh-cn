@@ -379,9 +379,13 @@
                       href: tutorial-develop-mongodb-nodejs-part5.md
                     - name: 第 6 部分 - 执行 CRUD 操作
                       href: tutorial-develop-mongodb-nodejs-part6.md
-            - name: 2 - 查询数据
+            - name: 2 - 迁移数据
+              displayName: import
+              href: /dms/tutorial-mongodb-cosmos-db
+              maintainContext: true
+            - name: 3 - 查询数据
               href: tutorial-query-mongodb.md
-            - name: 3 - 多区域分配数据
+            - name: 4 - 多区域分配数据
               href: tutorial-global-distribution-mongodb.md
         - name: 操作指南
           items:
@@ -500,7 +504,7 @@
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
             - name: 'F#'
-              href: 'https://docs.azure.cn/zh-cn/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              href: 'https://docs.azure.cn/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
               maintainContext: true
         - name: 操作指南
           items:
@@ -621,6 +625,10 @@
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: 排查 Azure Cosmos DB 触发器问题
           href: troubleshoot-changefeed-functions.md
+        - name: 更改源处理器开始时间
+          href: how-to-configure-change-feed-start-time.md
+        - name: 使用更改源估算器
+          href: how-to-use-change-feed-estimator.md
     - name: 将内置分析功能与 Apache Spark 配合使用
       items:
         - name: Azure Databricks Spark 连接器
@@ -663,6 +671,8 @@
       items:
         - name: 从 Cosmos DB 帐户中查看指标
           href: use-metrics.md
+        - name: 从 Azure Monitor 中查看指标
+          href: cosmos-db-azure-monitor-metrics.md
         - name: 监视 SLA
           href: monitor-accounts.md
     - name: 本地开发

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/06/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
-ms.openlocfilehash: ae9f10eeaa546369d5dec001a17d27a5098ef417
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: d84a78a62617189950d798710b1ed6e69b8110cf
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818835"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310801"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>应用程序网关对多租户后端（例如应用服务）的支持
 
@@ -61,6 +61,6 @@ ms.locfileid: "68818835"
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[为应用服务 Web 应用配置应用程序网关](/application-gateway/create-web-app)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
+访问[为应用服务 Web 应用配置应用程序网关](/application-gateway/configure-web-app-portal)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
 
 <!--Update_Description: link update -->

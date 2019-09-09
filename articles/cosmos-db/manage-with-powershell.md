@@ -4,16 +4,16 @@ description: 使用 Azure Powershell 管理 Azure Cosmos DB 帐户、数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 07/09/2019
-ms.date: 07/29/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 51289fea76c6b73c4fea1d6ffad05bc3da678e79
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 703d7e1c22ba5cc0f8ae7a92bc097760a6836c16
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672231"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254415"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB SQL API 资源
 
@@ -51,7 +51,7 @@ ms.locfileid: "68672231"
 <a name="create-account"></a>
 ### <a name="create-an-azure-cosmos-account"></a>创建 Azure Cosmos 帐户
 
-此命令创建一个 Azure Cosmos DB 数据库帐户，该帐户使用[多区域][distribute-data-multiple-regionally]、有限过期[一致性策略](consistency-levels.md)。
+此命令创建一个 Azure Cosmos 数据库帐户，该帐户使用[多区域][distribute-data-multiple-regionally]、有限过期[一致性策略](consistency-levels.md)。
 
 ```powershell
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -82,7 +82,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-* `$accountName` Azure Cosmos 帐户的名称。 必须为小写，接受字母数字和“-”字符，长度必须为 3 到 31 个字符。
+* `$accountName`：Azure Cosmos 帐户的名称。 必须为小写，接受字母数字和“-”字符，长度必须为 3 到 31 个字符。
 * `$location` Azure Cosmos 帐户资源的位置。
 * `$locations` 数据库帐户的副本区域。 每个数据库帐户必须有一个故障转移优先级值为 0 的写入区域。
 * `$consistencyPolicy`：Azure Cosmos 帐户的默认一致性级别。 有关详细信息，请参阅 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)。
@@ -120,20 +120,19 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 <a name="update-account"></a>
 ### <a name="update-an-azure-cosmos-account"></a>更新 Azure Cosmos 帐户
 
-此命令可更新 Azure Cosmos DB 数据库帐户属性。 可更新的属性包括：
+此命令可更新 Azure Cosmos 数据库帐户属性。 可更新的属性包括：
 
 * 添加或删除区域
 * 更改默认的一致性策略
-* 更改故障转移策略
 * 更改 IP 范围筛选器
 * 更改虚拟网络配置
 * 启用多主数据库
 
 > [!NOTE]
-> 此命令可添加和删除区域，但不可修改故障转移优先级。 若要修改故障转移优先级，请参阅[修改 Azure Cosmos 帐户的故障转移优先级](#modify-failover-priority)。
+> 此命令可添加和删除区域，但不可使用 `failoverPriority=0` 修改故障转移优先级或更改区域。 若要修改故障转移优先级，请参阅[修改 Azure Cosmos 帐户的故障转移优先级](#modify-failover-priority)。
 
 ```powershell
-# Update an Azure Cosmos Account and set Consistency level to Session
+# Get an Azure Cosmos Account (assume it has two regions currently China North 2 and China East 2) and add a third region
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "myaccountname"
@@ -141,9 +140,13 @@ $accountName = "myaccountname"
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
 
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 },
+    @{ "locationName"="China East"; "failoverPriority"=2 }
+)
 
-$account.Properties.consistencyPolicy = $consistencyPolicy
+$account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
 Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -249,23 +252,28 @@ Select-Object $keys
 <a name="modify-failover-priority"></a>
 ### <a name="modify-failover-priority"></a>修改故障转移优先级
 
-对于多区域数据库帐户，可以更改在主写入副本上发生区域性故障转移的情况下，Cosmos 提升辅助只读副本权限的顺序。 修改 `failoverPriority=0` 的区域时，也可使用此命令来启动灾难恢复演练，以便测试灾难恢复规划。
+对于多区域数据库帐户，可以更改在主写入副本上发生区域性故障转移的情况下，Cosmos 提升辅助只读副本权限的顺序。 修改 `failoverPriority=0` 还可用于启动灾难恢复演练，以测试灾难恢复规划。
 
-对于下面的示例，假设帐户当前的故障转移优先级为 chinanorth=0 和 chinaEast=1，并翻转区域。
+在下面的示例中，假设帐户的当前故障转移优先级为 `China North 2 = 0` 和 `China East 2 = 1`，然后将区域互换。
 
 > [!CAUTION]
 > 在 `failoverPriority=0` 的情况下更改 `locationName` 会触发 Azure Cosmos 帐户的手动故障转移。 任何其他的优先级更改不会触发故障转移。
 
 ```powershell
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "China North 2" = 0 and "China East 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
-$failoverPolicies = @(
-    @{ "locationName"="China East"; "failoverPriority"=0 },
-    @{ "locationName"="China North"; "failoverPriority"=1 }
+$failoverRegions = @(
+    @{ "locationName"="China East 2"; "failoverPriority"=0 },
+    @{ "locationName"="China North 2"; "failoverPriority"=1 }
 )
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `

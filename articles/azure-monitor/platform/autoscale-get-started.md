@@ -1,19 +1,20 @@
 ---
 title: Azure 中的自动缩放入门
 description: 了解如何在 Azure 中缩放资源：Web 应用、云服务、虚拟机或虚拟机规模集。
-author: rajram
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/07/2017
-ms.author: rajram
+origin.date: 07/18/2018
+ms.date: 6/4/2019
+ms.author: v-lingwu
 ms.subservice: autoscale
-ms.openlocfilehash: 95eaf818cac36aef8d6a0fa3f01500236f8bb5e0
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: d004f7e2c6cf774a4e73ff950894106d16f18da2
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989052"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737158"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。

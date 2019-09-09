@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/20/2019
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 06/07/2019
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: e3dddb72fee027f979ba9edc5f6e9f2335ed374e
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: fccf419f11847ad14baa8d4f6df3abc0e316cf67
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989674"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737303"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 

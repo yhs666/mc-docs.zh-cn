@@ -5,17 +5,17 @@ title: Azure Monitor 日志数据文档 | Microsoft Docs
 description: Azure Monitor 可以收集不同的数据源作为日志数据，将其存储以进行关联并使用其查询语言进行分析。
 author: lingliw
 manager: carmonm
-origin.date: 08/22/2019
 ms.service: azure-monitor
 ms.topic: hub-page
+origin.date: 01/29/2019
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dae684e2d815e20cd40f3cbb3aee8b0a794483e3
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: bed492e911e7f0963af52062ec7694d93b236e94
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989407"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737004"
 ---
 <div id="main" class="v2">
     <div class="container">

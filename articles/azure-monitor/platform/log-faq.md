@@ -5,24 +5,26 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 11/13/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d08bb4f3cef98c01efd5968d4e96fd5553d90871
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 13adeb2512a29066db9a7206d537a78c123ee00f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989427"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737127"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 此 Azure 常见问题解答是有关世纪互联 Azure 中 Log Analytics 的常见问题列表。 如果有与 Log Analytics 有关的任何其他问题，请转到[论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
 
 

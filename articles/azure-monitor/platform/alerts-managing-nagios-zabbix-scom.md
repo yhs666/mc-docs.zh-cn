@@ -5,15 +5,16 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 09/24/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 6d4fa3ff6b5499d997680a888d9cbb37182289af
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 4732c33a69ab6322701f1ffd9765b0ce9ade4232
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514017"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737347"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>在 Azure Monitor 中管理来自 SCOM、Zabbix 和 Nagios 的警报
 

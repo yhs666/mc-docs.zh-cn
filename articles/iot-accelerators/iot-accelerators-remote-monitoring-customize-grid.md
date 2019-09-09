@@ -10,11 +10,11 @@ origin.date: 10/04/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 032736d31282965795e4ca4dea45a647e8aadf56
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028604"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736755"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>向远程监视解决方案加速器 Web UI 添加自定义网格
 
@@ -45,7 +45,7 @@ ms.locfileid: "53028604"
 
 ### <a name="add-the-new-files-that-define-the-grid"></a>添加定义网格的新文件
 
-首先，src/walkthrough/components/pages/pageWithGrid/exampleGrid 文件夹包含定义网格的文件：
+首先，src/walkthrough/components/pages/pageWithGrid/exampleGrid 文件夹包含定义网格的文件  ：
 
 **exampleGrid.js**
 
@@ -55,11 +55,11 @@ ms.locfileid: "53028604"
 
 
 
-将 src/walkthrough/components/pages/pageWithGrid/exampleGrid 文件夹复制到 src/components/pages/example 文件夹。
+将 src/walkthrough/components/pages/pageWithGrid/exampleGrid 文件夹复制到 src/components/pages/example 文件夹   。
 
 ### <a name="add-the-grid-to-the-page"></a>向页面添加网格
 
-按如下方式修改 src/components/pages/example/basicPage.container.js，以导入服务定义：
+按如下方式修改 src/components/pages/example/basicPage.container.js，以导入服务定义  ：
 
 ```js
 import { connect } from 'react-redux';
@@ -90,7 +90,7 @@ const mapDispatchToProps = dispatch => ({
 export const BasicPageContainer = translate()(connect(mapStateToProps, mapDispatchToProps)(BasicPage));
 ```
 
-按如下方式修改 src/components/pages/example/basicPage.js，以添加网格：
+按如下方式修改 src/components/pages/example/basicPage.js，以添加网格  ：
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -145,7 +145,7 @@ export class BasicPage extends Component {
 }
 ```
 
-按如下方式修改 src/components/pages/example/basicPage.test.js，以更新测试：
+按如下方式修改 src/components/pages/example/basicPage.test.js，以更新测试  ：
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -183,7 +183,7 @@ describe('BasicPage Component', () => {
 npm start
 ```
 
-上述命令在 [http://localhost:3000/dashboard](http://localhost:3000/dashboard) 以本地方式运行 UI。 导航到“示例”页，查看显示服务中的数据的网格。
+上述命令在 [http://localhost:3000/dashboard](http://localhost:3000/dashboard) 以本地方式运行 UI。 导航到“示例”页，查看显示服务中的数据的网格  。
 
 ## <a name="select-rows"></a>选择行
 
@@ -193,7 +193,7 @@ npm start
 
 如果用户需要同时处理多行，对行使用复选框：
 
-1. 通过将 checkboxColumn 添加到向网格提供的 columnDefs，启用行的硬选择。 checkboxColumn 在 /src/components/shared/pcsGrid/pcsGrid.js 中定义：
+1. 通过将 checkboxColumn 添加到向网格提供的 columnDefs，启用行的硬选择   。 checkboxColumn 在 /src/components/shared/pcsGrid/pcsGrid.js 中定义   ：
 
     ```js
     this.columnDefs = [
@@ -246,9 +246,9 @@ npm start
 
 ### <a name="soft-select-rows"></a>软选择行
 
-如果用户只需对单行操作，在 columnDefs 中为一列或多列配置软选择链接。
+如果用户只需对单行操作，在 columnDefs 中为一列或多列配置软选择链接  。
 
-1. 在 exampleGridConfig.js 中，添加 SoftSelectLinkRenderer 作为 columnDef 的 cellRendererFramework。
+1. 在 exampleGridConfig.js 中，添加 SoftSelectLinkRenderer 作为 columnDef 的 cellRendererFramework     。
 
     ```js
     export const exampleColumnDefs = {
@@ -261,7 +261,7 @@ npm start
     };
     ```
 
-1. 单击软选择链接后，触发 onSoftSelectChange 事件。 对该行执行所需的任何操作，例如打开详细信息浮出控件。 此示例仅写入控制台：
+1. 单击软选择链接后，触发 onSoftSelectChange 事件  。 对该行执行所需的任何操作，例如打开详细信息浮出控件。 此示例仅写入控制台：
 
     ```js
     onSoftSelectChange = (rowId, rowEvent) => {

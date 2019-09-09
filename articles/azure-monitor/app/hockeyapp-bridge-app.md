@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 03/30/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c980d64b3d1b3b8b6b4e1bb865f909ec296de3ef
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 615bf3176f1aca4f7a29aa4f0f8b17112f622640
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989647"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737284"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中浏览 HockeyApp 数据
 

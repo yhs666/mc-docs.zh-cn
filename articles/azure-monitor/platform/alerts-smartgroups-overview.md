@@ -5,15 +5,16 @@ author: anantr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 01/28/2018
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 021319c1d034ad758f709562c77ae9aa0038d786
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.subservice: alerts
+ms.openlocfilehash: f2a84079632ad742eccb76ea97f5182c442656c8
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141724"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737342"
 ---
 # <a name="smart-groups"></a>智能组
 处理警报时面临的一个常见难题是筛选噪音以找出真正重要的事项 - 智能组旨在解决该问题。  
@@ -25,7 +26,7 @@ ms.locfileid: "54141724"
 可以查看智能组的详细信息，并像设置警报状态一样设置智能组的状态。 每个警报是一个（且仅限一个）智能组的成员。 
 
 ## <a name="smart-group-state"></a>智能组状态
-智能组状态与警报状态的概念类似，允许你在智能组级别管理解决过程。 与警报状态类似，创建智能组时，它具有“新建”状态，可以将其更改为“已确认”或“已关闭”。
+智能组状态与警报状态的概念类似，允许你在智能组级别管理解决过程。 与警报状态类似，创建智能组时，它具有“新建”  状态，可以将其更改为“已确认”  或“已关闭”  。
 
 支持以下智能组状态。
 

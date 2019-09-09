@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+origin.date: 06/19/2019
+ms.date: 06/29/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 1eadee41689b3c5b52f472ab9780b1359d6699ab
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 6029eb2fcf9ec19cce74e09c98a702126ede0080
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989066"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736586"
 ---
 # <a name="troubleshooting"></a>故障排除
 

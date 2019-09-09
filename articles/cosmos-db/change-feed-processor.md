@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 07/02/2019
-ms.date: 07/29/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 3595fd06cc4710b5be55f9057190243d8e3c10c0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: a7292376a7358d7c6d59e63882e72f55a4224d92
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514349"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254660"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 更改源处理器 
 
@@ -66,7 +66,6 @@ private static async Task<ChangeFeedProcessor> StartChangeFeedProcessorAsync(
     Console.WriteLine("Change Feed Processor started.");
     return changeFeedProcessor;
 }
-
 ```
 
 其中，第一个参数是描述此处理器的目标的唯一名称，第二个参数是要处理更改的委托实现。 
@@ -127,14 +126,15 @@ static async Task HandleChangesAsync(IReadOnlyCollection<ToDoItem> changes, Canc
 ## <a name="additional-resources"></a>其他资源
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [GitHub 上的其他示例](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>后续步骤
 
-接下来，请通过以下文章继续详细了解更改源：
+现在，可以通过以下文章继续详细了解更改源处理器：
 
 * [更改源概述](change-feed.md)
-* [读取更改源的方式](read-change-feed.md)
-* [将更改源与 Azure Functions 配合使用](change-feed-functions.md)
+* [使用更改源估算器](how-to-use-change-feed-estimator.md)
+* [更改源处理器开始时间](how-to-configure-change-feed-start-time.md)
 
 <!-- Update_Description: update meta properties, wording update -->

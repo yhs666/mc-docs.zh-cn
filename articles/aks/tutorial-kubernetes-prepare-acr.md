@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ecaf567ca08c8411837e2b3a73498925b95ffdb1
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 413719a2bb26001a2f2e1d961efdcae6237ade22
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731237"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500702"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>教程：部署并使用 Azure 容器注册表
 
@@ -157,10 +157,12 @@ v1
 > [部署 Kubernetes 群集][aks-tutorial-deploy-cluster]
 
 <!-- LINKS - external -->
+
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 
 <!-- LINKS - internal -->
+
 [az-acr-create]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
 [az-acr-list]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
 [az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login

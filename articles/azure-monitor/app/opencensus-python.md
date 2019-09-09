@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-origin.date: 08/20/2019
-ms.date: 07/02/2019
+origin.date: 07/02/2019
+ms.date: 08/20/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 6e91888263e1d66c948b2bb45f74d6016c84bcb7
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: e6c84dc2ebb257d0a7e7e04106f30d7cfaa8e390
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989685"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737053"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>从 Python（预览版）收集分布式跟踪
 

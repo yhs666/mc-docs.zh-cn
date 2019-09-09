@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/2019
+origin.date: 07/25/2018
+ms.date: 07/21/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 91c6ae2b8ed44efbe6ff347a8101bdb768d837dd
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: c4712f5883f49689676c9df2600e1a33045e923d
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989358"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736882"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](diagnostic-logs-overview.md)** 以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
@@ -185,7 +186,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 | category |此事件的日志类别。 |
 | ResourceId |生成此事件的资源的资源 ID。 |
 | operationName |操作的名称。 |
-| 级别 |可选。 指示日志事件级别。 |
+| level |可选。 指示日志事件级别。 |
 | properties |事件的属性。 |
 
 可以在[此处](diagnostic-logs-overview.md)查看支持流式传输到事件中心的所有资源提供程序的列表。

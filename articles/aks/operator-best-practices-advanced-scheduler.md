@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/26/2018
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 79f81e175a4886366ece295a44bbdfae566d44cd
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 36053b5858ed6ad3cff0c507cd1a294b84539fc2
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731218"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500734"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的高级计划程序功能的最佳做法
 
@@ -186,12 +186,14 @@ Kubernetes 计划程序逻辑隔离工作负荷的最终方法之一是使用 po
 * [身份验证和授权][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
+
 [k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [k8s-node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [k8s-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
 [k8s-pod-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#always-co-located-in-the-same-node
 
 <!-- INTERNAL LINKS -->
+
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md

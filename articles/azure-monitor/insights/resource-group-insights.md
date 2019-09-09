@@ -4,19 +4,19 @@ description: 通过 Azure Monitor 了解资源组级别的分布式应用程序�
 services: azure-monitor
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2018
+origin.date: 09/19/2018
+ms.date: 09/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2054ddac66de526af58c169d75f93f30e7dd80be
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 54a3eeddf116f953a5cdb4668c407a51f240bdb3
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989665"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736634"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>使用 Azure Monitor（预览版）监视资源组
 

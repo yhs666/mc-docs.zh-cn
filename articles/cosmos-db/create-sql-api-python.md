@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f3766fbd6362f441a1ea6489e62fd715f5f0895
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: e8baa0d555864ce142122c9f55b7cd78cc3e91c7
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514321"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254800"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帐户构建 Python 应用程序
 
@@ -125,10 +125,10 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
-* 将创建一个新集合。
+* 将创建一个新容器。
 
     ```python
-    # Create collection options
+    # Create container options
     options = {
         'offerThroughput': 400
     }
@@ -187,7 +187,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 4. 在集成的终端窗口中，确保位于 azure-cosmos-db-python-getting-started 文件夹中。 如果没有位于该文件夹中，请运行以下命令来切换到示例文件夹。 
 
     ```cmd
-    cd "\git-samples\azure-cosmos-db-python-getting-started"
+    cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. 运行以下命令来安装 azure-cosmos 程序包。 

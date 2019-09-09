@@ -4,15 +4,15 @@ description: 本文介绍 Azure Cosmos DB 的定价模型，以及该模型如�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 06/17/2019
+origin.date: 08/01/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 35fb0adeb775bf2892e11ac531c167ae40713777
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: d8aa500812bd540c720565a7003892a4127e7fea
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578633"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254825"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的定价模型 
 
@@ -69,7 +69,9 @@ Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
 * 详细了解如何[优化多区域 Cosmos 帐户的成本](optimize-cost-regions.md)
+    
     <!--Not Available on * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
+    
 * 了解 [Azure Cosmos DB 模拟器](local-emulator.md)
 
 <!--Update_Description: update meta properties, wording update -->

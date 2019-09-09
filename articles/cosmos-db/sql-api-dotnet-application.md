@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 06/24/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08481a08aa0a516a9554af1b805f5775ccd79e04
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: f69a3db55d0103a23165913234b1a964c07638b3
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672225"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254508"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序 
 
@@ -444,6 +444,11 @@ ms.locfileid: "68672225"
 1. 在同一文件中，我们定义帮助程序方法 **InitializeCosmosClientInstanceAsync**，用于读取配置并初始化客户端。
 
     ```csharp
+
+    /// <summary>
+    /// Creates a Cosmos DB database and a container with the specified partition key. 
+    /// </summary>
+    /// <returns></returns>
     private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
     {
         string databaseName = configurationSection.GetSection("DatabaseName").Value;
@@ -455,8 +460,8 @@ ms.locfileid: "68672225"
                             .WithConnectionModeDirect()
                             .Build();
         CosmosDbService cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-        Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-        await database.CreateContainerIfNotExistsAsync(containerName, "/id");
+        DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+        await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
 
         return cosmosDbService;
     }
@@ -516,7 +521,7 @@ ms.locfileid: "68672225"
 
 4. 若要创建新的 Azure 应用服务配置文件，请单击“发布”对话框中的“新建”   。 在“创建应用服务”对话框中，输入 Web 应用名称和相应的订阅、资源组和应用服务计划，然后选择“创建”   。
 
-   ![Visual Studio 中的“创建应用服务”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+    ![Visual Studio 中的“创建应用服务”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
 在几秒钟内，Visual Studio 会发布 Web 应用程序并启动浏览器，方便你查看在 Azure 中运行的项目！
 

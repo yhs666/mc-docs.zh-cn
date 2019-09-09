@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
+origin.date: 08/06/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 07695df09ec74cdb0959c5fba49ba0a9fca4f9e6
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: e23267b19235fc9217358a0668057e862b34e5ba
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989588"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736541"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>编写代码来使用 Application Insights 跟踪请求
 

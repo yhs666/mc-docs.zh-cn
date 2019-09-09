@@ -5,7 +5,6 @@ services: monitoring-and-diagnostics
 documentationcenter: na
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,15 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 04/02/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7908ac52e3eb3b5393c7e89e9328b8b6556d1e54
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 2dec47b8476f5b51d4f5c82df870a66776f4c367
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989392"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736986"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 网络性能监视器的定价变化
 

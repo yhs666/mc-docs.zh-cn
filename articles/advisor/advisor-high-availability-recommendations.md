@@ -7,17 +7,18 @@ author: lingliw
 ms.author: v-lingwu
 ms.service: advisor
 ms.topic: article
-ms.date: 04/12/19
-ms.openlocfilehash: e39fff5c48e5bf18a5c7f193ffc192503c602fee
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+origin.date: 04/12/2019
+ms.date: 04/12/2019
+ms.openlocfilehash: 2a8584f463b454397c304a7beacd742fb84c11d9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566365"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736656"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>使用 Azure 顾问提高应用程序的可用性
 
-Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可以通过顾问仪表板的“高可用性”选项卡获取顾问的高可用性建议。
+Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可以通过顾问仪表板的“高可用性”  选项卡获取顾问的高可用性建议。
 
 ## <a name="ensure-virtual-machine-fault-tolerance"></a>确保虚拟机容错
 
@@ -71,7 +72,7 @@ Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可�
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2.  在顾问仪表板中，单击“高可用性”选项卡。
+2.  在顾问仪表板中，单击“高可用性”选项卡  。
 
 ## <a name="next-steps"></a>后续步骤
 

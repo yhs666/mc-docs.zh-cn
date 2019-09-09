@@ -6,15 +6,16 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
+origin.date: 09/20/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: ff431292226d39556b3819f9d0bb603dd31e82bb
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: beeac5fce3660fe45372cbeadb0383cedc80a0f2
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989433"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736805"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
 此页为世纪互联 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  

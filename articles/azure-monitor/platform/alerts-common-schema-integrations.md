@@ -5,15 +5,16 @@ author: ananthradhakrishnan
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/27/2019
+origin.date: 05/27/2019
+ms.date: 06/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 3a371164c48e316d2d30366ec6f819894a5c44b5
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: bf4f0785dbf8aad9b3a98e22bdf153b6ccd29f36
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818255"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737244"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>如何将常见警报架构与逻辑应用集成
 

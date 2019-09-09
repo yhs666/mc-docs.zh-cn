@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/25/2019
-ms.date: 07/22/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2477d225633084e1403dbe2965d4b3583648390f
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: a091b5c2b760c342a1e0c8956dc17664f8f44f81
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878578"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736499"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 配合使用
 
@@ -138,7 +138,7 @@ Apache Storm 提供了多个组件以便与 Apache Kafka 配合使用。 此教�
     >
     > 脚本操作位于 [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) 并应用于 Storm 群集的 supervisor 和 nimbus 节点。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文档。
 
-拓扑是使用 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)定义的。 Storm 0.10.x 中引入了 Flux，允许从代码分离拓扑配置。 对于使用 Flux 框架的拓扑，该拓扑在 YAML 文件中进行定义。 YAML 文件可以作为拓扑的一部分包括在内。 它也可以是提交拓扑时使用的独立文件。 Flux 还支持在运行时进行变量替换，本示例中使用了该变量替换。
+拓扑是使用 [Flux](https://storm.apache.org/releases/current/flux.html)定义的。 Storm 0.10.x 中引入了 Flux，允许从代码分离拓扑配置。 对于使用 Flux 框架的拓扑，该拓扑在 YAML 文件中进行定义。 YAML 文件可以作为拓扑的一部分包括在内。 它也可以是提交拓扑时使用的独立文件。 Flux 还支持在运行时进行变量替换，本示例中使用了该变量替换。
 
 在运行时为这些拓扑设置以下参数：
 
@@ -152,7 +152,7 @@ Apache Storm 提供了多个组件以便与 Apache Kafka 配合使用。 此教�
 
 * `${hdfs.write.dir}`：数据写入到的目录。
 
-有关 Flux 拓扑的详细信息，请参阅 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)。
+有关 Flux 拓扑的详细信息，请参阅 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)。
 
 ### <a name="kafka-writer"></a>Kafka 编写器
 
@@ -479,7 +479,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     返回的值类似于下文：
 
+        ```output
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:9092
+        ```
 
     > [!IMPORTANT]
     > 虽然群集可能有两个以上的代理主机，但无需向客户端提供所有主机的完整列表。 只需提供一两个就足够了。

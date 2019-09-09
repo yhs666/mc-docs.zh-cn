@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/24/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: b295eabbd77233972deeba394997fad86863e72c
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: c68f13caad21d16c0911237e1deba98651c3b5e8
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731228"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500713"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用静态公共 IP 地址创建入口控制器
 
@@ -23,8 +23,10 @@ ms.locfileid: "68731228"
 
 也可执行以下操作：
 
-- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
+- [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
+
     <!--Not Available on - [Enable the HTTP application routing add-on][aks-http-app-routing]-->
+    
 - [创建使用你自己的 TLS 证书的入口控制器][aks-ingress-own-tls]
 - [创建一个使用 Let's Encrypt 的入口控制器，以自动生成具有动态公共 IP 地址的 TLS 证书][aks-ingress-tls]
 
@@ -64,6 +66,8 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_chi
 > [!TIP]
 > 若要为对群集中容器的请求启用[客户端源 IP 保留][client-source-ip]，请将 `--set controller.service.externalTrafficPolicy=Local` 添加到 Helm install 命令中。 客户端源 IP 存储在 X-Forwarded-For  下的请求头中。 使用启用了客户端源 IP 保留的入口控制器时，SSL 传递将不起作用。
 
+<!--MOONCAKE: Add --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-->
+
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
@@ -75,7 +79,10 @@ helm install stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend
 ```
+
+<!--MOONCAKE: Add --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-->
 
 为 NGINX 入口控制器创建 Kubernetes 负载均衡器服务时，会分配你的静态 IP 地址，如以下示例输出中所示：
 

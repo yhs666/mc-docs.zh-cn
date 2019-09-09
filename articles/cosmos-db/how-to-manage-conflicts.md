@@ -4,15 +4,15 @@ description: 了解如何管理 Azure Cosmos DB 中的冲突
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 06/25/2019
-ms.date: 07/29/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: dc86979655f6f2f4c8e8e1658d591da165476d9f
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 225db9fbaa571d3cb752ce162f4a576b48b7d83a
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514384"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254774"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 
@@ -20,7 +20,7 @@ ms.locfileid: "68514384"
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>创建“以最后写入者为准”冲突解决策略
 
-这些示例介绍如何使用“以最后写入者为准”冲突解决策略设置一个容器。 “以最后写入者为准”的默认路径是时间戳字段或 `_ts` 属性。 这还可以设置为数值类型的用户定义路径。 如果发生冲突，最高值优先。 如果路径未设置或无效，则它默认为 `_ts`。 使用此策略解决的冲突不会显示在冲突源中。 此策略可供所有 API 使用。
+这些示例介绍如何使用“以最后写入者为准”冲突解决策略设置一个容器。 “以最后写入者为准”的默认路径是时间戳字段或 `_ts` 属性。 对于 SQL API，也可以将其设置为数值类型的用户定义路径。 如果发生冲突，最高值优先。 如果路径未设置或无效，则它默认为 `_ts`。 使用此策略解决的冲突不会显示在冲突源中。 此策略可供所有 API 使用。
 
 <a name="create-custom-conflict-resolution-policy-lww-dotnet"></a>
 ### <a name="net-sdk-v2"></a>.NET SDK V2
@@ -96,13 +96,14 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>使用存储过程创建自定义冲突解决策略
@@ -272,12 +273,12 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
 udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
 ```
 
@@ -359,11 +360,11 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
@@ -449,12 +450,12 @@ while conflict:
 
 了解以下 Azure Cosmos DB 概念：
 
-* [多区域分布 - 揭秘](global-dist-under-the-hood.md)
-* [如何在应用程序中配置多主数据库](how-to-multi-master.md)
-* [配置多宿主客户端](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [在 Azure Cosmos DB 帐户中添加或删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [如何配置应用程序中的多主数据库](how-to-multi-master.md)。
-* [分区和数据分布](partition-data.md)
-* [Azure Cosmos DB 中的索引](indexing-policies.md)
+- [多区域分布 - 揭秘](global-dist-under-the-hood.md)
+- [如何在应用程序中配置多主数据库](how-to-multi-master.md)
+- [配置多宿主客户端](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [在 Azure Cosmos DB 帐户中添加或删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [如何配置应用程序中的多主数据库](how-to-multi-master.md)。
+- [分区和数据分布](partition-data.md)
+- [Azure Cosmos DB 中的索引](indexing-policies.md)
 
 <!-- Update_Description: update meta properties, wording update-->

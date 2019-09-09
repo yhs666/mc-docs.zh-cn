@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 3/26/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: b9b96b139dac321921802fd4cda167fe5419f3b0
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: cc53a4a11cd17cf62ff3ebb891de5ef124b9e921
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818377"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736811"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md) 在创建资源时配置资源的诊断设置。 这样可以让你在创建资源时自动开始将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics 工作区。

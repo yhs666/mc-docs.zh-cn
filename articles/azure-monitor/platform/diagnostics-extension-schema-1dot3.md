@@ -6,15 +6,16 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
+origin.date: 09/20/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e01f421356acb9531fb3ad45f0cce55ab1f61b2b
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 747ebd79b682180495f334b1e774421bbbaeb093
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731262"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736861"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -606,7 +607,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="logs-element"></a>Logs 元素  
  *树：根 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
- 在 1.0 和 1.1 版本中提供。 1.2 中不提供。 在 1.3 中重新添加。  
+ 在 1.0 和 1.1 版本中提供。 1\.2 中不提供。 在 1.3 中重新添加。  
 
  定义基本 Azure 日志的缓冲区配置。  
 
@@ -644,12 +645,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |属性|类型|说明|  
 |---------------|----------|-----------------|  
-|**name**|字符串|标识 sinkname 的字符串。|  
+|**name**|string|标识 sinkname 的字符串。|  
 
 |元素|类型|说明|  
 |-------------|----------|-----------------|  
-|**Application Insights**|字符串|仅在将数据发送到 Application Insights 时使用。 包含有权访问的有效 Application Insights 帐户的检测密钥。|  
-|**通道**|字符串|每个对应一个流处理的其他筛选|  
+|**Application Insights**|string|仅在将数据发送到 Application Insights 时使用。 包含有权访问的有效 Application Insights 帐户的检测密钥。|  
+|**通道**|string|每个对应一个流处理的其他筛选|  
 
 ## <a name="channels-element"></a>Channels 元素  
  *树：根 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -660,7 +661,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素|类型|说明|  
 |-------------|----------|-----------------|  
-|**Channel**|字符串|在此页的其他位置查看说明。|  
+|**Channel**|string|在此页的其他位置查看说明。|  
 
 ## <a name="channel-element"></a>Channel 元素
  *树：根 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*

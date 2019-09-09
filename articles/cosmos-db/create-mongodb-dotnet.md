@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4683e8b9d492ff429b4ef14f6896416ed4ba46ac
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 0f5443a6ae5f0af2c7ec39f4583e4d020be06474
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151474"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254529"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .NET Web 应用 
 

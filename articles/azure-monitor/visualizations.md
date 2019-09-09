@@ -3,7 +3,6 @@ title: 可视化 Azure Monitor 中的数据 | Azure Docs
 description: 概述了将 Azure Monitor 中存储的指标和日志数据可视化时可使用的方法。
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -11,14 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
+origin.date: 11/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 888b008814e64e3a47a2517e7aab287b4e372f84
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 4d51c2ada453cf5f06a79c00593e340341e694a8
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989621"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736975"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>可视化 Azure Monitor 中的数据
 本文概述了将 Azure Monitor 中存储的日志和指标数据可视化时可使用的方法。

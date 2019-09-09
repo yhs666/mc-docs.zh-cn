@@ -3,21 +3,22 @@ title: Azure Monitor 日志记录中的标准属性 | Microsoft Docs
 description: 介绍 Azure Monitor 日志中多种数据类型共有的属性。
 services: log-analytics
 documentationcenter: ''
-author: bwren
-manager: carmonm
+author: lingliw
+manager: digimobile
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/18/2019
-ms.author: bwren
-ms.openlocfilehash: 34a31b76f59e7d7e45ebd6ee8f7797facf90241b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+origin.date: 07/18/2019
+ms.date: 07/21/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 238347f27b4f3b941096b6cd152dd9c749970d18
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989418"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737090"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 日志中的标准属性
 Azure Monitor 日志中的数据[作为一组记录存储在 Log Analytics 工作区或 Application Insights 应用程序](../log-query/logs-structure.md)中，每条记录都具有特定的数据类型，该数据类型包含一组惟一的属性。 许多数据类型都具有在多种类型中通用的标准属性。 本文介绍这些属性，并提供如何在查询中使用它们的示例。
@@ -156,6 +157,7 @@ union withsource = tt *
 
 ## <a name="_billedsize"></a>\_BilledSize
 **\_BilledSize** 属性指定 **\_IsBillable** 为 true 时将向 Azure 帐户计费的数据字节大小。
+
 
 ### <a name="examples"></a>示例
 若要查看每台计算机引入的可计费事件的大小，请使用 `_BilledSize` 属性（以字节为单位提供大小）：

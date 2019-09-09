@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/2019
+origin.date: 05/19/2019
+ms.date: 03/19/2018
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 3498ffe2e71e6a7056129c07f65eb494e8b839e4
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 7d37a4849de1a3bd09ac6ab3fa8e9efa54c5295a
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989163"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737387"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -633,7 +634,6 @@ PlanType       :
 PlanId         :
 Version        : 08586982649483762729
 ```
-
 
 ### <a name="azure-cli"></a>Azure CLI
 

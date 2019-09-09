@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/06/2018
 ms.author: v-yiso
-ms.date: 01/21/2019
-ms.openlocfilehash: a7f198401f0a17efd7f6772f2a76b70778cb7b4f
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 09/16/2019
+ms.openlocfilehash: ccbaf9c9d903ee177511f42b64e8d75813947f79
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878479"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736502"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用
 
@@ -51,7 +51,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
     
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png" alt="Deploy to Azure"/>
     </a>
 
     Azure 资源管理器模板位于此项目的 GitHub 存储库中 ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb))。

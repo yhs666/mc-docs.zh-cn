@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-manager: digimobile
+ms.reviewer: sstein
 origin.date: 02/07/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: dd75a878833081005ff74e3be1eb96f9105227f1
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 09/09/2019
+ms.openlocfilehash: 400a32710a4df2debeee0ed4f5879db703e7b037
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578619"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373024"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>“常规用途”服务层级 - Azure SQL 数据库
 
@@ -50,7 +49,7 @@ Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在[托管实例](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中查找“常规用途/标准”层级的资源特征（核心数、IO 数、内存数），在 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)或 [DTU 模型](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)中查找单一数据库，在 [vCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)和 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)中查找弹性池。
+- 在[托管实例](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中查找“常规用途/标准”层级的资源特征（核心数、IO 数、内存数），在 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute)或 [DTU 模型](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)中查找单一数据库，在 [vCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)和 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)中查找弹性池。
 - 了解[业务关键](sql-database-service-tier-business-critical.md)和[超大规模](sql-database-service-tier-hyperscale.md)层。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 有关高可用性和灾难恢复的更多选项，请参阅[业务连续性](sql-database-business-continuity.md)。

@@ -10,14 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 10/12/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ac42f189e36dbac74254d340c15651290e130511
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 1db828f4264d8a71ac081a921db5f5a93bcf3fca
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989393"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737005"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure Monitor 进行持续监视
 

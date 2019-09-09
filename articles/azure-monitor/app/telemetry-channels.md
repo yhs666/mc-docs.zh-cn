@@ -5,20 +5,19 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/14/2019
+origin.date: 05/14/2019
+ms.date: 06/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 96432c0db8fe6a2afd4c423457214319c9c86be8
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 2f258d90aa720ef631e76bc59a3ce7e751ac97b6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989204"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736593"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights 中的遥测通道
 

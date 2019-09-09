@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 05/24/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d59aad6f70def0cf33c75002f21012b759929c38
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 261a25fe788f1848899f1453c8fcbb4800a19dc0
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989640"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737360"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java Web 项目中的 Application Insights 入门
 

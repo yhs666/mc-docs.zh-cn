@@ -1,19 +1,20 @@
 ---
 title: 自动缩放最佳做法
 description: Azure 中适用于 Web 应用、虚拟机规模集和云服务的自动缩放模式
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 07/18/2018
 ms.date: 07/07/2017
-ms.author: ancav
+ms.author: v-lingwu
 ms.subservice: autoscale
-ms.openlocfilehash: 443410897678d5cccacf7c661ce47af858a15910
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 678c4aae021d4c440ad43a0259d1d234045828ed
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989193"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737330"
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
 Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/)和 [API 管理服务](/api-management/api-management-key-concepts)。

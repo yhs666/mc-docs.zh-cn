@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 06/05/2019
-ms.date: 07/29/2019
+origin.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 9673faa8cb3b653d3eb78d998aedf9f50700469b
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 1c2c248616a5647c53c51a7d7b09041c92d4cb12
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578620"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254482"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -84,7 +84,7 @@ ms.locfileid: "69578620"
 
 1. 在喜爱的文本编辑器中打开 ```config.js``` 。
 
-1. 复制并粘贴以下代码片段，并将属性 ```config.endpoint``` 和 ```config.primaryKey``` 设置为 Azure Cosmos DB 终结点 URI 和主密钥。 这两项配置都可以在 [Azure 门户](https://portal.azure.cn)中找到。
+1. 复制并粘贴以下代码片段，并将属性 ```config.endpoint``` 和 ```config.key``` 设置为 Azure Cosmos DB 终结点 URI 和主密钥。 这两项配置都可以在 [Azure 门户](https://portal.azure.cn)中找到。
 
     ![从 Azure 门户获取密钥的屏幕截图][keys]
 
@@ -93,85 +93,101 @@ ms.locfileid: "69578620"
     var config = {}
 
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
-    config.primaryKey = "~your primary key here~";
+    config.key = "~your primary key here~";
     ``` 
 
-1. 复制 ```database```、```container``` 和 ```items``` 数据并将其粘贴到在其中设置了 ```config.endpoint``` 和 ```config.primaryKey``` 属性的 ```config``` 对象（见下）。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 中的数据迁移工具，而不是在此处定义数据。 config.js 文件应包含以下代码：
+1. 复制 ```database```、```container``` 和 ```items``` 数据并将其粘贴到在其中设置了 ```config.endpoint``` 和 ```config.key``` 属性的 ```config``` 对象（见下）。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 中的数据迁移工具，而不是在此处定义数据。 config.js 文件应包含以下代码：
 
     ```javascript
     var config = {}
 
-    config.endpoint = "~your Azure Cosmos DB account endpoint uri here~";
-    config.primaryKey = "~your primary key here~";
+    config.endpoint = '~your Azure Cosmos DB account endpoint uri here~'
+    config.key = '~your primary key here~'
 
     config.database = {
-      "id": "FamilyDatabase"
-    };
+     id: 'FamilyDatabase'
+    }
 
     config.container = {
-     "id": "FamilyContainer"
-    };
+     id: 'FamilyContainer'
+    }
 
     config.items = {
-      "Andersen": {
-          "id": "Anderson.1",
-          "Country": "USA",
-          "lastName": "Andersen",
-          "parents": [{
-            "firstName": "Thomas"
-        }, {
-                "firstName": "Mary Kay"
-            }],
-        "children": [{
-            "firstName": "Henriette Thaulow",
-            "gender": "female",
-            "grade": 5,
-            "pets": [{
-                "givenName": "Fluffy"
-            }]
-        }],
-        "address": {
-            "state": "WA",
-            "county": "King",
-            "city": "Seattle"
-        }
-    },
-    "Wakefield": {
-        "id": "Wakefield.7",
-        "Country": "Italy",
-        "parents": [{
-            "familyName": "Wakefield",
-            "firstName": "Robin"
-        }, {
-                "familyName": "Miller",
-                "firstName": "Ben"
-            }],
-        "children": [{
-            "familyName": "Merriam",
-            "firstName": "Jesse",
-            "gender": "female",
-            "grade": 8,
-            "pets": [{
-                "givenName": "Goofy"
-            }, {
-                    "givenName": "Shadow"
-                }]
-        }, {
-                "familyName": "Miller",
-                "firstName": "Lisa",
-                "gender": "female",
-                "grade": 1
-            }],
-        "address": {
-            "state": "NY",
-            "county": "Manhattan",
-            "city": "NY"
-        },
-        "isRegistered": false
-      }
-    };
+     Andersen: {
+       id: 'Anderson.1',
+       Country: 'USA',
+       lastName: 'Andersen',
+       parents: [
+         {
+           firstName: 'Thomas'
+         },
+         {
+           firstName: 'Mary Kay'
+         }
+       ],
+       children: [
+         {
+           firstName: 'Henriette Thaulow',
+           gender: 'female',
+           grade: 5,
+           pets: [
+             {
+               givenName: 'Fluffy'
+             }
+           ]
+         }
+       ],
+       address: {
+         state: 'WA',
+         county: 'King',
+         city: 'Seattle'
+       }
+     },
+     Wakefield: {
+       id: 'Wakefield.7',
+       Country: 'Italy',
+       parents: [
+         {
+           familyName: 'Wakefield',
+           firstName: 'Robin'
+         },
+         {
+           familyName: 'Miller',
+           firstName: 'Ben'
+         }
+       ],
+       children: [
+         {
+           familyName: 'Merriam',
+           firstName: 'Jesse',
+           gender: 'female',
+           grade: 8,
+           pets: [
+             {
+               givenName: 'Goofy'
+             },
+             {
+               givenName: 'Shadow'
+             }
+           ]
+         },
+         {
+           familyName: 'Miller',
+           firstName: 'Lisa',
+           gender: 'female',
+           grade: 1
+         }
+       ],
+       address: {
+         state: 'NY',
+         county: 'Manhattan',
+         city: 'NY'
+       },
+       isRegistered: false
+     }
+    }
 
-    module.exports = config;
+    module.exports = config
 
     ```
 
@@ -191,25 +207,23 @@ ms.locfileid: "69578620"
     const config = require('./config');
     ```
 
-1. 复制并粘贴以下代码，以使用前面保存的 ```config.endpoint``` 和 ```config.primaryKey``` 来创建新的 CosmosClient。
+1. 复制并粘贴以下代码，以使用前面保存的 ```config.endpoint``` 和 ```config.key``` 来创建新的 CosmosClient。
 
     ```javascript
     const config = require('./config');
 
     // ADD THIS PART TO YOUR CODE
     const endpoint = config.endpoint;
-    const masterKey = config.primaryKey;
+    const key = config.key;
 
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
     ```
 
 > [!Note]
-> 如果连接到 **Cosmos DB 模拟器**，请通过创建自定义连接策略来禁用 SSL 验证。
+> 如果连接到 **Cosmos DB 模拟器**，请为节点进程禁用 SSL 验证：
 >   ```
->   const connectionPolicy = new cosmos.ConnectionPolicy ()
->   connectionPolicy.DisableSSLVerification = true
->
->   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+>   const client = new CosmosClient({ endpoint, key });
 >   ```
 
 现已获得用于初始化 Azure Cosmos DB 客户端的代码，接下来请看如何使用 Azure Cosmos DB 资源。
@@ -219,7 +233,7 @@ ms.locfileid: "69578620"
 1. 复制并粘贴以下代码，以设置数据库 ID 和容器 ID。 通过这些 ID，可了解 Azure Cosmos DB 客户端如何查找正确的数据库和容器。
 
     ```javascript
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key } });
 
     // ADD THIS PART TO YOUR CODE
     const HttpStatusCodes = { NOTFOUND: 404 };
@@ -231,7 +245,7 @@ ms.locfileid: "69578620"
 
     可以使用 **Databases** 类的 `createIfNotExists` 或 create 函数创建数据库。 数据库是跨容器分区的项的逻辑容器。 
 
-2. 复制 **createDatabase** 和 **readDatabase** 方法并将其粘贴到 app.js 文件的 ```databaseId``` 和 ```containerId``` 定义下。 **createDatabase** 函数会使用通过 ```config``` 对象指定的 ID ```FamilyDatabase``` 来创建新数据库（如果不存在数据库）。 **readDatabase** 函数会读取数据库的定义，确保数据库存在。
+2. 复制 **createDatabase** 和 **readDatabase** 方法并将其粘贴到 app.js 文件的 ```databaseId``` 和 ```containerId``` 定义下。 createDatabase 函数会使用通过 ```config``` 对象指定的 ID ```FamilyDatabase``` 来创建新数据库（如果不存在数据库）  。 **readDatabase** 函数会读取数据库的定义，确保数据库存在。
 
     ```javascript
     /**
@@ -246,7 +260,7 @@ ms.locfileid: "69578620"
     * Read the database definition
     */
     async function readDatabase() {
-      const { body: databaseDefinition } = await client.database(databaseId).read();
+      const { resource: databaseDefinition } = await client.database(databaseId).read();
       console.log(`Reading database:\n${databaseDefinition.id}\n`);
     }
     ```
@@ -281,9 +295,9 @@ ms.locfileid: "69578620"
     const config = require('./config');
 
     const endpoint = config.endpoint;
-    const masterKey = config.primaryKey;
+    const key = config.key;
 
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
 
     const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -303,7 +317,7 @@ ms.locfileid: "69578620"
     * Read the database definition
     */
     async function readDatabase() {
-     const { body: databaseDefinition } = await client.database(databaseId).read();
+     const { resource: databaseDefinition } = await client.database(databaseId).read();
     console.log(`Reading database:\n${databaseDefinition.id}\n`);
     }
 
@@ -358,8 +372,8 @@ ms.locfileid: "69578620"
     * Read the container definition
     */
     async function readContainer() {
-        const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-        console.log(`Reading container:\n${containerDefinition.id}\n`);
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
+    console.log(`Reading container:\n${containerDefinition.id}\n`);
     }
     ```
 
@@ -386,9 +400,9 @@ ms.locfileid: "69578620"
     const config = require('./config');
 
     const endpoint = config.endpoint;
-    const masterKey = config.primaryKey;
+    const key = config.key;
 
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
 
     const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -400,16 +414,16 @@ ms.locfileid: "69578620"
     * Create the database if it does not exist
     */
     async function createDatabase() {
-        const { database } = await client.databases.createIfNotExists({ id: databaseId });
-        console.log(`Created database:\n${database.id}\n`);
+     const { database } = await client.databases.createIfNotExists({ id: databaseId });
+     console.log(`Created database:\n${database.id}\n`);
     }
 
     /**
     * Read the database definition
     */
     async function readDatabase() {
-        const { body: databaseDefinition } = await client.database(databaseId).read();
-        console.log(`Reading database:\n${databaseDefinition.id}\n`);
+     const { body: databaseDefinition } = await client.database(databaseId).read();
+     console.log(`Reading database:\n${databaseDefinition.id}\n`);
     }
 
     /**
@@ -418,16 +432,16 @@ ms.locfileid: "69578620"
 
     async function createContainer() {
 
-        const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId, partitionKey }, { offerThroughput: 400 });
-        console.log(`Created container:\n${config.container.id}\n`);
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId, partitionKey }, { offerThroughput: 400 });
+    console.log(`Created container:\n${config.container.id}\n`);
     }
 
     /**
     * Read the container definition
     */
     async function readContainer() {
-        const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-        console.log(`Reading container:\n${containerDefinition.id}\n`);
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
+    console.log(`Reading container:\n${containerDefinition.id}\n`);
     }
 
     /**
@@ -435,19 +449,19 @@ ms.locfileid: "69578620"
     * @param {message} message - The message to display
     */
     function exit(message) {
-        console.log(message);
-        console.log('Press any key to exit');
-        process.stdin.setRawMode(true);
-        process.stdin.resume();
-        process.stdin.on('data', process.exit.bind(process, 0));
+     console.log(message);
+     console.log('Press any key to exit');
+     process.stdin.setRawMode(true);
+     process.stdin.resume();
+     process.stdin.on('data', process.exit.bind(process, 0));
     }
 
     createDatabase()
-        .then(() => readDatabase())
-        .then(() => createContainer())
-        .then(() => readContainer())
-        .then(() => { exit(`Completed successfully`); })
-        .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+     .then(() => readDatabase())
+     .then(() => createContainer())
+     .then(() => readContainer())
+     .then(() => { exit(`Completed successfully`); })
+     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
     ```
 
 1. 在终端中，找到 ```app.js``` 文件并运行以下命令： 
@@ -461,7 +475,7 @@ ms.locfileid: "69578620"
 
 可以使用 **Items** 类的 create 函数创建项。 使用 SQL API 时，项会投射为文档，后者是用户定义的（任意）JSON 内容。 现在，可以将项插入 Azure Cosmos DB 中。
 
-1. 将 **createFamilyItem** 函数复制并粘贴到 **readContainer** 函数下面。 **createFamilyItem** 函数创建的项包含在 ```config``` 对象中保存的 JSON 数据。 我们会进行检查，确保在创建项之前不存在具有相同 ID 的项。
+1. 将 **createFamilyItem** 函数复制并粘贴到 **readContainer** 函数下面。 **createFamilyItem** 函数创建的项包含在 ```config``` 对象中保存的 JSON 数据。 我们会进行检查以确保在创建项之前不存在具有相同 ID 的项。
 
     ```javascript
     /**
@@ -521,8 +535,8 @@ Azure Cosmos DB 支持对存储在每个容器中的 JSON 文档进行各种查�
         ]
     };
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
-    for (var queryResult of results) {
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
     }
@@ -565,10 +579,10 @@ Azure Cosmos DB 支持替换项的内容。
     * Replace the item by ID.
     */
     async function replaceFamilyItem(itemBody) {
-        console.log(`Replacing item:\n${itemBody.id}\n`);
-        // Change property 'grade'
-        itemBody.children[0].grade = 6;
-        const { item } = await client.database(databaseId).container(containerId).item(itemBody.id, itemBody.Country).replace(itemBody);
+      console.log(`Replacing item:\n${itemBody.id}\n`);
+      // Change property 'grade'
+      itemBody.children[0].grade = 6;
+     const { item } = await client.database(databaseId).container(containerId).item(itemBody.id, itemBody.Country).replace(itemBody);
     };
     ```
 
@@ -688,135 +702,164 @@ Azure Cosmos DB 支持删除 JSON 项。
 
 ```javascript
 //@ts-check
-const CosmosClient = require('@azure/cosmos').CosmosClient;
+const CosmosClient = require('@azure/cosmos').CosmosClient
 
-const config = require('./config');
-const url = require('url');
+const config = require('./config')
+const url = require('url')
 
-const endpoint = config.endpoint;
-const masterKey = config.primaryKey;
+const endpoint = config.endpoint
+const key = config.key
 
-const HttpStatusCodes = { NOTFOUND: 404 };
+const databaseId = config.database.id
+const containerId = config.container.id
+const partitionKey = { kind: 'Hash', paths: ['/Country'] }
 
-const databaseId = config.database.id;
-const containerId = config.container.id;
-const partitionKey = { kind: "Hash", paths: ["/Country"] };
-
-const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+const client = new CosmosClient({ endpoint, key })
 
 /**
  * Create the database if it does not exist
  */
 async function createDatabase() {
-    const { database } = await client.databases.createIfNotExists({ id: databaseId });
-    console.log(`Created database:\n${database.id}\n`);
+  const { database } = await client.databases.createIfNotExists({
+    id: databaseId
+  })
+  console.log(`Created database:\n${database.id}\n`)
 }
 
 /**
  * Read the database definition
  */
 async function readDatabase() {
-    const { body: databaseDefinition } = await client.database(databaseId).read();
-    console.log(`Reading database:\n${databaseDefinition.id}\n`);
+  const { resource: databaseDefinition } = await client
+    .database(databaseId)
+    .read()
+  console.log(`Reading database:\n${databaseDefinition.id}\n`)
 }
 
 /**
  * Create the container if it does not exist
  */
 async function createContainer() {
-    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId, partitionKey }, { offerThroughput: 400 });
-    console.log(`Created container:\n${config.container.id}\n`);
+  const { container } = await client
+    .database(databaseId)
+    .containers.createIfNotExists(
+      { id: containerId, partitionKey },
+      { offerThroughput: 400 }
+    )
+  console.log(`Created container:\n${config.container.id}\n`)
 }
 
 /**
  * Read the container definition
  */
 async function readContainer() {
-    const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-    console.log(`Reading container:\n${containerDefinition.id}\n`);
+  const { resource: containerDefinition } = await client
+    .database(databaseId)
+    .container(containerId)
+    .read()
+  console.log(`Reading container:\n${containerDefinition.id}\n`)
 }
 
 /**
  * Create family item if it does not exist
  */
 async function createFamilyItem(itemBody) {
-    const { item } = await client.database(databaseId).container(containerId).items.upsert(itemBody);
-    console.log(`Created family item with id:\n${itemBody.id}\n`);
-};
+  const { item } = await client
+    .database(databaseId)
+    .container(containerId)
+    .items.upsert(itemBody)
+  console.log(`Created family item with id:\n${itemBody.id}\n`)
+}
 
 /**
  * Query the container using SQL
  */
 async function queryContainer() {
-    console.log(`Querying container:\n${config.container.id}`);
+  console.log(`Querying container:\n${config.container.id}`)
 
-    // query to return all children in a family
-    const querySpec = {
-        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
-        parameters: [
-            {
-                name: "@lastName",
-                value: "Andersen"
-            }
-        ]
-    };
+  // query to return all children in a family
+  const querySpec = {
+    query: 'SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName',
+    parameters: [
+      {
+        name: '@lastName',
+        value: 'Andersen'
+      }
+    ]
+  }
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
-    for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult);
-        console.log(`\tQuery returned ${resultString}\n`);
-    }
-};
+  const { resources: results } = await client
+    .database(databaseId)
+    .container(containerId)
+    .items.query(querySpec)
+    .fetchAll()
+  for (var queryResult of results) {
+    let resultString = JSON.stringify(queryResult)
+    console.log(`\tQuery returned ${resultString}\n`)
+  }
+}
 
 /**
  * Replace the item by ID.
  */
 async function replaceFamilyItem(itemBody) {
-    console.log(`Replacing item:\n${itemBody.id}\n`);
-    // Change property 'grade'
-    itemBody.children[0].grade = 6;
-    const { item } = await client.database(databaseId).container(containerId).item(itemBody.id, itemBody.Country).replace(itemBody);
-};
+  console.log(`Replacing item:\n${itemBody.id}\n`)
+  // Change property 'grade'
+  itemBody.children[0].grade = 6
+  const { item } = await client
+    .database(databaseId)
+    .container(containerId)
+    .item(itemBody.id, itemBody.Country)
+    .replace(itemBody)
+}
 
 /**
  * Delete the item by ID.
  */
 async function deleteFamilyItem(itemBody) {
-    await client.database(databaseId).container(containerId).item(itemBody.id, itemBody.Country).delete(itemBody);
-    console.log(`Deleted item:\n${itemBody.id}\n`);
-};
+  await client
+    .database(databaseId)
+    .container(containerId)
+    .item(itemBody.id, itemBody.Country)
+    .delete(itemBody)
+  console.log(`Deleted item:\n${itemBody.id}\n`)
+}
 
 /**
  * Cleanup the database and collection on completion
  */
 async function cleanup() {
-    await client.database(databaseId).delete();
+  await client.database(databaseId).delete()
 }
 
 /**
  * Exit the app with a prompt
- * @param {message} message - The message to display
+ * @param {string} message - The message to display
  */
 function exit(message) {
-    console.log(message);
-    console.log('Press any key to exit');
-    process.stdin.setRawMode(true);
-    process.stdin.resume();
-    process.stdin.on('data', process.exit.bind(process, 0));
+  console.log(message)
+  console.log('Press any key to exit')
+  process.stdin.setRawMode(true)
+  process.stdin.resume()
+  process.stdin.on('data', process.exit.bind(process, 0))
 }
 
 createDatabase()
-    .then(() => readDatabase())
-    .then(() => createContainer())
-    .then(() => readContainer())
-    .then(() => createFamilyItem(config.items.Andersen))
-    .then(() => createFamilyItem(config.items.Wakefield))
-    .then(() => queryContainer())
-    .then(() => replaceFamilyItem(config.items.Andersen))
-    .then(() => queryContainer())
-    .then(() => deleteFamilyItem(config.items.Andersen))
-    .then(() => { exit(`Completed successfully`); })
-    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+  .then(() => readDatabase())
+  .then(() => createContainer())
+  .then(() => readContainer())
+  .then(() => createFamilyItem(config.items.Andersen))
+  .then(() => createFamilyItem(config.items.Wakefield))
+  .then(() => queryContainer())
+  .then(() => replaceFamilyItem(config.items.Andersen))
+  .then(() => queryContainer())
+  .then(() => deleteFamilyItem(config.items.Andersen))
+  .then(() => {
+    exit(`Completed successfully`)
+  })
+  .catch(error => {
+    exit(`Completed with error ${JSON.stringify(error)}`)
+  })
 
 ```
 

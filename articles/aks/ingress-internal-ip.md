@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/24/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: a89a392f12191d314cf1cc228cf178ce41c7bb52
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: cf73120ffad20e43e1ff1844ff4bdfa1b77dcce9
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731252"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500692"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建内部虚拟网络的入口控制器
 
@@ -269,8 +269,10 @@ kubectl delete namespace ingress-basic
 
 也可执行以下操作：
 
-- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
+- [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
+    
     <!--Not Available on - [Enable the HTTP application routing add-on][aks-http-app-routing]-->
+    
 - [使用动态公共 IP 创建入口控制器并配置 Let 's Encrypt 以自动生成 TLS 证书][aks-ingress-tls]
 - [使用静态公共 IP 地址创建入口控制器并配置 Let 's Encrypt 以自动生成 TLS 证书][aks-ingress-static-tls]
 

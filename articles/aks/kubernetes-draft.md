@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 06/20/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4eb696394dda40c13e622f7454abcdf9dc6819f
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 0e877bea78133a9d6b74bb164e5d73b9c261430a
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731221"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500712"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>快速入门：使用 Draft 在 Azure Kubernetes 服务 (AKS) 上进行开发
 
@@ -148,9 +148,14 @@ kubectl apply -f helm-rbac.yaml
 ## <a name="configure-helm"></a>配置 Helm
 若要将基本 Tiller 部署到 AKS 群集，请使用 [helm init][helm-init] 命令。 如果群集未启用 RBAC，请删除 `--service-account` 参数和值。
 
+<!--MOONCAKE: helm init with tiller-images-->
+
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux" \
+    --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0
 ```
+
+<!--MOONCAKE: helm init with tiller-images-->
 
 ## <a name="configure-draft"></a>配置 Draft
 

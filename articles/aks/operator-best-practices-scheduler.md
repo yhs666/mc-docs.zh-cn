@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/26/2018
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 77f7f20c50b544f3227b081723906f38beb40413
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 1ccf1d36d38c55a9505d06ea6eee06f73e112b96
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731241"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500730"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的基本计划程序功能的最佳做法
 
@@ -73,9 +73,9 @@ kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 有两个中断性事件会导致 pod 被删除：
 
 * 非自愿性中断是群集操作员或应用程序所有者无法以一般方式进行控制的事件。 
-  * 这些非自愿性中断包括物理机上的硬件故障、内核崩溃或删除节点 VM
+    * 这些非自愿性中断包括物理机上的硬件故障、内核崩溃或删除节点 VM
 * 自愿性中断是群集操作员或应用程序所有者请求的事件。 
-  * 这些自愿性中断包括群集升级、部署模板更新，或意外删除 pod。
+    * 这些自愿性中断包括群集升级、部署模板更新，或意外删除 pod。
 
 在部署中使用 pod 的多个副本可以缓解非自愿性中断。 在 AKS 群集中运行多个节点也有助于缓解这些非自愿性中断。 Kubernetes 针对自愿性中断提供 pod 中断预算，让群集操作员定义最小可用资源计数或最大不可用资源计数。  使用这些 pod 中断预算可以规划当发生自愿性中断事件时，部署或副本集如何做出响应。
 
@@ -142,12 +142,14 @@ kube-advisor 工具可以报告 PodSpecs for Windows 应用程序以及 Linux �
 * [身份验证和授权][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
+
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
 [kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 
 <!-- INTERNAL LINKS -->
+
 [resource-limits]: developer-best-practices-resource-management.md#define-pod-resource-requests-and-limits
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

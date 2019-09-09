@@ -13,11 +13,11 @@ ms.date: 11/19/2018
 ms.author: v-yiso
 ms.custom: hdinsightactive
 ms.openlocfilehash: 850abe1672acfaa42f108cf090342e0f870dac45
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646674"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737409"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
 
