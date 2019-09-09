@@ -7020,6 +7020,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/app-service/web-sites-configure.md",
+          "redirect_url": "/app-service/configure-common",
+          "redirect_document_id": false
+      },
+        {
           "source_path": "articles/power-bi-embedded/power-bi-embedded-app-token-flow.md",
           "redirect_url": "/power-bi-workspace-collections/app-token-flow",
           "redirect_document_id": false
