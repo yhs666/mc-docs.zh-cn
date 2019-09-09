@@ -5,21 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/20/2019
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 07/18/2019
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: 4d4c9b710fc321a51615194c60e72a51da1cacec
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 46a3b043e00739147a2eefbeaa028cfe55c84c14
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989690"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737036"
 ---
 # <a name="supported-languages"></a>支持的语言
 
