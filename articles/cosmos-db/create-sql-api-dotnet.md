@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 07/012/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 5a19799db26d3d9fb057fb199809541bbd7a2b37
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+origin.date: 07/12/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 3f0e916a7e878a72bc0098d86e93d9913a6844f9
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578629"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254802"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入门：生成 .NET 控制台应用以管理 Azure Cosmos DB SQL API 资源
 
@@ -35,7 +35,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 查询数据 
 * 删除数据库
 
-[API 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-cosmos-dotnet-v3) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[API 参考文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-cosmos-dotnet-v3) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -44,7 +44,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)--> 
     
 * [.NET Core 2.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/2.1)。
-* [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="setting-up"></a>设置
 
@@ -77,7 +77,8 @@ az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
     --kind GlobalDocumentDB \
-    --locations regionName="chinaeast" failoverPriority=0 --locations regionName="chinanorth" failoverPriority=1 \
+    --locations regionName="China East" failoverPriority=0 \
+    --locations regionName="China North" failoverPriority=1 \
     --default-consistency-level "Session" \
     --enable-multiple-write-locations true
 
@@ -136,9 +137,25 @@ dotnet add package Microsoft.Azure.Cosmos
 
 复制帐户的 URI 和主键以后，请将其保存到运行应用程序的本地计算机的新环境变量中   。 若要设置环境变量，请打开控制台窗口，并运行以下命令。 请确保替换 `<Your_Azure_Cosmos_account_URI>` 和 `<Your_Azure_Cosmos_account_PRIMARY_KEY>` 值。
 
+**Windows**
+
 ```console
-setx EndpointUrl <Your_Azure_Cosmos_account_URI>
-setx PrimaryKey <Your_Azure_Cosmos_account_PRIMARY_KEY>
+setx EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**Linux**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**MacOS**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  <a name="object-model"></a>
@@ -153,17 +170,19 @@ setx PrimaryKey <Your_Azure_Cosmos_account_PRIMARY_KEY>
 
 若要进一步了解不同实体的层次结构，请参阅[在 Azure Cosmos DB 中使用数据库、容器和项](databases-containers-items.md)。 使用以下 .NET 类与这些资源进行交互：
 
-* [CosmosClient]() - 此类为 Azure Cosmos DB 服务提供客户端逻辑表示。 此客户端对象用于对服务进行配置和执行请求。
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) - 此类为 Azure Cosmos DB 服务提供客户端逻辑表示。 此客户端对象用于对服务进行配置和执行请求。
 
-* [CreateDatabaseIfNotExistsAsync]() - 若数据库资源不存在，则此方法以异步操作的形式创建数据库资源；若数据库资源已存在，则此方法以异步操作的形式获取它。 
+* [CreateDatabaseIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - 若数据库资源不存在，则此方法以异步操作的形式创建数据库资源；若数据库资源已存在，则此方法以异步操作的形式获取它。 
 
-* [CreateContainerIfNotExistsAsync]() - 若容器不存在，则此方法以异步操作的形式创建容器；若容器已存在，则此方法以异步操作的形式获取它。 可查看响应中的状态代码，确定是新创建了容器 (201) 还是返回了现有容器 (200)。 
+* [CreateContainerIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet) - 若容器不存在，则此方法以异步操作的形式创建容器；若容器已存在，则此方法以异步操作的形式获取它。 可查看响应中的状态代码，确定是新创建了容器 (201) 还是返回了现有容器 (200)。 
 
-* [CreateItemAsync]() - 此方法在容器中创建项。 
+* [CreateItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - 此方法在容器中创建项。 
 
-* [QueryItemsAsync]() - 运行查询以获取所需的项。 在此方法中传递 SQL 查询。 
+* [UpsertItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - 此方法在容器内创建一个项（如果该项尚不存在）或替换该项（如果该项已存在）。 
 
-* [DeleteAsync]() - 从 Azure Cosmos 帐户中删除指定的数据库。 `DeleteAsync` 方法只删除数据库。 应单独处理 `Cosmosclient` 实例（DeleteDatabaseandCleanupAsync 方法中如此操作）。 
+* [GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet) - 此方法使用带有参数化值的 SQL 语句在 Azure Cosmos 数据库的容器下创建项查询。 
+
+* [DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - 从 Azure Cosmos 帐户中删除指定的数据库。 `DeleteAsync` 方法只删除数据库。 应单独处理 `Cosmosclient` 实例（DeleteDatabaseandCleanupAsync 方法中如此操作）。 
 
  <a name="code-examples"></a>
 ## <a name="code-examples"></a>代码示例
@@ -290,7 +309,7 @@ namespace todo
 
 ### <a name="create-a-database"></a>创建数据库 
 
-定义 `program.cs` 类中的 `CreateDatabaseAsync` 方法。 该方法创建 `FamilyDatabase`（如果尚不存在）。 
+定义 `program.cs` 类中的 `CreateDatabaseAsync` 方法。 该方法创建 `FamilyDatabase`（如果尚不存在）。
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -318,7 +337,7 @@ private async Task CreateContainerAsync()
 
 ### <a name="create-an-item"></a>创建项
 
-为 `AddItemsToContainerAsync` 方法添加以下代码，以创建家庭项：
+通过使用以下代码添加 `AddItemsToContainerAsync` 方法来创建家庭项。 可以使用 `CreateItemAsync` 或 `UpsertItemAsync` 方法来创建项：
 
 ```csharp
 private async Task AddItemsToContainerAsync()
@@ -350,20 +369,19 @@ private async Task AddItemsToContainerAsync()
         IsRegistered = false
  };
 
-// Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check the StatusCode property off the response object. 
-ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKey(andersenFamily.LastName));
-
-if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+try
+{
+    // Read the item to see if it exists. ReadItemAsync will throw an exception if the item does not exist and return status code 404 (Not found).
+    ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKey(andersenFamily.LastName));
+    Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
+}
+catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
 {
     // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
-    andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
+    ItemResponse<Family> andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
 
     // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
     Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
-}
-else
-{
-    Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
 }
 
 ```
