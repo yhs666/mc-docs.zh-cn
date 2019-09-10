@@ -16558,7 +16558,23 @@
         "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-list.md",
         "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
         "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-diagnostics.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-security-updates-1906.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-release-notes-security-updates-1907",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/azure-stack/operator/azure-stack-update-1903.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-release-notes-1907",
+      "redirect_document_id": false
+    }    
+
 
 
 
