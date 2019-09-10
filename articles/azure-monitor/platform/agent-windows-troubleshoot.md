@@ -5,21 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+origin.date: 06/12/2019
+ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3bf4f0db554348de4b590cf310e205d34ae17361
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 688ed5dac0f8e22dc08dcb53c590c90ebfe686fb
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989209"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737250"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何排查 Log Analytics Windows 代理的问题 
 
