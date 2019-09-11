@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/01/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 745ca63a07a89f871eb56d8e1860b67627992067
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 30415eb515677e6497e5bd124a80a515b616000b
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310847"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857201"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>使用 Azure PowerShell 启用 Web 应用程序防火墙
 
@@ -149,8 +149,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ```azurepowershell
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -305,4 +305,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 [使用 SSL 终端创建应用程序网关](./tutorial-ssl-powershell.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

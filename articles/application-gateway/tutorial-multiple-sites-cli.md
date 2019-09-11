@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 07/31/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: cbbede7125887f511d59d4655462f7ec3be45a86
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 04df40ce550a71acf71f000bb926422d741dc954
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310842"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857171"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>使用 Azure CLI 创建托管多个网站的应用程序网关
 
@@ -86,7 +86,7 @@ az network application-gateway create `
   --vnet-name myVNet `
   --subnet myAGsubnet `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Disabled `
   --frontend-port 80 `
   --http-settings-port 80 `
@@ -254,4 +254,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 [使用基于 URL 路径的路由规则创建应用程序网关](./tutorial-url-route-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

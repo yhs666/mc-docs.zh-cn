@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/01/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3aefead33ed000534b29b7c5a157f20e8404811d
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 131eb75b048996127fcaa4621ba04a6d57e94e87
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310820"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857198"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>通过 Azure CLI 使用 SSL 终端创建应用程序网关
 
@@ -100,7 +100,7 @@ az network application-gateway create `
   --vnet-name myVNet `
   --subnet myAGsubnet `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Disabled `
   --frontend-port 443 `
   --http-settings-port 80 `
@@ -184,4 +184,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 [创建托管多个网站的应用程序网关](./tutorial-multiple-sites-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

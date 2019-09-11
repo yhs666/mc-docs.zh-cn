@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 07/31/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 200e13359b6e526022ce10ddc3fdea0d5f3fa720
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: c41542a3d2ad0339f321d11feb7faee984777813
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310821"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857210"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>通过 Azure PowerShell 使用 SSL 终端创建应用程序网关
 
@@ -183,8 +183,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ```azurepowershell
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 
 $appgw = New-AzApplicationGateway `
@@ -301,4 +301,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 [创建托管多个网站的应用程序网关](./tutorial-multiple-sites-powershell.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

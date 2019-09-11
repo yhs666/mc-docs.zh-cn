@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/01/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 71ca8ac7d9c69090e3aa302aea65df146398c7ac
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: df4c7baf9c0a8562ca8c51c77c692a1dd5ef9f8e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310860"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857208"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
@@ -86,7 +86,7 @@ az network application-gateway create `
   --vnet-name myVNet `
   --subnet myAGsubnet `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Disabled `
   --frontend-port 80 `
   --http-settings-port 80 `
@@ -267,4 +267,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 [创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->
