@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7c8f81288b601a349635c3fbd5437c4768775238
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: c1fb7d639cd28f5d307de293845a5d570b76f2c8
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672229"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254515"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 
 ## <a name="master-keys"></a>主密钥 
 
-主密钥提供对数据库帐户中所有管理资源的访问权限。 主密钥：  
+主密钥提供对数据库帐户的所有管理资源的访问权限。 主密钥：  
 - 提供对帐户、数据库、用户和权限的访问权限。 
 - 无法用于提供对容器和文档的精细访问权限。
 - 在创建帐户过程中创建。
@@ -107,7 +107,7 @@ Cosmos DB 资源令牌提供一种安全的替代方案，使客户端能够根�
 <a name="users"></a>
 
 ## <a name="users"></a>用户
-Cosmos DB 用户与 Cosmos DB 数据库关联。  每个数据库可以包含零个或更多 Cosmos DB 用户。  以下代码示例演示如何创建 Cosmos DB 用户资源。
+Cosmos DB 用户与 Cosmos 数据库关联。  每个数据库可以包含零个或更多 Cosmos DB 用户。  以下代码示例演示如何创建 Cosmos DB 用户资源。
 
 ```csharp
 //Create a user.
@@ -195,7 +195,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>后续步骤
-* 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
+* 若要详细了解 Cosmos 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
 
 <!-- Update_Description: update meta properties -->

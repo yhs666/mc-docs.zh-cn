@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 06/03/2019
-ms.date: 06/22/2019
-ms.openlocfilehash: 8736c5de7d56fac4196bd3f6556beb3f2a5be2be
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 09/16/2019
+ms.openlocfilehash: 4704f3c0e050b50d318d18b5435b62647673fc48
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878477"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736660"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
@@ -58,12 +58,12 @@ Microsoft 提供以下实用工具用于操作 Azure 存储：
 连接之后，可以使用以下语法将文件上传到存储。
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 例如： `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-由于 HDInsight 的默认文件系统在 Azure 存储中，/example/data.txt 实际是在 Azure 存储中。 也可以将该文件表示为：
+由于 HDInsight 的默认文件系统在 Azure 存储中，因此 /example/data/data.txt 实际是在 Azure 存储中。 也可以将该文件表示为：
 
     wasbs:///example/data/data.txt
 
@@ -86,7 +86,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | [用于 HDInsight 的 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure 存储空间资源管理器](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [适用于 Microsoft Azure 的 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 

@@ -4,21 +4,24 @@ description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB G
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d2478db34c75edf59c674f4700f816329b72b0e1
-ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
+ms.openlocfilehash: 59843f309873d2062cf48710ca923956171cbc72
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68293434"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254640"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Gremlin API 资源
 
 ## 创建 Azure Cosmos DB API for MongoDB 帐户、数据库和集合 <a name="create-resource"></a>
 
 使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建 Gremlin API 的 Azure Cosmos 帐户，所使用的两个图形在数据库级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-gremlin/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+> [!NOTE]
+> 帐户名称必须为小写且 < 31 个字符。
 
 ```json
 {
@@ -219,19 +222,7 @@ ms.locfileid: "68293434"
                         "indexingMode": "consistent",
                         "includedPaths": [
                             {
-                                "path": "/*",
-                                "indexes": [
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "number",
-                                        "precision": -1
-                                    },
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "string",
-                                        "precision": -1
-                                    }
-                                ]
+                                "path": "/*"
                             }
                         ],
                         "excludedPaths": [
@@ -263,19 +254,7 @@ ms.locfileid: "68293434"
                         "indexingMode": "consistent",
                         "includedPaths": [
                             {
-                                "path": "/*",
-                                "indexes": [
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "number",
-                                        "precision": -1
-                                    },
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "string",
-                                        "precision": -1
-                                    }
-                                ]
+                                "path": "/*"
                             }
                         ]
                     },
@@ -453,6 +432,8 @@ az group deployment create --resource-group $resourceGroupName \
 
 ### <a name="deploy-graph-template-via-azure-cli"></a>通过 Azure CLI 部署图形模板
 
+使用 Azure CLI 部署资源管理器模板。
+
 <!--Not Avaialble on Cloud Shell-->
 <!--Not Avaialble on To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
@@ -473,7 +454,9 @@ az group deployment create --resource-group $resourceGroupName \
 下面是一些其他资源：
 
 - [Azure 资源管理器文档](/azure-resource-manager/)
-- [Azure Cosmos DB 资源提供程序架构](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)
+
+    <!--Not Available on - [Azure Cosmos DB resource provider schema](https://docs.microsoft.com/azure/templates/microsoft.documentdb/allversions)-->
+    
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

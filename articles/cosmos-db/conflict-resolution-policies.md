@@ -4,16 +4,16 @@ description: 本文介绍 Azure Cosmos DB 中的冲突类别和冲突解决策�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: dafccab8e3ecc9016d6e42caa9df6a7671d8cfca
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 6d1d2a2ddbd6c5ca2233c21d35edd9c633092d25
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151517"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254581"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>冲突类型和解决策略
 
@@ -31,16 +31,16 @@ ms.locfileid: "67151517"
 
 Azure Cosmos DB 提供了灵活的策略驱动型机制来解决写入冲突。 可以针对 Azure Cosmos 容器，从以下两种冲突解决策略中进行选择：
 
-- **最后写入者胜出 (LWW)** ：此解决策略默认情况下使用系统定义的时间戳属性。 它基于时间同步时钟协议。 若使用 SQL API，可以指定其他任何自定义数字属性（例如，你自己的时间戳概念）来解决冲突。 自定义数字属性又称为冲突解决路径。  
+* **最后写入者胜出 (LWW)** ：此解决策略默认情况下使用系统定义的时间戳属性。 它基于时间同步时钟协议。 若使用 SQL API，可以指定其他任何自定义数字属性（例如，你自己的时间戳概念）来解决冲突。 自定义数字属性又称为冲突解决路径。  
 
     如果在执行插入或替换操作时有两个或更多个项发生冲突，冲突解决路径值最大的项将成为优胜者。 如果多个项的冲突解决路径的数字值相同，则由系统确定优胜者。 保证所有区域融合到单个优胜者，并且提交的项的版本最终相同。 当涉及到删除冲突时，已删除版本始终优先于插入或替换冲突。 不管冲突解决路径的值如何，均会出现此结果。
 
     > [!NOTE]
-    > “最后写入者胜出”是默认的冲突解决策略。 它适用于以下 API：SQL、MongoDB、Cassandra、Gremlin、表。
+    > “最后写入者胜出”是默认冲突解决策略，对以下 API 使用时间戳 `_ts`：SQL、MongoDB、Cassandra、Gremlin、表。 自定义数值属性仅可用于 SQL API。
 
     有关详细信息，请参阅 [LWW 冲突解决策略的用法示例](how-to-manage-conflicts.md)。
 
-- **自定义**：此解决策略旨在使用应用程序定义的语义来调解冲突。 在 Azure Cosmos 容器上设置此策略时，还需注册合并存储过程。  在服务器的数据库事务下检测到冲突时，会自动调用此过程。 在执行提交协议过程中，该系统可保证正好执行合并过程一次。  
+* **自定义**：此解决策略旨在使用应用程序定义的语义来调解冲突。 在 Azure Cosmos 容器上设置此策略时，还需注册合并存储过程。  在服务器的数据库事务下检测到冲突时，会自动调用此过程。 在执行提交协议过程中，该系统可保证正好执行合并过程一次。  
 
     如果为容器配置了自定义解决选项，但无法在容器中注册合并过程，或者合并过程在运行时引发异常，则冲突将写入到冲突源。  然后，应用程序需要自行解决冲突源中的冲突。 有关详细信息，请参阅[自定义解决策略和冲突源的用法示例](how-to-manage-conflicts.md)。
 

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 07/05/2019
 ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 2bb6027a27855cc1d5cc1ab51714105333d9db7d
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: ff0f6231c928271771e667a18412b32168e3f801
+ms.sourcegitcommit: 2f7c24eff74f4de0d4a117fc2c327e00ab77ff88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131742"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70888183"
 ---
 # <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 
@@ -75,7 +75,7 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 以下示例重置名为“Group TestRG1 TestVNet1”的虚拟网络的网关（在门户中简单地显示为“TestVNet1”）：
 
 ```powershell
-Reset-AzureVNetGateway �VnetName 'Group TestRG1 TestVNet1'
+Reset-AzureVNetGateway -VnetName 'Group TestRG1 TestVNet1'
 ```
 
 结果：

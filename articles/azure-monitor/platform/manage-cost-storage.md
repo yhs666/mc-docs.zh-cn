@@ -1,26 +1,26 @@
 ---
 title: 管理 Azure Log Analytics 的使用情况和成本 | Azure Docs
-description: 了解如何在 Azure 中更改定价计划和管理 Log Analytics 工作区的数据量与保留策略。
+description: 了解如何在 Azure Monitor 中更改定价计划和管理 Log Analytics 工作区的数据量与保留策略。
 services: azure-monitor
 documentationcenter: azure-monitor
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: magoedte
+origin.date: 07/29/2019
+ms.date: 08/29/2019
+ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: b03dafa17c32e25b2c246bbc93319c849178078f
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 69ec131b68cd7f5f8e0bc0be2182b0f3455edf43
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989415"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737396"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>通过 Azure Monitor 日志管理使用情况和成本
 
@@ -193,7 +193,7 @@ union withsource = tt *
 | summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="understanding-ingested-data-volume"></a>了解引入的数据量 
+## <a name="understanding-ingested-data-volume"></a>了解引入的数据量
 
 在“使用情况和预估成本”页上，  “单个解决方案的数据引入”图表  显示发送的总数据量以及每个解决方案发送的量。 这样就可以确定趋势，例如总数据使用量（或特定解决方案的使用量）是正在增长、保持平稳还是正在下降。 用于生成此指标的查询是：
 

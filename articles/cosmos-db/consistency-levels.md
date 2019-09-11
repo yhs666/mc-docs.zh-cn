@@ -5,18 +5,18 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: c0d33cbea47a6f1a6b8e39e6ceaeb540e3fa1964
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+origin.date: 07/23/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 66f18c356c6f34ff8f203e1142fd1a9b6a79ce1b
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578613"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254809"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 
-依赖于复制实现高可用性和/或低延迟的分布式数据库在读取一致性与可用性、延迟和吞吐量之间进行基本权衡。 大多数商用分布式数据库都要求开发人员在两种极端一致性模型之间进行选择：非常一致和最终一致。    [可线性化](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)或非常一致性模型是数据可编程性的黄金标准。 但其导致的延迟代价较高（稳定状态下）且会降低可用性（遇到故障时）。 另一方面，最终一致性可提供更高的可用性和性能，但会加大应用程序的编程难度。 
+依赖于复制实现高可用性和/或低延迟的分布式数据库在读取一致性与可用性、延迟和吞吐量之间进行基本权衡。 大多数商用分布式数据库都要求开发人员在两种极端一致性模型之间进行选择：非常一致和最终一致。   可线性化或非常一致性模型是数据可编程性的黄金标准。 但其导致的延迟代价较高（稳定状态下）且会降低可用性（遇到故障时）。 另一方面，最终一致性可提供更高的可用性和性能，但会加大应用程序的编程难度。 
 
 Azure Cosmos DB 通过某种选择范围来实现数据一致性，而不会走两种极端。 尽管非常一致性和最终一致性处于该范围的两个极端，但在一致性的整个范围中，还有很多一致性选项。 开发人员可以使用这些选项在高可用性和性能方面做出精确的选择和细致的取舍。 
 
@@ -36,13 +36,13 @@ Azure Cosmos DB 通过某种选择范围来实现数据一致性，而不会走�
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>与一致性级别关联的保证
 
-Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选任何一致性级别的一致性保证。 如果满足与一致性级别关联的所有一致性保证，则读取请求满足一致性 SLA。 [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub 存储库中提供了 Azure Cosmos DB 中使用 [TLA+ 规范语言](https://lamport.azurewebsites.net/tla/tla.html)的五个一致性级别的精确定义。 
+Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选任何一致性级别的一致性保证。 如果满足与一致性级别关联的所有一致性保证，则读取请求满足一致性 SLA。 [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub 存储库中提供了 Azure Cosmos DB 中使用 TLA+ 规范语言精确定义的五个一致性级别。
 
 <!--MOONCAKE: CORRECT ON https://lamport.azurewebsites.net/tla/tla.html-->
 
 下面描述了五个一致性级别的语义：
 
-- **非常一致性**：强一致性提供[可线性化](https://aphyr.com/posts/313-strong-consistency-models)保证。 保证读取操作返回项的最新提交版本。 客户端永远不会看到未提交或不完整的写入。 始终保证用户读取最新确认的写入。
+- **非常一致性**：非常一致性提供可线性化保证。 可线性化是指并发处理请求。 保证读取操作返回项的最新提交版本。 客户端永远不会看到未提交或不完整的写入。 始终保证用户读取最新确认的写入。
 
 - **受限停滞一致性**：保证读取操作遵循一致性前缀保证。 读取操作可以滞后于写入操作最多 *"K"* 个项版本（即“更新”）或 *"T"* 时间间隔。 换言之，如果选择有限过期，则可以通过两种方式配置“过期”： 
 

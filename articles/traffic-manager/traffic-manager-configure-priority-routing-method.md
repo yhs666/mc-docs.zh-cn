@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9b69cfe6766800fed5b3ea6f2d733ba1efc53f7e
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 1985a4ce770551281a3cc51e43aba8dc9b67ab9b
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514180"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857328"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置优先级流量路由方法
 
@@ -48,7 +48,7 @@ ms.locfileid: "68514180"
     3. “流量管理器配置文件”  边栏选项卡会显示新建的流量管理器配置文件的 DNS 名称。 任意客户端（例如通过 Web 浏览器导航到此名称）均可使用此名称路由到根据路由类型确定的相应终结点。 此情况下，所有请求均会路由到第一个终结点；如果流量管理器检测到其处于不正常状态，则流量会自动故障转移到下一终结点。
 11. 流量管理器配置文件正常工作后，请在权威 DNS 服务器上编辑 DNS 记录，将公司域名指向流量管理器域名。
 
-![使用流量管理器配置优先级流量路由方法][1]
+    ![使用流量管理器配置优先级流量路由方法][1]
 
 ## <a name="next-steps"></a>后续步骤
 

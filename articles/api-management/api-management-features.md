@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 06/17/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: f223869a009d2bb5df6a1a350d48e6b499eaadf5
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 5a92881480a5de727fd04f6c5f1a684fe52fe2c8
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732641"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736733"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API 管理层的基于功能的比较
 
-每个 API 管理[定价层](https://www.azure.cn/zh-cn/pricing/details/api-management/)都提供了一组不同的功能和每单位[容量](api-management-capacity.md)。 下表总结了每个层中提供的主要功能。 某些功能可能根据层以不同的方式工作或具有不同的能力。 在这种情况下，介绍这些功能的文档文章中指出了差异。
+>[!IMPORTANT]
+> 请注意，开发人员层适用于非生产用例和评估。 它不提供 SLA。 每个 API 管理[定价层](https://www.azure.cn/zh-cn/pricing/details/api-management/)都提供了一组不同的功能和每单位[容量](api-management-capacity.md)。 下表总结了每个层中提供的主要功能。 某些功能可能根据层以不同的方式工作或具有不同的能力。 在这种情况下，介绍这些功能的文档文章中指出了差异。
 
 | 功能                                                                                      | 开发人员      | 基本          | 标准       | 高级        |
 | -------------------------------------------------------------------------------------------- | -------------- | -------------- | -------------- | -------------- |
@@ -41,6 +42,7 @@ ms.locfileid: "66732641"
 | [基于 Git 的管理](api-management-configuration-repository-git.md)                        | 是            | 是            | 是            | 是            |
 | 直接管理 API                                                                        | 是            | 是            | 是            | 是            |
 | Azure Monitor 日志和指标                                                               | 是            | 是            | 是            | 是            |
+| 静态 IP                                                                                    | 是            | 是            | 是            | 是            |
 
 <sup>1</sup> 允许使用 Azure AD（和 Azure AD B2C）作为标识提供者，以用于开发人员门户上的用户登录。<br/>
 <sup>2</sup> 包括相关功能，例如用户、组、问题、应用程序和电子邮件模板以及通知。<br/>

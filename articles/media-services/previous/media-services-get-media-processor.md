@@ -16,11 +16,11 @@ origin.date: 10/30/2018
 ms.date: 12/03/2018
 ms.author: juliako
 ms.openlocfilehash: 9f7b7c4990dbf91bf3e760535a063894093823ae
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673143"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737361"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.locfileid: "52673143"
 
 ## <a name="get-media-processor"></a>获取媒体处理器
 
-以下方法演示了如何获取媒体处理器实例。 该代码示例假设使用名为“_context”的模块级变量来引用 [如何：以编程方式连接到媒体服务](media-services-use-aad-auth-to-access-ams-api.md)部分中描述的服务器上下文。
+以下方法演示了如何获取媒体处理器实例。 该代码示例假设使用名为 _context 的模块级变量引用服务器上下文，如[如何：  以编程方式连接到媒体服务](media-services-use-aad-auth-to-access-ams-api.md)一节所述。
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

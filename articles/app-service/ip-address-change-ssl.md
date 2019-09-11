@@ -10,14 +10,14 @@ ms.workload: web
 ms.topic: article
 origin.date: 06/28/2018
 ms.date: 01/21/2019
-ms.author: v-biyu
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 13758026b5cdb6f656fd1ac0e4d1e1d4230e0d74
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 90e85a1a58eb33f5b56b515c2575f52fff6b9fd4
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083795"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806746"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>如何为 SSL IP 地址更改做好准备
 
@@ -27,15 +27,15 @@ ms.locfileid: "54083795"
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。
 
-2. 在左侧导航菜单中选择“应用服务”。
+2. 在左侧导航菜单中选择“应用服务”。 
 
 3. 从列表中选择自己的应用服务应用。
 
-4. 在左侧导航窗格中，单击“设置”标头下的“SSL 设置”。
+4. 在左侧导航窗格中，单击“设置”标头下的“SSL 设置”。  
 
-5. 在“SSL 绑定”部分，选择主机名记录。 在打开的编辑器中，从“SSL 类型”下拉菜单中选择“SNI SSL”，然后单击“添加绑定”。 如果出现操作成功的消息，则表示已释放现有的 IP 地址。
+5. 在“SSL 绑定”部分，选择主机名记录。 在打开的编辑器中，从“SSL 类型”下拉菜单中选择“SNI SSL”，然后单击“添加绑定”。    如果出现操作成功的消息，则表示已释放现有的 IP 地址。
 
-6. 在“SSL 绑定”部分，再次选择包含证书的同一主机名记录。 在打开的编辑器中，这次请从“SSL 类型”下拉菜单中选择“基于 IP 的 SSL”，然后单击“添加绑定”。 如果出现操作成功的消息，表示已获取新的 IP 地址。
+6. 在“SSL 绑定”部分，再次选择包含证书的同一主机名记录。  在打开的编辑器中，这次请从“SSL 类型”下拉菜单中选择“基于 IP 的 SSL”，然后单击“添加绑定”。    如果出现操作成功的消息，表示已获取新的 IP 地址。
 
 7. 如果在域注册门户（第三方 DNS 提供程序或 Azure DNS）中配置了 A 记录（直接指向你的 IP 地址的 DNS 记录），请将现有 IP 地址替换为新生成的 IP 地址。 遵照下一部分中的说明可以找到新 IP 地址。
 
@@ -43,11 +43,11 @@ ms.locfileid: "54083795"
 
 1. 等待几分钟时间，然后打开 [Azure 门户](https://portal.azure.cn)。
 
-2. 在左侧导航菜单中选择“应用服务”。
+2. 在左侧导航菜单中选择“应用服务”。 
 
 3. 从列表中选择自己的应用服务应用。
 
-4. 在“设置”标题下，单击左侧导航栏中的“属性”，找到标有“虚拟 IP 地址”的部分。
+4. 在“设置”  标题下，单击左侧导航栏中的“属性”  ，找到标有“虚拟 IP 地址”  的部分。
 
 5. 复制 IP 地址并重新配置域记录或 IP 机制。
 

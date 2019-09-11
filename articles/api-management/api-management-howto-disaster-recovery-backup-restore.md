@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: 0f5917fe2a93b063b804bf69824f1f2b9c0fbb2b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/16/2019
+ms.openlocfilehash: 04c48c33b71f0e73c9a667654d69d947e71ebff9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569596"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736726"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 
@@ -179,9 +179,11 @@ POST https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{
 * 当备份正在进行时，请**避免更改服务管理**，例如 SKU 升级或降级、域名更改等。
 * 从创建时开始，**备份还原仅保证 30 天**。
 * 用于创建分析报表的**用法数据** **不包括**在备份中。 使用 [Azure API 管理 REST API][Azure API Management REST API] 定期检索分析报表以保证安全。
+* 此外，以下项不是备份数据的一部分：自定义域 SSL 证书、客户上传的任何中间或根证书、开发人员门户内容和虚拟网络集成设置。
 * 执行服务备份的频率将影响恢复点目标。 为了最大程度减少它，建议实施定期备份，以及在对 API 管理服务进行更改后执行按需备份。
 * 备份操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的**更改** **可能不包含在备份中，会丢失**。
-
+* **允许**从控制平面访问 Azure 存储帐户。 客户应在其存储帐户上打开以下一组入站 IP 以进行备份。 
+    > 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、13.64.39.16/32、40.81.47.216/32、51.145.179.78/32、52.142.95.35/32、40.90.185.46/32、20.40.125.155/32
 ### <a name="step2"> </a>还原 API 管理服务
 
 若要从之前创建的备份还原 API 管理服务，请发出以下 HTTP 请求：

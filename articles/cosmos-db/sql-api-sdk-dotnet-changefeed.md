@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 01/30/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 326e81d4ae52887826c2ffac2713f6bb1dee0c1d
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 35de545aa68ede73faf3d285470f32de541293b6
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171321"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254466"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 更改源处理器 SDK：下载和发行说明
 
@@ -30,13 +30,13 @@ ms.locfileid: "67171321"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [批量执行程序 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
 |**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API 文档**|[更改源处理器库 API 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**API 文档**|[更改源处理器库 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**入门**|[更改源处理器 .NET SDK 入门](change-feed.md)|
 |**当前受支持的框架**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)<br /> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 

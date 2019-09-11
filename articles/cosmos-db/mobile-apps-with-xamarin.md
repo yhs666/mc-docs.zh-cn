@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/15/2018
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c139fb6fa5782b545bb90f96f5a6cd81b48a362
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 3345e6ee4fcfccde2972acfa8aa7700d3b8f97b7
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171354"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254848"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 
@@ -36,8 +36,8 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 
 * 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](how-to-sql-query.md)，无需担心架构或索引问题。
 * 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 对所有单区域帐户和具有松散一致性的所有多区域帐户采用 99.99% 的可用性 SLA，对所有多区域数据库帐户采用 99.999% 的读取可用性。
-* 无限规模。 Azure Cosmos DB 集合[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
-* 多区域分布。 移动应用用户的特点是经常在中国不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
+* 无限规模。 Azure Cosmos 容器[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
+* 多区域分布式。 移动应用用户的特点是经常在中国不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
 * 内置丰富授权。 有了 Azure Cosmos DB，无需使用复杂的自定义授权代码，就能轻松实现常用的模式，例如，[每个用户的数据](https://aka.ms/documentdb-xamarin-todouser)，或者多个共享用户的数据。
 * 地理空间查询。 许多移动应用现在可以提供区分地理环境的体验。 凭借对[地理空间类型](geospatial.md)的一流支持，Azure Cosmos DB 可轻松创建这些体验。
 * 二进制附件。 应用数据通常包含二进制 Blob。 Azure Cosmos DB 原生支持附件，因此可以更轻松地用作应用数据的一站式存储库。
@@ -97,6 +97,7 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 
 ### <a name="go-multiple-region-scale"></a>达到多区域规模
 在应用受到广泛欢迎后，可以吸收中国的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到中国任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
+
 <!-- Notice: 全球 to 多个区域 -->
 <!-- Notice: 全球各地 to 中国各地 -->
 <!-- Notice: 全球 to 中国 -->

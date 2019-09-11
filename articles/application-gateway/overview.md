@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 origin.date: 05/31/2019
-ms.date: 06/11/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 21881a301282f3dddaaf9647b695f698b740e2e3
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 0c7615ffd5e0688af89bc07416b49b433215c25e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027439"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857187"
 ---
 # <a name="what-is-azure-application-gateway"></a>什么是 Azure 应用程序网关？
 
@@ -34,6 +34,17 @@ Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 We
 
 应用程序网关支持在网关上终止 SSL/TLS，之后，流量通常会以未加密状态流到后端服务器。 此功能让 Web 服务器不用再负担昂贵的加密和解密开销。 但有时，与服务器进行未加密的通信不是可以接受的选项。 这可能是因为安全要求、符合性要求，或者应用程序可能仅接受安全连接。 对于这些应用程序，应用程序网关支持端到端 SSL/TLS 加密。
 
+## <a name="autoscaling"></a>自动缩放
+
+Standard_v2 或 WAF_v2 SKU 下的应用程序网关或 WAF 部署支持自动缩放，可根据变化的流量负载模式进行纵向扩展或缩减。 自动缩放还无需在预配期间要求选择部署大小或实例计数。 有关应用程序网关 standard_v2 和 WAF_v2 功能的详细信息，请参阅[自动缩放 v2 SKU](application-gateway-autoscaling-zone-redundant.md)。
+
+## <a name="zone-redundancy"></a>区域冗余
+
+Standard_v2 或 WAF_v2 SKU 下的应用程序网关或 WAF 部署可以跨多个可用性区域，提供更好的故障复原能力，不需在每个区域预配单独的应用程序网关。
+
+## <a name="static-vip"></a>静态 VIP
+
+Standard_v2 或 WAF_v2 SKU 上的应用程序网关 VIP 支持独占形式的静态 VIP 类型。 这样可确保与应用程序网关关联的 VIP 在应用程序网关的整个生存期内都不会更改。
 
 ## <a name="web-application-firewall"></a>Web 应用程序防火墙
 
@@ -87,11 +98,37 @@ WebSocket 和 HTTP/2 协议通过长时间运行的 TCP 连接，在服务器和
 
 有关详细信息，请参阅 [WebSocket 支持](/application-gateway/application-gateway-websocket)和 [HTTP/2 支持](/application-gateway/configuration-overview#http2-support)。
 
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes 服务 (AKS) 入口控制器预览版 
+
+应用程序网关入口控制器作为 pod 在 AKS 群集中运行，并允许应用程序网关充当 AKS 群集的入口。 仅应用程序网关 v2 支持此功能。
+
+有关详细信息，请参阅 [Azure 应用程序网关入口控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
+
 ## <a name="connection-draining"></a>连接清空
 
 连接清空可帮助你在计划内服务更新期间正常删除后端池成员。 此设置是通过后端 http 设置启用的，并且可以在创建规则期间应用于后端池的所有成员。 启用后，应用程序网关可确保后端池的所有已取消注册实例不再收到任何新请求，同时允许现有请求在所配置的时间限制内完成。 这适用于通过 API 调用显式从后端池中删除的后端实例，以及所报告的由运行状况探测确定为不正常的后端实例。
 
+## <a name="custom-error-pages"></a>自定义错误页
+
+应用程序网关允许你创建自定义错误页而非显示默认错误页。 你可以在自定义错误页上使用自己的品牌和布局。
+
+有关详细信息，请参阅[自定义错误](custom-error.md)。
+
+## <a name="rewrite-http-headers"></a>重写 HTTP 标头
+
+HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的信息。 重写这些 HTTP 标头可帮助实现多个重要方案，例如：
+
+- 添加安全相关的标头字段（如 HSTS/ X-XSS-Protection）。
+- 删除可能会透露敏感信息的响应标头字段。
+- 从 X-Forwarded-For 标头中去除端口信息。
+
+当请求和响应数据包在客户端与后端池之间移动时，可以通过应用程序网关添加、删除或更新 HTTP 请求和响应标头。 它还允许你添加条件，确保只有在满足特定条件的情况下才能重写指定标头。
+
+有关详细信息，请参阅[重写 HTTP 标头](rewrite-http-headers.md)。
+
 ## <a name="sizing"></a>大小调整
+
+可以配置应用程序网关的 Standard_v2 和 WAF_v2 SKU，以便进行自动缩放的或固定大小的部署。 这两个 SKU 不提供不同的实例大小。
 
 应用程序网关的 Standard 和 WAF SKU 目前提供三种大小：**小型**、**中型**和**大型**。 小型实例大小适用于开发和测试方案。
 

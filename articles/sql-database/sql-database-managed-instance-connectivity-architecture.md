@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: bonova, carlrab
-manager: digimobile
+ms.reviewer: sstein, bonova, carlrab
 origin.date: 04/16/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 22fbc6f3fabbcbf288bf4d11ce39cc9c89381559
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: a90c6be322c9ba4517df6da2e29dea7cfdd8c669
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544306"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373027"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -68,7 +67,7 @@ Azure 管理和部署服务在虚拟网络外部运行。 托管实例和 Azure 
 
 ![虚拟群集的连接体系结构](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-客户端使用 `<mi_name>.<dns_zone>.database.chinacloudapi.cn` 格式的主机名连接到托管实例。 此主机名将解析为专用 IP 地址，不过，它将在公共域名系统 (DNS) 区域中注册，且可公开解析。 `zone-id` 是创建群集时自动生成的。 如果新建的群集托管辅助托管实例，它会将其区域 ID 与主群集共享。
+客户端使用 `<mi_name>.<dns_zone>.database.chinacloudapi.cn` 格式的主机名连接到托管实例。 此主机名将解析为专用 IP 地址，不过，它将在公共域名系统 (DNS) 区域中注册，且可公开解析。 `zone-id` 是创建群集时自动生成的。 如果新建的群集托管辅助托管实例，它会将其区域 ID 与主群集共享。 有关详细信息，请参阅[使用自动故障转移组可以实现多个数据库的透明、协调式故障转移](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
 
 此专用 IP 地址属于托管实例的内部负载均衡器。 该负载均衡器将流量定向到托管实例网关。 由于多个托管实例可能在同一群集中运行，因此网关使用托管实例主机名来将流量重新定向到正确的 SQL 引擎服务。
 
@@ -229,7 +228,7 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 
 此外，还可以将条目添加到路由表，以通过虚拟网络网关或虚拟网络设备 (NVA) 路由发往本地专用 IP 范围的流量。
 
-如果虚拟网络包含自定义 DNS，则自定义 DNS 服务器必须能够解析 \*.core.chinacloudapi.cn 区域中的主机名。 使用其他功能（例如 Azure AD 身份验证）可能需要解析其他 FQDN。 有关详细信息，请参阅[设置自定义 DNS](sql-database-managed-instance-custom-dns.md)。
+如果虚拟网络包含自定义 DNS，则自定义 DNS 服务器必须能够解析公共 DNS 记录。 使用其他功能（例如 Azure AD 身份验证）可能需要解析其他 FQDN。 有关详细信息，请参阅[设置自定义 DNS](sql-database-managed-instance-custom-dns.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

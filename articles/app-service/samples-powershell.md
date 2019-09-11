@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 origin.date: 03/08/2017
 ms.date: 01/21/2019
-ms.author: v-biyu
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: dbac657d0450d4b5fa1d0bf6df9a2a85ec569ccd
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 24e97d19db8eed0df5afbe6fc33f72cf43c56516
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083897"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806905"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Azure 应用服务的 PowerShell 示例
 

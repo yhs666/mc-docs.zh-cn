@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 origin.date: 11/29/2018
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d27e1185e4e3c0d8d2a42a0ab9e2e1ac0e6bd73a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c3e35f06ea851f4d15f3d3da12eba30ad07fe64e
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004698"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254449"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.locfileid: "58004698"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [批量执行程序 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -39,7 +39,6 @@ ms.locfileid: "58004698"
 |**参与 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**入门**|[Python SDK 入门](sql-api-python-application.md)|
 |**当前受支持的平台**|[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)|
-
 
 <!-- Not Available on ## Release notes -->
 <!-- Not Available on ## Release & retirement dates -->

@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 4683a3e9765203a3924b48d4a2f7ada8852583d0
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 74336d8c6231cce98681a6e93b7222be60f8d4b4
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171395"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254851"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 
@@ -43,7 +43,7 @@ ms.locfileid: "67171395"
 **步骤 2：** 在 App.config 中修改 EndpointUrl、AuthorizationKey、CollectionThroughput 和 DocumentTemplate（可选）的设置。
 
 > [!NOTE]
-> 为集合预配高吞吐量之前，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)估算每个集合的成本。 Azure Cosmos DB 按小时对存储和吞吐量单独计费。 可在测试完成后，删除或降低 Azure Cosmos DB 集合的吞吐量以节省成本。
+> 为集合预配高吞吐量之前，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)估算每个集合的成本。 Azure Cosmos DB 按小时对存储和吞吐量单独计费。 可在测试完成后，删除或降低 Azure Cosmos 容器的吞吐量以节省成本。
 > 
 > 
 

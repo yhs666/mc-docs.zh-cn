@@ -7,18 +7,18 @@ author: ggailey777
 ms.author: v-junlch
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 origin.date: 11/13/2018
-ms.date: 07/17/2019
+ms.date: 09/06/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 4d621f037756f04848e7aa1e0a12ebaa389f1c94
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: b8e8abccddaec3812cbb8fe48d493e0f4603a821
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331884"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805752"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>从命令行创建第一个函数
 
@@ -38,33 +38,7 @@ ms.locfileid: "68331884"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-## <a name="create-the-local-function-app-project"></a>创建本地函数应用项目
-
-从命令行运行以下命令，在当前本地目录的 `MyFunctionProj` 文件夹中创建函数应用项目。 也会在 `MyFunctionProj` 中创建一个 GitHub 存储库。
-
-```bash
-func init MyFunctionProj
-```
-
-当系统提示时，请从下面的语言选项中选择一个辅助角色运行时：
-
-+ `dotnet`：创建一个 .NET 类库项目 (.csproj)。
-+ `node`：创建 JavaScript 项目。
-
-执行命令后，看到的内容如以下输出所示：
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-使用以下命令导航到新的 `MyFunctionProj` 项目文件夹。
-
-```bash
-cd MyFunctionProj
-```
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>启用扩展捆绑包
 

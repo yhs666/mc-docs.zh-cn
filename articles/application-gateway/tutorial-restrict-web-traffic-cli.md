@@ -4,17 +4,17 @@ description: 了解如何通过 Azure CLI 在应用程序网关上使用 Web 应
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-origin.date: 05/20/2019
-ms.date: 06/12/2019
+ms.topic: article
+origin.date: 08/01/2019
+ms.date: 09/03/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 87fba89e75cbfe88ee62d20096fe955fcdfa7ce6
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 64135d109d192c0d9744fb3f260f25177226eae3
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027411"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310839"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>使用 Azure CLI 启用 Web 应用程序防火墙
 
@@ -34,7 +34,7 @@ ms.locfileid: "67027411"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+根据本文的要求，如果选择在本地安装并使用 CLI，则需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源
 
-虚拟网络和子网用于提供与应用程序网关及其关联资源的网络连接。 分别使用 [az network vnet create](/cli/network/vnet#az-network-vnet-create) 和 [az network vnet subnet create](/cli/network/vnet/subnet#az-network-vnet-subnet-create) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network-public-ip-create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+虚拟网络和子网用于提供与应用程序网关及其关联资源的网络连接。 创建名为 myVNet  的虚拟网络和名为 myAGSubnet  的子网。 然后创建名为 myAGPublicIPAddress  的公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -65,12 +65,14 @@ az network vnet subnet create `
 
 az network public-ip create `
   --resource-group myResourceGroupAG `
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress `
+  --allocation-method Static `
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>创建具有 WAF 的应用程序网关
 
-可以使用 [az network application-gateway create](/cli/network/application-gateway) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myAGPublicIPAddress*。
+可以使用 [az network application-gateway create](/cli/network/application-gateway) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给 myAGSubnet  和 myAGPublicIPAddress  。
 
 ```azurecli
 az network application-gateway create `
@@ -190,6 +192,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
+[使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
 
 <!-- Update_Description: wording update -->

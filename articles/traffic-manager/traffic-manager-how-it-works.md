@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/05/2019
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: b4fe71504a0375f863c13bc96efcaa0e20891a0f
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 401faff9217bc1bf1c25613c7344f1a6205f98dd
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514178"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254675"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理器的工作原理
 
@@ -42,14 +42,15 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 1. 部署其服务的三个实例。 这些部署的 DNS 名称为“contoso-east.chinacloudapp.cn”、“contoso-north.chinacloudapp.cn”和“contoso-east2.chinacloudapp.cn”。
 1. 创建一个名为“contoso.trafficmanager.cn”的流量管理器配置文件，并将该文件配置为对三个终结点使用“性能”流量路由方法。
 1. 使用 DNS CNAME 记录将其虚构域名“partners.contoso.com”配置为指向“contoso.trafficmanager.cn”。
-   <!--Notice: us map east, eu map north, asia map east2 -->
+    
+    <!--Notice: us map east, eu map north, asia map east2 -->
 
-![流量管理器 DNS 配置][1]
+    ![流量管理器 DNS 配置][1]
 
-> [!NOTE]
-> 通过 Azure 流量管理器来使用虚构域时，必须使用 CNAME 将虚构域名指向流量管理器域名。 DNS 标准不允许在域的“顶点”（或根）位置创建 CNAME。 因此，无法为“contoso.com”（有时称为“裸”域）创建 CNAME。 只能为“contoso.com”下的域（例如“www.contoso.com”）创建 CNAME。 为了克服此限制，建议在 [Azure DNS](../dns/dns-overview.md) 上托管 DNS 域。 或者可以使用简单的 HTTP 重定向将针对“contoso.com”的请求定向到某个备用名称（例如“www.contoso.com”）。
+    > [!NOTE]
+    > 通过 Azure 流量管理器来使用虚构域时，必须使用 CNAME 将虚构域名指向流量管理器域名。 DNS 标准不允许在域的“顶点”（或根）位置创建 CNAME。 因此，无法为“contoso.com”（有时称为“裸”域）创建 CNAME。 只能为“contoso.com”下的域（例如“www.contoso.com”）创建 CNAME。 为了克服此限制，建议在 [Azure DNS](../dns/dns-overview.md) 上托管 DNS 域。 或者可以使用简单的 HTTP 重定向将针对“contoso.com”的请求定向到某个备用名称（例如“www.contoso.com”）。
 
-<!--and using [Alias records](../dns/tutorial-alias-tm.md) to point to your traffic manager profile-->
+    <!--and using [Alias records](../dns/tutorial-alias-tm.md) to point to your traffic manager profile-->
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>客户端如何使用流量管理器进行连接
 
@@ -73,6 +74,30 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 
 递归 DNS 服务缓存它所收到的 DNS 响应。 客户端设备上的 DNS 解析程序也会缓存结果。 通过缓存可以加快后续 DNS 查询的响应速度，因为使用的是缓存中的数据，不需要查询其他名称服务器。 缓存的持续时间取决于每个 DNS 记录的“生存时间”(TTL) 属性。 该属性值越小，缓存过期时间就越短，因此访问流量管理器名称服务器所需的往返次数就越多。 如果指定较大的值，则意味着从故障终结点定向流量需要更长的时间。 使用流量管理器，可以将流量管理器 DNS 响应中使用的 TTL 配置为低至 0 秒、高至 2,147,483,647 秒（符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt) 的最大范围），从而可通过选择值对应用程序的需求进行最佳平衡。
 
+## <a name="faqs"></a>常见问题
+
+* [流量管理器使用什么 IP 地址？](/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [可以使用流量管理器路由什么类型的流量？](/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* [流量管理器是否支持“粘滞”会话？](/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [使用流量管理器时为何出现 HTTP 错误？](/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [使用流量管理器对性能有什么影响？](/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [流量管理器允许使用什么应用程序协议？](/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* [是否可以对“裸”域名使用流量管理器？](/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [处理 DNS 查询时流量管理器是否会考虑客户端子网地址？](/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [什么是 DNS TTL，它如何影响我的用户？](/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [可将流量管理器响应的 TTL 设置为多高或多低？](/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [如何了解传入到我的配置文件的查询数量？](/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+
 ## <a name="next-steps"></a>后续步骤
 
 详细了解流量管理器[终结点监视和自动故障转移](traffic-manager-monitoring.md)。
@@ -80,6 +105,7 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 详细了解流量管理器[流量路由方法](traffic-manager-routing-methods.md)。
 
 <!--Image references-->
+
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 

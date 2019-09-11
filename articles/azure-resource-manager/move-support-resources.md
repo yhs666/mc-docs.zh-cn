@@ -7,12 +7,12 @@ ms.topic: reference
 origin.date: 07/09/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: accf73e1b6e6e5d9b7906f2e739756ff2908a90c
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 6c0e708437f23297868525673d201648b785e998
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993617"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70856993"
 ---
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
 本文列出某个 Azure 资源类型是否支持移动操作。 它还提供了有关移动资源时要考虑的特殊条件的信息。
@@ -480,6 +480,7 @@ ms.locfileid: "69993617"
 | 视图 | 是 | 是 |
 
 <!--Not Available on ## Microsoft.Peering-->
+
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -499,6 +500,7 @@ ms.locfileid: "69993617"
 | capacities | 是 | 是 |
 
 <!--Not Available on ## Microsoft.ProjectOxford-->
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -519,7 +521,6 @@ ms.locfileid: "69993617"
 | jobcollections | 是 | 是 |
 
 <!--Not Available on  ## Microsoft.Search-->
-
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | 资源类型 | 资源组 | 订阅 |
@@ -583,6 +584,7 @@ ms.locfileid: "69993617"
 <!-- Not Available on ## Microsoft.StorageSyncDev-->
 <!-- Not Available on ## Microsoft.StorageSyncInt-->
 <!-- Not Available on ## Microsoft.StorSimple-->
+
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -593,6 +595,7 @@ ms.locfileid: "69993617"
 
 <!-- Not Available on ## Microsoft.StreamAnalyticsExplorer-->
 <!-- Not Available on ## Microsoft.TerraformOSS-->
+
 <a name="microsofttimeseriesinsights"></a>
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | 资源类型 | 资源组 | 订阅 |
@@ -600,10 +603,12 @@ ms.locfileid: "69993617"
 | environments | 是 | 是 |
 | environments/eventsources | 是 | 是 |
 | environments/referencedatasets | 是 | 是 |
+
 <!-- Not Available on ## Microsoft.Token-->
 <!-- Not Available on ## Microsoft.VirtualMachineImages-->
 <!-- Not Available on ## microsoft.visualstudio-->
 <!-- Not Available on ## Microsoft.VMwareCloudSimple-->
+
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -621,6 +626,7 @@ ms.locfileid: "69993617"
 > 请参阅[应用服务移动指南](./move-limitations/app-service-move-limitations.md)。
 
 <!-- Not Available on ## Microsoft.WindowsIoT-->
+
 ## <a name="third-party-services"></a>第三方服务
 
 第三方服务目前不支持移动操作。

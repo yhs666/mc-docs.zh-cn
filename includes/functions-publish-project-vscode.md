@@ -7,21 +7,21 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 origin.date: 04/16/2019
-ms.date: 07/17/2019
+ms.date: 09/05/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: bd60c89a46c4dca2339a2147786f12d7abc86b42
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 33d9e2937730f022693285ccda72d51012b7f111
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331857"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805749"
 ---
 ## <a name="publish-the-project-to-azure"></a>将项目发布到 Azure
 
 使用 Visual Studio Code 可以将函数项目直接发布到 Azure。 在此过程中，将在 Azure 订阅中创建函数应用和相关的资源。 函数应用为函数提供了执行上下文。 该项目将打包并部署到 Azure 订阅中的新函数应用。
 
-默认情况下，Visual Studio 会创建函数应用创建所需的所有 Azure 资源。 这些资源的名称基于所选的函数应用名称。 如果需要完全控制已创建的资源，则可以改为[使用高级选项发布](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options)。
+默认情况下，Visual Studio Code 会创建函数应用创建所需的所有 Azure 资源。 这些资源的名称基于所选的函数应用名称。 如果需要完全控制已创建的资源，则可以改为[使用高级选项发布](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options)。
 
 本部分假设你正在 Azure 中创建新的函数应用。
 

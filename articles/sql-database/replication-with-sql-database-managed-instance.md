@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 32833de7c29998334c25cc744065fea5420ba6f7
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: 0a37bb9d755aa792705c9e479185dc7b58eba2db
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544413"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373028"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL 数据库托管实例数据库中配置复制
 
@@ -61,7 +61,7 @@ ms.locfileid: "69544413"
 Azure SQL 数据库中的托管实例不支持以下功能：
 
 - [可更新订阅](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)。
-- 如果配置了事务复制，则不应使用[活动异地复制](sql-database-active-geo-replication.md)和[自动故障转移组](sql-database-auto-failover-group.md)。
+- 带事务复制的[活动异地复制](sql-database-active-geo-replication.md)。 使用[自动故障转移组](sql-database-auto-failover-group.md)而不是活动异地复制，但请注意，必须从主托管实例中[手动删除](sql-database-managed-instance-transact-sql-information.md#replication)发布，并在故障转移后在辅助托管实例上重新创建。  
  
 ## <a name="1---create-a-resource-group"></a>1 - 创建资源组
 

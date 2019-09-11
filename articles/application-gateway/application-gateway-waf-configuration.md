@@ -4,16 +4,16 @@ description: 本文将提供使用 Azure 门户的应用程序网关的 Web 应�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 05/15/2019
-ms.date: 08/06/2019
+origin.date: 07/17/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: a334c05fadba02e7b26312fc0922197f8134926a
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: 3a0bebfdd3a9e290f049dbdd22df87663a172115
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818834"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310858"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 应用程序防火墙请求大小限制和排除列表
 
@@ -36,7 +36,7 @@ WAF 还提供了可配置的旋钮以打开或关闭请求正文检查。 默认
 
 WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示例是 Active Directory 插入的令牌，这些令牌用于身份验证或密码字段。 此类属性容易在 WAF 规则中包含可能触发误报的特殊字符。 将某个属性添加到 WAF 排除列表后，任何已配置且激活的 WAF 规则都不会考虑该属性。 排除列表的范围具有全局性。
 
-可以向排除列表添加以下属性。 所选字段的值不会根据 WAF 规则进行评估。 排除列表删除了对该字段值的检查。
+可以按名称向排除列表添加以下属性。 所选字段的值不会根据 WAF 规则进行评估，但其名称仍会这样进行评估（请参阅下面的示例 1，User-Agent 标头的值会从 WAF 评估中排除）。 排除列表删除了对该字段值的检查。
 
 * 请求标头
 * 请求 Cookie
@@ -47,7 +47,7 @@ WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示�
    * JSON 实体
    * URL 查询字符串参数
 
-可以指定请求标头、正文、cookie 或查询字符串属性的完全匹配项。  也可以选择指定部分匹配项。 排除始终应用于标头字段，而不应用于其值。 排除规则的范围具有全局性，将应用于所有页面和所有规则。
+可以指定请求标头、正文、cookie 或查询字符串属性的完全匹配项。  也可以选择指定部分匹配项。 排除规则的范围具有全局性，将应用于所有页面和所有规则。
 
 下面是受支持的匹配条件运算符：
 
@@ -89,10 +89,10 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -MatchVariable "RequestArgNames" `
-   -SelectorMatchOperator "Equals" `
+   -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-因此，如果将 URL **http://www.contoso.com/?user=fdafdasfda** 传递给 WAF，后者就不会评估字符串 **fdafdasfda**。
+因此，如果将 URL **http://www.contoso.com/?user%281%29=fdafdasfda** 传递给 WAF，后者就不会评估字符串 **fdafdasfda**，但仍会评估参数名称 **user%281%29**。 
 
 ## <a name="next-steps"></a>后续步骤
 

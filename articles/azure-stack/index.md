@@ -10,12 +10,12 @@ ms.author: v-jay
 origin.date: 05/21/2019
 ms.date: 07/29/2019
 ms.topic: hub-page
-ms.openlocfilehash: 617276d3a1a57383fc881c48b1528835f8f7baa6
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: e7e77fbc17a627f7ab2511c674d93ba546b3e672
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513506"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857245"
 ---
 <div id="main" class="v2">
 <h1>Azure Stack 文档</h1>
@@ -59,6 +59,7 @@ ms.locfileid: "68513506"
                 </div>
             </a>
         </li>
+        <li>
 </ul>
 
 <h2>文档集</h2>

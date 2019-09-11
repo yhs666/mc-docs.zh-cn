@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 5a0a5825a0d44736be1bdf9990a1a8f70c9a69e8
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: c65820c6937ba11191d04053da3478f27ee8e0b4
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151455"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254787"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据加密 
 
@@ -64,7 +64,7 @@ ms.locfileid: "67151455"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)。
-有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
+有关 Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos 数据库安全性](database-security.md)。
+有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/cloudservices/azure.html)。
 
 <!-- Update_Description: update meta properties, wording update -->

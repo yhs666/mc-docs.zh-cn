@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, bonova, jovanpop
-manager: digimobile
+ms.reviewer: sstein, carlrab, bonova, jovanpop
 origin.date: 03/13/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 7754170448b07bc2180d383b80ddaffcbdc11767
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: cf75528903c654ee544b4c64e3b2f2f7c0f49290
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544268"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372974"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 数据库托管实例的点到站点连接
 
@@ -36,7 +35,7 @@ ms.locfileid: "69544268"
 
 1. 在本地客户端计算机上打开 PowerShell。
 
-2. 复制此 PowerShell 脚本。 此脚本将 VPN 网关附加到在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中创建的托管实例虚拟网络。 此脚本执行以下任务：
+2. 复制此 PowerShell 脚本。 此脚本将 VPN 网关附加到在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中创建的托管实例虚拟网络。 此脚本使用 Azure PowerShell Az 模块，并将对基于 Windows 或 Linux 的主机执行以下操作：
 
    - 在客户端计算机上创建并安装证书
    - 计算未来的 VPN 网关子网 IP 范围
@@ -55,9 +54,6 @@ ms.locfileid: "69544268"
 
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
-
-     > [!IMPORTANT]
-     > 若要使用 Azure PowerShell 资源管理器模块而不是 Az 模块，请使用 `attachVPNGateway.ps1` cmdlet 而不是 `attachVPNGatewayAz.ps1` cmdlet。
 
 3. 在 PowerShell 窗口中粘贴脚本，并提供所需参数。 `<subscriptionId>`、`<resourceGroup>`、`<virtualNetworkName>` 的值应匹配用于[创建托管实例](sql-database-managed-instance-get-started.md)快速入门的值。 `<certificateNamePrefix>` 的值可以是所选字符串。
 

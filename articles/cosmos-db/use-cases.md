@@ -5,14 +5,14 @@ ms.service: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
 ms.topic: conceptual
-origin.date: 05/07/2017
-ms.date: 01/21/2019
-ms.openlocfilehash: d8632b9fbdc9736dfc74cb4fe2fe9b1bcb07a0e3
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+origin.date: 05/21/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: e92ec7740fb9c16a1444db3e62718c4fee1d86e5
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309117"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254833"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -25,16 +25,14 @@ ms.locfileid: "54309117"
 * 对 Web 和移动应用程序使用 Azure Cosmos DB 有什么好处？
 
 ## <a name="introduction"></a>简介
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 提供的多区域分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是当前市场中提供的第一个多区域分布式数据库服务，提供了综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)，包含吞吐量、延迟、可用性和一致性。 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是世纪互联提供的多区域分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是在当前市场中推出的第一个多区域分布式数据库服务，其提供的综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)涵盖吞吐量、延迟、可用性和一致性。 
 
-Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式原生支持多种数据模型（文档和纵栏式）和许多用于数据访问的 API，包括 [Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md) 和 [SQL API](documentdb-introduction.md)。 
+Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它适用于需要低延迟毫秒级响应时间和需要多区域快速缩放的任何[无服务器](https://azure.com/serverless)应用程序。 它以可扩展的方式本机支持多种数据模型（键值、文档、图形和纵栏式）以及许多用于数据访问的 API，包括 [Azure Cosmos DB 的 API for MongoDB](mongodb-introduction.md)、[SQL API](documentdb-introduction.md)、[Gremlin API](graph-introduction.md) 和[表 API](table-introduction.md)。 
 
-<!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
-<!--Not Available on  [Tables API](table-introduction.md) -->
 <!-- Notice: 全球 to 多个区域 -->
-<!--Not Available on [serverless](http://azure.com/serverless) -->
 
 下面介绍了 Azure Cosmos DB 的几个属性，这些属性使 Cosmos DB 非常适用于想要实现多区域分布的高性能应用程序。
+
 <!-- Notice: 全球 to 多个区域 -->
 
 * Azure Cosmos DB 采用本机方式对数据进行分区，以实现高可用性和可伸缩性。 Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供对可用性、吞吐量和一致性的 99.99% 保证，为所有多区域数据库帐户提供 99.999% 的读取可用性。
@@ -51,7 +49,7 @@ IoT 用例在引入、处理和存储数据方法方面通常具有相同的模�
 
 ![Azure Cosmos DB IoT 参考体系结构](./media/use-cases/iot.png)
 
-由于 Azure 事件中心可以低延迟引入高吞吐量数据，因此它可以引入激增数据。 可以将需要进行实时分析的引入数据传输至 Azure 流分析，以进行实时分析。 可将数据加载到 Azure Cosmos DB 中进行即席查询。 将数据加载到 Azure Cosmos DB 后，即可对其进行查询。 此外，可以在更改源中读取新数据以及对现有数据的更改。 更改源是持久性的、仅限追加的日志，可按顺序存储对 Cosmos DB 容器的更改。 Azure Cosmos DB 中的所有数据或者仅仅对数据所做的更改可用作实时分析中的参考数据。 此外，通过将 Azure Cosmos DB 数据连接到 HDInsight 进行 Pig、Hive 或 Map/Reduce 作业，可进一步优化和处理数据。  经过优化的数据随后被加载回 Azure Cosmos DB 用于报告。   
+由于 Azure 事件中心可以低延迟引入高吞吐量数据，因此它可以引入激增数据。 可以将需要进行实时分析的引入数据传输至 Azure 流分析，以进行实时分析。 可将数据加载到 Azure Cosmos DB 中进行即席查询。 将数据加载到 Azure Cosmos DB 后，即可对其进行查询。 此外，可以在更改源中读取新数据以及对现有数据的更改。 更改源是持久性的、仅限追加的日志，可按顺序存储对 Cosmos 容器的更改。 Azure Cosmos DB 中的所有数据或者仅仅对数据所做的更改可用作实时分析中的参考数据。 此外，通过将 Azure Cosmos DB 数据连接到 HDInsight 进行 Pig、Hive 或 Map/Reduce 作业，可进一步优化和处理数据。  经过优化的数据随后被加载回 Azure Cosmos DB 用于报告。   
 
 有关使用 Azure Cosmos DB、EventHubs 和 Storm 的 IoT 解决方案示例，请参阅 [GitHub 上的 hdinsight-storm-examples 存储库](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
@@ -66,9 +64,8 @@ Azure Cosmos DB 广泛用于世纪互联旗下运行 Windows 应用商店和 XBo
 
 ![Azure Cosmos DB 零售目录参考体系结构](./media/use-cases/product-catalog.png)
 
-Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流。
+Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流（可实现为[无服务器 Azure Functions](https://azure.com/serverless)）。
 
-<!-- Not Available  [serverless Azure Functions](http://azure.com/serverless)). -->
 ![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)
 
 此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。
@@ -82,7 +79,10 @@ Azure Cosmos DB 用于 [Next Games](https://www.nextgames.com/) 推出的 [The W
 
 * Azure Cosmos DB 允许弹性提高或降低性能。 此优势使游戏可以通过执行单个 API 调用同时处理从几十到数百万不等的游戏配置文件和统计数据的更新。
 * Azure Cosmos DB 支持毫秒读取和写入，有助于避免在玩游戏期间出现任何延迟。
-* Azure Cosmos DB 的自动索引可对多个不同属性进行实时筛选，例如通过内部玩家 ID 或其 GameCenter、Facebook、Google ID 或基于玩家公会成员身份的查询对玩家进行定位。 如果不构建复杂的索引或分区基础结构，就不可能实现这种操作。
+* Azure Cosmos DB 的自动索引可对多个不同属性进行实时筛选，例如，通过内部玩家 ID、其 GameCenter ID 或基于玩家公会成员身份的查询对玩家进行定位。 如果不构建复杂的索引或分区基础结构，就不可能实现这种操作。
+
+    <!--Not Available on Facebook, Google-->
+    
 * 采用灵活的架构，就更容易实现游戏内聊天消息、玩家公会成员身份、已完成的挑战、高分排行榜以及社交图谱等社交功能。
 * Azure Cosmos DB 作为托管的平台即服务 (PaaS) 只需最少的设置和管理工作即可实现快速迭代并缩短上市时间。
 
@@ -104,6 +104,7 @@ Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交
 如今，新式应用程序都具有复杂的视图和体验。 它们通常采用动态设计，迎合对用户首选项或情绪以及品牌塑造的需求。 因此，应用程序需要能够有效地检索个性化设置，以快速呈现 UI 元素和体验。 
 
 Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格式，它不仅轻量而且可由 JavaScript 轻松理解。 Cosmos DB 提供可调的一致性级别，可以实现快速读取和低延迟写入。 因此，在 Cosmos DB 中将包括个性化设置的 UI 布局数据存储为 JSON 文档是获取网络数据的一种有效方法。
+
 <!-- Notice: 全球 to 多个区域 -->
 
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/personalization.png)
@@ -120,9 +121,9 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 开发单一登录解决方案
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 的革新性 IoT 解决方案可帮助车主节省时间、资金和燃气 - 同时有助于保护其安全。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。
-* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson Controls 是一家全球性多元化科技公司，在多个行业占据领先地位，为 150 多个国家或地区的大量用户提供服务。
+* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson Controls 是全球性的多样化技术和多行业领先企业，为 150 多个国家/地区的众多客户提供服务。
 * [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
-* [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 21Vianet 的数据和分析团队使用 Azure Cosmos DB 实现多区域规模的大数据收集
+* [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 的数据和分析团队使用 Azure Cosmos DB 实现多区域规模的大数据收集
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。 Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb)。 NewOrbit 使用了 Azure Cosmos DB。
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale)。 Affinio 从 AWS 改用 Azure Cosmos DB 以大规模处理社交数据。
@@ -138,6 +139,7 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases)。 Weka 智能冰箱可改善疫苗管理，保护更多人免受疾病侵扰
 * [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth)。 使用这款食品应用，得到的不仅仅是视觉或味觉上的满足。
 * [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f)。 皇家马德里足球俱乐部借助 Microsoft 云拉近体育场与全球 4.5 亿粉丝之间的距离。
-* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services)。 TUKU 借助 Azure 服务增加购买汽车的乐趣 <!-- NOTICE: CAREFULLY TO CHANGE THE MICROSOFT/AZURE IN THE FOLLOWING REFERENCE LINK-->
+* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services)。 TUKU 借助 Azure 服务增加购买汽车的乐趣
 
+<!-- NOTICE: CAREFULLY TO CHANGE THE MICROSOFT/AZURE IN THE FOLLOWING REFERENCE LINK-->
 <!--Update_Description: wording update, update link-->

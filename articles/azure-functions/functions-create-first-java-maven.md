@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中通过 Java 和 Maven 创建你的第一个函数 | Microsoft Docs
+title: 使用 Java 和 Maven 发布函数 - Azure Functions
 description: 通过 Java 和 Maven 创建一个简单的 HTTP 触发函数，并将其发布到 Azure。
 services: functions
 documentationcenter: na
@@ -10,16 +10,16 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/10/2018
-ms.date: 07/17/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
 ms.reviewer: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: b2d0d5aed478fd92f3323fdc5f7ce4f4f1734908
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.custom: mvc, devcenter, seo-java-july2019
+ms.openlocfilehash: 4ffa2bda7d3e885e93637aec088d77326b1ebfe2
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331892"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805744"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 创建你的第一个函数
 
@@ -94,13 +94,13 @@ import com.microsoft.azure.functions.*;
 
 public class Function {
     /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
+     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -124,9 +124,9 @@ public class Function {
 
 ## <a name="run-the-function-locally"></a>在本地运行函数
 
-将目录更改为新创建的项目文件夹，并通过 Maven 生成和运行此函数：
+将目录更改为新创建的项目文件夹（包含 host.json 和 pom.xml 文件的文件夹），并通过 Maven 生成并运行此函数：
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -143,13 +143,13 @@ Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+   hello: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 使用 curl 在新的终端窗口中从命令行触发函数：
 
-```
-curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
+```CMD
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
 ```
 
 ```Output
@@ -168,7 +168,7 @@ az login
 
 使用 `azure-functions:deploy` Maven 目标将代码部署到新的函数应用。 这将执行一个启用了[“从包运行”模式的 Zip 部署](functions-deployment-technologies.md#zip-deploy)。
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -187,8 +187,8 @@ mvn azure-functions:deploy
 > [!NOTE]
 > 确保将“访问权限”  设置为 `Anonymous`。 选择默认级别 `Function` 时，需要在请求中提供[函数密钥](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)才能访问函数终结点。
 
-```
-curl -w "\n" https://fabrikam-function-20170920120101928.chinacloudsites.cn/api/hello -d AzureFunctions
+```azurecli
+curl -w "\n" https://fabrikam-function-20170920120101928.chinacloudsites.cn/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -200,19 +200,19 @@ Hello AzureFunctions!
 编辑生成的项目中的 `src/main.../Function.java` 源文件来更改你的函数应用返回的文本。 更改以下行：
 
 ```java
-return request.createResponse(200, "Hello, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
 ```
 
 更改为以下内容：
 
 ```java
-return request.createResponse(200, "Hi, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
 ```
 
 保存更改。 运行 mvn 清理包，如以前一样通过从终端运行 `azure-functions:deploy` 进行重新部署。 函数应用将更新，并且以下请求：
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/hello
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/HttpTrigger-Java
 ```
 
 将具有更新的输出：
@@ -230,4 +230,4 @@ Hi, AzureFunctionsTest
 - 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 在本地编写并调试函数。 
 - 使用 Visual Studio Code 调试在 Azure 中部署的函数。 有关说明，请参阅 Visual Studio Code [无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

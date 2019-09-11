@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/28/2019
-ms.date: 08/06/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
-ms.openlocfilehash: 73efb9c6c1f08e30605ac670622891d639974ec4
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: 9dda9f12cd28b0324fe6706b8431795d7fd42855
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818838"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310859"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -172,7 +172,9 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |receivedBytes     | 接收的数据包的大小（以字节为单位）。        |
 |sentBytes| 发送的数据包的大小（以字节为单位）。|
 |timeTaken| 处理请求并发送响应所需的时长（以毫秒为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
-|sslEnabled| 与后端池的通信是否使用 SSL。 有效值为打开和关闭。|
+|sslEnabled| 与后端池的通信是否使用 SSL。 有效值为 on 和 off。|
+|host| 向后端服务器发送请求时所用的主机名。 如果正在重写后端主机名，则此名称将反映该主机名。|
+|originalHost| 应用程序网关从客户端接收请求时所用的主机名。|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -192,7 +194,9 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
     }
 }
 ```

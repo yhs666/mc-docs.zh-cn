@@ -5,16 +5,16 @@ description: 了解 NoSQL 数据库中的数据建模，在关系数据库中与
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 07/29/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: rimman
-ms.openlocfilehash: 00a43456e471902e2bb9ab1f9fbb0085c41c3e3c
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 20ee2447f2543172dfc07fbf441e40c85eda15b5
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672199"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254599"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
 
@@ -420,5 +420,7 @@ ms.locfileid: "68672199"
 若要了解有关 Azure Cosmos DB 的详细信息，请参阅服务的[文档](/cosmos-db/)页。
 
 若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](sql-api-partition-data.md)。
+
+若要了解如何使用实际示例对 Azure Cosmos DB 上的数据进行建模和分区，请参阅[数据建模和分区 - 实际示例](how-to-model-partition-example.md)。
 
 <!-- Update_Description: update meta properties, wording update -->

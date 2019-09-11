@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: f1b1bf82ee6b9030c1cc5be1ae946be2a826096f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 09/16/2019
+ms.openlocfilehash: c1078e8bd9efe689009c55d48e56d43667e85128
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663327"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737220"
 ---
 # <a name="how-to-update-a-cloud-service"></a>如何更新云服务
 
@@ -30,12 +30,12 @@ ms.locfileid: "52663327"
 
 Azure 将角色实例划分为称为升级域 (UD) 的逻辑组。 升级域 (UD) 是角色实例的逻辑集，将以组的方式进行更新。  Azure 每次更新一个 UD 的一个云服务，使其他 UD 中的实例能够继续处理流量。
 
-升级域的默认数量为 5 个。 可以通过在服务定义文件 (.csdef) 中包含 upgradeDomainCount 属性，指定不同数量的升级域。 有关 upgradeDomainCount 属性的详细信息，请参阅 [WebRole Schema](https://msdn.microsoft.com/zh-cn/library/azure/gg557553.aspx)（WebRole 架构）或 [WorkerRole Schema](https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx)（WorkerRole 架构）。
+升级域的默认数量为 5 个。 可以通过在服务定义文件 (.csdef) 中包含 upgradeDomainCount 属性，指定不同数量的升级域。 有关 upgradeDomainCount 属性的详细信息，请参阅 [Azure 云服务定义架构（.csdef 文件）](/cloud-services/schema-csdef-file)。
 
 在为你的服务中的一个或多个角色执行就地更新时，Azure 会根据所属的升级域更新角色实例集。 Azure 更新给定升级域中的所有实例（停止这些实例，更新这些实例并将它们重新联机），并移到下一个域上。 通过仅停止在当前升级域中运行的实例，Azure 确保在执行更新时将对运行的服务造成的影响降到最低。 有关详细信息，请参阅本文后面的 [如何进行更新](#howanupgradeproceeds) 。
 
 > [!NOTE]
-> 虽然“更新”和“升级”术语在 Azure 上下文中的含义略有不同，但在本文中的功能过程和描述中可以互换。
+> 虽然“更新”和“升级”术语在 Azure 上下文中的含义略有不同，但在本文中的功能过程和描述中可以互换   。
 
 服务必须至少定义角色的两个实例，以便就地更新该角色而无需停机。 如果服务仅包含某个角色的一个实例，在完成就地更新之前，将无法使用服务。
 
@@ -118,7 +118,7 @@ Azure 将角色实例划分为称为升级域 (UD) 的逻辑组。 升级域 (UD
 
 <a name="RollbackofanUpdate"></a>
 ## <a name="rollback-of-an-update"></a>更新回滚
-在 Azure 结构控制器接受初始更新请求后，Azure 允许用户对服务启动额外的操作，从而提高了在更新期间管理服务方面的灵活性。 只有当更新（配置更改）或升级在部署上处于“进行中”状态时，才能执行回滚。 只要至少有一个服务实例尚未更新为新版本，就认为更新或升级处于进行中状态。 要测试是否允许回滚，请检查[获取部署](https://msdn.microsoft.com/zh-cn/library/azure/ee460804.aspx)和[获取云服务属性](https://msdn.microsoft.com/zh-cn/library/azure/ee460806.aspx)操作返回的 RollbackAllowed 标志值是否设置为 true。
+在 Azure 结构控制器接受初始更新请求后，Azure 允许用户对服务启动额外的操作，从而提高了在更新期间管理服务方面的灵活性。 只有当更新（配置更改）或升级在部署上处于“进行中”状态时，才能执行回滚  。 只要至少有一个服务实例尚未更新为新版本，就认为更新或升级处于进行中状态。 要测试是否允许回滚，请检查[获取部署](https://msdn.microsoft.com/zh-cn/library/azure/ee460804.aspx)和[获取云服务属性](https://msdn.microsoft.com/zh-cn/library/azure/ee460806.aspx)操作返回的 RollbackAllowed 标志值是否设置为 true。
 
 > [!NOTE]
 > 这仅对在**就地**更新或升级上调用 Rollback 有意义，因为 VIP 交换升级涉及将服务的一个完整运行实例替换为另一个实例。
@@ -137,7 +137,7 @@ Azure 将角色实例划分为称为升级域 (UD) 的逻辑组。 升级域 (UD
     1.  Locked 元素用于检测何时可以在给定部署上调用变动操作。
     2.  RollbackAllowed 元素用于检测何时可以在给定部署上调用[回滚更新或升级](https://msdn.microsoft.com/zh-cn/library/azure/hh403977.aspx)操作。
 
-    要执行回滚，不需要检查 Locked 和 RollbackAllowed 元素。 确认 RollbackAllowed 设置为 true 就足够了。 只有在使用设置为“x-ms-version: 2011-10-01”或更高版本的请求标头调用这些方法时，才会返回这些元素。 有关版本控制标头的详细信息，请参阅[服务管理版本控制](https://msdn.microsoft.com/zh-cn/library/azure/gg592580.aspx)。
+    要执行回滚，不需要检查 Locked 和 RollbackAllowed 元素。 确认 RollbackAllowed 设置为 true 就足够了。 只有在使用设置为“x-ms-version:2011-10-01”或更高版本的请求标头调用这些方法时，才会返回这些元素。 有关版本控制标头的详细信息，请参阅 [服务管理版本控制](https://msdn.microsoft.com/zh-cn/library/azure/gg592580.aspx)。
 
 在某些情况下，不支持回滚更新或升级，这些情况包括：
 
@@ -161,7 +161,7 @@ Azure 将角色实例划分为称为升级域 (UD) 的逻辑组。 升级域 (UD
 
 [获取部署](https://msdn.microsoft.com/zh-cn/library/azure/ee460804.aspx)和[获取云服务属性](https://msdn.microsoft.com/zh-cn/library/azure/ee460806.aspx)这两个操作返回 Locked 标志，可以通过检查该标志确定是否可以在给定部署上调用变动操作。
 
-要调用返回 Locked 标志的这些方法版本，必须将请求标头设置为“x-ms-version: 2011-10-01”或更高版本。 有关版本控制标头的详细信息，请参阅 [服务管理版本控制](https://msdn.microsoft.com/zh-cn/library/azure/gg592580.aspx)。
+要调用返回 Locked 标志的这些方法版本，必须将请求标头设置为“x-ms-version:2011-10-01”或更高版本。 有关版本控制标头的详细信息，请参阅 [服务管理版本控制](https://msdn.microsoft.com/zh-cn/library/azure/gg592580.aspx)。
 
 <a name="distributiondfroles"></a>
 ## <a name="distribution-of-roles-across-upgrade-domains"></a>在升级域之间分配角色

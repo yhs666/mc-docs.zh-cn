@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 07/19/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: af8c0315a0f4a392be0e9ebd15aa007be2427a27
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: c9c17c7eb980ae671608d211afe06c1d073aa107
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310828"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857182"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
@@ -148,7 +148,7 @@ az network application-gateway create `
   --location chinanorth `
   --resource-group myResourceGroupAG `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Enabled `
   --public-ip-address myAGPublicIPAddress `
   --vnet-name myVNet `
@@ -196,4 +196,4 @@ az group delete --name myResourceGroupAG
 > [通过 Azure CLI 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-cli.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

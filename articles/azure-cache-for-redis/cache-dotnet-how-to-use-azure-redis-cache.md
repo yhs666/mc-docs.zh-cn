@@ -13,32 +13,25 @@ ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/18/2018
-ms.date: 02/27/2019
+ms.date: 09/03/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 88d4fecb8984550891b323d86b1be216ae64b9f3
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 9bd49f2b5387cde386caa4f43b9c06ef4eeb9673
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903215"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310815"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>快速入门：将 Azure Redis 缓存与 .NET 应用程序配合使用
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>快速入门：将 Azure Redis 缓存与 .NET Framework 应用程序配合使用
 
-
-
-本快速入门展示了如何开始将 Azure Redis 缓存与 .NET 配合使用。 Azure Redis 缓存基于热门的开源 Azure Redis 缓存。 它提供对 Microsoft 所管理的安全专用的 Azure Redis 缓存的访问权限。 使用 Azure Redis 缓存创建的缓存可从 Azure 内的任何应用程序进行访问。
-
-在本快速入门中，你将在控制台应用中将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端与 C\# 代码配合使用。 你将创建缓存并配置 .NET 客户端应用。 然后，你将在缓存中添加和更新对象。 
-
-![已完成的控制台应用](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+在本快速入门中，会将 Azure Redis 缓存合并到 .NET Framework 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。 你专门在 .NET 控制台应用中将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端与 C# 代码配合使用。
 
 ## <a name="prerequisites"></a>先决条件
 
-- [Visual Studio](https://www.visualstudio.com/downloads/)
-- StackExchange.Redis 客户端需要 [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+- Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)，这是 StackExchange.Redis 客户端所必需的。
 
 ## <a name="create-a-cache"></a>创建缓存
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -62,9 +55,9 @@ ms.locfileid: "56903215"
 
 ## <a name="create-a-console-app"></a>创建控制台应用
 
-在 Visual Studio 中，单击“文件” > “新建” > “项目”。
+在 Visual Studio 中，单击“文件”   > “新建”   > “项目”  。
 
-在“Visual C#”下，单击“Windows 经典桌面”，然后依次单击“控制台应用”和“确定”来创建新的控制台应用程序。
+在“Visual C#”  下，单击“Windows 经典桌面”  ，然后依次单击“控制台应用”  和“确定”  来创建新的控制台应用程序。
 
 
 <a name="configure-the-cache-clients"></a>
@@ -73,7 +66,7 @@ ms.locfileid: "56903215"
 
 在本部分中，你将配置控制台应用程序来将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端用于 .NET。
 
-在 Visual Studio 中，单击“工具” > “NuGet 包管理器” > “包管理器控制台”，然后从“包管理器控制台”窗口运行以下命令。
+在 Visual Studio 中，单击“工具” > “NuGet 包管理器” > “包管理器控制台”，然后从“包管理器控制台”窗口运行以下命令。   
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -98,7 +91,7 @@ Install-Package StackExchange.Redis
 </configuration>
 ```
 
-在解决方案资源管理器中，右键单击“引用”并单击“添加引用”。 添加对 **System.Configuration** 程序集的引用。
+在解决方案资源管理器中，右键单击“引用”并单击“添加引用”。   添加对 **System.Configuration** 程序集的引用。
 
 向 *Program.cs* 中添加以下 `using` 语句：
 
@@ -194,7 +187,7 @@ Azure Redis 缓存可以缓存 .NET 对象以及基元数据类型，但在缓�
 
 将对象序列化的一种简单方式是使用 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 中的 `JsonConvert` 序列化方法，并以 JSON 为源和目标进行序列化。 在本部分中，将向缓存添加一个 .NET 对象。
 
-在 Visual Studio 中，单击“工具” > “NuGet 包管理器” > “包管理器控制台”，然后从“包管理器控制台”窗口运行以下命令。
+在 Visual Studio 中，单击“工具” > “NuGet 包管理器” > “包管理器控制台”，然后从“包管理器控制台”窗口运行以下命令。   
 
 ```powershell
 Install-Package Newtonsoft.Json
@@ -255,13 +248,13 @@ class Employee
 > 删除资源组的操作不可逆，资源组以及其中的所有资源将被永久删除。 请确保不会意外删除错误的资源组或资源。 如果在现有资源组（其中包含要保留的资源）中为托管此示例而创建了相关资源，可从各自的边栏选项卡逐个删除这些资源，而不要删除资源组。
 >
 
-登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。
+登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。 
 
-在“按名称筛选...”文本框中键入资源组的名称。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，单击“...”，然后单击“删除资源组”。
+在“按名称筛选...”文本框中键入资源组的名称  。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，单击“...”，然后单击“删除资源组”   。
 
 ![删除](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-系统会要求确认是否删除资源组。 键入资源组的名称进行确认，然后单击“删除”。
+系统会要求确认是否删除资源组。 键入资源组的名称进行确认，然后单击“删除”  。
 
 片刻之后，将会删除该资源组及其包含的所有资源。
 
@@ -276,6 +269,5 @@ class Employee
 > [!div class="nextstepaction"]
 > [创建使用 Azure Redis 缓存的 ASP.NET Web 应用。](./cache-web-app-howto.md)
 
+<!-- Update_Description: wording update -->
 
-
-<!-- Update_Description: update metedata properties -->

@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 03/11/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: d22ff2cc488203deb0b78dfa6dbb9756823a9dc1
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 07/16/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: d48526c286727c63a0cc1aa34149fc5a3bf4ed2c
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544253"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372957"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
 
@@ -41,14 +40,16 @@ ms.locfileid: "69544253"
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>使用 Azure 门户导出到 BACPAC 文件
 
+目前不支持使用 Azure PowerShell 从[托管实例](sql-database-managed-instance.md)导出数据库的 BACPAC。 请改用 SQL Server Management Studio 或 SQLPackage。
+
 > [!NOTE]
-> [托管实例](sql-database-managed-instance.md)当前不支持使用 Azure 门户将数据库导出到 BACPAC 文件。 若要将托管实例导出到 BACPAC 文件，请使用 SQL Server Management Studio 或 SQLPackage。
+> 处理通过 Azure 门户或 PowerShell 提交的导入/导出请求的计算机需要存储 BACPAC 文件以及数据层应用程序框架 (DacFX) 生成的临时文件。 相同大小的数据库之间所需的磁盘空间差异很大，所需的磁盘空间可能是数据库大小的 3 倍。 运行导入/导出请求的计算机只有 450GB 的本地磁盘空间。 因此，某些请求可能会失败，并显示错误 `There is not enough space on the disk`。 在这种情况下，解决方法是在具有足够本地磁盘空间的计算机上运行 sqlpackage.exe。 我们建议使用 [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) 导入/导出大于 150GB 的数据库以避免此问题。
 
 1. 若要使用 [Azure 门户](https://portal.azure.cn)导出数据库，请打开数据库页，并在工具栏上单击“导出”  。
 
    ![数据库导出](./media/sql-database-export/database-export1.png)
 
-2. 指定 BACPAC 文件名，为导出选择现有的 Azure 存储帐户和容器，然后提供用于访问源数据库的相应凭据。
+2. 指定 BACPAC 文件名，为导出选择现有的 Azure 存储帐户和容器，然后提供用于访问源数据库的相应凭据。 即使你是 Azure 管理员，此处也需要 SQL Server 管理员登录名  ，因为作为 Azure 管理员并不等同于拥有 SQL Server 管理员权限。
 
     ![数据库导出](./media/sql-database-export/database-export2.png)
 

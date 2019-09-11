@@ -7,27 +7,40 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 origin.date: 10/20/2018
-ms.date: 11/21/2018
+ms.date: 09/05/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 9394fa5529d67cd5f1b74961e4a69a66a294e57a
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: ee912876a58691ff96f8be3630bfd9f40430057e
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673189"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805759"
 ---
 ## <a name="run-the-function-locally"></a>在本地运行函数
 
-以下命令启动函数应用。 该应用将使用 Azure 中的相同 Azure Functions 运行时运行。
+以下命令启动函数应用。 该应用将使用 Azure 中的相同 Azure Functions 运行时运行。 启动命令因项目语言而异。
 
-```bash
-func host start --build
+### <a name="c"></a>C\#
+
+```command
+func start --build
 ```
 
-编译 C# 项目需要 `--build` 选项。 不需对 JavaScript 项目使用此选项。
+### <a name="javascript"></a>Javascript
 
-当 Functions 宿主启动时，会写入以下输出所示的内容（为方便阅读，内容已截断）：
+```command
+func start
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+Functions 主机启动时，会写入类似于以下输出的内容。为了可读性，这些输出已经被截断：
 
 ```output
 
@@ -65,4 +78,3 @@ Http Functions:
 
 在本地运行函数后，可在 Azure 中创建函数应用和其他所需资源。
 
-<!-- ms.date: 11/21/2018 -->

@@ -9,12 +9,12 @@ origin.date: 04/05/2018
 ms.date: 01/21/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 7f88fc030104a1c1991396f2b5de943cd7b18730
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 2820b398b33f16fbaa9bfa8e428759fb8518c8c7
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309340"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254835"
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>如何通过 Java 使用 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -23,11 +23,11 @@ ms.locfileid: "54309340"
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概述
-本文演示如何使用 Azure 表存储服务执行常见任务。 这些示例用 Java 编写并使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
+本文演示如何使用 Azure 表存储服务执行常见任务。 这些示例用 Java 编写并使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 涉及的方案包括创建  、列出  和删除  表，以及在表中插入  、查询  、修改  和删除  实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 <!--Not Available on Azure Cosmos DB-->
 > [!NOTE]
-> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
+> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 >
 
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
@@ -56,7 +56,7 @@ import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
 ## <a name="add-an-azure-storage-connection-string"></a>添加 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的主访问密钥。 
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName  和 AccountKey  值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的主访问密钥。 
 
 此示例演示如何声明一个静态字段以保存连接字符串：
 
@@ -92,7 +92,7 @@ StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_accoun
 利用 **CloudTableClient** 对象，可以获得表和实体的引用对象。 以下代码可创建 **CloudTableClient** 对象并使用它创建新的 **CloudTable** 对象，用于表示名为“people”的表。 
 
 > [!NOTE]
-> 还可以通过其他方式创建 CloudStorageAccount 对象；有关详细信息，请参阅 [Azure 存储客户端 SDK 参考]中的 CloudStorageAccount。
+> 还可以通过其他方式创建 CloudStorageAccount 对象；有关详细信息，请参阅 [Azure 存储客户端 SDK 参考]中的 CloudStorageAccount   。
 >
 
 ```java
@@ -145,7 +145,7 @@ catch (Exception e)
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>将实体添加到表
-实体映射到 Java 对象，该对象使用可实现 **TableEntity** 的自定义类。 为方便起见，TableServiceEntity 类实现 TableEntity，并使用反射将属性映射到以属性本身命名的 getter 和 setter 方法。 要将实体添加到表，首先要创建用于定义实体的属性的类。 以下代码定义将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度可以快于查询分区键不同的实体的速度。
+实体映射到 Java 对象，该对象使用可实现 **TableEntity** 的自定义类。 为方便起见，TableServiceEntity  类实现 TableEntity  ，并使用反射将属性映射到以属性本身命名的 getter 和 setter 方法。 要将实体添加到表，首先要创建用于定义实体的属性的类。 以下代码定义将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度可以快于查询分区键不同的实体的速度。
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -177,7 +177,7 @@ public class CustomerEntity extends TableServiceEntity {
 }
 ```
 
-涉及实体的表操作需要 **TableOperation** 对象。 此对象用于定义要对实体执行的操作，该操作可使用 **CloudTable** 对象执行。 以下代码创建了包含要存储的某些客户数据的 **CustomerEntity** 类的新实例。 接下来，该代码调用 TableOperation.insertOrReplace 来创建 TableOperation 对象，以便将实体插入表中，并将新的 CustomerEntity 与之关联。 最后，该代码对 **CloudTable** 对象调用 **execute** 方法，并指定“people”表和新的 **TableOperation**，后者随后向存储服务发送将新客户实体插入“people”表或在实体已存在的情况下替换实体的请求。
+涉及实体的表操作需要 **TableOperation** 对象。 此对象用于定义要对实体执行的操作，该操作可使用 **CloudTable** 对象执行。 以下代码创建了包含要存储的某些客户数据的 **CustomerEntity** 类的新实例。 接下来，该代码调用 TableOperation.insertOrReplace  来创建 TableOperation  对象，以便将实体插入表中，并将新的 CustomerEntity  与之关联。 最后，该代码对 **CloudTable** 对象调用 **execute** 方法，并指定“people”表和新的 **TableOperation**，后者随后向存储服务发送将新客户实体插入“people”表或在实体已存在的情况下替换实体的请求。
 
 ```java
 try
@@ -211,7 +211,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>插入一批实体
-可以通过一次写入操作将一批实体插入到表服务。 以下代码创建一个 **TableBatchOperation** 对象，并向其中添加三个插入操作。 每个插入操作的添加方法如下：创建一个新的实体对象，设置它的值，然后对 TableBatchOperation 对象调用 insert 方法，将实体与新插入操作相关联。 然后，该代码对 CloudTable 对象调用 execute，并指定“people”表和 TableBatchOperation 对象，后者会在单个请求中向存储服务发送一批表操作。
+可以通过一次写入操作将一批实体插入到表服务。 以下代码创建一个 **TableBatchOperation** 对象，并向其中添加三个插入操作。 每个插入操作的添加方法如下：创建一个新的实体对象，设置它的值，然后对 TableBatchOperation  对象调用 insert  方法，将实体与新插入操作相关联。 然后，该代码对 CloudTable  对象调用 execute  ，并指定“people”表和 TableBatchOperation  对象，后者会在单个请求中向存储服务发送一批表操作。
 
 ```java
 try
@@ -265,7 +265,7 @@ catch (Exception e)
 * 批处理操作的数据负载限制为 4MB。
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>检索分区中的所有实体
-若要对表查询分区中的实体，可以使用 **TableQuery**。 调用 **TableQuery.from** 可创建一个针对特定表的查询，该查询返回指定的结果类型。 以下代码指定了一个筛选器，用于筛选其中的分区键是“Smith”的实体。 **TableQuery.generateFilterCondition** 是一个用于创建查询筛选器的帮助器方法。 对 TableQuery.from 方法返回的引用调用 where 可对查询应用筛选器。 对 CloudTable 对象调用 execute 来执行查询时，该查询将返回指定了 CustomerEntity 结果类型的 Iterator。 然后，可以利用在 for each 循环中返回的 **Iterator** 来使用结果。 此代码会将查询结果中每个实体的字段打印到控制台。
+若要对表查询分区中的实体，可以使用 **TableQuery**。 调用 **TableQuery.from** 可创建一个针对特定表的查询，该查询返回指定的结果类型。 以下代码指定了一个筛选器，用于筛选其中的分区键是“Smith”的实体。 **TableQuery.generateFilterCondition** 是一个用于创建查询筛选器的帮助器方法。 对 TableQuery.from  方法返回的引用调用 where  可对查询应用筛选器。 对 CloudTable  对象调用 execute  来执行查询时，该查询将返回指定了 CustomerEntity  结果类型的 Iterator  。 然后，可以利用在 for each 循环中返回的 **Iterator** 来使用结果。 此代码会将查询结果中每个实体的字段打印到控制台。
 
 ```java
 try
@@ -370,7 +370,7 @@ catch (Exception e)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>检索单个实体
-可以编写查询以检索单个特定实体。 以下代码使用分区键和行键参数调用 TableOperation.retrieve 来指定客户“Jeff Smith”，而不是创建 TableQuery 并使用筛选器来执行同一操作。 执行的检索操作将只返回一个实体，而不会返回一个集合。 **getResultAsType** 方法会将结果转换为分配目标的类型 - **CustomerEntity** 对象。 如果此类型与为查询指定的类型不兼容，则会引发异常。 如果没有实体具有完全匹配的分区键和行键，则会返回 null 值。 在查询中指定分区键和行键是从表服务中检索单个实体的最快方法。
+可以编写查询以检索单个特定实体。 以下代码使用分区键和行键参数调用 TableOperation.retrieve  来指定客户“Jeff Smith”，而不是创建 TableQuery  并使用筛选器来执行同一操作。 执行的检索操作将只返回一个实体，而不会返回一个集合。 **getResultAsType** 方法会将结果转换为分配目标的类型 - **CustomerEntity** 对象。 如果此类型与为查询指定的类型不兼容，则会引发异常。 如果没有实体具有完全匹配的分区键和行键，则会返回 null 值。 在查询中指定分区键和行键是从表服务中检索单个实体的最快方法。
 
 ```java
 try
@@ -450,7 +450,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>查询一部分实体属性
-对表的查询可以只检索实体中的少数几个属性。 此方法称为“投影”，可减少带宽并提高查询性能，尤其适用于大型实体。 以下代码中的查询使用 **select** 方法，仅返回表中实体的电子邮件地址。 返回结果在 EntityResolver（用于对从服务器返回的实体执行类型转换）的帮助下投影到 String 集合中。 可以在以下文章中了解有关投影的详细信息：[Azure 表：介绍 Upsert 和查询投影][Azure 表：介绍 Upsert 和查询投影]。 请注意，本地存储模拟器不支持投影，因此，此代码仅在使用表服务中的帐户时才能运行。
+对表的查询可以只检索实体中的少数几个属性。 此方法称为“投影”，可减少带宽并提高查询性能，尤其适用于大型实体。 以下代码中的查询使用 **select** 方法，仅返回表中实体的电子邮件地址。 返回结果在 EntityResolver  （用于对从服务器返回的实体执行类型转换）的帮助下投影到 String  集合中。 可以在以下文章中了解有关投影的详细信息：[Azure 表：介绍 Upsert 和查询投影][Azure 表：介绍 Upsert 和查询投影]。 请注意，本地存储模拟器不支持投影，因此，此代码仅在使用表服务中的帐户时才能运行。
 
 ```java
 try
@@ -492,7 +492,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>插入或替换实体
-经常需要将某个实体添加到表中，但又不知道该实体是否已存在于表中。 利用插入或替换操作，可以提出一个以下形式的请求：如果实体不存在，则插入一个实体；如果实体存在，则将其替换为现有实体。 以下代码基于前面的示例针对“Walter Harp”插入或替换实体。 创建新实体后，此代码调用 **TableOperation.insertOrReplace** 方法。 此代码随后使用表和插入或将表操作替换为参数对 CloudTable 对象调用 execute。 若要只更新实体的一部分，则可以改用 **TableOperation.insertOrMerge** 方法。 请注意，本地存储模拟器不支持插入或替换，因此，此代码仅在使用表服务中的帐户时才能运行。 可以在以下文章中了解有关插入或替换和插入或合并的更多信息：[Azure 表：介绍 Upsert 和查询投影][Azure 表：介绍 Upsert 和查询投影]。
+经常需要将某个实体添加到表中，但又不知道该实体是否已存在于表中。 利用插入或替换操作，可以提出一个以下形式的请求：如果实体不存在，则插入一个实体；如果实体存在，则将其替换为现有实体。 以下代码基于前面的示例针对“Walter Harp”插入或替换实体。 创建新实体后，此代码调用 **TableOperation.insertOrReplace** 方法。 此代码随后使用表和插入或将表操作替换为参数对 CloudTable  对象调用 execute  。 若要只更新实体的一部分，则可以改用 **TableOperation.insertOrMerge** 方法。 请注意，本地存储模拟器不支持插入或替换，因此，此代码仅在使用表服务中的帐户时才能运行。 可以在以下文章中了解有关插入或替换和插入或合并的更多信息：[Azure 表：介绍 Upsert 和查询投影][Azure 表：介绍 Upsert 和查询投影]。
 
 ```java
 try
@@ -591,13 +591,13 @@ catch (Exception e)
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
-* [Azure 存储客户端 SDK 参考][Azure 存储客户端 SDK 参考]
-* [Azure Storage REST API（Azure 存储 REST API）][Azure Storage REST API]
+* [Azure 存储客户端 SDK 参考][Azure Storage Client SDK Reference]
+* [Azure 存储 REST API][Azure Storage REST API]
 * [Azure 存储团队博客][Azure 存储团队博客]
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
 
-[Azure SDK for Java]: https://docs.azure.cn/zh-cn/develop/java
+[Azure SDK for Java]: https://docs.azure.cn/develop/java
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 存储客户端 SDK 参考]: https://azure.github.io/azure-storage-java/

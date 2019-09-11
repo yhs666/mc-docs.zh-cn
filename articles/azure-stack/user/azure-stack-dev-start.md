@@ -5,17 +5,17 @@ services: azure-stack
 author: WenJason
 ms.service: azure-stack
 ms.topic: overview
-origin.date: 04/25/2019
-ms.date: 07/29/2019
+origin.date: 07/30/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 4158186ac7c6193d45f4349a2b09ed4d26b2cdb7
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 07/30/2019
+ms.openlocfilehash: 87fdb89306f26327621d95a625681a5d23c57b16
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513304"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857289"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack"></a>设置 Azure Stack 中的开发环境 
 
@@ -61,6 +61,7 @@ Azure Stack 使用 Azure Stack 版的 Azure 资源管理器。 为了帮助你�
 - [Go](azure-stack-version-profiles-go.md)
 - [Ruby](azure-stack-version-profiles-ruby.md)
 - [Python](azure-stack-version-profiles-python.md)
+- [Node.js](azure-stack-version-profile-nodejs.md)
 
 ## <a name="before-you-start"></a>开始之前 
 

@@ -4,15 +4,15 @@ description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: overview
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: aa9ef4069a45cd035348fa423198de167ef8457b
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 65638a62ca4a8006af2db8e5ea093695f3ee8b96
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171435"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254439"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -75,11 +75,11 @@ Cosmos DB 通过了[广泛的合规标准](compliance.md)认证。 此外，Cosm
 
 Cosmos DB 是第一款，也是唯一的一款提供[行业领先的全面 SLA](https://www.azure.cn/support/sla/cosmos-db/) 的服务，该 SLA 涵盖 99.999% 的高可用性、99% 的时间内为读写操作提供低延迟，保证吞吐量和一致性。
 
-### <a name="multiple-region-distributed-operational-analytics-with-spark"></a>使用 Spark 的多区域分布式运营分析
+### <a name="multiple-regionally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>具有本机内置 Apache Spark 的多区域分布式运营分析和 AI
 
 可以在 Cosmos DB 中存储的数据上直接运行 [Spark](spark-connector.md)。 凭借该功能，你可以在多区域范围内执行低延迟的运营分析，而不会影响直接针对 Cosmos DB 进行操作的事务工作负荷。 有关详细信息，请参阅[多区域分布式运营分析](lambda-architecture.md)。
 
-### <a name="develop-applications-on-cosmos-db-using-popular-nosql-apis"></a>使用常用的 NoSQL API 在 Cosmos DB 上开发应用程序
+### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>使用常用的开放源代码软件 (OSS) API 在 Cosmos DB 上开发应用程序
 
 Cosmos DB 提供多种 API 来处理存储在 Cosmos 数据库中的数据。 默认情况下，[可以使用 SQL](how-to-sql-query.md)（核心 API）来查询 Cosmos 数据库。 Cosmos DB 还实现用于 [Cassandra](cassandra-introduction.md)、[MongoDB](mongodb-introduction.md)、[Gremlin](graph-introduction.md) 和 [Azure 表存储](table-introduction.md)的 API。 可以将常用 NoSQL（例如，MongoDB、Cassandra、Gremlin）的客户端驱动程序（和工具）直接指向 Cosmos 数据库。 Cosmos DB 支持常用 NoSQL API 的网络协议，因此可用其实现以下目标：
 
@@ -104,4 +104,6 @@ Cosmos DB 提供多种 API 来处理存储在 Cosmos 数据库中的数据。 �
 * [Azure Cosmos DB Gremlin API 入门](create-graph-dotnet.md)
 * [Azure Cosmos DB 表 API 入门](create-table-dotnet.md)
 
+
+<!--MOONCAKE: Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 <!--Update_Description: update meta properties, wording update -->

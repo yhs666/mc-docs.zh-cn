@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 的常见安全属性
-description: 用于评估 Azure Service Fabric 的常见安全属性的清单
+title: Azure Service Fabric 的安全属性
+description: 用于评估 Azure Service Fabric 的安全属性的清单
 services: service-fabric
 documentationcenter: ''
 author: rockboyfor
@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 07/08/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: c76912d0775a026d77416d68409be818174984e6
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: b30b3db2448b04ea308ab9661b54aeac37e8cc51
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844948"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254839"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Azure Service Fabric 的安全属性
 
@@ -27,8 +27,8 @@ ms.locfileid: "67844948"
 
 | 安全属性 | Yes/No | 注释 |
 |---|---|--|
-| 静态加密：<ul><li>服务器端加密</li><li>使用客户托管密钥的服务器端加密</li><li>其他加密功能（例如客户端、始终加密等）</ul>| 是 | 客户拥有群集以及作为群集构建基础的虚拟机规模集。 可以在虚拟机规模集上启用 Azure 磁盘加密。 |
-| 传输中加密：<ul><li>快速路由加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 是 |  |
+| 静态加密（例如服务器端加密、带客户托管密钥的服务器端加密，以及其他加密功能）| 是 | 客户拥有群集以及作为群集构建基础的虚拟机规模集。 可以在虚拟机规模集上启用 Azure 磁盘加密。 |
+| 传输中加密（例如 ExpressRoute 加密、VNet 中加密，以及 VNet-VNet 加密）| 是 |  |
 | 加密密钥处理（CMK、BYOK 等）| 是 | 客户拥有群集以及作为群集构建基础的虚拟机规模集。 可以在虚拟机规模集上启用 Azure 磁盘加密。 |
 | 列级加密（Azure 数据服务）| 不适用 |  |
 | 加密的 API 调用| 是 | Service Fabric API 调用通过 Azure 资源管理器进行。 需要有效 JSON web 令牌 (JWT)。 |

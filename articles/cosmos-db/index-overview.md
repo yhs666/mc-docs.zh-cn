@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中为工作编制索引。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/22/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8f5b9fc077fc974842a51d749cba9013772eb563
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: d4a96da69f64da4ad355553fa1cb3886bc44bbbf
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171438"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254777"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的索引 - 概述
 
@@ -63,17 +63,17 @@ Azure Cosmos DB 将项转换为树的原因是便于按照属性在这些树中�
 
 ## <a name="index-kinds"></a>索引类型
 
-Azure Cosmos DB 目前支持两种类型的索引：
+Azure Cosmos DB 目前支持三种类型的索引：
 
 **range** 索引类型用于：
 
-- 等式查询： 
+- 等式查询：
 
     ```sql
     SELECT * FROM container c WHERE c.property = 'value'
     ```
 
-- 范围查询： 
+- 范围查询：
 
     ```sql
     SELECT * FROM container c WHERE c.property > 'value'

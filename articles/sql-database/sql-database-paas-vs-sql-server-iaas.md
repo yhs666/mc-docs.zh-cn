@@ -11,17 +11,16 @@ keywords: SQL Server 云, 云中 SQL Server, PaaS 数据库, 云 SQL Server, DBa
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 03/11/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: bcc90991c8d419d83012f5e73cc5238f3438a755
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: d2e7b9b4175363d10a0deca905c468a9b23f0534
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544187"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372924"
 ---
-# <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中选择适当的 SQL Server 选项
+# <a name="choose-the-right-deployment-option-in-azure-sql"></a>在 Azure SQL 中选择适当的部署选项
 
 在 Azure 中，可让 SQL Server 工作负荷在托管的基础结构 (IaaS) 或托管的服务 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 中运行。 在 PaaS 中，有多个部署选项，每个部署选项中有多个服务层级。 在 PaaS 与 IaaS 之间作出抉择时，需要提出的一个重要问题是，你是要自行管理数据库、应用修补程序、创建备份，还是将这些操作委托给 Azure？
 根据具体的答案，可以选择以下选项：
@@ -31,13 +30,13 @@ ms.locfileid: "69544187"
   - 作为[单一数据库](sql-database-single-database.md)，通过 SQL 数据库服务器托管自己的资源集。 单一数据库类似于 SQL Server 中的[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 此选项已针对新式应用程序开发进行优化，可用于开发新型的云原生应用程序。
   - 作为[弹性池](sql-database-elastic-pool.md)，它是一个数据库集合，具有通过 SQL 数据库服务器管理的共享资源集。 单一数据库可以移入或移出弹性池。 此选项已针对新式应用程序开发进行优化，可用于使用多租户 SaaS 应用程序开发新型的云原生应用程序。
   - 作为[托管实例](sql-database-managed-instance.md)，它是系统和用户数据库的集合，具有共享的资源集。 托管实例类似于 [Microsoft SQL Server 数据库引擎] 的实例，为数据库和实例范围内的其他功能提供共享的资源。 托管实例支持从本地迁移数据库，只要求对数据库进行极少量的更改，甚至根本不需要更改。 此选项提供 Azure SQL 数据库的所有 PaaS 优势，但同时也添加了以前只在 SQL VM 中提供的功能。 这包括本机虚拟网络 (VNet)，以及与本地 SQL Server 的接近 100% 的兼容性。
-- [Azure 虚拟机上的 SQL Server](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview) 属于“基础结构即服务 (IaaS)”行业类别，可让你在 Azure 云中的完全托管式虚拟机上运行 SQL Server。  [SQL Server 虚拟机](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)也在 Microsoft 所拥有、托管及维护的标准化硬件上运行。 使用 VM 上的 SQL Server 时，可以提前支付 SQL Server 映像中已包含的 SQL Server 许可证费用，或者轻松使用现有的许可证。 此外，可按需停止或恢复 VM。在 Azure 上运行的云中 Windows Server 或 Linux 虚拟机 (VM) 上安装并托管的 SQL Server 也称为基础结构即服务 (IaaS)。 Azure 虚拟机上的 SQL Server 非常适合用于迁移本地 SQL Server 数据库和应用程序，无需进行任何数据库更改。 所有当前 SQL Server 版本都可安装在 IaaS 虚拟机中。 与 SQL 数据库之间的最重要差别在于，SQL Server VM 允许完全控制数据库引擎。 可以选择维护/修补何时开始、将恢复模式更改为简单模式或批量记录模式，以更快地加载更少的日志、根据需要暂停或启动引擎，并可以完全自定义 SQL Server 数据库引擎。 控制度的提高也意味着在管理虚拟机方面需要承担更大的责任。
+- [Azure 虚拟机上的 SQL Server](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview) 属于“基础结构即服务 (IaaS)”行业类别，可让你在 Azure 云中的完全托管式虚拟机上运行 SQL Server。  [SQL Server 虚拟机](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)也在 Microsoft 所拥有、托管及维护的标准化硬件上运行。 使用 VM 上的 SQL Server 时，可以提前支付 SQL Server 映像中已包含的 SQL Server 许可证费用，或者轻松使用现有的许可证。 此外，可按需停止或恢复 VM。在 Azure 上运行的云中 Windows Server 或 Linux 虚拟机 (VM) 上安装并托管的 SQL Server 也称为基础结构即服务 (IaaS)。 Azure 虚拟机上的 SQL Server 非常适合用于迁移本地 SQL Server 数据库和应用程序，无需进行任何数据库更改。 所有当前 SQL Server 版本都可安装在 IaaS 虚拟机中。 与 SQL 数据库之间的最重要差别在于，SQL Server VM 允许完全控制数据库引擎。 可以选择维护/修补时间、将恢复模式更改为简单模式或批量记录模式、根据需要暂停或启动服务，并且可以完全自定义 SQL Server 数据库引擎。 控制度的提高也意味着在管理虚拟机方面需要承担更大的责任。
 
 下表列出了这些选项之间的主要差别：
 
 | VM 上的 SQL Server | SQL 数据库中的托管实例 | SQL 数据库中的单一数据库/弹性池 |
 | --- | --- | --- |
-|可以完全控制 SQL Server 引擎。<br/>高达 99.95% 的可用性。<br/>完全可与匹配的本地 SQL Server 版本搭配使用。<br/>固定的已知数据库引擎版本。<br/>从本地 SQL Server 轻松迁移。<br/>Azure VNet 中的专用 IP 地址。<br/>可将应用程序或服务部署到 SQL Server 所在的主机上。| 与本地 SQL Server 高度兼容。<br/>保证 99.99% 的可用性。<br/>内置备份、修补和恢复。<br/>最新稳定的数据库引擎版本。<br/>从 SQL Server 轻松迁移。<br/>Azure VNet 中的专用 IP 地址。<br/>内置高级智能和安全性。<br/>联机更改资源（CPU/存储）。|提供最常用的 SQL Server 功能。<br/>保证 99.99% 的可用性。<br/>内置备份、修补和恢复。<br/>最新稳定的数据库引擎版本。<br/>可将必要的资源（CPU/存储）分配到单个数据库。<br/>内置高级智能和安全性。<br/>联机更改资源（CPU/存储）。|
+|可以完全控制 SQL Server 引擎。<br/>高达 99.99% 的可用性。<br/>完全可与匹配的本地 SQL Server 版本搭配使用。<br/>固定的已知数据库引擎版本。<br/>从本地 SQL Server 轻松迁移。<br/>Azure VNet 中的专用 IP 地址。<br/>可将应用程序或服务部署到 SQL Server 所在的主机上。| 与本地 SQL Server 高度兼容。<br/>保证 99.99% 的可用性。<br/>内置备份、修补和恢复。<br/>最新稳定的数据库引擎版本。<br/>从 SQL Server 轻松迁移。<br/>Azure VNet 中的专用 IP 地址。<br/>内置高级智能和安全性。<br/>联机更改资源（CPU/存储）。|提供最常用的 SQL Server 功能。<br/>保证 99.99% 的可用性。<br/>内置备份、修补和恢复。<br/>最新稳定的数据库引擎版本。<br/>可将必要的资源（CPU/存储）分配到单个数据库。<br/>内置高级智能和安全性。<br/>联机更改资源（CPU/存储）。|
 |需要自行管理备份和修补程序。<br>需要实施高可用性解决方案。<br/>更改资源（CPU/存储）会造成停机|仍有极少量的 SQL Server 功能不可用。<br/>不保证确切的维护时间（但几乎是透明的）。<br/>只能使用数据库兼容性级别来实现与 SQL Server 版本的兼容。|可能难以从 SQL Server 迁移。<br/>某些 SQL Server 功能不可用。<br/>不保证确切的维护时间（但几乎是透明的）。<br/>只能使用数据库兼容性级别来实现与 SQL Server 版本的兼容。<br/>无法分配专用 IP 地址（可以使用防火墙规则限制访问）。|
 
 了解每个部署选项如何配合 Microsoft 数据平台一起运行，并在匹配适合业务要求的选项时获得帮助。 无论以节省成本为优先考虑，还是将精简管理视为第一要素，本文都会帮助你确定哪种方法能够满足你最重视的业务要求。
@@ -78,7 +77,7 @@ ms.locfileid: "69544187"
 | **最适用于：** |需要使用最新的 SQL Server 稳定功能，且开发与面市时间有限的新云式设计应用程序。 | 需要使用最新的 SQL Server 稳定功能，并且在进行极少量更改的情况下迁移到云中的新应用程序或现有本地应用程序。  | 需要快速迁移到云中且只需进行极少量更改甚至不需要任何更改的现有应用程序。 想要快速完成开发和测试方案，但又不想购买本地 SQL Server 非生产硬件。 |
 |  | 需要内置高可用性、灾难恢复和数据库升级的团队。 | 与 SQL 数据库中的单一数据库和共用数据库相同。 | 可为 SQL Server 配置、微调、自定义和管理高可用性、灾难恢复与修补的团队。 提供的某些自动化功能大大简化了这些任务。 |
 |  | 不想要管理基础操作系统和配置设置的团队。 | 与 SQL 数据库中的单一数据库和共用数据库相同。 | 需要一个具有完全管理权限的自定义环境。 |
-|  | 最多 100 TB 的数据库。 | 最多 8 TB。 | 具有高达 64 TB 存储空间的 SQL Server 实例。 实例可以支持所需数量的数据库。 |
+|  | 最多 100 TB 的数据库。 | 最多 8 TB。 | 具有高达 256 TB 存储空间的 SQL Server 实例。 实例可以支持所需数量的数据库。 |
 | **兼容性** | 支持大多数本地数据库级功能。 | 几乎支持所有的本地实例级和数据库级功能。 | 支持所有本地功能。 |
 | **资源：** | 不想使用 IT 资源来配置和管理底层基础结构，而是重点关注应用层。 | 与 SQL 数据库中的单一数据库和共用数据库相同。 | 可将某些 IT 资源用于配置和管理。 提供的某些自动化功能大大简化了这些任务。 |
 | **总拥有成本：** | 消除硬件成本并减少管理成本。 | 与 SQL 数据库中的单一数据库和共用数据库相同。 | 消除硬件成本。 |
@@ -93,7 +92,7 @@ ms.locfileid: "69544187"
 
 - [成本](#cost) - PaaS 和 IaaS 选项都包括基本价格，其中涵盖了底层基础结构和许可证的费用。 但是，使用 IaaS 选项时，需要投入额外的时间和资源来管理数据库，而 PaaS 的价格已包括这些管理功能的费用。 选择 IaaS 选项可以在不使用资源时将其关闭，以降低成本；对于 PaaS 版本，除非你删除资源，然后在需要时重新创建资源，否则它会一直运行。
 - [管理](#administration) - PaaS 选项可以减少管理数据库所要投入的时间量。 但是，它还会限制你可以执行或运行的自定义管理任务和脚本的范围。 例如，单一数据库或共用数据库不支持 CLR，但托管实例支持 CLR。 此外，PaaS 中没有部署选项支持使用跟踪标志。
-- [服务级别协议](#service-level-agreement-sla) - IaaS 和 PaaS 都提供较高的行业标准 SLA。 在基础结构方面，PaaS 选项保证 99.99% 的 SLA，而 IaaS 保证 99.95% 的 SLA，这意味着，需要实施附加的机制才能确保数据库的可用性。 在极端情况下，若要实施与 PaaS 相当的高可用性解决方案，可能需要在 VM 中创建附加的 SQL Server 并配置 AlwaysOn 可用性组，而这可能会数据库成本翻倍。
+- [服务级别协议](#service-level-agreement-sla) - IaaS 和 PaaS 都提供较高的行业标准 SLA。 在基础结构方面，PaaS 选项保证 99.99% 的 SLA，而 IaaS 保证 99.95% 的 SLA，这意味着，需要实施附加的机制才能确保数据库的可用性。 可以实施 99.99% 的高可用性解决方案，只需在 VM 中创建附加的 SQL Server 并配置 AlwaysOn 可用性组即可。
 - [迁移到 Azure 所需的时间](#market) - Azure VM 中 SQL Server 与你的环境完全匹配，因此，从本地迁移到 Azure SQL VM，与在不同的本地服务器之间迁移数据库没有什么不同。 托管实例还可以实现极其轻松的迁移；但是，在迁移到托管实例之前，可能需要应用某些更改。
 
 以下部分将更详细地讨论这些因素。

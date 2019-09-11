@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/29/2017
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 386329384687fbc32f2cf1c1b91eeeb620b6ed3a
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 1ad0bc720b762c476d98a3dc954afa98939db935
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514181"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254680"
 ---
 # <a name="traffic-manager-endpoints"></a>流量管理器终结点
 
@@ -94,6 +94,18 @@ PublicIPAddress 资源属于 Azure Resource Manager 资源。 经典部署模型
 > 由于流量管理器是在 DNS 级别工作的，因此不可能影响任何终结点的现有连接。 当某个终结点不可用时，流量管理器会将新连接定向到另一个可用的终结点。 不过，已禁用或不正常的终结点后面的主机仍可通过现有连接继续接收流量，直到相关会话被终止。 应用程序应该限制会话持续时间，以便耗尽现有连接的流量。
 
 如果禁用配置文件中的所有终结点，或者禁用配置文件本身，则流量管理器会向新的 DNS 查询发送“NXDOMAIN”响应。
+
+## <a name="faqs"></a>常见问题
+
+* [能否将流量管理器用于多个订阅的终结点？](/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+
+* [能否将流量管理器用于云服务的“过渡”槽？](/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+
+* [流量管理器是否支持 IPv6 终结点？](/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+
+* [流量管理器是否可用于同一区域中的多个 Web 应用？](/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+
+* [如何将流量管理器配置文件的 Azure 终结点移动到其他资源组？](/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
 
 ## <a name="next-steps"></a>后续步骤
 

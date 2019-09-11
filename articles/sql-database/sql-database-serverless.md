@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
-manager: digimobile
 origin.date: 07/05/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: 758496c7bb129cfcd6e979330d415218b120ad81
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 09/09/2019
+ms.openlocfilehash: 5fb12736939bef4ceb9637667ba6e35de4223be0
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578572"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372961"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL 数据库无服务器计算层（预览版）
 
@@ -283,7 +282,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>资源限制
 
-有关资源限制的信息，请参阅[无服务器计算层](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+有关资源限制的信息，请参阅[无服务器计算层](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。
 
 ## <a name="billing"></a>计费
 
@@ -326,4 +325,4 @@ vCore 单位价格是每个 vCore 每秒的费用。 请参考 [Azure SQL 数据
 ## <a name="next-steps"></a>后续步骤
 
 - 若要开始使用，请参阅[快速入门：使用 Azure 门户在 Azure SQL 数据库中创建单一数据库](sql-database-single-database-get-started.md)。
-- 有关资源限制的信息，请参阅[无服务器计算层资源限制](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)。
+- 有关资源限制的信息，请参阅[无服务器计算层资源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。

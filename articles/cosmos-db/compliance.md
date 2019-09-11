@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 14be28793ccc1d8b712c3edad7a64d0f216287aa
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: e2c9e2bbcb5f2530b027a9ac228e8e665db2a95a
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151519"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254657"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
 
@@ -36,10 +36,10 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户�
 
 若要了解有关 Azure 合规性认证的详细信息，请参阅以下文章：
 
-<!--Not Available on  [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)-->
+* 若要了解 Azure Cosmos DB 的最新合规性认证，请参阅[Azure 合规性概述](https://www.trustcenter.cn/cloudservices/azure.html)。  
 
-* 有关 Azure Cosmos DB 安全性的概述以及最新改进，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)一文。
+* 有关 Azure Cosmos DB 安全性的概述以及最新改进，请参阅 [Azure Cosmos 数据库安全性](database-security.md)一文。
 
-* 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
+* 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/cloudservices/azure.html)。
 
 <!-- Update_Description: update meta properties, wording update -->

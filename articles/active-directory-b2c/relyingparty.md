@@ -2,21 +2,21 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: 在 Azure Active Directory B2C 中指定自定义策略的 RelyingParty 元素。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 01/25/2019
-ms.date: 06/05/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0f89b5e7088649f7ecf5d953b262e40d338c69e0
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 56e0bf6b7e658a10accb7e9881554e6dfb99e81f
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687645"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310738"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -54,7 +54,7 @@ RelyingParty  元素指定用户旅程，以执行当前对 Azure Active Directo
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
-      <Description>The policy profile</Description> 
+      <Description>The policy profile</Description>
       <Protocol Name="OpenIdConnect" />
       <Metadata>collection of key/value pairs of data</Metadata>
       <OutputClaims>
@@ -128,7 +128,7 @@ SingleSignOn  元素包含在以下属性中：
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
-在 Azure AD B2C 中使用自定义策略可在查询字符串中发送参数。 通过将该参数传递到 HTML 终结点，可以动态更改页面内容。 例如，可以基于从 Web 或移动应用程序传递的参数，更改 Azure AD B2C 注册或登录页面上的背景图像。 Azure AD B2C 向动态 HTML 文件传递查询字符串参数，例如 aspx 文件。 
+在 Azure AD B2C 中使用自定义策略可在查询字符串中发送参数。 通过将该参数传递到 HTML 终结点，可以动态更改页面内容。 例如，可以基于从 Web 或移动应用程序传递的参数，更改 Azure AD B2C 注册或登录页面上的背景图像。 Azure AD B2C 向动态 HTML 文件传递查询字符串参数，例如 aspx 文件。
 
 下面的示例传递名为 `campaignId` 的参数，查询字符串中的值为 `hawaii`：
 
@@ -151,7 +151,7 @@ ContentDefinitionParameters  元素包含以下属性：
 **TechnicalProfile** 元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
-| --------- | -------- | ----------- | 
+| --------- | -------- | ----------- |
 | ID | 是 | 值必须是 `PolicyProfile`。 |
 
 **TechnicalProfile** 包含以下元素：
@@ -199,7 +199,7 @@ SubjectNamingInfo  元素包含以下属性：
 | --------- | -------- | ----------- |
 | ClaimType | 是 | 对输出声明的 PartnerClaimType  的引用。 输出声明必须在信赖方策略 OutputClaims  集合中定义。 |
 
-下面的示例演示如何定义 OpenId Connect 信赖方。 使用者名称信息配置为 `objectId`：
+下面的示例演示如何定义 OpenID Connect 信赖方。 使用者名称信息配置为 `objectId`：
 
 ```XML
 <RelyingParty>

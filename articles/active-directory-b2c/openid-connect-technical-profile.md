@@ -1,28 +1,28 @@
 ---
-title: 在 Azure Active Directory B2C 的自定义策略中定义 OpenId Connect 技术配置文件 | Microsoft Docs
-description: 在 Azure Active Directory B2C 的自定义策略中定义 OpenId Connect 技术配置文件。
+title: 在 Azure Active Directory B2C 的自定义策略中定义 OpenID Connect 技术配置文件 | Microsoft Docs
+description: 在 Azure Active Directory B2C 的自定义策略中定义 OpenID Connect 技术配置文件。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 06/05/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4f5aae4f53fdc208d3c174503ee6df100fd05005
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 5a11b53ef79070d270855af2ef1f5bfa8edc1fb9
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235978"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310734"
 ---
-# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 OpenId Connect 技术配置文件
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 OpenID Connect 技术配置文件
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 为 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 协议标识提供者提供支持。 OpenID Connect 1.0 在 OAuth 2.0 基础上提供一个标识层，代表现代身份验证协议的最新技术。 使用 OpenId Connect 技术配置文件，可以与基于 OpenId Connect 的标识提供者（如 Azure AD）联合。 与标识提供者联合允许用户使用其现有的社交或企业标识登录。
+Azure Active Directory (Azure AD) B2C 为 [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 协议标识提供者提供支持。 OpenID Connect 1.0 在 OAuth 2.0 基础上提供一个标识层，代表现代身份验证协议的最新技术。 使用 OpenID Connect 技术配置文件，可以与基于 OpenID Connect 的标识提供者（如 Azure AD）联合。 与标识提供者联合允许用户使用其现有的社交或企业标识登录。
 
 ## <a name="protocol"></a>协议
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) B2C 为 [OpenId Connect](https://openid.net/20
 
 ## <a name="output-claims"></a>输出声明
 
-**OutputClaims** 元素包含 OpenId Connect 标识提供者返回的声明列表。 可能需要将策略中定义的声明名称映射到标识提供者中定义的名称。 如果设置了 `DefaultValue` 属性，则还可以包含标识提供者不会返回的声明。
+**OutputClaims** 元素包含 OpenID Connect 标识提供者返回的声明列表。 可能需要将策略中定义的声明名称映射到标识提供者中定义的名称。 如果设置了 `DefaultValue` 属性，则还可以包含标识提供者不会返回的声明。
 
 **OutputClaimsTransformations** 元素可能包含用于修改输出声明或生成新输出声明的 **OutputClaimsTransformation** 元素集合。
 
@@ -82,10 +82,10 @@ Azure Active Directory (Azure AD) B2C 为 [OpenId Connect](https://openid.net/20
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| client_secret | 是 | 标识提供者应用程序的客户端机密。 只有在将 **response_types** 元数据设置为 `code` 的情况下，才需要加密密钥。 在这种情况下，Azure AD B2C 会再次进行调用，以便用授权代码来交换访问令牌。 如果元数据已设置为 `id_token`，则可省略加密密钥。  |  
+| client_secret | 是 | 标识提供者应用程序的客户端机密。 只有在将 **response_types** 元数据设置为 `code` 的情况下，才需要加密密钥。 在这种情况下，Azure AD B2C 会再次进行调用，以便用授权代码来交换访问令牌。 如果元数据已设置为 `id_token`，则可省略加密密钥。  |
 
 ## <a name="redirect-uri"></a>重定向 URI
- 
+
 配置标识提供者的重定向 URI 时，请输入 `https://login.partner.microsoftonline.cn/te/tenant/oauth2/authresp`。 确保将 **tenant** 替换为租户名称（例如 contosob2c.partner.onmschina.cn）或租户 ID。 重定向 URI 需要采用全小写形式。
 
 如果使用的是 **b2clogin.cn** 域而不是 **login.partner.microsoftonline.cn**，请确保使用 b2clogin.cn 而不是 login.partner.microsoftonline.cn。

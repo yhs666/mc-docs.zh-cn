@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/02/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: bbddb7a1b9831c6c47de8a805b0f5218e0e16596
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: a9a8704d50d92867ae2b4918e51ef0f5a6ed6c68
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134515"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857109"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>有关 Azure 容器注册表的常见问题解答
 
@@ -259,14 +259,14 @@ ACR 支持提供不同权限级别的[自定义角色](container-registry-roles.
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>Docker 提取失败并出现错误：net/http: 等待连接时取消了请求(等待标头时超过了 Client.Timeout)
 
- - 如果此错误是暂时性的，则重试后，提取将会成功。
- - 如果 `docker pull` 连续失败，则原因可能是 Docker 守护程序出现了问题。 重启 Docker 守护程序通常可以缓解此问题。 
- - 如果重启 Docker 守护程序后仍旧出现此问题，则原因可能是计算机上出现了一些网络连接问题。 若要检查计算机上的常规网络是否正常，请运行以下命令来测试终结点连接。 包含此连接性检查命令的最低 `az acr` 版本为 2.2.9。 如果使用早期的版本，请升级 Azure CLI。
+- 如果此错误是暂时性的，则重试后，提取将会成功。
+- 如果 `docker pull` 连续失败，则原因可能是 Docker 守护程序出现了问题。 重启 Docker 守护程序通常可以缓解此问题。 
+- 如果重启 Docker 守护程序后仍旧出现此问题，则原因可能是计算机上出现了一些网络连接问题。 若要检查计算机上的常规网络是否正常，请运行以下命令来测试终结点连接。 包含此连接性检查命令的最低 `az acr` 版本为 2.2.9。 如果使用早期的版本，请升级 Azure CLI。
 
     ```azurecli
     az acr check-health -n myRegistry
     ```
- - 始终应该对所有 Docker 客户端操作使用重试机制。
+- 始终应该对所有 Docker 客户端操作使用重试机制。
 
 ### <a name="docker-pull-is-slow"></a>Docker 提取速度缓慢
 使用[此](http://www.azurespeed.com/Azure/Download)工具测试计算机的网络下载速度。 如果计算机网络速度较慢，请考虑在注册表所在的同一区域中使用 Azure VM。 这通常可以加快网络速度。
@@ -298,14 +298,14 @@ unauthorized: authentication required
 若要解决该错误：
 1. 将选项 `--signature-verification=false` 添加到 Docker 守护程序配置文件 `/etc/sysconfig/docker`。 例如：
 
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+    ```
+    OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
+    ```
 2. 运行以下命令重启 Docker 守护程序服务：
 
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+    ```bash
+    sudo systemctl restart docker.service
+    ```
 
 运行 `man dockerd` 可以找到 `--signature-verification` 的详细信息。
 
@@ -327,10 +327,10 @@ sudo service docker restart
 
 可以在 [Docker 文档](https://docs.docker.com/engine/admin/#enable-debugging)中找到详细信息。 
 
- * 日志可能在不同的位置生成，具体取决于所用的系统。 例如，对于 Ubuntu 14.04，日志位置为 `/var/log/upstart/docker.log`。   
+* 日志可能在不同的位置生成，具体取决于所用的系统。 例如，对于 Ubuntu 14.04，日志位置为 `/var/log/upstart/docker.log`。    
     有关详细信息，请参阅 [Docker 文档](https://docs.docker.com/engine/admin/#read-the-logs)。    
 
- * 对于用于 Windows 的 Docker，将在 %LOCALAPPDATA%/docker/ 下生成日志。 但是，此位置不一定包含所有调试信息。   
+* 对于用于 Windows 的 Docker，将在 %LOCALAPPDATA%/docker/ 下生成日志。 但是，此位置不一定包含所有调试信息。    
 
     若要访问完整的守护程序日志，可能需要执行一些额外的步骤：
 

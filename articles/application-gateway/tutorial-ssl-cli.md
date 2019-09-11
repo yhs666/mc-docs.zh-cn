@@ -3,24 +3,22 @@ title: 使用 SSL 终端创建应用程序网关 - Azure CLI
 description: 了解如何使用 Azure CLI 创建应用程序网关并为 SSL 终端添加证书。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-origin.date: 05/20/2019
-ms.date: 06/12/2019
+ms.topic: article
+origin.date: 08/01/2019
+ms.date: 09/03/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b9b68d6e293ffa9d303e4a9bba9a0fc043201ff2
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 3aefead33ed000534b29b7c5a157f20e8404811d
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027404"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310820"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>通过 Azure CLI 使用 SSL 终端创建应用程序网关
 
-可通过 Azure CLI 使用 [SSL 终端](ssl-overview.md)的证书创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](overview.md)。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。
+可以通过 Azure CLI 使用 [SSL 终端](ssl-overview.md)的证书创建[应用程序网关](overview.md)。 对于后端服务器，可以使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。
 
 在本文中，学习如何：
 
@@ -83,7 +81,9 @@ az network vnet subnet create `
 
 az network public-ip create `
   --resource-group myResourceGroupAG `
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress `
+  --allocation-method Static `
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
@@ -182,6 +182,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 ## <a name="next-steps"></a>后续步骤
 
-* [创建托管多个网站的应用程序网关](./tutorial-multiple-sites-cli.md)
+[创建托管多个网站的应用程序网关](./tutorial-multiple-sites-cli.md)
 
 <!-- Update_Description: wording update -->

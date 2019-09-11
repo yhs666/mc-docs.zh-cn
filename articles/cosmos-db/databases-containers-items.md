@@ -4,16 +4,16 @@ description: 本文介绍如何在 Azure Cosmos DB 中创建和使用数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 07/26/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c40bc89aa1bfc95467299bc0ef666df0fa1566bc
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 5d1098514f9755d958f35f0fa811c1ce79ef67e1
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151453"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254770"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数据库、容器和项
 
@@ -124,6 +124,9 @@ Azure Cosmos 容器具备一组系统定义的属性。 根据所用的 API，�
 |\_self | 由系统生成 | 项的可寻址 URI | 是 | 否 | 否 | 否 | 否 |
 |id | 任一个 | 逻辑分区中用户定义的唯一名称。 如果用户没有指定该 ID，则系统会自动生成一个。 | 是 | 是 | 是 | 是 | 是 |
 |任意用户定义的属性 | 用户定义 | 用户定义的属性以 API 本机表示形式表示（包括 JSON、BSON 和 CQL） | 是 | 是 | 是 | 是 | 是 |
+
+> [!NOTE]
+> `id` 属性的唯一性仅在每个逻辑分区中强制实施。 多个文档可以具有相同的 `id` 属性，但具有不同的分区键值。
 
 ### <a name="operations-on-items"></a>对项执行的操作
 

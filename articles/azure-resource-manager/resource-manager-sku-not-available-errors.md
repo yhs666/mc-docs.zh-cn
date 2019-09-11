@@ -14,16 +14,16 @@ ms.topic: troubleshooting
 origin.date: 10/19/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5fbdbd41698106d7005f0c3c89f3ba662eb1a118
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: a6de29e19dac26c127d246744b84f7d3a28a9168
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306073"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857108"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解决 SKU 不可用错误
 
-本文介绍如何解决 **SkuNotAvailable** 错误。 如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://support.windowsazure.cn/support/support-azure)提交到 Azure 支持。
+本文介绍如何解决 **SkuNotAvailable** 错误。 如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://support.azure.cn/zh-cn/support/support-azure/)提交到 Azure 支持。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -82,7 +82,7 @@ virtualMachines  chinaeast  Standard_F4                ...             None
 
 要确定区域中可用的 SKU，请使用[门户](https://portal.azure.cn)。 登录到门户，并通过接口添加资源。 设置值时，可看到该资源的可用 SKU。 不需要完成部署。
 
-例如，开始创建虚拟机的过程。 若要查看其他可用的大小，请选择“更改大小”。
+例如，开始创建虚拟机的过程。 若要查看其他可用的大小，请选择“更改大小”  。
 
 ![创建 VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
 

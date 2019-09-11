@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/29/2019
+origin.date: 08/13/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 83eeb9f62f4d478b7c18fb02790943feb3f564d3
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 327aa6af979ffdfee92a4eb02b7c25c13c680d7a
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248594"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857231"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 验证报表
 
@@ -36,7 +36,7 @@ ms.locfileid: "66248594"
 
 当在同一计算机上运行后续验证检查时，这两个文件都会持久保留这些验证检查的结果。 例如，可以运行该工具来验证证书，再次运行它来验证 Azure 标识，第三次运行它来验证注册。 所有三次验证的结果都在生成的 .json 报表中。  
 
-默认情况下，这两个文件都写入到 **C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
+默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
 - 可以在命令行的末尾使用 `-OutputPath <path>` 参数来指定不同的报告位置。
 - 可以在命令行的末尾使用 `-CleanReport` 参数从 **AzsReadinessCheckerReport.json** 中清除有关以前运行此工具的相关信息。
@@ -47,7 +47,7 @@ ms.locfileid: "66248594"
 
 例如，若要从打开到报表所在位置的 PowerShell 提示符查看报表，请运行以下命令：
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 

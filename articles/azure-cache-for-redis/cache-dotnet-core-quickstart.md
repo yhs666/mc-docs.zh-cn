@@ -13,34 +13,25 @@ ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/18/2018
-ms.date: 03/27/2019
+ms.date: 09/03/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4cb9ec46d4ead6cc86b30d09d77e6c5dbf867887
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 9befb9c4dd9e5e3e432c986533dd274a44676dc8
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505485"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310816"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
 
-
-
-本快速入门展示了如何开始将 Azure Redis 缓存与 .NET Core 配合使用。 Azure Redis 缓存基于热门的开源 Azure Redis 缓存。 它提供对 Microsoft 所管理的安全专用的 Azure Redis 缓存的访问权限。 使用 Azure Redis 缓存创建的缓存可从 Azure 内的任何应用程序进行访问。
-
-在本快速入门中，你将在 .NET Core 控制台应用中将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端与 C\# 代码配合使用。 你将创建缓存并配置 .NET Core 客户端应用。 然后，你将在缓存中添加和更新对象。 
-
-可使用任何代码编辑器来完成本快速入门中的步骤。 但是，[Visual Studio Code](https://code.visualstudio.com/) 是一个很好的选项，可用于 Windows、macOS 和 Linux 平台。
-
-![已完成的控制台应用](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
-
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+在本快速入门中，会将 Azure Redis 缓存合并到 .NET Core 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。 你专门在 .NET Core 控制台应用中将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端与 C# 代码配合使用。 
 
 ## <a name="prerequisites"></a>先决条件
 
-* [.NET SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) 或更高版本。
-* StackExchange.Redis 客户端需要 [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+- Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)，这是 StackEdchange.Redis 客户端所需的。
 
 ## <a name="create-a-cache"></a>创建缓存
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -67,7 +58,7 @@ dotnet new console -o Redistest
 
 在本部分中，将向项目添加[机密管理器工具](https://docs.microsoft.com/aspnet/core/security/app-secrets)。 机密管理器工具存储敏感数据，以便用于项目树之外的开发工作。 此方法有助于防止意外共享源代码中的应用密码。
 
-打开 *Redistest.csproj* 文件。 添加 `DotNetCliToolReference` 元素以包含 Microsoft.Extensions.SecretManager.Tools。 同时添加 `UserSecretsId` 元素（如下所示），并保存文件。
+打开 *Redistest.csproj* 文件。 添加 `DotNetCliToolReference` 元素以包含 Microsoft.Extensions.SecretManager.Tools  。 同时添加 `UserSecretsId` 元素（如下所示），并保存文件。
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -312,13 +303,13 @@ dotnet run
 > 删除资源组的操作不可逆，资源组以及其中的所有资源将被永久删除。 请确保不会意外删除错误的资源组或资源。 如果在现有资源组（其中包含要保留的资源）中为托管此示例而创建了相关资源，可从各自的边栏选项卡逐个删除这些资源，而不要删除资源组。
 >
 
-登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。
+登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。 
 
-在“按名称筛选...”文本框中键入资源组的名称。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，单击“...”，然后单击“删除资源组”。
+在“按名称筛选...”文本框中键入资源组的名称  。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，单击“...”，然后单击“删除资源组”   。
 
 ![删除](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-系统会要求确认是否删除资源组。 键入资源组的名称进行确认，然后单击“删除”。
+系统会要求确认是否删除资源组。 键入资源组的名称进行确认，然后单击“删除”  。
 
 片刻之后，将会删除该资源组及其包含的所有资源。
 
@@ -333,8 +324,7 @@ dotnet run
 > [!div class="nextstepaction"]
 > [创建使用 Azure Redis 缓存的 ASP.NET Web 应用。](./cache-web-app-howto.md)
 
-
-
-
-
 <!-- Update_Description: wording update -->
+
+
+

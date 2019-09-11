@@ -8,18 +8,18 @@ manager: digimobile
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/08/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 31bf6f7691c7dcf71e54e28f9b2a47dba9a1a525
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 16f0953f2a7955a028b1b371b7fbeff5cc5beab2
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578612"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254558"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Azure Cosmos DB 的安全属性
 
-本文阐述了 Azure Cosmos DB 中内置的常用安全属性。
+本文介绍 Azure Cosmos DB 中内置的安全属性。
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "69578612"
 
 | 安全属性 | 是/否 | 注释 |
 |---|---|--|
-| 静态加密（例如服务器端加密、带客户托管密钥的服务器端加密，以及其他加密功能） | 是 | 所有 Cosmos DB 数据库和备份默认已加密。请参阅 [Azure Cosmos DB 中的数据加密](database-encryption-at-rest.md)。 不支持使用客户管理的密钥进行服务器端加密。 |
+| 静态加密（例如服务器端加密、带客户托管密钥的服务器端加密，以及其他加密功能） | 是 | 所有 Cosmos 数据库和备份默认已加密。请参阅 [Azure Cosmos DB 中的数据加密](database-encryption-at-rest.md)。 不支持使用客户管理的密钥进行服务器端加密。 |
 | 传输中加密（例如 ExpressRoute 加密、VNet 中加密，以及 VNet-VNet 加密）| 是 | 所有 Azure Cosmos DB 数据在传输中都会经过加密。 |
 | 加密密钥处理（CMK、BYOK 等）| 否 |  |
 | 列级加密（Azure 数据服务）| 是 | 只能在表 API 高级版中使用。 并非所有 API 都支持此功能。 请参阅 [Azure Cosmos DB 简介：表 API](table-introduction.md)。 |
@@ -38,9 +38,9 @@ ms.locfileid: "69578612"
 | 安全属性 | 是/否 | 注释 |
 |---|---|--|
 | 服务终结点支持| 是 |  |
-| vNET 注入支持| 是 | 使用 VNet 服务终结点可将 Azure Cosmos DB 帐户配置为仅允许从虚拟网络 (VNet) 的特定子网进行访问。 还可以将 VNet 访问与防火墙规则相结合。  请参阅[从虚拟网络访问 Azure Cosmos DB](vnet-service-endpoint.md)。 |
+| VNet 注入支持| 是 | 使用 VNet 服务终结点可将 Azure Cosmos DB 帐户配置为仅允许从虚拟网络 (VNet) 的特定子网进行访问。 还可以将 VNet 访问与防火墙规则相结合。  请参阅[从虚拟网络访问 Azure Cosmos DB](VNet-service-endpoint.md)。 |
 | 网络隔离和防火墙支持| 是 | 借助防火墙支持，可将 Azure Cosmos 帐户配置为仅允许从一组已批准的 IP 地址、某个 IP 地址范围和/或云服务进行访问。 请参阅[在 Azure Cosmos DB 中配置 IP 防火墙](how-to-configure-firewall.md)。|
-| 支持强制隧道 | 是 | 可以在虚拟机所在的 VNET 中的客户端上配置。   |
+| 强制隧道支持| 是 | 可以在虚拟机所在的 VNet 中的客户端上配置。   |
 
 ## <a name="detection"></a>检测
 
@@ -61,7 +61,7 @@ ms.locfileid: "69578612"
 
 | 安全属性 | 是/否 | 注释|
 |---|---|--|
-| 控制/管理计划日志记录和审核| 是 | 帐户级操作（例如防火墙、VNet、密钥访问和 IAM）的 Azure 活动日志。 |
+| 控制和管理平面日志记录和审核| 是 | 帐户级操作（例如防火墙、VNet、密钥访问和 IAM）的 Azure 活动日志。 |
 | 数据平面日志记录和审核 | 是 | 容器级操作（例如创建容器、预配吞吐量、为策略编制索引，以及对文档执行 CRUD 操作）的诊断监视日志记录。 |
 
 ## <a name="configuration-management"></a>配置管理
@@ -76,5 +76,5 @@ ms.locfileid: "69578612"
 |---|---|--|
 | 跨域资源共享 (CORS) | 是 | 请参阅[配置跨域资源共享 (CORS)](how-to-configure-cross-origin-resource-sharing.md)。 |
 
-<!-- Update_Description: new articles on cosmos db security attributes-->
-<!--ms.date: 06/17/2019-->
+<!-- Update_Description: wording update -->
+

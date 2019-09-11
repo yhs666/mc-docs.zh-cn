@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/24/2018
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ca7c823be4de7e90f2ac9b5360b7f745e8f967a
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 21fe3b9bb288813e86bb9b10ad0d325a96aa1b51
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819620"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254625"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -29,17 +29,18 @@ ms.locfileid: "68819620"
 <a name="getlivesitesupportonazure"></a>
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>报告生产问题，或者请求 Azure 付费支持
 
-若要报告部署在 Azure 上的 Service Fabric 群集的问题，请通过 [Azure 门户](https://support.azure.cn/zh-cn/support/support-azure/)开具支持票证。
+若要报告部署在 Azure 上的 Service Fabric 群集的问题，请通过 [Azure 门户](https://support.azure.cn/support/support-azure/)开具支持票证。
 
 <!--Duplicated [Azure support portal](https://support.azure.cn/zh-cn/support/support-azure/).-->
 
 了解有关以下方面的详细信息：
 
 - [世纪互联对 Azure 的支持](https://www.azure.cn/support/plans/)。
+    
     <!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier)-->
 
 > [!Note]
-> 在青铜级可靠性层级上运行的群集只能用来运行测试性工作负荷。 如果你遇到在青铜可靠性级别运行的群集的问题，Azure 支持团队会协助你解决问题，但不会进行根本原因分析。 请参阅[群集的可靠性特征](/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)以获取更多详细信息。
+> 在青铜级可靠性层级或单节点群集上运行的群集只能用来运行测试性工作负荷。 如果你遇到在青铜可靠性级别或单节点群集上运行的群集的问题，Azure 支持团队会协助你解决问题，但不会进行根本原因分析。 请参阅[群集的可靠性特征](/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)以获取更多详细信息。
 >
 > 若要详细了解生产就绪性群集的必要信息，请参阅[生产就绪性核对清单](/service-fabric/service-fabric-production-readiness-checklist)。
 
@@ -47,7 +48,7 @@ ms.locfileid: "68819620"
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产问题，或者请求独立 Service Fabric 群集的付费支持
 
-若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://support.azure.cn/zh-cn/support/support-azure/)开具专业支持票证。
+若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://support.azure.cn/support/support-azure/)开具专业支持票证。
 
 <!--Not Available on - [Professional Support from Microsoft for on-premises](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)-->
 <!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier)-->
@@ -78,6 +79,7 @@ ms.locfileid: "68819620"
 [支持的 Service Fabric 版本](service-fabric-versions.md)
 
 <!--references-->
+
 [msdn-forum]: https://support.azure.cn/support/contact/
 
 <!--Not Available on [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric-->

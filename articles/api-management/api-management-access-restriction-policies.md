@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2019
 ms.author: v-yiso
-ms.date: 06/17/2019
-ms.openlocfilehash: aa308466399d55b448e31dc17656173bd2800b8d
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 09/16/2019
+ms.openlocfilehash: 8ae92d73f1aa3be9e21af3d5739d99268bb9f00c
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732543"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736746"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -41,6 +41,8 @@ ms.locfileid: "66732543"
   
 -   [验证 JWT](./api-management-access-restriction-policies.md#ValidateJWT) - 强制从指定 HTTP 标头或指定查询参数提取的 JWT 必须存在且有效。  
   
+> [!TIP]
+> 可以在不同的范围内为不同的目的使用访问限制策略。 例如，可以通过在 API 级别上应用 `validate-jwt` 策略来使用 AAD 身份验证保护整个 API，也可以在 API 操作级别上应用它并使用 `claims` 进行更细粒度的控制。
 ##  <a name="CheckHTTPHeader"></a>检查 HTTP 标头  
  使用 `check-header` 策略强制请求具有指定的 HTTP 标头。 可以选择性地查看标头是否具有特定值，或者检查是否存在一系列允许的值。 如果检查失败，此策略会终止请求处理，并返回其所指定的 HTTP 状态代码和错误消息。  
   
@@ -80,10 +82,10 @@ ms.locfileid: "66732543"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站、出站  
-  
--   **策略范围：** 全局、产品、API、操作  
-  
+-   **策略节：** 入站、出站
+
+-   **策略范围：** 所有范围
+
 ##  <a name="LimitCallRate"></a>按订阅限制调用速率  
  `rate-limit` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个订阅的 API 使用量暴增。 触发此策略时，调用方会收到 `429 Too Many Requests` 响应状态代码。  
   
@@ -137,10 +139,10 @@ ms.locfileid: "66732543"
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-  
--   **策略段：** 入站  
-  
--   **策略范围：** 产品  
+
+-   **策略节：** 入站
+
+-   **策略范围：** 产品、API、操作
   
 ##  <a name="LimitCallRateByKey"></a>按密钥限制调用速率  
  `rate-limit-by-key` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个密钥的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到限制时应计入哪些请求。 触发此策略时，调用方会收到`429 Too Many Requests`响应状态代码。  
@@ -196,9 +198,9 @@ ms.locfileid: "66732543"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站  
-  
--   **策略范围：** 全局、产品、API、操作  
+-   **策略节：** 入站
+
+-   **策略范围：** 所有范围
   
 ##  <a name="RestrictCallerIPs"></a>限制调用方 IP  
  `ip-filter` 策略筛选（允许/拒绝）来自特定 IP 地址和/或地址范围的调用。  
@@ -241,9 +243,8 @@ ms.locfileid: "66732543"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站  
-  
--   **策略范围：** 全局、产品、API、操作  
+-   **策略节：** 入站
+-   **策略范围：** 所有范围
   
 ##  <a name="SetUsageQuota"></a>按订阅设置使用量配额  
  `quota` 策略允许根据订阅强制实施可续订或有生存期的调用量和/或带宽配额。  
@@ -353,9 +354,8 @@ ms.locfileid: "66732543"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站  
-  
--   **策略范围：** 全局、产品、API、操作  
+-   **策略节：** 入站
+-   **策略范围：** 所有范围
   
 ##  <a name="ValidateJWT"></a>验证 JWT  
  `validate-jwt` 策略强制从指定 HTTP 标头或指定查询参数提取的 JWT 必须存在且有效。  
@@ -538,9 +538,9 @@ ms.locfileid: "66732543"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站  
--   **策略范围：** 全局、产品、API、操作  
-  
+-   **策略节：** 入站
+-   **策略范围：** 所有范围
+
 ## <a name="next-steps"></a>后续步骤
 
 有关如何使用策略的详细信息，请参阅：

@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/04/2018
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7e4bedb6b38ab163e995c87d97bb16ce15c35c7f
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: d1b69fe4648b08a5d050b77873a48641cdd8d30e
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514278"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254674"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
@@ -154,6 +154,46 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 有关针对失败的运行状况检查进行故障排除的详细信息，请参阅 [Azure 流量管理器上的降级状态故障排除](traffic-manager-troubleshooting-degraded.md)。
 
+## <a name="faqs"></a>常见问题
+
+* [流量管理器能否灵活应对 Azure 区域故障？](/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+
+* [选择资源组位置会如何影响流量管理器？](/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+
+* [如何确定每个终结点的当前运行状况？](/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+
+* [能否监视 HTTPS 终结点？](/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+
+* [添加终结点时是使用 IP 地址还是 DNS 名称？](/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+
+* [添加终结点时可以使用哪些类型的 IP 地址？](/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+
+* [可以在单个配置文件中使用不同的终结点寻址类型吗？](/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+
+* [当传入查询的记录类型不同于与终结点寻址类型关联的记录类型时，会出现什么情况？](/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+
+* [可以在嵌套配置文件中使用终结点采用 IPv4/IPv6 地址的配置文件吗？](/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+
+* [我在流量管理器配置文件中停止了 Web 应用程序终结点，但即使重启后，也未收到任何流量。如何解决此问题？](/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+
+* [是否即使应用程序不支持 HTTP 或 HTTPS，我也可以使用流量管理器？](/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+
+* [使用 TCP 监视时，需要终结点发出的哪些特定响应？](/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+
+* [流量管理器将用户从运行不正常的终结点中移出的速度有多快？](/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+
+* [如何在配置文件中为不同的终结点指定不同的监视设置？](/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+
+* [如何将 HTTP 标头分配给终结点的流量管理器运行状况检查？](/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+
+* [终结点运行状况检查使用什么主机头？](/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+
+* [运行状况检查从哪些 IP 地址发起？](/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+
+* [流量管理器预期会对终结点执行多少次运行状况检查？](/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+
+* [如果我的某个终结点发生故障，我如何得到通知？](/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
+
 ## <a name="next-steps"></a>后续步骤
 
 了解[流量管理器的工作原理](traffic-manager-how-it-works.md)
@@ -164,4 +204,4 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 在流量管理器终结点上[排查降级状态](traffic-manager-troubleshooting-degraded.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

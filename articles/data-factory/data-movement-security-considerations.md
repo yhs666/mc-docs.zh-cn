@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 06/15/2018
 ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: d2970ac4adae8250803a910dbc74a53a59ac3e01
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 49b231bd2c21873a62204762d414ec7ea1633b1c
+ms.sourcegitcommit: 2f7c24eff74f4de0d4a117fc2c327e00ab77ff88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908729"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70888185"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure 数据工厂中数据移动的安全注意事项
 
@@ -155,7 +155,7 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 | 域名                  | 出站端口 | 说明                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.chinacloudapi.cn`    | 443            | 自承载集成运行时连接到数据工厂中的数据移动服务时需要此端口。 |
-| `*.frontend.clouddatahub.net` | 443            | 自承载集成运行时连接到数据工厂服务时需要此端口。 |
+| `*.frontend.datamovement.azure.cn` | 443            | 自承载集成运行时连接到数据工厂服务时需要此端口。 |
 | `download.microsoft.com`    | 443            | 自承载集成运行时下载更新时需要此端口。 如果已禁用自动更新，则可以跳过此设置。 |
 | `*.core.chinacloudapi.cn`          | 443            | 使用[分阶段复制](copy-activity-performance.md#staged-copy)功能时，由自承载集成运行时用来连接到 Azure 存储帐户。 |
 | `*.database.chinacloudapi.cn`      | 1433           | （可选）从/向 Azure SQL 数据库或 Azure SQL 数据仓库复制时需要。 在不打开端口 1433 的情况下，使用暂存复制功能将数据复制到 Azure SQL 数据库或 Azure SQL 数据仓库。 |

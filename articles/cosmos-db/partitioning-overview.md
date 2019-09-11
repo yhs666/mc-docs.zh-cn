@@ -5,14 +5,14 @@ ms.author: v-yeche
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
-ms.openlocfilehash: eba4ae114080a7ca6796f19cea7766b0bab0515c
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+origin.date: 08/01/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 5134513b665ccad11f2812bd69b447aacdb8eaac
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171398"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254853"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区
 
@@ -41,7 +41,7 @@ Azure Cosmos DB 使用基于哈希的分区在物理分区之间分散逻辑分�
 
 * 单个逻辑分区的存储空间上限为 10 GB。  
 
-* Azure Cosmos 容器的最小吞吐量为每秒 400 个请求单位 (RU/s)。 对同一分区键的请求不能超过分配给某个分区的吞吐量。 如果请求超过分配的吞吐量，则请求将受到速率限制。 请务必选择不会导致应用程序中产生“热点”的分区键。
+* Azure Cosmos 容器的最小吞吐量为每秒 400 个请求单位 (RU/s)。 在数据库上预配吞吐量时，每个容器的最小 RU 数为每秒 100 个请求单位（RU/秒）。 对同一分区键的请求不能超过分配给某个分区的吞吐量。 如果请求超过分配的吞吐量，则请求将受到速率限制。 请务必选择不会导致应用程序中产生“热点”的分区键。
 
 * 选择具有宽广范围的值，以及在逻辑分区之间均匀分散的访问模式的分区键。 这有助于在逻辑分区集之间分散容器中的数据和活动，以便可以在逻辑分区之间分配数据存储和吞吐量的资源。
 

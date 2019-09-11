@@ -13,12 +13,12 @@ ms.reviewer: sashan, moslake, carlrab
 manager: digimobile
 origin.date: 06/26/2019
 ms.date: 08/26/2019
-ms.openlocfilehash: ac0cffbb89fc20cd9dcf3936ff995ac10ee5a069
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 7123a7418513d87b172a87151c2702f4e93c0f5c
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578632"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254593"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>在 vCore 服务层级中进行选择，然后从 DTU 服务层级进行迁移
 
@@ -45,9 +45,9 @@ ms.locfileid: "69578632"
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|I/O 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|具有很高的可缩放存储和读取缩放要求的大多数业务工作负荷。|
 |计算|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore<br/>**无服务器计算**<br/>Gen5：0.5 到 4 个 vCore|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore|
 |内存|**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB<br/>**无服务器计算**<br/>Gen5：每个 vCore 3 GB|**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB |**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB|
-|存储|使用远程存储。<br/>**单一数据库预配计算**：<br/>5 GB � 4 TB<br/>**单一数据库无服务器计算**：<br/>5 GB - 1 TB<br/>**托管实例**：32 GB - 8 TB |使用本地 SSD 存储。<br/>**单一数据库预配计算**：<br/>5 GB � 4 TB<br/>**托管实例**：<br/>32 GB - 4 TB |可以根据需要灵活地自动扩展存储。 最多支持 100 TB 存储空间。 使用本地 SSD 存储作为本地缓冲池缓存和本地数据存储。 使用 Azure 远程存储作为最终的长期数据存储。 |
+|存储|使用远程存储。<br/>**单一数据库预配计算**：<br/>5 GB - 4 TB<br/>**单一数据库无服务器计算**：<br/>5 GB - 1 TB<br/>**托管实例**：32 GB - 8 TB |使用本地 SSD 存储。<br/>**单一数据库预配计算**：<br/>5 GB - 4 TB<br/>**托管实例**：<br/>32 GB - 4 TB |可以根据需要灵活地自动扩展存储。 最多支持 100 TB 存储空间。 使用本地 SSD 存储作为本地缓冲池缓存和本地数据存储。 使用 Azure 远程存储作为最终的长期数据存储。 |
 |I/O 吞吐量（近似值）|**单一数据库**：每个 vCore 提供 500 IOPS，最大 7000 IOPS。<br/>**托管实例**：取决于[文件大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)。|每个 vCore 提供 5000 IOPS，最大 200,000 IOPS|超大规模是具有多个级别缓存的多层体系结构。 有效 IOPs 将取决于工作负荷。|
-|可用性|1 个副本，无读取缩放副本|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余高可用性 (HA)|1 个读写副本加 0-4 个[读取缩放副本](sql-database-read-scale-out.md)|
+|可用性|1 个副本，无读取缩放副本|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)|1 个读写副本加 0-4 个[读取缩放副本](sql-database-read-scale-out.md)|
 |备份|[读取访问异地冗余存储 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|Azure 远程存储中基于快照的备份。 还原使用这些快照进行快速恢复。 备份瞬间完成，不会影响计算 I/O 性能。 还原速度很快，不基于数据操作的大小（需要几分钟，而不是几小时或几天）。|
 |内存中|不支持|支持|不支持|
 |||

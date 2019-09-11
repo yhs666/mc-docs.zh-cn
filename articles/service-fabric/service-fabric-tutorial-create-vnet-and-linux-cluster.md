@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/14/2019
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1322efad88bfadfb2c70b4673c14f6de75a8b9b4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: dcdcdef1a8c70ca6073dc51c4bd1c6c67466eca7
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625705"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254824"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>将 Linux Service Fabric 群集部署到 Azure 虚拟网络
 
@@ -33,8 +33,9 @@ ms.locfileid: "58625705"
 
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 * 安装 [Service Fabric CLI](service-fabric-cli.md)
-* 安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)
+* 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
 * 若要了解群集的关键概念，请阅读 [Azure 群集概述](service-fabric-azure-clusters-overview.md)
+* 为生产群集部署[计划并准备](service-fabric-cluster-azure-deployment-preparation.md)。
 
 以下步骤将创建一个七节点 Service Fabric 群集。 若要计算在 Azure 中运行 Service Fabric 群集的成本，请使用 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/)。
 
@@ -45,8 +46,10 @@ ms.locfileid: "58625705"
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
+<!--MOONCAKE: CUSTOMIZE-->
+
 > [!NOTE]
-> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“core.windows.net”替换为“core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
 <!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
 
@@ -59,7 +62,9 @@ ms.locfileid: "58625705"
 > * 替换 [New-ServiceFabricClusterCertificate.ps1](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/New-ServiceFabricClusterCertificate.ps1) 中的 Location。
 >     * 将 `WestUS` 替换为 `chinanorth`。
 
-此模板将包含七个虚拟机和三个节点类型的安全群集部署到虚拟网络中。  其他示例模板可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到。 [AzureDeploy.json][template] 部署一些资源，包括以下资源。
+<!--MOONCAKE: CUSTOMIZE-->
+
+此模板将包含七个虚拟机和三个节点类型的安全群集部署到虚拟网络中。  其他示例模板可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到。 [AzureDeploy.json][template] 部署一些资源，包括以下项。
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 群集
 
@@ -97,16 +102,15 @@ ms.locfileid: "58625705"
 
 [AzureDeploy.Parameters][parameters] 参数文件声明用于部署群集和关联资源的多个值。 可能需要使用某些参数来修改部署：
 
-
-|       参数       | 示例值  |                                                                                                                                                                          说明                                                                                                                                                                           |
-|-----------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     adminUserName     |    vmadmin     |                                                                                                                                                           群集 VM 的管理员用户名。                                                                                                                                                            |
-|     adminPassword     | Password#1234  |                                                                                                                                                           群集 VM 的管理员密码。                                                                                                                                                            |
-|      clusterName      | mysfcluster123 |                                                                                                                                                                   群集的名称。                                                                                                                                                                   |
-|       location        |   chinaeast    |                                                                                                                                                                 群集的位置。                                                                                                                                                                 |
-| certificateThumbprint |                |                                  <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”。 </p>                                   |
-|  certificateUrlValue  |                |                 <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如“<https://mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>”。</p>                 |
-|   sourceVaultValue    |                | <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p> |
+|参数|示例值|说明|
+|---|---||
+|adminUserName|vmadmin| 群集 VM 的管理员用户名。 |
+|adminPassword|Password#1234| 群集 VM 的管理员密码。|
+|clusterName|mysfcluster123| 群集的名称。 |
+|location|chinaeast| 群集的位置。 |
+|certificateThumbprint|| <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”。 </p>|
+|certificateUrlValue|| <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如，“https:\//mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”。</p>|
+|sourceVaultValue||<p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p>|
 
 <a name="createvaultandcert" name="createvaultandcert_anchor"></a>
 
@@ -118,7 +122,7 @@ ms.locfileid: "58625705"
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>使用现有证书创建群集
 
-以下脚本使用 [az sf cluster create](https://docs.azure.cn/zh-cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) 命令和模板部署一个以现有证书保护的新群集。 该命令还会在 Azure 中创建新的 Key Vault，并上传证书。
+以下脚本使用 [az sf cluster create](https://docs.azure.cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) 命令和模板部署一个以现有证书保护的新群集。 该命令还会在 Azure 中创建新的 Key Vault，并上传证书。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -144,7 +148,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>使用新的自签名证书创建群集
 
-以下脚本使用 [az sf cluster create](https://docs.azure.cn/zh-cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) 命令和模板在 Azure 中部署新群集。 此命令还会在 Azure 中创建新的密钥保管库、向密钥保管库添加新的自签名证书，并将证书文件下载到本地。
+以下脚本使用 [az sf cluster create](https://docs.azure.cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) 命令和模板在 Azure 中部署新群集。 此命令还会在 Azure 中创建新的密钥保管库、向密钥保管库添加新的自签名证书，并将证书文件下载到本地。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -183,7 +187,7 @@ sfctl cluster health
 
 本文中的模板部署一个群集，该群集使用证书指纹来标识群集证书。  两个证书不能有相同的指纹，否则会增加证书管理的难度。 将已部署的群集从使用证书指纹切换为使用证书公用名称会使证书管理更加简单。  若要了解如何更新群集，以便使用证书公用名称进行证书管理，请阅读[将群集更改为使用证书公用名称进行管理](service-fabric-cluster-change-cert-thumbprint-to-cn.md)。
 
-[template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
-[parameters]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
 
 <!--Update_Description: update link, wording update -->

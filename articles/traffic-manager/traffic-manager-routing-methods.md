@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: e1a2d720749d1a6e87fb88401552bd00e492d348
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: b663e0b2f1e766d47d8cb37e2593fa9e4731c840
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514403"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254672"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理器路由方法
 
@@ -75,11 +75,9 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 这些 DNS 缓存影响常见于所有基于 DNS 的流量路由系统，不只存在于 Azure 流量管理器上。 在某些情况下，显式清除 DNS 缓存可能会解决问题。 在另外一些情况下，可能更适合使用替代性流量路由方法。
 
 <a name="performance"></a>
-## <a name="performance-traffic-routing-method"></a>“性能”流量路由方法
+## <a name="performance-traffic-routing-method"></a>性能流量路由方法
 
-在国家/地区的两个或更多位置部署终结点，将流量路由到“最靠近”用户的位置，即可改善许多应用程序的响应能力。 “性能”流量路由方法提供这种能力。
-
-<!--Change Global to nation-->
+在全球两个或更多的位置部署终结点，将流量路由到“最靠近”用户的位置，即可改善许多应用程序的响应能力。 “性能”流量路由方法提供这种能力。
 
 ![Azure 流量管理器的“性能”流量路由方法](media/traffic-manager-routing-methods/performance.png)
 
@@ -89,7 +87,7 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 
 如[流量管理器工作原理](traffic-manager-how-it-works.md)中所述，流量管理器不会直接从客户端接收 DNS 查询。 DNS 查询来自客户端配置使用的递归 DNS 服务。 因此，用于确定“最靠近”终结点的 IP 地址不是客户端的 IP 地址，而是递归 DNS 服务的 IP 地址。 在实践中，此 IP 地址是客户端的适当代理。
 
-流量管理器定期更新 Internet 延迟表，反映全国 Internet 的变化以及新的 Azure 区域。 但是，由于 Internet 上的负载会实时变化，应用程序性能也会随之变化。 “性能”流量路由不会监视给定服务终结点上的负载。 但是，如果某个终结点变得不可用，则流量管理器不会在 DNS 查询响应中包括该终结点。
+流量管理器定期更新 Internet 延迟表，反映全球 Internet 的变化以及新的 Azure 区域。 但是，由于 Internet 上的负载会实时变化，应用程序性能也会随之变化。 “性能”流量路由不会监视给定服务终结点上的负载。 但是，如果某个终结点变得不可用，则流量管理器不会在 DNS 查询响应中包括该终结点。
 
 <!--Change Global to national-->
 
@@ -107,6 +105,14 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 ## <a name = "multivalue"></a>多值流量路由方法
 **多值**流量路由方法允许你在单个 DNS 查询响应中获得多个正常运行的终结点。 这使得调用方在返回的某个终结点无法响应时能够通过其他终结点进行重试。 此模式可以提高服务可用性，并降低与新 DNS 查询获取正常运行的终结点相关的延迟。 只有当所有终结点的类型都是“外部”并且指定为 IPv4 或 IPv6 地址时，多值路由方法才有效。 当收到对此配置文件的查询时，会根据可配置的最大返回计数返回所有正常运行的终结点。
 
+### <a name="faqs"></a>常见问题
+
+* [可以在哪些情况下使用多值路由？](/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [使用多值路由会返回多少终结点？](/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [使用多值路由时，会收到一组相同的终结点吗？](/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>子网流量路由方法
 **子网**流量路由方法允许你将一个最终用户 IP 地址范围集映射到配置文件中的特定终结点。 此后，如果流量管理器收到针对该配置文件的 DNS 查询，则它将检查该请求的源 IP 地址（大多数情况下，这是调用方使用的 DNS 解析程序的传出 IP 地址），确定它映射到哪个终结点，并在查询响应中返回该终结点。 
 
@@ -114,6 +120,18 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 如果定义一个没有地址范围的终结点，则该终结点将用作回退终结点并从任何剩余的子网获取流量。 如果未包含回退终结点，则流量管理器会针对任何未定义的范围发送 NODATA 响应。 因此，强烈建议你定义回退终结点，或者确保在终结点上指定所有可能的 IP 范围。
 
 子网路由可以用来为从特定 IP 空间进行连接的用户提供不同的体验。 例如，使用子网路由，客户可以将来自其公司的所有请求路由到一个不同的终结点，他们可以在这里测试其应用的仅限内部版本。 另一种情况是，你可能希望为从特定 ISP 进行连接的用户提供不同的体验（例如，阻止来自给定 ISP 的用户）。
+
+### <a name="faqs"></a>常见问题
+
+* [可以在哪些情况下使用子网路由？](/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [流量管理器如何获取最终用户的 IP 地址？](/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [使用子网路由时如何指定 IP 地址？](/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [使用子网路由时如何指定回退终结点？](/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [如果在子网路由类型配置文件中禁用终结点会发生什么？](/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 ## <a name="next-steps"></a>后续步骤
 

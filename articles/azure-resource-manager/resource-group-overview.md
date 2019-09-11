@@ -7,12 +7,12 @@ ms.topic: overview
 origin.date: 05/31/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 021c23246e6b02b2f7431bbfcd6087a6ed6d30dd
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: e6d6ee2896add6840278d8696143263df7a5a21d
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337450"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857294"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 
@@ -180,7 +180,7 @@ Azure 资源管理器服务旨在实现复原能力和持续可用性。 REST AP
 
 * 跨区域分布。 某些服务具有区域性。
 
-* 在具有多个可用性区域的位置上跨可用性区域（以及区域）分布。
+    <!--Not Available on Availability Zones-->
 
 * 不依赖于单个逻辑数据中心。
 

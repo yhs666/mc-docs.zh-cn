@@ -11,37 +11,37 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2018
+origin.date: 07/22/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: bf505e9e88be29c0b73a6d99b91956c5edddf38b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/16/2019
+ms.openlocfilehash: 9b01dfeb603eb0201a98f7149f4920a287906b85
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569606"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736714"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理策略中使用命名值
 API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 可以使用文字文本值、策略表达式和命名值构造策略语句。 
 
-每个 API 管理服务实例都有一个属性集合，其中包含对服务实例来说属于全局性的键值对（称为“命名值”）。 这些命名值可以用来管理所有 API 配置和策略的常量字符串值。 每个属性都有以下特性：
+每个 API 管理服务实例都有一个属性集合，其中包含对服务实例来说属于全局性的键值对（称为“命名值”）。 没有对集合中的项数施加限制。 命名值可以用来管理所有 API 配置和策略的常量字符串值。 每个命名值可能有以下属性：
 
-| 属性 | 类型 | 说明 |
-| --- | --- | --- |
-| Display name |string |策略中用于引用属性的数字字母字符串。 |
-| Value |string |属性的值。 不能为空或只由空格组成。 |
-| Secret |布尔值 |确定值是否为密钥以及是否应加密。 |
-| Tags |字符串数组 |可选标记，提供后可用来筛选属性列表。 |
+| 属性      | 类型            | 说明                                                                                                                         |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | string          | 在策略中用于引用属性。 1 到 256 个字符的字符串。 只允许字母、数字、点和短划线。 |
+| `Value`        | string          | 实际值。 不得为空或只由空格组成。 最多 4096 个字符长。                                     |
+| `Secret`       | 布尔值         | 确定值是否为密钥以及是否应加密。                                                            |
+| `Tags`         | 字符串数组 | 用于筛选属性列表。 最多 32 个标记。                                                                                    |
 
 ![命名值](./media/api-management-howto-properties/named-values.png)
 
-属性值可以包含文本字符串和[策略表达式](/api-management/api-management-policy-expressions)。 例如，`ExpressionProperty` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 属性 `ContosoHeaderValue` 被标记为密钥，因此未显示其值。
+命名值可以包含文本字符串和[策略表达式](/api-management/api-management-policy-expressions)。 例如，`Expression` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 命名值 `Credential` 被标记为机密，因此默认情况下未显示其值。
 
-| Name | Value | Secret | Tags |
-| --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+| Name       | Value                      | Secret | Tags          |
+| ---------- | -------------------------- | ------ | ------------- |
+| Value      | 42                         | False  | vital-numbers |
+| 凭据 | ••••••••••••••••••••••     | True   | security      |
+| 表达式 | @(DateTime.Now.ToString()) | False  |               |
 
 ## <a name="to-add-and-edit-a-property"></a>添加和编辑属性
 

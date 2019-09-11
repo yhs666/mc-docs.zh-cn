@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 75e47d0554be9b2795c7ea4d9a369548f7bc268c
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: dc4ed26c48d0f9f5b2eed6153c3296c89c08b3ab
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672227"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254475"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
@@ -45,7 +45,7 @@ SDK 针对查询执行提供了各种选项。 例如，在 .NET 中，`FeedOpti
 | `EnableScanInQuery` | 如果已决定不使用索引编制，但仍然希望通过扫描方式运行查询，必须将其设置为 true。 只有针对所请求的筛选器路径禁用了索引编制时才适用。 | 
 | `MaxItemCount` | 到服务器的每次往返要返回的最大项数。 通过将其设置为 -1，可以让服务器来管理此项数。 或者，可以减小此值来使每次往返仅检索少量项。 
 | `MaxBufferedItemCount` | 这是一个客户端选项，在执行跨分区 ORDER BY 时用来限制内存占用。 较高的值有助于降低跨分区排序的延迟。 |
-| `MaxDegreeOfParallelism` | 获取或设置在 Azure Cosmos DB 数据库服务中并行执行查询期间客户端运行的并发操作数。 属性值为正会将并发操作数限制为所设置的值。 如果它设置为小于 0，则系统会自动决定要运行的并发操作数。 |
+| `MaxDegreeOfParallelism` | 获取或设置在 Azure Cosmos 数据库服务中并行执行查询期间客户端运行的并发操作数。 属性值为正会将并发操作数限制为所设置的值。 如果它设置为小于 0，则系统会自动决定要运行的并发操作数。 |
 | `PopulateQueryMetrics` | 详细记录在执行查询的各个阶段花费的时间的统计信息，例如编译时间、索引循环时间和文档加载时间。 可以与 Azure 支持共享来自查询统计信息的输出以诊断查询性能问题。 |
 | `RequestContinuation` | 可以通过传入任何查询返回的不透明继续标记来继续执行查询。 继续标记封装了执行查询所需的所有状态。 |
 | `ResponseContinuationTokenLimitInKb` | 可以限制服务器返回的继续标记的最大大小。 如果应用程序主机对响应标头大小有限制，则可能需要设置此项。 设置此项可能会增加查询的总体持续时间和所使用的 RU。  |

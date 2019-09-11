@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/28/2018
-ms.date: 06/04/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 73f946e03798598199120a038a785049ff985b76
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 5b29656f5e2d47396cdfae2829a89cd51aa89335
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491434"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805792"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 连接 Azure SQL 数据库
 
@@ -128,7 +128,7 @@ Function App 在 Azure 中托管函数的执行。 这是在函数应用设置�
 
     在第一次执行时，应更新 32 行数据。 以下运行不更新任何数据行，除非对 SalesOrderHeader 表数据进行更改，以便 `UPDATE` 语句选择更多行。
 
-如果打算[发布此函数](functions-develop-vs.md#publish-to-azure)，请记得将 `TimerTrigger` 属性更改为比每 15 秒计划更合理的[cron 计划](functions-bindings-timer.md#cron-expressions)。
+如果打算[发布此函数](functions-develop-vs.md#publish-to-azure)，请记得将 `TimerTrigger` 属性更改为比每 15 秒计划更合理的[cron 计划](functions-bindings-timer.md#ncrontab-expressions)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -139,4 +139,4 @@ Function App 在 Azure 中托管函数的执行。 这是在函数应用设置�
 + [测试 Azure Functions](functions-test-a-function.md)  
   介绍可用于测试函数的各种工具和技巧。  
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
