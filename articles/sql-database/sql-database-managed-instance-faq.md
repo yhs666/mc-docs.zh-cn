@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
-manager: digimobile
-origin.date: 07/08/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 7e10901cf490a694d7bc329fe360a293379ed35b
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+origin.date: 07/16/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 4bb25c3f52cc76817d010e818deee615d45d248f
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131703"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372971"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL 数据库托管实例常见问题解答 (FAQ)
 
 本文包含有关 [SQL 数据库托管实例](sql-database-managed-instance.md)的多种最常见问题的解答。
 
-## <a name="where-can-i-find-a-list-of-features-that-are-supported-on-managed-instance"></a>在何处可以找到托管实例支持的功能列表？
+## <a name="where-can-i-find-a-list-of-features-supported-on-managed-instance"></a>在何处可以找到托管实例支持的功能列表？
 
 有关托管实例支持的功能列表，请参阅 [Azure SQL 数据库与 SQL Server](sql-database-features.md)。
 
@@ -44,13 +43,13 @@ ms.locfileid: "70131703"
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>托管实例是否可与本地 SQL Server 同名？
 
 托管实例的名称必须以 *database.chinacloudapi.cn* 结尾。 若要使用其他 DNS 区域而不是默认区域，例如 **mi-another-name**.contoso.com： 
-- 请使用 CliConfig 定义别名（该工具只是一个注册表设置包装器，因此也可以使用组策略或脚本完成此操作）。
+- 使用 CliConfig 定义别名。 该工具只是一个注册表设置包装器，因此也可以使用组策略或脚本完成此操作
 - 将 *CNAME* 与 *TrustServerCertificate=true* 选项一起使用。
 
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>如何将数据库从托管实例移回到 SQL Server 或 Azure SQL 数据库？
 
-可[将数据库导出到 bacpac](sql-database-export.md)，然后[导入 bacpac 文件]( sql-database-import.md)。 如果数据库小于 100 GB，我们建议使用此方法。
+可[将数据库导出到 BACPAC](sql-database-export.md)，然后[导入 BACPAC 文件]( sql-database-import.md)。 如果数据库小于 100 GB，我们建议使用此方法。
 
 如果数据库中的所有表具有主键，则可以使用事务复制。
 
@@ -58,7 +57,7 @@ ms.locfileid: "70131703"
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>如何将实例数据库迁移到单个 Azure SQL 数据库？
 
-一种做法是[将数据库导出到 bacpac](sql-database-export.md)，然后[导入 bacpac 文件]( sql-database-import.md)。 
+一种做法是[将数据库导出到 BACPAC](sql-database-export.md)，然后[导入 BACPAC 文件]( sql-database-import.md)。 
 
 如果数据库小于 100 GB，我们建议使用此方法。 如果数据库中的所有表具有主键，则可以使用事务复制。
 
@@ -68,22 +67,22 @@ ms.locfileid: "70131703"
 - 与基于 vCore 处理器的第 5 代相比，基于物理处理器的第 4 代提供更好的计算支持。 对于计算密集型工作负荷，第 4 代可能更有优势。
 - 第 5 代支持加速网络，可以提高远程存储的 IO 带宽。 对于常规用途服务层级上的 IO 密集型工作负荷，第 5 代可能更有优势。 与第 4 代相比，第 5 代使用速度更快的 SSD 本地磁盘。 对于业务关键服务层级上的 IO 密集型工作负荷，第 5 代可能更有优势。
 
-建议客户在将用于生产的实际工作负荷投入使用之前先测试其性能，以确定哪种硬件代系更适合自己的用例。
+强烈建议在将用于生产的实际工作负荷投入使用之前先测试其性能，以确定哪种硬件代系更适合具体的用例。
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>能否在第 4 代和第 5 代托管实例硬件代系之间联机切换？ 
 
-如果这两种硬件代系都可以在预配托管实例的同一区域中使用，则可以在硬件代系之间自动联机切换。 在这种情况下，Azure 门户的“定价层”部分会提供一个选项，用于在硬件代系之间切换。
+如果这两种硬件代系都可以在预配托管实例的区域中使用，则可以在硬件代系之间自动联机切换。 在这种情况下，Azure 门户的“定价层”部分会提供一个选项，用于在硬件代系之间切换。
 
-这是一个长时间运行的操作，因为新托管实例将在后端预配，数据库将在旧实例与新实例之间自动转移。 对于客户而言，此过程是无缝的。
+这是一个长时间运行的操作，因为新托管实例将在后台预配，数据库将在旧实例与新实例之间自动转移，该过程结束时，可以快速故障转移。 
 
 如果同一区域不能同时支持这两种硬件代系，可以更改硬件代系，但必须手动完成该操作。 这需要在所需硬件代系可用的区域中预配一个新实例，并在旧实例与新实例之间手动备份和还原数据。
 
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>如何优化托管实例的性能？ 
 
-常规用途托管实例使用远程存储，因为数据和日志文件的大小对性能的影响很大。 若要优化常规用途服务层级性能，请遵照此博客文章中的说明操作。
+常规用途托管实例使用远程存储，因为数据和日志文件的大小对性能的影响很大。 有关详细信息，请参阅[日志文件大小对常规用途托管实例性能的影响](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)。
 
-对于 IO 密集型工作负荷，请考虑使用第 5 代硬件，而不要使用适合计算密集型工作负荷的第 4 代硬件。 有关详细信息，请参阅有关选择硬件代系的常见问题解答部分。
+对于 IO 密集型工作负荷，请考虑使用第 5 代硬件，而不要使用适合计算密集型工作负荷的第 4 代硬件。 有关详细信息，请参阅[如何在第 4 代和第 5 代之间做出选择](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance)。
 
 如果工作负荷包含大量小型事务，请考虑将连接类型从代理切换为重定向模式。
 
@@ -93,7 +92,7 @@ ms.locfileid: "70131703"
 
 ## <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>备份存储是否是从托管实例存储中扣减出来的？ 
 
-不是，备份存储不是从托管实例的存储空间中扣减出来的。 备份存储与实例存储空间无关，其大小不受限制。 备份存储受实例数据库备份的保留时间（可配置为 7 到 35 天）的限制。 有关详细信息，请参阅[自动化备份](/sql-database/sql-database-automated-backups)。
+不是，备份存储不是从托管实例的存储空间中扣减出来的。 备份存储与实例存储空间无关，其大小不受限制。 备份存储受实例数据库备份的保留期限（可配置为 7 到 35 天）的限制。 有关详细信息，请参阅[自动化备份](/sql-database/sql-database-automated-backups)。
   
 ## <a name="how-can-i-set-inbound-nsg-rules-on-management-ports"></a>如何针对管理端口设置入站 NSG 规则？
 
@@ -114,13 +113,13 @@ ms.locfileid: "70131703"
 
 为了缓解任何网络风险，我们建议客户应用一组安全设置和控制措施：
 
-- 针对所有数据库启用透明数据加密 (TDE)。
+- 针对所有数据库启用[透明数据加密 (TDE)](/sql-database/transparent-data-encryption-azure-sql)。
 - 禁用公共语言运行时 (CLR)。 也建议在本地禁用 CLR。
-- 仅使用 Azure AD 帐户。
-- 使用低特权 DBA 帐户访问 SQL MI。
+- 仅使用 Azure Active Directory (AAD) 身份验证。
+- 使用低特权 DBA 帐户访问实例。
 - 为 sysadmin 帐户配置 JiT jumpbox 访问权限。
-- 启用 SQL 审核，并将其与警报机制相集成。
-- 在 ATS 套件中启用威胁检测。
+- 启用 [SQL 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)，并将其与警报机制相集成。
+- 启用[高级数据安全 (ADS)](/sql-database/sql-database-advanced-data-security) 套件中的[威胁检测](/sql-database/sql-database-threat-detection)。
 
 
 ## <a name="where-can-i-find-use-cases-and-resulting-cost-savings-with-managed-instance"></a>在何处可以找到用例，以及使用托管实例可实现的成本节省？
@@ -151,7 +150,7 @@ DNS 配置最终会刷新：
 
 出于此原因，我们强烈反对依赖于 IP 地址的不可变性，因为这可能会导致不必要的停机时间。
 
-## <a name="can-i-move-a-managed-instance-or-vnet"></a>是否可以移动托管实例或 VNet？
+## <a name="can-i-move-a-managed-instance-or-its-vnet-to-another-resource-group"></a>是否可将托管实例或其 VNet 移到另一个资源组？
 
 不可以，这是当前的平台限制。 创建托管实例后，不支持将托管实例或 VNet 移到另一个资源组或订阅。
 
@@ -164,17 +163,17 @@ DNS 配置最终会刷新：
 
 ## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>如何解决托管实例的性能问题
 
-若要在托管实例与 SQL Server 之间进行性能比较，可以从[有关 Azure SQL 托管实例与 SQL Server 之间的性能比较的最佳做法](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)着手。
+若要在托管实例与 SQL Server 之间进行性能比较，可以从[有关 Azure SQL 托管实例与 SQL Server 之间的性能比较的最佳做法](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)一文入手。
 
 由于必需的完整恢复模型以及事务日志写入吞吐量[限制](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)方面的原因，托管实例上的数据加载速度通常比 SQL Server 中的速度更慢。 有时，通过将瞬态数据载入 tempdb 而不是用户数据库，或者使用聚集列存储或内存优化表，可以解决此问题。
 
 
 ## <a name="can-i-restore-my-encrypted-database-to-managed-instance"></a>是否可将加密的数据库还原到托管实例？
 
-可以，无需解密数据库即可将其还原到托管实例。 需将一个在源系统中用作加密密钥保护器的证书/密钥提供给托管实例，才能从加密的备份文件中读取数据。 可通过两种可能的方式来实现此目的：
+可以，无需解密数据库即可将其还原到托管实例。 需将一个在源系统中用作加密密钥保护器的证书/密钥提供给托管实例，才能从加密的备份文件中读取数据。 要运行此操作有两个可行的方式：
 
-- 将证书保护器上传到托管实例。 只能使用 PowerShell 执行此操作。 示例脚本描述了整个过程。
-- 将非对称密钥保护器上传到 Azure Key Vault (AKV)，并将托管实例指向该保护器。 此方法类似于自带密钥 (BYOK) TDE 用例，该用例也使用 AKV 集成来存储加密密钥。 如果你只是想要将密钥上传到 AKV，让托管实例用来还原加密的数据库而不真正将该密钥用作加密密钥保护器，请遵照有关设置 BYOK TDE 的说明操作，且不要选中“将所选密钥设为默认 TDE 保护器”。
+- 将证书保护器上传到托管实例。  只能使用 PowerShell 执行此操作。 [示例脚本](/sql-database/sql-database-managed-instance-migrate-tde-certificate)描述了整个过程。
+- 将非对称密钥保护器上传到 Azure Key Vault (AKV)，并将托管实例指向该保护器。  此方法类似于自带密钥 (BYOK) TDE 用例，该用例也使用 AKV 集成来存储加密密钥。 如果你只是想要将该密钥用作加密密钥保护器，让托管实例用来还原加密的数据库，请按照有关[设置 BYOK TDE](/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal) 的说明操作，且不要选中“将所选密钥设为默认 TDE 保护器”。 
 
 将加密保护器提供给托管实例使用后，可以继续执行标准的数据库还原过程。
 

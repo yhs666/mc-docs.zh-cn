@@ -6,14 +6,14 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 06/03/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: a6f4d48c3bb719dcf5c0bb7c09ee00d7356f402a
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+origin.date: 08/09/2019
+ms.date: 09/16/2019
+ms.openlocfilehash: dd542a11da2579ff71694e12d7e904145cd7a1e4
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539196"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736613"
 ---
 # <a name="Migrate-to-granular-role-based-access-for-cluster-configurations"></a> 迁移到群集配置的基于角色的细化访问权限
 
@@ -21,8 +21,8 @@ ms.locfileid: "69539196"
 
 ## <a name="What-is-changing"></a> 有什么变化？
 
-以前，处理“所有者”、“参与者”或“读取者”[RBAC 角色](/role-based-access-control/rbac-and-directory-admin-roles)的群集用户可以通过 HDInsight API 获取机密，因为这些机密可以通过给具有 `*/read` 权限的任何人。
-今后，访问这些机密需要 `Microsoft.HDInsight/clusters/configurations/*` 权限，这意味着这些机密不再可供具有“读取者”角色的用户访问。 机密定义为值，可用于获取比用户角色允许的访问权限更高的权限。 这些值包括群集网关 HTTP 凭据、存储帐户密钥和数据库凭据等值。
+以前，处理“所有者”、“参与者”或“读取者”[RBAC 角色](/role-based-access-control/rbac-and-directory-admin-roles)的群集用户可以通过 HDInsight API 获取机密，因为这些机密可以通过给具有 `*/read` 权限的任何人。 机密定义为值，可用于获取比用户角色允许的访问权限更高的权限。 这些值包括群集网关 HTTP 凭据、存储帐户密钥和数据库凭据等值。
+今后，访问这些机密需要 `Microsoft.HDInsight/clusters/configurations/action` 权限，这意味着这些机密不再可供具有“读取者”角色的用户访问。 拥有此权限的角色为“参与者”、“所有者”和新的“HDInsight 群集操作员”角色（下面将详细说明）。
 
 另外，我们正在引入新的 [HDInisght 群集操作员](/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色，无需向此角色授予“参与者”或“所有者”的管理权限，即可让他们检索机密。 总结：
 
@@ -39,27 +39,19 @@ ms.locfileid: "69539196"
 
 以下实体和方案将受到影响：
 
-- [迁移到群集配置的基于角色的细化访问权限](#Migrate-to-granular-role-based-access-for-cluster-configurations)
-  - [有什么变化？](#What-is-changing)
-  - [我是否受这些更改的影响？](#Am-I-affected-by-these-changes)
-    - [API](#API)
-    - [Azure HDInsight Tools for Visual Studio Code](#Azure-HDInsight-Tools-for-Visual-Studio-Code)
-    - [用于 IntelliJ 的 Azure 工具包](#Azure-Toolkit-for-IntelliJ)
-    - [用于 Visual Studio 的 Azure Data Lake 和流分析工具](#Azure-Data-Lake-and-Stream-Analytics-Tools-for-Visual-Studio)
-    - [用于 Eclipse 的 Azure 工具包](#Azure-Toolkit-for-Eclipse)
-    - [SDK for .NET](#SDK-for-NET)
-     - [版本 1.x 和 2.x](#Versions-1x-and-2x)
-      - [版本 3.x 及更高版本](#Versions-3x-and-up)
-    - [SDK for Python](#SDK-for-Python)
-    - [SDK For Java](#SDK-For-Java)
-    - [SDK For Go](#SDK-For-Go)
-    - [Az.HDInsight PowerShell](#AzHDInsight-PowerShell)
-  - [向用户添加 HDInsight 群集操作员角色分配](#Add-the-HDInsight-Cluster-Operator-role-assignment-to-a-user)
-    - [使用 Azure CLI](#Using-the-Azure-CLI)
-      - [在资源（群集）级别授予角色](#Grant-role-at-the-resource-cluster-level)
-      - [在资源组级别授予角色](#Grant-role-at-the-resource-group-level)
-      - [在订阅级别授予角色](#Grant-role-at-the-subscription-level)
-    - [使用 Azure 门户](#Using-the-Azure-portal) 请参阅以下部分（或使用上面的链接）了解适用于你的方案的迁移步骤。
+- [API](#api)：使用 `/configurations` 或 `/configurations/{configurationName}` 终结点的用户。
+- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) 1.1.1 或更低版本。
+- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) 3.20.0 或更低版本。
+- [用于 Visual Studio 的 Azure Data Lake 和流分析工具](#azure-data-lake-and-stream-analytics-tools-for-visual-studio)，低于版本 2.3.9000.1。
+- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) 3.15.0 或更低版本。
+- [SDK for .NET](#sdk-for-net)
+    - [版本 1.x 或 2.x](#versions-1x-and-2x)：从 ConfigurationsOperationsExtensions 类使用 `GetClusterConfigurations`、`GetConnectivitySettings`、`ConfigureHttpSettings`、`EnableHttp` 或 `DisableHttp` 方法的用户。
+    - [版本 3.x 和以上](#versions-3x-and-up)：从 `ConfigurationsOperationsExtensions` 类使用 `Get`、`Update`、`EnableHttp` 或 `DisableHttp` 方法的用户。
+- [SDK for Python](#sdk-for-python)：从 `ConfigurationsOperations` 类使用 `get` 或 `update` 方法的用户。
+- [SDK for Java](#sdk-for-java)：从 `ConfigurationsInner` 类使用 `update` 或 `get` 方法的用户。
+- [SDK for Go](#sdk-for-go)：从 `ConfigurationsClient` 构造使用 `Get` 或 `Update` 方法的用户。
+- [Az.HDInsight PowerShell](#azhdinsight-powershell)，低于版本 2.0.0。
+请参阅以下部分（或使用上面的链接）了解适用于你的方案的迁移步骤。
 
 ### <a name="API"></a> API
 
@@ -164,14 +156,14 @@ ms.locfileid: "69539196"
 
 ## <a name="Add-the-HDInsight-Cluster-Operator-role-assignment-to-a-user"></a> 向用户添加 HDInsight 群集操作员角色分配
 
-具有[参与者](/role-based-access-control/built-in-roles#contributor)或[所有者](/role-based-access-control/built-in-roles#owner)角色的用户可以将 [HDInsight 群集操作员](/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色分配给你希望对敏感 HDInsight 群集配置值（如群集网关凭据和存储帐户密钥）具有读/写访问权限的用户。
+具有[所有者](/role-based-access-control/built-in-roles#owner)角色的用户可以将 [HDInsight 群集操作员](/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色分配给你希望对敏感 HDInsight 群集配置值（如群集网关凭据和存储帐户密钥）具有读/写访问权限的用户。
 
 ### <a name="Using-the-Azure-CLI"></a> 使用 Azure CLI
 
-添加此角色分配的最简单方法是在 Azure CLI 中使用 `az role assignemnt create` 命令。
+添加此角色分配的最简单方法是在 Azure CLI 中使用 `az role assignment create` 命令。
 
 > [!NOTE]
-> 此命令必须由具有“参与者”或“所有者”角色的用户运行，因为只有他们才能授予这些权限。 `--assignee` 是要将 HDInsight 群集操作员角色分配到的用户的电子邮件地址。
+> 此命令必须由具有“所有者”角色的用户运行，因为只有他们才能授予这些权限。 `--assignee` 是要将“HDInsight 群集操作员”角色分配到的用户的服务主体名称或电子邮件地址。 如果收到权限不足错误，请参阅下面的常见问题解答。
 
 #### <a name="Grant-role-at-the-resource-cluster-level"></a> 在资源（群集）级别授予角色
 
@@ -191,6 +183,26 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
 ```
 
-### <a name="Using-the-Azure-portal"></a> 使用 Azure 门户
+### <a name="using-the-azure-portal"></a>使用 Azure 门户
 
 或者，可以使用 Azure 门户将 HDInsight 群集操作员角色分配添加到用户。 请参阅文档[使用 RBAC 和 Azure 门户管理对 Azure 资源的访问 - 添加角色分配](/role-based-access-control/role-assignments-portal#add-a-role-assignment)。
+
+## <a name="faq"></a>常见问题
+
+### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>更新 API 请求和/或工具后，为何会出现 403（禁止）响应？
+
+群集配置现在受到精细的基于角色的访问控制，需要拥有 `Microsoft.HDInsight/clusters/configurations/*` 权限才能访问这些配置。 若要获取此权限，请将“HDInsight 群集操作员”、“参与者”或“所有者”角色分配到尝试访问配置的用户或服务主体。
+
+### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>运行 Azure CLI 命令将“HDInsight 群集操作员”角色分配到另一个用户或服务主体时，为何会出现“权限不足，无法完成该操作”？
+
+执行该命令的用户或服务主体除了要有“所有者”角色以外，还需要有足够的 AAD 权限来查找被分配者的对象 ID。 此消息表示 AAD 权限不足。 尝试将 `-–assignee` 参数替换为 `–assignee-object-id`，并提供被分配者的对象 ID 作为参数，而不要提供名称（如果使用托管标识，则提供主体 ID）。 有关详细信息，请参阅 [Azure 角色分配创建文档](/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create)的“可选参数”部分。
+
+如果仍然解决不了问题，请联系 AAD 管理员获取适当的权限。
+
+### <a name="what-will-happen-if-i-take-no-action"></a>如果不采取任何措施，会发生什么情况？
+
+`GET /configurations` 和 `POST /configurations/gateway` 调用将不再返回任何信息，`GET /configurations/{configurationName}` 调用将不再返回存储帐户密钥或群集密码等敏感参数。 对于相应的 SDK 方法和 PowerShell cmdlet，也是如此。
+
+如果使用上述适用于 Visual Studio、VSCode、IntelliJ 或 Eclipse 的旧版工具之一，在更新之前，这些工具将不再可正常运行。
+
+有关更多详细信息，请参阅本文档中适用于你的方案的相应部分。

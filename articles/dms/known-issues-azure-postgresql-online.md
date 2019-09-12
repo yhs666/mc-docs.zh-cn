@@ -10,35 +10,36 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-origin.date: 04/23/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 87539fcef293d33493fed17eb309f782c104cc2a
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+origin.date: 08/06/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 7d39df336915ab27209591672b51b12843b61f75
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65830274"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737150"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>联机迁移到 Azure DB for PostgreSQL 时存在的已知问题/迁移限制
 
-以下部分描述了在从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时存在的已知问题和限制。 
+以下部分描述了在从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时存在的已知问题和限制。
 
 ## <a name="online-migration-configuration"></a>联机迁移配置
+
 - 源 PostgreSQL 服务器必须运行版本 9.5.11、9.6.7、10.3 或更高版本。 有关详细信息，请参阅[支持的 PostgreSQL 数据库版本](../postgresql/concepts-supported-versions.md)一文。
 - 仅支持相同版本的迁移。 例如，不支持将 PostgreSQL 9.5.11 迁移到 Azure Database for PostgreSQL 9.6.7。
 
     > [!NOTE]
     > 对于 PostgreSQL 版本 10，DMS 目前仅支持将版本 10.3 迁移到 Azure Database for PostgreSQL。 我们打算不久之后支持较新版本的 PostgreSQL。
 
-- 若要在源 PostgreSQL postgresql.config 文件中启用逻辑复制，请设置以下参数：
-    - wal_level = logical
-    - max_replication_slots = [要迁移的数据库最大数]；如果要迁移 4 个数据库，请将该值设为 4
-    - max_wal_senders = [并发运行的数据库数]；建议值为 10
-- 向源 PostgresSQL pg_hba.conf 添加 DMS 代理 IP
-    1. 预配 DMS 实例完成以后，记下 DMS IP 地址。
-    2. 向 pg_hba.conf 文件添加 IP 地址，如下所示：
+- 若要在源 PostgreSQL postgresql.config 文件中启用逻辑复制，请设置以下参数  ：
+  - wal_level = logical 
+  - max_replication_slots = [要迁移的数据库最大数]；如果要迁移 4 个数据库，请将该值设为 4 
+  - max_wal_senders = [并发运行的数据库数]；建议值为 10 
+- 向源 PostgreSQL pg_hba.conf 添加 DMS 代理 IP
+  1. 预配 DMS 实例完成以后，记下 DMS IP 地址。
+  2. 向 pg_hba.conf 文件添加 IP 地址，如下所示：
 
-        host    all     172.16.136.18/10    md5  host    replication postgres    172.16.136.18/10    md5
+        host    all     172.16.136.18/10    md5    host    replication postgres    172.16.136.18/10    md5
 
 - 用户必须对承载源数据库的服务器具有超级用户权限
 - 除了源数据库架构中具有 ENUM，源和目标数据库架构还必须匹配。
@@ -90,6 +91,7 @@ ms.locfileid: "65830274"
     **解决方法**：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
 
 ## <a name="lob-limitations"></a>LOB 限制
+
 大型对象 (LOB) 列为可能增大的列。 对于 PostgreSQL，LOB 数据类型的示例包括 XML、JSON、IMAGE、TEXT 等。
 
 - **限制**：如果将 LOB 数据类型用作主键，迁移将会失败。
@@ -109,6 +111,7 @@ ms.locfileid: "65830274"
     **解决方法**：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10 解决方法
+
 PostgreSQL 10.x 对 pg_xlog 文件夹名称进行各种更改，并因此导致迁移未按预期运行。 如果要从 PostgreSQL 10.x 迁移到 Azure Database for PostgreSQL 10.3，请对源 PostgreSQL 数据库执行以下脚本，以围绕 pg_xlog 函数创建包装程序函数。
 
 ```
@@ -149,7 +152,32 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>从 AWS RDS PostgreSQL 联机迁移时的限制
+
+尝试从 AWS RDS PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时，你可能会遇到以下错误。
+
+- **错误**：数据库“{database}”的表“{table}”中的列“{column}”的默认值在源服务器和目标服务器上有所不同。 在源服务器上，值为“{value on source}”，而在目标服务器上，值则为“{value on target}”。
+
+  **限制**：如果列架构上的默认值在源数据库与目标数据库之间有所不同，则会出现此错误。
+  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+
+- **错误**：目标数据库“{database}”包含“{number of tables}”个表，而源数据库“{database}”包含“{number of tables}”个表。 源数据库和目标数据库中表的数目应当匹配。
+
+  **限制**：当源数据库与目标数据库的表数不同时，将出现此错误。
+  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+
+- **错误：** 源数据库 {database} 为空
+
+  **限制**：当源数据库为空时，会出现此错误。 这最有可能是因为已将错误的数据库选为源数据库。
+  **解决方法**：反复检查选择迁移的源数据库，然后重试。
+
+- **错误：** 目标数据库 {database} 为空。 请迁移架构。
+
+  **限制**：当目标数据库上没有架构时，会出现此错误。 确保目标上的架构与源上的架构匹配。
+  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+
 ## <a name="other-limitations"></a>其他限制
+
 - 数据库名称不能包含分号 (;)。
 - 不支持包含左右大括号 {  } 的密码字符串。 连接到源 PostgreSQL 和目标 Azure Database for PostgreSQL 时，都存在这种限制。
 - 已捕获的表必须包含主键。 如果某个表没有主键，则删除和更新记录操作的结果将不可预测。
@@ -168,8 +196,10 @@ COMMIT;
     $$;
     ```
 
-- 不支持截断操作的更改处理（连续同步）。 不支持已分区表的迁移。 检测到已分区表时，会出现以下情况：
-    - 数据库将报告父表和子表列表。
-    - 将创建关于目标的表，作为具有与所选表相同属性的常规表。
-    - 如果源数据库中具有与其子表相同的主键值，将产生“重复键”错误。
+- 不支持 TRUNCATE 操作的更改处理（连续同步）。 不支持已分区表的迁移。 检测到已分区表时，会出现以下情况：
+
+  - 数据库将报告父表和子表列表。
+  - 将创建关于目标的表，作为具有与所选表相同属性的常规表。
+  - 如果源数据库中具有与其子表相同的主键值，将产生“重复键”错误。
+
 - 在 DMS 中，可在单个迁移活动中迁移的数据库数目限制为 4 个。

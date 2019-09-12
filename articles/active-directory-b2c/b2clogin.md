@@ -1,75 +1,92 @@
 ---
-title: 将重定向 URL 设置为 b2clogin.cn - Azure Active Directory B2C | Microsoft Docs
+title: 将重定向 URL 设置为 b2clogin.cn - Azure Active Directory B2C
 description: 了解如何在 Azure Active Directory B2C 的重定向 URL 中使用 b2clogin.cn。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 01/28/2019
-ms.date: 04/03/2019
+origin.date: 08/17/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4dc3adafd429405c756fe3cd5f2570eb6283315e
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: c852056ec381b963f11564abbdd803af2de446f3
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235957"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310746"
 ---
 # <a name="set-redirect-urls-to-b2clogincn-for-azure-active-directory-b2c"></a>将 Azure Active Directory B2C 的重定向 URL 设置为 b2clogin.cn
 
-在你的 Azure Active Directory (Azure AD) B2C 应用程序中设置用于注册和登录的标识提供者时，需要指定一个重定向URL。 过去使用的是 login.partner.microsoftonline.cn，现在应当使用 b2clogin.cn。
+在 Azure Active Directory B2C (Azure AD B2C) 应用程序中设置用于注册和登录的标识提供者时，需要指定一个重定向 URL。 请不再要在应用程序和 API 中引用 *login.partner.microsoftonline.cn*。 对于所有新应用程序，应使用 *b2clogin.cn*，并将现有应用程序从 *login.partner.microsoftonline.cn* 迁移到 *b2clogin.cn*。
 
-使用 b2clogin.cn 可以提供更多优势，例如：
+## <a name="benefits-of-b2clogincn"></a>b2clogin.cn 的优点
 
-- Microsoft 服务在 cookie 标头中使用的空间就会减少。
-- URL 不再包括对 Microsoft 的引用。 例如，`https://your-tenant-name.b2clogin.cn/tenant-id/oauth2/authresp`。
+如果使用 *b2clogin.cn* 作为重定向 URL：
 
-使用 b2clogin.cn 时，考虑可能需要更改的这些设置：
+* Microsoft 服务在 cookie 标头中使用的空间就会减少。
+* 重定向 URL 不再需要包含对 Microsoft 的引用。
+* 自定义页面支持 JavaScript 客户端代码（目前为[预览版](user-flow-javascript-overview.md)）。 由于安全限制，如果使用 *login.partner.microsoftonline.cn*，将从自定义页面中删除 JavaScript 代码和 HTML 窗体元素。
 
-- 将标识提供者应用程序中的重定向 URL 设置为使用 b2clogin.cn。 
-- 将 Azure AD B2C 应用程序设置为将 b2clogin.cn 用于用户流引用和令牌终结点。 
-- 如果使用的是 MSAL，则需要将 **ValidateAuthority** 属性设置为 `false`。
-- 请确保更改用户界面自定义的 CORS 设置中定义的任何“允许的源”  。  
+## <a name="overview-of-required-changes"></a>所需的更改概述
 
-## <a name="change-redirect-urls"></a>更改重定向 URL
+若要将应用程序迁移到 *b2clogin.cn*，可能需要做出一些修改：
 
-若要使用 b2clogin.cn，请在标识提供者应用程序的设置中查找受信任 URL 的列表，并将其更改为重定向回 Azure AD B2C。  目前，你可能已将其设置为重定向回某个 login.partner.microsoftonline.cn 站点。 
+* 将标识提供者应用程序中的重定向 URL 更改为引用 *b2clogin.cn*。
+* 将 Azure AD B2C 应用程序更新为在其用户流和令牌终结点引用中使用 *b2clogin.cn*。
+* 更新在 `user interface customization` 的 CORS 设置中定义的任何“允许的来源”。 
 
-你需要更改重定向 URL 以便 `your-tenant-name.b2clogin.cn` 经过授权。 请务必将 `your-tenant-name` 替换为你的 Azure AD B2C 租户的名称，并且，如果 URL 中存在 `/te`，请将其删除。 对于每个标识提供者，此 URL 略有不同，因此请检查相应的页面来获取确切的 URL。
+## <a name="change-identity-provider-redirect-urls"></a>更改标识提供者重定向 URL
 
-可以通过以下文章查找标识提供者的设置信息：
+在创建应用程序的每个标识提供者网站上，将所有受信任 URL 更改为重定向到 `your-tenant-name.b2clogin.cn` 而不是 *login.partner.microsoftonline.cn*。
 
-- [LinkedIn](active-directory-b2c-setup-li-app.md)
-- [GitHub](active-directory-b2c-setup-github-app.md)
-- [微博](active-directory-b2c-setup-weibo-app.md)
-- [QQ](active-directory-b2c-setup-qq-app.md)
-- [微信](active-directory-b2c-setup-wechat-app.md)
-- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
-- [自定义 OIDC](active-directory-b2c-setup-oidc-idp.md)
+对于 b2clogin.cn 重定向 URL，可以使用两种格式。 第一个选项使用租户 ID (GUID) 来替代租户域名，其优点是无需在 URL 中的任何位置显示“Microsoft”：
 
-## <a name="update-your-application"></a>更新应用程序
-
-Azure AD B2C 应用程序可能在多个地方引用了 `login.partner.microsoftonline.cn`，例如用户流引用和令牌终结点。  请确保授权终结点、令牌终结点和证书颁发者都已更新为使用 `your-tenant-name.b2clogin.cn`。  
-
-## <a name="set-the-validateauthority-property"></a>设置 ValidateAuthority 属性
-
-如果使用的是 MSAL，请将 **ValidateAuthority** 属性设置为 `false`。 当 **ValidateAuthority** 设置为 `false` 时，允许重定向到 b2clogin.cn。 
-
-以下示例展示了如何设置此属性：
-
-在[适用于 .Net 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 中：
-
-```CSharp
- ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
- client.ValidateAuthority = false;
+```
+https://{your-tenant-name}.b2clogin.cn/{your-tenant-id}/oauth2/authresp
 ```
 
-在[适用于 JavaScript 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) 中：
+第二个选项使用 `your-tenant-name.partner.onmschina.cn` 格式的租户域名。 例如：
 
-```Javascript
+```
+https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/oauth2/authresp
+```
+
+对于这两种格式：
+
+* 将 `{your-tenant-name}` 替换为 Azure AD B2C 租户的名称。
+* 删除 `/te`（如果 URL 中存在此参数）。
+
+## <a name="update-your-applications-and-apis"></a>更新应用程序和 API
+
+已启用 Azure AD B2C 的应用程序和 API 中的代码可能在多个位置引用了 `login.partner.microsoftonline.cn`。 例如，代码可能引用了用户流和令牌终结点。 请更新以下代码，以改为引用 `your-tenant-name.b2clogin.cn`：
+
+* 授权终结点
+* 令牌终结点
+* 令牌颁发者
+
+例如，Contoso 注册/登录策略的机构终结点现在为：
+
+```
+https://contosob2c.b2clogin.cn/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
+```
+
+## <a name="microsoft-authentication-library-msal"></a>Microsoft 身份验证库 (MSAL)
+
+### <a name="validateauthority-property"></a>ValidateAuthority 属性
+
+如果使用 [MSAL.NET][msal-dotnet] v2 或更低版本，请在客户端实例化中将 **ValidateAuthority** 属性设置为 `false`，以允许重定向到 *b2clogin.cn*。 在 MSAL.NET v3 和更高版本中不需要此设置。
+
+```CSharp
+ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
+client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
+```
+
+如果使用 [MSAL for JavaScript][msal-js]：
+
+```JavaScript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -80,3 +97,10 @@ this.clientApplication = new UserAgentApplication(
 );
 ```
 
+<!-- LINKS - External -->
+[msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+[msal-dotnet-b2c]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics
+[msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+[msal-js-b2c]: ../active-directory/develop/msal-b2c-overview.md
+
+<!-- Update_Description: wording update -->
