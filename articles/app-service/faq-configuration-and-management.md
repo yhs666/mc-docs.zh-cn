@@ -1,5 +1,5 @@
 ---
-title: 配置常见问题解答 - Azure 应用服务 | Azure Docs
+title: 配置常见问题解答 - Azure 应用服务 | Azure
 description: 获取有关 Azure App Service Web 应用功能配置和管理常见问题的解答。
 services: app-service\web
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/30/2018
 ms.date: 08/12/2019
-ms.author: v-johch
-ms.openlocfilehash: 227b1695ee022c1077ff7aa0283e118b9ada8c1c
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.author: v-tawe
+ms.openlocfilehash: 0aebeb684dc0964ffd44e21d099fab5b4ae44efd
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878606"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806748"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -31,7 +31,7 @@ ms.locfileid: "68878606"
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>如果需要移动应用服务资源，是否有什么限制需要注意？
 
-如果打算将应用服资源转移到新的资源组或订阅，有一些限制需要注意。 有关详细信息，请参阅[应用服务限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)。
+如果打算将应用服资源转移到新的资源组或订阅，有一些限制需要注意。 有关详细信息，请参阅[应用服务限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)。
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>如何将自定义域名用于 Web 应用？
 
@@ -43,7 +43,7 @@ ms.locfileid: "68878606"
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>可从何处找到指南清单，了解有关资源移动操作的详细信息？
 
-[应用服务限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)说明如何将资源移到新订阅或同一订阅的新资源组中。 可以获取有关资源移动清单的信息，了解哪些服务支持移动操作，并了解有关应用服务限制及其他主题的详细信息。
+[应用服务限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)说明如何将资源移到新订阅或同一订阅的新资源组中。 可以获取有关资源移动清单的信息，了解哪些服务支持移动操作，并了解有关应用服务限制及其他主题的详细信息。
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>如何为 Web 应用设置服务器时区？
 
@@ -202,7 +202,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何对应用服务应用执行渗透测试？
 
-若要执行渗透测试，请[提交请求](https://portal.msrc.microsoft.com/en-us/engage/pentest)。
+若要执行渗透测试，请[提交请求](https://portal.msrc.microsoft.com/engage/pentest)。
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>如何为使用流量管理器的应用服务 Web 应用配置自定义域名？
 

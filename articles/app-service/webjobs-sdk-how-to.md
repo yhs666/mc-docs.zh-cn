@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/18/2019
 ms.date: 08/12/2019
-ms.author: v-johch
-ms.openlocfilehash: 9b840eaa791aed2e64c9a3a4ed1fbc5e9e7f02ab
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.author: v-tawe
+ms.openlocfilehash: 4d11a0935654897067bf6792a5f5f6338ff5577b
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878595"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806844"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -88,7 +88,7 @@ static void Main(string[] args)
 
 #### <a name="version-3x"></a>版本 3.*x*
 
-版本 3.x  使用标准 ASP.NET Core API。 对 [`HostBuilder`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例调用 [UseEnvironment](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 方法。 传递名为 `development` 的字符串，如以下示例中所示：
+版本 3.x  使用标准 ASP.NET Core API。 对 [`HostBuilder`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例调用 [`UseEnvironment`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 方法。 传递名为 `development` 的字符串，如以下示例中所示：
 
 ```cs
 static void Main()
@@ -128,7 +128,7 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>管理并发连接数（版本 2.*x*）
 
-在版本 3.*x* 中，连接限制默认为无限次连接。 如果出于某种原因需要更改此限制，则可以使用 [WinHttpHander](https://docs.microsoft.com/zh-cn/dotnet/api/system.net.http.winhttphandler) 类的 [MaxConnectionsPerServer](https://docs.microsoft.com/zh-cn/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 属性。
+在版本 3.*x* 中，连接限制默认为无限次连接。 如果出于某种原因需要更改此限制，则可以使用 [WinHttpHander](https://docs.microsoft.com/dotnet/api/system.net.http.winhttphandler) 类的 [MaxConnectionsPerServer](https://docs.microsoft.com/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 属性。
 
 在版本 2.*x* 中，使用 [ServicePointManager.DefaultConnectionLimit](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API 控制主机的并发连接数。 在 2.*x* 中，应在启动 WebJobs 主机之前，在默认值 2 的基础上增大此值。
 
@@ -832,7 +832,7 @@ WebJobs SDK 在幕后使用 [Azure Blob 租约](../storage/common/storage-concur
 
 ### <a name="log-filtering"></a>日志筛选
 
-`ILogger` 实例创建的每个日志都包含关联的 `Category` 和 `Level`。 [`LogLevel`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.logging.loglevel) 是一个枚举，整数代码指示相对重要性：
+`ILogger` 实例创建的每个日志都包含关联的 `Category` 和 `Level`。 [`LogLevel`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel) 是一个枚举，整数代码指示相对重要性：
 
 |LogLevel    |代码|
 |------------|---|
@@ -916,7 +916,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Channel;
 ```
 
-使用以下 [`ITelemetryInitializer`] 的自定义实现，可向默认的 [`TelemetryConfiguration`] 添加自己的 [`ITelemetry`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.applicationinsights.channel.itelemetry)。
+使用以下 [`ITelemetryInitializer`] 的自定义实现，可向默认的 [`TelemetryConfiguration`] 添加自己的 [`ITelemetry`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetry)。
 
 ```cs
 internal class CustomTelemetryInitializer : ITelemetryInitializer
@@ -1012,8 +1012,8 @@ config.LoggerFactory = new LoggerFactory()
 本文提供的代码片段演示了如何处理 WebJobs SDK 的常用方案。 有关完整示例，请参阅 [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples)。
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
-[`TelemetryClient`]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.applicationinsights.telemetryclient
-[`ConfigureServices`]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-[`ITelemetryInitializer`]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
-[`TelemetryConfiguration`]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[`TelemetryClient`]: https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient
+[`ConfigureServices`]: https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`ITelemetryInitializer`]: https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`TelemetryConfiguration`]: https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
 [`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

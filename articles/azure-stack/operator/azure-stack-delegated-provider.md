@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/07/2019
-ms.date: 06/03/2019
+origin.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 791e52c2936ce30e97ca715b4b115ecd19c723c2
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 3d862edd4c1012e10d1d0b4189ff41c7fa39d3ca
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381916"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857048"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委托套餐
 
@@ -29,11 +29,11 @@ ms.locfileid: "66381916"
 
 作为 Azure Stack 操作员，你可能希望让其他人负责注册用户和创建订阅。 例如，服务提供商可能需要经销商来代表他们注册和管理客户。 或者，如果你是企业的中心 IT 小组的成员，则可能需要委托其他 IT 工作人员来注册用户。
 
-如下图所示，使用委托可以更轻松地接触和管理超过你可以直接接触和管理的用户数量。
+委托比你自己进行更容易联系和管理更多的用户，如下图所示：
 
 ![委托级别](media/azure-stack-delegated-provider/image1.png)
 
-借助委托，委托的提供商可以管理套餐（委托的套餐），最终客户可获取该套餐中的订阅，而无需系统管理员介入。
+借助委托，委托的提供商可以管理套餐（称为“委托套餐”  ），最终客户可获取该套餐中的订阅，而无需系统管理员介入。
 
 ## <a name="delegation-roles"></a>委托角色
 
@@ -65,7 +65,7 @@ ms.locfileid: "66381916"
 
 ## <a name="delegation-walkthrough"></a>委托演练
 
-以下部分提供有关设置委托的提供商、委托套餐，以及验证用户是否可以注册委托套餐的实践演练。
+以下部分提供有关设置委托的提供商、委托套餐，以及验证用户是否可以注册委托套餐的演练。
 
 ### <a name="set-up-roles"></a>设置角色
 
@@ -159,5 +159,5 @@ ms.locfileid: "66381916"
 此操作在以下情况下十分有用：
 
 * 登记将要充当委托的提供商角色的新团队成员，并想要将以前在“默认提供商订阅”中创建的用户订阅分配给此团队成员。
-* 有多个委托的提供商订阅在同一目录租户 (Azure Active Directory) 中，并需要在这些订阅之间移动用户订阅。 当团队成员在团队之间移动，并且需要将其订阅分配到新团队时，便可能出现这种情况。
+* 有多个委托的提供商订阅在同一目录租户 (Azure Active Directory) 中，并需要在这些订阅之间移动用户订阅。 当团队成员在团队之间移动，并且必须将其订阅分配给新团队时，可能会发生这种情况。
 

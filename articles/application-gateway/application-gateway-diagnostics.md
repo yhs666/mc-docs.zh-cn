@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/28/2019
-ms.date: 09/02/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9dda9f12cd28b0324fe6706b8431795d7fd42855
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 5b6e2980a659214a2fdd0dfbef00a242ae16a5a5
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310859"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857148"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -197,6 +197,56 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
         "sslEnabled": "off",
         "host": "www.contoso.com",
         "originalHost": "www.contoso.com"
+    }
+}
+```
+对于应用程序网关和 WAF v2，日志显示了一些详细信息：
+
+|Value  |说明  |
+|---------|---------|
+|instanceId     | 处理请求的应用程序网关实例。        |
+|clientIP     | 请求的起始 IP。        |
+|clientPort     | 请求的起始端口。       |
+|httpMethod     | 请求所用的 HTTP 方法。       |
+|requestUri     | 所收到请求的 URI。        |
+|UserAgent     | HTTP 请求标头中的用户代理。        |
+|httpStatus     | 从应用程序网关返回到客户端的 HTTP 状态代码。       |
+|httpVersion     | 请求的 HTTP 版本。        |
+|receivedBytes     | 接收的数据包的大小（以字节为单位）。        |
+|sentBytes| 发送的数据包的大小（以字节为单位）。|
+|timeTaken| 处理请求并发送响应所需的时长（以毫秒为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
+|sslEnabled| 与后端池的通信是否使用 SSL。 有效值为 on 和 off。|
+|sslCipher| 用于 SSL 通信的密码套件（如果已启用 SSL）。|
+|sslProtocol| 使用的 SSL 协议（如果已启用 SSL）。|
+|serverRouted| 应用程序网关将请求路由到的后端服务器。|
+|serverStatus| 后端服务器的 HTTP 状态代码。|
+|serverResponseLatency| 后端服务器的响应延迟。|
+|host| 请求的主机标头中列出的地址。|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "appgw_1",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off",
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "www.contoso.com",
     }
 }
 ```

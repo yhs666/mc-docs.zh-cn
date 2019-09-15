@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2019
-ms.date: 07/29/2019
+origin.date: 07/31/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 99bbb0f878718d1b0e2001548259e282e8556c4e
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 85fc30729bc657b2edf5a1f3f29fb4e4826a2629
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513512"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857065"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
@@ -47,43 +47,18 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
-  - 对于 1904 版本或更高版本：
 
-    ```powershell  
-      Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-      Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+  ```powershell  
+  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
 
-      # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-      Install-Module -Name AzureRM.BootStrapper
+  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+  Install-Module -Name AzureRM.BootStrapper
 
-      # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-      Install-Module -Name AzureStack -RequiredVersion 1.7.2
-    ```
-
-  - Azure Stack 版本 1903 或更低版本仅安装以下两个模块：
-
-    ```powershell
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module -Name AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.1
-    ```
-
-    > [!Note]  
-    > Azure Stack 模块版本 1.7.1 是一项中断性变更。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
-
-  - Azure Stack 1811：
-
-    ``` PowerShell
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
-    Install-Module -Name AzureRM.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    # Install Azure Stack Module Version 1.6.0.
-    Install-Module -Name AzureStack -RequiredVersion 1.6.0
-    ```
+  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+  Install-Module -Name AzureStack -RequiredVersion 1.7.2
+  ```
 
   如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
 
@@ -137,7 +112,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 若要确保 ASDK 部署成功，可以遵循以下步骤使用 Test-AzureStack cmdlet：
 
-1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
+1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主计算机。
 2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
 3. 运行： `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. 运行： `Test-AzureStack`

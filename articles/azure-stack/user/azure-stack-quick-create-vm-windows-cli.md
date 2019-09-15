@@ -16,12 +16,12 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9dfb1357d53e0938543a3f2c5897f12a433d09af
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 180c01e69aa67dba16da19654b1686f89933dd9f
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513243"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857326"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
 
@@ -72,7 +72,7 @@ az vm create \
 
 由于此 VM 将运行 IIS Web 服务器，因此需要为 Internet 流量打开端口 80。
 
-使用 [az vm open-port](/cli/vm) 命令打开端口 80。
+使用 [az vm open-port](/cli/vm) 命令打开端口 80：
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

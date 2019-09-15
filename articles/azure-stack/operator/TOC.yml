@@ -4,26 +4,40 @@
   items:
     - name: 什么是 Azure Stack？
       href: azure-stack-overview.md
+    - name: 什么是 Azure Stack HCI？
+      href: azure-stack-hci-overview.md
     - name: 发行说明
       items:
-        - name: 最新更新
+        - name: 更新和服务策略
           href: azure-stack-servicing-policy.md
         - name: 应用更新的清单
           href: azure-stack-release-notes-checklist.md
         - name: 安全更新
-          href: azure-stack-release-notes-security-updates-1904.md
+          href: azure-stack-release-notes-security-updates-1907.md
+        - name: 1907 更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1907.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1907.md
+        - name: 1906 更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1906.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1906.md
+        - name: 1905 更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1905.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1905.md
         - name: 1904 更新
           items:
             - name: 发行说明
               href: azure-stack-release-notes-1904.md
             - name: 已知问题
               href: azure-stack-release-notes-known-issues-1904.md
-        - name: 1903 更新
-          href: azure-stack-update-1903.md
-        - name: 1902 更新
-          href: azure-stack-update-1902.md
-        - name: 1901 更新
-          href: azure-stack-update-1901.md
 - name: 快速入门
   expanded: true
   items:
@@ -40,14 +54,15 @@
 - name: 概念
   items:
     - name: 容量规划
-      href: capacity-planning.md
       items:
-        - name: 计算容量规划
-          href: capacity-planning-compute.md
-        - name: 存储容量规划
-          href: capacity-planning-storage.md
+        - name: 概述
+          href: azure-stack-capacity-planning-overview.md
+        - name: 计算
+          href: azure-stack-capacity-planning-compute.md
+        - name: 存储
+          href: azure-stack-capacity-planning-storage.md
         - name: Azure Stack Capacity Planner
-          href: capacity-planning-spreadsheet.md
+          href: azure-stack-capacity-planner.md
     - name: 数据中心集成
       href: azure-stack-customer-journey.md
       items:
@@ -150,6 +165,8 @@
               href: azure-stack-updates.md
             - name: 应用更新
               href: azure-stack-apply-updates.md
+            - name: 应用 OEM 更新
+              href: azure-stack-update-oem.md
             - name: 监视更新状态
               href: azure-stack-monitor-update.md
         - name: 监视运行状况和警报
@@ -188,6 +205,8 @@
       items:
         - name: 安全概述
           href: azure-stack-security-foundations.md
+        - name: 配置安全性
+          href: azure-stack-security-configuration.md
         - name: 标识
           items:
             - name: 标识概述
@@ -200,7 +219,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: 为 AD FS 添加用户
               href: azure-stack-add-users-adfs.md
-            - name: 创建服务主体
+            - name: 使用应用标识访问资源
               href: Azure-stack-create-service-principals.md
             - name: 启用多租户
               href: azure-stack-enable-multitenancy.md
@@ -216,6 +235,8 @@
       items:
         - name: 市场概述
           href: azure-stack-marketplace.md
+        - name: 市场更改
+          href: azure-stack-marketplace-changes.md
         - name: 下载市场项
           href: azure-stack-download-azure-marketplace-item.md
         - name: Azure Stack 的 Azure 市场项
@@ -285,6 +306,8 @@
       items:
         - name: 应用服务容量规划
           href: azure-stack-app-service-capacity-planning.md
+        - name: 应用服务计费常见问题解答
+          href: app-service-billing-faq.md
         - name: 准备工作
           href: azure-stack-app-service-before-you-get-started.md
         - name: 部署应用服务
@@ -317,6 +340,8 @@
               href: azure-stack-app-service-release-notes-update-four.md
             - name: 基于 Azure Stack 的应用服务 Update 5 发行说明
               href: azure-stack-app-service-release-notes-update-five.md
+            - name: 基于 Azure Stack 的应用服务 Update 6 发行说明
+              href: azure-stack-app-service-release-notes-update-six.md
     - name: 创建计划、套餐和配额
       items:
         - name: 计划、套餐、配额和订阅概述
@@ -349,7 +374,7 @@
           items:
             - name: 使用情况数据报告
               href: azure-stack-usage-reporting.md
-            - name: 适用于云服务提供商的使用情况报告基础结构
+            - name: 使用情况报告基础结构
               href: azure-stack-csp-ref-infrastructure.md
             - name: 提供者使用情况 API
               href: azure-stack-provider-resource-api.md
@@ -357,6 +382,12 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: 使用情况常见问题
               href: azure-stack-usage-related-faq.md
+            - name: 排查使用问题
+              items:
+                - name: 使用情况连接错误
+                  href: azure-stack-usage-issues.md
+                - name: 使用注册错误代码
+                  href: azure-stack-registration-errors.md
     - name: 备份 Azure Stack
       href: azure-stack-backup-infrastructure-backup.md
       items:
@@ -366,20 +397,38 @@
           href: azure-stack-backup-enable-backup-powershell.md
         - name: 备份 Azure Stack
           href: azure-stack-backup-back-up-azure-stack.md
+        - name: 在 Azure Stack 上备份文件和应用程序
+          href: /backup/backup-mabs-files-applications-azure-stack
+        - name: 将 Azure Stack VM 复制到 Azure
+          href: /site-recovery/azure-stack-site-recovery
         - name: 在发生灾难性数据丢失后进行恢复
           href: azure-stack-backup-recover-data.md
         - name: 备份最佳做法
           href: azure-stack-backup-best-practices.md
         - name: 备份参考
           href: azure-stack-backup-reference.md
-    - name: 故障排除
+    - name: 获取支持
       items:
-        - name: 已知问题
-          href: azure-stack-troubleshooting.md
-        - name: Azure Stack 中的诊断
-          href: azure-stack-diagnostics.md
+        - name: “帮助和支持”门户
+          items:
+            - name: 概述
+              href: azure-stack-help-and-support-overview.md
+            - name: 诊断日志收集
+              items:
+                - name: 概述
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 自动收集
+                  items:
+                    - name: 配置自动收集
+                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
+                    - name: 最佳实践
+                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
+                - name: 按需收集
+                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Azure Stack 验证
           href: azure-stack-diagnostic-test.md
+        - name: 已知问题
+          href: azure-stack-troubleshooting.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell

@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 10/15/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 123b3138a4948a8bde2081a91ce1a58df3b8f1c4
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: f0f513c3b4066a2ac126017963898c11b331f723
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514394"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857190"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>教程：使用流量管理器控制加权终结点的流量路由
 
@@ -54,8 +54,10 @@ ms.locfileid: "68514394"
 
 本部分介绍如何创建两个分别位于 Azure 区域“中国东部”和“中国北部”的 VM（*myIISVMChinaEast* 和 *myIISVMChinaNorth*）。
 
-1. 在 Azure 门户的左上角选择“创建资源” > “虚拟机” > “Windows Server 2019 Datacenter”    。
+1. 在 Azure 门户的左上角，选择“创建资源”  ，在“新建”  页的搜索筛选器中输入 **Windows Server 2019 Datacenter**，然后按 Enter 键。
+    
     <!--MOONCAKE: Customize **Virtual Machines** -->
+    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值：  
 
     - **订阅** > **资源组**：选择“新建”，然后键入 **myResourceGroupTM1**。 
@@ -115,8 +117,10 @@ ms.locfileid: "68514394"
 
 在本部分中，将在每个 Azure 区域（“中国东部”和“中国北部”）创建一个 VM（myVMChinaEast  和 myVMChinaNorth  ）   。 将使用这些 VM 来测试流量管理器如何将流量路由到其权重值更高的网站终结点。
 
-1. 在 Azure 门户的左上角选择“创建资源” > “虚拟机” > “Windows Server 2019 Datacenter”    。
+1. 在 Azure 门户的左上角，选择“创建资源”  ，在“新建”  页的搜索筛选器中输入 **Windows Server 2019 Datacenter**，然后按 Enter 键。
+
     <!--MOONCAKE: Customize **Virtual Machines** -->
+    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值：  
 
     - **订阅** > **资源组**：选择“myResourceGroupTM1”  。
@@ -137,7 +141,10 @@ ms.locfileid: "68514394"
 
 根据**权重**路由方法创建流量管理器配置文件。
 
-1. 在屏幕左上方，选择“创建资源”   > “网络”   >   “流量管理器配置文件” >   “创建”。
+1. 在屏幕左上方，选择“创建资源”   > “网络”   >    “全部查看” > “流量管理器配置文件”   > “创建”  。
+
+    <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
+
 2. 在“创建流量管理器配置文件”中，输入或选择以下信息  。 对于其他设置，请接受默认值，然后选择“创建”。 
 
     | 设置                 | 值                                              |

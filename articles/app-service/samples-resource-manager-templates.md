@@ -1,5 +1,5 @@
 ---
-title: Azure 资源管理器模板示例 - 应用服务
+title: Azure 资源管理器模板示例 - 应用服务 | Azure
 description: 应用服务的 Azure 资源管理器模板示例
 services: app-service
 documentationcenter: app-service
@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-origin.date: 10/15/2018
-ms.date: 01/21/2019
-ms.author: v-biyu
+origin.date: 01/04/2019
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: aa4945e8ea02862bf6e6b981fa053c075e92d36c
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: a4bf4b2bb1a996fb823541e2a24781d7e4e558fc
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083882"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806895"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>应用服务的 Azure 资源管理器模板
 

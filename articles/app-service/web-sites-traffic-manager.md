@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/25/2016
 ms.date: 01/21/2019
-ms.author: v-biyu
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: cd65d6e3e220a4cfeb2a7b08a0ddd20e0c4646c9
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8e33af620472cb6685565933195c3d14d57112bb
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083666"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806849"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理器控制 Azure 应用服务流量
 > [!NOTE]
@@ -44,15 +44,15 @@ Azure 流量管理器使用四种不同的路由方法。 下面的列表中介�
 有关详细信息，请参阅[流量管理器路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>应用服务和流量管理器配置文件
-要通过配置来控制应用服务流量，则需要在 Azure 流量管理器中创建一个使用前述三种负载均衡方法之一的配置文件，然后将要控制其流量的终结点（在此例中为应用服务）添加到该配置文件。 应用状态（正在运行、已停止或已删除）会定期传送到该配置文件，以便 Azure 流量管理器可以相应地对流量进行定向。
+要通过配置来控制应用服务应用流量，则需要在 Azure 流量管理器中创建一个使用前述四种负载均衡方法之一的配置文件，然后将要控制其流量的终结点（在此例中为应用服务）添加到该配置文件。 应用状态（正在运行、已停止或已删除）会定期传送到该配置文件，以便 Azure 流量管理器可以相应地对流量进行定向。
 
 在通过 Azure 使用 Azure 流量管理器时，请记住以下几点：
 
 * 对于同一区域内的仅限应用部署，应用服务已经提供了与应用服务模式无关的故障转移和轮循机制功能。
 * 对于同一区域中将应用服务与另一 Azure 云服务一起使用的部署，可以组合使用两种类型的终结点以启用混合方案。
 * 在一个配置文件中，只能为每个区域指定一个应用服务终结点。 当选择某个应用作为一个区域的终结点后，该区域中的其余应用对于该配置文件会变为不可选择状态。
-* 在 Azure 流量管理器配置文件中指定的应用服务终结点将出现在配置文件中应用“配置”页面的“域名”部分下，但无法在该位置进行配置。
-* 在将应用添加到配置文件后，该应用门户页面的仪表板上的“网站 URL”会显示该应用的自定义域 URL（如果已经设置了一个）。 否则，它将显示流量管理器配置文件 URL（例如，`contoso.trafficmanager.net`）。 在应用的“配置”页面的“域名”部分下将可以看到应用的直接域名和流量管理器 URL。
+* 在 Azure 流量管理器配置文件中指定的应用服务终结点将出现在配置文件中应用“配置”页面的“域名”部分下，但无法在该位置进行配置。 
+* 在将应用添加到配置文件后，该应用门户页面的仪表板上的“网站 URL”会显示该应用的自定义域 URL（如果已经设置了一个）。  否则，它将显示流量管理器配置文件 URL（例如，`contoso.trafficmanager.net`）。 在应用的“配置”页面的“域名”部分下将可以看到应用的直接域名和流量管理器 URL  。
 * 自定义域名将正常工作，但除了将它们添加到应用之外，还必须配置 DNS 映射，使之指向流量管理器 URL。 有关如何为应用服务设置自定义域的信息，请参阅[将现有的自定义 DNS 名称映射到 Azure 应用服务](app-service-web-tutorial-custom-domain.md)。
 * 只能将标准或高级模式下的应用添加到 Azure 流量管理器配置文件。
 

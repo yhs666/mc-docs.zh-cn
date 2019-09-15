@@ -1,5 +1,5 @@
 ---
-title: 应用程序性能常见问题解答 - Azure 应用服务
+title: 应用程序性能常见问题解答 - Azure 应用服务 | Azure
 description: 获取有关 Azure 应用服务 Web 应用功能的可用性、性能和应用程序的常见问题解答。
 services: app-service\web
 documentationcenter: ''
@@ -17,12 +17,12 @@ origin.date: 10/31/2018
 ms.date: 08/12/2019
 ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: a5b17b5a59f84ac8e82ce3ec8cb20680c9ea2973
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 79dc9c9bcc90484365cee729f13c0a1780ee4def
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878544"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806756"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -44,7 +44,7 @@ ms.locfileid: "68878544"
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 实现应用服务 Web 应用的自动化？
 
-可以使用 PowerShell cmdlet 管理和维护应用服务 Web 应用。 在我们的博客文章 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)（使用 PowerShell 实现 Azure 应用服务中托管的 Web 应用的自动化）中，我们将说明如何使用基于 Azure Resource Manager 的 PowerShell cmdlet 自动执行常见任务。 此博客文章中还包含适用于各种 Web 应用管理任务的示例代码。 有关所有应用服务 Web 应用 cmdlet 的说明和语法，请参阅 [Az.Websites](https://docs.microsoft.com/zh-cn/powershell/module/az.websites)。
+可以使用 PowerShell cmdlet 管理和维护应用服务 Web 应用。 在我们的博客文章 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)（使用 PowerShell 实现 Azure 应用服务中托管的 Web 应用的自动化）中，我们将说明如何使用基于 Azure Resource Manager 的 PowerShell cmdlet 自动执行常见任务。 此博客文章中还包含适用于各种 Web 应用管理任务的示例代码。 有关所有应用服务 Web 应用 cmdlet 的说明和语法，请参阅 [Az.Websites](https://docs.microsoft.com/powershell/module/az.websites)。
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>如何查看 Web 应用的事件日志？
 

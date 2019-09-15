@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 备份 Web 应用 | Microsoft Docs
+title: Azure PowerShell 脚本示例 - 备份 Web 应用 | Azure
 description: Azure PowerShell 脚本示例 - 备份 Web 应用
 services: app-service\web
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 10/30/2017
-ms.author: v-biyu
-ms.date: 03/18/2019
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e1394061fd035774ad1c5f38c3c2ae99c343c76d
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 8e00fb12acbfe9e5f28a1f51cef5472caed49c89
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347220"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806761"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>使用 PowerShell 备份 Web 应用
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后为其创建一次性备份。 
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -95,6 +95,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/en-us/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../samples-powershell.md)中找到 Azure 应用服务 Web 应用的其他 Azure Powershell 示例。

@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 62eac762b129485b1a9fe63afeb4d23f1d12b37a
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 85161efa4917a1a2c4024a1a700e9c787c7701aa
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513550"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857135"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>使用情况和计费注册错误代码
 
@@ -35,7 +35,7 @@ ms.locfileid: "68513550"
 | **BadCustomerSubscriptionId**       | 提供的客户订阅标识符  和注册名称  订阅标识符不是由同一 Azure 云服务提供商拥有。 查看客户订阅标识符是否正确。 如果问题仍然存在，请联系支持部门。 | 如果客户订阅为 CSP 订阅，但它汇总到 CSP 合作伙伴时，该合作伙伴不同于在初始注册中使用的订阅所汇总到的合作伙伴，则会发生此错误。 进行该检查是为了防止出现特定的情况，该情况会导致对与所使用的 Azure Stack 无关的 CSP 合作伙伴收费。                                                                                                                                                                                                                                                                          |
 | **InvalidCustomerSubscriptionId**   | “客户订阅标识符”无效。  确保提供有效的 Azure 订阅。                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | **CustomerSubscriptionNotFound**    | 在_注册名称_下找不到_客户订阅标识符_。 确保使用有效的 Azure 订阅，并已使用 PUT 操作将订阅 ID 添加到注册。                                                   | 尝试验证是否已向订阅添加租户但却找不到与注册关联的客户订阅时，会发生此错误。 尚未将客户添加到订阅，或者订阅 ID 写入错误。                                                                                                                                                                                                                                                                                                                                |
-| **UnauthorizedCspRegistration**     | 提供的注册名称  尚未获批使用多租户。                                                                                    | 注册需要获得 Microsoft 的批准，在允许使用多租户后，才能开始向其添加租户。                                                                                                                                                                                                                                                                                                                                                                                             |
+| **UnauthorizedCspRegistration**     | 提供的注册名称  尚未获批使用多租户。                                                                                    | 注册需要获得 Azure 的批准，在允许使用多租户后，才能开始向其添加租户。                                                                                                                                                                                                                                                                                                                                                                                             |
 | **CustomerSubscriptionsNotAllowed** | 不支持对断开连接的客户执行客户订阅操作。 若要使用此功能，请使用“预付费”许可重新注册。                                                                                                                                                                    | 你尝试向其添加租户的注册是一个容量注册，也就是说，在创建注册时使用了参数 `BillingModel Capacity`。 只允许“即用即付”注册添加租户。 必须使用参数 `BillingModel PayAsYouUse` 重新注册。                                                                                                                                                                                                                                                                                          |
 | **InvalidCSPSubscription**          | 提供的“客户订阅标识符”不是有效的 CSP 订阅。  确保提供有效的 Azure 订阅。                                                                                                                                                        | 这很有可能是错误地键入了客户订阅。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **MetadataResolverBadGatewayError** | 某个上游服务器返回了异外错误。 请稍后重试。 如果问题仍然存在，请联系支持部门。                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

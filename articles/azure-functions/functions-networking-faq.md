@@ -7,14 +7,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
 origin.date: 04/11/2019
-ms.date: 06/04/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: c5041a8e87e21f91d6ae3c0b6ee12e1597029d56
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.reviewer: glenga
+ms.openlocfilehash: f5f264c6fbbb16fc260aeeadd146d9f7008963be
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491398"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805799"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>有关 Azure Functions 中的网络的常见问题解答
 
@@ -40,13 +41,11 @@ ms.locfileid: "66491398"
 
 ## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>如何访问由服务终结点保护的资源？
 
-使用虚拟网络集成（当前为预览版），你可以从正在运行的函数访问由服务终结点保护的资源。 有关详细信息，请参阅[预览版虚拟网络集成](functions-networking-options.md#preview-version-of-virtual-network-integration)。
+使用虚拟网络集成，可以从正在运行的函数访问由服务终结点保护的资源。 有关详细信息，请参阅[虚拟网络集成](functions-networking-options.md#virtual-network-integration)。
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>如何从虚拟网络中的资源触发函数？
 
 可以使用[服务终结点](./functions-networking-options.md#private-site-access)允许从虚拟网络调用 HTTP 触发器。 
-
-应用服务计划通过虚拟网络支持 HTTP 触发器。
 
 ## <a name="next-steps"></a>后续步骤
 

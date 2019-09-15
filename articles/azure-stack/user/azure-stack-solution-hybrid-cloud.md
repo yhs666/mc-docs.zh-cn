@@ -16,18 +16,18 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: bfb6bfa76caafe55da8cfa715a277aaa61ad4f6d
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 5f823ee5f6b14098aa8ac470c514022a72eb22bf
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513252"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857330"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 部署混合云解决方案
 
-适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本教程介绍如何部署使用 Azure 公有云和 Azure Stack 私有云的混合云解决方案。
+此方案介绍如何部署使用 Azure 公有云和 Azure Stack 私有云的混合云解决方案。
 
 使用混合云解决方案，可以结合私有云在合规性方面的优势与公有云的可伸缩性。 此外，开发人员可以利用开发人员生态系统，并在云和本地环境中运用其技能。
 
@@ -45,6 +45,12 @@ ms.locfileid: "68513252"
 > - 配置并部署 Web 应用。
 > - 创建流量管理器配置文件，并根据跨云缩放对其进行配置。
 
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
+> 
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
+
 ### <a name="assumptions"></a>假设
 
 本教程假设你对全球 Azure 和 Azure Stack 有基本的了解。 若要在开始本教程之前了解详细信息，请查看以下文章：
@@ -56,7 +62,7 @@ ms.locfileid: "68513252"
 
 ## <a name="prerequisites"></a>先决条件
 
-在开始本教程之前，请确保符合以下要求：
+在开始此解决方案之前，请确保符合以下要求：
 
 - Azure Stack 开发工具包 (ASDK)，或 Azure Stack 集成系统的订阅。 若要部署 Azure Stack 开发工具包，请遵照[使用安装程序部署 ASDK](../asdk/asdk-install.md) 中的说明操作。
 - Azure Stack 安装中应包含以下组件：
@@ -240,13 +246,50 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 1. 确保获取的 SSL 证书对于所创建的子域有效。 （也可以使用通配符证书。）
 
-2. 在 Azure 中，遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。   为“SSL 类型”选择“基于 SNI 的 SSL”。  
+2. 在 Azure 中，按照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。   为“SSL 类型”选择“基于 SNI 的 SSL”。  
 
 3. 将所有流量重定向到 HTTPS 端口。 遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](/app-service/app-service-web-tutorial-custom-ssl)一文的“强制实施 HTTPS”部分的说明操作。 
 
 将 SSL 添加到 Azure Stack：
 
 - 重复适用于 Azure 的步骤 1-3。
+
+## <a name="configure-and-deploy-the-web-app"></a>配置并部署 Web 应用
+
+你将配置应用代码，以便向正确的 Application Insights 实例报告遥测，并为 Web 应用配置正确的连接字符串。 若要详细了解 Application Insights，请参阅[什么是 Application Insights？](/azure-monitor/app/app-insights-overview)
+
+### <a name="add-application-insights"></a>添加 Application Insights
+
+1. 在 Microsoft Visual Studio 中打开 Web 应用。
+
+2. 向项目中[添加 Application Insights](/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)，以传输在 Web 流量增加或减少时 Application Insights 用于创建警报的遥测。
+
+### <a name="configure-dynamic-connection-strings"></a>配置动态连接字符串
+
+Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 Azure 中的应用使用 SQL Server 虚拟机 (VM) 的专用 IP 地址，Azure Stack 中的应用使用 SQL Server VM 的公共 IP 地址。
+
+> [!Note]  
+> 在 Azure Stack 集成系统上，公共 IP 地址不应通过 Internet 路由。 在 Azure Stack 开发工具包 (ASDK) 上，公共 IP 地址不能在 ASDK 外部路由。
+
+可以使用应用服务环境变量将不同的连接字符串传递给应用的每个实例。
+
+1. 在 Visual Studio 中打开应用。
+
+2. 打开 Startup.cs 并找到以下代码块：
+
+    ```C#
+    services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlite("Data Source=localdatabase.db"));
+    ```
+
+3. 将前面的代码块替换为以下代码，此代码使用在 appsettings.json  文件中定义的连接字符串：
+
+    ```C#
+    services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+     // Automatically perform database migration
+     services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
+    ```
 
 ### <a name="configure-app-service-app-settings"></a>配置应用服务应用设置
 

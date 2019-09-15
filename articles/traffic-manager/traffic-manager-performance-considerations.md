@@ -12,18 +12,20 @@ ms.workload: infrastructure-services
 origin.date: 03/16/2017
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 85cddc49c8ffa0307e7584ff25c9d89916fcfd40
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: d3c9e6c4d6059a6383b233b6cb6042b3e54c52ef
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514213"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857192"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 
 本页介绍使用流量管理器的性能注意事项。 假设出现了下面这种情景：
 
-在中国北部和东亚区域分别创建了网站的实例。 其中一个实例未通过流量管理器探测的运行状况检查。 应用程序流量定向到正常的区域。 这种故障转移是意料之中的，但由于流量现在要传送到远方区域，这种延迟会给性能造成问题。
+在中国北部和中国东部区域分别创建了网站的实例。 其中一个实例未通过流量管理器探测的运行状况检查。 应用程序流量定向到正常的区域。 这种故障转移是意料之中的，但由于流量现在要传送到远方区域，这种延迟会给性能造成问题。
+
+<!--MOONCAKE: CORRECT ON ChinaNorth and ChinaEast-->
 
 ## <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 

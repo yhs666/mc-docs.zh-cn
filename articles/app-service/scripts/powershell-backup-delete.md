@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 删除 Web 应用的备份 | Azure Docs
+title: Azure PowerShell 脚本示例 - 删除 Web 应用的备份 | Azure
 description: Azure PowerShell 脚本示例 - 删除 Web 应用的备份
 services: app-service\web
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 10/30/2017
-ms.author: v-biyu
-ms.date: 03/18/2019
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: a12b765c3630d94ecb32a322a596b891cf8541d8
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: caf47aa0d99d60099b63b08eae1227d7409091cb
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347136"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806769"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>使用 Azure PowerShell 删除 Web 应用的备份
 
@@ -65,6 +65,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/en-us/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../samples-powershell.md)中找到 Azure 应用服务 Web 应用的其他 Azure Powershell 示例。

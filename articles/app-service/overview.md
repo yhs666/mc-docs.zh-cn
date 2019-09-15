@@ -1,5 +1,5 @@
 ---
-title: 应用服务概述 - Azure
+title: 应用服务概述 - Azure | Azure
 description: 了解 Azure 应用服务如何帮助用户开发和托管 Web 应用程序
 services: app-service\web
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 origin.date: 01/04/2017
 ms.date: 01/21/2019
-ms.author: v-biyu
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 487c1b8e439b375c4bdc5e49c5e02b4c9b8d31ed
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: ef4244d7797e9b415d06b292775649aaabed2f5f
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878603"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806808"
 ---
 # <a name="app-service-overview"></a>应用服务概述
 
@@ -36,9 +36,10 @@ Azure 应用服务是用于托管 Web 应用程序、REST API 和移动后端的
 下面是应用服务的一些主要功能：
 
 * **多个语言和框架** - 应用服务针对 ASP.NET、ASP.NET Core、Java、Ruby、Node.js、PHP 或 Python 提供一流支持。 我们还能以后台服务的形式运行 [PowerShell 和其他脚本或可执行文件](webjobs-create.md)。
+通过 [测试和过渡环境](deploy-staging-slots.md)提升更新。 在应用服务中，利用 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](/cli/install-azure-cli) 来管理应用。
 * **具有高可用性的全局缩放** - 以手动或自动方式进行[增大](web-sites-scale.md)或[扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
 
-* **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.microsoft.com/en-us/trustcenter)的要求。 使用 [Azure Active Directory](configure-authentication-provider-aad.md) 或 [Microsoft](configure-authentication-provider-microsoft.md)) 对用户进行身份验证。 创建 [IP 地址限制](app-service-ip-restrictions.md)和[管理服务标识](overview-managed-identity.md)。
+* **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.microsoft.com/trustcenter)的要求。 使用 [Azure Active Directory](configure-authentication-provider-aad.md) 或 [Microsoft](configure-authentication-provider-microsoft.md)) 对用户进行身份验证。 创建 [IP 地址限制](app-service-ip-restrictions.md)和[管理服务标识](overview-managed-identity.md)。
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。
 * **API 和移动功能** - 应用服务针对 RESTful API 方案提供统包式 CORS 支持，通过启用身份验证、脱机数据同步、推送通知等功能简化移动应用方案。
 * **无服务器代码** - 按需运行代码片段或脚本，无需显式预配或管理基础结构，并且只需为代码实际使用的计算时间付费（请参阅 [Azure Functions](/azure-functions/)）。

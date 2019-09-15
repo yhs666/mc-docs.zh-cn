@@ -12,20 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/16/2018
-ms.date: 07/18/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: e4cd6696f5aa522950256d6171fe8a9a264b9bf3
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: a109847016f97e51132eb33a9c9ffe80d2eb6591
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331887"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805794"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
 本文介绍了如何使用 Python 开发 Azure Functions。 以下内容假定你已阅读 [Azure Functions 开发人员指南](functions-reference.md)。
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 ## <a name="programming-model"></a>编程模型
 
@@ -294,14 +292,22 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>发布到 Azure
 
-准备好进行发布时，请确保所有依赖项都已在 *requirements.txt* 文件（位于项目目录的根目录）中列出。 如果使用的包需要编译器并且不支持从 PyPI 安装 manylinux 兼容滚轮的包，则发布到 Azure 会失败并出现以下错误： 
+准备好进行发布时，请确保所有依赖项都已在 *requirements.txt* 文件（位于项目目录的根目录）中列出。 Azure Functions 可以[远程生成](functions-deployment-technologies.md#remote-build)这些依赖项。
+
+若要部署到 Azure 并执行远程生成，请使用以下命令：
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+如果不使用远程生成，并且使用的包需要编译器且不支持从 PyPI 安装许多 Linux 兼容轮，则在不在本地生成的情况下发布到 Azure 将失败，并显示以下错误：
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
 The terminal process terminated with exit code: 1
 ```
 
-若要自动生成并配置所需二进制文件，请在本地计算机上[安装 Docker](https://docs.docker.com/install/)并运行以下命令以使用 [Azure Functions Core Tools](functions-run-local.md#v2) (func) 进行发布。 请记住将 `<app name>` 替换为 Azure 中的函数应用名称。 
+若要在本地生成并配置所需二进制文件，请在本地计算机上[安装 Docker](https://docs.docker.com/install/)并运行以下命令以使用 [Azure Functions Core Tools](functions-run-local.md#v2) (func) 进行发布。 请记住将 `<app name>` 替换为 Azure 中的函数应用名称。 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 09/02/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7ef8635ff789030e715812d14302f591441a8550
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: bec379a4801fd4d7f56a3e21f8c87e38c9268efb
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310866"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857275"
 ---
 # <a name="application-gateway-components"></a>应用程序网关组件
 
@@ -26,6 +26,8 @@ ms.locfileid: "70310866"
 前端 IP 地址是与应用程序网关关联的 IP 地址。 可将应用程序网关配置为使用公共 IP 地址和/或专用 IP 地址。 应用程序网关支持一个公共 IP 地址或一个专用 IP 地址。 虚拟网络和公共 IP 地址必须位于应用程序网关所在的同一位置。 创建前端 IP 地址后，该地址将关联到某个侦听器。
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>静态与动态公共 IP 地址
+
+Azure 应用程序网关 V2 SKU 可以配置为同时支持静态内部 IP 地址和静态公共 IP 地址，或仅支持静态公共 IP 地址。 不能将它配置为仅支持静态内部 IP 地址。
 
 V1 SKU 可配置为支持静态内部 IP 地址和动态公共 IP 地址、仅支持静态内部 IP 地址，或仅支持动态公共IP地址，或仅支持动态专用 IP 地址，或动态公共 IP 和动态专用 IP 地址。 在正在运行的网关上，应用程序网关的动态 IP 地址不会更改。 只有在停止或启动网关时，它才能更改。 它不会因系统故障、更新、Azure 主机更新等而发生更改。 
 
@@ -43,7 +45,7 @@ V1 SKU 可配置为支持静态内部 IP 地址和动态公共 IP 地址、仅�
 
 ### <a name="ports"></a>端口
 
-侦听器在某个端口上侦听客户端请求。 对于 v1 SKU，可以配置端口 1 到 65502。
+侦听器在某个端口上侦听客户端请求。 可以为 v1 SKU 配置 1 到 65502 的端口，为 v2 SKU 配置 1 到 65199 的端口。
 
 ### <a name="protocols"></a>协议
 
@@ -96,6 +98,14 @@ V1 SKU 可配置为支持静态内部 IP 地址和动态公共 IP 地址、仅�
 可以选择另一个侦听器（有助于实现 HTTP 到 HTTPS 的自动重定向）或外部站点作为重定向目标。 也可以选择临时性或永久性重定向，或者将 URI 路径和查询字符串追加到重定向的 URL。
 
 有关详细信息，请参阅[重定向应用程序网关上的流量](/application-gateway/redirect-overview)。
+
+### <a name="rewrite-http-headers"></a>重写 HTTP 标头
+
+通过使用请求路由规则，当请求和响应数据包通过应用程序网关在客户端和后端池之间移动时，你可以添加、删除或更新 HTTP(S) 请求和响应标头。
+
+这些标头可以设置为静态值，也可以设置为其他标头和服务器变量。 这有助于处理重要的用例，例如提取客户端 IP 地址、删除有关后端的敏感信息、添加更多安全性等。
+
+有关详细信息，请参阅[在应用程序网关上重写 HTTP 标头](/application-gateway/rewrite-http-headers)。
 
 ## <a name="http-settings"></a>HTTP 设置
 

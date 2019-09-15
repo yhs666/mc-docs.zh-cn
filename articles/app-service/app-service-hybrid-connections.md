@@ -1,5 +1,5 @@
 ---
-title: 混合连接 - Azure 应用服务 | Azure Docs
+title: 混合连接 - Azure 应用服务 | Azure
 description: 如何创建混合连接并使用它来访问不同网络中的资源
 services: app-service
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2019
-ms.date: 08/12/2019
-ms.author: ccompy
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 0162cbbdd7f8191bba6529ab9c440091f1c4da85
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: d69a229c8982b8a20465906f5beb51b97394cd69
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878619"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806846"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接 #
 
@@ -40,7 +40,7 @@ ms.locfileid: "68878619"
 如果应用发出了与配置的混合连接终结点匹配的 DNS 请求，则会通过混合连接重定向出站 TCP 流量。  
 
 > [!NOTE]
-> 这意味着，始终应该尽量为混合连接使用 DNS 名称。  如果终结点使用 IP 地址，某些客户端软件不会执行 DNS 查找。
+> 这意味着，始终应该尽量为混合连接使用 DNS 名称。 如果终结点使用 IP 地址，某些客户端软件不会执行 DNS 查找。
 >
 
 ### <a name="app-service-hybrid-connection-benefits"></a>应用服务混合连接的优势 ###

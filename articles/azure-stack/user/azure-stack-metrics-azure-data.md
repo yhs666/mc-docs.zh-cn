@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 07/29/2019
+origin.date: 08/02/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: cf4723bb91da8fabb3cde30a21e992832af2b317
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: cf2525e130567757ed99e78ebe358c6c810ea87e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513277"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857329"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
@@ -122,13 +122,16 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>访问 Azure Stack 上的 Azure Monitor 的方法
 
-一般情况下，可以使用下述方法之一操作数据的跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。
+可以使用以下方法之一处理数据跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。 
 
  - [Azure Stack 门户](azure-stack-use-portal.md)
  - [PowerShell](/monitoring-and-diagnostics/insights-powershell-samples)
  - [跨平台的命令行接口 (CLI)](/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+
+> [!Important]  
+> 如果在查看 VM 的性能图表时遇到“资源未找到”  错误，请确保已在与 VM 关联的订阅上注册了 Microsoft.insights。
 
 ## <a name="next-steps"></a>后续步骤
 

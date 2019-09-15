@@ -14,12 +14,12 @@ origin.date: 02/25/2019
 ms.date: 07/22/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 1cda8c22d43c0355d3070ff39826bc1d84979454
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: c2334dfaa73d3ac76ac15b05ba128aadc730e4f1
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337550"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857013"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -81,11 +81,18 @@ ms.locfileid: "68337550"
     
     - “部署解决方案模板”面板。 
     
-        |名称|值| |**订阅**| 选择你的 Azure 订阅。| |**资源组**| 选择“新建”  并为其提供一个名称。 资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。| |**资源组位置**|选择一个区域。 例如，**中国北部**。 |
+        |Name|Value|
+        |----|----|
+        |**订阅**| 选择 Azure 订阅。|
+        |**资源组**| 选择“新建”并指定名称。  资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。|
+        |**资源组位置**|选择区域。 例如，**中国北部**。 |
         
     - 选择“编辑参数”，显示“参数”面板。  
     
-        |**存储帐户类型**|使用默认值，即 **Standard_LRS**。| |**位置**| 使用默认值，即 **[resourceGroup().location]** 。 这意味着，你将使用存储帐户的资源组位置。|
+        |Name|Value|
+        |----|----|
+        |**存储帐户类型**|使用默认值 **Standard_LRS**。|
+        |**Location**| 使用默认值“[resourceGroup().location]”。  这意味着，要使用存储帐户的资源组位置。|
         
         <!--MOONCAKE : Not Available on * **I agree to the terms and conditions started above**: (selected)-->
         

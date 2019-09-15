@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/07/2019
-ms.date: 06/03/2019
+origin.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6d396534baeffcf048602df2a325f8702aefe40c
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: 44b57e05810c7a0926829566aac009178750bf48
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135473"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857141"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据
 
@@ -32,7 +32,7 @@ ms.locfileid: "67135473"
 > [!IMPORTANT]
 > 所有工作负荷都[必须部署在租户订阅](#are-users-charged-for-the-infrastructure-vms)下，才符合 Azure Stack 的许可条款。
 
-根据预支付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
+根据预支付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包 (ASDK) 用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
 
 ![计费流](media/azure-stack-usage-reporting/billing-flow.png)
 
@@ -71,11 +71,11 @@ ms.locfileid: "67135473"
 
 ![计费流](media/azure-stack-usage-reporting/pricing-details.png)
 
-对于 Azure Stack 开发工具包，我们不会收取 Azure Stack 资源费用，因此价格显示为 $0.00。
+对于 ASDK，我们不会收取 Azure Stack 资源费用，因此价格显示为 $0.00。
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>哪些 Azure Stack 部署需要付费？
 
-在 Azure Stack 开发工具包中使用资源无需付费。 对于 Azure Stack 多节点系统，工作负荷 VM、存储服务与应用服务需要付费。
+ASDK 可以免费使用资源。 对于 Azure Stack 多节点系统，工作负荷 VM、存储服务与应用服务需要付费。
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基础结构 VM 是否需要付费？
 
@@ -85,7 +85,7 @@ ms.locfileid: "67135473"
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>我有 Windows Server 的许可证，如何在 Azure Stack 上使用它？
 
-使用现有许可证可避免生成用量计量值。 可以根据 [Azure Stack 许可指南](https://go.microsoft.com/fwlink/?LinkId=851536)的“在 Azure Stack 中使用现有软件”部分所述，在 Azure Stack 中使用现有的 Windows Server 许可证。 客户必须按照 [Windows Server 许可证的混合权益](/virtual-machines/windows/hybrid-use-benefit-licensing)中所述部署其 Windows Server 虚拟机，才能使用其现有许可证。
+使用现有许可证可避免生成用量计量值。 可以在 Azure Stack 中使用现有 Windows Server 许可证。 客户必须按照 [Windows Server 许可证的混合权益](/virtual-machines/windows/hybrid-use-benefit-licensing)中所述部署其 Windows Server 虚拟机，才能使用其现有许可证。
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>从哪个订阅中收取消耗的资源费用？
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 从备份恢复 Web 应用
+title: Azure PowerShell 脚本示例 - 从备份还原 Web 应用 | Azure
 description: Azure PowerShell 脚本示例 - 从备份恢复 Web 应用
 services: app-service\web
 documentationcenter: ''
@@ -13,25 +13,26 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 11/21/2018
-ms.date: 03/18/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 51fbb145c97386dde0b667f608ec948faf056dcc
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 8aea70a065730b78537c60213d68abeb6c98b6cd
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346989"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806724"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>使用 PowerShell 从备份中还原 Web 应用
 
 此示例脚本从现有的 Web 应用中检索以前已完成的备份，然后通过重写其内容将其还原。 
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $webappname = "<replace-with-your-app-name>"
@@ -48,6 +49,7 @@ $backup = (Get-AzWebAppBackupList -ResourceGroupName $resourceGroupName -Name $w
 # Restore the app by overwriting it with the backup data
 $backup | Restore-AzWebAppBackup -Overwrite
 ```
+
 ## <a name="clean-up-deployment"></a>清理部署 
 
 如果不再需要 Web 应用，请使用以下命令删除资源组、Web 应用和所有相关的资源。
@@ -67,6 +69,6 @@ Remove-AzResourceGroup -Name $resourceGroupName -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/en-us/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../samples-powershell.md)中找到 Azure 应用服务 Web 应用的其他 Azure Powershell 示例。

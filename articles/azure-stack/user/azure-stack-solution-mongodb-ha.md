@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 06/20/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 7d45d08dc8718320228dc98043fe09e08dd8d572
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: c0f2cf818410ec8de1981148378b408f34a19617
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513525"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857321"
 ---
-# <a name="tutorial-deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>教程：将高度可用的 MongoDB 解决方案部署到 Azure 和 Azure Stack
+# <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>将高度可用的 MongoDB 解决方案部署到 Azure 和 Azure Stack
 
 本文详细介绍如何跨两个 Azure Stack 环境通过灾难恢复 (DR) 站点来自动部署基本的高度可用 (HA) MongoDB 群集。 若要详细了解 MongoDB 和高可用性，请参阅 [Replica Set Members](https://docs.mongodb.com/manual/core/replica-set-members/)（副本集成员）。
 
-在本教程中，需创建一个示例环境来完成以下任务：
+在此解决方案中，你将创建一个示例环境来完成以下任务：
 
 > [!div class="checklist"]
 > - 跨两个 Azure Stack 对部署进行协调
@@ -39,6 +39,7 @@ ms.locfileid: "68513525"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 
 

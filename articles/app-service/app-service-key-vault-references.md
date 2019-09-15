@@ -1,5 +1,5 @@
 ---
-title: Key Vault 引用 - Azure 应用服务 | Azure Docs
+title: Key Vault 引用 - Azure 应用服务 | Azure
 description: Azure 应用服务和 Azure Functions 中的 Azure Key Vault 引用的概念性引用和安装指南
 services: app-service
 author: mattchenderson
@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/20/2018
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b6fdd976b6b83d57bb9f4c77e5e995b5d03b9e41
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 46d52f3d20ea2f60d5130618e8edaadc4e3ce886
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878614"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806819"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用应用服务和 Azure Functions 的 Key Vault 引用（预览版）
 
@@ -49,8 +49,8 @@ Key Vault 引用采用 `@Microsoft.KeyVault({referenceString})` 格式，其中 
 > [!div class="mx-tdBreakAll"]
 > | 引用字符串                                                            | 说明                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri= _                                                       | **SecretUri** 应该是 Key Vault 中机密的完整数据平面 URI（包括版本），例如 https://myvault.vault.azure.cn/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName= _;SecretName= _;SecretVersion= _ | **VaultName** 应该是 Key Vault 资源的名称。 **SecretName** 应该是目标机密的名称。 **SecretVersion** 应该是要使用的机密的版本。 |
+> | SecretUri=_secretUri_                                                       | **SecretUri** 应该是 Key Vault 中机密的完整数据平面 URI（包括版本），例如 https://myvault.vault.azure.cn/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** 应该是 Key Vault 资源的名称。 **SecretName** 应该是目标机密的名称。 **SecretVersion** 应该是要使用的机密的版本。 |
 
 > [!NOTE] 
 > 在当前的预览版中，版本是必需的。 轮换机密时，需在应用程序配置中更新版本。

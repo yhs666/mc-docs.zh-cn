@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 04/26/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 04b3c6a00736ce7caf49367926fdceeb3f833e00
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: d86e6665b6c04d0217223703d6093551cd5f3006
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854508"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805805"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="选择要使用的 Azure Functions 运行时的版本： "]
 > * [版本 1](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -36,7 +36,6 @@ ms.locfileid: "64854508"
 ## <a name="sample-hostjson-file"></a>示例 host.json 文件
 
 以下示例 *host.json* 文件指定了所有可能的选项。
-
 
 ```json
 {
@@ -100,7 +99,10 @@ ms.locfileid: "64854508"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。 在版本 2.x 中，应用服务计划的默认值为 30 分钟。 在版本 1.x 中，它为 *null*，表示无超时。
+指示所有函数的超时持续时间。 它采用 timespan 字符串格式。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。  
+在专用（应用服务）计划中，没有总体限制，默认值取决于运行时版本： 
++ 版本 1.x：默认值为 null  ，表示无超时。   
++ 版本 2.x：默认值为 30 分钟。 值 `-1` 表示无限执行。
 
 ```json
 {
@@ -197,4 +199,4 @@ ms.locfileid: "64854508"
 > [!div class="nextstepaction"]
 > [查看环境变量中的全局设置](functions-app-settings.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

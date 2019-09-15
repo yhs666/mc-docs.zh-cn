@@ -10,20 +10,20 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 origin.date: 06/26/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 3cba8034a3b17d6d7083def8bf70ec4548fd26c4
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 39e34c4be23ea4a5648633096a9b20b473830800
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513225"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857322"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>为 Azure 和 Azure Stack 应用程序配置混合云标识
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -36,19 +36,19 @@ ms.locfileid: "68513225"
 
 使用服务主体向 Azure Stack 应用授予访问权限，以便在 Azure Stack 中使用 Azure 资源管理器进行部署或配置。
 
-在本教程中，我们将构建一个示例环境来完成以下任务：
+在此解决方案中，你将构建一个示例环境来完成以下任务：
 
 > [!div class="checklist"]
 > - 在全球 Azure 和 Azure Stack 中建立一个混合标识
 > - 检索用于访问 Azure Stack API 的令牌。
 
-必须拥有 Azure Stack 操作员权限才能完成本教程中的步骤。
+必须拥有 Azure Stack 操作员权限才能完成此解决方案中的步骤。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入本地环境，并支持唯一的混合云，允许你在任何地方构建和部署混合应用。  
+> Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
-> 白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾了设计、部署和运行混合应用程序所需的软件质量的要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
@@ -61,7 +61,7 @@ ms.locfileid: "68513225"
 
 ## <a name="using-the-azure-stack-api"></a>使用 Azure Stack API
 
-[Azure Stack API](azure-stack-rest-api-use.md) 教程演练了检索令牌来访问 Azure Stack API 的过程。
+[Azure Stack API](azure-stack-rest-api-use.md) 解决方案将引导你完成检索令牌以访问 Azure Stack API 的过程。
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>使用 Powershell 连接到 Azure Stack
 

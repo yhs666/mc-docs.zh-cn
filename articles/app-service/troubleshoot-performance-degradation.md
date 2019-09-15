@@ -1,5 +1,5 @@
 ---
-title: 排查性能降低问题 - Azure 应用服务 | Azure Docs
+title: 排查性能降低问题 - Azure 应用服务 | Azure
 description: 本文帮助排查 Azure 应用服务中应用性能缓慢的问题。
 services: app-service\web
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/03/2017
-ms.date: 01/21/2019
-ms.author: v-biyu
+origin.date: 08/03/2016
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 62929e6a5b0af11db780633a85205865b8504264
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: 79065a4a89b6200ad96cd711c64f7f622c6f00de
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396446"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806670"
 ---
-# <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
+# <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./overview.md)中应用性能缓慢的问题。
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
+如果在本文中有任何需要协助的地方，可以联系 [MSDN Azure 和堆栈溢出论坛](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 
 ## <a name="symptom"></a>症状
 浏览应用时，页面加载缓慢，并且有时还会超时。
@@ -57,7 +57,7 @@ ms.locfileid: "54396446"
 每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。
 
 #### <a name="monitor-your-app"></a>监视应用
-此选项可让你找出应用程序是否存在任何问题。 在应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡显示所有可以添加的指标。
+此选项可让你找出应用程序是否存在任何问题。 在应用的边栏选项卡中，单击“请求和错误”磁贴  。 “指标”边栏选项卡显示所有可以添加的指标。 
 
 可能需要在应用中监视的一些指标包括
 
@@ -72,10 +72,10 @@ ms.locfileid: "54396446"
 有关详细信息，请参阅：
 
 * [监视 Azure 应用服务中的应用](web-sites-monitor.md)
-* [接收警报通知](https://docs.azure.cn/zh-cn/monitoring-and-diagnostics/monitoring-overview-alerts)
+* [接收警报通知](/azure-monitor/platform/alerts-overview)
 
 #### <a name="monitor-web-endpoint-status"></a>监视 Web 终结点状态
-如果在“标准”定价层中运行应用，应用服务允许从三个地理位置监视两个终结点。
+如果在“标准”定价层中运行应用，应用服务允许从三个地理位置监视两个终结点。 
 
 终结点监视可从测试 Web URL 的响应时间和运行时间的分布式地理位置配置 Web 测试。 该测试可对 Web URL 执行 HTTP GET 操作，以从每个位置确定响应时间和运行时间。 每个已配置位置每 5 分钟运行一次测试。
 
@@ -86,7 +86,7 @@ ms.locfileid: "54396446"
 另外，有关终结点监视的视频，请参阅[保持 Azure 网站运行以及终结点监视 - Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow)。
 
 #### <a name="application-performance-monitoring-using-extensions"></a>使用扩展的应用程序性能监视
-还可以使用站点扩展监视应用程序的性能。
+还可以使用站点扩展监视应用程序的性能。 
 
 每个应用服务应用都提供了一个可扩展的管理终结点，通过此终结点可使用一组作为站点扩展部署的功能强大的工具。 扩展包括： 
 
@@ -116,7 +116,7 @@ ms.locfileid: "54396446"
 
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
-应用服务随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为应用的 Kudu 控制台或 SCM 仪表板。
+应用服务随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为应用的 Kudu 控制台或 SCM 仪表板。  
 
 转到链接 **https://&lt;Your app name>.scm.chinacloudsites.cn/** 即可访问此仪表板。
 
@@ -144,12 +144,12 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可
 可以将缩放设置为手动或自动。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终都可从 Azure 门户中直接重启应用，但 AutoHeal 可以自动执行此操作。 只需在应用的根 web.config 中添加一些触发器即可。 即使应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
+AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终都可从 Azure 门户中直接重启应用，但 AutoHeal 可以自动执行此操作。 只需在应用的根 web.config 中添加一些触发器即可。 即使应用程序并非 .NET 应用，这些设置的工作方式也仍然相同。
 
 有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 
 #### <a name="restart-the-app"></a>重启应用
-重启通常是在发生一次性问题后进行恢复的最简单方式。 在 [Azure 门户](https://portal.azure.cn/)上的 Web 应用边栏选项卡中，可以选择停止或重启应用。
+重启通常是在发生一次性问题后进行恢复的最简单方式。 [Azure 门户](https://portal.azure.cn/)的应用边栏选项卡中提供了用于停止或重启应用的选项。
 
  ![重启应用以解决性能问题](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 

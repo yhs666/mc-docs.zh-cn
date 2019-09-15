@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/07/2019
-ms.date: 06/03/2019
+origin.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e89dd79c0be4670a2df14ec1eaa1fd9d0d5ded7b
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: dae040eb0c18453d1c8dadc8dbfa9c68dc3dbb12
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381917"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857052"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
@@ -82,11 +82,11 @@ ms.locfileid: "66381917"
 12. 若要将文件夹打包到 .azpkg 文件，请打开命令提示符并运行以下命令：
 
     ```shell
-    AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
+    AzureGalleryPackager.exe package -m <absolute path to manifest.json> -o <output location for the package>
     ```
 
     > [!NOTE]
-    > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 **C:\MarketPlaceItem** 必须存在。
+    > manifest.json 文件的完整路径以及输出包必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 **C:\MarketPlaceItem** 必须存在。
     >
     >
 
@@ -159,7 +159,7 @@ ms.locfileid: "66381917"
 | 大型 |115 px |115 px |始终必需 |
 | 中型 |90 px |90 px |始终必需 |
 | 小型 |40 px |40 px |始终必需 |
-| 屏幕快照 |533 px |32 px |可选 |
+| 屏幕快照 |533 px |324 px |始终必需 |
 
 ### <a name="categories"></a>Categories
 

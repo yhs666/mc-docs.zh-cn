@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure Stack 中每个用户对资源的权限 | Microsoft Docs
-description: 作为服务管理员或租户，了解如何管理基于角色的访问控制 (RBAC) 权限。
+title: 使用基于角色的访问控制来管理 Azure Stack 中的资源访问 | Microsoft Docs
+description: 了解如何在 Azure Stack 中作为管理员或租户管理基于角色的访问控制 (RBAC) 权限。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/10/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: dd121cff7724d11916268f306c16030ea9f27312
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: ec4f91fdb0992a2e007f02aee52fe1e498ab14fa
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513285"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857306"
 ---
-# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 基于角色的访问控制管理对资源的访问权限
+# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>使用基于角色的访问控制来管理 Azure Stack 中的资源访问
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 支持基于角色的访问控制 (RBAC)，这与 Azure 使用的[用于访问控制的安全模型](/role-based-access-control/overview)相同。 可以使用 RBAC 来管理用户、组或应用程序对订阅、资源和服务的访问权限。
+Azure Stack 支持基于角色的访问控制 (RBAC)，这与 Azure 使用的[用于访问控制的安全模型](/role-based-access-control/overview)相同。 可以使用 RBAC 来管理用户、组或应用对订阅、资源和服务的访问权限。
 
 ## <a name="basics-of-access-management"></a>访问管理基础知识
 
@@ -38,9 +38,9 @@ Azure Stack 支持基于角色的访问控制 (RBAC)，这与 Azure 使用的[�
 
 Azure Stack 有三个可应用于所有资源类型的基本角色：
 
-* **所有者**可以管理所有内容，包括对资源的访问权限。
-* **参与者**可以管理除了对资源的访问权限以外的所有内容。
-* **读者**可以查看所有内容，但不能进行任何更改。
+* **所有者**：可以管理所有内容，包括对资源的访问权限。
+* **参与者**：可以管理除资源访问权限以外的所有内容。
+* **读者**：可以查看所有内容，但不能进行任何更改。
 
 ### <a name="resource-hierarchy-and-inheritance"></a>资源层次结构和继承
 
@@ -53,14 +53,14 @@ Azure Stack 具有以下资源层次结构：
 子范围将继承在父范围授予的访问权限。 例如：
 
 * 你向某个 Azure AD 组分配了在订阅范围内的**读者**角色。 该组的成员可以查看订阅中的每个资源组和资源。
-* 你向某个应用程序分配了在资源组范围内的**参与者**角色。 该应用程序可以管理该资源组中所有类型的资源，但不能管理订阅中的其他资源组。
+* 你向某个应用分配了资源组范围内的**参与者**角色。 此应用可以管理该资源组中所有类型的资源，但不能管理订阅中的其他资源组。
 
 ### <a name="assigning-roles"></a>分配角色
 
 可以向一位用户分配多个角色，并且每个角色可以与不同的范围相关联。 例如：
 
-* 向 TestUser-A 分配 Subscription-1 的“读者”角色。
-* 向 TestUser-A 分配 TestVM-1 的“所有者”角色。
+* 你向 TestUser-A 分配 Subscription-1 的**读者**角色。
+* 向 TestUser-A 分配 TestVM-1 的**所有者**角色。
 
 Azure [角色分配](/role-based-access-control/role-assignments-portal)一文提供了有关查看、分配和删除角色的详细信息。
 
@@ -71,13 +71,13 @@ Azure [角色分配](/role-based-access-control/role-assignments-portal)一文�
 1. 使用对要管理的资源具有所有者权限的帐户登录。
 2. 在左侧导航窗格中，选择“资源组”  。
 3. 选择要针对其设置权限的资源组的名称。
-4. 在资源组的导航窗格中，选择“访问控制(标识和访问管理)”  。 “角色分配”  视图会列出对该资源组具有访问权限的项。 可以对结果进行筛选和分组。
+4. 在资源组的导航窗格中，选择“访问控制(标识和访问管理)”  。<BR> “角色分配”  视图会列出对该资源组具有访问权限的项。 可以对结果进行筛选和分组。
 5. 在“访问控制”  菜单栏上，选择“添加”  。
 6. 在“添加权限”  窗格上：
 
    * 从“角色”下拉列表中选择要分配的角色。 
    * 从“将访问权限分配到”下拉列表中选择要分配的资源。 
-   * 在你想要授予访问权限的目录中选择用户、组或应用程序。 可以通过显示名称、电子邮件地址和对象标识符搜索该目录。
+   * 在你的目录中选择要向其授予访问权限的用户、组或应用。 可以通过显示名称、电子邮件地址和对象标识符搜索该目录。
 
 7. 选择“其他安全性验证”  。
 

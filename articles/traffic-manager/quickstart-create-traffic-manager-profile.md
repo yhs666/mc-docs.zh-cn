@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 11/28/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82b7362e5488ed4f3254eda0f3fa92f40ece5e8e
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: ab0dd0f98aa76955690e279e826eb3dea813c08e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514447"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857170"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流量管理器配置文件
@@ -82,7 +82,7 @@ ms.locfileid: "68514447"
 
 创建根据终结点优先级定向用户流量的流量管理器配置文件。
 
-1. 在屏幕左上方，选择“创建资源”   > “网络”   >   “流量管理器配置文件”。
+1. 在屏幕左上方，选择“创建资源”   > “网络”   >    “全部查看” > “流量管理器配置文件”  。
 2. 在“创建流量管理器配置文件”中，输入或选择以下设置： 
 
     | 设置 | 值 |

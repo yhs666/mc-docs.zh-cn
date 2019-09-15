@@ -1,5 +1,5 @@
 ---
-title: OS 和运行时修补频率 - Azure 应用服务
+title: OS 和运行时修补频率 - Azure 应用服务 | Azure
 description: 介绍 Azure 应用服务如何更新 OS 和运行时，以及如何获取更新公告。
 services: app-service
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 24fae5ac05bdcf463eccb8ac813ff1fe3823fbd1
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 7e9cd7096f84430a5f05e71e6a31ba979f14ea75
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878604"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806812"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 
@@ -38,7 +38,7 @@ ms.locfileid: "68878604"
 
 Azure 管理两个级别的 OS 修补：运行应用服务资源的物理服务器和来宾虚拟机 (VM)。 这两种方案会根据每月的[周二修补](https://technet.microsoft.com/security/bulletins.aspx)计划更新。 这些更新会自动应用，保证达到 Azure 服务的高可用性 SLA。 
 
-有关如何应用更新的详细信息，请参阅[揭示应用服务 OS 背后的秘密](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/)。
+有关如何应用更新的详细信息，请参阅[揭示应用服务 OS 背后的秘密](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html)。
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Azure 如何处理重大漏洞？
 
@@ -92,7 +92,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | .NET 版本 | 在 `https://<appname>.scm.chinacloudsites.cn/DebugConsole` 中的命令提示符下运行以下命令： <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | .NET Core 版本 | 在 `https://<appname>.scm.chinacloudsites.cn/DebugConsole` 中的命令提示符下运行以下命令： <br> `dotnet --version` |
 | PHP 版本 | 在 `https://<appname>.scm.chinacloudsites.cn/DebugConsole` 中的命令提示符下运行以下命令： <br> `php --version` |
-| 默认的 Node.js 版本 | 在 [Azure Cli](https://docs.azure.cn/cli/get-started-with-azure-cli) 中运行下列命令： <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
+| 默认的 Node.js 版本 | 在 [Azure Cli](/cli/get-started-with-azure-cli) 中运行下列命令： <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python 版本 | 在 `https://<appname>.scm.chinacloudsites.cn/DebugConsole` 中的命令提示符下运行以下命令： <br> `python --version` |
 
 > [!NOTE]  
@@ -102,4 +102,5 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 ## <a name="more-resources"></a>更多资源
 
+[信任中心：安全性](https://www.trustcenter.cn/security/default.html)  
 [Azure 应用服务中的 64 位 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

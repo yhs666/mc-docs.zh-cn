@@ -13,20 +13,20 @@ ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
 ms.date: 05/20/2019
-ms.author: v-biyu
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 8dfe304fad894aeeba05b0db3b9af62f1468c33d
-ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
+ms.openlocfilehash: 55b3bf5b522b704b2174ea34de943fa1a5584d45
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412478"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806717"
 ---
 # <a name="configure-php-in-azure-app-service"></a>在 Azure 应用服务中配置 PHP
 
 ## <a name="introduction"></a>简介
 
-本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md)中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册[试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
+本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md)中配置 Web 应用、移动后端和 API 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [1 元人民币的试用订阅]。 要充分利用本指南，应先在应用服务中创建一个 PHP 应用。
 
 ## <a name="how-to-change-the-built-in-php-version"></a>如何：更改内置 PHP 版本
 
@@ -36,11 +36,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 在 [Azure 门户](https://portal.azure.cn)中浏览到你的应用，并滚动到“配置”页面。
+1. 在 [Azure 门户](https://portal.azure.cn)中浏览到你的应用，并滚动到“配置”  页面。
 
-2. 从“配置”中，选择“常规设置”并选择新的 PHP 版本。
+2. 从“配置”  中，选择“常规设置”  并选择新的 PHP 版本。
 
-3. 单击“常规设置”边栏选项卡顶部的“保存”按钮。
+3. 单击“常规设置”边栏选项卡顶部的“保存”按钮。  
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -58,7 +58,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 ### <a name="azure-cli"></a>Azure CLI 
 
-若要使用 Azure 命令行接口，必须已在计算机上[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+必须在计算机上[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)，才能使用 Azure 命令行接口。
 
 1. 打开终端，并登录到帐户。
 
@@ -80,7 +80,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 对于任何内置 PHP 运行时，都可以通过执行以下步骤更改任何配置选项。 （有关 php.ini 指令的信息，请参阅 [php.ini 指令的列表]。）
 
-### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>更改 PHP\_INI\_USER、PHP\_INI\_PERDIR、PHP\_INI\_ALL 配置设置
+### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>更改 PHP\_INI\_USER、PHP\_INI\_PERDIR、PHP\_INI\_ALL 配置设置
 
 1. 将 [.user.ini] 文件添加到根目录。
 1. 使用会在 `php.ini` 文件中使用的语法，将配置设置添加到 `.user.ini` 文件。 例如，如果希望启用 `display_errors` 设置，并将 `upload_max_filesize` 设置设为 10 分钟，则 `.user.ini` 文件应包含以下文本：
@@ -96,7 +96,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 作为使用 `.user.ini` 文件的替代方法，可以在脚本中使用 [ini_set()] 函数来设置不是系统级别指令的配置选项。
 
-### <a name="changing-phpinisystem-configuration-settings"></a>更改 PHP\_INI\_SYSTEM 配置设置
+### <a name="changing-php_ini_system-configuration-settings"></a>更改 PHP\_INI\_SYSTEM 配置设置
 
 1. 向应用添加一个键为 `PHP_INI_SCAN_DIR` 且值为 `d:\home\site\ini` 的应用设置
 1. 使用 Kudu 控制器 (http://&lt;site-name&gt;.scm.azurewebsite.net) 在 `d:\home\site\ini` 目录中创建一个 `settings.ini` 文件。
@@ -129,10 +129,10 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 1. 将 `bin` 目录添加到根目录。
 2. 将 `.dll` 扩展文件置于 `bin` 目录中（例如 `php_xdebug.dll`）。 确保扩展与默认版本的 PHP兼容，并且是 VC9 版本且与非线程安全 (nts) 兼容。
 3. 部署应用。
-4. 在 Azure 门户中浏览到你的应用，并单击位于“设置”部分下方的“配置”。
-5. 从“配置”边栏选项卡上，选择“应用程序设置”。
-6. 在“应用程序设置”部分中，单击“+ 新建应用程序设置”并创建一个 **PHP_EXTENSIONS** 密钥。 此键的值会是相对于网站根目录的一个路径：**bin\your-ext-file**。
-7. 单击底部的“更新”按钮，然后单击“应用程序设置”选项卡上方的“保存”。
+4. 在 Azure 门户中浏览到你的应用，并单击位于“设置”部分下方的“配置”。  
+5. 从“配置”  边栏选项卡上，选择“应用程序设置”。 
+6. 在“应用程序设置”  部分中，单击“+ 新建应用程序设置”  并创建一个 **PHP_EXTENSIONS** 密钥。 此键的值会是相对于网站根目录的一个路径：**bin\your-ext-file**。
+7. 单击底部的“更新”  按钮，然后单击“应用程序设置”选项卡上方的“保存”。  
 
 通过使用 **PHP_ZENDEXTENSIONS** 键，还可以支持 Zend 扩展。 若要启用多个扩展，请包括应用设置值的 `.dll` 文件的逗号分隔列表。
 
@@ -145,11 +145,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 3. （可选）将扩展添加到 PHP 运行时并在 `php.ini` 文件中启用这些扩展。
 4. 将 `bin` 目录添加到根目录，并将包含 PHP 运行时的目录置于该目录中（例如 `bin\php`）。
 5. 部署应用。
-6. 在 Azure 门户中浏览到你的应用，并单击“配置”边栏选项卡。
-8. 从“配置”边栏选项卡上，选择“路径映射”。 
-9. 单击“+ 新建处理程序”，将 `*.php` 添加到“扩展”字段，并在“脚本处理器”中添加 `php-cgi.exe` 可执行文件的路径。 如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
-10. 在底部，单击“更新”以完成添加处理程序映射。
-11. 单击“保存”以保存更改。
+6. 在 Azure 门户中浏览到你的应用，并单击“配置”边栏选项卡。 
+8. 从“配置”  边栏选项卡上，选择“路径映射”  。 
+9. 单击“+ 新建处理程序”  ，将 `*.php` 添加到“扩展”字段，并在“脚本处理器”中添加 `php-cgi.exe` 可执行文件的路径。  如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
+10. 在底部，单击“更新”  以完成添加处理程序映射。
+11. 单击“保存”  以保存更改。
 
 <a name="composer" />
 
@@ -161,15 +161,15 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 > 可以 [在这里为应用服务中的一流编辑器支持投票](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)！
 >
 
-1. 在 [Azure 门户](https://portal.azure.cn)的 PHP 应用的边栏选项卡中，单击“工具” > “扩展”。
+1. 在 [Azure 门户](https://portal.azure.cn)的 PHP 应用的边栏选项卡中，单击“工具” > “扩展”   。
 
     ![Azure 门户设置边栏选项卡，用于在 Azure 中启用编辑器自动化](./media/web-sites-php-configure/composer-extension-settings.png)
-2. 单击“添加”，并单击“编辑器”。
+2. 单击“添加”，并单击“编辑器”。  
 
     ![添加编辑器扩展，以在 Azure 中启用编辑器自动化](./media/web-sites-php-configure/composer-extension-add.png)
 3. 单击“确定”  接受法律条款。 再次单击“确定”  以添加该扩展。
 
-    “已安装扩展”边栏选项卡将显示编辑器扩展。
+    “已安装扩展”边栏选项卡将显示编辑器扩展  。
     ![接受法律条款以在 Azure 中启用编辑器自动化](./media/web-sites-php-configure/composer-extension-view.png)
 4. 现在，在本地计算机上的终端窗口中，对应用执行 `git add`、`git commit` 和 `git push`。 请注意，编辑器正在安装在 composer.json 中定义的依赖项。
 
@@ -182,9 +182,9 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[php.ini 指令的列表]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[php.ini 指令的列表]: https://www.php.net/manual/en/ini.list.php
+[.user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

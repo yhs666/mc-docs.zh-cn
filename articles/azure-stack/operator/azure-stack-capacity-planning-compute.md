@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/13/2019
-ms.date: 07/29/2019
+origin.date: 07/16/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 69b28f438d1819682d56cdb48871e995635671ea
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 967bf8292c609594b83d3e4a205affbf7723dbf0
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513569"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70856991"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack 计算
 
@@ -39,9 +39,11 @@ Azure Stack 定位引擎跨可用的主机放置租户 VM。
 
 为了在 Azure Stack 中实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域的可用性集中。 可用性集中的容错域定义为缩放单元中的单个节点。 为了与 Azure 保持一致，Azure Stack 支持的可用性集最多有三个容错域。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 主机）中。 出现硬件故障时，发生故障的容错域中的 VM 会在其他容错域中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当主机重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。  
 
-虚拟机规模集在后端使用可用性集，并确保每个虚拟机规模集实例都位于不同的容错域。 这意味着规模集使用不同的 Azure Stack 基础结构节点。 例如，在 4 个节点的 Azure Stack 系统中，具有 3 个实例的虚拟机规模集可能在创建时发生故障，原因是缺少 4 个节点的容量将 3 个虚拟机规模集实例放到不同 Azure Stack 节点上。 此外，Azure Stack 节点可能先在不同的级别填满，然后尝试放置。 
+虚拟机规模集在后端使用可用性集，并确保每个虚拟机规模集实例都位于不同的容错域。 这意味着规模集使用不同的 Azure Stack 基础结构节点。 例如，在四节点 Azure Stack 系统中，可能存在这样一种情况：由于缺少 4 节点容量，无法将三个虚拟机规模集实例放置在三个单独的 Azure Stack 节点上，因此由三个实例组成的虚拟机规模集在创建时将失败。 此外，Azure Stack 节点可能先在不同的级别填满，然后尝试放置。 
 
-Azure Stack 不会过度提交内存。 但是，允许过度提交物理核心数。 由于放置算法不将现在的虚拟核心与物理核心的预配过度比率视为一个因素，因此每个主机可以有不同的比率。 Azure 不提供物理-虚拟核心比率的指导，因为工作负荷和服务级别要求有差异。 
+Azure Stack 不会过度提交内存。 但是，允许过度提交物理核心数。 
+
+由于放置算法不将现在的虚拟核心与物理核心的预配过度比率视为一个因素，因此每个主机可以有不同的比率。 对于 Azure，我们不提供有关物理-虚拟核心比率的指导，因为工作负荷和服务级别要求有差异。 
 
 ## <a name="consideration-for-total-number-of-vms"></a>VM 总数注意事项 
 
@@ -49,6 +51,13 @@ Azure Stack 不会过度提交内存。 但是，允许过度提交物理核心�
 
 如果达到了 VM 规模限制，将返回以下错误代码：VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。
 
+## <a name="considerations-for-deallocation"></a>解除分配的注意事项
+
+当 VM 处于“解除分配”  状态时，不会使用内存资源。 这允许将其他 VM 放置在系统中。 
+
+如果随后再次启动已解除分配的 VM，则内存使用或分配将像放置在系统中的新 VM 一样处理，并占用可用内存。 
+
+如果没有可用内存，则 VM 将不会启动。
 
 ## <a name="azure-stack-memory"></a>Azure Stack 内存 
 
@@ -97,15 +106,15 @@ Azure Stack 旨在让已成功预配的 VM 持续运行。 例如，如果某台
 
 **答**：容量边栏选项卡每隔 15 分钟刷新一次，请考虑到这一点。
 
-**问**：Azure Stack 上所部署的 VM 数目并未更改，但我的容量却在浮动。 为什么？
+**问**：我的 Azure Stack 上部署的 VM 数量没有变化，但我的容量却在波动。 为什么？
 
-**答**：VM 放置的可用内存取决于多种因素，其中之一就是主机的 OS 预留量。 此值依赖于主机上正在运行的不同 Hyper-V 进程使用的内存，而此数量不是恒定值。
+**答**：VM 放置的可用内存取决于多种因素，其中之一就是主机的 OS 预留量。 此值取决于主机上运行的不同 Hyper-V 进程所使用的内存，它不是常量值。
 
 **问**：租户 VM 必须处于何种状态才会消耗内存？
 
 v：除了运行 VM 以外，任何在结构上登陆的 VM 也消耗内存。 这些 VM 是指处于“正在创建”、“失败”状态的 VM，或者从来宾内部关闭的 VM
 
-**问**：我的 Azure Stack 包含 4 台主机。 我的租户中有 3 个 VM，它们各自消耗 56 GB RAM (D5_v2)。 其中一个 VM 的大小调整为 112 GB RAM (D14_v2)，仪表板上的可用内存报告导致容量边栏选项卡上出现 168 GB 的用量高峰。 后续将另外两个 D5_v2 VM 的大小调整为 D14_v2 时，各自只导致增加 56 GB 的 RAM。 为什么会这样？
+**问**：我有一个四主机 Azure Stack。 我的租户中有 3 个 VM，它们各自消耗 56 GB RAM (D5_v2)。 其中一个 VM 的大小调整为 112 GB RAM (D14_v2)，仪表板上的可用内存报告导致容量边栏选项卡上出现 168 GB 的用量高峰。 后续将另外两个 D5_v2 VM 的大小调整为 D14_v2 时，各自只导致增加 56 GB 的 RAM。 为什么会这样？
 
 **答**：可用内存受 Azure Stack 保留的复原预留量的影响。 复原预留量受 Azure Stack 阵列上最大 VM 大小的影响。 最初，阵列上的最大 VM 是 56 GB 内存。 调整 VM 大小后，阵列上的最大 VM 将变成 112 GB 内存，这不只会增大该租户 VM 使用的内存，也会增大复原预留量。 结果便是增加 56 GB（租户 VM 内存从 56 GB 增加到 112 GB）+ 增加 112 GB 复原预留内存。 后续调整 VM 大小时，最大 VM 的大小仍保持为 112 GB VM，因此没有增加任何复原预留量。 内存消耗量的增量只是租户 VM 内存增量 (56 GB)。 
 

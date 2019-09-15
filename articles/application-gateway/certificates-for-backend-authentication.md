@@ -6,24 +6,25 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 07/23/2019
-ms.date: 09/02/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9c1c6cf3c857b0f92523042835940340fa5cf1f2
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 45780c2f0d4340eb400fc23fd66a72c1f50eb85a
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310862"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857274"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>创建证书以允许 Azure 应用程序网关中的后端
 
-若要执行端到端 SSL，应用程序网关要求通过上传身份验证证书/受信任的根证书来允许后端实例。 对于 v1 SKU，身份验证证书是必需的。
+若要执行端到端 SSL，应用程序网关要求通过上传身份验证证书/受信任的根证书来允许后端实例。 允许使用证书时，对于 v1 SKU，身份验证证书是必需的，但对于 v2 SKU，受信任的根证书是必需的。
 
 在本文中，学习如何：
 
 > [!div class="checklist"]
 >
 > - 从后端证书中导出身份验证证书（对于 v1 SKU）
+> - 从后端证书中导出受信任的根证书（适用于 v2 SKU）
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -71,8 +72,41 @@ ms.locfileid: "70310862"
 
    ![使用记事本打开](./media/certificates-for-backend-authentication/format.png)
 
+## <a name="export-trusted-root-certificate-for-v2-sku"></a>导出受信任的根证书（适用于 v2 SKU）
+
+必须使用受信任的根证书将应用程序网关 v2 SKU 中的后端实例加入允许列表。 此根证书是来自后端服务器证书的 Base-64 编码的 X.509(.CER) 格式根证书。 在此示例中，我们将使用 SSL 证书作为后端证书，并导出其公钥，然后从 base64 编码格式的公钥中导出受信任 CA 的根证书，以便获取受信任的根证书。 中间证书应该与服务器证书捆绑并安装在后端服务器上。
+
+以下步骤用于导出证书的 .cer 文件：
+
+1. 使用上面的“从后端证书中导出身份验证证书（适用于 v1 SKU）”  部分提到的步骤 1-9，从后端证书导出公钥。
+
+2. 导出公钥后，打开该文件。
+
+   ![开放授权证书](./media/certificates-for-backend-authentication/openAuthcert.png)
+
+   ![关于证书](./media/certificates-for-backend-authentication/general.png)
+
+3. 转到“证书路径”视图即可查看证书颁发机构。
+
+   ![证书详细信息](./media/certificates-for-backend-authentication/certdetails.png)
+
+4. 选择根证书，然后单击“查看证书”  。
+
+   ![证书路径](./media/certificates-for-backend-authentication/rootcert.png)
+
+   应该会看到根证书详细信息。
+
+   ![证书信息](./media/certificates-for-backend-authentication/rootcertdetails.png)
+
+5. 转到“详细信息”视图，然后单击“复制到文件...”。  
+
+   ![复制根证书](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
+
+6. 目前，你已从后端证书提取根证书的详细信息。 此时会看到“证书导出向导”。  现在，使用上面的“从后端证书中导出身份验证证书（适用于 v1 SKU）”  部分提到的步骤 2-9，导出 Base-64 编码的 X.509(.CER) 格式的受信任根证书。
+
 ## <a name="next-steps"></a>后续步骤
 
 现已创建采用 Base-64 编码的 X.509(.CER) 格式身份验证证书/受信任的根证书。 可将此证书添加到应用程序网关，以将后端服务器加入白名单进行端到端的 SSL 加密。 参阅[如何配置端到端 SSL 加密](/application-gateway/application-gateway-end-to-end-ssl-powershell)。
 
 
+<!-- Update_Description: wording update -->

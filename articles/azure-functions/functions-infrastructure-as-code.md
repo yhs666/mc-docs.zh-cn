@@ -12,14 +12,14 @@ ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 04/03/2019
-ms.date: 06/04/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 886f9c6dbb6694d8553e3187c861d891ccc40a14
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 5dce6a5eb70aafde03d9e8efd62b78fa2977d69a
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491452"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805804"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -35,10 +35,10 @@ ms.locfileid: "66491452"
 
 Azure Functions 部署通常包括以下资源：
 
-| 资源                                                                           | 要求 | 语法和属性参考                                                         |   |
+| Resource                                                                           | 要求 | 语法和属性参考                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| 函数应用                                                                     | 必需    | [Microsoft.Web/sites](https://docs.microsoft.com/azure/templates/microsoft.web/sites)                             |   |
-| [Azure 存储](../storage/index.yml)帐户                                   | 必需    | [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) |   |
+| 函数应用                                                                     | 必须    | [Microsoft.Web/sites](https://docs.microsoft.com/azure/templates/microsoft.web/sites)                             |   |
+| [Azure 存储](../storage/index.yml)帐户                                   | 必须    | [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) |   |
 | [托管计划](./functions-scale.md)                                             | 可选<sup>1</sup>    | [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup>只有选择在[应用服务计划](../app-service/overview-hosting-plans.md)上运行你的函数应用时，托管计划才是必需的。
@@ -196,11 +196,11 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
             "appSettings": [
                 {
                     "name": "AzureWebJobsStorage",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=core.chinacloudapi.cn;AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
                 },
                 {
                     "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=core.chinacloudapi.cn;AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
                 },
                 {
                     "name": "WEBSITE_CONTENTSHARE",
@@ -229,7 +229,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 ## <a name="deploy-on-app-service-plan"></a>在应用服务计划上部署
 
-在应用服务计划中，函数应用在基本、标准和高级 SKU 中的专用 VM 上运行，类似于 Web 应用。 如需详细了解如何使用应用服务计划，请参阅 [Azure 应用服务计划深入概述](../app-service/overview-hosting-plans.md)。
+在应用服务计划中，函数应用在基本和标准 SKU 中的专用 VM 上运行，类似于 Web 应用。 如需详细了解如何使用应用服务计划，请参阅 [Azure 应用服务计划深入概述](../app-service/overview-hosting-plans.md)。
 
 有关 Azure 资源管理器模板示例，请参阅[基于 Azure 应用服务计划的函数应用]。
 

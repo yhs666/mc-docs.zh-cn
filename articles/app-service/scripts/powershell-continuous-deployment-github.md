@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 使用 GitHub 持续部署创建应用 | Azure Docs
+title: Azure PowerShell 脚本示例 - 使用 GitHub 持续部署创建应用 | Azure
 description: Azure PowerShell 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用
 services: app-service\web
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 03/18/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 10360dcd362154c7a2c0078d97015ddab8735523
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 8a964c20a68831a7f50041f8b3e512c9d905222b
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63857036"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806708"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>从 GitHub 使用连续部署创建 Web 应用
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，并在 Git 存储库中设置连续部署。 有关不进行连续部署的 GitHub 部署，请参阅[从 GitHub 创建 Web 应用并部署代码](powershell-deploy-github.md)。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。 同时，请确保：
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。 同时，请确保：
 
 - 已使用 `az login` 命令创建与 Azure 的连接。
 - 应用程序代码在拥有的公共或专用 GitHub 存储库中。

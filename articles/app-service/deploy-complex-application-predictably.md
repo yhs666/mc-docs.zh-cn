@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2016
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f56052829ee633b3a1f8baa94d55cf2f391d5b02
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 65317168a8f0391ea497fcf3f7070c2a897732a4
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627615"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806883"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 本教程演示如何通过使用 JSON 资源组模板和 PowerShell 脚本以一种可预见的方式，在 [Azure App Service](https://www.azure.cn/home/features/app-service/) 中将由[微服务](https://en.wikipedia.org/wiki/Microservices)构成的应用程序设置并部署为单个单元。 
 
-在设置和部署由高度分离的微服务构成的高扩展性应用程序时，可重复性和可预见性对成功至关重要。 使用 [Azure App Service](https://www.azure.cn/home/features/app-service/) 可以创建 Web 应用、移动应用和 API 应用等微服务。 使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可以将所有微服务作为一个单元与资源依赖项（如数据库和源代码管理设置）一起进行管理。 现在，还可以使用 JSON 模板和简单的 PowerShell 脚本部署此类应用程序。 
+在设置和部署由高度分离的微服务构成的高扩展性应用程序时，可重复性和可预见性对成功至关重要。 使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)，可以创建包括 Web 应用、移动后端和 API 应用在内的微服务。 使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可以将所有微服务作为一个单元与资源依赖项（如数据库和源代码管理设置）一起进行管理。 现在，还可以使用 JSON 模板和简单的 PowerShell 脚本部署此类应用程序。 
 
 ## <a name="what-you-will-do"></a>执行的操作
 在教程中，你要部署的应用程序包括：
@@ -34,15 +34,13 @@ ms.locfileid: "58627615"
 * 两个应用服务应用（即两个微服务）
 * 后端 SQL 数据库
 * 应用设置、连接字符串和源代码管理
-* 警报、自动缩放设置
+* Application Insights、警报和自动缩放设置
 
 ## <a name="tools-you-will-use"></a>要使用的工具
 在本教程中，将使用以下工具。 由于对工具的讨论并不全面，我将坚持使用端到端方案，并只提供每个方案的简要介绍及在哪里可找到它的详细信息。 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager 模板 (JSON)
-例如，每当在 Azure App Service 中创建 Web 应用时，Azure Resource Manager 都将使用 JSON 模板来创建具有组件资源的整个资源组。 有关如何下载和使用这些模板的信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
-
-有关 Azure Resource Manager 模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
+例如，每次在 Azure 应用服务中创建应用时，Azure 资源管理器都将使用 JSON 模板来创建具有组件资源的整个资源组。 [Azure 市场](https://market.azure.cn/)中的复杂模板可以包含数据库、存储帐户、应用服务计划、应用本身、警报规则、应用设置、自动缩放设置等等，可以通过 PowerShell 使用所有这些模板。 有关 Azure 资源管理器模板的详细信息，请参阅[创作 Azure 资源管理器模板](/azure-resource-manager/manage-resources-powershell)。
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio
 最新的 SDK 包含对 JSON 编辑器中 Resource Manager 模板支持的改进。 可以使用它快速从头开始创建资源组模板，或打开现有 JSON 模板（例如下载的库模板）以进行修改、填充参数文件，甚至直接从 Azure 资源组解决方案部署资源组。
@@ -61,17 +59,17 @@ ms.locfileid: "58627615"
 现在让我们开始吧。
 
 1. 导航到 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 应用服务示例。
-2. 在 readme.md 中，单击“部署到 Azure”。
-3. 会转到[部署到 Azure](https://deploy.azure.com) 站点并需要输入部署参数。 请注意大多数字段将填充以存储库名称和某些随机字符串。 可以更改所有字段（如果想），但唯一一项必须输入的内容是 SQL Server 管理登录名和密码，并单击“下一步”。
+2. 在 readme.md 中，单击“部署到 Azure”  。
+3. 会转到[部署到 Azure](https://deploy.azure.com) 站点并需要输入部署参数。 请注意大多数字段将填充以存储库名称和某些随机字符串。 可以更改所有字段（如果想），但唯一一项必须输入的内容是 SQL Server 管理登录名和密码，并单击“下一步”  。
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
-4. 接下来，单击“部署”启动部署进程。 进程运行至完成时，请单击 http://todoapp<em>XXXX</em>.chinacloudsites.cn 链接以浏览部署的应用程序。 
+4. 接下来，单击“部署”  启动部署进程。 进程运行至完成时，请单击 http://todoapp*XXXX*.chinacloudsites.cn 链接以浏览部署的应用程序。 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    首次浏览到 UI 时它的显示会慢些，因为应用刚刚启动，但应确信它是一个功能齐全运行正常的应用程序。
 5. 返回到“部署”页，单击**管理**链接以查看 Azure 门户中的新应用程序。
-6. 在“必备”下拉列表中，单击资源组链接。 还要注意，应用已连接到“外部项目”下的 GitHub 存储库。 
+6. 在“必备”  下拉列表中，单击资源组链接。 还要注意，应用已连接到“外部项目”下的 GitHub 存储库  。 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. 在资源组边栏选项卡中，请注意资源组中已存在两个应用和一个 SQL 数据库。
@@ -98,13 +96,13 @@ ms.locfileid: "58627615"
 我不打算介绍 JSON 格式的每个细节，但 [更多资源](#resources) 部分包含可用于学习资源组模板语言的链接。 在这里，我只打算向你展示有趣的功能，可帮助你开始制作自己的自定义模板来部署应用。
 
 ### <a name="parameters"></a>parameters
-看一看参数部分，你会看到这些参数大都是“部署到 Azure”  按钮提示你输入的内容。 “部署到 Azure” 按钮背后的站点使用 azuredeploy.json 中定义的参数填充输入 UI。 这些参数用于整个资源定义，例如资源名称、属性值等。
+看一看参数部分，你会看到这些参数大都是“部署到 Azure”  按钮提示你输入的内容。 “部署到 Azure”  按钮背后的站点使用 azuredeploy.json 中定义的参数填充输入 UI。 这些参数用于整个资源定义，例如资源名称、属性值等。
 
 ### <a name="resources"></a>资源
 在资源节点中，可以看到定义了 4 个顶级资源，包括一个 SQL Server 实例、一个应用服务计划和两个应用。 
 
 #### <a name="app-service-plan"></a>应用服务计划
-让我们以 JSON 中简单的根级别资源开始。 在“JSON 大纲”中，单击名为 [hostingPlanName] 的应用服务计划以突出显示相应的 JSON 代码。 
+让我们以 JSON 中简单的根级别资源开始。 在“JSON 大纲”中，单击名为 [hostingPlanName] 的应用服务计划以突出显示相应的 JSON 代码。  
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
@@ -133,7 +131,7 @@ ms.locfileid: "58627615"
 * `dependsOn` 元素的影响在于让 Azure Resource Manager 能够知道哪些资源可以并行创建，哪些资源必须按顺序创建。 
 
 #### <a name="app-service-app"></a>应用服务应用
-现在，让我们继续，看看实际的 Web 应用本身，这更加复杂。 在“JSON 大纲”中单击“[variables(‘apiSiteName’)]”Web 应用以突出显示其 JSON 代码。 你会注意到内容正在变得更加有趣。 为此，我将一个一个地讨论功能：
+现在，让我们继续，看看实际应用本身，这更加复杂。 在“JSON 边框”中单击“[variables('apiSiteName')]”应用以突出显示其 JSON 代码。 你会注意到内容正在变得更加有趣。 为此，我将一个一个地讨论功能：
 
 ##### <a name="root-resource"></a>根资源
 应用依赖于两个不同的资源。 这意味着只有在创建应用服务计划和 SQL Server 实例后，Azure 资源管理器才会创建应用。
@@ -172,33 +170,33 @@ ms.locfileid: "58627615"
 请注意，在 `dependsOn` 元素中，除应用资源本身外，`sourcecontrols/web` 还依赖于 `config/appsettings` 和 `config/connectionstrings`。 这是因为一旦配置 `sourcecontrols/web` 后，Azure 部署进程自动尝试部署、构建和启动应用程序代码。 因此，插入此依赖项可帮助你确保在运行应用程序代码之前，应用程序有权访问所需的应用设置和连接字符串。 
 
 > [!NOTE]
-> 另请注意，`IsManualIntegration` 应设置为 `true`。 此属性在本教程中是必需的，由于你实际上并不拥有 GitHub 存储库，因此不能实际授权 Azure 配置从 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 的连续发布（即，将自动存储库更新推送到 Azure）。 只有当之前已在 [Azure 门户](https://portal.azure.cn/)中配置了所有者的 GitHub 凭据时，才可将默认值 `false` 用于指定的存储库。 换言之，如果之前已在 [Azure 门户](https://portal.azure.cn/)中使用用户凭据为任何应用将源代码管理设置到 GitHub，则 Azure 将记住凭据并在将来每当从 GitHub 或 BitBucket 部署任何应用时使用这些凭据。 但是，如果还没有完成此操作，Azure 资源管理器尝试配置 Web 应用的源代码管理设置时 JSON 模板的部署会失败，因为它不能使用存储库所有者的凭据登录到 GitHub。
+> 另请注意，`IsManualIntegration` 应设置为 `true`。 此属性在本教程中是必需的，由于你实际上并不拥有 GitHub 存储库，因此不能实际授权 Azure 配置从 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 的连续发布（即，将自动存储库更新推送到 Azure）。 只有当之前已在 [Azure 门户](https://portal.azure.cn/)中配置了所有者的 GitHub 凭据时，才可将默认值 `false` 用于指定的存储库。 换言之，如果之前已在 [Azure 门户](https://portal.azure.cn/)中使用用户凭据为任何应用将源代码管理设置到 GitHub 或 BitBucket，则 Azure 将记住凭据并在将来每当从 GitHub 或 BitBucket 部署任何应用时使用这些凭据。 但是，如果还没有完成此操作，在 Azure 资源管理器尝试配置应用的源代码管理设置时，JSON 模板的部署会失败，因为它不能使用存储库所有者的凭据登录到 GitHub 或 BitBucket。
 > 
 > 
 
 ## <a name="deploy-the-resource-group-template-yourself"></a>自己部署资源组模板
  “部署到 Azure”按钮太好用了，但是只有当你已将 azuredeploy.json 推送到 GitHub 时，它才允许你部署 azuredeploy.json 中的资源组模板。 Azure.NET SDK 还提供了工具，使你能够直接从本地计算机部署任何 JSON 模板文件。 为此，请执行以下步骤：
 
-1. 在 Visual Studio 中，单击“文件” > “新建” > “项目”。
-2. 单击“Visual C#” > “云” > “Azure 资源组”，然后单击“确定”。
+1. 在 Visual Studio 中，单击“文件”   > “新建”   > “项目”  。
+2. 单击“Visual C#” > “云” > “Azure 资源组”，然后单击“确定”     。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
-3. 在“选择 Azure 模板”中，选择“空白模板”，然后单击“确定”。
+3. 在“选择 Azure 模板”中，选择“空白模板”，然后单击“确定”    。
 4. 将 azuredeploy.json 拖动到新项目的“模板”  文件夹。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. 从解决方案资源管理器中打开复制的 azuredeploy.json。
-6. 为方便演示，现在单击“添加资源”，将一些标准 Application Insight 资源添加到 JSON 文件。 如果只对部署 JSON 文件感兴趣，请跳至部署步骤。
+6. 为方便演示，现在单击“添加资源”，将一些标准 Application Insight 资源添加到 JSON 文件。  如果只对部署 JSON 文件感兴趣，请跳至部署步骤。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. 选择“适用于 Web 应用的 Application Insights”，确保选择了现有应用服务计划和应用，并单击“添加”。
+7. 选择“适用于 Web 应用的 Application Insights”，确保选择了现有应用服务计划和应用，并单击“添加”   。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
    现在即可看到在应用服务计划或应用上具有依赖项的几个新资源，具体取决于该资源及它的作用。 这些资源不由其现有定义启用，而要对此进行更改。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
-8. 在“JSON 概要”中，单击“appInsights AutoScale”以突出显示其 JSON 代码。 这是针对应用服务计划的缩放设置。
+8. 在“JSON 概要”中，单击“appInsights AutoScale”  以突出显示其 JSON 代码。 这是针对应用服务计划的缩放设置。
 9. 在突出显示的 JSON 代码中，找到 `location` 和 `enabled` 属性并对其进行如下设置。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
@@ -206,26 +204,26 @@ ms.locfileid: "58627615"
 11. 找到 `location` 和 `isEnabled` 属性并对其进行设置，如下所示。 对其他三个警报（紫色警报）执行相同的操作。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. 现在可以开始部署了。 右键单击该项目，并选择“部署” > “新部署”。
+12. 现在可以开始部署了。 右键单击该项目，并选择“部署”   > “新部署”  。
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 如果尚未执行该操作，则登录到 Azure 帐户。
-14. 选择订阅中的现有资源组或创建一个新资源组，选择“azuredeploy.json”，并单击“编辑参数”。
+14. 选择订阅中的现有资源组或创建一个新资源组，选择“azuredeploy.json”  ，并单击“编辑参数”  。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
     现在即可在一张不错的表中编辑在模板文件中定义的所有参数。 定义默认值的参数已具有其默认值，并且定义允许值的列表的参数显示为下拉列表。
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
-15. 填写所有空参数，并使用 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 中的 **ToDoApp 的 GitHub 存储库地址**。 然后单击“保存” 。
+15. 填写所有空参数，并使用 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 中的 **ToDoApp 的 GitHub 存储库地址**。 然后单击“保存”  。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
     > [!NOTE]
-    > 自动缩放是标准层或更高层中提供的一项功能，而计划级别警报是基本层或更高层中提供的功能，需要将 sku 参数设置为标准或高级，以突出显示所有新的 App Insights 资源。
+    > 自动缩放是标准层或更高层中提供的一项功能，而计划级别警报是基本层或更高层中提供的功能，需要将 sku 参数设置为标准或高级，以突出显示所有新的 App Insights 资源。     
     > 
     > 
-16. 单击“部署” 。 如果选择了“保存密码”，密码将以纯文本格式保存在参数文件中。 否则需要在部署过程中输入数据库密码。
+16. 单击“部署”  。 如果选择了“保存密码”，密码将以纯文本格式保存在参数文件中。   否则需要在部署过程中输入数据库密码。
 
 就这么简单！ 现在只需转到 [Azure 门户](https://portal.azure.cn/)即可看到添加到 JSON 部署的应用程序中的新警报和自动缩放设置。
 

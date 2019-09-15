@@ -5,17 +5,17 @@ services: azure-stack
 author: WenJason
 ms.service: azure-stack
 ms.topic: overview
-origin.date: 04/24/2019
-ms.date: 07/29/2019
+origin.date: 08/09/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 05d54db403213b50b9a55b489dca76565ebf0840
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: cd50c0c182a98bfebf407ac168bb363764b2189b
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513323"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857204"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>将 C# ASP.NET Web 应用程序部署到 Azure Stack 中的 VM。
 
@@ -62,7 +62,7 @@ ms.locfileid: "68513323"
     | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是 HTTP 的安全版本，它需要一个安全证书，并允许对信息进行加密传输。  |
     | 22 | SSH | 安全外壳 (SSH) 是一种用于安全通信的加密网络协议。 你将在 SSH 客户端上使用此连接来配置 VM 并部署应用。 |
     | 3389 | RDP | 可选。 远程桌面协议允许远程桌面连接使用计算机的图形用户界面。   |
-    | 8080 | “自定义” | Apache Tomcat 服务的默认端口为 8080。 对于生产服务器，需要通过 80 和 443 路由流量。 |
+    | 8172 | “自定义” | WebDeploy 使用的端口。 |
 
     对于每个端口：
 

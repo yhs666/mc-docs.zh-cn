@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/14/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: cd33831465ff72328af3a0d2d55a53d2291641c4
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 15092c89dbf7f764e1be0b66034c9e61fd4e8ea2
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513548"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857102"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -55,6 +55,8 @@ Azure Stack 1905 更新内部版本类型为“完整”。  因此，1905 更�
 - 现在支持 Windows Server 2019，可通过 Azure Stack 市场来与其联合。
 Windows Server 2019 现可通过此更新成功地在 2016 主机上启动。
 
+- 使用新的 [Azure 帐户 Visual Studio Code 扩展](../user/azure-stack-dev-start-vscode-azure.md)，开发人员可以通过登录和查看订阅以及许多其他服务来以 Azure Stack 作为目标。 Azure 帐户扩展同时适用于 Azure Active Directory (Azure AD) 和 AD FS 环境，并且只需要对 Visual Studio Code 用户设置进行少量更改。 Visual Studio Code 需要向服务主体授予权限才能在此环境中运行。 为此，请导入标识脚本并运行 [Azure Stack 中的多租户](../operator/azure-stack-enable-multitenancy.md)中指定的 cmdlet。 这需要更新主目录，并为每个目录注册来宾租户目录。 更新到 1905 或更高版本后，若要更新包含 Visual Studio Code 服务主体的主目录租户，将显示警报。 
+
 ### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
@@ -70,11 +72,11 @@ Windows Server 2019 现可通过此更新成功地在 2016 主机上启动。
 
 - Azure Stack 门户中有新的“帮助和支持概述”，可让操作员轻松检查其支持选项、获取专家帮助，以及详细了解 Azure Stack。  在集成系统上，创建支持请求会预先选择 Azure Stack 服务。 我们强烈建议客户使用此体验来提交票证，而不要使用全局 Azure 门户。 有关详细信息，请参阅 [Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
 
-- 载入了多个 Azure Active Directory （通过[此过程](azure-stack-enable-multitenancy.md)）时，可能在进行特定更新时或在 AAD 服务主体授权的更改导致权限丢失时，忽略重新运行脚本的操作。 这可能会导致各种问题，例如无法访问某些功能，或者更为分立、难以追溯到原始问题的失败。 为了防止此问题，1905 导入了新的功能用于检查这些权限并在发现某些配置问题时创建警报。 此验证每小时运行一次，并显示为了修复问题所要采取的补救措施。 所有租户处于正常状态后，警报将会关闭。
+- 加入了多个 Azure Active Directory （通过[此过程](azure-stack-enable-multitenancy.md)）时，可能会在进行某些更新时或对 Azure AD 服务主体授权的更改导致权限丢失时，忽略重新运行脚本的操作。 这可能会导致各种问题，例如无法访问某些功能，或者更为分立、难以追溯到原始问题的失败。 为了防止此问题，1905 导入了新的功能用于检查这些权限并在发现某些配置问题时创建警报。 此验证每小时运行一次，并显示为了修复问题所要采取的补救措施。 所有租户处于正常状态后，警报将会关闭。
 
 - 提高了服务故障转移期间基础结构备份操作的可靠性。
 
-- 提供了新版 [Azure Stack Nagios 插件](azure-stack-integrate-monitor.md#integrate-with-nagios)，该插件使用 [Azure Active Directory 身份验证库](/active-directory/develop/active-directory-authentication-libraries) (ADAL) 进行身份验证。 该插件现在还支持 Azure Stack 的 Azure Active Directory (AAD) 和 Active Directory 联合身份验证服务 (ADFS) 部署。 有关详细信息，请参阅 [Nagios 插件交换](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)网站。
+- 提供了新版 [Azure Stack Nagios 插件](azure-stack-integrate-monitor.md#integrate-with-nagios)，该插件使用 [Azure Active Directory 身份验证库](/active-directory/develop/active-directory-authentication-libraries) (ADAL) 进行身份验证。 该插件现在还支持 Azure Stack 的 Azure AD 和 Active Directory 联合身份验证服务 (ADFS) 部署。 有关详细信息，请参阅 [Nagios 插件交换](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)网站。
 
 - 已发布新的混合配置文件 **2019-03-01-Hybrid**，可支持 Azure Stack 中的所有最新功能。 Azure PowerShell 和 Azure CLI 都支持 **2019-03-01-Hybrid** 配置文件。 .NET、Ruby、Node.js、Go 和 Python SDK 已发布可支持 **2019-03-01-Hybrid** 配置文件的包。 其各自的文档和一些示例也已更新以反映更改。
 
@@ -96,8 +98,6 @@ Windows Server 2019 现可通过此更新成功地在 2016 主机上启动。
     |12 个节点|54 个 vCPU|60 GB|
     |16 个节点|70 个 vCPU|76 GB|
   
-- 现在有可在 Visual Studio Code 上运行的 Azure Stack 扩展。 使用 **Azure 帐户**扩展，开发人员可以通过登录和查看订阅以及许多其他服务来以 Azure Stack 作为目标。 Azure 帐户扩展在 AAD 环境以及 ADFS 环境上都可运行，并且只需要稍微更改 Visual Studio Code 中的用户设置，就能输入 Azure Stack 元数据值。 有关详细信息，请[参阅此处的文档](../user/azure-stack-dev-start-vscode-azure.md)。
-
 ### <a name="changes"></a>更改
 
 - 为了在计划内和计划外维护方案期间提高可靠性和可用性，Azure Stack 为域服务添加了额外的基础结构角色实例。

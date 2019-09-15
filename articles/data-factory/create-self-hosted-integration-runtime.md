@@ -12,12 +12,12 @@ ms.date: 08/12/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 89d99f1cb27b3dd65ff22fefcdac94c9c176d0a1
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: f91765d5d2c37884709929a93f9227db3cbcef52
+ms.sourcegitcommit: 2f7c24eff74f4de0d4a117fc2c327e00ab77ff88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908734"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70888186"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>创建和配置自承载集成运行时
 集成运行时 (IR) 是 Azure 数据工厂用于在不同的网络环境之间提供数据集成功能的计算基础结构。 有关 IR 的详细信息，请参阅[集成运行时概述](concepts-integration-runtime.md)。
@@ -263,7 +263,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 ------------ | ----- | ------------
 *.servicebus.chinacloudapi.cn | 443 | 用来与后端数据移动服务通信
 *.core.chinacloudapi.cn| 443 | 用于通过 Azure Blob 存储（如果已配置）进行临时复制
-*.frontend.clouddatahub.net | 443 | 用来与后端数据移动服务通信
+*.frontend.datamovement.azure.cn | 443 | 用来与后端数据移动服务通信
 download.microsoft.com | 443 | 用于下载更新
 
 在 Windows 防火墙级别（计算机级别），通常已启用这些出站端口。  如果没有，可以在自承载集成运行时计算机上相应地配置域和端口。

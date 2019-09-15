@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 使用 Web 服务器日志监视应用 | Azure Docs
+title: Azure CLI 脚本示例 - 使用 Web 服务器日志监视应用 | Azure
 description: Azure CLI 脚本示例 - 使用 Web 服务器日志监视应用服务中的应用
 services: appservice
 documentationcenter: appservice
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 76ad01c6e8b4281b121e224ae15a36bcc951b496
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: bda08a78933ddf8502371c129e8a53df12ad33f7
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396444"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806789"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>使用 Azure CLI 通过 Web 服务器日志监视应用服务应用
 
@@ -30,7 +30,7 @@ ms.locfileid: "54396444"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-lastest)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -68,14 +68,14 @@ az webapp log download --name $webappname --resource-group myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [`az group create`](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](https://docs.azure.cn/zh-cn/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 创建应用服务计划。 |
-| [`az webapp create`](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) | 创建 Azure Web 应用。 |
-| [`az webapp log config`](https://docs.azure.cn/zh-cn/cli/webapp/log?view=azure-cli-latest#az_webapp_log_config) | 配置 Azure Web 应用持久保留哪些日志。 |
-| [`az webapp log download`](https://docs.azure.cn/zh-cn/cli/webapp/log?view=azure-cli-latest#az_webapp_log_download) | 将 Azure Web 应用的日志下载到本地计算机。 |
+| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
+| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
+| [`az webapp log config`](/cli/webapp/log?view=azure-cli-latest#az-webapp-log-config) | 配置应用服务应用将持久保留的日志。 |
+| [`az webapp log download`](/cli/webapp/log?view=azure-cli-latest#az-webapp-log-download) | 将应用服务应用的日志下载到本地计算机。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

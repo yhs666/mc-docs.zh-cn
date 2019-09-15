@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/26/2019
-ms.date: 07/29/2019
+origin.date: 08/13/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 48203b0d33d9c5e3fcb9bcd72ee4df29c68fddbb
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: bc254301de2301183c8182e9c03e2d06bf6fc861
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513266"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857331"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 策略模块管理 Azure Policy
 
@@ -36,14 +36,13 @@ ms.locfileid: "68513266"
 3. [配置适用于 Azure Stack 的 PowerShell](azure-stack-powershell-configure-user.md)。
 4. 导入 AzureStack.Policy.psm1  模块：
 
-
    ```powershell
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
 ## <a name="apply-policy-to-azure-subscription"></a>将策略应用于 Azure 订阅
 
-可以使用以下命令针对 Azure 订阅应用默认 Azure Stack 策略。 在运行此命令之前，请将 `Azure subscription name` 替换为你的 Azure 订阅的名称：
+可以使用以下命令针对 Azure 订阅应用默认 Azure Stack 策略。 在运行这些命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
 
 ```powershell
 Add-AzureRmAccount
@@ -55,7 +54,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="apply-policy-to-a-resource-group"></a>将策略应用于资源组
 
-你可能想要应用更细化的策略。 例如，你在相同的订阅中可能有其他正在运行的资源。 可以将策略应用范围限定为特定资源组，这样就可以使用 Azure 资源测试 Azure Stack 的应用。 在运行以下命令之前，请将 `Azure subscription name` 替换为你的 Azure 订阅的名称：
+你可能想要应用更细化的策略。 例如，你在相同的订阅中可能有其他正在运行的资源。 可以将策略应用范围限定为特定资源组，这样就可以使用 Azure 资源测试 Azure Stack 的应用。 在运行以下命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
 
 ```powershell
 Add-AzureRmAccount

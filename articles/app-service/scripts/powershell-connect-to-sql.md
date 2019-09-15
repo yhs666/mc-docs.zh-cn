@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 将应用连接到 SQL 数据库 | Azure Docs
+title: Azure PowerShell 脚本示例 - 将应用连接到 SQL 数据库 | Azure
 description: Azure PowerShell 脚本示例 - 将应用服务应用连接到 SQL 数据库
 services: app-service\web
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 03/20/2017
-ms.date: 03/18/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 4debb307de2cfe623e05ffdfaf9d16ca487dc4e7
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 1d036d1c9be57b165622d94ba6374f0252d94c4f
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347221"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806710"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>将应用服务应用连接到 SQL 数据库
 
 在此方案中，将了解如何创建 Azure SQL 数据库和应用服务应用。 然后，将使用应用设置将 SQL 数据库链接到应用。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 

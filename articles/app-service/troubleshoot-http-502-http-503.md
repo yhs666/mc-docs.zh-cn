@@ -1,5 +1,5 @@
 ---
-title: 解决“502 错误的网关”、“503 服务不可用”错误 - Azure 应用服务 | Azure Docs
+title: 解决“502 错误的网关”、“503 服务不可用”错误 - Azure 应用服务 | Azure
 description: 排查 Azure 应用服务中托管的应用出现的“502 错误的网关”和“503 服务不可用”错误。
 services: app-service\web
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e6bb745315b8e7c499882f7aee8f7b52264df1f5
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: dd002b4b72a8d1d92be2a2813b383d4b74b84017
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396447"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806669"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>排查 Azure 应用服务中出现的 HTTP 错误“502 错误的网关”和“503 服务不可用”
 [Azure 应用服务](overview.md)中托管的应用经常出现“502 错误的网关”和“503 服务不可用”错误。 本文帮助你排查这些错误。
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
+如果对本文中的任何内容需要更多帮助，可以联系 [MSDN Azure 和堆栈溢出论坛](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 
 ## <a name="symptom"></a>症状
 浏览应用时返回 HTTP 错误“502 错误的网关”或 HTTP 错误“503 服务不可用”。
@@ -53,10 +53,10 @@ ms.locfileid: "54396447"
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1.观察和监视应用程序行为
 #### <a name="track-service-health"></a>跟踪服务运行状况
-每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。 有关详细信息，请参阅[跟踪服务的运行状况](/monitoring-and-diagnostics/insights-service-health.md)。
+每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。
 
 #### <a name="monitor-your-app"></a>监视应用
-此选项可让你找出应用程序是否存在任何问题。 在应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡显示所有可以添加的指标。
+此选项可让你找出应用程序是否存在任何问题。 在应用的边栏选项卡中，单击“请求和错误”磁贴  。 “指标”边栏选项卡显示所有可以添加的指标。 
 
 可能想要在应用中监视的一些指标包括
 
@@ -71,7 +71,7 @@ ms.locfileid: "54396447"
 有关详细信息，请参阅：
 
 * [监视 Azure 应用服务中的应用](web-sites-monitor.md)
-* [接收警报通知](https://docs.azure.cn/zh-cn/monitoring-and-diagnostics/monitoring-overview-alerts)
+* [接收警报通知](/azure-monitor/platform/alerts-overview)
 
 <a name="collect" />
 
@@ -107,7 +107,7 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可
 可以将缩放设置为手动或自动。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终可以从 Azure 门户直接重新启动应用，但 AutoHeal 可以自动执行此操作。 只需在应用的根 web.config 中添加一些触发器即可。 请注意，即使应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
+AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终可以从 Azure 门户直接重新启动应用，但 AutoHeal 可以自动执行此操作。 只需在应用的根 web.config 中添加一些触发器即可。 请注意，即使应用程序并非 .NET 应用程序，这些设置的工作方式也仍然相同。
 
 有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 

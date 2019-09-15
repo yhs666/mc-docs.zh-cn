@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2019
-ms.date: 07/29/2019
+origin.date: 07/16/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 9acd7eddb57037786603cf689867d71faa12d261
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 07/16/2019
+ms.openlocfilehash: b08603e87a6d531cf64188c934d9de6f3a983211
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513188"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857314"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM 功能
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 VM 之前，应先了解 Azure Stack 与 Microsoft Azure 所提供的 VM 功能有何差异。 本文将说明这些差异，并指明规划 VM 部署方面的重要注意事项。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
+Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 VM 之前，应先了解 Azure Stack 与 Azure 所提供的 VM 功能有何差异。 本文将说明这些差异，并指明规划 VM 部署方面的重要注意事项。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
 ## <a name="vm-differences"></a>VM 差异
 
@@ -39,35 +39,40 @@ Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 VM 
 | 虚拟机扩展 |Azure 支持多种不同的 VM 扩展。 若要了解可用的扩展，请参阅 [VM 扩展和功能](/virtual-machines/windows/extensions-features)一文。| Azure Stack 支持一部分可在 Azure 中使用的扩展，每个扩展有特定的版本。 Azure Stack 云管理员可以选择要将哪些扩展提供给其用户使用。 若要查看支持的扩展列表，请参阅本文的 [VM 扩展](#vm-extensions)部分。 |
 | 虚拟机网络 | 分配给租户 VM 的公共 IP 地址可通过 Internet 访问。<br><br><br>Azure VM 具有固定的 DNS 名称。 | 只能在 Azure Stack 开发工具包环境中访问分配给租户 VM 的公共 IP 地址。 用户必须能够通过 [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) 或 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 访问 Azure Stack 开发工具包，才能连接到在 Azure Stack 中创建的 VM。<br><br>在特定 Azure Stack 实例中创建的 VM 的 DNS 名称基于云管理员配置的值。 |
 | 虚拟机存储 | 支持[托管磁盘](/virtual-machines/windows/managed-disks-overview)。 | 版本为 1808 及更高版本的 Azure Stack 支持托管磁盘。 |
-| 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于磁盘所附加到的 VM 大小。 有关详细信息，请参阅 [Azure Stack 中支持的 VM 大小](azure-stack-vm-sizes.md)一文。
+| 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于磁盘所附加到的 VM 的大小。 有关详细信息，请参阅 [Azure Stack 中支持的 VM 大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 始终提供所有 VM 功能的最新 API 版本。 | Azure Stack 支持特定的 Azure 服务以及这些服务的特定 API 版本。 若要查看支持的 API 版本列表，请参阅本文的 [API 版本](#api-versions)部分。 |
-| Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和配置 VM 的正在运行的 VM 实例的信息。  | Azure Stack 不支持 Azure 实例元数据服务。 |
-| 虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）。<br>多个更新域。|多个容错域（每个区域 2 个或 3 个）。<br>多个更新域（最多 20 个）。|
+| Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和设置 VM 的正在运行的 VM 实例的信息。  | Azure Stack 不支持 Azure 实例元数据服务。 |
+| 虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）。<br>多个更新域。|多个容错域（每个区域 2 个或 3 个）。<br>单个更新域，具有实时迁移功能，可在更新期间保护工作负荷。 支持 20 个更新域以实现模板兼容性|
 | 虚拟机规模集|支持自动缩放。|不支持自动缩放。<br><br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
-| 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。
+| 云见证 | 从 Azure Stack 中提供的存储帐户属性中选择终结点。 | [云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)是一种故障转移群集仲裁见证，它使用 Azure 提供对群集仲裁的投票。<br>Azure 中的终结点与 Azure Stack 相比可能如下所示：<br>对于 Azure：<br>`https://mywitness.blob.core.chinacloudapi.cn/`<br>对于 Azure Stack：<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 |
 
 ## <a name="vm-sizes"></a>VM 大小
 
 Azure Stack 施加了一些资源限制，以避免资源（服务器本地和服务级别）的过度消耗。这些限制降低了其他租户消耗资源所带来的影响，从而改进了租户体验。
 
 - VM 的网络出口有带宽上限。 Azure Stack 中的上限与 Azure 中的上限相同。
-- 对于存储资源，Azure Stack 实施存储 IOPS（每秒输入/输出操作次数）限制，以避免租户为了访问存储而造成资源过度消耗。
-- 对于 VM 磁盘，Azure Stack 上的磁盘 IOPS 取决于 VM 大小而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。
+- 对于存储资源，Azure Stack 实施存储 IOPS（每秒输入/输出操作次数）限制，以避免租户因使用存储而造成资源过度消耗。
+- 对于 VM 磁盘，Azure Stack 上的磁盘 IOPS 取决于 VM 大小而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，第二个数据磁盘的 IOPS 限制都是 2300 IOPS。
 
 下表列出了 Azure Stack 支持的 VM 及其配置：
 
-| 类型           | 大小          | 支持的大小范围 |
-| ---------------| ------------- | ------------------------ |
-|常规用途 |基本 A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
-|常规用途 |标准 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
-|常规用途 |D 系列       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
-|常规用途 |Dv2 系列     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|常规用途 |DS 系列      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|常规用途 |DSv2 系列    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|内存优化|D 系列       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|内存优化|DS 系列      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|内存优化|Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|内存优化|DSv2 系列 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+| 类型            | 大小          | 支持的大小范围 |
+| ----------------| ------------- | ------------------------ |
+|常规用途  |基本 A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|常规用途  |标准 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|常规用途  |Av2 系列     |[A1_v2 - A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|常规用途  |D 系列       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|常规用途  |Dv2 系列     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|常规用途  |DS 系列      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|常规用途  |DSv2 系列    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|内存优化 |D 系列       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|内存优化 |DS 系列      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|内存优化 |Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|内存优化 |DSv2 系列    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|计算优化|F 系列       |[F1 - F16](azure-stack-vm-sizes.md#f-series)    |
+|计算优化|Fs 系列      |[F1s - F16s](azure-stack-vm-sizes.md#fs-series)    |
+|计算优化|Fsv2 系列    |[F2s_v2 - F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 VM 大小及其关联的资源数量在 Azure Stack 与 Azure 之间是一致的。 这种一致性涉及到内存量、核心数，以及可创建的数据磁盘的数量/大小。 但是，大小相同的 VM 的性能取决于特定 Azure Stack 环境的基础特征。
 

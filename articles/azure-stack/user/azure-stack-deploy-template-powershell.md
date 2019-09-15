@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 07/29/2019
+origin.date: 07/17/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 41c69b50ec980b2cb134e1c7550061166b542f48
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 86a8d0b0287f0e4594c67ceb6b702e18ea7441e9
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513328"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857087"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 Powershell 部署模板
 

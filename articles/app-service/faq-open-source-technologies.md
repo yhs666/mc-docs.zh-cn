@@ -1,5 +1,5 @@
 ---
-title: 针对 Azure web 应用的开源技术常见问题解答 | Azure
+title: 开放源代码技术常见问题解答 - Azure 应用服务 | Azure
 description: 获取有关 Azure App Service Web 应用功能中开源技术常见问题的解答。
 services: app-service\web
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: 9781d88584915078a082548dc262ae4fd9d21a22
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 10/31/2018
+ms.date: 09/04/2019
+ms.author: v-tawe
+ms.custom: seodec18
+ms.openlocfilehash: 710d9ee5777da14bddcbce4e9cb0959534998205
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626039"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806745"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
@@ -34,19 +35,19 @@ ms.locfileid: "58626039"
 打开 PHP 日志记录：
 
 1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
-2. 在顶部菜单中，选择“调试控制台” > “CMD”。
-3. 选择“Site”文件夹。
-4. 选择“wwwroot”文件夹。
-5. 选择“+”图标，然后选择“新建文件”。
-6. 将文件名称设置为“.user.ini”。
-7. 选择“.user.ini”旁边的铅笔图标。
+2. 在顶部菜单中，选择“调试控制台”   > “CMD”  。
+3. 选择“Site”  文件夹。
+4. 选择“wwwroot”  文件夹。
+5. 选择“+”  图标，然后选择“新建文件”  。
+6. 将文件名称设置为“.user.ini”  。
+7. 选择“.user.ini”  旁边的铅笔图标。
 8. 在文件中，添加以下代码：`log_errors=on`
-9. 选择“其他安全性验证” 。
-10. 选择“wp-config.php”旁边的铅笔图标。
+9. 选择“其他安全性验证”  。
+10. 选择“wp-config.php”  旁边的铅笔图标。
 11. 将文本更改为以下代码：
-    ```
+    ```php
     //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-    //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
     ```
 12. 在 Azure 门户中的 Web 应用菜单中，重启 Web 应用。
 
@@ -59,37 +60,37 @@ ms.locfileid: "58626039"
 
 若要更改 Node.js 应用程序的版本，可以使用以下选项之一：
 
-* 在 Azure 门户中，使用“应用设置”。
+* 在 Azure 门户中，使用“应用设置”  。
   1. 在 Azure 门户中，转到自己的 Web 应用。
-  2. 在“设置”边栏选项卡上，选择“应用程序设置”。
-  3. 在“应用设置”中，可以包含 WEBSITE_NODE_DEFAULT_VERSION 作为键，并将所需 Node.js 版本作为值。
+  2. 在“设置”  边栏选项卡上，选择“应用程序设置”  。
+  3. 在“应用设置”  中，可以包含 WEBSITE_NODE_DEFAULT_VERSION 作为键，并将所需 Node.js 版本作为值。
   4. 转到 [Kudu 控制台](https://*yourwebsitename*.scm.chinacloudsites.cn)。
   5. 若要检查 Node.js 版本，请输入以下命令：  
      ```
      node -v
      ```
-* 修改 iisnode.yml 文件。 更改 iisnode.yml 文件中的 Node.js 版本将仅设置该 iisnode 使用的运行时环境。 你的及其他 Kudu cmd 仍使用在 Azure 门户中的“应用设置”中设置的 Node.js 版本。
+* 修改 iisnode.yml 文件。 更改 iisnode.yml 文件中的 Node.js 版本将仅设置该 iisnode 使用的运行时环境。 你的及其他 Kudu cmd 仍使用在 Azure 门户中的“应用设置”  中设置的 Node.js 版本。
 
   若要手动设置 iisnode.yml，请在应用根文件夹中创建一个 iisnode.yml 文件。 在该文件中，包括以下行：
-  ```
+  ```yml
   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
   ```
-
+   
 * 在源控件部署期间通过使用 package.json 设置该 iisnode.yml 文件。
   Azure 源控件部署过程包含以下步骤：
   1. 将内容移动到 Azure web 应用。
   2. 如果 Web 应用根文件夹中不存在默认部署脚本，请创建一个（deploy.cmd、.deployment 文件）。
   3. 如果提及 package.json 文件 > 引擎 `"engines": {"node": "5.9.1","npm": "3.7.3"}` 中的 Node.js 版本，请运行在其中创建 iisnode.yml 文件的部署脚本
   4. 该 iisnode.yml 文件具有以下代码行：
-      ```
+      ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
       ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>我在应用服务中承载的我的 WordPress 应用中看到消息“建立数据库连接时出错”。 如何解决此问题？
 
-如果在 Azure WordPress 应用中看到此错误，为启用 php_errors.log 和 debug.log，请完成[启用 WordPress 错误日志](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)中详述的步骤。
+如果在 Azure WordPress 应用中看到此错误，则若要启用 php_errors.log 和 debug.log，请完成[启用 WordPress 错误日志](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)中详细介绍的步骤。
 
-启用日志后，重新生成错误，然后查看日志以了解是否连接已不够用：
+启用日志后，重现错误，然后检查日志以了解是否耗尽连接：
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User 'abcdefghijk79' has exceeded the 'max_user_connections' resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
@@ -122,7 +123,8 @@ ms.locfileid: "58626039"
     * manager.*yyyy-mm-dd*.log
     * site_access_log.*yyyy-mm-dd*.log
 
-对于门户“应用设置”部署：
+
+对于门户“应用设置”  部署：
 
 * 文件夹位置：D:\home\LogFiles
 * 感兴趣的文件：
@@ -134,7 +136,7 @@ ms.locfileid: "58626039"
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>如何解决 JDBC 驱动程序连接错误的问题？
 
-在 Tomcat 日志中，可能会看到以下消息：
+可能会在 Tomcat 日志中看到以下消息：
 
 ```
 The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered
@@ -144,9 +146,9 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 1. 从 app/lib 文件夹中删除 sqljdbc*.jar 文件。
 2. 如果使用自定义 Tomcat 或 Azure 市场 Tomcat Web 服务器，请将此 .jar 文件复制到 Tomcat lib 文件夹中。
-3. 如果从 Azure 门户启用 Java（选择“Java 1.8” > “Tomcat 服务器”），请在并行于应用的文件夹中复制 sqljdbc.* jar 文件。 然后，将以下 classpath 设置添加到 web.config 文件中：
+3. 如果从 Azure 门户启用 Java（选择“Java 1.8”   > “Tomcat 服务器”  ），请在并行于应用的文件夹中复制 sqljdbc.* jar 文件。 然后，将以下 classpath 设置添加到 web.config 文件中：
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true
@@ -161,7 +163,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 ```
 Error transferring file [filename] Copying files from remote side failed.
-
+    
 The process cannot access the file because it is being used by another process.
 ```
 
@@ -181,7 +183,7 @@ The process cannot access the file because it is being used by another process.
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>是否可从 Azure web 应用发送电子邮件？
 
-应用服务没有内置电子邮件功能。 有关从应用发送电子邮件的一些不错的替代方案，请参阅此 [Stack Overflow 讨论](http://stackoverflow.com/questions/17666161/sending-email-from-azure)。
+应用服务没有内置电子邮件功能。 有关从应用发送电子邮件的一些不错的替代方案，请参阅此 [Stack Overflow 讨论](https://stackoverflow.com/questions/17666161/sending-email-from-azure)。
 
 ## <a name="why-does-my-wordpress-site-redirect-to-another-url"></a>为什么我的 WordPress 站点会重定向到另一个 URL？
 
@@ -218,6 +220,4 @@ WordPress Buddy+ 是可用于在数据库中直接更新重定向 URL 的 Azure 
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>在尝试使用 PHPMyadmin 导入或导出 MySQL 应用内数据库时，收到了 HTTP 403 错误。 如何解决此问题？
 
-如果使用的是较旧版本的 Chrome，则可能遇到一个已知的 bug。 要解决此问题，请升级到较新版本的 Chrome。 还可尝试使用不会出现此问题的另一种浏览器，如 Internet Explorer 或 Microsoft Edge。
-
-<!--Update_Description: update meta data-->
+如果使用的是较旧版本的 Chrome，则可能遇到一个已知的 bug。 要解决此问题，请升级到较新版本的 Chrome。 另请尝试使用不会出现该问题的不同浏览器，如 Internet Explorer 或 Microsoft Edge。

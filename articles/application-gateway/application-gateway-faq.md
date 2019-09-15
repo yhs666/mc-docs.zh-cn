@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 06/01/2019
-ms.date: 08/06/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2e1d7b38ad8611c603a93f1d5df388ef8cfeb61d
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: 4ea7e353af1b6a40ae64a90607cb60d379277c95
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818831"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857175"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
@@ -30,7 +30,7 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="what-features-does-application-gateway-support"></a>应用程序网关支持哪些功能？
 
-应用程序网关支持 SSL 卸载、端到端 SSL、Web 应用程序防火墙 (WAF)、基于 Cookie 的会话相关性、基于 URL 路径的路由、多站点托管和其他功能。 有关支持的功能的完整列表，请参阅[应用程序网关简介](application-gateway-introduction.md)。
+应用程序网关支持自动缩放、SSL 卸载、端到端 SSL、Web 应用程序防火墙 (WAF)、基于 Cookie 的会话相关性、基于 URL 路径的路由、多站点托管和其他功能。 有关支持的功能的完整列表，请参阅[应用程序网关简介](application-gateway-introduction.md)。
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>应用程序网关与 Azure 负载均衡器有何不同？
 
@@ -70,7 +70,7 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Keep-Alive 超时和 TCP 空闲超时的设置是什么？
 
- 在应用程序网关 v1 SKU 中，Keep-Alive 超时为 120 秒。 在应用程序网关的前端虚拟 IP (VIP) 中，TCP 空闲超时默认为 4 分钟。
+ 在应用程序网关 v1 SKU 中，Keep-Alive 超时为 120 秒。 v2 SKU 的 Keep-Alive 超时为 75 秒。 在应用程序网关的前端虚拟 IP (VIP) 中，TCP 空闲超时默认为 4 分钟。
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>在应用程序网关的生存期内，其 IP 或 DNS 名称是否会变化？
 
@@ -78,7 +78,7 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="does-application-gateway-support-static-ip"></a>应用程序网关是否支持静态 IP？
 
-应用程序网关不支持静态公共 IP 地址，但支持静态内部 IP。
+是，应用程序网关 v2 SKU 支持静态公共 IP 地址。 v1 SKU 支持静态内部 IP。
 
 ### <a name="does-application-gateway-support-multiple-public-ips-on-the-gateway"></a>应用程序网关是否支持在网关上使用多个公共 IP？
 
@@ -102,6 +102,8 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 预配新的应用程序网关 v1 SKU 部署最多需 20 分钟。 更改实例大小或计数不会出现中断，且在此期间网关仍处于活动状态。
 
+大多数使用 v2 SKU 的部署大约需要 6 分钟进行预配。 但是，根据部署类型的不同，可能需要更长的时间。 例如，跨多个具有多个实例的可用性区域的部署可能需要 6 分钟以上的时间。 
+
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>使用应用程序网关时，能否将 Exchange 服务器用作后端？
 
 否。 应用程序网关不支持电子邮件协议，例如 SMTP、IMAP 和 POP3。 
@@ -112,9 +114,15 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 如果已部署两个或更多个实例，则应用程序网关 v1 SKU 支持高可用性方案。 Azure 跨更新域和容错域分配这些实例，确保实例不会全部同时发生故障。 为了支持可伸缩性，v1 SKU 将添加同一网关的多个实例来分担负载。
 
+v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如果选择“区域冗余”，则最新实例还将分布到各个可用性区域中以提供区域性故障复原能力。
+
 ### <a name="how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway"></a>如何使用应用程序网关实现跨数据中心的灾难恢复方案？
 
 使用流量管理器跨不同数据中心内的多个应用程序网关分配流量。
+
+### <a name="does-application-gateway-support-autoscaling"></a>应用程序网关是否支持自动缩放？
+
+是，应用程序网关 v2 SKU 支持自动缩放。 有关详细信息，请参阅[自动缩放和区域冗余应用程序网关](application-gateway-autoscaling-zone-redundant.md)。
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>手动纵向扩展或缩减是否会导致停机？
 
@@ -190,6 +198,11 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 否。
 
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有从 v1 SKU 迁移到 v2 SKU 的指导？
+
+是的。 有关详细信息，请参阅[将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2](migrate-v1-v2.md)。
+
+
 ## <a name="configuration---ssl"></a>配置 - SSL
 
 ### <a name="what-certificates-does-application-gateway-support"></a>应用程序网关支持哪些证书？
@@ -262,7 +275,7 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>应用程序网关是否原生与 Azure Key Vault 集成？
 
-不是，它没有与 Azure Key Vault 集成。
+是，应用程序网关 v2 SKU 支持 Key Vault。 有关详细信息，请参阅[使用密钥保管库证书实现 SSL 终止](key-vault-certs.md)。
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>如何配置 .com 和 .net 站点的 HTTPS 侦听器？ 
 
@@ -308,6 +321,10 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 是的。 可以在部署了应用程序网关的虚拟网络中启用 DDoS 保护。 此设置确保 Azure DDoS 防护服务同时保护应用程序网关虚拟 IP (VIP)。
 
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有从 v1 SKU 迁移到 v2 SKU 的指导？
+
+是的。 有关详细信息，请参阅[将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2](migrate-v1-v2.md)。
+
 ## <a name="diagnostics-and-logging"></a>诊断和日志记录
 
 ### <a name="what-types-of-logs-does-application-gateway-provide"></a>应用程序网关提供哪些类型的日志？
@@ -350,4 +367,4 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 若要详细了解应用程序网关，请参阅[什么是 Azure 应用程序网关？](overview.md)。
 
-<!--Update_Description: link update-->
+<!--Update_Description: wording update-->

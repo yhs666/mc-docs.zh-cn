@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 09/10/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 635868f8e4c6dd6a2c559a4396aa6bd5f136382d
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: e38dc83d590799b3c8ca87d0e0cf1b0776d03b4b
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514189"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857029"
 ---
 <!-- Verify sucessfully-->
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理器中配置多值路由方法
@@ -40,7 +40,10 @@ ms.locfileid: "68514189"
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 创建流量管理器配置文件，以便将用户流量定向到延迟最低的终结点。
 
-1. 在屏幕左上方，选择“创建资源”   > “网络”   >   “流量管理器配置文件” >   “创建”。
+1. 在屏幕左上方，选择“创建资源”   > “网络”   > “全部查看”   > “流量管理器配置文件”   > “创建”  。
+
+    <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
+
 2. 在“创建流量管理器配置文件”中输入或选择以下信息，接受其余设置的默认值，然后选择“创建”   ：
 
     | 设置                 | 值                                              |

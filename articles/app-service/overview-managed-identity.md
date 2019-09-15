@@ -1,5 +1,5 @@
 ---
-title: 托管标识概述 - Azure 应用服务 | Azure Docs
+title: 托管标识概述 - Azure 应用服务 | Azure
 description: Azure 应用服务和 Azure Functions 中的托管标识的概念性参考和安装指南
 services: app-service
 author: mattchenderson
@@ -9,15 +9,15 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 11/20/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: bb35d2839ed7d01e8fc9b930619050ac126eb53f
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+origin.date: 08/15/2019
+ms.date: 09/05/2019
+ms.author: v-tawe
+ms.openlocfilehash: 2919ff4a31fb93140f97f4c41be06e2102221550
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878536"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806813"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
@@ -25,11 +25,11 @@ ms.locfileid: "68878536"
 > [!Important] 
 > 如果应用跨订阅/租户迁移，应用服务和 Azure Functions 的托管标识将不会按预期工作。 应用将需要获取新标识，这可以通过禁用并重新启用该功能来完成。 请参阅下面的[删除标识](#remove)。 下游资源还需要更新访问策略才能使用新标识。
 
-本主题介绍如何为应用服务和 Azure Functions 应用程序创建托管标识，以及如何使用它来访问其他资源。 借助 Azure Active Directory 的托管标识，应用可以轻松访问其他受 AAD 保护的资源（如 Azure Key Vault）。 标识由 Azure 平台托管，无需设置或转交任何机密。 
+本主题介绍如何为应用服务和 Azure Functions 应用程序创建托管标识，以及如何使用它来访问其他资源。 借助 Azure Active Directory 的托管标识，应用可以轻松访问其他受 AAD 保护的资源（如 Azure Key Vault）。 标识由 Azure 平台托管，无需设置或转交任何机密。 有关 AAD 中的托管标识的详细信息，请参阅 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。
 
 你的应用程序可以被授予两种类型的标识： 
-- 系统分配的标识与你的应用程序相绑定，如果删除应用，标识也会被删除  。 一个应用只能具有一个系统分配的标识。 已正式发布适用于 Windows 应用的系统分配的标识支持。 
-- 用户分配的标识是可以分配给应用的独立 Azure 资源  。 一个应用可以具有多个用户分配的标识。 适用于所有应用类型的用户分配的标识支持现提供预览版。
+- 系统分配的标识与你的应用程序相绑定，如果删除应用，标识也会被删除  。 一个应用只能具有一个系统分配的标识。
+- 用户分配的标识是可以分配给应用的独立 Azure 资源  。 一个应用可以具有多个用户分配的标识。
 
 ## <a name="adding-a-system-assigned-identity"></a>添加系统分配的标识
 
@@ -43,7 +43,7 @@ ms.locfileid: "68878536"
 
 2. 如果使用函数应用，请导航到“平台功能”。  对于其他应用类型，请在左侧导航区域向下滚动到“设置”组。 
 
-3. 选择“托管标识”  。
+3. 选择“标识”。 <!-- Portal shows identity not Managed identity -->
 
 4. 在“系统分配的”选项卡中，将“状态”切换为“启用”    。 单击“保存”  。
 
@@ -51,15 +51,16 @@ ms.locfileid: "68878536"
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
-若要使用 Azure CLI 设置托管标识，需要针对现有应用程序使用 `az webapp identity assign` 命令。 运行本部分中的示例有一个选项：
+若要使用 Azure CLI 设置托管标识，需要针对现有应用程序使用 `az webapp identity assign` 命令：
 
 - 如果喜欢使用本地 CLI 控制台，请[安装最新版 Azure CLI](/cli/install-azure-cli)（2.0.31 或更高版本）。 
 
 以下步骤将指导你完成使用 CLI 创建 Web 应用并为其分配标识的操作：
 
-1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure。 使用与要在其下部署应用程序的 Azure 订阅关联的帐户：
+1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure。 使用与要在其下部署应用程序的 Azure 订阅关联的帐户：
 
     ```azurecli
+    az cloud set -n AzureChinaCloud
     az login
     ```
 2. 使用 CLI 创建 Web 应用程序。 有关如何将 CLI 用于应用服务的更多示例，请参阅[应用服务 CLI 示例](../app-service/samples-cli.md)：
@@ -157,7 +158,7 @@ Azure 资源管理器模板可以用于自动化 Azure 资源部署。 若要详
 ## <a name="adding-a-user-assigned-identity-preview"></a>添加用户分配的标识（预览版）
 
 > [!NOTE] 
-> 用户分配的标识现提供预览版。 目前尚不支持主权云。
+> 用户分配的标识现提供预览版。
 
 创建带有用户分配符的标识的应用需要创建标识，然后将其资源标识符添加到应用配置中。
 
@@ -174,7 +175,7 @@ Azure 资源管理器模板可以用于自动化 Azure 资源部署。 若要详
 
 3. 如果使用函数应用，请导航到“平台功能”。  对于其他应用类型，请在左侧导航区域向下滚动到“设置”组。 
 
-4. 选择“托管标识”  。
+4. 选择“标识”。 
 
 5. 在“用户分配的(预览版)”选项卡中，单击“添加”   。
 
@@ -384,6 +385,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>在 Python 中：
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>在 PowerShell 中：

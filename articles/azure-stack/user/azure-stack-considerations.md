@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 04/08/2019
-ms.date: 07/29/2019
+origin.date: 07/17/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: a9778d6488e2d17a5f814b0540a0589dcd936d67
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 4e875070f7d5da2b1f2c077eab98be85ac483176
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513349"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70856963"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack 与 Azure 之间的差异
 
@@ -31,7 +31,7 @@ ms.locfileid: "68513349"
 
 Azure Stack 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。 可在 Azure Stack 上开发应用，然后将其部署到 Azure Stack、Azure 或 Azure 混合云。
 
-Azure Stack 运营商会告知有哪些服务可用，以及如何获取支持。 他们通过自定义计划和套餐来提供这些服务。
+Azure Stack 运营商会告知有哪些服务可供你使用，以及如何获取支持。 他们通过自定义计划和套餐来提供这些服务。
 
 Azure 技术文档内容假设应用是为 Azure 服务（而不是 Azure Stack）开发的。 开发应用并将其部署到 Azure Stack 时，必须了解一些主要差异，例如：
 
@@ -42,7 +42,7 @@ Azure 技术文档内容假设应用是为 Azure 服务（而不是 Azure Stack�
 
 ## <a name="cheat-sheet-high-level-differences"></a>速查表：大致差异
 
-下表描述了 Azure Stack 与 Azure 之间的大致差异。 开发适用于 Azure Stack 的应用或使用 Azure Stack 服务时，请记住这些差异。
+下表描述了 Azure Stack 与 Azure 之间的大致差异。 针对 Azure Stack 进行开发或使用 Azure Stack 服务时，请记住这些差异：
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -68,7 +68,7 @@ Azure 提供的工具和指导有助于 Azure Stack 方面的开发。
 | -------- | ------------- |
 | 在开发人员工作站上安装正确的工具。 | - [安装 PowerShell](../operator/azure-stack-powershell-install.md)<br>- [下载工具](../operator/azure-stack-powershell-download.md)<br>- [配置 PowerShell](azure-stack-powershell-configure-user.md)<br>- [安装 Visual Studio](azure-stack-install-visual-studio.md) 
 | 查看有关以下各项的信息：<br>- Azure 资源管理器模板注意事项<br>- 如何查找快速入门模板<br>- 借助策略模块使用 Azure 进行 Azure Stack 方面的开发 | [Azure Stack 开发](azure-stack-developer.md) | 
-| 查看并遵循模板最佳做法。 | [资源管理器快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
+| 查看并遵循模板最佳做法。 | [资源管理器快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
 | | |
 
 ## <a name="version-requirements"></a>版本要求

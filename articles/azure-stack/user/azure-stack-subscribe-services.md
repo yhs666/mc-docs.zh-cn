@@ -1,6 +1,6 @@
 ---
-title: 如何订阅 Azure Stack 套餐 | Microsoft Docs
-description: 本教程介绍如何创建 Azure Stack 服务的新订阅，并通过创建测试虚拟机来测试套餐。
+title: 在 Azure Stack 中创建包含套餐的订阅 | Microsoft Docs
+description: 了解如何在 Azure Stack 中创建包含套餐的新订阅，然后使用测试 VM 测试该套餐。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,28 +13,28 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 02/21/2019
-ms.date: 04/29/2019
+origin.date: 06/04/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 28d4d0167355253f1e5db214ac80f38627311e18
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 59b6955941919e1b44904d4ea52b13e3d6e13725
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855230"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857317"
 ---
-# <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>教程：在 Azure Stack 中创建和测试订阅
 
-本教程介绍如何创建包含套餐的订阅，然后对其进行测试。 测试时，需要以云管理员身份登录到 Azure Stack 用户门户，订阅套餐，然后创建虚拟机。
+本教程介绍如何创建包含套餐的订阅，然后如何对其进行测试。 测试时，需要以云管理员身份登录到 Azure Stack 用户门户，订阅套餐，然后创建虚拟机 (VM)。
 
 > [!TIP]
 > 若要获得更高级的评估体验，可[为特定用户创建订阅](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)，然后在用户门户中以该用户的身份登录。
 
 本教程介绍如何订阅 Azure Stack 套餐。
 
-要学习的知识：
+学习内容：
 
 > [!div class="checklist"]
 > * 订阅产品 
@@ -42,47 +42,47 @@ ms.locfileid: "64855230"
 
 ## <a name="subscribe-to-an-offer"></a>订阅产品
 
-若要以用户身份订阅套餐，请登录到 Azure Stack 用户门户，以发现 Azure Stack 操作员提供的服务。
+若要以用户身份订阅套餐，请登录 Azure Stack 用户门户以查看 Azure Stack 运营商提供的可用服务。
 
-1. 登录到用户门户，并选择“获取订阅”。
+1. 登录到用户门户，并选择“获取订阅”。 
 
    ![获取订阅](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. 在“显示名称”字段中，键入订阅的名称。 然后选择“套餐”，在“选择套餐”部分选择某个可用套餐。 然后选择“创建”。
+2. 在“显示名称”字段中，键入订阅的名称。  然后选择“套餐”，在“选择套餐”部分选择某个可用套餐。   然后选择“创建”  。
 
    ![创建产品](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
-   > 现在，必须刷新用户门户以开始使用该订阅。
+   > 刷新用户门户以开始使用该订阅。
 
-3. 若要查看已创建的订阅，请选择“所有服务”。 然后，在“常规”类别下选择“订阅”，然后选择新订阅。 订阅套餐之后，请刷新门户，以查看新服务是否已包含为新订阅的一部分。 在本示例中，我们已添加**虚拟机**。
+3. 若要查看已创建的订阅，请选择“所有服务”  。 然后，在“常规”  类别下选择“订阅”  ，然后选择新订阅。 订阅套餐之后，请刷新门户，以查看新服务是否已包含为新订阅的一部分。 在本示例中，我们已添加**虚拟机**。
 
    ![查看订阅](media/azure-stack-subscribe-services/view-subscription.png)
 
 ## <a name="test-the-offer"></a>测试产品/服务
 
-登录到用户门户后，可以使用新订阅功能预配虚拟机，以测试套餐。
+登录到用户门户后，可以使用新订阅功能预配虚拟机 (VM)，以测试套餐。
 
 > [!NOTE]
-> 此项测试需要用到事先已添加到 Azure Stack 市场的 Windows Server 2016 Datacenter VM。
+> 此项测试需要先将 Windows Server 2016 Datacenter VM 添加到 Azure Stack 市场。
 
 1. 登录到用户门户。
 
-2. 在用户门户中，依次选择“虚拟机”、“添加”、“Windows Server 2016 Datacenter”，然后单击“创建”。
+2. 在用户门户中，依次选择“虚拟机”、“添加”、“Windows Server 2016 Datacenter”和“创建”。    
 
-3. 在“基本信息”部分，输入“名称”、“用户名”和“密码”，选择“订阅”，创建一个**资源组**，然后选择“确定”。
+3. 在“基本信息”部分，输入“名称”、“用户名”和“密码”，选择“订阅”，创建一个**资源组**，然后选择“确定”。      
 
-4. 在“选择大小”部分选择“A1 标准”，然后单击“选择”。  
+4. 在“选择大小”部分中选择“A1 标准”，然后选择“选择”。     
 
-5. 在“设置”边栏选项卡中接受默认值，然后选择“确定”。
+5. 在“设置”边栏选项卡中接受默认值，然后选择“确定”。  
 
-6. 在“摘要”部分，单击“确定”创建虚拟机。  
+6. 在“摘要”部分中，选择“确定”以创建该 VM。    
 
-7. 若要查看新虚拟机，请选择“虚拟机”，然后搜索新虚拟机并单击其名称。
+7. 若要查看新 VM，请选择“虚拟机”  ，然后搜索新 VM 并选择其名称。
 
     ![所有资源](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
-> 虚拟机部署需要几分钟时间才能完成。
+> VM 部署需要几分钟时间才能完成。
 
 

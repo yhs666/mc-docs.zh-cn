@@ -1,5 +1,5 @@
 ---
-title: 上传并绑定 SSL 证书 - Azure 应用服务 | Microsoft Docs
+title: 上传并绑定 SSL 证书 - Azure 应用服务 | Azure
 description: 了解如何将自定义 SSL 证书绑定到 Azure 应用服务中的 Web 应用、移动应用后端或 API 应用。
 services: app-service\web
 documentationcenter: nodejs
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/06/2019
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 67351bf51ee450bcc180beb39a8c6bbc64b41809
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: baa1f790955e2faef38aedd21a92d5aac4c4f386
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878616"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806893"
 ---
 # <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>教程：将 SSL 证书上传并绑定到 Azure 应用服务
 
@@ -115,7 +115,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="secure-a-custom-domain"></a>确保自定义域的安全
 
-若要上传 SSL 证书，请在应用的左侧导航窗格中单击“SSL 设置”  。
+
 若要使用第三方证书确保[自定义域](app-service-web-tutorial-custom-domain.md)的安全，请上传[准备好的私有证书](#prepare-a-private-certificate)，然后将其绑定到自定义域，不过应用服务为你简化了此过程。 执行以下步骤：
 
 单击应用左侧导航栏中的“自定义域”，然后针对需要保护的域单击“添加绑定”。   如果看不到与某个域对应的“添加绑定”选项，则表明该域已受到保护，其 SSL 状态应该为“安全”。  
@@ -208,7 +208,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
-可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 中使用脚本自动完成应用的 SSL 绑定。
+可以在 [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中使用脚本自动完成应用的 SSL 绑定。
 
 ### <a name="azure-cli"></a>Azure CLI
 

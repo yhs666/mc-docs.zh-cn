@@ -1,5 +1,5 @@
 ---
-title: 创建静态 HTML Web 应用 - Azure 应用服务 | Azure Docs
+title: 创建静态 HTML Web 应用 - Azure 应用服务 | Azure
 description: 了解如何通过部署静态 HTML 示例应用，在 Azure 应用服务中运行 Web 应用。
 services: app-service\web
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 08/24/2018
 ms.date: 02/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: f9bd5ac9597dd12d9eca07dfd0d0ea5c383e8993
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: b11b56f5118079f44cd5da77e23d466a5d372764
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222586"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806858"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 

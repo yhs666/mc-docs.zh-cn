@@ -1,6 +1,6 @@
 ---
-title: 使用模板验证工具检查 Azure Stack 的模板 | Microsoft Docs
-description: 检查要部署到 Azure Stack 的模板
+title: 在 Azure Stack 中使用模板验证工具 | Microsoft Docs
+description: 使用模板验证工具检查部署到 Azure Stack 的模板。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,26 +13,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/11/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1e5797b89f3f74e90430dd35bceb8477a3ada66e
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: fd9ebc5246bf6fa2ef1aae7b726687f15df5b5f9
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513205"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857167"
 ---
-# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>使用模板验证工具检查 Azure Stack 的模板
-
+# <a name="use-the-template-validation-tool-in-azure-stack"></a>在 Azure Stack 中使用模板验证工具
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack。 模板验证工具是 Azure Stack 工具的一部分。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack 工具。
+使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack。 模板验证工具作为 Azure Stack 工具的一部分提供。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack 工具。
 
 ## <a name="overview"></a>概述
 
-若要验证模板，必须先生成云功能文件，然后运行验证工具。 使用 Azure Stack 工具中的以下 PowerShell 模块：
+若要验证模板，必须先生成云功能文件，然后运行验证工具。 通过 Azure Stack 工具使用以下 PowerShell 模块：
 
 - 在 **CloudCapabilities** 文件夹中：`AzureRM.CloudCapabilities.psm1` 创建一个云功能 JSON 文件，该文件表示 Azure Stack 云中的服务和版本。
 - 在 **TemplateValidator** 文件夹中：`AzureRM.TemplateValidator.psm1` 使用一个云功能 JSON 文件来测试要在 Azure Stack 中部署的模板。
@@ -44,7 +43,7 @@ ms.locfileid: "68513205"
 >[!NOTE]
 > 如果更新集成系统，或添加任何新服务或虚拟扩展，应重新运行该模块。
 
-1. 请确保已连接到 Azure Stack。 这些步骤可从 Azure Stack 开发工具包主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。
+1. 请确保已连接到 Azure Stack。 这些步骤可从 Azure Stack 开发工具包 (ASDK) 主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。
 2. 导入 **AzureRM.CloudCapabilities** PowerShell 模块：
 
     ```powershell
@@ -96,7 +95,7 @@ ms.locfileid: "68513205"
 
 ### <a name="examples"></a>示例
 
-此示例验证下载到本地存储的所有 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。 此示例还根据 Azure Stack 开发工具包功能验证虚拟机大小和扩展：
+此示例验证下载到本地存储的所有 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。 此示例还根据 Azure Stack 开发工具包功能验证虚拟机 (VM) 大小和扩展：
 
 ```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `

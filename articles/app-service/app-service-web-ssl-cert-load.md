@@ -1,5 +1,5 @@
 ---
-title: 在应用程序代码中使用客户端 SSL 证书 - Azure 应用服务 | Microsoft Docs
+title: 在应用程序代码中使用客户端 SSL 证书 - Azure 应用服务 | Azure
 description: 了解如何使用客户端证书连接到需要它们的远程资源。
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2019
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: de01f81c1e0e6a8b44d84951222c023974bcad6c
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 843933a627910bd32b7a08128237c5559dc3d743
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878559"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806818"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>在 Azure 应用服务的应用程序代码中使用 SSL 证书
 
@@ -57,8 +57,6 @@ az webapp config ssl upload --name <app-name> --resource-group <resource-group-n
 上传证书以后，请复制证书指纹并参阅[使证书可供访问](#make-the-certificate-accessible)。
 
 ## <a name="import-an-app-service-certificate"></a>导入应用服务证书
-
-请参阅[为 Azure 应用服务购买和配置 SSL 证书](web-sites-purchase-ssl-web-site.md)。
 
 导入证书以后，请复制证书指纹并参阅[使证书可供访问](#make-the-certificate-accessible)。
 

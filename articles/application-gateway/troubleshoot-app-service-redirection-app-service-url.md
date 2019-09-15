@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 07/19/2019
-ms.date: 09/03/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3c6d9b44b8880dbe475dd6afc255339cdebe0e89
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: fac68e45dc3acb6454fd09bc49120a5c968473f9
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310850"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857222"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>排查应用程序网关中的应用服务问题
 
@@ -75,9 +75,16 @@ X-Powered-By: ASP.NET
 ```
 在上面的示例中可以发现，响应标头包含重定向状态代码 301，location 标头包含应用服务的主机名而不是原始主机名“www.contoso.com”。
 
-## <a name="solution-use-app-services-custom-domain-instead-of-default-domain-name"></a>解决方案：使用应用服务的自定义域而不是默认域名
+## <a name="solution-rewrite-the-location-header"></a>解决方案：重写 Location 标头
 
-若要解决重定向问题，还需要将应用程序网关接收的同一主机名传递给应用服务，而不要执行主机替代。
+需将 location 标头中的主机名设置为应用程序网关的域名。 为此，请创建一个[重写规则](/application-gateway/rewrite-http-headers)，其中的某个条件可以评估响应中的 location 标头是否包含 chinacloudsites.cn，并执行某个操作来重写 location 标头，使之包含应用程序网关的主机名。  请参阅有关[如何重写 location 标头](/application-gateway/rewrite-http-headers#modify-a-redirection-url)的说明。
+
+> [!NOTE]
+> HTTP 标头重写支持仅适用于 [Standard_V2 和 WAF_v2 SKU](/application-gateway/application-gateway-autoscaling-zone-redundant) 版应用程序网关。 如果你使用 V1 SKU，我们强烈建议你[从 V1 迁移到 V2](/application-gateway/migrate-v1-v2)，这样就能使用 V2 SKU 提供的重写功能和其他[高级功能](/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku)。
+
+## <a name="alternate-solution-use-app-services-custom-domain-instead-of-default-domain-name"></a>备用解决方案：使用应用服务的自定义域而不是默认域名
+
+如果你使用 V1 SKU，则不能重写 location 标头，因为此功能仅适用于 V2 SKU。 因此，若要解决重定向问题，还需要将应用程序网关接收的同一主机名传递给应用服务，而不要执行主机替代。
 
 然后，应用服务会在指向应用程序网关而不是指向自身的同一原始主机标头中执行重定向（如果有）。
 

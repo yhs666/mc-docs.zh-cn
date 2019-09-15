@@ -1,5 +1,5 @@
 ---
-title: 配置 PremiumV2 层 - Azure 应用服务 | Azure Docs
+title: 配置 PremiumV2 层 - Azure 应用服务 | Azure
 description: 了解如何通过扩展到新的 PremiumV2 定价层提高 Azure 应用服务中的 Web、移动和 API 应用的性能。
 keywords: 应用服务, azure 应用服务, 缩放, 可缩放, 应用服务计划, 应用服务成本
 services: app-service
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2018
-ms.date: 07/22/2019
-ms.author: v-biyu
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 04dbe84f4501a3a1728502644c3604f9e55b00bb
-ms.sourcegitcommit: e9b648b0cb923b93753fb7e85e1a29f07602213b
+ms.openlocfilehash: f47cd90c88e070755fb24e76161588109495f278
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717690"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806839"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>为 Azure 应用服务配置 PremiumV2 层
 
@@ -98,7 +98,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
-可以使用 [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 通过脚本在 **PremiumV2** 层中自动执行应用创建。
+可以使用 [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 通过脚本在 **PremiumV2** 层中自动执行应用创建。
 
 ### <a name="azure-cli"></a>Azure CLI
 

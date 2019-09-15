@@ -1,5 +1,5 @@
 ---
-title: 安全概述 - Azure 应用服务
+title: 安全概述 - Azure 应用服务 | Azure
 description: 了解应用服务如何帮助保护应用，以及如何进一步锁定应用使其免受威胁。
 keywords: azure 应用服务, web 应用, 移动应用, api 应用, 函数应用, 安全性, 保护, 受保护, 符合性, 符合, 证书, 证书, https, ftps, tls, 信任, 加密, 加密, 已加密, ip 限制, 身份验证, 授权, 身份验证, 授权, msi, 托管服务标识, 托管标识, 机密, 机密, 修补, 修补程序, 修补程序, 版本, 隔离, 网络隔离, ddos, mitm
 services: app-service
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/24/2018
-ms.date: 07/01/2019
-ms.author: v-biyu
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b1cb089443b3ffd2e6726011f3bb2023ea6545b7
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 7e5c499a49f8620dd0791c9d04aa34f16c7e9520
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878527"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806809"
 ---
 # <a name="security-in-azure-app-service"></a>Azure 应用服务中的安全性
 
@@ -59,6 +59,7 @@ ms.locfileid: "68878527"
 
 默认情况下，应用服务应用接受来自 Internet 的所有 IP 地址的请求，但你可以将该访问权限限定于一小部分 IP 地址。 通过 Windows 上的应用服务，可定义允许访问应用的 IP 地址的列表。 允许列表可包括单个 IP 地址或由子网掩码定义的 IP 地址范围。 有关详细信息，请参阅 [Azure 应用服务静态 IP 限制](app-service-ip-restrictions.md)。
 
+还可以通过配置 _web.config_ 来动态限制 IP 地址。有关详细信息，请参阅[动态 IP 安全性 \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).。
 ## <a name="client-authentication-and-authorization"></a>客户端身份验证和授权
 
 Azure 应用服务提供用户或客户端应用的统包身份验证和授权。 启用后，它只需使用少量应用程序代码甚至不使用任何应用程序代码就可让用户和客户端应用登录。 你可以实施自己的身份验证和授权解决方案，或允许应用服务代为处理。 身份验证和授权模块在将 Web 请求交付给应用程序代码之前会对其进行处理，并在未经授权的请求到达代码之前便拒绝它们。
@@ -99,7 +100,7 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 ## <a name="application-secrets"></a>应用程序密钥
 
-请勿将应用程序密钥（例如数据库凭据、API 令牌和私钥）存储在代码或配置文件中。 广为接受的方法是使用所选语言的标准模式将它们作为[环境变量](https://wikipedia.org/wiki/Environment_variable)进行访问。 在应用服务中，环境变量通过[应用设置](configure-common.md#app-settings)（对于 .NET 应用程序则为[连接字符串](configure-common.md#connection-strings)）进行定义。 应用设置和连接字符串以加密方式存储在 Azure 中，只有在应用启动并将其注入应用的进程内存之前才会对其进行解密。 加密密钥会定期轮换。
+请勿将应用程序密钥（例如数据库凭据、API 令牌和私钥）存储在代码或配置文件中。 广为接受的方法是使用所选语言的标准模式将它们作为[环境变量](https://wikipedia.org/wiki/Environment_variable)进行访问。 在应用服务中，环境变量通过[应用设置](configure-common.md#configure-app-settings)（对于 .NET 应用程序则为[连接字符串](configure-common.md#configure-connection-strings)）进行定义。 应用设置和连接字符串以加密方式存储在 Azure 中，只有在应用启动并将其注入应用的进程内存之前才会对其进行解密。 加密密钥会定期轮换。
 
 或者，可以将应用服务应用与 [Azure Key Vault](/key-vault/) 集成，以实现高级密钥管理。 通过[使用托管标识访问 Key Vault](../key-vault/tutorial-web-application-keyvault.md)，应用服务应用可以安全地访问所需的机密。
 

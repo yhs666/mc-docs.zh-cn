@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 使用流量管理器在全球范围内缩放应用 | Azure Docs
+title: Azure CLI 脚本示例 - 使用流量管理器在全球范围内缩放应用 | Azure
 description: Azure CLI 脚本示例 - 缩放具有高可用性体系结构的全球应用服务应用
 services: appservice
 documentationcenter: appservice
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 4c06181631c2535044488342a1e447e189fbf7c6
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 4d7c6f3d8dcd0731d45f3c7abf8cd6773eb55188
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083874"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806788"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>使用 Azure CLI 缩放具有高可用性体系结构的全球应用服务应用
 
@@ -30,7 +30,7 @@ ms.locfileid: "54083874"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-lastest)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -71,16 +71,14 @@ az network traffic-manager endpoint create -n $app2Name-$location2 --profile-nam
 
 | 命令 | 注释 |
 |---|---|
-| [`az group create`](https://docs.azure.cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](https://docs.azure.cn/zh-cn/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 创建应用服务计划。 |
-| [`az webapp create`](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) | 创建 Azure Web 应用。 |
-| [`az network traffic-manager profile create`](https://docs.azure.cn/zh-cn/cli/network/traffic-manager/profile?view=azure-cli-latest#az_network_traffic_manager_profile_create) | 创建 Azure 流量管理器配置文件。 |
-| [`az network traffic-manager endpoint create`](https://docs.azure.cn/zh-cn/cli/network/traffic-manager/endpoint?view=azure-cli-latest#az_network_traffic_manager_endpoint_create) | 将终结点添加到 Azure 流量管理器配置文件。 |
+| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
+| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
+| [`az network traffic-manager profile create`](/cli/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) | 创建 Azure 流量管理器配置文件。 |
+| [`az network traffic-manager endpoint create`](/cli/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) | 将终结点添加到 Azure 流量管理器配置文件。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。
-
-<!--Update_Description: add a note about Azure CLI 2.0 version-->

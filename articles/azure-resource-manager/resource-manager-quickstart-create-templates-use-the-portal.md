@@ -14,12 +14,12 @@ origin.date: 06/12/2019
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: d9b19f27f9cafc6aa79fb7272ca86e293cfb194e
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 3c9648a1487a4c57cdc2fcf28bc655e1e319035a
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337413"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857120"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
@@ -174,11 +174,20 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 
     - “部署解决方案模板”面板。 
     
-        |名称|值| |**资源组**| 选择“新建”  并将你的资源组命名为一个唯一名称。| |**资源组位置**| 为资源组选择一个位置。 例如，**中国北部**。 |
+        |Name|Value|
+        |----|----|
+        |**资源组**| 选择“新建”  并使用唯一名称命名资源组。|
+        |**资源组位置**| 选择资源组的位置。 例如，**中国北部**。 |
         
     - 选择“编辑参数”，显示“参数”面板。  
     
-        |名称|值| |**位置**| 为存储帐户选择一个位置。 例如，**中国北部**。| |**帐户类型**| 对于本快速入门，请输入 **Standard_LRS**。| |**种类**| 对于本快速入门，请输入 **StorageV2**。| |**访问层**| 对于本快速入门，请输入 **Hot**。| |**启用仅限 Https 流量**| 对于本快速入门，请选择 **true**。|
+        |Name|Value|
+        |----|----|
+        |**Location**| 选择存储帐户的位置。 例如，**中国北部**。|
+        |**帐户类型**| 对于本快速入门，请输入 **Standard_LRS**。|
+        |**种类**| 对于本快速入门，请输入“StorageV2”。 |
+        |**访问层**| 对于本快速入门，请输入“热”  。|
+        |**启用仅限 Https 流量**|  对于本快速入门，请选择“true”。 |
         
      - 选择“确定”  。
 

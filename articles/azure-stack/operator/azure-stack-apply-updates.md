@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2019
-ms.date: 06/03/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 6b790e14c99f78caf8b950576857c6b7625e6ec2
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: a33c20f64c18244f5a3fd2f3dbbbb9170ea6fe6f
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381908"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857146"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
@@ -114,7 +114,7 @@ ms.locfileid: "66381908"
 9. 完成后，可以查看通知（在门户右上角的钟形图标）。 通知应指示已完成上传。
 10. 导航回仪表板上的“更新”磁贴。 该磁贴应指示有可用更新。 单击该磁贴可查看新添加的更新包。
 11. 若要安装更新，请选择标记为“就绪”  的包，然后右键单击该包并选择“立即更新”  ，或者单击顶部附近的“立即更新”  操作。
-12. 单击正在安装的更新包时，可以在“更新运行详细信息”  区域中查看状态。 还可以在此处单击“下载完整日志”  以下载日志文件。
+12. 单击正在安装的更新包时，可以在“更新运行详细信息”  区域中查看状态。 还可以在此处单击“下载摘要”  以下载日志文件。 更新运行日志在尝试结束后 6 个月内可用。 
 13. 完成更新后，“更新”磁贴将显示更新后的 Azure Stack 版本。
 
 在 Azure Stack 上安装更新后，可以手动从存储帐户中删除更新。 Azure Stack 会定期检查是否有旧版更新包并将其从存储中删除。 Azure Stack 可能需要两周时间才能删除旧包。

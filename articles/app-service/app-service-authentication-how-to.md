@@ -1,5 +1,5 @@
 ---
-title: 身份验证和授权的高级用法 - Azure 应用服务
+title: 身份验证和授权的高级用法 - Azure 应用服务 | Azure
 description: 介绍如何在应用服务中自定义身份验证和授权，以及获取用户声明和不同的令牌。
 services: app-service
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/08/2018
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 03ba15d6235c2ada4b4510d50aa295f6a7793a77
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 9491044de17be00771b986bfa45fd17a69114a73
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878565"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806833"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -28,13 +28,17 @@ ms.locfileid: "68878565"
 
 若要快速入门，请参阅以下教程之一：
 
-
+<!--* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)-->
+<!--* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)-->
 * [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+<!--* [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)-->
+<!--* [How to configure your app to use Google login](configure-authentication-provider-google.md)-->
 * [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
+<!--* [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)-->
 
 ## <a name="use-multiple-sign-in-providers"></a>使用多个登录提供程序
 
-门户配置不会提供向用户显示多个登录提供程序的统包方式。 但是，将此功能添加到 Web 应用并不困难。 步骤概括如下：
+门户配置不会提供向用户显示多个登录提供程序的统包方式。 但是，将此功能添加到应用并不困难。 步骤概括如下：
 
 首先，在 Azure 门户中的“身份验证/授权”页上，配置想要启用的每个标识提供者。 
 
@@ -172,7 +176,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 - **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，执行以下步骤：
     1. 在页面顶部，选择“读/写”。 
-    2. 在左侧浏览器中，导航到 **subscriptions** >  ** _**  > **resourceGroups** >  ** _**  > **providers** > **Microsoft.Web** > **sites** >  ** _**  > **config** > **authsettings**。 
+    2. 在左侧浏览器中，导航到 **subscriptions** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**。 
     3. 单击“编辑”。 
     4. 修改以下属性。 将 _\<app\_id>_ 替换为要访问的服务的 Azure Active Directory 应用程序 ID。
 
@@ -205,7 +209,7 @@ function refreshTokens() {
 
 如果 72 小时的时间不够，可以延长此过期期限。 大大延长过期时间可能会造成严重的安全风险（例如身份验证令牌泄密或被盗）。 因此，应将宽限期保留为默认 72 小时，或者将延期设为最小值。
 
-若要延长默认的过期期限，请运行以下命令。
+若要延长默认的过期期限，请在 Azure CLI 中运行以下命令。
 
 ```azurecli
 az webapp auth update --resource-group <group_name> --name <app_name> --token-refresh-extension-hours <hours>

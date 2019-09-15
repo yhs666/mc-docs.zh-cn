@@ -1,6 +1,6 @@
 ---
-title: 使用 MongoDB 生成 Node.js 应用 - Azure 应用服务
-description: 了解如何使在 Node.js 应用在 Azure 中运行，并使用 MongoDB 连接字符串连接到 Cosmos DB 数据库。
+title: 使用 MongoDB 的 Node.js (MEAN.js) - Azure 应用服务 | Azure
+description: 了解如何使在 Node.js 应用在 Azure 中运行，并使用 MongoDB 连接字符串连接到 Cosmos DB 数据库。 本教程使用 MEAN.js。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 04/08/2019
-ms.author: v-biyu
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 9abc4c6e008c6b2f25995a27e1701549961a07a2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: de9f3f2bebcbdb74adbb1041ee02ff96ecafde5b
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627327"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806887"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>教程：在 Azure 中生成 Node.js 和 MongoDB 应用
 
@@ -46,10 +46,10 @@ Azure 应用服务提供高度可缩放、自修补的 Web 托管服务。 本�
 完成本教程：
 
 1. [安装 Git](https://git-scm.com/)
-1. [安装 Node.js 和 NPM](https://nodejs.org/)
-1. [安装 Bower](https://bower.io/)（[MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 所需的）
-1. [安装 Gulp.js](http://gulpjs.com/) [（MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 要求的）
-1. [安装并运行 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/) 
+2. [安装 Node.js 和 NPM](https://nodejs.org/)
+3. [安装 Bower](https://bower.io/)（[MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) 所需的）
+4. [安装 Gulp.js](https://gulpjs.com/) [（MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started) 要求的）
+5. [安装并运行 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>测试本地 MongoDB
 
@@ -131,11 +131,11 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 ### <a name="create-a-cosmos-db-account"></a>创建 Cosmos DB 帐户
 
 > [!NOTE]
-> 在本教程中，在你自己的 Azure 订阅中创建 Azure Cosmos DB 数据库需付费。 若要使用七天免费的 Azure Cosmos DB 帐户，可以使用[试用 Azure Cosmos DB](https://www.azure.cn/zh-cn/home/features/cosmos-db/) 体验。 直接单击 MongoDB 磁贴中的“创建”按钮  即可在 Azure 上创建试用的 MongoDB 数据库。 创建数据库以后，请在门户中导航到“连接字符串”，然后检索 Azure Cosmos DB 连接字符串，以便在本教程的后面使用。 
+> 在本教程中，在你自己的 Azure 订阅中创建 Azure Cosmos DB 数据库需付费。 创建数据库以后，请在门户中导航到“连接字符串”，然后检索 Azure Cosmos DB 连接字符串，以便在本教程的后面使用。 
 > 
-> 使用 [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令创建 Cosmos DB 帐户。
+在 Azure CLI 中，使用 [az cosmosdb create](/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令创建 Cosmos DB 帐户。
 
-在下面的命令中，用唯一 Cosmos DB 名称替换 *\<cosmosdb_name>* 占位符。 此名称将用作 Cosmos DB 终结点 `https://<cosmosdb_name>.documents.azure.cn/` 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos DB 帐户中具有唯一性。 此名称只能包含小写字母、数字以及连字符 (-)，同时长度必须为 3 到 50 个字符。
+在下面命令中，将 *\<cosmosdb_name>* 占位符替换为一个唯一的 Cosmos DB 名称。 此名称将用作 Cosmos DB 终结点 `https://<cosmosdb_name>.documents.azure.cn/` 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos DB 帐户中具有唯一性。 此名称只能包含小写字母、数字以及连字符 (-)，同时长度必须为 3 到 50 个字符。
 
 ```azurecli
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -167,7 +167,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 ### <a name="retrieve-the-database-key"></a>检索数据库键
 
-若要连接到 Cosmos DB 数据库，需要数据库键。 使用 [az cosmosdb list-keys](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 命令检索主键。
+若要连接到 Cosmos DB 数据库，需要数据库键。 在 Azure CLI 中，使用 [`az cosmosdb list-keys`](/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) 命令检索主键。
 
 ```azurecli
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -264,7 +264,7 @@ MEAN.JS version: 0.5.0
 
 默认情况下，MEAN.js 项目会在 Git 存储库外部保留 _config/env/local-production.js_。 因此对于 Azure 应用，请使用应用设置来定义 MongoDB 连接字符串。
 
-若要设置应用设置，请在 CLI 中使用 [az webapp config appsettings set](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 
+若要设置应用设置，请在 Azure CLI 中使用 [az webapp config appsettings set](/cli/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 
 
 以下示例在 Azure 应用中配置 `MONGODB_URI` 应用设置。 替换 \<app_name>  、\<cosmosdb_name>  和 \<primary_master_key>  占位符。
 
@@ -369,7 +369,7 @@ const ArticleSchema = new Schema({
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;
@@ -458,7 +458,7 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-一旦 `git push` 完成，请导航至 Azure Web 应用，然后尝试新功能。
+`git push` 完成后，请导航至 Azure 应用，并试用新功能。
 
 ![发布到 Azure 的模型和数据库更改](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
@@ -466,21 +466,21 @@ git push azure master
 
 ## <a name="stream-diagnostic-logs"></a>流式传输诊断日志 
 
-当 Node.js 应用程序在 Azure 应用服务中运行时，可以将控制台日志传输到终端。 这样可以获得相同的诊断消息，以帮助调试应用程序错误。
+当 Node.js 应用程序在 Azure 应用服务中运行时，可以将控制台日志通过管道传输到终端。 这样可以获得相同的诊断消息，以帮助调试应用程序错误。
 
-若要启动日志流式处理，请使用 [az webapp log tail](https://docs.azure.cn/zh-cn/cli/webapp/log?view=azure-cli-latest#az_webapp_log_tail) 命令。
+若要启动日志流式处理，请使用 [az webapp log tail](/cli/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 命令。
 
 ```azurecli
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-启动日志流式处理后，请在浏览器中刷新 Azure 应用，以获取一些 Web 流量。 现在能看到控制台日志传送到终端。
+启动日志流式处理后，请在浏览器中刷新 Azure 应用，以获取一些 Web 流量。 现在将看到通过管道传送到终端的控制台日志。
 
 通过键入 `Ctrl+C`，随时停止日志流式处理。 
 
 ## <a name="manage-your-azure-app"></a>管理 Azure 应用
 
-转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。
+转到 [Azure 门户](https://portal.azure.cn)查看创建的应用。
 
 在左侧菜单中单击“应用服务”，然后单击 Azure 应用的名称。 
 

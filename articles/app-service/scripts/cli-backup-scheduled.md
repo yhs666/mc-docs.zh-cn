@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 为应用创建计划备份 | Azure Docs
+title: Azure CLI 脚本示例 - 为应用创建计划备份 | Azure
 description: Azure CLI 脚本示例 - 为应用创建计划备份
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 136d5528b61c20bdb59afcbf13c891c422b2449e
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: db62f7d7e514447e41ca597ba044db678bc29124
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083928"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806907"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>使用 CLI 为应用服务应用创建计划备份
 
@@ -29,7 +29,7 @@ ms.locfileid: "54083928"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。 
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-lastest)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -92,18 +92,18 @@ az webapp config backup update --resource-group $groupname --webapp-name $webapp
 
 | 命令 | 注释 |
 |---|---|
-| [`az group create`](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [`az storage account create`](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create) | 创建存储帐户。 |
-| [`az storage container create`](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create) | 创建 Azure 存储容器。 |
-| [`az storage container generate-sas`](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_generate_sas) | 为 Azure 存储容器生成 SAS 令牌。  |
-| [`az appservice plan create`](https://docs.azure.cn/zh-cn/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 创建应用服务计划。 |
-| [`az webapp create`](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) | 创建 Azure Web 应用。 |
-| [`az webapp config backup update`](https://docs.azure.cn/zh-cn/cli/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_update) | 为 Web 应用配置新的备份计划。 |
-| [`az webapp config backup show`](https://docs.azure.cn/zh-cn/cli/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_show) | 显示 Web 应用的备份计划。 |
-| [`az webapp config backup list`](https://docs.azure.cn/zh-cn/cli/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | 获取 Web 应用的备份列表。 |
+| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [`az storage account create`](/cli/storage/account?view=azure-cli-latest#az-storage-account-create) | 创建存储帐户。 |
+| [`az storage container create`](/cli/storage/container?view=azure-cli-latest#az-storage-container-create) | 创建 Azure 存储容器。 |
+| [`az storage container generate-sas`](/cli/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | 为 Azure 存储容器生成 SAS 令牌。  |
+| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
+| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
+| [`az webapp config backup update`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-update) | 为应用服务应用配置新的备份计划。 |
+| [`az webapp config backup show`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-show) | 显示应用服务应用的备份计划。 |
+| [`az webapp config backup list`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | 获取应用服务应用的备份列表。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。
