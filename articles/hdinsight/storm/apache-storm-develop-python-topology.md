@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/30/2018
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4ec92a7ffc04d493cb1efe9c61c46bea86a7a472
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 6c7ff17da2cfcde51afd29290065902369f9ace9
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845169"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921102"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
@@ -41,7 +41,7 @@ ms.locfileid: "67845169"
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* （可选）本地 Storm 开发环境。 仅当想要在本地运行拓扑时，才需要本地 Storm 环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)。
+* （可选）本地 Storm 开发环境。 仅当想要在本地运行拓扑时，才需要本地 Storm 环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)。
 
 ## <a name="storm-multi-language-support"></a>Storm 多语言支持
 

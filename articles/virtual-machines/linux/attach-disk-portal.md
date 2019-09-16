@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 2c978697c86fdc30a031e8b387345830df992e04
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 7e8107f30147842388a021a84eaa8b0fe7f2d779
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912916"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921226"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用门户将数据磁盘附加到 Linux VM 
 本文介绍如何通过 Azure 门户将新磁盘和现有磁盘附加到 Linux 虚拟机。 也可以[在 Azure 门户中将数据磁盘附加到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -101,6 +101,9 @@ dmesg | grep SCSI
 
 ### <a name="partition-a-new-disk"></a>对新磁盘进行分区
 如果使用包含数据的现有磁盘，请跳到装载磁盘。 如果附加新磁盘，需要对磁盘进行分区。
+
+> [!NOTE]
+> 建议你使用适用于你的发行版的最新版 fdisk 或 parted。
 
 使用 `fdisk` 对磁盘进行分区。 如果磁盘大小为 2 太字节 (TiB) 或更大，则必须使用 GPT 分区；可以使用 `parted` 来执行 GPT 分区。 如果磁盘大小在 2 TiB 以下，则可以使用 MBR 或 GPT 分区。 将其设置为分区 1 中的主磁盘，并接受其他默认值。 以下示例在 */dev/sdc* 上启动 `fdisk` 进程：
 

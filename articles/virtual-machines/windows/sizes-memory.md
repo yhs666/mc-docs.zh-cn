@@ -1,5 +1,5 @@
 ---
-title: Windows Azure VM 大小 - 内存 | Azure
+title: 内存优化虚拟机大小 | Azure
 description: 列出 Azure 中适用于 Windows 虚拟机的各种内存优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 05/15/2019
-ms.date: 08/12/2019
+origin.date: 08/08/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2de9915e0a8e010ddbd5c42e8b3ffd1734ead398
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: aa86811bf6d4e46a5f3b7f079f0a84fa10fb6c92
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538965"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921176"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 

@@ -4,9 +4,11 @@
   href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
 - name: Apache Spark
   href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
+- name: Apache HBase
+  href: ./hbase/query-hbase-with-hbase-shell.md
 - name: 交互式查询
   href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
 - name: Apache Kafka
   href: ./kafka/apache-kafka-get-started.md
 - name: Apache Storm
-  href: ./storm/apache-storm-overview.md
+  href: ./storm/apache-storm-quickstart.md

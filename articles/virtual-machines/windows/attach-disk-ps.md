@@ -1,28 +1,19 @@
 ---
 title: 使用 PowerShell 将数据磁盘附加到 Windows VM | Azure
 description: 如何配合使用 PowerShell 和 Resource Manager 部署模型将新磁盘或现有数据磁盘附加到 Windows VM。
-services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 07/01/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 5cab1f8324cb13e4cdc9eb9dd50cb5d4c0bf8315
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e499df1afa92914f2d4b9928e193d51a6eef10e0
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569743"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921241"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -64,7 +55,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 <!-- Not Available on ### Using managed disks in an Availability Zone-->
 ### <a name="initialize-the-disk"></a>初始化磁盘
 
-添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 [WinRM](https://docs.microsoft.com/zh-cn/windows/desktop/WinRM/portal) 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展：
+添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展：
 
 ```powershell
 $location = "location-name"

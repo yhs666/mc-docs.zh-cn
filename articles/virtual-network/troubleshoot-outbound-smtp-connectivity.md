@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/20/2018
-ms.date: 07/22/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8af2bea468d4f44f043423a7680dff3d487753c0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 0b87e444eec3ef4e9af10188123e0a36768492b9
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514442"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921232"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>在 Azure 中排查出站 SMTP 连接问题
 
@@ -59,9 +59,8 @@ ms.locfileid: "68514442"
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需要帮助，可[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)，通过以下支持类型快速解决问题：**订阅管理**服务类型：**维护通知相关问题**。
+如果仍需要帮助，可[联系支持人员](https://support.azure.cn/support/support-azure/)，通过以下支持类型快速解决问题：**订阅管理**服务类型：**维护通知相关问题**。
 
 <!--MOONCAKE CORRECT ON support type: **Subscription Management** service type: **Maintenance notification related issue**-->
 
-<!--Update_Description: new articles on troubleshoot outbound smtp connectivity -->
-<!--ms.date: 04/22/2019-->
+<!--Update_Description: wording update -->

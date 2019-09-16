@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/03/2019
-ms.date: 04/29/2019
+ms.date: 09/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 27a26bed8eb00c2a7245385ed8ed4a61f5a57e92
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 124c1a89d43ac2c113260d2eb6b6037775a15915
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878745"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921134"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>将 Apache Beeline 客户端与 Apache Hive 配合使用
 
@@ -52,19 +52,6 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
 将 `<headnode-FQDN>` 替换为群集头节点的完全限定域名。 若要查找头节点的完全限定域名，请使用[使用 Apache Ambari REST API 管理 HDInsight](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文档中的信息。
-
----
-
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>连接到 HDInsight 企业安全性套餐 (ESP) 群集
-
-从客户端连接到已加入 Azure Active Directory (AAD) 的企业安全性套餐 (ESP) 群集时，还必须指定域名 `<AAD-Domain>` 和有权访问群集 `<username>` 的一个域用户帐户的名称：
-
-```bash
-kinit <username>
-beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
-```
-
-将 `<username>` 替换为域中有权访问群集的帐户的名称。 将 `<AAD-DOMAIN>` 替换为群集加入到的 Azure Active Directory (AAD) 的名称。 对于 `<AAD-DOMAIN>` 值，请使用大写字符串，否则会找不到凭据。 如果需要，请查看 `/etc/krb5.conf` 中是否有领域名。
 
 ---
 

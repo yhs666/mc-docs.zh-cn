@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/04/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: f98e7feacf42002586bdfedf403c5bf16c49bad6
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 09ea437647028c872c2673b7628bab1a26e9ea0c
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538844"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921037"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -80,6 +80,7 @@ ms.locfileid: "69538844"
 
 <!--MOONCAKE: CUSTOMIZE ON FROM 75 TO 276-->
 <!--MOONCAKE: DO NOT UPDATE BEFORE CONFIRM-->
+<!--MOONCAKE: LAST CHECK ON 09/12/2019-->
 
 有五个用于配置 SQL Server 虚拟机的选项卡。
 
@@ -280,6 +281,7 @@ ms.locfileid: "69538844"
 
 <!--MOONCAKE: CUSTOMIZE ON FROM FROM 75 TO 276-->
 <!--MOONCAKE: DO NOT UPDATE BEFORE CONFIRM-->
+<!--MOONCAKE: LAST CHECK ON 09/12/2019-->
 
 可以从 Azure 门户监视部署情况。 屏幕顶部的“通知”  按钮显示部署的基本状态。
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 05/16/2019
-ms.date: 08/12/2019
+origin.date: 08/08/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed350a1ad89163dfa298a9992e12e816ab89511c
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 346f0d816e220fb9b57abca7cb3f6dbd07c67854
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912996"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921159"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 

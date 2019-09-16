@@ -1,28 +1,19 @@
 ---
 title: 更新托管磁盘的存储类型 | Azure
 description: 如何使用 Azure PowerShell 将 Azure 托管磁盘从标准类型转换为高级类型，或者从高级类型转换为标准类型。
-services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/22/2019
-ms.date: 07/01/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: f2efadaf08d161aa089abd600d6d7beee7fd11fe
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a68eb05f592042834a26e491cfe6b6a9f2279eb7
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569737"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921049"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>更新托管磁盘的存储类型
 

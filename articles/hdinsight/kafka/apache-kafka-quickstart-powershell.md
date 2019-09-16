@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: larryfr
-ms.openlocfilehash: c720f1c7e9eeed02a57d2da476f2728f79ada56e
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 11e3370250881f4001e830c59f71d859f8144857
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878748"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921073"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -60,7 +60,7 @@ if(-not($sub))
 
 使用 [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例将提示输入名称和地址，然后创建新的资源组：
 
-```powershell
+```azurepowershell
 $resourceGroup = Read-Host -Prompt "Enter the resource group name"
 $location = Read-Host -Prompt "Enter the Azure region to use"
 
@@ -135,19 +135,16 @@ New-AzHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]
-> 创建 HDInsight 群集可能需要最多 20 分钟。
+创建 HDInsight 群集可能需要最多 20 分钟。
 
-> [!TIP]
-> `-DisksPerWorkerNode` 参数配置 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 
->
-> 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/az.HDInsight/New-azHDInsightCluster) 文档。
+`-DisksPerWorkerNode` 参数配置 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。
+
+托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) 文档。
 
 
-> [!IMPORTANT]
-> 如果计划使用 32 个以上的辅助角色节点（在创建群集时配置或者是在创建之后通过扩展群集来配置），则必须使用 `-HeadNodeSize` 参数指定至少具有 8 个核心和 14 GB RAM 的 VM 大小。
->
-> 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+如果计划使用 32 个以上的辅助角色节点（在创建群集时配置或者是在创建之后通过扩展群集来配置），则必须使用 `-HeadNodeSize` 参数指定至少具有 8 个核心和 14 GB RAM 的 VM 大小。
+
+有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 ## <a name="connect-to-the-cluster"></a>连接至群集
 
@@ -163,7 +160,7 @@ New-AzHDInsightCluster `
 
 连接后，显示的信息类似于以下文本：
 
-```text
+```output
 Authorized uses only. All activity may be monitored and reported.
 Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
@@ -182,7 +179,6 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 Welcome to Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
 ```
 
 ## <a id="getkafkainfo"></a>获取 Apache Zookeeper 主机和代理主机信息
@@ -257,15 +253,13 @@ Kafka 在主题中存储数据流  。 可以使用 `kafka-topics.sh` 实用工�
 
     * 每个分区在群集中的三个辅助角色节点上进行复制。
 
-        > [!IMPORTANT]
-        > 如果在 Azure 区域中已创建提供三个容错域的群集，则复制因子使用 3。 否则，复制因子使用 4.
+        如果在 Azure 区域中已创建提供三个容错域的群集，则复制因子使用 3。 否则，复制因子使用 4.
         
         在具有三个容错域的区域中，复制因子为 3 可让副本分布在容错域中。 在具有两个容错域的区域中，复制因子为 4 可将副本均匀分布在域中。
         
         有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
 
-        > [!IMPORTANT] 
-        > Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
+        Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
 
         若要确保高可用性，请使用 [Apache Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 连接运行此工具，以便连接到 Kafka 群集的头节点。
 
@@ -324,8 +318,7 @@ Kafka 将记录  存储在主题中。 记录由生成者  生成，由使用者
    
     此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者从流的开头开始，以检索所有记录。
 
-    > [!NOTE]
-    > 如果使用的是较旧版本的 Kafka，请将 `--bootstrap-server $KAFKABROKERS` 替换为 `--zookeeper $KAFKAZKHOSTS`。
+    如果使用的是较旧版本的 Kafka，请将 `--bootstrap-server $KAFKABROKERS` 替换为 `--zookeeper $KAFKAZKHOSTS`。
 
 4. 使用 __Ctrl + C__ 阻止使用者。
 
@@ -335,7 +328,7 @@ Kafka 将记录  存储在主题中。 记录由生成者  生成，由使用者
 
 如果不再需要资源组、HDInsight 和所有相关的资源，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/remove-azresourcegroup) 命令将其删除。
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 

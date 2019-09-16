@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中跨租户共享库映像 | Azure
+title: 在 Azure 租户之间共享库 VM 映像 | Azure
 description: 了解如何使用共享映像库跨 Azure 租户共享 VM 映像。
 services: virtual-machines-windows
 author: rockboyfor
@@ -8,15 +8,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-origin.date: 04/05/2019
-ms.date: 08/12/2019
+origin.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: dc9fe83db254bd350bdf11a6e425d59c367563a6
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 7921628a10daf32bd0139ee5a87f655302ac5d11
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538971"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921178"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>跨 Azure 租户共享库 VM 映像
 
@@ -44,17 +44,40 @@ Connect-AzAccount -Environment AzureChinaCloud -ServicePrincipal -Credential $cr
 
 ```powershell
 $resourceGroup = "myResourceGroup"
+$location = "China East"
+$vmName = "myVMfromImage"
+
+# Set a variable for the image version in Tenant 1 using the full image ID of the shared image version
 $image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
-New-AzVm `
-   -ResourceGroupName "myResourceGroup" `
-   -Name "myVMfromImage" `
-   -Image $image `
-   -Location "China East" `
-   -VirtualNetworkName "myImageVnet" `
-   -SubnetName "myImageSubnet" `
-   -SecurityGroupName "myImageNSG" `
-   -PublicIpAddressName "myImagePIP" `
-   -OpenPorts 3389
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Networking pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using the $image variable to specify the shared image
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+Set-AzVMSourceImage -Id $image | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
 <!--Not Available on ## Next steps-->

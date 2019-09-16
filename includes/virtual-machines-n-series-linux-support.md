@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: include
 origin.date: 02/11/2019
-ms.date: 05/20/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: aede79f36c263d430f620e5a5ea1212489fb9a62
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: b8a515a95510a04a74cc31a3b56641ed37033656
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004256"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921131"
 ---
 ## <a name="supported-distributions-and-drivers"></a>支持的分发和驱动程序
 

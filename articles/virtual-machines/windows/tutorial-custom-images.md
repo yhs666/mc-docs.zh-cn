@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9d722db759e211e5cebd2908a4815bd6d5d3b409
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: ee81f69b5baa15c55f4306428da40597ddbd0ceb
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538846"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921252"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -35,6 +35,7 @@ ms.locfileid: "69538846"
 > * 列出订阅中的所有映像
 > * 删除映像
 
+<!--Not Available on [Azure VM Image Builder](/virtual-machines/windows/image-builder-overview)-->
 ## <a name="before-you-begin"></a>开始之前
 
 下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
@@ -67,6 +68,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 ```powershell
 Connect-AzAccount -Environment AzureChinaCloud
+
 Stop-AzVM `
    -ResourceGroupName myResourceGroup `
    -Name myVM -Force

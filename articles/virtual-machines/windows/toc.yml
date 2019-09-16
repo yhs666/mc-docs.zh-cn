@@ -158,6 +158,8 @@
           href: hybrid-use-benefit-licensing.md
     - name: 保护 VM
       items:
+        - name: 实时访问
+          href: ../../security-center/security-center-just-in-time.md
         - name: 加密
           href: encrypt-disks.md
           displayName: encryption
@@ -180,6 +182,8 @@
               href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
             - name: 还原磁盘
               href: ../../backup/tutorial-restore-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+            - name: 还原单个文件
+              href: ../../backup/tutorial-restore-files.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
         - name: 为 VM 设置灾难恢复
           href: ../../site-recovery/site-recovery-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
           items:
@@ -235,7 +239,7 @@
             - name: PowerShell
               href: shared-images.md
             - name: CLI
-              href: ../linux/shared-images.md
+              href: ../linux/shared-images.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
             - name: 在租户间共享映像
               href: share-images-across-tenants.md
             - name: 排查共享映像问题
@@ -344,6 +348,20 @@
           href: portal-create-fqdn.md
         - name: DNS 解析
           href: ../../dns/dns-for-azure-services.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: 配置托管标识
+      items:
+        - name: 门户
+          href: /active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: CLI
+          href: /active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: PowerShell
+          href: /active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: Azure 资源管理器模板
+          href: /active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: REST
+          href: /active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: Azure SDK
+          href: /active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: 使用 VM 扩展
       href: ../extensions/overview.md
     - name: 移动和迁移 VM

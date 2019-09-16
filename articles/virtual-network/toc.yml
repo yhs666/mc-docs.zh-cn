@@ -301,11 +301,11 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/zh-cn/cli/network?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/network?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network'
     - name: .NET
-      href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/virtual-network?view=azure-dotnet'
+      href: 'https://docs.azure.cn/dotnet/api/overview/virtual-network?view=azure-dotnet'
     - name: Java
       href: 'https://docs.azure.cn/java/api/'
     - name: Node.js

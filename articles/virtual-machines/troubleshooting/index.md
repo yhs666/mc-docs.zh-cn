@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 10/03/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9126415627eeeb1b17d1fa44b3c47229951ae879
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 3581bdfb3113de1e9123af1f398b82e8209c5748
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538948"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921230"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>排查 Azure 虚拟问题
 
@@ -35,12 +35,12 @@ ms.locfileid: "69538948"
     - [SSH 故障排除](troubleshoot-ssh-connection.md)
     - [详细 SSH 故障排除步骤](detailed-troubleshoot-ssh-connection.md)
     - [常见错误消息](error-messages.md)
-    
-    <!--Not Available on    - [Performance issues with Windows VMs](performance-diagnostics.md)-->
-    <!--Not Available on    - [ How to use PerfInsights  ](how-to-use-perfInsights.md)-->
-    <!--Not Available on    - [ Performance diagnostics extension  ](performance-diagnostics-vm-extension.md)-->
-    
 - [脱机安装 Windows VM 代理](install-vm-agent-offline.md)
+    
+    <!--Not Available on    - [Performance issues with VMs](performance-diagnostics.md)-->
+    <!--Not Available on    - [How to use PerfInsights](how-to-use-perfinsights.md)-->
+    <!--Not Available on    - [Performance diagnostics extension](performance-diagnostics-vm-extension.md)-->
+    
 - 重新部署 VM
     - [Linux](redeploy-to-new-node-linux.md)
     - [Windows](redeploy-to-new-node-windows.md)

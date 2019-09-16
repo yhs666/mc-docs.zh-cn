@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0d2e723c6534daa6a9a8185e8f1a0cdc9814b94
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 4893842e85b890e39ae2fc37f19eb57b73d84f0b
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539152"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921084"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序 
 
@@ -55,7 +55,7 @@ ms.locfileid: "69539152"
 
 2. 运行 `nvidia-smi`。 如果安装了驱动程序，将看到如下输出。 除非当前正在 VM 上运行 GPU 工作负荷，否则“GPU-Util”将显示“0%”   。 驱动程序版本和 GPU 详细信息可能与所示的内容不同。
 
-![NVIDIA 设备状态](./media/n-series-driver-setup/smi.png)  
+    ![NVIDIA 设备状态](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA 网络连接
 
@@ -65,10 +65,12 @@ ms.locfileid: "69539152"
 <!--Notice: NCV3 is valid on chinaeast2 and chinanorth2-->
 
 若要在“中国北部 2”区域中名为 myVM 且支持 RDMA 的现有 VM 上安装最新版本 1.1 HpcVMDrivers 扩展，请执行以下命令：
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "chinanorth2" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
-  ```
-  有关详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+
+```powershell
+Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "chinanorth2" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+```
+
+有关详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 对于使用 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 或 Intel MPI 5.x 运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 
 

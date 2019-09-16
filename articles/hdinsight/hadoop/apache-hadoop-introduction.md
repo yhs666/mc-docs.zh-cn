@@ -12,14 +12,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/11/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 275dad112796a44682b7c76d97ccce1031ae6ea6
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: d352cff449a25c5f9834900150384dbeffe4bc76
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845363"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921140"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hadoop？
 
@@ -89,7 +89,7 @@ HDInsight 包括特定的群集类型和群集自定义功能，例如添加组�
 
 |群集类型 | 说明 |
 |---|---|
-|[Apache Hadoop](https://wiki.apache.org/hadoop)|一个框架，使用 HDFS、YARN 资源管理和简单的 MapReduce 编程模型并行处理和分析批处理数据。|
+|[Apache Hadoop](https://hadoop.apache.org/)|一个框架，使用 HDFS、YARN 资源管理和简单的 MapReduce 编程模型并行处理和分析批处理数据。|
 |[Apache Spark](https://spark.apache.org/)|一种开源并行处理框架，支持使用内存中处理来提升大数据分析应用程序的性能。 请参阅[什么是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)|
 |[Apache HBase](https://hbase.apache.org/)|构建于 Hadoop 上的 NoSQL 数据库，用于为大量非结构化和半结构化数据（可能为数十亿行乘以数百万列）提供随机访问和高度一致性。 请参阅[什么是 HBase on HDInsight？](../hbase/apache-hbase-overview.md)|
 |[Apache Storm](https://storm.incubator.apache.org/)|分布式实时计算系统，用于快速处理大型数据流。 Storm 以 HDInsight 中的托管群集形式提供。 请参阅 [使用 Storm 和 Hadoop 分析实时传感器数据](../storm/apache-storm-sensor-data-analysis.md)。|

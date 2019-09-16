@@ -1,27 +1,19 @@
 ---
-title: Azure 中 Linux VM 上的 IaaS 磁盘备份和灾难恢复 | Azure
+title: Azure IaaS 磁盘的备份和灾难恢复 | Azure
 description: 本文介绍如何规划 Azure 中的 IaaS 虚拟机和磁盘的备份与灾难恢复。 本文档涉及托管磁盘和非托管磁盘。
-services: virtual-machines-linux
-cloud: Azure
-documentationcenterc: na
 author: rockboyfor
-manager: digimobile
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/19/2017
-ms.date: 07/01/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: b69cc018f4517c25e1d126e95b6803b0a848b131
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0641e1e1ec122f32b4fdd5abd68f4034afd132de
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570042"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921050"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]
 

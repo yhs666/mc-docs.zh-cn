@@ -1,21 +1,19 @@
 ---
 title: 磁盘基准测试 | Azure
 description: 了解在 Azure 上对应用程序进行基准测试的过程。
-services: virtual-machines-linux,storage
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 01/11/2019
-ms.date: 08/12/2019
-ms.topic: article
+ms.date: 09/16/2019
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 9b5eebb5578290a673209499b55b958e10ddbee6
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 2a60adeefd674a82c7d27008ff785bcba211a987
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913037"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921071"
 ---
 # <a name="benchmarking-a-disk"></a>磁盘基准测试
 
