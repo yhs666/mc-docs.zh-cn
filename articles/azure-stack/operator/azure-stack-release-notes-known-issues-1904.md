@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 7f1d5fe9bf9ddc3a455989a86156a82023a3b4fd
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: c6f45456dd0db73c557f8c5e46b10dc4195f074f
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513416"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857125"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 的已知问题
 
@@ -215,6 +215,11 @@ ms.locfileid: "68513416"
 - 适用于：此问题适用于 1904 和 1905 版本。
 - 原因：在 Azure Stack 门户上，位于“仪表板”>“虚拟机规模集” > “AnyScaleSet - 实例”>“AnyScaleSetInstance”中的规模集实例视图边栏选项卡无法加载。    
 - 补救措施：目前没有补救措施，我们正在努力进行修复。 在此之前，请使用 CLI cmdlet `az vmss get-instance-view` 获取虚拟机规模集的实例视图。
+
+### <a name="user-image-service"></a>用户映像服务
+- 适用于：此问题适用于所有支持的版本。
+- 原因：用户映像创建失败导致用户映像服务处于错误状态。 用户映像创建和删除操作将开始失败。 用户映像删除操作可能会失败，并显示错误：“错误:发生了内部磁盘管理错误。”
+- 补救措施：无缓解措施。 使用 Azure 开具支持票证。
 
 ## <a name="storage"></a>存储
 

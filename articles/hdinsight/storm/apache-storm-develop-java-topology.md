@@ -8,15 +8,15 @@ keywords: apache storm,apache storm 示例,storm java,storm 拓扑示例
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 1d62a2af1f8a8ebf658a15b1b3a7f1f2743c6b6e
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 51f80ce761054cb965766274abfd35f65546e846
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845421"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921235"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -627,7 +627,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 可以包括一个 YAML 文件（作为 jar 文件的一部分），也可以使用外部 YAML 文件。
 
-有关 Flux 的详细信息，请参阅 [Flux 框架 (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html)。
+有关 Flux 的详细信息，请参阅 [Flux 框架 (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)。
 
 > [!WARNING]  
 > 由于 Storm 1.0.1 的 [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，可能需要安装 [Storm 开发环境](https://storm.apache.org/releases/current/Setting-up-development-environment.html)，在本地运行 Flux 拓扑。

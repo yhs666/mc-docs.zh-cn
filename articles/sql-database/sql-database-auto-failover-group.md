@@ -10,29 +10,30 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
-manager: digimobile
-origin.date: 07/15/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 4dfd60d643839547f1f6c323c30ea0b875545ae0
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 08/16/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 56de680ac8c0969386dedfba3a426fa0b1a253d2
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544405"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372984"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
 自动故障转移组是一项 SQL 数据库功能，可便于管理 SQL 数据库服务器中一组数据库或托管实例中所有数据库到另一区域的复制和故障转移。 它是建立在现有[活动异地复制](sql-database-active-geo-replication.md)功能基础之上的声明性抽象，旨在简化异地复制的数据库的大规模部署和管理。 可以手动启动故障转移，也可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 一个故障转移组可以包含一个或多个数据库，通常由同一个应用程序使用。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
 
 > [!NOTE]
-> 如果在 SQL 数据库服务器上使用单一数据库或共用数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。
+> 如果在 SQL 数据库服务器上使用单一数据库或共用数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。 
 
-将自动故障转移组与自动故障转移策略配合使用时，任何影响组中一个或多个数据库的服务中断都会导致自动故障转移。 此外，自动故障转移组提供在故障转移期间保持不变的读写和只读侦听器终结点。 无论使用手动故障转移激活还是自动故障转移激活，故障转移都会将组中所有的辅助数据库切换到主数据库。 数据库故障转移完成后，会自动更新 DNS 记录，以便将终结点重定向到新的区域。 有关具体的 RPO 和 RTO 数据，请参阅[业务连续性概述](sql-database-business-continuity.md)。
+将自动故障转移组与自动故障转移策略配合使用时，任何影响组中一个或多个数据库的服务中断都会导致自动故障转移。 通常，通过内置的自动高可用性操作无法自行缓解这些事件。 故障转移触发器的示例包括：SQL 租户环或控制环由于多个计算节点上的 OS 内核内存泄漏而导致的事件，或者由于在日常硬件解除期间断开错误的网线而关闭一个或多个租户环，因此导致的事件。  有关详细信息，请参阅 [SQL 数据库高可用性](sql-database-high-availability.md)。
+
+此外，自动故障转移组提供在故障转移期间保持不变的读写和只读侦听器终结点。 无论使用手动故障转移激活还是自动故障转移激活，故障转移都会将组中所有的辅助数据库切换到主数据库。 数据库故障转移完成后，会自动更新 DNS 记录，以便将终结点重定向到新的区域。 有关具体的 RPO 和 RTO 数据，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 
 将自动故障转移组与自动故障转移策略配合使用时，任何影响 SQL 数据库服务器或托管实例中数据库的服务中断都会导致自动故障转移。 可使用以下方式管理自动故障转移组：
 
 - [Azure 门户](sql-database-implement-geo-distributed-database.md)
-- [PowerShell：故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell：故障转移组](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API：故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups)。
 
 故障转移后，请确保在新的主机上配置服务器和数据库的身份验证要求。 有关详细信息，请参阅 [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)（灾难恢复后的 Azure SQL 数据库安全性）。
@@ -135,9 +136,13 @@ ms.locfileid: "69544405"
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>有关将故障转移组与单一数据库和弹性池配合使用的最佳做法
 
-自动故障转移组必须在主要 SQL 数据库服务器上进行配置，并会将它连接到不同 Azure 区域中的辅助 SQL 数据库服务器。  组可以包含这些服务器中的所有或部分数据库。 下图演示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。
+自动故障转移组必须在主要 SQL 数据库服务器上进行配置，并会将它连接到不同 Azure 区域中的辅助 SQL 数据库服务器。 组可以包含这些服务器中的所有或部分数据库。 下图演示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。
 
 ![自动故障转移](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> 有关将单一数据库添加到故障转移组的详细分步教程，请参阅[将单一数据库添加到故障转移组](sql-database-single-database-failover-group-tutorial.md)。 
+
 
 在设计具有业务连续性的服务时，请遵循以下一般准则：
 
@@ -169,12 +174,17 @@ ms.locfileid: "69544405"
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>有关将故障转移组与托管实例配合使用的最佳做法
 
-自动故障转移组必须在主要实例上进行配置，需将其连接到不同 Azure 区域中的辅助实例。  实例中的所有数据库将复制到辅助实例。 下图演示了使用托管实例和自动故障转移组的异地冗余云应用程序的典型配置。
+> [!IMPORTANT]
+> 托管实例的自动故障转移组功能以公共预览版提供。
+
+自动故障转移组必须在主要实例上进行配置，需将其连接到不同 Azure 区域中的辅助实例。  实例中的所有数据库将复制到辅助实例。 
+
+下图演示了使用托管实例和自动故障转移组的异地冗余云应用程序的典型配置。
 
 ![自动故障转移](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> 托管实例的自动故障转移组功能以公共预览版提供。
+> [!NOTE]
+> 有关添加托管实例以使用故障转移组的详细分步教程，请参阅[将托管实例添加到故障转移组](sql-database-managed-instance-failover-group-tutorial.md)。 
 
 如果应用程序使用托管实例作为数据层，进行业务连续性设计时，请遵循以下一般准则：
 
@@ -257,14 +267,14 @@ ms.locfileid: "69544405"
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>在托管实例及其 VNet 之间启用异地复制
 
-在两个不同区域中的主要和辅助托管实例之间设置故障转移组时，将使用独立的 VNet 来隔离每个实例。 若要允许这些 VNet 之间的复制流量，请确保满足以下先决条件：
+在两个不同区域中的主要和辅助托管实例之间设置故障转移组时，将使用独立的虚拟网络来隔离每个实例。 若要允许这些 VNet 之间的复制流量，请确保满足以下先决条件：
 
 1. 两个托管实例需位于不同的 Azure 区域中。
-2. 辅助节点必须是空的（无用户数据库）。
-3. 主要和辅助托管实例需位于同一资源组中。
-4. 需要通过 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)连接托管实例所属的 VNet。 不支持全局 VNet 对等互连。
-5. 两个托管实例 VNet 的 IP 地址不能重叠。
-6. 需要设置网络安全组 (NSG)，使端口 5022 和端口范围 11000~12000 保持打开，以便能够从其他托管实例子网建立入站和出站连接。 目的是允许实例之间的复制流量
+1. 这两个托管实例需位于相同的服务层级，并且具有相同的存储大小。 
+1. 辅助托管实例必须是空的（不包含任何用户数据库）。
+1. 需要通过 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 Express Route 来连接托管实例使用的虚拟网络。 当两个虚拟网络通过本地网络连接时，请确保没有任何防火墙规则阻止端口 5022 和 11000-11999。 不支持全局 VNet 对等互连。
+1. 两个托管实例 VNet 的 IP 地址不能重叠。
+1. 需要设置网络安全组 (NSG)，使端口 5022 和端口范围 11000~12000 保持打开，以便能够从其他托管实例子网建立入站和出站连接。 目的是允许实例之间的复制流量
 
    > [!IMPORTANT]
    > NSG 安全规则配置不当会导致数据库复制操作停滞。
@@ -279,6 +289,9 @@ ms.locfileid: "69544405"
 
 > [!NOTE]
 > 如果辅助数据库是作为故障转移组配置的一个部分创建的，则我们不建议对辅助数据库进行降级。 这是为了确保激活故障转移后，数据层有足够的容量来处理常规工作负荷。
+
+> [!IMPORTANT]
+> 目前不支持升级或降级作为故障转移组成员的托管实例。
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止丢失关键数据
 
@@ -308,7 +321,7 @@ ms.locfileid: "69544405"
 |  | |
 
 > [!IMPORTANT]
-> 有关示例脚本，请参阅[为单一数据库配置并故障转移一个故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+> 有关示例脚本，请参阅[为单一数据库配置并故障转移一个故障转移组](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 >
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell：使用托管实例管理故障转移组（预览版）
@@ -366,10 +379,14 @@ ms.locfileid: "69544405"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 示例脚本请参阅：
-  - [配置单一数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [配置共用数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [针对单个数据库配置并故障转移一个故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- 有关详细教程，请参阅
+    - [将单一数据库添加到故障转移组](sql-database-single-database-failover-group-tutorial.md)
+    - [将弹性池添加到故障转移组](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [将托管实例添加到故障转移组](sql-database-managed-instance-failover-group-tutorial.md)
+- 有关示例脚本，请参阅：
+  - [使用 PowerShell 为 Azure SQL 数据库中的单一数据库配置活动异地复制](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [使用 PowerShell 为 Azure SQL 数据库中的共用数据库配置活动异地复制](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [使用 PowerShell 将 Azure SQL 数据库单一数据库添加到故障转移组](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
 - 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)。
 - 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。

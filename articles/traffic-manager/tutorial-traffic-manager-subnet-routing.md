@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 09/24/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2919b76de905815472771b9ad977bd131612855f
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 0449e898b9647ce783a1ae80fd954453b7513aa9
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514393"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857189"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -61,12 +61,14 @@ ms.locfileid: "68514393"
 
 本部分介绍如何创建两个分别位于 Azure 区域“中国东部”和“中国北部”的 VM：*myIISVMChinaEast* 和 *myIISVMChinaNorth*   。
 
-1. 在 Azure 门户的左上角选择“创建资源” > “虚拟机” > “Windows Server 2019 Datacenter”    。
+1. 在 Azure 门户的左上角，选择“创建资源”  ，在“新建”  页的搜索筛选器中输入 **Windows Server 2019 Datacenter**，然后按 Enter 键。
+    
     <!--MOONCAKE: Customize **Virtual Machines** -->
+    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值：  
 
     - **订阅** > **资源组**：选择“新建”，然后键入 **myResourceGroupTM1**。 
-    - **实例详细信息** > **虚拟机名称**：键入 *myIISVMChinaEast*。
+    - **实例详细信息** > **虚拟机名称**：键入“myIISVMChinaEast”  。
     - “实例详细信息” > “区域”：   选择“中国东部”。 
     - “管理员帐户”   >   “用户名”：输入所选用户名。
     - “管理员帐户”   >   “密码”：输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。
@@ -76,7 +78,7 @@ ms.locfileid: "68514393"
 3. 选择“管理”选项卡，或者选择“下一步:  **磁盘”，然后选择“下一步:**  网络”，然后选择“下一步:  管理”。 在“监视”  下，将“启动诊断”  设置为“关闭”。 
 4. 选择“查看 + 创建”  。
 5. 查看设置，并单击“创建”。   
-6. 按步骤创建另一个 VM，其名称为 *myIISVMChinaNorth*，其“资源组”名称为 *myResourceGroupTM2*，其“位置”为“中国北部”，所有其他设置与 *myIISVMChinaEast* 相同。   
+6. 按步骤创建另一个 VM，其名称为“myIISVMChinaNorth”  ，其“资源组”名称为“myResourceGroupTM2”  ，其“位置”为“中国北部”，所有其他设置与 myIISVMChinaEast  相同。   
 7. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>安装 IIS 并自定义默认网页
@@ -130,12 +132,14 @@ ms.locfileid: "68514393"
 
 本部分介绍如何在每个 Azure 区域（“中国东部”和“中国北部”）创建一个 VM（*myVMChinaEast* 和 *myVMChinaNorth*）   。 稍后将根据用户的查询所在的子网，使用这些 VM 来测试流量管理器如何路由用户流量。
 
-1. 在 Azure 门户的左上角选择“创建资源” > “虚拟机” > “Windows Server 2019 Datacenter”    。
+1. 在 Azure 门户的左上角，选择“创建资源”  ，在“新建”  页的搜索筛选器中输入 **Windows Server 2019 Datacenter**，然后按 Enter 键。
+
     <!--MOONCAKE: Customize **Virtual Machines** -->
+
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值：  
 
    - **订阅** > **资源组**：选择“myResourceGroupTM1”  。
-   - **实例详细信息** > **虚拟机名称**：键入 *myVMChinaEast*。
+   - **实例详细信息** > **虚拟机名称**：键入“myVMChinaEast”  。
    - “实例详细信息” > “区域”：   选择“中国东部”。 
    - “管理员帐户”   >   “用户名”：输入所选用户名。
    - “管理员帐户”   >   “密码”：输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。
@@ -145,14 +149,17 @@ ms.locfileid: "68514393"
 3. 选择“管理”选项卡，或者选择“下一步:  **磁盘”，然后选择“下一步:**  网络”，然后选择“下一步:  管理”。 在“监视”  下，将“启动诊断”  设置为“关闭”。 
 4. 选择“查看 + 创建”  。
 5. 查看设置，并单击“创建”。   
-6. 按步骤创建另一个 VM，其名称为 *myVMChinaNorth*，其“资源组”名称为 *myResourceGroupTM2*，其“位置”为“中国北部”，所有其他设置与 *myVMChinaEast* 相同。   
+6. 按步骤创建另一个 VM，其名称为“myVMChinaNorth”  ，其“资源组”名称为“myResourceGroupTM2”  ，其“位置”为“中国北部”，所有其他设置与 myVMChinaEast  相同。   
 7. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
 
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
 创建一个流量管理器配置文件，该配置文件允许根据请求的源 IP 返回特定终结点。
 
-1. 在屏幕左上方，选择“创建资源”   > “网络”   >   “流量管理器配置文件” >   “创建”。
+1. 在屏幕左上方，选择“创建资源”   > “网络”   >  “全部查看”   > “流量管理器配置文件”   > “创建”  。
+
+    <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
+
 2. 在“创建流量管理器配置文件”中输入或选择以下信息，接受剩下的默认设置，然后选择“创建”   ：
 
     | 设置                 | 值                                              |
@@ -192,7 +199,7 @@ ms.locfileid: "68514393"
 1. 确定流量管理器配置文件的 DNS 名称。
 2. 按如下所述查看流量管理器的运作方式：
     - 在位于“中国东部”区域的测试 VM (*myVMChinaEast*) 上，通过 Web 浏览器浏览到流量管理器配置文件的 DNS 名称。 
-    - 在位于“中国北部”区域的测试 VM (*myVMChinaNorth*) 上，通过 Web 浏览器浏览到流量管理器配置文件的 DNS 名称。 
+    - 在位于“中国北部”区域的测试 VM (myVMChinaNorth  ) 上，通过 Web 浏览器浏览到流量管理器配置文件的 DNS 名称。 
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>确定流量管理器配置文件的 DNS 名称
 

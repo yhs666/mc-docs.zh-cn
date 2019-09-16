@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 07/23/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ae6a5e85f54ad9090631b57de378c3ac2feb0ec
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: b5dae182c3908315b4952533a1fe4c506243e998
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514404"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857300"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>教程：使用流量管理器改善网站响应
 
@@ -59,8 +59,10 @@ ms.locfileid: "68514404"
 
 本部分介绍如何创建两个分别位于 Azure 区域“中国东部”和“中国北部”的 VM：*myIISVMChinaEast* 和 *myIISVMChinaNorth*   。
 
-1. 在 Azure 门户的左上角选择“创建资源” > “虚拟机” > “Windows Server 2019 Datacenter”    。
+1. 在 Azure 门户的左上角，选择“创建资源”  ，在“新建”  页的搜索筛选器中输入 **Windows Server 2019 Datacenter**，然后按 Enter 键。
+    
     <!--MOONCAKE: CUSTOMZIED-->
+    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值：  
 
     - **订阅** > **资源组**：选择“新建”，然后键入 **myResourceGroupTM1**。 
@@ -121,8 +123,10 @@ ms.locfileid: "68514404"
 
 在本部分中，将在每个 Azure 区域（“中国东部”和“中国北部”）创建一个 VM（myVMChinaEast  和 myVMChinaNorth  ）   。 稍后将使用这些 VM 来测试当你浏览到该网站时，流量管理器如何将流量路由到最近的 IIS 服务器。
 
-1. 在 Azure 门户的左上角选择“创建资源” > “虚拟机” > “Windows Server 2019 Datacenter”    。
+1. 在 Azure 门户的左上角，选择“创建资源”  ，在“新建”  页的搜索筛选器中输入 **Windows Server 2019 Datacenter**，然后按 Enter 键。
+    
     <!--MOONCAKE: CUSTOMZIED-->
+    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值：  
 
     - **订阅** > **资源组**：选择“myResourceGroupTM1”  。
@@ -143,7 +147,10 @@ ms.locfileid: "68514404"
 
 创建流量管理器配置文件，以便将用户流量定向到延迟最低的终结点。
 
-1. 在屏幕左上方，选择“创建资源”   > “网络”   >   “流量管理器配置文件” >   “创建”。
+1. 在屏幕左上方，选择“创建资源”   > “网络”   >  “全部查看”   > “流量管理器配置文件”   > “创建”  。
+
+    <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
+
 2. 在“创建流量管理器配置文件”中输入或选择以下信息，接受剩下的默认设置，然后选择“创建”   ：
 
     | 设置                 | 值                                              |
