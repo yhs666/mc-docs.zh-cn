@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 12/06/2018
-ms.date: 07/08/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: b5b5fd4c92c561ab0663bac4eaa72cf405c1f464
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 7bd11933f9bcad29bd5c111a3514ceeebb5d7e55
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844627"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254723"
 ---
 # <a name="sfctl-node"></a>sfctl node
 管理构成群集的节点。

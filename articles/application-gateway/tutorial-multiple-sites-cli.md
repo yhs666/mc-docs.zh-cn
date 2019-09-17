@@ -4,17 +4,17 @@ description: 了解如何使用 Azure CLI 创建托管多个网站的应用程�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-origin.date: 05/20/2019
-ms.date: 06/12/2019
+ms.topic: article
+origin.date: 07/31/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3f19cb3d3398715ec2e42a5f726cc216d99ca56f
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 04df40ce550a71acf71f000bb926422d741dc954
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027414"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857171"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>使用 Azure CLI 创建托管多个网站的应用程序网关
 
@@ -36,7 +36,7 @@ ms.locfileid: "67027414"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -69,7 +69,9 @@ az network vnet subnet create `
 
 az network public-ip create `
   --resource-group myResourceGroupAG `
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress `
+  --allocation-method Static `
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
@@ -84,7 +86,7 @@ az network application-gateway create `
   --vnet-name myVNet `
   --subnet myAGsubnet `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Disabled `
   --frontend-port 80 `
   --http-settings-port 80 `
@@ -139,9 +141,9 @@ az network application-gateway http-listener create `
 
 ### <a name="add-routing-rules"></a>添加路由规则
 
-规则按其列出的顺序进行处理，并且流量使用匹配的第一个规则进行定向，而无论特殊性如何。 例如，如果在同一端口上同时有使用基本侦听器的规则和使用多站点侦听器的规则，则使用多站点侦听器的规则必须在使用基本侦听器的规则之前列出，多站点规则才能正常运行。 
+规则按其列出的顺序进行处理。 使用第一条匹配的规则来定向流量，而不考虑特殊性。 例如，如果在同一端口上同时有使用基本侦听器的规则和使用多站点侦听器的规则，则使用多站点侦听器的规则必须在使用基本侦听器的规则之前列出，多站点规则才能正常运行。 
 
-在此示例中，将创建两个新规则并删除在创建应用程序网关时创建的默认规则。 可以使用 [az network application-gateway rule create](/cli/network/application-gateway/rule#az-network-application-gateway-rule-create) 添加规则。
+在此示例中，将创建两个新规则并删除在部署应用程序网关时创建的默认规则。 可以使用 [az network application-gateway rule create](/cli/network/application-gateway/rule#az-network-application-gateway-rule-create) 添加规则。
 
 ```azurecli
 az network application-gateway rule create `
@@ -228,11 +230,11 @@ az network public-ip show `
   --output tsv
 ```
 
-不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
+建议不要使用 A 记录，因为应用程序网关重启后 VIP 可能会变化。
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如， http://www.contoso.com 。
+在浏览器的地址栏中输入域名。 例如，http:\//www.contoso.com。
 
 ![在应用程序网关中测试 contoso 站点](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 
@@ -250,6 +252,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用基于 URL 路径的路由规则创建应用程序网关](./tutorial-url-route-cli.md)
+[使用基于 URL 路径的路由规则创建应用程序网关](./tutorial-url-route-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

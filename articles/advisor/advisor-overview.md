@@ -8,14 +8,15 @@ ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2019
+origin.date: 02/01/2019
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f3d00ef19ab244484651b679ab83088ebc6c11f5
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4b82acc534cde4b0f46d5a4181998daa37eda096
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569630"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736754"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 顾问简介
 

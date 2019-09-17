@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 05/04/2017
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c211887bef91e3419c56709b5d4429ed472eb8f9
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 5d7e5b0afb2e80001d2b5dd39970b889c4717a41
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989381"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736911"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>在 Azure Monitor 中收集 Linux 应用程序的性能计数器 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -170,6 +170,3 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ## <a name="next-steps"></a>后续步骤
 * 从 Linux 代理[收集性能计数器](data-sources-performance-counters.md)。
 * 了解[日志查询](../log-query/log-query-overview.md)以便分析从数据源和解决方案中收集的数据。 
-
-
-

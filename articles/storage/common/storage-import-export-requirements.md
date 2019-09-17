@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 07/15/2019
+origin.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 8cf3eda7603e2893ed028635b728dd3c2564fd69
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: e4ebbe171ba614c5e713864830c29deb1ddc241e
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844442"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209376"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -73,11 +73,15 @@ Azure 导入/导出服务支持以下类型的存储帐户：
 下面列出的存储类型均受支持，可与 Azure 导入/导出服务配合使用。
 
 
-|磁盘类型  |大小  |支持 |不支持  |
-|---------|---------|---------|---------|
-|SSD    |   2.5"      |SATA III          |  USB       |
-|HDD     |  2.5"<br>3.5"       |SATA II、SATA III         |带有内置 USB 适配器的外部 HDD <br> 外部 HDD 外壳内的磁盘         |
+|磁盘类型  |大小  |支持 |
+|---------|---------|---------|
+|SSD    |   2.5"      |SATA III          | 
+|HDD     |  2.5"<br>3.5"       |SATA II、SATA III         |
 
+不支持以下磁盘类型：
+- USB。
+- 带有内置 USB 适配器的外部 HDD。
+- 外部 HDD 外壳内的磁盘。
 
 单个导入/导出作业可以有：
 - 最多 10 个 HDD/SSD。

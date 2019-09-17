@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 05/10/2017
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2384c9387ac1c0b8e1955a9bedc71cff6272f9cc
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 7cf133c9855195dd3afe3a9b9fe9dcc44640a1e2
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514291"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857026"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理器配置文件
 
@@ -31,7 +31,10 @@ ms.locfileid: "68514291"
 ### <a name="to-create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
 1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
-2. 单击“创建资源” > “网络” > “流量管理器配置文件” > “创建”     。
+2. 单击“创建资源”   > “网络”   >  “全部查看”   > “流量管理器配置文件”   > “创建”  。
+
+    <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
+
 4. 在“创建流量管理器配置文件”  中，按如下所示完成操作：
     1. 在**名称**中，提供配置文件的名称。 此名称必须在 trafficmanager.cn 区域中唯一，并会生成 DNS 名称 (`<name>`,trafficmanager.cn)，该名称用于访问流量管理器配置文件。
     2. 在**路由方法**中，选择“优先级”  路由方法。

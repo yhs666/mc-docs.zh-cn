@@ -1,5 +1,5 @@
 ---
-title: 有关使用模板部署应用的指南 - Azure 应用服务
+title: 有关使用模板部署应用的指南 - Azure 应用服务 | Azure
 description: 关于创建 Azure 资源管理器模板来部署 Web 应用的建议。
 services: app-service
 documentationcenter: app-service
@@ -9,16 +9,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/09/2018
-ms.date: 03/18/2019
-ms.author: v-biyu
+origin.date: 01/03/2019
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: c344492141bb380581811b1106edcfadc33c9341
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 879440a00af60334a01b42eb67c3d07ba89f213d
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63845282"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806760"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 
@@ -117,7 +117,7 @@ Web 应用的名称必须全局唯一。 可以使用某个可能唯一的命名
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 
-在 Azure 中，应用服务服务主体所拥有的 ID 为 abfa0a7c-a6b6-4736-8310-5855508787cd。 若要为应用服务服务主体授予对 Key Vault 的访问权限，请使用：
+在 Azure 中，应用服务服务主体的 ID 为 **abfa0a7c-a6b6-4736-8310-5855508787cd**。 若要为应用服务服务主体授予对 Key Vault 的访问权限，请使用：
 
 ```azurepowershell
 Set-AzKeyVaultAccessPolicy `
@@ -127,9 +127,9 @@ Set-AzKeyVaultAccessPolicy `
   -PermissionsToCertificates get
 ```
 
-在 Azure 政府中，应用服务服务主体所拥有的 ID 为 6a02c803-dafd-4136-b4c3-5a6f318b4714。 使用上一示例中的 ID。
+在 Azure 政府中，应用服务服务主体所拥有的 ID 为 6a02c803-dafd-4136-b4c3-5a6f318b4714  。 使用上一示例中的 ID。
 
-在 Key Vault 中，选择“证书”和“生成/导入”以上传证书。
+在 Key Vault 中，选择“证书”和“生成/导入”以上传证书   。
 
 ![导入证书](media/web-sites-rm-template-guidance/import-certificate.png)
 

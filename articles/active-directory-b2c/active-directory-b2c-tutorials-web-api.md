@@ -2,21 +2,21 @@
 title: 教程 - 授予对 ASP.NET Web API 的访问权限 - Azure Active Directory B2C | Microsoft Docs
 description: 有关如何使用 Active Directory B2C 保护 ASP.NET Web API 并通过 ASP.NET Web 应用程序对其进行调用的教程。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.author: v-junlch
 origin.date: 02/04/2019
-ms.date: 04/03/2019
+ms.date: 09/02/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 11d70f19e4740668dc7403de793daeffb736d259
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 63b5a68da229291846bfe5012d1bc2edf31ea8e7
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236431"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310752"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 授予对 ASP.NET Web API 的访问权限
 
@@ -92,13 +92,13 @@ Web API 资源需要先在租户中注册，然后才能接受并响应提供访
 2. 打开 **TaskWebApp** 项目中的 **Web.config**。
 3. 若要在本地运行 API，请使用针对 **api:TaskServiceUrl** 的 localhost 设置。 更改 Web.config，如下所示： 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
 3. 配置 API 的 URI。 这是 Web 应用程序用来发起 API 请求的 URI。 另请配置所请求的权限。
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.partner.onmschina.cn/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -109,25 +109,25 @@ Web API 资源需要先在租户中注册，然后才能接受并响应提供访
 1. 打开 **TaskService** 项目中的 **Web.config**。
 2. 配置要使用租户的 API。
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.partner.onmschina.cn" />
     ```
 
 3. 将客户端 ID 设置为 API 的注册应用程序 ID。
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
 4. 使用注册和登录用户流的名称更新用户流设置。
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. 配置作用域设置，使之与门户中创建的设置相匹配。
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```
@@ -157,3 +157,5 @@ Web API 资源需要先在租户中注册，然后才能接受并响应提供访
 > * 配置 Web API 的范围
 > * 授予 Web API 权限
 > * 将示例配置为使用此应用程序
+
+<!-- Update_Description: wording update -->

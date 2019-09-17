@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-manager: digimobile
+ms.reviewer: mathoma, carlrab
 origin.date: 03/12/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 74bdff03fde60c78c079974206717d7bc119888d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: 55a003b361de3b7b83d28637695d1b90ac2b9ec6
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544201"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372959"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教程：实现地理分散的数据库
 
@@ -40,7 +39,7 @@ ms.locfileid: "69544201"
 若要完成本教程，请确保已安装以下项目：
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
-- Azure SQL 数据库。 若要创建一个，请使用：
+- Azure SQL 数据库中的单一数据库。 若要创建一个，请使用：
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)

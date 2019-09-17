@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 01/11/2019
-ms.date: 08/15/2019
+origin.date: 08/19/2019
+ms.date: 08/29/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 854811c283d714569c9682373fd165f5860f8a8c
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 0566cd3a7c52875c91c30ba704249b57af87a68f
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448487"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134162"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助密码重置的授权要求
 
-Azure Active Directory (Azure AD) 提供 4 个版本：免费版、基本版、高级版 P1 和高级版 P2。 有几个不同的功能可以构成自助密码重置，包括更改、重置、解锁和写回，这些功能在 Azure AD 的不同版本中可用。 本文尝试说明这些差异。 可以在 [Azure Active Directory 定价页](https://www.azure.cn/pricing/details/active-directory/)上找到每个Azure AD 版本中包含的功能的更多详细信息。
+Azure Active Directory (Azure AD) 有多个版本：免费版、高级版 P1 和高级版 P2。 有几个不同的功能可以构成自助密码重置，包括更改、重置、解锁和写回，这些功能在 Azure AD 的不同版本中可用。 本文尝试说明这些差异。 可以在 [Azure Active Directory 定价页](https://www.azure.cn/pricing/details/active-directory/)上找到每个Azure AD 版本中包含的功能的更多详细信息。
 
 ## <a name="compare-editions-and-features"></a>比较版本和功能
 
@@ -35,7 +35,7 @@ Azure AD 自助密码重置是按用户许可的，为了维护合规性，需�
 * 云用户的自助密码重置
    * 我是**仅限云用户**并且忘记了密码。
       * 我想要将我的密码**重置**为我知道的密码。
-   * 此功能包含在 Azure AD Basic、Premium P1 或 P2 版本，或 Microsoft 365 商业版中。
+   * 此功能包含在 Azure AD Premium P1 或 P2、Microsoft 365 商业版或 Office 365 中。
 
 * **通过本地写回**实现自助密码重置/更改/解锁
    * 我是**混合用户**，我的本地 Active Directory 用户帐户已使用 Azure AD Connect 与我的 Azure AD 帐户同步。 我想要更改密码、已忘记密码或已被锁定。
@@ -73,3 +73,4 @@ Azure AD 现在支持基于组的许可。 管理员可以将许可证批量分�
 * [我认为有些功能被破坏。如何对 SSPR 进行故障排除？](active-directory-passwords-troubleshoot.md)
 * [我有在别处未涵盖的问题](active-directory-passwords-faq.md)
 
+<!-- Update_Description: wording update -->

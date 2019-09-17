@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 04/01/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: a12e82b97039f370b24618df814a18d820fcc1ca
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 2d97007bfe011130a8d841351375a08b6308ca7f
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348253"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104128"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用语音服务创建自定义唤醒词
 
@@ -48,33 +48,24 @@ ms.locfileid: "58348253"
 
 ## <a name="create-your-wake-word"></a>创建唤醒词
 
-在设备上使用自定义唤醒词之前，必须先使用 Microsoft 自定义唤醒词生成服务来创建唤醒词。 你提供唤醒词后，该服务会生成一个文件，由你将该文件部署到开发工具包中，以便在设备上启用唤醒词。
+在设备上使用自定义唤醒词之前，需先使用 Microsoft 自定义唤醒词生成服务来创建唤醒词。 你提供唤醒词后，该服务会生成一个文件，由你将该文件部署到开发工具包中，以便在设备上启用唤醒词。
 
-1. 转到[自定义语音服务门户](https://cris.ai/)。
+1. 转到[自定义语音服务门户](https://aka.ms/sdsdk-speechportal)并**登录**，或者，如果没有语音订阅，请选择[**创建订阅**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-1. 使用你收到 Azure Active Directory 邀请的电子邮件地址创建一个新帐户。
+    ![自定义语音服务门户](media/speech-devices-sdk/wake-word-4.png)
 
-    ![创建新帐户](media/speech-devices-sdk/wake-word-1.png)
-
-1. 公众无法使用“自定义唤醒词”页，因此没有直接链接可以将你带到那里。 自定义语音功能需要 Azure 订阅，但自定义唤醒词功能不需要。 如果显示“找不到任何订阅。” 错误页，请直接在 URL 中将“Subscriptions?errorMessage=No%20Subscriptions%20found”替换为“customkws”，然后按 Enter。 该 URL 应该是 https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws、 https://northeurope.cris.ai/customkws 中的一个，具体取决于你所在的区域。
-
-    ![“自定义唤醒词”页处于隐藏状态](media/speech-devices-sdk/wake-word-4.png)
-
-1. 键入所选的唤醒词，然后选择“提交唤醒词”。
+1. 在[自定义唤醒词](https://aka.ms/sdsdk-wakewordportal)页上，键入所选的唤醒词，然后单击“添加唤醒词”。  我们有一些[准则](#choose-an-effective-wake-word)，可以帮助你选择有效的关键字。 目前，我们仅支持 en-US 语言。
 
     ![输入唤醒词](media/speech-devices-sdk/wake-word-5.png)
 
-1. 可能需要几分钟才能生成文件。 此时会在浏览器窗口中看到一个旋转的圆圈。 过了一会儿，会出现一个信息栏，要求你下载 .zip 文件。
+1. 将会创建三种其他发音的唤醒词。 可以选择自己喜欢的所有发音。 然后选择“提交”，生成唤醒词。  若要更改唤醒词，请先删除现有的唤醒词。将鼠标悬停在发音行上时，会显示删除图标。
 
-    ![接收 .zip 文件](media/speech-devices-sdk/wake-word-6.png)
+    ![查看唤醒词](media/speech-devices-sdk/wake-word-6.png)
 
-1. 将 .zip 文件保存到计算机。 你需要此文件才能将自定义唤醒词部署到开发工具包。 若要部署自定义唤醒词，请按照[语音设备 SDK 入门](speech-devices-sdk-qsg.md)中的说明操作。
+1. 生成模型最长可能需要一分钟时间。 系统会提示你下载该文件。
 
-1. 选择“注销”。
+    ![下载唤醒词](media/speech-devices-sdk/wake-word-7.png)
 
-## <a name="next-steps"></a>后续步骤
+1. 将 .zip 文件保存到计算机。 你需要此文件才能将自定义唤醒词部署到开发工具包。
 
-若要入门，请获取[试用版 Azure 帐户](https://www.azure.cn/zh-cn/home/features/cognitive-services/)并注册语音设备 SDK。
 
-> [!div class="nextstepaction"]
-> [注册语音设备 SDK](get-speech-devices-sdk.md)

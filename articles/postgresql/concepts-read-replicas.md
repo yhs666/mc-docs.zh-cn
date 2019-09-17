@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 06/14/2019
-ms.date: 08/05/2019
-ms.openlocfilehash: 45cf89c8817106457a61a42567ece796b075b602
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+origin.date: 08/12/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: 1c8cf8cc9b6cf975d9a2bf6ae39a08bac824c694
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732300"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131820"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -34,7 +34,18 @@ ms.locfileid: "68732300"
 
 只读副本功能使用 PostgreSQL 本机异步复制。 该功能不适用于同步复制方案。 主服务器与副本之间存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
-只读副本可以增强灾难恢复计划。 首先需在不同于主区域的 Azure 区域中设置一个副本。 如果发生区域灾难，可以停止将数据复制到该副本，然后将工作负荷重定向到其中。 停止复制以后，副本就可以开始接受写入和读取操作。 在[停止复制](#stop-replication)部分了解详细信息。 
+## <a name="cross-region-replication"></a>跨区域复制
+可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
+
+> [!IMPORTANT]
+> 跨区域复制目前为公共预览版。
+
+可以在任何 [Azure Database for PostgreSQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=postgresql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
+
+### <a name="paired-regions"></a>配对区域
+可以在主服务器的 Azure 配对区域中创建只读副本。
+
+如果你使用跨区域副本进行灾难恢复规划，建议你在配对区域而不是其他某个区域中创建副本。 配对区域可避免同时更新，并优先考虑物理隔离和数据驻留。  
 
 ## <a name="create-a-replica"></a>创建副本
 主服务器的 `azure.replication_support` 参数必须设置为 **REPLICA**。 更改此参数后，需要重启服务器才能使更改生效。 （`azure.replication_support` 参数仅适用于“常规用途”和“内存优化”层）。

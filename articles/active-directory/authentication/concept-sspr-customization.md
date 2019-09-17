@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 07/11/2018
-ms.date: 08/15/2019
+origin.date: 07/30/2019
+ms.date: 08/29/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 617430aef01ffa56dd8ea93c2119c07a542e7965
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 726c138edb076bb3e9bc9ab24ac84bac6b2b8add
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448497"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134166"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>为自助密码重置自定义 Azure AD 功能
 
@@ -25,12 +25,20 @@ ms.locfileid: "69448497"
 
 ## <a name="customize-the-contact-your-administrator-link"></a>自定义“联系管理员”链接
 
-即使未启用 SSPR，用户在密码重置门户中也仍可找到“联系管理员”链接。 如果用户选择该链接，它将执行以下任务之一：
+自助式密码重置用户在密码重置门户中有一个“联系管理员”链接可供他们使用。 如果用户选择此链接，它将执行以下两个操作之一：
 
-* 向管理员发送一封电子邮件，请求他们帮助更改用户的密码。
-* 将用户指引到指定的 URL 以获取帮助。
+* 如果处于默认状态：
+   * 将向管理员发送电子邮件，请求他们提供更改用户密码的帮助。 请参阅下面的[示例电子邮件](#sample-email)。
+* 如果已自定义：
+   * 将用户发送到管理员指定的网页或电子邮件地址以获得帮助。
 
-建议将此联系人设置为用户已用来提问支持问题的电子邮件地址或网站等内容。
+> [!TIP]
+> 如果自定义此设置，我们建议将其设置为用户已经熟悉的内容以获得支持
+
+> [!WARNING]
+> 如果你使用需要密码重置的电子邮件地址和帐户自定义此设置，则用户可能无法请求协助。
+
+### <a name="sample-email"></a>示例电子邮件
 
 ![发送给管理员的重置电子邮件的示例请求][Contact]
 
@@ -98,3 +106,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 [Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "联系管理员请求帮忙重置密码的电子邮件示例"
 
+<!-- Update_Description: wording update -->

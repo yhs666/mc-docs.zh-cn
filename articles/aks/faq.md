@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/08/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 098776520b0b61f5ea149d7b715721f12df87258
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 8c3d62b5fc134b7e6f38e19162789c0694aceb19
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993576"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500705"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -126,7 +126,9 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 
 用户无法覆盖最小 `maxPods` 验证值。
 
-<!--Not Available on ## Can I apply Azure reservation discounts to my AKS agent nodes?-->## 我可以在 Azure 租户之间移动/迁移群集吗？
+<!--Not Available on ## Can I apply Azure reservation discounts to my AKS agent nodes?-->
+
+## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>我可以在 Azure 租户之间移动/迁移群集吗？
 
 可以使用 `az aks update-credentials` 命令在 Azure 租户之间移动 AKS 群集。 按[选择更新或创建服务主体](/aks/update-credentials)中的说明操作，然后[使用新凭据更新 AKS 群集](/aks/update-credentials#update-aks-cluster-with-new-credentials)。
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/06/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e490c893f1c55d0cc381b181233a8441a25d89d
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 54ba2858b6cf651d42d5c46d2caa0f3f757ee206
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731215"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500743"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的存储和备份的最佳做法
 
@@ -106,10 +106,12 @@ AKS 节点作为 Azure VM 运行。 有不同类型和大小的 VM 可使用。 
 本文重点介绍了 AKS 中的最佳存储做法。 有关 Kubernetes 中存储基础知识的详细信息，请参阅 [AKS 中应用程序的存储概念][aks-concepts-storage]。
 
 <!-- LINKS - External -->
+
 [velero]: https://github.com/heptio/velero
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->
+
 [aks-concepts-storage]: concepts-storage.md
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [dynamic-disks]: azure-disks-dynamic-pv.md

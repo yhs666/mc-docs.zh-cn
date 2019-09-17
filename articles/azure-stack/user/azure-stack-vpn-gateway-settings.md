@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 的 VPN 网关设置 | Microsoft Docs
-description: 了解在 Azure Stack 中使用的 VPN 网关的设置。
+title: 配置 Azure Stack 的 VPN 网关设置 | Microsoft Docs
+description: 了解并配置 Azure Stack 的 VPN 网关设置。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/11/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b4506b248541fea146d0c3838bf0405372607f55
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 3c19e0c93b96760ee061ab8af284523860e699c0
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513183"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857311"
 ---
-# <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
+# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>配置 Azure Stack 的 VPN 网关设置
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -107,7 +107,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
   >[!NOTE]
   >**PolicyBased** 在 Azure 中受支持，但在 Azure Stack 中不受支持。
 
-* **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
+* **RouteBased**：基于路由的 VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
 
 以下 PowerShell 示例将 `-VpnType` 指定为 **RouteBased**。 创建网关时，必须确保 `-VpnType` 符合你的配置。
 
@@ -150,9 +150,9 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 ### <a name="local-network-gateways"></a>本地网关
 
-在 Azure 中创建 VPN 网关配置时，本地网络网关通常代表本地位置。 在 Azure Stack 中，它代表位于 Azure Stack 外部的任何远程 VPN 设备。 这可能是数据中心（或远程数据中心）内的 VPN 设备，或 Azure 中的 VPN 网关。
+在 Azure 中创建 VPN 网关配置时，本地网络网关通常代表本地位置。 在 Azure Stack 中，它代表位于 Azure Stack 外部的任何远程 VPN 设备。 此设备可以是数据中心（或远程数据中心）内的 VPN 设备，或 Azure 中的 VPN 网关。
 
-指定本地网络网关的名称、VPN 设备的公共 IP 地址，并指定位于本地位置的地址前缀。 Azure 查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。
+指定本地网络网关的名称、VPN 设备的公共 IP 地址，并指定位于本地位置的地址前缀。 Azure 查看网络流量的目标地址前缀、参考针对本地网络网关指定的配置，并相应地路由数据包。
 
 以下 PowerShell 示例创建新的本地网络网关：
 
@@ -161,13 +161,13 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'China East' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-有时，我们需要修改本地网络网关设置；例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。 请参阅[使用 PowerShell 修改本地网络网关设置](/vpn-gateway/vpn-gateway-modify-local-network-gateway)。
+有时，我们需要修改本地网络网关设置；例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。 有关详细信息，请参阅[使用 PowerShell 修改本地网络网关设置](/vpn-gateway/vpn-gateway-modify-local-network-gateway)。
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 参数
 
-在 Azure Stack 中设置 VPN 连接时，必须在两端配置连接。 若要配置 Azure Stack 与硬件设备（例如用作 VPN 网关的交换机或路由器）之间的 VPN 连接，可能需要在该设备上进行其他设置。
+在 Azure Stack 中设置 VPN 连接时，必须在两端配置连接。 若要配置 Azure Stack 与硬件设备（例如用作 VPN 网关的交换机或路由器）之间的 VPN 连接，该设备可能会要求你提供其他设置。
 
-Azure Stack 默认情况下仅支持一个套餐，这与 Azure 不同，后者支持将多个套餐用作发起程序和响应程序。  如需使用适合 VPN 设备的不同 IPSec/IKE 设置，则可通过其他设置来手动配置连接。  有关更多详细信息，请参阅[配置站点到站点 VPN 连接的 IPsec/IKE 策略](azure-stack-vpn-s2s.md)。
+Azure Stack 默认情况下仅支持一个套餐，这与 Azure 不同，后者支持将多个套餐用作发起程序和响应程序。  如需使用适合 VPN 设备的不同 IPSec/IKE 设置，则可通过其他设置来手动配置连接。  有关详细信息，请参阅[为站点到站点 VPN 连接配置 IPsec/IKE 策略](azure-stack-vpn-s2s.md)。
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数
 

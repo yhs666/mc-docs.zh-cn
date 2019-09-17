@@ -1,6 +1,6 @@
 ---
-title: 不错的示例话语
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 良好的示例话语 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 话语是应用需要解释的用户输入。 收集你认为用户会输入的短语。 包括意思相同但在单词长度和单词位置上以不同方式构造的陈述。
 services: cognitive-services
 author: lingliw
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eac8b0e560c1808247eefcac0f28a49b0b8deb9c
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: c489ed9c367acac1f030da1016c8e54ff8cdcf0e
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544132"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104017"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 

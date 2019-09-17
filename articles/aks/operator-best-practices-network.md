@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/10/2018
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: c07fd0abace0a1966dbcb689cd5439bcdc09d7c8
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: a0f255fdce1e7d28c143f908f31e5aa27fb2f3a1
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731216"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500740"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的网络连接和安全的最佳做法
 
@@ -135,6 +135,7 @@ AKS 中的大多数操作都可以使用 Azure 管理工具或通过 Kubernetes 
 本文重点介绍网络连接性和安全性。 有关 Kubernetes 中的网络基础知识的详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 中应用程序的网络概念][aks-concepts-network]
 
 <!-- LINKS - External -->
+
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
@@ -145,6 +146,7 @@ AKS 中的大多数操作都可以使用 Azure 管理工具或通过 Kubernetes 
 [barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/5
 
 <!-- INTERNAL LINKS -->
+
 [aks-concepts-network]: concepts-network.md
 [sp-delegation]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [expressroute]: ../expressroute/expressroute-introduction.md

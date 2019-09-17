@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/13/2018
 ms.date: 09/30/2018
-ms.openlocfilehash: 2099c6880919d4d8f6d279d67c9066006ef2489e
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: f2d31c6d68dc9e0f25798e0ce300fe01ef030d26
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969552"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169619"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -43,7 +43,7 @@ ms.locfileid: "68969552"
 
 1. 在 Visual Studio 的“视图”菜单中，选择“服务器资源管理器”   。  
 
-2. 右键单击“Azure”并选择“连接到 Azure 订阅”，然后使用 Azure 帐户登录。  
+2. 右键单击“Azure”并选择“连接到 Microsoft Azure 订阅”，然后使用你的 Azure 帐户进行登录。  
 
 ## <a name="define-inputs"></a>定义输入
 
@@ -52,6 +52,7 @@ ms.locfileid: "68969552"
 2. 将“源类型”设置为“数据流”。  然后将“源”设置为“Edge 中心”  ，将“事件序列化格式”设置为“Json”  ，将“编码”设置为“UTF8”。  （可选）可以重命名“输入别名”。对于本示例，我们将其保留原样。  如果重命名了输入别名，请在定义查询时使用重命名后的名称。 选择“保存”  ，保存这些设置。  
    ![流分析作业输入配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
+
 
 ## <a name="define-outputs"></a>定义输出
 

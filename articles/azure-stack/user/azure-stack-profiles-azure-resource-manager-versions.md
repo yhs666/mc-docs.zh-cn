@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2019
-ms.date: 07/29/2019
+origin.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: ecf896916f644bed3d53a3880a7409cb6df56f70
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 71c5cca82b5dc162da8c28058e3ca8322858096a
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513251"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857325"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -34,7 +34,7 @@ API 配置文件使用三个命名约定：
 
 有关 Azure Stack 的 API 配置文件和版本发布频率的说明，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
 
-> [!Note]
+> [!NOTE]
 > **最新** API 配置文件包含最新版资源提供程序 API，未在本文中列出。
 
 ## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>2019-03-01-hybrid 配置文件概述
@@ -43,7 +43,7 @@ API 配置文件使用三个命名约定：
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-12-01 |
 | Microsoft.Network | 2017-10-01<br>VPN 网关将为 2017-10-01 |
-| Microsoft.Storage（数据平面） | 2017-10-01 |
+| Microsoft.Storage（数据平面） | 2017-11-09 |
 | Microsoft.Storage（控制平面） | 2017-10-01 |
 | Microsoft.Web | 2018-02-01 |
 | Microsoft.KeyVault | 2016-10-01（未更改） |

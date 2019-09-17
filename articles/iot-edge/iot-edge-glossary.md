@@ -10,11 +10,11 @@ origin.date: 02/15/2018
 ms.date: 03/25/2019
 ms.author: v-yiso
 ms.openlocfilehash: 2a2979f05ae125d71a80d3053d4ab4c242979631
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987905"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736500"
 ---
 # <a name="glossary-of-terms-for-azure-iot-edge"></a>Azure IoT Edge 的术语表
 本文列出了一些在 IoT Edge 文章中使用的常用术语。

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/16/2018
-ms.date: 07/08/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 486f4ec6a4bd6ebb0be4d7973b17edf58962fa36
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 0e00814cf8a5d6634c4b7b7caddeb9d00521eaa8
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844721"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174209"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 应用程序和服务安全性
 微服务体系结构可以带来[诸多好处](service-fabric-overview-microservices.md)。 但是，管理微服务的安全性有一定的难度，比管理传统单体式应用程序的安全性更复杂。 
@@ -107,6 +107,7 @@ Reliable Services 应用程序框架提供了一些预先生成的通信堆栈�
 TO DO: Encrypt disks on Linux clusters?-->
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## <a name="next-steps"></a>后续步骤
 * [在服务启动时运行安装脚本](service-fabric-run-script-at-service-startup.md)
 * [在服务清单中指定资源](service-fabric-service-manifest-resources.md)
@@ -114,11 +115,13 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [了解群集安全性](service-fabric-cluster-security.md)
 
 <!-- Links -->
+
 [key-vault-get-started]:../key-vault/key-vault-overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
 <!-- Images -->
+
 [overview]:./media/service-fabric-application-and-service-security/overview.png
 
 <!-- Update_Description: update meta properties, wording update -->

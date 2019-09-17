@@ -4,17 +4,17 @@ description: 了解如何使用 Visual Studio Code 添加输出绑定以将函�
 author: ggailey777
 ms.author: v-junlch
 origin.date: 06/25/2019
-ms.date: 07/17/2019
+ms.date: 09/05/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: 9a43469131a16ff9469ec629f31708c4ac206b1a
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: fd1176094cfb3d8c1d5fa3a10e818af0dfbf23ad
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331951"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805800"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>使用 Visual Studio Code 将函数连接到 Azure 存储
 
@@ -119,30 +119,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 ### <a name="c-class-library"></a>C\# 类库
 
-在 C# 类库项目中，绑定被定义为函数方法上的绑定属性。 然后根据这些属性自动生成 function.json 文件。
-
-打开 HttpTrigger.cs 项目文件并添加以下 `using` 语句：
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
-将以下参数添加到 `Run` 方法定义：
-
-```cs
-[Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-```
-
-`msg` 参数为 `ICollector<T>` 类型，表示函数完成时写入输出绑定的消息集合。 在这种情况下，输出是名为的 `outqueue` 存储队列。 存储帐户的连接字符串由 `StorageAccountAttribute` 设置。 此属性指示包含存储帐户连接字符串的设置，可以在类、方法或参数级别应用。 在这种情况下，可以省略 `StorageAccountAttribute`，因为你已使用默认存储帐户。
-
-Run 方法定义如下所示：  
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-```
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>添加使用输出绑定的代码
 
@@ -184,42 +161,7 @@ module.exports = async function (context, req) {
 
 ### <a name="c"></a>C\#
 
-添加使用 `msg` 输出绑定对象来创建队列消息的代码。 请在方法返回之前添加此代码。
-
-```cs
-if (!string.IsNullOrEmpty(name))
-{
-    // Add a message to the output collection.
-    msg.Add(string.Format("Name passed to the function: {0}", name));
-}
-```
-
-此时，你的函数应如下所示：
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-
-    if (!string.IsNullOrEmpty(name))
-    {
-        // Add a message to the output collection.
-        msg.Add(string.Format("Name passed to the function: {0}", name));
-    }
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -253,7 +195,7 @@ public static async Task<IActionResult> Run(
 
 现在，可将更新的函数应用重新发布到 Azure。
 
-## <a name="redeploy-and-test-the-updated-app"></a>重新部署并测试更新的应用
+## <a name="redeploy-and-verify-the-updated-app"></a>重新部署并验证更新的应用
 
 1. 在 Visual Studio Code 中，按 F1 键打开命令面板。 在命令面板中，搜索并选择 `Azure Functions: Deploy to function app...`。
 
@@ -293,3 +235,4 @@ public static async Task<IActionResult> Run(
 
 [Azure 存储资源管理器]: https://storageexplorer.com/
 
+<!-- Update_Description: wording update -->

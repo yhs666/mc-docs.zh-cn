@@ -1,20 +1,20 @@
 ---
-title: 安装移动服务以将 VMware VM 和物理服务器灾难恢复到 Azure | Azure
-description: 了解如何安装移动服务代理以使用 Azure Site Recovery 将 VMware VM 和物理服务器灾难恢复到 Azure。
+title: 准备源计算机以通过推送安装来安装移动服务，以便将 VMware VM 和物理服务器灾难恢复到 Azure | Azure
+description: 了解如何准备服务器以通过推送安装来安装移动代理，以便使用 Azure Site Recovery 服务将 VMware VM 和物理服务器灾难恢复到 Azure。
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 03/25/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 34ae56543563ce0ae93418f8b886d8b4e7c0a28a
-ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
+ms.openlocfilehash: 9eae495d657b7b3ec1802baa2faef271fc09d344
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727658"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134472"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>安装移动服务以对 VMware VM 和物理服务器进行灾难恢复
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>准备源计算机以推送安装移动代理
 
 在使用 [Azure Site Recovery](site-recovery-overview.md) 设置 VMware VM 和物理服务器的灾难恢复时，可在每个本地 VMware VM 和物理服务器上安装 [Site Recovery 移动服务](vmware-physical-mobility-service-overview.md)。  移动服务可以捕获计算机上的数据写入，并将其转发到 Site Recovery 进程服务器。
 
@@ -26,15 +26,15 @@ ms.locfileid: "57727658"
 1. 创建可供进程服务器用来访问计算机的帐户。 该帐户应具有管理员权限（本地或域）。 只能将此帐户用于推送安装和代理更新。
 2. 如果未使用域帐户，请在本地计算机上禁用远程用户访问控制，如下所述：
     - 在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 注册表项下，添加一个新的 DWORD：**LocalAccountTokenFilterPolicy**。 将值设置为 **1**。
-    -  为此，请在命令提示符下运行以下命令：  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. 在要保护的计算机上的 Windows 防火墙中，选择“允许应用或功能通过防火墙”。 启用“文件和打印机共享”和“Windows Management Instrumentation (WMI)”。 对于属于某个域的计算机，可以使用组策略对象 (GPO) 配置防火墙设置。
+    - 为此，请在命令提示符下运行以下命令：  
+        `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+3. 在要保护的计算机上的 Windows 防火墙中，选择“允许应用或功能通过防火墙”。  启用“文件和打印机共享”和“Windows Management Instrumentation (WMI)”。   对于属于某个域的计算机，可以使用组策略对象 (GPO) 配置防火墙设置。
 
-   ![防火墙设置](./media/vmware-azure-install-mobility-service/mobility1.png)
+    ![防火墙设置](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. 添加在 CSPSConfigtool 中创建的帐户。 若要执行此操作，请登录到你的配置服务器。
 5. 打开 **cspsconfigtool.exe**。 桌面上有该工具的快捷方式，也可以在 %ProgramData%\home\svsystems\bin 文件夹中找到它。
-6. 在“管理帐户”选项卡中，选择“添加帐户”。
+6. 在“管理帐户”选项卡中，选择“添加帐户”。  
 7. 添加已创建的帐户。
 8. 输入为计算机启用复制时使用的凭据。
 
@@ -48,21 +48,25 @@ ms.locfileid: "57727658"
 4. 在要复制的计算机上安装最新的 openssh、openssh-server 和 openssl 包。
 5. 确保安全外壳 (SSH) 已启用且正在端口 22 上运行。
 4. 在 sshd_config 文件中启用 SFTP 子系统和密码身份验证。 为此，请以 **root** 身份登录。
-5. 在 **/etc/ssh/sshd_config** 文件中，找到以“PasswordAuthentication”开头的行。
+5. 在 **/etc/ssh/sshd_config** 文件中，找到以“PasswordAuthentication”  开头的行。
 6. 取消注释该行，并将值更改为 **yes**。
-7. 找到以“Subsystem”开头的行，并取消注释该行。
+7. 找到以“Subsystem”  开头的行，并取消注释该行。
 
     ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
-8. 重启 sshd 服务。
+8. 重启 sshd 服务。 
 9. 添加在 CSPSConfigtool 中创建的帐户。 若要执行此操作，请登录到你的配置服务器。
 10. 打开 **cspsconfigtool.exe**。 桌面上有该工具的快捷方式，也可以在 %ProgramData%\home\svsystems\bin 文件夹中找到它。
-11. 在“管理帐户”选项卡中，选择“添加帐户”。
+11. 在“管理帐户”选项卡中，选择“添加帐户”。  
 12. 添加已创建的帐户。
 13. 输入为计算机启用复制时使用的凭据。
 
+## <a name="anti-virus-on-replicated-machines"></a>复制计算机上的防病毒
+
+如果要复制的计算机上正在运行活动的防病毒软件，请确保从防病毒操作中排除移动服务安装文件夹 (*C:\ProgramData\ASR\agent*)。 这可确保复制正常工作。
+
 ## <a name="next-steps"></a>后续步骤
 
-安装移动服务后，在 Azure 门户中选择“+复制”以开始保护这些 VM。 详细了解如何为 [VMware VM]vmware-azure-enable-replication.md) 和[物理服务器](physical-azure-disaster-recovery.md#enable-replication)启用复制。
+安装移动服务后，在 Azure 门户中选择“+复制”以开始保护这些 VM。  详细了解如何为 [VMware VM](vmware-azure-enable-replication.md) 和[物理服务器](physical-azure-disaster-recovery.md#enable-replication)启用复制。
 
 <!-- Update_Description: update meta properties, wording update  -->

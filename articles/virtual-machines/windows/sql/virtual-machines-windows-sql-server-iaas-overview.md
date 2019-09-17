@@ -16,12 +16,12 @@ origin.date: 12/12/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 7f7b2f50343950e0bf11aba0570f73af878510aa
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: f2deaa564be1df283625c179109a1893e24a9230
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004105"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921209"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虚拟机上的 SQL Server 是什么？ (Windows)
 
@@ -59,6 +59,7 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 > 有关如何了解 SQL 映像定价的详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。 
 
 <a name="payasyougo"></a>
+<a name="payinadvance"></a>
 ### <a name="standard-pay-in-advance-offer"></a>标准预付费套餐
 下表提供了标准预付费套餐 SQL Server 映像的矩阵。
 
@@ -80,7 +81,7 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 ###  <a name="bring-your-own-license"></a>自带许可
 你也可以自带许可 (BYOL)。 在此方案中，你只需支付 VM 费用，SQL Server 许可不需要任何额外的费用。  自带许可证长时间会节省资金，因为可以持续使用生产型工作负荷。 有关使用此选项的要求，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md#byol)。
 
-若要自带许可证，可以转换现有的预付费的 SQL VM，也可以部署前缀为 **{BYOL}** 的映像。 。
+若要自带许可证，可以转换现有的预付费的 SQL VM，也可以部署前缀为 **{BYOL}** 的映像。 上获取。
 
 <!-- Not Available on [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
 

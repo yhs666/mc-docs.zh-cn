@@ -6,15 +6,15 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-origin.date: 12/13/2017
-ms.date: 03/18/2019
+origin.date: 12/13/2018
+ms.date: 09/09/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0effbde2188820bf63b8262bca5dfd9e96c65983
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 7903d177d034b92faac551fb701ef9d3f88fd84d
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988337"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254772"
 ---
 <!--Verify sucessfully-->
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-table-api"></a>使用表 API 设置 Azure Cosmos DB 多区域分发
@@ -29,7 +29,7 @@ ms.locfileid: "57988337"
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>使用表 API 连接到首选区域
 
-为了利用[多区域分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 这可以通过设置 [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations) 属性来完成。 Azure Cosmos DB 表 API SDK 将基于帐户配置、当前区域可用性和所提供的首选项列表选取要与之通信的最佳终结点。
+为了利用[多区域分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 这可以通过设置 [TableConnectionPolicy.PreferredLocations](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet) 属性来完成。 Azure Cosmos DB 表 API SDK 将基于帐户配置、当前区域可用性和所提供的首选项列表选取要与之通信的最佳终结点。
 
 PreferredLocations 应包含以逗号分隔的首选（多宿主）位置列表，以供读取使用。 每个客户端实例可按首选顺序指定这些区域的一个子集以实现低延迟的读取。 必须使用这些区域的[显示名称](https://msdn.microsoft.com/library/azure/gg441293.aspx)命名这些区域，例如 `China North`。
 
@@ -51,5 +51,4 @@ SDK 自动将所有写入请求发送到当前写入区域。
 > * 使用 Azure 门户配置多区域分发
 > * 使用 Azure Cosmos DB 表 API 配置多区域分发
 
-<!--Update_Description: new articles on turorial global distribution table -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: update link -->

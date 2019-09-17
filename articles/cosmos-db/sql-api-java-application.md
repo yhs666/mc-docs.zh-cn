@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 12/22/2018
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d24fb59d34e5bf32e2b7ffc522af199adb24af41
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 4e59095e5cfc4f49627ebc7eb72113e538a083f0
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171375"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254504"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -48,7 +48,7 @@ ms.locfileid: "67171375"
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
+* [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
 * [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service/app-service-web-get-started-java.md)
 
@@ -230,7 +230,7 @@ ms.locfileid: "67171375"
                 return collectionCache;
             }
         }
-4. 下一步是编写一些代码将 TodoItem 保存到集合中。 在本示例中，我们将使用 [Gson](https://code.google.com/p/google-gson/) 将 TodoItem 普通 Java 对象 (POJO) 序列化到 JSON 文档和从中反序列化 POJO。
+4. 下一步是编写一些代码将 TodoItem 保存到集合中。 本示例使用 [Gson](https://code.google.com/p/google-gson/) 将 TodoItem 普通 Java 对象 (POJO) 序列化到 JSON 文档和从中反序列化 POJO。
 
         // We'll use Gson for POJO <=> JSON serialization for this example.
         private static Gson gson = new Gson();
@@ -256,7 +256,7 @@ ms.locfileid: "67171375"
 
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. 与 Azure Cosmos DB 数据库和集合一样，文档也是通过自链接来引用。 使用以下帮助程序函数可以通过另一个属性（例如“id”）来检索文档，而不是自链接：
+5. 与 Azure Cosmos 数据库和集合一样，文档也是通过自链接来引用。 使用以下帮助程序函数可以通过另一个属性（例如“id”）来检索文档，而不是自链接：
 
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -733,7 +733,9 @@ ms.locfileid: "67171375"
     * 在“目标”框中，选择一个目标以保存 WAR 文件。
     * 单击“完成”  。
 3. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/app-service-web-get-started-java.md)。
+    
     <!--URL direct to app-service-web-get-started-java.md-->
+    
     将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
 4. 若要查看已完成的产品，请导航到 `http://YOUR\_SITE\_NAME.chinacloudsites.cn/azure-java-sample/` 并开始添加任务！
 
@@ -751,7 +753,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 8. 在“本地目标”屏幕上，单击“浏览”选择要将存储库复制到的文件夹，并单击“下一步”    。
 9. 在“选择要用于导入项目的向导”屏幕上，确保已选择“导入现有项目”，并单击“下一步”。   
 10. 在“导入项目”屏幕上，取消选择“DocumentDB”项目，并单击“完成”。    DocumentDB 项目包含 Azure Cosmos DB Java SDK，我们会将其添加为依赖项。
-11. 在“项目资源管理器”中，导航到 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，并将 HOST 和 MASTER_KEY 值替换为 Azure Cosmos DB 帐户的 URI 和主密钥，然后保存该文件。  有关详细信息，请参阅[步骤 1.创建 Azure Cosmos DB 数据库帐户](#CreateDB)。
+11. 在“项目资源管理器”中，导航到 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，并将 HOST 和 MASTER_KEY 值替换为 Azure Cosmos DB 帐户的 URI 和主密钥，然后保存该文件。  有关详细信息，请参阅[步骤 1.创建 Azure Cosmos 数据库帐户](#CreateDB)。
 12. 在“项目资源管理器”中，右键单击“azure-documentdb-java-sample”，单击“生成路径”，并单击“配置生成路径”。    
 13. 在“Java 生成路径”屏幕上，在右侧窗格中，选择“库”选项卡，并单击“添加外部 JAR”。    导航到 lombok.jar 文件的位置，并依次单击“打开”、“确定”   。
 14. 使用步骤 12 再次打开“属性”窗口，并在左窗格中单击“目标运行时”   。

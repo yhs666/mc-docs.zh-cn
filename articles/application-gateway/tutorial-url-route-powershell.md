@@ -3,28 +3,26 @@ title: 基于 URL 对 Web 流量进行路由 - Azure PowerShell
 description: 了解如何使用 Azure PowerShell 基于 URL 将 Web 流量路由到特定的可缩放服务器池。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-origin.date: 10/25/2018
-ms.date: 06/12/2019
+ms.topic: article
+origin.date: 07/31/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 05d1d52b928632cbf38d3af6a730946b87acc2e6
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 75a857be1a78be356154b1836d03265aec9897b1
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027405"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857197"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 基于 URL 对 Web 流量进行路由
 
-可以使用 Azure PowerShell 基于用来访问应用程序的 URL 配置到特定的可缩放服务器池的 Web 流量路由。 在本教程中，将使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建具有三个后端池的 [Azure 应用程序网关](application-gateway-introduction.md)。 每个后端池都有特定的用途，例如用于公用数据、图像和视频。  将流量路由到不同的池可以确保客户在需要信息时可以获得所需的信息。
+可以使用 Azure PowerShell 基于用来访问应用程序的 URL 配置到特定的可缩放服务器池的 Web 流量路由。 在本文中，你将使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建包含三个后端池的 [Azure 应用程序网关](application-gateway-introduction.md)。 每个后端池都有特定的用途，例如用于公用数据、图像和视频。  将流量路由到不同的池可以确保客户在需要信息时可以获得所需的信息。
 
 若要启用流量路由，需要创建[路由规则](application-gateway-url-route-overview.md)并将其分配给在特定端口上侦听的侦听器以确保 Web 流量到达池中的合适服务器。
 
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 设置网络
@@ -33,19 +31,19 @@ ms.locfileid: "67027405"
 
 ![URL 路由示例](./media/tutorial-url-route-powershell/scenario.png)
 
-如果你愿意，可以使用 [Azure CLI](tutorial-url-route-cli.md) 或 [Azure 门户](create-url-route-portal.md)完成本教程中的步骤。
+如果需要，可以使用 [Azure CLI](tutorial-url-route-cli.md) 或 [Azure 门户](create-url-route-portal.md)完成本过程中的步骤。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 若要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+如果选择在本地安装和使用 PowerShell，则本文需要 Azure PowerShell 模块 1.0.0 或更高版本。 若要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
-因为创建资源需要时间，所以可能需要最多 90 分钟才能完成本教程。
+因为创建资源需要时间，所以可能需要最多 90 分钟才能完成本过程。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-需要创建包含应用程序的所有资源的资源组。 
+创建包含应用程序的所有资源的资源组。 
 
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。  
 
@@ -55,7 +53,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源
 
-无论是具有现有虚拟网络还是创建新的虚拟网络，都需要确保它包含一个仅用于应用程序网关的子网。 在本教程中，将为应用程序网关创建一个子网，为规模集创建一个子网。 将创建一个公用 IP 地址以便访问应用程序网关中的资源。
+无论是具有现有虚拟网络还是创建新的虚拟网络，都需要确保它包含一个仅用于应用程序网关的子网。 在本文中，你将为应用程序网关创建一个子网，为规模集创建一个子网。 将创建一个公用 IP 地址以便访问应用程序网关中的资源。
 
 使用 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 创建子网配置 *myAGSubnet* 和 *myBackendSubnet*。 使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 和子网配置创建名为 *myVNet* 的虚拟网络。 最后使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。 这些资源用于提供与应用程序网关及其关联资源的网络连接。
 
@@ -78,14 +76,15 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location chinanorth `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
-本部分将创建用来支持应用程序网关的资源，并最终创建应用程序网关。 创建的资源包括：
+本部分将创建支持应用程序网关的资源，然后最终创建应用程序网关。 创建的资源包括：
 
-- *IP 配置和前端端口* - 将先前创建的子网关联到应用程序网关，并分配一个端口以用于访问它。
+- *IP 配置和前端端口* - 将前面创建的子网关联到应用程序网关，并分配一个端口用于访问该子网。
 - *默认池* - 所有应用程序网关必须至少具有一个后端服务器池。
 - *默认侦听器和规则* - 默认侦听器侦听已分配的端口上的流量，默认规则将流量发送到默认池。
 
@@ -135,7 +134,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>创建默认侦听器和规则
 
-应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将创建两个侦听器。 创建的第一个基本侦听器侦听根 URL 上的流量。 创建的第二个侦听器侦听特定 URL 上的流量。
+应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本文中，你将创建两个侦听器。 创建的第一个基本侦听器侦听根 URL 上的流量。 创建的第二个侦听器侦听特定 URL 上的流量。
 
 使用 [New-AzApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayhttplistener) 以及前面创建的前端配置和前端端口创建名为 *myDefaultListener* 的默认侦听器。 
 
@@ -162,8 +161,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ```azurepowershell
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 
 $appgw = New-AzApplicationGateway `
@@ -180,7 +179,9 @@ $appgw = New-AzApplicationGateway `
   -Sku $sku
 ```
 
-创建应用程序网关可能需要最多 30 分钟，请等到部署成功完成，然后转到下一部分。 在教程中，此时已有了侦听端口 80 上的流量并将该流量发送到默认的服务器池的一个应用程序网关。
+创建应用程序网关最长可能需要花费 30 分钟。 请等待部署成功完成，然后再前进到下一部分。 
+
+现已创建一个应用程序网关，它会侦听端口 80 上的流量，并将该流量发送到默认的服务器池。
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>添加映像及视频后端池和端口
 
@@ -387,7 +388,7 @@ for ($i=1; $i -le 3; $i++)
 
 ### <a name="install-iis"></a>安装 IIS
 
-每个规模集都包含两个虚拟机实例，你将在其上安装并使用 IIS 来运行示例页面以测试应用程序网关是否工作。
+每个规模集包含两个在其上安装了 IIS 的虚拟机实例。  将会创建一个示例页面用于测试应用程序网关是否正常工作。
 
 ```azurepowershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
@@ -420,11 +421,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在应用程序网关中测试基 URL](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.htm（将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到如以下示例所示的内容：
+将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到以下示例所示的内容：
 
 ![在应用程序网关中测试映像 URL](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到如以下示例所示的内容：
+将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到以下示例所示的内容：
 
 ![在应用程序网关中测试视频 URL](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 
@@ -438,14 +439,6 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+[基于 URL 重定向 Web 流量](./tutorial-url-redirect-powershell.md)
 
-> [!div class="checklist"]
-> * 设置网络
-> * 创建侦听器、URL 路径映射和规则
-> * 创建可缩放的后端池
-
-> [!div class="nextstepaction"]
-> [基于 URL 重定向 Web 流量](./tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: code and links update -->
+<!-- Update_Description: code update -->

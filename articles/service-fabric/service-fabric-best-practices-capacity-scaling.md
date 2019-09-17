@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/25/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: f9a59e821c7b3faab01e5cf4dfd8d216a0832e28
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: a3dfbf85bd3439c9464512f898d204e36497955b
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753170"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174139"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric 的容量规划和缩放
 
@@ -85,16 +85,8 @@ ms.locfileid: "68753170"
     
     <!--Not Available on or edit the cluster resource through the Azure resource manager-->
     <!--Not Available on [Azure resource manager](https://resources.azure.com)-->
+    
 6. 在此之后，可以选择删除 VMScaleSet，但仍然会在 Service Fabric Explorer 视图中看到节点为“关闭”。 最后一步是使用 `Remove-ServiceFabricNodeState` 命令清除它们。
-
-### <a name="example-scenario"></a>示例方案
-支持执行垂直缩放操作的场景：你希望在不关闭应用程序的情况下，将 Service Fabric 群集和应用程序从非托管磁盘迁移到托管磁盘。 
-
-可以预配包含托管磁盘的新虚拟机规模集，然后结合针对预配容量的位置约束执行应用程序升级。 然后，Service Fabric 群集可以根据升级域实施的预配群集节点容量计划工作负荷，且不会造成应用程序关闭。 
-
-[Azure 负载均衡器基本 SKU](/load-balancer/load-balancer-overview#skus) 的后端池终结点可以是单个可用性集或虚拟机规模集中的虚拟机。 这意味着，如果在规模集之间移动 Service Fabric 系统应用程序，无法做到在不造成 Service Fabric 群集管理终结点暂时不可访问的前提下使用基本 SKU 负载均衡器。 即使群集及其应用程序仍在运行，也是如此。
-
-在基本 SKU 负载均衡器与标准 SKU 负载均衡器资源之间执行虚拟 IP 地址 (VIP) 交换时，用户通常会预配标准 SKU 负载均衡器。 这种方法可将以后交换 VIP 所造成的不可访问时间限制为大约 30 秒。
 
 ## <a name="horizontal-scaling"></a>水平扩展
 
@@ -107,7 +99,7 @@ ms.locfileid: "68753170"
 
 通过增加特定虚拟机规模集的实例计数来横向扩展 Service Fabric 群集。 可以使用 `AzureClient` 和所需规模集的 ID 以编程方式进行横向扩展，以增加容量。
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -149,7 +141,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 必须准备好要关闭的节点才能以编程方式进行横向缩减。 查找要删除的节点（编号最大的实例节点）。 例如：
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -166,7 +158,7 @@ using (var client = new FabricClient())
 
 使用相同的 `FabricClient` 实例（在本例中为 `client`）和节点实例名称（在本例中为 `instanceIdString`）停用并删除该节点：
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -207,7 +199,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 建议的最低可靠性级别为“银”级。
 
-可靠性级别在 [Microsoft.ServiceFabric/clusters 资源](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/2018-02-01/clusters)的 properties 节中设置，如下所示：
+可靠性级别在 [Microsoft.ServiceFabric/clusters 资源](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)的 properties 节中设置，如下所示：
 
 ```json
 "properties":{
@@ -237,7 +229,9 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 }
 ```
 
-另一个资源位于 [Microsoft.ServiceFabric/clusters 资源](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/2018-02-01/clusters)中的 `nodeTypes` 下： 
+另一个资源位于 Microsoft.ServiceFabric/clusters 资源中的 `nodeTypes` 下： 
+
+<!--Not Available on [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/2018-02-01/clusters)-->
 
 ```json
 "nodeTypes": [
@@ -256,4 +250,4 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, wording update -->

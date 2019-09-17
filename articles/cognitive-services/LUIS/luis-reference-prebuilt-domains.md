@@ -1,6 +1,6 @@
 ---
-title: 预构建的域参考
-titleSuffix: Azure
+title: 预生成域参考 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 预构建的域参考，这些参考是语言理解智能服务 (LUIS) 中意向和实体的预构建集合。
 services: cognitive-services
 author: lingliw
@@ -8,22 +8,22 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f976024d17c6d0718cab4ca85aefc9d78f403d0e
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 7735c0d1c9e89b30d7084857b09646c9d4fb7d2e
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332115"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103887"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 应用的预构建的域参考
 此参考提供有关预生成域的信息，这些信息是 LUIS 提供的意向和实体的预生成集合。
 
 相比之下，[自定义域](luis-how-to-start-new-app.md)从无意向和模型开始。 可将任何预构建的域意向和实体添加到自定义模型中。
 
-# <a name="supported-domains-across-cultures"></a>各个区域支持的域
+## <a name="supported-domains-across-cultures"></a>各个区域支持的域
 
 唯一支持的区域性为英语。 
 

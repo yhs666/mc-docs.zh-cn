@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 43833c840d4fa566573321f166bc5b21c6fd385c
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: b8ed48d7688291d72696cad7e4da1795dc6a7bbd
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514186"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857200"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置加权流量路由方法
 
@@ -44,7 +44,7 @@ ms.locfileid: "68514186"
     3. “流量管理器配置文件”  边栏选项卡会显示新建的流量管理器配置文件的 DNS 名称。 任意客户端（例如通过 Web 浏览器导航到此名称）均可使用此名称路由到根据路由类型确定的相应终结点。 在这种情况下，所有请求都以轮循机制的方式路由每个终结点。
 6. 流量管理器配置文件正常工作后，请在权威 DNS 服务器上编辑 DNS 记录，将公司域名指向流量管理器域名。
 
-![使用流量管理器配置加权流量路由方法][1]
+    ![使用流量管理器配置加权流量路由方法][1]
 
 ## <a name="next-steps"></a>后续步骤
 

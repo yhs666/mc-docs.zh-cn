@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/09/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 582a911488ebec46b77db0e3e6cba9123889214c
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: e86e9e18cc913ea8dd072afe9068614c40f8b9b7
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731209"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500733"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的配额、虚拟机大小限制和适用地区
 
@@ -60,10 +60,12 @@ AKS 群集中的每个节点都包含固定数量的计算资源，例如 vCPU �
 <!--MOONCAKE: CORRECT ON Support Type with Quota-->
 
 <!-- LINKS - External -->
+
 [azure-support]: https://support.azure.cn/zh-cn/support/support-azure/
 [region-availability]: https://www.azure.cn/zh-cn/home/features/products-by-region
 
 <!-- LINKS - Internal -->
+
 [vm-skus]: ../virtual-machines/linux/sizes.md
 
 <!--Not Available on [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool-->

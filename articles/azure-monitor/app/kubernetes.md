@@ -4,17 +4,17 @@ description: Azure Monitor 使用 Kubernetes 群集上的服务网格技术 Isti
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
+origin.date: 04/25/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fc7e7b8eb735200335ed8cb02a70d4e812eec52c
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 8108008cdf69c68d0fc5d25bba692b67f80ff989
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989628"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737354"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 托管应用程序的零检测应用程序监视
 

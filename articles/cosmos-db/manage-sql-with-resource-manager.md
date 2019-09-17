@@ -4,15 +4,15 @@ description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB f
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/24/2019
-ms.date: 06/17/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ddf95d37335a094ed55178dd63513d37f9b5bdc
-ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
+ms.openlocfilehash: a6510a874d555ff44d97eade4382b6ee6c76eab0
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68293432"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254641"
 ---
 <!--Verify successfully-->
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB SQL (Core) API 资源
@@ -23,7 +23,10 @@ ms.locfileid: "68293432"
 使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建 Azure Cosmos 帐户，所使用的两个容器在数据库级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
 
 > [!NOTE]
-> 当前，无法使用资源管理器模板部署用户定义函数 (UDF)、存储过程和触发器。 
+>
+> - 当前，无法使用资源管理器模板部署用户定义函数 (UDF)、存储过程和触发器。
+> - 不能同时在 Azure Cosmos 帐户中添加或删除位置，也不能修改其他属性。 这些操作必须作为单独的操作完成。
+> - 帐户名称必须为小写且 < 31 个字符。
 
 ```json
 {
@@ -207,19 +210,7 @@ ms.locfileid: "68293432"
                     "indexingPolicy": {
                         "indexingMode": "consistent",
                         "includedPaths": [{
-                                "path": "/*",
-                                "indexes": [
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "number",
-                                        "precision": -1
-                                    },
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "string",
-                                        "precision": -1
-                                    }
-                                ]
+                                "path": "/*"
                             }
                         ],
                         "excludedPaths": [{
@@ -248,19 +239,7 @@ ms.locfileid: "68293432"
                     "indexingPolicy": {
                         "indexingMode": "consistent",
                         "includedPaths": [{
-                                "path": "/*",
-                                "indexes": [
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "number",
-                                        "precision": -1
-                                    },
-                                    {
-                                        "kind": "Range",
-                                        "dataType": "string",
-                                        "precision": -1
-                                    }
-                                ]
+                                "path": "/*"
                             }
                         ]
                     }
@@ -339,7 +318,7 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 `az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。 
 
-<!--Not Available on If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) article.-->
+<!--Not Available on If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](https://docs.azure.cn/cli/?view=azure-cli-latest) article.-->
 
 ## 更新数据库的吞吐量（RU/秒）<a name="database-ru-update"></a>
 
@@ -392,6 +371,8 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 ### <a name="deploy-database-template-via-powershell"></a>通过 PowerShell 部署数据库模板
 
+若要部署资源管理器模板，请使用 PowerShell。
+
 <!--Not Available on Cloud Shell-->
 <!--Not Available To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
@@ -411,6 +392,8 @@ New-AzResourceGroupDeployment `
 
 ### <a name="deploy-database-template-via-azure-cli"></a>通过 Azure CLI 部署数据库模板
 
+使用 Azure CLI 部署资源管理器模板。
+
 <!--Not Available on Cloud Shell-->
 <!--Not Available onTo deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
@@ -426,7 +409,6 @@ az group deployment create --resource-group $resourceGroupName \
 ```
 
 <a name="container-ru-update"></a>
-
 ## <a name="update-throughput-rus-on-a-container"></a>更新容器的吞吐量（RU/秒）
 
 以下模板将更新容器的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql-container-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
@@ -486,6 +468,8 @@ az group deployment create --resource-group $resourceGroupName \
 
 若要部署资源管理器模板，请使用 PowerShell。
 
+<!--Not Available on **Copy** the script and select **Try it** to open the Azure local Shell. To paste the script, right-click the shell, and then select **Paste**:-->
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $accountName = Read-Host -Prompt "Enter the account name"
@@ -504,7 +488,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="deploy-container-template-via-azure-cli"></a>通过 Azure CLI 部署容器模板
 
-使用 Azure CLI 部署资源管理器模板
+使用 Azure CLI 部署资源管理器模板。
 
 <!--Not Available on  select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
@@ -525,7 +509,9 @@ az group deployment create --resource-group $resourceGroupName \
 下面是一些其他资源：
 
 - [Azure 资源管理器文档](/azure-resource-manager/)
-- [Azure Cosmos DB 资源提供程序架构](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)
+    
+    <!--Not Available on  - [Azure Cosmos DB resource provider schema](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)-->
+    
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

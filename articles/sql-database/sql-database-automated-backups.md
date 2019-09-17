@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
-manager: digimobile
 origin.date: 06/27/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 82e4cb74783ecd0398a270f833705322e41e7245
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: c4e18b4e041bf6d07905bd326b438e5b817e1f1a
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544402"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372983"
 ---
 # <a name="automated-backups"></a>自动备份
 
@@ -55,7 +54,7 @@ SQL 数据库使用 SQL Server 技术，每周创建[完整备份](https://docs.
 
 ## <a name="how-long-are-backups-kept"></a>备份保留多长时间？
 
-每个 SQL 数据库的默认备份保留期为 7 到 35 天，具体取决于购买模型和服务层级。 可以在 SQL 数据库服务器上更新数据库的备份保持期。 有关详细信息，请参阅[更改备份保持期](#how-to-change-the-pitr-backup-retention-period)。
+所有 Azure SQL 数据库（单一数据库、共用数据库和托管实例数据库）的默认备份保留期为 **7** 天。 可以[将备份保留期更改为最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
 如果删除了某个数据库，SQL 数据库以保存联机数据库的相同方式保存其备份。 例如，如果删除了保留期为 7 天的某个基本数据库，已保存 4 天的备份将继续保存 3 天。
 
@@ -63,23 +62,6 @@ SQL 数据库使用 SQL Server 技术，每周创建[完整备份](https://docs.
 
 > [!IMPORTANT]
 > 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则也会删除属于该服务器的所有弹性池和数据库，且不可恢复。 无法还原已删除的服务器。 但是，如果配置了长期保留，则不会删除具有 LTR 的数据库的备份，并且可以还原这些数据库。
-
-### <a name="default-backup-retention-period"></a>默认备份保持期
-
-#### <a name="dtu-based-purchasing-model"></a>基于 DTU 的购买模型
-
-使用基于 DTU 的购买模型创建的数据库的默认保留期取决于服务层级：
-
-- “基本”服务层级为**一**周。
-- “标准”服务层级为**五**周。
-- “高级”服务层级为**五**周。
-
-#### <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
-
-如果使用的是[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则默认备份保留期为**七**天（适用于单一数据库、共用数据库和实例数据库）。 对于所有 Azure SQL 数据库（单一数据库、共用数据库和实例数据库），可以[将备份保持期更改为最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
-
-> [!WARNING]
-> 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果延长当前保留期，SQL 数据库将保留现有备份，直至达到更长的保留期。
 
 ## <a name="how-often-do-backups-happen"></a>备份发生的频率
 
@@ -114,7 +96,7 @@ Azure SQL 数据库工程团队持续不断地自动测试放置在逻辑服务�
 
 在迁移完成后，托管实例会通过 `CHECKSUM` 对使用本机 `RESTORE` 命令或数据迁移服务还原的数据库进行自动初始备份。
 
-在完整性检查期间发现的任何问题都将导致向工程团队发出警报。
+在完整性检查期间发现的任何问题都将导致向工程团队发出警报。 有关 Azure SQL 数据库中数据完整性的详细信息，请参阅 [Azure SQL 数据库中的数据完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>自动备份如何影响符合性
 
@@ -125,6 +107,9 @@ Azure SQL 数据库工程团队持续不断地自动测试放置在逻辑服务�
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>如何更改 PITR 备份保持期
 
 可以使用 Azure 门户、PowerShell 或 REST API 更改默认 PITR 备份保持期。 支持的值包括：7、14、21、28 或 35 天。 以下示例演示如何将 PITR 保留期更改为 28 天。
+
+> [!WARNING]
+> 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果延长当前保留期，SQL 数据库将保留现有备份，直至达到更长的保留期。
 
 > [!NOTE]
 > 这些 API 将只影响 PITR 保留期。 如果为数据库配置了 LTR，LTR 不会受到影响。 有关如何更改 LTR 保持期的详细信息，请参阅[长期保留](sql-database-long-term-retention.md)。

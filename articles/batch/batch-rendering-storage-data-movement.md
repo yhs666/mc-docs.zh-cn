@@ -3,29 +3,32 @@ title: 用于渲染的 Azure Batch 存储和数据移动选项
 description: 用于渲染工作负荷的存储和数据移动选项
 services: batch
 author: mscurrell
-ms.author: v-junlch
-origin.date: 08/02/2018
+ms.author: v-lingwu
+origin.date: 08/02/2019
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: c7eaf344f0b68bb42ab125ef1b6126117eaf223e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: ca77913289dd5a6f534349dedda98f19fc25037c
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818455"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104050"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>用于渲染资产和输出文件的存储与数据移动选项
 
 有多个选项可以创建场景和资产文件用于渲染池 VM 上的应用程序：
 
-- [Azure Blob 存储](/storage/blobs/storage-blobs-introduction)：
-  - 将场景和资产文件从本地文件系统上传到 Blob 存储。 当应用程序由某个任务运行时，会将所需的文件从 Blob 存储复制到 VM，使渲染应用程序能够访问它们。 输出文件由渲染应用程序写入 VM 磁盘，然后复制到 Blob 存储。  如果需要，可将输出文件从 Blob 存储下载到本地文件系统。
-  - Azure blob 存储是简单且经济高效的选项，适合小型项目。  由于每个池 VM 上需要所有资产文件，一旦资产文件的数量和大小增加，就需要谨慎确保文件传输尽量高效。  
-- 文件系统或文件共享：
-  - 根据 VM 操作系统和性能/规模要求，选项包括 [Azure 文件](/storage/files/storage-files-introduction)、使用附有 NFS 磁盘的 VM、使用附有分布式文件系统（例如 GlusterFS）磁盘的多个 VM，或使用第三方产品/服务。
-  - [Avere Systems](http://www.averesystems.com/) 已由 Microsoft 收购，在不久的将来，将会推出理想的解决方案进行大规模的高性能渲染。  借助 Avere 解决方案能够创建可与 Blob 存储或本地 NAS 设备配合工作的基于 Azure 的 NFS 或 SMB 缓存。
-  - 使用文件系统可以直接在文件系统中读取或写入文件，或者在文件系统与池 VM 之间复制文件。
-  - 使用共享文件系统可以在要使用的项目与作业之间共享大量的资产，而渲染任务只需访问所需的内容。
+* [Azure Blob 存储](/storage/blobs/storage-blobs-introduction)：
+  * 将场景和资产文件从本地文件系统上传到 Blob 存储。 当应用程序由某个任务运行时，会将所需的文件从 Blob 存储复制到 VM，使渲染应用程序能够访问它们。 输出文件由渲染应用程序写入 VM 磁盘，然后复制到 Blob 存储。  如果需要，可将输出文件从 Blob 存储下载到本地文件系统。
+  * Azure blob 存储是简单且经济高效的选项，适合小型项目。  由于每个池 VM 上需要所有资产文件，一旦资产文件的数量和大小增加，就需要谨慎确保文件传输尽量高效。  
+* 使用 [blobfuse](/storage/blobs/storage-how-to-mount-container-linux) 且用作文件系统的 Azure 存储：
+  * 对于 Linux VM，使用 blobfuse 虚拟文件系统驱动程序时，可以公开一个存储帐户，并将其用作文件系统。
+  * 此选项的优势在于，它极其经济高效，文件系统不需要任何 VM，此外，VM 上的 blobfuse 缓存可避免重复为多个作业和任务下载相同的文件。  数据移动也很简单，因为文件只是一些 Blob，可以使用标准的 API 和工具（例如 azcopy）在本地文件系统与 Azure 存储之间复制文件。
+* 文件系统或文件共享：
+  * 根据 VM 操作系统和性能/规模要求，选项包括 [Azure 文件](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)、使用附有 NFS 磁盘的 VM、使用附有分布式文件系统（例如 GlusterFS）磁盘的多个 VM，或使用第三方产品/服务。
+  * [Avere Systems](https://www.averesystems.com/) 已由 Microsoft 收购，在不久的将来，将会推出理想的解决方案进行大规模的高性能渲染。  借助 Avere 解决方案能够创建可与 Blob 存储或本地 NAS 设备配合工作的基于 Azure 的 NFS 或 SMB 缓存。
+  * 使用文件系统可以直接在文件系统中读取或写入文件，或者在文件系统与池 VM 之间复制文件。
+  * 使用共享文件系统可以在要使用的项目与作业之间共享大量的资产，而渲染任务只需访问所需的内容。
 
 ## <a name="using-azure-blob-storage"></a>使用 Azure Blob 存储
 
@@ -49,14 +52,14 @@ ms.locfileid: "68818455"
 可通过多种不同的方法复制文件，最佳的方法取决于作业资产的大小。
 最简单的方法是将每个作业的所有资产文件复制到池 VM：
 
-- 如果有些文件是某个作业独有的，但作业的所有任务都需要这些文件，则可以指定[作业准备任务](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)来复制所有文件。  当第一个作业任务已在 VM 上执行，但未针对后续作业任务再次运行时，将运行作业准备任务一次。
-- 应指定一个[作业释放任务](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)，以便在完成作业后删除每个作业的文件；这可以避免所有作业资产文件占满 VM 磁盘。
-- 如果有多个作业使用相同的资产，而每个作业的资产只是发生了增量更改，则仍会复制所有资产文件，即使只是更新了一部分文件。  存在大量的大型资产文件时，这种方法比较低效。
+* 如果有些文件是某个作业独有的，但作业的所有任务都需要这些文件，则可以指定[作业准备任务](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)来复制所有文件。  当第一个作业任务已在 VM 上执行，但未针对后续作业任务再次运行时，将运行作业准备任务一次。
+* 应指定一个[作业释放任务](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)，以便在完成作业后删除每个作业的文件；这可以避免所有作业资产文件占满 VM 磁盘。
+* 如果有多个作业使用相同的资产，而每个作业的资产只是发生了增量更改，则仍会复制所有资产文件，即使只是更新了一部分文件。  存在大量的大型资产文件时，这种方法比较低效。
 
 如果在作业之间重复使用资产文件，而作业之间只是发生了增量更改，则更有效但略微繁琐的方法是在 VM 上的共享文件夹中存储资产，并同步已更改的文件。
 
-- 作业准备任务会结合 /XO 参数，使用 azcopy 向 AZ_BATCH_NODE_SHARED_DIR 环境变量指定的 VM 共享文件夹执行复制。  这只会将已更改的文件复制到每个 VM。
-- 必须考虑所有资产的大小，以确保可将其放在池 VM 的临时驱动器上。
+* 作业准备任务会结合 /XO 参数，使用 azcopy 向 AZ_BATCH_NODE_SHARED_DIR 环境变量指定的 VM 共享文件夹执行复制。  这只会将已更改的文件复制到每个 VM。
+* 必须考虑所有资产的大小，以确保可将其放在池 VM 的临时驱动器上。
 
 Azure Batch 内置支持在存储帐户与 Batch 池 VM 之间复制文件。  任务[资源文件](https://docs.microsoft.com/rest/api/batchservice/job/add#resourcefile)将文件从存储复制到池 VM。可为作业准备任务指定这些资源文件。  遗憾的是，如果存在数百个文件，有可能会达到限制，因而任务失败。  如果存在大量的资产，我们建议在作业准备任务中使用 azcopy 命令行，这样就可以使用通配符，且没有限制。
 

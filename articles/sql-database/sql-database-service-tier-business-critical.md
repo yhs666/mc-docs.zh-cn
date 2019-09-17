@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
-manager: digimobile
 origin.date: 12/04/2018
-ms.date: 08/26/2019
-ms.openlocfilehash: cdf86bf7741d17875a2ac24d7d1479202a0d0216
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 09/09/2019
+ms.openlocfilehash: b8d7c9506aac5db9908366f4a6b7a2748e103e6b
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578577"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373025"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>业务关键层 - Azure SQL 数据库
 
@@ -50,7 +49,7 @@ SQL 数据库引擎进程和底层 mdf/ldf 文件都放置在同一个节点上�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在[托管实例](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中查找业务关键层的资源特征（核心数、IO 数、内存数），在 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier)或 [DTU 模型](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)中查找单一数据库，在 [vCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes)和 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)中查找弹性池。
+- 在[托管实例](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中查找业务关键层的资源特征（核心数、IO 数、内存数），在 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)或 [DTU 模型](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)中查找单一数据库，在 [vCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes)和 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)中查找弹性池。
 - 了解[常规用途](sql-database-service-tier-general-purpose.md)和[超大规模](sql-database-service-tier-hyperscale.md)层。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 有关高可用性和灾难恢复的更多选项，请参阅[业务连续性](sql-database-business-continuity.md)。

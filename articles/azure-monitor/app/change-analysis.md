@@ -4,19 +4,19 @@ description: 使用 Azure Monitor 中的应用程序更改分析排查 Azure 应
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 05/07/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a250e298c32b807d37496b8231093536cfbf284b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: d6ee6cdf52dd6d85ca908c38b3a1a97d52f6bcd9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989680"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736522"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>使用 Azure Monitor 中的应用程序更改分析（预览版）
 

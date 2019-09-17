@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 08/12/2019
-ms.author: v-biyu
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 7fe56c6df9e185ee9271333e7161318968719968
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+ms.openlocfilehash: 0dccb860ee864b2ca8d2f64c927bfa5698712a95
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633033"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806716"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的应用进行故障排除
 ## <a name="overview"></a>概述
@@ -36,7 +36,7 @@ ms.locfileid: "68633033"
 * 如何查看 Web 服务器日志，包括详细的错误消息和失败请求跟踪。
 * 如何将诊断日志发送至 Azure 存储帐户并在其中进行查看。
 
-如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](https://docs.microsoft.com/zh-cn/visualstudio/debugger/intellitrace) 进行调试。 本教程未介绍 IntelliTrace。
+如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](https://docs.microsoft.com/visualstudio/debugger/intellitrace) 进行调试。 本教程未介绍 IntelliTrace。
 
 ## <a name="prerequisites"></a>先决条件
 本教程适用于在[在 Azure 应用服务中创建 ASP.NET 应用](app-service-web-get-started-dotnet-framework.md)中设置的开发环境、Web 项目和应用服务应用。 对于 WebJobs 部分，需要用到在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的应用程序。
@@ -48,7 +48,7 @@ ms.locfileid: "68633033"
 流式日志功能仅适用于面向 .NET Framework 4 或更高版本的应用程序。
 
 ## <a name="sitemanagement"></a>应用配置和管理
-通过 Visual Studio，用户可以访问 [Azure 门户](https://portal.azure.cn)中提供的一部分应用管理功能和配置设置。 本节介绍使用**服务器资源管理器**可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”  菜单打开这两个窗口。
+通过 Visual Studio，用户可以访问 [Azure 门户](https://portal.azure.cn)中提供的一部分应用管理功能和配置设置。 本节介绍使用“服务器资源管理器”可以实现的功能  。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”  菜单打开这两个窗口。
 
 1. 如果还没有登录 Visual Studio 中的 Azure ，右键单击“Azure”，然后选择连接到“服务器资源管理器”中的“Microsoft Azure 订阅”    。
 
@@ -126,28 +126,28 @@ ms.locfileid: "68633033"
 
 3. 删除 `About()` 方法并在其位置插入以下代码。
 
-``` c#
-public ActionResult About()
-{
-    string currentTime = DateTime.Now.ToLongTimeString();
-    ViewBag.Message = "The current time is " + currentTime;
-    return View();
-}
-```
+    ```csharp
+    public ActionResult About()
+    {
+        string currentTime = DateTime.Now.ToLongTimeString();
+        ViewBag.Message = "The current time is " + currentTime;
+        return View();
+    }
+    ```
 
-4. 在 `ViewBag.Message` 行上[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
+1. 在 `ViewBag.Message` 行上[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
 
-5. 在“解决方案资源管理器”  中，右键单击该项目并单击“发布”  。
+1. 在“解决方案资源管理器”  中，右键单击该项目并单击“发布”  。
 
-6. 在“配置文件”下拉列表中，选择在[在 Azure 应用服务中创建 ASP.NET 应用](app-service-web-get-started-dotnet-framework.md)中使用的相同配置文件  。 然后，单击“设置”。
+1. 在“配置文件”下拉列表中，选择在[在 Azure 应用服务中创建 ASP.NET 应用](app-service-web-get-started-dotnet-framework.md)中使用的相同配置文件  。 然后，单击“设置”。
 
-7. 在“发布”对话框中，单击“设置”选项卡，将“配置”更改为“调试”，然后单击“保存”      。
+1. 在“发布”对话框中，单击“设置”选项卡，将“配置”更改为“调试”，然后单击“保存”      。
 
     ![在调试模式下发布](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. 单击“发布”。  部署结束后，浏览器将打开应用的 Azure URL，此时关闭浏览器。
+1. 单击“发布”。  部署结束后，浏览器将打开应用的 Azure URL，此时关闭浏览器。
 
-9. 在“服务器资源管理器”中，右键单击应用，并单击“附加调试器”   。
+1. 在“服务器资源管理器”中，右键单击应用，并单击“附加调试器”   。
 
     ![附加调试程序](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -157,19 +157,19 @@ public ActionResult About()
     > 如果启动调试器时出现问题，请尝试使用“云资源管理器”而不是“服务器资源管理器”执行此操作   。
     >
 
-10. 单击菜单中的“关于”  。
+1. 单击菜单中的“关于”  。
 
     Visual Studio 会在断点处停止，代码在 Azure 中运行，而不是在本地计算机上。
 
-11. 将鼠标悬停在 `currentTime` 变量上查看时间值。
+1. 将鼠标悬停在 `currentTime` 变量上查看时间值。
 
     ![在运行于 Azure 中的调试模式下查看变量](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
     看到的时间是 Azure 服务器时间，可能与本地计算机所处时区不同。
 
-12. 为 `currentTime` 变量输入一个新值，如“Now running in Azure”。
+1. 为 `currentTime` 变量输入一个新值，如“Now running in Azure”。
 
-13. 按 F5 继续运行。
+1. 按 F5 继续运行。
 
      运行于 Azure 中的“关于”页面会显示在 currentTime 变量中输入的新值。
 
@@ -253,7 +253,7 @@ public ActionResult About()
 ```
 * 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[指定是否仅使用 Visual Studio 中的“仅我的代码”调试用户代码](https://docs.microsoft.com/visualstudio/debugger/just-my-code)。
 * 启用远程调试功能时，服务器上会出现一个计时器，48 小时后该功能自动关闭。 这一 48 小时的限制是出于安全性与性能的考虑。 可以根据需要轻松地多次重启该功能。 我们建议，在不主动进行调试的时候，保持其处于禁用状态。
-* 可以手动将调试器附加到任何进程，而不仅仅是应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](https://docs.microsoft.com/zh-cn/visualstudio/debugger/debugging-in-visual-studio)。
+* 可以手动将调试器附加到任何进程，而不仅仅是应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](https://docs.microsoft.com/visualstudio/debugger/debugging-in-visual-studio)。
 
 ## <a name="logsoverview"></a>诊断日志概述
 在应用服务应用中运行的 ASP.NET 应用程序可以创建以下几类日志：
@@ -283,36 +283,36 @@ public ActionResult About()
 ### <a name="add-tracing-statements-to-the-application"></a>向应用程序添加跟踪语句
 1. 打开 *Controllers\HomeController.cs* 并将 `Index`、`About` 和 `Contact` 方法替换为以下代码，以便为 `System.Diagnostics` 添加 `Trace` 语句和 `using` 语句：
 
-```c#
-public ActionResult Index()
-{
-    Trace.WriteLine("Entering Index method");
-    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Index method");
-    return View();
-}
+    ```csharp
+    public ActionResult Index()
+    {
+        Trace.WriteLine("Entering Index method");
+        ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+        Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Index method");
+        return View();
+    }
+    
+    public ActionResult About()
+    {
+        Trace.WriteLine("Entering About method");
+        ViewBag.Message = "Your app description page.";
+        Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+        Trace.WriteLine("Leaving About method");
+        return View();
+    }
+    
+    public ActionResult Contact()
+    {
+        Trace.WriteLine("Entering Contact method");
+        ViewBag.Message = "Your contact page.";
+        Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Contact method");
+        return View();
+    }        
+    ```
 
-public ActionResult About()
-{
-    Trace.WriteLine("Entering About method");
-    ViewBag.Message = "Your app description page.";
-    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-    Trace.WriteLine("Leaving About method");
-    return View();
-}
-
-public ActionResult Contact()
-{
-    Trace.WriteLine("Entering Contact method");
-    ViewBag.Message = "Your contact page.";
-    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Contact method");
-    return View();
-}        
-```
-
-2. 将 `using System.Diagnostics;` 语句添加到文件顶部。
+1. 将 `using System.Diagnostics;` 语句添加到文件顶部。
 
 ### <a name="view-the-tracing-output-locally"></a>本地查看跟踪输出
 1. 按 F5 以调试模式运行应用程序。
@@ -322,33 +322,33 @@ public ActionResult Contact()
     ![在调试窗口中进行跟踪](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
     以下步骤介绍如何在网页中查看跟踪输出而无需在调试模式下进行编译。
-2. 打开应用程序 Web.config 文件（位于项目文件夹中），将 `<system.diagnostics>` 元素添加到文件末尾的关闭 `</configuration>` 元素之前：
+1. 打开应用程序 Web.config 文件（位于项目文件夹中），将 `<system.diagnostics>` 元素添加到文件末尾的关闭 `</configuration>` 元素之前：
 
-``` xml
-<system.diagnostics>
-<trace>
-  <listeners>
-    <add name="WebPageTraceListener"
-        type="System.Web.WebPageTraceListener,
-        System.Web,
-        Version=4.0.0.0,
-        Culture=neutral,
-        PublicKeyToken=b03f5f7f11d50a3a" />
-  </listeners>
-</trace>
-</system.diagnostics>
-```
+    ``` xml
+    <system.diagnostics>
+    <trace>
+      <listeners>
+        <add name="WebPageTraceListener"
+            type="System.Web.WebPageTraceListener,
+            System.Web,
+            Version=4.0.0.0,
+            Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a" />
+      </listeners>
+    </trace>
+    </system.diagnostics>
+    ```
 
 `WebPageTraceListener` 允许通过浏览至 `/trace.axd` 查看跟踪输出。
-3. 将<a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
+1. 将<a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
 
-``` xml
-<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
-```       
+    ``` xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+    ```
 
-4. 按 Ctrl+F5 运行应用程序。
-5. 在浏览器窗口的地址栏中，将 trace.axd 添加到 URL，然后按 Enter（URL 类似于 http://localhost:53370/trace.axd) ）  。
-6. 在“应用程序跟踪”  页面上，单击第一行中（非浏览器链接中）的“查看详细信息”  。
+1. 按 Ctrl+F5 运行应用程序。
+1. 在浏览器窗口的地址栏中，将 trace.axd  添加到 URL，然后按 Enter（URL 类似于 `http://localhost:53370/trace.axd`）。
+1. 在“应用程序跟踪”  页面上，单击第一行中（非浏览器链接中）的“查看详细信息”  。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -517,50 +517,50 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
 5. In the Visual Studio **Azure Web App** window, click the **Logs** tab, and then click **Configure Logging in Management Portal**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+     <!-- todo:screenshot of new portal if the VS page link goes to new portal -- >
     ![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
     This opens the **Configure** tab in the portal for your web app.
-6. 在门户的“配置”  选项卡中，向下滚动至应用程序诊断部分，然后将“应用程序日志记录(表存储)”  更改为“启用”  。
-7. 将“日志记录级别”  更改为“信息”  。
-8. 单击“管理表存储”  。
+6. In the portal's **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Table Storage)** to **On**.
+7. Change **Logging Level** to **Information**.
+8. Click **Manage Table Storage**.
 
-    ![单击管理表存储。](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
+    ![Click Manage TableStorage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
 
-    在“对应用程序诊断管理表存储”  框中可选择存储帐户（如果有多个此类帐户）。 可以创建一个新表或使用现有的表。
+    In the **Manage table storage for application diagnostics** box, you can choose your storage account if you have more than one. You can create a new table or use an existing one.
 
-    ![管理表存储](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
-9. 在“管理用于应用程序诊断的表存储”  框中，单击复选标记关闭该框。
-10. 在门户的“配置”  选项卡中，单击“保存”  。
-11. 在显示应用程序 Web 应用的浏览器窗口，依次单击“主页”  、“关于”  以及“联系人”  。
+    ![Manage table storage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
+9. In the **Manage table storage for application diagnostics** box, click the check mark to close the box.
+10. In the portal's **Configure** tab, click **Save**.
+11. In the browser window that displays the application web app, click **Home**, then click **About**, and then click **Contact**.
 
-    浏览这些网页而生成的日志记录信息会写入存储帐户。
-12. 在 Visual Studio 中的“Azure Web 应用”  窗口的“日志”  选项卡上，单击“诊断摘要”  下的“刷新”  。
+     The logging information produced by browsing these web pages is written to the storage account.
+12. In the **Logs** tab of the **Azure Web App** window in Visual Studio, click **Refresh** under **Diagnostic Summary**.
 
-    ![单击刷新](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+     ![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-    “诊断摘要”  部分默认显示过去 15 分钟的日志。 可以更改此时段以查看更多日志。
+     The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs.
 
-    （如果收到“表未找到”错误，请验证是否在启用“应用程序日志记录(存储)”  ，并随后单击“保存”  之后已浏览至执行跟踪的页面。）
+     (If you get a "table not found" error, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
 
-    ![存储日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
+     ![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
-    请注意，在此视图中，可以看到每个日志的“进程 ID”  和“线程 ID”  ，这在文件系统日志中是无法看到的。 通过直接查看 Azure 存储表可看到额外字段。
-13. 单击“查看所有应用程序日志”  。
+     Notice that in this view you see **Process ID** and **Thread ID** for each log, which you don't get in the file system logs. You can see additional fields by viewing the Azure storage table directly.
+13. Click **View all application logs**.
 
-    跟踪日志表显示在 Azure 存储表查看器中。
+     The trace log table appears in the Azure storage table viewer.
 
-    （如果收到“序列未包含任何元素”错误，请打开“服务器资源管理器”  ，展开“Azure”  节点下存储帐户节点，然后右键单击“表”  并单击“刷新”  。）
+     (If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Azure** node, and then right-click **Tables** and click **Refresh**.)
 
-    ![表视图中的存储日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
+     ![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-    该视图会显示任何其他视图都没提供的额外字段。 该视图还支持使用特殊的 Query Builder UI 构建查询以筛选日志。 有关详细信息，请参阅[通过服务器资源管理器浏览存储资源](https://msdn.microsoft.com/library/ff683677.aspx)中的“使用表资源 - 筛选实体”。
-14. 要查看单个行的详细信息，请双击其中一行。
+     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/ff683677.aspx).
+14. To look at the details for a single row, double-click one of the rows.
 
-    ![服务器资源管理器中的跟踪表](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
-   -->
-   ## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
-   如果需要详细了解 IIS 如何处理 HTTP 请求（在出现 URL 重写或身份验证问题等情况下），失败请求跟踪日志十分有用。
+     ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
+ -->
+## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
+如果需要详细了解 IIS 如何处理 HTTP 请求（在出现 URL 重写或身份验证问题等情况下），失败请求跟踪日志十分有用。
 
 应用服务应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟踪功能。 IIS 设置经过配置可记录指定错误，但无法访问该设置。 启用失败请求跟踪后，所有错误都会纳入捕获范围内。
 
@@ -631,7 +631,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 * [ASP.NET 站点上的 Azure 论坛](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)。
 * [MSDN 上的 Azure 论坛](https://social.msdn.microsoft.com/Forums/windowsazure/)。
-* [CSDN](http://azure.csdn.net/)。
+* [StackOverflow.com](https://www.stackoverflow.com)。
 
 ### <a name="debugging-in-visual-studio"></a>在 Visual Studio 中进行调试
 有关如何在 Visual Studio 中使用调试模式的详细信息，请参阅[在 Visual Studio 中进行调试](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)和[使用 Visual Studio 2010 进行调试的提示](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)。
@@ -659,17 +659,17 @@ Internet 上对于 ASP.NET 跟踪没有全面且最新的介绍。 最佳做法�
 * [在 ASP.NET MVC Razor 视图中进行跟踪](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   除了在 Razor 视图中进行跟踪，文章还介绍了如何创建错误筛选器以便在 MVC 应用程序中记录所有未经处理的异常。 有关如何在 Web 窗体应用程序中记录所有未经处理的异常，请参阅 MSDN 上的[错误处理程序的完整示例](https://msdn.microsoft.com/library/bb397417.aspx)中的 Global.asax 示例。 在 MVC 或 Web 窗体中，如果希望记录特定异常但想让默认框架对其进行处理，可捕获并重新引发异常，如下例所示：
 
-``` c#
-try
-{
-   // Your code that might cause an exception to be thrown.
-}
-catch (Exception ex)
-{
-    Trace.TraceError("Exception: " + ex.ToString());
-    throw;
-}
-```
+    ```csharp
+    try
+    {
+       // Your code that might cause an exception to be thrown.
+    }
+    catch (Exception ex)
+    {
+        Trace.TraceError("Exception: " + ex.ToString());
+        throw;
+    }
+    ```
 
 * [从 Azure 命令行流式传输诊断跟踪日志记录（加上 Glimpse！）](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   如何使用命令行实现本教程中通过 Visual Studio 完成的任务。 [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 是一个用于调试 ASP.NET 应用程序的工具。
@@ -683,7 +683,7 @@ catch (Exception ex)
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   用于查看 Web 服务器日志（ *.log* 文件）中的数据的工具。
-* [使用 LogParser 解决 IIS 性能问题或应用程序错误](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [使用 LogParser 排查 IIS 性能问题或应用程序错误](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   可用于分析 Web 服务器日志的 Log Parser 工具介绍。
 * [Robert McMurray 有关 LogParser 使用的博客文章](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0、IIS 7.5 以及 IIS 8.0 中的 HTTP 状态代码](https://support.microsoft.com/kb/943891)

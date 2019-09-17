@@ -1,6 +1,6 @@
 ---
 title: 为 Azure Stack 开发模板 | Microsoft 文档
-description: 了解 Azure Stack 模板的最佳做法
+description: 了解如何开发 Azure 资源管理器模板来实现 Azure 与 Azure Stack 之间的应用可移植性。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/21/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 63e16abe89da280e1deccd5e8b47cabf27bad5de
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 7927b374f6c032494919334ac33ca1bdbeffdcf3
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513303"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857309"
 ---
-# <a name="azure-resource-manager-template-considerations"></a>Azure 资源管理器模板注意事项
+# <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>使用 Azure 资源管理器开发 Azure Stack 的模板
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-开发应用程序时，请务必确保模板可在 Azure 和 Azure Stack 之间移植。 本文提供有关开发 [Azure 资源管理器模板](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)的注意事项，以便你可以为应用程序创建原型以及在 Azure 中测试部署而无需访问 Azure Stack 环境。
+开发应用时，请务必确保模板可在 Azure 和 Azure Stack 之间移植。 本文提供了有关开发 [Azure 资源管理器模板](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)的注意事项。 使用这些模板，可以在 Azure 中创建应用原型并测试部署，而无需访问 Azure Stack 环境。
 
 ## <a name="resource-provider-availability"></a>资源提供程序可用性
 
-计划部署的模板只能使用已在 Azure Stack 中发布或以预览版方式发布的 Azure 服务。
+计划部署的模板只能使用 Azure Stack 中已经可用或处于预览状态的 Azure 服务。
 
 ## <a name="public-namespaces"></a>公共命名空间
 
@@ -58,7 +58,7 @@ Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个�
 
 ## <a name="template-functions"></a>模板函数
 
-Azure 资源管理器[函数](../../azure-resource-manager/resource-group-template-functions.md)提供生成动态模板所需的功能。 例如，可以对如下任务使用函数：
+Azure 资源管理器[函数](/azure-resource-manager/resource-group-template-functions)提供生成动态模板所需的功能。 例如，可以对如下任务使用函数：
 
 * 连接或修整字符串。
 * 引用其他资源的值。

@@ -5,16 +5,17 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 07/11/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 8fe2a3e512ee3f28603c2dd3d842b86a5282d791
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 75769cc360fdb151abc3883a576d7f3944331077
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562279"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737379"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure Monitor 中监视使用情况和预估成本
 

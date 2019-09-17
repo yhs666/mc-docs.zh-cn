@@ -8,14 +8,14 @@ ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-origin.date: 05/13/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: 27896bd55645735699ef87feb732606b5aea0f1d
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+origin.date: 06/19/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 668a2f9ebdd9903361b1a4637444e432f266a26f
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538733"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174088"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure 逻辑应用的工作流定义语言中的触发器和操作类型参考
 
@@ -1090,7 +1090,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 *示例 1*
 
-此操作运行的代码将获取逻辑应用的名称，并返回文本“Hello world from <逻辑应用名称>”作为结果。 在此示例中，代码通过只读的 `workflowContext` 对象访问 `workflowContext.workflow.name` 属性，以此引用工作流的名称。 
+此操作运行的代码将获取逻辑应用的名称，并返回文本“Hello world from \<逻辑应用名称>”作为结果。 在此示例中，代码通过只读的 `workflowContext` 对象访问 `workflowContext.workflow.name` 属性，以此引用工作流的名称。 
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1633,7 +1633,7 @@ Select 操作创建一个数组作为输出，因此，任何想要使用此输�
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
-| <CSV 或 HTML> | String | 要创建的表的格式 | 
+| \<CSV 或 HTML> | String | 要创建的表的格式 | 
 | <array>  | Array | 为表提供源项的数组或表达式 <p>**注意**：如果源数组为空，则该操作会创建一个空表。 | 
 |||| 
 
@@ -2316,7 +2316,7 @@ ID,Product_Name
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2325,7 +2325,7 @@ ID,Product_Name
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2379,6 +2379,7 @@ ID,Product_Name
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | 更改当工作流已运行最大并发实例数时，针对可等待运行的工作流实例数的[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)  。 可在 `concurrency.runs` 属性中更改并发限制。 <p>若要更改此默认限制，请参阅[更改等待的运行限制](#change-waiting-runs)。 | 所有触发器 | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | 更改针对可同时或并行运行的“for each”循环迭代数的[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)  。 <p>将 `repetitions` 属性设置为 `1` 与将 `operationOptions` 属性设置为 `SingleInstance` 的作用相同。 可以设置其中任一属性，但不能同时设置二者。 <p>若要更改默认限制，请参阅[更改“for each”并发](#change-for-each-concurrency)或[按顺序运行“for each”循环](#sequential-for-each)。 | 操作： <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | 对于支持且已启用分页的特定操作，此值指定要检索的最小结果数  。 <p>若要启用分页，请参阅[使用分页获取批量数据、项或结果](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | 操作：Varied |
+| `runtimeConfiguration.secureData.properties` | Array | 在许多触发器和操作中，这些设置会向逻辑应用的运行历史记录隐藏输入和/或输出。 <p>若要保护此数据，请参阅[向运行历史记录隐藏输入和输出](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)。 | 大多数触发器和操作 |
 | `runtimeConfiguration.staticResult` | JSON 对象 | 对于支持且已启用[静态结果](../logic-apps/test-logic-apps-mock-data-static-results.md)设置的操作，`staticResult` 对象包含以下特性： <p>- `name`，引用当前操作的静态结果定义名称，该名称显示在逻辑应用工作流的 `definition` 特性中的 `staticResults` 特性内。 有关详细信息，请参阅[静态结果 - 工作流定义语言的架构参考](../logic-apps/logic-apps-workflow-definition-language.md#static-results)。 <p> - `staticResultOptions`，指定当前操作的静态结果是否为 `Enabled`。 <p>若要启用静态结果，请参阅[通过设置静态结果来使用模拟数据测试逻辑应用](../logic-apps/test-logic-apps-mock-data-static-results.md) | 操作：Varied |
 ||||| 
 

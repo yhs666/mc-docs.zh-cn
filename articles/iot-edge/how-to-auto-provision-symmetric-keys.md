@@ -6,17 +6,17 @@ manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
 origin.date: 07/10/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3091fb1cf91014c9a4198f52b52ff24033efecf5
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 795f8fe25d84d769d8ad65c64b5f81c8799f9296
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337555"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174004"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用对称密钥证明创建和预配 IoT Edge 设备
 
@@ -28,7 +28,7 @@ ms.locfileid: "68337555"
 * 为设备创建个人注册。
 * 安装 IoT Edge 运行时并连接到 IoT 中心。
 
-对称密钥证明是一种通过设备预配服务实例对设备进行身份验证的简单方法。 此证明方法表示不熟悉设备预配或不具备严格安全要求的开发人员的“Hello world”体验。 使用 [TPM](../iot-dps/concepts-tpm-attestation.md) 或 [X.509 证书](../iot-dps/concepts-security.md#x509-certificates)的设备证明更加安全，且应用于更严格的安全要求。
+对称密钥证明是一种通过设备预配服务实例对设备进行身份验证的简单方法。 此证明方法表示不熟悉设备预配或不具备严格安全要求的开发人员的“Hello world”体验。 使用 [TPM](../iot-dps/concepts-tpm-attestation.md) 的设备证明更加安全，且应当用于更严格的安全要求。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -166,8 +166,7 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 该运行时的组件在
 
 请遵照设备体系结构的说明。 确保将 IoT Edge 运行时配置为自动预配而不是手动预配。
 
-* [在 Linux (x64) 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)
-* [在 Linux 上安装 Azure IoT Edge 运行时 (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[在 Linux 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)
 
 配置文件用于对称密钥预配的节如下所示：
 
@@ -189,7 +188,7 @@ provisioning:
 
 遵照说明在为其生成了派生设备密钥的设备上安装 IoT Edge 运行时。 确保将 IoT Edge 运行时配置为自动预配而不是手动预配。
 
-[安装和自动预配 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[在 Windows 上安装和自动预配 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>验证是否成功安装
 

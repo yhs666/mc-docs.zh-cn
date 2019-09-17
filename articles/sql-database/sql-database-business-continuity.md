@@ -11,15 +11,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
-manager: digimobile
 origin.date: 06/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 3012e10c1ae56f822c89d1379e0540ba0e1ed546
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: fadd05c3119a3bc79973910cca921d40b115adad
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544396"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372982"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL 数据库确保业务连续性的相关概述
 
@@ -59,7 +58,23 @@ SQL 数据库还提供多种业务连续性功能，用于缓解各种计划外�
 
 如果支持的最长时间点还原 (PITR) 备份保留期对你的应用程序而言不足，可以通过为数据库配置长期保留 (LTR) 策略来延长保留期。 有关详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
 
-## <a name="recover-a-database-to-another-azure-region"></a>将数据库恢复到另一 Azure 区域
+## <a name="compare-geo-replication-with-failover-groups"></a>将异地复制与故障转移组进行比较
+
+[自动故障转移组](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities)简化了[异地复制](sql-database-active-geo-replication.md)的部署和使用，并添加了其他功能，如下表中所述：
+
+|                                              | 异地复制 | 故障转移组  |
+|:---------------------------------------------| :-------------- | :----------------|
+| 自动故障转移                           |     否          |      是         |
+| 同时故障转移多个数据库  |     否          |      是         |
+| 在故障转移后更新连接字符串      |     是         |      否          |
+| 支持托管实例                   |     否          |      是         |
+| 可以与主服务器位于同一区域             |     是         |      否          |
+| 多个副本                            |     是         |      否          |
+| 支持读取缩放                          |     是         |      是         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## <a name="recover-a-database-to-the-existing-server"></a>将数据库恢复到现有服务器
 
 Azure 数据中心会罕见地发生中断。 发生中断时，业务可能仅中断几分钟，也可能持续数小时。
 

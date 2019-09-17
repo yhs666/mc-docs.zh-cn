@@ -4,23 +4,23 @@ description: 使用 Azure CLI 管理 Azure Cosmos DB 帐户、数据库和容器
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 07/29/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0492fd56ecc4bf4da36e1af0ae7e1e3ac7f25f29
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 46318bcac41b4cb880a38fa3d9a93bde2be60317
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672220"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254639"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 资源
 
-以下指南介绍了使用 Azure CLI 自动管理 Azure Cosmos DB 帐户、数据库和容器的常见命令。 [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。 还可以在[针对 Azure Cosmos DB 的 Azure CLI 示例](cli-samples.md)中找到更多示例，包括如何为 MongoDB、Gremlin、Cassandra 和表 API 创建和管理 Cosmos DB 帐户、数据库和容器。
+以下指南介绍了使用 Azure CLI 自动管理 Azure Cosmos DB 帐户、数据库和容器的常见命令。 [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。 还可以在[针对 Azure Cosmos DB 的 Azure CLI 示例](cli-samples.md)中找到更多示例，包括如何为 MongoDB、Gremlin、Cassandra 和表 API 创建和管理 Cosmos DB 帐户、数据库和容器。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
@@ -30,12 +30,12 @@ ms.locfileid: "68672220"
 
 ```azurecli
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations regionName=chinaeast failoverPriority=0 isZoneRedundant=False \
-   --locations regionName=chinanorth failoverPriority=1 isZoneRedundant=False \
+   --locations regionName=ChinaEast failoverPriority=0 \
+   --locations regionName=ChinaNorth failoverPriority=1 \
    --enable-multiple-write-locations false
 ```
 
@@ -44,7 +44,7 @@ az cosmosdb create \
 
 ## <a name="create-a-database"></a>创建数据库
 
-若要创建 Cosmos DB 数据库，请运行以下命令：
+若要创建 Cosmos 数据库，请运行以下命令：
 
 <!-- Not Available on cloud shell-->
 
@@ -57,7 +57,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>创建容器
 
-若要创建吞吐量为 400 RU/秒且具有分区键的 Cosmos DB 容器，请运行以下命令：
+若要创建吞吐量为 400 RU/秒且具有分区键的 Cosmos 容器，请运行以下命令：
 
 <!-- Not Available on cloud shell-->
 
@@ -76,7 +76,7 @@ az cosmosdb collection create \
 
 <!-- Not Available on cloud shell-->
 
-若要将 Cosmos DB 容器的吞吐量更改为 1000 RU/秒，请运行以下命令：
+若要将 Cosmos 容器的吞吐量更改为 1000 RU/秒，请运行以下命令：
 
 ```azurecli
 # Update container throughput
@@ -126,8 +126,8 @@ az cosmosdb regenerate-key \
 
 有关 Azure CLI 的详细信息，请参阅：
 
-- [安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)
-- [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)
+- [安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)
 - [针对 Azure Cosmos DB 的其他 Azure CLI 示例](cli-samples.md)
 
 <!-- Update_Description: update meta properties, wording update -->

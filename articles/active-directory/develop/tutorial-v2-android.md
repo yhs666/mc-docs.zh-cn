@@ -3,7 +3,7 @@ title: Android - Microsoft 标识平台入门 | Azure
 description: Android 应用如何从 Microsoft 标识平台获取访问令牌并调用 Microsoft Graph API 或需要访问令牌的 API。
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/26/2019
-ms.date: 07/01/2019
+origin.date: 07/09/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb757a677b665a35e40a7837a80c3689bacd7ffc
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 01eedc622ad5d5ef4880dba70f17bb0d3fe0737a
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568709"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134238"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>从 Android 应用将用户登录并调用 Microsoft Graph
 
-本教程介绍如何将 Android 应用集成到 Microsoft 标识平台中。 具体而言，此应用会将用户登录，获取用于调用 Microsoft Graph API 的访问令牌，并针对 Microsoft Graph API 发出请求。  
+本教程介绍如何将 Android 应用与 Microsoft 标识平台集成。 应用会将用户登录，获取用于调用 Microsoft Graph API 的访问令牌，并针对 Microsoft Graph API 发出请求。  
 
 完成本指南后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。
 
@@ -34,64 +34,58 @@ ms.locfileid: "67568709"
 
 ![显示本教程生成的示例应用的工作原理](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
-此示例中的应用会将用户登录并代表他们获取数据。  通过需要身份验证的受保护 API（在本例中为 Microsoft Graph API）访问此数据。
+本教程中的应用会将用户登录并代表他们获取数据。  该数据可通过一个受保护的 API (Microsoft 图形 API) 进行访问，该 API 需要授权并且受 Microsoft 标识平台保护。
 
 更具体地说：
 
 * 应用将通过浏览器或 Microsoft Authenticator 和 Intune 公司门户来让用户登录。
-* 最终用户将接受应用程序请求的权限。 
+* 最终用户将接受应用程序请求的权限。
 * 将为你的应用颁发 Microsoft Graph API 的一个访问令牌。
 * 该访问令牌将包括在对 Web API 的 HTTP 请求中。
 * 处理 Microsoft Graph 响应。
 
-本示例使用适用于 Android 的 Microsoft 身份验证库 (MSAL) 来实现身份验证。MSAL 将自动续订令牌，在设备上的其他应用之间提供 SSO，并管理帐户。
+该示例使用 Android 的 Microsoft 身份验证库 (MSAL) 来实现身份验证：[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)。
+
+ MSAL 会自动续订令牌。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 此指导式设置使用的是 Android Studio。
-* 必须使用 Android 16 或更高版本（建议使用 19+）。
+* 本教程需要 Android Studio 16 版本或更高版本（建议使用 19+ 版本）。
 
-## <a name="library"></a>库
-
-本指南使用以下身份验证库：
-
-|库|说明|
-|---|---|
-|[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft 身份验证库 (MSAL)|
-
-## <a name="set-up-your-project"></a>设置项目
+## <a name="create-a-project"></a>创建一个项目
 
 本教程将创建一个新项目。 若要下载已完成的教程，请[下载代码](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)。
 
-### <a name="create-a-new-project"></a>创建新项目
-
 1. 打开 Android Studio，然后选择“启动新的 Android Studio 项目”  。
-    - 如果 Android Studio 已打开，请选择“文件” > “新建” > “新建项目”。   
-2. 将“空活动”保留原样，选择“下一步”。  
-3. 为应用程序命名，将 `Minimum API level` 设置为 **API 19 或更高版本**，然后点击“完成”。 
-5. 在 `app/build.gradle` 中，将 `targetedSdkVersion` 设置为 27。 
+2. 选择“基本活动”，再选择“下一步”   。
+3. 为应用程序命名。
+4. 保存包名称。 以后需将它输入 Azure 门户中。
+5. 将“最低 API 级别”  设置为 **API 19** 或更高，然后单击“完成”。 
+6. 在项目视图的下拉列表中选择“项目”  ，以便显示源和非源的项目文件，然后打开 **app/build.gradle**，将 `targetSdkVersion` 设置为 `27`。
 
 ## <a name="register-your-application"></a>注册应用程序
 
-如接下来的两部分中所述，可以采用两种方式之一注册应用程序。
+1. 转到 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)。
+2. 打开[“应用注册”边栏选项卡](https://portal.azure.cn/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)，单击“+新建注册”。 
+3. 输入应用的“名称”，然后在不设置重定向  URI 的情况下单击“注册”。 
+4. 在显示的窗格的“管理”部分，  选择“身份验证”   > “+ 添加平台”   >   “Android”。
+5. 输入项目的包名称。 如果下载了代码，则此值为 `com.azuresamples.msalandroidapp`。
+6. 在“配置 Android 应用”页的“签名哈希”部分，单击“生成开发签名哈希”。    然后复制用于平台的 KeyTool 命令。
 
-### <a name="register-your-app"></a>注册应用
+   > [!Note]
+   > 安装 KeyTool.exe，使其作为 Java 开发工具包 (JDK) 的一部分。 还必须安装 OpenSSL 工具才能执行 KeyTool 命令。
 
-1. 转到 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) > 选择 `New registration`。 
-2. 输入应用的**名称** > `Register`。 **暂时不要设置重定向 URI**。 
-3. 在 `Manage` 部分，转到 `Authentication` > `Add a platform` > `Android`
-    - 输入项目的包名称。 如果下载了代码，则此值为 `com.azuresamples.msalandroidapp`。 
-    - 输入调试/开发签名哈希。 使用门户中的 KeyTool 命令生成签名哈希。 
-4. 点击 `Configure`，并存储 ***MSAL 配置***供稍后使用。 
+7. 生成由 KeyTool 生成的**签名哈希**。
+8. 单击 `Configure` 并保存出现在“Android 配置”页中的“MSAL 配置”   ，以便在稍后配置应用时输入它。  单击“Done”（完成）  。
 
 ## <a name="build-your-app"></a>生成应用
 
-### <a name="configure-your-android-app"></a>配置 Android 应用
+### <a name="add-your-app-registration"></a>添加应用注册
 
-1. 右键单击“res” > “新建” > “文件夹” > “原始资源文件夹”    
-2. 在“app” > “res” > “raw”中，创建名为 `auth_config.json` 的新 JSON 文件并粘贴***MSAL 配置***。    有关详细信息，请参阅 [MSAL 配置](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
-   <!-- Workaround for Docs conversion bug -->
-3. 在“app” > “manifests” > “AndroidManifest.xml”中，添加以下 `BrowserTabActivity` 活动。    此条目可让 Microsoft 在完成身份验证后回调你的应用程序：
+1. 在 Android Studio 的项目窗格中，导航到 **app\src\main\res**。
+2. 右键单击“res”  ，选择“新建”   >   “目录”。 输入 `raw` 作为新目录名称，然后单击“确定”。 
+3. 在 **app** > **src** > **res** > **raw** 中，新建名为 `auth_config.json` 的 JSON 文件，然后粘贴以前保存的 MSAL 配置。 有关详细信息，请参阅 [MSAL 配置](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
+4. 在 **app** > **src** > **main** > **AndroidManifest.xml** 中，添加下面的 `BrowserTabActivity` 活动。 此条目可让 Microsoft 在完成身份验证后回调你的应用程序：
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -108,21 +102,20 @@ ms.locfileid: "67568709"
     </activity>
     ```
 
-    请注意，不应在 **AndroidManifest.xml** 中对使用的签名哈希进行 URL 编码。 
+    将 `android:host=` 值替换为在 Azure 门户中注册的包名称。
+    将 `android:path=` 值替换为在 Azure 门户中注册的密钥哈希。 签名哈希不应进行 URL 编码。
 
-4. 在 **AndroidManifest.xml** 中紧靠在 `<application>` 标记的上方，添加以下权限：
+5. 在 AndroidManifest.xml  内的 `<application>` 标记上方，添加以下权限：
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-5. 在 `BrowserTabActivity` 中，将 ***Package Name*** 和 ***Signature Hash*** 替换为在 Azure 门户中注册的值。
-
 ### <a name="create-the-apps-ui"></a>创建应用的 UI
 
-1. 转到“资源” > “布局”，然后打开 **activity_main.xml**。  
-2. 将活动布局从 `android.support.constraint.ConstraintLayout` 或其他布局更改为 `LinearLayout`。
+1. 在 Android Studio 项目窗口中导航到 **app** > **src** > **main** > **res** > **layout**，打开 **activity_main.xml**，然后打开“文本”视图。 
+2. 更改活动布局，例如，将 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 更改为 `<androidx.coordinatorlayout.widget.LinearLayout`。
 3. 将 `android:orientation="vertical"` 属性添加到 `LinearLayout` 节点。
 4. 将以下代码粘贴到 `LinearLayout` 节点，替换当前内容：
 
@@ -179,21 +172,22 @@ ms.locfileid: "67568709"
 
 ### <a name="add-msal-to-your-project"></a>将 MSAL 添加到项目
 
-1. 在 Android Studio 中，选择“Gradle 脚本” > “build.gradle (模块: 应用)”。  
-2. 在“依存关系”  下，粘贴以下代码：
+1. 在 Android 项目窗口中导航到 **app** > **src** > **build.gradle**。
+2. 在“依赖项”  下，粘贴以下内容：
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.microsoft.identity.client:msal:0.3.+'
     ```
 
-### <a name="use-msal"></a>使用 MSAL 
+### <a name="use-msal"></a>使用 MSAL
 
-以下几个部分将在 `MainAcitivty.java` 中进行更改。 我们将引导你完成每个所需的步骤，以便在应用中添加和使用 MSAL。
+现在，请在 `MainActivity.java` 中进行更改，以便在应用中添加并使用 MSAL。
+在 Android Studio 项目窗口中，导航到 app  >  src  >  main  >  java  >  com.example.msal，然后打开 `MainActivity.java`      。
 
 #### <a name="required-imports"></a>所需的 import 语句
 
-将以下 import 语句添加到项目： 
+将以下导出添加到 `MainActivity.java` 顶部附近：
 
 ```java
 import android.app.Activity;
@@ -214,11 +208,11 @@ import com.microsoft.identity.client.*;
 import com.microsoft.identity.client.exception.*;
 ```
 
-#### <a name="instantiating-msal"></a>实例化 MSAL 
+#### <a name="instantiate-msal"></a>实例化 MSAL
 
-在 `MainActivity` 类中，需要连同有关应用将要执行哪些操作的几项配置（包括访问的范围和 Web API）一起实例化 MSAL。 
+在 `MainActivity` 类中，需要连同有关应用将要执行哪些操作的几项配置（包括访问的范围和 Web API）一起实例化 MSAL。
 
-在 `MainActivity` 中复制以下变量：
+在 `MainActivity` 类中复制以下变量：
 
 ```java
 final static String SCOPES [] = {"https://microsoftgraph.chinacloudapi.cn/User.Read"};
@@ -234,7 +228,7 @@ private PublicClientApplication sampleApp;
 private IAuthenticationResult authResult;
 ```
 
-现在，若要实例化 MSAL，请在 `onCreate(...)` 方法中复制以下代码：
+将 `onCreate()` 的内容替换为以下代码，以便实例化 MSAL：
 
 ```java
 super.onCreate(savedInstanceState);
@@ -274,19 +268,17 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 });
 ```
 
-当用户打开你的应用程序时，上述代码块会尝试通过 `getAccounts(...)` 以无提示方式将用户登录，如果登录成功，则调用 `acquireTokenSilentAsync(...)`。  在以下几个部分，我们将针对不存在登录帐户的情况实现回调处理程序。 
+上面的代码尝试在用户通过 `getAccounts()` 打开应用程序时以静默方式登录，若成功则为 `acquireTokenSilentAsync()`。  在以下几个部分，我们将针对不存在登录帐户的情况实现回调处理程序。
 
 #### <a name="use-msal-to-get-tokens"></a>使用 MSAL 获取令牌
 
-现在，我们可以通过 MSAL 以交互方式实现应用的 UI 处理逻辑和获取令牌。 
+现在，我们可以通过 MSAL 以交互方式实现应用的 UI 处理逻辑和获取令牌。
 
-MSAL 公开两个主要方法用于获取令牌：`acquireTokenSilentAsync` 和 `acquireToken`。  
+MSAL 公开两个主要方法用于获取令牌：`acquireTokenSilentAsync()` 和 `acquireToken()`。  
 
-如果帐户存在，`acquireTokenSilentAsync` 会将用户登录并获取令牌，而无需任何用户交互。 如果成功，MSAL 会将令牌转交给应用，否则会生成 `MsalUiRequiredException`。  如果生成了此异常或者你希望用户能够获得交互式登录体验（MFA 策略可能需要或不需要凭据），则可以使用 `acquireToken`。  
+如果帐户存在，`acquireTokenSilentAsync()` 会将用户登录并获取令牌，而无需任何用户交互。 如果成功，MSAL 会将令牌转交给应用，否则会生成 `MsalUiRequiredException`。  如果生成此异常或你希望用户具有交互式登录体验（不一定需要凭据、mfa 或其他条件访问策略），则使用 `acquireToken()`。  
 
-尝试将用户登录和获取令牌时，`acquireToken` 始终会显示 UI；但是，它可能会使用浏览器中的会话 Cookie 或 Microsoft Authenticator 中的帐户来提供交互式 SSO 体验。 
-
-若要开始，请在 `MainActivity` 类中创建以下三个 UI 方法：
+`acquireToken()` 会在尝试登录用户并获取令牌时显示 UI。 在 `MainActivity` 类中创建以下三个 UI 方法：
 
 ```java
 /* Set the UI for successful token acquisition data */
@@ -319,7 +311,7 @@ private void onCallGraphClicked() {
 }
 ```
 
-接下来，添加一个方法用于获取当前活动并处理无提示的交互式回调：
+添加以下方法来获取当前活动并处理静默和交互式回叫：
 
 ```java
 public Activity getActivity() {
@@ -415,16 +407,16 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 
 #### <a name="use-msal-for-sign-out"></a>使用 MSAL 注销
 
-接下来，我们添加注销应用的支持。 
+接下来，添加注销支持。
 
-必须注意，使用 MSAL 注销会从此应用程序删除有关用户的所有已知信息，但用户仍在其设备上保持活动会话。 如果用户再次尝试登录，他们可能会看到交互内容，但不一定需要重新输入其凭据，因为设备会话当前是活动的。 
+> [!Important]
+> 使用 MSAL 注销会从应用程序中删除有关用户的所有已知信息，但是用户的设备上仍然有一个活动会话。 如果用户尝试再次登录，则可能会看到登录 UI，但由于设备会话仍处于活动状态，可能无需重新输入其凭据。
 
-若要添加注销功能，请将以下方法复制到应用中，用于循环访问和删除所有帐户：
+若要添加注销功能，请将以下方法添加到 `MainActivity` 类中。 该方法会遍历所有帐户并将其删除：
 
 ```java
 /* Clears an account's tokens from the cache.
  * Logically similar to "sign out" but only signs out of this app.
- * User will get interactive SSO if trying to sign back-in.
  */
 private void onSignOutClicked() {
     /* Attempt to get a user and acquireTokenSilent
@@ -462,16 +454,16 @@ private void onSignOutClicked() {
 
 #### <a name="call-the-microsoft-graph-api"></a>调用 Microsoft Graph API
 
-成功获取令牌后，可以向 Microsoft Graph API 发出请求。 访问令牌位于身份验证回调的 `onSuccess(...)` 方法中的 `AuthenticationResult` 内。 若要构造已授权的请求，应用需要将访问令牌添加到 HTTP 标头：
+我们收到令牌后，就可以向 [Microsoft Graph API](https://microsoftgraph.chinacloudapi.cn) 发出请求。访问令牌将位于身份验证回叫的 `onSuccess()` 方法内的 `AuthenticationResult` 中。 若要构造已授权的请求，应用需要将访问令牌添加到 HTTP 标头：
 
 | 标头密钥    | value                 |
 | ------------- | --------------------- |
-| 授权 | 持有者 <访问令牌> |
+| 授权 | 持有者 \<access-token> |
 
-为此，请在代码中，将以下两个方法添加到应用，以调用图形和更新 UI： 
+请将以下两种方法添加到 `MainActivity` 类中，以调用图形并更新 UI：
 
 ```java
-    /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
+/* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
 private void callGraphAPI() {
     Log.d(TAG, "Starting volley request to graph");
 
@@ -525,26 +517,25 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 
-详细了解 [Microsoft Graph API](https://microsoftgraph.chinacloudapi.cn)！
-
 #### <a name="multi-account-applications"></a>多帐户应用程序
 
-此应用是针对单帐户方案生成的。 MSAL 也支持多帐户方案，但是，这需要在应用中执行一些额外的操作。 需要创建 UI，以帮助用户选择他们要对需要令牌的每个操作使用的帐户。 或者，应用可以通过 `getAccounts(...)` 方法实现一种启发式算法来选择要使用的帐户。 
+此应用是针对单帐户方案生成的。 MSAL 也支持多帐户方案，但它需要应用的一些额外工作。 需要创建 UI，以帮助用户选择他们要对需要令牌的每个操作使用的帐户。 或者，应用可以通过 `getAccounts()` 方法实现一种启发式算法来选择要使用的帐户。
 
 ## <a name="test-your-app"></a>测试应用程序
 
 ### <a name="run-locally"></a>在本地运行
 
-如果遵循了上述代码，请尝试生成应用并将其部署到测试设备或仿真器。 现在应该可以登录并获取 Azure AD 的令牌！ 用户登录后，此应用将显示 Microsoft Graph `/me` 终结点返回的数据。 
+构建应用并将其部署到测试设备或模拟器。 现在应该可以登录并获取 Azure AD 的令牌。
 
-如果遇到任何问题，请在此文档或 MSAL 库中提出问题并告诉我们。 
+你登录后，此应用将显示从 Microsoft Graph `/me` 终结点返回的数据。
 
-### <a name="consent-to-your-app"></a>许可应用
+### <a name="consent"></a>同意
 
-当任何用户首次登录你的应用时，Microsoft 标识会提示他们许可请求的权限。  尽管大多数用户都可以提供许可，但某些 Azure AD 租户已禁用用户许可 - 需要管理员代表所有用户提供许可。  若要支持此方案，请务必在 Azure 门户中注册应用的范围。
+当任何用户首次登录你的应用时，Microsoft 标识会提示他们许可请求的权限。  虽然大多数用户都能够同意，但某些 Azure AD 租户已禁用用户同意功能，这要求管理员代表所有用户同意。 要支持此方案，请在 Azure 门户中注册应用的作用域。
 
-## <a name="help-and-support"></a>帮助和支持
+## <a name="get-help"></a>获取帮助
 
-在学习本教程或者在使用 Microsoft 标识平台过程中遇到了任何问题？ 请参阅[帮助与支持](/active-directory/develop/developer-support-help-options)
+如果对本教程或 Microsoft 标识平台有疑问，请访问[帮助和支持](/active-directory/develop/developer-support-help-options)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
+

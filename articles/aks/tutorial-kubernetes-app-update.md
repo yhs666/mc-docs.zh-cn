@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c1bc8388964e85346153f535c5587cf161a88c41
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: be02244729f6562d6afb0ba50213fd50df01ae08
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731207"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500738"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序。
 
@@ -167,6 +167,7 @@ kubectl get service azure-vote-front
 > [升级 Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
+
 [docker-compose]: https://docs.docker.com/compose/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
@@ -174,6 +175,7 @@ kubectl get service azure-vote-front
 [kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
 
 <!-- LINKS - internal -->
+
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest

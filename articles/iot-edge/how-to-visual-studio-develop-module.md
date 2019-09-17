@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 07/01/2019
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 793ea1499b9bd9d609c6677e86e566f36204a04c
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 3e1535605f0c204ac281f425b6eb2266194c7cad
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845223"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174055"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 开发和调试适用于 Azure IoT Edge 的模块
 
@@ -28,14 +28,14 @@ ms.locfileid: "67845223"
 - 在 C 或 C# 中编写 Azure IoT 模块的代码，同时兼具 Visual Studio 开发的所有优势。
 - 使用 UI 管理 Azure IoT Edge 设备和模块。
 
-本文介绍如何使用适用于 Visual Studio 2019 的 Azure IoT Edge 工具开发 IoT Edge 模块。 你还将了解如何将项目部署到 Azure IoT Edge 设备。
+本文介绍如何使用适用于 Visual Studio 2019 的 Azure IoT Edge 工具开发 IoT Edge 模块。 你还将了解如何将项目部署到 Azure IoT Edge 设备。 目前，Visual Studio 2019 为用 C 和 C# 编写的模块提供支持。 支持的设备体系结构为 Windows X64 和 Linux X64 或 ARM32。 有关支持的操作系统、语言和体系结构的详细信息，请参阅[语言和体系结构支持](module-development.md#language-and-architecture-support)。
 
 > [!TIP]
 > Visual Studio 创建的 IoT Edge 项目结构与 Visual Studio Code 中的不同。
   
 ## <a name="prerequisites"></a>先决条件
 
-本文假设你使用运行 Windows 的计算机或虚拟机作为开发计算机。 IoT Edge 设备可以是另一台物理设备。
+本文假设你使用运行 Windows 的计算机或虚拟机作为开发计算机。 在 Windows 计算机上，可以开发 Windows 或 Linux 模块。 若要开发 Windows 模块，请使用运行版本 1809/内部版本 17763 或更高版本的 Windows 计算机。 若要开发 Linux 模块，请使用符合 [Docker Desktop 要求](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)的 Windows 计算机。 
 
 由于本文使用 Visual Studio 2019 作为主要开发工具，因此请安装 Visual Studio。 确保在 Visual Studio 2019 安装中包含“Azure 开发”和“使用 C++ 的桌面开发”工作负荷。   可以[修改 Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) 以添加所需的工作负荷。
 
@@ -95,6 +95,9 @@ Visual Studio 2019 准备就绪后，还需要以下工具和组件：
 ### <a name="create-an-azure-iot-edge-project"></a>创建 Azure IoT Edge 项目
 
 Visual Studio 中的 Azure IoT Edge 项目模板创建了一个项目，它可部署到 Azure IoT 中心的 Azure IoT Edge 设备。 首先创建一个 Azure IoT Edge 解决方案，并在该解决方案中生成第一个模块。 每一个 IoT Edge 解决方案都可包含多个模块。
+
+> [!TIP]
+> Visual Studio 创建的 IoT Edge 项目结构与 Visual Studio Code 中的不同。
 
 1. 在 Visual Studio 的“新建项目”对话框中，搜索并选择“Azure IoT Edge”  项目，然后单击“下一步”  。 在“项目配置”窗口中，输入项目的名称并指定位置，然后选择“创建”  。 默认的项目名称为 AzureIoTEdgeApp1  。
 

@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 03/29/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1dc310b866319ba7581b487302d68816e8d2a4fe
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 4a19f00bbec255b0074eed3737e0fc447d1077af
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989524"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736955"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>在 Azure Monitor 的 Log Analytics 工作区中创建自定义字段
 
@@ -135,8 +135,4 @@ Azure Monitor 的**自定义字段**功能使你可以通过添加自己的可�
 ## <a name="next-steps"></a>后续步骤
 * 了解[日志查询](../log-query/log-query-overview.md)，使用自定义字段作为条件生成查询。
 * 监视使用自定义字段分析的[自定义日志文件](data-sources-custom-logs.md)。
-
-
-
-
 

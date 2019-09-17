@@ -57,7 +57,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 请通过以下方式将事件发送到事件中心：创建一个 [EventHubClient][] 实例并通过 [SendAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet) 方法异步发送该实例。 此方法采用单个 [EventData][] 实例参数，并将其同步发送到事件中心。
 
-## <a name="event-serialization"></a>事件序列化
+## <a name="event-serialization"></a>活动序列化
 
 [EventData][] 类有[两个重载构造函数](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor?view=azure-dotnet)，这些构造函数采用各种参数、字节或字节数组来表示事件数据有效负载。 将 JSON 与 [EventData][] 类结合使用时，可以使用 **Encoding.UTF8.GetBytes()** 来检索 JSON 编码字符串的字节数组。 例如：
 

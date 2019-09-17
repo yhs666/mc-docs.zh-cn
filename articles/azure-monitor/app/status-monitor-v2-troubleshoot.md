@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
+origin.date: 04/23/2019
+ms.date: 06/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d00d92483271e5ac6aae43488c0e430a362fb8f7
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 2555dd39c0353d8155fdeb6031d4de8175982fb0
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989205"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736595"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>对状态监视器 v2 进行故障排除
 

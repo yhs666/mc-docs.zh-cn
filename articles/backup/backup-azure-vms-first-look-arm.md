@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c3813c30dd78343907fc78090186518017958dda
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 05aa39fc395e08545e82cefb53e744017287ef92
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818472"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104147"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>通过 VM 设置备份 Azure VM
 
@@ -69,8 +69,7 @@ ms.locfileid: "68818472"
 10. 启用备份后，会运行初始备份。 可以立即启动初始备份，也可以等待它按备份计划启动。
     - 在初始备份完成之前，“上次备份状态”  显示为“警告(初始备份挂起)”  。
     - 若要查看下一个计划的备份何时运行，请单击备份策略名称。
-    
-   
+
 
 > [!NOTE]
 > Azure 备份服务会创建一个单独的资源组（而非 VM 资源组）来存储快照，采用的命名格式为 **AzureBackupRG_geography_number**（例如：AzureBackupRG_northeurope_1）。 此资源组中的数据将按 Azure 虚拟机备份策略的“保留即时恢复快照”部分中指定的天数保留。 对此资源组应用锁定可能会导致备份失败。<br>

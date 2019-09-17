@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2019
-ms.date: 07/29/2019
+origin.date: 07/25/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: f5c30db61ba3473a4a162902b22e9026fe184910
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: 5a114a14af25c488232d74040ec929c658ead74c
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513415"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857126"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新活动清单
 
@@ -30,15 +30,17 @@ ms.locfileid: "68513415"
 
 ## <a name="prepare-for-azure-stack-update"></a>准备 Azure Stack 更新
 
-| 活动              | 详细信息                                                                          |
-|-----------------------|----------------------------------------------------------------------------------|
-| 查看已知问题   | [已知问题列表](azure-stack-release-notes-known-issues-1906.md)。                |
-| 查看安全更新 | [安全更新列表](azure-stack-release-notes-security-updates-1906.md)。      |
-| 运行 Test-AzureStack   | 运行 `Test-AzureStack -Group UpdateReadiness` 确定操作问题。      |
-| 解决问题        | 解决 **Test-AzureStack** 确定的任何操作问题。                |
-| 应用最新修补程序 | 应用适用于当前安装版本的最新修补程序。         |
-| 运行 Capacity Planner 工具 | 请确保使用最新版本的 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner)  工具来执行工作负荷规划和大小调整。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。 |
-| 可用更新       | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以根据[此处所述的过程](azure-stack-apply-updates.md)下载和导入新的 1906 包。               |
+| 活动                     | 详细信息                                                   |
+|------------------------------|-----------------------------------------------------------|
+| 查看已知问题     | [已知问题列表](azure-stack-release-notes-known-issues-1907.md)。                |
+| 查看安全更新 | [安全更新列表](azure-stack-release-notes-security-updates-1907.md)。      |
+| 应用最新的 OEM 包 | 请与 OEM 联系，以确保你的系统满足系统要更新到的 Azure Stack 版本的最低 OEM 包要求。 |
+| 运行 Test-AzureStack     | 运行 `Test-AzureStack -Group UpdateReadiness` 确定操作问题。      |
+| 解决问题          | 解决 **Test-AzureStack** 确定的任何操作问题。                |
+| 应用最新修补程序   | 应用适用于当前安装版本的最新修补程序。         |
+| 运行 Capacity Planner 工具   | 请确保使用最新版本的 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) 工具来执行工作负荷规划和大小调整。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。 |
+| 可用更新        | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以根据[此处所述的过程](azure-stack-apply-updates.md)下载和导入新的 1906 包。 |
+
 
 ## <a name="during-azure-stack-update"></a>在 Azure Stack 更新期间
 
@@ -57,8 +59,9 @@ ms.locfileid: "68513415"
 |-----------------------|----------------------------------------------------------------------------------|
 | 应用最新修补程序 | 应用适用于已更新版本的最新修补程序。                          |
 | 检索加密密钥 | 检索静态数据加密密钥，并将其安全存储在 Azure Stack 部署的外部。 请遵照[有关如何检索密钥的说明](azure-stack-security-bitlocker.md)操作。 |
+| 重新启用多租户 | 对于多租户 Azure Stack，请确保在成功更新后[配置所有来宾目录租户](/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory)。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-- [查看已知问题列表](azure-stack-release-notes-known-issues-1906.md)
-- [查看安全更新列表](azure-stack-release-notes-security-updates-1906.md)
+- [查看已知问题列表](azure-stack-release-notes-known-issues-1907.md)
+- [查看安全更新列表](azure-stack-release-notes-security-updates-1907.md)

@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-origin.date: 06/19/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: 53cdf3456f44df2673186a122313786cae319c5b
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+origin.date: 07/19/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 7799b2560671a541536df99cf35f2fbb0ffe4df0
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538988"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174202"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -168,7 +168,7 @@ ms.locfileid: "69538988"
 
 ### <a name="artifact-limits-per-integration-account"></a>每个集成帐户的项目限制
 
-下面介绍对每个集成帐户的项目数量的限制。 有关详细信息，请参阅[逻辑应用定价](https://www.azure.cn/pricing/details/logic-apps/)。 
+下面介绍对每个集成帐户层的项目数量限制。 有关定价费率，请参阅[逻辑应用定价](https://www.azure.cn/pricing/details/logic-apps/)。 
 
 > [!NOTE] 
 > 仅将免费层用于探索应用场景，而非生产应用场景。 此层限制吞吐量和使用情况，并且不具有服务级别协议 (SLA)。
@@ -180,7 +180,7 @@ ms.locfileid: "69538988"
 | 地图 | 25 | 500 | 1,000 |
 | 架构 | 25 | 500 | 1,000 |
 | 程序集 | 10 个 | 25 | 1,000 |
-| 证书 | 25 | 2 | 500 |
+| 证书 | 25 | 2 | 1,000 |
 | 批处理配置 | 5 | 1 | 50 |
 ||||
 

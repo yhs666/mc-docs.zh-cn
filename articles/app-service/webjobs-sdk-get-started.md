@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/18/2019
 ms.date: 08/12/2019
-ms.author: v-johch
-ms.openlocfilehash: eae21ecd798df287608f46cb7af0886a7de8510e
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.author: v-tawe
+ms.openlocfilehash: 2df0c8eb3098ade07cc430b879cde53b794003c9
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878534"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806851"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -59,7 +59,7 @@ ms.locfileid: "68878534"
 
 ## <a name="create-the-host"></a>创建主机
 
-主机是函数的运行时容器，它侦听触发器并调用函数。 以下步骤创建一个实现 [`IHost`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihost) 的主机，它是 ASP.NET Core 中的通用主机。
+主机是函数的运行时容器，它侦听触发器并调用函数。 以下步骤创建一个实现 [`IHost`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihost) 的主机，它是 ASP.NET Core 中的通用主机。
 
 1. 在 *Program.cs* 中，添加 `using` 语句：
 
@@ -85,11 +85,11 @@ ms.locfileid: "68878534"
     }
     ```
 
-在 ASP.NET Core 中，通过调用 [`HostBuilder`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例上的方法来设置主机配置。 有关详细信息，请参阅 [.NET 通用主机](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host)。 `ConfigureWebJobs` 扩展方法初始化 WebJobs 主机。 在 `ConfigureWebJobs` 中，初始化特定的 WebJobs 扩展并设置这些扩展的属性。  
+在 ASP.NET Core 中，通过调用 [`HostBuilder`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例上的方法来设置主机配置。 有关详细信息，请参阅 [.NET 通用主机](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host)。 `ConfigureWebJobs` 扩展方法初始化 WebJobs 主机。 在 `ConfigureWebJobs` 中，初始化特定的 WebJobs 扩展并设置这些扩展的属性。  
 
 ## <a name="enable-console-logging"></a>启用控制台日志记录
 
-在本部分，设置使用 [ASP.NET Core 日志记录框架](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging)的控制台日志记录。
+在本部分，设置使用 [ASP.NET Core 日志记录框架](https://docs.microsoft.com/aspnet/core/fundamentals/logging)的控制台日志记录。
 
 1. 安装以下 NuGet 包的最新稳定版本：
 
@@ -112,7 +112,7 @@ ms.locfileid: "68878534"
    using Microsoft.Extensions.Logging;
    ```
 
-1. 在 [`HostBuilder`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostbuilder) 上调用 [`ConfigureLogging`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) 方法。 [`AddConsole`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 方法将控制台日志记录添加到配置中。
+1. 在 [`HostBuilder`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder) 上调用 [`ConfigureLogging`](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) 方法。 [`AddConsole`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 方法将控制台日志记录添加到配置中。
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -162,7 +162,7 @@ ms.locfileid: "68878534"
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
     ```
 
-2. 在 `ConfigureWebJobs` 扩展方法中，调用 [`HostBuilder`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例上的 `AddAzureStorage` 方法来初始化存储扩展。 此时，`ConfigureWebJobs` 方法如下例所示：
+2. 在 `ConfigureWebJobs` 扩展方法中，调用 [`HostBuilder`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例上的 `AddAzureStorage` 方法来初始化存储扩展。 此时，`ConfigureWebJobs` 方法如下例所示：
 
     ```cs
     builder.ConfigureWebJobs(b =>

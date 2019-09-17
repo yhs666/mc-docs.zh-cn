@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/02/2018
-ms.date: 07/08/2019
+origin.date: 07/22/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9c278898e26b96d51b12f5966704f20776fea3e7
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 5ab378b7ddff914437db4154cbc22168b9bf27cc
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67844582"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254633"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教程：将具有 CI/CD 的应用程序部署到 Service Fabric 群集
 
@@ -52,7 +52,7 @@ ms.locfileid: "67844582"
 * [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 * 在 Azure 上创建一个 Windows Service Fabric 群集，例如[根据此教程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)创建
-* 创建一个 [Azure DevOps 组织](https://docs.microsoft.com/zh-cn/azure/devops/organizations/accounts/create-organization-msa-or-work-student)。 这允许你在 Azure DevOps 中创建项目并使用 Azure Pipelines。
+* 创建一个 [Azure DevOps 组织](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)。 这允许你在 Azure DevOps 中创建项目并使用 Azure Pipelines。
 
 ## <a name="download-the-voting-sample-application"></a>下载投票示例应用程序
 
@@ -196,6 +196,7 @@ Azure Pipelines 发布管道描述了将应用程序程序包部署到群集的�
 <!--Not Available on > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)-->
 
 <!-- Image References -->
+
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png

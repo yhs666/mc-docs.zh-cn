@@ -5,19 +5,19 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 03/12/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f2286a47fca3faed079dd25b85922f15a909906b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 509cf130dc1289f8776c57451d312d023ec50e7d
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989465"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737224"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-azure-flow"></a>使用 Azure Flow 的连接器自动执行 Azure Application Insights 过程
 

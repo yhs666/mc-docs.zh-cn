@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: development
 origin.date: 04/17/2018
-ms.date: 11/12/2018
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 31c353a456713f3d7e29d9e69cd91408d0d68a62
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c21a96421530768d5bb9e45f7419c671d52f8509
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653159"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131630"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -25,8 +25,6 @@ ms.locfileid: "52653159"
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
-<!-- Not Available [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) -->
-<!-- Not Available [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
 
 使用 SQL Server Management Studio (SSMS) 来连接并查询 Azure SQL 数据仓库。 
 
@@ -34,12 +32,12 @@ ms.locfileid: "52653159"
 要使用本教程，需要：
 
 * 现有 SQL 数据仓库。 若要创建这样一个数据仓库，请参阅 [创建 SQL 数据仓库][Create a SQL Data Warehouse]。
-* 安装了 SQL Server Management Studio (SSMS)。 [安装 SSMS][Install SSMS] 。
+* 安装了 SQL Server Management Studio (SSMS)。 免费[安装 SSMS][Install SSMS]（如果尚未安装）。
 * 完全限定的 SQL Server 名称。 若要查找此名称，请参阅 [连接到 SQL 数据仓库][Connect to SQL Data Warehouse]。
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1.连接到 SQL 数据仓库
 1. 打开 SSMS。
-2. 打开对象资源管理器。 若要执行此操作，请选择“文件” > “连接对象资源管理器”。
+2. 打开对象资源管理器。 若要执行此操作，请选择“文件  ” > “连接对象资源管理器  ”。
    
     ![SQL Server 对象资源管理器][1]
 3. 填写“连接到服务器”窗口中的字段。
@@ -47,9 +45,9 @@ ms.locfileid: "52653159"
     ![连接到服务器][2]
    
    * **服务器名称**。 输入前面标识的 **服务器名称** 。
-   * **身份验证**。 选择“SQL Server 身份验证”或“Active Directory 集成身份验证”。
-   * “用户名”和“密码”。 如果上面选择了 SQL Server 身份验证，请输入用户名和密码。
-   * 单击“连接” 。
+   * **身份验证**。 选择“SQL Server 身份验证”  或“Active Directory 集成身份验证”  。
+   * “用户名”  和“密码”  。 如果上面选择了 SQL Server 身份验证，请输入用户名和密码。
+   * 单击“连接”  。
 4. 要浏览，请展开 Azure SQL 服务器。 可以查看与服务器关联的数据库。 展开 AdventureWorksDW 以查看示例数据库中的表。
    
     ![浏览 AdventureWorksDW][3]
@@ -58,7 +56,7 @@ ms.locfileid: "52653159"
 现在，已建立了与数据库的连接，接下来让我们编写查询。
 
 1. 在 SQL Server 对象资源管理器中右键单击数据库。
-2. 选择“新建查询”。 此时将打开一个新的查询窗口。
+2. 选择“新建查询”  。 此时将打开一个新的查询窗口。
    
     ![新建查询][4]
 3. 将以下 TSQL 查询复制到查询窗口中：

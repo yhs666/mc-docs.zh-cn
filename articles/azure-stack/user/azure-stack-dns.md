@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中的 DNS | Microsoft Docs
-description: 使用 Azure Stack 中的 DNS
+description: 了解 Azure Stack 中的 DNS 以及如何创建和管理 DNS 区域。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 176060238d5a286b0eb026c3ac8a96ea41d16369
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: f0637165a4b3ebfc28fa1bfb14e1e91a532f6959
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513297"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857179"
 ---
-# <a name="using-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
+# <a name="use-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 支持以下 Azure DNS 功能：
 
-* DNS 主机名解析
-* 使用 API 创建和管理 DNS 区域和记录
+* DNS 主机名解析。
+* 使用 API 创建和管理 DNS 区域和记录。
 
 ## <a name="support-for-dns-hostname-resolution"></a>支持 DNS 主机名解析
 
@@ -48,7 +48,7 @@ Azure Stack 支持以下 Azure DNS 功能：
 
 ### <a name="example-scenario"></a>示例方案
 
-你有一个用于处理来自 Web 应用程序的请求的负载均衡器。 负载均衡器的后面是一个在一台或多台虚拟机上运行的网站。 可以使用 DNS 名称而非 IP 地址来访问进行了负载均衡的网站。
+你有一个用于处理来自 Web 应用的请求的负载均衡器。 负载均衡器的后面是一个在一台或多台虚拟机上运行的网站。 可以使用 DNS 名称而非 IP 地址来访问进行了负载均衡的网站。
 
 ## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>使用 API 创建和管理 DNS 区域和记录
 
@@ -64,7 +64,7 @@ Azure Stack 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外：
 
 * **不支持 AAAA 记录**：Azure Stack 不支持 AAAA 记录，因为 Azure Stack 不支持 IPv6 地址。 这是 Azure DNS 与 Azure Stack DNS 之间的主要差异。
 
-* **不是多租户**：Azure Stack 中的 DNS 服务不是多租户的。 各个租户不能创建相同的 DNS 区域。 仅首个订阅尝试创建区域会成功，后续请求都会失败。 这是 Azure DNS 与 Azure Stack DNS 之间另一个主要差异。
+* **不是多租户**：Azure Stack 中的 DNS 服务不是多租户的。 租户不能创建相同的 DNS 区域。 只有第一个尝试创建该区域的订阅会成功，以后的请求都会失败。 这是 Azure DNS 与 Azure Stack DNS 之间另一个主要差异。
 
 * **标记、元数据和 Etag**：Azure Stack DNS 在处理标记、元数据、Etag 和限制的方式方面也有一些细微差异。
 
@@ -72,28 +72,28 @@ Azure Stack 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外：
 
 ### <a name="tags"></a>Tags
 
-Azure Stack DNS 支持在 DNS 区域资源上使用 Azure 资源管理器标记。 它不支持在 DNS 记录集上使用标记，不过作为替代方法，在 DNS 记录集上支持“元数据”，如下一部分所述。 
+Azure Stack DNS 支持在 DNS 区域资源上使用 Azure 资源管理器标记。 它不支持在 DNS 记录集上使用标记。 作为替代方法，在 DNS 记录集上支持“元数据”，如下一部分所述。 
 
 ### <a name="metadata"></a>Metadata
 
-作为记录集标记的替代方法，Azure Stack DNS 支持使用“元数据”  批注记录集。 与标记相类似，通过元数据可将名称/值对与每个记录集相关联。 这非常有用，例如可用于记录每个记录集的用途。 与标记不同的是，不能使用元数据提供 Azure 帐单的筛选视图，且不能在 Azure 资源管理器策略中指定元数据。
+作为记录集标记的替代方法，Azure Stack DNS 支持使用“元数据”  批注记录集。 与标记相类似，通过元数据可将名称/值对与每个记录集相关联。 例如，元数据可用于记录每个记录集的用途。 与标记不同的是，不能使用元数据提供 Azure 帐单的筛选视图，且不能在 Azure 资源管理器策略中指定元数据。
 
 ### <a name="etags"></a>Etag
 
 假设两个人或两个进程尝试同时修改一条 DNS 记录。 哪一个占先？ 占先方是否知道他们/它们覆盖了其他人/进程创建的更改？
 
-Azure Stack DNS 使用 Etag  来安全地处理对同一资源的并发更改。 Etag 与 Azure 资源管理器“标记”  不同。 每个 DNS 资源（区域或记录集）都有与其相关联的 Etag。 检索资源时，还会检索其 Etag。 更新资源时，可以选择传递回 Etag 以便 Azure Stack DNS 可以验证服务器上的 Etag 是否匹配。 由于对资源的每次更新都会导致重新生成 Etag，Etag 不匹配表示发生了并发更改。 当创建新的资源时也可以使用 Etag，以确保该资源不存在。
+Azure Stack DNS 使用 Etag  来安全地处理对同一资源的并发更改。 Etag 与 Azure 资源管理器“标记”  不同。 每个 DNS 资源（区域或记录集）都有与其相关联的 Etag。 检索资源时，还会检索其 Etag。 更新资源时，可以选择传递回 Etag 以便 Azure Stack DNS 可以验证服务器上的 Etag 是否匹配。 由于对资源的每次更新都会导致重新生成 Etag，Etag 不匹配表示发生了并发更改。 创建新的资源时也可以使用 Etag，以确保该资源尚不存在。
 
-默认情况下，Azure Stack DNS PowerShell cmdlet 使用 Etag 来阻止对区域和记录集的并发更改。 可以通过可选 `-Overwrite` 开关取消 Etag 检查，这种情况下会覆盖已发生的所有并发更改。
+默认情况下，Azure Stack DNS PowerShell cmdlet 使用 Etag 来阻止对区域和记录集的并发更改。 可以使用可选的 `-Overwrite` 开关取消 Etag 检查。 如果没有 Etag 检查，则会覆盖已发生的任何并发更改。
 
 Etag 是在 Azure Stack DNS REST API 级别使用 HTTP 标头指定的。 下表介绍了它们的行为：
 
 | 标头 | 行为|
 |--------|---------|
-| 无   | PUT 始终成功（没有 Etag 检查）|
-| If-match| 只有当资源存在并且 Etag 匹配时，PUT 才会成功|
-| If-match *| 只有当资源存在时，PUT 才会成功|
-| If-none-match *| 只有当资源不存在时，PUT 才会成功|
+| 无   | PUT 始终成功（没有 Etag 检查）。|
+| If-match| 只有当资源存在并且 Etag 匹配时，PUT 才会成功。|
+| If-match *| 只有当资源存在时，PUT 才会成功。|
+| If-none-match *| 只有当资源不存在时，PUT 才会成功。|
 
 ### <a name="limits"></a>限制
 

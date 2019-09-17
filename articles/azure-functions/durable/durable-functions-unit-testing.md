@@ -1,22 +1,19 @@
 ---
 title: Azure Durable Functions 单元测试
 description: 了解如何进行 Durable Functions 单元测试。
-services: functions
-author: kadimitr
-manager: jeconnoc
-keywords: ''
+author: ggailey777
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 03/25/2019
+ms.date: 09/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9baddc2b8abbdd0d0d3719f0e3a34a55afda3538
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 3f6fbec536e42a5732860087759b17129093eb82
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408271"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805795"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 单元测试
 
@@ -125,11 +122,11 @@ namespace VSSample
         });
 ```
 
-另外还要模拟 `TraceWriter`：
+另外还要模拟 `ILogger`：
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
@@ -145,7 +142,7 @@ namespace VSSample
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
  最后一步是将输出与预期值进行比较：
@@ -429,4 +426,4 @@ namespace VSSample.Tests
 > 
 > [详细了解 moq](https://github.com/Moq/moq4/wiki/Quickstart)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

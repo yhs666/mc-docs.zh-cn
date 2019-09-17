@@ -3,22 +3,23 @@ title: Azure Monitor 日志查询中的聚合 | Microsoft Docs
 description: 介绍 Azure Monitor 日志查询中的聚合函数，这些函数提供了有用的数据分析方式。
 services: log-analytics
 documentationcenter: ''
-author: bwren
-manager: carmonm
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/16/2018
-ms.author: bwren
-ms.openlocfilehash: feabdcd0a5aba6ac916faa6306e859424c0b5822
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 08/16/2018
+ms.date: 01/21/2019
+ms.author: v-lingwu
+ms.openlocfilehash: efd1a97e804ab76819824bced84536ae7a91e607
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969669"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737192"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的聚合
 

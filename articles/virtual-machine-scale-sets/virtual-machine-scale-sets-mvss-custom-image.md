@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/26/2018
-ms.date: 05/16/2019
+ms.date: 09/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9dd0f16e4b51bbb650d0ecd8ab2dddb9f73bb8c6
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: 9dd83071ef4d1fb572f9b7335b24798e9e523596
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917461"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310853"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>将自定义映像添加到 Azure 规模集模板
 
@@ -98,15 +98,11 @@ ms.locfileid: "65917461"
 
 在规模集 `storageProfile` 的 `imageReference` 中，请勿指定平台映像的发布者、产品/服务、SKU 和版本，而是指定 `Microsoft.Compute/images` 资源的 `id`：
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {
@@ -119,4 +115,4 @@ ms.locfileid: "65917461"
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

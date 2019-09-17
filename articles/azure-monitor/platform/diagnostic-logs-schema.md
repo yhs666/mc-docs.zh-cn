@@ -1,19 +1,20 @@
 ---
 title: Azure 诊断日志支持的服务和架构
 description: 了解 Azure 诊断日志支持的服务和事件架构。
-author: rboucher
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/11/2018
-ms.author: robb
-ms.subservice: logs
-ms.openlocfilehash: e15ccb41a056e2308aeada977c524a08c7af3821
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 07/06/2019
+ms.author: v-lingwu
+ms.component: logs
+ms.openlocfilehash: 9cd8879c13e2d5356c4455ecba885744e2d4d24b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989347"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736880"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -38,7 +39,7 @@ ms.locfileid: "69989347"
 | callerIpAddress | 可选 | 调用方 IP 地址，如果该操作对应于来自具有公开 IP 地址的实体的 API 调用。 |
 | correlationId | 可选 | 用于将一组相关事件组合在一起的 GUID。 通常情况下，如果两个事件具有相同 operationName，但具有两个不同状态（例如 “Started”和“Succeeded”），则它们共享相同的关联 ID。 这也可以代表事件之间的其他关系。 |
 | identity | 可选 | 描述执行操作的用户或应用程序的标识的 JSON Blob。 通常，这将包括 Active Directory 中的授权和声明/JWT 令牌。 |
-| 级别 | 可选 | 事件的严重级别。 必须是信息性、警告、错误或严重。 |
+| Level | 可选 | 事件的严重级别。 必须是信息性、警告、错误或严重。 |
 | location | 可选 | 发出事件的资源区域，例如 “美国东部”或“法国南部” |
 | properties | 可选 | 与此特定类别的事件相关的任何扩展属性。 所有自定义/唯一属性都必须放入此架构的“B 部分”。 |
 

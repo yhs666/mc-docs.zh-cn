@@ -3,7 +3,6 @@ title: Azure Monitor 概述 | Azure Docs
 description: 适用于 Azure 服务和应用程序的完整监视策略所涉及的 Azure 服务及功能的概述。
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -11,14 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 08/22/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 03720414f8a15e7c0201f601e9df17c5a284c419
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 2c72598d9e65d83597b2a0c483ff7109a177e475
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989553"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736812"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 概述
 

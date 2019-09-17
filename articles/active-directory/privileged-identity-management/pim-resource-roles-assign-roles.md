@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 origin.date: 04/09/2019
-ms.date: 08/08/2019
+ms.date: 08/28/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3628a9bdefe358123f5632b8529ac4a5c5bbab97
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 0728b6a9466137d15c7dfd57e1a6dcd58e33f594
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973663"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134390"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>在 PIM 中分配 Azure 资源角色
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可以管
 - 安全管理器等等
 
 > [!NOTE]
-> 已分配到“所有者”或“用户访问管理员”角色的用户或组成员，以及在 Azure AD 中启用订阅管理的全局管理员都属于资源管理员。 这些管理员可以对 Azure 资源使用 PIM 来分配角色、配置角色设置，以及审查访问权限。 查看 [Azure 资源的内置角色](../../role-based-access-control/built-in-roles.md)列表。
+> 已分配到“所有者”或“用户访问管理员”角色的用户或组成员，以及在 Azure AD 中启用订阅管理的全局管理员都属于资源管理员。 这些管理员可以对 Azure 资源使用 PIM 来分配角色、配置角色设置，以及审查访问权限。 也就是说，如果用户没有“资源管理员”角色，则该帐户将不具有管理资源 PIM 的权限。 查看 [Azure 资源的内置角色](../../role-based-access-control/built-in-roles.md)列表。
 
 ## <a name="assign-a-role"></a>分配角色
 

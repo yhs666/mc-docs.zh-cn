@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 02/24/2019
-ms.date: 07/17/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 450e148e80c21c44d76704c103d37da4ec203f49
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: d812ed8e824a57bea688376f63f0a66a09a89dbb
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331867"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805796"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -584,20 +584,44 @@ TypeScript 文件 (.ts) 转译为 `dist` 输出目录中的 JavaScript (.js) 文
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
+使用 Core Tools 时，TypeScript 项目与 JavaScript 项目有几种不同之处。
+
+#### <a name="create-project"></a>创建项目
+
 若要使用 Core Tools 创建 TypeScript 函数应用项目，必须在创建函数应用时指定 TypeScript 语言选项。 可通过以下方式之一执行此操作：
 
 - 运行 `func init` 命令，选择 `node` 作为语言堆栈，然后选择 `typescript`。
 
 - 运行 `func init --worker-runtime typescript` 命令。
 
-若要使用 Core Tools 在本地运行函数应用代码，请使用 `npm start` 命令，而不要使用 `func host start`。 `npm start` 命令等效于以下命令：
+#### <a name="run-local"></a>在本地运行
+
+若要使用 Core Tools 在本地运行函数应用代码，请使用以下命令而不是 `func host start`： 
+
+```command
+npm install
+npm start
+```
+
+`npm start` 命令等效于以下命令：
 
 - `npm run build`
 - `func extensions install`
 - `tsc`
 - `func start`
 
-在使用 [`func azure functionapp publish`] 命令部署到 Azure 之前，必须先运行 `npm run build:production` 命令。 此命令基于 TypeScript 源文件创建一个可通过 [`func azure functionapp publish`] 部署的、随时可在生产环境中使用的 JavaScript 文件版本。
+#### <a name="publish-to-azure"></a>发布到 Azure
+
+在使用 [`func azure functionapp publish`] 命令部署到 Azure 之前，请基于 TypeScript 源文件创建一个随时可在生产环境中使用的 JavaScript 文件版本。 
+
+以下命令使用 Core Tools 准备和发布 TypeScript 项目： 
+
+```command
+npm run build:production 
+func azure functionapp publish <APP_NAME>
+```
+
+在此命令中，将 `<APP_NAME>` 替换为函数应用的名称。
 
 ## <a name="considerations-for-javascript-functions"></a>JavaScript 函数的注意事项
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 0e065f3fc83b078bd0853e7112f0d47495371192
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 41747c09077a13a092a6a56ba15d904f7885b0d4
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878522"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806689"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -56,7 +56,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 
 启用“应用程序诊断”  时，还需选择“级别”  。 下表显示了每个级别包含的日志类别：
 
-| 级别| 包含的日志类别 |
+| Level| 包含的日志类别 |
 |-|-|
 |**已禁用** | 无 |
 |**错误** | “错误”、“严重” |
@@ -119,7 +119,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 此命令将名为“appname”的应用的日志保存到当前目录中名为 **webapp_logs.zip** 的文件。
 
 > [!NOTE]
-> 如果尚未安装 Azure CLI，或尚未将其配置为使用你的 Azure 订阅，请参阅[如何使用 Azure CLI](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
+> 如果尚未安装 Azure CLI，或尚未将其配置为使用你的 Azure 订阅，请参阅[如何使用 Azure CLI](/cli/get-started-with-azure-cli?view=azure-cli-latest)。
 >
 >
 
@@ -191,7 +191,7 @@ Visual Studio Application Insights 可提供用于筛选和搜索日志的工具
 | 属性名称 | 值/格式 |
 | --- | --- |
 | Date |事件发生的日期和时间 |
-| 级别 |事件级别（例如“错误”、“警告”或“信息”） |
+| Level |事件级别（例如“错误”、“警告”或“信息”） |
 | ApplicationName |应用名称 |
 | InstanceId |发生事件的应用实例 |
 | EventTickCount |事件发生的日期和时间，刻度格式（精度更高） |
@@ -206,7 +206,7 @@ Visual Studio Application Insights 可提供用于筛选和搜索日志的工具
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> 对于 ASP.NET Core，可以使用 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 提供程序实现日志记录。此提供程序会将其他日志文件保存到 Blob 容器。 有关详细信息，请参阅 [Azure 中的 ASP.NET Core 日志记录](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure)。
+> 对于 ASP.NET Core，可以使用 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 提供程序实现日志记录。此提供程序会将其他日志文件保存到 Blob 容器。 有关详细信息，请参阅 [Azure 中的 ASP.NET Core 日志记录](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure)。
 >
 >
 

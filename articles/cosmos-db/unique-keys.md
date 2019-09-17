@@ -5,15 +5,15 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5d2a63f9c7c48f74cf89bb172d27b53ce9ca4bb2
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 3dadf46993950d7c0bc185ba869a6c938b484588
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615178"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254832"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键约束
 
@@ -27,14 +27,14 @@ ms.locfileid: "59615178"
 
 例如，容器可以包含具有以下值的项，其中每个项遵循唯一键约束。
 
-| CompanyID | 名字 | 姓氏 |   电子邮件地址    |
-|-----------|------------|-----------|--------------------|
-|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
-|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
-|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
-|  Fabrkam  |            |           | gaby@fabraikam.com |
+|CompanyID|名字|姓氏|电子邮件地址|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrkam|   |Duperre|gaby@fabraikam.com|
+|Fabrkam|   |   |gaby@fabraikam.com|
 
 如果你尝试使用上表中列出的组合插入另一个项，则会收到错误。 该错误指示不符合唯一键约束。 你会收到作为返回消息的 `Resource with specified ID or name already exists` 或 `Resource with specified ID, name, or unique index already exists`。 
 
@@ -56,6 +56,7 @@ ms.locfileid: "59615178"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解[逻辑分区](partition-data.md)。
+* 详细了解[逻辑分区](partition-data.md)
+* 了解创建容器时[如何定义唯一键](how-to-define-unique-keys.md)
 
 <!-- Update_Description: update meta propreties, wording update -->

@@ -3,22 +3,23 @@ title: 监视新的 Azure Kubernetes 服务 (AKS) 群集 | Microsoft Docs
 description: 了解如何使用用于容器的 Azure Monitor 订阅启用对新的 Azure Kubernetes 服务 (AKS) 群集的监视。
 services: azure-monitor
 documentationcenter: ''
-author: mgoedtel
-manager: carmonm
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
-ms.author: magoedte
-ms.openlocfilehash: 9f3898743d29cfbd10d16894778381cb8e7895ad
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+origin.date: 04/25/2019
+ms.date: 08/19/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 5b8d05154776e36d6a6d92e14843e23dd4c09668
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818130"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736998"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>启用对新的 Azure Kubernetes 服务 (AKS) 群集的监视
 

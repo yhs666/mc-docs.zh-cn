@@ -9,13 +9,13 @@ manager: jeconnoc
 ms.topic: reference
 origin.date: 05/13/2019
 ms.author: v-yiso
-ms.date: 06/03/2019
-ms.openlocfilehash: 3b3857153a1dfa0374eb7782a787a5af363726d1
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.date: 09/09/2019
+ms.openlocfilehash: df4c689c88f2179cf91c71e707f1df29d2afc7cd
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194963"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174089"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的架构引用
 
@@ -46,7 +46,7 @@ ms.locfileid: "66194963"
 | `actions` | 否 | 要在工作流运行时执行的一个或多个操作的定义。 有关详细信息，请参阅[触发器和操作](#triggers-actions)。 <p><p>操作数量上限：250 |
 | `contentVersion` | 否 | 工作流定义的版本号，默认为“1.0.0.0”。 为了帮助在部署工作流时识别并确认正确的定义，请指定要使用的值。 |
 | `outputs` | 否 | 从工作流运行返回的输出的定义。 有关详细信息，请参阅[输出](#outputs)。 <p><p>输出数量上限：10 个 |
-| `parameters` | 否 | 用于将数据传入工作流的一个或多个参数的定义。 有关详细信息，请参阅[参数](#parameters)。 <p><p>参数数量上限：50 |
+| `parameters` | 否 | 一个或多个参数的定义，这些参数传递的值用于逻辑应用的运行时。 有关详细信息，请参阅[参数](#parameters)。 <p><p>参数数量上限：50 |
 | `staticResults` | 否 | 对操作启用静态结果时，这些操作作为模拟输出返回的一个或多个静态结果的定义。 在每个操作定义中，`runtimeConfiguration.staticResult.name` 特征引用 `staticResults` 中的相应定义。 有关详细信息，请参阅[静态结果](#static-results)。 |
 | `triggers` | 否 | 用于实例化工作流的一个或多个触发器的定义 可以定义多个触发器，但只能使用工作流定义语言来定义，而不能通过逻辑应用设计器以可视方式进行定义。 有关详细信息，请参阅[触发器和操作](#triggers-actions)。 <p><p>触发器数量上限：10 个 |
 ||||
@@ -56,35 +56,6 @@ ms.locfileid: "66194963"
 ## <a name="triggers-and-actions"></a>触发器和操作
 
 在工作流定义中，`triggers` 和 `actions` 节定义工作流执行期间发生的调用。 有关这些节的语法和详细信息，请参阅[工作流触发器和操作](../logic-apps/logic-apps-workflow-actions-triggers.md)。
-
-<a name="outputs"></a>
-
-## <a name="outputs"></a>Outputs
-
-在 `outputs` 节中，定义工作流在完成运行时可以返回的数据。 例如，若要跟踪每次运行的特定状态或值，请指定工作流输出应返回该数据。 
-
-> [!NOTE]
-> 在响应来自服务 REST API 的传入请求时，请不要使用 `outputs`。 请改用 `Response` 操作类型。 有关详细信息，请参阅[工作流触发器和操作](../logic-apps/logic-apps-workflow-actions-triggers.md)。
-
-下面是输出定义的一般结构： 
-
-```json
-"outputs": {
-  "<key-name>": {  
-    "type": "<key-type>",  
-    "value": "<key-value>"  
-  }
-} 
-```
-
-| 属性 | 必须 | 类型 | 说明 |
-|-----------|----------|------|-------------|
-| <*key-name*> | 是 | String | 输出返回值的密钥名称 |
-| <*key-type*> | 是 | int、float、string、securestring、bool、array、JSON 对象 | 输出返回值的类型 |
-| <*key-value*> | 是 | 与 <*key-type*> 相同 | 输出返回值 |
-|||||
-
-若要从工作流运行中获取输出，请在 Azure 门户中查看逻辑应用的运行历史记录和详细信息，或使用[工作流 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 也可将输出传递给 Power BI 等外部系统，以便可创建仪表板。
 
 <a name="parameters"></a>
 
@@ -96,26 +67,27 @@ ms.locfileid: "66194963"
 
 ```json
 "parameters": {
-  "<parameter-name>": {
-    "type": "<parameter-type>",
-    "defaultValue": "<default-parameter-value>",
-    "allowedValues": [ <array-with-permitted-parameter-values> ],
-    "metadata": {
-      "key": {
-        "name": "<key-value>"
+   "<parameter-name>": {
+      "type": "<parameter-type>",
+      "defaultValue": <default-parameter-value>,
+      "allowedValues": [ <array-with-permitted-parameter-values> ],
+      "metadata": {
+         "description": "<parameter-description>"
       }
-    }
-  }
+   }
 },
 ```
 
 | 属性 | 必须 | 类型 | 说明 |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | 是 | int、float、string、securestring、bool、array、JSON 对象、secureobject <p><p>**注意**：对于所有密码、密钥和机密，请使用 `securestring` 和 `secureobject` 类型，因为 `GET` 操作不会返回这些类型。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 参数的类型 |
-| <*default-parameter-values*> | 是 | 与 `type` 相同 | 在工作流实例化时未指定值的情况下使用的默认参数值 |
+| <*parameter-name*> | 是 | String | 要定义的参数的名称 |
+| <*parameter-type*> | 是 | int、float、string、bool、array、object、securestring、secureobject <p><p>**注意**：对于所有密码、密钥和机密，请使用 `securestring` 或 `secureobject` 类型，因为 `GET` 操作不会返回这些类型。 若要详细了解如何保护参数，请参阅[操作和输入参数的安全建议](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 | 参数的类型 |
+| <*default-parameter-value*> | 是 | 与 `type` 相同 | 在工作流实例化时未指定值的情况下使用的默认参数值。 `defaultValue` 属性是逻辑应用设计器正确显示参数所必需的，但是你可以指定空值。 |
 | <*array-with-permitted-parameter-values*> | 否 | Array | 包含参数可接受的值的数组 |
-| `metadata` | 否 | JSON 对象 | 其他任何参数详细信息，例如，逻辑应用或流的名称或可读说明，或者 Visual Studio 或其他工具使用的设计时数据 |
+| <*parameter-description*> | 否 | JSON 对象 | 任何其他的参数详细信息，例如参数的说明 |
 ||||
+
+接下来，请为工作流定义创建一个 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md)，定义模板参数来接收部署时需要的值，视情况将硬编码值替换为对模板或工作流定义参数的引用，并将需要在部署时使用的值存储在单独的[参数文件](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)中。 这样，无需更新和重新部署逻辑应用即可通过参数文件更轻松地更改这些值。 对于敏感的或者必须进行保护的信息（例如用户名、密码和机密），可将这些值存储在 Azure Key Vault 中，让参数文件从密钥保管库中检索这些值。 若要通过示例详细了解如何在模板和工作流定义级别定义参数，请参阅[概览：使用 Azure 资源管理器模板将逻辑应用部署自动化](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
 <a name="static-results"></a>
 
@@ -286,6 +258,35 @@ HTTP 操作在 `staticResults` 内的 `HTTP0` 定义中返回输出。 在此示
   }
 },
 ```
+
+<a name="outputs"></a>
+
+## <a name="outputs"></a>Outputs
+
+在 `outputs` 节中，定义工作流在完成运行时可以返回的数据。 例如，若要跟踪每次运行的特定状态或值，请指定工作流输出应返回该数据。
+
+> [!NOTE]
+> 在响应来自服务 REST API 的传入请求时，请不要使用 `outputs`。 请改用 `Response` 操作类型。 有关详细信息，请参阅[工作流触发器和操作](../logic-apps/logic-apps-workflow-actions-triggers.md)。
+
+下面是输出定义的一般结构：
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| 属性 | 必须 | 类型 | 说明 |
+|-----------|----------|------|-------------|
+| <*key-name*> | 是 | String | 输出返回值的密钥名称 |
+| <*key-type*> | 是 | int、float、string、securestring、bool、array、JSON 对象 | 输出返回值的类型 |
+| <*key-value*> | 是 | 与 <*key-type*> 相同 | 输出返回值 |
+|||||
+
+若要从工作流运行中获取输出，请在 Azure 门户中查看逻辑应用的运行历史记录和详细信息，或使用[工作流 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 也可将输出传递给 Power BI 等外部系统，以便可创建仪表板。
 
 <a name="operators"></a>
 

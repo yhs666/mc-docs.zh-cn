@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/08/2016
-ms.date: 03/18/2019
-ms.author: v-biyu
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 54bbd423fe77ce3368b767677d48133e6dca8252
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: c5af9fd8c47587f22a540b2e1fd2ec25352e3da5
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347076"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806866"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>为 Azure 应用服务配置 TLS 相互身份验证
 
@@ -33,7 +33,7 @@ ms.locfileid: "57347076"
 
 ## <a name="enable-client-certificates"></a>启用客户端证书
 
-若要将应用设置为要求提供客户端证书，需要将应用的 `clientCertEnabled` 设置指定为 `true`。 若要指定该设置，请在 Azure PowerShell 中运行以下命令。
+若要将应用设置为要求提供客户端证书，需要将应用的 `clientCertEnabled` 设置指定为 `true`。 若要设置该设置，请在 Azure PowerShell 中运行以下命令。
 
 ```azurecli
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>

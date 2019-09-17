@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 2/14/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 372689b54a19e63fb63f47eae8a177a0ffb6c20b
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: f1cd9cb4918ec1e59cbabad4fdae3b2f2e4ee6c9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513983"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737388"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。

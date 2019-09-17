@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 04/30/2019
-ms.date: 07/15/2019
-ms.openlocfilehash: bd27e2160d511cbf1597971b1f0aa409c5ec1e52
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 08/12/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: 71a55ab04382ea415a31a65dcff3c7a4e8fdb2de
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845120"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131836"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -37,7 +37,18 @@ ms.locfileid: "67845120"
 
 只读副本功能使用 MySQL 本机异步复制。 该功能不适用于同步复制方案。 主服务器与副本之间存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
-读取副本可以增强灾难恢复计划。如果发生区域性的灾难且主服务器不可用，可将工作负荷定向到另一个区域中的副本。 为此，请先使用停止复制函数让副本接受写入。 然后可以通过更新连接字符串来重定向应用程序。 在[停止复制](#stop-replication)部分了解详细信息。
+## <a name="cross-region-replication"></a>跨区域复制
+可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
+
+> [!IMPORTANT]
+> 跨区域复制目前为公共预览版。
+
+可以在任何 [Azure Database for MySQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
+
+### <a name="paired-regions"></a>配对区域
+可以在主服务器的 Azure 配对区域中创建只读副本。
+
+如果你使用跨区域副本进行灾难恢复规划，建议你在配对区域而不是其他某个区域中创建副本。 配对区域可避免同时更新，并优先考虑物理隔离和数据驻留。  
 
 ## <a name="create-a-replica"></a>创建副本
 

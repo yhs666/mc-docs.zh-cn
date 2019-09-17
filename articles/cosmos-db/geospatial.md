@@ -4,15 +4,15 @@ description: 了解如何使用 Azure Cosmos DB 和 SQL API 创建、索引和�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 54b4a40ec9dff319f0cad82a2f45915b48ddc137
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 01a3b06bbd94a9d1d81687fed0b17d6f84903d72
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151446"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254747"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>在 Azure Cosmos DB SQL API 帐户中使用地理空间和 GeoJSON 位置数据
 
@@ -97,6 +97,8 @@ GeoJSON 中的多边形
 
 现今最常使用的 CRS 是世界测地系统 [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)。 GPS 设备和许多地图服务（包括谷歌地图和必应地图 API）均使用 WGS-84。 Azure Cosmos DB 仅支持对使用 WGS-84 CRS 的地理空间数据进行索引编制和查询。 
 
+<!--MOONCAKE: CORRECT ON Google-->
+
 ## <a name="creating-documents-with-spatial-data"></a>创建包含空间数据的文档
 创建包含 GeoJSON 值的文档时，值会根据容器的索引策略，自动以空间索引进行索引编制。 如果以动态类型化语言（如 Python 或 Node.js）使用 Azure Cosmos DB SDK，则必须创建有效的 GeoJSON。
 
@@ -173,7 +175,7 @@ Azure Cosmos DB 支持以下用于查询地理空间的开放地理空间信息�
       "id": "WakefieldFamily"
     }]
 
-如果索引策略中包含空间索引，则通过索引有效地进行“距离查询”。 有关空间索引的详细信息，请参阅以下部分。 如果没有指定路径的空间索引，仍然可以通过指定 `x-ms-documentdb-query-enable-scan` 请求标头（其值设置为“true”）执行空间查询。 在 .NET 中，可以通过将可选的 **FeedOptions** 参数传递到 [EnableScanInQuery](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions.enablescaninquery#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 设置为 true 的查询来完成此操作。 
+如果索引策略中包含空间索引，则通过索引有效地进行“距离查询”。 有关空间索引的详细信息，请参阅以下部分。 如果没有指定路径的空间索引，仍然可以通过指定 `x-ms-documentdb-query-enable-scan` 请求标头（其值设置为“true”）执行空间查询。 在 .NET 中，可以通过将可选的 **FeedOptions** 参数传递到 [EnableScanInQuery](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.enablescaninquery#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 设置为 true 的查询来完成此操作。 
 
 ST_WITHIN 可用于检查点是否在多边形内。 多边形通常用于表示边界，例如邮政编码、省/自治区边界或自然构成物。 再次说明，如果在索引策略中包含空间索引，则将通过索引有效地进行“within”查询。 
 
@@ -249,7 +251,7 @@ ST_ISVALID 和 ST_ISVALIDDETAILED 可用来检查空间对象是否有效。 例
 ### <a name="linq-querying-in-the-net-sdk"></a>.NET SDK 中的 LINQ 查询
 SQL .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用户在 LINQ 表达式中使用。 SQL LINQ 提供程序会将这些方法调用转换为等效的 SQL 内置函数调用（分别为 ST_DISTANCE 和 ST_WITHIN）。 
 
-以下是 LINQ 查询的示例，该查询使用 LINQ 在 Azure Cosmos DB 集合中查找所有文档，这些文档的“位置”值在指定点的 30 公里半径内。
+以下是 LINQ 查询的示例，该查询使用 LINQ 在 Azure Cosmos 容器中查找其“位置”值在指定点的 30 公里半径内的所有文档。
 
 **LINQ 距离查询**
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory 中删除企业应用的用户分配 | Microsoft Docs
+title: 从 Azure Active Directory 的应用中删除用户分配 | Microsoft Docs
 description: 如何在 Azure Active Directory 的企业应用中删除对用户的访问权限分配
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 07/04/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b9d3f343702ba96d3a43a02d98f16a3ae152f
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 14819e8fc6d44b99820808da64911cad3dc7a38c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568586"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134321"
 ---
 # <a name="remove-a-user-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中删除企业应用的用户分配
 可以轻松地在 Azure Active Directory (Azure AD) 中删除用户对企业应用程序的已分配访问权限。 你需要具有合适的权限才能管理企业应用。 而且，你必须是目录的全局管理员。
@@ -41,8 +41,8 @@ ms.locfileid: "67568586"
 ## <a name="how-do-i-remove-a-user-assignment-to-an-enterprise-app-using-powershell"></a>如何使用 PowerShell 删除到企业应用的用户分配？
 1. 以提升的权限打开 Windows PowerShell 命令提示符。
 
-    >[!NOTE] 
-    > 需要安装 AzureAD 模块（使用命令 `Install-Module -Name AzureAD`）。 出现安装 NuGet 模块或新的 Azure Active Directory V2 PowerShell 模块的提示时，请键入 Y，然后按 ENTER。
+   > [!NOTE]
+   > 需要安装 AzureAD 模块（使用命令 `Install-Module -Name AzureAD`）。 出现安装 NuGet 模块或新的 Azure Active Directory V2 PowerShell 模块的提示时，请键入 Y，然后按 ENTER。
 
 1. 运行 `Connect-AzureAD -AzureEnvironmentName AzureChinaCloud` 并使用全局管理员用户帐户登录。
 1. 使用以下脚本将用户和角色从应用程序中删除：
@@ -60,8 +60,9 @@ ms.locfileid: "67568586"
 
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
-    ``` 
-   ## <a name="next-steps"></a>后续步骤
+    ```
+
+## <a name="next-steps"></a>后续步骤
 
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [向企业应用分配用户](assign-user-or-group-access-portal.md)

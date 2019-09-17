@@ -1,6 +1,6 @@
 ---
-title: 模型有助于预测
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 模式有助于预测 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 使用模式可在不提供更多话语的情况下获得更高的意向准确度。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2d560d7752ec256851562d2376946575e9006a9d
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 1a064e1e2376dafa57e3a3d5c6d622f5a433c0e6
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828532"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103956"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可提高预测的准确性
 模式旨在多条话语非常类似的情况下提升准确性。  使用模式可在不提供更多话语的情况下获得更高的意向准确度。 
@@ -59,7 +59,7 @@ ms.locfileid: "65828532"
 模式的匹配顺序是先检测模式内的实体，再验证模式的其余字词和字词顺序。 要匹配模式，需要在模式中包含实体。 模式在标记级别应用，而不在字符级别应用。 
 
 ## <a name="pattern-syntax"></a>模式语法
-模式语法是一个话语模板。 该模板应包含要匹配的字词和实体，还要包含希望忽略的字词和标点。 它不是一个正则表达式。 
+模式语法是一个话语模板。 该模板应包含要匹配的字词和实体，还要包含希望忽略的字词和标点。 它不是一个正则表达式  。 
 
 模式中的实体用花括号 `{}` 括起。 模式可包含实体和带角色的实体。 [Pattern.any](luis-concept-entity-types.md#patternany-entity) 是仅在模式中使用的实体。 
 
@@ -128,7 +128,7 @@ ms.locfileid: "65828532"
 ## <a name="syntax-to-add-a-patternany-to-pattern-template"></a>用于向模式模板添加 pattern.any 的语法
 Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照模式模板操作，pattern.any 即可为任意长度。 
 
-要向模式模板添加 Pattern.any 实体，需用花括号将 Pattern.any 实体括起，比如 `How much does {Booktitle} cost and what format is it available in?`。  
+要向模式模板添加 Pattern.any 实体，需用花括号将 Pattern.any 实体括起，比如 `How much does {Booktitle} cost and what format is it available in?`  。  
 
 |模式与 Pattern.any 实体|
 |--|
@@ -136,9 +136,9 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 |模式中的书名|
 |--|
-|《偷书》的价格是多少？它适合哪种格式？|
-|《询问》的价格是多少？它适合哪种格式？|
-|《深夜小狗神秘事件》的价格是多少？它适合哪种格式？| 
+|《偷书》的价格是多少？它适合哪种格式  ？|
+|《询问》的价格是多少？它适合哪种格式  ？|
+|《深夜小狗神秘事件》的价格是多少？它适合哪种格式  ？| 
 
 对于 LUIS 而言，书名的字词不容易混淆，因为 LUIS 可以根据 Pattern.any 实体知道书名在哪里结尾。
 
@@ -153,7 +153,7 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 请考虑使用模式“[find] email about {subject} [from {person}]”。
 
-在下面的话语中，主题和人员实体一个提取正确，一个提取错误：
+在下面的话语中，主题和人员实体一个提取正确，一个提取错误   ：
 
 |话语|实体|提取是否正确|
 |--|--|:--:|

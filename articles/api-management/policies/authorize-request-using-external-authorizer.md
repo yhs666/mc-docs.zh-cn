@@ -15,11 +15,11 @@ origin.date: 06/06/2018
 ms.date: 08/13/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7b77b5e4b72ddddd66dd39f6af91a91eb017adb0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644423"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736680"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>使用外部授权程序授权请求
 
@@ -27,7 +27,7 @@ ms.locfileid: "52644423"
 
 ## <a name="policy"></a>策略
 
-将代码粘贴到“入站”块中。
+将代码粘贴到“入站”块中  。
 
 ```XML
 <!-- The policy defined in this file shows how to secure API access by using an external authorizer encapsulating custom authentication/authorization logic.

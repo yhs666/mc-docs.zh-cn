@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0908d877e991b01edd900e284977e4b4d03c412b
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: cc37cb6b1fc2541a04a90bdd544b6f4bbf519a33
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204177"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174252"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -54,7 +53,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    可以在 Docker 安装路径的 daemon.json 文件中直接更新这些设置。 可直接在 Docker 中修改守护程序配置设置。 选择 **Docker 图标**，然后选择“首选项” > “守护程序” > “高级”。
+    可以在 Docker 安装路径的 daemon.json 文件中直接更新这些设置。 可直接在 Docker 中修改守护程序配置设置。 选择 **Docker 图标**，然后选择“首选项”   >   “守护程序” >   “高级”。
 
     >[!NOTE]
     >
@@ -62,7 +61,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     >
 
     >[!TIP]
-    >测试大型应用程序时，我们建议增加分配给 Docker 的资源。 为此，可以选择 **Docker 图标**，然后选择“高级”来调整核心数量和内存量。
+    >测试大型应用程序时，我们建议增加分配给 Docker 的资源。 为此，可以选择 **Docker 图标**，然后选择“高级”来调整核心数量和内存量。 
 
 2. 在新目录中创建名为 `Dockerfile` 的文件，以生成 Service Fabric 映像：
 
@@ -136,9 +135,9 @@ CLI 命令支持与 Service Fabric 实体（包括群集、应用程序和服务
 
 1. 若要在部署应用程序之前连接到群集，请运行以下命令。 
 
-```bash
-sfctl cluster select --endpoint http://localhost:19080
-```
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
 
 ## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>使用 Yeoman 在 Mac 上创建应用程序
 
@@ -151,7 +150,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     node -v
     npm -v
     ```
-2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器：
+2. 通过 NPM 在计算机上安装 [Yeoman](https://yeoman.io/) 模板生成器：
 
     ```bash
     npm install -g yo
@@ -173,8 +172,9 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     brew install gradle
     ```
 
-    >[!TIP]
-    > 请务必验证并确保已安装 JDK 的正确版本。 
+    > [!IMPORTANT]
+    > `brew cask install java` 的当前版本可能会安装更新版本的 JDK。
+    > 请确保安装 JDK 8。
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>通过 Terminal 在 Mac 上部署应用程序
 
@@ -219,7 +219,9 @@ docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:
 >
 
 ## <a name="next-steps"></a>后续步骤
+
 <!-- Links -->
+
 * [使用 Yeoman 在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-create-your-first-linux-application-with-java.md)
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Azure 门户中创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
@@ -229,6 +231,7 @@ docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:
 * [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 
 <!-- Images -->
+
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png

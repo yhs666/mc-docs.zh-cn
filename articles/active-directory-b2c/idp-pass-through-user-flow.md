@@ -1,5 +1,5 @@
 ---
-title: 通过用户流将访问令牌传递给应用程序 - Azure Active Directory B2C | Microsoft Docs
+title: 通过用户流将访问令牌传递给应用程序 - Azure Active Directory B2C
 description: 了解如何在 Azure Active Directory B2C 中以用户流中声明的方式传递 OAuth2.0 标识提供者的访问令牌。
 services: active-directory-b2c
 author: mmacy
@@ -7,30 +7,27 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 04/16/2019
-ms.date: 07/23/2019
+origin.date: 08/17/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: efe08222f3b9477570433fb86546c812e1a2e43a
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 0cc4cc5fc6fb1ba88e1ec4498249b91f472c5686
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391566"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310736"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用用户流将访问令牌传递给应用程序
 
-> [!NOTE]
-> 此功能目前处于公开预览状态。
-
-Azure Active Directory (Azure AD) B2C 中的[用户流](active-directory-b2c-reference-policies.md)允许应用程序的用户通过标识提供者进行注册或登录。 此过程开始时，Azure AD B2C 会从标识提供者处收到一个[访问令牌](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 使用该令牌来检索有关用户的信息。 在用户流中启用声明即可将该令牌传递给你在 Azure AD B2C 中注册的应用程序。
+Azure Active Directory B2C (Azure AD B2C) 中的[用户流](active-directory-b2c-reference-policies.md)允许应用程序的用户通过标识提供者进行注册或登录。 此过程开始时，Azure AD B2C 会从标识提供者处收到一个[访问令牌](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 使用该令牌来检索有关用户的信息。 在用户流中启用声明即可将该令牌传递给你在 Azure AD B2C 中注册的应用程序。
 
 Azure AD B2C 当前仅支持传递 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 标识提供者的访问令牌。 对于所有其他标识提供者，声明将返回空白。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 应用程序必须使用 [v2 用户流](user-flow-versions.md)。
-- 用户流是使用 OAuth 2.0 标识提供者配置的。
+* 应用程序必须使用 [v2 用户流](user-flow-versions.md)。
+* 用户流是使用 OAuth 2.0 标识提供者配置的。
 
 ## <a name="enable-the-claim"></a>启用声明
 

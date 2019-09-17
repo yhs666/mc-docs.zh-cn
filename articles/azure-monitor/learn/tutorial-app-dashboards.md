@@ -5,17 +5,18 @@ keywords: ''
 services: application-insights
 author: lingliw
 ms.author: v-lingwu
-ms.date: 6/4/2019
+origin.date: 07/3/2019
+ms.date: 07/10/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: digimobile
-ms.openlocfilehash: fb0b0d82aeea98587f2813cbed69e37dc91afa3c
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 7e43b95a72cf9286a0b5828fa94f0d2f7c7b9fb6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969670"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737213"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 创建自定义 KPI 仪表板
 

@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-origin.date: 03/13/2019
-ms.date: 08/19/2019
+origin.date: 07/16/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: af670c4eb94c2e0611df753a72083ba78736028b
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 350be0f4e4237145ab76bb638091ef3f2bc8e3f2
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544370"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131873"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用维护计划管理服务更新和维护
 
@@ -26,7 +26,7 @@ ms.locfileid: "69544370"
 
 所有新创建的 Azure SQL 数据仓库实例将在部署期间应用系统定义的维护计划。 部署完成后即可编辑该计划。
 
-每个维护时段可以是 3 到 8 小时。 可在该时段的任何时间执行维护。 由于服务要将新代码部署到数据仓库，因此，短暂性的连接断开属于预料之内的问题。
+每个维护时段可以是 3 到 8 小时。 可在该时段的任何时间执行维护。 维护开始时，将取消所有活动会话，并回退未提交的事务。 当服务将新代码部署到数据仓库时，应该会出现多次短暂的连接丢失。 针对数据仓库的维护完成后，你会立即收到通知
 
 若要使用此功能，需要在不同的日期范围内标识主要时段和辅助时段。 所有维护操作应在计划的维护时段内完成。 在未事先通知的情况下，不会在指定的维护时段外进行维护。 如果在计划维护期间暂停数据仓库，则会在恢复操作期间进行更新。  
 
@@ -34,7 +34,7 @@ ms.locfileid: "69544370"
 
 与服务运行状况通知和资源运行状况检查监视器的集成可让客户随时了解即将发生的维护活动。 新的自动化利用 Azure Monitor。 你可以决定如何接收有关即将进行的维护事件的通知。 此外，请确定哪些自动化流可以帮助你管理停机时间，以及尽量减少对操作的影响。
 
-在所有维护事件之前提前 24 小时通知，当前例外是 DW400c 和更低层。 若要尽量减少实例停机时间，请确保数据仓库在选定的维护时限之前没有任何长时间运行的事务。 维护开始时，将取消所有活动会话。 未提交的事务将会回退，数据仓库将遇到短暂的连接断开。 针对数据仓库的维护完成后，你会立即收到通知。
+在所有维护事件之前提前 24 小时通知，当前例外是 DW400c 和更低层。 若要尽量减少实例停机时间，请确保数据仓库在选定的维护时限之前没有任何长时间运行的事务。
 
 > [!NOTE]
 > 在我们需要部署时间关键型更新的情况下，提前通知时间可能会显著减少。

@@ -1,10 +1,10 @@
 ---
-title: 在 Azure 门户中创建批处理帐户 | Microsoft Docs
+title: 在 Azure 门户中创建帐户 - Azure Batch | Microsoft Docs
 description: 了解如何在 Azure 门户中创建 Azure Batch 帐户，以便在云中运行大规模并行工作负荷
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce72955fcea494271827911efa15110d656136c7
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 01eab92576a3f7fdf2ab4a0786be7a1f8ede3567
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845417"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103725"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -80,6 +80,7 @@ ms.locfileid: "67845417"
 如果选择在用户订阅模式下创建 Batch 帐户，请在创建帐户前执行以下附加步骤。
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>允许 Azure Batch 访问订阅（一次性操作）
+
 在用户订阅模式下创建第一个 Batch 帐户时，需将订阅注册到 Batch 中。 （如果已执行过此操作，请跳至下一部分。）
 
 1. 登录到 [Azure 门户][azure_portal]。
@@ -110,7 +111,11 @@ ms.locfileid: "67845417"
 
 1. 在“创建密钥保管库”页中，输入密钥保管库的名称，并在区域中创建需要用于 Batch 帐户的资源组。  让其余设置保留默认值，然后选择“创建”。 
 
-以用户订阅模式创建 Batch 帐户时，请使用密钥保管库的资源组，指定“用户订阅”  作为池分配模式，然后选择密钥保管库。
+在用户订阅模式下创建 Batch 帐户时，请使用密钥保管库的资源组。 指定“用户订阅”  作为池分配模式，选择密钥保管库，然后选中该框以授予 Azure Batch 对密钥保管库的访问权限。 
+
+如果希望手动授予对密钥保管库的访问权限，请转到密钥保管库的“访问策略”  部分，然后选择 **Microsoft Azure Batch**。 使用下拉菜单配置**机密权限**。 必须至少授予 Azure Batch **Get**、**List**、**Set** 和 **Delete** 权限。
+
+![Azure Batch 的机密权限](./media/batch-account-create-portal/secret-permissions.png)
 
 ### <a name="configure-subscription-quotas"></a>配置订阅配额
 
@@ -125,9 +130,9 @@ ms.locfileid: "67845417"
 ## <a name="other-batch-account-management-options"></a>其他 Batch 帐户管理选项
 除了使用 Azure 门户外，还可使用以下工具创建和管理 Batch 帐户：
 
-- [批处理 PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)
-- [Azure CLI](batch-cli-get-started.md)
-- [Batch Management .NET](batch-management-dotnet.md)
+* [批处理 PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)
+* [Azure CLI](batch-cli-get-started.md)
+* [Batch Management .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>后续步骤
 - 请参阅[批处理功能概述](batch-api-basics.md)，详细了解处理服务的概念和功能。 本文讨论主要 Batch 资源（例如池、计算节点、作业和任务），并提供适用于大规模计算工作负荷的服务功能概述。

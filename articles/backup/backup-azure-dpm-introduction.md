@@ -1,25 +1,24 @@
 ---
 title: 准备 DPM 服务器将工作负载备份到 Azure
 description: 介绍了如何将 DPM 数据备份到 Azure 恢复服务保管库。
-services: backup
+ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
-keywords: System Center Data Protection Manager, Data Protection Manager, dpm 备份
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 11/26/2018
+origin.date: 08/26/2019
+ms.date: 01/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0902cb9641c9015629b2298c0e54704b66dfe941
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 1a56279101959f6210c10e9aab98221c0bf83bc5
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103803"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>使用 System Center DPM 准备将工作负载备份到 Azure
 
-本文介绍如何使用 Azure 备份服务准备将 System Center Data Protection Manager (DPM) 备份到 Azure。 
+本文介绍如何使用 Azure 备份服务准备将 System Center Data Protection Manager (DPM) 备份到 Azure。
 
 本文将提供：
 
@@ -27,7 +26,8 @@ ms.locfileid: "67570450"
 - 将 Azure 备份与 DPM 结合使用的先决条件和限制。
 - 准备 Azure 的步骤，包括设置恢复服务备份保管库，以及视需要修改保管库的 Azure 存储类型。
 - 准备 DPM 服务器的步骤，包括下载保管库凭据，安装 Azure 备份代理，以及在保管库中注册 DPM 服务器。
-- 常见错误的故障排除提示。 
+- 常见错误的故障排除提示。
+
 
 ## <a name="why-back-up-dpm-to-azure"></a>为什么将 DPM 备份到 Azure？
 
@@ -43,7 +43,7 @@ ms.locfileid: "67570450"
 
 ## <a name="prerequisites-and-limitations"></a>先决条件和限制
 
-**设置** | **要求** 
+**设置** | **要求**
 --- | ---
 Azure VM 上的 DPM | System Center 2012 R2 DPM 2012 R2 更新汇总 3 或更高版本。
 物理服务器上的 DPM | System Center 2012 SP1 或更高版本；System Center 2012 R2。 
@@ -100,7 +100,7 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
     - 但是，备份数据是使用属于客户的通行短语加密的，因此现有的备份数据不会泄露。
 - 确保将文件保存在可从 DPM 服务器访问的位置。 如果将它存储在文件共享/SMB 中，请检查访问权限。
 - 保管库凭据会在 48 小时后过期。 可以根据需要任意下载新的保管库凭据。 不过，在注册工作流中只能使用最新的保管库凭据文件。
-- Azure 备份服务不知道证书的私钥，并且私钥在门户或服务中不可用。 
+- Azure 备份服务不知道证书的私钥，并且私钥在门户或服务中不可用。
 
 按如下方式将保管库凭据文件下载到本地计算机：
 

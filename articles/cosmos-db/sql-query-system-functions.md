@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/31/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 066f3ae0f6046ed425188e486bde395396bacbaa
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 3a753da89a1f074808fb8e8272109eb356ba5d29
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672266"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254846"
 ---
 # <a name="system-functions"></a>系统函数
 
@@ -31,7 +31,7 @@ ms.locfileid: "68672266"
 
 | 函数组 | 操作 |
 |---------|----------|
-| 数学函数 | ABS、CEILING、EXP、FLOOR、LOG、LOG10、POWER、ROUND、SIGN、SQRT、SQUARE、TRUNC、ACOS、ASIN、ATAN、ATN2、COS、COT、DEGREES、PI、RADIANS、SIN 和 TAN |
+| 数学函数 | ABS、CEILING、EXP、FLOOR、LOG、LOG10、POWER、ROUND、SIGN、SQRT、SQUARE、TRUNC、ACOS、ASIN、ATAN、ATN2、COS、COT、DEGREES、PI、RADIANS、RAND、SIN 和 TAN |
 | 类型检查函数 | IS_ARRAY、IS_BOOL、IS_NULL、IS_NUMBER、IS_OBJECT、IS_STRING、IS_DEFINED 和 IS_PRIMITIVE |
 | 字符串函数 | CONCAT、CONTAINS、ENDSWITH、INDEX_OF、LEFT、LENGTH、LOWER、LTRIM、REPLACE、REPLICATE、REVERSE、RIGHT、RTRIM、STARTSWITH、SUBSTRING 和 UPPER |
 | 数组函数 | ARRAY_CONCAT、ARRAY_CONTAINS、ARRAY_LENGTH 和 ARRAY_SLICE |
@@ -68,9 +68,9 @@ Cosmos DB 函数与 ANSI SQL 函数之间的主要差别在于，Cosmos DB 函�
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[SIGN](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
 
 <a name="bk_abs"></a>
 #### <a name="abs"></a>ABS  
@@ -572,13 +572,7 @@ SELECT LOG10(100) AS log10
 PI ()  
 ```  
 
-**参数**
-
-- `numeric_expression`  
-
-   是一个数值表达式。  
-
-返回类型 
+**返回类型**  
 
   返回数值表达式。  
 
@@ -718,6 +712,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+<a name="bk_rand"></a>
+#### <a name="rand"></a>RAND
+ 返回 [0,1) 中随机生成的数值。
+
+**语法**  
+
+```  
+RAND ()  
+```  
+
+**返回类型**  
+
+  返回数值表达式。  
+
+ **示例**  
+
+  以下示例返回一个随机生成的数值。  
+
+```  
+SELECT RAND() AS rand 
+```  
+
+ 下面是结果集。  
+
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
 
 <a name="bk_sign"></a>
 #### <a name="sign"></a>SIGN  

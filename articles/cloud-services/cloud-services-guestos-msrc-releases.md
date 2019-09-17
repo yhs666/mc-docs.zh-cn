@@ -11,28 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/12/2019
+origin.date: 08/02/2019
 ms.author: v-yiso
-ms.date: 08/12/2019
-ms.openlocfilehash: 9772fb56b87721d4ae7f08a100da315904cddaa6
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.date: 09/16/2019
+ms.openlocfilehash: e66cf2d142f1d282a32dc176e58e0e7e18b3b486
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68733519"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736636"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
 
 ## <a name="july-2019-guest-os"></a>2019 年 7 月来宾 OS
 
->[!NOTE]
->目前，我们正在将 7 月来宾 OS 推广到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 7 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
-
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88、3.75、4.68  |  2019 年 7 月 9 日  |
-|  Rel 19-07   |  [4506621]  |  Windows 安全性   |  2.88、3.75、4.68  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4506966]  |  .NET 4.5.2 安全性   |  2.88  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4506976]  |  .NET 3.5.1 安全性   |  2.88  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4507456]  |  Windows 安全性   |  2.88  |  2019 年 7 月 9 日  |
@@ -42,7 +38,6 @@ ms.locfileid: "68733519"
 |  Rel 19-07   |  [4506964]  |  .NET 4.5.2 安全性   |  4.68  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4506977]  |  .NET 3.5 安全性   |  4.68  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4507457]  |  Windows 安全性   |  4.68  |  2019 年 7 月 9 日  |
-|  Rel 19-07   |  [4506986]  |  .NET 4.8 安全性   |  5.33  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4507460]  |  Windows 安全性   |  5.33  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4506998]  |  .NET 3.5 和 4.7.2 安全性   |  6.9  |  2019 年 7 月 9 日  |
 |  Rel 19-07   |  [4507469]  |  Windows 安全性   |  6.9  |  2019 年 7 月 9 日  |
@@ -63,7 +58,6 @@ ms.locfileid: "68733519"
 [4506964]: https://support.microsoft.com/kb/4506964
 [4506977]: https://support.microsoft.com/kb/4506977
 [4507457]: https://support.microsoft.com/kb/4507457
-[4506986]: https://support.microsoft.com/kb/4506986
 [4507460]: https://support.microsoft.com/kb/4507460
 [4506998]: https://support.microsoft.com/kb/4506998
 [4507469]: https://support.microsoft.com/kb/4507469
@@ -304,13 +298,13 @@ ms.locfileid: "68733519"
 | Rel 19-01 | [4480964] | Windows 安全性 | 4.62 | 2019 年 1 月 8 日 |
 | Rel 19-01 | [4480972] | Windows 安全性 | 3.69 | 2019 年 1 月 8 日 |
 | Rel 19-01 | [4480960] | Windows 安全性 | 2.82 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480056] | .Net 安全性 | 6.3 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480074] | .Net 4.x 安全性 | 4.62 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480075] | .Net 4.x 安全性 | 3.69 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480076] | .Net 4.x 安全性 | 2.82 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480086] | .Net 3.x 安全性 | 4.62 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480083] | .Net 3.x 安全性 | 3.69 | 2019 年 1 月 8 日 |
-| Rel 19-01 | [4480085] | .Net 3.x 安全性 | 2.82 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480056] | .NET 安全性 | 6.3 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480074] | .NET 4.x 安全性 | 4.62 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480075] | .NET 4.x 安全性 | 3.69 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480076] | .NET 4.x 安全性 | 2.82 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480086] | .NET 3.x 安全性 | 4.62 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480083] | .NET 3.x 安全性 | 3.69 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480085] | .NET 3.x 安全性 | 2.82 | 2019 年 1 月 8 日 |
 | Rel 19-01 | [4480979] | 闪烁 | 3.69、4.62、5.27、6.3 | 2019 年 1 月 8 日 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82、3.69、4.62 | 2019 年 1 月 8 日 |
 | 不适用 | [4471318] | 12 月非安全性汇总 | 2.82 | 2018 年 12 月 11 日 |

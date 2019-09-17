@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2019
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: f6e822032bc40829cc7b8181b356d87e0f6d306b
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: e2794d44e5aab3b30f23aa92d2b7b640458e5ef8
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204027"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174120"
 ---
 # <a name="connect-to-a-secure-cluster"></a>连接到安全群集
 
@@ -111,7 +111,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
-ServerCommonName 是群集节点上安装的服务器证书的公用名称。 FindValue 是管理客户端证书的公用名称。 填充参数时，命令如以下示例所示：
+ServerCommonName 是群集节点上安装的服务器证书的公用名称  。 FindValue 是管理客户端证书的公用名称  。 填充参数时，命令如以下示例所示：
 ```powershell
 $ClusterName= "sf-commonnametest-scus.chinaeast.cloudapp.chinacloudapi.cn:19000"
 $certCN = "sfrpe2eetest.chinaeast.cloudapp.chinacloudapi.cn"
@@ -156,8 +156,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a name="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a> 使用 FabricClient API 连接到群集
-Service Fabric SDK 为群集管理提供 [FabricClient](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) 类。 若要使用 FabricClient API，请获取 Microsoft.ServiceFabric NuGet 包。
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>使用 FabricClient API 连接到群集
+Service Fabric SDK 为群集管理提供 [FabricClient](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) 类。 若要使用 FabricClient API，请获取 Microsoft.ServiceFabric NuGet 包。
 
 ### <a name="connect-to-an-unsecure-cluster"></a>连接到不安全的群集
 
@@ -175,7 +175,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
 
-群集中的节点必须具有有效的证书，在 SAN 中，这些证书的公用名或 DNS 名出现在 [FabricClient](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) 上设置的 [RemoteCommonNames 属性](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.x509credentials?view=azure-dotnet)中。 按照此流程操作可在客户端与群集节点之间进行相互身份验证。
+群集中的节点必须具有有效的证书，在 SAN 中，这些证书的公用名或 DNS 名出现在 [FabricClient](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) 上设置的 [RemoteCommonNames 属性](https://docs.azure.cn/dotnet/api/system.fabric.x509credentials?view=azure-dotnet)中。 按照此流程操作可在客户端与群集节点之间进行相互身份验证。
 
 ```csharp
 using System.Fabric;
@@ -398,4 +398,4 @@ Azure 门户的群集基本信息窗格中也提供了完整 URL。
 * [应用程序安全性和 RunAs](service-fabric-application-runas-security.md)
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
-<!--Update_Description: update meta properties, update reference link, wording update-->
+<!--Update_Description: update meta properties -->

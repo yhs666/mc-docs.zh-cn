@@ -6,19 +6,22 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 04/30/2019
-ms.date: 05/20/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 13477900d8cf39f823318992a825fcf27e93a711
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: 5cf86c7dd5be398b815bc155a9bee224e75d31bd
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960918"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857240"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>在门户中使用应用程序网关配置端到端 SSL
 
 本文介绍如何在 Azure 门户中使用应用程序网关 v1 SKU 配置端到端 SSL 加密。  
+
+> [!NOTE]
+> 应用程序网关 v2 SKU 需要受信任的根证书才能启用端到端配置。 添加受信任根证书的门户支持尚不可用。 因此，对于 v2 SKU，请参阅[使用 PowerShell 配置端到端 SSL](/application-gateway/application-gateway-end-to-end-ssl-powershell)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 

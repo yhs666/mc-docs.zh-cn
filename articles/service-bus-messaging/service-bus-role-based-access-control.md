@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+origin.date: 09/19/2018
+ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 98b672820fda8ace452536526a6dfb936bfc7297
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: af50dd30026aaad337d004b85e544628be8eaec6
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236450"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169598"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 
@@ -31,45 +32,52 @@ ms.locfileid: "67236450"
 
 ## <a name="service-bus-roles-and-permissions"></a>服务总线角色和权限
 
-对于初始公共预览版，只能将 Azure AD 帐户和服务主体添加到服务总线消息传送命名空间的“所有者”或“参与者”角色。 此操作向标识授予对命名空间中的所有实体的完全控制权限。 最初只能通过 Azure 资源管理来支持对命名空间拓扑进行更改的管理操作，不能通过本机服务总线 REST 管理接口来支持。 此支持还意味着 .NET Framework 客户端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 对象无法与 Azure AD 帐户一起使用。  
+Azure 提供以下内置 RBAC 角色，用于授权对服务总线命名空间的访问：
+
+* [Azure 服务总线数据所有者（预览）](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview)：启用对服务总线命名空间及其实体（队列、主题、订阅和筛选器）的数据访问
+
+>[!IMPORTANT]
+> 我们之前已支持向“所有者”  或“参与者”  角色添加托管标识。
+>
+> 但是，不再授予“所有者”  和“参与者”  角色的数据访问权限。 如果已在使用“所有者”  或“参与者”  角色，则需要对这些角色进行调整以利用“Azure 服务总线数据所有者(预览)”  角色。
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>将服务总线与 Azure AD 域用户帐户一起使用
 
-下面的部分介绍了创建和运行一个示例应用程序（该应用程序提示交互式 Azure AD 用户进行登录）所需的步骤，如何向该用户帐户授予服务总线访问权限，以及如何使用该标识来访问事件中心。 
+下面的部分介绍了创建和运行一个示例应用程序（该应用程序提示交互式 Azure AD 用户登录）所需的步骤、如何向该用户帐户授予服务总线访问权限，以及如何使用该标识来访问事件中心。
 
-此介绍描述了一个简单的控制台应用程序，[其代码位于 Github 上](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)。
+此简介描述了一个简单的控制台应用程序，[其代码位于 GitHub 上](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)。
 
 ### <a name="create-an-active-directory-user-account"></a>创建 Active Directory 用户帐户
 
-这第一个步骤是可选的。 每个 Azure 订阅都会自动与一个 Azure Active Directory 租户进行配对，如果你具有某个 Azure 订阅的访问权限，则你的用户帐户已经注册。 这意味着你只能使用自己的帐户。 
+这第一个步骤是可选的。 每个 Azure 订阅都会自动与一个 Azure Active Directory 租户进行配对，如果你具有某个 Azure 订阅的访问权限，则你的用户帐户已经注册。 这意味着你只能使用自己的帐户。
 
 如果仍然希望为此方案创建特定帐户，请[执行这些步骤](../automation/automation-create-aduser-account.md)。 你必须有权在 Azure Active Directory 租户中创建帐户，对于较大的企业方案，这可能不现实。
 
 ### <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
-接下来，在支持 RBAC 预览版的以下 Azure 区域之一中[创建服务总线消息命名空间](service-bus-create-namespace-portal.md)：**中国东部**、**中国东部 2** 或**中国北部**。 
+接下来，[创建服务总线消息传送命名空间](service-bus-create-namespace-portal.md)。
 
 在创建命名空间后，在门户上导航到其“访问控制(IAM)”  页面，然后单击“添加角色分配”  将 Azure AD 用户帐户添加到“所有者”角色。 如果你使用自己的用户帐户并且已创建了命名空间，则已获得“所有者”角色。 若要向角色添加一个不同的帐户，请在“添加权限”  面板的“选择”  字段中搜索 Web 应用程序的名称，然后单击该条目。 然后单击“保存”  。
 
 用户帐户现在已具有对服务总线命名空间和对之前创建的队列的访问权限。
- 
+
 ### <a name="register-the-application"></a>注册应用程序
 
-在可以运行示例应用程序之前，将它注册到 Azure AD 中并批准允许应用程序以其身份访问 Azure 服务总线的许可提示。 
+在可以运行示例应用程序之前，将它注册到 Azure AD 中并批准允许应用程序以其身份访问 Azure 服务总线的许可提示。
 
-因为示例应用程序是一个控制台应用程序，因此你必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。 本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目的地。 对于此示例请使用 `http://servicebus.microsoft.com`，因为示例代码已使用了该 URI。
+因为示例应用程序是一个控制台应用程序，因此你必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。 本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目的地。 对于此示例请使用 `https://servicebus.microsoft.com`，因为示例代码已使用了该 URI。
 
 ### <a name="run-the-app"></a>运行应用程序
 
 在可以运行示例前，请编辑 App.config 文件并根据方案设置以下值：
 
 - `tenantId`：设置为 **TenantId** 值。
-- `clientId`：设置为 **ApplicationId** 值。 
+- `clientId`：设置为 **ApplicationId** 值。
 - `clientSecret`：如果希望使用客户端机密进行登录，请在 Azure AD 中创建它。 此外，请使用 Web 应用或 API 而非本机应用。 另外，请在之前创建的命名空间中将该应用添加到“访问控制(IAM)”  下。
-- `serviceBusNamespaceFQDN`：设置为新创建的服务总线命名空间的完整 DNS 名称，例如 `example.servicebus.chinacloudapi.cn`。
+- `serviceBusNamespaceFQDN`：设置为新创建的服务总线命名空间的完整 DNS 名称，例如 `example.servicebus.windows.net`。
 - `queueName`：设置为所创建的队列的名称。
 - 执行前面的步骤时在应用中指定的重定向 URI。
- 
+
 运行该控制台应用程序时，会提示你选择一个方案，请通过键入相应的编号并按 ENTER 来选择 **Interactive User Login**。 应用程序会显示一个登录窗口，要求你同意访问服务总线，然后使用登录标识通过该服务来演练发送/接收方案。
 
 ## <a name="next-steps"></a>后续步骤

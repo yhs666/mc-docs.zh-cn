@@ -1,5 +1,5 @@
 ---
-title: 使用 CORS 托管 RESTful API - Azure 应用服务 | Azure Docs
+title: 使用 CORS 托管 RESTful API - Azure 应用服务 | Azure
 description: 了解如何通过 Azure 应用服务来托管包含 CORS 支持的 RESTful API。
 services: app-service\api
 documentationcenter: dotnet
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 02/28/2018
-ms.date: 01/21/2019
-ms.author: v-biyu
+origin.date: 11/21/2018
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f00f691782d4add959131150d22c5cb0f428c405
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 47cb4a7fa86d26541b2102ab6697f9bf0f814334
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906019"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806884"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教程：在 Azure 应用服务中托管启用了 CORS 的 RESTful API
 
@@ -166,13 +166,16 @@ dotnet run
 
 ### <a name="enable-cors"></a>启用 CORS 
 
-使用 [`az resource update`](/cli/resource#az_resource_update) 命令对客户端的 URL 启用 CORS。 替换 _&lt;appname>_ 占位符。
+在 Windows 终端中，使用 [`az resource update`](/cli/resource#az-resource-update) 命令对客户端的 URL 启用 CORS。 替换 _&lt;appname>_ 占位符。
 
 ```azurecli
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
 可以在 `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`) 中设置多个客户端 URL。 也可使用 `"['*']"` 启用所有客户端 URL。
+
+> [!NOTE]
+> 如果应用要求发送凭据（例如 Cookie 或身份验证令牌），则浏览器会要求在响应中包含 `ACCESS-CONTROL-ALLOW-CREDENTIALS` 标头。 若要在应用服务中启用此功能，请在 CORS 配置中将 `properties.cors.supportCredentials` 设置为 `true`。当 `allowedOrigins` 包含 `'*'` 时，不能启用此功能。
 
 ### <a name="test-cors-again"></a>再次测试 CORS
 
@@ -184,7 +187,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 ## <a name="app-service-cors-vs-your-cors"></a>应用服务 CORS 与你的 CORS 的比较
 
-为了提高灵活性，可以使用自己的 CORS 实用程序而不是应用服务 CORS。 例如，可能需要针对不同的路由或方法指定不同的允许的源。 由于应用服务 CORS 允许你为所有 API 路由和方法指定一组接受的源，因此你需要使用自己的 CORS 代码。 请参阅[启用跨域请求 (CORS)](https://docs.microsoft.com/en-us/aspnet/core/security/cors)，了解 ASP.NET Core 如何这样做。
+为了提高灵活性，可以使用自己的 CORS 实用程序而不是应用服务 CORS。 例如，可能需要针对不同的路由或方法指定不同的允许的源。 由于应用服务 CORS 允许你为所有 API 路由和方法指定一组接受的源，因此你需要使用自己的 CORS 代码。 请参阅[启用跨域请求 (CORS)](https://docs.microsoft.com/aspnet/core/security/cors)，了解 ASP.NET Core 如何这样做。
 
 > [!NOTE]
 > 请勿尝试将应用服务 CORS 与你自己的 CORS 代码一起使用。 一起使用时，应用服务 CORS 优先级高，你自己的 CORS 代码将无效。

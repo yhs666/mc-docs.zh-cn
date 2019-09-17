@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-originate.date: 08/20/2019
-ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
+originate.date: 07/16/2019
+ms.date: 6/4/2019
 manager: digimobile
-ms.openlocfilehash: b0760a92bd42e7ef509bc351476a689cbe2987ee
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: fb323ae447729a0d121bb4d58f4c8505b3960cb2
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989678"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737307"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>向发布管道添加连续监视
 

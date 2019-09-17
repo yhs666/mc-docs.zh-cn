@@ -9,13 +9,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 06/28/2019
 ms.author: v-yiso
-ms.date: 08/26/2019
-ms.openlocfilehash: d890c86326f53900340bd714079e992f9ff3e34b
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 09/09/2019
+ms.openlocfilehash: d77c00b2089be2db2ad72d8f243ce0c42efa1895
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538738"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174203"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>在 Azure 逻辑应用中保护访问和数据
 
@@ -194,9 +194,9 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
   使用此选项可以根据来自特定 IP 地址范围的请求保护对运行历史记录的访问。
 
-* [使用模糊处理隐藏运行历史记录中的输入和输出](#obfuscate)。
+* [使用混淆向运行历史记录隐藏数据](#obfuscate)。
 
-  使用此选项可以根据触发器或操作隐藏运行历史记录中的输入和输出。
+  在许多触发器和操作中，可以向逻辑应用的运行历史记录隐藏其输入和/或输出。
 
 <a name="restrict-ip"></a>
 
@@ -257,7 +257,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 <a name="obfuscate"></a>
 
-### <a name="hide-inputs-and-outputs-in-run-history-by-using-obfuscation"></a>使用模糊处理隐藏运行历史记录中的输入和输出
+### <a name="hide-data-from-run-history-by-using-obfuscation"></a>使用混淆向运行历史记录隐藏数据
+
+许多触发器和操作都有可向逻辑应用的运行历史记录隐藏输入和/或输出的设置。 以下是在使用这些设置保护此数据时[需要查看的一些注意事项](#obfuscation-considerations)。
+
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>在设计器中保护输入和输出
 
 1. 如果尚未在 [Azure 门户](https://portal.azure.cn)中打开你的逻辑应用，请在逻辑应用设计器中将其打开。
 
@@ -289,9 +293,38 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
       ![已在运行历史记录中隐藏数据](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
+<a name="secure-data-code-view"></a>
+
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>在代码视图中保护输入和输出
+
+在基础触发器或操作定义中，使用以下两个值中的一个或两个值添加或更新 `runtimeConfiguration.secureData.properties` 数组：
+
+* `"inputs"`：在运行历史记录中保护输入。
+* `"outputs"`：在运行历史记录中保护输出。
+
+以下是在使用这些设置保护此数据时[需要查看的一些注意事项](#obfuscation-considerations)。
+
+```json
+"<trigger-or-action-name>": {
+   "type": "<trigger-or-action-type>",
+   "inputs": {
+      <trigger-or-action-inputs>
+   },
+   "runtimeConfiguration": {
+      "secureData": {
+         "properties": [
+            "inputs",
+            "outputs"
+         ]
+      }
+   },
+   <other-attributes>
+}
+```
+
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>保护输入和输出时的注意事项
+#### <a name="considerations-when-hiding-inputs-and-outputs"></a>隐藏输入和输出时的注意事项
 
 * 保护触发器或操作的输入或输出时，逻辑应用不会将受保护的数据发送到 Azure Log Analytics。 此外，你无法将[跟踪的属性](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)添加到该触发器或操作进行监视。
 

@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: nodejs
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7ecd1c4fbef5a4b7a406e78181291c6f4a4e527d
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 073ad6d4ff76ca51f2261b939857d7a1e69566d2
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989688"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737056"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 

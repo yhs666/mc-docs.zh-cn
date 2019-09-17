@@ -6,20 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/06/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: ae9f10eeaa546369d5dec001a17d27a5098ef417
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: bff7156a494f4b844e681e33fcf7832f56d1419d
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818835"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857267"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>应用程序网关对多租户后端（例如应用服务）的支持
 
 在 Web 服务器的多租户体系结构设计中，多个网站在同一 Web 服务器实例上运行。 主机名用于区分托管的不同应用程序。 默认情况下，应用程序网关不更改从客户端传入的 HTTP 主机标头，而是将该标头原封不动地发送到后端。 这适用于后端池成员，例如 NIC、虚拟机规模集、公共 IP 地址、内部 IP 地址和 FQDN，因为这些资源无需依赖于特定的主机标头或 SNI 扩展即可解析为正确的终结点。 但是，有许多服务（例如 Azure 应用服务 Web 应用和 Azure API 管理）在性质上是多租户的，需要依赖于特定的主机标头或 SNI 扩展才能解析为正确的终结点。 通常，应用程序的 DNS 名称（也是与应用程序网关关联的 DNS 名称）不同于后端服务的域名。 因此，应用程序网关收到的原始请求中的主机标头不同于后端服务的主机名。 正因如此，除非从应用程序网关发往后端的请求中的主机标头已更改为后端服务的主机名，否则多租户后端无法将请求解析为正确的终结点。 
 
-应用程序网关提供相应的功能，让用户根据后端的主机名替代请求中的 HTTP 主机标头。 此功能支持 Azure 应用服务 Web 应用和 API 管理等多租户后端。 
+应用程序网关提供相应的功能，让用户根据后端的主机名替代请求中的 HTTP 主机标头。 此功能支持多租户后端，例如 Azure 应用服务 Web 应用和 API 管理。 此功能适用于 v1 和 v2 标准 SKU 和 WAF SKU。 
 
 ![主机替代](./media/application-gateway-web-app-overview/host-override.png)
 
@@ -61,6 +61,6 @@ ms.locfileid: "68818835"
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[为应用服务 Web 应用配置应用程序网关](/application-gateway/create-web-app)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
+访问[为应用服务 Web 应用配置应用程序网关](/application-gateway/configure-web-app-portal)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

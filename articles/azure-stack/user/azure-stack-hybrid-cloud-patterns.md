@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 和 Azure Stack 创建混合云应用 | Microsoft Docs
+title: 为 Azure Stack 构建解决方案混合云设计模式 | Microsoft Docs
 description: 了解如何使用 Azure 和 Azure Stack 创建混合云应用
 services: azure-stack
 documentationcenter: ''
@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 06/20/2019
-ms.date: 07/29/2019
+origin.date: 07/16/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: b1ea9359107498122e556f448b19f75c1146d935
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 1d8127d947611b0370721d6dfd657cd7e448fe66
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513292"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857069"
 ---
-# <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 创建混合云应用
+#  <a name="build-solutions-hybrid-cloud-design-patterns-for-azure-stack"></a>为 Azure Stack 构建解决方案混合云设计模式
 
 Azure Stack 是 Azure 的扩展。 Azure Stack 通过启用混合云为本地环境和 Edge 带来云计算的灵活性。 你可以在 Azure 中构建混合云应用，并将其部署到位于任何位置的已连接或已断开连接的数据中心。
 

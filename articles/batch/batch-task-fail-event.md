@@ -1,24 +1,24 @@
 ---
-title: Azure Batch 任务失败事件 | Microsoft Docs
+title: Azure Batch 任务失败事件 | Docs
 description: Batch 任务失败事件参考。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/15/2018
-ms.author: v-junlch
-ms.openlocfilehash: 354e38f3299b1fe8f373815f06a2db1f9fe9578e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 08/20/2019
+ms.date: 08/15/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 8f33be74d5315b91cb31e6435459b1e45b1cfd1e
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658017"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104045"
 ---
 # <a name="task-fail-event"></a>任务失败事件
 

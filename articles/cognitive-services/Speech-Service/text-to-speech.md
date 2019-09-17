@@ -1,73 +1,121 @@
 ---
-title: 关于文本转语音 - 语音服务
+title: 文本转语音 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 文本转语音 API 提供超过 45 种语言和区域设置中的 75 种以上语音。 若要使用标准语音字体，只需在调用语音服务时使用几个其他参数指定语音名称。
+description: 语音服务中的文本转语音功能可让应用程序、工具或设备将文本转换为类似于人类的自然合成语音。 从标准和神经语音中选择，或创建自己产品或品牌特有的自定义语音。 75 多种标准语音可在 45 种以上的语言和区域设置中使用，5 种神经语音可在 4 种语言和区域设置中使用。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/13/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.custom: seodec18
-ms.openlocfilehash: 4ca8df99fb2b0d66b75e84ce99db8a23c103d849
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+origin.date: 08/24/2019
+ms.date: 06/24/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 2b91de6e03a05d972391d2ec62a263ee3068d4eb
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348432"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104116"
 ---
-# <a name="about-the-text-to-speech-api"></a>关于文本转语音 API
+# <a name="what-is-text-to-speech"></a>什么是文本转语音？
 
-文本转语音 (TTS) API 将输入文本转换为自然语音（也称为“语音合成”）。
+Azure 语音服务中的文本转语音服务可让应用程序、工具或设备将文本转换为类似于人类的自然合成语音。 从标准和神经语音中选择，或创建自己产品或品牌特有的自定义语音。 75 多种标准语音可在 45 种以上的语言和区域设置中使用，5 种神经语音可在 4 种语言和区域设置中使用。 有关完整列表，请参阅[支持的语言](language-support.md#text-to-speech)。
 
-若要生成语音，应用程序需要将 HTTP POST 请求发送到文本转语音 API。 其中，文本将合成为人工语音，并作为音频文件返回。 支持各种语音和语言。
+内容创作者可以借助文本转语音技术通过不同的方式来与其用户交互。 文本转语音通过为用户提供一个以听觉方式与内容交互的选项来改善辅助功能。 无论用户是否存在视觉缺陷、学习障碍，还是在开车时需要导航信息，文本转语音都可以改善现有的体验。 对于语音机器人和虚拟助手而言，文本转语音也是一个重要的附加功能。
 
-采用语音合成的场景包括：
 
-* *提高可访问性：* 文本转语音技术使内容所有者和发布者响应人员与其内容进行交互的不同方式。 有视觉障碍或阅读困难的人士会非常感谢能够以听觉的方式使用内容。 此外，语音输出使人们可以在上下班或健身时更加轻松地享用文本内容，如报纸或博客。
+利用语音合成标记语言 (SSML)（基于 XML 的标记语言），使用文本转语音的开发人员可以指定如何将输入文本转换为合成语音。 通过 SSML 可以调整音节、发音、语速和音量等。 有关详细信息，请参阅 [SSML](#speech-synthesis-markup-language-ssml)。
 
-* *在多任务方案中响应：* 文本转语音让人们在驾车或在不便阅读的环境下快速而轻松地汲取重要信息。 导航是这一领域的常见应用。
+### <a name="standard-voices"></a>标准语音
 
-* *使用多种模式增强学习：* 不同的人有不同的学习方法。 在线学习专家已经证明，同时提供语音和文本可帮助更轻松地了解和保留信息。
-
-* *提供直观机器人或助手：* 对话功能可以是智能聊天机器人或虚拟助手的必要组成部分。 越来越多的公司正在开发聊天机器人，为客户提供具备吸引力的客户服务体验。 语音通过允许以听觉方式接收机器人响应（例如，通过电话）来添加另一个维度。
-
-## <a name="voice-support"></a>语音支持
-
-Microsoft 文本转语音服务提供超过 45 种语言和区域设置的 75 种以上语音。 若要使用这些标准的“语音字体”，只需在调用服务的 REST API 时使用几个其他参数指定语音名称。 若要详细了解支持的语言、区域设置和语音，请参阅[支持的语言](language-support.md#text-to-speech)。
-
-> [!IMPORTANT]
-> 标准语音、自定义语音和神经语音的费用各不相同。 有关详细信息，请参阅[定价](https://www.azure.cn/zh-cn/home/features/cognitive-services/)。
+标准语音是使用统计参数合成和/或串联合成技术创建的。 这些语音的辨识度很高，且听起来非常自然。 你可以轻松地让应用程序使用多种语音选项以 45 种以上的语言讲述。 这些声音提供较高的发音准确度，支持缩写、缩略词扩展、日期/时间解释、多音字等。 使用标准语音可让用户以听觉方式来与内容交互，从而改善应用程序和服务的辅助功能。
 
 ### <a name="neural-voices"></a>神经语音
 
-使用神经版文本转语音可使与聊天机器人和虚拟助手的交流更加自然和专注、可将数字文本（如电子书）转换为有声读物以及可增强车载导航系统。 随着类人的自然韵律和字词的清晰发音，在与 AI 系统交互时，神经 TTS 显著减轻了听力疲劳。 有关神经语音的详细信息，请参阅[支持的语言](language-support.md#text-to-speech)。
+神经语音使用深度神经网络克服传统的文本转语音系统的限制，可以匹配口语中的重音和语调模式，并可将语音单位合成为计算机语音。 标准的文本转语音将韵律分解为由独立模型控制的分立语言分析和声学预测步骤，使语音合成变得含混不清。 我们的神经语音功能以同步方式执行韵律预测和语音合成，使语音更流畅且自然。
+
+可以使用神经语音使与聊天机器人和虚拟助手的交流更加自然和专注、可将数字文本（如电子书）转换为有声读物以及可增强车载导航系统。 神经语音可以生成类人的自然韵律和清晰的字词发音，当你在与 AI 系统交互时，它可以显著减轻听力疲劳。
+
+神经语音支持不同的风格，如中性和快乐风格。 例如，Jessa (en-US) 语音风格比较快活，它已针对亲密快乐的交谈进行优化。 可以使用[语音合成标记语言](speech-synthesis-markup.md)调整语音输出，例如音调、音节和语速。 有关可用语音的完整列表，请参阅[支持的语言](language-support.md#text-to-speech)。
+
+若要详细了解神经语音的优势，请参阅 [Microsoft 的新文本转语音神经服务可帮助机器像人类一样讲话](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/)。
 
 ### <a name="custom-voices"></a>自定义语音
 
-使用文本转语音自定义功能可以创建可识别的特色语音，该语音带有你的特色：语音字体。 若要创建语音字体，请先进行录音，然后将关联的脚本以训练数据的形式上传。 然后，此服务会根据你的录音创建唯一的语音模型。 然后，就可以使用此语音字体来合成语音。 有关更多信息，请参阅[自定义语音字体](how-to-customize-voice-font.md)。
+使用语音自定义可为品牌创建可辨识的独特语音。 若要创建自定义语音字体，请先进行录音，并将关联的脚本以训练数据的形式上传。 然后，此服务会根据你的录音创建唯一的语音模型。 可以使用此自定义语音字体来合成语音。 有关详细信息，请参阅“自定义语音”。
 
-## <a name="api-capabilities"></a>API 功能
+## <a name="speech-synthesis-markup-language-ssml"></a>语音合成标记语言 (SSML)
 
-文本转语音 API 的许多功能（特别是围绕自定义的功能）可以通过 REST 获得。 下表总结了每种访问 API 的方法的功能。 有关功能和 API 详细信息的完整列表，请参阅 [Swagger 参考](https://westus.cris.ai/swagger/ui/index)。
+语音合成标记语言 (SSML) 是一种基于 XML 的标记语言，可让开发人员指定如何使用文本转语音服务将输入文本转换为合成语音。 与纯文本相比，SSML 可让开发人员微调音节、发音、语速、音量以及文本转语音输出的其他属性。 SSML 可自动处理正常的停顿（例如，在句号后面暂停片刻），或者在以问号结尾的句子中使用正确的音调。
 
-| 使用案例 | REST | SDK |
-|-----|-----|-----|----|
-| 上传数据集以进行语音适应 | 是 | 否 |
-| 创建和管理语音字体模型 | 是 | 否 |
-| 创建和管理语音字体部署 | 是 | 否 |
-| 创建和管理语音字体测试| 是 | 否 |
-| 管理订阅 | 是 | 否 |
+发送到文本转语音服务的所有文本输入必须结构化为 SSML 。 有关详细信息，请参阅[语音合成标记语言](speech-synthesis-markup.md)。
 
-> [!NOTE]
-> API 实现限制，将 API 请求限制为每 5 秒 25 次。 消息标头将通知限制。
+### <a name="pricing-note"></a>定价说明
+
+使用文本转语音服务时，需按照转换为语音的每个字符（包括标点）付费。 尽管 SSML 文档本身不计费，但用于调整文本转语音方式的可选元素（例如音素和音节）将算作计费字符。 下面列出了计费的内容：
+
+* 在请求的 SSML 正文中传递给文本转语音服务的文本
+* 请求正文的文本字段中所有 SSML 格式的标记，`<speak>` 和 `<voice>` 标记除外
+* 字母、标点、空格、制表符、标记和所有空白字符
+* Unicode 中定义的每个码位
+
+有关详细信息，请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
+
+> [!IMPORTANT]
+> 每个中文、日语和韩语字符算作两个计费字符。
+
+## <a name="core-features"></a>核心功能
+
+下表列出了文本转语音的核心功能：
+
+| 使用案例 | SDK | REST |
+|----------|-----|------|
+| 将文本转换为语音。 | 是 | 是 |
+| 上传数据集以进行语音适应。 | 否 | 是\* |
+| 创建和管理语音字体模型。 | 否 | 是\* |
+| 创建和管理语音字体部署。 | 否 | 是\* |
+| 创建和管理语音字体测试。 | 否 | 是\* |
+| 管理订阅。 | 否 | 是\* |
+
+\* *可以通过 cris.ai 终结点使用这些服务。请参阅 [Swagger 参考](https://westus.cris.ai/swagger/ui/index)。这些自定义语音训练和管理 API 将每 5 秒的请求数限制为 25 个，而语音合成 API 本身实施的限制允许每秒最多 200 个请求。发生限制时，将通过消息标头发出通知。*
+
+## <a name="get-started-with-text-to-speech"></a>文本转语音入门
+
+我们专门提供了快速入门来帮助你在 10 分钟内运行代码。 下表按语言列出了文本转语音快速入门。
+
+### <a name="sdk-quickstarts"></a>SDK 快速入门
+
+| 快速入门 (SDK) | 平台 | API 参考 |
+|------------|----------|---------------|
+| C#、.NET Core | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| C#、.NET Framework | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| C#、UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| C#、Unity | Windows、Android | [Browse](https://aka.ms/csspeech/csharpref) |
+| C++ | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| C++ | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+
+### <a name="rest-quickstarts"></a>REST 快速入门
+
+| 快速入门 (REST) | 平台 | API 参考 |
+|------------|----------|---------------|
+| [C#、.NET Core](quickstart-dotnet-text-to-speech.md) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+## <a name="sample-code"></a>代码示例
+
+GitHub 上提供了文本转语音的示例代码。 这些示例涵盖了最流行编程语言的文本转语音转换。
+
+* [文本转语音示例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [文本转语音示例 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>参考文档
+
+* [语音设备 SDK](speech-devices-sdk.md)
+* REST API：语音转文本
+* [REST API：批量听录和自定义](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>后续步骤
 
-* [获取免费语音服务订阅](https://www.azure.cn/zh-cn/home/features/cognitive-services/)
-* [快速入门：将文本转换到语音，Python](quickstart-python-text-to-speech.md)
-* [快速入门：将文本转换到语音，.NET Core](quickstart-dotnet-text-to-speech.md)
-* [REST API 参考](rest-apis.md)
+* [获取免费语音服务订阅](get-started.md)

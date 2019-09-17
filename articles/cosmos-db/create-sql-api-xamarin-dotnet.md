@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/30/2018
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8fd6b85ab2bb2be1ec2c98ea3a9d44a5913cb17a
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 752d7439a83fc3ec4115780c0c1e8b12842e8a79
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514325"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254803"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户通过 Xamarin 构建待办事项应用
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!NOTE]
 > 在 GitHub 上的[此文档](https://github.com/xamarinhq/app-geocontacts)中，可以找到整个规范示例 Xamarin 应用的示例代码，其中展示了多个 Azure 产品，包括 CosmosDB。 此应用演示如何查看地理分散的联系人，并让这些联系人更新其位置。
 
-本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户、文档数据库和集合， 然后演示如何使用 [Xamarin.Forms](https://docs.microsoft.com/zh-cn/xamarin/) 和 [MVVM 体系结构模式](https://docs.microsoft.com/zh-cn/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)生成并部署一个基于 [SQL .NET API](sql-api-sdk-dotnet.md) 和 [Xamarin](https://docs.microsoft.com/zh-cn/xamarin/) 的待办事项列表 Web 应用。
+本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户、文档数据库和容器。 然后演示如何使用 [Xamarin.Forms](https://docs.microsoft.com/xamarin/) 和 [MVVM 体系结构模式](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)生成并部署一个基于 [SQL .NET API](sql-api-sdk-dotnet.md) 和 [Xamarin](https://docs.microsoft.com/xamarin/) 的待办事项列表 Web 应用。
 
 ![在 iOS 上运行的 Xamarin ToDo 应用](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -119,85 +119,113 @@ ToDoItems 解决方案中的代码包含：
 现在，请快速查看应用如何与 Azure Cosmos DB 通信。
 
 * 需将 [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) NuGet 包添加到所有项目。
-* azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models 文件夹中的 `ToDoItem` 类为上面创建的 **Items** 集合中的文档建模。 请注意，属性命名区分大小写。
+* azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models 文件夹中的 `ToDoItem` 类为上面创建的 **Items** 容器中的文档建模。 请注意，属性命名区分大小写。
 * azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services 文件夹中的 `CosmosDBService` 类将通信封装到 Azure Cosmos DB。
-* `CosmosDBService` 类中有一个 `DocumentClient` 类型的变量。 `DocumentClient` 用于针对 Azure Cosmos DB 帐户配置和执行请求，在第 31 行实例化。
+* `CosmosDBService` 类中有一个 `DocumentClient` 类型的变量。 `DocumentClient` 用于针对 Azure Cosmos DB 帐户配置和执行请求，并进行实例化：
 
     ```csharp
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
     ```
 
-* 查询集合中的文档时，使用 `DocumentClient.CreateDocumentQuery<T>` 方法，如下面的 `CosmosDBService.GetToDoItems` 函数所示：
+* 查询容器中的文档时，使用 `DocumentClient.CreateDocumentQuery<T>` 方法，如下面的 `CosmosDBService.GetToDoItems` 函数所示：
 
     ```csharp
+
+    /// <summary> 
+    /// </summary>
+    /// <returns></returns>
     public async static Task<List<ToDoItem>> GetToDoItems()
     {
-        var todos = new List<ToDoItem>();
+       var todos = new List<ToDoItem>();
 
-        var todoQuery = docClient.CreateDocumentQuery<ToDoItem>(
-                                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                                .Where(todo => todo.Completed == false)
-                                .AsDocumentQuery();
+       if (!await Initialize())
+           return todos;
 
-        while (todoQuery.HasMoreResults)
-        {
-            var queryResults = await todoQuery.ExecuteNextAsync<ToDoItem>();
+       var todoQuery = docClient.CreateDocumentQuery<ToDoItem>(
+           UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+           new FeedOptions { MaxItemCount = -1, EnableCrossPartitionQuery = true })
+           .Where(todo => todo.Completed == false)
+           .AsDocumentQuery();
 
-            todos.AddRange(queryResults);
-        }
+       while (todoQuery.HasMoreResults)
+       {
+           var queryResults = await todoQuery.ExecuteNextAsync<ToDoItem>();
 
-        return todos;
+           todos.AddRange(queryResults);
+       }
+
+       return todos;
     }
     ```
 
-    `CreateDocumentQuery<T>` 采用的 URI 指向在上一部分创建的集合。 还可以指定 LINQ 运算符，例如 `Where` 子句。 在这种情况下，仅返回尚未完成的待办事项。
+    `CreateDocumentQuery<T>` 采用的 URI 指向在上一部分创建的容器。 还可以指定 LINQ 运算符，例如 `Where` 子句。 在这种情况下，仅返回尚未完成的待办事项。
 
     `CreateDocumentQuery<T>` 函数是同步执行的，返回 `IQueryable<T>`。 不过，`AsDocumentQuery` 方法可以将 `IQueryable<T>` 转换为 `IDocumentQuery<T>` 对象，后者可以异步执行。 因此，不会阻止移动应用程序的 UI 线程。
 
     `IDocumentQuery<T>.ExecuteNextAsync<T>` 函数从 Azure Cosmos DB 检索结果页，该 DB 会进行 `HasMoreResults` 检查，看是否还有其他需要返回的结果。
 
     > [!TIP]
-    > 多个在 Azure Cosmos DB 集合和文档上运行的函数采用 URI 作为参数，以便指定集合或文档的地址。 此 URI 使用 `URIFactory` 类进行构造。 数据库、集合和文档的 URI 均可通过此类来创建。
+    > 多个在 Azure Cosmos 容器和文档上运行的函数采用 URI 作为参数，以便指定容器或文档的地址。 此 URI 使用 `URIFactory` 类进行构造。 数据库、容器和文档的 URI 均可通过此类来创建。
 
-* 第 107 行中的 `ComsmosDBService.InsertToDoItem` 函数演示如何插入新的文档：
+* `ComsmosDBService.InsertToDoItem` 函数演示如何插入新文档：
 
     ```csharp
+
+    /// <summary> 
+    /// </summary>
+    /// <returns></returns>
     public async static Task InsertToDoItem(ToDoItem item)
     {
-        ...
-        await docClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), item);
-        ...
+       if (!await Initialize())
+           return;
+
+       await docClient.CreateDocumentAsync(
+           UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+           item);
     }
+
     ```
 
-    指定了文档集合 URI 以及要插入的项。
+    指定了项 URI 以及要插入的项。
 
-* 第 124 行的 `CosmosDBService.UpdateToDoItem` 函数演示如何将现有的文档替换为新的文档：
+* `CosmosDBService.UpdateToDoItem` 函数演示如何将现有文档替换为新文档：
 
     ```csharp
+
+    /// <summary> 
+    /// </summary>
+    /// <returns></returns>
     public async static Task UpdateToDoItem(ToDoItem item)
     {
-        ...
-        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+       if (!await Initialize())
+           return;
 
-        await docClient.ReplaceDocumentAsync(docUri, item);
+       var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+       await docClient.ReplaceDocumentAsync(docUri, item);
     }
+
     ```
 
-    此处需要新的 URI 来唯一标识要替换的文档，而获得该 URI 的方法是先使用 `UriFactory.CreateDocumentUri`，然后向其传递数据库和集合的名称以及文档的 ID。
+    此处需要使用新的 URI 来唯一标识要替换的文档，而获得该 URI 的方法是先使用 `UriFactory.CreateDocumentUri`，然后向其传递数据库和容器的名称以及文档的 ID。
 
     `DocumentClient.ReplaceDocumentAsync` 将通过 URI 标识的文档替换为已指定为参数的文档。
 
-* 第 115 行的 `CosmosDBService.DeleteToDoItem` 函数演示了如何删除某个项：
+* `CosmosDBService.DeleteToDoItem` 函数演示了如何删除某个项：
 
     ```csharp
+
+    /// <summary> 
+    /// </summary>
+    /// <returns></returns>
     public async static Task DeleteToDoItem(ToDoItem item)
     {
-        ...
-        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+       if (!await Initialize())
+           return;
 
-        await docClient.DeleteDocumentAsync(docUri);
+       var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+       await docClient.DeleteDocumentAsync(docUri);
     }
+
     ```
 
     再次请注意这个在创建后传递给 `DocumentClient.DeleteDocumentAsync` 函数的唯一的文档 URI。
@@ -209,7 +237,7 @@ ToDoItems 解决方案中的代码包含：
 以下步骤将演示如何使用 Visual Studio for Mac 调试器来运行应用。
 
 > [!NOTE]
-> Android 版应用的使用完全相同。如果有差异，则会在下面的步骤中指出。 如果希望在 Windows 上使用 Visual Studio 进行调试，可参阅[此处 (iOS)](https://docs.microsoft.com/zh-cn/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) 和[此处 (Android)](https://docs.microsoft.com/zh-cn/xamarin/android/deploy-test/debugging/) 的相关操作文档。
+> Android 版应用的使用完全相同。如果有差异，则会在下面的步骤中指出。 如果希望在 Windows 上使用 Visual Studio 进行调试，可参阅[此处 (iOS)](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) 和[此处 (Android)](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/) 的相关操作文档。
 
 1. 首先选择要作为目标的平台，方法是：单击突出显示的下拉列表，然后选择适用于 iOS 的 ToDoItems.iOS 或适用于 Android 的 ToDoItems.Android。
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/07/2018
+origin.date: 08/14/2019
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 47087dade00548e4a82b71fa558486d64a24f694
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 09/09/2019
+ms.openlocfilehash: 80eef982289361673bcd4cf73402738fdb9ad917
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626420"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174169"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -29,7 +29,7 @@ ms.locfileid: "58626420"
 > * [按位置列出的提供商](expressroute-locations-providers.md)
 
 
-本文中的表格提供有关 ExpressRoute 连接提供商、ExpressRoute 地理覆盖范围、通过 ExpressRoute 支持的 Microsoft 云服务以及 ExpressRoute 系统集成商 (SI) 的信息。
+本文中的表格提供了有关 ExpressRoute 地理覆盖范围和位置、ExpressRoute 连接提供商和 ExpressRoute 系统集成商 (SI) 的信息。
 
 ## <a name="partners"></a>ExpressRoute 连接服务提供商
 所有 Azure 区域和位置都支持 ExpressRoute。 以下地图提供了 Azure 区域和 ExpressRoute 位置的列表。 ExpressRoute 位置是指 Microsoft 与多个服务提供商对等互连的位置。
@@ -70,7 +70,7 @@ ms.locfileid: "58626420"
 
 ### <a name="production-azure"></a>生产 Azure
 
-| **位置** | **服务提供商** |
+| **Location** | **服务提供商** |
 | --- | --- |
 | **阿姆斯特丹** |Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Internet Solutions - Cloud Connect、Interxion、KPN、Level 3 Communications、Orange、Tata Communications、TeleCity Group、Telenor、Verizon |
 | **亚特兰大** |Equinix |
@@ -84,7 +84,7 @@ ms.locfileid: "58626420"
 | **洛杉矶** |CoreSite、Equinix、Megaport、NTT、Zayo Group |
 | **墨尔本** |AARNet、Equinix、Megaport、NEXTDC、Telstra Corporation |
 | **纽约** |Coresite、Equinix、Megaport、Zayo Group |
-| 纽波特（威尔士） |Next Generation Data |
+| 纽波特（威尔士）  |Next Generation Data |
 | **Montreal** |Cologix |
 | **Mumbai** |Tata Communications |
 | **大阪** |Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、Softbank |
@@ -104,7 +104,7 @@ ms.locfileid: "58626420"
 
 ### <a name="us-government-cloud"></a>美国政府云
 
-| **位置** | **服务提供商** |
+| **Location** | **服务提供商** |
 | --- | --- |
 | **芝加哥** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
 | **达拉斯** |Equinix、Megaport、Verizon |
@@ -114,7 +114,7 @@ ms.locfileid: "58626420"
 
 ### <a name="china"></a>中国
 
-| **位置** | **服务提供商** |
+| **Location** | **服务提供商** |
 |--------------|-----------------------|
 | **北京**  |     中国电信     |
 | **上海** |     中国电信     |
@@ -144,7 +144,7 @@ ms.locfileid: "58626420"
 * 从 Exchange 连接服务提供商处订购 ExpressRoute 线路以连接到 Microsoft。
   * 根据 [创建 ExpressRoute 线路](expressroute-howto-circuit-classic.md) 中的步骤来设置连接。
 
-| **位置** | **Exchange** | **连接提供商** |
+| **Location** | **Exchange** | **连接提供商** |
 | --- | --- | --- |
 | **阿姆斯特丹** | Equinix | Eurofiber |
 | **伦敦** | Equinix | Exponential E、HSO |

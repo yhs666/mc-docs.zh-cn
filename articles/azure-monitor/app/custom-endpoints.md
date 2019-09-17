@@ -4,20 +4,20 @@ description: 修改 Azure 政府等区域的默认 Azure Application Insights SD
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2019
+origin.date: 05/25/2019
+ms.date: 07/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5c70db83efee4168e92c69942211b7b68d88d2f4
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 262159e1fe621797439cbce8b1aa73a77b057455
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989672"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737301"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>替代默认终结点的 Application Insights
 
@@ -50,7 +50,7 @@ ms.locfileid: "69989672"
 </ApplicationInsights>
 ```
 
-### <a name="net-core"></a>.NET Core
+### <a name="aspnet-core"></a>ASP.NET Core
 
 按如下所示修改项目中的 appsettings.json 文件以调整主终结点：
 
@@ -67,15 +67,66 @@ ms.locfileid: "69989672"
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //Place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QuickPulse_Endpoint_Address");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+   services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
 
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+   services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
 
-    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+    //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
+```
+
+### <a name="azure-functions-v2x"></a>Azure Functions v2.x
+
+在函数项目中安装以下包：
+
+- Microsoft.ApplicationInsights 版本 2.10.0
+- Microsoft.ApplicationInsights.PerfCounterCollector 版本 2.10.0
+- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel 版本 2.10.0
+
+然后，添加（或修改）函数应用程序的启动代码：
+
+```csharp
+[assembly: WebJobsStartup(typeof(Example.Startup))]
+namespace Example
+{
+  class Startup : FunctionsStartup
+  {
+      public override void Configure(IWebJobsBuilder builder)
+      {
+          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
+                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
+          if (quickPulseFactory != null)
+          {
+              builder.Services.Remove(quickPulseFactory);
+          }
+
+          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
+          if (appIdFactory != null)
+          {
+              builder.Services.Remove(appIdFactory);
+          }
+
+          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
+          if (channelFactory != null)
+          {
+              builder.Services.Remove(channelFactory);
+          }
+
+          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
+              new QuickPulseTelemetryModule
+              {
+                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
+              });
+
+          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+
+          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+      }
+  }
+}
 ```
 
 ### <a name="java"></a>Java

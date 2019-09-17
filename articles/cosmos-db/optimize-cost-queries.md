@@ -4,15 +4,15 @@ description: 了解如何评估查询的请求单位费用，并在查询性能�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 06/17/2019
+origin.date: 08/01/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: ee198c43e5ba409c073c1a4f8c909ccd2e1f8f02
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 3ab07d17aae74c02ba8eb8b7f7e5ba2fde88cc75
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171405"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254859"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的查询成本
 

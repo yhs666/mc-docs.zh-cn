@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: troubleshooting
-origin.date: 11/27/2018
-ms.date: 07/08/2019
+origin.date: 08/02/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7e5457ce8a80dbf63444e3c168ba1cb8cf10b9f6
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: bcb7b62792f639a75b51c5011756cae653f5d56e
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861669"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134418"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>排查 Azure 到 Azure VM 复制中持续出现的问题
 
@@ -64,7 +64,11 @@ Azure Site Recovery 根据磁盘类型实施数据更改率限制。 若要判�
 如果峰值是由于偶尔出现的数据迸发，数据更改率间或高于 10 MB/秒（针对高级存储）和 2 MB/秒（针对标准存储），但随后又降下来，则复制可同步。 但是，如果变动率在大多数时间远远超过支持的限制，则在可能情况下，请考虑以下选项之一：
 
 * **排除导致数据更改率变高的磁盘**：可以使用 [PowerShell](./azure-to-azure-exclude-disks.md) 来排除磁盘。若要排除磁盘，需先禁用复制。 
-* **更改灾难恢复存储磁盘层**：仅当磁盘数据变动率小于 10 MB/秒时，才可以使用此选项。 假设包含 P10 磁盘的 VM 的数据变动率大于 8 MB/秒，但小于 10 MB/秒。 如果客户在保护期间可以使用 P30 磁盘作为目标存储，则可以解决此问题。
+* **更改灾难恢复存储磁盘层**：仅当磁盘数据变动率小于 20 MB/秒时，才可以使用此选项。 假设包含 P10 磁盘的 VM 的数据变动率大于 8 MB/秒，但小于 10 MB/秒。 如果客户在保护期间可以使用 P30 磁盘作为目标存储，则可以解决此问题。 请注意，此解决方案仅适用于使用高级托管磁盘的计算机。 请按照以下步骤操作：
+    - 导航到受影响的复制计算机的“磁盘”边栏选项卡，并复制副本磁盘名称
+    - 导航到此副本托管磁盘
+    - 你可能会在“概述”边栏选项卡上看到一个横幅，指出已生成 SAS URL。 单击此横幅并取消导出。 如果看不到横幅，请忽略此步骤。
+    - 撤销 SAS URL 后，请转至托管磁盘的“配置”边栏选项卡并增加大小，以便 ASR 支持源磁盘上观察到的变动率
 
 <a name="Network-connectivity-problem"></a>
 ## <a name="network-connectivity-problems"></a>网络连接问题
@@ -86,7 +90,7 @@ Site Recovery 会将已复制数据发送到缓存存储帐户。 如果将数�
 #### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>原因 1：SQL Server 2008/2008 R2 中的已知问题 
 **如何解决**：SQL Server 2008/2008 R2 有一个已知问题。 请参阅此知识库文章：[托管 SQL Server 2008 R2 的服务器的 Azure Site Recovery 代理或其他非组件 VSS 备份失败](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>原因 2：在使用 AUTO_CLOSE DB 托管任何版本的 SQL Server 实例的服务器上，Azure Site Recovery 作业失败 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>原因 2：在使用 AUTO_CLOSE DB 托管任何版本的 SQL Server 实例的服务器上，Azure Site Recovery 作业失败 
 **如何解决**：请参阅知识库[文章](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>原因 3：SQL Server 2016 和 2017 中的已知问题
@@ -119,11 +123,12 @@ Site Recovery 会将已复制数据发送到缓存存储帐户。 如果将数�
 
 - 如果已禁用 VSS：
     - 确认 VSS 提供程序服务的启动类型是否设置为“自动”。 
-    - 重启以下服务：VSS 服务
+    - 重启以下服务：
+        - VSS 服务
         - Azure Site Recovery VSS 提供程序
         - VDS 服务
 
-#### <a name="vss-provider-notregistered---error-2147754756"></a>VSS 提供程序未注册 - 错误 2147754756
+#### <a name="vss-provider-not_registered---error-2147754756"></a>VSS 提供程序未注册 - 错误 2147754756
 
 **如何解决**：为了生成应用程序一致性标记，Azure Site Recovery 会使用 Azure 卷影复制服务 (VSS)。 检查 Azure Site Recovery VSS 提供程序服务是否已安装。 <br />
 
@@ -132,7 +137,8 @@ Site Recovery 会将已复制数据发送到缓存存储帐户。 如果将数�
 - 重新安装：C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
 
 确认 VSS 提供程序服务的启动类型是否设置为“自动”。 
-    - 重启以下服务：VSS 服务
+    - 重启以下服务：
+        - VSS 服务
         - Azure Site Recovery VSS 提供程序
         - VDS 服务
 

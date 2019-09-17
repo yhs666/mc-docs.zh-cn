@@ -1,6 +1,6 @@
 ---
-title: 实体类型
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 实体类型 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 实体从话语中提取数据。 实体类型为你提供可预测的数据提取。 有两种类型的实体：机器学习的和非机器学习的。 请务必知道你在话语中使用的是哪种类型的实体。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 07/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 942bd01cfc599f77819c347644619a63712e4403
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: cce30454e58cbc5610544f02fba3f4ff8c826382
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544096"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103962"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>实体类型及其在 LUIS 中的目的
 
@@ -97,7 +97,6 @@ LUIS 提供许多类型的实体。 请根据数据的提取方式以及提取�
 |机器学习|可以标记|教程|示例<br>响应|实体类型|目的|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**复合**](#composite-entity)|实体的分组，不考虑实体类型。|
-|✔|✔|✔|[✔](luis-concept-data-extraction.md)|**分层**|简单实体的分组。|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**列表**](#list-entity)|使用文本完全匹配法提取的项列表及其同义词。|
 |混合||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|难以确定末尾部分的实体。|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**预生成**](#prebuilt-entity)|已经过训练，可以提取各种类型的数据。|
@@ -110,60 +109,41 @@ LUIS 提供许多类型的实体。 请根据数据的提取方式以及提取�
 
 混合实体使用实体检测方法的组合。
 
+## <a name="machine-learned-entities-use-context"></a>机器学习实体使用上下文
+
+机器学习实体从话语的上下文学习。 这使得示例话语中的位置差异变得显著。 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>非机器学习实体不使用上下文
+
+以下非机器学习实体在匹配实体时不考虑话语上下文： 
+
+* [预生成实体](#prebuilt-entity)
+* [Regex 实体](#regular-expression-entity)
+* [列表实体](#list-entity) 
+
+这些实体不要求标记或训练此模型。 添加或配置实体以后，实体会被提取。 需要权衡的是，这些实体可能会过度匹配，而如果考虑上下文，则可能不会进行匹配。 
+
+这通常发生在新模型上的列表实体中。 你使用列表实体构建并测试模型，但当你发布模型并从终结点接收查询时，你发现模型因缺少上下文而过度匹配。 
+
+若要对单词或短语进行匹配并考虑上下文，可以使用两个选项。 第一个选项是使用简单的实体，将其与短语列表匹配。 短语列表不会用于匹配，但可用于指示相对类似的单词（可交换列表）。 如果必须进行精确的匹配而不是获取短语列表的差异，请将列表实体和角色配合使用，如下所述。
+
+### <a name="context-with-non-machine-learned-entities"></a>包含非机器学习实体的上下文
+
+如果需要对非机器学习实体很重要的话语上下文，则应使用[角色](luis-concept-roles.md)。
+
+如果你有一个非机器学习实体（例如[预构建实体](#prebuilt-entity)、[regex](#regular-expression-entity) 实体或[列表](#list-entity)实体），该实体的匹配超出你所需要的实例的范围，请考虑创建一个包含两个角色的实体。 一个角色将捕获你要的内容，另一个角色将捕获你不要的内容。 两个版本都需要在示例话语中进行标记。  
+
 ## <a name="composite-entity"></a>复合实体
 
-复合实体由其他实体构成，例如预生成实体、简单实体、正则表达式实体和列表实体。 各种单独的实体构成整个实体。 
-
-如果数据具有以下特征，则非常适合使用此实体：
-
-* 彼此相关。 
-* 在使用陈述的情况下彼此相关。
-* 使用各种实体类型。
-* 需要由客户端应用程序作为一个信息单元进行分组和处理。
-* 包含需要机器学习的各种用户话语。
-
-![复合实体](./media/luis-concept-entities/composite-entity.png)
-
-[教程](luis-tutorial-composite-entity.md)<br>
-[实体的 JSON 响应示例](luis-concept-data-extraction.md#composite-entity-data)<br>
+[复合实体](reference-entity-composite.md)由其他实体构成，例如预生成实体、简单实体、正则表达式实体和列表实体。 各种单独的实体构成整个实体。 
 
 ## <a name="list-entity"></a>列表实体
 
-列表实体表示一组固定、封闭的相关单词及其同义词。 LUIS 不会为列表实体发现更多值。 使用“建议”功能根据当前列表查看有关新词的建议  。 如果存在多个具有相同值的列表实体，则终结点查询中会返回其中每个实体。 
-
-如果文本数据具有以下特征，则非常适合使用该实体：
-
-* 是已知的集。
-* 不经常更改。 如果需要经常更改列表或希望列表自行扩展，则使用短语列表提升的简单实体是更好的选择。 
-* 此集不超出此实体类型的最大 LUIS [边界](luis-boundaries.md)。
-* 话语中的文本是同义项或规范名称的完全匹配。 LUIS 不会使用除文本完全匹配项之外的列表。 使用列表实体无法解析模糊匹配、不区分大小写、词干、复数形式和其他变体。 若要管理变体，请考虑使用带有可选文本语法的[模式](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)。
-
-![列表实体](./media/luis-concept-entities/list-entity.png)
-
-[教程](luis-quickstart-intent-and-list-entity.md)<br>
-[实体的 JSON 响应示例](luis-concept-data-extraction.md#list-entity-data)
+[列表实体](reference-entity-list.md)表示一组固定、封闭的相关单词及其同义词。 LUIS 不会为列表实体发现更多值。 使用“建议”功能根据当前列表查看有关新词的建议  。 如果存在多个具有相同值的列表实体，则终结点查询中会返回其中每个实体。 
 
 ## <a name="patternany-entity"></a>Pattern.any 实体
 
-Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。  
-
-在以下情况下，非常适合使用该实体：
-
-* 实体的末尾可能与话语的其余文本相混淆。 
-[教程](luis-tutorial-pattern.md)<br>
-[实体的 JSON 响应示例](luis-concept-data-extraction.md#patternany-entity-data)
-
-**示例**  
-假设某个客户端应用程序需要基于标题搜索书籍，则 pattern.any 会提取完整的标题。 一个使用 pattern.any 进行这种书籍搜索的模板话语是 `Was {BookTitle} written by an American this year[?]`。 
-
-在下表中，每行包含话语的两个版本。 最上面的话语是 LUIS 最初看到的话语，其中，书籍的开头和末尾部分并不明确。 最下面的话语表明在实施用于提取的模式后，LUIS 如何知道书籍的标题。 
-
-|话语|
-|--|
-|《错把太太当成帽子的男人与其他医疗故事》是某位美国人在今年撰写的吗？<br>《错把太太当成帽子的男人与其他医疗故事》是某位美国人在今年撰写的吗？ |
-|《在宽大睡衣中半梦半睡》是某位美国人在今年撰写的吗？<br>《在宽大睡衣中半梦半睡》是某位美国人在今年撰写的吗？ |
-|《小说：柠檬蛋糕的特种忧伤》是某位美国人在今年撰写的吗？<br>《小说：柠檬蛋糕的特种忧伤》  是某位美国人在今年撰写的吗？|
-|《口袋里的毛怪！》 是某位美国人在今年撰写的吗？<br>《口袋里的毛怪！》  是某位美国人在今年撰写的吗？|
+[Pattern.any](reference-entity-pattern-any.md) 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。  
 
 ## <a name="prebuilt-entity"></a>预生成实体
 

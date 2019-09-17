@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/27/2019
-ms.date: 07/22/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: fbf72e6c4ff39afebe83bf3d63ea028310fe5908
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 23e8d0b31be1c155639ff56c8ce5c4dbfc80f588
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878493"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737406"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上的 Apache Hadoop 服务所使用的端口
 
@@ -111,9 +111,9 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | Resource Manager 计划程序 |头节点 |8030 |HTTP |管理界面 |
 | Resource Manager 应用程序界面 |头节点 |8050 |HTTP |应用程序管理器界面的地址 |
 | NodeManager |所有辅助角色节点 |30050 |&nbsp; |容器管理器的地址 |
-| NodeManager Web UI |所有辅助角色节点 |30060 |HTTP |Resource Manager 界面 |
+| NodeManager Web UI |所有辅助角色节点 |30060 |HTTP |资源管理器界面 |
 | Timeline 地址 |头节点 |10200 |RPC |Timeline 服务 RPC 服务。 |
-| Timeline Web UI |头节点 |8181 |HTTP |Timeline 服务 Web UI |
+| Timeline Web UI |头节点 |8188 |HTTP |Timeline 服务 Web UI |
 
 ### <a name="hive-ports"></a>Hive 端口
 

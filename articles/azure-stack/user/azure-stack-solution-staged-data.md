@@ -6,27 +6,28 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
+ms.topic: conceptual
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 06/20/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 15a5f34174c5ca88aa893e574380e3ace0095bca
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 0d36b3a37a483f3da24f02053f1865299e09e4b0
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513520"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857320"
 ---
-# <a name="tutorial-deploy-a-staged-data-analytics-solution-to-azure-stack"></a>教程：将临时数据分析解决方案部署到 Azure Stack
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>将临时数据分析解决方案部署到 Azure Stack
 
 本文介绍如何部署一个解决方案用于收集在收集点上需要分析的数据，以快速做出决策。 这种数据收集通常是在没有 Internet 访问的情况下进行的。 建立连接后，可能需要对数据进行资源密集型分析以获取更多的见解。
 
-在本教程中，需创建一个示例环境来完成以下任务：
+在此解决方案中，你将创建一个示例环境来完成以下任务：
 
 > [!div class="checklist"]
 > - 创建原始数据存储 Blob。
@@ -40,6 +41,7 @@ ms.locfileid: "68513520"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 ## <a name="architecture-for-staged-data-analytics"></a>临时数据分析的体系结构
 

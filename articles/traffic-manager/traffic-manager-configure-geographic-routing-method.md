@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 03/22/2017
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: fccb9c29626fe7ec92e6a9b751c10d8b72c50c4b
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 897d57e28b43dfc6b5412fbb7bfecffe7ce75aa0
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514190"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857077"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>使用流量管理器配置地理流量路由方法
 
@@ -26,7 +26,10 @@ ms.locfileid: "68514190"
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
 1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-2. 单击“创建资源” > “网络” > “流量管理器配置文件” > “创建”     。
+2. 单击“创建资源”   > “网络”   > “全部查看”   > “流量管理器配置文件”   > “创建”  。
+
+    <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
+
 4. 在“创建流量管理器配置文件”  中：
     1. 提供配置文件的名称。 此名称在 trafficmanager.cn 区域中必须是唯一的。 若要访问流量管理器配置文件，请使用 DNS 名称 `<profilename>.trafficmanager.cn`。
     2. 选择“地理”  路由方法。
@@ -34,7 +37,7 @@ ms.locfileid: "68514190"
     4. 使用现有资源组，或创建新的资源组，以在其下放置此配置文件。 如果选择创建新的资源组，请使用“资源组位置”  下拉列表来指定资源组位置。 此设置指的是资源组的位置，对全局部署的流量管理器配置文件没有影响。
     5. 单击“创建”  后，将创建并全局部署流量管理器配置文件。
 
-![创建流量管理器配置文件](./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png)
+    ![创建流量管理器配置文件](./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-endpoints"></a>添加终结点
 
@@ -51,7 +54,7 @@ ms.locfileid: "68514190"
 7. 在“异地映射”部分中，使用下拉列表添加要从中将流量发送到此终结点的区域。 必须至少添加一个区域，并且可以映射多个区域。
 8. 对于要在此配置文件下添加的所有终结点重复此操作
 
-![添加流量管理器终结点](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
+    ![添加流量管理器终结点](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>使用流量管理器配置文件
 1. 在门户的搜索栏中，搜索在前面部分中创建的**流量管理器配置文件**名称，然后在显示的结果中单击该流量管理器配置文件。

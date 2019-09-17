@@ -6,16 +6,17 @@ keywords: ''
 author: lingliw
 ms.author: v-lingwu
 ms.reviewer: mbullwin
+origin.date: 09/18/2018
 ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 62ba09b8fc7349a6fbc7a7c93e8a3b064644582e
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 26e949145f08dd2073fd826a5bab13ece25457da
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562674"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737272"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Application Insights 中基于日志的指标和预先聚合的指标
 

@@ -1,5 +1,5 @@
 ---
-title: 部署常见问题解答 - Azure 应用服务
+title: 部署常见问题解答 - Azure 应用服务 | Azure
 description: 获取 Azure 应用服务 Web 应用功能的部署相关常见问题解答。
 services: app-service\web
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/01/2018
 ms.date: 08/12/2019
-ms.author: v-johch
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 35840863c2b8a1b9a61f1ce4ac0a7b62cbba796c
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 6918ef5f6b02fa815c1180854f32d8aaa54570f0
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878543"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806744"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 

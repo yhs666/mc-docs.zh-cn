@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/04/2018
-ms.date: 06/10/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 22a0661131b735b815758ffd505d48d6ac83548f
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: cef2775b86a473596ece745098c0a1f409141944
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250466"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70920974"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>创建具有加速网络的 Windows 虚拟机
 
@@ -55,7 +55,7 @@ ms.locfileid: "66250466"
 
 有关 VM 实例的详细信息，请参阅[Windows VM 大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json)。
 
-### <a name="regions"></a>区域
+### <a name="regions"></a>Regions
 在所有公共 Azure 区域和 Azure 中国云中均可用。
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>在正在运行的 VM 上启用加速网络
@@ -233,7 +233,7 @@ New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "chinaeast
 首先停止/解除分配 VM，或集合中的所有 VM（如果是可用性集）：
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -242,18 +242,18 @@ Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
 一旦停止，即可在 VM 的 NIC 上启用加速网络：
 
 ```azurepowershell
-$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRMNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
 重启 VM，或集中的所有 VM（如果在可用性集中），并确认已启用加速网络：
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

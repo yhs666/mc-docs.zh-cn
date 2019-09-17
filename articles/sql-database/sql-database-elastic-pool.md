@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ninarn, carlrab
-manager: digimobile
-origin.date: 02/28/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: aea4a1d6451a697eb167c52f5e8c9802a0f25d9e
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 08/06/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 51a27fe70c6f79b9b47fbbd7ddb2e10a758b26a5
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544333"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372976"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -199,5 +198,5 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要缩放弹性池，请参阅[缩放弹性池](sql-database-elastic-pool.md)和[缩放弹性池 - 示例代码](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- 若要缩放弹性池，请参阅[缩放弹性池](sql-database-elastic-pool-scale.md)和[缩放弹性池 - 示例代码](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - 有关视频，请参阅[有关 Azure SQL 数据库弹性功能的 Microsoft 虚拟大学视频课程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)

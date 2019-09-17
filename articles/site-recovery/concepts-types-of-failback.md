@@ -1,22 +1,21 @@
 ---
 title: 在灾难恢复期间使用 Azure Site Recovery 进行故障回复 | Azure
 description: 本文概述了各种类型的故障回复，以及在灾难恢复期间使用 Azure Site Recovery 服务故障回复到本地时要考虑的注意事项。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/19/2019
-ms.date: 07/08/2019
+origin.date: 08/07/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 25c51151683b3f4a3d09cc2aba7f612a688fd62d
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 5b33003c45942a8e1a680b8b7fd478a98f08a6fc
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861683"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134395"
 ---
-# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>VMware VM 灾难恢复后的故障回复
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>灾难恢复后将 VMware VM 故障回复到 Azure
 
 在灾难恢复过程中故障转移到 Azure 以后，可以故障回复到本地站点。 使用 Azure Site Recovery 可以执行两种不同类型的故障回复： 
 

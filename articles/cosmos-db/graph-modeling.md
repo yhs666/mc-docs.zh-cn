@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 06/24/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6fbc7809529b4eaa7bf0389edd4c803fe419afb2
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 74f6a5a692c7b0649a5c6e622354ec3ce7f85db8
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672301"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254819"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的图形数据建模
 
@@ -34,7 +34,7 @@ ms.locfileid: "68672301"
 * 有循环关系或自引用实体   。 使用关系数据库或文档数据库时，这种模式通常是一个挑战。
 * 实体之间存在动态发展的关系 **。** 此模式特别适用于具有多个级别的分层或树状结构数据。
 * 实体之间存在多对多关系 **。**
-* 对实体和关系都有写入和读取要求** **。 
+* 对实体和关系都有写入和读取要求  。 
 
 如果满足上述条件，则图形数据库方法可能会为查询复杂性、数据模型可伸缩性和查询性能提供优势    。
 
@@ -95,7 +95,7 @@ ms.locfileid: "68672301"
 
 但是，使用 `in()` 函数在边缘的相反方向遍历将始终导致跨分区查询。 有关详细信息，请参阅[图形分区](graph-partitioning.md)。 如果需要使用 `in()` 函数不断遍历，建议在两个方向上添加边缘。
 
-你可以通过在 `.addE()` Gremlin 步骤中使用 `.to()` 或 `.from()` 谓词来确定边缘方向。 或通过使用[适用于 Gremlin API 的 BulkExecutor 库](bulk-executor-graph-dotnet.md)来确定。
+你可以通过在 `.addE()` Gremlin 步骤中使用 `.to()` 或 `.from()` 谓词来确定边缘方向。 或通过使用[适用于 Gremlin API 的批量执行程序库](bulk-executor-graph-dotnet.md)来确定。
 
 > [!NOTE]
 > 边缘对象默认具有方向。
@@ -115,5 +115,4 @@ ms.locfileid: "68672301"
 * 了解[图形数据库分区](graph-partitioning.md)以处理大型图形。
 * 使用 [executionProfile 步骤](graph-execution-profile.md)评估 Gremlin 查询。
 
-<!--Update_Description: new articles on grapy modeling -->
-<!--ms.date: 07/29/2019-->
+<!--Update_Description: wording update -->

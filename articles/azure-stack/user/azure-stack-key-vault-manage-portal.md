@@ -1,6 +1,6 @@
 ---
 title: 使用门户管理 Azure Stack 中的 Key Vault | Microsoft Docs
-description: 了解如何使用门户管理 Azure Stack 中的 Key Vault
+description: 了解如何使用 Azure Stack 门户管理 Azure Stack 中的 Key Vault。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,19 +13,19 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/11/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 8e8d07527a83ecab384b71ed713cea82a668409f
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 2774055e30b15dd132780f66e539113b29dbc32f
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513290"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857068"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>使用门户管理 Azure Stack 中的 Key Vault
 
-可以使用 Azure Stack 门户管理 Azure Stack 中的 Key Vault。 本文介绍如何在 Azure Stack 中创建和管理密钥保管库。
+本文介绍如何使用 Azure Stack 门户在 Azure Stack 中创建和管理密钥保管库。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -47,15 +47,15 @@ ms.locfileid: "68513290"
 
 6. 选择“定价层”  。 Azure Stack 开发工具包 (ASDK) 中的密钥保管库仅支持**标准** SKU。
 
-7. 选择一个现有**访问策略**或创建一个新访问策略。 使用访问策略，可授予用户、应用程序或安全组对此保管库执行操作的权限。
+7. 选择一个现有**访问策略**或创建一个新访问策略。 使用访问策略，可授予用户、应用或安全组对此保管库执行操作的权限。
 
 8. （可选）选择“高级访问权限策略”  以允许访问功能。 例如：访问虚拟机 (VM) 进行部署、访问资源管理器进行模板部署，以及访问 Azure 磁盘加密进行卷加密。
 
-9. 配置设置后，请选择“确定”  ，然后选择“创建”  。 这将启动密钥保管库部署。
+9. 配置设置后，请选择“确定”  ，然后选择“创建”  。 此步骤将启动密钥保管库部署。
 
 ## <a name="manage-keys-and-secrets"></a>管理密钥和机密
 
-创建密钥保管库后，使用以下过程来创建和管理保管库中的密钥和机密。
+创建密钥保管库后，使用以下过程来创建和管理保管库中的密钥和机密：
 
 ### <a name="create-a-key"></a>创建密钥
 
@@ -73,7 +73,7 @@ ms.locfileid: "68513290"
 
 7. 选择“创建”以开始部署。 
 
-成功创建密钥后，可以在“密钥”  下选择该密钥，并查看或修改其属性。 属性部分包含**密钥标识符**，即外部应用程序用来访问此密钥的统一资源标识符 (URI)。 若要限制对此密钥的操作，请在“允许的操作”  下配置设置。
+成功创建密钥后，可以在“密钥”  下选择该密钥，并查看或修改其属性。 属性部分包含**密钥标识符**，即外部应用用来访问此密钥的统一资源标识符 (URI)。 若要限制对此密钥的操作，请在“允许的操作”  下配置设置。
 
 ![密钥 URI](media/azure-stack-key-vault-manage-portal/image4.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "68513290"
 
 7. 选择“创建”以开始部署。 
 
-成功创建机密后，可以在“机密”  下选择该机密，并查看或修改其属性。 **机密标识符**是外部应用程序可用来访问此机密的 URI。
+成功创建机密后，可以在“机密”  下选择该机密，并查看或修改其属性。 **机密标识符**是外部应用可用来访问此机密的 URI。
 
 ![机密 URI](media/azure-stack-key-vault-manage-portal/image5.png)
 

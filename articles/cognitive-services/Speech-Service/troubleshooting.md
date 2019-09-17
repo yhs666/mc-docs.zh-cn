@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
+origin.date: 08/26/2019
+ms.date: 07/23/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 0b541e5beedd39b121578633100e107d1846dc11
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: a0d999ba70c63832f3197ed04df3a9aee687cadb
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348320"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104114"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>排查语音 SDK 问题
 

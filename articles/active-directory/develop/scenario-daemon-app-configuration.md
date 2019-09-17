@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 07/16/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ded8ef4903b0a090925f1f2da2bd1537a1554257
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 779a1e872997e783342976a4f064507091e795ae
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305886"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134272"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的守护程序应用 - 代码配置
 
@@ -35,12 +35,12 @@ ms.locfileid: "67305886"
   MSAL 库 | 说明
   ------------ | ----------
   ![MSAL.NET](./media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支持用于构建守护程序应用程序的平台为 .NET Framework 和 .NET Core 平台（不包括 UWP、Xamarin.iOS 和 Xamarin.Android，因为这些平台用于构建公共客户端应用程序）
-  ![Python](./media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 正在进行开发 - 采用公共预览版
+  ![Python](./media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 开发中 -目前为公共预览版
   ![Java](./media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 正在进行开发 - 采用公共预览版
 
 ## <a name="configuration-of-the-authority"></a>配置颁发机构
 
-在应用程序配置中指定的颁发机构应该是与租户相关的（指定租户 ID 或者与组织相关联的域名）。 如果你是 ISV 并希望提供多租户工具，则可使用 `organizations`。 但请记住，你还需向客户说明如何授予管理员许可。 有关详细信息，请参阅[请求整个租户的许可](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。
+如果你是 ISV 并希望提供多租户工具，则可使用 `organizations`。 但请记住，你还需向客户说明如何授予管理员同意。 有关详细信息，请参阅[请求整个租户的许可](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。 此外，目前 MSAL 中有一个限制，即仅当客户端凭据是应用程序机密（而不是证书）时才允许使用 `organizations`。 请参阅 [MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>应用程序配置和实例化
 
@@ -84,6 +84,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .Build();
 ```
 
+最后，机密客户端应用程序还可以使用客户端断言（而不是客户端密码或证书）来证明其身份。 [客户端断言](msal-net-client-assertions.md)详细介绍了这一高级方案
+
+
 ### <a name="msalpython"></a>MSAL.Python
 
 ```Python
@@ -119,3 +122,4 @@ ConfidentialClientApplication cca = ConfidentialClientApplication
 > [!div class="nextstepaction"]
 > [守护程序应用 - 获取应用的令牌](./scenario-daemon-acquire-token.md)
 
+<!-- Update_Description: wording update -->

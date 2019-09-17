@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 1b4d5386268dce125da2d84359e3166c16d5276a
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 3f53f82be93f047f718d050637bdbcd247e0c417
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513542"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857124"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 的已知问题
 
@@ -59,6 +59,12 @@ ms.locfileid: "68513542"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：无法使用 Azure Stack 门户查看订阅的权限。
 - 补救措施：使用 [PowerShell 验证权限](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
+- 发生次数：常见
+
+### <a name="subscriptions-properties-blade"></a>“订阅属性”边栏选项卡
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在管理员门户中，订阅的“属性”  边栏选项卡未正确加载
+- 补救措施：可以在“订阅概述”边栏选项卡的“概要”窗格中查看这些订阅属性
 - 发生次数：常见
 
 ### <a name="storage-account-settings"></a>存储帐户设置
@@ -154,31 +160,12 @@ ms.locfileid: "68513542"
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
-#### <a name="centos"></a>CentOS
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：虚拟机规模集创建体验提供基于 CentOS 的 7.2 作为部署选项。 Azure Stack 不提供 CentOS 7.2。
-- 补救措施：为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
-- 发生次数：常见
-
-#### <a name="remove-scale-set"></a>删除规模集
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：无法从“虚拟机规模集”边栏选项卡中删除规模集。 
-- 补救措施：选择要删除的规模集，然后在“概述”窗格中单击“删除”按钮。  
-- 发生次数：常见
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在 4 节点的 Azure Stack 环境中进行修补和更新时出现故障
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在包含 3 个容错域的可用性集中创建 VM 以及创建虚拟机规模集实例失败，在一个 4 节点 Azure Stack 环境中进行更新时出现 **FabricVmPlacementErrorUnsupportedFaultDomainSize** 错误。
 - 补救措施：可以在包含 2 个容错域的可用性集中成功创建单一 VM。 但是，在 4 节点 Azure Stack 上进行更新时，仍然不能创建规模集实例。
-
-#### <a name="scale-set-instance-view-blade-does-not-load"></a>“规模集实例视图”边栏选项卡不加载
-
-- 适用于：此问题适用于 1904、1905 和 1906 版本。
-- 原因：位于 Azure Stack 门户上的“仪表板”->“虚拟机规模集”->“AnyScaleSet”-“实例”->“AnyScaleSetInstance”中的虚拟机规模集的实例视图边栏选项卡无法加载，显示一个哭泣的云的图像  。
-- 补救措施：目前没有补救措施，我们正在努力进行修复。 在补救措施出来之前，请使用 CLI 命令 `az vmss get-instance-view` 获取规模集的实例视图。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 

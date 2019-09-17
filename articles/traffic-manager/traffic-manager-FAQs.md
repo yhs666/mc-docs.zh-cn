@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/26/2019
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7336691d4ca32125a1eddac6c6afcd81817a56b0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: b4e9db3d6b00fed6caf01b47b655da885dcc995e
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514179"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254681"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -213,9 +213,9 @@ The country/region hierarchy that is used by Traffic Manager can be found [here]
 
 通常情况下，流量管理器用于将流量引导到部署在不同区域中的应用程序。 不过，流量管理器也可用于一个应用程序在同一区域中存在多个部署的情形。 流量管理器 Azure 终结点不允许将同一 Azure 区域中的多个 Web 应用终结点添加到同一流量管理器配置文件。
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>如何将流量管理器配置文件的 Azure 终结点移动到其他资源组？
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>如何将流量管理器配置文件的 Azure 终结点移到其他资源组或订阅？
 
-与流量管理器配置文件关联的 Azure 终结点使用其资源 ID 进行跟踪。 如果 Azure 资源作为终结点（例如公共 IP、经典云服务、WebApp 或以嵌套方式使用的另一流量管理器配置文件）使用，当其移动到其他资源组时，Azure 资源的 ID 会发生更改。 对于这种情况，目前必须删除流量管理器配置文件，方法是先删除这些终结点，然后再将其添加回配置文件。
+与流量管理器配置文件关联的 Azure 终结点使用其资源 ID 进行跟踪。 如果 Azure 资源作为终结点（例如公共 IP、经典云服务、WebApp 或以嵌套方式使用的另一流量管理器配置文件）使用，当它移到其他资源组或订阅时，其资源 ID 会发生更改。 对于这种情况，目前必须删除流量管理器配置文件，方法是先删除这些终结点，然后再将其添加回配置文件。
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
@@ -264,23 +264,24 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 - 同一配置文件中的两个终结点不能具有相同的目标 IP 地址
 
 ### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>可以在单个配置文件中使用不同的终结点寻址类型吗？
+
 不能，流量管理器不允许在单个配置文件中混合使用不同的终结点寻址类型（多值路由类型的配置文件除外，可在其中混合使用 IPv4 和 IPv6 寻址类型）
 
 ### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>当传入查询的记录类型与与终结点寻址类型关联的记录类型不同时，会出现什么情况？
+
 当收到针对配置文件的查询时，流量管理器首先会根据指定的路由方法和终结点的运行状况查找需要返回的终结点。 然后，在根据下表返回响应之前，它会查看传入查询中请求的记录类型以及与终结点关联的记录类型。
 
 对于使用多值路由以外的任何路由方法的配置文件：
 
-| 传入的查询请求 |  终结点类型   | 提供的响应 |
-|------------------------|------------------|-------------------|
-|          任意           | A/AAAA/CNAME |  目标终结点  |
-|           A            |    A/CNAME     |  目标终结点  |
-|           A            |       AAAA       |      无数据       |
-|          AAAA          |   AAAA/CNAME   |  目标终结点  |
-|          AAAA          |        A         |      无数据       |
-|         CNAME          |      CNAME       |  目标终结点  |
-|         CNAME          |     A/AAAA     |      无数据       |
-|                        |                  |                   |
+|传入的查询请求|    终结点类型|  提供的响应|
+|--|--|--|
+|任意 |  A/AAAA/CNAME |  目标终结点| 
+|A |    A/CNAME | 目标终结点|
+|A |    AAAA |  无数据 |
+|AAAA | AAAA/CNAME |  目标终结点|
+|AAAA | A | 无数据 |
+|CNAME |    CNAME | 目标终结点|
+|CNAME  |A/AAAA | 无数据 |
 
 对于将路由方法设置为多值路由的配置文件：
 
@@ -327,7 +328,7 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 可以在流量管理器对终结点启动的 HTTP(S) 运行状况检查中指定自定义标头。 若要指定自定义标头，可在配置文件级别（适用于所有终结点）指定，也可在终结点级别指定。 如果在两个级别定义了标头，则在终结点级别指定的标头将覆盖在配置文件级别指定的标头。
 一个常见的用例是指定主机头，以便流量管理器请求可以正确地路由到多租户环境中托管的终结点。 另一个用例是从终结点的 HTTP(S) 请求日志中识别流量管理器请求
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>终结点运行状况检查使用什么主机头？
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>终结点运行状况检查使用什么主机头？
 
 如果未提供自定义主机头设置，流量管理器使用的主机头则为配置文件中配置的终结点目标的 DNS 名称（如果可用）。
 

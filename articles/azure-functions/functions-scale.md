@@ -1,6 +1,6 @@
 ---
 title: Azure Functions 的缩放和托管 | Microsoft Docs
-description: 了解如何在 Azure Functions 消耗计划与应用服务计划之间进行选择
+description: 了解如何在 Azure Functions 消耗计划之间进行选择。
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 03/27/2019
-ms.date: 07/18/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e3d22b96464c866c5c8e172a540a9f64364b0b1
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: ba2ca697922042cde8823990c9220ee31bbbfbfa
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331946"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805793"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -48,7 +48,7 @@ ms.locfileid: "68331946"
 | | 消耗计划 | 专用计划 |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | GA |
-| Linux | 预览 | GA |
+| Linux | GA | GA |
 
 ## <a name="consumption-plan"></a>消耗计划
 

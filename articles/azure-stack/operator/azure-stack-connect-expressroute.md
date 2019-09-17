@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/22/2019
-ms.date: 06/03/2019
+origin.date: 06/22/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 8fd81e1deb03e4e4cf01d883f241b7078862dab5
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 2e27e7faad4b124edbc5c2faa193f64f6362ef6c
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513478"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857060"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -291,8 +291,6 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 ## <a name="configure-azure"></a>配置 Azure
 
 完成 Azure Stack 的配置后，可以部署 Azure 资源。 下图显示了 Azure 中的租户虚拟网络示例。 对于 Azure 中的 VNet，可以使用任何名称和地址方案。 但是，在 Azure 和 Azure Stack 中，VNet 的地址范围必须唯一，不得重叠：
-
-*图 3.Azure VNet*
 
 ![Azure VNet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 

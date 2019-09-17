@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-origin.date: 04/01/2019
-ms.date: 04/17/2019
+origin.date: 04/30/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 17c4612bb5e9af7d3a90e93de41f5b70c1fc9899
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 1c8e958790d46c92c2b62ea4328d770dc87d35f0
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686544"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857209"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure 应用程序网关有哪些新增功能？
 
@@ -28,7 +28,12 @@ Azure 应用程序网关会不断更新。 为了让大家随时了解最新的�
 
 |功能  |说明  |添加日期  |
 |---------|---------|---------|
+|WAF 自定义规则 |应用程序网关 WAF v2 现在支持创建自定义规则。 请参阅[应用程序网关自定义规则](custom-waf-rules-overview.md)。 |2019 年 7 月 |
+|自动缩放、区域冗余、静态 VIP 支持 GA |v2 SKU 正式版，支持自动缩放、区域冗余、增强性能、静态 VIP、密钥保管库、标头重写。 请参阅[应用程序网关自动缩放文档](application-gateway-autoscaling-zone-redundant.md)。 |2019 年 4 月 |
+|密钥保管库集成 |应用程序网关现在支持与密钥保管库（公共预览版）集成，以获取附加到支持 HTTPS 的侦听器的服务器证书。 请参阅[使用密钥保管库证书实现 SSL 终止](key-vault-certs.md)。 |2019 年 4 月 |
+|标头 CRUD/重写     |现在可以重写 HTTP 标头。 有关分步说明，请参阅[教程：创建应用程序网关和重写 HTTP 标头](tutorial-http-header-rewrite-powershell.md)。|2018 年 12 月|
 |WAF 配置和排除列表     |我们添加了更多选项来帮助你配置 WAF 和减少误报。 有关详细信息，请参阅 [Web 应用程序防火墙请求大小限制和排除列表](application-gateway-waf-configuration.md)。|2018 年 12 月|
+|自动缩放、区域冗余、静态 VIP 支持      |v2 SKU 有了多方面的改进，例如自动缩放、性能提高，等等。 有关详细信息，请参阅[什么是 Azure 应用程序网关？](overview.md)。|2018 年 9 月|
 |连接清空     |使用连接清空能够正常删除后端池中的成员。 有关详细信息，请参阅[连接清空](overview.md#connection-draining)。|2018 年 9 月|
 |自定义错误页     |使用自定义错误页可在剩余网站的格式中创建错误页。 若要启用此功能，请参阅[创建应用程序网关自定义错误页](custom-error.md)。|2018 年 9 月|
 |指标增强     |可以更好地查看应用程序网关的状态和增强的指标。 若要在应用程序网关中启用指标，请参阅[应用程序网关的后端运行状况、诊断日志和指标](application-gateway-diagnostics.md)。|2018 年 6 月|
@@ -37,3 +42,4 @@ Azure 应用程序网关会不断更新。 为了让大家随时了解最新的�
 
 有关 Azure 应用程序网关的详细信息，请参阅[什么是 Azure 应用程序网关？](overview.md)
 
+<!-- Update_Description: wording update -->

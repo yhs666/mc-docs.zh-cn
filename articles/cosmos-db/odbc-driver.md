@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/28/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7096bd6e7bc66a7c602bcbfcbe0b81afcead9f8
-ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
+ms.openlocfilehash: cad7e28caacb49c3f9c2eed5d9cbfd1296bf1f55
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68293436"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254864"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -24,9 +24,9 @@ Azure Cosmos DB ODBC 驱动程序符合 ODBC 3.8 规范，支持 ANSI SQL-92 语
 > 目前仅 Azure Cosmos DB SQL API 帐户支持使用 ODBC 驱动程序连接到 Azure Cosmos DB。
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>为何需要将数据规范化？
-Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序并对数据模型进行迭代，不受限于严格的架构。 一个 Azure Cosmos DB 数据库可以包含各种结构的 JSON 文档。 这非常适合于快速应用程序开发，但如果用户想要使用数据分析和 BI 工具来分析和创建数据报表，则数据通常需要平整化并遵守特定的架构。
+Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序并对数据模型进行迭代，不受限于严格的架构。 一个 Azure Cosmos 数据库可以包含各种结构的 JSON 文档。 这非常适合快速应用程序开发，但如果用户想要使用数据分析和 BI 工具来分析和创建数据报表，则数据通常需要平展并遵守特定的架构。
 
-这就是 ODBC 驱动程序的作用所在。 通过使用 ODBC 驱动程序，你现在可以将 Azure Cosmos DB 中的数据重新规范化为适合数据分析和报告需求的表和视图。 重新规范化的架构不会对基础数据造成影响，不强制要求开发人员遵守。 相反，它们使你可以利用符合 ODBC 规范的工具来访问数据。 因此，Azure Cosmos DB 数据库不仅是开发团队的最爱，数据分析师也对它青睐有加。
+这就是 ODBC 驱动程序的作用所在。 通过使用 ODBC 驱动程序，你现在可以将 Azure Cosmos DB 中的数据重新规范化为适合数据分析和报告需求的表和视图。 重新规范化的架构不会对基础数据造成影响，不强制要求开发人员遵守。 相反，它们使你可以利用符合 ODBC 规范的工具来访问数据。 因此，现在 Azure Cosmos 数据库不仅是开发团队的最爱，数据分析师也对它青睐有加。
 
 接下来让我们开始使用 ODBC 驱动程序。
 
@@ -51,7 +51,7 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
     ![Azure Cosmos DB ODBC 数据源管理器](./media/odbc-driver/odbc-driver.png)
 
 <a name="connect"></a>
-## <a name="step-2-connect-to-your-azure-cosmos-db-database"></a>步骤 2：连接到 Azure Cosmos DB 数据库
+## <a name="step-2-connect-to-your-azure-cosmos-database"></a>步骤 2：连接到 Azure Cosmos 数据库
 
 1. [安装 Azure Cosmos DB ODBC 驱动程序](#install)后，在“ODBC 数据源管理器”窗口中单击“添加”。   可以创建一个用户 DSN 或系统 DSN。 在本示例中，将创建一个用户 DSN。
 
@@ -87,7 +87,7 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
 
 可以使用两种类型的采样方法：**集合映射**或**表分隔符**。 采样会话可以利用这两种采样方法，但每个集合只能使用特定的采样方法。 以下步骤使用集合映射方法为一个或多个集合中的数据创建架构。 此采样方法会检索集合页面中的数据，确定数据的结构。 它会将集合转置到 ODBC 端的某个表。 如果集合中的数据是同构的，此采样方法十分快速高效。 如果集合包含异构类型的数据，我们建议使用[表分隔符映射方法](#table-mapping)，因为这是确定集合中数据结构的更可靠采样方法。 
 
-1. 完成[连接到 Azure Cosmos DB 数据库](#connect)中的步骤 1-4 后，请在“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口中单击“架构编辑器”。  
+1. 完成[连接到 Azure Cosmos 数据库](#connect)中的步骤 1-4 后，请在“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口中单击“架构编辑器”。  
 
     ![“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口中的架构编辑器按钮](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. 在“架构编辑器”窗口中单击“新建”。  
@@ -112,7 +112,7 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
 
 以下步骤使用 **表分隔符** 映射方法为一个或多个集合中的数据创建架构。 如果集合包含异构类型的数据，我们建议使用此采样方法。 可以使用此方法将采样范围限定为一组属性及其对应的值。 例如，如果某个文档包含“Type”属性，可将采样范围限定为此属性的值。 采样的最终结果为针对每个指定 Type 的值返回的一组表。 例如，Type = Car 会生成 Car 表，Type = Plane 会生成 Plane 表。
 
-1. 完成[连接到 Azure Cosmos DB 数据库](#connect)中的步骤 1-4 后，请在“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口中单击“架构编辑器”。 
+1. 完成[连接到 Azure Cosmos 数据库](#connect)中的步骤 1-4 后，请在“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口中单击“架构编辑器”。 
 
 1. 在“架构编辑器”窗口中单击“新建”。  
     “生成架构”窗口会显示 Azure Cosmos DB 帐户中的所有集合。  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/13/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8d5901a3659508da263e7395d9719c5165ccdb18
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: cd40a40cbbd0d159fa9a15d424e7f293e5d3f216
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337485"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857301"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>查看活动日志以监视对资源的操作
 
@@ -72,22 +72,7 @@ ms.locfileid: "68337485"
 
     ![在仪表板上显示筛选器](./media/resource-group-audit/show-dashboard.png)
 
-    <!--Pending Review before releasement-->
-1. 在门户中，可以查看对资源的更改。 返回“监视”中的默认视图，并选择涉及更改资源的操作。
-
-    ![选择操作](./media/resource-group-audit/select-operation.png)
-
-1. 选择“更改历史记录(预览)”  ，然后选择一个可用操作。
-
-    ![选择“更改历史记录”](./media/resource-group-audit/select-change-history.png)
-
-1. 将显示资源中的更改。
-
-    ![显示更改](./media/resource-group-audit/show-changes.png)
-
-    <!--Not Available on [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md)-->
-
-<!--Pending Review before releasement-->
+<!--MOONCAKE: Not Available on **Change history (Preview)**-->
 
 ## <a name="powershell"></a>PowerShell
 

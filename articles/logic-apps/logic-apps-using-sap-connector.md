@@ -9,15 +9,15 @@ manager: jeconnoc
 ms.author: v-yiso
 origin.date: 05/09/2019
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 09/09/2019
 ms.reviewer: klam, divswa, LADocs
 tags: connectors
-ms.openlocfilehash: a6bd4210acbc443b960f4654684dc7d14f546a21
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: e76599534d6fe853c37a317d92808aa7b3244916
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538759"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174216"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 SAP 系统
 
@@ -52,7 +52,8 @@ SAP 连接器通过[本地数据网关](../logic-apps/logic-apps-gateway-connect
   ![更改网关帐户](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * 如果对外部安全产品启用 SNC，请在安装网关的同一台计算机上复制 SNC 库或文件。 SNC 产品的部分示例包括 [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm)、Kerberos 和 NTLM。
-* 在本地数据网关所在的同一台计算机上，下载并安装最新的 SAP 客户端库，目前为[适用于 Microsoft .NET Framework 4.0 和 Windows 64 位 (x64) 的 SAP 连接器 (NCo) 3.0.21.0](https://softwaredownloads.sap.com/file/0020000001865512018)。 安装此版本或更高版本的原因是：
+
+* 在本地数据网关所在的计算机上下载并安装最新的 SAP 客户端库，该库当前是[使用 .NET Framework 4.0（Windows 64 位 (x64)）编译的用于 Microsoft .NET 3.0.22.0 的 SAP 连接器 (NCo 3.0)](https://softwaredownloads.sap.com/file/0020000001000932019)。 安装此版本或更高版本的原因是：
 
   * 如果同时发送多个 IDoc 消息，早期的 SAP NCo 版本可能死锁。 这种状态会阻止向 SAP 目标发送所有后续消息，从而导致消息超时。
   * 本地数据网关只能在 64 位系统上运行。 否则，会收到“错误的映像”错误，因为数据网关主机服务不支持 32 位程序集。
@@ -66,7 +67,7 @@ SAP 连接器通过[本地数据网关](../logic-apps/logic-apps-gateway-connect
 
 本示例使用可通过 HTTP 请求触发的逻辑应用。 该逻辑应用将一个中间文档 (IDoc) 发送到 SAP 服务器，并向调用逻辑应用的请求方返回响应。 
 
-### <a name="add-http-request-trigger"></a>添加 HTTP 请求触发器
+### <a name="add-an-http-request-trigger"></a>添加 HTTP 请求触发器
 
 在 Azure 逻辑应用中，每个逻辑应用都必须从[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)开始，该触发器在发生特定事件或特定条件得到满足的情况下触发。 每当触发器触发时，逻辑应用引擎就会创建一个逻辑应用实例并开始运行应用的工作流。
 

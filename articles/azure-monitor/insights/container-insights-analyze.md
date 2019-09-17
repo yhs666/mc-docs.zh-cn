@@ -5,21 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+origin.date: 07/12/2019
+ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 168070e62f63050cbb1cbfd1d9a79ee853e087a9
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 23e05a056c6b533f30ac59ead078612658513b05
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989702"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737029"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 AKS 群集性能 
 借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度（直接从 AKS 群集查看，或是从 Azure Monitor 查看订阅中的所有 AKS 群集）查看 Azure Kubernetes 服务 (AKS) 群集的工作负载。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例 (ACI)。
@@ -32,8 +32,8 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 
 使用适用于容器的 Azure Monitor 监视 Windows Server 群集与监视 Linux 群集的主要差异如下：
 
-- 内存 RSS 指标不适用于 Windows 节点和容器 
-- 磁盘存储容量信息不适用于 Windows 节点
+- 内存 RSS 指标不适用于 Windows 节点和容器。
+- 磁盘存储容量信息不适用于 Windows 节点。
 - 实时日志支持可用，但 Windows 容器日志除外。
 - 仅监视 Pod 环境，不监视 Docker 环境。
 - 使用预览版时，最多支持 30 个 Windows Server 容器。 此限制不适用于 Linux 容器。  

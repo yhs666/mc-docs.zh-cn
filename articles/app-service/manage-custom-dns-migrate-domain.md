@@ -1,5 +1,5 @@
 ---
-title: 迁移活动 DNS 名称 - Azure 应用服务
+title: 迁移活动 DNS 名称 - Azure 应用服务 | Azure
 description: 了解如何在不停机的情况下，将已分配到实时站点的自定义 DNS 域名迁移到 Azure 应用服务。
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/28/2017
-ms.date: 01/21/2019
-ms.author: v-biyu
-ms.openlocfilehash: 0400b40d9b16eb9c202ec2dd25d863233d3ecc6c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 09/04/2019
+ms.author: v-tawe
+ms.custom: seodec18
+ms.openlocfilehash: b14d2f2292b2db74bc554647de7de012109fb192
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627577"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806735"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>将活动 DNS 名称迁移到 Azure 应用服务
 
@@ -50,41 +51,48 @@ ms.locfileid: "58627577"
 
 ### <a name="create-domain-verification-record"></a>创建域验证记录
 
-若要验证域所有权，请添加 TXT 记录。 TXT 记录从 awverify.&lt;subdomain> 映射到 &lt;appname>.chinacloudsites.cn。 
+若要验证域所有权，请添加 TXT 记录。 TXT 记录从 awverify.&lt;subdomain>  映射到 &lt;appname>.chinacloudsites.cn  。 
 
 你需要的 TXT 记录取决于要迁移的 DNS 记录。 有关示例，请参阅下表（`@` 通常表示根域）：
 
 | DNS 记录示例 | TXT 主机 | TXT 值 |
 | - | - | - |
-| @（根域） | awverify | _&lt;appname>.chinacloudsites.cn_ |
-| www（子域） | awverify.www | _&lt;appname>.chinacloudsites.cn_ |
-| \*（通配符） | awverify.\* | _&lt;appname>.chinacloudsites.cn_ |
+| \@（根） | awverify  | _&lt;appname>.chinacloudsites.cn_ |
+| www（子域） | awverify.www  | _&lt;appname>.chinacloudsites.cn_ |
+| \*（通配符） | awverify.\*  | _&lt;appname>.chinacloudsites.cn_ |
 
 在 DNS 记录页中，记下要迁移的 DNS 名称的记录类型。 应用服务支持来自 CNAME 和 A 记录的映射。
 
+> [!NOTE]
+> 对于某些提供程序（如 CloudFlare），`awverify.*` 不是有效记录。 只能改用 `*`。
+
+> [!NOTE]
+> 通配符 `*` 记录不会使用现有 CNAME 记录验证子域。 可能需要为每个子域显式创建一条 TXT 记录。
+
+
 ### <a name="enable-the-domain-for-your-app"></a>启用应用的域
 
-在 [Azure 门户](https://portal.azure.cn)中的应用页的左侧导航窗格中，选择“自定义域”。 
+在 [Azure 门户](https://portal.azure.cn)中的应用页的左侧导航窗格中，选择“自定义域”  。 
 
 ![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在“自定义域”页中，选择“添加主机名”旁的 + 图标。
+在“自定义域”  页中，选择“添加主机名”  旁的 + 图标  。
 
 ![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 键入已添加 TXT 记录的完全限定的域名，如 `www.contoso.com`。 对于通配符域（如 \*.contoso.com），可以使用与通配符域匹配的任何 DNS 名称。 
 
-选择“验证”。
+选择“验证”。 
 
-“添加主机名”按钮会被激活。 
+“添加主机名”按钮会被激活。  
 
-请确保“主机名记录类型”设置为你想要迁移的 DNS 记录类型。
+请确保“主机名记录类型”  设置为你想要迁移的 DNS 记录类型。
 
-选择“添加主机名”。
+选择“添加主机名”  。
 
 ![将 DNS 名称添加到应用](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
+新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。  请尝试刷新浏览器来更新数据。
 
 ![已添加 CNAME 记录](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -100,11 +108,11 @@ ms.locfileid: "58627577"
 
 如果你要重新映射 CNAME 记录，请跳过此部分。 
 
-若要重新映射 A 记录，需要应用服务应用的外部 IP 地址，此地址显示在“自定义域”页中。
+若要重新映射 A 记录，需要应用服务应用的外部 IP 地址，此地址显示在“自定义域”  页中。
 
-通过选择右上角的 X 关闭“添加主机名”页。 
+通过选择右上角的 X  关闭“添加主机名”  页。 
 
-在“自定义域”页中，复制应用的 IP 地址。
+在“自定义域”页中，复制应用的 IP 地址。 
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -114,12 +122,11 @@ ms.locfileid: "58627577"
 
 对于 `contoso.com` 根域示例，重新映射 A 或 CNAME 记录，如下表中的示例所示： 
 
-
-|       FQDN 示例        | 记录类型 | 主机  |                       值                        |
-|---------------------------|-------------|-------|----------------------------------------------------|
-|    contoso.com (root)     |      A      |  `@`  | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
-|   www.contoso.com（子域）   |    CNAME    | `www` |         *&lt;appname>.chinacloudsites.cn*          |
-| \*.contoso.com（通配符域） |    CNAME    | *\**  |         *&lt;appname>.chinacloudsites.cn*          |
+| FQDN 示例 | 记录类型 | 主机 | Value |
+| - | - | - | - |
+| contoso.com (root) | A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.chinacloudsites.cn_ |
+| \*.contoso.com（通配符域） | CNAME | _\*_ | _&lt;appname>.chinacloudsites.cn_ |
 
 保存设置。
 

@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/19/2018
-ms.date: 07/08/2019
+origin.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: fcb684353ac916351497815ef49a09606b0c4545
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 2c6d03fb3ad2acad0da9a3c7240773003bf0dbc8
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844726"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174104"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单
 本文介绍如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 文件来定义 Service Fabric 应用程序与服务并对其进行版本控制。  有关更多详细示例，请参阅[应用程序和服务清单示例](service-fabric-manifest-examples.md)。  [ServiceFabricServiceModel.xsd 架构文档](service-fabric-service-model-schema.md)中阐述了这些清单文件的 XML 架构。
@@ -41,10 +41,12 @@ ms.locfileid: "67844726"
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
+
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
+
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
       <ExeHost>
@@ -56,6 +58,7 @@ ms.locfileid: "67844726"
 
   <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
+
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
@@ -63,6 +66,7 @@ ms.locfileid: "67844726"
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
+
       <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
     </Endpoints>
   </Resources>
@@ -99,6 +103,10 @@ ms.locfileid: "67844726"
 
 Service Fabric 服务“终结点”  是 Service Fabric 资源的一个示例。 无需更改已编译的代码，即可声明/更改 Service Fabric 资源。 可以通过应用程序清单中的 SecurityGroup 控制对服务清单中指定 Service Fabric 资源的访问  。 在服务清单中定义了终结点资源时，如果未显式指定端口，则 Service Fabric 从保留的应用程序端口范围中分配端口。 详细了解如何[指定或重写终结点资源](service-fabric-service-manifest-resources.md)。
 
+> [!WARNING]
+> 根据设计，静态端口不应与 ClusterManifest 中指定的应用程序端口范围重叠。 如果指定静态端口，请将其分配到应用程序端口范围外，否则会导致端口冲突。 对于版本 6.5CU2，当我们检测到此类冲突时，我们将发出**运行状况警告**，但让部署继续与已发布的 6.5 行为同步。 但是，我们可能会在下一个主要版本中阻止应用程序部署。
+>
+
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
 
@@ -125,6 +133,7 @@ For more information about other features supported by service manifests, refer 
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="VotingDataPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -139,6 +148,7 @@ For more information about other features supported by service manifests, refer 
          ServiceFabric PowerShell module.
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+
     <Service Name="VotingData">
       <StatefulService ServiceTypeName="VotingDataType" TargetReplicaSetSize="[VotingData_TargetReplicaSetSize]" MinReplicaSetSize="[VotingData_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[VotingData_PartitionCount]" LowKey="0" HighKey="25" />
@@ -147,6 +157,7 @@ For more information about other features supported by service manifests, refer 
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints>
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -162,6 +173,8 @@ For more information about other features supported by service manifests, refer 
 **DefaultServices** 声明每当一个应用程序依据此应用程序类型进行实例化时自动创建的服务实例。 默认服务只是提供便利，创建后，其行为皆如常规服务。 它们与应用程序实例中的任何其他服务一起升级，也可将其删除。 应用程序清单可以包含多个默认服务。
 
 **Certificates**（在前面的示例中未设置）声明用于[设置 HTTPS 终结点](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)或[加密应用程序清单中的机密](service-fabric-application-secret-management.md)的证书。
+
+**放置约束**是定义服务运行位置的语句。 这些语句将附加到你为一个或多个节点属性选择的各个服务。 有关详细信息，请参阅[放置约束和节点属性语法](/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
 
 **Policies**（在前面的示例中未设置）描述要在应用程序级别设置的日志收集、[默认运行方式帐户](service-fabric-application-runas-security.md)、[运行状况](service-fabric-health-introduction.md#health-policies)和[安全访问](service-fabric-application-runas-security.md)策略，包括服务是否可以访问 Service Fabric 运行时。
 
@@ -187,6 +200,7 @@ For more information about other features supported by application manifests, re
 - [加密应用程序清单中的机密](service-fabric-application-secret-management.md)
 
 <!--Image references-->
+
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png

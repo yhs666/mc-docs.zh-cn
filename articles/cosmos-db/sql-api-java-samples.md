@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
 origin.date: 02/08/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0a997e5aaa2a3d2cfd0893571755d7560d0b3656
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 26214e9febef85478bbdf114faa9583fe9c523ee
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171372"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254480"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 Java 示例
 
@@ -129,7 +129,7 @@ $ cd azure-documentdb-java
 | 任务 | API 参考 |
 | --- | --- |
 | [执行简单的跨分区文档查询](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setenablecrosspartitionquery) |
-| [按查询排序](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
+| [按查询排序](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse\<T>.getQueryIterator](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
 
 有关编写查询的详细信息，请参阅 [Azure Cosmos DB 中的 SQL 查询](how-to-sql-query.md)。
 

@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 03/22/2019
-ms.date: 05/20/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9a375f2bbe1750a9fc4f26d44c7361e2fc662923
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: b9d5f6f407fc02607c1f45c0db4be9bcd5fc17c1
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828826"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131678"
 ---
 # <a name="monitor-workload---azure-portal"></a>监视工作负荷 - Azure 门户
 

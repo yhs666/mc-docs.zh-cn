@@ -9,12 +9,12 @@ origin.date: 05/31/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 60dd46337b67347324d1ac22b5cccd8436a1786a
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: e9d86263890965c24e61a6ad28a99de9f09c97d4
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731249"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500715"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -282,6 +282,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 > [AKS 教程][aks-tutorial]
 
 <!-- LINKS - external -->
+
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -289,6 +290,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 
 <!-- LINKS - internal -->
+
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-delete]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-delete

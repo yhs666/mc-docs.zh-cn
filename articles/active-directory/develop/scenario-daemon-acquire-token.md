@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e856fa91b816f20273cca9ae7daa07b7db8de0e
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: fa12248921779d4fdb7bbe78bd629b6cd5ebfdf2
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305831"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134274"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>用于调用 Web API 的守护程序应用 - 获取令牌
 
@@ -62,10 +62,10 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.cn/.def
 
 用于客户端凭据的作用域应该始终为 resourceId+"/.default"
 
-### <a name="case-of-v10-resources"></a>v1.0 资源示例
+### <a name="case-of-azure-ad-v10-resources"></a>Azure AD (v1.0) 资源的情况
 
 > [!IMPORTANT]
-> 对于要求资源访问令牌接受 v1.0 令牌的 MSAL（v2.0 终结点），Azure AD 将提取最后一个斜杠前面的所有内容并将其用作资源标识符，以分析请求的范围中的所需受众。
+> 对于为接受 v1.0 访问令牌的资源请求访问令牌的 MSAL（Microsoft 标识平台终结点），Azure AD 将获取最后一个斜杠前面的所有内容并将其用作资源标识符，从请求的范围中分析所需的受众。
 > 因此，如果像 Azure SQL ( **https://database.chinacloudapi.cn** ) 一样，资源预期受众以斜杠结尾（例如 Azure SQL：`https://database.chinacloudapi.cn/` ），则需请求作用域 `https://database.chinacloudapi.cn//.default` （注意其中的双斜杠）。 另请参阅 MSAL.NET 问题 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：将省略资源 URL 的尾部斜杠，因为该斜杠会导致 SQL 身份验证失败。
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
@@ -162,7 +162,7 @@ scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default
 
 ### <a name="learn-more-about-the-protocol"></a>详细了解协议
 
-有关详细信息，请参阅协议文档：[Azure Active Directory v2.0 和 OAuth 2.0 客户端凭据流](v2-oauth2-client-creds-grant-flow.md)。
+有关详细信息，请参阅协议文档：[Microsoft 标识平台和 OAuth 2.0 客户端凭据流](v2-oauth2-client-creds-grant-flow.md)。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -194,3 +194,4 @@ Content: {
 > [!div class="nextstepaction"]
 > [守护程序应用 - 调用 Web API](scenario-daemon-call-api.md)
 
+<!-- Update_Description: wording update -->

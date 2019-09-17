@@ -4,20 +4,20 @@ description: 介绍了用于在引入数据时以及在查询中检索时分析 
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 12/04/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bee68a311fc6aa7be407781c7dd6cae368b6b852
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 0f74145b3139cd3b582245259c1c28397f24ea37
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989074"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737085"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>分析 Azure Monitor 日志中的文本数据
 Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的[自定义日志](/azure-monitor/platform/data-sources-custom-logs)。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。

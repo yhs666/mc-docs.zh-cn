@@ -1,5 +1,5 @@
 ---
-title: 创建 PHP Web 应用 - Azure 应用服务 | Azure Docs
+title: 创建 PHP Web 应用 - Azure 应用服务 | Azure
 description: 数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e76b94e51f4cc20692780e951d4f80bbae9415cf
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: d849b76bd93d770c25355ae509e6dd079ae71683
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878576"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806834"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -38,11 +38,11 @@ ms.locfileid: "68878576"
 若要完成本快速入门教程，需先执行以下操作：
 
 * <a href="https://git-scm.com/" target="_blank">安装 Git</a>
-* <a href="http://php.net/manual/install.php" target="_blank">安装 PHP</a>
+* <a href="https://php.net/manual/install.php" target="_blank">安装 PHP</a>
 
 ## <a name="download-the-sample-locally"></a>将示例下载到本地
 
-在终端窗口中运行以下命令。 这样会将示例应用程序克隆到本地计算机，并导航到包含示例代码的目录。
+在终端窗口中运行以下命令。 这样会将示例应用程序克隆到本地计算机，并导航到包含示例代码的目录。 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -65,15 +65,16 @@ php -S localhost:8080
 
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+在本地终端窗口中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
 
 在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.0`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
 

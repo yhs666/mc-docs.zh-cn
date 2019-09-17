@@ -4,17 +4,17 @@ description: 本文介绍如何使用 Azure CLI 基于 URL 将 Web 流量路由�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-origin.date: 05/20/2019
-ms.date: 06/12/2019
+ms.topic: article
+origin.date: 08/01/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 32d8080dad8172f61138e5a2202b2284868fc2aa
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: df4c7baf9c0a8562ca8c51c77c692a1dd5ef9f8e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027402"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857208"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
@@ -69,12 +69,14 @@ az network vnet subnet create `
 
 az network public-ip create `
   --resource-group myResourceGroupAG `
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress `
+  --allocation-method Static `
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>使用 URL 映射创建应用网关
 
-使用 `az network application-gateway create` 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myAGPublicIPAddress*。
+使用 `az network application-gateway create` 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给 myAGSubnet  和 myAGPublicIPAddress  。
 
 ```azurecli
 az network application-gateway create `
@@ -84,7 +86,7 @@ az network application-gateway create `
   --vnet-name myVNet `
   --subnet myAGsubnet `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Disabled `
   --frontend-port 80 `
   --http-settings-port 80 `
@@ -179,7 +181,7 @@ az network application-gateway rule create `
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>创建 VM 规模集
+## <a name="create-virtual-machine-scale-sets"></a>创建虚拟机规模集
 
 在本文中，你将创建三个虚拟机规模集以支持所创建的三个后端池。 你将创建名为 *myvmss1*、*myvmss2* 和 *myvmss3* 的规模集。 每个规模集都包含两个虚拟机实例，将在其上安装 NGINX。
 
@@ -263,6 +265,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 ## <a name="next-steps"></a>后续步骤
 
-* [创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
+[创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -3,8 +3,8 @@ title: 启动和停止 Azure Stack | Microsoft Docs
 description: 了解如何启动和关闭 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
-ms.author: mabrigg
+origin.date: 02/19/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f4d6f41036c2ebbaf56791a2b5aa9a64cc223dff
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 04a5a9e201b45d8d2a28072435083e4dd66fd3c7
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529962"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70856989"
 ---
 # <a name="start-and-stop-azure-stack"></a>启动和停止 Azure Stack
 应该遵循本文中的过程正确关闭再重启 Azure Stack 服务。 关闭将物理关闭整个 Azure Stack 环境的电源。 启动所有基础结构角色的电源，并使租户资源返回到关闭前的电源状态。
@@ -91,4 +92,4 @@ ms.locfileid: "64529962"
 
 ## <a name="next-steps"></a>后续步骤 
 
-详细了解 [Azure Stack 诊断工具](azure-stack-diagnostics.md)
+详细了解 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

@@ -11,12 +11,12 @@ origin.date: 05/10/2019
 ms.date: 08/12/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a3e5e81e014464aedecc85c0cbb49f86c5d51d67
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: ac94f20d916a68667c81834dfdcb282e065cdd54
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544375"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131878"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计 PolyBase 数据加载策略
 
@@ -72,6 +72,8 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
+|       date            |                             date                             |
+|        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage"></a>2.将数据移入 Azure Blob 存储中
 
@@ -117,9 +119,9 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 
 若要使用 PolyBase 加载数据，可以使用下列任一加载选项：
 
-- 如果数据位于 Azure Blob 存储中，则 [PolyBase 与 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 可以发挥作用。 使用此方法可以获得加载过程的最大控制度，不过同时需要定义外部数据对象。 其他方法在你将源表映射到目标表时，在幕后定义这些对象。  若要安排 T-SQL 加载，可以使用 SSIS。 
+- 如果数据位于 Azure Blob 存储中，则 [PolyBase 与 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 可以发挥作用。 使用此方法可以获得加载过程的最大控制度，不过同时需要定义外部数据对象。 其他方法在你将源表映射到目标表时，在幕后定义这些对象。  若要协调 T-SQL 负载，可以使用 Azure 数据工厂、SSIS。 
 - 如果源数据位于本地 SQL Server 或云中的 SQL Server，则 [PolyBase 与 SSIS](https://docs.microsoft.com/sql/integration-services/load-data-to-sql-data-warehouse) 可以发挥作用。 SSIS 定义源到目标表的映射，同时可协调负载。 如果已有 SSIS 包，可将这些包修改为使用新的数据仓库目标。 
-- [PolyBase 与 Azure 数据工厂 (ADF)](/data-factory/load-azure-sql-data-warehouse) 是另一个业务流程工具。  它定义管道并计划作业。 
+- [PolyBase 与 Azure 数据工厂 (ADF)](sql-data-warehouse-load-with-data-factory.md) 是另一个业务流程工具。  它定义管道并计划作业。 
 
 ### <a name="non-polybase-loading-options"></a>非 PolyBase 加载选项
 
@@ -136,9 +138,7 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 INSERT INTO ...SELECT 语句将数据从临时表移到永久表。 
 
 设计 ETL 过程时，请尝试针对一个较小的测试示例运行该过程。 尝试将表中的 1000 行提取到某个文件，将该文件移到 Azure，然后将其载入临时表。 
- 
-<!-- ## Partner loading solutions not avaliable -->
- 
+
 ## <a name="next-steps"></a>后续步骤
 
 有关加载指南，请参阅[加载数据的指南](guidance-for-loading-data.md)。

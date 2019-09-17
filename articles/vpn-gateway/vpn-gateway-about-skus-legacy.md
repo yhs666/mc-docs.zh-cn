@@ -2,26 +2,19 @@
 title: 旧式 Azure 虚拟网络 VPN 网关 SKU | Microsoft Docs
 description: 如何使用旧式虚拟网络网关 SKU；“基本”、“标准”和“高性能”。
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/10/2019
-ms.date: 08/05/2019
+origin.date: 08/15/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: db73b512d86fb331919b203a4496e69127bca617
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 327d6421143fd440054a6fd6e96a490825579434
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732370"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131687"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虚拟网关 SKU（传统 SKU）
 
@@ -43,15 +36,9 @@ ms.locfileid: "68732370"
 
 ## <a name="resize"></a>重设网关大小
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 可以在同一 SKU 系列内将网关大小重设到某个网关 SKU。 例如，如果具有标准 SKU，则可重设大小为高性能 SKU。 但不能在旧式 SKU 和新式 SKU 系列之间重设 VPN 网关大小。 例如，不能从标准 SKU 调整为 VpnGw2 SKU 或从标准 SKU 调整为 VpnGw1。
 
-若要重设经典部署模型的网关大小，请使用以下命令：
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### <a name="resource-manager"></a>Resource Manager
 
 若要使用 PowerShell 重设资源管理器部署模型的网关大小，请使用以下命令：
 
@@ -59,7 +46,16 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 还可以在 Azure 门户中重设网关大小。
+
+### <a name="classicresize"></a>经典
+
+若要重设经典部署模型的网关大小，必须使用服务管理 PowerShell cmdlet。 请使用以下命令：
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>更改到新式网关 SKU
 
@@ -70,5 +66,3 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 有关新式网关 SKU 的详细信息，请参阅[网关 SKU](vpn-gateway-about-vpngateways.md#gwsku)。
 
 有关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
-
-<!--Update_Description: wording update-->

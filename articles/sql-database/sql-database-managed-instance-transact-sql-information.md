@@ -9,25 +9,24 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova
-manager: digimobile
-origin.date: 07/07/2019
-ms.date: 08/19/2019
+origin.date: 08/12/2019
+ms.date: 09/09/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f922331aa5cdf240dd30fcd9a53f27c805f6148f
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 04f92e4e3330bbf4d9c21061b743fdad745c5f84
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543944"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372965"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 的 T-SQL 差异
 
 本文汇总并解释了 Azure SQL 数据库托管实例与本地 SQL Server 数据库引擎之间的语法和行为差异。 其中讨论了以下主题：<a name="Differences"></a>
 
 - [可用性](#availability)包括 [Always-On](#always-on-availability) 和[备份](#backup)方面的差异。
 - [安全性](#security)包括[审核](#auditing)、[证书](#certificates)、[凭据](#credential)、[加密提供程序](#cryptographic-providers)、[登录名和用户名](#logins-and-users)以及[服务密钥和服务主密钥](#service-key-and-service-master-key)方面的差异。
 - [配置](#configuration)包括[缓冲池扩展](#buffer-pool-extension)、[排序规则](#collation)、[兼容性级别](#compatibility-levels)、[数据库镜像](#database-mirroring)、[数据库选项](#database-options)、[SQL Server 代理](#sql-server-agent)以及[表选项](#tables)方面的差异。
-- [功能](#functionalities)包括 [BULK INSERT/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分布式事务](#distributed-transactions)、[已扩展事件](#extended-events)、[外部库](#external-libraries)、[文件流和文件表](#filestream-and-filetable)、[全文语义搜索](#full-text-semantic-search)、[链接服务器](#linked-servers)、[Polybase](#polybase)、[复制](#replication)、[还原](#restore-statement)、[Service Broker](#service-broker)、[存储过程、函数和触发器](#stored-procedures-functions-and-triggers)方面的差异。
+- [功能](#functionalities)包括 [BULK INSERT/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分布式事务](#distributed-transactions)、[已扩展事件](#extended-events)、[外部库](#external-libraries)、[文件流和文件表](#filestream-and-filetable)、[全文语义搜索](#full-text-semantic-search)、[链接服务器](#linked-servers)、[Polybase](#polybase)、[复制](#replication)、[还原](#restore-statement)、[Service Broker](#service-broker)、[存储过程、函数和触发器](#stored-procedures-functions-and-triggers)。
 - [环境设置](#Environment)，例如 VNet 和子网配置。
 - [在托管实例中行为不同的功能](#Changes)。
 - [暂时性的限制和已知问题](#Issues)。
@@ -64,6 +63,7 @@ ms.locfileid: "69543944"
 的限制： 
 
 - 使用托管实例可将数据库备份到最多包含 32 个条带的备份，如果使用备份压缩，则这种方法对于不超过 4 TB 的数据库而言已足够。
+- 不能在使用服务托管透明数据加密 (TDE) 加密的数据库上执行 `BACKUP DATABASE ... WITH COPY_ONLY`。 服务托管的 TDE 强制使用内部 TDE 密钥对备份进行加密。 无法导出该密钥，因此无法还原备份。 使用自动备份和时间点还原，或者改用[客户托管 (BYOK) TDE](/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)。 也可以在数据库上禁用加密。
 - 在托管实例中使用 `BACKUP` 命令最大可以设置 195 GB 的备份条带大小（即最大 Blob 大小）。 在 backup 命令中增加条带数目可以减小单个条带的大小，并保持在此限制范围内。
 
     > [!TIP]
@@ -311,18 +311,18 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="tables"></a>表
 
-不支持以下表：
+不支持以下表类型：
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)（仅在“常规用途”层级中不受支持）
 
 有关如何创建和更改表的信息，请参阅 [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 和 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)。
 
 ## <a name="functionalities"></a>功能
 
-### <a name="bulk-insert--openrowset"></a>批量插入/openrowset
+### <a name="bulk-insert--openrowset"></a>BULK INSERT/OPENROWSET
 
 由于托管实例无法访问文件共享和 Windows 文件夹，必须从 Azure Blob 存储导入文件：
 
@@ -341,9 +341,9 @@ WITH PRIVATE KEY (<private_key_options>)
 
 托管实例不支持 SQL Server 中启用的未记录 DBCC 语句。
 
-- 不支持 `Trace flags`。 请参阅[跟踪标志](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
-- 不支持 `DBCC TRACEOFF`。 请参阅 [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)。
-- 不支持 `DBCC TRACEON`。 请参阅 [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)。
+- 仅支持有限数量的全局 `Trace flags`。 不支持会话级 `Trace flags`。 请参阅[跟踪标志](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) 和 [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) 使用有限数量的全局跟踪标志。
+- 无法使用带有 REPAIR_ALLOW_DATA_LOSS、REPAIR_FAST 和 REPAIR_REBUILD 选项的 [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql)，因为无法在 `SINGLE_USER` 模式中设置数据库 - 请参阅 [ALTER DATABASE 的差异](#alter-database-statement)。 潜在的数据库损坏将由 Azure 支持团队处理。 如果你注意到应予以修复的数据库损坏，请联系 Azure 支持部门。
 
 ### <a name="distributed-transactions"></a>分布式事务
 
@@ -383,8 +383,9 @@ WITH PRIVATE KEY (<private_key_options>)
 
 托管实例中的链接服务器支持的目标数有限：
 
-- 支持的目标为 SQL Server 和 SQL 数据库。
-- 不支持的目标为文件、Analysis Services 和其他 RDBMS。
+- 支持的目标为托管实例、单一数据库和 SQL Server 实例。 
+- 链接服务器不支持分布式可写事务 (MS DTC)。
+- 不支持的目标为文件、Analysis Services 和其他 RDBMS。 请尝试使用从 Azure Blob 存储进行本机 CSV 导入（使用 `BULK INSERT` 或 `OPENROWSET`）来代替文件导入操作。
 
 操作
 
@@ -392,6 +393,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - 支持使用 `sp_dropserver` 删除链接服务器。 请参阅 [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)。
 - `OPENROWSET` 函数只能用于在 SQL Server 实例上执行查询。 它们可以是托管的、位于本地或位于虚拟机中。 请参阅 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
 - `OPENDATASOURCE` 函数只能用于在 SQL Server 实例上执行查询。 它们可以是托管的、位于本地或位于虚拟机中。 仅支持将 `SQLNCLI`、`SQLNCLI11` 和 `SQLOLEDB` 值用作提供程序。 例如 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`。 请参阅 [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)。
+- 不能使用链接服务器从网络共享读取文件（Excel、CSV）。 请尝试使用从 Azure Blob 存储读取 CSV 文件的 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 或 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)。
 
 ### <a name="polybase"></a>PolyBase
 
@@ -399,13 +401,44 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="replication"></a>复制
 
-[事务复制](sql-database-managed-instance-transactional-replication.md)在托管实例上为公共预览版，但存在一些约束：
-- 所有类型的复制参与者（发布服务器、分发服务器、拉取订阅服务器和推送订阅服务器）都可以放置在托管实例上，但发布服务器和分发服务器不能放置在不同的实例上。
-- 支持事务、快照和双向复制类型。 不支持合并复制、对等复制和可更新订阅。
-- 托管实例可以与最新版 SQL Server 通信。 请在[此处](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)查看支持的版本。
-- 事务复制有一些[其他的网络要求](sql-database-managed-instance-transactional-replication.md#requirements)。
+- 支持快照和双向复制类型。 不支持合并复制、对等复制和可更新订阅。
+- [事务复制](sql-database-managed-instance-transactional-replication.md)在托管实例上为公共预览版，但存在一些约束：
+    - 所有类型的复制参与者（发布服务器、分发服务器、拉取订阅服务器和推送订阅服务器）都可以放置在托管实例上，但发布服务器和分发服务器不能放置在不同的实例上。
+    - 托管实例可以与最新版 SQL Server 通信。 请在[此处](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)查看支持的版本。
+    - 事务复制有一些[其他的网络要求](sql-database-managed-instance-transactional-replication.md#requirements)。
 
 若要了解如何配置复制，请参阅[复制教程](replication-with-sql-database-managed-instance.md)。
+
+
+如果对[故障转移组](sql-database-auto-failover-group.md)中的数据库启用了复制，则托管实例管理员必须清理旧的主节点上的所有发布内容，然后在故障转移后，在新的主节点上重新配置这些发布内容。 在此方案中，需要执行以下活动：
+
+1. 停止数据库上运行的所有复制作业（如果有）。
+2. 通过在发布服务器数据库上运行以下脚本，删除发布服务器中的订阅元数据：
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. 删除订阅服务器中的订阅元数据。 在订阅服务器实例的订阅数据库中运行以下脚本：
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.chinacloudapi.cn>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. 通过在已发布的数据库中运行以下脚本，强制删除发布服务器中的所有复制对象：
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. 强制删除原始主实例中的旧分发服务器（如果故障回复到曾经具有分发服务器的旧主实例）。 在旧的分发服务器托管实例中的 master 数据库上运行以下脚本：
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### <a name="restore-statement"></a>RESTORE 语句 
 
@@ -437,10 +470,13 @@ WITH PRIVATE KEY (<private_key_options>)
 
 的限制： 
 
+- 根据损坏类型，有时可以还原已损坏的数据库的备份，但在修复损坏之前，不会创建自动备份。 确保在源实例上运行 `DBCC CHECKDB`，并使用备份 `WITH CHECKSUM` 来避免此问题。
+- 无法在托管实例上还原包含本文档所述的任何限制的数据库的 `.BAK` 文件（例如 `FILESTREAM` 或 `FILETABLE` 对象）。
 - 无法还原包含多个备份集的 `.BAK` 文件。 
 - 无法还原包含多个日志文件的 `.BAK` 文件。
-- 如果 .bak 包含 `FILESTREAM` 数据，还原将会失败。
-- 在“常规用途”实例上，无法还原包含数据库且这些数据库中具有活动内存中对象的备份。 有关 restore 语句的信息，请参阅 [RESTORE 语句](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。
+- 在“常规用途”实例上，无法还原包含 8TB 以上的数据库、活动的内存中 OLTP 对象或 280 个以上的文件的备份。 
+- 在“业务关键”实例上，无法还原包含 4TB 以上的数据库或内存中 OLTP 对象，且总大小超过[资源限制](sql-database-managed-instance-resource-limits.md)中所述大小的备份。
+有关 restore 语句的信息，请参阅 [RESTORE 语句](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。
 
 ### <a name="service-broker"></a>服务代理
 
@@ -467,7 +503,7 @@ WITH PRIVATE KEY (<private_key_options>)
 ## <a name="Environment"></a>环境约束
 
 ### <a name="subnet"></a>子网
-- 在为托管实例预留的子网中，不能放置任何其他的资源（例如虚拟机）。 将这些资源放置在其他子网中。
+-  在部署托管实例的子网中，无法放置任何其他资源（例如虚拟机）。 请使用其他子网部署这些资源。
 - 子网必须有足够数量的可用 [IP 地址](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 至少为 16 个，但建议在子网中至少有 32 个 IP 地址。
 - [不能将服务终结点与托管实例的子网相关联](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 创建虚拟网络时，请务必禁用“服务终结点”选项。
 - 可以在某个区域部署的 vCore 数和实例类型存在一些[约束和限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)。
@@ -476,7 +512,11 @@ WITH PRIVATE KEY (<private_key_options>)
 ### <a name="vnet"></a>VNET
 - VNet 可以使用资源模型进行部署 - 不支持适用于 VNet 的经典模型。
 - 创建托管实例后，不支持将托管实例或 VNet 移到另一个资源组或订阅。
-- 应用服务环境、逻辑应用和托管实例之类的某些服务（用于异地复制、事务复制，或者通过链接服务器来使用）在其 VNet 是通过[全局对等互连](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)进行连接的情况下不能访问不同区域中的托管实例。 你可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
+- 应用服务环境、逻辑应用和托管实例之类的某些服务（用于异地复制、事务复制，或者通过链接服务器来使用）在其 VNet 是通过[全局对等互连](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)进行连接的情况下不能访问不同区域中的托管实例。 可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
+
+### <a name="tempdb-size"></a>TEMPDB 大小
+
+在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据实例存储大小受到限制。 在“常规用途”和“业务关键”层级上，`Tempdb` 日志文件大小均限制为 120 GB。 如果某些查询需要在 `tempdb` 中为每个核心提供 24 GB 以上的空间，或者生成 120 GB 以上的日志数据，则这些查询可能会返回错误。
 
 ## <a name="Changes"></a>行为更改
 
@@ -492,13 +532,39 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ## <a name="Issues"></a>已知问题和限制
 
-### <a name="tempdb-size"></a>TEMPDB 大小
+### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>服务层级升级后，跨数据库的 Service Broker 对话无法正常工作
 
-在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据实例存储大小受到限制。 `tempdb` 数据库始终拆分为 12 个数据文件。 无法更改每个文件的最大大小，并且无法将新文件添加到 `tempdb`。 如果某些查询需要 `tempdb` 中每个核心 24 GB 以上的空间，这些查询可能返回错误。
+**日期：** 2019 年 8 月
 
-### <a name="cant-restore-contained-database"></a>无法还原包含的数据库
+在更改服务层级操作后，跨数据库的 Service Broker 对话无法传递消息。 在托管实例中对 vCore 或实例存储大小进行任何更改都会导致 [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 视图中所有数据库的 `service_broke_guid` 值发生更改。 使用 [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 语句创建的、按 GUID 引用其他数据库中的 Service Broker 的任何 `DIALOG` 将无法传递消息。
 
-托管实例无法还原[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 在托管实例无法对现有包含的数据库执行时间点还原。 此问题即将得到解决。 在此期间，我们建议从托管实例上的数据库中删除包含选项。 不要对生产数据库使用包含选项。 
+**解决方法：** 先停止使用跨数据库 Service Broker 对话的任何活动，再更新服务层级，然后重新初始化这些活动。
+
+### <a name="some-aad-login-types-cannot-be-impersonated"></a>无法模拟某些 AAD 登录类型
+
+**日期：** 2019 年 7 月
+
+不支持使用以下 AAD 主体的 `EXECUTE AS USER` 或 `EXECUTE AS LOGIN` 进行模拟：
+- 带别名的 AAD 的用户。 在这种情况下，将返回以下错误：`15517`。
+- 基于 AAD 应用程序或服务主体的 AAD 登录名和用户。 在这种情况下，将返回以下错误：`15517` 和 `15406`。
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>sp_send_db_mail 中不支持 @query 参数
+
+**日期：** 2019 年 4 月
+
+[sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) 过程中的 `@query` 参数不起作用。
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Tools 中不支持 AAD 登录名和用户
+
+**日期：** 2019 年 1 月
+
+SQL Server Management Studio 与 SQL Server Data Tools 不完全支持 Azure Acctive Directory 登录名和用户。
+- 目前不支持将 Azure AD 服务器主体（登录名）和用户（公共预览版）与 SQL Server Data Tools 配合使用。
+- Azure AD 服务器主体（登录名）和用户（公共预览版）的脚本在 SQL Server Management Studio 中不受支持。
+
+### <a name="tempdb-structure-and-content-is-re-created"></a>将重新创建 TEMPDB 结构和内容
+
+`tempdb` 数据库始终拆分为 12 个数据文件，文件结构不可更改。 无法更改每个文件的最大大小，并且无法将新文件添加到 `tempdb`。 实例启动或故障转移时，`Tempdb` 始终会重新创建为空数据库；在 `tempdb` 中所做的任何更改不会保留。
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型数据库文件超出存储空间
 
@@ -506,7 +572,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 每个“常规用途”托管实例都为 Azure 高级磁盘空间保留了最多 35 TB 存储空间。 每个数据库文件放置在单独的物理磁盘上。 磁盘大小可以为 128 GB、256 GB、512 GB、1 TB 或 4 TB。 磁盘上未使用的空间不收费，但 Azure 高级磁盘大小总计不能超过 35 TB。 在某些情况下，由于内部碎片，总共不需要 8 TB 的托管实例可能会超过 35 TB 的 Azure 存储大小限制。
 
-例如，“常规用途”托管实例可将一个大小为 1.2 TB 的文件放在 4 TB 的磁盘上。 它还可以将 248 个文件（每个大小为 1 GB）放在单独的 128 GB 磁盘上。 在本示例中：
+例如，“常规用途”托管实例可将一个大小为 1.2 TB 的大文件放在 4 TB 的磁盘上。 它还可以将 248 个 1 GB 的文件放在单独的 128 GB 磁盘上。 在本示例中：
 
 - 分配的磁盘存储总大小为 1 x 4 TB + 248 x 128 GB = 35 TB。
 - 实例上的数据库的总预留空间为 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
@@ -517,29 +583,9 @@ WITH PRIVATE KEY (<private_key_options>)
 
 可以使用系统视图[识别剩余文件的数目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)。 如果即将达到此限制，请尝试[使用 DBCC SHRINKFILE 语句清空并删除一些小型文件](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或者切换到[没有此限制的“业务关键”层级](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>在还原数据库期间不正确地配置了 SAS 密钥
-
-如果 `CREDENTIAL` 中的共享访问签名不正确，读取 .bak 文件的 `RESTORE DATABASE` 可能会不断重试读取 .bak 文件，并在较长一段时间后返回错误。 请在还原数据库之前执行 RESTORE HEADERONLY，确保 SAS 密钥正确。
-确保从使用 Azure 门户生成的 SAS 密钥中删除前导 `?`。
-
-### <a name="tooling"></a>工具
-
-访问托管实例时，SQL Server Management Studio 和 SQL Server Data Tools 可能会出现一些问题。
-
-- 目前不支持将 Azure AD 服务器主体（登录名）和用户（公共预览版）与 SQL Server Data Tools 配合使用。
-- Azure AD 服务器主体（登录名）和用户（公共预览版）的脚本在 SQL Server Management Studio 中不受支持。
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>在某些视图、日志和消息中，数据库名称不正确
+### <a name="guid-values-shown-instead-of-database-names"></a>显示 GUID 值而不是数据库名称
 
 多个系统视图、性能计数器、错误消息、XEvent 和错误日志条目显示了 GUID 数据库标识符而非实际的数据库名称。 不要依赖这些 GUID 标识符，因为它们在将来会被替换为实际的数据库名称。
-
-### <a name="database-mail"></a>数据库邮件
-
-[sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) 过程中的 `@query` 参数不起作用。
-
-### <a name="database-mail-profile"></a>数据库邮件配置文件
-
-SQL Server 代理使用的数据库邮件配置文件必须名为 `AzureManagedInstance_dbmail_profile`。 在其他数据库邮件配置文件名称方面没有限制。
 
 ### <a name="error-logs-arent-persisted"></a>不保留错误日志
 
@@ -547,7 +593,7 @@ SQL Server 代理使用的数据库邮件配置文件必须名为 `AzureManagedI
 
 ### <a name="error-logs-are-verbose"></a>错误日志是详细的
 
-托管实例在错误日志中记录详细信息，其中许多信息都不相关。 将来，错误日志中的信息量将减少。
+托管实例在错误日志中记录详细信息，其中许多信息都不相关。 
 
 **解决方法：** 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅[托管实例 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
 
@@ -555,7 +601,7 @@ SQL Server 代理使用的数据库邮件配置文件必须名为 `AzureManagedI
 
 如果在同一事务范围中将两个查询发送到了同一实例内的两个数据库，则 .NET 中的 `TransactionScope` 类不会工作。
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.chinacloudapi.cn;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
@@ -587,17 +633,6 @@ using (var scope = new TransactionScope())
 放置在托管实例中的 CLR 模块，以及引用当前实例的链接服务器或分布式查询，有时可能无法解析本地实例的 IP。 此错误是暂时性问题。
 
 **解决方法：** 如果可能，请在 CLR 模块中使用上下文连接。
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>采用服务托管密钥的 TDE 加密数据库不支持用户启动的备份
-
-不能在使用服务托管透明数据加密 (TDE) 加密的数据库上执行 `BACKUP DATABASE ... WITH COPY_ONLY`。 服务托管的 TDE 强制使用内部 TDE 密钥对备份进行加密。 无法导出该密钥，因此无法还原备份。
-
-**解决方法：** 使用自动备份和时间点还原，或者改用[客户托管 (BYOK) TDE](/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)。 也可以在数据库上禁用加密。
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>时间点还原遵循时区在源实例上设置的时间
-
-时间点还原目前在解释要还原到的时间时，遵循源实例的时区，而不是以下 UTC。
-如需更多详细信息，请参阅[托管实例时区的已知问题](/sql-database/sql-database-managed-instance-timezone#known-issues)。
 
 ## <a name="next-steps"></a>后续步骤
 

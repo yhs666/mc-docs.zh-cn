@@ -1,19 +1,21 @@
 ---
 title: 如何使用 Azure Monitor 警报触发复杂操作
 description: 了解如何创建逻辑应用操作处理 Azure Monitor 警报。
-author: dkamstra
+author: lingliw
+manager: digimobile
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dukek
+origin.date: 07/18/2018
+ms.date: 6/4/2019
+ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: ca99af5ba0922c43577f96a2dcf4c0af41a68fae
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 0434835d8f43a774065829c1460102b95400afe3
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989594"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736808"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何使用 Azure Monitor 警报触发复杂操作
 

@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 06/10/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: ae9f17f9b6318fe2bd70a4d6e148098c170a1c00
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: ad799c26994706d81bbc57603667432025262a34
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390792"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134481"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>为 VMware VM 灾难恢复管理配置服务器
 
@@ -107,7 +107,7 @@ ms.locfileid: "66390792"
     ```
 
     >[!NOTE] 
-    >若要从配置服务器**拉取最新的证书**来横向扩展进程服务器，请执行命令 *"<Installation Drive\Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >若要从配置服务器**拉取最新的证书**来横向扩展进程服务器，请执行命令 "\<安装驱动器\Azure Site Recovery\agent\cdpcli.exe>" --registermt 
 
 8. 最后，通过执行以下命令重启 obengine。
     ```

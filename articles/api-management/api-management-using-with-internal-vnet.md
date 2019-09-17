@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: c5cedc25af491893b0f5575a09a0e1db65576827
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/16/2019
+ms.openlocfilehash: e6318cef04dc07853363cb1f17734479132164e6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569597"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736696"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -91,21 +91,25 @@ ms.locfileid: "67569597"
 
    * 网关或代理：contosointernalvnet.azure-api.net
 
-   * Azure 门户和开发人员门户：contosointernalvnet.portal.azure-api.net
+   * 开发人员门户：contosointernalvnet.portal.azure-api.cn
 
-   * 直接管理终结点：contosointernalvnet.management.azure-api.net
+   * 新开发人员门户：contosointernalvnet.developer.azure-api.cn
+
+   * 直接管理终结点：contosointernalvnet.management.azure-api.cn
 
    * Git：contosointernalvnet.scm.azure-api.net
 
 若要访问这些 API 管理服务终结点，可以在连接到虚拟网络（其中部署了 API 管理）的子网中创建虚拟机。 假设服务的内部虚拟 IP 地址为 10.1.0.5，则可映射 hosts 文件 (%SystemDrive%\drivers\etc\hosts)，如下所示：
 
-   * 10.1.0.5     contosointernalvnet.azure-api.net
+   * 10.1.0.5     contosointernalvnet.azure-api.cn
 
-   * 10.1.0.5     contosointernalvnet.portal.azure-api.net
+   * 10.1.0.5     contosointernalvnet.portal.azure-api.cn
 
-   * 10.1.0.5     contosointernalvnet.management.azure-api.net
+   * 10.1.0.5     contosointernalvnet.developer.azure-api.cn
 
-   * 10.1.0.5     contosointernalvnet.scm.azure-api.net
+   * 10.1.0.5     contosointernalvnet.management.azure-api.n
+
+   * 10.1.0.5     contosointernalvnet.scm.azure-api.cn
 
 然后即可从创建的虚拟机访问所有服务终结点。 如果在虚拟网络中使用自定义 DNS 服务器，则还可创建 DNS 记录并从虚拟网络中的任何位置访问这些终结点。 
 

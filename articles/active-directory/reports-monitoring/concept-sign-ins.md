@@ -3,7 +3,7 @@ title: Azure Active Directory 门户中的“登录活动”报告 | Microsoft D
 description: Azure Active Directory 门户中的“登录活动”报告简介
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-origin.date: 04/18/2019
-ms.date: 08/13/2019
+origin.date: 08/13/2019
+ms.date: 08/28/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddf7e40fc7456d9fc7ae9b18c4e0a9bddbe18735
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 21343d77d8db30421ea8a36147f2f7dc501b23d2
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973469"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134084"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“登录活动”报告
 
@@ -53,9 +53,9 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 * 多少用户超过一周都有登录行为？
 * 这些登录的状态怎样？
 
-可以通过在 [Azure 门户](https://portal.azure.cn)的“Azure Active Directory”  边栏选项卡的“活动”  部分中选择“登录”  来访问登录报告。 请注意，某些登录记录最多可能需要两个小时才会显示在门户中。
+可以通过在 [Azure 门户](https://portal.azure.cn)的“Azure Active Directory”  边栏选项卡的“监视”  部分中选择“登录”  来访问登录报告。 请注意，某些登录记录最多可能需要两个小时才会显示在门户中。
 
-![登录活动](./media/concept-sign-ins/61.png "登录活动")
+![登录活动](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "登录活动")
 
 > [!IMPORTANT]
 > 登录报告仅显示“交互式”登录，即用户使用其用户名和密码进行的手动登录  。 登录报告中不会显示服务到服务身份验证等非交互式登录。 
@@ -85,19 +85,12 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 > [!NOTE]
 > 客户现在可以通过所有登录报告对条件访问策略进行故障排除。 通过单击登录记录的“条件访问”  选项卡，客户可以查看条件访问状态，并深入了解应用于登录的策略的详细信息以及每个策略的结果。
-
-![登录活动](./media/concept-sign-ins/ConditionalAccess.png "登录活动")
+>
 
 
 ## <a name="filter-sign-in-activities"></a>筛选登录活动
 
-若要将所报告数据的范围缩小到适当的级别，可以使用以下默认字段筛选登录数据：
-
-- User
-- 应用程序
-- 登录状态
-- 条件性访问
-- Date
+若要将所报告数据的范围缩小到适合你的级别，可以使用日期字段作为默认筛选器来筛选登录数据。 此外，Azure AD 还提供了一系列可以设置的其他筛选器。
 
 ![登录活动](./media/concept-sign-ins/04.png "登录活动")
 
@@ -218,7 +211,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 ![登录活动](./media/concept-sign-ins/10.png "登录活动")
 
-应用程序使用情况图显示指定时间内最常用的 3 个应用程序的按周汇总的登录信息。 默认时间为 30 天。
+应用使用情况图显示指定时间内最常用的 3 个应用程序的按周汇总的登录信息。 默认时间为 30 天。
 
 ![登录活动](./media/concept-sign-ins/47.png "登录活动")
 
@@ -236,7 +229,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 可以从 [Microsoft 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 尽管 Office 365 活动和 Azure AD 活动日志共享大量的目录资源，但只有 Microsoft 365 管理中心提供 Office 365 活动日志的完整视图。 
 
-此外可以使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) 以编程方式访问 Office 365 活动日志。
+还可以使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) 以编程方式访问 Office 365 活动日志。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -244,4 +237,4 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 * [Azure AD 数据保留策略](reference-reports-data-retention.md)
 * [Azure AD 报告延迟](reference-reports-latencies.md)
 
-
+<!-- Update_Description: wording update -->

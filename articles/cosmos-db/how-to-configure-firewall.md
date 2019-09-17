@@ -1,18 +1,18 @@
 ---
 title: 为 Azure Cosmos DB 帐户配置 IP 防火墙
-description: 了解如何配置 IP 访问控制策略，以对 Azure Cosmos DB 数据库帐户提供防火墙支持。
+description: 了解如何配置 IP 访问控制策略，以为 Azure Cosmos 帐户提供防火墙支持。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/25/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d305258c5b728ee96da4e0d6664d4b9d15c5274d
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 819e470b6e59fca4a06f99f5e7c75f4b415e2e7d
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151438"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254785"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
 
@@ -50,7 +50,7 @@ ms.locfileid: "67151438"
 
 ![此屏幕截图显示了如何启用对 Azure 门户的访问](./media/how-to-configure-firewall/enable-azure-portal.png)
 
-### <a name="allow-requests-from-multiple-region-azure-datacenters-or-other-sources-within-azure"></a>允许来自多区域的 Azure 数据中心或 Azure 中的其他源的请求
+### <a name="allow-requests-from-multiple-regional-azure-datacenters-or-other-sources-within-azure"></a>允许来自多区域的 Azure 数据中心或 Azure 中的其他源的请求
 
 如果通过不提供静态 IP 的服务（例如 Azure 流分析和 Azure Functions）访问 Azure Cosmos DB 帐户，仍可使用 IP 防火墙来限制访问。 若要允许从此类服务访问 Azure Cosmos DB 帐户，请将 IP 地址 0.0.0.0 添加到允许的 IP 地址列表。 0\.0.0.0 地址限制从 Azure 数据中心 IP 范围向 Azure Cosmos DB 帐户发出的请求。 此设置不允许任何其他 IP 范围访问 Azure Cosmos DB 帐户。
 
@@ -98,21 +98,24 @@ ms.locfileid: "67151438"
 <a name="configure-ip-firewall-arm"></a>
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a>使用资源管理器模板配置 IP 防火墙
 
-若要配置对 Azure Cosmos DB 帐户的访问控制，请确保资源管理器模板指定 **ipRangeFilter** 属性，其中包含允许的 IP 范围列表。 例如，将以下 JSON 代码添加到模板：
+若要配置对 Azure Cosmos DB 帐户的访问控制，请确保资源管理器模板指定 **ipRangeFilter** 属性，其中包含允许的 IP 范围列表。 如果将 IP 防火墙配置为已部署的 Cosmos 帐户，请确保 `locations` 数组与当前部署的位置匹配。 不能同时修改 `locations` 数组和其他属性。 有关 Azure Cosmos DB 的 ARM 模板的详细信息和示例，请参阅[用于 Azure Cosmos DB 的 Azure 资源管理器模板](resource-manager-samples.md)
 
 ```json
-   {
-     "apiVersion": "2015-04-08",
-     "type": "Microsoft.DocumentDB/databaseAccounts",
-     "kind": "GlobalDocumentDB",
-     "name": "[parameters('databaseAccountName')]",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "databaseAccountOfferType": "Standard",
-       "name": "[parameters('databaseAccountName')]",
-       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-     }
-   }
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2016-03-31",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
+    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  }
+}
 ```
 
 <a name="configure-ip-firewall-cli"></a>

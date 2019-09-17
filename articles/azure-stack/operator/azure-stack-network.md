@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/04/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 7563b34d5dc94f1b456ee1705160a6c643a9833f
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 1879cf3ebbeaca517408cbcf5b0718af6c6c8ee2
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513441"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70856992"
 ---
 # <a name="network-connectivity"></a>网络连接
 本文提供 Azure Stack 网络基础架构信息，可帮助你确定如何以最佳方式将 Azure Stack 集成到现有的网络环境。 
@@ -78,28 +78,7 @@ HLH 也托管部署 VM (DVM)。 此 DVM 在 Azure Stack 部署期间使用，在
 ### <a name="switch-management-network"></a>交换机管理网络
 此 /29（6 个主机 IP）网络专用于连接交换机的管理端口。 其允许带外访问，以完成部署、管理和故障排除。 它是从上述交换机基础结构网络计算而来的。
 
-## <a name="publish-azure-stack-services"></a>发布 Azure Stack 服务
-需将 Azure Stack 服务提供给 Azure Stack 外部的用户使用。 Azure Stack 将为其基础结构角色设置不同的终结点。 这些终结点是公共 IP 地址池中分配的 VIP。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal. *&lt;region>.&lt;fqdn>* 。
 
-### <a name="ports-and-urls"></a>端口和 URL
-若要使 Azure Stack 服务（例如门户、Azure 资源管理器、DNS 等）可供外部网络使用，必须允许特定 URL、端口和协议的入站流量发往这些终结点。
- 
-如果部署中的透明代理上行链接到传统的代理服务器，则必须允许特定的端口和 URL，以便能够进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
-
-### <a name="mac-address-pool"></a>MAC 地址池
-
-Azure Stack 使用静态 MAC 地址池自动生成 MAC 地址并将其分配给虚拟机。
-此 MAC 地址池是在部署过程中自动生成的，并使用以下范围：
-
-- StartMacAddress：00-1D-D8-B7-00-00
-- EndMacAddress：00-1D-D8-F4-FF-FF
-
-> [!Note]  
-> 此 MAC 地址池在每个 Azure Stack 系统中都是相同的，并且是不可配置的。
-
-根据虚拟网络与现有公司网络的连接方式，你可能会需要虚拟机的 MAC 地址重复。
-
-使用 Azure Stack Administrator PowerShell 模块中的 cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) 可以找到有关 MAC 地址池利用率的详细信息。
 
 
 ## <a name="next-steps"></a>后续步骤

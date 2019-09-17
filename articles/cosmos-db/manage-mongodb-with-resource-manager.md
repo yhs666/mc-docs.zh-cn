@@ -4,22 +4,26 @@ description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB A
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: e636afaa91f6196ad5a1011a803f7dffd79d91c5
-ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
+ms.openlocfilehash: f937b8f5aa18b2a803d933c0f6e2ffea8a8df3a1
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68293431"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254431"
 ---
 <!--Verify successfully-->
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB MongoDB API 资源
 
-## 创建 Azure Cosmos DB API for MongoDB 帐户、数据库和集合 <a id="create-resource"></a>
+<a name="create-resource"></a>
+## <a name="create-azure-cosmos-db-api-for-mongodb-account-database-and-collection"></a>创建 Azure Cosmos DB API for MongoDB 帐户、数据库和集合
 
-使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建 MongoDB API 的 Azure Cosmos 帐户，所使用的两个集合在数据库级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建 MongoDB API 的 Azure Cosmos 帐户，所使用的两个集合在数据库级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-mongodb/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+> [!NOTE]
+> 帐户名称必须为小写且 < 31 个字符。
 
 ```json
 {
@@ -242,7 +246,6 @@ ms.locfileid: "68293431"
 
 ```azurecli
 
-
 read -p 'Enter the Resource Group name: ' resourceGroupName
 read -p 'Enter the location (i.e. chinanorth2): ' location
 read -p 'Enter the account name: ' accountName
@@ -265,9 +268,10 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 <!--Not Available on If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.-->
 
-## 更新数据库的吞吐量（RU/秒）<a id="database-ru-update"></a>
+<a name="database-ru-update"></a>
+## <a name="update-throughput-rus-on-a-database"></a>更新数据库的吞吐量（RU/秒）
 
-以下模板将更新数据库的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-database-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+以下模板将更新数据库的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-mongodb-database-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
 
 ```json
 {
@@ -316,10 +320,10 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 ### <a name="deploy-database-template-via-azure-cli"></a>通过 Azure CLI 部署数据库模板
 
+使用 Azure CLI 部署资源管理器模板。
+
 <!--Not Available on Cloud Shell-->
 <!--Not Available on select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
-
-使用 Azure CLI 部署资源管理器模板
 
 ```azurecli
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -332,10 +336,10 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
 ```
 
-<a id="collection-ru-update"></a>
+<a name="collection-ru-update"></a>
 ## <a name="update-throughput-rus-on-a-collection"></a>更新集合的吞吐量（RU/秒） 
 
-以下模板将更新集合的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-collection-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+以下模板将更新集合的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-mongodb-collection-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
 
 ```json
 {
@@ -411,7 +415,9 @@ az group deployment create --resource-group $resourceGroupName \
 下面是一些其他资源：
 
 - [Azure 资源管理器文档](/azure-resource-manager/)
-- [Azure Cosmos DB 资源提供程序架构](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)
+
+    <!--Not Available on - [Azure Cosmos DB resource provider schema](https://docs.microsoft.com/azure/templates/microsoft.documentdb/allversions)-->
+    
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

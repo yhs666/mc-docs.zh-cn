@@ -3,8 +3,8 @@ title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢
 description: 当灾难性故障导致 Azure Stack 失败后，在重新建立 Azure Stack 部署时可以还原基础结构数据。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: mabrigg
+origin.date: 02/12/2019
+ms.date: 09/16/2019
+ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: e8b9732163a4d33d6ea80419e9d6be0730c12e0c
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: a8640694a7db49def071581c530e281c160cfe42
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529809"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857113"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -63,8 +64,8 @@ Azure Stack 在数据中心运行 Azure 服务，并且可以在安装在单个�
 Azure Stack 支持称为云恢复模式的部署类型。 只有当灾难或产品 bug 导致解决方案不可恢复后，你选择恢复 Azure Stack 时才使用此模式。 此部署模式不会恢复解决方案中存储的任何用户数据。 此部署模式的作用域仅限于还原以下数据：
 
  - 部署输入
- - 内部标识系统
- - 联合标识配置（断开连接部署）
+ - 内部标识服务数据（ADFS 部署）
+ - 联合标识配置（ADFS 部署）
  - 内部证书颁发机构使用的根证书
  - Azure 资源管理器配置用户数据，例如订阅、计划、套餐，以及存储、网络和计算资源的配额
  - KeyVault 机密和保管库
@@ -75,3 +76,5 @@ Azure Stack 支持称为云恢复模式的部署类型。 只有当灾难或产�
 ## <a name="next-steps"></a>后续步骤
 
 了解[使用基础结构备份服务](azure-stack-backup-best-practices.md)的最佳做法。
+
+<!-- Update_Description: update metedata properties -->

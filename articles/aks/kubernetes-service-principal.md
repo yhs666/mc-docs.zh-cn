@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/25/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 73f568976f60181dc2ec16807ae0876609a761c5
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 82828e090698c3f178691d7ef54ce6b9d73e337c
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731222"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500714"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 的服务主体
 
@@ -169,7 +169,7 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 [az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[service-principal]:../active-directory/develop/app-objects-and-service-principals.md
+[service-principal]: ../active-directory/develop/app-objects-and-service-principals.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
 [az-ad-app-list]: https://docs.azure.cn/zh-cn/cli/ad/app?view=azure-cli-latest#az-ad-app-list
 [az-ad-app-delete]: https://docs.azure.cn/zh-cn/cli/ad/app?view=azure-cli-latest#az-ad-app-delete

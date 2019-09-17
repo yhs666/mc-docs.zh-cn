@@ -3,24 +3,24 @@ title: 什么是基于组的许可 - Azure Active Directory | Microsoft Docs
 description: 了解 Azure Active Directory 基于组的许可，包括其工作原理和最佳做法。
 services: active-directory
 keywords: Azure AD 许可
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 origin.date: 10/29/2018
-ms.date: 08/12/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0acaece8fadaaaaed3db46977f860f8103dd2965
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 2a4ad25af9b9f9348ebd2d5078bed37083108cb9
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973277"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134184"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory 中基于组的许可是什么？
 
@@ -33,9 +33,9 @@ Microsoft 付费云服务（如 Office 365、企业移动性 + 安全性、Dynam
 ## <a name="licensing-requirements"></a>许可要求
 必须具有以下许可证之一才能使用基于组的许可：
 
-- Azure AD Basic 的付费版或试用版订阅
+- Azure AD Premium P1 及更高版本的付费订阅
 
-- Office 365 企业版 E3 或 Office 365 A3 及更高版本的付费版或试用版版本
+- 付费版 Office 365 企业版 E3 或 Office 365 A3 或 Office 365 GCC G3 及更高版本
 
 ### <a name="required-number-of-licenses"></a>所需许可证数
 对于分配了许可证的任何组，你还必须具有用于每个唯一成员的许可证。 虽然不是必须为组的每个成员分配一个许可证，但是你必须至少具有足够的许可证来包括所有成员。 例如，如果你的租户中经许可的组有 1,000 个唯一成员，则必须至少具有 1,000 个许可证才满足许可协议。
@@ -50,7 +50,7 @@ Microsoft 付费云服务（如 Office 365、企业移动性 + 安全性、Dynam
 
 - 支持需要用户级许可的所有 Azure 云服务。 此支持包括所有 Office 365 产品、企业移动性 + 安全性和 Dynamics 365。
 
-- 基于组的许可目前仅通过 [Azure 门户](https://portal.azure.cn)提供。 
+- 基于组的许可目前仅通过 [Azure 门户](https://portal.azure.cn)提供。 如果主要使用其他管理门户来管理用户和组，可以继续这样做。 但是，应该使用 Azure 门户在组级别管理许可证。
 
 - Azure AD 会自动管理由组成员身份更改导致的许可证修改。 通常，在组成员身份发生更改时，许可证修改在几分钟内就会生效。
 
@@ -73,3 +73,4 @@ Microsoft 付费云服务（如 Office 365、企业移动性 + 安全性、Dynam
 * [Azure Active Directory 基于组的许可的其他方案](../users-groups-roles/licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
 
+<!-- Update_Description: wording update -->

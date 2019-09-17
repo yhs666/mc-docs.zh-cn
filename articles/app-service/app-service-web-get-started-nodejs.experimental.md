@@ -1,5 +1,5 @@
 ---
-title: 创建 Node.js Web 应用 - Azure 应用服务 | Azure Docs
+title: 创建 Node.js Web 应用 - Azure 应用服务 | Azure
 description: 数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/18/2019
-ms.author: v-biyu
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 5f75e8825bc30e10a717665d472f3a628883f5ec
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 5b31fa50b4359cd8e48dc1f5fb51e57cb5de5592
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57348539"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806892"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
 
 
-[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将 Node.js 应用部署到 Azure 应用服务中。 你可以使用 [Azure Power Shell](https://docs.microsoft.com/zh-cn/powershell/azure/overview?view=azps-1.4.0) 创建 Web 应用，但是也可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令。 使用 [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令将示例 Node.js 代码部署到 Web 应用。  
+[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将 Node.js 应用部署到 Azure 应用服务中。 可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令。 使用 [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令将示例 Node.js 代码部署到 Web 应用。  
 
 ![在 Azure 中运行的示例应用](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "57348539"
 
 ## <a name="download-the-sample"></a>下载示例
 
-在 Cloud Shell 中，创建一个 quickstart 目录，然后切换到该目录。
+在 Azure CLI 中，创建一个 quickstart 目录，然后切换到该目录。
 
 ```azurecli
 mkdir quickstart
@@ -73,7 +73,7 @@ Checking connectivity... done.
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-在 Cloud Shell 中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。
+在 Azure CLI 中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。
 
 在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。
 

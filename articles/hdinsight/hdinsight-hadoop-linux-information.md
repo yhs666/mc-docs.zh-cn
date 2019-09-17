@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/20/2019
-ms.date: 07/22/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1504efeffe7b6187cfd09f7df9b36ce523d36235
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 298a77d257838082c7e0cbaad9cdf31691fecee6
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845439"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737407"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -249,7 +249,6 @@ HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [从基于 Windows 的 HDInsight 迁移到基于 Linux 的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
 * [使用 Apache Ambari REST API 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [将 Apache Hive 和 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
 * [将 Apache Pig 和 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)

@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2019
 ms.author: v-yiso
-ms.date: 06/17/2019
-ms.openlocfilehash: 4fd3295830c938b3a643f7af35961dbf6d085e8c
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 09/16/2019
+ms.openlocfilehash: 64076a6688d3c35d44974b87a21d5233c2cd77ba
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732490"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736712"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
+
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="delegate-signin-up"> </a>委派开发人员登录和注册
+
 若要委托开发人员登录并注册现有网站，需要在该站点上创建一个特殊的委托终结点。 该终结点需要充当从 API 管理开发人员门户发起的任何此类请求的入口点。
 
 最终工作流将如下所示：
 
 1. 开发人员单击 API 管理开发人员门户中的登录或注册链接
 2. 浏览器重定向到委派终结点
-3. 委派终结点反过来会重定向到 UI 或呈现该 UI，要求用户登录或注册
+3. 委派终结点反过来会重定向到 UI 或呈现 UI，要求用户登录或注册
 4. 成功后，用户会重定向回一开始使用的 API 管理开发人员门户页
 
-一开始需先将 API 管理设置为通过委派终结点来路由请求。 在 API 管理发布者门户中单击“安全”  ，并单击“委派”  选项卡。单击用于启用“委派登录和注册”的复选框。
+一开始需先将 API 管理设置为通过委派终结点来路由请求。 在 Azure 门户的 API 管理资源中搜索“安全性”  ，然后单击“委派”  项。 单击用于启用“委派登录和注册”的复选框。
 
 ![“委派”页][api-management-delegation-signin-up]
 
@@ -55,7 +57,7 @@ ms.locfileid: "66732490"
     登录/注册示例的查询参数：
    
    * **operation**：确定委派请求的类型，在此示例中只能为 **SignIn**
-   * **returnUrl**：用户已在其中单击了登录或注册链接的页面的 URL
+   * **returnUrl**：用户已单击了其中的登录或注册链接的页的 URL
    * **salt**：用于计算安全哈希的特殊 salt 字符串
    * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 2. 验证请求是否来自 Azure API 管理（可选，但强烈推荐执行以确保安全）
@@ -94,7 +96,7 @@ ms.locfileid: "66732490"
 * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 
 ## <a name="delegate-product-subscription"> </a>委派产品订阅
-委派产品订阅在操作方面与委派用户登录/注册类似。 最终工作流将如下所示：
+委派产品订阅的工作方式与委派用户登录/注册类似。 最终工作流将如下所示：
 
 1. 开发人员在 API 管理开发人员门户中选择一个产品，并单击“订阅”按钮。
 2. 浏览器将重定向到委托终结点。
@@ -177,7 +179,7 @@ var signature = digest.toString('base64');
 ```
 
 
-[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
 [创建用户]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate

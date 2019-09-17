@@ -6,20 +6,20 @@ documentationcenter: ''
 keywords: WAD2AI, Azure 诊断
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.workload: tbd
+origin.date: 09/05/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fc70921ed842f93cb1bcdcce949de14eba3f9341
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 3b68696778c4a22d3491ea5c97de230344991778
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989679"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737310"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>适用于 Azure 云服务的 Application Insights
 [Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。

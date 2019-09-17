@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2019
-ms.date: 07/29/2019
+origin.date: 07/08/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c2f350acd59f85aef45234e3203adeb79351669b
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: ba14c9bed69335efe85bdffedb7bbad1c1566580
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513394"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857100"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -42,7 +42,7 @@ Microsoft 会发布完整的每月更新包和修补程序包来解决特定问�
 
 集成系统有两种类型的更新包：
 
-- **Microsoft 软件更新**。 Azure 会负责 Microsoft 软件更新包的端到端服务生命周期。 这些包可以包括最新的 Windows Server 安全更新、非安全更新和 Azure Stack 功能更新。 可以直接从 Microsoft 下载这些更新包。
+- **Microsoft 软件更新**。 Microsoft 会负责 Microsoft 软件更新包的端到端服务生命周期。 这些包可以包括最新的 Windows Server 安全更新、非安全更新和 Azure Stack 功能更新。 可以直接从 Microsoft 下载这些更新包。
 
 - **OEM 硬件供应商提供的更新**。 Azure Stack 硬件合作伙伴负责硬件相关固件和驱动程序更新包的端到端服务生命周期（包括指导）。 此外，对于硬件生命周期主机上的所有软件和硬件，Azure Stack 硬件合作伙伴拥有并维护指导。 OEM 硬件供应商在自己的下载站点上托管这些更新包。
 
@@ -54,10 +54,10 @@ Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
+- [Azure Stack 1907 更新](azure-stack-release-notes-1907.md)
 - [Azure Stack 1906 更新](azure-stack-release-notes-1906.md)
 - [Azure Stack 1905 更新](azure-stack-release-notes-1905.md)
 - [Azure Stack 1904 更新](azure-stack-release-notes-1904.md)
-- [Azure Stack 1903 更新](azure-stack-update-1903.md)
 
 ## <a name="hotfixes"></a>修补程序
 

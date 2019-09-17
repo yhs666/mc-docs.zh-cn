@@ -5,15 +5,16 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 02/16/2018
+origin.date: 02/16/2018
+ms.date: 02/26/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 5d04ea176aa5443172dad914e630c48e3793d3f4
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.subservice: alerts
+ms.openlocfilehash: bc84d1b79add765d6d3eba1c5e6a312cb146488b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586896"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737339"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>操作组中的短信通知行为
 ## <a name="overview"></a>概述 ##

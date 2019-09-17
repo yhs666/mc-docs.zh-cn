@@ -7,21 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 07/08/2019
-ms.date: 07/23/2019
+origin.date: 08/08/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: e716550d4f0fecb7bd583d7e145003a47cc881ac
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 2980fb77023f70e83ed8be722cba6650cf4d9c07
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391590"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310768"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中设置登录特定 Azure Active Directory 组织
-
->[!NOTE]
-> 此功能目前以公共预览版提供。 请勿在生产环境中使用该功能。
 
 若要将 Azure Active Directory (Azure AD) 用作 Azure AD B2C 中的[标识提供者](active-directory-b2c-reference-oauth-code.md)，需要创建一个表示它的应用程序。 本文介绍如何使用 Azure AD B2C 中的用户流为特定 Azure AD 组织中的用户启用登录。
 
@@ -30,7 +27,7 @@ ms.locfileid: "68391590"
 若要让用户从特定的 Azure AD 组织登录，需要在与 Azure AD B2C 租户不同的组织 Azure AD 租户中注册一个应用程序。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 请确保使用的是包含 Azure AD 租户的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含 Azure AD 租户的目录  。 此租户与 Azure AD B2C 租户不同。
+2. 请确保使用的是包含 Azure AD 租户的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD 租户的目录  。 此租户与 Azure AD B2C 租户不同。
 3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“应用注册”   。
 4. 选择“新注册”。 
 5. 输入应用程序的名称。 例如，`Azure AD B2C App`。
@@ -51,29 +48,30 @@ ms.locfileid: "68391590"
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>将 Azure AD 配置为标识提供者
 
-1. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含 Azure AD B2C 租户的目录  。
-2. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
-3. 选择“标识提供者”  ，然后选择“添加”  。
-4. 输入“名称”  。 例如，输入 `Contoso Azure AD`。
-5. 选择“标识提供者类型”，选择“Open ID 连接(预览版)”并单击“确定”    。
-6. 选择“设置此标识提供者” 
-7. 对于“元数据 URL”  ，输入以下 URL，并将 `your-AD-tenant-domain` 替换为 Azure AD 租户的域名。 例如 `https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/.well-known/openid-configuration`：
+1. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD B2C 租户的目录  。
+1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
+1. 选择“标识提供者”  ，然后选择“新建 OpenID Connect 提供程序”  。
+1. 输入“名称”  。 例如，输入“Contoso Azure AD”  。
+1. 对于“元数据 URL”  ，请输入以下 URL，将 `your-AD-tenant-domain` 替换为 Azure AD 租户的域名：
 
     ```
     https://login.partner.microsoftonline.cn/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. 对于“客户端 ID”  ，输入先前记录的应用程序 ID；对于“客户端密码”  ，输入先前记录的客户端密码。
-9. （可选）输入  Domain_hint 的值。 例如，`ContosoAD`。 在请求中使用 domain_hint 引用此标识提供者时会用到该值  。
-10. 单击 **“确定”** 。
-11. 选择“映射此标识提供者的声明”  并设置以下声明：
+    例如，`https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/.well-known/openid-configuration`。
 
-    - 在“用户 ID”中输入 `oid`  。
-    - 在“显示名称”中输入 `name`  。
-    - 在“名字”中输入 `given_name`  。
-    - 在“姓氏”中输入 `family_name`  。
-    - 在“电子邮件”中输入 `unique_name`  。
+1. 对于“客户端 ID”，请输入之前记录的应用程序 ID  。
+1. 对于“客户端机密”，请输入之前记录的客户端机密  。
+1. 保留“范围”  、“响应类型”和“响应模式”   的默认值。
+1. （可选）输入  Domain_hint 的值。 例如，*ContosoAD*。 在请求中使用 domain_hint 引用此标识提供者时会用到该值  。
+1. 在“标识提供者声明映射”  下，输入以下声明映射值：
 
-12. 单击“确定”，并单击“创建”保存配置。  
+    * **用户 ID**：*oid*
+    * **显示名称**：*name*
+    * **名字**：*given_name*
+    * **姓氏**：*family_name*
+    * **电子邮件**：*unique_name*
+
+1. 选择“其他安全性验证”  。
 
 <!-- Update_Description: wording update -->

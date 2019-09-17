@@ -5,14 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 05/19/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c5965f227f6e30163dc85dd8d4518198d33cc37f
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: da32513a5b79c8f2f1cde9febd24bf56eb9c4ff8
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513822"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737245"
 ---
 # <a name="what-are-classic-alerts-in-21vianet-azure"></a>什么是世纪互联 Azure 中的经典警报？
 

@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: rockboyfor
 ms.author: v-yeche
-origin.date: 07/09/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: bc88199574e0c6dbbe9e5e6381e8588bbc5ce967
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+origin.date: 07/26/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 4446e78316c358ed0fe9e5dc68630587b7e61f00
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672228"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254428"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模拟器进行本地开发和测试
 
@@ -24,7 +24,7 @@ ms.locfileid: "68672228"
 
 Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持与 Azure Cosmos DB 相同的功能，包括创建和查询数据、支持预配和缩放容器，以及执行存储过程和触发器。 可以使用 Azure Cosmos 模拟器开发和测试应用程序，并通过直接对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
 
-虽然模拟 Azure Cosmos DB 服务很逼真，但模拟器的实现不同于服务。 例如，模拟器使用标准 OS 组件，例如用于暂留的本地文件系统和用于连接的 HTTPS 协议堆栈。 依赖于 Azure 基础结构的功能（如多区域复制、读/写的个位数毫秒延迟，以及可调整的一致性级别）不适用。
+虽然模拟 Azure Cosmos DB 服务很逼真，但模拟器的实现不同于服务。 例如，模拟器使用标准 OS 组件，例如用于暂留的本地文件系统和用于连接的 HTTPS 协议堆栈。 依赖于 Azure 基础结构的功能（如多区域复制、读/写的单位数毫秒延迟，以及可调整的一致性级别）不适用。
 
 可通过 [Azure Cosmos DB 数据迁移工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos 模拟器与 Azure Cosmos DB 服务之间迁移数据。
 
@@ -98,7 +98,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > Azure Cosmos 模拟器支持的主密钥仅可用于该模拟器。 不能在 Azure Cosmos DB 模拟器中使用生产 Azure Cosmos DB 帐户和密钥。
 
 > [!NOTE]
-> 如果是使用 /Key 选项启动的模拟器，请使用所生成的密钥而不是 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`。 有关 /Key 选项的详细信息，请参阅[命令行工具参考](#command-line-syntax)。
+> 如果是使用 /Key 选项启动的模拟器，请使用所生成的密钥而不是 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`。 有关 /Key 选项的详细信息，请参阅[命令行工具参考](#command-line)。
 
 与 Azure Cosmos DB 一样，Azure Cosmos 模拟器仅支持采用 SSL 的安全通信。
 
@@ -123,7 +123,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 
-如果使用 [Azure Cosmos DB 的 API for MongoDB](mongodb-introduction.md)，请使用以下连接字符串：
+在桌面上运行 Azure Cosmos 模拟器后，可以使用 [Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md) 与该模拟器进行交互。 在命令提示符下，以管理员的身份使用“/EnableMongoDbEndpoint”启动模拟器。 然后，使用以下连接字符串来连接到 MongoDB API 帐户：
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -224,9 +224,9 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ![Azure Cosmos DB 本地模拟器 SSL 证书](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-可按照 [ 将证书添加到 Java CA 证书存储 ](https://docs.azure.cn/en-us/java/java-sdk-add-certificate-ca-store?view=azure-java-stable) 中的说明，将 X.509 证书导入 Java 证书存储。 证书导入证书存储后，SQL 和 MongoDB 的 Azure Cosmos DB API 的客户端就能连接到 Azure Cosmos 模拟器。
+可按照 [ 将证书添加到 Java CA 证书存储 ](https://docs.azure.cn/java/java-sdk-add-certificate-ca-store?view=azure-java-stable) 中的说明，将 X.509 证书导入 Java 证书存储。 证书导入证书存储后，SQL 和 MongoDB 的 Azure Cosmos DB API 的客户端就能连接到 Azure Cosmos 模拟器。
 
-<!--MOONCAKE: Correct ON https://docs.azure.cn/en-us/java/java-sdk-add-certificate-ca-store?view=azure-java-stable-->
+<!--MOONCAKE: Correct ON https://docs.azure.cn/java/java-sdk-add-certificate-ca-store?view=azure-java-stable-->
 
 从 Python 和 Node.js SDK 连接到模拟器时，会禁用 SSL 验证。
 
@@ -363,7 +363,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 接下来，通过从你喜欢使用的 shell 运行以下命令，从 Docker 中心拉取模拟器映像。
 
 ```bash
-docker pull microsoft/azure-cosmosdb-emulator
+docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
 ```
 若要启动映像，请运行以下命令。
 
@@ -372,15 +372,18 @@ docker pull microsoft/azure-cosmosdb-emulator
 
 md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 
-docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 microsoft/azure-cosmosdb-emulator
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator --rm
 ```
+
+> [!NOTE]
+> 如果在运行 docker run 命令时发现端口冲突错误（指定的端口已在使用中），则可以通过更改端口号来传递自定义端口。 例如，可以将“-p 8081:8081”更改为“-p 443:8081”
 
 通过 PowerShell：
 ```powershell
 
 md $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount 2>null
 
-docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=$env:LOCALAPPDATA\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 microsoft/azure-cosmosdb-emulator
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=$env:LOCALAPPDATA\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
 
 ```
 

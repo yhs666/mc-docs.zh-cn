@@ -5,18 +5,19 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
+origin.date: 10/03/2018
 ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 7725955fab6e0ee1464a70c09f44e523b609f684
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 8e6fc0e1c90d040f8a312437cdd7f7754c33835f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989601"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736976"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>开始使用 App Center 和 Application Insights 分析移动应用
 

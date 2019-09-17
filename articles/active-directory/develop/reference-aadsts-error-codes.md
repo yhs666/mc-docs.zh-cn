@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 02/13/2019
-ms.date: 07/01/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3038c37fec93a7af3c42641cf8d520377087389
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 550c2096f03bd35527f83168e1d97f8af840673c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568722"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134113"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -106,7 +106,7 @@ ms.locfileid: "67568722"
 | AADSTS50127 | BrokerAppNotInstalled - 用户需要安装中转站应用才能访问此内容。 |
 | AADSTS50128 | 域名无效 - 未在请求中找到或提供的任何凭据均未暗示任何租户标识信息。 |
 | AADSTS50129 | DeviceIsNotWorkplaceJoined - 需要加入工作区才能注册设备。 |
-| AADSTS50131 | ConditionalAccessFailed - 表示各种情形下的访问错误，例如，Windows 设备状态不正确，请求因活动、访问策略和安全策略决策可疑而被阻止。 |
+| AADSTS50131 | ConditionalAccessFailed - 指示各种条件访问错误，例如，Windows 设备状态不正确，请求因活动可疑、访问策略和安全策略决策而被阻止。 |
 | AADSTS50132 | SsoArtifactInvalidOrExpired - 会话由于密码过期或最近更改了密码而无效。 |
 | AADSTS50133 | SsoArtifactRevoked - 会话由于密码过期或最近更改了密码而无效。 |
 | AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - 错误的数据中心。 若要授权 OAuth 2.0 设备流中的应用发起的请求，授权方必须与原始请求位于同一数据中心。 |
@@ -216,6 +216,7 @@ ms.locfileid: "67568722"
 | AADSTS90093 | GraphUserUnauthorized - Graph 返回了针对请求的禁止访问错误代码。 |
 | AADSTS90094 | AdminConsentRequired - 需要管理员许可。 |
 | AADSTS90100 | InvalidRequestParameter - 参数为空或无效。 |
+| AADSTS901002 | AADSTS901002：不支持“resource”请求参数。 |
 | AADSTS90101 | InvalidEmailAddress - 提供的数据不是有效的电子邮件地址。 电子邮件地址必须采用 `someone@example.com` 格式。 |
 | AADSTS90102 | InvalidUriParameter - 值必须是有效的绝对 URI。 |
 | AADSTS90107 | InvalidXml - 请求无效。 请确保数据不包含无效字符。|
@@ -270,4 +271,4 @@ ms.locfileid: "67568722"
 
 * 遇到了问题或者找不到所需的内容？ 请创建 GitHub 问题，或查看[面向开发人员的支持和帮助选项](active-directory-develop-help-support.md)来了解其他可以获得帮助和支持的方法。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

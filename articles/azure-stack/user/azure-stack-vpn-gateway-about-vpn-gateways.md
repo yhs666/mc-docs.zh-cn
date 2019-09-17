@@ -1,6 +1,6 @@
 ---
-title: 关于 Azure Stack 的 VPN 网关 | Microsoft Docs
-description: 了解和配置用于 Azure Stack 的 VPN 网关。
+title: 为 Azure Stack 创建 VPN 网关 | Microsoft Docs
+description: 为 Azure Stack 创建和配置 VPN 网关。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 921f62ea39f5c75e5765cd5eafc37413a777c215
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: c3ff572863f977e395e97e79d1512f1905f0c669
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513198"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857159"
 ---
-# <a name="about-vpn-gateway-for-azure-stack"></a>关于 Azure Stack 的 VPN 网关
+# <a name="create-vpn-gateways-for-azure-stack"></a>为 Azure Stack 创建 VPN 网关
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -33,7 +33,7 @@ VPN 网关是一种通过公共连接发送加密流量的虚拟网络网关。 
 
 创建虚拟网络网关时，需指定要创建的网关类型。 Azure Stack 支持一种类型的虚拟网络网关：**Vpn** 类型。
 
-每个虚拟网络可以拥有两个虚拟网络网关，但只能有一种类型。 根据所选设置，可以创建到单个 VPN 网关的多个连接。 一个示例是多站点连接配置。
+每个虚拟网络可以拥有两个虚拟网络网关，但只能有一种类型。 根据所选设置，可以创建到单个 VPN 网关的多个连接。 此类设置的一个示例是多站点连接配置。
 
 在为 Azure Stack 创建和配置 VPN 网关之前，请查看 [Azure Stack 网络的注意事项](azure-stack-network-differences.md)，以了解 Azure Stack 的配置与 Azure 的不同之处。
 
@@ -41,6 +41,7 @@ VPN 网关是一种通过公共连接发送加密流量的虚拟网络网关。 
 >在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 Azure Stack 中，VPN 网关 SKU 的带宽值会应用于连接到网关的每个连接资源。
 >
 > 例如：
+>
 > * 在 Azure 中，基本 VPN 网关 SKU 可以容纳大约 100 Mbps 的聚合吞吐量。 如果对该 VPN 网关创建两个连接，而且其中一个连接使用 50 Mbps 的带宽，则 50 Mbps 可供另一个连接使用。
 > * 在 Azure Stack 中，与基本 VPN 网关 SKU 的**每个连接**都分配了 100 Mbps 的吞吐量。
 
@@ -75,7 +76,7 @@ VPN 网关连接可以使用不同的配置。 确定哪种配置最适合自己
 
 ### <a name="site-to-site"></a>站点到站点
 
-站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE (IKEv2) VPN 隧道建立的连接。  此类连接需要一个位于本地的 VPN 设备，并需要为此类连接分配公共 IP 地址。 此设备不能位于 NAT 之后。 S2S 连接可用于跨界和混合配置。
+站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE (IKEv2) VPN 隧道建立的连接。  此类连接需要一个位于本地的 VPN 设备，并需要为此类连接分配公共 IP 地址。 此设备不能位于 NAT 的后面。 S2S 连接可用于跨界和混合配置。
 
 ![站点到站点 VPN 连接配置示例](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -109,7 +110,7 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 
 ### <a name="failover"></a>故障转移
 
-Azure Stack 中有 3 个多租户网关基础结构 VM。 其中两个 VM 处于活动模式，第三个 VM 处于冗余模式。 活动 VM 支持在其上创建 VPN 连接，而冗余 VM 只在故障转移时才接受 VPN 连接。 如果活动网关 VM 变得不可用，VPN 连接在短时间（几秒）的连接丢失之后就会故障转移到冗余 VM。
+Azure Stack 中有三个多租户网关基础结构 VM。 其中两个 VM 处于活动模式，第三个 VM 处于冗余模式。 活动 VM 支持在其上创建 VPN 连接，而冗余 VM 只在发生故障转移时才接受 VPN 连接。 如果活动网关 VM 变得不可用，VPN 连接在短时间（几秒）的连接丢失之后就会故障转移到冗余 VM。
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>按 SKU 列出的估计聚合吞吐量
 

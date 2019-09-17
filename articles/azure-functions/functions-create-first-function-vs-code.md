@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 06/25/2019
-ms.date: 07/17/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d0090b3cd67726f8ae4c0d9dd4857ee40b6aa813
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: d4d290f1a041414dc6bb2fd9f7d51952363b3a71
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331860"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805751"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 创建你的第一个函数
 
@@ -28,7 +28,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ![Visual Studio 项目中的 Azure Functions 代码](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-该扩展目前支持 C#、JavaScript 和 Java 函数，Python 支持目前处于预览状态。 本文和后续文章中的步骤仅支持 JavaScript 和 C# 函数。 若要了解如何使用 Visual Studio Code 创建和发布 Python 函数，请参阅[将 Python 部署到 Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。
+该扩展当前支持 C#、JavaScript、Java 和 Python 函数。 本文和后续文章中的步骤仅支持 JavaScript 和 C# 函数。 若要了解如何使用 Visual Studio Code 创建和发布 Python 函数，请参阅[将 Python 部署到 Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。 
 
 此扩展目前为预览版。 若要了解详细信息，请参阅[适用于 Visual Studio Code 的 Azure Functions 扩展]页。
 
@@ -85,4 +85,3 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 [Azure Functions Core Tools]: functions-run-local.md
 [适用于 Visual Studio Code 的 Azure Functions 扩展]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 
-<!-- Update_Description: wording update -->

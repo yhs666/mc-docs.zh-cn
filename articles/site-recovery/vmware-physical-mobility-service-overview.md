@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/25/2019
-ms.date: 06/10/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 940e9b773c663b21ad3fba0adeb5521eab69b38c
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: b2968f9ac17a9f7818fae81837da27ddcfe4a8b2
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390825"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134479"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>关于适用于 VMware VM 和物理服务器的移动服务
 
@@ -46,9 +46,9 @@ ms.locfileid: "66390825"
 4. 如果代理安装成功但 VSS 提供程序安装失败，则会将作业状态标记为“警告”。 这不影响崩溃一致性点的生成。
 
     a. 若要生成应用程序一致性点，请参阅[我们的指南](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine)，了解如何手动完成 Site Recovery VSS 提供程序的安装。 <br />
-    b.  如果不希望生成应用程序一致性点，请[修改复制策略](vmware-azure-set-up-replication.md#create-a-policy)，将应用程序一致性点关闭。
+    b. 如果不希望生成应用程序一致性点，请[修改复制策略](vmware-azure-set-up-replication.md#create-a-policy)，将应用程序一致性点关闭。
 
-### <a name="before-922-versions"></a>9.22 以前的版本
+### <a name="before-922-versions"></a>9\.22 以前的版本
 
 1. 将代理推送到源计算机。 将代理复制到源计算机的操作可能因多个环境错误而失败。 若要排查推送安装故障，请访问[我们的指南](vmware-azure-troubleshoot-push-install.md)。
 2. 将代理成功复制到服务器以后，将会在服务器上执行先决条件检查。 如果一项或多项[先决条件](vmware-physical-azure-support-matrix.md)没有得到满足，安装会失败。 如果满足所有先决条件，则会触发安装过程。
@@ -116,7 +116,7 @@ ms.locfileid: "66390825"
 #### <a name="installation-settings"></a>安装设置
 **设置** | **详细信息**
 --- | ---
-使用情况 | UnifiedAgent.exe /Role <MS/MT> /InstallLocation <Install Location> /Platform "VmWare" /Silent
+使用情况 | UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent
 安装程序日志 | 位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 下。
 /Role | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
 /InstallLocation| 可选参数。 指定移动服务的安装位置（任意文件夹）。
@@ -155,7 +155,7 @@ ms.locfileid: "66390825"
 #### <a name="installation-settings"></a>安装设置
 **设置** | **详细信息**
 --- | ---
-使用情况 | ./install -d <Install Location> -r <MS/MT> -v VmWare -q
+使用情况 | ./install -d \<Install Location> -r \<MS/MT> -v VmWare -q
 -r | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
 -d | 可选参数。 指定移动服务的安装位置：/usr/local/ASR。
 -v | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。

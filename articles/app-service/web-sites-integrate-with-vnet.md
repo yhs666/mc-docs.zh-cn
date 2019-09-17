@@ -13,27 +13,28 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2019
 ms.date: 08/12/2019
-ms.author: v-johch
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 29a585dbf02766827bbba1d3d848ad256da9ddac
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 9763a94799a606012a25b91e9cbdb7c4a6398dc9
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878598"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806673"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
 本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。
 
-在 Azure 中国区，Azure 应用服务只有一个窗体。  
+<!-- not support VNet Integration feature-->
+<!-- no add VNet (preview) in portal-->
 
-* 支持全部定价计划的多租户系统
+本文档介绍 VNet 集成功能，该功能用于多租户应用服务。
 
+有一种形式的 VNet 集成功能：
 
-VNet 集成功能允许 Web 应用访问虚拟网络中的资源，但不允许通过虚拟网络对 Web 应用进行专用访问。 专用站点访问指的是仅可从专用网络（例如 Azure 虚拟网络内）对应用进行访问。 专用站点访问仅适用于部署了内部负载均衡器 (ILB) 的 ASE。 有关使用 ILB ASE 的详细信息，请先参阅此文章：[创建和使用 ILB ASE][ILBASE]。 
+* 允许与其他区域的 VNet 集成或与经典 VNet 集成。 此功能需要将虚拟网关部署到 VNet 中。 这是基于点到站点 VPN 的功能。
 
-VNet 集成通常用于实现应用对 VNet 中的数据库和运行 Web 服务的访问。 使用 VNet 集成时，不需要公开 VM 中应用程序的公共终结点，可以改用无法通过 Internet 路由的专用地址。 
-
+VNet 集成功能允许 Web 应用访问虚拟网络中的资源，但不允许通过虚拟网络对 Web 应用进行入站专用访问。 专用站点访问指的是仅可从专用网络（例如 Azure 虚拟网络内）对应用进行访问。 VNet 集成只是为了从应用对 VNet 进行出站调用。 
 
 VNet 集成功能：
 
@@ -47,6 +48,18 @@ VNet 集成不支持某些功能，其中包括：
 * AD 集成 
 * NetBios
 
+## <a name="gateway-required-vnet-integration"></a>需要网关的 VNet 集成 
+
+需要网关的 VNet 集成功能：
+
+* 可以用来连接到任何区域中的 VNet，不管它们是资源管理器 VNet 还是经典 VNet
+* 允许应用一次只连接到 1 个 VNet
+* 允许在应用服务计划中一次最多集成 5 个 VNet 
+* 允许在应用服务计划中由多个应用使用同一个 VNet，不影响可供应用服务计划使用的总数。  如果有 6 个应用在使用同一应用服务计划中的同一 VNet，则计为 1 个 VNet 被使用。 
+* 需要使用点到站点 VPN 配置的虚拟网关
+* 由于网关上的 SLA，可实现 99.9% 的 SLA
+
+此功能不支持以下操作：
 * 跨 ExpressRoute 访问资源 
 * 跨服务终结点访问资源 
 
@@ -93,7 +106,7 @@ VNet 集成不支持某些功能，其中包括：
 ![VNet 集成的工作原理][3]
 
 ## <a name="managing-vnet-integration"></a>管理 VNet 集成
-连接到 VNet 以及断开其连接的功能在应用级别执行。 可能影响多个应用的 VNet 集成的操作在应用服务计划级别执行。 可以通过应用 UID 获取 VNet 的详细信息。 同样的信息也会显示在 ASP 级别。 
+连接到 VNet 以及断开其连接的功能在应用级别执行。 可能影响多个应用的 VNet 集成的操作在应用服务计划级别执行。 可以通过“应用 > 网络 > VNet 集成门户”获取 VNet 的详细信息。 可以在“ASP > 网络 > VNet 集成门户”中查看 ASP 级别的类似信息，包括应用服务计划中的哪些应用在使用给定集成。
 
  ![VNet 详细信息][4]
 
@@ -128,15 +141,12 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 ## <a name="accessing-on-premises-resources"></a>访问本地资源
 应用可以通过与具备站点到站点连接的 VNet 集成来访问本地资源。 如果使用网关所需的 VNet 集成，需要使用点到站点地址块更新本地 VPN 网关路由。 先设置站点到站点 VPN，接着应通过用于配置该 VPN 的脚本来正确地设置路由。 如果在创建站点到站点地址后才添加点到站点 VPN，则需手动更新路由。 具体操作信息取决于每个网关，在此不作说明。 不能使用站点到站点 VPN 连接配置 BGP。
 
-区域 VNet 集成功能无需经过其他配置即可访问 VNet 和本地。 只需使用 ExpressRoute 或站点到站点 VPN 将 VNet 连接到本地。 
-
 > [!NOTE]
-> VNET 集成功能不会将应用与包含 ExpressRoute 网关的 VNet 集成。 即使 ExpressRoute 网关是以[共存模式][VPNERCoex]配置的，vNet 集成也不会实现。
+> 需要网关的 VNet 集成功能不会将应用与包含 ExpressRoute 网关的 VNet 集成。 即使以[共存模式][VPNERCoex]配置 ExpressRoute 网关，VNet 集成也不会生效。
 > 
 > 
 
 ## <a name="peering"></a>对等互连
-如果对区域 VNet 集成使用对等互连，则不需要进行任何附加的配置。 
 
 如果结合对等互连使用网关所需的 VNet 集成，则需要配置几个附加的项。 若要配置对等互连以使用应用，请执行以下操作：
 
@@ -146,7 +156,6 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 
 
 ## <a name="pricing-details"></a>定价详细信息
-除 ASP 定价层的费用外，区域 VNet 集成功能不会产生额外的使用费。
 
 使用网关所需的 VNet 集成功能涉及到三种相关费用：
 
@@ -163,7 +172,7 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 
     nameresolver.exe hostname [optional: DNS Server]
 
-可以使用 **nameresolver** 来检查应用所依赖的主机名。 可以通过这种方式来测试 DNS 是否配置错误，或者测试你是否无权访问 DNS 服务器。
+可以使用 **nameresolver** 来检查应用所依赖的主机名。 可以通过这种方式来测试 DNS 是否配置错误，或者测试你是否无权访问 DNS 服务器。 若要了解可供应用在控制台中使用的 DNS 服务器，请查看环境变量 WEBSITE_DNS_SERVER 和 WEBSITE_DNS_ALT_SERVER。
 
 下一工具适用于测试与主机的 TCP 连接情况，以及端口组合情况。 该工具名为 **tcpping**，语法为：
 
@@ -175,14 +184,9 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 许多因素会阻止应用访问特定的主机和端口。 大多数情况下为以下三种情况：
 
 * **存在防火墙。** 如果存在防火墙，则会发生 TCP 超时。 本例中的 TCP 超时为 21 秒。 使用 **tcpping** 工具测试连接性。 除了防火墙外，还有多种原因可能导致 TCP 超时。 
-* **DNS 不可访问。** DNS 超时时间为每个 DNS 服务器 3 秒。 如果具有 2 个 DNS 服务器，则超时为 6 秒。 使用 nameresolver 查看 DNS 是否正常工作。 请记住，不能使用 nslookup，因其没有使用为 VNet 配置的 DNS。
+* **DNS 不可访问。** DNS 超时时间为每个 DNS 服务器 3 秒。 如果具有 2 个 DNS 服务器，则超时为 6 秒。 使用 nameresolver 查看 DNS 是否正常工作。 请记住，不能使用 nslookup，因其没有使用为 VNet 配置的 DNS。 如果无法访问，则表明可能有防火墙或 NSG 在阻止对 DNS 的访问，或者该 DNS 可能已停机。
 
 如果这些方法未解决问题，请首先检查以下因素： 
-
-**区域 VNet 集成**
-* 目标是否为 RFC 1918 地址
-* 是否有 NSG 阻止了集成子网传出数据
-* 如果通过 ExpressRoute 或 VPN 传输，本地网关是否配置为将流量路由回到 Azure？ 如果你可以访问 VNet 中的终结点但不能访问本地的终结点，则最好是检查这一点。
 
 **网关所需的 VNet 集成**
 * 点到站点地址范围是否在 RFC 1918 范围内 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)？
@@ -218,7 +222,6 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 * 在本地网关中未使用子网或点到站点地址范围配置路由
 * 网络安全组阻止点到站点 IP 范围中的 IP 进行访问
 * 本地防火墙阻止来自点到站点 IP 范围的流量
-* 正在尝试使用区域 VNet 集成功能访问非 RFC 1918 地址
 
 
 ## <a name="powershell-automation"></a>PowerShell 自动化
@@ -237,7 +240,7 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
-[VNETOverview]: ../virtual-network/virtual-networks-overview.md
+[VNETOverview]: /virtual-network/virtual-networks-overview
 [AzurePortal]: http://portal.azure.cn/
 [ASPricing]: https://www.azure.cn/pricing/details/app-service/
 [VNETPricing]: https://www.azure.cn/pricing/details/vpn-gateway/

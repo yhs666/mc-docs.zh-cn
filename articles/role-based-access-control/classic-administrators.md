@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/19/2019
-ms.date: 03/20/2019
+ms.date: 09/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 67606ed4911fac0be8391527e07924264565589b
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 90e2e4e5a4ea8b39ed8ddd8a16dca7ec2592d4a9
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236576"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310855"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 经典订阅管理员
 
@@ -112,7 +112,7 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 每个订阅都与一个 Azure AD 目录相关联。 若要查找与订阅关联的目录，请在 Azure 门户中打开“订阅”，然后选择一个订阅以查看目录。 
 
-如果已使用工作或学校帐户登录，则可将组织中的其他帐户添加为服务管理员。 例如，abby@contoso.com 可以添加 bob@contoso.com 作为服务管理员，但不能添加 john@notcontoso.com，除非 john@notcontoso.com 位于 contoso.com 目录中。 使用工作或学校帐户登录的用户可以继续将 Microsoft 帐户用户添加为服务管理员。
+如果已使用工作或学校帐户登录，则可将组织中的其他帐户添加为服务管理员。 例如，abby@contoso.com 可以添加 bob@contoso.com 作为服务管理员，但不能添加 john@notcontoso.com，除非 john@notcontoso.com 位于 contoso.com 目录中。 使用工作或学校帐户登录的用户可以继续将 Microsoft 帐户用户添加为服务管理员。 每个 Azure 订阅只能有一个服务管理员。
 
   | 登录方法 | 将 Microsoft 帐户用户添加为服务管理员？ | 将同一组织中的工作或学校帐户添加为服务管理员？ | 将不同组织中的工作或学校帐户添加为服务管理员？ |
   | --- | --- | --- | --- |

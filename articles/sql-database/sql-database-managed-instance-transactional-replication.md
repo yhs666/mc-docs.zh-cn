@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 02/08/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 900750b13f310db110dfaadae113743a3c1e5d89
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: 5aeaf7579ebf2fab4f8626feb3232cec40859b37
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543949"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372966"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>对 Azure SQL 数据库中的单一数据库、共用数据库和实例数据库进行事务复制
 
@@ -98,8 +97,10 @@ ms.locfileid: "69543949"
 - 需要在托管实例子网的安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。 
 - 如果发布服务器/分发服务器位于托管实例上，而订阅服务器位于本地，则需要打开端口 1433（TCP 出站）。
 
-  >[!NOTE]
-  > 当分发服务器为实例数据库且订阅服务器位于本地时，如果阻止出站网络安全组 (NSG) 端口 445，则会在连接到 Azure 存储文件时遇到错误 53。 [更新 vNet NSG](/storage/files/storage-troubleshoot-windows-file-connection-problems) 以解决此问题。 
+
+>[!NOTE]
+> - 当分发服务器为实例数据库且订阅服务器位于本地时，如果阻止出站网络安全组 (NSG) 端口 445，则会在连接到 Azure 存储文件时遇到错误 53。 [更新 vNet NSG](/storage/files/storage-troubleshoot-windows-file-connection-problems) 以解决此问题。 
+> - 如果托管实例上的发布服务器和分发服务器数据库使用[自动故障转移组](sql-database-auto-failover-group.md)，则托管实例管理员必须[删除旧主节点上的所有发布内容，并在故障转移后在新的主节点上重新配置发布内容](sql-database-managed-instance-transact-sql-information.md#replication)。
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>将数据同步与事务复制进行比较
 
@@ -117,7 +118,7 @@ ms.locfileid: "69543949"
 
 ![用作发布服务器和分发服务器的单个实例](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-发布服务器和分发服务器在单个托管实例中配置，并将更改分发到本地的其他托管实例、单一数据库、共用数据库或 SQL Server。 在此配置中，不能使用[异地复制和自动故障转移组](sql-database-auto-failover-group.md)来配置发布服务器/分发服务器托管实例。
+发布服务器和分发服务器在单个托管实例中配置，并将更改分发到本地的其他托管实例、单一数据库、共用数据库或 SQL Server。 
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>带远程分发服务器的发布服务器位于托管实例上
 
@@ -125,11 +126,11 @@ ms.locfileid: "69543949"
 
 ![发布服务器和分发服务器的独立实例](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
-在两个托管实例上配置发布服务器和分发服务器。 在此配置中
+在两个托管实例上配置发布服务器和分发服务器。 此配置存在一些约束： 
 
 - 两个托管实例位于同一 vNet 中。
-- 两个托管实例位于同一位置。
-- 不能[使用自动故障转移组异地复制](sql-database-auto-failover-group.md)正在托管发布和分发服务器数据库的托管实例。
+- 两个托管实例都位于同一位置。
+
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>发布服务器和分发服务器位于本地，订阅服务器位于单一数据库、共用数据库和实例数据库上 
 
@@ -143,11 +144,13 @@ ms.locfileid: "69543949"
 1. [配置两个托管实例之间的复制](replication-with-sql-database-managed-instance.md)。 
 1. [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)。
 1. 使用 Azure SQL 数据库服务器名称作为订阅服务器（例如 `N'azuresqldbdns.database.chinacloudapi.cn`）并使用 Azure SQL 数据库名称作为目标数据库（例如 **Adventureworks**）来[创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)。 )
+1. 了解[托管实例的事务复制限制](sql-database-managed-instance-transact-sql-information.md#replication)
 
 
 
 ## <a name="see-also"></a>另请参阅  
 
+- [托管实例和故障转移组的复制](sql-database-managed-instance-transact-sql-information.md#replication)
 - [复制到 SQL 数据库](replication-to-sql-database.md)
 - [复制到托管实例](replication-with-sql-database-managed-instance.md)
 - [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

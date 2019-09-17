@@ -3,17 +3,18 @@ title: 使用服务主体的 Azure 容器注册表身份验证
 description: 使用 Azure Active Directory 服务主体允许访问专用容器注册表中的映像。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 02/18/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3a3792c313aac7c767903db430083d5f2ae66f0f
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 14fc152371f30f6a50053f44796154f479174081
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440041"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134147"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服务主体的 Azure 容器注册表身份验证
 
@@ -21,7 +22,7 @@ ms.locfileid: "56440041"
 
 ## <a name="what-is-a-service-principal"></a>什么是服务主体？
 
-Azure AD“服务主体”提供对订阅中的 Azure 资源的访问权限。 可以将服务主体视为某个服务的用户标识，其中，“服务”是需要访问资源的任何应用程序、服务或平台。 可以为服务主体配置作用域仅限于你指定的那些资源的访问权限。 然后，将应用程序或服务配置为使用服务主体的凭据来访问这些资源。
+Azure AD“服务主体”  提供对订阅中的 Azure 资源的访问权限。 可以将服务主体视为某个服务的用户标识，其中，“服务”是需要访问资源的任何应用程序、服务或平台。 可以为服务主体配置作用域仅限于你指定的那些资源的访问权限。 然后，将应用程序或服务配置为使用服务主体的凭据来访问这些资源。
 
 在 Azure 容器注册表的上下文中，你可以创建对 Azure 中的专用注册表具有拉取、推送和拉取或其他权限的 Azure AD 服务主体。 有关完整列表，请参阅 [Azure 容器注册表的角色和权限](container-registry-roles.md)。
 
@@ -48,18 +49,20 @@ Azure AD“服务主体”提供对订阅中的 Azure 资源的访问权限。 �
 
 ## <a name="next-steps"></a>后续步骤
 
-在创建服务主体并向其授予对容器注册表的访问权限后，可以在应用程序和服务中使用其凭据进行无外设注册表交互。
+在创建服务主体并向其授予对容器注册表的访问权限后，可以在应用程序和服务中使用其凭据进行无外设注册表交互。 可以使用能够使用 Azure 容器注册表进行身份验证的任何 Azure 服务的服务主体凭据。 示例包括：
 
-<!--Not Available on Comments-->
 
-<!--Not Available on * [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)-->
+* [使用 Azure 容器注册表从 Azure Kubernetes 服务 (AKS) 进行身份验证](container-registry-auth-aks.md)
+
 <!--Not Available on * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)-->
 
 <!-- LINKS - External -->
+
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+
+[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
 
 <!-- Update_Description: update link, update meta properties -->

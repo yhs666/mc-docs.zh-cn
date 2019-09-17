@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
 origin.date: 04/17/2018
-ms.date: 06/24/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: ee08300caad72cfebd8808e53ce728dba54223d6
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 4ebb39e5c21613dee79a169bef79db7c6dd42d96
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151768"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131677"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入门：使用 T-SQL 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -40,7 +40,7 @@ ms.locfileid: "67151768"
 
 2. 在“连接到服务器”对话框中，输入以下信息： 
 
-   | 设置       | 建议的值 | 说明 | 
+   | 设置       | 建议的值 | 说明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 服务器类型 | 数据库引擎 | 此值是必需的 |
    | 服务器名称 | 完全限定的服务器名称 | 这是一个示例：**mynewserver-20181129.database.chinacloudapi.cn**。 |
@@ -78,13 +78,13 @@ ms.locfileid: "67151768"
         db.name = 'mySampleDataWarehouse'
     ```
 
-4. 以下结果显示 **mySampleDataWarehouse** 具有一个 DW500 的服务目标。 
+4. 以下结果显示 **mySampleDataWarehouse** 具有一个 DW500c 的服务目标。 
 
     ![查看当前 DWU](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 
 ## <a name="scale-compute"></a>缩放计算
-在 SQL 数据仓库中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和连接 - 门户](create-data-warehouse-portal.md)创建了 **mySampleDataWarehouse** 并使用 500 个 DWU 对其进行了初始化。 以下步骤调整为 DWU **mySampleDataWarehouse**。
+在 SQL 数据仓库中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和连接 - 门户](create-data-warehouse-portal.md)创建了 **mySampleDataWarehouse** 并使用 500c DWU 对其进行了初始化。 以下步骤调整为 DWU **mySampleDataWarehouse**。
 
 更改数据仓库单位：
 
@@ -93,7 +93,7 @@ ms.locfileid: "67151768"
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 

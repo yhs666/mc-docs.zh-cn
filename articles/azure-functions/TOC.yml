@@ -37,18 +37,18 @@
           href: functions-integrate-storage-queue-output-binding.md
         - name: 存储 - Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: 存储 - Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
 - name: 教程
   items:
-    - name: 创建无服务器 API
-      href: functions-create-serverless-api.md
+    - name: 将机器学习与 TensorFlow 配合使用
+      href: functions-machine-learning-tensorflow.md
     - name: IoT Edge 设备上的 Functions
       href: ../iot-edge/tutorial-deploy-function.md
 - name: 示例
   items:
     - name: Azure 无服务器社区库
       href: 'https://www.serverlesslibrary.net/'
-    - name: Azure 示例
-      href: 'https://azure.microsoft.com/resources/samples/?service=functions'
     - name: Azure CLI
       href: functions-cli-samples.md
 - name: 概念
@@ -90,6 +90,8 @@
           href: functions-reference-java.md
         - name: Python
           href: functions-reference-python.md
+        - name: TypeScript
+          href: 'functions-reference-node.md#typescript'
     - name: 性能注意事项
       href: functions-best-practices.md
     - name: Functions 代理
@@ -128,6 +130,8 @@
           href: functions-manually-run-non-http.md
     - name: 部署
       items:
+        - name: 部署槽
+          href: functions-deployment-slots.md
         - name: Zip 部署
           href: deployment-zip-push.md
         - name: 从程序包运行
@@ -169,6 +173,8 @@
           href: functions-scenario-database-table-cleanup.md
         - name: 使用托管标识
           href: ../app-service/overview-managed-identity.md
+        - name: 自定义 HTTP 函数终结点
+          href: functions-create-serverless-api.md
     - name: 故障排除
       items:
         - name: 排查存储问题

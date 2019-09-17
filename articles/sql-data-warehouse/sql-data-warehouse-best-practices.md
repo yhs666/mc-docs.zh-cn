@@ -11,12 +11,12 @@ origin.date: 11/26/2018
 ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 0c958af8c5ac8ca7393f18b61642399266f70280
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: b5adcc4b62249621370d3246b47ec559c87a8496
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544320"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131861"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可帮助你从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
@@ -42,7 +42,7 @@ ms.locfileid: "69544320"
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>使用 PolyBase 快速加载和导出数据
 SQL 数据仓库支持通过多种工具（包括 Azure 数据工厂、PolyBase、BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  PolyBase 使用 SQL 数据仓库的 MPP（大规模并行处理）体系结构，因此加载和导出巨量数据的速度比其他任何工具更快。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。  **使用 CTAS 可以减少事务日志记录，是加载数据最快的方法。**  Azure 数据工厂还支持 PolyBase 加载，并且可以实现与 CTAS 类似的性能。  PolyBase 支持各种不同的文件格式，包括 Gzip 文件。  **要在使用 gzip 文本文件时获得最大的吞吐量，请将文件分成 60 个以上的文件让加载有最大化的并行度。**  若要更快的总吞吐量，请考虑并行加载数据。
 
-另请参阅[加载数据][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[使用 Azure 数据工厂加载数据][使用 Azure 数据工厂加载数据]、[使用 Azure 数据工厂移动数据][使用 Azure 数据工厂移动数据]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
+另请参阅[加载数据][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[使用 Azure 数据工厂加载数据][使用 Azure 数据工厂加载数据]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>加载并查询外部表
 虽然 Polybase（也称外部表）可以最快速地加载数据，但并不特别适合查询。 SQL 数据仓库 Polybase 表目前只支持 Azure blob 文件。 这些文件并没有任何计算资源的支持。  因此，SQL 数据仓库无法卸载此工作，因此必须读取整个文件，方法是将其加载到 tempdb 来读取数据。  因此，如果有多个查询需要查询此数据，则最好是先加载一次此数据，然后让查询使用本地表。
@@ -123,8 +123,7 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 <!-- Not Available on [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md -->
-<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md -->
-[使用 bcp 加载数据]: https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 加载数据]: ./load-data-wideworldimportersdw.md [使用 DMV 监视工作负荷]: ./sql-data-warehouse-manage-monitor.md [暂停计算资源]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk [恢复计算资源]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk [缩放计算资源]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute [了解事务]: ./sql-data-warehouse-develop-transactions.md [优化事务]: ./sql-data-warehouse-develop-best-practices-transactions.md [故障排除]: ./sql-data-warehouse-troubleshoot.md [标签]: ./sql-data-warehouse-develop-label.md
+[使用 Azure 数据工厂加载数据]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md [使用 bcp 加载数据]: https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 加载数据]: ./load-data-wideworldimportersdw.md [使用 DMV 监视工作负荷]: ./sql-data-warehouse-manage-monitor.md [暂停计算资源]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk [恢复计算资源]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk [缩放计算资源]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute [了解事务]: ./sql-data-warehouse-develop-transactions.md [优化事务]: ./sql-data-warehouse-develop-best-practices-transactions.md [故障排除]: ./sql-data-warehouse-troubleshoot.md [标签]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx

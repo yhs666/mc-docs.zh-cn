@@ -1,6 +1,6 @@
 ---
-title: 订阅密钥
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 订阅密钥 - LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 使用两种密钥，其中免费创作密钥用于创建模型，按流量计费的终结点密钥用于使用用户话语查询预测终结点。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e8ec58eadcaceaa31214b493a8fd34763223528a
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 9db85f1b0a581478ef49c6ce07ffecb386bca444
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544354"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104021"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的创作密钥和查询预测终结点密钥
 LUIS 使用两种密钥：[创作](#programmatic-key)密钥和[终结点](#endpoint-key)密钥。 在创建 LUIS 帐户时会自动创建创作密钥。 准备好发布 LUIS 应用时，需要[创建终结点密钥](luis-how-to-azure-subscription.md)、将[终结点密钥分配](luis-how-to-azure-subscription.md)到 LUIS 应用并[将其与终结点查询配合使用](#use-endpoint-key-in-query)。 
@@ -51,9 +51,9 @@ Azure 资源创建过程完成后，[将密钥分配](luis-how-to-azure-subscrip
 
     * 终结点密钥支持的终结点命中次数配额取决于创建密钥时所指定的使用计划。 请参阅[认知服务定价](https://www.azure.cn/pricing/details/cognitive-services)了解定价信息。
 
-    * 终结点密钥可用于所有 LUIS 应用或特定 LUIS 应用。 
+* 终结点密钥可用于所有 LUIS 应用或特定 LUIS 应用。 
 
-    * 请勿将终结点密钥用于创作 LUIS 应用。 
+* 请勿将终结点密钥用于创作 LUIS 应用。 
 
 ## <a name="use-endpoint-key-in-query"></a>在查询中使用终结点密钥
 LUIS 终结点接受两种样式的查询，这两种查询都使用终结点密钥，但是位置不同：

@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 01/26/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0f17ec12c7e2d6d54675f4693874b048f76a520a
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: fa9d8b896a5c9c75ae0ce71ec27c6ea779ad9d16
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912936"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921029"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -157,6 +157,9 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 <!-- Not Available on ## Monitor changes and inventory-->
 <!-- Not Available on ### Enable Change and Inventory management-->
 <!-- Not Available ## Advanced monitoring -->
+<!--Not Available on [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md)-->
+<!--There is no Virtual Machine(Preview) submenu in the left margin-->
+
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中，将配置、审核和管理虚拟机更新。 你已了解如何：

@@ -11,17 +11,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 4ce5669ff02f696b817d91f4a08965568e915bc8
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 18b301e750cce45e8a4283c6963cf2397b1c1840
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513192"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857217"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -29,7 +29,7 @@ ms.locfileid: "68513192"
 
 ## <a name="python-and-api-version-profiles"></a>Python 与 API 版本配置文件
 
-Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack 和 Azure 公有云）用作目标。 可以使用 API 配置文件为混合云创建解决方案。 Python SDK 支持以下 API 配置文件：
+Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack 和 Azure 公有云）用作目标。 使用 API 配置文件为混合云创建解决方案。 Python SDK 支持以下 API 配置文件：
 
 - **latest**  
     此配置文件以 Azure 平台中所有服务提供程序的最新 API 版本为目标。
@@ -40,7 +40,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 - **2017-03-09-profile**  
     此配置文件以 Azure Stack 支持的资源提供程序的大多数兼容 API 版本为目标。
 
-   有关 API 配置文件和 Azure Stack 的详细信息，请参阅[管理 Azure Stack 中的 API 版本配置文件](azure-stack-version-profiles.md)。
+   有关 API 配置文件和 Azure Stack 的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
 
 ## <a name="install-the-azure-python-sdk"></a>安装 Azure Python SDK
 
@@ -48,34 +48,34 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 2. 有关如何安装 Python SDK 的说明，请参阅[面向 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python)。
 3. 如果此文不适用，请创建订阅，并保存订阅 ID 供以后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 4. 创建服务主体并保存其 ID 和机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
-5. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配到服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
+5. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何为服务主体分配角色的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要将 Python Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 请参阅表后针对操作系统的说明，了解如何设置环境变量。
+若要将 Python Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量，请参阅表后针对特定操作系统的说明。
 
 | Value | 环境变量 | 说明 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
-| 客户端 ID | AZURE_CLIENT_ID | 在本文上一部分创建服务主体时保存的服务主体应用程序 ID。 |
-| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
-| 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
-| 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
-| 资源位置 | AZURE_RESOURCE_LOCATION | Azure Stack 环境的资源位置。
+| 租户 ID | `AZURE_TENANT_ID` | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
+| 客户端 ID | `AZURE_CLIENT_ID` | 在本文上一部分创建服务主体时保存的服务主体应用 ID。 |
+| 订阅 ID | `AZURE_SUBSCRIPTION_ID` | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
+| 客户端机密 | `AZURE_CLIENT_SECRET` | 创建服务主体时保存的服务主体应用机密。 |
+| 资源管理器终结点 | `ARM_ENDPOINT` | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
+| 资源位置 | `AZURE_RESOURCE_LOCATION` | Azure Stack 环境的资源位置。
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
 
-如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
+如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要信任集成系统的 CA 根证书。
 
 #### <a name="windows"></a>Windows
 
-1. 在计算机上找到 python 证书存储位置。 该位置根据 Python 的安装位置而异。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
+1. 在计算机上找到 python 证书存储位置。 该位置可能因 Python 的安装位置而异。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
 
     ```PowerShell  
       python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书存储位置。 例如， *~/lib/python3.5/site-packages/certifi/cacert.pem*。 具体的路径取决于安装的 Python 的 OS 和版本。
+    记下证书存储位置。 例如， *~/lib/python3.5/site-packages/certifi/cacert.pem*。 具体的路径取决于 OS 和已安装的 Python 版本。
 
 2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
@@ -110,7 +110,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
     ```
 
 > [!NOTE]  
-> 如果通过 Python SDK 使用 virtualenv 进行开发（如下所述），则还需向虚拟环境的证书存储添加上述证书。 路径可能类似于“..\mytestenv\Lib\site-packages\certifi\cacert.pem”
+> 如果通过 Python SDK 使用 virtualenv 进行开发（如下所述），则需要向虚拟环境的证书存储添加上述证书。 路径可能类似于“..\mytestenv\Lib\site-packages\certifi\cacert.pem”
 
 
 
@@ -118,28 +118,28 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 下面是一些适用于 Azure Stack 的、使用 Python SDK 的代码示例：
 
-- [管理资源和资源组](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)。
-- [管理存储帐户](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)。
-- [管理虚拟机](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。 （使用 2019-03-01-Hybrid 的示例，该配置文件针对 Azure Stack 支持的最新 API 版本的）
+- [管理资源和资源组](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
+- [管理存储帐户](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
+- [管理虚拟机](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)（此示例使用 2019-03-01-hybrid，它针对 Azure Stack 支持的最新 API 版本）
 
 ## <a name="python-manage-virtual-machine-sample"></a>使用 Python 管理虚拟机的示例
 
-可使用以下代码示例对 Azure Stack 中的虚拟机执行常见管理任务。 该代码示例演示如何执行以下操作：
+使用以下代码示例对 Azure Stack 中的虚拟机 (VM) 执行常见管理任务。 该代码示例演示如何执行以下操作：
 
-- 创建虚拟机：
-  - 创建 Linux 虚拟机
-  - 创建 Windows 虚拟机
-- 更新虚拟机：
+- 创建 VM：
+  - 创建 Linux VM
+  - 创建 Windows VM
+- 更新 VM：
   - 扩展驱动器
-  - 标记虚拟机
+  - 标记 VM
   - 附加数据磁盘
   - 分离数据磁盘
-- 操作虚拟机：
-  - 启动虚拟机
-  - 停止虚拟机
-  - 重新启动虚拟机
-- 列出虚拟机
-- 删除虚拟机
+- 操作 VM：
+  - 启动 VM
+  - 停止 VM
+  - 重新启动 VM
+- 列出 VM
+- 删除 VM
 
 若要查看执行这些操作的代码，请参阅 GitHub 存储库 [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM) 中的 Python 脚本 **example.py** 中的 **run_example()** 函数。
 
@@ -202,3 +202,4 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 - [Azure 虚拟机文档](https://www.azure.cn/home/features/virtual-machines/)
 - 如果没有 Azure 订阅，可从[此处](https://www.azure.cn/pricing/1rmb-trial)获取试用帐户。
 
+如果没有 Azure 订阅，可从[此处](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)获取 1 元试用账户。

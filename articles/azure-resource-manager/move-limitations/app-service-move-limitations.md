@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 07/09/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 405480a5013a7edd4f5122e5bb3f55429270c496
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: e7aea47ef53b0d066e4fd972aaca9259a6f9d891
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337565"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857308"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>针对应用服务资源的移动指南
 
@@ -41,23 +41,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 - 只能从最初创建应用服务资源的资源组中移动它们。 如果应用服务资源不再位于其原始资源组中，请将其移回其原始资源组。 然后，在订阅之间移动资源。
 
 <!--Pending for verify after tranlation-->
-
-如果忘记了原始资源组，可以通过诊断来查找。 对于 Web 应用，请选择“诊断和解决问题”  。 然后，选择“配置和管理”。 
-
-![选择诊断](./media/app-service-move-limitations/select-diagnostics.png)
-
-选择“迁移选项”  。
-
-![选择迁移选项](./media/app-service-move-limitations/select-migration.png)
-
-选择通过建议的步骤来移动 Web 应用的选项。
-
-![选择建议的步骤](./media/app-service-move-limitations/recommended-steps.png)
-
-可以看到在移动资源之前需采取的建议操作。 该信息包含 Web 应用的原始资源组。
-
-![建议](./media/app-service-move-limitations/recommendations.png)
-
+<!--MOONCAKE: Not Available on **Diagnose and solve problems**-->
 <!--Pending for verify after tranlation-->
 
 ## <a name="move-app-service-certificate"></a>移动应用服务证书
@@ -69,8 +53,10 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 若要确定可以移动哪些应用服务资源，请查看以下项的移动支持状态：
 
 - [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
+    
     <!--Not Available on - [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)-->
     <!--Not Available on - [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)-->
+
 - [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
 ## <a name="next-steps"></a>后续步骤

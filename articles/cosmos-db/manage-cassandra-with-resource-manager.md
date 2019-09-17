@@ -4,15 +4,15 @@ description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB C
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 06/17/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67ba9e932cbb052833870f33c2fbb901c4e5109a
-ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
+ms.openlocfilehash: a4ae365c476817aa02441293f96c5c07f5e3fccd
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68293424"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254423"
 ---
 <!--Verify successfully-->
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Cassandra API 资源
@@ -20,6 +20,9 @@ ms.locfileid: "68293424"
 ## 创建 Azure Cosmos 帐户、密钥空间和表 <a name="create-resource"></a>
 
 使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建一个适用于 Cassandra API 的 Azure Cosmos 帐户，所使用的两个表在密钥空间级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-cassandra/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+> [!NOTE]
+> 帐户名称必须为小写且 < 31 个字符。
 
 ```json
 {
@@ -280,7 +283,7 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 `az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。
 
-<!--Not Available on  If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) article.-->
+<!--Not Available on  If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](https://docs.azure.cn/cli/?view=azure-cli-latest) article.-->
 
 ## 更新密钥空间的吞吐量（RU/秒）<a name="keyspace-ru-update"></a>
 
@@ -332,6 +335,8 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 ```
 
 ### <a name="deploy-keyspace-template-via-azure-cli"></a>通过 Azure CLI 部署密钥空间模板
+
+使用 Azure CLI 部署资源管理器模板。
 
 <!--Not Available on To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
@@ -403,6 +408,8 @@ az group deployment create --resource-group $resourceGroupName \
 
 ### <a name="deploy-table-template-via-azure-cli"></a>通过 Azure CLI 部署表模板
 
+使用 Azure CLI 部署资源管理器模板。
+
 <!--Not Available on To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```azurecli
@@ -422,7 +429,9 @@ az group deployment create --resource-group $resourceGroupName \
 下面是一些其他资源：
 
 - [Azure 资源管理器文档](/azure-resource-manager/)
-- [Azure Cosmos DB 资源提供程序架构](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)
+
+    <!--Not Available on [Azure Cosmos DB resource provider schema](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)-->
+    
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

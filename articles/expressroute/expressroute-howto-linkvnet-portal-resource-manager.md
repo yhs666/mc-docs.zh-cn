@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/08/2018
+origin.date: 12/07/2018
 ms.author: v-yiso
-ms.date: 04/08/2018
-ms.openlocfilehash: 841c182f18def8cefb075cb12eab578277247963
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 09/09/2018
+ms.openlocfilehash: ba31139601a12ebf73b022eccf7e833ea6040e69
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626245"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174190"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用门户将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ ms.locfileid: "58626245"
 
     ![ExpressRoute 线路屏幕截图](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 
-2. 现在可以开始预配连接，以便将虚拟网络网关链接到 ExpressRoute 线路。 单击“连接” > “添加”以打开“添加连接”页面，然后配置值。
+2. 现在可以开始预配连接，以便将虚拟网络网关链接到 ExpressRoute 线路。 单击“连接” > “添加”以打开“添加连接”页面，然后配置值。   
 
     ![添加连接屏幕截图](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
 
@@ -99,17 +99,17 @@ ms.locfileid: "58626245"
 > 每个连接都需要单独授权。
 >
 
-1. 在 ExpressRoute 页面中，单击“授权”，键入授权的**名称**并单击“保存”。
+1. 在 ExpressRoute 页面中，单击“授权”，键入授权的**名称**并单击“保存”。  
 
     ![授权](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
-2. 保存配置后，复制“资源 ID”和“授权密钥”。
+2. 保存配置后，复制“资源 ID”和“授权密钥”。  
 
     ![授权密钥](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **删除连接授权**
 
-可以通过在你的连接的页面上单击“删除”图标来删除连接。
+可以通过在你的连接的页面上单击“删除”  图标来删除连接。
 
 ### <a name="circuit-user-operations"></a>线路用户操作
 
@@ -117,23 +117,23 @@ ms.locfileid: "58626245"
 
 **兑换连接授权**
 
-1. 单击“+新建”按钮。
+1. 单击“+新建”  按钮。
 
     ![单击“新建”](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2. 在市场中搜索“连接”，选择它并单击“创建”。
+2. 在市场中搜索“连接”  ，选择它并单击“创建”  。
 
     ![搜索连接](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3. 请确保将“连接类型”设置为“ExpressRoute”。
-4. 在“基本信息”页面中填写详细信息，然后单击“确定”。
+3. 请确保将“连接类型”  设置为“ExpressRoute”。
+4. 在“基本信息”页面中填写详细信息，然后单击“确定”  。
 
    ![“基本信息”页面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
-5. 在“设置”页面中，选择“虚拟网络网关”并选中“兑换授权”复选框。
-6. 输入“授权密钥”和“对等线路 URI”，并为连接命名。 单击 **“确定”**。
+5. 在“设置”页面中，选择“虚拟网络网关”并选中“兑换授权”复选框。   
+6. 输入“授权密钥”和“对等线路 URI”，并为连接命名。   单击 **“确定”** 。 **对等线路 URI** 是 ExpressRoute 线路的资源 ID（可以在 ExpressRoute 线路的“属性设置”窗格下找到）。
 
    ![“设置”页](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
-7. 在“摘要”页面中复查信息，并单击“确定”。
+7. 在“摘要”页面中复查信息，并单击“确定”。  
 
 
 **释放连接授权**
@@ -142,7 +142,7 @@ ms.locfileid: "58626245"
 
 ## <a name="delete-a-connection-to-unlink-a-vnet"></a>删除连接以取消链接 VNet
 
-可以通过在你的连接的页面上单击“删除”图标来取消 VNet 到 ExpressRoute 的链接。
+可以通过在你的连接的页面上单击“删除”  图标来取消 VNet 到 ExpressRoute 的链接。
 
 ## <a name="next-steps"></a>后续步骤
 

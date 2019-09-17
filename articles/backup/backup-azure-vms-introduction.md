@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d104959bf7cce965979f40b36004f19362c21244
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 3af3f0e24d16571f6e49a47539e3a6fed97e695e
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818470"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103730"
 ---
-# <a name="about-azure-vm-backup"></a>关于 Azure VM 备份
+# <a name="an-overview-of-azure-vm-backup"></a>概要了解 Azure VM 备份
 
 本文介绍 [Azure 备份服务](backup-overview.md)如何备份 Azure 虚拟机 (VM)。
 
@@ -112,8 +112,8 @@ Azure 备份根据备份计划创建快照。
 我们建议在配置 VM 备份时遵循以下做法：
 
 - 修改策略中设置的默认计划时间。 例如，如果策略中的默认时间是凌晨 12:00，请将时间递增几分钟，确保以最佳方式使用资源。
-- 对于使用高级存储的 VM 备份，我们建议运行最新版本的 Azure 备份（[即时还原](backup-instant-restore-capability.md)）。 对于未运行最新版本，备份服务将分配约 50% 的总存储空间。 备份服务需要此空间，以将快照复制到同一存储帐户并将其传输到保管库。
-- 如果从单个保管库还原 VM，我们强烈建议使用不同的[常规用途 v2 存储帐户](/storage/common/storage-account-upgrade)，以确保目标存储帐户不会受到限制。 例如，每个 VM 必须具有不同的存储帐户。 例如，如果还原 10 个 VM，请使用 10 个不同的存储帐户。
+- 如果从单个保管库还原 VM，我们强烈建议使用不同的[常规用途 v2 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)，以确保目标存储帐户不会受到限制。 例如，每个 VM 必须具有不同的存储帐户。 例如，如果还原 10 个 VM，请使用 10 个不同的存储帐户。
+- 若要通过 Instant Restore 备份使用高级存储的 VM，建议从总的已分配存储空间中分配 *50%* 的可用空间，这**只**在首次备份时是必需的。 首次备份完成后，50% 的可用空间不再是备份的要求
 - 从常规用途 v1 存储层（快照）进行的还原将在几分钟内完成，因为快照位于同一存储帐户中。 从常规用途 v2 存储层（保管库）进行的还原可能需要数小时。 如果数据在常规用途 v1 存储中提供，则我们建议使用[即时还原](backup-instant-restore-capability.md)功能来加快还原速度。 （如果必须从保管库还原数据，则需要更多时间。）
 - 每个存储帐户的磁盘数限制与基础结构即服务 (IaaS) VM 上运行的应用程序访问磁盘的大小有关。 通常情况下，如果单个存储帐户上存在 5 至 10 个或以上磁盘，则通过将一些磁盘移动到单独的存储帐户以均衡负载。
 
@@ -140,6 +140,50 @@ Azure 备份根据备份计划创建快照。
 
 此示例中，VM 的实际大小为 17 GB + 30 GB + 0 GB = 47 GB。 此受保护实例大小 (47 GB) 成为按月计费的基础。 随着 VM 中数据量的增长，用于计费的受保护实例大小也会相应变化。
 
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>有限公共预览版：备份磁盘大小最大为 30 TB 的 VM
+
+Azure 备份现在支持大小更大且功能更强大的 [Azure 托管磁盘](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)（最大为 30 TB）的有限公共预览版。 该预览版为托管虚拟机提供生产级别的支持。
+
+可以无缝注册此预览版，不影响正在进行的备份。 在预览版中注册此订阅以后，所有磁盘大小高达 30 TB 的虚拟机应该能够成功进行备份。 若要在预览版中注册，请执行以下操作：
+ 
+从权限提升的 PowerShell 终端执行以下 cmdlet：
+
+1. 登录到 Azure 帐户。
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. 选择要在注册后进行升级的订阅：
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. 在预览计划中注册此订阅： 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    等待 30 分钟，以便此订阅注册到预览版中。 
+
+ 4. 若要检查状态，请运行以下 cmdlet：
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. 如果订阅显示为已注册，请运行以下命令：
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> 此预览版不支持磁盘大于 4 TB 的已加密 VM。
+
+
+
 ## <a name="next-steps"></a>后续步骤
 
-现在请[准备](backup-azure-arm-vms-prepare.md)进行 Azure VM 备份。
+现在请[准备进行 Azure VM 备份](backup-azure-arm-vms-prepare.md)。

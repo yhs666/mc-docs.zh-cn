@@ -5,20 +5,20 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 6b233dbd9f629205299397bda74ac9a90629e943
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 678e2738ac4a07909736101fe6d4e47dd1f9b1fb
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672230"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254655"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的诊断日志记录 
 
-开始使用一个或多个 Azure Cosmos DB 数据库后，可能需要监视数据库的访问方式和时间。 本文概述了 Azure 平台上提供的日志。 其中介绍了如何启用监视用的诊断日志记录，以便将日志发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)，以及如何将日志导出到 [Azure Monitor 日志](https://www.azure.cn/home/features/log-analytics/)。
+开始使用一个或多个 Azure Cosmos 数据库后，可能需要监视数据库的访问方式和时间。 本文概述了 Azure 平台上提供的日志。 其中介绍了如何启用监视用的诊断日志记录，以便将日志发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)，以及如何将日志导出到 [Azure Monitor 日志](https://www.azure.cn/home/features/log-analytics/)。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -72,7 +72,7 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 
 
-1. 在 [Azure 门户](https://portal.azure.cn)的 Azure Cosmos DB 帐户中，选择左侧导航栏中的“诊断日志”，然后选择“启用诊断”   。
+1. 导航到 Azure Cosmos 帐户。 打开“诊断设置”窗格，然后选择“添加诊断设置”选项。  
 
     ![在 Azure 门户中启用 Azure Cosmos DB 的诊断日志记录](./media/logging/turn-on-portal-logging.png)
 
@@ -89,6 +89,7 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
         * **发送到 Log Analytics**：若要使用此选项，请使用现有的工作区，或遵循[创建新工作区](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步骤在门户中创建新的 Log Analytics 工作区。 
 
     * 可以记录以下数据：
+
         * **DataPlaneRequests**：选择此选项可在 Azure Cosmos DB 中将后端请求记录到所有 API，其中包括 SQL、图形、MongoDB、Cassandra 和表 API 帐户。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。 以下 JSON 数据是使用 DataPlaneRequests 记录的详细信息的示例输出。 要记录的关键属性：Requestcharge、statusCode、clientIPaddress 和 partitionID：
 
             ```
@@ -100,6 +101,11 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
             { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
             ```
 
+      * **QueryRuntimeStatistics**：选择此选项以记录已执行的查询文本。  以下 JSON 数据是使用 QueryRuntimeStatistics 记录的详细信息的示例输出：
+
+           ```
+           { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+           ```
 
         * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
 
@@ -178,7 +184,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 ### <a name="create-a-new-storage-account-for-your-logs"></a>为日志创建新的存储帐户
 尽管可对日志使用现有存储帐户，但在此教程中，我们创建一个专用于 Azure Cosmos DB 日志的新存储帐户。 为方便起见，存储帐户详细信息将存储到名为 **sa** 的变量中。
 
-为进一步简化管理，我们在本教程中使用包含 Azure Cosmos DB 数据库的同一资源组。 将 **ContosoResourceGroup**、**contosocosmosdblogs** 和 **China North** 参数替换为自己的值（如适用）：
+为进一步简化管理，我们在本教程中使用包含 Azure Cosmos 数据库的同一资源组。 将 **ContosoResourceGroup**、**contosocosmosdblogs** 和 **China North** 参数替换为自己的值（如适用）：
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
@@ -395,7 +401,7 @@ $blobs | Get-AzStorageBlobContent `
 <a name="queries"></a>
 ### <a name="queries"></a>查询
 
-可在“日志搜索”框中输入下面这些附加的查询，以帮助监视 Azure Cosmos DB 容器。 
+可在“日志搜索”框中输入下面这些附加的查询，以帮助监视 Azure Cosmos 容器。 
 
 <!--Not Available on [new language](../log-analytics/log-analytics-log-search-upgrade.md)-->
 

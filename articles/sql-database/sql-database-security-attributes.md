@@ -7,18 +7,18 @@ manager: digimobile
 ms.service: load-balancer
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 08/19/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 0d25b6ce8aa105e0fbbc6b8b3f72fa26e4388582
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 151497b4c47c421f28943edb234e29c0bdfd5df2
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544154"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372963"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Azure SQL 数据库的安全属性
 
-本文介绍 Azure SQL 数据库中内置的常见安全属性。
+本文介绍 Azure SQL 数据库中内置的安全属性。
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5a4183b1ef18d8fd4b2e100dd2cf970653e7c00c
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: e2b519e7cf0ae6df17187d7b8a0ae22fce2a865b
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513429"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70856966"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -31,7 +31,7 @@ Azure Stack 操作员应使用管理员门户、PowerShell 或 Azure 资源管�
 
 使用 PEP 可以执行如下所述的任务：
 
-- 执行低级任务，例如[收集诊断日志](azure-stack-diagnostics.md#log-collection-tool)。
+- 执行低级任务，例如[收集诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。
 - 针对集成系统执行许多部署后的数据中心集成任务，例如在部署后添加域名系统 (DNS) 转发器、设置 Microsoft Graph 集成、Active Directory 联合身份验证服务 (AD FS) 集成、证书轮换，等等。
 - 与支持人员合作，获取临时性的高级访问权限，以便对集成系统进行深入的故障排除。
 
@@ -155,9 +155,9 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
      - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
 3. 将 PEP 会话导入本地计算机
-    ```powershell 
+     ```powershell 
         Import-PSSession $session
-    ```
+   ```
 4. 现在，可以在本地 PowerShell 会话中，配合 PEP 的所有函数和 cmdlet 如常使用 Tab 键补全和执行脚本操作，而无需降低 Azure Stack 的安全级别。 请尽情享受其中的乐趣！
 
 
@@ -168,16 +168,16 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 关闭终结点会话：
 
 1. 创建 PEP 可访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
-2. 运行此 cmdlet 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-其中
+2. 运行以下 cmdlet： 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   该 cmdlet 使用下表中的参数。
 
-| 参数 | 说明 | 类型 | 必须 |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | String | 是|
-| *凭据* | 用于访问文件共享的凭据 | SecureString |  是 |
+   | 参数 | 说明 | 类型 | 必须 |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | String | 是|
+   | *凭据* | 用于访问文件共享的凭据 | SecureString |   是 |
 
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 
@@ -188,6 +188,4 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 诊断工具](azure-stack-diagnostics.md)
-
-<!-- Update_Description: link update -->
+[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

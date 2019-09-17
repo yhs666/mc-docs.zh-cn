@@ -9,73 +9,72 @@ ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 origin.date: 10/08/2018
-ms.date: 07/17/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: d063a767a739fccf7572d13094e429b1aa49cf9f
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: d20c483b45251affb5515f5ef18b609bcf9dbfcc
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331947"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805818"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
-Azure Functions 工具是 Visual Studio 的一个扩展，可用于开发、测试 C# 函数并将其部署到 Azure。 如果这是你第一次体验 Azure Functions，可以在 [Azure Functions 简介](functions-overview.md)中了解详细信息。
+使用 Visual Studio 可以开发、测试 C# 类库函数并将其部署到 Azure。 如果这是你第一次体验 Azure Functions，可以在 [Azure Functions 简介](functions-overview.md)中了解详细信息。
 
-Azure Functions 工具提供以下优势： 
+Visual Studio 在开发函数时提供以下优势： 
 
 * 在本地开发计算机上编辑、生成和运行函数。 
-* 将 Azure Functions 项目直接发布到 Azure。 
-* 使用 Web 作业属性在 C# 代码中直接声明函数绑定，而无需单独维护绑定定义的 function.json。
+* 将 Azure Functions 项目直接发布到 Azure，并根据需要创建 Azure 资源。 
+* 使用 C# 特性直接在 C# 代码中声明函数绑定。
 * 开发和部署预先编译的 C# 函数。 与基于 C# 脚本的函数相比，预先编译的函数的冷启动性能更好。 
 * 可以在 C# 中编写函数的代码，同时利用 Visual Studio 开发环境的所有优势。 
 
-本文详细介绍了如何使用用于 Visual Studio 2019 的 Azure Functions 工具开发 C# 函数并将其发布到 Azure。 在阅读本文之前，应先完成 [Visual Studio 的函数快速入门](functions-create-your-first-function-visual-studio.md)。 
+本文详细介绍如何使用 Visual Studio 开发 C# 类库函数并将其发布到 Azure。 在阅读本文之前，应先完成 [Visual Studio 的函数快速入门](functions-create-your-first-function-visual-studio.md)。 
 
-> [!IMPORTANT]
-> 不要将本地开发和门户开发混合在同一函数应用中。 从本地项目发布到函数应用时，部署过程会覆盖在门户中开发的任何函数。
+除非另有说明，否则将演示 Visual Studio 2019 的过程和示例。 
 
 ## <a name="prerequisites"></a>先决条件
 
-Azure Functions 工具包含在 [Visual Studio 2017](https://www.visualstudio.com/vs/) 或更高版本的 Azure 开发工作负荷中。 请确保你在安装 Visual Studio 2019 时随附了Azure 开发工作负荷  ：
-
-![安装包含 Azure 开发工作负荷的 Visual Studio 2019](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-请确保 Visual Studio 为最新版本，并且使用的是[最新版本](#check-your-tools-version)的 Azure Functions 工具。
-
-### <a name="azure-resources"></a>Azure 资源
+从 Visual Studio 2017 开始，Azure Functions Tools 包含在 Visual Studio 的 Azure 开发工作负荷中。 请确保在 Visual Studio 安装中包括 **Azure 开发**工作负荷。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 所需的其他资源（例如 Azure 存储帐户）将在发布过程中在订阅中创建。
 
-### <a name="check-your-tools-version"></a>检查工具版本
+> [!NOTE]
+> 在 Visual Studio 2017 中，Azure 开发工作负荷会将 Azure Functions Tools 安装为单独的扩展。 更新 Visual Studio 2017 时，还要确保使用[最新版本](#check-your-tools-version)的 Azure Functions Tools。 以下部分介绍如何在 Visual Studio 2017 中检查和更新（如果需要）Azure Functions Tools 扩展。 
+
+### <a name="check-your-tools-version"></a>在 Visual Studio 2017 中检查工具版本
 
 1. 在“工具”菜单中，选择“扩展和更新”   。 展开“已安装”   > “工具”  ，选择“Azure Functions 和 Web 作业工具”  。
 
     ![验证 Functions 工具版本](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
-2. 请注意已安装的**版本**。 可以将此版本与[发行说明](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md)中列出的最新版本进行比较。 
+1. 请注意已安装的**版本**。 可以将此版本与[发行说明](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md)中列出的最新版本进行比较。 
 
-3. 如果你的版本较旧，可以在 Visual Studio 中更新工具，如以下部分中所示。
+1. 如果你的版本较旧，可以在 Visual Studio 中更新工具，如以下部分中所示。
 
-### <a name="update-your-tools"></a>更新工具
+### <a name="update-your-tools-in-visual-studio-2017"></a>在 Visual Studio 2017 中更新工具
 
 1. 在“扩展和更新”  对话框中，展开“更新”   > “Visual Studio Marketplace”  ，依次选择“Azure Functions 和 Web 作业工具”  和“更新”  。
 
     ![更新 Functions 工具版本](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-2. 下载工具更新后，请关闭 Visual Studio 以触发使用 VSIX 安装程序的工具更新。
+1. 下载工具更新后，请关闭 Visual Studio 以触发使用 VSIX 安装程序的工具更新。
 
-3. 在安装程序中，选择“确定”  以启动，然后单击“修改”  以更新工具。 
+1. 在安装程序中，选择“确定”  以启动，然后单击“修改”  以更新工具。 
 
-4. 更新完成后，请选择“关闭”  并重启 Visual Studio。
+1. 更新完成后，请选择“关闭”  并重启 Visual Studio。
+
+> [!NOTE]  
+在 Visual Studio 2019 和更高版本中，Azure Functions Tools 扩展将作为 Visual Studio 的一部分更新。  
 
 ## <a name="create-an-azure-functions-project"></a>创建 Azure Functions 项目
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-此项目模板创建 C# 项目，安装 `Microsoft.NET.Sdk.Functions` NuGet 包，并设置目标框架。 Functions 1.x 面向 .NET Framework，而 Functions 2.x 则面向 .NET Standard。 新项目包含以下文件：
+此项目模板创建 C# 项目，安装 `Microsoft.NET.Sdk.Functions` NuGet 包，并设置目标框架。 新项目包含以下文件：
 
 * **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行时，都会应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
 
@@ -96,21 +95,21 @@ Azure Functions 工具包含在 [Visual Studio 2017](https://www.visualstudio.co
 
 ## <a name="configure-the-project-for-local-development"></a>为本地开发配置项目
 
-Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webhook 以外的所有触发器类型，必须将 **Values.AzureWebJobsStorage** 键设置为有效的 Azure 存储帐户连接字符串。 函数应用还可以在项目所需的 AzureWebJobsStorage 连接设置中使用 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)  。 若要使用模拟器，请将 AzureWebJobsStorage 的值设置为 `UseDevelopmentStorage=true`  。 在部署之前，请将此设置更改为实际的存储连接。
+Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webhook 以外的所有触发器类型，必须将 **Values.AzureWebJobsStorage** 键设置为有效的 Azure 存储帐户连接字符串。 函数应用还可以在项目所需的 AzureWebJobsStorage 连接设置中使用 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)  。 若要使用模拟器，请将 AzureWebJobsStorage 的值设置为 `UseDevelopmentStorage=true`  。 在部署之前，请将此设置更改为实际的存储帐户连接字符串。
 
 若要设置存储帐户连接字符串，请执行以下操作：
 
-1. 在 Visual Studio 中，打开“Cloud Explorer”，展开“存储帐户” > “你的存储帐户”，然后选择“属性面板”并复制“主连接字符串”值。     
+1. 在 Visual Studio 中，打开“Cloud Explorer”，展开“存储帐户” >  你的存储帐户，然后在“属性”  选项卡中复制**主连接字符串**值。   
 
 2. 在项目内，打开 local.settings.json 项目文件，并将“AzureWebJobsStorage”键的值设置为复制的连接字符串。 
 
-3. 重复上述步骤，将唯一键添加到函数所需的其他任何连接的 **Values** 数组。
+3. 重复上述步骤，将唯一键添加到函数所需的其他任何连接的 **Values** 数组。 
 
 ## <a name="add-a-function-to-your-project"></a>将函数添加到项目
 
-在预先编译的函数中，可以通过在代码中应用属性来定义函数使用的绑定。 使用 Azure Functions 工具通过提供的模板创建函数时，系统会自动应用这些属性。 
+在 C# 类库函数中，可以通过在代码中应用属性来定义函数使用的绑定。 从提供的模板创建函数触发器时，将为你应用触发器属性。 
 
-1. 在“解决方案资源管理器”中，右键单击项目节点，然后选择“添加” > “新建项”。    选择“Azure 函数”，键入类的**名称**，然后单击“添加”。  
+1. 在“解决方案资源管理器”  中，右键单击项目节点，然后选择“添加”   > “新建项”  。 选择“Azure 函数”，键入类的**名称**，然后单击“添加”。  
 
 2. 选择你的触发器，设置绑定属性，然后单击“创建”。  以下示例显示创建队列存储触发的函数时的设置。 
 
@@ -133,7 +132,8 @@ Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webh
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
+            public static void Run([QueueTrigger("myqueue-items", 
+                Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
                 log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }

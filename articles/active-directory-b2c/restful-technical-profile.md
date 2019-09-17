@@ -2,21 +2,21 @@
 title: 在 Azure Active Directory B2C 的自定义策略中定义 RESTful 技术配置文件 | Microsoft Docs
 description: 在 Azure Active Directory B2C 的自定义策略中定义 RESTful 技术配置文件。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 04/04/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 5cdd36832acaf8c169dc776b93d7264c4340eb13
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9f570aaa96a78f89baabcfbea70ceeaac39b4c4e
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004229"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310742"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 RESTful 技术配置文件
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C 为你自己的 RESTful 服务提供支持
 
 ## <a name="protocol"></a>协议
 
-“Protocol”元素的“Name”属性必须设置为 `Proprietary`。 **handler** 属性必须包含 Azure AD B2C 使用的协议处理程序程序集的完全限定名称：`Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`。
+“Protocol”  元素的“Name”  属性必须设置为 `Proprietary`。 **handler** 属性必须包含 Azure AD B2C 使用的协议处理程序程序集的完全限定名称：`Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`。
 
 以下示例演示了一个 RESTful 技术配置文件：
 
@@ -184,7 +184,7 @@ REST API 可能需要返回错误消息，例如“在 CRM 系统中未找到该
 
 以下示例演示了一个返回错误消息的 C# 类：
 
-```C#
+```csharp
 public class ResponseContent
 {
   public string version { get; set; }
@@ -197,7 +197,7 @@ public class ResponseContent
 }
 ```
 
-
+<!-- Update_Description: wording update -->
  
 
 

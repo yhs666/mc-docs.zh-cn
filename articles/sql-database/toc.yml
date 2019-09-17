@@ -2,9 +2,9 @@
   href: index.yml
 - name: SQL 数据库服务
   items:
-    - name: 什么是 SQL 数据库
+    - name: 什么是 SQL 数据库？
       href: sql-database-technical-overview.md
-    - name: 选择 Azure SQL 版本
+    - name: 我应该选择哪个 SQL 选项？
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: 发行说明
       href: sql-database-release-notes.md
@@ -17,7 +17,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: 创建
       items:
-        - name: 单一数据库 - 门户
+        - name: 单一数据库
           href: sql-database-single-database-get-started.md
         - name: 单一数据库 - 模板
           displayName: 'Azure Resource Manager template, ARM'
@@ -75,18 +75,28 @@
           href: sql-database-design-first-database.md
         - name: 使用 .NET 设计数据库
           href: sql-database-design-first-database-csharp.md
-    - name: 单一实例数据库
+    - name: 单一数据库
       items:
         - name: 使用 DMS 迁移到单一/共用数据库
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/sql-database/toc.json
+        - name: 添加到故障转移组
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: 实现地理分散的数据库
           href: sql-database-implement-geo-distributed-database.md
+        - name: 配置活动异地复制
+          href: sql-database-active-geo-replication-portal.md
         - name: 设置 Azure SQL 数据同步
           href: sql-database-get-started-sql-data-sync.md
+    - name: 弹性池
+      items:
+        - name: 添加到故障转移组
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: 托管实例
       items:
         - name: 使用 DMS 进行联机迁移
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/sql-database/toc.json
+        - name: 添加到故障转移组
+          href: sql-database-managed-instance-failover-group-tutorial.md
         - name: 配置事务复制
           href: replication-with-sql-database-managed-instance.md
     - name: SQL 数据库中的安全性
@@ -133,7 +143,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: 单一数据库
       items:
-        - name: 单个数据库概述
+        - name: 单一数据库文档
           href: sql-database-single-index.yml
         - name: 单一数据库功能
           href: sql-database-single-database.md
@@ -173,7 +183,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: 托管实例
       items:
-        - name: 托管实例概述
+        - name: 托管实例文档
           href: sql-database-managed-instance-index.yml
         - name: 托管实例功能
           href: sql-database-managed-instance.md
@@ -193,7 +203,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: 平台即服务
       items:
-        - name: “平台即服务”概述
+        - name: “平台即服务”文档
           href: sql-database-paas.yml
         - name: 业务连续性
           href: sql-database-business-continuity.md
@@ -211,8 +221,6 @@
               href: sql-database-active-geo-replication.md
             - name: 自动故障转移组
               href: sql-database-auto-failover-group.md
-            - name: 配置活动异地复制 - 门户
-              href: sql-database-active-geo-replication-portal.md
             - name: 为副本配置安全性
               href: sql-database-geo-replication-security-config.md
         - name: 数据库恢复选项
@@ -238,14 +246,18 @@
               href: sql-vulnerability-assessment.md
             - name: 高级威胁防护
               href: sql-database-threat-detection-overview.md
-        - name: 服务器级别 IP 防火墙规则
+        - name: 网络安全性
           items:
-            - name: 创建和管理
+            - name: 网络访问控制概述
+              href: sql-database-networkaccess-overview.md
+            - name: 基于 IP 的防火墙
               href: sql-database-firewall-configure.md
-            - name: 虚拟网络终结点
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: 虚拟网络终结点 - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: 虚拟网络防火墙规则
+              items:
+                - name: 虚拟网络终结点
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: 虚拟网络终结点 - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: 访问控制
           items:
             - name: 访问控制
@@ -282,7 +294,7 @@
           href: sql-database-feature-restrictions.md
     - name: 可伸缩性
       items:
-        - name: 可伸缩性概述
+        - name: 可伸缩性文档
           href: sql-database-scalability-index.yml
         - name: 纵向扩展/缩减
           href: sql-database-scale-resources.md
@@ -312,7 +324,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: 监视和优化
       items:
-        - name: 监视和优化概述
+        - name: 监视和优化文档
           href: sql-database-monitoring-tuning-index.yml
         - name: 监视和性能优化
           href: sql-database-monitor-tune-overview.md
@@ -334,7 +346,7 @@
               href: sql-database-advisor.md
     - name: 数据库功能
       items:
-        - name: 概述
+        - name: SQL 数据库功能文档
           href: sql-database-features-index.yml
         - name: SQL 功能比较
           href: sql-database-features.md
@@ -468,6 +480,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: 加载和移动数据
       items:
+        - name: 将资源移到新区域
+          href: sql-database-move-resources-across-regions.md
         - name: 在 Azure 中复制数据库
           href: sql-database-copy.md
         - name: 从 BACPAC 文件导入数据库

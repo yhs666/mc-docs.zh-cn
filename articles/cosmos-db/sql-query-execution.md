@@ -5,20 +5,20 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/31/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 769911cc1f70837d73add052fd55326bad8e22cf
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 8bd4df308e7b3948786fb8c48a8f52e80a796e92
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672296"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254441"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Azure Cosmos DB SQL 查询执行
 
 能够发出 HTTP/HTTPS 请求的任何语言都可以调用 Cosmos DB REST API。 Cosmos DB 还为 .NET、Node.js、JavaScript 和 Python 编程语言提供编程库。 REST API 和库全部支持通过 SQL 执行的查询，.NET SDK 还支持 [LINQ 查询](sql-query-linq-to-sql.md)。
 
-以下示例演示了如何对 Cosmos DB 数据库帐户创建和提交该查询。
+以下示例演示了如何对 Cosmos 数据库帐户创建和提交该查询。
 
 <a name="REST-API"></a>
 ## <a name="rest-api"></a>REST API

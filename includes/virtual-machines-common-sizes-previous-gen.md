@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: multiple
 ms.topic: include
 origin.date: 05/16/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 5d1ca2d3a0f03368c96bd35473c23f1f6c41435c
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 42daa0be3b2604cd0b09752d7d02d20ecf6d52ce
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912997"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921001"
 ---
 本部分提供了有关先前几代虚拟机大小的信息。 这些大小仍可使用，但有新的大小可供使用。 
 
@@ -64,18 +64,5 @@ Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
 <sup>1</sup> Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[为实现高性能而设计](../articles/virtual-machines/windows/premium-storage-performance.md)。  
 
-<!--Not Available on ## Ls-series-->
-
 <!--Not Available on ## NVv2-series (Preview)-->
-
-### <a name="standard-a0---a4-using-cli-and-powershell"></a>使用 CLI 和 PowerShell 的标准 A0 - A4
-
-在经典部署模型中，CLI 和 PowerShell 中的一些 VM 大小名称略有不同：
-
-* Standard_A0 是特小型
-* Standard_A1 是小型
-* Standard_A2 是中型
-* Standard_A3 是大型
-* Standard_A4 是超大型
-
 <!-- Update_Description: wording update -->

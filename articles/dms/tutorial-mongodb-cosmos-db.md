@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 07/04/2019
-ms.date: 08/12/2019
-ms.openlocfilehash: 661e50e081e93328b5af5657ab618edfcea1f4fc
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.date: 09/09/2019
+ms.openlocfilehash: 6a8f9ccfdb1b7d4b1818f53ee93b2381f1b6066e
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952159"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737134"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教程：使用 DMS 将 MongoDB 脱机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -129,6 +129,8 @@ ms.locfileid: "68952159"
      https://blobnameurl/container?SASKEY
      ```
 
+     可以在 Azure 存储资源管理器中找到此 blob 容器 SAS 连接字符串。 为相关容器创建 SA 将为你提供上述请求格式的 URL。
+     
      此外，根据 Azure 存储中的类型转储选项，记住以下详细信息。
 
      * 对于 BSON 转储，blob 容器中的数据必须采用 bsondump 格式，这样数据文件才会放置到按 collection.bson 格式以包含数据库命令的文件夹中。 元数据文件（如有）应采用 collection.metadata.json 格式进行命名  。
@@ -219,3 +221,6 @@ ms.locfileid: "68952159"
 
 * [Cosmos DB 服务信息](/cosmos-db/)
 
+## <a name="next-steps"></a>后续步骤
+
+* 在 Azure 的 [Database Migration Guide](/dms/)（数据库迁移指南）中查看迁移指南以了解其他方案。

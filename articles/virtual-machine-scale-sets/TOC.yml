@@ -69,8 +69,6 @@
     - name: 性能
       maintainContext: true
       items:
-        - name: 归置
-          href: co-location.md
         - name: 网络性能
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
     - name: VM 类型和大小
@@ -205,8 +203,6 @@
           href: virtual-machine-scale-sets-networking.md
         - name: 实例保护（预览版）
           href: virtual-machine-scale-sets-instance-protection.md
-        - name: 创建邻近放置组
-          href: proximity-placement-groups.md
         - name: 使用 DSC 和规模集
           href: virtual-machine-scale-sets-dsc.md
         - name: 将模板转换为托管磁盘

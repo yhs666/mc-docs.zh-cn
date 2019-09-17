@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 origin.date: 08/03/2017
-ms.date: 02/26/2019
+ms.date: 09/02/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2609994783aec80ad7445b06889cf6b0d5e103ab
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 93ff489f49d68fa5031892be63906a80be7f752e
+ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836902"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310863"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>应用程序网关 SSL 策略概述
 
@@ -34,7 +34,7 @@ SSL 策略包括 SSL 协议版本控制和 SSL 握手期间会使用的密码套
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|属性  |值  |
+|属性  |Value  |
 |---|---|
 |Name     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
@@ -43,7 +43,7 @@ SSL 策略包括 SSL 协议版本控制和 SSL 握手期间会使用的密码套
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|属性  |值  |
+|属性  |Value  |
 |   ---      |  ---       |
 |Name     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
@@ -52,7 +52,7 @@ SSL 策略包括 SSL 协议版本控制和 SSL 握手期间会使用的密码套
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|属性  |值  |
+|属性  |Value  |
 |---|---|
 |Name     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
@@ -65,9 +65,9 @@ SSL 策略包括 SSL 协议版本控制和 SSL 握手期间会使用的密码套
  
 ### <a name="ssl-protocol-versions"></a>SSL 协议版本
 
-- 默认情况下，所有应用程序网关都禁用 SSL 2.0 和 3.0。 无法对这些协议版本进行配置。
-- 自定义 SSL 策略允许你选择以下三种协议之一作为网关的最低 SSL 协议版本：TLSv1_0、TLSv1_1 和 TLSv1_2。
-- 如果未定义任何 SSL 策略，这 3 个协议（TLSv1_0、TLSv1_1 和 TLSv1_2）会全部启用。
+* 默认情况下，所有应用程序网关都禁用 SSL 2.0 和 3.0。 无法对这些协议版本进行配置。
+* 自定义 SSL 策略允许你选择以下三种协议之一作为网关的最低 SSL 协议版本：TLSv1_0、TLSv1_1 和 TLSv1_2。
+* 如果未定义任何 SSL 策略，这 3 个协议（TLSv1_0、TLSv1_1 和 TLSv1_2）会全部启用。
 
 ### <a name="cipher-suites"></a>密码套件
 
@@ -102,6 +102,9 @@ SSL 策略包括 SSL 协议版本控制和 SSL 握手期间会使用的密码套
 - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+
+> [!NOTE]
+> 用于连接的 SSL 密码套件也基于所使用的证书类型。 在从客户端到应用程序网关的连接中，所使用的密码套件基于应用程序网关侦听器上的服务器证书的类型。 在从应用程序网关到后端池的连接中，所使用的密码套件基于后端池服务器上的服务器证书的类型。
 
 ## <a name="next-steps"></a>后续步骤
 

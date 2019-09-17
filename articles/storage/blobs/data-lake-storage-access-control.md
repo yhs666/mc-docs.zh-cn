@@ -10,12 +10,12 @@ origin.date: 04/23/2019
 ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 963b80765825a3bf31013e38813e0a4e2ecae7b7
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 721ee4281f05d58e935648befba984f01edff949
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844395"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209404"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2 实现了一个访问控制模型，该模型支持
 
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 
-RBAC 使用角色分配对服务主体有效地应用权限集。  安全主体是一个对象，表示 Azure Active Directory (AD) 中定义的、请求访问 Azure 资源的用户、组或服务主体。 
+RBAC 使用角色分配对服务主体有效地应用权限集。  安全主体是一个对象，表示 Azure Active Directory (AD) 中定义的用于请求访问 Azure 资源的用户、组、服务主体或托管标识。 
 
 一般情况下，这些 Azure 资源限制为顶级资源（例如：Azure 存储帐户）。 就 Azure 存储以及随后的 Azure Data Lake Storage Gen2 而言，此机制已扩展到容器（文件系统）资源。
 
@@ -135,9 +135,10 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 - 命名用户
 - 命名组
 - 命名服务主体
+- 命名托管标识
 - 所有其他用户
 
-用户和组的标识是 Azure Active Directory (Azure AD) 标识。 因此，除非另有规定，否则“用户”在 Data Lake Storage Gen2 的上下文中可以表示 Azure AD 用户、服务主体或安全组  。
+用户和组的标识是 Azure Active Directory (Azure AD) 标识。 因此，除非另有规定，否则“用户”在 Data Lake Storage Gen2 的上下文中可以表示 Azure AD 用户、服务主体、托管标识或安全组  。
 
 #### <a name="the-owning-user"></a>拥有用户
 
@@ -312,8 +313,10 @@ def set_default_acls_for_new_child(parent, child):
 
 若要获取服务主体的对应于应用注册的 OID，可以使用 `az ad sp show` 命令。 指定应用程序 ID 作为参数。 以下示例获取服务主体的 OID，该 OID 对应于应用 ID 为 18218b12-1895-43e9-ad80-6e8fc1ea88ce 的应用注册。 在 Azure CLI 中运行以下命令：
 
-`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>`
+```
+$ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>
+```
 
 获取服务主体的正确 OID 后，转到存储资源管理器的“管理访问权限”页，以添加该 OID 并为其分配适当的的权限。  请务必选择“保存”。 
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/23/2018
-ms.date: 06/03/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2f50733f613492820e8eb59e02fa46dd9d5f913d
-ms.sourcegitcommit: 7fdba97400f00af4e8c5877ab89aa055cade88b1
+ms.openlocfilehash: 5087d161fb09027cde2456b95d232a856a300c61
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66816788"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174131"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 节点类型与虚拟机规模集
 [虚拟机规模集](/virtual-machine-scale-sets)是一种 Azure 计算资源。 可使用规模集以集的形式部署和管理虚拟机集合。 Azure Service Fabric 群集中定义的每个节点类型均设置了独立的规模集。  规模集中每个虚拟机上均通过 Microsoft.Azure.ServiceFabric 虚拟机扩展安装了 Service Fabric 运行时。 可独立增加或减少每个节点类型、更改每个群集节点上运行的 OS SKU、打开不同的端口集，并使用不同的容量指标。
@@ -61,6 +61,7 @@ Service Fabric 虚拟机扩展用于将 Service Fabric 启动到 Azure 虚拟机
          "durabilityLevel": "Silver",
          "enableParallelJobs": true,
          "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "dataPath": "D:\\\\SvcFab",
          "certificate": {
            "commonNames": [
              "[parameters('certificateCommonName')]"
@@ -77,18 +78,19 @@ Service Fabric 虚拟机扩展用于将 Service Fabric 启动到 Azure 虚拟机
 
 | **名称** | **允许的值**  | **指导或简短说明** |
 | --- | ---  | --- |
-| name | 字符串  | 扩展的唯一名称 |
+| name | string  | 扩展的唯一名称 |
 | type | “ServiceFabricLinuxNode”或“ServiceFabricWindowsNode”  | 确定 OS Service Fabric 正启动到 |
 | autoUpgradeMinorVersion | true 或 false  | 启用自动升级 SF 运行时次要版本的功能 |
-| 发布者 | Microsoft.Azure.ServiceFabric  | Service Fabric 扩展发布者的名称 |
-| clusterEndpont | 字符串  | 管理终结点的 URI:PORT |
-| nodeTypeRef | 字符串  | nodeType 的名称 |
+| publisher | Microsoft.Azure.ServiceFabric  | Service Fabric 扩展发布者的名称 |
+| clusterEndpont | string  | 管理终结点的 URI:PORT |
+| nodeTypeRef | string  | nodeType 的名称 |
 | durabilityLevel | 青铜、白银、黄金、白金  | 允许用于暂停不可变 Azure 基础结构的时间 |
 | enableParallelJobs | true 或 false  | 启用计算 ParallelJobs，例如在同一规模集中以并行方式删除 VM 和重启 VM |
-| nicPrefixOverride | 字符串  | 子网前缀，例如“10.0.0.0/24” |
+| nicPrefixOverride | string  | 子网前缀，例如“10.0.0.0/24” |
 | commonNames | string[]  | 已安装群集证书的公用名 |
-| x509StoreName | 字符串  | 已安装群集证书所在的存储的名称 |
+| x509StoreName | string  | 已安装群集证书所在的存储的名称 |
 | typeHandlerVersion | 1.1  | 扩展版本。 建议使用 1.0 经典版扩展来升级到 1.1 |
+| dataPath | string | 用于保存 Service Fabric 系统服务状态和应用程序数据的驱动器路径。 
 
 ## <a name="next-steps"></a>后续步骤
 * 请参阅[“随地部署”功能的概述及其与 Azure 托管群集的比较](service-fabric-deploy-anywhere.md)。
@@ -98,8 +100,9 @@ Service Fabric 虚拟机扩展用于将 Service Fabric 启动到 Azure 虚拟机
 * 为群集 VM [更改管理员用户名和密码](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md)
 
 <!--Image references-->
+
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
 [Resources]: ./media/service-fabric-cluster-nodetypes/Resources.png
 [InboundNatPools]: ./media/service-fabric-cluster-nodetypes/InboundNatPools.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

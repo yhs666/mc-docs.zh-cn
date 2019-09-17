@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 07/18/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: autoscale
-ms.openlocfilehash: 068d97032fa82a998de958c4749ebc215ea381c5
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7393f7e9b4747009119d4e80735f38845532d3d9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562424"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737154"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>在 Azure 中根据自定义指标自动缩放入门
 本文介绍如何在 Azure 门户中根据自定义指标缩放资源。

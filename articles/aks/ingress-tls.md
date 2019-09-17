@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/24/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 414bc9b0be6248decdcfcc756fbfb6d1f7069708
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: fb695a3ed2f62302cce698faa3118f0326193067
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993207"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500716"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建 HTTPS 入口控制器
 
@@ -390,10 +390,10 @@ kubectl delete -f hello-world-ingress.yaml
 也可执行以下操作：
 
 - [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
-- [启用 HTTP 应用程序路由附加产品][aks-http-app-routing]
 
-<!--Not Available on- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]-->
+    <!--Not Available on - [Enable the HTTP application routing add-on][aks-http-app-routing]-->
 
+- [创建使用内部、专用网络和 IP 地址的入口控制器][aks-ingress-internal]
 - [创建使用你自己的 TLS 证书的入口控制器][aks-ingress-own-tls]
 - [创建一个使用 Let's Encrypt 的入口控制器，以自动生成具有静态公共 IP 地址的 TLS 证书][aks-ingress-static-tls]
 

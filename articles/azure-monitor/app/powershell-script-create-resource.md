@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 11/19/2016
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6d66232663e703a869370f9481700c48de9de3a8
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 0702a1d23178a85ac2b4ad5eb24aa4c63448fad9
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989339"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737025"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>用于创建 Application Insights 资源的 PowerShell 脚本
 

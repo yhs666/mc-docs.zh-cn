@@ -1,5 +1,5 @@
 ---
-title: 使用 ZIP 或 WAR 文件部署代码 - Azure 应用服务
+title: 使用 ZIP 或 WAR 文件部署代码 - Azure 应用服务 | Azure
 description: 了解如何使用 ZIP 文件（或者对于 Java 开发人员而言使用 WAR 文件）将应用部署到 Azure 应用服务。
 services: app-service
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2018
-ms.date: 06/17/2019
-ms.author: v-biyu
+origin.date: 08/12/2018
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b429063e3ef92a7b4bb47e4c7c4f8a3c3b1e9f7a
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: d75ac900523bcb1923c100283cbfffad34acd3a0
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687425"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806759"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
@@ -72,7 +72,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 请确保 Azure CLI 版本是 2.0.21 或更高版本。 要查看已有版本，请在终端窗口中运行 `az --version` 命令。
 
-使用 [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) 命令将上传的 zip 文件部署到 Web 应用。  
+使用 [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令将上传的 zip 文件部署到 Web 应用。  
 
 下面的示例部署上传的 zip 文件。 使用 Azure CLI 的本地安装时，请为 `--src` 指定本地 zip 文件的路径。
 
@@ -82,7 +82,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 此命令将 zip 文件中的文件和目录部署到默认的应用服务应用程序文件夹 (`\home\site\wwwroot`) 并重启应用。
 
-默认情况下，部署引擎假定 ZIP 文件已准备好按原样运行，并且不运行任何生成自动化。 若要启用与 [Git 部署](deploy-local-git.md)中相同的生成自动化，请通过在 CLI 中运行以下命令来设置 `SCM_DO_BUILD_DURING_DEPLOYMENT` 应用设置：
+默认情况下，部署引擎假定 ZIP 文件已准备好按原样运行，并且不运行任何生成自动化。 若要启用与 [Git 部署](deploy-local-git.md)中相同的生成自动化，请通过在 Azure CLI 中运行以下命令来设置 `SCM_DO_BUILD_DURING_DEPLOYMENT` 应用设置：
 
 ```azurecli
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -102,23 +102,18 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ### <a name="with-curl"></a>使用 cURL
 
-以下示例使用 cURL 工具部署 .war 文件。 替换占位符 `<username>`、`<war_file_path>` 和 `<app_name>`。 出现 cURL 提示时，键入密码。
+以下示例使用 cURL 工具部署 .war 文件。 替换占位符 `<username>`、`<war-file-path>` 和 `<app-name>`。 出现 cURL 提示时，键入密码。
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.chinacloudsites.cn/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.chinacloudsites.cn/api/wardeploy
 ```
 
 ### <a name="with-powershell"></a>使用 PowerShell
 
-以下示例使用 [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod) 发送包含 .war 文件的请求。 替换占位符 `<deployment_user>`、`<deployment_password>`、`<zip_file_path>` 和 `<app_name>`。
+下面的示例使用 [Publish-AzWebapp](https://docs.microsoft.com/powershell/module/az.websites/publish-azwebapp) 上传 .war 文件。 替换占位符 `<group-name>`、`<app-name>` 和 `<war-file-path>`。
 
 ```powershell
-$username = "<deployment_user>"
-$password = "<deployment_password>"
-$filePath = "<war_file_path>"
-$apiUrl = "https://<app_name>.scm.chinacloudsites.cn/api/wardeploy"
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

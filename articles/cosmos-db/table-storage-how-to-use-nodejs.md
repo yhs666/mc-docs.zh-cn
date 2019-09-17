@@ -6,15 +6,15 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 05/13/2019
+ms.date: 09/09/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 6eab01baeeebae0deb4866a62d1e8ca3efe8da9c
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: 3474619c32dff2dc8a0ce4bf4ae3d98df443fe00
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65960922"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254589"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -69,6 +69,8 @@ Azure 模块读取环境变量 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KE
 ```javascript
 var tableSvc = azure.createTableService('myconnectionstring');
 ```
+
+<!--MOONCAKE: REPLACE WITH AZURE_STORAGE_CONNECTION_STRING-->
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>添加 Azure Cosmos DB 连接
 要添加 Azure Cosmos DB 连接，创建 TableService 对象并指定帐户名称、主键和终结点  。 可以从 Cosmos DB 帐户的 Azure 门户中的“设置” > “连接字符串”中复制这些值   。 例如：
@@ -399,6 +401,8 @@ var host = tableSvc.host;
 
 然后，客户端应用程序将 SAS 用于 **TableServiceWithSAS**，以便针对表执行操作。 下面的示例连接到该表，并执行一个查询。 请参阅[使用共享访问签名](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)一文，了解 tableSAS 的格式。 
 
+<!--MOONCAKE: TEMPRARY KEEP THE URL of (../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)-->
+
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.chinacloudapi.cn` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
@@ -464,7 +468,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 <!-- Notice: Remove from Microsoft -->
 
-* GitHub 上的 [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) 存储库。
+* GitHub 上的[用于 Node.js 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
 * [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [在 Azure 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
 * [生成 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）

@@ -3,8 +3,8 @@ title: 使用 Azure Active Directory 对 Batch 管理解决方案进行身份验
 description: 通过 Azure Resource Manager 和 Batch 资源提供程序生成的应用程序使用 Azure AD 进行身份验证。
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,18 +16,18 @@ ms.workload: big-compute
 origin.date: 04/27/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9d7442d4aaa0ed21da0a4885282426c9ca756f4d
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 1982b4c9b8d673e4b9ff7f9a0449a87f29181827
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236352"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104143"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
 调用 Azure Batch 管理服务的应用程序使用 [Azure Active Directory][aad_about] (Azure AD) 进行身份验证。 Azure AD 是 Microsoft 提供的基于多租户云的目录和标识管理服务。 Azure 本身使用 Azure AD 来对其客户、服务管理员和组织用户进行身份验证。
 
-批处理管理 .NET 库公开用于使用批处理帐户、帐户密钥、应用程序和应用程序包的类型。 批处理管理 .NET 库是一个 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 结合使用可以编程方式管理这些资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。
+批处理管理 .NET 库公开用于使用批处理帐户、帐户密钥、应用程序和应用程序包的类型。 批处理管理 .NET 库是一个 Azure 资源提供程序客户端，与 [Azure 资源管理器][resman_overview] 结合使用可以编程方式管理这些资源。 需要使用 Azure AD 对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure 资源管理器][resman_overview]发出的请求进行身份验证。
 
 本文探讨如何使用 Azure AD，在使用 Batch 管理 .NET 库的应用程序中进行身份验证。 我们将演示如何使用 Azure AD 和集成身份验证对订阅管理员或协同管理员进行身份验证。 我们使用 GitHub 上提供的 [AccountManagment][acct_mgmt_sample] 示例项目来逐步讲解如何将 Azure AD 与 Batch 管理 .NET 库配合使用。
 
@@ -126,7 +126,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 ## <a name="next-steps"></a>后续步骤
 
-有关运行 [AccountManagement 示例应用程序][acct_mgmt_sample]的详细信息，请参阅 [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md)（使用适用于 .NET 的批处理管理客户端库来管理批处理帐户和配额）。
+有关运行 [AccountManagement 示例应用程序][acct_mgmt_sample]的详细信息，请参阅[使用适用于 .NET 的批处理管理客户端库来管理 Batch 帐户和配额](batch-management-dotnet.md)。
 
 有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
 

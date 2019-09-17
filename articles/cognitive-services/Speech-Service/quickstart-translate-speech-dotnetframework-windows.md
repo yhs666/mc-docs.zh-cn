@@ -9,16 +9,18 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 origin.date: 12/13/2018
-ms.date: 04/01/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 565bc1c42ed661bc9b441ff0dccb6b565cda764e
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 32042c42b9427d01bfc1505d17813555f776a8e9
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348340"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103756"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>快速入门：使用适用于 .NET Framework 的语音 SDK 翻译语音
+
+针对[语音转文本](quickstart-csharp-dotnet-windows.md)也提供了快速入门。
 
 在本快速入门中，你将创建一个简单的 .NET Framework 应用程序，该应用程序从计算机的麦克风中捕获用户语音，翻译语音，并将翻译后的文本实时转录到命令行。 此应用程序设计为在 64 位 Windows 上运行，并使用[语音 SDK NuGet 包](https://aka.ms/csspeech/nuget)和 Microsoft Visual Studio 2017 构建。
 
@@ -141,11 +143,11 @@ namespace helloworld
 
 ## <a name="build-and-run-the-app"></a>生成并运行应用
 
-1. 构建应用程序。 从菜单栏中，选择“构建” > “构建解决方案”。 编译代码时应不会出错。
+1. 构建应用程序。 从菜单栏中，选择“构建” > “构建解决方案”   。 编译代码时应不会出错。
 
     ![Visual Studio 应用程序的屏幕截图，其中突出显示了“生成解决方案”选项](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "成功生成")
 
-1. 启动应用程序。 在菜单栏中，选择“调试” > “开始调试”，或按 F5。
+1. 启动应用程序。 在菜单栏中，选择“调试” > “开始调试”，或按 F5    。
 
     ![Visual Studio 应用程序的屏幕截图，其中突出显示了“启动调试”选项](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "启动应用进入调试")
 
@@ -159,8 +161,3 @@ GitHub 上提供了其他示例，例如如何从音频文件中读取语音，�
 
 > [!div class="nextstepaction"]
 > [浏览 GitHub 上的 C# 示例](https://aka.ms/csspeech/samples)
-
-## <a name="see-also"></a>另请参阅
-
-- [自定义声学模型](how-to-customize-acoustic-models.md)
-- [自定义语言模型](how-to-customize-language-model.md)

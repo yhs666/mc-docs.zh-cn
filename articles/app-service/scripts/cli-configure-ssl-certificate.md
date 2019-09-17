@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到应用 | Azure Docs
+title: Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到应用 | Azure
 description: Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到应用
 services: app-service\web
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/04/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: c9df356ebb6a6b11dbe8a97ba2c243a1c7b406a2
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8ac1d587183c42b53aed1e1c687169cd970b8588
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083876"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806861"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>使用 CLI 将自定义 SSL 证书绑定到应用服务应用
 
@@ -33,7 +33,7 @@ ms.locfileid: "54083876"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-lastest)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -60,7 +60,7 @@ echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn
 read -p "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://docs.azure.cn/zh-cn/app-service/app-service-web-tutorial-custom-domain#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service/app-service-web-tutorial-custom-domain#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.
@@ -87,15 +87,15 @@ echo "You can now browse to https://$fqdn"
 
 | 命令 | 注释 |
 |---|---|
-| [`az group create`](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](https://docs.azure.cn/zh-cn/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | 创建应用服务计划。 |
-| [`az webapp create`](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) | 创建 Azure Web 应用。 |
-| [`az webapp config hostname add`](https://docs.azure.cn/zh-cn/cli/webapp/config/hostname?view=azure-cli-latest#az_webapp_config_hostname_add) | 将自定义域映射到 Web 应用。 |
-| [`az webapp config ssl upload`](https://docs.azure.cn/zh-cn/cli/webapp/config/ssl?view=azure-cli-latest#az_webapp_config_ssl_upload) | 将 SSL 证书上传到 Web 应用。 |
-| [`az webapp config ssl bind`](https://docs.azure.cn/zh-cn/cli/webapp/config/ssl?view=azure-cli-latest#az_webapp_config_ssl_bind) | 将上传的 SSL 证书绑定到 Web 应用。 |
+| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
+| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
+| [`az webapp config hostname add`](/cli/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | 将自定义域映射到应用服务应用。 |
+| [`az webapp config ssl upload`](/cli/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | 将 SSL 证书上传到应用服务应用。 |
+| [`az webapp config ssl bind`](/cli/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | 将上传的 SSL 证书绑定到应用服务应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

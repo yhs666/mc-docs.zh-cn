@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: df9b3a605fda14ce439ff4ce4aa0ef1f66db2453
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: c304bf96949fc6e10b3192aa1256412a8aff95b0
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514319"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254799"
 ---
 # <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户构建 Node.js 应用
 
@@ -88,7 +88,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 将对 `CosmosClient` 进行初始化。
 
     ```javascript
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
     ```
 
 * 将创建一个新数据库。
@@ -112,21 +112,25 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 将对 JSON 执行 SQL 查询。
 
     ```javascript
-    const querySpec = {
-        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+      const querySpec = {
+        query: 'SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName',
         parameters: [
-            {
-                name: "@lastName",
-                value: "Andersen"
-            }
+          {
+            name: '@lastName',
+            value: 'Andersen'
+          }
         ]
-    };
+      }
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
-    for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult);
-        console.log(`\tQuery returned ${resultString}\n`);
-    }
+      const { resources: results } = await client
+        .database(databaseId)
+        .container(containerId)
+        .items.query(querySpec)
+        .fetchAll()
+      for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult)
+        console.log(`\tQuery returned ${resultString}\n`)
+      }
     ```    
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
@@ -143,9 +147,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     `config.endpoint = "https://FILLME.documents.azure.cn"`
 
-4. 然后从门户复制“主密钥”的值，并在 `config.js` 中将其设为 `config.primaryKey` 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
+4. 然后从门户复制“主密钥”的值，并在 `config.js` 中将其设为 `config.key` 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-    `config.primaryKey = "FILLME"`
+    `config.key = "FILLME"`
 
 ## <a name="run-the-app"></a>运行应用程序
 1. 在终端中运行 `npm install`，安装所需的 npm 模块

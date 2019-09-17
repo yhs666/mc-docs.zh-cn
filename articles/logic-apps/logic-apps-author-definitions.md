@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 01/01/2018
-ms.date: 04/08/2019
+ms.date: 09/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4348b6a4b314b65d2e759e25489ca187e09b90b0
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 80ff20268ad27838d8d80a986bdee62a41d35f7d
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539010"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174164"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>为 Azure 逻辑应用中的逻辑应用定义创建、编辑或扩展 JSON
 
@@ -64,108 +64,21 @@ ms.locfileid: "69539010"
 
 ## <a name="parameters"></a>parameters
 
-使用参数可以在整个逻辑应用中重复使用值，适合替换可能经常更改的值。 例如，如果要在多个位置使用某个电子邮件地址，应将该电子邮件地址定义为参数。 
+部署生命周期通常有用于开发、测试、过渡和生产的不同环境。 如果有需要在逻辑应用中不进行硬编码就重用的值，或者该值会根据部署需求而变化，则请针对工作流定义创建一个 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md)，这样就还可以自动完成逻辑应用部署。 
 
-另外，当需要在不同的环境中重写参数时，参数也很有用。有关详细信息，请参阅[用于部署的参数](#deployment-parameters)和 [Azure 逻辑应用适用的 REST API 文档](https://docs.microsoft.com/rest/api/logic)。
+请改为按这些常规步骤来参数化这些值，或者定义和使用其参数。  然后，可以在单独的参数文件中提供这些值，通过该文件将这些值传递给模板。 这样，无需更新和重新部署逻辑应用即可更轻松地更改这些值。 如需完整的详细信息，请参阅[概述：使用 Azure 资源管理器模板将逻辑应用部署自动化](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
-> [!NOTE]
-> 仅可以在代码视图中使用参数。
+1. 在模板中，定义模板参数和工作流定义参数，以便接受分别在部署时和运行时使用的值。
 
-在[第一个示例逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)中，将创建工作流以在网站的 RSS 源中出现新帖子时发送电子邮件。 该源的 URL 是硬编码，因此此示例演示如何将查询值替换为参数，以便更轻松地更改该源的 URL。
+   定义模板参数时所在的 parameters 节位于工作流定义外，定义工作流定义参数时所在的 parameters 节位于工作流定义内。
 
-1. 在代码视图中找到 `parameters : {}` 对象，然后添加 `currentFeedUrl` 对象：
+1. 请将硬编码的值替换为引用这些参数的表达式。 模板表达式使用的语法不同于工作流定义表达式。
 
-   ``` json
-     "currentFeedUrl" : {
-      "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   避免代码复杂化，方法是：不要在工作流定义表达式（在运行时求值）中使用模板表达式（在部署时求值）。 仅在工作流定义外部使用模板表达式。 仅在工作流定义内部使用工作流定义表达式。
 
-2. 在 `When_a_feed-item_is_published` 操作中，找到 `queries` 部分，然后将该查询值替换为 `"feedUrl": "#@{parameters('currentFeedUrl')}"`。 
+   针对工作流定义参数来指定值时，可以引用模板参数，方法是：使用位于工作流定义外部但仍在逻辑应用的资源定义内部的 parameters 节。 这样，便可以将模板参数值传入工作流定义参数。
 
-   **之前**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },   
-   ```
-
-   **之后**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },   
-   ```
-
-   若要联接两个或更多符串，还可以使用 `concat` 函数。 
-   例如，`"@concat('#',parameters('currentFeedUrl'))"` 的工作方式与前面的示例相同。
-
-3. 完成后，选择“保存”  。 
-
-现在，可通过将其他 URL 传递到 `currentFeedURL` 对象来更改网站的 RSS 源。
-
-<a name="deployment-parameters"></a>
-
-## <a name="deployment-parameters-for-different-environments"></a>适用于不同环境的部署参数
-
-通常，部署生命周期具有用于开发、过渡和生产环境。 例如，用户可能会将同一逻辑应用定义用于所有这些环境，但使用不同的数据库。 同样，可能会需要在不同区域中使用同一定义以实现高可用性，但需要每个逻辑应用实例使用该区域的数据库。 
-
-> [!NOTE] 
-> 这种情况不同于在*运行时*使用参数，后一情况应改用 `trigger()` 函数。
-
-下面是基本定义：
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-在逻辑应用的实际 `PUT` 请求中，可以提供参数 `uri`。 在每个环境中，可为 `connection` 参数提供不同值。 默认值不再存在，因此逻辑应用有效负载需要以下参数：
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "chinaeast"
-}
-```
-
-若要了解详细信息，请参阅 [Azure 逻辑应用适用的 REST API 文档](https://docs.microsoft.com/rest/api/logic/)。
+1. 请将参数的值存储在单独的[参数文件](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)中，在部署时包括该文件。
 
 ## <a name="process-strings-with-functions"></a>使用函数处理字符串
 

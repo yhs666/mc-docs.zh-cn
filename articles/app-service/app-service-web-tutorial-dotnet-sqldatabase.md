@@ -1,5 +1,5 @@
 ---
-title: 使用 SQL 数据库构建 ASP.NET 应用 - Azure 应用服务 | Azure Docs
+title: 使用 SQL 数据库构建 ASP.NET 应用 - Azure 应用服务 | Azure
 description: 了解如何将采用 SQL Server 数据库的 C# ASP.NET 应用部署到 Azure。
 services: app-service\web
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 06/25/2018
 ms.date: 08/12/2019
 ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 0a7f2d8bde8e3a673d3a40ae28cba0d9b422a5ea
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 66110867fff04e968f97f709861333a198ace999
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878574"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806896"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 

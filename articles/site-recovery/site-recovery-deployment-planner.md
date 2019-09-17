@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 04/18/2019
-ms.date: 07/08/2019
+origin.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 950145cbcc5ee64e52d6e0b28b7510462282aa56
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 2b564e408bb75708a2aa0fd55db0093080dc0fa3
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861652"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134452"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>关于用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -42,10 +42,9 @@ ms.locfileid: "67861652"
 
 **Azure 基础结构要求**
 
-* 每个 VM 的存储类型（标准或高级存储帐户）要求
-* 要为复制设置的标准和高级存储帐户总数
+* 每个 VM 的存储类型（标准或高级存储）要求
+* 要为复制设置的标准和高级存储帐户总数（包括缓存存储帐户）
 * 基于存储指南的存储帐户命名建议
-* 适用于所有 VM 的存储帐户归置
 * 针对订阅执行测试性故障转移或故障转移之前要设置的 Azure 核心数
 * 适用于每个本地 VM 的 Azure VM 建议大小
 
@@ -118,7 +117,7 @@ ms.locfileid: "67861652"
  >每个新的部署规划器版本都是 .zip 文件的累积更新。 不需要将最新文件复制到旧文件夹。 可以创建和使用新文件夹。
 
 ## <a name="version-history"></a>版本历史记录
-最新的 Site Recovery 部署规划器工具版本为 2.4。
+最新的 Site Recovery 部署规划器工具版本为 2.5。
 请参阅 [Site Recovery 部署规划器版本历史记录](/site-recovery/site-recovery-deployment-planner-history)页，了解每个更新中增加的修补程序。
 
 ## <a name="next-steps"></a>后续步骤

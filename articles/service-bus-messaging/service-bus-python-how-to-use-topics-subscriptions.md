@@ -5,21 +5,21 @@ services: service-bus-messaging
 documentationcenter: python
 author: lingliw
 manager: digimobile
-editor: ''
+editor: spelluru
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 19145805c142dc9b0010c3e95b0ec6254f74f93c
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 4ebcbd65dcff7269db1599a382570d863e91af4a
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046957"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169611"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 
@@ -58,7 +58,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-可从 [Azure 门户][Azure portal]获取 SAS 密钥名称和密钥值。
+可从 [Azure 门户][Azure portal]获取 SAS 密钥名称值和其值。
 
 ```python
 bus_service.create_topic('mytopic')
@@ -76,12 +76,12 @@ bus_service.create_topic('mytopic', topic_options)
 
 ## <a name="create-subscriptions"></a>创建订阅
 
-主题订阅也是使用 **ServiceBusService** 对象创建的。 为订阅命名，并且订阅可以具有可选筛选器，以限制传送到订阅的虚拟队列的消息集。
+主题订阅也是使用 **ServiceBusService** 对象创建的。 订阅已命名，并且具有一个限制传递到订阅的虚拟队列的消息集的可选筛选器。
 
 > [!NOTE]
-> 订阅是永久性的，除非删除它们或删除订阅它们的主题，否则订阅将一直存在。
+> 默认情况下，订阅是永久性的，除非删除它们或删除订阅它们的主题，否则订阅将一直存在。
 > 
-> 
+> 可以通过设置 [auto_delete_on_idle 属性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)来自动删除订阅。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
 
@@ -97,7 +97,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的详细信息，请参阅 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 语法。
 
-可使用 **ServiceBusService** 对象的 **create\_rule** 方法向订阅添加筛选器。 此方法允许向现有订阅中添加新筛选器。
+可使用 ServiceBusService 对象的 create\_rule 方法向订阅添加筛选器。   此方法允许向现有订阅中添加新筛选器。
 
 > [!NOTE]
 > 由于默认筛选器会自动应用到所有新订阅，因此，必须首先删除默认筛选器，否则 **MatchAll** 会替代你可能指定的任何其他筛选器。 可以使用 ServiceBusService 对象的 `delete_rule` 方法删除默认规则  。
@@ -140,7 +140,8 @@ bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 
 ```python
 for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    msg = Message('Msg {0}'.format(i).encode('utf-8'),
+                  custom_properties={'messagenumber': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
@@ -151,7 +152,8 @@ for i in range(5):
 对 ServiceBusService 对象使用 `receive_subscription_message` 方法可从订阅接收消息  ：
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message(
+    'mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
@@ -177,7 +179,8 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果应用程序在处理消息之后，但在调用 `delete` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此行为通常称为 “至少处理一次”\*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 为此，可以使用消息的 **MessageId** 属性，该属性在各次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
-主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。 以下示例演示如何删除名为 `mytopic`的主题：
+
+除非设置 [auto_delete_on_idle 属性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)，否则主题和订阅是永久性的。 可以通过 [Azure 门户][Azure portal]或以编程方式删除这些主题和订阅。 以下示例演示如何删除名为 `mytopic`的主题：
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -189,12 +192,15 @@ bus_service.delete_topic('mytopic')
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
+> [!NOTE]
+> 可以使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer/)管理服务总线资源。 服务总线资源管理器允许用户连接到服务总线命名空间并以一种简单的方式管理消息传送实体。 该工具提供高级功能，如导入/导出功能或用于对主题、队列、订阅、中继服务、通知中心和事件中心进行测试的功能。 
+
 ## <a name="next-steps"></a>后续步骤
 
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
 * 请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。
-* [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 参考。
+* [SqlFilter.SqlExpression][SqlFilter.SqlExpression]参考。
 
 [Azure portal]: https://portal.azure.cn
 [Azure Python package]: https://pypi.python.org/pypi/azure  

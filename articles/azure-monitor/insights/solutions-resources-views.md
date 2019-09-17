@@ -5,21 +5,21 @@ services: monitoring
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+origin.date: 08/22/2019
+ms.date: 01/16/2018
 ms.author: v-lingwu
-ms.openlocfilehash: bad2243b35ec2cd757dc40de3e2b6347a133b21b
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 89bfe961dd6de72ba0ed8e4f791a7b30c0305cca
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989144"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737320"
 ---
 # <a name="views-in-management-solutions-preview"></a>管理解决方案（预览版）中的视图
 > [!NOTE]

@@ -11,21 +11,49 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 05/31/2019
-ms.date: 07/04/2019
+ms.date: 08/28/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9b9805f74eb9094d55e65328c828aa22476c903
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 2a354f833506e35fe22391dd8469712360d7e0ec
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568747"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134341"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中按管理员任务委托管理员角色
 
 本文介绍了通过在 Azure Active Directory (Azure AD) 中分配最小特权角色来限制用户管理员权限所需的信息。 你将能查找按功能区域整理的管理员任务、执行每项任务所需的最小特权角色，以及可以执行任务的其他非全局管理员角色。
+
+## <a name="b2c"></a>B2C
+
+任务 | 最小特权角色 | 其他角色
+---- | --------------------- | ----------------
+创建 Azure AD B2C 目录 | 所有非来宾用户（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 
+创建 B2C 应用程序 | 全局管理员角色 | 
+创建企业应用程序 | 云应用管理员 | 应用程序管理员
+创建、读取、更新和删除 B2C 策略 | 全局管理员角色 | 
+创建、读取、更新和删除标识提供者 | 全局管理员角色 | 
+创建、读取、更新和删除密码重置用户流 | 全局管理员角色 | 
+创建、读取、更新和删除配置文件编辑用户流 | 全局管理员角色 | 
+创建、读取、更新和删除登录用户流 | 全局管理员角色 | 
+创建、读取、更新和删除注册用户流 |全局管理员角色 | 
+创建、读取、更新和删除用户特性 | 全局管理员角色 | 
+创建、读取、更新和删除用户 | 全局管理员（[请参阅文档](/active-directory-b2c/active-directory-b2c-faqs)）
+读取所有配置 | 全局管理员角色 | 
+读取 B2C 审核日志 | 全局管理员（[请参阅文档](/active-directory-b2c/active-directory-b2c-faqs)） | 
+
+> [!NOTE]
+> Azure AD B2C 全局管理员的权限与 Azure AD 全局管理员的权限不同。 如果你拥有 Azure AD B2C 全局管理员权限，请确保你位于 Azure AD B2C 目录（而不是 Azure AD 目录）中。
+
+## <a name="company-branding"></a>公司品牌
+
+任务 | 最小特权角色 | 其他角色
+---- | --------------------- | ----------------
+配置公司品牌 | 全局管理员角色 | 
+读取所有配置 | 目录读者 | 默认用户角色（[请参阅文档](/active-directory/fundamentals/users-default-permissions)）
 
 ## <a name="company-properties"></a>公司属性
 
@@ -64,7 +92,6 @@ ms.locfileid: "67568747"
 更新企业应用程序属性 | 企业应用程序所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 云应用程序管理员、应用程序管理员
 更新企业应用程序预配 | 企业应用程序所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 云应用程序管理员、应用程序管理员
 更新企业应用程序自助服务 | 企业应用程序所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 云应用程序管理员、应用程序管理员
-更新单一登录属性 | 企业应用程序所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 云应用程序管理员、应用程序管理员
 
 ## <a name="groups"></a>组
 
@@ -82,6 +109,21 @@ ms.locfileid: "67568747"
 更新组成员身份 | 组所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 用户管理员
 更新组所有者 | 组所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 用户管理员
 更新组属性 | 组所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 用户管理员
+
+## <a name="identity-protection"></a>标识保护
+
+任务 | 最小特权角色 | 其他角色
+---- | --------------------- | ----------------
+配置警报通知| 安全管理员 | 
+配置并启用/禁用 MFA 策略| 安全管理员 | 
+配置并启用/禁用登录风险策略| 安全管理员 | 
+配置并启用/禁用用户风险策略 | 安全管理员 | 
+配置每周摘要 | 安全管理员| 
+消除所有风险事件 | 安全管理员 | 
+修复或消除漏洞 | 安全管理员 | 
+读取所有配置 | 安全读取者 | 
+读取所有风险事件 | 安全读取者 | 
+读取漏洞 | 安全读取者 | 
 
 ## <a name="licenses"></a>许可证
 
@@ -137,6 +179,15 @@ ms.locfileid: "67568747"
 配置注册 | 全局管理员角色 |
 读取所有配置 | 安全管理员 | 用户管理员 |
 
+## <a name="privileged-identity-management"></a>Privileged Identity Management
+
+任务 | 最小特权角色 | 其他角色
+---- | --------------------- | ----------------
+将用户分配到角色 | 特权角色管理员 | 
+配置角色设置 | 特权角色管理员 | 
+查看审核活动 | 安全读取者 | 
+查看角色成员身份 | 安全读取者 | 
+
 ## <a name="roles-and-administrators"></a>角色和管理员
 
 任务 | 最小特权角色 | 其他角色
@@ -151,6 +202,26 @@ ms.locfileid: "67568747"
 ---- | --------------------- | ----------------
 配置身份验证方法 | 全局管理员角色 | 
 读取所有配置 | 全局管理员角色 | 
+
+## <a name="security---conditional-access"></a>安全性 - 条件访问
+
+任务 | 最小特权角色 | 其他角色
+---- | --------------------- | ----------------
+配置 MFA 受信任的 IP | 条件访问管理员 | 
+创建自定义控件 | 条件访问管理员 | 安全管理员
+创建命名位置 | 条件访问管理员 | 安全管理员
+创建策略 | 条件访问管理员 | 安全管理员
+创建使用条款 | 条件访问管理员 | 安全管理员
+创建 VPN 连接证书 | 条件访问管理员 | 安全管理员
+删除经典策略 | 条件访问管理员 | 安全管理员
+删除使用条款 | 条件访问管理员 | 安全管理员
+删除 VPN 连接证书 | 条件访问管理员 | 安全管理员
+禁用经典策略 | 条件访问管理员 | 安全管理员
+管理自定义控件 | 条件访问管理员 | 安全管理员
+管理命名位置 | 条件访问管理员 | 安全管理员
+管理使用条款 | 条件访问管理员 | 安全管理员
+读取所有配置 | 安全读取者 | 安全管理员
+读取命名位置 | 安全读取者 | 条件访问管理员、安全管理员
 
 ## <a name="security---identity-security-score"></a>安全性 - 标识安全分数
 

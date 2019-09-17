@@ -10,15 +10,14 @@ ms.topic: sample
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 02/03/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 2c264b9ce49105f6430b005a87c97bd494fff110
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: f44c41767ca3de7b1e36808c9493b6538f10afcd
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544398"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372981"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 
@@ -40,6 +39,8 @@ ms.locfileid: "69544398"
 |**缩放单一数据库和弹性池**||
 | [缩放单一数据库](scripts/sql-database-monitor-and-scale-database-cli.md) | 此 CLI 脚本示例在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的计算大小。 |
 | [缩放弹性池](scripts/sql-database-scale-pool-cli.md) | 此 CLI 脚本示例将 SQL 弹性池缩放为不同的计算大小。  |
+|**故障转移组**||
+| [将单一数据库添加到故障转移组](scripts/sql-database-add-single-db-to-failover-group-cli.md?)| 此 CLI 脚本创建一个数据库和一个故障转移组，将此数据库添加到该故障转移组，并测试到辅助服务器的故障转移。|
 |||
 
 详细了解[单一数据库 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。

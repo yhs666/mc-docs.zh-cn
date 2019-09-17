@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b51830029e15b918734d15139ce001e26f69c48d
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 9788177b22e4d8a9e4c2e009fb2da46c444d0f1e
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514414"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169533"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure 安全中心的安全建议 
 本主题说明如何查看和了解 Azure 安全中心内的建议，以帮助你保护 Azure 资源。
@@ -27,23 +27,23 @@ ms.locfileid: "68514414"
 > [!NOTE]
 > 本文档将使用示例部署介绍该服务。  本文档不是一份分步指南。
 >
->
 
 ## <a name="what-are-security-recommendations"></a>安全建议是什么？
-安全中心定期分析 Azure 资源的安全状态。 安全中心识别到潜在的安全漏洞时，会创建建议。 此建议指导完成配置所需控件的过程。
 
-## <a name="implementing-security-recommendations"></a>实施安全性建议
-### <a name="set-recommendations"></a>设置建议
-在[设置 Azure 安全中心的安全策略](tutorial-security-policy.md)中，了解到：
+建议是为了保护资源而要采取的措施。
 
-* 配置安全策略。
-* 启用数据收集。
-* 选择视作安全策略的一部分的建议。
+安全中心会定期分析 Azure 资源的安全状态，以识别潜在的安全漏洞。 然后向你提供有关如何删除这些安全漏洞的建议。
 
-当前的策略建议以系统更新、基线规则、反恶意程序、子网和网络接口的[网络安全组](../virtual-network/security-overview.md)、SQL 数据库审核、SQL 数据库透明数据加密和 Web 应用程序防火墙为中心。  [设置安全策略](tutorial-security-policy.md)提供每个建议选项的说明。
+每项建议都提供：
 
-### <a name="monitor-recommendations"></a>监视建议
-设置安全策略之后，安全中心将分析资源的安全状态，以识别潜在的漏洞。 “概述”  下的“建议”  磁贴显示了安全中心列出的建议总数。
+- 建议的简短说明。
+- 为实施建议而要执行的补救步骤。 <!-- In some cases, one-click remediation is available. -->
+- 哪些资源需要你对其执行建议的操作。
+- **安全分数影响**，这是如果你实施此建议，安全分数将增加的数量。
+
+## 监视建议 <a name="monitor-recommendations"></a>
+
+安全中心将分析资源的安全状态，以识别潜在的漏洞。 “概述”  下的“建议”  磁贴显示了安全中心列出的建议总数。
 
 ![安全中心概述](./media/security-center-recommendations/asc-overview.png)
 
@@ -69,22 +69,4 @@ ms.locfileid: "68514414"
 
 >[!NOTE] 
 > 有关 Azure 资源，请参阅[经典和资源管理器部署模型](../azure-classic-rm.md)。
-  
- ### <a name="apply-recommendations"></a>应用建议
-> 在审核完所有建议后，决定先应用哪一项。 我们建议你使用安全功能分数影响来评估应首先应用哪些建议。
-
-1. 从列表中单击建议。
-1. 按照“修正步骤”部分  中的说明进行操作。
-
-## <a name="next-steps"></a>后续步骤
-在本文档中，已向你介绍安全中心的安全建议。 若要了解有关安全中心的详细信息，请参阅以下文章：
-
-* [在 Azure 安全中心中设置安全策略](tutorial-security-policy.md) - 了解如何配置 Azure 订阅和资源组的安全策略。
-* [Azure Security Center FAQ](security-center-faq.md) （Azure 安全中心常见问题）- 查找有关如何使用服务的常见问题。
-* [Azure 安全性博客](https://blogs.msdn.com/b/azuresecurity/) - 查找关于 Azure 安全性及合规性的博客文章。
-
-<!--Image references-->
-[1]: ./media/security-center-recommendations/recommendations-tile.png
-[2]: ./media/security-center-recommendations/filter-recommendations.png
-
 

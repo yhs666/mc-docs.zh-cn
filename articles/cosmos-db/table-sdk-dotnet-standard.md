@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 10/18/2018
-ms.date: 05/13/2019
-ms.openlocfilehash: 8ddddc832dd097e7fdb7c98479c19aada8dac29d
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+origin.date: 03/18/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 236ef3e3d19f99e488e63cf7beabecf41dfd7851
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668876"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254783"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET Standard API：下载和发行说明
@@ -33,6 +33,7 @@ ms.locfileid: "65668876"
 |**快速入门**|[快速入门](create-table-dotnet.md)|
 |**教程**|[教程](tutorial-develop-table-dotnet.md)|
 |**当前受支持的框架**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
+|**报告问题**|[报告问题](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 <!--Not Available on ## Release notes-->
 
@@ -43,5 +44,4 @@ ms.locfileid: "65668876"
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Azure Cosmos DB 表 API 的详细信息，请参阅 [Azure Cosmos DB 表 API 简介](table-introduction.md)。
 
-<!--Update_Description: new articles on table sdk dotnet standard -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

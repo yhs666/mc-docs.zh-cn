@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure Cosmos DB 在多个区域分配数据
-description: 了解如何通过多区域分配式多模型数据库服务 Azure Cosmos DB，使用多区域数据库进行多区域范围的异地复制、多主数据库故障转移和数据恢复。
+description: 了解如何通过多区域分布式多模型数据库服务 Azure Cosmos DB，使用多区域数据库进行多区域范围的异地复制、多主数据库故障转移和数据恢复。
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
-ms.openlocfilehash: b0906e53b69edad7693158b04f52f39e7d9649c2
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+origin.date: 07/23/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: ec3894890dd922f1ac4e83ebd7a4c9ffdeca5ead
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151452"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254751"
 ---
 # <a name="multiple-region-data-distribution-with-azure-cosmos-db---overview"></a>使用 Azure Cosmos DB 多区域分配数据 - 概述
 
-如今的应用程序需要具备高响应能力并始终联机。 若要实现低延迟和高可用性，需要在靠近用户的数据中心部署这些应用程序的实例。 这些应用程序通常部署在多个数据中心，称为多区域分布式应用程序。 多区域分布式应用程序需要在中国境内都可以以透明方式复制数据的多区域分布式数据库，以确保应用程序能在与用户关系密切的数据副本上执行操作。 
+如今的应用程序需要具备高响应能力并始终联机。 若要实现低延迟和高可用性，需要在靠近用户的数据中心部署这些应用程序的实例。 这些应用程序通常部署在多个数据中心，称为多区域分布式应用程序。 多区域分布式应用程序需要一个多区域分布式数据库，该数据库可以透明地将数据复制到中国任何位置，以使应用程序能够对靠近其用户的数据副本进行操作。 
 
 <!-- Notice: 全球 to 多个区域分布 -->
 
@@ -29,6 +29,8 @@ Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延�
 使用 Azure Cosmos DB 可以随时添加或删除与帐户关联的区域。 无需暂停或重新部署应用程序即可添加或删除区域。 得益于该服务原生提供的多宿主功能，它始终都能保持高可用性。
 
 ![高度可用的部署拓扑](./media/distribute-data-globally/deployment-topology.png)
+
+<!--MOONCAKE: CORRECT ON (./media/distribute-data-globally/deployment-topology.png)-->
 
 ## <a name="key-benefits-of-multiple-region-distribution"></a>多区域分布的主要优点
 
@@ -59,5 +61,10 @@ Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延�
 * [配置多宿主客户端](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [在 Azure Cosmos DB 帐户中添加或删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [为 SQL API 帐户创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Cosmos DB 中的可编程一致性模型](consistency-levels.md)
+* [为你的应用程序选择适当的一致性级别](consistency-levels-choosing.md)
+* [跨 Azure Cosmos DB API 的一致性级别](consistency-levels-across-apis.md)
+* [各种一致性级别的可用性和性能权衡](consistency-levels-tradeoffs.md)
+* [如何实现自定义同步以根据更高可用性和性能进行优化](how-to-custom-synchronization.md)
 
 <!--Update_Description: update meta properties, wording update -->

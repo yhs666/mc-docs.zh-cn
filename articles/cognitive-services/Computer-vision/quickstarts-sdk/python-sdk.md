@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/17/2019
 ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8e374fc5f2725add3a8422137bc5dc9a8d8a5feb
-ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
+ms.openlocfilehash: 4fa68f88a06173104106089aa9e553eb8d7aa403
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68439975"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104025"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>适用于 Python 的 Azure 认知服务计算机视觉 SDK
 
@@ -39,10 +39,10 @@ ms.locfileid: "68439975"
 ## <a name="prerequisites"></a>先决条件
 
 * [Python 3.6+][python]
-* [计算机视觉密钥][computervision_resource]and associated endpoint. You need these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient]客户端对象。 使用以下其中一种方法获取这些值。
+* [计算机视觉密钥][computervision_resource]和关联的终结点。 创建 [ComputerVisionClient][ref_computervisionclient] 客户端对象的实例时需要使用这些值。 使用以下其中一种方法获取这些值。
 
 
-### <a name="if-you-have-an-azure-subscription"></a>如果你拥有 Azure 订阅
+### 如果你拥有 Azure 订阅 <a name="if-you-have-an-azure-subscription"></a>
 
 在订阅中创建资源的最简单方法是使用以下 [Azure CLI][azure_cli] 命令。 这样会创建一个认知服务密钥，该密钥可以在许多认知服务中使用。 需要选择现有的资源组名称（例如“my-cogserv-group”）和新的计算机视觉资源名称（例如“my-computer-vision-resource”）。 
 
@@ -77,7 +77,7 @@ source cogsrv-vision-env/bin/activate
 
 ### <a name="install-the-sdk"></a>安装 SDK
 
-安装用于 Python 的 Azure 认知服务计算机视觉 SDK [包][pypi_computervision]（with [pip][pip]）：
+安装包含 [pip][pip] 的适用于 Python 的 Azure 认知服务计算机视觉 SDK [包][pypi_computervision]：
 
 ```Bash
 pip install azure-cognitiveservices-vision-computervision
@@ -98,7 +98,7 @@ ACCT_NAME=<computervision-account-name>
 
 ### <a name="for-azure-subscription-users-get-credentials-for-key-and-endpoint"></a>对于 Azure 订阅用户，请获取密钥和终结点的凭据
 
-如果忘记了终结点和密钥，可以使用以下方法找到它们。 如需创建密钥和终结点，则可使用适用于 [Azure 订阅持有人](#if-you-have-an-azure-subscription)的方法，或者使用适用于[没有 Azure 订阅的用户](#if-you-dont-have-an-azure-subscription)的方法。
+如果忘记了终结点和密钥，可以使用以下方法找到它们。 如需创建密钥和终结点，则可使用适用于 [Azure 订阅持有人](#if-you-have-an-azure-subscription)的方法。
 
 使用以下 Azure CLI 代码片段在两个环境变量中填充计算机视觉帐户的**终结点**及其**密钥**之一（也可以在 [Azure 门户][azure_portal]中找到这些值）。 此代码片段已针对 Bash shell 格式化。
 
@@ -147,7 +147,7 @@ client = ComputerVisionClient(endpoint, credentials)
 
 ### <a name="analyze-an-image"></a>分析图像
 
-可以使用 [`analyze_image`][ref_computervisionclient_analyze_image] 分析图像以了解特定功能. Use the [`visual_features`][ref_computervision_model_visualfeatures] 属性可设置要对该图像执行的分析的类型。 常用值为 `VisualFeatureTypes.tags` 和 `VisualFeatureTypes.description`。
+可以使用 [`analyze_image`][ref_computervisionclient_analyze_image] 分析图像中的某些特征。 使用 [`visual_features`][ref_computervision_model_visualfeatures] 属性设置针对图像执行的分析类型。 常用值为 `VisualFeatureTypes.tags` 和 `VisualFeatureTypes.description`。
 
 ```Python
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
@@ -279,7 +279,7 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>常规
 
-与 [ComputerVisionClient][ref_computervisionclient] 交互时，client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] 类用于返回错误。 服务返回的错误对应于返回给 REST API 请求的相同 HTTP 状态代码。
+使用 Python SDK 与 [ComputerVisionClient][ref_computervisionclient] 客户端对象交互时，将使用 [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] 类返回错误。 服务返回的错误对应于返回给 REST API 请求的相同 HTTP 状态代码。
 
 例如，如果你尝试使用无效的密钥分析图像，则会返回 `401` 错误。 以下代码片段通过捕获异常并显示有关错误的其他信息来妥善处理该[错误][ref_httpfailure]。
 
@@ -305,7 +305,7 @@ except HTTPFailure as e:
 
 ### <a name="handle-transient-errors-with-retries"></a>使用重试处理暂时性错误
 
-使用 [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units]，或者网络中断等其他暂时性问题。
+使用 [ComputerVisionClient][ref_computervisionclient] 客户端时，可能会遇到服务强制实施的[速率限制][computervision_request_units]所导致的暂时性错误，或者网络中断等其他暂时性问题。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: e6effea320d3e6bc400b3e644e87df1f36febeee
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 09/09/2019
+ms.openlocfilehash: a155df78eaa969237e18efa2c4454213d00ccdba
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627079"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254623"
 ---
 <!--Verify sucessfully-->
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
@@ -27,7 +27,8 @@ ms.locfileid: "58627079"
 * 预配所选的 Spark 环境 [[Azure HDInsight-Spark](/hdinsight/spark/apache-spark-jupyter-spark-sql) | 其他]。
 
     <!--Not Available on [Azure Databricks](/azure-databricks/quickstart-create-databricks-workspace-portal)-->
-  ## <a name="dependencies-for-connectivity"></a>连接的依赖项
+
+## <a name="dependencies-for-connectivity"></a>连接的依赖项
 * **Cassandra 的 Spark 连接器：** Spark 连接器用于连接到 Azure Cosmos DB Cassandra API。  请识别并使用 [Maven 中心]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)内与 Spark 环境的 Spark 和 Scala 版本兼容的连接器版本。
 
 * **Cassandra API 的 Azure Cosmos DB 帮助器库：** 除了 Spark 连接器以外，还需要 Azure Cosmos DB 中名为 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) 的另一个库。 此库包含自定义连接工厂和重试策略类。
@@ -49,8 +50,8 @@ ms.locfileid: "58627079"
 | spark.cassandra.connection.connections_per_executor_max  | 无 | 每个执行器的每个节点的最大连接数。 10*n 相当于 n 节点 Cassandra 群集中每个节点可以建立 10 个连接。 因此，如果需要为 5 节点 Cassandra 群集的每个执行器的每个节点建立 5 个连接，则应将此配置设置为 25。 请根据为 Spark 作业配置的并行度或执行器数目修改此值。   |
 | spark.cassandra.output.concurrent.writes  |  100 | 定义每个执行器可以执行的并行写入数。 由于“batch.size.rows”设置为 1，因此请务必相应地增大此值。 请根据工作负荷要实现的并行度或吞吐量修改此值。 |
 | spark.cassandra.concurrent.reads |  512 | 定义每个执行器可以执行的并行读取数。 请根据工作负荷要实现的并行度或吞吐量修改此值  |
-| spark.cassandra.output.throughput_mb_per_sec  | 无 | 定义每个执行器的总写入吞吐量。 可将此参数用作 Spark 作业吞吐量的上限，并根据 Cosmos DB 集合的预配吞吐量修改此参数。   |
-| spark.cassandra.input.reads_per_sec| 无   | 定义每个执行器的总读取吞吐量。 可将此参数用作 Spark 作业吞吐量的上限，并根据 Cosmos DB 集合的预配吞吐量修改此参数。  |
+| spark.cassandra.output.throughput_mb_per_sec  | 无 | 定义每个执行器的总写入吞吐量。 可将此参数用作 Spark 作业吞吐量的上限，并根据 Cosmos 容器的预配吞吐量修改此参数。   |
+| spark.cassandra.input.reads_per_sec| 无   | 定义每个执行器的总读取吞吐量。 可将此参数用作 Spark 作业吞吐量的上限，并根据 Cosmos 容器的预配吞吐量修改此参数。  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | 定义每个 Spark 任务的、在发送到 Cassandra API 之前可以存储在内存中的批数 |
 | spark.cassandra.connection.keep_alive_ms | 60000 | 定义在经过多长的时间之后未使用的连接可供使用。 | 
 
@@ -59,7 +60,7 @@ ms.locfileid: "58627079"
 ## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
 
 ### <a name="cqlsh"></a>cqlsh
-以下命令详细说明如何从 cqlsh 连接到 Azure CosmosDB Cassandra API。  在 Spark 中运行示例时，可以使用此命令进行验证。<br>
+以下命令详细说明如何从 cqlsh 连接到 Azure CosmosDB Cassandra API。  在 Spark 中运行示例时，可以使用此命令进行验证。<br />
 **从 Linux/Unix/Mac：**
 
 ```bash
@@ -71,11 +72,11 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.cn 10350 -u YOUR-CO
 <!--Not Available on ### 1.  Azure Databricks-->
 <!--Not Available on [Work with Azure Cosmos DB Cassandra API from Azure databricks](cassandra-spark-databricks.md)-->
 
-### <a name="1--azure-hdinsight-spark"></a>1.Azure HDInsight-Spark
+### <a name="1-azure-hdinsight-spark"></a>1.Azure HDInsight-Spark
 以下文章介绍了 HDinsight-Spark 服务、预配、连接到 Azure Cosmos DB Cassandra API 时所需的群集配置，以及用于演示 DDL 操作、DML 操作等的几个示例 Notebook。<BR>
 [在 HDInsight-Spark 中使用 Azure Cosmos DB Cassandra API](cassandra-spark-hdinsight.md)
 
-### <a name="2--spark-environment-in-general"></a>2.常规 Spark 环境
+### <a name="2-spark-environment-in-general"></a>2.常规 Spark 环境
 前面的部分与基于 Azure Spark 的 PaaS 服务相关，本部分介绍任何常规 Spark 环境。  下面详细介绍了连接器依赖项、导入和 Spark 会话配置。 “后续步骤”部分提供了 DDL 操作、DML 操作等的代码示例。  
 
 #### <a name="connector-dependencies"></a>连接器依赖项：
@@ -128,5 +129,4 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 * [表复制操作](cassandra-spark-table-copy-ops.md)
 
 <!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

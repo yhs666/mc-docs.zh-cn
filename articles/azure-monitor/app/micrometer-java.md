@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 11/01/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4196ae275eb91219d028918f27a5f84183024e65
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 4cc522bd3d35b3fb6c98b486fc44c01c0d811410
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989691"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737274"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何将 Micrometer 与 Azure Application Insights Java SDK 配合使用
 Micrometer 应用程序监视功能可以度量基于 JVM 的应用程序代码的指标，并可用于将数据导出到偏爱的监视系统。 本文介绍如何对 Spring Boot 和非 Spring Boot 应用程序配合使用 Micrometer 与 Application Insights。

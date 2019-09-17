@@ -1,25 +1,48 @@
 ---
 title: Azure Site Recovery 中的新增功能 | Azure
-description: 汇总 Azure Site Recovery 中引入的新功能
+description: 提供 Azure Site Recovery 中引入的新功能的摘要
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 06/18/2019
-ms.date: 08/05/2019
+origin.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 73bfa20c6c867336c75d8343c79292086dfccfc3
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 3288deafd7c055a14d05ff1d0a5899d105b00d8f
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819577"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134451"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
 [Azure Site Recovery](site-recovery-overview.md) 服务会持续进行更新和改进。 本文介绍最新版本、新功能和新内容，让你始终了解最新动态。 此页会定期更新。
 
-如果有关于 Site Recovery 功能的建议，请[提供反馈](https://support.azure.cn/en-us/support/contact/)。
+如果有关于 Site Recovery 功能的建议，请[提供反馈](https://support.azure.cn/support/contact/)。
+
+## <a name="installing-updates"></a>安装更新
+
+[查看本文](service-updates-how-to.md)以获取 Site Recovery 更新支持和说明。
+
+## <a name="updates-july-2019"></a>更新（2019 年 7 月）
+
+### <a name="update-rollup-38"></a>更新汇总 38
+
+[更新汇总 38](https://support.microsoft.com/help/4513507/) 提供以下更新。
+
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）
+
+### <a name="general"></a>常规
+
+Site Recovery 现在支持将常规用途 v2 存储帐户用于缓存存储或目标存储。 以前仅支持 v1。
+
+### <a name="vmware-to-azure-disaster-recovery"></a>VMware 到 Azure 的灾难恢复
+
+复制到包含托管磁盘的 Azure VM 时，现在可以复制最多 8 TB 的磁盘。
 
 ## <a name="updates-june-2019"></a>更新（2019 年 6 月）
 
@@ -89,7 +112,7 @@ ms.locfileid: "68819577"
 **功能** | **详细信息**
 --- | ---
 **托管磁盘** | 现在可将本地 VMware VM 和物理服务器直接复制到 Azure 中的托管磁盘。 本地数据将发送到 Azure 中的缓存存储帐户，恢复点将在目标位置的托管磁盘中创建。 这可确保无需管理多个目标存储帐户。
-**配置服务器** | Site Recovery 现在支持具有多个 NIC 的配置服务器。 必须先将附加的适配器添加到配置服务器 VM，然后在保管库中注册配置服务器。 如果在注册之后再添加，则需要在保管库中重新注册服务器。
+**配置服务器** | Site Recovery 现在支持具有多个 NIC 的配置服务器。 先将附加的适配器添加到配置服务器 VM，然后再在保管库中注册配置服务器。 如果在注册之后再添加，则需要在保管库中重新注册服务器。
 
 ## <a name="updates-february-2019"></a>更新（2019 年 2 月）
 
@@ -261,7 +284,7 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 **提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
 **问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
 
-### <a name="azure-vms-disaster-recovery"></a>Azure VM 灾难恢复 
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复 
 下表中总结了本月添加的功能。
 
 **功能** | **详细信息**
@@ -294,7 +317,7 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 **提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
 **问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
 
-### <a name="azure-vms-disaster-recovery"></a>Azure VM 灾难恢复 
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复 
 
 下表中总结了本月添加的功能。
 

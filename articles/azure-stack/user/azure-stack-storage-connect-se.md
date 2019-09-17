@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/14/2019
-ms.date: 07/29/2019
+origin.date: 07/23/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 24f1d835e1d1163dd31b059a2efa840349223b40
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 05efbb70af54f66853a0747ad1dd0b6e4217e80b
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513227"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857324"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -149,7 +149,7 @@ ms.locfileid: "68513227"
 
 3. 在“连接到 Azure 存储”对话框中，选择“使用存储帐户名称和密钥”。 
 
-4. 在“帐户名称”  中输入帐户名称，将帐户密钥粘贴到“帐户密钥”  文本框中，在“存储终结点域”中选择“其他(在下面输入)”，并输入 Azure Stack 终结点。  
+4. 在**帐户名称**中输入帐户名称，并将帐户密钥粘贴到“帐户密钥”  文本框中。 然后，在**存储终结点域**中选择“其他(在下面输入)”  并输入 Azure Stack 终结点。
 
     Azure Stack 终结点包含两个部分：区域的名称和 Azure Stack 域。 在 Azure Stack 开发工具包中，默认终结点是 **local.azurestack.external**。 如果不确定你的终结点，请与云管理员联系。
 

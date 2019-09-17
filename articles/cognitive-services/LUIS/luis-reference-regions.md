@@ -1,5 +1,5 @@
 ---
-title: 发布区域和终结点
+title: 发布区域和终结点 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 3 个创作区域及其门户支持所有多个发布区域。 发布 LUIS 应用的区域对应于创建 Azure LUIS 终结点密钥时在 Azure 门户中指定的区域或位置。 发布应用时，LUIS 会自动为与密钥关联的区域生成终结点 URL。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 07/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0677214adb278bb7773a2e10ad019803a997ff6b
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 717453ba5ff2e668add8a0d1cbd9656ad0a21a23
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135851"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103968"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>创作和发布区域及关联的密钥
 

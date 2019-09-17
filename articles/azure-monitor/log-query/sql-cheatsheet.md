@@ -11,14 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 08/21/2018
 ms.date: 02/20/2019
 ms.author: lingliwu
-ms.openlocfilehash: e25dc8a5e25284db232a4235f04ff11c1e330dcb
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 97b663ad7ee7d41dfcc6cca5617628a2ca57a554
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562479"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737070"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>从 SQL 到 Azure Monitor 日志查询备忘单 
 

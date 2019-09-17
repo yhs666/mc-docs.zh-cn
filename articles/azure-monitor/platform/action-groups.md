@@ -1,19 +1,23 @@
 ---
 title: 在 Azure 门户中创建和管理器操作组
 description: 了解如何在 Azure 门户中创建和管理操作组。
-author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 7/22/2019
-ms.author: dukek
-ms.subservice: alerts
-ms.openlocfilehash: a111bd2d8655ef720f35953b0d19c66e6312f744
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+author: lingliw
+manager: digimobile
+editor: ''
+ms.assetid: ''
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.topic: article
+origin.date: 09/10/2018
+ms.date: 6/4/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 7043e89c9cb41c25b743a747c3e94bce5306b1e3
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989696"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737368"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##

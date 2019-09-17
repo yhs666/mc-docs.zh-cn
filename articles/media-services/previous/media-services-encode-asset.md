@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 08/26/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: f237271b7a812a601ce4d7aa75d0254b0bcf99df
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: bf85dec8924f1fe9b870c95a247c4416afbc4dd1
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670939"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254412"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述 
 
@@ -40,8 +40,9 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 媒体服务支持在本文中介绍的以下按需编码器：
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+* [媒体编码器高级工作流](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-本文简要概述了按需媒体编码器，并提供了指向介绍更多详细信息的文章的链接。 本主题还提供对编码器的比较。
+本文简要概述了点播媒体编码器，并提供了指向介绍更多详细信息的文章的链接。 本主题还提供对编码器的比较。
 
 默认情况下每个媒体服务帐户同时只能有一个活动的编码任务。 可以预留编码单元，使用它们可以同时运行多个编码任务，购买的每个编码预留单位对应一个任务。 有关信息，请参阅[缩放编码单位](media-services-scale-media-processing-overview.md)。
 
@@ -71,6 +72,15 @@ Media Encoder Standard 使用 [此处](media-services-mes-presets-overview.md)�
 
 ### <a name="see-also"></a>另请参阅
 [媒体服务博客](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
+
+## <a name="media-encoder-premium-workflow"></a>媒体编码器高级工作流
+### <a name="overview"></a>概述
+[在 Azure 媒体服务中引入高级编码](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
+
+### <a name="how-to-use"></a>如何使用
+媒体编码器高级工作流使用复杂的工作流进行配置。 可以使用[工作流设计器](media-services-workflow-designer.md)工具创建和更新工作流文件。
+
+[如何在 Azure 媒体服务中使用高级编码](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>已知问题
 如果输入视频不包含隐藏式字幕，输出资产仍包含一个空的 TTML 文件。

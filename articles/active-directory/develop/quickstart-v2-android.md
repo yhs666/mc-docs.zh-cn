@@ -3,7 +3,7 @@ title: Microsoft 标识平台 Android 快速入门 | Azure
 description: 了解 Android 应用程序如何才能通过 Microsoft 标识平台终结点调用需要访问令牌的 API。
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/26/2019
-ms.date: 05/08/2019
+origin.date: 07/17/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 237d21fe69489e039166e099ef8691d3bd779312
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 28bcb1eb289109efae4ee94b1e6cd36fcf3aede4
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151744"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134128"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-本快速入门包含了一个代码示例，该示例演示了 Android 应用程序如何将个人、工作和学校帐户进行登录，获取访问令牌以及调用 Microsoft Graph API。
+本快速入门包含了一个代码示例，该示例演示了 Android 应用程序如何将工作和学校帐户登录，获取访问令牌以及调用 Microsoft Graph API。
 
-![显示本快速入门生成的示例应用的工作原理](media/quickstart-v2-android/android-intro.svg)
+![显示本快速入门生成的示例应用的工作原理](./media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **先决条件**
@@ -75,7 +75,7 @@ ms.locfileid: "67151744"
 > > [执行此更改]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已配置](media/quickstart-v2-android/green-check.png) 应用程序已使用这些属性进行了配置
+> > ![已配置](./media/quickstart-v2-android/green-check.png) 应用程序已使用这些属性进行了配置
 
 #### <a name="step-2-download-the-project"></a>步骤 2：下载项目
 
@@ -105,8 +105,10 @@ ms.locfileid: "67151744"
 >          }
 >       ]
 >    }
-> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Paste the following activity to the **manifest\application** node: 
+>    ```
+> 
+> 1. 在“应用”   >   “清单”中，打开 **AndroidManifest.xml**。
+> 1. 将以下活动粘贴到 **manifest\application** 节点： 
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -121,7 +123,11 @@ ms.locfileid: "67151744"
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. 运行应用！ 
+> 1. 运行应用！ 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入门支持 Enter_the_Supported_Account_Info_Here。
 
 > [!div renderon="docs"]
 > 1. 解压缩该项目并将其在 Android Studio 中打开。
@@ -195,8 +201,8 @@ MSAL 有两种用于获取令牌的方法：`acquireToken` 和 `acquireTokenSile
 * 如果用户重置其密码，则他们需要输入凭据 
 * 如果许可已撤销 
 * 如果应用显式要求许可。 
-* 当应用程序首次请求资源的访问权限时
-* 需要 MFA 策略时
+* 应用程序首次请求访问资源时
+* 需要 MFA 或其他条件访问策略时
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -249,3 +255,4 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+<!-- Update_Description: wording update -->

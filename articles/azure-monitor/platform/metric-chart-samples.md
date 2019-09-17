@@ -1,19 +1,20 @@
 ---
 title: Azure Monitor 指标图表示例
 description: 了解如何可视化 Azure Monitor 数据。
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: vitalyg
-ms.subservice: metrics
-ms.openlocfilehash: c6db72e53f52d941442385d30a089ff7970b5912
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+origin.date: 01/29/2019
+ms.date: 08/29/2019
+ms.author: v-lingwu
+ms.subservice: ''
+ms.openlocfilehash: 0bc255353d576663a782ff15fd9351314ab5cb51
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562868"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736504"
 ---
 # <a name="metric-chart-samples"></a>指标图表示例
 

@@ -1,7 +1,7 @@
 ---
-title: 模式添加准确性
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 了解如何在语言理解 (LUIS) 应用程序中添加模式模板，提高预测准确性。
+title: 模式添加准确性 - LUIS
+titleSuffix: Azure Cognitive Services
+description: 在语言理解 (LUIS) 应用程序中添加模式模板，以提高预测准确性。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 63ee0b180620bbfacf0d42c172313dae01bffaae
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 2a3bb9126c148db540ff85807366de02e76f0cec
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557066"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104006"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何添加模式以提高预测准确性
 在 LUIS 应用接收到终结点话语后，请使用[模式](luis-concept-patterns.md)提高话语（按字词顺序和字词选择呈现模式）的预测准确性。 模式使用特定[语法](luis-concept-patterns.md#pattern-syntax)指示[实体](luis-concept-entity-types.md)、实体角色和可选文本的位置。
 
 ## <a name="add-template-utterance-to-create-pattern"></a>添加模板表述以创建模式
-1. 通过选择“我的应用”页上的应用名称来打开应用，然后选择“提高应用性能”下左侧面板中的“模式”。
+1. 通过选择“我的应用”页上的应用名称来打开应用，然后选择“提高应用性能”下左侧面板中的“模式”    。
 
     ![模式列表的屏幕截图](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 

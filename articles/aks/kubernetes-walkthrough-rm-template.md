@@ -9,12 +9,12 @@ origin.date: 04/19/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 359c7c89f8b739671ab797802f89ca265ef439df
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 6fd08a392eefbaf808caee9a0a58e3422affcfe5
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993200"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500709"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板部署 Azure Kubernetes 服务 (AKS) 群集
@@ -75,39 +75,33 @@ az ad sp create-for-rbac --skip-assignment
 
 本快速入门中所用的模板用于[部署 Azure Kubernetes 服务群集](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks/)。 有关更多 AKS 示例，请参阅 [AKS 快速入门模板][aks-quickstart-templates]站点。
 
+<!--MOONCAKE: New Deployment Template released on Azure China-->
+
 1. 选择下图登录到 Azure 并打开一个模板。
 
     [![“部署到 Azure”](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 2. 选择或输入以下值。  
-    
-    <!--MOONCAKE: CUSTOMIZED-->
-    
+
     对于本快速入门，请保留“OS 磁盘大小(GB)”、“代理计数”、“代理 VM 大小”、“OS 类型”和“Kubernetes 版本”的默认值。      为以下模板参数提供自己的值：
-    * “部署解决方案模板”面板： 
-    
-        * **订阅**：选择 Azure 订阅。
-        * **资源组**：选择“新建”。  输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。 
-        * **资源组位置**：选择一个位置，例如“中国东部 2”。 
-        
-    * “参数”面板： 
-        * **群集名称**：输入 AKS 群集的唯一名称，例如 *myAKSCluster*。
-        * **DNS 前缀**：输入群集的唯一 DNS 前缀，例如 *myakscluster*。
-        * **Linux 管理员用户名**：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser*。
-        * **SSH RSA 公钥**：复制并粘贴 SSH 密钥对的 *public* 部分（默认为 *~/.ssh/id_rsa.pub* 的内容）。
-        * **服务主体客户端 ID**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *appId*。
-        * **服务主体客户端机密**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *password*。
-        
-        <!--NOT Available on * **I agree to the terms and conditions state above**: Check this box to agree.-->
-        
-        选择“确定”按钮。 
-    
+
+    * **订阅**：选择 Azure 订阅。
+    * **资源组**：选择“新建”。  输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。 
+    * **位置**：选择一个位置，例如“中国东部 2”。 
+    * **群集名称**：输入 AKS 群集的唯一名称，例如 *myAKSCluster*。
+    * **DNS 前缀**：输入群集的唯一 DNS 前缀，例如 *myakscluster*。
+    * **Linux 管理员用户名**：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser*。
+    * **SSH RSA 公钥**：复制并粘贴 SSH 密钥对的 *public* 部分（默认为 *~/.ssh/id_rsa.pub* 的内容）。
+    * **服务主体客户端 ID**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *appId*。
+    * **服务主体客户端机密**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *password*。
+    * **我同意上述条款和条件**：选中此框表示同意。
+
     ![用于在门户中创建 Azure Kubernetes 服务群集的资源管理器模板](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. 依次选择“查看法律条款”、“创建”。  
+3. 选择“购买”。 
 
-    <!--MOONCAKE: CUSTOMIZED-->
-    
+<!--MOONCAKE: New Deployment Template released on Azure China-->
+
 创建 AKS 群集需要几分钟时间。 等待群集成功部署，然后转到下一步骤。
 
 ## <a name="connect-to-the-cluster"></a>连接至群集

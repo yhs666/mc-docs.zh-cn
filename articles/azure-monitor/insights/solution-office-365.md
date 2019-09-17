@@ -5,20 +5,20 @@ services: operations-management-suite
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+origin.date: 07/01/2019
+ms.date: 07/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 081d7f398d48db2c5dc68a164d48c231fb48791a
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 127dfbf285de86f4647d9832a83c3de18f964086
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989292"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737332"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 

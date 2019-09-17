@@ -4,21 +4,21 @@ description: 在 Application Insights 中设置 Web 测试。 当网站不可用
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+origin.date: 08/22/2019
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 8b565716fb50d0f3dff75fa283fa7a469763ae93
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: ec3f978ce6be7a61b2762809012709ff2324fd39
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989689"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737275"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>监视任意网站的可用性
 

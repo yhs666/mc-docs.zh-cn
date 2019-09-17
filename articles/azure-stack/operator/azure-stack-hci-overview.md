@@ -8,13 +8,13 @@ ms.author: v-jay
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 origin.date: 05/31/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 82478026c81f3e4e58db79625d5b45fc51b760d4
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.date: 09/16/2019
+ms.openlocfilehash: 0e7ff4c5558b475cad49fcc152a823c8e228b718
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513563"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857097"
 ---
 # <a name="azure-stack-hci-overview"></a>Azure Stack HCI 概述
 
@@ -48,7 +48,7 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack 使用相�
 
 - [Azure](https://www.azure.cn) - 使用公有云服务
 - [Azure Stack](azure-stack-overview.md) - 在本地操作云服务
-- Azure Stack HC - 在本地运行虚拟化应用，并选择性地连接到 Azure
+- [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) - 在本地运行虚拟化应用，并可选择连接到 Azure
 
 ![Azure 和 Azure Stack 运行云服务，而 Azure Stack HCI 在本地运行虚拟化应用程序](media/azure-stack-hci/azure-family.png)
 
@@ -59,6 +59,7 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack 使用相�
 
 若要了解详细信息，请访问以下链接：
 
+- 请访问我们的 [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) 解决方案网站了解更多信息。
 - 观看 Microsoft 专家 Jeff Woolsey 和 Vijay Tewari [介绍新的 Azure Stack HCI 解决方案](https://aka.ms/AzureStackOverviewVideo)。
 
 ## <a name="hyperconverged-efficiencies"></a>超融合效率

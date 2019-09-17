@@ -12,20 +12,37 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 05/03/2019
-ms.date: 07/04/2019
+ms.date: 08/27/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c56e59c1b0b8a5a57fb8bab0b6723995f67f56cc
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: b80ba64cd24c967597cc01cb0d6313b4e62f1f67
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568626"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134337"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
 ## <a name="general-installation"></a>常规安装
+
+**问：如何加强 Azure AD Connect 服务器以减少安全攻击面？**
+
+Microsoft 建议你加固 Azure AD Connect 服务器来减小 IT 环境中的此关键组件的安全攻击面。  遵循以下建议可降低你的组织的安全风险。
+
+* 将 Azure AD Connect 部署在已加入域的服务器上，并仅限域管理员或其他严格受控的安全组进行管理性访问
+
+若要了解更多信息，请参阅以下文章： 
+
+* [保护管理员组](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [保护内置的管理员帐户](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [通过减小攻击面改进并维护安全性](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [减小 Active Directory 攻击面](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **问：如果 Azure Active Directory (Azure AD) 全局管理员已启用双重身份验证 (2FA)，安装是否能够正常进行？**  
 2016 年 2 月版开始支持此方案。
 
@@ -75,7 +92,7 @@ Azure AD Connect 不支持 NetBIOS 名称包含点号 (.) 的本地林或域。
 Azure AD Connect 不支持纯 IPv6 环境。
 
 **问：我有一个多林环境，两个林之间的网络使用 NAT（网络地址转换）。是否支持在这两个林之间使用 Azure AD Connect？**</br>
- 否，不支持通过 NAT 使用 Azure AD Connect。 
+否，不支持通过 NAT 使用 Azure AD Connect。 
 
 ## <a name="federation"></a>联合
 **问：如果我收到一封电子邮件，要求我续订 Office 365 证书，该怎么办？**  
@@ -90,6 +107,12 @@ Azure AD Connect 不支持纯 IPv6 环境。
 
 **问：已启用 FIPS 的计算机是否支持下一代加密 (NGC) 同步规则？**  
 否。  不支持。
+
+**问：如果我在 Azure 门户中禁用了同步设备（例如：HAADJ），为什么要重新启用它？**<br>
+可以在本地创作或掌控同步设备。 如果在本地启用了同步设备，即使管理员之前禁用了该设备，也可能会在 Azure 门户中重新启用它。 若要禁用同步设备，请使用本地 Active Directory 禁用计算机帐户。
+
+**问：如果我阻止同步用户在 Office 365 或 Azure AD 门户上登录，为什么再次登录时会取消阻止？**<br>
+可以在本地创作或掌控同步用户。 如果在本地启用了该帐户，则可以取消管理员放置的登录阻止。
 
 ## <a name="identity-data"></a>标识数据
 **问：Azure AD 中的 userPrincipalName (UPN) 属性为何与本地 UPN 不匹配？**  

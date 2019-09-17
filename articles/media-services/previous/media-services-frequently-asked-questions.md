@@ -15,11 +15,11 @@ origin.date: 02/10/2019
 ms.date: 03/04/2019
 ms.author: v-jay
 ms.openlocfilehash: a07a6826b6b7122ef5a64e40733a5a6ef3a0bb7f
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833353"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737362"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -37,7 +37,7 @@ ms.locfileid: "56833353"
 
 问：我已经上传、编码并发布了视频。 为什么在尝试对视频进行流式处理时，它不播放？
 
-答：最常见的原因之一是，没有“正在运行”状态下从其播放的流式处理终结点。  
+答：最常见的原因之一是，没有“正在运行”  状态下从其播放的流式处理终结点。  
 
 问：我是否可以在实时流上进行合成操作？
 

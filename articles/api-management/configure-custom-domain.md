@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 07/01/2019
-ms.date: 07/15/2019
+origin.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5cf571aece22ffffae59574406909d81532f8782
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: dbc5946e99be115f9edd5672a5fc4d3a97133773
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569647"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736690"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
@@ -36,29 +36,33 @@ ms.locfileid: "67569647"
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ API 管理实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
-+ 一个由你拥有的自定义域名。 必须单独获取要使用的自定义域名并将其托管在 DNS 服务器上。 本主题没有说明如何托管自定义域名。
-+ 必须具有有效的带有公钥和私钥 (.PFX) 的证书。 使用者或使用者可选名称 (SAN) 必须与域名匹配（这使得 API 管理实例可以通过 SSL 安全地公开 URL）。
+-   API 管理实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
+-   由你或你的组织拥有的自定义域名。 本主题不会提供有关如何购买自定义域名的说明。
+-   托管在 DNS 服务器上的 CNAME 记录，该记录将自定义域名映射到 API 管理实例的默认域名。 本主题不会提供有关如何托管 CNAME 记录的说明。
+-   必须具有有效的带有公钥和私钥 (.PFX) 的证书。 使用者或使用者可选名称 (SAN) 必须与域名匹配（这使得 API 管理实例可以通过 SSL 安全地公开 URL）。
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 门户设置自定义域名
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 API 管理实例。
-2. 选择“自定义域和 SSL”  。
+1. 选择“自定义域”  。
     
     可以为许多终结点分配自定义域名。 当前有以下终结点可用： 
-   + **代理**（默认值为：`<apim-service-name>.azure-api.cn`）， 
+   + **网关**（默认值为：`<apim-service-name>.azure-api.cn`）， 
    + **门户**（默认值为：`<apim-service-name>.portal.azure-api.cn`），     
    + **管理**（默认值为：`<apim-service-name>.management.azure-api.cn`）， 
    + **SCM**（默认值为：`<apim-service-name>.scm.azure-api.cn`）。
 
-     >[!NOTE]
-     > 可以更新所有终结点或者更新其中的一部分。 通常情况下，客户会更新**代理**（此 URL 用来调用通过 API 管理公开的 API）和**门户**（开发人员门户 URL）。 **管理**和 **SCM** 终结点由 APIM 客户在内部使用，因此很少会为其分配自定义域名。
-    
-3. 选择要更新的终结点。 
-4. 在右侧窗口中，单击“自定义”  。
+    > [!NOTE]
+    > 只有“网关”终结点适用于“消耗”层级中的配置。 
+    > 可以更新所有终结点或者更新其中的一部分。 通常，客户会更新“网关”（此 URL 用来调用通过 API 管理公开的 API）和“门户”（开发人员门户 URL）   。
+    > “管理”和“SCM”终结点由 API 管理实例所有者在内部使用，因此很少会为其分配自定义域名   。
+    > “高级”层级支持为“网关”终结点设置多个主机名。  
 
-   + 在“自定义域名”  中，指定要使用的名称。 例如，`api.contoso.com`。 还支持通配符域名（例如 *.domain.com）。
-   + 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
+1. 选择要更新的终结点。
+1. 在右侧窗口中，单击“自定义”  。
+
+    - 在“自定义域名”  中，指定要使用的名称。 例如，`api.contoso.com`。
+    - 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
 
     > [!TIP]
     > 我们建议使用 Azure Key Vault 来管理证书并将其设置为“自动轮换”。
@@ -74,6 +78,16 @@ ms.locfileid: "67569647"
     >分配证书的过程可能需要 15 分钟或更久，这取决于部署规模。 开发人员 SKU 有故障时间，基本和更高版本的 SKU 没有故障时间。
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+
+## <a name="dns-configuration"></a>DNS 配置
+
+可使用两个选项来为自定义域名配置 DNS：
+
+-   配置一条指向已配置的自定义域名终结点的 CNAME 记录。
+-   配置一条指向 API 管理网关 IP 地址的 A 记录。
+
+> [!NOTE]
+> 尽管 API 管理实例 IP 地址是静态的，但在少数情况下它可能会更改。 因此，建议在配置自定义域时使用 CNAME。 选择 DNS 配置方法时，请考虑到这一点。 在 [API 管理常见问题解答](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)中了解详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,19 +6,28 @@ author: rockboyfor
 manager: digimobile
 ms.topic: article
 ms.service: site-recovery
-origin.date: 04/24/2019
-ms.date: 06/10/2019
+origin.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: cfeede7b44589d325f904cef3f4034863ce71314
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 6dff745cbe28fad24a08ee04a8c238624a41b09a
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390920"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134454"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery 部署规划器版本历史记录
 
 本文提供 Azure Site Recovery 部署规划器的所有版本历史记录和修复，以及每个版本的已知限制和发布日期。
+
+## <a name="version-25"></a>版本 2.5
+
+**发布日期：2019 年 7 月 29 日**
+
+**修复：**
+
+- 对于 VMware 虚拟机和物理计算机，将建议更新为基于到托管磁盘的复制。
+- 添加了对 Windows 10 (x64)、Windows 8.1 (x64)、Windows 8 (x64)、Windows 7 (x64) SP1 或更高版本的支持
 
 ## <a name="version-24"></a>版本 2.4
 
@@ -29,8 +38,8 @@ ms.locfileid: "66390920"
 - 改进了操作系统兼容性，特别是处理基于本地化的错误方面的兼容性。
 - 在兼容性清单中添加了最大支持 20 Mbps 数据更改率（变动率）的 VM。
 - 改进了错误消息
-    - 添加了对 vCenter 6.7 的支持。
-    - 添加了对 Windows Server 2019 的支持。
+- 添加了对 vCenter 6.7 的支持。
+- 添加了对 Windows Server 2019 的支持。
     
     <!--Not Available on and Red Hat Enterprise Linux (RHEL) workstation-->
     
@@ -145,5 +154,4 @@ ms.locfileid: "66390920"
 - 如果 vCenter 服务器中有两个或更多个 VM 跨不同的 ESXi 主机使用相同的名称或 IP 地址，则该工具无法分析 VM。
 在此版本中，该工具将跳过 VMListFile 中针对重复 VM 名称或 IP 地址的分析。 解决方法是使用 ESXi 主机而不是 vCenter 服务器来分析 VM。 确保运行每个 ESXi 主机的一个实例。
 
-<!--Update_Description: new articles on site recovery deployment planner history -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->

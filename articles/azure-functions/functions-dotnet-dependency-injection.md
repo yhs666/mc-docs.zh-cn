@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 05/28/2019
-ms.date: 07/18/2019
+ms.date: 09/06/2019
 ms.author: v-junlch
 ms.reviewer: jehollan
-ms.openlocfilehash: 09397862c7e3e247076959fd606154a792f3bc36
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: e3e391e8a2d45072dea990b394496a38971953f4
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331934"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805809"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用依赖项注入
 
@@ -95,7 +95,7 @@ namespace MyNamespace
         public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
         {
             _service = service;
-            _client = httpClientFactory.CreateClient();;
+            _client = httpClientFactory.CreateClient();
         }
 
         [FunctionName("GetPosts")]
@@ -146,4 +146,4 @@ Azure Functions 应用提供与 [ASP.NET 依赖项注入](https://docs.microsoft
 
 - [适用于函数的最佳做法](functions-best-practices.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

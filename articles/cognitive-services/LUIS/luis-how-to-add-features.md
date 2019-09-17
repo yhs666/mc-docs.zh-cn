@@ -1,6 +1,6 @@
 ---
-title: 短语列表
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 短语列表 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 使用语言理解 (LUIS) 添加应用功能，可以改进对类别和模式的意向和实体的检测或预测
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c8e4724733c0190e71893973a775f9d8dba10a7c
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: e92ffa95b5293e1bb059b4a54bb380e615032e18
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556929"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104008"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用短语列表来增强字词列表的信号
 
@@ -30,30 +30,30 @@ ms.locfileid: "65556929"
 
 LUIS 允许每个应用最多有 10 个短语列表。 
 
-1. 单击“我的应用”页上的名称打开应用，单击“构建”，然后单击应用左侧面板中的“短语列表”。 
+1. 单击“我的应用”页上的名称打开应用，单击“构建”，然后单击应用左侧面板中的“短语列表”    。 
 
-2. 在“短语列表”页上，单击“新建短语列表”。 
+1. 在“短语列表”页上，单击“新建短语列表”   。 
  
-3. 在“添加短语列表”对话框中，键入“城市”作为短语列表的名称。 在“值”框中，键入短语列表的值。 可以一次键入一个值或者用逗号分隔的一组值，然后按 Enter。
+1. 在“添加短语列表”对话框中，键入 `Cities` 作为短语列表的名称  。 在“值”框中，键入短语列表的值  。 可以一次键入一个值或者用逗号分隔的一组值，然后按 Enter  。
 
     ![添加短语列表“城市”](./media/luis-add-features/add-phrase-list-cities.png)
 
-4. LUIS 可以建议相关值，用于添加到短语列表。 单击“建议”，获取一组与添加的值在语义上相关的建议值。 可以单击任何建议的值，或单击“全部添加”添加所有值。
+1. LUIS 可以建议相关值，用于添加到短语列表。 单击“建议”，获取一组与添加的值在语义上相关的建议值  。 可以单击任何建议的值，或单击“全部添加”添加所有值  。
 
     ![短语列表建议的值 - 全部添加](./media/luis-add-features/related-values.png)
 
-5. 如果添加的短语列表值是可交换使用的替代值，则单击“这些值可以交换”。
+1. 如果添加的短语列表值是可交换使用的替代值，则单击“这些值可以交换”  。
 
     ![短语列表建议的值 - 选择可互换框](./media/luis-add-features/interchangeable.png)
 
-6. 单击“保存” 。 将“城市”短语列表添加到“短语列表”页。
+1. 单击“Done”（完成）  。 将“城市”短语列表添加到“短语列表”页  。
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> 可以在“短语列表”页上，删除或取消激活上下文工具栏中的短语列表。
+> 可以在“短语列表”  页上，删除或取消激活上下文工具栏中的短语列表。
 
 ## <a name="next-steps"></a>后续步骤
 

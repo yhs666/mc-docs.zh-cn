@@ -9,12 +9,12 @@ origin.date: 01/09/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 06bfd2ac95dff77a98072dce177ff52421c6b173
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 7eef79ec3932daeacd3f167ad2478bf2c1ee840c
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993491"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500745"
 ---
 <!--Notice: Verify successfully-->
 
@@ -48,7 +48,11 @@ ms.locfileid: "69993491"
 
 在 **Azure 门户**中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
 
-    ![Get server name in Azure](./media/analysis-services-tutorial-roles/aas-copy-server-name.png)
+<!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
+
+![在 Azure 中获取服务器名称](./media/analysis-services-tutorial-roles/aas-copy-server-name.png)
+
+<!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
 ## <a name="connect-in-ssms"></a>在 SSMS 中连接
 

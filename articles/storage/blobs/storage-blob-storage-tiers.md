@@ -4,17 +4,17 @@ description: Azure 存储帐户的热、冷、存档访问层。
 author: WenJason
 ms.author: v-jay
 origin.date: 03/23/2019
-ms.date: 08/19/2019
+ms.date: 09/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 58b8d6284ca143bf42e840b2fd4f3ca6576bc983
-ms.sourcegitcommit: 0de1021cff162a602777858b3f0b7949557fd22c
+ms.openlocfilehash: c768b52067bfd7f8688b042a2877f71489df9857
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013570"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209318"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 存储：热、冷、存档访问层
 
@@ -71,6 +71,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性  。 此属
 ### <a name="blob-rehydration"></a>Blob 解除冻结
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+若要了解详细信息，请参阅[从存档层解冻 Blob 数据](storage-blob-rehydration.md)。  
 
 ## <a name="account-level-tiering"></a>帐户级分层
 
@@ -158,7 +159,7 @@ Blob 存储生命周期管理提供丰富的基于规则的策略，用于将数
 
 ## <a name="pricing-and-billing"></a>定价和计费
 
-所有存储帐户使用的定价模型都适用于 Blob 存储，具体取决于每个 blob 的层。 请记住以下计费注意事项：
+所有存储帐户使用的定价模型都适用于块 Blob 存储，具体取决于每个 Blob 的层。 请记住以下计费注意事项：
 
 - **存储成本**：除了存储的数据量，存储数据的成本将因访问层而异。 层越冷，单 GB 成本越低。
 - **数据访问成本**：层越冷，数据访问费用越高。 对于冷访问层和存档访问层中的数据，需要按 GB 支付读取方面的数据访问费用。
@@ -231,6 +232,8 @@ Azure 门户、PowerShell 和 CLI 工具以及 .NET、Java、Python 和 Node.js 
 [按区域查看热层、冷层和存档层](https://www.azure.cn/zh-cn/support/service-dashboard/)
 
 [管理 Azure Blob 存储生命周期](storage-lifecycle-management-concepts.md)
+
+[了解如何从存档层解冻 Blob 数据](storage-blob-rehydration.md)
 
 [通过启用 Azure 存储度量值来评估当前存储帐户的使用情况](../common/storage-enable-and-view-metrics.md)
 

@@ -4,15 +4,15 @@ description: 本文说明如何在 Azure Cosmos DB 中管理多区域部署的�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 06/17/2019
+origin.date: 07/31/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0baf8b231571c1481cc754342a4bd1605ad458a0
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 6714945b7284b7e4b3962660ed033d05fccfa989
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171403"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254858"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域成本
 

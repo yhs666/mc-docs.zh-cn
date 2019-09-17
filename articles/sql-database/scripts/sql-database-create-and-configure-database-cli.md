@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
 author: WenJason
-manager: digimobile
 ms.author: v-jay
 ms.reviewer: ''
+manager: digimobile
 origin.date: 06/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 8677ef3c64912f77296219b17d0f94553b268ce8
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: a142f898daa658f3b5c29e86e44c68f95edf3bfb
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544414"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373012"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
@@ -37,20 +37,20 @@ ms.locfileid: "69544414"
 az account set --subscription <replace with your subscription name or id>
 
 # Set the resource group name and location for your server
-resourceGroupName=myResourceGroup-$RANDOM
-location=chinaeast
+$resourceGroupName=myResourceGroup-$RANDOM
+$location=chinaeast
 
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=`openssl rand -base64 16`
+$adminlogin=ServerAdmin
+$password=`openssl rand -base64 16`
 # password=<EnterYourComplexPasswordHere1>
 
 # The logical server name has to be unique in the system
-servername=server-$RANDOM
+$servername=server-$RANDOM
 
 # The ip address range that you want to allow to access your DB
-startip=0.0.0.0
-endip=0.0.0.0
+$startip=0.0.0.0
+$endip=0.0.0.0
 
 # Create a resource group
 az group create \

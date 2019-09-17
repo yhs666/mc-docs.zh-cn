@@ -13,12 +13,12 @@ origin.date: 12/09/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 8a3d35255c133630ea3e62ad3159cd25c7c1e613
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: bf0a3183e790dd84067e7559574eb7dd973d025e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337541"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857012"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -681,7 +681,9 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 资源管理器模板注意事项](/azure-stack/user/azure-stack-develop-templates)
+
     <!--MOONCAKE: correct on /azure-stack/user/azure-stack-develop-templates-->
+    
 * [Azure 资源管理器模板的最佳做法](resource-group-authoring-templates.md)
 
 <!--Update_Description: wording update, update link  -->

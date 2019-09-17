@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 04/14/2019
-ms.date: 06/10/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4ac5b5de4ed9b73f5c07b0dfd3e8ae71e3833538
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 3e98feb676acd74b62ea1e103cd7b22acd9b7de8
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390854"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134388"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -48,11 +48,11 @@ ms.locfileid: "66390854"
 3. 检查所需的服务是否正在运行。 如果未运行，请将其重启。
     - 如果在不使用 VMM 的情况下复制 Hyper-V，请检查以下服务是否在 Hyper-V 主机上运行：
         - 虚拟机管理服务
-        - Azure 恢复服务代理服务
-        - Azure Site Recovery 服务
+        - Microsoft Azure 恢复服务代理服务
+        - Microsoft Azure Site Recovery 服务
         - WMI 提供程序主机服务
     - 如果在使用 VMM 的环境中进行复制，请检查以下服务是否正在运行：
-        - 在 Hyper-V 主机上，检查虚拟机管理服务、Azure 恢复服务代理和 WMI 提供程序主机服务是否正在运行。
+        - 在 Hyper-V 主机上，检查虚拟机管理服务、Microsoft Azure 恢复服务代理和 WMI 提供程序主机服务是否正在运行。
         - 在 VMM 服务器上，确保 System Center Virtual Machine Manager 服务正在运行。
 4. 检查 Hyper-V 服务器与 Azure 之间的连接。 若要检查连接，请在 Hyper-V 主机上打开任务管理器。 在“性能”选项卡上，单击“打开资源监视器”。   在“网络”选项卡上的“网络活动的进程”中，检查 cbengine.exe 是否正在主动发送大量 (Mb) 数据。  
 5. 检查 Hyper-V 主机是否能够连接到 Azure 存储 Blob URL。 若要检查主机是否可以连接，请选择并检查 **cbengine.exe**。 查看“TCP 连接”，以验证主机到 Azure 存储 Blob 的连接。 
@@ -127,7 +127,7 @@ ms.locfileid: "66390854"
 
 2. 若要为 VM 生成 VSS 快照，请检查 VM 上是否已安装 Hyper-V Integration Services，并已启用备份 (VSS) 集成服务。
     - 确保 Integration Services VSS 服务/守护程序在来宾上运行，并处于“正常”状态。 
-    - 可以在 Hyper-V 主机上权限提升的 PowerShell 会话中，使用命令 **Get-VMIntegrationService -VMName \<VMName> -Name VSS** 执行此项检查。也可以登录到来宾 VM 来获取此信息。 [了解详细信息](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
+    - 可以在 Hyper-V 主机上权限提升的 PowerShell 会话中，使用命令 **Get-VMIntegrationService -VMName\<VMName>-Name VSS** 执行此项检查。也可以登录到来宾 VM 来获取此信息。 [了解详细信息](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
     - 确保 VM 上的备份/VSS Integration Services 正在运行且处于正常状态。 否则，请重启这些服务，并重启 Hyper-V 主机服务器上的 Hyper-V 卷影复制请求程序服务。
 
 ### <a name="common-errors"></a>常见错误
@@ -154,7 +154,7 @@ ms.locfileid: "66390854"
 **事件日志** | **详细信息** |
 --- | ---
 **应用程序和服务日志/Microsoft/VirtualMachineManager/服务器/管理**（VMM 服务器） | 用于排查 VMM 问题的日志。
-**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication**（Hyper-V 主机） | 用于排查 Azure 恢复服务代理问题的日志。 
+**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication**（Hyper-V 主机） | 用于排查 Microsoft Azure 恢复服务代理问题的日志。 
 **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational**（Hyper-V 主机）| 用于排查 Azure Site Recovery 服务问题的日志。
 **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin**（Hyper-V 主机） | 用于排查 Hyper-V VM 管理问题的日志。
 
@@ -162,7 +162,7 @@ ms.locfileid: "66390854"
 
 以下工具可帮助进行高级故障排除：
 
--   对于 VMM，请使用[支持诊断平台 (SDP) 工具](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)执行 Site Recovery 日志收集。
--   对于不带 VMM 的 Hyper-V，请[下载此工具](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)，并在 Hyper-V 主机上运行该工具来收集日志。
+- 对于 VMM，请使用[支持诊断平台 (SDP) 工具](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)执行 Site Recovery 日志收集。
+- 对于不带 VMM 的 Hyper-V，请[下载此工具](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)，并在 Hyper-V 主机上运行该工具来收集日志。
 
 <!-- Update_Description: update meta properties -->

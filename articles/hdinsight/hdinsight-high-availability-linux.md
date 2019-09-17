@@ -8,15 +8,15 @@ keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-origin.date: 03/22/2018
-ms.date: 04/15/2019
+origin.date: 04/24/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: bf5b73e26bb00f0ef15ab1f6b0c2abc700c11a60
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: eb45e8bd5ce6a0940d1e520eaef113b25593322f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67845434"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737235"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
 
@@ -163,6 +163,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 ![组件状态](./media/hdinsight-high-availability-linux/nodeservices.png)
 
+有关如何使用 Ambari 的详细信息，请参阅[使用 Apache Ambari Web UI 监视和管理 HDInsight](hdinsight-hadoop-manage-ambari.md)。
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
@@ -265,6 +266,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 * [Apache Ambari REST 参考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [安装和配置 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)
 * [安装和配置 Azure PowerShell 模块 Az](https://docs.microsoft.com/powershell/azure/overview)
+* [使用 Apache Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 * [配置基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.cn/

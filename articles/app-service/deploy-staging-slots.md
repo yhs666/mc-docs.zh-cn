@@ -1,5 +1,5 @@
 ---
-title: 为 Azure 应用服务中的 Web 应用设置过渡环境 | Azure Docs
+title: 为 Azure 应用服务中的 Web 应用设置过渡环境 | Azure
 description: 了解如何对 Azure 应用服务中的 Web 应用使用分阶段发布。
 services: app-service
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/18/2019
 ms.date: 08/12/2019
-ms.author: v-johch
-ms.openlocfilehash: a8361be6c22a56b77e7a0d1667f9ee024b2a2833
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.author: v-tawe
+ms.openlocfilehash: e542db854bd48db60aa1701055abea26abb7782c
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878554"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806763"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
 
-将 Web 应用、Linux 上的 Web 应用、移动后端和 API 应用部署到 [Azure 应用服务](https://docs.azure.cn/zh-cn/app-service/overview)时，如果应用在“标准”  或“高级”  应用服务计划层下运行，则可以部署到单独的部署槽而不是默认的生产槽。 部署槽是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 
+将 Web 应用、Linux 上的 Web 应用、移动后端和 API 应用部署到 [Azure 应用服务](https://docs.azure.cn/app-service/overview)时，如果应用在“标准”  或“高级”  应用服务计划层中运行，则可以使用单独的部署槽位而不是默认的生产槽。 部署槽是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 
 
 将应用程序部署到非生产槽具有以下优点：
 
@@ -34,7 +34,7 @@ ms.locfileid: "68878554"
 * 首先将应用部署到槽，然后将其交换到生产，这确保槽的所有实例都已准备好，然后交换到生产。 部署应用时，这样可避免停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 当不需要预交换验证时，可以通过配置[自动交换](#Auto-Swap)来自动化这整个工作流。
 * 交换后，具有以前分阶段应用的槽现在具有以前的生产应用。 如果交换到生产槽的更改与预期不同，可以立即执行同一交换来收回“上一已知的良好站点”。
 
-每种应用服务计划层支持不同数量的部署槽。 使用部署槽不会产生额外的费用。 若要了解应用层支持的槽数，请参阅[应用服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#app-service-limits)。 
+每种应用服务计划层支持不同数量的部署槽。 使用部署槽不会产生额外的费用。 若要了解应用层支持的槽数，请参阅[应用服务限制](https://docs.azure.cn/azure-subscription-service-limits#app-service-limits)。 
 
 若要将应用缩放到其他层，请确保目标层支持应用业已使用的槽数。 例如，如果应用有 5 个以上的槽，则不能向下缩放到“标准”层，因为“标准”层只支持 5 个部署槽   。 
 
@@ -49,7 +49,7 @@ ms.locfileid: "68878554"
     ![添加新部署槽](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > 如果应用尚未处于“标准”或“高级”层，则你会收到消息，指示启用分步发布支持的层   。 此时，可选择“升级”  ，转到应用的“缩放”  选项卡，然后继续。
+   > 如果应用尚未处于“标准”或“高级”层，则你会收到消息，指示启用暂存发布支持的层   。 此时，可选择“升级”  ，转到应用的“缩放”  选项卡，然后继续。
    > 
 
 3. 在“添加槽”对话框中，为槽提供一个名称，并选择是否要从其他部署槽中克隆应用配置  。 选择“添加”以继续  。
@@ -68,7 +68,7 @@ ms.locfileid: "68878554"
 
 6. 选择此槽资源页中的应用 URL。 部署槽有其自己的主机名，同时也是动态应用。 若要限制对部署槽的公共访问权限，请参阅 [Azure 应用服务 IP 限制](app-service-ip-restrictions.md)。
 
-即使从其他槽克隆设置，新部署槽位也无内容。 例如，可以[使用 git 发布到此槽](deploy-local-git.md)。 可以从其他存储库分支或不同的存储库部署到槽。 
+即使从其他槽克隆设置，新部署槽位也无内容。 例如，可以[使用 Git 发布到此槽](deploy-local-git.md)。 可以从其他存储库分支或不同的存储库部署到槽。 
 
 <a name="AboutConfiguration"></a>
 
@@ -101,37 +101,8 @@ ms.locfileid: "68878554"
 在执行交换操作期间的任何时候，初始化已交换应用的所有工作都在源槽上发生。 准备和预热源槽时，目标槽将保持联机，而不管交换是成功还是失败。 若要将过渡槽与生产槽交换，请确保生产槽始终是目标槽。 这样，交换操作才不会影响生产应用。
 
 ### <a name="which-settings-are-swapped"></a>交换哪些设置？
-从另一个部署槽克隆配置时，可以编辑克隆的配置。 某些配置元素在交换时遵循内容（不特定于槽），而其他配置元素会在交换之后保留在同一个槽（特定于槽）。 以下列表显示交换槽时会更改的设置。
 
-**已交换的设置**：
-
-* 常规设置 - 例如 Framework 版本、32/64 位、Web 套接字
-* 应用设置（可以配置为停在槽中）
-* 连接字符串（可以配置为停在槽中）
-* 处理程序映射
-* 监视和诊断设置
-* 公用证书
-* WebJobs 内容
-* 混合连接 *
-* 虚拟网络集成 *
-* 服务终结点 *
-* Azure 内容分发网络 *
-
-标有星号 (*) 的功能已计划粘滞到槽。 
-
-**不交换的设置**：
-
-* 发布终结点
-* 自定义域名
-* 私有证书和 SSL 绑定
-* 缩放设置
-* Web 作业计划程序
-* IP 限制
-* Always On
-* 协议设置（HTTPS、TLS 版本、客户端证书）
-* 诊断日志设置
-* 跨域资源共享 (CORS)
-
+[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
 若要将应用设置或连接字符串配置为粘滞到特定的槽（未交换），请转到该槽的“配置”页。  添加或编辑某个设置，然后选择“部署槽设置”。  选中此复选框可让应用服务知道该设置不可交换。 
 
@@ -367,7 +338,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-the-cli"></a>使用 CLI 进行自动化
 
-有关用于部署槽位的 [Azure CLI](https://github.com/Azure/azure-cli) 命令，请参阅 [az webapp deployment slot](https://docs.azure.cn/zh-cn/cli/webapp/deployment/slot?view=azure-cli-latest
+有关用于部署槽的 [Azure CLI](https://github.com/Azure/azure-cli) 命令，请参阅 [az webapp deployment slot](/cli/webapp/deployment/slot)。
 
 ## <a name="troubleshoot-swaps"></a>排查交换问题
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a9d755b6f6d00e017e602c0890613d48b45bf
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: c38d9f53911db49f2b5eb59ed4f05f3efc914b44
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568664"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134212"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 标识平台终结点中的权限和许可
 
@@ -94,7 +94,7 @@ OpenID Connect 的 Microsoft 标识平台实现有一些明确定义但未应用
 
 `profile` 范围可与 `openid` 范围和任何其他范围一起使用。 它向应用提供对大量用户信息的访问权限。 可访问的信息包括但不限于用户的名字、姓氏、首选用户名和对象 ID。 有关指定用户的 id_token 参数中可用配置文件声明的完整列表，请参阅 [`id_tokens` 参考](id-tokens.md)。
 
-### <a name="offlineaccess"></a>offline_access
+### <a name="offline_access"></a>offline_access
 
 [`offline_access` 范围](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) 可让应用长时间代表用户访问资源。 在同意页上，此范围将显示为“维持对已授予访问权限的数据的访问”权限。 用户批准 `offline_access` 范围后，应用可接收来自 Microsoft 标识平台令牌终结点的刷新令牌。 刷新令牌的生存期较长。 旧的访问令牌过期时，应用可以获取新的访问令牌。
 
@@ -125,7 +125,7 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 > [!NOTE]
 > 在此期间，`offline_access`（“维持对已授予访问权限的数据的访问”）和 `user.read`（“登录并读取配置文件”）权限将自动包含在对应用程序的初始许可中。  这些权限通常是应用功能正常所必需 - `offline_access` 授予应用对刷新令牌（对本机和 Web 应用十分重要）的访问权限，而 `user.read` 授予对 `sub` 声明的访问权限，允许客户端或应用随时间推移正确标识用户并访问基本用户信息。  
 
-![工作帐户许可](./media/v2-permissions-and-consent/work_account_consent.png)
+![显示工作帐户同意的示例屏幕截图](./media/v2-permissions-and-consent/work_account_consent.png)
 
 当用户批准权限请求时，会记录许可，使用户在后续登录到应用程序时无需再次许可。
 
@@ -155,6 +155,9 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 
 ## <a name="using-the-admin-consent-endpoint"></a>使用管理员许可终结点
 
+> [!NOTE] 
+> 请注意，在使用管理员同意终结点授予管理员同意后，你已经完成授予管理员同意，用户不需要执行任何其他操作。 授予管理员同意后，用户可以通过典型的授权流获得访问令牌，并且生成的访问令牌将具有同意的权限。 
+
 当公司管理员使用你的应用程序并定向到授权终结点时，Microsoft 标识平台将检测用户的角色，并询问他们是否要代表整个租户许可请求的权限。 但是，如果你想要主动请求管理员代表整个租户授予权限，则还可以使用一个专用的管理员许可终结点。 请求应用程序权限（不能使用授权终结点来请求）时，也必须使用此终结点。
 
 如果你遵循了这些步骤，则应用就能为租户中的所有用户请求权限，包括受管理员限制的范围。 这是一个高特权操作，只能根据方案的需要来执行。
@@ -168,7 +171,8 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>配置应用程序的静态请求权限列表
 
 1. 在 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验中转到你的应用程序，或[创建一个应用](quickstart-register-app.md)（如果尚未创建）。
-2. 找到“Microsoft Graph 权限”部分并添加应用所需的权限  。
+2. 找到“API 权限”部分  ，然后在“API 权限”中单击“添加权限”。
+3. 从可用 API 列表中选择 **Microsoft Graph**，然后添加应用所需的权限。
 3. **保存** 应用注册。
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>建议：让用户登录到应用
@@ -309,4 +313,4 @@ response_type=token            //code or a hybrid flow is also possible here
 
 如果你或应用程序的用户在许可过程中看到意外的错误，请参阅以下文章获取故障排除步骤：[对应用程序执行许可时发生意外错误](../manage-apps/application-sign-in-unexpected-user-consent-error.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

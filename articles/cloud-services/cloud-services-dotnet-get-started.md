@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 06/03/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: 810bceaa52b1b1418ac797136b9532e0ed1a6747
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 5dfce29cc5e29ee7ef84c1b72f90d8a446fa52ab
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878703"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736666"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -773,7 +773,7 @@ public override void Run()
 }
 ```
 
-循环每次迭代后，如果不找到任何队列消息，该程序休眠一秒钟。 此举防止辅助角色导致过多的 CPU 时间和存储事务成本。 Microsoft 客户顾问团队讲过一个故事，一位开发人员忘记此操作，部署到生产环境，并去度假了。 当他回来时，他的监督费用超过了度假费用。
+循环每次迭代后，如果不找到任何队列消息，该程序休眠一秒钟。 此举防止辅助角色导致过多的 CPU 时间和存储事务成本。 Microsoft 客户顾问团队讲过一个故事，一位开发人员忘记此操作，部署到生产环境，并去度假了。 当他们回来时，其疏忽费用超过了度假费用。
 
 有时队列消息的内容会在处理过程中导致错误。 这称为 *有害消息*，并且如果只记录了一个错误并重启循环，则可能无休止地尝试处理该消息。  因此，捕获块包括 if 语句检查应用程序尝试处理当前消息的次数，如果已超过 5 次，将从队列中删除该消息。
 

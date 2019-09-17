@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a714f1c473d5b3cf0da46a0811a5c5dd6d33e42a
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 8e0ed69f9c147be9e09ee3dedbc2c4efbf52169e
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306000"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134244"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>用于登录用户的 Web 应用 - 代码配置
 
@@ -38,6 +38,8 @@ ms.locfileid: "67306000"
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 配置
 
+本文和以下内容中的代码片段摘自 [ASP.NET Core Web 应用增量教程第 1 章](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)。 你可能需要参考该教程，了解完整的实现细节。
+
 ### <a name="application-configuration-files"></a>应用程序配置文件
 
 在 ASP.NET Core 中，使用 Microsoft 标识平台登录用户的 Web 应用程序通过 `appsettings.json` 文件进行配置。 需填充的设置为：
@@ -52,7 +54,7 @@ ms.locfileid: "67306000"
     "Instance": "https://login.partner.microsoftonline.cn/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account
     "TenantId": "[Enter the tenantId here]]",
@@ -103,7 +105,7 @@ ms.locfileid: "67306000"
 
 ### <a name="initialization-code"></a>初始化代码
 
-在 ASP.NET Core Web 应用（和 Web API）中，执行应用程序初始化的代码位于 `Startup.cs` 文件中。若要使用 Microsoft 标识平台（以前称为 Azure AD）v2.0 添加身份验证，需添加以下代码。 代码中的注释应该浅显易懂。
+在 ASP.NET Core Web 应用（和 Web API）中，执行应用程序初始化的代码位于 `Startup.cs` 文件中。若要使用 Microsoft 标识平台（以前称为 Azure AD v2.0）添加身份验证，需添加以下代码。 代码中的注释应该浅显易懂。
 
   > [!NOTE]
   > 如果通过 Visual Studio 或 `dotnet new mvc` 使用默认的 ASP.NET Core Web 项目来启动项目，则可默认使用 `AddAzureAD` 方法，因为相关的包会自动加载。 但是，如果从头生成一个项目并尝试使用以下代码，则建议将 NuGet 包“Microsoft.AspNetCore.Authentication.AzureAD.UI”  添加到项目，使 `AddAzureAD` 方法可用。
@@ -115,7 +117,7 @@ ms.locfileid: "67306000"
  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
  {
   // The ASP.NET core templates are currently using Azure AD v1.0, and compute
-  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft Identity Platform v2.0 endpoint
+  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft identity platform endpoint
   options.Authority = options.Authority + "/v2.0/";
 
   // If you want to restrict the users that can sign-in to specific organizations
@@ -126,7 +128,7 @@ ms.locfileid: "67306000"
 
   // Set the nameClaimType to be preferred_username.
   // This change is needed because certain token claims from Azure AD v1.0 endpoint
-  // (on which the original .NET core template is based) are different in Azure AD v2.0 endpoint.
+  // (on which the original .NET core template is based) are different in Microsoft identity platform endpoint.
   // For more details see [ID Tokens](/active-directory/develop/id-tokens)
   // and [Access Tokens](/active-directory/develop/access-tokens)
   options.TokenValidationParameters.NameClaimType = "preferred_username";
@@ -169,7 +171,7 @@ ms.locfileid: "67306000"
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // The `Authority` represents the v2.0 endpoint - https://login.partner.microsoftonline.cn/common/v2.0
+     // The `Authority` represents the identity platform endpoint - https://login.partner.microsoftonline.cn/common/v2.0
      // The `Scope` describes the initial permissions that your app will need.
      //  See https://docs.azure.cn/zh-cn/active-directory/develop/v2-permissions-and-consent
      ClientId = clientId,
@@ -186,3 +188,4 @@ ms.locfileid: "67306000"
 > [!div class="nextstepaction"]
 > [登录和注销](scenario-web-app-sign-user-sign-in.md)
 
+<!-- Update_Description: wording update -->

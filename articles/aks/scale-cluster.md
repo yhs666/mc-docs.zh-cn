@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/31/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: d0833e376590cdbe154e56fbe0aa908ceb5588dc
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: f2a3797182f773bc87d886c1bd130de9ec68caca
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731212"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500729"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>在 Azure Kubernetes 服务 (AKS) 群集中缩放节点数
 
@@ -78,12 +78,12 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
 在本文中，你手动缩放了 AKS 群集以增加或减少节点数量。 
 
 <!--Not Available on [cluster autoscaler][cluster-autoscaler](currently in preview in AKS)-->
-
-
 <!-- LINKS - external -->
+
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 
 <!-- LINKS - internal -->
+
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [az-aks-scale]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-scale

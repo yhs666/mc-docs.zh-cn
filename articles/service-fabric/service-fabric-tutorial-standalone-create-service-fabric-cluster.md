@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/11/2018
-ms.date: 08/05/2019
+origin.date: 07/22/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b09fb6c93a4405a113c91cf6f4ca68ae7bf04dcd
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: b34d30d92acead64744888a5a5ac3eaf17df87a9
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819680"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254704"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教程：安装并创建 Service Fabric 群集
 
@@ -53,13 +53,13 @@ Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fa
 更新节点后，它们将显示如下：
 
 ```json
-        {
-            "nodeName": "vm0",
-            "ipAddress": "172.31.27.1",
-            "nodeTypeRef": "NodeType0",
-            "faultDomain": "fd:/dc1/r0",
-            "upgradeDomain": "UD0"
-        }
+{
+    "nodeName": "vm0",
+    "ipAddress": "172.31.27.1",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc1/r0",
+    "upgradeDomain": "UD0"
+}
 ```
 
 然后，需要更新几个属性。  在 34 行中，需要修改诊断存储的连接字符串，它应如下所示：`"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
@@ -151,6 +151,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 > [将应用程序安装到 Service Fabric 群集中](service-fabric-tutorial-standalone-install-an-application.md)
 
 <!--Image references-->
+
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
 <!-- Update_Description: update meta properties -->

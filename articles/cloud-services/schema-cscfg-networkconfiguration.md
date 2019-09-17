@@ -1,8 +1,8 @@
 ---
 title: Azure 云服务 NetworkConfiguration 架构 | Microsoft Docs
 ms.custom: ''
-origin.date: 12/07/2016
-ms.date: 11/06/2017
+origin.date: 12/07/201
+ms.date: 09/16/2019
 ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
@@ -14,12 +14,12 @@ caps.latest.revision: 28
 author: thraka
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: fb87d87913e9f7a829a54292705e4115d6cd39c7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2c4f0aa9ff7bcb1d768018ee938ecd0978acee0a
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652434"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736647"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure 云服务的配置 NetworkConfiguration 架构
 
@@ -50,7 +50,7 @@ ms.locfileid: "52652434"
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>

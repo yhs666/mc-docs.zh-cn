@@ -4,20 +4,20 @@ description: 介绍 Azure Monitor 中的用于对监视数据进行高级分析�
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c2cb28cccb1babf8e581742d05dd17d998c91353
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: aebd797924ba873f7ffc407e630d4a9a8b82182b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989513"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736931"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor 中的日志
 

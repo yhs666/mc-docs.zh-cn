@@ -13,12 +13,12 @@ ms.reviewer: genemi, vanto
 manager: digimobile
 origin.date: 03/12/2019
 ms.date: 08/26/2019
-ms.openlocfilehash: ba7c8d7a4bfc2a502a44a614224fa5cf19e2e270
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 3106dfdc9aea646da6e54ad0299789237fe8043d
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578534"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254831"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell：创建适用于 SQL 的虚拟网络服务终结点和 VNet 规则
 
@@ -385,7 +385,7 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]: yes
 
 
-Environment           : AzureCloud
+Environment           : AzureChinaCloud
 Account               : xx@microsoft.com
 TenantId              : 11111111-1111-1111-1111-111111111111
 SubscriptionId        : 22222222-2222-2222-2222-222222222222
@@ -597,7 +597,7 @@ for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++)
 Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]: no
 
 
-Environment           : AzureCloud
+Environment           : AzureChinaCloud
 Account               : xx@microsoft.com
 TenantId              : 11111111-1111-1111-1111-111111111111
 SubscriptionId        : 22222222-2222-2222-2222-222222222222

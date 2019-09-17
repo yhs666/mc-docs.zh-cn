@@ -3,24 +3,25 @@ title: 适用于 Azure 服务总线的虚拟网络服务终结点和规则 | Mic
 description: 将 Microsoft.ServiceBus 服务终结点添加到虚拟网络。
 services: service-bus
 documentationcenter: ''
-author: axisc
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: aschhab
-ms.openlocfilehash: 852ad7c884b117211010b5c1ef7d8e1b36a9fb71
-ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
+origin.date: 09/05/2018
+ms.date: 08/29/2019
+ms.author: v-lingwu
+ms.openlocfilehash: d4fea6f2a6610085e5060fb7c910556de1801a0c
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58545309"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169597"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>使用具有 Azure 服务总线的虚拟网络服务终结点
 
-通过集成服务总线与[虚拟网络 (VNet) 服务终结点][vnet-sep]可从绑定到虚拟网络的工作负荷（如虚拟机）安全地访问消息传递功能，同时在两端保护网络流量路径。
+通过将服务总线与[虚拟网络 (VNet) 服务终结点][vnet-sep]集成可从绑定到虚拟网络的工作负荷（如虚拟机）安全地访问消息传递功能，同时在两端保护网络流量路径。
 
 配置为绑定到至少一个虚拟网络子网服务终结点后，相应的服务总线命名空间将不再接受授权虚拟网络以外的任何位置的流量。 从虚拟网络的角度来看，通过将服务总线命名空间绑定到服务终结点，可配置从虚拟网络子网到消息传递服务的独立网络隧道。
 
@@ -31,7 +32,7 @@ ms.locfileid: "58545309"
 >
 > 实现虚拟网络时，受信任的 Microsoft 服务不受支持。
 >
-> 不适用于虚拟网络常见 Azure 方案（请注意，该列表内容并不详尽）-
+> 不适用于虚拟网络常见 Azure 方案（请注意，该列表内容并不详尽）  -
 > - Azure Monitor
 > - Azure 流分析
 > - 与 Azure 事件网格的集成
@@ -60,9 +61,9 @@ ms.locfileid: "58545309"
 
 ## <a name="binding-service-bus-to-virtual-networks"></a>将服务总线绑定到虚拟网络
 
-虚拟网络规则是一种防火墙安全功能，用于控制是否允许 Azure 服务总线服务器接受来自特定虚拟网络子网的连接。
+虚拟网络规则是一种防火墙安全功能，用于控制是否允许 Azure 服务总线服务器接受来自特定虚拟网络子网的连接  。
 
-将服务总线命名空间绑定到虚拟网络的过程分为两步。 首先需要在虚拟网络子网上创建“虚拟网络服务终结点”，并按照[服务终结点概述][vnet-sep]中的说明为“Microsoft.ServiceBus”启用该终结点。 添加服务终结点后，使用虚拟网络规则将服务总线命名空间绑定到该终结点。
+将服务总线命名空间绑定到虚拟网络的过程分为两步。 首先需要在虚拟网络子网上创建“虚拟网络服务终结点”，并按照[服务终结点概述][vnet-sep]中的说明为“Microsoft.ServiceBus”启用该终结点  。 添加服务终结点后，使用虚拟网络规则将服务总线命名空间绑定到该终结点  。
 
 虚拟网络规则是服务总线命名空间与虚拟网络子网的关联。 存在此规则时，绑定到子网的所有工作负荷都有权访问服务总线命名空间。 服务总线本身永远不会建立出站连接，不需要获得访问权限，因此永远不会通过启用此规则来授予对子网的访问权限。
 
@@ -76,7 +77,7 @@ ms.locfileid: "58545309"
 * **virtualNetworkingSubnetId**：虚拟网络子网的完全限定的资源管理器路径；例如，虚拟网络默认子网的 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`。
 
 > [!NOTE]
-> 虽然不可能具有拒绝规则，但 Azure 资源管理器模板的默认操作设置为“允许”，不限制连接。
+> 虽然不可能具有拒绝规则，但 Azure 资源管理器模板的默认操作设置为“允许”，不限制连接  。
 > 制定虚拟网络或防火墙规则时，必须更改“defaultAction”
 > 
 > from

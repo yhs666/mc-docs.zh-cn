@@ -1,27 +1,19 @@
 ---
 title: 使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘 | Azure
 description: 了解如何使用 Azure CLI 在 Linux VM 上扩展虚拟硬盘
-services: virtual-machines-linux
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: conceptual
 origin.date: 10/15/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 568fca900503860e292994cd281f0fe39ee8d992
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: ba0b2c88fd1a90db7cddafb0044af914690cd993
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912974"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921060"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘
 

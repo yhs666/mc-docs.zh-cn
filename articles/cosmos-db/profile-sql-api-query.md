@@ -8,25 +8,25 @@ ms.topic: conceptual
 origin.date: 05/17/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5c85292ed50bc8187acdad3d4c8e72940ac1d17e
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: a3020ff365196d91e3aa62ba4af3e210e351b9c9
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171442"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254874"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>使用 .NET SDK 获取 SQL 查询执行指标并分析查询性能
 
-本文介绍如何分析 Azure Cosmos DB 中的 SQL 查询性能。 可以使用从 .NET SDK 检索到且在本文中详述的 `QueryMetrics` 来执行这种分析。 [QueryMetrics](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.querymetrics) 是一个强类型化对象，包含有关后端查询执行的信息。 [优化查询性能](/cosmos-db/documentdb-sql-query-metrics)一文中更详细地阐述了这些指标。
+本文介绍如何分析 Azure Cosmos DB 中的 SQL 查询性能。 可以使用从 .NET SDK 检索到且在本文中详述的 `QueryMetrics` 来执行这种分析。 [QueryMetrics](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.querymetrics) 是一个强类型化对象，包含有关后端查询执行的信息。 [优化查询性能](/cosmos-db/documentdb-sql-query-metrics)一文中更详细地阐述了这些指标。
 
 ## <a name="set-the-feedoptions-parameter"></a>设置 FeedOptions 参数
 
-[DocumentClient.CreateDocumentQuery](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentquery) 的所有重载采用可选的 [FeedOptions](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions) 参数。 此选项涉及到如何优化和参数化查询执行。 
+[DocumentClient.CreateDocumentQuery](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentquery) 的所有重载采用可选的 [FeedOptions](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions) 参数。 此选项涉及到如何优化和参数化查询执行。 
 
-若要收集 SQL 查询执行指标，必须将 [FeedOptions](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions) 中的参数 [PopulateQueryMetrics](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) 设置为 `true`。 如果将 `PopulateQueryMetrics` 设置为 true，`FeedResponse` 将包含相关的 `QueryMetrics`。 
+若要收集 SQL 查询执行指标，必须将 [FeedOptions](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions) 中的参数 [PopulateQueryMetrics](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) 设置为 `true`。 如果将 `PopulateQueryMetrics` 设置为 true，`FeedResponse` 将包含相关的 `QueryMetrics`。 
 
 ## <a name="get-query-metrics-with-asdocumentquery"></a>使用 AsDocumentQuery() 获取查询指标
-以下代码示例演示使用 [AsDocumentQuery()](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.linq.documentqueryable.asdocumentquery) 方法时如何检索指标：
+以下代码示例演示使用 [AsDocumentQuery()](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.linq.documentqueryable.asdocumentquery) 方法时如何检索指标：
 
 ```csharp
 // Initialize this DocumentClient and Collection

@@ -3,16 +3,16 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 09/04/2018
-ms.date: 03/25/2019
+ms.date: 09/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 04cef48d98de4cfb54fb8424fd087113d4799e72
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: baf92b349b585e10c61a101d00d77f35922cf189
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408312"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805811"
 ---
-下表显示了 Azure Functions 运行时的两个主要版本支持的绑定。
+下表显示了 Azure Functions 运行时的两个主版本支持的绑定：
 
 | 类型 | 1.x | 2.x<sup>1</sup> | 触发器 | 输入 | 输出 |
 | ---- | :-: | :-: | :------: | :---: | :----: |

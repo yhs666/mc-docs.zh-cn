@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 124e6e6914a7df50ba2a1519f1abfbd751291f2d
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: a859c765b800219ac136a56c7baebec049b0c425
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989523"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736506"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 监视器
 

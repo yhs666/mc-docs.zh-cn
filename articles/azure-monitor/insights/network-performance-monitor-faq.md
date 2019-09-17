@@ -5,20 +5,20 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
+origin.date: 10/12/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c3f122d6198b16bfd7b2492a00feb0af5598544d
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 76601347f4fc1cf93b3655e089b088c9ba4f435f
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989189"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736501"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>网络性能监视器解决方案常见问题解答
 

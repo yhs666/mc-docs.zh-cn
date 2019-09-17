@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: cb70a5a11efccb2442f7b280771cefe0626a7c69
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 5c60efb4a22d1c87ff811db5a36965a6d75193a0
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083598"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254716"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 查询并向修复管理器服务发送命令。
@@ -53,7 +52,7 @@ ms.locfileid: "54083598"
 | --help -h | 显示此帮助消息并退出。 |
 | --output -o | 输出格式。  允许的值\: json、jsonc、table、tsv。  默认值\: json。 |
 | --query | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http\://jmespath.org/。 |
-| --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。 |
+| --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。 |
 
 ## <a name="sfctl-rpm-delete"></a>sfctl rpm delete
 删除已完成的修复任务。
@@ -75,7 +74,7 @@ ms.locfileid: "54083598"
 | --help -h | 显示此帮助消息并退出。 |
 | --output -o | 输出格式。  允许的值\: json、jsonc、table、tsv。  默认值\: json。 |
 | --query | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http\://jmespath.org/。 |
-| --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。 |
+| --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。 |
 
 ## <a name="sfctl-rpm-list"></a>sfctl rpm list
 获取与给定筛选器匹配的修复任务列表。
@@ -87,7 +86,7 @@ ms.locfileid: "54083598"
 |参数|说明|
 | --- | --- |
 | --executor-filter | 应在列表中包含其声明任务的修复执行程序的名称。 |
-| --state-filter | 以下值的按位 OR 运算，指定应在结果列表中包含哪些任务状态。 <br> 1 - 已创建 <br>2 - 已声明  <br>4 - 正在准备  <br>8 - 已批准  <br>16 - 正在执行  <br>32 - 正在还原  <br>64 - 已完成 |
+| --state-filter | 以下值的按位 OR 运算，指定应在结果列表中包含哪些任务状态。 <br /> 1 - 已创建 <br />2 - 已声明  <br />4 - 正在准备  <br />8 - 已批准  <br />16 - 正在执行  <br />32 - 正在还原  <br />64 - 已完成 |
 | --task-id-filter | 要匹配的修复任务 ID 前缀。 |
 
 ### <a name="global-arguments"></a>全局参数
@@ -98,7 +97,7 @@ ms.locfileid: "54083598"
 | --help -h | 显示此帮助消息并退出。 |
 | --output -o | 输出格式。  允许的值\: json、jsonc、table、tsv。  默认值\: json。 |
 | --query | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http\://jmespath.org/。 |
-| --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。 |
+| --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。 |
 
 ## <a name="next-steps"></a>后续步骤
 - [安装](service-fabric-cli.md) Service Fabric CLI。

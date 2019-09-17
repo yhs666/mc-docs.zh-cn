@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 06/25/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 237e5fa87999128e8ce1771da0fd7c32f0c91337
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 02374a61124a62998d14b727eb410798316c05d7
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151758"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131863"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -28,7 +28,7 @@ ms.locfileid: "67151758"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-本快速入门教程假定已有可缩放的 SQL 数据仓库。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
+本快速入门假定你已有可缩放的 SQL 数据仓库。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -69,10 +69,10 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 在 SQL 数据仓库中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和 Connect - 门户](create-data-warehouse-portal.md)创建 **mySampleDataWarehouse** 并初始化 400 DWU。 以下步骤调整为 DWU **mySampleDataWarehouse**。
 
-若要更改数据仓库单位，请使用 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet。 以下示例将数据库 **mySampleDataWarehouse**（在服务器 **mynewserver-20181129** 上资源组 **myResourceGroup** 中托管）的数据仓库单位设置为 DW300。
+若要更改数据仓库单位，请使用 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet。 以下示例将数据库 **mySampleDataWarehouse**（在服务器 **mynewserver-20181129** 上资源组 **myResourceGroup** 中托管）的数据仓库单位设置为 DW300c。
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20181129" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20181129" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>检查数据仓库状态
@@ -90,7 +90,7 @@ $database
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20181129
 DatabaseName                  : mySampleDataWarehouse
-Location                      : China North
+Location                      : China East 2
 DatabaseId                    : 34d2ffb8-b70a-40b2-b4f9-b0a39833c974
 Edition                       : DataWarehouse
 CollationName                 : SQL_Latin1_General_CP1_CI_AS
@@ -99,7 +99,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :
@@ -125,5 +125,3 @@ $database | Select-Object DatabaseName,Status
 
 > [!div class="nextstepaction"]
 >[将数据加载到 SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)
-<!-- Update_Description: new articles on quickstart scale database with powershell -->
-<!--ms.date: 03/12/2018-->

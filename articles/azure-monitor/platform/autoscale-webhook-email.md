@@ -5,15 +5,16 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 02/22/2016
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: a971e278e2de2ef2ed26cda85246a67f9cbd2d72
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.subservice: autoscale
+ms.openlocfilehash: c6f89db927342e461b180fbb7ea19a9a02da98b5
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731274"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737147"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自动缩放操作在 Azure 监视器中发送电子邮件和 webhook 警报通知
 本文演示如何设置触发器，以便可以在 Azure 中基于自动缩放操作调用特定 Web URL 或发送电子邮件。  
@@ -59,6 +60,7 @@ ms.locfileid: "66731274"
       }
     ]
 ```
+
 | 字段 | 必需？ | 说明 |
 | --- | --- | --- |
 | operation |是 |值必须是“规模” |

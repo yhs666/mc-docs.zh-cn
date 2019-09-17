@@ -5,19 +5,19 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-origin.date: 02/22/2019
-ms.date: 04/17/2019
+origin.date: 07/19/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6d2c14c5799d0d37765975b196137e139d9f5828
-ms.sourcegitcommit: 731da97453f3bd6b333dc2ec1058b9b91031d240
+ms.openlocfilehash: fac68e45dc3acb6454fd09bc49120a5c968473f9
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64871630"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857222"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service"></a>排查包含应用服务的应用程序网关的问题
+# <a name="troubleshoot-app-service-issues-in-application-gateway"></a>排查应用程序网关中的应用服务问题
 
-了解如何诊断和解决充当后端服务器的应用程序网关和应用服务遇到的问题。
+了解如何诊断和解决在将应用服务器用作应用程序网关的后端目标时遇到的问题
 
 ## <a name="overview"></a>概述
 
@@ -27,16 +27,14 @@ ms.locfileid: "64871630"
 > * 有重定向时，应用服务的 URL 公开在浏览器中
 > * 应用服务的 ARRAffinity Cookie 域设置为应用服务主机名 (example.chinacloudsites.cn) 而不是原始主机
 
-在应用程序网关后端池中配置面向公众的应用服务时，如果在应用程序代码中配置了重定向，访问应用程序网关时你可能会看到，浏览器会直接将你重定向到应用服务 URL。
+当后端应用程序发送重定向响应时，你可能希望将客户端重定向到不同的 URL，而不是后端应用程序指定的 URL。 例如，当应用服务托管在应用程序网关后面，并要求客户端重定向到其相对路径时，你可能希望这样做。 （例如，从 contoso.chinacloudsites.cn/path1 重定向到 contoso.chinacloudsites.cn/path2。）当应用服务发送重定向响应时，它会在其响应的位置标头中，使用它从应用程序网关收到的请求中的相同主机名。 因此，客户端将直接向 contoso.chinacloudsites.cn/path2 发出请求，而不是通过应用程序网关 (contoso.com/path2) 发出请求。 不应该绕过应用程序网关。
 
 此问题的主要可能原因如下：
 
 - 在应用服务中配置了重定向。 只需在请求中添加一个尾随的斜杠即可配置重定向。
 - Azure AD 身份验证导致重定向。
-- 在应用程序网关的 HTTP 设置中启用了“从后端地址中选取主机名”开关。
-- 未将自定义域注册到应用服务。
 
-另外，在应用程序网关后面使用应用服务并使用自定义域来访问应用程序网关时，可能会看到由应用服务设置的 ARRAffinity Cookie 的域值带有“example.chinacloudsites.cn”域名。 如果希望原始主机名也是 Cookie 域，则请按本文中解决方案的要求操作。
+此外，在应用程序网关后面使用应用服务时，与应用程序网关关联的域名 (example.com) 不同于应用服务的域名（例如 example.chinacloudsites.cn），因此，你会发现，应用服务设置的 ARRAffinity Cookie 的域值包含了不符合需要的“example.chinacloudsites.cn”域名。 原始主机名 (example.com) 应是 Cookie 中的域名值。
 
 ## <a name="sample-configuration"></a>示例配置
 
@@ -47,13 +45,13 @@ ms.locfileid: "64871630"
 
 ## <a name="cause"></a>原因
 
-只能使用自定义域设置中配置的主机名访问应用服务，默认情况下，该主机名为“example.chinacloudsites.cn”。若要使用未注册到应用服务中的主机名或者使用应用程序网关的 FQDN 通过应用程序网关访问应用服务，则必须将原始请求中的主机名替代为应用服务的主机名。
+由于应用服务是多租户服务，因此它会使用请求中的主机标头将请求路由到正确的终结点。 但是，应用服务的默认域名 *.chinacloudsites.cn（例如 contoso.chinacloudsites.cn）不同于应用程序网关的域名（例如 contoso.com）。 由于来自客户端的原始请求将应用程序网关的域名 (contoso.com) 用作主机名，因此需要配置应用程序网关，使其在将请求路由到应用服务后端时，将原始请求中的主机名更改为应用服务的主机名。  为此，可以在应用程序网关的 HTTP 设置配置中使用“从后端地址中选取主机名”开关，并在运行状况探测配置中使用“从后端 HTTP 设置中选取主机名”开关。
 
-为了在应用程序网关中实现此目的，我们在 HTTP 设置中使用了“从后端地址中选取主机名”开关；为了正常运行探测，我们在探测配置中使用了“从后端 HTTP 设置中选取主机名”。
+
 
 ![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-出于此原因，当应用服务执行重定向时，除非另有配置，否则，它会使用 Location 标头中的主机名“example.chinacloudsites.cn”，而不是原始主机名。 可以查看下面的示例请求和响应标头。
+出于此原因，当应用服务执行重定向时，除非另有配置，否则，它会在 Location 标头中使用替代的主机名“contoso.chinacloudsites.cn”，而不使用原始主机名“contoso.com”。 可以查看下面的示例请求和响应标头。
 ```
 ## Request headers to Application Gateway:
 
@@ -67,21 +65,28 @@ Host: www.contoso.com
 
 Status Code: 301 Moved Permanently
 
-Location: http://example.chinacloudsites.cn/path/
+Location: http://contoso.chinacloudsites.cn/path/
 
 Server: Microsoft-IIS/10.0
 
-Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.chinacloudsites.cn
+Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=contoso.chinacloudsites.cn
 
 X-Powered-By: ASP.NET
 ```
 在上面的示例中可以发现，响应标头包含重定向状态代码 301，location 标头包含应用服务的主机名而不是原始主机名“www.contoso.com”。
 
-## <a name="solution"></a>解决方案
+## <a name="solution-rewrite-the-location-header"></a>解决方案：重写 Location 标头
 
-不在应用程序端使用重定向可以解决此问题，但是，如果无法做到这一点，则我们也必须将应用程序网关收到的同一主机标头传递给应用服务，而不要执行主机替代。
+需将 location 标头中的主机名设置为应用程序网关的域名。 为此，请创建一个[重写规则](/application-gateway/rewrite-http-headers)，其中的某个条件可以评估响应中的 location 标头是否包含 chinacloudsites.cn，并执行某个操作来重写 location 标头，使之包含应用程序网关的主机名。  请参阅有关[如何重写 location 标头](/application-gateway/rewrite-http-headers#modify-a-redirection-url)的说明。
 
-这样做后，应用服务会在指向应用程序网关而不是指向自身的同一原始主机标头中执行重定向（如果有）。
+> [!NOTE]
+> HTTP 标头重写支持仅适用于 [Standard_V2 和 WAF_v2 SKU](/application-gateway/application-gateway-autoscaling-zone-redundant) 版应用程序网关。 如果你使用 V1 SKU，我们强烈建议你[从 V1 迁移到 V2](/application-gateway/migrate-v1-v2)，这样就能使用 V2 SKU 提供的重写功能和其他[高级功能](/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku)。
+
+## <a name="alternate-solution-use-app-services-custom-domain-instead-of-default-domain-name"></a>备用解决方案：使用应用服务的自定义域而不是默认域名
+
+如果你使用 V1 SKU，则不能重写 location 标头，因为此功能仅适用于 V2 SKU。 因此，若要解决重定向问题，还需要将应用程序网关接收的同一主机名传递给应用服务，而不要执行主机替代。
+
+然后，应用服务会在指向应用程序网关而不是指向自身的同一原始主机标头中执行重定向（如果有）。
 
 若要实现此目的，必须拥有一个自定义域并遵循下面所述的过程。
 

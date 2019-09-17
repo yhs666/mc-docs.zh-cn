@@ -3,7 +3,7 @@ title: 调用 Web API 的移动应用 - 概述 | Microsoft 标识平台
 description: 了解如何构建调用 Web API 的移动应用（概述）
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545bd4ac30627c444e4d4906bff352fedf6d8d36
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 81f83b1b4d41a1f336a5bb23cc2503ba1a3313bc
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305980"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134260"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>方案：用于调用 Web API 的移动应用程序
 
@@ -52,14 +52,13 @@ ms.locfileid: "67305980"
 移动应用的注意事项：
 
 - **关键在于用户体验**：在要求用户登录之前，让用户了解应用的价值，并且只请求所需的权限。
-- **支持所有用户配置**：许多移动业务用户需遵循设备符合性策略。 请务必支持这些关键方案。
-- **实现单一登录 (SSO)** ：有了 MSAL 和 Microsoft 标识平台，即可通过设备的浏览器或 Microsoft Authenticator（以及 Android 上的 Intune 公司门户）轻松地进行单一登录。
+- **支持所有用户配置**：许多移动业务用户都受到条件访问和设备合规性策略的约束。 请务必支持这些关键方案。
 
 ## <a name="specifics"></a>详情
 
 在 Microsoft 标识平台上生成移动应用时，请牢记以下注意事项：
 
-- 第一次进行用户登录时，可能需要完成某些用户交互，具体取决于平台。 例如，在首次通过 Microsoft Authenticator（以及 Android 上的 Intune 公司门户）使用 SSO 时，iOS 会要求应用显示用户交互。
+- 第一次进行用户登录时，可能需要完成某些用户交互，具体取决于平台。 
 - 在 iOS 和 Android 上，MSAL 可能使用外部浏览器（可能显示在应用的顶端）来登录用户。 可以自定义配置，改用应用内 WebView。
 - 不要在移动应用程序中使用机密。 所有用户均可访问该机密。
 
@@ -68,3 +67,4 @@ ms.locfileid: "67305980"
 > [!div class="nextstepaction"]
 > [应用注册](scenario-mobile-app-registration.md)
 
+<!-- Update_Description: wording update -->

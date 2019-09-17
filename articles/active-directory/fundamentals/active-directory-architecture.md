@@ -2,24 +2,24 @@
 title: 体系结构概述 - Azure Active Directory | Microsoft Docs
 description: 了解什么是 Azure Active Directory 租户，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 07/04/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9d546e27775f871c383dd2e2155804a984da93
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: df9e1c8e498220aef3bce18ddb85242a9a05c4bb
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568572"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134198"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什么是 Azure Active Directory 体系结构？
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)
@@ -96,7 +96,7 @@ Azure AD 可跨数据中心运行，其特征如下：
 
 Azure AD 为面向次要副本的应用程序提供读写一致性，为此，它会将写入操作路由到主要副本，然后以异步方式将这些写入操作拉回到次要副本。
 
-使用 Azure AD 图形 API 的应用程序写入操作经过抽象化，可与目录副本保持相关性，实现读写一致性。 Azure AD Graph 服务维护一个逻辑会话，该会话与用于读取的辅助副本相关；相关性在 Graph 服务使用分布式缓存缓存的“副本令牌”中捕获。 然后，此令牌可用于同一个逻辑会话中的后续操作。 
+使用 Azure AD 图形 API 的应用程序写入操作经过抽象化，可与目录副本保持相关性，实现读写一致性。 Azure AD Graph 服务维护一个逻辑会话，该会话与用于读取的次要副本相关；相关性在“副本令牌”中捕获，图形服务使用次要副本数据中心中的分布式缓存来缓存该“副本令牌”。 然后，此令牌可用于同一个逻辑会话中的后续操作。 若要继续使用同一个逻辑会话，必须将后续请求路由到同一个 Azure AD 数据中心。 如果目录客户端请求被路由到多个 Azure AD 数据中心，则无法继续逻辑会话；如果发生这种情况，则客户端包含多个具有独立读写一致性的逻辑会话。
 
  >[!NOTE]
  >写入操作立即复制到逻辑会话读取操作所颁发到的辅助副本。

@@ -5,17 +5,18 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-ms.date: 6/4/2019
+origin.date: 07/15/2019
+ms.date: 8/4/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: bbfd53dba252e4d035088b4ba4101f3a0433c3fa
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 3f4344fd08a5e360bffe6fe3350cf3b146defd23
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989414"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736563"
 ---
 # <a name="start-monitoring-your-website"></a>开始监视网站
 

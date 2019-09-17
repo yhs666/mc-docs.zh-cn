@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/04/2018
-ms.date: 10/15/2018
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 30d3f88fab392c1bf75e7388cca4e8e5886735fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 90da6c3090960f3768200f1cb78f31cddadb23f0
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664115"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174116"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>对 Service Fabric 中的有状态服务进行单元测试
 
@@ -37,7 +37,7 @@ ms.locfileid: "52664115"
 
 ## <a name="common-practices"></a>常见做法
 
-以下部分提供关于对有状态服务进行单元测试的最常见做法的建议。 它还建议模拟层应该要与 Service Fabric 业务流程和状态管理紧密地保持一致。 模拟库确实存在提供此功能的库。 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) 自 3.3.0 开始或更高版本就是这样一个库，提供了建议的模拟功能并遵循下面概述的做法。
+以下部分提供关于对有状态服务进行单元测试的最常见做法的建议。 它还建议模拟层应该要与 Service Fabric 业务流程和状态管理紧密地保持一致。 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) 自 3.3.0 开始或更高版本就是这样一个库，提供了建议的模拟功能并遵循下面概述的做法。
 
 ### <a name="arrangement"></a>排列
 
@@ -52,8 +52,8 @@ ms.locfileid: "52664115"
 状态管理器应视为远程资源，并因此进行模拟。 模拟状态管理器时，需要有一些基础内存存储，用于跟踪保存到状态管理器的内容，以便可以进行读取和验证。 实现此目的的一个简单方法是创建每个“可靠集合”类型的模拟实例。 在这些模拟中，使用与针对该集合执行的操作保持紧密一致的数据类型。 以下是每个可靠集合的一些建议数据类型
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>许多状态管理器实例，单个存储
 如前所述，状态管理器和可靠集合应视为远程资源。 因此，这些资源应该并且将在单元测试中进行模拟。 但是，在运行有状态服务的多个实例时，要使每个模拟状态管理器在不同的有状态服务实例之间保持同步将是一项挑战。 当有状态服务在群集上运行时，Service Fabric 负责保持每个次要副本的状态管理器与主要副本一致。 因此，测试的行为应相同，以便它们可以模拟角色更改。
@@ -126,5 +126,4 @@ ms.locfileid: "52664115"
 ## <a name="next-steps"></a>后续步骤
 了解如何[对有状态服务进行单元测试](service-fabric-how-to-unit-test-stateful-services.md)。
 
-<!-- Update_Description: new articles on service fabric concepts unit testing -->
-<!--ms.date: 10/15/2018-->
+<!-- Update_Description: update meta properties -->

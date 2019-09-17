@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 origin.date: 12/12/2017
 ms.date: 01/21/2019
-ms.author: v-biyu
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: d5e034cb0ada537a550ddc11f145e8342656a59a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: d5a00d0d86d4838ea7ba74e69d9f00fed8d391ec
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083892"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806885"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>针对 Azure 应用服务的 CLI 示例
 

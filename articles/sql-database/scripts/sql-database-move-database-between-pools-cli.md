@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 06/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: d86374ee56701c3366545b98748910d5d09a11fb
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: 7b18d2171a49f1dd20ec1df1b424df4d34022dba
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544114"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373013"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 
@@ -37,16 +37,16 @@ ms.locfileid: "69544114"
 az account set --subscription <replace with your subscription name or id>
 
 # Set the resource group name and location for your server
-resourceGroupName=myResourceGroup$RANDOM
-location=chinaeast
+$resourceGroupName=myResourceGroup$RANDOM
+$location=chinaeast
 
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=`openssl rand -base64 16`
+$adminlogin=ServerAdmin
+$password=`openssl rand -base64 16`
 # password=<EnterYourComplexPasswordHere1>
 
 # The logical server name has to be unique in the system
-servername=server$RANDOM
+$servername=server$RANDOM
 
 # Create a resource group
 az group create \

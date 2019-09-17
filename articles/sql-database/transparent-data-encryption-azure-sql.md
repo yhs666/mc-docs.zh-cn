@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-manager: digimobile
-origin.date: 04/19/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: 6161b2d591b045d3bb380f4671acec4662b5c602
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+origin.date: 08/12/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: e5ed04feeb6917563e76a61e0d325a4add57e9fa
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578517"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372986"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL 数据库和数据仓库的透明数据加密
 
@@ -39,11 +38,11 @@ ms.locfileid: "69578517"
 Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原。
 
 > [!IMPORTANT]
-> 默认情况下，会使用服务托管的透明数据加密将所有新建的 SQL 数据库加密。 默认情况下，Azure SQL 托管实例数据库、2017 年 5 月之前创建的现有 SQL 数据库以及通过还原、异地复制和数据库副本创建的 SQL 数据库均不加密。
+> 默认情况下，会使用服务托管的透明数据加密将所有新建的 SQL 数据库和托管实例数据库加密。 默认情况下，2017 年 5 月之前创建的现有 SQL 数据库以及通过还原、异地复制和数据库副本创建的 SQL 数据库均不加密。 默认情况下，2019 年 2 月之前创建的现有托管实例数据库不加密。 通过源提供的还原继承加密状态创建的托管实例数据库。
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>客户管理的透明数据加密 - 创建自己的密钥
 
-[使用 Azure Key Vault 中由客户管理的密钥进行 TDE](transparent-data-encryption-byok-azure-sql.md) 允许使用由客户管理的非对称密钥（称为 TDE 保护器）对数据库加密密钥 (DEK) 进行加密。  这通常也称为透明数据加密的创建自己的密匙 (BYOK) 支持。 在 BYOK 方案中，TDE 保护器存储在由客户拥有和管理的 [Azure Key Vault](/key-vault/key-vault-secure-your-key-vault)（Azure 的基于云的外部密钥管理系统）中。 TDE 保护器可[由密钥保管库生成](/key-vault/about-keys-secrets-and-certificates#key-vault-keys)。 TDE DEK 存储在数据库的启动页上，由 TDE 保护器进行加密和解密，该保护器存储在 Azure Key Vault 中并且从不会离开密钥保管库。  需要向 SQL 数据库授予对客户管理的密钥保管库的权限才能对 DEK 进行解密和加密。 如果撤销了逻辑 SQL Server 对密钥保管库的权限，则数据库将无法访问，并且所有数据都是加密的。 对于 Azure SQL 数据库，TDE 保护器是在逻辑 SQL Server 级别设置的，并由该服务器关联的所有数据库继承。  对于 [Azure SQL 托管实例](/sql-database/sql-database-howto-managed-instance)（预览中的 BYOK 功能），TDE 保护器是在实例级别设置的，并由该实例上所有加密的  数据库继承。 除非另有说明，否则术语“服务器”在整个文档中指的是服务器和实例  。
+[使用 Azure Key Vault 中由客户管理的密钥进行 TDE](transparent-data-encryption-byok-azure-sql.md) 允许使用由客户管理的非对称密钥（称为 TDE 保护器）对数据库加密密钥 (DEK) 进行加密。  这通常也称为透明数据加密的创建自己的密匙 (BYOK) 支持。 在 BYOK 方案中，TDE 保护器存储在由客户拥有和管理的 [Azure Key Vault](/key-vault/key-vault-secure-your-key-vault)（Azure 的基于云的外部密钥管理系统）中。 TDE 保护器[可以由密钥保管库生成，也可以转移到密钥保管库](/key-vault/about-keys-secrets-and-certificates#key-vault-keys)。 TDE DEK 存储在数据库的启动页上，由 TDE 保护器进行加密和解密，该保护器存储在 Azure Key Vault 中并且从不会离开密钥保管库。  需要向 SQL 数据库授予对客户管理的密钥保管库的权限才能对 DEK 进行解密和加密。 如果撤销了逻辑 SQL Server 对密钥保管库的权限，则数据库将无法访问，并且所有数据都是加密的。 对于 Azure SQL 数据库，TDE 保护器是在逻辑 SQL Server 级别设置的，并由该服务器关联的所有数据库继承。  对于 [Azure SQL 托管实例](/sql-database/sql-database-howto-managed-instance)（预览中的 BYOK 功能），TDE 保护器是在实例级别设置的，并由该实例上所有加密的  数据库继承。 除非另有说明，否则术语“服务器”在整个文档中指的是服务器和实例  。
 
 使用集成了 Azure Key Vault 的 TDE，用户可以控制密钥管理任务，包括密钥轮换、密钥保管库权限、密钥备份，以及使用 Azure Key Vault 功能对所有 TDE 保护器启用审核/报告。 Key Vault 提供了集中密钥管理功能，并可在密钥与数据管理之间实现职责分离，以帮助满足安全策略的符合性。
 若要详细了解适用于 Azure SQL 数据库、SQL 托管实例（预览中的 BYOK 功能）和数据仓库的集成了 Azure Key Vault 的透明数据加密（支持“创建自己的密钥”），请参阅[集成了 Azure Key Vault 的透明数据加密](transparent-data-encryption-byok-azure-sql.md)。

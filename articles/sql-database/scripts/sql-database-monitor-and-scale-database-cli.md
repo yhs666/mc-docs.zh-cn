@@ -9,16 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 author: WenJason
 ms.author: v-jay
-ms.reviewer: ''
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 222b2158fe4da475212286ca38275b2daf8e33c9
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.reviewer: carlrab
+origin.date: 06/25/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: e3d17483f93a9aa203ee2d2d756b0a429727cda8
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544117"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373014"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 
@@ -37,16 +36,16 @@ ms.locfileid: "69544117"
 az account set --subscription <replace with your subscription name or id>
 
 # Set the resource group name and location for your server
-resourceGroupName=myResourceGroup-$RANDOM
-location=chinaeast
+&resourceGroupName=myResourceGroup-$RANDOM
+&location=chinaeast
 
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=`openssl rand -base64 16`
+&adminlogin=ServerAdmin
+&password=`openssl rand -base64 16`
 # password=<EnterYourComplexPasswordHere1>
 
 # The logical server name has to be unique in the system
-servername=server-$RANDOM
+&servername=server-$RANDOM
 
 # Create a resource group
 az group create \
@@ -97,7 +96,7 @@ echo $password
 使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明

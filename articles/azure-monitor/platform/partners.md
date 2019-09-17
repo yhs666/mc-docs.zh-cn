@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+origin.date: 05/20/2019
 ms.date: 03/14/2019
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 55233576e39d9faa956498aca63a621483e5670e
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: ea12e5087b228a33f761b4e9fb1fbc288007dc88
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514000"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737397"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 

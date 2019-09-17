@@ -1,48 +1,72 @@
 ---
-title: 关于语音翻译 - 语音服务
-titlesuffix: Azure Cognitive Services
-description: 使用语音服务 API，可以将端到端、实时和多语言语音翻译添加到应用程序、工具和设备。 相同 API 可以用于语音到语音和语音到文本的转换。
+title: 使用语音服务进行语音翻译
+titleSuffix: Azure Cognitive Services
+description: 使用语音服务，可以将端到端、实时和多语言语音翻译添加到应用程序、工具和设备。 相同 API 可以用于语音到语音和语音到文本的转换。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.custom: seodec18
-ms.openlocfilehash: e50992ac77304d0b0cd3dbe649ca8158432f842e
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+origin.date: 8/06/2019
+ms.date: 07/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: cfe35b20497991cb1f983ba5aee870ce41e63692
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348478"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104118"
 ---
-# <a name="about-the-speech-translation-api"></a>关于语音翻译 API
+# <a name="what-is-speech-translation"></a>什么是语音翻译？
 
-使用语音服务 API，可以将端到端、实时和多语言语音翻译添加到应用程序、工具和设备。 相同 API 可以用于语音到语音和语音到文本的转换。
+使用 Azure 语音服务提供的语音翻译，可以对音频流进行实时多语言语音转语音和语音转文本翻译。 使用语音 SDK，应用程序、工具和设备可以访问所提供的音频的源听录和翻译输出。 检测到语音时，会返回过渡性的听录和翻译结果，最终结果可以转换为合成语音。
 
-借助语音翻译 API，客户端应用程序将语音音频流式传输到服务，然后接收返回的结果流。 这些结果包含源语言识别文本及其目标语言翻译。 可以提供临时翻译直到一个陈述完成，然后会提供最终翻译。
+Microsoft 翻译引擎有两种不同的支持方法：统计机器翻译 (SMT) 和神经机器翻译 (NMT)。 SMT 可以在给定上下文（数个单词）的情况下，使用高级统计分析来估计可能的最佳翻译。 使用 NMT 时，可以通过神经网络借助完整的语句上下文来翻译单词，这样可以提供更准确且听起来很自然的翻译。
 
-（可选）可以准备最终翻译的合成音频版本，以启用真正的语音到语音转换。
+目前，对于大多数常用语言，Microsoft 使用 NMT 进行翻译。 NMT 支持所有[可用于语音到语音转换的语言](language-support.md#speech-translation)。 语音到文本转换可能会使用 SMT 或 NMT，具体取决于语言对。 如果 NMT 支持目标语言，则 NMT 支持全译。 如果 NMT 不支持目标语言，则翻译是 NMT 和 SMT 的结合，将英语作为两种语言之间的“枢轴”。
 
-语音翻译 API 使用 Websocket 协议在客户端和服务器之间提供全双工信道。 但无需处理 Websocket；语音 SDK 会替你处理。
+## <a name="core-features"></a>核心功能
 
-语音翻译 API 采用支持各种 Microsoft 产品和服务的相同技术。 此服务已被全球范围内数以千计的公司在其应用程序和工作流中使用。
+下面是可以通过语音 SDK 和 REST API 获得的功能：
 
-## <a name="about-the-technology"></a>有关技术
+| 使用案例 | SDK | REST |
+|----------|-----|------|
+| 包含识别结果的语音转文本翻译。 | 是 | 否 |
+| 语音转语音翻译。 | 是 | 否 |
+| 过渡性识别和翻译结果。 | 是 | 否 |
 
-基础 Microsoft 翻译引擎有两种不同的方法：统计机器翻译 (SMT) 和神经机器翻译 (NMT)。 后者是采用神经网络的人工智能方法，是更现代的机器翻译方法。 NMT 提供更好的翻译 — 不仅更准确，而且更流畅、更自然。 这种流动性的主要原因在于 NMT 使用一个句子的完整上下文来翻译单词。
+## <a name="get-started-with-speech-translation"></a>语音翻译入门
 
-今天，Microsoft 已迁移到涵盖最热门语言的 NMT，SMT 仅用于不太频繁使用的语言。 NMT 支持所有[可用于语音到语音转换的语言](language-support.md#speech-translation)。 语音到文本转换可能会使用 SMT 或 NMT，具体取决于语言对。 如果 NMT 支持目标语言，则 NMT 支持全译。 如果 NMT 不支持目标语言，则翻译是 NMT 和 SMT 的结合，将英语作为两种语言之间的“枢轴”。
+我们专门提供了快速入门来帮助你在 10 分钟内运行代码。 下表按语言列出了语音翻译快速入门。
 
-模型之间的差异在于翻译引擎内部。 最终用户只需注意改进的翻译质量，尤其是中文、日语和阿拉伯语。
+| 快速入门 | 平台 | API 参考 |
+|------------|----------|---------------|
+| [C#、.NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#、.NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#、UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows、Linux、macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
+## <a name="sample-code"></a>代码示例
+
+GitHub 上提供了语音 SDK 的示例代码。 这些示例涵盖了常见方案，例如，从文件或流中读取音频、连续和单次识别/翻译，以及使用自定义模型。
+
+* [语音转文本和翻译示例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## <a name="migration-guides"></a>迁移指南
+
+如果你的应用程序、工具或产品使用[语音翻译 API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)，则可参阅我们创建的指南来迁移到语音服务。
+
+* [从语音翻译 API 迁移到语音服务](how-to-migrate-from-translator-speech-api.md)
+
+## <a name="reference-docs"></a>参考文档
+
+* [语音设备 SDK](speech-devices-sdk.md)
+* REST API：语音转文本
+* [REST API：批量听录和自定义](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>后续步骤
 
-* [获取语音试用订阅](https://www.azure.cn/zh-cn/home/features/cognitive-services/)
-* [参阅如何在 C# 中转换语音](how-to-translate-speech-csharp.md)
-* [请参阅如何在 C# 中转换语音](how-to-translate-speech-cpp.md)
-* [请参阅如何在 Java 中转换语音](how-to-translate-speech-java.md)
+* [免费获取语音服务订阅密钥](get-started.md)
+* [获取语音 SDK](speech-sdk.md)

@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: b11c6c9aae11f5192c48657b8b0896582bc27a82
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 768781388b765857b7d1d8922ac78a15f59b07e8
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083592"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254812"
 ---
 # <a name="sfctl"></a>sfctl
 用于管理 Service Fabric 群集和实体的命令。 此版本与 Service Fabric 6.4 运行时兼容。

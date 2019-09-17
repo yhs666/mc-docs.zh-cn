@@ -3,7 +3,7 @@ title: Azure Active Directory 门户中的登录活动报告错误代码 | Micro
 description: 登录活动报告错误代码参考。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-origin.date: 05/08/2019
-ms.date: 08/13/2019
+origin.date: 08/08/2019
+ms.date: 08/28/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0921078f83a60025fd28e9c4ea5eea2d63283e57
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: d074e49ee4b9c0b31938725866721c9c37c6dbb7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973470"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134364"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登录活动报告错误代码 
 
@@ -122,6 +122,7 @@ ms.locfileid: "68973470"
 |50177|直通用户不支持外部质询。|
 |50178|直通用户不支持会话控制。|
 |50180|需要 Windows 集成身份验证。 为租户启用无缝 SSO。|
+|50201|在登录期间应向用户提供附加信息时，将向用户显示此消息提示中断。|
 |51001|本地安全标识符中不存在域提示 - 本地 UPN。|
 |51004|用户帐户在目录中不存在。|
 |51006|需要 Windows 集成身份验证。 用户已通过声明使用丢失的会话令牌登录。 请求用户重新登录。|
@@ -174,11 +175,14 @@ ms.locfileid: "68973470"
 |500121| 在强身份验证请求期间身份验证失败。|
 |500133| 断言不在其有效时间范围内。 确保访问令牌在用于用户断言或请求新令牌之前没有过期。|
 |530021|应用程序不符合条件访问已批准应用要求。|
+|530032|被安全策略阻止。| 
+|700016|在目录“{tenantName}”中找不到标识符为“{appIdentifier}”的应用程序。 如果应用程序尚未由租户管理员安装，或者尚未获得租户中的任何用户同意，则可能会发生这种情况。 可能将身份验证请求发送给了错误的租户。|
+|900432|跨云请求不支持机密客户端。|
 |7000218|请求正文必须包含以下参数：“client_assertion”或“client_secret”。|
 
 
 ## <a name="next-steps"></a>后续步骤
 
 * [登录报告概述](concept-sign-ins.md)
-
+<!-- Update_Description: wording update -->
 

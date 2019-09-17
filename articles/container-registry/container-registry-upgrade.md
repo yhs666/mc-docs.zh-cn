@@ -3,21 +3,22 @@ title: 升级经典 Azure 容器注册表
 description: 通过升级非托管的经典容器注册表，利用基本、标准和高级托管容器注册表的扩展功能集。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/26/2019
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ab419adb844262d451cb483248bce2ff142ac90
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 25c3810d3a4c32814a19137aec1402d8ffdd92c6
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529219"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134372"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
-Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-registry-skus.md)）。 ACR 的初始版本提供的单一 SKU（即经典 SKU）缺乏基本 SKU、标准 SKU 和高级 SKU（统称托管注册表）固有的多项功能。
+Azure 容器注册表 (ACR) 分为多个服务层级（[称为“SKU”](container-registry-skus.md)）。 ACR 的初始版本提供的单一 SKU（即经典 SKU）缺乏基本 SKU、标准 SKU 和高级 SKU（统称托管注册表）固有的多项功能。 
 
 经典 SKU 即将弃用，2019 年 4 月之后将不可用。 本文详述了如何将非托管的经典注册表迁移到某个托管的 SKU，以便利用其增强的功能集。
 
@@ -32,7 +33,7 @@ Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-
 托管注册表存储有以下优点：
 
 * 容器映像[静态加密](container-registry-storage.md#encryption-at-rest)。
-* 映像使用[异地冗余存储](container-registry-storage.md#geo-redundant-storage)进行存储，以确保通过多区域复制备份映像。
+* 映像使用[异地冗余存储](container-registry-storage.md#geo-redundant-storage)进行存储，以确保通过多区域复制备份映像（仅限高级 SKU）。
 * 可以自由地[在 SKU 之间切换](container-registry-skus.md#changing-skus)，在选择更高级 SKU 时支持更大吞吐量。 对于每个 SKU，ACR 都可以用户需求增加时满足吞吐量需求。
 * 注册表及其存储具有统一的安全模型，可以简化权限管理。 只需为容器注册表管理权限，不需为单独的存储帐户管理权限。
 
@@ -96,17 +97,17 @@ az acr update --name myclassicregistry --sku Premium
 
 使用 Azure 门户升级经典注册表时，Azure 会自动选择标准或高级 SKU，具体取决于哪个 SKU 可以容纳映像。 例如，如果注册表包含 100 GiB 以下的映像，Azure 会自动选择经典注册表并将其转换为标准注册表（最大容量为 100 GiB）。
 
-若要使用 Azure 门户升级经典注册表，请导航到容器注册表的“概览”页，然后选择“升级到托管的注册表”。
+若要使用 Azure 门户升级经典注册表，请导航到容器注册表的“概览”页，然后选择“升级到托管的注册表”。  
 
 ![Azure 门户 UI 中的经典注册表升级按钮][update-classic-01-upgrade]
 
-选择“确定”，确认要升级到托管的注册表。
+选择“确定”，确认要升级到托管的注册表。 
 
-在迁移过程中，门户会指示注册表的**预配状态**为“正在更新”。 如前所述，迁移操作还剩 10% 时，将禁用 `docker push` 操作。 迁移正在进行时，请不得删除或更新经典注册表使用的存储帐户，否则可能导致映像损坏。
+在迁移过程中，门户会指示注册表的**预配状态**为“正在更新”。  如前所述，迁移操作还剩 10% 时，将禁用 `docker push` 操作。 迁移正在进行时，请不得删除或更新经典注册表使用的存储帐户，否则可能导致映像损坏。
 
 ![Azure 门户 UI 中的经典注册表升级进度][update-classic-03-updating]
 
-迁移完成后，“预配状态”会指示“成功”，此时可以恢复注册表的正常操作。
+迁移完成后，“预配状态”会指示“成功”，此时可以恢复注册表的正常操作   。
 
 ![Azure 门户 UI 中的经典注册表升级完成状态][update-classic-04-updated]
 
@@ -115,14 +116,16 @@ az acr update --name myclassicregistry --sku Premium
 将经典注册表升级到托管注册表后，Azure 不再使用一开始充当经典注册表后备的存储帐户。 为了降低成本，可以考虑删除存储帐户或帐户中的 Blob 容器（其中包含旧的容器映像）。
 
 <!-- IMAGES -->
+
 [update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png
 [update-classic-02-confirm]: ./media/container-registry-upgrade/update-classic-02-confirm.png
 [update-classic-03-updating]: ./media/container-registry-upgrade/update-classic-03-updating.png
 [update-classic-04-updated]: ./media/container-registry-upgrade/update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+[az-acr-update]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
 
 <!-- Update_Description: wording update, update meta properties -->

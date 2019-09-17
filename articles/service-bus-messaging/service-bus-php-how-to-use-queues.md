@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: php
 author: lingliw
 manager: digimobile
-editor: ''
+editor: spelluru
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3a7275d0d66b4a678dfd9913e547f3317a8a2c98
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: b058c8bfd70911e84f8f434b82f59cd5487b933d
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544362"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169605"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -38,22 +38,17 @@ ms.locfileid: "69544362"
 3. [Azure SDK for PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
-
 创建访问 Azure Blob 服务的 PHP 应用程序的唯一要求是从代码内引用[用于 PHP 的 Azure SDK](../php-download-sdk.md) 中的类。 可以使用任何开发工具或记事本创建应用程序。
 
 > [!NOTE]
-> 在安装 PHP 的过程中，还必须安装并启用 [OpenSSL 扩展](http://php.net/openssl) 。
-> 
-> 
+> PHP 安装还必须已安装并启用 [OpenSSL 扩展](https://php.net/openssl)。
 
-在本指南中，将使用服务功能，这些功能可在 PHP 应用程序中本地调用，或通过在 Azure 的 Web 角色、辅助角色或网站中运行的代码调用。
+在本指南中，将使用服务功能，这些功能可从 PHP 应用程序中本地调用，或通过在 Azure Web 角色、辅助角色或网站中运行的代码调用。
 
 ## <a name="get-the-azure-client-libraries"></a>获取 Azure 客户端库
-
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用应用程序
-
 若要使用服务总线队列 API，请执行以下操作：
 
 1. 使用 [require_once][require_once] 语句引用 autoloader 文件。
@@ -74,7 +69,6 @@ use WindowsAzure\Common\ServicesBuilder;
 在以下示例中， `require_once` 语句将始终显示，但只会引用执行该示例所需的类。
 
 ## <a name="set-up-a-service-bus-connection"></a>设置服务总线连接
-
 若要实例化服务总线客户端，必须先设置采用以下格式的有效连接字符串：
 
 ```
@@ -117,7 +111,7 @@ use WindowsAzure\ServiceBus\Models\QueueInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     $queueInfo = new QueueInfo("myqueue");
 
     // Create queue.
@@ -151,7 +145,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -169,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-在服务总线队列中发送和接收的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和用来保存特定于应用程序的自定义属性的属性，以及大量的任意应用程序数据。
+发送到服务总线队列（以及从服务总线队列收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和用来保存特定于应用程序的自定义属性的属性，以及大量的任意应用程序数据。
 
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
 
@@ -193,7 +187,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();

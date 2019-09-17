@@ -15,12 +15,12 @@ origin.date: 03/11/2019
 ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: a3a30525dedd901af874097d6de42b7d5c343604
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 6122c1e00957285a929ffcaad004553e536d02a7
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513270"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857327"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 支持的指标
 
@@ -51,7 +51,7 @@ ms.locfileid: "68513270"
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 | 指标 | 指标显示名称 | 计价单位 | 聚合类型 | 说明 | 维度 |
-|----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+|--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob 容量 | 字节 | 总计 | 存储帐户的 Blob 服务使用的存储量（以字节为单位）。 | /BlobType |
 | BlobCount | Blob 计数 | 计数 | 总计 | 存储帐户的 Blob 服务中的 Blob 数。 | /BlobType |
 | ContainerCount | Blob 容器计数 | 计数 | 平均值 | 存储帐户的 Blob 服务中的容器数。 | 无维度 |

@@ -1,6 +1,6 @@
 ---
-title: 支持和帮助选项
-titlesuffix: Azure Cognitive Services
+title: 支持和帮助选项 - 语音服务
+titleSuffix: Azure Cognitive Services
 description: 在创建与语音服务集成的应用程序时，如何针对所遇到的问题获取帮助和支持
 services: cognitive-services
 author: wolfma61
@@ -8,30 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 07/26/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: f640d936632088b2c6828400a2941d1860d281da
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+origin.date: 08/26/2019
+ms.date: 07/23/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 4a75b6381596bc434de2dd4817e12cdbb633c6f1
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348388"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104117"
 ---
 # <a name="support-and-help-options"></a>支持和帮助选项
 
 你是否刚开始探索语音服务的功能？ 你是否正在为你的应用程序实现一项新功能？ 下面是一些提示，作为开发人员你可以从中获得帮助。
 
 > [!div class="checklist"]
-> * 随时获取 Azure 认知服务中新开发的最新消息或查找与语音服务相关的最新消息。
+> * 随时获取 Azure 认知服务中新开发的最新消息或查找与语音服务相关的最新消息   。
+> * 发行说明包含所有发布版的信息。
 > * 搜索以查看社区是否讨论你的问题，或者是否已存在有关要实现的功能的现有文档。
-> * 如果未找到满意答案，请在 Stack Overflow 上提问。
-> * 如果发现 GitHub 上的某个示例有问题，请提交 GitHub 问题。
-> * 在 UserVoice 论坛中搜索解决方案。
+> * 如果未找到满意答案，请在 Stack Overflow 上提问。 
+> * 如果发现 GitHub 上的某个示例有问题，请提交 GitHub 问题  。
+> * 在 UserVoice 论坛中搜索解决方案  。
 
 ## <a name="stay-informed"></a>随时获取最新信息
 
 有关认知服务的新闻，请关注[认知服务博客](https://azure.microsoft.com/blog/topics/cognitive-services/)。 有关语音服务的最新消息，请关注[语音服务博客](https://azure.microsoft.com/blog/tag/speech-service/)。
+
+## <a name="release-notes"></a>发行说明
+
+推出新版本后，将立即更新[发行说明](https://aka.ms/csspeech/whatsnew)。 说明包含有关新功能、改进和 bug 修复的信息。
 
 ## <a name="search"></a>搜索
 
@@ -45,7 +50,7 @@ ms.locfileid: "58348388"
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
 ```
 
-其中，*{Your Search Terms}* 是搜索关键字。
+其中， *{Your Search Terms}* 是搜索关键字。
 
 ## <a name="create-an-azure-support-request"></a>创建 Azure 支持请求
 
@@ -59,7 +64,7 @@ Stack Overflow 是开发相关问题的首选渠道。 在 Stack Overflow 中，
 
 如果通过搜索未找到你的问题的解答，请在 Stack Overflow 中提交新问题。 表述问题时，请使用以下标记之一：
 
-|组件/方面  |标记  |
+|组件/方面  |Tags  |
 |---------|---------|
 |语音识别 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |语音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
@@ -74,7 +79,7 @@ Stack Overflow 是开发相关问题的首选渠道。 在 Stack Overflow 中，
 
 ## <a name="create-a-github-issue"></a>创建 GitHub 问题
 
-示例通常发布为开放源代码。 若有疑问和问题，请在相应的 GitHub 存储库中创建问题。 你也可以提交拉取请求。 下面的列表包含了示例存储库的链接：
+示例通常发布为开放源代码。 若有疑问和问题，请在相应的 GitHub 存储库中创建问题  。 你也可以提交拉取请求。 下面的列表包含了示例存储库的链接：
 
 * [语音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [设备 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)

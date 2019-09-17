@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fdc1b19c49db219402092f74d300daf90bab3ba
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: ea79c5f39141076bb5609c968cecf12236ae74e0
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305827"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134239"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>可将用户登录的 Web 应用 - 登录
 
@@ -34,9 +34,9 @@ ms.locfileid: "67305827"
 ## <a name="what-sign-out-involves"></a>注销涉及的操作
 
 从 Web 应用注销不仅仅涉及到从 Web 应用的状态中删除有关已登录帐户的信息。
-该 Web 应用还必须将用户重定向到 Microsoft 标识平台 v2.0 `logout` 终结点才能注销。当 Web 应用将用户重定向到 `logout` 终结点时，此终结点将从浏览器中清除用户的会话。 如果应用未转到 `logout` 终结点，则用户不需要再次输入凭据就能重新通过应用的身份验证，因为他们与 Microsoft 标识平台 v2.0 终结点之间存在有效的单一登录会话。
+该 Web 应用还必须将用户重定向到 Microsoft 标识平台 `logout` 终结点才能注销。当 Web 应用将用户重定向到 `logout` 终结点时，此终结点将从浏览器中清除用户的会话。 如果应用未转到 `logout` 终结点，则用户不需要再次输入凭据就能重新通过应用的身份验证，因为他们与 Microsoft 标识平台终结点之间存在有效的单一登录会话。
 
-有关详细信息，请参阅 [Microsoft 标识平台 v2.0 和 OpenID Connect 协议](v2-protocols-oidc.md)概念文档中的[发送注销请求](v2-protocols-oidc.md#send-a-sign-out-request)部分。
+有关详细信息，请参阅 [Microsoft 标识平台和 OpenID Connect 协议](v2-protocols-oidc.md)概念文档中的[发送注销请求](v2-protocols-oidc.md#send-a-sign-out-request)部分。
 
 ## <a name="application-registration"></a>应用程序注册
 
@@ -134,3 +134,4 @@ public void SignOut()
 > [!div class="nextstepaction"]
 > [转移到生产环境](scenario-web-app-sign-user-production.md)
 
+<!-- Update_Description: wording update -->

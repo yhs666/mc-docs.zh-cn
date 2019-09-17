@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 07/12/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 5ea34ae25ab2d2d8876d965c1cd15e03a19d972d
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+origin.date: 08/12/2019
+ms.date: 09/16/2019
+ms.openlocfilehash: 16fdaf4aebb2b9e31d31720dbf290178674fe90e
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308952"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857054"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的只读副本
 
@@ -35,7 +35,15 @@ ms.locfileid: "68308952"
 
 只读副本功能使用异步复制技术。 该功能不适用于同步复制方案。 主服务器与副本之间存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
-只读副本可以增强灾难恢复计划。 如果发生区域性的灾难且主服务器不可用，可将工作负荷定向到另一个区域中的副本。 为此，请先使用停止复制函数让副本接受写入。 然后可以通过更新连接字符串来重定向应用程序。 在[停止复制](#stop-replication)部分了解详细信息。
+
+## <a name="cross-region-replication"></a>跨区域复制
+可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
+
+> [!IMPORTANT]
+> 跨区域复制目前为公共预览版。
+
+可以在任何 [Azure Database for MariaDB 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mariadb)中设置主服务器。  主服务器可以在其配对区域或通用副本区域中有一个副本。
+
 
 ## <a name="create-a-replica"></a>创建副本
 
@@ -134,3 +142,4 @@ Azure Database for MariaDB 在 Azure Monitor 中提供“复制滞后时间(秒)
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何[使用 Azure 门户创建和管理只读副本](howto-read-replicas-portal.md)
+- 了解如何[使用 Azure CLI 创建和管理只读副本](howto-read-replicas-cli.md)

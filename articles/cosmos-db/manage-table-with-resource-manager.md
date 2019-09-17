@@ -4,24 +4,26 @@ description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB �
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: abb50c976687ff5c38844980e4b06e4c530bfb3d
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 9318247fb1c423bd7f5d9f9acb9f76f821921435
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171424"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254421"
 ---
 <!--Verify successfully-->
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB 表 API 资源
 
 <a name="create-resource"></a>
-
 ## <a name="create-azure-cosmos-account-and-table"></a>创建 Azure Cosmos 帐户和表 
 
 使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建一个适用于表 API 的 Azure Cosmos 帐户，所使用的一个表的吞吐量为 400 RU/秒。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-table/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+> [!NOTE]
+> 帐户名称必须为小写且 < 31 个字符。
 
 ```json
 {
@@ -202,7 +204,7 @@ New-AzResourceGroupDeployment `
     -secondaryRegion $secondaryRegion `
     -tableName $tableName
 
- (Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName).name
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
 <!--MOONCAKE: parameter correct on -ResourceType-->
@@ -213,7 +215,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="deploy-via-azure-cli"></a>通过 Azure CLI 部署
 
-使用 Azure 本地 CLI 部署资源管理器模板。
+使用 Azure CLI 部署资源管理器模板。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -238,7 +240,7 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 ```
 <!--MOONCAKE: parameter correct on --name $accountName-->
 
-`az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。 如果选择使用本地安装的 Azure CLI 版本，请参阅 [Azure 命令行界面 (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 一文。
+`az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。 如果选择使用本地安装的 Azure CLI 版本，请参阅 [Azure 命令行界面 (CLI)](https://docs.azure.cn/cli/?view=azure-cli-latest) 一文。
 
 <!--Not Available on instead of using CloudShell -->
 
@@ -334,7 +336,9 @@ az group deployment create --resource-group $resourceGroupName \
 下面是一些其他资源：
 
 - [Azure 资源管理器文档](/azure-resource-manager/)
-- [Azure Cosmos DB 资源提供程序架构](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)
+    
+    <!--Not Available on  - [Azure Cosmos DB resource provider schema](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.documentdb/allversions)-->
+    
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

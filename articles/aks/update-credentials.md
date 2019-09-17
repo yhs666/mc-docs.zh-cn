@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/31/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82f577244fa530e3ebd5fab214ef84b2678a03dc
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: ff8b2fbe3a42c774a4dd6d9b3b927fc0afeb574e
+ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731235"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70500744"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的服务主体更新或轮换凭据
 
@@ -99,6 +99,7 @@ az aks update-credentials \
 在本文中，更新了 AKS 群集本身的服务主体。 有关如何为群集中的工作负荷管理标识的详细信息，请参阅 [AKS 中的身份验证和授权的最佳做法][best-practices-identity]。
 
 <!-- LINKS - internal -->
+
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-update-credentials

@@ -13,14 +13,14 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/12/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 01a894119eb2fb27c451f682ac9265bafdcf5886
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 1f1a6bf010cb163867b0eb800d6a267e265d6e8d
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753179"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174138"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
 本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json  文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -69,9 +69,9 @@ ms.locfileid: "68753179"
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int，默认值为 0|静态|BackupRestoreService 的 MinReplicaSetSize |
-|PlacementConstraints|string，默认值为“”|静态|  BackupRestore 服务的 PlacementConstraints |
+|PlacementConstraints|string，默认值为“”|静态| BackupRestore 服务的 PlacementConstraints |
 |SecretEncryptionCertThumbprint|string，默认值为“”|动态|机密加密 X509 证书指纹 |
-|SecretEncryptionCertX509StoreName|string，默认值为“My”|   动态|    这表示用来加密和解密 X.509 证书存储的凭据名称的证书，备份还原服务用此加密解密存储凭据 |
+|SecretEncryptionCertX509StoreName|string，默认值为“My”| 动态| 这表示用来加密和解密 X.509 证书存储的凭据名称的证书，备份还原服务用此加密解密存储凭据 |
 |TargetReplicaSetSize|int，默认值为 0|静态| The TargetReplicaSetSize for BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -160,7 +160,7 @@ ms.locfileid: "68753179"
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int，默认值为 0|静态|EventStore 服务的 MinReplicaSetSize |
-|PlacementConstraints|string，默认值为“”|静态|  EventStore 服务的 PlacementConstraints |
+|PlacementConstraints|string，默认值为“”|静态| EventStore 服务的 PlacementConstraints |
 |TargetReplicaSetSize|int，默认值为 0|静态| EventStore 服务的 TargetReplicaSetSize |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -413,6 +413,11 @@ ms.locfileid: "68753179"
 |SharedLogThrottleLimitInPercentUsed|int，默认值为 0 | 静态 | 将引发限制的共享日志使用百分比。 值应当介于 0 和 100 之间。 值为 0 表示使用默认百分比值。 值为 100 表示根本不进行限制。 1 到 99 之间的值指定一个日志使用百分比，高于该百分比将进行限制；例如，如果共享日志为 10GB 并且该值为 90，则在使用 9GB 后将进行限制。 建议使用默认值。|
 |WriteBufferMemoryPoolMaximumInKB | Int，默认值为 0 |动态|允许写入缓冲区内存池增长到的 KB 数。 使用 0 表示没有限制。 |
 |WriteBufferMemoryPoolMinimumInKB |Int，默认值为 8388608 |动态|最初为写入缓冲区内存池分配的 KB 数。 设置为 0 表示没有限制，默认值应与以下 SharedLogSizeInMB 值保持一致。 |
+
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
+| --- | --- | --- | --- |
+|IsEnabled|bool，默认值为 FALSE|静态|控制群集中托管标识令牌服务的存在和状态的标志；这是使用 Service Fabric 应用程序的托管标识功能的先决条件。|
 
 ## <a name="management"></a>管理
 
@@ -844,7 +849,7 @@ ms.locfileid: "68753179"
 
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-|级别 |Int，默认值为 4 | 动态 |跟踪 ETW 级别可以使用值 1、2、3、4。 要受支持，必须将跟踪级别保持为 4 |
+|Level |Int，默认值为 4 | 动态 |跟踪 ETW 级别可以使用值 1、2、3、4。 要受支持，必须将跟踪级别保持为 4 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 

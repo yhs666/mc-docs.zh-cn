@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/20/2019
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0b84656b4f41f95c2355788156f94c67bf93551
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 692759588ec347639301664ff052edbf5fba928c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568678"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134226"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 标识平台和 OAuth 2.0 资源所有者密码凭据
 
@@ -39,7 +39,7 @@ Microsoft 标识平台支持[资源所有者密码凭据 (ROPC) 授予](https://
 
 下图显示了 ROPC 流。
 
-![ROPC 流](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![显示资源所有者密码凭据流的关系图](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>授权请求
 
@@ -47,7 +47,7 @@ ROPC 流是单一请求&mdash;它将客户端标识和用户的凭据发送到 I
 
 > [!TIP]
 > 尝试在 Postman 中执行此请求！
-> [![在 Postman 中运行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![尝试在 Postman 中运行此请求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
@@ -113,4 +113,4 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 * 请通过[示例控制台应用程序](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)自行试用 ROPC。
 * 若要确定是否应使用 v2.0 终结点，请阅读 [Microsoft 标识平台限制](azure-ad-endpoint-comparison.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

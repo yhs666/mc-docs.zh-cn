@@ -12,19 +12,19 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/02/2018
-ms.date: 07/01/2019
+ms.topic: conceptual
+origin.date: 07/26/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd9231a7d898d952c62c57b26d9c62c11d83f57
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: ce052422973da3cd0390abbf9d85ee5d066dd5dc
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568720"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134279"
 ---
 # <a name="whats-new-for-authentication"></a>身份验证的新增功能 
 
@@ -42,7 +42,46 @@ ms.locfileid: "67568720"
 
 ## <a name="upcoming-changes"></a>即将推出的更改
 
-目前没有计划。 
+2019 年 8 月：根据 URL 分析规则强制实施 POST 语义 - 重复的参数将触发错误，不再忽略参数中的引号，忽略 [BOM](https://www.w3.org/International/questions/qa-byte-order-mark)。
+
+## <a name="july-2019"></a>2019 年 7 月
+
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>仅当客户端应用在资源租户中存在时，才为单租户应用程序颁发仅限应用的令牌
+
+**生效日期**：2019 年 6 月 26 日
+
+**受影响的终结点**：[v1.0](/active-directory/develop/v1-oauth2-client-creds-grant-flow) 和 [v2.0](/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+
+**受影响的协议**：[客户端凭据（仅限应用的令牌）](/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+
+一项安全更改已在 7 月 26 日上线，它会更改颁发仅限应用的令牌的方式（通过客户端凭据授予）。 以前，允许应用程序获取令牌来调用任何其他应用，无论该应用程序是否在租户中存在或者是否向其许可了角色。  此行为现已更新，对于设置为单租户（默认值）的资源（有时称为 Web API），客户端应用程序必须在资源租户中存在。  请注意，仍不需要客户端与 API 之间的现有许可，应用应该仍会执行其自身的授权检查，以确保 `roles` 声明存在并且包含 API 所需的值。
+
+此方案的错误消息目前会指出： 
+
+`The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
+
+若要解决此问题，请使用管理员许可体验在租户中创建客户端应用程序服务主体，或手动创建该服务主体。  此项要求可确保租户授予应用程序在租户中操作的权限。  
+
+#### <a name="example-request"></a>示例请求
+
+`https://login.partner.microsoftonline.cn/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` 在此示例中，资源租户（颁发机构）是 contoso.com，资源应用是 Contoso 租户的某个单租户应用（名为 `gateway.contoso.com/api`），客户端应用是 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`。  如果客户端应用在 Contoso.com 中有服务主体，则此请求可以继续。  不过，如果没有服务主体，则请求将会失败并出现上面所示的错误。  
+
+但是，如果 Contoso 网关应用是多租户应用程序，则无论客户端应用是否在 Contoso.com 中有服务主体，请求都会继续。  
+
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>重定向 URI 现在可以包含查询字符串参数
+
+**生效日期**：2019 年 7 月 22 日
+
+**受影响的终结点**：v1.0 和 v2.0
+
+**受影响的协议**：所有流
+
+根据 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)，Azure AD 应用程序现在可以通过静态查询参数对 OAuth 2.0 请求注册和使用重定向（回复）URI (例如 https://contoso.com/oauth2?idp=microsoft) 。  动态重定向 URI 仍旧受禁用，因为它们表示存在安全风险，不可将其用于保留身份验证请求的状态信息 - 为此，请使用 `state` 参数。
+
+与重定向 URI 的任何其他部分一样，静态查询参数需要接受重定向 URI 的字符串匹配 - 如果未注册与 URI 解码的 redirect_uri 匹配的字符串，则会拒绝请求。  如果在应用注册中找到了 URI，则会使用整个字符串（包括静态查询参数）来重定向用户。 
+
+请注意，目前（2019 年 7 月底），Azure 门户中的应用注册 UX 仍会阻止查询参数。  不过，你可以手动编辑应用程序清单，以添加查询参数并在应用中对其进行测试。  
+
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -110,4 +149,3 @@ ms.locfileid: "67568720"
 1. 客户端应用程序通过 `response_type=id_token` 请求 id_token 时，还会请求上面创建的 Web API 的访问令牌 (`response_type=token`)。 因此，使用 v2.0 终结点时，`scope` 参数应与 `api://GUID/SCOPE` 类似。 在 v1.0 终结点上，`resource` 参数应为 Web API 应用 URI。
 1. 将此访问令牌传递到中间层，代替 id_token。  
 
-<!-- Update_Description: wording update -->

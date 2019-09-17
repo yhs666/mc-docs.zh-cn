@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/02/2019
-ms.date: 06/03/2019
+origin.date: 07/16/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0840205306f89814c471d0d65c4c36463b24708
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 057216b7052ddf7fb6be80408e1aff3db4afde80
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381919"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857051"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 
@@ -76,7 +76,7 @@ ms.locfileid: "66381919"
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>获取 NAT VM 的外部适配器的 IP 地址
 
 1. 登录到 POC1 的 Azure Stack 物理机。
-2. 编辑以下 PowerShell 代码以替换管理员密码，然后在 POC 主机上运行该代码：
+2. 编辑以下 PowerShell 代码以添加管理员密码，然后在 POC 主机上运行该代码：
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -174,7 +174,7 @@ ms.locfileid: "66381919"
 
 ### <a name="create-a-vm"></a>创建 VM
 
-若要验证通过 VPN 连接传输的数据，需要使用虚拟机在每个 Azure Stack 开发工具包中发送和接收数据。 现在请在 POC1 中创建虚拟机，然后将它放在虚拟网络的 VM 子网上。
+若要验证通过 VPN 连接传输的数据，需要使用虚拟机在每个 Azure Stack 开发工具包中发送和接收数据。 现在请在 POC1 中创建虚拟机，然后将它放在虚拟网络的 VM 子网上：
 
 1. 在 Azure 门户中，选择“+ 创建资源”。 
 2. 转到“市场”，选择“计算”。  
@@ -275,8 +275,6 @@ ms.locfileid: "66381919"
 
 > [!NOTE]
 > 只有 Azure Stack 开发工具包环境才需要此配置。
->
->
 
 ### <a name="configure-the-nat"></a>配置 NAT
 

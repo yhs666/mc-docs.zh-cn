@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 06/27/2019
-ms.date: 08/05/2019
+origin.date: 08/02/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6382836b3a9602d0565fab409a936262e2971b6
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 4c6ea782622a494e561474cd5b69bcf8b1daafb1
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819636"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134478"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -91,7 +91,13 @@ Site Recovery 使用[进程服务器](vmware-physical-azure-config-process-serve
 
 若要解决问题，请执行以下操作：
 - 确保根据源中的变动率要求预配目标存储帐户类型（“标准”或“高级”）。
+- 如果已复制到高级托管磁盘（asrseeddisk 类型），请确保磁盘大小支持根据 Site Recovery 限制观察到的变动率。 如果需要，可以增加 asrseeddisk 的大小。 请按照以下步骤操作：
+    - 导航到受影响的复制计算机的“磁盘”边栏选项卡，并复制副本磁盘名称
+    - 导航到此副本托管磁盘
+    - 你可能会在“概述”边栏选项卡上看到一个横幅，指出已生成 SAS URL。 单击此横幅并取消导出。 如果看不到横幅，请忽略此步骤。
+    - 撤销 SAS URL 后，请转至托管磁盘的“配置”边栏选项卡并增加大小，以便 ASR 支持源磁盘上观察到的变动率
 - 如果观测到的变动率是暂时性的，请等待几个小时，让等待中的数据跟上上传进度并创建恢复点。
+- 如果磁盘包含非关键数据（如临时日志、测试数据等），请考虑将此数据移到其他位置，或者从复制中完全排除此磁盘
 - 如果问题持续出现，请使用 Site Recovery [部署规划器](site-recovery-deployment-planner.md#overview)来帮助规划复制。
 
 ### <a name="source-machines-with-no-heartbeat-error-78174"></a>源计算机无检测信号 [错误 78174]
@@ -115,7 +121,6 @@ Site Recovery 使用[进程服务器](vmware-physical-azure-config-process-serve
 2. 检查 PS 上的以下日志以查看错误详细信息：
 
         C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-        and
         C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>主目标服务器无检测信号 [错误 78022]

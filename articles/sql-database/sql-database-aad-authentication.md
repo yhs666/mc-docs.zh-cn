@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 02/20/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: dc74af6eb4cc466d131fadcc39ac1bffe1cc0ed7
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/09/2019
+ms.openlocfilehash: b20d706055b442553c91fb9c99af973fd0bfb0b0
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544407"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70373030"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -99,7 +99,7 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>管理实例
+### <a name="managed-instances"></a>托管实例
 
 - Azure AD 服务器主体（登录名）和用户作为[托管实例](sql-database-managed-instance.md)的预览功能受支持。
 - [托管实例](sql-database-managed-instance.md)中不支持将映射到 Azure AD 组的 Azure AD 服务器主体（登录名）设置为数据库所有者。

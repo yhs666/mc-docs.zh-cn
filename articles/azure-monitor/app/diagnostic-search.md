@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/20/2019
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/30/2019
+origin.date: 07/30/2019
+ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9f9a60534e40d6bee9c5141ca2887d5a03ff4527
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 6247be7f33b195ce8bc6bdf6e8aa04727bd1832b
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989655"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737288"
 ---
 # <a name="using-search-in-application-insights"></a>使用 Application Insights 中的搜索
 

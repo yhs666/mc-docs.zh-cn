@@ -5,20 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/16/2019
+origin.date: 08/16/2019
+ms.date: 08/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6857db276cd7532881473f11f18eec62dc44d499
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: dbb898c35de9a91a1227dfd0e80d1f9ccccc8110
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989675"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737304"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 

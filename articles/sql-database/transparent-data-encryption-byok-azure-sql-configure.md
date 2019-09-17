@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-manager: digimobile
 origin.date: 03/12/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: 62af1e20c20a8032fcf366603d0179facbe29c08
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 09/09/2019
+ms.openlocfilehash: 837b92338ebcc01ebe8832b074a772c30b263a97
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578516"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372955"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：使用 Azure Key Vault 中由客户管理的密钥启用透明数据加密
 
@@ -33,9 +32,9 @@ ms.locfileid: "69578516"
 - 必须有一个 Azure 订阅，并且是该订阅的管理员。
 - 必须安装并运行 Azure PowerShell。 
 - 创建用于 TDE 的 Azure Key Vault 和密钥。
-  - [Key Vault 的 PowerShell 说明](../key-vault/key-vault-overview.md)
+  - [Key Vault 的 PowerShell 说明](../key-vault/quick-create-powershell.md)
     - Key Vault 必须包含用于 TDE 的以下属性：
-  - [软删除](../key-vault/key-vault-ovw-soft-delete.md)
+  - [软删除](../key-vault/key-vault-ovw-soft-delete.md)和清除保护
   - [如何将 Key Vault 软删除与 PowerShell 配合使用](../key-vault/key-vault-soft-delete-powershell.md) 
 - 密钥必须包含用于 TDE 的以下特性：
    - 无过期日期
@@ -78,6 +77,8 @@ ms.locfileid: "69578516"
 
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>步骤 3. 将 Key Vault 密钥添加到服务器并设置 TDE 保护器
 
+
+- 使用 [Get-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) cmdlet 从密钥保管库中检索密钥 ID
 - 使用 [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet 将 Key Vault 中的密钥添加到服务器。
 - 使用 [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet 将密钥设置为所有服务器资源的 TDE 保护器。
 - 使用 [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet 确认已按预期配置了 TDE 保护器。

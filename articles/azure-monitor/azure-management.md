@@ -4,20 +4,20 @@ description: 概述针对 Azure 应用程序和资源的管理领域，并提供
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/07/2018
+origin.date: 09/07/2018
+ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ec8f7dd1514a8cf53493646945dd88c5ca6f6da1
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 7e72d7134bbb1a972f3615b15db2b1a7c2474637
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989401"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736556"
 ---
 # <a name="azure-management---monitoring"></a>Azure 管理 - 监视
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4133d300262874b3ce47fe38ef0749322b5e0c8b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c31b3220be19e0200a8d393448d5233f9f79f150
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818476"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104152"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>使用 Azure 备份 MARS 代理备份 Windows 计算机
 
@@ -32,7 +32,7 @@ ms.locfileid: "68818476"
 Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的文件、文件夹和状态备份到 Azure 中的恢复服务保管库。 可按如下所述运行代理：
 
 - 直接在本地 Windows 计算机上运行该代理，使这些计算机能够直接备份到 Azure 中的备份恢复服务保管库。
-- 运行使用 Windows 操作系统的代理 Azure VM（与 Azure VM 备份扩展一起运行），以备份 VM 上的特定文件和文件夹。
+- 在运行 Windows（与 Azure VM 备份扩展一起运行）的 Azure VM 上运行代理，以备份 VM 上的特定文件和文件夹。
 - 在 Microsoft Azure 备份服务器 (MABS) 或 System Center Data Protection Manager (DPM) 服务器上运行该代理。 在此方案中，计算机和工作负荷将备份到 MABS/DPM，然后 MABS/DPM 将通过 MARS 代理备份到 Azure 中的保管库。
 可备份的内容取决于该代理的安装位置。
 

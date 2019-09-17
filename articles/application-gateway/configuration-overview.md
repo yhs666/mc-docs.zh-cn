@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 06/01/2019
-ms.date: 08/06/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6c113e1d56953d5aeeaf2af9ca1e7d4121b7786a
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: 5fd12787b9e323e54352e4c4d1886ae80ddcbd13
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818829"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857262"
 ---
 # <a name="application-gateway-configuration-overview"></a>应用程序网关配置概述
 
@@ -49,7 +49,7 @@ Azure 应用程序网关由多个组件构成，可根据不同的方案以不�
 
 应用程序网关支持网络安全组 (NSG)。 但同时存在多种限制：
 
-- 对于应用程序网关 v1 SKU，必须为端口 65503-65534 上的传入流量设置例外。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
+- 对于应用程序网关 v1 SKU，必须为端口 65503-65534 上的传入流量设置例外，对于 v2 SKU，必须为端口 65200 - 65535 上的传入流量设置例外。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
 - 不能阻止出站 Internet 连接。 NSG 中的默认出站规则允许 Internet 连接。 建议：
 
@@ -71,6 +71,11 @@ Azure 应用程序网关由多个组件构成，可根据不同的方案以不�
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>应用程序网关子网支持用户定义的路由
 
 使用 v1 SKU 时，只要用户定义的路由 (UDR) 未更改端到端请求/响应通信，则应用程序网关子网就会支持这些 UDR。 例如，可以在应用程序网关子网中设置一个指向防火墙设备的、用于检查数据包的 UDR。 但是，必须确保数据包在检查后可以访问其预期目标。 否则，可能会导致不正确的运行状况探测或流量路由行为。 这包括已探测到的路由，或者通过 Azure ExpressRoute 或 VPN 网关在虚拟网络中传播的默认 0.0.0.0/0 路由。
+
+对于 v2 SKU，应用网关子网不支持 UDR。 有关详细信息，请参阅 [Azure 应用程序网关 v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)。
+
+> [!NOTE]
+> v2 SKU 不支持 UDR。  如果需要 UDR，应继续部署 v1 SKU。
 
 > [!NOTE]
 > 在应用程序网关子网中使用 UDR 会导致[后端运行状况视图](/application-gateway/application-gateway-diagnostics#back-end-health)中的运行状态显示为“未知”。 此外，还会导致应用程序网关日志和指标生成失败。 建议不要在应用程序网关子网中使用 UDR，以便能够查看后端运行状况、日志和指标。
@@ -106,6 +111,8 @@ Azure 应用程序网关由多个组件构成，可根据不同的方案以不�
 #### <a name="order-of-processing-listeners"></a>侦听器的处理顺序
 
 使用 v1 SKU 时，侦听器将按其列出顺序进行处理。 如果基本侦听器与传入请求匹配，该侦听器会先处理该请求。 因此，请先配置多站点侦听器，再配置基本侦听器，以确保将流量路由到正确的后端。
+
+对于 v2 SKU，在基本侦听器之前处理多站点侦听器。
 
 ### <a name="front-end-ip"></a>前端 IP
 
@@ -178,6 +185,8 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 使用 v1 SKU 时，将按照路径在基于路径的规则的 URL 路径映射中的列出顺序处理传入请求的模式匹配。 如果某个请求与 URL 路径映射中的两个或更多个路径的模式相匹配，则会匹配最先列出的路径。 请求将转发到与该路径关联的后端。
 
+对于 v2 SKU，完全匹配的优先级高于 URL 路径映射中的路径顺序。 如果请求与两个或更多路径中的模式匹配，则会将请求转发到与完全匹配请求的路径关联的后端。 如果传入请求中的路径与映射中的任何路径都不完全匹配，则将在基于路径的规则的路径映射顺序列表中处理请求的模式匹配。
+
 ### <a name="associated-listener"></a>关联的侦听器
 
 将一个侦听器关联到该规则，以评估与该侦听器关联的请求路由规则，从而确定请求要路由到的后端池。 
@@ -234,6 +243,13 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 有关重定向的详细信息，请参阅：
 - [使用 PowerShell 将流量重定向到外部站点](/application-gateway/redirect-external-site-powershell)
 - [使用 CLI 将流量重定向到外部站点](/application-gateway/redirect-external-site-cli)
+
+#### <a name="rewrite-the-http-header-setting"></a>重写 HTTP 标头设置
+
+当请求和响应数据包在客户端和后端池之间移动时，此设置将添加、删除或更新 HTTP 请求和响应标头。 只能通过 PowerShell 配置此功能。 Azure 门户和 CLI 支持尚不可用。 有关详细信息，请参阅：
+
+ - [重写 HTTP 标头概述](/application-gateway/rewrite-http-headers)
+ - [配置 HTTP 标头重写](/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP 设置
 
@@ -303,7 +319,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 例如，使用多租户服务作为后端时。 应用服务是使用共享空间和单个 IP 地址的多租户服务。 因此，只能通过自定义域设置中配置的主机名访问应用服务。
 
-自定义域名默认为 *example.azurewebsites.<i></i>net*。 若要通过未显式注册到应用服务中的主机名或者通过应用程序网关的 FQDN 使用应用程序网关访问应用服务，请将原始请求中的主机名替代为应用服务的主机名。 为此，请启用“从后端地址中选取主机名”设置。 
+默认情况下，自定义域名为 *example.chinacloudsites.<i></i>cn*。 若要通过未显式注册到应用服务中的主机名或者通过应用程序网关的 FQDN 使用应用程序网关访问应用服务，请将原始请求中的主机名替代为应用服务的主机名。 为此，请启用“从后端地址中选取主机名”设置。 
 
 对于其现有自定义 DNS 名称已映射到应用服务的自定义域，不需要启用此设置。
 

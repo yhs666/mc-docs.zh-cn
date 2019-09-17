@@ -1,6 +1,6 @@
 ---
-title: 数据更改
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 数据更改 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解如何在语言理解 (LUIS) 得出预测之前更改数据
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d86ac6c821a745fcb9047039864d97c4a5da8a41
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: f1e2a17001c9266900b57d24a3aad6f8c64060d1
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544097"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104023"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>在预测之前或预测期间更改话语数据
 LUIS 提供在预测之前或预测期间操作陈述的方法。 这些方法包括修复拼写，以及修复预生成 datetimeV2 的时区问题。 
@@ -30,6 +30,13 @@ LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加�
 
 终结点需要两个参数以进行拼写更正：
 
+|Param|Value|
+|--|--|
+|`spellCheck`|布尔值|
+|`bing-spell-check-subscription-key`|[必应拼写检查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 终结点密钥|
+
+[必应拼写检查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
+
 ```JSON
 {
   "query": "Book a flite to London?",
@@ -42,8 +49,8 @@ LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加�
 }
 ```
  
-### <a name="whitelist-words"></a>将字词加入允许列表
-LUIS 中使用的必应拼写检查 API 不支持在拼写检查更改期间要忽略的字词允许列表。 如果需要将字词或首字母缩略词加入允许列表，请在将话语发送到 LUIS 进行意向预测之前，使用允许列表处理客户端应用程序中的话语。
+### <a name="list-of-allowed-words"></a>允许的字词列表
+LUIS 中使用的必应拼写检查 API 不支持在拼写检查更改期间要忽略的字词列表（也称为允许列表）。 如果需要允许字词或首字母缩写词的列表，请在将话语发送到 LUIS 进行意向预测之前在客户端应用程序中处理话语。
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>更改预生成 datetimeV2 实体的时区
 LUIS 应用使用预生成的 datetimeV2 实体时，可以在预测响应中返回日期/时间值。 请求的时区用于确定要返回的正确日期/时间。 如果请求在到达 LUIS 之前来自机器人或另一个集中式应用程序，则更正 LUIS 使用的时区。 
@@ -82,9 +89,3 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 // Find timezoneOffset
 int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
-
-
-
-
-
-

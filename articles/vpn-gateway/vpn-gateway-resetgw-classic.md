@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 07/05/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 2f5cd3700ae473389a281ca3c4d03d7b395f3c80
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: ff0f6231c928271771e667a18412b32168e3f801
+ms.sourcegitcommit: 2f7c24eff74f4de0d4a117fc2c327e00ab77ff88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732415"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70888183"
 ---
 # <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 
@@ -70,10 +70,12 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>经典部署模型
 
-用于重置网关的 cmdlet 是 **Reset-AzureVNetGateway**。 进行重置前，请确保拥有最新版本的 [Service Management (SM) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)。 下面的示例为名为“ContosoVNet”的虚拟网络重置了网关：
+用于重置网关的 cmdlet 是 **Reset-AzureVNetGateway**。 进行重置前，请确保拥有最新版本的 [Service Management (SM) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)。 使用此命令时，请确保使用的是虚拟网络的全名。 使用门户创建的经典 VNet 具有 PowerShell 所需的长名称。 可以使用“Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml”查看长名称。
+
+以下示例重置名为“Group TestRG1 TestVNet1”的虚拟网络的网关（在门户中简单地显示为“TestVNet1”）：
 
 ```powershell
-Reset-AzureVNetGateway -VnetName "ContosoVNet"
+Reset-AzureVNetGateway -VnetName 'Group TestRG1 TestVNet1'
 ```
 
 结果：
@@ -98,5 +100,3 @@ az network vnet-gateway reset -n VNet5GW -g TestRG5
 结果：
 
 收到返回结果时，可假定网关重置成功。 但返回结果没有明确指出重置成功。 如要仔细查看历史记录，确定网关重置发生的确切时间，可在 [Azure 门户](https://portal.azure.cn)中查看该信息。 在门户中，导航到“GatewayName”->“资源运行状况”  。
-
-<!-- Update_Description: wording update -->

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 08/26/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 6be2646c29f0055e1ff234b66130e3cb28da89d3
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: d9abe6b93f80bad7ba917fa862b9afc58e943922
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670962"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254414"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念 
 
@@ -105,6 +105,7 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 媒体服务支持本文中介绍的以下按需编码器：
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+* [媒体编码器高级工作流](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 有关受支持的编码器的信息，请参阅[编码器](media-services-encode-asset.md)。
 

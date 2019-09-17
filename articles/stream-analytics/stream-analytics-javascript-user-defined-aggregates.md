@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 2f5c5f1b5b1d01c2545a79dc690188b5ad36f360
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 2c601cce82a7678a0a41b7636b7e8fea52b81cc4
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969584"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169517"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 流分析 JavaScript 用户定义的聚合（预览）
 
@@ -23,7 +23,7 @@ Azure 流分析支持以 JavaScript 编写的用户定义的聚合 (UDA)，可�
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 用户定义的聚合
 
-用户定义的聚合在时间窗口规范的顶层使用，可基于该窗口内的事件进行聚合，并生成单个结果值。 流分析目前支持两种类型的 UDA 接口：AccumulateOnly 和 AccumulateDeaccumulate。 翻转窗口、跳跃窗口和滑动窗口可以使用这两种类型的 UDA。 与跳跃窗口和滑动窗口结合使用时，AccumulateDeaccumulate UDA 的表现比 AccumulateOnly UDA 更好。 可以根据所用的算法选择其中一种类型。
+用户定义的聚合在时间窗口规范的顶层使用，可基于该窗口内的事件进行聚合，并生成单个结果值。 流分析目前支持两种类型的 UDA 接口：AccumulateOnly 和 AccumulateDeaccumulate。 翻转窗口、跳跃窗口、滑动窗口和会话窗口可以使用这两种类型的 UDA。 与跳跃窗口、滑动窗口和会话窗口结合使用时，AccumulateDeaccumulate UDA 的表现比 AccumulateOnly UDA 更好。 可以根据所用的算法选择其中一种类型。
 
 ### <a name="accumulateonly-aggregates"></a>AccumulateOnly 聚合
 

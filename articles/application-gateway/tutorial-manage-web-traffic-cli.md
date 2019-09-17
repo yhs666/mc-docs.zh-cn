@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 05/01/2019
-ms.date: 06/12/2019
+origin.date: 07/20/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7de4fa6731e6ab850d171ff41c6a9bbb51583dfb
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 59aae0a33aca4cbc58002a38286ba5194f7d234a
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027422"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857212"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>通过 Azure CLI 使用应用程序网关管理 Web 流量
 
@@ -63,7 +63,9 @@ az network vnet subnet create `
 
 az network public-ip create `
   --resource-group myResourceGroupAG `
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress `
+  --allocation-method Static `
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
@@ -78,7 +80,7 @@ az network application-gateway create `
   --vnet-name myVNet `
   --subnet myAGsubnet `
   --capacity 2 `
-  --sku Standard_Medium `
+  --sku Standard_v2 `
   --http-settings-cookie-based-affinity Disabled `
   --frontend-port 80 `
   --http-settings-port 80 `
@@ -154,4 +156,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

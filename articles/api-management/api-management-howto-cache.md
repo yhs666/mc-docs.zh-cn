@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/27/2018
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 268bf1cdcd8f045cda04a3121221832e06ba633b
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 09/16/2019
+ms.openlocfilehash: da699973f1012556addbc2e17847a4034b680292
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529176"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736728"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>添加缓存以提高 Azure API 管理中的性能
 API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减少 API 延迟、带宽消耗和不经常更改数据的 web 服务负载。
@@ -50,11 +50,11 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 浏览到自己的 APIM 实例。
-3. 选择“API”选项卡。
-4. 在 API 列表中单击“演示会议 API”。
-5. 选择“GetSpeakers”。
-6. 选择屏幕顶部的“设计”选项卡。
-7. 在“入站处理”部分中，单击 **</>** 图标。
+3. 选择“API”选项卡。 
+4. 在 API 列表中单击“演示会议 API”。 
+5. 选择“GetSpeakers”  。
+6. 选择屏幕顶部的“设计”选项卡。 
+7. 在“入站处理”  部分中，单击 **</>** 图标。
 
     ![代码编辑器](media/api-management-howto-cache/code-editor.png) 
 
@@ -77,11 +77,11 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 若要查看作用的缓存，请从开发人员门户调用操作。
 
 1. 在 Azure 门户中浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
+2. 选择“API”  选项卡。
 3. 选择向其添加了缓存策略的 API。
-4. 选择“GetSpeakers”操作。
-5. 单击右上方菜单中的“测试”选项卡。
-6. 按“发送”。
+4. 选择“GetSpeakers”操作。 
+5. 单击右上方菜单中的“测试”选项卡。 
+6. 按“发送”。 
 
 ## <a name="next-steps"></a>后续步骤
 * 有关缓存策略的详细信息，请参阅 [API 管理策略参考][API Management policy reference]中的[缓存策略][Caching policies]。

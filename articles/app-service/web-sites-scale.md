@@ -1,5 +1,5 @@
 ---
-title: 纵向扩展功能和容量 - Azure 应用服务 | Azure Docs
+title: 纵向扩展功能和容量 - Azure 应用服务 | Azure
 description: 了解如何增加 Azure 应用服务中的应用以增加容量和功能。
 services: app-service
 documentationcenter: ''
@@ -13,17 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2016
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 09/05/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: ad47bd93962f4f9caf5149ffd73e88f1a2a0dd01
-ms.sourcegitcommit: 2ee3d4b7925390ff27d80d5e05a370dfb98e615c
+ms.openlocfilehash: a6d0a0b995fb38e1b2edefe346d967ec5bba04d7
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371611"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806648"
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
+
+> [!NOTE]
+> 与现有定价层相比，新的 PremiumV2 层提供更快的 CPU 和 SSD 存储以及双倍的内存-内核比  。 借助性能优势，可以通过在更少的实例上运行应用来节省资金。 要纵向扩展到 PremiumV2 层，请参阅[为应用服务配置 PremiumV2 层](app-service-configure-premium-tier.md)  。
+>
+
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
 
 * [纵向扩展](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VM)、自定义域和证书、过渡槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来向上缩放。

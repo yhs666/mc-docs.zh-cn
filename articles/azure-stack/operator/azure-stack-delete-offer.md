@@ -5,24 +5,23 @@ services: azure-stack
 documentationcenter: ''
 author: WenJason
 manager: digimobile
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2019
-ms.date: 06/03/2019
+origin.date: 08/13/2019
+ms.date: 09/16/2019
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 2011b0f98be0516c3f3b9b020593112da1fd2f7e
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: cfebf6ea1f5c00d24bd69192776d8d20502eb59d
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249163"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857033"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>删除配额、计划、套餐和订阅
 
@@ -49,7 +48,7 @@ ms.locfileid: "66249163"
 
 ![delsub1](media/azure-stack-delete-offer/delsub1.png)
 
-只能删除未被任何订阅使用的套餐。 如果订阅依赖于该套餐，则“删除”选项会灰显。  对于这种情况，请参阅[删除订阅](#delete-a-subscription)部分。
+只能删除未被任何订阅使用的套餐。 如果订阅基于套餐存在，则“删除”选项会不可用。  对于这种情况，请参阅[删除订阅](#delete-a-subscription)部分。
 
 ## <a name="delete-a-plan"></a>删除计划
 

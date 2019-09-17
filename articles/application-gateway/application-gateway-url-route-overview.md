@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 01/08/2019
-ms.date: 04/16/2019
+ms.date: 09/10/2019
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: d457e05a6d7f7a5cb59496b17a1964e95b204312
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 6743b8a8eaf9f6e1e22d78cf9e5cdaae57ce3ee0
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686289"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857266"
 ---
 # <a name="url-path-based-routing-overview"></a>基于 URL 路径的路由概述
 
@@ -67,9 +67,13 @@ urlPathMap 元素用于指定后端服务器池映射的路径模式。 以下�
 
 PathPattern 是要匹配的路径模式列表。 每个模式必须以 / 开头，只允许在后接“/”的末尾处添加“*”。 提供给路径匹配器的字符串在第一个“?” 或“#”之后不包含任何文本，而且这些字符不允许在这里。 否则，URL 中允许的任何字符在 PathPattern 中都是允许的。
 
+受支持的模式取决于是部署应用程序网关 v1 还是 v2：
+
+#### <a name="v1"></a>v1
+
 路径规则不区分大小写。
 
-|路径模式  |是否支持？  |
+|v1 路径模式  |是否支持？  |
 |---------|---------|
 |`/images/*`     |是|
 |`/images*`     |否|
@@ -78,6 +82,18 @@ PathPattern 是要匹配的路径模式列表。 每个模式必须以 / 开头�
 |`/Repos/*/Comments/*`     |否|
 |`/CurrentUser/Comments/*`     |是|
 
+#### <a name="v2"></a>v2
+
+路径规则区分大小写。
+
+|v2 路径模式  |是否支持？  |
+|---------|---------|
+|`/images/*`     |是|
+|`/images*`     |是|
+|`/images/*.jpg`     |否|
+|`/*.jpg`     |否|
+|`/Repos/*/Comments/*`     |否|
+|`/CurrentUser/Comments/*`     |是|
 
 有关详细信息，可以查看[使用基于 URL 的路由的 Resource Manager 模板](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)。
 
@@ -110,4 +126,4 @@ PathBasedRouting 规则的代码片段：
 
 了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](application-gateway-create-url-route-portal.md)，使用 URL 路由规则创建应用程序网关。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

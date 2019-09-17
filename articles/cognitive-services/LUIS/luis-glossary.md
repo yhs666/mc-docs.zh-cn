@@ -1,21 +1,21 @@
 ---
-title: 术语表
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 术语表 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 术语表解释使用 LUIS API 服务时可能遇到的术语。
 services: cognitive-services
 author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4c5752d5368d740119503f8f283ed664da0d7e60
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: a8af34ce83d0090397fdf1b92c93b382a5a5b4d0
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818442"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103938"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>对包含常见词汇和概念的术语表进行语言理解
 语言理解 (LUIS) 术语表解释使用 LUIS API 服务时可能遇到的术语。
@@ -35,36 +35,16 @@ ms.locfileid: "68818442"
 
 以前名为“编程”密钥。 用于创作应用。 不用于生产级别的终结点查询。 有关详细信息，请参阅[密钥限制](luis-boundaries.md#key-limits)。   
 
-<a name="batch-test-json-file"></a>
-## <a name="batch-text-json-file"></a>批文本 JSON 文件
+## <a name="batch-test-json-file"></a>批文本 JSON 文件
 
-批文件是一个 JSON 数组。 数组中的每个元素都有三个属性：`text`、`intent` 和 `entities`。 `entities` 属性是一个数组。 该数组可以为空。 如果 `entities` 数组不为空，则该数组需要准确识别实体。
+批处理测试是使用一组一致且已知的用户话语测试集验证当前 LUIS 应用模型的功能。 批处理测试在 [JSON 格式化文件](luis-concept-batch-test.md#batch-file-format)中定义。
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+另请参阅： 
+* [概念](luis-concept-batch-test.md)
+* [操作说明](luis-how-to-batch-test.md)
+* [Tutorial]luis-tutorial-batch-testing.md)
 
 
-<a name="collaborator"></a>
 ## <a name="collaborator"></a>协作者
 
 协作者不是应用程序的[所有者](#owner)，但具有相同权限，可以添加、编辑和删除意向、实体和话语。

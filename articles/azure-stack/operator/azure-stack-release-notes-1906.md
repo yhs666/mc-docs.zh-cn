@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/15/2019
-ms.date: 07/29/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 1a819dbd54db10552a5cd4b7c0cc2ad6ebd4d137
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 35ee5579ebcd7f75a0038e73007fb20af231259c
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513544"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857129"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新
 
@@ -110,6 +110,10 @@ Azure Stack 1906 更新内部版本类型为“快速”  。 有关更新内部
 - 在管理员和用户门户中修复了以下市场问题：Docker 扩展未正确从搜索中返回，并且无法采取进一步的措施，因为 Azure Stack 不提供此类措施。
 
 - 修复了模板部署 UI 中的以下问题：如果模板名称以下划线束“_”开头，则不会填充参数。
+
+- 修复了虚拟机规模集创建体验提供基于 CentOS 的 7.2 作为部署选项的问题。 Azure Stack 不提供 CentOS 7.2。 我们现在提供 Centos 7.5 作为部署选项
+
+- 现在可以从“虚拟机规模集”  边栏选项卡中删除规模集。
 
 ## <a name="security-updates"></a>安全更新
 

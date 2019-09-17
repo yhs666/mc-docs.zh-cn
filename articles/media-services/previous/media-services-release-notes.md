@@ -12,14 +12,14 @@ ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 08/26/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 47da7853156674905c5a51e106ff38fa2d548b77
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: cdf5cfe53155bbc7e1fe3ca385596fbeaabc97d2
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670976"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254561"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -108,7 +108,7 @@ Azure 媒体编修器正式发布：此媒体处理器通过模糊选定个体�
 
 在创建编码任务时，现在可通过指定“自适应流式处理”预设字符串使用标准编码器[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)。 若要使用媒体服务对视频进行流式处理，请使用“自适应流式处理”预设。 若要为特定方案自定义编码预设，可从[这些](media-services-mes-presets-overview.md)预设开始。
 
-现在可使用 Media Encoder Standard 来[创建生成 fMP4 区块的编码任务](media-services-generate-fmp4-chunks.md)。 
+现在可使用标准编码器或媒体编码器高级工作流来[创建生成 fMP4 区块的编码任务](media-services-generate-fmp4-chunks.md)。 
 
 ## <a name="february-2017-release"></a>2017 年 2 月版本
 
@@ -202,6 +202,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 * 实现了对动态筛选器的支持。
 * 实现了这样的功能，让用户可在删除资产时保留存储容器。
 * 进行了与频道中的重试策略相关的 Bug 修复。
+* 启用了 Media Encoder Premium Workflow。
 
 ## <a id="june_changes_15"></a>2015 年 6 月版本
 ### <a name="media-services-net-sdk-updates"></a>媒体服务 .NET SDK 更新
@@ -241,6 +242,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 ## <a id="march_changes_15"></a>2015 年 3 月版本
 ### <a name="general-media-services-updates"></a>媒体服务一般更新
 * 媒体服务现提供内容分发网络集成。 为了支持集成，将 CdnEnabled 属性添加到了 StreamingEndpoint。 CdnEnabled 可用于 2.9 及以上版本的 REST API。 有关详细信息，请参阅 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 CdnEnabled 可用于 3.1.0.2 及以上版本的 .NET SDK。 有关详细信息，请参阅 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)。
+* 公布了 Media Encoder Premium Workflow。 有关详细信息，请参阅[在 Azure 媒体服务中引入高级编码](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)。
 
 ## <a id="february_changes_15"></a>2015 年 2 月版本
 ### <a name="general-media-services-updates"></a>媒体服务一般更新

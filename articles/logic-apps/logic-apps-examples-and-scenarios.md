@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-origin.date: 01/31/2018
+origin.date: 07/31/2018
 ms.author: v-yiso
-ms.date: 12/10/2018
-ms.openlocfilehash: c881e97dc90ff4412252a9c65c42eb9bc977d701
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 09/09/2019
+ms.openlocfilehash: 59b8afe9cb91627ada9d9f87f09fd253091cb344
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529431"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174091"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure 逻辑应用的常见方案、示例、教程和演练
 
@@ -30,28 +30,33 @@ ms.locfileid: "59529431"
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>逻辑应用工作流的常用起点
 
-每个逻辑应用均由[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)启动，并且只有一个触发器，该触发器可启动逻辑应用工作流并将任何数据作为该触发器的一部分进行传递。 某些连接器提供触发器，类型包括：
+每个逻辑应用均由[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)启动，并且只有一个触发器，该触发器可启动逻辑应用工作流并将任何数据作为该触发器的一部分进行传递  。 某些连接器提供触发器，类型包括：
 
-* 轮询触发器：定期检查服务终结点以获取新数据。 如果存在新数据，触发器会创建并运行新的工作流实例（将数据作为输入）。
+* 轮询触发器：  定期检查服务终结点以获取新数据。 如果存在新数据，触发器会创建并运行新的工作流实例（将数据作为输入）。
 
-* 推送触发器：侦听服务终结点上的数据并等到特定事件发生。 事件发生时触发器会立即触发，创建并运行新的工作流实例（将任何可用数据用作输入）。
+* 推送触发器：  侦听服务终结点上的数据并等到特定事件发生。 事件发生时触发器会立即触发，创建并运行新的工作流实例（将任何可用数据用作输入）。
 
 下面提供了几个常用触发器示例：
 
 * 轮询： 
 
-  * 使用[计划 - 重复触发器](../connectors/connectors-native-recurrence.md)可设置启动日期和时间以及触发逻辑应用的重复周期。 
-  例如，可以选择在星期几和一天中某个时间触发逻辑应用。
+  * 使用[定期触发器](../connectors/connectors-native-recurrence.md)可设置启动日期和时间以及触发逻辑应用的重复周期  。 例如，可以选择在星期几和一天中某个时间触发逻辑应用。 有关详细信息，请参阅以下主题：
 
-  * “收到电子邮件时”触发器允许逻辑应用从逻辑应用支持的任何邮件提供程序检查是否有新的电子邮件，例如 [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)、[Gmail](https://docs.microsoft.com/connectors/gmail/) 和 [Outlook.com](https://docs.microsoft.com/connectors/outlook/) 等。
+    * [使用 Azure 逻辑应用计划和运行重复性自动任务、过程与工作流](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+    * [教程：使用 Azure 逻辑应用按计划检查流量](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * [HTTP 触发器](../connectors/connectors-native-http.md)允许逻辑应用通过使用 HTTP 进行通信来检查指定的服务终结点。
+  * “收到电子邮件时”触发器允许逻辑应用从逻辑应用支持的任何邮件提供程序检查是否有新的电子邮件，例如 [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)、[Gmail](https://docs.microsoft.com/connectors/gmail/) 和 [Outlook.com](https://docs.microsoft.com/connectors/outlook/) 等。 有关详细信息，请参阅以下主题： 
+
+    * [教程：使用 Azure 逻辑应用管理邮件列表请求](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [教程：使用 Azure 逻辑应用自动处理电子邮件和附件](../logic-apps/tutorial-process-email-attachments-workflow.md)
+
+  * [HTTP 触发器](../connectors/connectors-native-http.md)允许逻辑应用通过使用 HTTP 进行通信来检查指定的服务终结点  。
   
 * 推送：
 
-  * [请求/响应 - 请求触发器](../connectors/connectors-native-reqres.md)允许逻辑应用接收 HTTP 请求并以某种方式实时响应事件。
+  * [请求/响应 - 请求触发器](../connectors/connectors-native-reqres.md)允许逻辑应用接收 HTTP 请求并以某种方式实时响应事件  。
 
-  * [HTTP Webhook 触发器](../connectors/connectors-native-webhook.md)通过向该服务注册回叫 URL 来订阅服务终结点。 
+  * [HTTP Webhook 触发器](../connectors/connectors-native-webhook.md)通过向该服务注册回叫 URL 来订阅服务终结点   。 
   这样一来，服务可只在指定事件发生时通知触发器，触发器便无需轮询服务。
 
 收到有关新数据或事件的通知后，触发器随即触发，创建新的逻辑应用工作流实例并在工作流中运行操作。 通过工作流可访问触发器中任何数据。 例如，“发布新推文时”触发器会将推文内容传递到逻辑应用运行。 
@@ -99,6 +104,7 @@ ms.locfileid: "59529431"
 * [使用 Azure Serverless 创建实时社交仪表板](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [从逻辑应用调用 Azure 函数](../logic-apps/logic-apps-azure-functions.md)
 * [教程：使用 Azure Functions 触发逻辑应用](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [教程：通过 Azure 事件网格和逻辑应用监视虚拟机更改](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [教程：通过连接 IoT 中心和邮箱的 Azure 逻辑应用进行 IoT 远程监视并发送通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [博客：从逻辑应用调用 SOAP 终结点](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
@@ -112,6 +118,4 @@ ms.locfileid: "59529431"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 JSON 根据逻辑应用定义生成](../logic-apps/logic-apps-author-definitions.md)
-* [在逻辑应用中处理错误和异常](../logic-apps/logic-apps-exception-handling.md)
-* [就如何改进 Azure 逻辑应用提交评论、问题、反馈或建议](https://feedback.azure.com/forums/287593-logic-apps)
+* 了解[适用于逻辑应用的连接器](../connectors/apis-list.md)

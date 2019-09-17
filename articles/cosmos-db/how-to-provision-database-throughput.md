@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 07/03/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed42eb6c3d7c481f986c1c7816b772efdba6079a
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 91aee7b9972e0aa4e98f229bbcc12c8f43cab796
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514240"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254816"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库上预配吞吐量
 
@@ -35,6 +35,18 @@ ms.locfileid: "68514240"
     * 选择“确定”  。
 
     ![“新建数据库”对话框屏幕截图](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+
+## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
+
+```azcli-interactive
+az cosmosdb database create --db-name
+                            [--key]
+                            [--name]
+                            [--resource-group-name]
+                            [--subscription]
+                            [--throughput]
+                            [--url-connection]
+```
 
 ## <a name="provision-throughput-using-powershell"></a>使用 PowerShell 预配吞吐量
 

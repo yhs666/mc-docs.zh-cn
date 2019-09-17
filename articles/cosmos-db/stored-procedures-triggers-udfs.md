@@ -4,16 +4,16 @@ description: 本文介绍 Azure Cosmos DB 中存储过程、触发器和用户�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 06/14/2019
-ms.date: 07/29/2019
+origin.date: 08/01/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 8652e6351dac70a867858d3860d53e2571dc8baa
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 09a5ebbd83dd4b79743c735be36ca86b7e193ee9
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672214"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254806"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
 
@@ -80,11 +80,11 @@ Azure Cosmos DB 支持两种触发器类型：
 
 ### <a name="pre-triggers"></a>前触发器
 
-Azure Cosmos DB 提供可以通过对 Azure Cosmos DB 项执行操作来调用的触发器。 例如，可以在创建项时指定前触发器。 在这种情况下，前触发器将在创建项之前运行。 预触发器不能有任何输入参数。 如果需要，可以使用请求对象更新原始请求中的文档正文。 当注册触发器后，用户可以指定随触发器一起运行的操作。 如果使用 `TriggerOperation.Create` 创建了触发器，则不允许在替换操作中使用该触发器。 有关示例，请参阅[如何编写触发器](how-to-write-stored-procedures-triggers-udfs.md#triggers)一文。
+Azure Cosmos DB 提供可以通过对 Azure Cosmos 项执行操作来调用的触发器。 例如，可以在创建项时指定前触发器。 在这种情况下，前触发器将在创建项之前运行。 预触发器不能有任何输入参数。 如果需要，可以使用请求对象更新原始请求中的文档正文。 当注册触发器后，用户可以指定随触发器一起运行的操作。 如果使用 `TriggerOperation.Create` 创建了触发器，则不允许在替换操作中使用该触发器。 有关示例，请参阅[如何编写触发器](how-to-write-stored-procedures-triggers-udfs.md#triggers)一文。
 
 ### <a name="post-triggers"></a>后触发器
 
-类似于前触发器，后触发器也与针对 Azure Cosmos DB 项执行的操作相关联，但它们不需要任何输入参数。 后触发器在操作完成之后运行，且具有对发送到客户端的响应消息的访问权限。  有关示例，请参阅[如何编写触发器](how-to-write-stored-procedures-triggers-udfs.md#triggers)一文。
+类似于前触发器，后触发器也与针对 Azure Cosmos 项执行的操作相关联，但它们不需要任何输入参数。 后触发器在操作完成之后运行，且具有对发送到客户端的响应消息的访问权限。  有关示例，请参阅[如何编写触发器](how-to-write-stored-procedures-triggers-udfs.md#triggers)一文。
 
 > [!NOTE]
 > 注册的触发器不会在出现相应的操作（创建/删除/替换/更新）时自动运行。 在执行这些操作时，必须显式调用它们。 若要了解详细信息，请参阅[如何运行触发器](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)一文。

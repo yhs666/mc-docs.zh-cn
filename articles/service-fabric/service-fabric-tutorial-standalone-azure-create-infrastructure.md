@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/25/2019
-ms.date: 08/05/2019
+origin.date: 07/22/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5f829bdaeacb4276f6e0bb052d86f0f7a59d75c9
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 020a854c9e1beba6998fe735ec43a349e53ab961
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819687"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254763"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>教程：创建用于托管 Service Fabric 群集的 Azure VM 基础结构
@@ -146,9 +146,9 @@ Service Fabric 独立群集提供相应的选项让我们选择自己的环境�
 > [安装 Service Fabric](service-fabric-tutorial-standalone-create-service-fabric-cluster.md)
 
 <!-- IMAGES -->
+
 [az-console]: ./media/service-fabric-tutorial-standalone-azure-create-infrastructure/az-console.png
 [sf-inbound]: ./media/service-fabric-tutorial-standalone-azure-create-infrastructure/sf-inbound.png
 [vnet-inbound]: ./media/service-fabric-tutorial-standalone-azure-create-infrastructure/vnet-inbound.png
 
-<!-- Update_Description: new articles on service fabric tutorial standalone azure create infrastructure -->
-<!--ms.date: 08/12/2019-->
+<!-- Update_Description: wording update -->

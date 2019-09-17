@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: e30b74465f4974c0fc87a0b2efaf7f8205e1d95a
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 23d56ec165dd90d04fcfcd9b9cbf3047bd15681e
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672183"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254429"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 是一个多区域分布式多模型数据库服务，用于轻�
 
 Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (RU) 数量。 预配属于另一种粒度，根据每秒 RU 数（[请不要与每小时计费相混淆](https://www.azure.cn/pricing/details/cosmos-db/)）购买。 应将 RU 视为一种货币，用于简化应用程序所需吞吐量的预配过程。 客户无需考虑读取和写入容量单位之间的差异。 RU 的单一货币模型能够有效地在读取和写入之间分享预配的容量。 这种预配的容量模型使服务能够提供可预测且一致的吞吐量，保证低延迟、高可用性。 最后，我们使用 RU 来为吞吐量建模，但每个预配的 RU 还具有定义数量的资源（内存、核心）。 每秒 RU 数不仅仅是 IOPS。
 
-作为一种多区域分布式数据库系统，Cosmos DB 是唯一除提供高可用性外还在延迟、吞吐量和一致性方面提供 SLA 的 Azure 服务。 预配的吞吐量应用到与 Cosmos DB 数据库帐户关联的每个区域。 对于读取，Cosmos DB 提供多个妥善定义的[一致性级别](consistency-levels.md)供用户选择。 
+作为一种多区域分布式数据库系统，Cosmos DB 是唯一除提供高可用性外还在延迟、吞吐量和一致性方面提供 SLA 的 Azure 服务。 预配的吞吐量应用到与 Cosmos 数据库帐户关联的每个区域。 对于读取，Cosmos DB 提供多个妥善定义的[一致性级别](consistency-levels.md)供用户选择。 
 
 <!-- Notice: 全球 to 多个区域 -->
 
@@ -40,9 +40,9 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 
 ## <a name="cost-of-reads-and-writes"></a>读取和写入成本
 
-如果预配 1,000 RU/秒，则相当于 360 万 RU/小时，因此，每小时成本为 0.82 元（Azure 中国）。 对于 1-KB 大小的文档，这意味着可以使用预配的吞吐量消费 360 万次读取或 72 万次写入（360 万 RU / 5）。 规范化为百万次读取和写入后，成本将是 0.228 元/百万次读取（0.82 元 / 3.6）和 1.14 元/百万次写入（0.82 元 / 0.72）。 如下表中所示，百万次读写费用极低。
-
 <!--Notice: $0.08 against CNY0.82 for Azure China-->
+
+如果预配 1,000 RU/秒，则相当于 360 万 RU/小时，因此，每小时成本为 0.82 元（Azure 中国）。 对于 1-KB 大小的文档，这意味着可以使用预配的吞吐量消费 360 万次读取或 72 万次写入（360 万 RU / 5）。 规范化为百万次读取和写入后，成本将是 0.228 元/百万次读取（0.82 元 / 3.6）和 1.14 元/百万次写入（0.82 元 / 0.72）。 如下表中所示，百万次读写费用极低。
 
 |项大小|百万次读取|百万次写入|
 |-------------|-------|--------|

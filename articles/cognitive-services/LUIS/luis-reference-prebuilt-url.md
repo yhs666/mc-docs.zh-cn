@@ -1,6 +1,6 @@
 ---
-title: URL 预生成实体
-titleSuffix: Azure
+title: URL 预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含语言理解 (LUIS) 中的 URL 预构建实体信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f3682c80f7bb68b0f4badbfdee8f9015c41d0111
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 31a6771898e835ffe9b81a183008122cb5702bae
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332134"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103868"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 URL 预生成实体
 URL 实体提取带域名或 IP 地址的 URL。 此实体已定型，因此不需要将包含 URL 的示例陈述添加到应用程序。 仅在 `en-us` 区域性中支持 URL 实体。 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/08/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3f5312bcb05c23b8df865756d4bcfccef48a0f7d
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: e35c0fdd278408e73fa244ec905799041839606a
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753150"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174251"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "68753150"
 
 若要在 Windows 开发计算机上生成并运行 Azure Service Fabric 应用程序，请安装 Service Fabric 运行时、SDK 和工具。 此外，还需要启用 SDK 中包含的 [Windows PowerShell 脚本执行](#enable-powershell-script-execution)。
 
-<!-- Not Available on [Azure Service Fabric applications][1]-->
+<!-- MOONCAKE: Not Available on [Azure Service Fabric applications][1]-->
 
 ## <a name="prerequisites"></a>先决条件
 ### <a name="supported-operating-system-versions"></a>支持的操作系统版本
@@ -72,11 +72,11 @@ Service Fabric 工具是 Visual Studio 2017 和 2019 中 Azure 开发工作负�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.4.641
-* Service Fabric 运行时 6.5.641
+* Service Fabric SDK and Tools 3.4.658
+* Service Fabric 运行时 6.5.658
 * 适用于 Visual Studio 2015 的 Service Fabric 工具 2.5.20615.1
 * Visual Studio 2017 15.9 包括适用于 Visual Studio 的 Service Fabric 工具 2.4.11024.1 
-* Visual Studio 2019 16.1 包括适用于 Visual Studio 的 Service Fabric 工具 2.5
+* Visual Studio 2019 16.1 包括适用于 Visual Studio 的 Service Fabric 工具 2.5.20423.3
 
 有关支持版本的列表，请参阅 [Service Fabric 版本](service-fabric-versions.md)
 

@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
 origin.date: 07/08/2019
-ms.date: 07/18/2019
+ms.date: 09/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8bc59a34865f3b9d55cb4f1ebbab9ba49e9c5cb6
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 0df25aca90fac71269bd12f63c595dd9a15fb8cc
+ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331893"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70805808"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 预览版 (Azure Functions)
 
@@ -233,6 +233,16 @@ public static async Task AddValueClient(
 
 在以上示例中，`proxy` 参数是动态生成的 `ICounter` 实例，它在内部将 `Add` 调用转换为等效的（非类型化）`SignalEntityAsync` 调用。
 
+`SignalEntityAsync<T>` 的类型参数具有以下限制：
+
+* 类型参数必须是接口。
+* 只能在接口上定义方法。 不支持属性。
+* 每种方法都必须定义一个参数或不定义参数。
+* 每个方法必须返回 `void`、`Task` 或 `Task<T>`，其中 `T` 是某种 JSON 可序列化类型。
+* 接口必须仅由接口程序集中的一种类型实现。
+
+在大多数情况下，不满足这些要求的接口将导致运行时异常。
+
 > [!NOTE]
 > 请务必注意，`IDurableOrchestrationClient` 的 `ReadEntityStateAsync` 和 `SignalEntityAsync` 方法优先考虑性能而不是一致性。 `ReadEntityStateAsync` 可能会返回过期的值，而 `SignalEntityAsync` 可能会在操作完成之前返回。
 
@@ -256,7 +266,7 @@ public interface IAsyncCounter
     Task<int> GetAsync();
 }
 
-[FunctionName("CounterOrchestration)]
+[FunctionName("CounterOrchestration")]
 public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {

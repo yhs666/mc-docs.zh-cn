@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: a6703dc8d38075a391d516ec8c2fe80cc83019ae
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 483373487f130c4100704b6709ad1409a0ad50a3
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539193"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921045"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>使用 C# 创建和管理 Azure 中的 Windows VM
 
@@ -88,7 +88,7 @@ ms.locfileid: "69539193"
 
 1. 打开创建的项目的 Program.cs 文件。 然后，将以下 using 语句添加到文件顶部的现有语句中：
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -98,7 +98,7 @@ ms.locfileid: "69539193"
 
 2. 若要创建管理客户端，请将以下代码添加到 Main 方法：
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -117,7 +117,7 @@ ms.locfileid: "69539193"
 
 若要指定应用程序的值并创建资源组，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var vmName = "myVM";
 var location = Region.USWest;
@@ -134,7 +134,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 若要创建可用性集，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Creating availability set...");
 var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .WithRegion(location)
@@ -149,7 +149,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 若要创建虚拟机的公共 IP 地址，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Creating public IP address...");
 var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
     .WithRegion(location)
@@ -164,7 +164,7 @@ var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
 
 若要创建子网和虚拟网络，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Creating virtual network...");
 var network = azure.Networks.Define("myVNet")
     .WithRegion(location)
@@ -180,7 +180,7 @@ var network = azure.Networks.Define("myVNet")
 
 若要创建网络接口，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Creating network interface...");
 var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithRegion(location)
@@ -198,7 +198,7 @@ var networkInterface = azure.NetworkInterfaces.Define("myNIC")
 
 若要创建虚拟机，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Creating virtual machine...");
 azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
@@ -220,7 +220,7 @@ azure.VirtualMachines.Define(vmName)
 
 如果要使用现有磁盘而不是市场映像，请使用以下代码：
 
-```
+```csharp
 var managedDisk = azure.Disks.Define("myosdisk")
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
@@ -245,7 +245,7 @@ azure.VirtualMachines.Define("myVM")
 
 如需对 VM 执行任何操作，需获取其实例：
 
-```
+```csharp
 var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 ```
 
@@ -253,7 +253,7 @@ var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 
 若要获取有关虚拟机的信息，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Getting information about the virtual machine...");
 Console.WriteLine("hardwareProfile");
 Console.WriteLine("   vmSize: " + vm.Size);
@@ -325,7 +325,7 @@ Console.ReadLine();
 
 若要停止虚拟机而不解除分配虚拟机，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Stopping vm...");
 vm.PowerOff();
 Console.WriteLine("Press enter to continue...");
@@ -334,7 +334,7 @@ Console.ReadLine();
 
 要解除分配虚拟机，请将 PowerOff 调用更改为以下代码：
 
-```
+```csharp
 vm.Deallocate();
 ```
 
@@ -342,7 +342,7 @@ vm.Deallocate();
 
 若要启动虚拟机，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Starting vm...");
 vm.Start();
 Console.WriteLine("Press enter to continue...");
@@ -355,7 +355,7 @@ Console.ReadLine();
 
 若要更改虚拟机大小，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 Console.WriteLine("Resizing vm...");
 vm.Update()
     .WithSize(VirtualMachineSizeTypes.StandardDS2) 
@@ -368,7 +368,7 @@ Console.ReadLine();
 
 若要将数据磁盘添加到虚拟机，请将此代码添加到 Main 方法。 此示例添加了一个大小为 2 GB、LUN 为 0、缓存类型为 ReadWrite 的数据磁盘：
 
-```
+```csharp
 Console.WriteLine("Adding data disk to vm...");
 vm.Update()
     .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
@@ -383,7 +383,7 @@ Console.ReadLine();
 
 若要删除资源组，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 

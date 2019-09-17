@@ -14,13 +14,13 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 origin.date: 02/18/2019
 ms.date: 08/12/2019
-ms.author: v-johch
-ms.openlocfilehash: 22b5ed0c6f55ebc2d43be76bbfdcf26f74e311ba
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.author: v-tawe
+ms.openlocfilehash: 4a1f1b4b68570f9df795f4a93e6b0c98a99975f6
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878532"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806850"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 开发和部署 WebJobs - Azure 应用服务
 

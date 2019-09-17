@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/18/2019
+origin.date: 04/18/2019
+ms.date: 05/18/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: b830592626065f5cfa4696fe2481ae2a578ac587
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 7aded2a9b89f0cc18e097f2f837fec2dff4ea9b1
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514001"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736881"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>将 Azure 诊断日志流式传输到 Azure Monitor 中的 Log Analytics 工作区
 

@@ -6,17 +6,17 @@ description: Azure Monitor Application Insights 提供深度代码级的应用�
 services: application-insights
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: landing-page
+origin.date: 01/15/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eb3178cddba0edbcf43b249f47de79e84c6109ea
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 36dbe82eb9a58a7705ede7d8d36c4969f5ac2e02
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989400"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737008"
 ---
 <div id="main" class="v2">
     <div class="container">

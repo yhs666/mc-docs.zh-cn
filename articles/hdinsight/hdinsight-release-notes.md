@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 04/15/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: dcc1aaafee45da5540fac8fca69ec359b81e881d
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+origin.date: 08/08/2019
+ms.date: 09/16/2019
+ms.openlocfilehash: 69186197dd48ca7cfe169772dee216c405031ee7
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520795"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736520"
 ---
-# <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
+# <a name="release-notes"></a>发行说明
 
 本文提供有关**最新** Azure HDInsight 版本更新的信息。 有关较早版本的信息，请参阅 [HDInsight 发行说明存档](hdinsight-release-notes-archive.md)。
 
@@ -40,14 +40,14 @@ Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和
 - Apache Hadoop 3.1.1
 - Apache HBase 2.0.0
 - Apache Hive 3.1.0
-- Apache Kafka 1.1.1
+- Apache Kafka 1.1.1, 2.1.0
 - Apache Mahout 0.9.0+
 - Apache Oozie 4.2.0
 - Apache Phoenix 4.7.0
 - Apache Pig 0.16.0
 - Apache Ranger 0.7.0
 - Apache Slider 0.92.0
-- Apache Spark 2.3.1
+- Apache Spark 2.3.1, 2.4.0
 - Apache Sqoop 1.4.7
 - Apache TEZ 0.9.1
 - Apache Zeppelin 0.8.0

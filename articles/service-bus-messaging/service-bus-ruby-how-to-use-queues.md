@@ -5,21 +5,22 @@ services: service-bus-messaging
 documentationcenter: ruby
 author: lingliw
 manager: digimobile
-editor: ''
+editor: spelluru
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+origin.date: 04/10/2019
+ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0e8779a3118a5542df0206b1def7a57288471b1e
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: df5acaf2f13b6b90c801b3cac203eac0d7da8e1b
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046956"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169612"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>如何通过 Ruby 使用服务总线队列
 
@@ -51,7 +52,7 @@ rescue
 end
 ```
 
-还可以通过其他选项传递 **Azure::ServiceBus::Queue** 对象，这些选项可用于重写默认队列设置，如消息生存时间或最大队列大小。 以下示例演示了如何将最大队列大小设置为 5 GB，将生存时间设置为 1 分钟：
+还可以通过其他选项传递 **Azure::ServiceBus::Queue** 对象，这些选项可用于重写默认队列设置，如消息生存时间或最大队列大小。 以下示例演示如何将最大队列大小设置为 5 GB，将生存时间设置为 1 分钟：
 
 ```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
@@ -79,7 +80,7 @@ azure_service_bus_service.send_queue_message("test-queue", message)
 
 默认行为使读取和删除变成一个两阶段操作，从而也有可能支持不允许遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完该消息（或将它可靠地存储起来留待将来处理）后，通过调用 `delete_queue_message()` 方法并提供要删除的消息作为参数，完成接收过程的第二阶段。 `delete_queue_message()` 方法会将消息标记为已使用，并从队列中将其删除。
 
-如果 `:peek_lock` 参数设置为“false”，读取并删除消息将是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况  。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线已将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
+如果将 `:peek_lock` 参数设置为 **false**，则读取和删除消息将成为最简单的模型，并且最适用于应用程序可以容忍在发生故障时不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线已将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
 
 以下示例演示如何使用 `receive_queue_message()` 接收和处理消息。 该示例先通过将 `:peek_lock` 设置为“false”接收并删除一条消息，然后再接收另一条消息，最后使用 `delete_queue_message()` 删除该消息  ：
 
@@ -98,10 +99,10 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果应用程序在处理消息之后，但在调用 `delete_queue_message()` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此过程通常称作“至少处理一次”，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送  。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可通过使用消息的 `message_id` 属性实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
-
 现在，已了解有关服务总线队列的基础知识，请访问下面的链接以获取详细信息。
 
--   [队列、主题和订阅](./service-bus-queues-topics-subscriptions.md)的概述
--   访问 GitHub 上的 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 存储库。
+* [队列、主题和订阅](service-bus-queues-topics-subscriptions.md)的概述。
+* 访问 GitHub 上的 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 存储库。
 
-有关本文中讨论的 Azure 服务总线队列与[如何通过 Ruby 使用队列存储](../storage/storage-ruby-how-to-use-queue-storage.md)一文中讨论的 Azure 队列的比较，请参阅 [Azure 队列和 Azure 服务总线队列 - 比较与对照](./service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+有关本文中讨论的 Azure 服务总线队列与[如何通过 Ruby 使用队列存储](../storage/queues/storage-ruby-how-to-use-queue-storage.md)一文中讨论的 Azure 队列的比较，请参阅 [Azure 队列和 Azure 服务总线队列 - 比较与对照](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+

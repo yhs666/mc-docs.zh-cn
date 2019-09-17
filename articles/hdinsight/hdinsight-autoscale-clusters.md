@@ -7,14 +7,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/24/2019
+ms.date: 09/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: 121d917dd267907856a668477f40387173d5dd28
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: a39256b4b36e7f91ad65e5176a0620947f0df322
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135761"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736610"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自动缩放 Azure HDInsight 群集（预览）
 
@@ -187,9 +187,25 @@ HDInsight 服务将计算需要多少个新的工作器节点才能满足当前�
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>为正在运行的群集启用和禁用自动缩放
 
+#### <a name="using-the-azure-portal"></a>使用 Azure 门户
 若要在运行中的群集上启用自动缩放，请选择“设置”下的“群集大小”。   然后单击“启用自动缩放”。  选择所需的自动缩放类型，然后输入基于负载或基于计划的缩放选项。 最后，单击“保存”  。
 
 ![启用工作器节点的基于计划的自动缩放选项](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+#### <a name="using-the-rest-api"></a>使用 REST API
+若要使用 REST API 在运行中的群集上启用或禁用自动缩放，请向自动缩放终结点发出 POST 请求，如以下代码片段所示：
+
+```
+https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
+```
+
+请在请求有效负载中使用适当的参数。 下面的 json 有效负载可以用来启用自动缩放。 使用有效负载 `{autoscale: null}` 禁用自动缩放。
+
+```json
+{ autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
+```
+
+请参阅介绍如何[启用基于负载的自动缩放](#load-based-autoscaling)的上一部分，详尽了解所有的有效负载参数。
 
 ## <a name="best-practices"></a>最佳实践
 

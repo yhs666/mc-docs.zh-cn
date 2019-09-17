@@ -9,15 +9,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
-origin.date: 04/25/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 4f808ae1d8455fadee9001bc97cc6bc3ee4de7f6
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 08/14/2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 4c6b339fb7b5c288e2e26391b771bc0d1046d437
+ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543950"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70372967"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL 数据库托管实例中的时区
 
@@ -85,10 +84,10 @@ ms.locfileid: "69543950"
 
 ### <a name="point-in-time-restore"></a>时间点还原
 
-<del>执行时间点还原时，要还原到的时间将解释为 UTC 时间。 此设置可避免夏时制及其潜在更改造成任何多义性。<del>
+<del>执行时间点还原时，要还原到的时间将解释为 UTC 时间。 这样就避免了由于夏令时及其潜在变化而产生的任何歧义。<del>
 
  >[!WARNING]
-  > 当前行为与上述陈述不符，要还原到的时间按源托管实例的时区解释，在该时区中进行自动数据库备份。 我们正努力纠正此行为，会将给定的时间点解释为 UTC 时间。 有关更多详细信息，请参阅[已知问题](sql-database-managed-instance-timezone.md#known-issues)。
+  > 当前行为与上述陈述不符，要还原到的时间按源托管实例的时区解释，在该时区中进行自动数据库备份。 我们正努力纠正此行为，会将给定的时间点解释为 UTC 时间。
 
 ### <a name="auto-failover-groups"></a>自动故障转移组
 

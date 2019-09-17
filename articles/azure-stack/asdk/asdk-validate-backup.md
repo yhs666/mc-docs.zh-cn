@@ -7,17 +7,17 @@ manager: digimobile
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/15/2019
-ms.date: 04/29/2019
+origin.date: 07/31/2019
+ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 98330139fef8d59bb5ee543879ffa5d28533ea04
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 37d453fa190746b1d9a20b663f4eb3eaab237e05
+ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135432"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70857241"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额、订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -59,7 +59,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |要还原的备份 ID|备份 ID，采用的字母数字形式为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”，用于确定需要在云恢复过程中还原的备份。|
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
-|备份加密密钥|如果已升级到 Azure Stack 1901 版或更高版本，且仍以加密密钥配置了备份设置，则必须提供加密密钥。 1901 版将开始弃用加密密钥。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表了解所需的信息。|
+|备份加密密钥|如果使用加密密钥配置备份设置（已弃用），则需要此项。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表了解所需的信息。|
 |     |     | 
 
 **PowerShell 安装程序要求**
@@ -73,7 +73,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
 |解密证书密码|可选。 只有在使用证书加密备份时才是必需的。 密码适用于自签名证书 (.pfx)，该证书包含解密备份数据所需的私钥。|
-|备份加密密钥|可选。 如果已升级到 Azure Stack 1901 版或更高版本，且仍以加密密钥配置了备份设置，则必须提供加密密钥。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
+|备份加密密钥|可选。 如果仍使用加密密钥配置备份设置，则为必需。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>准备主机 

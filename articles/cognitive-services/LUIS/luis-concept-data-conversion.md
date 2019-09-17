@@ -9,20 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 316b65c32dfe5ae06c0fdeac0c59198a5b946567
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: aba16a6a370e8bd72f1c2876e4624e2820555070
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332107"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103961"
 ---
 # <a name="convert-data-format-of-utterances"></a>转换话语的数据格式
-LUIS 在预测之前使用认知服务语音服务将话语从口头话语转换为文本话语。 
+LUIS 在预测之前提供用户话语的以下转换
 
-## <a name="speech-to-intent-conversion-concepts"></a>“语音转意向”转换概念
-借助 LUIS 的“语音转文本”功能，可将口述话语发送到终结点并接收 LUIS 预测响应。
+* 语音转文本（使用[认知服务语音](../Speech-Service/overview.md)服务）。 
+
+## <a name="speech-to-text"></a>语音转文本
+
+语音转文本作为与 LUIS 的集成提供。 
+
+### <a name="intent-conversion-concepts"></a>意向转换概念
+借助 LUIS 的“语音转文本”功能，可将口述话语发送到终结点并接收 LUIS 预测响应。 该过程是[语音](https://docs.microsoft.com/azure/cognitive-services/Speech)服务与 LUIS 的集成。 通过[教程](../speech-service/how-to-recognize-intents-from-speech-csharp.md)了解有关语音转意向的更多信息。
 
 ### <a name="key-requirements"></a>关键要求
 无需为此集成创建必应语音 API 密钥  。 可在此集成中使用 Azure 门户中创建的语言理解密钥  。 请勿使用 LUIS 初学者密钥。

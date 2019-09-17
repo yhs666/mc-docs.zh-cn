@@ -1,6 +1,6 @@
 ---
-title: 预生成的模型
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 预生成模型 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 预生成模型提供了域、意向、话语和实体。 可以使用预生成域启动你的应用，也可以在以后向你的应用添加相关域。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bbd50b4079753b6c256218c6621d2cefddc5d101
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: acb8aacc6a0c8b75e739122b02df7bea3f36ad32
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555714"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104018"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>预生成域、意向和实体模型
 
@@ -34,11 +34,11 @@ LUIS 提供了 3 种预构建的模型。 可以随时向你的应用中添加�
 
 ## <a name="prebuilt-domains"></a>预生成域
 
-语言理解 (LUIS) 提供“预生成域”，预生成域是[意向](luis-how-to-add-intents.md)和[实体](luis-concept-entity-types.md)的预生成集，意向和实体可共同用于客户端应用程序的域或常见类别进行。 
+语言理解 (LUIS) 提供“预生成域”，预生成域是[意向](luis-how-to-add-intents.md)和[实体](luis-concept-entity-types.md)的预生成集，意向和实体可共同用于客户端应用程序的域或常见类别进行  。 
 
 预生成域已经过训练，就绪可添加到你的 LUIS 应用中。 将预生成域中的意向和实体添加到应用后，它们是完全可自定义的。 
 
-如果首先自定义整个预生成域，请删除应用不需要的意向和实体。 还可向预生成域已提供的集中添加一些意向或实体。 例如，如果对体育赛事应用使用“事件”预生成域，可对运动队添加实体。 开始向 LUIS [提供表述](luis-how-to-add-example-utterances.md)时，请包含特定于应用的术语。 LUIS 将学习识别它们，并根据应用需求对预生成域的意向和实体进行自定义。 
+如果首先自定义整个预生成域，请删除应用不需要的意向和实体。 还可向预生成域已提供的集中添加一些意向或实体。 例如，如果对体育赛事应用使用“事件”预生成域，可对运动队添加实体  。 开始向 LUIS [提供表述](luis-how-to-add-example-utterances.md)时，请包含特定于应用的术语。 LUIS 将学习识别它们，并根据应用需求对预生成域的意向和实体进行自定义。 
 
 > [!TIP]
 > 组合使用预生成域中的意向和实体时效果最佳。 应尽量结合使用同一个域中的意向和实体。
@@ -46,7 +46,7 @@ LUIS 提供了 3 种预构建的模型。 可以随时向你的应用中添加�
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>更改预生成域意向的行为
 
-你可能会发现，虽然预生成域中某个意向与你要在 LUIS 应用中使用的意向类似，但你希望它具有不同的行为。 例如，“地点”预生成域提供用于预订餐厅的 `MakeReservation` 意向，但你希望应用使用该意向预订酒店。 在这种情况下，可以通过以下方法修改该意向的行为：向 LUIS 提供有关预订酒店的表述，并使用 `MakeReservation` 意向为其添加标记。这使得 LUIS 可接受重新培训，以识别预订酒店请求中的 `MakeReservation` 意向。
+你可能会发现，虽然预生成域中某个意向与你要在 LUIS 应用中使用的意向类似，但你希望它具有不同的行为。 例如，“地点”预生成域提供用于预订餐厅的 `MakeReservation` 意向，但你希望应用使用该意向预订酒店  。 在这种情况下，可以通过以下方法修改该意向的行为：向 LUIS 提供有关预订酒店的表述，并使用 `MakeReservation` 意向为其添加标记。这使得 LUIS 可接受重新培训，以识别预订酒店请求中的 `MakeReservation` 意向。
 
 可在[预生成域参考](./luis-reference-prebuilt-domains.md)中找到预生成域的完整列表。
 

@@ -1,5 +1,5 @@
 ---
-title: 限制访问 - Azure 应用服务 | Azure Docs
+title: 限制访问 - Azure 应用服务 | Azure
 description: 如何将访问限制与 Azure 应用服务配合使用
 author: ccompy
 manager: stefsch
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 06/06/2019
-ms.author: v-johch
+ms.date: 09/03/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.date: 08/12/2019
-ms.openlocfilehash: 275ef57030e74d90e7aa952e5aac73e3b1baa010
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 27773e386d6c9167f8484c9f372adde4dc1c3a4a
+ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878572"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806842"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制 #
 

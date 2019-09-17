@@ -1,19 +1,20 @@
 ---
 title: Azure 诊断日志概述
-description: 了解什么是 Azure 诊断日志，以及如何使用该诊断日志了解发生在 Azure 资源内的事件。
+description: 了解 Azure Monitor 中的 Azure 诊断日志以及如何使用这些日志来了解 Azure 资源中发生的事件。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+origin.date: 05/20/2019
+ms.date: 07/06/2019
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 4f37bb4ea325653e309f4a08feadaf1c08fe1edb
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: afa812a47598146496ccdc0c8698f34f3dc315cf
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989221"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736891"
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Azure 诊断日志概述
 

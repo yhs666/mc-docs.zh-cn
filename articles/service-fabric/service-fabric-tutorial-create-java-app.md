@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Service Fabric 上创建 Java 应用 | Azure
+title: 教程 - 在 Azure Service Fabric 上创建 Java 应用
 description: 本教程介绍如何创建一个包含前端的 Reliable Services Java 应用程序，并创建 Reliable Services 有状态后端，然后将该应用程序部署到群集。
 services: service-fabric
 documentationcenter: java
@@ -13,29 +13,21 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/01/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: c8c79f0f18ae8b90e4e1cbea7fa46b72c16c6cac
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.custom: mvc, seo-java-august2019
+ms.openlocfilehash: f9e8504fb0f978230b0781b1085f20b6b8a16f78
+ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625714"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70254771"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教程：在 Service Fabric 上创建包含 Java Web API 前端服务和有状态后端服务的应用程序
 
 本教程是一个系列中的第一部分。 完成后，将生成一个带 Java Web 前端的 Voting 应用程序，用于将投票结果保存到群集的有状态后端服务中。 本教程系列要求你有一台工作的 Mac OSX 或 Linux 开发人员计算机。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-java-quickstart)，跳到[大致了解投票示例应用程序](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，请考虑以下 [Java 可靠服务快速入门。](service-fabric-quickstart-java-reliable-services.md)
 
 ![本地 Voting 应用](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
-
-在该系列的第一部分中，你将学习如何：
-
-> [!div class="checklist"]
-> * 创建 Java 有状态 Reliable Services
-> * 创建 Java 无状态 Web 应用程序服务
-> * 使用服务远程处理功能与有状态服务通信
-> * 将应用程序部署到本地 Service Fabric 群集
 
 在此系列教程中，你将学习如何：
 > [!div class="checklist"]
@@ -45,6 +37,15 @@ ms.locfileid: "58625714"
 > * [设置 CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 <!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
+
+在该系列的第一部分中，你将学习如何：
+
+> [!div class="checklist"]
+> * 创建 Java 有状态 Reliable Services
+> * 创建 Java 无状态 Web 应用程序服务
+> * 使用服务远程处理功能与有状态服务通信
+> * 将应用程序部署到本地 Service Fabric 群集
+
 ## <a name="prerequisites"></a>先决条件
 
 在开始学习本教程之前：
@@ -56,17 +57,17 @@ ms.locfileid: "58625714"
 
 首先，请创建 Voting 应用程序的 Web 前端。 受 AngularJS 支持的 Web UI 会向运行轻型 HTTP 服务器的 Java 无状态服务发送请求。 此服务会处理每个请求，并向有状态服务发送远程过程调用以存储投票。 
 
-1. 启动 Eclipse。
+1. 打开 Eclipse。
 
-2. 通过单击“文件”->“新建”->“其他”->“Service Fabric”->“Service Fabric 项目”来创建项目。
+2. 通过单击“文件”   > “新建”   >   “其他” >   “Service Fabric” >   “Service Fabric 项目”来创建项目。
 
     ![Eclipse 中的“新建项目”对话框](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
-3. 在“ServiceFabric 项目向导”对话框中，将项目命名为 Voting，然后单击“下一步”。
+3. 在“ServiceFabric 项目向导”对话框中，将项目命名为 Voting，然后选择“下一步”。   
 
     ![在新建服务对话框中选择 Java 无状态服务](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
-4. 在“添加服务”页中，选择“无状态服务”，然后将服务命名为“VotingWeb”。 单击“完成”以创建该项目。
+4. 在“添加服务”页中，选择“无状态服务”，然后将服务命名为“VotingWeb”    。 选择“完成”以创建该项目  。
 
     ![创建无状态服务]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
 
@@ -91,127 +92,127 @@ ms.locfileid: "58625714"
 
 1. 展开 *VotingApplication* 目录，以便访问 *VotingApplication/VotingWebPkg/Code* 目录。
 
-2. 右键单击 *Code* 目录，然后单击“新建”->“文件夹”。
+2. 右键单击 Code  目录，然后选择“新建”   >   “文件夹”。
 
-3. 将文件夹命名为 *wwwroot* 并单击“完成”。
+3. 将文件夹命名为 *wwwroot* 并选择“完成”。 
 
     ![Eclipse 创建 wwwroot 文件夹](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
 4. 将名为 **index.html** 的文件添加到 **wwwroot**，然后将以下内容粘贴到该文件夹中。
 
-```html
-<!DOCTYPE html>
-<html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<body>
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <body>
 
-<script>
-var app = angular.module('VotingApp', ['ui.bootstrap']); 
-app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
-    $scope.votes = [];
+    <script>
+    var app = angular.module('VotingApp', ['ui.bootstrap']);
+    app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
+        $scope.votes = [];
 
-    $scope.refresh = function () {
-        $http.get('getStatelessList')
-            .then(function successCallback(response) {
-        $scope.votes = Object.assign(
-          {},
-          ...Object.keys(response.data) .
-            map(key => ({[decodeURI(key)]: response.data[key]}))
-        )
-        },
-        function errorCallback(response) {
-            alert(response);
-        });
-    };
-
-    $scope.remove = function (item) {            
-       $http.get("removeItem", {params: { item: encodeURI(item) }})
-            .then(function successCallback(response) {
-                $scope.refresh();
+        $scope.refresh = function () {
+            $http.get('getStatelessList')
+                .then(function successCallback(response) {
+            $scope.votes = Object.assign(
+                {},
+                ...Object.keys(response.data) .
+                map(key => ({[decodeURI(key)]: response.data[key]}))
+            )
             },
             function errorCallback(response) {
                 alert(response);
             });
-    };
+        };
 
-    $scope.add = function (item) {
-        if (!item) {return;}        
-        $http.get("addItem", {params: { item: encodeURI(item) }})
-            .then(function successCallback(response) {
-                $scope.refresh();
-            },
-            function errorCallback(response) {
-                alert(response);
-            });        
-    };
-}]);
-</script>
+        $scope.remove = function (item) {
+           $http.get("removeItem", {params: { item: encodeURI(item) }})
+                .then(function successCallback(response) {
+                    $scope.refresh();
+                },
+                function errorCallback(response) {
+                    alert(response);
+                });
+        };
 
-<div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2 text-center">
-                <h2>Service Fabric Voting Sample</h2>
-            </div>
-        </div>
+        $scope.add = function (item) {
+            if (!item) {return;}
+            $http.get("addItem", {params: { item: encodeURI(item) }})
+                .then(function successCallback(response) {
+                    $scope.refresh();
+                },
+                function errorCallback(response) {
+                    alert(response);
+                });
+        };
+    }]);
+    </script>
 
-        <div class="row">
-            <div class="col-xs-offset-2">
-                <form style="width:50% ! important;" class="center-block">
-                    <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
-                    </div>
-                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        Add
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <hr />
-
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="row">
-                    <div class="col-xs-4">
-                        Click to vote
-                    </div>
+    <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 text-center">
+                    <h2>Service Fabric Voting Sample</h2>
                 </div>
-                <div class="row top-buffer" ng-repeat="(key, value)  in votes">
-                    <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(key)">
-                            <span class="pull-left">
-                                {{key}}
-                            </span>
-                            <span class="badge pull-right">
-                                {{value}} Votes
-                            </span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-offset-2">
+                    <form style="width:50% ! important;" class="center-block">
+                        <div class="col-xs-6 form-group">
+                            <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        </div>
+                        <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            Add
                         </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            Click to vote
+                        </div>
                     </div>
-                    <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(key)">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            Remove
-                        </button>
+                    <div class="row top-buffer" ng-repeat="(key, value)  in votes">
+                        <div class="col-xs-8">
+                            <button class="btn btn-success text-left btn-block" ng-click="add(key)">
+                                <span class="pull-left">
+                                    {{key}}
+                                </span>
+                                <span class="badge pull-right">
+                                    {{value}} Votes
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn btn-danger pull-right btn-block" ng-click="remove(key)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                Remove
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-</body>
-</html>
-```
+    </body>
+    </html>
+    ```
 
 ### <a name="update-the-votingwebjava-file"></a>更新 VotingWeb.java 文件
 
 在 **VotingWeb** 子项目中，打开 *VotingWeb/src/statelessservice/VotingWeb.java* 文件。 **VotingWeb** 服务是通往无状态服务的网关，负责设置前端 API 的通信侦听器。
 
-将文件中的现有 createServiceInstanceListeners 方法替换为以下内容，然后保存所做的更改。
+将文件中的现有 createServiceInstanceListeners  方法替换为以下内容，然后保存所做的更改。
 
 ```java
 @Override
@@ -228,7 +229,9 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>添加 HTTPCommunicationListener.java 文件
 
-HTTP 通信侦听器充当一个控制器，可设置 HTTP 服务器并公开用于定义投票操作的 API。 右键单击 *VotingWeb/src/statelessservice* 文件夹中的 *statelessservice* 包，然后选择“新建”>“文件”。  将文件命名为 *HttpCommunicationListener.java*，然后单击“完成”。
+HTTP 通信侦听器充当一个控制器，可设置 HTTP 服务器并公开用于定义投票操作的 API。 右键单击 VotingWeb/src/statelessservice  文件夹中的 statelessservice  包，然后选择“新建” > “文件”。    将文件命名为 HttpCommunicationListener.java  ，然后选择“完成”。 
+
+<!--MOONCAKE: CORRECT ON **NEW** > **FILE** -->
 
 将文件内容替换为以下内容，然后保存所做更改。  稍后在更新 HttpCommunicationListener.java 文件时会修改此文件，以便呈现、读取和写入来自后端服务的投票数据。  目前，此侦听器会直接返回 Voting 应用的静态 HTML。
 
@@ -271,10 +274,10 @@ public class HttpCommunicationListener implements CommunicationListener {
 
     private static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final int STATUS_OK = 200;
-    private static final int STATUS_NOT_FOUND = 404; 
+    private static final int STATUS_NOT_FOUND = 404;
     private static final int STATUS_ERROR = 500;
     private static final String RESPONSE_NOT_FOUND = "404 (Not Found) \n";
-    private static final String MIME = "text/html";  
+    private static final String MIME = "text/html";
     private static final String ENCODING = "UTF-8";
 
     private static final String ROOT = "wwwroot/";
@@ -285,12 +288,12 @@ public class HttpCommunicationListener implements CommunicationListener {
     private final int port;
 
     public HttpCommunicationListener(StatelessServiceContext context, int port) {
-        this.partitionKey = new ServicePartitionKey(0); 
+        this.partitionKey = new ServicePartitionKey(0);
         this.context = context;
         this.port = port;
     }
 
-    // Called by openAsync when the class is instantiated 
+    // Called by openAsync when the class is instantiated
     public void start() {
         try {
             logger.log(Level.INFO, "Starting Server");
@@ -313,7 +316,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                       OutputStream os = t.getResponseBody();
                       os.write(RESPONSE_NOT_FOUND.getBytes());
                       os.close();
-                    } else {    
+                    } else {
                       Headers h = t.getResponseHeaders();
                       h.set(HEADER_CONTENT_TYPE, MIME);
                       t.sendResponseHeaders(STATUS_OK, 0);
@@ -328,7 +331,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
                       fs.close();
                       os.close();
-                    }  
+                    }
                 } catch (Exception e) {
                     logger.log(Level.WARNING, null, e);
                 }
@@ -389,14 +392,14 @@ public class HttpCommunicationListener implements CommunicationListener {
 <a name="updatelistener_anchor"></a>
 ### <a name="configure-the-listening-port"></a>配置侦听端口
 
-创建 VotingWeb 服务前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingApplication/VotingWebPkg/ServiceManifest.xml*。  在“资源”部分中找到“终结点”资源，然后将“端口”值更改为 8080（我们会继续在本教程中使用此端口）。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 元素中（放在 ```<DataPackage>``` 元素下方）。
+创建 VotingWeb 服务前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingApplication/VotingWebPkg/ServiceManifest.xml*。  在“资源”  部分中找到“终结点”  资源，然后将“端口”  值更改为 8080（我们会继续在本教程中使用此端口）。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 元素中（放在 ```<DataPackage>``` 元素下方）。
 
 ```xml
 <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
+        <!-- This endpoint is used by the communication listener to obtain the port on which to
+            listen. Please note that if your service is partitioned, this port is shared with
+            replicas of different partitions that are placed in your code. -->
         <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
     </Endpoints>
   </Resources>
@@ -408,9 +411,9 @@ Java Web API 服务的框架完成后，即可继续操作，去完成有状态�
 
 Service Fabric 允许使用 Reliable Collections 直接在服务内以一致、可靠的方式存储数据。 Reliable Collections 是一组高度可用的可靠集合类。 用过 Java 集合的用户都对这些类的使用很熟悉。
 
-1. 在包资源管理器中，右键单击应用程序项目中的“Voting”，然后选择“Service Fabric”>“添加 Service Fabric 服务”。
+1. 在包资源管理器中，右键单击应用程序项目中的“Voting”，然后选择“Service Fabric” > “添加 Service Fabric 服务”    。
 
-2. 在“添加服务”对话框中，选择“有状态服务”，将服务命名为“VotingDataService”，然后单击“添加服务”。
+2. 在“添加服务”对话框中，选择“有状态服务”，将服务命名为“VotingDataService”，然后选择“添加服务”     。
 
     创建服务项目后，应用程序中会有两个服务。 随着继续生成应用程序，可采用相同的方式添加更多服务。 每个服务都可以单独进行版本控制和升级。
 
@@ -427,7 +430,7 @@ package statefulservice;
 
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -443,9 +446,9 @@ import microsoft.servicefabric.data.collections.ReliableHashMap;
 import microsoft.servicefabric.data.utilities.AsyncEnumeration;
 import microsoft.servicefabric.data.utilities.KeyValuePair;
 
-import system.fabric.StatefulServiceContext; 
+import system.fabric.StatefulServiceContext;
 
-import rpcmethods.VotingRPC; 
+import rpcmethods.VotingRPC;
 
 class VotingDataService extends StatefulService implements VotingRPC {
     private static final String MAP_NAME = "votesMap";
@@ -471,7 +474,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     public CompletableFuture<HashMap<String,String>> getList() {
         HashMap<String, String> tempMap = new HashMap<String, String>();
 
-        try {                    
+        try {
 
             ReliableHashMap<String, String> votesMap = stateManager
                     .<String, String> getOrAddReliableHashMapAsync(MAP_NAME).get();
@@ -480,14 +483,14 @@ class VotingDataService extends StatefulService implements VotingRPC {
             AsyncEnumeration<KeyValuePair<String, String>> kv = votesMap.keyValuesAsync(tx).get();
             while (kv.hasMoreElementsAsync().get()) {
                 KeyValuePair<String, String> k = kv.nextElementAsync().get();
-                tempMap.put(k.getKey(), k.getValue()); 
+                tempMap.put(k.getKey(), k.getValue());
             }
 
-            tx.close();                    
+            tx.close();
 
         } catch (Exception e) {
             e.printStackTrace();
-        }  
+        }
 
         return CompletableFuture.completedFuture(tempMap);
     }
@@ -495,12 +498,12 @@ class VotingDataService extends StatefulService implements VotingRPC {
     // Method that will be invoked via RPC from the front end to add an item to the votes list or to increase the
     // vote count for a particular item
     public CompletableFuture<Integer> addItem(String itemToAdd) {
-        AtomicInteger status = new AtomicInteger(-1); 
+        AtomicInteger status = new AtomicInteger(-1);
 
         try {
 
             ReliableHashMap<String, String> votesMap = stateManager
-                    .<String, String> getOrAddReliableHashMapAsync(MAP_NAME).get();                    
+                    .<String, String> getOrAddReliableHashMapAsync(MAP_NAME).get();
 
             Transaction tx = stateManager.createTransaction();
             votesMap.computeAsync(tx, itemToAdd, (k, v) -> {
@@ -509,15 +512,15 @@ class VotingDataService extends StatefulService implements VotingRPC {
                 }
                 else {
                     int numVotes = Integer.parseInt(v);
-                    numVotes = numVotes + 1;                            
+                    numVotes = numVotes + 1;
                     return Integer.toString(numVotes);
                 }
-            }).get(); 
+            }).get();
 
             tx.commitAsync().get();
-            tx.close(); 
+            tx.close();
 
-            status.set(1);                            
+            status.set(1);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -527,7 +530,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
     // Method that will be invoked via RPC from the front end to remove an item
     public CompletableFuture<Integer> removeItem(String itemToRemove) {
-        AtomicInteger status = new AtomicInteger(-1); 
+        AtomicInteger status = new AtomicInteger(-1);
         try {
             ReliableHashMap<String, String> votesMap = stateManager
                     .<String, String> getOrAddReliableHashMapAsync(MAP_NAME).get();
@@ -535,7 +538,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
             Transaction tx = stateManager.createTransaction();
             votesMap.removeAsync(tx, itemToRemove).get();
             tx.commitAsync().get();
-            tx.close();                    
+            tx.close();
 
             status.set(1);
         } catch (Exception e) {
@@ -554,7 +557,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
  下一步是连接前端无状态服务和后端服务。 这两个服务都利用一个名为 VotingRPC 的接口来定义 Voting 应用程序的操作。 此接口由前端和后端服务来共同实现，用于在这两项服务之间进行远程过程调用 (RPC)。 遗憾的是，Eclipse 不支持添加 Gradle 子项目，因此必须手动添加包含此接口的包。
 
-1. 在包资源管理器中右键单击“Voting”项目，然后单击“新建”->“文件夹”。 将文件夹命名为 **VotingRPC/src/rpcmethods**。
+1. 在包资源管理器中右键单击“Voting”项目，然后单击“新建” > “文件夹”    。 将文件夹命名为 **VotingRPC/src/rpcmethods**。
 
     ![创建 VotingRPC 包](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -577,9 +580,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
         CompletableFuture<Integer> removeItem(String itemToRemove);
     }
-    ``` 
+    ```
 
-4. 在 Voting/VotingRPC 目录中创建名为 build.gradle 的空文件，并将以下内容粘贴到其中。 此 gradle 文件用于生成和创建由其他服务导入的 jar 文件。 
+4. 在 Voting/VotingRPC  目录中创建名为 build.gradle  的空文件，并将以下内容粘贴到其中。 此 gradle 文件用于生成和创建由其他服务导入的 jar 文件。 
 
     ```gradle
     apply plugin: 'java'
@@ -619,7 +622,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
             destinationDir = file('./')
         }
 
-        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
     }
 
     defaultTasks 'clean', 'jar'
@@ -627,7 +630,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 5. 在 *Voting/settings.gradle* 文件中添加一行内容，以便将新创建的项目包括到内部版本中。 
 
-    ```gradle 
+    ```gradle
     include ':VotingRPC'
     ```
 
@@ -637,13 +640,13 @@ class VotingDataService extends StatefulService implements VotingRPC {
     server.createContext("/getStatelessList", new HttpHandler() {
         @Override
         public void handle(HttpExchange t) {
-            try {                    
+            try {
                 t.sendResponseHeaders(STATUS_OK,0);
                 OutputStream os = t.getResponseBody();
 
                 HashMap<String,String> list = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").getList().get();
                 String json = new Gson().toJson(list);
-                os.write(json.getBytes(ENCODING));                   
+                os.write(json.getBytes(ENCODING));
                 os.close();
             } catch (Exception e) {
                 logger.log(Level.WARNING, null, e);
@@ -656,14 +659,14 @@ class VotingDataService extends StatefulService implements VotingRPC {
         public void handle(HttpExchange t) {
             try {
                 OutputStream os = t.getResponseBody();
-                URI r = t.getRequestURI();     
+                URI r = t.getRequestURI();
 
                 Map<String, String> params = queryToMap(r.getQuery());
-                String itemToRemove = params.get("item");                    
+                String itemToRemove = params.get("item");
 
                 Integer num = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").removeItem(itemToRemove).get();
 
-                if (num != 1) 
+                if (num != 1)
                 {
                     t.sendResponseHeaders(STATUS_ERROR, 0);
                 } else {
@@ -690,7 +693,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
                 OutputStream os = t.getResponseBody();
                 Integer num = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").addItem(itemToAdd).get();
-                if (num != 1) 
+                if (num != 1)
                 {
                     t.sendResponseHeaders(STATUS_ERROR, 0);
                 } else {
@@ -734,13 +737,13 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 1. 将 *Voting/build.gradle* 文件的内容替换为以下内容。
 
-    ```gradle 
+    ```gradle
     apply plugin: 'java'
     apply plugin: 'eclipse'
 
     subprojects {
         apply plugin: 'java'
-    } 
+    }
 
     defaultTasks 'clean', 'jar', 'copyDeps'
     ```
@@ -809,11 +812,11 @@ class VotingDataService extends StatefulService implements VotingRPC {
             destinationDir = file('../VotingApplication/VotingWebPkg/Code/')
         }
 
-        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
     }
 
     defaultTasks 'clean', 'jar', 'copyDeps'
-    ``` 
+    ```
 
 3. 替换 *Voting/VotingDataService/build.gradle* 文件的内容。 
 
@@ -880,7 +883,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
             destinationDir = file('../VotingApplication/VotingDataServicePkg/Code/')
         }
 
-        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
     }
 
     defaultTasks 'clean', 'jar', 'copyDeps'
@@ -890,7 +893,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 现在可以将应用程序部署到本地 Service Fabric 群集了。
 
-1. 在包资源管理器中右键单击“Voting”项目，然后单击“Service Fabric”->“生成应用程序”以生成应用程序。
+1. 在包资源管理器中右键单击“Voting”项目，然后选择“Service Fabric” > “生成应用程序”以生成应用程序。   
 
 2. 运行本地 Service Fabric 群集。 此步骤取决于开发环境（Mac 或 Linux）。
 
@@ -898,7 +901,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
-    ``` 
+    ```
     请参阅 [OS X 设置指南](service-fabric-get-started-mac.md)中的更多详细说明。
 
     如果是在 Linux 计算机上运行，请通过以下命令启动本地群集： 
@@ -908,9 +911,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
     ```
     请参阅 [Linux 设置指南](service-fabric-get-started-linux.md)中的更多详细说明。
 
-4. 在适用于 Eclipse 的包资源管理器中右键单击“Voting”项目，然后单击“Service Fabric”->“发布应用程序...” 
-5. 在“发布应用程序”窗口的下拉列表中，选择“Local.json”并单击“发布”。
-6. 转到 Web 浏览器并访问 **http://localhost:8080**，以查看在本地 Service Fabric 群集上运行的应用程序。 
+4. 在适用于 Eclipse 的包资源管理器中右键单击“Voting”项目，然后选择“Service Fabric” > “发布应用程序”    
+5. 在“发布应用程序”窗口的下拉列表中，选择“Local.json”并选择“发布”。   
+6. 转到 Web 浏览器并访问 http:\//localhost:8080，以便查看在本地 Service Fabric 群集上运行的应用程序。 
 
 ## <a name="next-steps"></a>后续步骤
 

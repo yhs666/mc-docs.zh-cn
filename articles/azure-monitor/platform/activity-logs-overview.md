@@ -5,15 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/19/2019
+origin.date: 05/19/2019
+ms.date: 06/19/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 0da013939955d5060bd0574fd3b2c27298077f8a
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7586687cd015879f7627936702ffe940aff47432
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562464"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737254"
 ---
 # <a name="overview-of-azure-activity-log"></a>Azure 活动日志概述
 

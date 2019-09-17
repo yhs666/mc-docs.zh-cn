@@ -4,17 +4,17 @@ description: 本文提供有关在 Azure 门户中使用 Log Analytics 编写查
 services: log-analytics
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 07/19/2019
+origin.date: 07/19/2019
+ms.date: 08/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 17de9dbf54c2b814c5a6a4949cb303bde1fd5e4a
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: a6b4535dc72067624b2c88bf9ad7ccdc272595cc
+ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989243"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737193"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 入门
 
