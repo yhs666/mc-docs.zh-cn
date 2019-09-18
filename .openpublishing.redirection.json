@@ -16573,10 +16573,22 @@
       "source_path": "articles/azure-stack/operator/azure-stack-update-1903.md",
       "redirect_url": "/azure-stack/operator/azure-stack-release-notes-1907",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
+      "redirect_url": "/application-gateway/create-url-route-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-redirect-overview.md",
+      "redirect_url": "/application-gateway/redirect-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-url-route-overview.md",
+      "redirect_url": "/application-gateway/url-route-overview",
+      "redirect_document_id": false
     }    
-
-
-
 
   ]
 }
