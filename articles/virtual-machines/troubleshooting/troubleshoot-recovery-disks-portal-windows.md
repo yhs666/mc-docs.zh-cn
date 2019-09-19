@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/13/2018
-ms.date: 08/12/2019
+origin.date: 08/19/2018
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1f08bedf034c6bfbf3c2882092ab11192f51d9b2
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 91e9a88af063b4650a9e1019d1700054e31d7d91
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539176"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921247"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM，对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，然后重新创建原始 VM。 
@@ -27,64 +27,85 @@ ms.locfileid: "69539176"
 ## <a name="recovery-process-overview"></a>恢复过程概述
 故障排除过程如下：
 
-1. 删除遇到问题的 VM，保留虚拟硬盘。
-2. 将虚拟硬盘附加并装入到另一个 Windows VM，以便进行故障排除。
-3. 连接到故障排除 VM。 编辑文件或运行任何工具以修复原始虚拟硬盘上的问题。
-4. 从故障排除 VM 卸载并分离虚拟硬盘。
-5. 使用原始虚拟硬盘创建 VM。
-
-对于使用托管磁盘的 VM，现在可以使用 Azure PowerShell 更改 VM 的 OS 磁盘， 而不再需要删除并重新创建 VM。 有关详细信息，请参阅[通过使用 Azure PowerShell 将 OS 磁盘附加到恢复 VM 来对 Windows VM 进行故障排除](troubleshoot-recovery-disks-windows.md)。
+1. 停止受影响的 VM。
+1. 为 VM 的 OS 磁盘创建快照。
+1. 从快照创建虚拟硬盘。
+1. 将虚拟硬盘附加并装入到另一个 Windows VM，以便进行故障排除。
+1. 连接到故障排除 VM。 编辑文件或运行任何工具以修复原始虚拟硬盘上的问题。
+1. 从故障排除 VM 卸载并分离虚拟硬盘。
+1. 交换 VM 的 OS 磁盘。
 
 > [!NOTE]
 > 本文不适用于包含非托管磁盘的 VM。
 
-## <a name="determine-boot-issues"></a>确定启动问题
-若要确定 VM 不能正常启动的原因，请检查启动诊断 VM 屏幕截图。 一个常见的例子是应用程序更新失败，或底层虚拟硬盘已删除或移动。
+## <a name="take-a-snapshot-of-the-os-disk"></a>创建 OS 磁盘的快照
+快照是虚拟硬盘 (VHD) 的完整只读副本。 建议在创建快照之前完全关闭 VM，以清除正在运行的所有进程。 若要创建 OS 磁盘的快照，请执行以下步骤：
 
-在门户中选择 VM，然后向下滚动到“支持 + 故障排除”部分。   单击“启动诊断”查看屏幕快照。 记下任何特定的错误消息或错误代码，帮助确定 VM 遇到问题的原因。
+1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
+1. 在左窗格中选择“磁盘”，然后选择 OS 磁盘的名称。 
+    ![有关 OS 磁盘名称的插图](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. 然后，在 OS 磁盘的“概述”页上，选择“创建快照”。  
+1. 在 OS 磁盘所在位置创建快照。
 
-![查看 VM 启动诊断控制台日志](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
+## <a name="create-a-disk-from-the-snapshot"></a>从快照创建磁盘
+若要从快照创建磁盘，请执行以下步骤：
 
-也可单击“下载屏幕截图”  ，下载捕获的 VM 屏幕截图。
+<!--Not Available on **Cloud Shell**-->
+<!--Not Available on ![Image about Open local Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)-->
 
-## <a name="view-existing-virtual-hard-disk-details"></a>查看现有虚拟硬盘的详细信息
-在将虚拟硬盘附加到另一个 VM 之前，需要标识虚拟硬盘 (VHD) 的名称。
+1. 运行以下 PowerShell 命令从快照创建托管磁盘。 应将这些示例名称替换为相应的名称。
 
-选择有问题的 VM，然后选择“磁盘”  。 记录 OS 磁盘的名称，如下例所示：
+    ```powershell
+    # Sign in the Azure China Cloud
+    Connect-AzAccount -Environment AzureChinaCloud
+    
+    #Provide the name of your resource group
+    $resourceGroupName ='myResourceGroup'
 
-![选择存储 Blob](./media/troubleshoot-recovery-disks-portal-windows/view-disk.png)
+    #Provide the name of the snapshot that will be used to create Managed Disks
+    $snapshotName = 'mySnapshot' 
 
-## <a name="delete-existing-vm"></a>删除现有 VM
-虚拟硬盘和 VM 在 Azure 中是两个不同的资源。 虚拟硬盘是操作系统本身，存储应用程序和配置。 VM 本身只是定义大小或位置的元数据，引用虚拟硬盘或虚拟网络接口卡 (NIC) 等资源。 每个虚拟硬盘在附加到 VM 时分配有一个租约。 尽管 VM 正在运行时也可以附加和分离数据磁盘，但是，若要分离 OS 磁盘，则必须删除 VM 资源。 即使 VM 处于停止和解除分配状态，租约也继续将 OS 磁盘与 VM 相关联。
+    #Provide the name of theManaged Disk
+    $diskName = 'newOSDisk'
 
-恢复 VM 的第一步是删除 VM 资源本身。 删除 VM 时会将虚拟硬盘留在存储帐户中。 删除 VM 后，可将虚拟硬盘附加到另一个 VM，以进行故障排除和解决这些错误。
+    #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
+    $diskSize = '128'
 
-在门户中选择用户的 VM，并单击“删除”： 
+    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
+    $storageType = 'StandardLRS'
 
-![显示启动错误的 VM 启动诊断屏幕截图](./media/troubleshoot-recovery-disks-portal-windows/stop-delete-vm.png)
+    #Provide the Azure region (e.g. chinanorth) where Managed Disks will be located.
+    #This location should be same as the snapshot location
+    #Get all the Azure location using command below:
+    #Get-AzLocation
+    $location = 'chinanorth'
 
-等到 VM 已完成删除，再将虚拟硬盘附加到另一个 VM。 虚拟硬盘上将其与 VM 关联的租约需要释放，才能将虚拟硬盘附加到另一个 VM。
+    $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
 
-## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>将现有虚拟硬盘附加到另一个 VM
-在后续几个步骤中，使用另一个 VM 进行故障排除。 将现有虚拟硬盘附加到此故障排除 VM，以便浏览和编辑磁盘的内容。 例如，此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 选择或创建另一个 VM 用于故障排除。
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+
+    New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+    ```
+3. 如果命令运行成功，你将在提供的资源组中看到新磁盘。
+
+## <a name="attach-the-disk-to-another-vm"></a>将磁盘附加到另一个 VM
+在后续几个步骤中，使用另一个 VM 进行故障排除。 将磁盘附加到故障排除 VM 后，可以浏览和编辑磁盘的内容。 此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 若要将磁盘附加到另一个 VM，请执行以下步骤：
 
 1. 在门户中选择资源组，并选择故障排除 VM。 依次选择“磁盘”  、“编辑”  ，然后单击“添加数据磁盘”  ：
 
     ![在门户中附加现有磁盘](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. 在“数据磁盘”  列表中，选择所标识的 VM 的 OS 磁盘。 如果看不到 OS 磁盘，请确保故障排除 VM 和 OS 磁盘位于同一区域（位置）。
+2. 在“数据磁盘”  列表中，选择所标识的 VM 的 OS 磁盘。 如果看不到 OS 磁盘，请确保故障排除 VM 和 OS 磁盘位于同一区域（位置）。 
 
 3. 选择“保存”应用所做的更改。 
 
-## <a name="mount-the-attached-data-disk"></a>装载附加的数据磁盘
+## <a name="mount-the-attached-data-disk-to-the-vm"></a>将附加的数据磁盘装载到 VM
 
-1. 打开到 VM 的远程桌面连接。 在门户中选择 VM，然后单击“连接”  。 下载并打开 RDP 连接文件。 输入登录 VM 所需的凭据，如下所示：
+1. 与故障排除 VM 建立远程桌面连接。 
 
-    ![使用远程桌面登录到 VM](./media/troubleshoot-recovery-disks-portal-windows/open-remote-desktop.png)
+2. 在故障排除 VM 中打开“服务器管理器”，然后选择“文件和存储服务”。   
 
-2. 打开“服务器管理器”  ，然后选择“文件和存储服务”  。 
-
-    ![在“服务器管理器”中选择“文件和存储服务”](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
+    ![在服务器管理器中选择“文件和存储服务”](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
 3. 系统会自动检测并附加数据磁盘。 若要查看已连接磁盘的列表，请选择“磁盘”  。 可选择要查看卷信息（包括驱动器号）的数据磁盘。 以下示例显示了使用 **F:** 的附加数据磁盘：
 
@@ -112,32 +133,16 @@ ms.locfileid: "69539176"
 
     等到 VM 成功分离数据磁盘，并继续操作。
 
-## <a name="create-vm-from-original-hard-disk"></a>从原始硬盘创建 VM
+## <a name="swap-the-os-disk-for-the-vm"></a>交换 VM 的 OS 磁盘
 
-### <a name="method-1-use-azure-resource-manager-template"></a>方法 1 使用 Azure 资源管理器模板
-若要从原始虚拟硬盘创建 VM，请使用 [此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)。 该模板使用前面命令中的 VHD URL 将 VM 部署到现有的或新的虚拟网络。 单击“部署到 Azure”按钮，如下所示： 
+Azure 门户现在支持更改 VM 的 OS 磁盘。 为此，请执行以下步骤：
 
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-new-or-existing-vnet%2Fazuredeploy.json)
+1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
+1. 在左窗格中选择“磁盘”，然后选择“交换 OS 磁盘”。  
+    ![有关在 Azure 门户中交换 OS 磁盘的插图](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-![从 GitHub 中的模板部署 VM](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
-
-模板已载入 Azure 门户进行部署。 请输入新 VM 和现有 Azure 资源的名称，并粘贴现有虚拟硬盘的 URL。 若要开始部署，请单击“购买”： 
-
-![从模板部署 VM](./media/troubleshoot-recovery-disks-portal-windows/deploy-from-image.png)
-
-### <a name="method-2-create-a-vm-from-the-disk"></a>方法 2 从磁盘创建 VM
-
-1. 在 Azure 门户中，从门户选择资源组，然后找到 OS 磁盘。 也可以使用磁盘名称搜索磁盘：
-
-    ![从 Azure 门户搜索磁盘](./media/troubleshoot-recovery-disks-portal-windows/search-disk.png)
-1. 依次选择“概述”  、“创建 VM”  。
-    ![从 Azure 门户中的磁盘创建 VM](./media/troubleshoot-recovery-disks-portal-windows/create-vm-from-disk.png)
-1. 按照向导创建 VM。
-
-## <a name="re-enable-boot-diagnostics"></a>重新启用启动诊断
-从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 要检查启动诊断的状态并根据需要打开启动诊断，请在门户中选择 VM。 在“监视”下面，单击“诊断设置”。   确保状态为“打开”，并检查“启动诊断”旁边的复选标记是否为选中状态。   If you make any changes, click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>:
-
-![更新启动诊断设置](./media/troubleshoot-recovery-disks-portal-windows/reenable-boot-diagnostics.png)
+1. 选择已修复的新磁盘，然后键入 VM 的名称以确认更改。 如果在列表中看不到该磁盘，请在从故障排除 VM 中分离磁盘后等待 10 到 15 分钟。 另外，请确保该磁盘与 VM 位于同一位置。
+1. 选择“确定”。
 
 ## <a name="next-steps"></a>后续步骤
 如果在连接到 VM 时遇到问题，请参阅[对 Azure VM 的 RDP 连接进行故障排除](troubleshoot-rdp-connection.md)。 如果在访问 VM 上运行的应用程序时遇到问题，请参阅[对 Windows VM 上的应用程序连接问题进行故障排除](troubleshoot-app-connection.md)。
