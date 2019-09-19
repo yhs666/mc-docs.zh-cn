@@ -1,5 +1,5 @@
 ---
-title: 教程 - 使用 Azure CLI 创建自定义 VM 映像 | Azure
+title: 教程：使用 Azure CLI 创建 Azure VM 的自定义映像 | Azure
 description: 本教程介绍如何使用 Azure CLI 在 Azure 中创建自定义虚拟机映像
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e21ee3d0b9b488579da8264846a08ee0ccb232dd
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: e8c0b5ae5455cad455fd17bca7bc1838d187314e
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912759"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921147"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教程：使用 Azure CLI 创建 Azure VM 的自定义映像
 
@@ -52,6 +52,9 @@ ms.locfileid: "68912759"
 ### <a name="deprovision-the-vm"></a>取消预配 VM 
 
 取消预配可通过删除特定于计算机的信息来通用化 VM。 实现此通用化后，即可从单个映像部署多个 VM。 在取消预配期间，主机名将重置为“localhost.localdomain”  。 还会删除 SSH 主机密钥、名称服务器配置、根密码和缓存的 DHCP 租约。
+
+> [!WARNING]
+> 取消预配 VM 并将其标记为“已通用化”将导致源 VM 不可用，并且无法重新启动。 
 
 若要取消预配 VM，请使用 Azure VM 代理 (waagent)。 Azure VM 代理安装在 VM 上，用于管理预配及其与 Azure 结构控制器的交互。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../extensions/agent-linux.md)。
 

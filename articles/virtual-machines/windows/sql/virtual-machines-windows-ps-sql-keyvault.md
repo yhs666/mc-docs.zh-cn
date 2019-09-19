@@ -1,5 +1,5 @@
 ---
-title: 将 Key Vault 与 Azure 中 Windows VM 上的 SQL Server 集成 (Resource Manager) | Azure
+title: 在 Azure 虚拟机上配置 SQL Server 的 Azure Key Vault 集成（资源管理器）| Azure
 description: 了解如何自动配置用于 Azure 密钥保管库的 SQL Server 加密。 本主题说明如何将 Azure 密钥保管库集成用于通过 Resource Manager 创建的 SQL Server 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/30/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 19301575cd387e20b934046eea9b884706b32dfd
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 78c360566cd277322587401cafdfb2431cfef459
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538834"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921023"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虚拟机上配置 SQL Server 的 Azure Key Vault 集成 (Resource Manager)
 
@@ -53,8 +53,11 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 有关预配的详细演练，请参阅[在 Azure 门户中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
 
 ### <a name="existing-vms"></a>现有 VM
+
 <!--MOONCAKE: CUSTOMIZE-->
+<!--Not Available on includes/windows-virtual-machines-sql-new-resource.md-->
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
+<!--Last Check on 09/12/2019-->
 
 对于现有的 SQL Server 虚拟机，请选择 SQL Server 虚拟机。 然后选择“设置”边栏选项卡的“SQL Server 配置”部分。  
 

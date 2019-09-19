@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 07/01/2019
-ms.date: 08/12/2019
+origin.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2113ccc332a47ffa4928f6684b4a631e3f0990ac
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 58bdbcf4b37011c552df349680433c9efdab37fd
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912808"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921187"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>适用于 Linux 的 Azure Monitor 虚拟机扩展
 
@@ -42,37 +42,7 @@ Azure Monitor 日志提供跨云和本地资产的监视、警报和警报修正
 
 ### <a name="operating-system"></a>操作系统
 
-Log Analytics 代理扩展可以针对这些 Linux 发行版运行。
-
-| 分发 | 版本 |
-|---|---|
-| CentOS Linux | 6 (x86/x64) 和 7 (x64) |
-| Amazon Linux | 2017.09 (x64) | 
-| Debian GNU/Linux | 8 和 9 (x86/x64) |
-| Ubuntu | 14.04 LTS (x86/x64)、16.04 LTS (x86/x64) 和 18.04 LTS (x64) |
-| SUSE Linux Enterprise Server | 12 (x64) 和 15 (x64) |
-
-<!--Not Available on | Oracle Linux | 6 and 7 (x86/x64) |-->
-<!--Not Available on | Red Hat Enterprise Linux Server | 6 (x86/x64) and 7 (x64) |-->
-
->[!NOTE]
->任何平台都不支持低于版本 1.x 的 OpenSSL，并且仅在 x86_64 平台（64 位）上支持版本 1.10。  
->
-
-### <a name="agent-prerequisites"></a>代理先决条件
-
-下表重点介绍了要安装代理的受支持 Linux 发行版所需的包。
-
-|所需的包 |说明 |最低版本 |
-|-----------------|------------|----------------|
-|Glibc |    GNU C 库 | 2.5-12 
-|Openssl    | OpenSSL 库 | 1.0.x 或 1.1.x |
-|Curl | cURL Web 客户端 | 7.15.5 |
-|Python-ctype | | 
-|PAM | 可插入验证模块 | | 
-
->[!NOTE]
->收集 Syslog 消息时需要 rsyslog 或 syslog ng。 syslog 事件收集不支持 CentOS (sysklog) 上的默认 syslog 守护程序。 要从这些发行版的此版本中收集 syslog 数据，应安装并配置 rsyslog 守护程序以替换 sysklog。
+有关支持的 Linux 发行版的详细信息，请参阅 [Log Analytics 代理概述](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)一文。
 
 <!--Not Available on version 5 of Red Hat Enterprise Linux-->
 <!--Not Avaialble on , and Oracle Linux version-->
@@ -82,7 +52,7 @@ Log Analytics 代理扩展可以针对这些 Linux 发行版运行。
 
 | Azure Monitor Linux VM 扩展版本 | Log Analytics 代理捆绑包版本 | 
 |--------------------------------|--------------------------|
-| 1.11.9 | [1.11.0-7](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-7) |
+| 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
@@ -153,7 +123,7 @@ Log Analytics 代理扩展可以针对这些 Linux 发行版运行。
 
 可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后配置（例如，载入 Azure Monitor 日志）的一个或多个虚拟机时，模板是理想选择。 包含 Log Analytics 代理 VM 扩展的示例资源管理器模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)中找到。 
 
-虚拟机扩展的 JSON 配置可以嵌套在虚拟机资源内，或放置在资源管理器 JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 有关详细信息，请参阅[设置子资源的名称和类型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
+虚拟机扩展的 JSON 配置可以嵌套在虚拟机资源内，或放置在资源管理器 JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 有关详细信息，请参阅[设置子资源的名称和类型](../../azure-resource-manager/child-resource-name-type.md)。 
 
 以下示例假定 VM 扩展嵌套在虚拟机资源内。 嵌套扩展资源时，JSON 放置在虚拟机的 `"resources": []` 对象中。
 
@@ -215,8 +185,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
-  --settings '{"workspaceId": "omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
+  --settings '{"workspaceId":"omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
@@ -254,4 +224,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: wording update-->
+<!-- Update_Description: wording update, update link -->

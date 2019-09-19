@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/12/2019
-ms.date: 07/22/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: aeb1cf30498fc9120f879f7341d5069a03d9fff8
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: ae984f2e44fd8f4fd768282d47cad7596826d3ae
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514221"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921129"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -70,9 +70,11 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是的。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。 子网地址空间不能相互重叠。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>使用这些子网中的 IP 地址是否有任何限制？
-是的。 Azure 在每个子网中保留 5 个 IP 地址。 这些地址是 x.x.x.0-x.x.x.3 和子网的最后一个地址。    
-- x.x.x.0 和子网的最后一个地址是为了符合协议而进行保留。
-- 在每个子网中都为 Azure 服务保留了 x.x.x.1-x.x.x.3。
+是的。 Azure 在每个子网中保留 5 个 IP 地址。 这些地址是 x.x.x.0-x.x.x.3 和子网的最后一个地址。 在每个子网中都为 Azure 服务保留了 x.x.x.1-x.x.x.3。   
+- x.x.x.0：网络地址
+- x.x.x.1：由 Azure 为默认网关保留
+- x.x.x.2、x.x.x.3：由 Azure 保留以将 Azure DNS IP 映射到 VNet 空间
+- x.x.x.255：网络广播地址
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子网的最小和最大容量是多少？
 支持的最小子网为 /29，最大为 /8（使用 CIDR 子网定义）。
@@ -189,6 +191,7 @@ Azure 提供的 DNS 是由 Azure 提供的多租户 DNS 服务。 Azure 在此�
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>是否可以在 VNet 中使用 Azure 应用服务 Web 应用？
 是的。 可以使用 ASE（应用服务环境）在 VNet 内部部署 Web 应用，使用 VNet 集成将应用的后端连接到 VNet，并使用服务终结点锁定应用的入站流量。 有关详细信息，请参阅以下文章：
 
+<!-- Not Available on [App Service networking features](../app-service/networking-features.md)-->
 <!-- Not Available on [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 * [将应用与 Azure 虚拟网络进行集成](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
@@ -221,7 +224,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 可以。 可向 VNet 中的单个子网和/或附加到 VNet 的 NIC 应用[网络安全组](security-overview.md)。
 
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>是否可在与 VNet 连接的资源之间实施防火墙？
-是的。 可以通过 Azure 市场部署许多供应商提供[防火墙网络虚拟设备](https://market.azure.cn/zh-cn/marketplace/apps?search=firewall)。
+是的。 可以通过 Azure 市场部署许多供应商提供[防火墙网络虚拟设备](https://market.azure.cn/marketplace/apps?search=firewall)。
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>你们是否提供了有关保护 VNet 的信息？
 是的。 有关详细信息，请参阅 [Azure 网络安全概述](../security/security-network-overview.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -229,13 +232,13 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 ## <a name="apis-schemas-and-tools"></a>API、架构和工具
 
 ### <a name="can-i-manage-vnets-from-code"></a>是否可以通过代码管理 VNet？
-是的。 可在 [Azure 资源管理器](https://docs.microsoft.com/rest/api/virtual-network)和[经典（服务管理）](https://go.microsoft.com/fwlink/?LinkId=296833)部署模型中使用适用于 VNet 的 REST API。
+是的。 可以在 [Azure 资源管理器](https://docs.microsoft.com/rest/api/virtual-network)和[经典](https://go.microsoft.com/fwlink/?LinkId=296833)部署模型中使用适用于 VNet 的 REST API。
 
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有 VNet 的工具支持？
 是的。 详细了解以下操作：
 - 使用 Azure 门户通过 [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) 和[经典](virtual-networks-create-vnet-classic-pportal.md)部署模型部署 VNet。
 - 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/powershell/module/az.network) 和[经典](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
-- 使用 Azure 命令行接口 (CLI) 管理通过[资源管理器](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest)和[经典](../virtual-machines/azure-cli-arm-commands.md?toc=%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources)部署模型部署的 VNet。  
+- 使用 Azure 命令行接口 (CLI) 管理通过[资源管理器](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest)和[经典](../virtual-machines/azure-cli-arm-commands.md?toc=%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources)部署模型部署的 VNet。  
 
 ## <a name="vnet-peering"></a>VNet 对等互连
 
@@ -254,7 +257,10 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 - 应用程序网关 (v1) SKU
 - Service Fabric
 - SQL MI
-- API 管理   <!--Not Available on - Active Directory Domain Service (ADDS)-->
+- API 管理
+    
+    <!--Not Available on - Active Directory Domain Service (ADDS)-->
+    
 - Logic Apps
 - HDInsight
 - Azure Batch
@@ -263,7 +269,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 
 你可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
 
-<!--MOONCAKE: difference AAD tenant not support peering -->
+<!--MOONCAKE: CUSTOMIZE ON difference AAD tenant not support peering -->
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>如果虚拟网络所属的订阅位于不同的 Azure Active Directory 租户中，能否启用 VNet 对等互连？
 否。 在 Azure 中国，如果虚拟网络属于不同 Azure Active Directory 租户中的订阅，则当前不支持 Vnet 对等互连。 

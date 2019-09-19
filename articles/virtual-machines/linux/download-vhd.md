@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29f35887984642b970fdd23d47e399a125584703
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 8a3bb51175ced86d70f8fd583c9fb164e71a05b7
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913030"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921066"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
@@ -72,7 +72,7 @@ ms.locfileid: "68913030"
 若要下载 VHD 文件，需要生成[共享访问签名 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) URL。 生成 URL 时，将为 URL 分配到期时间。
 
 1. 在 VM 的边栏选项卡的菜单上，单击“磁盘”  。
-2. 为 VM 选择操作系统磁盘，然后单击“导出”  。
+2. 为 VM 选择操作系统磁盘，然后单击“磁盘导出”  。
 3. 单击“生成 URL”。 
 
     ![生成 URL](./media/download-vhd/export-generate.png)

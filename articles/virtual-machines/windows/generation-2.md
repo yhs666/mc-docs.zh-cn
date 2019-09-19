@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82dcb7a35eda822901bab2ad07ae0fd6089af9b3
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 37d114bef309a31aa95cf7000e74fe4656dea079
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539213"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921216"
 ---
 <!--Verify sucessfully-->
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure 上的第 2 代 VM 支持（预览版）
@@ -40,14 +40,21 @@ Azure 中现已推出第 2 代虚拟机 (VM) 支持预览版。 创建虚拟机�
 
 Azure 中的所有 VM 大小都支持第 1 代 VM。 Azure 目前为以下选定 VM 系列提供第 2 代预览版支持：
 
+* [B 系列](/virtual-machines/windows/b-series-burstable)
 * [Dsv2 系列](/virtual-machines/windows/sizes-general#dsv2-series)和 [Dsv3 系列](/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3 系列](/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2 系列](/virtual-machines/windows/sizes-compute#fsv2-series-1)
 
     <!--Not Available on * [GS-series](/virtual-machines/windows/sizes-previous-gen#gs-series)-->
     <!--Not Available on * [Ls-series](/virtual-machines/windows/sizes-previous-gen#ls-series)-->
-    <!--Not Available on   [Lsv2-series](/virtual-machines/windows/sizes-storage#lsv2-series)--> 
-    <!--Not Available on* [Mv2-series](/virtual-machines/windows/sizes-memory#mv2-series)-->
+    <!--Not Available on * [Lsv2-series](/virtual-machines/windows/sizes-storage#lsv2-series)-->
+    <!--Not Available on * [Mv2-series](/virtual-machines/windows/sizes-memory#mv2-series)-->
+    
+* [NCv3 系列](/virtual-machines/windows/sizes-gpu#ncv3-series)
+
+    <!--Not Available on * [NCv2-series](/virtual-machines/windows/sizes-gpu#ncv2-series)-->
+    <!--Not Available on * [ND-series](/virtual-machines/windows/sizes-gpu#nd-series)-->
+    
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure 市场中的第 2 代 VM 映像
 
@@ -58,9 +65,13 @@ Azure 中的所有 VM 大小都支持第 1 代 VM。 Azure 目前为以下选定
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
 
+<!--MOONCAKE: CUSTOMIZE-->
+
 > [!NOTE]
 > 可将 `(Gen2)` 后缀追加到映像说明，然后在市场中搜索相应的映像。<br />
 > 例如：`Windows Server 2019 Datacenter (Gen2)`
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>本地与Azure 第 2 代 VM
 
@@ -159,5 +170,4 @@ Azure 目前不支持本地 Hyper-V 对第 2 代 VM 所支持的某些特性。
 
 * 了解如何[准备 VHD](prepare-for-upload-vhd-image.md) 以从本地系统上传到 Azure。
 
-<!-- Update_Description: new articles on vm windows generation 2 -->
-<!--ms.date: 08/12/2019-->
+<!-- Update_Description: wording update -->

@@ -4,25 +4,22 @@ description: 使用自定义脚本扩展在 Azure 上的负载均衡虚拟机规
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
-manager: digimobile
-editor: tysonn
+ms.author: v-yeche
 tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 04/05/2017
-ms.date: 08/12/2019
-ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8782d67e96b2af69863bbb9f5e07e517245d7e8c
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+origin.date: 04/05/2017
+ms.date: 09/16/2019
+ms.openlocfilehash: 24911574c2835d41a669fcc6aa3176eea6e563ca
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539044"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921082"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在负载均衡虚拟机规模集中部署 LAMP 堆栈
 

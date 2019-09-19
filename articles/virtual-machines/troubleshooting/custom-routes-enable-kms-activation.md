@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 12/20/2018
-ms.date: 07/01/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 42ded4bbe8b8652ea1bedb7b0b4bf653c3df860a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 752832ebef5281fd549ec68d370871b3b65f7fe3
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570255"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921231"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>在强制隧道方案中，Windows 激活失败
 
@@ -39,8 +39,9 @@ Azure Windows VM 需要连接到 Azure KMS 服务器才能激活 Windows。 激�
 若要解决此问题，请使用 Azure 自定义路由，将激活流量路由到 Azure KMS 服务器。
 
 <!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
+<!--MOONCAKE CUSTOMIZE: China for kms.core.chinacloudapi.cn-->
 
-Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名称是 kms.core.windows.net。 如果使用其他 Azure 平台（如 Azure China Cloud），则必须使用相应 KMS 服务器的 IP 地址。 有关详细信息，请参阅下表：
+Azure 中国云的 KMS 服务器的 IP 地址为 42.159.7.249。 其 DNS 名称为 kms.core.chinacloudapi.cn。 如果使用其他 Azure 平台，则必须使用相应 KMS 服务器的 IP 地址。 有关详细信息，请参阅下表：
 
 <!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
 
@@ -51,17 +52,24 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 |Azure 美国政府版|kms.core.usgovcloudapi.net|23.97.0.13|
 |Azure 中国世纪互联|kms.core.chinacloudapi.cn|42.159.7.249|
 
+<!--MOONCAKE CUSTOMIZE: China for kms.core.chinacloudapi.cn-->
+<!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
+
 若要添加自定义路由，请执行以下步骤：
 
 ### <a name="for-resource-manager-vms"></a>对于资源管理器 VM
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-1. 打开 Azure PowerShell，然后使用以下 cmdlet [登录到 Azure 订阅](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+> [!NOTE] 
+> 激活使用公共 IP 地址，并将受标准 SKU 负载均衡器配置的影响。 请仔细查看 [Azure 中的出站连接](/load-balancer/load-balancer-outbound-connections)以了解要求。
+
+1. 打开 Azure PowerShell，然后[登录到 Azure 订阅](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
+    
 2. 运行以下命令：
 
     ```powershell
@@ -69,11 +77,11 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 
     $vnet = Get-AzVirtualNetwork -ResourceGroupName "ArmVNet-DM" -Name "ArmVNet-DM"
 
-    # Next, create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out:
+    # Next, create a route table and specify that traffic bound to the KMS IP (42.159.7.249) will go directly out:
 
     $RouteTable = New-AzRouteTable -Name "ArmVNet-DM-KmsDirectRoute" -ResourceGroupName "ArmVNet-DM" -Location "chinaeast"
 
-    Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
+    Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 42.159.7.249/32 -NextHopType Internet -RouteTable $RouteTable
 
     Set-AzRouteTable -RouteTable $RouteTable
 
@@ -83,7 +91,7 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
+3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
 
         psping kms.core.chinacloudapi.cn:1688
 
@@ -102,14 +110,14 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
     $rt = Get-AzureRouteTable -Name "VNet-DM-KmsRouteTable"
 
     # Next, create a route:
-    Set-AzureRoute -RouteTable $rt -RouteName "AzureKMS" -AddressPrefix "23.102.135.246/32" -NextHopType Internet
+    Set-AzureRoute -RouteTable $rt -RouteName "AzureKMS" -AddressPrefix "42.159.7.249/32" -NextHopType Internet
 
     # Apply the KMS route table to the subnet that hosts the problem VMs (in this case, we apply it to the subnet that's named Subnet-1):
     Set-AzureSubnetRouteTable -VirtualNetworkName "VNet-DM" -SubnetName "Subnet-1" 
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
+3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
 
         psping kms.core.chinacloudapi.cn:1688
 
@@ -118,7 +126,7 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 ## <a name="next-steps"></a>后续步骤
 
 - [KMS 客户端安装密钥](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)
-- [查看并选择激活方法](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11))
+- [查看并选择激活方法](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11))
 
 <!--Update_Description: wording update -->
 

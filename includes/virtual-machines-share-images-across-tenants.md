@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 04/25/2019
-ms.date: 07/01/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 6d355707d98bd2676954af34b5a783ca7476d36d
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: c5c2bbf62a9833bf49004f5949dfb77936a5ca07
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332783"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70920997"
 ---
 共享映像库可让你使用 RBAC 共享映像。 可以使用 RBAC 在租户中共享映像，甚至可以与租户外部的个人共享映像。 但是，若要在 Azure 租户外部大规模共享映像，应创建一个应用注册来方便共享。  使用应用注册可以实现更复杂的共享方案，例如： 
 
@@ -44,7 +44,7 @@ ms.locfileid: "68332783"
 
 ## <a name="give-tenant-2-access"></a>授予租户 2 访问权限
 
-通过使用浏览器请求登录，授予租户 2 对应用程序的访问权限。 请将 *<Tenant2 ID>* 替换为要与其共享映像库的租户的租户 ID。 请将 *<Application (client) ID>* 替换为创建的应用注册的应用程序 ID。 完成替换后，将 URL 粘贴到浏览器中，然后遵照登录提示登录到租户 2。
+通过使用浏览器请求登录，授予租户 2 对应用程序的访问权限。 请将 \<Tenant2 ID>  替换为要与其共享映像库的租户的租户 ID。 请将 \<Application (client) ID>  替换为创建的应用注册的应用程序 ID。 完成替换后，将 URL 粘贴到浏览器中，然后遵照登录提示登录到租户 2。
 
 ```
 https://login.chinacloudapi.cn/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

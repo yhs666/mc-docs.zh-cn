@@ -1,5 +1,5 @@
 ---
-title: 适用于 Windows 的 Azure 自定义脚本扩展 | Azure
+title: 适用于 Windows 的自定义脚本扩展 | Azure
 description: 使用自定义脚本扩展自动化 Windows VM 配置任务
 services: virtual-machines-windows
 manager: digimobile
@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 05/02/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: f6a667abfc04895aa7249d0322a80b15b49e3fa1
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 03943b328250d15dc0f68f044ac8dabf28d11360
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913047"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921194"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -56,6 +56,7 @@ ms.locfileid: "68913047"
 * 脚本运行时，Azure 门户或 CLI 中只会显示“正在转换”扩展状态。 如果希望更频繁地更新正在运行的脚本的状态，需要创建自己的解决方案。
 * 自定义脚本扩展本身不支持代理服务器，但可以在脚本中使用支持代理服务器的文件传输工具，如 Curl 
 * 请注意脚本或命令可能依赖的非默认目录位置，按逻辑对这种情况进行处理。
+* 自定义脚本扩展将在 LocalSystem 帐户下运行。
 
 ## <a name="extension-schema"></a>扩展架构
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 中 SQL Server 的安全注意事项 | Azure
+title: Azure 虚拟机中 SQL Server 的安全注意事项 | Azure
 description: 本主题提供有关保护 Azure 虚拟机中运行的 SQL Server 的常规指南。
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/23/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 8738d5a968a1caa0c7fc28b22f87c58a57ba8707
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: cc475ca3d5e40879aeef0ef2dc618f59d7f582de
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538801"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921218"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的安全注意事项
 
@@ -66,6 +66,8 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 默认情况下，SQL Server 侦听已知端口 1433。 为了提高安全性，请将 SQL Server 配置为侦听 1401 等非默认端口。 如果在 Azure 门户中配置 SQL Server 库映像，则可在“SQL Server 设置”  边栏选项卡中指定此端口。
 
+<!--Not Available on [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]-->
+
 配置后，可通过两种方式进行预配：
 
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
@@ -95,12 +97,12 @@ SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例�
 
 - 默认情况下，Azure 在 SQL Server 虚拟机安装期间会选择 Windows 身份验证。 因此，会禁用 **SA** 登录名，并由安装程序分配密码。 建议不要使用或启用 SA  登录名。 如果必须使用 SQL 登录名，请使用以下策略之一：
 
-  - 创建一个名称唯一且具有 sysadmin  成员资格的 SQL 帐户。 可通过在预配期间启用 SQL 身份验证  ，从门户执行此操作。
+    - 创建一个名称唯一且具有 sysadmin  成员资格的 SQL 帐户。 可通过在预配期间启用 SQL 身份验证  ，从门户执行此操作。
 
-    > [!TIP] 
-    > 如果预配期间未启用 SQL 身份验证，则必须手动将身份验证模式更改为 SQL Server 和 Windows 身份验证模式  。 有关详细信息，请参阅 [更改服务器身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)。
+        > [!TIP] 
+        > 如果预配期间未启用 SQL 身份验证，则必须手动将身份验证模式更改为 SQL Server 和 Windows 身份验证模式  。 有关详细信息，请参阅 [更改服务器身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)。
 
-  - 如果必须使用 SA  登录名，请在预配后启用该登录名，并分配新的强密码。
+    - 如果必须使用 SA  登录名，请在预配后启用该登录名，并分配新的强密码。
 
 ## <a name="follow-on-premises-best-practices"></a>遵循本地最佳做法进行操作
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/08/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: affa59f825eb014824c36d31a84376f732675446
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: d98f7e56d22a5ccf8d1f1105beb9b5c5ff650135
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912959"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921010"
 ---
 ## <a name="application-performance-indicators"></a>应用程序性能指标
 
@@ -258,7 +258,7 @@ Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小
 利用 Azure 高级存储的高规格 VM 使用名为 BlobCache 的多层缓存技术。 BlobCache 使用虚拟机 RAM 和本地 SSD 的组合进行缓存。 此缓存适用于高级存储的永久性磁盘和 VM 本地磁盘。 默认情况下，此缓存设置已设置为允许对 OS 磁盘进行读/写操作，允许对托管在高级存储中的数据磁盘进行只读操作。 在高级存储磁盘上启用磁盘缓存后，高规格 VM 可以达到相当高的性能级别，超出基础磁盘性能。
 
 > [!WARNING]
-> 如果磁盘大于 4 TiB，则不支持磁盘缓存。 如果将多个磁盘附加到 VM，则每个 4 TiB 或更小的磁盘都会支持缓存。
+> 等于或大于 4 TiB 的磁盘不支持磁盘缓存。 如果将多个磁盘附加到 VM，则每个小于 4 TiB 的磁盘都会支持缓存。
 >
 > 更改 Azure 磁盘的缓存设置可分离和重新附加目标磁盘。 如果它是操作系统磁盘，则重启 VM。 更改磁盘缓存设置前，停止所有可能受此中断影响的应用程序/服务。
 
@@ -287,6 +287,9 @@ Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小
 
 *ReadWrite*  
 默认情况下，OS 磁盘已启用 ReadWrite 缓存。 我们最近还增加了对在数据磁盘上进行 ReadWrite 缓存的支持。 如果使用 ReadWrite 缓存，则必须通过适当方法将数据从缓存写入到永久性磁盘。 例如，SQL Server 会自行将缓存数据写入永久性存储磁盘。 对不负责保留所需数据的应用程序使用 ReadWrite 缓存可能会在 VM 崩溃时导致数据丢失。
+
+*无*  
+目前，只有数据磁盘支持“无”  。 OS 磁盘不支持此选项。 如果在 OS 磁盘上设置“无”  ，它将在内部覆盖此设置并将其设置为“ReadOnly”  。
 
 举例来说，可以通过执行以下操作将这些准则应用到在高级存储上运行的 SQL Server：
 
@@ -394,13 +397,15 @@ Azure 将高级存储平台设计为可以进行大规模并行处理。 因此�
 
 *最佳队列深度*  
 队列深度值过高也有其缺点。 如果队列深度值过高，则应用程序会尝试实现非常高的 IOPS。 除非应用程序的永久性磁盘具有足够高的预配 IOPS，否则会对应用程序延迟造成负面影响。 以下公式显示了 IOPS、延迟和队列深度之间的关系。  
-    ![](media/premium-storage-performance/image6.png)
+
+![](media/premium-storage-performance/image6.png)
 
 不应随意地将队列深度配置为某个很高的值，而应将其配置为最佳值，该值可以确保应用程序实现足够高的 IOPS，但又不会影响延迟。 例如，如果应用程序延迟需要设置为 1 毫秒，则要实现 5,000 IOPS，所需队列深度为：QD = 5000 x 0.001 = 5。
 
 *条带化卷的队列深度*  
 条带化卷应保持足够高的队列深度，使得每个磁盘都有各自的高峰队列深度。 例如，以某个应用程序为考虑对象，该应用程序所推送的队列深度为 2，条带中有四个磁盘。 两个 IO 请求会发送到两个磁盘中，剩下两个磁盘会处于空闲状态。 因此，请将队列深度配置为让所有磁盘都能够处于繁忙状态。 下面的公式说明了如何确定条带化卷的队列深度。  
-    ![](media/premium-storage-performance/image7.png)
+
+![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>限制
 

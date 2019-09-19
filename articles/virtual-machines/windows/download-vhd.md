@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: f08744bb81005eb64457ca0bf42d07ab923c2d8a
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 07ee80d73c792cb7b96b157979cbeb4aae1f99ef
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538855"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921086"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 
@@ -53,16 +53,16 @@ ms.locfileid: "69538855"
 若要下载 VHD 文件，需要生成[共享访问签名 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) URL。 生成 URL 时，将为 URL 分配到期时间。
 
 1. 在 VM 的边栏选项卡的菜单上，单击“磁盘”  。
-2. 为 VM 选择操作系统磁盘，然后单击“导出”  。
+2. 为 VM 选择操作系统磁盘，然后单击“磁盘导出”  。
 3. 将 URL 的到期时间设置为 *36000*。
 4. 单击“生成 URL”。 
 
-    ![生成 URL](./media/download-vhd/export-generate.png)
+    ![生成 URL](./media/download-vhd/export-generate-new.png)
 
-> [!NOTE]
-> 从默认值增加到期时间，以便提供足够时间来下载 Windows Server 操作系统的大型 VHD 文件。 可能需要包含 Windows Server 操作系统的 VHD 文件，以便根据连接花几个小时下载。 如果下载的是数据磁盘的 VHD，则默认时间就足够了。 
-> 
-> 
+    > [!NOTE]
+    > 从默认值增加到期时间，以便提供足够时间来下载 Windows Server 操作系统的大型 VHD 文件。 可能需要包含 Windows Server 操作系统的 VHD 文件，以便根据连接花几个小时下载。 如果下载的是数据磁盘的 VHD，则默认时间就足够了。 
+    > 
+    > 
 
 ## <a name="download-vhd"></a>下载 VHD
 

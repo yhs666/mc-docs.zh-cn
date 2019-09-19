@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 使用 VHD 创建 VM | Azure
+title: Azure CLI 脚本示例 - 使用虚拟硬盘创建 VM | Azure
 description: Azure CLI 脚本示例 - 使用虚拟硬盘创建 VM。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/09/2017
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bc2c0405f30fa907dc745b56c8e06241411e73cb
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: dd289b2ea0039b0c19a6be68598bb0949700194f
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539040"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921101"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
 
