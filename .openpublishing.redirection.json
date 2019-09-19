@@ -16588,7 +16588,29 @@
       "source_path": "articles/application-gateway/application-gateway-url-route-overview.md",
       "redirect_url": "/application-gateway/url-route-overview",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/media-services/previous/meda-services-managing-multiple-storage-accounts.md",
+      "redirect_url": "/media-services/previous/media-services-managing-multiple-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/transform-concept.md",
+      "redirect_url": "/media-services/latest/transforms-jobs-concept",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/intelligence-concept.md",
+      "redirect_url": "/media-services/latest/analyzing-video-audio-files-concept",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
+      "redirect_url": "/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": false
+    }
+
+ 
 
   ]
 }
