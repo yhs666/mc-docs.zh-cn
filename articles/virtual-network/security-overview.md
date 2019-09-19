@@ -11,15 +11,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/26/2018
-ms.date: 07/22/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.reviewer: kumud
-ms.openlocfilehash: 4767a14a17bb630d4350252c50ba7a5d8f395894
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: d58c27411dd3bb69f8098414a021df29182a7d83
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514446"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921234"
 ---
 # <a name="security-groups"></a>安全组
 <a name="network-security-groups"></a>
@@ -39,7 +39,7 @@ ms.locfileid: "68514446"
 |Name|网络安全组中的唯一名称。|
 |Priority | 介于 100 和 4096 之间的数字。 规则按优先顺序进行处理。先处理编号较小的规则，因为编号越小，优先级越高。 一旦流量与某个规则匹配，处理即会停止。 因此，不会处理优先级较低（编号较大）的、其属性与高优先级规则相同的所有规则。|
 |源或目标| 可以是任何值，也可以是单个 IP 地址、无类别域际路由 (CIDR) 块（例如 10.0.0.0/24）、[服务标记](#service-tags)或[应用程序安全组](#application-security-groups)。 如果为 Azure 资源指定一个地址，请指定分配给该资源的专用 IP 地址。 在 Azure 针对入站流量将公共 IP 地址转换为专用 IP 地址后，系统会处理网络安全组，然后由 Azure 针对出站流量将专用 IP 地址转换为公共 IP 地址。 详细了解 Azure [IP 地址](virtual-network-ip-addresses-overview-arm.md)。 指定范围、服务标记或应用程序安全组可以减少创建的安全规则数。 在一个规则中指定多个单独的 IP 地址和范围（不能指定多个服务标记或应用程序组）的功能称为[扩充式安全规则](#augmented-security-rules)。 只能在通过资源管理器部署模型创建的网络安全组中创建扩充式安全规则。 在通过经典部署模型创建的网络安全组中，不能指定多个 IP 地址和 IP 地址范围。 详细了解 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。|
-|协议     | TCP、UDP 或“任何”，包括（但不限于）TCP、UDP 和 ICMP。 不能仅指定 ICMP，因此，如果需要 ICMP，请使用“任何”。 |
+|协议     | TCP、UDP、ICMP 或 Any。|
 |方向| 该规则是应用到入站还是出站流量。|
 |端口范围     |可以指定单个端口或端口范围。 例如，可以指定 80 或 10000-10005。 指定范围可以减少创建的安全规则数。 只能在通过资源管理器部署模型创建的网络安全组中创建扩充式安全规则。 在通过经典部署模型创建的网络安全组中，不能在同一个安全规则中指定多个端口或端口范围。   |
 |操作     | 允许或拒绝        |
@@ -67,7 +67,10 @@ ms.locfileid: "68514446"
 * **VirtualNetwork**（资源管理器）（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（为虚拟网络定义的所有 CIDR 范围）、所有连接的本地地址空间，以及[对等互连](virtual-network-peering-overview.md)的虚拟网络，或已连接到[虚拟网络网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)的虚拟网络，以及在[用户定义的路由](virtual-networks-udr-overview.md)上使用的地址前缀。 请注意，此标记可能包含默认路由。 
 * **AzureLoadBalancer**（资源管理器）（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为[主机的虚拟 IP 地址](security-overview.md#azure-platform-considerations) (168.63.129.16)，Azure 的运行状况探测源于该 IP。 如果不使用 Azure 负载均衡器，则可替代此规则。
 * **Internet**（资源管理器）（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 地址范围包括 [Azure 拥有的公共 IP 地址空间](https://www.microsoft.com/download/confirmation.aspx?id=57062)。
-* **AzureChinaCloud***（仅限资源管理器）：  <!--MOONCAKE: CORRECT ON AzureCloud-->
+* **AzureCloud***（仅限资源管理器）： 
+
+    <!--MOONCAKE: CORRECT ON AzureCloud-->
+    
     此标记表示 Azure 的 IP 地址空间，包括所有[数据中心公共 IP 地址](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 如果指定 AzureCloud 作为值，则会允许或拒绝发往 Azure 公共 IP 地址的流量  。 对于出站安全规则，建议使用此标记。
 * **AzureTrafficManager***（仅限资源管理器）：此标记表示 Azure 流量管理器探测 IP 地址的 IP 地址空间。 有关流量管理器探测 IP 地址的详细信息，请参阅 [Azure 流量管理器常见问题解答](/traffic-manager/traffic-manager-faqs)。 对于入站安全规则，建议使用此标记。  
 * **Storage***（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 对于出站安全规则，建议使用此标记。 
@@ -83,12 +86,18 @@ ms.locfileid: "68514446"
 * **ApiManagement***（仅限资源管理器）：此标记表示 APIM 专用部署的管理流量地址前缀。 如果指定 ApiManagement 作为值，则会允许或拒绝发往 ApiManagement 的流量  。 对于入站/出站安全规则，建议使用此标记。 
 * **AzureConnectors***（仅限资源管理器）：此标记表示用于探测/后端连接的逻辑应用连接器的地址前缀。 如果指定 AzureConnectors 作为值，则会允许或拒绝发往 AzureConnectors 的流量  。 对于入站安全规则，建议使用此标记。 
 * **GatewayManager**（仅限资源管理器）：此标记表示 VPN/应用网关专用部署的管理流量地址前缀。 如果指定 GatewayManager 作为值，则会允许或拒绝发往 GatewayManager 的流量  。 对于入站安全规则，建议使用此标记。 
+    
     <!--Not Available on * **AzureDataLake*** (Resource Manager only):-->
+    
 * **AzureActiveDirectory***（仅限资源管理器）：此标记表示 AzureActiveDirectory 服务的地址前缀。 如果指定 AzureActiveDirectory 作为值，则会允许或拒绝发往 AzureActiveDirectory 的流量  。 对于出站安全规则，建议使用此标记。
 * **AzureMonitor***（仅限资源管理器）：此标记表示 Log Analytics 的地址前缀。 如果指定 AzureMonitor 作为值，则会允许或拒绝发往 AzureMonitor 的流量  。 对于 Log Analytics，此标记依赖于 **Storage** 标记。 对于出站安全规则，建议使用此标记。
+    
     <!--Not Available on App Insights, AzMon, and custom metrics (GiG endpoints)-->
+    
 * **ServiceFabric***（仅限资源管理器）：此标记表示 ServiceFabric 服务的地址前缀。 如果指定 ServiceFabric 作为值，则会允许或拒绝发往 ServiceFabric 的流量  。 对于出站安全规则，建议使用此标记。 
-  <!--Not Available on AzureMachineLearning-->
+    
+    <!--Not Available on AzureMachineLearning-->
+    
 * **BatchNodeManagement***（仅限资源管理器）：此标记表示 Azure Batch 专用部署的管理流量地址前缀。 如果为值指定 *BatchNodeManagement*，则允许或拒绝从 Batch 服务到计算节点的流量。 对于入站/出站安全规则，建议使用此标记。 
 * **AzureBackup***（仅限资源管理器）：此标记表示 AzureBackup 服务的地址前缀。 如果指定 *AzureBackup* 作为值，则会允许或拒绝发往 AzureBackup 的流量。 此标记依赖于 **Storage** 和 **AzureActiveDirectory** 标记。对于出站安全规则，建议使用此标记。 
     <!--Not Available on * **AzureActiveDirectoryDomainServices*** (Resource Manager only):-->
@@ -106,7 +115,7 @@ ms.locfileid: "68514446"
 ### <a name="service-tags-in-on-premises"></a>本地服务标记  
 可下载服务标记列表并将其与本地防火墙集成，其中包含针对 Azure [中国云](https://www.microsoft.com/download/details.aspx?id=57062)的以下每周发布的前缀详细信息。
 
-也可以使用**服务标记发现 API**（公共预览版）- [REST](https://aka.ms/discoveryapi_rest)、[Azure PowerShell](https://aka.ms/discoveryapi_powershell) 和 [Azure CLI](https://docs.microsoft.com/zh-cn/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags) 以编程方式检索此信息。 
+也可以使用**服务标记发现 API**（公共预览版）- [REST](https://aka.ms/discoveryapi_rest)、[Azure PowerShell](https://aka.ms/discoveryapi_powershell) 和 [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags) 以编程方式检索此信息。 
 
 > [!NOTE]
 > Azure [中国云](https://www.microsoft.com/download/confirmation.aspx?id=42064)的以下每周发布（旧版）将在 2020 年 6 月 30 日弃用。 请开始使用上面所述的更新发布。 
@@ -123,19 +132,19 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 |Priority|Source|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|全部|允许|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|任意|允许|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Priority|Source|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|全部|允许|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|任意|允许|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
 |Priority|Source|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|全部|拒绝|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|任意|拒绝|
 
 ### <a name="outbound"></a>出站
 
@@ -143,21 +152,21 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 |Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 全部 | 允许 |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 任意 | 允许 |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | 全部 | 允许 |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | 任意 | 允许 |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
 |Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 全部 | 拒绝 |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 任意 | 拒绝 |
 
-在“源”和“目标”列表中，“VirtualNetwork”、“AzureLoadBalancer”和“Internet”是[服务标记](#service-tags)，而不是 IP 地址。      在“协议”列中，“所有”包含 TCP、UDP 和 ICMP。  创建规则时，可以指定 TCP、UDP 或“所有”，但不能仅指定 ICMP。 因此，如果规则需要 ICMP，请为协议选择“所有”。  “源”和“目标”列中的“0.0.0.0/0”表示所有地址。    Azure 门户、Azure CLI 或 Powershell 等客户端可以使用 * 或任何字符来表示此表达式。
+在“源”和“目标”列表中，“VirtualNetwork”、“AzureLoadBalancer”和“Internet”是[服务标记](#service-tags)，而不是 IP 地址。      在“协议”列中，**Any** 包含 TCP、UDP 和 ICMP。 创建规则时，可以指定 TCP、UDP、ICMP 或 Any。 “源”和“目标”列中的“0.0.0.0/0”表示所有地址。    Azure 门户、Azure CLI 或 Powershell 等客户端可以使用 * 或任何字符来表示此表达式。
 
 不能删除默认规则，但可以通过创建更高优先级的规则来替代默认规则。
 
@@ -183,7 +192,7 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 |Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | 全部 | 拒绝 |
+| 120 | * | * | AsgDb | 1433 | 任意 | 拒绝 |
 
 ### <a name="allow-database-businesslogic"></a>Allow-Database-BusinessLogic
 
