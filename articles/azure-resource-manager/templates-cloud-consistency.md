@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/09/2018
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: bf0a3183e790dd84067e7559574eb7dd973d025e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 44ad6f734cfc36a8428eec1eff8aa7b966aa94f6
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857012"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156208"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -29,8 +29,13 @@ Azure 的主要优势是一致性。 一个位置的开发投入可在另一个�
 Azure 在很多位置提供了面向企业的智能云服务，其中包括：
 
 * 全球 Azure 平台，该平台由全球各区域不断扩大的 Microsoft 托管数据中心的网络提供支持。
+
+    <!--MOONCAKE: CORRECT ON Microsoft-managed Azure platform-->
+    
 * 独立主权云，例如 Azure 德国、Azure 美国政府和 Azure 中国（由世纪互联运营的 Azure）。 主权云提供具有大部分相同的强大功能的一致平台，全球 Azure 客户均有权访问。
+    
     <!--MOONCAKE: sovereign cloud correct-->
+    
 * Azure Stack，一种混合云平台，可从组织数据中心提供 Azure 服务。 企业可以在自己的数据中心中设置 Azure Stack，或者使用服务提供商提供的 Azure 服务，在他们的设施（有时称为托管区域）中运行 Azure Stack。
 
 在所有这些云的核心，Azure 资源管理器提供一个 API，用于实现各种用户界面与 Azure 平台的通信。 此 API 提供了强大的基础结构即代码功能。 使用 Azure 资源管理器可以部署和配置 Azure 云平台上提供的任何类型的资源。 只用一个模板即可将完整的应用程序部署和配置为操作结束状态。
@@ -49,7 +54,7 @@ Azure 在很多位置提供了面向企业的智能云服务，其中包括：
 * 请确保使用的模板参数适用于目标云。
 * 验证特定于资源的属性在目标云中是否可用。
 
-有关 Azure 资源管理器模板的简介，请参阅[模板部署](resource-group-overview.md#template-deployment)。
+有关 Azure 资源管理器模板的简介，请参阅[模板部署](template-deployment-overview.md)。
 
 ## <a name="ensure-template-functions-work"></a>确保模板函数可用
 
@@ -227,7 +232,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 
 ![资源提供程序](./media/templates-cloud-consistency/resource-providers.png) 
 
-要验证资源提供程序在给定云中是否可用，请在 Azure 命令行界面 ([CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)) 中运行以下脚本：
+要验证资源提供程序在给定云中是否可用，请在 Azure 命令行界面 ([CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)) 中运行以下脚本：
 
 ```azurecli
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
@@ -454,7 +459,9 @@ API 配置文件可确保 API 版本可跨位置使用，因此不需要手动�
 一般情况下，请避免在模板中使用硬编码终结点。 最佳做法是使用引用模板函数动态检索终结点。 例如，最常进行硬编码的终结点是存储帐户的终结点命名空间。 每个存储帐户均有唯一的 FQDN，它通过连接存储帐户的名称与终结点命名空间来构造。 名为 mystorageaccount1 的 blob 存储帐户会因为云的不同而产生不同的 FQDN：
 
 * 在全球 Azure 云上创建时会产生 mystorageaccount1.blob.core.windows.net  。
+    
     <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
+    
 * 在 Azure 中国云中创建时会产生 mystorageaccount1.blob.core.chinacloudapi.cn  。
 
 以下引用模板函数从存储资源提供程序中检索终结点命名空间：
@@ -495,8 +502,10 @@ Azure 提供丰富的精选 VM 映像。 这些映像已创建并准备好，可
 要检索位置中的可用 VM 映像列表，请运行以下 Azure CLI 命令：
 
 ```azurecli
-az vm image list -all
+az vm image list
 ```
+
+<!--MOONCAKE: UNVALID ON -all-->
 
 可以使用 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) 检索同一列表并使用 `-Location` 参数指定想要的位置。 例如：
 

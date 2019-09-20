@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 89bf6b91962b17144c6a07d1bd317b5304f92952
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: 1eaa531e38ab0986fd64bfb00f2aacc097790a93
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667654"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124562"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略  
 
 > [!NOTE]
 > Google Widevine 目前在中国地区不可用。
@@ -444,6 +444,9 @@ ms.locfileid: "69667654"
         BaselineHttp = 2
     }
 
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已配置了内容密钥的授权策略，可以查看[如何配置资产传送策略](media-services-rest-configure-asset-delivery-policy.md)了。

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 0d2d1d4971f9f21a975635c6eda4877c85e97ae5
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 94806d9b02fe2f53a336b2c954add152f778bb4d
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254413"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124395"
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
 向客户传送流或视频点播内容时，目标在于向处于不同网络条件下的各种设备传送优质视频。
@@ -181,6 +181,9 @@ https://test001.blob.core.chinacloudapi.cn/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17
     </SmoothStreamingMedia>
 
 一些旧平滑流式处理客户端可能不支持此重复标记，并且无法加载清单。 若要解决此问题，可以使用旧清单格式参数 (format=fmp4-v20)  ，或将客户端更新到支持重复标记的最新版本。 有关详细信息，请参阅[平滑流式处理 2.0](media-services-deliver-content-overview.md#fmp4_v20)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="related-topics"></a>相关主题
 [轮转存储密钥后更新媒体服务定位符](media-services-roll-storage-access-keys.md)

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 9f44f835f77c2a3998c9d6d0e01bb0f2e37dedbc
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 39aed40675291fa9f7c416a5c9038af870bd3474
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670940"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124461"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用从本地编码器接收多比特率实时流的频道
 
@@ -222,6 +222,9 @@ ms.locfileid: "69670940"
 * 只有当频道处于“正在运行”状态且频道中的所有节目都已停止时，才能停止频道  。
 * 默认情况下，只能向媒体服务帐户添加五个频道。 有关详细信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。
 * 仅当频道处于“正在运行”  状态时才会向你收费。 有关详细信息，请参阅[频道状态和计费](media-services-live-streaming-with-onprem-encoders.md#states)部分。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="related-topics"></a>相关主题
 [建议的本地编码器](media-services-recommended-encoders.md)

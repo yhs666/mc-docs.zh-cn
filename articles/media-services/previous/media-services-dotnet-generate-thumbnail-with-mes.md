@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: e8d4c1a99f564f672d175ccb54cb2e2c27121635
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 5f6ddfd387d40f18e07e624301dd80466fabbe9f
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624200"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124520"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使用 Media Encoder Standard 通过 .NET 来生成缩略图 
 
@@ -280,7 +280,7 @@ ms.locfileid: "58624200"
 
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>在编码时生成缩略图的示例
 
-上述所有示例都在讨论如何提交仅生成图像的编码任务，但还可以将视频/音频编码与缩略图生成结合起来。 以下的 JSON 和 XML 预设指示 Media Encoder Standard 在编码过程中生成一个缩略图。
+上述所有示例都在讨论如何提交仅生成图像的编码任务，但还可以将视频/音频编码与缩略图生成结合起来。 以下的 JSON 和 XML 预设指示 Media Encoder Standard 在编码过程中生成一个缩略图  。
 
 ### <a id="json"></a>JSON 预设
 有关架构的信息，请参阅[此](media-services-mes-schema.md)文。
@@ -562,7 +562,13 @@ namespace EncodeAndGenerateThumbnails
   * 默认值：Start:{Best}
 * 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 提供时，MES 会将 JpgVideo 与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
+## <a name="next-steps"></a>后续步骤
+
+可以在编码作业挂起时检查[作业进度](media-services-check-job-progress.md)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)
 
-<!--Update_Description: update code-->

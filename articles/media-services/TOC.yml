@@ -1,5 +1,10 @@
-- name: Azure 媒体服务 v2
-  href: previous/media-services-overview.md
+- name: Azure 媒体服务 v3
+  displayName: 'encode, stream, package, content protection, video analytics'
+  href: /latest/
+- name: Azure 媒体服务 v2（旧版）
+  href: /previous/media-services-overview.md
+- name: Azure Media Player
+  href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
 - name: 规范
   items:
     - name: 超时元数据

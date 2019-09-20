@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: d18dd82f579e7f27a5518ee6f36f618a2651fb89
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: bfa9e4928499905be226c3a52e3a50799f004b58
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254967"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124604"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
 
@@ -136,4 +136,8 @@ Media Encoder Premium Workflow 输出格式和编解码器
 ## <a name="known-issues"></a>已知问题
 
 如果输入视频不包含隐藏式字幕，输出资产仍包含一个空的 TTML 文件。 
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

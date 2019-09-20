@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 06/03/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 9c47fdb37bc8a53c55f6291ac780bfb4d05d8bc5
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 3c65707b31c61aa0f3cf6bc3dde7ec5cf3dc0f39
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390722"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124485"
 ---
 # <a name="encoding-error-codes"></a>编码错误代码
 
@@ -40,6 +40,9 @@ ms.locfileid: "66390722"
 | TransientError |包含暂时性问题的错误类别（例如 Azure 存储的临时网络问题） |
 
 若要获得**媒体服务**团队的帮助，请打开[支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="related-articles"></a>相关文章
 * [通过自定义 Media Encoder Standard 预设执行高级编码任务](media-services-custom-mes-presets-with-dotnet.md)

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 06/03/2019
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7d910eff87df2492a5d7f874860b6d9c88b33e9
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 24bdcbf565c0833753766a489d66215d19e8db76
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731234"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155864"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念
 
@@ -232,9 +232,10 @@ Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中 
 - [Kubernetes/AKS 安全性][aks-concepts-security]
 - [Kubernetes/AKS 虚拟网络][aks-concepts-network]
 - [Kubernetes/AKS 存储][aks-concepts-storage]
-- [Kubernetes/AKS 缩放][aks-concepts-scale]
+- [Kubernetes/AKS 规模][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
+
 [aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
@@ -246,6 +247,7 @@ Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中 
 [azure-cloud-shell]: https://shell.azure.com
 
 <!-- INTERNAL LINKS -->
+
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: a569d5fe1c9ac20d660fbdb0ffc788084e31f53a
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 37c70c2a7f63443eda3d6a675a101859dfc74eb1
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236472"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124594"
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
 
@@ -28,4 +28,13 @@ ms.locfileid: "67236472"
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
 
-<!--Update_Description:update metadata-->
+## <a name="open-a-support-ticket-to-request-changes-to-the-default-quotas"></a>开具支持票证以请求更改默认配额
+若要请求更改所提供的默认配额，可开具支持票证。 请在请求中包含所需的配额更改、用例方案和所需区域的详细信息。
+
+### <a name="how-to-open-a-support-ticket"></a>如何开具支持票证
+在 Azure 门户中，转到[帮助 + 支持](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 如果未登录到 Azure，系统会提示输入凭据。
+
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

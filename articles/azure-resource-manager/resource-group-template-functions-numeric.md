@@ -3,16 +3,16 @@ title: Azure Resource Manager 模板函数 - 数值 | Azure
 description: 介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 11/08/2017
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: d47594c1452d0e048efdaaf20ed6395d73f3a6f0
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 97a23b71f78c11a89461b2419343e04827081e51
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337433"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156092"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 

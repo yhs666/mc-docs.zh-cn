@@ -5,16 +5,16 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-origin.date: 06/05/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
+origin.date: 06/12/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 13e6cc5920f74ad053c34f9dc590d4f2d76c3140
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: b874c46636b86c898af192a2165779808ca1d276
+ms.sourcegitcommit: 0529a2aa102e058636d726b4a4f25208e1e60597
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232269"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059571"
 ---
 ## <a name="prepare-your-repository"></a>准备存储库
 
@@ -30,7 +30,6 @@ ms.locfileid: "68232269"
 | Python | _\*.py_ 、 _requirements.txt_ 或 _runtime.txt_ |
 | HTML | default.htm、default.html、default.asp、index.htm、index.html 或 iisstart.htm       |
 | Web 作业 | App\_Data/jobs/continuous（适用于连续的 WebJobs）或 App\_Data/jobs/triggered（适用于触发的 WebJobs）下的 \<job_name>/run.\<extension>    。 有关详细信息，请参阅 [Kudu WebJobs 文档](https://github.com/projectkudu/kudu/wiki/WebJobs)。 |
-| 函数 | 请参阅 [Azure Functions 的连续部署](https://docs.azure.cn/zh-cn/azure-functions/functions-continuous-deployment#continuous-deployment-requirements)。 |
 
 要自定义部署，可以在存储库根路径中添加 .deployment 文件  。 有关详细信息，请参阅[自定义部署](https://github.com/projectkudu/kudu/wiki/Customizing-deployments)和[自定义部署脚本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。
 

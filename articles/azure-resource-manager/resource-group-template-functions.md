@@ -3,19 +3,19 @@ title: Resource Manager 模板函数 | Azure
 description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 04/08/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: b05c84270f1d8adccafa4410eb41037c635970c9
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 503be68bd5eebc5b350a9b7151fa221624c293f8
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337323"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156197"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
-本文介绍可以在 Azure 资源管理器模板中使用的所有函数。 若要了解如何在模板中使用函数，请参阅[模板语法](resource-group-authoring-templates.md#syntax)。
+本文介绍可以在 Azure 资源管理器模板中使用的所有函数。 若要了解如何在模板中使用函数，请参阅[模板语法](template-expressions.md)。
 
 若要创建自己的函数，请参阅[用户定义函数](resource-group-authoring-templates.md#functions)。
 

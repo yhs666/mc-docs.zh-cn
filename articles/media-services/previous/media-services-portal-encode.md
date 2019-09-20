@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: f5b8b4dd41cee2c7db5968669b207abf90fb8f73
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: ab3524d0a2efc24ee2192d9af490b5ffd6fbbaf7
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670999"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124633"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>在 Azure 门户中使用 Media Encoder Standard 对资产进行编码
 
@@ -51,7 +51,9 @@ ms.locfileid: "69670999"
    ![对资产进行编码](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. 选择“创建”  。
 
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 ## <a name="next-steps"></a>后续步骤
 * 在 Azure 门户中[监视编码作业的进度](media-services-portal-check-job-progress.md)。  
 
-<!--Update_Description: wording update-->

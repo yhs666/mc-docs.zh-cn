@@ -5,16 +5,16 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 04/09/2019
-ms.date: 07/22/2019
+origin.date: 08/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1ac466614430cb0ceb97a2b3511d5472f1382e8d
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 8c1c85c7a6e859810bc0a64d67e254776701e048
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337352"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156220"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教程：使用 Azure 门户部署和配置 Azure 防火墙
 
@@ -68,6 +68,9 @@ ms.locfileid: "68337352"
 
 此 VNet 将包含三个子网。
 
+> [!NOTE]
+> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+
 1. 在 Azure 门户主页上，选择“创建资源”。 
 2. 在“网络”下，选择“虚拟网络”。  
 4. 对于“名称”，请键入 **Test-FW-VN**。 
@@ -76,11 +79,8 @@ ms.locfileid: "68337352"
 7. 对于“资源组”，请选择“Test-FW-RG”。  
 8. 对于“位置”，请选择前面使用的同一位置。 
 9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。   防火墙将位于此子网中，子网名称**必须**是 AzureFirewallSubnet。
-10. 对于“地址范围”，请键入 **10.0.1.0/24**。 
+10. 对于“地址范围”，请键入 **10.0.1.0/26**。 
 11. 接受其他默认设置，然后选择“创建”。 
-
-> [!NOTE]
-> AzureFirewallSubnet 子网的最小大小为 /26。
 
 ### <a name="create-additional-subnets"></a>创建更多的子网
 
@@ -152,6 +152,7 @@ ms.locfileid: "68337352"
 6. 查看摘要，然后选择“创建”以创建防火墙。 
 
     需要花费几分钟时间来完成部署。
+    
 7. 部署完成后，转到“Test-FW-RG”资源组，然后选择“Test-FW01”防火墙。  
 8. 记下专用 IP 地址。 稍后在创建默认路由时需要用到此地址。
 
@@ -260,5 +261,4 @@ Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则�
 > [!div class="nextstepaction"]
 > [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!-- Update_Description: new article about turorial firesall deploy portal -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: wording update -->

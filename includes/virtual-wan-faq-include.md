@@ -5,20 +5,20 @@ services: virtual-wan
 author: rockboyfor
 ms.service: virtual-wan
 ms.topic: include
-origin.date: 06/07/2019
-ms.date: 06/28/2019
+origin.date: 08/06/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: dbf06d1e7c164f5ac4666cfb4656a1b71c0c3979
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: 002ed069aa5e2517d98268d0fed10920bf4b61fb
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540082"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156559"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 虚拟网络网关（VPN 网关）与 Azure 虚拟 WAN vpngateway 之间有什么差别？
 
-虚拟 WAN 提供大规模站点到站点连接，在设计上考虑到了吞吐量、可伸缩性和易用性。 ExpressRoute 和点到站点连接功能当前为预览版。 CPE 分支设备自动预配并连接到 Azure 虚拟 WAN。 这些设备由一个不断扩张的 SD-WAN 和 VPN 合作伙伴生态系统提供。 请参阅[首选合作伙伴列表](https://go.microsoft.com/fwlink/p/?linkid=2019615)。
+虚拟 WAN 提供大规模站点到站点连接，在设计上考虑到了吞吐量、可伸缩性和易用性。 用于虚拟 WAN 连接的 ExpressRoute 目前处于预览状态。 CPE 分支设备自动预配并连接到 Azure 虚拟 WAN。 这些设备由一个不断扩张的 SD-WAN 和 VPN 合作伙伴生态系统提供。 请参阅[首选合作伙伴列表](https://go.microsoft.com/fwlink/p/?linkid=2019615)。
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>到 Azure 虚拟 WAN 的分支连接是什么？
 
@@ -103,19 +103,19 @@ ms.locfileid: "67540082"
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>是否可以使用资源管理器模板构造 Azure 虚拟 WAN？
 
-可以使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.Network)创建具有单个中心和单个 VPN 站点的单个虚拟 WAN 的简单配置。 虚拟 WAN 从根本上来说是一种 REST 或门户驱动的服务。
+可以使用 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network)创建具有单个中心和单个 VPN 站点的单个虚拟 WAN 的简单配置。 虚拟 WAN 从根本上来说是一种 REST 或门户驱动的服务。
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>虚拟 WAN 中是否允许分支到分支连接？
 
-是的，对于 VPN 和 VPN 到 ExpressRoute，分支到分支连接在虚拟 WAN 中可用。 虽然 VPN 站点到站点为正式版，但 ExpressRoute 和点到站点当前为预览版。
+是的，对于 VPN 和 VPN 到 ExpressRoute，分支到分支连接在虚拟 WAN 中可用。 虽然 VPN 站点到站点为正式版，但 ExpressRoute 当前为预览版。
 
-### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>分支到分支流量是否可以穿过 Azure 虚拟 WAN？
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>分支到分支流量是否可以通过 Azure 虚拟 WAN？
 
 是的。
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>虚拟 WAN 与现有 Azure 虚拟网络网关有何不同？
 
-虚拟网络网关 VPN 限制为 30 个隧道。 对于连接，应当为大型 VPN 使用虚拟 WAN。 在所有区域的中心内，可以连接到最多 1,000 个 2 Gbps 的分支连接。 我们将来会向所有区域推出 20 Gbps 的速率。 连接是从本地 VPN 设备到虚拟中心的主动-主动隧道。 每个区域中可以有一个中心，这意味着你可以跨中心连接到 1,000 多个分支。
+虚拟网络网关 VPN 限制为 30 个隧道。 对于连接，应当为大型 VPN 使用虚拟 WAN。 在所有区域的中心内，可以以 20 Gbps 的速率最多连接到 1,000 个分支。 连接是从本地 VPN 设备到虚拟中心的主动-主动隧道。 每个区域中可以有一个中心，这意味着你可以跨中心连接到 1,000 多个分支。
 
 <!--Not Available on except the West Central region, For the West Central region, 20 Gbps is available.-->
 
@@ -130,9 +130,11 @@ ms.locfileid: "67540082"
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>使用 Azure 虚拟 WAN 时是否存在网络吞吐量限制？
 
-分支数限制为每个中心/区域 1000 个连接，中心内总带宽为 2 G。 我们将来会向所有区域推出 20 Gbps 的速率。
+分支数限制为每个中心/区域 1000 个连接，中心内总带宽为 20 Gbps。
 
-<!--Not Available on The exception is West Central region, which has a total of 20 Gbps.-->
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>我在门户中看不到虚拟中心的 20 Gbps 设置。 我该如何配置它？
+
+目前，可以使用 [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) cmdlet 为 20 Gbps 配置网关缩放单元。 此设置在门户中将要提供的路线图上。
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>一个虚拟 WAN 中心支持多少个 VPN 连接？
 
@@ -148,9 +150,7 @@ ms.locfileid: "67540082"
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>流量在 Azure 主干网上是如何路由的？
 
-流量遵循以下模式：分支设备->ISP->Azure 边缘->Azure DC（中心 VNet）->Azure 边缘->ISP->分支设备
-
-<!--MOONCAKE: CORRECT ON Azure edge, Azure DC-->
+流量遵循以下模式：分支设备->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge（中心 VNet）->ISP->分支设备
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>在此模型中，需要在每个站点执行什么操作？ 只需要创建 Internet 连接？
 

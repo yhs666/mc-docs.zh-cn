@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: a0eb1efc6c58ff0ba5c8b836b79dae7e20bb21e3
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: f762fa11e2908c82e9cf1a3f801174ad8c5160d0
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667657"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124622"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 门户配置内容保护策略
 
@@ -110,4 +110,7 @@ PlayReady 许可证模板设置在 PlayReady 许可证上启用的功能。 有�
 
 >[!NOTE] 
 >如果打算在 Safari 中播放 AES 加密的 HLS，请参阅博客文章：[Safari 中加密的 HLS](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。
-<!--Update_Description:add a note at the end-->
+
+## <a name="next-steps"></a>后续步骤
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

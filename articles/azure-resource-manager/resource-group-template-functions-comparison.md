@@ -3,16 +3,16 @@ title: Azure Resource Manager 模板函数 - 比较 | Azure
 description: 介绍可在 Azure Resource Manager 模板中使用的用于比较值的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 09/05/2017
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 81998a3f1771ffb48c861f84c787edde00f70c06
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: a83dd7bad045709d32899e1d34da607624c6f972
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337324"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156095"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的比较函数
 

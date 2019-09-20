@@ -1,9 +1,9 @@
 ---
-title: 在 Azure 应用服务移动应用中创建 Cordova 应用
+title: 在 Azure 应用服务移动应用中创建 Cordova 应用 | Azure
 description: 遵循本教程开始使用 Azure 移动应用后端进行 Apache Cordova 开发
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 tags: ''
@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
-origin.date: 07/07/2017
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 3efd300c05b5a77a73088b67bcb9c35b770c42f3
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+origin.date: 06/25/2019
+ms.date: 09/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9b4c3bbb6710abb433acdaa880aecc02a6a04386
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687468"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006595"
 ---
 # <a name="create-an-apache-cordova-app"></a>创建 Apache Cordova 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -52,5 +52,5 @@ ms.locfileid: "66687468"
 <!-- URLs -->
 [Azure 门户]： https://portal.azure.cn/
 
-[Visual Studio Community 2017]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: https://www.visualstudio.com/
 [用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/features/cordova-vs.aspx

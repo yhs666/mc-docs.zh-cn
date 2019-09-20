@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: a07a6826b6b7122ef5a64e40733a5a6ef3a0bb7f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6c0acaca54214003b3e6ffebb7c1e745de35749e
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737362"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124480"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -65,7 +65,7 @@ ms.locfileid: "70737362"
 
 问：如何在编码过程中旋转视频？
 
-答：[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支持旋转 90/180/270 度。 默认行为是“自动”，即尝试在传入的 MP4/MOV 文件中检测旋转元数据并对其进行补偿。 包含 **此处** 定义的 json 预设之一的以下 [Sources](media-services-mes-presets-overview.md)元素：
+答：[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支持旋转 90/180/270 度。 默认行为是“自动”，即尝试在传入的 MP4/MOV 文件中检测旋转元数据并对其进行补偿。 包含[此处](media-services-mes-presets-overview.md)定义的 json 预设之一的以下 **Sources** 元素：
 
     "Version": 1.0,
     "Sources": [
@@ -81,4 +81,6 @@ ms.locfileid: "70737362"
     ...
 
 
-<!--Update_Description: add Q/A for "How do you stream to Apple iOS devices"-->
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
 ms.reviewer: anilmur;juliako
-ms.openlocfilehash: 21fa53b2a080b7ce77dd5df68079a7d7f34673a7
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 42dbd154dd2dd51f8211a0ed831eaee746a5d432
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254977"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124584"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>在高级编码器中使用多个输入文件和组件属性
 ## <a name="overview"></a>概述
@@ -473,4 +473,8 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 * [使用 Azure 媒体服务对按需内容进行编码](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [媒体编码器高级工作流格式和编解码器](media-services-premium-workflow-encoder-formats.md)
 * [示例工作流文件](https://github.com/Azure/azure-media-services-samples)
+* [Azure 媒体服务资源管理器工具](https://aka.ms/amse)
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

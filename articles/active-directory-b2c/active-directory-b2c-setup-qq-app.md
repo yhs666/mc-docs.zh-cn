@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 09/02/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4357a698d0721ef0fc6b1f4bff9fa496bbbf24c8
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: e6dc1757a96015a8937e067db7c3f139e263ead6
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310769"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083243"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过 QQ 帐户注册与登录
 
@@ -29,7 +29,7 @@ ms.locfileid: "70310769"
 ### <a name="register-for-the-qq-developer-program"></a>注册 QQ 开发人员计划
 
 1. 使用 QQ 帐户凭据登录 [QQ 开发人员门户](http://open.qq.com)。
-1. 登录后，请转到 [http://open.qq.com/reg](http://open.qq.com/reg) 将自己注册为开发者。
+1. 登录后，请转到 [https://open.qq.com/reg](https://open.qq.com/reg) 将自己注册为开发者。
 1. 选择“个人”  (individual developer)。
 1. 输入所需的信息，并选择“下一步”  (next step)。
 1. 完成电子邮件验证过程。 注册为开发人员后，需要等待几天，以获得批准。
@@ -57,4 +57,4 @@ ms.locfileid: "70310769"
 1. 对于**客户端密码**，输入你记录的应用密钥。
 1. 选择“其他安全性验证”  。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

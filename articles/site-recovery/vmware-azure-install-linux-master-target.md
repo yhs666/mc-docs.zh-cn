@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 03/06/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 357fbb82f8fb12b265fa8bc752c5d8179caf65ff
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: a40777b41f7e2683872e866e203523f166e17e56
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134482"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083185"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -225,8 +225,8 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
     `./ApplyCustomChanges.sh`
 
-> [!NOTE]
-> 仅在服务器上运行该脚本一次。 然后关闭服务器。 根据后续部分所述添加磁盘后，重启服务器。
+    > [!NOTE]
+    > 仅在服务器上运行该脚本一次。 然后关闭服务器。 根据后续部分所述添加磁盘后，重启服务器。
 
 ### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>将保留磁盘添加到 Linux 主目标虚拟机
 
@@ -273,7 +273,7 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
     示例： 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
 
 2. 记下配置服务器的 IP 地址， 运行以下命令安装主目标服务器并将它注册到配置服务器。
 

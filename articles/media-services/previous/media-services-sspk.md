@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: f99cf1cbc1f0101f04a388e7c55ce13b62812685
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 8b27ffd472d0ddaca8716c776bc677e9058fe0e1
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624209"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124665"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包 
 ## <a name="overview"></a>概述
@@ -160,3 +160,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

@@ -3,16 +3,16 @@ title: Azure Resource Manager 模板函数 - 字符串 | Azure
 description: 介绍了可在 Azure Resource Manager 模板中用来处理字符串的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 162edf21ca3240390c24be498b44a7c2e6983e2a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 5606de5551eace0358213fc40061194d998bfad0
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993546"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156088"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的字符串函数
 

@@ -6,18 +6,18 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 04/22/2019
-ms.date: 09/10/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8ee195251aa3eee59f87a74a4ce40ef546bde4dd
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 6df0b357262f3be9cee0dfddd68211dc6b4ec1e4
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857420"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083263"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>通过 Azure PowerShell 使用 KeyVault 证书配置 SSL 终止
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) 是由平台管理的机密存储，可以用来保证机密、密钥和 SSL 证书的安全。 Azure 应用程序网关支持与 Key Vault（公共预览版）集成，以存储附加到支持 HTTPS 的侦听器的服务器证书。 此支持仅限 v2 SKU 版应用程序网关。
+[Azure Key Vault](../key-vault/key-vault-overview.md) 是由平台管理的机密存储，可以用来保证机密、密钥和 SSL 证书的安全。 Azure 应用程序网关支持与 Key Vault（公共预览版）集成，以存储附加到支持 HTTPS 的侦听器的服务器证书。 此支持仅限 v2 SKU 版应用程序网关。
 
 有关详细信息，请参阅[使用密钥保管库证书实现 SSL 终止](key-vault-certs.md)。
 
@@ -143,3 +143,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 [详细了解 SSL 终止](ssl-overview.md)
 
+<!-- Update_Description: link update -->

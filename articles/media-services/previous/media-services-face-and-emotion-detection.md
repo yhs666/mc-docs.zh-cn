@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: d972ddbc792b894402d8875440bc2c86570d4ab6
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.reviewer: milanga
+ms.openlocfilehash: 9242ef82f4f9c1cd664ec9780b1cb0aca0b7f119
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833393"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124486"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
 ## <a name="overview"></a>概述
@@ -514,9 +515,11 @@ namespace FaceDetection
 }
 ```
 
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos（Azure 媒体分析演示）](http://amslabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos（Azure 媒体分析演示）](https://amslabs.azurewebsites.net/demos/Analytics.html)
 
-<!--Update_Description: update Aggregate defaults table-->

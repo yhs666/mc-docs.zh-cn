@@ -16,15 +16,15 @@ origin.date: 07/01/2016
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 4014b0b37d321f7d33b42d791bf387c90f5d0498
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 4943b5975a93c940a435b99a401959627c2eeaa8
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806832"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155811"
 ---
 # <a name="best-practices-for-azure-app-service"></a>有关 Azure 应用服务的最佳实践
-本文汇总了有关使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 的最佳实践。 
+本文汇总了有关使用 [Azure App Service](overview.md) 的最佳实践。 
 
 ## <a name="colocation"></a>共置
 如果将编写解决方案（例如 Web 应用和数据库）的 Azure 资源定位在不同的区域，可能产生以下影响：

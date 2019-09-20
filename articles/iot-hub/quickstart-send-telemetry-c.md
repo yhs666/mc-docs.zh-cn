@@ -9,14 +9,14 @@ ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 04/10/2019
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1693fd570019dc0cf6d8a6e289a4ee993fa23909
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d88d4aaca11a075dfe78a04ddb54d702cee5c49b
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570515"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156213"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (C)
 
@@ -61,15 +61,14 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
     在进行 `CMake` 安装之前，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负载）  。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
-2. 打开命令提示符或 Git Bash shell。 执行以下命令克隆 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库：
-    
+2. 打开命令提示符或 Git Bash shell，并导航到要将 Azure IoT C SDK 克隆到的工作目录。 执行以下命令克隆 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库：
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
     应该预料到此操作需要几分钟才能完成。
 
-
-3. 在 git 存储库的根目录中创建 `cmake` 子目录，并导航到该文件夹。 
+3. 在 git 存储库的根目录中创建 `cmake` 子目录，并导航到该文件夹。 在工作目录中输入以下命令：
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -77,7 +76,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
     cd cmake
     ```
 
-4. 运行以下命令，生成特定于你的开发客户端平台的 SDK 版本。 将在 `cmake` 目录中生成模拟设备的 Visual Studio 解决方案。 
+4. 运行以下命令，以生成特定于你的开发客户端平台的 SDK 版本。 将在 `cmake` 目录中生成模拟设备的 Visual Studio 解决方案。
 
     ```cmd
     cmake ..
@@ -138,7 +137,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 模拟设备应用程序将连接到 IoT 中心上特定于设备的终结点，并发送模拟遥测数据形式的字符串。
 
-1. 使用文本编辑器打开 iothub_convenience_sample.c 源文件，并查看用于发送遥测数据的示例代码。 该文件位于以下位置：
+1. 使用文本编辑器打开 iothub_convenience_sample.c 源文件，并查看用于发送遥测数据的示例代码。 该文件位于克隆 Azure IoT C SDK 的工作目录下的以下位置：
 
     ```
     \azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
@@ -152,10 +151,10 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
     ```
     将 `connectionString` 常量的值替换为之前记下的设备连接字符串。 然后保存对 **iothub_convenience_sample.c** 所做的更改。
 
-3. 在本地终端窗口中，导航到在 Azure IoT C SDK 中创建的 CMake 目录中的 iothub_convenience_sample 项目目录  。
+3. 在本地终端窗口中，导航到在 Azure IoT C SDK 中创建的 CMake 目录中的 iothub_convenience_sample 项目目录  。 在工作目录中输入以下命令：
 
-    ```
-    cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
+    ```cmd/sh
+    cd azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
 4. 在本地终端窗口中运行 CMake 以使用更新的 `connectionString` 值生成示例：

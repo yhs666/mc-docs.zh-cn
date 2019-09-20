@@ -125,10 +125,6 @@
           href: idp-pass-through-user-flow.md
     - name: 自定义策略
       items:
-        - name: 创建策略
-          items:
-            - name: 启用“使我保持登录状态”
-              href: active-directory-b2c-reference-kmsi-custom.md
         - name: UX 自定义
           items:
             - name: 页面布局
@@ -220,13 +216,16 @@
       items:
         - name: b2clogin.cn 概述
           href: b2clogin.md
-          displayName: 'migrate, b2clogin, owin, jwt'
+          displayName: 'migrate, b2clogin, owin'
     - name: 自动化
       items:
         - name: 帐户管理
           href: active-directory-b2c-devquickstarts-graph-dotnet.md
     - name: 审核日志
       href: active-directory-b2c-reference-audit-logs.md
+    - name: 安全 API 管理 API
+      href: secure-api-management.md
+      displayName: 'apim, api management, migrate, b2clogin.cn'
     - name: 合规性
       items:
         - name: 用户访问权限

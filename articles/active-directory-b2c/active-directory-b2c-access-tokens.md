@@ -2,25 +2,25 @@
 title: 请求访问令牌 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何从 Azure Active Directory B2C 请求访问令牌。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 06/05/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 101c574a27b26a0120ccbd154af512f32820aeb3
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: c46a28d1be9ca0a719c114313dda4cba0a1d3d4e
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235960"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083200"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中请求访问令牌
 
-访问令牌包含的声明可在 Azure Active Directory (Azure AD) B2C 中用于识别已授予的对 API 的权限。  调用资源服务器时，必须在 HTTP 请求中提供访问令牌。 访问令牌在 Azure AD B2C 的响应中以 **access_token** 表示。 
+访问令牌包含的声明可在 Azure Active Directory (Azure AD) B2C 中用于识别已授予的对 API 的权限。  调用资源服务器时，必须在 HTTP 请求中提供访问令牌。 访问令牌在 Azure AD B2C 的响应中以 **access_token** 表示。
 
 本文介绍如何请求 Web 应用程序和 Web API 的访问令牌。 有关 Azure AD B2C 中令牌的详细信息，请参阅 [Azure Active Directory B2C 中的令牌概述](active-directory-b2c-reference-tokens.md)。
 
@@ -68,13 +68,13 @@ scope=https%3A%2F%2Fcontoso.partner.onmschina.cn%2Fapi%2Fread%20openid%20offline
 - `<application-ID>` - 注册用于支持用户流的 Web 应用程序的应用程序标识符。
 - `<redirect-uri>` - 注册客户端应用程序时输入的重定向 URI  。
 
-```
+```HTTP
 GET https://<tenant-name>.b2clogin.cn/tfp/<tenant-name>.partner.onmschina.cn/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
 &scope=https://tenant-name>.partner.onmschina.cn/api/read
-&response_type=code 
+&response_type=code
 ```
 
 包含授权代码的响应应类似于以下示例：
@@ -85,9 +85,9 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 成功接收授权代码以后，可以将其用于请求访问令牌：
 
-```
+```HTTP
 POST <tenant-name>.partner.onmschina.cn/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
-Host: https://<tenant-name>.b2clogin.cn
+Host: <tenant-name>.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
@@ -100,7 +100,7 @@ grant_type=authorization_code
 
 看到的内容应该类似于以下响应：
 
-```
+```JSON
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -114,7 +114,7 @@ grant_type=authorization_code
 
 使用 https://jwt.ms 检查返回的访问令牌时，看到的内容应该类似于以下示例：
 
-```
+```JSON
 {
   "typ": "JWT",
   "alg": "RS256",

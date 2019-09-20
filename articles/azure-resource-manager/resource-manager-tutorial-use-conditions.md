@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 05/21/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 9973831d84b088d0dcbd5ed939e2c79ce669eb9d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 68a3f8bb369cb15a34acf5608263921557204a77
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993585"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156090"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教程：在 Azure 资源管理器模板中使用条件
@@ -40,7 +40,7 @@ ms.locfileid: "69993585"
 
 本教程仅介绍使用条件的基本方案。 有关详细信息，请参阅：
 
-* [模板文件结构：条件](./resource-group-authoring-templates.md#condition)。
+* [模板文件结构：条件](conditional-resource-deployment.md)。
     
     <!--Not Available on * [Conditionally deploy a resource in an Azure Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)-->
 

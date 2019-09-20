@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 orgin.date: 06/25/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 266ed84d6695e079928588df2b7b1b27a9f271d8
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 65a4dd52debe41fda965c06f3afb83afc8c2c155
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993588"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156025"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>IoT 中心模块标识和模块孪生 (C) 入门
 
@@ -31,7 +31,7 @@ ms.locfileid: "69993588"
 > [!NOTE]
 > 有关 Azure IoT SDK 的信息（可以使用这些 SDK 构建可在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-要完成本教程，需要以下各项：
+## <a name="prerequisites"></a>先决条件
 
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。）
 
@@ -297,7 +297,7 @@ static void deviceTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsi
     (void)userContextCallback;
 
     printf("Device Twin update received (state=%s, size=%zu): %s\r\n", 
-        ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+        MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
 }
 
 static void reportedStateCallback(int status_code, void* userContextCallback)

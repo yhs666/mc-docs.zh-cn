@@ -3,7 +3,7 @@ title: 轮询长时运行的操作 | Microsoft Docs
 description: 本主题展示了如何轮询长时间运行的操作。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 2f8806200ebcf345601c4360b92197a2859f4fb7
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+origin.date: 03/18/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: d9e12c84d8828836356d6fb0e92d35b273b96d24
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236633"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124515"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>使用 Azure 媒体服务传送实时流
 
@@ -211,5 +211,6 @@ while (isCompleted == false)
 Console.WriteLine(channelId);
 ```
 
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-<!--Update_Description: update code to use AAD token instead of ACS-->

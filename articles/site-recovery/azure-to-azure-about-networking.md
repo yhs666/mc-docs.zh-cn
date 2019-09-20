@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/29/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 014974fe3ed7770d1c3cf78781b1160971dada3c
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: e99d64c5696ad3a8ab1876a7642e50ef351d46b6
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134433"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083156"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -71,6 +71,7 @@ Site Recovery IP 地址范围如下：
 <!--MOONCAKE: CUSTOMIZE, UPDATE CAREFULLY-->
     
 <a name="site-recovery-ip-in-china"></a>
+
 **目标** | **Site Recovery IP** |  **Site Recovery 监视 IP**
 --- | --- | ---
 中国东部 | 42.159.205.45 | 42.159.132.40

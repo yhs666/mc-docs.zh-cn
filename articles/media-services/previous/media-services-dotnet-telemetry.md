@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: e0b6113522d121f8ad6aad53fc6ca52b3859f2cd
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 98553afa8d41f3109c6719ff79604723255d0025
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624096"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124502"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58624096"
 启用遥测需要执行以下步骤：
 
 - 获取已附加到媒体服务帐户的存储帐户的凭据。 
-- 创建一个通知终结点，将其 EndPointType 设置为 AzureTable，并使 endPontAddress 指向存储表。
+- 创建一个通知终结点，将其 EndPointType 设置为 AzureTable，并使 endPontAddress 指向存储表   。
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 
@@ -78,7 +78,7 @@ ms.locfileid: "58624096"
  
 ## <a name="example"></a>示例  
     
-以下示例说明如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询度量值。  
+以下示例说明了如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询指标。  
 
 ```csharp
 using System;
@@ -227,5 +227,7 @@ namespace AMSMetrics
 }
 ```
 
+## <a name="next-steps"></a>后续步骤
 
-<!--Update_Description: update code -->
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

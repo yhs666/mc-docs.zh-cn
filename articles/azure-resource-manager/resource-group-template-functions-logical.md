@@ -3,16 +3,16 @@ title: Azure 资源管理器模板函数 - 逻辑 | Azure
 description: 介绍 Azure 资源管理器模板中用于确定逻辑值的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: b2e0d8587896e39aa71e4da387abd9af10d61504
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 903f6d64fbd39c505889b0c1a8d93d97689dd151
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337432"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156198"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>用于 Azure 资源管理器模板的逻辑函数
 

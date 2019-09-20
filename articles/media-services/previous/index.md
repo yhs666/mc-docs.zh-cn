@@ -5,19 +5,26 @@ services: media-services
 author: WenJason
 manager: digimobile
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
+ms.openlocfilehash: f4a6cf7d7514fd40676eca216b3ea291ed4dc5e7
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124557"
 ---
-
 # <a name="media-services-documentation"></a>媒体服务文档  
 
 了解如何使用媒体服务（一个可缩放的云平台）流式传输广播质量的视频。 教程、API 参考和其他文档介绍了如何安全地向数百万用户传送可缩放的点播和直播视频或音频流。
+
+**注意：** 不会向媒体服务 v2 添加任何新特性或新功能。 查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)。
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -49,7 +56,7 @@ ms.author: v-jay
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>通过 Azure 门户开始使用 Azure 媒体服务</h3>
+                        <h3>Azure 媒体服务入门（使用 Azure 门户）</h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +74,7 @@ ms.author: v-jay
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户创建 Azure 媒体服务帐户</h3>
+                        <h3>利用 Azure 门户创建 Azure 媒体服务帐户</h3>
                     </div>
                 </div>
             </div>
@@ -85,7 +92,7 @@ ms.author: v-jay
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户开始传送内容</h3>
+                        <h3>内容传送入门（使用 Azure 门户）</h3>
                     </div>
                 </div>
             </div>

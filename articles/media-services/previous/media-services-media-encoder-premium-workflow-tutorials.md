@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 9025753b3902815a9fb4d6f86fa2014d87b84fee
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: f69643a7c8634634e00f37757875255ceb748b2a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254961"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124512"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>高级媒体编码器高级工作流教程
 ## <a name="overview"></a>概述
@@ -950,4 +950,9 @@ ms.locfileid: "70254961"
 [媒体编码器高级工作流格式和编解码器](media-services-premium-workflow-encoder-formats.md)
 
 [示例工作流文件](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+
+[Azure 媒体服务资源管理器工具](https://aka.ms/amse)
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

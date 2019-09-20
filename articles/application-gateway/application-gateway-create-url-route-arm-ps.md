@@ -3,20 +3,17 @@ title: 使用基于 URL 路径的路由规则创建应用程序网关 - Azure Po
 description: 了解如何使用 Azure PowerShell 为应用程序网关和虚拟机规模集创建基于 URL 路径的路由规则。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-origin.date: 01/26/2018
-ms.date: 06/11/2019
+origin.date: 09/05/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9546ba59f4324c1596a9ea5c950bc6a2fb797bad
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 24a24f588d1281913bbcabf21d4520e798270150
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027448"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083269"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>通过 Azure PowerShell 使用基于 URL 路径的路由规则创建应用程序网关
 
@@ -304,7 +301,8 @@ for ($i=1; $i -le 3; $i++)
     -ImageReferencePublisher MicrosoftWindowsServer `
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
-    -ImageReferenceVersion latest
+    -ImageReferenceVersion latest `
+    -OsDiskCreateOption FromImage
   Set-AzVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
     -AdminPassword "Azure123456!" `
@@ -373,4 +371,3 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: link update -->

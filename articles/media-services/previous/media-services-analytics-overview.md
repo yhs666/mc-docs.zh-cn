@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: aca61e9c8877fc387badd70e77b8081130b452c0
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: b957a271467accc2ce1523c239bafdf0636066c9
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670964"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124412"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析 
 
@@ -132,4 +132,7 @@ Azure 媒体修订器是一种媒体分析媒体处理器，可用于在云中�
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!--Update_Description: whole content refine-->
+## <a name="next-steps"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

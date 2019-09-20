@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/01/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed7af51af15f162e085ee640deaa852c84caed85
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 559335b53adf470c16a844b5a6f0217c00f1560c
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337505"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155880"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure 资源管理器部署模式
 
@@ -22,7 +22,7 @@ ms.locfileid: "68337505"
 
 ## <a name="complete-mode"></a>完整模式
 
-在完整模式下，资源管理器删除资源组中已存在但尚未在模板中指定的资源  。 由于[条件](resource-group-authoring-templates.md#condition)的计算结果为 false，因此不会删除模板中指定但未部署的资源。
+在完整模式下，资源管理器删除资源组中已存在但尚未在模板中指定的资源  。 由于[条件](conditional-resource-deployment.md)的计算结果为 false，因此不会删除模板中指定但未部署的资源。
 
 将完整模式与[复制循环](resource-group-create-multiple.md)一起使用时要小心。 在解析复制循环后会删除模板中未指定的任何资源。
 
@@ -122,4 +122,4 @@ az group deployment create \
 * 若要了解如何部署资源，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 * 若要查看资源提供程序的操作，请参阅 [Azure REST API](https://docs.microsoft.com/rest/api/)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, update link -->

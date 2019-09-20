@@ -16,12 +16,12 @@ origin.date: 09/05/2018
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 569934ea8c28bc28e6ef74335a2bee43e0888ce6
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 94b37b3dd44d0ada25cac86e461b0d791ce1150b
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806770"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155822"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Framework Web 应用
 
@@ -102,7 +102,7 @@ ms.locfileid: "70806770"
 | 设置 | 建议的值 | 描述 |
 |-|-|-|
 |应用服务计划| myAppServicePlan | 应用服务计划的名称。 |
-| Location | 西欧 | 托管 Web 应用的数据中心。 |
+| Location | 中国东部 | 托管 Web 应用的数据中心。 |
 | 大小 | 免费 | [定价层](https://www.azure.cn/pricing/details/app-service/)确定托管功能。 |
 
 选择“确定”  。

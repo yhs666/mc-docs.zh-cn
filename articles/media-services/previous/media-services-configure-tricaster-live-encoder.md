@@ -3,7 +3,7 @@ title: 配置 NewTek TriCaster 编码器以发送单比特率实时流 | Microso
 description: 本主题说明如何配置 Tricaster 实时编码器，以便将单比特率流发送到 AMS 频道进行实时编码。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
-ms.author: v-johch
-ms.openlocfilehash: e6ce07a71a7b90c4ecb73ea041524ba6dcba4c8d
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+origin.date: 03/14/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.reviewer: anilmur
+ms.openlocfilehash: eeca2b2db1538bd01bd0d4e8b5fc970d653a5700
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833365"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124416"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 编码器发送单比特率实时流  
 > [!div class="op_single_selector"]
@@ -166,4 +167,10 @@ ms.locfileid: "56833365"
 ## <a name="troubleshooting"></a>故障排除
 
 有关指南，请参阅[故障排除](media-services-troubleshooting-live-streaming.md)一文。
-<!--Update_Description: update links-->
+
+## <a name="next-step"></a>后续步骤
+
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

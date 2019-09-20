@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/20/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 480c76c714d17cffa84221353d6281e0537670b1
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 74d48a9fe5575b4ab8df97548794dc10c8b7e241
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671024"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124587"
 ---
 # <a name="use-playready-dynamic-common-encryption"></a>使用 PlayReady 动态通用加密
 
@@ -543,8 +543,13 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
+## <a name="next-steps"></a>后续步骤
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 ## <a name="see-also"></a>另请参阅
 
+* [使用带 Multi-DRM 的 CENC 和访问控制](media-services-cenc-with-multidrm-access-control.md)
 * [用于 Azure 媒体服务的 Java 客户端 SDK 入门](/media-services/previous/media-services-java-how-to-use)
 * 若要下载最新的用于媒体服务的 PHP SDK，请在 [Packagist 存储库](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中查找 0.5.7 版 Microsoft/WindowsAzure 包。 
 

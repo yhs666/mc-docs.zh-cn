@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1f48cd262849e12f985712c516a9358b351d2f3d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: b7f03325219ca9a2d942e304fbabaf843b6c696c
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993560"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155846"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -84,13 +84,16 @@ AKS 群集可以使用 Kubernetes 基于角色的访问控制 (RBAC)。 可以�
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
 ```
 
 几分钟后，部署完成并返回有关 AKS 部署的 JSON 格式信息。
+
+> [!NOTE]
+> 若要确保群集能够可靠运行，应至少运行 2（两个）节点。
 
 ## <a name="install-the-kubernetes-cli"></a>安装 Kubernetes CLI
 
@@ -132,7 +135,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.9
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
 ## <a name="next-steps"></a>后续步骤

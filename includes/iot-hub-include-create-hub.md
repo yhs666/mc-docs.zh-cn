@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d5b397895b4c97cc935a81f36663759b1b6de22a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 462cd1d3831d603f11bfc2eeec688535cbf54664
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993087"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155925"
 ---
-此部分介绍如何使用 [Azure 门户](https://portal.azure.com)创建 IoT 中心。
+此部分介绍如何使用 [Azure 门户](https://portal.azure.cn)创建 IoT 中心。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 选择“创建资源”，然后在“搜索市场”字段中输入“IoT 中心”。   
 
@@ -43,14 +43,14 @@ ms.locfileid: "69993087"
 
     在此屏幕中可以设置以下值：
 
-    - **定价和缩放层**：选择的层。 可以根据你需要的功能数以及每天通过解决方案发送的消息数从多个层中进行选择。 免费层适用于测试和评估。 允许 500 台设备连接到中心，每天最多可传输 8,000 条消息。 每个 Azure 订阅可以在免费层中创建一个 IoT 中心。
+    - **定价和缩放层**：选择的层。 可以根据你需要的功能数以及每天通过解决方案发送的消息数从多个层级中进行选择。 免费层适用于测试和评估。 允许 500 台设备连接到中心，每天最多可传输 8,000 条消息。 每个 Azure 订阅可以在免费层中创建一个 IoT 中心。
 
     - **IoT 中心单元**：每个单位每日允许的消息数取决于中心的定价层。 例如，如果希望中心支持 700,000 条消息引入，请选择两个 S1 层单位。
     有关其他层选项的详细信息，请参阅[选择合适的 IoT 中心层](../articles/iot-hub/iot-hub-scaling.md)。
 
     - **高级设置** > **设备到云的分区**：此属性将设备到云消息与这些消息的同步读取器数目相关联。 大多数中心只需要 4 个分区。
 
-1. 对于本教程，请接受默认选项，然后选择“查看 + 创建”以查看所做的选择。  会显示类似于以下的屏幕。
+1. 对于本文，请接受默认选项，然后选择“查看 + 创建”以查看所做的选择。  会显示类似于以下的屏幕。
 
    ![查看用于创建新中心的信息](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 

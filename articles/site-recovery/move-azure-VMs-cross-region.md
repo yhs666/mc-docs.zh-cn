@@ -9,12 +9,12 @@ origin.date: 01/28/2019
 ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: cee23c19ed7951a2e2762397d0bdb6c42a242ad0
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 382c49f1c981a1e5699ec0229ba1b7541547a6fb
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861738"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083166"
 ---
 <!--Verify successfully-->
 # <a name="move-azure-vms-to-another-region"></a>将 Azure VM 移动到另一区域
@@ -31,7 +31,10 @@ ms.locfileid: "67861738"
 > * 丢弃源区域中的资源
 
 > [!IMPORTANT]
-> 本文介绍如何将 Azure VM 按原样从一个区域移到另一个区域。  如果你的目标是通过将 VM 移到可用性区域来提高基础结构的可用性，请参阅[将 Azure VM 移到可用性区域](move-azure-vms-avset-azone.md)。
+> 本文介绍如何将 Azure VM 按原样从一个区域移到另一个区域。  
+
+<!--Not Available on If your goal is to improve the availability of your infrastructure by moving VMs to availability zones, see Move Azure VMs to Availability Zones.-->
+<!--Not Available on [Move Azure VMs to Availability Zones](move-azure-vms-avset-azone.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -3,16 +3,16 @@ title: 没有 800 计数限制的 Azure 资源
 description: 列出可以在一个资源组中有 800 多个实例的 Azure 资源类型。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 07/30/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: f9f3afde509e899e1f91ce24f69f502b450434dd
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 72140c2d7a7118a58059b8c91c275b647b8519db
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993806"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156087"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>没有每个资源组 800 个实例限制的资源
 
@@ -140,5 +140,4 @@ ms.locfileid: "69993806"
 
 有关配额和限制的完整列表，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
-<!--Update_Description: new articles on resource with rg limit -->
-<!--ms.date: 08/12/2019-->
+<!--Update_Description: wording update -->

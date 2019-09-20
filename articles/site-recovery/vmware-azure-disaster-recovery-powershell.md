@@ -8,12 +8,12 @@ origin.date: 06/30/2019
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: d539fc42025173fc660fc9e8807a530a6ba78f72
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 023ffc360c5a0ec7fbde1da9ad978a51758c77c1
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819643"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083182"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 设置 VMware VM 到 Azure 的灾难恢复
 
@@ -243,40 +243,40 @@ Import-AzRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2
 
     * 创建保护容器映射，用于在配置服务器上映射复制策略。
 
-    ```azurepowershell
-    #Get the protection container corresponding to the Configuration Server
-    $ProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $ASRFabrics[0]
+        ```azurepowershell
+        #Get the protection container corresponding to the Configuration Server
+        $ProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $ASRFabrics[0]
 
-    #Get the replication policies to map by name.
-    $ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy"
-    $FailbackReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy-Failback"
+        #Get the replication policies to map by name.
+        $ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy"
+        $FailbackReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy-Failback"
 
-    # Associate the replication policies to the protection container corresponding to the Configuration Server.
+        # Associate the replication policies to the protection container corresponding to the Configuration Server.
 
-    $Job_AssociatePolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
+        $Job_AssociatePolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
-    # Check the job status
-    while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){
-           sleep 10;
-           $Job_AssociatePolicy = Get-ASRJob -Job $Job_AssociatePolicy
-    }
-    $Job_AssociatePolicy.State
+        # Check the job status
+        while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){
+               sleep 10;
+               $Job_AssociatePolicy = Get-ASRJob -Job $Job_AssociatePolicy
+        }
+        $Job_AssociatePolicy.State
 
-    <# In the protection container mapping used for failback (replicating failed over virtual machines
-      running in Azure, to the primary VMware site.) the protection container corresponding to the
-      Configuration server acts as both the Primary protection container and the recovery protection
-      container
-    #>
-    $Job_AssociateFailbackPolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
+        <# In the protection container mapping used for failback (replicating failed over virtual machines
+          running in Azure, to the primary VMware site.) the protection container corresponding to the
+          Configuration server acts as both the Primary protection container and the recovery protection
+          container
+        #>
+        $Job_AssociateFailbackPolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
-    # Check the job status
-    while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){
-           sleep 10;
-           $Job_AssociateFailbackPolicy = Get-ASRJob -Job $Job_AssociateFailbackPolicy
-    }
-    $Job_AssociateFailbackPolicy.State
+        # Check the job status
+        while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){
+               sleep 10;
+               $Job_AssociateFailbackPolicy = Get-ASRJob -Job $Job_AssociateFailbackPolicy
+        }
+        $Job_AssociateFailbackPolicy.State
 
-    ```
+        ```
 
 ## <a name="add-a-vcenter-server-and-discover-vms"></a>添加 vCenter 服务器，并发现 VM
 

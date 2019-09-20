@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 07/19/2018
-ms.date: 05/06/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0ed120d830cd21a020eee9681a26f0421ebea5d5
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 3e92d1be5701170085ac45114cad104c8afdc455
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855175"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156105"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>检测和排查 Azure IoT 中心的连接断开问题
 
@@ -32,27 +32,27 @@ ms.locfileid: "64855175"
 
 2. 浏览到 IoT 中心。
 
-3. 选择“诊断设置”。
+3. 选择“诊断设置”。 
 
-4. 选择“启用诊断”。
+4. 选择“启用诊断”  。
 
-5. 启用要收集的“连接”日志。
+5. 启用要收集的“连接”日志  。
 
-6. 为便于分析，请启用“发送到 Log Analytics”。 请参阅[解决连接错误](#resolve-connectivity-errors)下的示例。
+6. 为便于分析，请启用“发送到 Log Analytics”  。 请参阅[解决连接错误](#resolve-connectivity-errors)下的示例。
 
    ![建议的设置](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
 有关详细信息，请参阅[监视 Azure IoT 中心的运行状况并快速诊断问题](iot-hub-monitor-resource-health.md)。
 
-### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>针对“联网设备”计数指标设置警报
+### <a name="set-up-alerts-for-the-_connected-devices_-count-metric"></a>针对“联网设备”计数指标设置警报 
 
-若要在设备断开连接时获取警报，请针对“联网设备(预览版)”指标配置警报。
+若要在设备断开连接时获取警报，请针对“联网设备(预览版)”指标配置警报  。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 浏览到 IoT 中心。
 1. 选择“**警报**”。
-1. 选择“新建警报规则”。
-1. 选择“添加条件”，然后选择“联网设备(预览版)”。
+1. 选择“新建警报规则”。 
+1. 选择“添加条件”，然后选择“联网设备(预览版)”。 
 1. 按提示操作，完成对所需阈值和警报选项的设置。
 
 有关详细信息，请参阅 [Microsoft Azure 中的经典警报是什么？](../azure-monitor/platform/alerts-overview.md)。
@@ -61,11 +61,11 @@ ms.locfileid: "64855175"
 
 为联网设备启用诊断日志和警报后，如果出错，则会收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假设已经在 Azure Monitor 日志中设置了诊断日志。
 
-1. 在 Azure 门户中转到 Log Analytics 的工作区。
-1. 选择 **“日志搜索”**。
-1. 若要隔离 IoT 中心的连接错误日志，请输入以下查询，然后选择“运行”：
+1. 在 Azure 门户中转到 Log Analytics 的工作区  。
+1. 选择 **“日志搜索”** 。
+1. 若要隔离 IoT 中心的连接错误日志，请输入以下查询，然后选择“运行”  ：
 
-    ```
+    ```kusto
     search *
     | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
     | where ( Category == "Connections" and Level == "Error")

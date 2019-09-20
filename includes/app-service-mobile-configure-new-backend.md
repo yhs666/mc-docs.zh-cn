@@ -9,12 +9,12 @@ origin.date: 05/06/2019
 ms.date: 07/15/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 033f39d0a63020ca826985eb9560387ed624e8a5
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: 11ea0694dc63f8f8d5f2e04e9cad56465c3b27ca
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560289"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006546"
 ---
 1. 下载以下平台的客户端 SDK 快速入门：
     
@@ -95,7 +95,7 @@ ms.locfileid: "67560289"
 
         2. 在 Visual Studio 中以本地方式生成 .NET 服务器项目。
 
-        3. 在 Visual Studio 中打开解决方案资源管理器，右键单击 `ZUMOAPPNAMEService` 项目，单击“发布”，  此时会出现“`Publish to App Service`”窗口。 如果在 Mac 上工作，请单击[此处](https://docs.azure.cn/zh-cn/app-service/deploy-local-git)了解部署应用的其他方式。
+        3. 在 Visual Studio 中打开解决方案资源管理器，右键单击 `ZUMOAPPNAMEService` 项目，单击“发布”，  此时会出现“`Publish to App Service`”窗口。 如果在 Mac 上工作，请单击[此处](/app-service/deploy-local-git)了解部署应用的其他方式。
         
            ![Visual Studio 发布](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 

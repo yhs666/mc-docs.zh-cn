@@ -5,16 +5,16 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 11/28/2018
-ms.date: 07/22/2019
+origin.date: 08/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6e8175b1b9340aecbba4769ae1107f7656d5bbc4
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: c17459dbb756623e63d4874335c3901bf2ce36cc
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337581"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156218"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>教程：使用 Azure 门户通过 Azure 防火墙 DNAT 筛选入站流量
 
@@ -64,8 +64,9 @@ ms.locfileid: "68337581"
      防火墙将位于此子网中，子网名称**必须**是 AzureFirewallSubnet。
      
      > [!NOTE]
-     > AzureFirewallSubnet 子网的最小大小为 /26。
-10. 对于“地址范围”，请键入 **10.0.1.0/24**。 
+     > AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+
+10. 对于“地址范围”，请键入 **10.0.1.0/26**。 
 11. 使用其他默认设置，然后单击“创建”。 
 
 ### <a name="create-a-spoke-vnet"></a>创建辐射 VNet
@@ -81,6 +82,7 @@ ms.locfileid: "68337581"
 9. 在“子网”下，为“名称”键入 **SN-Workload**。  
 
     服务器会在此子网中。
+    
 10. 对于“地址范围”，请键入 **192.168.1.0/24**。 
 11. 使用其他默认设置，然后单击“创建”。 
 
@@ -113,6 +115,9 @@ ms.locfileid: "68337581"
 
 1. 在 Azure 门户主页中，单击“所有服务”。 
 2. 在“计算”下，单击“虚拟机”。  
+    
+    <!--CORRECT ON **All services** -> **Compute** -> **Virtual machines** -->
+    
 3. 依次单击“添加”、“Windows Server”、“Windows Server 2016 Datacenter”、“创建”。    
 
 **基础知识**
@@ -163,6 +168,7 @@ ms.locfileid: "68337581"
 6. 查看摘要，然后单击“创建”以创建防火墙。 
 
     需要花费几分钟时间来完成部署。
+    
 7. 部署完成后，转到“RG-DNAT-Test”资源组，然后单击“FW-DNAT-test”防火墙。  
 8. 记下专用 IP 地址。 稍后在创建默认路由时需要用到此地址。
 
@@ -189,6 +195,7 @@ ms.locfileid: "68337581"
 17. 对于“下一跃点类型”，请选择“虚拟设备”。  
 
     Azure 防火墙实际上是一个托管服务，但虚拟设备可在此场合下正常工作。
+    
 18. 对于“下一跃点地址”，请键入前面记下的防火墙专用 IP 地址。 
 19. 单击 **“确定”** 。
 
@@ -233,5 +240,4 @@ ms.locfileid: "68337581"
 > [!div class="nextstepaction"]
 > [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!-- Update_Description: new article about tutorial firewall dnat -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: wording update -->

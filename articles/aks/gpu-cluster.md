@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 05/16/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8d4775d12a674fc43b5f5e259a2ed1dbbfc3686
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: c54d3752cd906620df2cecede898014598325822
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500703"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155853"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -102,7 +102,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
-  namespace: kube-system
+  namespace: gpu-resources
 spec:
   updateStrategy:
     type: RollingUpdate
@@ -401,7 +401,7 @@ kubectl delete jobs samples-tf-mnist-demo
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [azure-pricing]: https://www.azure.cn/pricing/
-[azure-availability]: https://www.azure.cn/home/features/products-by-region
+[azure-availability]: https://www.azure.cn/home/features/products-by-region/
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->

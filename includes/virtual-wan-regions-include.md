@@ -9,12 +9,12 @@ origin.date: 03/30/2019
 ms.date: 06/28/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 97fd8640646e1c6100a2414d2db9695e2c7abd58
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: 6cdf0c02999ece8faa5647b3856a649c5d3b50d2
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540084"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155886"
 ---
 下表列出了 GA 功能可用的受支持区域。
 
@@ -22,9 +22,8 @@ ms.locfileid: "67540084"
 |---|---|
 |中国 | 中国东部、中国北部、中国东部 2、中国北部 2 |
 
-<!--Not Available on * For information about the ExpressRoute preview, see [Virtual WAN and ExpressRoute - preview](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register)-->
 
-* 有关点到站点预览的信息，请参阅[虚拟 WAN 和点到站点 - 预览](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register)。
+* 有关 ExpressRoute 预览的信息，请参阅[虚拟 WAN 和 ExpressRoute - 预览](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register)。
 
 <!--Update_Description: new articles on virtual wan regions include -->
 <!--ms.date: 07/01/2019-->
