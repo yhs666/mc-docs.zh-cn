@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 03/25/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: dd1233888f7831c37506c52a59db3c6b4f8716f0
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 1e6d83ae0db41999f00720b08fcfb881e9c1e02e
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134480"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083178"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>管理受保护计算机上的移动代理
 
@@ -27,11 +27,11 @@ ms.locfileid: "70134480"
 2. 在门户中打开保管库 >“复制的项”。 
 3. 如果配置服务器是最新版本，则会看到一条通知，指出“新的 Site Recovery 复制代理更新已可用。 单击可安装。”
 
-     ![“复制的项”窗口](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
+    ![“复制的项”窗口](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. 单击该通知，并在“代理更新”中选择要在其上升级移动服务的计算机。   。
 
-     ![“复制的项”VM 列表](./media/vmware-azure-install-mobility-service/update-okpng.png)
+    ![“复制的项”VM 列表](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. 将为所选的每台计算机启动“更新移动服务”作业。
 

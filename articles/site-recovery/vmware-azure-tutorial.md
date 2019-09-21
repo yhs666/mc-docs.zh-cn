@@ -10,12 +10,12 @@ origin.date: 04/08/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: e601910515d9fdf839ce6d9eaeee07ccf8587747
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 5efb78af58cb584f7978e67e1451028d30eb1f57
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390744"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083177"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -78,7 +78,7 @@ ms.locfileid: "66390744"
 1. 使用 VMWare vSphere 客户端登录到 VMware vCenter 服务器或 vSphere ESXi 主机。
 2. 在“文件”菜单中，选择“部署 OVF 模板”以启动“部署 OVF 模板”向导    。 
 
-     ![OVF 模板](./media/vmware-azure-tutorial/vcenter-wizard.png)
+    ![OVF 模板](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. 在“选择源”中，输入下载的 OVF 所在的位置  。
 4. 在“查看详细信息”中，选择“下一步”。  
@@ -87,8 +87,8 @@ ms.locfileid: "66390744"
 7. 在余下的向导页中，接受默认设置。
 8. 在“准备完成”上，若要使用默认设置来设置 VM，请选择“部署后打开” > “完成”    。
 
-   > [!TIP]
-   > 若要添加其他 NIC，请清除“部署后打开”   >   “完成”。 默认情况下，模板包含单个 NIC。 可以在部署后添加其他 NIC。
+    > [!TIP]
+    > 若要添加其他 NIC，请清除“部署后打开”   >   “完成”。 默认情况下，模板包含单个 NIC。 可以在部署后添加其他 NIC。
 
 ## <a name="add-an-additional-adapter"></a>添加其他适配器
 

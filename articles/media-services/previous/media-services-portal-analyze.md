@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 05/20/2019
-ms.author: v-haiqya
-ms.openlocfilehash: 92f348a405e04dbe76bcadc1317492c4cf50cd83
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: d23a438c352808de683161ac6e689637047df969
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550014"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124646"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体 
 > [!NOTE]
@@ -35,13 +35,13 @@ Azure 媒体服务分析是一系列语音和影像组件（具企业规模、�
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>选择想要分析的资产
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
-2. 在“设置”窗口中，选择“资产”。  
+2. 在“设置”  窗口中，选择“资产”  。  
    
     ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. 选择想要分析的资产，并按“分析”  按钮。
    
     ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-4. 在“使用媒体分析处理媒体资产”窗口中，选择处理器。 
+4. 在“使用媒体分析处理媒体资产”  窗口中，选择处理器。 
    
     本文的其余部分介绍每种处理器的功能和使用方式。 
 5. 按“创建”  启动作业。
@@ -131,4 +131,20 @@ Azure 媒体服务分析是一系列语音和影像组件（具企业规模、�
 
 ### <a name="output-file"></a>输出文件
 可以识别输出内容的友好名称。 
+
+## <a name="azure-media-content-moderator"></a>Azure 媒体内容审查器
+此处理器可以帮助检测视频中可能存在的成人和猥亵内容。 此处理器自动检测视频中的快照和关键帧。 它为可能存在成人或猥亵内容的关键帧评分，并根据默认阈值建议评审。 有关详细信息和示例，请参阅[使用 Azure 媒体内容审查器审查视频](media-services-content-moderation.md)
+
+![审查视频](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>版本 
+使用“2.0”。
+
+### <a name="mode"></a>Mode
+2\.0 版忽略 `Mode` 设置。
+
+## <a name="next-steps"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

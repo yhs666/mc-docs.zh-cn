@@ -9,12 +9,12 @@ origin.date: 04/08/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 10036b7c7ba611057e2d34ed5116a3c76f90c9c7
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 348034e71132ebd09c9e068cd52d3e8950dfc2b9
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390917"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083183"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>准备 Azure 资源，以便对本地计算机进行灾难恢复
 
@@ -54,7 +54,9 @@ ms.locfileid: "66390917"
 已复制计算机的映像保存在 Azure 存储中。 在从本地故障转移到 Azure 时，会从该存储中创建 Azure VM。 存储帐户必须位于与恢复服务保管库相同的区域。
 
 1. 在 [Azure 门户](https://portal.azure.cn)菜单中，选择“创建资源” > “存储” > “存储帐户”    。
+    
     <!--MOONCAKE: CORRECT ON **Storage account**-->
+    
 2. 在“创建存储帐户”  中，输入帐户的名称。  选择的名称必须在 Azure 中唯一，长度为 3 到 24 个字符，且只能使用小写字母和数字。 本教程使用 **contosovmsacct1910171607**。
 3. 在“部署模型”中，选择“资源管理器”。  
 4. 在“帐户类型”中，选择“存储(常规用途 v1)”   。 请不要选择 blob 存储。
@@ -90,7 +92,9 @@ ms.locfileid: "66390917"
 4. 在“地址范围”中，输入 **10.0.0.0/24** 作为网络范围。  此网络没有子网。
 5. 在“订阅”中，选择要在其中创建网络的订阅。 
 6. 在“位置”中  ，选择“中国北部”  。 该网络必须位于与恢复服务保管库相同的区域中。
-7. 保留基本 DDoS 防护的默认选项，网络上没有服务终结点。
+    
+    <!--Not Available on basic DDoS protection-->
+    
 8. 选择“创建”  。
 
     ![创建虚拟网络](media/tutorial-prepare-azure/create-network.png)

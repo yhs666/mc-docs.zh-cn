@@ -5,15 +5,15 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 origin.date: 04/10/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 79a576dd7dc7ac8ec945c9dc5343bcc5e5c4cb66
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 94392d29ef2a0cb5530bdac051ccfd65a4d3a5cc
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500706"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155789"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
 
@@ -68,14 +68,14 @@ New-AzResourceGroup -Name Test-FW-RG -Location "China East"
 
 此虚拟网络有三个子网：
 
+> [!NOTE]
+> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+
 ```azurepowershell
-$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/24
+$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
-
-> [!NOTE]
-> AzureFirewallSubnet 子网的最小大小为 /26。
 
 现在，创建虚拟网络：
 
@@ -95,7 +95,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 New-AzVm `
     -ResourceGroupName Test-FW-RG `
     -Name "Srv-Jump" `
-    -Location "China East" `
+    -Location "chinaeast" `
     -VirtualNetworkName Test-FW-VN `
     -SubnetName Jump-SN `
     -OpenPorts 3389 `
@@ -218,32 +218,32 @@ $NIC | Set-AzNetworkInterface
 
 1. 记下 **Srv-Work** 虚拟机的专用 IP 地址：
 
-   ```
-   $NIC.IpConfigurations.PrivateIpAddress
-   ```
+    ```
+    $NIC.IpConfigurations.PrivateIpAddress
+    ```
 
 1. 将远程桌面连接到 **Srv-Jump** 虚拟机，然后登录。 在该虚拟机中，与 **Srv-Work** 专用 IP 地址建立远程桌面连接并登录。
 
 3. 在 **SRV-Work** 上，打开 PowerShell 窗口并运行以下命令：
 
-   ```
-   nslookup www.qq.com
-   nslookup www.microsoft.com
-   ```
+    ```
+    nslookup www.qq.com
+    nslookup www.microsoft.com
+    ```
 
    这两个命令都应返回应答，表明 DNS 查询正在通过防火墙。
 
 1. 运行以下命令：
 
-   ```
-   Invoke-WebRequest -Uri https://www.qq.com
-   Invoke-WebRequest -Uri https://www.qq.com
+    ```
+    Invoke-WebRequest -Uri https://www.qq.com
+    Invoke-WebRequest -Uri https://www.qq.com
 
-   Invoke-WebRequest -Uri https://www.microsoft.com
-   Invoke-WebRequest -Uri https://www.microsoft.com
-   ```
+    Invoke-WebRequest -Uri https://www.microsoft.com
+    Invoke-WebRequest -Uri https://www.microsoft.com
+    ```
 
-   www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
+    www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
 
 现已验证防火墙规则可正常工作：
 
@@ -261,3 +261,5 @@ Remove-AzResourceGroup -Name Test-FW-RG
 ## <a name="next-steps"></a>后续步骤
 
 * [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+
+<!--Update_Description: wording update-->

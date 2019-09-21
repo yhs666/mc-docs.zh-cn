@@ -4,7 +4,7 @@ description: 了解如何将身份验证令牌从客户端发送到 Azure 媒体
 services: media-services
 keywords: 内容保护, DRM, 令牌身份验证
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-nany
-ms.openlocfilehash: bf1496c785c90fb3c5e8f6e2c8dc08afcfc10f3c
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 29cdf9cf08d8a5d4201bc9732771774b9c2d41ad
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624145"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124645"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>了解客户端如何将令牌传递到 Azure 媒体服务密钥传送服务
 客户经常会问，播放器如何将令牌传递到 Azure 媒体服务密钥传送服务来进行验证，以便播放器可以获取密钥。 媒体服务支持简单 Web 令牌 (SWT) 和 JSON Web 令牌 (JWT) 格式。 令牌身份验证可应用于任何类型的密钥，不论系统中使用的是通用加密还是高级加密标准 (AES) 信封加密。
@@ -30,7 +30,7 @@ ms.locfileid: "58624145"
 
 - 通过 HTTP 授权标头。
     > [!NOTE]
-    > 根据 OAuth 2.0 规格，应使用“Bearer”前缀。 Azure 媒体播放器[演示页面](https://ampdemo.azureedge.net/)上提供了一个具有令牌配置的示例播放器。 若要设置视频源，请选择“AES (JWT 令牌)”或“AES (SWT 令牌)”。 令牌是通过授权标头传递的。
+    > 根据 OAuth 2.0 规格，应使用“Bearer”前缀。 Azure 媒体播放器[演示页面](https://ampdemo.azureedge.net/)上提供了一个具有令牌配置的示例播放器。 若要设置视频源，请选择“AES (JWT 令牌)”或“AES (SWT 令牌)”。   令牌是通过授权标头传递的。
 
 - 通过使用“token=tokenvalue”添加一个 URL 查询参数。  
     > [!NOTE]
@@ -55,3 +55,6 @@ ms.locfileid: "58624145"
 
 - 通过替换的 HTTP Live Streaming (HLS) 播放列表。 如果需要在 iOS/Safari 上为 AES + HLS 播放配置令牌身份验证，无法直接发送令牌。 有关如何替换播放列表来启用此方案的详细信息，请参阅此[博客文章](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。
 
+## <a name="next-steps"></a>后续步骤
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

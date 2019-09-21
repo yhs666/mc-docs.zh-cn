@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: bc2346a18c3e00ec03967d5b106a3626ff53ea0c
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: a09bdc58b2e93ec25f85ce79cfd454814e1e470b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670965"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124411"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序  
 
@@ -1023,6 +1023,10 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 5. 默认情况下，已选中视频流的所有曲目。 如果要体验比特率的变化，可以先选择最低的可用比特率，再选择最高的可用比特率。 每次更改后都必须单击“提交”。  可以看到视频质量的变化。
 
 已完成第 4 课。  在本课中，已添加了用于选择曲目的功能。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="other-resources"></a>其他资源：
 * [如何生成具有高级功能的平滑流式处理 Windows 8 JavaScript 应用程序](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)

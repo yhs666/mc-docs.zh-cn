@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/22/2017
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: f680d02439ee53157dc285d2db950a06bfa34f1d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 09/30/2019
+ms.openlocfilehash: c8ebcc6483b1ba2e59a93733cd9c8b8c27c158a2
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664497"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155978"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中心及物理设备入门教程
 
@@ -27,7 +27,6 @@ ms.locfileid: "52664497"
 |---------------------------------|----------------------|
 | Raspberry Pi                    | [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)、[C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
 | IoT DevKit                      | [VSCode 中的 Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
-| Adafruit Feather HUZZAH ESP8266 | [Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)              |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

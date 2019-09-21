@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/14/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0704adeeb1799b2395a8e9b849950b67839dee6
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 61e57c84f51763bc17ba42c4268347679f185e41
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390775"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083175"
 ---
 <a name="set-up-the-source-environment"></a>
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>设置源环境以便从 VMware 复制到 Azure
@@ -60,18 +60,18 @@ ms.locfileid: "66390775"
 - C:\Program Files\Microsoft Azure Site Recovery Provider
 - C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
 - C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
-  - C:\thirdparty
-  - C:\Temp
-  - C:\strawberry
-  - C:\ProgramData\MySQL
-  - C:\Program Files (x86)\MySQL
-  - C:\ProgramData\ASR
-  - C:\ProgramData\Microsoft Azure Site Recovery
-  - C:\ProgramData\ASRLogs
-  - C:\ProgramData\ASRSetupLogs
-  - C:\ProgramData\LogUploadServiceLogs
-  - C:\inetpub
-  - ASR 服务器安装目录。 例如：E:\Program Files (x86)\Microsoft Azure Site Recovery
+    - C:\thirdparty
+    - C:\Temp
+    - C:\strawberry
+    - C:\ProgramData\MySQL
+    - C:\Program Files (x86)\MySQL
+    - C:\ProgramData\ASR
+    - C:\ProgramData\Microsoft Azure Site Recovery
+    - C:\ProgramData\ASRLogs
+    - C:\ProgramData\ASRSetupLogs
+    - C:\ProgramData\LogUploadServiceLogs
+    - C:\inetpub
+    - ASR 服务器安装目录。 例如：E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>如果防病毒软件在横向扩展流程服务器/主目标上处于活动状态
 
