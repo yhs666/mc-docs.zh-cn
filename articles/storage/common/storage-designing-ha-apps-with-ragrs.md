@@ -10,12 +10,12 @@ ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 81b192be9191929a55587570fe69605758ddfaa0
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: a04bce7c9f144105eb2fd5da17859806fad162a2
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209381"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155894"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>使用读取访问异地冗余存储设计高度可用的应用程序
 
@@ -217,7 +217,7 @@ Azure 存储客户端库可帮助你确定可重试的错误。 例如，404 错
 若要使用 PowerShell 获取存储帐户的上次同步时间，请安装可支持获取异地复制统计信息的 Azure 存储预览版模块。例如：
 
 ```powershell
-Install-Module Az.Storage �Repository PSGallery -RequiredVersion 1.1.1-preview �AllowPrerelease �AllowClobber �Force
+Install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.1.1-preview -AllowPrerelease -AllowClobber -Force
 ```
 
 然后检查存储帐户的 **GeoReplicationStats.LastSyncTime** 属性。 请务必将占位符值替换为你自己的值：
