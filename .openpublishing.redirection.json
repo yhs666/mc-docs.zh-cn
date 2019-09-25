@@ -16608,7 +16608,18 @@
       "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
       "redirect_url": "/media-services/latest/create-account-cli-how-to",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-paas.yml",
+      "redirect_url": "/sql-database/sql-database-paas-index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-security-attributes.md",
+      "redirect_url": "/sql-database/sql-database-security-controls",
+      "redirect_document_id": false
     }
+
 
  
 
