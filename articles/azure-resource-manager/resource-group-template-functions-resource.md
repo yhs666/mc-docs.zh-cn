@@ -3,16 +3,16 @@ title: Azure Resource Manager 模板函数 - 资源 | Azure
 description: 介绍可在 Azure Resource Manager 模板中用于检索资源相关值的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
-origin.date: 08/06/2019
-ms.date: 08/26/2019
+ms.topic: conceptual
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 66c1fe357dd75ecee0e700d3b7298076582bf36d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 54ea463b5bcc0d0c86f20bab750afbd368781141
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993547"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156089"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -44,6 +44,10 @@ Resource Manager 提供以下用于获取资源值的函数：
 | apiVersion |是 |string |资源运行时状态的 API 版本。 通常采用 **yyyy-mm-dd**格式。 |
 | functionValues |否 |object | 具有函数值的对象。 仅为支持接收具有参数值的对象的函数提供此对象，例如存储帐户上的 listAccountSas  。 本文中演示了传递函数值的示例。 | 
 
+### <a name="valid-uses"></a>有效使用
+
+list 函数只能用在资源定义的 properties 中以及模板或部署的 outputs 节中。 与[属性迭代](resource-group-create-multiple.md#property-iteration)一起使用时，可以使用 `input` 的 list 函数，因为表达式已分配给资源属性。 不能将它们与 `count` 一起使用，因为必须在解析 list 函数之前确定计数。
+
 ### <a name="implementations"></a>实现形式
 
 下表中显示 list* 的可能用途。
@@ -72,6 +76,8 @@ Resource Manager 提供以下用于获取资源值的函数：
 | Microsoft.Devices/provisioningServices | [listkeys](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/listkeys) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.EventGrid/domains | [listKeys](https://docs.microsoft.com/rest/api/eventgrid/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](https://docs.microsoft.com/rest/api/eventgrid/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/eventhub/eventhubs/listkeys) |
@@ -160,7 +166,7 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 如果在有条件部署的资源中使用 **list** 函数，则会对该函数进行评估，即使资源尚未部署。 如果 **list** 函数引用某个不存在的资源，则会出现错误。 使用 **if** 函数确保仅在部署资源时才评估函数。 请查看示例模板的 [if 函数](resource-group-template-functions-logical.md#if)，该模板将 if 和 list 用于进行条件部署的资源。
 
-### <a name="example"></a>示例
+### <a name="list-example"></a>List 示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)演示如何从 outputs 节中的存储帐户返回主密钥和辅助密钥。 它还为存储帐户返回 SAS 令牌。 
 
@@ -256,7 +262,7 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 不保证返回值的数组排序。
 
-### <a name="example"></a>示例
+### <a name="providers-example"></a>Provider 示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json)演示如何使用 provider 函数：
 
@@ -407,7 +413,7 @@ reference 函数只能用在资源定义的 properties 中以及模板或部署�
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 正确，`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 不正确
 
-### <a name="example"></a>示例
+### <a name="reference-example"></a>Reference 示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json)部署一个资源并引用该资源。
 
@@ -576,7 +582,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 也可使用 resourceGroup 函数将资源组提供的标记应用到资源。 有关详细信息，请参阅[应用资源组提供的标记](resource-group-using-tags.md#apply-tags-from-resource-group)。
 
-### <a name="example"></a>示例
+### <a name="resource-group-example"></a>资源组示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json)返回资源组的属性。
 
@@ -610,7 +616,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 ## <a name="resourceid"></a>ResourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 返回资源的唯一标识符。 如果资源名称不确定或未设置在相同的模板内，请使用此函数。 
 
@@ -622,43 +628,45 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 | resourceGroupName |否 |string |默认值为当前资源组。 如果需要检索另一个资源组中的资源，请指定此值。 |
 | resourceType |是 |string |资源类型，包括资源提供程序命名空间。 |
 | resourceName1 |是 |string |资源的名称。 |
-| resourceName2 |否 |string |下一个资源名称段（如果资源是嵌套的）。 |
+| resourceName2 |否 |string |下一个资源名称段（如果需要）。 |
+
+如果资源类型包含更多段，则继续添加资源名称作为参数。
 
 ### <a name="return-value"></a>返回值
 
 使用以下格式返回标识符：
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
 
 ### <a name="remarks"></a>备注
 
-与[订阅级部署](deploy-to-subscription.md)一起使用时，`resourceId()` 函数只能检索在该级别部署的资源的 ID。 例如，你可以获取策略定义或角色定义的 ID，但不能获取存储帐户的 ID。 对于到资源组的部署，反过来也成立。 你无法获取在订阅级别部署的资源的资源 ID。
+提供的参数数目各不相同，具体取决于资源是父资源还是子资源，以及资源是否位于同一订阅或资源组中。
 
-指定的参数值取决于资源是否位于与当前部署相同的订阅和资源组中。 若要获取同一订阅和资源组中存储帐户的资源 ID，请使用：
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-若要获取同一订阅但不同资源组中存储帐户的资源 ID，请使用：
+若要获取同一订阅和资源组中父资源的资源 ID，请提供资源的类型和名称。
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-若要获取不同订阅和资源组中存储帐户的资源 ID，请使用：
+若要获取子资源的资源 ID，请注意资源类型中段的数目。 请提供资源类型的每个段的资源名称。 段的名称对应于针对层次结构的该部分存在的资源。
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+对于属于同一订阅但属于不同资源组的资源，若要获取其资源 ID，请提供资源组名称。
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+对于属于不同订阅和资源组的资源，若要获取其资源 ID，请提供订阅 ID 和资源组名称。
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-若要获取不同资源组中数据库的资源 ID，请使用：
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+与[订阅级部署](deploy-to-subscription.md)一起使用时，`resourceId()` 函数只能检索在该级别部署的资源的 ID。 例如，你可以获取策略定义或角色定义的 ID，但不能获取存储帐户的 ID。 对于到资源组的部署，反过来也成立。 你无法获取在订阅级别部署的资源的资源 ID。
 
 在订阅范围内部署时，若要获取订阅级资源的资源 ID，请使用：
 
@@ -710,7 +718,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 }
 ```
 
-### <a name="example"></a>示例
+### <a name="resource-id-example"></a>资源 ID 示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)返回资源组中存储帐户的资源 ID：
 
@@ -768,7 +776,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 }
 ```
 
-### <a name="example"></a>示例
+### <a name="subscription-example"></a>订阅示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json)显示了在 outputs 节中调用的 subscription 函数。 
 
