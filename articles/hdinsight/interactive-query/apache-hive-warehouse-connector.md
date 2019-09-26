@@ -4,16 +4,17 @@ description: 了解如何将 Apache Spark 和 Apache Hive 与 Azure HDInsight �
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
-ms.author: hrasheed
+ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 04/18/2019
-ms.openlocfilehash: 338d3add1c07bf33028372de2686f4333b9fc4e8
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+origin.date: 04/29/2019
+ms.date: 09/23/2019
+ms.openlocfilehash: cb60b674c4018fbafb30e425b55e50c5c81833c2
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878484"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921149"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>将 Apache Spark 和 Apache Hive 与 Hive 仓库连接器相集成
 
@@ -21,7 +22,7 @@ Apache Hive 仓库连接器 (HWC) 是一个库，可让你更轻松地使用 Apa
 
 Hive 仓库连接器可让你利用 Hive 和 Spark 的独特功能来生成强大的大数据应用程序。 Apache Hive 为原子性、一致性、隔离性和持久性 (ACID) 数据库事务提供支持。 有关 Hive 中的 ACID 和事务的详细信息，请参阅 [Hive 事务](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)。 Hive 还通过 Apache Ranger 和低延迟分析处理来提供精细的安全控制，而 Apache Spark 无法提供此类功能。
 
-Apache Spark 中的结构化流式处理 API 可以提供流式处理功能，而 Apache Hive 则无法提供此类功能。 从 Hortonworks 数据平台 (HDP) 3.0 开始，Apache Spark 和 Apache Hive 使用独立的元存储，这可能会增大互操作性的难度。 借助 Hive 仓库连接器可以更轻松地将 Spark 与 Hive 搭配使用。 HWC 库将数据从 LLAP 守护程序并行加载到 Spark 执行器，这比使用从 Spark 到 Hive 的标准 JDBC 连接更为有效，且更具可伸缩性。
+Apache Spark 中的结构化流式处理 API 可以提供流式处理功能，而 Apache Hive 则无法提供此类功能。 从 HDInsight 4.0 开始，Apache Spark 2.3.1 和 Apache Hive 3.1.0 使用单独的元存储，这可能会增大互操作性的难度。 使用 Hive 仓库连接器可以更轻松地将 Spark 与 Hive 一起使用。 HWC 库将数据从 LLAP 守护程序并行加载到 Spark 执行器，这比使用从 Spark 到 Hive 的标准 JDBC 连接更为有效，且更具可伸缩性。
 
 ![体系结构](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -39,7 +40,7 @@ Hive 仓库连接器支持的部分操作如下：
 
 遵循以下步骤在 Azure HDInsight 中的 Spark 与交互式查询群集之间设置 Hive 仓库连接器：
 
-1. 在 Azure 门户中使用存储帐户和自定义的 Azure 虚拟网络创建 HDInsight Spark 4.0 群集。 有关在 Azure 虚拟网络中创建群集的信息，请参阅[将 HDInsight 添加到现有的虚拟网络](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md#existingvnet)。
+1. 在 Azure 门户中使用存储帐户和自定义的 Azure 虚拟网络创建 HDInsight Spark 4.0 群集。 有关在 Azure 虚拟网络中创建群集的信息，请参阅[将 HDInsight 添加到现有的虚拟网络](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet)。
 1. 在 Azure 门户中使用与在 Spark 群集中所用的同一个存储帐户和 Azure 虚拟网络创建 HDInsight 交互式查询 (LLAP) 4.0 群集。
 1. 将交互式查询群集的头节点 0 上的 `/etc/hosts` 文件内容，复制到 Spark 群集的头节点 0 上的 `/etc/hosts` 文件中。 执行此步骤可让 Spark 群集解析交互式查询群集中节点的 IP 地址。 使用 `cat /etc/hosts` 查看已更新文件的内容。 输出应如以下屏幕截图所示。
 
@@ -52,7 +53,7 @@ Hive 仓库连接器支持的部分操作如下：
 
         ![Spark2 Ambari 配置](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. 将 `spark.hadoop.hive.llap.daemon.service.hosts` 设置为“高级 hive-interactive-env”下的“LLAP 应用名称”属性的相同值。   例如： `@llap0`
+    1. 将 `spark.hadoop.hive.llap.daemon.service.hosts` 设置为“高级 hive-interactive-env”下的“LLAP 应用名称”属性的相同值。   例如： `llap0`
 
     1. 将 `spark.sql.hive.hiveserver2.jdbc.url` 设置为 JDBC 连接字符串，用于连接到交互式查询群集上的 Hiveserver2。 群集的连接字符串如以下 URI 所示。 `CLUSTERNAME` 是 Spark 群集的名称，`user` 和 `password` 参数设置为群集的正确值。
 

@@ -1,9 +1,9 @@
 ---
-title: 使用移动应用在 Android 中添加身份验证
+title: 使用移动应用在 Android 中添加身份验证 | Azure
 description: 了解如何使用 Azure 应用服务中的移动应用功能通过各种标识提供者（包括 Google、Facebook、Twitter 和 Microsoft）对 Android 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-origin.date: 11/16/2017
-ms.date: 01/29/2018
-ms.author: v-yiso
-ms.openlocfilehash: 678ff705c5b9e6e4293a95a4f672826e0d205cfb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 06/25/2019
+ms.date: 09/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: aa7f5df5322c711b364d6cb0d7c0978fb58b15ad
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663861"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006598"
 ---
 # <a name="add-authentication-to-your-android-app"></a>将身份验证添加到 Android 应用
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -37,22 +37,22 @@ ms.locfileid: "52663861"
 
 1. 在 [Azure 门户]中，选择应用服务。
 
-2. 单击“身份验证/授权”菜单选项。
+2. 单击“身份验证/授权”  菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `appname://easyauth.callback`。  此字符串中的 _appname_ 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
+3. 在“允许的外部重定向 URL”  中，输入 `appname://easyauth.callback`。  此字符串中的 _appname_ 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
-4. 单击 **“确定”**。
+4. 单击 **“确定”** 。
 
-5. 单击“保存” 。
+5. 单击“保存”  。
 
 ## <a name="permissions"></a>将权限限制给已经过身份验证的用户
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* 在 Android Studio 中，打开你按照[Get started with Mobile Apps]教程完成的项目。 从“运行”菜单中单击“运行应用”；验证启动该应用后，是否会引发状态代码为 401（“未授权”）的未经处理的异常。
+* 在 Android Studio 中，打开你按照[Get started with Mobile Apps]教程完成的项目。 从“运行”  菜单中单击“运行应用”  ；验证启动该应用后，是否会引发状态代码为 401（“未授权”）的未经处理的异常。
 
-     发生此异常的原因是应用尝试以未经身份验证的用户身份访问后端，但 TodoItem 表现在要求身份验证。
+     发生此异常的原因是应用尝试以未经身份验证的用户身份访问后端，但 TodoItem  表现在要求身份验证。
 
-接下来，需要更新应用，以便在从移动应用后端请求资源之前对用户进行身份验证。 
+接下来，需要更新应用，以便在从移动应用后端请求资源之前对用户进行身份验证。
 
 ## <a name="add-authentication-to-the-app"></a>向应用程序添加身份验证
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -66,7 +66,8 @@ ms.locfileid: "52663861"
 完成此基本身份验证教程后，请考虑继续学习以下教程之一：
 
 
-+ [为 Android 应用启用脱机同步](./app-service-mobile-android-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;，即使在没有网络连接时也是如此。
++ [为 Android 应用启用脱机同步](app-service-mobile-android-get-started-offline-data.md)。
+  了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;，即使在没有网络连接时也是如此。
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -78,5 +79,5 @@ ms.locfileid: "52663861"
 
 
 <!-- URLs. -->
-[Get started with Mobile Apps]: ./app-service-mobile-android-get-started.md
+[Get started with Mobile Apps]: app-service-mobile-android-get-started.md
 [Azure 门户]: https://portal.azure.cn/

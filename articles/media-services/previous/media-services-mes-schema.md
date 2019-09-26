@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 05/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 02b57300cbc4031ce9b7f30657db3f58316e9035
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 4d94b31f16c36e4fe621b29c8b2bbc3fdb37545d
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550015"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124367"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
@@ -39,7 +39,7 @@ ms.locfileid: "65550015"
 
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| **版本**<br/><br/> 必须 |**xs: decimal** |预设版本。 以下限制适用：xs:fractionDigits 值 ="1" 和 xs:minInclusive 值 ="1"，例如，版本 ="1.0"。 |
+| **版本**<br/><br/> 必须 |**xs: decimal** |预设版本。 以下限制适用：xs:fractionDigits 值 ="1" 和 xs:minInclusive 值 ="1"，例如，版本 ="1.0"  。 |
 
 ## <a name="Encoding"></a> 编码
 包含以下元素序列：  
@@ -59,11 +59,11 @@ ms.locfileid: "65550015"
 
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| TwoPass<br/><br/> minOccurs="0" |**xs: boolean** |目前，仅支持单步编码。 |
-| KeyFrameInterval<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧的固定间距（以秒为单位）。 亦称为“GOP 持续时间”。 请参阅 **SceneChangeDetection**，此元素用于控制编码器能否偏离此值。 |
-| SceneChangeDetection<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
-| 复杂性<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量的平衡。 可能是以下值之一：速度、均衡或质量<br/><br/> 默认值：**均衡** |
-| SyncMode<br/><br/> minOccurs="0" | |将在未来版本中公开功能。 |
+| TwoPass <br/><br/> minOccurs="0" |**xs: boolean** |目前，仅支持单步编码。 |
+| KeyFrameInterval <br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧的固定间距（以秒为单位）。 亦称为“GOP 持续时间”。 请参阅 **SceneChangeDetection**，此元素用于控制编码器能否偏离此值。 |
+| SceneChangeDetection <br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
+| 复杂性 <br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量的平衡。 可能是以下值之一：速度、均衡或质量   <br/><br/> 默认值：**均衡** |
+| SyncMode <br/><br/> minOccurs="0" | |将在未来版本中公开功能。 |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |输出视频层的集合。 |
 
 ### <a name="attributes"></a>属性
@@ -74,7 +74,7 @@ ms.locfileid: "65550015"
 
 ## <a name="H264Layers"></a> H264Layers
 
-默认情况下，如果向编码器发送仅包含音频而不包含视频的输入，那么输出资产文件仅包含音频数据。 某些播放器可能无法处理此类输出流。 在这种情况下，可使用 H264Video 的 InsertBlackIfNoVideo 属性设置，强制编码器将视频轨道添加到输出中。 有关详细信息，请参阅[本文](media-services-advanced-encoding-with-mes.md#no_video)。
+默认情况下，如果向编码器发送仅包含音频而不包含视频的输入，那么输出资产文件仅包含音频数据。 某些播放器可能无法处理此类输出流。 在这种情况下，可使用 H264Video 的 InsertBlackIfNoVideo  属性设置，强制编码器将视频轨道添加到输出中。 有关详细信息，请参阅[本文](media-services-advanced-encoding-with-mes.md#no_video)。
               
 ### <a name="elements"></a>元素
 
@@ -92,19 +92,19 @@ ms.locfileid: "65550015"
 
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| Profile<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** |可能是以下 xs:string 值之一：自动、基线、主要、高。 |
+| Profile <br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** |可能是以下 xs:string 值之一：  自动、基线、主要、高     。 |
 | **级别**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** | |
-| Bitrate<br/><br/> minOccurs="0" |**xs:int** |此视频层使用的比特率，以 kbps 为单位指定。 |
-| MaxBitrate<br/><br/> minOccurs="0" |**xs: int** |此视频层使用的最大比特率，以 kbps 为单位指定。 |
-| BufferWindow<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |视频缓冲区的长度。 |
-| Width<br/><br/> minOccurs="0" |**xs: int** |输出视频帧的宽度，以像素为单位。<br/><br/> 目前必须指定“Width”和“Height”。 Width 和 Height 需为偶数。 |
-| Height<br/><br/> minOccurs="0" |**xs:int** |输出视频帧的高度，以像素为单位。<br/><br/> 目前必须指定“Width”和“Height”。 Width 和 Height 需为偶数。|
-| BFrames<br/><br/> minOccurs="0" |**xs: int** |参考帧之间的 B 帧数。 |
-| ReferenceFrames<br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |GOP 中的参考帧数。 |
-| EntropyMode<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |可能是以下值之一：**Cabac** 和 **Cavlc**。 |
-| FrameRate<br/><br/> minOccurs=“0” |有理数 |确定输出视频的帧速率。 使用默认值 "0/1"，允许编码器使用与输入视频相同的帧速率。 允许的值应为通用视频帧速率。 但是，允许使用任何有效有理数。 例如 1/1 表示 1 fps 且有效。<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**注意** 如果要创建多比特率编码的自定义预设，则预设的所有层**必须**都使用相同的帧速率值。|
+| Bitrate <br/><br/> minOccurs="0" |**xs:int** |此视频层使用的比特率，以 kbps 为单位指定。 |
+| MaxBitrate <br/><br/> minOccurs="0" |**xs: int** |此视频层使用的最大比特率，以 kbps 为单位指定。 |
+| BufferWindow <br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |视频缓冲区的长度。 |
+| Width <br/><br/> minOccurs="0" |**xs: int** |输出视频帧的宽度，以像素为单位。<br/><br/> 目前必须指定“Width”和“Height”。 Width 和 Height 需为偶数。 |
+| Height <br/><br/> minOccurs="0" |**xs:int** |输出视频帧的高度，以像素为单位。<br/><br/> 目前必须指定“Width”和“Height”。 Width 和 Height 需为偶数。|
+| BFrames <br/><br/> minOccurs="0" |**xs: int** |参考帧之间的 B 帧数。 |
+| ReferenceFrames <br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |GOP 中的参考帧数。 |
+| EntropyMode <br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |可能是以下值之一：**Cabac** 和 **Cavlc**。 |
+| FrameRate <br/><br/> minOccurs=“0” |有理数 |确定输出视频的帧速率。 使用默认值 "0/1"，允许编码器使用与输入视频相同的帧速率。 允许的值应为通用视频帧速率。 但是，允许使用任何有效有理数。 例如 1/1 表示 1 fps 且有效。<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**注意** 如果要创建多比特率编码的自定义预设，则预设的所有层**必须**都使用相同的帧速率值。|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |从 Azure 媒体编码器复制 |
-| Slices<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |确定一帧分为多少切片。 建议使用默认值。 |
+| Slices <br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |确定一帧分为多少切片。 建议使用默认值。 |
 
 ## <a name="AACAudio"></a> AACAudio
  包含以下元素和组的序列。  
@@ -115,7 +115,7 @@ ms.locfileid: "65550015"
 
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| **配置文件**<br/><br/> minOccurs="0"<br/><br/> default="AACLC" |**xs: string** |可能是以下值之一：AACLC、HEAACV1 或 HEAACV2。 |
+| **配置文件**<br/><br/> minOccurs="0"<br/><br/> default="AACLC" |**xs: string** |可能是以下值之一：AACLC、HEAACV1 或 HEAACV2    。 |
 
 ### <a name="attributes"></a>属性
 
@@ -136,8 +136,8 @@ ms.locfileid: "65550015"
 
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| 通道<br/><br/> minOccurs="0" |**xs: int** |音频通道数。 以下是有效选项：1、2、5、6、8。<br/><br/> 默认值：2. |
-| SamplingRate<br/><br/> minOccurs="0" |**xs: int** |音频采样率，以 Hz 为单位指定。 |
+| 通道 <br/><br/> minOccurs="0" |**xs: int** |音频通道数。 以下是有效选项：1、2、5、6、8。<br/><br/> 默认值：2. |
+| SamplingRate <br/><br/> minOccurs="0" |**xs: int** |音频采样率，以 Hz 为单位指定。 |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs: int** |对音频进行编码时使用的比特率，以 kbps 为单位指定。 |
 
 ### <a name="audio-codec-details"></a>音频编解码器详细信息
@@ -161,7 +161,7 @@ ms.locfileid: "65550015"
 
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| **FileName** |**xs:string** |输出文件的名称。<br/><br/> 可以使用下表中描述的宏来生成输出文件名。 例如：<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type":"MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |输出文件的名称。<br/><br/> 可以使用下表中描述的宏来生成输出文件名。 例如：<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type":"MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>宏
 
@@ -216,7 +216,7 @@ ms.locfileid: "65550015"
 | Name | 类型 | 说明 |
 | --- | --- | --- |
 | **宽度**<br/><br/> minOccurs="0" |**xs:int** | |
-| Height<br/><br/> minOccurs="0" |**xs:int** | |
+| Height <br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>属性
 
@@ -230,7 +230,7 @@ ms.locfileid: "65550015"
 | Name | 类型 | 说明 |
 | --- | --- | --- |
 | **宽度**<br/><br/> minOccurs="0" |**xs:int** | |
-| Height<br/><br/> minOccurs="0" |**xs:int** | |
+| Height <br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>属性
 
@@ -244,8 +244,8 @@ ms.locfileid: "65550015"
 | Name | 类型 | 说明 |
 | --- | --- | --- |
 | **宽度**<br/><br/> minOccurs="0" |**xs:int** | |
-| Height<br/><br/> minOccurs="0" |**xs:int** | |
-| 质量<br/><br/> minOccurs="0" |**xs:int** |有效值：1（最差）-100（最好） |
+| Height <br/><br/> minOccurs="0" |**xs:int** | |
+| 质量 <br/><br/> minOccurs="0" |**xs:int** |有效值：1（最差）-100（最好） |
 
 ### <a name="attributes"></a>属性
 
@@ -297,4 +297,7 @@ ms.locfileid: "65550015"
 
 ## <a name="examples"></a>示例
 查看根据此架构生成的 XML 预设示例，请参阅 [MES (Media Encoder Standard) 的任务预设](media-services-mes-presets-overview.md)。
+
+## <a name="next-steps"></a>后续步骤
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

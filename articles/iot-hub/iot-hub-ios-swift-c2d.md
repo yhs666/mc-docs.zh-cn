@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/19/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6acbb09c50c65e66d7c8ca6855c29741a1d126f3
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: ee17b8ca198433e5561dda81b15a351d4709533e
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993615"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155982"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -25,6 +25,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 * 通过 IoT 中心，将云到设备的消息从解决方案后端发送到单个设备。
 * 在设备上接收云到设备的消息。
+
 * 通过解决方案后端，请求确认收到从 IoT 中心发送到设备的消息（反馈  ）。
 
 可以在 [IoT 中心开发人员指南的“消息”部分](iot-hub-devguide-messaging.md)中找到有关云到设备消息的详细信息。
@@ -38,6 +39,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 > [!NOTE]
 > IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java、Python 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](https://www.azure.com/develop/iot)。
 
+## <a name="prerequisites"></a>先决条件
 要完成本教程，需要以下各项：
 
 - 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个 [试用帐户][lnk-free-trial]。）

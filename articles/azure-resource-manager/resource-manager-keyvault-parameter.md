@@ -5,18 +5,18 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 05/09/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 58267b3492e050bb3f3c97550a9fa35d9b31a5ba
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 24afc70facf6359a999b5389796b669f27688963
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337404"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155899"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
-在部署过程中，可以从 [Azure Key Vault](../key-vault/key-vault-whatis.md) 中检索一个安全值，而不是直接在模板或参数文件中放置该值（如密码）。 通过引用参数文件中的密钥保管库和密钥来检索值。 值永远不会公开，因为仅引用其密钥保管库 ID。 密钥保管库可以与要部署到的资源组位于不同的订阅中。
+在部署过程中，可以从 [Azure Key Vault](../key-vault/key-vault-overview.md) 中检索一个安全值，而不是直接在模板或参数文件中放置该值（如密码）。 通过引用参数文件中的密钥保管库和密钥来检索值。 值永远不会公开，因为仅引用其密钥保管库 ID。 密钥保管库可以与要部署到的资源组位于不同的订阅中。
 
 ## <a name="deploy-key-vaults-and-secrets"></a>部署密钥保管库和机密
 

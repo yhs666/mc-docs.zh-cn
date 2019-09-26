@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 29fd031b0be9a293d8cfaca4a45dbfa2db8959e2
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 8fe42682d8856a03afc341ad76e0bfbff351cb1a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671001"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124642"
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒体服务 PlayReady 许可证模板概述
 Azure 媒体服务现在提供了用于交付 PlayReady 许可证的服务。 当播放器（例如 Silverlight）尝试播放受 PlayReady 保护的内容时，将向许可证交付服务发送请求以获取许可证。 如果许可证服务批准了该请求，则会颁发该许可证，该许可证将发送到客户端，并用来解密和播放指定的内容。
@@ -306,4 +306,8 @@ XML 遵循“PlayReady 许可证模板 XML 架构”部分中定义的 PlayReady
       <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
     </xs:schema>
 
+
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

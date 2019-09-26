@@ -1,28 +1,19 @@
 ---
-title: 从 Linux VM 中分离数据磁盘 - Azure | Azure
+title: 如何从 Linux 虚拟机中分离数据磁盘 | Azure
 description: 了解如何使用 Azure CLI 或 Azure 门户从 Azure 虚拟机中分离数据磁盘。
-services: virtual-machines-linux
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/18/2018
-ms.date: 05/20/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 50481a59c463c036e86a69696e15d71de2b22d35
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: ed4ef8366858258aa08466ff77a1132851d8911f
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835768"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921222"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机中分离数据磁盘
 
@@ -113,13 +104,13 @@ az vm disk detach \
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>使用门户分离数据磁盘
 
-1. 在左侧菜单中，选择“虚拟机”。
-2. 选择具有要分离的数据磁盘的虚拟机，并单击“停止”以解除分配 VM。
-3. 在虚拟机窗格中，选择“磁盘”。
-4. 在“磁盘”窗格的顶部，选择“编辑”。
-5. 在“磁盘”窗格中，转到要分离的数据磁盘最右侧，并单击![分离按钮图像](./media/detach-disk/detach.png)分离按钮。
+1. 在左侧菜单中，选择“虚拟机”  。
+2. 选择具有要分离的数据磁盘的虚拟机，并单击“停止”  以解除分配 VM。
+3. 在虚拟机窗格中，选择“磁盘”  。
+4. 在“磁盘”  窗格的顶部，选择“编辑”  。
+5. 在“磁盘”  窗格中，转到要分离的数据磁盘最右侧，并单击![分离按钮图像](./media/detach-disk/detach.png)分离按钮。
 5. 删除磁盘后，单击窗格顶部的“保存”。
-6. 在虚拟机窗格中，单击“概述”，并单击窗格顶部的“开始”按钮重启 VM。
+6. 在虚拟机窗格中，单击“概述”  ，并单击窗格顶部的“开始”  按钮重启 VM。
 
 磁盘保留在存储中，但不再附加到虚拟机。
 

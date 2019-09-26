@@ -4,18 +4,17 @@ description: 介绍如何在 Azure 资源管理器模板中设置子资源的名
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 08/02/2019
-ms.date: 08/26/2019
+origin.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 41a88aa11103af21cc7a51b3165e18ea45641b07
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 83c13f3d20e171a0426ac3cd3ba0e3f4d8bde988
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993742"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155892"
 ---
 <!--Verify Successfully-->
-
 # <a name="set-name-and-type-for-child-resources"></a>设置子资源的名称和类型
 
 子资源是只存在于另一资源的上下文内的资源。 例如，如果没有[虚拟机](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-03-01/virtualmachines)，则[虚拟机扩展](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions)不能存在。 扩展资源是虚拟机的子项。
@@ -25,9 +24,9 @@ ms.locfileid: "69993742"
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
     "resources": [
-      // child resource
+      <child-resource>
     ]
   }
 ]
@@ -38,10 +37,10 @@ ms.locfileid: "69993742"
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
   },
   {
-    // child resource
+    <child-resource>
   }
 ]
 ```
@@ -142,5 +141,4 @@ ms.locfileid: "69993742"
 
 * 若要了解引用资源时的资源名称格式，请参阅[引用函数](resource-group-template-functions-resource.md#reference)。
 
-<!-- Update_Description: new article about child resource name type-->
-<!--ms.date: 08/26/2019-->
+<!-- Update_Description: wording update -->

@@ -1,9 +1,9 @@
 ---
-title: 在 Azure 应用服务移动应用中创建 Android 应用
+title: 在 Azure 应用服务移动应用中创建 Android 应用 | Azure
 description: 遵循本教程开始使用 Azure 移动应用后端进行 Android 开发
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: conceptual
-origin.date: 10/01/2016
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 5eb06d8c8edc175b0b802699e352565783e155a1
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+origin.date: 05/06/2019
+ms.date: 09/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 28d338ccf35eb035762cd0cb4ac4e8721dc7551e
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687471"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006601"
 ---
 # <a name="create-an-android-app"></a>创建 Android 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

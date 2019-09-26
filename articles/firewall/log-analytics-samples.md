@@ -5,15 +5,15 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 02/15/2019
-ms.date: 07/22/2019
+origin.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f42d124f3dccbf7447ab3b844bf254ddba8a025
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 653e98d88d0a2da451f5f3731d100f965aea2dd5
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337595"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155878"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 防火墙日志分析示例
 
@@ -74,7 +74,7 @@ SourcePort = tostring(SourcePortInt)
 TargetPort = tostring(TargetPortInt)
 | extend
 //make sure we only have Allowed / Deny in the Action Field
-Action1 = case(Action1 == "denied","Deny","Unknown Action")
+Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend
     Action = case(Action2 == "",Action1,Action2),
     Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
@@ -96,7 +96,7 @@ AzureDiagnostics
 | parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
 | extend SourcePort = tostring(SourcePortInt)
 | extend TargetPort = tostring(TargetPortInt)
-| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
 RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
@@ -174,5 +174,4 @@ AzureDiagnostics
 
 若要了解 Azure 防火墙监视和诊断，请参阅[教程：监视 Azure 防火墙日志和指标](tutorial-diagnostics.md)。
 
-<!-- Update_Description: new articles on log analytics sample -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: wording update -->

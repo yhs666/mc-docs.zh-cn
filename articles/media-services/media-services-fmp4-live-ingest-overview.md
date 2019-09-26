@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 5ea3ec6ab4c212b352e477572c363d209013e34d
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 0bb151bf3ae3109e614c792d9b4dae6451eeb523
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671018"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124431"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒体服务分片 MP4 实时引入规范 
 
@@ -190,6 +190,9 @@ ms.locfileid: "69671018"
 1. 让流独自发送每个唯一的音频轨迹。 此外，为每个音频轨道流发送冗余流，其中第二个流与第一个流的唯一不同之处在于 HTTP POST URL 中的标识符：{protocol}://{server address}/{publishing point path}/Streams({identifier})。
 1. 使用独立的流发送两个最低视频比特率。 其中每个流还应该包含每个唯一音频轨迹的副本。例如，当支持多种语言时，这些流应包含每种语言的音频轨迹。
 1. 使用独立的服务器（编码器）实例来编码和发送 (1) 与 (2) 中所提到的冗余流。 
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
 [image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png

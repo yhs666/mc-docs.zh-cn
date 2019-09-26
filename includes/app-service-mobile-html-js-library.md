@@ -1,14 +1,28 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+origin.date: 08/23/2018
+ms.date: 08/23/2018
+ms.author: v-tawe
+ms.openlocfilehash: 8211f24ff31c1692b1f335aa86b2f09a075dce02
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006587"
+---
 ## <a name="create-client"></a>创建客户端连接
 通过创建 `WindowsAzure.MobileServiceClient` 对象创建客户端连接。  将 `appUrl` 替换为到移动应用的 URL。
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>使用表格
+## <a name="table-reference"></a>使用表
 若要访问或更新数据，请创建到后端表的引用。 将 `tableName` 替换为表名称
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -26,7 +40,7 @@ var table = client.getTable(tableName);
 拥有表格引用后，可用其查询服务器上的数据。  查询使用了“类 LINQ”语言。
 若要返回表中的所有数据，请使用以下代码：
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -59,7 +73,7 @@ table
 #### <a name="table-filter"></a>在服务器上筛选数据
 可在表格引用上使用 `where` 子句：
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -68,7 +82,7 @@ table
 
 也可使用筛选对象的函数。  该情况下， `this` 变量被分配给经过筛选的当前对象。  以下代码在功能上等效于上个示例：
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -82,7 +96,7 @@ table
 #### <a name="table-paging"></a>分页浏览数据
 利用 `take()` 和 `skip()` 方法。  例如，如想要将表拆分为 100 行记录：
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -105,12 +119,12 @@ function loadPage(pageNum) {
 
 `.includeTotalCount()` 方法用于将 totalCount 字段添加到结果对象。  如果不分页，totalCount 字段会填充要返回的记录总数。
 
-然后可使用页变量和某些 UI 按钮提供页列表；使用 `loadPage()` 为每页加载新记录。  实施缓存，加快已加载的记录的访问速度。
+然后可使用页变量和某些 UI 按钮提供页列表；使用 `loadPage()` 为每页加载新记录。  实现缓存以加快对已加载记录的访问速度。
 
 #### <a name="sorting-data"></a>如何：返回排序后的数据
 使用 `.orderBy()` 或 `.orderByDescending()` 查询方法：
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -158,7 +172,7 @@ table
 ### <a name="deleting"></a>如何：删除数据
 若要删除记录，请调用 `.del()` 方法。  在对象引用中传递 ID：
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

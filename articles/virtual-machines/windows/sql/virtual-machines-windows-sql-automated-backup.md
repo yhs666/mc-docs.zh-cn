@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/03/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: c09f0ed06e9e69bf802aac2bc22334009e44117f
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 6a06356f7ecc3cf1200ca3f6398559190ca57054
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538821"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921011"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虚拟机 (Resource Manager) 的自动备份
 
@@ -275,21 +275,16 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ## <a name="monitoring"></a>监视
 
-可通过两种主要方式监视 SQL Server 2014 上的自动备份。 由于自动备份使用 SQL Server 托管备份功能，同样的监视方法对两者均适用。
+可通过一种方式监视 SQL Server 2014 上的自动备份。 由于自动备份使用 SQL Server 托管备份功能，同样的监视方法对两者均适用。
+
+<!--MOONCAKE: CORRECT ON one main option-->
 
 首先，可通过调用 [msdb.smart_admin.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql) 轮询状态。 或查询 [msdb.smart_admin.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) 表值函数。
 
 > [!NOTE]
 > 适用于 SQL Server 2014 中托管备份的架构是 msdb.smart_admin  。 在 SQL Server 2016 中，架构需更改为 msdb.managed_backup，且参考主题使用此较新架构  。 但对于 SQL Server 2014，必须为所有托管备份对象继续使用 smart_admin 架构  。
 
-另一种方式是利用内置的数据库邮件功能进行通知。
-
-1. 调用 [msdb.smart_admin.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) 存储过程，向 SSMBackup2WANotificationEmailIds 参数分配电子邮件地址  。 
-1. 启用 SendGrid，从 Azure VM 发送电子邮件。
-1. 使用 SMTP 服务器和用户名配置数据库邮件。 可在 SQL Server Management Studio 中或使用 Transact-SQL 命令配置数据库邮件。 有关详细信息，请参阅[数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)。
-1. [配置 SQL Server 代理以使用数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail)。
-1. 验证是否通过本地 VM 防火墙和适用于 VM 的网络安全组允许该 SMTP 端口。
-
+<!--Not Available on Another option is to take advantage of the built-in Database Mail feature for notifications.-->
 <!-- Not Available on [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)-->
 
 ## <a name="next-steps"></a>后续步骤

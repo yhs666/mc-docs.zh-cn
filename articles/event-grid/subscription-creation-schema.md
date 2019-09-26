@@ -6,14 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/02/2019
+origin.date: 01/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 93b14da01fb408464211bfe153152beb3785c63d
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 6bff05d1ff619b09c644e490a30b4f79760ff5bd
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195208"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155902"
 ---
 # <a name="event-grid-subscription-schema"></a>事件网格订阅架构
 
@@ -42,17 +43,17 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 
 | 属性 | 类型 | 说明 |
 | -------- | ---- | ----------- |
-| endpointType | 字符串 | 订阅（webhook/HTTP、事件中心或队列）的终结点类型。 | 
-| endpointUrl | 字符串 | 此事件订阅中的事件的目标 URL。 | 
+| endpointType | string | 订阅（webhook/HTTP、事件中心或队列）的终结点类型。 | 
+| endpointUrl | string | 此事件订阅中的事件的目标 URL。 | 
 
 ### <a name="filter-object"></a>筛选器对象
 
 | 属性 | 类型 | 说明 |
 | -------- | ---- | ----------- |
-| includedEventTypes | 数组 | 当事件消息中的事件类型与这些事件类型名称之一完全匹配时匹配。 当事件名称与事件源的已注册事件类型名称不匹配时，将引发错误。 默认匹配所有事件类型。 |
-| subjectBeginsWith | 字符串 | 事件消息中使用者字段的前缀匹配筛选器。 默认或空字符串匹配所有类型。 | 
-| subjectEndsWith | 字符串 | 事件消息中使用者字段的后缀匹配筛选器。 默认或空字符串匹配所有类型。 |
-| isSubjectCaseSensitive | 字符串 | 用于筛选器的区分大小写匹配的控件。 |
+| includedEventTypes | array | 当事件消息中的事件类型与这些事件类型名称之一完全匹配时匹配。 当事件名称与事件源的已注册事件类型名称不匹配时，将引发错误。 默认匹配所有事件类型。 |
+| subjectBeginsWith | string | 事件消息中使用者字段的前缀匹配筛选器。 默认或空字符串匹配所有类型。 | 
+| subjectEndsWith | string | 事件消息中使用者字段的后缀匹配筛选器。 默认或空字符串匹配所有类型。 |
+| isSubjectCaseSensitive | string | 用于筛选器的区分大小写匹配的控件。 |
 
 
 ## <a name="example-subscription-schema"></a>订阅架构示例
@@ -68,7 +69,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

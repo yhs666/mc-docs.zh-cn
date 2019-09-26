@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.reviewer: azmetadata
-ms.openlocfilehash: ba7d76cf60b0a7d6a91c127d658c59168c73573a
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 7b99e4ebc0ff00b60912c2c75ea104a56b3b567a
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912927"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921047"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -40,10 +40,10 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 
 Regions                                        | 可用性？                                 | 支持的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
-[Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
-[Azure 中国](https://www.azure.cn/support/service-dashboard/)                                                     | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
-[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
+[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30、2019-06-01、2019-06-04
+[Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
+[Azure 中国](https://www.azure.cn/support/service-dashboard/)                                                     | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
+[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
 
 <!-- Notice: Correct on [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/) -->
 <!-- Notice : [Azure Government] to [Azure US Government] -->
@@ -351,11 +351,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 数据 | 说明 | 引入的版本
 -----|-------------|-----------------------
 attested | 请参阅[证明数据](#attested-data) | 2018-10-01
-identity | Azure 资源的托管标识。 | 2018-02-01
+identity | Azure 资源的托管标识。 请参阅[获取访问令牌](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | 请参阅[实例 API](#instance-api) | 2017-04-02
 scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
-
-<!--Not Available on  [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)-->
 
 #### <a name="instance-api"></a>实例 API
 ##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>可以通过实例 API 使用以下计算类别：
@@ -382,6 +380,7 @@ ResourceId | 资源的[完全限定](https://docs.microsoft.com/rest/api/resourc
 sku | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+tagsList | 格式化为 JSON 数组以方便编程分析的标记  | 2019-06-04
 版本 | VM 映像的版本 | 2017-04-02
 vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
@@ -436,7 +435,7 @@ Nonce 是一个可选的 10 位字符串。 Nonce 可用于跟踪请求，如果
 ```
 
 > [!NOTE]
-> 签名 Blob 是 [pkcs7](https://aka.ms/pkcs7) 签名的文档版本。 它包含用于签名的证书以及 VM 详情，如 vmId、nonce、文档创建和到期的时间戳以及关于映像的计划信息。 计划信息只针对 Azure 市场映像填充。 证书可从响应中提取，用于验证响应是否有效、是否来自 Azure。
+> 签名 Blob 是 [pkcs7](https://aka.ms/pkcs7) 签名的文档版本。 它包含用于签名的证书以及 VM 详情，如 vmId、nonce、subscriptionId、文档创建和到期的时间戳以及关于映像的计划信息。 计划信息只针对 Azure 市场映像填充。 证书可从响应中提取，用于验证响应是否有效、是否来自 Azure。
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>检索 Windows 虚拟机中的证明元数据
 
@@ -468,7 +467,7 @@ Nonce 是一个可选的 10 位字符串。 Nonce 可用于跟踪请求，如果
 }
 ```
 
-> 签名 Blob 是 [pkcs7](https://aka.ms/pkcs7) 签名的文档版本。 它包含用于签名的证书以及 VM 详情，如 vmId、nonce、文档创建和到期的时间戳以及关于映像的计划信息。 计划信息只针对 Azure 市场映像填充。 证书可从响应中提取，用于验证响应是否有效、是否来自 Azure。
+> 签名 Blob 是 [pkcs7](https://aka.ms/pkcs7) 签名的文档版本。 它包含用于签名的证书以及 VM 详情，如 vmId、nonce、subscriptionId、文档创建和到期的时间戳以及关于映像的计划信息。 计划信息只针对 Azure 市场映像填充。 证书可从响应中提取，用于验证响应是否有效、是否来自 Azure。
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -582,8 +581,32 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-> [!NOTE]
-> 标记以分号分隔。 如果编写的分析器以编程方式提取标记，则标记名称和值不应包含分号，这样分析器才能正常工作。
+`tags` 字段是带有用分号分隔的标记的字符串。 如果标记本身中使用了分号，这可能是一个问题。 如果编写分析程序以编程方式提取标记，则应该依赖 `tagsList` 字段（不带分隔符的 JSON 数组，因此更容易分析）。
+
+**请求**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+```
+
+**响应**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>验证 VM 是否在 Azure 中运行
 
@@ -626,7 +649,8 @@ Verification successful
     "createdOn":"11/28/18 00:16:17 -0000",
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34"
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
 }
 ```
 
@@ -637,10 +661,11 @@ nonce | 用户提供了带有请求的可选字符串。 如果请求中未提�
 timestamp/createdOn | 创建第一个签名文档的时间戳
 timestamp/expiresOn | 签名文档到期的时间戳
 vmId |  VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
+subscriptionId | `2019-04-30` 中引入的虚拟机的 Azure 订阅
 
 #### <a name="verifying-the-signature"></a>验证签名
 
-获得上面的签名后，可以验证签名是否来自世纪互联。 还可以验证中间证书和证书链。
+获得上面的签名后，可以验证签名是否来自世纪互联。 还可以验证中间证书和证书链。 最后，可以验证订阅 ID 是否正确。
 
 > [!NOTE]
 > 公有云和主权云的证书将有所不同。

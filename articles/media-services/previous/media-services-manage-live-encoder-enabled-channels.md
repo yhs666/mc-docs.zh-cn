@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 737560bd9e7738c4fd5d351c54c792b09019e75d
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.reviewer: juliako
+ms.openlocfilehash: be1c1c8323a199bbf80821c436598b690266ce2b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670941"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124458"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -338,6 +339,12 @@ ms.locfileid: "69670941"
 * 通道启动时间已改善为平均 2 分钟，但有时因为需求提高，可能仍然需要长达 20 分钟以上的时间。
 * 盖板图像应符合[此处](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。 如果尝试创建默认盖板大于 1920x1080 的频道，请求最终会出错。
 * 再次强调，完成流式处理后请不要忘记关闭通道。 否则会继续计费。
+
+## <a name="next-step"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 
 ## <a name="related-topics"></a>相关主题
 [使用 Azure 媒体服务传送实时传送视频流事件](media-services-overview.md)

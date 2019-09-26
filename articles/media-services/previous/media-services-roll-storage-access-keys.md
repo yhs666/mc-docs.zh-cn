@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 05/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 7cc4d0352de9846eb91117ec7fb77f34bb3621fb
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 236c5c5a70f0cbaa53a7645ce2280651d397afcb
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236475"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124674"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>更改存储访问密钥后更新媒体服务 
 
@@ -72,4 +73,7 @@ ms.locfileid: "67236475"
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>将存储帐户添加到 AMS 帐户的步骤
 
 以下文章介绍了如何将存储帐户添加到 AMS 帐户：[将多个存储帐户附加到一个媒体服务帐户](meda-services-managing-multiple-storage-accounts.md)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

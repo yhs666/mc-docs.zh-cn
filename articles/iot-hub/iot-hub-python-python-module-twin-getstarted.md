@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 origin.date: 07/30/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: fe1a0288000af0e2c71a24fa1e138107f0773351
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: de8dcaf25c195cd9cb2f881d6d7e8680fa2449f6
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993589"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156044"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT 中心模块标识和模块孪生 (Python) 入门
 
@@ -32,7 +32,7 @@ ms.locfileid: "69993589"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-下面是必备组件的安装说明。
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -69,12 +69,16 @@ try:
     primary_key = ""
     secondary_key = ""
     auth_method = IoTHubRegistryManagerAuthMethod.SHARED_PRIVATE_KEY
-    new_device = iothub_registry_manager.create_device(DEVICE_ID, primary_key, secondary_key, auth_method)
-    print("new_device <" + DEVICE_ID + "> has primary key = " + new_device.primaryKey)
+    new_device = iothub_registry_manager.create_device(
+        DEVICE_ID, primary_key, secondary_key, auth_method)
+    print("new_device <" + DEVICE_ID +
+          "> has primary key = " + new_device.primaryKey)
 
     # CreateModule
-    new_module = iothub_registry_manager.create_module(DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
-    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID + "> has primary key = " + new_module.primaryKey)
+    new_module = iothub_registry_manager.create_module(
+        DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
+    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID +
+          "> has primary key = " + new_module.primaryKey)
 
 except IoTHubError as iothub_error:
     print ( "Unexpected error {0}".format(iothub_error) )
@@ -134,36 +138,41 @@ except KeyboardInterrupt:
 ## <a name="get-updates-on-the-device-side"></a>在设备端获取更新
 除了上述代码，还可添加以下代码块以在设备上获取孪生更新消息。
 
-```Python
-import random
+```python
 import time
-import sys
-import iothub_client
-from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
+import threading
+from azure.iot.device import IoTHubModuleClient
 
-PROTOCOL = IoTHubTransportProvider.AMQP
-CONNECTION_STRING = ""
+CONNECTION_STRING = "{deviceConnectionString}"
 
-def module_twin_callback(update_state, payload, user_context):
-    print ("")
-    print ("Twin callback called with:")
-    print ("updateStatus: %s" % update_state )
-    print ("context: %s" % user_context )
-    print ("payload: %s" % payload )
 
-try:
-    module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
-    module_client.set_module_twin_callback(module_twin_callback, 1234)
-
-    print ("Waiting for incoming twin messages.  Hit Control-C to exit.")
+def twin_update_listener(client):
     while True:
+        patch = client.receive_twin_desired_properties_patch()  # blocking call
+        print("")
+        print("Twin desired properties patch received:")
+        print(patch)
 
-        time.sleep(1000000)
+def iothub_client_sample_run():
+    try:
+        module_client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
 
-except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
-except KeyboardInterrupt:
-    print ( "module client sample stopped" )
+        twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(module_client,))
+        twin_update_listener_thread.daemon = True
+        twin_update_listener_thread.start()
+
+        while True:
+            time.sleep(1000000)
+
+    except KeyboardInterrupt:
+        print("IoTHubModuleClient sample stopped")
+
+
+if __name__ == '__main__':
+    print ( "Starting the IoT Hub Python sample..." )
+    print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+
+    iothub_client_sample_run()
 ```
 
 

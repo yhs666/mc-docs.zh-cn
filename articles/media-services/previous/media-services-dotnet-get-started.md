@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 42383e0478392aa452e017bca418f8e602162cee
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9ae804392e77c325f81dc48d8d52b8a030eabcb8
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627309"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124526"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容  
 
@@ -67,7 +67,7 @@ ms.locfileid: "58627309"
 使用 Azure 媒体服务时，最常见的场景之一是通过自适应比特率流式处理来传送视频。 媒体服务提供动态打包，可按媒体服务支持的流格式（MPEG DASH、HLS、平滑流式处理）及时传送自适应比特率 MP4 编码内容，而无需存储上述各种流格式的预打包版本。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
 
 若要启动流式处理终结点，请执行以下操作：
 
@@ -153,16 +153,16 @@ ms.locfileid: "58627309"
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>创建新资产并上传视频文件
 
-在媒体服务中，可以将数字文件上传（引入）到资产中。 “资产”实体可以包含视频、音频、图片、缩略图集合、文本曲目和隐藏式字幕文件（以及这些文件的相关元数据。）上传文件完成后，相关内容即安全地存储在云中供后续处理和流式处理。 资产中的文件称为 **资产文件**。
+在媒体服务中，可以将数字文件上传（引入）到资产中。 “资产”  实体可以包含视频、音频、图片、缩略图集合、文本曲目和隐藏式字幕文件（以及这些文件的相关元数据。）上传文件完成后，相关内容即安全地存储在云中供后续处理和流式处理。 资产中的文件称为 **资产文件**。
 
-下面定义的“UploadFile”方法调用“CreateFromFile”（在 .NET SDK Extensions 中定义）。 **CreateFromFile** 创建指定的源文件所要上传到的新资产。
+下面定义的“UploadFile”  方法调用“CreateFromFile”  （在 .NET SDK Extensions 中定义）。 **CreateFromFile** 创建指定的源文件所要上传到的新资产。
 
 **CreateFromFile** 方法采用 **AssetCreationOptions**，后者用于指定以下任一资产创建选项：
 
 * **无** - 不使用加密。 这是默认值。 请注意，使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
   如果计划使用渐进式下载交付 MP4，则使用此选项。
-* “StorageEncrypted” - 使用此选项可以通过高级加密标准 (AES) 256 位加密在本地加密明文内容，然后将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
-* “CommonEncryptionProtected” - 正在上传经过通用加密或 PlayReady DRM 加密并受其保护的内容（例如，受 PlayReady DRM 保护的平滑流式处理）时使用此选项。
+* “StorageEncrypted”  - 使用此选项可以通过高级加密标准 (AES) 256 位加密在本地加密明文内容，然后将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
+* “CommonEncryptionProtected”  - 正在上传经过通用加密或 PlayReady DRM 加密并受其保护的内容（例如，受 PlayReady DRM 保护的平滑流式处理）时使用此选项。
 * **EnvelopeEncryptionProtected** - 如果要上传使用 AES 加密的 HLS，请使用此选项。 请注意，Transform Manager 必须已对文件进行编码和加密。
 
 **CreateFromFile** 方法还允许指定回调，以报告文件的上传进度。
@@ -384,6 +384,10 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 
 ## <a name="download-sample"></a>下载示例
 下面的代码示例包含本教程中创建的代码：[示例](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)。
+
+## <a name="next-steps"></a>后续步骤
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 <!-- Anchors. -->
 

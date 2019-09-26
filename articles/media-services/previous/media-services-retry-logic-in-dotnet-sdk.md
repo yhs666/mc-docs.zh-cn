@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/24/2018
-ms.date: 12/03/2018
+origin.date: 03/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 951c0bd03a3d16ab863928ddc1d7b84f7494c861
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 0746fa2615750e0e7e205847a8faba329fc3886d
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63852327"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124672"
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>用于 .NET 的媒体服务 SDK 中的重试逻辑
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>用于 .NET 的媒体服务 SDK 中的重试逻辑  
+
 使用 Azure 服务时，可能会发生暂时性故障。 如果发生暂时性故障，在大多数情况下，重试几次后操作即可成功。 用于 .NET 的媒体服务 SDK 可实现重试逻辑，用于处理与异常和错误相关的暂时性故障，引起这些异常和错误的原因包括 Web 请求、执行查询、保存更改和存储操作。  默认情况下，适用于 .NET 的媒体服务 SDK 向应用程序重新引发异常前会执行四次重试。 应用程序中的代码稍后必须正确处理此异常。  
 
  下面是 Web 请求、存储、查询和 SaveChanges 策略的简要原则：  
@@ -81,4 +82,8 @@ ms.locfileid: "63852327"
 | 503 |是 |是 |是 |是 |
 | 504 |是 |是 |是 |否 |
 
-如果要查看用于 .NET 的媒体服务 SDK 的重试逻辑的实际实现，请参阅 [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling)。
+若要查看适用于 .NET 的媒体服务 SDK 重试逻辑的实际实现，请参阅 [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling)。
+
+## <a name="next-steps"></a>后续步骤
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 08/21/2019
+origin.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: dfc3d4daba206d35cf59b37ed1cb370655d92b05
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: fd5744c1f1dcddb78a555e10f3d4d87c083016fc
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667653"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124540"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>使用 .NET SDK 配置资产传送策略
 
@@ -326,5 +326,6 @@ MPEG DASH
         EnvelopeEncryptionIV
     }
 ```
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-<!--Update_Description: update code-->

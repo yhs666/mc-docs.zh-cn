@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 3de5fd1ecb832ed888b1a341eeea746e0f59c25a
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 7cbf7fb158df7d6f56a923a36b4f7a3d2d1271ea
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624147"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124386"
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>管理编码的速度和并发  
 
@@ -37,4 +37,7 @@ ms.locfileid: "58624147"
 ## <a name="next-step"></a>后续步骤
 
 [缩放编码单位](media-services-scale-media-processing-overview.md)
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

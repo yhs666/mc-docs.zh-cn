@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: da1612798a67366983538af2544a0ad142420451
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 2d5b30bd038d82414ee20d18d11d341fb3b8c54d
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672807"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124676"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
 > [!div class="op_single_selector"]
@@ -82,6 +82,9 @@ ms.locfileid: "52672807"
     }
 
 
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 ## <a name="next-steps"></a>后续步骤
-了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-rest-get-started.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
-<!--Update_Description: modify x-ms-version-->
+了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-rest-get-started.md)一文，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
+

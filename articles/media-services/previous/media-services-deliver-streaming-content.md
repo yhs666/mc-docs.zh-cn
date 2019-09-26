@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: a12ee3e08ff69f740d3859d0f24218902d09aed2
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: feef4acca7370fb17ee06bf9f93cc5d697f6b9a8
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670959"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124393"
 ---
 # <a name="publish-media-services-content-using-net"></a>使用 .NET 发布媒体服务内容  
 > [!div class="op_single_selector"]
@@ -172,6 +172,9 @@ ms.locfileid: "69670959"
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
 ```
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 * [下载资产](media-services-deliver-asset-download.md)

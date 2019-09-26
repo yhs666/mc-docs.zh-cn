@@ -4,16 +4,16 @@ description: 本文介绍如何使用 Azure CLI 部署和配置 Azure 防火墙�
 services: firewall
 author: rockboyfor
 ms.service: firewall
-origin.date: 07/10/2019
-ms.date: 07/22/2019
+origin.date: 08/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.topic: article
-ms.openlocfilehash: 77439e2c1493336c8b2d6a8f8c72f61b1736b689
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 81a179d36bc377730a070c1446cd32bb0088f7d4
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337583"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155791"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure CLI 部署和配置 Azure 防火墙
 
@@ -54,7 +54,7 @@ ms.locfileid: "68337583"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-如果选择在本地安装并使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 有关安装或升级的信息，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 有关安装或升级的信息，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 安装 Azure 防火墙扩展：
 
@@ -79,7 +79,7 @@ az group create --name Test-FW-RG --location chinaeast
 此虚拟网络有三个子网。
 
 > [!NOTE]
-> AzureFirewallSubnet 子网的最小大小为 /26。
+> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
 
 ```azurecli
 az network vnet create \
@@ -88,7 +88,7 @@ az network vnet create \
   --location chinaeast \
   --address-prefix 10.0.0.0/16 \
   --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.0.1.0/26
 az network vnet subnet create \
   --name Workload-SN \
   --resource-group Test-FW-RG \
@@ -270,19 +270,19 @@ az network firewall network-rule create \
     nslookup www.microsoft.com
     ```
 
-   这两个命令都应返回应答，表明 DNS 查询正在通过防火墙。
+    这两个命令都应返回应答，表明 DNS 查询正在通过防火墙。
 
 1. 运行以下命令：
 
-   ```
-   Invoke-WebRequest -Uri https://www.qq.com
-   Invoke-WebRequest -Uri https://www.qq.com
+    ```
+    Invoke-WebRequest -Uri https://www.qq.com
+    Invoke-WebRequest -Uri https://www.qq.com
 
-   Invoke-WebRequest -Uri https://www.microsoft.com
-   Invoke-WebRequest -Uri https://www.microsoft.com
-   ```
+    Invoke-WebRequest -Uri https://www.microsoft.com
+    Invoke-WebRequest -Uri https://www.microsoft.com
+    ```
 
-   www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
+    www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
 
 现已验证防火墙规则可正常工作：
 
@@ -302,5 +302,4 @@ az group delete \
 
 * [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!-- Update_Description: new articles on deploy firewall with cli -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: wording update -->

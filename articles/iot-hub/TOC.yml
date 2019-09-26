@@ -36,6 +36,22 @@
           href: quickstart-control-device-python.md
         - name: Android
           href: quickstart-control-device-android.md
+    - name: 使用设备流进行通信（预览版）
+      items:
+        - name: .NET
+          href: quickstart-device-streams-echo-csharp.md
+        - name: Node.js
+          href: quickstart-device-streams-echo-nodejs.md
+        - name: C
+          href: quickstart-device-streams-echo-c.md
+    - name: 使用设备流发送 SSH/RDP 流量（预览版）
+      items:
+        - name: .NET
+          href: quickstart-device-streams-proxy-csharp.md
+        - name: Node.js
+          href: quickstart-device-streams-proxy-nodejs.md
+        - name: C
+          href: quickstart-device-streams-proxy-c.md
 - name: 教程
   items:
     - name: 路由消息
@@ -70,8 +86,14 @@
       href: iot-hub-compare-event-hubs.md
     - name: 选择适当的层
       href: iot-hub-scaling.md
+    - name: 高可用性和灾难恢复
+      href: iot-hub-ha-dr.md
+    - name: 了解 IoT 中心 IP 地址
+      href: iot-hub-understand-ip-address.md
     - name: 支持其他协议
       href: iot-hub-protocol-gateway.md
+    - name: 比较消息和事件路由
+      href: iot-hub-event-grid-routing-comparison.md
     - name: 设备配置最佳做法
       href: iot-hub-configuration-best-practices.md
     - name: Azure IoT SDK 平台支持
@@ -97,6 +119,8 @@
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: 向消息路由添加查询
                   href: iot-hub-devguide-routing-query-syntax.md
+            - name: 响应 IoT 中心事件
+              href: iot-hub-event-grid.md
             - name: 从 IoT 中心发送云到设备的消息
               href: iot-hub-devguide-messages-c2d.md
             - name: 选择通信协议
@@ -127,6 +151,8 @@
           href: iot-hub-devguide-sdks.md
         - name: MQTT 支持
           href: iot-hub-mqtt-support.md
+        - name: AMQP 支持
+          href: iot-hub-amqp-support.md
         - name: 术语表
           href: iot-hub-devguide-glossary.md
     - name: 使用 X.509 CA 证书进行保护
@@ -151,12 +177,18 @@
                   href: iot-hub-device-sdk-c-iothubclient.md
                 - name: 使用序列化程序
                   href: iot-hub-device-sdk-c-serializer.md
+            - name: Azure IoT C SDK 资源信息
+              href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
             - name: 针对受约束设备进行开发
               href: iot-hub-devguide-develop-for-constrained-devices.md
             - name: 为移动设备进行开发
               href: iot-hub-how-to-develop-for-mobile-devices.md
             - name: 管理连接和可靠的消息传送
               href: iot-hub-reliability-features-in-sdks.md
+            - name: 针对 Android Things 平台进行开发
+              href: iot-hub-how-to-android-things.md
+        - name: 订阅来自事件网格的设备连接状态事件
+          href: iot-hub-how-to-order-connection-state-events.md
         - name: 发送“云到设备”消息
           items:
             - name: .NET
@@ -199,7 +231,7 @@
               href: iot-hub-python-python-module-twin-getstarted.md
             - name: C
               href: iot-hub-c-c-module-twin-getstarted.md
-            - name: 节点
+            - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
         - name: 设备管理入门
           items:
@@ -227,7 +259,7 @@
           items:
             - name: 使用 Azure 门户
               href: iot-hub-create-through-portal.md
-            - name: 使用用于 VS Code 的 Azure IoT 中心工具包
+            - name: 使用用于 VS Code 的 Azure IoT Tools
               href: iot-hub-create-use-iot-toolkit.md
             - name: 使用 Azure PowerShell
               href: iot-hub-create-using-powershell.md
@@ -247,28 +279,23 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: 使用 Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: 使用诊断进行监视
+        - name: Azure Monitor 中的指标
+          href: iot-hub-metrics.md
+        - name: 设置诊断日志
           href: iot-hub-monitor-resource-health.md
-          items:
-            - name: 迁移到诊断设置
-              href: iot-hub-migrate-to-diagnostics-settings.md
-            - name: 操作监视
-              href: iot-hub-operations-monitoring.md
         - name: 使用 X.509 证书来保护中心
           href: iot-hub-security-x509-get-started.md
         - name: 升级 IoT 中心
           href: iot-hub-upgrade.md
-        - name: 使用指标
-          href: iot-hub-metrics.md
         - name: 配置 IP 筛选
           href: iot-hub-ip-filtering.md
-        - name: 大规模配置设备
+        - name: 大规模自动设备管理
           items:
             - name: 使用 Azure 门户
-              href: iot-hub-auto-device-config.md
+              href: iot-hub-automatic-device-management.md
             - name: 使用 Azure CLI
-              href: iot-hub-auto-device-config-cli.md
-        - name: 批量管理 IoT 设备
+              href: iot-hub-automatic-device-management-cli.md
+        - name: 批量导入和导出 IoT 设备
           href: iot-hub-bulk-identity-mgmt.md
     - name: 使用真实设备
       items:
@@ -283,8 +310,6 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
             - name: 将 MXChip IoT DevKit 与 Arduino 配合使用
               href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-            - name: 将 Adafruit Feather HUZZAH ESP8266 与 Arduino 配合使用
-              href: iot-hub-arduino-huzzah-esp8266-get-started.md
         - name: 使用 MXChip IoT DevKit
           items:
             - name: 使用 Azure 认知服务翻译语音消息
@@ -297,10 +322,12 @@
           items:
             - name: 使用用于 VS Code 的 Azure IoT Tools 管理云设备消息传送
               href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-            - name: 使用 Web 应用进行数据可视化
+            - name: Web 应用中的数据可视化
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: 使用用于 VS Code 的 Azure IoT Tools 进行设备管理
               href: iot-hub-device-management-iot-toolkit.md
+            - name: 使用用于 Visual Studio 的 Cloud Explorer 进行设备管理
+              href: iot-hub-device-management-visual-studio.md
             - name: 使用适用于 Azure CLI 的 IoT 扩展进行设备管理
               href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
             - name: 使用逻辑应用执行远程监视和发送通知
@@ -340,9 +367,7 @@
 - name: 相关内容
   items:
     - name: 解决方案
-      items:
-        - name: IoT 解决方案加速器
-          href: /iot-suite
+      items: null
     - name: 平台服务
       items:
         - name: IoT 中心

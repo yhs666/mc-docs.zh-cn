@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 5da9ed5b323be61ce25c842b1dbfda8fc87a94ef
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: d5a2e70b7ff2c294845adc869980e0d5838899f9
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670944"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124514"
 ---
 # <a name="implement-failover-streaming-with-media-services"></a>使用媒体服务实现故障转移流式处理 
 
@@ -933,4 +933,7 @@ ms.locfileid: "69670944"
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以使用流量管理器在两个数据中心之间路由请求，因此可在发生任何中断时故障转移。
-<!--Update_Description: update code-->
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

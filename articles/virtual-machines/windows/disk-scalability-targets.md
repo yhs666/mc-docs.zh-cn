@@ -1,21 +1,19 @@
 ---
-title: Windows 上的 VM 磁盘的可伸缩性和性能目标 - Azure | Azure
+title: Windows 上的 VM 磁盘的可伸缩性和性能目标 | Azure
 description: 了解附加到运行 Windows 的 VM 的虚拟机磁盘的可伸缩性和性能目标。
-services: virtual-machines-windows,storage
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 11/15/2017
-ms.date: 04/01/2019
-ms.topic: article
+ms.date: 09/16/2019
+ms.topic: conceptual
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 546f69e724e0951083c25db9e00ca99aae1ca53d
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 7eae91aa5e3986172c1651049218ee4b1ec22dde
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003792"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921051"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Windows 上的 VM 磁盘的可伸缩性和性能目标
 

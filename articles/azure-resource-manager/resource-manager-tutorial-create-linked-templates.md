@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 1edb73fba3d58d54acfcaabca657fd486f38d442
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1431ec061f3300c205ac038156263f6b4dc2f00d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993587"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155905"
 ---
 <!--Verify successfully-->
-
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
 
 了解如何创建 Azure 资源管理器链接模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 在本教程中使用的模板与在[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的模板相同，该模板用于创建虚拟机、虚拟网络以及其他依赖资源（包括存储帐户）。 请将存储帐户资源创建功能分隔到链接的模板。
@@ -292,7 +291,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
 由于存储帐户现在已在链接模板中定义，因此必须更新 `Microsoft.Compute/virtualMachines` 资源的下述两个元素。
 
-* 重新配置 `dependOn` 元素。 存储帐户定义移到链接模板。
+* 重新配置 `dependsOn` 元素。 存储帐户定义移到链接模板。
 * 重新配置 `properties/diagnosticsProfile/bootDiagnostics/storageUri` 元素。 在[创建链接模板](#create-the-linked-template)中，已添加输出值：
 
     ```json
@@ -308,9 +307,9 @@ echo "Linked template URI with SAS token: $templateURI"
 1. 在 Visual Studio Code 中打开 azuredeploy.json（如果尚未打开）。
 2. 扩展虚拟机资源定义，更新 **dependsOn**，如以下屏幕截图所示：
 
-    ![Azure 资源管理器链接模板可配置依赖项 ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Azure 资源管理器链接模板可配置依赖项](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* 是部署资源的名称。  
+    *linkedTemplate* 是部署资源的名称。
 3. 更新 **properties/diagnosticsProfile/bootDiagnostics/storageUri**，如上一屏幕截图所示。
 4. 保存修订的模板。
 

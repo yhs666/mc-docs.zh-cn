@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/13/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 375eea8ee6ee8ac7ff7ca5e3cf4c2dbb1d2cd2ab
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 3e3b950d3a1bd80aa5ecb4a43c6284502413a099
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390774"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083165"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>排查配置服务器问题
 
@@ -93,8 +93,8 @@ ms.locfileid: "66390774"
 在源计算机上运行以下命令：
 
 ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
+cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
 <!--Path correct on Microsoft Azure Site Recovery\-->
@@ -240,9 +240,9 @@ TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 此处将 IP �
     > 验证并确保输入的是克隆配置服务器的 UUID 详细信息，或不再用于保护虚拟机的配置服务器过时条目。 输入不正确的 UUID 将导致丢失所有现有受保护项的信息。
 
     ```
-        MySQL> use svsdb1;
-        MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
-        MySQL> commit; 
+    MySQL> use svsdb1;
+    MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
+    MySQL> commit; 
     ```
 4. 刷新门户页面。
 

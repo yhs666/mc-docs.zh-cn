@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Linux VM 上运行自定义脚本 | Azure
+title: 在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2 | Azure
 description: 使用自定义脚本扩展 v2 自动化 Linux VM 配置任务
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 274e8a022a63e8f417f2e6705e7b2c2e3daef7f3
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 6c44c81e318f5e14d5ff28966371a2133c937434
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913050"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921195"
 ---
 <!--Verify successfully-->
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
@@ -76,7 +76,7 @@ ms.locfileid: "68913050"
   "name": "config-app",
   "type": "Extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -107,7 +107,7 @@ ms.locfileid: "68913050"
 
 | 名称 | 值/示例 | 数据类型 | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
@@ -207,7 +207,7 @@ CustomScript 使用以下算法来执行脚本。
   "name": "config-app",
   "type": "extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -255,8 +255,8 @@ az vm extension set \
   --vm-name exttest \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
-  --settings "{'fileUris': ['https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh']}"
-  --protected-settings "{'commandToExecute': './config-music.sh'}"
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]}"
+  --protected-settings '{"commandToExecute": "./config-music.sh"}'
 ```
 
 <!--MOONCAKE: IMPORTANT: Should split settings and protected-settings JSON file-->

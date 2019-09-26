@@ -9,19 +9,17 @@ ms.devlang: javascript
 ms.topic: conceptual
 origin.date: 06/16/2017
 ms.author: v-yiso
-ms.date: 09/02/2019
-ms.openlocfilehash: 6a542228ca1560a870f5ce2e4eebdb7fa69cc569
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 09/30/2019
+ms.openlocfilehash: 5cbf38c35fbdb9c1c3b16d96b82ec4a6e48e940a
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993605"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155928"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>使用 IoT 中心发送云到设备消息 (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
-
-## <a name="introduction"></a>简介
 
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门介绍了如何创建 IoT 中心、在其中预配设备标识，以及编写模拟设备应用来发送设备到云的消息。
 
@@ -45,9 +43,9 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 > IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java、Python 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](/develop/iot)。
 >
 
-要完成本教程，需要以下各项：
+## <a name="prerequisites"></a>先决条件
 
-* Node.js 版本 10.0.x 或更高版本。
+* Node.js 版本 10.0.x 或更高版本。 [准备开发环境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
 

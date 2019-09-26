@@ -11,12 +11,12 @@ origin.date: 08/07/2019
 ms.date: 09/02/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5da15ed12f6ff367b4251837a45291f59127487
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 377a57c32bd9f8a2f2a44a493de15a5de3849b44
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993088"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156016"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT 中心模块标识和模块孪生 (.NET) 入门
 
@@ -34,7 +34,7 @@ ms.locfileid: "69993088"
 > [!NOTE]
 > 有关 Azure IoT SDK 的信息（可以使用这些 SDK 构建可在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-若要完成本教程，需要满足以下先决条件：
+## <a name="prerequisites"></a>先决条件
 
 * Visual Studio。
 

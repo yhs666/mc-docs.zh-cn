@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 08/26/2019
+origin.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 790fd1ddf351b53e859852ff88ba678f5725545a
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 63fe16d685693377830b96fcbb431d4685e0608b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670951"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124535"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 
@@ -429,6 +429,9 @@ ms.locfileid: "69670951"
         JWT = 2,
     }
 ```
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 现在已配置内容密钥的授权策略，可以查看[配置资产传送策略](media-services-dotnet-configure-asset-delivery-policy.md)了。

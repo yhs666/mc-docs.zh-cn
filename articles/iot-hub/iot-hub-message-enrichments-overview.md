@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 05/10/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 461aee3c775eb5b13568435ef0dd819166108dd1
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: e105e19fbf9f07654b0c3731e9a3528782ce5776
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993607"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155926"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>设备到云 IoT 中心消息的消息扩充（预览版）
 

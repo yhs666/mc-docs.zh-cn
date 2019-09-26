@@ -3,7 +3,7 @@ title: 使用 .REST 配置 Azure 媒体服务遥测 | Microsoft Docs
 description: 本文介绍如何通过 REST API 使用 Azure 媒体服务遥测。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 727febf1bc0dd1b2b1d34475776614ab8a9c7f77
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 03/20/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: e65e5a9ff55ae677950aeb137ffa3243afeba4fd
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625286"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124671"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
 
@@ -35,7 +35,7 @@ ms.locfileid: "58625286"
 - 获取通知终结点
 - 创建用于监视的通知终结点。 
 
-    若要创建通知终结点，请将 EndPointType 设置为 AzureTable (2) 并将 endPontAddress 设置为存储表（例如 https://telemetryvalidationstore.table.core.chinacloudapi.cn/)）。
+    若要创建通知终结点，请将 EndPointType 设置为 AzureTable (2) 并将 endPontAddress 设置为存储表（例如 https://telemetryvalidationstore.table.core.chinacloudapi.cn/) ）。
   
 - 获取监视配置
 
@@ -236,5 +236,9 @@ ms.locfileid: "58625286"
 
 ## <a name="consuming-telemetry-information"></a>使用遥测信息
 
-有关使用遥测信息的信息，请参阅 [此主题](media-services-telemetry-overview.md)。
+有关使用遥测信息的信息，请参阅[此](media-services-telemetry-overview.md)主题。
+
+## <a name="next-steps"></a>后续步骤
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

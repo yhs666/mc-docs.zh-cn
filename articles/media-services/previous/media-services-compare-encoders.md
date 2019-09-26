@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: f8d6cc5e7921e651dec811fbc48c1d118c506061
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: b89c8d2d44d1472cd091eaac66e68f01ccc10dba
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254963"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124408"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器之间的对比  
 
@@ -143,6 +143,9 @@ ms.locfileid: "70254963"
 
 >[!NOTE]
 >如果编码为 Dolby® Digital (AC3)，则只能将输出写入到 ISO MP4 文件。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="related-articles"></a>相关文章
 * [通过自定义 Media Encoder Standard 预设执行高级编码任务](media-services-custom-mes-presets-with-dotnet.md)

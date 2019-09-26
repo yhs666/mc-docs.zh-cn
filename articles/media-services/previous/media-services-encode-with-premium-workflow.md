@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 046416e97c0627d384528827aef8e71bd567cee1
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 72f5c324a31a349c0449e40a4928b807b67b35c1
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254974"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124490"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>使用 Media Encoder Premium Workflow 进行高级编码
 
@@ -229,4 +229,7 @@ namespace MediaEncoderPremiumWorkflowSample
 ```
 
 有关高级编码器的问题，请发送电子邮件到 mepd@microsoft.com。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

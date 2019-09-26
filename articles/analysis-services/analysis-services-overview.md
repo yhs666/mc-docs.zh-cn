@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 07/01/2019
-ms.date: 08/26/2019
+origin.date: 08/27/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b5db46fe77d3170f623a289da5537bec259560f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 62b3b155177b4785620525440f0ce42ed8806e68
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993333"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155841"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -197,9 +197,9 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断
 
-Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特定指标来帮助监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用 [Azure 资源诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)。若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
+Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特定指标来帮助监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用 [Azure 资源诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将其流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)，并将其导出到 [Azure](https://www.azure.cn/) 服务 [Azure Monitor 日志](https://www.azure.cn/zh-cn/home/features/monitor/)。 有关详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
 
-<!--Not Avaialble on  [Azure Monitor logs](https://www.azure.cn/home/features/log-analytics/)-->
+<!--MOONCAKE: CORRECT ON  [Azure Monitor logs](https://www.azure.cn/zh-cn/home/features/monitor/)-->
 <!--Not Avaialble on  [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)-->
 
 Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
@@ -208,7 +208,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 本部分列出了特定于 Azure Analysis Services 的文档。 使用浏览器屏幕左侧的目录可查找文章。 
 
-由于 Azure Analysis Services 表格模型与 SQL Server Analysis Services 中的表格模型非常类似，因此可以参考 [SQL Server Analysis Services文档](https://docs.microsoft.com/analysis-services/analysis-services-overview)中分享的众多概念性、过程性、开发人员和参考文章库。 SQL Server Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。
+由于 Azure Analysis Services 表格模型与 SQL Server Analysis Services 中的表格模型非常类似，因此可以参考 [SQL Server Analysis Services文档](/analysis-services/analysis-services-overview)中分享的众多概念性、过程性、开发人员和参考文章库。 SQL Server Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。
 
 ![分享的文档](./media/analysis-services-overview/aas-overview-applies-to.png)
 
@@ -220,6 +220,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 文档团队会审查你的供稿，如果获得批准，你的 GitHub 帐户名会显示为供稿人。 有关详细信息，请参阅[文档供稿人指南](https://docs.microsoft.com/contribute/)。
 
+<!--MOONCAKE: CORRECT ON (https://docs.microsoft.com/contribute/)-->
 <!--Not Suitable on [GitHub Issues](https://docs.microsoft.com/zh-cn/teamblog/a-new-feedback-system-is-coming-to-docs)-->
 <!-- Not Available on ## Blogs-->
 <!-- Not Available on ## Community-->

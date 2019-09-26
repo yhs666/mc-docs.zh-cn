@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 0b6f6ab0fa7d6113398cb24673ac06cd29f2356e
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: 8392381024123e4b0e2e2cdf61443fcc9313c38b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667651"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124639"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>配置内容密钥授权策略
 
@@ -47,7 +47,7 @@ ms.locfileid: "69667651"
 * 创建媒体服务帐户时，会将一个处于“已停止”状态的默认流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，流式处理终结点必须处于“正在运行”状态。 
 * 资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。 有关详细信息，请参阅[对资产进行编码](media-services-encode-asset.md)。
 * 密钥传送服务将 ContentKeyAuthorizationPolicy 及其相关对象（策略选项和限制）缓存 15 分钟。 可以创建 ContentKeyAuthorizationPolicy 并指定使用令牌限制，对其进行测试，然后更新策略以开放限制。 在策略切换到开放版本之前，此过程需要花费大约 15 分钟。
-* 媒体服务流式处理终结点将预检响应中 CORS Access-Control-Allow-Origin 标头的值设置为通配符“\*”。 此值适用于大多数播放器，其中包括 Azure Media Player、Roku、JWPlayer 等。 但是，这不适用于一些使用 dash.js 的播放器，因为将凭据模式设置为“包含”之后，dash.js 中的 XMLHttpRequest 不允许将通配符“\*”作为 Access-Control-Allow-Origin 的值。 作为 dash.js 中这一限制的解决办法，如果你将客户端承载在单个域中，则媒体服务可以指定预检响应标头中的域。 
+* 媒体服务流式处理终结点将预检响应中 CORS Access-Control-Allow-Origin 标头的值设置为通配符“\*”。 此值适用于大多数播放器，其中包括 Azure Media Player、Roku、JWPlayer 等。 但是，这不适用于一些使用 dash.js 的播放器，因为将凭据模式设置为“包含”之后，dash.js 中的 XMLHttpRequest 不允许将通配符“\*”作为 Access-Control-Allow-Origin 的值。 作为 dash.js 中这一限制的解决办法，如果你将客户端承载在单个域中，则媒体服务可以指定预检响应标头中的域。 若需帮助，请通过 Azure 门户打开支持票证。
 
 ## <a name="configure-the-key-authorization-policy"></a>配置密钥授权策略
 若要配置密钥授权策略，请选择“内容保护”  页。
@@ -84,6 +84,9 @@ ms.locfileid: "69667651"
         </PlayReadyLicenseResponseTemplate>
 
 可以选择“导入策略 xml”  按钮并提供遵循在[媒体服务 PlayReady 许可证模板概述](media-services-playready-license-template-overview.md)中定义的 XML 架构的一个不同 XML。
+
+## <a name="next-steps"></a>后续步骤
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png

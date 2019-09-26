@@ -6,15 +6,16 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
-ms.author: robinsh
+origin.date: 03/25/2019
+ms.date: 09/30/2019
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 7eec0e28882b818a1a614b2bd5c7c6f59461ece7
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: fc07eccd88dc748bef446881126c6dba0d0696c0
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65960928"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156196"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>教程：使用 Azure CLI 配置 IoT 中心消息路由
 
@@ -44,8 +45,8 @@ ms.locfileid: "65960928"
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
-# This field is used when setting up the routing rules.
-subscriptionID=$(az account show --query id)
+# This field is used when setting up the routing queries.
+subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
 # You can set this to "" or to a specific value if you don't want it to be random.

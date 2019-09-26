@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/11/2018
-ms.date: 09/03/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 46ccc5155f3a978b86edbbc1ec16b2aa8fc4a0ac
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 8c062a4d3d836f0df13d2262747ceed65abe8fd6
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310867"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083258"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入门：将 Azure Redis 缓存与 Python 配合使用
 
@@ -112,13 +112,13 @@ for c in result:
 > 删除资源组的操作不可逆，资源组以及其中的所有资源将被永久删除。 请确保不会意外删除错误的资源组或资源。 如果在现有资源组（其中包含要保留的资源）中为托管此示例而创建了相关资源，可从各自的边栏选项卡逐个删除这些资源，而不要删除资源组。
 >
 
-登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。 
+登录到 [Azure 门户](https://portal.azure.cn)，然后选择“资源组”。 
 
-在“按名称筛选...”文本框中键入资源组的名称  。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，单击“...”，然后单击“删除资源组”   。
+在“按名称筛选...”文本框中，输入资源组的名称  。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，选择“...”，然后选择“删除资源组”   。
 
-![删除](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-系统会要求确认是否删除资源组。 键入资源组的名称进行确认，然后单击“删除”  。
+系统会要求确认是否删除资源组。 重新键入资源组的名称进行确认，然后选择“删除”  。
 
 片刻之后，将会删除该资源组及其包含的所有资源。
 

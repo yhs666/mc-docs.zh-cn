@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 674a1db445ae8030868e0ec83ceb2a44fcde71cc
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 7b6cf8418f93c00587624c8312eb1c7f1baef829
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624189"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124660"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>如何使用适用于 Adobe Open Source Media Framework 的 Microsoft 平滑流式处理插件  
 ## <a name="overview"></a>概述
@@ -384,7 +384,10 @@ package {
 2. 保存 HTML 页，并发布到 Web 服务器。 使用最常用的、已启用 Internet 浏览器（Internet Explorer、Chrome、Firefox 等）的 Flash&reg; Player 浏览到已发布的网页。
 3. 在 Adobe&reg; Flash&reg; Player 中欣赏平滑流式处理内容。
 
-有关一般性 OSMF 开发的详细信息，请参阅官方的 [OSMF 开发页](http://osmf.org/resources.html)。
+有关常规 OSMF 开发的详细信息，请参阅官方的 [OSMF 开发页](http://osmf.org/resources.html)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [适用于 OSMF 的 Microsoft 自适应流式处理插件更新](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 

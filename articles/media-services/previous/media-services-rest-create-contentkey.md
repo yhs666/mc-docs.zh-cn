@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 46a33db9015d8a288dca06dc3094dad9edada3e4
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: dc9a891574dea44a04bbab307bb452b8ff84de24
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624092"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124652"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 创建内容密钥
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "58624092"
 > 
 > 
 
-媒体服务允许传送加密的资产。 “ContentKey”提供对“资产”的安全访问。 
+媒体服务允许传送加密的资产。 “ContentKey”  提供对“资产”  的安全访问。 
 
-创建新资产时（例如，[上传文件](media-services-rest-upload-files.md)之前），可以指定以下加密选项：StorageEncrypted、CommonEncryptionProtected 或 EnvelopeEncryptionProtected。 
+创建新资产时（例如，[上传文件](media-services-rest-upload-files.md)之前），可以指定以下加密选项：StorageEncrypted、CommonEncryptionProtected 或 EnvelopeEncryptionProtected    。 
 
-将资产传送到客户端时，可以使用以下两个加密选项之一[将资产配置为动态加密](media-services-rest-configure-asset-delivery-policy.md)：DynamicEnvelopeEncryption 或 DynamicCommonEncryption。
+将资产传送到客户端时，可以使用以下两个加密选项之一[将资产配置为动态加密](media-services-rest-configure-asset-delivery-policy.md)：DynamicEnvelopeEncryption 或 DynamicCommonEncryption   。
 
 加密的资产必须与 **ContentKey**关联。 本文介绍如何创建内容密钥。
 
@@ -67,8 +67,8 @@ ms.locfileid: "58624092"
              Array.Copy(array, array2, 8);
              return Convert.ToBase64String(array2);
          }
-5. 使用前面步骤中收到的“EncryptedContentKey”（转换为 base64 编码的字符串）、“ProtectionKeyId”、“ProtectionKeyType”、“ContentKeyType”和“Checksum”值创建内容密钥。
-6. 通过 $links 操作将“ContentKey”实体与“资产”实体相关联。
+5. 使用前面步骤中收到的“EncryptedContentKey”  （转换为 base64 编码的字符串）、“ProtectionKeyId”  、“ProtectionKeyType”  、“ContentKeyType”  和“Checksum”  值创建内容密钥。
+6. 通过 $links 操作将“ContentKey”  实体与“资产”  实体相关联。
 
 本文中未说明如何生成 AES 密钥、加密密钥以及计算校验和。 
 
@@ -249,4 +249,8 @@ ms.locfileid: "58624092"
 响应：
 
     HTTP/1.1 204 No Content 
+
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -10,12 +10,12 @@ origin.date: 04/08/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 318be9d0e5d08beefb2ff373e462cbfcf70cd9d1
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: df8d9d244a06057bf0bc4f3f8efd6bc1f684cb8a
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390771"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083176"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms"></a>故障转移和故障回复 VMware VM
 
@@ -70,10 +70,10 @@ ms.locfileid: "66390771"
 1. 在“设置” > “复制的项”中，单击“VM”>“故障转移”    。
 
 2. 在“故障转移”  中，选择要故障转移到的“恢复点”  。 可以使用以下选项之一：
-   - **最新**：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
-   - **最新处理**：此选项将 VM 故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
-   - **最新的应用一致**：此选项将 VM 故障转移到由 Site Recovery 处理的最新应用一致恢复点。
-   - **自定义**：指定一个恢复点。
+    - **最新**：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
+    - **最新处理**：此选项将 VM 故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
+    - **最新的应用一致**：此选项将 VM 故障转移到由 Site Recovery 处理的最新应用一致恢复点。
+    - **自定义**：指定一个恢复点。
 
 3. 选择“在开始故障转移之前关闭计算机”，在触发故障转移之前尝试关闭源 VM  。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 

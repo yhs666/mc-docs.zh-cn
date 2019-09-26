@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 4d6e966be9f8726a0cadba1e2e7d6856aab80ac0
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: c2c3ffdfde79c9f5c1bf4c695a6bd771facc8d84
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670996"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124614"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容  
 > [!div class="op_single_selector"]
@@ -92,4 +92,7 @@ URL 会添加到“已发布的 URL”  列表。
 * 确保视频已发布。
 * Azure 门户媒体播放器从默认的流式处理终结点播放。 若要从非默认流式处理终结点播放，请选择并复制该 URL，然后将其粘贴到其他播放器中。 例如，可以在 [Azure Media Player](https://aka.ms/azuremediaplayer) 上测试视频。
 * 用于进行流式处理的流式处理终结点必须处于运行状态。  
-  <!--Update_Description: wording update-->
+
+## <a name="next-steps"></a>后续步骤
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

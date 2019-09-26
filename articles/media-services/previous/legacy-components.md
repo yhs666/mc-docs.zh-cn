@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/21/2019
-ms.date: 09/02/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 505fff38eda81ec67952ff0d76bf5bdd18c5a46a
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: aa41c692093b146efba8e9e4316ce4bb644224f1
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174551"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124560"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure 媒体服务旧组件
 
@@ -34,3 +34,6 @@ ms.locfileid: "70174551"
 * [从 Windows Azure 媒体编码器迁移到 Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [从 Azure 媒体编码器迁移到 Media Encoder Standard](migrate-azure-media-encoder.md)
 
+## <a name="next-steps"></a>后续步骤
+
+[有关从媒体服务 v2 迁移到 v3 的指导](../latest/migrate-from-v2-to-v3.md)

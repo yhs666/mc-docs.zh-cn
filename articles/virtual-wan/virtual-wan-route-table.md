@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 06/28/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 4af4e826b2bcfabb28988c80f276f1365c64e7c3
-ms.sourcegitcommit: 7ad1a199e9f81de27b9098b50062ef059099f765
+ms.openlocfilehash: ea8933a54f641e03a761a2b4d6e15ef0fc79a794
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461879"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155900"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>创建一个虚拟中心路由表来将流量引导到网络虚拟设备。
 
@@ -81,7 +81,7 @@ ms.locfileid: "67461879"
 3. 创建虚拟中心。
 
     ```powershell
-    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "chinanorthhub" -AddressPrefix "10.0.1.0/24"
+    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "chinanorthhub" -AddressPrefix "10.0.1.0/24" -Location "chinanorth"
     ```
 
 <a name="connections"></a>
@@ -89,15 +89,15 @@ ms.locfileid: "67461879"
 
 创建从间接辐射 VNet 和 DMZ VNet 到虚拟中心的中心虚拟网络连接。
 
-  ```powershell
-  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
-  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
-  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
+```powershell
+$remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
+$remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
+$remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
 
-  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "chinanorthhub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "chinanorthhub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "chinanorthhub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
-  ```
+New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "chinanorthhub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
+New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "chinanorthhub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
+New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "chinanorthhub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
+```
 
 <a name="route"></a>
 ## <a name="4-create-a-virtual-hub-route"></a>4.创建虚拟中心路由
@@ -130,5 +130,4 @@ Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Na
 
 若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
 
-<!--Update_Description: new articles on virtual wan route table -->
-<!--ms.date: 07/01/2019-->
+<!--Update_Description: wording update -->

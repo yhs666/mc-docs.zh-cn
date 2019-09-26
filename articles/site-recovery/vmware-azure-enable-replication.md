@@ -7,12 +7,12 @@ origin.date: 06/28/2019
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: c975873f636d0f6b7d4f0fb8b48b2d0c05d01238
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 014d7d8a515d2093479fa25196d725ac460aa7f1
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819652"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083181"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -50,10 +50,11 @@ ms.locfileid: "68819652"
 3. 对于“计算机类型”，请选择“虚拟机”或“物理机”。   
 4. 在“vCenter/vSphere 虚拟机监控程序”中，选择管理 vSphere 主机的 vCenter 服务器，或选择该主机  。 如果要复制物理计算机，则此设置无关紧要。
 5. 选择进程服务器。 如果没有创建其他进程服务器，则下拉列表中将提供配置服务器的内置进程服务器。 每个进程服务器的运行状况状态是根据建议的限制和其他参数指示的。 选择一个正常运行的进程服务器。 不能选择[有严重错误的](vmware-physical-azure-monitor-process-server.md#process-server-alerts)进程服务器。 你可以[进行故障排除并解决](vmware-physical-azure-troubleshoot-process-server.md)错误**或者**设置一个[横向扩展进程服务器](vmware-azure-set-up-process-server-scale.md)。
+    
     ![“启用复制源”窗口](media/vmware-azure-enable-replication/ps-selection.png)
 
-> [!NOTE]
-> 从 [9.24 版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)开始，引入了其他警报，以增强进程服务器的运行状况警报。 将 Site Recovery 组件升级到 9.24 版或更高版本，以便生成所有警报。
+    > [!NOTE]
+    > 从 [9.24 版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)开始，引入了其他警报，以增强进程服务器的运行状况警报。 将 Site Recovery 组件升级到 9.24 版或更高版本，以便生成所有警报。
 
 6. 对于“目标”，请选择要在其中创建故障转移虚拟机的订阅和资源组。  选择要在 Azure 中对故障转移的 VM 使用的部署模型。
 

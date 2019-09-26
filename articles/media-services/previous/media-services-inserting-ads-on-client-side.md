@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 1682c1edb3ff9279032dc82d421f86ba35dcede5
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 5da13e15b092a6b4789059f64bff45bffab97684
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670938"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124463"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在客户端上插入广告
 本文包含有关如何在客户端上插入各种类型的广告的信息。
@@ -842,6 +842,10 @@ Microsoft 媒体平台：适用于 iOS 的播放器框架包含示例应用程�
         [self logFrameworkError];
     }
 ```
+
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [开发视频播放器应用程序](media-services-develop-video-players.md)

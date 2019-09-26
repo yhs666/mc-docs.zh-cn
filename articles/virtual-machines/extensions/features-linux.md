@@ -1,5 +1,5 @@
 ---
-title: 适用于 Linux 的 Azure VM 扩展和功能 | Azure
+title: 适用于 Linux 的虚拟机扩展和功能 | Azure
 description: 了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5e4b173aca4a8a76f58f362ed3b4bbe3e4bf4e83
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 4ca7524b8af2d9133f3cbe577fa3503c8d502849
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913039"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921192"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -55,8 +55,7 @@ Azure VM 代理可管理 Azure VM 与 Azure 结构控制器之间的交互。 VM
 
 #### <a name="supported-oses"></a>支持的 OS
 
-Linux 代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加限制。 有关详细信息，请参阅[此文章](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
-)。
+Linux 代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加限制。 有关详细信息，请参阅[此文章](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
 
 某些扩展并非在所有 OS 上均受支持，可能会发出错误代码 51“不受支持的 OS”  。 请查看相应的扩展文档来了解支持情况。
 
@@ -87,7 +86,7 @@ Azure VM 扩展在现有 VM 上运行，需要在已部署的 VM 上进行配置
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 扩展可以通过 [az vm extension set](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 命令针对现有 VM 运行。 下面的示例针对名为 myResourceGroup 的资源组中的名为 myVM 的 VM 运行自定义脚本扩展   ：
+Azure VM 扩展可以通过 [az vm extension set](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 命令针对现有 VM 运行。 下面的示例针对名为 myResourceGroup 的资源组中名为 myVM 的 VM 运行自定义脚本扩展   。 将示例资源组名称、VM 名称和要运行的脚本 (https://raw.githubusercontent.com/me/project/hello.sh) 替换为你自己的信息。 
 
 ```azurecli
 az vm extension set `

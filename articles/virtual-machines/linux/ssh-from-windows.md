@@ -1,5 +1,5 @@
 ---
-title: 在 Windows 中对 Linux VM 使用 SSH 密钥 | Azure
+title: 如何在 Azure 上的 Windows 中使用 SSH 密钥 | Azure
 description: 了解如何在 Windows 计算机上生成和使用 SSH 密钥连接到 Azure 上的 Linux 虚拟机。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: d57a4b8a17de03dbc3b5f94c9e242674549f731f
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: d11175ee1dd7406156d0f28d608393e755045faa
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912995"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921156"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上将 SSH 密钥与 Windows 配合使用
 
@@ -43,10 +43,10 @@ Windows 计算机并不总是装有类似的 SSH 命令。 最新版本的 Windo
 * [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-<!-- Not Available on [Azure Cloud Shell](../../cloud-shell/overview.md)-->
+    <!-- Not Available on [Azure Cloud Shell](../../cloud-shell/overview.md)-->
 
 ## <a name="create-an-ssh-key-pair"></a>创建 SSH 密钥对
-以下各部分介绍了在 Windows 上创建 SSH 密钥对的两种选项。 可以使用 shell 命令 (`ssh-keygen`) 或 GUI 工具 (PuTTYgen)。
+以下各部分介绍了在 Windows 上创建 SSH 密钥对的两种选项。 可以使用 shell 命令 (`ssh-keygen`) 或 GUI 工具 (PuTTYgen)。 另请注意，使用 Powershell 创建密钥时，请以 ssh.com(SECSH) 格式上传公钥。 使用 CLI 时，请在上传前将密钥转换为 OpenSSH 格式。 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>使用 ssh-keygen 创建 SSH 密钥
 
@@ -107,7 +107,9 @@ ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 
 如果创建密钥对时配置了通行短语，则在登录过程中遇到提示时，请输入该通行短语。
 
-<!--Not Available on [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md)-->
+如果 VM 使用的是实时访问策略，则需要先请求访问权限，然后才能连接到 VM。 有关实时策略的详细信息，请参阅[使用实时策略管理虚拟机访问](../../security-center/security-center-just-in-time.md)。
+
+<!--MOONCAKE: Enable correct on Security Center-->
 
 ### <a name="connect-with-putty"></a>通过 PuTTY 连接
 

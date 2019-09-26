@@ -1,7 +1,7 @@
 ---
 title: 使用 REST 发布 Azure 媒体服务内容
 description: 了解如何创建用于生成流式处理 URL 的定位符。 代码使用 REST API。
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 07/30/2017
-ms.author: v-nany
-ms.openlocfilehash: cae892b4ff8ac48a06319c27ed9fa294c028b699
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: 6cfcc8e29f0521e0f668f8f589a8368a65127e0f
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644464"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124679"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 发布 Azure 媒体服务内容
+# <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 发布 Azure 媒体服务内容 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -136,25 +136,25 @@ ms.locfileid: "52644464"
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Wed, 18 Feb 2015 06:58:37 GMT
 
-    {"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.chinacloudapi.cn/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.chinacloudapi.cn","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
+    {"odata.metadata":"https://media.chinacloudapp.cn/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.chinacloudapi.cn/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.chinacloudapi.cn","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
 ### <a name="build-streaming-urls"></a>生成流式处理 URL
 使用创建定位符后返回的 **路径** 值生成平滑流式处理、HLS 和 MPEG DASH URL。 
 
-平滑流式处理： **路径** + 清单文件名 +“/manifest”
+平滑流式处理：路径 + 清单文件名 +“/manifest” 
 
 示例：
 
     http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS：路径 + 清单文件名 + "/manifest(format=m3u8-aapl)"
+HLS：路径 + 清单文件名 +“/manifest(format=m3u8-aapl)” 
 
 示例：
 
     http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-DASH：路径 + 清单文件名 + "/manifest(format=mpd-time-csf)"
+DASH：路径 + 清单文件名 +“/manifest(format=mpd-time-csf)” 
 
 示例：
 
@@ -164,7 +164,7 @@ DASH：路径 + 清单文件名 + "/manifest(format=mpd-time-csf)"
 ### <a name="build-progressive-download-urls"></a>生成渐进式下载 URL
 使用创建定位符后返回的 **路径** 值生成渐进式下载 URL。   
 
-URL： **路径** + 资产文件 mp4 名称
+URL：路径 + 资产文件 mp4 名称 
 
 示例：
 
@@ -187,6 +187,9 @@ URL： **路径** + 资产文件 mp4 名称
         Sas = 1,
         OnDemandOrigin = 2,
     }
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务操作 REST API 概述](media-services-rest-how-to-use.md)

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 71619e365e306730b99acb8e4dbece673c29feb6
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: 0414e5e138d082663b8229fbcb96fa78e402097a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667645"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124577"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 
@@ -365,7 +365,7 @@ MPEG DASH
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
-以下枚举说明为配置用于获取资产传送策略的特定配置的密钥可以设置的值。
+以下枚举说明为配置用于获取资产传递策略的特定配置的密钥可以设置的值。
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -404,3 +404,7 @@ MPEG DASH
         /// </summary>
         EnvelopeEncryptionIV
     }
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

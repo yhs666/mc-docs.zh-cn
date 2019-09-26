@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5660500a6a83c069e34b87ae7913b94189d85b29
-ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
+ms.openlocfilehash: d2fe46d0198fd5a2ac647e8f951f46e7c2bc4318
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725213"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083162"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>为多层 Citrix XenApp 和 XenDesktop 部署设置灾难恢复
 
@@ -167,10 +167,10 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
 
     主站点上现有的 MCS 或 PVS 克隆不会复制到 Azure。 你需要使用从交付控制器复制的主 VDA 和 Azure 预配重新创建这些克隆。 根据此[文章](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/)中介绍的步骤在 Azure 中创建 MCS 目录。
 
-![XenApp 组件的恢复计划](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
+    ![XenApp 组件的恢复计划](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 
-   >[!NOTE]
-   >可以使用[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts)的脚本，根据需要使用已故障转移虚拟机的新 IP 更新 DNS 或在已故障转移虚拟机上附加负载均衡器。
+    >[!NOTE]
+    >可以使用[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts)的脚本，根据需要使用已故障转移虚拟机的新 IP 更新 DNS 或在已故障转移虚拟机上附加负载均衡器。
 
 ## <a name="doing-a-test-failover"></a>执行测试故障转移
 

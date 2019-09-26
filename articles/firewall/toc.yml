@@ -10,7 +10,7 @@
     - name: 部署和配置
       href: tutorial-firewall-deploy-portal.md
     - name: 在混合网络中部署
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: 使用 DNAT 筛选入站流量
       href: tutorial-firewall-dnat.md
     - name: 监视诊断日志
@@ -39,6 +39,8 @@
   items:
     - name: 使用 Azure PowerShell 进行部署
       href: deploy-ps.md
+    - name: 在混合网络中部署 - PowerShell
+      href: tutorial-hybrid-ps.md
     - name: 使用 Azure CLI 进行部署
       href: deploy-cli.md
     - name: 使用多个公共 IP 进行部署
@@ -54,7 +56,7 @@
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network/new-azfirewall'
     - name: .NET
-      href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/'
+      href: 'https://docs.azure.cn/dotnet/api/overview/'
     - name: Java
       href: 'https://docs.azure.cn/java/api/overview/'
     - name: Node.js

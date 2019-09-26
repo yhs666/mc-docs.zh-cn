@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: c802095833e9f9decef450f6bdd53ff5f18d61be
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 38f6be24089bfc326677b4b807ba77f4cc977dd8
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624119"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124539"
 ---
 # <a name="develop-video-player-applications"></a>开发视频播放器应用程序
 ## <a name="overview"></a>概述
 Azure 媒体服务提供所需的工具，以便创建适用于大多数平台的丰富、动态的客户端播放器应用程序，这些平台包括：iOS 设备、Android 设备、Windows、Windows Phone、Xbox 和机顶盒。 本主题还提供可用于开发自己的客户端应用程序（这些应用程序使用 Azure 媒体服务中的流媒体）的 SDK 和播放器框架的链接。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
  
 ## <a name="azure-media-player"></a>Azure Media Player
 [Azure Media Player](https://www.azure.cn/home/features/media-services) 是 Web 视频播放器，用于在各种浏览器和设备中播放 Azure 媒体服务中的媒体内容。 Azure Media Player 采用行业标准（如 HTML5、媒体源扩展 (MSE) 和加密媒体扩展插件 (EME)）来提供更丰富的自适应流式处理体验。 如果无法在设备或浏览器中提供这些标准，Azure 媒体播放器会采用 Flash 和 Silverlight 作为回退技术。 如果不考虑所使用的播放技术，开发人员将有一个统一的 JavaScript 接口来访问 API。 这使 Azure 媒体服务提供的内容无需其他措施便可在各种设备和浏览中轻松播放。
@@ -64,7 +64,10 @@ Azure 媒体服务通过“Windows 媒体平台：播放器框架”提供广告
 
 广告可置于主视频时间线中的任何一个时间点。 必须告知播放器何时播放广告以及播放哪些广告。 这使用一组标准的基于 XML 的文件来完成：视频广告服务模板 (VAST)、数字视频多广告播放列表 (VMAP)、媒体抽象排序模板 (MAST) 和数字视频播放器广告接口定义 (VPAID)。 VAST 文件用于指定要显示哪些广告。 VMAP 文件用于指定何时播放各种广告并且包含 VAST XML。 MAST 文件是对包含 VAST XML 的广告进行排序的另一种方法。 VPAID 文件用于定义视频播放器与广告或广告服务器之间的接口。 有关详细信息，请参阅 [插入广告](https://msdn.microsoft.com/library/dn387398.aspx)。
 
-有关在实时传送视频流视频中隐藏式字幕和广告支持的信息，请参阅 [支持的隐藏式字幕和广告插入标准](./media-services-manage-channels-overview.md)。
+有关在实时传送视频流视频中隐藏字幕和广告支持的信息，请参阅[支持的隐藏字幕和广告插入标准](./media-services-manage-channels-overview.md)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频](media-services-embed-mpeg-dash-in-html5.md)

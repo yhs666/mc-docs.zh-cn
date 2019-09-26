@@ -1,5 +1,5 @@
 ---
-title: Azure 中的 Windows VM 大小 | Azure
+title: Azure 中 Windows 虚拟机的大小 | Azure
 description: 列出 Azure 中 Windows 虚拟机的不同可用大小。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/02/2019
-ms.date: 08/12/2019
+origin.date: 08/08/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 693f811fdb5d81e01cb7d114669d4e901d8df7f3
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 5ca091f1e3d90f3d5cc6554aa1a1975b133dbe75
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538959"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921171"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -31,7 +31,7 @@ ms.locfileid: "69538959"
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 | [计算优化](sizes-compute.md)        | Fsv2          | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [内存优化](sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 | [GPU](sizes-gpu.md)            | NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 
 <!-- Not Available DC series -->

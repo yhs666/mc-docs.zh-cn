@@ -11,15 +11,15 @@ ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 02/04/2019
+origin.date: 08/15/2019
+ms.date: 09/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3ed68f729573ec94d69c8d80be8bfb2839d853b9
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 4e27ec94119ffba7b243a374c49cb8487425eabd
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878505"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921236"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Storm 进行故障排除
 
@@ -28,7 +28,8 @@ ms.locfileid: "68878505"
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在群集上访问 Storm UI？
 可以使用两个选项从浏览器访问 Storm UI：
 
-### <a name="ambari-ui"></a>Ambari UI
+### <a name="apache-ambari-ui"></a>Apache Ambari UI
+
 1. 转到 Ambari 仪表板。
 2. 在服务列表中，选择“Storm”。 
 3. 在“快速链接”菜单中，选择“Storm UI”。  
@@ -38,9 +39,9 @@ ms.locfileid: "68878505"
 
 https://\<群集 DNS 名称\>/stormui
 
-示例：
 
- https://stormcluster.azurehdinsight.cn/stormui
+
+示例： `https://stormcluster.azurehdinsight.cn/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何将 Storm 事件中心 Spout 检查点信息从一个拓扑传输到另一个拓扑？
 
@@ -48,8 +49,10 @@ https://\<群集 DNS 名称\>/stormui
 
 ### <a name="where-checkpoint-data-is-stored"></a>检查点数据的存储位置
 事件中心 Spout 将偏移检查点数据存储在 ZooKeeper 中的两个根路径下：
-- 非事务 Spout 检查点存储在 /eventhubspout 中。
-- 事务 Spout 检查点数据存储在 /transactional 中。
+
+- 非事务 Spout 检查点存储在 `/eventhubspout` 中。
+
+- 事务 Spout 检查点数据存储在 `/transactional` 中。
 
 ### <a name="how-to-restore"></a>如何还原
 若要获取可用于将数据导出 ZooKeeper 并使用新名称将其导入回到 ZooKeeper 的脚本和库，请参阅 [HDInsight Storm 示例](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0)。
@@ -64,7 +67,7 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
 
 #### <a name="export-offset-metadata"></a>导出偏移元数据
 1. 使用 SSH 在需要从中导出检查点偏移数据的群集上转到 ZooKeeper 群集。
-2. （更新 HDP 版本字符串之后）运行以下命令，将 ZooKeeper 偏移数据导出到 /stormmetadta/zkdata HDFS 路径：
+2. （更新 HDP 版本字符串之后）运行以下命令，将 ZooKeeper 偏移数据导出到 `/stormmetadta/zkdata` HDFS 路径：
 
     ```apache   
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -72,7 +75,7 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
 
 #### <a name="import-offset-metadata"></a>导入偏移元数据
 1. 使用 SSH 转到需要从中导入检查点偏移数据的群集上的 ZooKeeper 群集。
-2. （更新 HDP 版本字符串之后）运行以下命令，将 ZooKeeper 偏移数据从 HDFS 路径 /stormmetadata/zkdata 导入到目标群集上的 ZooKeeper 服务器：
+2. （更新 HDP 版本字符串之后）运行以下命令，将 ZooKeeper 偏移数据从 HDFS 路径 `/stormmetadata/zkdata` 导入到目标群集上的 ZooKeeper 服务器：
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -87,12 +90,13 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
 ```
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>如何在群集上查找 Storm 二进制文件？
-当前 HDP 堆栈的 Storm 二进制文件在 /usr/hdp/current/storm-client 中。 在头节点和工作节点上，此位置是相同的。
- 
-/usr/hdp 中可能包含特定 HDP 版本的多个二进制文件（例如 /usr/hdp/2.5.0.1233/storm）。 /usr/hdp/current/storm-client 文件与群集上运行的最新版本建立了符号链接。
 
-有关详细信息，请参阅[使用 SSH 连接到 HDInsight 群集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/)。
- 
+当前 HDP 堆栈的 Storm 二进制文件在 `/usr/hdp/current/storm-client` 中。 在头节点和工作节点上，此位置是相同的。
+
+/usr/hdp 中可能包含特定 HDP 版本的多个二进制文件（例如 `/usr/hdp/2.5.0.1233/storm`）。 `/usr/hdp/current/storm-client` 文件夹与群集上运行的最新版本建立了符号链接。
+
+有关详细信息，请参阅[使用 SSH 连接到 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/)。
+
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>如何确定 Storm 群集的部署拓扑？
 首先，请识别连同 HDInsight Storm 一起安装的所有组件。 Storm 群集由四个节点类别组成：
 
@@ -152,5 +156,3 @@ Storm 工作节点运行以下服务：
  
 示例：/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>另请参阅
-[使用 Azure HDInsight 进行故障排除](../../hdinsight/hdinsight-troubleshoot-guide.md)

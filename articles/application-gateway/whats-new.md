@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 origin.date: 04/30/2019
-ms.date: 09/10/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1c8e958790d46c92c2b62ea4328d770dc87d35f0
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 852cc9d1962adf48046bb8cb3863d9dd00614e88
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857209"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083255"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure 应用程序网关有哪些新增功能？
 
@@ -28,6 +28,7 @@ Azure 应用程序网关会不断更新。 为了让大家随时了解最新的�
 
 |功能  |说明  |添加日期  |
 |---------|---------|---------|
+|更多指标 |我们添加了以下新指标，可帮助你监视应用程序网关 v2 SKU：[与计时相关的指标](/application-gateway/application-gateway-metrics#timing-metrics)、后端响应状态、接收的字节数、发送的字节数、客户端 TLS 协议和当前计算单元。 请参阅[应用程序网关 V2 SKU 支持的指标](/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku)。 |2019 年 8 月 |
 |WAF 自定义规则 |应用程序网关 WAF v2 现在支持创建自定义规则。 请参阅[应用程序网关自定义规则](custom-waf-rules-overview.md)。 |2019 年 7 月 |
 |自动缩放、区域冗余、静态 VIP 支持 GA |v2 SKU 正式版，支持自动缩放、区域冗余、增强性能、静态 VIP、密钥保管库、标头重写。 请参阅[应用程序网关自动缩放文档](application-gateway-autoscaling-zone-redundant.md)。 |2019 年 4 月 |
 |密钥保管库集成 |应用程序网关现在支持与密钥保管库（公共预览版）集成，以获取附加到支持 HTTPS 的侦听器的服务器证书。 请参阅[使用密钥保管库证书实现 SSL 终止](key-vault-certs.md)。 |2019 年 4 月 |

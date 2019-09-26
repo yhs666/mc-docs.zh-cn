@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 05e64f95f1a80e0b383069642eeb530396942ebd
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 2ab240dfdda96b1988ca9e848faa460666f4d9f2
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624186"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124649"
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述
@@ -40,7 +40,7 @@ ms.locfileid: "58624186"
 ### <a name="child-elements"></a>子元素
 | Name | 说明 |
 | --- | --- |
-| AssetFile<br/><br/> minOccurs="0" maxOccurs="1" |AssetFile 元素是 AssetFiles 集合的一部分。 |
+| AssetFile <br/><br/> minOccurs="0" maxOccurs="1" |AssetFile 元素是 AssetFiles 集合的一部分。 |
 
 ## <a name="AssetFile"></a> AssetFile 元素
 可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
@@ -56,8 +56,8 @@ ms.locfileid: "58624186"
 | Name | 说明 |
 | --- | --- |
 | **源** |输入/源媒体文件的集合，处理该集合以生成此 AssetFile。 有关详细信息，请参阅“源元素”。 |
-| VideoTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个视频轨道。 有关详细信息，请参阅“VideoTracks 元素”。 |
-| AudioTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个音频轨道。 这是所有这些音频轨道的集合。 有关详细信息，请参阅“AudioTracks 元素”。 |
+| VideoTracks <br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个视频轨道。 有关详细信息，请参阅“VideoTracks 元素”。 |
+| AudioTracks <br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个音频轨道。 这是所有这些音频轨道的集合。 有关详细信息，请参阅“AudioTracks 元素”。 |
 
 ## <a name="Sources"></a> Sources 元素
 输入/源媒体文件的集合，处理该集合以生成此 AssetFile。  
@@ -67,7 +67,7 @@ ms.locfileid: "58624186"
 ### <a name="child-elements"></a>子元素
 | Name | 说明 |
 | --- | --- |
-| Source<br/><br/> minOccurs="1" maxOccurs="unbounded" |生成此资产时所使用的输入/源文件。 有关详细信息，请参阅“源元素”。 |
+| Source <br/><br/> minOccurs="1" maxOccurs="unbounded" |生成此资产时所使用的输入/源文件。 有关详细信息，请参阅“源元素”。 |
 
 ## <a name="Source"></a> Source 元素
 生成此资产时所使用的输入/源文件。  
@@ -97,18 +97,18 @@ ms.locfileid: "58624186"
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此视频轨道从零开始的索引。**注意：** 此“Id”不一定是 MP4 文件中使用的 TrackID。 |
-| FourCC<br/><br/> 必须 |**xs:string** |视频编解码器 FourCC 代码。 |
+| Id <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此视频轨道从零开始的索引。**注意：** 此“Id”不一定是 MP4 文件中使用的 TrackID  。 |
+| FourCC <br/><br/> 必须 |**xs:string** |视频编解码器 FourCC 代码。 |
 | **配置文件** |**xs:string** |H264 配置文件（仅适用于 H264 编解码器）。 |
-| Level |**xs:string** |H264 级别（仅适用于 H264 编解码器）。 |
-| Width<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |编码视频宽度（以像素为单位）。 |
+| Level  |**xs:string** |H264 级别（仅适用于 H264 编解码器）。 |
+| Width <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |编码视频宽度（以像素为单位）。 |
 | **高度**<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |以像素为单位的编码视频高度。 |
-| DisplayAspectRatioNumerator<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:double** |视频显示纵横比分子。 |
+| DisplayAspectRatioNumerator <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:double** |视频显示纵横比分子。 |
 | **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:double** |视频显示纵横比分母。 |
-| Framerate<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:decimal** |采用 .3f 格式测量的视频帧速率。 |
-| TargetFramerate<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:decimal** |采用 .3f 格式预设的目标视频帧速率。 |
+| Framerate <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:decimal** |采用 .3f 格式测量的视频帧速率。 |
+| TargetFramerate <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:decimal** |采用 .3f 格式预设的目标视频帧速率。 |
 | **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |由 AssetFile 计算所得的平均视频比特率（千比特/秒）。 只计算基本流有效负载，并且不包括打包开销。 |
-| TargetBitrate<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |通过编码预设请求的此视频轨道的目标平均比特率，以千比特/秒为单位。 |
+| TargetBitrate <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |通过编码预设请求的此视频轨道的目标平均比特率，以千比特/秒为单位。 |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |此视频轨道的最大 GOP 平均比特率（千比特/秒）。 |
 
 ## <a name="AudioTracks"></a> AudioTracks 元素
@@ -129,18 +129,18 @@ ms.locfileid: "58624186"
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此音频轨道从零开始的索引。**注意：** 也不一定是 MP4 文件中使用的 TrackID。 |
+| Id <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此音频轨道从零开始的索引。**注意：** 也不一定是 MP4 文件中使用的 TrackID。 |
 | **Codec** |**xs:string** |音频轨道编解码器字符串。 |
 | **EncoderVersion** |**xs:string** |可选的编码器版本字符串，对于 EAC3 是必需的。 |
-| 通道<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |音频通道数。 |
-| SamplingRate<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |音频采样速率（以采样数/秒或 Hz 为单位）。 |
-| Bitrate<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |由 AssetFile 计算所得的平均音频比特率（比特/秒）。 仅针对基本流有效负载计数，不包含打包开销。 |
+| 通道 <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |音频通道数。 |
+| SamplingRate <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |音频采样速率（以采样数/秒或 Hz 为单位）。 |
+| Bitrate <br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |由 AssetFile 计算所得的平均音频比特率（比特/秒）。 仅针对基本流有效负载计数，不包含打包开销。 |
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |wFormatTag 格式类型的每个样本的位数。 |
 
 ### <a name="child-elements"></a>子元素
 | Name | 说明 |
 | --- | --- |
-| LoudnessMeteringResultParameters<br/><br/> minOccurs="0" maxOccurs="1" |响度测量结果参数。 有关详细信息，请参阅“LoudnessMeteringResultParameters 元素”。 |
+| LoudnessMeteringResultParameters <br/><br/> minOccurs="0" maxOccurs="1" |响度测量结果参数。 有关详细信息，请参阅“LoudnessMeteringResultParameters 元素”。 |
 
 ## <a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters 元素
 Loudness metering result parameters.  
@@ -151,15 +151,15 @@ Loudness metering result parameters.
 | Name | 类型 | 说明 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**Dolby** 专业响度测量开发套件版本。 |
-| DialogNormalization<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 必须 |**xs:int** |通过 DPLM 收集的 DialogNormalization，设置 LoudnessMetering 时为必需 |
-| IntegratedLoudness<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> 必须 |**xs:float** |集成的响度 |
-| IntegratedLoudnessUnit<br/><br/> 必须 |**xs:string** |集成的响度单位。 |
-| IntegratedLoudnessGatingMethod<br/><br/> 必须 |**xs:string** |选通标识符 |
-| IntegratedLoudnessSpeechPercentage<br/><br/> minInclusive ="0" maxInclusive="100" |**xs:float** |程序中的语音内容，百分比形式。 |
-| SamplePeak<br/><br/> 必须 |**xs:float** |从重置或上一次清除开始每通道绝对采样峰值。  单位为 dBFS。 |
-| SamplePeakUnit<br/><br/> fixed="dBFS"<br/><br/> 必须 |**xs:anySimpleType** |采样峰值单位。 |
-| TruePeak<br/><br/> 必须 |**xs:float** |根据 ITU-R BS.1770-2，从重置或上一次清除开始每通道最大实际峰值。 单位为 dBTP。 |
-| TruePeakUnit<br/><br/> fixed="dBTP"<br/><br/> 必须 |**xs:anySimpleType** |实际峰值单位。 |
+| DialogNormalization <br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 必须 |**xs:int** |通过 DPLM 收集的 DialogNormalization，设置 LoudnessMetering 时为必需 |
+| IntegratedLoudness <br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> 必须 |**xs:float** |集成的响度 |
+| IntegratedLoudnessUnit <br/><br/> 必须 |**xs:string** |集成的响度单位。 |
+| IntegratedLoudnessGatingMethod <br/><br/> 必须 |**xs:string** |选通标识符 |
+| IntegratedLoudnessSpeechPercentage <br/><br/> minInclusive ="0" maxInclusive="100" |**xs:float** |程序中的语音内容，百分比形式。 |
+| SamplePeak <br/><br/> 必须 |**xs:float** |从重置或上一次清除开始每通道绝对采样峰值。  单位为 dBFS。 |
+| SamplePeakUnit <br/><br/> fixed="dBFS"<br/><br/> 必须 |**xs:anySimpleType** |采样峰值单位。 |
+| TruePeak <br/><br/> 必须 |**xs:float** |根据 ITU-R BS.1770-2，从重置或上一次清除开始每通道最大实际峰值。 单位为 dBTP。 |
+| TruePeakUnit <br/><br/> fixed="dBTP"<br/><br/> 必须 |**xs:anySimpleType** |实际峰值单位。 |
 
 ## <a name="schema-code"></a>架构代码
     <?xml version="1.0" encoding="utf-8"?>  
@@ -599,4 +599,7 @@ Loudness metering result parameters.
         </AudioTracks>  
       </AssetFile>  
     </AssetFiles>  
+
+## <a name="next-steps"></a>后续步骤
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

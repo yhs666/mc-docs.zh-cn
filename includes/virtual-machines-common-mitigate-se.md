@@ -5,18 +5,18 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 06/04/2019
-ms.date: 08/12/2019
+origin.date: 08/08/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 6257d8d4b945e37080dbd48b160c15fbadeadd55
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 1704c20949965afbbdebaa71dc06a9b596ee2cec
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912969"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921109"
 ---
-**上次文档更新时间**：太平洋标准时间 2019 年 6 月 4 日下午 3:00。
+**上次文档更新时间**：太平洋标准时间 2019 年 8 月 9 日上午 10:00。
 
 发现一种称为推理执行旁道攻击的[新型 CPU 漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180002)，这使想要了解其详情的客户向我们提出了问题。  
 
@@ -156,6 +156,7 @@ NUMA node(s):          1
 - CVE-2017-5715 - 分支目标注入 (BTI)  
 - CVE-2017-5754 - 内核页表隔离 (KPTI)
 - CVE-2018-3639 - 推理存储旁路 (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2019-1125) - Windows 内核信息-Spectre 变体 1 的变体
 
 [L1 终端故障 (L1TF)](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180018)：
 - CVE-2018-3615 - Intel 软件防护扩展 (Intel SGX)

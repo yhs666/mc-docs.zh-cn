@@ -2,23 +2,20 @@
 title: Azure 移动应用文档 - 教程和 API 参考 | Azure
 description: 了解如何在 Azure 应用服务中使用移动应用生成和托管本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。
 services: app-service-mobile
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: app-service-mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 origin.date: 05/25/2018
-ms.date: 10/29/2018
-ms.author: v-biyu
-ms.openlocfilehash: 9b73dda29481997f8b9678387a6b034835068f73
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: c9a57de782a40abad00b19655b984019a704c76b
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659969"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006543"
 ---
 # <a name="mobile-apps-documentation"></a>移动应用文档
 
@@ -32,7 +29,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/app-service-mobile.svg" alt="" />
+                            <img src="media/index/i_learn-about.svg" alt="Mobile Apps" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +47,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/index/i_video.svg" alt="Videos" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +65,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/logo_android.svg" alt="Android" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +83,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/logo_cordova.svg" alt="Cordova" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,7 +101,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/logo_ios.svg" alt="iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -122,7 +119,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/logo_Windows.svg" alt="Windows" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -140,11 +137,11 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/i_mobileapp.svg" alt="Xamarin.Android" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>开始创建 xamarin.Android 应用</h3>
+                        <h3>开始创建 Xamarin.Android 应用</h3>
                     </div>
                 </div>
             </div>
@@ -158,11 +155,11 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/logo_xamarin.svg" alt="Xamarin.Forms" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>开始创建 xamarin.Forms 应用</h3>
+                        <h3>开始创建 Xamarin.Forms 应用</h3>
                     </div>
                 </div>
             </div>
@@ -176,7 +173,7 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/i_mobile-app-developement.svg" alt="Xamarin.iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -199,12 +196,12 @@ ms.locfileid: "52659969"
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET 后端 SDK</a></p>
+                        <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/overview/mobileapps/client?view=azure-dotnet&redirectedfrom=MSDN">.NET 后端 SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Windows/Xamarin 客户端 SDK</a></p>
+                        <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/overview/mobileapps/client?view=azure-dotnet&redirectedfrom=MSDN">Windows/Xamarin 客户端 SDK</a></p>
                     </div>
                 </div>
             </div>

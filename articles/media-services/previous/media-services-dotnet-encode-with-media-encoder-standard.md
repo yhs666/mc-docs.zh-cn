@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: ae14edbfd989b876ff0b9e38f4b7a31385d0fff7
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.reviewer: anilmur
+ms.openlocfilehash: 21735e5d44b65e081f2c0c4939a5e5d3183ccccf
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624112"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124524"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码  
 
@@ -202,6 +203,9 @@ namespace MediaEncoderStandardSample
 * [在编码期间剪辑视频](media-services-crop-video.md)
 * [自定义编码预设](media-services-custom-mes-presets-with-dotnet.md)
 * [使用图像叠加视频或给视频加水印](media-services-advanced-encoding-with-mes.md#overlay)
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 [如何使用 Media Encoder Standard 通过 .NET 来生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md)

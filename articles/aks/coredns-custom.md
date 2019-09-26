@@ -6,20 +6,20 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/15/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1399e50bc252a8205a20dfa5dddf2e84609a5611
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 09f9e2cf7c095b74f77bdc370430c032373c3d96
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993577"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155854"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>使用 Azure Kubernetes 服务自定义 CoreDNS
 
 Azure Kubernetes 服务 (AKS) 可将适用于管理和解决群集 DNS 问题的 [CoreDNS][coredns] 项目与所有 *1.12.x* 及更高版本的群集配合使用。 以前使用 kube-dns 项目。 该 kube-dns 项目现已弃用。 有关 CoreDNS 自定义和 Kubernetes 的详细信息，请参阅[官方的上游文档][corednsk8s]。
 
-由于 AKS 是托管的服务，因此不能修改 CoreDNS 的主要配置 (*CoreFile*)。 可以改用 Kubernetes *ConfigMap* 来替代默认设置。 若要查看默认的 AKS CoreDNS ConfigMap，请使用 `kubectl get configmaps -namespace=kube-system coredns -o yaml` 命令。
+由于 AKS 是托管的服务，因此不能修改 CoreDNS 的主要配置 (*CoreFile*)。 可以改用 Kubernetes *ConfigMap* 来替代默认设置。 若要查看默认的 AKS CoreDNS ConfigMap，请使用 `kubectl get configmaps --namespace=kube-system coredns -o yaml` 命令。
 
 本文介绍如何在 AKS 中将 ConfigMap 用于 CoreDNS 的基本自定义选项。
 
@@ -189,6 +189,8 @@ data:
 [coredns]: https://coredns.io/
 [corednsk8s]: https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns
 [dnscache]: https://coredns.io/plugins/cache/
+[aks-quickstart-cli]: /aks/kubernetes-walkthrough
+[aks-quickstart-portal]: /aks/kubernetes-walkthrough-portal
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

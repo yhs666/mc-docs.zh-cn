@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 05/11/2019
-ms.date: 08/12/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 310d0ad5b5c469775e17aeedff8bd70908ab1ed5
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 3a13d268e0ebb4992c23633e47adfa4a9fc2d8b0
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539160"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921127"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 
@@ -32,10 +32,23 @@ ms.locfileid: "69539160"
 有关 Azure VM 的支持策略的信息，请参阅 [Microsoft 服务器软件支持 Azure VM](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 
 > [!NOTE]
-> 本文中的说明适用于 64 位版本的 Windows Server 2008 R2 以及更高版本的 Windows Server 操作系统。 若要了解如何在 Azure 中运行 32 位操作系统，请参阅 [Azure VM 中的 32 位操作系统支持](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)。
+> 本文中的说明适用于：
+>1. 64 位版本的 Windows Server 2008 R2 以及更高版本的 Windows Server 操作系统。 若要了解如何在 Azure 中运行 32 位操作系统，请参阅 [Azure VM 中的 32 位操作系统支持](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)。
+>2. 如果将使用任何灾难恢复工具（如 Azure Site Recovery 或 Azure Migrate）来迁移工作负荷，则仍需要在来宾 OS上执行此过程以在迁移之前准备映像。
 
-## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>将虚拟磁盘转换为固定大小和 VHD 
-如果要将虚拟磁盘转换为 Azure 所需的格式，请使用本部分所述的某种方法。 在转换虚拟磁盘之前先备份 VM 确保 Windows VHD 在本地服务器上正常工作。 在尝试转换磁盘或将其上传到 Azure 之前，先解决 VM 本身内部的所有错误。
+## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>将虚拟磁盘转换为固定大小和 VHD
+
+如果需要将虚拟磁盘转换为 Azure 所需的格式，请使用本部分所述的方法之一：
+
+1. 在运行虚拟磁盘转换过程之前备份 VM。
+
+1. 确保 Windows VHD 在本地服务器上正常工作。 尝试转换磁盘或将其上传到 Azure 之前，先解决 VM 本身内部的所有错误。
+
+1. 关于 VHD 的大小：
+
+    1. Azure 上的所有 VHD 必须已将虚拟大小调整为 1MB。 从原始磁盘转换为 VHD 时，必须确保在转换前的原始磁盘大小是 1 MB 的倍数。 基于上传的 VHD 创建映像时，MB 的小数部分将导致错误。
+
+    2. OS VHD 允许的最大大小为 2TB。
 
 转换磁盘后，创建一个使用该磁盘的 VM。 启动并登录到 VM，以完成其上传准备工作。
 
@@ -48,8 +61,8 @@ ms.locfileid: "69539160"
 6. 找到并选择新 VHD 文件的保存路径。
 7. 选择“完成”。 
 
-> [!NOTE]
-> 使用提升权限的 PowerShell 会话中运行本文中所述的命令。
+    > [!NOTE]
+    > 使用提升权限的 PowerShell 会话中运行本文中所述的命令。
 
 ### <a name="use-powershell-to-convert-the-disk"></a>使用 PowerShell 转换磁盘 
 可以使用 Windows PowerShell 中的 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 命令转换虚拟磁盘。 启动 PowerShell 时选择“以管理员身份运行”  。 
@@ -80,6 +93,7 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
     ```
 
     如果 VM 需要使用特定代理，请向 Azure IP 地址 ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/)) 添加代理例外，使 VM 能够连接到 Azure：
+    
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"

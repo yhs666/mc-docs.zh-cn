@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 59490c1c5ece4620475c0ae18c8321d449174003
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 60226c05a27b62074ceb6a636c8b3f62592acf8d
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624184"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124493"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频  
 
@@ -87,7 +87,7 @@ Dash.js 是用 JavaScript 编写的开源 MPEG-DASH 视频播放器。 其目标
 
 调用 MediaPlayer 类的 startup() 函数可确保播放器已准备好播放视频。 除了其他用处以外，此函数还可确保已加载所有必需的类（如上下文所定义）。 播放器准备就绪后，便可以使用 attachView() 函数将 video 元素附加上去。 startup 函数使 MediaPlayer 可以将视频流注入到该元素，还可以根据需要控制播放。
 
-将 MPD 文件的 URL 传递到 MediaPlayer，以便它了解应播放的视频。 刚刚创建的 setupVideo() 函数需要在完全加载页后执行一次。 可通过使用 body 元素的 onload 事件来执行此操作。 将 <body> 元素更改为：
+将 MPD 文件的 URL 传递到 MediaPlayer，以便它了解应播放的视频。 刚刚创建的 setupVideo() 函数需要在完全加载页后执行一次。 可通过使用 body 元素的 onload 事件来执行此操作。 将 `<body>` 元素更改为：
 
 ```html
     <body onload="setupVideo()">
@@ -106,6 +106,9 @@ Dash.js 是用 JavaScript 编写的开源 MPEG-DASH 视频播放器。 其目标
 
 ## <a name="playing-a-video"></a>播放视频
 要播放视频，请将浏览器指向 basicPlayback.html 文件，并单击所显示的视频播放器上的“播放”。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [开发视频播放器应用程序](media-services-develop-video-players.md)

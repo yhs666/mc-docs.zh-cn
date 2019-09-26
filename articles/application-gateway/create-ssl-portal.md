@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-origin.date: 07/25/2019
-ms.date: 09/10/2019
+origin.date: 08/31/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: a5ff7cc3ffeb535e408d78ed65fad11d08de5874
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 650afe85eb02732e467925f880e83105a230681f
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857039"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083266"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>教程：通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -58,6 +58,9 @@ E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
 结合返回的指纹使用 [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate)，从证书导出 pfx 文件：
+
+> [!NOTE]
+> 请勿在 .pfx 文件密码中使用任何特殊字符。 仅支持字母数字字符。
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText

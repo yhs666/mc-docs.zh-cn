@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 01/14/2019
-ms.openlocfilehash: f33baf73b326d55bbe291ac64304a875452ef01e
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 09/23/2019
+ms.openlocfilehash: 3ec4ef9f8600a9682de70dcbef0dfc600c119214
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878757"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921052"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用扩展的 Apache Spark History Server 调试和诊断 Apache Spark 应用程序
 
@@ -321,7 +321,7 @@ Spark History Server Web UI 如下所示：
 
 ## <a name="known-issues"></a>已知问题
 
-1.  目前，该服务仅适用于 Spark 2.3 群集。
+1.  目前，它仅适用于 Spark 2.3 和 2.4 群集。
 
 2.  使用 RDD 的输入/输出数据不会显示在数据选项卡中。
 

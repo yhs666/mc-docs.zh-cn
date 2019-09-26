@@ -11,20 +11,20 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 06/21/2019
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3ffe7d0fb6bac60afb4d08a6d625f7e0723a1a36
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 266da6fb84588ff2aafadc9b50dc87b84970f2de
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570434"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156082"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入门：控制连接到 IoT 中心的设备 (Java)
+# <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>快速入门：使用 Java 控制连接到 Azure IoT 中心的设备
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入云，并从云管理设备。 在本快速入门中，会使用直接方法来控制连接到 IoT 中心的模拟设备  。 可使用直接方法远程更改连接到 IoT 中心的设备的行为。
+在本快速入门中，会使用直接方法通过Java 应用程序来控制连接到 Azure IoT 中心的模拟设备  。 可使用直接方法远程更改连接到 IoT 中心的设备的行为。 IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入云，并从云管理设备。 
 
 本快速入门使用两个预先编写的 Java 应用程序：
 
@@ -36,9 +36,9 @@ IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入�
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门中运行的两个示例应用程序是使用 Java 编写的。 开发计算机上需要有 Java SE 8 或更高版本。
+本快速入门中运行的两个示例应用程序是使用 Java 编写的。 开发计算机上需要安装 Java SE 8。
 
-可从 [Oracle](https://aka.ms/azure-jdks) 为多个平台下载 Java。
+可以从 [Java 对 Azure 和 Azure Stack 的长期支持](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable)下载适用于多个平台的 Java SE 开发工具包 8。 请确保在“长期支持”  下选择“Java 8”  以获取 JDK 8 的下载。
 
 可以使用以下命令验证开发计算机上 Java 的当前版本：
 

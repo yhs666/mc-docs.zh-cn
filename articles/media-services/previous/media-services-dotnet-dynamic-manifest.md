@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 4d3e373aea6b0ecad2ecf38e85402e4ac542adf3
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.reviewer: cenkdin
+ms.openlocfilehash: cb6fe6bfba1808560435dbc432c96daa9704272a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833378"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124388"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 创建筛选器 
 > [!div class="op_single_selector"]
@@ -29,7 +30,7 @@ ms.locfileid: "56833378"
 > 
 > 
 
-从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
+从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单  可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
 
 有关与筛选器和动态清单相关的更多详细信息，请参阅[动态清单概述](media-services-dynamic-manifest-overview.md)。
 
@@ -42,8 +43,8 @@ ms.locfileid: "56833378"
 
 * **IStreamingFilter**。  此类型基于以下 REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
 * **IStreamingAssetFilter**。 此类型基于以下 REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* PresentationTimeRange。 此类型基于以下 REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* FilterTrackSelectStatement 和 IFilterTrackPropertyCondition。 这些类型基于以下 REST API [FilterTrackSelect 和 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* PresentationTimeRange  。 此类型基于以下 REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* FilterTrackSelectStatement  和 IFilterTrackPropertyCondition  。 这些类型基于以下 REST API [FilterTrackSelect 和 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>创建/更新/读取/删除全局筛选器
 以下代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
@@ -127,6 +128,10 @@ ms.locfileid: "56833378"
 **平滑流**
 
     http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
+
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [动态清单概述](media-services-dynamic-manifest-overview.md)

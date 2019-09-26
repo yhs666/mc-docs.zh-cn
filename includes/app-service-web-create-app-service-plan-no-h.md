@@ -1,8 +1,26 @@
-使用 [az appservice plan create](https://docs.azure.cn/zh-cn/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令创建应用服务计划。
+---
+title: include 文件
+description: include 文件
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+origin.date: 02/02/2018
+ms.date: 02/02/2018
+ms.author: v-tawe
+ms.custom: include file
+ms.openlocfilehash: 7e46004a10e60ec9a2599767603786611284a1dd
+ms.sourcegitcommit: 0529a2aa102e058636d726b4a4f25208e1e60597
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059582"
+---
+使用 [az appservice plan create](/cli/appservice/plan?view=azure-cli-latest) 命令创建应用服务计划。
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划：
+以下示例在免费  定价层中创建名为 `myAppServicePlan` 的应用服务计划：
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE

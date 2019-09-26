@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 06/21/2019
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 92439cc5c0c960d66d43b9926a9119f1eb8e83da
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ab41a60a22cc669446f89da2b061e8c9c3265714
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570527"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156083"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>快速入门：控制连接到 IoT 中心的设备 (Node.js)
 
@@ -38,7 +38,7 @@ IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入�
 
 本快速入门中运行的两个示例应用程序是使用 Node.js 编写的。 开发计算机上需要有 Node.js v10.x.x 或更高版本。
 
-可从 [nodejs.org](https://nodejs.org) 为下载适用于多个平台的 Node.js。
+可从 [nodejs.org](https://nodejs.org) 下载适用于多个平台的 Node.js。
 
 可以使用以下命令验证开发计算机上 Node.js 当前的版本：
 
@@ -70,7 +70,7 @@ az extension add --name azure-cli-iot-ext
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyNodeDevice**：所注册的设备的名称。 请按显示的方法使用 MyNodeDevice  。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyNodeDevice**：所注册的设备的名称。 如下所示请使用 MyNodeDevice 。  如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
     az iot hub device-identity create \

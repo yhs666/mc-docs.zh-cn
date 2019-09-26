@@ -3,16 +3,16 @@ title: Azure Resource Manager 模板函数 - 数组和对象 | Azure
 description: 介绍可在 Azure Resource Manager 模板中用来处理数组和对象的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: a2ec04574f56a22614250ff3cbccd3f2cc1c5c8b
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: db05fc54f0c43b87d1b7b7e6e888c5b944b9eac9
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993616"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156203"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数
 

@@ -7,14 +7,15 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: robinsh
-ms.openlocfilehash: 8791636bee48424012b7a18d4509ad6f6e4b6e99
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+origin.date: 03/14/2019
+ms.date: 09/30/2019
+ms.author: v-yiso
+ms.openlocfilehash: bffb031070568ebf1a4374e319661c94954a404b
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993749"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156214"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流在 Node.js 中与设备应用程序通信（预览）
 
@@ -54,7 +55,7 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
 
 可以使用以下命令验证开发计算机上 Node.js 当前的版本：
 
-```
+```cmd/sh
 node --version
 ```
 
@@ -120,7 +121,7 @@ az extension add --name azure-cli-iot-ext
 
 * 以环境变量的形式提供服务凭据和设备 ID。
  
-   ```
+   ```cmd/sh
    # In Linux
    export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
    export STREAMING_TARGET_DEVICE="MyDevice"
@@ -134,7 +135,7 @@ az extension add --name azure-cli-iot-ext
 
 * 导航到解压缩的项目文件夹中的 `Quickstarts/device-streams-service`，并使用节点来运行示例。
 
-   ```
+   ```cmd/sh
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
     
    # Install the preview service SDK, and other dependencies

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/13/2019
-ms.date: 07/01/2019
+ms.date: 09/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: eabbc23e17133cdd26e24c151fa8eec55bc0a425
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 76ad20c85a5c51e283e23f38d61d902e5887640e
+ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332780"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70921059"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -144,7 +144,7 @@ GPT 分区仅可在数据磁盘上使用，而不可在操作系统磁盘上使�
 
 **哪些磁盘类型支持快照？**
 
-高级 SSD、标准 SSD 和标准 HDD 支持快照。 对于这三种磁盘类型，所有磁盘大小都支持快照。
+高级 SSD、标准 SSD 和标准 HDD 支持快照。 对于这三种磁盘类型，所有磁盘大小（包括最大为 32 TiB 的磁盘）都支持快照。
 
 <!--Not Available on (including disks up to 32 TiB in size)-->
 <!--Not Available on Ultra SSDs do not support snapshots.-->
@@ -228,7 +228,7 @@ Azure 标准 SSD 盘是什么？
 
 迁移是否影响 Azure Site Recovery 通过 Azure 到 Azure 复制保护的 Azure VM？ 
 
-是的。 目前，对包含托管磁盘的 VM 的 Azure Site Recovery Azure 到 Azure 保护以正式版服务的形式提供。
+否。 对于包含托管磁盘的 VM，提供 Azure Site Recovery Azure 到 Azure 保护。
 
 是否可以迁移位于存储帐户中现在或以前已加密的 VM 的非托管磁盘迁移到托管磁盘？ 
 

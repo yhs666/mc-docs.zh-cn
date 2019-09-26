@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 05/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 1d545a38c7fe88325968e043b7aa4c79d2ddd64d
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.reviewer: juliako
+ms.openlocfilehash: 0207958955a5629eb5f4224707e7a897b40ae6ab
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549984"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124551"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>使用 Media Encoder Standard 裁剪视频  
 
@@ -136,3 +137,8 @@ MES 中的裁剪是预处理阶段，因此，编码预设​​值中的裁剪�
 2. 如前文所述，编码设置的宽度和高度必须与裁剪后的视频对应
 3. 裁剪适用于以横向模式捕获的视频（即，不适用于以垂直方向或纵向模式手持的智能手机录制的视频）
 4. 最适合用于以方形像素捕获的渐进式视频
+
+## <a name="next-step"></a>后续步骤
+请参阅 Azure 媒体服务学习途径了解 AMS 提供的强大功能。  
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

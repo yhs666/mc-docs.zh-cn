@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: f0c3bbbf7a5c84d069b275389e6fe9a4b908cf0c
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 78295621d0de0bdb5ce1ebd357da7c65dc186653
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624108"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124615"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点 
 
@@ -37,7 +37,7 @@ ms.locfileid: "58624108"
 要开始管理帐户的流式处理终结点，请执行以下操作。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
-2. 在“设置”边栏选项卡中，选择“流式处理终结点”。
+2. 在“设置”  边栏选项卡中，选择“流式处理终结点”  。
    
     ![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
@@ -73,7 +73,7 @@ ms.locfileid: "58624108"
 可通过执行以下操作配置流式处理终结点：
 
 1. 选择要配置的流式处理终结点。
-2. 单击“设置”。
+2. 单击“设置”  。
 
 后面提供了字段的简要说明。
 
@@ -87,3 +87,8 @@ ms.locfileid: "58624108"
 
 有关详细信息，请参阅[本文](media-services-portal-scale-streaming-endpoints.md)。
 <!--Update_Description: wording update-->
+## <a name="next-steps"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

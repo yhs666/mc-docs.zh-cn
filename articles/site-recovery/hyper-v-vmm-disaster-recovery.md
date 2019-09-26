@@ -10,12 +10,12 @@ origin.date: 05/30/2019
 ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 91e0e0752f021a51112b0954bc780604d6562c64
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: a13673cb1b45832b76f810fd30ebcc0e0ea6f948
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861726"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083169"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>为 Hyper-V VM 设置到辅助本地站点的灾难恢复
 
@@ -96,9 +96,9 @@ ms.locfileid: "67861726"
     ![安装位置](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. 在“保管库名称”  中，验证将要在其中注册服务器的保管库的名称。 单击“下一步”  。
 7. 在“代理连接”  中，指定在 VMM 服务器上运行的提供程序如何连接到 Azure。
-   - 可以指定提供程序是要直接连接到 Internet 还是通过代理连接。 根据需要指定代理设置。
-   - 如果使用代理，则系统将使用指定的代理凭据自动创建一个 VMM 运行方式帐户 (DRAProxyAccount)。 对代理服务器进行配置以便该帐户可以成功通过身份验证。 可在 VMM 控制台 >“设置”   > “安全”   > “运行方式帐户”  中修改运行方式帐户设置。
-   - 重启 VMM 服务以更新更改。
+    - 可以指定提供程序是要直接连接到 Internet 还是通过代理连接。 根据需要指定代理设置。
+    - 如果使用代理，则系统将使用指定的代理凭据自动创建一个 VMM 运行方式帐户 (DRAProxyAccount)。 对代理服务器进行配置以便该帐户可以成功通过身份验证。 可在 VMM 控制台 >“设置”   > “安全”   > “运行方式帐户”  中修改运行方式帐户设置。
+    - 重启 VMM 服务以更新更改。
 8. 在“注册密钥”中，选择已下载并复制到 VMM 服务器的密钥  。
 9. 此方案与加密设置无关。 
 10. 在“服务器名称”  中，指定一个友好名称以在保管库中标识该 VMM 服务器。 在群集中，指定 VMM 群集角色名称。
@@ -135,7 +135,7 @@ ms.locfileid: "67861726"
 5. 选择“删除副本 VM”，指定禁用对源 VM 的保护时应删除副本虚拟机。  如果启用此设置，当禁用对源 VM 的保护时，将从站点恢复控制台中删除该 VM、在 VMM 控制台中删除 VMM 的站点恢复设置，并删除副本。
 6. 如果要通过网络进行复制，请在“初始复制方法”中指定是要启动还是计划初始复制。  若要节省网络带宽，可以将它计划在非高峰时间运行。  。
 
-     ![复制策略](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+    ![复制策略](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
 
 7. 新策略自动与 VMM 云关联。 在“复制策略”中单击“确定”。   
 

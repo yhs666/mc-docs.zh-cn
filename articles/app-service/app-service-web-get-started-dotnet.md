@@ -16,12 +16,12 @@ origin.date: 09/05/2018
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 431f42959a85654781dea8b9c30fe5d7b3ebbf1c
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: b759251fd90c1e1cbc8223cd0b20b3a95d56980e
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806828"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155819"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Core Web 应用
 
@@ -101,7 +101,7 @@ ms.locfileid: "70806828"
 | 设置 | 建议的值 | 描述 |
 |-|-|-|
 |应用服务计划| myAppServicePlan | 应用服务计划的名称。 |
-| Location | 西欧 | 托管 Web 应用的数据中心。 |
+| Location | 中国东部 | 托管 Web 应用的数据中心。 |
 | 大小 | 免费 | [定价层](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)确定托管功能。 |
 
 选择“确定”  。

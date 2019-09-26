@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 08/19/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ef447b7f4b487c30edb7f62ec3f07194ef38b32
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1c767117d29e98e273a3efe0fa459858c079d16f
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993504"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156101"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>将资源移到新的资源组或订阅
 
@@ -41,8 +41,6 @@ ms.locfileid: "69993504"
     
     * [虚拟机移动指南](./move-limitations/virtual-machines-move-limitations.md)
 
-    如果目标资源组包含虚拟网络，则其依赖资源的状态可以阻止此移动，即使这些资源未涉及移动。 有关详细信息，请参阅[网络移动指南](./move-limitations/virtual-network-move-limitations.md)。
-
 1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”  作为问题类型。
 
 1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
@@ -68,6 +66,7 @@ ms.locfileid: "69993504"
         <!--MOONCAKE: URL CORRECT ON /billing/billing-subscription-transfer/ -->
         
     * [如何将 Azure 订阅关联或添加到 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+
 1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
 
     对于 PowerShell，请使用以下命令来获取注册状态：

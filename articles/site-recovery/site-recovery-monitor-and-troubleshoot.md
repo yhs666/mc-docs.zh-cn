@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 07/30/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4664b3083999bd4cad67d33cc4a605969a6096d
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: d9a05a08d861df8d56fc5951e48a1ef0f9ee03af
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134466"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083189"
 ---
 # <a name="monitor-site-recovery"></a>监视 Site Recovery
 
@@ -161,8 +161,6 @@ Healthy | 复制正常进行。 未检测到任何错误或警告症状。
 
 <!--Not Available on ## Subscribe to email notifications-->
 <!--The Email function currently not supported on chinaeast and chinaeast2-->
-## <a name="next-steps"></a>后续步骤
-
-[了解](monitor-log-analytics.md)如何使用 Azure Monitor 监视 Site Recovery。
-
+<!--Pending ## Next steps-->
+<!--Penging on [Learn about](monitor-log-analytics.md)-->
 <!-- Update_Description: update meta propreties -->
