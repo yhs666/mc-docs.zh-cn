@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 1c3b5bd4c6c0bbb582cc1dd491076692376f7db1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ce27b33efae6ec4ce0bfeafed127a91cf21559a6
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627354"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124678"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 本快速入门介绍了使用 Azure 媒体服务 (AMS) REST API 实现视频点播 (VoD) 内容传送应用程序的步骤。
 
@@ -66,7 +67,7 @@ ms.locfileid: "58627354"
 使用 Azure 媒体服务时，最常见的场景之一是通过自适应比特率流式处理来传送视频。 媒体服务提供动态打包，可按媒体服务支持的流格式（MPEG DASH、HLS、平滑流式处理）及时传送自适应比特率 MP4 编码内容，而无需存储上述各种流格式的预打包版本。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
 
 若要启动流式处理终结点，请执行以下操作：
 
@@ -332,7 +333,7 @@ SAS URL 采用以下格式：
 设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须以块 blob 形式上传文件。 Azure 媒体服务不支持页 blob。  
 
 > [!NOTE]
-> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，<https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?>。 上获取。 上获取。
+> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，`https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`。
 
 有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
@@ -559,7 +560,7 @@ SAS URL 采用以下格式：
 在任何作业请求中，都需要注意以下重要事项：
 
 * TaskBody 属性必须使用文本 XML 来定义任务使用的输入资产或输出资产的数量。 任务文章包含 XML 的 XML 架构定义。
-* 在 TaskBody 定义中，必须将 <inputAsset> 和 <outputAsset> 的每个内部值设置为 JobInputAsset(value) 或 JobOutputAsset(value)。
+* 在 TaskBody 定义中，必须将 `<inputAsset>` 和 `<outputAsset>` 的每个内部值设置为 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 一个任务可以有多个输出资产。 一个 JobOutputAsset(x) 只能一次用作作业中任务的输出。
 * 可以将 JobInputAsset 或 JobOutputAsset 指定为任务的输入资产。
 * 任务不得构成循环。
@@ -571,7 +572,7 @@ SAS URL 采用以下格式：
 >
 
 * InputMediaAssets 映射到已在媒体服务中创建的一项或多项资产。 OutputMediaAssets 由系统创建。 它们不引用现有资产。
-* OutputMediaAssets 可以使用 assetName 属性来命名。 如果该属性不存在，则 OutputMediaAsset 的名称为 <outputAsset> 元素的任意内部文本值，并以作业名称值或作业 ID 值（在没有定义名称属性的情况下）为后缀。 例如，如果将 assetName 的值设置为“Sample”，则会将 OutputMediaAsset 名称属性设置为“Sample”。 但是，如果未设置 assetName 的值，但已将作业名称设置为“NewJob”，则 OutputMediaAsset 名称为“JobOutputAsset(value)_NewJob”。
+* OutputMediaAssets 可以使用 assetName 属性来命名。 如果该属性不存在，则 OutputMediaAsset 的名称为 `<outputAsset>` 元素的任意内部文本值，并以作业名称值或作业 ID 值（在没有定义名称属性的情况下）为后缀。 例如，如果将 assetName 的值设置为“Sample”，则会将 OutputMediaAsset 名称属性设置为“Sample”。 但是，如果未设置 assetName 的值，但已将作业名称设置为“NewJob”，则 OutputMediaAsset 名称为“JobOutputAsset(value)_NewJob”。
 
     以下示例说明了如何设置 assetName 属性：
 
@@ -697,7 +698,7 @@ SAS URL 采用以下格式：
 创建定位符后，可以创建用来流式处理或下载文件的 URL。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
 
 平滑流式处理的流 URL 采用以下格式：
 
@@ -815,7 +816,7 @@ MPEG DASH 的流 URL 采用以下格式：
 设置 AccessPolicy 和定位符后，可以使用 Azure 存储 REST API 下载文件。  
 
 > [!NOTE]
-> 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如，<https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?>。 上获取。 上获取。
+> 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。
 
 有关使用 Azure 存储 Blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
@@ -912,4 +913,7 @@ MPEG DASH 的流 URL 采用以下格式：
 若要流式处理视频，请使用 [Azure 媒体服务播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
 要测试渐进式下载，请将 URL 粘贴到浏览器（例如 IE、Chrome、Safari）中。
-<!--Update_Description: update x-ms-version-->
+
+## <a name="next-steps-media-services-learning-paths"></a>后续步骤：媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

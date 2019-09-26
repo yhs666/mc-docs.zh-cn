@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 9c776bcff17961cc9ad2bdae0e54463b74b713d4
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: b563d91c431709c5456baff5ad1dec2c6e894d4c
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993096"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155936"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-本部分在 IoT 中心的标识注册表中创建设备标识。 除非设备在标识注册表中具有条目，否则设备无法连接到中心。 有关详细信息，请参阅 [IoT 中心开发人员指南](../articles/iot-hub/iot-hub-devguide-identity-registry.md)的“标识注册表”部分。
+本部分在 IoT 中心的标识注册表中创建设备标识。 除非设备在标识注册表中具有条目，否则设备无法连接到中心。 有关详细信息，请参阅 [IoT 中心开发人员指南](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations)。
 
 1. 在 IoT 中心导航菜单中，打开“IoT 设备”  ，然后选择“新建”  以在 IoT 中心中添加设备。
 

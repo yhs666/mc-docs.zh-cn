@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
 origin.date: 05/21/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 858161e6e758f93cca6ceb9cae3b0fd3abbb5b09
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: 860a5041830260c64a63c63e0f22df804a90ee6c
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543956"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262951"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
@@ -409,7 +408,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |SourceSystem|始终为：Azure |
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
-|ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQ |
+|ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
 |Category|类别的名称。 始终为：错误 |
 |OperationName|操作的名称。 始终为：ErrorEvent |
 |Resource|资源名称 |

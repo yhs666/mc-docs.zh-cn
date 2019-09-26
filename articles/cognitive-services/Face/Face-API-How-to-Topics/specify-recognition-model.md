@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/28/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5f312ffa9fd085324a3545b2328fa3d3e54de89a
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 136c32fb9299cc77f38bf6d673b90ba89ea732bb
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844678"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119549"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定人脸识别模型
 
@@ -56,6 +56,9 @@ ms.locfileid: "67844678"
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 ## <a name="identify-faces-with-specified-model"></a>使用指定的模型识别人脸
 

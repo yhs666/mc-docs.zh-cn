@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: e3208d5784a39e0edf24019f002598c2fb8c6dc9
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 9e86a1bc0a2908098dcaf7a7debe9489002f1b7d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731225"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155861"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>访问 Azure Kubernetes 服务 (AKS) 中的 Kubernetes Web 仪表板
 
@@ -37,24 +37,18 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 此命令在开发系统与 Kubernetes API 之间创建一个代理，并在 Web 浏览器中打开 Kubernetes 仪表板。 如果 Web 浏览器未打开到 Kubernetes 仪表板，请复制并在 Azure CLI 中粘贴所记录的 URL 地址，通常为 `http://127.0.0.1:8001`。
 
-![Kubernetes Web 仪表板的概述页](./media/kubernetes-dashboard/dashboard-overview.png)
-
-### <a name="for-rbac-enabled-clusters"></a>对于启用了 RBAC 的群集
-
-如果 AKS 群集使用 RBAC，则必须先创建 *ClusterRoleBinding*，然后才能正确访问仪表板。 默认情况下，Kubernetes 仪表板是使用最小读取访问权限部署的，并且显示 RBAC 访问错误。 Kubernetes 仪表板当前不支持使用用户提供的凭据来确定访问权限级别，而是使用授予给服务帐户的角色。 群集管理员可以选择向 *kubernetes-dashboard* 服务帐户授予更多访问权限，但这可能会导致需要进行权限提升。 还可以集成 Azure Active Directory 身份验证来提供更精细的访问权限级别。
-
-若要创建绑定，请使用 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 命令，如以下示例所示。 
-
-> [!WARNING]
-> 此示例绑定不应用任何其他身份验证组件，因此可能会导致不安全的使用。 Kubernetes 仪表板将对有权访问该 URL 的任何人开放。 请勿公开 Kubernetes 仪表板。
+> [!IMPORTANT]
+> 如果 AKS 群集使用 RBAC，则必须先创建 *ClusterRoleBinding*，然后才能正确访问仪表板。 默认情况下，Kubernetes 仪表板是使用最小读取访问权限部署的，并且显示 RBAC 访问错误。 Kubernetes 仪表板当前不支持使用用户提供的凭据来确定访问权限级别，而是使用授予给服务帐户的角色。 群集管理员可以选择向 *kubernetes-dashboard* 服务帐户授予更多访问权限，但这可能会导致需要进行权限提升。 还可以集成 Azure Active Directory 身份验证来提供更精细的访问权限级别。
+> 
+> 若要创建绑定，请使用 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 命令。 以下示例说明如何创建示例绑定，但是，此示例绑定不会应用任何其他身份验证组件，并且可能导致不安全的使用。 Kubernetes 仪表板将对有权访问该 URL 的任何人开放。 请勿公开 Kubernetes 仪表板。
 >
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+> 
 > 有关使用不同身份验证方法的详细信息，请参阅有关[访问控制][dashboard-authentication]的 Kubernetes 仪表板 wiki。
 
-```console
-kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
-```
-
-现在可以访问启用了 RBAC 的群集中的 Kubernetes 仪表板。 若要启动 Kubernetes 仪表板，请使用 [az aks browse][az-aks-browse] 命令，如上一步所述。
+![Kubernetes Web 仪表板的概述页](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>创建应用程序
 
@@ -109,14 +103,21 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 有关 Kubernetes 仪表板的详细信息，请参阅 [Kubernetes Web UI 仪表板][kubernetes-dashboard]。
 
 <!-- LINKS - external -->
-[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubeconfig-file]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-browse
 
-<!-- Update_Description: update meta properties -->
+[aad-cluster]: ./azure-ad-integration-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
+[az-account-get-access-token]: https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-get-access-token
+[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-browse
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+
+<!-- Update_Description: wording update, update link -->

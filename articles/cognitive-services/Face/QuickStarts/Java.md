@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0cbd674dd5014dd8f12340a4b4409144bbd4d214
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 131b3b640a34d61ad3ef50fd6fd244c5d2fc2cfd
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844642"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119557"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入门：使用 REST API 和 Java 检测图像中的人脸
 
@@ -83,6 +83,9 @@ public class Main {
     private static final String faceAttributes =
         "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 ### <a name="call-the-face-detection-rest-api"></a>调用人脸检测 REST API
 

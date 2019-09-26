@@ -1,6 +1,6 @@
 ---
 title: Xamarin Android 中的移动应用身份验证入门
-description: 了解如何使用移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 Xamarin Android 应用的用户进行身份验证。
+description: 了解如何使用移动应用通过各种标识提供者（包括 Microsoft 帐户和 Azure Active Directory）对 Xamarin Android 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/05/2017
-ms.author: v-biyu
-ms.date: 07/15/2019
-ms.openlocfilehash: 7f03a527ad7fea147f0d177bed29624561ab6f45
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 0248e017d36de6d2767d4f9a45bbe14418c327de
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560291"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006561"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>向 Xamarin.Android 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-users)。
+>
 
 ## <a name="overview"></a>概述
 本主题演示如何从客户端应用程序对移动应用的用户进行身份验证。 在本教程中，使用 Azure 移动应用支持的标识提供者向快速入门项目添加身份验证。 在移动应用中成功进行身份验证和授权后，显示用户 ID 值。
@@ -60,7 +64,7 @@ ms.locfileid: "67560291"
 1. 将以下代码添加到 **TodoActivity** 类：
    
     ```
-    // Define a authenticated user.
+    // Define an authenticated user.
     private MobileServiceUser user;
     private async Task<bool> Authenticate()
     {
@@ -100,18 +104,16 @@ ms.locfileid: "67560291"
     此代码创建一个新方法（用于对用户进行身份验证）和新“登录”  按钮的方法处理程序。 上面示例代码中的用户使用 MicrosoftAccount 登录进行身份验证。 对话框用于在进行身份验证后显示用户 ID。
 
    > [!NOTE]
-   > 如果使用的标识提供者不是 MicrosoftAccount，请将传递给上述 **LoginAsync** 的值更改为以下值：_WindowsAzureActiveDirectory_。
+   > 如果使用的标识提供者不是 MicrosoftAccount，请将传递给上述 **LoginAsync** 的值更改为 WindowsAzureActiveDirectory  。
    > 
    > 
-    
-    
-3. 在 **OnCreate** 方法中，删除或注释掉以下代码行：
+2. 在 **OnCreate** 方法中，删除或注释掉以下代码行：
 
     ```
     OnRefreshItemsSelected ();
     ```
 
-4. 在 Activity_To_Do.axml 文件中，在现有 *AddItem* 按钮之前添加以下 *LoginUser* 按钮定义：
+3. 在 Activity_To_Do.axml 文件中，在现有 *AddItem* 按钮之前添加以下 *LoginUser* 按钮定义：
 
     ```
       <Button
@@ -122,7 +124,7 @@ ms.locfileid: "67560291"
         android:text="@string/login_button_text" />
     ```
 
-5. 将以下元素添加到 Strings.xml 资源文件：
+4. 将以下元素添加到 Strings.xml 资源文件：
 
     ```
     <string name="login_button_text">Sign in</string>

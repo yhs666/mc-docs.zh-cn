@@ -12,16 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 8e0864415b8e1628b05154d4b9b25b36ef1eb3b7
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 7b5061753c9b679f3b51b0d4683b25b85a94d67f
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236632"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124457"
 ---
 # <a name="dynamic-packaging"></a>动态打包
+
+> [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
+> * [第 3 版](../latest/dynamic-packaging-overview.md)
+> * [第 2 版](media-services-dynamic-packaging-overview.md)
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 Azure 媒体服务可用于向多种客户端技术（例如，iOS、XBOX、Silverlight、Windows 8）传送多种媒体源文件格式、媒体流格式和内容保护格式。 这些客户端可识别不同的协议，例如，iOS 需要 HTTP Live Streaming (HLS) V4 格式，Silverlight 和 Xbox 需要平滑流式处理。 如果你有一组自适应比特率（多比特率）MP4（ISO 基媒体 14496-12）文件或平滑流式处理文件要提供给了解 MPEG DASH、HLS 或平滑流式处理的客户端，则应利用媒体服务动态打包。
 
@@ -56,4 +63,8 @@ Azure 媒体服务可用于向多种客户端技术（例如，iOS、XBOX、Silv
 
 > [!NOTE]
 > 动态打包不支持包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音频（它是旧编解码器）的文件。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

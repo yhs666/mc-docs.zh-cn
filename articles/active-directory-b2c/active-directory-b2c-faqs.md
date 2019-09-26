@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 08/08/2019
-ms.date: 08/29/2019
+origin.date: 08/31/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4d50ffab71f00163e6f5a35b502194baa2442c8a
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 43f1ae0a186b547357b7a27fee733ad1c321e5c9
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310790"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083202"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
@@ -45,9 +45,7 @@ Azure AD B2C 不用于 Microsoft Office 365 用户的身份验证。  Azure AD B
 
 我们当前支持微信（预览版）、微博（预览版）和 QQ（预览版）。 我们会根据客户需求添加对其他流行社交标志提供者的支持。
 
-Azure AD B2C 还增加了对[自定义策略](active-directory-b2c-overview-custom.md)的支持。 这些自定义策略允许开发人员使用支持 [OpenID 连接](https://openid.net/specs/openid-connect-core-1_0.html)或 SAML 的任何标识提供者创建自己的策略。
-
-查看我们的[自定义策略初学者包](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，开始使用自定义策略。
+Azure AD B2C 还支持[自定义策略](active-directory-b2c-overview-custom.md)。 自定义策略允许你为支持 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 或 SAML 的任何标识提供者创建自己的策略。 查看我们的[自定义策略初学者包](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，开始使用自定义策略。
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>我可以配置范围，从各种社交标识提供者收集更多使用者的相关信息吗？
 
@@ -83,15 +81,15 @@ Azure AD B2C 还增加了对[自定义策略](active-directory-b2c-overview-cust
 
 能！  请阅读公共预览版中的[语言自定义](active-directory-b2c-reference-language-customization.md)。 我们提供 36 种语言的翻译版本，并且你可以根据需要替代任何字符串。
 
-### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginpartnermicrosoftonlinecn-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的注册和登录页面上使用自己的 URL 吗？ 例如，可以将 URL 从 login.partner.microsoftonline.cn 更改为 login.contoso.com 吗？
+### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincn-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的注册和登录页面上使用自己的 URL 吗？ 例如，可以将 URL 从 contoso.b2clogin.cn 更改为 login.contoso.com 吗？
 
-目前不可以。 该功能在我们的计划之中。 在 Azure 门户上的“域”选项卡中验证域并不能实现此目标。 
+目前不可以。 该功能在我们的计划之中。 在 Azure 门户上的“域”选项卡中验证域并不能实现此目标。  但是，通过 b2clogin.cn，我们提供了[中立顶级域](b2clogin.md)，因此可以在不提及 Microsoft 的情况下实现外部外观。
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>如何删除 Azure AD B2C 租户？
 
 请按照以下步骤删除 Azure AD B2C 租户：
 
-1. 删除 Azure AD B2C 租户中的所有策略。
+1. 删除 Azure AD B2C 租户中的所有**用户流(策略)** 。
 1. 删除你在 Azure AD B2C 租户中注册的所有**应用程序**。
 1. 接下来，以订阅管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。 使用在注册 Azure 时使用的同一工作或学校帐户。
 1. 切换到要删除的 Azure AD B2C 租户。

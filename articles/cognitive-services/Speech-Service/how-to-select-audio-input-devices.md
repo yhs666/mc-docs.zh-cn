@@ -9,18 +9,19 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 8/20/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 3e56ec567613b0812fdec74a9b67c6cf0fa5b466
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 261ada24f5bedfb43d5f3f93df4ec8e064f4afa5
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104096"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267033"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>使用语音 SDK 选择音频输入设备
 
-1\.3.0 版语音 SDK 引入了用于选择音频输入的 API。本文介绍如何获取已连接到系统的音频设备的 ID。
+语音 SDK 1.3.0 版引入了一个 API，用于选择音频输入。
+本文介绍如何获取连接到系统的音频设备的 ID。
 然后，可以通过 `AudioConfig` 对象配置音频设备，以便在语音 SDK 中使用这些项目：
 
 ```C++
@@ -372,8 +373,11 @@ iOS 不支持通过语音 SDK 来选择音频设备。
 
 将蓝牙耳机用于支持语音的应用。
 
+## <a name="audio-device-ids-in-javascript"></a>JavaScript 中的音频设备 ID
+
+在 JavaScript 中，[MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) 方法可用于枚举媒体设备并查找要传递给 `fromMicrophone(...)` 的设备 ID。
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的示例](https://aka.ms/csspeech/samples)
-
+> [浏览 GitHub 上的示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk)

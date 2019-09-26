@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 07/23/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7251f1694c97952136fa17a2a4988024f3c7043f
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: fc47c80e3bc30f09196221fdda09f8e4b92ab4c2
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391592"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083252"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -72,7 +72,7 @@ Protocol  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| Name | 是 | Azure AD B2C 支持的有效协议的名称。 可能的值包括：OAuth1、OAuth2、SAML2、OpenIdConnect、WsFed 或 WsTrust。 |
+| Name | 是 | Azure AD B2C 支持的有效协议的名称。 可能的值包括：OAuth1、OAuth2、SAML2、OpenIdConnect。 |
 | PartnerClaimType | 是 | 要使用的声明类型名称。 |
 
 在以下示例中，当标识体验框架与 SAML2 标识提供者或信赖方应用交互时，surname  声明将映射到 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`，如果使用 OpenIdConnect 和 OAuth2，该声明将映射到 `family_name`。

@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 15698ab905ecb15c9ee5a5de00646636eee60e8d
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 54fd41bd02041dfa7f9bc03dd8ab66b4943c54c1
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670958"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124401"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>将现有 Blob 复制到媒体服务资产
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
+
 本文说明了如何使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)将 Blob 从存储帐户复制到新的 Azure 媒体服务 (AMS) 资产中。
 
 在不使用媒体服务 API 的情况下，不应该尝试更改媒体服务生成的 blob 容器内容。
@@ -374,5 +378,8 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="next-steps"></a>后续步骤
 
-现即可编码已上传的资产。 有关详细信息，请参阅 [对资产进行编码](media-services-portal-encode.md)。
-<!--Update_Description: update code to use AAD token instead of ACS-->
+现即可编码已上传的资产。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

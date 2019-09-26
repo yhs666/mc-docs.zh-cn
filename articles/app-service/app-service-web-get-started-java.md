@@ -17,12 +17,12 @@ origin.date: 05/29/2019
 ms.date: 08/12/2019
 ms.author: v-johch
 ms.custom: mvc, seo-java-july2019
-ms.openlocfilehash: 2c7cc3aa91d70101add90e5d975cac43d441cc70
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 53e34da7575551f4419d4e078116ed7912db8162
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878613"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155814"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>快速入门：在应用服务中创建 Java 应用
 
@@ -43,7 +43,7 @@ ms.locfileid: "68878613"
 
 ## <a name="create-a-java-app"></a>创建 Java 应用
 
-在 Cloud Shell 提示符下，执行以下 Maven 命令来创建一个名为 `helloworld` 的新应用：
+在 Azure CLI 提示符下，执行以下 Maven 命令来创建一个名为 `helloworld` 的新应用：
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -51,7 +51,7 @@ mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -Darchetyp
 
 ## <a name="configure-the-maven-plugin"></a>配置 Maven 插件
 
-若要从 Maven 进行部署，请在 Cloud Shell 中使用代码编辑器打开 `helloworld` 目录中的项目 `pom.xml` 文件。 
+若要从 Maven 进行部署，请在 Azure CLI 中使用代码编辑器打开 `helloworld` 目录中的项目 `pom.xml` 文件。 
 
 ```bash
 code pom.xml
@@ -105,10 +105,10 @@ code pom.xml
 
 | 占位符 | 说明 |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | 想要将应用部署到的订阅的唯一 ID。 可以使用 `az account show` 命令从 Cloud Shell 或 CLI 中找到默认订阅的 ID。 对于所有可用的订阅，请使用 `az account list` 命令。|
+| `SUBSCRIPTION_ID` | 想要将应用部署到的订阅的唯一 ID。 可以使用 `az account show` 命令从 Azure CLI 中找到默认订阅的 ID。 对于所有可用的订阅，请使用 `az account list` 命令。|
 | `RESOURCEGROUP_NAME` | 要在其中创建应用的新资源组的名称。 通过将应用的所有资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除与该应用关联的所有资源。 使用唯一的新资源组名称（例如 *myResourceGroup*）更新此值。 将在后面的部分使用此资源组名称来清除所有 Azure 资源。 |
 | `WEBAPP_NAME` | 部署到 Azure (WEBAPP_NAME.chinacloudsites.cn) 时，应用名称将成为应用的主机名的一部分。 使用将托管 Java 应用的新应用服务应用的唯一名称（例如 *contoso*）更新此值。 |
-| `REGION` | 托管着应用的 Azure 区域，例如 chinaeast2  。 可以从 Cloud Shell 或 CLI 使用 `az account list-locations` 命令获取区域列表。 |
+| `REGION` | 托管着应用的 Azure 区域，例如 chinaeast2  。 可以从 Azure CLI 使用 `az account list-locations` 命令获取区域列表。 |
 
 ## <a name="deploy-the-app"></a>部署应用
 

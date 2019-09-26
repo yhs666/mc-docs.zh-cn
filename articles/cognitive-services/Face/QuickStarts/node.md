@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/06/2019
 ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0071e56a89c686fb706baf0a571d3b62a6c58cd7
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 6361718ec7ff3f731088f375e2627eb33be2f70a
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203982"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119551"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入门：使用人脸 REST API 和 Node.js 检测图像中的人脸
 
@@ -54,6 +54,9 @@ const uriBase = 'https://api.cognitive.azure.cn/face/v1.0/detect';
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 然后，添加以下代码以调用人脸 API 并从输入图像中获取人脸属性数据。 `returnFaceAttributes` 字段指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
 

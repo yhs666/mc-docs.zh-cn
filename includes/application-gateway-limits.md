@@ -3,14 +3,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: include
 origin.date: 06/05/2019
-ms.date: 08/06/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 01150f752070c2bb5bdfd2cd0892f8e640ee5477
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: a4b156d53f01c77446f3467ad5459d423b52fb32
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819694"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092555"
 ---
 | Resource | 默认/最大限制 | 注意 |
 | --- | --- | --- |
@@ -39,6 +39,7 @@ ms.locfileid: "68819694"
 | 最大文件上传大小 WAF |中型 WAF 网关 - [请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)| |
 | WAF 正文大小限制，不带文件|128 KB||
 | 最大 WAF 自定义规则|[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)||
+| 最大 WAF 排除项数|[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)||
 
 <sup>1</sup> 对于启用了 WAF 的 SKU，建议将资源数限制为 40 以实现最佳性能。
 

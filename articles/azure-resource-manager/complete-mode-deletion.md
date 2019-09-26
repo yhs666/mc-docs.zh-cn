@@ -3,16 +3,16 @@ title: 由资源类型进行的 Azure 资源管理器完全模式删除
 description: 显示资源类型如何在 Azure 资源管理器模板中进行完全模式删除。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
-origin.date: 08/04/2019
-ms.date: 08/26/2019
+ms.topic: conceptual
+origin.date: 09/13/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 025c4bdd7ab6378f7b76e2d08add23b6877a7504
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: d456f77a9149ec96a637cae78ba25dfd03a0bf6f
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134455"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155889"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 
@@ -50,6 +50,7 @@ ms.locfileid: "70134455"
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft.Features](#microsoftfeatures)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
@@ -71,6 +72,7 @@ ms.locfileid: "70134455"
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.Scheduler](#microsoftscheduler)
@@ -497,8 +499,18 @@ ms.locfileid: "70134455"
 <!--Not Available on ## Microsoft.DomainRegistration-->
 <!--Not Available on ## Microsoft.DynamicsLcs-->
 <!--Not Available on ## Microsoft.EnterpriseKnowledgeGraph-->
-<!--Not Available on ## Microsoft.EventGrid-->
 
+## <a name="microsofteventgrid"></a>Microsoft.EventGrid
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | domains | 是 |
+> | 域/主题 | 否 |
+> | eventSubscriptions | 否 |
+> | extensionTopics | 否 |
+> | topics | 是 |
+> | topicTypes | 否 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -833,7 +845,18 @@ ms.locfileid: "70134455"
 > | namespaces/wcfrelays/authorizationrules | 否 |
 
 <!--Not Available on ## Microsoft.RemoteApp-->
-<!--Not Available on ## Microsoft.ResourceGraph-->
+
+## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | 查询 | 是 |
+> | resourceChangeDetails | 否 |
+> | resourceChanges | 否 |
+> | 资源 | 否 |
+> | resourcesHistory | 否 |
+> | subscriptionsStatus | 否 |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
@@ -908,6 +931,7 @@ ms.locfileid: "70134455"
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 否 |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 否 |
 > | jitNetworkAccessPolicies | 否 |
+> | networkData | 否 |
 > | playbookConfigurations | 是 |
 > | 策略 | 否 |
 > | pricings | 否 |

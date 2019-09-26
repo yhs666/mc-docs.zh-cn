@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: f53071b3a9a91abef84f7ffb0b874a27e98d4c71
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 75539c41fdbc4b3819581ec80074d97dc8b46466
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844681"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119546"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教程：创建一个用于检测和定格图像中人脸的 Android 应用
 
@@ -174,6 +174,9 @@ private final String subscriptionKey = "<Subscription Key>";
 private final FaceServiceClient faceServiceClient =
         new FaceServiceRestClient(apiEndpoint, subscriptionKey);
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0`。
 
 需将 `<Subscription Key>` 替换为订阅密钥。 另外，请使用适合密钥的区域标识符将 `<API endpoint>` 替换为人脸 API 终结点（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 
 

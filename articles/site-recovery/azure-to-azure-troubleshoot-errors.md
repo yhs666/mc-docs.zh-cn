@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/08/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2d734aa0082f65340a6a0bc01a9269c1b41a19e7
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: c90dee4bcebe0b3d56854bcba77795dd94727f69
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134421"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083160"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -312,6 +312,11 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 
     ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 2. 下载脚本：[删除过期的配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+
+    > [!NOTE]
+    > 成功下载脚本[删除过时配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)后，请将 `Login-AzureRmAccount` 替换为 `Login-AzureRmAccount -Environment AzureChinaCloud` 以符合 Azure 中国云环境。
+    >
+
 3. 执行脚本 *Cleanup-stale-asr-config-Azure-VM.ps1*。
 4. 提供订阅 ID、VM 资源组和 VM 名称作为参数。
 5. 如果系统要求提供 Azure 凭据，请提供该凭据，并检查脚本是否已成功执行。

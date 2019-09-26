@@ -11,12 +11,12 @@ ms.topic: sample
 origin.date: 04/10/2019
 ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5b5cb195c9bc47832c6289d9784a429c8e4d4b98
-ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
+ms.openlocfilehash: 2159111c16fbd8631d25f8d97ef628db65893a59
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68439946"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119552"
 ---
 # <a name="example-identify-faces-in-images"></a>示例：在图像中识别人脸
 
@@ -52,6 +52,9 @@ private readonly IFaceClient faceClient = new FaceClient(
 ```
  
 注册人脸 API 服务以后，订阅密钥可在 [Azure 门户](https://portal.azure.cn)中获取。
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 ## <a name="step-2-create-the-persongroup"></a>步骤 2：创建 PersonGroup
 

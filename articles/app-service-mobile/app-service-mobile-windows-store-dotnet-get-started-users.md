@@ -1,9 +1,9 @@
 ---
-title: 向通用 Windows 平台 (UWP) 应用添加身份验证
-description: 了解如何使用 Azure 应用服务移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对通用 Windows 平台 (UWP) 应用的用户进行身份验证。
+title: 向通用 Windows 平台 (UWP) 应用添加身份验证 | Azure
+description: 了解如何使用 Azure 应用服务移动应用通过各种标识提供者（包括 Microsoft 帐户和 Azure Active Directory。
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -12,41 +12,41 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/05/2017
-ms.author: v-yiso
-ms.date: 01/29/2018
-ms.openlocfilehash: 4578e22088f7e7170d882b39c3fe481194f3e0af
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 177c2b99b055ce896e4b042ff096882762e9f680
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626535"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006572"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>向 Windows 应用添加身份验证
-
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users)。
+>
+
+## <a name="overview"></a>概述
 本主题演示如何向移动应用添加基于云的身份验证。 在本教程中，使用 Azure 应用服务支持的标识提供者向移动应用的通用 Windows 平台 (UWP) 快速入门项目添加身份验证。 在移动应用后端成功进行身份验证和授权后，显示用户 ID 值。
 
-本教程基于移动应用快速入门。 必须先完成[移动应用入门](./app-service-mobile-windows-store-dotnet-get-started.md)教程。
+本教程基于移动应用快速入门。 必须先完成[移动应用入门](app-service-mobile-windows-store-dotnet-get-started.md)教程。
 
 ## <a name="register"></a>注册应用以进行身份验证并配置应用服务
-
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>将应用添加到允许的外部重定向 URL
 
 安全身份验证要求为应用定义新的 URL 方案。 此方案允许在完成身份验证过程后，身份验证系统重定向到应用。 在本教程中，我们自始至终使用 URL 方案 _appname_ 。 但是，可以使用任何你所选的 URL 方案。 对于移动应用程序而言，它应是唯一的。 在服务器端启用重定向：
 
-1. 在 [Azure 门户]中，选择应用服务。
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择应用服务。
 
-2. 单击“身份验证/授权”菜单选项。
+2. 单击“身份验证/授权”  菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
+3. 在“允许的外部重定向 URL”  中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
-4. 单击 **“确定”**。
-
-5. 单击“保存” 。
+4. 单击“保存”  。
 
 ## <a name="permissions"></a>将权限限制给已经过身份验证的用户
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -56,7 +56,6 @@ ms.locfileid: "58626535"
 接下来，更新应用，以便在从应用服务请求资源之前对用户进行身份验证。
 
 ## <a name="add-authentication"></a>向应用程序添加身份验证
-
 1. 在 UWP 应用项目文件 MainPage.xaml.cs 中，添加以下代码片段：
 
     ```
@@ -120,7 +119,7 @@ ms.locfileid: "58626535"
     }
     ```
 
-5. 打开 MainPage.xaml 项目文件，找到定义“保存”按钮的元素，将其替换为以下代码：
+4. 打开 MainPage.xaml 项目文件，找到定义“保存”  按钮的元素，将其替换为以下代码：
 
     ```
     <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 
@@ -155,31 +154,26 @@ ms.locfileid: "58626535"
             Window.Current.Activate();
             base.OnActivated(args);
         }
-6. 打开 Package.appxmanifest 文件，导航到“声明”，在“可用声明”下拉列表中，选择“协议”并单击“添加”按钮。 现在，配置**协议**声明的**属性**。 在“显示名称”中，添加要向应用程序的用户显示的名称。 在“名称”中，添加 {url_scheme_of_your_app}。
-7. 按 F5 键运行该应用，单击“登录”按钮，然后使用所选的标识提供者登录到该应用。 成功登录后，该应用运行时不会出错，用户能够查询后端，并对数据进行更新。
+6. 打开 Package.appxmanifest 文件，导航到“声明”  ，在“可用声明”  下拉列表中，选择“协议”  并单击“添加”  按钮。 现在，配置**协议**声明的**属性**。 在“显示名称”  中，添加要向应用程序的用户显示的名称。 在“名称”  中，添加 {url_scheme_of_your_app}。
+7. 按 F5 键运行该应用，单击“登录”  按钮，然后使用所选的标识提供者登录到该应用。 成功登录后，该应用运行时不会出错，用户能够查询后端，并对数据进行更新。
 
 ## <a name="tokens"></a>在客户端上存储身份验证令牌
-
 前一示例显示了标准登录，这要求在该应用每次启动时客户端同时联系标识提供者和应用服务。 此方法不仅效率低下，而且如果很多客户尝试同时启动应用，会遇到关于使用率的问题。 更好的方法是缓存应用服务返回的授权令牌，并在使用基于提供者的登录之前首先尝试使用此令牌。
 
->[!NOTE]
->无论使用的是客户端管理的还是服务管理的身份验证，都可以缓存应用服务颁发的令牌。 本教程使用服务管理的身份验证。
+> [!NOTE]
+> 无论使用的是客户端管理的还是服务管理的身份验证，都可以缓存应用服务颁发的令牌。 本教程使用服务管理的身份验证。
 > 
 > 
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>后续步骤
-
 完成此基本身份验证教程后，请考虑继续学习以下教程之一：
 
-+ [向应用添加推送通知](./app-service-mobile-windows-store-dotnet-get-started-push.md)  
+* [向应用添加推送通知](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   了解如何为应用添加推送通知支持，以及如何将移动应用后端配置为使用 Azure 通知中心发送推送通知。
-
-+ [为应用启用脱机同步](./app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [为应用启用脱机同步](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   了解如何使用移动应用后端向应用添加脱机支持。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。
 
 <!-- URLs. -->
-[Get started with your mobile app]: ./app-service-mobile-windows-store-dotnet-get-started.md
-
-<!--Update_Description: update wording and code-->
+[Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

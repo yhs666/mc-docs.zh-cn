@@ -3,22 +3,22 @@ author: WenJason
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-origin.date: 06/19/2019
-ms.date: 09/09/2019
+origin.date: 07/31/2019
+ms.date: 09/30/2019
 ms.author: v-jay
-ms.openlocfilehash: a4e72f2b7216f4cc015c1c37af57d92a5af34142
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.openlocfilehash: 640694eb66d967f6b0dcb848b5537dd8001518ea
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373021"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262936"
 ---
-在此步骤中，将创建资源组和 Azure SQL 数据库单一数据库。
+在此步骤中，将创建 Azure SQL 数据库单一数据库。 
 
 > [!IMPORTANT]
 > 请务必设置防火墙规则，以使用本文中执行步骤的计算机的公共 IP 地址。 
 >
-> 有关信息，请参阅[创建数据库级防火墙规则](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)；若要确定计算机的用于服务器级防火墙规则的 IP 地址，请参阅[创建服务器级防火墙](../sql-database-server-level-firewall-rule.md)。  
+> 有关详细信息，请参阅[创建数据库级防火墙规则](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或参阅[创建服务器级防火墙](../sql-database-server-level-firewall-rule.md)，确定用于计算机的服务器级防火墙规则的 IP 地址。  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -149,21 +149,21 @@ ms.locfileid: "70373021"
    ```azurecli
    #!/bin/bash
    # Set variables
-   $subscriptionID=<SubscriptionID>
-   $resourceGroupName=myResourceGroup-$RANDOM
-   $location=ChinaEast2
-   $adminLogin=azureuser
+   $subscriptionID="<SubscriptionID>"
+   $resourceGroupName="myResourceGroup-$RANDOM"
+   $location="ChinaEast2"
+   $adminLogin="azureuser"
    $password="PWD27!"+`openssl rand -base64 18`
-   $serverName=mysqlserver-$RANDOM
-   $databaseName=mySampleDatabase
-   $drLocation=ChinaNorth2
-   $drServerName=mysqlsecondary-$RANDOM
-   $failoverGroupName=failovergrouptutorial-$RANDOM
+   $serverName="mysqlserver-$RANDOM"
+   $databaseName="mySampleDatabase"
+   $drLocation="ChinaNorth2"
+   $drServerName="mysqlsecondary-$RANDOM"
+   $failoverGroupName="failovergrouptutorial-$RANDOM"
 
    # The ip address range that you want to allow to access your DB. 
    # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
-   $startip=0.0.0.0
-   $endip=0.0.0.0
+   $startip="0.0.0.0"
+   $endip="0.0.0.0"
   
    # Connect to Azure
    az login
@@ -208,3 +208,4 @@ ms.locfileid: "70373021"
       --capacity 2
    ```
 
+---

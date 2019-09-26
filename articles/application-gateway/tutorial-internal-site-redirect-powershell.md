@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2018
-ms.date: 06/12/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: d089356deada56f70de99197629445ae32cb717b
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: c54a0935674c5a62ba9d217a4c57e5e1be16800a
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027426"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083261"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持内部重定向的应用程序网关
 
-你可以使用 Azure Powershell 配置 [web 流量重定向](application-gateway-multi-site-overview.md)创建时[应用程序网关](application-gateway-introduction.md)。 在本教程中，将使用虚拟机规模集定义后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达相应池。 本教程假定你拥有多个域，并使用示例 *www\.contoso.com* 和 *www\.contoso.org*。
+你可以使用 Azure Powershell 配置 [web 流量重定向](application-gateway-multi-site-overview.md)创建时[应用程序网关](application-gateway-introduction.md)。 在本教程中，将使用虚拟机规模集定义后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达相应池。 本教程假定你拥有多个域，并使用示例 www.contoso.com  和 www\.contoso.org  。
 
 在本文中，学习如何：
 
@@ -37,7 +37,7 @@ ms.locfileid: "67027426"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 若要查找版本，请运行 ` Get-Module -ListAvailable Az`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 若要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -113,7 +113,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>创建第一个侦听器和规则
 
-应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 *www\.contoso.com* 和 *www\.contoso.org* 创建侦听器。
+应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 www.contoso.com  和 www\.contoso.org  创建侦听器。
 
 使用 [New-AzApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayhttplistener) 以及前面创建的前端配置和前端端口创建名为 *contosoComListener* 的第一个侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 创建一个名为 *contosoComRule* 的基本规则。
 
@@ -298,11 +298,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如， http://www.contoso.com 。
+在浏览器的地址栏中输入域名。 例如， http://www\.contoso.com 。
 
 ![在应用程序网关中测试 contoso 站点](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-将地址更改为其他域（例如 http://www.contoso.org ），应会看到流量已被重定向回 www\. contoso.com 的侦听器。
+将地址更改为其他域（例如 http://www.contoso.org ），应会看到流量已被重定向回 www.contoso.com 的侦听器。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -318,4 +318,4 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](./application-gateway-introduction.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

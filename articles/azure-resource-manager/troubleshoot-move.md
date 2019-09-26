@@ -4,15 +4,15 @@ description: 使用 Azure Resource Manager 将资源移到新的资源组或订�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 08/19/2019
-ms.date: 08/26/2019
+origin.date: 08/27/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 100b2679f71ac841d81e3eebbba8a4e5ce355fc5
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 3669541e119682347333ecf212848696a44e1985
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993569"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156217"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>排查将 Azure 资源移到新的资源组或订阅时遇到的问题
@@ -26,7 +26,7 @@ ms.locfileid: "69993569"
 <!--MOONCAKE: CORRECT ON FOLLOWING UPGRADE SUBSCRIPTION-->
 
 * 若要升级试用版，请参阅[将试用版或 Azure Imagine Azure 订阅升级为标准预付费套餐](/billing/billing-upgrade-1rmb-trial/)。
-* 若要更改标准预付费套餐帐户，请参阅[将 Azure 标准预付费套餐订阅更改为其他套餐](/billing/billing-upgrade-to-ea)。
+* 若要更改标准预付费套餐帐户，请参阅[将 Azure 标准预付费套餐订阅更改为其他套餐](/billing/billing-upgrade-to-ea/)。
 
 <!--MOONCAKE: CORRECT ON /billing/billing-upgrade-1rmb-trial AND /billing/billing-upgrade-to-ea-->
 
@@ -38,7 +38,7 @@ ms.locfileid: "69993569"
 
 * [应用服务](./move-limitations/app-service-move-limitations.md)
     
-    <!--Not Available on * [Azure DevOps Services](https://docs.microsoft.com/zh-cn/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)-->
+    <!--Not Available on * [Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)-->
 
 * [经典部署模型](./move-limitations/classic-model-move-limitations.md)
 * [联网](./move-limitations/networking-move-limitations.md)
@@ -51,7 +51,11 @@ ms.locfileid: "69993569"
 
 ## <a name="resource-not-in-succeeded-state"></a>资源未处于成功状态
 
-如果收到一条错误消息，指出由于资源未处于成功状态而无法移动资源，则它可能实际上是阻止移动的依赖资源。 请参阅[依赖资源的状态](./move-limitations/networking-move-limitations.md#state-of-dependent-resources)。
+如果收到一条错误消息，指出由于资源未处于成功状态而无法移动资源，则它可能实际上是阻止移动的依赖资源。 通常，错误代码为 **MoveCannotProceedWithResourcesNotInSucceededState**。
+
+如果源或目标资源组包含虚拟网络，则会在移动过程中检查虚拟网络的所有依赖资源的状态。 该检查包括直接和间接依赖于虚拟网络的这些资源。 如果这些资源中有任何资源处于故障状态，则会阻止移动。 例如，如果某个使用虚拟网络的虚拟机故障，则会阻止移动。 即使该虚拟机不是要移动的资源之一，也不在要移动的资源组之一中，系统也会阻止移动。
+
+收到此错误时，你有两个选择。 将资源移到没有虚拟网络的资源组，或[联系支持人员](https://support.azure.cn/support/support-azure/)。
 
 ## <a name="next-steps"></a>后续步骤
 

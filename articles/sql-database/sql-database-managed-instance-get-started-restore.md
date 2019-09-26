@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, bonova
-manager: digimobile
+ms.reviewer: sstein, carlrab, bonova
 origin.date: 12/14/2018
-ms.date: 08/19/2019
-ms.openlocfilehash: 6b7bd464fb3b3de9dce4da0cae4d3fe08789468b
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: e8957496aa7f348260e0921b93d4ac8f44018e69
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544093"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262941"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入门：将数据库还原到托管实例
 
@@ -37,6 +36,7 @@ ms.locfileid: "69544093"
 - 要求使用 SSMS 连接到托管实例。 有关连接方法，请参阅以下快速入门：
   - [从 Azure VM 连接到 Azure SQL 数据库托管实例](sql-database-managed-instance-configure-vm.md)
   - [配置从本地到 Azure SQL 数据库托管实例的点到站点连接](sql-database-managed-instance-configure-p2s.md)。
+- 要求使用具有 `rw` 权限的 SAS 凭据保护的公共 IP 上具有 Azure Blob 存储帐户（例如 Standard_LRS V2）   。 当前不支持[通过防火墙保护的 Blob 存储的专用 IP](/storage/common/storage-network-security) 和 Azure Blob 存储服务终结点。
 
 > [!NOTE]
 > 有关使用 Azure Blob 存储与[共享访问签名 (SAS) 密钥](/storage/common/storage-dotnet-shared-access-signature-part-1)备份和还原 SQL Server 数据库的详细信息，请参阅[将 SQL Server 备份到 URL](sql-database-managed-instance-get-started-restore.md)。

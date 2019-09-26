@@ -6,16 +6,16 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/28/2019
-ms.date: 09/10/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5b6e2980a659214a2fdd0dfbef00a242ae16a5a5
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 41a3028dce15500aded77ed31ab66eac37d45a4c
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857148"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083272"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>应用程序网关的后端运行状况和诊断日志
 
 可以使用 Azure 应用程序网关通过以下方式监视资源：
 
@@ -23,7 +23,7 @@ ms.locfileid: "70857148"
 
 * [日志](#diagnostic-logging)：通过日志记录，可出于监视目的从资源保存或使用性能、访问及其他数据。
 
-* [指标](#metrics)：应用程序网关当前有七个指标可用来查看性能计数器。
+* [指标](application-gateway-metrics.md)：应用程序网关有几个指标可以帮助你验证系统是否按预期运行。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -106,7 +106,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 可通过三种方式存储日志：
 
 * **存储帐户**：如果日志存储时间较长并且希望能根据需要随时查看，则最好使用存储帐户。
-* **事件中心**：若要集成其他安全信息和事件管理 (SEIM) 工具，获取资源警报，则事件中心是很好的选择。
+* **事件中心**：若要集成其他安全信息和事件管理 (SIEM) 工具以获取资源警报，事件中心是很好的选择。
 * **Azure Monitor 日志**：Azure Monitor 日志最适合用于应用程序常规实时监视或查看趋势。
 
 ### <a name="enable-logging-through-powershell"></a>通过 PowerShell 启用日志记录
@@ -360,35 +360,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 #### <a name="analyzing-access-logs-through-goaccess"></a>通过 GoAccess 分析访问日志
 
 我们发布了一个资源管理器模板，用于安装和运行应用程序网关访问日志的常用 [GoAccess](https://goaccess.io/) 日志分析器。 GoAccess 提供了宝贵的 HTTP 流量统计信息，例如唯一访问者、请求的文件、主机、操作系统、浏览器和 HTTP 状态代码等。 有关更多详细信息，请参阅 [GitHub 的资源管理器模板文件夹中的自述文件](https://aka.ms/appgwgoaccessreadme)。
-
-## <a name="metrics"></a>指标
-
-指标是某些 Azure 资源的一项功能，可在此查看门户中的性能计数器。 应用程序网关支持以下指标：
-
-- **当前连接数**
-- **失败的请求数**
-- **正常的主机计数**
-
-   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
-
-
-- **响应状态**
-
-   可以进一步对响应状态代码分布进行归类来显示 2xx、3xx、4xx 和 5xx 类别的响应。
-
-- **吞吐量**
-- **请求总数**
-- **不正常的主机计数**
-
-   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
-
-浏览到应用程序网关，并在“监视”下选择“指标”   。 若要查看可用值，请选择“指标”下拉列表  。
-
-在下图中可以看到过去 30 分钟显示的三个指标的示例：
-
-[![](./media/application-gateway-diagnostics/figure5.png "度量值视图")](./media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../azure-monitor/platform/metrics-supported.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

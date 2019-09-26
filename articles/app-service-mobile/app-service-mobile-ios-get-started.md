@@ -3,7 +3,7 @@ title: 在 Azure 应用服务移动应用中创建 iOS 应用 | Azure
 description: 按照本教程，开始使用 Azure 移动应用后端，以 Objective-C 或 Swift 语言开发 iOS
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-origin.date: 08/17/2018
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 2f7e57ee3b476c5c4bbb9b6a7ecc7c5d98de1a0f
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: f9a37c302a5d90b2197ab3918574efdfd34d6529
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687466"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006582"
 ---
 # <a name="create-an-ios-app"></a>创建 iOS 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started)。
+>
 
 ## <a name="overview"></a>概述
 

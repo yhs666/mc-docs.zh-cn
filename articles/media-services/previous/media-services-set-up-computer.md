@@ -11,18 +11,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: b602b5f0560bf00c83e8ae433c78b2d7fac7e71c
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: d2b268df1bcf7921173ae8264b36381b0d2efd5c
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833258"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124666"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>设置媒体服务开发环境  
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 以下步骤描述使用 Azure 媒体服务进行开发所要满足的先决条件。
 
@@ -45,4 +48,7 @@ ms.locfileid: "56833258"
 
 ## <a name="next-steps"></a>后续步骤
 
-在“Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
+在  “Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

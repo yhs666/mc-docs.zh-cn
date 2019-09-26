@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 05/20/2019
+ms.date: 09/23/2019
 ms.author: vjay
-ms.openlocfilehash: 8331250084fec4c7a3b884f5c2fa899aaf597d13
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 6f9f53130b439c3ee3931e4dee43be4ce3a3f96a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549956"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124573"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问媒体服务 API
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 通过 Azure 媒体服务使用 Azure AD 身份验证时，可以通过以下两种方式之一进行身份验证：
 
@@ -72,8 +75,8 @@ ms.locfileid: "65549956"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到 AMS 实例。
-3. 选择“API 访问”。
-4. 单击“通过服务主体连接到 Azure 媒体服务 API”。
+3. 选择“API 访问”。 
+4. 单击“通过服务主体连接到 Azure 媒体服务 API”。 
 
     ![API 访问](./media/connect-with-rest/connect-with-rest01.png)
 
@@ -84,33 +87,33 @@ ms.locfileid: "65549956"
 
     如需创建新的 AD 应用，请执行以下步骤：
     
-   1. 按“新建”。
+   1. 按“新建”  。
    2. 输入名称。
-   3. 再次按“新建”。
-   4. 按“保存” 。
+   3. 再次按“新建”  。
+   4. 按“保存”  。
 
       ![API 访问](./media/connect-with-rest/new-app.png)
 
       新应用显示在页面上。
 
-6. 获取“客户端 ID”（应用程序 ID）。
+6. 获取“客户端 ID”  （应用程序 ID）。
     
    1. 选择应用程序。
-   2. 从右侧的窗口获取“客户端 ID”。 
+   2. 从右侧的窗口获取“客户端 ID”。  
 
       ![API 访问](./media/connect-with-rest/existing-client-id.png)
 
-7. 获取应用程序的“密钥”（客户端机密）。 
+7. 获取应用程序的“密钥”（客户端机密）。  
 
-   1. 单击“Azure Active Directory”按钮。 
-   2. 按“应用注册”。
-   3. 按“testapp”。
-   4. 按“密钥”（请注意，客户端 ID 信息位于“应用程序 ID”下）。
+   1. 单击“Azure Active Directory”按钮。  
+   2. 按“应用注册”。 
+   3. 按“testapp”。 
+   4. 按“密钥”（请注意，客户端 ID 信息位于“应用程序 ID”下）。  
 
        ![API 访问](./media/connect-with-rest/manage-app.png)
-   5. 生成应用密钥（客户端机密），方法是：填充“说明”和“过期时间”，然后按“保存”。
+   5. 生成应用密钥（客户端机密），方法是：填充“说明”和“过期时间”，然后按“保存”。   
     
-       按下“保存”按钮后，密钥值就会显示。 在离开边栏选项卡之前复制密钥值。
+       按下“保存”按钮后，密钥值就会显示。  在离开边栏选项卡之前复制密钥值。
 
    ![API 访问](./media/connect-with-rest/connect-with-rest03.png)
 
@@ -121,37 +124,37 @@ ms.locfileid: "65549956"
 
 ## <a name="get-the-access-token-using-postman"></a>使用 Postman 获取访问令牌
 
-本部分演示如何使用 Postman 执行返回 JWT 持有者令牌（访问令牌）的 REST API。 若要调用任何媒体服务 REST API，需要将“授权”标头添加到这些调用，并将“持有者 your_access_token”的值添加到每个调用（如本教程的下一部分中所示）。
+本部分演示如何使用 Postman 执行返回 JWT 持有者令牌（访问令牌）的 REST API  。 若要调用任何媒体服务 REST API，需要将“授权”标头添加到这些调用，并将“持有者 your_access_token”的值添加到每个调用（如本教程的下一部分中所示）  。
 
 1. 打开 **Postman**。
-2. 选择“POST” 。
+2. 选择“POST”  。
 3. 使用以下格式输入包含租户名称的 URL：租户名称应以 **.partner.onmschina.cn** 结尾，URL 应以 **oauth2/token** 结尾： 
 
     https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token
 
-4. 选择“标头”选项卡。
+4. 选择“标头”  选项卡。
 5. 使用“键/值”数据网格输入**标头**信息。 
 
     ![数据网格](./media/connect-with-rest/headers-data-grid.png)
 
-    也可单击 Postman 窗口右侧的“批量编辑”链接，然后粘贴以下代码。
+    也可单击  Postman 窗口右侧的“批量编辑”链接，然后粘贴以下代码。
 
         Content-Type:application/x-www-form-urlencoded
         Keep-Alive:true
 
-6. 按“正文”选项卡。
+6. 按“正文”选项卡。 
 7. 使用“键/值”数据网格输入正文信息（替换客户端 ID 和机密值）。 
 
     ![数据网格](./media/connect-with-rest/data-grid.png)
 
-    也可单击 Postman 窗口右侧的“批量编辑”，然后粘贴以下正文（替换客户端 ID 和机密值）：
+    也可单击  Postman 窗口右侧的“批量编辑”，然后粘贴以下正文（替换客户端 ID 和机密值）：
 
         grant_type:client_credentials
         client_id:{Your Client ID that you got from your Azure AD Application}
         client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.chinacloudapi.cn
 
-8. 按“发送”。
+8. 按“发送”。 
 
     ![获取令牌](./media/connect-with-rest/connect-with-rest04.png)
 
@@ -162,21 +165,21 @@ ms.locfileid: "65549956"
 此部分介绍如何使用 **Postman** 访问**资产** API。
 
 1. 打开 **Postman**。
-2. 选择“GET” 。
+2. 选择“GET”  。
 3. 粘贴 REST API 终结点（例如， https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/Assets)
-4. 选择“授权”选项卡。 
-5. 选择“持有者令牌”。
+4. 选择“授权”选项卡。  
+5. 选择“持有者令牌”  。
 6. 粘贴在上一节创建的令牌。
 
     ![获取令牌](./media/connect-with-rest/connect-with-rest05.png)
 
     > [!NOTE]
-    > Mac 和电脑的 Postman UX 可能有所不同。 如果 Mac 版本的“身份验证”部分的下拉列表中没有“持有者令牌”选项，则应手动在 Mac 客户端添加 **Authorization** 标头。
+    > Mac 和电脑的 Postman UX 可能有所不同。 如果 Mac 版本的“身份验证”部分的下拉列表中没有“持有者令牌”选项，  则应手动在 Mac 客户端添加 **Authorization** 标头。
 
    ![Auth 标头](./media/connect-with-rest/auth-header.png)
 
-7. 选择“标头”。
-5. 单击 Postman 窗口右侧的“批量编辑”链接。
+7. 选择“标头”。 
+5. 单击 Postman 窗口右侧的“批量编辑”链接。 
 6. 粘贴以下标头：
 
         x-ms-version:2.15
@@ -185,7 +188,7 @@ ms.locfileid: "65549956"
         DataServiceVersion:3.0
         MaxDataServiceVersion:3.0
 
-7. 按“发送”。
+7. 按“发送”。 
 
 返回的响应包含帐户中的资产。
 

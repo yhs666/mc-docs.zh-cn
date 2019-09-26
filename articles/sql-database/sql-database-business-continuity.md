@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 origin.date: 06/25/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: fadd05c3119a3bc79973910cca921d40b115adad
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: 83d14face5babf0fa3b47c28f47eda6baec9d7c9
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372982"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262966"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL 数据库确保业务连续性的相关概述
 
@@ -138,7 +138,7 @@ Azure 数据中心会罕见地发生中断。 发生中断时，业务可能仅�
 从任一恢复机制恢复后，都必须执行以下附加任务，用户和应用程序才能重新运行：
 
 - 将客户端和客户端应用程序重定向到新服务器和还原的数据库
-- 确保设置适当的服务器级 IP 防火墙规则，以便用户能够连接或使用[数据库级防火墙](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)，启用合适的规则。
+- 确保设置适当的服务器级 IP 防火墙规则，以便用户能够连接或使用[数据库级防火墙](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)，启用合适的规则。
 - 确保设置适当的登录名和 master 数据库级权限（或使用[包含用户](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)）
 - 视情况配置审核
 - 视情况配置警报

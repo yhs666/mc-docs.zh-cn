@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 95043c7da3883b89057bca5b2da6301e4fce04e9
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: f63670a210e29d0e4393ad47bc33ca7eec03a489
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844783"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119544"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>快速入门：使用 REST API 和 Go 检测图像中的人脸
 
@@ -104,6 +104,9 @@ func main() {
     fmt.Println(string(jsonFormatted))
 }
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 需使用订阅密钥更新 `subscriptionKey` 值，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 
 

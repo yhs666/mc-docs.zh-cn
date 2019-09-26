@@ -1,5 +1,5 @@
 ---
-title: 移动应用和移动服务中的客户端与服务器 SDK 版本控制
+title: 移动应用和移动服务中的客户端与服务器 SDK 版本控制 | Azure
 description: 客户端 SDK 列表，以及移动服务与 Azure 移动应用的服务器 SDK 版本兼容性
 services: app-service\mobile
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2016
 ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 5c7504f30a65b0c880e3a82df6f2e5c3eb7ca290
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.author: v-tawe
+ms.openlocfilehash: fdb0e669d760a578998263d6462412916f4cddb7
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687467"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006600"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>移动应用和移动服务中的客户端与服务器版本控制
 Azure 移动服务的最新版本是 Azure 应用服务的 **移动应用** 功能。

@@ -13,19 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 33ea75596feea19be159effab93170c5ebce3d6b
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 2619e27a15a6fb07538fda4905c90ed9b6153e81
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670963"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124550"
 ---
 # <a name="content-protection-overview"></a>内容保护概述 
 
 > [!NOTE]
 > Google Widevine DRM 目前在中国地区不可用。
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 可以使用 Azure 媒体服务在媒体从计算机离开到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准 (AES-128) 或以下两个主要数字版权管理 (DRM) 系统中任意一个动态加密的直播和点播内容：Microsoft PlayReady 和 Apple FairPlay。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 DRM（PlayReady、Widevine 和 FairPlay）许可证的服务。 
 

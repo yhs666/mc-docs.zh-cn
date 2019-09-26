@@ -16,12 +16,12 @@ origin.date: 02/21/2019
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 5b31fa50b4359cd8e48dc1f5fb51e57cb5de5592
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 39b75053de318b052ed98cabdbd427e79c939f69
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806892"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155821"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -117,7 +117,7 @@ http://<app_name>.chinacloudsites.cn
 
 ## <a name="deploy-zip-file"></a>部署 ZIP 文件
 
-在 Cloud Shell 中，导航到应用程序的根目录，为示例项目创建新的 ZIP 文件。
+在 Azure CLI 中，导航到应用程序的根目录，为示例项目创建新的 ZIP 文件。
 
 ```azurecli
 cd nodejs-docs-hello-world  
@@ -152,7 +152,7 @@ Node.js 示例代码正在 Azure 应用服务 Web 应用中运行。
 
 ## <a name="update-and-redeploy-the-code"></a>更新并重新部署代码
 
-在 Cloud Shell 中，键入 `code index.js` 以打开 Cloud Shell 编辑器。
+在 Azure CLI 中，键入 `code index.js` 以打开 Azure CLI 编辑器。
 
 ![编写 index.js 的代码](media/app-service-web-get-started-nodejs-poc/code-indexjs.png)
 

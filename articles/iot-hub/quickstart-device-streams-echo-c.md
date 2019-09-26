@@ -7,14 +7,15 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: robinsh
-ms.openlocfilehash: 812758bb31aebe0fe8787e90e4a52dc23d3a8479
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+origin.date: 08/20/2019
+ms.date: 09/30/2019
+ms.author: v-yiso
+ms.openlocfilehash: 4672717205fc49797ca78fd4a4a1588b7286300f
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993797"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155884"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流在 C 中与设备应用程序通信（预览）
 
@@ -22,7 +23,7 @@ ms.locfileid: "69993797"
 
 Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-服务和设备应用程序可以使用 [IoT 中心设备流](iot-hub-device-streams-overview.md)以安全且防火墙友好的方式进行通信。 在公共预览期，C SDK 仅支持设备端的设备流。 因此，本快速入门只介绍如何运行设备端应用程序。 若要运行随附的服务端应用程序，请参阅：
+服务和设备应用程序可以使用 [IoT 中心设备流](iot-hub-device-streams-overview.md)以安全且防火墙友好的方式进行通信。 在公共预览期，C SDK 仅支持设备端的设备流。 因此，本快速入门只介绍如何运行设备端应用程序。 若要运行相应的服务端应用程序，请参阅以下文章：
  
    * [通过 IoT 中心设备流使用 C# 与设备应用进行通信](./quickstart-device-streams-echo-csharp.md)
    * [通过 IoT 中心设备流使用 Node.js 与设备应用进行通信](./quickstart-device-streams-echo-nodejs.md)
@@ -34,24 +35,20 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 代码将演示设备流的发起过程，以及如何用其来发送和接收数据。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 目前仅以下区域中创建的 IoT 中心支持设备流预览：
+需要具备以下先决条件：
 
-  * 美国中部
-  * 美国中部 EUAP
-
-* 安装 [Visual Studio 2017](https://www.visualstudio.com/vs/) 并启用[使用 C++ 的桌面开发](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作负荷。
+* 安装 [Visual Studio 2019](https://www.visualstudio.com/vs/) 并启用**使用 C++ 的桌面开发**工作负荷。
 
 * 安装最新版本的 [Git](https://git-scm.com/download/)。
 
 * 运行以下命令将用于 Azure CLI 的 Azure IoT 扩展添加到 Cloud Shell 实例。 IOT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
 
-   ```azurecli-interactive
+   ```azurecli
    az extension add --name azure-cli-iot-ext
    ```
 
@@ -59,27 +56,28 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 在本快速入门中，我们将使用[适用于 C 的 Azure IoT 设备 SDK](iot-hub-device-sdk-c-intro.md)。准备一个用于从 GitHub 克隆和生成 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的开发环境。 GitHub 上的 SDK 包括在本快速入门中使用的示例代码。
 
-1. 下载 [CMake 生成系统](https://cmake.org/download/)。
+   > [!NOTE]
+   > 在开始此过程之前，请确保已安装了带有“使用 C++ 进行桌面开发”  工作负荷的 Visual Studio。
 
-    在开始安装 CMake 之前，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。  安装必备组件并验证下载内容后，可以安装 CMake 生成系统。
+1. 按照下载页上的说明安装 [CMake 生成系统](https://cmake.org/download/)。
 
-2. 打开命令提示符或 Git Bash shell。 执行以下命令克隆 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库：
+1. 打开命令提示符或 Git Bash shell。 运行以下命令克隆 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库：
 
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     此操作需要花费几分钟时间。
 
-3. 按以下命令中所示在 Git 存储库的根目录中创建 *cmake* 子目录，并转到该文件夹。
+1. 按以下命令中所示在 Git 存储库的根目录中创建 *cmake* 目录，并转到该文件夹。
 
-    ```
+    ```cmd
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. 从 *cmake* 目录运行以下命令，以生成特定于开发客户端平台的 SDK 版本。
+1. 从 *cmake* 目录运行以下命令，以生成特定于开发客户端平台的 SDK 版本。
 
    * 在 Linux 中：
 
@@ -88,7 +86,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
       make -j
       ```
 
-   * 在 Windows 中，请在 Visual Studio 2015 或 2017 的开发人员命令提示下运行以下命令。 将在 *cmake* 目录中生成模拟设备的 Visual Studio 解决方案。
+   * 在 Windows 中，打开 [Visual Studio 的开发人员命令提示](https://docs.microsoft.com/en-us/dotnet/framework/tools/developer-command-prompt-for-vs)。 运行 Visual Studio 版本的命令。 本快速入门使用 Visual Studio 2019。 这些命令在 *cmake* 目录中为模拟设备创建 Visual Studio 解决方案。
 
       ```cmd
       rem For VS2015
@@ -96,6 +94,9 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
+
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
 
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release
@@ -115,16 +116,16 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
    > * 如示例中所示使用 *MyDevice*。 它是为注册的设备提供的名称。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
-    ```azurecli-interactive
+    ```azurecli
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. 若要获取刚刚注册的设备的*设备连接字符串*，请在 Cloud Shell 中运行以下命令：
+2. 若要获取刚刚注册的设备的*设备连接字符串*，请运行以下命令：
 
    > [!NOTE]
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
 
-    ```azurecli-interactive
+    ```azurecli
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
@@ -138,7 +139,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 ### <a name="run-the-device-side-application"></a>运行设备端应用程序
 
-若要运行设备端应用程序，请执行以下操作：
+若要运行设备端应用程序，请执行以下步骤：
 
 1. 编辑 *iothub_client/samples/iothub_client_c2d_streaming_sample* 文件夹中的 *iothub_client_c2d_streaming_sample.c* 源文件并提供设备连接字符串，以提供设备凭据。
 
@@ -147,7 +148,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
    static const char* connectionString = "[device connection string]";
    ```
 
-2. 按如下所示编译代码：
+1. 按如下所示编译代码：
 
    ```bash
    # In Linux
@@ -180,6 +181,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 如前所述，IoT 中心 C SDK 仅支持设备端的设备流。 若要生成并运行服务端应用程序，请遵照下列其中一篇快速入门中的说明：
 
 * [通过 IoT 中心设备流使用 C# 与设备应用进行通信](./quickstart-device-streams-echo-csharp.md)
+
 * [通过 IoT 中心设备流使用 Node.js 与设备应用进行通信](./quickstart-device-streams-echo-nodejs.md)
 
 ## <a name="clean-up-resources"></a>清理资源

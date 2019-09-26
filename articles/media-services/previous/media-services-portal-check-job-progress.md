@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 06/03/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 0bc330c7ba5d357775b64119b22009721a7b63c2
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: c0e494b64e52d1fb50673bca5dfd45c226e780e6
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390773"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124640"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>使用 Azure 门户监视编码作业进度
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>概述
 
@@ -37,5 +40,8 @@ ms.locfileid: "66390773"
 ![作业](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
 ## <a name="next-steps"></a>后续步骤
-完成编码作业后，可发布和播放资产，如 [此处](media-services-portal-publish.md)所述。
+完成编码作业后，可发布和播放资产，如[此处](media-services-portal-publish.md)所述。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

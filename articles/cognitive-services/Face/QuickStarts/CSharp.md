@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 95967aa456219e494648ffcb05e44d0362b6cbd9
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: c4be30cc08186a1a46de3d2ff98a2fac7d68a25d
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844637"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119558"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>快速入门：使用人脸 REST API 和 C# 检测图像中的人脸
 
@@ -66,6 +66,9 @@ namespace DetectFace
 
         const string uriBase = "https://api.cognitive.azure.cn/face/v1.0/detect";
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 ### <a name="receive-image-input"></a>接收图像输入
 

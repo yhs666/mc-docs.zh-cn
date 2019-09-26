@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2018
-ms.date: 08/06/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9860e4f657749385f54e96747442f4e69f11abc4
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: d68ef18b11a30fa8267b5da9b73639afa0d449ff
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818820"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083257"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持内部重定向的应用程序网关
 
-你可以使用 Azure Powershell 配置 [web 流量重定向](multiple-site-overview.md)创建时[应用程序网关](overview.md)。 在本教程中，将使用虚拟机规模集定义后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达相应池。 本教程假定你拥有多个域，并使用示例 *www\.contoso.com* 和 *www\.contoso.org*。
+你可以使用 Azure Powershell 配置 [web 流量重定向](multiple-site-overview.md)创建时[应用程序网关](overview.md)。 在本教程中，将使用虚拟机规模集定义后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达相应池。 本教程假定你拥有多个域，并使用示例 www.contoso.com  和 www\.contoso.org  。
 
 在本文中，学习如何：
 
@@ -110,7 +110,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>创建第一个侦听器和规则
 
-应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 *www\.contoso.com* 和 *www\.contoso.org* 创建侦听器。
+应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 www.contoso.com  和 www\.contoso.org  创建侦听器。
 
 使用 [New-AzApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayhttplistener) 以及前面创建的前端配置和前端端口创建名为 *contosoComListener* 的第一个侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 创建一个名为 *contosoComRule* 的基本规则。
 
@@ -299,7 +299,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在应用程序网关中测试 contoso 站点](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-将地址更改为其他域（例如 http\://www.contoso.org），应会看到流量已被重定向回 www\.contoso.com 的侦听器。
+将地址更改为其他域（例如 http://www.contoso.org ），应会看到流量已被重定向回 www.contoso.com 的侦听器。
 
 ## <a name="next-steps"></a>后续步骤
 

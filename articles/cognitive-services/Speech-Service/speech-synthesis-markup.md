@@ -9,15 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.custom: seodec18
-ms.openlocfilehash: a7c5c7e012623990eebb81512d0c1d4e633ca94d
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: dbfc61e953ceb566a856cb3ad314ff3dc772d128
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104120"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267037"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>语音合成标记语言 (SSML)
 
@@ -26,7 +25,7 @@ ms.locfileid: "70104120"
 SSML 的语音服务实现基于万维网联合会的 [语音合成标记语言版本 1.0](https://www.w3.org/TR/speech-synthesis)。
 
 > [!IMPORTANT]
-> 中文、日语和韩语字符按两个字符计费。 有关详细信息，请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
+> 中文、日语和韩语字符按两个字符计费。 有关详细信息，请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/speech-service/)。
 
 ## <a name="standard-neural-and-custom-voices"></a>标准、神经和自定义语音
 

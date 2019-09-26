@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/25/2019
-ms.date: 08/26/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 199a9d5c59c239f52bc5b3120c199fbaf7c4cb5c
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: ece8468c17b5c9f7d0a83ad6921a53dde605d4f0
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993510"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156099"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的资源、属性或变量迭代
 
@@ -44,13 +44,13 @@ ms.locfileid: "69993510"
 
 本文将更详细地介绍这两种用法。 有关教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
 
-如需指定究竟是否部署资源，请参阅 [condition 元素](resource-group-authoring-templates.md#condition)。
+如需指定究竟是否部署资源，请参阅 [condition 元素](conditional-resource-deployment.md)。
 
 ## <a name="copy-limits"></a>复制限制
 
 若要指定迭代次数，请为 count 属性提供值。 count 不能超过 800。
 
-count 不能为负数。 如果使用 REST API 版本 **2019-05-10** 或更高版本部署模板，则可以将 count 设置为零。 更早版本的 REST API 不支持将 count 设为零。 目前，Azure CLI 或 PowerShell 不支持将 count 设为零，但在未来的版本中将添加该支持。
+count 不能为负数。 如果使用 Azure PowerShell 2.6 或更高版本或者 REST API 版本 **2019-05-10** 或更高版本部署模板，则可以将 count 设置为零。 更早版本的 PowerShell 和 REST API 不支持将 count 设为零。 目前，Azure CLI 不支持将 count 设为零，但在未来的版本中将添加该支持。
 
 将[完整模式部署](deployment-modes.md)与复制一起使用时要小心。 如果以完整模式重新部署到资源组，则在解析复制循环后会删除模板中未指定的任何资源。
 
@@ -530,6 +530,7 @@ copy 元素是一个数组，因此，可以为资源指定多个属性。 为�
 ## <a name="next-steps"></a>后续步骤
 
 * 要查看教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
+
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 

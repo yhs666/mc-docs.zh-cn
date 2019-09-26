@@ -1,5 +1,5 @@
 ---
-title: 从本地文件创建 Azure 媒体服务作业输入 | Azure
+title: 从本地文件创建 Azure 媒体服务作业输入 | Microsoft Docs
 description: 本主题介绍如何从本地文件创建作业输入。
 services: media-services
 documentationcenter: ''
@@ -9,29 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-origin.date: 03/19/2018
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: 263da013181d94efc2687d679a1a0a4342440d8b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/18/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: d07e0a478e86a4e5390d875be5e383ae69ddece5
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654668"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124684"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>从本地文件创建作业输入
 
-在媒体服务 v3 中提交作业来处理视频时，必须告知媒体服务查找输入视频的位置。 可将输入视频存储为媒体服务资产，这种情况下会基于文件（存储在本地或 Azure Blob 存储中）创建输入资产。 本主题介绍如何从本地文件创建作业输入。 有关完整示例，请参阅此 [github 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs)。
+在媒体服务 v3 中提交作业来处理视频时，必须告知媒体服务查找输入视频的位置。 可将输入视频存储为媒体服务资产，这种情况下会基于文件（存储在本地或 Azure Blob 存储中）创建输入资产。 本主题介绍如何从本地文件创建作业输入。 有关完整示例，请参阅此 [GitHub 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs)。
 
 ## <a name="net-sample"></a>.NET 示例
 
 以下代码演示如何创建输入资产并将其用作作业的输入。 此 CreateInputAsset 函数执行以下操作：
 
-* 创建资产 
-* 获取资产的[存储中容器](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)的可写 [SAS URL](https://docs.azure.cn/storage/common/storage-dotnet-shared-access-signature-part-1)
+* 创建资产
+* 获取资产的[存储中容器](/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)的可写 [SAS URL](/storage/common/storage-dotnet-shared-access-signature-part-1)
 * 使用 SAS URL 将文件上传到存储中的容器中
 
-```C#
+```c#
 private static async Task<Asset> CreateInputAssetAsync(
     IAzureMediaServicesClient client,
     string resourceGroupName,
@@ -42,7 +42,7 @@ private static async Task<Asset> CreateInputAssetAsync(
     // In this example, we are assuming that the asset name is unique.
     //
     // If you already have an asset with the desired name, use the Assets.Get method
-    // to get the existing asset. In Media Services v3, Get methods on entities returns null 
+    // to get the existing asset. In Media Services v3, the Get method on entities returns null 
     // if the entity doesn't exist (a case-insensitive check on the name).
 
     // Call Media Services API to create an Asset.
@@ -75,15 +75,50 @@ private static async Task<Asset> CreateInputAssetAsync(
 }
 ```
 
-```C#
+以下代码片段将创建一个输出资产（如果它尚不存在）：
+
+```c#
+private static async Task<Asset> CreateOutputAssetAsync(
+    IAzureMediaServicesClient client, 
+    string resourceGroupName, 
+    string accountName, 
+    string assetName)
+{
+    // Check if an Asset already exists
+    Asset outputAsset = await client.Assets.GetAsync(resourceGroupName, accountName, assetName);
+    Asset asset = new Asset();
+    string outputAssetName = assetName;
+
+    if (outputAsset != null)
+    {
+    // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+    // Note that the returned Asset can have a different name than the one specified as an input parameter.
+    // You may want to update this part to throw an Exception instead, and handle name collisions differently.
+    string uniqueness = $"-{Guid.NewGuid().ToString("N")}";
+    outputAssetName += uniqueness;
+                
+    Console.WriteLine("Warning – found an existing Asset with name = " + assetName);
+    Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);                
+    }
+
+    return await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, outputAssetName, asset);
+}
+```
+
+以下代码片段将提交编码作业：
+
+```c#
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     string resourceGroupName,
     string accountName,
     string transformName,
     string jobName,
-    JobInput jobInput,
+    string inputAssetName,
     string outputAssetName)
 {
+    // Use the name of the created input asset to create the job input.
+    JobInput jobInput = new JobInputAsset(assetName: inputAssetName);
+
     JobOutput[] jobOutputs =
     {
         new JobOutputAsset(outputAssetName),
@@ -92,7 +127,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     // In this example, we are assuming that the job name is unique.
     //
     // If you already have a job with the desired name, use the Jobs.Get method
-    // to get the existing job. In Media Services v3, Get methods on entities returns null 
+    // to get the existing job. In Media Services v3, the Get method on entities returns null 
     // if the entity doesn't exist (a case-insensitive check on the name).
     Job job = await client.Jobs.CreateAsync(
         resourceGroupName,
@@ -108,3 +143,11 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     return job;
 }
 ```
+
+## <a name="job-error-codes"></a>作业错误代码
+
+请参阅[错误代码](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
+
+## <a name="next-steps"></a>后续步骤
+
+[从 HTTPS URL 创建作业输入](job-input-from-http-how-to.md)。

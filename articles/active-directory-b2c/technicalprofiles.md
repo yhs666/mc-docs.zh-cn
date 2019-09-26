@@ -2,21 +2,21 @@
 title: TechnicalProfiles | Microsoft Docs
 description: 在 Azure Active Directory B2C 中指定自定义策略的 TechnicalProfiles 元素。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 04/04/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: df61c4fd25b06bc2c001479f6dfe6bc22fc7fc6f
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8ed278f764a4c95b1db48f7711c2248150707e8e
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004319"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083217"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -105,11 +105,11 @@ ms.locfileid: "59004319"
 
 ### <a name="protocol"></a>协议
 
-Protocol 元素包含以下属性：
+Protocol  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| Name | 是 | Azure AD B2C 支持的有效协议的名称，用作技术配置文件的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`WsFed`、`WsTrust`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
+| Name | 是 | Azure AD B2C 支持的有效协议的名称，用作技术配置文件的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
 | Handler | 否 | 当协议名称设置为 `Proprietary` 时，指定 Azure AD B2C 用来确定协议处理程序的程序集的完全限定名称。 |
 
 ### <a name="metadata"></a>Metadata
@@ -163,7 +163,7 @@ Protocol 元素包含以下属性：
 
 ### <a name="inputclaims"></a>InputClaims
 
-InputClaims 元素包含以下元素：
+InputClaims  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -171,7 +171,7 @@ InputClaims 元素包含以下元素：
 
 #### <a name="inputclaim"></a>InputClaim
 
-InputClaim 元素包含以下属性：
+InputClaim  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
@@ -199,7 +199,7 @@ InputClaim 元素包含以下属性：
 
 ### <a name="outputclaims"></a>OutputClaims
 
-OutputClaims 元素包含以下元素：
+OutputClaims  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -207,7 +207,7 @@ OutputClaims 元素包含以下元素：
 
 #### <a name="outputclaim"></a>OutputClaim
 
-OutputClaim 元素包含以下属性：
+OutputClaim  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
@@ -281,7 +281,7 @@ OutputClaim 元素包含以下属性：
 - **OnItemExistenceInStringCollectionClaim**：仅当字符串集合声明中存在某个项时才执行技术配置文件。
 - **OnItemAbsenceInStringCollectionClaim**：仅当字符串集合声明中不存在某个项时才执行技术配置文件。
 
-如果使用 OnClaimsExistence、OnItemExistenceInStringCollectionClaim 或 OnItemAbsenceInStringCollectionClaim，要求提供以下元数据：“ClaimTypeOnWhichToEnable”指定要评估的声明类型，“ClaimValueOnWhichToEnable”指定要比较的值。
+如果使用 OnClaimsExistence、OnItemExistenceInStringCollectionClaim 或 OnItemAbsenceInStringCollectionClaim，要求提供以下元数据    ：“ClaimTypeOnWhichToEnable”指定要评估的声明类型，“ClaimValueOnWhichToEnable”指定要比较的值   。
 
 
-
+<!-- Update_Description: wording update -->

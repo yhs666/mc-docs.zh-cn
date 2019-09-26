@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-origin.date: 09/15/2017
+origin.date: 08/20/2019
 ms.author: v-jamebr
-ms.date: 09/02/2019
-ms.openlocfilehash: 29a2ad160b045c9479d9f4db5b40cb59030a3988
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 09/30/2019
+ms.openlocfilehash: 8a988732b6ba5de9851b0e9f1414a3803fd6e13d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70060473"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156017"
 ---
 # <a name="get-started-with-device-management-net"></a>设备管理入门 (.NET)
 
@@ -33,7 +33,7 @@ ms.locfileid: "70060473"
 
 * **TriggerReboot**。 此应用在模拟设备应用中调用直接方法、显示响应以及显示更新的报告属性。
 
-若要完成本教程，需要满足以下先决条件：
+## <a name="prerequisites"></a>先决条件
 
 * Visual Studio。
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
@@ -79,7 +79,7 @@ ms.locfileid: "70060473"
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. 将以下字段添加到 **Program** 类。 将占位符值替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串。
+1. 将以下字段添加到 **Program** 类。 将 `{iot hub connection string}` 占位符值替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串。
 
    ```csharp
    static RegistryManager registryManager;
@@ -131,7 +131,7 @@ ms.locfileid: "70060473"
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 
-在本部分中执行以下操作：
+本部分的操作：
 
 * 创建一个 .NET 控制台应用，用于响应通过云调用的直接方法。
 
@@ -162,11 +162,10 @@ ms.locfileid: "70060473"
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中记下的设备连接字符串。
+1. 将以下字段添加到 **Program** 类。 将 `{device connection string}` 占位符值替换为先前在[在 IoT 中心注册新设备](#register-a-new-device-in-the-iot-hub)中记下的设备连接字符串。
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.cn;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 6. 添加以下函数，实现设备上的直接方法：

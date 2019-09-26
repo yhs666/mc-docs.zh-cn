@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 05/15/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: cb9f150819366cd2b20cec0d6069546c019aade3
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: c789a62e9d88c6a08810a2fef83ade0cdbac2372
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993043"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156003"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用 IoT 中心消息路由将设备到云消息发送到不同的终结点
 
@@ -40,7 +40,7 @@ IoT 中心有一个默认的内置终结点（消息/事件），此终结点与
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 
-IoT 中心支持将数据以 [Apache Avro](https://avro.apache.org/) 格式和 JSON 格式写入 Azure Blob 存储。 编码 JSON 格式的功能通常可在 IoT 中心可用的所有区域中使用。 默认值为 AVRO。 只有在配置 Blob 存储终结点时才能设置编码格式。 不能编辑现有终结点的格式。 使用 JSON 编码时，必须在消息[系统属性](iot-hub-devguide-routing-query-syntax.md#system-properties)中将 contentType 设置为 JSON，将 contentEncoding 设置为 UTF-8。 如果未设置此项，则 IoT 中心将以 base 64 编码格式写入消息。 可以使用 IoT 中心的创建或更新 REST API（具体说来就是 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties)、Azure 门户、[Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) 或 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)）选择编码格式。 下图说明如何在 Azure 门户中选择编码格式。
+IoT 中心支持将数据以 [Apache Avro](https://avro.apache.org/) 格式和 JSON 格式写入 Azure Blob 存储。 编码 JSON 格式的功能通常可在 IoT 中心可用的所有区域中使用。 默认值为 AVRO。 只有在配置 Blob 存储终结点时才能设置编码格式。 不能编辑现有终结点的格式。 使用 JSON 编码时，必须在消息[系统属性](iot-hub-devguide-routing-query-syntax.md#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。 这两个值都不区分大小写。 如果未设置内容编码，则 IoT 中心将以 base 64 编码格式写入消息。 可以使用 IoT 中心的创建或更新 REST API（具体说来就是 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties)、Azure 门户、[Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) 或 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)）选择编码格式。 下图说明如何在 Azure 门户中选择编码格式。
 
 ![Blob 存储终结点编码](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -54,7 +54,7 @@ IoT 中心将在消息达到特定大小或在经过一定的事件后，对消�
 
 你可以使用任何文件命名约定，但必须使用所有列出的令牌。 如果没有要写入的数据，IoT 中心会写入到一个空 blob。
 
-在路由到 blob 存储时，请列出 blob，再循环访问它们，以确保读取所有容器而不进行任何分区假设。 在 [Microsoft 发起的故障转移](iot-hub-ha-dr.md#microsoft-initiated-failover)或 IoT 中心[手动故障转移](iot-hub-ha-dr.md#manual-failover-preview)期间，分区范围可能发生变化。 可以使用 [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 来枚举 Blob 的列表。 请将以下示例作为指南来查看。
+在路由到 blob 存储时，请列出 blob，再循环访问它们，以确保读取所有容器而不进行任何分区假设。 在 [Microsoft 发起的故障转移](iot-hub-ha-dr.md#microsoft-initiated-failover)或 IoT 中心[手动故障转移](iot-hub-ha-dr.md#manual-failover)期间，分区范围可能发生变化。 可以使用 [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 来枚举 Blob 的列表。 请将以下示例作为指南来查看。
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)
@@ -104,7 +104,7 @@ IoT 中心将在消息达到特定大小或在经过一定的事件后，对消�
 
 ## <a name="non-telemetry-events"></a>非遥测事件
 
-除了设备遥测外，消息路由也能够发送设备孪生更改事件和设备生命周期事件。 例如，如果使用数据源创建一个设置为到**设备孪生更改事件**的路由，IoT 中心会将消息发送到包含设备孪生更改的终结点。 同样，如果使用数据源创建一个设置为到**设备生命周期事件**的路由，IoT 中心将一条消息，此消息指示是否已删除或创建了设备。 
+除了设备遥测数据之外，消息路由还支持发送设备孪生更改事件、设备生命周期事件和数字孪生更改事件（在公共预览版中）。 例如，如果使用数据源创建一个设置为到**设备孪生更改事件**的路由，IoT 中心会将消息发送到包含设备孪生更改的终结点。 同样，如果创建路由时将数据源设置为“设备生命周期事件”  ，则 IoT 中心会发送一条消息，指示是否删除或创建了设备。 
 
 [IoT 中心还集成了 Azure 事件网格](iot-hub-event-grid.md)来发布设备事件以支持基于这些事件的工作流的实时集成和自动化。 请参阅[消息路由和事件网格之间的主要区别](iot-hub-event-grid-routing-comparison.md)来了解哪种更适合你的方案。
 

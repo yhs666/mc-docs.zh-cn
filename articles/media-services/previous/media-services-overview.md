@@ -12,16 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/19/2019
-ms.date: 06/03/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: dbcd2aa3c6d1854f31273c6f68d1005b2d40f499
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 97db4cd2205ac6cad686a88dd7cf5baa7e9411d6
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390767"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124644"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
+
+> [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
+> * [第 3 版](../latest/media-services-overview.md)
+> * [第 2 版](media-services-overview.md)
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发人员用来生成可缩放的媒体管理与传送应用程序。 媒体服务基于 REST API，使用这些 API 可以安全地上传、存储、编码和打包视频或音频内容，以供点播以及以实时传送视频流的形式传送到各种客户端（例如，电视、电脑和移动设备）。
 

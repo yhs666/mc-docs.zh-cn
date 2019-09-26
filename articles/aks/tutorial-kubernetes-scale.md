@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c051b0cb8b296fcaa05dbb8e5e76ea66f9353a04
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 36964024612c4178612780f48c9ddb673aab2f88
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500693"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155848"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 
@@ -95,7 +95,7 @@ resources:
      cpu: 500m
 ```
 
-下面的示例使用 [kubectl autoscale][kubectl-autoscale] 命令自动缩放 *azure-vote-front* 部署中的 Pod 数。 如果 CPU 利用率超过 50%，则自动缩放程序会将 Pod 增加到最多 *10* 个实例。 为部署定义的最小实例数为 *3*：
+下面的示例使用 [kubectl autoscale][kubectl-autoscale] 命令自动缩放 *azure-vote-front* 部署中的 Pod 数。 如果所有 Pod 的平均 CPU 利用率超过其请求使用率的 50%，则自动缩放程序会将 Pod 增加到最多 *10* 个实例。 为部署定义的最小实例数为 *3*：
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -168,7 +168,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
 [az-aks-scale]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-scale
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 
 <!-- Update_Description: wording update, update link -->

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 05/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 85ee801a4e164b535ffee0caa2d0f2e5e75ba794
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: ad4c2e99885d1cd4f53b526f058049336a4488e6
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550018"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124414"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
@@ -29,6 +29,9 @@ ms.locfileid: "65550018"
 本主题演示如何自定义 Media Encoder Standard 预设。 [通过使用自定义预设的 Media Encoder Standard 进行编码](media-services-custom-mes-presets-with-dotnet.md)主题演示如何使用 .NET 创建编码任务和执行此任务的作业。 自定义预设后，请将自定义预设提供给编码任务。 
 
 如果使用的是 XML 预设，请务必保留元素顺序，如下面的 XML 示例所示（例如，KeyFrameInterval 应在 SceneChangeDetection 前面）。
+
+> [!NOTE] 
+> Media Encoder Standard 的许多高级媒体服务 v2 功能目前在 v3 中不可用。 有关详细信息，请参阅[功能差距](/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis)。
 
 ## <a name="support-for-relative-sizes"></a>支持相对大小
 
@@ -248,7 +251,7 @@ ms.locfileid: "65550018"
 ## <a id="trim_video"></a>剪裁视频（剪切）
 本部分说明如何修改编码器预设，以裁剪或修剪其输入为所谓的夹层文件或按需文件的输入视频。 也可以使用编码器来剪切或剪裁从实时流捕获或存档的资产 - [此博客](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供了详细信息。
 
-若要裁剪视频，可以使用[此部分](media-services-mes-presets-overview.md)所述的任何 MES 预设，并修改“Sources”元素（如下所示）。 StartTime 的值需与输入视频的绝对时间戳匹配。 例如，如果输入视频第一帧的时间戳为 12:00:10.000，则 StartTime 应大于或等于 12:00:10.000。 在以下示例中，假设输入视频的起始时间戳为零。 **Sources** 应位于预设的开始处。
+若要裁剪视频，可以使用[此部分](media-services-mes-presets-overview.md)所述的任何 MES 预设，并修改“Sources”  元素（如下所示）。 StartTime 的值需与输入视频的绝对时间戳匹配。 例如，如果输入视频第一帧的时间戳为 12:00:10.000，则 StartTime 应大于或等于 12:00:10.000。 在以下示例中，假设输入视频的起始时间戳为零。 **Sources** 应位于预设的开始处。
 
 ### <a id="json"></a>JSON 预设
     {
@@ -370,7 +373,7 @@ ms.locfileid: "65550018"
     }
 
 ### <a name="xml-preset"></a>XML 预设
-若要剪裁视频，可以使用[此处](media-services-mes-presets-overview.md)所述的任何 MES 预设，并修改“Sources”元素（如下所示）。
+若要剪裁视频，可以使用[此处](media-services-mes-presets-overview.md)所述的任何 MES 预设，并修改“Sources”  元素（如下所示）。
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -493,7 +496,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 除了定义预设文件外，还必须让媒体服务知道资产中的哪个文件是覆盖层图像，哪个文件是要在其上覆盖图像的源视频。 视频文件必须是 **主** 文件。
 
-如果要使用 .NET，请将以下两个函数添加到[此主题](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) 中定义的 .NET 示例。 “UploadMediaFilesFromFolder”函数从文件夹上传文件（例如 BigBuckBunny.mp4 和 Image001.png），并将 mp4 文件设置为资产中的主文件。 “EncodeWithOverlay”函数使用传递给它的自定义预设文件（例如，下面的预设）来创建编码任务。
+如果要使用 .NET，请将以下两个函数添加到[此主题](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) 中定义的 .NET 示例。 “UploadMediaFilesFromFolder”  函数从文件夹上传文件（例如 BigBuckBunny.mp4 和 Image001.png），并将 mp4 文件设置为资产中的主文件。 “EncodeWithOverlay”  函数使用传递给它的自定义预设文件（例如，下面的预设）来创建编码任务。
 
 
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -915,7 +918,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>仅以最低比特率插入视频
 
-假设要使用多比特率编码预设（如 [“H264 多比特率 720p”](media-services-mes-preset-h264-multiple-bitrate-720p.md)）对整个输入目录进行编码以实现流式处理，且输入目录中混合了视频文件和仅音频文件。 在此方案中，如果输入不包含视频，用户可能想要强制编码器仅以最低比特率插入单色视频轨迹，而不是按每个输出比特率插入视频。 为此，需要使用“InsertBlackIfNoVideoBottomLayerOnly”标志。
+假设要使用多比特率编码预设（如 [“H264 多比特率 720p”](media-services-mes-preset-h264-multiple-bitrate-720p.md)）对整个输入目录进行编码以实现流式处理，且输入目录中混合了视频文件和仅音频文件。 在此方案中，如果输入不包含视频，用户可能想要强制编码器仅以最低比特率插入单色视频轨迹，而不是按每个输出比特率插入视频。 为此，需要使用“InsertBlackIfNoVideoBottomLayerOnly”  标志。
 
 可使用[此部分](media-services-mes-presets-overview.md)中所述的任何 MES 预设，并进行以下修改：
 
@@ -931,7 +934,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 #### <a name="xml-preset"></a>XML 预设
 
-使用 XML 时，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" 作为“H264Video”元素的属性，并使用 Condition="InsertSilenceIfNoAudio" 作为“AACAudio”的属性。
+使用 XML 时，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" 作为“H264Video”  元素的属性，并使用 Condition="InsertSilenceIfNoAudio" 作为“AACAudio”  的属性。
 
 ```
 . . .
@@ -974,7 +977,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 #### <a name="xml-preset"></a>XML 预设
 
-使用 XML 时，请使用 Condition="InsertBlackIfNoVideo" 作为“H264Video”元素的属性，并使用 Condition="InsertSilenceIfNoAudio" 作为“AACAudio”的属性。
+使用 XML 时，请使用 Condition="InsertBlackIfNoVideo" 作为“H264Video”  元素的属性，并使用 Condition="InsertSilenceIfNoAudio" 作为“AACAudio”  的属性。
 
 ```
 . . .
@@ -1001,7 +1004,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 ```
 
 ## <a id="rotate_video"></a>旋转视频
-[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支持旋转的角度为 0/90/180/270。 默认行为是“自动”，即尝试在传入的视频文件中检测旋转元数据并对其进行补偿。 将以下“Sources”元素包含在[此部分](media-services-mes-presets-overview.md)定义的其中一个预设中：
+[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支持旋转的角度为 0/90/180/270。 默认行为是“自动”，即尝试在传入的视频文件中检测旋转元数据并对其进行补偿。 将以下“Sources”  元素包含在[此部分](media-services-mes-presets-overview.md)定义的其中一个预设中：
 
 ### <a name="json-preset"></a>JSON 预设
     "Sources": [
@@ -1027,7 +1030,10 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 另请参阅[此](media-services-mes-schema.md#PreserveResolutionAfterRotation)主题，了解有关触发旋转补偿时，编码器如何解释预设中的宽度和高度设置的信息。
 
-可以使用值“0”指示编码器忽略输入视频中的旋转元数据（如果存在）。
+可使用值“0”向编码器指示忽略输入视频中的旋转元数据（如果有）。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)

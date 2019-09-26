@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 08/13/2018
-ms.date: 03/04/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: b5991d5e0e993ce1c892d5d52628c8facef319a8
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: e42dd05904d241dd0cb9368d326ef9b4c19e2d79
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665685"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155993"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT 中心消息路由查询语法
 
@@ -54,12 +54,12 @@ IoT 中心为所有设备到云的消息传送定义了[格式](iot-hub-devguide
 
 | 属性 | 类型 | 说明 |
 | -------- | ---- | ----------- |
-| contentType | 字符串 | 用户指定消息的内容类型。 若要允许查询消息正文，此值应设置应用程序/JSON。 |
-| contentEncoding | 字符串 | 用户指定消息的编码类型。 如果 contentType 设置为应用程序/JSON，则允许的值为 UTF-8、UTF-16 和 UTF-32。 |
-| iothub-connection-device-id | 字符串 | 此值由 IoT 中心设置，标识设备的 ID。 若要查询，请使用 `$connectionDeviceId`。 |
-| iothub-enqueuedtime | 字符串 | 此值由 IoT 中心设置，表示 UTC 中消息排入队列的实际时间。 若要查询，请使用 `enqueuedTime`。 |
+| contentType | string | 用户指定消息的内容类型。 若要允许查询消息正文，此值应设置应用程序/JSON。 |
+| contentEncoding | string | 用户指定消息的编码类型。 如果 contentType 设置为应用程序/JSON，则允许的值为 UTF-8、UTF-16 和 UTF-32。 |
+| iothub-connection-device-id | string | 此值由 IoT 中心设置，标识设备的 ID。 若要查询，请使用 `$connectionDeviceId`。 |
+| iothub-enqueuedtime | string | 此值由 IoT 中心设置，表示 UTC 中消息排入队列的实际时间。 若要查询，请使用 `enqueuedTime`。 |
 
-如 [IoT 中心消息](iot-hub-devguide-messages-construct.md)中所述，一条消息中还有其他系统属性。 除了 contentType、contentEncoding 和 enqueuedTime 外，还可以查询 connectionDeviceId 和 connectionModuleId。
+如 [IoT 中心消息](iot-hub-devguide-messages-construct.md)中所述，一条消息中还有其他系统属性。 除了 contentType  、contentEncoding  和 enqueuedTime  外，还可以查询 connectionDeviceId  和 connectionModuleId  。
 
 ### <a name="application-properties"></a>应用程序属性
 
@@ -87,7 +87,7 @@ processingPath = 'hot'
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-受支持的运算符和函数的完整列表在[表达式和条件](iot-hub-devguide-query-language.md#expressions-and-conditions)中列出
+[表达式和条件](iot-hub-devguide-query-language.md#expressions-and-conditions)中显示了支持的运算符和函数的完整列表。
 
 ## <a name="message-routing-query-based-on-message-body"></a>基于消息正文的消息路由查询 
 
@@ -164,7 +164,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>基于设备孪生的消息路由查询 
 
-通过消息路由，可以查询[设备孪生](iot-hub-devguide-device-twins.md)标记和属性，这些是 JSON 对象。 请注意，不支持对模块孪生的查询。 设备孪生标记和属性的示例如下所示。
+通过消息路由，可以查询[设备孪生](iot-hub-devguide-device-twins.md)标记和属性，这些是 JSON 对象。 不支持对模块孪生进行查询。 设备孪生标记和属性的示例如下所示。
 
 ```JSON
 {

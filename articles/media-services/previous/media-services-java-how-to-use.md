@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 73bcb069ee2597fb628f9834c27893ba1688ce8c
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 65230af38d7d03a674332b71da6076c28ab90809
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670943"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124462"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 本教程介绍了通过 Java 客户端 SDK 在 Azure 媒体服务中实施基本的视频内容传送服务的步骤。
 
@@ -304,6 +305,8 @@ ms.locfileid: "69670943"
     }
 ```
 
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="additional-resources"></a>其他资源
 有关如何在 Azure 中开发 Java 应用的详细信息，请参阅 [Java 开发人员中心][Azure Java Developer Center]和[面向 Java 开发人员的 Azure][Azure for Java developers]。

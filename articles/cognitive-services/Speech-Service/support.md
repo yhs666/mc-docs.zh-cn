@@ -3,20 +3,20 @@ title: 支持和帮助选项 - 语音服务
 titleSuffix: Azure Cognitive Services
 description: 在创建与语音服务集成的应用程序时，如何针对所遇到的问题获取帮助和支持
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/26/2019
-ms.date: 07/23/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 4a75b6381596bc434de2dd4817e12cdbb633c6f1
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/23/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 656bca2704d487eb70f4766e726cbf3ce518fb9b
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104117"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267035"
 ---
 # <a name="support-and-help-options"></a>支持和帮助选项
 
@@ -64,12 +64,11 @@ Stack Overflow 是开发相关问题的首选渠道。 在 Stack Overflow 中，
 
 如果通过搜索未找到你的问题的解答，请在 Stack Overflow 中提交新问题。 表述问题时，请使用以下标记之一：
 
+<!-- voice first/bot service not available -->
+
 |组件/方面  |Tags  |
 |---------|---------|
-|语音识别 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |语音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|语音翻译 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|语音意向 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |常规语音 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
@@ -82,7 +81,7 @@ Stack Overflow 是开发相关问题的首选渠道。 在 Stack Overflow 中，
 示例通常发布为开放源代码。 若有疑问和问题，请在相应的 GitHub 存储库中创建问题  。 你也可以提交拉取请求。 下面的列表包含了示例存储库的链接：
 
 * [语音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [设备 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [语音设备 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 你可以创建一个 bug 报告、功能请求，或者提出一般问题并共享最佳做法。 对于 bug 报告，请遵循所提供的模板：
 

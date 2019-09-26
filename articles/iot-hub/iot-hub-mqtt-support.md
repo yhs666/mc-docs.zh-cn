@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 10/12/2018
-ms.date: 09/03/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2d2f96084b4f47fcca614b9f27aeee1a5e0d6036
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 9dab1e9326ff2578111409db543ace756b9cd8af
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993606"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155921"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -60,6 +60,8 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 
 * AMQP 针对许多条件返回错误，而 MQTT 会终止连接。 因此异常处理逻辑可能需要进行一些更改。
 * MQTT 在接收[云到设备消息][lnk-messaging]  时不支持拒绝操作。 如果后端应用需要接收来自设备应用的响应，请考虑使用[直接方法][lnk-methods]。
+
+* Python SDK 不支持 AMQP
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>直接使用 MQTT 协议（作为设备）
 
@@ -217,7 +219,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 有关详细信息，请参阅[消息传送开发人员指南][lnk-messaging]。
 
-### <a name="receiving-cloud-to-device-messages"></a>接收“云到设备”消息
+## <a name="receiving-cloud-to-device-messages"></a>接收“云到设备”消息
 
 若要从 IoT 中心接收消息，设备应使用 `devices/{device_id}/messages/devicebound/#` 作为 **主题筛选器**来进行订阅。 主题筛选器中的多级通配符 `#` 仅用于允许设备接收主题名称中的其他属性。 IoT 中心不允许使用 `#` 或 `?` 通配符筛选子主题。 由于 IoT 中心不是常规用途的发布-订阅消息传送中转站，因此它仅支持存档的主题名称和主题筛选器。
 
@@ -227,7 +229,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 当设备应用使用 **QoS 2** 订阅主题时，IoT 中心会在 **SUBACK** 包中授予最高 QoS 级别 1。 之后，IoT 中心会使用 QoS 1 将消息传送到设备。
 
-### <a name="retrieving-a-device-twins-properties"></a>检索设备孪生的属性
+## <a name="retrieving-a-device-twins-properties"></a>检索设备孪生的属性
 
 首先，设备订阅 `$iothub/twin/res/#`，接收操作的响应。 然后，它向主题 `$iothub/twin/GET/?$rid={request id}` 发送一条空消息，其中包含 **request id** 的填充值。服务随后会发送一条响应消息，其中包含关于主题 `$iothub/twin/res/{status}/?$rid={request id}` 的设备孪生数据，并且使用与请求相同的“request id”  。
 

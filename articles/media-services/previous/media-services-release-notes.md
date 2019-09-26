@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 03/20/2019
-ms.date: 09/09/2019
+origin.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: cdf5cfe53155bbc7e1fe3ca385596fbeaabc97d2
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: b510c8ecced29e24634a795e84d6fcfccc89fb8c
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254561"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124583"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -28,9 +28,12 @@ ms.locfileid: "70254561"
 > [!NOTE]
 > Google Widevine 目前在中国地区不可用。
 
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
+
 我们希望能够倾听客户的心声，以便努力解决对客户造成影响的问题。 要报告问题或提出问题，请将在 [Azure 媒体服务 MSDN 论坛]提交问题。 
 
-## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>当前已知的问题
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>已知问题
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>媒体服务一般问题
 
 | 问题 | 说明 |
@@ -42,9 +45,22 @@ ms.locfileid: "70254561"
 | 查询实体时，一次返回的实体数限制为 1,000 个，因为公共 REST 第 2 版将查询结果数限制为 1,000 个。 |使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)。 |
 | 某些客户端可能会在平滑流式处理清单中碰到重复标记问题。 |有关详细信息，请参阅[此部分](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒体服务 .NET SDK 对象无法序列化，因此无法与 Azure Redis 缓存配合使用。 |如果尝试对 SDK AssetCollection 对象进行序列化以将其添加到 Azure Redis 缓存，则会引发异常。 |
+|尝试获取资产或帐户级别筛选器时，REST API 会以一条错误消息做出响应，指出“此版本的 REST API 无法访问筛选器”。|该筛选器是使用比尝试获取该筛选器所使用的 API 版本更高的 API 版本创建或修改的。 如果客户使用的代码或工具正在使用两个 API 版本，则可能会发生这种情况。  此处的最佳解决方案是升级代码或工具，以使用较新版本或两个 API 版本。|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
+
+## <a name="august-2019"></a>2019 年 8 月
+
+### <a name="deprecation-of-media-processors"></a>弃用媒体处理器
+
+我们宣布弃用 Windows Azure 媒体编码器  (WAME) 和 Azure 媒体编码器  (AME) 媒体处理器，这两个处理器将于 2019 年 11 月 30 日停用。
+
+有关详细信息，请参阅[将 WAME 迁移到 Media Encoder Standard](/media-services/previous/migrate-windows-azure-media-encoder) 和[将 AME 迁移到 Media Encoder Standard](/media-services/previous/migrate-azure-media-encoder)。
+
+## <a name="march-2019"></a>2019 年 3 月
+
+Azure 媒体服务的 Media Hyperlapse 预览功能已弃用。
 
 ## <a name="december-2018"></a>2018 年 12 月
 

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/30/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: e88aa40a47ce75cb6c8157fa10261df8d8859571
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 8781288d52d69b5ae9a20502cf218ebd5deb7a94
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993592"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156056"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>使用 IoT 中心将文件从设备上传到云 (Python)
 
@@ -39,7 +39,10 @@ ms.locfileid: "69993592"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-下面是必备组件的安装说明。
+> [!NOTE]
+> 本指南使用已弃用的 V1 Python SDK，因为新的 V2 SDK 中尚未实现“文件上传”功能。
+
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 

@@ -3,7 +3,7 @@ title: 关于 Azure 应用服务中的移动应用
 description: 了解应用服务为企业移动应用带来的优势。
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -11,18 +11,23 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 10/01/2016
-ms.author: v-biyu
-ms.date: 01/28/2019
-ms.openlocfilehash: cd7460a8265f3ed76581f4176b4416d728f2336d
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.topic: conceptual
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 404713170a3534fb2411b3925d063c4d91891034
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307620"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006570"
 ---
 # <a name="getting-started"> </a>关于 Azure 应用服务中的移动应用
+
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-value-prop)。
+>
+
 Azure 应用服务是完全托管的平台即服务 (PaaS) 产品，适用于专业开发人员。 该服务为 Web、移动和集成方案提供丰富的功能集。 
 
 Azure 应用服务中的移动应用功能为企业开发人员和系统集成商提供高度可缩放、全局可用的移动应用程序开发平台。
@@ -76,6 +81,7 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
   了解有关[虚拟网络]的详细信息。
 
 
+
 ## <a name="next-steps"></a>后续步骤
 
 若要开始在 Azure 应用服务中使用移动应用，请完成[入门]教程。 该教程介绍生成移动后端和所选客户端的基础知识， 并介绍集成身份验证、脱机同步和推送通知。 可以多次完成该教程，每个客户端应用程序一次。
@@ -97,8 +103,9 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 [Xamarin.iOS 和 Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[autoscaling]: ../app-service/web-sites-scale.md
+[自动缩放]: ../app-service/web-sites-scale.md
 [过渡环境]: ../app-service/deploy-staging-slots.md
 [虚拟网络]: ../app-service/web-sites-integrate-with-vnet.md
 
 [学习路线图]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[Azure 应用服务]: ../app-service/overview.md

@@ -12,19 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 8b59b597209a4ddd8810429e32ebfb400cab4f5a
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 721f8369ad10d8edaa6ad939a2f004fbaef263ba
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833407"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124663"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测  
 
-通过 Azure 媒体服务 (AMS) 可访问其服务的遥测/指标数据。 通过当前版本的 AMS，可收集活动 Channel、StreamingEndpoint 和 Archive 实体的遥测数据。 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
+
+通过 Azure 媒体服务 (AMS) 可访问其服务的遥测/指标数据。 通过当前版本的 AMS，可收集活动 Channel、StreamingEndpoint 和 Archive 实体的遥测数据    。 
 
 遥测将写入指定 Azure 存储帐户的存储表中，通常情况下，应使用与 AMS 帐户关联的存储帐户。 
 
@@ -71,7 +75,7 @@ ms.locfileid: "56833407"
 
 遥测数据汇总存储在表“TelemetryMetrics20160321”中，其中是“20160321”创建表的日期。 遥测系统为每个新日期（基于 00:00 UTC）单独创建一个表。 该表用于存储重复值，如给定时间范围内的引入比特率、发送的字节数等。 
 
-属性|值|示例/说明
+属性|Value|示例/说明
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>帐户 ID 包括在分区键中，可简化将多个媒体服务帐户写入同一存储帐户的工作流。
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>行键以距午夜的秒数开头，可允许分区内的前 n 个样式查询。 有关详细信息，请参阅[本文](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern)。 
@@ -92,7 +96,7 @@ ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 
 **流式处理终结点**
 
-属性|值|示例
+属性|Value|示例
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -111,7 +115,7 @@ E2ELatency|平均端到端延迟|250
 
 **实时频道**
 
-属性|值|示例/说明
+属性|Value|示例/说明
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -136,7 +140,7 @@ Healthy|如果 <br/>overlapCount、 <br/>DiscontinuityCount、 <br/>NonIncreasin
 
 **直播存档**
 
-属性|值|示例/说明
+属性|Value|示例/说明
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -212,4 +216,8 @@ Healthy|如果 FragmentDiscardedCount == 0 且 ArchiveAcquisitionError == False�
 ### <a name="how-to-manage-data-retention"></a>如何管理数据保留？
 
 遥测系统不提供数据保留期管理，也不会自动删除旧记录。 因此，请在存储表中手动管理和删除旧记录。 可参阅存储 SDK 以了解如何执行此操作。
-<!--Update_Description:update one link-->
+
+## <a name="next-steps"></a>后续步骤
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

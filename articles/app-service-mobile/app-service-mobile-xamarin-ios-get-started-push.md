@@ -12,20 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/12/2016
-ms.date: 07/15/2019
-ms.author: v-biyu
-ms.openlocfilehash: bd1d2bd6d7ffd304c8fe53e05c2998a6a4da0662
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 0a4bf6db2cc9843a0d1260282da902d3ff867450
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560280"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006553"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加推送通知
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-push)。
+>
 
 ## <a name="overview"></a>概述
 

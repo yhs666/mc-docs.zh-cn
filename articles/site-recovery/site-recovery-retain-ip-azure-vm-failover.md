@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 2d5472b0ee000cdf5fb6740a59a46181d65d4cf1
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: a97f322ff39f5a7731c54a63bff83fe93929a46b
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861649"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083186"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在故障转移期间保留 IP 地址
 
@@ -150,7 +150,9 @@ ms.locfileid: "67861649"
     
     <!--Up for China East and down for China North-->
     
-- 为了降低 RTO，公司 B 在故障转移之前，在 Azure 中国东北部的恢复 VNet 中预配了网关。
+- 为了降低 RTO，公司 B 在故障转移之前，在 Azure 中国北部的恢复 VNet 中预配了网关。
+
+    <!--MOONCAKE: CORRECT ON Azure China North -->
 - 公司 B 分配/验证已复制 VM 的目标 IP 地址。 每个 VM 的目标 IP 地址均与源 IP 地址相同。
 
 ![故障转移之前的本地到 Azure 连接](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)

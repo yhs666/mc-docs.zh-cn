@@ -8,15 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/02/2018
+origin.date: 06/28/2019
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: 46968b73b5fe347147c4c10e9b7c3654c92856ab
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/30/2019
+ms.openlocfilehash: 09528a52dc5dbff0ddfb755477270a561268d64a
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570542"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156103"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -40,7 +40,7 @@ IoT 中心的标准层启用了所有功能，是任何需要使用双向通信�
 | ---------- | ---------- | ------------- |
 | [设备到云的遥测](iot-hub-devguide-messaging.md) | 是 | 是 |
 | [每设备标识](iot-hub-devguide-identity-registry.md) | 是 | 是 |
-| [消息路由](iot-hub-devguide-messages-read-custom.md) | 是 | 是 |
+| [消息路由](iot-hub-devguide-messages-read-custom.md)和[事件网格集成](iot-hub-event-grid.md) | 是 | 是 |
 | [HTTP、AMQP 和 MQTT 协议](iot-hub-devguide-protocols.md) | 是 | 是 |
 | [设备预配服务](../iot-dps/about-iot-dps.md) | 是 | 是 |
 | [监视和诊断](iot-hub-monitor-resource-health.md) | 是 | 是 |
@@ -88,6 +88,10 @@ IoT 中心基本层和标准层所支持的功能存在差异，也就是说，�
 | 发送模块事件 | 仅限 AMQP 和 MQTT | 仅限 AMQP 和 MQTT |
 | [更新文件上传状态](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 是 | 是 |
 | [批量设备操作](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | 是的，IoT Edge 功能除外 | 是 |
+| [取消导入导出作业](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | 是 | 是 |
+| [创建导入导出作业](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | 是 | 是 |
+| [获取导入导出作业](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | 是 | 是 |
+| [获取导入导出作业](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | 是 | 是 |
 | [清除命令队列](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 是 |
 | [获取设备孪生](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | 是 |
 | [获取模块孪生](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | 是 |
@@ -109,32 +113,29 @@ IoT 中心基本层和标准层所支持的功能存在差异，也就是说，�
 * 云到设备的消息
 * 标识注册表操作
 
-流量按单元而不是中心来度量。 1 级或 2 级 IoT 中心实例最多可以有 200 个与之关联的单元。 3 级 IoT 中心实例最多可以有 10 个单元。 创建 IoT 中心以后，即可更改单元数，或者在特定层的不同大小（1、2、3）之间切换，而不会中断现有的操作。 有关详细信息，请参阅[如何升级 IoT 中心](iot-hub-upgrade.md)。
+IoT 中心的流量按单元进行度量。 创建 IoT 中心时，请选择其层级和版本，并设置可用的单元数。 对于 B1、B2、S1 或 S2 版本，最多可以购买 200 个单元；对于 B3 或 S3 版本，最多可以购买 10 个单元。 创建 IoT 中心后，可以更改其版本中可用的单元数、在其层级中的各版本之间进行升级或降级（B1 到 B2），或从基本层级升级到标准层级（B1 到 S1），而不会中断现有的操作。 有关详细信息，请参阅[如何升级 IoT 中心](iot-hub-upgrade.md)。  
 
 例如，就每个层的流量功能来说，设备到云的消息遵循以下持续吞吐量指导原则：
 
-| 层 | 持续吞吐量 | 持续发送速率 |
+| 层级版本 | 持续吞吐量 | 持续发送速率 |
 | --- | --- | --- |
 | B1、S1 |每个单元最多 1111 KB/分钟<br/>（1.5 GB/天/单元） |每个单元平均 278 条消息/分钟<br/>（400000 条消息/天/单元） |
 | B2、S2 |每个单元最多 16 MB/分钟<br/>（22.8 GB/天/单元） |每个单元平均 4,167 条消息/分钟<br/>（600 万条消息/天/单元） |
 | B3、S3 |每个单元最多 814 MB/分钟<br/>（1144.4 GB/天/单元） |每个单元平均 208,333 条消息/分钟<br/>（3 亿条消息/天/单元） |
 
-除此吞吐量信息以外，请参阅 [IoT 中心配额和限制][IoT Hub quotas and throttles] 相应地设计解决方案。
+设备到云的吞吐量只是设计 IoT 解决方案时需要考虑的指标之一。 有关更全面的信息，请参阅 [IoT 中心配额和限制](iot-hub-devguide-quotas-throttling.md)。
 
 ### <a name="identity-registry-operation-throughput"></a>标识注册表操作吞吐量
 由于大多数 IoT 中心标识注册表操作都与设备预配相关，因此不认为这些操作是运行时操作。
 
-有关具体的突发性能数字，请参阅 [IoT 中心配额和限制][IoT Hub quotas and throttles]。
+有关具体的突发性能数字，请参阅 [IoT 中心配额和限制](iot-hub-devguide-quotas-throttling.md)。
 
 ## <a name="auto-scale"></a>自动缩放
 如果即将达到 IoT 中心允许的消息限制，可以使用这些[用于自动缩放的步骤](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)在同一 IoT 中心层内增加一个 IoT 中心单元。
 
-## <a name="sharding"></a>分片
-尽管单个 IoT 中心可以扩展到数百万个设备，但有时解决方案所需的具体性能特征无法由单个 IoT 中心提供保证。 在这种情况下，可以跨多个 IoT 中心将设备分区。 多个 IoT 中心可以缓解流量喷发，并获得所需的吞吐量或操作速率。
-
 ## <a name="next-steps"></a>后续步骤
 
-* 若要详细了解 IoT 中心功能和性能，请参阅 [IoT 中心定价][lnk-pricing]or [IoT Hub quotas and throttles][IoT Hub quotas and throttles]。
+* 若要详细了解 IoT 中心功能和性能，请参阅 [IoT 中心定价][lnk-pricing]或 [IoT 中心配额和限制][IoT Hub quotas and throttles]。
 * 若要更改 IoT 中心层，请执行[升级 IoT 中心](iot-hub-upgrade.md)中的步骤。
 
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub

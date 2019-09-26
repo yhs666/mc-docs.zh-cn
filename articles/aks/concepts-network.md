@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8b5d0a89f5c7ce88b2c655deba15819c8311c0dc
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 53a0034f380ec4ba8f37dc2fa8c0cb68b22601e1
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731232"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155867"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序的网络概念
 
@@ -59,7 +59,7 @@ Azure 平台还有助于简化 AKS 群集的虚拟网络。 创建 Kubernetes �
 
 可以动态分配负载均衡器和服务的 IP 地址，也可以指定要使用的现有静态 IP 地址。 可以分配内部和外部静态 IP 地址。 这个现有静态 IP 地址通常与 DNS 条目绑定。
 
-可以创建内部和外部负载均衡器   。 内部负载均衡器仅分配一个专用 IP 地址，因此无法从 Internet 访问。
+可以创建内部和外部负载均衡器   。 内部负载均衡器仅分配有一个专用 IP 地址，因此无法从 Internet 对其进行访问。
 
 ## <a name="azure-virtual-networks"></a>Azure 虚拟网络
 
@@ -161,6 +161,7 @@ Kubenet 和 Azure CNI 之间存在以下行为差异：
 - [Kubernetes/AKS 规模][aks-concepts-scale]
 
 <!-- IMAGES -->
+
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png
 [aks-nodeport]: ./media/concepts-network/aks-nodeport.png
 [aks-loadbalancer]: ./media/concepts-network/aks-loadbalancer.png
@@ -168,6 +169,7 @@ Kubenet 和 Azure CNI 之间存在以下行为差异：
 [aks-ingress]: ./media/concepts-network/aks-ingress.png
 
 <!-- LINKS - External -->
+
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
@@ -176,7 +178,7 @@ Kubenet 和 Azure CNI 之间存在以下行为差异：
 
 [aks-ingress-tls]: ingress-tls.md
 
-<!--Mooncake : URL redirect to ingress-tls.md-->
+<!--Mooncake : URL ingress redirect to ingress-tls.md-->
 
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md

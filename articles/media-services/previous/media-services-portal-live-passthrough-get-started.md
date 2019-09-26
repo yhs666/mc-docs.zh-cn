@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 05/20/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 12f1c0c47deabc467e0d8aebb5e9ca83afb4e9c6
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 5bfd9a5435b398e5120278cd63f2dcd86a86ac38
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550010"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124631"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>在 Azure 门户中使用本地编码器实时传送流
 > [!div class="op_single_selector"]
@@ -29,6 +29,9 @@ ms.locfileid: "65550010"
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 本教程指导你完成相关步骤，使用 Azure 门户创建经配置后可直通传递的“通道”  。 
 
@@ -52,24 +55,25 @@ ms.locfileid: "65550010"
 > [!NOTE]
 > 确保要从中流式传输内容的流式处理终结点处于“正在运行”状态  。 
     
-1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4 流的本地实时编码器接收实时输入流。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 将视频摄像机连接到计算机。 <br/>有关设置建议，请查看[简单且可移植的事件视频设备设置]( https://link.medium.com/KNTtiN6IeT)。
+1. 启动并配置输出多比特率 RTMP 或分段 MP4 流的本地实时编码器接收实时输入流。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。<br/>另外，请查看以下博客：[采用 OBS 的实时传送视频流生产](https://link.medium.com/ttuwHpaJeT)。
    
     此步骤也可以在创建频道后执行。
-2. 创建并启动直通通道。
-3. 检索频道引入 URL。 
+1. 创建并启动直通通道。
+1. 检索频道引入 URL。 
    
     实时编码器使用引入 URL 将流发送到频道。
-4. 检索频道预览 URL。 
+1. 检索频道预览 URL。 
    
     使用此 URL 来验证频道是否正常接收实时流。
-5. 创建直播活动/节目。 
+1. 创建直播活动/节目。 
    
     使用 Azure 门户时，创建直播活动的同时还会创建资产。 
 
-6. 在准备好开始流式传输和存档时，启动事件/节目。
-7. （可选）可以向实时编码器发信号，以启动广告。 将广告插入到输出流中。
-8. 在要停止对事件进行流式传输和存档时，停止事件/节目。
-9. 删除事件/节目（并选择性地删除资产）。     
+1. 在准备好开始流式传输和存档时，启动事件/节目。
+1. （可选）可以向实时编码器发信号，以启动广告。 将广告插入到输出流中。
+1. 在要停止对事件进行流式传输和存档时，停止事件/节目。
+1. 删除事件/节目（并选择性地删除资产）。     
 
 > [!IMPORTANT]
 > 请参阅[使用可创建多比特率流的本地编码器实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)，了解与实时传送视频流（使用本地编码器和直通频道）相关的概念和注意事项。
@@ -148,4 +152,9 @@ ms.locfileid: "65550010"
 若要管理资产，请选择“设置”，再单击“资产”   。
 
 ![资产](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
+
+## <a name="next-step"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

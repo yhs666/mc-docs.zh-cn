@@ -12,17 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/03/2019
+origin.date: 03/14/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 56fe8a3117fb328e45ae6d583b669c64ed9feda2
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 86f32219dd1e867be166fa55fe7feba14b51934b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390730"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124409"
 ---
 # <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度 
 
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 运行作业时，通常需要采用某种方式跟踪作业进度。 可以通过定义 StateChanged 事件处理程序（如本主题中所述）或使用 Azure 队列存储监视媒体服务作业通知（如[此](media-services-dotnet-check-job-progress-with-queues.md)主题中所述）来检查进度。
 
@@ -107,4 +110,9 @@ ms.locfileid: "66390730"
     }
 ```
 
+
+## <a name="next-step"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 07/23/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 75ad12d31114d2db5f05113d8444041249b2a027
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: cc58be2d3d6bcfa490c5587abc46f95aeab75f82
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391607"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083221"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的技术配置文件
 
@@ -33,12 +33,11 @@ ms.locfileid: "68391607"
 - 电话规格提供程序  - 多重身份验证。
 - `OAuth1` - 与任何 OAuth 1.0 协议标识提供者联合。
 - `OAuth2` - 与任何 OAuth 2.0 协议标识提供者联合。
-- [OpenIdConnect](openid-connect-technical-profile.md) - 与任何 OpenId Connect 协议标识提供者联合。
+- [OpenID Connect](openid-connect-technical-profile.md) - 与任何 OpenID Connect 协议标识提供者联合。
 - `Claims transformation` - 调用输出声明转换，针对一组输出声明来操作声明值、验证声明或设置默认值。
-- [Restful 提供程序](restful-technical-profile.md) - 调用 REST API 服务，例如验证用户输入、丰富用户数据或与业务线应用程序集成。
+- [RESTful 提供程序](restful-technical-profile.md) - 调用 REST API 服务，例如验证用户输入、扩充用户数据或与业务线应用程序集成。
 - [SAML2](saml-technical-profile.md) - 与任何 SAML 协议标识提供者联合。
 - [自断言](self-asserted-technical-profile.md) - 与用户交互。 例如，收集用户的凭据进行登录、呈现注册页或密码重置。
-- WsFed  - 与任何 WsFed 议标识提供者联合。
 - [会话管理](active-directory-b2c-reference-sso-custom.md) - 处理不同类型的会话。
 
 ## <a name="technical-profile-flow"></a>技术配置文件流

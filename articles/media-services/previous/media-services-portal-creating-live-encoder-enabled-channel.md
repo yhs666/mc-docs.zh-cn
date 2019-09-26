@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 06/03/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 6908d964db7d4abdbbdea712c4ddf0d93e441392
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: adaf4b70df2df612185e756057fce344fa7b58cc
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390766"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124638"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>使用媒体服务实时传送视频流，通过 Azure 门户创建多比特率流  
 > [!div class="op_single_selector"]
@@ -28,6 +28,9 @@ ms.locfileid: "66390766"
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 本教程介绍了创建**通道**的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
 
@@ -140,7 +143,7 @@ ms.locfileid: "66390766"
 >[!NOTE]
 >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
-可通过两种方式启动该活动： 
+可通过两种方式启动该事件： 
 
 1. 在“频道”页上，按“直播活动”添加新活动   。
 
@@ -185,4 +188,9 @@ ms.locfileid: "66390766"
 ## <a name="considerations"></a>注意事项
 * 目前，直播活动的最大建议持续时间为 8 小时。 
 * 确保要从中流式传输内容的流式处理终结点处于“正在运行”状态  。
+
+## <a name="next-step"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

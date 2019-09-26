@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 06/03/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 3da60e82d950e72ff8fda8f573808ee26f115ad7
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.reviewer: johndeu
+ms.openlocfilehash: 6454b24fc737c03884190507cc499fb10f507062
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390746"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124673"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 **媒体服务操作 REST** API 用于在媒体服务帐户中创建作业、资产、实时频道和其他资源。 有关详细信息，请参阅 [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)（媒体服务操作 REST API 参考）。
 
@@ -71,7 +75,7 @@ ms.locfileid: "66390746"
 
 | 标头 | 类型 | Value |
 | --- | --- | --- |
-| 日期 |RFC 1123 日期 |请求的时间戳 |
+| Date |RFC 1123 日期 |请求的时间戳 |
 | Accept |内容类型 |响应的请求内容类型，如下所示：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 响应可能会有不同的内容类型，例如 Blob 提取，成功的响应会在其中包含 Blob 流作为有效负载。 |
 | Accept-Encoding |Gzip、deflate |GZIP 和 DEFLATE 编码（如果适用）。 注意：对于大型资源，媒体服务可能会忽略此标头并返回未经压缩的数据。 |
 | Accept-Language |“en”、“es”等。 |指定响应的首选语言。 |
@@ -87,7 +91,7 @@ ms.locfileid: "66390746"
 | --- | --- | --- |
 | request-id |String |当前操作的唯一标识符，由服务生成。 |
 | client-request-id |String |调用方在原始请求（如果存在）中指定的标识符。 |
-| 日期 |RFC 1123 日期 |处理请求的日期/时间。 |
+| Date |RFC 1123 日期 |处理请求的日期/时间。 |
 | Content-Type |多种多样 |响应正文的内容类型。 |
 | Content-Encoding |多种多样 |Gzip 或 deflate（视情况而定）。 |
 
@@ -120,4 +124,6 @@ REST API 身份验证是通过 Azure Active Directory (AAD) 实现的。
 ## <a name="next-steps"></a>后续步骤
 若要了解如何将 Azure AD 身份验证与媒体服务 REST API 配合使用，请参阅[通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API](media-services-rest-connect-with-aad.md)。
 
-<!--Update_Description: update content-->
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

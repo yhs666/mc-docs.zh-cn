@@ -1,10 +1,16 @@
 ---
-ms.openlocfilehash: 4abd87247d06dad6157f5938b7200d67e171287a
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+author: IEvangelist
+ms.author: v-tawe
+origin.date: 06/25/2019
+ms.date: 09/24/2019
+ms.service: cognitive-services
+ms.topic: include
+ms.openlocfilehash: 816b260b460878c60f573ba6923d39dd5bdd1d0a
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855632"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267044"
 ---
 Fluentd 是一个用于统一日志记录的开放源代码数据收集器。 `Fluentd` 设置管理容器到 [Fluentd](https://www.fluentd.org) 服务器的连接。 容器包含一个 Fluentd 日志记录提供程序，使容器可以向 Fluentd 服务器写入日志和（可选）指标数据。
 

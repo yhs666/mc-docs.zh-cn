@@ -3,7 +3,7 @@ title: 适用于 Xamarin iOS 应用的 Azure 应用服务移动应用入门 | Az
 description: 按照本教程进行操作，开始使用移动应用进行 Xamarin.iOS 开发。
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -11,19 +11,23 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
-ms.topic: hero-article
-origin.date: 10/01/2016
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 481679d379239fbc6b0fd8f5ad686b8081db2544
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.topic: conceptual
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9f2b1476de28f7b0b2b9d7dc61a819c0c61e2ecc
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687457"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006548"
 ---
 # <a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started)。
+>
 
 ## <a name="overview"></a>概述
 本教程说明如何使用 Azure 移动应用后端向 Xamarin.iOS 移动应用添加基于云的后端服务。  将创建一个新的移动应用后端以及一个简单的 *待办事项列表* Xamarin.iOS 应用，此应用将应用数据存储在 Azure 中。
@@ -33,7 +37,7 @@ ms.locfileid: "66687457"
 ## <a name="prerequisites"></a>先决条件
 若要完成本教程，需要满足以下先决条件：
 
-* 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 * Visual Studio for Mac。 请参阅[设置和安装 Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
 * 安装了 Xcode 9.0 或更高版本的 Mac。
   

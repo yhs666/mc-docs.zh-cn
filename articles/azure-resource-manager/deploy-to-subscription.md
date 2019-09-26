@@ -4,15 +4,15 @@ description: 介绍了如何在 Azure 资源管理器模板中创建资源组。
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 01/30/2019
-ms.date: 07/22/2019
+origin.date: 09/06/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67e2e2b75e24c598842306e45657ca26f1b24c90
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 89ef8528ad02f73cdc9ea3a5755092f10ddaa393
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337368"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155888"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在订阅级别创建资源组和资源
 
@@ -21,8 +21,6 @@ ms.locfileid: "68337368"
 若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups  资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。 可以在订阅级别部署的资源包括：[策略](../governance/policy/overview.md)和[基于角色的访问控制](../role-based-access-control/overview.md)。
 
 <!--Not Available on [**Microsoft.Resources/resourceGroups**](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.resources/allversions)-->
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>部署注意事项
 
@@ -34,7 +32,7 @@ ms.locfileid: "68337368"
 
 对于架构，请使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`。
 
-对于 Azure CLI 部署命令，请使用 [az deployment create](https://docs.azure.cn/zh-cn/cli/deployment?view=azure-cli-latest#az-deployment-create)。 例如，以下 CLI 命令部署模板以创建资源组：
+对于 Azure CLI 部署命令，请使用 [az deployment create](https://docs.azure.cn/cli/deployment?view=azure-cli-latest#az-deployment-create)。 例如，以下 CLI 命令部署模板以创建资源组：
 
 ```azurecli
 az deployment create \
@@ -46,7 +44,7 @@ az deployment create \
 
 对于 PowerShell 部署命令，请使用 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment)。 例如，以下 PowerShell 命令部署模板以创建资源组：
 
-```azurepowershell
+```powershell
 New-AzDeployment `
   -Name demoDeployment `
   -Location chinaeast `
@@ -249,33 +247,7 @@ New-AzDeployment `
 }
 ```
 
-若要向 Azure 订阅应用内置策略，请使用以下 Azure CLI 命令：
-
-```azurecli
-# Built-in policy that does not accept parameters
-definition=$(az policy definition list --query "[?displayName=='Audit resource location matches resource group location'].id" --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location chinaeast \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
-  --parameters policyDefinitionID=$definition policyName=auditRGLocation
-```
-
-若要使用 PowerShell 部署此模板，请使用：
-
-```azurepowershell
-$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
-
-New-AzDeployment `
-  -Name policyassign `
-  -Location chinaeast `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
-  -policyDefinitionID $definition.PolicyDefinitionId `
-  -policyName auditRGLocation
-```
-
-若要向 Azure 订阅应用内置策略，请使用以下 Azure CLI 命令：
+若要使用 Azure CLI 部署此模板，请使用：
 
 ```azurecli
 # Built-in policy that accepts parameters
@@ -290,7 +262,7 @@ az deployment create \
 
 若要使用 PowerShell 部署此模板，请使用：
 
-```azurepowershell
+```powershell
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("chinanorth", "chinanorth2")
@@ -368,160 +340,9 @@ New-AzDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="create-roles"></a>创建角色
-
-### <a name="assign-role-at-subscription"></a>在订阅时分配角色
-
-以下示例将角色分配给订阅的用户或组。 在此示例中，没有为分配指定范围，因为范围自动设置为预订。
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "principalId": {
-            "type": "string"
-        },
-        "roleDefinitionId": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(parameters('principalId'), deployment().name)]",
-            "apiVersion": "2017-09-01",
-            "properties": {
-                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-                "principalId": "[parameters('principalId')]"
-            }
-        }
-    ]
-}
-```
-
-若要向订阅的角色分配 Active Directory 组，请使用以下 Azure CLI 命令：
-
-```azurecli
-# Get ID of the role you want to assign
-role=$(az role definition list --name Contributor --query [].name --output tsv)
-
-# Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group demogroup --query objectId --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location chinaeast \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
-  --parameters principalId=$principalid roleDefinitionId=$role
-```
-
-若要使用 PowerShell 部署此模板，请使用：
-
-```azurepowershell
-$role = Get-AzRoleDefinition -Name Contributor
-
-$adgroup = Get-AzADGroup -DisplayName demogroup
-
-New-AzDeployment `
-  -Name demoRole `
-  -Location chinaeast `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
-  -roleDefinitionId $role.Id `
-  -principalId $adgroup.Id
-```
-
-### <a name="assign-role-at-scope"></a>在作用域分配角色
-
-以下订阅级别模板将角色分配给订阅中作用域为资源组的用户或组。 作用域必须等于或低于部署级别。 你可以部署到订阅并指定作用域为该订阅中资源组的角色分配。 但是，无法部署到资源组并为该订阅指定角色分配作用域。
-
-若要在作用域分配角色，请使用嵌套部署。 请注意，资源组名称均在部署资源的属性和角色分配作用域属性中指定。
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.1",
-    "parameters": {
-        "principalId": {
-            "type": "string"
-        },
-        "roleDefinitionId": {
-            "type": "string"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
-            "name": "assignRole",
-            "resourceGroup": "[parameters('rgName')]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Authorization/roleAssignments",
-                            "name": "[guid(parameters('principalId'), deployment().name)]",
-                            "apiVersion": "2017-09-01",
-                            "properties": {
-                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-                                "principalId": "[parameters('principalId')]",
-                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
-                            }
-                        }
-                    ],
-                    "outputs": {}
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-若要向订阅的角色分配 Active Directory 组，请使用以下 Azure CLI 命令：
-
-```azurecli
-# Get ID of the role you want to assign
-role=$(az role definition list --name Contributor --query [].name --output tsv)
-
-# Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group demogroup --query objectId --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location chinaeast \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
-  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
-```
-
-若要使用 PowerShell 部署此模板，请使用：
-
-```azurepowershell
-$role = Get-AzRoleDefinition -Name Contributor
-
-$adgroup = Get-AzADGroup -DisplayName demogroup
-
-New-AzDeployment `
-  -Name demoRole `
-  -Location chinaeast `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
-  -roleDefinitionId $role.Id `
-  -principalId $adgroup.Id `
-  -rgName demoRg
-```
-
 ## <a name="next-steps"></a>后续步骤
 
+* 若要了解如何分配角色，请参阅[使用 RBAC 和 Azure 资源管理器模板管理对 Azure 资源的访问权限](../role-based-access-control/role-assignments-template.md)。
 * 若要通过示例来了解如何为 Azure 安全中心部署工作区设置，请参阅 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)。
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。

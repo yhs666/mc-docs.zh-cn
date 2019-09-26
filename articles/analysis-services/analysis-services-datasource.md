@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 05/22/2019
-ms.date: 07/22/2019
+origin.date: 09/13/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c86a8c63ce757da48bb1499443c057742ab8a8e
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: 4d6cba4d23152efa9fc5eed760ed7bc9ac9a2d00
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308836"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155829"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -22,32 +22,31 @@ ms.locfileid: "68308836"
 
 ## <a name="azure-data-sources"></a>Azure 数据源
 
-|                    数据源                      |  内存中  | 直接连接 |
-|----------------------------------------------------|-------------|-------------|
-|Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |     是     |    是      |
-|              Azure SQL 数据仓库              |     是     |    是      |
-|   Azure Blob 存储<sup>[1](#tab1400a)</sup>      |     是     |     否      |
-|   Azure 表存储<sup>[1](#tab1400a)</sup>     |     是     |     否      |
-|   Azure Cosmos DB<sup>[1](#tab1400a)</sup>         |     是     |     否      |
-|   Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>    |     是     |     否      |
-|   Azure HDInsight Spark<sup>[1](#tab1400a)</sup>   |     是     |     否      |
-|                                                    |             |             |
+|数据源  |内存中  |直接连接  |
+|---------|---------|---------|
+|Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
+|Azure SQL 数据仓库     |   是      |   是       |
+|Azure Blob 存储<sup>[1](#tab1400a)</sup>     |   是       |    否      |
+|Azure 表存储<sup>[1](#tab1400a)</sup>    |   是       |    否      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>     |   是       |   否       |
+||||
 
 
 <!--Not Available on ||Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |-->
 <!--Not Available on |Azure HDInsight Spark<sup>[3](#databricks)</sup>-->
 
 <a name="tab1400a">1</a> - 仅限表格 1400 和更高模型。   
-<a name="azsqlmanaged">2</a> - 支持 Azure SQL 数据库托管实例。 由于托管实例在 Azure VNet 中使用专用 IP 地址运行，因此需要本地数据网关。 当前不支持具有公共终结点的 Azure SQL 数据库托管实例。   
+<a name="azsqlmanaged">2</a> - 支持 Azure SQL 数据库托管实例。 由于托管实例使用专用 IP 地址在 Azure VNet 中运行，因此必须在实例上启用公共终结点。 如果未启用，则需要本地数据网关。    
 
 <!--Not Available on <a name="databricks">3</a> - Azure Databricks using the Spark connector is currently not supported.-->
 <!--Not Available on <a name="gen2">4</a> - ADLS Gen2 is currently not supported.-->
 
-
 **提供程序**   
 连接到 Azure 数据源的内存中和 DirectQuery 模型使用用于 SQL Server 的 .NET Framework 数据提供程序。
 
-## <a name="on-premises-data-sources"></a>本地数据源
+## <a name="other-data-sources"></a>其他数据源
 
 从 Azure AS 服务器连接到本地数据源需要使用本地网关。 使用网关时，需要 64 位提供程序。
 
@@ -81,7 +80,7 @@ ms.locfileid: "68308836"
 |OData 源<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查询     | 
 |OLE DB     |   
-|Postgre SQL 数据库<sup>[1](#tab1400b)</sup>    | 
+|PostgreSQL 数据库<sup>[1](#tab1400b)</sup>    | 
 |Salesforce 对象<sup>[1](#tab1400b)</sup> |  
 |Salesforce 报表<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
@@ -118,6 +117,12 @@ ms.locfileid: "68308836"
 对于云数据源：
 
 * 如果使用 SQL 身份验证，则模拟应为服务帐户。
+
+## <a name="oauth-credentials"></a>OAuth 凭据
+
+对于 1400 及更高兼容级别的表格模型，Azure SQL 数据库、Azure SQL 数据仓库和 SharePoint 列表支持 OAuth 凭据。 Azure Analysis Services 管理 OAuth 数据源的令牌刷新，以避免长时间运行的刷新操作超时。 若要生成有效的令牌，请使用 SSMS 设置凭据。
+
+<!--Not Available on Dynamics 365-->
 
 ## <a name="next-steps"></a>后续步骤
 [本地网关](analysis-services-gateway.md)   

@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 98ef103130e722176a51164a37427a5f5aa5d837
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d3e4e5026fdf8a4e0d2af96da5278f5d5ff814cf
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626253"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124394"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 运行编码作业时，通常需要采用某种方式来跟踪作业进度。 可以配置媒体服务将通知传送到 [Azure 队列存储](../../storage/storage-dotnet-how-to-use-queues.md)。 然后可以通过从队列存储获取通知来监视作业进度。 
 
@@ -59,7 +62,7 @@ ms.locfileid: "58626253"
 > [!NOTE]
 > 监视作业状态的建议方法是侦听通知消息，如以下示例所示：
 >
-> 或者，可以使用 IJob.State 属性检查作业状态。  在 **IJob** 的状态设置为“已完成”之前，可能会先收到一条指示作业已完成的通知消息。 IJob.State 属性在延迟片刻之后反映正确的状态。
+> 或者，可以使用 IJob.State 属性检查作业状态  。  在 **IJob** 的状态设置为“已完成”  之前，可能会先收到一条指示作业已完成的通知消息。 IJob.State 属性在延迟片刻之后反映正确的状态  。
 >
 >
 
@@ -367,4 +370,9 @@ namespace JobNotification
     job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
     State: Finished
 
-<!--Update_Description: update code to use AAD token instead of ACS-->
+
+## <a name="next-step"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

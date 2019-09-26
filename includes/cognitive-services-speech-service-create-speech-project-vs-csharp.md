@@ -2,15 +2,15 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 09/02/2019
-ms.date: 07/05/2019
-ms.author: v-biyu
-ms.openlocfilehash: e387a887f153e9a17d0061930a42cb77188fc321
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/24/2019
+ms.author: v-tawe
+ms.openlocfilehash: 1d64fcb0c8fc3d6905279cf8b4d3ac15af06b6b6
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103753"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267070"
 ---
 1. 打开 Visual Studio 2019。
 

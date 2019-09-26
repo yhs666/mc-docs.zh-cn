@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 06/03/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 8263960ed636114d3e51818d3a96d77d48d7067a
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 924065c16a9308cd79f71ae964089154b6fd823a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390850"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124497"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 在媒体服务中，可以将数字文件上传（引入）到资产中。 **资产**实体可以包含视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件（以及这些文件的相关元数据。）上传文件完成后，相关内容即安全地存储在云中供后续处理和流式处理。
 
@@ -302,6 +305,9 @@ ms.locfileid: "66390850"
 现即可编码已上传的资产。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
 
 也可使用 Azure Functions 根据到达已配置容器的文件触发编码作业。 有关详细信息，请参阅[此示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="next-step"></a>后续步骤
 将资产上传到媒体服务后，请转到[如何获取媒体处理器][How to Get a Media Processor]一文。

@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2019
 ms.author: v-yiso
-ms.date: 09/02/2019
-ms.openlocfilehash: 3aa953c6650b3d254102a1e8548dbfa74e9da9a5
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 09/30/2019
+ms.openlocfilehash: dd8cfa482e78b06f316501208ebb85dbfecd2a21
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993040"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155992"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -28,6 +28,10 @@ ms.locfileid: "69993040"
 每个 IoT 中心都在特定层中预配了特定单位数。 层和单位数决定了可以发送的消息的每日配额上限。 用于计算每日配额的消息大小为 0.5 KB（适用于中心的免费层）和 4 KB（适用于所有其他层）。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-pricing]。
 
 层还决定了 IoT 中心对所有操作强制实施的限制。
+
+### <a name="iot-plug-and-play"></a>IoT 即插即用
+
+在公开预览期间，IoT 即插即用设备将为每个接口发送单独的消息，这可能会增加计入消息配额的消息数量。
 
 ## <a name="operation-throttles"></a>操作限制
 

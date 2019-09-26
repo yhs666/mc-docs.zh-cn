@@ -10,19 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/19/2019
-ms.date: 06/03/2019
+origin.date: 08/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3151e42506332bbaa370f6551feff0b20443a41d
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 9a3f603ba0fa48f2c0b2d6ed97215c3453aa0a64
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195470"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156100"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
-部署资源时，经常需要检索有关资源提供程序和类型的信息。 在本文中，学习如何：
+部署资源时，经常需要检索有关资源提供程序和类型的信息。 例如，若要存储密钥和机密，请使用 Microsoft.KeyVault 资源提供程序。 此资源提供程序提供名为“保管库”的资源类型，用于创建密钥保管库。
+
+资源类型的名称采用以下格式：{resource-provider}/{resource-type}  。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults**。
+
+在本文中，学习如何：
 
 * 查看 Azure 中的所有资源提供程序
 * 检查资源提供程序的注册状态

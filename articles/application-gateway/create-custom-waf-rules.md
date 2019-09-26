@@ -6,14 +6,14 @@ ms.topic: article
 author: vhorne
 ms.service: application-gateway
 origin.date: 06/18/2019
-ms.date: 09/10/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: e978041727831fd2b81e4327b7404674b516d892
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 51994e3497a368411cc4f0842a6d6c447161118d
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857418"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083265"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>创建并使用 Web 应用程序防火墙 v2 自定义规则
 
@@ -128,7 +128,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-2"></a>示例 2
 
-你想要阻止来自范围 198.168.5.4/24 的 IP 地址的所有请求。
+你想要阻止来自范围 198.168.5.0/24 内 IP 地址的所有请求。
 
 在此示例中，需阻止来自某个 IP 地址范围的所有流量。 规则名称为 *myrule1*，优先级设置为 100。
 
@@ -141,7 +141,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -167,7 +167,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -176,11 +176,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-相应的 CRS 规则：`SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+相应的 CRS 规则：`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>示例 3
 
-在此示例中，需阻止 User-Agent *evilbot* 以及 192.168.5.4/24 范围中的流量。 为此，可以创建两个独立的匹配条件，将其置于同一规则中。 这可以确保阻止 User-Agent 标头中的 *evilbot* **以及** 192.168.5.4/24 范围中的 IP 地址。
+在此示例中，需阻止用户代理 evilbot  和 192.168.5.0/24 范围内的流量。 为此，可以创建两个独立的匹配条件，将其置于同一规则中。 这样可以确保，如果 User-Agent 标头中的 evilbot  **与** 192.168.5.0/24 范围内的 IP 地址都匹配，则请求将被阻止。
 
 逻辑：p **and** q
 
@@ -195,7 +195,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -230,7 +230,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
               "operator": "IPMatch", 
               "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -252,7 +252,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 ## <a name="example-4"></a>示例 4
 
-在此示例中，需阻止 IP 地址范围 *192.168.5.4/24* 之外的请求，或者阻止用户代理字符串不为 *chrome*（即用户不使用 Chrome 浏览器）的请求。 由于此逻辑使用 **or**，因此这两个条件位于不同的规则中，如以下示例所示。 *myrule1* 和 *myrule2* 都需要匹配才能阻止流量。
+在此示例中，需阻止 IP 地址范围 192.168.5.0/24  之外的请求，或者阻止用户代理字符串不为 chrome  （即用户不使用 Chrome 浏览器）的请求。 由于此逻辑使用 **or**，因此这两个条件位于不同的规则中，如以下示例所示。 *myrule1* 和 *myrule2* 都需要匹配才能阻止流量。
 
 逻辑：**not** (p **and** q) = **not** p **or not** q。
 
@@ -267,7 +267,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -308,7 +308,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -500,3 +500,4 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 
+<!-- Update_Description: wording update -->

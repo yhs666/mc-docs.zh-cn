@@ -11,16 +11,16 @@ ms.topic: quickstart
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7f708fdf623f5d418749c322c55386b964501b34
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 35d8b94ca7489d754e31761abac8b8991d73fb4f
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844929"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119545"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入门：使用人脸 REST API 和 Python 检测图像中的人脸
 
-在本快速入门中，请使用 Azure 人脸 REST API 和 Python 检测图像中的人脸。 此脚本会在图像的人脸、附加性别和年龄信息周围绘制相应的框。
+在本快速入门中，请使用 Azure 人脸 REST API 和 Python 检测图像中的人脸。 此脚本会在图像上围绕人脸绘制相应的框，并添加性别和年龄信息。
 
 ![一位男士和一位女士，在图像中，每一位的面部都绘制了矩形并显示了年龄和性别](../images/labelled-faces-python.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "67844929"
 
 ## <a name="run-the-jupyter-notebook"></a>运行 Jupyter Notebook
 
-可在 [MyBinder](https://mybinder.org) 上以 Jupyter 笔记本的方式运行本快速入门。 若要启动活页夹，请选择下面的按钮。 然后根据 Notebook 中的说明进行操作。
+可在 [MyBinder](https://mybinder.org) 上以 Jupyter 笔记本的方式运行本快速入门。 若要启动 Binder ，请选择下面的按钮。 然后根据 Notebook 中的说明进行操作。
 
 [![活页夹](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
@@ -74,6 +74,8 @@ response = requests.post(face_api_url, params=params,
 print(json.dumps(response.json()))
 ```
 
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 ## <a name="examine-the-response"></a>检查响应
 
 成功响应将以 JSON 格式返回。

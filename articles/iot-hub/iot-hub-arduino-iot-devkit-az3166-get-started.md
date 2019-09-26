@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 06/25/2019
 ms.author: v-yiso
-ms.date: 08/05/2019
-ms.openlocfilehash: 969ec325eb45bb58822693f0715d64a297cd04f2
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 09/30/2019
+ms.openlocfilehash: 314e9b82bd271582da02b391ed7a246c36f31cd3
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514330"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156212"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -73,7 +73,7 @@ ms.locfileid: "68514330"
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyNodeDevice**：所注册的设备的名称。 请按显示的方法使用 MyNodeDevice  。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyNodeDevice**：所注册的设备的名称。 如下所示请使用 MyNodeDevice 。  如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
@@ -166,7 +166,8 @@ DevKit 将连接到 IoT 中心内特定于设备的终结点，并发送温度�
 
 5. 为 VS Code 配置 Arduino 设置。
 
-    在 Visual Studio Code 中，单击“文件”>“首选项”>“设置”  。 依次单击 **...** 和“打开 settings.json”。 
+    在 Visual Studio Code 中，单击“文件”>“首选项”>“设置”  （在 MacOS 上，单击“代码”>“首选项”>“设置”  ）。 然后单击“设置”  页右上角的“打开设置(JSON)”  图标。
+
     ![安装 Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
     
     根据你的平台添加以下行来配置 Arduino： 
@@ -201,7 +202,7 @@ DevKit 将连接到 IoT 中心内特定于设备的终结点，并发送温度�
 
 [ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) 是 IoT DevKit 用来与开发计算机通信的 USB 接口。 需要将它安装在 Windows 上才能将编译的设备代码刷写到 DevKit。 遵循 OS 特定的步骤，使计算机能够访问你的设备。
 
-* Windows  ：从 [STMicroelectronics 网站](https://www.st.com/en/development-tools/stsw-link009.html)或[直接链接](https://aka.ms/stlink-v2-windows)下载并安装 USB 驱动程序。
+* Windows  ：从 [STMicroelectronics 网站](https://www.st.com/en/development-tools/stsw-link009.html)下载并安装 USB 驱动程序。
 * **macOS**：macOS 无需驱动程序。
 * **Ubuntu**：在终端中运行以下命令，然后注销并登录，使组更改生效：
     ```bash

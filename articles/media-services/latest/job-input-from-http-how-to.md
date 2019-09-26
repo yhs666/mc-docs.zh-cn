@@ -1,5 +1,5 @@
 ---
-title: 从 HTTP URL 创建 Azure 媒体服务作业输入 | Azure
+title: 从 HTTPS URL 创建 Azure 媒体服务作业输入 | Microsoft Docs
 description: 本主题介绍如何从 HTTP URL 创建作业输入。
 services: media-services
 documentationcenter: ''
@@ -9,25 +9,28 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-origin.date: 03/19/2018
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: 9ddb7b73ddcf7f1229294990a0bc04472590d8de
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/13/2019
+ms.date: 09/23/2019
+ms.author: juliako
+ms.openlocfilehash: e5adca3a5ec36bd266d309648b3147e702bbe72b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645953"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124685"
 ---
-# <a name="create-a-job-input-from-an-https-url"></a>从 HTTP URL 创建作业输入
+# <a name="create-a-job-input-from-an-https-url"></a>从 HTTPS URL 创建作业输入
 
-在媒体服务 v3 中提交作业来处理视频时，必须告知媒体服务查找输入视频的位置。 其中一个选项是指定 HTTP URL 作为作业输入（如本例中所示）。 有关完整示例，请参阅此 [github 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)。
+在媒体服务 v3 中提交作业来处理视频时，必须告知媒体服务查找输入视频的位置。 其中一个选项是指定 HTTPS URL 作为作业输入（如本示例所示）。 请注意，目前，AMS v3 不支持基于 HTTPS URL 的块传输编码。 有关完整示例，请参阅此 [GitHub 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)。
 
-## <a name="net-sample"></a>.Net 示例
+> [!TIP]
+> 在开始开发之前，请查看[使用媒体服务 v3 API 进行开发](media-services-apis-overview.md)（包括有关访问 API、命名约定等的信息）
+
+## <a name="net-sample"></a>.NET 示例
 
 以下代码说明了如何使用 HTTPS URL 输入创建作业。
 
-```C#
+```c#
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     string resourceGroup,
     string accountName,
@@ -64,3 +67,11 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     return job;
 }
 ```
+
+## <a name="job-error-codes"></a>作业错误代码
+
+请参阅[错误代码](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
+
+## <a name="next-steps"></a>后续步骤
+
+[从本地文件创建作业输入](job-input-from-local-file-how-to.md)。

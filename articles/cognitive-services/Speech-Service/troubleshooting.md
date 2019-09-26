@@ -3,21 +3,20 @@ title: 排查语音 SDK 问题 - 语音服务
 titleSuffix: Azure Cognitive Services
 description: 本文提供的信息可帮助你解决在使用语音 SDK 时可能遇到的问题。
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/26/2019
-ms.date: 07/23/2019
-ms.author: v-biyu
-ms.custom: seodec18
-ms.openlocfilehash: a0d999ba70c63832f3197ed04df3a9aee687cadb
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/23/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 7eefcd6e103cfc8e007c2e5179b708ec5aaaf6b7
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104114"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267065"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>排查语音 SDK 问题
 
@@ -58,14 +57,14 @@ ms.locfileid: "70104114"
       'Content-Length'= '0'
       'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
     }
-    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
+    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken -Headers $FetchTokenHeader
     $OAuthToken
     ```
 
 * cURL
 
     ```
-    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
+    curl -v -X POST "https://YOUR_REGION.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
 如果输入了有效的订阅密钥，则该命令将返回授权令牌，否则将返回错误。

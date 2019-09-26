@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 06/28/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 124ff0baf883b090bbf76f79aa11acc1825803f4
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/19/2019
+ms.author: v-tawe
+ms.openlocfilehash: a18506f7b37d8b05fd54d0ed298a6446c46d6945
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104102"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267058"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>文本转语音常见问题
 
@@ -30,11 +30,11 @@ ms.locfileid: "70104102"
 
 **问：如果想要使用标准语音模型，应从何处开始？**
 
-**答**：通过 HTTP 请求可以使用超过 45 种语言的 80 多种标准语音模型。 首先，获取[订阅密钥](https://docs.azure.cn/cognitive-services/speech-service/get-started)。 若要对预部署的语音模型进行 REST 调用，请参阅 [REST API](https://docs.azure.cn/cognitive-services/speech-service/rest-apis)。
+**答**：通过 HTTP 请求可以使用超过 45 种语言的 80 多种标准语音模型。 首先，获取[订阅密钥](get-started.md)。 若要对预部署的语音模型进行 REST 调用，请参阅 [REST API](overview.md)。
 
 **问：如果想使用自定义的语音模型，API 是否与用于标准语音的 API 相同？**
 
-**答**：创建和部署自定义语音模型时，你会获得模型的唯一终结点。 若要使用语音在应用中说话，必须在 HTTP 请求中指定该终结点。 在 REST API 中为文本转语音服务提供的相同功能可用于自定义终结点。 了解如何[创建和使用自定义终结点](https://docs.azure.cn/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint)。
+**答**：创建和部署自定义语音模型时，你会获得模型的唯一终结点。 若要使用语音在应用中说话，必须在 HTTP 请求中指定该终结点。 在 REST API 中为文本转语音服务提供的相同功能可用于自定义终结点。 了解如何[创建和使用自定义终结点](how-to-custom-voice-create-voice.md#create-and-use-a-custom-endpoint)。
 
 **问：要自行创建自定义语音模型，是否需要准备训练数据？**
 
@@ -42,7 +42,7 @@ ms.locfileid: "70104102"
 
 创建自定义的语音模型需要一组语音数据。 其中包括一系列语音录制音频文件，以及每个音频文件的听录文本文件。 数字语音的结果主要依赖于定型数据的质量。 若要生成优质文本转语音的语音，必须确保录音是在安静的房间使用高品质立式麦克风完成的。 一致的音量、语速和语调，甚至语言表达方式的一致性对于生成优质数字语音来说至关重要。 强烈建议在录制室中录制语音。
 
-当前我们不提供在线录音支持或任何录音室建议。 有关格式要求，请参阅[如何准备录音和脚本](https://docs.azure.cn/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts)。
+当前我们不提供在线录音支持或任何录音室建议。 有关格式要求，请参阅[如何准备录音和脚本](how-to-custom-voice-create-voice.md#prepare-recordings-and-transcripts)。
 
 **问：应该使用哪些脚本来录制用于自定义语音训练的语音数据？**
 
@@ -60,7 +60,7 @@ ms.locfileid: "70104102"
 
 **问：我的请求是否受到限制？**
 
-**答**：REST API 将请求限制为每 5 秒 25 个。 可以在我们的[文本转语音](text-to-speech.md)页面中找到详细信息。 
+**答**：REST API 将请求限制为每 5 秒 25 个。 可以在我们的[文本转语音](text-to-speech.md)页面中找到详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/17/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: b06b2286b4f5965716ca1b601bf4ef2311796f75
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 6c750efbc3ed555339ad05ac92c7c9f4932fa145
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993505"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156093"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -480,6 +480,8 @@ done
 尽管链接模板必须可从外部使用，但它无需向公众正式发布。 可以将模板添加到只有存储帐户所有者可以访问的专用存储帐户。 然后，在部署期间创建共享访问签名 (SAS) 令牌来启用访问。 将该 SAS 令牌添加到链接模板的 URI。 即使令牌作为安全字符串传入，链接模板的 URI（包括 SAS 令牌）也会记录在部署操作中。 若要限制公开，请设置令牌的到期时间。
 
 也可将参数文件限制为通过 SAS 令牌进行访问。
+
+目前，无法链接到位于 [Azure 存储防火墙](../storage/common/storage-network-security.md)后面的存储帐户中的模板。
 
 以下示例演示在链接到模板时如何传递 SAS 令牌：
 

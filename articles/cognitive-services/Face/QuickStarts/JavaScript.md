@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: f42d5b8954a86913885bd782a93a9fcb8804a063
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: e9326cc1e48c24430f1b9170a92ea68aa6a137f9
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844651"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119550"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入门：使用 REST API 和 JavaScript 检测图像中的人脸
 
@@ -123,6 +123,9 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
     };
 </script>
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 
 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 `returnFaceAttributes` 字段指定要检索的人脸属性；你可能希望根据自己的预期用途更改此字符串。
 

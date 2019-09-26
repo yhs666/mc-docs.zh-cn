@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/08/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: c25d0429a5cf0aaf077f873089d668b674a0271d
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9dfab22f9b3b18629b3e1322eff93e3332ed1dc4
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104192"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267056"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>准备用于创建自定义语音的数据
 
@@ -28,7 +28,7 @@ ms.locfileid: "70104192"
 
 语音训练数据集包括音频录制内容，以及一个包含关联听录内容的文本文件。 每个音频文件应包含单个言语（对话系统的单个句子或单个轮次），长度不能超过 15 秒。
 
-在某些情况下，你可能尚未准备好适当的数据集，并希望使用可用的音频文件（或长或短，包含或不包含脚本）来测试自定义语音训练。 我们提供了所需的工具 (beta) 来帮助你将音频分段成言语，并使用[批量听录 API](batch-transcription.md) 来准备脚本。
+在某些情况下，你可能尚未准备好适当的数据集，并希望使用可用的音频文件（或长或短，包含或不包含脚本）来测试自定义语音训练。
 
 下表列出了数据类型，以及如何使用每种类型来创建自定义的“文本转语音”语音模型。
 
@@ -92,14 +92,9 @@ ms.locfileid: "70104192"
 必须确保脚本是相应音频的完全准确的听录。 脚本中的错误会在训练期间造成质量损失。
 
 > [!TIP]
-> 如果生成生产型“文本转语音”语音，请在选择表述（或撰写脚本）时既要考虑到语音覆盖率，又要考虑到效率。 无法获得所需的结果？ [与自定义语音团队联系](mailto:speechsupport@microsoft.com)以了解有关让我们咨询的更多信息。
+> 如果生成生产型“文本转语音”语音，请在选择表述（或撰写脚本）时既要考虑到语音覆盖率，又要考虑到效率。
 
-## <a name="long-audio--transcript-beta"></a>长音频 + 脚本 (beta)
-
-在某些情况下，你可能没有可用的分段音频。 我们将通过自定义语音门户提供一个服务 (beta)，以帮助你分段长音频文件和创建听录内容。 请记住，此服务会产生语音转文本订阅使用费。
-
-> [!NOTE]
-> 长音频分段服务将利用语音转文本的批量听录功能，该功能仅支持标准订阅 (S0) 用户。 在处理分段期间，还会将音频文件和脚本发送到自定义语音服务来优化识别模式，以改善数据的准确性。 在此过程中不会保留任何数据。 分段完成后，只会存储已分段的言语及其映射脚本供你下载和训练。
+<!-- Having trouble getting the results you want? [Contact the Custom Voice](mailto:speechsupport@microsoft.com) team to find out more about having us consult. -->
 
 ### <a name="audio-files"></a>音频文件
 
@@ -130,25 +125,6 @@ ms.locfileid: "70104192"
 此数据类型的所有脚本文件应分组成一个 zip 文件。 不允许在该 zip 文件中包含任何子文件夹。 例如，你已上传一个 zip 文件，其中包含一个名为“kingstory.wav”、长度为 45 秒的音频文件，以及一个名为“queenstory.mp3”、长度为 200 秒的文件。 现在，你需要上传另一个 zip 文件，其中包含两个脚本，一个名为“kingstory.txt”，另一个名为“queenstory.txt”。 在每个纯文本文件中，需要为匹配的音频提供完全正确的听录内容。
 
 成功上传数据集后，我们会帮助你根据提供的脚本将音频文件分段成言语。 可以通过下载数据集来检查分段的言语和匹配的脚本。 系统会自动将唯一 ID 分配到分段的言语。 请确保提供的脚本完全准确，这一点非常重要。 如果脚本中有错误，在音频分段期间可能会降低准确性，并在后续的训练阶段进一步造成质量损失。
-
-## <a name="audio-only-beta"></a>仅限音频 (beta)
-
-如果音频录制内容没有听录，请使用“仅限音频”选项上传数据。  我们的系统可帮助你分段和听录音频文件。 请记住，此服务将计收语音转文本订阅使用费。
-
-准备音频时，请遵循这些指导原则。
-
-> [!NOTE]
-> 长音频分段服务将利用语音转文本的批量听录功能，该功能仅支持标准订阅 (S0) 用户。
-
-| 属性 | Value |
-| -------- | ----- |
-| 文件格式 | RIFF (.wav)，在 PCM 中或 .mp3 中的采样率至少为 16 khz 16 位，比特率至少为 256 KBps，分组成 .zip 文件 |
-| 文件名 | 仅限 ASCII 字符。 在名称中包含 Unicode 字符（例如中文字符或类似于“—”的符号）将导致失败。 不允许重复的名称。 |
-| 音频长度 | 长于 20 秒 |
-| 存档格式 | .zip |
-| 最大存档大小 | 200 MB |
-
-所有音频文件应分组成一个 .zip 文件。 不允许在该 zip 文件中包含任何子文件夹。 成功上传数据集后，我们会基于语音批量听录服务帮助你将音频文件分段成言语。 系统会自动将唯一 ID 分配到分段的言语。 匹配的脚本将通过语音识别生成。 处理后，所有 .mp3 文件将转换为 .wav 格式。 可以通过下载数据集来检查分段的言语和匹配的脚本。
 
 ## <a name="next-steps"></a>后续步骤
 

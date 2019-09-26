@@ -5,16 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-origin.date: 06/01/2019
-ms.date: 09/10/2019
+origin.date: 08/31/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4ea7e353af1b6a40ae64a90607cb60d379277c95
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 7c2ab8a34d935ad28400de5929f5c0390e29471e
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857175"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083267"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
@@ -279,7 +278,11 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>如何配置 .com 和 .net 站点的 HTTPS 侦听器？ 
 
-对于基于多域（基于主机）的路由，可以创建多站点侦听器，设置使用 HTTPS 作为协议的侦听器，然后将侦听器与路由规则相关联。 有关详细信息，请参阅[使用应用程序网关托管多个站点](/application-gateway/multiple-site-overview)。 
+对于基于多域（基于主机）的路由，可以创建多站点侦听器，设置使用 HTTPS 作为协议的侦听器，然后将侦听器与路由规则相关联。 有关详细信息，请参阅[使用应用程序网关托管多个站点](/application-gateway/multiple-site-overview)。
+
+### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>能否在 .pfx 文件密码中使用特殊字符？
+
+不能，.pfx 文件密码中只能使用字母数字字符。
 
 ## <a name="configuration---web-application-firewall-waf"></a>配置 - Web 应用程序防火墙 (WAF)
 
@@ -351,7 +354,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>是否可以使用应用程序网关设置警报？
 
-是的。 在应用程序网关中，警报是针对指标配置的。 有关详细信息，请参阅[应用程序网关指标](/application-gateway/application-gateway-diagnostics#metrics)。
+是的。 在应用程序网关中，警报是针对指标配置的。 有关详细信息，请参阅[应用程序网关指标](/application-gateway/application-gateway-metrics)。
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>如何分析应用程序网关的流量统计信息？
 
@@ -362,6 +365,13 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>有哪些原因可能会导致后端运行状况返回未知状态？
 
 通常，如果对后端的访问被应用程序网关子网中的网络安全组 (NSG)、自定义 DNS 或用户定义的路由 (UDR) 阻止，则会看到未知状态。 有关详细信息，请参阅[应用程序网关的后端运行状况、诊断日志记录和指标](application-gateway-diagnostics.md)。
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>是否有 NSG 流日志不显示允许的流量的情况？
+
+是的。 如果配置与以下情况匹配，则 NSG 流日志中不会显示允许的流量：
+- 已部署了应用程序网关 v2
+- 应用程序网关子网上有 NSG
+- 已在该 NSG 上启用了 NSG 流日志
 
 ## <a name="next-steps"></a>后续步骤
 

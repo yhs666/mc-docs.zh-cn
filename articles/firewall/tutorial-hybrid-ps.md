@@ -1,36 +1,36 @@
 ---
-title: 教程：使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
-description: 本教程介绍如何使用 Azure PowerShell 部署和配置 Azure 防火墙。
+title: 使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
+description: 本文介绍如何使用 Azure PowerShell 部署和配置 Azure 防火墙。
 services: firewall
 author: rockboyfor
 ms.service: firewall
-ms.topic: tutorial
+ms.topic: article
 origin.date: 05/03/2019
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 3a25a54cad66cbaae432e0273f3dcd3e652709de
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 73e1b278681f2573e7ae5056c9391521e647c5c3
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337350"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156216"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教程：使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
 
 将本地网络连接到 Azure 虚拟网络以创建混合网络时，必须能够控制对 Azure 网络资源的访问，这是整体安全计划的重要部分。
 
 可以使用 Azure 防火墙通过规则来定义允许的和拒绝的网络流量，以便控制混合网络中的网络访问。
 
-在本教程中，请创建三个虚拟网络：
+在本文中，将创建三个虚拟网络：
 
 - **VNet-Hub** - 防火墙在此虚拟网络中。
 - **VNet-Spoke** - 分支虚拟网络代表 Azure 中的工作负荷。
-- **VNet-Onprem** - 本地虚拟网络代表本地网络。 在实际部署中，可以使用 VPN 或 ExpressRoute 来连接它。 为简单起见，本教程将使用 VPN 网关连接，并使用 Azure 中的某个虚拟网络来代表本地网络。
+- **VNet-Onprem** - 本地虚拟网络代表本地网络。 在实际部署中，可以使用 VPN 或 ExpressRoute 来连接它。 为简单起见，本文将使用 VPN 网关连接，并使用 Azure 中的某个虚拟网络来代表本地网络。
 
 ![混合网络中的防火墙](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 声明变量
@@ -44,11 +44,13 @@ ms.locfileid: "68337350"
 > * 创建虚拟机
 > * 测试防火墙
 
+如果想改用 Azure 门户来完成本教程，请参阅[教程：使用 Azure 门户在混合网络中部署和配置 Azure 防火墙](tutorial-hybrid-portal.md)。
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
-本教程要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 验证 PowerShell 版本以后，请运行 `Login-AzAccount`，以便创建与 Azure 的连接。
+本文要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 验证 PowerShell 版本以后，请运行 `Conncet-AzAccount -Environment AzureChinaCloud`，以便创建与 Azure 的连接。
 
 若要正常开展此方案，必须符合三项关键要求：
 
@@ -58,7 +60,7 @@ ms.locfileid: "68337350"
     无需在 Azure 防火墙子网中创建 UDR，因为它会从 BGP 探测路由。
 - 在 VNet-Hub 与 VNet-Spoke 之间建立对等互连时，请务必设置 **AllowGatewayTransit**；在 VNet-Spoke 与 VNet-Hub 之间建立对等互连时，请务必设置 **UseRemoteGateways**。
 
-请参阅本教程的[创建路由](#create-the-routes)部分了解如何创建这些路由。
+请参阅本文的[创建路由](#create-the-routes)部分来了解如何创建这些路由。
 
 >[!NOTE]
 >Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubnet 知道通过 BGP 的本地网络的默认路由，则必须将其替代为 0.0.0.0/0 UDR，将 NextHopType 值设置为 Internet 以保持 Internet 直接连接   。 默认情况下，Azure 防火墙不支持强制的安全加密链路连接到本地网络。
@@ -74,7 +76,7 @@ ms.locfileid: "68337350"
 
 ## <a name="declare-the-variables"></a>声明变量
 
-以下示例使用本教程中的值来声明变量。 在某些情况下，可能需要根据订阅情况将某些值替换为你自己的值。 根据需要修改变量，并将其复制并粘贴到 PowerShell 控制台中。
+以下示例使用本文中的值来声明变量。 在某些情况下，可能需要根据订阅情况将某些值替换为你自己的值。 根据需要修改变量，并将其复制并粘贴到 PowerShell 控制台中。
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -117,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>创建防火墙中心虚拟网络
 
-首先，创建用于存储本教程资源的资源组：
+首先，创建资源组以包含本文的资源：
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -479,8 +481,6 @@ Set-AzFirewall -AzureFirewall $azfw
 
 接下来，可以监视 Azure 防火墙日志。
 
-> [!div class="nextstepaction"]
-> [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+[教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!-- Update_Description: new article about tutorial hybird ps -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: wording update -->
