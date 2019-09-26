@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/29/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: e99d64c5696ad3a8ab1876a7642e50ef351d46b6
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: cc5eab7815c9c3cb2b70d896140647b1eff419cd
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083156"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306837"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -62,7 +62,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
     - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
 - Site Recovery 服务终结点 IP 地址（在[中国的 Site Recovery 服务终结点](#site-recovery-ip-in-china)中提供），具体取决于目标位置。
 
-    <!--MOONCAKE: CORRECT ON URL-->
+    <!--MOONCAKE: CORRECT ON URL [Site Recovery service endpoint in China](#site-recovery-ip-in-china)-->
     
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/21/2019
-ms.date: 07/29/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7214a9da0fd38dd4ec54d72c5e41173f10b3cc1a
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 4aacdc1587a2fe02c45735e1e2ea524a31908476
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672283"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306763"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数组和对象
 
@@ -160,7 +160,7 @@ SQL API 支持循环访问 JSON 数组，它可以通过 FROM 源中的 [IN 关�
 ## <a name="next-steps"></a>后续步骤
 
 - [入门](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [联接](sql-query-join.md)
 
 <!-- Update_Description: wording update, update link -->

@@ -6,19 +6,19 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 origin.date: 08/19/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: b62edb74dbdb4e525206f69a8e6c23dcf6762ed5
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: cb3f4338962dbfedb18dd1acd94942e271f6e25a
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209351"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306836"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>创建 Azure Data Lake Storage Gen2 存储帐户
 
-Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introduction.md)，该命名空间提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于本机目录的文件系统。 可以通过 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
+Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introduction.md)，该命名空间提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于本机目录的容器。 可以通过 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
 
 本快速入门展示了如何使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或通过 [Azure CLI](/cli/?view=azure-cli-latest) 创建帐户。
 
@@ -29,7 +29,7 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 |           | 先决条件 |
 |-----------|--------------|
 |门户     | 无         |
-|PowerShell | 本快速入门需要 PowerShell 模块 Az.Storage 0.7 或更高版本  。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以外的版本，则必须升级 powershell 模块  。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
+|PowerShell | 本快速入门需要 PowerShell 模块 Az.Storage 0.7 或更高版本  。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以下的版本，则必须升级 powershell 模块  。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
 |CLI        | 可以安装 CLI 并在本地运行 CLI 命令。|
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI

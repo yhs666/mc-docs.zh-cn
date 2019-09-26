@@ -7,19 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 03/26/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.custom: seo-java-july2019
-ms.openlocfilehash: f99a41511e0b1eeb4eb219a9786f32c81ed95572
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: e6b1abd4a32763ac5128ad93afd8aa7d6a8606f5
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254548"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306742"
 ---
 <!--Verify sucessfully-->
-
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>快速入门：在 Azure Cosmos DB 中使用 Java SDK 创建图形数据库 
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>快速入门：使用 Java SDK 和Azure Cosmos DB 表 API 构建图形数据库
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)（Gremlin 控制台）

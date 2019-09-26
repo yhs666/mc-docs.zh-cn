@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: overview
 origin.date: 05/24/2019
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 26b2726ab7c49f2136499c812520bb417115785f
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 91ef12110af8afc1d7f8a132b0ef5f70f0055887
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844495"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306778"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 存储简介
 
@@ -67,7 +67,7 @@ Azure 存储支持三种类型的 Blob：
 
 - AzCopy 是一种易于使用的适用于 Windows 和 Linux 的命令行工具，可以跨容器或跨存储帐户将数据复制到 Blob 存储，以及从 Blob 存储复制数据  。 有关 AzCopy 的详细信息，请参阅[使用 AzCopy v10（预览版）传输数据](../common/storage-use-azcopy-v10.md)。 
 - Azure 存储数据移动库是一个 .NET 库，用于在 Azure 存储服务之间移动数据  。 AzCopy 实用程序是使用数据移动库生成的。 有关详细信息，请参阅数据移动库的[参考文档](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.datamovement)。 
-- Azure 数据工厂支持使用 Azure 资源身份验证的帐户密钥、共享访问签名、服务主体或托管标识向/从 Blob 存储复制数据  。 有关详细信息，请参阅[使用 Azure 数据工厂向/从 Azure Blob 存储复制数据](/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 
+- **Azure 数据工厂**支持使用 Azure 资源的帐户密钥、共享访问签名、服务主体或托管标识向/从 Blob 存储复制数据。 有关详细信息，请参阅[使用 Azure 数据工厂向/从 Azure Blob 存储复制数据](/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 
 - **Azure 导入/导出服务**提供了一种使用你提供的硬盘向存储帐户导入或从存储帐户导出大量数据的方法。 有关详细信息，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储中](../common/storage-import-export-service.md)。
 
 ## <a name="next-steps"></a>后续步骤

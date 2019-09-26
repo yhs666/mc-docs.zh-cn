@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 05/14/2019
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 888f1a2af8c3ac0ee1afc977d06acb1fe17a656a
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 76dbb8c2b0d98fe8d3c802b948110712bd5e0062
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844489"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306786"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-azure-storage-using-azure-key-vault"></a>教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob
 
@@ -24,7 +24,7 @@ ms.locfileid: "67844489"
 
 **估计完成时间：** 20 分钟
 
-有关 Azure Key Vault 的概述信息，请参阅[什么是 Azure Key Vault？](../../key-vault/key-vault-whatis.md)。
+有关 Azure Key Vault 的概述信息，请参阅[什么是 Azure Key Vault？](../../key-vault/key-vault-overview.md)。
 
 有关 Azure 存储客户端加密的概述信息，请参阅 [Azure 存储的客户端加密和 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 

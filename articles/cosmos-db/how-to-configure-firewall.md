@@ -3,16 +3,16 @@ title: 为 Azure Cosmos DB 帐户配置 IP 防火墙
 description: 了解如何配置 IP 访问控制策略，以为 Azure Cosmos 帐户提供防火墙支持。
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 07/25/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 819e470b6e59fca4a06f99f5e7c75f4b415e2e7d
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 5285916fd36394d335975e8719d3876dd7bf4956
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254785"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306829"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
 
@@ -113,10 +113,12 @@ ms.locfileid: "70254785"
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
     "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"183.240.196.255,139.217.8.252"
   }
 }
 ```
+
+<!--MOONCAKE: Update with Azure China Firewall IP range of 139.217.8.252-->
 
 <a name="configure-ip-firewall-cli"></a>
 ## <a name="configure-an-ip-access-control-policy-by-using-the-azure-cli"></a>使用 Azure CLI 配置 IP 访问控制策略
@@ -134,8 +136,10 @@ az cosmosdb create \
   --resource-group $resourceGroupName \
   --max-interval 10 \
   --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  --ip-range-filter "183.240.196.255,139.217.8.252"
 ```
+
+<!--MOONCAKE: Update with Azure China Firewall IP range of 139.217.8.252-->
 
 若要更新现有帐户的防火墙设置，请运行以下命令：
 
@@ -143,8 +147,10 @@ az cosmosdb create \
 az cosmosdb update \
       --name $name \
       --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+      --ip-range-filter "183.240.196.255,139.217.8.252"
 ```
+
+<!--MOONCAKE: Update with Azure China Firewall IP range of 139.217.8.252-->
 
 <a name="configure-ip-firewall-ps"></a>
 ## <a name="configure-an-ip-access-control-policy-by-using-powershell"></a>使用 PowerShell 配置 IP 访问控制策略

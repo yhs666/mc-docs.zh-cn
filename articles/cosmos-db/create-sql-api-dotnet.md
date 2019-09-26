@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 07/12/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 3f0e916a7e878a72bc0098d86e93d9913a6844f9
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 09/30/2019
+ms.openlocfilehash: a1a430808c89bc40d1bd1cbb27d763113b9a30d3
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254802"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306733"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入门：生成 .NET 控制台应用以管理 Azure Cosmos DB SQL API 资源
 
@@ -44,7 +44,6 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)--> 
     
 * [.NET Core 2.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/2.1)。
-* [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="setting-up"></a>设置
 
@@ -54,7 +53,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 <a name="create-a-database-account"></a>
 ### <a name="create-an-azure-cosmos-account"></a>创建 Azure Cosmos 帐户
 
-以下代码将创建具有会话一致性的 Azure Cosmos 帐户。 该帐户在 `China East` 和 `China North` 中复制。
+如果你有自己的 Azure 订阅或者免费创建了订阅，则应显式创建 Azure Cosmos 帐户。 以下代码将创建具有会话一致性的 Azure Cosmos 帐户。 该帐户在 `China East` 和 `China North` 中复制。  
 
 <!--Not Available on  Select the **Try It** button and paste the code to run it in the Azure local Shell.-->
 
@@ -63,9 +62,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 # Set variables for the new SQL API account, database, and container
 resourceGroupName='myResourceGroup'
 location='chinaeast'
+
+# The Azure Cosmos account name must be multiple-regionally unique, make sure to update the `mysqlapicosmosdb` value before you run the command
 accountName='mysqlapicosmosdb' 
-databaseName='FamilyDatabase'
-containerName='FamilyContainer'
 
 # Create a resource group
 az group create \
@@ -77,17 +76,20 @@ az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
     --kind GlobalDocumentDB \
-    --locations regionName="China East" failoverPriority=0 \
-    --locations regionName="China North" failoverPriority=1 \
+    --locations regionName="China East" failoverPriority=0 --locations regionName="China North" failoverPriority=1 \
     --default-consistency-level "Session" \
     --enable-multiple-write-locations true
 
 ```
 
+创建 Azure Cosmos 帐户需要一段时间，操作成功后，可以看到确认输出。 该命令成功完成后，登录到 [Azure 门户](https://portal.azure.cn/)，验证是否存在指定名称的 Azure Cosmos 帐户。
+
+<!--Not Available on You can close the Azure local Shell window after the resource is created. -->
+
 <a name="create-dotnet-core-app"></a>
 ### <a name="create-a-new-net-app"></a>新建 .NET 应用
 
-在首选编辑器或 IDE 中创建新的 .NET 应用程序。 在控制台窗口中，运行以下 DotNet 新命令，创建名为 `todo` 的新应用。
+在首选编辑器或 IDE 中创建新的 .NET 应用程序。 从本地计算机打开 Windows 命令提示符或终端窗口。 你将从命令提示符或终端运行接下来的部分中的所有命令。  运行以下 dotnet 新命令，创建名为 `todo` 的新应用。 --langVersion 参数在创建的项目文件中设置 LangVersion 属性。
 
 ```console
 dotnet new console --langVersion 7.1 -n todo
@@ -129,7 +131,7 @@ dotnet add package Microsoft.Azure.Cosmos
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 导航到 Azure Cosmos 帐户。 
+1. 导航到 Azure Cosmos 帐户。
 
 1. 打开“键”窗格，复制帐户的 URI 和主键    。 下一步需将 URI 和键值添加到某个环境变量。
 
@@ -147,15 +149,15 @@ setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 **Linux**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
 **MacOS**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  <a name="object-model"></a>
@@ -203,6 +205,7 @@ namespace todo
         public Child[] Children { get; set; }
         public Address Address { get; set; }
         public bool IsRegistered { get; set; }
+        // The ToString() method is used to format the output, it's used for demo purpose only. It's not required by Azure Cosmos DB
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
@@ -252,7 +255,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-在 `program.cs file` 中添加代码以读取上一步设置的环境变量。 定义 `CosmosClient`、`Database` 和 `Container` 对象。 接下来，向调用 `GetStartedDemoAsync` 方法的主方法添加代码，在该方法中管理 Azure Cosmos 帐户资源。 
+在 **Program.cs** 文件中添加代码以读取上一步设置的环境变量。 定义 `CosmosClient`、`Database` 和 `Container` 对象。 接下来，向调用 `GetStartedDemoAsync` 方法的主方法添加代码，在该方法中管理 Azure Cosmos 帐户资源。 
 
 ```csharp
 namespace todo
@@ -367,21 +370,22 @@ private async Task AddItemsToContainerAsync()
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = false
- };
+    };
 
-try
-{
-    // Read the item to see if it exists. ReadItemAsync will throw an exception if the item does not exist and return status code 404 (Not found).
-    ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKey(andersenFamily.LastName));
-    Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
-}
-catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
-{
-    // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
-    ItemResponse<Family> andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
+    try
+    {
+        // Read the item to see if it exists. ReadItemAsync will throw an exception if the item does not exist and return status code 404 (Not found).
+        ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKey(andersenFamily.LastName));
+        Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
+    }
+    catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+    {
+        // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
+        ItemResponse<Family> andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
 
-    // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
-    Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+        // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+        Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+    }
 }
 
 ```
@@ -440,14 +444,11 @@ private async Task DeleteDatabaseAndCleanupAsync()
 public async Task GetStartedDemoAsync()
 {
     // Create a new instance of the Cosmos Client
-    this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+    this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
     await this.CreateDatabaseAsync();
     await this.CreateContainerAsync();
     await this.AddItemsToContainerAsync();
     await this.QueryItemsAsync();
-    await this.ReplaceFamilyItemAsync();
-    await this.DeleteFamilyItemAsync();
-    //await this.DeleteDatabaseAndCleanupAsync();
 }
 ```
 
@@ -488,7 +489,7 @@ End of demo, press any key to exit.
 若不再需要资源，可以使用 Azure CLI 或 Azure PowerShell 删除 Azure Cosmos 帐户和相应的资源组。 以下命令显示如何使用 Azure CLI 删除资源组：
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "chinaeast"
+az group delete -g "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>后续步骤

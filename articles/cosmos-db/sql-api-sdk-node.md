@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 09/24/2018
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: b8fd2442359af4228af1d22a77cb46c3b01be7a0
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 0f70eb5cc42a3e08846dd76772dc67d9539bdaa2
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254450"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306770"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]

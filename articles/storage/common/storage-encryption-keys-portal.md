@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0d344150a64ba3dc23a851d8c48e1927e397b28a
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 2c0aa7ef5679c4885dd7113514a2dcfb690f4d9c
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209382"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306730"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>通过 Azure 门户配置客户管理的密钥用于 Azure 存储加密
 
@@ -74,4 +74,4 @@ ms.locfileid: "70209382"
 ## <a name="next-steps"></a>后续步骤
 
 - [静态数据的 Azure 存储加密](storage-service-encryption.md)
-- [什么是 Azure Key Vault？](/key-vault/key-vault-whatis)
+- [什么是 Azure Key Vault？](/key-vault/key-vault-overview)

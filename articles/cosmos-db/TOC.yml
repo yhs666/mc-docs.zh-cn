@@ -270,8 +270,8 @@
         - name: 基于角色的访问控制
           displayName: rbac
           href: role-based-access-control.md
-        - name: 安全属性
-          href: cosmos-db-security-attributes.md
+        - name: 内置安全控件
+          href: cosmos-db-security-controls.md
     - name: 企业就绪情况
       items:
         - name: 联机备份和本地还原
@@ -443,6 +443,14 @@
           items:
             - name: 1 - 查询数据
               href: tutorial-query-graph.md
+        - name: 参考
+          items:
+            - name: 响应标头
+              href: gremlin-headers.md
+            - name: 限制
+              href: gremlin-limits.md
+            - name: 兼容性
+              href: gremlin-compatibility.md
         - name: 操作指南
           items:
             - name: 图形数据建模
@@ -453,10 +461,16 @@
               href: bulk-executor-graph-dotnet.md
             - name: 优化 Gremlin 查询
               href: graph-execution-profile.md
+            - name: 使用资源令牌
+              href: how-to-use-resource-tokens-gremlin.md
+            - name: 使用区域终结点
+              href: how-to-use-regional-gremlin.md
+            - name: 访问系统文档属性
+              href: how-to-access-system-properties-gremlin.md
             - name: 将图数据可视化
               href: graph-visualization.md
             - name: 存储和管理 Spring Data
-              href: 'https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db'
+              href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db'
               maintainContext: true
             - name: 使用资源管理器模板进行管理
               href: manage-gremlin-with-resource-manager.md
@@ -529,7 +543,7 @@
             - name: Python
               href: table-sdk-python.md
             - name: 表存储 REST API
-              href: 'https://docs.microsoft.com/rest/api/storageservices/Table-Service-Concepts'
+              href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
 - name: 操作指南
   items:
     - name: 使用 Azure Cosmos 帐户
@@ -747,7 +761,6 @@
       href: 'https://docs.microsoft.com/rest/api/cosmos-db/'
     - name: REST 资源提供程序
       href: 'https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/'
-    - name: Resource Manager 模板
     - name: 模拟器发行说明
       href: local-emulator-release-notes.md
 - name: 资源

@@ -1,23 +1,21 @@
 ---
 title: 快速入门 - 在浏览器中使用 JavaScript 和 HTML 在 Azure 存储中创建 Blob
-description: 了解如何通过 BlobService 实例在 HTML 页面中使用 JavaScript 上传、列出和删除 Blob。
+description: 了解如何在 HTML 页中使用 JavaScript 上传、列出和删除 blob。
 services: storage
-keywords: 存储, javascript, html
 author: WenJason
 ms.custom: mvc
 ms.service: storage
-ms.author: v-jay
-ms.reviewer: seguler
-origin.date: 05/20/2019
-ms.date: 09/09/2019
+ms.author: karler
+origin.date: 08/29/2019
+ms.date: 09/30/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 6024fddc8b52396edc9a48383117192b6a8f5137
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: aed033abe36a264c377b4c05e62c3886e8c2c3c6
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209307"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306773"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -39,7 +37,7 @@ Azure 存储 JavaScript 客户端库无法直接通过文件系统来使用，�
 
 返回到 Azure 门户，然后选择存储帐户。 若要定义新的 CORS 规则，请导航到“设置”部分，然后单击“CORS”链接。   接下来，请单击“添加”按钮，打开“添加 CORS 规则”窗口。   对于本快速入门，请创建开放的 CORS 规则：
 
-![Azure Blob 存储帐户 CORS 设置](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+![Azure Blob 存储帐户 CORS 设置](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 下表描述了每项 CORS 设置，并对用于定义规则的值进行了说明。
 

@@ -3,16 +3,16 @@ title: 如何在 Azure Cosmos DB 中配置多主数据库
 description: 了解如何在 Azure Cosmos DB 中配置应用程序中的多主数据库。
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 07/03/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: a23a2f7f7e4b240d346f0516bef6ff4378cd8634
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 938ee5913fd42a4688f6414865b9855b8efff7d0
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254817"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306747"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>在使用 Azure Cosmos DB 的应用程序配置多主数据库
 
@@ -122,4 +122,4 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 * [全局缩放预配的吞吐量](scaling-throughput.md)
 * [多区域分布：揭秘](global-dist-under-the-hood.md)
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: update meta properties -->

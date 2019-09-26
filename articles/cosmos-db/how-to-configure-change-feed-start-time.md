@@ -3,16 +3,16 @@ title: 如何配置更改源处理器的开始时间 - Azure Cosmos DB
 description: 了解如何将更改源处理器配置为从特定的日期和时间开始读取
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 08/13/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8b1470eb4e68a745468534f41f04fcae03f4db56
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 8ae0a43169ff9596b0582e7e2d319f9d2709bd35
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254971"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306682"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>如何配置更改源处理器的开始时间
 
@@ -69,7 +69,7 @@ ChangeFeedProcessor changeFeedProcessor = monitoredContainer
 ## <a name="additional-resources"></a>其他资源
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [GitHub 上的其他示例](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>后续步骤
@@ -79,5 +79,4 @@ ChangeFeedProcessor changeFeedProcessor = monitoredContainer
 * [更改源处理器概述](change-feed-processor.md)
 * [使用更改源估算器](how-to-use-change-feed-estimator.md)
 
-<!--Update_Description: new articles on how to configure change feed start time -->
-<!--ms.date: 09/07/2019-->
+<!--Update_Description: update link -->

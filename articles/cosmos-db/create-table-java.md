@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 04/10/2018
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 19a6a2c88ffbeb7b47ab9b87fa10dc51b72bf361
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 923f52d8cefa617346afee3144c7dac135b72843
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254794"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306814"
 ---
 <!--Verify sucessfully-->
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>快速入门：使用 Java 和 Azure Cosmos DB 生成表 API 应用
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB 表 API 数据
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "70254794"
 > * [Python](create-table-python.md)
 > 
 
-本快速入门介绍如何使用 Java 和 Azure Cosmos DB [表 API](table-introduction.md)，通过克隆 GitHub 中的示例来生成应用。 此外，本快速入门还介绍了如何创建 Azure Cosmos DB 帐户，以及如何在基于 Web 的 Azure 门户中使用数据资源管理器创建表和实体。
+本快速入门介绍如何使用 Java 和 Azure Cosmos DB [表 API](table-introduction.md)，通过克隆 GitHub 中的示例来生成应用。 介绍如何创建 Azure Cosmos DB 帐户，以及如何在基于 Web 的 Azure 门户中使用数据资源管理器创建表和实体。
 
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 
@@ -96,13 +96,15 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 3. 打开 C:\git-samples\storage-table-java-getting-started\src\main\resources 文件夹中的 config.properties。 
 
 5. 注释掉第 1 行，并取消注释掉第 2 行。 前两行现在应如下所示。
-
+    
+    <!--MOONCAKE: Storage properties Append EndpointSuffix=core.chinacloudapi.cn-->
+    
     ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY];EndpointSuffix=core.chinacloudapi.cn"
     ```
     
-    <!--Storage properties Append EndpointSuffix=core.chinacloudapi.cn-->
+    <!--MOONCAKE: Storage properties Append EndpointSuffix=core.chinacloudapi.cn-->
     
 6. 将从门户复制的主连接字符串粘贴到第 2 行的 StorageConnectionString 值中。 
 

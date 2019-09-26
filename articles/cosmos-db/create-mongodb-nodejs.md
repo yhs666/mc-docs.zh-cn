@@ -1,5 +1,5 @@
 ---
-title: 将 Node.js MongoDB 应用连接到 Azure Cosmos DB
+title: 快速入门：将 Node.js MongoDB 应用连接到 Azure Cosmos DB
 description: 本快速入门演示如何将以 Node.js 编写的现有 MongoDB 应用连接到 Azure Cosmos DB。
 author: rockboyfor
 ms.author: v-yeche
@@ -8,13 +8,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: cc5f4d20cac7112cd6e098c35ca159b575c79fef
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 09/30/2019
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: b2adae7a1833244e490cc11d9e5975783d5aaaa4
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254804"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306729"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 

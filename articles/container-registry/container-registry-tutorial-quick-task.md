@@ -6,15 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 08/26/2019
+origin.date: 09/24/2018
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 42f8aea8d7783777156014f8181dbb9d80b555b9
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 61126c673ec25c42213620c9b5b32daaf46b5f2b
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134511"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306716"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>教程：使用 Azure 容器注册表任务在云中生成并部署容器映像
 
@@ -76,7 +77,7 @@ cd acr-build-helloworld-node
 
 现已将源代码拉取到计算机中，请执行以下步骤来创建容器注册表并使用 ACR 任务生成容器映像。
 
-为使执行示例命令更轻松，本系列教程使用 shell 环境变量。 执行以下命令来设置 `ACR_NAME` 变量。 将“\<registry-name\>”替换为新容器注册表的唯一名称  。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 本教程中创建的其他资源都基于该名称，因此仅需要修改该第一个变量。
+为使执行示例命令更轻松，本系列教程使用 shell 环境变量。 执行以下命令来设置 `ACR_NAME` 变量。 将“\<registry-name\>”替换为新容器注册表的唯一名称  。 注册表名称在 Azure 中必须唯一，仅包含小写字母，并且包含 5-50 个字母数字字符。 本教程中创建的其他资源都基于该名称，因此仅需要修改该第一个变量。
 
 ```azurecli
 ACR_NAME=<registry-name>
@@ -87,8 +88,8 @@ ACR_NAME=<registry-name>
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
 
-az group create --resource-group $RES_GROUP --location eastus
-az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
+az group create --resource-group $RES_GROUP --location chinanorth
+az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location chinanorth
 ```
 
 创建注册表后，使用 ACR 任务从示例代码生成容器映像。 执行 [az acr build][az-acr-build] 命令以执行快速任务  ：
@@ -210,5 +211,4 @@ az group delete --resource-group $RES_GROUP
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png
 [quick-build-02-browser]: ./media/container-registry-tutorial-quick-build/quick-build-02-browser.png
 
-<!-- Update_Description: new article about container registry tutorial quick task -->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: wording update -->

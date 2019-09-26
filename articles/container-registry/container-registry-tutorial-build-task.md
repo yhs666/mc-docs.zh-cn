@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: tutorial
 origin.date: 05/04/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1c7954cccd70300251f68c4c15ae4e86d3cdd217
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 04dedbc7e23127a5181e68d070850bdeac7b0ec4
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134547"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306718"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时，在云中自动化容器映像生成
 
@@ -59,7 +59,6 @@ az acr task create \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
@@ -302,5 +301,4 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 [az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
 [az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
 
-<!-- Update_Description: new article about container registry build task -->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: wording update -->

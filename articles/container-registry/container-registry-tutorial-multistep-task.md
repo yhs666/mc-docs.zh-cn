@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: tutorial
 origin.date: 05/09/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9a34bfe149745edbb64b6d50b01b98fba958f32c
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 8640ccfc5ff103665eeba576574884d051f6192e
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134507"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306717"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时在云中运行多步骤容器工作流
 
@@ -88,7 +88,6 @@ az acr task create \
     --registry $ACR_NAME \
     --name example1 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file taskmulti.yaml \
     --git-access-token $GIT_PAT
 ```
@@ -332,8 +331,7 @@ az acr task create \
     --registry $ACR_NAME \
     --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
-    --file taskmulti-image.yaml \
+    --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.cn
 ```
@@ -364,7 +362,7 @@ az acr task credential add --name example2 \
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-默认情况下，执行此命令时，`az acr task run` 命令会将日志流式传输到控制台。 与前面一样，输出将显示每个任务步骤的运行进度。 该输出经过简化，只显示关键步骤
+默认情况下，执行此命令时，`az acr task run` 命令会将日志流式传输到控制台。 与前面一样，输出将显示每个任务步骤的运行进度。 该输出已经过简化，只显示关键步骤。
 
 输出：
 
@@ -488,5 +486,4 @@ Run ID: cf1g was successful after 46s
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
 [build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
 
-<!-- Update_Description: new article about container registry tutorial multipstep task-->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: wording update -->

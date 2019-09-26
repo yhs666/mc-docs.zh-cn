@@ -1,32 +1,24 @@
 ---
 title: Azure 队列简介 - Azure 存储
 description: Azure 队列简介
-services: storage
 author: WenJason
-ms.service: storage
-ms.topic: overview
-origin.date: 06/07/2019
-ms.date: 07/15/2019
 ms.author: v-jay
-ms.reviewer: cbrooks
+origin.date: 06/07/2019
+ms.date: 09/30/2019
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 167ffc22dfe2a2f88615f47fc01d006848ff0bf3
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.topic: overview
+ms.reviewer: cbrooks
+ms.openlocfilehash: 56d2417bade49f78c3bebb1748e9a51614ca99fc
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844521"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306724"
 ---
 # <a name="what-are-azure-queues"></a>什么是 Azure 队列？
 
-Azure 队列存储是一个可存储大量消息的服务。 可以使用 HTTP 或 HTTPS 通过经验证的调用从世界任何位置访问消息。 队列消息大小最大可为 64 KB。 一个队列可以包含数百万条消息，直至达到存储帐户的总容量限值。
-
-## <a name="common-uses"></a>常见用途
-
-队列存储的常见用途包括：
-
-* 创建积压工作以进行异步处理
-* 将消息从 Azure Web 角色传递到 Azure 辅助角色
+Azure 队列存储是一项可存储大量消息的服务。 可以使用 HTTP 或 HTTPS 通过经验证的调用从世界任何位置访问消息。 队列消息大小最大可为 64 KB。 一个队列可以包含数百万条消息，直至达到存储帐户的总容量限值。 队列通常用于创建要异步处理的积压工作 (backlog)。
 
 ## <a name="queue-service-concepts"></a>队列服务概念
 

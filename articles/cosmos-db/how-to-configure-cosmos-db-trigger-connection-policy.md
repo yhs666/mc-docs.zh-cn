@@ -3,16 +3,16 @@ title: 适用于 Cosmos DB 的 Azure Functions 触发器的连接策略
 description: 了解如何配置适用于 Cosmos DB 的 Azure Functions 触发器使用的连接策略
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 07/17/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7f66783113e38ae9fef3cd3da105a17ed4212324
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 9a49ae999c624f940677cae0b00ca09002dd0cfc
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254775"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306832"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>如何配置适用于 Cosmos DB 的 Azure Functions 触发器使用的连接策略
 

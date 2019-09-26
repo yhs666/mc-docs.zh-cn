@@ -10,12 +10,12 @@ ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d8bd8c6d8533c65855e5beae6bd00bf89ecb2de
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 56a005ef9f2d76061eff5ee82caadf196124f3aa
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209347"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306728"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>通过 PowerShell 配置客户管理的密钥用于 Azure 存储加密
 
@@ -98,4 +98,4 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 ## <a name="next-steps"></a>后续步骤
 
 - [静态数据的 Azure 存储加密](storage-service-encryption.md) 
-- [什么是 Azure Key Vault？](/key-vault/key-vault-whatis)
+- [什么是 Azure Key Vault？](/key-vault/key-vault-overview)

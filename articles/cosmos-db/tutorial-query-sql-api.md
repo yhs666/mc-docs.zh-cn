@@ -6,15 +6,15 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-origin.date: 05/10/2017
-ms.date: 03/04/2019
+origin.date: 05/21/2019
+ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4cb56414c2c53637e776af81ff55aa683f2685a0
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 71d145c533f5c70157b01d41b8a42207424db1f1
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987918"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306819"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 通过 [REST API 和 SDK](sql-api-sdk-dotnet.md) 或[查询演练](https://www.documentdb.com/sql/demo)（它对现有示例数据集运行查询），可在 Azure 门户中使用数据资源管理器运行查询。
 
 有关 SQL 查询的详细信息，请参阅：
-* [SQL 查询和 SQL 语法](how-to-sql-query.md)
+* [SQL 查询和 SQL 语法](sql-query-getting-started.md)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -134,6 +134,6 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 现可继续学习下一教程，了解如何多区域分发数据。
 
 > [!div class="nextstepaction"]
-> [全局分发数据](tutorial-global-distribution-sql-api.md)
+> [多区域分配数据](tutorial-global-distribution-sql-api.md)
 
 <!-- Update_Description: update meta properties -->

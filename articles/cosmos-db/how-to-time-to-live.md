@@ -3,16 +3,16 @@ title: 了解如何在 Azure Cosmos DB 中配置和管理生存时间
 description: 了解如何在 Azure Cosmos DB 中配置和管理生存时间
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 07/29/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 98516f060bb1e33f5bbff3821b324c1b285722ec
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 31b79c71229f24b1dbeacbef24942592dccacec3
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578634"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306746"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
 

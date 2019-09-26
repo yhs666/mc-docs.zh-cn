@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/20/2019
-ms.date: 07/29/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3717dac4567004d5c51cc92e708210612399b31c
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 0ca5860c9f43e3e08579af286d9362d689597eb6
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672310"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306769"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中指定别名
 
@@ -46,7 +46,7 @@ ms.locfileid: "68672310"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT 子句](sql-query-select.md)
 - [FROM 子句](sql-query-from.md)
 

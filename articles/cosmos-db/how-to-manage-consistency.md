@@ -3,16 +3,16 @@ title: 了解如何在 Azure Cosmos DB 中管理一致性
 description: 了解如何在 Azure Cosmos DB 中管理一致性
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 07/08/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 01a036b7587f99701baa8ed8d03ce6f50ed98f4b
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d1b779de04c83694f8fca4e18a01cbe32e968f84
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254773"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306749"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
@@ -61,6 +61,8 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 ```
 
 ### <a name="azure-portal"></a>Azure 门户
+
+<!--MOONCAKE: music notes in cosmos db NOT AVAILABLE-->
 
 若要查看或修改默认一致性级别，请登录到 Azure 门户。 找到你的 Azure Cosmos 帐户，打开“默认一致性”窗格  。 选择你希望用作新的默认值的一致性级别，然后选择“保存”  。
 

@@ -211,8 +211,18 @@
           href: virtual-network-public-ip-address.md
         - name: 公共 IP 前缀
           href: manage-public-ip-address-prefix.md
+    - name: 跨区域移动
+      items:
+        - name: 网络安全组 - PowerShell
+          href: move-across-regions-nsg-powershell.md
+        - name: 公共 IP - PowerShell
+          href: move-across-regions-publicip-powershell.md
     - name: 故障排除
       items:
+        - name: 排查虚拟网络对等互连问题
+          href: virtual-network-troubleshoot-peering-issues.md
+        - name: 配置和验证 VNet 或 VPN 连接
+          href: virtual-network-configure-vnet-connections.md
         - name: 网络安全组
           href: diagnose-network-traffic-filter-problem.md
         - name: 路由
@@ -231,6 +241,8 @@
           href: troubleshoot-outbound-smtp-connectivity.md
         - name: 关于 IP 地址 168.63.129.16
           href: what-is-ip-address-168-63-129-16.md
+        - name: 排查 Azure VM 连接性问题
+          href: troubleshoot-vm-connectivity.md
     - name: 经典
       items:
         - name: 创建和管理虚拟网络

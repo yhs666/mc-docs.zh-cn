@@ -3,16 +3,16 @@ title: 使用更改源估算器 - Azure Cosmos DB
 description: 了解如何使用更改源估算器分析更改源处理器的进度
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 08/15/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 91b03946dd1fd259166652659530a5ec0b5fe398
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 3532825e494d3b2639844ad4a293882132774488
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254973"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306745"
 ---
 # <a name="use-the-change-feed-estimator"></a>使用更改源估算器
 
@@ -85,7 +85,7 @@ static async Task HandleEstimationAsync(long estimation, CancellationToken cance
 ## <a name="additional-resources"></a>其他资源
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [GitHub 上的其他示例](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>后续步骤
@@ -95,5 +95,4 @@ static async Task HandleEstimationAsync(long estimation, CancellationToken cance
 * [更改源处理器概述](change-feed-processor.md)
 * [更改源处理器开始时间](how-to-configure-change-feed-start-time.md)
 
-<!--Update_Description: new articles on how to use change feed estimator -->
-<!--ms.date: 09/07/2019-->
+<!--Update_Description: wording update -->
