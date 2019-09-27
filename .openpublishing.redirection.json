@@ -16633,7 +16633,13 @@
       "source_path": "articles/storage/common/storage-security-attributes.md",
       "redirect_url": "/storage/common/storage-security-controls",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-security-attributes.md",
+      "redirect_url": "/vpn-gateway/vpn-gateway-security-controls",
+      "redirect_document_id": false
     }
+
 
 
 
