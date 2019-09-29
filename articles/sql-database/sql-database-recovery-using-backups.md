@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-manager: digimobile
-origin.date: 04/30/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: ccab4f55c51d449bd400eec0659fbea14eb3c1b3
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.reviewer: mathoma, carlrab
+origin.date: 08/27/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: b51862374e26f90d0e2e16c3207342cf094d4a28
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544181"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262946"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 
@@ -39,7 +38,7 @@ ms.locfileid: "69544181"
 - 如果数据库最大大小超过 500 GB，请将 P11-P15 还原为 S4-S12 或 P1-P6。
 - 如果数据库最大大小超过 250 GB，请将 P1-P6 还原为 S4-S12。
 
-如果已还原数据库的最大大小超出了目标数据库服务层级和性能级别附送的存储量，将产生额外的费用。 超出附送量的额外预配存储将产生额外的费用。 有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，可以通过将数据库最大大小设置为附送的量，来避免产生额外的费用。
+如果还原的数据库的最大大小大于目标数据库的服务层级和性能级别包含的存储量，则会产生额外成本。 超出附送量的额外预配存储将产生额外的费用。 有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，可以通过将数据库最大大小设置为附送的量，来避免产生额外的费用。
 
 > [!NOTE]
 > 在创建[数据库副本](sql-database-copy.md)时，将用到[自动数据库备份](sql-database-automated-backups.md)。
@@ -115,7 +114,7 @@ ms.locfileid: "69544181"
 
 可在任何 Azure 区域的任何服务器上从最新异地复制的备份中还原 SQL 数据库。 异地还原使用异地复制的备份作为源。 即使由于停电而无法访问数据库或数据中心，也依然能够请求此功能。
 
-当数据库因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 可将数据库还原到任何其他区域中的服务器。 创建备份后，将其异地复制到其他区域中的 Azure Blob 时会出现延迟。 因此，已还原的数据库最长可能滞后于原始数据库 1 小时。 下图显示的是从其他区域中的最后一个可用备份中还原数据库。
+当数据库因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 可将数据库还原到任何其他区域中的服务器。 创建备份后，将其异地复制到其他区域中的 Azure Blob 时会出现延迟。 因此，还原的数据库最多可能比原始数据库晚一个小时。 下图显示的是从其他区域中的最后一个可用备份中还原数据库。
 
 ![异地还原](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -129,10 +128,7 @@ ms.locfileid: "69544181"
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 门户进行异地还原
 
-要在其[基于 DTU 的模型保留期](sql-database-service-tiers-dtu.md)或[基于 vCore 的模型保留期](sql-database-service-tiers-vcore.md)期间使用 Azure 门户对数据库进行异地还原，请打开 SQL 数据库页，并单击“添加”  。 在“选择源”  文本框中，选择“备份”  。 在所选的区域和服务器上指定要从中执行恢复的备份。
-
-> [!Note]
-> 托管实例不支持使用 Azure 门户异地还原， 请改用 PowerShell。
+若要使用 Azure 门户对数据库进行异地还原，请打开“SQL 数据库”页，然后单击“添加”  。 在“选择源”  文本框中，选择“备份”  。 在所选的区域和服务器上指定要从中执行恢复的备份。 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自动备份以编程方式执行恢复
 

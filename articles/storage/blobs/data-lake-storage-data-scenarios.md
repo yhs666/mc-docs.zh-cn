@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: cca274780fd4fc886b8ab7820a3c54c9df5d9fd0
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 4fc74bed56ad48e7cc6321cf2d1d7970f1022d5d
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209405"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306700"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 满足大数据需求
 
@@ -26,7 +26,7 @@ ms.locfileid: "70209405"
 > * 下载数据
 > * 可视化数据
 
-首先，请创建存储器帐户和文件系统。 然后，授予对数据的访问权限。 本文的前几个部分介绍如何完成这些任务。 剩下部分将重点介绍每个处理阶段的选项和工具。
+首先，请创建存储帐户和容器。 然后，授予对数据的访问权限。 本文的前几个部分介绍如何完成这些任务。 剩下部分将重点介绍每个处理阶段的选项和工具。
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>创建 Data Lake Storage Gen2 帐户
 
@@ -34,15 +34,15 @@ Data Lake Storage Gen2 帐户是一个存储帐户，其命名空间具有层次
 
 若要创建一个，请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fstorage%2fblobs%2ftoc.json)。
 
-## <a name="create-a-file-system"></a>创建文件系统
+## <a name="create-a-container"></a>创建容器
 
-文件系统  是一个包含文件夹和文件的容器。 必须至少有其中一个，然后才能将数据引入存储帐户中。  下面是可以用来创建它们的工具的列表。
+下面是可用于为文件创建容器的工具列表。
 
 |工具 | 指南 |
 |---|--|
-|Azure 存储资源管理器 | [使用存储资源管理器创建文件系统](/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure 存储资源管理器 | [使用存储资源管理器创建容器](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [使用 AzCopyV10 创建 Blob 容器或文件共享](/storage/common/storage-use-azcopy-v10#transfer-files)|
-|将 Hadoop 文件系统 (HDFS) 命令行界面 (CLI) 与 HDInsight 配合使用 |[通过将 HDFS 与 HDInsight 配合使用来创建文件系统](/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
+|将 Hadoop 容器 (HDFS) 命令行接口 (CLI) 与 HDInsight 配合使用 |[通过将 HDFS 与 HDInsight 配合使用来创建容器](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
 
 使用存储资源管理器或 AzCopy 创建文件系统是最容易的方法。 使用 HDInsight 创建文件系统需要的工作会多一些。 但是，如果已打算使用 HDInsight 群集来处理数据，则可先创建群集，然后使用 HDFS CLI 来创建文件系统。  
 

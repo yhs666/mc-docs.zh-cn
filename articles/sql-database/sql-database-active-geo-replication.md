@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
-manager: digimobile
 origin.date: 07/09/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 98b59b3ce818433efa0a9a4bfa781da8d6d53140
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: a6f1d43bd6468e0f477d1d5863a80b5528918976
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544131"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262929"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>创建并使用活动异地复制
 
@@ -108,6 +107,10 @@ ms.locfileid: "69544131"
 ## <a name="preparing-secondary-database-for-failover"></a>准备要进行故障转移的辅助数据库
 
 若要确保应用程序可以在故障转移后立即访问新的主数据库，请确保正确配置辅助服务器和数据库的身份验证要求。 有关详细信息，请参阅 [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)（灾难恢复后的 Azure SQL 数据库安全性）。 若要保证故障转移后的符合性，请确保辅助数据库上的备份保留策略与主数据库的匹配。 这些设置不是数据库的一部分，因此不会进行复制。 默认情况下，会为辅助数据库配置七天的默认 PITR 保留期。 有关详细信息，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)。
+
+> [!IMPORTANT]
+> 如果数据库是故障转移组的成员，则无法使用 geo-replication faiover 命令启动其故障转移。 请考虑对该组使用 failover 命令。 如果需要故障转移单个数据库，则必须先将其从故障转移组中删除。 有关详细信息，请参阅[故障转移组](sql-database-auto-failover-group.md)。 
+
 
 ## <a name="configuring-secondary-database"></a>配置辅助数据库
 

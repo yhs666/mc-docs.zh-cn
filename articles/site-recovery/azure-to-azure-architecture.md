@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 08/05/2019
-ms.date: 08/26/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5e63affd7646be529771fe154aee79e7f15b75c3
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 6b142e02300584b94027e8ca84f59f1c37f050c9
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134425"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306839"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 
@@ -63,7 +63,7 @@ ms.locfileid: "70134425"
 **策略设置** | **详细信息** | **默认**
 --- | --- | ---
 **恢复点保留期** | 指定 Site Recovery 保留恢复点的时间长短 | 24 小时
-**应用一致性快照频率** | Site Recovery 创建应用一致性快照的频率。 | 每隔 60 分钟。
+**应用一致性快照频率** | Site Recovery 创建应用一致性快照的频率。 | 每 4 小时
 
 ### <a name="managing-replication-policies"></a>管理复制策略
 
@@ -134,6 +134,7 @@ Site Recovery 按如下所述创建快照：
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 地址范围的出站连接
 
 若要使用 IP 地址控制 VM 的出站连接，请允许这些地址。
+请注意，可以在[网络白皮书](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)中找到网络连接要求的详细信息 
 
 #### <a name="source-region-rules"></a>源区域规则
 

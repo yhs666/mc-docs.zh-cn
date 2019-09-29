@@ -3,21 +3,21 @@ title: 发行说明 - 语音服务
 titleSuffix: Azure Cognitive Services
 description: 参阅语音服务的功能发布、改进、bug 修复和已知问题的运行日志。
 services: cognitive-services
-author: wolfma61
+author: BrianMouncer
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 8/20/2019
-ms.date: 07/23/2019
-ms.author: v-lingwu
+origin.date: 07/23/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 24f7bce4b0728ecf46f12f54188c08abb2ade277
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 8ca4324adfd01d7f6a9eac2965385dd0aecb1cbf
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103739"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267048"
 ---
 # <a name="release-notes"></a>发行说明
 
@@ -26,7 +26,6 @@ ms.locfileid: "70103739"
 **示例**
 *   UWP 和 Unity 上的文本转语音快速入门示例
 *   iOS 上的 Swift 快速入门示例
-*   语音和意向识别及翻译 Unity 示例
 *   更新了 DialogServiceConnector 的快速入门示例
 
 **改进 / 更改**
@@ -34,7 +33,6 @@ ms.locfileid: "70103739"
     * SpeechBotConnector 已重命名为 DialogServiceConnector
     * BotConfig 已重命名为 DialogServiceConfig
     * BotConfig::FromChannelSecret() 已重新映射到 DialogServiceConfig::FromBotSecret()
-    * 重命名后，仍旧支持所有现有的 Direct Line 语音客户端
 * 更新了 TTS REST 适配器以支持代理和持久连接
 * 改写了传递无效区域时出现的错误消息
 * Swift/Objective-C：
@@ -59,17 +57,14 @@ ms.locfileid: "70103739"
 **Bug 修复**
 
 * 修复了 FromSubscription 与对话听录一起使用时出现的问题。
-* 修复了语音优先虚拟助手的关键字探查 bug。
 
 
 ## <a name="speech-sdk-150-2019-may-release"></a>语音 SDK 1.5.0：2019 年 5 月发布
 
 **新功能**
 
-* 现已推出适用于 Windows 和 Linux 的唤醒字（关键字探查/KWS）功能。 KWS 功能可能适用于任何麦克风类型，不过，官方的 KWS 支持目前仅限于 Azure Kinect DK 硬件或语音设备 SDK 中的麦克风阵列。
 * 短语提示功能通过 SDK 提供。
-* 对话听录功能通过 SDK 提供。
-* 添加了使用 Direct Line 语音通道的语音优先虚拟助手的支持。
+* 对话听录功能通过 SDK 提供。 [请参阅](conversation-transcription-service.md)。
 
 **示例**
 
@@ -100,7 +95,7 @@ ms.locfileid: "70103739"
 **新功能** 
 
 * SDK 现在支持 beta 版本的文本转语音服务。 Windows 和 Linux 桌面版中的 C++ 和 C# 支持该版本。 有关详细信息，请查看[文本转语音概述](text-to-speech.md#get-started-with-text-to-speech)。
-* SDK 现在支持将 MP3 和 Opus/OGG 音频文件用作流输入文件。 此功能仅适用于 Linux 中的 C++。
+* SDK 现在支持将 MP3 和 Opus/OGG 音频文件用作流输入文件。 此功能只能通过 C++ 和 C# 在 Linux 上使用，目前为 beta 版（更多详细信息请参见[此处](how-to-use-codec-compressed-audio-input-streams.md)）。
 * 适用于 Java、.NET Core C++和 Objective-C 的语音 SDK 已获得 macOS 支持。 macOS 的 Objective-C 支持目前以 beta 版提供。
 * iOS：适用于 iOS (Objective-C) 的语音 SDK 现在也已作为 CocoaPod 发布。
 * JavaScript：支持将非默认麦克风用作输入设备。
@@ -114,7 +109,7 @@ ms.locfileid: "70103739"
 **改进 / 更改**
 
 * Python:现在会通过 `properties` 属性公开识别结果的附加属性。
-* 更多的开发和调试支持。
+* 若要获得更多开发和调试支持，可将 SDK 日志记录和诊断信息重定向到日志文件中（更多详细信息请参见[此处](how-to-use-logging.md)）。
 * JavaScript：提高了音频处理性能。
 
 **Bug 修复**
@@ -136,19 +131,16 @@ ms.locfileid: "70103739"
 **新功能**
 
 * 语音 SDK 支持通过 AudioConfig 类来选择输入麦克风。 这样，便可以将音频数据从非默认麦克风流式传输到语音服务。 有关详细信息，请参阅介绍[音频输入设备选择](how-to-select-audio-input-devices.md)的文档。 此功能在 JavaScript 中尚不可用。
-* 语音 SDK 目前在 beta 版本中支持 Unity。 请通过 [GitHub 示例存储库](https://aka.ms/csspeech/samples)中的问题部分来提供反馈。 此版本支持在 Windows x86 和 x64（桌面或通用 Windows 平台应用程序）以及 Android（ARM32/64，x86）上使用 Unity。 [Unity 快速入门](quickstart-csharp-unity.md)中提供了更多信息。
+* 语音 SDK 目前在 beta 版本中支持 Unity。 请通过 [GitHub 示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中的问题部分来提供反馈。 此版本支持在 Windows x86 和 x64（桌面或通用 Windows 平台应用程序）以及 Android（ARM32/64，x86）上使用 Unity。
 * 不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
 
 **示例**
 
-[示例存储库](https://aka.ms/csspeech/samples)中提供了以下新内容：
+[示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中提供了以下新内容：
 
 * 有关 AudioConfig.FromMicrophoneInput 的更多示例。
-* 有关意向识别和翻译的更多 Python 示例。
 * 有关在 iOS 中使用连接对象的更多示例。
-* 有关具有音频输出的翻译的更多 Java 示例。
-* 有关使用[批量听录 REST API](batch-transcription.md) 的新示例。
 
 **改进 / 更改**
 
@@ -192,10 +184,9 @@ ms.locfileid: "70103739"
 **新功能**
 
 * Python
-  * 此版本支持 Python 的 Beta 版本（3.5 及更高版本）。 有关详细信息，请参阅此文](quickstart-python.md)。
+  * 此版本支持 Python 的 Beta 版本（3.5 及更高版本）。
 * Javascript
   * 适用于 JavaScript 的语音 SDK 已开放了源代码。 [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js) 上提供了源代码。
-  * 我们现在支持 Node.js，可以在[此处](quickstart-js-node.md)找到详细信息。
   * 已删除了对音频会话的长度限制，将自动在后台进行重新连接。
 * 连接对象
   * 可以从识别器中访问连接对象。 此对象允许你显式启动服务连接并订阅连接事件和断开连接事件。
@@ -226,7 +217,7 @@ ms.locfileid: "70103739"
 **示例**
 
 * 更新并修复了几个示例（例如，翻译的输出语音，等等）。
-* 在[示例存储库](https://aka.ms/csspeech/samples)中添加了 Node.js 示例。
+* 在[示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中添加了 Node.js 示例。
 
 ## <a name="speech-sdk-110"></a>语音 SDK 1.1.0
 
@@ -257,7 +248,7 @@ ms.locfileid: "70103739"
 
 **示例**
 
-* 在[示例存储库](https://aka.ms/csspeech/samples)中添加了拉取和推送流用法的 C++ 和 C# 示例。
+* 在[示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中添加了拉取和推送流用法的 C++ 和 C# 示例。
 
 ## <a name="speech-sdk-101"></a>语音 SDK 1.0.1
 
@@ -271,14 +262,9 @@ ms.locfileid: "70103739"
 * JavaScript：针对事件及其有效负载进行了修复。
 * 文档改进。
 
-在[示例存储库](https://aka.ms/csspeech/samples)中已添加了适用于 JavaScript 的新示例。
+在[示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中已添加了适用于 JavaScript 的新示例。
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>认知服务语音 SDK 1.0.0：2018 年 9 月版本
-
-**新功能**
-
-* 支持 iOS 中的 Objective-C。 请查看[适用于 iOS 的 Objective-C 快速入门](quickstart-objectivec-ios.md)。
-* 支持浏览器中的 JavaScript。 请查看 [JavaScript 快速入门](quickstart-js-browser.md)。
 
 **重大更改**
 
@@ -290,10 +276,8 @@ ms.locfileid: "70103739"
 **新功能**
 
 * 使用语音 SDK 生成的 UWP 应用现在可以通过 Windows 应用认证工具包 (WACK)。
-  请查看 [UWP 快速入门](quickstart-csharp-uwp.md)。
 * 在 Linux (Ubuntu 16.04 x64) 上支持 .NET Standard 2.0。
 * 试验：在 Windows (64-bit) 和 Linux (Ubuntu 16.04 x64) 上支持 Java 8。
-  请查看 [Java 运行时环境快速入门](quickstart-java-jre.md)。
 
 **功能性更改**
 
@@ -315,10 +299,7 @@ ms.locfileid: "70103739"
 
 **新功能**
 
-* 支持 Android 平台（API 23：Android 6.0 Marshmallow 或更高版本）。 查看 [Android 快速入门](quickstart-java-android.md)。
-* 在 Windows 上支持 .NET Standard 2.0。 查看 [.NET Core 快速入门](quickstart-csharp-dotnetcore-windows.md)。
 * 试验：在 Windows 上支持 UWP（版本 1709 或更高版本）。
-  * 请查看 [UWP 快速入门](quickstart-csharp-uwp.md)。
   * 注意：使用语音 SDK 生成的 UWP 应用尚未通过 Windows 应用认证工具包 (WACK)。
 * 通过自动重新连接支持识别功能长时间运行。
 
@@ -382,7 +363,7 @@ ms.locfileid: "70103739"
 
 - 文档修复：`Region` 是创建识别器所必需的信息。
 
-已添加更多示例，还将持续更新。 有关最新的示例集，请参阅[语音 SDK 示例 GitHub 存储库](https://aka.ms/csspeech/samples)。
+已添加更多示例，还将持续更新。 有关最新的示例集，请参阅[语音 SDK 示例 GitHub 存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)。
 
 ## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>认知服务语音 0.2.12733：2018 年 5 月版本
 

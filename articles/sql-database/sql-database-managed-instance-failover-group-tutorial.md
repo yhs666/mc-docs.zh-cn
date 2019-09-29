@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sashan, carlrab
 manager: digimobile
 origin.date: 06/27/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 2964e51da604ba1e0b1ecfd886851911c8c195d9
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: 20edcdaed5473b12182f4d963571d546813c4fe5
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373048"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262945"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>教程：将 SQL 数据库托管实例添加到故障转移组
 
@@ -30,7 +30,9 @@ ms.locfileid: "70373048"
 > - 测试故障转移
 
   > [!NOTE]
-  > 创建托管实例可能需要花费很长时间。 因此，本教程可能需要几个小时才能完成。 有关预配时间的详细信息，请参阅[托管实例管理操作](sql-database-managed-instance.md#managed-instance-management-operations)。 对托管实例使用故障转移组的功能目前为预览版。 
+  > - 在学习本教程时，请确保使用[为托管实例设置故障转移组的先决条件](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)来配置资源。 
+  > - 创建托管实例可能需要花费很长时间。 因此，本教程可能需要几个小时才能完成。 有关预配时间的详细信息，请参阅[托管实例管理操作](sql-database-managed-instance.md#managed-instance-management-operations)。 
+  > - 对托管实例使用故障转移组的功能目前为预览版。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -39,7 +41,7 @@ ms.locfileid: "70373048"
 - 一个 Azure 订阅。如果你没有 Azure 订阅，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1 - 创建资源组和主托管实例
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1 - 创建资源组和主托管实例
 此步骤将使用 Azure 门户为故障转移组创建资源组和主托管实例。 
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 
@@ -48,7 +50,7 @@ ms.locfileid: "70373048"
 1. 选择“创建”启动 **SQL 托管实例**创建页。  
 1. 在“创建 Azure SQL 数据库托管实例”页的“基本信息”选项卡上  
     1. 在“项目详细信息”下，从下拉列表中选择你的订阅，然后选择“创建新资源组”。    键入资源组的名称，例如 `myResourceGroup`。 
-    1. 在“托管实例详细信息”下，提供托管实例的名称，以及要将托管实例部署到的区域。  请确保选择具有配对区域的区域。 将“计算 + 存储”保留默认值。  
+    1. 在“托管实例详细信息”下，提供托管实例的名称，以及要将托管实例部署到的区域。  将“计算 + 存储”保留默认值。  
     1. 在“管理员帐户”下，提供管理员登录名（例如 `azureuser`）和复杂的管理员密码。  
 
     ![创建主托管实例](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -80,7 +82,7 @@ ms.locfileid: "70373048"
     | **名称** |  辅助托管实例要使用的虚拟网络的名称，例如 `vnet-sql-mi-secondary`。 |
     | **地址空间** | 虚拟网络的地址空间，例如 `10.128.0.0/16`。 | 
     | **订阅** | 主托管实例和资源组所在的订阅。 |
-    | **区域** | 要在其中部署辅助托管实例的位置；这应是主托管实例的配对区域。  |
+    | **区域** | 将部署辅助托管实例的位置。 |
     | **子网** | 子网的名称。 默认会提供 `default`。 |
     | **地址范围**| 子网的地址范围。 此范围必须不同于主托管实例的虚拟网络使用的子网地址范围，例如 `10.128.0.0/24`。  |
     | &nbsp; | &nbsp; |
@@ -93,7 +95,6 @@ ms.locfileid: "70373048"
 
 第二个托管实例必须：
 - 是空的。 
-- 位于其对应主托管实例的配对区域中。 
 - 与主托管实例的子网和 IP 范围不同。 
 
 若要创建辅助托管实例，请执行以下步骤： 
@@ -109,7 +110,7 @@ ms.locfileid: "70373048"
     | **订阅** |  主托管实例所在的订阅。 |
     | **资源组**| 主托管实例所在的资源组。 |
     | **托管实例名称** | 新辅助托管实例的名称，例如 `sql-mi-secondary`  | 
-    | **区域**| 辅助托管实例的配对区域位置。  |
+    | **区域**| 辅助托管实例的位置。  |
     | **托管实例管理员登录名** | 要用于新辅助托管实例的登录名，例如 `azureuser`。 |
     | **密码** | 新辅助托管实例的管理员登录名使用的复杂密码。  |
     | &nbsp; | &nbsp; |
@@ -210,8 +211,7 @@ ms.locfileid: "70373048"
 此步骤将创建故障转移组，并将两个托管实例添加到其中。 
 
 1. 在 [Azure 门户](https://portal.azure.cn)中切换到“所有服务”，并在搜索框中键入 `managed instance`。  
-1. （可选）选择“SQL 托管实例”旁边的星星图标，将托管实例作为快捷方式添加到左侧导航栏中。  
-1. 选择“SQL 托管实例”并选择主托管实例，例如 `sql-mi-primary`。  
+1. 选择在第一部分中创建的主托管实例，例如 `sql-mi-primary`。 
 1. 在“设置”下，导航到“实例故障转移组”，然后选择“添加组”打开“实例故障转移组”页。     
 
    ![添加故障转移组](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

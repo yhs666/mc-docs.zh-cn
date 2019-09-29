@@ -1,21 +1,20 @@
 ---
 title: Azure Data Lake Storage Gen2 中的访问控制概述 | Microsoft Docs
 description: 了解 Azure Data Lake Storage Gen2 中访问控制的工作原理
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 721ee4281f05d58e935648befba984f01edff949
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 7d831745fa62743155d5e0834aba8e16f24e49be
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209404"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306772"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -33,7 +32,7 @@ RBAC 使用角色分配对服务主体有效地应用权限集。  安全主体�
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>角色分配对文件和目录级访问控制列表的影响
 
-虽然使用 RBAC 角色分配是一种强大的访问权限控制机制，但对 ACL 而言，这种机制并不精细。 RBAC 的最小粒度为文件系统级别，我们将它的优先级评为高于 ACL。 因此，如果在文件系统范围内将角色分配到某个安全主体，则该安全主体将获得与该文件系统中所有目录和文件的该角色关联的授权级别，不管 ACL 分配如何。
+虽然使用 RBAC 角色分配是一种强大的访问权限控制机制，但对 ACL 而言，这种机制并不精细。 RBAC 的最小粒度在容器级别，其评估优先级高于 ACL。 因此，如果将角色分配给容器范围内的某个安全主体，则无论 ACL 分配如何，该安全主体对于该容器中的所有目录和文件都具有与该角色关联的授权级别。
 
 通过某个[内置角色](/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)或某个自定义角色授予安全主体 RBAC 数据权限后，在授权请求时首先评估这些权限。 如果请求的操作由安全主体的 RBAC 分配授权，则立即解析授权，不执行额外的 ACL 检查。 或者，如果安全主体没有 RBAC 分配或请求的操作与分配的权限不匹配，则通过执行 ACL 检查来确定安全主体是否有权执行请求的操作。
 
@@ -83,7 +82,7 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 
 ### <a name="levels-of-permission"></a>权限级别
 
-文件系统对象权限为“读取”、“写入”和“执行”，可对下表中所示的文件和目录使用这些权限    ：
+容器对象权限为“读取”、“写入”和“执行”，可对文件和目录使用这些权限，如下表所示：   
 
 |            |    文件     |   Directory |
 |------------|-------------|----------|
@@ -92,7 +91,7 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 | **执行 (X)** | 不表示 Data Lake Storage Gen2 上下文中的任何内容 | 需要遍历目录的子项 |
 
 > [!NOTE]
-> 如果仅使用 ACL（无 RBAC）授予权限，则要授予服务主体对文件的读或写访问权限，需要授予服务主体对文件系统以及通向该文件的文件夹层次结构中每个文件夹的 **EXECUTE** 权限。
+> 如果仅使用 ACL（无 RBAC）授予权限，则要授予服务主体对文件的读或写访问权限，需要授予服务主体对容器以及通向该文件的文件夹层次结构中每个文件夹的“执行”  权限。
 
 #### <a name="short-forms-for-permissions"></a>权限的简短形式
 
@@ -156,7 +155,7 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>为新的文件或目录分配拥有组
 
-* **情况 1**：根目录“/”。 此目录是在创建 Data Lake Storage Gen2 文件系统时创建的。 在本例中，如果使用的是 OAuth，则拥有组设置为创建文件系统的用户。 如果文件系统是使用共享密钥、帐户 SAS 或服务 SAS 创建的，则所有者和拥有组设置为 **$superuser**。
+* **情况 1**：根目录“/”。 此目录是在创建 Data Lake Storage Gen2 容器时创建的。 在这种情况下，如果容器是使用 OAuth 创建的，则拥有组将设置为创建容器的用户。 如果容器是使用共享密钥、帐户 SAS 或服务 SAS 创建的，则所有者和拥有组将设置为 $superuser  。
 * **情况 2**（所有其他情况）：创建新项时，从父目录复制拥有组。
 
 ##### <a name="changing-the-owning-group"></a>更改拥有组
@@ -218,13 +217,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 如访问检查算法中所示，掩码会限制对命名用户、拥有组和命名组的访问权限。  
 
 > [!NOTE]
-> 对于新的 Data Lake Storage Gen2 文件系统，根目录（“/”）的访问 ACL 的掩码默认为：目录 750，文件 640。 文件不接收 X 位，因为它与只存储系统中的文件无关。
+> 对于新的 Data Lake Storage Gen2 容器，根目录 ("/") 的访问 ACL 的掩码默认为 750（对于目录）和 640（对于文件）。 文件不接收 X 位，因为它与只存储系统中的文件无关。
 >
 > 可能会在每次调用时指定掩码。 这就使不同的使用系统（例如群集）能够为文件操作使用不同的有效掩码。 如果根据特定请求指定了掩码，则该掩码完全替代默认掩码。
 
 #### <a name="the-sticky-bit"></a>粘滞位
 
-粘滞位是 POSIX 文件系统更高级的一项功能。 在 Data Lake Storage Gen2 的上下文中，不太可能需要粘滞位。 总之，如果目录上已启用粘滞位，子项只能由子项的拥有用户删除或重命名。
+粘滞位是 POSIX 容器的更高级功能。 在 Data Lake Storage Gen2 的上下文中，不太可能需要粘滞位。 总之，如果目录上已启用粘滞位，子项只能由子项的拥有用户删除或重命名。
 
 粘滞位不会显示在 Azure 门户中。
 
@@ -293,7 +292,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="who-is-the-owner-of-a-file-or-directory"></a>谁是文件或目录的所有者？
 
-文件或目录的创建者就是所有者。 就根目录而言，这就是创建文件系统的用户的标识。
+文件或目录的创建者就是所有者。 就根目录而言，这就是创建容器的用户的标识。
 
 ### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>创建文件或目录时将哪个组设置为其拥有组？
 
@@ -322,7 +321,7 @@ $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 是否支持 ACL 继承？
 
-Azure RBAC 分配支持继承。 从订阅、资源组和存储帐户资源往下分配到文件系统资源。
+Azure RBAC 分配支持继承。 分配从订阅、资源组和存储帐户资源向下传递到容器资源。
 
 ACL 不支持继承。 但是，可以使用默认 ACL 来设置父目录下创建的子目录和文件的 ACL。 
 

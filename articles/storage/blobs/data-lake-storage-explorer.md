@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 中管理数据
-description: 本快速入门介绍如何使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中创建文件系统，以及目录和文件。 接下来，介绍如何将文件下载到本地计算机，以及如何查看目录中的所有文件。
+description: 本快速入门介绍如何使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中创建容器，以及目录和文件。 接下来，介绍如何将文件下载到本地计算机，以及如何查看目录中的所有文件。
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 07/19/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: f3e5c5ba3f95acac75babd3be2d830ba6f864739
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 745285d59b1e54d6563d646afb7dfef30dd8dfd8
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209407"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306755"
 ---
 # <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中管理数据
 
@@ -42,13 +42,13 @@ ms.locfileid: "70209407"
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-file-system"></a>创建文件系统
+## <a name="create-a-container"></a>创建容器
 
 始终将 Blob 上传到目录中。 这样，就能够整理 blob 组，就像在计算机的文件夹中整理文件一样。
 
-要创建目录，请展开在前面的步骤中创建的存储帐户。 选择“Blob 容器”，然后右键单击并选择“创建 Blob 容器”   。 输入文件系统的名称。 完成后，按 **Enter** 创建文件系统。 成功创建 Blob 目录后，该目录会显示在所选存储帐户的“Blob 容器”文件夹下  。
+要创建目录，请展开在前面的步骤中创建的存储帐户。 选择“Blob 容器”，然后右键单击并选择“创建 Blob 容器”   。 输入容器的名称。 完成后，请按 **Enter** 创建容器。 成功创建 Blob 目录后，该目录会显示在所选存储帐户的“Blob 容器”文件夹下  。
 
-![Microsoft Azure 存储资源管理器 - 创建文件系统](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure 存储资源管理器 - 创建容器](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>将 blob 上传到目录
 

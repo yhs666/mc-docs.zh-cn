@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a7292376a7358d7c6d59e63882e72f55a4224d92
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d43e1be630c18263f5f1f25236974014ac3255c0
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254660"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306804"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 更改源处理器 
 
@@ -117,7 +117,9 @@ static async Task HandleChangesAsync(IReadOnlyCollection<ToDoItem> changes, Canc
 
 如果符合这三个条件，则更改源处理器将使用均等分配算法，将租约容器中的所有租约分配到所有正在运行的实例，并将计算并行化。 在给定的时间，一个租约只能由一个实例拥有，因此，最大实例数等于租约数。
 
-实例可以扩展和收缩，更改源处理器会通过相应地重新分配来动态调整负载。
+实例的数量可以增加和减少，更改源处理器会通过相应地重新分配来动态调整负载。
+
+而且，由于吞吐量或存储量的增加，更改源处理器可以动态调整以适应容器规模。 当容器增长时，更改源处理器通过动态增加租约并在现有实例之间分配新的租约来透明地处理这些情况。
 
 ## <a name="change-feed-and-provisioned-throughput"></a>更改源和预配吞吐量
 
@@ -126,7 +128,7 @@ static async Task HandleChangesAsync(IReadOnlyCollection<ToDoItem> changes, Canc
 ## <a name="additional-resources"></a>其他资源
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [GitHub 上的用法示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [GitHub 上的其他示例](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>后续步骤

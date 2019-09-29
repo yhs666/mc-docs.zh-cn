@@ -10,19 +10,18 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 49976976f2c342440a531783260aa6fbd8264fd2
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 09/30/2019
+ms.openlocfilehash: 4ade38fb6b605d877962d0037a62227703b8d35f
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363785"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262958"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
 
-可通过 Visual Studio 中的 NuGet 和 NuGet 包管理器界面获取 [弹性数据库客户端库](sql-database-elastic-database-client-library.md) 的新版本。 升级包含客户端库的 bug 修复和新功能支持。
+可通过 Visual Studio 中 NuGet 和 NuGet 包管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
 
 **有关最新版本：** 请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
@@ -37,7 +36,7 @@ ms.locfileid: "54363785"
 * 在 Visual Studio 解决方案中，选择“**工具**” --> “**Nuget 程序包管理器**” -->  “**管理解决方案的 Nuget 程序包**”。
 * (Visual Studio 2013) 在左侧面板中，选择“**更新**”，并选择窗口中显示的包“**Azure SQL 数据库弹性扩展客户端库**”上的“**更新**”按钮。
 * (Visual Studio 2015) 将“筛选器”框设置为“**可用升级**”。 选择要更新的包，并单击“更新”  按钮。
-* (Visual Studio 2017) 在对话框顶部，选择“更新”。 选择要更新的包，并单击“更新”  按钮。
+* (Visual Studio 2017) 在对话框顶部，选择“更新”。  选择要更新的包，并单击“更新”  按钮。
 * 生成并部署。
 
 **2.升级脚本。** 如果使用 **PowerShell** 脚本来管理分片，请[下载新的库版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)并将其复制到从中执行脚本的目录中。
@@ -48,7 +47,7 @@ ms.locfileid: "54363785"
 
 ***选项 1：使用 PowerShell 升级元数据***
 
-1. 在[此处](http://nuget.org/nuget.exe)下载 NuGet 的最新命令行实用工具并将其保存到一个文件夹。
+1. 在[此处](https://nuget.org/nuget.exe)下载 NuGet 的最新命令行实用工具并将其保存到一个文件夹。
 2. 打开命令提示符，导航到同一文件夹，并发出命令： `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. 导航到包含刚下载的新客户端 DLL 版本的子文件夹，例如： `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. 从[脚本中心](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)下载弹性数据库客户端升级脚本，并将其保存到包含 DLL 的同一文件夹中。

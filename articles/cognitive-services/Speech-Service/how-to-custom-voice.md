@@ -1,36 +1,36 @@
 ---
 title: 什么是自定义语音？ - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 自定义语音是一组在线工具，使用它可为自有品牌创建可识别的独一无二的语音。 只需准备好几个音频文件和关联的听录内容即可完全入门。 请遵循以下链接开始创建自定义语音转文本体验。
+description: 自定义语音是一组在线工具，使用它可为自有品牌创建可识别的独一无二的语音。 只需准备好几个音频文件和关联的听录内容即可完全入门。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/08/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 164c29bec4501496bf8b683f58d35eadaf301a59
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: fd60dd3499273cb61a732a0ccd3a4b509186f175
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104190"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267055"
 ---
 # <a name="get-started-with-custom-voice"></a>自定义语音入门
 
-自定义语音是一组在线工具，使用它可为自有品牌创建可识别的独一无二的语音。 只需准备好几个音频文件和关联的听录内容即可完全入门。 请遵循以下链接开始创建自定义文本转语音体验。
+[自定义语音](https://speech.microsoft.com/customvoice)是一组在线工具，使用它可为自有品牌创建可识别的独一无二的语音。 只需准备好几个音频文件和关联的听录内容即可完全入门。 请遵循以下链接开始创建自定义文本转语音体验。
 
 ## <a name="whats-in-custom-voice"></a>什么是自定义语音？
 
 在开始使用自定义语音之前，需要一个 Azure 帐户和一个语音服务订阅。 创建帐户后，可以准备数据、训练和测试模型、评估语音质量，并最终部署自定义语音模型。
 
-下图突出显示了使用自定义语音门户创建自定义语音模型的步骤。 请使用链接了解详细信息。
+下图突出显示了使用[自定义语音门户](https://speech.microsoft.com/customvoice)创建自定义语音模型的步骤。 请使用链接了解详细信息。
 
 ![自定义语音体系结构图](media/custom-voice/custom-voice-diagram.png)
 
-1.  [订阅和创建项目](#set-up-your-azure-account) - 创建 Azure 帐户和语音服务订阅。 使用此统一订阅可以访问语音转文本、文本转语音、语音翻译和自定义语音门户。 然后，可以使用语音服务订阅创建第一个自定义语音项目。
+1.  [订阅和创建项目](#set-up-your-azure-account) - 创建 Azure 帐户和语音服务订阅。 使用此统一订阅可以访问“文本转语音”和自定义语音门户。 然后，可以使用语音服务订阅创建第一个自定义语音项目。
 
 2.  [上传数据](how-to-custom-voice-create-voice.md#upload-your-datasets) - 使用自定义语音门户或自定义语音 API 上传数据（音频和文本）。 在门户中，可以调查和评估发音评分以及信噪比。 有关详细信息，请参阅[如何为自定义语音准备数据](how-to-custom-voice-prepare-data.md)。
 
@@ -45,12 +45,9 @@ ms.locfileid: "70104190"
 创建 Azure 帐户和语音服务订阅后，需要登录到自定义语音门户并连接订阅。
 
 1. 在 Azure 门户中获取语音服务订阅密钥。
-2. 登录到[自定义语音门户](https://aka.ms/custom-voice)。
+2. 登录到[自定义语音门户](https://speech.microsoft.com/customvoice)。
 3. 选择你的订阅并创建语音项目。
 4. 若要切换到另一个语音订阅，请使用顶部导航栏中的齿轮图标。
-
-> [!NOTE]
-> 自定义语音服务不支持 30 天免费试用密钥。 必须先在 Azure 中创建 F0 或 S0 密钥才能使用该服务。
 
 ## <a name="how-to-create-a-project"></a>如何创建项目
 

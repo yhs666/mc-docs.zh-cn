@@ -1,21 +1,21 @@
 ---
-title: 适用于 Azure 存储的工具 | Microsoft Docs
-description: 可用于查看 Azure 存储数据或与之交互的工具列表。
+title: 使用 Azure 存储的工具
+description: 可用于查看 Azure 存储数据并与之交互的工具列表。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 09/06/2017
-ms.date: 09/09/2019
+origin.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 7c5342bd094af8e344d11d1b72f4e6f325380415
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: fb12b87b857577633a38bd4539d0b2d0ae8dc6ab
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209345"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306725"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
 Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在免费试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。
@@ -117,20 +117,6 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td>X</td>
     <td>X</td>
     <td>试用</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate：Azure 资源管理器</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Y</td>
     <td></td>
     <td>X</td>
     <td></td>

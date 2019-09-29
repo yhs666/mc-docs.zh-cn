@@ -3,23 +3,27 @@ title: 使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
 description: 了解如何使用 Azure Active Directory 服务主体从 Azure Kubernetes 服务访问专用容器注册表中的映像。
 services: container-service
 author: rockboyfor
+manager: digimobile
 ms.service: container-service
 ms.topic: article
-origin.date: 08/08/2018
-ms.date: 04/15/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: e53acfc37f36a4d05e4981fb7795790091d898b3
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 588aa65814f4e52503952b89949fe5fb4db50779
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529154"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306480"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
 
 结合使用 Azure 容器注册表 (ACR) 和 Azure Kubernetes 服务 (AKS) 时，需要建立身份验证机制。 本文详细介绍这两种 Azure 服务之间的建议身份验证配置。
 
-本文假定已创建 AKS 群集，并且可以使用 `kubectl` 命令行客户端访问群集。 
+只需配置其中一种身份验证方法。 最常用的方法是[使用 AKS 服务主体授予访问权限](#grant-aks-access-to-acr)。 如果有特定需求，可以选择[使用 Kubernetes 机密授予访问权限](#access-with-kubernetes-secret)。
+
+本文假定已创建 AKS 群集，并且可以使用 `kubectl` 命令行客户端访问群集。 但是，如果你想要创建群集并在创建群集时配置对容器注册表的访问权限，请参阅[教程：部署 AKS 群集](../aks/tutorial-kubernetes-deploy-cluster.md)。
+
+<!--Not Available on [Authenticate with Azure Container Registry from Azure Kubernetes Service (preview)](../aks/cluster-container-registry-integration.md)-->
 
 ## <a name="grant-aks-access-to-acr"></a>向 ACR 授予 AKS 访问权限
 
@@ -72,9 +76,9 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-现在可以在 Kubernetes [映像请求机密][image-pull-secret]中存储服务主体的凭据，当在 AKS 群集中运行容器时，会引用这些凭据。
+现在可以在 Kubernetes [映像请求机密][image-pull-secret]中存储服务主体的凭据，AKS 群集在运行容器时，会引用这些凭据。
 
-使用以下 kubectl 命令创建 Kubernetes 机密。 将 `<acr-login-server>` 替换为 Azure 容器注册表的完全限定名称（它的格式为“acrname.azurecr.cn”）。 将 `<service-principal-ID>` 和 `<service-principal-password>` 替换为运行之前的脚本所获得的值。 将 `<email-address>` 替换为格式正确的任何电子邮件地址。
+使用以下 kubectl  命令创建 Kubernetes 机密。 将 `<acr-login-server>` 替换为 Azure 容器注册表的完全限定名称（它的格式为“acrname.azurecr.cn”）。 将 `<service-principal-ID>` 和 `<service-principal-password>` 替换为运行之前的脚本所获得的值。 将 `<email-address>` 替换为格式正确的任何电子邮件地址。
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
@@ -101,6 +105,7 @@ spec:
 ```
 
 <!-- LINKS - external -->
+
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [image-pull-secret]: https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets
 

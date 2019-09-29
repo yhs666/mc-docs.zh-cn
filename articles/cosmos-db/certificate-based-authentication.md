@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/11/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c28f66c7fda02e08ef895e7551ff97d42760831a
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d8fbb3c67f27898bd0eb07cdf5efedaa80b2f5cc
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254670"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306750"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>为基于证书的身份验证配置 Azure AD 标识以从 Azure Cosmos DB 帐户访问密钥
 
@@ -128,7 +128,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 1. 接下来，验证是否可以使用应用程序的凭据登录到 Azure 门户并访问 Azure Cosmos DB 密钥：
 
     ```powershell
-    Login-AzAccount -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
+    Login-AzAccount -Environment AzureChinaCloud -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
 
     Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <Resource_Group_Name_of_your_Azure_Cosmos_account> -ResourceName <Your_Azure_Cosmos_Account_Name> 
     ```
@@ -231,6 +231,6 @@ namespace TodoListDaemonWithCert
 
 * [使用 Azure Key Vault 保护 Azure Cosmos 密钥](access-secrets-from-keyvault.md)
 
-* [Azure Cosmos DB 的安全属性](cosmos-db-security-attributes.md)
+* [Azure Cosmos DB 的安全控制](cosmos-db-security-controls.md)
 
 <!--Update_Description: wording update -->

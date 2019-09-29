@@ -4,20 +4,20 @@ description: 本文介绍如何从备份还原 Azure Cosmos DB 数据，如何�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 09/01/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1702a01fb495294eccbc114524338a8f4844b9e8
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 6e144d7fcba10504b5552f7db349eb0cf25ef58f
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151441"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306827"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中从备份还原数据 
 
-如果意外删除了数据库或容器，可以[提交支持票证]( https://support.azure.cn/zh-cn/support/support-azure/)或[联系 Azure 支持]( https://www.azure.cn/support/contact/)，以便从自动联机备份中还原数据。 Azure 支持仅适用于选定计划（例如**标准**计划、**开发人员**计划以及更高级别的计划）。 不适用于基本计划  。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
+如果意外删除了数据库或容器，可以[提交支持票证]( https://support.azure.cn/support/support-azure/)或[联系 Azure 支持]( https://www.azure.cn/support/contact/)，以便从自动联机备份中还原数据。 Azure 支持仅适用于选定计划（例如**标准**计划、**开发人员**计划以及更高级别的计划）。 不适用于基本计划  。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
 
 若要还原备份的特定快照，Azure Cosmos DB 要求在该快照的备份周期的持续时间内可用。
 
@@ -40,11 +40,11 @@ ms.locfileid: "67151441"
     * 如果意外删除了数据库或容器，请提交一个严重性级别为 B 或 C 的 Azure 支持案例。 
     * 如果意外删除或损坏了容器中的某些文档，请提交一个严重性级别为 A 的支持案例。 
 
-发生数据损坏时，如果容器中的文档遭到修改或删除，请尽快删除容器  。 这样就可以避免 Azure Cosmos DB 覆盖备份。 如果因某种原因而无法删除，应尽快提交票证。 除了 Azure Cosmos 帐户名、数据库名、集合名以外，还应指定数据可以恢复到的时间点。 务必尽量精确，因为这有助于我们确定当时可用的最佳备份。 指定 UTC 时间也很重要。 
+发生数据损坏时，如果容器中的文档遭到修改或删除，请尽快删除容器  。 这样就可以避免 Azure Cosmos DB 覆盖备份。 如果因某种原因而无法删除，应尽快提交票证。 除了 Azure Cosmos 帐户名、数据库名、容器名以外，还应指定数据可以还原到的时间点。 务必尽量精确，因为这有助于我们确定当时可用的最佳备份。 指定 UTC 时间也很重要。 
 
 <!--MOONCAKE CUSTOMIZE on SUPPORT RREQUEST-->
 
-下面的屏幕截图演示了如何为容器（集合/图/表）创建[支持请求](https://support.azure.cn/zh-cn/support/support-azure/)，以便在填写**常规信息**和**问题**之后还原数据。 提供其他详细信息（例如数据类型、还原目的、删除数据的时间），以帮助我们设置请求的优先级。
+下面的屏幕截图说明如何为容器（集合/图/表）创建通过 Azure 门户还原数据的支持请求。 提供其他详细信息（例如数据类型、还原目的、删除数据的时间），以帮助我们设置请求的优先级。
 
 ![使用 Azure 门户创建备份支持请求](./media/how-to-backup-and-restore/backup-support-request-portal.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "67151441"
 
 还原数据后，你会收到有关新帐户名（通常采用 `<original-name>-restored1` 格式）和帐户要还原到的时间的通知。 还原的帐户与原始帐户具有相同的预配吞吐量、索引策略，并且二者位于同一区域。 角色为订阅管理员或共同管理员的用户可以看到还原的帐户。
 
-还原数据后，应检查并验证还原的帐户中的数据，确保其中包含你需要的版本。 如果一切正常，应该使用 [Azure Cosmos DB 更改源](change-feed.md)将数据迁移回原始帐户。
+还原数据后，应检查并验证还原的帐户中的数据，确保其中包含你需要的版本。 如果一切正常，应该使用 [Azure Cosmos DB 更改源](change-feed.md)或 [Azure 数据工厂](../data-factory/connector-azure-cosmos-db.md)将数据迁移回原始帐户。
 
 <!-- Not Available on [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
 
@@ -64,9 +64,9 @@ ms.locfileid: "67151441"
 
 接下来，可以通过以下文章学习如何将数据迁移回原始帐户：
 
-* 若要提出还原请求，请联系 Azure 支持，并[从 Azure 门户提交票证](https://support.azure.cn/zh-cn/support/support-azure/)
+* 若要提出还原请求，请联系 Azure 支持，并[从 Azure 门户提交票证](https://support.azure.cn/support/support-azure/)
 * [使用 Cosmos DB 更改源](change-feed.md)将数据移动到 Azure Cosmos DB。
 
-<!--Not Available on [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
+* [使用 Azure 数据工厂](../data-factory/connector-azure-cosmos-db.md)将数据移动到 Azure Cosmos DB。
 
 <!-- Update_Description: update meta properties, wording update-->

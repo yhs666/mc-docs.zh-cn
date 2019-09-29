@@ -4,17 +4,17 @@ description: 了解如何创建生命周期策略规则，以将陈旧数据从�
 author: WenJason
 ms.author: v-jay
 origin.date: 05/21/2019
-ms.date: 08/19/2019
+ms.date: 09/30/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: cd5f4cb39197e171322b9a8f6e3e75952a2fb1e5
-ms.sourcegitcommit: 0de1021cff162a602777858b3f0b7949557fd22c
+ms.openlocfilehash: fa1d064afb6b002c322e0a9020a65ce0a83c1555
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014637"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306777"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 存储生命周期
 
@@ -53,7 +53,7 @@ ms.locfileid: "69014637"
 本文介绍如何使用门户和 PowerShell 方法管理策略。  
 
 > [!NOTE]
-> 如果为存储帐户启用了防火墙规则，生命周期管理请求可能会被阻止。 可以通过提供例外来取消阻止这些请求。 所需的旁路为：`Logging,  Metrics,  AzureServices`。 有关详细信息，请参阅[配置防火墙和虚拟网络](/storage/common/storage-network-security#exceptions)中的“例外”部分。
+> 如果为存储帐户启用了防火墙规则，生命周期管理请求可能会被阻止。 可以通过为受信任的 Azure 服务提供例外来取消阻止这些请求。 有关详细信息，请参阅[配置防火墙和虚拟网络](/storage/common/storage-network-security#exceptions)中的“例外”部分。
 
 ### <a name="azure-portal"></a>Azure 门户
 

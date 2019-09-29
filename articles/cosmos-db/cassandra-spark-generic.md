@@ -7,14 +7,14 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 09/09/2019
-ms.openlocfilehash: a155df78eaa969237e18efa2c4454213d00ccdba
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+origin.date: 09/01/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 5f1db8b55eff6ca8a9f18728ee5de742146cd968
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254623"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306676"
 ---
 <!--Verify sucessfully-->
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
@@ -33,7 +33,7 @@ ms.locfileid: "70254623"
 
 * **Cassandra API 的 Azure Cosmos DB 帮助器库：** 除了 Spark 连接器以外，还需要 Azure Cosmos DB 中名为 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) 的另一个库。 此库包含自定义连接工厂和重试策略类。
 
-    Azure Cosmos DB 中的重试策略配置为处理 HTTP 状态代码 429（“请求速率太大”）异常。 Azure Cosmos DB Cassandra API 在 Cassandra 本机协议中将这些异常解释为过载错误，你可以结合退让进行重试。 由于 Azure Cosmos DB 使用预配的吞吐量模型，当传入/传出速率增大时，会发生请求速率限制异常。 重试策略可以防范 Spark 作业出现数据高峰（短暂性地超过针对集合分配的吞吐量）。
+    Azure Cosmos DB 中的重试策略配置为处理 HTTP 状态代码 429（“请求速率太大”）异常。 Azure Cosmos DB Cassandra API 在 Cassandra 本机协议中将这些异常解释为过载错误，你可以结合退让进行重试。 由于 Azure Cosmos DB 使用预配的吞吐量模型，当传入/传出速率增大时，会发生请求速率限制异常。 重试策略可以防范 Spark 作业出现数据高峰（短暂性地超过为容器分配的吞吐量）。
 
     > [!NOTE] 
     > 重试策略只能防范 Spark 作业出现短暂的高峰。 如果尚未配置用于运行工作负荷的足够 RU，则重试策略不适用，并且重试策略类会再次引发异常。

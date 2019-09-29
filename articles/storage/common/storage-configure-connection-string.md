@@ -6,20 +6,20 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/20/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e318734b2ccd59dc452e8275118cb487b34514a0
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: d9253d720915962c4cd06f3aa9df913be71ce82c
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209362"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306735"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 
-连接字符串包含应用程序在运行时使用共享密钥授权访问 Azure 存储帐户中的数据所需的身份验证信息。 可以将连接字符串配置为：
+连接字符串包含应用程序在运行时使用共享密钥授权访问 Azure 存储帐户中的数据所需的授权信息。 可以将连接字符串配置为：
 
 * 连接到 Azure 存储模拟器。
 * 在 Azure 中访问存储帐户。

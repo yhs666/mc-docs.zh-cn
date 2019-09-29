@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 01/11/2019
-ms.date: 07/05/2019
-ms.author: v-biyu
-ms.custom: seodec18
-ms.openlocfilehash: 8ef0b28be87316821051170be421dee1d7aa1341
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5bc58741a049c7d7af4249d149ca26cdc44efdeb
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103768"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267053"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>快速入门：使用 Node.js 将文本转换为语音
 
@@ -56,7 +55,7 @@ const xmlbuilder = require('xmlbuilder');
 
 文本转语音 REST API 需要使用访问令牌进行身份验证。 若要获取访问令牌，需要进行交换。 此函数通过 `issueToken` 终结点使用语音服务订阅密钥来交换访问令牌。
 
-此示例假定语音服务订阅位于“美国西部”区域。 如果使用其他区域，请更新 `uri` 的值。 如需完整的列表，请参阅[区域](https://docs.azure.cn/cognitive-services/speech-service/regions#rest-apis)。
+此示例假定语音服务订阅位于“中国东部”区域。 如果使用其他区域，请更新 `uri` 的值。 如需完整的列表，请参阅[区域](regions.md#overview)。
 
 将以下代码复制到项目中：
 
@@ -65,7 +64,7 @@ const xmlbuilder = require('xmlbuilder');
 function getAccessToken(subscriptionKey) {
     let options = {
         method: 'POST',
-        uri: 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken',
+        uri: 'https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken',
         headers: {
             'Ocp-Apim-Subscription-Key': subscriptionKey
         }
@@ -79,14 +78,15 @@ function getAccessToken(subscriptionKey) {
 
 ## <a name="make-a-request-and-save-the-response"></a>发出请求并保存响应
 
-此处，我们将生成对文本转语音 API 的请求并保存语音响应。 此示例假设使用“美国西部”终结点。 如果已将资源注册到其他区域，请务必更新 `uri`。 有关详细信息，请参阅[语音服务区域](https://docs.azure.cn/cognitive-services/speech-service/regions#text-to-speech)。
+此处，我们将生成对文本转语音 API 的请求并保存语音响应。 此示例假设使用“中国东部”终结点。 如果已将资源注册到其他区域，请务必更新 `uri`。 有关详细信息，请参阅[语音服务区域](regions.md#text-to-speech)。
 
-接下来，需要为请求添加所需的标头。 请务必使用资源的名称（在 Azure 门户中可以找到）更新 `User-Agent`，并将 `X-Microsoft-OutputFormat` 设置为首选的音频输出。 如需输出格式的完整列表，请参阅[音频输出](https://docs.azure.cn/cognitive-services/speech-service/rest-apis#audio-outputs)。
+接下来，需要为请求添加所需的标头。 请务必使用资源的名称（在 Azure 门户中可以找到）更新 `User-Agent`，并将 `X-Microsoft-OutputFormat` 设置为首选的音频输出。 如需输出格式的完整列表，请参阅[音频输出](overview.md)。
 
 然后，使用语音合成标记语言 (SSML) 构造请求正文。 此示例将定义结构，并使用前面创建的 `text` 输入。
 
 >[!NOTE]
 > 此示例使用 `JessaRUS` 语音字体。 如需 Microsoft 提供的语音/语言的完整列表，请参阅[语言支持](language-support.md)。
+> 若要为品牌创建唯一且可识别的语音，请参阅[创建自定义语音字体](how-to-custom-voice-create-voice.md)。
 
 最后，向服务发出请求。 如果该请求成功，则会返回 200 状态代码，语音响应将写入为 `TTSOutput.wav`。
 
@@ -109,7 +109,7 @@ function textToSpeech(accessToken, text) {
 
     let options = {
         method: 'POST',
-        baseUrl: 'https://westus.tts.speech.microsoft.com/',
+        baseUrl: 'https://chinaeast.tts.speech.chinacloudapi.cn/',
         url: 'cognitiveservices/v1',
         headers: {
             'Authorization': 'Bearer ' + accessToken,
@@ -185,5 +185,6 @@ node tts.js
 
 ## <a name="see-also"></a>另请参阅
 
-* [文本到语音 API 参考](https://docs.azure.cn/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [文本到语音 API 参考](overview.md)
+* [创建自定义语音字体](how-to-custom-voice-create-voice.md)
 * [录制语音样本用于创建自定义语音](record-custom-voice-samples.md)

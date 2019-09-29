@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 07/05/2019
-ms.author: v-biyu
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 2d97007bfe011130a8d841351375a08b6308ca7f
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 33135c59642b44b57f389026759d863fe0ee5ae1
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104128"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267040"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用语音服务创建自定义唤醒词
 
@@ -68,4 +68,6 @@ ms.locfileid: "70104128"
 
 1. 将 .zip 文件保存到计算机。 你需要此文件才能将自定义唤醒词部署到开发工具包。
 
+## <a name="next-steps"></a>后续步骤
 
+使用[语音设备 SDK 快速入门](speech-devices-sdk-android-quickstart.md)测试自定义唤醒词。

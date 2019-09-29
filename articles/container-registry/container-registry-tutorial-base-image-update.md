@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-registry
 ms.topic: tutorial
-origin.date: 06/12/2019
-ms.date: 08/26/2019
+origin.date: 08/12/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a13210daab070a3fe21b7f5e89a33ad8df5f84bb
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: d43ed884c71c7c4bd617e9b3701e5255e32cb779
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134548"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306720"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教程：在 Azure 容器注册表中更新基础映像时自动化容器映像生成 
@@ -74,7 +74,16 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>基础映像更新触发的任务
 
-* 目前，对于从 Dockerfile 生成的映像，ACR 任务会检测对同一 Azure 容器注册表、公共 Docker Hub 存储库或 Microsoft 容器注册表公共存储库中的基础映像的依赖性。 如果 `FROM` 语句中指定的基础映像驻留在上述某个位置，则 ACR 任务会添加一个挂钩，以确保它的基础映像更新时会重新生成该映像。
+* 对于从 Dockerfile 生成的映像，ACR 任务将在以下位置检测对基础映像的依赖关系：
+
+    * 运行任务所在的同一 Azure 容器注册表
+    * 同一区域中的另一个 Azure 容器注册表 
+    * Docker Hub 中的公共存储库 
+    * Azure 容器注册表中的公共存储库
+
+    如果 `FROM` 语句中指定的基础映像驻留在上述某个位置，则 ACR 任务会添加一个挂钩，以确保它的基础映像更新时会重新生成该映像。
+
+* 目前，ACR 任务仅跟踪应用程序（*运行时*）映像的基础映像更新。 它不跟踪多阶段 Dockerfile 中使用的中间 (buildtime  ) 映像的基础映像更新。  
 
 * 使用 [az acr task create][az-acr-task-create] 命令创建某个 ACR 任务时，默认会启用该任务，以便在更新基础映像时触发。  即，`base-image-trigger-enabled` 属性设置为 True。 若要在任务中禁用此行为，请将该属性更新为 False。 例如，运行以下 [az acr task update][az-acr-task-update] 命令：
 
@@ -84,7 +93,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 * 若要启用某个 ACR 任务来确定并跟踪容器映像的依赖项（包含其基础映像），首先必须触发该任务**至少一次**。 例如，使用 [az acr task run][az-acr-task-run] 命令手动触发该任务。
 
-* 若要在更新基础映像时触发任务，基础映像必须有一个稳定的标记，例如 `node:9-alpine`。  在将 OS 和框架修补到最新稳定版本时会更新的基础映像往往带有此标记。 如果使用新的版本标记更新基础映像，则不会触发任务。 有关映像标记的详细信息，请参阅[最佳做法指南](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)。 
+* 若要在更新基础映像时触发任务，基础映像必须有一个稳定的标记，例如 `node:9-alpine`。  在将 OS 和框架修补到最新稳定版本时会更新的基础映像往往带有此标记。 如果使用新的版本标记更新基础映像，则不会触发任务。 有关映像标记的详细信息，请参阅[最佳做法指南](container-registry-image-tag-version.md)。 
 
 ### <a name="base-image-update-scenario"></a>基础映像更新方案
 
@@ -118,7 +127,6 @@ az acr task create \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.cn \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
-    --branch master \
     --git-access-token $GIT_PAT
 ```
 
@@ -230,7 +238,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 输出如下所示。 最后执行的生成的触发器应为“映像更新”，指示任务是通过基础映像的快速任务启动的。
 
 ```console
-$ az acr task list-builds --registry $ACR_NAME --output table
+$ az acr task list-runs --registry $ACR_NAME --output table
 
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
@@ -311,5 +319,4 @@ az ad sp delete --id http://$ACR_NAME-pull
 [base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png
 [base-update-02]: ./media/container-registry-tutorial-base-image-update/base-update-02.png
 
-<!-- Update_Description: new article about container registry tutorial base image update -->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: wording update -->

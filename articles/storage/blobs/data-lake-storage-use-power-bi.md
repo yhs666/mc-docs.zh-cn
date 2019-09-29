@@ -6,15 +6,15 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
 origin.date: 07/18/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: bensack
-ms.openlocfilehash: 54ab6553a43a74975c9adba20aa1781bc6b718d7
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 82370aa69729b4730523d4ccaeec4f8297f4c4a2
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209444"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306678"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen2 中的数据
 
@@ -29,7 +29,7 @@ ms.locfileid: "70209444"
 > * 一个采用分层命名空间的存储帐户。 按[这些](data-lake-storage-quickstart-create-account.md)说明创建一个。
 > 阅读本文的前提是已创建名为 `myadlsg2` 的帐户。
 > * 名为 `Drivers.txt` 的示例数据文件位于存储帐户中。
-> 可以从 [Azure Data Lake Git 存储库](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceDataDrivers.txt)下载此示例，然后将该文件上传到存储帐户。
+> 可以从 [Azure Data Lake Git 存储库](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)下载此示例，然后将该文件上传到存储帐户。
 > * **Power BI Desktop**。 可从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=45331) 进行下载。 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>在 Power BI Desktop 中创建报表
@@ -40,7 +40,7 @@ ms.locfileid: "70209444"
 
     ![“获取数据”页](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. 在“Azure Data Lake Storage Gen2”  对话框中，可以使用文件系统终结点格式提供 Azure Data Lake Storage Gen2 帐户、文件系统或子文件夹的 URL。 确保 Data Lake Storage Gen2 的 URL 的模式为 `https://<accountname>.dfs.core.chinacloudapi.cn/<filesystemname>/<subfolder>`，然后单击“确定”。 
+4. 在“Azure Data Lake Storage Gen2”  对话框中，可以使用容器终结点格式提供 Azure Data Lake Storage Gen2 帐户、文件系统或子文件夹的 URL。 确保 Data Lake Storage Gen2 的 URL 的模式为 `https://<accountname>.dfs.core.chinacloudapi.cn/<filesystemname>/<subfolder>`，然后单击“确定”。 
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

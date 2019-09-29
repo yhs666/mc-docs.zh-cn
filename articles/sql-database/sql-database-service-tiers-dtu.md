@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 06/25/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: 6e5395149f38ee12ff82c7d6a1be35ac0293db32
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+origin.date: 09/06/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 8ab2de0f2cead11afee9135534c663666e4918db
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578590"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262909"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>基于 DTU 的购买模型中的服务层
 
@@ -39,7 +38,7 @@ ms.locfileid: "69578590"
 |运行时间 SLA|99.99%|99.99%|99.99%|
 |备份保留|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
-|IO 吞吐量（近似） |每个 DTU 2.5 IOPS| 每个 DTU 2.5 IOPS | 每个 DTU 48 IOPS|
+|IO 吞吐量（近似） |每个 DTU 1-5 IOPS| 每个 DTU 1-5 IOPS | 每个 DTU 25 IOPS|
 |IO 延迟（近似）|5 毫秒（读取），10 毫秒（写入）|5 毫秒（读取），10 毫秒（写入）|2 毫秒（读取/写入）|
 |列存储索引 |不适用|S3 及更高版本|支持|
 |内存中 OLTP|不适用|不适用|支持|

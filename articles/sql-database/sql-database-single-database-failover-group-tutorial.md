@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 06/19/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 3429a69b4ed584e630be9368c3be8a7470c62cb9
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: 229f3864659819342cb547796078b23209a0ffff
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373036"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262915"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>教程：将 Azure SQL 数据库单一数据库添加到故障转移组
 
@@ -62,16 +62,15 @@ ms.locfileid: "70373036"
 使用 Azure 门户创建故障转移组，并将单一数据库添加到其中。 
 
 
-1. 选择 [Azure 门户](https://portal.azure.cn)左上角的“所有服务”。  
+1. 在 [Azure 门户](https://portal.azure.cn)的左侧菜单上选择“所有服务”  。 
 1. 在搜索框中键入 `sql servers`。 
-1. （可选）“SQL 服务器”旁边的星星图标将“SQL 服务器”加入收藏夹，然后将其添加到左侧导航窗格中。  
-    
-    ![找到“SQL 服务器”](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. 在**服务器名称**下选择服务器的名称以打开服务器的设置。
 
-1. 选择“SQL 服务器”，然后选择在第 1 部分创建的服务器，例如 `mysqlserver`。 
+   ![打开单一数据库的服务器](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. 在“设置”窗格下选择“故障转移组”，然后选择“添加组”以创建新的故障转移组。    
 
-    ![添加新的故障转移组](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![添加新的故障转移组](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. 在“故障转移组”页上输入或选择以下值，然后选择“创建”：  
     - **故障转移组名称**：键入唯一的故障转移组名称，例如 `failovergrouptutorial`。 
@@ -84,11 +83,11 @@ ms.locfileid: "70373036"
     > [!NOTE]
     > 服务器登录名和防火墙设置必须与主服务器相匹配。 
     
-      ![为故障转移组创建辅助服务器](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![为故障转移组创建辅助服务器](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **组中的数据库**：选择辅助服务器后，此选项将解除锁定。 使用该选项来**选择要添加的数据库**：请选择在第 1 部分创建的数据库。 将数据库添加到故障转移组的操作会自动启动异地复制过程。 
         
-    ![将 SQL 数据库添加到故障转移组](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![将 SQL 数据库添加到故障转移组](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -156,16 +155,16 @@ ms.locfileid: "70373036"
    ```azurecli
    #!/bin/bash
    # Set variables
-   $subscriptionID=<SubscriptionID>
-   $resourceGroupName=myResourceGroup-$RANDOM
-   $location=ChinaEast2
-   $adminLogin=azureuser
+   $subscriptionID="<SubscriptionID>"
+   $resourceGroupName="myResourceGroup-$RANDOM"
+   $location="ChinaEast2"
+   $adminLogin="azureuser"
    $password="PWD27!"+`openssl rand -base64 18`
-   $serverName=mysqlserver-$RANDOM
-   $databaseName=mySampleDatabase
-   $drLocation=ChinaNorth2
-   $drServerName=mysqlsecondary-$RANDOM
-   $failoverGroupName=failovergrouptutorial-$RANDOM
+   $serverName="mysqlserver-$RANDOM
+   $databaseName="mySampleDatabase"
+   $drLocation="ChinaNorth2"
+   $drServerName="mysqlsecondary-$RANDOM"
+   $failoverGroupName="failovergrouptutorial-$RANDOM"
 
    # Create a secondary server in the failover region
    echo "Creating a secondary logical server in the DR region..."
@@ -198,13 +197,13 @@ ms.locfileid: "70373036"
 1. 在 [Azure 门户中](https://portal.azure.cn)导航到你的“SQL 服务器”服务器。  
 1. 在“设置”窗格下选择“故障转移组”，然后选择在第 2 部分创建的故障转移组。   
   
-   ![在门户中选择故障转移组](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![在门户中选择故障转移组](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. 查看哪个服务器是主服务器，哪个服务器是辅助服务器。 
 1. 在“任务”窗格中选择“故障转移”，以故障转移包含示例单一数据库的故障转移组。  
 1. 在告知将会断开 TDS 会话连接的警告中选择“是”。  
 
-   ![故障转移包含 SQL 数据库的故障转移组](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![故障转移包含 SQL 数据库的故障转移组](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. 查看哪个服务器现在是主服务器，哪个服务器是辅助服务器。 如果故障转移成功，这两个服务器的角色应会交换。 
 1. 再次选择“故障转移”以将服务器故障回复到其初始角色。  
@@ -273,8 +272,8 @@ ms.locfileid: "70373036"
    
    ```azurecli
    # Set variables
-   $resourceGroupName=myResourceGroup-$RANDOM
-   $serverName=mysqlserver-$RANDOM
+   $resourceGroupName="myResourceGroup-$RANDOM"
+   $serverName="mysqlserver-$RANDOM"
    
    # Verify which server is secondary
    echo "Verifying which server is in the secondary role..."
@@ -287,9 +286,9 @@ ms.locfileid: "70373036"
 
    ```azurecli
    # Set variables
-   $resourceGroupName=myResourceGroup-$RANDOM
-   $drServerName=mysqlsecondary-$RANDOM
-   $failoverGroupName=failovergrouptutorial-$RANDOM
+   $resourceGroupName="myResourceGroup-$RANDOM"
+   $drServerName="mysqlsecondary-$RANDOM"
+   $failoverGroupName="failovergrouptutorial-$RANDOM"
 
    
    echo "Failing over group to the secondary server..."
@@ -304,9 +303,9 @@ ms.locfileid: "70373036"
 
    ```azurecli
    # Set variables
-   $resourceGroupName=myResourceGroup-$RANDOM
-   $serverName=mysqlserver-$RANDOM
-   $failoverGroupName=failovergrouptutorial-$RANDOM
+   $resourceGroupName="myResourceGroup-$RANDOM"
+   $serverName="mysqlserver-$RANDOM"
+   $failoverGroupName="failovergrouptutorial-$RANDOM"
    
    echo "Failing over group back to the primary server..."
    az sql failover-group set-primary \
@@ -505,21 +504,21 @@ Write-host "Failover group name is" $failoverGroupName
 ```cli
 #!/bin/bash
 # Set variables
-$subscriptionID=<SubscriptionID>
-$resourceGroupName=myResourceGroup-$RANDOM
-$location=ChinaEast2
-$adminLogin=azureuser
+$subscriptionID="<SubscriptionID>"
+$resourceGroupName="myResourceGroup-$RANDOM"
+$location="ChinaEast2"
+$adminLogin="azureuser"
 $password="PWD27!"+`openssl rand -base64 18`
-$serverName=mysqlserver-$RANDOM
-$databaseName=mySampleDatabase
-$drLocation=ChinaNorth2
-$drServerName=mysqlsecondary-$RANDOM
-$failoverGroupName=failovergrouptutorial-$RANDOM
+$serverName="mysqlserver-$RANDOM"
+$databaseName="mySampleDatabase"
+$drLocation="ChinaNorth2"
+$drServerName="mysqlsecondary-$RANDOM"
+$failoverGroupName="failovergrouptutorial-$RANDOM"
 
 # The ip address range that you want to allow access to your DB. 
 # Leaving at 0.0.0.0 will prevent outside-of-azure connections
-$startip=0.0.0.0
-$endip=0.0.0.0
+$startip="0.0.0.0"
+$endip="0.0.0.0"
 
 # Print out randomized variables
 echo Resource group name is $resourceGroupName

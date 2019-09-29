@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: b3bd63eb6595d266df8540a296ebc15f562f90c3
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 32e89ced9aaa79852ca5f39275cdca79f9379fca
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732274"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306693"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -169,31 +169,31 @@ VM 必须完全关闭才能干净迁移。 在迁移完成之前会存在停机�
 2. 打开 Azure PowerShell，并转到安装 AzCopy 的文件夹。
 3. 使用以下命令从“Source”将 VHD 文件复制到“Destination”。
 
-    ```azcopy
-    AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-    ```
+   ```azcopy
+   AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+   ```
 
     示例：
 
     ```azcopy
-        AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
-        ```
+    AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
+    ```
+ 
+   下面是 AzCopy 命令中使用的参数的说明：
 
-    Here are descriptions of the parameters used in the AzCopy command:
+   * **/Source:** _&lt;source&gt;：_ 包含 VHD 的文件夹或存储容器 URL 的位置。
+   * **/SourceKey:** _&lt;source-account-key&gt;：_ 源存储帐户的存储帐户密钥。
+   * **/Dest:** _&lt;destination&gt;：_ 要将 VHD 复制到的存储容器 URL。
+   * **/DestKey:** _&lt;dest-account-key&gt;：_ 目标存储帐户的存储帐户密钥。
+   * **/Pattern:** _&lt;file-name&gt;：_ 指定要复制的 VHD 文件名。
 
-   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
-   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
-   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
-   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
-   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
+有关使用 AzCopy 工具的详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 
-For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
-
-##### Option 2: Copy a VHD with PowerShell (Synchronized copy)
+##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>选项 2：使用 PowerShell 复制 VHD（同步复制）
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can also copy the VHD file using the PowerShell cmdlet Start-AzStorageBlobCopy. Use the following command on Azure PowerShell to copy VHD. Replace the values in <> with corresponding values from your source and destination storage account. To use this command, you must have a container called vhds in your destination storage account. If the container doesn't exist, create one before running the command.
+还可以使用 PowerShell cmdlet Start-AzStorageBlobCopy 复制 VHD 文件。 在 Azure PowerShell 上使用以下命令复制 VHD。 将 <> 中的值替换为源和目标存储帐户中的相应值。 若要使用此命令，必须在目标存储帐户中有名为 vhds 的容器。 如果该容器不存在，则应在运行此命令之前创建一个。
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
@@ -266,24 +266,24 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 2. 打开 Azure PowerShell，并转到安装 AzCopy 的文件夹。
 3. 使用以下命令从“Source”将 VHD 文件复制到“Destination”。
 
-```azcopy
-AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-```
+   ```azcopy
+      AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+   ```
 
-示例：
+   示例：
 
-```azcopy
-AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-```
+   ```azcopy
+      AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
+   ```
 
-    Here are descriptions of the parameters used in the AzCopy command:
+   下面是 AzCopy 命令中使用的参数的说明：
 
-   * **/Source: _&lt;source&gt;:_** 包含 VHD 的文件夹或存储容器 URL 的位置。
-   * **/SourceKey: _&lt;source-account-key&gt;:_** 源存储帐户的存储帐户密钥。
-   * **/Dest: _&lt;destination&gt;:_** 要将 VHD 复制到的存储容器 URL。
-   * **/DestKey: _&lt;dest-account-key&gt;:_** 目标存储帐户的存储帐户密钥。
+   * **/Source:** _&lt;source&gt;：_ 包含 VHD 的文件夹或存储容器 URL 的位置。
+   * **/SourceKey:** _&lt;source-account-key&gt;：_ 源存储帐户的存储帐户密钥。
+   * **/Dest:** _&lt;destination&gt;：_ 要将 VHD 复制到的存储容器 URL。
+   * **/DestKey:** _&lt;dest-account-key&gt;：_ 目标存储帐户的存储帐户密钥。
    * **/BlobType: page:** 指定目标为页 blob。
-   * **/Pattern: _&lt;file-name&gt;:_** 指定要复制的 VHD 文件名。
+   * **/Pattern:** _&lt;file-name&gt;：_ 指定要复制的 VHD 文件名。
 
 有关使用 AzCopy 工具的详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 

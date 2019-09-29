@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/15/2018
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: cef371936946bd859512de71755db031a6c2309e
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 253135d8d1b55ed4159765e08ee6d7350a534876
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514459"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306489"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
 虚拟网络 (VNet) 服务终结点可通过直接连接将 VNet 的虚拟网络专用地址空间和标识扩展到 Azure 服务。 使用终结点可以保护关键的 Azure 服务资源，只允许在客户自己的虚拟网络中对其进行访问。 从 VNet 发往 Azure 服务的流量始终保留在 Azure 主干网络中。
 
-此功能针对以下 Azure 服务和区域提供：
+此功能适用于以下 Azure 服务和区域，并且你还会在括号中找到 Microsoft.* 资源，在为服务配置服务终结点时，需要从子网端启用该资源：
 
 **正式发布版**
 
-- **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** ：在所有 Azure 区域已推出正式版。
-- **[Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域正式发布。
-- **[Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域正式发布。
-- **[Azure Database for PostgreSQL 服务器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** ：在可以使用数据库服务的 Azure 区域中通常可用。
-- **[Azure Database for MySQL 服务器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** ：在可以使用数据库服务的 Azure 区域中通常可用。
-- **[Azure Database for MariaDB](/mariadb/concepts-data-access-security-vnet)** ：在可以使用数据库服务的 Azure 区域中通常可用。
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** ：在所有 Azure 区域已推出正式版。
-- **[Azure 服务总线](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
+- **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (Microsoft.Storage)：在所有 Azure 区域已推出正式版。
+- **[Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在所有 Azure 区域已推出正式版。
+- **[Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在所有 Azure 区域已推出正式版。
+- **[Azure Database for PostgreSQL 服务器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
+- **[Azure Database for MySQL 服务器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
+- **[Azure Database for MariaDB](/mariadb/concepts-data-access-security-vnet)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.AzureCosmosDB)：在所有 Azure 区域已推出正式版。
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (Microsoft.KeyVault)：在所有 Azure 区域已推出正式版。
+- **[Azure 服务总线](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.ServiceBus)：在所有 Azure 区域已推出正式版。
 
 - **[Azure 应用服务](/app-service/app-service-ip-restrictions)** ：通常可在应用服务可用的所有 Azure 区域中使用
 
@@ -151,7 +151,9 @@ ms.locfileid: "68514459"
 - 了解如何[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解如何[在虚拟网络中保护 Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fsql-data-warehouse%2ftoc.json)
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
+    
     <!--Not Available on - Learn about [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->
-- 快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration/)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
+
+- 快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,20 +3,19 @@ title: Azure SQL 数据库发行说明 | Microsoft Docs
 description: 了解 Azure SQL 数据库服务和 Azure SQL 数据库文档中的新功能和改进
 services: sql-database
 author: WenJason
-manager: digimobile
 ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
 origin.date: 05/15/2019
-ms.date: 08/19/2019
-ms.author: carlrab
-ms.openlocfilehash: bd940b64a897c4335ea520c24a3ca0db7434880c
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.author: v-jay
+ms.openlocfilehash: f2ed6a855f2d5be2084e91fdc6144691e9e71e60
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544166"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262919"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
@@ -24,23 +23,51 @@ ms.locfileid: "69544166"
 
 ## <a name="features-in-public-preview"></a>处于公共预览版的功能
 
+### <a name="single-databasetabsingle-database"></a>[单一数据库](#tab/single-database)
+
 | 功能 | 详细信息 |
 | ---| --- |
-|估计非重复计数|有关信息，请参阅[估计非重复计数](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|估计非重复计数|有关信息，请参阅[估计非重复计数](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)。|
 |行存储上的批处理模式（在兼容性级别 150 下）|有关信息，请参阅[行存储上的批处理模式](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)。|
 | 数据发现和分类  |有关信息，请参阅 [Azure SQL 数据库和 SQL 数据仓库数据发现和分类](sql-database-data-discovery-and-classification.md)。|
 | 弹性数据库作业 | 有关信息，请参阅[创建、配置和管理弹性作业](elastic-jobs-overview.md)。 |
 | 弹性查询 | 有关信息，请参阅[弹性查询概述](sql-database-elastic-query-overview.md)。 |
 | 弹性事务 | [跨云数据库的分布式事务](sql-database-elastic-transactions-overview.md)。 |
-| 内存授予反馈（行模式）（在兼容性级别 150 下）|有关信息，请参阅[内存授予反馈（行模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)。|
+|内存授予反馈（行模式）（在兼容性级别 150 下）|有关信息，请参阅[内存授予反馈（行模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)。|
 | Azure 门户中的查询编辑器 |有关信息，请参阅[使用 Azure 门户的 SQL 查询编辑器进行连接并查询数据](sql-database-connect-query-portal.md)。|
-| 使用托管实例重新创建已删除的数据库 |有关信息，请参阅[在 Azure SQL 托管实例中重新创建已删除的数据库](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)。|
-| 使用托管实例进行复制 |有关信息，请参阅[在 Azure SQL 数据库托管实例数据库中配置复制](replication-with-sql-database-managed-instance.md)。|
 | 无服务器计算层 | 有关信息，请参阅 [SQL 数据库无服务器（预览版）](sql-database-serverless.md)。|
 |表变量延迟编译（在兼容性级别 150 下）|有关信息，请参阅[表变量延迟的编译](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)。|
-| 使用托管实例进行威胁检测 |有关信息，请参阅[在 Azure SQL 数据库托管实例中配置威胁检测](sql-database-managed-instance-threat-detection.md)。|
-| 托管实例的透明数据加密 (TDE) 和自带密钥 (BYOK) |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)。|
 | &nbsp; |
+
+### <a name="managed-instancetabmanaged-instance"></a>[托管实例](#tab/managed-instance)
+
+| 功能 | 详细信息 |
+| ---| --- |
+| <a href="https://docs.azure.cn/zh-cn/sql-database/transparent-data-encryption-byok-azure-sql">使用“创建自己的密钥”(BYOK) 进行透明数据加密 (TDE)</a> |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)。|
+| <a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-auto-failover-group#best-practices-of-using-failover-groups-with-managed-instances">异地分布式故障转移组</a> | 将实例的副本保留在另一个区域中并确保你的数据在发生区域性灾难的情况下仍然可用。 |
+| <a href="https://aka.ms/managed-instance-aadlogins">实例级 Azure AD 服务器主体（登录名）</a> | 使用 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 语句创建服务器级登录名。 |
+| [事务复制](sql-database-managed-instance-transactional-replication.md) | 将表中的更改复制到托管实例、单一数据库或 SQL Server 实例上放置的其他数据库中，或者在其他托管实例或 SQL Server 实例中的某些行发生更改时更新表。 有关信息，请参阅[在 Azure SQL 数据库托管实例数据库中配置复制](replication-with-sql-database-managed-instance.md)。 |
+| 威胁检测 |有关信息，请参阅[在 Azure SQL 数据库托管实例中配置威胁检测](sql-database-managed-instance-threat-detection.md)。|
+| 使用托管实例重新创建已删除的数据库 |有关信息，请参阅[在 Azure SQL 托管实例中重新创建已删除的数据库](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)。|
+| &nbsp; |
+
+---
+
+## <a name="new-features"></a>新增功能
+
+最近在托管实例部署模型中启用了以下功能：
+  - <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 硬件代次上有 4 个 vCore</a>
+  - 支持使用 <a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-managed-instance-resource-limits#supported-subscription-types" >Visual Studio 订阅者的 Azure 每月信用额度</a>的订阅
+  - 支持 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
+  - 在实例创建过程中<a href="https://docs.azure.cn/sql-database/sql-database-managed-instance-timezone">配置时区</a>。
+  - 使用<a href="https://docs.azure.cn/zh-cn/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template">所选服务器级排序规则</a>创建实例。 
+  - 通过“异地还原”功能可以<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">使用 PowerShell 将数据库还原到另一个数据中心</a>。
+  - 托管实例由<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">内置防火墙</a>提供保护。
+  - 为时间点还原<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-automated-backups#how-to-change-the-pitr-backup-retention-period">配置长达 35 天的备份保留期</a>。 请注意，长期备份保留（最长 10 年）仍未启用，你可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">纯副本备份</a>作为替代方法。
+
+## <a name="fixed-known-issues"></a>修复了已知问题
+
+- **2019 年 8 月** - 托管实例完全支持包含的数据库。
 
 ## <a name="contribute-to-content"></a>参与内容制作
 

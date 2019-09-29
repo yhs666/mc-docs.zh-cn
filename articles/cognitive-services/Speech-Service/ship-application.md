@@ -3,25 +3,25 @@ title: 使用语音 SDK 开发应用 - 语音服务
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用语音 SDK 创建应用。
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/18/2018
-ms.date: 07/23/2019
-ms.author: v-biyu
+origin.date: 07/23/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 8973f9fadef57bf7f7baff130a363551bb892489
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: ea0dbc5d7db190482bb12d97a7fa3be74356a603
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104122"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267046"
 ---
 # <a name="ship-an-application"></a>交付应用程序
 
-分发 Azure 认知服务语音 SDK 时，阅读[语音 SDK 许可](https://aka.ms/csspeech/license201809)和[第三方软件通知](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)。 此外，请查看 [Microsoft 隐私声明](https://aka.ms/csspeech/privacy)。
+分发 Azure 认知服务语音 SDK 时，阅读[语音 SDK 许可](https://aka.ms/csspeech/license201809)和[第三方软件通知](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)。 此外，请查看 [Azure 隐私声明](https://www.azure.cn/support/legal/privacy-statement/)。
 
 不同平台存在不同的依赖项来执行应用程序。
 
@@ -77,5 +77,4 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>后续步骤
 
-* [获取语音试用订阅](https://www.azure.cn/zh-cn/home/features/cognitive-services/)
-* [了解如何在 C# 中识别语音](quickstart-csharp-dotnet-windows.md)
+* [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)

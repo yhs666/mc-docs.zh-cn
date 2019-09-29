@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 07/16/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 4bb25c3f52cc76817d010e818deee615d45d248f
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: ccf45bdaa0fdc1d80c1d7d21432848e92a4393c3
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372971"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262927"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL 数据库托管实例常见问题解答 (FAQ)
 
@@ -37,8 +37,7 @@ ms.locfileid: "70372971"
 
 ## <a name="where-can-i-find-known-issues-and-bugs"></a>在何处可以找到已知问题和 bug？
 
-有关 bug 和已知问题，请参阅[行为变更](sql-database-managed-instance-transact-sql-information.md#Changes)和[已知问题](sql-database-managed-instance-transact-sql-information.md#Issues)。
-
+有关 bug 和已知问题，请参阅[已知问题](sql-database-managed-instance-transact-sql-information.md#Issues)。
 
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>托管实例是否可与本地 SQL Server 同名？
 
@@ -126,9 +125,9 @@ ms.locfileid: "70372971"
 
 托管实例案例研究：
 
-- [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
 为了让用户更好地了解部署 Azure SQL 数据库托管实例的优势、成本和风险，我们还提供了一份 Forrester 案例研究：[MI 产生的总体经济影响](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)。
 
 

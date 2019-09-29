@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/24/2019
-ms.date: 06/24/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 2b91de6e03a05d972391d2ec62a263ee3068d4eb
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 06/24/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 448a77e42d00cc0853df634366e876ab9f67f043
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104116"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267036"
 ---
 # <a name="what-is-text-to-speech"></a>什么是文本转语音？
 
@@ -43,7 +43,7 @@ Azure 语音服务中的文本转语音服务可让应用程序、工具或设�
 
 ### <a name="custom-voices"></a>自定义语音
 
-使用语音自定义可为品牌创建可辨识的独特语音。 若要创建自定义语音字体，请先进行录音，并将关联的脚本以训练数据的形式上传。 然后，此服务会根据你的录音创建唯一的语音模型。 可以使用此自定义语音字体来合成语音。 有关详细信息，请参阅“自定义语音”。
+使用语音自定义可为品牌创建可辨识的独特语音。 若要创建自定义语音字体，请先进行录音，并将关联的脚本以训练数据的形式上传。 然后，此服务会根据你的录音创建唯一的语音模型。 可以使用此自定义语音字体来合成语音。 有关详细信息，请参阅[自定义语音](how-to-custom-voice-create-voice.md)。
 
 ## <a name="speech-synthesis-markup-language-ssml"></a>语音合成标记语言 (SSML)
 
@@ -60,7 +60,7 @@ Azure 语音服务中的文本转语音服务可让应用程序、工具或设�
 * 字母、标点、空格、制表符、标记和所有空白字符
 * Unicode 中定义的每个码位
 
-有关详细信息，请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
+有关详细信息，请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/speech-service/)。
 
 > [!IMPORTANT]
 > 每个中文、日语和韩语字符算作两个计费字符。
@@ -88,20 +88,20 @@ Azure 语音服务中的文本转语音服务可让应用程序、工具或设�
 
 | 快速入门 (SDK) | 平台 | API 参考 |
 |------------|----------|---------------|
-| C#、.NET Core | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| C#、.NET Framework | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| C#、UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| C#、Unity | Windows、Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| C++ | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| C++ | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [C#、.NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#、.NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#、UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#、Unity](quickstart-text-to-speech-csharp-unity.md) | Windows、Android | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>REST 快速入门
 
 | 快速入门 (REST) | 平台 | API 参考 |
 |------------|----------|---------------|
-| [C#、.NET Core](quickstart-dotnet-text-to-speech.md) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#、.NET Core](quickstart-dotnet-text-to-speech.md) | Windows、macOS、Linux | [Browse](overview.md) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Windows、macOS、Linux | [Browse](overview.md) |
+| [Python](quickstart-python-text-to-speech.md) | Windows、macOS、Linux | [Browse](overview.md) |
 
 ## <a name="sample-code"></a>代码示例
 
@@ -112,10 +112,12 @@ GitHub 上提供了文本转语音的示例代码。 这些示例涵盖了最流
 
 ## <a name="reference-docs"></a>参考文档
 
+* [语音 SDK](speech-sdk.md)
 * [语音设备 SDK](speech-devices-sdk.md)
-* REST API：语音转文本
+* [REST API：文本转语音](rest-text-to-speech.md)
 * [REST API：批量听录和自定义](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>后续步骤
 
 * [获取免费语音服务订阅](get-started.md)
+* [创建自定义语音字体](how-to-custom-voice-create-voice.md)

@@ -6,22 +6,22 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 05/27/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 69fec06f50fa4a5682b3a72c91afd7a2fcb2abbc
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 2507870a3ff8b92ef92c184ce903f5d24a9c4487
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236042"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306506"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>将 HDFS CLI 与 Data Lake Storage Gen2 配合使用
 
 可以使用命令行界面来访问并管理存储帐户中的数据，就像像使用 [Hadoop 分布式文件系统 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样。 本文提供了一些有助于入门的示例。
 
-HDInsight 提供对在本地附加到计算节点的分布式文件系统的访问权限。 可以使用直接与 HDFS 以及与 Hadoop 支持的其他文件系统进行交互的 shell 来访问此文件系统。
+HDInsight 可以访问在本地附加到计算节点的分布式容器。 可以使用与 HDFS 以及 Hadoop 支持的其他文件系统直接交互的 shell 来访问此容器。
 
 有关 HDFS CLI 的详细信息，请参阅[官方文档](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html)和 [HDFS 权限指南](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
@@ -42,11 +42,11 @@ hdfs dfs -mkdir /samplefolder
 >[!IMPORTANT]
 >创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。 若要了解如何删除群集，请参阅我们的[有关该主题的文章](../../hdinsight/hdinsight-delete-cluster.md)。 但是，即使删除了 HDInsight 群集，在启用了 Data Lake Storage Gen2 的存储帐户中存储的数据仍然会保留。
 
-## <a name="create-a-file-system"></a>创建文件系统
+## <a name="create-a-container"></a>创建容器
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.chinacloudapi.cn/
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.chinacloudapi.cn/
 
-* 将 `<file-system-name>` 占位符替换为你要为文件系统提供的名称。
+* 将 `<container-name>` 占位符替换为你要为容器指定的名称。
 
 * 将 `<storage-account-name>` 占位符替换为存储帐户的名称。
 
@@ -54,7 +54,7 @@ hdfs dfs -mkdir /samplefolder
 
     hdfs dfs -ls <path>
 
-将 `<path>` 占位符替换为文件系统或文件系统文件夹的 URI。
+将 `<path>` 占位符替换为容器或容器文件夹的 URI。
 
 例如： `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.chinacloudapi.cn/my-directory-name`
 
@@ -62,7 +62,7 @@ hdfs dfs -mkdir /samplefolder
 
     hdfs dfs -mkdir [-p] <path>
 
-将 `<path>` 占位符替换为根文件系统名称或文件系统中的文件夹。
+将 `<path>` 占位符替换为根容器名称或容器中的文件夹。
 
 例如： `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.chinacloudapi.cn/`
 

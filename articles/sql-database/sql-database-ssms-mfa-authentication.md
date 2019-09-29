@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-manager: digimobile
 origin.date: 10/08/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: f78a4c711aa4162f953b4b712d298e739ad1fc5f
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 09/30/2019
+ms.openlocfilehash: 1b6ff82d666646befb7f842f66a6139fdcadc638
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855447"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262912"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>对 Azure SQL 数据库和 Azure SQL 数据仓库使用多重 AAD 身份验证（SSMS 支持 MFA）
-Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。 本文讨论了各种身份验证选项之间的差异，以及与使用通用身份验证相关的限制。 
+Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证  ，从 SQL Server Management Studio (SSMS) 进行连接。 本文讨论了各种身份验证选项之间的差异，以及与使用通用身份验证相关的限制。 
 
 **下载最新 SSMS** - 在客户端计算机上，从[下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新版本的 SSMS。 
 
@@ -51,9 +50,12 @@ Azure MFA 可帮助保护对数据和应用程序的访问，同时满足用户�
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 域名称或租户 ID 参数   
 
-从 [SSMS 版本 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开始，以来宾用户身份从其他 Azure Active Directory 导入到当前 Active Directory 的用户在连接时可提供 Azure AD 域名或租户 ID。 来宾用户包括从其他 Azure AD、Microsoft 帐户（如 outlook.com、hotmail.com、live.com）或其他帐户（如 gmail.com）邀请的用户。 此信息使“Active Directory - 通用且具有 MFA 身份验证”可以识别正确的身份验证机构。 此选项也是支持 outlook.com、hotmail.com、live.com 等 Microsoft 帐户 (MSA) 或非 MSA 帐户的必需选项。 所有要使用通用身份验证进行身份验证的用户必须输入其 Azure AD 域名或租户 ID。 此参数表示 Azure 服务器当前链接的 Azure AD 域名/租户ID。 例如，如果 Azure Server 与 Azure AD 域 `contosotest.onmicrosoft.com`（其中用户 `joe@contosodev.onmicrosoft.com` 托管为从 Azure AD 域 `contosodev.onmicrosoft.com` 导入的用户）相关联，则需用于对此用户进行身份验证的域名为 `contosotest.onmicrosoft.com`。 如果用户是链接到 Azure 服务器的 Azure AD 的本机用户，并且不是 MSA 帐户，则无需提供域名或租户 ID。 若要输入参数（从 SSMS 版本 17.2 开始），请在“连接到数据库”对话框中，完成该对话框，选择“Active Directory - 通用且具有 MFA”身份验证，单击“选项”，完成“用户名”框，然后单击“连接属性”选项卡。选中“AD 域名或租户 ID”框，然后提供身份验证机构，如域名 (**contosotest.onmicrosoft.com**) 或租户 ID 的 GUID。  
-   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+从 [SSMS 版本 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开始，以来宾用户身份从其他 Azure Active Directory 导入到当前 Active Directory 的用户在连接时可提供 Azure AD 域名或租户 ID。 来宾用户包括从其他 Azure AD、Microsoft 帐户（如 outlook.com、hotmail.com、live.com）或其他帐户（如 gmail.com）邀请的用户。 此信息使“Active Directory - 通用且具有 MFA 身份验证”  可以识别正确的身份验证机构。 此选项也是支持 outlook.com、hotmail.com、live.com 等 Microsoft 帐户 (MSA) 或非 MSA 帐户的必需选项。 所有要使用通用身份验证进行身份验证的用户必须输入其 Azure AD 域名或租户 ID。 此参数表示 Azure 服务器当前链接的 Azure AD 域名/租户ID。 例如，如果 Azure Server 与 Azure AD 域 `contosotest.onmicrosoft.com`（其中用户 `joe@contosodev.onmicrosoft.com` 托管为从 Azure AD 域 `contosodev.onmicrosoft.com` 导入的用户）相关联，则需用于对此用户进行身份验证的域名为 `contosotest.onmicrosoft.com`。 如果用户是链接到 Azure 服务器的 Azure AD 的本机用户，并且不是 MSA 帐户，则无需提供域名或租户 ID。 若要输入参数（从 SSMS 版本 17.2 开始），请在“连接到数据库”  对话框中，完成该对话框，选择“Active Directory - 通用且具有 MFA”  身份验证，单击“选项”  ，完成“用户名”  框，然后单击“连接属性”  选项卡。选中“AD 域名或租户 ID”  框，然后提供身份验证机构，如域名 (**contosotest.onmicrosoft.com**) 或租户 ID 的 GUID。  
+   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
+如果运行的是 SSMS 18.x 或更高版本，则来宾用户不再需要 AD 域名或租户 ID，因为 18.x 或更高版本会自动识别它。
+
+   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>SQL 数据库和 SQL 数据仓库的 Active Directory 通用身份验证限制
 - SSMS 和 SqlPackage.exe 是目前唯一通过 Active Directory 通用身份验证针对 MFA 启用的工具。
@@ -76,4 +78,4 @@ Azure MFA 可帮助保护对数据和应用程序的访问，同时满足用户�
 - [将 BACPAC 文件导入到新的 Azure SQL 数据库](../sql-database/sql-database-import.md)  
 - [将 Azure SQL 数据库导出到 BACPAC 文件](../sql-database/sql-database-export.md)  
 - C# 接口 [IUniversalAuthProvider 接口](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。  
+- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”  的“Azure 服务”  下方“选项”  菜单中的“工具”  ，打开 ADAL 跟踪，然后在“视图”  菜单中启用“输出”  。 选择“Azure Active Directory 选项”  时，可在输出窗口中使用跟踪。  

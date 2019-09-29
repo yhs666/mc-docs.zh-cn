@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 678e2738ac4a07909736101fe6d4e47dd1f9b1fb
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d74fd71a8d85c7daca30027dce87616aa8a013f4
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254655"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306783"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的诊断日志记录 
@@ -442,7 +442,7 @@ $blobs | Get-AzStorageBlobContent `
 * 查询哪些操作花费的时间超过 3 毫秒：
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 查询哪些代理正在运行操作：
@@ -454,7 +454,7 @@ $blobs | Get-AzStorageBlobContent `
 * 查询何时执行了长时间运行的操作：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
 
 <!--Not Available on [Understand log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search-new.md)-->
@@ -481,7 +481,7 @@ $blobs | Get-AzStorageBlobContent `
 | **clientIpAddress** | **clientIpAddress_s** | 客户端的 IP 地址。 |
 | **requestCharge** | **requestCharge_s** | 操作使用的 RU 数目 |
 | **collectionRid** | **collectionId_s** | 集合的唯一 ID。|
-| **duration** | **duration_s** | 操作持续时间（按时钟周期计）。 |
+| **duration** | **duration_s** | 操作持续时间，以毫秒为单位。 |
 | **requestLength** | **requestLength_s** | 请求的长度（按字节计）。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 将[资源令牌](/cosmos-db/secure-access-to-data#resource-tokens)用于身份验证时，此值非空。 值指向用户的资源 ID。 |
