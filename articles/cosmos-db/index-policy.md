@@ -4,15 +4,15 @@ description: 了解如何配置和更改默认索引策略，以便自动编制�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 07/23/2019
-ms.date: 09/09/2019
+origin.date: 09/10/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 260ad1bc2615e0fdf91afcf050dc1356ace7ca51
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d2fd8df0edf978ae938550f819c17e817c8ed22d
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254841"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306793"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 
@@ -27,9 +27,13 @@ ms.locfileid: "70254841"
 
 Azure Cosmos DB 支持两种索引模式：
 
-- **一致**：如果容器的索引策略设置为“一致”，则创建、更新或删除项时，索引将以同步方式更新。 这意味着，读取查询的一致性是[为帐户配置的一致性](consistency-levels.md)。
+- **一致**：创建、更新或删除项时，索引将以同步方式更新。 这意味着，读取查询的一致性是[为帐户配置的一致性](consistency-levels.md)。
+- **无**：针对该容器禁用索引。 将容器用作单纯的键-值存储时，通常会使用此设置，在此情况下无需使用辅助索引。 它还可用于改善批量操作的性能。 批量操作完成后，可将索引模式设置为“一致”，然后使用 [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) 进行监视，直到完成。
 
-- **无**：如果容器的索引策略设置为“无”，则会有效地针对该容器禁用索引。 将容器用作单纯的键-值存储时，通常会使用此设置，在此情况下无需使用辅助索引。 它还有助于加速批量插入操作。
+> [!NOTE]
+> Cosmos DB 还支持延迟索引模式。 当引擎未执行任何其他工作时，延迟索引将以低得多的优先级对索引执行更新。 这可能导致查询结果**不一致或不完整**。 此外，对批量操作使用延迟索引而不是“无”也不会带来任何好处，因为对索引模式进行任何更改会导致删除再重建索引。 出于此原因，我们不建议客户使用该模式。 若要改善批量操作的性能，请将索引模式设置为“无”，然后恢复为“一致”模式并监视容器的 `IndexTransformationProgress` 属性，直到完成。
+
+默认情况下，索引策略设置为 `automatic`。 为此，可将索引策略中的 `automatic` 属性设置为 `true`。 将此属性设置为 `true` 可让 Azure CosmosDB 在写入文档时自动为文档编制索引。
 
 ## <a name="including-and-excluding-property-paths"></a>包含和排除属性路径
 
@@ -41,32 +45,29 @@ Azure Cosmos DB 支持两种索引模式：
 
 沿用前面的示例：
 
-    {
-        "locations": [
-            { "country": "Germany", "city": "Berlin" },
-            { "country": "France", "city": "Paris" }
-        ],
-        "headquarters": { "country": "Belgium", "employees": 250 }
-        "exports": [
-            { "city": "Moscow" },
-            { "city": "Athens" }
-        ]
-    }
+```
+{
+    "locations": [
+        { "country": "Germany", "city": "Berlin" },
+        { "country": "France", "city": "Paris" }
+    ],
+    "headquarters": { "country": "Belgium", "employees": 250 }
+    "exports": [
+        { "city": "Moscow" },
+        { "city": "Athens" }
+    ]
+}
+```
 
 - `headquarters` 的 `employees` 路径是 `/headquarters/employees/?`
+
 - `locations` 的 `country` 路径是 `/locations/[]/country/?`
+
 - `headquarters` 下的任何内容的路径是 `/headquarters/*`
 
-将某个路径显式包含在索引策略中时，它还必须定义要将哪些索引类型应用到该路径；对于每个索引类型，必须定义此索引要应用到的数据类型：
+例如，可以包含 `/headquarters/employees/?` 路径。 此路径确保为 employees 属性编制索引，但不会为此属性中的其他嵌套 JSON 编制索引。
 
-| 索引类型 | 允许的目标数据类型 |
-| --- | --- |
-| 范围 | 字符串或数字 |
-| 空间 | 点、线串或多边形 |
-
-例如，我们可以包含 `/headquarters/employees/?`路径，并指定要针对 `String` 和 `Number` 值的该路径应用 `Range` 索引。
-
-### <a name="includeexclude-strategy"></a>包含/排除策略
+## <a name="includeexclude-strategy"></a>包含/排除策略
 
 任何索引策略必须包含根路径 `/*` 作为包含或排除的路径。
 
@@ -77,41 +78,162 @@ Azure Cosmos DB 支持两种索引模式：
 
 - 默认情况下，系统属性“etag”被排除在索引之外，除非将 etag 添加到索引所包含的路径中。
 
-请参阅[此部分](how-to-manage-indexing-policy.md#indexing-policy-examples)中的索引策略示例。
+包含和排除路径时，可能会遇到以下属性：
+
+- `kind` 可以是 `range` 或 `hash`。 范围索引功能提供哈希索引的所有功能，因此我们建议使用范围索引。
+
+- `precision` 在包含的路径的索引级别定义的一个数字。 `-1` 值表示最大精度。 我们建议始终将此值设置为 `-1`。
+
+- `dataType` 可以是 `String` 或 `Number`。 这表示要编制索引的 JSON 属性的类型。
+
+如果未指定，这些属性将使用以下默认值：
+
+| **属性名称**     | **默认值** |
+| ----------------------- | -------------------------------- |
+| `kind`   | `range` |
+| `precision`   | `-1`  |
+| `dataType`    | `String` 和 `Number` |
+
+有关包含和排除路径的索引策略示例，请参阅[此部分](how-to-manage-indexing-policy.md#indexing-policy-examples)。
+
+## <a name="spatial-indexes"></a>空间索引
+
+在索引策略中定义空间路径时，应定义要将哪个索引 ```type``` 应用到该路径。 空间索引的可能类型包括：
+
+* Point
+
+* Polygon
+
+* MultiPolygon
+
+* LineString
+
+Azure Cosmos DB 默认不会创建任何空间索引。 若要使用空间 SQL 内置函数，应该对所需的属性创建空间索引。 有关添加空间索引的索引策略示例，请参阅[此部分](geospatial.md)。
 
 ## <a name="composite-indexes"></a>组合索引
 
-按两个或更多个属性运行 `ORDER BY` 的查询需要一个组合索引。 目前，只有多 `ORDER BY` 查询才使用组合索引。 默认情况下不会定义组合索引，因此，应根据需要[添加组合索引](how-to-manage-indexing-policy.md#composite-indexing-policy-examples)。
+包含 `ORDER BY` 子句（该子句包含两个或更多个属性）的查询需要一个组合索引。 还可以定义一个组合索引来改善许多相等性和范围查询的性能。 默认情况下不会定义组合索引，因此，应根据需要[添加组合索引](how-to-manage-indexing-policy.md#composite-indexing-policy-examples)。
 
 定义组合索引时，请指定：
 
 - 两个或更多个属性路径。 属性路径的定义顺序非常重要。
+
 - 顺序（升序或降序）。
 
-使用组合索引时请注意以下事项：
+> [!NOTE]
+> 添加组合索引时，与其他索引类型一样，查询可能会在更新索引时返回不一致的结果。
 
-- 如果组合索引路径与 ORDER BY 子句中的属性顺序不匹配，则组合索引无法支持查询
+### <a name="order-by-queries-on-multiple-properties"></a>针对多个属性的 ORDER BY 查询：
 
-- 组合索引路径的顺序（升序或降序）还应与 ORDER BY 子句中的顺序相匹配。
+对包含 `ORDER BY` 子句（该子句包含两个或更多个属性）的查询使用组合索引时，请注意以下事项：
 
-- 组合索引还支持在所有路径中使用反向顺序的 ORDER BY 子句。
+- 如果组合索引路径与 `ORDER BY` 子句中的属性顺序不匹配，则组合索引无法支持查询。
 
-考虑以下示例，其中针对属性 a、b 和 c 定义了组合索引：
+- 组合索引路径的顺序（升序或降序）还应与 `ORDER BY` 子句中的 `order` 相匹配。
 
-| **组合索引**     | **示例 `ORDER BY` 查询**      | **受索引支持？** |
+- 组合索引还支持在所有路径中使用反向顺序的 `ORDER BY` 子句。
+
+考虑以下示例，其中针对属性 name、age 和 _ts 定义了组合索引：
+
+| **组合索引**     | **示例 `ORDER BY` 查询**      | **是否受组合索引的支持？** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
-| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
+| ```(name ASC, age ASC)```    | ```SELECT * FROM c ORDER BY c.name DESC, c.age DESC``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c ORDER BY c.name ASC, c.age DESC``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC, timestamp ASC``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
 应该自定义索引策略，以便可为所有必要的 `ORDER BY` 查询提供服务。
+### <a name="queries-with-filters-on-multiple-properties"></a>包含针对多个属性的筛选器的查询
+
+如果查询包含针对两个或更多个属性的筛选器，为这些属性创建组合索引可能会有帮助。
+
+例如，考虑以下查询，其中包含针对两个属性的相等性筛选器：
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+```
+
+如果能够针对 (name ASC, age ASC) 利用组合索引，则此查询将更加高效：花费的时间更少，且消耗的 RU 更少。
+
+还可以使用组合索引来优化包含范围筛选器的查询。 但是，查询只能包含一个范围筛选器。 范围筛选器包括 `>`、`<`、`<=`、`>=` 和 `!=`。 范围筛选器应在组合索引中最后定义。
+
+考虑以下查询，其中同时包含相等性筛选器和范围筛选器：
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+```
+
+针对 (name ASC, age ASC) 使用组合索引可以更有效地运行此查询。 但是，该查询不会针对 (age ASC, name ASC) 利用组合索引，因为相等性筛选器必须在组合索引中首先定义。
+
+为包含针对多个属性的筛选器的查询创建组合索引时，请注意以下事项
+
+- 查询筛选器中的属性应与组合索引中的属性相匹配。 如果某个属性在组合索引中，但未作为筛选器包含在查询中，则查询不会利用该组合索引。
+- 如果查询包含筛选器中的其他属性，但这些属性未在组合索引中定义，则会结合使用组合索引和范围索引来评估查询。 这样，所需的 RU 数就比专门使用范围索引更少。
+- 如果某个属性包含范围筛选器（`>`、`<`、`<=`、`>=` 或 `!=`），则此属性应在组合索引中最后定义。 如果某个查询包含多个范围筛选器，则该查询不会利用组合索引。
+- 创建组合索引来优化包含多个筛选器的查询时，组合索引的 `ORDER` 不会对结果造成任何影响。 此属性是可选的。
+- 如果没有为包含针对多个属性的筛选器的查询定义组合索引，该查询仍会成功。 但是，使用组合索引可以减少查询的 RU 开销。
+
+考虑以下示例，其中针对属性 name、age 和 timestamp 定义了组合索引：
+
+| **组合索引**     | **示例查询**      | **是否受组合索引的支持？** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+
+### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>包含筛选器和 ORDER BY 子句的查询
+
+如果查询针对一个或多个属性进行筛选，并在 ORDER BY 子句中包含不同的属性，则将筛选器中的属性添加到 `ORDER BY` 子句可能会有帮助。
+
+例如，通过将筛选器中的属性添加到 ORDER BY 子句，可以重写以下查询来利用组合索引：
+
+使用范围索引的查询：
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+```
+
+使用组合索引的查询：
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+```
+
+对于包含多个相等性筛选器的查询，可以通用化相同的模式和查询优化：
+
+使用范围索引的查询：
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+```
+
+使用组合索引的查询：
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+```
+
+创建组合索引来优化包含筛选器和 `ORDER BY` 子句的查询时，请注意以下事项：
+
+* 如果查询针对属性进行筛选，应该首先将这些属性包含在 `ORDER BY` 子句中。
+* 对于包含针对一个属性的筛选器并包含一个使用不同属性的独立 `ORDER BY` 子句的查询，如果未为它定义组合索引，该查询仍会成功。 但是，使用组合索引可以减少查询的 RU 开销，尤其是 `ORDER BY` 子句中的属性具有较高的基数时。
+* 有关为包含多个属性的 `ORDER BY` 查询，以及为包含针对多个属性的筛选器的查询创建组合查询的所有注意事项仍然适用。
+
+| **组合索引**                      | **示例 `ORDER BY` 查询**                                  | **是否受组合索引的支持？** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
 ## <a name="modifying-the-indexing-policy"></a>修改索引策略
 
-随时可以[使用 Azure 门户或某个支持的 SDK](how-to-manage-indexing-policy.md) 更新容器的索引策略。 更新索引策略会触发从旧索引到新索引的转换，该操作是在线和就地执行的（因此，在执行该操作期间不会消耗更多的存储空间）。 旧策略的索引将有效转换为新策略，而不会影响写入可用性或针对容器预配的吞吐量。 索引转换是一个异步操作，完成该操作所需的时间取决于预配的吞吐量、项的数目及其大小。 
+随时可以[使用 Azure 门户或某个支持的 SDK](how-to-manage-indexing-policy.md) 更新容器的索引策略。 更新索引策略会触发从旧索引到新索引的转换，该操作是在线和就地执行的（因此，在执行该操作期间不会消耗更多的存储空间）。 旧策略的索引将有效转换为新策略，而不会影响写入可用性或针对容器预配的吞吐量。 索引转换是一个异步操作，完成该操作所需的时间取决于预配的吞吐量、项的数目及其大小。
 
 > [!NOTE]
 > 当重新编制索引正在进行时，查询可能不会返回所有匹配的结果，且返回结果时不会返回任何错误。 这意味着，在索引转换完成之前，查询结果可能不一致。 可以[使用某个 SDK](how-to-manage-indexing-policy.md) 跟踪索引转换的进度。
@@ -130,14 +252,6 @@ Azure Cosmos DB 支持两种索引模式：
 - 将索引模式设置为“一致”，并且
 - 不使用包含的路径，并且
 - 将 `/*` 用作唯一排除的路径。
-
-## <a name="obsolete-attributes"></a>已弃用的属性
-
-使用索引策略时，可能会遇到现已弃用的以下属性：
-
-- `automatic` 是在索引策略的根部分定义的布尔值。 现在会忽略该属性；如果所用的工具需要该属性，可将其设置为 `true`。
-- `precision` 在包含的路径的索引级别定义的一个数字。 现在会忽略该属性；如果所用的工具需要该属性，可将其设置为 `-1`。
-- `hash` 是一个索引类型，现已由 range 类型取代。
 
 ## <a name="next-steps"></a>后续步骤
 
