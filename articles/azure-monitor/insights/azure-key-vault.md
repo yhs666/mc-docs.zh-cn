@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 03/27/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 197faa4f10308f7a714200bd44b6e29e00131e3a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: cdd3fb7afe4dedee58d69cf309aed56a0ef7144e
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736847"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330033"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor 中的 Azure Key Vault 分析解决方案
 
@@ -106,26 +106,26 @@ Azure 密钥保管库解决方案可分析从 Azure 诊断中的 AuditEvent 日�
 
 | 属性 | 说明 |
 |:--- |:--- |
-| 类型 |AzureDiagnostics  |
-| SourceSystem |*Azure* |
-| CallerIpAddress |发出请求的客户端 IP 地址 |
-| Category | AuditEvent  |
-| CorrelationId |一个可选 GUID，客户端可传递此 GUID 来使客户端日志与服务端 (Key Vault) 日志相关联。 |
-| DurationMs |为 REST API 请求提供服务所花费的时间，以毫秒为单位。 此时间不包括网络延迟，因此在客户端上测得的时间可能与此时间不匹配。 |
-| httpStatusCode_d |由请求返回的 HTTP 状态代码（例如，200  ） |
-| id_s |请求的唯一 ID |
-| identity_claim_appid_g | 应用程序 ID 的 GUID |
-| OperationName |“Azure 密钥保管库日志记录”中所述操作的名称 |
-| OperationVersion |客户端请求的 REST API 版本（例如，2015-06-01  ） |
-| requestUri_s |请求的 URI |
-| Resource |密钥保管库的名称 |
-| resourceGroup |密钥保管库的资源组 |
-| ResourceId |Azure 资源管理器资源 ID。 对于 Key Vault 日志而言，这是 Key Vault 资源 ID。 |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | VAULTS  |
-| ResultSignature |HTTP 状态（例如，确定  ） |
-| ResultType |REST API 请求的结果（例如，成功  ） |
-| SubscriptionId |包含密钥保管库的订阅的 Azure 订阅 ID |
+| `Type` |AzureDiagnostics  |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |发出请求的客户端 IP 地址 |
+| `Category` | AuditEvent  |
+| `CorrelationId` |一个可选 GUID，客户端可传递此 GUID 来使客户端日志与服务端 (Key Vault) 日志相关联。 |
+| `DurationMs` |为 REST API 请求提供服务所花费的时间，以毫秒为单位。 此时间不包括网络延迟，因此在客户端上测得的时间可能与此时间不匹配。 |
+| `httpStatusCode_d` |由请求返回的 HTTP 状态代码（例如，200  ） |
+| `id_s` |请求的唯一 ID |
+| `identity_claim_appid_g` | 应用程序 ID 的 GUID |
+| `OperationName` |“Azure 密钥保管库日志记录”中所述操作的名称|
+| `OperationVersion` |客户端请求的 REST API 版本（例如，2015-06-01  ） |
+| `requestUri_s` |请求的 URI |
+| `Resource` |密钥保管库的名称 |
+| `ResourceGroup` |密钥保管库的资源组 |
+| `ResourceId` |Azure 资源管理器资源 ID。 对于 Key Vault 日志而言，这是 Key Vault 资源 ID。 |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | VAULTS  |
+| `ResultSignature` |HTTP 状态（例如，确定  ） |
+| `ResultType` |REST API 请求的结果（例如，成功  ） |
+| `SubscriptionId` |包含密钥保管库的订阅的 Azure 订阅 ID |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>从旧 Key Vault 解决方案迁移
 2017 年 1 月，从 Key Vault 向 Log Analytics 发送日志的受支持方式已发生更改。 这些更改带来了以下优势：

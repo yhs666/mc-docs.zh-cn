@@ -7,7 +7,6 @@ manager: digimobile
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
@@ -15,12 +14,12 @@ origin.date: 11/14/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbabbfdb01a47484f9cea2409f23550ac133f30c
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: b4386ad0dd5bc4b5bab7132b3e18f999868dfc37
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329644"
 ---
 # <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
 
@@ -62,7 +61,7 @@ Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输�
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>实现 Batch 文件约定标准
 
-如果使用 .NET 之外的语言，则可在自己的应用程序中实现 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)。 
+如果使用 .NET 之外的语言，则可在自己的应用程序中实现 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)。
 
 如果需要经验证的命名方案，或者需要在 Azure 门户中查看任务输出，则可能需要自行实现文件约定命名标准。
 

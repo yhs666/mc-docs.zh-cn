@@ -10,12 +10,12 @@ ms.date: 08/23/2019
 ms.author: v-lingwu
 ms.custom: mvc
 ms.topic: tutorial
-ms.openlocfilehash: 8bbf702fdb8c0c668a35fbdf2c37874b061eac3c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d5d7c39aad047407b272aea6c539bff4c53b8eb1
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737209"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329705"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 查找和诊断性能问题
 
@@ -79,7 +79,7 @@ Application Insights 收集应用程序中不同操作的性能详细信息。 �
 ## <a name="use-logs-data-for-server"></a>使用服务器的日志数据
  日志提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 可以用它对请求和性能数据进行深度分析。
 
-1. 返回到“操作详细信息”面板，然后单击![“日志”图标](media/tutorial-performance/app-viewinlogs-icon.png)**** “在日志中查看(分析)”
+1. 返回到“操作详细信息”面板，然后单击![“日志”图标](media/tutorial-performance/app-viewinlogs-icon.png)**“在日志中查看(分析)”**
 
 2. 日志随即打开，包含对面板中每个视图的查询。  可以直接运行这些查询，或根据需要对其进行修改。  第一个查询显示此操作随时间推移的持续时间。
 
@@ -109,10 +109,3 @@ Application Insights 不仅可以识别要优化的服务器进程，还可以�
 3.  智能诊断是日志的一项功能，用于标识数据中的唯一模式。 单击折线图中的智能诊断点时，将运行相同查询但排除导致异常的记录。 查询的注释部分显示了这些记录的详细信息，因此可以识别出导致持续时间过长的页面视图的属性。
 
     ![带智能诊断功能的日志](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
-
-## <a name="next-steps"></a>后续步骤
-既已了解如何标识运行时异常，可继续学习下一个教程，了解如何创建警报以响应失败。
-
-> [!div class="nextstepaction"]
-> [根据应用程序运行状况发出警报](../../azure-monitor/learn/tutorial-alert.md)

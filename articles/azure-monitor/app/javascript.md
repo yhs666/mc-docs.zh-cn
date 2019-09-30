@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-origin.date: 08/15/2019
-ms.date: 08/20/2019
+origin.date: 09/12/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1ab76d63e8a0730d04f0991fe94f47aeb67902ca
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d13c6248ec955927e6ddd3114cc43f9ece5523bb
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737358"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330444"
 ---
 # 适用于网页的 Application Insights <a name="set-up-application-insights-for-your-web-page"></a>
 
@@ -262,8 +262,4 @@ Application Insights JavaScript SDK 是开源的，用户可查看其源代码�
 * [跟踪使用情况](usage-overview.md)
 * [自定义事件和指标](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-
-
-
-
 

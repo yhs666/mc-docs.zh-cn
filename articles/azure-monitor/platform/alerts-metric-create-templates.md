@@ -9,12 +9,12 @@ origin.date: 9/27/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 1b76d3a91926e2319f458afbe281f7f5c1e9585f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 1c184d66b697eb460bfd745da401de7076b743c1
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737344"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329843"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 
@@ -1469,7 +1469,7 @@ az group deployment create \
                 "description": "[parameters('alertDescription')]",
                 "severity": "[parameters('alertSeverity')]",
                 "enabled": "[parameters('isEnabled')]",
-                "scopes": ["[parameters('targetSubscription')]"],
+                "scopes": "[parameters('targetResourceGroup')]",
                 "targetResourceType": "[parameters('targetResourceType')]",
                 "targetResourceRegion": "[parameters('targetResourceRegion')]",
                 "evaluationFrequency":"[parameters('evaluationFrequency')]",
@@ -1512,10 +1512,10 @@ az group deployment create \
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
-            "value": "Multi-resource sub level metric alert with Dynamic Thresholds via Azure Resource Manager template"
+            "value": "Multi-resource metric alert with Dynamic Thresholds via Azure Resource Manager template"
         },
         "alertDescription": {
-            "value": "New Multi-resource sub level metric alert with Dynamic Thresholds created via template"
+            "value": "New Multi-resource metric alert with Dynamic Thresholds created via template"
         },
         "alertSeverity": {
             "value":3
@@ -1523,8 +1523,11 @@ az group deployment create \
         "isEnabled": {
             "value": true
         },
-        "targetSubscription":{
-            "value": "/subscriptions/replace-with-subscription-id"
+        "targetResourceGroup":{
+            "value": [
+                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name1",
+                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name2"
+            ]
         },
         "targetResourceRegion":{
             "value": "SouthCentralUS"
@@ -1567,7 +1570,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile all-vms-in-subscription-dynamic.json -TemplateParameterFile all-vms-in-subscription-dynamic.parameters.json
+  -TemplateFile all-vms-in-resource-group-dynamic.json -TemplateParameterFile all-vms-in-resource-group-dynamic.parameters.json
 ```
 
 使用 Azure CLI
@@ -1579,15 +1582,15 @@ az login
 az group deployment create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
-    --template-file all-vms-in-subscription-dynamic.json \
-    --parameters @all-vms-in-subscription-dynamic.parameter-dynamics.json
+    --template-file all-vms-in-resource-group-dynamic.json \
+    --parameters @all-vms-in-resource-group-dynamic.parameters.json
 ```
 
-### <a name="static-threshold-alert-on-a-list-of-virtual-machines"></a>虚拟机列表上的静态阈值警报
+### <a name="static-threshold-alert-on-all-virtual-machines-in-a-subscription"></a>订阅中所有虚拟机上的静态阈值警报
 
-此模板将创建静态阈值指标警报规则，用于监视单个订阅中的虚拟机（在单个 Azure 区域中）列表的 CPU 百分比。
+此模板将创建静态阈值指标警报规则，用于监视单个订阅中的所有虚拟机（在单个 Azure 区域中）的 CPU 百分比。
 
-将下面的 json 保存为 list-of-vms-static.json 以用于此演练。
+将下面的 json 保存为 all-vms-in-subscription-static.json 以用于此演练。
 
 ```json
 {
@@ -1629,11 +1632,11 @@ az group deployment create \
                 "description": "Specifies whether the alert is enabled"
             }
         },
-        "targetResourceId":{
-            "type": "array",
+        "targetSubscription":{
+            "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "array of Azure resource Ids. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroup/resource-group-name/Microsoft.compute/virtualMachines/vm-name"
+                "description": "Azure Resource Manager path up to subscription ID. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000"
             }
         },
         "targetResourceRegion":{
@@ -1733,7 +1736,7 @@ az group deployment create \
                 "description": "[parameters('alertDescription')]",
                 "severity": "[parameters('alertSeverity')]",
                 "enabled": "[parameters('isEnabled')]",
-                "scopes": "[parameters('targetResourceId')]",
+                "scopes": ["[parameters('targetSubscription')]"],
                 "targetResourceType": "[parameters('targetResourceType')]",
                 "targetResourceRegion": "[parameters('targetResourceRegion')]",
                 "evaluationFrequency":"[parameters('evaluationFrequency')]",
@@ -1763,7 +1766,7 @@ az group deployment create \
 ```
 
 可以将上述模板与下面的参数文件配合使用。
-将下面的 json 保存并修改为 list-of-vms-static.parameters.json 以用于此演练。
+将下面的 json 保存并修改为 all-vms-in-subscription-static.parameters.json 以用于此演练。
 
 ```json
 {
@@ -1771,10 +1774,10 @@ az group deployment create \
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
-            "value": "Multi-resource metric alert by list via Azure Resource Manager template"
+            "value": "Multi-resource sub level metric alert via Azure Resource Manager template"
         },
         "alertDescription": {
-            "value": "New Multi-resource metric alert by list created via template"
+            "value": "New Multi-resource sub level metric alert created via template"
         },
         "alertSeverity": {
             "value":3
@@ -1782,18 +1785,15 @@ az group deployment create \
         "isEnabled": {
             "value": true
         },
-        "targetResourceId":{
-            "value": [
-                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name1/Microsoft.Compute/virtualMachines/replace-with-vm-name1",
-                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name2/Microsoft.Compute/virtualMachines/replace-with-vm-name2"
-            ]
+        "targetSubscription":{
+            "value": "/subscriptions/replace-with-subscription-id"
         },
         "targetResourceRegion":{
             "value": "SouthCentralUS"
         },
         "targetResourceType":{
             "value": "Microsoft.Compute/virtualMachines"
-        },
+        },        
         "metricName": {
             "value": "Percentage CPU"
         },
@@ -1823,7 +1823,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile list-of-vms-static.json -TemplateParameterFile list-of-vms-static.parameters.json
+  -TemplateFile all-vms-in-subscription-static.json -TemplateParameterFile all-vms-in-subscription-static.parameters.json
 ```
 
 使用 Azure CLI
@@ -1835,15 +1835,15 @@ az login
 az group deployment create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
-    --template-file list-of-vms-static.json \
-    --parameters @list-of-vms-static.parameters.json
+    --template-file all-vms-in-subscription-static.json \
+    --parameters @all-vms-in-subscription.parameters-static.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>虚拟机列表上的动态阈值警报
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>订阅中所有虚拟机上的动态阈值警报
 
-此模板将创建动态阈值指标警报规则，用于监视单个订阅中的虚拟机（在单个 Azure 区域中）列表的 CPU 百分比。
+此模板将创建动态阈值指标警报规则，用于监视单个订阅中的所有虚拟机（在单个 Azure 区域中）的 CPU 百分比。
 
-将下面的 json 保存为 list-of-vms-dynamic.json 以用于此演练。
+将下面的 json 保存为 all-vms-in-subscription-dynamic.json 以用于此演练。
 
 ```json
 {
@@ -1885,11 +1885,11 @@ az group deployment create \
                 "description": "Specifies whether the alert is enabled"
             }
         },
-        "targetResourceId":{
-            "type": "array",
+        "targetSubscription":{
+            "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "array of Azure resource Ids. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroup/resource-group-name/Microsoft.compute/virtualMachines/vm-name"
+                "description": "Azure Resource Manager path up to subscription ID. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000"
             }
         },
         "targetResourceRegion":{

@@ -6,23 +6,22 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2017
-ms.date: 02/21/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: e62d3f57d4a173e27ce464ed7b0785abe0b1758d
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 0cf78f1911a1e154f32a87ca1f94d1b65727ce2a
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665553"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673550"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions 中的任务中心 (Azure Functions)
 
 [Durable Functions](durable-functions-overview.md) 中的*任务中心*是用于业务流程的 Azure 存储资源的逻辑容器。 只有当业务流程协调程序函数与活动函数属于同一任务中心时，它们才能彼此进行交互。
 
-如果多个函数应用共享存储帐户，则必须使用单独的任务中心名称配置每个函数应用。 一个存储帐户可以包含多个任务中心。 下图说明了在共享和专用存储帐户中每个函数应用有一个任务中心。
+如果多个函数应用共享存储帐户，则必须使用单独的任务中心名称配置每个函数应用  。 一个存储帐户可以包含多个任务中心。 下图说明了在共享和专用存储帐户中每个函数应用有一个任务中心。
 
 ![说明共享和专用存储帐户的关系图。](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -30,11 +29,11 @@ ms.locfileid: "56665553"
 
 任务中心包含以下存储资源：
 
-- 一个或多个控制队列。
-- 一个工作项队列。
-- 一个历史记录表。
-- 一个实例表。
-- 一个包含一个或多个租用 blob 的存储容器。
+* 一个或多个控制队列。
+* 一个工作项队列。
+* 一个历史记录表。
+* 一个实例表。
+* 一个包含一个或多个租用 blob 的存储容器。
 
 当业务流程协调程序或活动函数运行时或调度它们运行时，将自动在默认 Azure 存储帐户中创建所有这些资源。 [性能和缩放](durable-functions-perf-and-scale.md)一文介绍了如何使用这些资源。
 
@@ -103,6 +102,8 @@ ms.locfileid: "56665553"
 
 这是一个预编译的 C# 示例，说明如何编写这样一个函数，该函数使用 [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) 来处理配置为应用设置的任务中心：
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -121,8 +122,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-下面是 JavaScript 所需的配置。 `function.json` 文件中的任务中心属性通过应用设置进行设置：
+### <a name="javascript"></a>Javascript
 
+`function.json` 文件中的任务中心属性通过应用设置进行设置：
 ```json
 {
     "name": "input",
@@ -135,7 +137,7 @@ public static async Task<HttpResponseMessage> Run(
 任务中心名称必须以字母开头且只能包含字母和数字。 如果未指定，默认名称是 **DurableFunctionsHub**。
 
 > [!NOTE]
-> 当共享存储帐户中有多个任务中心时，名称用于将一个任务中心与其他任务中心区分开来。 如果有多个函数应用共享一个共享存储帐户，则必须在 host.json 文件中为每个任务中心显式配置不同的名称。 否则多个函数应用会相互竞争消息，这可能会导致未定义的行为。
+> 当共享存储帐户中有多个任务中心时，名称用于将一个任务中心与其他任务中心区分开来。 如果有多个函数应用共享一个共享存储帐户，则必须在 host.json  文件中为每个任务中心显式配置不同的名称。 否则多个函数应用会相互竞争消息，这可能会导致未定义的行为。
 
 ## <a name="next-steps"></a>后续步骤
 

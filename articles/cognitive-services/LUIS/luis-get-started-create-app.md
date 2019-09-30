@@ -1,6 +1,6 @@
 ---
-title: 快速入门：创建应用
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 快速入门：创建应用 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 使用预生成的域 `HomeAutomation` 创建 LUIS 应用，以便打开和关闭灯和设备。 此预生成的域为你提供意向、实体和示例话语。 完成本教程后，你会有一个在云中运行的 LUIS 终结点。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+origin.date: 09/05/2019
+ms.date: 09/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 220ff6af8453ac924a9aad4c3ec72f7f796d4f26
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 6ce2a0c3ecaaec55cbac564a0684e5a395d55e77
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330420"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>快速入门：使用预构建的家庭自动化应用
 
@@ -80,10 +81,14 @@ Turn off the lights
 
 检查评分最高的意向是否对应于每个测试话语的预期意向。
 
-在以下示例中，“关灯”被正确标识为“HomeAutomation.TurnOff”的评分最高的意向。
+在以下示例中，`Turn off the lights` 被正确标识为“HomeAutomation.TurnOff”  的评分最高的意向。
 
 [![突出显示了话语的“测试”面板的屏幕截图](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
 
+
+选择“检查”  以查看有关预测的详细信息。
+
+![“测试”面板的屏幕截图，其中突出显示了话语](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
 再次选择“测试”  ，折叠测试窗格。 
 
@@ -93,14 +98,134 @@ Turn off the lights
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的话语查询终结点
+## <a name="query-the-v2-api-prediction-endpoint"></a>查询 V2 API 预测终结点
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. 将光标定位到地址中 URL 的末尾并输入 `turn off the living room light`，然后按 Enter。 浏览器会显示 HTTP 终结点的 JSON 响应。
+1. 将光标定位到地址中 URL 的末尾并输入 `turn off the living room light`，然后按 Enter。 浏览器会显示 HTTP 终结点的 JSON 响应的 V2 API 版本  。
 
-    [![JSON 结果检测到意向 TurnOff 的浏览器的屏幕截图](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    ```json
+    {
+      "query": "turn off the living room light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOff",
+        "score": 0.9753089
+      },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.9753089
+        },
+        {
+          "intent": "HomeAutomation.QueryState",
+          "score": 0.01027893
+        },
+        {
+          "intent": "HomeAutomation.TurnUp",
+          "score": 0.006881481
+        },
+        {
+          "intent": "HomeAutomation.SetDevice",
+          "score": 0.006786365
+        },
+        {
+          "intent": "HomeAutomation.TurnDown",
+          "score": 0.005145787
+        },
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.004114749
+        },
+        {
+          "intent": "None",
+          "score": 0.000598924
+        }
+      ],
+      "entities": [
+        {
+          "entity": "living room",
+          "type": "HomeAutomation.Location",
+          "startIndex": 13,
+          "endIndex": 23,
+          "score": 0.94558233
+        },
+        {
+          "entity": "living room light",
+          "type": "HomeAutomation.DeviceName",
+          "startIndex": 13,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "living room light"
+            ]
+          }
+        },
+        {
+          "entity": "light",
+          "type": "HomeAutomation.DeviceType",
+          "startIndex": 25,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "light"
+            ]
+          }
+        }
+      ]
+    }
+    ```
     
+## <a name="query-the-v3-api-prediction-endpoint"></a>查询 V3 API 预测终结点
+
+对于 [V3 API 查询](luis-migration-api-v3.md)，请在浏览器中更改 GET 方法 HTTPS 请求，并将尖括号中的值更改为自己的值。 
+
+**带有 GET 方法的 V2 URL**：
+
+https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**
+
+**带有 GET 方法的 V3 URL**：
+
+https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**
+
+浏览器会显示 HTTP 终结点的 JSON 响应的 V3 API 版本。 
+
+```json
+{
+    "query": "turn off the lights",
+    "prediction": {
+        "normalizedQuery": "turn off the lights",
+        "topIntent": "HomeAutomation.TurnOff",
+        "intents": {
+            "HomeAutomation.TurnOff": {
+                "score": 0.99649024
+            }
+        },
+        "entities": {
+            "HomeAutomation.DeviceType": [
+                [
+                    "light"
+                ]
+            ],
+            "$instance": {
+                "HomeAutomation.DeviceType": [
+                    {
+                        "type": "HomeAutomation.DeviceType",
+                        "text": "lights",
+                        "startIndex": 13,
+                        "length": 6,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
 ## <a name="clean-up-resources"></a>清理资源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]

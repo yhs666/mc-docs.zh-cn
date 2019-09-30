@@ -1,20 +1,19 @@
 ---
 title: 规划 Azure 文件部署 | Microsoft Docs
 description: 了解规划 Azure 文件部署时应考虑的问题。
-services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: f268d03b09bb9ff40339a331173b17ca7de7aa79
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: c01f46d91d47018f09a3d6557e776dae79ae3b99
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732326"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306740"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 
@@ -64,7 +63,7 @@ Azure 文件提供可确保数据安全的几个内置选项：
     * 不支持带加密功能的 SMB 3.0 的客户端可通过无加密功能的 SMB 2.1 或 SMB 3.0 进行数据中心内通信。 不允许 SMB 客户端通过无加密功能的 SMB 2.1 或 SMB 3.0 进行数据中心内通信。
     * 客户端可以通过 HTTP 或 HTTPS 与文件 REST 通信。
 * 静态加密（[Azure 存储服务加密](../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json)）：存储服务加密 (SSE) 对所有存储帐户启用。 静态数据使用完全托管的密钥进行加密。 静态加密不会增加存储成本，也不会降低性能。 
-* 加密数据在传输中的可选要求：选定后，Azure 文件拒绝通过未加密通道访问数据。 具体而言，仅允许具有加密连接的 HTTPS 和 SMB 3.0。
+* 传输中加密数据的可选要求：选中时，Azure 文件存储会拒绝通过未加密通道访问数据。 具体而言，仅允许具有加密连接的 HTTPS 和 SMB 3.0。
 
     > [!Important]  
     > 要求安全传输数据将导致较早的 SMB 客户端无法与 SMB 3.0 通信，进而造成加密失败。 有关详细信息，请参阅[在 Windows 上装载](storage-how-to-use-files-windows.md)、[在 Linux 上装载](storage-how-to-use-files-linux.md)和[在 macOS 上装载](storage-how-to-use-files-mac.md)。

@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/29/2018
-ms.date: 06/03/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 32db876dfac7d00c0c5719701331e949cb29da43
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 89b943d4c4417eb1505664ac4f0a3eb3dec17efd
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195492"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340844"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric for Visual Studio Code
 
@@ -51,7 +50,7 @@ ms.locfileid: "66195492"
 
 必须为 Java 开发安装以下必备组件：
 
-* [Java SDK](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)（版本 1.8）
+* [Java SDK](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable)（版本 1.8）
 * [Gradle](https://gradle.org/install/)
 * 调试 Java 服务时所需的[适用于 Java VS Code 的调试程序扩展](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)。 仅支持在 Linux 上调试 Java 服务。 可通过以下方法之一安装该扩展：在 VS Code 中的**活动栏**上单击“扩展”图标并搜索该扩展，或者从 VS Code 市场安装。
 

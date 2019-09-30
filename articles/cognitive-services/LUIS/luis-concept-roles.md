@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 24454fbe80f459fa0d56a228c473698db0960ec3
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: c4b2a2fcac4d3163af7fd002c8c70865b35a995b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103944"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330026"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>上下文子类型的实体角色
 
@@ -92,8 +93,6 @@ Schedule the meeting from 8 to 9
 实体和角色在括号 `{}` 内。 实体和角色由冒号分隔。 
 
 ## 实体角色与协作者角色 <a name="roles-versus-hierarchical-entities"></a>
-
-实体角色适用于 LUIS 应用的数据模型。 [协作者](luis-concept-collaborator.md)角色适用于创作访问级别。 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 

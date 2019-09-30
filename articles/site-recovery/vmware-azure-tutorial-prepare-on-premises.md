@@ -1,21 +1,20 @@
 ---
 title: 准备用于将 VMware VM 灾难恢复到 Azure 的本地 VMware 服务器 | Azure
 description: 了解如何准备本地 VMware 服务器使用 Azure Site Recovery 服务灾难恢复到 Azure。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 08/22/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 51366f1cfe9d131cbfda5a34e320b7ba4d16ce9f
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 960cb63b545a73668f1fdf44c55343580edbea74
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390734"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340964"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>准备本地 VMware 服务器用于灾难恢复到 Azure
 

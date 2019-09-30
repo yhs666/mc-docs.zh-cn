@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/15/2019
+origin.date: 04/10/2019
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4ebcbd65dcff7269db1599a382570d863e91af4a
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: b9b6ae85b09a5634da64f84c1e18160a83cbfb11
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169611"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330131"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 

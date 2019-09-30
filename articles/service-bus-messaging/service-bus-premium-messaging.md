@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+origin.date: 03/05/2019
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 444207e2532ef9f63881ced670f80941f199464a
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: b117d79e214c5f9e5319bf5b45c349efab7ed94d
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169604"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330107"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服务总线高级和标准消息传送层
 

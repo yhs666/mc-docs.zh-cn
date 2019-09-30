@@ -1,0 +1,44 @@
+### YamlMime:Landing
+title: Azure 文件文档
+summary: Azure 文件存储在云中提供完全托管的跨平台文件共享，这些共享项可通过服务器消息块 (SMB) 协议进行访问。
+metadata:
+  title: Azure 文件
+  description: 在 Windows、Linux 和 macOS 的云或本地装载文件共享。
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: WenJason
+  ms.author: v-jay
+  origin.date: 08/27/2019
+  ms.date: 09/30/2019
+  ms.openlocfilehash: ae0fdff700222dba4eaaab30d5abbeb1f49a25be
+  ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71306860"
+landingContent:
+- title: 关于 Azure 文件
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 文件存储规划指南
+      url: storage-files-planning.md
+    - text: 什么是 Azure 文件？
+      url: storage-files-introduction.md
+- title: 入门
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 创建/使用文件共享 - Windows
+      url: storage-files-quick-create-use-windows.md
+- title: 故障排除
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure 文件存储 Windows 故障排除
+      url: storage-troubleshoot-windows-file-connection-problems.md
+    - text: Azure 文件存储 Linux 故障排除
+      url: storage-troubleshoot-linux-file-connection-problems.md

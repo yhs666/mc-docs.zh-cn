@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 08/26/2019
-ms.date: 03/04/2019
+origin.date: 03/04/2019
+ms.date: 09/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 621ed600050881af271739de94d71ad8e57299d8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 3b5d4dc01b701cf73512b74d71d043beaa946066
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103865"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329742"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>常见的 API 响应代码及其含义
 

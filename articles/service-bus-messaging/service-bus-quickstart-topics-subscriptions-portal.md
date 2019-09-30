@@ -6,14 +6,15 @@ author: lingliw
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 04/15/2019
+origin.date: 04/15/2019
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6a6070c6ff77c97815dede8b35e80a22a03dfd3f
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: 7979e196a656278699753cb5958a28c7d2bd38c0
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609885"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330109"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>快速入门：使用 Azure 门户创建一个服务总线主题和多个对该主题的订阅
 在本快速入门中，将使用 Azure 门户创建服务总线主题，然后创建对该主题的订阅。 

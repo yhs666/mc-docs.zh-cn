@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-origin.date: 03/07/2019
+origin.date: 04/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8f3223bd8c6d7dc6fb7a2cd55a0c18b814630fa6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e3ac97dd97ce3302e73d311d58ada51e6e2d4452
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736535"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329784"
 ---
 # <a name="status-monitor-v2-api-disable-instrumentationengine"></a>状态监视器 v2 API：Disable-InstrumentationEngine
 

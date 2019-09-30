@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 06/25/2019
-ms.date: 09/09/2019
+ms.date: 10/08/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: afca37b8c8c9135ff1401683455f404aae105003
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: c3f71e8b3dbec23b6604d1e650e56b9254a22385
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174274"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340699"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教程：在边缘使用自定义视觉服务进行图像分类
 
@@ -39,7 +39,10 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
 
 ## <a name="prerequisites"></a>先决条件
 
-在开始学习本教程之前，应已完成上一篇教程来设置用于开发 Linux 容器的开发环境：[开发适用于 Linux 设备的 IoT Edge 模块](tutorial-develop-for-linux.md)。 完成该教程后，已应准备好以下必备组件： 
+>[!TIP]
+>本教程是 [Raspberry Pi 3 上的自定义视觉和 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) 示例项目的简化版本。 本教程旨在在云 VM 上运行，并使用静态图像训练和测试图像分类器，这对于刚开始评估 IoT Edge 上的自定义视觉的用户非常有用。 该示例项目使用物理硬件并设置一个实时相机源，用于训练和测试图像分类器，这对于想要尝试更详细的真实应用场景的用户非常有用。
+
+在开始学习本教程之前，应已完成上一篇教程，了解如何设置用于开发 Linux 容器的环境：[开发适用于 Linux 设备的 IoT Edge 模块](tutorial-develop-for-linux.md)。 完成该教程后，已应准备好以下必备组件： 
 
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
@@ -51,7 +54,7 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* 适用于 Visual Studio Code 的 [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 扩展
+* [适用于 Visual Studio Code 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>使用自定义视觉生成图像分类器
 
@@ -167,7 +170,7 @@ Visual Studio Code 窗口会加载 IoT Edge 解决方案工作区。
 
 ### <a name="select-your-target-architecture"></a>选择目标体系结构
 
-目前，Visual Studio Code 可以开发适用于 Linux AMD64 和 Linux ARM32v7 设备的模块。 需要选择面向每个解决方案的体系结构，因为每种体系结构类型的容器的生成和运行方式均不相同。 默认设置为 Linux AMD64。 
+目前，Visual Studio Code 可以开发适用于 Linux AMD64 和 Linux ARM32v7 设备的模块。 需要选择面向每个解决方案的体系结构，因为每种体系结构类型的容器的生成和运行方式均不相同。 默认值为 Linux AMD64，我们将在本教程中使用此功能。 
 
 1. 打开命令面板并搜索 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或者选择窗口底部边栏中的快捷方式图标。 
 
@@ -191,7 +194,7 @@ Visual Studio Code 中的 Python 模块模板包含一些可以在运行后对 I
 
 6. 打开 classifier 文件夹中的 **module.json** 文件。 
 
-7. 更新 **platforms** 参数，使之指向已添加的新 Dockerfile，同时删除自定义视觉模块目前不支持的 ARM32 体系结构和 AMD64.debug 选项。 
+7. 更新 **platforms** 参数，使其指向你添加的新 Dockerfile，并删除 AMD64 之外的所有选项，这是我们在本教程中唯一使用的体系结构。 
 
    ```json
    "platforms": {
@@ -234,35 +237,22 @@ Visual Studio Code 中的 Python 模块模板包含一些可以在运行后对 I
     import os
     import requests
     import json
-
-    import iothub_client
-    # pylint: disable=E0611
-    from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider
-    from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError
-    # pylint: disable=E0401
-
-    # messageTimeout - the maximum time in milliseconds until a message times out.
-    # The timeout period starts at IoTHubModuleClient.send_event_async.
-    MESSAGE_TIMEOUT = 10000
-
-    # Choose HTTP, AMQP or MQTT as transport protocol.  
-    PROTOCOL = IoTHubTransportProvider.MQTT
+    from azure.iot.device import IoTHubModuleClient, Message
 
     # global counters
-    SEND_CALLBACKS = 0
+    SENT_IMAGES = 0
+
+    # global client
+    CLIENT = None
 
     # Send a message to IoT Hub
     # Route output1 to $upstream in deployment.template.json
     def send_to_hub(strMessage):
-        message = IoTHubMessage(bytearray(strMessage, 'utf8'))
-        hubManager.send_event_to_output("output1", message, 0)
-
-    # Callback received when the message that we send to IoT Hub is processed.
-    def send_confirmation_callback(message, result, user_context):
-        global SEND_CALLBACKS
-        SEND_CALLBACKS += 1
-        print ( "Confirmation received for message with result = %s" % result )
-        print ( "   Total calls confirmed: %d \n" % SEND_CALLBACKS )
+        message = Message(bytearray(strMessage, 'utf8'))
+        CLIENT.send_message_to_output(message, "output1")
+        global SENT_IMAGES
+        SENT_IMAGES += 1
+        print( "Total images sent: {}".format(SENT_IMAGES) )
 
     # Send an image to the image classifying server
     # Return the JSON response from the server with the prediction result
@@ -279,28 +269,15 @@ Visual Studio Code 中的 Python 模块模板包含一些可以在运行后对 I
 
         return json.dumps(response.json())
 
-    class HubManager(object):
-        def __init__(self, protocol, message_timeout):
-            self.client_protocol = protocol
-            self.client = IoTHubModuleClient()
-            self.client.create_from_environment(protocol)
-            # set the time until a message times out
-            self.client.set_option("messageTimeout", message_timeout)
-            
-        # Sends a message to an output queue, to be routed by IoT Edge hub. 
-        def send_event_to_output(self, outputQueueName, event, send_context):
-            self.client.send_event_async(
-                outputQueueName, event, send_confirmation_callback, send_context)
-
     def main(imagePath, imageProcessingEndpoint):
         try:
             print ( "Simulated camera module for Azure IoT Edge. Press Ctrl-C to exit." )
 
             try:
-                global hubManager 
-                hubManager = HubManager(PROTOCOL, MESSAGE_TIMEOUT)
-            except IoTHubError as iothub_error:
-                print ( "Unexpected error %s from IoTHub" % iothub_error )
+                global CLIENT
+                CLIENT = IoTHubModuleClient.create_from_edge_environment()
+            except Exception as iothub_error:
+                print ( "Unexpected error {} from IoTHub".format(iothub_error) )
                 return
 
             print ( "The sample is now sending images for processing and will indefinitely.")
@@ -351,7 +328,7 @@ Visual Studio Code 中的 Python 模块模板包含一些可以在运行后对 I
 
 3. 浏览到 IoT Edge 解决方案目录，将测试图像粘贴到 **modules** / **cameraCapture** 文件夹中。 该图像应该置于你在上一部分编辑的 main.py 文件所在的文件夹中。 
 
-3. 在 Visual Studio Code 中打开适用于 cameraCapture 模块的 **Dockerfile.amd64** 文件。 （ARM32 目前不受自定义视觉模块的支持）。 
+3. 在 Visual Studio Code 中打开适用于 cameraCapture 模块的 **Dockerfile.amd64** 文件。 
 
 4. 在建立工作目录 `WORKDIR /app` 的行后面，添加以下代码行： 
 

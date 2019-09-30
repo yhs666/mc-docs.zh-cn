@@ -7,16 +7,17 @@ author: lingliw
 manager: digimobile
 ms.custom: seodec18
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 07/29/2019
+ms.topic: conceptual
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.service: cognitive-services
-ms.openlocfilehash: a674960452f7748f2093a96d011abb20c7db687b
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 9be96f7443b9eef109e7ac2e01e291f3477421e8
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103929"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329717"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>添加意向以确定用户的话语意向
 

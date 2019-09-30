@@ -5,19 +5,19 @@ documentationcenter: ''
 author: lingliw
 manager: digimobile
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bbb7da9e9ccd68a4b220d51e5295c0369001168c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7dfbcf1ab9d0bd2994aae418ab8ab06611bd1e3b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736928"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330407"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 数据平台
 

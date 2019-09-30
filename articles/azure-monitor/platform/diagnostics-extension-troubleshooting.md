@@ -9,13 +9,12 @@ ms.topic: conceptual
 origin.date: 03/19/2016
 ms.date: 05/08/2019
 ms.author: v-lingwu
-ms.component: diagnostic-extension
-ms.openlocfilehash: 819481d5513e650e57553a4624e4a60e15df8f20
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 8306092f7d8101bc3b2a4904d2fabd82fa100c7f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737130"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329647"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](diagnostics-extension-overview.md)。

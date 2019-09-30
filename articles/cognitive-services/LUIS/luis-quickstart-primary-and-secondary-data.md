@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 38fe9ca71bf1c7b03c2531d5a51146b1876fd99d
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: d475316180f6bd16d02859727d9b70fa569c7928
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329691"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教程：通过简单实体和短语列表提取名称
 
@@ -229,7 +230,7 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 
 1. 选择“创建新的短语列表”。  
 
-1. 将新的短语列表命名为`JobNames`，然后将列表从 jobs-phrase-list.csv 复制到“值”文本框中。  按 Enter。 
+1. 将新的短语列表命名为`JobNames`，然后将列表从 jobs-phrase-list.csv 复制到“值”文本框中。 
 
     [![“新建短语列表”弹出对话框的屏幕截图](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 

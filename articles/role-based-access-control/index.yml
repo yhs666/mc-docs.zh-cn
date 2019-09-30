@@ -1,41 +1,63 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: 05c33063a551ac9f898988c37406ba664b948d78
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56837000"
-documentType: LandingData
+### YamlMime:Landing
 title: Azure 资源的 RBAC 文档
+summary: 基于角色的访问控制 (RBAC) 是一个系统，它为 Azure 资源提供精细的访问管理。 使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
 metadata:
-  document_id: 
-  title: Azure 资源的基于角色的访问控制 (RBAC) 文档 | Microsoft Docs
+  title: Azure 资源的基于角色的访问控制 (RBAC) 文档
   description: 了解基于角色的访问控制 (RBAC) 以管理谁有权访问 Azure 资源、他们可以对这些资源执行哪些操作以及他们有权访问哪些领域。
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+  services: role-based-access-control
   ms.service: role-based-access-control
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: na
   ms.topic: landing-page
-origin.date: 02/16/2019
-ms.date: 02/26/2019
-ms.author: v-junlch
-abstract:
-  description: 基于角色的访问控制 (RBAC) 是一个系统，它为 Azure 资源提供精细的访问管理。 使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
-sections:
-- title: 5 分钟快速入门
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/role-based-access-control/check-access">查看用户的访问权限</a>
-- title: 分步教程
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/role-based-access-control/quickstart-assign-role-user-portal">授予用户访问权限 - 门户</a>
-    - html: <a href="/role-based-access-control/tutorial-role-assignments-group-powershell">授予组访问权限 - PowerShell</a>
-    - html: <a href="/role-based-access-control/tutorial-custom-role-powershell">创建自定义角色 - PowerShell</a>
-    - html: <a href="/role-based-access-control/tutorial-custom-role-cli">创建自定义角色 - CLI</a>
+  ms.collection: na
+  author: rolyon
+  ms.author: v-junlch
+  ms.date: 09/24/2019
+  ms.openlocfilehash: e4e54ff7368e88a4e3825226560201b3da495fb3
+  ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 09/29/2019
+  ms.locfileid: "71673601"
+landingContent:
+- title: 入门
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 查看用户的访问权限
+      url: check-access.md
+  - linkListType: tutorial
+    links:
+    - text: 授予用户访问权限 - 门户
+      url: quickstart-assign-role-user-portal.md
+    - text: 授予组访问权限 - PowerShell
+      url: tutorial-role-assignments-group-powershell.md
+  - linkListType: learn
+    links:
+    - text: 使用 RBAC 保护 Azure 资源
+      url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
+- title: 管理访问权限
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 门户
+      url: role-assignments-portal.md
+    - text: PowerShell
+      url: role-assignments-powershell.md
+    - text: Azure CLI
+      url: role-assignments-cli.md
+    - text: REST API
+      url: role-assignments-rest.md
+    - text: 模板
+      url: role-assignments-template.md
+- title: 创建自定义角色
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 自定义角色
+      url: custom-roles.md
+  - linkListType: tutorial
+    links:
+    - text: 创建自定义角色 - PowerShell
+      url: tutorial-custom-role-powershell.md
+    - text: 创建自定义角色 - CLI
+      url: tutorial-custom-role-cli.md

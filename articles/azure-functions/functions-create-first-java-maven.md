@@ -7,23 +7,23 @@ author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: quickstart
+ms.devlang: java
 origin.date: 08/10/2018
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.reviewer: glenga
-ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 4ffa2bda7d3e885e93637aec088d77326b1ebfe2
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 3b77097f28cf0f82f6bd2a03215b62bb98361ab3
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805744"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673492"
 ---
-# <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 创建你的第一个函数
+# <a name="quickstart-use-java-to-create-and-publish-a-function-to-azure-functions"></a>快速入门：使用 Java 创建函数并将其发布到 Azure Functions
 
-本文将指导你使用 Maven 命令行工具生成 Java 函数并将该函数发布到 Azure Functions。 完成后，你的函数代码将在 Azure 中的[使用计划](functions-scale.md#consumption-plan)上运行，并可使用 HTTP 请求触发。
+本文将介绍如何使用 Maven 命令行工具生成 Java 函数并将该函数发布到 Azure Functions。 完成后，你的函数代码将在 Azure 中的[使用计划](functions-scale.md#consumption-plan)上运行，并可使用 HTTP 请求触发。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -230,4 +230,4 @@ Hi, AzureFunctionsTest
 - 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 在本地编写并调试函数。 
 - 使用 Visual Studio Code 调试在 Azure 中部署的函数。 有关说明，请参阅 Visual Studio Code [无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

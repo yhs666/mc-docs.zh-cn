@@ -7,15 +7,16 @@ manager: digimobile
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2018
+origin.date: 11/29/2018
+ms.date: 09/23/2019
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b260e05cd90d943ff20d7489cccb3b1ceda26819
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: dc58edf98220f5fbb4be83f93ecfc876f4caad76
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969663"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330054"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教程：使用 Python API 通过 Azure Batch 运行并行工作负荷
 

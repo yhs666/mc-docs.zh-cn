@@ -12,10 +12,10 @@ origin-date: 08/26/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
 ms.openlocfilehash: 72641c1f89019243a91d72820627d662c40da847
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 09/29/2019
 ms.locfileid: "71267094"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>在 Kubernetes 和 Helm 中使用语音服务容器

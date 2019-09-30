@@ -8,14 +8,15 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+origin.date: 08/07/2019
+ms.date: 09/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7b0bd73e9ce012755f311e31aaa6303925f4e130
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fd1eb1a85259bfa16fa78442c44ed837348fb36a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104109"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329662"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询预测终结点
 

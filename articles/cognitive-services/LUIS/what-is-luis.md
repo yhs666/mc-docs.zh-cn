@@ -8,14 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/11/2019
+origin.date: 07/24/2019
+ms.date: 09/11/2019
 ms.author: v-lingwu
-ms.openlocfilehash: db992c87372dae3654bcc357371e6767cf91f5e2
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: d87b0a81ad8d9a763c98315071c7a7a54dc80ceb
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104108"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329655"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 

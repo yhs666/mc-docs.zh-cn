@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: b9a6d487b1a6a7519f2e6452e3089cadf4f80ba0
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 09/30/2019
+ms.openlocfilehash: 0b9ea2ae63b73259d2d86057e502f226f2f0b9ef
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173344"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307751"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>使用转储和还原将 MariaDB 数据库迁移到 Azure Database for MariaDB
 本文介绍了在 Azure Database for MariaDB 中备份和还原数据库的两种常见方式
@@ -80,15 +80,11 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-若要一次性备份服务器中的所有数据库，应使用 --all-databases 选项。
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
-```
 
 ## <a name="create-a-database-on-the-target-server"></a>在目标服务器上创建数据库
 在要迁移数据的 Azure Database for MariaDB 目标服务器上创建一个空数据库。 使用 MySQL Workbench、Toad 或 Navicat 等工具创建数据库。 数据库名称可与包含转储数据的数据库名称相同，或可以创建一个不同名称的数据库。
 
-若要获取连接，请在 Azure Database for MariaDB 的“概述”中找到连接信息。
+若要获取连接，请在 Azure Database for MariaDB 的“概述”中找到连接信息  。
 
 ![在 Azure 门户中找到连接信息](./media/howto-migrate-dump-restore/1_server-overview-name-login.png)
 
@@ -110,19 +106,19 @@ $ mysql -h mydemoserver.mariadb.database.chinacloudapi.cn -u myadmin@mydemoserve
 若要导出，可以使用可能已安装在本地环境中的常用工具 phpMyAdmin。 使用 PHPMyAdmin 导出 MariaDB 数据库：
 1. 打开 phpMyAdmin。
 2. 选择数据库。 单击左侧列表中的数据库名称。 
-3. 单击“导出”链接。 这将显示一个新页面，可查看数据库转储情况。
-4. 在“导出”区域中，单击“全选”链接，选择数据库中的表。 
+3. 单击“导出”  链接。 这将显示一个新页面，可查看数据库转储情况。
+4. 在“导出”区域中，单击“全选”  链接，选择数据库中的表。 
 5. 在 SQL 选项区域中，单击适当的选项。 
-6. 单击“另存为文件”选项及相应的压缩选项，然后单击“执行”按钮。 将出现一个对话框，提示在本地保存该文件。
+6. 单击“另存为文件”  选项及相应的压缩选项，然后单击“执行”  按钮。 将出现一个对话框，提示在本地保存该文件。
 
 ## <a name="import-using-phpmyadmin"></a>使用 PHPMyAdmin 进行导入
 导入数据库的方法与导出类似。 执行以下操作：
 1. 打开 phpMyAdmin。 
-2. 在 phpMyAdmin 设置页中，单击“添加”可添加 Azure Database for MariaDB 服务器。 提供连接详细信息和登录信息。
-3. 创建适当命名的数据库，并在屏幕左侧选中该数据库。 若要重写现有数据库，请单击数据库名称，选中所有表名称旁边的复选框，再选择“删除”以删除现有表。 
-4. 单击“SQL”链接，显示可在其中键入 SQL 命令或上传 SQL 文件的页面。 
-5. 使用“浏览”按钮查找数据库文件。 
-6. 单击“执行”按钮，导出备份、执行 SQL 命令并重新创建数据库。
+2. 在 phpMyAdmin 设置页中，单击“添加”  可添加 Azure Database for MariaDB 服务器。 提供连接详细信息和登录信息。
+3. 创建适当命名的数据库，并在屏幕左侧选中该数据库。 若要重写现有数据库，请单击数据库名称，选中所有表名称旁边的复选框，再选择“删除”  以删除现有表。 
+4. 单击“SQL”  链接，显示可在其中键入 SQL 命令或上传 SQL 文件的页面。 
+5. 使用“浏览”  按钮查找数据库文件。 
+6. 单击“执行”  按钮，导出备份、执行 SQL 命令并重新创建数据库。
 
 ## <a name="next-steps"></a>后续步骤
 - [将应用程序连接到 Azure Database for MariaDB](./howto-connection-string.md)。

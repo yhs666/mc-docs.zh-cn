@@ -8,15 +8,15 @@ manager: digimobile
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 09/02/2019
-ms.date: 10/31/2018
+origin.date: 09/14/2018
+ms.date: 09/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 96e82bd36976017c3c214cd1612f40ca83f947d5
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: cdcf36e2353d1edd0a1cfe98b5f6833cd89d83ab
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169606"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329895"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 

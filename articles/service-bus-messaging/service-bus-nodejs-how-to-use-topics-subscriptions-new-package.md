@@ -3,8 +3,8 @@ title: 如何通过 Node.js 使用 Azure 服务总线主题和订阅 | Microsoft
 description: 了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。
 services: service-bus-messaging
 documentationcenter: nodejs
-author: axisc
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: spelluru
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus-messaging
@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/15/2019
+origin.date: 04/15/2019
+ms.date: 08/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19e1cef920aeaaf11546bcd36ab00c27805b132d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 6f654a541bb36485a5cb8dd7ee41555464a9eb6b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329864"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>如何将服务总线主题和订阅与 Node.js 和 azure/service-bus 包配合使用
 > [!div class="op_multi_selector" title1="编程语言" title2="Node.js 包"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
 本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Node.js 程序，用于将消息发送到服务总线主题，并从服务总线订阅接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](https://docs.microsoft.com/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
 

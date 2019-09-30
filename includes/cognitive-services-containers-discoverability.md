@@ -6,10 +6,10 @@ ms.topic: include
 origin.date: 05/28/2019
 ms.date: 06/11/2019
 ms.openlocfilehash: f67ff301a96dda61ca89d0de2054c0cd987ead16
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 09/29/2019
 ms.locfileid: "67844695"
 ---
 ## <a name="blog-posts"></a>博客文章

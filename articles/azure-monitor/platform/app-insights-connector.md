@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 02/13/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1a20f1169a549773b2b9fdc9e77817069b7741c4
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 71adaebd457b0277ae4e37e2eec31b570f6554a8
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737336"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329848"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
@@ -326,7 +326,3 @@ ApplicationInsights | summarize by ApplicationName
 ## <a name="next-steps"></a>后续步骤
 
 - 使用[日志搜索](../../azure-monitor/log-query/log-query-overview.md)可以查看 Application Insights 应用的详细信息。
-
-
-
-

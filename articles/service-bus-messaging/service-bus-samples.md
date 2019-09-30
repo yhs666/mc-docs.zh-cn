@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/19
+origin.date: 03/13/2019
+ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3eab9d2f8f2e1d60f5ef4a424256564ecd2599c7
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: edfa08dd0bffa4eefc05b4da2aed158bff6e1979
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169596"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329999"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 服务总线消息传送示例演示[服务总线消息传送](/service-bus/)中的关键功能。 目前，可以在以下两个位置找到这些示例：

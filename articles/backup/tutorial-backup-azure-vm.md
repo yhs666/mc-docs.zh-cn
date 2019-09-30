@@ -5,15 +5,16 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: tutorial
-ms.date: 04/12/19
+origin.date: 03/05/2019
+ms.date: 09/05/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: c691f60defddebca77c8a497ec24b31b58382a93
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 64969b4b0373d7009be25db88ce7e922c90b5ca0
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63853083"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330094"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>使用 PowerShell 备份 Azure VM
 

@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 91ea2cd121d93ae26ab96962a0d3f8201062019e
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: d6e712db55d68203adaf4792d49f881a93e505b5
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609858"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329993"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教程：使用 PowerShell 和主题/订阅更新库存
 
@@ -79,7 +79,7 @@ Azure 服务总线是一种多租户云消息传送服务，可以在应用程�
 
 ```PowerShell
 # Create a resource group 
-New-AzesourceGroup -Name my-resourcegroup -Location chinanorth2
+New-AzResourceGroup -Name my-resourcegroup -Location chinanorth2
 
 # Create a Messaging namespace
 New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location chinanorth2

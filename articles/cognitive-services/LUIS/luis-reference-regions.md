@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/31/2019
+origin.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 717453ba5ff2e668add8a0d1cbd9656ad0a21a23
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: dee85d7a1f92094977f34ae078973cccc91d48e7
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330370"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>创作和发布区域及关联的密钥
 

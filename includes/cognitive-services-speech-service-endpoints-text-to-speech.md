@@ -6,10 +6,10 @@ origin.date: 05/06/2019
 ms.date: 09/24/2019
 ms.author: v-tawe
 ms.openlocfilehash: 8e9fa746fb99f6bb0b9c0c329765556f8a36fd76
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 09/29/2019
 ms.locfileid: "71306813"
 ---
 ### <a name="standard-and-sneural-voices"></a>标准语音和神经语音

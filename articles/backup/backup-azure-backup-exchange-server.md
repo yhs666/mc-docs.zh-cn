@@ -1,20 +1,20 @@
 ---
 title: 使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 description: 了解如何使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
-services: backup
+ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/19/2018
-ms.date: 11/26/2018
+origin.date: 01/31/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0557717cbac5fa6259ba755b74e362306d2b908d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 29b7cac55a1aafdb5b937ea82f9b125f270a67ef
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569974"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329800"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 本文说明如何配置 System Center 2012 R2 Data Protection Manager (DPM) 服务器，以便将 Azure Exchange 服务器备份到 Azure 备份。  

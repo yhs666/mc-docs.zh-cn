@@ -12,10 +12,10 @@ origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
 ms.openlocfilehash: 1a9cb09d1bfe44a4a0ebd1d5a2317483f2baebbd
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 09/29/2019
 ms.locfileid: "71267103"
 ---
 # <a name="text-to-speech-rest-api"></a>文本转语音 REST API

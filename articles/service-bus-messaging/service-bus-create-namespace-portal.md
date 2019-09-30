@@ -9,17 +9,18 @@ editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/12/2019
+origin.date: 02/12/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 033407acbf331b001a8ca783b62c6a3655e804cb
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: a6a7e0428287bb5d9b0efdd8c3197a4f5a829ec0
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332262"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330325"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>使用 Azure 门户创建服务总线命名空间。
 

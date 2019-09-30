@@ -1,21 +1,20 @@
 ---
 title: 为 Azure IaaS VM 设置到 Azure 次要区域的灾难恢复
 description: 本快速入门提供了使用 Azure Site Recovery 服务在 Azure 区域之间对 Azure IaaS VM 进行灾难恢复所需的步骤。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: quickstart
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 08/28/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 29604fd6321ecc6f3c22071e17f69888566db4e1
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: b0d14d68679da7aa8538a4e1e9c23b0d30b5c843
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861718"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340816"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复        
 

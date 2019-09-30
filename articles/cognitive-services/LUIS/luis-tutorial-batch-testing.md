@@ -1,5 +1,5 @@
 ---
-title: 批处理测试 - LUIS
+title: 教程：批处理测试 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本教程演示如何使用批处理测试在应用中查找话语预测问题并进行修复。
 services: cognitive-services
@@ -8,15 +8,16 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 08/20/2019
+ms.topic: tutorial
+origin.date: 09/04/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5089ec46bbea87a5429185529bb0648f7e1c92a8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: f69ff7cad658566a65d4242186e6047677ef1a43
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103872"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329958"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教程：成批测试数据集
 
@@ -28,7 +29,7 @@ ms.locfileid: "70103872"
 
 * 每个测试的最大话语量为 1000 个。 
 * 没有重复项。 
-* 允许的实体类型：仅简单、层次（仅父级）和复合的机器学习实体。 批处理测试仅适用于机器学习意向和实体。
+* 允许的实体类型：仅简单和复合的机器学习实体。 批处理测试仅适用于机器学习意向和实体。
 
 使用本教程以外的应用时，请不要使用已经添加到意向的示例话语  。 
 
@@ -118,7 +119,7 @@ ms.locfileid: "70103872"
 
 ## <a name="review-batch-results"></a>查看批处理结果
 
-批处理图表将结果显示在四个象限中。 在图表右侧是一个筛选器。 默认情况下，筛选器设置为列表中的第一个意向。 筛选器包含所有意向，并且仅包含简单、分层（仅父级）和复合实体。 选择[图表的一个部分](luis-concept-batch-test.md#batch-test-results)或图表中的一个点时，关联的话语显示在图表下方。 
+批处理图表将结果显示在四个象限中。 在图表右侧是一个筛选器。 筛选器包含意向和实体。 选择[图表的一个部分](luis-concept-batch-test.md#batch-test-results)或图表中的一个点时，关联的话语显示在图表下方。 
 
 鼠标悬停在图表上时，鼠标滚轮可以放大或缩小图表中的显示。 当图表上有许多点紧密地聚集在一起时，这是非常有用的。 
 
@@ -306,8 +307,6 @@ ApplyForJob 的示例几乎是 GetJobInformation 的三倍   。 示例话语的
 6. 选择“运行”按钮。  请等待测试完成。
 
 7. 选择“查看结果”  。
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="review-entity-batch-results"></a>查看实体批处理结果
 

@@ -10,17 +10,16 @@ ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 553cb121545a3d601a19361c9a6c601868ede637
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 81f30ff1f175d8c2b82a52c2ce5118b8ed82a2f1
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104067"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330366"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 

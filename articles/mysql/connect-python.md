@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 08/08/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: cdaad32997363b0296238e5d7acb1d909236ea97
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.date: 09/30/2019
+ms.openlocfilehash: 51861f710c67b502635459c37eefe97068eb2b53
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131835"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307761"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Python 连接和查询数据
 
@@ -68,8 +68,8 @@ ms.locfileid: "70131835"
 获取连接到 Azure Database for MySQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在 Azure 门户的左侧菜单中，单击“所有资源”  ，然后搜索已创建的服务器（例如 mydemoserver  ）。
-3. 单击服务器名称。
+2. 在 Azure 门户的左侧菜单中，选择“所有资源”  ，然后搜索已创建的服务器（例如 mydemoserver  ）。
+3. 选择服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。    如果忘记了密码，也可通过此面板来重置密码。
  ![Azure Database for MySQL 服务器名称](./media/connect-python/1_server-overview-name-login.png)
 

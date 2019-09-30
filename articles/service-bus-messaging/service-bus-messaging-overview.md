@@ -8,19 +8,20 @@ manager: digimobile
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 04/12/19
+origin.date: 09/22/2018
+ms.date: 08/29/2019
 ms.custom: mvc
 ms.author: v-lingwu
-ms.openlocfilehash: 9c2de56fd12c3c4dd7676b139788b0b1402c8b25
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: 435f35de78cca82a21145b0d52338dc337f06101
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609838"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329876"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
-Azure 服务总线是一种完全托管的企业集成消息中转站。 服务总线最常用于将应用程序与服务彼此解耦，是一种用于异步数据和状态传输的可靠且安全的平台。 数据通过消息在不同的应用程序和服务之间传输。 消息采用二进制格式，可能包含 JSON、XML 或纯文本。 
+Azure 服务总线是一种完全托管的企业集成消息中转站。 服务总线最常用于将应用程序与服务彼此解耦，是一种用于异步数据和状态传输的可靠且安全的平台。 数据通过消息在不同的应用程序和服务之间传输。  消息采用二进制格式，可能包含 JSON、XML 或纯文本。 
 
 一些常见的消息传送方案包括：
 
@@ -35,15 +36,15 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ## <a name="queues"></a>队列
 
-消息可以发送到队列，也可以从其接收。 在能够使用接收应用程序接收并处理消息之前，可以通过队列来存储消息。
+消息可以发送到队列，也可以从其接收。  在能够使用接收应用程序接收并处理消息之前，可以通过队列来存储消息。
 
 ![队列](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-队列中的消息会排队，并在到达时加盖时间戳。 获得接受后，消息会安全地存储在冗余存储中。 消息以拉取模式传送，即按请求传送消息。
+队列中的消息会排队，并在到达时加盖时间戳。 获得接受后，消息会安全地存储在冗余存储中。 消息以拉取模式传送，即按请求传送消息。 
 
 ## <a name="topics"></a>主题
 
-也可通过主题发送和接收消息。 队列通常用于点到点通信，而主题则用于发布/订阅方案。
+也可通过主题发送和接收消息。  队列通常用于点到点通信，而主题则用于发布/订阅方案。
 
 ![主题](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
@@ -97,7 +98,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>适用于 Azure 资源的 SAS、RBAC 和托管标识
 
-服务总线支持多种安全协议，例如[共享访问签名](service-bus-sas.md) (SAS)、[基于角色的访问控制](service-bus-role-based-access-control.md) (RBAC)。
+服务总线支持多种安全协议，例如[共享访问签名](service-bus-sas.md) (SAS)、[基于角色的访问控制](service-bus-managed-service-identity.md) (RBAC)。
 
 ### <a name="geo-disaster-recovery"></a>异地灾难恢复
 

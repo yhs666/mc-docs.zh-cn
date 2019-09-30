@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: lingliw
 manager: digimobile
 ms.author: v-lingwu
-ms.date: 01/28/19
+origin.date: 09/22/2018
+ms.date: 09/26/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 719ac72ebd1284e331379c427c32a2b6c22a8c6e
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 421684d16a9415c5406a0dbccdc35186f301ffc6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169518"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329995"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 

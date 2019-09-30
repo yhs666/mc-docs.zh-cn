@@ -12,10 +12,10 @@ origin.date: 06/19/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
 ms.openlocfilehash: f2fba09d533aee5e50c0ee8c4777cacda7a8e7c5
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 09/29/2019
 ms.locfileid: "71267095"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安装和运行语音服务容器

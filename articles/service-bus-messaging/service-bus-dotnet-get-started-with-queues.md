@@ -12,14 +12,15 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/10/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bbf563c6885c7c624a50b9516c06918df30d4b6f
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 50340f4db90d6d6b95eb1f64eadeb22948cd5d69
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332260"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330323"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 

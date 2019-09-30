@@ -7,18 +7,17 @@ author: ColbyTresness
 manager: jeconnoc
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 07/18/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 8f917f7fa94429fc23e093ae61d1e9dd0ed7f10a
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: c2c18ecceb532b643d5311c3649fa938897e97e2
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331938"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673593"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
@@ -164,6 +163,6 @@ ms.locfileid: "68331938"
 你已使用 Visual Studio Code 创建并发布了一个 JavaScript 持久函数应用。
 
 > [!div class="nextstepaction"]
-> [了解常见的持久函数模式](durable-functions-concepts.md)
+> [了解常见的持久函数模式](durable-functions-overview.md#application-patterns)
 
 <!-- Update_Description: wording update -->

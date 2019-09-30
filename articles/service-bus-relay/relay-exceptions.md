@@ -3,8 +3,8 @@ title: Azure 中继异常及其解决方法
 description: Azure 中继异常以及解决这些异常应采取的建议操作的列表。
 services: service-bus-relay
 documentationcenter: na
-author: spelluru
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/20/2017
+origin.date: 09/22/2018
+ms.date: 09/26/2019
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 732c07e4503e4042fb5ff36497f9506827f2b201
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 5c8be5e3e6ed9889f2d1e59c12f96ed49dcb304f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544720"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329774"
 ---
 # <a name="azure-relay-exceptions"></a>Azure 中继异常
 

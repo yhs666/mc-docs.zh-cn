@@ -6,14 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/12/19
+origin.date: 04/12/2019
+ms.date: 09/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 58dda73d886f19be009ed873155b91cce82e5148
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 20c65a2f2e4855fc2962d0395890d55314f7feb9
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103744"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330247"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>备份和还原已加密的 Azure VM
 

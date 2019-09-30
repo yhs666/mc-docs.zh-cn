@@ -1,7 +1,6 @@
 ---
 title: 用于 Azure 备份的 Azure 资源管理器模板
-description: Azure 备份 PowerShell 示例
-services: backup
+description: 用于恢复服务保管库和 Azure 备份功能的 Azure 资源管理器模板
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 4a10626e9a2fa48d9d845e0cb4bba0f43a2ed5a2
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: b75e9147b255616cc2b6a9ada382543672ea4d12
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330222"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>用于 Azure 备份的 Azure 资源管理器模板
 

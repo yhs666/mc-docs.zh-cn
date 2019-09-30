@@ -7,16 +7,16 @@ author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: reference
-origin.date: 07/24/2019
-ms.date: 09/02/2019
+ms.topic: quickstart
+origin.date: 08/30/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c15cef5997cc11a1799e0c70478e45c7eed209d8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 8d4df7a5e64900e7cbcf7aac49cae5193adc9c15
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104199"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329664"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>快速入门：适用于 .NET 的语言理解 (LUIS) 创作客户端库
 
@@ -38,9 +38,9 @@ ms.locfileid: "70104199"
 
 ## <a name="setting-up"></a>设置
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>获取语言理解 (LUIS) 创作密钥
+### <a name="get-your-language-understanding-luis-starter-key"></a>获取语言理解 (LUIS) 初学者密钥
 
-获取[创作密钥](luis-how-to-account-settings.md)，并为该密钥创建名为 `COGNITIVESERVICE_AUTHORING_KEY` 的[环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+获取[初学者密钥](luis-how-to-azure-subscription.md#starter-key)，并为该密钥[创建 环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)（名为 `COGNITIVESERVICE_AUTHORING_KEY`）。
 
 ### <a name="create-a-new-c-application"></a>新建 C# 应用程序
 

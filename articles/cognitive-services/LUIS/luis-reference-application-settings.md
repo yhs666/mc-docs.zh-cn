@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/16/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c97fb6d046bad9764713f5fed9bc5a415bec96ae
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: e8517c78c1fff7ba4aeccbb227f5edd8dd217067
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330149"
 ---
 # <a name="application-settings"></a>应用程序设置
 
@@ -43,101 +44,6 @@ ms.locfileid: "70103901"
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
-
-### <a name="language-support-for-diacritics"></a>对音调符号的语言支持
-
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>巴西葡萄牙语 `pt-br` 音调符号
-
-|音调符号设置为 false|音调符号设置为 true|
-|-|-|
-|`á`|`a`|
-|`â`|`a`|
-|`ã`|`a`|
-|`à`|`a`|
-|`ç`|`c`|
-|`é`|`e`|
-|`ê`|`e`|
-|`í`|`i`|
-|`ó`|`o`|
-|`ô`|`o`|
-|`õ`|`o`|
-|`ú`|`u`| 
-|||
-
-#### <a name="dutch-nl-nl-diacritics"></a>荷兰语 `nl-nl` 音调符号
-
-|音调符号设置为 false|音调符号设置为 true|
-|-|-|
-|`á`|`a`|
-|`à`|`a`|
-|`é`|`e`|
-|`ë`|`e`|
-|`è`|`e`|
-|`ï`|`i`|
-|`í`|`i`|
-|`ó`|`o`|
-|`ö`|`o`|
-|`ú`|`u`| 
-|`ü`|`u`|
-|||
-
-#### <a name="french-fr--diacritics"></a>法语 `fr-` 音调符号
-
-这包括法国和加拿大的子区域性。
-
-|音调符号设置为 false|音调符号设置为 true|
-|--|--|
-|`é`|`e`|
-|`à`|`a`|
-|`è`|`e`|
-|`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
-
-#### <a name="german-de-de-diacritics"></a>德语 `de-de` 音调符号
-
-|音调符号设置为 false|音调符号设置为 true|
-|--|--|
-|`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
-
-#### <a name="italian-it-it-diacritics"></a>意大利语 `it-it` 音调符号
-
-|音调符号设置为 false|音调符号设置为 true|
-|--|--|
-|`à`|`a`|
-|`è`|`e`|
-|`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
-|`ù`|`u`|
-|`ú`|`u`|
-
-#### <a name="spanish-es--diacritics"></a>西班牙语 `es-` 音调符号
-
-这包括西班牙和加拿大墨西哥。
-
-|音调符号设置为 false|音调符号设置为 true|
-|-|-|
-|`á`|`a`|
-|`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
-|`ú`|`u`|
-|`ü`|`u`|
-|`ñ`|`u`|
 
 
 ## <a name="punctuation-normalization"></a>标点规范化

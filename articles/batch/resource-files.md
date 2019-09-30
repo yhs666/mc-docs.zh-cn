@@ -6,14 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: batch
 ms.topic: article
-ms.date: 03/14/2019
+origin.date: 03/14/2019
+ms.date: 09/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 9caf80009c0f23cb63e76a59415f4b79df45da54
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 301ab1f7b4343cafc60222e4b410a3a2a0cd3ee5
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845573"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330396"
 ---
 # <a name="creating-and-using-resource-files"></a>创建和使用资源文件
 

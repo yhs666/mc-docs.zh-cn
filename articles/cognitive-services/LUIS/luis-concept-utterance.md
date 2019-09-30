@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+origin.date: 05/07/2019
+ms.date: 09/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c489ed9c367acac1f030da1016c8e54ff8cdcf0e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: cb34694daf7fe549e002456c9dbec812ddabd757
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104017"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330084"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 

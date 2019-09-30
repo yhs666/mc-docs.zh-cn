@@ -9,14 +9,15 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/24/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ddff710295df6ed391cc64624a82407726e4b919
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 3b2aee7cc5930f65ace39d7880b38aca8bd088ca
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104110"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329665"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -122,9 +123,6 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>我的 LUIS 应用昨天还可以正常使用，但今天却出现 403 错误。 我没有更改应用。 如何解决问题？
 按照这些[说明](#how-do-i-create-and-assign-a-luis-endpoint-key)创建一个 LUIS 终结点密钥，然后将其分配给应用。 然后，必须更改客户端应用程序对终结点的 HTTP 请求以[使用新的终结点密钥](luis-concept-keys.md#use-endpoint-key-in-query)。 如果你在不同的区域中创建了新资源，那么也要更改 HTTP 客户端请求的区域。
 
-### <a name="how-do-i-secure-my-luis-endpoint"></a>如何保护 LUIS 终结点安全？
-请参阅[保护终结点安全](luis-concept-security.md#securing-the-endpoint)。
-
 ## <a name="working-within-luis-limits"></a>在 LUIS 限制内操作
 
 ### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>LUIS 应用可以支持的最大意向和实体数是多少？
@@ -186,11 +184,11 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>我收到有关超出配额的错误。 如何解决问题？ 
 
-请参阅[修复 HTTP 状态代码 403 和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 以了解详细信息。
+请参阅[修复 HTTP 状态代码 403 和 429](luis-how-to-azure-subscription.md) 以了解详细信息。
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>我需要处理更多的终结点查询。 我该怎么做？ 
 
-请参阅[修复 HTTP 状态代码 403 和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 以了解详细信息。
+请参阅[修复 HTTP 状态代码 403 和 429](luis-how-to-azure-subscription.md) 以了解详细信息。
 
 
 
@@ -239,7 +237,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 第一个问题是如果问题和 LUIS 有关或发生在 LUIS 中间件以外，则隔离。 
 
 #### <a name="resolve-issue-in-luis"></a>在 LUIS 中解决问题
-从 [LUIS 终结点](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)传递相同的言语到 LUIS。 如果收到错误，请在 LUIS 中解决该问题直到不再返回错误。 常见错误包括：
+从 [LUIS 终结点](luis-get-started-create-app.md)传递相同的言语到 LUIS。 如果收到错误，请在 LUIS 中解决该问题直到不再返回错误。 常见错误包括：
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - 此问题表明需要从创作密钥更改为[终结点密钥](luis-how-to-azure-subscription.md)，或者需要更改[服务层级](luis-how-to-azure-subscription.md#change-pricing-tier)。 
 

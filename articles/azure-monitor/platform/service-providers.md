@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/22/2019
-ms.date: 08/06/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 579b5e67fc825497a9741dd115c540f666dccfc9
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 2112b210e6ca080a260e26c0c6005a2dbbe61326
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737382"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330426"
 ---
 # <a name="azure-monitor-for-service-providers"></a>适用于服务提供商的 Azure Monitor
 Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (MSP)、大型企业、独立软件供应商 (ISV) 和主机托管服务提供商管理和监视客户本地或云基础结构中的服务器。 

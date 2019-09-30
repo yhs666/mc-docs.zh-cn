@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f50d413f139a170b8e96c16fcab5a4395c9757da
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 2c3c61d985fc52aeb445c2894b7946d9705d8621
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514524"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330428"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用实时功能管理虚拟机访问
 
@@ -64,7 +64,6 @@ ms.locfileid: "68514524"
 可通过三种方式在 VM 上配置 JIT 策略：
 
 - [在 Azure 安全中心配置 JIT 访问](#jit-asc)
-- [在 Azure VM 边栏选项卡中配置 JIT 访问](#jit-vm)
 - [以编程方式在 VM 上配置 JIT 策略](#jit-program)
 
 ## <a name="configure-jit-in-asc"></a>在 ASC 中配置 JIT
@@ -172,56 +171,6 @@ ms.locfileid: "68514524"
 
 修改筛选器并单击“应用”来创建搜索和日志。 
 
-
-
-## 在 Azure VM 边栏选项卡中配置 JIT 访问 <a name="jit-vm"></a>
-
-为方便起见，可直接从 Azure 的 VM 边栏选项卡中使用 JIT 连接到 VM。
-
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>通过 Azure VM 边栏选项卡在 VM 上配置 JIT 访问
-
-若要轻松地在 VM 间进行实时访问，可以将 VM 设置为仅允许从 VM 内直接进行实时访问。
-
-1. 在 Azure 门户中，选择“虚拟机”  。
-2. 单击要实行实时访问限制的虚拟机。
-3. 在菜单中，单击“配置”  。
-4. 在“实时访问”下，单击“启用实时策略”   。 
-
-此操作可为使用以下设置的 VM 启用实时访问：
-
-- Windows 服务器：
-    - RDP 端口 3389
-    - 最长 3 小时的访问时间
-    - 允许的源 IP 地址设置为“任何”
-- Linux 服务器：
-    - SSH 端口 22
-    - 最长 3 小时的访问时间
-    - 允许的源 IP 地址设置为“任何”
-     
-如果 VM 已启用实时访问，则在转到其配置页时，将看到实时访问已启用。可使用链接打开 Azure 安全中心中的策略，以便查看和更改设置。
-
-![VM 中的 JIT 配置](./media/security-center-just-in-time/jit-vm-config.png)
-
-### <a name="request-jit-access-to-a-vm-via-the-azure-vm-blade"></a>通过 Azure VM 边栏选项卡请求对 VM 的 JIT 访问权限
-
-在 Azure 门户中，尝试连接到 VM 时，Azure 会检查是否在该 VM 上配置实时访问策略。
-
-- 如果在 VM 上配置了 JIT 策略，则可以单击“请求访问”，以便根据 VM 的 JIT 策略集进行访问  。 
-
-  >![jit 请求](./media/security-center-just-in-time/jit-request.png)
-
-  使用以下默认参数请求访问权限：
-
-  - **源 IP**：“任何”(*)（无法更改）
-  - **时间范围**：3 小时（无法更改）  <!--Isn't this set in the policy-->
-  - **端口号**：在 Windows 中为 RDP 端口 3389/在 Linux 中为端口 22（可更改）
-
-    > [!NOTE]
-    > 批准对受 Azure 防火墙保护的 VM 的请求后，安全中心将为用户提供正确的连接详细信息（来自 DNAT 表的端口映射）用于连接 VM。
-
-- 如果没有在 VM 上配置 JIT，将提示你配置 JIT 策略。
-
-  ![jit 提示](./media/security-center-just-in-time/jit-prompt.png)
 
 ## 以编程方式在 VM 上配置 JIT 策略 <a name="jit-program"></a>
 

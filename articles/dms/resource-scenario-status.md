@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-origin.date: 07/13/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: cf2d35e86d25389c9478895b1dbda37312950861
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+origin.date: 09/05/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 1d2708eec3a2d194c84c3e7c4baf05f9bc5d4cdd
+ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308928"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71333655"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure 数据库迁移服务支持的迁移方案的状态
 
@@ -77,7 +77,7 @@ Azure 数据库迁移服务支持的迁移方案的状态随时间而变化。 �
 |   | RDS MySQL | ✔ | GA |
 | **用于 PostgreSQL 的 Azure DB** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | 个人预览版 |
+|   | Oracle | ✔ | 公共预览版 |
 
 ## <a name="next-steps"></a>后续步骤
 

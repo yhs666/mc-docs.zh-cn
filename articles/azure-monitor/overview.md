@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2c72598d9e65d83597b2a0c483ff7109a177e475
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d82c2be90527ec63d50e26f2b21be0ea5610f87c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329779"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 概述
 
@@ -74,16 +74,7 @@ Azure Monitor 可以使用[数据收集器 API](platform/data-collector-api.md) 
 
 ![App Insights](media/overview/app-insights.png)
 
-### <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
-[用于容器的 Azure Monitor](insights/container-insights-overview.md) 功能旨在监视部署到 Azure Kubernetes 服务 (AKS) 上托管的托管 Kubernetes 群集的容器工作负荷的性能。 它通过指标 API 从 Kubernetes 中提供的控制器、节点和容器收集内存和处理器指标，来提供性能可见性。 容器日志也会被收集。  从 Kubernetes 群集启用监视后，将通过适用于 Linux 的 Log Analytics 代理的容器化版本自动收集这些指标和日志。
 
-![容器运行状况](media/overview/container-insights.png)
-
-### <a name="azure-monitor-for-vms"></a>用于 VM 的 Azure Monitor
-[用于 VM 的 Azure Monitor](insights/vminsights-overview.md) 分析 Windows 和 Linux VM 的性能与运行状况，包括其不同的进程以及与其他资源和外部进程之间的相互依赖关系，可以大规模监视 Azure 虚拟机 (VM)。 该解决方案支持监视本地或其他云提供程序中托管的 VM 的性能和应用程序依赖项。  
-
-
-![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>监视解决方案
 Azure Monitor 中的[监视解决方案](insights/solutions.md)是打包的逻辑集，提供有关特定应用程序或服务的见解。 它们包括了用于为应用或服务收集监视数据的逻辑、用于分析该数据的[查询](log-query/log-query-overview.md)，以及用于提供可视化效果的[视图](platform/view-designer.md)。 监视解决方案由 [Microsoft](insights/solutions-inventory.md) 或合作伙伴提供，可针对各种 Azure 服务和其他应用程序提供监视。

@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 11/15/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 738dfef2703cd6c95a7a30795e6742c4d82747a9
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6b08433ec37966e77373261e8fb69830f3320601
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737179"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329695"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用函数
 
@@ -39,8 +39,6 @@ ms.locfileid: "70737179"
 > [!NOTE]
 > Azure Monitor 中的函数不能包含其他函数。
 
-> [!NOTE]
-> 可以在 Azure Monitor 日志查询中保存函数，但目前无法将这些函数用于 Application Insights 查询。
 
 
 

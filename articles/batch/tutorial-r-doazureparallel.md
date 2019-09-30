@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
-ms.date: 01/23/2018
-ms.author: lahugh
+origin.date: 01/23/2018
+ms.date: 01/23/2019
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 70f1562668e7bade6c2bd73a4fc90a6a26c66715
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: a1e32f8570e3ddef0efe38dd9c88c3bf3cbe3470
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969660"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330049"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>教程：使用 Azure Batch 运行并行 R 模拟 
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入门 - 在 Azure Service Fabric 上创建 Java 应用
+title: 快速入门：在 Azure Service Fabric 上创建 Java 应用
 description: 在本快速入门中，请使用 Service Fabric Reliable Services 示例应用程序创建用于 Azure 的 Java 应用程序。
 services: service-fabric
 documentationcenter: java
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/29/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.custom: mvc, devcenter, seo-java-august2019
-ms.openlocfilehash: 356f1f2bcacf22f29c99362013534c8602021c72
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 0160ba18c871e60fbb917b472bb62b689f8236bd
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174236"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340832"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入门：将 Java Reliable Services 应用程序部署到 Service Fabric
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>快速入门：将 Java 应用部署到 Linux 上的 Azure Service Fabric
+
+此快速入门演示如何在 Linux 开发人员计算机上使用 Eclipse IDE 将首个 Java 应用程序部署到 Azure Service Fabric。 完成后，将生成一个带 Java Web 前端的投票应用程序，用于将投票结果保存到群集的有状态后端服务中。
 
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理微服务和容器。
-
-此快速入门演示如何在 Linux 开发人员计算机上使用 Eclipse IDE 将首个 Java 应用程序部署到 Service Fabric。 完成后，将生成一个带 Java Web 前端的投票应用程序，用于将投票结果保存到群集的有状态后端服务中。
 
 ![应用程序屏幕截图](./media/service-fabric-quickstart-java/votingapp.png)
 

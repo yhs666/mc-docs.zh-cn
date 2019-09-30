@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 origin.date: 04/29/2019
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 5809a4fbdf88f05ca533de82cee97777007b170b
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 2fab8041f74715a555b555cae12bfdd145800a72
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819653"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340775"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常见问题：Azure 到 Azure 的灾难恢复
 

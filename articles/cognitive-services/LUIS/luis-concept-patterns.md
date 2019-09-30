@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
+origin.date: 09/02/2019
 ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1a064e1e2376dafa57e3a3d5c6d622f5a433c0e6
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 03b35802c488e2bf4a7806217e5bbb89d775f76c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103956"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329919"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可提高预测的准确性
 模式旨在多条话语非常类似的情况下提升准确性。  使用模式可在不提供更多话语的情况下获得更高的意向准确度。 

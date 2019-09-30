@@ -7,17 +7,16 @@ author: jeffhollan
 manager: jeconnoc
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 07/19/2019
-ms.date: 09/09/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: b6c560ed9a428187a29fa3c386de93179792df4a
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 5bd8230fbb274f818f427ae00bcbca9128c0c9e0
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805728"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673598"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 创建你的第一个持久函数
 
@@ -146,6 +145,6 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
 你已使用 Visual Studio 创建并发布了一个 C# 持久函数应用。
 
 > [!div class="nextstepaction"]
-> [了解常见的持久函数模式。](durable-functions-concepts.md)
+> [了解常见的持久函数模式](durable-functions-overview.md#application-patterns)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

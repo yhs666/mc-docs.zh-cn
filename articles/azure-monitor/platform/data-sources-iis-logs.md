@@ -6,19 +6,20 @@ documentationcenter: ''
 author: lingliw
 manager: digimobile
 editor: tysonn
+ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/28/2018
 ms.date: 6/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 98c90e96edba85da1cf23f6dc5b11622ce861c0e
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e8001d7a7acb796f73435a9ff4d01a526dc1afa7
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736913"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330406"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure Monitor 中收集 IIS 日志
 Internet 信息服务 (IIS) 会将用户活动存储在日志文件中，并可通过 Azure Monitor 进行收集并将其存储为[日志数据](data-platform.md)。

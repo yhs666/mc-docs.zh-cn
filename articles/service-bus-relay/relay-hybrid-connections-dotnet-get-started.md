@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 11/01/2018
-ms.date: 11/26/2018
+ms.date: 09/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0e0d7e1b7a12559ee0fec8be884298f311e7b5b2
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 979a2bef854b4f3d45b35f3b935cd421eb16e87c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330296"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>开始在 .NET 中使用中继混合连接 WebSocket
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

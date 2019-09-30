@@ -1,20 +1,20 @@
 ---
-title: 准备 Azure 以使用 Azure Site Recovery 对本地计算机进行灾难恢复 | Azure
+title: 准备 Azure 以使用 Azure Site Recovery 对本地计算机进行灾难恢复
 description: 了解如何使用 Azure Site Recovery 准备 Azure，对本地计算机进行灾难恢复。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 08/26/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: cdf5db73637ab14552b512d0dcac23e9752d76a5
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7ee00e5b30e5b5c394328d21bc49ff9d4333e402
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134448"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340909"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>准备 Azure 资源，以便对本地计算机进行灾难恢复
 

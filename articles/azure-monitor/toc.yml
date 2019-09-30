@@ -44,8 +44,6 @@
           href: learn/tutorial-runtime-exceptions.md
         - name: 查找应用程序性能问题
           href: learn/tutorial-performance.md
-        - name: 根据应用程序运行状况发出警报
-          href: learn/tutorial-alert.md
         - name: 了解应用程序用户
           href: learn/tutorial-users.md
         - name: 创建自定义仪表板
@@ -988,10 +986,6 @@
           items:
             - name: 1.3 和更高版本
               href: platform/diagnostics-extension-schema-1dot3.md
-            - name: 1.2
-              href: platform/diagnostics-extension-schema-1dot2.md
-            - name: 1
-              href: platform/diagnostics-extension-schema-1dot0.md
 - name: 资源
   items:
     - name: 定价

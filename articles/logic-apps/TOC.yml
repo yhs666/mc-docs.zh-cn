@@ -15,7 +15,7 @@
       href: quickstart-create-logic-apps-visual-studio-code.md
 - name: 教程
   items:
-    - name: 定期检查流量
+    - name: 创建基于计划的工作流
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
     - name: 管理邮件列表请求
       href: tutorial-process-mailing-list-subscriptions-workflow.md
@@ -25,11 +25,65 @@
   items:
     - name: 适用于逻辑应用的连接器
       href: ../connectors/apis-list.md
+    - name: 计划自动重复执行工作流
+      href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Azure 的无服务器体验
       href: logic-apps-serverless-overview.md
 - name: 操作指南
   items:
     - name: 开发
+      items:
+        - name: 从预构建的模板创建
+          href: logic-apps-create-logic-apps-from-templates.md
+        - name: 从 BizTalk 服务迁移
+          href: logic-apps-move-from-mabs.md
+        - name: 控制工作流执行
+          items:
+            - name: 条件语句
+              href: logic-apps-control-flow-conditional-statement.md
+            - name: Switch 语句
+              href: logic-apps-control-flow-switch-statement.md
+            - name: 分支
+              href: logic-apps-control-flow-branches.md
+            - name: 循环
+              href: logic-apps-control-flow-loops.md
+        - name: 创建用于保存值的变量
+          href: logic-apps-create-variables-store-values.md
+        - name: 执行数据操作
+          href: logic-apps-perform-data-operations.md
+        - name: 使用 Azure Functions 添加并运行代码
+          href: logic-apps-azure-functions.md
+        - name: 使用 Azure Functions 调用逻辑应用
+          href: logic-apps-scenario-function-sb-trigger.md
+        - name: 调用、触发或嵌套逻辑应用
+          href: logic-apps-http-endpoint.md
+        - name: 通过分页获取批量数据
+          href: logic-apps-exceed-default-page-size-with-pagination.md
+        - name: 对消息进行批处理
+          href: logic-apps-batch-process-send-receive-messages.md
+        - name: 创作 JSON 定义
+          href: logic-apps-author-definitions.md
+        - name: 处理内容类型
+          href: logic-apps-content-type.md
+        - name: 处理错误和异常
+          href: logic-apps-exception-handling.md
+        - name: 处理大型消息
+          href: logic-apps-handle-large-messages.md
+        - name: 保护逻辑应用
+          href: logic-apps-securing-a-logic-app.md
+        - name: 开发自定义连接器
+          href: custom-connector-overview.md
+        - name: 开发自定义 API
+          items:
+            - name: 为逻辑应用创建自定义 API
+              href: logic-apps-create-api-app.md
+            - name: 保护对自定义 API 的调用
+              href: logic-apps-custom-api-authentication.md
+            - name: 部署和调用自定义 API
+              href: logic-apps-custom-api-host-deploy-call.md
+        - name: 排查错误
+          href: logic-apps-diagnosing-failures.md
+    - name: 访问本地数据
       items:
         - name: 安装数据网关
           href: logic-apps-gateway-install.md

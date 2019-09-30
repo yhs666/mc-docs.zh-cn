@@ -12,14 +12,15 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/21/2019
+origin.date: 06/21/2019
+ms.date: 09/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e296a91eb4031eb9eaf8e84afca97b54273c739b
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: c0bdfec98a56dc0c9ba78f2310d77c14ea4be63c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169599"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329636"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建服务总线命名空间
 

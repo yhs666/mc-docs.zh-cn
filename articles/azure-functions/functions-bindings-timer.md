@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/08/2018
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 6219572e048960f6627dd129de87c1bd62d0fe9b
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 586f4714fafe46aade4599735f9150c8209071fb
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805760"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673580"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -48,7 +48,6 @@ ms.locfileid: "70805760"
 * [F#](#f-example)
 * [Java](#java-example)
 * [JavaScript](#javascript-example)
-* [Python](#python-example)
 
 ### <a name="c-example"></a>C# 示例
 
@@ -163,40 +162,6 @@ module.exports = function (context, myTimer) {
 
     context.done();
 };
-```
-
-### <a name="python-example"></a>Python 示例
-
-以下示例使用计时器触发器绑定，其配置在 *function.json* 文件中进行了描述。 使用绑定的实际 [Python 函数](functions-reference-python.md)在 init.py 文件中进行了描述   。 传入函数的对象的类型为 [azure.functions.TimerRequest 对象](https://docs.microsoft.com/python/api/azure-functions/azure.functions.timerrequest)。 函数逻辑将写入日志，以指示当前调用是由于错过了计划发生时间。 
-
-下面是 function.json  文件中的绑定数据：
-
-```json
-{
-    "name": "mytimer",
-    "type": "timerTrigger",
-    "direction": "in",
-    "schedule": "0 */5 * * * *"
-}
-```
-
-下面是 Python 代码：
-
-```python
-import datetime
-import logging
-
-import azure.functions as func
-
-
-def main(mytimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.datetime.utcnow().replace(
-        tzinfo=datetime.timezone.utc).isoformat()
-
-    if mytimer.past_due:
-        logging.info('The timer is past due!')
-
-    logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
 ## <a name="attributes"></a>属性

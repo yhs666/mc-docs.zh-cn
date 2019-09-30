@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/15/2019
+origin.date: 01/15/2019
+ms.date: 08/15/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 21acc442715ded869e9ce3c7ad25bcd963ad7b0e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 9f6e6751084c23ff617541ec3b748b3dda6d7d7e
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104060"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330362"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 

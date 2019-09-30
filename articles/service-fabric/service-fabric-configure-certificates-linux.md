@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/26/2018
-ms.date: 08/05/2019
+origin.date: 09/06/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3fdf86a54028192a3a5f84ba8a4404c848056dbc
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 1cd5e978f1198f34eb0cbf9e722082ba1c0a0bf2
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753184"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340837"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 群集上的证书和安全性
 
@@ -32,7 +31,7 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 
 对于 Linux 群集，Service Fabric 要求以包含证书和私钥的 .pem 文件形式提供证书，或者以包含证书的 .crt 文件和包含私钥的 .key 文件形式提供证书。 所有文件应采用 PEM 格式。 
 
-如果使用[资源管理器模板](./service-fabric-cluster-creation-create-template.md)或 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 命令从 Azure Key Vault 安装证书，证书将以正确的格式安装在每个节点上的 */var/lib/sfcerts* 目录中。 如果通过其他方法安装证书，必须确保在群集节点上正确安装证书。
+如果使用[资源管理器模板](./service-fabric-cluster-creation-create-template.md)或 [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0) 命令从 Azure Key Vault 安装证书，证书将以正确的格式安装在每个节点上的 */var/lib/sfcerts* 目录中。 如果通过其他方法安装证书，必须确保在群集节点上正确安装证书。
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>应用程序清单中引用的证书
 
@@ -73,7 +72,7 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 </Section>
 ```
 
-### <a name="using-x5092-securitycredentialstype"></a>使用 X509_2 SecurityCredentialsType
+### <a name="using-x509_2-securitycredentialstype"></a>使用 X509_2 SecurityCredentialsType
 
 使用 Java SDK，可为 **SecurityCredentialsType** 指定 **X509_2**。 此值对应于 `SecurityCredentials` ([Java](https://docs.azure.cn/java/api/system.fabric.securitycredentials)) 类型的 `X509Credentials2` ([Java](https://docs.azure.cn/java/api/system.fabric.x509credentials2))。 
 
@@ -87,8 +86,11 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 以下 XML 显示基于此样式的 **TransportSettings** 节。
 
 ```xml
+
 <!--Section name should always end with "TransportSettings".-->
+
 <!--Here we are using a prefix "HelloWorldStateless".-->
+
 <Section Name="HelloWorldStatelessTransportSettings">
     <Parameter Name="MaxMessageSize" Value="10000000" />
     <Parameter Name="SecurityCredentialsType" Value="X509_2" />

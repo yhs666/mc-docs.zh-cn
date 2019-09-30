@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+origin.date: 09/25/2018
+ms.date: 10/31/2018
 ms.author: asirveda
-ms.openlocfilehash: dea3332710033db9e5d0f4af9a0dbbbcf1a72e81
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 71df50e8b3f71893834f6cd523b76cfcb823cf87
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330336"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>将 Java Enterprise Edition (EE) 应用迁移到 Azure
 本文引导你完成将现有 Java EE 工作负荷迁移到 Azure 的过程：

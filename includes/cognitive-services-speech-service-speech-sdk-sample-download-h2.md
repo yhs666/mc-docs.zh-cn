@@ -6,10 +6,10 @@ origin.date: 07/16/2018
 ms.date: 09/24/2019
 ms.author: v-tawe
 ms.openlocfilehash: c075ae53551fc10d5d90a112f020eb6ac884abc3
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 09/27/2019
 ms.locfileid: "71267067"
 ---
 ## <a name="get-the-samples"></a>获取示例

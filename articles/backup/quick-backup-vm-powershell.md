@@ -7,15 +7,16 @@ manager: digimobile
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/16/2019
+origin.date: 04/16/2019
+ms.date: 09/16/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: c63fefbfaf0f39b8f1f7fb1fcd5f8558b84e14fe
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: e058f87c82574c9f3e431d0d836d753ca3b5a4d6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104134"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330392"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 
@@ -72,7 +73,7 @@ ms.locfileid: "70104134"
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. 使用 [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) 更改保管库的存储冗余性配置 (LRS/GRS)，如下所示：
+3. 使用 [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) 更改保管库的存储冗余性配置 (LRS/GRS)，如下所示：
     
     ```powershell
     Get-AzRecoveryServicesVault `

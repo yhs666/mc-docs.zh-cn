@@ -6,17 +6,16 @@ author: lingliw
 manager: digimobile
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b44a27ac68c9f5d2d823e6b6bb4aa4c70f35d296
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: bf3f34e28c6604ec7e81319207b30030f4222471
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103784"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330056"
 ---
 # <a name="monitor-batch-solutions"></a>监视 Batch 解决方案
 

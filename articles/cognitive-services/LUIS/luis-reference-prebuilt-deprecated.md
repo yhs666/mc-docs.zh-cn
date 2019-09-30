@@ -9,14 +9,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3d54a685919298143f24377b78fc926c9d52e8e8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 4f19e216630747eeaabcfc2432f5117285ab626a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330376"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 应用中已弃用的预生成实体
 以下预构建实体已被弃用，不能添加到新的 LUIS 应用中。

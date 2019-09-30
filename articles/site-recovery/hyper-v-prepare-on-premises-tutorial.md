@@ -1,20 +1,19 @@
 ---
-title: 准备本地 Hyper-V 服务器用于将 Hyper-V VM 灾难恢复到 Azure | Azure
+title: 为 Hyper-V VM 到 Azure 的灾难恢复准备本地 Hyper-V 服务器
 description: 了解如何使用 Azure Site Recovery 服务准备本地 Hyper-V VM 以进行到 Azure 的灾难恢复。
-services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
-ms.topic: article
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.topic: tutorial
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 548abe66515e1d5fb98653cbe9fb5b4075e55f32
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 956c09dd6d678b618ee6f1b17ceb32c333c1ffbe
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861723"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340731"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>准备本地 Hyper-V 服务器用于灾难恢复到 Azure
 
@@ -60,8 +59,8 @@ ms.locfileid: "67861723"
 
 为网络映射准备 VMM，如下所示：
 
-1. 确保有与 Hyper-V 主机所在的云相关联的 [VMM 逻辑网络](https://docs.microsoft.com/zh-cn/system-center/vmm/network-logical)。
-2. 确保有链接到逻辑网络的[虚拟机网络](https://docs.microsoft.com/zh-cn/system-center/vmm/network-virtual)。
+1. 确保有与 Hyper-V 主机所在的云相关联的 [VMM 逻辑网络](https://docs.microsoft.com/system-center/vmm/network-logical)。
+2. 确保有链接到逻辑网络的[虚拟机网络](https://docs.microsoft.com/system-center/vmm/network-virtual)。
 3. 在 VMM 中，将 VM 连接到 VM 网络。
 
 ## <a name="verify-internet-access"></a>验证 Internet 访问
@@ -69,7 +68,7 @@ ms.locfileid: "67861723"
 1. 对于本教程，最简单的配置是让 Hyper-V 主机和 VMM 服务器能够直接访问 Internet 而无需使用代理。 
 2. 请确保该 Hyper-V 主机和 VMM 服务器（如果相关）可以访问以下所需 URL。   
 3. 如果要通过 IP 地址来控制访问，请确保：
-    - 基于 IP 地址的防火墙规则可以连接到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。
+    - 基于 IP 地址的防火墙规则可以连接到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。
     - 允许订阅的 Azure 区域的 IP 地址范围。
 
 ### <a name="required-urls"></a>所需 URL
@@ -95,4 +94,4 @@ ms.locfileid: "67861723"
 > [为 Hyper-V VM 设置到 Azure 的灾难恢复](tutorial-hyper-v-to-azure.md)
 > [为 VMM 云中的 Hyper-V VM 设置到 Azure 的灾难恢复](tutorial-hyper-v-vmm-to-azure.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

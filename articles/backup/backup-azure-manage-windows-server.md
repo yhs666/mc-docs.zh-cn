@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/05/2018
-ms.date: 07/08/2019
+origin.date: 07/08/2019
+ms.date: 09/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a029c68c0ccb07151744355ef114027833b2029d
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: d3c80b65063799f8a6399a61c45fed7a9270912b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332223"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330441"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 

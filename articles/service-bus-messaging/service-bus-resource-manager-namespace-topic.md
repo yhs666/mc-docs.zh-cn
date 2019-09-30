@@ -12,24 +12,25 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/28/19
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5f70599e9ae1c60cbdf69d1e0044c4499bc16305
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: bb93a8aa7008bdb4ac8900946636d1dcec4796d0
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330099"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
 
 本文介绍如何使用 Azure Resource Manager 模板创建服务总线命名空间，并且该命名空间内包含主题和订阅。 本文介绍如何指定要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求
 
-有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
+有关创建模板的详细信息，请参阅[创作 Azure 资源管理器模板][Authoring Azure Resource Manager templates]。
 
-有关完整模板，请参阅[包含主题和订阅的服务总线命名空间][Service Bus namespace with topic and subscription]模板。
+有关完整的模板，请参阅 [包含主题和订阅的服务总线命名空间][Service Bus namespace with topic and subscription] 模板。
 
->[!NOTE]
+> [!NOTE]
 > 以下 Azure Resource Manager 模板可供下载和部署。
 > 
 > * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
@@ -37,7 +38,7 @@ ms.locfileid: "54906022"
 > * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
 > * [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 若要查找最新模板，请访问 [Azure 快速入门模板][Azure Quickstart Templates]库并搜索“服务总线”。
+> 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates]库并搜索“服务总线”  。
 > 
 > 
 
@@ -45,7 +46,7 @@ ms.locfileid: "54906022"
 
 使用此模板，将部署包含主题和订阅的服务总线命名空间。
 
-[服务总线主题和订阅](./service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)以“发布/订阅”模式提供一对多的通信形式。
+[服务总线主题和订阅](./service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)以“发布/订阅”模式提供一对多的通信形式。 
 
 若要自动运行部署，请单击以下按钮：
 
@@ -99,7 +100,7 @@ ms.locfileid: "54906022"
 创建类型为 **Messaging**的包含主题和订阅的标准服务总线命名空间。
 
 ```json
-"resources ": [{
+"resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
         "type": "Microsoft.ServiceBus/Namespaces",
@@ -132,7 +133,6 @@ ms.locfileid: "54906022"
 ```
 
 ## <a name="commands-to-run-deployment"></a>运行部署的命令
-
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell

@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: digimobile
-ms.openlocfilehash: 7e43b95a72cf9286a0b5828fa94f0d2f7c7b9fb6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7cfdfa8ab1092560be1c351299457f3442695206
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737213"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329703"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 创建自定义 KPI 仪表板
 
@@ -57,7 +57,7 @@ ms.locfileid: "70737213"
 6. 单击屏幕顶部的“完成自定义”  以退出自定义模式。
 
 ## <a name="add-health-overview"></a>添加运行状况概述
-只有静态文本的仪表板并不是很有趣，所以现在从 Application Insights 添加磁贴，以显示有关应用程序的信息。  你可以从“磁贴库”添加 Application Insights 磁贴，也可以直接从“Application Insights”屏幕固定它们。  该操作允许将已经熟悉的图表和视图固定到仪表板之前对其进行配置。  首先添加应用程序的标准运行状况概述。  这不需要进行配置，并允许在仪表板中进行最起码的自定义操作。
+包含静态文本的仪表板并不是很有趣，所以现在从 Application Insights 添加磁贴，以显示有关应用程序的信息。  你可以从“磁贴库”添加 Application Insights 磁贴，也可以直接从“Application Insights”屏幕固定它们。  该操作允许将已经熟悉的图表和视图固定到仪表板之前对其进行配置。  首先添加应用程序的标准运行状况概述。  这不需要进行配置，并允许在仪表板中进行最起码的自定义操作。
 
 
 1. 在主屏幕上选择你的 **Application Insights** 资源。
@@ -132,9 +132,3 @@ Azure Application Insights 日志（分析）提供了丰富的查询语言，�
 
 > [!div class="nextstepaction"]
 > [深度诊断](../../azure-monitor/app/devops.md)
-
-
-
-
-
-

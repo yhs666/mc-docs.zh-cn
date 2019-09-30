@@ -6,18 +6,18 @@ author: lingliw
 manager: digimobile
 editor: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 03/05/2019
+origin.date: 03/05/2019
+ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7e3212fec5ad743e3bb1dfc81a6bcba3b8f72460
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 5b86aa247cace2158ab6c100aa8cf7c40c841e31
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104039"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330351"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -101,7 +101,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 指定输出文件时，可以使用 [OutputFile.FilePattern](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) 属性来指定要匹配的文件模式。 在通过任务创建的文件中，文件模式匹配的可能有零个文件、一个文件或一组文件。
 
- FilePattern 属性支持文件系统通配符，例如 `*`（适用于非递归匹配）和 `**`（适用于递归匹配）。 例如，上面的代码示例指定以非递归方式与 `std*.txt` 匹配的文件模式： 
+ FilePattern 属性支持文件系统通配符，例如 `*`（适用于非递归匹配）和 `**`（适用于递归匹配）。 例如，上面的代码示例指定以非递归方式与 `std*.txt` 匹配的文件模式：
 
 `filePattern: @"..\std*.txt"`
 

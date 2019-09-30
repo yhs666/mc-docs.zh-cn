@@ -12,10 +12,10 @@ origin.date: 08/24/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
 ms.openlocfilehash: 44fba30b5a82438fd45b766967243ba4a498a207
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 09/29/2019
 ms.locfileid: "71267113"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入门：使用语音 SDK 在 Windows 上的 C++ 中合成语音

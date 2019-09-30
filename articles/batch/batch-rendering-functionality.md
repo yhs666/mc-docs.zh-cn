@@ -2,17 +2,18 @@
 title: Batch 渲染功能
 description: Azure Batch 中的特定渲染功能
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: v-junlch
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7d5bab56072ea5852fd38f4f2b6a3b1a93aab25a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9b0b132313ceaea8ee18072ebe96a838ba0912e9
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655511"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330359"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 的渲染功能
 
@@ -48,15 +49,15 @@ ms.locfileid: "52655511"
 
 需在池配置中指定要使用的并且会产生许可费的应用程序。
 
-- [创建池](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)时指定 `applicationLicenses` 属性。  可在字符串数组中指定以下值 -“vray”、“arnold”、“3dsmax”、“maya”。
-- 指定一个或多个应用程序时，这些应用程序的费用将与 VM 费用相加。  [Azure Batch 定价页面](https://www.azure.cn/pricing/details/batch/#graphic-rendering)上列出了应用程序价格。
+* [创建池](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)时指定 `applicationLicenses` 属性。  可在字符串数组中指定以下值 -“vray”、“arnold”、“3dsmax”、“maya”。
+* 指定一个或多个应用程序时，这些应用程序的费用将与 VM 费用相加。  [Azure Batch 定价页面](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering)上列出了应用程序价格。
 
 > [!NOTE]
 > 若改为通过连接到许可证服务器来使用渲染应用程序，则不要指定 `applicationLicenses` 属性。
 
 可以使用 Azure 门户或 Batch Explorer 选择应用程序和显示应用程序价格。
 
-如果尝试使用某个应用程序，但尚未在池配置的 `applicationLicenses` 属性中指定该应用程序，则应用程序执行将会失败，并出现许可错误和非零退出代码。
+如果尝试使用某个应用程序，但尚未在池配置的 `applicationLicenses` 属性中指定该应用程序，或未连接许可证服务器，则应用程序执行将会失败，并出现许可错误和非零退出代码。
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>预装应用程序的环境变量
 

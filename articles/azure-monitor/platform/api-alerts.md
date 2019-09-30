@@ -5,21 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
+origin.date: 01/21/2019
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6e6ef0126f4024fce07c0b0b97a842244b5ebc55
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 2514325defd48aacaf7b8bd72084e3b67bff2d10
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329935"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>在 Log Analytics 中通过 REST API 创建和管理警报规则
 使用 Log Analytics 警报 REST API 可以在 Log Analytics 中创建和管理警报。  本文详细介绍了该 API 并提供了几个执行不同操作的示例。
@@ -72,7 +72,7 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 > [!NOTE]
 > 所有已保存的搜索、计划和使用 Log Analytics API 创建的操作的名称必须小写。
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
+    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>编辑计划
@@ -341,10 +341,8 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
 
 
 ## <a name="next-steps"></a>后续步骤
+
 * 在 Log Analytics 中使用 [REST API 执行日志搜索](../../azure-monitor/log-query/log-query-overview.md)。
 * 了解 [Azure Monitor 中的日志警报](../../azure-monitor/platform/alerts-unified-log.md)
 * 如何[在 Azure monitor 中创建、编辑或管理日志警报规则](../../azure-monitor/platform/alerts-log.md)
-
-
-
 

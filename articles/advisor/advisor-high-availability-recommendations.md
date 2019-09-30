@@ -7,14 +7,14 @@ author: lingliw
 ms.author: v-lingwu
 ms.service: advisor
 ms.topic: article
-origin.date: 04/12/2019
+origin.date: 01/29/2019
 ms.date: 04/12/2019
-ms.openlocfilehash: 2a8584f463b454397c304a7beacd742fb84c11d9
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 281a9cccc3c600a381e9a900f785098c2f4e4627
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736656"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329892"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>使用 Azure 顾问提高应用程序的可用性
 

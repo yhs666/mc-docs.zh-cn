@@ -5,17 +5,17 @@ services: batch
 author: lingliw
 manager: digimobile
 ms.service: batch
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/03/2018
+origin.date: 07/03/2018
+ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 58f2d32bb1a12f81181e7456cc9590161761b6ee
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 8a7ae354e17eade17c4260d5c30e599d2c2b87cb
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845577"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330399"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>快速入门：在 Azure 门户中运行第一个 Batch 作业
 

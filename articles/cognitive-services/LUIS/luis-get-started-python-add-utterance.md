@@ -1,6 +1,6 @@
 ---
-title: 更改、训练应用，Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 快速入门：更改、训练应用，Python - LUIS
+titleSuffix: Azure Cognitive Services
 description: 此 Python 快速入门会将示例话语添加到家庭自动化应用并训练该应用。
 services: cognitive-services
 author: lingliw
@@ -9,18 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6e088c3394f5239d8827e49e729316e26c1e3091
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 0c4c7a541a8945dba906b1aa3676b41ca459eecd
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332095"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329736"
 ---
 # <a name="quickstart-change-model-using-python"></a>快速入门：使用 Python 更改模型
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

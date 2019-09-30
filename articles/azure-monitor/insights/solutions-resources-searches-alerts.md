@@ -14,12 +14,12 @@ origin.date: 07/22/2019
 ms.date: 07/29/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93e998f7630712dec3b471f2cab8677446bfa47c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6bb416230e461d6648814ae3c5ebe72be1534378
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329819"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>将 Log Analytics 保存的搜索和警报添加到管理解决方案（预览版）
 
@@ -169,28 +169,27 @@ Log Analytics 中的所有资源都包含在[工作区](../../azure-monitor/plat
 
 | 元素名称 | 必须 | 说明 |
 |:--|:--|:--|
-| 类型 | 是 | 操作的类型。  警报操作的类型是 Alert  。 |
-| Name | 是 | 警报的显示名称。  这是警报规则在控制台中的显示名称。 |
-| 说明 | 否 | 警报的可选说明。 |
-| severity | 是 | 警报记录的严重等级包括以下值：<br><br>  严重<br> 警告<br> 信息性
-
+| `type` | 是 | 操作的类型。  警报操作的类型是 Alert  。 |
+| `name` | 是 | 警报的显示名称。  这是警报规则在控制台中的显示名称。 |
+| `description` | 否 | 警报的可选说明。 |
+| `severity` | 是 | 警报记录的严重等级包括以下值：<br><br>  严重<br> 警告<br> 信息性
 
 #### <a name="threshold"></a>阈值
 本部分是必需的。 它定义警报阈值的属性。
 
 | 元素名称 | 必须 | 说明 |
 |:--|:--|:--|
-| 运算符 | 是 | 比较运算符包括以下值：<br><br>**gt = 大于<br>lt = 小于** |
-| Value | 是 | 要比较结果的值。 |
+| `Operator` | 是 | 比较运算符包括以下值：<br><br>**gt = 大于<br>lt = 小于** |
+| `Value` | 是 | 要比较结果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 本部分为可选。 将其包含在指标度量警报中。
 
 | 元素名称 | 必须 | 说明 |
 |:--|:--|:--|
-| TriggerCondition | 是 | 以下值指定该阈值是总违规次数还是连续违规次数：<br><br>**总次数<br>连续次数** |
-| 运算符 | 是 | 比较运算符包括以下值：<br><br>**gt = 大于<br>lt = 小于** |
-| Value | 是 | 若要触发警报，该条件必须符合的次数。 |
+| `TriggerCondition` | 是 | 以下值指定该阈值是总违规次数还是连续违规次数：<br><br>**总次数<br>连续次数** |
+| `Operator` | 是 | 比较运算符包括以下值：<br><br>**gt = 大于<br>lt = 小于** |
+| `Value` | 是 | 若要触发警报，该条件必须符合的次数。 |
 
 
 #### <a name="throttling"></a>限制

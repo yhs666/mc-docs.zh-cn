@@ -1,7 +1,7 @@
 ---
-title: 更改、训练应用，Go
+title: 快速入门：更改、训练应用，Go - LUIS
+titleSuffix: Azure Cognitive Services
 description: 在本 Go 语言快速入门中，你将向家庭自动化应用中添加示例话语并训练该应用。
-titleSuffix: Language Understanding - Azure Cognitive Services
 author: lingliw
 manager: digimobile
 services: cognitive-services
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 68a92e1053403f0402fbe27699041b2ab2d72146
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: b5cab38154e67e2f34892ac11c13b736f1793994
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332125"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330350"
 ---
 # <a name="quickstart-change-model-using-go"></a>快速入门：使用 Go 更改模型
 

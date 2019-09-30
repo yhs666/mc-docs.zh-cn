@@ -8,7 +8,6 @@ editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
@@ -16,12 +15,12 @@ origin.date: 08/26/2019
 ms.date: 05/22/2017
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 393be0ba2cd189c0fa8cb216f09fe816552c9613
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 11ad8f606ea0e66909f94c01949400639d3364da
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104137"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329794"
 ---
 > [!NOTE] 
 > 出于安全原因，本文中所述的用户帐户与用于远程桌面协议 (RDP) 或安全外壳 (SSH) 的用户帐户不同。 

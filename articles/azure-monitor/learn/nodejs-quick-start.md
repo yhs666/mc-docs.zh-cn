@@ -8,15 +8,15 @@ ms.author: v-lingwu
 origin.date: 07/12/2019
 ms.date: 08/12/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-2019
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: e8bd371a2559adcc7ec64b4df13b4ba8662e7098
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 49ce3e99fa6bbe6d556b0d03c42b0fa0236a2316
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737395"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329901"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>开始监视 Node.js Web 应用程序
 

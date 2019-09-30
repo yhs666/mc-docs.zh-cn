@@ -74,7 +74,7 @@
 - name: 概念
   items:
     - name: 基于角色的访问控制（预览）
-      href: service-bus-role-based-access-control.md
+      href: service-bus-managed-service-identity.md
     - name: 高级消息传送
       href: service-bus-premium-messaging.md
     - name: Azure 队列与服务总线队列的比较

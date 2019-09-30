@@ -7,15 +7,16 @@ manager: digimobile
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/27/2018
+origin.date: 11/27/2018
+ms.date: 09/03/2019
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 5ad639a6464d4657017a24de9ba50fbd896e63e2
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 80fde331898b1b651a43134ab72079c99e76ebbf
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330397"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入门：使用 Python API 运行你的第一个 Batch 作业
 
@@ -43,11 +44,11 @@ ms.locfileid: "68969662"
 
 从 GitHub [下载或克隆示例应用](https://github.com/Azure-Samples/batch-python-quickstart)。 若要使用 Git 客户端克隆示例应用存储库，请使用以下命令：
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-导航到包含 Python 脚本 `python_quickstart_client.py` 的目录。
+转到包含 Python 脚本 `python_quickstart_client.py` 的目录。
 
 在 Python 开发环境中使用 `pip` 安装所需的包。
 
@@ -69,7 +70,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 若要查看操作中的 Batch 工作流，请运行脚本：
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -77,7 +78,7 @@ python python_quickstart_client.py
 
 运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，会遇到暂停并看到`Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`。 任务会排队，在第一个计算节点运行后马上运行。 转到 [Azure 门户](https://portal.azure.cn)中的 Batch 帐户，监视 Batch 帐户中的池、计算节点、作业和任务。
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -92,7 +93,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 任务完成后，会看到每个任务的输出，如下所示：
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z
@@ -230,7 +231,7 @@ for task in tasks:
 
 应用自动删除所创建的存储容器，并允许你选择是否删除 Batch 池和作业。 只要有节点在运行，就会对池收费，即使没有计划作业。 不再需要池时，请将其删除。 删除池时会删除节点上的所有任务输出。 
 
-若不再需要资源组、Batch 帐户和存储帐户，请将其删除。 为此，请在 Azure 门户中选择 Batch 帐户所在的资源组，然后单击“删除资源组”。 
+若不再需要资源组、Batch 帐户和存储帐户，请将其删除。 为此，请在 Azure 门户中选择 Batch 帐户所在的资源组，然后选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 

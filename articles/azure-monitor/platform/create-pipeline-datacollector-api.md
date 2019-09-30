@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 08/09/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 15d1f4533f8b7cc5b6abe862b0527e57f34cf67b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5c221ba8e2951ec9dc6b7828bb0d6fe1e4118446
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736949"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329910"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>使用数据收集器 API 创建数据管道
 
@@ -173,7 +173,3 @@ app("fabrikamprod").pageViews
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何使用[数据收集器 API](data-collector-api.md) 将数据从任何 REST API 客户端写入到 Log Analytics 工作区。
-
-
-
-

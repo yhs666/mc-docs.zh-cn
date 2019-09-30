@@ -9,19 +9,18 @@ editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/18/2018
 ms.date: 08/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9a3807869da148be5f625a95a87fb32e2822942e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: e3a107eedd8bc5b33e05023a1f070a35c7be505e
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104142"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330091"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -142,7 +141,7 @@ Azure Batch 资源终结点  用于获取对 Batch 服务的请求进行身份�
 1. 在“角色”  下拉列表中，为应用程序选择参与者  或读者  角色。 有关这些角色的详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。  
 1. 在“选择”  字段中，输入应用程序的名称。 从列表中选择你的应用程序，然后选择“保存”  。
 
-现在，应用程序应出现在访问控制设置中，同时已分配有 RBAC 角色。 
+现在，应用程序应出现在访问控制设置中，同时已分配有 RBAC 角色。
 
 ![向应用程序分配 RBAC 角色](./media/batch-aad-auth/app-rbac-role.png)
 

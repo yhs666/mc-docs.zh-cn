@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/09/2019
-ms.date: 07/08/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5528460d4feb153ae50419c1119c255f65fbdb61
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 726eb51ae0f8ecb05d28fa60bdda7e08e8d15792
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861684"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340881"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>设置 VNet 的网络映射和 IP 寻址
 
@@ -99,8 +99,6 @@ ms.locfileid: "67861684"
 
 - 查看 Azure VM 灾难恢复的[网络指导](site-recovery-azure-to-azure-networking-guidance.md)。
 - [详细了解](site-recovery-retain-ip-azure-vm-failover.md)如何在故障转移后保留 IP 地址。
-
-选择的目标网络是故障转移 VNet，但第 2 点指出“如果所选目标网络不同于故障转移 VNet，但子网范围与故障转移 VNet 相同”
 
 <!--Update_Description: update meta properties, wording update -->
 

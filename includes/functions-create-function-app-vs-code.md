@@ -3,14 +3,14 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 11/27/2018
-ms.date: 07/17/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 57b0b4baed98cc345de42401b2f2f57437fdbabf
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 6373aa15f97a7ea353648b62af9478099c05ba8d
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331861"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673592"
 ---
 ## <a name="create-an-azure-functions-project"></a>创建包含一个函数的 Functions 项目 
 
@@ -27,7 +27,7 @@ ms.locfileid: "68331861"
 
     | Prompt | Value | 说明 |
     | ------ | ----- | ----------- |
-    | 选择函数应用项目的语言 | C# 或 JavaScript | 本文支持 C# 和 JavaScript。 对于 Python，请参阅[此 Python 文章](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。  |
+    | 选择函数应用项目的语言 | C# 或 JavaScript | 本文支持 C# 和 JavaScript。 |
     | 为项目的第一个函数选择模板 | HTTP 触发器 | 在新的函数应用中创建一个 HTTP 触发的函数。 |
     | 提供函数名称 | HttpTrigger | 按 Enter 以使用默认名称。 |
     | 提供命名空间 | My.Functions | （仅 C#）C# 类库必须具有命名空间。  |

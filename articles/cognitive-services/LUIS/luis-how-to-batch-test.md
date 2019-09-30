@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+origin.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c5b6c0be001e8e1e1fc786bd361ad314deae50fd
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: cd718de17639c16551e5301f58eb90dbcc728754
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103935"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330391"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一组示例话语进行批处理测试
 

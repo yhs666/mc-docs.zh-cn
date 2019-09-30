@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0893b3f1a23d7751528fe3754a833aae655ecf54
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: a11e35a7f438fca1e9bdb672308f058eb8713555
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330446"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>教程：生成 LUIS 应用，以确定用户意向
 

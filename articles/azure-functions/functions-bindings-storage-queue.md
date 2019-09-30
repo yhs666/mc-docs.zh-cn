@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: cba66dc5cb6b246bb02251c927fcf33292b03d31
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: b6235645882b61450ab98e5d1111c355c07b224e
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805762"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673555"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -55,7 +55,6 @@ ms.locfileid: "70805762"
 * [C# 脚本 (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -190,54 +189,6 @@ module.exports = async function (context, message) {
  }
  ```
 
-### <a name="trigger---python-example"></a>触发器 - Python 示例
-
-下面的示例演示如何通过触发器读取传递给函数的队列消息。
-
-存储队列触发器在 function.json  中定义，其中 type  设置为 `queueTrigger`。
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "messages",
-      "connection": "AzureStorageQueuesConnectionString"
-    }
-  ]
-}
-```
-
-_\_init_\_.py  中的代码将参数声明为 `func.ServiceBusMessage`，以允许你在函数中读取队列消息。
-
-```python
-import logging
-import json
-
-import azure.functions as func
-
-def main(msg: func.QueueMessage):
-    logging.info('Python queue trigger function processed a queue item.')
-
-    result = json.dumps({
-        'id': msg.id,
-        'body': msg.get_body().decode('utf-8'),
-        'expiration_time': (msg.expiration_time.isoformat()
-                            if msg.expiration_time else None),
-        'insertion_time': (msg.insertion_time.isoformat()
-                           if msg.insertion_time else None),
-        'time_next_visible': (msg.time_next_visible.isoformat()
-                              if msg.time_next_visible else None),
-        'pop_receipt': msg.pop_receipt,
-        'dequeue_count': msg.dequeue_count
-    })
-
-    logging.info(result)
-```
-
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
 在 [C# 类库](functions-dotnet-class-library.md)，请使用以下属性来配置队列触发器：
@@ -369,7 +320,6 @@ def main(msg: func.QueueMessage):
 * [C# 脚本 (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
-* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -518,68 +468,6 @@ module.exports = function(context) {
 
 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
-### <a name="output---python-example"></a>输出 - Python 示例
-
-下面的示例演示如何将单个值和多个值输出到存储队列。 无论哪种方式，function.json  所需的配置都是相同的。
-
-存储队列绑定在 function.json  中定义，其中 type  设置为 `queue`。
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureStorageQueuesConnectionString"
-    }
-  ]
-}
-```
-
-若要在队列中设置单个消息，请向 `set` 方法传递单个值。
-
-```python
-import azure.functions as func
-
-def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
-
-    input_msg = req.params.get('message')
-
-    msg.set(input_msg)
-
-    return 'OK'
-```
-
-若要在队列中创建多个消息，请将参数声明为适当的列表类型，并将值的数组（与列表类型匹配）传递给 `set` 方法。
-
-```python
-import azure.functions as func
-import typing
-
-def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpResponse:
-
-    msg.set(['one', 'two'])
-
-    return 'OK'
-```
 
 ## <a name="output---attributes"></a>输出 - 特性
 

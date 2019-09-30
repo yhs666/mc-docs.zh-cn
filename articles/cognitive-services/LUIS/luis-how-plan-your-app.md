@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 17b158874f54335007db0ab68b34fc34519d3966
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 505bb79271c7c4c4ec8139438a454b5f462e244c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104011"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329726"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>使用主题域、意向和实体规划 LUIS 应用
 

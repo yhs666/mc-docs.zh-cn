@@ -9,7 +9,6 @@ editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
@@ -17,12 +16,12 @@ origin.date: 01/29/2018
 ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3f9d9fc3bb50ef50dab1d4a308161f47e2bfd329
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 81a28f273ebd30d577f874a55c3ebcf1e142a5d1
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657757"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329793"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>适用于 Azure Batch 的 Azure CLI 示例
 

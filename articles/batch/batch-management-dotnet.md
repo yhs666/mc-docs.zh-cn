@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/24/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b4aaadb345e1ea0fc7d1f5db52c7997a0b6bdc
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.custom: seodec18
+ms.openlocfilehash: 33b9b6202721bbb762dcc526aed61fd8e7e33199
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67845286"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329810"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -162,14 +161,14 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure 资源�
 4. 使用凭据创建 [ResourceManagementClient][resman_client] 对象。
 5. 使用 [ResourceManagementClient][resman_client] 对象创建资源组。
 6. 使用 [BatchManagementClient][net_mgmt_client] 对象执行多项 Batch 帐户操作：
-   - 在新资源组中创建 Batch 帐户。
-   - 从 Batch 服务获取新建的帐户。
-   - 输出新帐户的帐户密钥。
-   - 重新生成帐户的新主密钥。
-   - 输出帐户的配额信息。
-   - 输出订阅的配额信息。
-   - 输出订阅中的所有帐户。
-   - 删除新建的帐户。
+   * 在新资源组中创建 Batch 帐户。
+   * 从 Batch 服务获取新建的帐户。
+   * 输出新帐户的帐户密钥。
+   * 重新生成帐户的新主密钥。
+   * 输出帐户的配额信息。
+   * 输出订阅的配额信息。
+   * 输出订阅中的所有帐户。
+   * 删除新建的帐户。
 7. 删除该资源组。
 
 删除新建的 Batch 帐户和资源组之前，可以在 [Azure 门户][azure_portal]中查看它们：

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/15/2019
+origin.date: 04/15/2019
+ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bc9709beec40b9b2294a3eb5af50b4626626b038
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 188524c583f0a31b470dcd84824f4a947ab509cb
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169608"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330006"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何通过 Ruby 使用服务总线主题和订阅
  

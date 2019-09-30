@@ -7,16 +7,16 @@ author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: reference
-origin.date: 07/24/2019
+ms.topic: quickstart
+origin.date: 08/07/2019
 ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ee5859293298f71473d3ed8f2b24e5bba5944056
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: f83de6e525382431f2bc3b9c66844f30e6622cad
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104198"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329661"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入门：适用于 Python 的语言理解 (LUIS) 创作客户端库
 
@@ -38,7 +38,7 @@ ms.locfileid: "70104198"
 
 ## <a name="setting-up"></a>设置
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>获取语言理解 (LUIS) 创作密钥
+### <a name="get-your-language-understanding-luis-starter-key"></a>获取语言理解 (LUIS) 初学者密钥
 
 获取[创作密钥](luis-how-to-account-settings.md)，并为该密钥[创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)（名为 `LUIS_AUTHORING_KEY`），以及为密钥所对应的区域创建环境变量 `LUIS_REGION`。
 

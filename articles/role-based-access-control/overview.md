@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 06/12/2019
-ms.date: 08/07/2019
+origin.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 719ce27d8f200f22418201b959774266ff7aef94
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: c2c5f63d98531cd23dcb741dfaf527e0e44b77e7
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878727"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673559"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什么是 Azure 资源的基于角色的访问控制 (RBAC)？
 
@@ -99,7 +99,7 @@ Azure 具有数据操作，通过这些操作可以授予对对象内数据的�
 
 ![用于控制访问权限的角色分配](./media/overview/rbac-overview.png)
 
-可以使用 Azure 门户、Azure CLI、Azure PowerShell、Azure SDK 或 REST API 创建角色分配。 每个订阅中最多可以包含 2000 个角色分配。 若要创建和删除角色分配，必须拥有 `Microsoft.Authorization/roleAssignments/*` 权限。 此权限是通过[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)角色授予的。
+可以使用 Azure 门户、Azure CLI、Azure PowerShell、Azure SDK 或 REST API 创建角色分配。 每个订阅中最多可以有 **2000** 个角色分配，每个管理组中最多可以有 **500** 个角色分配。 若要创建和删除角色分配，必须拥有 `Microsoft.Authorization/roleAssignments/*` 权限。 此权限是通过[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)角色授予的。
 
 ## <a name="multiple-role-assignments"></a>多角色分配
 
