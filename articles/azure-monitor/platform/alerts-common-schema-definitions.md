@@ -1,6 +1,6 @@
 ---
-title: Webhook/逻辑应用/Azure Functions/自动化 Runbook 的通用警报架构定义
-description: 了解 Webhook/逻辑应用/Azure Functions/自动化 Runbook 的通用警报架构定义
+title: Azure Monitor 的通用警报架构定义
+description: 了解 Azure Monitor 的通用警报架构定义
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,24 +9,22 @@ origin.date: 03/14/2019
 ms.date: 04/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: e2c612db42c7f595c366fe17bcbf0e44a09150b3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 0e4f8fb22b865ad1b1873844fe1d726547b36f0e
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329851"
 ---
 # <a name="common-alert-schema-definitions"></a>常见警报架构定义
 
-本文介绍 Webhook/逻辑应用/Azure Functions/自动化 Runbook 的[通用警报架构定义](https://aka.ms/commonAlertSchemaDocs)。 
+本文介绍 Azure Monitor 的[通用警报架构定义](https://aka.ms/commonAlertSchemaDocs)，包括那些用于Webhook、Azure 逻辑应用、Azure Functions 和 Azure 自动化 Runbook 的定义。 
 
-## <a name="overview"></a>概述
+任何警报实例都会描述受影响的资源和警报原因。 这些实例在以下部分的通用架构中进行介绍：
+* **概要**：一组通用于所有警报类型的标准化字段，描述对什么资源发出警报，此外还有其他通用警报元数据（例如，严重性或说明）。 
+* **警报上下文**：一组用于描述警报原因的字段，此外还有因警报类型而异的字段。 例如，指标警报在警报上下文中包含指标名称和指标值之类的字段，而活动日志警报会包含生成警报的事件的相关信息。 
 
-任何警报实例都会描述**受影响的资源**和**警报原因**。这些实例在以下部分的通用架构中进行介绍：
-* **概要**：一组通用于所有警报类型的**标准化字段**，描述对**什么资源**发出警报，此外还有其他通用警报元数据（例如，严重性或说明）。 
-* **警报上下文**：一组用于描述**警报原因**的字段，此外还有**因警报类型**而异的字段。 例如，指标警报在警报上下文中会有指标名称和指标值之类的字段，而活动日志警报会包含生成警报的事件的相关信息。 
-
-##### <a name="sample-alert-payload"></a>示例警报有效负载
+**示例警报有效负载** <a name="sample-alert-payload"></a>
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -75,25 +73,25 @@ ms.locfileid: "70737243"
 }
 ```
 
-## <a name="essentials-fields"></a>“概要”字段
+## <a name="essentials"></a>概要
 
 | 字段 | 说明|
 |:---|:---|
 | alertId | 用于唯一标识警报实例的 GUID。 |
 | alertRule | 已生成警报实例的警报规则的名称。 |
-| severity | 警报的严重性。 可能的值：Sev0、Sev1、Sev2、Sev3、Sev4 |
-| signalType | 标识在其上定义了警报规则的信号。 可能的值：Metric、Log、Activity Log |
-| monitorCondition | 当警报触发后，警报的监视条件设置为“已触发”。 当导致警报触发的基础条件解除后，监视条件会设置为“已解决”。   |
+| severity | 警报的严重性。 可能的值：Sev0、Sev1、Sev2、Sev3 或 Sev4。 |
+| signalType | 标识在其上定义了警报规则的信号。 可能的值：Metric、Log 或 Activity Log。 |
+| monitorCondition | 当警报触发后，警报的监视条件设置为“已触发”。  当导致警报触发的基础条件解除后，监视条件会设置为“已解决”。    |
 | monitoringService | 已生成警报的监视服务或解决方案。 警报上下文的字段由监视服务规定。 |
-| alertTargetIds | 一系列 ARM ID，都是某个警报的受影响目标。 对于在 Log Analytics 工作区或 Application Insights 实例上定义的日志警报，它是相应的工作区/应用程序。 |
+| alertTargetIds | 一系列 Azure 资源管理器 ID，都是某个警报的受影响目标。 对于在 Log Analytics 工作区或 Application Insights 实例上定义的日志警报，它是相应的工作区或应用程序。 |
 | originAlertId | 警报实例的 ID，由生成它的监视服务生成。 |
-| firedDateTime | 触发警报实例时的 UTC 日期时间 |
-| resolvedDateTime | 将警报实例的监视条件设置为“已解决”时的 UTC 日期时间。 当前仅适用于指标警报。|
-| 说明 | 警报规则中定义的说明 |
+| firedDateTime | 触发警报实例时的协调世界时 (UTC) 日期和时间。 |
+| resolvedDateTime | 将警报实例的监视条件设置为“已解决”时的 UTC 日期和时间。  当前仅适用于指标警报。|
+| 说明 | 警报规则中定义的说明。 |
 |essentialsVersion| 概要部分的版本号。|
-|alertContextVersion | alertContext 部分的版本号 |
+|alertContextVersion | `alertContext` 部分的版本号。 |
 
-##### <a name="sample-values"></a>示例值
+**示例值**
 ```json
 {
   "essentials": {
@@ -115,13 +113,13 @@ ms.locfileid: "70737243"
 }
 ```
 
-## <a name="alert-context-fields"></a>“警报上下文”字段
+## <a name="alert-context"></a>警报上下文
 
 ### <a name="metric-alerts"></a>指标警报
 
-#### <a name="monitoringservice--platform"></a>monitoringService = 'Platform'
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
-##### <a name="sample-values"></a>示例值
+**示例值**
 ```json
 {
   "alertContext": {
@@ -155,12 +153,11 @@ ms.locfileid: "70737243"
 ### <a name="log-alerts"></a>日志警报
 
 > [!NOTE]
-> + 对于在其中定义了自定义 JSON 有效负载的日志警报，启用此通用架构会将有效负载架构恢复为下述架构。
-> + 启用通用架构的警报的大小上限为每个警报 256KB。 **如果搜索结果导致警报大小超出此阈值，则不会将搜索结果嵌入日志警报有效负载中。** 可以通过检查“IncludedSearchResults”标志来确定这一点。 在不包括搜索结果的情况下，建议将搜索查询与 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get) 配合使用。 
+> 对于定义了自定义 JSON 有效负载的日志警报，启用此通用架构会将有效负载架构恢复为下述架构。 启用通用架构的警报的大小上限为每个警报 256 KB。 如果搜索结果导致警报大小超出此阈值，则不会将搜索结果嵌入日志警报有效负载中。 可通过检查标记 `IncludedSearchResults` 来确定这一点。 在不包括搜索结果时，应将搜索查询与 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get) 配合使用。 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
+#### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
-##### <a name="sample-values"></a>示例值
+**示例值**
 ```json
 {
   "alertContext": {
@@ -225,9 +222,9 @@ ms.locfileid: "70737243"
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = 'Application Insights'
+#### <a name="monitoringservice--application-insights"></a>`monitoringService` = `Application Insights`
 
-##### <a name="sample-values"></a>示例值
+**示例值**
 ```json
 {
   "alertContext": {
@@ -290,9 +287,9 @@ ms.locfileid: "70737243"
 
 ### <a name="activity-log-alerts"></a>活动日志警报
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = '活动日志 - 管理'
+#### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 
-##### <a name="sample-values"></a>示例值
+**示例值**
 ```json
 {
   "alertContext": {
@@ -317,22 +314,118 @@ ms.locfileid: "70737243"
 }
 ```
 
-#### <a name="monitoringservice--servicehealth"></a>monitoringService = 'ServiceHealth'
+#### <a name="monitoringservice--activity-log---policy"></a>`monitoringService` = `Activity Log - Policy`
 
-##### <a name="sample-values"></a>示例值
+**示例值**
+```json
+{
+  "alertContext": {
+    "authorization": {
+      "action": "Microsoft.Resources/checkPolicyCompliance/read",
+      "scope": "/subscriptions/<GUID>"
+    },
+    "channels": "Operation",
+    "claims": "{\"aud\":\"https://management.azure.com/\",\"iss\":\"https://sts.windows.net/<GUID>/\",\"iat\":\"1566711059\",\"nbf\":\"1566711059\",\"exp\":\"1566740159\",\"aio\":\"42FgYOhynHNw0scy3T/bL71+xLyqEwA=\",\"appid\":\"<GUID>\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/<GUID>/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"<GUID>\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"<GUID>\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"<GUID>\",\"uti\":\"Miy1GzoAG0Scu_l3m1aIAA\",\"ver\":\"1.0\"}",
+    "caller": "<GUID>",
+    "correlationId": "<GUID>",
+    "eventSource": "Policy",
+    "eventTimestamp": "2019-08-25T11:11:34.2269098+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Warning",
+    "operationName": "Microsoft.Authorization/policies/audit/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "isComplianceCheck": "True",
+      "resourceLocation": "eastus2",
+      "ancestors": "<GUID>",
+      "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/<GUID>/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/<GUID>/\",\"policyDefinitionReferenceId\":\"vulnerabilityAssessmentMonitoring\",\"policySetDefinitionName\":\"<GUID>\",\"policyDefinitionName\":\"<GUID>\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<GUID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<GUID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{}}]"
+    },
+    "status": "Succeeded",
+    "subStatus": "",
+    "submissionTimestamp": "2019-08-25T11:12:46.1557298+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---autoscale"></a>`monitoringService` = `Activity Log - Autoscale`
+
+**示例值**
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "claims": "{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn\":\"Microsoft.Insights/autoscaleSettings\"}",
+    "caller": "Microsoft.Insights/autoscaleSettings",
+    "correlationId": "<GUID>",
+    "eventSource": "Autoscale",
+    "eventTimestamp": "2019-08-21T16:17:47.1551167+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Insights/AutoscaleSettings/Scaleup/Action",
+    "operationId": "<GUID>",
+    "properties": {
+      "description": "The autoscale engine attempting to scale resource '/subscriptions/d<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS' from 9 instances count to 10 instances count.",
+      "resourceName": "/subscriptions/<GUID>/resourceGroups/voiceassistancedemo/providers/Microsoft.Compute/virtualMachineScaleSets/alexademo",
+      "oldInstancesCount": "9",
+      "newInstancesCount": "10",
+      "activeAutoscaleProfile": "{\r\n  \"Name\": \"Auto created scale condition\",\r\n  \"Capacity\": {\r\n    \"Minimum\": \"1\",\r\n    \"Maximum\": \"10\",\r\n    \"Default\": \"1\"\r\n  },\r\n  \"Rules\": [\r\n    {\r\n      \"MetricTrigger\": {\r\n        \"Name\": \"Percentage CPU\",\r\n        \"Namespace\": \"microsoft.compute/virtualmachinescalesets\",\r\n        \"Resource\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"ResourceLocation\": \"eastus\",\r\n        \"TimeGrain\": \"PT1M\",\r\n        \"Statistic\": \"Average\",\r\n        \"TimeWindow\": \"PT5M\",\r\n        \"TimeAggregation\": \"Average\",\r\n        \"Operator\": \"GreaterThan\",\r\n        \"Threshold\": 0.0,\r\n        \"Source\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"MetricType\": \"MDM\",\r\n        \"Dimensions\": [],\r\n        \"DividePerInstance\": false\r\n      },\r\n      \"ScaleAction\": {\r\n        \"Direction\": \"Increase\",\r\n        \"Type\": \"ChangeCount\",\r\n        \"Value\": \"1\",\r\n        \"Cooldown\": \"PT1M\"\r\n      }\r\n    }\r\n  ]\r\n}",
+      "lastScaleActionTime": "Wed, 21 Aug 2019 16:17:47 GMT"
+    },
+    "status": "Succeeded",
+    "submissionTimestamp": "2019-08-21T16:17:47.2410185+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---security"></a>`monitoringService` = `Activity Log - Security`
+
+**示例值**
+```json
+{
+  "alertContext": {
+    "channels": "Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "Security",
+    "eventTimestamp": "2019-08-26T08:34:14+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Security/locations/alerts/activate/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "threatStatus": "Quarantined",
+      "category": "Virus",
+      "threatID": "2147519003",
+      "filePath": "C:\\AlertGeneration\\test.eicar",
+      "protectionType": "Windows Defender",
+      "actionTaken": "Blocked",
+      "resourceType": "Virtual Machine",
+      "severity": "Low",
+      "compromisedEntity": "testVM",
+      "remediationSteps": "[\"No user action is necessary\"]",
+      "attackedResourceType": "Virtual Machine"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-08-26T09:28:58.3019107+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--servicehealth"></a>`monitoringService` = `ServiceHealth`
+
+**示例值**
 ```json
 {
   "alertContext": {
     "authorization": null,
-    "channels": "Admin",
+    "channels": 1,
     "claims": null,
     "caller": null,
     "correlationId": "f3cf2430-1ee3-4158-8e35-7a1d615acfc7",
-    "eventSource": "ServiceHealth",
+    "eventSource": 2,
     "eventTimestamp": "2019-06-24T11:31:19.0312699+00:00",
     "httpRequest": null,
     "eventDataId": "<GUID>",
-    "level": "Informational",
+    "level": 3,
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
@@ -356,13 +449,14 @@ ms.locfileid: "70737243"
     },
     "status": "Active",
     "subStatus": null,
-    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00"
+    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00",
+    "ResourceType": null
   }
 }
 ```
-#### <a name="monitoringservice--resource-health"></a>monitoringService = '资源运行状况'
+#### <a name="monitoringservice--resource-health"></a>`monitoringService` = `Resource Health`
 
-##### <a name="sample-values"></a>示例值
+**示例值**
 ```json
 {
   "alertContext": {
