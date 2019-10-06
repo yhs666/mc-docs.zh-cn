@@ -8,15 +8,15 @@ ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 07/29/2019
-ms.date: 09/05/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a0dbbaa3ce36f83e115ebaf95bad41640210eb60
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 1ef6fab77a12cad2065859b340e7f7fd910b9c34
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805819"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673486"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教程：在 Azure Functions 中使用 Python 和 TensorFlow 应用机器学习模型
 
@@ -101,7 +101,7 @@ func init --worker-runtime python
 
 - [*local.settings.json*](functions-run-local.md#local-settings-file)：包含用于本地开发的应用程序设置
 - [*host.json*](functions-host-json.md)：包含 Azure Functions 主机和扩展的设置
-- [*requirements.txt*](functions-reference-python.md#python-version-and-package-management)：包含此应用程序所需的 Python 包
+- *requirements.txt*：包含此应用程序所需的 Python 包
 
 ## <a name="create-an-http-function"></a>创建 HTTP 函数
 
@@ -197,8 +197,6 @@ pip install --no-cache-dir -r requirements.txt
 
 在编辑器中打开 *predict.py*，并查看文件顶部附近的 `_initialize` 函数。 请注意，首次执行该函数时已从磁盘加载 TensorFlow 模型，并且该模型已保存到全局变量中。 后续执行 `_initialize` 函数时，将跳过从磁盘加载模型的步骤。 使用此方法将模型缓存在内存中可以加速后续的预测。
 
-有关全局变量的详细信息，请参阅 [Azure Functions Python 开发人员指南](functions-reference-python.md#global-variables)。
-
 ## <a name="update-function-to-run-predictions"></a>更新函数以运行预测
 
 在编辑器中打开 *classify/\_\_init\_\_.py*。 导入前面已添加到同一文件夹中的 *predict* 库。 在该文件中现有的其他 import 语句下面添加以下 `import` 语句。
@@ -285,8 +283,5 @@ py -3.6  -m http.server
 
 可以使用本教程中所述的方法生成具有不同复杂性的 API，所有这些 API 都可在 Azure Functions 提供的无服务器计算模型上运行。
 
-若要将函数应用部署到 Azure，请使用 [Azure Functions Core Tools](./functions-run-local.md#publish) 或 [Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。
-
-> [!div class="nextstepaction"]
-> [Azure Functions Python 开发人员指南](./functions-reference-python.md)
+若要将函数应用部署到 Azure，请使用 [Azure Functions Core Tools](./functions-run-local.md#publish)。
 

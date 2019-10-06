@@ -1,20 +1,19 @@
 ---
 title: 使用 Visual Studio Code 开发 Azure Functions | Microsoft Docs
 description: 了解如何使用 Visual Studio Code 的 Azure Functions 扩展开发和测试 Azure Functions。
-services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 04/11/2019
-ms.date: 09/06/2019
+origin.date: 08/21/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8c92c3463a1cf0eff697981d7069ac5e9870b1d3
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 0139b3fb6ae8b0ed728100b3cc6c361a9504f852
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805816"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673491"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio 开发 Azure Functions
 
@@ -32,7 +31,6 @@ Azure Functions 扩展提供以下优势：
 * [C# 脚本](functions-reference-csharp.md)<sup>*</sup>
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
-* [Python](functions-reference-python.md)
 
 <sup>*</sup>要求[将 C# 脚本设置为默认的项目语言](#c-script-projects)。
 
@@ -193,25 +191,17 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 使用 Visual Studio Code 可以将 Functions 项目直接发布到 Azure。 在此过程中，将在 Azure 订阅中创建函数应用和相关的资源。 函数应用为函数提供了执行上下文。 该项目将打包并部署到 Azure 订阅中的新函数应用。
 
-从 Visual Studio Code 发布时，可以利用 [Zip 部署](functions-deployment-technologies.md#zip-deploy)技术。
+当你从 Visual Studio Code 发布到 Azure 中的新函数应用时，将为你提供快速函数应用创建路径和高级路径。 
 
-### <a name="quick-function-app-creation"></a>快速创建函数应用
+从 Visual Studio Code 发布时，可以利用 [Zip 部署](functions-deployment-technologies.md#zip-deploy)技术。 
 
-默认情况下，Visual Studio Code 会自动生成函数应用所需的 Azure 资源的值。 这些值基于所选的函数应用名称。 有关使用默认值将项目发布到 Azure 中的新函数应用的示例，请参阅 [Visual Studio Code 快速入门文章](functions-create-first-function-vs-code.md#publish-the-project-to-azure)。
+### <a name="quick-function-app-create"></a>快速函数应用创建
 
-若要为创建的资源提供显式名称，必须使用高级选项启用发布。
+当你选择“+ 在 Azure 中创建新的函数应用...”  时，扩展会自动为函数应用所需的 Azure 资源生成值。 这些值基于所选的函数应用名称。 有关使用默认值将项目发布到 Azure 中的新函数应用的示例，请参阅 [Visual Studio Code 快速入门文章](functions-create-first-function-vs-code.md#publish-the-project-to-azure)。
 
-### <a name="enable-publishing-with-advanced-create-options"></a>使用高级创建选项启用发布
+如果要为创建的资源提供显式名称，则必须选择高级创建路径。
 
-若要控制与 Azure Functions 应用创建相关联的设置，请更新 Azure Functions 扩展以启用高级设置。
-
-1. 选择“文件” > “首选项” > “设置”。   
-
-1. 转到“用户设置” > “扩展” > “Azure Functions”。   
-
-1. 选择“Azure Functions:  高级创建”。
-
-### <a name="publish-a-project-to-a-new-function-app-in-azure-by-using-advanced-options"></a>使用高级选项将项目发布到 Azure 中的新函数应用
+### <a name="enable-publishing-with-advanced-create-options"></a>使用高级选项将项目发布到 Azure 中的新函数应用
 
 以下步骤使用高级创建选项将项目发布到创建的新函数应用：
 
@@ -221,7 +211,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 1. 如果你未登录，系统会提示“登录到 Azure”。  也可以**创建一个 Azure 帐户**。 从浏览器登录后，返回到 Visual Studio Code。
 
-1. 如果你有多个订阅，请为函数应用**选择一个订阅**，然后选择“在 Azure 中创建新的函数应用”  。
+1. 如果你有多个订阅，请为函数应用**选择一个订阅**，然后选择“+ 在 Azure 中创建新的函数应用...” **_“高级”_** 。 使用此“高级”  选项可以更好地控制在 Azure 中创建的资源。 
 
 1. 按提示操作并提供以下信息：
 
@@ -277,7 +267,6 @@ Azure Functions 扩展可让你在本地开发计算机上运行函数项目。 
     | **C#** | [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 工具](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [适用于 Java 的调试器扩展](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 或更高版本](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6 或更高版本](https://www.python.org/downloads/)|
 
     <sup>*</sup>活动 LTS 和维护 LTS 版本（建议使用 8.11.1 和 10.14.1）。
 

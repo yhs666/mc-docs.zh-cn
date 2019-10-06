@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 针对物理本地服务器设置到 Azure 的灾难恢复 | Azure
+title: 使用 Azure Site Recovery 针对物理本地服务器设置到 Azure 的灾难恢复
 description: 了解如何使用 Azure Site Recovery 服务针对本地 Windows 和 Linux 服务器设置到 Azure 的灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5bf55e31cd74dfba30f3ddd427ff8296a6bcff3
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 995f793b86f8b94737267787e6fa975f2ee8cde0
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861729"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340863"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -123,7 +123,7 @@ ms.locfileid: "67861729"
 
 基于 IP 地址的防火墙规则应允许通过 HTTPS (443) 端口与上面列出的所有 Azure URL 进行通信。 为了简化和限制 IP 范围，建议进行 URL 筛选。
 
-- **中国区 Azure IP** - 允许 [Azure 中国云数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
+- **中国区 Azure IP** - 允许 [Azure IP 范围和服务标记 - 中国云](https://www.microsoft.com/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
 
 <!-- Update Government IP for [Azure Datacenter IP Ranges – China Cloud](https://www.microsoft.com/download/details.aspx?id=57062)-->
 

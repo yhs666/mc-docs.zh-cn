@@ -7,18 +7,17 @@ author: ggailey777
 manager: jeconnoc
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 06/25/2019
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d4d290f1a041414dc6bb2fd9f7d51952363b3a71
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: e552d0bf69d2e46d9ad5a4fe32ec8f953c5f1309
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805751"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673583"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 创建你的第一个函数
 
@@ -28,7 +27,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ![Visual Studio 项目中的 Azure Functions 代码](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-该扩展当前支持 C#、JavaScript、Java 和 Python 函数。 本文和后续文章中的步骤仅支持 JavaScript 和 C# 函数。 若要了解如何使用 Visual Studio Code 创建和发布 Python 函数，请参阅[将 Python 部署到 Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。 
+该扩展当前支持 C#、JavaScript、Java 函数。 本文和后续文章中的步骤仅支持 JavaScript 和 C# 函数。
 
 此扩展目前为预览版。 若要了解详细信息，请参阅[适用于 Visual Studio Code 的 Azure Functions 扩展]页。
 
@@ -65,11 +64,11 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="run-the-function-in-azure"></a>在 Azure 中运行函数
 
-1. 从“输出”  面板复制 HTTP 触发器的 URL。 与前面一样，请确保将查询字符串 `?name=<yourname>` 添加到此 URL 的末尾并执行请求。
+1. 从“输出”  面板复制 HTTP 触发器的 URL。 此 URL 包括函数密钥，该密钥将传递给 `code` 查询参数。 与前面一样，请确保将查询字符串 `?name=<yourname>` 添加到此 URL 的末尾并执行请求。
 
     调用 HTTP 触发的函数的 URL 应采用以下格式：
 
-        http://<functionappname>.chinacloudsites.cn/api/<functionname>?name=<yourname> 
+        http://<functionappname>.chinacloudsites.cn/api/<functionname>?code=<function_key>&name=<yourname> 
 
 1. 将 HTTP 请求的这个新 URL 粘贴到浏览器的地址栏中。 下面演示浏览器中函数返回的对远程 GET 请求的响应： 
 
@@ -85,3 +84,4 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 [Azure Functions Core Tools]: functions-run-local.md
 [适用于 Visual Studio Code 的 Azure Functions 扩展]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 
+<!-- Update_Description: wording update -->

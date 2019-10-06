@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 origin.date: 07/26/2019
 ms.date: 09/09/2019
-ms.openlocfilehash: abcf86b22a25fab22216447a23e21b9a1ace4a4f
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 6a93795c9ca3b20b1131e9229665249f92f12800
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174559"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340827"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>创建 Azure 资源管理器模板以自动化 Azure 逻辑应用的部署
 
@@ -84,10 +84,10 @@ Azure 逻辑应用提供一个可以重复使用的[预生成逻辑应用 Azure 
 
 ### <a name="generate-template-with-powershell"></a>使用 PowerShell 生成模板
 
-若要在安装 LogicAppTemplate 模块后生成模板，请运行以下 PowerShell 命令：
+若要在安装 LogicAppTemplate 模块和 [Azure CLI](/cli/?view=azure-cli-latest) 后生成模板，请运行以下 PowerShell 命令：
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 若要根据建议从 [Azure 资源管理器客户端工具](https://github.com/projectkudu/ARMClient)以管道方式传送令牌，请运行以下命令，其中的 `$SubscriptionId` 是你的 Azure 订阅 ID：

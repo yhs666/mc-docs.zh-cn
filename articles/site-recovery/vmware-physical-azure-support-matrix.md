@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/23/2019
-ms.date: 08/26/2019
+origin.date: 09/11/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3ba1377721493ac6c7cd635b7e948b9b004a7c1f
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: e15f957069e9bcbeb186fdd88639aef77ca58e69
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134477"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340963"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>将 VMware VM 和物理服务器灾难恢复到 Azure 时的支持矩阵
 
@@ -248,6 +248,10 @@ HUB | 是
 FC 磁盘 | 不支持。 | 如果不支持，检查会失败。
 BitLocker | 不支持。 | 为计算机启用复制之前，必须先禁用 BitLocker。 |
 VM 名称 | 1 到 63 个字符。<br/><br/> 限制为字母、数字和连字符。<br/><br/> 计算机名称必须以字母或数字开头和结尾。 |  请在 Site Recovery 中的计算机属性中更新该值。
+
+## <a name="resource-group-limits"></a>资源组限制
+
+若要了解可以在单个资源组下保护的虚拟机数量，请参阅有关[订阅限制和配额](/azure-subscription-service-limits#resource-group-limits)的文章
 
 ## <a name="churn-limits"></a>变动率限制
 

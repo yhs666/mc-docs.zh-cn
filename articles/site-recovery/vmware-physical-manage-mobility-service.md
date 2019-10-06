@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/25/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e6d83ae0db41999f00720b08fcfb881e9c1e02e
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: 746f71e887ddac3870da42003152d2b51bab5b37
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083178"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340960"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>管理受保护计算机上的移动代理
 
@@ -61,7 +61,7 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 
 ### <a name="on-a-linux-machine"></a>在 Linux 计算机上
 1. 在 Linux 计算机上以 **root** 用户身份登录。
-2. 在终端中转到 /user/local/ASR。
+2. 在终端中转到 /usr/local/ASR。
 3. 运行以下命令：
     ```
     uninstall.sh -Y

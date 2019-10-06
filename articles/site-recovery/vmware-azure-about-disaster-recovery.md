@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 12/31/2018
-ms.date: 03/04/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: b6a660182e1101174ce800cf8d39e1946cadb6ac
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 7d7ae869698a03e318c832221d58aff2098e69bb
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463469"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340905"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>关于 VMware VM 到 Azure 的灾难恢复
 
@@ -35,7 +35,7 @@ ms.locfileid: "57463469"
     - 钻取有助于确保在真正需要时，故障转移将按预期工作。
     - 钻取执行测试故障转移时，不会影响你的生产环境。
 5. 如果发生中断，则运行到 Azure 的完全故障转移。 可以对单台计算机进行故障转移，也可以创建一个恢复计划，同时在多台计算机上进行故障转移。
-6. 在故障转移时，使用 Azure 存储中的 VM 数据创建 Azure VM。 用户可以继续从 Azure VM 访问应用和工作负载
+6. 故障转移时，将使用托管磁盘或存储帐户中的 VM 数据创建 Azure VM。 用户可以继续从 Azure VM 访问应用和工作负载
 7. 当本地站点再次可用时，便可从 Azure 进行故障回复。
 8. 在进行故障回复并再次从主站点正常工作后，将再次开始将本地 VM 复制到 Azure。
 
@@ -55,13 +55,12 @@ Site Recovery 可复制受支持的 VMware VM 或物理服务器上运行的任�
 在 Azure 中需要准备以下内容：
 
 1. 验证 Azure 帐户是否具有在 Azure 中创建 VM 的权限。
-2. 创建一个存储帐户用于保存复制计算机的映像。
-3. 创建一个 Azure 网络，在故障转移后从存储创建 Azure VM 时，它将加入该网络。
-4. 为 Site Recovery 设置 Azure 恢复服务保管库。 保管库位于 Azure 门户中，用于部署、配置、协调、监视和排查 Site Recovery 部署的故障。
+2. 创建一个 Azure 网络，在故障转移后从存储帐户或托管磁盘创建 Azure VM 时，此 Azure VM 将加入该网络。
+3. 为 Site Recovery 设置 Azure 恢复服务保管库。 保管库位于 Azure 门户中，用于部署、配置、协调、监视和排查 Site Recovery 部署的故障。
 
 *需要更多帮助？*
 
-了解如何通过[验证帐户](tutorial-prepare-azure.md#verify-account-permissions)、创建[存储帐户](tutorial-prepare-azure.md#create-a-storage-account)和[网络](tutorial-prepare-azure.md#set-up-an-azure-network)以及[设置保管库](tutorial-prepare-azure.md#create-a-recovery-services-vault)来设置 Azure。
+了解如何通过[验证帐户](tutorial-prepare-azure.md#verify-account-permissions)、创建[网络](tutorial-prepare-azure.md#set-up-an-azure-network)和[设置保管库](tutorial-prepare-azure.md#create-a-recovery-services-vault)来设置 Azure。
 
 ## <a name="what-do-i-need-to-set-up-on-premises-before-i-start"></a>在开始之前，我需要在本地设置什么？
 
@@ -91,10 +90,10 @@ Site Recovery 可复制受支持的 VMware VM 或物理服务器上运行的任�
     - 配置服务器是一台本地计算机。 对于 VMware 灾难恢复，建议将其作为可通过可下载的 OVF 模板部署的 VMware VM 来部署。
     - 配置服务器协调本地环境与 Azure 之间的通信
     - 其他几个组件在配置服务器计算机上运行。
-        - 进程服务器接收、优化复制数据并将复制数据发送到 Azure 存储。 它还会处理要复制的计算机上的移动服务的自动安装，并在 VMware 服务器上执行 VM 的自动发现。
+        - 进程服务器接收、优化复制数据并将复制数据发送到 Azure 中的缓存存储帐户。 它还会处理要复制的计算机上的移动服务的自动安装，并在 VMware 服务器上执行 VM 的自动发现。
         - 主目标服务器处理从 Azure 进行故障回复期间产生的复制数据。
     - 设置过程包括在保管库中注册配置服务器、下载 MySQL Server 和 VMware PowerCLI，以及指定为自动发现和移动服务安装所创建的帐户。
-4. **目标环境**：通过指定 Azure 订阅、存储和网络设置来设置目标 Azure 环境。
+4. **目标环境**：通过指定 Azure 订阅和网络设置来设置目标 Azure 环境。
 5. **复制策略**：指定复制的方式。 设置包括创建和存储恢复点的频率，以及是否应创建应用一致性快照。
 6. **启用复制**。 为本地计算机启用复制。 如果你创建了一个帐户用于安装移动服务，则在为计算机启用复制时将进行安装。 
 
@@ -119,4 +118,4 @@ Site Recovery 可复制受支持的 VMware VM 或物理服务器上运行的任�
 
 现在复制已准备就绪，应[运行灾难恢复钻取](tutorial-dr-drill-azure.md)以确保故障转移按预期工作。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

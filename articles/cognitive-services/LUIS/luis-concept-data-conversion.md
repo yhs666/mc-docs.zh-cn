@@ -1,6 +1,6 @@
 ---
-title: 数据转换
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 数据转换 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解如何在语言理解 (LUIS) 得出预测之前更改话语
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: aba16a6a370e8bd72f1c2876e4624e2820555070
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 84b147bb56e3ea6956ac672e1a94ce12deda63b4
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103961"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329929"
 ---
 # <a name="convert-data-format-of-utterances"></a>转换话语的数据格式
 LUIS 在预测之前提供用户话语的以下转换

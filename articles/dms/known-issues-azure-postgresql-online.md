@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 origin.date: 08/06/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 7d39df336915ab27209591672b51b12843b61f75
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 09/30/2019
+ms.openlocfilehash: 9981dc9f288acb61cf5bb4b5f2d5676b968e6a52
+ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737150"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71333649"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>联机迁移到 Azure DB for PostgreSQL 时存在的已知问题/迁移限制
 
@@ -89,6 +89,8 @@ ms.locfileid: "70737150"
 - **限制**：如果表中没有主键，连续同步将会失败。
 
     **解决方法**：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
+
+- **限制**：迁移不支持 JSONB 数据类型。
 
 ## <a name="lob-limitations"></a>LOB 限制
 

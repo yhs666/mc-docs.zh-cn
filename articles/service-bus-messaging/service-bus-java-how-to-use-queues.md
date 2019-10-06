@@ -1,5 +1,5 @@
 ---
-title: 如何通过 Java 使用 Azure 服务总线队列 | Azure Docs
+title: 通过 Java 使用 Azure 服务总线队列
 description: 了解如何在 Azure 中使用服务总线队列。 用 Java 编写的代码示例。
 services: service-bus-messaging
 documentationcenter: java
@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/10/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4dbf769f87e4a6e738b21d6ef1ca82b26253f042
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 316d5ce25a23174f88d472a177585d2d81fb5c2e
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818581"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330304"
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>通过 Java 使用 Azure 服务总线队列发送和接收消息
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-在本教程中，你将了解如何创建 Java 应用程序来向服务总线队列发送消息以及从中接收消息。 
+本教程介绍如何创建 Java 应用程序来向 Azure 服务总线队列发送消息以及从中接收消息。 
 
 > [!NOTE]
 > 可以在 GitHub 上的 [azure-service-bus 存储库](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)中找到 Java 示例。
@@ -171,6 +172,7 @@ public void run() throws Exception {
         // 1 concurrent call, messages are auto-completed, auto-renew duration
         new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
     }
+
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 08/07/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: a4b99fed87724e933e4379da4ce88a83d156a976
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 6611f89011d1c00354b24b4e94fbb8a2e70853d3
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174567"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340996"
 ---
 <!--Verfiy sucessfully-->
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Service Fabric 应用程序资源模型是什么？
@@ -157,6 +157,10 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 * [在 Service Fabric 中对应用程序建模](/service-fabric/service-fabric-application-model)
 * [Service Fabric 应用程序和服务清单](/service-fabric/service-fabric-application-and-service-manifests)
 
+## <a name="see-also"></a>另请参阅
+* [最佳实践](/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [将应用程序和服务作为 Azure 资源进行管理](/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+
 <!--Image references-->
 
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png
@@ -166,4 +170,4 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 [UploadAppPkg]: ./media/service-fabric-application-model/upload-app-pkg.png
 
 <!--Update_Description: new articles on service fabric concept resource model -->
-<!--ms.date: 09/02/2019-->
+<!--new.date: 09/02/2019-->

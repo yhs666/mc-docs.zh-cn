@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/23/2018
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 9bb7bffb0f688decd5de5b6c75d5d15b1ab1d978
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 09/26/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 065ec5565aa82c81c0730308ff86b4b79931e3e9
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651165"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330385"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 中继混合连接 .NET 标准 API 概述
 
@@ -28,7 +28,7 @@ ms.locfileid: "52651165"
   
 ## <a name="relay-connection-string-builder-class"></a>中继连接字符串生成器类
 
-[RelayConnectionStringBuilder][RelayConnectionStringBuilder] 类对特定于中继混合连接的连接字符串进行格式化。 该类可用于验证连接字符串的格式或从头开始生成连接字符串。 有关示例，请参阅以下代码：
+[RelayConnectionStringBuilder][RelayConnectionStringBuilder] 类对特定于中继混合连接的连接字符串进行格式设置。 该类可用于验证连接字符串的格式或从头开始生成连接字符串。 有关示例，请参阅以下代码：
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -138,8 +138,8 @@ await textWriter.WriteLineAsync("hello");
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
 
 * [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)
-* [什么是 Azure 中继？](./relay-what-is-it.md)
-* [可用的中继 API](./relay-api-overview.md)
+* [什么是 Azure 中继？](relay-what-is-it.md)
+* [可用的中继 API](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
 [HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream

@@ -3,19 +3,19 @@ title: 将 Azure Blob 存储模块部署到设备 - Azure IoT Edge | Microsoft D
 description: 将 Azure Blob 存储模块部署到 IoT Edge 设备以在边缘存储数据。
 author: kgremban
 ms.author: v-yiso
-origin.date: 06/19/2019
-ms.date: 07/22/2019
+origin.date: 08/07/2019
+ms.date: 10/08/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: philmea
-ms.openlocfilehash: 3556643c5e15825bdc1ddb5b00b03fb2d676eb04
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 3298202582cace14d44cf1f65bbde6eb6e5b611a
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340818"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>将 IoT Edge 上的 Azure Blob 存储模块部署到设备
 
@@ -94,7 +94,7 @@ Azure 门户引导你创建部署清单并将部署推送到 IoT Edge 设备。
      > [!IMPORTANT]
      > 请不要更改存储装载值的后半部分，该部分指向模块中的特定位置。 对于 Linux 容器，存储装载应始终以 **:/blobroot** 结尾；对于 Windows 容器，应以 **:C:/BlobRoot** 结尾。
 
-1. 通过复制以下 JSON 并将其粘贴到“设置模块孪生的所需属性”  框中，为模块设置 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 和 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) 属性。 为每个属性配置适当的值，保存后继续进行部署。
+1. 通过复制以下 JSON 并将其粘贴到“设置模块孪生的所需属性”  框中，为模块设置 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 和 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) 属性。 为每个属性配置适当的值，保存后继续进行部署。 如果使用 IoT Edge 模拟器，请将这些属性的值设置为相关环境变量，可以在 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 和 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) 的说明部分中找到这些值。
 
    ```json
    {
@@ -208,7 +208,7 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
      > [!IMPORTANT]
      > 请不要更改存储装载值的后半部分，该部分指向模块中的特定位置。 对于 Linux 容器，存储装载应始终以 **:/blobroot** 结尾；对于 Windows 容器，应以 **:C:/BlobRoot** 结尾。
 
-1. 通过将以下 JSON 添加到 *deployment.template.json* 文件，为模块配置 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 和 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)。 为每个属性配置适当的值并保存文件。
+1. 通过将以下 JSON 添加到 *deployment.template.json* 文件，为模块配置 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 和 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)。 为每个属性配置适当的值并保存文件。 如果使用 IoT Edge 模拟器，请将这些属性的值设置为相关环境变量，可以在 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 和 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) 的说明部分中找到这些值
 
    ```json
    "<your azureblobstorageoniotedge module name>":{

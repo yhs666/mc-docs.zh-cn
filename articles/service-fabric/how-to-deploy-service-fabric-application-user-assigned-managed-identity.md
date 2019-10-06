@@ -6,15 +6,17 @@ author: rockboyfor
 ms.service: service-fabric
 ms.topic: article
 origin.date: 08/09/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fb9834aefcd3d56888ba347926bf0be3d013cbd
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: d3e4b5fbca4fd08c749ddb81085e1aa77c476633
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174524"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340870"
 ---
+<!--Not Available on "apiVersion": "2019-06-01-preview"-->
+<!--Release before confirm-->
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>使用用户分配的托管标识部署 Service Fabric 应用程序（预览）
 
 若要使用托管标识部署 Service Fabric 应用程序，需通过 Azure 资源管理器部署应用程序，通常需要使用 Azure 资源管理器模板。 若要详细了解如何通过 Azure 资源管理器部署 Service Fabric 应用程序，请参阅[将应用程序和服务作为 Azure 资源管理器资源进行管理](service-fabric-application-arm-resource.md)。
@@ -28,7 +30,7 @@ ms.locfileid: "70174524"
 
 ## <a name="user-assigned-identity"></a>用户分配的标识
 
-若要为应用程序启用用户分配的托管标识，请先将类型为 **userAssigned** 的 **identity** 属性添加到应用程序资源和引用的用户分配标识。 然后将 **managedIdentities** 节添加到 **application** 资源的 **properties** 节中，该资源包含一个易记名称的列表，可以为每个用户分配的标识进行 principalId 映射。
+若要为应用程序启用用户分配的托管标识，请先将类型为 **userAssigned** 的 **identity** 属性添加到应用程序资源和引用的用户分配标识。 然后将 **managedIdentities** 节添加到 **application** 资源的 **properties** 节中，该资源包含一个易记名称的列表，可以为每个用户分配的标识进行 principalId 映射。 有关用户分配的标识的详细信息，请参阅[创建、列出或删除用户分配的托管标识](/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)。
 
 ### <a name="application-template"></a>应用程序模板
 
@@ -110,4 +112,4 @@ ms.locfileid: "70174524"
 * [如何为 Service Fabric 应用程序授予对其他 Azure 资源的访问权限](how-to-grant-access-other-resources.md)
 
 <!--Update_Description: new articles on service fabric how to deploy applicaton with user assigned managed identity -->
-<!--ms.date: 09/02/2019-->
+<!--new.date: 09/02/2019-->

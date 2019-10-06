@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 12/31/2018
-ms.date: 06/10/2019
+origin.date: 08/22/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 33862678c98e0c5864c78b381ad02b7ce9592d16
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 3ffaf10a20474efeb05fd65074720d750a943566
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340959"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -42,22 +42,22 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 ### <a name="scenario-migration"></a>方案迁移
 作为替代方法，我们建议将本地 VMware VM 和物理计算机复制到 Azure 来为其设置灾难恢复。 请按如下所示执行此操作：
 
-1.  查看以下快速比较。 在复制本地计算机之前，需要检查它们是否满足复制到 Azure 的[要求](./vmware-physical-azure-support-matrix.md#replicated-machines)。 如果要复制 VMware VM，建议查看[容量规划指南](./site-recovery-plan-capacity-vmware.md)，并运行[部署规划器工具](./site-recovery-deployment-planner.md)来识别容量要求，然后验证符合性。
-2.  运行部署规划器后，可以设置复制：对于 VMware VM，请按照以下教程[准备 Azure](./tutorial-prepare-azure.md)、[准备本地 VMware 环境](./vmware-azure-tutorial-prepare-on-premises.md)，并[设置灾难恢复](./vmware-azure-tutorial-prepare-on-premises.md)。
-    对于物理计算机，请遵循此[教程](./physical-azure-disaster-recovery.md)。
-3.  在计算机复制到 Azure 后，可以运行[灾难恢复演练](./site-recovery-test-failover-to-azure.md)以确保一切正常运行。
+1. 查看以下快速比较。 在复制本地计算机之前，需要检查它们是否满足复制到 Azure 的[要求](./vmware-physical-azure-support-matrix.md#replicated-machines)。 如果要复制 VMware VM，建议查看[容量规划指南](./site-recovery-plan-capacity-vmware.md)，并运行[部署规划器工具](./site-recovery-deployment-planner.md)来识别容量要求，然后验证符合性。
+2. 运行部署规划器后，可以设置复制：*对于 VMware VM，请按照以下教程[准备 Azure](./tutorial-prepare-azure.md)、[准备本地 VMware 环境](./vmware-azure-tutorial-prepare-on-premises.md)和[设置灾难恢复](./vmware-azure-tutorial-prepare-on-premises.md)。
+    *对于物理计算机，请遵循此[教程](./physical-azure-disaster-recovery.md)。
+3. 在计算机复制到 Azure 后，可以运行[灾难恢复演练](./site-recovery-test-failover-to-azure.md)以确保一切正常运行。
 
 ### <a name="quick-comparison"></a>快速比较
 
-|             **功能**             |                                                                    **复制到 Azure**                                                                     |                **在 VMware 数据中心之间进行复制**                |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|       **所需的组件**       | 复制的计算机上的移动服务。 本地配置服务器、进程服务器、主目标服务器。Azure 中用于故障回复的临时进程服务器。 | 移动服务、进程服务器、配置服务器和主目标 |
-| **配置和业务流程** |                                                           Azure 门户中的恢复服务保管库                                                           |                             使用 vContinuum                             |
-|           **复制**            |                                                                    磁盘（Windows 和 Linux）                                                                     |                      Volume-Windows<br /> Disk-Linux                     |
-|       **共享磁盘群集**       |                                                                          不支持                                                                          |                                支持                                 |
-|   **数据变动量限制（平均）**   |      10 MB/秒数据/磁盘<br /> 25 MB/秒数据/VM<br />[了解详细信息](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits)   |           > 10 MB/秒数据/磁盘  <br /> > 25 MB/秒数据/VM          |
-|           **监视**            |                                                                        通过 Azure 门户                                                                        |                      通过 CX（配置服务器）                      |
-|         **支持矩阵**          |                                               [单击此处了解详细信息](./vmware-physical-azure-support-matrix.md)                                               |   [下载 ASR Scout 兼容矩阵](https://aka.ms/asr-scout-cm)    |
+**功能** | **复制到 Azure** |**在 VMware 数据中心之间进行复制**
+--|--|--
+**所需的组件** |复制的计算机上的移动服务。 本地配置服务器、进程服务器、主目标服务器。Azure 中用于故障回复的临时进程服务器。|移动服务、进程服务器、配置服务器和主目标
+**配置和业务流程** |Azure 门户中的恢复服务保管库 | 使用 vContinuum 
+**复制** |磁盘（Windows 和 Linux） |Volume-Windows<br /> Disk-Linux
+**共享磁盘群集** |不支持|支持
+**数据变动量限制（平均）** |10 MB/秒数据/磁盘<br /> 25 MB/秒数据/VM<br /> [了解详细信息](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/秒数据/磁盘  <br /> > 25 MB/秒数据/VM
+**监视** |通过 Azure 门户|通过 CX（配置服务器）
+**支持矩阵** | [单击此处了解详细信息](./vmware-physical-azure-support-matrix.md)|[下载 ASR Scout 兼容矩阵](https://aka.ms/asr-scout-cm)
 
 ## <a name="prerequisites"></a>先决条件
 完成本教程：
@@ -118,6 +118,7 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+  
   1. 解压缩 .zip 文件。
   2. **RX 服务器**：将 **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** 复制到 RX 服务器，并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
   3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br />
@@ -195,18 +196,19 @@ Scout Update 6 是累积更新。 其中包含从 Update 1 到 Update 5 的所�
   
   <!--Not Available on , OL5, OL6,-->
   
-    1. 解压缩 .zip 文件。
-    2. **RX 服务器**：将 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 复制到 RX 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-    3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br />
-    4. **Windows 主目标服务器**：若要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到服务器。 双击以运行该文件。 相同的统一代理更新也适用于源服务器。 如果源尚未更新到 Update 4，则应更新统一代理。
-        更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe  的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
-    5. **vContinuum 服务器**：将 **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
-        更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe  的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
-    6. **Linux 主目标服务器**：若要更新统一代理，请将 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 复制到主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-    7. **Windows 源服务器**：要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到源服务器。 双击以运行该文件。 
-        如果源服务器已更新到 Update 4 或源代理已安装有最新的基本安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe  ，则不需要在源服务器上安装 Update 5 代理。
-    8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  
-        <!-- Not Available on Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.-->
+ 1. 解压缩 .zip 文件。
+ 2. **RX 服务器**：将 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 复制到 RX 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+ 3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br />
+ 4. **Windows 主目标服务器**：若要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到服务器。 双击以运行该文件。 相同的统一代理更新也适用于源服务器。 如果源尚未更新到 Update 4，则应更新统一代理。
+    更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe  的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
+ 5. **vContinuum 服务器**：将 **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
+    更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe  的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
+ 6. **Linux 主目标服务器**：若要更新统一代理，请将 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 复制到主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+ 7. **Windows 源服务器**：要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到源服务器。 双击以运行该文件。 
+    如果源服务器已更新到 Update 4 或源代理已安装有最新的基本安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe  ，则不需要在源服务器上安装 Update 5 代理。
+ 8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  
+        
+    <!-- Not Available on Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.-->
 
 > [!NOTE]
 > * 已刷新面向 Windows 的基本统一代理 (UA) 安装程序，以支持 Windows Server 2016。 新的安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe  与基本 Scout GA 程序包一起打包 (InMage_Scout_Standard_8.0.1 GA-Oct17.zip  )。 相同的安装程序将用于所有受支持的 Windows 版本。 
@@ -311,7 +313,9 @@ Update 3 修复了以下问题：
 * 在 RX 从 Scout 7.1 升级到 Scout 8.0.1 之后，SMTP 功能无法正常工作。
 * 已在回滚操作日志中添加更多统计信息，以跟踪完成此操作所需的时间。
 * 已添加对源服务器上 Linux 操作系统的支持：
-    * Red Hat Enterprise Linux (RHEL) 6 update 7
+    
+    <!--Not Available on * Red Hat Enterprise Linux (RHEL) 6 update 7-->
+    
     * CentOS 6 Update 7
 * 配置服务器和 RX 控制台现在显示进入位图模式的对的通知。
 * 已将以下安全修复程序添加到 RX 中：
@@ -335,8 +339,10 @@ Update 1 包含以下 bug 修复和新功能：
 * 在保管库中的“仪表板”  上随时会显示当前计费的受保护服务器数目。
 * 添加了对 vSphere 命令行接口 (vCLI) 5.5 Update 2 的支持。
 * 添加了对源服务器上以下 Linux 操作系统的支持：
-    * RHEL 6 Update 6
-    * RHEL 5 Update 11
+
+    <!--Not Available on * RHEL 6 Update 6-->
+    <!--Not Available on * RHEL 5 Update 11-->
+    
     * CentOS 6 Update 6
     * CentOS 5 Update 11
 * 用于解决以下问题的 Bug 修复：

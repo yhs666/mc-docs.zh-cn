@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Azure 文件卷驱动程序（预览版）| Azure
+title: Service Fabric Azure 文件卷驱动程序（正式版）| Azure
 description: Service Fabric 支持使用 Azure 文件备份容器中的卷。 此功能目前处于预览状态。
 services: service-fabric
 author: rockboyfor
@@ -8,20 +8,22 @@ ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 06/10/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: d1e8dc8eee692ee553bfd8b813623c830f9581f4
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: c805ba260c338f64dcf0cd60e87789850a8651cc
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174045"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340917"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure 文件存储卷驱动程序
-Azure 文件卷插件是一个 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)，可为 Docker 容器提供基于 [Azure 文件](/storage/files/storage-files-introduction)的卷。 该 Docker 卷插件可在打包为 Service Fabric 应用程序后部署到 Service Fabric 群集。 该插件用于为部署到群集的其他 Service Fabric 容器应用程序提供基于 Azure 文件的卷。
+Azure 文件存储卷插件即为 Docker 容器提供基于 [Azure 文件存储](/storage/files/storage-files-introduction)的卷的 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)，现在是 **GA（正式版）** 。
+
+该 Docker 卷插件可在打包为 Service Fabric 应用程序后部署到 Service Fabric 群集。 该插件用于为部署到群集的其他 Service Fabric 容器应用程序提供基于 Azure 文件存储的卷。
 
 > [!NOTE]
-> Azure 文件存储卷插件的版本 6.5.516.9494 是预览版，随本文档提供。 作为预览版本，不支持在生产环境中使用  。
+> Azure 文件存储卷插件的版本 6.5.661.9590 是 GA（正式发布）版本。 
 >
 
 ## <a name="prerequisites"></a>先决条件
@@ -117,11 +119,11 @@ Azure 文件卷插件是一个 [Docker 卷插件](https://docs.docker.com/engine
 4. 创建应用程序，密切注意 **ListenPort** 应用程序参数值。 该值是 Azure 文件存储卷插件从 Docker 守护程序侦听请求的端口。 请确保提供给应用程序的端口与 ClusterManifest 中的 VolumePluginPorts 匹配，并且不与群集或应用程序使用的任何其他端口冲突。
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590   -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -134,11 +136,11 @@ Azure 文件卷插件是一个 [Docker 卷插件](https://docs.docker.com/engine
  Azure 文件卷插件应用程序的默认服务实例计数为 -1，这表示有一个服务实例会部署到群集中的每个节点。 但在本地开发群集上部署 Azure 文件卷插件应用程序时，服务实例计数应指定为 1。 可以通过 InstanceCount 应用程序参数完成此操作  。 因此，在本地开发群集上创建 Azure 文件存储卷插件应用程序的命令为：
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 
 ## <a name="configure-your-applications-to-use-the-volume"></a>配置应用程序以使用卷
@@ -194,6 +196,7 @@ Azure 文件卷插件的驱动程序名称为 sfazurefile  。 此值为应用�
         <DriverOption Name="storageAccountName" Value="myaccount1" />
         <DriverOption Name="storageAccountKey" Value="mykey1" />
         <!-- storageAccountFQDN will be "myaccount1.file.core.chinacloudapi.cn" -->
+
     - Example2: 
         <DriverOption Name="shareName" Value="myshare2" />
         <DriverOption Name="storageAccountName" Value="myaccount2" />

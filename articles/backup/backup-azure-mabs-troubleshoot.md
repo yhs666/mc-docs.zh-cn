@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 07/05/2019
+ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 575414d6dbaf36a6c9cf7b90866ebce3baa1a180
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 412fb4c764a97ead57f029c5da5e1f5ece4b9586
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332049"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330156"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 
@@ -56,13 +56,13 @@ ms.locfileid: "68332049"
 
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
-| 还原 | **错误代码**：CBPServerRegisteredVaultDontMatchWithCurrent/保管库凭据错误：100110 <br/> <br/>**错误消息**：The vault credentials provided are different from the vault the server is registered（提供的保管库凭据不同于服务器所注册到的保管库） | **原因：** 此问题在以下情况中发生：尝试使用外部 DPM 恢复选项将文件从原始服务器还原到备用服务器，且要恢复的服务器和从中备份数据的原始服务器没有与同一恢复服务保管库关联。<br/> <br/>**解决方法**：若要解决此问题，请确保将原始服务器和备用服务器注册到同一保管库。|
+| 还原 | **错误代码**：CBPServerRegisteredVaultDontMatchWithCurrent/保管库凭据错误：100110 <br/> <br/>**错误消息**：The vault credentials provided are different from the vault the server is registered（提供的保管库凭据不同于服务器所注册到的保管库） | **原因：** 此问题在以下情况下发生：尝试使用外部 DPM 恢复选项将文件从原始服务器还原到备用服务器，且要恢复的服务器和从中备份数据的原始服务器没有与同一恢复服务保管库关联。<br/> <br/>**解决方法**：若要解决此问题，请确保将原始服务器和备用服务器注册到同一保管库。|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>VMware VM 的联机恢复点创建作业失败
 
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
-| Backup | VMware VM 的联机恢复点创建作业失败。 DPM 在尝试获取 ChangeTracking 信息时遇到 VMware 错误。 ErrorCode - FileFaultFault (ID 33621 ) |  <ol><li> 在 VMware 上对受影响的 VM 重置 CTK。</li> <li>检查 VMware 上是否未部署独立磁盘。</li> <li>停止对受影响 VM 的保护，然后使用“刷新”按钮重新保护。  </li><li>对受影响的 VM 运行 CC（一致性检查）。</li></ol>|
+| Backup | VMware VM 的联机恢复点创建作业失败。 DPM 在尝试获取 ChangeTracking 信息时遇到 VMware 错误。 ErrorCode - FileFaultFault (ID 33621) |  <ol><li> 在 VMware 上对受影响的 VM 重置 CTK。</li> <li>检查 VMware 上是否未部署独立磁盘。</li> <li>停止对受影响 VM 的保护，然后使用“刷新”按钮重新保护。  </li><li>对受影响的 VM 运行 CC（一致性检查）。</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>代理操作失败，因为服务器上的 DPM 代理协调器服务出现通信错误

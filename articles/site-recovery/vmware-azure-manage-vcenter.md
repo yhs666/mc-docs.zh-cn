@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/13/2019
-ms.date: 04/22/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8653904a16769cd709588d033ef875fefa855fb
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: b2ef7099897220dfbebeaaacfbc715569f014dec
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083179"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340787"
 ---
 # <a name="manage-vmware-vcenter-server"></a>管理 VMware vCenter 服务器
 
@@ -27,6 +27,7 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 3. 在“管理帐户”  选项卡中，单击“添加帐户”  。
 
     ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+    
 4. 提供帐户详细信息并单击“确定”以添加该帐户  。  该帐户应具备下表中概述的权限。 
 
 大约需要 15 分钟才能将帐户信息同步到 Site Recovery 服务。
@@ -54,6 +55,7 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 2. 在“管理帐户”  选项卡中，单击“添加帐户”  。
 
     ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+    
 3. 提供新帐户的详细信息并单击“确定”以添加该帐户  。 该帐户应具备[上方](#account-permissions)列出的权限。
 4. 在 Azure 门户上，打开保管库>“Site Recovery 基础结构” > “配置服务器”，然后打开配置服务器   。
 5. 在“详细信息”页上，单击“刷新服务器”   。
@@ -97,7 +99,7 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 ## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>将少量受保护的虚拟机迁移到新的 vCenter
 
 > [!NOTE]
-> 本部分仅适用于将少量受保护的虚拟机迁移到新 vCenter 的情况。 若要保护新 vCenter 中的一组新虚拟机，请[将新 vCenter 的详细信息添加到配置服务器](#add-vmware-server-to-the-vault)，然后在 **[启用保护](vmware-azure-tutorial.md#enable-replication)** 的情况下启动。
+> 本部分仅适用于将少量受保护的虚拟机迁移到新 vCenter 的情况。 若要保护新 vCenter 中的一组新虚拟机，请[将新 vCenter 的详细信息添加到配置服务器](#add-vmware-server-to-the-vault)，并从 **[启用保护](vmware-azure-tutorial.md#enable-replication)** 开始。
 
 将少量的虚拟机移到新的 vCenter：
 

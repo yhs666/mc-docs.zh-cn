@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 11/01/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4cc522bd3d35b3fb6c98b486fc44c01c0d811410
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 23b094b18bdf21e655f4deacf59ecfbd2ecf75c3
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737274"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329893"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何将 Micrometer 与 Azure Application Insights Java SDK 配合使用
 Micrometer 应用程序监视功能可以度量基于 JVM 的应用程序代码的指标，并可用于将数据导出到偏爱的监视系统。 本文介绍如何对 Spring Boot 和非 Spring Boot 应用程序配合使用 Micrometer 与 Application Insights。
@@ -65,7 +65,7 @@ Micrometer 应用程序监视功能可以度量基于 JVM 的应用程序代码�
 将以下依赖项添加到 pom.xml 或 build.gradle 文件：
 
 * Application Insights Spring-boot-starter 2.1.2 或更高版本
-* Azure-spring-boot-metrics-starters 2.0.7 或更高版本  
+* Azure-spring-boot-metrics-starters 2.1.5 或更高版本  
 * [Application Insights 资源](../../azure-monitor/app/create-new-resource.md )
 
 步骤：
@@ -76,12 +76,12 @@ Micrometer 应用程序监视功能可以度量基于 JVM 的应用程序代码�
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.0.7</version>
+          <version>2.1.6</version>
     </dependency>
     ```
 1. 使用以下属性更新 application.properties 或 yml 文件中的 Application Insights 检测密钥：
 
-     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
+     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
 3. 生成并运行应用程序
 4. 上述代码应会使用自动收集到 Azure Monitor 的预先聚合指标运行应用程序。 有关如何微调 Application Insights Spring Boot Starter 的详细信息，请参阅 [GitHub 上的自述文件](https://github.com/Microsoft/azure-spring-boot/releases/latest)。
 

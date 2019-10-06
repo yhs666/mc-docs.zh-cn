@@ -7,12 +7,12 @@ origin.date: 06/28/2019
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 014d7d8a515d2093479fa25196d725ac460aa7f1
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: 4c356912b2365a816c87b70a6690353aad646481
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340894"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -88,7 +88,10 @@ ms.locfileid: "71083181"
 
 接下来，验证源虚拟机的属性。 请记住，Azure VM 名称需要符合 [Azure 虚拟机要求](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
-1. 转到“设置” > “复制的项”，然后选择虚拟机   。 “概要”  页显示有关 VM 设置和状态的信息。
+1. 转到“受保护的项” > “复制的项”，然后选择虚拟机   。 “概要”  页显示有关 VM 设置和状态的信息。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 1. 在“属性”  中，可以查看 VM 的复制和故障转移信息。
 1. 在“计算和网络”   > “计算属性”  中，可以更改多个 VM 属性： 
 

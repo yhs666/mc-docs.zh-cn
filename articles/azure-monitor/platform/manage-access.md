@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 08/05/2019
+origin.date: 08/26/2019
+ms.date: 08/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 38652484774c1cef1fcf0c7baacc164b476d611c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 2c17130913c9cd213d051ff560d1d54cf9f48c2a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736622"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330400"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure Monitor 中的日志数据和工作区
 
@@ -33,7 +33,7 @@ Azure Monitor 将[日志](data-platform-logs.md)数据存储在 Log Analytics �
 
 * 如何使用 Azure RBAC 对需要访问工作区中特定表中的日志数据的用户授予访问权限。
 
-## <a name="define-access-control-mode"></a>定义访问控制模式
+## 配置访问控制模式 <a name="configure-access-control-mode"></a>
 
 可以通过 Azure 门户或 Azure PowerShell 来查看对工作区配置的访问控制模式。  可使用以下支持的方法之一更改此设置：
 
@@ -43,7 +43,7 @@ Azure Monitor 将[日志](data-platform-logs.md)数据存储在 Log Analytics �
 
 * Azure Resource Manager 模板
 
-### 通过 Azure 门户进行配置 <a name="access-modes"></a>
+### 从 Azure 门户 <a name="access-modes"></a>
 
 可以在工作区“概述”页上的“Log Analytics 工作区”菜单中查看当前的工作区访问控制模式。  
 
@@ -56,7 +56,7 @@ Azure Monitor 将[日志](data-platform-logs.md)数据存储在 Log Analytics �
 
 ![更改工作区访问模式](media/manage-access/change-access-control-mode.png)
 
-### <a name="configure-using-powershell"></a>使用 PowerShell 进行配置
+### <a name="using-powershell"></a>使用 PowerShell
 
 使用以下命令检查订阅中所有工作区的访问控制模式：
 
@@ -100,18 +100,14 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-### <a name="configure-using-a-resource-manager-template"></a>使用资源管理器模板进行配置
+### <a name="using-a-resource-manager-template"></a>使用资源管理器模板
 
 若要在 Azure 资源管理器模板中配置访问模式，请将工作区中的 **enableLogAccessUsingOnlyResourcePermissions** 功能标志设置为以下值之一。
 
 * **false**：将工作区设置为工作区上下文权限。 如果未设置该标志，则这是默认设置。
 * **true**：将工作区设置为资源上下文权限。
 
-## <a name="manage-accounts-and-users"></a>管理帐户和用户
-
-应用到特定用户的工作区的权限由该用户的[访问模式](design-logs-deployment.md#access-mode)以及工作区的[访问控制模式](design-logs-deployment.md#access-control-mode)定义。 使用**工作区上下文**可以查看你有权访问的工作区中的所有日志，因为此模式中的查询范围限定为工作区中所有表中的所有数据。 使用**资源上下文**可以在 Azure 门户中直接从资源执行搜索时，查看你有权访问的特定资源、资源组或订阅的工作区中的日志数据。 在此模式下，只能查询与该资源关联的数据。
-
-### 工作区权限 <a name="workspace-permissions-and-scope"></a>
+## 使用工作区权限管理访问 <a name="manage-accounts-and-users"></a>
 
 每个工作区可有多个与其关联的帐户，每个帐户可访问多个工作区。 使用 [Azure 基于角色的访问](../../role-based-access-control/role-assignments-portal.md)来管理访问权限。
 
@@ -181,7 +177,7 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | 查看存储帐户密钥。 在将 Log Analytics 配置为从 Azure 存储帐户读取日志时需要 |
 | `Microsoft.Insights/alertRules/*` | 添加、更新和删除警报规则 |
 | `Microsoft.Insights/diagnosticSettings/*` | 添加、更新和删除 Azure 资源上的诊断设置 |
-| `Microsoft.OperationalInsights/*` | 添加、更新和删除 Log Analytics 工作区的配置 |
+| `Microsoft.OperationalInsights/*` | 添加、更新和删除 Log Analytics 工作区的配置。 若要编辑工作区高级设置，用户需要 `Microsoft.OperationalInsights/workspaces/write`。 |
 | `Microsoft.OperationsManagement/*` | 添加和删除管理解决方案 |
 | `Microsoft.Resources/deployments/*` | 创建和删除部署。 添加和删除解决方案、工作区和自动化帐户所必需 |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | 创建和删除部署。 添加和删除解决方案、工作区和自动化帐户所必需 |
@@ -266,8 +262,3 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 * 请参阅 [Log Analytics 代理概述](../../azure-monitor/platform/log-analytics-agent.md)，以从数据中心或其他云环境中的计算机收集数据。
 
 * 请参阅[收集有关 Azure 虚拟机的数据](../../azure-monitor/learn/quick-collect-azurevm.md)，以配置 Azure VM 的数据收集。
-
-
-
-
-

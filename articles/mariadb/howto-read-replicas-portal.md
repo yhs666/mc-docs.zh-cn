@@ -5,21 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 07/12/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: bd04dfadd7c5ed1c5a698b6234648c40ea432c36
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+origin.date: 08/21/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: f505e8ef5a7351d04d04e48d9f3aa551c85b002f
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308961"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307757"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MariaDB 中创建和管理只读副本
 
 本文介绍如何使用 Azure 门户在 Azure Database for MariaDB 服务中创建和管理只读副本。
-
-> [!IMPORTANT]
-> 可以在主服务器所在的区域或所选的任何其他 Azure 区域创建只读副本。 只读副本（相同区域和跨区域）当前以公共预览版提供。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,9 +43,12 @@ ms.locfileid: "68308961"
 
     ![Azure Database for MariaDB - 副本名称](./media/howto-read-replica-portal/replica-name.png)
 
-6. 选择副本服务器的位置。 可以在任何 Azure 区域中创建副本。 默认位置与主服务器的位置相同。
+6. 选择副本服务器的位置。 默认位置与主服务器的位置相同。
 
     ![Azure Database for MariaDB - 副本位置](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
 
 7. 选择“确定”以确认创建该副本。 
 

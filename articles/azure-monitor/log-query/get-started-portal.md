@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/19/2019
 ms.date: 08/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a6b4535dc72067624b2c88bf9ad7ccdc272595cc
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6037e728bb2b3a5263d1559b20dc21bce01547f4
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737193"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329708"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 入门
 
@@ -163,7 +163,7 @@ Event
 ![智能诊断](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>固定到仪表板
-若要将图表或表固定到某个共享的 Azure 仪表板，请单击图钉图标。
+若要将图表或表固定到某个共享的 Azure 仪表板，请单击图钉图标。 请注意，与下面的屏幕截图不同，此图标已移至 Log Analytics 窗口的顶部。
 
 ![固定到仪表板](media/get-started-portal/pin-dashboard.png)
 
@@ -181,7 +181,7 @@ Event
 ![保存函数](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->保存查询或编辑已保存的查询时，在“名称”  字段中支持以下字符 - `a�z, A�Z, 0-9, -, _, ., <space>, (, ), |`。
+>保存查询或编辑已保存的查询时，在“名称”  字段中支持以下字符 - `a-z, A-Z, 0-9, -, _, ., <space>, (, ), |`。
 
 Log Analytics 查询始终保存到选定的工作区中，并与该工作区的其他用户共享。
 
@@ -198,7 +198,3 @@ Log Analytics 支持多种导出方法：
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[编写 Azure Monitor 日志查询](get-started-queries.md)。
-
-
-
-

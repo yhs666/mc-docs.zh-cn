@@ -6,16 +6,17 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/15/2019
+origin.date: 07/15/2019
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 67415e2a2cbc801a50eb5448ea4e3659bd554f99
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 3b6191623a3a82a7ccfa770bcd9312db2075bbbb
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104166"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330435"
 ---
-# <a name="troubleshoot-21vianet-azure-recovery-services-mars-agent"></a>对世纪互联 Azure 恢复服务 (MARS) 代理进行故障排除
+# <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>排查 Microsoft Azure 恢复服务 (MARS) 代理问题
 
 本文介绍如何解决在配置、注册、备份和还原期间可能会出现的错误。
 
@@ -164,6 +165,10 @@ ms.locfileid: "70104166"
 9.  使用 [即时还原](backup-instant-restore-capability.md) 重试恢复。
 
 如果恢复仍然失败，请重启服务器或客户端。 如果不想要重启，或者即使重启服务器，恢复也仍然失败，请尝试[从另一台计算机恢复](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)。
+
+## <a name="troubleshoot-cache-problems"></a>排查缓存问题
+
+如果缓存文件夹（也称为 scratch 文件夹）配置不正确、缺少必备项或具有受限访问权限，则备份操作可能会失败。
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。

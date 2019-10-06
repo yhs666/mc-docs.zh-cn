@@ -8,16 +8,16 @@ origin.date: 05/15/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-ms.date: 06/24/2019
+ms.date: 10/08/2019
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 5db568c60c0ef028e9590a18a68110db08dc2a19
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 1148ea1c053b8e00fdd7b3af66018e4cd19e7093
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135919"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340984"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>通过 Azure 逻辑应用连接到 SQL Server 或 Azure SQL 数据库
 
@@ -88,7 +88,7 @@ ms.locfileid: "67135919"
 
 2. 在逻辑应用设计器的触发器或操作下，选择“新建步骤” > “添加操作”。  
 
-   ![选择“新建步骤”>“添加操作”](./media/connectors-create-api-sqlazure/add-action.png)
+   ![选择“新建步骤”、“添加操作”](./media/connectors-create-api-sqlazure/add-action.png)
    
    若要在现有步骤之间添加操作，请将鼠标移到连接箭头上方。 
    选择出现的加号 ( **+** )，然后选择“添加操作”。 

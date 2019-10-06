@@ -9,14 +9,15 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/20/2019
+origin.date: 08/20/2019
+ms.date: 09/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b1d51a2130962153cae54be976109cb4d41e8d48
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 33153dea6c5adad3d0473c01c169b192bf464c7c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103975"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329957"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理器管理密钥之间的终结点配额
 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。 
@@ -48,7 +49,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
 
     ![luis-traffic-manager 资源组中带有两个 LUIS 密钥的 Azure 门户的屏幕截图](./media/traffic-manager/luis-keys.png)
 
-2. 在 [LUIS][LUIS] 网站的“密钥和终结点”  页上的“管理”  部分中，为应用分配密钥，然后通过选择右上方菜单中的“发布”  按钮重新发布应用。 
+2. 在 [LUIS][LUIS] 网站的“Azure 资源”  页上的“管理”  部分中，为应用分配密钥，然后通过选择右上方菜单中的“发布”  按钮重新发布应用。 
 
     “终结点”列中的示例 URL 使用具有终结点密钥的 GET 请求作为查询参数  。 复制这两个新密钥的终结点 URL。 本文后面的流量管理器配置中会用到它们。
 

@@ -8,7 +8,6 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
@@ -16,12 +15,12 @@ origin.date: 05/24/2018
 ms.date: 06/28/2018
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: ba69690206747e75e3c5ee813ad4d18e041714b2
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: d4a34c93aadb157e8afc288521fb9ab6a9771b21
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845151"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330052"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>将 Batch 池与 Azure 文件共享配合使用
 
@@ -52,8 +51,8 @@ Batch 原生支持通过 API 使用 Azure 存储 Blob 来读取和写入数据�
 
 例如，包含 `net use` 命令，以将文件共享装载为每个任务命令行的一部分。 若要装载文件共享，需要以下凭据：
 
-- **用户名**：AZURE\\\<存储帐户名称\>，例如，AZURE\\mystorageaccountname 
-- **密码**：<以 == 结尾的存储帐户密钥>，例如 *XXXXXXXXXXXXXXXXXXXXX==*
+* **用户名**：AZURE\\\<存储帐户名称\>，例如，AZURE\\mystorageaccountname 
+* **密码**：\<以 == 结尾的存储帐户密钥>，例如“XXXXXXXXXXXXXXXXXXXXX==” 
 
 以下命令在存储帐户 *mystorageaccountname* 中将文件共享 *myfileshare* 装载为 *S:* 驱动器：
 
@@ -129,8 +128,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 然后，运行 `mount` 命令并提供以下凭据来装载文件共享：
 
-- **用户名**：\<存储帐户名称\>，例如 *mystorageaccountname*
-- **密码**：<以 == 结尾的存储帐户密钥>，例如 *XXXXXXXXXXXXXXXXXXXXX==*
+* **用户名**：\<存储帐户名称\>，例如 *mystorageaccountname*
+* **密码**：\<以 == 结尾的存储帐户密钥>，例如“XXXXXXXXXXXXXXXXXXXXX==” 
 
 以下命令在存储帐户 *mystorageaccountname* 中的 */mnt/MyAzureFileShare* 装载文件共享 *myfileshare*： 
 

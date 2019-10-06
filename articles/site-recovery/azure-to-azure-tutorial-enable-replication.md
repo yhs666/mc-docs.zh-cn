@@ -10,12 +10,12 @@ origin.date: 08/05/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 072f08c4c4de0731981e928618cfe480920cf683
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 8db9594c7e94f0675c87eff499454547699cf41d
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134415"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340733"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>为 Azure VM 设置灾难恢复
 
@@ -197,7 +197,9 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 可以�
 1. 在“设置”中，单击“刷新”以获取最新状态。  
 2. 跟踪进度和状态，如下所示：
     - 在“设置” > “作业” > “Site Recovery 作业”中，跟踪“启用保护”作业的进度。    
-    - 在“设置” > “复制的项”中，可以查看 VM 的状态和初始复制进度。   单击 VM，向下钻取其设置。
+    - 在“受保护的项” > “复制的项”中，可以查看 VM 的状态和初始复制进度。   单击 VM，向下钻取其设置。
+
+        <!--MOONCAKE: **Protected Items** to replace **Setting**-->
 
 ## <a name="next-steps"></a>后续步骤
 

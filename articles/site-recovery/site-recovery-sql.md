@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 08/02/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46db36e249c3b1ff2804d297d02f378da549bfdd
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7f4ff1e377c2de6054d00b5ebd33f891f960d877
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134464"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340950"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>为 SQL Server 设置灾难恢复
 
@@ -62,7 +62,7 @@ Site Recovery 借助恢复计划来协调整个应用程序的测试故障转移
 * **小型企业**：你有少量的应用程序和适用于本地站点的单个域控制器。 若要故障转移整个站点，请使用 Site Recovery 复制。 此服务会将域控制器复制到辅助数据中心或 Azure。
 * **大中型企业**：你可能需要设置其他域控制器。
     - 如果你有大量的应用程序、使用 Active Directory 林，并且想要按应用程序或工作负荷进行故障转移，请在辅助数据中心或 Azure 中设置另一个域控制器。
-    -  如果你使用 Always On 可用性组恢复到远程站点，请在辅助站点或 Azure 中设置另一个域控制器。 此域控制器供已恢复的 SQL Server 实例使用。
+    - 如果你使用 Always On 可用性组恢复到远程站点，请在辅助站点或 Azure 中设置另一个域控制器。 此域控制器供已恢复的 SQL Server 实例使用。
 
 本文中的说明假设辅助位置中提供了域控制器。 有关详细信息，请参阅[使用 Site Recovery 帮助保护 Active Directory](site-recovery-active-directory.md) 的过程。
 
@@ -118,7 +118,7 @@ BCDR 技术 Always On、活动异地复制和自动故障转移组为目标 Azur
 
     ![标有 Content_AG 的窗口屏幕截图，其中显示了服务器名称和状态](./media/site-recovery-sql/bring-listener-online.png)
 
-1. 创建负载均衡器。 对于每个可用性组侦听器，请从前端 IP 池创建一个 IP 地址。 并将 SQL Server VM 添加到后端池。
+1. 确保故障转移网络中的负载均衡器有一个 IP 地址，它来自与每个可用性组侦听器对应的前端 IP 地址池，以及后端池中的 SQL Server VM。
 
     ![标题为“SQL-AlwaysOn-LB - 前端 IP 池”的窗口屏幕截图](./media/site-recovery-sql/create-load-balancer1.png)
 

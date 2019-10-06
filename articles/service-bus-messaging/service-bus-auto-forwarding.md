@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af9de9ddebfbb19f9b51fcbe84354b2bd65e3fd1
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 7256df97aa729c7aa2a350baab7e5045a70ac763
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68332261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330328"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自动转发链接服务总线实体
 
@@ -48,8 +49,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 如果 Alice 处于度假期间，则其个人队列（而不是 ERP）会填满。 在此方案中，由于销售代表没有接收到任何消息，所以所有 ERP 主题都没有达到配额。
 
 > [!NOTE]
-> 设置了自动转发时，目标上的 AutoDeleteOnIdle 值将自动设置为数据类型的最大值。
-> 这样做是为了确保始终存在将消息转发到的目的地。
+> 设置自动转发时，**源和目标**上的 AutoDeleteOnIdle 值自动设置为数据类型的最大值。
+> 
+>   - 在源端，自动转发充当接收操作。 因此，具有自动转发设置的源从未真正“空闲”。
+>   - 在目标端，这样做是为了确保始终有要将消息转发到的目标。
 
 ## <a name="autoforwarding-considerations"></a>自动转发注意事项
 

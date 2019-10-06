@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 08/02/2019
-ms.date: 09/04/2019
+origin.date: 08/27/2019
+ms.date: 09/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9f19aa6688170269b4892dd9918a010271ce47f8
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 9079b6e94c2eae221295c25d3b4b063a1b3d28b4
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310857"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673602"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -37,7 +37,7 @@ ms.locfileid: "70310857"
 | 内置角色 | 说明 |
 | --- | --- |
 | [所有者](#owner) | 允许管理所有功能，包括对资源的访问权限。 |
-| [参与者](#contributor) | 允许管理所有功能（对资源的访问权限除外）。 |
+| [参与者](#contributor) | 允许管理所有功能（授予对资源的访问权限除外）。 |
 | [读者](#reader) | 允许查看所有内容，但不能进行任何更改。 |
 | [AcrDelete](#acrdelete) | acr delete |
 | [AcrImageSigner](#acrimagesigner) | ACR 映像签名程序 |
@@ -53,15 +53,15 @@ ms.locfileid: "70310857"
 | [自动化 Runbook 操作员](#automation-runbook-operator) | 读取 Runbook 属性 - 以能够创建 runbook 的作业。 |
 | [Avere 参与者](#avere-contributor) | 可以创建和管理 Avere vFXT 群集。 |
 | [Avere 操作员](#avere-operator) | 由 Avere vFXT 群集用来管理群集 |
-| [Azure 事件中心数据所有者（预览）](#azure-event-hubs-data-owner-preview) | 允许完全访问 Azure 事件中心资源。 |
-| [Azure 事件中心数据接收者（预览）](#azure-event-hubs-data-receiver-preview) | 允许接收对 Azure 事件中心资源的访问权限。 |
-| [Azure 事件中心数据发送者（预览）](#azure-event-hubs-data-sender-preview) | 允许以发送方式访问 Azure 事件中心资源。 |
+| [Azure 事件中心数据所有者](#azure-event-hubs-data-owner) | 允许完全访问 Azure 事件中心资源。 |
+| [Azure 事件中心数据接收者](#azure-event-hubs-data-receiver) | 允许接收对 Azure 事件中心资源的访问权限。 |
+| [Azure 事件中心数据发送者](#azure-event-hubs-data-sender) | 允许以发送方式访问 Azure 事件中心资源。 |
 | [Azure Kubernetes 服务群集管理员角色](#azure-kubernetes-service-cluster-admin-role) | 列出群集管理员凭据操作。 |
 | [Azure Kubernetes 服务群集用户角色](#azure-kubernetes-service-cluster-user-role) | 列出群集用户凭据操作。 |
 | [Azure Maps 数据读取器（预览）](#azure-maps-data-reader-preview) | 授予从 Azure Maps 帐户中读取相关数据的权限。 |
-| [Azure 服务总线数据所有者（预览）](#azure-service-bus-data-owner-preview) | 允许完全访问 Azure 服务总线资源。 |
-| [Azure 服务总线数据接收者（预览）](#azure-service-bus-data-receiver-preview) | 允许对 Azure 服务总线资源进行接收访问。 |
-| [Azure 服务总线数据发送者（预览）](#azure-service-bus-data-sender-preview) | 允许对 Azure 服务总线资源进行发送访问。 |
+| [Azure 服务总线数据所有者](#azure-service-bus-data-owner) | 允许完全访问 Azure 服务总线资源。 |
+| [Azure 服务总线数据接收者](#azure-service-bus-data-receiver) | 允许对 Azure 服务总线资源进行接收访问。 |
+| [Azure 服务总线数据发送者](#azure-service-bus-data-sender) | 允许对 Azure 服务总线资源进行发送访问。 |
 | [Azure Stack 注册所有者](#azure-stack-registration-owner) | 允许管理 Azure Stack 注册。 |
 | [备份参与者](#backup-contributor) | 允许管理备份服务，但不允许创建保管库以及授予其他人访问权限 |
 | [备份操作员](#backup-operator) | 允许管理备份服务，但删除备份、创建保管库以及授予其他人访问权限除外 |
@@ -132,7 +132,7 @@ ms.locfileid: "70310857"
 | [存储 Blob 数据参与者](#storage-blob-data-contributor) | 读取、写入和删除 Azure 存储容器与 Blob。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 | [存储 Blob 数据所有者](#storage-blob-data-owner) | 提供对 Azure 存储 blob 容器和数据的完全访问权限，包括分配 POSIX 访问控制。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 | [存储 Blob 数据读者](#storage-blob-data-reader) | 读取和列出 Azure 存储容器与 Blob。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储 Blob 代理](#storage-blob-delegator) | 获取用户委托密钥，该密钥随后可用来为通过 Azure AD 凭据签名的容器或 Blob 创建共享访问签名。 |
+| [存储 Blob 代理](#storage-blob-delegator) | 获取用户委托密钥，该密钥随后可用来为通过 Azure AD 凭据签名的容器或 Blob 创建共享访问签名。 有关详细信息，请参阅[创建用户委托 SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)。 |
 | [存储文件数据 SMB 共享参与者](#storage-file-data-smb-share-contributor) | 允许通过 SMB 在 Azure 存储文件共享中进行读取、写入和删除访问 |
 | [存储文件数据 SMB 共享的权限提升参与者](#storage-file-data-smb-share-elevated-contributor) | 允许通过 SMB 在 Azure 存储文件共享中进行读取、写入、删除和修改 NTFS 权限的访问 |
 | [存储文件数据 SMB 共享读取者](#storage-file-data-smb-share-reader) | 允许通过 SMB 对 Azure 文件共享进行读取访问 |
@@ -507,7 +507,7 @@ ms.locfileid: "70310857"
 > | **NotDataActions** |  |
 > | *无* |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Azure 事件中心数据所有者（预览）
+## <a name="azure-event-hubs-data-owner"></a>Azure 事件中心数据所有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -522,7 +522,7 @@ ms.locfileid: "70310857"
 > | **NotDataActions** |  |
 > | *无* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Azure 事件中心数据接收者（预览）
+## <a name="azure-event-hubs-data-receiver"></a>Azure 事件中心数据接收者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -537,7 +537,7 @@ ms.locfileid: "70310857"
 > | **NotDataActions** |  |
 > | *无* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Azure 事件中心数据发送者（预览）
+## <a name="azure-event-hubs-data-sender"></a>Azure 事件中心数据发送者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -597,7 +597,7 @@ ms.locfileid: "70310857"
 > | **NotDataActions** |  |
 > | *无* |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Azure 服务总线数据所有者（预览）
+## <a name="azure-service-bus-data-owner"></a>Azure 服务总线数据所有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -612,7 +612,7 @@ ms.locfileid: "70310857"
 > | **NotDataActions** |  |
 > | *无* |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Azure 服务总线数据接收者（预览）
+## <a name="azure-service-bus-data-receiver"></a>Azure 服务总线数据接收者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -629,7 +629,7 @@ ms.locfileid: "70310857"
 > | **NotDataActions** |  |
 > | *无* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Azure 服务总线数据发送者（预览）
+## <a name="azure-service-bus-data-sender"></a>Azure 服务总线数据发送者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1219,7 +1219,7 @@ ms.locfileid: "70310857"
 > | **操作** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
-> | Microsoft.Billing/billingPeriods/read | 列出可用的计费周期 |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
@@ -1242,7 +1242,7 @@ ms.locfileid: "70310857"
 > | **操作** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Billing/billingPeriods/read | 列出可用的计费周期 |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
@@ -2305,6 +2305,7 @@ ms.locfileid: "70310857"
 > | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 创建和管理 SQL 服务器审核策略 |
 > | Microsoft.Sql/servers/auditingSettings/* | 创建和管理 SQL 服务器审核设置 |
@@ -2325,6 +2326,7 @@ ms.locfileid: "70310857"
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | 创建和管理 SQL 服务器数据库安全警报策略 |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | 创建和管理 SQL 服务器数据库安全度量值 |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
+> | Microsoft.Sql/servers/databases/transparentDataEncryption/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
@@ -2486,7 +2488,7 @@ ms.locfileid: "70310857"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **说明** | 获取用户委托密钥，该密钥随后可用来为通过 Azure AD 凭据签名的容器或 Blob 创建共享访问签名。 |
+> | **说明** | 获取用户委托密钥，该密钥随后可用来为通过 Azure AD 凭据签名的容器或 Blob 创建共享访问签名。 有关详细信息，请参阅[创建用户委托 SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)。 |
 > | Id  | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | **操作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | 返回 Blob 服务的用户委托密钥。 |

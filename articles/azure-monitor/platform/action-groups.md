@@ -2,25 +2,21 @@
 title: 在 Azure 门户中创建和管理器操作组
 description: 了解如何在 Azure 门户中创建和管理操作组。
 author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-origin.date: 09/10/2018
-ms.date: 6/4/2019
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 8/19/2019
+ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7043e89c9cb41c25b743a747c3e94bce5306b1e3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.subservice: alerts
+ms.openlocfilehash: 296ca1efe886bc289505a31d3895059c92fc638a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737368"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330393"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
-## <a name="overview"></a>概述 ##
 操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 可以在订阅中最多配置 2,000 个操作组。
 
 当配置操作来通过电子邮件或短信通知某个人员时，该人员将收到确认，指出其已被添加到操作组。
@@ -30,8 +26,8 @@ ms.locfileid: "70737368"
 每个操作包含以下属性：
 
 * **名称**：操作组中的唯一标识符。  
-* **操作类型**：执行的操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。 
-* **详细信息**：因“操作类型”而异的相应详细信息。  
+* **操作类型**：执行的操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。
+* **详细信息**：因“操作类型”而异的相应详细信息。 
 
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)。
 
@@ -55,17 +51,18 @@ ms.locfileid: "70737368"
 
 1. 定义一个操作列表。 为每个操作提供以下信息：
 
-    a. **名称**：输入此操作的唯一标识符。
+    1. **名称**：输入此操作的唯一标识符。
 
-    b. **操作类型**：选择电子邮件/短信/推送/语音、逻辑应用、Webhook、ITSM 或自动化 Runbook。
+    1. **操作类型**：选择电子邮件/短信/推送/语音、逻辑应用、Webhook、ITSM 或自动化 Runbook。
 
-    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”  和其他字段。
+    1. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”  和其他字段。
     
-    d. **常见警报架构**：可以选择启用[常见警报架构](https://aka.ms/commonAlertSchemaDocs)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载。
+    1. **常见警报架构**：可以选择启用[常见警报架构](https://aka.ms/commonAlertSchemaDocs)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载。
 
 1. 选择“确定”  创建操作组。
 
-## <a name="manage-your-action-groups"></a>管理操作组 ##
+## <a name="manage-your-action-groups"></a>管理操作组
+
 创建操作组后，它会显示在“监视器”  边栏选项卡的“操作组”  部分中。 选择要管理的操作组：
 
 * 添加、编辑或删除操作。
@@ -86,56 +83,20 @@ ms.locfileid: "70737368"
 
 一个操作组中可以存在有限数量的电子邮件操作。 请参阅[速率限制信息](../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
-一个操作组中可以存在有限数量的 ITSM 操作。 
+### <a name="email-azure-resource-manager-role"></a>电子邮件 Azure 资源管理器角色
+向订阅角色的成员发送电子邮件。
 
-### <a name="logic-app"></a>逻辑应用
-一个操作组中可以存在有限数量的逻辑应用操作。
+一个操作组中可以存在有限数量的电子邮件操作。 请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
 ### <a name="function"></a>函数
 配置为操作的 Function App 的函数密钥通过函数 API 读取。目前，这需要 v2 函数应用将应用设置“AzureWebJobsSecretStorageType”配置为“files”。 有关详细信息，请参阅 [Functions V2 中对密钥管理的更改]( https://aka.ms/funcsecrets)。
 
 一个操作组中可以存在有限数量的 Function 操作。
 
-### <a name="automation-runbook"></a>自动化 Runbook
-有关 Runbook 有效负载的限制，请参考 [Azure 订阅服务限制](../../azure-subscription-service-limits.md)。
+### <a name="logic-app"></a>逻辑应用
+一个操作组中可以存在有限数量的逻辑应用操作。
 
-一个操作组中可以存在有限数量的 Runbook 操作。 
-
-### <a name="sms"></a>SMS
-有关其他重要信息，请参阅[速率限制信息](../../azure-monitor/platform/alerts-rate-limiting.md)和[短信警报行为](../../azure-monitor/platform/alerts-sms-behavior.md)。
-
-一个操作组中可以存在有限数量的短信操作。  
-
-### <a name="voice"></a>语音
-请参阅[速率限制信息](../../azure-monitor/platform/alerts-rate-limiting.md)一文。
-
-一个操作组中可以存在有限数量的语音操作。
-
-### <a name="webhook"></a>Webhook
-Webhook 使用以下规则进行重试。 当返回的 HTTP 状态代码为 408、429、503、504 或者 HTTP 终结点未响应时，最多将重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次重试在 100 秒后发生。 在失败两次后，操作组在 30 分钟内不会再调用该终结点。 
-
-源 IP 地址范围
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-若要接收有关这些 IP 地址更改的更新，我们建议你配置服务运行状况警报，以监视有关操作组服务的信息通知。
-
-一个操作组中可以存在有限数量的 Webhook 操作。
-
-#### <a name="secure-webhook"></a>安全 Webhook
+### <a name="secure-webhook"></a>安全 Webhook
 **安全 Webhook 功能目前为预览版。**
 
 可以通过“操作组 Webhook”操作利用 Azure Active Directory 来保护操作组和受保护 Web API（Webhook 终结点）之间的连接。 利用此功能的完整工作流如下所述。 有关 Azure AD 应用程序和服务主体的概述，请参阅 [Microsoft 标识平台 (v2.0) 概述](/active-directory/develop/v2-overview)。
@@ -152,12 +113,12 @@ Webhook 使用以下规则进行重试。 当返回的 HTTP 状态代码为 408�
     - 修改 PowerShell 脚本的变量 $myAzureADApplicationObjectId，以便使用 Azure AD 应用程序的对象 ID。
     - 运行修改的脚本。
     
-1. 配置操作组 Webhook 操作。
+1. 配置操作组保护 Webhook 操作。
     - 从脚本中复制 $myApp.ObjectId 值，将其输入 Webhook 操作定义的“应用程序对象 ID”字段中。
     
     ![保护 Webhook 操作](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>保护 Webhook PowerShell 脚本
+#### <a name="secure-webhook-powershell-script"></a>保护 Webhook PowerShell 脚本
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"

@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 执行 VMware 到 Azure 灾难恢复的体系结构 | Azure
+title: 使用 Azure Site Recovery 执行 VMware 到 Azure 灾难恢复的体系结构
 description: 本文概述了使用 Azure Site Recovery 设置本地 VMware VM 到 Azure 的灾难恢复时使用的组件和体系结构
 author: rockboyfor
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 04/26/2019
-ms.date: 06/10/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 12096c67d6aec9dbf2474f906190d2481ee6e3c6
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 1beaeb0e0177f592b51307d0da9b8898e9cdf5ff
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390785"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340907"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 到 Azure 的灾难恢复体系结构
 
@@ -44,7 +44,9 @@ ms.locfileid: "66390785"
         - **应用一致的快照**。 应用一致的快照可以每隔 1 到 12 个小时创建一次，具体取决于你的应用需求。 快照是标准的 Azure blob 快照。 在 VM 上运行的移动代理根据此设置请求 VSS 快照，并且会将该时间点标记为复制流中的一个应用一致点。
 
 2. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以结合使用 Azure ExpressRoute 和[公共对等互连](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
+    
     <!--MOONCAKE: Anchor is correct on public-peering-->
+    
 3. 完成初始复制后，开始将增量更改复制到 Azure。 针对机器跟踪的更改将发送到进程服务器。
 4. 通信按如下方式发生：
 

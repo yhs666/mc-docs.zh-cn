@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 06/07/2019
-ms.date: 07/22/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d58e5f208031a8d0774576ab8628c1d7eecb29da
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 8f05a600f43eeb33e26b423ca338bc2e29f70365
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340983"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>通过 Azure IoT 中心对下游设备进行身份验证
 
@@ -30,6 +30,12 @@ ms.locfileid: "67845561"
 下游设备可以使用以下三种方法之一在 IoT 中心进行身份验证：对称密钥（有时称为共享访问密钥）、X.509 自签名证书，或 X.509 证书颁发机构 (CA) 签名的证书。 身份验证步骤用于在 IoT 中心设置任何非 IoT Edge 设备的步骤类似，只是在声明网关关系方面有细微的差别。
 
 本文中的步骤与手动设备预配相关，而与使用 Azure IoT 中心设备预配服务进行的自动预配无关。 
+
+## <a name="prerequisites"></a>先决条件
+
+完成[配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)中的步骤。
+
+本文在多个位置提到了“网关主机名”  。 网关主机名在 IoT Edge 网关设备上的 config.yaml 文件的 **hostname** 参数中声明。 它用于创建本文中所用的证书，并在下游设备的连接字符串中引用。 网关主机名必须能够解析成 IP 地址，不管是使用 DNS 还是主机文件条目。
 
 ## <a name="symmetric-key-authentication"></a>对称密钥身份验证
 
@@ -134,7 +140,7 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   你将在连接到 IoT 中心的叶设备应用程序中引用这些文件。 可以使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。
+   你将在连接到 IoT 中心的叶设备应用程序中引用这些文件。 可以使用 [Azure Key Vault](/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。
 
 可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的设备创建操作。 以下示例使用 X.509 自签名身份验证创建新的 IoT 设备，并分配父设备： 
 
@@ -188,7 +194,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   你将在连接到 IoT 中心的叶设备应用程序中引用这些文件。 可以使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。
+   你将在连接到 IoT 中心的叶设备应用程序中引用这些文件。 可以使用 [Azure Key Vault](/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。
 
 可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的设备创建操作。 以下示例使用 X.509 CA 签名身份验证创建新的 IoT 设备，并分配父设备： 
 
@@ -320,46 +326,32 @@ client.setOptions(options);
 
 #### <a name="python"></a>Python
 
-有关使用 X.509 证书在 IoT 中心进行身份验证的 Python 程序示例，请参阅 Java IoT SDK 的 [iothub_client_sample_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) 示例。 此处包含了该示例的某些关键代码行，以演示身份验证过程。
+Python SDK 目前仅支持使用文件中的 X509 证书和密钥，不支持内联定义的证书和密钥。 在以下示例中，相关文件路径存储在环境变量中。
 
-定义下游设备的连接字符串时，请对 **HostName** 参数使用 IoT Edge 网关设备的主机名。 可在网关设备的 config.yaml 文件中找到该主机名。 
+定义下游设备的主机名时，请对 **HostName** 参数使用 IoT Edge 网关设备的主机名。 可在网关设备的 config.yaml 文件中找到该主机名。 
 
 ```python
-# String containing Hostname, Device Id in the format:
-# "HostName=<gateway device hostname>;DeviceId=<device_id>;x509=true"
-CONNECTION_STRING = "[Device Connection String]"
+import os
+from azure.iot.device import IoTHubDeviceClient, X509
 
-X509_CERTIFICATE = (
-    "-----BEGIN CERTIFICATE-----""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "...""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "XXXXXXXXXXXX""\n"
-    "-----END CERTIFICATE-----"
-)
-
-X509_PRIVATEKEY = (
-    "-----BEGIN RSA PRIVATE KEY-----""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "...""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    "-----END RSA PRIVATE KEY-----"
-)
+HOSTNAME = "[IoT Edge Gateway Hostname]"
+DEVICE_ID = "[Device ID]"
 
 def iothub_client_init():
-    # prepare iothub client
-    client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
+    x509 = X509(
+        cert_file=os.getenv("X509_CERT_FILE"),
+        key_file=os.getenv("X509_KEY_FILE")
+    )
 
-    # this brings in x509 privateKey and certificate
-    client.set_option("x509certificate", X509_CERTIFICATE)
-    client.set_option("x509privatekey", X509_PRIVATEKEY)
+    client = IoTHubDeviceClient.create_from_x509_certificate(
+        x509=x509,
+        hostname=HOSTNAME,
+        device_id=DEVICE_ID
+    )
+)
 
-    return client
+if __name__ == '__main__':
+    iothub_client_init()
 ```
 
 #### <a name="java"></a>Java

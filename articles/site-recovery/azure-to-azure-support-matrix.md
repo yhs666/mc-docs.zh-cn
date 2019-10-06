@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 08/06/2019
-ms.date: 08/26/2019
+origin.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 27deca072d7d37d0e92953f937da588bdb251dce
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: c6d02c2537b4902f2c6be6254cb4584c4e501350
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134419"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340713"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>用于将 Azure VM 从一个区域复制到另一个区域的支持矩阵
 
@@ -62,6 +62,7 @@ ms.locfileid: "70134419"
 **设置** | **支持** | **详细信息**
 --- | --- | ---
 常规用途 V2 存储帐户（热存储层和冷存储层） | 支持 | 建议不要使用 GPv2，因为 V2 的事务成本远高于 V1 存储帐户。
+高级存储 | 不支持 | 标准存储帐户用于缓存存储，有助于优化成本。
 虚拟网络的 Azure 存储防火墙  | 支持 | 如果你使用的是启用了防火墙的缓存存储帐户或目标存储帐户，请确保[“允许受信任的 Azure 服务”](/storage/common/storage-network-security#exceptions)。
 
 ## <a name="replicated-machine-operating-systems"></a>复制的计算机操作系统

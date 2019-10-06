@@ -8,29 +8,33 @@ ms.author: v-yiso
 manager: jeconnoc
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 06/24/2019
+ms.date: 10/08/2019
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: df9a7a77f5ca1e59eac0a387dc7185041829e5c8
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: d4ccf45e8df3771e480c05dcc34518fc1b2f07c8
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236047"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71341003"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>适用于 Azure 逻辑应用的连接器
 
 使用连接器可以从 Azure 逻辑应用快速访问其他应用、服务、系统、协议和平台上的事件、数据和操作。 使用逻辑应用中的连接器，可以扩展云中和本地应用的功能，以便对创建的数据和现有的数据执行任务。
 
-虽然逻辑应用提供[约 200 多个连接器](https://docs.microsoft.com/connectors)，但本文只介绍一些流行的和较常用的连接器，数千个应用和数百万次执行已成功使用这些连接器来处理数据与信息。 若要查找连接器的完整列表以及每个连接器的参考信息（例如触发器、操作和限制），请查看[连接器概述](https://docs.microsoft.com/connectors)下的连接器参考页。 另外，请详细了解[触发器和操作](#triggers-actions)、[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)以及[逻辑应用定价详细信息](https://azure.microsoft.com/pricing/details/logic-apps/)。 
+虽然逻辑应用提供[数百个连接器](https://docs.microsoft.com/connectors)，但本文只介绍一些流行且较常用的连接器，数千个应用和数百万次执行已成功使用这些连接器来处理数据和信息。 若要查找连接器的完整列表以及每个连接器的参考信息（例如触发器、操作和限制），请查看[连接器概述](https://docs.microsoft.com/connectors)下的连接器参考页。 另外，请详细了解[触发器和操作](#triggers-actions)、[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)以及[逻辑应用定价详细信息](https://azure.microsoft.com/pricing/details/logic-apps/)。 
 
 > [!NOTE]
 > 若要与没有连接器的服务或 API 集成，可以通过 HTTP 等协议直接调用该服务，或创建[自定义连接器](#custom)。
 
 连接器可用作内置触发器和操作，或用作托管的连接器：
 
+<a name="built-in"></a>
+
 * [**内置操作**](#built-ins)：这些内置触发器和操作是 Azure 逻辑应用原有的，可帮助创建按自定义计划运行的逻辑应用、与其他终结点通信、接收和响应请求，以及调用 Azure 函数、Azure API 应用（Web 应用）、通过 Azure API 管理进行管理和发布的自有 API，和可以接收请求的嵌套逻辑应用。 还可以使用内置操作来帮助组织和控制逻辑应用工作流及处理数据。
 
+
+<a name="managed-connectors"></a>
 
 * **托管连接器**：这些连接器由 Microsoft 部署和管理，提供触发器与操作用于访问云服务和/或本地系统，包括 Office 365、Azure Blob 存储、SQL Server、Dynamics、Salesforce、SharePoint 等等。 
 
@@ -62,7 +66,7 @@ ms.locfileid: "67236047"
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API 图标][schedule-icon]<br/>**计划**][recurrence-doc] | - 使用“重复周期”触发器，按指定的计划以简单到复杂的重复方案运行逻辑应用。  <p>- 使用“延迟”操作，将逻辑应用暂停指定的持续时间。  <p>- 使用“延迟截止时间”操作，将逻辑应用暂停到指定的日期和时间。  | [![API 图标][http-icon]<br/>**HTTP**][http-doc] | 使用适用于 HTTP、HTTP + Swagger 和 HTTP + Webhook 的触发器和操作，通过 HTTP 与任何终结点通信。 | 
-| [![API 图标][http-request-icon]<br/>**请求**][http-request-doc] | - 使用“请求”触发器，使逻辑应用可从其他应用程序或服务调用、针对事件网格资源事件触发，或者针对 Azure 安全中心警报触发。  <p>- 使用“响应”操作将响应发送到应用或服务。  | [![API 图标][batch-icon]<br/>**Batch**][batch-doc] | - 使用“批处理消息”触发器来批量处理消息。  <p>- 使用“发送要批量处理的消息”操作调用具有现有批处理触发器的逻辑应用。  | 
+| [![API 图标][http-request-icon]<br/>**请求**][http-request-doc] | - 使用“请求”触发器，使逻辑应用可从其他应用程序或服务调用、针对事件网格资源事件触发，或者针对 Azure 安全中心警报触发。  <p>- 使用“响应”操作将响应发送到应用或服务。  | [![API 图标][batch-icon]<br/>**批处理**][batch-doc] | - 使用“批处理消息”触发器来批量处理消息。  <p>- 使用“发送要批量处理的消息”操作调用具有现有批处理触发器的逻辑应用。  | 
 | [![API 图标][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | 从逻辑应用调用运行自定义代码片段（C# 或 Node.js）的 Azure 函数。 | [![API 图标][azure-api-management-icon]</br>**Azure API 管理**][azure-api-management-doc] | 调用可以使用 Azure API 管理进行管理和发布的自有 API 定义的触发器与操作。 | 
 | [![API 图标][azure-app-services-icon]<br/>**Azure 应用服务**][azure-app-services-doc] | 调用 Azure 应用服务上托管的 Azure API 应用或 Web 应用。 包含 Swagger 后，这些应用定义的触发器和操作类似于其他任何第一类触发器和操作。 | [![API 图标][azure-logic-apps-icon]<br/>**Azure<br/>逻辑应用**][nested-logic-app-doc] | 调用使用“请求”触发器启动的其他逻辑应用。 | 
 ||||| 
@@ -73,8 +77,9 @@ ms.locfileid: "67236047"
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![内置操作图标][condition-icon]<br/>**条件**][condition-doc] | 评估条件，并根据条件是 true 还是 false 运行不同的操作。 | [![内置操作图标][for-each-icon]</br>**For each**][for-each-doc] | 对数组中的每个项执行相同的操作。 | 
-| [![内置操作图标][terminate-icon]<br/>**终止**][terminate-doc] | 停止当前正在运行的逻辑应用工作流。 | [![内置操作图标][until-icon]<br/>**直到**][until-doc] | 重复操作，直到指定的条件为 true 或某个状态发生更改。 | 
+| [![“内置”图标][condition-icon]<br/>**条件**][condition-doc] | 评估条件，并根据条件是 true 还是 false 运行不同的操作。 | [![“内置”图标][for-each-icon]</br>**For each**][for-each-doc] | 对数组中的每个项执行相同的操作。 | 
+| [![“内置”图标][scope-icon]<br/>**范围**][scope-doc] | 将操作分组到范围，以便在该范围内的操作完成运行后，获取这些操作的自身状态。  | [![“内置”图标][switch-icon]</br>**Switch**][switch-doc] | 将操作分组到案例，而案例分配有唯一的值（默认案例除外）。  仅运行其分配值与表达式、对象或令牌的结果相匹配的案例。 如果不存在任何匹配项，则运行默认案例。 | 
+| [![“内置”图标][terminate-icon]<br/>**Terminate**][terminate-doc] | 停止当前正在运行的逻辑应用工作流。 | [![“内置”图标][until-icon]<br/>**Until**][until-doc] | 重复操作，直到指定的条件为 true 或某个状态发生更改。 | 
 ||||| 
 
 ### <a name="manage-or-manipulate-data"></a>管理或处理数据
@@ -85,7 +90,7 @@ ms.locfileid: "67236047"
 |---|---| 
 | [![“内置”图标][data-operations-icon]<br/>**数据操作**][data-operations-doc] | 对数据执行操作： <p>- **撰写**：基于具有不同类型的多个输入创建单个输出。 <br>- **创建 CSV 表**：基于包含 JSON 对象的数组创建逗号分隔值 (CSV) 表。 <br>- **创建 HTML 表**：基于包含 JSON 对象的数组创建一个 HTML 表。 <br>- **筛选数组**：基于符合条件的另一个数组中的项创建一个数组。 <br>- **联接**：基于数组中的所有项创建一个字符串，并使用指定的分隔符分隔这些项。 <br>- **分析 JSON**：基于 JSON 内容中的属性及其值创建用户友好的令牌，以便可以在工作流中使用这些属性。 <br>- **选择**：通过转换另一数组中的项或值并将这些项映射到指定的属性，创建包含 JSON 对象的数组。 | 
 | ![内置操作图标][date-time-icon]<br/>**日期时间** | 对时间戳执行操作： <p>- **添加到时间**：将指定的单位数添加到时间戳。 <br>- **转换时区**：将时间戳从源时区转换为目标时区。 <br>- **当前时间**：返回字符串形式的当前时间戳。 <br>- **获取将来的时间**：返回当前时间戳加上指定的时间单位。 <br>- **获取过去的时间**：返回当前时间戳减去指定的时间单位。 <br>- **从时间中减去**：从时间戳中减去一定数目的时间单位。 |
-| [![内置操作图标][variables-icon]<br/>**变量**][variables-doc] | 对变量执行操作： <p>- **追加到数组变量**：插入一个值，作为变量存储的数组中的最后一个项。 <br>- **追加到字符串变量**：插入一个值，作为变量存储的字符串中的最后一个字符。 <br>- **递减变量**：按常量值减小变量。 <br>- **递增变量**：按常量值增大变量。 <br>- **初始化变量**：创建一个变量并声明其数据类型和初始值。 <br>- **设置变量**：将不同的值分配给现有变量。 |
+| [![“内置”图标][variables-icon]<br/>**变量**][variables-doc] | 对变量执行操作： <p>- **追加到数组变量**：插入一个值，作为变量存储的数组中的最后一个项。 <br>- **追加到字符串变量**：插入一个值，作为变量存储的字符串中的最后一个字符。 <br>- **递减变量**：按常量值减小变量。 <br>- **递增变量**：按常量值增大变量。 <br>- **初始化变量**：创建一个变量并声明其数据类型和初始值。 <br>- **设置变量**：将不同的值分配给现有变量。 |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -97,7 +102,7 @@ ms.locfileid: "67236047"
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API 图标][azure-service-bus-icon]<br/>**Azure 服务总线**][azure-service-bus-doc] | 使用逻辑应用中最常用的连接器管理异步消息、会话和主题订阅。 | [![API 图标][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | 连接到本地 SQL Server 或云中的 Azure SQL 数据库，以便可以管理记录、运行存储过程或执行查询。 | 
-| [![API 图标][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | 连接到 Office 365 电子邮件帐户，以便可以创建和管理电子邮件、任务、日历事件和会议、联系人、请求，等等。 |  |  | 
+| [![API 图标][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | 连接到 Office 365 电子邮件帐户，以便可以创建和管理电子邮件、任务、日历事件和会议、联系人、请求，等等。 | [![API 图标][azure-blob-storage-icon]<br/>**Azure Blob<br/>存储**][azure-blob-storage-doc] | 连接到存储帐户，以便可以创建和管理 Blob 内容。 | 
 | [![API 图标][sftp-icon]<br/>**SFTP**][sftp-doc] | 连接到可从 internet 访问的 SFTP 服务器，以便能够处理文件和文件夹。 | [![API 图标][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | 连接到 SharePoint Online，以便能够管理文件、附件、文件夹，等等。 | 
 | [![API 图标][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | 连接到 Dynamics 365 帐户，以便能够创建和管理记录、项，等等。 | [![API 图标][ftp-icon]<br/>**FTP**][ftp-doc] | 连接到可从 internet 访问的 FTP 服务器，以便能够处理文件和文件夹。 | 
 | [![API 图标][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | 连接到 Salesforce 帐户，以便能够创建和管理记录、作业、对象等项。 | [![API 图标][twitter-icon]<br/>**Twitter**][twitter-doc] | 连接到 Twitter 帐户，以便能够管理推文、关注者、时间表、等等。 将推文保存到 SQL、Excel 或 SharePoint。 | 
@@ -108,7 +113,7 @@ ms.locfileid: "67236047"
 
 ## <a name="on-premises-connectors"></a>本地连接器 
 
-逻辑应用提供下面这些常用的标准连接器用于访问本地系统中的数据和资源。 在与本地系统建立连接之前，必须先[下载、安装并设置本地数据网关][gateway-doc]。 此网关提供安全信道，无需设置所需的网络基础结构。 
+逻辑应用提供下面这些常用的标准连接器用于访问本地系统中的数据和资源。 在创建与本地系统的连接之前，必须先[下载、安装并设置本地数据网关][gateway-doc]。 此网关提供安全信道，无需设置所需的网络基础结构。 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 

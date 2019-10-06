@@ -8,13 +8,13 @@ ms.topic: conceptual
 origin.date: 05/20/2019
 ms.date: 03/14/2019
 ms.author: v-lingwu
-ms.component: ''
-ms.openlocfilehash: ea12e5087b228a33f761b4e9fb1fbc288007dc88
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.subservice: ''
+ms.openlocfilehash: 7808d2dbc09a4ac1eb697cf5617651dbef107be9
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737397"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329656"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -28,6 +28,8 @@ Alert Logic Log Manager 收集 VM、应用程序和 Azure 平台日志以进行�
 
 [查看相关文档。][alertlogic-doc]
 
+<br/>
+
 ## <a name="appdynamics"></a>AppDynamics
 
 ![AppDynamics 徽标](./media/partners/appdynamics.png)
@@ -37,6 +39,7 @@ AppDynamics Application Performance Management (APM) 可让应用程序所有者
 [查看相关文档。][appdynamics-doc]
 
 ## <a name="microfocus-arcsight"></a>Microfocus ArcSight
+
 ArcSight 为 Azure Monitor 事件中心提供了一个智能连接器。
 
 [了解详细信息。][arcsight-doc]

@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: log-analytics
 ms.topic: conceptual
-origin.date: 06/16/2019
-ms.date: 08/16/2019
+origin.date: 08/22/2019
+ms.date: 08/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 66c635c35d4550f798328dc699be914d64aa20f1
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e6eca437a941c3682b9ba360a593667b1f6d814b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737165"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330369"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 日志的结构
 使用[日志查询](log-query-overview.md)快速洞察数据是 Azure Monitor 提供的一项强大功能。 若要创建高效且有用的查询，应该了解一些基本概念，例如，所需数据的位置及其构建方式。 本文将会介绍可帮助你入门的基本概念。
@@ -48,7 +48,7 @@ union withsource = table *
 有关每个数据源创建的表的详细信息，请参阅相应数据源的文档。 例如，参阅有关[代理数据源](../platform/agent-data-sources.md)、[诊断日志](../platform/diagnostic-logs-schema.md)和[监视解决方案](../insights/solutions-inventory.md)的文章。
 
 ### <a name="workspace-permissions"></a>工作区权限
-有关提供对工作区中数据的访问权限的详细信息，请参阅[工作区权限和范围](../platform/manage-access.md#workspace-permissions-and-scope)。 除了授予对工作区本身的访问权限以外，还可以使用[表级别 RBAC](../platform/manage-access.md#table-level-rbac) 限制对单个表的访问。
+请参阅[设计 Azure Monitor 日志部署](../platform/design-logs-deployment.md)，以了解访问控制策略和提供对工作区中数据的访问的建议。 除了授予对工作区本身的访问权限以外，还可以使用[表级别 RBAC](../platform/manage-access.md#table-level-rbac) 限制对单个表的访问。
 
 ## <a name="application-insights-application"></a>Application Insights 应用程序
 在 Application Insights 中创建应用程序时，会自动在 Azure Monitor 日志中创建相应的应用程序。 无需进行任何配置即可收集数据，应用程序会自动写入页面查看次数、请求和异常等监视数据。

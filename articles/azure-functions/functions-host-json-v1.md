@@ -1,30 +1,27 @@
 ---
 title: Azure Functions 1.x 的 host.json 参考
 description: 使用 v1 运行时的 Azure Functions host.json 文件的参考文档。
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/19/2018
-ms.date: 04/26/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: acf73b01acc4c73da5ab0c0102df34038e31bb92
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 577f221783279b2000d6c0615fa03ed7e7d0f8aa
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855428"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673488"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="选择要使用的 Azure Functions 运行时的版本： "]
 > * [版本 1](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
-*host.json* 元数据文件包含对函数应用的所有函数产生影响的全局配置选项。 本文列出了可用于 v1 运行时的设置。 JSON 架构位于 http://json.schemastore.org/host。
+*host.json* 元数据文件包含对函数应用的所有函数产生影响的全局配置选项。 本文列出了可用于 v1 运行时的设置。 JSON 架构位于 http://json.schemastore.org/host 。
 
 > [!NOTE]
 > 本文适用于 Azure Functions 1.x。  有关 Functions 2.x 中 host.json 的参考，请参阅 [Azure Functions 2.x 的 host.json 参考](functions-host-json.md)。
@@ -40,6 +37,13 @@ ms.locfileid: "64855428"
 
 ```json
 {
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
+        }
+    },
     "eventHub": {
       "maxBatchSize": 64,
       "prefetchCount": 256,
@@ -89,6 +93,28 @@ ms.locfileid: "64855428"
 ```
 
 本文的以下各部分解释了每个顶级属性。 除非另有说明，否则其中的所有属性都是可选的。
+
+## <a name="documentdb"></a>DocumentDB
+
+[Azure Cosmos DB 触发器和绑定](functions-bindings-cosmosdb.md)的配置设置。
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------|
+|GatewayMode|网关|连接到 Azure Cosmos DB 服务时该函数使用的连接模式。 选项为 `Direct` 和 `Gateway`|
+|协议|Https|连接到 Azure Cosmos DB 服务时该函数使用的连接协议。  参阅[此处，了解两种模式的说明](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|不适用|应用中所有函数要使用的租用前缀。|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -235,7 +261,7 @@ ms.locfileid: "64855428"
 
 ## <a name="tracing"></a>tracing
 
-版本 1.x
+ 版本 1.x
 
 使用 `TraceWriter` 对象创建的日志的配置设置。 请参阅 [C# 日志记录](functions-reference-csharp.md#logging)和 [Node.js 日志记录](functions-reference-node.md#writing-trace-output-to-the-console)。
 

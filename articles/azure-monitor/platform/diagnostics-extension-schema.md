@@ -10,12 +10,12 @@ origin.date: 09/20/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: beeac5fce3660fe45372cbeadb0383cedc80a0f2
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d1426a525b00daf7a59b96a41bd9c9249277a255
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736805"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330401"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
 此页为世纪互联 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
@@ -55,13 +55,7 @@ Azure 诊断扩展可以与其他 Azure 诊断产品（例如 Azure Monitor，�
  从 SDK 2.5（诊断版本 1.2）开始，Azure 诊断随附于扩展模型中。 使用新功能的工具仅在较新版本的 Azure SDK 中可用，但使用 Azure 诊断的任何服务都将直接从 Azure 选取最新的附带版本。 例如，仍在使用 SDK 2.5 的任何用户在使用较新功能时都将加载上表中显示的最新版本。  
 
 ## <a name="schemas-index"></a>架构索引  
-不同版本的 Azure 诊断使用不同的配置架构。
-
-[诊断 1.0 配置架构](diagnostics-extension-schema-1dot0.md)  
-
-[诊断 1.2 配置架构](diagnostics-extension-schema-1dot2.md)  
-
-[诊断 1.3 及更高版本的配置架构](diagnostics-extension-schema-1dot3.md)  
+不同版本的 Azure 诊断使用不同的配置架构。 架构 1.0 和 1.2 已弃用。 有关版本 1.3 及更高版本的详细信息，请参阅[诊断 1.3 及更高版本的配置架构](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>版本历史记录
 

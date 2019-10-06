@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 076b67f514235fe1193b400c708da6de348ab972
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 32b805b342684de83366bc344ea812ab7b9ba560
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861728"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340882"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -29,6 +29,8 @@ ms.locfileid: "67861728"
 > * 故障转移到 Azure 并完成迁移
 
 限制和已知问题部分列出了在将 Windows Server 2008 计算机迁移到 Azure 时存在的限制，以及可能遇到的已知问题的解决方法。 
+
+<!--Not Available on [Learn more](../migrate/migrate-services-overview.md)-->
 
 ## <a name="supported-operating-systems-and-environments"></a>支持的操作系统和环境
 
@@ -146,8 +148,11 @@ ms.locfileid: "67861728"
 
 为想要迁移的计算机运行故障转移。
 
-1. 在“设置”   > “复制的项”  中，单击计算机 >“故障转移”  。
-2. 在“故障转移”  中，选择要故障转移到的“恢复点”  。 选择最新恢复点。
+1. 在“受保护的项”   > “复制的项”  中，单击计算机 >“故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
+2. 在“故障转移”中，选择要故障转移到的“恢复点”   。 选择最新恢复点。
 3. 选择“在开始故障转移前关闭计算机”  。 Site Recovery 在触发故障转移之前会尝试关闭服务器。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。 
 4. 检查 Azure VM 是否在 Azure 中按预期显示。
 5. 在“复制的项”  中，右键单击服务器 >“完成迁移”  。 这样会执行以下操作：

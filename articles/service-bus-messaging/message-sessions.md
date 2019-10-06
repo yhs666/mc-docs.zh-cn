@@ -11,22 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/18/2019
-ms.date: 01/23/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4d69e1112b4664d67248967a4f7dcc19f82eeed5
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 1b520fa4b190251f49bad688d5e5266be2bf6859
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330335"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>消息会话：先进先出 (FIFO) 
 
 使用世纪互联 Azure 服务总线会话，能够以连贯有序的方式处理一系列无限多的相关消息。 若要在服务总线中实现 FIFO 保证，请使用会话。 服务总线没有规定消息之间的关系性质，也没有定义用于确定消息序列开始或结束位置的特定模型。
 
 > [!NOTE]
-> 服务总线的基本层不支持会话。 标准层和高级层支持会话。 任何发送程序都可以在将消息提交到主题或队列时创建会话，方法是将 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 属性设置为会话专属的由应用程序定义的某标识符。 在 AMQP 1.0 协议一级，此值映射到 group-id  属性。
+> 服务总线的基本层不支持会话。 标准层和高级层支持会话。 有关详细信息，请参阅[服务总线定价](https://www.azure.cn/en-us/pricing/details/service-bus/)。
+
+任何发送程序都可以在将消息提交到主题或队列时创建会话，方法是将 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 属性设置为会话专属的由应用程序定义的某标识符。 在 AMQP 1.0 协议一级，此值映射到 group-id  属性。
 
 在会话感知队列或订阅中，如果有至少一个消息包含会话的 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)，会话就诞生了。 一旦会话诞生，就没有规定会话何时过期或消失的已定义时间或 API。 理论上讲，服务总线认为，今天可以针对会话接收的消息，与一年时间内 SessionId  相同的下一个消息使用的会话是相同的。
 
@@ -39,6 +41,9 @@ ms.locfileid: "68818570"
 在门户中，选中下图中展示的复选框设置标志：
 
 ![][2]
+
+> [!NOTE]
+> 在队列或订阅上启用会话时，客户端应用程序可以***不再***发送/接收常规消息。 所有消息必须作为会话的一部分发送（通过设置会话 ID），并通过接收会话来接收。
 
 会话 API 存在于队列和订阅客户端上。 可以使用一个命令性模型，控制会话和消息的接收时间；还可以使用一个基于处理程序的模型（类似于 OnMessage），此模型简化了接收循环的管理操作。 
 
@@ -75,6 +80,16 @@ ms.locfileid: "68818570"
 可以使用 Java API 中的 SessionBrowser  方法、[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 上的 [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) 以及 .NET 客户端中的 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient)，枚举队列或订阅中的所有现有会话。
 
 队列或订阅中保留的会话状态计入相应实体的存储配额。 因此，当应用程序完成会话时，建议应用程序清理保留的状态，以杜绝外部管理成本。
+
+## <a name="impact-of-delivery-count"></a>传递计数的影响
+
+在会话上下文中，每条消息的传递计数的定义与在没有会话的情况下的定义略有不同。 下面的表总结了传递计数何时递增。
+
+| 方案 | 消息的传递计数是否递增 |
+|----------|---------------------------------------------|
+| 接受会话，但会话锁已过期（由于超时） | 是 |
+| 接受会话，会话中的消息未完成（即使它们已锁定），并且会话已关闭 | 否 |
+| 接受会话，完成消息，然后显式关闭会话 | 不适用（这是标准流。 此处的消息将从会话中删除） |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 预测评分
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 预测评分 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 预测分数表示 LUIS API 服务基于用户话语对于预测结果的置信度。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 58a78a6e7dfdc86f44f4117aefa33aeea1a4691b
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 866a96b452dfce0116877ca70030a39058daa6a4
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103946"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329911"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>预测评分指示意向和实体的预测准确性
 

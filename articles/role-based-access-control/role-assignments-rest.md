@@ -12,16 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/28/2019
-ms.date: 08/07/2019
+origin.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 53ba74e517bf4145109e60bfe51e427cff8fd654
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: cd91a98be7ddbce8d39a42c3dfbe78d068c46244
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878657"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673564"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理对 Azure 资源的访问权限
 
@@ -41,13 +41,12 @@ ms.locfileid: "68878657"
 
     | 作用域 | 类型 |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 订阅 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 资源组 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-    
-       
-     > [!NOTE]
-     > 在上面的示例中，Microsoft.web 是使用的资源提供程序，它引用应用服务实例。 同样可以使用任何其他资源提供程序，并生成范围 URI。 若要了解详细信息，请参阅 [Azure 资源提供程序和类型](/azure-resource-manager/resource-manager-supported-services)以及支持的 [Azure RM 资源提供程序操作](/role-based-access-control/resource-provider-operations)。  
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理组 |
+    | `subscriptions/{subscriptionId1}` | 订阅 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 资源组 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+
+    在前面的示例中，microsoft.web 是引用应用服务实例的资源提供程序。 同样，可以使用任何其他资源提供程序并指定范围。 有关详细信息，请参阅 [Azure 资源提供程序和类型](../azure-resource-manager/resource-manager-supported-services.md)和支持的 [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)。  
      
 1. 将“{filter}”  替换为筛选角色分配列表时要应用的条件。
 
@@ -74,23 +73,31 @@ ms.locfileid: "68878657"
     ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
         "principalId": "{principalId}"
       }
     }
     ```
-    
+
 1. 在 URI 内，将“{scope}”  替换为角色分配的范围。
 
     | 作用域 | 类型 |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 订阅 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 资源组 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理组 |
+    | `subscriptions/{subscriptionId1}` | 订阅 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 资源组 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. 将“{roleAssignmentName}”  替换为角色分配的 GUID 标识符。
 
-1. 在请求正文中，将“{subscriptionId}”  替换为你的订阅标识符。
+1. 在请求正文中，将 *{scope}* 替换为角色分配的范围。
+
+    | 作用域 | 类型 |
+    | --- | --- |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理组 |
+    | `subscriptions/{subscriptionId1}` | 订阅 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 资源组 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. 将“{roleDefinitionId}”  替换为角色定义标识符。
 
@@ -112,9 +119,10 @@ ms.locfileid: "68878657"
 
     | 作用域 | 类型 |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 订阅 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 资源组 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理组 |
+    | `subscriptions/{subscriptionId1}` | 订阅 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 资源组 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. 将“{roleAssignmentName}”  替换为角色分配的 GUID 标识符。
 

@@ -12,18 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/10/2019
+origin.date: 04/10/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 12b98d4d81f05682642f8f867395aff7941704e1
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 9cd3cf488a80d3aa7c7c846f40c3978e1ed19389
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544363"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329870"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何通过 Node.js 使用服务总线队列
-
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>如何将服务总线队列与 Node.js 和 azure-sb 包配合使用
+> [!div class="op_multi_selector" title1="编程语言" title2="Node.js 包"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
 本教程介绍如何创建 Node.js 应用程序，以便向服务总线队列发送消息以及从中接收消息。 示例用 JavaScript 编写并使用 Node.js Azure 模块。 
 
@@ -46,7 +48,7 @@ ms.locfileid: "69544363"
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
 1. 使用 **Windows PowerShell for Node.js** 命令窗口导航到在其中创建了示例应用程序的 **c:\\node\\sbqueues\\WebRole1** 文件夹。
-2. 在命令窗口中键入 **npm install azure**，这应该产生类似如下的输出：
+2. 在命令窗口中键入 **npm install azure**，这应该产生类似如下示例的输出：
 
     ```
     azure@0.7.5 node_modules\azure
@@ -147,12 +149,12 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][Service Bus quotas]。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 对 ServiceBusService 对象使用 `receiveQueueMessage` 方法可从队列接收消息  。 默认情况下，消息被读取后即从队列删除；但是可以读取（速览）并锁定消息而不将其从队列删除，只要将可选参数 `isPeekLock` 设置为“true”即可  。
 
-在接收过程中读取并删除消息的默认行为是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+在接收过程中读取并删除消息的默认行为是最简单的模型，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。 为了理解此行为，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
 如果将 `isPeekLock` 参数设置为“true”，则接收会变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序  。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完该消息（或将它可靠地存储起来留待将来处理）后，通过调用 `deleteMessage` 方法并提供要删除的消息作为参数，完成接收过程的第二阶段。 `deleteMessage` 方法会将消息标记为已使用，并将其从队列中删除。
 
@@ -177,11 +179,11 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
-Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则它可以对 ServiceBusService 对象调用 `unlockMessage` 方法  。 这会导致 Service Bus 解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
+Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则它可以对 ServiceBusService 对象调用 `unlockMessage` 方法  。 这会导致服务总线解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
 还存在与队列中已锁定的消息相关联的超时，并且如果应用程序未能在锁定超时到期之前处理消息（例如，如果应用程序崩溃），服务总线则将自动解锁该消息，使它可以再次被接收。
 
-如果应用程序在处理消息之后，但在调用 `deleteMessage` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此情况通常称作*至少处理一次*，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
+如果应用程序在处理消息之后，但在调用 `deleteMessage` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此方法通常称作*至少处理一次*，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过使用消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关队列的详细信息，请参阅以下资源。

@@ -7,16 +7,16 @@ author: dereklee
 ms.author: v-yiso
 manager: jeconnoc
 origin.date: 01/31/2018
-ms.date: 08/26/2019
+ms.date: 10/08/2019
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2c643a2e7e87319264d4ab80d847cba5fc205aa7
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 8e7f3abd742c2a7b62c79f0e9adb9d818f0f1173
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538994"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340918"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>在 Azure 逻辑应用中处理错误和异常
 
@@ -79,7 +79,7 @@ ms.locfileid: "69538994"
 | <*retry-attempts*> | Integer | 重试尝试次数，它必须介于 1 和 90 之间 | 
 ||||
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 |
 |-------|------|-------------|
@@ -223,17 +223,15 @@ ms.locfileid: "69538994"
 
 有关作用域的限制，请参阅[限制和配置](../logic-apps/logic-apps-limits-and-config.md)。
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>获取失败的上下文和结果
 
-尽管从作用域中捕获失败非常有用，但可能还需要借助上下文来确切了解失败的操作以及返回的任何错误或状态代码。 `@result()` 表达式提供某范围内所有操作结果的相关上下文。
+尽管从作用域中捕获失败非常有用，但可能还需要借助上下文来确切了解失败的操作以及返回的任何错误或状态代码。
 
-`@result()` 表达式采用单个参数（范围名称），并返回该范围内所有操作结果的数组。 
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 函数提供了有关作用域中所有操作的结果的上下文。 `result()` 函数接受单个参数（即作用域的名称），并返回一个数组，其中包含该作用域中的所有操作结果。 这些操作对象包括与 `@actions()` 对象相同的属性，例如操作的开始时间、结束时间、状态、输入、相关 ID 和输出。 若要发送作用域内失败的任何操作的上下文，可以轻松将 `@result()` 表达式与 `runAfter` 属性配对。
 
-这些操作对象包括与 **\@actions()** 对象相同的属性，例如操作的开始时间、结束时间、状态、输入、相关 ID 和输出。 若要发送某个范围内任何失败的操作的上下文，可以轻松地将 **\@result()** 函数与 **runAfter** 属性搭配使用。
-
-若要对某个范围内结果为 **Failed** 的每个操作运行某个操作，并将结果数组筛选为失败的操作，则可将 **\@result()** 与 **[筛选数组](../connectors/connectors-native-query.md)** 操作 
-
-以及 [**For each**](../logic-apps/logic-apps-control-flow-loops.md) 循环搭配使用。 可采用筛选的结果数组并使用 For Each 循环对每个失败执行操作  。 
+若要为作用域中具有**失败**结果的每个操作运行操作，并将结果数组筛选到失败的操作，可以将 `@result()` 表达式与[**筛选器数组**](../connectors/connectors-native-query.md)操作和 [**For each**](../logic-apps/logic-apps-control-flow-loops.md) 循环配对。 可采用筛选的结果数组并使用 For Each 循环对每个失败执行操作  。
 
 以下示例（后附详细说明）发送一个 HTTP POST 请求，其中包含范围内“My_Scope”中失败的任何操作的响应正文：
 

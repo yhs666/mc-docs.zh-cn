@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 06/25/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d0c583a7f2df3cd7a8331d632853a194b4b2c4d3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 17a4b031f94491f8022e6ca66a3594252f21fa35
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737106"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330070"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 
@@ -104,7 +104,7 @@ ms.locfileid: "70737106"
 | 平台 | 获取完整 SQL 查询所要执行的步骤 |
 | --- | --- |
 | Azure Web 应用 |在 Web 应用控制面板中，[打开“Application Insights”边栏选项卡](../../azure-monitor/app/azure-web-apps.md)并启用“.NET”下的“SQL 命令” |
-| IIS 服务器（Azure VM、本地服务器，等等。） | [在运行应用程序的服务器上安装状态监视器](../../azure-monitor/app/monitor-performance-live-website-now.md)，然后重启 IIS。
+| IIS 服务器（Azure VM、本地服务器，等等。） | 使用状态监视器 PowerShell 模块[安装检测引擎](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md)并重启 IIS。 |
 | IIS Express | 不支持
 
 在上述情况下，验证是否已正确安装该检测引擎的适当方法是验证收集的 `DependencyTelemetry` 的 SDK 版本是否为“rddp”。 “rdddsd”或“rddf”表示依赖项是通过 DiagnosticSource 或 EventSource 回调收集的，因此不会捕获完整的 SQL 查询。

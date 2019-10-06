@@ -1,28 +1,24 @@
 ---
 title: 通过 Azure 门户创建 Function App | Microsoft Docs
-description: 通过门户在 Azure 应用服务中创建新的 Function App。
-services: functions
-documentationcenter: na
+description: 通过门户在 Azure 中创建新的函数应用。
 author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: quickstart
-origin.date: 04/11/2017
-ms.date: 07/17/2019
+ms.topic: conceptual
+origin.date: 08/29/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4226ef43293b404ea9cceccc1a4a74416f0d45a8
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 73177ceb154ef44ebf4913a8936f858609f82e08
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331891"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673579"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 
-Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如何在 Azure 门户中创建 Function App。 Function App 是托管各个函数执行的容器。 如果在应用服务托管计划中创建 Function App，则 Function App 可以使用应用服务的所有功能。
+本主题演示如何使用 Azure Functions 在 Azure 门户中创建函数应用。 Function App 是托管各个函数执行的容器。 
 
 ## <a name="create-a-function-app"></a>创建函数应用
 
@@ -36,15 +32,15 @@ Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如�
 
 ## <a name="service-plans"></a>服务计划
 
-Azure Functions 有两个不同的服务计划：消耗量计划和应用服务计划。 消耗量计划会在代码运行时自动分配计算能力，根据处理负载的需要扩大规模，在代码不运行时缩小规模。 应用服务计划为 Function App 提供访问应用服务所有工具的权限。 创建 Function App 后，必须选择服务计划，该选项当前无法更改。 有关详细信息，请参阅[选择 Azure Functions 托管计划](functions-scale.md)。
+Azure Functions 有两个不同的服务计划：消耗计划和专用（应用服务）计划。 必须在创建函数应用时选择服务计划，并且随后无法更改。 有关详细信息，请参阅[选择 Azure Functions 托管计划](functions-scale.md)。
 
-如果计划在应用服务计划上运行 JavaScript 函数，则应选择具有较少核心的计划。 有关详细信息，请参阅[函数的 JavaScript 参考](functions-reference-node.md#choose-single-vcpu-app-service-plans)。
+如果计划在专用（应用服务）计划上运行 JavaScript 函数，则应选择具有较少核心的计划。 有关详细信息，请参阅[函数的 JavaScript 参考](functions-reference-node.md#choose-single-vcpu-app-service-plans)。
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>存储帐户要求
 
-在应用服务中创建 Function App 时，必须创建或链接支持 Blob、队列和表存储的常规用途的 Azure 存储帐户。 Azure Functions 内部使用存储以进行管理触发器和记录函数执行等操作。 某些存储帐户不支持队列和表，例如仅限 blob 的存储帐户、Azure 高级存储和使用 ZRS 复制的常规用途的存储帐户。 创建 Function App 时，将从“存储帐户”边栏选项卡中筛选出这些帐户。
+创建函数应用时，必须创建或链接到支持 Blob、队列和表存储的常规用途的 Azure 存储帐户。 Azure Functions 内部使用存储以进行管理触发器和记录函数执行等操作。 某些存储帐户不支持队列和表，例如仅限 blob 的存储帐户、Azure 高级存储和使用 ZRS 复制的常规用途的存储帐户。 创建 Function App 时，将从“存储帐户”边栏选项卡中筛选出这些帐户。
 
 >[!NOTE]
 >使用消耗托管计划时，函数代码和绑定配置文件存储在主存储帐户的 Azure 文件存储中。 删除主存储帐户时，此内容将随之删除且无法恢复。

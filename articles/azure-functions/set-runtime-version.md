@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 07/18/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 99f138efbc1bfdcd77685bc4581a6aaf1ba97229
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 7f7d6f1be0d264984ec1f8b92dc256794b674753
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331875"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673563"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何面向 Azure Functions 运行时版本
 
@@ -37,7 +37,7 @@ Azure Functions 允许你通过使用函数应用中的 `FUNCTIONS_EXTENSION_VER
 
 ## <a name="view-and-update-the-current-runtime-version"></a>查看和更新当前运行时版本
 
-可以更改函数应用使用的运行时版本。 由于可能会成为重大更改，因此只应在函数应用中创建任何函数之前更改运行时版本。 虽然运行时版本由 `FUNCTIONS_EXTENSION_VERSION` 设置决定，但你应该在 Azure 门户中进行此更改，而不是直接更改设置。 这是因为该门户会验证你的更改，并根据需要进行其他相关更改。
+可以更改函数应用使用的运行时版本。 由于可能会成为中断性变更，因此只能在函数应用中创建任何函数之前更改运行时版本。 虽然运行时版本由 `FUNCTIONS_EXTENSION_VERSION` 设置决定，但你应该在 Azure 门户中进行此更改，而不是直接更改设置。 这是因为该门户会验证你的更改，并根据需要进行其他相关更改。
 
 ### <a name="from-the-azure-portal"></a>通过 Azure 门户
 
@@ -98,6 +98,8 @@ az functionapp config appsettings set --name <function_app> `
 将 `<function_app>` 替换为你的函数应用的名称。 此外，还使用函数应用的资源组名称替代 `<my_resource_group>`。 另外，将 `<version>` 替换为 1.x 运行时的有效版本或版本 2.x 的 `~2`。
 
 可以在执行 [az login](/cli/reference-index#az_login) 登录后使用 [Azure CLI 在本地](/cli/install-azure-cli)执行此命令。
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

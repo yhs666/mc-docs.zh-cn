@@ -8,14 +8,15 @@ manager: digimobile
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4db2e02d78dd0e0183dd4cacf58f2a36ada026e1
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 647925f352beb0551c5d1ae5c874223fd14d57da
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332254"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330309"
 ---
 # <a name="use-firewall-rules"></a>使用防火墙规则
 
@@ -59,7 +60,7 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建虚拟网络和防火墙规则
 
 > [!IMPORTANT]
-> 虚拟网络仅在服务总线的“高级”层中受支持  。
+> 防火墙和虚拟网络仅在服务总线的**高级**层中受支持。
 
 以下资源管理器模板支持向现有服务总线命名空间添加虚拟网络规则。
 

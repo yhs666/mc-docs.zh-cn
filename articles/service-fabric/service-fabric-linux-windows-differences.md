@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 10/15/2018
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5a3ea04f83a2923146c899ecf96601c3f42297cb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fe5ead675020cd3cba39bfafa89f29c407962767
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340783"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 上的 Service Fabric 与 Windows 上的 Service Fabric 之间的差异
 
@@ -32,6 +32,7 @@ ms.locfileid: "52651491"
 * Linux 上的故障分析服务 (FAS)
 * 用于 Service Fabric 服务的 DNS 服务（Linux 上的容器支持 DNS 服务）
 * 某些 Powershell 命令的 CLI 命令等效项（下面已列出，其中的大多数命令仅适用于独立群集）
+* [可能影响可伸缩性的日志实现差异](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>不能对 Linux Service Fabric 群集使用的 Powershell cmdlet
 

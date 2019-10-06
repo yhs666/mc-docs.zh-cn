@@ -6,19 +6,19 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 01/28/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: d055a801a890f165ce4a243601e512f955d76423
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: d0bb0a42e9f7fe492b9b5f805ee253bd12a68ea8
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134408"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340888"
 ---
 # <a name="move-azure-vms-to-another-region"></a>将 Azure VM 移动到另一区域
 
-在许多场景中，你希望将现有 Azure IaaS 虚拟机 (VM) 从一个区域移动到另一个区域。
+在许多场景中，你希望将现有 Azure IaaS 虚拟机 (VM) 从一个区域移动到另一个区域。 
 
 <!--Not Available on  For example, you want to improve reliability and availability of your existing VMs, to improve manageability, or to move for governance reasons. For more information, see the [Azure VM move overview](azure-to-azure-move-overview.md)-->
 
@@ -78,7 +78,7 @@ ms.locfileid: "70134408"
     若要根据源 VM 配置创建最常用的相关网络资源，请参阅以下文档：
 
     - [网络安全组](/virtual-network/manage-network-security-group)
-    - [负载均衡器](/load-balancer/#step-by-step-tutorials)
+    - [负载均衡器](/load-balancer)
     - [公共 IP](../virtual-network/virtual-network-public-ip-address.md)
     - 对于其他任何网络组件，请参阅[网络文档](/#pivot=products&panel=network)。
 
@@ -120,7 +120,10 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 
 以下步骤演示如何执行移动到目标区域。
 
-1. 转到保管库。 在“设置” > “复制的项”中选择 VM，然后选择“故障转移”    。
+1. 转到保管库。 在“受保护的项”   > “复制的项”  中选择 VM，然后选择“故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 2. 在“故障转移”  中，选择“最新”  。
 3. 选择“在开始故障转移前关闭计算机”  。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 4. 该作业完成后，检查 VM 是否按预期显示在目标 Azure 区域中。

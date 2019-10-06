@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/29/2019
-ms.date: 04/12/2019
+origin.date: 08/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4a19f00bbec255b0074eed3737e0fc447d1077af
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 244d9fe6295875a81bfb8b1090c57230d97c6079
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736955"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329915"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>在 Azure Monitor 的 Log Analytics 工作区中创建自定义字段
 
 > [!NOTE]
-> 本文介绍如何在收集 Log Analytics 工作区时解析文本数据。 如[解析 Azure Monitor 的文本数据](../log-query/parse-text.md)中所述，在收集查询中的文本数据之后，解析文本数据是有好处的。
+> 本文介绍如何在收集 Log Analytics 工作区时解析文本数据。 我们建议按照[在 Azure Monitor 中分析文本数据](../log-query/parse-text.md)中所述的指南，收集数据后在查询筛选器中分析文本数据。 与使用自定义字段相比，它提供了几个优点。
 
 Azure Monitor 的**自定义字段**功能使你可以通过添加自己的可搜索字段来扩展 Log Analytics 工作区中的现有记录。  自定义字段会自动填充，填充的数据从同一记录的其他属性中提取。
 

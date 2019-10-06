@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 08/05/2019
-ms.date: 09/05/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: e8f2f7d3ffd307e442d8a7822c650e14bbced1ce
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 2477c540f8bfebbd6ac12c1dcedc020bb1cb64db
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805765"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673569"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>如何在 Azure Functions 中禁用函数
 
@@ -30,7 +30,7 @@ ms.locfileid: "70805765"
 
 ## <a name="functions-2x---all-languages"></a>Functions 2.x - 所有语言
 
-在 Functions 2.x 中，可以使用格式为 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 的应用设置禁用函数。 可以使用 Azure CLI 以编程方式创建和修改此设置。 也可以从 [Azure 门户](https://portal.azure.cn)中函数的“管理”  选项卡执行此操作。 
+在 Functions 2.x 中，可以使用格式为 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 的应用设置禁用函数。 可以通过多种方式创建和修改此应用程序设置，包括使用 [Azure CLI](/cli/) 以及从 [Azure 门户](https://portal.azure.cn)中函数的“管理”  选项卡。 
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/19/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0afc2487739ac1cc577561f8e36023b193cf1524
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 35aad407361e21bf013b1b921c6a43e8a27209a1
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174232"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340829"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 可将 Azure Service Fabric 群集与其他 Azure 网络功能集成。 本文说明如何创建使用以下功能的群集：
@@ -603,6 +603,10 @@ DnsSettings              : {
     ```
 
 部署后，可在资源组中看到两个负载均衡器。 如果浏览这两个负载均衡器，可以看到公共 IP 地址和分配给公共 IP 地址的管理终结点（端口 19000 和 19080）。 此外，还会看到静态内部 IP 地址和分配给内部负载均衡器的应用程序终结点（端口 80）。 这两个负载均衡器使用同一个虚拟机规模集后端池。
+
+## <a name="notes-for-production-workloads"></a>生产工作负荷的说明
+
+以上 GitHub 模板设计为使用 Azure 标准负载均衡器 (SLB) 的默认 SKU（基本 SKU）。 此 SLB 没有 SLA，因此对于生产工作负荷，应使用标准 SKU。 有关此内容的详细信息，请参阅 [Azure 标准负载均衡器概述](/load-balancer/load-balancer-standard-overview)。 使用 SLB 的标准 SKU 的任何 Service Fabric 群集都需要确保每种节点类型都有一条规则，允许端口 443 上的出站流量。 这是完成群集设置所必需的，没有此类规则的任何部署都将失败。 在上面的“仅内部”负载均衡器示例中，必须使用允许端口 443 出站流量的规则，将附加的外部负载均衡器添加到模板。
 
 ## <a name="next-steps"></a>后续步骤
 [创建群集](service-fabric-cluster-creation-via-arm.md)

@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/30/2019
+origin.date: 07/30/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 51bd77872b77721d085c73a9a78119e934c4b925
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 591d022e8889464ff6dcd7709c95bed4d971a493
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103904"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330410"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>预览版：迁移到 LUIS 应用的 API 版本 3.x
 
@@ -160,7 +161,7 @@ const score = intents[topIntentName];
 响应 JSON 架构已发生更改，允许：
 
 * 消除原始言语 `query` 与返回的预测 `prediction` 之间的差别。
-* 更轻松地以编程方式访问预测的数据。 可以按意向和实体的 **named** 访问值，而无需枚举 V2 中的数组。 对于预测的实体角色，将返回角色名称，因为它在整个应用中是唯一的。
+* 更轻松地以编程方式访问预测的数据。 可以按意向和实体的 **name** 访问值，而无需枚举 V2 中的数组。 对于预测的实体角色，将返回角色名称，因为它在整个应用中是唯一的。
 * 将遵循数据类型（如果已确定）。 数字不再作为字符串返回。
 * 第一个优先级预测信息与其他元数据之间的差别在 `$instance` 对象中返回。 
 

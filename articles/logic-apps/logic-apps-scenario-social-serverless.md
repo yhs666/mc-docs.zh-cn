@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 08/26/2019
+ms.date: 10/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 40caa7b4cf6a8069369272a5700be327829c5707
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: eb9b259653e70073606afdd9550f8609aec9975b
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538746"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340855"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure 逻辑应用和 Azure Functions 创建流式处理客户见解仪表板
 
@@ -31,7 +31,7 @@ Azure 逻辑应用在云中提供无服务器工作流引擎，以便能够跨�
 
 在此场景中，我们将会创建一个逻辑应用，在查找客户的反馈时，将会触发此应用。 部分有助于对客户反馈做出响应的连接器包括：Outlook.com、Office 365、Survey Monkey、Twitter，以及[来自 Web 窗体的 HTTP 请求](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)。 创建的工作流将会监视 Twitter 上的井号标签。
 
-可以[在 Visual Studio 中生成整个解决方案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)，并[使用 Azure 资源管理器模板部署该解决方案](../logic-apps/logic-apps-create-deploy-template.md)。 
+可以[在 Visual Studio 中生成整个解决方案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)，并[使用 Azure 资源管理器模板部署该解决方案](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)。 
 
 ## <a name="trigger-on-customer-data"></a>基于客户数据的触发器
 
@@ -111,7 +111,7 @@ Azure 逻辑应用在云中提供无服务器工作流引擎，以便能够跨�
 
 ## <a name="create-automated-deployment-templates"></a>创建自动部署模板
 
-创建逻辑应用解决方案后，可以捕获该应用，并将其作为 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)部署到世界上的任意 Azure 区域。 可以使用此功能来修改参数，以便创建不同的应用版本，以及将解决方案集成到 Azure Pipelines 中。 还可以在部署模板中包含 Azure Functions，以便将整个解决方案和所有依赖项作为单个模板进行管理。 了解[如何创建逻辑应用部署模板](../logic-apps/logic-apps-create-deploy-template.md)。
+创建逻辑应用解决方案后，可以捕获该应用，并将其作为 [Azure 资源管理器模板](../azure-resource-manager/template-deployment-overview.md)部署到世界上的任意 Azure 区域。 可以使用此功能来修改参数，以便创建不同的应用版本，以及将解决方案集成到 Azure Pipelines 中。 还可以在部署模板中包含 Azure Functions，以便将整个解决方案和所有依赖项作为单个模板进行管理。 了解如何[自动执行逻辑应用部署](logic-apps-azure-resource-manager-templates-overview.md)。
 
 [Azure 快速入门模板存储库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)中提供了包含 Azure 函数的部署模板示例。
 

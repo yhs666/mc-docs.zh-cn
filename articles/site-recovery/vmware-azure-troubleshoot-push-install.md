@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: v-yeche
-origin.date: 02/27/2019
-ms.date: 06/10/2019
-ms.openlocfilehash: 4c4ed2279150241b120eb5ab6a0b8cb1b940c2eb
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+origin.date: 09/11/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: ad0a817a918fcc373e30bd1e2d91d8b162a771f2
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340989"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>解决移动服务推送安装问题
 
@@ -127,7 +127,7 @@ ms.locfileid: "66390694"
 * 若要使用组策略启用文件共享，
     * 转到开始，键入 type gpmc.msc 并搜索。
     * 在导航窗格中，打开以下文件夹：本地计算机策略、用户配置、管理模板、Windows 组件和网络共享。
-    * 在详细信息窗格中，双击“防止用户共享其配置文件中的文件”  。 若要禁用组策略设置，并启用用户共享文件的功能，请单击“禁用”。 单击“确定”保存更改。 有关详细信息，请参阅[使用组策略启用或禁用文件共享](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
+    * 在详细信息窗格中，双击“防止用户共享其配置文件中的文件”  。 若要禁用组策略设置，并启用用户共享文件的功能，请单击“禁用”。 单击“确定”保存更改。 有关详细信息，请参阅[使用组策略启用或禁用文件共享](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
 
 对于**更高的版本**，请遵照[安装移动服务以对 VMware VM 和物理服务器进行灾难恢复](vmware-azure-install-mobility-service.md)中的说明启用文件和打印机共享。
 
@@ -188,7 +188,7 @@ GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/
 **如何修复：**<br />
 设备名应替换为相应的 UUID。<br />
 
-1. 执行命令“blkid \<设备名称>”查找设备的 UUID。 例如：<br />
+1. 通过执行命令“blkid \<设备名称>”查找设备的 UUID。 例如：<br />
     ```
     blkid /dev/sda1
     /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -197,7 +197,9 @@ GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/
     ```
 
 2. 现在请将设备名替换为设备 UUID，格式类似于“root=UUID=\<UUID>”。 例如，对于上述在“/boot/grub2/grub.cfg”、“/boot/grub2/grub.cfg”或“/etc/default/grub”文件中提到的 root 和 resume 参数，如果将设备名称替换为 UUID，则文件中的行将类似于： <br />
+    
     *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
 3. 再次重启保护
 
 <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>
@@ -249,6 +251,8 @@ VSS 安装是移动代理安装的一部分。 在生成应用程序一致恢复
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
+如果出现故障，请检查是否有任何防病毒程序或其他服务停滞在“正在启动”状态。 这可以保留对数据库服务的锁定。 这将导致安装 VSS 提供程序时出现故障。 请确保没有服务处于“正在启动”状态，然后重试上述操作。
+
 ### <a name="vss-exit-code-806"></a>VSS 退出代码 806
 
 当用于安装的用户帐户无权执行 CSScript 命令时会发生此错误。 请为用户帐户提供执行此脚本所需的权限，然后重试操作。
@@ -270,9 +274,7 @@ VSS 安装是移动代理安装的一部分。 在生成应用程序一致恢复
 1. 打开位于 c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log 中的安装日志。
 2. 如果存在以下错误，则表示出现了此问题：
 
-    正在取消注册现有应用程序...<br/>
-    创建目录对象<br/>
-    获取应用程序的集合 
+    正在取消注册现有应用程序...创建目录对象  获取应用程序集合 
 
     错误:
 

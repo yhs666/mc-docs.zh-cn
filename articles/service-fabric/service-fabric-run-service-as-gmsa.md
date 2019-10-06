@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/29/2018
-ms.date: 03/04/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: ac1c71010c6353e3796f35268f1b6012b9d9ecc5
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 111182e8e744d53148a8c0a401b78a9a0a39b092
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463603"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340727"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>以组托管服务帐户身份运行服务
 在 Windows Server 独立群集上，可以使用 RunAs 策略以组托管服务帐户 (gMSA) 的身份来运行服务。  默认情况下，Service Fabric 应用程序在运行 Fabric.exe 进程的帐户之下运行。 即使在共享托管环境中以不同帐户身份运行应用程序，也可确保运行的应用程序彼此更安全。 注意：这是域中的本地 Active Directory，不是 Azure Active Directory (Azure AD)。 使用 gMSA 时，没有密码或加密的密码存储在应用程序清单中。  还可以采用 [Active Directory 用户或组](service-fabric-run-service-as-ad-user-or-group.md)身份运行服务。
@@ -29,7 +29,7 @@ ms.locfileid: "57463603"
 
 先决条件：
 - 域需要 KDS 根密钥。
-- 域必须位于 Windows Server 2012 或更高功能级别上。
+- 域中必须至少有一个 Windows Server 2012（或 R2）DC。
 
 1. 让 Active Directory 域管理员使用 `New-ADServiceAccount` commandlet 创建组托管服务帐户，并确保 `PrincipalsAllowedToRetrieveManagedPassword` 包括所有 service fabric 群集节点。 `AccountName`、`DnsHostName` 和 `ServicePrincipalName` 必须是唯一的。
 
@@ -49,7 +49,7 @@ ms.locfileid: "57463603"
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <ServiceManifestImport>
           <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
           <ConfigOverrides />
@@ -66,10 +66,12 @@ ms.locfileid: "57463603"
     ```
 
 > [!NOTE] 
-> 如果将 RunAs 策略应用到服务，且服务清单使用 HTTP 协议声明终结点资源，则必须指定 SecurityAccessPolicy。  有关详细信息，请参阅[为 HTTP 和 HTTPS 终结点分配安全访问策略](service-fabric-assign-policy-to-endpoint.md)。 
+> 如果将 RunAs 策略应用到服务，且服务清单使用 HTTP 协议声明终结点资源，则必须指定 SecurityAccessPolicy  。  有关详细信息，请参阅[为 HTTP 和 HTTPS 终结点分配安全访问策略](service-fabric-assign-policy-to-endpoint.md)。 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> 下一步，请阅读以下文章：
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
+有关后续步骤，请阅读以下文章：
 * [了解应用程序模型](service-fabric-application-model.md)
 * [在服务清单中指定资源](service-fabric-service-manifest-resources.md)
 * [部署应用程序](service-fabric-deploy-remove-applications.md)

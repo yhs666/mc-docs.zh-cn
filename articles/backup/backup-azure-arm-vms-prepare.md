@@ -6,18 +6,19 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/12/19
+origin.date: 04/03/2019
+ms.date: 09/23/19
 ms.author: v-lingwu
-ms.openlocfilehash: da4af180134738c6f675acf9354f34200bdda97e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 51833f3c160d129f9b79aef1cd251308c30c93d2
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818492"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329807"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>将 Azure VM 备份到恢复服务保管库中
 
-本文介绍如何使用 [Azure 备份](backup-overview.md)服务将 Azure VM 备份到恢复服务保管库中。 
+本文介绍如何使用 [Azure 备份](backup-overview.md)服务将 Azure VM 备份到恢复服务保管库中。
 
 在本文中，学习如何：
 
@@ -142,7 +143,7 @@ ms.locfileid: "68818492"
     - 还原时，已备份的 VM 磁盘将通过网络从存储复制到恢复存储位置。 使用即时还原时，可以利用在执行备份作业期间创建的存储于本地的快照，而无需等待将备份数据传输到保管库。
     - 可将用于即时还原的快照保留一到五天。 默认设置为两天。
 3. 在“保留期”中，指定要将每日或每周备份点保留多长时间。 
-4. 在“保留每月备份点”中，指定是否要保留每日或每周备份的每月备份。  
+4. 在“保留每月备份点”中，指定是否要保留每日或每周备份的每月备份。 
 5. 单击“确定”  保存策略。
 
     ![新建备份策略](./media/backup-azure-arm-vms-prepare/new-policy.png)
@@ -163,12 +164,12 @@ ms.locfileid: "68818492"
 
 ## <a name="verify-backup-job-status"></a>验证备份作业状态
 
-对于每个 VM 备份，备份作业详细信息包含 2 个阶段：“快照”  阶段和跟随其后的“将数据传输到保管库”  阶段。<br/>
+对于每个 VM 备份，备份作业详细信息包含两个阶段：“快照”  阶段和跟随其后的“将数据传输到保管库”  阶段。<br/>
 “快照”阶段保证随同磁盘一起存储的恢复点可用于“即时还原”  ，并且可用时间最长可达 5 天，具体视用户配置的快照保留期而定。 “将数据传输到保管库”阶段在保管库中创建一个恢复点，以实现长期保留。 仅当“快照”阶段完成后，“将数据传输到保管库”阶段才启动。
 
   ![备份作业状态](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-有两个“子任务”  正在后台运行，一个子任务用于前端备份作业，该备份作业可从“备份作业”详细信息边栏选项卡进行查看，如下所示  ：
+有两个“子任务”  正在后端运行，一个子任务用于前端备份作业，该备份作业可从“备份作业”详细信息边栏选项卡进行查看，如下所示  ：
 
   ![备份作业状态](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -227,9 +228,9 @@ VM 上运行的备份扩展需要对 Azure 公共 IP 地址进行出站访问。
 4. 在“源端口范围”中输入一个星号 (*)，以允许从任何端口进行出站访问。 
 5. 在“目标”中，选择“服务标记”。   从列表中选择“Storage.region”。  区域是保管库和要备份的 VM 所在的位置。
 6. 在“目标端口范围”中选择端口。 
-    - 使用未加密存储帐户的非托管 VM：80
-    - 使用加密存储帐户的非托管 VM：443（默认设置）
-    - 托管 VM：8443。
+    - 使用未加密存储帐户中的非托管磁盘的 VM：80
+    - 使用非托管磁盘和加密存储帐户的 VM：443（默认设置）
+    - 使用托管磁盘的 VM：8443。
 7. 在“协议”中，选择“TCP”。  
 8. 在“优先级”中，为此规则指定一个优先级值，该值必须小于任何具有更高优先级的拒绝规则。 
    
@@ -282,7 +283,7 @@ VM 上运行的备份扩展需要对 Azure 公共 IP 地址进行出站访问。
    - 将类型设置为“TCP”。 
    - 将“本地端口”设置为“特定端口”。  
    - 将“远程端口”设置为“所有端口”。  
-  
+
 6. 完成向导并指定规则名称。
 
 ###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>为代理的 NSG 添加例外规则

@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 05/24/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 20c0eacfe9ff5dcc4c404e759ed2d9d36e32c95f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b21681f2281b5faee073ae8511ba82c0b2f0f31a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737278"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330394"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 
@@ -279,7 +279,9 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>状态监视器可安装哪个版本的 Application Insights SDK？
 
-目前，状态监视器仅可安装 Application Insights SDK 版本 2.3 或 2.4。
+目前，状态监视器仅可安装 Application Insights SDK 版本 2.3 或 2.4。 
+
+Application Insights SDK 版本 2.4 是[支持 .NET 4.0 的最新版本](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1)，已于 [2016 年 1 月停产](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)。 因此，到目前为止，状态监视器可以用于检测 .NET 4.0 应用程序。 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>是否每次更新应用都需要运行状态监视器？
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/18/2017
 ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 9c703b7b08e68f27d6f049591b8992c985eb2947
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: ca5808a93a29655101967df0ea23b617434ee69b
+ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298096"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71333654"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 
@@ -31,7 +31,7 @@ ms.locfileid: "68298096"
 
 域名系统是域的层次结构。 该层次结构从名为“ **.** ”的“根”域开始。  根域的下面是顶级域，例如“com”、“net”、“org”、“uk”或“jp”。  再往下是二级域，例如“org.uk”或“co.jp”。 DNS 层次结构中的域遍布全球，由世界各地的 DNS 名称服务器托管。
 
-域名注册机构是一个组织，可以通过该组织购买域名，例如“contoso.com”。  购买域名便有权控制该域名下的 DNS 层次结构，例如可将名称“www.contoso.com”定向到公司网站。 注册机构会代表用户在域自身的名称服务器中托管域，或者允许用户指定可选名称服务器。
+域名注册机构是一个组织，可以通过该组织购买域名，例如“contoso.com”。  购买域名便有权控制该名下的 DNS 层次结构，例如可将名称“www.contoso.com”定向到公司网站。 注册机构会代表用户在域自身的名称服务器中托管域，或者允许用户指定可选名称服务器。
 
 Azure DNS 提供全球分布的高可用性名称服务器基础结构，可将其用于托管域。 通过在 Azure DNS 中托管域，用户可以使用与其他 Azure 服务相同的凭据、API、工具、计费和支持来管理 DNS 记录。
 

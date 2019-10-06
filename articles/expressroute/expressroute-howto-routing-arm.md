@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/26/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 5edddd56f99b2c3fc3ad927510b014bbc23f7f75
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 10/01/2019
+ms.openlocfilehash: 27347ba80bd81cc00e26fe8a91afd6c470482976
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330381"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路的对等互连
 
@@ -53,6 +53,119 @@ ms.locfileid: "58626812"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+
+## <a name="msft"></a>Microsoft 对等互连
+
+本文介绍如何为 ExpressRoute 线路创建、获取、更新和删除 Microsoft 对等互连配置。
+
+> [!IMPORTANT]
+> 在 2019 年 10 月 1 日之前配置的 ExpressRoute 线路的 Microsoft 对等互连会通过 Microsoft 对等互连播发所有服务前缀，即使未定义路由筛选器。 在 2019 年 10 月 1 日或之后配置的 ExpressRoute 线路的 Microsoft 对等互连的任何前缀只有在路由筛选器附加到线路之后才会播发。 有关详细信息，请参阅[配置用于 Microsoft 对等互连的路由筛选器](how-to-routefilter-powershell.md)。
+> 
+> 
+
+### <a name="to-create-microsoft-peering"></a>创建 Microsoft 对等互连
+
+1. 登录并选择订阅。
+
+   如果在本地安装了 PowerShell，请登录。 如果使用 Azure Cloud Shell，可以跳过此步骤。
+
+   ```azurepowershell
+   Connect-AzAccount
+   ```
+
+   选择要创建 ExpressRoute 线路的订阅。
+
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
+2. 创建 ExpressRoute 线路。
+
+   请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Microsoft 对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。 
+
+3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
+
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
+
+   其响应类似于如下示例：
+
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
+                                       "Name": "Standard_MeteredData",
+                                       "Tier": "Standard",
+                                       "Family": "MeteredData"
+                                     }
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
+                                       "ServiceProviderName": "Equinix",
+                                       "PeeringLocation": "Silicon Valley",
+                                       "BandwidthInMbps": 200
+                                     }
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
+4. 配置线路的 Microsoft 对等互连。 在继续下一步之前，请确保已准备好以下信息。
+
+   * 主链路的 /30 或 /126 子网。 这必须是你拥有的且已在 RIR/IRR 中注册的有效公共 IPv4 或 IPv6 前缀。
+   * 辅助链路的 /30 或 /126 子网。 这必须是你拥有的且已在 RIR/IRR 中注册的有效公共 IPv4 或 IPv6 前缀。
+   * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。
+   * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。
+   * 播发的前缀：必须提供要通过 BGP 会话播发的所有前缀列表。 只接受公共 IP 地址前缀。 如果打算发送一组前缀，可以发送逗号分隔列表。 这些前缀必须已在 RIR/IRR 中注册。 IPv4 BGP 会话需要 IPv4 播发前缀，而 IPv6 BGP 会话需要 IPv6 播发前缀。 
+   * 路由注册表名称：可以指定 AS 编号和前缀要注册到的 RIR/IRR。
+   * 可选：
+     * 客户 ASN：如果要播发的前缀未注册到对等互连 AS 编号，可以指定它们要注册到的 AS 编号。
+     * MD5 哈希（如果选择使用）。
+
+   使用以下示例为线路配置 Microsoft 对等互连：
+
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+
+### <a name="getmsft"></a>获取 Microsoft 对等互连详细信息
+
+可以使用以下示例来获取配置详细信息：
+
+```azurepowershell-interactive
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+
+Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+```
+
+### <a name="updatemsft"></a>更新 Microsoft 对等互连配置
+
+可以使用以下示例来更新配置的任何部分：
+
+```azurepowershell-interactive
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
+### <a name="deletemsft"></a>删除 Microsoft 对等互连
+
+可以运行以下 cmdlet 来删除对等互连配置：
+
+```azurepowershell-interactive
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ## <a name="private"></a>Azure 专用对等互连
 

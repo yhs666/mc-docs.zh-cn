@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 11/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4d51c2ada453cf5f06a79c00593e340341e694a8
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 3a4fd6fa9db33b1337bec9e940f428894f047094
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736975"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330422"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>可视化 Azure Monitor 中的数据
 本文概述了将 Azure Monitor 中存储的日志和指标数据可视化时可使用的方法。
@@ -37,7 +37,7 @@ ms.locfileid: "70736975"
 - 支持指标和日志。
 - 合并来自多个源的数据，包括[指标资源管理器](platform/metrics-charts.md)、[日志查询](log-query/log-query-overview.md)以及 Application Insights 中的[映射](app/app-map.md)和可用性的输出。
 - 包含个人或共享仪表板的选项。 与 Azure [基于角色的身份验证 (RBAC)](../role-based-access-control/overview.md) 集成。
-- 自动刷新。 指标刷新的时间范围至少为 5 分钟。 日志以 1 分钟为间隔刷新。
+- 自动刷新。 指标刷新的时间范围至少为 5 分钟。 日志每小时刷新一次，通过单击给定可视化界面上的“刷新”图标或刷新整个仪表板，可以根据需要使用手动刷新选项。
 - 带有时间戳和自定义参数的参数化指标仪表板。
 - 灵活的布局选项。
 - 全屏模式。

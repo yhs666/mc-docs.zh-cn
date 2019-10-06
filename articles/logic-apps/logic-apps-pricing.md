@@ -10,14 +10,14 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-origin.date: 05/22/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: 081882c31a8125f18dbf17b5d04bb741c2ae3be7
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+origin.date: 07/19/2019
+ms.date: 10/08/2019
+ms.openlocfilehash: 0c24ecff1c991979736fa63f65ba9b984d387b44
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174090"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340951"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure 逻辑应用的定价模型
 
@@ -30,11 +30,11 @@ ms.locfileid: "70174090"
 对于在公共或“全球”Azure 逻辑应用服务中运行的新逻辑应用，只需根据实际使用的资源付费。 这些逻辑应用使用基于消耗量的计划和定价模型。 在逻辑应用定义中，每个步骤都是操作。 例如，操作包括： 
 
 * 触发器（特殊的操作）。 所有逻辑应用需将一个触发器用作第一个步骤。
-* “内置”或本机操作，例如 HTTP、对 Azure Functions 和 API 管理的调用，等等
-* 对 Outlook 365、Dropbox 等连接器的调用
+* [“内置”或本机操作](../connectors/apis-list.md#built-in)，例如 HTTP、对 Azure Functions 和 API 管理的调用，等等
+* 对[托管连接器](../connectors/apis-list.md##managed-connectors)（如 Outlook 365 等）的调用
 * 控制流步骤，例如循环、条件语句，等等
 
-Azure 逻辑应用对逻辑应用中运行的所有操作进行计量。 详细了解[触发器](#triggers)和[操作](#actions)的计费方式。
+详细了解[触发器](#triggers)和[操作](#actions)的计费方式。
 
 <a name="connectors"></a>
 

@@ -1,20 +1,19 @@
 ---
-title: 将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵 | Azure
+title: 将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵
 description: 汇总了使用 Azure Site Recovery 执行 Hyper-V VM 到 Azure 的灾难恢复时支持的组件和相关要求
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 08/07/2019
-ms.date: 08/26/2019
+origin.date: 09/10/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 11a768cce8abfbdb01b839d8f75ec3c36ac8cc79
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 1cb60fb21f27c3f0faf7aa03702185ec97aadd1d
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134389"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340932"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵
 
@@ -125,7 +124,8 @@ RDM | 不可用 | 不可用
 静态加密 (SSE)| 是 | 是
 高级存储 | 是 | 是
 导入/导出服务 | 否 | 否
-在目标存储/缓存存储帐户（用来存储复制数据）上配置的用于虚拟网络的 Azure 存储防火墙 | 否 | 否
+启用了防火墙的 Azure 存储帐户 | 否  | 是的。 适用于目标存储和缓存。
+修改存储帐户 | 否。 启用复制后，无法修改目标 Azure 存储帐户。 若要修改，请禁用然后重新启用灾难恢复。 | 否
 
 ## <a name="azure-compute-features"></a>Azure 计算功能
 
@@ -143,7 +143,7 @@ HUB | 是 | 是
 **组件** | **要求** | **详细信息**
 --- | --- | ---
 来宾操作系统 | Site Recovery 支持 [Azure 支持的](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)所有操作系统。  | 如果不支持，先决条件检查会失败。
-来宾操作系统体系结构 | 64 位 | 如果不支持，先决条件检查会失败。
+来宾操作系统体系结构 | 32 位 (Windows Server 2008)/64 位 | 如果不支持，先决条件检查会失败。
 操作系统磁盘大小 | 第 1 代 VM 最大 2,048 GB。<br/><br/> 第 2 代 VM 最大 300 GB。  | 如果不支持，先决条件检查会失败。
 操作系统磁盘计数 | 1 | 如果不支持，先决条件检查会失败。
 数据磁盘计数 | 16 个或更少  | 如果不支持，先决条件检查会失败。
@@ -158,13 +158,13 @@ VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基�
 
 ## <a name="recovery-services-vault-actions"></a>恢复服务保管库操作
 
-**操作** |  **使用 Virtual Machine Manager 的 Hyper-V** | **不使用 Virtual Machine Manager 的 Hyper-V**
+**操作** |  **Hyper-V（有 VMM）** | **不包含 VMM 的 Hyper-V**
 --- | --- | ---
 跨资源组移动保管库<br/><br/> 订阅内和跨订阅移动 | 否 | 否
 跨资源组移动存储、网络和 Azure VM<br/><br/> 订阅内和跨订阅移动 | 否 | 否
 
 > [!NOTE]
-> 将 Hyper-VM（使用/不使用 SCVMM 进行管理）从本地复制到 Azure 时，只能从一个特定环境（Hyper-V 站点或 SCVMM）复制到一个 AD 租户（如果适用）。
+> 将 Hyper-VM 从本地复制到 Azure 时，只能从一个特定环境（Hyper-V 站点或使用 VMM 的 Hyper-V）复制到一个 AD 租户（如果适用）。
 
 ## <a name="provider-and-agent"></a>提供程序和代理
 

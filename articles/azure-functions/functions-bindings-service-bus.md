@@ -8,17 +8,16 @@ manager: gwallace
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 04/01/2017
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7ea91a8d79129a87d6e3a86dc7d81651c8507f5c
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 910ade446a4828e3f1b98c227ab4d4bbe808dd4d
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805763"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673557"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -51,7 +50,6 @@ ms.locfileid: "70805763"
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -214,57 +212,6 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a name="trigger---python-example"></a>触发器 - Python 示例
-
-下面的示例演示如何通过触发器读取 ServiceBus 队列消息。
-
-ServiceBus 绑定在 function.json  中定义，其中 type  设置为 `serviceBusTrigger`。
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "serviceBusTrigger",
-      "direction": "in",
-      "queueName": "inputqueue",
-      "connection": "AzureServiceBusConnectionString"
-    }
-  ]
-}
-```
-
-_\_init_\_.py  中的代码将参数声明为 `func.ServiceBusMessage`，以允许你在函数中读取队列消息。
-
-```python
-import azure.functions as func
-
-import logging
-import json
-
-def main(msg: func.ServiceBusMessage):
-    logging.info('Python ServiceBus queue trigger processed message.')
-
-    result = json.dumps({
-        'message_id': msg.message_id,
-        'body': msg.get_body().decode('utf-8'),
-        'content_type': msg.content_type,
-        'expiration_time': msg.expiration_time,
-        'label': msg.label,
-        'partition_key': msg.partition_key,
-        'reply_to': msg.reply_to,
-        'reply_to_session_id': msg.reply_to_session_id,
-        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
-        'session_id': msg.session_id,
-        'time_to_live': msg.time_to_live,
-        'to': msg.to,
-        'user_properties': msg.user_properties,
-    })
-
-    logging.info(result)
-```
-
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
 在 [C# 类库](functions-dotnet-class-library.md)中，请使用以下属性来配置服务总线触发器：
@@ -420,7 +367,6 @@ Functions 运行时以 [PeekLock 模式](../service-bus-messaging/service-bus-pe
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -611,56 +557,6 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="output---python-example"></a>输出 - Python 示例
-
-下面的示例演示如何使用 Python 写出到 ServiceBus 队列。
-
-ServiceBue 绑定在 function.json  中定义，其中 type  设置为 `serviceBus`。
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "serviceBus",
-      "direction": "out",
-      "connection": "AzureServiceBusConnectionString",
-      "name": "msg",
-      "queueName": "outqueue"
-    }
-  ]
-}
-```
-
-在 _\_init_\_.py  中，可以通过将值传递给 `set` 方法将消息写出到队列。
-
-```python
-import azure.functions as func
-
-def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
-
-    input_msg = req.params.get('message')
-
-    msg.set(input_msg)
-
-    return 'OK'
-```
-
 ## <a name="output---attributes"></a>输出 - 特性
 
 在 [C# 类库](functions-dotnet-class-library.md)中，使用 `ServiceBusAttribute`。
@@ -716,14 +612,19 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 * `out T paramName` - `T` 可以是任何可 JSON 序列化的类型。 如果函数退出时参数值为 null，Functions 将创建具有 null 对象的消息。
 * `out string` - 如果函数退出时参数值为 null，Functions 不创建消息。
 * `out byte[]` - 如果函数退出时参数值为 null，Functions 不创建消息。
-* `out BrokeredMessage` - 如果函数退出时参数值为 null，Functions 不创建消息。
+* `out BrokeredMessage` - 如果函数退出时参数值为 null，Functions 不创建消息（适用于 Functions 1.x）
+* `out Message` - 如果函数退出时参数值为 null，Functions 不创建消息（适用于 Functions 2.x）
 * `ICollector<T>` 或 `IAsyncCollector<T>` - 用于创建多条消息。 调用 `Add` 方法时创建了一条消息。
 
-在异步函数中，请使用返回值或 `IAsyncCollector` 而非 `out` 参数。
+使用 C# 函数时：
 
-这些参数仅适用于 Azure Functions 版本 1.x；对于 2.x，请使用 [`Message`](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.servicebus.message) 而非 `BrokeredMessage`。
+* 异步函数需要返回值或 `IAsyncCollector` 而不是 `out` 参数。
 
-在 JavaScript 中通过 `context.bindings.<name from function.json>` 访问队列或主题。 可以向 `context.binding.<name>` 分配一个字符串、字节数组或 Javascript 对象（反序列化为 JSON）。
+* 若要访问会话 ID，请绑定到 [`Message`](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.servicebus.message) 类型并使用 `sessionId` 属性。
+
+在 JavaScript 中通过 `context.bindings.<name from function.json>` 访问队列或主题。 可以向 `context.binding.<name>` 分配一个字符串、字节数组或 JavaScript 对象（反序列化为 JSON）。
+
+若要以非 C# 语言向启用会话的队列发送消息，请使用 [Azure 服务总线 SDK](/service-bus-messaging) 而不是内置的输出绑定。
 
 ## <a name="exceptions-and-return-codes"></a>异常和返回代码
 
@@ -770,4 +671,3 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->

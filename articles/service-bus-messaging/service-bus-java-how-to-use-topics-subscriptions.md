@@ -1,5 +1,5 @@
 ---
-title: 如何通过 Java 使用 Azure 服务总线主题 | Azure
+title: 通过 Java 使用 Azure 服务总线主题和订阅
 description: 在 Azure 中使用服务总线主题和订阅。
 services: service-bus-messaging
 documentationcenter: java
@@ -12,21 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 04/15/2019
+origin.date: 04/15/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d12d12455e17925d13477bc5b2fe48489c089798
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: b3a236e2cfd31bc980a8dea43ab78378b3c26554
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046960"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330295"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-在本快速入门中，先编写 Java 代码，将消息发送到某个服务总线主题，然后从该主题的订阅中接收消息。 
+在本快速入门中，先编写 Java 代码，将消息发送到某个 Azure 服务总线主题，然后从该主题的订阅中接收消息。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "67046960"
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
-在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用 Eclipse，则可以安装包含 Azure SDK for Java 的[用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]。 然后，可以将 **Azure Libraries for Java** 添加到项目：
+在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用了 Eclipse，则可以安装包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] 。 然后，可以将 **Azure Libraries for Java** 添加到项目：
 
 ![Eclipse 生成路径中的库](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 

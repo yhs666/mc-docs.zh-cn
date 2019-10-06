@@ -1,5 +1,5 @@
 ---
-title: 面向开发人员的 Azure Batch API 和工具 | Azure
+title: 面向开发人员的 API 和工具 - Azure Batch | Docs
 description: 了解通过 Azure Batch 服务开发解决方案时可以使用的 API 和工具。
 services: batch
 author: lingliw
@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8467157e6e3bcd444dd59951285ea926232528b7
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 09e170299db6d6382bdf67e02e89f63e9a4d0c26
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103964"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330216"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 

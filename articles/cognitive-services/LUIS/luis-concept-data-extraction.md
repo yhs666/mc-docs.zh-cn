@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9b9d3c41b1409fac33196ae82d4dda963a3597bf
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 9b19bfacd8f29aab480c42f1432125747488294f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104035"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329928"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从包含意向和实体的话语文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
@@ -148,141 +149,15 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 ## <a name="simple-entity-data"></a>简单实体数据
 
-[简单实体](luis-concept-entity-types.md)是一种机器学习值。 它可以是一个单词或短语。
-
-`Bob Jones wants 3 meatball pho`
-
-在之前的陈述中，`Bob Jones` 被标记为一个简单的 `Customer` 实体。
-
-从终结点返回的数据包括实体名称、从陈述中发现的文本、所发现文本的位置，以及评分：
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|数据对象|实体名称|Value|
-|--|--|--|
-|简单实体|`Customer`|`bob jones`|
+[简单实体](reference-entity-simple.md)是一种机器学习值。 它可以是一个单词或短语。
 
 ## <a name="composite-entity-data"></a>复合实体数据
-[复合](luis-concept-entity-types.md)实体是机器学习的，并且可包括单词或短语。 例如，考虑一个预构建的 `number` 和 `Location::ToLocation` 的复合实体，其具有以下陈述：
 
-`book 2 tickets to paris`
-
-注意数字 `2` 和 ToLocation `paris` 之间有单词，这些单词不属于任何实体。 [LUIS](luis-reference-regions.md) 网站中的已标记话语中使用的绿色下划线指示复合实体。
-
-![复合实体](./media/luis-concept-data-extraction/composite-entity.png)
-
-复合实体返回在 `compositeEntities` 数组中，且该复合中的所有实体也都返回在 `entities` 数组中：
-
-```JSON
-
-"entities": [
-    {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
-    },
-    {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
-        "subtype": "integer",
-        "value": "2"
-    }
-    },
-    {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
-        {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
-        },
-        {
-        "type": "builtin.number",
-        "value": "2"
-        }
-    ]
-    }
-]
-```    
-
-|数据对象|实体名称|Value|
-|--|--|--|
-|预构建实体 - 数量|"builtin.number"|"2"|
-|预生成实体 - GeographyV2|"Location::ToLocation"|"paris"|
+[复合实体](reference-entity-composite.md)由其他实体构成，例如预生成实体、简单实体、正则表达式实体和列表实体。 各种单独的实体构成整个实体。 
 
 ## <a name="list-entity-data"></a>列表实体数据
 
-[列表](luis-concept-entity-types.md)实体不进行机器学习。 它是确切的文本匹配。 列表代表列表中的项以及这些项的同义词。 LUIS 将任何列表中某个项的任何匹配项标记为响应中的实体。 同义词可位于多个列表中。
-
-假设应用有一个名为 `Cities` 的列表，允许城市名称的变体，包括机场城市 (Sea-tac)、机场代码 (SEA)、邮政编码 (98101) 和电话区号 (206)。
-
-|列表项|项同义词|
-|---|---|
-|`Seattle`|`sea-tac`、`sea`、`98101`、`206`、`+1` |
-|`Paris`|`cdg`、`roissy`、`ory`、`75001`、`1`、`+33`|
-
-`book 2 tickets to paris`
-
-在之前的陈述中，单词 `paris` 映射至属于 `Cities` 列表实体一部分的“巴黎”项。 列表实体同时匹配项的规范化名称及其同义词。
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-另一个使用巴黎的同义词的示例陈述：
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+[列表实体](reference-entity-list.md)表示一组固定、封闭的相关单词及其同义词。 LUIS 不会为列表实体发现更多值。 使用“建议”功能根据当前列表查看有关新词的建议  。 如果存在多个具有相同值的列表实体，则终结点查询中会返回其中每个实体。 
 
 ## <a name="prebuilt-entity-data"></a>预构建实体数据
 [预构建](luis-concept-entity-types.md)实体是基于正则表达式匹配项、使用开源 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 项目发现的。 预构建实体返回在实体数组中，并使用前缀为 `builtin::` 的类型名称。 以下文本是一个示例陈述，其中包含返回的预构建实体：
@@ -369,35 +244,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 ```
 
 ## <a name="regular-expression-entity-data"></a>正则表达式实体数据
-[正则表达式](luis-concept-entity-types.md)实体是基于正则表达式匹配项、使用创建实体时提供的表达式发现的。 如果将 `kb[0-9]{6}` 用作正则表达式实体定义，则下面的 JSON 响应就是一个示例陈述，其包含为查询 `When was kb123456 published?` 返回的正则表达式实体：
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+[正则表达式实体](reference-entity-regular-expression.md)基于所提供的正则表达式模式提取实体。
 
 ## <a name="extracting-names"></a>提取名称
 从陈述提取名称非常困难，因为名称几乎可以是字母和单词的任何组合。 根据要提取的名称类型，有若干选项。 以下建议不是规则，而是更多准则。
@@ -481,49 +329,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 ```
 
 ## <a name="patternany-entity-data"></a>Pattern.any 实体数据
-Pattern.any 实体是长度可变的实体，用于某个[模式](luis-concept-patterns.md)的模板陈述中。
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Pattern.any](reference-entity-pattern-any.md) 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。  
 
 ## <a name="sentiment-analysis"></a>情绪分析
 如果配置了情绪分析，LUIS json 响应会包含情绪分析内容。 请在[文本分析](/cognitive-services/text-analytics/)文档中详细了解情绪分析。
@@ -760,7 +567,3 @@ LUIS 终结点可以发现不同实体中的相同数据：
 ## <a name="next-steps"></a>后续步骤
 
 请参阅[添加实体](luis-how-to-add-entities.md)，详细了解如何将实体添加到 LUIS 应用。
-
-
-
-

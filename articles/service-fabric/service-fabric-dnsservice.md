@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/20/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 580bf2753770430a593d752df038b956c7855179
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: e599288a317b60831ca7b8efd7fb5b7155db249e
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174258"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340773"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服务
 DNS 服务是可选的系统服务，可以在群集中启用，用于发现使用 DNS 协议的其他服务。 
@@ -180,7 +180,7 @@ DNS 服务不支持动态端口。 若要解析在动态端口上公开的服务
 其中：
 
 - *First-Label-Of-Partitioned-Service-DNSName* 是服务 DNS 名称的第一个部分。
-- *PartitionPrefix* 是可以在群集清单的 DnsService 节中设置的，或者通过群集资源管理器模板设置的值。 默认值为“-”。 有关详细信息，请参阅 [DNS 服务设置](./service-fabric-cluster-fabric-settings.md#dnsservice)。
+- *PartitionPrefix* 是可以在群集清单的 DnsService 节中设置的，或者通过群集资源管理器模板设置的值。 默认值为“--”。 有关详细信息，请参阅 [DNS 服务设置](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 - *Target-Partition-Name* 是分区的名称。 
 - *PartitionSuffix* 是可以在群集清单的 DnsService 节中设置的，或者通过群集资源管理器模板设置的值。 默认值为空字符串。 有关详细信息，请参阅 [DNS 服务设置](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 - *Remaining-Partitioned-Service-DNSName* 是服务 DNS 名称的剩余部分。

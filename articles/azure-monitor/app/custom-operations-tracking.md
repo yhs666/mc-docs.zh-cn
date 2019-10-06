@@ -13,12 +13,12 @@ origin.date: 06/30/2017
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 7cf3a3e578cd03018311e516722e04932ebe69b6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ed4a2c6c662d148c6ceae441619725515d2b94b7
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737300"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330431"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 跟踪自定义操作
 
@@ -180,7 +180,7 @@ public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
     // It might also make sense to get the name from the message.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
@@ -229,7 +229,7 @@ public async Task Process(BrokeredMessage message)
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
-    operation.Telemetry.Type = "Queue";
+    operation.Telemetry.Type = "Azure queue";
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
     // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
@@ -275,38 +275,18 @@ public async Task Enqueue(CloudQueue queue, string message)
 #### <a name="dequeue"></a>取消排队
 与 `Enqueue` 类似，Application Insights 自动跟踪对存储队列的实际 HTTP 请求。 但是，`Enqueue` 操作可能发生在父上下文中，例如传入请求上下文。 Application Insights SDK 自动将此类操作（及其 HTTP 部分）与父请求和同一范围内报告的其他遥测相关联。
 
-`Dequeue` 操作比较棘手。 Application Insights SDK 自动跟踪 HTTP 请求。 但是，在分析消息之前，它并不知道关联上下文。 因此无法关联 HTTP 请求，获取其他遥测的消息。
-
-在多数情况下，将队列的 HTTP 请求与其他跟踪相关联也是有用处的。 以下示例演示如何执行此操作：
+`Dequeue` 操作比较棘手。 Application Insights SDK 自动跟踪 HTTP 请求。 但是，在分析消息之前，它并不知道关联上下文。 不可能将获取消息的 HTTP 请求与遥测的其余部分相关联，特别是当收到多个消息时。
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
-    var telemetry = new DependencyTelemetry
-    {
-        Type = "Queue",
-        Name = "Dequeue " + queue.Name
-    };
-
-    telemetry.Start();
-
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>("dequeue " + queue.Name);
+    operation.Telemetry.Type = "Azure queue";
+    operation.Telemetry.Data = "Dequeue " + queue.Name;
+    
     try
     {
         var message = await queue.GetMessageAsync();
-
-        if (message != null)
-        {
-            var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
-
-            // If there is a message, we want to correlate the Dequeue operation with processing.
-            // However, we will only know what correlation ID to use after we get it from the message,
-            // so we will report telemetry after we know the IDs.
-            telemetry.Context.Operation.Id = payload.RootId;
-            telemetry.Context.Operation.ParentId = payload.ParentId;
-
-            // Delete the message.
-            return payload;
-        }
     }
     catch (StorageException e)
     {
@@ -318,8 +298,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     finally
     {
         // Update status code and success as appropriate.
-        telemetry.Stop();
-        telemetryClient.Track(telemetry);
+        telemetryClient.StopOperation(operation);
     }
 
     return null;
@@ -334,7 +313,8 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
+    
     // It might also make sense to get the name from the message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
@@ -369,8 +349,15 @@ public async Task Process(MessagePayload message)
 - 停止 `Activity`。
 - 使用 `Start/StopOperation` 或手动调用 `Track` 遥测。
 
+### <a name="dependency-types"></a>依赖项类型
+
+Application Insights 使用依赖项类型来自定义 UI 体验。 对于队列，它识别出以下可改善[事务诊断体验](/azure/azure-monitor/app/transaction-diagnostics)的 `DependencyTelemetry` 类型：
+- `Azure queue` 适用于 Azure 存储队列
+- `Azure Event Hubs` 适用于 Azure 事件中心
+- `Azure Service Bus` 适用于 Azure 服务总线
+
 ### <a name="batch-processing"></a>批处理
-有些队列允许对一个请求的多条消息取消排队。 这类消息的处理可能彼此独立，而且属于不同的逻辑操作。 在此情况下，不能将 `Dequeue` 操作与特定消息处理相关联。
+有些队列允许对一个请求的多条消息取消排队。 这类消息的处理可能彼此独立，而且属于不同的逻辑操作。 无法将 `Dequeue` 操作与正在处理的特定消息相关联。
 
 每条消息都应在自己的异步控制流中处理。 有关详细信息，请参阅[传出依赖项跟踪](#outgoing-dependencies-tracking)部分。
 

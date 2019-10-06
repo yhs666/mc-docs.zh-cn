@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 501f4aa9cdc06eb247960810db93fa65ce98e748
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 2aa6ea1b5fec28d9fb5ef2fd4c5b674d2ba023b8
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329849"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>LUIS 应用的创作周期
 LUIS 在反复的模型变更、陈述示例、发布以及从终结点查询收集信息等周期中，会取得最佳的学习成效。 
@@ -36,7 +37,7 @@ LUIS 需要意向的示例陈述。 这些示例需要有足够的字词选择�
 通过将陈述分配到 None 意向，指示 LUIS 忽略与应用域不相关的陈述  。 任何不需要从陈述中提取出来的字词或短语都不需要进行标记。 要忽略的字词或短语均无标记。 
 
 ## <a name="train-and-publish-the-app"></a>训练并发布应用
-每个意向具有 10 到 15 个不同的话语并且所需实体被标记后，就可以进行训练并发布。 使用发布成功通知中的链接获取终结点。 确保创建应用并发布应用，以便它在需要的[终结点区域](luis-reference-regions.md)中可用。 
+每个意向具有 15 到 30 个不同的话语并且所需实体被标记后，就可以进行训练并发布。 使用发布成功通知中的链接获取终结点。 确保创建应用并发布应用，以便它在需要的[终结点区域](luis-reference-regions.md)中可用。 
 
 ## <a name="https-endpoint-testing"></a>HTTPS 终结点测试
 可以从 HTTPS 终结点测试 LUIS 应用。 从该终结点测试可使 LUIS 选择对可信度低的表述进行评审。  
@@ -49,8 +50,4 @@ LUIS 需要意向的示例陈述。 这些示例需要有足够的字词选择�
 
 ## <a name="next-steps"></a>后续步骤
 
-了解有关[协作](luis-concept-collaborator.md)的概念。
-
-
-
-
+了解有关[协作](luis-concept-keys.md)的概念。

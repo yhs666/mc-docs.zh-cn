@@ -1,19 +1,20 @@
 ---
-title: 跨 Azure 订阅移动恢复服务保管库或将其移到另一个资源组
+title: 跨 Azure 订阅或资源组移动恢复服务保管库
 description: 有关跨 Azure 订阅和资源组移动恢复服务保管库的说明。
 services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/12/19
+origin.date: 04/08/2019
+ms.date: 04/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0685dae24fd9b29dc7f893d1176670d70502302d
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 38cb415b2f1a932ee4dd1f4dcf6747e64aee9006
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818475"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330275"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>跨 Azure 订阅和资源组移动恢复服务保管库（受限公共预览版）
 
@@ -112,7 +113,7 @@ ms.locfileid: "68818475"
 
 若要将恢复服务保管库移到另一个资源组，请使用 `Move-AzureRMResource` cmdlet。 `Move-AzureRMResource` 需要资源名称和资源类型。 可以通过 `Get-AzureRmRecoveryServicesVault` cmdlet 获取这两项信息。
 
-```
+```powershell
 $destinationRG = "<destinationResourceGroupName>"
 $vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
 Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
@@ -120,7 +121,7 @@ Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $v
 
 若要将资源移到不同的订阅，请包含 `-DestinationSubscriptionId` 参数。
 
-```
+```powershell
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
@@ -130,7 +131,7 @@ Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -D
 
 若要将恢复服务保管库移到另一个资源组，请使用以下 cmdlet：
 
-```
+```azurecli
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 

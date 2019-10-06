@@ -1,20 +1,20 @@
 ---
-title: 关于本地计算机和 Azure VM Azure Site Recovery 的迁移 | Azure
-description: 本文介绍如何使用 Azure Site Recovery 服务将本地和 Azure IaaS VM 迁移到 Azure。
+title: 关于本地计算机和 Azure VM Azure Site Recovery 的迁移
+description: 本文介绍如何使用 Microsoft Azure Site Recovery 服务将本地和 Azure IaaS VM 迁移到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0949172500b848fedf8ad967cc4b09bcc4b53b58
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 7d8c782a1838449b60ed13d2404bb5ce499628c5
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861713"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340971"
 ---
 # <a name="about-migration"></a>关于迁移
 
@@ -25,6 +25,8 @@ ms.locfileid: "67861713"
 - **从本地迁移到 Azure**：将本地 Hyper-V VM、VMware VM 和物理服务器迁移到 Azure。 迁移之后，在本地计算机上运行的工作负荷将在 Azure VM 上运行。 
 - **在 Azure 中迁移**：在 Azure 区域之间迁移 Azure VM。 
 - **迁移 AWS**：将 AWS Windows 实例迁移到 Azure IaaS VM。 
+
+<!--MOONCAKE: Not Available on [Learn more](../migrate/migrate-overview.md)-->
 
 ## <a name="what-do-we-mean-by-migration"></a>迁移的意思是什么？
 

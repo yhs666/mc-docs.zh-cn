@@ -8,15 +8,16 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+origin.date: 09/05/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e2599647dc50a0fdab582db2e32282545c8afe36
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 6fbf62be60fd91050a389d016b058831468413b8
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329943"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以编程方式生成 LUIS 应用
 
@@ -26,7 +27,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
 
 * 登录 [LUIS](luis-reference-regions.md) 网站，并在“帐户设置”中找到[创作密钥](luis-concept-keys.md#authoring-key)。 使用此密钥调用 Authoring API。
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-* 本教程从用户请求的一家虚拟公司的 CSV 格式日志文件开始。 可从 [此处](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)下载。
+* 本文从用户请求的一家虚拟公司的 CSV 格式日志文件开始。 可从 [此处](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)下载。
 * 使用 NPM 安装最新的 Node.js。 从[此处](https://nodejs.org/en/download/)下载它。
 * **[建议]** 用于 IntelliSense 和调试的 Visual Studio Code 可从[此处](https://code.visualstudio.com/)免费下载。
 
@@ -40,10 +41,20 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
 可以看到“RequestType”列可能是意向，“Request”列显示了一个示例陈述   。 如果其他字段出现在陈述中，则可能是实体。 由于有意向、实体和示例陈述，因此需要一个简单的示例应用。
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>从非 LUIS 数据生成 LUIS 应用的步骤
-若要从源文件生成新的 LUIS 应用，首先分析 CSV 文件中的数据并将此数据转换为可以使用 Authoring API 将其上传到 LUIS 的格式。 从已分析的数据，收集存在的意向和实体的信息。 然后进行 API 调用，以创建应用，并添加从已分析的数据收集的意向和实体。 创建 LUIS 应用后，可以从已分析的数据中添加示例陈述。 可以在下面的代码的最后一部分看到此流程。 复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)此代码并将其保存在 `index.js`。
+从 CSV 文件生成新的 LUIS 应用：
+
+* 分析 CSV 文件中的数据：
+    * 转换为可以使用创作 API 上传到 LUIS 的格式。 
+    * 从已分析的数据收集有关意向和实体的信息。 
+* 调用创作 API 以执行以下操作：
+    * 创建应用。
+    * 添加从已分析数据中收集的意向和实体。 
+    * 创建 LUIS 应用后，可以从已分析的数据中添加示例陈述。 
+
+可以在 `index.js` 文件的最后一部分中看到此程序流。 复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)此代码并将其保存在 `index.js`。
 
 ```
-    var path = require('path');
+      var path = require('path');
 
     const parse = require('./_parse');
     const createApp = require('./_create');
@@ -74,7 +85,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         inFile: path.join(__dirname, uploadFile),
         batchSize: 100,
-        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
+        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
     };
 
     /* create app parameters */
@@ -83,7 +94,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         appName: LUIS_appName,
         culture: LUIS_appCulture,
-        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/"
+        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/"
     };
 
     /* add intents parameters */
@@ -92,7 +103,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         intentList: intents,
-        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
+        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
     };
 
     /* add entities parameters */
@@ -101,7 +112,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         entityList: entities,
-        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
+        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
     };
 
     /* input and output files for parsing CSV */
@@ -141,8 +152,6 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
             console.log(err.message);
         });
 ```
-
-
 ## <a name="parse-the-csv"></a>分析 CSV
 
 包含 CSV 中的陈述的列条目必须被分析为 LUIS 可以理解的 JSON 格式。 此 JSON 格式必须包含一个 `intentName` 字段，该字段标识陈述的意向。 它还必须包含一个 `entityLabels` 字段，如果陈述中没有实体，该字段可以是空的。 

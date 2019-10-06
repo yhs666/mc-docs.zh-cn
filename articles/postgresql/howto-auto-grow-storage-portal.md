@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 5/29/2019
-ms.date: 08/05/2019
-ms.openlocfilehash: 034236890be457824f3153fb772f4320e939e37c
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.date: 09/30/2019
+ms.openlocfilehash: ea6c8c0785709b3cde6e5d2c6b8618185a4cfbe2
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732447"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307868"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>使用 Azure 门户在 Azure Database for PostgreSQL（单一服务器）中自动增长存储
 本文介绍如何将 Azure Database for PostgreSQL 服务器存储配置为在不影响工作负荷的情况下增长。
@@ -27,7 +27,7 @@ ms.locfileid: "68732447"
 
 请按照下列步骤设置 PostgreSQL 服务器存储自动增长：
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure Database for PostgreSQL 服务器。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择现有 Azure Database for PostgreSQL 服务器。
 
 2. 在 PostgreSQL 服务器页上，单击“设置”  下的“定价层”  ，以打开“定价层”页。
 

@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/14/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f9dc25ba89ff4233701b58cfa11f9061de516fd
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 4049f7fb53b5bb06bc06e03276cbd2923f92521e
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174249"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340796"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>如何：使用 Visual Studio 2019 在 Azure Service Fabric 中调试 Windows 容器
 
@@ -82,6 +82,6 @@ ms.locfileid: "70174249"
     Visual Studio 支持 .NET 和 .NET Core 的控制台和 ASP.NET 项目类型。
 
 ## <a name="next-steps"></a>后续步骤
-若要详细了解 Service Fabric 和容器的功能，请参阅 Service Fabric 容器概述](service-fabric-containers-overview.md)。
+若要详细了解 Service Fabric 和容器的功能，请参阅 [Service Fabric 容器概述](service-fabric-containers-overview.md)。
 
 <!-- Update_Description: update meta properties, wording update  -->

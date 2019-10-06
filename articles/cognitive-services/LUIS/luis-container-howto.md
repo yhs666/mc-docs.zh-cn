@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/02/2019
+origin.date: 09/18/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 92382921a9b9babccc68ff07efcb31caa26c4456
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 14d8cf828fa0ecb171372dbf12ea4abc7cea547b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330163"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安装并运行 LUIS docker 容器
  
 语言理解 (LUIS) 容器可将已训练或已发布的语言理解模型（也称为 [LUIS 应用](https://luis.azure.cn)）加载到 docker 容器中并提供对容器的 API 终结点中的查询预测的访问权限。 可以从容器中收集查询日志并将这些日志上传回语言理解应用以提高应用的预测准确性。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+以下视频演示如何使用此容器。
+
+[![认知服务容器演示](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo) 如果没有 Azure 订阅，请在开始之前创建[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -183,12 +186,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令运行容器。 该命令使用以下参数：
 
-| 占位符 | Value |
-|-------------|-------|
-|{API_KEY} | 此密钥用于启动容器。 请勿使用初学者密钥。 |
-|{ENDPOINT_URI} | Azure 门户的“`Cognitive Services` 概述”页上提供了终结点值。 |
-
-在以下示例 `docker run` 命令中，请将这些参数替换为自己的值。 在 Windows 控制台中运行该命令。
+`docker run` 命令的[示例](luis-container-configuration.md#example-docker-run-commands)可用。
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -209,17 +207,17 @@ ApiKey={API_KEY}
 此命令：
 
 * 从 LUIS 容器映像运行容器
-* 从位于容器主机上的 c:\input 中的输入装入点加载 LUIS 应用
+* 从位于容器主机上的 C:\input  中的输入装入点加载 LUIS 应用
 * 分配两个 CPU 内核和 4 千兆字节 (GB) 的内存
 * 公开 TCP 端口 5000，并为容器分配伪 TTY
-* 将容器和 LUIS 日志保存到位于容器主机上的 c:\output 中的输出装入点
+* 将容器和 LUIS 日志保存到位于容器主机上的 C:\output  中的输出装入点
 * 退出后自动删除容器。 容器映像在主计算机上仍然可用。 
 
 提供 `docker run` 命令的多个[示例](luis-container-configuration.md#example-docker-run-commands)。 
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](#billing)。
-> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”  ，也可以在 Azure `Cognitive Services`资源密钥页上找到。  
+> ApiKey 值是 LUIS 门户中“Azure 资源”  页中的“密钥”  ，也可以在 Azure `Cognitive Services` 资源密钥页上找到。  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -231,7 +229,7 @@ ApiKey={API_KEY}
 
 容器提供了基于 REST 的查询预测终结点 API。 已发布（过渡或生产）应用的终结点包含的路由与已训练应用的终结点不同  。 
 
-使用主机 `https://localhost:5000`，以获得容器 API。 
+使用主机 `http://localhost:5000`，以获得容器 API。 
 
 |包类型|方法|路由|查询参数|
 |--|--|--|--|

@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 10/27/2017
-ms.date: 01/21/2019
+origin.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 321e51ae735e7e68b2527efc3c0a0a288523a679
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6ab5d4496bf77cf270db322335ff17d569e2da17
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330030"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>使用 Azure Monitor 中的 Active Directory 运行状况检查解决方案优化 Active Directory 环境
 
@@ -52,7 +52,7 @@ ms.locfileid: "70736532"
   >
   >
 
-若要对属于待评估域的域控制器执行运行状况检查，这些域控制器需要一个代理，并使用以下受支持的方法之一与 Azure Monitor 建立连接：
+若要对属于要评估的域的域控制器执行运行状况检查，该域中的每个域控制器都需要一个代理并使用以下受支持的方法之一连接到 Azure Monitor：
 
 1. 如果域控制器尚不受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 的监视，请安装 [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md)。
 2. 如果域控制器受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 的监视并且管理组未与 Azure Monitor 集成，则它可与 Azure Monitor 共用多个宿主，以收集数据并将其转发到服务，同时仍可由 Operations Manager 监视。  
@@ -78,9 +78,11 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 数据是在域控制器上收集的，并每隔七天转发到 Azure Monitor。  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>了解如何划分建议的优先级
+
 每项建议都指定有一个权重值，用于标识该建议的相对重要性。 仅显示 10 个最重要的建议。
 
 ### <a name="how-weights-are-calculated"></a>如何计算权重
+
 权重是基于三个关键因素的聚合值：
 
 * 所发现的问题会导致不良后果的概率  。 概率较高相当于建议的总体分数较高。
@@ -90,6 +92,7 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 每一项建议的权重表示为可用于每个重点区域的总分百分比。 例如，如果安全性和合规性重点区域中建议的分数为 5%，则实施该建议将使总体安全性和合规性的分数增加 5%。
 
 ### <a name="focus-areas"></a>重点区域
+
 **安全性和合规性** - 该重点区域显示针对潜在安全威胁和违规、企业策略，以及技术、法律和法规合规性要求的建议。
 
 **可用性和业务连续性** - 该重点区域显示针对基础结构和业务保护的服务可用性、可恢复性建议。

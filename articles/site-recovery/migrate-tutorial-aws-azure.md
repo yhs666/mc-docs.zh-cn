@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 服务将 AWS VM 迁移到 Azure | Azure
+title: 使用 Microsoft Azure Site Recovery 服务将 AWS VM 迁移到 Azure | Azure
 description: 本文介绍如何使用 Azure Site Recovery 将 Amazon Web Services (AWS) 中运行的 Windows VM 迁移到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 08/26/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: bc66017b06915931397877ea1746b351993bb1a5
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: ef460ba72e1f2cc164269a2e21ba3f278211f1f7
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134462"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340879"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -31,6 +31,8 @@ ms.locfileid: "70134462"
 > * 运行到 Azure 的一次性故障转移
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+<!--MOONCAKE: Not Available on [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 - 确保要迁移的 VM 运行的是支持的 OS 版本。 支持的版本包括： 
@@ -93,11 +95,11 @@ ms.locfileid: "70134462"
 1. 在 [Azure 门户](https://portal.azure.cn)中，选择 **“创建资源”** > **“网络”** >
     **“虚拟网络”** 。
 3. 对于“名称”  ，请输入 **myMigrationNetwork**。
-4. 保留“地址空间”  的默认值。
+4. 保留“地址空间”  的默认值（必须输入值）。
 5. 对于“订阅”，请选择要使用的订阅。 
 6. 对于“资源组”  ，请选择“使用现有”  ，然后选择“migrationRG”  。
 7.  选择“中国北部”作为“位置”  。
-8. 在“子网”  下，保留“名称”  和“IP 范围”  的默认值。
+8. 在“子网”  下，保留“名称”  和“IP 范围”  的默认值（必须输入值）。
     
     <!--Not Available on 9. Add instructions for DDoS protection settings.-->
     
@@ -178,7 +180,7 @@ ms.locfileid: "70134462"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 1. 在保管库相应页面的“入门”  下，选择“Site Recovery”  。
-2. 在“适用于本地计算机和 Azure VM”  下，选择“步骤 1:复制应用程序”** 。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”： 
+2. 在“适用于本地计算机和 Azure VM”  下，选择“步骤 1:复制应用程序”  。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”： 
     - 1:配置源
 
         |  |  |

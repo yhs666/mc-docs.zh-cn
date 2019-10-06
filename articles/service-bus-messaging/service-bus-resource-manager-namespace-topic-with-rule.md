@@ -12,14 +12,15 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ea43937ee9b11f3b86877ff8ca70336687c7b915
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: e116c39edec9a6e8ea45d373c8a02df085e5a058
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330100"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 
@@ -175,10 +176,12 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，已使用 Azure Resource Manager 创建并部署了资源，请通过查看以下文章了解如何管理这些资源：
+请参阅下面的主题，其中演示了如何创建订阅筛选器：[使用 Azure 资源管理器模板创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-* [管理 Azure 服务总线](./service-bus-management-libraries.md)
-* [使用 PowerShell 管理服务总线](./service-bus-manage-with-ps.md)
+通过查看以下文章了解如何管理这些资源：
+
+* [管理 Azure 服务总线](service-bus-management-libraries.md)
+* [使用 PowerShell 管理服务总线](service-bus-manage-with-ps.md)
 * [使用服务总线资源管理器管理服务总线资源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

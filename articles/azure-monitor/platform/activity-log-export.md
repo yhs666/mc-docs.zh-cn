@@ -7,15 +7,15 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 05/20/2019
-ms.date: 08/22/2019
+ms.date: 09/23/2019
 ms.author: v-lingwus
 ms.subservice: logs
-ms.openlocfilehash: a461986d2c97778045d35d0c684a3094b0ac7ecc
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: bef20497b9ecbac890aaa8a4962763bf59b790ec
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737257"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330079"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>将 Azure 活动日志导出到存储或 Azure 事件中心
 [Azure 活动日志](activity-logs-overview.md)提供 Azure 订阅中发生的订阅级事件的见解。 除了在 Azure 门户中查看活动日志或者将其复制到 Log Analytics 工作区（在其中可以结合 Azure Monitor 收集的其他数据一起分析这些日志）以外，还可以创建一个日志配置文件，以将活动日志存档到 Azure 存储帐户或流式传输到事件中心。
@@ -57,7 +57,7 @@ ms.locfileid: "70737257"
 
 **要导出哪些区域（位置）。** 应包含所有位置，因为活动日志中的许多事件是全局事件。
 
-**活动日志应在存储帐户中保留多长时间。** 保留期为 0 天表示永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
+**活动日志应在存储帐户中保留多长时间。** 保留期为 0 天表示永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 365 之间的任意天数。
 
 如果设置了保留策略，但禁止将日志存储在存储帐户中，则保留策略无效。 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。
 
@@ -117,7 +117,7 @@ ms.locfileid: "70737257"
     | StorageAccountId |否 |应该将活动日志保存到其中的存储帐户的资源 ID。 |
     | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 这是采用以下格式的字符串：`{service bus resource ID}/authorizationrules/{key name}`。 |
     | Location |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
-    | RetentionInDays |是 |事件应在存储帐户中保留的天数，介于 1 和 2147483647 之间。 值为零时，将无限期存储日志。 |
+    | RetentionInDays |是 |事件应在存储帐户中保留的天数，介于 1 和 365 之间。 值为零时，将无限期存储日志。 |
     | Category |否 |应收集的事件类别的逗号分隔列表。 可能的值为 _Write_、_Delete_ 和 _Action_。 |
 
 ### <a name="example-script"></a>示例脚本

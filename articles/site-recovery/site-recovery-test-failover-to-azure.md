@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 运行到 Azure 的灾难恢复演练 | Azure
+title: 使用 Azure Site Recovery 运行到 Azure 的灾难恢复演练
 description: 了解如何使用 Azure Site Recovery 服务运行从本地到 Azure 的灾难恢复演练。
 author: rockboyfor
 manager: digimobile
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 51fc0affaa702f2e50403b81d93b437af60d46ca
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 27ed08dc0f401c1ec67745e5bfd102c53c9d738e
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340948"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练 
 
@@ -43,7 +43,9 @@ ms.locfileid: "67861694"
 4. 如果要故障转移到 Azure 并且启用了数据加密，请在“加密密钥”  中，选择在安装提供程序期间启用加密时颁发的证书。 如果未启用加密，则可以忽略此步骤。
 5. 在“作业”选项卡上跟踪故障转移进度  。在 Azure 门户中，应当能够看到测试副本计算机。
 6. 若要通过 RDP 与 Azure VM 发起连接，需在故障转移的 VM 的网络接口上[添加公共 IP 地址](https://blogs.technet.microsoft.com/srinathv/2018/02/07/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr/)。 
+    
     <!-- Redirect https://aka.ms/addpublicip TO https://blogs.technet.microsoft.com/srinathv/2018/02/07/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr/ -->
+    
 7. 如果一切符合预期，请单击“清理测试故障转移”。  这会删除在执行测试故障转移期间创建的 VM。
 8.  在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。
 

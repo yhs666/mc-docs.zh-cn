@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 06/25/2019
 ms.date: 07/25/2019
 ms.author: vinagara
-ms.openlocfilehash: 1c787a4f21ed3dbacf17fd95b8bd1b55969f574c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 56eafa501f0301ae556c2f18eb1a29eab0b8a3f6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329868"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -129,7 +129,7 @@ ms.locfileid: "70737251"
 4. 可以启用、禁用或删除规则。 根据步骤 2 中的详述选择规则后，在窗口顶部选择相应的选项。
 
 
-## Azure 资源模板 <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a><a name="azure-resource-manager-template"></a>
+## Azure 资源管理器模板 <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a><a name="azure-resource-manager-template"></a>
 若要使用 Azure 资源管理器模板创建活动日志警报，需要创建 `microsoft.insights/activityLogAlerts` 类型的资源。 然后，填充所有相关属性。 下面是用于创建活动日志警报的模板：
 
 ```json

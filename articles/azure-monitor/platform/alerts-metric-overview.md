@@ -8,12 +8,12 @@ ms.date: 6/4/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: c0ebabafd672cf3a89844cae373105895ded7e39
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 0d746b20155ea88ae9884d2246dbb46600fbe972
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330379"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解指标警报在 Azure Monitor 中的工作原理
 
@@ -65,7 +65,7 @@ Azure Monitor 中的指标警报建立在多维指标的基础之上。 这些�
 
 假设在后续的检查中，“myVM”上的用量持续超过阈值，则在解决这种状况之前，警报规则不会再次激发。
 
-一段时间后，如果“myVM”上的用量回归正常，即低于阈值， 则警报规则将再监视条件两次，然后发出“已解决”通知。 如果在三个连续的期限内都不符合警报条件，则警报规则会发出“已解决”/“已停用”消息，以便在不稳定的环境中减少干扰。
+一段时间后，“myVM”上的用量回归正常（低于阈值）。 则警报规则将再监视条件两次，然后发出“已解决”通知。 如果在三个连续的期限内都不符合警报条件，则警报规则会发出“已解决”/“已停用”消息，以便在不稳定的环境中减少干扰。
 
 通过 Webhook 或电子邮件发出“已解决”通知后，Azure 门户中警报实例的状态（称为“监视状态”）也会设置为“已解决”。
 

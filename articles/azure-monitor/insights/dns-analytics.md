@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 03/20/2018
-ms.date: 01/21/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ab561e4583588e10e56eb62e19ed10b13166a59b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d5c777e02890bc60cf42a30c1c89f4f524448e89
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737403"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329752"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>使用 DNS Analytics 预览解决方案收集有关 DNS 基础结构的见解
 
@@ -180,10 +180,7 @@ DNS 磁贴包括在其中收集数据的 DNS 服务器的数量。 它还包括�
 
 ## <a name="feedback"></a>反馈
 
-可通过两种方式提供反馈：
-
-- **UserVoice**。 发布有关 DNS Analytics 功能的建议。 访问 [Log Analytics UserVoice 页](https://aka.ms/dnsanalyticsuservoice)。
-- **加入我们的队列**。 我们始终欢迎新客户加入我们的队列，提前访问新功能，并帮助我们改进 DNS Analytics。 如有兴趣加入我们的队列，请填写[此快速调查](https://aka.ms/dnsanalyticssurvey)。
+若要提供反馈，请访问 [Log Analytics UserVoice 页](https://aka.ms/dnsanalyticsuservoice)以发布有关要使用的 DNS Analytics 功能的想法。 
 
 ## <a name="next-steps"></a>后续步骤
 

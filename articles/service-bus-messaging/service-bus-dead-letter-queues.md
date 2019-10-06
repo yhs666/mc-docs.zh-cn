@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2019
+origin.date: 02/12/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6e10c05795652c1b72c456288f380b508854c9b2
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: fa7842e37713aed26618bd00c4b1815cf601aae2
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332258"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330319"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 
@@ -43,14 +44,14 @@ Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)�
 
 应用程序可以为 `DeadLetterReason` 属性定义自己的代码，但系统设置以下值。
 
-| 条件                                                                                                                             | DeadLetterReason            | DeadLetterErrorDescription                                                       |
+| 条件 | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Always                                                                                                                                | HeaderSizeExceeded          | 已超过此流的大小配额。                                |
-| !TopicDescription。<br />EnableFilteringMessagesBeforePublishing 和 SubscriptionDescription。<br />EnableDeadLetteringOnFilterEvaluationExceptions | exception.GetType().Name    | exception.Message                                                                |
-| EnableDeadLetteringOnMessageExpiration                                                                                                | TTLExpiredException         | 消息已过期并已设为死信。                                       |
-| SubscriptionDescription.RequiresSession                                                                                               | 会话 ID 为 null。         | 启用会话的实体不允许使用会话标识符为 null 的消息。 |
-| !死信队列                                                                                                                    | MaxTransferHopCountExceeded | Null                                                                             |
-| 应用程序显式设为死信                                                                                                   | 由应用程序指定    | 由应用程序指定                                                         |
+| Always |HeaderSizeExceeded |已超过此流的大小配额。 |
+| !TopicDescription。<br />EnableFilteringMessagesBeforePublishing 和 SubscriptionDescription。<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |消息已过期并已设为死信。 |
+| SubscriptionDescription.RequiresSession |会话 ID 为 null。 |启用会话的实体不允许使用会话标识符为 null 的消息。 |
+| !死信队列 | MaxTransferHopCountExceeded | 在队列之间转发时允许的最大跃点数。 值设置为 4。 |
+| 应用程序显式设为死信 |由应用程序指定 |由应用程序指定 |
 
 ## <a name="exceeding-maxdeliverycount"></a>超过 MaxDeliveryCount
 
@@ -108,7 +109,7 @@ while(true)
 
 ```
 <queue path>/$deadletterqueue
-<topic path>/Subscription/<subscription path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
 如果使用的是 .NET SDK，则可以通过使用 SubscriptionClient.FormatDeadLetterPath() 方法获取死信队列的路径。 此方法使用 **/$DeadLetterQueue** 接受主题名称/订阅名称和后缀。

@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/09/2018
-ms.date: 03/28/2019
+origin.date: 08/20/2019
+ms.date: 09/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: d45b31cf7c5eff1e95ccf2949cce2a5c8d9456a6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 06b4f33494c0abb1ac4f6d93284156a6fa9069be
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627299"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673570"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虚拟机规模集的计划内维护通知
 
@@ -29,14 +29,14 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 
 - 如果维护不需重启，Azure 会在更新主机时使用就地迁移来暂停 VM。 无需重启的维护操作会按逐个容错域方式进行应用。 如果接收到任何警告健康状况信号，则进程将停止。
 
-- 如果维护需重启，你会收到一个通知，其中会说明计划维护的时间。 在这些情况下，系统会提供一个时间段，方便你在最合适的时间自行启动维护。
+- 如果维护需重新启动，系统会告知计划维护的时间。 在这些情况下，系统会提供一个时间窗口（通常为 35 天），方便你在适当的时间自行启动维护。
 
 
 需要重启的计划内维护是按批进行计划的。 每个批具有不同的作用域（区域）：
 
-- 一个批从向客户发送通知开始。 默认情况下，向订阅所有者和共同所有者发送通知。 可以使用 Azure [活动日志警报](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)，向通知添加收件人和消息发送选项（如电子邮件、短信和 Webhook）。  
-- 出现通知时会提供自助时段。 在该时段内可查看包括在此批中的 VM。 可以根据自身计划需要，主动启动维护。
-- 自助时段过后，就会开始计划内维护时段。 在此时段的某个时刻，Azure 会计划所需的维护，并将其应用于 VM。 
+- 一个批从向客户发送通知开始。 默认情况下，向订阅所有者和共同所有者发送通知。 可以使用 Azure [活动日志警报](../azure-monitor/platform/activity-logs-overview.md)，向通知添加收件人和消息发送选项（如电子邮件、短信和 Webhook）。  
+- 出现通知时会提供自助时段  。 在此窗口（通常为 35 天）内，可以发现此批中包括了哪些 VM。 可以根据自身计划需要，主动启动维护。
+- 自助时段过后，就会开始计划内维护时段。  在此时段的某个时刻，Azure 会计划所需的维护，并将其应用于 VM。 
 
 设置这两个时段的目的是，在了解 Azure 何时将自动启动维护时，提供足够的时间来启动维护和重新启动 VM。
 
@@ -47,15 +47,15 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 以下指南可帮助你决定是否在所选时间启动维护。
 
 > [!NOTE] 
-> 自助维护不一定适用于所有 VM。 要确定是否可以对 VM 进行主动重新部署，请在维护状态中查找“立即启动”。 自助维护目前不适用于 Azure 云服务（Web/辅助角色）和 Azure Service Fabric。
+> 自助维护不一定适用于所有 VM。 要确定是否可以对 VM 进行主动重新部署，请在维护状态中查找“立即启动”。  自助维护目前不适用于 Azure 云服务（Web/辅助角色）和 Azure Service Fabric。
 
 
-不推荐将自助维护用于使用可用性集的部署。 可用性集是高度可用的设置，其中任何时候仅一个更新域会受到影响。 对于可用性集，请注意以下事项：
+不推荐将自助维护用于使用可用性集的部署  。 可用性集是高度可用的设置，其中任何时候仅一个更新域会受到影响。 对于可用性集，请注意以下事项：
 
 - 让 Azure 触发维护。 对于需要重启的维护，会按更新域依次执行维护。 更新域不一定按顺序接收维护。 更新域之间存在 30 分钟的暂停。
 - 如果担心暂时性丢失部分容量（1/更新域计数），通过在维护期间分配更多的实例即可轻松弥补容量丢失。
 - 对于无需重启的维护，将在容错域级别应用更新。 
-
+    
 以下情况**请勿**使用自助维护： 
 
 - 通过手动方式、开发测试实验室、自动关闭或按照一定时间计划频繁关闭虚拟机。 在这些情况下，自助维护可能还原维护状态和造成额外故障事件。
@@ -64,7 +64,7 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 - 经常重设 VM 大小。 这种情况可能还原维护状态。 
 - 已采用的计划事件允许在维护关闭开始前 15 分钟对工作负载执行主动故障转移或正常关闭。
 
-如果打算在计划性维护阶段不间断地运行 VM，而且上述禁忌均不适用，则可使用自助维护。 
+如果打算在计划性维护阶段不间断地运行 VM，而且上述禁忌均不适用，则可使用自助维护  。 
 
 以下情况最好使用自助维护：
 
@@ -73,21 +73,21 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 - 需要控制维护顺序，例如，应用程序为多层应用程序，需要确保安全地进行恢复。
 - 在两个更新域之间，需要的 VM 恢复时间超出 30 分钟。 为了控制更新域之间的时间，一次只能在一个更新域的 VM 上触发维护。
 
-
+ 
 ## <a name="view-virtual-machine-scale-sets-that-are-affected-by-maintenance-in-the-portal"></a>在门户中查看受维护影响的虚拟机规模集
 
 安排了大量计划内维护后，可以使用 Azure 门户查看受即将到来的大量维护影响的虚拟机规模集列表。 
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中，选择“所有服务”，然后选择“虚拟机规模集”。
-3. 在“虚拟机规模集”下，选择“编辑列”打开可用列的列表。
-4. 在“可用列”部分中，选择“自助维护”，然后将其移至“选定的列”列表中。 选择“应用”。  
+2. 在左侧菜单中，选择“所有服务”，然后选择“虚拟机规模集”   。
+3. 在“虚拟机规模集”下，选择“编辑列”打开可用列的列表   。
+4. 在“可用列”  部分中，选择“自助维护”  ，然后将其移至“选定的列”  列表中。 选择“应用”。   
 
-    为便于查找“自助维护”项，可将“可用列”部分中的下拉列表选项从“全部”更改为“属性”。
+    为便于查找“自助维护”项，可将“可用列”部分中的下拉列表选项从“全部”更改为“属性”     。
 
-现在，“自助维护”列将显示在虚拟机规模集的列表中。 每个虚拟机规模集可以具有以下自助维护列的值之一：
+现在，“自助维护”列将显示在虚拟机规模集的列表中  。 每个虚拟机规模集可以具有以下自助维护列的值之一：
 
-| 值 | 说明 |
+| Value | 说明 |
 |-------|-------------|
 | 是 | 虚拟机规模集中至少有一个 VM 处于自助时段。 你可以在此自助时段随时启动维护。 | 
 | 否 | 受影响的虚拟机规模集中的自助时段中没有任何 VM。 | 
@@ -95,51 +95,53 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 
 ## <a name="notification-and-alerts-in-the-portal"></a>门户中的通知和警报
 
-Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划维护的安排。 可以通过创建活动日志警报，为此通信添加收件人和通道。 有关详细信息，请参阅[使用 Azure 活动日志监视订阅活动](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划维护的安排。 可以通过创建活动日志警报，为此通信添加收件人和通道。 有关详细信息，请参阅[使用 Azure 活动日志监视订阅活动](../azure-monitor/platform/activity-logs-overview.md)。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中，选择“监视”。 
-3. 在“监视 - 警报(经典)”窗格中，选择“+添加活动日志警报”。
-4. 在“添加活动日志警报”页面中，选择或输入要求的信息。 在“条件”中，确保设置以下值：
-   - **事件类别**：选择“服务运行状况”。
-   - **服务**：选择“虚拟机规模集和虚拟机”。
-   - **类型**：选择“计划内维护”。 
-
-要详细了解如何配置活动日志警报，请参阅[创建活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
-
-
+2. 在左侧菜单中，选择“监视”  。 
+3. 在“监视 - 警报(经典)”窗格中，选择“+添加活动日志警报”   。
+4. 在“添加活动日志警报”页面中，选择或输入要求的信息  。 在“条件”中，确保设置以下值  ：
+   - **事件类别**：选择“服务运行状况”  。
+   - **服务**：选择“虚拟机规模集和虚拟机”  。
+   - **类型**：选择“计划内维护”  。 
+    
+要详细了解如何配置活动日志警报，请参阅[创建活动日志警报](../azure-monitor/platform/activity-log-alerts.md)
+    
+    
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>从门户中开始维护虚拟机规模集
 
-在虚拟机规模集概述中可查看更多与维护相关的详细信息。 如果至少一个虚拟机规模集中的 VM 包括在大量的计划内维护中，则将会在页面顶部附近添加新的通知功能区。 选择通知功能区，转到“维护”页面。 
+在虚拟机规模集概述中可查看更多与维护相关的详细信息。 如果至少一个虚拟机规模集中的 VM 包括在大量的计划内维护中，则将会在页面顶部附近添加新的通知功能区。 选择通知功能区，转到“维护”页面  。 
 
-在“维护”页面上可以查看受计划内维护影响的 VM 实例。 要启动维护，请选择受影响 VM 对应的复选框。 然后选择“开始维护”。
+在“维护”页面上可以查看受计划内维护影响的 VM 实例  。 要启动维护，请选择受影响 VM 对应的复选框。 然后选择“开始维护”  。
 
 开始维护后，虚拟机规模集中受影响的 VM 将接受维护并暂时不可用。 如果错过了自助时段，则由 Azure 维护虚拟机规模集时，你将仍可以看到该时段。
-
+ 
 ## <a name="check-maintenance-status-by-using-powershell"></a>使用 PowerShell 查看维护状态
 
 可以使用 Azure PowerShell 查看虚拟机规模集中的 VM 计划何时维护。 使用 `-InstanceView` 参数时可通过使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet 获得计划内维护信息。
-
+ 
 仅当有计划内维护时，才会返回维护信息。 如果未计划影响 VM 实例的维护，则 cmdlet 不会返回任何维护信息。 
 
 ```powershell
 Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
-在 MaintenanceRedeployStatus 下返回以下属性： 
+在 MaintenanceRedeployStatus 下返回以下属性  ： 
 
-|                 值                 |                                            说明                                             |
-|---------------------------------------|----------------------------------------------------------------------------------------------------|
-| IsCustomerInitiatedMaintenanceAllowed |                指示此时是否可以在 VM 上启动维护。                 |
-|     PreMaintenanceWindowStartTime     | 可以在 VM 上启动维护的自助式维护时段的起点。 |
-|      PreMaintenanceWindowEndTime      |    可以在 VM 上启动维护的自助式维护时段的终点。    |
-|      MaintenanceWindowStartTime       |    Azure 在 VM 上启动维护的计划内维护时段的起点。     |
-|       MaintenanceWindowEndTime        |    Azure 在 VM 上启动维护的计划内维护时段的终点。    |
-|        LastOperationResultCode        |                 上次尝试在 VM 上启动维护的结果。                  |
+| Value | 说明   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护。 |
+| PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点。 |
+| PreMaintenanceWindowEndTime           | 可以在 VM 上启动维护的自助式维护时段的终点。 |
+| MaintenanceWindowStartTime            | Azure 在 VM 上启动维护的计划内维护时段的起点。 |
+| MaintenanceWindowEndTime              | Azure 在 VM 上启动维护的计划内维护时段的终点。 |
+| LastOperationResultCode               | 上次尝试在 VM 上启动维护的结果。 |
+
+
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>使用 PowerShell 在 VM 实例上启动维护
 
-如果 IsCustomerInitiatedMaintenanceAllowed 设置为 true，则可以在 VM 上启动维护。 使用含 `-PerformMaintenance` 参数的 [Set-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/set-azvmss) cmdlet。
+如果 IsCustomerInitiatedMaintenanceAllowed 设置为 true，则可以在 VM 上启动维护   。 使用含 `-PerformMaintenance` 参数的 [Set-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/set-azvmss) cmdlet。
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -148,27 +150,28 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 ## <a name="check-maintenance-status-by-using-the-cli"></a>使用 CLI 查看维护状态
 
 可以使用 [az vmss list-instances](/cli/vmss?view=azure-cli-latest#az-vmss-list-instances) 查看计划内维护信息。
-
+ 
 仅当有计划内维护时，才会返回维护信息。 如果未计划影响 VM 实例的维护，则该命令不会返回任何维护信息。 
 
 ```azure-cli
 az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
-在每个 VM 实例的 MaintenanceRedeployStatus 下返回以下属性： 
+在每个 VM 实例的 MaintenanceRedeployStatus 下返回以下属性  ： 
 
-|                 值                 |                                            说明                                             |
-|---------------------------------------|----------------------------------------------------------------------------------------------------|
-| IsCustomerInitiatedMaintenanceAllowed |                指示此时是否可以在 VM 上启动维护。                 |
-|     PreMaintenanceWindowStartTime     | 可以在 VM 上启动维护的自助式维护时段的起点。 |
-|      PreMaintenanceWindowEndTime      |    可以在 VM 上启动维护的自助式维护时段的终点。    |
-|      MaintenanceWindowStartTime       |    Azure 在 VM 上启动维护的计划内维护时段的起点。     |
-|       MaintenanceWindowEndTime        |    Azure 在 VM 上启动维护的计划内维护时段的终点。    |
-|        LastOperationResultCode        |                 上次尝试在 VM 上启动维护的结果。                  |
+| Value | 说明   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护。 |
+| PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点。 |
+| PreMaintenanceWindowEndTime           | 可以在 VM 上启动维护的自助式维护时段的终点。 |
+| MaintenanceWindowStartTime            | Azure 在 VM 上启动维护的计划内维护时段的起点。 |
+| MaintenanceWindowEndTime              | Azure 在 VM 上启动维护的计划内维护时段的终点。 |
+| LastOperationResultCode               | 上次尝试在 VM 上启动维护的结果。 |
+
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>使用 CLI 在 VM 实例上启动维护
 
-如果 `IsCustomerInitiatedMaintenanceAllowed` 设置为 true，以下调用会在 VM 实例上启动维护：
+如果 `IsCustomerInitiatedMaintenanceAllowed` 设置为 true，以下调用会在 VM 实例上启动维护  ：
 
 ```azure-cli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
@@ -205,15 +208,15 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 **问：我在 VM 上看不到任何维护信息，是哪里出错了？**
 
 **答:** 有很多原因会导致在 VM 上看不到任何维护信息：
-   - 使用的是标记为“Microsoft 内部”的订阅。
+   - 使用的是标记为“Microsoft 内部”的订阅  。
    - VM 未计划进行维护。 可能是此次维护已结束、已取消或已修改，因此你的 VM 不再受其影响。
-   - 未将“维护”列添加到 VM 列表视图。 虽然我们已向默认视图添加此列，但如果你将视图配置为查看非默认列，则仍需手动将“维护”列添加到 VM 列表视图。
+   - 未将“维护”列添加到 VM 列表视图。  虽然我们已向默认视图添加此列，但如果你将视图配置为查看非默认列，则仍需手动将“维护”列添加到 VM 列表视图  。
 
 **问：我的 VM 已计划进行第二次维护，为什么？**
 
 **答:** 在多种用例下，在维护和重新部署已经完成后，会对 VM 计划维护：
    - 我们已取消这次维护，并使用不同的有效负载重新启动它。 可能是我们已检测到出错的有效负载，只需部署其他有效负载。
-   - 由于硬件故障，已在另一个节点上对 VM 进行服务修复。
+   - 由于硬件故障，已在另一个节点上对 VM 进行服务修复。 
    - 选择了停止（解除分配）VM 并将其重启。
    - 已经为 VM 启用了**自动关闭**。
 

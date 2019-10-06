@@ -8,19 +8,19 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/12/19
+origin.date: 12/05/2018
+ms.date: 9/23/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: b98f753b950227520fa228d78e20ebae7af25e21
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: a108d28478e210705b43f76395d8ea983145de38
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104078"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330204"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
@@ -48,8 +48,9 @@ ms.locfileid: "70104078"
 1. 在门户中，单击“所有服务” > “Batch 帐户”，然后单击 Batch 帐户的名称。  
 2. 在“监视”下，单击“指标”。  
 3. 选择一个或多个指标。 如果需要，请使用“订阅”、“资源组”、“资源类型”和“资源”下拉菜单选择其他资源指标。    
+    * 对于基于计数的指标（如“专用核心计数”或“低优先级节点计数”），请使用“平均”聚合。 对于基于事件的指标（如“池重设大小完成事件数”），请使用“计数”聚合。
 
-    ![Batch 指标](./media/batch-diagnostics/metrics-portal.png)
+    ![Batch 指标](media/batch-diagnostics/metrics-portal.png)
 
 若要以编程方式检索指标，请使用 Azure Monitor API。 有关示例，请参阅[使用 .NET 检索 Azure Monitor 指标](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)。
 
@@ -117,7 +118,7 @@ ms.locfileid: "70104078"
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
-BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
@@ -128,12 +129,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-每个 PT1H.json Blob 文件包含 JSON 格式的事件，这些事件是在 Blob URL 中指定的小时（例如 h=12）内发生的。 在当前的小时内发生的事件将附加到 PT1H.json 文件。 分钟值始终为 00 (m=00)，因为诊断日志事件按小时细分成单个 blob。 （所有时间均是 UTC 时间。）
+每个 `PT1H.json` Blob 文件包含 JSON 格式的事件，这些事件是在 Blob URL 中指定的小时（例如 `h=12`）内发生的。 在当前的小时内发生的事件将追加​​到 `PT1H.json` 文件。 分钟值 (`m=00`) 始终为 `00`，因为诊断日志事件按小时细分成单个 blob。 （所有时间均是 UTC 时间。）
 
+以下是 `PT1H.json` 日志文件中 `PoolResizeCompleteEvent` 条目的示例。 它包括有关专用和低优先级节点的当前和目标数量以及操作的开始和结束时间的信息：
 
-有关存储帐户中诊断日志的架构的详细信息，请参阅[存档 Azure 诊断日志](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)。
+```
+{ "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
+```
 
-若要以编程方式访问存储帐户中的日志，请使用存储 API。 
+有关存储帐户中诊断日志的架构的详细信息，请参阅[存档 Azure 诊断日志](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)。 若要以编程方式访问存储帐户中的日志，请使用存储 API。 
 
 ### <a name="service-log-events"></a>服务日志事件
 Azure Batch 服务日志（如果已收集）包含 Azure Batch 服务在单个 Batch 资源（例如池或任务）的生存期内发出的事件。 Batch 发出的每个事件以 JSON 格式记录。 例如，下面是一个**池创建事件**样本的正文：

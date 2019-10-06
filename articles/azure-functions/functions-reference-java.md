@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 07/17/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 23c23bf5ff8284ab8222229c73a1c74a50bfe44e
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 26db7ad17ab39c006b73b6ce1d52008f49cef15a
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331912"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673571"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -397,15 +397,15 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 ## <a name="environment-variables"></a>环境变量
 
-在 Functions 中，服务连接字符串等[应用设置](/azure-functions/functions-app-settings)在执行过程中将公开为环境变量。 可以使用 `System.getenv("AzureWebJobsStorage")` 访问这些设置。
+在 Functions 中，服务连接字符串等[应用设置](functions-app-settings.md)在执行过程中将公开为环境变量。 可以使用 `System.getenv("AzureWebJobsStorage")` 访问这些设置。
 
-例如，可以添加名为 `testAppSetting`、值为 `testAppSettingValue` 的 [AppSetting](/azure-functions/functions-how-to-use-azure-function-app-settings)：
+以下示例获取[应用程序设置](functions-how-to-use-azure-function-app-settings.md#settings)，其键名为 `myAppSetting`：
 
 ```java
 
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
-        context.getLogger().info("testAppSetting "+ System.getenv("testAppSettingValue"));
+        context.getLogger().info("My app setting value: "+ System.getenv("myAppSetting"));
         return String.format(req);
     }
 }

@@ -1,20 +1,20 @@
 ---
-title: 在灾难恢复中将恢复计划与 Azure Site Recovery 配合使用 | Azure
+title: 在灾难恢复中将恢复计划与 Azure Site Recovery 配合使用
 description: 了解如何通过 Azure Site Recovery 服务使用恢复计划进行灾难恢复。
 author: rockboyfor
 manager: digimobile
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-origin.date: 05/30/2019
-ms.date: 08/05/2019
+ms.topic: conceptual
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 468bea649224b915da3dac9511ed0d71afcad9cb
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: b0f85d35623ac53de0f056681098a53f10b0867c
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340808"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 
