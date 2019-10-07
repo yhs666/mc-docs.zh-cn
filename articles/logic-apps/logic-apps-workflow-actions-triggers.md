@@ -9,13 +9,13 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 origin.date: 06/19/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 668a2f9ebdd9903361b1a4637444e432f266a26f
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.date: 10/08/2019
+ms.openlocfilehash: 5c5f910dcc6d131d26208776831bdeeeaf8d7c09
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174088"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340854"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure 逻辑应用的工作流定义语言中的触发器和操作类型参考
 
@@ -60,7 +60,7 @@ ms.locfileid: "70174088"
 | <*number-of-time-units*> | Integer | 指定触发器触发频率的值，即触发器再次触发之前需等待的时间单位数 <p>下面是最小和最大间隔： <p>- 月：1-16 个月 </br>- 天：1-500 天 </br>- 小时：1-12,000 小时 </br>- 分钟：1-72,000 分钟 </br>- 秒：1-9,999,999 秒<p>例如，如果间隔为 6，频率为“月”，则重复周期为每 6 个月。 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -141,7 +141,7 @@ ms.locfileid: "70174088"
 | <*number-of-time-units*> | Integer | 指定触发器触发频率的值，即触发器再次触发之前需等待的时间单位数 <p>下面是最小和最大间隔： <p>- 月：1-16 个月 </br>- 天：1-500 天 </br>- 小时：1-12,000 小时 </br>- 分钟：1-72,000 分钟 </br>- 秒：1-9,999,999 秒<p>例如，如果间隔为 6，频率为“月”，则重复周期为每 6 个月。 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -231,7 +231,7 @@ ms.locfileid: "70174088"
 | <body-content  > | JSON 对象 | 要作为有效负载发送到托管 API 的任何消息内容 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -312,7 +312,7 @@ ms.locfileid: "70174088"
 | <*number-of-time-units*> | Integer | 指定触发器触发频率的值，即触发器再次触发之前需等待的时间单位数 <p>下面是最小和最大间隔： <p>- 月：1-16 个月 </br>- 天：1-500 天 </br>- 小时：1-12,000 小时 </br>- 分钟：1-72,000 分钟 </br>- 秒：1-9,999,999 秒<p>例如，如果间隔为 6，频率为“月”，则重复周期为每 6 个月。 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -407,7 +407,7 @@ ms.locfileid: "70174088"
 | <endpoint-subscribe-URL  > | String | 要将订阅请求发送到的终结点 URL | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -501,11 +501,11 @@ ms.locfileid: "70174088"
 | <*number-of-time-units*> | Integer | 指定触发器触发频率的值，即触发器再次触发之前需等待的时间单位数 <p>下面是最小和最大间隔： <p>- 月：1-16 个月 </br>- 天：1-500 天 </br>- 小时：1-12,000 小时 </br>- 分钟：1-72,000 分钟 </br>- 秒：1-9,999,999 秒<p>例如，如果间隔为 6，频率为“月”，则重复周期为每 6 个月。 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
-| <start-date-time-with-format-YYYY-MM-DDThh:mm:ss  > | String | 采用以下格式的启动日期和时间： <p>如果指定时区，则为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果不指定时区，则为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2:00，则指定“2017-09-18T14:00:00”并指定时区（如“太平洋标准时间”），或仅指定“2017-09-18T14:00:00Z”，而不指定时区。 <p>**注意：** 此开始时间必须遵循 [UTC 日期时间格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期时间规范](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但没有 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 如果未指定时区，则必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org/wiki/Nautical_time)。 <p>对于简单计划，启动时间即第一次循环；而对于复杂计划，触发器不会在启动时间之前执行。 有关启动日期和时间的详细信息，请参阅[创建和计划定期运行任务](../connectors/connectors-native-recurrence.md)。 | 
+| <start-date-time-with-format-YYYY-MM-DDThh:mm:ss  > | String | 采用以下格式的启动日期和时间： <p>如果指定时区，则为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果不指定时区，则为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2:00，则指定“2017-09-18T14:00:00”并指定时区（如“太平洋标准时间”），或仅指定“2017-09-18T14:00:00Z”，而不指定时区。 <p>**注意：** 此开始时间在未来最长为 49 年，并且必须遵循 [UTC 日期时间格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)的 [ISO 8601 日期时间规范](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但没有 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 如果未指定时区，则必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org/wiki/Nautical_time)。 <p>对于简单计划，启动时间即第一次循环；而对于复杂计划，触发器不会在启动时间之前执行。 有关启动日期和时间的详细信息，请参阅[创建和计划定期运行任务](../connectors/connectors-native-recurrence.md)。 | 
 | <time-zone  > | String | 仅当指定启动时间时才适用，因为此触发器不接受 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 指定要应用的时区。 | 
 | <one-or-more-hour-marks  > | 整数或整数数组 | 如果为 `frequency` 指定“Day”或“Week”，可以从 0 到 23 范围内指定一个或多个整数（用逗号分隔），作为一天中要运行工作流的时间点。 <p>例如，如果指定“10”、“12”和“14”，则会将上午 10 点、中午 12 点和下午 2 点作为小时标记。 | 
 | <one-or-more-minute-marks  > | 整数或整数数组 | 如果为 `frequency` 指定“Day”或“Week”，可以从 0 到 59 范围内指定一个或多个整数（用逗号分隔），作为要运行工作流的分钟。 <p>例如，可以指定“30”作为分钟标记并使用前面示例中的当天小时时间，这样，便可以指定10:30 AM、12:30 PM 和 2:30 PM 作为开始时间。 | 
@@ -610,7 +610,7 @@ ms.locfileid: "70174088"
 | <property-type  > | String | 属性的类型 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -786,7 +786,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | <previous-trigger-or-action-status  > | JSON 对象 | 在此当前操作可以运行之前，必须立即运行的触发器或操作的名称和结果状态 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------|
@@ -901,7 +901,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | <api-operation  > | String | 要调用的 API 操作 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -980,7 +980,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | <api-subscribe-URL>  | String | 用于订阅 API 的 URI | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -1155,7 +1155,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | <method-type  > | String | 用于调用函数的 HTTP 方法：“GET”、“PUT”、“POST”、“PATCH”或“DELETE” <p>如果未指定，则默认方法为“POST”。 | 
 ||||
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------|  
@@ -1226,7 +1226,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | <HTTP-or-HTTPS-endpoint-URL>  | String | 要调用的 HTTP 或 HTTPS 终结点。 最大字符串大小：2 KB | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -1463,7 +1463,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | <response-status-code>  | Integer | 发送到传入请求的 HTTP 状态代码。 默认代码为“200 OK”，但此代码可为以 2xx、4xx 或 5xx（非 3xxx）开头的任何有效状态代码。 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -1637,7 +1637,7 @@ Select 操作创建一个数组作为输出，因此，任何想要使用此输�
 | <array>  | Array | 为表提供源项的数组或表达式 <p>**注意**：如果源数组为空，则该操作会创建一个空表。 | 
 |||| 
 
-可选 
+*可选*
 
 若要指定或自定义列标头和值，请使用 `columns` 数组。 `header-value` 对具有相同标头名称时，其值显示在该标头名称下相同的列中。 否则，每个唯一的标头定义一个唯一列。
 
@@ -1749,7 +1749,7 @@ ID,Product_Name
 | <status>  | String | 运行返回的状态：“失败”、“已取消”或者“已成功” |
 |||| 
 
-可选 
+*可选*
 
 仅在“runStatus”属性设为“Failed”状态时，“runStatus”对象的属性才适用。
 
@@ -1896,7 +1896,7 @@ ID,Product_Name
 | <nested-logic-app-name>  | String | 要调用的逻辑应用的名称 |
 ||||
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------|  
@@ -1971,7 +1971,7 @@ ID,Product_Name
 | <for-each-expression>  | String | 用于引用指定数组中每个项的表达式 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
@@ -2176,7 +2176,7 @@ ID,Product_Name
 | <matching-value>  | 多种多样 | 要与计算结果比较的值 | 
 |||| 
 
-可选 
+*可选*
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 

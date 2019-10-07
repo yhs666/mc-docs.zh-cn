@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3313b08c0071a3807bfc8ac236dfb08018e6a749
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 5ca36ac96d1e14588c83e980bf8075f2300e1a3a
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861721"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340723"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>对复制到辅助本地站点的 Hyper-V VM 进行故障转移和故障回复
 
@@ -46,10 +46,13 @@ ms.locfileid: "67861721"
 
 - 使用常规故障转移处理意外中断。 当运行此故障转移时，Site Recovery 会在辅助站点中创建一个 VM，并将其启动。 根据未同步的挂起数据，可能会丢失数据。
 - 可在维护或预期中断过程中使用计划内故障转移。 此选项保证无数据丢失。 触发计划内故障转移时，关闭源 VM。 同步未同步的数据，并触发故障转移。 
-- 
-  本过程介绍如何运行常规故障转移。
 
-1. 在“设置” > “复制的项”中，单击“VM”>“故障转移”    。
+本过程介绍如何运行常规故障转移。
+
+1. 在“受保护的项”   > “复制的项”  中，单击 VM >“故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 1. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源 VM，请选择“在开始故障转移前关闭计算机”  。 在触发故障转移前，Site Recovery 还会尝试同步尚未发送到辅助站点的本地数据。 请注意：即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 2. 你现在应能够在辅助 VMM 云中看到 VM。
 3. 验证 VM 后，“提交”  故障转移。 这会删除所有可用的恢复点。
