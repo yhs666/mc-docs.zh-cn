@@ -2,21 +2,21 @@
 title: 升级到 Azure 搜索 .NET SDK 版本 5 - Azure 搜索
 description: 从旧版本将代码迁移到 Azure 搜索 .NET SDK 版本 5。 了解新增功能和所需的代码更改。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: cd1527b5bc5eb4ec6ea70b50d96d38000956dbda
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 2ef676fb942cdc8e047f75c5a80eec021fcf0dea
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004613"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674228"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>升级到 Azure 搜索 .NET SDK 版本 5
 

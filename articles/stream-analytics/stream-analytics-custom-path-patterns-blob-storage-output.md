@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 12/06/2018
-ms.openlocfilehash: e9e7f4b3bf818e30295a836a098c388a84175f53
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.date: 08/06/2019
+ms.openlocfilehash: ef3df1b10bb62f31bb483c4764040ae4a58ddc17
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169633"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674826"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 流分析自定义 blob 输出分区
 

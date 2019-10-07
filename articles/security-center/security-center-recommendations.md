@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9788177b22e4d8a9e4c2e009fb2da46c444d0f1e
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: fb1fe586b58d27e468c7ac9c9a3495edb24a6d27
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169533"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674612"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure 安全中心的安全建议 
 本主题说明如何查看和了解 Azure 安全中心内的建议，以帮助你保护 Azure 资源。

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 4/30/2019
+ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ada017c615603bb9952ad255834dde391a1c40d2
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 7ba37d14fb6c1fca35e93ef04e848e2ca8790b7a
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818564"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674621"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>教程：提高合规性
 ---

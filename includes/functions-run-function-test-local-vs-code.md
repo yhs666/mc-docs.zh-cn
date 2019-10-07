@@ -6,15 +6,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 origin.date: 05/31/2019
-ms.date: 07/17/2019
+ms.date: 09/27/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 5f8d1d1ca772d408b88c49e5e20225511a240a5e
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 6002718f26b5bc64546d32e1e24e56978aab2e5c
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331863"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674839"
 ---
 ## <a name="run-the-function-locally"></a>在本地运行函数
 
@@ -22,7 +22,7 @@ ms.locfileid: "68331863"
 
 1. 若要测试函数，请在函数代码中设置断点并按 F5 启动函数应用项目。 来自 Core Tools 的输出会显示在“终端”  面板中。
 
-1. 在“终端”  面板中，复制 HTTP 触发的函数的 URL 终结点。 此 URL 包括函数密钥，该密钥将传递给 `code` 查询参数。
+1. 在“终端”  面板中，复制 HTTP 触发的函数的 URL 终结点。 
 
     ![Azure 本地输出](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 

@@ -2,26 +2,25 @@
 title: 文本拆分认知搜索技能 - Azure 搜索
 description: 基于 Azure 搜索扩充管道中的长度，将文本分解为区块或文本页。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 618f53e5122559aa36a744dd1f5b5d76ef16e3d0
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: cc7ba884b72d1e9c9539d2bdfe63fd461c391bf7
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004764"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674376"
 ---
-#   <a name="text-split-cognitive-skill"></a>文本拆分认知技能
+# <a name="text-split-cognitive-skill"></a>文本拆分认知技能
 
-文本拆分技能将文本分解为文本区块。 你可以指定是要将文件分解为句子还是特定长度的页面。 当其他技能下游有最大文本长度要求时，此技能尤其有用。 
+文本拆分  技能将文本分解为文本区块。 你可以指定是要将文件分解为句子还是特定长度的页面。 当其他技能下游有最大文本长度要求时，此技能尤其有用。 
 
 > [!NOTE]
 > 此技能未绑定到认知服务 API，你使用它无需付费。 但是，你仍然应该[附加认知服务资源](cognitive-search-attach-cognitive-services.md)，以覆盖**免费**资源选项，该选项限制你每天进行少量的每日扩充。
@@ -54,7 +53,7 @@ Microsoft.Skills.Text.SplitSkill
 | textItems | 提取的子字符串数组。 |
 
 
-##  <a name="sample-definition"></a>示例定义
+## <a name="sample-definition"></a>示例定义
 
 ```json
 {
@@ -81,7 +80,7 @@ Microsoft.Skills.Text.SplitSkill
 }
 ```
 
-##  <a name="sample-input"></a>示例输入
+## <a name="sample-input"></a>示例输入
 
 ```json
 {
@@ -89,7 +88,7 @@ Microsoft.Skills.Text.SplitSkill
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
+                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
                 "languageCode": "en"
             }
         },
@@ -104,7 +103,7 @@ Microsoft.Skills.Text.SplitSkill
 }
 ```
 
-##  <a name="sample-output"></a>示例输出
+## <a name="sample-output"></a>示例输出
 
 ```json
 {

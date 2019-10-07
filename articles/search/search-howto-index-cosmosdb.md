@@ -2,21 +2,21 @@
 title: 为 Azure Cosmos DB 数据源编制索引 - Azure 搜索
 description: 在 Azure 搜索中抓取 Azure Cosmos DB 数据源并通过全文可搜索索引引入数据。 索引器可自动为所选数据源（如 Azure Cosmos DB）引入数据。
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: mgottein
-manager: cgronlun
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a1050a09331e11a27d8b156132a510aca42ea877
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: fc297e15b47eaa9d09512388a32ad5169570100b
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004394"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674416"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜索索引器为 Cosmos DB 编制索引
 
@@ -28,12 +28,12 @@ ms.locfileid: "66004394"
 
 本文介绍如何配置 Azure Cosmos DB [索引器](search-indexer-overview.md)以提取内容，并使内容在 Azure 搜索中可搜索。 此工作流将创建一个 Azure 搜索索引，然后连同从 Azure Cosmos DB 中提取的现有文本一起加载该索引。 
 
-由于术语可能会造成混淆，特此提示，[Azure Cosmos DB 索引编制](https://docs.azure.cn/zh-cn/cosmos-db/index-overview)和 [Azure 搜索索引编制](search-what-is-an-index.md)属于不同的操作，且是每个服务中特有的操作。 在开始执行 Azure 搜索索引编制之前，Azure Cosmos DB 数据库必须已存在且包含数据。
+由于术语可能会造成混淆，特此提示，[Azure Cosmos DB 索引编制](https://docs.azure.cn/cosmos-db/index-overview)和 [Azure 搜索索引编制](search-what-is-an-index.md)属于不同的操作，且是每个服务中特有的操作。 在开始执行 Azure 搜索索引编制之前，Azure Cosmos DB 数据库必须已存在且包含数据。
 
-可以使用[门户](#cosmos-indexer-portal)、REST API 或 .NET SDK 为 Cosmos 内容编制索引。 Azure 搜索中的 Cosmos DB 索引器可以爬网通过以下协议访问的 [Azure Cosmos 项](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items)：
+可以使用[门户](#cosmos-indexer-portal)、REST API 或 .NET SDK 为 Cosmos 内容编制索引。 Azure 搜索中的 Cosmos DB 索引器可以爬网通过以下协议访问的 [Azure Cosmos 项](https://docs.azure.cn/cosmos-db/databases-containers-items#azure-cosmos-items)：
 
-* [SQL API](https://docs.azure.cn/zh-cn/cosmos-db/sql-api-query-reference) 
-* [MongoDB API（预览版）](https://docs.azure.cn/zh-cn/cosmos-db/mongodb-introduction)
+* [SQL API](https://docs.azure.cn/cosmos-db/sql-api-query-reference) 
+* [MongoDB API（预览版）](https://docs.azure.cn/cosmos-db/mongodb-introduction)
 
 
 <a name="cosmos-indexer-portal"></a>
@@ -361,5 +361,5 @@ ms.locfileid: "66004394"
 
 祝贺！ 已学习了如何使用索引器将 Azure Cosmos DB 与 Azure 搜索集成。
 
-* 若要详细了解 Azure Cosmos DB，请参阅 [Azure Cosmos DB 服务页](https://www.azure.cn/zh-cn/home/features/cosmos-db/)。
-* 若要详细了解 Azure 搜索，请参阅[搜索服务页](https://azure.microsoft.com/services/search/)。
+* 若要详细了解 Azure Cosmos DB，请参阅 [Azure Cosmos DB 服务页](https://www.azure.cn/home/features/cosmos-db/)。
+* 若要详细了解 Azure 搜索，请参阅[搜索服务页](https://www.azure.cn/home/features/search/)。

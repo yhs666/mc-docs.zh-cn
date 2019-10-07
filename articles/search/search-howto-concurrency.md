@@ -2,20 +2,20 @@
 title: 如何管理对资源的并发写入 - Azure 搜索
 description: 使用乐观并发，避免在更新或删除 Azure 搜索索引、索引器及数据源的过程中出现冲突。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 07/21/2017
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 461a28db287e4c73971e38c8ed19f248b5dbc541
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 7c3ff128830238c2fb5f0c45a641afa6a3ae9fb3
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004738"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674404"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>如何管理 Azure 搜索中的并发
 

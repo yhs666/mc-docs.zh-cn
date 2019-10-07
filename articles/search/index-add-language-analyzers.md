@@ -2,13 +2,13 @@
 title: 添加语言分析器 - Azure 搜索
 description: Azure 搜索中适用于非英语查询和索引的多语言词法文本分析。
 origin.date: 02/14/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
-ms.author: v-biyu
-ms.manager: cgronlun
+ms.author: v-tawe
+ms.manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -20,12 +20,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: de6bae3f28d5a37bae05fd9826ae1954959370e0
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 84f49847f1cbe94b5eac8b58aa3f964a6acf3f8c
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004892"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674370"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>向 Azure 搜索索引添加语言分析器
 
@@ -53,7 +53,7 @@ Microsoft 分析器的索引平均比 Lucene 的索引慢两到三倍，具体�
 
 使用 **searchFields** 查询参数指定在查询中针对哪个特定于语言的字段进行搜索。 可在[搜索文档](https://docs.microsoft.com/rest/api/searchservice/search-documents)中查看包含分析器属性的查询示例。 
 
-有关索引属性的详细信息，请参阅[创建索引（Azure 搜索服务 REST API）](https://docs.microsoft.com/rest/api/searchservice/create-index)。 若要详细了解 Azure 搜索中的分析，请参阅 [Azure 搜索中的分析器](https://docs.microsoft.com/azure/search/search-analyzers)。
+有关索引属性的详细信息，请参阅[创建索引（Azure 搜索服务 REST API）](https://docs.microsoft.com/rest/api/searchservice/create-index)。 若要详细了解 Azure 搜索中的分析，请参阅 [Azure 搜索中的分析器](search-analyzers.md)。
 
 <a name="language-analyzer-list"></a>
 
@@ -119,7 +119,7 @@ Microsoft 分析器的索引平均比 Lucene 的索引慢两到三倍，具体�
 |乌尔都语|ur.microsoft||  
 |越南语|vi.microsoft||  
 
- 名称带有 **Lucene** 批注的所有分析器都由 [Apache Lucene 的语言分析器](https://lucene.apache.org/core/4_9_0/core/overview-summary.html )提供支持。
+ 名称带有 **Lucene** 批注的所有分析器都由 [Apache Lucene 的语言分析器](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )提供支持。
 
 ## <a name="see-also"></a>另请参阅  
  [创建索引（Azure 搜索服务 REST API）](https://docs.microsoft.com/rest/api/searchservice/create-index)  

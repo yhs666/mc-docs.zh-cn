@@ -4,18 +4,17 @@ description: 本文介绍如何在流分析中配置事件排序设置
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/12/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 08803e69bc79024f7448797080882c17481c168c
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: daf604d9bf6523a8514f424503e9d190d21308d1
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169591"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674683"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>为 Azure 流分析配置事件排序策略
 

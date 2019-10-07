@@ -1,21 +1,19 @@
 ---
 title: 在 Visual Studio Code 中创建 Azure 流分析云作业（预览）
 description: 本快速入门介绍如何开始使用 Visual Studio Code 创建流分析作业、配置输入和输出，以及定义查询。
-services: stream-analytics
+ms.service: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: quickstart
-origin.date: 08/09/2019
+origin.date: 05/06/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 1ffb9403a639cb1263cc4659450c2c1b05cf9edf
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 97a9981cb995ded3baa81a22b5a58fb49713afa2
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970495"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674700"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>快速入门：在 Visual Studio Code 中创建 Azure 流分析云作业（预览）
 

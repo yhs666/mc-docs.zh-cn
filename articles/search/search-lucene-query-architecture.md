@@ -1,22 +1,20 @@
 ---
 title: 全文搜索引擎 (Lucene) 体系结构 - Azure 搜索
 description: 解释与 Azure 搜索相关的全文搜索的 Lucene 查询处理和文档检索概念。
-manager: jlembicz
+manager: nitinme
 author: yahnoosh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 84e17d6917b140db25d6e65ed40ab4da9c419758
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+origin.date: 08/08/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 7db3c6cbc5a949c4aedce11da8fbcc0709f211f9
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004837"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674356"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure 搜索中全文搜索的工作原理
 
@@ -241,9 +239,9 @@ Spacious,||air-condition*+"Ocean view"
 
 要在倒排索引中生成字词，搜索引擎将针对文档内容执行词法分析，这类似于查询处理期间执行的操作：
 
-1. 根据分析器的配置，执行将文本输入传递给分析器、转换为小写、去除标点等操作。 
-2. 令牌是文本分析的输出。
-3. 将词语添加到索引。
+1. 根据分析器的配置，执行将文本输入传递给分析器、转换为小写、去除标点等操作  。 
+2. 令牌是文本分析的输出  。
+3. 将词语添加到索引  。
 
 我们经常（但不是非要这样做）使用相同的分析器来执行搜索和索引编制操作，使查询词看上去更像是索引中的字词。
 
@@ -264,7 +262,7 @@ Spacious,||air-condition*+"Ocean view"
 | resort | 3 |
 | retreat | 4 |
 
-在标题字段中，只有“酒店”显示在以下两个文档中：1、3。
+在标题字段中，只有“酒店”显示在以下两个文档中  ：1、3。
 
 对于**说明**字段，索引如下所示：
 
@@ -352,7 +350,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-文档 1 与查询的匹配程度最高，因为其说明字段中同时出现了字词 *spacious* 和所需的短语 *ocean view*。 后面的两个文档仅匹配短语 *ocean view*。 你可能会感到惊讶，尽管文档 2 和 3 都匹配相同的查询短语，但它们的相关性评分却不相同。 这是因为，评分公式除了包含 TF/IDF 以外，还包含其他组成部分。 在本例中，为文档 3 分配的评分略高，因为其说明更短。 请学习 [Lucene 的实际评分公式](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)，了解字段长度和其他因素如何影响相关性评分。
+文档 1 与查询的匹配程度最高，因为其说明字段中同时出现了字词 *spacious* 和所需的短语 *ocean view*。 后面的两个文档仅匹配短语 *ocean view*。 你可能会感到惊讶，尽管文档 2 和 3 都匹配相同的查询短语，但它们的相关性评分却不相同。 这是因为，评分公式除了包含 TF/IDF 以外，还包含其他组成部分。 在本例中，为文档 3 分配的评分略高，因为其说明更短。 请学习 [Lucene 的实际评分公式](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)，了解字段长度和其他因素如何影响相关性评分。
 
 某些查询类型（通配符、前缀、正则表达式）始终会给文档总评分贡献一个常量分数。 这样，便可以在结果中包含通过查询扩展找到的匹配项，但不会影响排名。 
 
@@ -402,7 +400,7 @@ Internet 搜索引擎取得的成功提高了人们对私有数据运行全文�
 
 [完整 Lucene 查询语法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
-[处理搜索结果](https://docs.azure.cn/zh-cn/search/search-pagination-page-layout)
+[处理搜索结果](search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

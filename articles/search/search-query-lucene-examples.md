@@ -2,21 +2,21 @@
 title: Lucene 查询示例 - Azure 搜索
 description: 在 Azure 搜索服务中进行模糊搜索、邻近搜索、术语提升、正则表达式搜索和通配符搜索的 Lucene 查询语法。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/13/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 01f9c654d911513695d5481d4db1d2f1c039de39
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 70ad9bcf57ce4380623fcf2e20935231133a6617
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004702"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674419"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用“完整”Lucene 搜索语法（Azure 搜索中的高级查询）的查询示例
 
@@ -32,7 +32,7 @@ Lucene 分析器支持复杂的查询构造，比如字段范围查询、模糊�
 
 下面的示例使用“纽约工作岗位”搜索索引，它包含基于[纽约市开放数据](https://opendata.cityofnewyork.us/)计划提供的数据集得出的岗位。 此数据不应认为是最新或完整数据。 该索引位于 Microsoft 提供的一项沙盒服务上，也就是说无需 Azure 订阅或 Azure 搜索即可试用这些查询。
 
-要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[使用 REST 客户端进行浏览](search-fiddler.md)。
+要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[使用 REST 客户端进行浏览](search-get-started-postman.md)。
 
 ### <a name="set-the-request-header"></a>设置请求标头
 
@@ -239,7 +239,7 @@ https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs?api-version=
 
 ## <a name="example-6-regex"></a>示例 6：正则表达式
 
-正则表达式搜索基于正斜杠“/”之间的内容查找匹配项，如在 [RegExp 类](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)中所记录的那样。
+正则表达式搜索基于正斜杠“/”之间的内容查找匹配项，如在 [RegExp 类](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html)中所记录的那样。
 
 ### <a name="partial-query-string"></a>部分查询字符串
 
@@ -258,7 +258,7 @@ https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs?api-version=
   ![正则表达式查询](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> 不会对正则表达式查询进行[分析](https://docs.azure.cn/zh-cn/search/search-lucene-query-architecture#stage-2-lexical-analysis)。 对不完整查询字词执行的唯一转换操作是转换为小写。
+> 不会对正则表达式查询进行[分析](search-lucene-query-architecture.md#stage-2-lexical-analysis)。 对不完整查询字词执行的唯一转换操作是转换为小写。
 >
 
 ## <a name="example-7-wildcard-search"></a>示例 7：通配符搜索
@@ -280,7 +280,7 @@ https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs?api-version=
   ![通配符查询](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> 不会对通配符查询进行[分析](https://docs.azure.cn/zh-cn/search/search-lucene-query-architecture#stage-2-lexical-analysis)。 对不完整查询字词执行的唯一转换操作是转换为小写。
+> 不会对通配符查询进行[分析](search-lucene-query-architecture.md#stage-2-lexical-analysis)。 对不完整查询字词执行的唯一转换操作是转换为小写。
 >
 
 ## <a name="next-steps"></a>后续步骤

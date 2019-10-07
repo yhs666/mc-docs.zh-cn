@@ -13,14 +13,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+origin.date: 12/3/2018
+ms.date: 05/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 844f2192f259b57fa77548dc350aa92540baed54
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 0dffaaffc4340c753f788d734b3e06d6bcee3635
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845528"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674833"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入门：将 Windows 计算机加入安全中心
 加入 Azure 订阅之后，可以通过预配 Microsoft Monitoring Agent 为 Azure 外部（例如，本地或在其他云中）运行的资源启用安全中心。

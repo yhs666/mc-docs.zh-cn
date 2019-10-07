@@ -6,15 +6,15 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 04/24/2019
-ms.date: 09/05/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 46e1aede78b7c1b84d5e9ce112310f80fc940f03
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 4a26605e1b17fcedb693a092909d37cca48b8d17
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805757"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695956"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>将函数应用项目部署到 Azure
 
@@ -24,12 +24,6 @@ ms.locfileid: "70805757"
 
 ```command
 func azure functionapp publish <APP_NAME>
-```
-
-### <a name="python"></a>Python
-
-```command
-func azure functionapp publish <APP_NAME> --build remote
 ```
 
 ### <a name="typescript"></a>TypeScript

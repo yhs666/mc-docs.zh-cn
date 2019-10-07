@@ -4,18 +4,17 @@ description: 本教程以端到端方式演示了如何使用 Azure 流分析来
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: 9a5f23c0eca1440cc6f8c3f433fe5605335f265a
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.workload: data-services
+ms.topic: tutorial
+origin.date: 06/03/2019
+ms.date: 08/03/2019
+ms.openlocfilehash: 7ece05e5950b1722b40ac1047eb526e67d26e6f0
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970463"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674804"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>使用流分析来分析电话呼叫数据并在 Power BI 仪表板中将结果可视化
 

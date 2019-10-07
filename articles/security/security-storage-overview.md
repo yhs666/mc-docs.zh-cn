@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+origin.date: 03/26/2019
+ms.date: 09/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7cac1867cbe12529e1c1e3cb53163b60e97a2d19
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 1440bc4913b2a3ee4ebba046ba25c030ea20a524
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818542"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674699"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 存储安全概述
 

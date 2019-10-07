@@ -5,17 +5,17 @@ ms.service: search
 ms.topic: conceptual
 services: search
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: brjohnstmsft
-ms.author: v-biyu
-manager: jlembicz
+ms.author: v-tawe
+manager: nitinme
 ms.custom: seodec2018
-ms.openlocfilehash: 972ae8f330d07629d1e29f155e6461774fccb1ca
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: e4e917cfc7046ae79aaee614391c25db8871144c
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004409"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674421"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>用于在 Azure 搜索中修整结果的安全筛选器
 
@@ -36,7 +36,7 @@ ms.locfileid: "66004409"
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假设读者拥有 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)、[Azure 搜索服务](https://docs.azure.cn/zh-cn/search/search-create-service-portal)和 [Azure 搜索索引](https://docs.azure.cn/zh-cn/search/search-create-index-portal)。  
+本文假设读者拥有 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)、[Azure 搜索服务](search-create-service-portal.md)和 [Azure 搜索索引](search-create-index-portal.md)。  
 
 ## <a name="create-security-field"></a>创建安全字段
 

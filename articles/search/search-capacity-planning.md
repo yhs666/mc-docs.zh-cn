@@ -2,20 +2,20 @@
 title: 为查询和索引缩放分区与副本 - Azure 搜索
 description: 在 Azure 搜索中调整分区和副本计算机资源，其中每个资源按照可计费搜索单位定价。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 03/22/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 541aec2bf1eb0ba18a9d285a56f9f77aee5a4184
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 399dc968e8f7360a1b506cfa9af7b39ad132ac01
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004636"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674247"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>为 Azure 搜索中的查询和索引工作负荷缩放分区与副本
 [选择定价层](search-sku-tier.md)并[预配搜索服务](search-create-service-portal.md)后，下一步是有选择性地增加服务使用的副本或分区数目。 每一层提供固定数量的计费单位。 本文介绍如何通过分配这些单位来实现最佳配置，根据查询执行、索引和存储的要求做出平衡。
@@ -58,7 +58,7 @@ ms.locfileid: "66004636"
 
    此示例各使用一个副本和分区将容量翻倍。 请注意搜索单位计数；现在有 4 个搜索单位，因为计费公式是副本数乘以分区数 (2 x 2)。 将容量翻倍不仅仅会使运行服务的成本翻倍。 如果搜索单位的成本是 $100，则新的每月费用将是 $400。
 
-   有关每个层的当前单位成本，请访问[定价页](https://azure.microsoft.com/pricing/details/search/)。
+   有关每个层的当前单位成本，请访问[定价页](https://www.azure.cn/pricing/details/search/)。
 
    ![添加副本和分区](media/search-capacity-planning/2-add-2-each.png "添加副本和分区")
 
@@ -94,7 +94,7 @@ ms.locfileid: "66004636"
 | **6 个副本** |6 SU |12 SU |18 SU |24 SU |36 个 SU |不适用 |
 | **12 副本** |12 SU |24 SU |36 个 SU |不适用 |不适用 |不适用 |
 
-Azure 网站上详细说明了 SU、定价和容量。 有关详细信息，请参阅 [Pricing Details](https://azure.microsoft.com/pricing/details/search/)（定价详细信息）。
+Azure 网站上详细说明了 SU、定价和容量。 有关详细信息，请参阅 [Pricing Details](https://www.azure.cn/pricing/details/search/)（定价详细信息）。
 
 > [!NOTE]
 > 副本数和分区数必须能被 12 整除（具体而言，为 1、2、3、4、6、12）。 这是因为，Azure 搜索将每个索引预先分割为 12 个分片，以便将其平均分散到所有分区。 例如，如果服务有三个分区，而你创建了新索引，则每个分区将包含该索引的四个分片。 Azure 搜索为索引分片的方法属于实现细节，在将来的版本中可能发生变化。 尽管目前的分区数为 12，但请不要料想将来该数字永远都是 12。
@@ -109,6 +109,7 @@ Azure 网站上详细说明了 SU、定价和容量。 有关详细信息，请�
 针对高可用性的一般建议是：
 
 * 对于只读工作负荷（查询），需要有两个副本才能实现高可用性
+
 * 对于读/写工作负荷（查询以及添加、更新或删除单个文档时的索引编制），需有三个或更多个副本才能实现高可用性
 
 Azure 搜索的服务级别协议 (SLA) 针对查询操作，以及由文档添加、更新或删除操作构成的索引更新。

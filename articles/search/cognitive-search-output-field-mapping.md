@@ -1,22 +1,21 @@
 ---
 title: 将认知搜索扩充输入字段映射到输出字段 - Azure 搜索
 description: 提取并扩充源数据字段，然后映射到 Azure 搜索索引中的输出字段。
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 30a5a8873fc33b8fc7ba46ff3eaaf7486532c585
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: 8986ad84e6d4b004a4268b168be78c5feaa86796
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004795"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674262"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>如何将扩充字段映射到可搜索索引
 
@@ -67,7 +66,7 @@ Content-Type: application/json
 ```
 对于每个输出字段映射，请设置扩充字段的名称 (sourceFieldName)，以及如索引中引用的字段名称 (targetFieldName)。
 
-sourceFieldName 中的路径可以表示一个元素或多个元素。 在上述示例中，```/document/content/sentiment``` 表示单个数字值，而 ```/document/content/organizations/*/description``` 表示多个组织说明。 如果有多个元素，它们将“平展”成包含每个元素的数组。 更具体地说，对于 ```/document/content/organizations/*/description``` 示例，“描述”字段中的数据在编制索引之前将类似于说明的平面数组：
+sourceFieldName 中的路径可以表示一个元素或多个元素。 在上述示例中，```/document/content/sentiment``` 表示单个数字值，而 ```/document/content/organizations/*/description``` 表示多个组织说明。 如果有多个元素，它们将“平展”成包含每个元素的数组。 更具体地说，对于 ```/document/content/organizations/*/description``` 示例，  “描述”字段中的数据在编制索引之前将类似于说明的平面数组：
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]

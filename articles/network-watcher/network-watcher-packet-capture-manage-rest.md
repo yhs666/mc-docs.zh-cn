@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+origin.date: 02/22/2017
+ms.date: 09/10/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 04a7a3b622e22ad872380f222ee7a1198e9a6eef
-ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
+ms.openlocfilehash: 7bc69e557e168f84b0a36a50959e3e6860999260
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597994"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674711"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序管理数据包捕获
 

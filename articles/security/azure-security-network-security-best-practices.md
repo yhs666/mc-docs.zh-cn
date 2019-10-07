@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/17/2018
-ms.date: 11/06/18
+ms.date: 06/06/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b3cf0ff2b23069d2d41cadd3f2470063256dfe77
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 55524ada5c8076ed2becc42c5fdc1769b271eb94
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818172"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674589"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 网络安全最佳实践
 你可以将 [Azure虚拟机 (VM)](https://www.azure.cn/home/features/virtual-machines/) 和设备放在 [Azure虚拟网络](/virtual-network/)上，从而将它们连接到其他网络设备。 也就是说，可以将虚拟网络接口卡连接到虚拟网络，允许启用了网络的设备之间进行基于 TCP/IP 的通信。 连接到 Azure 虚拟网络的虚拟机能够连接到相同虚拟网络、不同虚拟网络、Internet 或自己的本地网络上的设备。

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 05/22/2019
+ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 40cae869719d4911174545064c4077f3d9638174
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e285b6d12060ab81d1f8542f186f01f7934a381e
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569591"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674622"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>在 Azure 安全中心中添加 web 应用程序防火墙
 为保护 web 应用程序，Azure 安全中心可能会建议从 Azure 合作伙伴添加 web 应用程序防火墙 (WAF)。 本文档将举例说明如何应用此建议。

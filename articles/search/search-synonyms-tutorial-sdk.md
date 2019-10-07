@@ -1,21 +1,21 @@
 ---
 title: 同义词 C# 示例 - Azure 搜索
 description: 本 C# 示例介绍如何向 Azure 搜索中的索引添加同义词功能。 同义词映射是等效术语的列表。 具有同义词支持的字段可扩展查询以包括用户提供的术语和所有相关的同义词。
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: a693ad427274fa7abbf03f1b03571010c6e371e3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: ca0bdee40507f2238160d9c45c773721ee854655
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004408"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674394"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>示例：使用 C# 为 Azure 搜索添加同义词
 
@@ -39,7 +39,7 @@ ms.locfileid: "66004408"
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 搜索服务](search-create-service-portal.md)
 * [Microsoft.Azure.Search .NET 库](https://aka.ms/search-sdk)
-* [如何使用 .NET 应用程序中的 Azure 搜索](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [如何使用 .NET 应用程序中的 Azure 搜索](search-howto-dotnet-sdk.md)
 
 ## <a name="overview"></a>概述
 
@@ -77,7 +77,7 @@ ms.locfileid: "66004408"
       Console.ReadKey();
   }
 ```
-有关如何创建和填充示例索引的步骤，请参阅[如何使用 .NET 应用程序中的 Azure 搜索](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)。
+有关如何创建和填充示例索引的步骤，请参阅[如何使用 .NET 应用程序中的 Azure 搜索](search-howto-dotnet-sdk.md)。
 
 ## <a name="before-queries"></a>“启用前”查询
 

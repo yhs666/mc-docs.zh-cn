@@ -2,20 +2,20 @@
 title: 用于搜索索引的 Azure SQL 虚拟机 VM 连接 - Azure 搜索
 description: 启用加密连接并配置防火墙，支持从 Azure 搜索上的索引器连接到 Azure 虚拟机 (VM) 上的 SQL Server。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 02/04/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 0443aa8316ffa6a97d009fde2b12bfc2856005cc
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0241115eba5f27d2556e54b50e342084b0bee7a9
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004877"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674402"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>配置从 Azure 搜索索引器到 Azure VM 上 SQL Server 的连接
 如[使用索引器将 Azure SQL 数据库连接到 Azure 搜索](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，针对 **Azure VM 上的 SQL Server**（或简称 **SQL Azure VM**）创建索引器受 Azure 搜索支持，但首先需要满足一些与安全性相关的先决条件。 
@@ -28,9 +28,9 @@ ms.locfileid: "66004877"
 ## <a name="enable-encrypted-connections"></a>启用加密连接
 对于所有通过公共 Internet 连接的索引器请求，Azure 搜索都需要使用加密通道。 本部分列出了实现此目的的步骤。
 
-1. 查看证书的属性，验证使用者名称是否是 Azure VM 的完全限定的域名 (FQDN)。 可以使用 CertUtils 等工具或证书管理单元查看属性。 可从 [Azure 门户](https://portal.azure.com/)中 VM 服务边栏选项卡的“基本要素”部分中获取 FQDN（位于“公共 IP 地址/DNS 名称标签”字段中）。
+1. 查看证书的属性，验证使用者名称是否是 Azure VM 的完全限定的域名 (FQDN)。 可以使用 CertUtils 等工具或证书管理单元查看属性。 可从 [Azure 门户](https://portal.azure.cn/)中 VM 服务边栏选项卡的“基本要素”部分中获取 FQDN（位于“公共 IP 地址/DNS 名称标签”  字段中）。
    
-   * 对于使用较新的资源管理器模板创建的 VM，FQDN 的格式设置为 `<your-VM-name>.<region>.cloudapp.azure.cn`
+   * 对于使用较新的资源管理器  模板创建的 VM，FQDN 的格式设置为 `<your-VM-name>.<region>.cloudapp.azure.cn`
    * 对于创建为**经典** VM 的较旧 VM，FQDN 的格式设置为 `<your-cloud-service-name.cloudapp.net>`。
 
 2. 使用注册表编辑器 (regedit) 将 SQL Server 配置为使用证书。 
@@ -74,7 +74,7 @@ ms.locfileid: "66004877"
 IP 寻址会产生一些挑战，如果了解问题和潜在解决方法，则可以轻松应对。 剩余部分提供了有关处理 ACL 中与 IP 地址相关的问题的建议。
 
 #### <a name="restrict-access-to-the-search-service-ip-address"></a>限制对搜索服务 IP 地址的访问
-我们强烈建议限制对 ACL 中搜索服务 IP 地址的访问，而不是允许 SQL Azure VM 接受任何连接请求。 通过对搜索服务的 FQDN（例如 `<your-search-service-name>.search.windows.net`）进行 ping 操作，可轻松找到 IP 地址。
+我们强烈建议限制对 ACL 中搜索服务 IP 地址的访问，而不是允许 SQL Azure VM 接受任何连接请求。 通过对搜索服务的 FQDN（例如 `<your-search-service-name>.search.chinacloudapi.cn`）进行 ping 操作，可轻松找到 IP 地址。
 
 #### <a name="managing-ip-address-fluctuations"></a>管理 IP 地址波动
 如果搜索服务只有一个搜索单位（即一个副本和一个分区），IP 地址会在例程服务重新启动期间发生更改，这会导致搜索服务的 IP 地址的现有 ACL 无效。

@@ -1,21 +1,21 @@
 ---
-title: 教程：为 JSON Blob 中的半结构化数据编制索引 - Azure 搜索
+title: REST 教程：为 JSON Blob 中的半结构化数据编制索引 - Azure 搜索
 description: 了解如何使用 Azure 搜索 REST API 和 Postman 为半结构化 Azure JSON Blob 编制索引以及搜索此类数据。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 363ce7e5943e4aa3019d6434c13111354e8d5bfa
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: d2eef68430dc094fa86f4f4131b263dd1871bcd9
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004822"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674396"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 教程：在 Azure 搜索中为半结构化数据 (JSON Blob) 编制索引以及搜索此类数据
 
@@ -33,9 +33,9 @@ Azure 搜索可使用一个知晓如何读取半结构化数据的[索引器](se
 
 本快速入门使用以下服务、工具和数据。 
 
-[创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。 
+[创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。 
 
-[创建一个 Azure 存储帐户](https://docs.azure.cn/zh-cn/storage/common/storage-quickstart-create-account)，用于存储示例数据。
+[创建一个 Azure 存储帐户](https://docs.azure.cn/storage/common/storage-quickstart-create-account)，用于存储示例数据。
 
 使用 [Postman 桌面应用](https://www.getpostman.com/)，将请求发送到 Azure 搜索。
 
@@ -45,25 +45,25 @@ Azure 搜索可使用一个知晓如何读取半结构化数据的[索引器](se
 
 REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 搜索，则请按以下步骤获取必需信息：
 
-1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。 示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
+1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。  示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
 
-1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
+1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-![获取 HTTP 终结点和访问密钥](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
 ## <a name="prepare-sample-data"></a>准备示例数据
 
-1. [登录到 Azure 门户](https://portal.azure.cn)，导航到你的 Azure 存储帐户，单击“Blob”，然后单击“+ 容器”。
+1. [登录到 Azure 门户](https://portal.azure.cn)，导航到你的 Azure 存储帐户，单击“Blob”，然后单击“+ 容器”   。
 
-1. [创建一个 Blob 容器](https://docs.azure.cn/zh-cn/storage/blobs/storage-quickstart-blobs-portal)用于包含示例数据。 可以将“公共访问级别”设为任何有效值。
+1. [创建一个 Blob 容器](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)用于包含示例数据。 可以将“公共访问级别”设为任何有效值。
 
-1. 创建容器后，将其打开，然后在命令栏中选择“上传”。
+1. 创建容器后，将其打开，然后在命令栏中选择“上传”  。
 
    ![在命令栏中上传](media/search-semi-structured-data/upload-command-bar.png "在命令栏中上传")
 
-1. 导航到包含示例文件的文件夹。 选择所有这些文件，然后单击“上传”。
+1. 导航到包含示例文件的文件夹。 选择所有这些文件，然后单击“上传”  。
 
    ![上传文件](media/search-semi-structured-data/clinicalupload.png "上传文件")
 
@@ -71,7 +71,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 ## <a name="set-up-postman"></a>设置 Postman
 
-启动 Postman 并设置 HTTP 请求。 如果不熟悉此工具，请参阅[使用 Postman 探索 Azure 搜索 REST API](search-fiddler.md) 了解详细信息。
+启动 Postman 并设置 HTTP 请求。 如果不熟悉此工具，请参阅[使用 Postman 探索 Azure 搜索 REST API](search-get-started-postman.md) 了解详细信息。
 
 本教程中每个调用的请求方法是 **POST**。 标头键为“Content-type”和“api-key”。 上述标头键的值分别为“application/json”和你的“admin key”（“admin key”是搜索主密钥的占位符）。 正文是调用的实际内容的放置位置。 根据所用的客户端，在如何构造查询方面可能存在一些差异，但基本思路相同。
 
@@ -79,7 +79,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 我们将使用 Postman 向搜索服务发出三个 API 调用，以创建数据源、索引和索引器。 数据源包含指向存储帐户的指针以及 JSON 数据。 加载数据时，搜索服务会建立连接。
 
-查询字符串必须指定 api-version，并且每个调用都应返回“201 已创建”。 用于使用 JSON 数组的正式版 api-version 为 `2019-05-06`。
+查询字符串必须指定 api-version，并且每个调用都应返回“201 已创建”  。 用于使用 JSON 数组的正式版 api-version 为 `2019-05-06`。
 
 从 REST 客户端执行以下三个 API 调用。
 
@@ -89,7 +89,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 此调用的终结点为 `https://[service name].search.chinacloudapi.cn/datasources?api-version=2019-05-06`。 请将 `[service name]` 替换为搜索服务的名称。 
 
-对于此调用，请求正文必须包含存储帐户名称、存储帐户密钥和 Blob 容器名称。 可在 Azure 门户上存储帐户的“访问密钥”中找到存储帐户密钥。 下图显示了该位置：
+对于此调用，请求正文必须包含存储帐户名称、存储帐户密钥和 Blob 容器名称。 可在 Azure 门户上存储帐户的“访问密钥”中找到存储帐户密钥。  下图显示了该位置：
 
   ![半结构化搜索](media/search-semi-structured-data/storagekeys.png)
 
@@ -128,7 +128,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 ## <a name="create-an-index"></a>创建索引
     
-第二次调用的是[创建索引 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，用于创建可存储所有可搜索数据的 Azure 搜索索引。 索引指定所有参数及其属性。
+第二次调用的是[创建索引 API](https://docs.microsoft.com/rest/api/searchservice/create-indexer)，用于创建可存储所有可搜索数据的 Azure 搜索索引。 索引指定所有参数及其属性。
 
 此调用的 URL 为 `https://[service name].search.chinacloudapi.cn/indexes?api-version=2019-05-06`。 请将 `[service name]` 替换为搜索服务的名称。
 
@@ -261,9 +261,9 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 ## <a name="search-your-json-files"></a>搜索 JSON 文件
 
-加载第一个文档后，可立即开始搜索。 为完成此任务，在门户中使用[搜索浏览器](search-explorer.md)。
+加载第一个文档后，可立即开始搜索。 为完成此任务，在门户中使用[搜索浏览器](search-explorer.md)  。
 
-在 Azure 门户中，打开搜索服务的“概述”页，在“索引”列表中找到创建的索引。
+在 Azure 门户中，打开搜索服务的“概述”页，在“索引”列表中找到创建的索引   。
 
 请务必选择刚刚创建的索引。 
 

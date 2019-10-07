@@ -5,17 +5,17 @@ services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: mgottein
-manager: cgronlun
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: e596b3b643f7157caa05a5d406d61324eba9bedd
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 67e30f19f9531870d9c1f7e5479ff5992d8002f6
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004640"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674249"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>使用 Azure 搜索来搜索 Blob 存储
 
@@ -25,7 +25,7 @@ ms.locfileid: "66004640"
 [Azure 搜索](https://aka.ms/whatisazsearch)是一种搜索服务，通过它开发人员可以轻松地在 Web 和移动应用程序中添加可靠的全文搜索体验。 作为一项服务，Azure 搜索不需要管理任何搜索基础结构，同时提供了 [99.9% 运行时间 SLA](https://aka.ms/azuresearchsla)。
 
 ## <a name="index-and-search-enterprise-document-formats"></a>索引和搜索企业文档格式
-通过对 Azure Blob 存储中的[文档提取](https://aka.ms/azsblobindexer)的支持，可以索引以下内容：
+通过对 Azure Blob 存储中的[文档提取](https://www.azure.cn/support/sla/search/)的支持，可以索引以下内容：
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
@@ -54,4 +54,4 @@ JSON 解析当前不可通过门户进行配置。 [了解有关 Azure 搜索中
 单击“添加 Azure 搜索”将启动一个工作流，可以在其中选择现有 Azure 搜索服务或创建一个新服务  。 如果创建新服务，则会离开存储帐户的门户。 可以导航回存储门户页并重新选择“添加 Azure 搜索”选项，然后可以选择现有服务  。
 
 ## <a name="next-steps"></a>后续步骤
-在完整[文档](https://aka.ms/azsblobindexer)中详细了解 Azure 搜索 Blob 索引器。
+在完整[文档](https://www.azure.cn/support/sla/search/)中详细了解 Azure 搜索 Blob 索引器。

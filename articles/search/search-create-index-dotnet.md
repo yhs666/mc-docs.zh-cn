@@ -3,20 +3,20 @@ title: 快速入门：在 C# 控制台应用程序中创建索引 - Azure 搜索
 description: 了解如何通过 Azure 搜索 .NET SDK 使用 C# 创建全文可搜索索引。
 author: heidisteen
 manager: cgronlun
-ms.author: v-biyu
+ms.author: v-tawe
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/16/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: 0632f2e264bc49b47fd323757145c469e431c28c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.openlocfilehash: 1e7902e42591d8b26ee461ac52cdb094a264780c
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004633"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674243"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>快速入门：1 - 使用 C# 创建 Azure 搜索索引
 > [!div class="op_single_selector"]
@@ -48,9 +48,9 @@ ms.locfileid: "66004633"
 
 对服务的调用要求每个请求都有一个 URL 终结点和一个访问密钥。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 搜索，则请按以下步骤获取必需信息：
 
-1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。 示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
+1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。  示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
 
-2. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
+2. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
 ![获取 HTTP 终结点和访问密钥](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -70,7 +70,7 @@ ms.locfileid: "66004633"
     }
    ```
 
-  对于服务名称，只需要名称本身。 例如，如果你的 URL 为 https://mydemo.search.windows.net，请将 `mydemo` 添加到 JSON 文件。
+  对于服务名称，只需要名称本身。 例如，如果你的 URL 为 https://mydemo.search.chinacloudapi.cn ，请将 `mydemo` 添加到 JSON 文件。
 
 1. 按 F5 生成解决方案并运行控制台应用。 本练习中的其余步骤以及后续步骤将介绍此代码的工作原理。 
 
@@ -176,7 +176,7 @@ public partial class Hotel
 
 根据每个字段在应用程序中的预期使用方式，谨慎选择每个属性的特性。 例如，搜索酒店的人员很可能对匹配 `description` 字段的关键字感兴趣，因此通过将 `IsSearchable` 特性添加到 `Description` 属性来为该字段启用全文搜索。
 
-请注意，必须通过添加 `Key` 特性将索引中类型为 `string` 的一个字段指定为“key”字段（请参见上例中的 `HotelId`）。
+请注意，必须通过添加 `Key` 特性将索引中类型为 `string` 的一个字段指定为“key”  字段（请参见上例中的 `HotelId`）。
 
 上述索引定义对 `description_fr` 字段使用了语言分析器，因为它用于存储法语文本。 有关详细信息，请参阅[向 Azure 搜索索引添加语言分析器](index-add-language-analyzers.md)。
 

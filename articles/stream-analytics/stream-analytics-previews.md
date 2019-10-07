@@ -4,18 +4,17 @@ description: 本文列出了当前以预览版提供的 Azure 流分析功能。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/29/2019
 ms.date: 08/09/2019
-ms.openlocfilehash: ec077d15ae79e177c3aa5a6137869adf7e92f57d
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: e461ed8bdb20761e3fa7f3079ec55ecd8f829e64
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169623"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674827"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 流分析预览功能
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2018
-ms.date: 11/26/2018
+ms.date: 8/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 094c647f48aa0196576f5956db470f7a0467d689
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 166e4b26c5d845ba8621253da06073e2cb1c11c8
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818168"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674587"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 上可用的安全服务和技术
 

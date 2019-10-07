@@ -2,16 +2,19 @@
 title: 使用 Visual Studio Code（预览版）在本地测试 Azure 流分析查询
 description: 本文介绍如何使用针对 Visual Studio Code 的 Azure 流分析工具在本地测试查询。
 ms.service: stream-analytics
-author: su-jie
-ms.author: sujie
-ms.date: 05/15/2019
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
+ms.reviewer: jasonh
+origin.date: 05/15/2019
+ms.date: 08/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: dee8464e6847fddb1217237c0dcec7f93b2723e6
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 80e4ad36148e1165ba92e5664ee49bd7fe831ee4
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970406"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674689"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>使用 Visual Studio Code 在本地测试流分析查询
 

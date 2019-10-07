@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 05/22/2019
+ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ec424ab453e0d7fb70754e19549f17b3e1b8c51c
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ec353fbf409bbdbfbd239da77b1009adcf7dfc09
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569909"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674623"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>在 Azure 安全中心中添加下一代防火墙
 Azure 安全中心可能会建议从 Azure 合作伙伴添加下一代防火墙 (NGFW)，以增强安全保护。 本文档将举例说明如何执行此操作。

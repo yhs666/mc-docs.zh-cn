@@ -11,20 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+origin.date: 09/10/2018
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2bfe4dd20d8e7b60b7245701109a6efe64a04b68
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 24f3f6d7eb5979d963559329b87a12ad0a36f09d
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363256"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674663"
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 
 了解如何使用 PowerShell 读取 NSG 流日志条目。
 
 NSG 流日志存储于[块 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 中的存储帐户中。 块 blob 由一些更小的块组成。 每个日志是每个一小时生成的单独块 blob。 每隔一小时会生成新的日志，每隔几分钟会以包含最新数据的新条目来更新日志。 本文介绍如何读取部分流日志。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>方案
 
@@ -53,10 +57,10 @@ function Get-NSGFlowLogCloudBlockBlob {
 
     process {
         # Retrieve the primary storage account key to access the NSG logs
-        $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
+        $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
         # Setup a new storage context to be used to query the logs
-        $ctx = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+        $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
         # Container name used by NSG flow logs
         $ContainerName = "insights-logs-networksecuritygroupflowevent"
@@ -65,7 +69,7 @@ function Get-NSGFlowLogCloudBlockBlob {
         $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
         # Gets the storage blog
-        $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
+        $Blob = Get-AzStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
         # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
         $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
@@ -126,28 +130,27 @@ function Get-NSGFlowLogReadBlock  {
     # Set the size of the byte array to the largest block
     $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Create an array to store values in
-$valuearray = @()
+    # Create an array to store values in
+    $valuearray = @()
 
-# Define the starting index to track the current block being read
-$index = 0
+    # Define the starting index to track the current block being read
+    $index = 0
 
-# Loop through each block in the block list
-for($i=0; $i -lt $blocklist.count; $i++)
-{
-
-# Create a byte array object to story the bytes from the block
-$downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
+    # Loop through each block in the block list
+    for($i=0; $i -lt $blocklist.count; $i++)
+    {
+        # Create a byte array object to story the bytes from the block
+        $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
         # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
         $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
-$index = $index + $blockList[$i].Length
+        # Increment the index by adding the current block length to the previous index
+        $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+        # Retrieve the string from the byte array
 
-$value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
+        $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
         # Add the log entry to the value array
         $valuearray += $value
@@ -186,7 +189,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解查看 NSG 流日志的其他方式，请访问[使用开源工具可视化 Azure 网络观察程序 NSG 流日志](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)。
+请访问[使用弹性堆栈](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)、[使用 Grafana](network-watcher-nsg-grafana.md) 和[使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) 详细了解查看 NSG 流日志的方法。 可以在此处找到直接使用 Blob 并发送给各种日志分析使用者的开源 Azure 函数方法：[Azure 网络观察程序 NSG 流日志连接器](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)。
 
 若要详细了解存储 blob，请访问：[Azure Functions Blob 存储绑定](../azure-functions/functions-bindings-storage-blob.md)
 

@@ -4,18 +4,16 @@ description: 本文解释使用 Azure 流分析时可能出现的不同输入和
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 06/21/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 8e6f53cffba876dd57ee4ad32421de062a1589f2
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: e81e3c6bd6898c833f27d79cfea83ef2fec0a9f5
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970506"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674796"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure 流分析数据错误
 

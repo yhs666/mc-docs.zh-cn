@@ -13,19 +13,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
+origin.date: 12/02/2018
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8ba6e50833a87c45d7afe892720ef3dc68353b1f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 64ca833e9c75a4d97a36ecd6cc4e2b56ad9919de
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004540"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674795"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>快速入门：将 Linux 计算机载入到安全中心
 载入 Azure 订阅之后，可以通过预配 Linux 代理为在 Azure 外部（例如，在本地或在其他云中）运行的 Linux 资源启用安全中心。
 
-本快速入门展示了如何在 Linux 计算机上安装 Linux 代理。
+本快速入门展示了如何在 Linux 计算机上安装该代理。
 
 ## <a name="prerequisites"></a>先决条件
 若要开始使用安全中心，必须订阅世纪互联 Azure。 如果你尚无订阅，则可以注册[试用帐户](https://www.azure.cn/pricing/free-trial/)。
@@ -57,7 +58,7 @@ ms.locfileid: "66004540"
 
    ![安装代理][5]
 
-可在以下位置找到适用于 Linux 的安全中心代理的日志：  /var/opt/microsoft/omsagent/\<workspace id>/log/
+可在以下位置找到该代理的日志：  /var/opt/microsoft/omsagent/\<workspace id>/log/
 
   ![代理的日志][6]
 

@@ -2,21 +2,21 @@
 title: 使用 Azure Blob 索引器为 JSON blob 编制索引以进行全文搜索 - Azure 搜索
 description: 使用 Azure 搜索 Blob 索引器抓取 Azure JSON Blob 以获取文本内容。 索引器可自动为所选数据源（如 Azure Blob 存储）引入数据。
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: HeidiSteen
-manager: cgronlun
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 408b32e5beed4b200f84cc00485265f2ec6d454c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 73c5516b7cf00457b915e62b01a01e22de71435f
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004380"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674443"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜索 Blob 索引器为 JSON Blob 编制索引
 本文介绍如何配置 Azure 搜索 Blob [索引器](search-indexer-overview.md)，以从 Azure Blob 存储中的 JSON 文档提取结构化内容，并使其在 Azure 搜索中可供搜索。 此工作流将创建一个 Azure 搜索索引，然后连同从 JSON Blob 中提取的现有文本一起加载该索引。 
@@ -42,7 +42,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档或 JSON 实体集�
 
 1. [登录到 Azure 门户](https://portal.azure.cn/)。
 
-1. [创建一个 Blob 容器](https://docs.azure.cn/zh-cn/storage/blobs/storage-quickstart-blobs-portal)用于包含数据。 可将“公共访问级别”设为任何有效值。
+1. [创建一个 Blob 容器](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)用于包含数据。 可将“公共访问级别”设为任何有效值。
 
 在“导入数据”向导中检索数据时，需要用到存储帐户名称、容器名称和访问密钥。 
 

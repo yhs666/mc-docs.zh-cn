@@ -12,15 +12,15 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 05/02/2019
-  ms.date: 06/03/2019
-  ms.author: v-biyu
+  ms.date: 09/26/2019
+  ms.author: v-tawe
 abstract:
   description: 了解如何使用 Azure 搜索创建基于专用异类内容的企业搜索解决方案。 教程、API 参考和其他文档介绍了如何将从简单到高级的语法用于各种方案，以便将可搜索内容整合到单个可查询的快速索引中。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>认知搜索</b></a>现已正式发布，支持将 AI 扩充用于生产方案。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知识存储（预览版）</b></a>扩展了认知搜索。 将 AI 扩充保存到存储，随后可以在除 Azure 搜索以外的其他应用中查看、整形和使用扩充。 立即<a href="/azure/search/knowledge-store-howto">开始使用<b></b></a>。
   aside:
     image:
       alt: null
       height: 110
-      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
+      src: media/index/search-page-callouts3.png
       width: 250
 sections:
   - title: 5 分钟快速入门
@@ -33,15 +33,15 @@ sections:
           - image:
               src: /search/media/index/portal.svg
             text: Azure 门户
-            href: 'https://docs.azure.cn/zh-cn/search/search-create-service-portal'
+            href: search-create-service-portal.md
           - image:
               src: /search/media/index/logo_Csharp.svg
             text: .NET
-            href: 'https://docs.azure.cn/zh-cn/search/search-create-index-dotnet'
+            href: search-create-index-dotnet.md
           - image:
               src: /search/media/index/rest.svg
             text: REST
-            href: 'https://docs.azure.cn/zh-cn/search/search-fiddler'
+            href: search-fiddler.md
   - title: 分步教程
     items:
       - type: paragraph
@@ -61,6 +61,6 @@ sections:
         className: cardsD
         items:
           - title: 语言
-            html: '<p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/?term=microsoft.azure.management.search">.NET（管理）</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python（管理）</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.management.search">.NET（管理）</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python（管理）</a></p>'
           - title: REST
-            html: '<p><a href="https://docs.microsoft.com/zh-cn/rest/api/searchservice">服务 API 参考</a></p><p><a href="https://docs.microsoft.com/zh-cn/rest/api/searchmanagement">管理 API 参考</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/searchservice">服务 API 参考</a></p><p><a href="https://docs.microsoft.com/rest/api/searchmanagement">管理 API 参考</a></p>'

@@ -6,16 +6,15 @@ author: lingliw
 ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 07/01/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 74109e9b13437f69e8eb78ae39d0f284705bc5d4
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 41bab7e9f00d611f84a420cb7f7aca8a95c7afb9
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969589"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674822"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -27,7 +26,7 @@ IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/
 ![IoT Edge 的高级别关系图](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **低延迟命令和控制**：例如，生产安全系统时必须以超低的延迟响应运行数据。 借助 IoT Edge 上的 ASA，可以近乎实时地分析传感器数据，并在检测到异常情况时发出命令，从而停止计算机或触发警报。
-* **与云的连接受限**：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
+*   **与云的连接受限**：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
 * **有限的带宽**：由喷气引擎或联网汽车生成的数据量可能非常大，因此，在将数据发送到云之前必须对数据进行筛选或预处理。 使用 ASA，可以筛选或聚合需要发送到云的数据。
 * **符合性**：监管符合性可能需要在将一些数据发送到云之前对其进行本地匿名或聚合处理。
 

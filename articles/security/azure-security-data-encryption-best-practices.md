@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+origin.date: 03/26/2019
+ms.date: 09/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 084df79599498cc627c7dc35a39190d8f342426c
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 263893216a1fd8443547ea74e860c4d4e5f6d182
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818189"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674588"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 数据安全与加密最佳做法
 本文介绍了针对数据安全和加密的最佳做法。

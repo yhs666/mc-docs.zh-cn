@@ -5,16 +5,16 @@ services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.topic: conceptual
+ms.topic: quickstart
 ms.service: stream-analytics
 origin.date: 06/21/2019
 ms.date: 08/29/2019
-ms.openlocfilehash: e52860097cc5c05b27c1d7a4191b67530242aa6a
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: c66e2cbd4aead6a533bad62879b14fda15d9f333
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169523"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674767"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流分析作业
 

@@ -1,21 +1,19 @@
 ---
 title: 使用托管标识在 Azure Blob 存储输出（预览版）中对 Azure 流分析作业进行身份验证
 description: 本文介绍如何使用托管标识在 Azure Blob 存储输出中对 Azure 流分析作业进行身份验证。
-services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 72d2b358241fd33065fa66cdabc0f4b28fc71e0f
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 6506017ee3e24d5d6abe6bab098c921813f52856
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970533"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674803"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>使用托管标识在 Azure Blob 存储输出（预览版）中对 Azure 流分析作业进行身份验证
 

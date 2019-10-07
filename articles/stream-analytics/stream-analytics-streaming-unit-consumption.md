@@ -8,13 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: f0e2cef7d7f24020b3f93c09cb7aff248c58af40
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/21/2019
+ms.date: 08/21/2019
+ms.openlocfilehash: c82850ed95b2c655269855497f6ec04e4c9f05e4
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969543"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674754"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解和调整流式处理单元
 

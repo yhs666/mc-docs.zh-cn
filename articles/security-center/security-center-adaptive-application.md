@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+origin.date: 05/02/2019
+ms.date: 05/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 80e5311c2b138c98fb28c187fe82c7feb708e46e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 1ee9ccde1bed22a36a22050f5818d07391a8382a
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818565"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674834"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 安全中心的自适应应用程序控制
 了解如何通过本演练在 Azure 安全中心配置应用程序控制。

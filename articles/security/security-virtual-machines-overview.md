@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/28/2019
-ms.date: 04/28/2019
+origin.date: 03/26/2019
+ms.date: 09/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 605165d9c16e1a411a847aedda541731c22abee0
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 9b61ba6e5fe298321671b5fb926759f6edcd1f93
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818541"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674698"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虚拟机安全概述
 

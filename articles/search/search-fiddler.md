@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 origin.date: 05/16/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 441d1bed5946daa21d841cd794ee76818fd73a64
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 74b66f256c418583c73a7bf068c2aa536cfcec93
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004571"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674365"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入门：使用 Postman 探索 Azure 搜索 REST API
 > [!div class="op_single_selector"]
