@@ -8,14 +8,14 @@ author: ecfan
 ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.topic: reference
-origin.date: 07/27/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: a7901f6c8d9df2fe90cbdc963f59f3a69d125dde
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+origin.date: 08/23/2019
+ms.date: 10/08/2019
+ms.openlocfilehash: 5693f84b54f148dfbafa3eb54e720acdbc296c31
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174099"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340838"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure 逻辑应用和 Microsoft Flow 中工作流定义语言的函数引用
 
@@ -24,7 +24,7 @@ ms.locfileid: "70174099"
 > [!NOTE]
 > 此引用页面适用于 Azure 逻辑应用和 Microsoft Flow，但会显示在 Azure 逻辑应用文档中。 虽然此页面专门引用逻辑应用，但这些函数适用于流和逻辑应用。 有关 Microsoft Flow 中函数和表达式的详细信息，请参阅[在条件中使用表达式](https://docs.microsoft.com/flow/use-expressions-in-conditions)。
 
-例如，在需要根据整数或浮点数求和时，可以使用数学函数（例如 [add() 函数](../logic-apps/workflow-definition-language-functions-reference.md#add)）来计算值。 下面是可以使用函数执行的几个其他的示例任务：
+例如，在需要根据整数或浮点数求和时，可以使用数学函数（例如 [add() 函数](../logic-apps/workflow-definition-language-functions-reference.md#add)）来计算值。 下面是可以使用函数执行的其他示例任务：
 
 | 任务 | 函数语法 | 结果 | 
 | ---- | --------------- | ------ | 
@@ -244,6 +244,7 @@ ms.locfileid: "70174099"
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 返回具有多个部分的操作输出中某个特定部分的正文。 | 
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | 返回操作在运行时的输出。 |
 | [参数](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 返回工作流定义中描述的参数的值。 |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | 返回指定的范围受限操作（例如 `For_each`、`Until` 和 `Scope`）中所有操作的输入和输出。 |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 返回触发器在运行时的输出，或者来自其他 JSON 名称和值对的输出。 另请参阅 [triggerOutputs](#triggerOutputs) 和 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)。 | 
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 返回触发器在运行时的 `body` 输出。 请参阅 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 | 
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 返回与表单数据或表单编码触发器输出中某个键名匹配的单个值。   | 
@@ -621,7 +622,7 @@ addMinutes('2018-03-15T00:20:00Z', -5)
 
 ### <a name="addproperty"></a>addProperty
 
-将属性及其值或名称/值对添加到 JSON 对象，并返回更新的对象。 如果在运行时已存在该对象，此函数将引发错误。
+将属性及其值或名称/值对添加到 JSON 对象，并返回更新的对象。 如果在运行时已存在该属性，此函数会失败并引发错误。
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -639,12 +640,81 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | 具有指定属性的更新后 JSON 对象 | 
 |||| 
 
-*示例*
-
-此示例将 `accountNumber` 属性加到 `customerProfile` 对象，该对象通过 [JSON()](#json) 函数转换为 JSON。 此函数分配由 [guid()](#guid) 函数生成的值，并返回更新后的对象：
+若要向现有属性添加子属性，请使用以下语法：
 
 ```
-addProperty(json('customerProfile'), 'accountNumber', guid())
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+```
+
+| 参数 | 必须 | 类型 | 说明 |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | 是 | Object | 要将属性添加到的 JSON 对象 |
+| <*parent-property*> | 是 | String | 要在其中添加子属性的父属性的名称 |
+| <*child-property*> | 是 | String | 要添加的子属性的名称 |
+| <*value*> | 是 | 任意 | 要为指定属性设置的值 |
+|||||
+
+| 返回值 | 类型 | 说明 |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | 设置了其属性的更新后 JSON 对象 |
+||||
+
+*示例 1*
+
+此示例将 `middleName` 属性加到 JSON 对象，可通过 [JSON()](#json) 函数将其从字符串转换为 JSON。 该对象已经包含 `firstName` 和 `surName` 属性。 该函数将指定的值分配给新属性，并返回更新后的对象：
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+下面是当前的 JSON 对象：
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+下面是已更新的 JSON 对象：
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*示例 2*
+
+此示例将 `middleName` 子属性加到 JSON 对象中的现有 `customerName` 属性，可通过 [JSON()](#json) 函数将其从字符串转换为 JSON。 该函数将指定的值分配给新属性，并返回更新后的对象：
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+下面是当前的 JSON 对象：
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+下面是已更新的 JSON 对象：
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
 ```
 
 <a name="addSeconds"></a>
@@ -3094,7 +3164,7 @@ replace('the old string', 'old', 'new')
 
 ### <a name="removeproperty"></a>removeProperty
 
-从对象中删除属性，并返回更新后的对象。
+从对象中删除属性，并返回更新后的对象。 如果尝试删除的属性不存在，此函数会返回原始对象。
 
 ```
 removeProperty(<object>, '<property>')
@@ -3111,19 +3181,208 @@ removeProperty(<object>, '<property>')
 | <*updated-object*> | Object | 不具有指定属性的更新后 JSON 对象 | 
 |||| 
 
-*示例*
-
-此示例从 `"customerProfile"` 对象（该对象通过 [JSON()](#json) 函数转换为 JSON）中删除 `"accountLocation"` 属性，并返回更新后的对象：
+若要从现有属性中删除子属性，请使用以下语法：
 
 ```
-removeProperty(json('customerProfile'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
+```
+
+| 参数 | 必须 | 类型 | 说明 |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | 是 | Object | 要删除其属性的 JSON 对象 |
+| <*parent-property*> | 是 | String | 要删除其子属性的父属性的名称 |
+| <*child-property*> | 是 | String | 要删除的子属性的名称 |
+|||||
+
+| 返回值 | 类型 | 说明 |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | 删除了其子属性的已更新 JSON 对象 |
+||||
+
+*示例 1*
+
+此示例从 JSON 对象（此对象通过 [JSON()](#json) 函数从字符串转换为 JSON）中删除 `middleName` 属性，并返回更新后的对象：
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+下面是当前的 JSON 对象：
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+下面是已更新的 JSON 对象：
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*示例 2*
+
+此示例从 JSON 对象（此对象通过 [JSON()](#json) 函数从字符串转换为 JSON）中的 `customerName` 父属性中删除 `middleName` 子属性，并返回更新后的对象：
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+下面是当前的 JSON 对象：
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
+```
+
+下面是已更新的 JSON 对象：
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+<a name="result"></a>
+
+### <a name="result"></a>结果
+
+返回指定的范围受限操作（例如 `For_each`、`Until` 或 `Scope` 操作）中所有操作的输入和输出。 此函数用于从失败的操作中返回结果，方便你诊断和处理异常。 有关详细信息，请参阅[获取失败的上下文和结果](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)。
+
+```
+result('<scopedActionName>')
+```
+
+| 参数 | 必须 | 类型 | 说明 |
+| --------- | -------- | ---- | ----------- |
+| <*scopedActionName*> | 是 | String | 将会从其返回所有内部操作的输入和输出的范围受限操作的名称。 |
+||||
+
+| 返回值 | 类型 | 说明 |
+| ------------ | ---- | ----------- |
+| <*array-object*> | 数组对象 | 一个数组，其中包含显示在指定的范围受限操作中的每个操作的输入和输出数组 |
+||||
+
+*示例*
+
+此示例返回 HTTP 操作的每个迭代的输入和输出，该操作位于 `For_each` 循环中，在 `Compose` 操作中使用 `result()` 函数：
+
+```json
+{
+   "actions": {
+      "Compose": {
+         "inputs": "@result('For_each')",
+         "runAfter": {
+            "For_each": [
+               "Succeeded"
+            ]
+         },
+         "type": "compose"
+      },
+      "For_each": {
+         "actions": {
+            "HTTP": {
+               "inputs": {
+                  "method": "GET",
+                  "uri": "https://httpstat.us/200"
+               },
+               "runAfter": {},
+               "type": "Http"
+            }
+         },
+         "foreach": "@triggerBody()",
+         "runAfter": {},
+         "type": "Foreach"
+      }
+   }
+}
+```
+
+下面是示例返回的数组可能的外观，其中的外部 `outputs` 对象包含 `For_each` 操作中每个操作迭代的输入和输出。
+
+```json
+[
+   {
+      "name": "HTTP",
+      "outputs": [
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+               "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "6bad3015-0444-4ccd-a971-cbb0c99a7.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         },
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+            "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "9987e889-981b-41c5-aa27-f3e0e59bf69.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         }
+      ]
+   }
+]
 ```
 
 <a name="setProperty"></a>
 
 ### <a name="setproperty"></a>setProperty
 
-设置对象的属性值并返回更新后的对象。 若要添加新属性，可以使用此函数或 [addProperty()](#addProperty) 函数。
+设置 JSON 对象的属性值并返回更新的对象。 如果尝试设置的属性不存在，则会为对象添加该属性。 若要添加新属性，请使用 [addProperty()](#addProperty) 函数。
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3136,17 +3395,79 @@ setProperty(<object>, '<property>', <value>)
 | <*value*> | 是 | 任意 | 要为指定属性设置的值 |
 ||||| 
 
-| 返回值 | 类型 | 说明 | 
-| ------------ | ---- | ----------- | 
-| <*updated-object*> | Object | 设置了其属性的更新后 JSON 对象 | 
-|||| 
-
-*示例*
-
-此示例在 `"customerProfile"` 对象（它通过 [JSON()](#json) 函数转换为 JSON）上设置 `"accountNumber"` 属性。 此函数分配由 [guid()](#guid) 函数生成的值，并返回更新后的 JSON 对象：
+若要在子对象中设置子属性，请改用嵌套式 `setProperty()` 调用。 否则，函数仅返回子对象作为输出。
 
 ```
-setProperty(json('customerProfile'), 'accountNumber', guid())
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+```
+
+| 参数 | 必须 | 类型 | 说明 |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | 是 | Object | 要设置其属性的 JSON 对象 |
+| <*parent-property*> | 是 | String | 要设置其子属性的父属性的名称 |
+| <*child-property*> | 是 | String | 要设置的子属性的名称 |
+| <*value*> | 是 | 任意 | 要为指定属性设置的值 |
+|||||
+
+| 返回值 | 类型 | 说明 |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | 设置了其属性的更新后 JSON 对象 |
+||||
+
+*示例 1*
+
+此示例在 JSON 对象中设置 `surName` 属性，可通过 [JSON()](#json) 函数将其从字符串转换为 JSON。 该函数将指定的值分配给属性，并返回更新后的对象：
+
+```
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
+```
+
+下面是当前的 JSON 对象：
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+下面是已更新的 JSON 对象：
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Hartnett"
+}
+```
+
+*示例 2*
+
+此示例为 JSON 对象中的 `customerName` 父属性设置 `surName` 子属性，可通过 [JSON()](#json) 函数将其从字符串转换为 JSON。 该函数将指定的值分配给属性，并返回更新后的对象：
+
+```
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
+```
+
+下面是当前的 JSON 对象：
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Owen"
+   }
+}
+```
+
+下面是已更新的 JSON 对象：
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Hartnett"
+   }
+}
 ```
 
 <a name="skip"></a>
