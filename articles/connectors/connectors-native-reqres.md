@@ -13,104 +13,230 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/18/2016
+origin.date: 09/06/2019
 ms.author: v-yiso
-ms.date: 06/24/2019
-ms.openlocfilehash: 68cea320b619254dd2abf4990d468d4a5b13e549
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 10/08/2019
+ms.openlocfilehash: 9a9cb21be3219e1731acd2a98909fc56df4e2fff
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135884"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340976"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>请求和响应组件入门
-借助逻辑应用中的请求和响应组件，可以实时响应事件。
+# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用响应 HTTP 请求
 
-例如，可以：
+使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置的“请求”触发器或“响应”操作，可以创建自动化任务和工作流用于实时接收和响应 HTTP 请求。 例如，可以使用逻辑应用：
 
-* 通过逻辑应用使用来自本地数据库的数据响应 HTTP 请求。
-* 从外部 Webhook 事件触发逻辑应用。
-* 从另一个逻辑应用内使用请求和响应操作调用逻辑应用。
+* 响应针对本地数据库中的数据发出的 HTTP 请求。
+* 发生外部 Webhook 事件时触发工作流。
+* 从一个逻辑应用内部调用另一个逻辑应用。
 
-若要开始在逻辑应用中使用请求和响应操作，请参阅[创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+## <a name="prerequisites"></a>先决条件
 
-## <a name="use-the-http-request-trigger"></a>使用 HTTP 请求触发器
-触发器是可用于启动在逻辑应用中定义的工作流的事件。 
-[了解有关触发器的详细信息](../connectors/apis-list.md)。
+* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-下面是如何在逻辑应用设计器中设置 HTTP 请求的示例序列。
+* 有关[逻辑应用](../logic-apps/logic-apps-overview.md)的基本知识。 如果不熟悉逻辑应用，请了解[如何创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在逻辑应用中添加触发器“请求 - 收到 HTTP 请求时”  。 可以选择为请求正文提供 JSON 架构（通过使用 [JSONSchema.net](https://jsonschema.net) 之类的工具）。 这允许设计器为 HTTP 请求中的属性生成令牌。
-2. 添加另一个操作，以便保存逻辑应用。
-3. 保存逻辑应用后，可以从请求卡获取 HTTP 请求 URL。
-4. 对该 URL 的 HTTP POST（可使用 [Postman](https://www.getpostman.com/) 之类的工具）触发逻辑应用。
+<a name="add-request"></a>
 
-> [!NOTE]
-> 如果未定义响应操作，`202 ACCEPTED` 响应将立即返回到调用方。 可使用响应操作自定义响应。
-> 
-> 
+## <a name="add-a-request-trigger"></a>添加“请求”触发器
 
-![响应触发器](./media/connectors-native-reqres/using-trigger.png)
+此内置触发器创建可手动调用的终结点，该终结点可以接收传入的 HTTP 请求。 发生此事件时，该触发器将会激发，并运行逻辑应用。 有关此触发器的基础 JSON 定义以及如何调用此触发器的详细信息，请参阅[“请求”触发器类型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)，以及[在 Azure 逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)
 
-## <a name="use-the-http-response-action"></a>使用 HTTP 响应操作
-HTTP 请求操作仅在用于由 HTTP 请求触发的工作流中时才有效。 如果未定义响应操作，`202 ACCEPTED` 响应将立即返回到调用方。  可在工作流内的任意步骤中添加响应操作。 逻辑应用使传入请求仅为一个响应保持打开状态一分钟。  一分钟后，如果未从工作流中发送任何响应（并且定义中存在响应操作），则 `504 GATEWAY TIMEOUT` 将返回到调用方。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
 
-下面是添加 HTTP 响应操作的方法：
+1. 逻辑应用设计器打开后，在搜索框中输入“http 请求”作为筛选器。 在触发器列表中，选择“收到 HTTP 请求时”触发器（逻辑应用工作流中的第一个步骤）。 
 
-1. 选择“新步骤”  按钮。
-2. 选择“添加操作”  。
-3. 在操作搜索框中，键入**响应**列出响应操作。
-   
-    ![选择响应操作](./media/connectors-native-reqres/using-action-1.png)
-4. 添加 HTTP 响应消息所需的任何参数。
-   
-    ![完成响应操作](./media/connectors-native-reqres/using-action-2.png)
-5. 单击工具栏左上角保存，逻辑应用将保存并发布（激活）。
+   ![选择 HTTP 请求触发器](./media/connectors-native-reqres/select-request-trigger.png)
 
-## <a name="request-trigger"></a>请求触发器
-下面是此连接器支持的触发器的详细信息。 存在单个请求触发器。
+   “请求”触发器显示以下属性：
 
-| 触发器 | 说明 |
-| --- | --- |
-| 请求 |在收到 HTTP 请求时发生 |
+   ![请求触发器](./media/connectors-native-reqres/request-trigger.png)
 
-## <a name="response-action"></a>响应操作
-下面是此连接器支持的操作的详细信息。 存在只能在附带请求触发器时使用的单个响应操作。
+   | 属性名称 | JSON 属性名称 | 必须 | 说明 |
+   |---------------|--------------------|----------|-------------|
+   | **HTTP POST URL** | {无} | 是 | 保存逻辑应用后生成的终结点 URL，用于调用逻辑应用 |
+   | **请求正文 JSON 架构** | `schema` | 否 | 描述传入的 HTTP 请求正文中的属性和值的 JSON 架构 |
+   |||||
 
-| 操作 | 说明 |
-| --- | --- |
-| 响应 |向相关 HTTP 请求返回响应 |
+1. 在“请求正文 JSON 架构”框中，选择性地输入一个用于描述传入请求中的 HTTP 请求正文的 JSON 架构，例如： 
 
-### <a name="trigger-and-action-details"></a>触发器和操作详细信息
-下表介绍触发器和操作的输入字段以及对应的输出详细信息。
+   ![示例 JSON 架构](./media/connectors-native-reqres/provide-json-schema.png)
 
-#### <a name="request-trigger"></a>请求触发器
-下面是来自传入 HTTP 请求的触发器的输入字段。
+   设计器将使用此架构为请求中的属性生成标记。 这样，逻辑应用就可以通过触发器分析、使用请求中的数据并将其传递到工作流。
 
-| Display name | 属性名称 | 说明 |
-| --- | --- | --- |
-| JSON 架构 |schema |HTTP 请求正文的 JSON 架构 |
+   下面是示例架构：
 
-<br>
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   ```
 
-**输出详细信息**
+   输入 JSON 架构时，设计器将提醒你在请求中包含 `Content-Type` 标头，并将该标头值设置为 `application/json`。 有关详细信息，请参阅[处理内容类型](../logic-apps/logic-apps-content-type.md)。
 
-下面是请求的输出详细信息。
+   ![提醒包含“Content-Type”标头](./media/connectors-native-reqres/include-content-type.png)
 
-| 属性名称 | 数据类型 | 说明 |
-| --- | --- | --- |
-| 标头 |object |请求标头 |
-| 正文 |object |请求对象 |
+   下面是此标头的 JSON 格式外观：
 
-#### <a name="response-action"></a>Response 操作
-下面是 HTTP 请求操作的输入字段。 \* 表示它是必填字段。
+   ```json
+   {
+      "Content-Type": "application/json"
+   }
+   ```
 
-| Display name | 属性名称 | 说明 |
-| --- | --- | --- |
-| 状态代码* |statusCode |HTTP 状态代码 |
-| 标头 |headers |要包含的任何响应标头的 JSON 对象 |
-| 正文 |body |响应正文 |
+   若要生成基于预期有效负载（数据）的 JSON 架构，可以使用 [JSONSchema.net](https://jsonschema.net) 之类的工具，也可以执行以下步骤：
+
+   1. 在请求触发器中，选择“使用示例有效负载生成架构”。 
+
+      ![基于有效负载生成架构](./media/connectors-native-reqres/generate-from-sample-payload.png)
+
+   1. 输入示例有效负载，然后选择“完成”。 
+
+      ![基于有效负载生成架构](./media/connectors-native-reqres/enter-payload.png)
+
+      下面是示例有效负载：
+
+      ```json
+      {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+      }
+      ```
+
+1. 若要添加其他属性，请打开“添加新参数”列表，并选择要添加的参数。 
+
+   | 属性名称 | JSON 属性名称 | 必须 | 说明 |
+   |---------------|--------------------|----------|-------------|
+   | **方法** | `method` | 否 | 传入的请求在调用逻辑应用时必须使用的方法 |
+   | **相对路径** | `relativePath` | 否 | 逻辑应用终结点 URL 可接受的参数的相对路径 |
+   |||||
+
+   本示例添加了 **Method** 属性：
+
+   ![添加 Method 参数](./media/connectors-native-reqres/add-parameters.png)
+
+   **Method** 属性显示在触发器中，使你可以从列表中选择方法。
+
+   ![选择方法](./media/connectors-native-reqres/select-method.png)
+
+1. 现在，添加另一个操作作为工作流中的下一步骤。 在触发器下，选择“下一步骤”，以便可以找到要添加的操作。 
+
+   例如，可以通过[添加“响应”操作](#add-response)（可用于返回自定义的响应，本主题稍后将做介绍）来响应请求。
+
+   逻辑应用只会使传入的请求保持打开一分钟。 假设逻辑应用工作流包含“响应”操作，如果在这段时间后逻辑应用未返回响应，则逻辑应用会向调用方返回 `504 GATEWAY TIMEOUT`。 否则，如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 响应。
+
+1. 完成后，保存逻辑应用。 在设计器工具栏上选择“保存”。  
+
+   此步骤生成一个 URL，用于发送触发逻辑应用的请求。 若要复制此 URL，请选择 URL 旁边的复制图标。
+
+   ![用于触发逻辑应用的 URL](./media/connectors-native-reqres/generated-url.png)
+
+1. 若要触发逻辑应用，请将 HTTP POST 发送到生成的 URL。 例如，可以使用 [Postman](https://www.getpostman.com/) 之类的工具。
+
+### <a name="trigger-outputs"></a>触发器输出
+
+下面是有关“请求”触发器的输出的详细信息：
+
+| JSON 属性名称 | 数据类型 | 说明 |
+|--------------------|-----------|-------------|
+| `headers` | Object | 描述请求中的标头的 JSON 对象 |
+| `body` | Object | 描述请求中的正文内容的 JSON 对象 |
+||||
+
+<a name="add-response"></a>
+
+## <a name="add-a-response-action"></a>添加“响应”操作
+
+可以使用“响应”操作向传入的 HTTP 请求发送包含有效负载（数据）的响应，但只能在 HTTP 请求触发的逻辑应用中执行此操作。 可以在工作流中的任意位置添加“响应”操作。 有关此触发器的基础 JSON 定义的详细信息，请参阅[“响应”操作类型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
+
+逻辑应用只会使传入的请求保持打开一分钟。 假设逻辑应用工作流包含“响应”操作，如果在这段时间后逻辑应用未返回响应，则逻辑应用会向调用方返回 `504 GATEWAY TIMEOUT`。 否则，如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 响应。
+
+1. 在逻辑应用设计器中要添加“响应”操作的步骤下，选择“新建步骤”  。
+
+   例如，使用前面所述的“请求”触发器：
+
+   ![添加新步骤](./media/connectors-native-reqres/add-response.png)
+
+   若要在步骤之间添加操作，请将鼠标指针移到这些步骤之间的箭头上。 选择出现的加号 ( **+** )，然后选择“添加操作”。 
+
+1. 在“选择操作”  下的搜索框中，输入“响应”作为筛选器，然后选择“响应”操作。 
+
+   ![选择“响应”操作](./media/connectors-native-reqres/select-response-action.png)
+
+   为简明起见，本示例中“请求”触发器已折叠。
+
+1. 添加响应消息所需的任何值。 
+
+   单击某些字段中的框会打开动态内容列表。 然后，可以从工作流中的前面步骤选择表示可用输出的标记。 在上述示例中指定的架构内的属性现在会显示在动态内容列表中。
+
+   例如，对于“标头”框，请包含 `Content-Type` 作为键名称，并将键值设置为 `application/json`，如本主题前面所述。  对于“正文”框，可以从动态内容列表中选择触发器正文输出。 
+
+   ![“响应”操作详细信息](./media/connectors-native-reqres/response-details.png)
+
+   若要查看 JSON 格式的标头，请选择“切换到文本视图”。 
+
+   ![标头 - 切换到文本视图](./media/connectors-native-reqres/switch-to-text-view.png)
+
+   下面是有关可在“响应”操作中设置的属性的详细信息。 
+
+   | 属性名称 | JSON 属性名称 | 必须 | 说明 |
+   |---------------|--------------------|----------|-------------|
+   | **状态代码** | `statusCode` | 是 | 要在响应中返回的 HTTP 状态代码 |
+   | **标头** | `headers` | 否 | 一个 JSON 对象，描述要包含在响应中的一个或多个标头 |
+   | **正文** | `body` | 否 | 响应正文 |
+   |||||
+
+1. 若要添加其他属性，例如响应正文的 JSON 架构，请打开“添加新参数”列表，并选择要添加的参数。 
+
+1. 完成后，保存逻辑应用。 在设计器工具栏上选择“保存”。  
 
 ## <a name="next-steps"></a>后续步骤
-现在，试用平台并[创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 通过查看 [API 列表](apis-list.md)了解逻辑应用中的其他可用连接器。
 
+* [适用于逻辑应用的连接器](../connectors/apis-list.md)
