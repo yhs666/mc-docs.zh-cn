@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 2225939d1199a4a9dc2ffc38bf1eaeea3efb6220
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0ea67f0b99c06fb75d4bb740dc981be5c1d54b81
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626861"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674676"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>针对网络安全组进行流日志记录简介
 
-网络安全组 (NSG) 流日志是网络观察程序的一项功能，可用于查看有关通过 NSG 的入口和出口 IP 流量的信息。 流日志以 JSON 格式编写，并基于每个规则显示出站和入站流、流所适用的网络接口 (NIC)、有关流的 5 元组信息（源/目标 IP、源/目标端口和协议）、是允许还是拒绝流量，版本 2 中还会显示吞吐量信息（字节和数据包）。
+网络安全组 (NSG) 流日志是网络观察程序的一项功能，可用于查看有关通过 NSG 的入口和出口 IP 流量的信息。 流日志以 JSON 格式编写，并基于每个规则显示出站和入站流、流所适用的网络接口 (NIC)、有关流的 5 元组信息（源/目标 IP 地址、源/目标端口和协议）、是允许还是拒绝流量，版本 2 中还会显示吞吐量信息（字节和数据包）。
 
 ![流日志概述](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
@@ -33,6 +33,7 @@ ms.locfileid: "58626861"
 ```
 https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
+可以使用[流量分析](traffic-analytics.md)来分析流日志并获取网络流量的见解。
 
 适用于其他日志的保留策略也适用于流日志。 可以设置日志保留策略，时间范围为 1 天至 2147483647 天。 如果未设置保留策略，则会永久保留日志。
 
@@ -42,7 +43,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 
 * **time** - 记录事件的时间
 * **systemId** - 网络安全组资源 ID
-* 类别 - 事件的类别。 类别始终是 NetworkSecurityGroupFlowEvent
+* 类别  - 事件的类别。 类别始终是 NetworkSecurityGroupFlowEvent 
 * **resourceid** - NSG 的资源 ID
 * **operationName** - 始终为 NetworkSecurityGroupFlowEvents
 * **properties** - 流属性的集合
@@ -52,7 +53,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
             * **flows** - 流的集合
                 * **mac** - VM 的 NIC 的 MAC 地址，用于收集流
                 * **flowTuples** - 一个字符串，包含逗号分隔格式的流元组的多个属性
-                    * **Time Stamp** - 此值为时间戳，表示流的发生时间，采用 UNIX EPOCH 格式
+                    * **Time Stamp** - 此值为时间戳，表示流的发生时间，采用 UNIX epoch 格式
                     * **Source IP** - 源 IP
                     * **Destination IP** - 目标 IP
                     * **Source Port** - 源端口
@@ -67,20 +68,16 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
                     * **Bytes sent - 目标到源 - 仅限版本 2** 自上次更新以来，从目标发送到源的 TCP 和 UDP 数据包字节的总数。 数据包字节包括数据包标头和有效负载。
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG 流日志版本 2
-> [!NOTE] 
-> 流日志版本 2 仅在中国北部区域可用。 配置可通过 Azure 门户和 REST API 获取。 在不支持的区域启用版本 2 日志时，版本 1 日志会输出到存储帐户中。
 
-版本 2 的日志引入了流状态。 可以配置接收的流日志的版本。 要了解如何启用流日志，请参阅[启用 NSG 流日志记录](network-watcher-nsg-flow-logging-portal.md)。
+版本 2 的日志引入了流状态。 可以配置要接收的流日志的版本。 要了解如何启用流日志，请参阅[启用 NSG 流日志记录](network-watcher-nsg-flow-logging-portal.md)。
 
-启动流时记录流状态 B。 流状态 C 和流状态 E 是分别标记流的延续和终止的状态。 状态 C 和 E 都包含流量带宽信息。
-
-对于延续 C 和结束 E 流状态，字节和数据包计数是从上一次流元祖记录时集合的计数。 引用上一示例会话，传输的数据包的总数是 1021+52+8005+47 = 9125。 传输的字节总数是 588096+29952+4610880+27072 = 5256000。
+启动流时记录流状态 B  。 流状态 C 和流状态 E 是分别标记流的延续和终止的状态   。 状态 C 和 E 都包含流量带宽信息   。
 
 **示例**：介于 185.170.185.105:35370 和 10.2.0.4:23 之间的 TCP 对话中的流元组：
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
 
-对于延续 C 和结束 E 流状态，字节和数据包计数是从上一次流元祖记录时集合的计数。 引用上一示例会话，传输的数据包的总数是 1021+52+8005+47 = 9125。 传输的字节总数是 588096+29952+4610880+27072 = 5256000。
+对于延续 C 和结束 E 流状态，字节和数据包计数是从上一次流元祖记录时集合的计数   。 引用上一示例会话，传输的数据包的总数是 1021+52+8005+47 = 9125。 传输的字节总数是 588096+29952+4610880+27072 = 5256000。
 
 以下文本是流日志的示例。 可以看到，有多个记录遵循前一部分描述的属性列表。
 
@@ -88,9 +85,10 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 
 以下文本是流日志的示例。 可以看到，有多个记录遵循前一部分描述的属性列表。
 
+
 > [!NOTE]
 > **flowTuples* 属性中的值为逗号分隔列表。
-
+ 
 ### <a name="version-1-nsg-flow-log-format-sample"></a>版本 1 NSG 流日志格式示例
 ```json
 {

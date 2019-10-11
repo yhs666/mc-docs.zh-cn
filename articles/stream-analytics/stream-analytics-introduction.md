@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
-origin.date: 08/09/2019
+origin.date: 06/21/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 07682afae589d642d3ea7e5404003cc040e03660
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: ee96d9afea7487b6d95f3514f659b8d059b30628
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969586"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674818"
 ---
 # <a name="what-is-azure-stream-analytics"></a>什么是 Azure 流分析？
 

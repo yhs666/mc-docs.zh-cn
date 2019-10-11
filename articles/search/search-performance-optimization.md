@@ -2,21 +2,21 @@
 title: 有关优化性能的部署策略和最佳做法 - Azure 搜索
 description: 了解优化 Azure 搜索性能和配置最佳规模的技术与最佳做法。
 author: LiamCavanagh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 origin.date: 03/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: fc56973b9bf5aea1918412d1a1f87235621dedf9
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: af445ee5e5437637e69d1f997de766b44ac8a36a
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004710"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674424"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>有关在 Azure 搜索中优化性能的部署策略和最佳做法
 
@@ -47,7 +47,7 @@ ms.locfileid: "66004710"
 收到太多受限的请求或从某个增加的查询负荷已超过目标延迟率时，可以尝试使用以下两种方法之一来降低延迟率：
 
 1. **增加副本数：** 副本就像数据副本，它允许 Azure 搜索对面向多个副本的请求进行负载均衡。  在副本之间的所有负载均衡和数据的复制都是由 Azure 搜索管理的，可以随时更改为服务分配的副本数量。  最大可在一个标准搜索服务中分配 12 个副本，并在一个基本搜索服务中分配 3 个副本。 可以从 [Azure 门户](search-create-service-portal.md)或 [PowerShell](search-manage-powershell.md) 调整副本。
-2. **增加搜索层：** Azure 搜索来自[许多层](https://azure.microsoft.com/pricing/details/search/)，其中每个层都提供不同级别的性能。  在某些情况下，可能有太多查询，即使在副本数超出限制时，所在的层仍无法提供足够的低延迟速率。在这种情况下，可能需要考虑利用其中一个较高的搜索层，比如 Azure 搜索 S3 层，该层非常适合包含大量文档和极高查询工作负荷的方案。
+2. **增加搜索层：** Azure 搜索来自[许多层](https://www.azure.cn/pricing/details/search/)，其中每个层都提供不同级别的性能。  在某些情况下，可能有太多查询，即使在副本数超出限制时，所在的层仍无法提供足够的低延迟速率。在这种情况下，可能需要考虑利用其中一个较高的搜索层，比如 Azure 搜索 S3 层，该层非常适合包含大量文档和极高查询工作负荷的方案。
 
 ## <a name="scaling-for-slow-individual-queries"></a>针对单个查询速度缓慢进行缩放
 延迟率增大的另一个原因是，完成单个查询花费了太长的时间。 在这种情况下，添加副本不起作用。 有作用的两个可能选项包括：
@@ -66,6 +66,7 @@ ms.locfileid: "66004710"
 * 针对只读工作负荷（查询），需要有 2 个副本才可达到高可用性
 * 针对读写工作负荷（查询和索引），需要有 3 个或更多副本才可达到高可用性
 
+有关这方面的更多详细信息，请访问 [Azure 搜索服务级别协议](https://www.azure.cn/support/sla/search/)。
 
 由于副本是数据的副本，因此，使用多个副本可让 Azure 搜索针对一个副本执行计算机重新启动和维护，同时可继续针对其他副本执行查询。 相反，如果删除副本，将会导致查询性能下降，并认为这些副本是未充分利用的资源。
 
@@ -88,7 +89,7 @@ ms.locfileid: "66004710"
    ![具有分布式索引器和服务组合的单一数据源][2]
 
 ### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>使用 REST API 在多个服务中推送内容更新
-如果使用 Azure 搜索 REST API [推送 Azure 搜索索引中的内容](https://docs.microsoft.com/rest/api/searchservice/update-index)，则可以在需要更新时，可以通过将更改推送到所有搜索服务，以保持各种搜索服务同步。 在代码中，请确保处理好这种情况：对一个搜索服务的更新失败，但对于其他搜索服务也失败。
+如果使用 Azure 搜索 REST API [推送 Azure 搜索索引中的内容](https://docs.microsoft.com/rest/api/searchservice/update-index)，则可以在需要更新时，可以通过将更改推送到所有搜索服务，以保持各种搜索服务同步。 在代码中，请确保处理好这种情况：对一个搜索服务的更新失败，但对于其他搜索服务成功。
 
 ## <a name="leverage-azure-traffic-manager"></a>利用 Azure 流量管理器
 通过使用 [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)，可以将请求路由到多个地理定位的网站，而这些网站由多个 Azure 搜索服务支持。 流量管理器的一个优点是，它可以探测 Azure 搜索以确保其可用，并在发生停机时会用户路由到备用搜索服务。 此外，如果通过 Azure 网站路由搜索请求，Azure 流量管理器允许在网站启动但没有 Azure 搜索的情形下进行负载均衡。 下面是利用流量管理器的体系结构的示例。

@@ -2,39 +2,37 @@
 title: 情绪认知搜索技能 - Azure 搜索
 description: 从 Azure 搜索扩充管道中的文本提取积极-消极情绪分数。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: a2e62728cec8ccc67b2e526e8b14874b07c2fb3f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: f355be2011f38737a0589b915ec1c06a82dc7af3
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004767"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674428"
 ---
 #   <a name="sentiment-cognitive-skill"></a>情绪认知技能
 
-情绪技能可沿着一个积极-消极连续统评估非结构化文本，对于每个记录，会返回一个介于 0 和 1 之间的数字评分。 评分接近 1 代表积极的情绪，评分接近 0 代表消极的情绪。 此技能使用认知服务中的[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)提供的机器学习模型。
+ 情绪技能可沿着一个积极-消极连续统评估非结构化文本，对于每个记录，会返回一个介于 0 和 1 之间的数字评分。 评分接近 1 代表积极的情绪，评分接近 0 代表消极的情绪。 此技能使用认知服务中的[文本分析](https://docs.azure.cn/cognitive-services/text-analytics/overview)提供的机器学习模型。
 
 > [!NOTE]
 > 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要[附加可计费的认知服务资源](cognitive-search-attach-cognitive-services.md)。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 内置技能执行按现有[认知服务即用即付价格](https://www.azure.cn/zh-cn/home/features/cognitive-services/)计费。
+> 内置技能执行按现有[认知服务预付费价格](https://www.azure.cn/pricing/details/cognitive-services/)收费。 图像提取定价如 [Azure 搜索定价页](https://www.azure.cn/pricing/details/search/)所述。
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>数据限制
-记录的最大大小应为 5000 个字符，通过 `String.Length` 进行测量。 如果需要在将数据发送到情绪分析器之前拆分数据，请使用[文本拆分技能](cognitive-search-skill-textsplit.md)。
+记录的最大大小应为 5000 个字符，通过 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) 进行测量。 如果需要在将数据发送到情绪分析器之前拆分数据，请使用[文本拆分技能](cognitive-search-skill-textsplit.md)。
 
 
 ## <a name="skill-parameters"></a>技能参数

@@ -4,29 +4,24 @@ description: 本文档说明 Azure 安全中心中的实时 VM 访问如何帮�
 services: security-center
 documentationcenter: na
 author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: 671930b1-fc84-4ae2-bf7c-d34ea37ec5c7
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 6/17/2019
+origin.date: 09/10/2019
+ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2c3c61d985fc52aeb445c2894b7946d9705d8621
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: fa4c2cd3b72a53ae86af878d8d1254d8b1eed5f0
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330428"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674617"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用实时功能管理虚拟机访问
 
-实时 (JIT) 虚拟机访问可用来锁定发往 Azure VM 的入站流量，降低遭受攻击的可能性，同时在需要时还可轻松连接到 VM。
+实时 (JIT) 虚拟机 (VM) 访问可用来锁定发往 Azure VM 的入站流量，降低遭受攻击的可能性，同时在需要时还可轻松连接到 VM。
 
 > [!NOTE]
-> 实时功能在安全中心的标准层上可用。  若要详细了解安全中心的定价层，请参阅[定价](security-center-pricing.md)。
+> 实时功能在安全中心的标准层上可用。 若要详细了解安全中心的定价层，请参阅[定价](security-center-pricing.md)。
 
 
 > [!NOTE]
@@ -36,7 +31,7 @@ ms.locfileid: "71330428"
 
 暴力攻击通常以攻击管理端口为手段来获取对 VM 的访问权限。 如果成功，则攻击者可以获得对 VM 的控制权并建立通向你的环境的据点。
 
-降低遭受暴力攻击的可能性的一种方法是限制端口处于打开状态的时间量。 管理端口不需要始终处于打开状态。 它们只需要在特定的时间打开，例如在你连接到 VM 来执行管理或维护任务时。 如果启用了实时功能，安全中心会使用[网络安全组](../virtual-network/security-overview.md#security-rules) (NSG) 和 Azure 防火墙规则，这些规则将限制对管理端口的访问以使其不会成为攻击者的目标。
+降低遭受暴力攻击的可能性的一种方法是限制端口处于打开状态的时间量。 管理端口不需要始终处于打开状态。 它们只需要在连接到 VM 时打开，例如执行管理或维护任务。 如果启用了实时功能，安全中心会使用[网络安全组](../virtual-network/security-overview.md#security-rules) (NSG) 和 Azure 防火墙规则，这些规则将限制对管理端口的访问以使其不会成为攻击者的目标。
 
 ![实时方案](./media/security-center-just-in-time/just-in-time-scenario.png)
 
@@ -54,14 +49,14 @@ ms.locfileid: "71330428"
 
 | 使用户能够： | 要设置的权限|
 | --- | --- |
-| 配置或编辑 VM 的 JIT 策略 | 将这些操作分配到角色  ：与 VM 关联的订阅或资源组的作用域：```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` 在订阅、资源组或 VM 的范围：```Microsoft.Compute/virtualMachines/write``` | 
+| 配置或编辑 VM 的 JIT 策略 | 将这些操作分配到角色  ：  <ul><li>与 VM 关联的订阅或资源组的作用域：<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> 在订阅、资源组或 VM 的作用域： <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
 | ||
-|请求 JIT 对 VM 的访问权限 | 将这些操作分配到用户  ：与 VM 关联的订阅或资源组的作用域：```Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/initiate/action``` 在订阅、资源组或 VM 的范围：```Microsoft.Compute/virtualMachines/read``` |
+|请求 JIT 对 VM 的访问权限 | 将这些操作分配到用户  ：  <ul><li>与 VM 关联的订阅或资源组的作用域：<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  在订阅、资源组或 VM 的作用域：<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
 
 
 ## <a name="configure-jit-on-a-vm"></a>在 VM 上配置 JIT
 
-可通过三种方式在 VM 上配置 JIT 策略：
+可通过两种方式在 VM 上配置 JIT 策略：
 
 - [在 Azure 安全中心配置 JIT 访问](#jit-asc)
 - [以编程方式在 VM 上配置 JIT 策略](#jit-program)
@@ -86,7 +81,7 @@ ms.locfileid: "71330428"
     “实时 VM 访问”提供 VM 的状态信息  ：
 
     - **已配置** - 已配置为支持实时 VM 访问的 VM。 提供的数据是针对过去一周的，并且针对每个 VM 包括了已批准的请求数、上次访问日期和时间以及上一个用户。
-    - **推荐** - 可以支持实时 VM 访问但尚未配置此功能的 VM。 建议为这些 VM 启用实时 VM 访问控制。 
+    - **推荐** - 可以支持实时 VM 访问但尚未配置此功能的 VM。 建议为这些 VM 启用实时 VM 访问控制。
     - **不推荐** - 导致不推荐某个 VM 的可能原因有：
       - 缺少 NSG - 实时解决方案需要 NSG 准备就绪。
       - 经典 VM - 安全中心实时 VM 访问当前仅支持通过 Azure 资源管理器部署的 VM。 实时解决方案不支持经典部署。 
@@ -130,7 +125,7 @@ ms.locfileid: "71330428"
 
     - “连接详细信息”列中的图标指示是在 NSG 还是 FW 中启用了 JIT  。 如果同时在 NSG 和 FW 中启用了 JIT，只会显示防火墙图标。
 
-    - “连接详细信息”列提供连接 VM 所需的正确信息，并指示已打开的端口  。
+    - “连接详细信息”列提供连接 VM 所需的信息，及其打开的端口  。
 
       ![请求实时访问](./media/security-center-just-in-time/request-just-in-time-access.png)
 

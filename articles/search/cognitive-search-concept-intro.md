@@ -1,22 +1,21 @@
 ---
-title: 认知搜索、数据提取、自然语言 AI 进程 - Azure 搜索
+title: 认知搜索和 AI 扩充简介 - Azure 搜索
 description: 使用认知技能和 AI 算法进行内容提取、自然语言处理 (NLP) 和图像处理，以便在 Azure 搜索索引中创建可搜索的内容。
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: overview
-origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 94883e3cc83f27aea6235b8abe0829e85479d308
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+origin.date: 08/15/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4c574e297b061bb5a24733c3a28fd352c12386a3
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004670"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674412"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什么是 Azure 搜索中的“认知搜索”？
 
@@ -28,14 +27,16 @@ ms.locfileid: "66004670"
 
 ![认知搜索管道示意图](./media/cognitive-search-intro/cogsearch-architecture.png "认知搜索管道概述")
 
-Azure 搜索中的认知技能基于认知服务 API 中的机器学习模型：[计算机视觉](https://docs.azure.cn/zh-cn/cognitive-services/computer-vision/)和[文本分析](https://docs.azure.cn/zh-cn/cognitive-services/text-analytics/overview)。 
+Azure 搜索中的认知技能基于认知服务 API 中的机器学习模型：[计算机视觉](https://docs.azure.cn/cognitive-services/computer-vision/)和[文本分析](https://docs.azure.cn/cognitive-services/text-analytics/overview)。 
 
-数据引入阶段应用了自然语言和图形处理，同时结果会成为 Azure 搜索中可搜索索引中文档撰写的一部分。 数据作为 Azure 数据集的来源，然后使用任意所需的[内置技能](cognitive-search-predefined-skills.md)通过索引管道进行推送。 体系结构可扩展，因此如果内置技能不足，可以创建并附加[自定义技能](cognitive-search-create-custom-skill-example.md)，以集成自定义处理。 示例包括面向特定领域（例如金融、科技出版或医疗）的自定义实体模块或文档分类器。
+数据引入阶段应用了自然语言和图形处理，同时结果会成为 Azure 搜索中可搜索索引中文档撰写的一部分。 数据作为 Azure 数据集的来源，然后使用任意所需的[内置技能](cognitive-search-predefined-skills.md)通过索引管道进行推送。 
+
+<!-- The architecture is extensible so if the built-in skills are not sufficient, you can create and attach [custom skills](cognitive-search-create-custom-skill-example.md) to integrate custom processing. Examples might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine. -->
 
 > [!NOTE]
 > 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要[附加可计费的认知服务资源](cognitive-search-attach-cognitive-services.md)。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 内置技能执行按现有[认知服务即用即付价格](https://www.azure.cn/zh-cn/pricing/details/cognitive-services/)计费。 图像提取定价如 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)所述。
+> 内置技能执行按现有[认知服务预付费价格](https://www.azure.cn/pricing/details/cognitive-services/)收费。 图像提取定价如 [Azure 搜索定价页](https://www.azure.cn/pricing/details/search/)所述。
 ## <a name="components-of-cognitive-search"></a>认知搜索的组件
 
 认知搜索管道基于 [Azure 搜索索引器  ](search-indexer-overview.md)，此索引器抓取数据源，并提供端到端索引处理。 技能现已附加到索引器，根据定义的技能集截获并扩充文档。 编制索引后，可以通过搜索请求和 [Azure 搜索支持的所有查询类型](search-query-overview.md)来访问内容。  本部分引导索引器的新手完成这些步骤。
@@ -54,7 +55,9 @@ Azure 搜索中的认知技能基于认知服务 API 中的机器学习模型：
 
 ![扩充阶段](./media/cognitive-search-intro/enrichment-phase-blowup.png "扩充阶段")
 
-技能集基于你提供的、与该技能集连接的[预定义认知技能](cognitive-search-predefined-skills.md)或[自定义技能](cognitive-search-create-custom-skill-example.md)。 技能集既可以很精简，也可以很复杂，它不仅确定处理的类型，而且还确定运算的顺序。 技能集以及定义为索引器一部分的字段映射全面指定扩充管道。 有关将所有组成部分一起提取的详细信息，请参阅[定义技能集](cognitive-search-defining-skillset.md)。
+技能组基于你提供的、与该技能组连接的[预定义认知技能](cognitive-search-predefined-skills.md)。 技能集既可以很精简，也可以很复杂，它不仅确定处理的类型，而且还确定运算的顺序。 技能集以及定义为索引器一部分的字段映射全面指定扩充管道。 有关将所有组成部分一起提取的详细信息，请参阅[定义技能集](cognitive-search-defining-skillset.md)。
+
+<!-- or [custom skills](cognitive-search-create-custom-skill-example.md) -->
 
 在内部，管道生成扩充文档的集合。 可以确定要将扩充文档的哪些部分映射到搜索索引中可编制索引的字段。 例如，如果应用了关键短语提取和实体识别技能，则这些新字段将成为扩充文档的部分，并可以映射到索引中的字段。 请参阅[注释](cognitive-search-concept-annotations-syntax.md)详细了解输入/输出的形成。
 
@@ -102,7 +105,8 @@ Azure 搜索中的认知技能基于认知服务 API 中的机器学习模型：
 
 + [快速入门（门户）](cognitive-search-quickstart-blob.md)
 + [教程（HTTP 请求）](cognitive-search-tutorial-blob.md)
-+ [自定义技能示例 (C#)](cognitive-search-create-custom-skill-example.md)
+
+<!-- + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md) -->
 
 我们建议将免费服务用于学习目的，但请注意，免费事务的数量限制为每天 20 个文档。 若要在一天内同时运行快速入门和教程，请使用较小的文件集（10 个文档），这样就可以同时运行这两个练习。
 

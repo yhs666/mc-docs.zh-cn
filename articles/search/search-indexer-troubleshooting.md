@@ -2,21 +2,19 @@
 title: 排查常见的搜索索引器问题 - Azure 搜索
 description: 修复 Azure 搜索中索引器的错误和常见问题，包括数据源连接、防火墙和丢失的文档。
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 5a5e6336c0b3b2c1048effa48273529082baad29
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: eba8b6b8e32109e9c822b27d52b7c2e65cee381a
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004860"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674383"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>排查 Azure 搜索中的常见索引器问题
 
@@ -36,20 +34,17 @@ Azure 存储提供可配置的防火墙。 默认情况下，防火墙处于禁�
 
 防火墙启用后，没有具体的错误消息。 通常情况下，防火墙错误类似于：`The remote server returned an error: (403) Forbidden`。
 
-可以在[门户](https://docs.azure.cn/zh-cn/storage/common/storage-network-security#azure-portal)中验证防火墙是否已启用。 如果防火墙已启用，则可以通过两个选项来解决此问题：
+可以在[门户](https://docs.azure.cn/storage/common/storage-network-security#azure-portal)中验证防火墙是否已启用。 唯一支持的解决方法是通过选择允许从[“所有网络”](https://docs.azure.cn/storage/common/storage-network-security#azure-portal)访问来禁用防火墙。
 
-1. 禁用防火墙，方法是：选择允许从[“所有网络”](https://docs.azure.cn/zh-cn/storage/common/storage-network-security#azure-portal)进行访问
-1. 针对搜索服务的 IP 地址[添加一个例外](https://docs.azure.cn/zh-cn/storage/common/storage-network-security#managing-ip-network-rules)。 若要查找该 IP 地址，请使用以下命令：
+如果索引器没有附加的技能组，则_可以_尝试为搜索服务的 IP 地址[添加例外](https://docs.azure.cn/storage/common/storage-network-security#managing-ip-network-rules)。 但是，此方案不受支持，也不保证能够正常工作。
 
-`nslookup <service name>.search.chinacloudapi.cn`
-
-例外不适用于[认知搜索](cognitive-search-concept-intro.md)。 唯一解决方法是禁用防火墙。
+可以通过 ping 搜索服务的 FQDN (`<your-search-service-name>.search.windows.net`) 来查找其 IP 地址。
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
 #### <a name="indexing-isnt-enabled"></a>索引未启用
 
-Azure 搜索对 Cosmos DB 索引存在隐式依赖。 如果在 Cosmos DB 中关闭自动索引，Azure 搜索会返回成功状态，但无法索引容器内容。 有关如何查看设置和启用索引功能的说明，请参阅[管理 Azure Cosmos DB 中的索引编制](https://docs.azure.cn/zh-cn/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal)。
+Azure 搜索对 Cosmos DB 索引存在隐式依赖。 如果在 Cosmos DB 中关闭自动索引，Azure 搜索会返回成功状态，但无法索引容器内容。 有关如何查看设置和启用索引功能的说明，请参阅[管理 Azure Cosmos DB 中的索引编制](https://docs.azure.cn/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal)。
 
 ## <a name="document-processing-errors"></a>文档处理错误
 
@@ -95,5 +90,5 @@ api-key: [admin key]
 * 文档尚未进行索引。 查看门户中是否有成功的索引器运行。
 * 文档在索引器运行之后已更新。 如果索引器已在[计划](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)之中，它最终会重新运行并选取该文档。
 * 在数据源中指定的 [query](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) 排除了该文档。 索引器不能索引不属于数据源的文档。
-* [字段映射](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings)或[认知搜索](https://docs.azure.cn/zh-cn/search/cognitive-search-concept-intro)已更改此文档，因此它看起来不同于预期。
+* [字段映射](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings)或[认知搜索](cognitive-search-concept-intro.md)已更改此文档，因此它看起来不同于预期。
 * 使用[查找文档 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) 来查找文档。

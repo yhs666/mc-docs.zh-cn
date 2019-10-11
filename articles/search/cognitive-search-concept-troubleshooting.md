@@ -2,22 +2,21 @@
 title: 认知搜索的故障排除提示 - Azure 搜索
 description: 在 Azure 搜索中设置认知搜索管道的提示和故障排除。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 origin.date: 02/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 5a83ab6e7d4ea52022b10167d3e0a1ef9d0c0c52
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 6cb5dd500ca71aff60b16692106c84e8fced1d9d
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004813"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674440"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>认知搜索故障排除提示
 
@@ -34,8 +33,7 @@ ms.locfileid: "66004813"
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>提示 2：确保数据源凭据正确
 在定义一个使用数据源连接的索引器之前，数据源连接并未完成验证。 如果看到任何错误提及索引器无法访问数据，请确保：
-- 连接字符串是正确的。 确保使用 Azure 搜索预期的格式，尤其是在创建 SAS 令牌的时候。 若要了解受支持的不同格式，请参阅[如何指定凭据部分](
-https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)。
+- 连接字符串是正确的。 确保使用 Azure 搜索预期的格式，尤其是在创建 SAS 令牌的时候。 若要了解受支持的不同格式，请参阅[如何指定凭据部分](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)。
 - 索引器中的容器名称是正确的。
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>提示 3：了解各种适当的措施，即使是在存在某些故障的情况下
@@ -95,7 +93,10 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 最长运行时间因层而异：免费层为数分钟，收费层为 24 小时（索引编制）。 进行按需处理时，如果处理无法在 24 小时期限内完成，则可改用计划形式，让索引器在计划时间接着上次的工作继续处理。 
 
-对于计划的索引器来说，索引编制会按计划从已知正常的最后一个文档继续开始。 使用定时计划时，索引器可以在计划的一系列时间或日期进行积压图像的处理，直至所有未处理的图像得到处理。 有关计划语法的详细信息，请参阅[步骤 3：创建索引器](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)。
+对于计划的索引器来说，索引编制会按计划从已知正常的最后一个文档继续开始。 使用定时计划时，索引器可以在计划的一系列时间或日期进行积压图像的处理，直至所有未处理的图像得到处理。 有关计划语法的详细信息，请参阅[步骤 3：创建一个索引器](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)或参阅[如何为 Azure 搜索计划索引器](search-howto-schedule-indexers.md)。
+
+> [!NOTE]
+> 如果将索引器设置为某个计划，但每次运行时一次又一次地在同一文档上反复失败，则索引器将以不那么频繁的时间间隔开始运行（最多每 24 小时至少一次），直到它成功地再次取得进展。  如果你认为你已修复了导致索引器在某一点停滞的任何问题，则可以按需运行索引器，如果成功取得进展，索引器将再次回到其设置的计划间隔。
 
 进行基于门户的索引编制（如快速入门中所述）时，选择“运行一次”索引器选项即可将处理时间限制为 1 小时 (`"maxRunTime": "PT1H"`)。 可能需要延长处理时间至更长。
 

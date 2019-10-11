@@ -8,20 +8,19 @@ manager: digimobile
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 02/27/2017
+origin.date: 02/27/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a15b67a4cc0e65439e3ccdc3f0c4fc194be56686
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 3390e59f26fd7975d80682c5471478557de8fe35
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329798"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 项目模板快速启动 Batch 解决方案
 
@@ -35,8 +34,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 ## <a name="high-level-overview"></a>综合概述
 作业管理器和任务处理器模板可用于创建两个有用的组件：
 
-- 作业管理器任务实现作业拆分器，后者可将作业细分为多个可以并行独立运行的任务。
-- 任务处理器可用于围绕应用程序命令行执行前处理和后处理。
+* 作业管理器任务实现作业拆分器，后者可将作业细分为多个可以并行独立运行的任务。
+* 任务处理器可用于围绕应用程序命令行执行前处理和后处理。
 
 例如，在电影渲染方案中，作业拆分器将单个电影作业转变成数百个或数千个单独处理各个帧的不同任务。 相应地，任务处理器调用为了渲染每个帧所需的渲染应用程序和所有依赖进程，执行任何额外操作（例如，将渲染的帧复制到存储位置）。
 
@@ -56,15 +55,15 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 ## <a name="prerequisites"></a>先决条件
 若要使用 Batch 模板，需要满足以下条件：
 
-- 安装有 Visual Studio 2015 的一台计算机。 Batch 模板当前仅支持 Visual Studio 2015。
-- Batch 模板，可从 [Visual Studio 库][vs_gallery]以 Visual Studio 扩展的形式获取。 有两种方式可获取模板：
+* 安装有 Visual Studio 2015 的一台计算机。 Batch 模板当前仅支持 Visual Studio 2015。
+* Batch 模板，可从 [Visual Studio 库][vs_gallery]以 Visual Studio 扩展的形式获取。 有两种方式可获取模板：
   
-  - 使用 Visual Studio 中的“扩展和更新”  对话框安装模板（有关详细信息，请参阅[查找和使用 Visual Studio 扩展][vs_find_use_ext]）。 在“扩展和更新”  对话框中，搜索并下载以下两个扩展：
+  * 使用 Visual Studio 中的“扩展和更新”  对话框安装模板（有关详细信息，请参阅[查找和使用 Visual Studio 扩展][vs_find_use_ext]）。 在“扩展和更新”  对话框中，搜索并下载以下两个扩展：
     
-    - 随附作业拆分器的 Azure Batch 作业管理器
-    - Azure Batch 任务处理器
-  - 从 Visual Studio 的联机库下载模板：[Azure Batch 项目模板][vs_gallery_templates]
-- 如果打算使用[应用程序包](batch-application-packages.md)功能将作业管理器和任务处理器部署到 Batch 计算节点，需要将存储帐户链接到 Batch 帐户。
+    * 随附作业拆分器的 Azure Batch 作业管理器
+    * Azure Batch 任务处理器
+  * 从 Visual Studio 的联机库下载模板：[Microsoft Azure Batch 项目模板][vs_gallery_templates]
+* 如果打算使用[应用程序包](batch-application-packages.md)功能将作业管理器和任务处理器部署到 Batch 计算节点，需要将存储帐户链接到 Batch 帐户。
 
 ## <a name="preparation"></a>准备工作
 建议创建可在其中包含作业管理器和任务处理器的解决方案，因为这样可以更轻松地在作业管理器和任务处理器程序之间共享代码。 若要创建此解决方案，请遵循以下步骤：

@@ -7,14 +7,14 @@ ms.author: v-lingwu
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/11/2019
-ms.date: 12/07/2018
-ms.openlocfilehash: 8a9bebf63a1aad38e6a25884db9107a761da42cd
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+origin.date: 12/07/2018
+ms.date: 08/07/2019
+ms.openlocfilehash: 0467cf3322357448bd9a5bcfa5946ec3f1e3c3fd
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169610"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674739"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure 流分析输出的故障排除
 
@@ -28,22 +28,22 @@ ms.locfileid: "70169610"
       - 若要查看数据源是否具有有效数据，请使用[服务总线资源管理器](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)。 如果作业使用事件中心作为输入，则会应用此检查。
       - 查看数据序列化格式和数据编码是否符合预期。
       - 如果该作业正在使用事件中心，请查看消息正文是否为 Null  。
-
+      
     - 如果“数据转换错误数”大于 0 且在不断增加，则可能出现以下情况：
       - 输出事件不符合目标接收器的架构。 
       - 事件架构可能与查询中事件的已定义/预期架构不匹配。
       - 事件中某些字段的数据类型可能不符合预期。
-
+      
     - 如果“运行时错误数”大于 0，则表示作业可以接收数据，但在处理查询时将遇到错误。
       - 若要查找错误，请转到[审核日志](../azure-resource-manager/resource-group-audit.md)并筛选“失败”  状态。
-
+      
     - 如果“输入事件数”大于 0 且“输出事件数”等于 0，则会出现以下情况之一：
       - 查询处理导致生成零个输出事件。
       - 事件或其字段可能出现格式错误，导致完成查询处理后生成零个输入。
       - 由于连接或身份验证原因，作业无法将数据推送到输出接收器。
-
+      
     - 对于前文所述的所有这些错误，操作日志消息会解释其他详细信息（包括发生了什么情况），但如果查询逻辑筛选掉了所有事件，则不提供这些详细信息。 如果处理多个事件时出现错误，流分析会将 10 分钟内类型相同的前 3 个错误消息记录在操作日志中。 随后它将阻止其他的相同错误，并且显示一条“错误发生速度过快，已禁止显示此类错误”消息。
-
+    
 ## <a name="job-output-is-delayed"></a>作业输出延迟
 
 ### <a name="first-output-is-delayed"></a>首次输出延迟
@@ -79,7 +79,7 @@ ms.locfileid: "70169610"
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL 数据库输出键冲突警告
 
-在将 Azure SQL 数据库配置为流分析作业的输出时，Azure SQL 数据库会将记录批量插入到目标表。 一般情况下，Azure 流分析要保证[至少一次发送]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics)到输出接收器，在 SQL 表仅有一个已定义的约束时，仍然可以[实现仅一次的发送]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)到 SQL 输出操作。 
+在将 Azure SQL 数据库配置为流分析作业的输出时，Azure SQL 数据库会将记录批量插入到目标表。 一般情况下，Azure 流分析要保证[至少一次发送](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)到输出接收器，在 SQL 表仅有一个已定义的约束时，仍然可以[实现仅一次的发送]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)到 SQL 输出操作。 
 
 在 SQL 表中设置唯一键约束后，如果在 SQL 表中插入重复记录，则 Azure 流分析会删除重复的记录。 流分析将数据拆分为几个批，并以递归方式插入这些批，直到找到单个重复记录。 如果流作业包含大量重复行，则此拆分和插入过程必须逐个忽略重复项，从而导致效率下降和耗费大量时间。 如果过去一小时内在活动日志中显示了多个键冲突警告消息，则很可能是 SQL 输出拖慢了整个作业。 
 

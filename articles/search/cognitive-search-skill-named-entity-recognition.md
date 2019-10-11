@@ -2,24 +2,23 @@
 title: 命名实体识别认知搜索技能 - Azure 搜索
 description: 从 Azure 搜索认知搜索管道中的文本中提取人员、位置和组织的命名实体。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 64fbee8a4bad8001e73c15596a964387d2877ed6
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: e2a7c4cd719e3a642ddef5ca6c0d03bb87a82f6d
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004880"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674429"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>命名实体识别认知技能
+# <a name="named-entity-recognition-cognitive-skill"></a>命名实体识别认知技能
 
 命名实体识别  技能可以从文本中提取命名实体。 可用实体包括 `person`、`location` 和 `organization` 类型。
 
@@ -29,14 +28,14 @@ ms.locfileid: "66004880"
 > [!NOTE]
 > 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要[附加可计费的认知服务资源](cognitive-search-attach-cognitive-services.md)。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 内置技能执行按现有[认知服务即用即付价格](https://www.azure.cn/zh-cn/home/features/cognitive-services/)计费。 
+> 内置技能执行按现有[认知服务预付费价格](https://www.azure.cn/pricing/details/cognitive-services/)收费。 图像提取定价如 [Azure 搜索定价页](https://www.azure.cn/pricing/details/search/)所述。
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>数据限制
-记录的最大大小应为 50,000 个字符，通过 `String.Length` 进行测量。 如果在将数据发送到关键短语提取器之前需要拆分数据，请使用[文本拆分技能](cognitive-search-skill-textsplit.md)。
+记录的最大大小应为 50,000 个字符，通过 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) 进行测量。 如果在将数据发送到关键短语提取器之前需要拆分数据，请使用[文本拆分技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能参数
 
@@ -94,7 +93,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
         "recordId": "1",
         "data":
            {
-             "text": "This is the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia… Ana Smith is provided as a reference.",
              "languageCode": "en"
            }
       }

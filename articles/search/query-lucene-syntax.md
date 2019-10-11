@@ -4,11 +4,11 @@ description: 完整 Lucene 语法的引用，与 Azure 搜索一起使用。
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 08/08/2019
 origin.date: 05/13/2019
 author: brjohnstmsft
-ms.author: v-biyu
-ms.manager: cgronlun
+ms.author: v-tawe
+ms.manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -20,15 +20,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: af78bf29ceb27b4f4d1028731a7dad9366e337b3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 6ae54dfd655ad584ce17d90f952abf14de203f8a
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004657"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674257"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜索中的 Lucene 查询语法
-可以基于用于专用查询窗体的丰富 [Lucene 查询分析](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)语法写入针对 Azure 搜索的查询：通配符、模糊搜索、邻近搜索、正则表达式等。 除了通过 `$filter` 表达式在 Azure 搜索中构造的“范围搜索”之外，大部分 Lucene 查询分析器语法都[在 Azure 搜索中完整实现](search-lucene-query-architecture.md)  。 
+可以基于用于专用查询窗体的丰富 [Lucene 查询分析](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)语法写入针对 Azure 搜索的查询：通配符、模糊搜索、邻近搜索、正则表达式等。 除了通过 `$filter` 表达式在 Azure 搜索中构造的“范围搜索”之外，大部分 Lucene 查询分析器语法都[在 Azure 搜索中完整实现](search-lucene-query-architecture.md)  。 
 
 ## <a name="how-to-invoke-full-parsing"></a>如何调用完整分析
 
@@ -80,7 +80,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
  特殊字符必须进行转义才能用作搜索文本的一部分。 可以使用反斜杠 (\\) 为其添加前缀来进行转义。 需要转义的特殊字符包括：  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- 例如，若要转义通配符，请使用 \\*。
+ 例如，若要转义通配符，请使用 \\\*。
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>对 URL 中的不安全及保留字符进行编码
 
@@ -137,7 +137,7 @@ NOT 运算符为感叹号或减号。 例如：`wifi !luxury` 将搜索包含“
 > 使用字段化搜索表达式时，不需使用 `searchFields` 参数，因为每个字段化搜索表达式都有一个显式指定的字段名称。 但是，如果需要运行查询，则仍可使用 `searchFields` 参数，其中的某些部分局限于特定字段，其余部分可以应用到多个字段。 例如，查询 `search=genre:jazz NOT history&searchFields=description` 只将 `jazz` 匹配到 `genre` 字段，而它则会将 `NOT history` 与 `description` 字段匹配。 在 `fieldName:searchExpression` 中提供的字段名称始终优先于 `searchFields` 参数，这就是在此示例中我们不需在 `searchFields` 参数中包括 `genre` 的原因。
 
 ##  <a name="bkmk_fuzzy"></a> 模糊搜索  
- 模糊搜索在构造相似的术语中查找匹配项。 对于 [Lucene 文档](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)，模糊搜索基于 [Damerau-Levenshtein 距离](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)。 模糊搜索可以将满足距离条件的项扩展到最多 50 个字词。 
+ 模糊搜索在构造相似的术语中查找匹配项。 对于 [Lucene 文档](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)，模糊搜索基于 [Damerau-Levenshtein 距离](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)。 模糊搜索可以将满足距离条件的项扩展到最多 50 个字词。 
 
  若要进行模糊搜索，请在单个词末尾使用“~”波形符，另附带指定编辑距离的可选参数（0 到 2 [默认] 之间的值）。 例如“blue~”或“blue~1”会返回“blue”、“blues”和“glue”。
 
@@ -156,7 +156,7 @@ NOT 运算符为感叹号或减号。 例如：`wifi !luxury` 将搜索包含“
  若要提升术语，请使用插入符号“^”，并且所搜索术语末尾还要附加提升系数（数字）。 还可以提升短语。 提升系数越高，术语相对于其他搜索词的相关性也越大。 默认情况下，提升系数是 1。 虽然提升系数必须是正数，但可以小于 1（例如 0.20）。  
 
 ##  <a name="bkmk_regex"></a> 正则表达式搜索  
- 正则表达式搜索基于正斜杠“/”之间的内容查找匹配项，如在 [RegExp 类](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)中所记录的那样。  
+ 正则表达式搜索基于正斜杠“/”之间的内容查找匹配项，如在 [RegExp 类](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html)中所记录的那样。  
 
  例如，若要查找包含“汽车旅馆”或“酒店”的文档，请指定 `/[mh]otel/`。  正则表达式搜索与单个词匹配。   
 
@@ -166,7 +166,7 @@ NOT 运算符为感叹号或减号。 例如：`wifi !luxury` 将搜索包含“
  例如，若要查找前缀为“note”的词（如“notebook”或“notepad”）的文档，请指定“note*”。  
 
 > [!NOTE]  
->  不得将 * 或 ?  符号用作搜索的第一个字符。  
+>  不得将 * 或 ? 符号用作搜索的第一个字符。  
 >  不对通配符搜索查询执行文本分析。 查询时，通配符查询术语与搜索索引中所分析的字词进行比较并展开。
 
 ## <a name="see-also"></a>另请参阅  

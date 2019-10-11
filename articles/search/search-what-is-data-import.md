@@ -2,20 +2,20 @@
 title: 数据导入以便将数据引入到搜索索引中 - Azure 搜索
 description: 从外部数据源填充数据并将数据上传到 Azure 搜索中的索引。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 2742096fc7fed7b276b2f46c5c84e4b015e1e17b
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 91691280868e9b265fc09b59cd16b956f9279a48
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004397"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674389"
 ---
 # <a name="data-import-overview---azure-search"></a>数据导入概述 - Azure 搜索
 
@@ -37,7 +37,7 @@ ms.locfileid: "66004397"
 
 目前尚没有支持通过门户推送数据的工具。
 
-有关每种方法的简介，请参阅[快速入门：使用 PowerShell 和 REST API 创建 Azure 搜索索引](search-create-index-rest-api.md)或[快速入门：使用 C# 创建 Azure 搜索索引](search-import-data-dotnet.md)。
+有关每种方法的简介，请参阅[快速入门：使用 PowerShell 创建 Azure 搜索索引](search-create-index-rest-api.md)或[C# 快速入门：使用 .NET SDK 创建 Azure 搜索索引](search-get-started-dotnet.md)。
 
 <a name="indexing-actions"></a>
 
@@ -45,9 +45,9 @@ ms.locfileid: "66004397"
 
 可以按文档控制索引操作的类型，指定是应该完整地上传文档、与现有文档内容合并还是将其删除。
 
-在 REST API 中，向 Azure 搜索索引的终结点 URL 发出具有 JSON 请求正文的 HTTP POST 请求。 “value”数组中的每个 JSON 对象都包含文档的密钥，并指定用于添加、更新或删除文档内容的索引操作。 有关代码示例，请参阅[加载文档](search-create-index-rest-api.md#load-documents)。
+在 REST API 中，向 Azure 搜索索引的终结点 URL 发出具有 JSON 请求正文的 HTTP POST 请求。 “value”数组中的每个 JSON 对象都包含文档的密钥，并指定索引操作是添加、更新还是删除文档内容。 有关代码示例，请参阅[加载文档](search-get-started-dotnet.md#load-documents)。
 
-在 .NET SDK 中，请将数据打包到 `IndexBatch` 对象中。 `IndexBatch` 封装 `IndexAction` 对象的集合，其中每个对象均包含一个文档和一个属性，用于指示 Azure 搜索对该文档执行什么操作。 有关代码示例，请参阅[构造 IndexBatch](search-import-data-dotnet.md#construct-indexbatch)。
+在 .NET SDK 中，请将数据打包到 `IndexBatch` 对象中。 `IndexBatch` 封装 `IndexAction` 对象的集合，其中每个对象均包含一个文档和一个属性，用于指示 Azure 搜索对该文档执行什么操作。 有关代码示例，请参阅 [C# 快速入门](search-get-started-dotnet.md)。
 
 
 | @search.action | 说明 | 每个文档必需的字段 | 注释 |

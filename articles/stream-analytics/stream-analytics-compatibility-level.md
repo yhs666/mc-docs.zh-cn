@@ -5,17 +5,16 @@ services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2018
+origin.date: 05/02/2019
 ms.date: 06/11/2019
-ms.openlocfilehash: bd918c8e0e49bf876e5c5b2cba852470ee0e592b
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: df6f153bd39434c89bc0f1ee5606587ab4f451cf
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969598"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674693"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 

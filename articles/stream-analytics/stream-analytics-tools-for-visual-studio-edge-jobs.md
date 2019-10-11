@@ -1,21 +1,20 @@
 ---
-title: 适用于 Visual Studio 的 Azure 流分析工具中的 Edge 作业
-description: 本文介绍如何使用适用于 Visual Studio 的流分析工具创作、调试和创建流分析 Edge 作业。
+title: 适用于 Visual Studio 的 Azure 流分析工具中的流分析 Edge 作业
+description: 本文介绍如何使用适用于 Visual Studio 的流分析工具在 IoT Edge 作业上创作、调试和创建流分析。
 services: stream-analytics
 author: rockboyfor
 ms.author: v-yeche
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 03/13/2018
+origin.date: 12/07/2018
 ms.date: 09/30/2018
-ms.openlocfilehash: f2d31c6d68dc9e0f25798e0ce300fe01ef030d26
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: c1f881e6d8d04c9ef6cf00a914c968045eaa65c7
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169619"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674746"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 

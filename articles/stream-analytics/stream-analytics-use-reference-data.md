@@ -4,18 +4,17 @@ description: 本文介绍如何使用参考数据在 Azure 流分析作业的查
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 06/21/2019
-ms.openlocfilehash: d1f36431f79a4d4f018847a88993b3d2b7972ea9
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/21/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: 39189caa7c9ad58bbaeb0d0aedb0461ccd6edc09
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969526"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674738"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
 

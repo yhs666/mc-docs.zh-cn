@@ -2,13 +2,13 @@
 title: 将自动提示查询添加到索引 - Azure 搜索
 description: 通过创建建议器并构建调用自动完成或自动建议的查询字词的请求，在 Azure 搜索中启用自动提示查询操作。
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
-ms.author: v-biyu
-ms.manager: cgronlun
+ms.author: v-tawe
+ms.manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -20,12 +20,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 182b375175752b7f0738e9596cb879432698ac13
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: dffc62667338985b5eececddf5989d5bec78ce41
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004891"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674368"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>将建议器添加到 Azure 搜索中的自动提示索引
 
@@ -107,6 +107,13 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |`name`        |建议器的名称。 调用时[建议 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 或[自动完成 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 时将使用该建议器名称。|
 |`searchMode`  |用于搜索候选短语的策略。 当前唯一受支持的模式是 `analyzingInfixMatching`，此模式在句子开头或中间执行短语的灵活匹配。|
 |`sourceFields`|作为建议内容源的一个或多个字段的列表。 只有 `Edm.String` 和 `Collection(Edm.String)` 类型的字段可作为建议的源。 只能使用没有自定义语言分析器的字段。<p/>请仅指定有助于生成预期相应响应的字段，无论该响应是搜索栏还是下拉列表中的已完成字符串。<p/>酒店名称就是一很好的候选项，因为它很精确。 说明和注释等详细字段过于密集。 同样，类别和标记等重复性字段的效率较低。 在示例中，我们仍然包含了“category”来演示可以包含多个字段。 |
+
+#### <a name="analysis-of-sourcefields-in-a-suggester"></a>在建议器中分析 SourceFields
+
+Azure 搜索分析字段内容，以支持对单个术语进行查询。 建议器除了需要完整的术语外，还需要为前缀编制索引，这需要对源字段进行额外的分析。 自定义分析器配置可以组合任何不同的 tokenizer 和筛选器，其方式常常使生成建议所需的前缀变得不可能。 因此，**Azure 搜索会阻止将具有自定义分析器的字段包含在建议器中**。
+
+> [!NOTE] 
+>  解决上述限制的建议方法是对同一内容使用 2 个不同的字段。 这将允许其中一个字段具有建议器，而其他字段可以使用自定义分析器配置进行设置。
 
 ## <a name="when-to-create-a-suggester"></a>何时创建建议器
 

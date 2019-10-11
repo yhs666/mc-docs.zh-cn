@@ -1,22 +1,20 @@
 ---
 title: 添加建议和自动完成搜索框 - Azure 搜索
 description: 通过创建建议器和构建请求在 Azure 搜索中启用自动提示查询操作，以便在搜索框中填充已完成的字词。
-manager: pablocas
+manager: nitinme
 author: mrcarter8
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 8a19efed9abd7f2ed072d1eceabf8c5173d72846
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 7ba75ac67d9f8ebbb9cc5b1af94fb85316306c6c
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004646"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674248"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>添加建议或自动完成 Azure 搜索应用程序
 
@@ -47,7 +45,7 @@ Azure 搜索服务对于本练习是可选的，因为本解决方案使用一�
 
 * 下载 [DotNetHowToAutoComplete 示例](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)。
 
-该示例非常全面，涵盖了建议、自动完成、分面导航和客户端缓存。 应查看自述文件和注释，以获取该示例提供的功能的完整说明。
+该示例非常全面，涵盖了建议、自动完成、分面导航和客户端缓存。 请查看自述文件和注释，以获取该示例提供的功能的完整说明。
 
 ## <a name="run-the-sample"></a>运行示例
 
@@ -71,7 +69,7 @@ JavaScript 选项直接从浏览器调用 Azure 搜索 REST API。 一般情况�
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-这是一个简单的输入文本框，包含用于设置样式的类、JavaScript 引用的 ID，以及占位符文本。  奥秒之处在于嵌入的 JavaScript。
+此示例是一个简单的输入文本框，包含用于设置样式的类、JavaScript 引用的 ID，以及占位符文本。  奥秒之处在于嵌入的 JavaScript。
 
 C# 语言示例使用 Index.cshtml 中的 JavaScript 来利用 [jQuery UI 自动完成库](https://jqueryui.com/autocomplete/)。 此库异步调用 MVC 控制器来检索建议，以此将自动完成体验添加到搜索框。 JavaScript 语言版本位于 IndexJavaScript.cshtml 中。 它包含用于搜索栏的以下脚本，以及对 Azure 搜索 REST API 的调用。
 
@@ -96,7 +94,7 @@ $(function () {
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-以上代码行告知 jQuery UI Autocomplete 函数要从何处获取显示在搜索框下的项列表。 由于这是一个 MVC 项目，它会在包含用于返回查询建议的 HomeController.cs 中调用 Suggest 函数（下一部分会详细介绍 Suggest）。 此函数还会传递一些参数来控制突出显示内容、模糊匹配项和字词。 自动完成 JavaScript API 会添加字词参数。
+以上代码行告知 jQuery UI Autocomplete 函数要从何处获取显示在搜索框下的项列表。 由于此项目是一个 MVC 项目，因此它将调用 HomeController.cs 中的 Suggest 函数，该函数包含用于返回查询建议的逻辑（在下一部分中详细了解“建议”）。 此函数还会传递一些参数来控制突出显示内容、模糊匹配项和字词。 自动完成 JavaScript API 会添加字词参数。
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>扩展示例以支持模糊匹配
 
@@ -163,7 +161,7 @@ $(function () {
 
 打开 Controllers 目录下的 **HomeController.cs** 文件。 
 
-首先会发现，名为 `InitSearch` 的 类的顶部有一个方法。 此方法在 Azure 搜索服务中创建经过身份验证的 HTTP 索引客户端。 有关详细信息，请参阅[如何从 .NET 应用程序使用 Azure 搜索](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)。
+首先会发现，名为 `InitSearch` 的 类的顶部有一个方法。 此方法为 Azure 搜索服务创建经过身份验证的 HTTP 索引客户端。 有关详细信息，请参阅[如何从 .NET 应用程序使用 Azure 搜索](search-howto-dotnet-sdk.md)。
 
 在第 41 行可以看到 Suggest 函数。 该函数基于 [DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)。
 
@@ -294,7 +292,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.chinacloudapi.cn
 
 到目前为止，你一直在使用托管的 NYCJobs 演示索引。 若要全面深入到所有代码（包括索引），请遵照这些说明在你自己的搜索服务中创建并加载索引。
 
-1. [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本示例中使用免费服务。 
+1. [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本示例中使用免费服务。 
 
    > [!Note]
    > 如果使用免费的 Azure 搜索服务，则仅限使用三个索引。 NYCJobs 数据加载器将创建两个索引。 请确保服务中有足够的空间用于接受新索引。

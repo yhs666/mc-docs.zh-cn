@@ -2,21 +2,20 @@
 title: 认知搜索文档资源 - Azure 搜索
 description: 与 Azure 搜索中的认知搜索工作负载相关的文章、教程、示例和博客文章的批注列表。
 services: search
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 5b8789c883601b70a4b5fbfc4fbaa5f23d735350
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: 21daf013b1fa3cec8cfcb1f2a8094569403d8497
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004667"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674432"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>认知搜索工作负载的文档资源
 
@@ -28,7 +27,8 @@ ms.locfileid: "66004667"
 + [什么是认知搜索？](cognitive-search-concept-intro.md)
 + [快速入门：在门户中尝试认知搜索](cognitive-search-quickstart-blob.md)
 + [教程：了解认知搜索 API](cognitive-search-tutorial-blob.md)
-+ [示例：创建自定义技能](cognitive-search-create-custom-skill-example.md)
+
+<!-- + [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) -->
 
 ## <a name="how-to-guidance"></a>操作说明指南
 + [如何定义技能集](cognitive-search-defining-skillset.md)
@@ -42,15 +42,23 @@ ms.locfileid: "66004667"
 ## <a name="reference"></a>参考
 
 + [预定义技能](cognitive-search-predefined-skills.md)
-  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
+  + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
+  + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+
++ 自定义技能
+  + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
+
++ [弃用的技能](cognitive-search-skill-deprecated.md)
+  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [创建技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

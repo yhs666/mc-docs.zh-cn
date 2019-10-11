@@ -3,81 +3,93 @@ title: 选择 Azure 搜索服务的定价层或 SKU - Azure 搜索
 description: 可在以下 SKU 中预配 Azure 搜索：“免费”、“基本”和“标准”，其中“标准”在各种资源配置和容量级别中均可用。
 services: search
 author: HeidiSteen
-manager: cgronlun
-tags: azure-portal
+manager: nitinme
+tags: ''
 ms.service: search
 ms.topic: conceptual
-origin.date: 05/08/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: fcacd03081877b09c34a4c4e0b65ba7b75c7b747
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+origin.date: 08/15/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 43da563351523b19fec72e9012455383e00dd160
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004823"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674433"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>选择 Azure 搜索的定价层
 
 创建 Azure 搜索服务时，[资源是在某个定价层或 SKU 中创建的](search-create-service-portal.md)，该定价层或 SKU 在该服务的整个生存期内是固定的。 层包括“免费”、“基本”、“标准”和“存储优化”。 “标准”和“存储优化”提供多种配置和容量。
 
-大多数客户从“免费”层着手，以便能够评估该服务。 然后升级到某个更高的层，以进行开发和生产部署。 可以使用“免费”层完成所有快速入门和教程，包括资源密集型认知搜索的教程。
+大多数客户从“免费”层着手，以便能够评估该服务。 评估后，他们往往会在某个更高的层上创建另一个服务用于开发和生产部署。
 
-> [!NOTE]
-> Microsoft 目前以折扣价提供预览版“存储优化”服务层用于测试和试验，目的是收集反馈。 这些层推出正式版后，我们将公布最终定价。 不建议对生产应用程序使用这些层。
-
-层反映托管服务（而不是功能）的硬件的特征，并按以下标准进行区分：
-
-+ 可以创建的索引数。
-+ 分区（物理存储）的大小和速度。
-
-尽管所有层（包括“免费”层）通常会提供功能奇偶一致性，但较大的工作负荷可以要求使用较高的层。 例如，[使用认知服务的 AI 索引](cognitive-search-concept-intro.md)包含长时间运行的技能，除非数据集很小，否则这些技能会在免费服务中超时。
+尽管所有层（包括“免费”层）通常会提供功能奇偶一致性，但较大的工作负荷可以要求使用较高的层。 例如，[使用认知服务的 AI 扩充](cognitive-search-concept-intro.md)包含长时间运行的技能，除非数据集很小，否则这些技能会在免费服务中超时。
 
 > [!NOTE] 
 > 功能奇偶一致性的例外情况是[索引器](search-indexer-overview.md)，它们不可用于 S3 HD。
 >
 
-在某个层中，可以[调整副本和分区资源](search-capacity-planning.md)以增大或减小规模。 可以从一个或两个资源着手，然后暂时提高重度索引工作负荷的计算能力。 在层中优化资源级别的功能可以增大灵活性，但也会略微增大分析的复杂性。 可能需要进行试验，以确定资源/副本数更多的较低层所提供的性价比，是否高于资源数更少的较高层。 若要详细了解何时以及为何调整容量，请参阅[性能和优化注意事项](search-performance-optimization.md)。
+<!-- For Basic tier and up, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md). -->
 
-## <a name="tiers-for-azure-search"></a>Azure 搜索的层
+## <a name="available-tiers"></a>可用的层
 
-下表列出了可用的层。 预配服务时，可以在[定价页](https://azure.microsoft.com/pricing/details/search/)、[Azure 搜索中的服务限制](search-limits-quotas-capacity.md)以及门户页上找到有关各个层的详细信息。
+层反映托管服务（而不是功能）的硬件的特征，并按以下标准进行区分：
 
-|层 | 容量 |
-|-----|-------------|
-|免费 | 与其他订阅者共享。 不可缩放。 限制为 3 个索引和 50 MB 存储。 |
-|基本 | 为小规模生产工作负荷提供专用计算资源。 一个 2 GB 的分区和最多 3 个副本。 |
-|标准 1 (S1) | 适用于 S1 和更高大小的专用计算机，在每个级别提供更多的存储和处理容量。 适用于 S1 大小的计算机，分区大小为 25 GB/分区（为每个服务最多提供 300 GB）。 |
-|标准 2 (S2) | 类似于 S1，但提供 100 GB 的分区（为每个服务最多提供 1.2 TB）。 |
-|标准 3 (S3) | 200 GB 分区（为每个服务最多提供 2.4 TB）。 |
-|标准 3 高密度 (S3 HD) | “高密度”是适用于 S3 的托管模式。  基础硬件针对大量的小型索引进行优化，适用于多租户方案。 S3 HD 的每单位费用与 S3 相同，但硬件经过优化，可基于大量的小型索引快速读取文件。|
-|存储优化 1 (L1) | 1 TB 分区（为每个服务最多提供 12 TB）。 |
-|存储优化 2 (L2) | 2 TB 分区（为每个服务最多提供 24 TB）。 |
++ 可创建的索引和索引器数量
++ 分区（物理存储）的大小和速度
 
-> [!NOTE] 
-> 与“标准”层相比，“存储优化”层以更低的每 TB 价格提供更大的存储容量。 主要弊端是查询延迟更高，应根据具体的应用程序要求确认这种延迟。  若要详细了解此层的性能注意事项，请参阅[性能和优化注意事项](search-performance-optimization.md)。
->
+选择的层决定了计费费率。 以下 Azure 门户屏幕截图显示了可用的层，其中不包括定价层（可在门户中和[定价页](https://www.azure.cn/pricing/details/search/)上找到该层）。 “免费”、“基本”和“标准”层是最常用的层。   
 
-## <a name="how-billing-works"></a>计费原理
+“免费”选项会在群集上创建一个与其他订阅者共享的受限搜索服务。  你可以完成小型项目（包括快速入门和教程），但无法缩放服务或运行繁重的工作负荷。 “基本”和“标准”层是最常用的计费层，其中“标准”层是默认的层。   
 
-在 Azure 搜索中，有三个方面会产生费用，并且存在固定和可变的计费部分。 本部分介绍三个计费部分：核心服务费用、数据传出费用和 AI 扩充索引。
+![Azure 搜索的定价层](media/search-sku-tier/tiers.png "Azure 搜索的定价层")
 
-### <a name="core-service-costs-fixed-and-variable"></a>核心服务费用（固定和可变）
+某些层已针对特定类型的工作进行优化。 例如，“标准 3 高密度(S3 HD)”是 S3 的托管模式，其中的底层硬件已针对大量的较小索引进行优化，适用于多租户方案。   S3 HD 的每单位费用与 S3 相同，但硬件经过优化，可基于大量的小型索引快速读取文件。
 
-对于服务本身而言，最低费用是第一个搜索单位（1 个副本 x 1 分区）的费用。 在服务的整个生命周期内，此最低费用都是固定的，因为服务不能在低于此配置的组件上运行。
+与“标准”层相比，“存储优化”层以更低的每 TB 价格提供更大的存储容量。  主要弊端是查询延迟更高，应根据具体的应用程序要求确认这种延迟。  若要详细了解此层的性能注意事项，请参阅[性能和优化注意事项](search-performance-optimization.md)。
 
-超出最低费用时，可以单独添加副本和分区。 例如，可以只添加副本，或只添加分区。 通过副本和分区递增容量构成了可变费用部分。
+预配服务时，可以在[定价页](https://www.azure.cn/pricing/details/search/)、[Azure 搜索中的服务限制](search-limits-quotas-capacity.md)以及门户页上找到有关各个层的详细信息。
 
-费用是根据某个[公式（副本数 x 分区数 x 费率）](#search-units)计算的。 付费费率取决于所选的定价层。
+## <a name="billable-events"></a>计费事件
 
-在以下屏幕截图中，“免费”、“基本”和 S1 层按单位定价。 （S2、S3、L1 和 L2 未显示。）如果创建“基本”服务，每月费用将是 *price-1* 显示的值的平均值。 如果创建“标准”服务，每月费用将是 *price-2* 显示的值的平均值。 每个层的单位费用将会增加，因为每个连续层的计算能力和存储容量会不断增大。 [Azure 搜索定价页](https://azure.microsoft.com/pricing/details/search/)上提供了Azure 搜索的费率。
+基于 Azure 搜索构建的解决方案可能会在以下方面产生成本：
 
-![按单位定价](./media/search-sku-tier/per-unit-pricing.png "按单位定价")
++ 采用最低配置的服务的基本成本（创建服务）
++ 纵向扩展时的增量成本（添加副本或分区）
++ 带宽费用（出站数据传输） 
++ 认知搜索（为 AI 扩充附加认知服务、用于知识存储的 Azure 存储）
+
+### <a name="service-costs"></a>服务成本
+
+与可以“暂停”以避免产生费用的虚拟机或其他资源不同，Azure 搜索服务在专门供你使用的硬件上始终可用。 因此，创建服务是一个计费事件，该事件在创建该服务时开始，在删除该服务时结束。 
+
+最低费用是采用计费费率的第一个搜索单位（1 个副本 x 1 个分区）。 在服务的整个生命周期内，此最低费用都是固定的，因为服务不能在低于此配置的组件上运行。 超出最低费用时，可以单独添加副本和分区。 通过副本和分区递增容量会增大费用，其计算公式如下：[(副本数 x 分区数 x 费率)](#search-units)，其中，收费费率取决于所选的定价层。
 
 在估算搜索解决方案的费用时，请记住，定价和容量不是线性的。 （容量翻倍不是支付两倍的费用，而是要支付更高的费用）有关该公式的工作方式示例，请参阅[如何分配副本和分区](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)。
 
-#### <a name="billing-based-on-search-units"></a>基于搜索单位计费
+### <a name="bandwidth-charges"></a>带宽费用
+
+使用 [Azure 搜索索引器](search-indexer-overview.md)可能会影响计费，具体取决于服务的位置。 如果在数据所在的同一区域中创建 Azure 搜索服务，则可以完全消除数据流出费用。 下面是摘自[带宽定价页](https://www.azure.cn/pricing/details/bandwidth/)中的一些信息：
+
++ Microsoft 不会对入站到 Azure 上的任何服务的任何数据收费，也不会对 Azure 搜索的任何出站数据收费。
++ 在多服务解决方案中，如果所有服务位于同一个区域，将不会对通过网络传输的数据收费。
+
+如果服务在不同的区域中，则会针对出站数据收费。 这些费用实际上不是 Azure 搜索帐单的一部分。 此处之所以提到这些费用，是因为如果你使用数据或 AI 扩充索引器从不同的区域提取数据，将会在总体帐单中看到这些费用。
+
+### <a name="cognitive-search-ai-enrichment-with-cognitive-services"></a>使用认知服务的认知搜索 AI 扩充
+
+对于[使用认知服务的 AI 扩充](cognitive-search-concept-intro.md)，应该计划在 S0 定价层上的 Azure 搜索所在的同一区域中[附加一个计费的 认知服务资源](cognitive-search-attach-cognitive-services.md)，用于即用即付处理。 附加认知服务不会产生固定的费用。 只需支付所需的处理费。
+
+| 操作 | 计费影响 |
+|-----------|----------------|
+| 文档破解、文本提取 | 免费 |
+| 文档破解、图像提取 | 根据从文档中提取的图像数计费。 在[索引器配置](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)中，**imageAction** 是触发图像提取的参数。 如果 **imageAction** 设置为“none”（默认值），则不收取图像提取费用。 Azure 搜索的[定价详细信息](https://www.azure.cn/pricing/details/search/)页上阐述了图像提取费率。|
+| [预生成的认知技能](cognitive-search-predefined-skills.md) | 计费费率与直接使用认知服务执行任务的费率相同。 |
+| 自定义技能 | 自定义技能是你提供的功能。 使用自定义技能的费用完全取决于自定义代码是否调用其他计量的服务。 |
+
+<a name="search-units"></a>
+
+## <a name="billing-formula-r-x-p--su"></a>计费公式 (R x P = SU)
 
 对于 Azure 搜索操作，要了解的最重要计费概念是搜索单位 (SU)。  由于 Azure 搜索必须同时使用副本和分区进行索引编制和查询，因此无法按其中的一个进行计费。 相反，应基于两者的组合来计费。
 
@@ -85,48 +97,25 @@ SU 是服务使用的副本数和分区数的乘积：   **(R x P = SU)** 。
 
 每个服务至少从 1 个 SU（1 个分区乘以 1 个副本）开始。 任何服务的最大 SU 值为 36。 可通过多种方式来实现此最大值：例如，6 个分区 x 6 个副本，或 3 个分区 x 12 个副本。 通常使用小于总容量的值（例如，3 副本、3 分区的服务按 9 个 SU 计费）。 有关有效的组合，请参阅[分区和副本组合](search-capacity-planning.md#chart)图表。
 
-费率按每个 SU、按小时计算。 每个层的费率渐进式提高。 层越高，分区越大且速度越快，因此，每小时的总费率更高。 可以在[定价详细信息](https://azure.microsoft.com/pricing/details/search/)页上查看每个层的费率。
+费率按每个 SU、按小时计算。 每个层的费率渐进式提高。 层越高，分区越大且速度越快，因此，每小时的总费率更高。 可以在[定价详细信息](https://www.azure.cn/pricing/details/search/)页上查看每个层的费率。
 
 大多数客户只是联机使用一部分总容量，将剩余的容器保持预留状态。 在计费方面，支付的每小时费用取决于联机的分区和副本数量（使用 SU 公式计算）。
 
-### <a name="data-egress-charges-during-indexing"></a>索引期间的数据流出费用
+## <a name="how-to-manage-and-reduce-costs"></a>如何管理和降低成本
 
-使用 [Azure 搜索索引器](search-indexer-overview.md)可能会影响计费，具体取决于服务的位置。 如果在数据所在的同一区域中创建 Azure 搜索服务，则可以完全消除数据流出费用。
+除参考以下建议外，另请访问[计费和成本管理](https://docs.azure.cn/billing/billing-getting-started)。
 
+- 在同一区域或者在尽可能少的区域中创建所有资源，以最大程度地减少甚至消除带宽费用。
 
-如果服务在不同的区域中，则会针对出站数据收费。 这些费用实际上不是 Azure 搜索帐单的一部分。 此处之所以提到这些费用，是因为如果你使用数据或 AI 扩充索引器从不同的区域提取数据，将会在总体帐单中看到这些费用。
+- 将所有服务（例如 Azure 搜索、认知服务，以及解决方案中使用的任何其他 Azure 服务）合并到一个资源组中。 在 Azure 门户中找到该资源组，并使用“成本管理”命令来洞察实际支出和预计支出。 
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>使用认知服务的 AI 扩充索引
+- 考虑对前端应用程序使用 Azure Web 应用，使请求和响应保留在数据中心边界范围内。
 
-对于[使用认知服务的 AI 索引](cognitive-search-concept-intro.md)，应该计划在 S0 定价层上的 Azure 搜索所在的同一区域中附加一个可计费的 认知服务资源，用于即用即付处理。 附加认知服务不会产生固定的费用。 只需支付所需的处理费。
+- 针对索引编制等资源密集型操作纵向扩展，然后针对常规查询工作负荷向下重新调整。 首先对 Azure 搜索使用最低的配置（由一个分区和一个副本组成的一个 SU），然后监视用户活动，以识别指示需要更多容量的使用模式。 如果有可预测的模式，也许可以使用活动来同步规模（需要编写代码来自动化此过程）。
 
-文档破解期间的图像提取属于 Azure 搜索费用。 该费用根据从文档中提取的图像数计收。 文本提取目前是免费的。
+无法通过关闭搜索服务来减少费用。 专用资源始终运行，是在服务的生存期内专门分配给你使用的。 就服务本身而言，降低费用的唯一方法是将副本和分区数减少到一个较低的水平，但仍能提供可接受的性能并遵从 SLA；或者在较低的层创建一个服务（S1 的每小时费率低于 S2 或 S3 的费率）。 假设你预配了一个面向低端负载预测的服务。若要扩充该服务，可以创建另一个具有较大层的服务，在该服务上重建索引，然后删除第一个服务。
 
-其他扩充功能（例如自然语言处理）基于[内置的认知技能](cognitive-search-predefined-skills.md)，根据认知服务资源计费。 这些功能的费率与直接使用认知服务执行任务的费率相同。 有关详细信息，请参阅[附加包含技能集的认知服务资源](cognitive-search-attach-cognitive-services.md)。
-
-<a name="search-units"></a>
-
-#### <a name="billing-for-image-extraction-in-cognitive-search"></a>认知搜索中图像提取的计费
-
-如果从认知搜索索引管道中的文件提取图像，则 Azure 搜索帐单会收取该操作的费用。 在[索引器配置](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)中，**imageAction** 是触发图像提取的参数。 如果 **imageAction** 设置为“none”（默认值），则不收取图像提取费用。
-
-定价随时可能变化。 Azure 搜索的[定价详细信息](https://azure.microsoft.com/pricing/details/search/)页上阐述了定价。
-
-#### <a name="billing-for-built-in-skills-in-cognitive-search"></a>认知搜索中内置技能的计费
-
-设置扩充管道时，该管道中使用的任何[内置技能](cognitive-search-predefined-skills.md)基于机器学习模型。 这些模型由认知服务提供。 如果在索引期间使用这些模型，则费率与直接请求资源的费率相同。
-
-例如，假设某个管道使用用于处理已扫描的 JPEG 图像文件的光学字符识别 (OCR)，并且生成的文本将推送到 Azure 搜索索引，以进行自由形式的搜索查询。 索引管道将包含一个带有 [OCR 技能](cognitive-search-skill-ocr.md)的索引器，而该技能将[附加到认知服务资源](cognitive-search-attach-cognitive-services.md)。 运行该索引器时，认知资源帐单上会显示 OCR 执行费用。
-
-## <a name="tips-for-reducing-costs"></a>有关降低成本的提示
-
-无法通过关闭服务来减少费用。 专用资源始终运行，是在服务的生存期内专门分配给你使用的。
-
-降低费用的唯一方法是选择每小时费率更低的层。 S1 的每小时费率低于 S2 或 S3 的费率。 假设你预配了一个面向低端负载预测的服务。若要扩充该服务，可以创建另一个具有较大层的服务，在该服务上重建索引，然后删除第一个服务。
-
-如果针对本地服务器做了容量规划，则会知道，常见的做法是“超量购买”，以便可以应对预测的增长。 使用云服务时，可以采用更激进的方式来追求成本节省，因为你并不会受限于购买特定的产品。 如果当前服务能力不足，始终可以切换到更高层的服务。
-
-### <a name="capacity"></a>容量
+## <a name="how-to-evaluate-capacity-requirements"></a>如何评估容量要求
 
 在 Azure 搜索中，容量的结构包括副本和分区   。
 
@@ -137,47 +126,39 @@ SU 是服务使用的副本数和分区数的乘积：   **(R x P = SU)** 。
 > [!NOTE]
 > 所有“标准”和“存储优化”层都支持[副本和分区的灵活组合](search-capacity-planning.md#chart)，因此你可以通过改变平衡方式来[优化系统以提高速度或存储](search-performance-optimization.md)。 “基本”层最多提供三个副本来实现高可用性，但只有一个分区。 “免费”层不提供专用资源：计算资源由多个订阅者共享。
 
-### <a name="more-about-service-limits"></a>有关服务限制的详细信息
+<!-- ## Consumption patterns
 
-服务托管索引和索引器等资源。 每个层对可以创建的资源数量施加[服务限制](search-limits-quotas-capacity.md)。 因此，索引数量（以及其他对象）的上限是各层级的第二个区别特征。 在门户中查看每个选项时，请注意索引数量的限制。 其他资源（如索引器、数据源和技能集）受索引限制的约束。
+On the low and high ends, Basic and S3 HD are for important but atypical consumption patterns. Basic is for small production workloads. It offers SLAs, dedicated resources, and high availability, but it provides modest storage, topping out at 2 GB total. This tier was engineered for customers that consistently underutilize available capacity. At the high end, S3 HD is for workloads typical of ISVs, partners, [multitenant solutions](search-modeling-multitenant-saas-applications.md), or any configuration that calls for a large number of small indexes. It's often clear when Basic or S3 HD is the right tier. If you want confirmation, you can post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://support.azure.cn) for guidance.
 
-## <a name="consumption-patterns"></a>消费模式
-
-大多数客户从“免费”服务开始，并无限期保留，然后选择一个“标准”或“存储优化”层用于重大开发或生产工作负载。
-
-![Azure 搜索定价层](./media/search-sku-tier/tiers.png "Azure 搜索定价层")
-
-在低端和高端配置中，“基本”和“S3 HD”层适用于重要但非典型的消耗模式。 “基本”层适用于小型生产工作负荷。 它提供 SLA、专用资源和高可用性，但它提供的存储最适中，总量不超过 2 GB。 此层专为持续使用可用容量的客户设计。 在高端配置中，“S3 HD”层适用于 ISV、合作伙伴、[多租户解决方案](search-modeling-multitenant-saas-applications.md)或要求大量小型索引的任何配置的典型工作负荷。 如果“基本”或“S3 HD”是合适的层，客户可以明确地认识到这一点。 如需确认，可以在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 上发贴或[联系 Azure 支持人员](https://azure.microsoft.com/support/options/)，以获取指导。
-
-更常用的标准层 S1 到 S3 所提供的容量逐级提升。 分区大小存在拐点，索引、索引器和定理资源的数量存在限制：
+The more commonly used standard tiers, S1 through S3, make up a progression of increasing levels of capacity. There are inflection points on partition size and limits on numbers of indexes, indexers, and corollary resources:
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| 分区大小|  25 GB | 100 GB | 200 GB |  |  |  |  |
-| 索引和索引器限制| 50 | 200 | 200 |  |  |  |  |
+| Partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
+| Index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
-需要专用资源和多个分区的客户通常会选择 S1。 S1 提供 25 GB 的分区（最多 12 个），如果使用最大的分区数而不是副本数据，则 S1 的每服务限制为 300 GB。 （有关更平衡的分配，请参阅[分配分区和副本](search-capacity-planning.md#chart)。）
+S1 is a common choice for customers that need dedicated resources and multiple partitions. S1 offers partitions of 25 GB and up to 12 partitions, providing a per-service limit of 300 GB if you maximize partitions over replicas. (See [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced allocations.)
 
-门户和定价页将重点放在分区大小和存储上，但对于每个层级，所有计算能力（磁盘容量、速度、CPU）一般随着价格呈线性增长。 S2 副本快于 S1，S3 快于 S2。 “S3”层以非常快的 I/O 速度打破了线性计算定价模式。 如果你预期 I/O 会成为瓶颈，请注意，S3 提供的 IOPS 要远远高于更低的层。
+The portal and pricing pages put the focus on partition size and storage, but, for each tier, all compute capabilities (disk capacity, speed, CPUs) generally increase linearly with price. An S2 replica is faster than S1, and S3 is faster than S2. S3 tiers break from the linear compute-pricing pattern with disproportionately faster I/O. If you expect I/O to be the bottleneck, keep in mind that you can get much more IOPS with S3 than you can get with lower tiers.
 
-S3 和 S3 HD 受相同高容量基础结构支持，但采用不同的方式达到其最大限制。 S3 面向更少数量的极大型索引，因此其最大限制与资源密切相关（每个服务 2.4 TB）。 S3 HD 面向较大数目的非常小的索引。 在 1,000 个索引的情况下，S3 HD 达到其索引约束形式的限制。 如果 S3 HD 客户需要超过 1,000 个索引，请联系 Microsoft 支持部门，了解如何继续。
+S3 and S3 HD are backed by identical high-capacity infrastructure, but they reach their maximum limits in different ways. S3 targets a smaller number of very large indexes, so its maximum limit is resource-bound (2.4 TB for each service). S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you're an S3 HD customer and you need more than 1,000 indexes, contact Microsoft Support for information about how to proceed.
 
 > [!NOTE]
-> 以前，文档限制是一个考虑因素，但不再适用于新服务。 有关在哪些情况下仍适用文档限制的信息，请参阅[文档限制](search-limits-quotas-capacity.md#document-limits)。
+> Document limits were a consideration at one time, but they're no longer applicable for new services. For information about conditions in which document limits still apply, see [Document limits](search-limits-quotas-capacity.md#document-limits).
 >
 
-“存储优化”层 L1 和 L2 非常适合用于以下类似的应用程序：大数据要求较高，但最小化查询延迟不是最高优先事务时，最终用户数量相对较小。  
+Storage Optimized tiers, L1 and L2, are ideal for applications with large data requirements but a relatively low number of end users, when minimizing query latency isn't the top priority.  
 
 |  | L1 | L2 |  |  |  |  |  |
 |--|----|----|--|--|--|--|--|
-| 分区大小|  1 TB | 2 TB |  |  |  |  |  |
-| 索引和索引器限制| 10 个 | 10 个 |  |  |  |  |  |
+| Partition size|  1 TB | 2 TB |  |  |  |  |  |
+| Index and indexer limits| 10 | 10 |  |  |  |  |  |
 
-L2 提供的总存储容量是 L1 的两倍。  请根据索引所需的最大数据量来选择层。 “L1”层的分区以 1 TB 增量纵向扩展，最大可扩展到 12 TB。 L2 分区按每个分区 2 TB 的增量增大，最大可扩展到 24 TB。
+L2 offers twice the overall storage capacity of L1.  Choose your tier based on the maximum amount of data that you think your index needs. The L1 tier partitions scale up in 1-TB increments to a maximum of 12 TB. The L2 partitions increase by 2 TBs per partition up to a maximum of 24 TB. -->
 
-## <a name="evaluating-capacity"></a>评估容量
+### <a name="evaluating-capacity"></a>评估容量
 
-容量与服务运行费用直接相关。 层在两个级别施加限制：存储和资源。 应该同时考虑到此两者，因为首先达到的限制就是实施的限制。
+容量与运行服务的成本密切相关。 层在两个级别施加限制：存储和资源。 应该同时考虑到此两者，因为首先达到的限制就是实施的限制。
 
 业务需求通常决定了所需的索引数。 例如，你可能需要对一个较大的文档存储库使用全局索引。 或者，你可能需要多个基于区域、应用或商业利基的索引。
 
@@ -187,25 +168,25 @@ L2 提供的总存储容量是 L1 的两倍。  请根据索引所需的最大�
 > 即使估算将来的索引和存储需求类似于猜测，但也值得一试。 如果层级容量经证实过低，将需要在更高的层级上预配新服务，然后[重新加载索引](search-howto-reindex.md)。 服务无法从一个 SKU 就地升级到另一个。
 >
 
-### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>步骤 1：使用“免费”层进行粗略估算
+### <a name="estimate-with-the-free-tier"></a>使用“免费”层进行评估
 
-估算容量的一种方法是从“免费”层开始。 回想一下，“免费”服务最多提供 3 个索引、50 MB 存储和 2 分钟索引时间。 根据这些约束估算预计索引大小可能很有难度。 下面是可以采用的一种方法：
+估算容量的一种方法是从“免费”层开始。 回想一下，“免费”服务最多提供 3 个索引、50 MB 存储和 2 分钟索引时间。 根据这些约束估算预计索引大小可能很有难度，具体步骤如下：
 
 + [创建免费服务](search-create-service-portal.md)。
-+ 准备一个较小的有代表性的数据集（例如，5,000 个文档，10% 的样本大小）。
-+ [生成初始索引](search-create-index-portal.md)并记下其在门户中的大小（例如 30 MB）。
++ 准备一个小型的有代表性的数据集。
++ [在门户中生成初始索引](search-create-index-portal.md)并记下其大小。 功能和属性会影响存储。 例如，添加建议器（自动提示）会提高存储要求。 可以使用同一个数据集尝试创建索引的多个版本，并在每个字段中使用不同的属性，以了解存储要求的变化。 有关详细信息，请参阅[“创建基本索引”中的“存储影响”](search-what-is-an-index.md#storage-implications)。
 
-如果样本既有代表性，又占整个数据源的 10%，如果所有文档都编入索引，则 30 MB 索引将变为大约 300 MB。 有了此初始数量，即可将此数额增加一倍到两个索引（开发和生产）的预算。 这样可以满足总共 600 MB 的存储要求。 “基本”层可以轻松满足此要求，因此你将从“基本”层开始。
+估算出粗略的数字后，可将此数量增大一倍来得出两个索引（开发和生产）的预算，然后相应地选择层。
 
-### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>步骤 2：使用可计费层进行改进的估算
+### <a name="estimate-with-a-billable-tier"></a>使用计费层进行评估
 
-有些客户更喜欢从可以适应更大采样和处理时间的专用资源开始，然后在开发期间对索引数量、大小和查询量进行现实估算。 最初，服务是根据最佳猜测估算结果预配的。 然后，随着开发项目的不断成熟，团队通常知道现有的服务对于预计生产工作负荷而言是容量超量还是不足。
+专用资源可以适应更大的采样和处理时间，并可以在开发期间对索引数量、大小和查询量进行更贴近实际的估算。 某些客户会直接选择计费层，然后在开发项目成熟后重新进行评估。
 
-1. [检查每个层级的服务限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits)以确定较低层级是否可以支持需要的索引数量。 在“基本”、“S1”和“S2”层中，索引数限制分别为 15、50 和 200。 “存储优化”层的索引数限制为 10 个，因为它旨在支持少量的极大型索引。
+1. [检查每个层级的服务限制](search-limits-quotas-capacity.md#index-limits)以确定较低层级是否可以支持需要的索引数量。 在“基本”、“S1”和“S2”层中，索引数限制分别为 15、50 和 200。 “存储优化”层的索引数限制为 10 个，因为它旨在支持少量的极大型索引。
 
 1. [在可计费层中创建服务](search-create-service-portal.md)：
 
-    + 如果你处于学习曲线的开始位置，请从较低的“基本”或“S1”层着手。
+    + 如果你不确定预计负载有多大，请从较低的“基本”或“S1”层着手。
     + 如果你知道会出现较大的索引和查询负载，请从较高的“S2”甚至“S3”层着手。
     + 如果你要为大量的数据编制索引并且查询负载相对较低（例如，使用与内部商务应用程序时），请从“优化存储”层 L1 或 L2 着手。
 

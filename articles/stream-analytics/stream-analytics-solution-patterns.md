@@ -1,21 +1,19 @@
 ---
 title: Azure 流分析解决方案模式
-description: 了解 Azure 流分析的解决方案模式。
-services: stream-analytics
+description: 了解 Azure 流分析的不同常见解决方案模式。
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
 ms.date: 08/09/2019
-ms.openlocfilehash: 5048ae88c2fbb4c51565c4ceb6119bdfc2523dff
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: cdeb61a77773b7366d73fe127fb09c6df49d684c
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169637"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674760"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure 流分析解决方案模式
 
@@ -162,9 +160,9 @@ ETL 引擎通常需要数据扩充。 Azure 流分析支持使用 SQL 数据库�
 
 在极端情况下，如果传入的事件全部延迟，并且你对作业应用了延迟抵达时限，则[可能会删除所有延迟的事件](stream-analytics-time-handling.md)。 最初，删除事件看上去像是一种诡异的行为；但是，在考虑到流分析是一种实时处理引擎的情况下，预期事件传入时间与挂钟时间接近。 它必须删除违反这些约束的事件。
 
-### <a name="backfilling-process"></a>回填过程
+### <a name="lambda-architectures-or-backfill-process"></a>Lambda 体系结构或回填过程
 
-幸运的是，前面的数据存档模式可用于正常处理这些滞后的事件。 思路是，存档作业会在抵达时处理传入事件，并在事件时间将事件存档到 Azure Blob 或 Azure Data Lake Store 中适当的时间桶。 事件在多晚的时间抵达并不重要，它永远不会被删除。 它始终会进入适当的时间桶。 在恢复过程中，可以重新处理已存档的事件，并将结果回填到所选的存储。
+幸运的是，前面的数据存档模式可用于正常处理这些滞后的事件。 思路是，存档作业会在抵达时处理传入事件，并在事件时间将事件存档到 Azure Blob 或 Azure Data Lake Store 中适当的时间桶。 事件在多晚的时间抵达并不重要，它永远不会被删除。 它始终会进入适当的时间桶。 在恢复过程中，可以重新处理已存档的事件，并将结果回填到所选的存储。 这类似于 lambda 模式的实现方式。
 
 ![ASA 回填](media/stream-analytics-solution-patterns/backfill.png)
 

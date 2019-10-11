@@ -1,20 +1,19 @@
 ---
 title: 了解 Azure 流分析中的时间处理
-description: 了解 Azure 流分析中的时间处理
+description: 了解时间处理的工作原理，以及如何解决 Azure 流分析中的时间处理问题。
 author: rockboyfor
 ms.author: v-yeche
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/30/2018
+origin.date: 03/05/2018
 ms.date: 08/20/2018
-ms.openlocfilehash: c04dc45056ec8b90cedf1b71f629d7bb13ef1613
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 44e8a04e4515dc9c059d60fe01feba7375541ec8
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169618"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674750"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>了解 Azure 流分析中的时间处理
 

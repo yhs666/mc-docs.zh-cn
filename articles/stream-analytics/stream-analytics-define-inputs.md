@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 05/30/2019
-ms.openlocfilehash: b5ac6d1451ee71f7153a623342e33daad2a59edd
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 05/30/2019
+ms.date: 08/30/2019
+ms.openlocfilehash: 5ad590c7539d16de4cedc71af284d316f1a82f69
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969595"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674719"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
