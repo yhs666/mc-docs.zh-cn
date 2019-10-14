@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 08/19/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5063484d15d63e5e5100f2984ef3edd20979bdf9
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: dcb93abedf29d258507b5bdfcc2d6321cc3c1fad
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267111"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275559"
 ---
 # <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>快速入门：使用语音 SDK 在 UWP 应用中合成语音
 
@@ -95,7 +95,7 @@ ms.locfileid: "71267111"
             private async void Speak_ButtonClicked(object sender, RoutedEventArgs e)
             {
                 // Creates an instance of a speech config with specified subscription key and service region.
-                // Replace with your own subscription key and service region (e.g., "westus").
+                // Replace with your own subscription key and service region (e.g., "chinaeast2").
                 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     
                 try

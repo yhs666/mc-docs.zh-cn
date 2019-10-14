@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 07ee80d73c792cb7b96b157979cbeb4aae1f99ef
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 94e03fb7d0333c7a8669f48aa74463a7671301a9
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921086"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272635"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 

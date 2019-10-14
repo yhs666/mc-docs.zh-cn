@@ -9,20 +9,19 @@ editor: ramankum
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 52d55ffe2ca0d1fcff6883b48f426d0615b410ac
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 9d43102744a432c70e5e757f690739a81b461df1
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003983"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272014"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建虚拟机
 
@@ -65,7 +64,7 @@ $virtualMachineSize = 'Standard_DS3'
 #Set the context to the subscription Id where Managed Disk will be created
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
-$snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+$snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 
 $diskConfig = New-AzDiskConfig -Location $snapshot.Location -SourceResourceId $snapshot.Id -CreateOption Copy
 
@@ -90,6 +89,7 @@ $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
 
 #Create the virtual machine with Managed Disk
 New-AzVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $snapshot.Location
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 

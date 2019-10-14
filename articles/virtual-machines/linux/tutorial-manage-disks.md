@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 7b00b0570a368a256e24f6963fcae649afab6bef
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 30fccff979258ce8adbb428d9a9a8fa2a4837dcc
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912937"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272510"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教程 - 使用 Azure CLI 管理 Azure 磁盘
 

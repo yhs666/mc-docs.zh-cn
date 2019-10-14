@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 11/01/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 49a376a620dc5044819d34921f37c00b9bf970a2
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 2afe54464afb7869fa205cedd6f912392bd55d26
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538784"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272878"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>使用 Azure 中的嵌套虚拟化排查问题 Azure VM
 
@@ -30,11 +29,11 @@ ms.locfileid: "69538784"
 
 若要装载问题 VM，救援 VM 必须满足以下先决条件：
 
--   救援 VM 必须与问题 VM 位于同一位置。
+- 救援 VM 必须与问题 VM 位于同一位置。
 
--   救援 VM 必须与问题 VM 位于同一资源组中。
+- 救援 VM 必须与问题 VM 位于同一资源组中。
 
--   救援 VM 与问题 VM 必须使用相同类型的存储帐户（标准或高级）。
+- 救援 VM 与问题 VM 必须使用相同类型的存储帐户（标准或高级）。
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>步骤 1：创建救援 VM 并安装 Hyper-V 角色
 
@@ -130,11 +129,11 @@ ms.locfileid: "69538784"
 
 3. 转到“所有资源”  ，搜索磁盘名称，然后选择该磁盘。
 
-     ![有关搜索磁盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+    ![有关搜索磁盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. 单击“创建 VM”  。
 
-     ![有关从磁盘创建 VM 的图像](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+    ![有关从磁盘创建 VM 的图像](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 此外也可以使用 Azure PowerShell 从磁盘创建 VM。 有关详细信息，请参阅[使用 PowerShell 从现有磁盘创建新的 VM](../windows/create-vm-specialized.md#create-the-new-vm)。 
 

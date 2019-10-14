@@ -3,14 +3,14 @@ author: WenJason
 ms.service: data-factory
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: e61e5c4a5e8f51321e93ae181ebef838d9d7b461
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 5987658a3d8ffb7c5e38ad6fbbb5164fc8579678
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570478"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72287360"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>创建自承载 Integration Runtime
 
@@ -56,7 +56,7 @@ ms.locfileid: "67570478"
    UpdateDelayOffset         :
    LocalTimeZoneOffset       :
    AutoUpdate                :
-   ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.chinacloudapi.cn}
+   ServiceUrls               : {eu.frontend.datamovement.azure.cn, *.servicebus.chinacloudapi.cn}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
    Name                      : <Integration Runtime name>

@@ -1,5 +1,5 @@
 ---
-title: 通过使用 Web API 注册推送通知的当前用户 | Azure Docs
+title: 通过使用 Web API 注册推送通知的当前用户 | Azure
 description: 了解在 ASP.NET Web API 执行注册时如何在 iOS 应用程序中请求向 Azure 通知中心注册推送通知。
 services: notification-hubs
 documentationcenter: ios
@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: a5a450a01dc264fcdfcfe8d92922f1a78160b75f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 01/04/2019
+ms.date: 10/08/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4a522322530dc0a72eca3be8284c7e1d2dcfaa79
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626740"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272493"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>通过使用 ASP.NET 注册推送通知的当前用户
 
@@ -47,10 +47,10 @@ ms.locfileid: "58626740"
 
      ![][0]
 
-2. 在助手编辑器中，创建所有带开关控件的容器并调用它们，连接文本字段与视图控制器（委派），并创建“登录”按钮的“操作”。
-   
+2. 在助手编辑器中，创建所有带开关控件的容器并调用它们，连接文本字段与视图控制器（委派），并创建“登录”按钮的“操作”   。
+
     ![][1]
-   
+
     BreakingNewsViewController.h 文件现在应当包含以下代码：
 
     ```objc

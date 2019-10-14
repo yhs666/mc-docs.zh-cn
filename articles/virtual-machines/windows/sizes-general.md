@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/08/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 612a51dc528ebb726d1222b7594ac474a8775dbd
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: f593b41c9b16253a6e511e77972616948545014a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921175"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272608"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 
@@ -33,7 +32,7 @@ ms.locfileid: "70921175"
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
     
-    <!--Not Available - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
+    <!--Not Available - [Storage optimized](../sizes-storage.md)-->
     
 - [GPU 优化](sizes-gpu.md)
     

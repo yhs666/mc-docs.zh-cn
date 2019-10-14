@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/17/2019
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: d36caf16542c8b72d396734091fb356cb34803e9
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: e1ffe296536a0a6019eecf4adb967043509e567f
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845401"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292431"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -96,7 +96,7 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 
     HDInsight 群集上提供了 Storm Web UI：
 
-    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 

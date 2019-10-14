@@ -4,21 +4,20 @@ description: 了解如何通过分支和链接活动控制 Azure 数据工厂中
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-ms.reviewer: douglasl
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 02/20/2019
-ms.date: 07/08/2019
-ms.author: v-jay
-ms.openlocfilehash: 3562c0210d3124cf8a155a90b3d70780a2e07244
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 10/14/2019
+ms.openlocfilehash: 186476e9525bb263b0adc44b65ba4e5ea632bb97
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570536"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275234"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>数据工厂管道中的分支和链接活动
 
@@ -774,3 +773,4 @@ Press any key to exit...
 
 现在可以转到“概念”部分详细了解 Azure 数据工厂。
 > [!div class="nextstepaction"]
+>[管道和活动](concepts-pipelines-activities.md)

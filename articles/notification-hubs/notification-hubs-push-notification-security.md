@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 06/24/2019
-ms.author: v-biyu
-ms.openlocfilehash: c670f4bbd256251e267c50c77a1a8fb15c11652d
-ms.sourcegitcommit: b3434f6e7ee50a7f84e6b0868f418480aadb1368
+origin.date: 05/31/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5eaa43cff617fba4bbad0dfe6751b806946595c3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66829503"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272503"
 ---
 # <a name="notification-hubs-security"></a>通知中心安全性
 
@@ -30,9 +30,7 @@ ms.locfileid: "66829503"
 
 ## <a name="shared-access-signature-security-sas"></a>共享访问签名 (SAS) 安全性
 
-通知中心实现称为 SAS（共享访问签名）的实体级安全方案。 此方案允许消息实体在其描述中最多声明 12 个用于向该实体授权的授权规则。
-
-每个规则包含一个名称、一个密钥值（共享机密）和一组权限，如[安全声明](#security-claims)中所述。 在创建通知中心时，将自动创建两个规则：一个具有**侦听**权限（由客户端应用使用），一个具有**所有**权限（由应用后端使用）。
+通知中心实现称为 SAS（共享访问签名）的实体级安全方案。 每个规则包含一个名称、一个密钥值（共享机密）和一组权限，如[安全声明](#security-claims)中所述。 在创建通知中心时，将自动创建两个规则：一个具有**侦听**权限（由客户端应用使用），一个具有**所有**权限（由应用后端使用）。
 
 通过客户端应用执行注册管理时，如果通过通知发送的信息不敏感（例如，天气更新），则访问通知中心的常用方法是，向客户端应用提供规则仅限侦听访问权限的密钥值，并向应用后端提供规则完全访问权限的密钥值。
 

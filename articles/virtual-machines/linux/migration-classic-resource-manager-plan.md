@@ -11,17 +11,16 @@ ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 84e6904181116fa1f1903dfa9f27109f4b4343bd
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 6b68081009c18f8b543ed6ad973882b002e91a40
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912973"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272027"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
@@ -103,8 +102,8 @@ ms.locfileid: "68912973"
     - **补救选项 1**。 如果用户知道 VM 不会有出站 Internet 访问权限、正常运行的 DNS 服务和 VM 上正常运行的 Azure 代理，则在准备前在迁移期间卸载所有 VM 扩展，并在迁移后重新安装这些 VM 扩展。 
     - **补救选项 2**。 如果 VM 扩展是个大障碍，另一个方法是在迁移前关闭/解除分配所有 VM。 迁移已解除分配的 VM，并在 Azure Resource Manager 端重新启动它们。 这样做的好处是可迁移 VM 扩展。 缺点是将丢失所有面向公众的虚拟 IP（这可能是非初学者），并且 VM 明显会关闭，从而对正常运行的应用程序产生大得多的影响。
 
-    > [!NOTE] 
-    > 如果针对要迁移的正在运行的 VM 配置 Azure 安全中心策略，则在删除扩展前需要停止安全策略，否则会在删除扩展后自动重新安装安全监视扩展。
+        > [!NOTE] 
+        > 如果针对要迁移的正在运行的 VM 配置 Azure 安全中心策略，则在删除扩展前需要停止安全策略，否则会在删除扩展后自动重新安装安全监视扩展。
 
 - **可用性集** - 对于要迁移到 Azure Resource Manager 的虚拟网络 (vNet)，经典部署（即云服务）包含的 VM 必须全部位于同一个可用性集中，或者 VM 均不得位于任何可用性集中。 云服务中具有多个可用性集与 Azure 资源管理器不兼容，并且迁移将暂停。  此外，不能出现一些 VM 位于可用性集，而一些 VM 不位于可用性集的情况。 若要解决此问题，需要修正或重新配置云服务。  请相应地进行规划，因为这可能很耗时。 
 
@@ -197,7 +196,7 @@ ms.locfileid: "68912973"
 对现在想要在 Azure Resource Manager 中启用哪些服务具有目的性。  许多客户找到以下关于其 Azure 环境令人关注的事实：
 
 - [基于角色的访问控制](../../role-based-access-control/overview.md)。
-- [使用 Azure Resource Manager 模板以更轻松、更可控的方式完成部署](../../azure-resource-manager/resource-group-overview.md#template-deployment)。
+- [使用 Azure Resource Manager 模板以更轻松、更可控的方式完成部署](../../azure-resource-manager/template-deployment-overview.md)。
 - [标记](../../azure-resource-manager/resource-group-using-tags.md)。
 - [活动控制](../../azure-resource-manager/resource-group-audit.md)
 - [Azure 策略](../../governance/policy/overview.md)

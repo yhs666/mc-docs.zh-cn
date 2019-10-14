@@ -9,20 +9,19 @@ editor: v-miegge
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/01/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ec3a7c97345a7f9e12ef40aaa74b56a96f9badc3
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 1dd3a4612ed36528ca723d417d3ccc35c2153189
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539199"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272856"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>使用 PowerShell 收集订阅中所有 VM 的详细信息
 
@@ -38,7 +37,7 @@ ms.locfileid: "69539199"
 
 ```powershell
 #Provide the subscription Id where the VMs reside
-$subscriptionId = "ea7ded4e-153a-4e65-ad70-25bf9f7b91bc"
+$subscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 #Provide the name of the csv file to be exported
 $reportName = "myReport.csv"

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: c70501dc8962fe9fda81a5a5ed4167d225292f60
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 6d847525c9317b833bd5962cf6d30cdbe8322e13
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912761"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272490"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>使用 REST API 创建使用 SSH 身份验证的 Linux 虚拟机
 

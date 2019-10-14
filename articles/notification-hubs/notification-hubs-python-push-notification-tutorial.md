@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: c8ff4cdf65afd44452187524661afc9b49cc2825
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/04/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 75965e22b149b3e56ccd56680c10207716a0ad73
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222570"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272479"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何通过 Python 使用通知中心
 
@@ -272,7 +272,8 @@ def send_template_notification(self, properties, tags=""):
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>使用调试属性启用详细的日志记录
 
 在初始化通知中心时启用调试属性会写出关于 HTTP 请求和响应转储的详细日志记录信息，以及详细的通知消息发送结果。
-[通知中心 TestSend 属性](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100))会返回有关通知发送结果的详细信息。 若要使用它 - 请使用以下代码进行初始化：
+[通知中心 TestSend 属性](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100))会返回有关通知发送结果的详细信息。
+若要使用它 - 请使用以下代码进行初始化：
 
 ```python
 hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
@@ -360,7 +361,7 @@ hub.send_baidu_notification(baidu_payload)
     ```
 - 如果没有找到任何推送通知的目标，则可能出现以下输出作为响应（这表明可能没有找到传递通知的注册，因为这些注册具有一些不匹配的标记）
     ```xml
-    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
+    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="https://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 
 ### <a name="broadcast-toast-notification-to-windows"></a>将 toast 通知广播到 Windows
@@ -418,10 +419,14 @@ hub.send_template_notification(template_payload)
 本文介绍了如何为通知中心创建 Python REST 客户端。 从这里可以：
 
 - 下载完整的 [Python REST 包装器示例]，其中包含本文中的所有代码。
+- 在 [突发新闻教程]
+- 在 [本地化新闻教程]
 
 <!-- URLs -->
 [Python REST 包装器示例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[入门教程]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[入门教程]: https://docs.azure.cn/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
+[突发新闻教程]: https://docs.azure.cn/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[本地化新闻教程]: https://docs.azure.cn/notification-hubs/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

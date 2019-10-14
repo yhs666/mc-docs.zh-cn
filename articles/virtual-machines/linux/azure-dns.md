@@ -8,19 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/19/2016
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 00281f39cf41c6e5b87e18a3eeef0e329a4b2643
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 2b23bd76ab477f05229a7007c2320fc38b22a2ed
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912774"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272487"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的 DNS 名称解析选项
 Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。 在 Azure 托管的虚拟机上配置自己的 DNS 服务，即可实现自己的 DNS 名称解析解决方案。 以下方案可帮助你选择适合你情况的解决方案。

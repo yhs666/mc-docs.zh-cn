@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6de1520c4d35af8064ec498ebe860335f5160f98
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 52b00e0164aff0999fa81627e867b9ddb0d735ba
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913044"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272783"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 

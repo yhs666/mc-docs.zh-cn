@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/22/2019
-ms.date: 08/27/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0be23ce1d5249fccb4e9c063fef59153e6261abb
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 16843dae458be6ff341ad884accbada012b4d06f
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134231"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292050"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>代理流中使用委托用户标识的服务到服务调用
 
@@ -197,7 +197,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 以下示例演示对 https://graph.chinacloudapi.cn Web API 的访问令牌请求的成功响应。
 
-```
+```json
 {
     "token_type":"Bearer",
     "scope":"User.Read",
@@ -216,7 +216,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Azure AD 令牌终结点在尝试获取使用条件访问策略（例如，多重身份验证）设置的下游 API 的访问令牌时，会返回错误响应。 中间层服务应向客户端应用程序显示此错误，以便客户端应用程序可以提供用户交互，以满足条件访问策略。
 
-```
+```json
 {
     "error":"interaction_required",
     "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",

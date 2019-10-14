@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 06/26/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: f2671e44e0b9fbc7eb9331ce4e2694b83ed7e65e
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 9845845b4254bee3497d2c6d57337cd46101b534
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267119"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275558"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入门：使用适用于 Unity 的语音 SDK (Beta) 合成语音
 
@@ -110,7 +110,7 @@ ms.locfileid: "71267119"
         public void ButtonClick()
         {
             // Creates an instance of a speech config with specified subscription key and service region.
-            // Replace with your own subscription key and service region (e.g., "westus").
+            // Replace with your own subscription key and service region (e.g., "chinaeast2").
             var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     
             // Creates a speech synthesizer.

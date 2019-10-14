@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/11/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 631dda2f848641e6685aad0dc61b04e1f7ab7fda
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: ad4b852baaabd51e1c6f05078b0c2ba11e0eebe3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921000"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272578"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
 

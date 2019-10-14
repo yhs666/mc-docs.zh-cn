@@ -12,17 +12,16 @@ ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: e2bfe64f3bd108f4fb4f1d13ed203914c6ac16b9
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 93c1847e94cf92eb16f9b02d0f8da67e5ea08f17
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538901"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272756"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
@@ -34,7 +33,7 @@ ms.locfileid: "69538901"
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/en-us/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)。
 
 <!--MOONCAKE: WITHOUT and click **Get Support**-->
 <!--MOONCAKE: CORRECT [Azure support site](https://support.azure.cn/support/support-azure/)-->

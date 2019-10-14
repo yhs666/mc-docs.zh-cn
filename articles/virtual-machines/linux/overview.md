@@ -8,20 +8,19 @@ manager: digimobile
 editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 816e701036e10d4edc17ee6db109df3007c90296
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: d4bf9047a5d60ed682cd537baa6fad639a9f50dc
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912956"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272581"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。

@@ -151,8 +151,6 @@
               href: how-to-connect-sync-service-manager-ui-mvsearch.md
     - name: 故障排除
       items:
-        - name: 什么是 Azure AD Connect 管理员代理？
-          href: whatis-aadc-admin-agent.md
         - name: ADConnectivityTools PowerShell 模块是什么？
           href: how-to-connect-adconnectivitytools.md
         - name: 连接
@@ -207,3 +205,5 @@
       href: reference-connect-adsynctools.md
     - name: ADConnectivityTools 参考
       href: reference-connect-adconnectivitytools.md
+    - name: msExchUserHoldPolicies 和 cloudMSExchUserHoldPolicies
+      href: reference-connect-msexchuserholdpolicies.md

@@ -11,17 +11,16 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5c4bde23738010aa97f16b2386a926de558c7b9e
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 6fc303072cc74bb49bb899898832248ff6fc6017
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539146"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272657"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 

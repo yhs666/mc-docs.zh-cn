@@ -8,20 +8,19 @@ manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/25/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: azmetadata
-ms.openlocfilehash: 97ad4ce1fda02e9f08055426103c5aa456958ff5
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 0bafceb38838a95834b5049393f70171a9f2cdf1
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70920973"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272828"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -272,7 +271,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 
 可通过 `curl` 程序在 Windows 中检索实例元数据：
 
-```bash
+```powershell
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
@@ -390,7 +389,6 @@ vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-us
 vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 大小](sizes.md) | 2017-04-02
 
-<!--Not Availablle on customData | See [Custom Data](#custom-data)-->
 <!--Not Availablle on placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 <!--Not Availablle on zone | [Availability Zone](../../availability-zones/az-overview.md)-->
 
@@ -679,7 +677,7 @@ subscriptionId | `2019-04-30` 中引入的虚拟机的 Azure 订阅
 > [!NOTE]
 > 公有云和主权云的证书将有所不同。
 
- Regions | 证书
+ 云 | 证书
 ---------|-----------------
 [全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)       | metadata.azure.com
 [Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)                  | metadata.azure.us
@@ -811,7 +809,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. 我为什么会收到错误 `500 Internal Server Error`？
     * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-    * 在 https://support.azure.cn/en-us/support/contact/ 上发表评论。
+    * 在 https://support.azure.cn/support/contact/ 上发表评论。
 7. 这是否适用于虚拟机规模集实例？
     * 是的，元数据服务可用于规模集实例。
 8. 如何获取服务支持？

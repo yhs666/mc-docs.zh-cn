@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: 6de5998718a1b4929b0c256691422403716d6335
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/04/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4a7896827dc553c0c819a2d2337db328c4aa7af8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222598"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272473"
 ---
 # <a name="templates"></a>模板
 
@@ -127,6 +127,7 @@ Windows 应用商店客户端应用的相应模板为：
 若要使用安装模型（首选）或注册模型来注册模板，请参阅[注册管理](notification-hubs-push-notification-registration-management.md)。
 
 ## <a name="template-expression-language"></a>模板表达式语言
+
 模板限定为 XML 或 JSON 文档格式。 此外，只能在特定位置放置表达式；例如，对于 XML 放置节点属性或值，对于 JSON 放置字符串属性值。
 
 下表显示了模板中允许使用的语言：
@@ -135,7 +136,7 @@ Windows 应用商店客户端应用的相应模板为：
 | ---------------- | --- |
 | $(prop)          | 对具有给定名称的事件属性的引用。 属性名称不区分大小写。 此表达式解析为属性的文本值，如果该属性不存在，则解析为空字符串。 |
 | $(prop, n)       | 同上，但会在 n 个字符处对文本进行显式剪切，例如，$(title, 20) 会在 20 个字符处对 title 属性的内容进行剪切。 |
-| .(prop, n)       | 同上，但会在剪切后的文本后面添加三个点作为后缀。 剪切后的字符串以及后缀的总大小不超过 n 个字符。 对输入属性“This is the title line”使用 .(title, 20) 会生成“This is the title...” |
+| .(prop, n)       | 同上，但会在剪切后的文本后面添加三个点作为后缀。 剪切后的字符串以及后缀的总大小不超过 n 个字符。 对输入属性“This is the title line”使用 .(title, 20) 会生成“This is the title...”  |
 | %(prop)          | 类似于 $(name)，不过其输出已经过 URI 编码。 |
 | #(prop)          | 在 JSON 模板中使用（例如，用于 iOS 和 Android 模板）。<br><br>此函数的工作方式与前面指定的 $(prop) 完全相同，但在 JSON 模板（例如 Apple 模板）中使用时例外。 在此示例中，如果此函数未由“{”、“}”括起来（例如，‘myJsonProperty’ : ‘#(name)’），并按 Javascript 格式（例如，regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?）求出一个数字值，则输出 JSON 是一个数字。<br><br>例如，‘badge: ‘#(name)’ 将变为 ‘badge’ : 40（而不是 ‘40‘）。 |
 | ‘text’ 或 “text” | 一个文本。 文本包含以单引号或双引号括住的任意文本。 |

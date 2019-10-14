@@ -13,15 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: c8254b1c4b6b372503baee19b6d8c316cede7664
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/04/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 1534b0ab5e164e83db7f610c63c5014eda07a203
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222580"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272476"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>如何：发送预定通知
 
@@ -31,7 +31,7 @@ ms.locfileid: "56222580"
 ## <a name="schedule-your-notifications"></a>计划通知
 发送通知时，只需如以下示例中所示，使用通知中心 SDK 中的 [`ScheduledNotification` 类](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx)：
 
-```c#
+```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
@@ -39,7 +39,7 @@ var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2
 ## <a name="cancel-scheduled-notifications"></a>取消预定通知
 此外，可以使用其 notificationId 取消以前计划的通知：
 
-```c#
+```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 

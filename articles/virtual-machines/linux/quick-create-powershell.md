@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/17/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c958027dde472b48f0140a4cd1e08f518f1095f8
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: a80c8d116157de4863331d9ed8a1ba4c429e3140
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912950"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272730"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建 Linux 虚拟机
 

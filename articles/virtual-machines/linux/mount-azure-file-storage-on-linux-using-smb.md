@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/28/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 87b5f555af936c12797176e0d330d394e8cb4649
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: d6575a9721e8dbff9b6f7dfcedd7f36ecc3c4d66
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912966"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272588"
 ---
 <!--Notice: Verify successfully on bash cmdlet-->
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 01/22/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: aa610b2e460a5e4045e856f441ffb010ca0a5b21
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 1f5f0276c4d936a9d2144eb9bc6de91fa5dc02f6
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921092"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272723"
 ---
 **出站数据传输**：[出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（传出 Azure 数据中心的数据）会产生带宽使用费。
 

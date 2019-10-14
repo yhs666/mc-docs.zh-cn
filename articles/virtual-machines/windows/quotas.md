@@ -11,17 +11,16 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 605053c6e6b5697037129c493891c7206894ca15
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: c5bae03fe3869cd8c32c415272cc50f689c7b07b
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539151"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272533"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -56,7 +55,6 @@ Standard DS Family vCPUs                     0   100 Count
 Standard F Family vCPUs                      0   100 Count
 Standard FS Family vCPUs                     0   100 Count
 Standard Av2 Family vCPUs                    0   100 Count
-Standard LS Family vCPUs                     0   100 Count
 Standard Dv2 Promo Family vCPUs              0   100 Count
 Standard DSv2 Promo Family vCPUs             0   100 Count
 Standard Dv3 Family vCPUs                    0   100 Count
@@ -65,7 +63,6 @@ Standard Ev3 Family vCPUs                    0   100 Count
 Standard ESv3 Family vCPUs                   0   100 Count
 Standard FSv2 Family vCPUs                   0   100 Count
 Standard NCv3 Family vCPUs                   0     0 Count
-Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
 ```
@@ -74,12 +71,13 @@ Premium Storage Managed Disks                1 10000 Count
 <!-- Not Available on Standard G, GS -->
 <!-- Not Available on Standard NV, NC -->
 <!-- Not Available on Standard H, MS -->
+<!-- Not Available on Standard LS, LSv2 -->
 <!-- Not Available on Standard ND, NCV2 -->
 
 <!--Not Available on ## Reserved VM Instances-->
 
 ## <a name="next-steps"></a>后续步骤
 
-有关计费和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](/azure-subscription-service-limits?toc=/azure/billing/TOC.json)。
+有关计费和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](/azure-subscription-service-limits?toc=/billing/TOC.json)。
 
 <!--Update_Description: update meta properties, wording update-->

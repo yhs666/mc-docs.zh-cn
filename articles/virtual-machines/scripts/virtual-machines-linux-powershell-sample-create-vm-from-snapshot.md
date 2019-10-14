@@ -9,20 +9,19 @@ editor: ramankum
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 35bd3926051b65f51e74a245e211eb31464b0837
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: f3b1e07e7015c550875c0286e1b9ce98e7a76de9
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003883"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272862"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建虚拟机
 
@@ -66,7 +65,9 @@ $virtualMachineSize = 'Standard_DS3'
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+
 $diskConfig = New-AzDiskConfig -Location $snapshot.Location -SourceResourceId $snapshot.Id -CreateOption Copy
+
 $disk = New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $osDiskName
 
 #Initialize virtual machine configuration

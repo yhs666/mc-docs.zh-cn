@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 0b873672cb5ddd6fa82bf52b6e4209fa6ee32c3b
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 7f76f84f2e2fbea470d3faa9728bc8788f0c0c42
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267112"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275557"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入门：在 Linux 上使用语音 SDK 通过 C++ 合成语音
 
@@ -95,7 +95,7 @@ ms.locfileid: "71267112"
     void synthesizeSpeech()
     {
         // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own subscription key and service region (e.g., "westus").
+        // Replace with your own subscription key and service region (e.g., "chinaeast2").
         auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     
         // Creates a speech synthesizer using the default speaker as audio output. The default spoken language is "en-us".

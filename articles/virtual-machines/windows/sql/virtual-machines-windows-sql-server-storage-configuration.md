@@ -8,19 +8,18 @@ manager: digimobile
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/05/2017
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: a0301f83a51c563e8ee057a8bfc0b809e9bae684
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: dbda17fcf88b874b65c4e1c5e12dcb9aeae1610f
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921210"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272737"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 
@@ -68,9 +67,13 @@ ms.locfileid: "70921210"
 
 ## <a name="existing-vms"></a>现有 VM
 
+<!--MOONCAKE: CUSTOMIZE on 10/10/2019-->
+<!--Not Available on [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]-->
+
 对于现有的 SQL Server VM，可以在 Azure 门户中修改某些存储设置。 选择 VM，转到“设置”区域，并选择“SQL Server 配置”。 “SQL Server 配置”边栏选项卡显示了 VM 当前的存储用量。 此图显示了 VM 上存在的所有驱动器。 每个驱动器的存储空间都分四个部分显示：
 
 <!--Not Available on [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)-->
+<!--MOONCAKE: CUSTOMIZE on 10/10/2019-->
 
 * SQL 数据
 * SQL 日志

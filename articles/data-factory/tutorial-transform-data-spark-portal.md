@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/10/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: c3ed62ca1ca743f1e54416176e90fd1a09decc74
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 674c04782a2abe5beab713c2130e7c0cfd1a8bd3
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908678"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275172"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换云中的数据
 本教程使用 Azure 门户创建 Azure 数据工厂管道。 该管道使用 Spark 活动和按需 Azure HDInsight 链接服务转换数据。 
@@ -154,7 +154,7 @@ ms.locfileid: "68908678"
    
    e. 至于“服务主体 ID”，请输入有权创建 HDInsight 群集的服务主题的 ID。  
    
-      此服务主体需是订阅“参与者”角色的成员，或创建群集的资源组的成员。 有关详细信息，请参阅[创建 Azure Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。
+      此服务主体需是订阅“参与者”角色的成员，或创建群集的资源组的成员。 有关详细信息，请参阅[创建 Azure Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。 服务主体 ID 等效于应用程序 ID，服务主体密钥等效于客户端密码的值     。
    
    f. 至于“服务主体密钥”，请输入此密钥。  
    

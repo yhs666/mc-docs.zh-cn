@@ -11,18 +11,17 @@ ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/04/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 29fb6e8a64e650ea5a3d66cafd8f24df30c22ceb
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: e6eae223483d0057e166f266c6d14a89118dd433
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539167"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272548"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -91,8 +90,6 @@ Azure 提供许多[市场映像](https://market.azure.cn/marketplace/virtual-mac
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<br />[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<br />[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br />[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br />[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location *location*<br />[az vm image list-offers](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location *location* --publisher *publisherName*<br />[az vm image list-skus](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-image-list-skus) --location *location* --publisher *publisherName* --offer *offerName*|
-
-<!--MOONCAKE CUSTOMIZE: CORRRECT on az-vm-list-skus-->
 
 可以选择 [上传并使用自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) ，在这种情况下，无需使用发布者名称、产品和 SKU。
 

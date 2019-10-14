@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/06/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 8f45846c10bf0c6b4a92ab8616958ab5631782e2
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 98fd4f4cc75b66f2168ace366459d134d36cd787
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913006"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272532"
 ---
 <!--Verify sccessfully-->
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>使用 Azure CLI 创建共享映像库

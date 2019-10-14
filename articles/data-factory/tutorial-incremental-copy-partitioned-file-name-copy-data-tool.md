@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 1/24/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: 0acd29042df7846931fbb9505cae1febac835926
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 10/14/2019
+ms.openlocfilehash: f9f64646a05778df6bfb3f4800b4084b9b965b77
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570479"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275231"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>使用复制数据工具仅根据时间分区文件名以增量方式复制新文件
 
@@ -57,15 +57,13 @@ ms.locfileid: "67570479"
 
 1. 在左侧菜单中，选择“创建资源”   > “数据 + 分析”   > “数据工厂”  ： 
    
-   ![在“新建”窗格中选择“数据工厂”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![在“新建”窗格中选择“数据工厂”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. 在“新建数据工厂”  页的“名称”下输入 **ADFTutorialDataFactory**  。 
-      
-    ![新建数据工厂](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
     
     数据工厂的名称必须全局唯一。  可能会收到以下错误消息：
    
-   ![新的数据工厂错误消息](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![新的数据工厂错误消息](./media/doc-common-process/name-not-available-error.png)
    
    如果收到有关名称值的错误消息，请为数据工厂输入另一名称。 例如，使用名称 _**yourname**_ **ADFTutorialDataFactory**。 有关数据工厂项目的命名规则，请参阅[数据工厂命名规则](naming-rules.md)。
 3. 选择要在其中创建新数据工厂的 Azure **订阅**。 
@@ -86,14 +84,14 @@ ms.locfileid: "67570479"
     ![“部署数据工厂”磁贴](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. 创建完以后，会显示“数据工厂”  主页。
    
-    ![数据工厂主页](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![数据工厂主页](./media/doc-common-process/data-factory-home-page.png)
 11. 若要在单独的选项卡中启动 Azure 数据工厂用户界面 (UI)，请选择“创作和监视”磁贴。  
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>使用“复制数据”工具创建管道
 
 1. 在“开始使用”页中选择“复制数据”标题，启动“复制数据”工具。   
 
-   ![“复制数据”工具磁贴](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![“复制数据”工具磁贴](./media/doc-common-process/get-started-page.png)
    
 2. 在“属性”页上执行以下步骤： 
 
@@ -153,7 +151,7 @@ ms.locfileid: "67570479"
     
     ![选择输出文件或文件夹](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b. 将动态文件夹路径编写为 **destination/{年}/{月}/{日}/{小时}/** ，并将格式更改如下：
+    b. 将动态文件夹路径编写为 **source/{年}/{月}/{日}/{小时}/** ，并将格式更改如下：
     
     ![选择输出文件或文件夹](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     

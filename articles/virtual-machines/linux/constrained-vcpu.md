@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/09/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: eccf2733f38cc4c9148d36c1619211d226236b9b
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: ae843daeae41aad694011ac708c873b9712d4db5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912980"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272771"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>支持受约束 vCPU 的 VM 大小
 

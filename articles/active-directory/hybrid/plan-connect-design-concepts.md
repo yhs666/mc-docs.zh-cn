@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 08/10/2018
-ms.date: 03/15/2019
+ms.date: 10/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fa55844b366460d226ce18e7e6591ed9fb1e6e
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: ca54ec9cbbfd9f6441c6ab6e1ad9f433b155820b
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186684"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292105"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本文档旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本文档是特定领域的深入探讨，其他文档中也简要描述了这些概念。
@@ -96,7 +96,6 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
   > 仅较新版本的 Azure AD Connect（1.1.524.0 及更高版本）支持在新安装期间将 ConsistencyGuid 用作 sourceAnchor。
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>如何启用 ConsistencyGuid 功能
-目前，该功能只能在全新安装 Azure AD Connect 期间启用。
 
 #### <a name="express-installation"></a>快速安装
 使用“快速”模式安装 Azure AD Connect 时，Azure AD Connect 向导会根据以下逻辑，自动确定最适合用作 sourceAnchor 属性的 AD 属性：
@@ -134,19 +133,19 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
 
 若要从以 objectGUID 作为“源定位点”属性切换到以 ConsistencyGuid 作为“源定位点”属性，请执行以下操作：
 
-1. 启动 Azure AD Connect 向导并单击“配置”来转到“任务”屏幕。
+1. 启动 Azure AD Connect 向导并单击“配置”来转到“任务”屏幕。 
 
-2. 选择“配置源定位点”任务选项并单击“下一步”。
+2. 选择“配置源定位点”任务选项并单击“下一步”。  
 
    ![为现有部署启用 ConsistencyGuid - 步骤 2](./media/plan-connect-design-concepts/consistencyguidexistingdeployment01.png)
 
-3. 输入 Azure AD 管理员凭据并单击“下一步”。
+3. 输入 Azure AD 管理员凭据并单击“下一步”。 
 
-4. Azure AD Connect 向导会分析本地 Active Directory 中 ms-DS-ConsistencyGuid 属性的状态。 如果未在目录中的任何对象上配置该属性，则 Azure AD Connect 会断定当前没有任何其他应用程序在使用该属性，可以放心将该属性用作“源定位点”属性。 单击“下一步”以继续操作。
+4. Azure AD Connect 向导会分析本地 Active Directory 中 ms-DS-ConsistencyGuid 属性的状态。 如果未在目录中的任何对象上配置该属性，则 Azure AD Connect 会断定当前没有任何其他应用程序在使用该属性，可以放心将该属性用作“源定位点”属性。 单击“下一步”以继续操作。 
 
    ![为现有部署启用 ConsistencyGuid - 步骤 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
-5. 在“已准备好进行配置”屏幕中，单击“配置”以进行配置更改。
+5. 在“已准备好进行配置”屏幕中，单击“配置”以进行配置更改。  
 
    ![为现有部署启用 ConsistencyGuid - 步骤 5](./media/plan-connect-design-concepts/consistencyguidexistingdeployment03.png)
 
@@ -158,7 +157,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
 
 ![为现有部署启用 ConsistencyGuid - 错误](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearch”开关的情况下重启 Azure AD Connect 向导来取消显示该错误。 为此，请在命令提示符下运行以下命令：
+ 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearch”  开关的情况下重启 Azure AD Connect 向导来取消显示该错误。 为此，请在命令提示符下运行以下命令：
 
 ```
 "c:\Program Files\Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -172,7 +171,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
 ![第三方联合身份验证配置](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>向现有部署添加新目录
-假设你在部署 Azure AD Connect 时启用了 ConsistencyGuid 功能，现在要将另一目录添加到部署中。 尝试添加目录时，Azure AD Connect 向导会检查目录中 ms-DS-ConsistencyGuid 属性的状态。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定现有应用程序不使用该属性，则可以通过使用前文所述的指定 /SkipLdapSearch 开关的情况下重启 Azure AD Connect 向导来取消显示该错误或者需要联系支持人员以获得更多信息。
+假设你在部署 Azure AD Connect 时启用了 ConsistencyGuid 功能，现在要将另一目录添加到部署中。 尝试添加目录时，Azure AD Connect 向导会检查目录中 ms-DS-ConsistencyGuid 属性的状态。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定现有应用程序不使用该属性，则可以通过使用前文所述的指定 /SkipLdapSearch 开关的情况下重启 Azure AD Connect 向导来取消显示该错误或者需要联系支持人员以获得更多信息  。
 
 ![向现有部署添加新目录](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
@@ -185,7 +184,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
 * 属性值符合 UPN 语法 (RFC 822)，其格式应为 username\@domain
 * 这些值的后缀符合 Azure AD 中其中一个已验证的自定义域
 
-在快速设置中，属性的假设选择是 userPrincipalName。 如果 userPrincipalName 属性不包含你希望用户用来登录 Azure 的值，则必须选择“自定义安装”。
+在快速设置中，属性的假设选择是 userPrincipalName。 如果 userPrincipalName 属性不包含你希望用户用来登录 Azure 的值，则必须选择“自定义安装”。 
 
 ### <a name="custom-domain-state-and-upn"></a>自定义域状态和 UPN
 必须确保 UPN 后缀包含已验证的域。

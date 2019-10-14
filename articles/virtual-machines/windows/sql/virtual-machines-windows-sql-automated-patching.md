@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/07/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 0fd8c3d60480e5a09b3659ecfb4caaa95ec13bad
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 2d49b31432cc1f832db1f327f3a7404036feee47
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921008"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272744"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虚拟机中 SQL Server 的自动修补 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -90,7 +89,7 @@ ms.locfileid: "70921008"
 
 ### <a name="existing-vms"></a>现有 VM
 
-<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--MOONCAKE: CUSTOMIZATION ON 10/10/2019-->
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
 
 对于现有的 SQL Server 虚拟机，请选择 SQL Server 虚拟机。 然后选择“设置”边栏选项卡的“SQL Server 配置”部分。  
@@ -102,7 +101,7 @@ ms.locfileid: "70921008"
 ![配置现有 VM 的 SQL 自动修补](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
-<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--MOONCAKE: CUSTOMIZATION ON 10/10/2019-->
 
 完成后，单击“SQL Server 配置”边栏选项卡底部的“确定”按钮保存更改。  
 

@@ -35,6 +35,10 @@
               href: quickstart-v2-aspnet-core-webapp.md
             - name: NodeJS
               href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+            - name: Java
+              href: quickstart-v2-java-webapp.md
+            - name: Python
+              href: quickstart-v2-python-webapp.md
         - name: Web API
           items:
             - name: ASP .NET
@@ -203,6 +207,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
+                    - name: 将代理与 Xamarin iOS 和 Android 应用程序配合使用
+                      href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: 通用 Windows 平台
                       href: msal-net-uwp-considerations.md
                 - name: 获取应用的令牌
@@ -223,6 +229,8 @@
                   href: msal-net-migration.md
                 - name: 迁移到 MSAL.js
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: 使用代理将 Xamarin 应用从 ADAL.NET 迁移到 MSAL.NET
+                  href: msal-net-migration-ios-broker.md
             - name: 支持的身份验证流
               href: msal-authentication-flows.md
             - name: 获取和缓存令牌

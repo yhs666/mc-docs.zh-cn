@@ -11,17 +11,16 @@ ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/09/2016
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2e4ead677345b611a6e2eb5575088da2c90d0a00
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: ba127b88737137a5728b0851919971efc0446260
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538938"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272021"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]

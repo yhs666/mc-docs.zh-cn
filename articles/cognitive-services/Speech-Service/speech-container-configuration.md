@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/11/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1d196147e3ffb5b8ab57393e73a00c7008a61720
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: bb6001e11c194b5ab0dced647b215e74bc412c73
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267097"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275554"
 ---
 # <a name="configure-speech-service-containers"></a>配置语音服务容器
 
@@ -112,7 +112,7 @@ ms.locfileid: "71267097"
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+containerpreview.azurecr.cn/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -124,7 +124,7 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+containerpreview.azurecr.cn/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

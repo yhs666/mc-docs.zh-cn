@@ -11,18 +11,17 @@ ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdee6a44cbdf10a77d463961655b280c65339429
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 18f27e16fdbc3d9abb2c49913d5c36760b6e1b54
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538877"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272825"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>在 Azure 中管理 Windows 虚拟机的可用性 
 

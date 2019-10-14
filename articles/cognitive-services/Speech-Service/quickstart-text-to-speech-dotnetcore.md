@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 06/24/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: ab0e1c53a43c4b9df06765fcdd0326030311263f
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 6615d5ce834847bb46e3609aec26227a9f6c5740
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71267107"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275555"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>快速入门：使用适用于 .NET Core 的语音 SDK 合成语音
 
@@ -55,7 +55,7 @@ ms.locfileid: "71267107"
             public static async Task SynthesisToSpeakerAsync()
             {
                 // Creates an instance of a speech config with specified subscription key and service region.
-                // Replace with your own subscription key and service region (e.g., "westus").
+                // Replace with your own subscription key and service region (e.g., "chinaeast2").
                 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     
                 // Creates a speech synthesizer using the default speaker as audio output.

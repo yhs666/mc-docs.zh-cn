@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 026d6ced9a58d77c31e6b844e0cf0abb6cecda3c
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: f42d264cd77bca25c0edc5d1c6e3cd1918eb35d5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538916"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272009"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>使用 PowerShell 创建虚拟机
 
@@ -61,6 +60,7 @@ New-AzVM `
   -PublicIpAddressName "myPublicIp" `
   -Credential $cred `
   -OpenPorts 3389
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a673973689cd447628c0162f2b53e7bbe03427fa
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: bd6e9b2bc0d0b3b0dc7319134ff085fd8c6d1d74
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912735"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272830"
 ---
 ## <a name="benefits-of-managed-disks"></a>托管磁盘的优势
 
@@ -26,7 +26,7 @@ ms.locfileid: "68912735"
 
 ### <a name="simple-and-scalable-vm-deployment"></a>简单且可缩放的 VM 部署
 
-托管磁盘支持在每个区域中的一个订阅中创建最多 50,000 个同一类型的 VM 磁盘  ，这样就可以在单个订阅中创建数以万计的 VM  。 通过允许使用某个市场映像在一个虚拟机规模集中创建多达 1,000 VM，此功能还可以进一步增加[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)的可伸缩性。
+托管磁盘支持在每个区域中的一个订阅中创建最多 50,000 个同一类型的 VM 磁盘  ，这样就可以在单个订阅中创建数以万计的 VM  。 此功能允许使用 Marketplace 映像，在一个虚拟机规模集中创建多达 1000 台 VM，进一步增加[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)的可伸缩性。
 
 ### <a name="integration-with-availability-sets"></a>集成可用性集
 
@@ -55,9 +55,7 @@ ms.locfileid: "68912735"
 
 ### <a name="azure-disk-encryption-ade"></a>Azure 磁盘加密 (ADE)
 
-Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。 此加密包括托管磁盘。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 对于 Linux，磁盘是使用 DM-Crypt 技术加密的。 加密过程与 Azure Key Vault 集成，可让你控制和管理磁盘加密密钥。
-
-<!--Not Available on  [Azure Disk Encryption for IaaS VMs](../articles/security/azure-security-disk-encryption-overview.md)-->
+Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。 此加密包括托管磁盘。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 对于 Linux，磁盘是使用 DM-Crypt 技术加密的。 加密过程与 Azure Key Vault 集成，可让你控制和管理磁盘加密密钥。 有关详细信息，请参阅[适用于 IaaS VM 的 Azure 磁盘加密](../articles/security/azure-security-disk-encryption-overview.md)。
 
 ## <a name="disk-roles"></a>磁盘角色
 
@@ -83,7 +81,9 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 
 ## <a name="managed-disk-snapshots"></a>托管磁盘快照
 
-托管磁盘快照是托管磁盘的只读崩溃一致性完整副本，默认情况下它作为标准托管磁盘进行存储。 使用快照可以在任意时间点备份托管磁盘。 这些快照独立于源磁盘而存在，并可用来创建新的托管磁盘。 基于已使用大小对这些快照进行计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。  
+托管磁盘快照是托管磁盘的只读崩溃一致性完整副本，默认情况下它作为标准托管磁盘进行存储。 使用快照可以在任意时间点备份托管磁盘。 这些快照独立于源磁盘而存在，并可用来创建新的托管磁盘。 
+
+基于已使用大小对快照计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。 可以通过查看 [Azure 使用情况报告](/billing/billing-understand-your-bill)来了解快照的已使用大小。 例如，如果快照的已用数据大小为 10 GiB，则使用情况报告将显示 10 GiB/(31 天 x 24 小时) = 0.013441 GiB 作为已使用数量。
 
 若要了解有关如何使用托管磁盘创建快照的详细信息，请查看下列资源：
 

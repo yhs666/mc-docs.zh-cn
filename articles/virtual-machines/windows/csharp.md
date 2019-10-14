@@ -11,17 +11,16 @@ ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 483373487f130c4100704b6709ad1409a0ad50a3
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 29f5c72f474bfffa21d317235c4dda695dfa9133
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921045"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272640"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>使用 C# 创建和管理 Azure 中的 Windows VM
 
@@ -120,7 +119,7 @@ ms.locfileid: "70921045"
 ```csharp
 var groupName = "myResourceGroup";
 var vmName = "myVM";
-var location = Region.USWest;
+var location = Region.ChinaNorth;
 
 Console.WriteLine("Creating resource group...");
 var resourceGroup = azure.ResourceGroups.Define(groupName)

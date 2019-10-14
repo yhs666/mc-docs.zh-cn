@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin-date: 08/26/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 72641c1f89019243a91d72820627d662c40da847
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 86dae764b736827adb35d46cb612872ee676a38f
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71267094"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275552"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>在 Kubernetes 和 Helm 中使用语音服务容器
 
@@ -48,20 +48,20 @@ ms.locfileid: "71267094"
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>与 Kubernetes 群集共享 Docker 凭据
 
-若要允许 Kubernetes 群集对 `containerpreview.azurecr.io` 容器注册表中配置的映像执行 `docker pull`，需将 Docker 凭据传输到群集中。 执行以下 [`kubectl create`][kubectl-create] 命令，基于“容器注册表访问权限”先决条件提供的凭据创建 Docker 注册表机密。 
+若要允许 Kubernetes 群集对 `containerpreview.azurecr.cn` 容器注册表中配置的映像执行 `docker pull`，需将 Docker 凭据传输到群集中。 执行以下 [`kubectl create`][kubectl-create] 命令，基于“容器注册表访问权限”先决条件提供的凭据创建 Docker 注册表机密。 
 
 在所选的命令行接口中运行以下命令。 请务必将 `<username>`、`<password>` 和 `<email-address>` 替换为容器注册表凭据。
 
 ```console
 kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
+    --docker-server=containerpreview.azurecr.cn \
     --docker-username=<username> \
     --docker-password=<password> \
     --docker-email=<email-address>
 ```
 
 > [!NOTE]
-> 如果你已有权访问 `containerpreview.azurecr.io` 容器注册表，则可以改用常规标志创建 Kubernetes 机密。 考虑针对 Docker 配置 JSON 执行以下命令。
+> 如果你已有权访问 `containerpreview.azurecr.cn` 容器注册表，则可以改用常规标志创建 Kubernetes 机密。 考虑针对 Docker 配置 JSON 执行以下命令。
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -108,7 +108,7 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: containerpreview.azurecr.io
+    registry: containerpreview.azurecr.cn
     repository: microsoft/cognitive-services-text-to-speech
     tag: latest
     pullSecrets:
@@ -124,11 +124,11 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 包（Helm 图表）
 
-Helm 图表包含要从 `containerpreview.azurecr.io` 容器注册表提取的 Docker 映像的配置。 
+Helm 图表包含要从 `containerpreview.azurecr.cn` 容器注册表提取的 Docker 映像的配置。 
 
 > [Helm 图表][helm-charts]是描述一组相关 Kubernetes 资源的文件集合。 单个图表既可用于部署简单的资源（例如 Memcached Pod），也可用于部署复杂的资源（例如，包含 HTTP 服务器、数据库、缓存等的完整 Web 应用堆栈）。
 
-提供的 Helm 图表将从 `containerpreview.azurecr.io` 容器注册表中提取语音服务（文本转语音服务）的 Docker 映像。 
+提供的 Helm 图表将从 `containerpreview.azurecr.cn` 容器注册表中提取语音服务（文本转语音服务）的 Docker 映像。 
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>在 Kubernetes 群集上安装 Helm 图表
 

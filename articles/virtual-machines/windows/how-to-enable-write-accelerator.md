@@ -9,21 +9,20 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/20/2019
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 92b01b4de688b9f44db9ae02c353cdb77e7adb94
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8073cb074ac6438bbaf549a4c7e61734069d8da3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003834"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272698"
 ---
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]
 

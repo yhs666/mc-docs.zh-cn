@@ -8,17 +8,16 @@ manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/22/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 607ebd0dea1e685fb425aa8a89ae35d406d57cbd
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c009c04264d5a88940160922f8a6381c503d96e7
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570541"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275214"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>教程：将数据从本地 SQL Server 数据库复制到 Azure Blob 存储
 本教程使用 Azure PowerShell 创建一个数据工厂管道，用于将数据从本地 SQL Server 数据库复制到 Azure Blob 存储。 同时创建一个自承载 Integration Runtime，用其在本地数据存储和云数据存储之间移动数据。 
@@ -77,13 +76,11 @@ ms.locfileid: "67570541"
 
 1. 在左窗格中选择“更多服务”，使用“存储”关键字进行筛选，然后选择“存储帐户”。   
 
-    ![搜索存储帐户](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![搜索存储帐户](media/doc-common-process/search-storage-account.png)
 
 1. 在存储帐户列表中，通过筛选找出你的存储帐户（如果需要），然后选择你的存储帐户。 
 
 1. 在“存储帐户”窗口中选择“访问密钥”   。
-
-    ![获取存储帐户名称和密钥](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. 复制“存储帐户名称”和“key1”框中的值，然后将其粘贴到记事本或其他编辑器中，在教程的后面部分使用。   
 
@@ -108,7 +105,6 @@ ms.locfileid: "67570541"
 
 1. 让  **adftutorial** 的“容器”窗口保持打开状态。 在教程结束时可以使用它来验证输出。 数据工厂自动在该容器中创建输出文件夹，因此不需要你来创建。
 
-    ![“容器”窗口](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -228,7 +224,7 @@ ms.locfileid: "67570541"
     UpdateDelayOffset         :
     LocalTimeZoneOffset       :
     AutoUpdate                :
-    ServiceUrls               : {chinae2.frontend.datamovement.azure.cn}
+    ServiceUrls               : {chinaeast2.frontend.datamovement.azure.cn, *.servicebus.chinacloudapi.cn}
     ResourceGroupName         : <ResourceGroup name>
     DataFactoryName           : <DataFactory name>
     Name                      : <Integration Runtime name>

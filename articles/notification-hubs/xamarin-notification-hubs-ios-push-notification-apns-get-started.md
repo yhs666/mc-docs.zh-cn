@@ -14,15 +14,15 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 08/23/2018
-ms.date: 06/24/2019
-ms.author: v-biyu
-ms.openlocfilehash: cb28b5fe117e5be3a3e8831e8fa58f8496d4a156
-ms.sourcegitcommit: b3434f6e7ee50a7f84e6b0868f418480aadb1368
+origin.date: 05/23/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: ce9e5920f1d9aebb923c3b0deb976a77d95d14d2
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66829507"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272610"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用推送通知
 
@@ -32,7 +32,7 @@ ms.locfileid: "66829507"
 
 本教程演示如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。 你将创建一个空白 Xamarin.iOS 应用，它使用 [Apple Push Notification 服务 (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) 接收推送通知。
 
-完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。 [NotificationHubs][GitHub] 应用程序示例中提供了完成的代码。
+完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。 [NotificationHubs 应用][GitHub]示例中提供了完成的代码。
 
 在本教程中，你创建/更新代码来执行以下任务：
 
@@ -57,25 +57,6 @@ ms.locfileid: "66829507"
 只有在完成本教程后，才能完成有关 Xamarin iOS 应用的所有其他通知中心教程。
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>针对 iOS 推送通知配置通知中心
-
-本部分介绍如何执行相关步骤，以便使用以前创建的 **.p12** 推送证书创建新的通知中心并配置 APNs 身份验证。 如果想要使用已创建的通知中心，可以跳到步骤 5。
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>针对 iOS 设置配置通知中心
-
-1. 在“通知设置”组中选择“Apple (APNS)”。  
-2. 选择“证书”，单击文件图标，然后选择此前导出的 **.p12** 文件。  
-3. 指定证书的密码。 
-4. 选择“沙盒”  模式。 仅当希望将推送通知发送给从应用商店购买应用的用户时，才应使用“生产”模式。 
-
-    ![在 Azure 门户中配置 APNs][6]
-
-    ![在 Azure 门户中配置 APNs 证书][7]
-
-通知中心现在已配置为使用 APNs，并且你有连接字符串用于注册应用和发送推送通知。
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>将应用连接到通知中心
 
@@ -125,7 +106,7 @@ ms.locfileid: "66829507"
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

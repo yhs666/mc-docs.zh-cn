@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/23/2018
-ms.date: 11/26/2018
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06af5665632a2cc60e5678196a5f002662b8a16b
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: f715e228bcfabf9e89801e07da57bda83e4de018
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480157"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272710"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>连接到 Azure VM 时，远程桌面许可证服务器不可用
 
@@ -32,9 +31,9 @@ ms.locfileid: "55480157"
 - VM 屏幕截图显示操作系统已满载，并正在等待凭据。
 - 尝试建立 Azure 远程桌面协议 (RDP) 连接时收到以下错误消息：
 
-  - 由于没有可用于提供许可证的远程桌面授权服务器，远程会话已断开连接。
+    - 由于没有可用于提供许可证的远程桌面授权服务器，远程会话已断开连接。
 
-  - 没有可用的远程桌面许可证服务器。 远程桌面服务将停止工作，因为此计算机已超过其宽限期，并且尚未连接至少一个有效的 Windows Server 2008 许可证服务器。 请选择此消息打开“RD 会话主机服务器配置”，以使用许可诊断。
+    - 没有可用的远程桌面许可证服务器。 远程桌面服务将停止工作，因为此计算机已超过其宽限期，并且尚未连接至少一个有效的 Windows Server 2008 许可证服务器。 请选择此消息打开“RD 会话主机服务器配置”，以使用许可诊断。
 
 但是，可以使用管理会话正常连接到 VM：
 
@@ -75,42 +74,42 @@ mstsc /v:<Server>[:<Port>] /admin
 
     2. 使用以下命令检查策略，并根据需要重新进行配置：
 
-       ```
+        ```
         reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode 
         reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
-       ```
+        ```
 
         如果 **LicensingMode** 值设置为除 4 以外的其他任何值（按用户），请将它设置为 4：
 
-         ```
+        ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
         ```
 
-       如果 **SpecifiedLicenseServers** 值不存在或包含错误的许可证服务器信息，请如下所示进行更改：
+        如果 **SpecifiedLicenseServers** 值不存在或包含错误的许可证服务器信息，请如下所示进行更改：
 
-       ```
+        ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
-       ```
+        ```
 
     3. 对注册表进行任何更改后，重启 VM。
 
     4. 如果没有 CAL，请删除远程桌面会话主机角色。 然后，RDP 将设置回到正常值。 它只允许与 VM 建立两个并发 RDP 连接：
 
         ```
-       dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
+        dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
         ```
 
         如果 VM 具有远程桌面授权角色并且未被使用，则你也可以删除该角色。
 
-       ```
+        ```
         dism /ONLINE /Disable-feature /FeatureName:Licensing
-       ```
+        ```
 
     5. 确保 VM 可以连接到远程桌面许可证服务器。 可以测试 VM 与许可证服务器之间的端口 135 连接： 
 
-       ```
-       telnet <FQDN / IP License Server> 135
-       ```
+        ```
+        telnet <FQDN / IP License Server> 135
+        ```
 
 3. 如果环境中没有远程桌面许可证服务器，而你想要一个此类服务器，可以[安装远程桌面许可角色服务](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11))。 然后[配置 RDS 许可](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/)。
 
@@ -118,8 +117,7 @@ mstsc /v:<Server>[:<Port>] /admin
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)解决问题。
-
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/support/support-azure/)解决问题。
 
 <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

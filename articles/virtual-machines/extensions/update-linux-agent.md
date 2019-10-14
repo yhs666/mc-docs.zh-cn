@@ -11,17 +11,16 @@ ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0782b74bdbb5ca3bb899ce8c7596b85afd407d56
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 9220639a4bdc660d5ebab72fc5ccc20454f8789d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912924"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272571"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 

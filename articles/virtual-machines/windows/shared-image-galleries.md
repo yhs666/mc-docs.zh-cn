@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/06/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: da98624da96a17fc7ab2782bffcdc39923157c43
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 51c3809c2697ef51c0b4ad329c28c233a527d5c6
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538772"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272201"
 ---
 # <a name="shared-image-gallery-overview"></a>共享映像库概述
 

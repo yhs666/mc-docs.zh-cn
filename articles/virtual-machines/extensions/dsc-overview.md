@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f01f151286edb3db09b9b870bed2383222ba0350
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 87b56680e0c4b773121dc9440bb7f01d181b0ab5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569598"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272782"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration 扩展处理程序简介
 

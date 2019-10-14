@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 04/24/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: eb45e8bd5ce6a0940d1e520eaef113b25593322f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4d83c05db38ac5f2dab6281fafab1b7d504c8050
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737235"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292585"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
 
@@ -108,7 +108,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 出现 Ambari 页面时，该页的左侧列出已安装的服务。
 
-![已安装的服务](./media/hdinsight-high-availability-linux/services.png)
+![已安装的服务](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 服务旁边可能会出现一系列表示状态的图标。 可以使用页面顶部的“警报”  链接查看与服务相关的任何警报。  Ambari 提供多个预定义的警报。
 
@@ -157,11 +157,11 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 尽管服务页提供了有关每个服务的状态和配置的信息，但并不提供有关该服务正在哪个头节点上运行的信息。 若要查看此信息，请使用页面顶部的“主机”  链接。 此页会显示群集内的主机，包括头节点。
 
-![主机列表](./media/hdinsight-high-availability-linux/hosts.png)
+![主机列表](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 选择一个头节点的链接会显示该节点上运行的服务与组件。
 
-![组件状态](./media/hdinsight-high-availability-linux/nodeservices.png)
+![组件状态](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 有关如何使用 Ambari 的详细信息，请参阅[使用 Apache Ambari Web UI 监视和管理 HDInsight](hdinsight-hadoop-manage-ambari.md)。
 
@@ -243,7 +243,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后使用“快速链接”选择要查看其日志的头节点  。
 
-![使用快速链接查看日志](./media/hdinsight-high-availability-linux/viewlogs.png)
+![使用快速链接查看日志](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>如何配置节点大小
 
@@ -253,7 +253,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 * **Azure 门户**：创建群集时，可以设置群集所用节点的大小：
 
-    ![群集创建向导的图像，其中包含节点大小选项](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![群集创建向导的图像，其中包含节点大小选项](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
 * **Azure CLI**：使用 [az hdinsight create](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-create) 命令时，可以使用 `--headnode-size`、`--workernode-size` 和 `--zookeepernode-size` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
 

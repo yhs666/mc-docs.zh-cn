@@ -1,5 +1,5 @@
-- name: Azure 存储文档
-  href: /storage/
+- name: Azure 文件文档
+  href: index.yml
 - name: 概述
   expanded: true
   items:
@@ -37,8 +37,10 @@
       href: storage-snapshots-files.md
     - name: 可伸缩性和性能目标
       href: storage-files-scale-targets.md
-    - name: 安全
+    - name: 安全性
       items:
+        - name: 授权
+          href: ../common/storage-auth.md?toc=%2fstorage%2ffiles%2ftoc.json
         - name: Azure 存储安全
           href: ../common/storage-security-guide.md?toc=%2fstorage%2ffiles%2ftoc.json
         - name: 存储帐户加密
@@ -69,8 +71,10 @@
   items:
     - name: 创建
       items:
-        - name: 创建文件共享
+        - name: 创建标准文件共享
           href: storage-how-to-create-file-share.md
+        - name: 创建高级文件共享
+          href: storage-how-to-create-premium-fileshare.md
     - name: 部署
       items:
         - name: 部署 Azure 文件

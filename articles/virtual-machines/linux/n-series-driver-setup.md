@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 01/09/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7dbe64475dcaadf30127bff4e25268ae27cb952
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 4a56a8752e7730e11859a4ce0e69d69b25e95d92
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921132"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272585"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 

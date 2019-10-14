@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 312bac21ae3370f738455f2f7c6632d7c552b1ca
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 7a5057ba6959758f2007b1afde87cb071b36a694
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539120"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272662"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 

@@ -8,19 +8,18 @@ manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4784993cee77f3d079ff14865348655e015ea210
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: c0b25951e6a879da9266b974b73a52e945bd6df3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913055"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272795"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中 Linux VM 的时间同步
 
@@ -149,8 +148,7 @@ cat /sys/class/ptp/ptp0/clock_name
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-有关 CentOS 和 NTP 的详细信息，请参阅 [Configure NTP](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp)（配置 NTP）。 
-
+<!--Not Available on [Configure NTP](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp)-->
 <!--Not Available on Red Hat -->
 
 有关 chrony 的详细信息，请参阅 [Using chrony](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony)（使用 chrony）。

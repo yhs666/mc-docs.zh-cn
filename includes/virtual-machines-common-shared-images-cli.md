@@ -9,12 +9,12 @@ origin.date: 05/21/2019
 ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9238beb95def184cd40f03b253b065d1cb0f549a
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 3ad3e0495f2ba73e9be6417509278592d209ed19
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332786"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272531"
 ---
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -71,7 +71,7 @@ az sig image-version create \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "chinanorth" "chinaeast=1" "ChinaEast2=1" \
+   --target-regions "chinanorth" "chinaeast=1" "chinaeast2=1" \
    --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```

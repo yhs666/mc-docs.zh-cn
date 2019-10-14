@@ -9,12 +9,12 @@ origin.date: 04/02/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 595b598b67a99b8c821354460624265a5e693f66
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 7f0e0d9fe4513dd8de2d8b6e502091022f5c7979
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578670"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272621"
 ---
 发送模板通知时，只需提供一组属性。 在此方案中，这组属性包含当前新闻的本地化版本。
 
@@ -85,5 +85,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-
-<!-- ms.date: 09/26/2018 -->

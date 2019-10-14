@@ -8,12 +8,12 @@ ms.date: 09/16/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: b694a71866780638246b27c24a2eca7a5e7d478d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 474c674a4add1f7c2987a7467239a495f8d3c387
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737427"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292464"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服务概述
 
@@ -36,7 +36,7 @@ Azure Resource Graph 是 Azure 中的一项服务，旨在通过提供高效和�
 
 Azure 资源管理器目前支持对基本的资源字段进行查询，具体说来，这些字段包括“资源名称”、“ID”、“类型”、“资源组”、“订阅”和“位置”。 资源管理器还提供设施，用于调用各个资源提供程序以获取详细的属性，每次仅限一个资源。
 
-使用 Azure Resource Graph，可以访问资源提供程序返回的这些属性，无需对资源提供程序进行单独调用。 如需支持的资源类型的列表，请在[完整模式部署的资源](../../azure-resource-manager/complete-mode-deletion.md)表中查找“是”  。
+使用 Azure Resource Graph，可以访问资源提供程序返回的这些属性，无需对资源提供程序进行单独调用。 如需支持的资源类型的列表，请在[完整模式部署的资源](../../azure-resource-manager/complete-mode-deletion.md)表中查找“是”  。 若要查看支持的资源类型，另一种方法是通过 [Azure Resource Graph 资源管理器架构浏览器](./first-query-portal.md#schema-browser)。
 
 使用 Azure Resource Graph，可以：
 
@@ -64,6 +64,9 @@ Resource Graph 然后就会更新其数据库。 Resource Graph 也会定期进�
 > [!NOTE]
 > Resource Graph 使用主体在登录期间可用的订阅。 若要查看在活动会话期间添加的新订阅的资源，主体必须刷新上下文。 此操作在注销并重新登录时自动发生。
 
+Azure CLI 和 Azure PowerShell 使用用户有权访问的订阅。 直接使用 REST API 时，订阅列表由用户提供。 如果用户有权访问列表中的任何订阅，则返回用户有权访问的订阅的查询结果。 此行为与调用 [Resource Groups - List](https://docs.microsoft.com/rest/api/resources/resourcegroups/list) \- 时相同，你可以获得有权访问的资源组，而不会指示结果可能是部分的。
+如果订阅列表中没有用户具有适当权限的订阅，则响应为“403 (已禁止)”  。
+
 ## <a name="throttling"></a>限制
 
 为了为所有客户提供最佳体验和响应时间，对 Resource Graph 的查询（以免费服务的形式提供）将受到限制。 如果你的组织希望使用 Resource Graph API 进行大规模的频繁查询，请使用 [Resource Graph 门户页面](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph)中的门户“反馈”。
@@ -78,7 +81,13 @@ Resource Graph 在用户级别对查询进行限制。 服务响应包含以下 
 
 ## <a name="running-your-first-query"></a>运行自己的第一个查询
 
-Resource Graph 支持 Azure CLI、Azure PowerShell 和用于 .NET 的 Azure SDK。 对于每种语言，查询结构相同。 在 [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 和 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module) 中了解如何启用 Resource Graph。
+Azure Resource Graph 资源管理器是 Azure门户的一部分，支持直接在 Azure 门户中运行 Resource Graph 查询。 将结果固定为动态图表，以便向门户工作流提供实时动态信息。 有关详细信息，请参阅[使用 Azure Resource Graph 资源管理器进行第一次查询](first-query-portal.md)。
+
+Resource Graph 支持 Azure CLI、Azure PowerShell、用于 .NET 的 Azure SDK 等等。 对于每种语言，查询结构相同。 了解如何使用以下项启用 Resource Graph：
+
+- [Azure 门户和 Resource Graph 资源管理器](first-query-portal.md) 
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,8 +8,6 @@
   items:
     - name: 创建站点到站点连接
       href: virtual-wan-site-to-site-portal.md
-    - name: 创建 ExpressRoute 连接
-      href: virtual-wan-expressroute-portal.md
 - name: 概念
   items:
     - name: 位置与合作伙伴
@@ -20,8 +18,6 @@
       items:
         - name: 全球传输网络体系结构
           href: virtual-wan-global-transit-network-architecture.md
-        - name: 虚拟 WAN 中的 Office 365 控制平面
-          href: virtual-wan-office365-overview.md
 - name: 操作指南
   items:
     - name: 将流量从虚拟中心路由到 NVA

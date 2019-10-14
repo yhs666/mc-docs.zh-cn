@@ -10,27 +10,31 @@ ms.assetid: 91188310-307a-11e9-b210-d663bd873d93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 02/14/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 31d4384e9c14a5520f4457bf510a7bfd5b4c90dd
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.date: 10/09/2019
+ms.openlocfilehash: 9e035aaee05dfb0e01b389948ef47791c65f703d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903267"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272477"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure 通知中心 SDK
 
-Microsoft 和第三方发布 Azure 通知中心的 SDK。
+Microsoft 和第三方发布 Azure 通知中心的 SDK。 适用于 Android、iOS 和 .NET 的 Microsoft 存储库也包含每个目标平台的示例应用。
 
 | SDK            | 发布者      |
 | -------------- | -------------- |
 | [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs/tree/master/Android)  |Microsoft |
+| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
 | [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | 第三方 |
 | [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
 | [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](http://github.com/Azure/azure-sdk-for-node) | Microsoft |
+| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
 | [React Native](https://github.com/CatalystCode/react-native-azurenotificationhub) | 第三方 |
 
+> [!Note]
+> Microsoft 不对任何第三方解决方案的质量、实用性或可支持性负责。
+
+如果有任何遗漏，请告诉我们。

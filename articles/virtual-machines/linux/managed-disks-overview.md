@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: overview
 origin.date: 08/15/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: e3d08753358cef26fc0b323650c733c13e82b012
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 73c8bd7dda887e474490329817efdfa6796c1762
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921237"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272829"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
 
@@ -21,7 +21,7 @@ Azure 托管磁盘是虚拟硬盘 (VHD)。 可以将其视为本地服务器中�
 
 如果选择将 Azure 托管磁盘与工作负荷配合使用，Azure 将为你创建和管理该磁盘。 可用的磁盘类型包括高级固态硬盘 (SSD)、标准 SSD 和标准硬盘驱动器 (HDD)。 有关每种磁盘类型的详细信息，请参阅[选择适用于 IaaS VM 的磁盘类型](disks-types.md)。
 
-<!--Not Available on ultra disks (Preview)-->
+<!--Not Available on ultra disks -->
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

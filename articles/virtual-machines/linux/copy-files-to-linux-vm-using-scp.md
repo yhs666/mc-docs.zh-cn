@@ -11,18 +11,17 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: c923a23a45233c8b0e61aca51acedbb42535cd54
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 91ee3c3ef3b6eff79deb2f7b02a1332ad0bf46a3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912867"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272769"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>使用 SCP 将文件移到 Linux VM 和从 Linux VM 移动文件
 

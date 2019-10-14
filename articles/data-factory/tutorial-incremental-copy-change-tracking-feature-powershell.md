@@ -8,17 +8,16 @@ manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/22/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 1a6df34a7bd42da646a375a179d419f098192fef
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 8842726c26b279db4c613ad5325700346f9085a9
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570540"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275205"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>根据更改跟踪信息，以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储 
 在本教程中，请创建一个带管道的 Azure 数据工厂，以便根据源 Azure SQL 数据库中的**更改跟踪**信息将增量数据加载到 Azure Blob 存储。  
@@ -217,7 +216,7 @@ ms.locfileid: "67570540"
         }
     }
     ```
-2. 在 **Azure PowerShell** 中切换到 **C:\ADFTutorials\IncCopyChgTrackingTutorial** 文件夹。
+2. 在 **Azure PowerShell** 中切换到 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 文件夹。
 3. 运行 **Set-AzDataFactoryV2LinkedService** cmdlet 来创建链接服务：**AzureStorageLinkedService**。 在以下示例中，传递 **ResourceGroupName** 和 **DataFactoryName** 参数的值。 
 
     ```powershell
@@ -371,7 +370,7 @@ ms.locfileid: "67570540"
     ```
 
     创建 table_store_ChangeTracking_version 表，这是先决条件的部分要求。
-2.  运行 Set-AzDataFactoryV2Dataset cmdlet 以创建数据集：WatermarkDataset
+2.  运行 Set-AzDataFactoryV2Dataset cmdlet 以创建数据集：ChangeTrackingDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"

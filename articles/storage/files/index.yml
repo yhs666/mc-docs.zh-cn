@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/27/2019
-  ms.date: 09/30/2019
-  ms.openlocfilehash: ae0fdff700222dba4eaaab30d5abbeb1f49a25be
-  ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+  ms.date: 10/14/2019
+  ms.openlocfilehash: b2483504dee0e48b9c24659e4bebd21c19ab69dd
+  ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71306860"
+  ms.lasthandoff: 10/11/2019
+  ms.locfileid: "72275561"
 landingContent:
 - title: 关于 Azure 文件
   linkLists:
@@ -34,6 +34,8 @@ landingContent:
     links:
     - text: 创建/使用文件共享 - Windows
       url: storage-files-quick-create-use-windows.md
+    - text: 创建高级文件共享
+      url: storage-how-to-create-premium-fileshare.md
 - title: 故障排除
   linkLists:
   - linkListType: reference
@@ -42,3 +44,5 @@ landingContent:
       url: storage-troubleshoot-windows-file-connection-problems.md
     - text: Azure 文件存储 Linux 故障排除
       url: storage-troubleshoot-linux-file-connection-problems.md
+    - text: Azure 文件存储性能故障排除
+      url: storage-troubleshooting-files-performance.md

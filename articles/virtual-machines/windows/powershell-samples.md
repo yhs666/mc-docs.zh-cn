@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/01/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dc603420a0a9bc146bdbc0a3cb53bc3630f7542d
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 831c145056549e6212261d7534d041a5984fdf94
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539164"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272542"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 

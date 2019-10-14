@@ -8,20 +8,19 @@ manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: azmetadata
-ms.openlocfilehash: 7b99e4ebc0ff00b60912c2c75ea104a56b3b567a
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: a635f48216bebe4ddc7919374457752fccadb3a0
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921047"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272430"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -619,7 +618,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 
 ```bash
 # Get the signature
-curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2018-10-01 | jq -r '.["signature"]' > signature
+curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
 # Decode the signature
 base64 -d signature > decodedsignature
 #Get PKCS7 format
@@ -799,7 +798,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. 我为什么会收到错误 `500 Internal Server Error`？
     * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-    * 在 https://support.azure.cn/en-us/support/contact/ 上发送评论。
+    * 在 https://support.azure.cn/support/contact/ 上发送评论。
 7. 这是否适用于虚拟机规模集实例？
     * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？

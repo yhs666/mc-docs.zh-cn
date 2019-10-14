@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 01/09/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0b6cc7d22ca3a6a4fa3c73a2113c4d3640616a21
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 065b8ad5b47d325deb6fa390f6f749cc68a3d595
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913033"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272774"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>适用于 Windows 的 NVIDIA GPU 驱动程序扩展
 

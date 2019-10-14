@@ -7,13 +7,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/16/2019
-ms.openlocfilehash: cbf03ea800560553b56211a994ab3baff33b0a89
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 10/21/2019
+ms.openlocfilehash: 1aef5cd2caa9f1cec43069fc0665cd1baa95fb9c
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737445"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292360"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>规划 Azure HDInsight 的虚拟网络
 
@@ -213,7 +213,7 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 作为托管服务，HDInsight 需要对 HDInsight 运行状况和管理服务具有不受限制的访问权限，以处理从 VNET 传入和传出的流量。 使用 NSG 时，必须确保这些服务仍然可以与 HDInsight 群集进行通信。
 
-![在 Azure 自定义 VNET 中创建的 HDInsight 实体示意图](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![在 Azure 自定义 VNET 中创建的 HDInsight 实体示意图](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
 ### <a name="hdinsight-with-network-security-groups"></a>使用网络安全组的 HDInsight
 

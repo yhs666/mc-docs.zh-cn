@@ -9,19 +9,18 @@ editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 223e5336619d6b0bb0eb8fe0318f8b475b529e54
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: a95f46bc228da0c001299169efe9c60438c25a33
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912989"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272521"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -257,8 +256,6 @@ provider "azurerm" {
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     environment     = "china"
 }
-
-<!--MOONCAKE CUSTOMIZE: environment     = "china" is correct-->
 
 # Create a resource group if it doesn't exist
 resource "azurerm_resource_group" "myterraformgroup" {

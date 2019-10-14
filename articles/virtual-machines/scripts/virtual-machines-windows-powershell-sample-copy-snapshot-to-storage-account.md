@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: e16380d6be0fb39796eb81f07d3e6ce34e44383a
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 2ae728d59ff4adfb9d4b8cd0c4f524c5f4b01140
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003989"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272575"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
 
@@ -34,6 +33,8 @@ ms.locfileid: "66003989"
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
+
+<!--CORRECT LINE 50 ON https://docs.azure.cn/storage/storage-dotnet-shared-access-signature-part-1-->
 
 ```powershell
 # Sign-in the Azure China Cloud
@@ -68,13 +69,14 @@ $destinationVHDFileName = "yourvhdfilename"
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 #Generate the SAS for the snapshot 
-$sas = Grant-AzSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read 
+$sas = Grant-AzSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read
 
 #Create the context for the storage account which will be used to copy snapshot to the storage account 
-$destinationContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+$destinationContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
 #Copy the snapshot to the storage account 
 Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageContainerName -DestContext $destinationContext -DestBlob $destinationVHDFileName
+
 ```
 
 ## <a name="script-explanation"></a>脚本说明

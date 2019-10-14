@@ -8,20 +8,19 @@ manager: digimobile
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/03/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 49155b9093b5582a3907239f1c67fff3c17673ec
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 3063eec50216b7b28a09e8309d7ca2f80ae296a2
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921229"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272813"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>适用于 Azure 虚拟机（资源管理器）的自动备份 v2
 
@@ -137,7 +136,7 @@ ms.locfileid: "70921229"
 
 ## <a name="configure-existing-vms"></a>配置现有 VM
 
-<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--MOONCAKE: CUSTOMIZATION ON 10/10/2019-->
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
 
 对于现有的 SQL Server 虚拟机，请选择 SQL Server 虚拟机。 然后选择 VM“设置”的“SQL Server 配置”部分   。
@@ -151,7 +150,7 @@ ms.locfileid: "70921229"
 完成后，单击“SQL Server 配置”设置底部的“确定”按钮保存更改   。
 
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
-<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--MOONCAKE: CUSTOMIZATION ON 10/10/2019-->
 
 首次启用自动备份时，Azure 会在后台配置 SQL Server IaaS 代理。 在此期间，Azure 门户可能不会显示自动备份已配置。 请等待几分钟，以便安装和配置代理。 之后，Azure 门户将反映出新设置。
 

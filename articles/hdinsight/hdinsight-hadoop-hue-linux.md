@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 71b4569419a3d54f05713164ad0801663adf08b0
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: b9dbda7b2f9ff03ab584c6b79ba7173d6f826dbe
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878730"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292510"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Hue
 
@@ -64,11 +64,11 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
    >
 2. 在“可选配置”  边栏选项卡上，选择“脚本操作”  ，并提供如下信息：
 
-    ![为 Hue 提供脚本操作参数](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "为 Hue 提供脚本操作参数")
+    ![为 Hue 提供脚本操作参数](./media/hdinsight-hadoop-hue-linux/hdi-hue-script-action.png "为 Hue 提供脚本操作参数")
 
    * **名称**：输入脚本操作的友好名称。
    * **脚本 URI**： https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
-   * **标头**：选中此选项
+   * **标头**：选中此选项。
    * **辅助角色**：将此项留空。
    * **ZOOKEEPER**：将此项留空。
    * **参数**：将此项留空。

@@ -10,25 +10,24 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 origin.date: 06/24/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 6579725bcf3ccf47154f710746c9624a0d0b153e
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: fe408e16bdb668d5eee702ab051258f2f783a945
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539161"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272523"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
-使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1)。
+使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/marketplace/apps?search=Visual%20Studio&page=1)。
 
-<!-- Notice: URL is correct on https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1-->
+<!-- Notice: URL is correct on https://market.azure.cn/marketplace/apps?search=Visual%20Studio&page=1-->
 
 不熟悉 Azure？ [创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 

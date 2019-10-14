@@ -4,22 +4,21 @@ description: 创建一个 Azure 数据工厂，将数据从 Azure Blob 存储中
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-ms.reviewer: douglasl
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 01/22/2018
-ms.date: 08/12/2019
-ms.author: v-jay
-ms.openlocfilehash: ea6febff9d27a7e1f28f05530d8f4170ecded2cc
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.date: 10/14/2019
+ms.openlocfilehash: 32283a67f3b4bf9190311f70f6490452b1f38e51
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908672"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275269"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入门：使用 Python 创建数据工厂和管道
 
@@ -175,10 +174,10 @@ Azure 数据工厂是基于云的数据集成服务，用于在云中创建数�
 ```python
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(ls_name)
+    ds_ls = LinkedServiceReference(reference_name=ls_name)
     blob_path= 'adfv2tutorial/input'
     blob_filename = 'input.txt'
-    ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
+    ds_azure_blob= AzureBlobDataset(linked_service_name=ds_ls, folder_path=blob_path, file_name = blob_filename)
     ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 ```
@@ -193,7 +192,7 @@ Azure 数据工厂是基于云的数据集成服务，用于在云中创建数�
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adfv2tutorial/output'
-    dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
+    dsOut_azure_blob = AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath)
     dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
@@ -207,9 +206,9 @@ Azure 数据工厂是基于云的数据集成服务，用于在云中创建数�
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
     p_name = 'copyPipeline'
@@ -263,6 +262,7 @@ from azure.mgmt.datafactory.models import *
 from datetime import datetime, timedelta
 import time
 
+
 def print_item(group):
     """Print an Azure object instance."""
     print("\tName: {}".format(group.name))
@@ -275,6 +275,7 @@ def print_item(group):
         print_properties(group.properties)
     print("\n")
 
+
 def print_properties(props):
     """Print a ResourceGroup properties instance."""
     if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
@@ -282,16 +283,21 @@ def print_properties(props):
         print("\t\tProvisioning State: {}".format(props.provisioning_state))
     print("\n")
 
+
 def print_activity_run_details(activity_run):
     """Print activity run details."""
     print("\n\tActivity run details\n")
     print("\tActivity run status: {}".format(activity_run.status))
     if activity_run.status == 'Succeeded':
-        print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))
-        print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))
-        print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
+        print("\tNumber of bytes read: {}".format(
+            activity_run.output['dataRead']))
+        print("\tNumber of bytes written: {}".format(
+            activity_run.output['dataWritten']))
+        print("\tCopy duration: {}".format(
+            activity_run.output['copyDuration']))
     else:
         print("\tErrors: {}".format(activity_run.error['message']))
+
 
 def main():
 
@@ -305,7 +311,8 @@ def main():
     df_name = '<Your data factory name>'
 
     # Specify your Active Directory client ID, client secret, and tenant ID
-    credentials = ServicePrincipalCredentials(client_id='<Active Directory client ID>', secret='<client secret>', tenant='<tenant ID>' , china='true')
+    credentials = ServicePrincipalCredentials(
+        client_id='<Active Directory client ID>', secret='<client secret>', tenant='<tenant ID>' , china='true')
     resource_client = ResourceManagementClient(credentials, subscription_id , base_url='https://management.chinacloudapi.cn')
     adf_client = DataFactoryManagementClient(credentials, subscription_id , base_url='https://management.chinacloudapi.cn')
 
@@ -328,26 +335,32 @@ def main():
     ls_name = 'storageLinkedService'
 
     # Specify the name and key of your Azure Storage account
-    storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>;EndpointSuffix=core.chinacloudapi.cn')
+    storage_string = SecureString(
+        'DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>;EndpointSuffix=core.chinacloudapi.cn')
 
-    ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
-    ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
+    ls_azure_storage = AzureStorageLinkedService(
+        connection_string=storage_string)
+    ls = adf_client.linked_services.create_or_update(
+        rg_name, df_name, ls_name, ls_azure_storage)
     print_item(ls)
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(ls_name)
-    blob_path= 'adfv2tutorial/input'
+    blob_path = 'adfv2tutorial/input'
     blob_filename = 'input.txt'
-    ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
-    ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
+    ds_azure_blob = AzureBlobDataset(
+        ds_ls, folder_path=blob_path, file_name=blob_filename)
+    ds = adf_client.datasets.create_or_update(
+        rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adfv2tutorial/output'
     dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
-    dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
+    dsOut = adf_client.datasets.create_or_update(
+        rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 
     # Create a copy activity
@@ -356,27 +369,32 @@ def main():
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
+    copy_activity = CopyActivity(act_name, inputs=[dsin_ref], outputs=[
+                                 dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity
     p_name = 'copyPipeline'
     params_for_pipeline = {}
-    p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
+    p_obj = PipelineResource(
+        activities=[copy_activity], parameters=params_for_pipeline)
     p = adf_client.pipelines.create_or_update(rg_name, df_name, p_name, p_obj)
     print_item(p)
 
     # Create a pipeline run
     run_response = adf_client.pipelines.create_run(rg_name, df_name, p_name,
-        {
-        }
-    )
+                                                   {
+                                                   }
+                                                   )
 
     # Monitor the pipeline run
     time.sleep(30)
-    pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+    pipeline_run = adf_client.pipeline_runs.get(
+        rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
-    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1), datetime.now() + timedelta(1)))
+    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
+        rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1), datetime.now() + timedelta(1)))
     print_activity_run_details(activity_runs_paged[0])
+
 
 # Start the main method
 main()
@@ -425,7 +443,7 @@ Copy duration: 4
 若要删除数据工厂，请向程序中添加以下代码：
 
 ```python
-adf_client.factories.delete(rg_name,df_name)
+adf_client.factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>后续步骤

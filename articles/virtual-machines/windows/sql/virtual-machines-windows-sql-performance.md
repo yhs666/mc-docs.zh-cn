@@ -9,20 +9,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 09/26/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 0bba74a5adf8b906e132f33e9c54bf56b55fc888
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 5f95ef2c9d64a8bb3edad545013d0b77b767e20e
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921174"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272811"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的性能准则
 

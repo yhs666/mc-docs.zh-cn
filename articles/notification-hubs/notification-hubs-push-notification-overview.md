@@ -13,15 +13,15 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-origin.date: 04/14/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
-ms.openlocfilehash: e753647d1179ea00a75a1dd9440574013d924665
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+origin.date: 04/30/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 320eb42b7794d2bc6e00134e6dab24295b6f0f29
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296722"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272024"
 ---
 # <a name="what-is-azure-notification-hubs"></a>什么是 Azure 通知中心？
 
@@ -87,7 +87,7 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
   - 在一个位置管理设备句柄。
 - **跨后端**
   - 云或本地
-  - .NET、Node.js、Java 等。
+  - .NET、Node.js、Java、Python 等。
 - **丰富的传送模式集**
   - 广播到一个或多个平台：只需调用 API 一次，即可立即广播到数百万台跨平台设备。
   - 推送到设备：可将通知定位到单个设备。
@@ -107,8 +107,9 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
 - **安全性**
   - 共享访问机密 (SAS) 或联合身份验证。
 
-## <a name="next-steps"></a>后续步骤
+<!-- ## Next steps -->
 
+<!-- Get started with creating and using a notification hub by following the [Tutorial: Push notifications to mobile applications](notification-hubs-android-push-notification-google-fcm-get-started.md). -->
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
@@ -125,4 +126,4 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
 [App Service Mobile Apps]: ../app-service-mobile/app-service-mobile-value-prop.md
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [Azure portal]: https://portal.azure.cn
-[tags]: http://msdn.microsoft.com/library/azure/dn530749.aspx
+[tags]: https://msdn.microsoft.com/library/azure/dn530749.aspx

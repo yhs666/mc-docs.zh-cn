@@ -11,18 +11,17 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 origin.date: 08/18/2018
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 6784bfcf344c1601b5b6b706b259671fd0225686
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 34b484caabd4d3b1217eacd285dc1ff029b366ca
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570244"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272831"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>将 SQL Server 数据库迁移到 Azure VM 中的 SQL Server
 

@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 21e872a32d8103120974f9aaae4b25cabd6e769d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ea8abaa604f445db5ca008579a8bf04f2189f840
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570222"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272022"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 

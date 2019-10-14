@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: ea786318b63228063f19c0150460b045c56dba6a
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 9033666414d85809a74139bd4252c26a9aba993c
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878767"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292433"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -40,7 +40,7 @@ Microsoft 提供以下实用程序来缩放群集：
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数> |
 |[Azure 门户](https://portal.azure.cn)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。 |  
 
-    ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![缩放群集](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 使用以下任一方法可在几分钟之内扩展或缩放 HDInsight 群集。
 
@@ -115,7 +115,7 @@ Microsoft 提供以下实用程序来缩放群集：
 3. 在 Ambari UI 的左侧菜单中的服务列表内选择“YARN”。   
 4. 在“YARN”页中选择“快速链接”，将鼠标悬停在活动头节点上，然后选择“ResourceManager UI”。  
 
-    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 可以使用 `https://<HDInsightClusterName>.azurehdinsight.cn/yarnui/hn/cluster` 直接访问 ResourceManager UI。
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/12/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: e1e9230fe813f782eadb15eaa49809407d5b642b
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 0844be7ff08a7b03d3983f38858d1faa0bf9cf8c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921097"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272566"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Azure Monitor 虚拟机扩展
 
@@ -52,7 +51,9 @@ Azure Monitor 日志提供跨云和本地资产的监视功能。 适用于 Wind
 | 8.0.11072 | 1.0.11072 | 2017 年 9 月 | |
 | 8.0.11049 | 1.0.11049 | 2017 年 2 月 | |
 
-<!--Not Available on ### Azure Security Center-->
+### <a name="azure-security-center"></a>Azure 安全中心
+
+Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订阅的默认 Log Analytics 工作区。 如果使用 Azure 安全中心，请勿按照本文档中的步骤运行。 这样做会覆盖已配置的工作区并断开与 Azure 安全中心的连接。
 
 ### <a name="internet-connectivity"></a>Internet 连接
 适用于 Windows 的 Log Analytics 代理扩展要求目标虚拟机已连接到 Internet。 

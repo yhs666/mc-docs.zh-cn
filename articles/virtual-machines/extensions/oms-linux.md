@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/06/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 58bdbcf4b37011c552df349680433c9efdab37fd
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 630ec0e4dfb200b2319631a279e231268833f240
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921187"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272183"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>适用于 Linux 的 Azure Monitor 虚拟机扩展
 
@@ -70,7 +69,9 @@ Azure Monitor 日志提供跨云和本地资产的监视、警报和警报修正
 | 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
 | 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
-<!--Not Available on ### Azure Security Center-->
+### <a name="azure-security-center"></a>Azure 安全中心
+
+Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订阅中由 ASC 创建的默认 Log Analytics 工作区。 如果使用 Azure 安全中心，请勿按照本文档中的步骤运行。 这样做会覆盖已配置的工作区并断开与 Azure 安全中心的连接。
 
 ### <a name="internet-connectivity"></a>Internet 连接
 

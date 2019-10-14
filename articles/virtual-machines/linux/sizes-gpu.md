@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/11/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 64909af8f0a3f857d7fcb724616d609f4aedde61
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 78298cd6be9907a49981374aee238582ee154297
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921003"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272570"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 优化虚拟机大小
 

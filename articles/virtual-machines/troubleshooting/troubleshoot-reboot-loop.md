@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/15/2018
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: d42005974001998fc5dc220ae41b5e86a234b8ff
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 51c1bce6f1c5c79fdec075cde9f338451493dfb1
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570510"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272705"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 上的 Windows 重启循环
 本文介绍在 Azure 中的 Windows 虚拟机 (VM) 上可能遇到的重启循环。

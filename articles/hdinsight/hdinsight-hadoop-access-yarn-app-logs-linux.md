@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 03/22/2018
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: d89876ea869bcffe6709537c13d2a0be27e54c71
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 12b981201bc4659c85fb0116906cccea25bf8081
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67845136"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292626"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志
 
@@ -64,10 +64,11 @@ YARN ResourceManager UI 在群集头节点上运行。 可通过 Ambari web UI �
 1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn 。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 2. 从左侧的服务列表中，选择“YARN”  。
 
-    ![选中的 Yarn 服务](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
+    ![选中的 Yarn 服务](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+
 3. 在“快速链接”  的下拉列表中，选择其中一个群集头节点，并选择“ResourceManager 日志”  。
 
-    ![Yarn 快速链接](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
+    ![Yarn 快速链接](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     此时将显示 YARN 日志的链接列表。
 

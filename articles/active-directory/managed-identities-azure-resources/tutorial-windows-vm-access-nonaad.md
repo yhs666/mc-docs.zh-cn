@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/20/2017
-ms.date: 08/05/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d46fc896fee94fc57879a0229d0d5d385821df53
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 7c9db3d154cdbde3071eb180bbeeb34308eba4c4
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818598"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292069"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Key Vault 
 
@@ -115,5 +115,6 @@ ms.locfileid: "68818598"
 在本教程中，你已学习了如何使用 Windows VM 系统分配的托管标识来访问 Azure Key Vault。  若要详细了解 Azure Key Vault，请参阅：
 
 > [!div class="nextstepaction"]
->[Azure 密钥保管库](/key-vault/key-vault-whatis)
+>[Azure 密钥保管库](/key-vault/key-vault-overview)
 
+<!-- Update_Description: link update -->

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 06/20/2018
-ms.date: 12/31/2018
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7d0e6385510ef5e761fc1165ec40c340e37bb610
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: f7d9e22859dbed068ddb3cafff9edd225cbe0980
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736692"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292394"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>自动缩放 Azure API 管理实例  
 
@@ -34,7 +34,7 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 + 了解 [Azure API 管理实例容量](api-management-capacity.md)的概念。
 + 了解 [Azure API 管理实例的手动缩放过程](upgrade-and-scale.md)，包括成本影响。
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Azure API 管理自动缩放的限制
 
@@ -50,21 +50,21 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
 遵循以下步骤为 Azure API 管理服务配置自动缩放：
 
-1. 在 Azure 门户中导航到“Monitor”实例。
+1. 在 Azure 门户中导航到“Monitor”实例。 
 
     ![Azure Monitor](media/api-management-howto-autoscale/01.png)
 
-2. 在左侧菜单中选择“自动缩放”。
+2. 在左侧菜单中选择“自动缩放”  。
 
     ![Azure Monitor - 自动缩放 - 资源](media/api-management-howto-autoscale/02.png)
 
 3. 基于下拉菜单中的筛选器找到自己的 Azure API 管理服务。
 4. 选择所需的 Azure API 管理服务实例。
-5. 在新打开的部分，单击“启用自动缩放”按钮。
+5. 在新打开的部分，单击“启用自动缩放”按钮。 
 
     ![Azure Monitor - 自动缩放 - 启用](media/api-management-howto-autoscale/03.png)
 
-6. 在“规则”部分，单击“+ 添加规则”。
+6. 在“规则”部分，单击“+ 添加规则”。  
 
     ![Azure Monitor - 自动缩放 - 添加规则](media/api-management-howto-autoscale/04.png)
 
@@ -72,7 +72,7 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
    例如，当过去 30 分钟的平均容量指标超过 80% 时，横向扩展规则可以触发添加 Azure API 管理单元的操作。 下表提供了此类规则的配置。
 
-    | 参数             | 值             | 注释                                                                                                                                                                                                                                                                           |
+    | 参数             | Value             | 注释                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 指标源         | 当前资源  | 基于当前的 Azure API 管理资源指标定义规则。                                                                                                                                                                                                     |
     | *条件*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -91,7 +91,7 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
     ![Azure Monitor - 横向扩展规则](media/api-management-howto-autoscale/05.png)
 
-9. 再次单击“+ 添加规则”。
+9. 再次单击“+ 添加规则”。 
 
     这次需要定义横向缩减规则。 这可以确保在 API 用量减少时不会浪费资源。
 
@@ -99,7 +99,7 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
     例如，当过去 30 分钟的平均容量指标低于 35% 时，横向缩减规则可以触发删除 Azure API 管理单元的操作。 下表提供了此类规则的配置。
 
-    | 参数             | 值             | 注释                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | 参数             | Value             | 注释                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 指标源         | 当前资源  | 基于当前的 Azure API 管理资源指标定义规则。                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *条件*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -121,11 +121,11 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 12. 设置 Azure API 管理单元的**最大**数目。
 
     > [!NOTE]
-    > Azure API 管理会限制实例可以横向扩展到单元数。 此限制取决于服务层。
+    > Azure API 管理会限制实例可以横向扩展到单元数。 此限制取决于服务层级。
 
     ![Azure Monitor - 横向缩减规则](media/api-management-howto-autoscale/07.png)
 
-13. 单击“保存” 。 现已配置自动缩放。
+13. 单击“保存”  。 现已配置自动缩放。
 
 ## <a name="next-steps"></a>后续步骤
 

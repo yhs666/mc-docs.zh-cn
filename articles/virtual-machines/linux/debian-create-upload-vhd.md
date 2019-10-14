@@ -11,17 +11,16 @@ ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 11/13/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1a5fa526c620a95fb5d9f6d9efbd4b44930c4e73
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 9eab019db9323779c0de394ad4be203b8d42a7b5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913029"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272720"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>为 Azure 准备 Debian VHD
 ## <a name="prerequisites"></a>先决条件

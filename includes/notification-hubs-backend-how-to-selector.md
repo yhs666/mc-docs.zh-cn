@@ -1,10 +1,15 @@
 ---
-ms.openlocfilehash: d08888dcfe82b8c5c5a2ee9cbf6e21bcda11520e
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 65624f6cc70a7e2a982fcd5fe3b03ece1bffb3a5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "63859125"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272480"
 ---
 > [!div class="op_single_selector"]
 >- [Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md)

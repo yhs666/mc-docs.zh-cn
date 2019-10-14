@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 08/24/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 44fba30b5a82438fd45b766967243ba4a498a207
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: c07a614d0a5c3db8c4cd40576851c98a087d0cc6
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71267113"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275560"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入门：使用语音 SDK 在 Windows 上的 C++ 中合成语音
 
@@ -58,7 +58,7 @@ ms.locfileid: "71267113"
         public void ButtonClick()
         {
             // Creates an instance of a speech config with specified subscription key and service region.
-            // Replace with your own subscription key and service region (e.g., "westus").
+            // Replace with your own subscription key and service region (e.g., "chinaeast2").
             var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     
             // Creates a speech synthesizer.

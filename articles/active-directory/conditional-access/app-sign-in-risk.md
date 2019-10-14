@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
 origin.date: 12/14/2018
-ms.date: 08/08/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 143040223e39391180434a89c4eea8427eabc154
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 5f6ec9fb65aa4d898e5bd28b151bf173e89545d2
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973012"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72291958"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入门：使用 Azure Active Directory 条件访问检测到会话风险时阻止访问  
 
@@ -49,7 +49,7 @@ ms.locfileid: "68973012"
 
 ## <a name="create-your-conditional-access-policy"></a>创建条件访问策略
 
-本快速入门中的方案使用 Tor 浏览器中的登录名生成检测到的“从匿名 IP 地址登录”风险事件。  此风险事件的风险级别为中等。 若要响应此风险事件，请将登录风险条件设置为中。 在生产环境中，应将登录风险条件设置为高或者中和高。
+本快速入门中的方案使用 Tor 浏览器中的登录名生成检测到的“从匿名 IP 地址登录”风险检测。  此风险检测的风险级别为中等。 若要响应此风险检测，请将登录风险条件设置为中等。 在生产环境中，应将登录风险条件设置为高或者中和高。
 
 此部分介绍如何创建所需的条件访问策略。 在策略中，设置：
 
@@ -181,3 +181,4 @@ ms.locfileid: "68973012"
 > [需要接受使用条款](require-tou.md)
 > [需要对特定的应用执行 MFA](app-based-mfa.md)
 
+<!-- Update_Description: wording update -->

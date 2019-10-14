@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/19/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: f2fba09d533aee5e50c0ee8c4777cacda7a8e7c5
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 05ecf6bc2773d6805329f67adb4cb1bb39e85283
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71267095"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275550"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安装和运行语音服务容器
 
@@ -40,11 +40,9 @@ ms.locfileid: "71267095"
 |熟悉 Docker | 应对 Docker 概念有基本的了解，例如注册表、存储库、容器和容器映像，以及基本的 `docker` 命令的知识。| 
 |语音资源 |若要使用这些容器，必须具有：<br><br>一个用于获取关联 API 密钥和终结点 URI 的 Azure 语音资源。  可在 Azure 门户的**语音**“概述”和“密钥”页上获取两个值。 必须获取这两个值才能启动容器。<br><br>**{API_KEY}** ：“密钥”页上提供的两个可用资源密钥中的一个 <br><br>**{ENDPOINT_URI}** ：“概述”页上提供的终结点 |
 
-## <a name="request-access-to-the-container-registry"></a>请求访问容器注册表
-
-在请求访问容器之前，必须先填写并提交[认知服务语音容器请求表单](https://aka.ms/speechcontainerspreview/)。 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+<!-- ## Request access to the container registry -->
+<!-- You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. -->
+<!-- [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)] -->
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
@@ -80,7 +78,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 | 容器 | 存储库 |
 |-----------|------------|
-| cognitive-services-text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+| cognitive-services-text-to-speech | `containerpreview.azurecr.cn/microsoft/cognitive-services-text-to-speech:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -130,7 +128,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 #### <a name="text-to-speech"></a>文本转语音
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
+docker pull containerpreview.azurecr.cn/microsoft/cognitive-services-text-to-speech:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>如何使用容器
@@ -157,7 +155,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+containerpreview.azurecr.cn/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

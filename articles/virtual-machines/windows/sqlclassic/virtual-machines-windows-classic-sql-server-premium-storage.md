@@ -9,20 +9,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 95abdc64359fd6e96618f4599c559c08773f4644
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 1919d0c8877be8ad2daac4f767f990b83cbebfe0
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427823"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272834"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 
@@ -535,8 +534,8 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 * 客户端重新连接可能会延迟，具体取决于客户端/DNS 配置。
 * 如果选择使 AlwaysOn 群集组脱机以提取 IP 地址，则停机时间会增加。 可对添加的 IP 地址资源使用 OR 依赖关系和可能的所有者，进而避免出现这种情况。 请参阅 [附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的“在同一子网中添加 IP 地址资源”部分。
 
-> [!NOTE]
-> 如果想让添加的节点用作 AlwaysOn 故障转移伙伴，需要添加引用负载均衡集的 Azure 终结点。 运行 Add-AzureEndpoint 命令来执行此操作时，当前连接保持断开，但在更新负载均衡器之后，才能建立到侦听器的新连接  。 在测试时，此现像持续了 90 到 120 秒，应该对此进行测试。
+    > [!NOTE]
+    > 如果想让添加的节点用作 AlwaysOn 故障转移伙伴，需要添加引用负载均衡集的 Azure 终结点。 运行 Add-AzureEndpoint 命令来执行此操作时，当前连接保持断开，但在更新负载均衡器之后，才能建立到侦听器的新连接  。 在测试时，此现像持续了 90 到 120 秒，应该对此进行测试。
 
 ##### <a name="advantages"></a>优点
 
@@ -550,9 +549,9 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 * 在迁移期间，会暂时失去高可用性和灾难恢复。
 * 由于此操作是一对一迁移，因此必须使用支持 VHD 数量的最小 VM 大小，这样可能就无法缩小 VM 的大小。
 * 此方案会使用 Azure **Start-AzureStorageBlobCopy** commandlet，它是异步的。 复制完成后没有 SLA。 复制所用的时间不同，而这取决于在队列中的等待情况，还取决于要传输的数据量。 如果传输目标是支持其他区域中的高级存储的另一个 Azure 数据中心，则复制时间会增加。 如果只有 2 个节点，请考虑可能的缓解措施，以防实际复制时间长于测试。 这可以包括以下建议。
-  * 在以商定的停机时间进行迁移之前，添加临时的第 3 个 SQL Server 节点以实现 HA。
-  * 在 Azure 计划的维护时间之外运行迁移。
-  * 确保已正确配置群集仲裁。  
+    * 在以商定的停机时间进行迁移之前，添加临时的第 3 个 SQL Server 节点以实现 HA。
+    * 在 Azure 计划的维护时间之外运行迁移。
+    * 确保已正确配置群集仲裁。  
 
 ##### <a name="high-level-steps"></a>高级步骤
 
@@ -598,9 +597,9 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 * 根据客户端对 SQL Server 的访问权限，当 SQL Server 在应用程序的备用 DC 中运行时，延迟时间可能会增加。
 * VHD 到高级存储的复制时间可能会很长。 这可能会影响是否要在可用性组中保留节点的决策。 请在确定何时需要在迁移期间运行日志密集型工作负荷时考虑这一点，因为主节点必须将未复制的事务保留在事务日志中。 因此，此日志可能会显著增长。
 * 此方案会使用 Azure **Start-AzureStorageBlobCopy** commandlet，它是异步的。 完成后没有 SLA。 复制所用的时间不同，而这取决于在队列中的等待情况，还取决于要传输的数据量。 因此，在第 2 个数据中心中只有一个节点，应该采取缓解措施，以防实际复制时间长于测试。 这些迁移步骤包括以下方面：
-  * 在以商定的停机时间进行迁移之前，添加临时的第 2 个 SQL 节点以实现 HA。
-  * 在 Azure 计划的维护时间之外运行迁移。
-  * 确保已正确配置群集仲裁。
+    * 在以商定的停机时间进行迁移之前，添加临时的第 2 个 SQL 节点以实现 HA。
+    * 在 Azure 计划的维护时间之外运行迁移。
+    * 确保已正确配置群集仲裁。
 
 此方案假定已记录安装，并知道存储如何映射以便对最佳磁盘缓存设置进行更改。
 
@@ -1252,6 +1251,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoi
 * [Azure 虚拟机中的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
+
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
 [2]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/2_Diskname_Lun.png
 [3]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/3_Virtual_Disk_Properties.png

@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: cb5cd2aeb47ebc5afb20e12017f632534303e7a9
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 6cb83f244760cdf7a916d9d44a221e361fe945d0
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267108"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275556"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入门：使用适用于 .NET Framework 的语音 SDK (Windows) 合成语音
 
@@ -54,7 +54,7 @@ ms.locfileid: "71267108"
             public static async Task SynthesisToSpeakerAsync()
             {
                 // Creates an instance of a speech config with specified subscription key and service region.
-                // Replace with your own subscription key and service region (e.g., "westus").
+                // Replace with your own subscription key and service region (e.g., "chinaeast2").
                 // The default language is "en-us".
                 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     

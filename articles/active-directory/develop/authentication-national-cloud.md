@@ -9,21 +9,21 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/24/2019
+origin.date: 08/28/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 730db143cb7628288b0e71b1384666fa29c823d6
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 1f6a6b8ab68453c4e10378dbf82e9a2203f5862b
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568529"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292024"
 ---
 # <a name="national-clouds"></a>国家云
 
@@ -69,9 +69,6 @@ ms.locfileid: "67568529"
   - 令牌常用终结点为 `https://login.microsoftonline.de/common/oauth2/token`。
 
 对于单租户应用程序，请将先前 URL 中的“common”替换为你的租户 ID 或名称。 例如 `https://login.microsoftonline.de/contoso.com`。
-
-> [!NOTE]
-> [Azure AD v2.0 授权](/active-directory/develop/v2-overview)和令牌终结点仅适用于全局服务。 国家云部署不支持它们。
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 

@@ -7,23 +7,22 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2018
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 48900cb90b9e44ae747d79f92c5f5b90df4d723c
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: aa435a48c37c6f0c670908ee77bd5c2f43e6bd19
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003940"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272754"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>对 Azure 虚拟机启动错误进行故障排除
 
-本文列出在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的常见启动错误。 有关这些错误的详细信息，请参阅“启动错误和解决方案”部分中的文章。
+本文列出在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的常见启动错误。 有关这些错误的详细信息，请参阅“启动错误和解决方案”部分中的文章  。
 
 ## <a name="boot-errors-and-solutions"></a>启动错误和解决方案
 
@@ -38,7 +37,9 @@ ms.locfileid: "59003940"
 ## <a name="next-steps"></a>后续步骤
 
 - [启动诊断](boot-diagnostics.md)
+  
   <!-- Not Available on - [VM Serial Console](../windows/serial-console.md)-->
+  
 - [通过将 OS 磁盘附加到恢复 VM 对 Windows VM 进行故障排除](../windows/troubleshoot-recovery-disks.md)
 
 <!-- Update_Description: wording update, update link -->

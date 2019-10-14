@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 04/15/2019
+origin.date: 08/15/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5406c612d899bb687c6f2f1ae47b0868ebc74af4
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 35daecaf2f0958e62596ff8a5b72679c2dc6cb69
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878488"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292495"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop YARN 进行故障排除
 
@@ -44,26 +44,27 @@ ms.locfileid: "68878488"
 
 1. 依次选择“Abari 视图”图标和网格模式。  接下来，选择“YARN 队列管理器”。 
 
-    ![选择“Ambari 视图”图标](./media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![选择“Ambari 视图”图标](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. 选择 **default** 队列。
 
-    ![选择 default 队列](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![选择 default 队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. 将 **default** 队列的**容量**从 50% 更改为 25%。 将 **thriftsvr** 队列的**容量**更改为 25%。
 
-    ![将 default 和 thriftsvr 队列的容量更改为 25%](./media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![将 default 和 thriftsvr 队列的容量更改为 25%](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. 若要创建新队列，请选择“添加队列”。 
 
-    ![选择“添加队列”](./media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![选择“添加队列”](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. 为新队列命名。
 
-    ![将队列命名为 Spark](./media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![将队列命名为 Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+
 6. 将**容量**值保留为 50%，并选择“操作”按钮。 
 
-    ![选择“操作”按钮](./media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![选择“操作”按钮](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. 选择“保存并刷新队列”。 
 
-    ![选择“保存并刷新队列”](./media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![选择“保存并刷新队列”](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 YARN 计划程序 UI 中会立即显示这些更改。
 
@@ -142,13 +143,11 @@ YARN 计划程序 UI 中会立即显示这些更改。
 ### <a name="additional-reading-2"></a>其他阅读材料
 
 - [使用 SSH 连接到 HDInsight (Apache Hadoop)](/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN 的概念和应用](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
+- [Apache Hadoop YARN 的概念和应用](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
+
+## <a name="next-steps"></a>后续步骤
+
+如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
 
 
-### <a name="see-also"></a>另请参阅
-[使用 Azure HDInsight 进行故障排除](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
+- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。

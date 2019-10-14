@@ -100,6 +100,14 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
+    - name: 加载 Data Lake Storage Gen2
+      href: load-azure-data-lake-storage-gen2.md
+    - name: 加载 SQL 数据仓库
+      href: load-azure-sql-data-warehouse.md
+    - name: 加载 SAP BW 数据
+      href: load-sap-bw-data.md
+    - name: 加载 Office 365 数据
+      href: load-office-365-data.md
 - name: 示例
   items:
     - name: Azure PowerShell
@@ -126,16 +134,22 @@
   items:
     - name: 作者
       items:
+        - name: 直观创作数据工厂
+          href: author-visually.md
         - name: 迭代开发和调试
           href: iterative-development-debugging.md
     - name: 连接器
       items:
+        - name: 连接器概述
+          href: connector-overview.md
         - name: Amazon Marketplace Web Service
           href: connector-amazon-marketplace-web-service.md
         - name: Amazon Redshift
           href: connector-amazon-redshift.md
         - name: Amazon S3
           href: connector-amazon-simple-storage-service.md
+        - name: Avro 格式
+          href: format-avro.md
         - name: Azure Blob 存储
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB SQL API
@@ -157,11 +171,13 @@
         - name: Azure SQL 数据库
           href: connector-azure-sql-database.md
         - name: Azure SQL 数据库托管实例
-          href: connector-azure-sql-database-managed-insance.md
+          href: connector-azure-sql-database-managed-instance.md
         - name: Azure SQL 数据仓库
           href: connector-azure-sql-data-warehouse.md
         - name: Azure 表存储
           href: connector-azure-table-storage.md
+        - name: 二进制格式
+          href: format-binary.md
         - name: Cassandra
           href: connector-cassandra.md
         - name: Common Data Service for Apps
@@ -207,9 +223,11 @@
         - name: Impala
           href: connector-impala.md
         - name: Informix
-          href: 'connector-odbc.md#ibm-informix-source'
+          href: connector-informix.md
         - name: Jira
           href: connector-jira.md
+        - name: JSON 格式
+          href: format-json.md
         - name: Magento
           href: connector-magento.md
         - name: MariaDB
@@ -217,7 +235,7 @@
         - name: Marketo
           href: connector-marketo.md
         - name: Microsoft Access
-          href: 'connector-odbc.md#microsoft-access-source'
+          href: connector-microsoft-access.md
         - name: MongoDB
           href: connector-mongodb.md
           items:
@@ -243,7 +261,7 @@
           href: connector-oracle-service-cloud.md
         - name: Parquet 格式
           href: format-parquet.md
-        - name: Paypal
+        - name: PayPal
           href: connector-paypal.md
         - name: Phoenix
           href: connector-phoenix.md
@@ -258,7 +276,7 @@
         - name: Salesforce
           href: connector-salesforce.md
         - name: Salesforce 服务云
-          href: connector-salesforce.md
+          href: connector-salesforce-service-cloud.md
         - name: Salesforce Marketing Cloud
           href: connector-salesforce-marketing-cloud.md
         - name: SAP Business Warehouse Open Hub
@@ -308,49 +326,39 @@
           href: delete-activity.md
         - name: 复制数据工具
           href: copy-data-tool.md
-        - name: 加载 Data Lake Storage Gen2
-          href: load-azure-data-lake-storage-gen2.md
-        - name: 加载 SQL 数据仓库
-          href: load-azure-sql-data-warehouse.md
-        - name: 加载 SAP BW 数据
-          href: load-sap-bw-data.md
-        - name: 加载 Office 365 数据
-          href: load-office-365-data.md
-        - name: 读取或写入分区的数据
-          href: how-to-read-write-partitioned-data.md
+        - name: 性能和优化
+          href: copy-activity-performance.md
         - name: 格式和压缩支持
           href: supported-file-formats-and-compression-codecs.md
         - name: 架构和类型映射
           href: copy-activity-schema-and-type-mapping.md
         - name: 容错
           href: copy-activity-fault-tolerance.md
-        - name: 性能和优化
-          href: copy-activity-performance.md
     - name: 转换数据
       href: transform-data.md
       items:
-        - name: HDInsight Hive 活动
-          href: transform-data-using-hadoop-hive.md
-        - name: HDInsight Pig 活动
-          href: transform-data-using-hadoop-pig.md
-        - name: HDInsight MapReduce 活动
-          href: transform-data-using-hadoop-map-reduce.md
-        - name: HDInsight Streaming 活动
-          href: transform-data-using-hadoop-streaming.md
-        - name: HDInsight Spark 活动
-          href: transform-data-using-spark.md
-        - name: 存储过程活动
-          href: transform-data-using-stored-procedure.md
+        - name: Azure 函数活动
+          href: control-flow-azure-function-activity.md
         - name: 自定义活动
           href: transform-data-using-dotnet-custom-activity.md
+        - name: HDInsight Hive 活动
+          href: transform-data-using-hadoop-hive.md
+        - name: HDInsight MapReduce 活动
+          href: transform-data-using-hadoop-map-reduce.md
+        - name: HDInsight Pig 活动
+          href: transform-data-using-hadoop-pig.md
+        - name: HDInsight Spark 活动
+          href: transform-data-using-spark.md
+        - name: HDInsight Streaming 活动
+          href: transform-data-using-hadoop-streaming.md
+        - name: 存储过程活动
+          href: transform-data-using-stored-procedure.md
         - name: 计算链接服务
           href: compute-linked-services.md
     - name: 控制流
       items:
         - name: 追加变量活动
           href: control-flow-append-variable-activity.md
-        - name: Azure 函数活动
-          href: control-flow-azure-function-activity.md
         - name: 执行管道活动
           href: control-flow-execute-pipeline-activity.md
         - name: 筛选器活动
@@ -457,18 +465,40 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: 按 LastModifiedDate 复制新文件
           href: solution-template-copy-new-files-lastmodifieddate.md
-        - name: 使用控制表进行大容量复制
+        - name: 从数据库进行批量复制
           href: solution-template-bulk-copy-with-control-table.md
-        - name: 使用控制表进行增量复制
+        - name: 从数据库进行增量复制
           href: solution-template-delta-copy-with-control-table.md
+        - name: 移动文件
+          href: solution-template-move-files.md
     - name: 故障排除指南
       items:
         - name: 活动故障排除
           href: data-factory-troubleshoot-guide.md
+        - name: 连接器故障排除
+          href: connector-troubleshoot-guide.md
         - name: 排查 Azure-SSIS IR 管理问题
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: 在 Azure-SSIS IR 中排查包执行问题
           href: ssis-integration-runtime-ssis-activity-faq.md
+- name: 方案
+  items:
+    - name: Data Lake 与 EDW 的数据迁移
+      items:
+        - name: 为什么使用 Azure 数据工厂
+          href: data-migration-guidance-overview.md
+        - name: 将数据从 AWS S3 迁移到 Azure
+          href: data-migration-guidance-s3-azure-storage.md
+        - name: 将数据从本地 Hadoop 群集迁移到 Azure
+          href: data-migration-guidance-hdfs-azure-storage.md
+        - name: 将数据从本地 Netezza 服务器迁移到 Azure
+          href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: 从本地进行 SSIS 迁移
+      items:
+        - name: SSIS 迁移概述
+          href: scenario-ssis-migration-overview.md
+        - name: 将 SSISDB 迁移到 Azure SQL 数据库托管实例
+          href: scenario-ssis-migration-ssisdb-mi.md
 - name: 参考
   items:
     - name: .NET

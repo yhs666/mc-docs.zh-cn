@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/24/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: d721f28f06531cda09cbd03f9b1c3ea39350e9d6
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 74a5e3b3e0612682685b174c3b8e29b0479dd781
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136016"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292610"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 群集
 
@@ -49,7 +49,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 当该页打开时，请注意顶栏。 此栏中包含以下信息和控件：
 
-![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
 |项目 |说明 |
 |---|---|
@@ -78,11 +78,11 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 警报已组织成若干个默认组，可以从“警报”页面进行查看。 
 
-![警报页](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![警报页](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 可通过使用“操作”菜单并选择“管理警报组”来管理这些组。  
 
-![管理警报组对话框](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
+![管理警报组对话框](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
 还可管理警报方式，并通过在“操作”菜单中选择“管理警报通知”来创建警报通知。   所有当前通知都会显示。 还可以从此处创建通知。 出现特定的警报/严重性组合时，可通过**电子邮件**或 **SNMP** 发送通知。 例如，可在“YARN 默认设置”组中的任何警报设为“严重”时发送电子邮件消息。  
 
@@ -94,28 +94,28 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 仪表板的“度量值”选项卡包含一系列 Widget，可让你一目了然地轻松监视群集状态。  “CPU 使用率”等多个 Widget 可在单击后提供更多信息。 
 
-![包含度量值的仪表板](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![包含度量值的仪表板](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 “热图”选项卡以绿色到红色的彩色热图显示度量值。 
 
-![包含热图的仪表板](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![包含热图的仪表板](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 若要了解群集内节点的详细信息，请选择“主机”。  然后选择你感兴趣的具体节点。
 
-![主机详细信息](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![主机详细信息](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
 ### <a name="services"></a>服务
 
 仪表板上的“服务”边栏可让你快速了解群集上运行的服务的状态。  各种图标用来指示状态或应当采取的操作。 例如，如果某项服务需要再循环，则会显示一个黄色的再循环符号。
 
-![服务边栏](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
+![服务边栏](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
-> [!NOTE]
+> [!NOTE]  
 > 对于不同的 HDInsight 群集类型和版本，所显示的服务会有所不同。 此处显示的服务可能不同于针对群集所显示的服务。
 
 选择一个服务会显示有关该服务的更多详细信息。
 
-![检索摘要信息](./media/hdinsight-hadoop-manage-ambari/service-details.png)
+![检索摘要信息](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
 
 #### <a name="quick-links"></a>快速链接
 
@@ -138,7 +138,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 “主机”页面列出群集中的所有主机。  若要管理主机，请遵循以下步骤。
 
-![主机页](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![主机页](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]
 > 对于 HDInsight 群集，不应使用添加、停用和重用主机的功能。
@@ -164,9 +164,9 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 在“仪表板”或“服务”页中，使用服务列表底部的“操作”按钮来停止和启动所有服务。   
 
-![服务操作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
+![服务操作](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
 
-> [!WARNING]
+> [!WARNING]  
 > 虽然“添加服务”列于该菜单中，但不应使用它来向 HDInsight 群集添加服务。  群集设置期间应使用脚本操作添加新服务。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 虽然“操作”按钮可以重启所有服务，但你要启动、停止或重启的通常是某个特定服务。  使用以下步骤来对单个服务执行操作：
@@ -177,12 +177,12 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
     ![服务操作](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 在群集运行时重启某些服务可能会生成警报。 若要避免生成警报，可使用“服务操作”按钮来为服务启用**维护模式**，然后再执行重启。 
 
 3. 选择某个操作后，页面顶部的“# 项操作”条目的数字便会递增，指出正在进行后台操作。  如果已配置为显示，则显示后台操作的列表。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果你已为服务启用了**维护模式**，请记得在操作完成后使用“服务操作”按钮来将它禁用。 
 
 若要配置服务，请使用以下步骤：
@@ -191,7 +191,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 2. 选择“配置”选项卡。  这会显示当前配置。 同时，还会显示以前的配置列表。
 
-    ![配置](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+    ![配置](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
 3. 使用显示的字段修改配置，然后选择“保存”。  或者，选择以前的某个配置，然后选择“设为当前配置”以回滚到以前的设置。 
 

@@ -11,17 +11,16 @@ ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/01/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f761e65bb292d4637ab6d6ce820e2d5611b2ff1b
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 283d7fb7a9ed173d9c2d1b5831dc6d86a90569e0
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538940"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272017"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 

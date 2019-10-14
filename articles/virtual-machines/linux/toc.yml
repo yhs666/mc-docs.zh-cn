@@ -132,8 +132,8 @@
       href: backup-recovery.md
     - name: 基础结构指南
       href: infrastructure-example.md
-    - name: 安全属性
-      href: virtual-machines-linux-security-attributes.md
+    - name: 内置安全控件
+      href: virtual-machines-linux-security-controls.md
 - name: 操作指南
   items:
     - name: 创建 VM
@@ -454,9 +454,9 @@
     - name: Java
       href: 'https://docs.azure.cn/java/?view=azure-java-stable'
     - name: Node.js
-      href: 'https://www.azure.cn/develop/nodejs/#azure-sdk'
+      href: 'https://docs.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python
-      href: 'https://www.azure.cn/develop/python/'
+      href: 'https://docs.azure.cn/develop/python/'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute'
 - name: 资源

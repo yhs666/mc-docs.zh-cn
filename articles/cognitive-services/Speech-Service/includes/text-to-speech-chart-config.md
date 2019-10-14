@@ -11,12 +11,12 @@ ms.topic: include
 origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: d905b050853e11688c97712998ad8ad8b1caa2b4
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 02d99eb910e027f7a005c3ae13281c9d0e1f68b2
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71696250"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275553"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>文本转语音（子图：charts/textToSpeech）
 
@@ -27,7 +27,7 @@ ms.locfileid: "71696250"
 | `enabled` | 是否启用了**文本转语音**服务。 | `false` |
 | `numberOfConcurrentRequest` | **文本转语音**服务的并发请求数。 此图表基于该值自动计算 CPU 和内存资源。 | `2` |
 | `optimizeForTurboMode`| 服务是否需要针对通过文本文件输入的文本进行优化。 如果为 `true`，此图表将为服务分配更多的 CPU 资源。 | `false` |
-| `image.registry`| **文本转语音** docker 映像注册表。 | `containerpreview.azurecr.io` |
+| `image.registry`| **文本转语音** docker 映像注册表。 | `containerpreview.azurecr.cn` |
 | `image.repository` | **文本转语音** docker 映像存储库。 | `microsoft/cognitive-services-text-to-speech` |
 | `image.tag` | **文本转语音** docker 映像标记。 | `latest` |
 | `image.pullSecrets` | 用于拉取**文本到语音** docker 映像的映像机密。 | |

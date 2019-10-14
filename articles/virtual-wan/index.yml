@@ -11,12 +11,12 @@ metadata:
   ms.author: v-yeche
   origin.date: 08/28/2019
   ms.date: 09/23/2019
-  ms.openlocfilehash: d664d646d865f936938c20287ec123ab03249da8
-  ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+  ms.openlocfilehash: 55c62197b47049abdd36cdd74d01ca64f0988d4e
+  ms.sourcegitcommit: 1b4cb23c9bce2e9073e34eb9fb8b6765b9357d83
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71156076"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72170801"
 landingContent:
 - title: 关于虚拟 WAN
   linkLists:
@@ -36,8 +36,6 @@ landingContent:
     links:
     - text: 创建站点到站点连接
       url: virtual-wan-site-to-site-portal.md
-    - text: 创建 ExpressRoute 关联
-      url: virtual-wan-expressroute-portal.md
   - linkListType: how-to-guide
     links:
     - text: 将流量从虚拟中心路由到 NVA
@@ -52,5 +50,3 @@ landingContent:
     links:
     - text: 全球传输网络体系结构
       url: virtual-wan-global-transit-network-architecture.md
-    - text: Office 365 控制平面
-      url: virtual-wan-office365-overview.md

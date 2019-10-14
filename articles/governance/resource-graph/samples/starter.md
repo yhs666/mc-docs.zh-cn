@@ -4,17 +4,17 @@ description: 使用 Azure 资源图来运行一些初学者查询，包括计算
 author: DCtheGeek
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0b824225cbde2cb6c29b85d38a8a75d22d9bca4d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 65c40a139379eaeac043f729e9ed33d036bb9cdb
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737413"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292462"
 ---
 # <a name="starter-resource-graph-queries"></a>初学者资源图表查询
 
@@ -37,8 +37,6 @@ ms.locfileid: "70737413"
 > - [显示特定别名的非重复值](#distinct-alias-values)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>语言支持
 
@@ -97,7 +95,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="a-nameshow-sortedshow-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"/> 按名称及其 OS 类型显示前五个虚拟机
 
-此查询将使用 `limit` 仅检索按名称排序的五条匹配记录。 Azure 资源的类型为 `Microsoft.Compute/virtualMachines`。 `project` 告诉 Azure 资源图表要包含哪些属性。
+此查询将使用 `top` 仅检索按名称排序的五条匹配记录。 Azure 资源的类型为 `Microsoft.Compute/virtualMachines`。 `project` 告诉 Azure 资源图表要包含哪些属性。
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'

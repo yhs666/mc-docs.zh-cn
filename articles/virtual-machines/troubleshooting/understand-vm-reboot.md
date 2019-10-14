@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02efbf3908867f1f3c0c3c6b48d3416adb7e25a0
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 35f5bd73b16c00fcdd678096c53c05999d7eca9c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003721"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272873"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 
@@ -37,10 +36,9 @@ Azure 虚拟机 (VM) 有时可能会在没有明显原因（没有证据表明�
 - [管理 VM 的可用性](../windows/manage-availability.md)
 - [配置 VM 的可用性](../windows/classic/configure-availability.md)
 
-## <a name="resource-health-information"></a>资源运行状况信息 
-Azure 资源运行状况是一项服务，用于公开各个 Azure 资源的运行状况，并为排查问题提供可行的指南。 在不可直接访问服务器或基础结构元素的云环境中，资源运行状况的目标是减少你排除故障花费的时间。 具体说来，目的是减少确定问题根源在于应用程序还是在于 Azure 平台内事件所花的时间。 有关详细信息，请参阅[了解和使用资源运行状况](../../service-health/resource-health-overview.md)。
+## <a name="resource-health-information"></a>资源运行状况信息
 
-<!--URL from (../../resource-health/resource-health-overview.md) to (../../service-health/resource-health-overview.md)-->
+Azure 资源运行状况是一项服务，用于公开各个 Azure 资源的运行状况，并为排查问题提供可行的指南。 在不可直接访问服务器或基础结构元素的云环境中，资源运行状况的目标是减少你排除故障花费的时间。 具体说来，目的是减少确定问题根源在于应用程序还是在于 Azure 平台内事件所花的时间。 有关详细信息，请参阅[了解和使用资源运行状况](../../resource-health/resource-health-overview.md)。
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>可能导致 VM 重启的操作和事件
 
@@ -55,13 +53,13 @@ Azure 在中国范围内定期执行更新，以提高 VM 所基于主机基础�
 若要了解什么是 Azure 计划内维护，及其如何影响 Linux VM 的可用性，请参阅下面列出的文章。 这些文章介绍了 Azure 计划内维护过程的背景，以及如何安排计划内维护以进一步减少影响。
 
 - [Azure VM 的计划内维护](../windows/planned-maintenance.md)
-- [如何在 Azure VM 上安排计划内的维护](../windows/classic/planned-maintenance-schedule.md)
+- [如何在 Azure VM 上安排计划内维护](../windows/classic/planned-maintenance-schedule.md)
 
 ### <a name="memory-preserving-updates"></a>内存保留更新
 
 对于 Azure 中的这类更新，用户不会体验到对正在运行的 VM 的任何影响。 其中一些更新主要面向组件或服务，更新时不会干扰正在运行的实例。 还有一些是主机操作系统上的平台基础结构更新，应用时无需重启 VM。
 
-这些内存保留更新通过启用就地实时迁移技术实现。 进行更新时，VM 处于“暂停”状态。 该状态可保留 RAM 中的内存，基础主机操作系统则接收必要的更新和补丁。 VM 在暂停后 30 秒内恢复正常。 VM 恢复后，其时钟将自动同步。
+这些内存保留更新通过启用就地实时迁移技术实现。 进行更新时，VM 处于“暂停”状态。  该状态可保留 RAM 中的内存，基础主机操作系统则接收必要的更新和补丁。 VM 在暂停后 30 秒内恢复正常。 VM 恢复后，其时钟将自动同步。
 
 由于暂停时间短，因此通过这种机制部署更新可以大大减少对 VM 的影响。 但是，并非所有更新都可通过这种方式部署。 
 
@@ -90,7 +88,7 @@ Azure 在中国范围内定期执行更新，以提高 VM 所基于主机基础�
 
 服务器错误通常由硬盘或固态硬盘等硬件故障引起。 Azure 持续监视这些事件，确定基础 bug，并在实现和测试缓解举措后推出更新。
 
-由于某些主机服务器错误可能特定于该服务器，因此可通过手动将 VM 重新部署到其他主机服务器来改善 VM 重复重启的情况。 在 VM 详细信息页上使用“重新部署”选项，或在 Azure 门户中停止并重启 VM，可触发此操作。
+由于某些主机服务器错误可能特定于该服务器，因此可通过手动将 VM 重新部署到其他主机服务器来改善 VM 重复重启的情况。 在 VM 详细信息页上使用“重新部署”选项，或在 Azure 门户中停止并重启 VM，可触发此操作。 
 
 ### <a name="auto-recovery"></a>自动恢复
 
@@ -109,7 +107,7 @@ Azure 在中国范围内定期执行更新，以提高 VM 所基于主机基础�
 
 ### <a name="vm-crashes"></a>VM 故障
 
-VM 可能因自身问题重启。 在 VM 上运行的工作负荷或角色可能触发来宾操作系统内的 Bug 检查。 为确定故障原因，请查看系统和应用程序日志（适用于 Windows VM）和串行日志（适用于 Linux VM）。
+VM 可能因自身问题重启。 在 VM 上运行的工作负荷或角色可能触发来宾操作系统内的 Bug 检查。 为帮助确定故障原因，请查看系统和应用程序日志（适用于 Windows VM）和串行日志（适用于 Linux VM）。
 
 ### <a name="storage-related-forced-shutdowns"></a>与存储相关的强制关机
 
@@ -117,7 +115,7 @@ VM 可能因自身问题重启。 在 VM 上运行的工作负荷或角色可能
 
 关机持续时间可短至 5 分钟，也可能非常久。 下面是与存储相关的强制关机具体情况之一： 
 
-**超过 IO 限制**
+超过 IO 限制 
 
 如果 I/O 请求因每秒输入/输出操作数 (IOPS) 超出磁盘 I/O 限制而持续受到限制，则可能暂时关闭 VM。 （标准磁盘存储的限制为 500 IOPS。）为缓解此问题，请在来宾 VM 中使用磁盘剥离或配置存储空间，具体情况取决于工作负荷。 有关详细信息，请参阅[配置 Azure VM 以获得最佳存储性能](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
 

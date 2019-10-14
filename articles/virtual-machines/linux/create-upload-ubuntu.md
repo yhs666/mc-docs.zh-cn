@@ -11,17 +11,16 @@ ms.assetid: 3e097959-84fc-4f6a-8cc8-35e087fd1542
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 06/24/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2f0646132c085d48c56ae8bfc6477581f6f68756
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: c88529d25b02c57ec7142df3cfe506cc380ec12a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921227"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272625"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>为 Azure 准备 Ubuntu 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -122,8 +121,8 @@ Ubuntu 现已发布正式 Azure VHD，可从 [https://cloud-images.ubuntu.com/](
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-     > [!Note]
-     >  安装 `walinuxagent` 包时会删除 `NetworkManager` 和 `NetworkManager-gnome` 包（如果已安装它们）。
+    > [!Note]
+    >  安装 `walinuxagent` 包时会删除 `NetworkManager` 和 `NetworkManager-gnome` 包（如果已安装它们）。
 
 1. 运行以下命令可取消对虚拟机的设置并且对其进行准备以便在 Azure 上进行设置：
 
