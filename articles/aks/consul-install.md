@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 06/19/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: d46702f6d4dc61f21a7759129e1403f27c2483e5
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: e5fbc8b3916fc9b3e8dc3f87469431c55a5de5e8
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156438"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303273"
 ---
 <!--Verify sucessfully-->
 
@@ -129,7 +129,7 @@ helm install -f consul-values.yaml --name consul --namespace consul .
 >           namespace: kube-system
 >       ```
 >
-> * Run `kubectl apply` cmdlet to create the servcie account and role binding:
+> * Run `kubectl apply` cmdlet to create the service account and role binding:
 >     ```console
 >     kubectl apply -f helm-rbac.yaml
 >     ```
