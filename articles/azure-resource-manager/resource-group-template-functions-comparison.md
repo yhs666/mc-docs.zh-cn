@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 模板函数 - 比较 | Azure
-description: 介绍可在 Azure Resource Manager 模板中使用的用于比较值的函数。
+title: Azure 资源管理器模板函数 - 比较 | Azure
+description: 介绍可在 Azure 资源管理器模板中使用的用于比较值的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
@@ -14,9 +14,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/20/2019
 ms.locfileid: "71156095"
 ---
-# <a name="comparison-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的比较函数
+# <a name="comparison-functions-for-azure-resource-manager-templates"></a>用于 Azure 资源管理器模板的比较函数
 
-Resource Manager 提供了多个用于在模板中进行比较的函数。
+资源管理器提供了多个用于在模板中进行比较的函数。
 
 * [equals](#equals)
 * [greater](#greater)
@@ -31,9 +31,9 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 检查两个值是否相等。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |int、string、array 或 object |要检查是否相等的第一个值。 |
 | arg2 |是 |int、string、array 或 object |要检查是否相等的第二个值。 |
@@ -128,7 +128,7 @@ equals 函数通常与 `condition` 元素一起使用来测试资源是否已部
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -166,7 +166,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 前述示例的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -187,9 +187,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 检查第一个值是否大于第二个值。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |int 或 string |用于大于比较的第一个值。 |
 | arg2 |是 |int 或 string |用于大于比较的第二个值。 |
@@ -241,7 +241,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -263,9 +263,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 检查第一个值是否大于或等于第二个值。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |int 或 string |用于大于或等于比较的第一个值。 |
 | arg2 |是 |int 或 string |用于大于或等于比较的第二个值。 |
@@ -317,7 +317,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -339,9 +339,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 检查第一个值是否小于第二个值。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |int 或 string |用于小于比较的第一个值。 |
 | arg2 |是 |int 或 string |用于小于比较的第二个值。 |
@@ -393,7 +393,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -415,9 +415,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 检查第一个值是否小于或等于第二个值。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |int 或 string |用于小于或等于比较的第一个值。 |
 | arg2 |是 |int 或 string |用于小于或等于比较的第二个值。 |
@@ -469,7 +469,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -488,8 +488,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="next-steps"></a>后续步骤
 * 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
-* 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
-* 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+* 若要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
+* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。
+* 若要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
 <!--Update_Description: update meta properties, update cmdlet-->

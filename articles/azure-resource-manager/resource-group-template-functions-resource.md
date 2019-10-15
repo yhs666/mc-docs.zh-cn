@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 模板函数 - 资源 | Azure
-description: 介绍可在 Azure Resource Manager 模板中用于检索资源相关值的函数。
+title: Azure 资源管理器模板函数 - 资源 | Azure
+description: 介绍可在 Azure 资源管理器模板中用于检索资源相关值的函数。
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
@@ -14,16 +14,16 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/20/2019
 ms.locfileid: "71156089"
 ---
-# <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
+# <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure 资源管理器模板的资源函数
 
-Resource Manager 提供以下用于获取资源值的函数：
+资源管理器提供以下用于获取资源值的函数：
 
 * [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
-* [订阅](#subscription)
+* [subscription](#subscription)
 
 若要从参数、变量或当前部署获取值，请参阅 [Deployment value functions](resource-group-template-functions-deployment.md)（部署值函数）。
 
@@ -36,9 +36,9 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 此函数的语法因列表操作的名称而异。 每个实现都为支持列表操作的资源类型返回值。 操作名称必须以 `list` 开头。 一些常见用法是 `listKeys` 和 `listSecrets`。 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |string |资源的唯一标识符。 |
 | apiVersion |是 |string |资源运行时状态的 API 版本。 通常采用 **yyyy-mm-dd**格式。 |
@@ -241,9 +241,9 @@ list 函数只能用在资源定义的 properties 中以及模板或部署的 ou
 
 返回有关资源提供程序及其支持的资源类型的信息。 如果未提供资源类型，则该函数将返回资源提供程序支持的所有类型。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |是 |string |提供程序的命名空间 |
 | resourceType |否 |string |指定的命名空间中的资源类型。 |
@@ -316,9 +316,9 @@ list 函数只能用在资源定义的 properties 中以及模板或部署的 ou
 
 返回表示资源的运行时状态的对象。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |string |资源的名称或唯一标识符。 当引用当前模板中的资源时，请仅提供资源名称作为参数。 当引用以前部署的资源时，请提供资源 ID。 |
 | apiVersion |否 |string |指定的资源的 API 版本。 如果资源不是在同一模板中预配的，请包含此参数。 通常采用 **yyyy-mm-dd**格式。 |
@@ -620,9 +620,9 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 返回资源的唯一标识符。 如果资源名称不确定或未设置在相同的模板内，请使用此函数。 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字符串（GUID 格式） |默认值为当前订阅。 如果需要检索另一个订阅中的资源，请指定此值。 |
 | resourceGroupName |否 |string |默认值为当前资源组。 如果需要检索另一个资源组中的资源，请指定此值。 |
@@ -750,14 +750,14 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>订阅
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
@@ -797,8 +797,8 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 ## <a name="next-steps"></a>后续步骤
 
 * 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
-* 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
+* 若要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
+* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
 <!--Update_Description: update meta properties, wording update -->

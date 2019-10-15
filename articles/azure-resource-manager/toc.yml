@@ -1,4 +1,4 @@
-- name: Azure Resource Manager 文档
+- name: Azure 资源管理器文档
   href: index.yml
 - name: 概述
   items:
@@ -45,7 +45,7 @@
       href: resource-manager-tutorial-troubleshoot.md
 - name: 示例
   items:
-    - name: Resource Manager 模板
+    - name: 资源管理器模板
       href: template-samples.md
     - name: 代码示例
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
@@ -69,7 +69,7 @@
           href: resource-manager-tools-vs-code.md
         - name: 编写模板表达式
           href: template-expressions.md
-        - name: parameters
+        - name: 参数
           href: template-parameters.md
         - name: 变量
           href: template-variables.md
@@ -87,7 +87,7 @@
               href: resource-location.md
             - name: 使用模板扩展
               href: resource-manager-use-extensions.md
-        - name: Outputs
+        - name: 输出
           href: template-outputs.md
         - name: 将模板模块化
           displayName: 'linked templates, nested templates'
@@ -146,7 +146,7 @@
               href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure-resource-manager/toc.json
             - name: 虚拟机
               href: ./move-limitations/virtual-machines-move-limitations.md
-    - name: Tags
+    - name: 标记
       items:
         - name: 标记资源
           href: resource-group-using-tags.md
@@ -243,7 +243,7 @@
           href: resource-group-template-functions-logical.md
         - name: 数值函数
           href: resource-group-template-functions-numeric.md
-        - name: Resource functions
+        - name: 资源函数
           href: resource-group-template-functions-resource.md
         - name: 字符串函数
           href: resource-group-template-functions-string.md

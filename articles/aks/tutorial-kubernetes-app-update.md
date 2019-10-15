@@ -16,7 +16,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/06/2019
 ms.locfileid: "70500738"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序。
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序
 
 在 Kubernetes 中部署应用程序后，可以指定新的容器映像或映像版本，从而更新应用程序。 更新分阶段进行，因此，只有一部分部署会同时更新。 借助这种暂存更新，可以让应用程序在更新期间继续运行。 如果发生部署故障，还可以利用它的回滚机制。
 

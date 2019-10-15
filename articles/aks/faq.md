@@ -103,7 +103,7 @@ AKS 支持以下[许可控制器][admission-controllers]：
 
 目前无法在 AKS 中修改许可控制器列表。
 
-## <a name="is-azure-key-vault-integrated-with-aks"></a>不是，它没有与 Azure Key Vault 集成。
+## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否已与 AKS 集成？
 
 AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目的 Azure Key Vault FlexVolume][keyvault-flexvolume] 实现了从 Kubernetes pod 到 Key Vault 机密的直接集成。
 
