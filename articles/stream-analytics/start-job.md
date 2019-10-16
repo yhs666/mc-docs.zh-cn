@@ -1,6 +1,6 @@
 ---
 title: 如何启动 Azure 流分析作业
-description: 本文介绍如何启动流分析作业。
+description: 本文介绍如何从 Azure 门户、PowerShell 和 Visual Studio 启动流分析作业。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 04/03/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: a5b8c4982dc3f83904b030d59b97eaa77971361c
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 1dfe9eec4beb92650a6548d6d8914c3711ae7e83
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970503"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674695"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>如何启动 Azure 流分析作业
 

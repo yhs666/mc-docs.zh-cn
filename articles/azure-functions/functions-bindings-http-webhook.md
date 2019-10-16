@@ -7,17 +7,16 @@ author: craigshoemaker
 manager: gwallace
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构, HTTP, API, REST
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 09/05/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9ab3273977f64e1edba3305779c471157e2187a1
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: ffd748ed10fed4a08d8e4d4fa17f4419651d6308
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805766"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673584"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 触发器和绑定
 
@@ -58,7 +57,6 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -273,62 +271,6 @@ module.exports = function(context, req) {
     }
     context.done();
 };
-```
-
-### <a name="trigger---python-example"></a>触发器 - Python 示例
-
-以下示例演示 function.json  文件中的一个触发器绑定以及使用该绑定的 [Python 函数](functions-reference-python.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
-
-function.json  文件如下所示：
-
-```json
-{
-    "scriptFile": "__init__.py",
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "function",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
-
-[配置](#trigger---configuration)部分解释了这些属性。
-
-下面是 Python 代码：
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
 ```
 
 ### <a name="trigger---java-examples"></a>触发器 - Java 示例
@@ -729,7 +671,7 @@ Functions 允许使用密钥来增大开发期间访问 HTTP 函数终结点的�
 
 ![在门户中管理函数密钥。](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-没有任何受支持的 API 能够以编程方式获取函数密钥。
+可以使用[密钥管理 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) 以编程方式获取函数密钥。
 
 ### <a name="api-key-authorization"></a>API 密钥的授权
 
@@ -817,4 +759,4 @@ HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限
 
 [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/30/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: c50b34b17f47e6204ab16a0b518c159ed14de061
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 324079a047b2c4e0893871e8687593dd7d1a0b57
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254440"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306764"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
 
@@ -325,7 +325,7 @@ SQL .NET SDK 随附的 LINQ 提供程序支持以下运算符：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [模型文档数据](modeling-data.md)
 
 <!-- Update_Description: wording update, update link -->

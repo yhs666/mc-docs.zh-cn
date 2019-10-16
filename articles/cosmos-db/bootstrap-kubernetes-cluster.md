@@ -3,18 +3,19 @@ title: 如何将 Azure Kubernetes 与 Azure Cosmos DB 配合使用
 description: 了解如何在 Azure 上启动使用 Azure Cosmos DB（预览版）的 Kubernetes 群集
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 06/03/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6e1b44655afdd67a7e32efd722246224321aad7
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: fcea79175985b635e94fc260160eed52eac3186d
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254746"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306803"
 ---
 <!--Previewed only, must submit with request-->
+<!--Azure Cosmos etcd API is currently available to deploy in "CentralUS" region only. -->
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>如何将 Azure Kubernetes 与 Azure Cosmos DB（预览版）配合使用
 
 通过使用 Azure Cosmos DB 中的 etcd API，可将 Azure Cosmos DB 用作 Azure Kubernetes 的后端存储。 Azure Cosmos DB 实现 etcd 线路协议，从而允许主节点的 API 服务器使用 Azure Cosmos DB，就像访问一个本地安装的 etcd 一样。 Azure Cosmos DB 中的 etcd API 目前处于预览状态。 将 Azure Cosmos etcd API 用作 Kubernetes 的后备存储，可以获得以下优势： 
@@ -31,7 +32,7 @@ ms.locfileid: "70254746"
 
 1. 安装最新版本的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 可以下载特定于自己的操作系统的 Azure CLI 并进行安装。
 
-1. 安装 [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) 版本的 Azure Kubernetes 引擎。 [Azure Kubernetes 引擎](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine)页面中提供了不同操作系统的安装说明。 只需查看链接的文档中“安装 AKS 引擎”部分中的步骤  。下载后，解压缩 zip 文件。
+1. 安装[最新版本](https://github.com/Azure/aks-engine/releases)的 Azure Kubernetes 引擎。 [Azure Kubernetes 引擎](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine)页面中提供了不同操作系统的安装说明。 只需查看链接的文档中“安装 AKS 引擎”部分中的步骤  。下载后，解压缩 zip 文件。
 
     Azure Kubernetes 引擎 (aks-engine) 可以生成 Azure 资源管理器模板，用于 Azure 上的 Kubernetes 群集  。 aks-engine 的输入内容是群集定义文件，该文件描述所需的群集，包括业务流程协调程序、功能和代理。 输入文件的结构类似于 Azure Kubernetes 服务的公共 API。
 
@@ -79,7 +80,7 @@ ms.locfileid: "70254746"
 1. 从命令提示符处导航至 Azure Kubernetes 引擎可执行文件所在的文件夹。 例如，可以在命令提示符上导航至该文件夹：
 
     ```cmd
-    cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+    cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
     ```
 
 1. 打开所选的文本编辑器，并定义使用 Azure Cosmos DB etcd API 部署 Azure Kubernetes 群集的资源管理器模板。 将以下 JSON 定义复制到文本编辑器，并将其保存为 `apiModel.json`：
@@ -145,10 +146,12 @@ ms.locfileid: "70254746"
     * **client-id：** 服务主体的 appId。 `appId` 作为步骤 4 中的输出返回。
     * **Client-secret：** 服务主体的密码或随机生成的密码。 该值在步骤 4 中返回为“password”参数中的输出。 
     * **dnsPrefix：** 区域唯一的 DNS 名称。 该值会成为主机名的一部分，例如 myprod1 和 staging。
-    * **location：** 应将群集部署到的位置，目前仅支持“chinaeast”。
-
+    * **location：** 应将群集部署到的位置，目前仅支持“centralus”。
+    
+    <!--Azure Cosmos etcd API is currently available to deploy in "CentralUS" region only. -->
+    
     > [!Note]
-    > 目前仅能在“chinaeast”区域中部署 Azure Cosmos etcd API。 
+    > 目前仅能在“centralus”区域中部署 Azure Cosmos etcd API。 
 
     * **api-model：** 指向模板文件的完全限定的路径。
     * **force-overwrite：** 此选项用于自动覆盖输出目录中的现有文件。

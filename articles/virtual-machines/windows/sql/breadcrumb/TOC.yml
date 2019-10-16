@@ -1,0 +1,15 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: 虚拟机
+      tocHref: /virtual-machines/
+      topicHref: /virtual-machines/
+      items:
+        - name: Windows
+          tocHref: /virtual-machines/windows/
+          topicHref: /virtual-machines/windows/
+          items:
+            - name: SQL VM
+              tocHref: /sql-database
+              topicHref: /virtual-machines/windows/sql

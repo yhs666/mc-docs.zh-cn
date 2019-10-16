@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/01/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 092ccbc07fc0a439da30ff42c03c57a7a6c5171a
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 840c2d31f7c49202dd83bffc4cfc9c11befe781b
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209331"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306818"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 存储中存储业务关键型数据
 
@@ -56,7 +56,7 @@ Azure Blob 存储的不可变存储支持两类 WORM 或不可变策略：基于
 > [!IMPORTANT]
 > 根据 SEC 17a-4(f) 和其他法规符合性要求，基于时间的保留策略必须处于锁定状态才能确保 Blob 既兼容又不可变（不可写入和删除）。  我们建议将策略锁定合理的时间，通常不到 24 小时。 已应用的基于时间的保留策略的初始状态为“未锁定”，在此状态下可以先测试该功能，并在锁定之前对策略进行更改。  虽然“未锁定”状态提供不变性保护，但除非是短时功能试用，否则我们不建议使用未锁定状态。   
 
-在容器上应用基于时间的保留策略时，容器中的所有 Blob 都会保持在不可变的状态，其持续时间就是有效保留期。  现有 Blob 的有效保留期就是 Blob 修改时间与用户指定的保留时间间隔之间的差。
+在容器上应用基于时间的保留策略时，容器中的所有 Blob 都会保持在不可变的状态，其持续时间就是有效保留期。  现有 Blob 的有效保持期就是 Blob 创建时间和用户指定的保留时间间隔之间的差异。
 
 就新 Blob 来说，有效保持期为用户指定的保留时间间隔。 由于用户可以延长保留时间间隔，因此不可变存储使用用户指定的保留时间间隔的最新值来计算有效保留期。
 
@@ -387,7 +387,7 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

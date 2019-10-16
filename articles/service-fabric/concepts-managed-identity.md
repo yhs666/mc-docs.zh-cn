@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 07/25/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: f489cea1c3d2fd1959ef9096efb3e6e42e23edb2
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: b4d611360c0f0b734fb7a99a6b1cbcc718658cb3
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340793"
 ---
 <!--Verify successfully-->
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Service Fabric 应用程序的托管标识（预览版）
@@ -63,7 +63,6 @@ Service Fabric 的托管标识仅在 Azure 部署的 Service Fabric 群集中受
 
    - 删除或更改分配给应用程序的标识；如果必须进行更改，请提交单独的部署，以先添加新的标识分配，然后删除以前分配的标识。 从现有应用程序中删除标识可能会产生不良影响，包括使应用程序处于一种不可升级的状态。 如果有必要删除标识，安全的做法是连同应用程序一起删除；请注意，这会删除与该应用程序关联的系统分配的标识（如果已定义），并会删除与分配给该应用程序的用户分配的标识之间的所有关联。
 
-   - 不建议在同一应用程序中混合使用系统分配的标识和用户分配的标识。
 >
 > [!NOTE]
 >
@@ -77,5 +76,5 @@ Service Fabric 的托管标识仅在 Azure 部署的 Service Fabric 群集中受
 * [从服务代码中利用 Service Fabric 应用程序的托管标识](./how-to-managed-identity-service-fabric-app-code.md)
 * [为 Azure Service Fabric 应用程序授予对其他 Azure 资源的访问权限](./how-to-grant-access-other-resources.md)
 
-<!--Update_Description: new articles on active directory concepts managed identity-->
-<!--ms.date: 09/02/2019-->
+<!--Update_Description: new articles on concepts managed identity -->
+<!--new.date: 09/02/2019-->

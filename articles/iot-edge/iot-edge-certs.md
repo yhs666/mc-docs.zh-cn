@@ -5,16 +5,16 @@ author: stevebus
 manager: philmea
 ms.author: v-yiso
 origin.date: 09/13/2018
-ms.date: 01/28/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 22961297da7ed068572f58f943cf61865902a2fd
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: f96cf28caf43d5fa8cd4fb5d3466bbd07668900f
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340714"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 证书使用详细信息
 
@@ -52,7 +52,7 @@ IoT Edge 证书用于模块和下游 IoT 设备，可验证这些设备连接的
 
 ### <a name="device-ca-certificate"></a>设备 CA 证书
 
-设备 CA 证书由流程中的最终中间 CA 证书生成并签名。 此证书安装在 IoT Edge 设备本身上，最好是安装在硬件安全模块 (HSM) 等安全存储中。 此外，设备 CA 证书可唯一标识 IoT Edge 设备。 对于 IoT Edge，设备 CA 证书可以颁发其他证书。 例如，设备 CA 证书颁发叶设备证书，用于在 Azure IoT 设备预配服务中对设备进行身份验证。
+设备 CA 证书由流程中的最终中间 CA 证书生成并签名。 此证书安装在 IoT Edge 设备本身上，最好是安装在硬件安全模块 (HSM) 等安全存储中。 此外，设备 CA 证书可唯一标识 IoT Edge 设备。 对于 IoT Edge，设备 CA 证书可以颁发其他证书。 例如，设备 CA 证书颁发叶设备证书，用于在 [Azure IoT 设备预配服务](../iot-dps/about-iot-dps.md)中对设备进行身份验证。
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge 工作负载 CA
 
@@ -94,14 +94,14 @@ New-CACertsCertChain rsa
 同样，这些命令可生成“设备 CA 证书”。
 
 ```bash
-./certGen.sh create_edge_device_certificate "<gateway device name>"
+./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
 ```
 
 ```Powershell
-New-CACertsEdgeDevice "<gateway device name>"
+New-CACertsEdgeDeviceCA "<gateway device name>"
 ```
 
-* 传递到这些脚本中的 \<网关设备名称\> 不得与 config.yaml 中的“hostname”参数相同。 脚本将“.ca”字符串追加到 \<网关设备名称\> 以防止用户在两个位置使用相同的名称来设置 IoT Edge 时出现名称冲突，从而帮助避免产生任何问题。 但是，最好避免使用相同的名称
+* 传递到这些脚本中的 **\<网关设备名称\>** 不应与 config.yaml 中的“hostname”参数相同。 脚本将“.ca”字符串追加到 \<网关设备名称\> 以防止用户在两个位置使用相同的名称来设置 IoT Edge 时出现名称冲突，从而帮助避免产生任何问题  。 但是，最好避免使用相同的名称
 
 >[!Tip]
 > 要通过 IoT Edge 连接设备 IoT“叶”设备和使用 IoT 设备 SDK 的应用程序，必须将可选的 GatewayHostName 参数添加到设备连接字符串的末尾。 生成 Edge 中心服务器证书时，该证书基于 config.yaml 中主机名的小写版本，因此，为使要匹配的名称和 TLS 证书验证成功，应以小写形式输入 GatewayHostName 参数。

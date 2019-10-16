@@ -16575,6 +16575,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/tutorial-functions-http-trigger.md",
+      "redirect_url": "/azure-functions/functions-bindings-cosmosdb",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
       "redirect_url": "/application-gateway/create-url-route-portal",
       "redirect_document_id": false
@@ -16618,7 +16623,50 @@
       "source_path": "articles/sql-database/sql-database-security-attributes.md",
       "redirect_url": "/sql-database/sql-database-security-controls",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-java-v10.md",
+      "redirect_url": "https://github.com/azure/azure-storage-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-security-attributes.md",
+      "redirect_url": "/storage/common/storage-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-security-attributes.md",
+      "redirect_url": "/vpn-gateway/vpn-gateway-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user.md",
+      "redirect_url": "/active-directory/user-help/user-help-two-step-verification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/baseline-protection.md",
+      "redirect_url": "/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
+      "redirect_url": "/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
+      "redirect_url": "/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/how-to-read-write-partitioned-data.md",
+      "redirect_url": "/data-factory/tutorial-incremental-copy-overview",
+      "redirect_document_id": false
     }
+
+
+
 
 
  

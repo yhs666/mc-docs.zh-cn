@@ -8,13 +8,13 @@ ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 12/18/2018
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: 9c48955c66d0bd31c5db7c675158bb65c299aecf
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.subservice: autoscale
+ms.openlocfilehash: 2f2b6cb27a2919431596927f1e8ee11157eae146
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737145"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330343"
 ---
 # <a name="understand-autoscale-settings"></a>了解自动缩放设置
 使用自动缩放设置有助于确保运行适当数量的资源来处理应用程序负载的波动。 可将自动缩放设置配置为基于指标（指示负载或性能）触发，或者在计划好的日期和时间触发。 本文将会深度剖析自动缩放设置。 本文首先介绍设置的架构和属性，然后逐步讲解可配置的不同配置文件类型。 最后讨论 Azure 中的自动缩放功能如何评估要在任意给定时间执行哪个配置文件。

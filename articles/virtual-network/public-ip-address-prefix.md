@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: e47e240dbbc49394af887ff541533350ca125ba9
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 48f8f05a6df0ae05b60e32c8e75509609eebef6f
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514452"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306492"
 ---
 # <a name="public-ip-address-prefix"></a>公共 IP 地址前缀
 
@@ -55,11 +55,10 @@ ms.locfileid: "68514452"
 |Resource|方案|步骤|
 |---|---|---|
 |虚拟机| 将来自某个前缀的公共 IP 关联到 Azure 中的虚拟机可降低在防火墙中创建允许列表 IP 所产生的管理开销。 可使用单个防火墙规则简化创建整个前缀允许列表的过程。 缩放 Azure 中的虚拟机时，可关联来自同一前缀的 IP，从而节省成本、时间和管理开销。| 将来自某个前缀的 IP 关联到虚拟机：1. [创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. [将 IP 关联到虚拟机网络接口。](virtual-network-network-interface-addresses.md#add-ip-addresses)
-| 负载均衡器 | 将来自某个前缀的公共 IP 关联到负载均衡器的前端 IP 配置或出站规则可确保简化 Azure 公共 IP 地址空间。 可以通过整理源由公共 IP 前缀定义的连续 IP 地址范围的出站连接来简化你的方案。 | 将来自某个前缀的 IP 关联到负载均衡器：1. [创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. 创建负载均衡器时，选择或更新在前面第 2 步中创建的 IP 作为负载均衡器的前端 IP。 |
-| Azure 防火墙 | 可使用来自前缀的公共 IP 地址作为出站 SNAT。 这意味着所有出站虚拟网络流量都会转换为 Azure 防火墙公共 IP。 该 IP 来自预先确定的前缀，因此很容易提前知道 Azure 中公共 IP 占用情况将来的情况。 | 1.[创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. 部署 Azure 防火墙时，请务必选择之前通过前缀分配的 IP。|
+| 标准负载均衡器 | 将来自某个前缀的公共 IP 关联到负载均衡器的前端 IP 配置或出站规则可确保简化 Azure 公共 IP 地址空间。 可以通过整理源由公共 IP 前缀定义的连续 IP 地址范围的出站连接来简化你的方案。 | 将来自某个前缀的 IP 关联到负载均衡器：1. [创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. 创建负载均衡器时，选择或更新在前面第 2 步中创建的 IP 作为负载均衡器的前端 IP。 |
+| Azure 防火墙 | 可使用来自前缀的公共 IP 地址作为出站 SNAT。 这意味着所有出站虚拟网络流量都会转换为 [Azure 防火墙](../firewall/overview.md?toc=%2fvirtual-network%2ftoc.json)公共 IP。 该 IP 来自预先确定的前缀，因此很容易提前知道 Azure 中公共 IP 占用情况将来的情况。 | 1.[创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. [部署 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fvirtual-network%2ftoc.json#deploy-the-firewall)时，请务必选择之前通过前缀分配的 IP。|
 
-<!--Not Available on [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-->
-<!--Not Available on [deploy the Azure firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)-->
+<!--Not Available on | Application Gateway v2 |-->
 
 ## <a name="constraints"></a>约束
 

@@ -5,21 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 08/12/2019
-ms.date: 09/16/2019
-ms.openlocfilehash: 16fdaf4aebb2b9e31d31720dbf290178674fe90e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+origin.date: 09/06/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 6369a426b698e7b945018fceb2e243f2c25c50ca
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857054"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307884"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的只读副本
 
 使用只读副本功能可将数据从 Azure Database for MariaDB 服务器复制到只读服务器。 可将主服务器中的数据复制到最多 5 个副本。 使用全局事务 ID (GTID) 通过 MariaDB 引擎的基于二进制日志 (binlog) 文件位置的复制技术以异步方式更新副本。 要详细了解 binlog 复制，请参阅 [binlog 复制概述](https://mariadb.com/kb/en/library/replication-overview/)。
-
-> [!IMPORTANT]
-> 可以在主服务器所在的区域或所选的任何其他 Azure 区域创建只读副本。 只读副本（相同区域和跨区域）当前以公共预览版提供。
 
 副本是新的服务器，可以像管理普通的 Azure Database for MariaDB 服务器一样对其进行管理。 每个只读副本按照预配计算资源的 vCore 数量以及每月 GB 存储量计费。
 
@@ -39,10 +36,9 @@ ms.locfileid: "70857054"
 ## <a name="cross-region-replication"></a>跨区域复制
 可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
 
-> [!IMPORTANT]
-> 跨区域复制目前为公共预览版。
-
-可以在任何 [Azure Database for MariaDB 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mariadb)中设置主服务器。  主服务器可以在其配对区域或通用副本区域中有一个副本。
+可以在任何 [Azure Database for MariaDB 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
+### <a name="paired-regions"></a>配对区域
+如果你使用跨区域副本进行灾难恢复规划，建议你在配对区域而不是其他某个区域中创建副本。 配对区域可避免同时更新，并优先考虑物理隔离和数据驻留。  
 
 
 ## <a name="create-a-replica"></a>创建副本
@@ -142,4 +138,4 @@ Azure Database for MariaDB 在 Azure Monitor 中提供“复制滞后时间(秒)
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何[使用 Azure 门户创建和管理只读副本](howto-read-replicas-portal.md)
-- 了解如何[使用 Azure CLI 创建和管理只读副本](howto-read-replicas-cli.md)
+- 了解如何[通过 Azure CLI 和 REST API 创建和管理只读副本](howto-read-replicas-cli.md)

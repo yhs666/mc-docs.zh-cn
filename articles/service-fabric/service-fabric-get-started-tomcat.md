@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/08/2018
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 620d71f985a585b7a507d5d5cfd2a3250041132e
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: af5ee517ddd85c5d10653eb808203b0b831d6b4c
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753157"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340785"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>在 Linux 上创建运行 Apache Tomcat 服务器的 Service Fabric 容器
 Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 本文介绍如何使用 Apache Tomcat 和简单的 Web 应用程序生成容器，然后将该容器部署到运行 Linux 的 Service Fabric 群集并连接到 Web 应用程序。  
@@ -33,9 +32,7 @@ Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 �
   * [适用于 Linux 的 Docker CE](https://docs.docker.com/engine/installation/#prior-releases)。 
   * [Service Fabric CLI](service-fabric-cli.md)
 
-* Azure 容器注册表中的容器注册表。 可以使用 [Azure 门户](../container-registry/container-registry-get-started-portal.md)在 Azure 订阅中创建容器注册表。 
-
-<!--Pending on [the Azure CLI](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry)-->
+* Azure 容器注册表中的容器注册表。 可以使用 [Azure 门户](../container-registry/container-registry-get-started-portal.md)或 [Azure CLI](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry) 在 Azure 订阅中创建容器注册表。 
 
 ## <a name="build-a-tomcat-image-and-run-it-locally"></a>生成 Tomcat 映像并在本地运行
 按照本部分中的步骤，基于 Apache Tomcat 映像和简单的 Web 应用生成 Docker 映像，然后在本地系统的容器中运行该映像。 
@@ -240,9 +237,7 @@ docker rmi myregistry.azurecr.cn/samples/tomcattest
 
 ## <a name="next-steps"></a>后续步骤
 * 有关其他 Linux 容器功能的快速步骤，请参阅[在 Linux 上创建第一个 Service Fabric 容器应用程序](service-fabric-get-started-containers-linux.md)。
-
-<!-- Not Available on [Create a Linux container app tutorial](service-fabric-tutorial-create-container-images.md)-->
-
+* 有关 Linux 容器的详细步骤，请参阅[创建 Linux 容器应用教程](service-fabric-tutorial-create-container-images.md)。
 * 详细了解如何运行 [Service Fabric 上的容器](service-fabric-containers-overview.md)。
 
 <!-- Update_Description: wording update -->

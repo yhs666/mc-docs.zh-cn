@@ -2,21 +2,19 @@
 title: 层和 SKU 的服务限制 - Azure 搜索
 description: 用于容量计划的服务限制以及请求和响应 Azure 搜索的最大限制。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-origin.date: 04/17/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 5c40021ad8ec772eba4f9d917a7fa1b401c01b5d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+origin.date: 07/01/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: b8b00f65a949d68084878e43700a556da93bebce
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67236055"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674360"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜索中的服务限制
 对存储、工作负荷以及索引、文档和其他对象数量的最大限制，取决于是在“免费”、“基本”、“标准”还是“存储优化”定价层上[预配 Azure 搜索](search-create-service-portal.md)     。
@@ -30,7 +28,7 @@ ms.locfileid: "67236055"
 + **存储优化**层在专用计算机上运行，与**标准**层相比具有更多的总存储、存储带宽和内存。 “存储优化”层分为两个级别：L1 和 L2
 
 > [!NOTE]
-> “存储优化”服务层目前以折扣价提供预览版，用于测试和试验，目的是收集反馈。 这些层推出正式版后，我们将公布最终定价。 不建议对生产应用程序使用这些层。
+> 从 7 月 1 日起，所有层通常都可用，包括存储优化层。 所有定价都可以在[定价详细信息](https://www.azure.cn/pricing/details/search/)页上找到。
 
   S3 高密度 (S3 HD) 是针对特定工作负荷设计的：[多租户](search-modeling-multitenant-saas-applications.md)和大量的小索引（每个索引一百万个文档，每个服务三千个索引）。 此层未提供[索引器功能](search-indexer-overview.md)。 在 S3 HD 上，数据引入必须利用推送方式，使用 API 调用将数据从源推送到索引。 
 
@@ -75,11 +73,10 @@ ms.locfileid: "67236055"
 
 如果门户指示文档数限制，则你的服务要么是在 2017 年底之前创建的，要么是在使用容量较低的群集托管 Azure 搜索服务的数据中心上创建的：
 
-+ 澳大利亚东部
-+ 东亚
-+ 印度中部
-+ 日本西部
-+ 美国中西部
++ 中国东部
++ 中国东部 2
++ 中国北部
++ 中国北部 2
 
 对于具有文档数限制的服务，将应用以下上限：
 
@@ -128,6 +125,15 @@ ms.locfileid: "67236055"
 
 <sup>5</sup> 认知搜索工作负载和 Azure blob 索引中的 图像分析的运行时间比常规文本索引运行时间短。 图像分析和自然语言处理属于计算密集型，并且消耗了过多的可用处理能力。 减少运行时间，以便队列中的其他作业能够运行。  
 
+## <a name="synonym-limits"></a>同义词限制
+
+允许的同义词映射的最大数量因定价层而异。 每个规则最多可以有 20 个扩展，一个扩展就是一个意义相同的词。 例如，给定“猫”，与“猫咪”、“猫科动物”和“猫属”（猫的属）的关联将算作 3 个扩展。
+
+| Resource | 免费 | 基本 | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| 最大同义词映射数 |3 |3|5 |10 个 |20 个 |20 个 | 10 个 | 10 个 |
+| 每个映射的最大规则数 |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
+
 ## <a name="queries-per-second-qps"></a>每秒查询次数 (QPS)
 
 每个客户必须独立制定 QPS 估计值。 索引大小和复杂性、查询大小和复杂性以及流量大小是 QPS 的主要决定因素。 当此类因素未知时，没有方法能提供有意义的估计值。
@@ -138,7 +144,7 @@ ms.locfileid: "67236055"
 
 ## <a name="data-limits-cognitive-search"></a>数据限制（认知搜索）
 
-用于调用文本分析资源进行[实体识别](cognitive-search-skill-entity-recognition.md)、[关键短语提取](cognitive-search-skill-keyphrases.md)、[情绪分析](cognitive-search-skill-sentiment.md)、[语言检测](cognitive-search-skill-language-detection.md)的[认知搜索管道](cognitive-search-concept-intro.md)会受到数据限制。 记录的最大大小应为 50,000 个字符，通过 `String.Length` 进行测量。 如果需要在将数据发送到情绪分析器之前拆分数据，请使用[文本拆分技能](cognitive-search-skill-textsplit.md)。
+用于调用文本分析资源进行[实体识别](cognitive-search-skill-entity-recognition.md)、[关键短语提取](cognitive-search-skill-keyphrases.md)、[情绪分析](cognitive-search-skill-sentiment.md)、[语言检测](cognitive-search-skill-language-detection.md)的[认知搜索管道](cognitive-search-concept-intro.md)会受到数据限制。 记录的最大大小应为 50,000 个字符，通过 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) 进行测量。 如果需要在将数据发送到情绪分析器之前拆分数据，请使用[文本拆分技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="api-request-limits"></a>API 请求限制
 * 每个请求最大 16 MB <sup>1</sup>

@@ -4,18 +4,17 @@ description: 本文介绍如何通过配置分区和流单元缩放使用机器�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 06/21/2019
-ms.openlocfilehash: 6e256029507ac8dd07c5e8b55a6987a9481b0e24
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/21/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: 03fc4665249aef1ecd3431a93d3c6984261d5599
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970447"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674790"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>使用 Azure 机器学习工作室函数缩放流分析作业
 

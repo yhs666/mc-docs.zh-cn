@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 origin.date: 05/07/2019
-ms.date: 6/4/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d6ee6cdf52dd6d85ca908c38b3a1a97d52f6bcd9
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 25410a5166caa1bf2c9c7ace0db22fe115d07aaf
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330419"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>使用 Azure Monitor 中的应用程序更改分析（预览版）
 
@@ -87,57 +87,39 @@ ms.locfileid: "70736522"
 
 ### <a name="enable-change-analysis-at-scale"></a>大规模启用更改分析
 
-如果订阅包含大量的 Web 应用，在 Web 应用级别启用该服务的做法就不够有效。 对于这种情况，请遵照以下说明。
+如果订阅包含大量的 Web 应用，在 Web 应用级别启用该服务的做法就不够有效。 运行以下脚本以启用订阅中的所有 Web 应用。
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>为订阅注册更改分析资源提供程序
+先决条件：
+* PowerShell Az 模块。 请按照[安装 Azure PowerShell 模块](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)中的说明操作
 
-1. 注册更改分析功能标志（预览版）。 由于功能标志目前为预览版，因此需要将它注册才能让订阅看到它：
+运行以下脚本：
 
-   1. 打开 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)。
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![更改 Cloud Shell 的屏幕截图](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. 将 shell 类型更改为 **PowerShell**。
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![更改 Cloud Shell 的屏幕截图](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. 运行以下 PowerShell 命令：
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. 为订阅注册更改分析资源提供程序。
+```
 
-   - 转到“订阅”，并选择要在更改服务中启用的订阅。  然后选择资源提供程序：
 
-        ![显示如何注册更改分析资源提供程序的屏幕截图](./media/change-analysis/register-rp.png)
-
-       - 选择“Microsoft.ChangeAnalysis”。  然后在页面顶部，选择“注册”。 
-
-       - 启用资源提供程序后，可在 Web 应用中设置一个隐藏的标记，用于检测部署级别的更改。 若要设置隐藏的标记，请遵照“无法提取更改分析信息”中的说明。 
-
-   - 或者，可以使用 PowerShell 脚本注册资源提供程序：
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        若要使用 PowerShell 在 Web 应用中设置隐藏的标记，请运行以下命令：
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > 添加隐藏的标记后，可能仍需等待最长 4 个小时，才能开始看到更改。 结果之所以延迟出现，是因为更改分析每隔 4 小时扫描一次 Web 应用。 采用 4 小时计划可以限制扫描对性能造成的影响。
 
 ## <a name="next-steps"></a>后续步骤
 

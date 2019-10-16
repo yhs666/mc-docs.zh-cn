@@ -2,26 +2,26 @@
 title: 创建索引定义和概念 - Azure 搜索
 description: 介绍 Azure 搜索中的索引术语和概念，包括组成部分和物理结构。
 author: HeidiSteen
-manager: cgronlun
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6c7e20c47f534df31e075d9f4a2b15f11be862f1
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 5d05f8ea6f85092b752ea1ab6d8f38688c404213
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004398"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674391"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜索中创建基本索引
 
 在 Azure 搜索中，*索引*是用于在 Azure 搜索服务上进行筛选和全文搜索的*文档*和其他构造的持久存储。 从概念上讲，文档是索引中的一个可搜索数据单元。 例如，电子商务零售商可能有所销售每件商品的文档，新闻机构可能有每篇报道的文档。 将这些概念对应到更为熟悉的数据库等效对象：*索引*在概念上类似于*表*，*文档*大致相当于表中的*行*。
 
-添加或上传索引时，Azure 搜索将根据提供的架构创建物理基础结构。 例如，如果将索引中的某个字段标记为可搜索，则为该字段创建倒排索引。 以后在 Azure 搜索中添加或上传文档或者提交搜索查询时，将向搜索服务中的特定索引发送请求。 加载包含文档值的字段称为索引编制或数据引入。
+添加或上传索引时，Azure 搜索将根据提供的架构创建物理基础结构。 例如，如果将索引中的某个字段标记为可搜索，则为该字段创建倒排索引。 以后在 Azure 搜索中添加或上传文档或者提交搜索查询时，将向搜索服务中的特定索引发送请求。 加载包含文档值的字段称为索引编制或数据引入。 
 
 可以在门户、[REST API](search-create-index-rest-api.md) 或 [.NET SDK](search-create-index-dotnet.md) 中创建索引。
 
@@ -31,13 +31,13 @@ ms.locfileid: "66004398"
 
 1. 确定是否可以使用[索引器](search-indexer-overview.md#supported-data-sources)。 如果你的外部数据是支持的数据源之一，则你可以使用[**导入数据**](search-import-data-portal.md)向导制作原型和加载索引。
 
-2. 如果无法使用“导入数据”，仍可以使用“添加索引”页上的控件[在门户中创建初始索引](search-create-index-portal.md)，以及添加字段、数据类型和分配属性。 门户会显示不同数据类型可用的属性。 如果你不太熟悉索引设计，此功能非常有用。
+2. 如果无法使用“导入数据”，仍可以使用“添加索引”页上的控件[在门户中创建初始索引](search-create-index-portal.md)，以及添加字段、数据类型和分配属性。   门户会显示不同数据类型可用的属性。 如果你不太熟悉索引设计，此功能非常有用。
 
    ![“添加索引”页，其中按数据类型显示了属性](media/search-create-index-portal/field-attributes.png "“添加索引”页，其中按数据类型显示了属性")
   
-   单击“创建”时，将在搜索服务中创建支持你的索引的所有物理结构。
+   单击“创建”时，将在搜索服务中创建支持你的索引的所有物理结构。 
 
-3. 使用[获取索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-fiddler.md) 等 Web 测试工具下载索引架构。 现在，门户中会显示所创建的索引的 JSON 表示形式。 
+3. 使用[获取索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-get-started-postman.md) 等 Web 测试工具下载索引架构。 现在，门户中会显示所创建的索引的 JSON 表示形式。 
 
    接下来，你将切换到基于代码的方法。 门户并不十分适合用于迭代，因为在其中无法编辑已创建的索引。 但是，可以使用 Postman 和 REST 完成剩余的任务。
 
@@ -49,7 +49,7 @@ ms.locfileid: "66004398"
 
 由于物理结构是在服务中创建的，每当对现有的字段定义进行重大更改后，都必须[删除并重新创建索引](search-howto-reindex.md)。 这意味着，在开发期间，应该对频繁的重新生成做好规划。 可以考虑使用一部分数据来加快重新生成的速度。 
 
-迭代设计的建议方法是使用代码而不是门户。 如果依赖于使用门户创建索引定义，则每次重新生成都必须填充索引定义。 如果开发项目仍处于早期阶段，[Postman 和 REST API](search-fiddler.md) 等备选工具也有助于完成概念证明测试。 可对请求正文中的索引定义进行增量更改，然后将请求发送到服务，以使用更新的架构重新创建索引。
+迭代设计的建议方法是使用代码而不是门户。 如果依赖于使用门户创建索引定义，则每次重新生成都必须填充索引定义。 如果开发项目仍处于早期阶段，[Postman 和 REST API](search-get-started-postman.md) 等备选工具也有助于完成概念证明测试。 可对请求正文中的索引定义进行增量更改，然后将请求发送到服务，以使用更新的架构重新创建索引。
 
 ## <a name="components-of-an-index"></a>索引的组成部分
 
@@ -161,16 +161,22 @@ ms.locfileid: "66004398"
 若要深入了解 Azure 搜索支持的数据类型，请参阅[此处](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)。
 
 ### <a name="index-attributes"></a>索引属性
+
+索引中必须恰好有一个字段指定为唯一标识每个文档的**键**字段。
+
+其他特性确定字段在应用程序中的使用方式。 例如，**searchable** 特性分配给应包含在全文搜索中的每个字段。 
+
+用于生成索引的 API 具有不同的默认行为。 对于 [REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，大多数特性在默认情况下处于启用状态（例如，**searchable** 和 **retrievable** 对于字符串字段为 true），并且通常只需要在要关闭它们时设置它们。 对于 .NET SDK，情况恰恰相反。 对于未显式设置的任何属性，默认情况下禁用相应的搜索行为，除非你特别启用它。
+
 | 属性 | 说明 |
 | --- | --- |
-| *键* |为每个文档提供唯一 ID 以便查找文档的字符串。 每个索引必须有一个 key。 只有一个字段可以是 key，并且此字段类型必须设置为 Edm.String。 |
-| *Retrievable* |指定是否可以在搜索结果中返回字段。 |
-| *Filterable* |允许在筛选查询中使用字段。 |
-| *Sortable* |允许查询使用此字段对搜索结果排序。 |
-| *Facetable* |允许在 [分面导航](search-faceted-navigation.md) 结构中使用字段进行用户自主筛选。 通常，包含重复值的字段更适合分面导航，这些重复值可用于将多个文档（例如，同属一个品牌或服务类别的多个文档）组合在一起。 |
-| *Searchable* |将字段标记为可全文搜索。 |
+| `key` |为每个文档提供唯一 ID 以便查找文档的字符串。 每个索引必须有一个 key。 只有一个字段可以是 key，并且此字段类型必须设置为 Edm.String。 |
+| `retrievable` |指定是否可以在搜索结果中返回字段。 |
+| `filterable` |允许在筛选查询中使用字段。 |
+| `Sortable` |允许查询使用此字段对搜索结果排序。 |
+| `facetable` |允许在 [分面导航](search-faceted-navigation.md) 结构中使用字段进行用户自主筛选。 通常，包含重复值的字段更适合分面导航，这些重复值可用于将多个文档（例如，同属一个品牌或服务类别的多个文档）组合在一起。 |
+| `searchable` |将字段标记为可全文搜索。 |
 
-若要深入了解 Azure 搜索的索引属性，请参阅[此处](https://docs.microsoft.com/rest/api/searchservice/Create-Index)。
 
 ## <a name="storage-implications"></a>存储影响
 
@@ -210,7 +216,7 @@ ms.locfileid: "66004398"
 
 + **allowedOrigins**（必需）：这是会被授予索引访问权限的来源的列表。 这意味着，将允许从这些来源提供的任何 JavaScript 代码查询索引（假设它提供正确的 api-key）。 每个来源通常采用 `protocol://<fully-qualified-domain-name>:<port>` 格式，不过往往会省略 `<port>`。 有关更多详细信息，请参阅[跨域资源共享 (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)。
 
-  若要允许访问所有来源，请将 `*` 作为单个项目包含在 **allowedOrigins** 数组中。 不建议对生产搜索服务采用这种做法，但它在开发和调试中却很有用。
+  若要允许访问所有来源，请将 `*` 作为单个项目包含在 **allowedOrigins** 数组中。 不建议对生产搜索服务采用这种做法，但它在开发和调试中却很有用。 
 
 + **maxAgeInSeconds**（可选）：浏览器使用此值确定缓存 CORS 预检响应的持续时间（以秒为单位）。 此值必须是非负整数。 此值越大，性能越好，但 CORS 策略更改生效所需的时间也越长。 如果未设置此值，将使用 5 分钟的默认持续时间。
 

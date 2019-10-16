@@ -12,16 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 6b5c3312fbdf1dd043247de7964fdc3a594498d1
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.reviewer: anilmur
+ms.openlocfilehash: 5227511b5a91e848110d235167fc3d05e6e998ad
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624123"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124446"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和编解码器
+
+> [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
+> * [第 2 版](media-services-media-encoder-standard-formats.md)
+> * [第 3 版](../latest/media-encoder-standard-formats.md)
 
 本文档包含最常见的导入和导出文件格式的列表，可以将这些格式用于 Media Encoder Standard。
 
@@ -101,6 +106,9 @@ Media Encoder Standard 支持在输入容器中带有以下音频格式：
 | --- | --- | --- |
 | MP4 <br/><br/>（包括多比特率 MP4 容器） |H.264（High、Main 和 Baseline Profile） |AAC-LC、HE-AAC v1、HE-AAC v2 |
 | MPEG2-TS |H.264（High、Main 和 Baseline Profile） |AAC-LC、HE-AAC v1、HE-AAC v2 |
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="see-also"></a>另请参阅
 [使用 Azure 媒体服务对所需内容进行编码](media-services-encode-asset.md)

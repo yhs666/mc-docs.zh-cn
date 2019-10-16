@@ -10,12 +10,12 @@ origin.date: 08/07/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: f8765f168500ea2e865c3d0eff1343b607533389
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 92b7a9ec429802abca4cb3d9c094397cfd5093c0
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134391"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340884"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复
 
@@ -60,7 +60,10 @@ ms.locfileid: "70134391"
 
 ## <a name="failover-to-azure"></a>故障转移到 Azure
 
-1. 在“设置” > “复制的项”中，单击“VM”>“故障转移”    。
+1. 在“受保护的项”   > “复制的项”  中，单击 VM >“故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 2. 在“故障转移”中，选择“最新”恢复点   。 
 3. 选择“在开始故障转移前关闭计算机”  。 在触发故障转移之前，Site Recovery 会尝试关闭源 VM。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 4. 验证故障转移后，单击“提交”  。 这会删除所有可用的恢复点。
@@ -72,7 +75,10 @@ ms.locfileid: "70134391"
 
 故障回复操作基本上是从 Azure 故障转移到本地站点，在反向复制中它会开始将 VM 从本地站点复制到 Azure。
 
-1. 在“设置” > “复制的项”中，单击“VM”>“计划内故障转移”。   
+1. 在“受保护的项”   > “复制的项”  中，单击 VM >“计划内故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 2. 在“确认计划故障转移”中，验证故障转移方向（从 Azure），并选择源和目标位置  。
 3. 选择“在故障转移前同步数据(仅同步增量更改)”。  此选项可最大程度减小 VM 停机时间，因为它在不关闭 VM 的情况下进行同步操作。
 4. 启动故障转移。 可以在“**作业**”选项卡上跟踪故障转移进度。

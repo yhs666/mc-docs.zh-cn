@@ -2,21 +2,21 @@
 title: 快速入门：PowerShell 和 REST API - Azure 搜索
 description: 使用 PowerShell 的 Invoke-RestMethod 与 Azure 搜索 REST API 创建、加载和查询索引。
 origin.date: 05/16/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: heidisteen
 manager: cgronlun
-ms.author: v-biyu
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 34799f637d8bb28b9b0c962dbc883a88d8dd15ce
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 4690fe05a430f297a158faab30ae27ba066387a7
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004624"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674242"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure 搜索索引
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "66004624"
 
 本快速入门使用以下服务和工具。 
 
-+ [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
++ [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
 
 + [PowerShell 5.1 或更高版本](https://github.com/PowerShell/PowerShell)，使用 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 按序完成交互式步骤。
 

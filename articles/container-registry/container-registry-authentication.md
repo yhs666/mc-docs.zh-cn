@@ -7,21 +7,21 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 12/21/2018
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14db5ed8519c3c1fd021b1bd1d431602abec7015
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: fdc06bf942ce88a0970ab4b2eccc5d2ce5a59ed1
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857193"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306816"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>使用私有 Docker 容器注册表进行身份验证
 
 可通过几种方法使用 Azure 容器注册表进行身份验证，并且每种方法适用于一种或多种注册表使用方案。
 
-你可以通过[个人登录](#individual-login-with-azure-ad)来直接登录到注册表，应用程序和容器业务流程协调程序也可以通过使用 Azure Active Directory (Azure AD) [服务主体](#service-principal)执行无人参与或“无外设”身份验证。
+建议的方法包括通过[个人登录](#individual-login-with-azure-ad)来直接向注册表进行身份验证，或者应用程序和容器业务流程协调程序可以通过使用 Azure Active Directory (Azure AD) [服务主体](#service-principal)执行无人参与或“无外设”身份验证。
 
 ## <a name="individual-login-with-azure-ad"></a>使用 Azure AD 进行单次登录
 
@@ -51,34 +51,14 @@ az acr login --name <acrName>
 
 有关完整的角色列表，请参阅 [Azure 容器注册表角色和权限](container-registry-roles.md)。
 
-如果 CLI 脚本创建服务主体应用 ID 和密码来向 Azure 容器注册表进行身份验证，或者要使用现有的服务主体，请参阅[使用服务主体进行 Azure 容器注册表身份验证](container-registry-auth-service-principal.md)。
-
-服务主体在拉取和推送方案中启用到注册表的“无外设”连接，如下所示：
-
-* *拉取*：将容器从注册表部署到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）。 还可以从容器注册表拉取到相关的 Azure 服务，例如 [Azure Kubernetes 服务](container-registry-auth-aks.md)、[应用服务](../app-service/index.yml)、[Batch](../batch/index.yml)、[Service Fabric](/service-fabric/)，等等。
-    
-    <!--Not Available on [Azure Container Instances](container-registry-auth-aci.md)-->
-    
-* *推送*：构建容器映像并使用持续集成和部署解决方案（例如 Azure Pipelines 或 Jenkins）将它们推送到注册表。
-
-还可以直接使用服务主体登录。 运行以下命令时，收到提示后，请以交互方式提供服务主体 appID（用户名）和密码。 有关管理登录凭据的最佳做法，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考：
-
-```
-docker login myregistry.azurecr.cn
-```
-
-登录后，Docker 会缓存凭据，因此无需记住应用 ID。
-
-> [!TIP]
-> 可通过运行 [az ad sp reset-credentials](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 命令重新生成服务主体的密码。
->
+有关创建服务主体以使用 Azure 容器注册表进行身份验证的 CLI 脚本，以及有关使用服务主体的指导，请参阅[使用服务主体进行 Azure 容器注册表身份验证](container-registry-auth-service-principal.md)。
 
 ## <a name="admin-account"></a>管理员帐户
 
 每个容器注册表包含一个管理员用户帐户，此帐户默认禁用。 可以在 Azure 门户中或通过使用 Azure CLI 或其他 Azure 工具启用管理员用户并管理其凭据。
 
 > [!IMPORTANT]
-> 管理员帐户专门用于单个用户访问注册表，主要用于测试目的。 建议不要与多个用户共享管理员帐户凭据。 对于使用管理员帐户进行身份验证的所有用户，他们都将显示为对注册表具有推送和拉取访问权限的单个用户。 更改或禁用此帐户会禁用使用凭据的所有用户的注册表访问权限。 建议用户和服务主体在无外设方案中使用单个标识。
+> 管理员帐户专门用于单个用户访问注册表，主要用于测试目的。 建议不要在多个用户之间共享管理帐户凭据。 对于使用管理员帐户进行身份验证的所有用户，他们都将显示为对注册表具有推送和拉取访问权限的单个用户。 更改或禁用此帐户会禁用使用凭据的所有用户的注册表访问权限。 建议用户和服务主体在无外设方案中使用单个标识。
 >
 
 管理员帐户有两个密码，这两个密码都可以再生成。 使用这两个密码，可以在再生成一个密码时使用另一个密码保持与注册表的连接。 如果管理员帐户已启用，可以在系统提示时将用户名和/或密码传递到 `docker login` 命令，以对注册表进行基本身份验证。 例如：
@@ -86,6 +66,8 @@ docker login myregistry.azurecr.cn
 ```
 docker login myregistry.azurecr.cn 
 ```
+
+有关管理登录凭据的最佳做法，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
 
 若要启用现有注册表的管理员用户，可以在 Azure CLI 中使用 [az acr update](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update) 命令的 `--admin-enabled` 参数：
 

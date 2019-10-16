@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 07/04/2019
+ms.date: 10/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9b228e95fed7ad08553c2ae21c6cd24b5a2b2d
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 03a5d2d95247bd3790d96b87324159163c851998
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568633"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292035"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
@@ -207,7 +207,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
     
     $Protocol = "SAMLP" 
     
-    Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol
+    Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $MyURI -LogOffUri $LogOffUrl -PreferredAuthenticationProtocol $Protocol
     ```
 3. 可以从 IDP 元数据文件中获取签名证书的 base64 编码字符串。 已提供此位置的示例，但该示例视实现情况可能稍有不同。
 
@@ -304,4 +304,4 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 - [Azure AD 联合身份验证兼容性列表](how-to-connect-fed-compatibility.md)
 - [Azure AD Connect 自定义安装](how-to-connect-install-custom.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

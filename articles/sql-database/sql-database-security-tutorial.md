@@ -8,16 +8,15 @@ ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 02/08/2019
-ms.date: 08/26/2019
+origin.date: 09/03/2019
+ms.date: 09/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a03fe354862be9620c7d2af20a92c4f3396809a4
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: ed63fd8d7cfc4eee4363d4e8b85ef68d371fb33b
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578581"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262921"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教程：保护单一数据库或共用数据库
 
@@ -57,7 +56,7 @@ Azure SQL 数据库允许你通过以下方式确保单一数据库或共用数�
 
 ## <a name="create-firewall-rules"></a>创建防火墙规则
 
-SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与服务器和数据库的所有连接，来自其他 Azure 服务的连接除外。 若要了解详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-firewall-configure.md)。
+SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与服务器和数据库的所有连接。 若要了解详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-firewall-configure.md)。
 
 将“允许访问 Azure 服务”设置为“关闭”即可启用最安全的配置。   然后，为需要连接的资源（例如 Azure VM 或云服务）创建一个[保留 IP（经典部署）](../virtual-network/virtual-networks-reserved-public-ip.md)，仅允许该 IP 地址通过防火墙进行访问。 如果使用[资源管理器](/virtual-network/virtual-network-ip-addresses-overview-arm)部署模型，则每个资源都需要一个专用的公共 IP 地址。
 
@@ -86,9 +85,6 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
    2. 选择“确定”，关闭“防火墙设置”页。  
 
 现可使用指定的 IP 地址或 IP 地址范围连接到服务器中的任何数据库。
-
-> [!IMPORTANT]
-> 默认情况下，已在“允许访问 Azure 服务”下为所有 Azure 服务启用通过 SQL 数据库防火墙进行访问的功能。  选择“关闭”即可禁止访问所有 Azure 服务。 
 
 ### <a name="setup-database-firewall-rules"></a>设置数据库防火墙规则
 

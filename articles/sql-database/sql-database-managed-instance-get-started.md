@@ -10,15 +10,14 @@ ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
-manager: digimobile
 origin.date: 05/07/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: daf60f1bea3b37acb5c3cdf55549a317aac46993
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: 6a69fda296c31071dbe40cd1d3b7acc9a7f1ceea
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544090"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262942"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
@@ -41,7 +40,7 @@ ms.locfileid: "69544090"
 2. 找到“托管实例”，然后选择“Azure SQL 托管实例”   。
 3. 选择“创建”  。
 
-   ![创建托管实例](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![创建托管实例](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. 根据下表中的信息，在“SQL 托管实例”窗体中填充要求的信息  。
 

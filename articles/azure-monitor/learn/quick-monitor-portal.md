@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-origin.date: 03/12/2019
-ms.date: 06/26/2019
+origin.date: 06/26/2019
+ms.date: 09/23/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 310a6b4c665948cea296bb673ab23d6397178a6c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 1a418d5550f794ef151306f239b27e3f5e0737d4
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737216"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329709"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>开始监视 ASP.NET Web 应用程序
 
@@ -48,7 +48,9 @@ ms.locfileid: "70737216"
 
 4. 选择订阅并单击“注册”  。
 
-5. 通过从“调试”  菜单中选择“启动调试”  或通过按 F5 键来运行应用程序。
+5. 选择“项目” > “管理 NuGet 包” > “包源: nuget.org” > “更新”，将 Application Insights SDK 包更新到最新稳定版本     。
+
+6. 通过从“调试”  菜单中选择“启动调试”  或通过按 F5 键来运行应用程序。
 
 ## <a name="confirm-app-configuration"></a>确认应用配置
 

@@ -2,20 +2,20 @@
 title: 用于在索引中限定搜索结果范围的筛选器 - Azure 搜索
 description: 按用户安全标识、语言、地理位置或数字值进行筛选可以减少 Azure 搜索（Microsoft Azure 上的托管云搜索服务）中的查询返回的搜索结果。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-origin.date: 05/13/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+origin.date: 06/13/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: f037fd39a7db6b01caba4a36940e9eff05be1044
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 879b787f2648591e4a930626e9f87da0225c5e96
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004566"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674358"
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜索中的筛选器 
 
@@ -98,7 +98,7 @@ POST https://[service name].search.chinacloudapi.cn/indexes/hotels/docs/search?a
 
 ## <a name="filter-usage-patterns"></a>筛选器使用模式
 
-以下示例演示了筛选器方案的多种使用模式。 有关更多思路，请参阅 [OData 表达式语法 > 示例](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
+以下示例演示了筛选器方案的多种使用模式。 有关更多思路，请参阅 [OData 表达式语法 > 示例](search-query-odata-filter.md#examples)。
 
 + 单独使用 **$filter** 而不使用查询字符串：如果筛选表达式能够完全限定所需的文档，则此模式很有效。 不使用查询字符串也就不会执行词法或语言分析、评分和排名。 请注意，搜索字符串只是一个星号，表示“匹配所有文档”。
 
@@ -159,11 +159,11 @@ POST https://[service name].search.chinacloudapi.cn/indexes/hotels/docs/search?a
 
 ### <a name="approaches-for-filtering-on-text"></a>基于文本进行筛选的方法
 
-| 方法 | 说明 | 何时使用 | 
+| 方法 | 说明 | 何时使用 |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | 根据字符串分隔列表匹配字段的函数。 | 建议用于[安全筛选器](search-security-trimming-for-azure-search.md)，以及其中的许多原始文本值需要与某个字符串字段匹配的任何筛选器。 **search.in** 函数旨在提高速度，相比于显式使用 `eq` 和 `or` 将字段与每个字符串进行比较，其速度要快得多。 | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | 用于在同一个筛选表达式中将全文搜索操作与严格的布尔筛选操作混合使用的函数。 | 想要在一个请求中使用多种搜索-筛选组合时，请使用 **search.ismatch**（或其等效的评分函数 **search.ismatchscoring**）。 还可以使用该函数来构建 *contains* 筛选器，以根据较大字符串中的部分字符串进行筛选。 |
-| [$filter=field operator string](query-odata-filter-orderby-syntax.md) | 由字段、运算符和值组成的用户定义的表达式。 | 想要在字符串字段与字符串值之间查找完全匹配项时，请使用此函数。 |
+| [`search.in`](search-query-odata-search-in-function.md) | 根据字符串分隔列表匹配字段的函数。 | 建议用于[安全筛选器](search-security-trimming-for-azure-search.md)，以及其中的许多原始文本值需要与某个字符串字段匹配的任何筛选器。 **search.in** 函数旨在提高速度，相比于显式使用 `eq` 和 `or` 将字段与每个字符串进行比较，其速度要快得多。 | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 用于在同一个筛选表达式中将全文搜索操作与严格的布尔筛选操作混合使用的函数。 | 想要在一个请求中使用多种搜索-筛选组合时，请使用 **search.ismatch**（或其等效的评分函数 **search.ismatchscoring**）。 还可以使用该函数来构建 *contains* 筛选器，以根据较大字符串中的部分字符串进行筛选。 |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 由字段、运算符和值组成的用户定义的表达式。 | 想要在字符串字段与字符串值之间查找完全匹配项时，请使用此函数。 |
 
 ## <a name="numeric-filter-fundamentals"></a>数字筛选器基础知识
 
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-若要学习更多示例，请参阅 [OData 筛选表达式语法 > 示例](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
+若要学习更多示例，请参阅 [OData 筛选表达式语法 > 示例](search-query-odata-filter.md#examples)。
 
 ## <a name="see-also"></a>另请参阅
 

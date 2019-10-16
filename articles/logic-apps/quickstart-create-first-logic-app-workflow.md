@@ -1,6 +1,6 @@
 ---
-title: 快速入门 - 创建并自动执行第一个工作流 - Azure 逻辑应用 | Microsoft Docs
-description: 使用 Azure 逻辑应用创建第一个自动执行任务、流程和工作流的逻辑应用。 为系统和云服务创建用于系统集成和企业应用程序集成 (EAI) 解决方案的逻辑应用
+title: 快速入门 - 使用 Azure 逻辑应用创建并自动执行第一个工作流 | Microsoft Docs
+description: 使用 Azure 逻辑应用创建第一个自动执行任务、流程和工作流的逻辑应用。 为系统和云服务创建用于系统集成和企业应用程序集成 (EAI) 解决方案的逻辑应用。
 services: logic-apps
 ms.service: logic-apps
 ms.workload: na
@@ -8,15 +8,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 07/20/2018
+origin.date: 08/20/2018
 ms.author: v-yiso
-ms.date: 08/26/2018
-ms.openlocfilehash: d9ad274f50aa487f6b8d9e497882320efc349951
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 10/08/2019
+ms.openlocfilehash: d1c35385de36f5e878cdf279ff316325ff557bb3
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538893"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340978"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个自动化工作流 - Azure 门户
 
@@ -42,16 +42,22 @@ ms.locfileid: "69538893"
 
    ![提供逻辑应用的详细信息](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | 属性 | 值 | 说明 | 
-   |----------|-------|-------------| 
-   | **名称** | MyFirstLogicApp | 逻辑应用的名称 | 
-   | **订阅** | <*your-Azure-subscription-name*> | Azure 订阅的名称 | 
-   | **资源组** | My-First-LA-RG | 用于组织相关资源的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的名称 | 
-   | **Location** | 中国东部 | 用于存储逻辑应用信息的区域 | 
-   | **Log Analytics** | 关闭 | 对于诊断日志记录，请保留“关闭”设置。  | 
-   |||| 
+   | 属性 | 值 | 说明 |
+   |----------|-------|-------------|
+   | **名称** | <*logic-app-name*> | 逻辑应用名称，只能包含字母、数字、连字符 (`-`)、下划线 (`_`)、括号（`(`、`)`）和句点 (`.`)。 此示例使用“My-First-Logic-App”。 |
+   | **订阅** | <*Azure-subscription-name*> | Azure 订阅名称 |
+   | **资源组** | <*Azure-resource-group-name*> | 用于组织相关资源的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的名称。 此示例使用“My-First-LA-RG”。 |
+   | **Location** | <*Azure-region*> | 用于存储逻辑应用信息的区域。|
+   | **Log Analytics** | 关闭 | 对于诊断日志记录，请保留“关闭”设置。  |
+   ||||
 
-3. 在 Azure 部署应用以后，逻辑应用设计器会打开并显示一个包含简介视频和常用触发器的页面。   在“模板”下选择“空白逻辑应用”。
+1. 在 Azure 部署你的应用后，在 Azure 工具栏上，选择“通知”   > “转到资源”  ，查看你部署的逻辑应用。
+
+   ![转到资源](./media/quickstart-create-first-logic-app-workflow/go-to-logic-app.png)
+
+   或者，可以通过在搜索框中键入名称来查找和选择逻辑应用。
+
+   逻辑应用设计器打开并显示一个包含简介视频和常用触发器的页面。   在“模板”下选择“空白逻辑应用”。
 
    ![选择空白逻辑应用模板](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
@@ -67,7 +73,7 @@ ms.locfileid: "69538893"
 
    ![选择触发器：“RSS - 发布源项时”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
-2. 为触发器提供如下所示的信息： 
+1. 为触发器提供如下所示的信息：
 
    ![使用 RSS 源、频率和间隔设置触发器](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
@@ -78,14 +84,13 @@ ms.locfileid: "69538893"
    | **频率** | 分钟 | 两次检查的间隔的时间单位  | 
    |  |  |  | 
 
-   时间间隔和频率合在一起，即可定义逻辑应用的触发器的计划。 
-   此逻辑应用每分钟检查一次源。
+   时间间隔和频率合在一起，即可定义逻辑应用的触发器的计划。 此逻辑应用每分钟检查一次源。
 
 3. 若要立即隐藏触发器详细信息，请单击触发器的标题栏。
 
    ![折叠形状即可隐藏详细信息](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-4. 保存逻辑应用。 在设计器工具栏上，选择“保存”  。 
+1. 保存逻辑应用。 在设计器工具栏上，选择“保存”  。
 
 逻辑应用现已生成，但除了检查 RSS 源，不能执行任何操作。 因此，请添加一项在触发器触发时进行响应的操作。
 
@@ -155,7 +160,7 @@ ms.locfileid: "69538893"
 
 若要手动启动逻辑应用，可在设计器工具栏中选择“运行”  。 或者，等待逻辑应用根据指定的计划（每隔一分钟）检索 RSS 源。 如果 RSS 源有新项，逻辑应用会为每个新项发送一封电子邮件。 否则，逻辑应用会等到下一个间隔过后才进行检查。 
 
-例如，下面是此逻辑应用发送的一封示例电子邮件。 如果没有收到任何电子邮件，请检查垃圾邮件文件夹。
+例如，下面是此逻辑应用发送的一封示例电子邮件。
 
 ![针对新的 RSS 源项发送的电子邮件](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
@@ -172,7 +177,7 @@ ms.locfileid: "69538893"
 
    ![“资源组”>“概览”>“删除资源组”](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-2. 输入资源组名称作为确认，然后选择“删除”。 
+1. 输入资源组名称作为确认，然后选择“删除”。 
 
    ![确认删除](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 

@@ -9,14 +9,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+origin.date: 03/11/2019
+ms.date: 09/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e6f6f407b3abe3c47736342824937a7a02972ff3
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 6e762113a4f00f1e020e17a0d823f10af100d36b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103994"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329835"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>用于识别常见数据类型的预生成实体
 

@@ -4,15 +4,15 @@ description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 05/31/2019
-ms.date: 07/22/2019
+origin.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c7320652fe7b3bced713fc0237593be25c0bf1f
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 8ed0435e330eec1d212e469088a0fbf04f961c98
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337441"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156202"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -120,9 +120,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
 
 ## <a name="pass-parameter-values"></a>粘贴参数值
 
-若要传递参数值，可以使用内联参数或参数文件。 本文中前面的示例显示了内联参数。
+若要传递参数值，可以使用内联参数或参数文件。
 
-### <a name="inline-parameters"></a>内联参数
+### <a name="inline-parameters"></a>内联参数。
 
 若要传递内联参数，请使用 `New-AzResourceGroupDeployment` 命令提供参数的名称。 例如，若要将字符串和数组传递给模板，请使用：
 
@@ -161,23 +161,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 你可能会发现，与在脚本中以内联值的形式传递参数相比，使用包含参数值的 JSON 文件更为容易。 参数文件可以是本地文件，也可以是具有可访问 URI 的外部文件。
 
-参数文件必须采用以下格式：
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-请注意，parameters 部分包含与模板中定义的参数匹配的参数名称 (storageAccountType)。 参数文件包含该参数的值。 此值在部署期间自动传递给模板。 可以创建多个参数文件，然后为方案传入适当的参数文件。
-
-复制上面的示例，然后将其另存为名为 `storage.parameters.json` 的文件。
+有关参数文件的详细信息，请参阅[创建资源管理器参数文件](resource-manager-parameter-files.md)。
 
 若要传递本地参数文件，请使用 TemplateParameterFile  参数：
 
@@ -194,16 +178,6 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
-
-### <a name="parameter-precedence"></a>参数优先级
-
-可以在同一部署操作中使用内联参数和本地参数文件。 例如，可以在本地参数文件中指定某些值，并在部署期间添加其他内联值。 如果同时为本地参数文件中的参数和内联参数提供值，则内联值优先。
-
-但是，使用外部参数文件时，不能传递是内联值或来自本地文件的其他值。 如果在 **TemplateParameterUri** 参数中指定参数文件，则忽略所有内联参数。 提供外部文件中的所有参数值。 如果模板包括参数文件中无法包括的敏感值，可将该值添加到密钥保管库，或者以内联方式动态提供所有参数值。
-
-### <a name="parameter-name-conflicts"></a>参数名冲突
-
-如果模板包括的一个参数与 PowerShell 命令中的某个参数同名，PowerShell 使用后缀 FromTemplate  显示模板的参数。 例如，模板中名为 **ResourceGroupName** 的参数与 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 系统会提示你提供 **ResourceGroupNameFromTemplate** 的值。 通常，不应将参数命名为与用于部署操作的参数的名称相同以避免这种混乱。
 
 ## <a name="test-template-deployments"></a>测试模板部署
 

@@ -2,21 +2,21 @@
 title: 升级到 Azure 搜索 .NET SDK 版本 1.1 - Azure 搜索
 description: 从旧 API 版本将代码迁移到 Azure 搜索 .NET SDK 版本 1.1。 了解新增功能和所需的代码更改。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 01/15/2018
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 8deb05d7eb8d10b5117c7dbfd1c0bd1fe28d4295
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: f6409114859bc7a81ef215bb153a34074aa76ac9
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004615"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674237"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>升级到 Azure 搜索 .NET SDK 版本 1.1
 
@@ -282,13 +282,13 @@ Azure 搜索 .NET SDK 中的每个操作都公开为同步和异步调用方的�
     var client =
         new SearchServiceClient(
             new SearchCredentials("abc123"),
-            new Uri("http://myservice.search.windows.net"));
+            new Uri("http://myservice.search.chinacloudapi.cn"));
 
 若要修复任何生成错误，可以更改为如下所示的代码：
 
     var client =
         new SearchServiceClient(
-            new Uri("http://myservice.search.windows.net"),
+            new Uri("http://myservice.search.chinacloudapi.cn"),
             new SearchCredentials("abc123"));
 
 另请注意，凭据参数的类型已更改为 `ServiceClientCredentials`。 由于 `SearchCredentials` 派生自 `ServiceClientCredentials`，所以这不太可能影响代码。

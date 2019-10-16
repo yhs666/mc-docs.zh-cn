@@ -7,20 +7,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 02/20/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c5a012e00bb0da0f1f81add26b805c7503d1317
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 7c7291ed2f13eb6eb4b9a30b5c2e50a42cae9437
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993775"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155977"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>通过使用事件网格触发操作来响应 IoT 中心事件
 
 通过将 Azure IoT 中心与 Azure 事件网格进行集成，使你可以向其他服务发送事件通知，并触发下游流程。 配置商业应用程序来侦听 IoT 中心事件，以便安全可靠地以可缩放方式响应关键事件。 例如，生成一个应用程序来更新数据库、创建工作票证，并在每当有新的 IoT 设备注册到 IoT 中心时，发送一封电子邮件通知。
 
-[Azure 事件网格](../event-grid/overview.md)是一种完全托管的事件路由服务，使用发布-订阅模型。 事件网格包含对 Azure 服务（如 [Azure Functions](../azure-functions/functions-overview.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-what-are-logic-apps.md)）的内置支持，还可使用 Webhook 向非 Azure 服务传递事件警报。 有关受事件网格支持的事件处理程序的完整列表，请参阅 [Azure 事件网格简介](../event-grid/overview.md)。
+[Azure 事件网格](../event-grid/overview.md)是一种完全托管的事件路由服务，使用发布-订阅模型。 事件网格包含对 Azure 服务（如 [Azure Functions](../azure-functions/functions-overview.md) 和 Azure 逻辑应用）的内置支持，还可使用 Webhook 向非 Azure 服务传递事件警报。 有关受事件网格支持的事件处理程序的完整列表，请参阅 [Azure 事件网格简介](../event-grid/overview.md)。
 
 ![Azure 事件网格体系结构](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
@@ -70,7 +70,7 @@ IoT 中心事件包含响应设备生命周期中更改所需的全部信息。 
 
 ### <a name="device-telemetry-schema"></a>设备遥测架构
 
-设备遥测消息必须采用有效的 JSON 格式，并且在消息[系统属性](iot-hub-devguide-routing-query-syntax.md#system-properties)中将 contentType 设置为 JSON，将 contentEncoding 设置为 UTF-8。 如果未设置此项，则 IoT 中心将以 base 64 编码格式写入消息。
+设备遥测消息必须采用有效的 JSON 格式，并且在消息[系统属性](iot-hub-devguide-routing-query-syntax.md#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。 这两个属性都不区分大小写。 如果未设置内容编码，则 IoT 中心将以 base 64 编码格式写入消息。
 
 在通过选择终结点作为事件网格来将设备遥测事件发布到事件网格之前，你可以扩充设备遥测事件。 有关详细信息，请参阅[消息扩充概述](iot-hub-message-enrichments-overview.md)。
 
@@ -172,9 +172,9 @@ IoT 事件使用者使用的格式：
 devices/{deviceId}
 ```
 
-事件网格还允许基于每个事件的属性（包括数据内容）进行筛选。 这允许你选择基于遥测消息的内容传送哪些事件。 请参阅[高级筛选](../event-grid/event-filtering.md#advanced-filtering)来查看示例。 要对遥测消息正文进行筛选，必须在消息[系统属性](/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 JSON，将 contentEncoding 设置为 UTF-8。
+事件网格还允许基于每个事件的属性（包括数据内容）进行筛选。 这允许你选择基于遥测消息的内容传送哪些事件。 请参阅[高级筛选](../event-grid/event-filtering.md#advanced-filtering)来查看示例。 若要对遥测消息正文进行筛选，必须在消息[系统属性](/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。 这两个属性都不区分大小写。
 
-对于非遥测事件，例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted，在创建订阅时，可以使用事件网格筛选。 对于遥测事件，除了在事件网格中进行筛选之外，用户还可以通过消息路由查询基于设备孪生、消息属性和正文进行筛选。 我们将根据你对设备遥测的事件网格订阅在 IoT 中心内创建一个默认[路由](iot-hub-devguide-messages-d2c.md)。 此单一路由可以处理你的所有事件网格订阅。 若要在发送遥测数据之前筛选消息，可以更新你的[路由查询](iot-hub-devguide-routing-query-syntax.md)。 请注意，只有当消息正文为 JSON 时，才能将路由查询应用于消息正文。 还必须在消息[系统属性](/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 JSON，将 contentEncoding 设置为 UTF-8。
+对于非遥测事件，例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted，在创建订阅时，可以使用事件网格筛选。 对于遥测事件，除了在事件网格中进行筛选之外，用户还可以通过消息路由查询基于设备孪生、消息属性和正文进行筛选。 我们将根据你对设备遥测的事件网格订阅在 IoT 中心内创建一个默认[路由](iot-hub-devguide-messages-d2c.md)。 此单一路由可以处理你的所有事件网格订阅。 若要在发送遥测数据之前筛选消息，可以更新你的[路由查询](iot-hub-devguide-routing-query-syntax.md)。 请注意，只有当消息正文为 JSON 时，才能将路由查询应用于消息正文。 还必须在消息[系统属性](/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>设备已连接和设备已断开连接事件的限制
 

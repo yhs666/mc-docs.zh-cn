@@ -1,21 +1,21 @@
 ---
-title: 使用适用于 Visual Studio 的 Azure 流分析工具创建流分析作业
+title: 使用 Visual Studio 创建 Azure 流分析作业
 description: 本快速入门展示了如何开始使用 Visual Studio 创建流分析作业、配置输入和输出，以及定义查询。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-ms.date: 01/21/19
+origin.date: 12/20/2018
+ms.date: 8/28/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 0aa356cdca0a447ed113fe6ecd66cf3abbd4f9d8
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: b1efb390b07e8d0034d10e2b822ab6650c54cc1d
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969577"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674769"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>快速入门：使用适用于 Visual Studio 的 Azure 流分析工具创建流分析作业
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>快速入门：使用 Visual Studio 创建 Azure 流分析作业
 
 本快速入门展示了如何使用用于 Visual Studio 的 Azure 流分析工具创建和运行流分析作业。 示例作业从 IoT 中心设备中读取流式处理数据。 你将定义一个作业，用以计算超过 27° 时的平均温度并将生成的输出事件写入到 blob 存储中的一个新文件。
 

@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c10d5cab49c06afe18968f69093b68c410969a34
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 283c5f72347e6f1f4c7826ce0dfb3d9154d216af
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544365"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329874"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Azure 服务总线消息传送的安全属性
 
@@ -52,7 +52,7 @@ ms.locfileid: "69544365"
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
 | 身份验证| 是 | 请参阅[服务总线身份验证和授权](service-bus-authentication-and-authorization.md)。|
-| 授权| 是 | 支持通过 [RBAC](service-bus-role-based-access-control.md)（预览版）和 SAS 令牌进行授权；请参阅[服务总线身份验证和授权](service-bus-authentication-and-authorization.md)。 |
+| 授权| 是 | 支持通过 [RBAC](service-bus-managed-service-identity.md)（预览版）和 SAS 令牌进行授权；请参阅[服务总线身份验证和授权](service-bus-authentication-and-authorization.md)。 |
 
 
 

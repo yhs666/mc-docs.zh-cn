@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/03/2019
 ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 55f0b7fa79faf5b1f20e0b09744b506001742c4e
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 6b89855a0395e2874ac2bc190e879e2ee4fadd40
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844910"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119548"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入门：使用人脸 .NET SDK 检测图像中的人脸
 
@@ -80,6 +80,9 @@ namespace DetectFace
             { FaceAttributeType.Age, FaceAttributeType.Gender };
 
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn` 替换为 `https://chinaeast2.api.cognitive.azure.cn`。
 
 ### <a name="create-and-use-the-face-client"></a>创建并使用人脸客户端
 

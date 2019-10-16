@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 08/21/2019
+ms.date: 09/23/2019
 ms.author: v-jay
 ms.reviewer: juliako
-ms.openlocfilehash: c6f613187703964ec3a4ee5f03cb39eb4018122d
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.openlocfilehash: 4f12f7403aad1eb09fadad76d80168c9628db16f
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667642"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124420"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计 
 
@@ -38,8 +38,6 @@ Azure 媒体服务针对以下两个 DRM 系统提供支持：
 * FairPlay
 
 DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azure Media Player 支持使用所有 2 个 DRM 作为浏览器播放器 SDK。
-
-
 
 尽管我们针对两个 DRM 系统提供完整支持，但客户有时除了使用 Azure 媒体服务以外，还需要使用其自己的基础结构/子系统的各个部件来构建混合 DRM 子系统。
 
@@ -90,7 +88,7 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 
 通过配置资产传送策略，可以控制 AMS 流式处理终结点的 AMS 动态打包程序和动态加密使用的以下属性：
 
-* 流协议和 DRM 加密组合，例如平滑流式处理和 PlayReady 下的 HLS。
+* 流式处理协议和 DRM 加密的组合，例如 CENC 下的 DASH (PlayReady)、PlayReady 下的平滑流式处理、PlayReady 下的 HLS。
 * 每个相关 DRM 的默认/嵌入式许可证传送 URL。
 * DASH MPD 或 HLS 播放列表中的许可证获取 URL (LA_URL) 是否包含 FairPlay 的密钥 ID (KID) 查询字符串。
 
@@ -132,4 +130,9 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 ## <a name="summary"></a>摘要
 
 总而言之，Azure 媒体服务 DRM 组件非常灵活，只需根据本主题中所述适当配置内容密钥和资产传送策略，即可在混合方案中使用这些组件。
+
+## <a name="next-steps"></a>后续步骤
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

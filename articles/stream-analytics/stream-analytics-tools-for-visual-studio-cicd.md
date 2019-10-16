@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure 流分析 CI/CD NuGet 包进行持续集成和开发
+title: 使用 Azure 流分析 CI/CD NuGet 包进行集成和开发
 description: 本文介绍如何使用 Azure 流分析 CI/CD NuGet 包设置持续集成和部署过程。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/15/2019
 ms.date: 08/15/2019
-ms.openlocfilehash: 19c322aea094bf8691c95c0ab6e38eeeca6f92eb
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: b78409d1572c91b9dbc4ba7cb1e65c954dec6ecf
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169613"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674745"
 ---
-# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>使用 Azure 流分析 CI/CD NuGet 包进行持续集成和开发
+# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>使用 Azure 流分析 CI/CD NuGet 包进行集成和开发 
 本文介绍如何使用 Azure 流分析 CI/CD NuGet 包设置持续集成和部署过程。
 
 使用版本 2.3.0000.0 或更高版本的[适用于 Visual Studio 的流分析工具](/stream-analytics/stream-analytics-tools-for-visual-studio)以获得对 MSBuild 的支持。

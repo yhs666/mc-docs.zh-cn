@@ -3,28 +3,27 @@ title: SQL 数据库的 Azure 资源管理器模板 | Microsoft Docs
 description: 使用 Azure 资源管理器模板创建和配置 Azure SQL 数据库。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: overview-samples
 ms.devlang: ''
 ms.topic: sample
 author: WenJason
 ms.author: v-jay
-ms.reviewer: ''
-manager: digimobile
+ms.reviewer: sstein
 origin.date: 02/04/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 9f52b59afec5eebd7605ba4a5005f6d0144b343d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: 5a7e9d25f5af43507cd64c7d4b5ba83106274a88
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544157"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262943"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure SQL 数据库的 Azure 资源管理器模板
 
-使用 Azure 资源管理器模板可将基础结构定义为代码，并将解决方案部署到 Azure China Cloud。
+使用 Azure 资源管理器模板可将基础结构定义为代码，并将解决方案部署到 Azure 云。
 
-## <a name="single-database--elastic-pool"></a>单一数据库和弹性池
+## <a name="single-database--elastic-pooltabsingle-database"></a>[单一数据库和弹性池](#tab/single-database)
 
 下表包含 Azure SQL 数据库的 Azure 资源管理器模板链接。
 
@@ -42,7 +41,7 @@ ms.locfileid: "69544157"
 | [使用 SQL 数据库的 HDInsight 群集](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | 使用此模板可以创建 HDInsight 群集、SQL 数据库服务器、SQL 数据库和两个表。 [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用](/hdinsight/hadoop/hdinsight-use-sqoop)一文中使用了此模板 |
 | [按计划运行 SQL 存储过程的 Azure 逻辑应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | 使用此模板可以创建一个按计划运行 SQL 存储过程的逻辑应用。 可将该过程的所有参数放入该模板的正文部分。|
 
-## <a name="managed-instance"></a>托管实例
+## <a name="managed-instancetabmanaged-instance"></a>[托管实例](#tab/managed-instance)
 
 下表包含 Azure SQL 数据库 - 托管实例的 Azure 资源管理器模板链接。
 
@@ -52,3 +51,5 @@ ms.locfileid: "69544157"
 | [托管实例的网络环境](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | 此部署创建包含两个子网的已配置 Azure 虚拟网络 - 其中一个子网专用于托管实例，另一个子网用于放置其他资源（例如 VM、应用服务环境，等等）。 此模板将创建经过适当配置的网络环境，可在该环境中部署托管实例。 |
 | [使用 P2S 连接的托管实例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | 此部署将创建包含子网 `ManagedInstance` 和 `GatewaySubnet` 的 Azure 虚拟网络。 托管实例将部署在 ManagedInstance 子网中。 将在 `GatewaySubnet` 子网中创建虚拟网络网关，并为其配置点到站点 VPN 连接。 |
 | [使用虚拟机的托管实例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | 此部署将创建包含子网 `ManagedInstance` 和 `Management` 的 Azure 虚拟网络。 托管实例将部署在 `ManagedInstance` 子网中。 使用最新版 SQL Server Management Studio (SSMS) 的虚拟机将部署在 `Management` 子网中。 |
+
+---

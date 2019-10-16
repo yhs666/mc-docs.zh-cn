@@ -6,13 +6,13 @@ ms.topic: tutorial
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 06/20/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 2c2fa2acd1907ace308a0bd1a344891c2380daee
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.date: 09/30/2019
+ms.openlocfilehash: 67e12adfd9af0103c635d6daa2128e569a2176b9
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672311"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306779"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模拟器进行本地开发和测试
 
@@ -27,6 +27,10 @@ ms.locfileid: "68672311"
 
 ## <a name="release-notes"></a>发行说明
 
+### <a name="246"></a>2.4.6
+
+- 除了[使用 Azure Cosmos 模拟器在本地开发](local-emulator.md)中所述的例外情况，此版本提供了与到 2019 年 7 月为止的 Azure Cosmos 服务中的功能同等的功能。 它还修复了与通过命令行调用时模拟器关闭相关的几个 bug，以及使用直接模式连接的 SDK 客户端的内部 IP 地址覆盖。
+
 ### <a name="243"></a>2.4.3
 
 - 默认情况下已禁止启动 MongoDB 服务。 默认情况下仅启用 SQL 终结点。 用户必须使用模拟器的“/EnableMongoDbEndpoint”命令行选项手动启动终结点。 现在，它就像所有其他服务终结点（例如 Gremlin、Cassandra 和表）一样。
@@ -37,5 +41,4 @@ ms.locfileid: "68672311"
 
 - 修复了当主计算机上存在网络监视应用（如 Pulse Client）时模拟器无法启动的问题。
 
-<!--Update_Description: new articles on local enulator release notes -->
-<!--ms.date: 07/29/2019-->
+<!--Update_Description: wording update -->

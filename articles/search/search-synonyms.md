@@ -7,16 +7,16 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-manager: jlembicz
-ms.author: v-biyu
+ms.date: 09/26/2019
+manager: nitinme
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: ebcf6049c52c459f3acd9496a838968ded6cfc0c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 41def69a57e59d213b8ab8285f9e5a5c15c44d4c
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004402"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674392"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure 搜索中的同义词功能
 
@@ -48,7 +48,7 @@ ms.locfileid: "66004402"
 
 使用 POST 或 PUT 可将同义词映射上传到服务。 每个规则必须通过换行符（“\n”）进行分隔。 在免费服务中可为每个同义词映射定义最多 5,000 条规则，在所有其他 SKU 中可定义最多 10,000 条规则。 每条规则可包含最多 20 个扩展。
 
-同义词映射的格式必须为 Apache Solr，以下对此进行了解释。 如果现有的同义词字典具有不同格式，并且希望直接使用它，请在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上向我们反馈。
+同义词映射的格式必须为 Apache Solr，以下对此进行了解释。
 
 如以下示例所示，可使用 HTTP POST 创建新的同义词映射：
 

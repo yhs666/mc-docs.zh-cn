@@ -1,20 +1,20 @@
 ---
 title: 示例：多层分面 - Azure 搜索
 description: 了解如何为多层分类生成分面结构，创建可以包含在应用程序页面中的嵌套式导航结构。
-author: cstone
-manager: cgronlun
+author: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: 3d14485df8fac159392de62fb15913eedeba1296
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: e93e39c70ba0c3117d7b73c055fa1ef16ac4beec
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004592"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674223"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>示例：Azure 搜索中的多层分面
 

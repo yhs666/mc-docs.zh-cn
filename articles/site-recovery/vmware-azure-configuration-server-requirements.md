@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-origin.date: 03/18/2019
-ms.date: 06/10/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89163d605fcc16532fe283a704f70cdf3e5f62e4
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: c9cc60f84b1df0e735eeaa97f86061c389174cde
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390782"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340906"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>VMware 到 Azure 的灾难恢复的配置服务器要求
 
@@ -72,14 +72,18 @@ MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行�
 
 下表汇总了配置服务器的容器要求。 如果要复制多个 VMware VM，则应查看[容量规划注意事项](site-recovery-plan-capacity-vmware.md)然后运行用于 VMWare 复制的 [Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)工具。 
 
+<!--MOONCAKE: INSERT NEW ROW BETWEEN THE TWO SUBHEAD-->
 
-|**组件**                                     | **要求**                                                              |
-|--------------------------------------------------| -----------------------------------------------------------------------------|
-| **CPU**                                          | 内存  | 缓存磁盘  | 数据更改率  | 复制的计算机  |
-| -------------------------------------------------| ---------- | -------------- | -------------------- | ----------------------- |
-| 8 个 vCPU<br/><br/> 2 个插槽 * 4 个核心 \@ 2.5 GHz | 16 GB      | 300 GB         | 500 GB 或更少       | 少于 100 台计算机   |
-| 12 个 vCPU<br/><br/> 2 个插槽 * 6 个核心 \@ 2.5 GHz | 18 GB      | 600 GB         | 500 GB-1 TB          | 100 到 150 台计算机     |
-| 16 个 vCPU<br/><br/> 2 个插槽 * 8 个核心 \@ 2.5 GHz | 32 GB      | 1 TB           | 1-2 TB               | 150 到 200 台计算机        | 
+|**组件** | **要求** |
+|--- | ---|
+
+| **CPU** | 内存  | 缓存磁盘  | 数据更改率  | 复制的计算机  |
+| --- | --- | --- | --- | --- |
+| 8 个 vCPU<br/><br/> 2 个插槽 * 4 个核心 \@ 2.5 GHz | 16 GB | 300 GB | 500 GB 或更少 | 少于 100 台计算机 |
+| 12 个 vCPU<br/><br/> 2 个插槽 * 6 个核心 \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 到 150 台计算机 |
+| 16 个 vCPU<br/><br/> 2 个插槽 * 8 个核心 \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 到 200 台计算机 | 
+
+<!--MOONCAKE: INSERT NEW ROW BETWEEN THE TWO SUBHEAD-->
 
 ## <a name="next-steps"></a>后续步骤
 设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复。

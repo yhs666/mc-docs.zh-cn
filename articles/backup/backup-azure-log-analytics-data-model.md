@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 7a50b1017ee5ea3a2440dcb7a439da8deb3b9a9f
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: d50faa2c1f8bb6efd20be2562fd63ddc9c09dbda
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330158"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure 备份数据的 Log Analytics 数据模型
 
@@ -330,12 +330,12 @@ ms.locfileid: "68332662"
 
 |字段  |数据类型  | 说明  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |文本         |备份管理服务器的名称        |
+|BackupManagementServerName_s     |文本         |备份管理服务器的名称        |
 |AzureBackupAgentVersion_s     |文本         |备份管理服务器上的 Azure 备份代理版本          |
-|BackupManagmentServerVersion_s     |文本         |备份管理服务器的版本|
-|BackupManagmentServerOSVersion_s     |文本            |备份管理服务器的 OS 版本|
+|BackupManagementServerVersion_s     |文本         |备份管理服务器的版本|
+|BackupManagementServerOSVersion_s     |文本            |备份管理服务器的 OS 版本|
 |BackupManagementServerType_s     |文本         |备份管理服务器的类型：MABS 或 SC DPM|
-|BackupManagmentServerUniqueId_s     |文本         |用于唯一标识备份管理服务器的字段       |
+|BackupManagementServerUniqueId_s     |文本         |用于唯一标识备份管理服务器的字段       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 

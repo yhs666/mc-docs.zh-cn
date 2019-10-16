@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: troubleshooting
 origin.date: 08/13/2018
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4303df1cd314c942676de68bc2245de7dfab105b
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: d46d3554b13704443f16be865aaca8ca179499d5
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993476"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155847"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -122,5 +122,18 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 * 如果群集的预配状态不是“成功”或“失败”，请等待   操作（升级/更新/创建/缩放/删除/迁移  ）终止。 当上一操作完成后，请重试最新的群集操作。
 
 * 如果群集的升级失败，请按[有错误指出，我的群集处于故障状态，在解决此解决之前无法进行升级或缩放](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)中概述的步骤操作。
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>尝试创建一个新群集而不是传入现有群集时，收到“找不到服务主体”错误。
+
+创建 AKS 群集时，需要服务主体来代表你创建资源。 AKS 提供了在创建群集时创建新服务主体的功能，但这需要 Azure Active Directory 在合理的时间内完全传播新的服务主体，以便成功创建群集。 当此传播花费的时间太长时，群集将无法创建验证，因为它找不到可用的服务主体来执行此操作。 
+
+为此，请使用以下解决方法：
+1. 使用已在区域中传播并且存在的现有服务主体，并在创建群集时将其传入 AKS。
+2. 如果使用自动化脚本，请在创建服务主体和创建 AKS 群集之间添加时间延迟。
+3. 如果使用 Azure 门户，请在创建过程中返回到群集设置，并在几分钟后重试验证页。
+
+<!--Not Avaiablle on ## I'm receiving errors after restricting my egress traffic-->
+
+<!--Not Avaiablle on [required and optional recommended](limit-egress-traffic.md)-->
 
 <!--Update_Description: wording update-->

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 08/27/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2adcd18c8a64b6707c93a97ccf5dceddbcd12d7b
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 33ab2ee3fd52e1e80d910a3d066d024f60b19e2b
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134214"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292043"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft 标识平台和隐式授权流
 
@@ -214,16 +214,6 @@ error=user_authentication_required
 | `error_description` |帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
 
 如果在 iframe 请求中收到此错误，用户必须再次以交互方式登录以检索新令牌。 可以选择对应用程序合理的任何方式处理这种情况。
-
-## <a name="validating-access-tokens"></a>验证访问令牌
-
-在收到 access_token 后，请确保对令牌的签名及以下声明进行验证。 还可以选择根据自己的方案对其他声明进行验证。
-
-* **受众**声明，以确保打算将令牌提供给你的应用
-* **颁发者** 声明：验证令牌是否由 Microsoft 标识平台终结点颁发给应用
-* **不早于**和**过期时间**声明，以验证令牌是否未过期
-
-有关访问令牌中提供的声明的详细信息，请参阅[访问令牌参考](access-tokens.md)
 
 ## <a name="refreshing-tokens"></a>刷新令牌
 

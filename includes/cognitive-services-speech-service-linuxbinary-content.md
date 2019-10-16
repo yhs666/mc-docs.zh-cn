@@ -3,19 +3,20 @@ author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 05/07/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: 8271a028550b22f28a4b51ceac41d16e2a12bf6c
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.date: 09/24/2019
+ms.author: v-tawe
+ms.openlocfilehash: 188552f457e2862bbcd6ae4cbef0439ce5b33ce2
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348358"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71696056"
 ---
-| 路径 | 说明 |
+| `Path` | 说明 |
 |:-----|:----|
 | `license.md` | 许可
-| `third-party-notices.md` | 第三方声明。
+| `ThirdPartyNotices.md` | 第三方声明。
+| `REDIST.txt` | 再分发声明。
 | `include` | C 和 C++ 必需的头文件
 | `lib/x64` | x64 必需的用来链接应用程序的本机库
 | `lib/x86` | x86 必需的用来链接应用程序的本机库

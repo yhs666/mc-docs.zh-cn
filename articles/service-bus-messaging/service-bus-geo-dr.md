@@ -2,19 +2,20 @@
 title: Azure 服务总线异地灾难恢复 | Docs
 description: 如何使用地理区域进行故障转移并在 Azure 服务总线中执行灾难恢复
 services: service-bus-messaging
-author: axisc
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a3167c77e898ac26c100cddc7008c1a320407704
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 35315261c303f739f78b13ddf350253305ae42d8
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544369"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330311"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服务总线异地灾难恢复
 

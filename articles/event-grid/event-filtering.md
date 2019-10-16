@@ -5,14 +5,15 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+origin.date: 01/21/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 078b6ee60505de5f0343371f8af29e7ad7779597
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 05901ee4f6f7797e22febb71700c2d1c1f73b1d7
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195237"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156079"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>了解事件网格订阅的事件筛选
 
@@ -61,23 +62,40 @@ ms.locfileid: "66195237"
 * 键 - 用于筛选的事件数据中的字段。 它可以是数字、布尔值或字符串。
 * 值 - 要与键进行比较的值。
 
-使用高级筛选器的 JSON 语法是：
+如果指定具有多个值的单个筛选器，则将执行 **OR** 操作，因此键字段的值必须是这些值之一。 以下是示例：
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+如果指定多个不同的筛选器，则将执行 **AND** 操作，因此必须满足每个筛选器条件。 以下是示例： 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
     },
     {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
 ### <a name="operator"></a>运算符
@@ -129,9 +147,9 @@ ms.locfileid: "66195237"
 值可以是：
 
 * number
-* 字符串
+* string
 * 布尔值
-* 数组
+* array
 
 ### <a name="limitations"></a>限制
 
@@ -140,8 +158,6 @@ ms.locfileid: "66195237"
 * 每个事件网格订阅有五个高级筛选器
 * 每个字符串值有 512 个字符
 * “in”和“not in”运算符有 5 个值  
-* 键只能有一个嵌套级别（如 data.key1）
-* 自定义事件架构只能基于顶级字段进行筛选
 
 可以在多个筛选器中使用相同的键。
 

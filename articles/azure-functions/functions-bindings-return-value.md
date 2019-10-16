@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 01/14/2019
-ms.date: 03/04/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3f578cb22ac9e968a366a4d8b8570ce8f2b90a4e
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 70f5a92049dc7e49918a19f43735992282ee7521
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254071"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673544"
 ---
 # <a name="using-the-azure-function-return-value"></a>使用 Azure 函数返回值
 
@@ -37,7 +37,6 @@ ms.locfileid: "57254071"
 - [C# 脚本 (.csx)](#c-script-example)
 - [F#](#f-example)
 - [JavaScript](#javascript-example)
-- [Python](#python-example)
 
 ## <a name="c-example"></a>C# 示例
 
@@ -141,29 +140,6 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-## <a name="python-example"></a>Python 示例
-
-下面是 *function.json* 文件中的输出绑定：
-
-```json
-{
-    "name": "$return",
-    "type": "blob",
-    "direction": "out",
-    "path": "output-container/{id}"
-}
-```
-下面是 Python 代码：
-
-```python
-def main(input: azure.functions.InputStream) -> str:
-    return json.dumps({
-        'name': input.name,
-        'length': input.length,
-        'content': input.read().decode('utf-8')
-    })
 ```
 
 ## <a name="next-steps"></a>后续步骤

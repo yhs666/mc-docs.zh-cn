@@ -1,20 +1,19 @@
 ---
-title: 关于使用 Site Recovery 进行 Hyper-V VM（使用 VMM）灾难恢复到 Azure 的网络映射 | Azure
+title: 关于使用 Site Recovery 进行 Hyper-V VM（使用 VMM）灾难恢复到 Azure 的网络映射
 description: 介绍如何使用 Azure Site Recovery 为 Hyper-V VM（在 VMM 云中托管）到 Azure 的灾难恢复设置网络映射。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.topic: conceptual
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 266446fcedd5cc943cae3d5734e7638dcb221b43
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 710099d90ff6d49f2e7912bee65ec230d7dc9c09
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861719"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340719"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>为 Hyper-V VM 灾难恢复到 Azure 准备网络映射
 
@@ -53,12 +52,16 @@ ms.locfileid: "67861719"
 
 以下示例演示了此机制。 我们来考察一个具有两个位置（北京和上海）的组织。
 
-**Location** | **VMM 服务器** | **VM 网络** | **映射到**
----|---|---|---
-北京 | VMM-Beijing| VMNetwork1-Beijing | 映射到 VMNetwork1-Shanghai
- |  | VMNetwork2-Beijing | 未映射
-上海 | VMM-Shanghai| VMNetwork1-Shanghai | 映射到 VMNetwork1-Beijing
- | | VMNetwork2-Shanghai | 未映射
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
+
+|**Location** | **VMM 服务器** | **VM 网络** | **映射到**|
+|---|---|---|---|
+|北京 | VMM-Beijing| VMNetwork1-Beijing | 映射到 VMNetwork1-Shanghai|
+| |  | VMNetwork2-Beijing | 未映射|
+|上海 | VMM-Shanghai| VMNetwork1-Shanghai | 映射到 VMNetwork1-Beijing|
+| | | VMNetwork2-Shanghai | 未映射|
+
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
 
 在本示例中：
 
@@ -69,31 +72,43 @@ ms.locfileid: "67861719"
 
 ### <a name="cloud-protection-settings"></a>云保护设置
 
-**受保护的云** | **提供保护的云** | 逻辑网络（北京）   
----|---|---
-GoldCloud1 | GoldCloud2 |
-SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p>
-SilverCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p>
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
+
+|**受保护的云** | **提供保护的云** | 逻辑网络（北京）   |
+|---|---|---|
+|GoldCloud1 | GoldCloud2 | |
+|SilverCloud1| SilverCloud2 | |
+|GoldCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p>|
+|SilverCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p>|
+
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
 
 ### <a name="logical-and-vm-network-settings"></a>逻辑和 VM 网络设置
 
-**Location** | **逻辑网络** | **关联的 VM 网络**
----|---|---
-北京 | LogicalNetwork1-Beijing | VMNetwork1-Beijing
-上海 | LogicalNetwork1-Shanghai | VMNetwork1-Shanghai
- | LogicalNetwork2Shanghai | VMNetwork2-Shanghai
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
+
+|**Location** | **逻辑网络** | **关联的 VM 网络**|
+|---|---|---|
+|北京 | LogicalNetwork1-Beijing | VMNetwork1-Beijing|
+|上海 | LogicalNetwork1-Shanghai | VMNetwork1-Shanghai|
+| | LogicalNetwork2Shanghai | VMNetwork2-Shanghai|
+
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
 
 ### <a name="target-network-settings"></a>目标网络设置
 
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
+
 根据这些设置，在选择目标 VM 网络时，下表显示将可用的选项。
 
-**选择** | **受保护的云** | **提供保护的云** | **可用目标网络**
----|---|---|---
-VMNetwork1-Shanghai | SilverCloud1 | SilverCloud2 | 可用
- | GoldCloud1 | GoldCloud2 | 可用
-VMNetwork2-Shanghai | SilverCloud1 | SilverCloud2 | 不可用
- | GoldCloud1 | GoldCloud2 | 可用
+|**选择** | **受保护的云** | **提供保护的云** | **可用目标网络**|
+|---|---|---|---|
+|VMNetwork1-Shanghai | SilverCloud1 | SilverCloud2 | 可用|
+| | GoldCloud1 | GoldCloud2 | 可用|
+|VMNetwork2-Shanghai | SilverCloud1 | SilverCloud2 | 不可用|
+| | GoldCloud1 | GoldCloud2 | 可用|
+
+<!--MOONCAKE: Insert | characters if the front columns container empty characters-->
 
 如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机连接到该目标子网。 如果没有具有匹配名称的目标子网，虚拟机将连接到网络中的第一个子网。
 

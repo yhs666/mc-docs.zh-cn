@@ -10,15 +10,14 @@ ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 03/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 65a37649dd69784e22a58298b9a67837f42e7bcf
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: b13b778a1e480438facb340f8efa518545e618d4
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544139"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262952"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入门：使用 Python 查询 Azure SQL 数据库
 
@@ -28,7 +27,7 @@ ms.locfileid: "69544139"
 
 若要完成本快速入门，请确保符合以下条件：
 
-- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+- Azure SQL 数据库。 可以根据下述快速入门之一，在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
   || 单一数据库 | 托管实例 |
   |:--- |:--- |:---|
@@ -58,7 +57,7 @@ ms.locfileid: "69544139"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
+2. 转到“SQL 数据库”或“SQL 托管实例”页。  
 
 3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。
 

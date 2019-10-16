@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/25/2017
 ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9e81b1e00f85ccbe7cf9abc5906fe07fb6669aa0
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 92bb4b3243c5a0ebcb25ec6537245bf9cfe81adb
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70060478"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155953"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>设备管理入门 (Node.js)
 
@@ -32,9 +32,10 @@ ms.locfileid: "70060478"
 
 * **dmpatterns_getstarted_service.js**，它调用模拟设备应用中的直接方法，显示响应，并显示更新后的报告属性。
 
-要完成本教程，需要以下各项：
+## <a name="prerequisites"></a>先决条件
 
-* Node.js 版本 10.0.x 或更高版本。 <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 10.0.x 或更高版本。 [准备开发环境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -47,7 +48,7 @@ ms.locfileid: "70060478"
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 
-在本部分中，你将执行以下步骤：
+本部分的操作：
 
 * 创建一个 Node.js 控制台应用，用于响应通过云调用的直接方法
 * 触发模拟的设备重启
@@ -55,32 +56,36 @@ ms.locfileid: "70060478"
 
 1. 创建名为 **manageddevice** 的空文件夹。  在 **manageddevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
-    ```
+    ```cmd/sh
     npm init
     ```
+
 2. 在 **manageddevice** 文件夹的命令提示符处，运行下述命令以安装 **azure-iot-device** 设备 SDK 包和 **azure-iot-device-mqtt** 包：
 
-    ```
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
+
 3. 在 **manageddevice** 文件夹中，使用文本编辑器创建 **dmpatterns_getstarted_device.js** 文件。
+
 4. 在 **dmpatterns_getstarted_device.js** 文件开头添加以下“require”语句：
 
-    ```
+    ```javascript
     'use strict';
 
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. 添加 **connectionString** 变量，并使用它创建一个**客户端**实例。  将连接字符串替换为设备连接字符串。  
 
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
+5. 添加 **connectionString** 变量，并使用它创建一个**客户端**实例。  将 `{yourdeviceconnectionstring}` 占位符值替换为先前在[在 IoT 中心注册新设备](#register-a-new-device-in-the-iot-hub)中复制的设备连接字符串。  
+
+    ```javascript
+    var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 6. 添加以下函数，实现设备上的直接方法
 
-    ```
+    ```javascript
     var onReboot = function(request, response) {
 
         // Respond the cloud app for the direct method
@@ -121,7 +126,7 @@ ms.locfileid: "70060478"
     ```
 7. 打开与 IoT 中心的连接并启动直接方法侦听器：
 
-    ```
+    ```javascript
     client.open(function(err) {
         if (err) {
             console.error('Could not open IotHub client');
@@ -147,26 +152,29 @@ ms.locfileid: "70060478"
 
 1. 创建一个名为 **triggerrebootondevice** 的空文件夹。  在 **triggerrebootondevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
-    ```
+    ```cmd/sh
     npm init
     ```
 2. 在 **triggerrebootondevice** 文件夹的命令提示符处，运行下述命令以安装 **azure-iothub** 设备 SDK 包和 **azure-iot-device-mqtt** 包：
 
-    ```
+    ```cmd/sh
     npm install azure-iothub --save
     ```
+
 3. 在 **triggerrebootondevice** 文件夹中，使用文本编辑器创建 **dmpatterns_getstarted_service.js** 文件。
+
 4. 在 **dmpatterns_getstarted_service.js** 文件开头添加以下“require”语句：
 
-    ```
+    ```javascript
     'use strict';
 
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
-5. 添加以下变量声明并替换占位符值：
 
-    ```
+5. 添加以下变量声明，并将 `{iothubconnectionstring}` 占位符值替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
+
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     var registry = Registry.fromConnectionString(connectionString);
     var client = Client.fromConnectionString(connectionString);
@@ -174,7 +182,7 @@ ms.locfileid: "70060478"
     ```
 6. 添加以下函数以调用设备方法来重新启动目标设备：
 
-    ```
+    ```javascript
     var startRebootDevice = function(twin) {
 
         var methodName = "reboot";
@@ -196,7 +204,7 @@ ms.locfileid: "70060478"
     ```
 7. 添加以下函数以查询设备并获取上次重新启动时间：
 
-    ```
+    ```javascript
     var queryTwinLastReboot = function() {
 
         registry.getTwin(deviceToReboot, function(err, twin){
@@ -216,27 +224,38 @@ ms.locfileid: "70060478"
     ```
 8. 添加以下代码以调用函数，触发重新启动直接方法并查询上次重新启动时间：
 
-    ```
+    ```javascript
     startRebootDevice();
     setInterval(queryTwinLastReboot, 2000);
     ```
+
 9. 保存并关闭 **dmpatterns_getstarted_service.js** 文件。
 
 ## <a name="run-the-apps"></a>运行应用
-现在，已准备就绪，可以运行应用。
+
+现已准备好运行应用。
 
 1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令以开始侦听重新启动直接方法。
 
-    ```
+    ```cmd/sh
     node dmpatterns_getstarted_device.js
     ```
+
 2. 在 **triggerrebootondevice** 文件夹的命令提示符处运行以下命令，以便触发远程重启并查询设备孪生了解上次重启时间。
 
-    ```
+    ```cmd/sh
     node dmpatterns_getstarted_service.js
     ```
-3. 可在控制台查看对直接方法的设备响应。
 
+3. 可以在控制台中看到设备对重新启动直接方法的响应和重新启动状态。
+
+   下面显示了设备对服务发送的重新启动直接方法的响应：
+
+   ![manageddevice 应用输出](./media/iot-hub-node-node-device-management-get-started/device.png)
+
+   下面显示了触发重新启动并轮询设备孪生的上次重新启动时间的服务：
+
+   ![triggerrebootondevice 应用输出](./media/iot-hub-node-node-device-management-get-started/service.png)
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->

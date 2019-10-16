@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 12/03/2018
-ms.date: 09/02/2019
+ms.date: 09/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6f998483568164e5fe6e4f828107f56d2a22fe23
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 8237772df2e436a2804d20181a55051424af8f82
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310865"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083271"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 SSL 策略版本和密码套件
 
@@ -117,13 +117,7 @@ CipherSuites:
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> 配置自定义 SSL 策略时，必须在以下列表中至少选择一个密码套件。 应用程序网关使用 RSA SHA256 密码套件进行后端管理。
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-> * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_256_CBC_SHA256
-> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> 配置自定义 SSL 策略时，必须选择“TLS_RSA_WITH_AES_256_CBC_SHA256”。 应用程序网关使用此密码套件进行后端管理。 可以将此密码套件与任何其他套件结合使用，但也必须选择此选项。 
 
 ```powershell
 # get an application gateway resource

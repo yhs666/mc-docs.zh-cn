@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
-ms.date: 06/18/2018
-ms.openlocfilehash: 31a6fcc6d9c8ad79b51d9db059bd29573d118c7a
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.date: 08/18/2019
+ms.openlocfilehash: 5314e82194f6f4d18c52822786cbf528923e6477
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169627"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674799"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>在服务更新期间保证流分析作业可靠性
 
@@ -23,9 +23,9 @@ ms.locfileid: "70169627"
 
 ## <a name="how-do-azure-paired-regions-address-this-concern"></a>Azure 配对区域如何解决此问题？
 
-流分析可以保证在单独的批处理中更新配对区域中的作业。 因此，在更新之间具有足够的时间间隔来识别潜在的重大 bug 并修复它们。
+流分析可以保证在单独的批处理中更新配对区域中的作业。 因此，在更新之间具有足够的时间间隔来识别潜在问题并修复它们。
 
-流分析的更新部署不会同时在一组配对区域中进行。 **同一组中**多个区域中的部署可能会**同时**进行。
+_除了印度中部以外_（其配对区域（即印度南部）不存在流分析），流分析的更新部署不会同时在一组配对区域中进行。 **同一组中**多个区域中的部署可能会**同时**进行。
 <!-- Notice: Remove the India exception -->
 **[可用性和配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** 一文具有关于配对区域的最新信息。
 

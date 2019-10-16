@@ -13,14 +13,15 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 12/3/2018
+ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5ceeb0ebbed4eb521e5fff5cfd4d13bc183c6e88
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a748242d4b298085bf514038d51efcf5b57847ef
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570199"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674607"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>教程：使用 Azure 安全中心来保护资源
 安全中心使用访问控制和应用程序控制来阻止恶意活动，限制威胁所造成的危害。 可以通过恰时 (JIT) 虚拟机 (VM) 访问拒绝对 VM 的永久性访问，减少自己遭受攻击的可能性。 仅在需要的情况下，才提供对 VM 的受控且经过审核的访问权限。 自适应应用程序控制可以对哪些应用程序能够在 VM 上运行进行控制，从而强化 VM 对抗恶意软件的能力。 安全中心使用机器学习来分析在 VM 中运行的进程，帮助你运用此智能来应用允许列表规则。

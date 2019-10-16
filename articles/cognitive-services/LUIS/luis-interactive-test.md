@@ -9,15 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 132829bdf7f63edc20100c2ad47ed0af644d5742
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fe439774de4471a6a5fccb388749d2567b1f4271
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104005"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330436"
 ---
+<a name="train-your-app"></a>
+
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 门户中测试 LUIS 应用
 对应用进行<a name="train-your-app"></a>
 [测试](luis-concept-test.md)是一个迭代过程。 训练 LUIS 应用后，采用示例陈述来对应用进行测试，查看应用是否能准确地识别意向和实体。 如果未能准确识别，请对 LUIS 应用进行更新和训练，然后再次测试。 
@@ -31,13 +34,13 @@ ms.locfileid: "70104005"
 
 1. 在“我的应用”页面选择应用的名字以访问应用  。 
 
-2. 若要访问“测试”滑出面板，请在应用程序的顶部面板中选择“测试”   。
+1. 若要访问“测试”滑出面板，请在应用程序的顶部面板中选择“测试”   。
 
     ![训练和测试应用页](./media/luis-how-to-interactive-test/test.png)
 
-3. 在文本框中输入陈述，然后按 Enter。 虽然在“测试”中可键入任意数量的测试陈述，但一次只能键入一个  。
+1. 在文本框中输入陈述，然后按 Enter。 虽然在“测试”中可键入任意数量的测试陈述，但一次只能键入一个  。
 
-4. 陈述的最高意向和分数会添加至文本框下方的陈述列表。
+1. 陈述的最高意向和分数会添加至文本框下方的陈述列表。
 
     ![交互式测试识别错误意向](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +52,7 @@ ms.locfileid: "70104005"
 
     ![选择“检查”按钮可查看有关测试结果的更多详细信息](./media/luis-how-to-interactive-test/inspect.png)
 
-2. 此时将显示“检查”面板  。 此面板包括评分最高的意向以及任何已识别的实体。 此面板显示所选陈述的结果。
+1. 此时将显示“检查”面板  。 此面板包括评分最高的意向以及任何已识别的实体。 此面板显示所选陈述的结果。
 
     ![此面板包括评分最高的意向以及任何已识别的实体。 此面板显示所选陈述的结果。](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +60,7 @@ ms.locfileid: "70104005"
 
 1. 如果评分最高的意向不正确，请选择“编辑”按钮  。
 
-2.  在下拉列表中选择该陈述的正确意向。
+1.  在下拉列表中选择该陈述的正确意向。
 
     ![选择正确的意向](./media/luis-how-to-interactive-test/intent-select.png)
 

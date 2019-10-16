@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 07/29/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: d26db944a576f30dd47dea7668b83e13f6ae1c36
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 13c09a011f34f612e2db7b99d6c6dca24f94d67e
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672274"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306759"
 ---
 # <a name="select-clause"></a>SELECT 子句
 
@@ -174,7 +174,7 @@ SELECT <select_specification>
 ## <a name="next-steps"></a>后续步骤
 
 - [入门](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [WHERE 子句](sql-query-where.md)
 
 <!-- Update_Description: wording update, update link -->

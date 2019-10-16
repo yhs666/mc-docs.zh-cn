@@ -1,25 +1,25 @@
 ---
-title: 调用包括身份验证的 Azure 存储服务 REST API 操作 | Microsoft 文档
-description: 调用包括身份验证的 Azure 存储服务 REST API 操作
+title: 使用共享密钥授权调用 Azure 存储服务 REST API 操作 | Microsoft Docs
+description: 通过 Azure 存储 REST API 来使用共享密钥授权向 Blob 存储发出请求。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
-origin.date: 03/21/2019
-ms.date: 07/15/2019
+origin.date: 08/19/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 58268439a97b570eec4b9ffe98490820f7adf370
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 7bb7a790f482477730c2fda93a827beda5937903
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844404"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306695"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
-本文演示如何使用 Blob 存储服务 REST API 以及如何对服务调用进行身份验证。 本文内容是从对 REST 无甚了解、而且也不知道如何进行 REST 调用的开发人员角度编写的。 我们来看一下有关 REST 调用的参考文档，并了解如何将其运用到实际的 REST 调用中 – 哪些字段可以在哪里设置？ 了解如何设置 REST 调用后，你可以利用这一知识使用任何其他存储服务 REST API。
+本文介绍如何使用 Blob 存储服务 REST API，以及如何授权对服务的调用。 本文内容是从对 REST 无甚了解、而且也不知道如何进行 REST 调用的开发人员角度编写的。 我们来看一下有关 REST 调用的参考文档，并了解如何将其运用到实际的 REST 调用中 – 哪些字段可以在哪里设置？ 了解如何设置 REST 调用后，你可以利用这一知识使用任何其他存储服务 REST API。
 
 ## <a name="prerequisites"></a>先决条件 
 
@@ -80,11 +80,11 @@ REST 是指表述性状态转移  。 有关具体定义，请参阅 [Wikipedia]
 
 [请求标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-headers)：  本部分列出了必需和可选的请求标头。 至少需要三个标头：Authorization  标头、x-ms-date  （包含请求的 UTC 时间）和 x-ms-version  （指定要使用的 REST API 版本）。 可以选择将 x-ms-client-request-id  包含在标头中 – 可以将此字段的值设置为任何内容；该值将在启用日志记录时写入存储分析日志。
 
-[请求正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-body)：  ListContainers 没有请求正文。 上传 blob 时，会在所有 PUT 操作上使用请求正文，以及 SetContainerAccessPolicy，以允许在要应用的存储访问策略的 XML 列表中发送 blob。 有关存储访问策略，将在[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文中展开讨论。
+[请求正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-body)：  ListContainers 没有请求正文。 上传 blob 时，会在所有 PUT 操作上使用请求正文，以及 SetContainerAccessPolicy，以允许在要应用的存储访问策略的 XML 列表中发送 blob。 有关存储访问策略，将在[使用共享访问签名 (SAS)](storage-sas-overview.md) 一文中展开讨论。
 
 [响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：  告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](https://docs.microsoft.com/rest/api/storageservices/common-rest-api-error-codes)
 
-[响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：  其中包括 Content Type  ；x-ms-request-id  （传入的请求 ID）；x-ms-version  （指示所使用的 BLOB 服务的版本）和 Date  （UTC，告知发出请求的时间）。
+[响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：  其中包括 Content Type  ；x-ms-request-id  （传入的请求 ID）；x-ms-version  （指示所使用的 Blob 服务的版本）和 Date  （UTC，告知发出请求的时间）。
 
 [响应正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-body)：此字段是提供请求数据的 XML 结构。 在此示例中，响应是容器及其属性的列表。
 
@@ -268,12 +268,13 @@ Content-Length: 1511
 ## <a name="creating-the-authorization-header"></a>创建授权标头
 
 > [!TIP]
-> 现在，Azure 存储支持将 Azure Active Directory (Azure AD) 集成用于 blob 和队列。 Azure AD 提供更简单的 Azure 存储请求授权体验。 有关如何使用 Azure AD 授权 REST 操作的详细信息，请参阅 [Authenticate with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)（使用 Azure Active Directory 进行身份验证）。 有关 Azure AD 与 Azure 存储集成的概述，请参阅[使用 Azure Active Directory 对 Azure 存储的访问权限进行身份验证](storage-auth-aad.md)。
+> 现在，Azure 存储支持将 Azure Active Directory (Azure AD) 集成用于 blob 和队列。 Azure AD 提供更简单的 Azure 存储请求授权体验。 有关如何使用 Azure AD 授权 REST 操作的详细信息，请参阅[使用 Azure Active Directory 进行授权](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory)。 有关 Azure AD 与 Azure 存储集成的概述，请参阅[使用 Azure Active Directory 对 Azure 存储的访问权限进行身份验证](storage-auth-aad.md)。
 
-有一篇文章从概念上（无代码）介绍了如何执行 [Azure 存储服务的身份验证](https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)。
+有一篇文章从概念上（无代码）说明了如何[授权对 Azure 存储的请求](https://docs.microsoft.com/rest/api/storageservices/authorize-requests-to-azure-storage)。
+
 让我们就基于此篇文章准确提取所需的内容并显示代码。
 
-首先，使用“共享密钥”身份验证。 授权标头格式如下所示：
+首先，使用共享密钥授权。 授权标头格式如下所示：
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -361,7 +362,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 如果你有查询参数，此示例也包括这些参数。 以下是代码，该代码还处理其他查询参数和具有多个值的查询参数。 请记住，你正在生成此代码以使其适用于所有 REST API。 你需要包括所有可能性，即使 ListContainers 方法不需要所有这些参数。
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -377,7 +378,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -572,3 +573,4 @@ Content-Length: 1135
 * [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 * [文件服务 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)
 * [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/queue-service-rest-api)（队列服务 REST API）
+* [表服务 REST API](https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api)

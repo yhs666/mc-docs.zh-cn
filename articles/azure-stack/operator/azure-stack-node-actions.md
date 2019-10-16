@@ -16,12 +16,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 9c55ba1cf46e23cd2cfdc8a9cd0dcc9df0b64b89
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 60ac6ba18604a1a3b90662ffe4a2492f5c2cfd00
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857299"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124654"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 

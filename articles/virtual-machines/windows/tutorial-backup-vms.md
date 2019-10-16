@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/06/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 90b59000a69a025316f9890d054b2c84e805648d
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 5ebabdb6b27bbb66d5709075183fce1fd7d77370
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539139"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272649"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>教程：在 Azure 中备份和还原 Windows 虚拟机的文件
 
@@ -86,7 +85,7 @@ ms.locfileid: "69539139"
 1. 在 VM 上，打开**文件资源管理器**，导航到用于该文件共享的驱动器号。
 1. 导航到 \inetpub\wwwroot，从文件共享中复制 **iisstart.png** 并将其粘贴到 \inetpub\wwwroot 中。 例如，复制 F:\inetpub\wwwroot\iisstart.png 并将其粘贴到 c:\inetpub\wwwroot 中以恢复该文件。
 1. 在本地计算机上，打开从中连接到 VM 的 IP 地址的浏览器选项卡，其中显示了 IIS 默认页面。 按 CTRL + F5 刷新浏览器页面。 现在，应该会看到图像已还原。
-1. 在本地计算机上，返回到 Azure 门户的浏览器选项卡，在“步骤 3:恢复后卸载磁盘**中，单击“卸载磁盘”按钮  。 如果忘记执行此步骤，与装入点的连接会在 12 小时后自动关闭。 12 个小时后，若要创建新的装入点，需要下载新脚本。
+1. 在本地计算机上，返回到 Azure 门户的浏览器选项卡，在“步骤 3:恢复后卸载磁盘  中，单击“卸载磁盘”按钮  。 如果忘记执行此步骤，与装入点的连接会在 12 小时后自动关闭。 12 个小时后，若要创建新的装入点，需要下载新脚本。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,20 +1,19 @@
 ---
 title: 通过 Linux 使用 Azure 文件 | Microsoft Docs
 description: 了解如何在 Linux 上通过 SMB 装载 Azure 文件共享。
-services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/29/2018
-ms.date: 07/15/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: f61ceb30cbef5c9e37f2d3891badf8c92d67466e
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: ebb1afe4f0cbb722e7a86c4d25b4ef1e1e2dba63
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844424"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306738"
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
 
@@ -42,9 +41,11 @@ ms.locfileid: "67844424"
 | Ubuntu Server | 14.04+ | 16.04+ |
 | RHEL | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
+| Debian | 8+ | 9+<sup>*</sup> |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+<sup>*</sup>可能需要使用向后移植内核。 可使用 `sudo apt-get install linux-image-cloud-amd64` 进行安装。
 
 如果此处未列出你的 Linux 分发版，则你可以使用以下命令查看 Linux 内核版本：
 

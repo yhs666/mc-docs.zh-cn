@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 06/19/2019
+origin.date: 09/16/2019
+ms.date: 09/20/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: ec3f978ce6be7a61b2762809012709ff2324fd39
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 239b7f375d59612c6c774a790002465b7a525c06
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737275"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330395"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>监视任意网站的可用性
 

@@ -1,21 +1,19 @@
 ---
 title: 使用 Azure 备份来取代磁带基础结构
-description: 了解如何 Azure 备份如何提供类似于磁带的语义，让你在 Azure 中备份和还原数据
-services: backup
+description: 了解 Azure 备份如何提供类似于磁带的语义，让你在 Azure 中备份和还原数据
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 01/10/2017
-ms.date: 11/26/2018
+origin.date: 04/30/2017
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0407ba97f206876c8b8f21710e7bba3d9ddec169
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 2e9030f0760b3caee002138006faf8b42f720653
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329799"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -42,7 +40,7 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 
 此策略中指定的“保留点”总数为 90（每日点数）+ 40（10 年内每个季度为一点）= 130。
 
-## <a name="example---putting-both-together"></a>示例 - 组合策略
+## <a name="example--putting-both-together"></a>示例 � 组合策略
 ![示例屏幕](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **每日保留策略**：每日创建的备份存储 7 天。

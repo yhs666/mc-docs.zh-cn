@@ -1,6 +1,6 @@
 ---
 title: Xamarin iOS 应用中的移动应用身份验证入门
-description: 了解如何使用移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 Xamarin iOS 应用的用户进行身份验证。
+description: 了解如何使用移动应用通过各种标识提供者（包括 Microsoft 帐户和 Azure Active Directory）对 Xamarin iOS 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-orgin.date: 07/05/2017
-ms.author: v-biyu
-ms.date: 07/15/2019
-ms.openlocfilehash: 52b68c37ebfa6e4318b8c1cf4069e9116a510846
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+orgin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9f66f6e4d5e1705bf8769e06f0928a77bda5871b
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560265"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006535"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-users)。
+>
 
 ## <a name="overview"></a>概述
 

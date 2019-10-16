@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 348034e71132ebd09c9e068cd52d3e8950dfc2b9
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: ea6f72aa5684e47a518e474799b57c6163b77969
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083183"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340910"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>准备 Azure 资源，以便对本地计算机进行灾难恢复
 
@@ -37,7 +37,7 @@ ms.locfileid: "71083183"
 
 ## <a name="sign-in"></a>登录
 
-登录到 [Azure 门户](http://portal.azure.cn)。
+登录到 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="verify-account-permissions"></a>验证帐户权限
 
@@ -112,5 +112,4 @@ ms.locfileid: "71083183"
 > [!div class="nextstepaction"]
 > [准备本地 Hyper-V 基础结构以灾难恢复到 Azure](hyper-v-prepare-on-premises-tutorial.md)
 
-<!--Update_Description: new articles on tutorial prpare azure for hyper-v -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->

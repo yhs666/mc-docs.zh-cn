@@ -4,20 +4,19 @@ description: 本文介绍如何使用用户定义的函数快速设置集成了 
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 800ea062d204cc4dc4f6799b8fd6cf18b906dfbd
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: c118d56895a01b054da30116963e0d93b894c1ad
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970471"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674805"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>使用 Azure 流分析和 Azure 机器学习工作室（预览版）执行情绪分析
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>使用 Azure 流分析和 Azure 机器学习工作室（预览版）执行情绪分析
 本文介绍如何快速设置集成了 Azure 机器学习工作室的简单 Azure 流分析作业。 你将使用 Cortana Intelligence 库中的机器学习情绪分析模型来实时分析流文本数据并确定情绪分数。 可以使用 Cortana Intelligence Suite 完成此任务，不必担心构建情绪分析模型的复杂性。
 
 可以将从本文学习的知识应用于诸如下列方案：

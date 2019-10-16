@@ -103,7 +103,6 @@ sections:
         items:
           - html: <a href="/azure-monitor/learn/tutorial-runtime-exceptions">查找和诊断运行时异常</a>
           - html: <a href="/azure-monitor/learn/tutorial-performance">查找和诊断性能问题</a>
-          - html: <a href="/azure-monitor/learn/tutorial-alert">监视应用程序运行状况并根据情况发出警报</a>
           - html: <a href="/azure-monitor/learn/tutorial-users">分析客户使用情况和信息</a>
           - html: <a href="/azure-monitor/learn/tutorial-app-dashboards">创建自定义 KPI 仪表板</a>
   - title: 示例

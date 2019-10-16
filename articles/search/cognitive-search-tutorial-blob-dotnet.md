@@ -1,25 +1,25 @@
 ---
 title: 有关在索引管道中调用认知服务 API 的 C# 教程 - Azure 搜索
 description: 在本教程中，在用于数据提取和转换的 Azure 搜索索引中分步完成数据提取、自然语言和图像 AI 处理的示例。
-manager: eladz
+manager: nitinme
 author: MarkHeff
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: tutorial
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: 253d5efbc121fee978ac655db202d83c35faeaff
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9839b114ac50c78262765c498c28506221aa6d4c
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004435"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674375"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C# 教程：在 Azure 搜索索引管道中调用认知服务 API
 
-本教程介绍使用认知技能在 Azure 搜索中扩充编程数据的机制。 技能由自然语言处理 (NLP) 和认知服务中的图像分析功能提供支持。 通过技能集组合和配置，可以提取图像或扫描的文档文件的文本和文本表示形式。 还可以检测语言、实体、关键短语等。 最终结果是 Azure 搜索索引中的丰富附加内容，由 AI 支持的索引编制管道创建。
+本教程介绍使用认知技能在 Azure 搜索中扩充编程数据的机制。  技能由自然语言处理 (NLP) 和认知服务中的图像分析功能提供支持。 通过技能集组合和配置，可以提取图像或扫描的文档文件的文本和文本表示形式。 还可以检测语言、实体、关键短语等。 最终结果是 Azure 搜索索引中的丰富附加内容，由 AI 支持的索引编制管道创建。
 
 在本教程中，你将使用 .NET SDK 执行以下任务：
 
@@ -37,7 +37,7 @@ ms.locfileid: "66004435"
 > [!NOTE]
 > 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要附加可计费的认知服务资源。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 内置技能的执行将按现有[认知服务即用即付价格](https://www.azure.cn/zh-cn/pricing/details/cognitive-services/)计费。 图像提取定价如 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)所述。
+> 内置技能执行按现有[认知服务预付费价格](https://www.azure.cn/pricing/details/cognitive-services/)收费。 图像提取定价如 [Azure 搜索定价页](https://www.azure.cn/pricing/details/search/)所述。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -45,39 +45,39 @@ ms.locfileid: "66004435"
 
 本教程使用了以下服务、工具和数据。 
 
-[创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。
++ [创建一个 Azure 存储帐户](https://docs.azure.cn/storage/common/storage-quickstart-create-account)，用于存储示例数据。 确保存储帐户与 Azure 搜索位于同一区域。
 
-[创建一个 Azure 存储帐户](https://docs.azure.cn/zh-cn/storage/common/storage-quickstart-create-account)，用于存储示例数据。
++ [示例数据](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)包括不同类型的小型文件集。 
 
-[示例数据](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)包括不同类型的小型文件集。 
++ [安装 Visual Studio](https://visualstudio.microsoft.com/)，以用作 IDE。
 
-[安装 Visual Studio](https://visualstudio.microsoft.com/)，以用作 IDE。
++ [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。
 
 ## <a name="get-a-key-and-url"></a>获取密钥和 URL
 
 必须有 Azure 搜索服务 URL 和访问密钥，才能与此服务交互。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 搜索，则请按以下步骤获取必需信息：
 
-1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。 示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
+1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。  示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
 
-1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
+1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-   ![获取 HTTP 终结点和访问密钥](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+   ![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
 ## <a name="prepare-sample-data"></a>准备示例数据
 
-扩充管道从 Azure 数据源提取数据。 源数据必须源自受支持的 [Azure 搜索索引器](search-indexer-overview.md)数据源类型。 Azure 表存储不支持认知搜索。 本演练使用 Blob 存储来展示多种内容类型。
+扩充管道从 Azure 数据源提取数据。 源数据必须源自受支持的 [Azure 搜索索引器](search-indexer-overview.md)数据源类型。 本演练使用 Blob 存储来展示多种内容类型。
 
-1. [登录到 Azure 门户](https://portal.azure.cn)，导航到你的 Azure 存储帐户，单击“Blob”，然后单击“+ 容器”。
+1. [登录到 Azure 门户](https://portal.azure.cn)，导航到你的 Azure 存储帐户，单击“Blob”，然后单击“+ 容器”   。
 
-1. [创建一个 Blob 容器](https://docs.azure.cn/zh-cn/storage/blobs/storage-quickstart-blobs-portal)用于包含示例数据。 可将“公共访问级别”设为任何有效值。 本教程假定容器名称为“basic-demo-data-pr”。
+1. [创建一个 Blob 容器](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)用于包含示例数据。 可将“公共访问级别”设为任何有效值。 本教程假定容器名称为“basic-demo-data-pr”。
 
-1. 打开已创建的容器，并选择命令栏中的“上传”，以上传[样本数据](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。
+1. 打开已创建的容器，并选择命令栏中的“上传”  ，以上传[样本数据](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。
 
    ![Azure Blob 存储中的源文件](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. 加载示例文件后，获取 Blob 存储的容器名称和连接字符串。 为此，可以在 Azure 门户中转到存储帐户，选择“访问密钥”，再复制“连接字符串”字段。
+1. 加载示例文件后，获取 Blob 存储的容器名称和连接字符串。 为此，可以在 Azure 门户中转到存储帐户，选择“访问密钥”  ，再复制“连接字符串”  字段。
 
    存储连接字符串应是类似于以下示例的 URL：
 
@@ -97,15 +97,15 @@ ms.locfileid: "66004435"
 
 对于此项目，需要安装 `Microsoft.Azure.Search` NuGet 包的版本 9，以及最新的 `Microsoft.Extensions.Configuration.Json` NuGet 包。
 
-使用 Visual Studio 中的包管理器控制台来安装 `Microsoft.Azure.Search` NuGet 包。 若要打开包管理器控制台，请依次选择“工具” > “NuGet 包管理器” > “包管理器控制台”。 若要获取要运行的命令，请导航到 [Microsoft.Azure.Search NuGet 包页](https://www.nuget.org/packages/Microsoft.Azure.Search)，选择版本 9，并复制包管理器命令。 在包管理器控制台中，运行此命令。
+使用 Visual Studio 中的包管理器控制台来安装 `Microsoft.Azure.Search` NuGet 包。 若要打开包管理器控制台，请依次选择“工具”   > “NuGet 包管理器”   > “包管理器控制台”  。 若要获取要运行的命令，请导航到 [Microsoft.Azure.Search NuGet 包页](https://www.nuget.org/packages/Microsoft.Azure.Search)，选择版本 9，并复制包管理器命令。 在包管理器控制台中，运行此命令。
 
-若要在 Visual Studio 中安装 `Microsoft.Extensions.Configuration.Json` NuGet 包，请依次选择“工具” > “Nuget 包管理器” > “管理解决方案的 Nuget 包...”。选择“浏览”，并搜索“`Microsoft.Extensions.Configuration.Json` NuGet 包”。 找到此包后，依次选择它和项目，确认版本是否是最新稳定版，再选择“安装”。
+若要在 Visual Studio 中安装 `Microsoft.Extensions.Configuration.Json` NuGet 包，请依次选择“工具”   > “Nuget 包管理器”   > “管理解决方案的 Nuget 包...”  。选择“浏览”，并搜索“`Microsoft.Extensions.Configuration.Json` NuGet 包”。 找到此包后，依次选择它和项目，确认版本是否是最新稳定版，再选择“安装”。
 
 ## <a name="add-azure-search-service-information"></a>添加 Azure 搜索服务信息
 
-必须将搜索服务信息添加到项目中，才能连接到 Azure 搜索服务。 在“解决方案资源管理器”中，右键单击项目，并依次选择“添加” > “新项...”。 将文件命名为“`appsettings.json`”，并选择“添加”。 
+必须将搜索服务信息添加到项目中，才能连接到 Azure 搜索服务。 在“解决方案资源管理器”中，右键单击项目，并依次选择“添加”   > “新项...”  。 将文件命名为“`appsettings.json`”，并选择“添加”  。 
 
-必须将此文件添加到输出目录中。 为此，请右键单击“`appsettings.json`”，并选择“属性”。 将“复制到输出目录”的值更改为“复制较新文件”。
+必须将此文件添加到输出目录中。 为此，请右键单击“`appsettings.json`”，并选择“属性”  。 将“复制到输出目录”  的值更改为“复制较新文件”  。
 
 将以下 JSON 复制到新 JSON 文件中。
 
@@ -120,9 +120,9 @@ ms.locfileid: "66004435"
 
 添加搜索服务信息和 Blob 存储帐户信息。
 
-可以从 Azure 门户中的搜索帐户页获取搜索服务信息。 帐户名位于主页上，选择“密钥”即可找到密钥。
+可以从 Azure 门户中的搜索帐户页获取搜索服务信息。 帐户名位于主页上，选择“密钥”  即可找到密钥。
 
-若要获取 Blob 连接字符串，可以在 Azure 门户中转到存储帐户，选择“访问密钥”，再复制“连接字符串”字段。
+若要获取 Blob 连接字符串，可以在 Azure 门户中转到存储帐户，选择“访问密钥”  ，再复制“连接字符串”  字段。
 
 ## <a name="add-namespaces"></a>添加命名空间
 
@@ -202,7 +202,7 @@ catch (Exception e)
 
 ## <a name="create-a-skillset"></a>创建技能集
 
-在此部分中，你将定义一组要应用于数据的扩充步骤。 每个扩充步骤称为“技能”，一组扩充步骤称为“技能集”。 本教程对技能集使用以下[预定义的认知技能](cognitive-search-predefined-skills.md)：
+在此部分中，你将定义一组要应用于数据的扩充步骤。 每个扩充步骤称为“技能”  ，一组扩充步骤称为“技能集”  。 本教程对技能集使用以下[预定义的认知技能](cognitive-search-predefined-skills.md)：
 
 + [光学字符识别](cognitive-search-skill-ocr.md)：用于识别图像文件中的印刷文本和手写文本。
 
@@ -224,7 +224,7 @@ catch (Exception e)
 
 ### <a name="ocr-skill"></a>OCR 技术
 
-OCR 技能从图像中提取文本。 此技能假定存在“normalized_images”字段。 为了生成此字段，本教程稍后会将索引器定义中的 ```"imageAction"``` 配置设置为 ```"generateNormalizedImages"```。
+OCR  技能从图像中提取文本。 此技能假定存在“normalized_images”字段。 为了生成此字段，本教程稍后会将索引器定义中的 ```"imageAction"``` 配置设置为 ```"generateNormalizedImages"```。
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -248,7 +248,7 @@ OcrSkill ocrSkill = new OcrSkill(
 
 ### <a name="merge-skill"></a>合并技能
 
-在此部分中，你将创建合并技能，用于将文档内容字段与 OCR 技能生成的文本合并。
+在此部分中，你将创建合并  技能，用于将文档内容字段与 OCR 技能生成的文本合并。
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -278,7 +278,7 @@ MergeSkill mergeSkill = new MergeSkill(
 
 ### <a name="language-detection-skill"></a>语言检测技能
 
-语言检测技能检测输入文本的语言，并报告在请求中提交的每个文档的单一语言代码。 我们会将语言检测技能的输出用作文本拆分技能的输入的一部分。
+语言检测  技能检测输入文本的语言，并报告在请求中提交的每个文档的单一语言代码。 我们会将语言检测  技能的输出用作文本拆分  技能的输入的一部分。
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -300,7 +300,7 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
 
 ### <a name="text-split-skill"></a>文本拆分技能
 
-下面的拆分技能按页面拆分文本，并将页面长度限制为 `String.Length` 度量的 4,000 个字符。 此算法会尝试将文本拆分为最大为 `maximumPageLength` 的区块。 在下面的示例中，此算法会尽可能在句子边界断开句子，所以区块大小可能略小于 `maximumPageLength`。
+下面的拆分  技能按页面拆分文本，并将页面长度限制为 `String.Length` 度量的 4,000 个字符。 此算法会尝试将文本拆分为最大为 `maximumPageLength` 的区块。 在下面的示例中，此算法会尽可能在句子边界断开句子，所以区块大小可能略小于 `maximumPageLength`。
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -327,7 +327,7 @@ SplitSkill splitSkill = new SplitSkill(
 
 ### <a name="entity-recognition-skill"></a>实体识别技能
 
-设置此 `EntityRecognitionSkill` 实例是为了识别类别类型 `organization`。 此外，实体识别技能还可以识别类别类型 `person` 和 `location`。
+设置此 `EntityRecognitionSkill` 实例是为了识别类别类型 `organization`。 此外，实体识别  技能还可以识别类别类型 `person` 和 `location`。
 
 请注意，“context”字段设置为包含星号的 ```"/document/pages/*"```；也就是说，将对 ```"/document/pages"``` 下的每个页面都调用扩充步骤。
 
@@ -356,7 +356,7 @@ EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
 
 ### <a name="key-phrase-extraction-skill"></a>关键短语提取技能
 
-与刚刚创建的 `EntityRecognitionSkill` 实例一样，关键短语提取技能对文档的各个页面都调用。
+与刚刚创建的 `EntityRecognitionSkill` 实例一样，关键短语提取  技能对文档的各个页面都调用。
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -426,7 +426,7 @@ catch (Exception e)
 
 此索引的字段是使用模型类进行定义。 模型类的每个属性都具有一些特性，这些特性决定了相应索引字段的与搜索相关的行为。 
 
-接下来，将把模型类添加到新 C# 文件中。 右键单击项目，并依次选择“添加” > “新项...”。选择“类”，并将文件命名为“`DemoIndex.cs`”，再选择“添加”。
+接下来，将把模型类添加到新 C# 文件中。 右键单击项目，并依次选择“添加”   > “新项...”  。选择“类”，并将文件命名为“`DemoIndex.cs`”，再选择“添加”  。
 
 请务必指明要使用 `Microsoft.Azure.Search` 和 `Microsoft.Azure.Search.Models` 命名空间中的类型。
 
@@ -612,7 +612,7 @@ catch (Exception e)
 
 处理某些源文件和技能的组合时经常会出现警告，这并不总是意味着出现了问题。 在本教程中，警告是良性的（例如，JPEG 文件中没有文本输入）。
  
-## <a name="verify-content"></a>验证内容
+## <a name="query-your-index"></a>查询索引
 
 索引编制完成后，可以运行查询来返回各个字段的内容。 默认情况下，Azure 搜索返回前 50 条结果。 由于样本数据较小，因此使用默认设置即可正常操作。 但是，在处理较大的数据集时，可能需要在查询字符串中包含参数来返回更多结果。 有关说明，请参阅[如何将 Azure 搜索中的结果分页](search-pagination-page-layout.md)。
 
@@ -693,9 +693,4 @@ catch (Exception e)
 
 完成本教程后，最快的清理方式是删除包含 Azure 搜索服务和 Azure Blob 服务的资源组。 假设已将这两个服务放在同一个组中，则删除该资源组会永久删除其中的所有内容，包括在本教程中创建的服务和任何存储内容。 在门户中，资源组名称显示在每个服务的“概述”页上。
 
-## <a name="next-steps"></a>后续步骤
-
-使用自定义技能自定义或扩展管道。 创建自定义技能并将其添加到技能集可以载入自己编写的文本或图像分析代码。
-
-> [!div class="nextstepaction"]
-> [示例：创建自定义技能](cognitive-search-create-custom-skill-example.md)
+<!-- bing search api not available -->

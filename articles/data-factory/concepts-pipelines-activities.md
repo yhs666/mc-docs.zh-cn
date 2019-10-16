@@ -4,21 +4,20 @@ description: 了解有关 Azure 数据工厂中的管道和活动的信息。
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/12/2018
-ms.date: 07/08/2019
-ms.author: v-jay
-ms.openlocfilehash: d2e16619f7b31405dc4b57325e99d7965a8f9927
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 10/14/2019
+ms.openlocfilehash: 7a499cc5ff72d6f2bdf24a79200c1364673b599f
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569878"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275532"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 数据工厂中的管道和活动
 
@@ -143,7 +142,7 @@ dependsOn | 该属性用于定义活动依赖项，以及后续活动对以前�
     "properties": {
       "activities": [
         {
-          "name": "MyCopyBlobtoSqlActivity"
+          "name": "MyCopyBlobtoSqlActivity",
           "type": "Copy",
           "typeProperties": {
             ...

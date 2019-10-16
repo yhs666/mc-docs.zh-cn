@@ -15,13 +15,13 @@ ms.topic: article
 ms.custom: mvc
 origin.date: 05/07/2019
 ms.author: v-yiso
-ms.date: 08/26/2019
-ms.openlocfilehash: 7efb5fdc1f8760a3958ffa56287c8434e5345dfa
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 10/08/2019
+ms.openlocfilehash: 14797f6c206f8412050e1ff4603ceb4e102d218b
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538747"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340861"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
@@ -91,7 +91,7 @@ ms.locfileid: "69538747"
 
 ## <a name="open-in-visual-studio"></a>在 Visual Studio 中打开
 
-在 Visual Studio 中，可以打开以前直接通过 Azure 门户或者使用 Visual Studio 作为 Azure 资源管理器项目创建和部署的逻辑应用。
+在 Visual Studio 中，可以打开以前直接通过 Azure 门户或者使用 Visual Studio 作为 Azure 资源组项目创建和部署的逻辑应用。
 
 1. 打开 Cloud Explorer 并找到自己的逻辑应用。 
 
@@ -105,13 +105,13 @@ ms.locfileid: "69538747"
    ![从 Azure 门户打开部署的逻辑应用](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    逻辑应用在逻辑应用设计器中打开后，可以在设计器的底部选择“代码视图”，以便查看逻辑应用的基础定义结构  。 
-   若要为逻辑应用创建部署模板，请了解如何为该逻辑应用[下载 Azure 资源管理器模板](#download-logic-app)。 详细了解[资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)。
+   若要为逻辑应用创建部署模板，请了解如何为该逻辑应用[下载 Azure 资源管理器模板](#download-logic-app)。 详细了解[资源管理器模板](../azure-resource-manager/template-deployment-overview.md)。
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>从 Azure 下载
 
-可以从 [Azure 门户](https://portal.azure.cn)下载逻辑应用，并将其保存为 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板。 然后，可以在本地使用 Visual Studio 编辑模板，并根据不同的部署环境自定义逻辑应用。 下载逻辑应用会在[资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中将这些逻辑应用的定义（也使用 JavaScript 对象表示法 (JSON)）*参数化*。
+可以从 [Azure 门户](https://portal.azure.cn)下载逻辑应用，并将其保存为 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板。 然后，可以在本地使用 Visual Studio 编辑模板，并根据不同的部署环境自定义逻辑应用。 下载逻辑应用会在[资源管理器模板](../azure-resource-manager/template-deployment-overview.md)中将这些逻辑应用的定义（也使用 JavaScript 对象表示法 (JSON)）*参数化*。
 
 1. 在 Visual Studio 中打开 Cloud Explorer，然后找到并选择要从 Azure 下载的逻辑应用。
 
@@ -129,7 +129,8 @@ ms.locfileid: "69538747"
 
 4. 当系统提示输入位置时，请浏览到该位置，并在资源管理器模板中以 JSON (.json) 文件格式保存逻辑应用的定义。 
 
-逻辑应用定义显示在资源管理器模板中的 `resources` 子节内。 现在，可以使用 Visual Studio 来编辑逻辑应用定义和资源管理器模板。 还可以将模板作为 Azure 资源管理器项目添加到 Visual Studio 解决方案中。 了解 [Visual Studio 中逻辑应用的资源管理器项目](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。 
+逻辑应用定义显示在资源管理器模板中的 `resources` 子节内。 现在，可以使用 Visual Studio 来编辑逻辑应用定义和资源管理器模板。 还可以将模板作为 [Azure 资源组项目](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)添加到 Visual Studio 解决方案中。 了解 [Visual Studio 中逻辑应用的 Azure 资源组项目](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。 
+
 
 <a name="refresh"></a>
 

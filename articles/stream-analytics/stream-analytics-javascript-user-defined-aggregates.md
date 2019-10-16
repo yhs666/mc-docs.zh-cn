@@ -5,20 +5,20 @@ services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 10/28/2017
 ms.date: 07/12/2019
-ms.openlocfilehash: 2c601cce82a7678a0a41b7636b7e8fea52b81cc4
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 5cf90b815fcb38006be9f0b67a2b45172366a835
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169517"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674812"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 流分析 JavaScript 用户定义的聚合（预览）
-
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure 流分析 JavaScript 用户定义的聚合
+ 
 Azure 流分析支持以 JavaScript 编写的用户定义的聚合 (UDA)，可实现复杂的有状态业务逻辑。 在 UDA 中，我们可以全面控制状态数据结构、状态累积、状态分散和聚合结果计算。 本文介绍两个不同的 JavaScript UDA 接口、UDA 的创建步骤，以及如何在流分析查询中将 UDA 与基于窗口的操作结合使用。
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 用户定义的聚合
@@ -113,7 +113,7 @@ deaccumulateState() 方法基于前一状态和跃点状态重新计算状态。
 
 ### <a name="method---computeresult"></a>方法 - computeResult()
 
-computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（TUMBLINGWINDOW、HOPPINGWINDOW 或 SLIDINGWINDOW）结束时调用此方法。
+computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（TUMBLINGWINDOW、HOPPINGWINDOW、SLIDINGWINDOW 或 SESSIONWINDOW）结束时调用此方法。
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA 支持的输入和输出数据类型
 有关 JavaScript UDA 数据类型，请参阅[集成 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) 的**流分析和 JavaScript 类型转换**部分。

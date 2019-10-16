@@ -4,16 +4,16 @@ description: 本文介绍如何在 Azure Cosmos DB 中创建和使用数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 07/26/2019
-ms.date: 09/09/2019
+origin.date: 09/01/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 5d1098514f9755d958f35f0fa811c1ce79ef67e1
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 4bcf1fa926f7fba9ab91ad552a207c4b5e939cb6
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254770"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306699"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数据库、容器和项
 
@@ -74,7 +74,7 @@ Azure Cosmos 容器专用于 API 特定的实体，如下表所示：
 
 | Azure Cosmos 实体 | SQL API | Cassandra API | 用于 MongoDB 的 Azure Cosmos DB API | Gremlin API | 表 API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 容器 | 集合 | 表 | 集合 | Graph | 表 |
+|Azure Cosmos 容器 | 容器 | 表 | 集合 | Graph | 表 |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 容器的属性
 

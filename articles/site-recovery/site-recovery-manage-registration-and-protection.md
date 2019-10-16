@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 06/18/2019
 ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7e23e2bfa130190611994c865c27edc389e038f3
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 39a9c42b14b7ab0edcd3ec5a76af87aaab3b8c6c
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819560"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083187"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -145,8 +145,8 @@ ms.locfileid: "68819560"
     - **禁用复制并删除(推荐)** - 此选项从 Azure Site Recovery 中删除复制的项，并停止复制计算机。 此外，还将清理配置服务器上的复制配置，并停止对这个受保护的服务器收取 Site Recovery 费用。 请注意，此选项仅在配置服务器处于连接状态时使用。
     - **删除** - 只有在源环境已删除或无法访问（未连接）时，才应使用此选项。 此选项会从 Azure Site Recovery 中删除复制的项（停止计费）。 不过，并不会  清理配置服务器上的复制配置。 
 
-> [!NOTE]
-> 这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。 如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。
+    > [!NOTE]
+    > <span data-ttu-id="c84da-151">这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。</span><span class="sxs-lookup"><span data-stu-id="c84da-151">这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。</span></span> <span data-ttu-id="c84da-152">如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。</span><span class="sxs-lookup"><span data-stu-id="c84da-152">如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。</span></span>
 
 > [!NOTE]
 > 如果已对 VM 进行了故障转移并且该 VM 正在 Azure 中运行，请注意，禁用保护不会删除/影响故障转移的 VM。
@@ -154,8 +154,9 @@ ms.locfileid: "68819560"
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>禁用对 Azure VM 的保护（Azure 到 Azure）
 
 -  依次转到“受保护的项”   > “复制的项”  ，右键单击计算机，再单击“禁用复制”  。
-> [!NOTE]
-> 移动服务将不会从受保护的服务器中卸载，需要手动卸载它。 如果计划再次保护服务器，可以跳过卸载移动服务。
+    
+    > [!NOTE]
+    > 移动服务将不会从受保护的服务器中卸载，需要手动卸载它。 如果计划再次保护服务器，可以跳过卸载移动服务。
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>禁用对 Hyper-V 虚拟机（Hyper-V 到 Azure）的保护
 

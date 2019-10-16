@@ -5,30 +5,30 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 760f7c711f98005d71d3c3ffa9a8bb8874713f3c
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 08/21/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 7e4c3e7b4c3eb3612dd58e9b8dfec8667d3f14e3
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731902"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307874"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查询存储监视性能
 
-**适用于：** Azure Database for PostgreSQL - 单一服务器 9.6 和 10
+**适用于：** Azure Database for PostgreSQL - 单一服务器版本 9.6、10、11
 
-Azure Database for PostgreSQL 中的查询存储功能提供了一种一段时间内跟踪查询性能的方法。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for PostgreSQL 实例中的名为 azure_sys 的数据库中。
+Azure Database for PostgreSQL 中的查询存储功能提供了一种一段时间内跟踪查询性能的方法。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for PostgreSQL 实例中的名为 azure_sys 的数据库中  。
 
 > [!IMPORTANT]
-> 请勿修改 azure_sys 数据库或其架构。 执行此操作将阻止查询存储和相关的性能功能正常运行。
+> 请勿修改 azure_sys 数据库或其架构  。 执行此操作将阻止查询存储和相关的性能功能正常运行。
 
 ## <a name="enabling-query-store"></a>启用查询存储
 查询存储是一项选择加入功能，因此默认情况下它在服务器上未处于活动状态。 对于给定服务器上的所有数据库，该存储处于全局启用或禁用状态，且无法为每个数据库打开或关闭存储。
 
 ### <a name="enable-query-store-using-the-azure-portal"></a>使用 Azure 门户启用查询存储
 1. 登录到 Azure 门户，选择 Azure Database for PostgreSQL 服务器。
-2. 在菜单的“设置”部分中选择“服务器参数”。
+2. 在菜单的“设置”部分中选择“服务器参数”   。
 3. 搜索 `pg_qs.query_capture_mode` 参数。
 4. 将值设置为 `TOP` 并**保存**。
 
@@ -100,17 +100,17 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | Pgms_wait_sampling.history_period | 设置等待事件采样的频率（以毫秒为单位）。 | 100 | 1-600000 |
 
 > [!NOTE] 
-> 将 pgms_wait_sampling.query_capture_mode 替代为 pg_qs.query_capture_mode。 如果 pg_qs.query_capture_mode 为 NONE，则 pgms_wait_sampling.query_capture_mode 设置无效。
+> 将 pgms_wait_sampling.query_capture_mode 替代为 pg_qs.query_capture_mode   。 如果 pg_qs.query_capture_mode 为 NONE，则 pgms_wait_sampling.query_capture_mode 设置无效。
 
 
 使用 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 获取或设置参数的不同值。
 
 ## <a name="views-and-functions"></a>视图和函数
-使用以下视图和函数查看并管理查询存储。 PostgreSQL 公共角色中的任何人都可使用这些视图来查看查询存储中的数据。 这些视图仅在 azure_sys 数据库中可用。
+使用以下视图和函数查看并管理查询存储。 PostgreSQL 公共角色中的任何人都可使用这些视图来查看查询存储中的数据。 这些视图仅在 azure_sys 数据库中可用  。
 
 删除文本和常数后，通过查看查询的结构来规范化查询。 如果除文本值之外两个查询相同，则它们将具有相同的哈希值。
 
-### <a name="querystoreqsview"></a>query_store.qs_view
+### <a name="query_storeqs_view"></a>query_store.qs_view
 此视图返回查询存储中的所有数据。 每个不同的数据库 ID、用户 ID 和查询 ID 都有一行。 
 
 |**名称**   |**类型** | **参考**  | **说明**|
@@ -143,7 +143,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |blk_read_time  |双精度    || 语句读取块所花费的总时间（以毫秒为单位）（如果启用了 track_io_timing，否则为零）|
 |blk_write_time |双精度    || 语句写入块所花费的总时间（以毫秒为单位）（如果启用了 track_io_timing，否则为零）|
     
-### <a name="querystorequerytextsview"></a>query_store.query_texts_view
+### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 此视图返回查询存储中的查询文本数据。 每个不同的 query_text 都有一行。
 
 |**名称**|  **类型**|   **说明**|
@@ -151,7 +151,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |query_text_id  |bigint     |query_texts 表的 ID|
 |query_sql_text |Varchar(10000)     |代表语句的文本。 具有相同结构的不同查询聚集在一起；此文本是群集中第一个查询的文本。|
 
-### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
+### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 此视图返回查询存储中的等待事件数据。 每个不同的数据库 ID、用户 ID、查询 ID 和事件都有一行。
 
 |**名称**|  **类型**|   **参考**| **说明**|
@@ -176,6 +176,7 @@ Query_store.staging_data_reset() 返回无效值
 ## <a name="limitations-and-known-issues"></a>限制和已知问题
 - 如果 PostgreSQL 服务器具有参数 default_transaction_read_only，则查询存储无法捕获数据。
 - 如果遇到较长的 Unicode 查询（> = 6000 个字节），查询存储功能可能会中断。
+- [只读副本](concepts-read-replicas.md)从主服务器复制查询存储数据。 这意味着只读副本的查询存储不提供有关在只读副本上运行的查询的统计信息。
 
 
 ## <a name="next-steps"></a>后续步骤

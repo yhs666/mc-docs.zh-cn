@@ -1,6 +1,6 @@
 ---
-title: 获取意向，C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 快速入门：获取意向，C# - LUIS
+titleSuffix: Azure Cognitive Services
 description: 此 C# 快速入门使用可用的公共 LUIS 应用从会话文本中确定用户的意向。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 824d7c052c9c475c0d22253efe0ce8d57ef5450a
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 93d869ca976eb87a7b9b43e251b06de7c0fcf938
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104019"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330354"
 ---
 # <a name="quickstart-get-intent-using-c"></a>快速入门：使用 C# 获取意向
 

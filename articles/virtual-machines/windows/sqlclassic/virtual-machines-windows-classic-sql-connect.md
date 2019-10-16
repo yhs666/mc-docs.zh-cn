@@ -8,20 +8,21 @@ manager: digimobile
 tags: azure-service-management
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 02/18/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: c4ebd73201e233c11afe81691677f8fc3e0c9dc4
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+experimental: true
+experimental_id: d51f3cc6-753b-4e
+ms.openlocfilehash: 8bdadcebeaac23d7e97eeab006ea7eee6ac5b3d8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665968"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272489"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -58,7 +59,7 @@ ms.locfileid: "56665968"
 ### <a name="connect-to-sql-server-over-the-internet"></a>通过 Internet 连接到 SQL Server
 如果想要通过 Internet 连接到 SQL Server 数据库引擎，则必须创建虚拟机终结点以进行传入 TCP 通信。 此 Azure 配置步骤将传入 TCP 端口通信定向到虚拟机可以访问的 TCP 端口。
 
-若要通过 Internet 进行连接，必须使用 VM 的 DNS 名称和（本文中稍后配置的）VM 终结点端口号。 若要查找 DNS 名称，请导航到 Azure 门户，然后选择“虚拟机(经典)”。 然后选择你的虚拟机。 “DNS 名称”显示在“概述”部分中。
+若要通过 Internet 进行连接，必须使用 VM 的 DNS 名称和（本文中稍后配置的）VM 终结点端口号。 若要查找 DNS 名称，请导航到 Azure 门户，然后选择“虚拟机(经典)”  。 然后选择你的虚拟机。 “DNS 名称”  显示在“概述”  部分中。
 
 例如，假设一台经典虚拟机名为 **mysqlvm**，其 DNS 名称为 **mysqlvm7777.chinacloudapp.cn** 且 VM 终结点为 **57500**。 假设正确配置了连接性，则可从 Internet 上的任意位置使用以下连接字符串访问该虚拟机：
 
@@ -107,6 +108,8 @@ ms.locfileid: "56665968"
 如果还打算针对高可用性和灾难恢复使用 AlwaysOn 可用性组，则应考虑实施侦听器。 数据库客户端连接到侦听器，而不是直接连接到一个 SQL Server 实例。 侦听器将客户端路由到可用性组中的主副本。 有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
 请务必查看 Azure 虚拟机上运行的 SQL Server 的所有安全最佳实践。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的安全注意事项](../sql/virtual-machines-windows-sql-security.md)。
+
+<!--Not Available on [Explore the Learning Path](https://www.azure.cn/documentation/learning-paths/sql-azure-vm/)-->
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 

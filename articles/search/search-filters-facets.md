@@ -2,20 +2,20 @@
 title: 用于应用中搜索导航的分面筛选器 - Azure 搜索
 description: 按用户安全标识、地理位置或数字值进行条件筛选可以减少 Azure 搜索（Microsoft Azure 上托管的云搜索服务）中的查询返回的搜索结果。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/13/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 78e2402bc858443cfc8df7c11154c1a88a531d25
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 9e7bdd3501bd6b7c98f32b1722b7dffea13bc04e
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004569"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674362"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>如何在 Azure 搜索中生成分面筛选器 
 
@@ -79,11 +79,11 @@ ms.locfileid: "66004569"
 ```
 
 > [!Note]
-> 此索引定义复制自[使用 REST API 创建 Azure 搜索索引](https://docs.azure.cn/zh-cn/search/search-create-index-rest-api)。 除了字段定义的表面差异外，二者完全相同。 已在 `category`、`tags`、`parkingIncluded`、`smokingAllowed` 和 `rating` 字段中显式添加 `filterable` 和 `facetable` 属性。 在实践中，使用 REST API 时，默认会在这些字段中启用 `filterable` 和 `facetable`。 使用 .NET SDK 时，必须显式启用这些属性。
+> 此索引定义复制自[使用 REST API 创建 Azure 搜索索引](search-create-index-rest-api.md)。 除了字段定义的表面差异外，二者完全相同。 已在 `category`、`tags`、`parkingIncluded`、`smokingAllowed` 和 `rating` 字段中显式添加 `filterable` 和 `facetable` 属性。 在实践中，使用 REST API 时，默认会在这些字段中启用 `filterable` 和 `facetable`。 使用 .NET SDK 时，必须显式启用这些属性。
 
 ## <a name="build-and-load-an-index"></a>生成和加载索引
 
-编写查询之前的一个中间步骤（也许是众所周知的步骤）是[生成并填充索引](https://docs.azure.cn/zh-cn/search/search-create-index-dotnet#3---construct-index)。 为了保持内容完整，此处阐述了此步骤。 确定索引是否可用的一种方法是在[门户](https://portal.azure.cn)中查看索引列表。
+编写查询之前的一个中间步骤（也许是众所周知的步骤）是[生成并填充索引](search-get-started-dotnet.md#1---create-index)。 为了保持内容完整，此处阐述了此步骤。 确定索引是否可用的一种方法是在[门户](https://portal.azure.cn)中查看索引列表。
 
 ## <a name="add-facet-filters-to-a-query"></a>将分面筛选器添加到查询
 

@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/29/2017
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1ad0bc720b762c476d98a3dc954afa98939db935
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 1382c3e5453a74ca2addfa4f7ef79b760875a318
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254680"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306800"
 ---
 # <a name="traffic-manager-endpoints"></a>流量管理器终结点
 
@@ -105,7 +105,7 @@ PublicIPAddress 资源属于 Azure Resource Manager 资源。 经典部署模型
 
 * [流量管理器是否可用于同一区域中的多个 Web 应用？](/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [如何将流量管理器配置文件的 Azure 终结点移动到其他资源组？](/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [如何将流量管理器配置文件的 Azure 终结点移动到其他资源组？](/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>后续步骤
 

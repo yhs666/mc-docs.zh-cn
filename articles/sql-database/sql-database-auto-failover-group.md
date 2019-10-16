@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
-origin.date: 08/16/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 56de680ac8c0969386dedfba3a426fa0b1a253d2
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+origin.date: 09/06/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 67d93dd7dda63433c7da0072dbee2e4a4fc7994b
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372984"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262955"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
-自动故障转移组是一项 SQL 数据库功能，可便于管理 SQL 数据库服务器中一组数据库或托管实例中所有数据库到另一区域的复制和故障转移。 它是建立在现有[活动异地复制](sql-database-active-geo-replication.md)功能基础之上的声明性抽象，旨在简化异地复制的数据库的大规模部署和管理。 可以手动启动故障转移，也可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 一个故障转移组可以包含一个或多个数据库，通常由同一个应用程序使用。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
+自动故障转移组是一项 SQL 数据库功能，可便于管理 SQL 数据库服务器中一组数据库或托管实例中所有数据库到另一区域的复制和故障转移。 它是建立在现有[活动异地复制](sql-database-active-geo-replication.md)功能基础之上的声明性抽象，旨在简化异地复制的数据库的大规模部署和管理。 可以手动启动故障转移，也可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 一个故障转移组可以包含一个或多个数据库，通常由同一个应用程序使用。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
 
 > [!NOTE]
 > 如果在 SQL 数据库服务器上使用单一数据库或共用数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。 
@@ -93,7 +93,7 @@ ms.locfileid: "70372984"
 
 - **只读故障转移策略**
 
-  默认禁用只读侦听器的故障转移功能。 这可确保在辅助数据库脱机时，主数据库的性能不会受到影响。 但是，这也意味辅助数据库恢复前，只读会话将无法连接。 如果无法容许只读会话停机，但能够以主数据库的潜在性能降级为代价将主数据库临时用于只读和读写流量，则可以为只读侦听器启用故障转移。 在这种情况下，如果辅助节点不可用，则会将只读流量自动重定向到主要节点。
+  默认禁用只读侦听器的故障转移功能。 这可确保在辅助数据库脱机时，主数据库的性能不会受到影响。 但是，这也意味辅助数据库恢复前，只读会话将无法连接。 如果不能容忍只读会话停机，但能容忍以主数据库的潜在性能降级为代价将主数据库临时用于只读和读写流量，则可以通过配置 `AllowReadOnlyFailoverToPrimary` 属性为只读侦听器启用故障转移。 在这种情况下，如果辅助节点不可用，则会将只读流量自动重定向到主要节点。
 
 - **计划的故障转移**
 
@@ -113,7 +113,7 @@ ms.locfileid: "70372984"
 
 - **数据丢失宽限期**
 
-  由于主数据库和辅助数据库是使用异步复制进行同步的，因此故障转移可能会导致数据丢失。 可以自定义自动故障转移策略，以便反映应用程序对数据丢失的容错。 通过配置 **GracePeriodWithDataLossHours**，可以控制系统启动可能导致数据丢失的故障转移之前的等待时间。
+  由于主数据库和辅助数据库是使用异步复制进行同步的，因此故障转移可能会导致数据丢失。 可以自定义自动故障转移策略，以便反映应用程序对数据丢失的容错。 通过配置 `GracePeriodWithDataLossHours`，可以控制系统启动可能导致数据丢失的故障转移之前的等待时间。
 
 - **多个故障转移组**
 
@@ -156,7 +156,7 @@ ms.locfileid: "70372984"
 
 - **使用只读侦听器处理只读工作负荷**
 
-  如果你有一个在逻辑上隔离的只读工作负荷，且它允许存在一些过时数据，则可在应用程序中使用辅助数据库。 对于只读的会话，请使用 `<fog-name>.secondary.database.chinacloudapi.cn` 作为服务器 URL，连接将自动定向到辅助节点。 此外，还建议使用 **ApplicationIntent=ReadOnly** 在连接字符串中指示读取意向。
+  如果你有一个在逻辑上隔离的只读工作负荷，且它允许存在一些过时数据，则可在应用程序中使用辅助数据库。 对于只读的会话，请使用 `<fog-name>.secondary.database.chinacloudapi.cn` 作为服务器 URL，连接将自动定向到辅助节点。 此外，还建议使用 `ApplicationIntent=ReadOnly` 在连接字符串中指示读取意向。 如果要确保只读工作负荷在故障转移后或辅助服务器脱机时可以重新连接，请确保配置故障转移策略的 `AllowReadOnlyFailoverToPrimary` 属性。 
 
 - **可应对性能下降的问题**
 
@@ -167,7 +167,7 @@ ms.locfileid: "70372984"
 
 - **可应对数据丢失的问题**
 
-  如果检测到服务中断，SQL 会等待 **GracePeriodWithDataLossHours** 指定的期限。 默认值为 1 小时。 如果不能承受丢失数据，请确保设置 **GracePeriodWithDataLossHours** 到一个足够大的数字，如 24 小时。 使用手动组故障转移从辅助节点故障回复到主要节点。
+  如果检测到服务中断，SQL 会等待 `GracePeriodWithDataLossHours` 指定的期限。 默认值为 1 小时。 如果不能承受丢失数据，请确保将 `GracePeriodWithDataLossHours` 设置为一个足够大的数字，如 24 小时。 使用手动组故障转移从辅助节点故障回复到主要节点。
 
   > [!IMPORTANT]
   > DTU 少于或等于 800、使用异地复制的数据库超过 250 个的弹性数据库池可能会遇到更长的计划故障转移和性能下降等问题。  这些问题更可能在写密集型工作负荷下发生，例如，异地复制终结点广泛分隔于各个地理位置，或者每个数据库使用多个辅助终结点。  当异地复制滞后随着时间推移增加时，这些问题的症状便会显现。  这种滞后可以使用 [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 进行监视。  如果发生这些问题，缓解方法包括增加池 DTU 的数量或者减少同一池中异地复制数据库的数量。
@@ -192,12 +192,23 @@ ms.locfileid: "70372984"
 
   若要确保故障转移后与主要实例的连接不中断，主要实例和辅助实例必须位于同一 DNS 区域。 将会保证同一个多域 (SAN) 证书可用于对与故障转移组中的两个实例之一建立的客户端连接进行身份验证。 准备好将应用程序部署到生产环境后，在不同的区域中创建一个辅助实例，并确保它与主要实例共享 DNS 区域。 为此，可以使用 Azure 门户、PowerShell 或 REST API 指定 `DNS Zone Partner` 可选参数。 
 
-  有关在主要实例所在的同一 DNS 区域中创建辅助实例的详细信息，请参阅[使用托管实例管理故障转移组（预览版）](#powershell-managing-failover-groups-with-managed-instances-preview)。
+> [!IMPORTANT]
+> 在子网中创建的第一个实例确定同一子网中所有后续实例的 DNS 区域。 这意味着，同一子网中的两个实例不能属于不同的 DNS 区域。   
+
+  有关在主要实例所在的 DNS 区域中创建辅助实例的详细信息，请参阅[创建辅助托管实例](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance)。
 
 - **在两个实例之间启用复制流量**
 
   由于每个实例隔离在其自身的 VNet 中，因此，必须允许这些 VNet 之间的双向流量。 请参阅 [Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
+- **在不同订阅中的托管实例之间创建故障转移组**
+
+  可以在两个不同订阅中的托管实例之间创建故障转移组。 使用 PowerShell API 时，可以通过为辅助实例指定 `PartnerSubscriptionId` 参数来执行此操作。 使用 REST API 时，`properties.managedInstancePairs` 参数中包含的每个实例 ID 都可以有自己的订阅 ID。 
+  
+  > [!IMPORTANT]
+  > Azure 门户不支持跨不同订阅的故障转移组。
+
+  
 - **将故障转移组配置为管理整个实例的故障转移**
 
   故障转移组将管理实例中所有数据库的故障转移。 创建某个组后，实例中的每个数据库将自动异地复制到辅助实例。 无法使用故障转移组针对一部分数据库启动部分故障转移。
@@ -230,6 +241,10 @@ ms.locfileid: "70372984"
 
   > [!IMPORTANT]
   > 使用手动组故障转移可将主要数据库移回到原始位置。 缓解导致故障转移的服务中断问题后，可将主要数据库移到原始位置。 为此，应该启动组的手动故障转移。
+
+- **确认故障转移组的已知限制**
+
+  故障转移组中的实例不支持数据库重命名和实例重设大小。 需要临时删除故障转移组，才能执行这些操作。
 
 ## <a name="failover-groups-and-network-security"></a>故障转移组和网络安全
 
@@ -281,6 +296,9 @@ ms.locfileid: "70372984"
 
 7. 辅助实例上已配置正确的 DNS 区域 ID。 DNS 区域是托管实例的属性，其 ID 包含在主机名地址中。 在每个 VNet 中创建第一个托管实例时，将生成随机字符串形式的区域 ID。同一个 ID 将分配到同一子网中的所有其他实例。 分配后，无法修改 DNS 区域。 同一故障转移组中包含的托管实例必须共享 DNS 区域。 为此，在创建辅助实例时，可以传递主要实例的区域 ID 作为 DnsZonePartner 参数的值。 
 
+   > [!NOTE]
+   > 有关使用托管实例配置故障转移组的详细教程，请参阅[将托管实例添加到故障转移组](sql-database-managed-instance-failover-group-tutorial.md)。
+
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升级或降级主数据库
 
 无需断开连接任何辅助数据库，即可将主数据库升级或降级到不同的计算大小（在相同的服务层级中，但不在“常规用途”与“业务关键”类型之间）。 升级时，建议先升级所有辅助数据库，再升级主数据库。 降级时，请反转顺序：先降级主数据库，再降级所有辅助数据库。 将数据库升级或降级到不同服务层级时，将强制执行此建议操作。
@@ -295,10 +313,10 @@ ms.locfileid: "70372984"
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止丢失关键数据
 
-由于广域网的延迟时间较长，连续复制使用了异步复制机制。 在发生故障时，异步复制会不可避免地丢失某些数据。 但是，某些应用程序可能要求不能有数据丢失。 为了保护这些关键更新，应用程序开发人员可以在提交事务后立即调用 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系统过程。 调用 **sp_wait_for_database_copy_sync** 会阻止调用线程，直到将上次提交的事务传输到辅助数据库。 但是，它不会等待传输的事务提交到辅助数据库进行重播。 **sp_wait_for_database_copy_sync** 的范围是一个具体的连续复制链路。 对主数据库具有连接权限的任何用户都可以调用此过程。
+由于广域网的延迟时间较长，连续复制使用了异步复制机制。 在发生故障时，异步复制会不可避免地丢失某些数据。 但是，某些应用程序可能要求不能有数据丢失。 为了保护这些关键更新，应用程序开发人员可以在提交事务后立即调用 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系统过程。 调用 `sp_wait_for_database_copy_sync` 会阻止调用线程，直到将上次提交的事务传输到辅助数据库。 但是，它不会等待传输的事务提交到辅助数据库进行重播。 `sp_wait_for_database_copy_sync` 的范围限定为特定的连续复制链接。 对主数据库具有连接权限的任何用户都可以调用此过程。
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** 将在故障转移后防止数据丢失，但它不会保证读取访问的完全同步。 **sp_wait_for_database_copy_sync** 过程调用导致的延迟可能会很明显，具体取决于调用时的事务日志大小。
+> `sp_wait_for_database_copy_sync` 可防止故障转移后的数据丢失，但不能保证读取访问完全同步。 `sp_wait_for_database_copy_sync` 过程调用导致的延迟可能会很明显，具体取决于调用时的事务日志大小。
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>故障转移组和时间点还原
 
@@ -324,34 +342,16 @@ ms.locfileid: "70372984"
 > 有关示例脚本，请参阅[为单一数据库配置并故障转移一个故障转移组](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 >
 
-### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell：使用托管实例管理故障转移组（预览版）
+### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell：使用托管实例管理 SQL 数据库故障转移组 
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>安装 PowerShell 的最新预发行版
-
-1. 将 PowerShellGet 模块更新到 1.6.5（或最新预览版）。 请参阅 [PowerShell 预览版站点](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)。
-
-   ```powershell
-      install-module PowerShellGet -MinimumVersion 1.6.5 -force
-   ```
-
-2. 在新的 PowerShell 窗口中执行以下命令：
-
-   ```powershell
-      import-module PowerShellGet
-      get-module PowerShellGet #verify version is 1.6.5 (or newer)
-      install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease �Force
-      import-module azurerm.sql
-   ```
-
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>用于创建实例故障转移组的 PowerShell cmdlet
-
-| API | 说明 |
+| Cmdlet | 说明 |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |此命令会创建故障转移组，并将其同时注册到主服务器和辅助服务器|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |修改故障转移组的配置|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |检索故障转移组配置|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |触发故障转移组到辅助服务器的故障转移|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 删除故障转移组|
+| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |此命令会创建故障转移组，并将其同时注册到主服务器和辅助服务器|
+| [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |修改故障转移组的配置|
+| [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |检索故障转移组配置|
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |触发故障转移组到辅助服务器的故障转移|
+| [Remove-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | 删除故障转移组|
+|  | |
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用单一数据库和共用数据库管理 SQL 数据库故障转移组
 

@@ -6,16 +6,16 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 05/15/2017
+origin.date: 07/13/2017
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: ced83edfc5b131c76c6d145af02d8bb795df1fdd
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 9ef618d3a41ed8b718b80681ef5af122c8f3848b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737394"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330402"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中心流式处理热路径中的 Azure 诊断数据
 Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](/event-hubs/)在数秒内传输热路径数据。

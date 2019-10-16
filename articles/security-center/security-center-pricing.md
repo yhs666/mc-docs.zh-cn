@@ -3,8 +3,8 @@ title: 升级到安全中心的标准层以增强安全性 | Microsoft Docs
 description: 本文提供有关 Azure 安全中心定价的信息。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2019
+origin.date: 09/10/2019
+ms.date: 09/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 2e34279492d34d6f43aa139282c1e969df81c662
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4bf2055b5e2492d79ca150fcfb35800c0d416c6a
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571488"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674613"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升级到安全中心的标准层以增强安全性
 Azure 安全中心为 Azure、本地和其他云中运行的工作负载提供统一的安全管理和高级威胁防护功能。 它可以提供针对混合云工作负载的可见性和可控性、可减小在威胁下的曝光面的积极防御功能以及有助于随时响应快速演变的网络攻击的智能检测功能。

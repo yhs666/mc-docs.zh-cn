@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 45c850dcac908e348757f6fc4c854d39fed2e766
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 02badbb18a2f45fde088ab20c0fac4dea07f175b
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805803"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673575"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -51,8 +51,10 @@ ms.locfileid: "70805803"
 ## <a name="private-site-access"></a>专用站点访问
 
 专用站点访问指的是仅可从专用网络（例如 Azure 虚拟网络内）对应用进行访问。 
-* 如果配置了**服务终结点**，则可以在[应用服务计划](functions-scale.md#app-service-plan)中使用专用站点访问。 有关详细信息，请参阅[虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * 请记住，如果使用服务终结点，即使已配置虚拟网络集成，函数也仍对 Internet 拥有完全的出站访问权限。
+* 配置了**服务终结点**时，[消耗](functions-scale.md#consumption-plan)和[应用服务计划](functions-scale.md#app-service-plan)中提供专用站点访问。 
+    * 可以在“平台功能”>“网络”>“配置访问限制”>“添加规则”下，针对每个应用配置服务终结点。 现在可以选择虚拟网络作为规则的“类型”。
+    * 有关详细信息，请参阅[虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * 请记住，如果使用服务终结点，即使已配置虚拟网络集成，函数也仍对 Internet 拥有完全的出站访问权限。
 
 ## <a name="virtual-network-integration"></a>虚拟网络集成
 
@@ -95,6 +97,13 @@ VNet 集成不支持某些功能，其中包括：
 Functions 中的虚拟网络集成使用与应用服务 Web 应用共享的基础结构。 若要详细阅读两类虚拟网络集成，请参阅：
 * [区域 VNET 集成](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [需要网关的 VNet 集成](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>将存储帐户限制到虚拟网络
+
+> [!note] 
+> 对该存储帐户配置访问限制后，暂时可能需要多达 12 个小时才能使该存储帐户对函数应用可用。 在这段时间内，应用程序将完全脱机。
+
+为了提供更高级别的安全性，可以将应用程序的存储帐户限制到虚拟网络。 然后，必须将站点与该虚拟网络集成，才能访问存储帐户。 支持虚拟网络集成的所有计划都支持此配置。
 
 ## <a name="virtual-network-triggers-non-http"></a>虚拟网络触发器（非 HTTP）
 

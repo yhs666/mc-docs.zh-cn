@@ -15,17 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2019
 ms.author: v-yiso
-ms.date: 06/24/2019
-ms.openlocfilehash: f25424553bc7d8ab23c6238c6d1bf3a4834ba658
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 10/08/2019
+ms.openlocfilehash: 089d55092a3fd944ef0575acbf17bfb623b00d1a
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135802"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340977"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>使用 Azure 逻辑应用中的定期触发器创建、计划和运行重复任务和工作流
 
-若要按特定的计划定期运行任务、进程或作业，可以使用内置的**定期 - 计划**触发器来启动逻辑应用工作流。 可以设置启动工作流的日期、时间和时区，以及设置设置重复该工作流的定期计划。 如果定期计划因某种原因而缺失，此触发器会在下一个计划的时间间隔继续该定期计划。
+若要按特定的计划定期运行任务、进程或作业，可以使用内置的**定期 - 计划**触发器来启动逻辑应用工作流。 可以设置启动工作流的日期、时间和时区，以及设置设置重复该工作流的定期计划。 如果定期计划因某种原因而缺失，此触发器会在下一个计划的时间间隔继续该定期计划。 有关内置计划触发器和操作的详细信息，请参阅[使用 Azure 逻辑应用计划和运行定期自动执行的任务和工作流](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)。
+
 下面是此触发器支持的一些模式，以及更高级的定期计划和复杂计划：
 
 * 立即运行，并每隔 *n* 秒、分钟、小时、天、周或月重复运行。
@@ -38,9 +39,10 @@ ms.locfileid: "67135802"
 
 * 运行并在每周的特定星期日期和时间（例如星期一到星期五的 8:00 AM 和 5:00 PM）重复。
 
+有关此触发器与“滑动窗口”触发器之间的差异或有关计划重复执行工作流的详细信息，请参阅[使用 Azure 逻辑应用计划和运行定期自动执行的任务、流程和工作流](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)。
 
-
-
+> [!TIP]
+> 若要触发逻辑应用并且在将来仅运行一次，请参阅[仅运行一次作业](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -74,15 +76,15 @@ ms.locfileid: "67135802"
    | 属性 | 必须 | JSON 名称 | 类型 | 说明 |
    |----------|----------|-----------|------|-------------|
    | **时区** | 否 | timezone | String | 仅当指定启动时间时才适用，因为此触发器不接受 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 选择要应用的时区。 |
-   | **开始时间** | 否 | startTime | String | 采用以下格式提供启动日期和时间： <p>如果选择了时区，则格式为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果未选择时区，则格式为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2 点，则指定“2017-09-18T14:00:00”并选择时区（如“太平洋标准时间”）。 或者指定“2017-09-18T14:00:00Z”且不选择时区。 <p>**注意：** 此开始时间必须遵循 [ISO 8601 日期时间规范](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，采用 [UTC 日期时间格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)但没有 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 如果未选择时区，必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org/wiki/Nautical_time)。 <p>对于简单计划，开始时间指首次运行时间；对于复杂计划，触发器的激发时间不会早于开始时间。|
+   | **开始时间** | 否 | startTime | String | 采用以下格式提供启动日期和时间： <p>如果选择了时区，则格式为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果未选择时区，则格式为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2 点，则指定“2017-09-18T14:00:00”并选择时区（如“太平洋标准时间”）。 或者指定“2017-09-18T14:00:00Z”且不选择时区。 <p>**注意：** 此开始时间在未来最长为 49 年，并且必须遵循 [UTC 日期时间格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)的 [ISO 8601 日期时间规范](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但没有 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 如果未选择时区，必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org/wiki/Nautical_time)。 <p>对于简单计划，开始时间指首次运行时间；对于复杂计划，触发器的激发时间不会早于开始时间。 [*可通过哪些方式使用开始日期和时间？* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **在这些日期** | 否 | 工作日 | 字符串或字符串数组 | 如果选择“周”，则可以选择要运行工作流的一天或多天：“星期一”、“星期二”、“星期三”、“星期四”、“星期五”、“星期六”和“星期日”        |
    | **在这些小时** | 否 | 小时 | 整数或整数数组 | 如果选择了“天”或“周”，则可以从 0 到 23 的范围内选择一个或多个整数，作为当天要运行工作流的小时时间。 <p><p>例如，如果指定“10”、“12”和“14”，则会将上午 10 点、中午 12 点和下午 2 点作为当天的小时，但当天的分钟则根据定期启动的时间计算。 若要设置一天的分钟，请指定“在这些分钟”属性的值。  |
    | **在这些分钟** | 否 | 分钟数 | 整数或整数数组 | 如果选择了“天”或“周”，则可以从 0 到 59 的范围内选择一个或多个整数，作为要运行工作流的小时时间的分钟时间。 <p>例如，可以指定“30”作为分钟标记并使用前面示例中的当天小时时间，这样，便可以指定10:30 AM、12:30 PM 和 2:30 PM 作为开始时间。 |
    |||||
 
-   例如，假设当天是 2017 年 9 月 4 日星期一。 以下“定期”触发器不会在开始日期和时间 2017 年 9 月 18 日星期一早晨 8:00（太平洋标准时间）之前激发。  但是，该定期计划设置为仅在每个星期一的 10:30 AM、12:30 PM 和 2:30 PM 运行。 因此，首次激发触发器并创建逻辑应用工作流实例的时间为 10:30 AM。 
+   例如，假设当天是 2017 年 9 月 4 日星期一。 以下“定期”触发器不会在开始日期和时间 2017 年 9 月 18 日星期一早晨 8:00（太平洋标准时间）之前激发。  但是，该定期计划设置为仅在每个星期一的 10:30 AM、12:30 PM 和 2:30 PM 运行。 因此，首次激发触发器并创建逻辑应用工作流实例的时间为 10:30 AM。 若要详细了解开始时间的工作方式，请参阅这些[开始时间示例](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)。
 
-   将来的运行发生在同一天的 12:30 PM 和 2:30 PM。 每个定期计划会创建其自身的工作流实例。 之后，在下一个星期一，整个计划会再次从头开始重复。 
+   将来的运行发生在同一天的 12:30 PM 和 2:30 PM。 每个定期计划会创建其自身的工作流实例。 之后，在下一个星期一，整个计划会再次从头开始重复。 [*还有哪些计划示例？* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
    ![高级计划示例](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
 

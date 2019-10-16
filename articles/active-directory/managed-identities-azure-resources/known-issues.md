@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 12/12/2017
-ms.date: 08/05/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa3aaeea0558f5c3f33513bbb0dfa282dce46db7
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 6b82f7ac5c01e279286b989eab68a078d3cb9970
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818666"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292075"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 资源托管标识的 FAQ 和已知问题
 
@@ -153,3 +153,4 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 将用户分配的托管标识移动到另一个资源组将导致标识被破坏。 因此，使用该标识的资源（例如 VM）将无法请求该标识的令牌。 
 
+<!-- Update_Description: wording update -->

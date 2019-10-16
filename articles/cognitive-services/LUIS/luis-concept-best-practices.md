@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 09/05/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 89b62a4b9c07b6df010705c0048f53e40ea87ce8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 27f1b80d7279e920355bd9e01bdac5bd33096d68
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104083"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329983"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用认知服务生成语言理解应用的最佳做法
 使用应用创作过程生成 LUIS 应用： 
@@ -84,7 +85,7 @@ ms.locfileid: "70104083"
 
 在设计模型之初就添加它们并没有什么坏处，但如果在使用言语测试模型之后再添加，则可以更容易地看出每个功能如何改变结果。 
 
-最佳做法是通过[终结点](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)进行测试，以便获得[主动学习](luis-concept-review-endpoint-utterances.md)的额外好处。 [交互式测试窗格](luis-interactive-test.md)也是有效的测试方法。 
+最佳做法是通过[终结点](luis-get-started-create-app.md)进行测试，以便获得[主动学习](luis-concept-review-endpoint-utterances.md)的额外好处。 [交互式测试窗格](luis-interactive-test.md)也是有效的测试方法。 
  
 
 ### <a name="phrase-lists"></a>短语列表

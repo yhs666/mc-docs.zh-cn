@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 origin.date: 07/18/2019
-ms.date: 08/20/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 452af74a696a22b6c98497bb0ad44ed5cffb5b61
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: dcec5c513df0de03f4e9d618574ad3027db5d549
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737279"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329861"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 地址
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服务使用许多 IP 地址。 如果要监视的应用托管在防火墙后面，可能需要知道这些 IP 地址。
@@ -62,14 +62,6 @@ ms.locfileid: "70737279"
 
 ```
 China East
-13.70.83.252
-13.75.150.96
-13.75.153.9
-13.75.158.185
-104.210.65.220
-52.187.246.13
-52.147.30.74
-52.187.250.193
 20.40.124.176/28
 20.40.124.240/28
 20.40.125.80/28

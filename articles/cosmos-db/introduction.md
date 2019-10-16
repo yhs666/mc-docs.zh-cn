@@ -4,15 +4,15 @@ description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: overview
-origin.date: 07/23/2019
-ms.date: 09/09/2019
+origin.date: 09/01/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 65638a62ca4a8006af2db8e5ea093695f3ee8b96
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 0f552a2a3ffbd50895f539be3946420f0b6ce844
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254439"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306787"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -22,6 +22,7 @@ ms.locfileid: "70254439"
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 只需单击一个按钮，即可通过 Cosmos DB 跨任意数量的中国 Azure 区域弹性且独立地缩放吞吐量和存储。 可以弹性缩放吞吐量和存储，并使用你喜欢的 API 对 SQL、MongoDB、Cassandra、表或 Gremlin 中的数据实现低至个位数毫秒级的快速访问。 Cosmos DB 为吞吐量、延迟、可用性和一致性保证提供综合[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA)，这是其他数据库服务无法提供的。
 
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
+<!-- Not Available on [Cosmos DB Bootstrap Program](https://azurecosmosdb.github.io/CosmosBootstrap/)-->
 
 ![Azure Cosmos DB 是世纪互联提供的多区域分布式数据库服务，可以弹性横向扩展，可保证低延迟，有五个一致性模型，并且保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
 

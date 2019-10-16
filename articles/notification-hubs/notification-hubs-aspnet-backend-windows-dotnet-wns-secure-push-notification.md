@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: 830dac9fb5a4101ebe851534b7e049a57f7d4a2b
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+origin.date: 01/04/2019
+ms.date: 10/08/2019
+ms.author: v-tawe
+ms.openlocfilehash: a5ba4aa39c20ac25929edac5038ea24ac40a205c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633030"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272496"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>从 Azure 通知中心安全地推送通知
 
@@ -37,11 +37,11 @@ ms.locfileid: "68633030"
 在高级别中，此流程如下所示：
 
 1. 应用后端：
-   - 在后端数据库中存储安全有效负载。
-   - 将此通知的 ID 发送到此设备（不发送任何安全信息）。
+   * 在后端数据库中存储安全有效负载。
+   * 将此通知的 ID 发送到此设备（不发送任何安全信息）。
 2. 此设备上的应用在接收通知时：
-   - 此设备将联系请求安全有效负载的后端。
-   - 此应用可以将有效负载显示为设备上的通知。
+   * 此设备将联系请求安全有效负载的后端。
+   * 此应用可以将有效负载显示为设备上的通知。
 
 请务必注意，在之前的流程（以及本教程中）中，我们假设此设备会在用户登录后在本地存储中存储身份验证令牌。 这可以保证完全无缝的体验，因为该设备可以使用此令牌检索通知的安全有效负载。 如果应用程序未在设备上存储身份验证令牌，或者如果这些令牌可能已过期，此设备应用在收到通知时应显示提示用户启动应用的通用通知。 然后，应用对用户进行身份验证并显示通知有效负载。
 

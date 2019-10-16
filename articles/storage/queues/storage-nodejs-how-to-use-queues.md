@@ -1,22 +1,21 @@
 ---
-title: 如何通过 Node.js 使用队列存储 | Microsoft Docs
+title: 通过 Node.js 使用 Azure 队列存储 - Azure 存储
 description: 了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 相关示例是使用 Node.js 编写的。
-services: storage
 author: WenJason
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: nodejs
-ms.topic: article
-origin.date: 12/08/2016
-ms.date: 12/10/2018
 ms.author: v-jay
-ms.component: queues
-ms.openlocfilehash: bc3289c902f2ed03a166a991c76b0770afb5c5bf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 12/08/2016
+ms.date: 09/30/2019
+ms.subservice: queues
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 2e08ec38633b6dcd0eccd5ea6fe8dd78e9c76398
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627509"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306701"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -327,16 +326,16 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
+在了解了有关队列存储的基础知识后，可使用以下链接来了解更复杂的存储任务。
 
 * 访问 [Azure 存储团队博客][Azure Storage Team Blog]。
-* 访问 GitHub 上[用于 Node 的 Azure 存储 SDK][Azure Storage SDK for Node] 存储库。
+* 访问 GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 存储库。
 
 
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
 
 [Azure Portal]: https://portal.azure.cn
 
@@ -344,6 +343,6 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
 [生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
 
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

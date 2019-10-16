@@ -6,14 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+origin.date: 02/17/2019
+ms.date: 08/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 54ec2218c5473882fb8489699f10a3ef9317e0cd
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: ada463aedd354d547d91906172d28dbbf696612f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330218"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 

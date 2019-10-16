@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 3/18/2019
-ms.openlocfilehash: d9b4ef1c8a78473db89ce65c5ed3dad5d1b58f8c
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+origin.date: 03/18/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: b23a6d3a71409e40b966bc2fb356a60362af4730
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169614"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674755"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>从 Azure 流分析输出到 Azure SQL 数据库
 

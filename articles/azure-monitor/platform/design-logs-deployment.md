@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 08/07/2019
 ms.date: 8/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 493aec665a1bfabebdae483ef1d965955fc4754c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5c899945cdd34d637fbc0d1b648c46ed61364299
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330405"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>设计 Azure Monitor 日志部署
 
@@ -128,7 +128,7 @@ Azure Monitor 根据执行日志搜索时所在的上下文自动确定正确的
     > [!NOTE]
     > 如果用户只对工作区拥有资源权限，则他们只能使用资源上下文模式访问工作区（假设工作区访问模式设置为“使用资源或工作区权限”）。 
 
-若要了解如何使用门户、PowerShell 或资源管理器模板更改访问控制模式，请参阅[定义访问控制模式](manage-access.md#define-access-control-mode)。
+若要了解如何使用门户、PowerShell 或资源管理器模板更改访问控制模式，请参阅[配置访问控制模式](manage-access.md#configure-access-control-mode)。
 
 ## <a name="recommendations"></a>建议
 

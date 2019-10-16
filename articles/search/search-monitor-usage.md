@@ -2,22 +2,20 @@
 title: 监视搜索服务的资源使用情况和查询指标 - Azure 搜索
 description: 启用日志记录，从 Azure 搜索服务获取查询活动指标、资源使用情况以及其他系统数据。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 5148fe57c03c35c2130379d8896499f7401edf71
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: e164abcf4e9d5c5e0716f59d3206396df186e58b
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004734"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674357"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>在 Azure 搜索中监视资源使用情况和查询活动
 
@@ -61,12 +59,12 @@ Azure 搜索不在其管理的对象之外存储任何数据，这意味着日�
 
 | Resource | 用途 |
 |----------|----------|
-| [Application Insights](https://docs.azure.cn/zh-cn/azure-monitor/app/app-insights-overview) | 记录的事件和查询指标，基于下面的架构并与应用中的用户事件关联。 这是唯一会考虑用户操作或信号的解决方案，它会映射用户发起的搜索中的事件，而不会筛选应用程序代码提交的请求。 若要使用此方法，请将检测代码复制并粘贴到源文件中，以便将请求信息路由到 Application Insights。 有关详细信息，请参阅[搜索流量分析](search-traffic-analytics.md)。 |
-| [Azure Monitor 日志](https://docs.azure.cn/zh-cn/azure-monitor/log-query/log-query-overview) | 记录的事件和查询指标，基于下面的架构。 事件记录到 Log Analytics 工作区。 可以针对工作区运行查询，以便从日志返回详细信息。 有关详细信息，请参阅 [Azure Monitor 日志入门](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob 存储](https://docs.azure.cn/zh-cn/storage/blobs/storage-blobs-overview) | 记录的事件和查询指标，基于下面的架构。 事件记录到 Blob 容器并存储在 JSON 文件中。 使用 JSON 编辑器来查看文件内容。|
-| [事件中心](https://docs.azure.cn/zh-cn/event-hubs/) | 记录的事件和查询指标，基于本文中记录的架构。 对于很大的日志，请选择此项作为备用数据收集服务。 |
+| [Application Insights](https://docs.azure.cn/azure-monitor/app/app-insights-overview) | 记录的事件和查询指标，基于下面的架构并与应用中的用户事件关联。 这是唯一会考虑用户操作或信号的解决方案，它会映射用户发起的搜索中的事件，而不会筛选应用程序代码提交的请求。 若要使用此方法，请将检测代码复制并粘贴到源文件中，以便将请求信息路由到 Application Insights。 有关详细信息，请参阅[搜索流量分析](search-traffic-analytics.md)。 |
+| [Azure Monitor 日志](https://docs.azure.cn/azure-monitor/log-query/log-query-overview) | 记录的事件和查询指标，基于下面的架构。 事件记录到 Log Analytics 工作区。 可以针对工作区运行查询，以便从日志返回详细信息。 有关详细信息，请参阅 [Azure Monitor 日志入门](https://docs.azure.cn/azure-monitor/learn/tutorial-viewdata) |
+| [Blob 存储](https://docs.azure.cn/storage/blobs/storage-blobs-overview) | 记录的事件和查询指标，基于下面的架构。 事件记录到 Blob 容器并存储在 JSON 文件中。 使用 JSON 编辑器来查看文件内容。|
+| [事件中心](https://docs.azure.cn/event-hubs/) | 记录的事件和查询指标，基于本文中记录的架构。 对于很大的日志，请选择此项作为备用数据收集服务。 |
 
-Azure Monitor 日志和 Blob 存储均以免费共享服务的形式提供，让你可以在 Azure 订阅的生存期内免费试用它。 Application Insights 可以免费注册和使用，前提是应用程序数据大小不超出特定限制（有关详细信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/monitor/)）。
+Azure Monitor 日志和 Blob 存储均以免费共享服务的形式提供，让你可以在 Azure 订阅的生存期内免费试用它。 Application Insights 可以免费注册和使用，前提是应用程序数据大小不超出特定限制（有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/monitor/)）。
 
 下一部分详述如何通过多个步骤来启用和使用 Azure Blob 存储，以便收集和访问 Azure 搜索操作创建的日志数据。
 
@@ -76,7 +74,7 @@ Azure Monitor 日志和 Blob 存储均以免费共享服务的形式提供，让
 
 本部分介绍如何使用 Blob 存储来存储记录的事件和指标数据。
 
-1. [创建存储帐户](https://docs.azure.cn/zh-cn/storage/common/storage-quickstart-create-account)（如果还没有）。 可以将它置于 Azure 搜索所在的资源组中，这样当你以后需要删除本练习中使用的所有资源时，就可以简化清理过程。
+1. [创建存储帐户](https://docs.azure.cn/storage/common/storage-quickstart-create-account)（如果还没有）。 可以将它置于 Azure 搜索所在的资源组中，这样当你以后需要删除本练习中使用的所有资源时，就可以简化清理过程。
 
    存储帐户必须存在于 Azure 搜索所在的区域。
 
@@ -115,11 +113,11 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | Name | 类型 | 示例 | 注释 |
 | --- | --- | --- | --- |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |操作的时间戳 |
-| ResourceId |字符串 |“/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE” |ResourceId |
-| operationName |字符串 |“Query.Search” |操作的名称 |
-| operationVersion |字符串 |“2019-05-06” |使用的 api-version |
-| category |字符串 |“OperationLogs” |常量 |
-| resultType |字符串 |“Success” |可能的值：Success 或 Failure |
+| ResourceId |string |“/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE” |ResourceId |
+| operationName |string |“Query.Search” |操作的名称 |
+| operationVersion |string |“2019-05-06” |使用的 api-version |
+| category |string |“OperationLogs” |常量 |
+| resultType |string |“Success” |可能的值：Success 或 Failure |
 | resultSignature |int |200 |HTTP 结果代码 |
 | durationMS |int |50 |操作持续时间，以毫秒为单位 |
 | properties |object |请参阅下表 |包含特定于操作的数据的对象 |
@@ -128,10 +126,10 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 | Name | 类型 | 示例 | 注释 |
 | --- | --- | --- | --- |
-| 说明 |字符串 |“GET /indexes('content')/docs” |操作的终结点 |
-| 查询 |字符串 |“?search=AzureSearch&$count=true&api-version=2019-05-06” |查询参数 |
+| 说明 |string |“GET /indexes('content')/docs” |操作的终结点 |
+| 查询 |string |“?search=AzureSearch&$count=true&api-version=2019-05-06” |查询参数 |
 | 文档 |int |42 |处理的文档数目 |
-| IndexName |字符串 |“testindex” |与操作关联的索引名称 |
+| IndexName |string |“testindex” |与操作关联的索引名称 |
 
 ## <a name="metrics-schema"></a>度量值架构
 
@@ -139,15 +137,15 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 | Name | 类型 | 示例 | 注释 |
 | --- | --- | --- | --- |
-| ResourceId |字符串 |“/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE” |资源 ID |
-| metricName |字符串 |“Latency” |度量值名称 |
+| ResourceId |string |“/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE” |资源 ID |
+| metricName |string |“Latency” |度量值名称 |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |操作的时间戳 |
 | average |int |64 |度量值时间间隔内原始样本的平均值 |
 | 最小值 |int |37 |度量值时间间隔内原始样本的最小值 |
 | 最大值 |int |78 |度量值时间间隔内原始样本的最大值 |
 | total |int |258 |度量值时间间隔内原始样本的总计值 |
 | 计数 |int |4 |用于生成度量值的原始样本数 |
-| timegrain |字符串 |“PT1M” |采用 ISO 8601 的度量值时间粒度 |
+| timegrain |string |“PT1M” |采用 ISO 8601 的度量值时间粒度 |
 
 所有度量值会按一分钟的时间间隔报告。 每个度量值都会显示每分钟的最小、最大和平均值。
 
@@ -171,12 +169,12 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="use-system-apis"></a>使用系统 API
 Azure 搜索 REST API 和 .NET SDK 支持采用编程方式访问服务指标、索引和索引器信息，以及文档计数。
 
-* [获取服务统计信息](https://docs.microsoft.com/zh-cn/rest/api/searchservice/get-service-statistics)
-* [获取索引统计信息](https://docs.microsoft.com/zh-cn/rest/api/searchservice/get-index-statistics)
-* [计数文档](https://docs.microsoft.com/zh-cn/rest/api/searchservice/count-documents)
-* [获取索引器状态](https://docs.microsoft.com/zh-cn/rest/api/searchservice/get-indexer-status)
+* [获取服务统计信息](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics)
+* [获取索引统计信息](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)
+* [计数文档](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [获取索引器状态](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
-若要使用 PowerShell 或 Azure CLI 来启用监视，请参阅[此处](https://docs.azure.cn/zh-cn/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs)的文档。
+若要使用 PowerShell 或 Azure CLI 来启用监视，请参阅[此处](https://docs.azure.cn/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs)的文档。
 
 ## <a name="next-steps"></a>后续步骤
 

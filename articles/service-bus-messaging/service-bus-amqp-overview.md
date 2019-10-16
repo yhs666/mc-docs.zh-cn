@@ -12,22 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 07/18/2019
-ms.date: 01/23/2019
+origin.date: 09/25/2018
+ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 07289b0cc4f117e6562fbad1d25ed237db87f7d5
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 494645f40c61efb8990761052384ee483f8404fd
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544367"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330333"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 
 Azure 服务总线云服务和本地 [Windows Server 服务总线（服务总线 1.1）](https://msdn.microsoft.com/library/dn282144.aspx)均支持高级消息队列协议 (AMQP) 1.0。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。 可以借助使用不同语言和框架构建的且运行在不同操作系统上的组件来构建应用程序。 所有这些组件均可连接到服务总线，并且能够高效且完全无损地无缝交换结构化业务消息。
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>简介：什么是 AMQP 1.0 以及为何它很重要？
-
 通常，面向消息的中间件产品始终使用专用协议来支持客户端应用程序和代理之间的通信。 这意味着，在您选择特定供应商的消息传递代理后，您必须使用该供应商的库将您的客户端应用程序连接到该代理。 这将导致在一定程度上依赖于该供应商，因为将应用程序传送到其他产品需要对所有已连接应用程序进行代码改写。 
 
 此外，连接来自不同供应商的消息传递代理比较棘手。 这通常需要通过应用程序级桥接来将消息从一个系统移到另一个系统，并在其专用消息格式之间进行转换。 这是一个常见的要求；例如，在必须向较旧的独立系统提供新的统一接口时，或者在合并后集成 IT 系统时。
@@ -37,33 +36,31 @@ Azure 服务总线云服务和本地 [Windows Server 服务总线（服务总线
 这些问题推动了高级消息队列协议 (AMQP) 1.0 的开发。 这种协议源于 JP Morgan Chase，像多数金融服务公司一样，该公司大量使用面向消息的中间件。 目标非常简单：就是创建一个开放标准消息传送协议，从而能够借助使用不同语言、框架和操作系统构建的组件来构建基于消息的应用程序，而所有这些应用程序都使用各个供应商提供的同类最佳组件。
 
 ## <a name="amqp-10-technical-features"></a>AMQP 1.0 技术特性
-
 AMQP 1.0 是一个高效、可靠的线级消息传递协议，可用于构建强大、跨平台的消息传递应用程序。 协议有一个简单的目标：定义用于在两方之间安全、可靠且高效传输消息的机制。 这些消息本身使用可移植数据表示进行编码，这种表示支持不同发送者和接收者完全无损地交换结构化业务消息。 下面简要介绍几个最重要的特性：
 
-*    **高效**：AMQP 1.0 是一个面向连接的协议，它将二进制编码用于协议指令以及通过该协议传输的业务消息。 它融合了复杂的流控制方案，可最大限度地利用网络和已连接组件。 也就是说，该协议旨在实现有效性、灵活性和互操作性之间的平衡。
-*    **可靠**：使用 AMQP 1.0 协议交换消息时，可以获得一系列可靠性保证（从即发即弃到可靠的恰一次确认传送）。
-*    **灵活**：AMQP 1.0 是一个灵活的协议，可用于支持不同的拓扑。 可以将同一协议用于客户端到客户端、客户端到代理以及代理到代理通信。
-*    **独立于代理模型**：AMQP 1.0 规范对代理所使用的消息传递模型不作任何要求。 这意味着可以向现有消息传送代理中轻松添加 AMQP 1.0 支持。
+* **高效**：AMQP 1.0 是一个面向连接的协议，它将二进制编码用于协议指令以及通过该协议传输的业务消息。 它融合了复杂的流控制方案，可最大限度地利用网络和已连接组件。 也就是说，该协议旨在实现有效性、灵活性和互操作性之间的平衡。
+* **可靠**：使用 AMQP 1.0 协议交换消息时，可以获得一系列可靠性保证（从即发即弃到可靠的恰一次确认传送）。
+* **灵活**：AMQP 1.0 是一个灵活的协议，可用于支持不同的拓扑。 可以将同一协议用于客户端到客户端、客户端到代理以及代理到代理通信。
+* **独立于代理模型**：AMQP 1.0 规范对代理所使用的消息传递模型不作任何要求。 这意味着可以向现有消息传送代理中轻松添加 AMQP 1.0 支持。
 
 ## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 是一种标准（带有大写字母“S”）
-
 AMQP 1.0 是一种国际标准，已通过 ISO 和 IEC 的认证，认证编号为 ISO/IEC 19464:2014。
 
 自 2008 年以来，AMQP 1.0 一直由一个由 20 多家公司（包括技术提供商和最终用户企业）组成的核心小组进行开发。 在此期间，用户企业提供其实际业务需求，技术供应商则开发该协议来满足这些需求。 在整个过程中，供应商参加了研讨会，并在会上协作验证了其实现之间的互操作性。
 
 2011 年 10 月，开发工作提交给结构化信息标准促进组织 (Organization for the Advancement of Structured Information Standards，OASIS) 内的技术委员会，随后 OASIS AMQP 1.0 标准于 2012 年 10 月发布。 在开发该标准期间，以下公司参与了技术委员会的工作：
 
-*    **技术供应商**：Axway Software、Huawei Technologies、IIT Software、INETCO Systems、Kaazing、Microsoft、Mitre Corporation、Primeton Technologies、Progress Software、Red Hat、SITA、Software AG、Solace Systems、VMware、WSO2、Zenika。
-*    **用户企业**：Bank of America、Credit Suisse、Deutsche Boerse、Goldman Sachs、JPMorgan Chase。
+* **技术供应商**：Axway Software、Huawei Technologies、IIT Software、INETCO Systems、Kaazing、Microsoft、Mitre Corporation、Primeton Technologies、Progress Software、Red Hat、SITA、Software AG、Solace Systems、VMware、WSO2、Zenika。
+* **用户企业**：Bank of America、Credit Suisse、Deutsche Boerse、Goldman Sachs、JPMorgan Chase。
 
 开放标准的公认好处包括：
 
-*    供应商锁定的几率较低
-*    互操作性
-*    有大量库和工具可供使用
-*    不会过时
-*    随时可找到知识渊博的工作人员
-*    风险较低且可控
+* 供应商锁定的几率较低
+* 互操作性
+* 有大量库和工具可供使用
+* 不会过时
+* 随时可找到知识渊博的工作人员
+* 风险较低且可控
 
 ## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 和 Service Bus
 
@@ -83,17 +80,15 @@ Azure 服务总线中对 AMQP 1.0 的支持意味着现在可以通过一系列�
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .Net Lite |
+| C# |AMQP .NET Lite |
 
 图 2：**AMQP 1.0 客户端库表**
 
 ## <a name="summary"></a>摘要
-
-*    AMQP 1.0 是一个开放、可靠的消息传递协议，可用于构建跨平台的混合应用程序。 AMQP 1.0 是一种 OASIS 标准。
-*    Azure 服务总线和 Windows Server 服务总线（服务总线 1.1）都支持 AMQP 1.0。 定价与现有协议相同。
+* AMQP 1.0 是一个开放、可靠的消息传递协议，可用于构建跨平台的混合应用程序。 AMQP 1.0 是一种 OASIS 标准。
+* Azure 服务总线和 Windows Server 服务总线（服务总线 1.1）都支持 AMQP 1.0。 定价与现有协议相同。
 
 ## <a name="next-steps"></a>后续步骤
-
 准备好了解详细信息？ 请访问以下链接：
 
 * [使用 AMQP 通过 .NET 使用服务总线]

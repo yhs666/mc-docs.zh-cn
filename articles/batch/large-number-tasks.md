@@ -8,19 +8,19 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
+origin.date: 08/24/2018
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 81955ef9c8f0da647d5a0936cf657fd5907b230c
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 132fe94179304976665aac57daaab0a2ef4fa774
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818453"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329788"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>将大量的任务提交到 Batch 作业
 

@@ -11,17 +11,16 @@ ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 37a47906d4414d20e8c1728b65f66918a8252288
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: d4f2effe92c29629faa9674e80b94fa9ba2b02e7
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539128"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272441"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
 本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -93,7 +92,7 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
 不允许使用以下用户名：
 
 <!--MOONCAKE: CUSTOMIZED ON video-->
-sss
+
 | | | | |
 |-----------------|-----------|--------------------|----------|
 | `administrator` | `admin`   | `user`             | `user1`  |

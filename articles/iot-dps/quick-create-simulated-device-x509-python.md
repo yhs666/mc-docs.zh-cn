@@ -4,19 +4,19 @@ description: Azure 快速入门 - 使用适用于 IoT 中心设备预配服务�
 author: wesmc7777
 ms.author: v-yiso
 origin.date: 12/21/2017
-ms.date: 06/03/2019
+ms.date: 10/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: a3d23678a69ae635bf0c6575ed91942e647f3b4f
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 8a4f7f22dee8c15d1d13dfec0c99ddf68099b0e2
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195003"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340765"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用适用于 IoT 中心设备预配服务的 Python 设备 SDK 创建和预配模拟的 X.509 设备
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -32,6 +32,9 @@ Azure IoT 设备预配服务支持两类注册：
 本文将演示单个注册。
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
+
+> [!NOTE]
+> 本指南仅适用于现已弃用的 V1 Python SDK。 V2 尚不支持模拟 X.509 设备。 该团队目前正在努力使 V2 具有功能奇偶一致性。
 
 ## <a name="prepare-the-environment"></a>准备环境 
 

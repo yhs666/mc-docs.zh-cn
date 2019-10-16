@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 03/26/2019
-ms.date: 06/24/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: dc44bb5e19a9d62afd4ec34395ce89fd28525294
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: c7e65e8d4596b1914ab388b214500b0845a2c31c
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878763"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292559"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虚拟网络体系结构
 
@@ -37,7 +37,7 @@ Azure HDInsight 群集包含不同类型的虚拟机（或节点）。 每个节
 
 下图显示了 HDInsight 节点和网络资源在 Azure 中的位置。
 
-![在 Azure 自定义 VNET 中创建的 HDInsight 实体示意图](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![在 Azure 自定义 VNET 中创建的 HDInsight 实体示意图](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
 将 HDInsight 部署到 Azure 虚拟网络时提供的默认资源包括上表中所述的群集节点类型，以及用于支持在虚拟网络与外部网络之间进行通信的网络设备。
 

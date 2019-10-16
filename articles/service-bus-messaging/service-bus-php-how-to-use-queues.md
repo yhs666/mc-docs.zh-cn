@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/06/2019
+origin.date: 04/10/2019
+ms.date: 09/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b058c8bfd70911e84f8f434b82f59cd5487b933d
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 6027d70749fb90eaa50679f8d300b9ddc18af603
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169605"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330136"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -35,7 +36,7 @@ ms.locfileid: "70169605"
 
         > [!NOTE]
         > 在本教程中，需使用 PHP 在服务总线命名空间中创建一个**队列**。 
-3. [Azure SDK for PHP](../php-download-sdk.md)
+3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
 创建访问 Azure Blob 服务的 PHP 应用程序的唯一要求是从代码内引用[用于 PHP 的 Azure SDK](../php-download-sdk.md) 中的类。 可以使用任何开发工具或记事本创建应用程序。

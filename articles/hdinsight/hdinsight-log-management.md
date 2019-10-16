@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 03/19/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 87b6f99d5b4e7e5d012d68e2c987c3d9fdb76bfb
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 296645c87ed4459fe4aa5d867cd24f216073a4e0
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737232"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292577"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 
@@ -81,11 +81,11 @@ Apache Ambari 提供 Web UI 和 REST API 来简化 HDInsight 群集的管理、�
 
 若要打开服务视图列表，请在 Azure 门户页上选择 HDInsight 对应的“Ambari 视图”窗格。   此列表的内容根据安装的库而异。  例如，可能会显示“YARN 队列管理器”、“Hive 视图”和“Tez 视图”。  选择任一服务链接以查看配置和服务信息。  Ambari UI 中的“堆栈和版本”页提供有关群集服务配置和服务版本历史记录的信息。  若要导航到 Ambari UI 的此部分，请选择“管理”菜单，然后选择“堆栈和版本”。    选择“版本”选项卡查看服务版本信息。 
 
-![堆栈和版本](./media/hdinsight-log-management/stack-versions.png)
+![堆栈和版本](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-使用 Ambari UI 可以下载群集中特定主机（或节点）上运行的任一（或所有）服务的配置。  选择“主机”菜单，然后选择所需主机的链接。  在该主机的页面上，依次选择“主机操作”按钮和“下载客户端配置”。   
+使用 Ambari UI 可以下载群集中特定主机（或节点）上运行的任一（或所有）服务的配置。  选择“主机”菜单，然后选择所需主机的链接。  在该主机的页面上，依次选择“主机操作”按钮和“下载客户端配置”。  
 
-![主机客户端配置](./media/hdinsight-log-management/client-configs.png)
+![主机客户端配置](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>查看脚本操作日志
 
@@ -95,7 +95,7 @@ Apache Ambari 提供 Web UI 和 REST API 来简化 HDInsight 群集的管理、�
 
 下一步是查看各种服务的作业执行日志文件。  服务可能包括 Apache HBase、Apache Spark 等等。 Hadoop 群集生成大量的详细日志，因此，确定有用（以及无用）的日志可能很耗时。  了解日志记录系统对于有针对性的日志文件管理非常重要。  下面是一个示例日志文件。
 
-![HDInsight 日志文件示例](./media/hdinsight-log-management/logs.png)
+![HDInsight 日志文件示例](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>访问 Hadoop 日志文件
 
@@ -150,7 +150,7 @@ YARN ResourceManager UI 在群集头节点上运行，可通过 Ambari Web UI �
 
 对于某些日志文件，可以使用价格较低的日志文件存档方法。 对于 Azure 资源管理器活动日志，可以浏览使用 Azure 门户来探索此方法。  在 Azure 门户中选择 HDInsight 实例对应的“活动日志”链接，设置 ARM 日志的存档。   在“活动日志”搜索页面顶部，选择“导出”菜单项打开“导出活动日志”窗格。    填写订阅、区域、是否导出到存储帐户，以及日志的保留天数。 在同一窗格中，还可以指定是否导出到事件中心。 
 
-![导出日志文件](./media/hdinsight-log-management/archive.png)
+![导出日志文件](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 或者，可以使用 PowerShell 编写日志存档的脚本。  有关示例 PowerShell 脚本，请参阅[将 Azure 自动化日志存档到 Azure Blob 存储](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8)。
 

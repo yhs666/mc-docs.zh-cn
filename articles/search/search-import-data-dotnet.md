@@ -3,19 +3,19 @@ title: 将数据加载到 C# (.NET SDK) 中的 Azure 搜索索引 - Azure 搜索
 description: 了解如何使用 C# 示例代码和 .NET SDK 将数据上传到 Azure 搜索中的全文可搜索索引。
 author: heidisteen
 manager: cgronlun
-ms.author: v-biyu
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 03/20/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: 11f8c931d9b61da70bd2795d5680ba3b534e4131
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.openlocfilehash: 5a744cd50a87415460338512fbc29720158ee3b6
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004862"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674386"
 ---
 # <a name="quickstart-2---load-data-to-an-azure-search-index-using-c"></a>快速入门：2 - 使用 C# 将数据加载到 Azure 搜索索引
 

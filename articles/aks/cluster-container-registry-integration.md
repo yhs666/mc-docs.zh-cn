@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 08/15/2018
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2f99223aef07d5ecb7d57991e6415bbdae4f993e
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1e8812e178c565bc3d89ca753bc346aecfdefeb1
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993781"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155863"
 ---
 <!--Verify successfully-->
 
@@ -40,7 +40,7 @@ ms.locfileid: "69993781"
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>安装最新的 AKS CLI 预览版扩展
 
-需要 **aks-preview 0.4.8** 扩展或更高版本。
+需要 **aks-preview 0.4.13** 扩展或更高版本。
 
 ```azurecli
 az extension remove --name aks-preview 
@@ -49,20 +49,37 @@ az extension add -y --name aks-preview
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>通过 ACR 集成创建新的 AKS 群集
 
-可以在一开始创建 AKS 群集时设置 AKS 与 ACR 的集成。  若要允许 AKS 群集与 ACR 交互，请使用 Azure Active Directory **服务主体**。 以下 CLI 命令在指定的资源组中创建 ACR，并为服务主体配置相应的 **ACRPull** 角色。 如果 *acr-name* 不存在，则会自动创建默认的 ACR 名称 `aks<resource-group>acr`。  为下面的参数提供有效值。  括号中的参数为可选。
+可以在一开始创建 AKS 群集时设置 AKS 与 ACR 的集成。  若要允许 AKS 群集与 ACR 交互，请使用 Azure Active Directory **服务主体**。 以下 CLI 命令允许你在订阅中授权现有 ACR，并为服务主体配置适当的 **ACRPull** 角色。 为下面的参数提供有效值。  括号中的参数为可选。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az login
-az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
+
+# Create one ACR in case you do not have an existing one.
+az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
+
+**ACR 资源 ID 采用以下格式： 
+
+/subscriptions/<subscription-d>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/{name} 
+
 此步骤可能需要几分钟才能完成。
 
-## <a name="create-acr-integration-for-existing-aks-clusters"></a>为现有的 AKS 群集创建 ACR 集成。
+## <a name="configure-acr-integration-for-existing-aks-clusters"></a>为现有的 AKS 群集配置 ACR 集成
 
-为下面的 **acr-name** 和 **acr-resource-id** 提供有效值，将 ACR 与现有的 ACR 群集集成。
+通过为 **acr-name** 或 **acr-resource-id** 提供有效值，将现有 ACR 与现有 AKS 群集集成，如下所示。
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acr-resource-id>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
+```
+
+还可以使用以下命令删除 ACR 与 AKS 群集之间的集成
+```azurecli
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
 ## <a name="log-in-to-your-acr"></a>登录到 ACR
@@ -142,5 +159,4 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 
-<!-- Update_Description: new article about cluster container registry integration -->
-<!--ms.date: 08/26/2019-->
+<!-- Update_Description: wording update -->

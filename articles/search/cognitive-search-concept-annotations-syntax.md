@@ -2,22 +2,21 @@
 title: 认知搜索管道中的引用输入和输出 - Azure 搜索
 description: 说明了注释语法，以及如何在 Azure 搜索的认知搜索管道中引用技能集的输入和输出中的注释。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: c2311b15dcb0ed901daa4553234dac6d0a37f404
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: db5985ffc4faf4890a4fe474c0a650f34c570341
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004669"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674411"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何在认知搜索技能集中引用注释
 
@@ -73,7 +72,7 @@ ms.locfileid: "66004669"
   {
     "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
     "description": "Fictitious skill that gets the last name from a full name",
-    "uri": "http://names.azurewebsites.net/api/GetLastName",
+    "uri": "http://names.chinacloudapi.cn/api/GetLastName",
     "context" : "/document/people/*",
     "defaultLanguageCode": "en",
     "inputs": [
@@ -105,7 +104,7 @@ ms.locfileid: "66004669"
   {
     "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
     "description": "Fictitious skill that gets the most common string from an array of strings",
-    "uri": "http://names.azurewebsites.net/api/MostCommonString",
+    "uri": "http://names.chinacloudapi.cn/api/MostCommonString",
     "context" : "/document",
     "inputs": [
       {

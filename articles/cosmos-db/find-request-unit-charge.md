@@ -3,16 +3,16 @@ title: 在 Azure Cosmos DB 中查找请求单位 (RU) 费用
 description: 了解如何查找针对 Azure Cosmos 容器执行的任何操作所产生的请求单位 (RU) 费用。
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
-origin.date: 06/14/2019
-ms.date: 09/09/2019
+ms.topic: conceptual
+origin.date: 09/01/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1636e810b18e0cea348467a792a2c2bf081359e8
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 84ce0eff20b16636bb6c13ddf2e274786305810f
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254761"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306751"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中查找请求单位费用
 
@@ -90,7 +90,7 @@ string queryText = "SELECT * FROM c";
 ItemResponse<dynamic> itemResponse = await container.CreateItemAsync<dynamic>(
     item: new { id = itemId, pk = partitionKey },
     partitionKey: new PartitionKey(partitionKey));
-var requestCharge = itemResponse.RequestCharge;
+double requestCharge = itemResponse.RequestCharge;
 
 Scripts scripts = container.Scripts;
 StoredProcedureExecuteResponse<object> sprocResponse = await scripts.ExecuteStoredProcedureAsync<object>(
@@ -182,10 +182,12 @@ while (query.hasMoreResults()) {
 从 [Python SDK](https://pypi.org/project/azure-cosmos/) 返回的 `CosmosClient` 对象公开 `last_response_headers` 字典，该字典可映射底层 HTTP API 针对上次执行的操作返回的所有标头。 请求费用显示在 `x-ms-request-charge` 键下：
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
@@ -203,7 +205,7 @@ RU 费用由名为 `getLastRequestStatistics` 的自定义[数据库命令](http
 
 1. [创建新的 Azure Cosmos 帐户](create-mongodb-dotnet.md#create-a-database-account)并在其中植入数据，或选择一个已包含数据的现有帐户。
 
-1. 转到“数据资源管理器”窗格，然后选择要处理的集合。 
+1. 转到“数据资源管理器”窗格，然后选择要处理的容器。 
 
 1. 选择“新建查询”  。
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序排查连接问题 - Azure CLI 2.0 | Azure
-description: 了解如何通过 Azure CLI 2.0 使用 Azure 网络观察程序的排查连接问题功能。
+title: 使用 Azure 网络观察程序排查连接问题 - Azure CLI | Microsoft Docs
+description: 了解如何通过 Azure CLI 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
 author: lingliwu
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 10/19/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 55066496a49f409b02c8bf60dc8affc510f2b199
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5f2761857aa6b00ece5a5a673d4ab4218d276b72
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659077"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674709"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>通过 Azure CLI 使用 Azure 网络观察程序排查连接问题
 
@@ -38,7 +38,7 @@ ms.locfileid: "52659077"
 * 用以排查连接问题的虚拟机。
 
 > [!IMPORTANT]
-> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>检查与虚拟机的连接
 
@@ -52,7 +52,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>响应
 
-以下响应来自前面的示例。  在此响应中，`ConnectionStatus` 为“不可访问”。 可以看到所有探测都发送失败。 由于用户配置的名为 **UserRule_Port80** 的 `NetworkSecurityRule` 已配置为阻止端口 80 上的传入流量，虚拟设备上的连接失败。 可以使用此信息来了解连接问题。
+以下响应来自前面的示例。  在此响应中，`ConnectionStatus` 为“不可访问”  。 可以看到所有探测都发送失败。 由于用户配置的名为 **UserRule_Port80** 的 `NetworkSecurityRule` 已配置为阻止端口 80 上的传入流量，虚拟设备上的连接失败。 可以使用此信息来了解连接问题。
 
 ```json
 {
@@ -133,7 +133,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>响应
 
-在以下示例中，`connectionStatus` 显示为“不可访问”。 在 `hops` 详细信息中，可以在 `issues` 下看到由于 `UserDefinedRoute` 流量已被阻止。
+在以下示例中，`connectionStatus` 显示为“不可访问”  。 在 `hops` 详细信息中，可以在 `issues` 下看到由于 `UserDefinedRoute` 流量已被阻止。
 
 ```json
 {
@@ -186,12 +186,12 @@ pNic0/ipConfigurations/ipconfig1",
 ### <a name="example"></a>示例
 
 ```azurecli
-az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
 ### <a name="response"></a>响应
 
-在以下响应中，可以看到 `connectionStatus` 显示为“可以访问”。 连接成功后，提供了延迟值。
+在以下响应中，可以看到 `connectionStatus` 显示为“可以访问”  。 连接成功后，提供了延迟值。
 
 ```json
 {
@@ -237,7 +237,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>响应
 
-以下 json 是运行前面 cmdlet 的示例响应。 由于此检查成功，`connectionStatus` 属性显示为“可以访问”。  提供了有关到达存储 Blob 所需的跃点数和延迟的详细信息。
+以下 json 是运行前面 cmdlet 的示例响应。 由于此检查成功，`connectionStatus` 属性显示为“可以访问”  。  提供了有关到达存储 Blob 所需的跃点数和延迟的详细信息。
 
 ```json
 {

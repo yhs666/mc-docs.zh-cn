@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, vanto
-manager: digimobile
 origin.date: 07/02/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 296628d170cbc88e1a215641af4021b3bdbdaf87
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: e158e0c9889ec84d03d0bc19c59e3c5d3b5cb23a
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544347"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262961"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 连接体系结构
 
@@ -60,15 +59,12 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 
 下表按区域列出了网关的 IP 地址。 若要连接到 Azure SQL 数据库，需要允许到/来自该区域的**所有**网关的网络流量。
 
-接下来，我们将在每个区域中添加更多网关，并停用下表的“已解除授权的网关 IP 地址”列中的网关。
-
-
-| 区域名称          | 网关 IP 地址 | 已解除授权的网关 </br> IP 地址| 关于解除授权的说明 | 
-| --- | --- | --- | --- |
-| 中国东部         | 139.219.130.35     |                 | |
-| 中国东部 2         | 40.73.82.1         |                 | |
-| 中国北部        | 139.219.15.17      |                 | |
-| 中国北部 2        | 40.73.50.0         |                 | |
+| 区域名称          | 网关 IP 地址 |
+| --- | --- |
+| 中国东部           | 139.219.130.35     |
+| 中国东部 2         | 40.73.82.1         |
+| 中国北部          | 139.219.15.17      |
+| 中国北部 2        | 40.73.50.0         |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>更改 Azure SQL 数据库连接策略
 

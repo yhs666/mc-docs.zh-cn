@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
-manager: digimobile
 origin.date: 02/20/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: b20d706055b442553c91fb9c99af973fd0bfb0b0
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: 10429cbbafa59afea93d7c4162cd6ee9252133fa
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373030"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262930"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -117,8 +116,9 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 
 Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据库的以下方法：
 
-- 使用集成的 Windows 身份验证
-- 使用 Azure AD 主体名称和密码
+- Azure Active Directory 密码
+- 集成式 Azure Active Directory
+- 采用了 MFA 的通用 Azure Active Directory
 - 使用应用程序令牌身份验证
 
 Azure AD 服务器主体（登录名）（**公共预览版**）支持以下身份验证方法：

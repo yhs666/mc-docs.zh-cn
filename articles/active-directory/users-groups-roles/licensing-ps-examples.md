@@ -11,16 +11,16 @@ ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 origin.date: 03/18/2019
-ms.date: 08/12/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 329b695be238357135477ea4d2d2b0ff567f004d
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 9bce075b72c7058870e2f42c7cdbd4de36a34a2e
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973503"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292128"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 和 Graph 示例
 
@@ -54,7 +54,7 @@ EMSPREMIUM
 使用以下示例从 Microsoft Graph 获取相同的数据。
 
 ```
-GET https://microsoftgraph.chinacloudapi.cn/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
+GET https://microsoftgraph.chinacloudapi.cn/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
 ```
 输出：
 ```
@@ -632,3 +632,4 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 * [Azure Active Directory 基于组的许可的其他方案](licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
 
+<!-- Update_Description: link update -->

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 08/12/2019
-ms.openlocfilehash: e38ea5e1639a416b8b1c1c5b202d0214fb46c76d
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.date: 10/21/2019
+ms.openlocfilehash: 008af727398d00aa24bdabc1eb4ec99daf4e04b0
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68733521"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292399"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -39,8 +39,7 @@ ms.locfileid: "68733521"
 * [想要添加的策略为何在策略编辑器中不可用？](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [如何在单个 API 中设置多个环境？](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [是否可将 SOAP 用于 API 管理？](#can-i-use-soap-with-api-management)
-* [API 管理网关 IP 地址是否不变？是否可以在防火墙规则中使用它？](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* 是否可以使用 AD FS 安全配置 OAuth 2.0 授权服务器？
+* [是否可以使用 AD FS 安全配置 OAuth 2.0 授权服务器？](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [向多个地理位置进行部署时，API 管理使用何种路由方法？](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [是否可以使用 Azure 资源管理器模板创建 API 管理服务实例？](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [是否可以为后端使用自签名 SSL 证书？](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -108,19 +107,6 @@ ms.locfileid: "68733521"
 
 ### <a name="can-i-use-soap-with-api-management"></a>是否可将 SOAP 用于 API 管理？
 当前已提供 [SOAP 传递](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支持。 管理员可以导入其 SOAP 服务的 WSDL，以便 Azure API 管理创建一个 SOAP 前端。 开发人员门户文档、测试控制台、策略和分析都可用于 SOAP 服务。
-
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 管理网关 IP 地址是否不变？ 是否可以在防火墙规则中使用它？
-在 API 管理的所有层中，API 管理租户的公用 IP 地址 (VIP) 在租户生存期中是静态的，但有一些例外。 IP 地址在以下情况下更改：
-
-* 服务被删除并重新创建。
-* 服务订阅被[暂停](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)或[警告](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)（例如，由于未付款），然后被恢复。
-* 添加或删除 Azure 虚拟网络（只能在开发人员层和高级层使用虚拟网络）。
-
-对于多区域部署，仅当区域先空出然后恢复时，区域地址会更改（只能在高级层使用多区域部署）。
-
-对于为多区域部署配置的高级层租户，每个区域分配一个公共 IP 地址。
-
-可在 Azure 门户中的租户页面上获取一个 IP 地址（或者在多区域部署中获取多个 IP 地址）。
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>是否可以使用 AD FS 安全配置 OAuth 2.0 授权服务器？
 若要了解如何使用 Active Directory 联合身份验证服务 (AD FS) 安全配置 OAuth 2.0 授权服务器，请参阅[在 API 管理中使用 ADFS](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/)。

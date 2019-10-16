@@ -1,5 +1,5 @@
 ---
-title: 模式 - LUIS
+title: 教程：模式 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 使用模式来改进意向和实体预测，同时提供更少的示例话语。 该模式通过模板话语示例提供，该示例包括用于标识实体和可忽略文本的语法。
 services: cognitive-services
@@ -9,14 +9,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
+origin.date: 09/25/2019
 ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af929d7a66eec59d31b5163b0d76cfbea72deac6
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 1841fefb86169ffe6ca2bc239754064c9fd44e76
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103970"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329950"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教程：添加常见的模式模板话语格式
 

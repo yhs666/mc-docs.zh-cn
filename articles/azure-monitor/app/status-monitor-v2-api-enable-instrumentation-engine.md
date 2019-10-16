@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 6/4/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1553b63936e9861abffdb83bf818ab07393deb25
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: cb10d1a0287ecb8e2ac8109da1c721b31bf8ee21
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736539"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329780"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>状态监视器 v2 API：Enable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>状态监视器 v2 API：Enable-InstrumentationEngine
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 

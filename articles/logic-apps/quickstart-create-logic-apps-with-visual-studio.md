@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom: mvc
 origin.date: 04/25/2019
 ms.author: v-yiso
-ms.date: 09/09/2019
-ms.openlocfilehash: 069cdab5c4a9d8267b44460aa2648fc32f9a57c1
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.date: 10/08/2019
+ms.openlocfilehash: ed3e0c2efe04e6feac35c2e0551e15068722eb51
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174110"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340979"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入门：使用 Azure 逻辑应用创建自动化任务、流程和工作流 - Visual Studio
 
@@ -83,6 +83,8 @@ ms.locfileid: "70174110"
    ![创建 Azure 资源组项目](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > 资源组名称只能包含字母、数字、句点 (`.`)、下划线 (`_`)、连字符 (`-`) 和括号（`(`、`)`），但不能以句点 (`.`) 结尾  。
+   >
    > 如果“云”或“Azure 资源组”未显示，请确保安装 Azure SDK for Visual Studio。  
 
    如果使用 Visual Studio 2019，请执行以下步骤：

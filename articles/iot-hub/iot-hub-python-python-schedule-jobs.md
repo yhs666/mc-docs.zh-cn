@@ -9,15 +9,15 @@ ms.devlang: python
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/30/2019
-ms.date: 09/02/2019
+origin.date: 08/16/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7300e0b454dba73b51caf103a4d333a7b5009540
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 7bcfab0b70d70a1b2c2755223e2938d6eba6e571
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993593"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156052"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -49,16 +49,15 @@ simDevice.py，它使用设备标识连接到 IoT 中心并接收 lockDoor 直�
 
 scheduleJobService.py，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性  。
 
+> [!NOTE]
+> Azure IoT SDK for Python 不直接支持作业功能   。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的**服务客户端 SDK**功能列表。
+>
+
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-下面是必备组件的安装说明。
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
-> [!NOTE]
-> Azure IoT SDK for Python 不直接支持作业功能   。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的**服务客户端 SDK**功能列表。 
-> 
-> 
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -71,83 +70,81 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 本部分将创建一个 Python 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法  。
 
-1. 在命令提示符处，运行以下命令以安装 azure-iot-device-client 包  ：
-   
+1. 在命令提示符处，运行以下命令以安装 **azure-iot-device** 包：
+
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
-1. 使用文本编辑器，在工作目录中创建一个 simDevice.py 文件  。
+   > [!NOTE]
+   > azure-iothub-service-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
+   >
 
-1. 在 simDevice.py 文件的开头添加以下 `import` 语句和变量  。 将 `deviceConnectionString` 替换为上述创建的设备的连接字符串：
-   
+2. 使用文本编辑器，在工作目录中创建一个 simDevice.py 文件  。
+
+3. 在 simDevice.py 文件的开头添加以下 `import` 语句和变量  。 将 `deviceConnectionString` 替换为上述创建的设备的连接字符串：
+
     ```python
+    import threading
     import time
-    import sys
+    from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
-    import iothub_client
-    from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
-    from iothub_client import IoTHubError, DeviceMethodReturnValue
-
-    METHOD_CONTEXT = 0
-    TWIN_CONTEXT = 0
-    WAIT_COUNT = 10
-
-    PROTOCOL = IoTHubTransportProvider.MQTT
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. 添加以下功能回调以处理 lockDoor 方法  ：
-   
-    ```python
-    def device_method_callback(method_name, payload, user_context):
-        if method_name == "lockDoor":
-            print ( "Locking Door!" )
-
-            device_method_return_value = DeviceMethodReturnValue()
-            device_method_return_value.response = "{ \"Response\": \"lockDoor called successfully\" }"
-            device_method_return_value.status = 200
-            return device_method_return_value
-    ```
-
-1. 再添加一个功能回调来处理设备孪生更新：
+4. 添加以下功能回调以处理 lockDoor 方法  ：
 
     ```python
-    def device_twin_callback(update_state, payload, user_context):
-        print ( "")
-        print ( "Twin callback called with:")
-        print ( "payload: %s" % payload )
+    def lockdoor_listener(client):
+        while True:
+            # Receive the direct method request
+            method_request = client.receive_method_request("lockDoor")  # blocking call
+            print( "Locking Door!" )
+
+            resp_status = 200
+            resp_payload = {"Response": "lockDoor called successfully"}
+            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+            client.send_method_response(method_response)
     ```
 
-1. 添加以下代码以注册 **lockDoor** 方法的处理程序。 此外还包含 `main` 例程：
-   
+5. 再添加一个功能回调来处理设备孪生更新：
+
+    ```python
+    def twin_update_listener(client):
+        while True:
+            patch = client.receive_twin_desired_properties_patch()  # blocking call
+            print ("")
+            print ("Twin desired properties patch received:")
+            print (patch)
+    ```
+
+6. 添加以下代码以注册 **lockDoor** 方法的处理程序。 此外还包含 `main` 例程：
+
     ```python
     def iothub_jobs_sample_run():
         try:
-            client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-            client.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
-            client.set_device_twin_callback(device_twin_callback, TWIN_CONTEXT)
+            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            print ( "Direct method initialized." )
-            print ( "Device twin callback initialized." )
-            print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
-        
-            while True:
-                status_counter = 0
-                while status_counter <= WAIT_COUNT:
-                    time.sleep(10)
-                    status_counter += 1
+            print( "Beginning to listen for 'lockDoor' direct method invocations...")
+            lockdoor_listener_thread = threading.Thread(target=lockdoor_listener, args=(client,))
+            lockdoor_listener_thread.daemon = True
+            lockdoor_listener_thread.start()
+
+            # Begin listening for updates to the Twin desired properties
+            print ( "Beginning to listen for updates to Twin desired properties...")
+            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
+            twin_update_listener_thread.daemon = True
+            twin_update_listener_thread.start()
             
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error %s from IoTHub" % iothub_error )
-            return
+            while True:
+                time.sleep(1000)
+
         except KeyboardInterrupt:
-            print ( "IoTHubClient sample stopped" )
+            print ( "IoTHubDeviceClient sample stopped" )
 
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Python jobs sample..." )
-        print ( "    Protocol %s" % PROTOCOL )
-        print ( "    Connection string=%s" % CONNECTION_STRING )
+        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_jobs_sample_run()
     ```
@@ -160,9 +157,27 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 
 ## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+在本文中，你将创建一个在设备上调用直接方法并更新设备孪生的后端服务。 服务需要“服务连接”  权限才能在设备上调用直接方法。 服务还需要“注册表读取”  和“注册表写入”  权限才能读取和写入标识注册表。 没有仅包含这些权限的默认共享访问策略，因此需要创建一个。
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+若要创建授予“服务连接”  、“注册表读取”  和“注册表写入”  权限的共享访问策略，并获取此策略的连接字符串，请执行以下步骤：
+
+1. 在 [Azure 门户](https://portal.azure.cn)中打开 IoT 中心。 若要转到 IoT 中心，最简单的方法是选择“资源组”，接着选择 IoT 中心所在的资源组，然后从资源列表中选择该 IoT 中心。 
+
+2. 在 IoT 中心的左侧窗格中，选择“共享访问策略”  。
+
+3. 从策略列表上方的顶部菜单中选择“添加”  。
+
+4. 在“添加共享访问策略”窗格中，为策略输入一个说明性名称，例如 serviceAndRegistryReadWrite  。  在**权限**下，选择“服务连接”  和“注册表写入”  （选择“注册表写入”  时，会自动选择“注册表读取”  ）。 然后选择“创建”  。
+
+    ![显示如何添加新的共享访问策略](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. 回到“共享访问策略”窗格，从策略列表中选择新的策略  。
+
+6. 在“共享访问密钥”  下，选择“连接字符串 - 主密钥”  所对应的“复制”图标并保存该值。
+
+    ![显示如何检索连接字符串](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+有关 IoT 中心共享访问策略和权限的详细信息，请参阅[访问控制和权限](./iot-hub-devguide-security.md#access-control-and-permissions)。
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
 在本部分中，将创建一个 Python 控制台应用，它使用直接方法在设备上启动远程 lockDoor 并更新设备孪生的属性  。
@@ -173,10 +188,14 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
     pip install azure-iothub-service-client
     ```
 
-1. 使用文本编辑器，在工作目录中创建一个 scheduleJobService.py 文件  。
+   > [!NOTE]
+   > azure-iothub-service-client 和 azure-iothub-device-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
+   >
 
-1. 在 scheduleJobService.py 文件的开头添加以下 `import` 语句和变量  ：
-   
+2. 使用文本编辑器，在工作目录中创建一个 scheduleJobService.py 文件  。
+
+3. 在 scheduleJobService.py 文件的开头添加以下 `import` 语句和变量  。 将 `{IoTHubConnectionString}` 占位符替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串。 将 `{deviceId}` 占位符替换为在[在 IoT 中心注册新设备](#register-a-new-device-in-the-iot-hub)中注册的设备 ID：
+
     ```python
     import sys
     import time
@@ -319,10 +338,9 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 
 1. 可在控制台查看针对直接方法和设备孪生的设备响应。
 
-    ![设备输出][1]
+    ![IoT 中心作业示例 1 - 设备输出](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![服务输出][2]
-
+    ![IoT 中心作业示例 2 - 设备输出](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，使用了作业来安排用于设备的直接方法以及设备孪生属性的更新。

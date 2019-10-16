@@ -4,15 +4,15 @@ description: 本文介绍如何优化 Azure Cosmos DB 中存储的数据的吞�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 09/09/2019
+origin.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: e0860c15b8cb305975abeece27a1490e0b981395
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 1bf8c8a1d059b7ae0defeaaa9bb3a5ffb4ca1ebb
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254856"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306806"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 
@@ -66,7 +66,7 @@ ms.locfileid: "70254856"
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>使用请求的速率限制进行优化
 
-对于不易受延迟影响的工作负荷，可以预配更低的吞吐量，并在实际吞吐量超过预配的吞吐量时，让应用程序处理速率限制。 服务器将抢先结束出现 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 `x-ms-retry-after-ms` 标头，该标头指示重试请求之前用户必须等待的时间长短（以毫秒为单位）。 
+对于不易受延迟影响的工作负荷，可以预配更低的吞吐量，并在实际吞吐量超过预配的吞吐量时，让应用程序处理速率限制。 服务器将抢先结束出现 `RequestRateTooLarge`（HTTP 状态代码 429）的请求并返回 `x-ms-retry-after-ms` 标头，该标头指示重试请求之前用户必须等待的时间长度（以毫秒为单位）。 
 
 ```html
 HTTP Status 429, 
@@ -78,15 +78,13 @@ HTTP Status 429,
 
 本机 SDK（.NET/.NET Core、Java、Node.js 和 Python）隐式捕获此响应，遵循服务器指定的 retry-after 标头，并重试请求。 除非多个客户端同时访问你的帐户，否则下次重试将会成功。
 
-如果累计有多个客户端一贯在超过请求速率的情况下运行，则当前设置为 9 的默认重试计数可能并不足够。 在这种情况下，客户端会向应用程序引发 `DocumentClientException` 并返回状态代码 429。 可以通过在 ConnectionPolicy 实例上设置 `RetryOptions` 来更改默认重试计数。 默认情况下，如果请求继续以高于请求速率的方式运行，则在 30 秒的累积等待时间后返回 DocumentClientException 和状态代码 429。 即使当前的重试计数小于最大重试计数（默认值 9 或用户定义的值），也会发生这种情况。 
+如果累计有多个客户端一贯在超过请求速率的情况下运行，则当前设置为 9 的默认重试计数可能并不足够。 在这种情况下，客户端会向应用程序引发 `DocumentClientException` 并返回状态代码 429。 可以通过在 ConnectionPolicy 实例上设置 `RetryOptions` 来更改默认重试计数。 默认情况下，如果请求继续以高于请求速率的方式运行，则在 30 秒的累积等待时间后返回状态代码为 429 的 `DocumentClientException`。 即使当前的重试计数小于最大重试计数（默认值 9 或用户定义的值），也会发生这种情况。 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 设置为 3，因此，在这种情况下，如果请求操作由于超过集合的预留吞吐量而受到速率限制，则请求操作将重试三次，然后向应用程序引发异常。 [MaxRetryWaitTimeInSeconds](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 设置为 60，因此，在这种情况下，如果自首次请求以来，累积重试等待时间（以秒为单位）超过 60 秒，则会引发异常。
+[MaxRetryAttemptsOnThrottledRequests](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 设置为 3，因此在这种情况下，如果请求操作因超出容器的保留吞吐量而受到速率限制，则请求操作会重试三次，然后再向应用程序引发异常。 [MaxRetryWaitTimeInSeconds](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 设置为 60，因此在这种情况下，如果自第一次请求以来的累积重试等待时间（以秒为单位）超过 60 秒，则会引发异常。
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
@@ -177,6 +175,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 9. 可以进一步执行工作负荷特定的成本优化 - 例如，增加批大小、对跨多个区域的读取操作进行负载均衡，以及删除重复数据（如果适用）。
 
 <!--Not Available on  With Azure Cosmos DB reserved capacity, you can get significant discounts for up to 65% for three years. Azure Cosmos DB reserved capacity model is an upfront commitment on requests units needed over time. The discounts are tiered such that the more request units you use over a longer period, the more your discount will be. These discounts are applied immediately. Any RUs used above your provisioned values are charged based on the non-reserved capacity cost. See [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)) for more details. Consider purchasing reserved capacity to further lower your provisioned throughput costs.-->
+<!--MOONCAKE: Not Available on Azure Cosmos DB reserved capacity-->
 
 ## <a name="next-steps"></a>后续步骤
 

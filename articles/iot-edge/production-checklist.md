@@ -1,21 +1,21 @@
 ---
 title: 准备设备和部署以用于生产 - Azure IoT Edge | Microsoft Docs
-description: 了解如何将 Azure IoT Edge 解决方案从开发环境转移到生产环境，包括在设备上设置相应的证书，并为将来的代码更新创建部署计划。
+description: 了解如何将 Azure IoT Edge 解决方案从开发环境转移到生产环境，包括使用适当的证书设置设备以及为将来的代码更新制定部署计划。
 author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/09/2019
-ms.date: 09/09/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 03bde0b7a99202a6e60b0dc92d4c930c572cd637
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: e8e82f4f1dc86719d37965798fe2b584a101965c
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340794"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>准备在生产环境中部署 IoT Edge 解决方案
 
@@ -210,13 +210,15 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
 
 可以在容器引擎日志选项中限制所有容器日志文件的大小。 以下示例将日志驱动程序设置为 `json-file`（建议），并对文件的大小和数量施加限制：
 
-    {
-        "log-driver": "json-file",
-        "log-opts": {
-            "max-size": "10m",
-            "max-file": "3"
-        }
+```JSON
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
     }
+}
+```
 
 将此信息添加（或附加）到名为 `daemon.json` 的文件，然后将此文件放到设备平台上的适当位置。
 
@@ -231,18 +233,19 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
 
 可在每个模块的 **createOptions** 中执行此操作。 例如：
 
-    "createOptions": {
-        "HostConfig": {
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                }
+```yml
+"createOptions": {
+    "HostConfig": {
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {
+                "max-size": "10m",
+                "max-file": "3"
             }
         }
     }
-
+}
+```
 
 **Linux 系统上的其他选项**
 

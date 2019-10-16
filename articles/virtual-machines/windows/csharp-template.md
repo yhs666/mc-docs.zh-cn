@@ -11,17 +11,16 @@ ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: aad14d79f19db619a98bdb6a59af2874e90d3fc7
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 41d53a40b3e199b4fd8a0ded1774a648069015a8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539195"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272641"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
 
@@ -245,7 +244,7 @@ ms.locfileid: "69539195"
 
 ```csharp
 var groupName = "myResourceGroup";
-var location = Region.USWest;
+var location = Region.ChinaNorth;
 
 var resourceGroup = azure.ResourceGroups.Define(groupName)
     .WithRegion(location)
@@ -263,7 +262,7 @@ string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
 var storage = azure.StorageAccounts.Define(storageAccountName)
-    .WithRegion(Region.USWest)
+    .WithRegion(Region.ChinaNorth)
     .WithExistingResourceGroup(resourceGroup)
     .Create();
 

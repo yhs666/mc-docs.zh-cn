@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/24/2019
 ms.date: 08/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bd48e601eaa5cdc5d343794b345a4d975e8ea1d3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: c366f67adc45e3cd1ef1b61b48b4dafe30b07b9c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737337"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330447"
 ---
 # <a name="using-service-map-solution-in-azure"></a>使用 Azure 中的服务映射解决方案
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 可使用服务映射如所想一般作为提供重要服务的互连系统查看服务器。 服务映射显示 TCP 连接的任何体系结构中服务器、进程、入站和出站连接延迟和端口之间的连接，只需安装代理，无需任何其他配置。
@@ -504,13 +504,41 @@ Azure 通过使用服务映射服务，自动收集使用情况和性能数据�
 
 有关数据收集和使用的详细信息，请参阅 [Microsoft Online Services 隐私声明](https://go.microsoft.com/fwlink/?LinkId=512132)。
 
-
 ## <a name="next-steps"></a>后续步骤
+
 详细了解 Log Analytics 中的[日志搜索](../../azure-monitor/log-query/log-query-overview.md)，以检索服务映射收集的数据。
 
-
 ## <a name="troubleshooting"></a>故障排除
-请参阅[“配置服务映射”文档的“疑难解答”部分]( service-map-configure.md#troubleshooting)。
+
+如果安装或运行服务映射时遇到任何问题，可通过本部分内容获得帮助。 如果仍然无法解决问题，请联系 Microsoft 支持部门。
+
+### <a name="dependency-agent-installation-problems"></a>Dependency Agent 安装问题
+
+#### <a name="installer-prompts-for-a-reboot"></a>安装程序提示重新启动
+安装或卸载 Dependency Agent 时，通常不需要重新启动  。 在极少数的某些情况下，Windows Server 需要重启才能继续安装。 依赖关系（通常是 Microsoft Visual C++ 可再发行程序包库）因锁定的文件而需要重新启动时会发生这种情况。
+
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>出现消息“无法安装 Dependency Agent:Visual Studio 运行时库安装失败(code = [code_number])”
+
+Microsoft Dependency Agent 基于 Microsoft Visual Studio 运行时库。 如果安装库时出现问题，将收到一条消息。 
+
+运行时库安装程序在 %LOCALAPPDATA%\temp 文件夹中创建日志。 该文件为 `dd_vcredist_arch_yyyymmddhhmmss.log`，其中 arch  为 `x86` 或 `amd64`，yyyymmddhhmmss  为创建该日志时的日期和时间（24 小时制）。 该日志提供有关阻止安装的问题的详细信息。
+
+这可能有助于首次安装[最新运行时库](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
+
+下表列出了代码号和建议的解决方法。
+
+| 代码 | 说明 | 解决方法 |
+|:--|:--|:--|
+| 0x17 | 库安装程序需要尚未安装的 Windows 更新。 | 查看最新的库安装程序日志。<br><br>如果对 `Windows8.1-KB2999226-x64.msu` 的引用后跟行 `Error 0x80240017: Failed to execute MSU package,`，则不具备安装 KB2999226 的先决条件。 请按照 [Windows 中的通用 C 运行时](https://support.microsoft.com/kb/2999226)一文中必备组件部分的说明进行操作。 可能需要运行 Windows 更新并重新启动多次，才能安装好必备组件。<br><br>再次运行 Microsoft Dependency Agent 安装程序。 |
+
+### <a name="post-installation-issues"></a>安装后的问题
+
+#### <a name="server-doesnt-appear-in-service-map"></a>服务映射中不显示服务器
+
+如果已成功安装 Dependency Agent，但在服务映射解决方案中看不到计算机：
+* Dependency Agent 是否已安装成功？ 可通过检查是否已安装并运行服务来验证这一点。<br><br>
+**Windows**：查找名为“Microsoft Dependency Agent”  的服务。
+Linux  ：查找正在运行的进程“microsoft-dependency-agent”  。
 
 
 ## <a name="feedback"></a>反馈

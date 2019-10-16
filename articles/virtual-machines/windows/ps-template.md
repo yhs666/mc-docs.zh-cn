@@ -11,18 +11,17 @@ ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1baa73cbe3182f0a8d302ac8f76da905bb134bb6
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 7e83780667a60c793f4490e4b1cf245f750218e8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539155"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272539"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>通过 Resource Manager 模板创建 Windows 虚拟机
 
@@ -227,6 +226,7 @@ ms.locfileid: "69539155"
     }
   }
 }
+
 ```
 
 若要使用 Azure 本地 Powershell 运行 PowerShell 脚本，需要具有管理员权限。

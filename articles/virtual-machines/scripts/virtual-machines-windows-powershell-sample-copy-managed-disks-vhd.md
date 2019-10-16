@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/17/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc5d330047e7be205962abf758201096d743a3d4
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 97ff6abfa18614be5f78abfb6cb453e5db600196
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003990"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272725"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户
 
@@ -34,6 +33,8 @@ ms.locfileid: "66003990"
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
+
+<!--CORRECT LINE 50 ON https://docs.azure.cn/storage/storage-dotnet-shared-access-signature-part-1-->
 
 ```powershell
 # Sign-in the Azure China Cloud
@@ -64,6 +65,12 @@ $storageAccountKey = 'yourStorageAccountKey'
 #Provide the name of the destination VHD file to which the VHD of the managed disk will be copied.
 $destinationVHDFileName = "yourvhdfilename"
 
+#Set the value to 1 to use AzCopy tool to download the data. This is the recommended option for faster copy.
+#Download AzCopy v10 from the link here: https://docs.azure.cn/storage/common/storage-use-azcopy-v10
+#Ensure that AzCopy is downloaded in the same folder as this file
+#If you set the value to 0 then Start-AzStorageBlobCopy will be used. Azure storage will asynchronously copy the data. 
+$useAzCopy = 1 
+
 # Set the context to the subscription Id where managed disk is created
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
@@ -71,10 +78,19 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 $sas = Grant-AzDiskAccess -ResourceGroupName $ResourceGroupName -DiskName $diskName -DurationInSecond $sasExpiryDuration -Access Read 
 
 #Create the context of the storage account where the underlying VHD of the managed disk will be copied
-$destinationContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+$destinationContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-#Copy the VHD of the managed disk to the storage account 
-Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageContainerName -DestContext $destinationContext -DestBlob $destinationVHDFileName
+#Copy the VHD of the managed disk to the storage account
+if($useAzCopy -eq 1)
+{
+    $containerSASURI = New-AzStorageContainerSASToken -Context $destinationContext -ExpiryTime(get-date).AddSeconds($sasExpiryDuration) -FullUri -Name $storageContainerName -Permission rw
+    .\azcopy copy $sas.AccessSAS $containerSASURI
+
+}else{
+
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageContainerName -DestContext $destinationContext -DestBlob $destinationVHDFileName
+}
+
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -85,7 +101,9 @@ Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageConta
 |---|---|
 | [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | 为托管磁盘生成 SAS URI，该 SAS URI 用于将基础 VHD 复制到存储帐户。 |
 | [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | 使用帐户名和密钥创建存储帐户上下文。 此上下文可用于对存储帐户执行读/写操作。 |
-| [Start-AzStorageBlobCopy](https://docs.microsoft.com/zh-cn/powershell/module/az.storage/start-azstorageblobcopy) | 将快照的基础 VHD 复制到存储帐户 |
+| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | 将快照的基础 VHD 复制到存储帐户 |
+
+<!--CORRECT ON [New-AzStorageContext] AND [Start-AzStorageBlobCopy]-->
 
 ## <a name="next-steps"></a>后续步骤
 

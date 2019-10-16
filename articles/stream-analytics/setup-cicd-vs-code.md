@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 流分析 CI/CD npm 包进行持续集成和开发
+title: 使用 Azure 流分析 CI/CD npm 包
 description: 本文介绍如何使用 Azure 流分析 CI/CD npm 包设置持续集成和部署过程。
 services: stream-analytics
 author: lingliw
@@ -8,16 +8,16 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 05/15/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: ad44c44cca59469d76ca3f94b3b04349b1785c1b
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 77a317c0b954d2b62c46d54005cad1ec9db3717d
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970494"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674696"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-cicd-npm-package"></a>使用流分析 CI/CD npm 包进行持续集成和开发
+# <a name="use-the-stream-analytics-cicd-npm-package"></a>使用流分析 CI/CD npm 包
 本文介绍如何使用 Azure 流分析 CI/CD npm 包设置持续集成和部署过程。
 
 ## <a name="build-the-vs-code-project"></a>生成 VS Code 项目

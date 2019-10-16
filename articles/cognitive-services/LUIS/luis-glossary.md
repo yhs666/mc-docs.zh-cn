@@ -8,14 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
+origin.date: 09/04/2019
 ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a8af34ce83d0090397fdf1b92c93b382a5a5b4d0
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: f91a87d64a34fb6dbcdd869ba9bc7fdd96650ae2
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103938"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329728"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>对包含常见词汇和概念的术语表进行语言理解
 语言理解 (LUIS) 术语表解释使用 LUIS API 服务时可能遇到的术语。

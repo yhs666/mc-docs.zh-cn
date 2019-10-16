@@ -2,20 +2,20 @@
 title: 使用 Az.Search 模块的 PowerShell 脚本 - Azure 搜索
 description: 使用 PowerShell 创建和配置 Azure 搜索服务。 可以纵向扩展或缩减服务，对管理和查询 API 密钥进行管理，以及查询系统信息。
 author: HeidiSteen
-manager: cgronlun
-origin.date: 03/28/2019
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: 96714ad80f3cec0939bb53fe595cf0b8b9f461da
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+origin.date: 03/28/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: e5e79b4e17e1098c8eda7f1ece151643db1a548f
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004841"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674425"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜索服务
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "66004841"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-可以在 Windows、Linux 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 搜索。 **Az.Search** 模块扩展了 Azure PowerShell，并且完全可与 [Azure 搜索管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement) 搭配使用。 使用 Azure PowerShell 和 **Az.Search** 可执行以下任务：
+可以在 Windows、Linux 上运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 搜索。 **Az.Search** 模块扩展了 Azure PowerShell，并且完全可与 [Azure 搜索管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement) 搭配使用。 使用 Azure PowerShell 和 **Az.Search** 可执行以下任务：
 
 > [!div class="checklist"]
 > * [列出订阅中的所有搜索服务](#list-search-services)
@@ -47,13 +47,13 @@ ms.locfileid: "66004841"
 
 ## <a name="check-versions-and-load-modules"></a>检查版本并加载模块
 
-本文中的示例是交互式，需要提升的权限。 必须安装 Azure PowerShell（**Az** 模块）。 有关详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview)。
+本文中的示例是交互式，需要提升的权限。 必须安装 Azure PowerShell（**Az** 模块）。 有关详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="powershell-version-check-51-or-later"></a>PowerShell 版本检查（5.1 或更高版本）
 
 本地 PowerShell 必须是在任何受支持操作系统上运行的 5.1 或更高版本。
 
-```azurepowershell
+```powershell
 $PSVersionTable.PSVersion
 ```
 
@@ -61,13 +61,13 @@ $PSVersionTable.PSVersion
 
 如果你不确定是否已安装 **Az**，请运行以下命令作为验证步骤。 
 
-```azurepowershell
+```powershell
 Get-InstalledModule -Name Az
 ```
 
 某些系统不会自动加载模块。 如果运行上述命令时出错，请尝试加载该模块，如果失败，请重新查看安装说明，以检查是否遗漏了某个步骤。
 
-```azurepowershell
+```powershell
 Import-Module -Name Az
 ```
 
@@ -75,19 +75,19 @@ Import-Module -Name Az
 
 可以在 PowerShell 中使用门户登录凭据连接到订阅。 或者，可以[使用服务主体以非交互方式进行身份验证](../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
-```azurepowershell
+```powershell
 Connect-AzAccount
 ```
 
 如果你持有多个 Azure 订阅，请设置 Azure 订阅。 若要查看当前订阅的列表，请运行以下命令。
 
-```azurepowershell
+```powershell
 Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 ```
 
 若要指定订阅，请运行以下命令。 在以下示例中，订阅名为 `ContosoSubscription`。
 
-```azurepowershell
+```powershell
 Select-AzSubscription -SubscriptionName ContosoSubscription
 ```
 
@@ -99,13 +99,13 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 第一个命令返回所有搜索服务。
 
-```azurepowershell-interactive
+```powershell
 Get-AzResource -ResourceType Microsoft.Search/searchServices | ft
 ```
 
 在服务列表中返回有关特定资源的信息。
 
-```azurepowershell-interactive
+```powershell
 Get-AzResource -ResourceName <service-name>
 ```
 
@@ -113,17 +113,17 @@ Get-AzResource -ResourceName <service-name>
 
 ```
 Name              : my-demo-searchapp
-ResourceGroupName : demo-westus
+ResourceGroupName : demo-chinaeast
 ResourceType      : Microsoft.Search/searchServices
-Location          : westus
-ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+Location          : chinaeast
+ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroups/demo-chinaeast/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
 ## <a name="import-azsearch"></a>导入 Az.Search
 
 [**Az.Search**](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) 中的命令只有在加载该模块之后才可用。
 
-```azurepowershell-interactive
+```powershell
 Install-Module -Name Az.Search
 ```
 
@@ -131,7 +131,7 @@ Install-Module -Name Az.Search
 
 作为验证步骤，返回模块中提供的命令列表。
 
-```azurepowershell
+```powershell
 Get-Command -Module Az.Search
 ```
 
@@ -155,7 +155,7 @@ Cmdlet          Set-AzSearchService                 0.7.1      Az.Search
 
 导入 **Az.Search** 之后，如果你知道哪个资源组包含你的搜索服务，请运行 [Get-AzSearchService](https://docs.microsoft.com/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) 返回服务定义，包括名称、区域、层级、副本计数和分区计数。
 
-```azurepowershell-interactive
+```powershell
 Get-AzSearchService -ResourceGroupName <resource-group-name>
 ```
 
@@ -163,30 +163,30 @@ Get-AzSearchService -ResourceGroupName <resource-group-name>
 
 ```
 Name              : my-demo-searchapp
-ResourceGroupName : demo-westus
+ResourceGroupName : demo-chinaeast
 ResourceType      : Microsoft.Search/searchServices
-Location          : West US
+Location          : China East
 Sku               : Standard
 ReplicaCount      : 1
 PartitionCount    : 1
 HostingMode       : Default
-ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/demo-chinaeast/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
 ## <a name="create-or-delete-a-service"></a>创建或删除服务
 
 [**New-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 用于[创建新的搜索服务](search-create-service-portal.md)。
 
-```azurepowershell-interactive
-New-AzSearchService -ResourceGroupName "demo-westus" -Name "my-demo-searchapp" -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3
+```powershell
+New-AzSearchService -ResourceGroupName "demo-chinaeast" -Name "my-demo-searchapp" -Sku "Standard" -Location "China East" -PartitionCount 3 -ReplicaCount 3
 ``` 
 结果应类似于以下输出。
 
 ```
-ResourceGroupName : demo-westus
+ResourceGroupName : demo-chinaeast
 Name              : my-demo-searchapp
-Id                : /subscriptions/<alphanumeric-subscription-ID>/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
-Location          : West US
+Id                : /subscriptions/<alphanumeric-subscription-ID>/demo-chinaeast/providers/Microsoft.Search/searchServices/my-demo-searchapp
+Location          : China East
 Sku               : Standard
 ReplicaCount      : 3
 PartitionCount    : 3
@@ -204,7 +204,7 @@ Tags
 
 API 密钥的值由服务生成。 无法提供自定义密钥供 Azure 搜索使用。 同样，管理 API 密钥没有用户定义的名称。 对密钥的引用是固定的字符串：`primary` 或 `secondary`。 
 
-```azurepowershell-interactive
+```powershell
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
 ```
 
@@ -222,7 +222,7 @@ Primary                    Secondary
 
 无法提供密钥供 Azure 搜索使用。 API 密钥由服务生成。
 
-```azurepowershell-interactive
+```powershell
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
 ```
 
@@ -236,21 +236,21 @@ New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <sear
 
 提交命令后，没有任何办法可以中途终止该命令。 必须等到该命令完成才能修改计数。
 
-```azurepowershell-interactive
+```powershell
 Set-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
 ```
 
 结果应类似于以下输出。
 
 ```
-ResourceGroupName : demo-westus
+ResourceGroupName : demo-chinaeast
 Name              : my-demo-searchapp
-Location          : West US
+Location          : China East
 Sku               : Standard
 ReplicaCount      : 6
 PartitionCount    : 6
 HostingMode       : Default
-Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-chinaeast/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
 

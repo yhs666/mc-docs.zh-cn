@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 06/24/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: f69a3db55d0103a23165913234b1a964c07638b3
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 5e681158020f3e70027318149eee4a4f05a8051b
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254508"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306833"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序 
 
@@ -147,6 +147,65 @@ ms.locfileid: "70254508"
 
    Azure Cosmos DB 中存储的数据都会通过线路传递，并存储为 JSON。 若要控制通过 JSON.NET 进行的对象序列化/反序列化方式，可以使用已创建的 **Item** 类中展示的 **JsonProperty** 属性。 不但可以控制进入 JSON 的属性名称的格式，而且可以像重命名 **Completed** 属性一样重命名 .NET 属性。 
 
+<a name="add-views"></a>
+### <a name="add-views"></a>添加视图
+
+接下来，请创建以下三个视图： 
+
+* [添加“列表项”视图](#AddItemIndexView)。
+* [添加“新建项”视图](#AddNewIndexView)。
+* [添加“编辑项”视图](#AddEditIndexView)。
+
+<a name="AddItemIndexView"></a>
+#### <a name="add-a-list-item-view"></a>添加“列表项”视图
+
+1. 在“解决方案资源管理器”中，展开“视图”文件夹，右键单击先前在添加 **ItemController** 时 Visual Studio 创建的空白“项”文件夹，单击“添加”，然后单击“视图”。     
+
+    ![解决方案资源管理器的屏幕截图，显示 Visual Studio 创建的 Item 文件夹，并且突出显示了“添加视图”命令](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+
+2. 在“添加视图”对话框中，更新以下值： 
+
+    * 在“视图名称”框中，键入“索引”。  
+    * 在“模板”框中，选择“列表”。  
+    * 在“模型类”框中，选择“项(todo.Models)”。  
+    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
+
+    ![屏幕截图：显示“添加视图”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+
+3. 在添加这些值之后，选择“添加”，让 Visual Studio 创建新的模板视图。  完成之后，它会打开创建的 cshtml 文件。 可以在 Visual Studio 中关闭该文件，因为稍后会回头使用它。
+
+<a name="AddNewIndexView"></a>
+#### <a name="add-a-new-item-view"></a>添加“新建项”视图
+
+与创建视图来列出项一样，请执行以下步骤，以便创建新视图来创建项：
+
+1. 在“解决方案资源管理器”中，请再次右键单击“项”文件夹，选择“添加”，然后选择“视图”。    
+
+1. 在“添加视图”对话框中，更新以下值： 
+
+    * 在“视图名称”框中，键入“创建”。  
+    * 在“模板”框中，选择“创建”。  
+    * 在“模型类”框中，选择“项(todo.Models)”。  
+    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
+    * 选择“设置”  （应用程序对象和服务主体对象）。
+
+<a name="AddEditIndexView"></a>
+#### <a name="add-an-edit-item-view"></a>添加“编辑项”视图
+
+最后，通过以下步骤添加一个用于编辑项目的视图：
+
+1. 在“解决方案资源管理器”中，请再次右键单击“项”文件夹，选择“添加”，然后选择“视图”。    
+
+1. 在“添加视图”对话框中，执行以下操作： 
+
+    * 在“视图名称”框中，键入“编辑”。  
+    * 在“模板”框中，选择“编辑”。  
+    * 在“模型类”框中，选择“项(todo.Models)”。  
+    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
+    * 选择 **添加** 。
+
+完成此操作之后，请关闭 Visual Studio 中的所有 cshtml 文档，因为稍后会回头使用这些视图。
+
 <a name="add-a-controller"></a>
 ### <a name="add-a-controller"></a>添加控制器
 
@@ -272,64 +331,6 @@ ms.locfileid: "70254508"
 
    我们还会在方法参数中使用 **Bind** 属性，帮助防范过度提交攻击。 有关更多详细信息，请参阅 [ASP.NET MVC 中的基本 CRUD 操作][Basic CRUD Operations in ASP.NET MVC]。
 
-<a name="add-views"></a>
-### <a name="add-views"></a>添加视图
-
-接下来，请创建以下三个视图： 
-
-* [添加“列表项”视图](#AddItemIndexView)。
-* [添加“新建项”视图](#AddNewIndexView)。
-* [添加“编辑项”视图](#AddEditIndexView)。
-
-<a name="AddItemIndexView"></a>
-#### <a name="add-a-list-item-view"></a>添加“列表项”视图
-
-1. 在“解决方案资源管理器”中，展开“视图”文件夹，右键单击先前在添加 **ItemController** 时 Visual Studio 创建的空白“项”文件夹，单击“添加”，然后单击“视图”。     
-
-    ![解决方案资源管理器的屏幕截图，显示 Visual Studio 创建的 Item 文件夹，并且突出显示了“添加视图”命令](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
-
-2. 在“添加视图”对话框中，更新以下值： 
-
-    * 在“视图名称”框中，键入“索引”。  
-    * 在“模板”框中，选择“列表”。  
-    * 在“模型类”框中，选择“项(todo.Models)”。  
-    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
-
-    ![屏幕截图：显示“添加视图”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
-
-3. 在添加这些值之后，选择“添加”，让 Visual Studio 创建新的模板视图。  完成之后，它会打开创建的 cshtml 文件。 可以在 Visual Studio 中关闭该文件，因为稍后会回头使用它。
-
-<a name="AddNewIndexView"></a>
-#### <a name="add-a-new-item-view"></a>添加“新建项”视图
-
-与创建视图来列出项一样，请执行以下步骤，以便创建新视图来创建项：
-
-1. 在“解决方案资源管理器”中，请再次右键单击“项”文件夹，选择“添加”，然后选择“视图”。    
-
-1. 在“添加视图”对话框中，更新以下值： 
-
-    * 在“视图名称”框中，键入“创建”。  
-    * 在“模板”框中，选择“创建”。  
-    * 在“模型类”框中，选择“项(todo.Models)”。  
-    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
-    * 选择“设置”  （应用程序对象和服务主体对象）。
-
-<a name="AddEditIndexView"></a>
-#### <a name="add-an-edit-item-view"></a>添加“编辑项”视图
-
-最后，通过以下步骤添加一个用于编辑项目的视图：
-
-1. 在“解决方案资源管理器”中，请再次右键单击“项”文件夹，选择“添加”，然后选择“视图”。    
-
-1. 在“添加视图”对话框中，执行以下操作： 
-
-    * 在“视图名称”框中，键入“编辑”。  
-    * 在“模板”框中，选择“编辑”。  
-    * 在“模型类”框中，选择“项(todo.Models)”。  
-    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
-    * 选择 **添加** 。
-
-完成此操作之后，请关闭 Visual Studio 中的所有 cshtml 文档，因为稍后会回头使用这些视图。
 
 <a name="connect-to-cosmosdb"></a>
 ## <a name="step-5-connect-to-azure-cosmos-db"></a>步骤 5：连接到 Azure Cosmos DB 
@@ -382,13 +383,16 @@ ms.locfileid: "70254508"
 
            public async Task<Item> GetItemAsync(string id)
            {
-               ItemResponse<Item> response = await this._container.ReadItemAsync<Item>(id, new PartitionKey(id));
-               if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+               try
                {
+                   ItemResponse<Item> response = await this._container.ReadItemAsync<Item>(id, new PartitionKey(id));
+                   return response.Resource;
+               }
+               catch(CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+               { 
                    return null;
                }
 
-               return response.Resource;
            }
 
            public async Task<IEnumerable<Item>> GetItemsAsync(string queryString)

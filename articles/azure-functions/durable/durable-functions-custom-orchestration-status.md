@@ -2,21 +2,20 @@
 title: Durable Functions 中的自定义业务流程状态 - Azure
 description: 了解如何为 Durable Functions 配置和使用自定义业务流程状态。
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: eb802366613defba49933790cbb0e2131057e9f2
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: feeb7940d310049a19a07cf4f7ad2686577933ca
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806655"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673596"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Durable Functions 中的自定义业务流程状态 (Azure Functions)
 
@@ -346,7 +345,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [了解 Durable Functions 中的 HTTP API](durable-functions-http-api.md)
+> [了解持久计时器](durable-functions-timers.md)
 
 
 

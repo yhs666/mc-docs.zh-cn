@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 07/08/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8c3d62b5fc134b7e6f38e19162789c0694aceb19
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: ccb543d538fe873591c32d02ba2c60a4a2c2753d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500705"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155855"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -65,9 +65,9 @@ Azure 会按照夜间计划自动将安全修补程序应用于群集中的 Linu
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>我是否可为 AKS 节点资源组提供自己的名称？
 
-是的。 默认情况下，AKS 将节点资源组命名为 *MC_clustername_resourcegroupname_location*，但你可以提供自己的名称。
+是的。 默认情况下，AKS 将节点资源组命名为 MC_resourcegroupname_clustername_location  ，但你也可以提供自己的名称。
 
-若要指定自己的资源组名称，请安装 [aks-preview][aks-preview-cli] Azure CLI 扩展版本 *0.3.2* 或更高版本。 使用 [az aks create][az-aks-create] 命令创建 AKS 群集时，请使用 *--node-resource-group* 参数并指定资源组的名称。 如果使用 Azure 资源管理器模板部署 AKS 群集，则可以使用 *nodeResourceGroup* 属性定义资源组名称。
+若要指定自己的资源组名称，请安装 [aks-preview][aks-preview-cli] Azure CLI 扩展版本 *0.3.2* 或更高版本。 使用 [az aks create][az-aks-create] 命令创建 AKS 群集时，请使用 *--node-resource-group* 参数并指定资源组的名称。 如果使用 Azure 资源管理器模板部署 AKS 群集，则可以使用 nodeResourceGroup  属性定义资源组名称。
 
 <!--Not Avaialble on [use an Azure Resource Manager template][aks-rm-template]-->
 
@@ -103,7 +103,7 @@ AKS 支持以下[许可控制器][admission-controllers]：
 
 目前无法在 AKS 中修改许可控制器列表。
 
-## <a name="is-azure-key-vault-integrated-with-aks"></a>不是，它没有与 Azure Key Vault 集成。
+## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否已与 AKS 集成？
 
 AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目的 Azure Key Vault FlexVolume][keyvault-flexvolume] 实现了从 Kubernetes pod 到 Key Vault 机密的直接集成。
 
@@ -112,6 +112,10 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服务级别协议？
 
 在服务级别协议 (SLA) 中，如果未满足已发布的服务级别，提供商同意向客户偿还服务费用。 由于 AKS 是免费的，不存在偿还费用，因此也就没有正式的 SLA。 不过，AKS 会设法将 Kubernetes API 服务器的可用性维持在不小于 99.5% 的水平上。
+
+重要的是要认识到 AKS 服务可用性（指 Kubernetes 控制平面的正常运行时间）和在 Azure 虚拟机上运行的特定工作负荷的可用性之间的区别。 尽管控制平面在控制平面未就绪时可能不可用，但在 Azure VM 上运行的群集工作负荷仍可正常工作。 鉴于 Azure VM 是付费资源，它们由财务 SLA 提供支持。 请在[此处](https://www.azure.cn/support/sla/virtual-machines/)阅读有关 Azure VM SLA 的更多详细信息。
+
+<!--Not Available on [Availability Zones][availability-zones]-->
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>为何无法将 maxPods 设置为 30 以下？
 
@@ -205,6 +209,7 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 <!--Not Avaialble on [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md-->
 <!--Not Avaialble on [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md-->
 <!--Not Avaialble on [multi-node-pools]: ./use-multiple-node-pools.md-->
+<!--Not Avaialble on [availability-zones]: ./availability-zones.md-->
 
 <!-- LINKS - external -->
 

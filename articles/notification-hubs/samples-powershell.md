@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: aaeb1fe54fcf343c283aac3f1c6f0a6348d02cf9
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/04/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: bf49a80793c433f9ca8842fe37c9c71ca829ab36
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222599"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272594"
 ---
 # <a name="azure-powershell-samples-for-azure-notification-hubs"></a>适用于 Azure 通知中心的 Azure PowerShell 示例
 

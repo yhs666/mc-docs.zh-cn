@@ -2,22 +2,22 @@
 title: 在经济高效低优先级的 VM 上运行工作负荷 - Azure Batch | Microsoft Docs
 description: 了解如何预配低优先级 VM，以降低 Azure Batch 工作负荷的成本。
 services: batch
-author: mscurrell
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 03/19/2018
+origin.date: 03/19/2018
+ms.date: 03/19/2019
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: e2ffd32e4dcb061013df0f895de2cb14c6a6d226
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: c418f8aaddd8544c6acde13e58cf6a4eb87de749
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969677"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329813"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>将低优先级 VM 与 Batch 配合使用
 
@@ -27,7 +27,7 @@ Azure Batch 可提供低优先级虚拟机 (VM) 来降低 Batch 工作负荷的�
  
 使用低优先级虚拟机的代价是这些虚拟机可能不可用，并将其分配，或在任何时间，具体取决于可用的容量可能会被抢占。 出于此原因，低优先级 VM 最适合用于某些类型的工作负荷。 对于作业完成时间很灵活且工作分布在多个 VM 上的批处理和异步处理工作负荷，可以使用低优先级 VM。
  
-与专用 VM 相比，以显著低廉的价格提供低优先级 VM。 有关价格详细信息，请参阅 [Batch 定价](https://azure.microsoft.com/pricing/details/batch/)。
+与专用 VM 相比，以显著低廉的价格提供低优先级 VM。 有关价格详细信息，请参阅 [Batch 定价](https://www.azure.cn/zh-cn/pricing/details/batch/)。
 
 ## <a name="use-cases-for-low-priority-vms"></a>低优先级 VM 的用例
 

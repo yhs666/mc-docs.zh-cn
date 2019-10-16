@@ -2,21 +2,20 @@
 title: 在 Durable Functions 中处理外部事件 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理外部事件。
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 04/26/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: a5913761383d2055dbb53f7e36e7702f4f299106
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: f128132cdc8d8211e8e70ec0f84cf5e928b6eb05
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855134"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673589"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions 中处理外部事件 (Azure Functions)
 
@@ -27,7 +26,7 @@ ms.locfileid: "64855134"
 
 ## <a name="wait-for-events"></a>等待事件
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 方法允许业务流程协调程序函数以异步方式等待和侦听外部事件。 侦听业务流程协调程序函数声明了事件的“名称”和它期望收到的“数据形态”。
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 方法允许业务流程协调程序函数以异步方式等待和侦听外部事件。 侦听业务流程协调程序函数声明了事件的“名称”和它期望收到的“数据形态”。  
 
 ### <a name="c"></a>C#
 
@@ -115,7 +114,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-前面的示例侦听多个事件中的“任何一个”。 还可以等待“所有”事件。
+前面的示例侦听多个事件中的“任何一个”。  还可以等待“所有”事件。 
 
 #### <a name="c"></a>C#
 
@@ -192,7 +191,7 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-在内部，`RaiseEventAsync` (.NET) 或 `raiseEvent` (JavaScript) 将正在等待的业务流程协调程序函数选取的消息排入队列。 如果实例没有在等待指定的事件名，则将事件消息添加到内存中队列。 如果业务流程实例稍后开始侦听该事件名称，它将检查队列中的事件消息。
+在内部，`RaiseEventAsync` (.NET) 或 `raiseEvent` (JavaScript) 将正在等待的业务流程协调程序函数选取的消息排入队列。 如果实例没有在等待指定的事件名，则将事件消息添加到内存中队列  。 如果业务流程实例稍后开始侦听该事件名称，  它将检查队列中的事件消息。
 
 > [!NOTE]
 > 如果没有具有指定*实例 ID* 的业务流程实例，则丢弃事件消息。 有关此行为的详细信息，请参阅 [GitHub 问题](https://github.com/Azure/azure-functions-durable-extension/issues/29)。 
@@ -203,7 +202,7 @@ module.exports = async function(context, instanceId) {
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [了解如何设置永久业务流程](durable-functions-eternal-orchestrations.md)
- 
+> [了解如何实现错误处理](durable-functions-error-handling.md)
+
 
 <!-- Update_Description: wording update -->

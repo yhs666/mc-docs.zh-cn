@@ -15,12 +15,12 @@ origin.date: 10/04/2016
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: d302658aa7880bbe7513f8f729d73af3ef6f16a6
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 5beb1153747821403fd31f7d4882fa1deefbdf92
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156386"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272770"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>应用服务环境的网络体系结构概述
 ## <a name="introduction"></a>简介
@@ -87,7 +87,7 @@ ms.locfileid: "71156386"
 [此文][ExpressRoute]介绍了有关使用用户定义路由来授予对应用服务环境的出站 Internet 访问权限的详细信息。 
 
 <!-- LINKS -->
-[virtualnetwork]: hhttps://www.azure.cn/home/features/virtual-network/
+[virtualnetwork]: https://www.azure.cn/home/features/virtual-network/
 [controllinginboundtraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [ExpressRoute]:  app-service-app-service-environment-network-configuration-expressroute.md
 

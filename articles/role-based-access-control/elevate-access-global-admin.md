@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/02/2019
-ms.date: 02/26/2019
+ms.date: 09/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 35d84cdd8df9e94c82dfe0dd258831adbc85d014
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: c686e1dd67ba4ee98353e15244a1bda2cbcca7ba
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836983"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673603"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>提升访问权限以管理所有 Azure 订阅和管理组
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) 中的全局管理员不一定对目录中的�
 
 ## <a name="how-does-elevate-access-work"></a>提升访问权限的工作原理是什么？
 
-Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分配不授予对 Azure 资源的访问权限，Azure 角色分配页不授予对 Azure AD 的访问权限。 但是，Azure AD 中的[全局管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)可为自己分配对目录中所有 Azure 订阅和管理组的访问权限。 如果无权访问 Azure 订阅资源（如虚拟机或存储帐户），并且想使用全局管理员权限来获取这些资源的访问权限，则请使用此功能。
+Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分配不授予对 Azure 资源的访问权限，Azure 角色分配页不授予对 Azure AD 的访问权限。 但是，Azure AD 中的[全局管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions)可为自己分配对目录中所有 Azure 订阅和管理组的访问权限。 如果无权访问 Azure 订阅资源（如虚拟机或存储帐户），并且想使用全局管理员权限来获取这些资源的访问权限，则请使用此功能。
 
 提升访问权限时，将分配到 Azure 中根范围 (`/`) 的[用户访问管理员](built-in-roles.md#user-access-administrator)角色。 此角色可查看所有资源，并且可用于分配目录中任何订阅或管理组中的访问权限。 可以使用 PowerShell 删除用户访问管理员角色分配。
 
@@ -54,19 +54,19 @@ Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分
 
 1. 以全局管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在导航列表中，单击“Azure Active Directory”，然后单击“属性”。
+1. 在导航列表中，单击“Azure Active Directory”，然后单击“属性”   。
 
    ![Azure AD 属性 - 屏幕截图](./media/elevate-access-global-admin/aad-properties.png)
 
-1. 在“Azure 资源的访问管理”下，将开关设置为“是”。
+1. 在“Azure 资源的访问管理”下，将开关设置为“是”   。
 
    ![Azure 资源的访问管理 - 屏幕截图](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   将开关设为“是”时，你将分配到 Azure RBAC 中根范围 (/) 的用户访问管理员角色。 这将授予你在与此 Azure AD 目录关联的所有 Azure 订阅和管理组中分配角色的权限。 此开关仅适用于分配到 Azure AD 中全局管理员角色的用户。
+   将开关设为“是”时，你将分配到 Azure RBAC 中根范围 (/) 的用户访问管理员角色。  这将授予你在与此 Azure AD 目录关联的所有 Azure 订阅和管理组中分配角色的权限。 此开关仅适用于分配到 Azure AD 中全局管理员角色的用户。
 
-   将开关设为“否”时，会从用户帐户中删除 Azure RBAC 中的用户访问管理员角色。 将无法再分配在与此 Azure AD 目录关联的所有 Azure 订阅和管理组中的角色。 只能查看和管理已获取访问权限的 Azure 订阅和管理组。
+   将开关设为“否”时，会从用户帐户中删除 Azure RBAC 中的用户访问管理员角色。  将无法再分配在与此 Azure AD 目录关联的所有 Azure 订阅和管理组中的角色。 只能查看和管理已获取访问权限的 Azure 订阅和管理组。
 
-1. 单击“保存”，保存设置。
+1. 单击“保存”，保存设置  。
 
    此设置不是全局属性，仅适用于当前已登录的用户。 无法提升所有全局管理员角色成员的访问权限。
 
@@ -80,7 +80,7 @@ Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分
 
     有关如何分配角色的信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](role-assignments-portal.md)。 
 
-1. 完成后，将“Azure 资源的访问管理”切换回到“否”。 由于此设置特定于用户，因此，必须以提升访问权限时所用的同一用户登录。
+1. 完成后，将“Azure 资源的访问管理”切换回到“否”。   由于此设置特定于用户，因此，必须以提升访问权限时所用的同一用户登录。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -162,15 +162,6 @@ CanDelegate        : False
    GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-### <a name="list-deny-assignments-at-the-root-scope-"></a>列出根范围 (/) 处的拒绝分配
-
-可以在根范围 (`/`) 列出用户的所有拒绝分配。
-
-- 调用 GET denyAssignments，其中 `{objectIdOfUser}` 是要检索其拒绝分配的用户的对象 ID。
-
-   ```http
-   GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
-   ```
 
 ### <a name="remove-elevated-access"></a>撤消提升的访问权限
 
@@ -267,4 +258,4 @@ CanDelegate        : False
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
 - [使用 RBAC 和 REST API 管理对 Azure 资源的访问权限](role-assignments-rest.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

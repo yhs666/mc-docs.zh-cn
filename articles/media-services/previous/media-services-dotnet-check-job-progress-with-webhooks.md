@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: daf1ff7dc08cb0a644a82603db9ebf649dc1b6a6
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: d42827a7698a95cea78b06d7ac2ec39d1c764525
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670952"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124543"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 运行作业时，通常需要采用某种方式跟踪作业进度。 可以使用 Azure Webhook 或 [Azure 队列存储](media-services-dotnet-check-job-progress-with-queues.md)监视媒体服务作业通知。 本文介绍如何使用 Webhook。
 
@@ -32,7 +35,7 @@ ms.locfileid: "69670952"
     
     在本例中，Webhook 由媒体服务在编码作业更改状态时触发。 该函数侦听来自媒体服务通知的 Webhook 回调，并在作业完成之后发布输出资产。 
     
-    >[!NOTE]
+    >[!TIP]
     >在继续之前，请确保了解 [Azure Functions HTTP 和 webhook 绑定](../../azure-functions/functions-bindings-http-webhook.md)的工作原理。
     >
     
@@ -513,4 +516,8 @@ Webhook 触发后，上述示例会生成以下输出，值会有所变化。
                 }
             }
     ```
+
+## <a name="next-steps"></a>后续步骤
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 5/29/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 8e48db8cc5431576fe5e746713069c025eaff1cd
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 09/30/2019
+ms.openlocfilehash: 86a3754d051d12dc0cb77d96a99139dc227203db
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308933"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307871"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>使用 Azure 门户自动增长 Azure Database for MariaDB 的存储
 本文介绍如何将 Azure Database for MariaDB 服务器存储配置为在不影响工作负荷的情况下增长。
@@ -27,7 +27,7 @@ ms.locfileid: "68308933"
 
 请按照下列步骤设置 MariaDB 服务器存储自动增长：
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure Database for MariaDB 服务器。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择现有 Azure Database for MariaDB 服务器。
 
 2. 在 MariaDB 服务器页上，单击“设置”  标题下的“定价层”  ，以打开“定价层”页。
 

@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 07/08/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 36493a4ffd32855dc8ebc40038ce05934881450b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.reviewer: maghan
+ms.topic: conceptual
+origin.date: 01/09/2019
+ms.date: 10/14/2019
+ms.openlocfilehash: 9bbedb5bc53a4e627b9851463acb8087b28b409b
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570537"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275411"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>在 Azure 数据工厂中复制或克隆数据工厂
 
@@ -37,7 +37,7 @@ ms.locfileid: "67570537"
 
 1. 作为先决条件，你需要从 Azure 门户创建目标数据工厂。
 
-1. 如果源工厂中有 SelfHosted IntegrationRuntime，则需要在目标工厂中使用相同的名称预先创建它。 
+1. 如果源工厂中有 SelfHosted IntegrationRuntime，则需要在目标工厂中使用相同的名称预先创建它。
 
 1. 如果你处于 GIT 模式下，则每次从门户发布时，工厂的资源管理器模板都会保存到存储库的 adf_publish 分支中的 GIT 中。
 

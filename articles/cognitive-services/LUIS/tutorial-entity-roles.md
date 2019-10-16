@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+origin.date: 07/24/2019
+ms.date: 09/07/2019
 ms.author: diberry
-ms.openlocfilehash: 658fbbdc88b5ca511a6d50863c60ef52a4862a0d
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 62ddcd94990e940449781e2e20c091f5fb238708
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329669"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教程：从陈述中提取上下文相关的数据
 

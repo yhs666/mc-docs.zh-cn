@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 06/21/2019
-ms.openlocfilehash: 80426f44d498861b622d447ebacf90701a8e399d
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/21/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: 6dd2c286ca0a43370f9b2e57a3296ac85d902acf
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969572"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674828"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>在 Azure 流分析中分析 JSON 和 Avro 数据
 

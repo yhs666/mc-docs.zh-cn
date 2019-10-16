@@ -3,22 +3,22 @@ title: 适用于 Azure 搜索的预览版 REST API 2019-05-06-Preview - Azure �
 description: Azure 搜索服务 REST API 版本 2019-05-06-Preview 包括试验功能，例如知识存储和客户托管的加密密钥。
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: df1e4e077e95ed8baf0265149046a613c2caad42
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 14cd2a9245cc741139507ca8cc62353c0a521ec4
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004653"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674254"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure 搜索服务 REST API 版本 2019-05-06-Preview
 本文介绍了 `api-version=2019-05-06-Preview` 版的 Azure 搜索服务 REST API，该版提供尚未正式发布的实验性功能。
@@ -54,7 +54,7 @@ Azure 搜索服务在多个版本内可用。 有关详细信息，请参阅 [AP
 
 ## <a name="next-steps"></a>后续步骤
 
-请查看 Azure 搜索服务 REST API 参考文档。 如果遇到问题，请通过 [StackOverflow](https://stackoverflow.com/) 向我们寻求帮助 
+查看 Azure 搜索服务 REST API 参考文档。 如果遇到问题，请通过 [StackOverflow](https://stackoverflow.com/) 向我们寻求帮助，或[联系支持人员](https://support.azure.cn/support/contact)。
 
 > [!div class="nextstepaction"]
 > [搜索服务 REST API 参考](https://docs.microsoft.com/rest/api/searchservice/)

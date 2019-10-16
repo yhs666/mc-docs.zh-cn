@@ -13,14 +13,15 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 7/18/2019
+ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 73e6ecc2ad68431ee9e730674039e2d8048902f8
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: aad4effc29d74171ba73ede8ea05d65be5f627b7
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570189"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674608"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -73,10 +74,6 @@ Azure Policy 由以下组件构成：
    > [!NOTE]
    > - “安全中心”仪表板在“订阅覆盖范围”下显示的订阅数可能会高于在“策略管理”下显示的订阅数   。 订阅覆盖范围显示标准订阅、免费订阅和“未覆盖”订阅的数量。 “未覆盖”订阅未启用“安全中心”，并且不会显示在“策略管理”下  。
    >
-
-   表中的列显示了：
-
-   - **覆盖范围** – 标识管理组、订阅或工作区在其上运行的定价层：免费或标准。  若要详细了解安全中心的定价层，请参阅[定价](security-center-pricing.md)。
 
 2. 选择想要查看其策略的订阅或管理组。
 
@@ -149,6 +146,7 @@ Azure Policy 中的重要概念：
 
 本示例演示如何对订阅或管理组分配内置的安全中心计划
  
+ ```
     PUT  
     https://management.chinacloudapi.cn/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -173,6 +171,7 @@ Azure Policy 中的重要概念：
     } 
 
     } 
+ ```
 
 本示例演示如何对订阅分配内置的安全中心计划，且禁用以下策略： 
 

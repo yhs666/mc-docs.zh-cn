@@ -6,16 +6,16 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-origin.date: 07/19/2019
-ms.date: 08/26/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c712b40b9a0d3521a410916dfd75e0a554280635
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1520943ebc038699d9f06560d8ee1aa040aa32d6
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993499"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156221"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -81,6 +81,14 @@ FQDN 标记使你可以轻松地允许已知的 Azure 服务网络流量通过�
 
 所有事件与 Azure Monitor 集成，使你能够在存储帐户中存档日志、将事件流式传输到事件中心，或者将其发送到 Azure Monitor 日志。
 
+## <a name="pci-soc-and-iso-compliant"></a>符合 PCI、SOC 和 ISO 标准
+
+Azure 防火墙符合支付卡行业 (PCI)、服务组织控制 (SOC) 和国际标准化组织 (ISO) 标准。 它目前支持 SOC 1 类型 2、SOC 2 类型 2、SOC 3、PCI DSS 和 ISO 27001、27018、20000-1、22301、9001、27017。
+
+有关详细信息，请参阅 [Azure 合规性指南](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide)。
+
+<!--MOONCAKE: CORRECT ON [Azure Compliance Guide]-->
+
 ## <a name="known-issues"></a>已知问题
 
 Azure 防火墙存在以下已知问题：
@@ -98,6 +106,7 @@ Azure 防火墙存在以下已知问题：
 |无法删除第一个公共 IP 配置|每个 Azure 防火墙公共 IP 地址都分配给一个 IP 配置  。  第一个 IP 配置在防火墙部署过程中分配，通常还包含对防火墙子网的引用（除非通过模板部署以不同的方式进行了显式配置）。 无法删除此 IP 配置，因为它会取消分配防火墙。 如果防火墙至少包含另一个可用的公共 IP 地址，则你仍然可以更改或删除与此 IP 配置相关联的公共 IP 地址。|这是设计使然。|
 |对入站连接的 SNAT|除了 DNAT 以外，通过防火墙公共 IP 地址（入站）建立的连接将通过 SNAT 转换为某个防火墙专用 IP。 当前提出此项要求（也适用于主动/主动 NVA）的目的是确保对称路由。|若要保留 HTTP/S 的原始源，请考虑使用 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 标头。 
 |仅在代理模式下支持 SQL FQDN 筛选（端口 1433）|对于 Azure SQL 数据库、Azure SQL 数据仓库和 Azure SQL 托管实例：<br /><br />在预览期间，仅在代理模式下支持 SQL FQDN 筛选（端口 1433）。<br /><br />对于 Azure SQL IaaS：<br /><br />如果使用的是非标准端口，则可以在应用程序规则中指定这些端口。|对于采用重定向模式的 SQL（这是从 Azure 内连接时采用的默认设置），可以通过将 SQL 服务标记用作 Azure 防火墙网络规则的一部分来改为对访问进行筛选。
+|不允许 TCP 端口 25 上的出站流量| 将阻止使用 TCP 端口 25 的出站 SMTP 连接。 端口 25 主要用于未经身份验证的电子邮件传递。 这是虚拟机的默认平台行为。 有关详细信息，请参阅[排查 Azure 中的出站 SMTP 连接问题](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)。 但是，与虚拟机不同，目前无法在 Azure 防火墙上启用此功能。|按照“SMTP 故障排除”一文中所述的推荐方法发送电子邮件。 或者，从到防火墙的默认路由中排除需要出站 SMTP 访问的虚拟机，改为配置直接到 Internet 的出站访问。
 
 <!--Not Available on Line 93 on Availability Zones-->
 <!--Not Available on Line 94 SNAT on inbound connection [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend)-->
@@ -109,5 +118,4 @@ Azure 防火墙存在以下已知问题：
 - [使用模板部署 Azure 防火墙](deploy-template.md)
 - [创建 Azure 防火墙测试环境](scripts/sample-create-firewall-test.md)
 
-<!-- Update_Description: new articles on firewall overview -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: wording update -->

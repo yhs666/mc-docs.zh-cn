@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 08/24/2019
-ms.date: 06/10/2019
+origin.date: 09/05/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8497f5aa6aa27bfbfc016e6dd251e74f49bec893
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: f2c16f73732b71ae47a13a973bcb20e057754872
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390935"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340967"
 ---
 # <a name="monitor-the-process-server"></a>监视进程服务器
 
@@ -57,10 +57,12 @@ ms.locfileid: "66390935"
 ![警告][yellow] | 过去 15 分钟的 CPU 利用率超过 80%
 ![警告][yellow] | 过去 15 分钟的内存使用率超过 80%
 ![警告][yellow] | 过去 15 分钟的缓存文件夹可用空间小于 30%
+![警告][yellow] | Site Recovery 每五分钟监视一次挂起/传出数据，并估计进程服务器缓存中的数据无法在 30 分钟内上传到 Azure。
 ![警告][yellow] | 进程服务器服务在过去 15 分钟未运行
 ![关键][red] | 过去 15 分钟的 CPU 利用率超过 95%
 ![关键][red] | 过去 15 分钟的内存使用率超过 95%
 ![关键][red] | 过去 15 分钟的缓存文件夹可用空间小于 25%
+![关键][red] | Site Recovery 每五分钟监视一次挂起/传出数据，并估计进程服务器缓存中的数据无法在 45 分钟内上传到 Azure。
 ![关键][red] | 进程服务器有 15 分钟未发出检测信号。
 
 ![表键](./media/vmware-physical-azure-monitor-process-server/table-key.png)
@@ -91,11 +93,10 @@ ms.locfileid: "66390935"
 ## <a name="next-steps"></a>后续步骤
 
 - 如果遇到任何进程服务器问题，请遵循我们的[故障排除指南](vmware-physical-azure-troubleshoot-process-server.md)予以解决
-- 如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)中提问。 
+- 如需更多帮助，请在 [Azure Site Recovery 论坛](https://support.azure.cn/support/contact/)中提问。 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png
 [red]: ./media/vmware-physical-azure-monitor-process-server/red.png
 
-<!--Update_Description: new articles on vmware physical azure monitor process server -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->

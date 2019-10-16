@@ -5,14 +5,15 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+origin.date: 03/26/2019
+ms.date: 09/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23acd4b71a00583d773c38482cfcc4c328fc296d
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 57ad17ce5976cef53a1e8fb58a54a8bbec8e95ab
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969605"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674599"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁盘加密先决条件
 

@@ -11,17 +11,16 @@ ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7bbce8bc2102830f0d7b0c57ea4c62baf3e82c88
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: ca1cdb3f80563625bbdd6fbd9d735df9b7e8651c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912990"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272798"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>为 Azure 准备 SLES 或 openSUSE 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -88,6 +87,7 @@ ms.locfileid: "68912990"
 
         Defaults targetpw   # ask for the password of the target user i.e. root
         ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+        
 13. 请确保已安装 SSH 服务器且将其配置为在引导时启动。  这通常是默认设置。
 14. 不要在 OS 磁盘上创建交换空间。
 
@@ -98,11 +98,13 @@ ms.locfileid: "68912990"
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        
 15. 运行以下命令可取消对虚拟机的预配并且对其进行准备以便在 Azure 上进行预配：
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
+        
 16. 在 Hyper-V 管理器中单击“操作”->“关闭”  。 现在，准备将 Linux VHD 上传到 Azure。
 
 ---
@@ -143,13 +145,16 @@ ms.locfileid: "68912990"
     这会确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，从内核引导行删除以下参数（如果它们存在）：
 
         libata.atapi_enabled=0 reserve=0x1f0,0x8
+        
 7. 建议编辑文件“/etc/sysconfig/network/dhcp”，并将 `DHCLIENT_SET_HOSTNAME` 参数更改为以下值：
 
         DHCLIENT_SET_HOSTNAME="no"
+        
 8. **重要提示：** 在“/etc/sudoers”中，注释掉或删除以下行（如果存在）：
 
         Defaults targetpw   # ask for the password of the target user i.e. root
         ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+        
 9. 请确保已安装 SSH 服务器且将其配置为在引导时启动。  这通常是默认设置。
 10. 不要在 OS 磁盘上创建交换空间。
 
@@ -160,14 +165,17 @@ ms.locfileid: "68912990"
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        
 11. 运行以下命令可取消对虚拟机的预配并且对其进行准备以便在 Azure 上进行预配：
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
+        
 12. 确保在启动时运行 Azure Linux 代理：
 
         # sudo systemctl enable waagent.service
+        
 13. 在 Hyper-V 管理器中单击“操作”->“关闭”。  Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="next-steps"></a>后续步骤

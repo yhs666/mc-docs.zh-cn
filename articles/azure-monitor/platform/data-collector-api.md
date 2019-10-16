@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/02/2019
-ms.date: 6/4/2019
+origin.date: 09/10/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 266bf08f4aa025ced429d26a97b860051fb7e308
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 70b5141680987f09b7ce8a06ba539b2cedaa35e3
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736938"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330411"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor
 本文介绍如何使用 HTTP 数据收集器 API 从 REST API 客户端将日志数据发送到 Azure Monitor。  其中说明了对于脚本或应用程序收集的数据，如何设置其格式、将其包含在请求中，并由 Azure Monitor 授权该请求。  将针对 PowerShell、C# 和 Python 提供示例。
@@ -60,7 +60,7 @@ Log Analytics 工作区中的所有数据都存储为具有某种特定记录类
 | 标头 | 说明 |
 |:--- |:--- |
 | 授权 |授权签名。 在本文的后面部分，可以了解有关如何创建 HMAC-SHA256 标头的信息。 |
-| Log-Type |指定正在提交的数据的记录类型。 此参数的大小限制为 100 个字符。 |
+| Log-Type |指定正在提交的数据的记录类型。 只能包含字母、数字和下划线 (_)，不能超过 100 个字符。 |
 | x-ms-date |处理请求的日期，采用 RFC 1123 格式。 |
 | x-ms-AzureResourceId | 应该与数据关联的 Azure 资源的资源 ID。 这样会填充 `_ResourceId` 属性，并允许将数据包括在[以资源为中心](manage-access.md#access-modes)的查询中。 如果未指定此字段，则不会将数据包括在以资源为中心的查询中。 |
 | time-generated-field |数据中包含数据项时间戳的字段名称。 如果指定某一字段，其内容用于 **TimeGenerated**。 如果未指定此字段，**TimeGenerated** 的默认值是引入消息的时间。 消息字段的内容应遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
@@ -101,7 +101,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 后续部分中的示例提供了示例代码，可帮助你创建授权标头。
 
 ## <a name="request-body"></a>请求正文
-消息正文必须采用 JSON 格式。 它必须包括一个或多个记录，其中包含采用以下格式的属性名称和值对：
+消息正文必须采用 JSON 格式。 它必须包括一个或多个记录，其中包含采用以下格式的属性名称和值对。 属性名称只能包含字母、数字和下划线 (_)。
 
 ```json
 [
@@ -146,7 +146,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 | 布尔 |_b |
 | Double |_d |
 | 日期/时间 |_t |
-| GUID |_g |
+| GUID（存储为字符串） |_g |
 
 Azure Monitor 对每个属性所使用的数据类型取决于新记录的记录类型是否已存在。
 
@@ -486,7 +486,3 @@ post_data(customer_id, shared_key, body, log_type)
 - 使用[日志搜索 API](../log-query/log-query-overview.md) 从 Log Analytics 工作区中检索数据。
 
 - 详细了解如何使用 Azure Monitor 的逻辑应用工作流[通过数据收集器 API 创建数据管道](create-pipeline-datacollector-api.md)。
-
-
-
-

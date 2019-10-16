@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/24/2018
+origin.date: 11/30/2017
 ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: f640c8204312a5e94ff5abf3f5b1399e67997009
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 517cf8dcd18710c2a988f0eaefe58fa7ce6a72bc
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890180"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674674"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Azure 网络观察程序中的“IP 流验证”简介
 

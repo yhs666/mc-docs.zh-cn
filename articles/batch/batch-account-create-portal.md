@@ -10,17 +10,16 @@ ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01eab92576a3f7fdf2ab4a0786be7a1f8ede3567
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 1de6c6ea0fb5cdfcd202283813c512596507f213
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103725"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330093"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -61,6 +60,7 @@ ms.locfileid: "70103725"
 1. 选择“创建”  可创建帐户。
 
 ## <a name="view-batch-account-properties"></a>查看 Batch 帐户属性
+
 创建帐户后，选择该帐户即可访问其设置和属性。 可以使用左侧菜单访问所有帐户设置和属性。
 
 ![Azure 门户中的 Batch 帐户页][account_blade]
@@ -113,7 +113,7 @@ ms.locfileid: "70103725"
 
 在用户订阅模式下创建 Batch 帐户时，请使用密钥保管库的资源组。 指定“用户订阅”  作为池分配模式，选择密钥保管库，然后选中该框以授予 Azure Batch 对密钥保管库的访问权限。 
 
-如果希望手动授予对密钥保管库的访问权限，请转到密钥保管库的“访问策略”  部分，然后选择 **Microsoft Azure Batch**。 使用下拉菜单配置**机密权限**。 必须至少授予 Azure Batch **Get**、**List**、**Set** 和 **Delete** 权限。
+如果希望手动授予对密钥保管库的访问权限，请转到密钥保管库的“访问策略”  部分，然后选择“添加访问策略”  并搜索“Microsoft Azure Batch”  。 选择后，你将需要使用下拉菜单配置“机密权限”  。 必须至少授予 Azure Batch **Get**、**List**、**Set** 和 **Delete** 权限。
 
 ![Azure Batch 的机密权限](./media/batch-account-create-portal/secret-permissions.png)
 

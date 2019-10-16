@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: 7e04c41c17b1e5ee164811b111a06b7832a99b88
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/23/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5fbe736983bb2d6e3454e0309316563b5a504417
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222572"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272600"
 ---
 # <a name="routing-and-tag-expressions"></a>路由和标记表达式
 
@@ -36,13 +36,13 @@ ms.locfileid: "56222572"
 2. **标记**：包含指定标记的所有注册会收到通知。
 3. **标记表达式**：其标记集匹配指定表达式的所有注册将收到通知。
 
-## <a name="tags"></a>标记
+## <a name="tags"></a>Tags
 
 标记可以是任意字符串，最多 120 个字符，可以包含字母数字和以下非字母数字字符：“_”、“@”、“#”、“.”、“:”、“-”。 以下示例显示了一个应用程序，可以从中接收有关特定乐队的 toast 通知。 在此方案中，路由通知的一种简便方法是使用代表不同乐队的标记（如下图所示）为注册添加标签：
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
-在此图中，标记为 Beatles 的消息仅传送到使用标记 Beatles 注册的平板电脑。
+在此图中，标记为 Beatles 的消息仅传送到使用标记 Beatles 注册的平板电脑   。
 
 有关针对标记创建注册的详细信息，请参阅[注册管理](notification-hubs-push-notification-registration-management.md)。
 

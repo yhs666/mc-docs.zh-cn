@@ -5,16 +5,16 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 02/22/2016
-ms.date: 04/03/2017
+origin.date: 04/03/2017
+ms.date: 04/03/2018
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c6f89db927342e461b180fbb7ea19a9a02da98b5
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: f8d1c7ca8f5ecba7b9420c74be30fa5fa4446a71
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737147"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330344"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自动缩放操作在 Azure 监视器中发送电子邮件和 webhook 警报通知
 本文演示如何设置触发器，以便可以在 Azure 中基于自动缩放操作调用特定 Web URL 或发送电子邮件。  
@@ -121,4 +121,5 @@ webhook 可使用基于令牌的身份验证进行身份验证：将具有令牌
 | portalLink |是 |指向目标资源摘要页的 Azure 门户链接 |
 | oldCapacity |是 |自动缩放执行缩放操作时的当前（旧）实例计数 |
 | newCapacity |是 |自动缩放将资源缩放到的新实例计数 |
-| 属性 |否 |可选。 <键, 值> 对集（例如字典 <String, String>）。 properties 字段是可选的。 在自定义用户界面或基于逻辑应用的工作流中，可以输入可使用有效负载传递的键和值。 将自定义属性传递回传出 webhook 调用的替代方法是使用 webhook URI 本身（作为查询参数） |
+| properties |否 |可选。 <键, 值> 对集（例如字典 <String, String>）。 properties 字段是可选的。 在自定义用户界面或基于逻辑应用的工作流中，可以输入可使用有效负载传递的键和值。 将自定义属性传递回传出 webhook 调用的替代方法是使用 webhook URI 本身（作为查询参数） |
+

@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/24/2018
-ms.date: 02/18/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3ba33a68416c235b08e1397721f7a0a3ad02a223
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9d4941a0971b851595d90db30c73269a40a11f14
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666446"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272713"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM 中远程桌面频繁断开连接
 
@@ -47,12 +46,12 @@ ms.locfileid: "56666446"
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机
 
 1. [将 OS 磁盘附加到恢复 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 将 OS 磁盘附加到恢复 VM 后，请确保磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的 OS 磁盘的驱动器号。
-3. 在附加的 OS 磁盘上，浏览到 \windows\system32\config 文件夹。 将此文件夹中的所有文件复制为备份，以备回滚之需。
+2. 将 OS 磁盘附加到恢复 VM 后，请确保磁盘在磁盘管理控制台中标记为“联机”  。 请注意分配给附加的 OS 磁盘的驱动器号。
+3. 在附加的 OS 磁盘上，浏览到 \windows\system32\config 文件夹  。 将此文件夹中的所有文件复制为备份，以备回滚之需。
 4. 启动注册表编辑器 (regedit.exe)。
-5. 选择“HKEY_LOCAL_MACHINE”项。 在菜单上，选择“文件” > “加载配置单元”：
-6. 浏览到已附加 OS 磁盘上的 **\windows\system32\config\SYSTEM** 文件夹。 输入“BROKENSYSTEM”作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”项之下。 然后加载 HKEY_LOCAL_MACHINE 密钥下的软件配置单元 \windows\system32\config\SOFTWARE。 输入“BROKENSOFTWARE”作为配置单元软件。 
-7. 打开提升的命令提示符窗口（以管理员身份运行），然后在其余步骤中运行命令以重置 RDP 配置。 
+5. 选择“HKEY_LOCAL_MACHINE”  项。 在菜单上，选择“文件”   > “加载配置单元”  ：
+6. 浏览到已附加 OS 磁盘上的 **\windows\system32\config\SYSTEM** 文件夹。 输入“BROKENSYSTEM”  作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”  项之下。 然后加载 HKEY_LOCAL_MACHINE 密钥下的软件配置单元 \windows\system32\config\SOFTWARE   。 输入“BROKENSOFTWARE”  作为配置单元软件。 
+7. 打开提升的命令提示符窗口（以管理员身份运行），然后在其余步骤中运行命令以重置 RDP 配置  。 
 8. 将 RDP 的安全层级降为 0，以便服务器和客户端之间的通信使用本机 RDP 加密：
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f
@@ -123,6 +122,6 @@ ms.locfileid: "56666446"
 18. 重启 VM，并再次尝试使用 RDP 连接到它。
 
 ## <a name="need-help"></a>需要帮助？ 
-请联系支持人员。 如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
+请联系支持人员。 如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/support/support-azure/) 来快速解决问题。
 
 <!-- Update_Description: wording update-->

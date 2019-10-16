@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
 origin.date: 05/14/2019
-ms.date: 09/02/2019
+ms.date: 08/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6b1e25a1122253ef8544e77df5016471a3fe3e52
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: cd7496b487c5b7b0ea0581bd8400711c44405dd2
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169634"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330009"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应
 本教程介绍如何使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应。 你将执行以下操作：
@@ -236,7 +236,7 @@ ms.locfileid: "70169634"
         ![获取函数的发布配置文件](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. 将文件保存到项目的文件夹中。 
 4. 在 Visual Studio 中右键单击“SBEventGridIntegration”，然后选择“发布”。   
-5. 在“发布”页上选择“启动”*。   
+5. 在“发布”页上选择“启动”。   
 6. 在“选取发布目标”页上执行以下步骤，并选择“导入配置文件”。   
 
     ![Visual Studio -“导入配置文件”按钮](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)

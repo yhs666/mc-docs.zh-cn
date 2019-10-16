@@ -60,6 +60,10 @@
       href: functions-scale.md
     - name: 部署
       href: functions-deployment-technologies.md
+    - name: 事件和消息传送
+      items:
+        - name: 设计完全相同的输入
+          href: functions-idempotent.md
     - name: 触发器和绑定
       items:
         - name: 关于触发器和绑定
@@ -88,8 +92,6 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
-        - name: Python
-          href: functions-reference-python.md
         - name: TypeScript
           href: 'functions-reference-node.md#typescript'
     - name: 性能注意事项
@@ -175,6 +177,8 @@
           href: ../app-service/overview-managed-identity.md
         - name: 自定义 HTTP 函数终结点
           href: functions-create-serverless-api.md
+        - name: 管理本地资源
+          href: functions-hybrid-powershell.md
     - name: 故障排除
       items:
         - name: 排查存储问题
@@ -185,8 +189,6 @@
       items:
         - name: Java
           href: 'https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime?view=azure-java-stable'
-        - name: Python
-          href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
     - name: 应用设置参考
       href: functions-app-settings.md
     - name: 绑定
@@ -197,8 +199,10 @@
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
+              displayName: Azure Cosmos DB
             - name: Functions 2.x
               href: functions-bindings-cosmosdb-v2.md
+              displayName: Azure Cosmos DB
         - name: 事件中心
           href: functions-bindings-event-hubs.md
         - name: IoT 中心

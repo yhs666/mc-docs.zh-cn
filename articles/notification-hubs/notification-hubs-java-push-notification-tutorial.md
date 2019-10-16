@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: c852b61e40c5929f63a396fe4d2db9c154c6ce9e
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/04/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4c465cd2fb2b969d7db64e6a1b67cca6706b79c1
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222601"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272617"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何通过 Java 使用通知中心
 
@@ -299,7 +299,7 @@ SDK 目前支持以下内容：
 
 通知对象只有带有标头的正文，一些实用工具方法可帮助你构建本机和模板通知对象。
 
-* Windows 应用商店和 Windows Phone 8.1（非 Silverlight）
+* Windows 应用商店和 Windows Phone 8.1（非 Silverlight） 
 
     ```java
     String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
@@ -382,4 +382,4 @@ SDK 目前支持以下内容：
 [发送当地的突发新闻]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [发送通知到经身份验证的用户]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [发送跨平台通知到经身份验证的用户]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

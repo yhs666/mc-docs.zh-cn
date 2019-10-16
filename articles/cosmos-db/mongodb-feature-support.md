@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 05/21/2019
-ms.date: 06/17/2019
+ms.date: 09/30/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 8bdfe89892e1fa4f41e1462b40da2a8ca17ba119
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 2df516977d27446392c7f73e1cf693e5d870efc1
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171351"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306711"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB：支持的功能和语法
 
@@ -213,24 +213,25 @@ Cosmos DB 在公共预览版中支持聚合管道。 请参阅 [Azure 博客](ht
 }
 ```
 
-| 运算符 |                                      示例                                  |
-|----------|-------------------------------------------------------------------------------|
-|   $eq    |                  ` { "Volcano Name": { $eq: "Rainier" } } `                   |
-|   $gt    |                      ` { "Elevation": { $gt: 4000 } } `                       |
-|   $gte   |                      ` { "Elevation": { $gte: 4392 } } `                      |
-|   $lt    |                      ` { "Elevation": { $lt: 5000 } } `                       |
-|   $lte   |                      ` { "Elevation": { $lte: 5000 } } `                      |
-|   $ne    |                        ` { "Elevation": { $ne: 1 } } `                        |
-|   $in    |  ` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } `   |
-|   $nin   |      ` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } `       |
-|   $or    | ` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } `  |
-|   $and   | ` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ` |
-|   $not   |                 ` { "Elevation": { $not: { $gt: 5000 } } } `                  |
-|   $nor   | ` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ` |
-| $exists  |                      ` { "Status": { $exists: true } } `                      |
-|  $type   |                     ` { "Status": { $type: "string" } } `                     |
-|   $mod   |                    ` { "Elevation": { $mod: [ 4, 0 ] } } `                    |
-|  $regex  |                  ` { "Volcano Name": { $regex: "^Rain"} } `                   |
+运算符 | 示例 |
+--- | --- |
+$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |
+$gt | `{ "Elevation": { $gt: 4000 } }` |
+$gte | `{ "Elevation": { $gte: 4392 } }` |
+$lt | `{ "Elevation": { $lt: 5000 } }` |
+$lte | `{ "Elevation": { $lte: 5000 } }` |
+$ne | `{ "Elevation": { $ne: 1 } }` |
+$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |
+$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` |
+$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|
+$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |
+$exists | `{ "Status": { $exists: true } }`|
+$type | `{ "Status": { $type: "string" } }`|
+$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |
+$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|
+
 ### <a name="notes"></a>说明
 
 在 $regex 查询中，左定位表达式允许索引搜索。 但是，使用“i”修饰符（不区分大小写）和“m”修饰符（多行）会导致在所有表达式中进行集合扫描。
@@ -267,19 +268,19 @@ Cosmos DB 在公共预览版中支持聚合管道。 请参阅 [Azure 博客](ht
 
 ### <a name="geospatial-operators"></a>地理空间运算符
 
-|    运算符    |                                                                                                 示例                                                                                                 |     |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
-|   $geoWithin   |                                                        ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }```                                                         | 是 |
-| $geoIntersects | ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
-|     $near      |     ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```      | 是 |
-|  $nearSphere   |                                                          ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }```                                                          | 是 |
-|   $geometry    |   ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```   | 是 |
-|  $minDistance  |                        ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }```                         | 是 |
-|  $maxDistance  |                                                          ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }```                                                          | 是 |
-|    $center     |                                                            ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }```                                                             | 是 |
-| $centerSphere  |                                                        ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }```                                                         | 是 |
-|      $box      |                                                         ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }```                                                         | 是 |
-|    $polygon    |     ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```      | 是 |
+运算符 | 示例 | |
+--- | --- | --- |
+$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 是 |
+$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
+$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
+$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | 是 |
+$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
+$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | 是 |
+$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | 是 |
+$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | 是 |
+$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 是 |
+$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | 是 |
+$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
 
 ## <a name="sort-operations"></a>排序操作
 使用 `findOneAndUpdate` 操作时，支持基于单个字段的排序操作，但不支持基于多个字段的排序操作。
@@ -332,7 +333,7 @@ Cosmos DB 支持在最低层进行自动的本机复制。 此逻辑还可以扩
 
 ## <a name="sharding"></a>分片
 
-Cosmos DB 支持服务器端自动分片。 Cosmos DB 不支持手动分片命令。
+Azure Cosmos DB 支持服务器端自动分片。 它自动管理分片的创建、放置和均衡。 Azure Cosmos DB 不支持手动分片命令，这意味着你不必调用 shardCollection、addShard、balancerStart、moveChunk 等命令。只需在创建容器或查询数据时指定分片键。
 
 ## <a name="next-steps"></a>后续步骤
 

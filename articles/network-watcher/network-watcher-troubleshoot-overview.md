@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: aa6ebc70d1917e6da41c74a2b2cc781db8d753e3
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: a46d782fd6fd8ad4518ed1686d0faab12ab40f14
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987029"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674656"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>在 Azure 网络观察程序中进行资源故障排除简介
 
@@ -50,7 +50,7 @@ ms.locfileid: "56987029"
 
 ### <a name="gateway"></a>网关
 
-| 错误类型 | 原因 | 日志|
+| 错误类型 | Reason | 日志|
 |---|---|---|
 | NoFault | 未检测到任何错误 |是|
 | GatewayNotFound | 无法找到网关，或未预配网关 |否|
@@ -65,7 +65,7 @@ ms.locfileid: "56987029"
 
 ### <a name="connection"></a>连接
 
-| 错误类型 | 原因 | 日志|
+| 错误类型 | Reason | 日志|
 |---|---|---|
 | NoFault | 未检测到任何错误 |是|
 | GatewayNotFound | 无法找到网关，或未预配网关 |否|
@@ -87,13 +87,13 @@ ms.locfileid: "56987029"
 
 |  |  |
 |---------|---------|
-|网关类型   |         |
+|网关类型    |         |
 |VPN      | 支持        |
 |ExpressRoute | 不支持 |
-|VPN 类型 | |
+|VPN 类型  | |
 |基于路由 | 支持|
 |基于策略 | 不支持|
-|连接类型||
+|连接类型 ||
 |IPSec| 支持|
 |VNet2Vnet| 支持|
 |ExpressRoute| 不支持|
@@ -108,7 +108,7 @@ ms.locfileid: "56987029"
 > [!NOTE]
 > 在某些情况下，仅部分日志文件写入到存储中。
 
-有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 使用 Azure Blob 存储入门](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 可以使用的另一个工具是存储资源管理器。 有关存储资源管理器的详细信息可以在此链接中找到：[存储资源管理器](http://storageexplorer.com/)
+有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 使用 Azure Blob 存储入门](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 可以使用的另一个工具是存储资源管理器。 有关存储资源管理器的详细信息可以在此链接中找到：[存储资源管理器](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

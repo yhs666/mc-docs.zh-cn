@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: multiple
 ms.topic: include
 origin.date: 05/16/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 42daa0be3b2604cd0b09752d7d02d20ecf6d52ce
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 963578116ae60bd6d8278baa59ce78774559cddf
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921001"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272178"
 ---
 本部分提供了有关先前几代虚拟机大小的信息。 这些大小仍可使用，但有新的大小可供使用。 
 

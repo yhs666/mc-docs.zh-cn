@@ -8,17 +8,17 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.custom: seo-java-august2019
-ms.openlocfilehash: c7888964fd4f923993114f0b5d8d245bcf2afb41
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 723d8d606f2766205a411ca2f319ae31434719dc
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254546"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306797"
 ---
 <!--Verify sucessfully-->
-# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>快速入门：使用 Java SDK 和 Azure Cosmos DB 生成 Cassandra
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB Cassandra API 数据
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -90,7 +90,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     return cluster.connect();
     ```
 
-    以下代码片段摘自于 `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` 文件。
+    以下代码片段来自 src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java  文件。
 
 * 创建新密钥空间。
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 07/18/2019
 ms.date: 08/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d58dd63851cb0754d26954ea177062a790302459
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 2bcb5ca2d3627d1bb73441b9c49e8a0d5ca77a07
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736933"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330409"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor 中的日志数据引入时间
 Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发送数 TB 的数据，并且此数据仍在不断增长。 关于日志数据在收集后需要多长时间才可供使用，大家通常存有疑问。 本文将对影响此延迟的不同因素进行说明。
@@ -80,7 +80,7 @@ Azure Monitor 的首要任务是确保不会丢失任何客户数据，因此系
 
 
 ## <a name="checking-ingestion-time"></a>检查引入时间
-由于在不同情况下，不同资源的引入时间可能会有所不同。 可以使用日志查询来识别环境的特定行为。
+由于在不同情况下，不同资源的引入时间可能会有所不同。 可以使用日志查询来识别环境的特定行为。 下表指定了如何在创建记录并将其发送到 Azure Monitor 时确定记录的不同时间。
 
 | 步骤 | 属性或函数 | 注释 |
 |:---|:---|:---|
@@ -101,8 +101,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-如果想要在一段时间内对特定计算机的引入时间向下钻取，请使用以下可直观显示图形中的数据的查询： 
+
+上述百分位数检查非常适合发现延迟的一般趋势。 若要确定延迟的短期峰值，使用最大值 (`max()`) 可能更有效。
+
+如果想要在一段时间内详细了解特定计算机的引入时间，可以使用以下查询，它还可以将过去一天的数据以图表的形式显示出来： 
+
 
 ``` Kusto
 Heartbeat 

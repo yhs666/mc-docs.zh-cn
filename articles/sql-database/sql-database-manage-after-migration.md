@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 02/13/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: bf9e5e515d4607c9f4149ab6e4676628988b3825
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: 4381ea88c4d3f47abc8ffec3779aa0d2fd118316
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544274"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262935"
 ---
 # <a name="new-dba-in-the-cloud---managing-your-single-and-pooled-databases-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中单一和共用数据库
 
@@ -143,7 +142,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 #### <a name="reserved-ips"></a>保留 IP
 
-另一种方法是为 VM 设置[保留 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，并将服务器防火墙设置中的那些特定 VM IP 地址列入允许列表。 通过分配保留 IP，就可以避免通过更改 IP 地址来更新防火墙规则的麻烦。
+另一种方法是为 VM 预配[保留 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，并在服务器防火墙设置中添加这些特定的 VM IP 地址。 通过分配保留 IP，就可以避免通过更改 IP 地址来更新防火墙规则的麻烦。
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>要通过哪个端口连接到 SQL 数据库
 

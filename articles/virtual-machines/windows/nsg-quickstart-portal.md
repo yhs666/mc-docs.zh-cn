@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/27/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9a0f400ba43bbc4bac75cc9be407c1a85ff58478
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 39054f089a81fc64e0d2a81efaca99ccb8ce07e8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539149"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272553"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -88,6 +87,5 @@ ms.locfileid: "69539149"
 下列文章更介绍了有关创建更详细环境的信息：
 - [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
 - [安全组](../../virtual-network/security-overview.md)
-
 
 <!-- Update_Description: update meta properties， wording update, update link -->

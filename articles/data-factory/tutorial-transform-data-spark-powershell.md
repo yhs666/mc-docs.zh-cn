@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/22/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 8242de787bd9b94218f6f6ce7edbc5be639e50e5
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ca78785841f906a985d2a4694567bb5473fe61fb
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570264"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275169"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换云中的数据
 本教程使用 Azure PowerShell 创建一个数据工厂管道，该管道可以使用 Spark 活动和按需 HDInsight 链接服务转换数据。 在本教程中执行以下步骤：
@@ -138,7 +138,7 @@ ms.locfileid: "67570264"
 
 - **hostSubscriptionId**。 将 &lt;subscriptionID&gt; 替换为 Azure 订阅的 ID。 按需 HDInsight 群集在此 Azure 订阅中创建。 
 - **tenant**。 将 &lt;tenantID&gt; 替换为 Azure 租户的 ID。 
-- **servicePrincipalId**、**servicePrincipalKey**。 将 &lt;servicePrincipalID&gt; 和 &lt;servicePrincipalKey&gt; 分别替换为 Azure Active Directory 中服务主体的 ID 和密钥。 此服务主体需是订阅“参与者”角色的成员，或创建群集的资源组的成员。 有关详细信息，请参阅[创建 Azure Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。 
+- **servicePrincipalId**、**servicePrincipalKey**。 将 &lt;servicePrincipalID&gt; 和 &lt;servicePrincipalKey&gt; 分别替换为 Azure Active Directory 中服务主体的 ID 和密钥。 此服务主体需是订阅“参与者”角色的成员，或创建群集的资源组的成员。 有关详细信息，请参阅[创建 Azure Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。 服务主体 ID 等效于应用程序 ID，服务主体密钥等效于客户端密码的值     。
 - **clusterResourceGroup**。 将 &lt;resourceGroupOfHDICluster&gt; 替换为需要在其中创建资源组的 HDInsight 群集的名称。 
 
 > [!NOTE]

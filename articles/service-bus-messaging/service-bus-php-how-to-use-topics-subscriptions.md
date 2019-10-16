@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 09/02/2019
-ms.date: 04/15/2019
+origin.date: 04/15/2019
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 82f3c861f7fa83f8d2c93aa7b5dc7df2af263a1f
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 9987c4099ef8ed2416fdf7592170e7cd20203e22
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330134"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 
@@ -45,7 +45,7 @@ ms.locfileid: "70169602"
 创建访问 Azure Blob 服务的 PHP 应用程序的唯一要求是从代码中引用[用于 PHP 的 Azure SDK](../php-download-sdk.md) 中的类。 可以使用任何开发工具或记事本创建应用程序。
 
 > [!NOTE]
-> PHP 安装还必须已安装并启用 [OpenSSL 扩展](http://php.net/openssl)。
+> PHP 安装还必须已安装并启用 [OpenSSL 扩展](https://php.net/openssl)。
 > 
 > 
 

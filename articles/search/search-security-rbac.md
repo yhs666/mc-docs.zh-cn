@@ -2,24 +2,24 @@
 title: 在门户中针对 Azure 管理访问权限设置 RBAC 角色 - Azure 搜索
 description: Azure 门户中基于角色的管理控制 (RBAC)，用于控制和委派 Azure 搜索管理的管理任务。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 04/05/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 27ec0dbef97248d4c83f00257ac06d369e42e29b
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 33baecc1be6fa4ab011314251be487ee5d71f66f
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004827"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674422"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>针对管理访问权限设置 RBAC 角色
 
-对于通过门户或 Resource Manager API 管理的所有服务，Azure 提供了[基于全局角色的授权模型](../role-based-access-control/role-assignments-portal.md)。 所有者、参与者和读者角色根据分配给每个角色的 Active Directory 用户、组和安全主体的服务管理，确定服务管理的级别。 
+对于通过门户或 Resource Manager API 管理的所有服务，Azure 提供了[基于全局角色的授权模型](../role-based-access-control/role-assignments-portal.md)。 所有者、参与者和读者角色根据分配给每个角色的 Active Directory 用户、组和安全主体的服务管理，确定服务管理的级别  。 
 
 > [!Note]
 > 不存在用于保护文档索引或文档子集且基于角色的访问控制。 如果要实现针对搜索结果的、基于标识的访问，可创建安全筛选器按标识来细化结果，由此去除请求者不应具有访问权限的那些文档。 有关详细信息，请参阅[安全筛选器](search-security-trimming-for-azure-search.md)和[使用 Active Directory 进行保护](search-security-trimming-for-azure-search-with-aad.md)。
@@ -32,7 +32,7 @@ ms.locfileid: "66004827"
 | --- | --- |
 | 所有者 |创建或删除服务或者服务上的任何对象，包括 API 密钥、索引、索引器、索引器数据源和索引器计划。<p>查看服务状态，包括计数和存储大小。<p>添加或删除角色成员身份（仅所有者才能管理角色成员身份）。<p>订阅管理员和服务所有者拥有所有者角色的自动成员身份。 |
 | 参与者 |访问级别与所有者的访问级别相同，不包括 RBAC 角色管理。 例如，参与者可创建或删除对象，或查看和重新生成 [API 密钥](search-security-api-keys.md)，但不能修改角色成员身份。 |
-| [搜索服务参与者内置角色](https://docs.azure.cn/zh-cn/role-based-access-control/built-in-roles#search-service-contributor) | 等效于参与者角色。 |
+| [搜索服务参与者内置角色](https://docs.azure.cn/role-based-access-control/built-in-roles#search-service-contributor) | 等效于参与者角色。 |
 | 读取器 |查看服务概要和指标。 此角色的成员无法查看索引、索引器、数据源或密钥信息。  |
 
 角色不授予对服务终结点的访问权限。 搜索服务操作（例如索引管理、索引填充和搜索数据的查询）可通过 API 密钥而非角色进行控制。 有关详细信息，请参阅[管理 API 密钥](search-security-api-keys.md)。

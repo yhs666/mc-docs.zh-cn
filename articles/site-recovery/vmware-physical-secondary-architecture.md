@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 08/22/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: f348aba4f32fa695db46125acb25e9bf0977955f
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 4de49f496160feed65853cc46b8abeee30174557
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390821"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340956"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>将 VMware/物理服务器复制到辅助本地站点的体系结构
 

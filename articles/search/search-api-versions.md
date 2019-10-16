@@ -8,14 +8,14 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: b30c5aaa0c78d19083e099c789eeac8bc4116847
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 904053ac4280cef83e77c33f7649a96b871221d8
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004645"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674251"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 搜索中的 API 版本
 Azure 搜索会定期发布功能更新。 这些更新有时（但并非总是）需要发布 API 的新版本，以保持后向兼容性。 发布新版本使你可以控制何时以及如何在代码中集成搜索服务更新。
@@ -60,4 +60,4 @@ Azure 搜索始终先通过 REST API 预发布实验功能，再通过 .NET SDK 
 
 对于 .NET SDK：代码迁移指南可在[升级 .NET SDK](search-dotnet-sdk-migration-version-9.md) 中找到。
 
-正式版的推出意味着 Azure 搜索现在遵循服务级别协议 (SLA)。 可以在 [Azure 搜索服务级别协议](https://www.azure.cn/zh-cn/support/legal/sla/)中找到 SLA。
+正式版的推出意味着 Azure 搜索现在遵循服务级别协议 (SLA)。 可以在 [Azure 搜索服务级别协议](https://www.azure.cn/support/legal/sla/)中找到 SLA。

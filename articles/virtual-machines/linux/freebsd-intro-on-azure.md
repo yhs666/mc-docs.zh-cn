@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1715081a016135e08b7376b8f6f61fb29dd22d93
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: d51f4736c036f7b2ccb1b6bdd40757e0ded5d3e4
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913024"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272751"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本文概述如何在 Azure 中运行 FreeBSD 虚拟机。

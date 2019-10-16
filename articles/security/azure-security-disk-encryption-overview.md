@@ -5,14 +5,15 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+origin.date: 09/05/2019
+ms.date: 09/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d99b44c7ad1e3a3c3b15c79194b3b1ba99fa3982
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 17668c99ed7b3e535df3750c4a7e25081127339d
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818190"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674593"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure 磁盘加密概述
 

@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/04/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 4f15d8172c8fecbaa7855e863db25b8f4b19ddb7
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e829e291bbb73b67e555627bb8a0a123416ee1ea
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570482"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275188"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Hive 活动转换 Azure 虚拟网络中的数据
 本教程使用 Azure 门户创建一个数据工厂管道，该管道可以使用 HDInsight 群集上的 Hive 活动转换 Azure 虚拟网络 (VNet) 中的数据。 在本教程中执行以下步骤：
@@ -202,7 +202,7 @@ ms.locfileid: "67570482"
 请注意以下几点：
 
 - **scriptPath** 指向用于 MyStorageLinkedService 的 Azure 存储帐户中的 Hive 脚本路径。 该路径区分大小写。
-- **Output** 是 Hive 脚本中使用的参数。 使用 `wasb://<Container>@<StorageAccount>.blob.core.chinacloudapi.cn/outputfolder/` 格式指向 Azure 存储中的现有文件夹。 该路径区分大小写。 
+- **Output** 是 Hive 脚本中使用的参数。 使用 `wasbs://<Container>@<StorageAccount>.blob.core.chinacloudapi.cn/outputfolder/` 格式指向 Azure 存储中的现有文件夹。 该路径区分大小写。 
 
 1. 在数据工厂 UI 中，单击左窗格中的“+”（加号），然后单击“管道”。   
 
@@ -227,7 +227,7 @@ ms.locfileid: "67570482"
         ![脚本设置](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. 在“脚本”选项卡中，展开“高级”部分。   
     6. 单击“参数”对应的“从脚本自动填充”。   
-    7. 使用以下格式输入“输出”参数的值：`wasb://<Blob Container>@<StorageAccount>.blob.core.chinacloudapi.cn/outputfolder/`。  例如：`wasb://adftutorial@mystorageaccount.blob.core.chinacloudapi.cn/outputfolder/`。
+    7. 使用以下格式输入“输出”参数的值：`wasbs://<Blob Container>@<StorageAccount>.blob.core.chinacloudapi.cn/outputfolder/`。  例如：`wasbs://adftutorial@mystorageaccount.blob.core.chinacloudapi.cn/outputfolder/`。
  
         ![脚本参数](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. 若要将项目发布到数据工厂，请单击“发布”。 

@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 03/28/2019
-ms.date: 08/19/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 13c210f2855dcadd8cb0662c6a4c77240bc043d3
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: c9f7f3faf8290a782ce2efe4a1680faaaf597865
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878724"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292644"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>如何使用 Ambari 和 Azure Monitor 日志监视群集可用性
 
@@ -30,29 +30,29 @@ HDInsight 群集包含 Apache Ambari（提供运行状况信息概览和预定�
 
 可以单击 Azure 门户上“HDInsight 概述”边栏选项卡的“群集仪表板”部分中的“Ambari 主页”来访问 Ambari 仪表板，如下所示。   或者，可以在浏览器中输入以下 URL 访问 Ambari 仪表板：[https://\<群集名称\>.azurehdinsight.cn](https://clustername.azurehdinsight.cn/)
 
-![HDInsight 资源门户视图](media/hdinsight-cluster-availability/portal-overview.png)
+![HDInsight 资源门户视图](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
 然后，系统会提示你输入群集登录用户名和密码。 请输入创建群集时选择的凭据。
 
 然后，你将转到 Ambari 仪表板，其中包含的小组件显示了几个指标，可让你快速大致了解 HDInsight 群集的运行状况。 这些小组件显示活动的 DataNode（工作器节点）和 JournalNode（zookeeper 节点）数目、NameNode（头节点）运行时间等指标，以及特定群集类型的指标，例如 Spark 和 Hadoop 群集的 YARN ResourceManager 运行时间。
 
-![Ambari 仪表板](media/hdinsight-cluster-availability/ambari-dashboard.png)
+![Ambari 仪表板](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
 ### <a name="hosts--view-individual-node-status"></a>主机 – 查看单个节点的状态
 
 还可以查看单个节点的状态信息。 单击“主机”选项卡可查看群集中所有节点的列表，并查看有关每个节点的基本信息。  每个节点名称左侧的绿色勾选标记表示该节点上的所有组件已运行。 如果某个组件在某个节点上关闭，你会看到红色的警报三角形而不是绿色勾选标记。
 
-![Ambari 主机视图](media/hdinsight-cluster-availability/ambari-hosts.png)
+![Ambari 主机视图](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
 然后，可以单击节点的**名称**以查看该特定节点的更详细主机指标。 此视图显示每个组件的状态/可用性。
 
-![Ambari 主机中单个节点的视图](media/hdinsight-cluster-availability/ambari-hosts-node.png)
+![Ambari 主机中单个节点的视图](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### <a name="ambari-alerts"></a>Ambari 警报
 
 Ambari 还提供多个可配置的警报来针对特定的事件发出通知。 触发警报时，警报将显示在 Ambari 左上角的红色锁屏提醒（其中包含警报数目）中。 单击此锁屏提醒会显示当前警报的列表。
 
-![Ambari 警报计数](media/hdinsight-cluster-availability/ambari-alerts.png)
+![Ambari 警报计数](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
 若要查看警报定义的列表及其状态，请单击“警报”选项卡，如下所示。 
 
@@ -100,13 +100,13 @@ Ambari 提供许多与可用性相关的预定义警报，其中包括：
 
 在门户上的 HDInsight 群集资源页中，单击“Operations Management Suite”边栏选项卡。  然后单击“启用”并从下拉列表中选择你的 Log Analytics 工作区。 
 
-![HDInsight Operations Management Suite 边栏选项卡](media/hdinsight-cluster-availability/portal-enable-oms.png)
+![HDInsight Operations Management Suite 边栏选项卡](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
 
 ### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>日志边栏选项卡中的查询指标和日志表
 
 启用 Azure Monitor 日志集成后（这可能需要几分钟时间），导航到“Log Analytics 工作区”资源并单击“日志”边栏选项卡  
 
-![Log Analytics 工作区日志边栏选项卡](media/hdinsight-cluster-availability/portal-logs.png)
+![Log Analytics 工作区日志边栏选项卡](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
 “日志”边栏选项卡列出了一些示例查询，例如： 
 
@@ -165,7 +165,7 @@ Ambari 提供许多与可用性相关的预定义警报，其中包括：
 
 ![警报规则 - 新建操作组](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
-此时会打开“添加操作组”边栏选项卡。  选择**操作组名称**、**短名称**、**订阅**和**资源组**。 在“操作”部分下，选择一个**操作名称 **，并选择“电子邮件/短信/推送/语音”作为“操作类型”。  **** 
+此时会打开“添加操作组”边栏选项卡。  选择**操作组名称**、**短名称**、**订阅**和**资源组**。 在“操作”部分下，选择一个**操作名称**，并选择“电子邮件/短信/推送/语音”作为“操作类型”。   
 
 > [!NOTE]
 > 除了“电子邮件/短信/推送/语音”以外，警报还可以触发其他几个操作，例如 Azure 函数、逻辑应用、Webhook、ITSM 和自动化 Runbook。 [了解详细信息。](/azure-monitor/platform/action-groups#action-specific-information)
@@ -184,15 +184,15 @@ Ambari 提供许多与可用性相关的预定义警报，其中包括：
 
 如果符合此警报的条件，则会激发该警报，你会收到一封电子邮件，其中包含如下所示的警报详细信息：
 
-![Azure Monitor 警报电子邮件](media/hdinsight-cluster-availability/alert-email.png)
+![Azure Monitor 警报电子邮件](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
 还可以转到 **Log Analytics 工作区**中的“警报”边栏选项卡，查看所有已激发的警报（按严重性分组）。 
 
-![Log Analytics 工作区警报](media/hdinsight-cluster-availability/portal-alerts.png)
+![Log Analytics 工作区警报](media/hdinsight-cluster-availability/hdi-portal-oms-alerts.png)
 
 单击某个严重性分组（例如，上图中突出显示的“严重性 1”）会显示具有该严重性的所有已激发警报的记录，如下所示： 
 
-![Log Analytics 工作区严重性 1 警报](media/hdinsight-cluster-availability/portal-alerts-sev-1.png)
+![Log Analytics 工作区严重性 1 警报](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
 ## <a name="next-steps"></a>后续步骤
 - [HDInsight 中的 Apache Hadoop 群集的可用性和可靠性](hdinsight-high-availability-linux.md)

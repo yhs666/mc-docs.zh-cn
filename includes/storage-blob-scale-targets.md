@@ -2,14 +2,15 @@
 author: WenJason
 ms.service: storage
 ms.topic: include
-ms.date: 04/29/2019
+origin.date: 4/20/2019
+ms.date: 09/30/2019
 ms.author: v-jay
-ms.openlocfilehash: baf960792633816008c5460659a27d0863ee1531
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 51ba7d74ddef431662083c9a15107a844cf1b9e0
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64860130"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310554"
 ---
 | Resource | 目标        |
 |----------|---------------|
@@ -23,4 +24,4 @@ ms.locfileid: "64860130"
 | 每个 Blob 容器存储的访问策略的最大数目 | 5 |
 |单个 Blob 的目标吞吐量 |上限为存储帐户的传入/传出限制<sup>1</sup> |
 
-<sup>1</sup> 单一对象吞吐量取决于多个因素，包括但不限于：并发性、请求大小、性能层、源上传速度和目标下载速度。 若要充分利用[高吞吐量块 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) 性能增强功能，请使用 4 MiB 以上（Data Lake Storage Gen2 则为 256 MiB 以上）的放置 Blob 或放置块请求大小。
+<sup>1</sup> 单一对象吞吐量取决于多个因素，包括但不限于：并发性、请求大小、性能层、源上传速度和目标下载速度。 若要利用[高吞吐量块 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) 性能增强功能，请使用 4 MiB 以上（Data Lake Storage Gen2 则为 256 KiB 以上）的放置 Blob 或放置块请求大小。

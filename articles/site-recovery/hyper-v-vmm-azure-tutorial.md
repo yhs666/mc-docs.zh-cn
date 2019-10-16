@@ -1,20 +1,19 @@
 ---
-title: 使用 Site Recovery 设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复 | Azure
+title: 使用 Site Recovery 设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 description: 了解如何使用 Site Recovery 设置 System Center VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复。
-services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 9c6051430b8eeb16149831bf0dc4fa5490d2f141
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 2f6b0706eb0e8ddce6658d29e8f33668fd92dbc5
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861724"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340722"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 

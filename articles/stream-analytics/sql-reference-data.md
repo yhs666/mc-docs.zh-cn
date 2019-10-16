@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 07/29/2019
+origin.date: 01/29/2019
 ms.date: 01/29/2019
-ms.openlocfilehash: 292cdd77a014ab86012dc6140c2e5bc5a7ad5887
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 5fc2a1a5eedd38e44c3575fe316f73e8c6c7d14a
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969603"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674788"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>将 SQL 数据库中的参考数据用于 Azure 流分析作业
 

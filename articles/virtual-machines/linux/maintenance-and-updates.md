@@ -8,19 +8,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/30/2019
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f3ea03e6e1c88c978fdcffc791b2dd761cc3af69
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 8094acff95f624e8bd09664f17ef6186a1162fc8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570430"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272417"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure 中虚拟机的维护 
 

@@ -1,22 +1,20 @@
 ---
 title: 使用 Visual Studio 开发 Azure Functions | Microsoft Docs
 description: 了解如何使用用于 Visual Studio 2019 的 Azure Functions 工具开发和测试 Azure Functions。
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-origin.date: 10/08/2018
-ms.date: 09/06/2019
+origin.date: 08/21/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: d20c483b45251affb5515f5ef18b609bcf9dbfcc
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 1925b0a7b3d0005ccb1b3807742737460f852a73
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805818"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673581"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -44,6 +42,8 @@ Visual Studio 在开发函数时提供以下优势：
 
 > [!NOTE]
 > 在 Visual Studio 2017 中，Azure 开发工作负荷会将 Azure Functions Tools 安装为单独的扩展。 更新 Visual Studio 2017 时，还要确保使用[最新版本](#check-your-tools-version)的 Azure Functions Tools。 以下部分介绍如何在 Visual Studio 2017 中检查和更新（如果需要）Azure Functions Tools 扩展。 
+>
+> 使用 Visual Studio 2019 时，请跳过这些部分。
 
 ### <a name="check-your-tools-version"></a>在 Visual Studio 2017 中检查工具版本
 
@@ -213,6 +213,9 @@ For an example of how to test a queue triggered function, see the [queue trigger
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **本地**表示 local.settings.json 文件中的设置值，**远程**是 Azure 的函数应用中的当前设置。  选择“添加设置”  以创建新的应用设置。 使用“从本地插入值”  链接将设置值复制到“远程”  字段。 你选择“确定”  后，挂起的更改将写入本地设置文件和函数应用。
+
+> [!NOTE]
+> 默认情况下，不会将 local.settings.json 文件签入到源代码管理中。 这意味着从源代码管理中克隆本地 Functions 项目时，该项目没有 local.settings.json 文件。 在这种情况下，需要在项目根目录中手动创建 local.settings.json 文件，以便 **Application Settings** 对话框按预期工作。 
 
 还可以采用以下这些其他方法之一来管理应用程序设置：
 

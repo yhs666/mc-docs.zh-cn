@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/05/2018
-ms.date: 10/31/2018
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f6a7bc4259ee25b087c7e667d11df773d955202c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f1526db3512fa217da1e97165362f3bc2654bf0
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662854"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329873"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 语法
 
-SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行。   
+SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行  。   
   
 本文列出了有关 SQL 规则操作语法的详细信息。  
 
@@ -72,7 +72,7 @@ SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sql
 
 访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 在运算符求值过程中，未知值的处理方式很特殊。  
 
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
 
 ```  
 <property_name> ::=  
@@ -128,7 +128,7 @@ SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sql
 
 -   `_`：任何单个字符。  
 
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
 
 ```  
 <escape_char> ::=  
@@ -177,7 +177,7 @@ SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sql
     0.5E-2  
     ```  
 
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
 
 ```  
 <boolean_constant> :=  
@@ -188,7 +188,7 @@ SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sql
 
 布尔常量以关键字 `TRUE` 或 `FALSE` 表示。 这些值作为 `System.Boolean`存储。  
 
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
 
 ```  
 <string_constant>  

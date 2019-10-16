@@ -2,21 +2,21 @@
 title: 通过 Azure Blob 索引器为包含多个搜索索引文档的 Blob 编制索引以进行全文搜索 - Azure 搜索
 description: 使用 Azure 搜索 Blob 索引器抓取 Azure Blob 以获取文本内容。 每个 Blob 可能包含一个或多个 Azure 搜索索引文档。
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: arv100kri
-manager: briansmi
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: f6d73b48a9421f2836120a6f93171a257956f6b1
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 5d7dcbab2a401210cef52c0eaa399ce0ec5d98b5
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004374"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674426"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>为生成多个搜索文档的 Blob 编制索引
 默认情况下，Blob 索引器将一个 Blob 的内容视为单个搜索文档。 某些 **parsingMode** 值支持单个 Blob 导致多个搜索文档的方案。 允许索引器从一个 Blob 提取多个搜索文档的不同类型的 **parsingMode** 包括：
@@ -107,4 +107,4 @@ _Blob2.json_
 + [使用 Azure 搜索 Blob 索引器为 JSON Blob 编制索引](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>后续步骤
-* 若要详细了解 Azure 搜索，请参阅[搜索服务页](https://azure.microsoft.com/services/search/)。
+* 若要详细了解 Azure 搜索，请参阅[搜索服务页](https://www.azure.cn/home/features/search/)。

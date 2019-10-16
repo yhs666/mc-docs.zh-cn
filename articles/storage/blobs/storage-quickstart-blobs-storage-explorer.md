@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 11/15/2018
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.author: v-jay
-ms.openlocfilehash: f4ea2c02074d46b7fdc417acf400b8252d6e766a
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: fc9ca9bfcfb845b3a009d03e3f4c8401efeaf47c
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732408"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306822"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入门：使用 Azure 存储资源管理器在对象存储中创建 blob
 
@@ -32,7 +32,7 @@ ms.locfileid: "68732408"
 
 |任务|目的|
 |---|---|
-|添加 Azure 帐户 | 将你重定向到组织登录页，以便在 Azure 上进行身份验证。 |
+|添加 Azure 帐户 | 将你重定向到组织的登录页，向 Azure 进行身份验证。 |
 |使用连接字符串或共享访问签名 URI | 可用于通过 SAS 令牌或共享连接字符串直接访问容器或存储帐户。 |
 |使用存储帐户名称和密钥| 使用存储帐户的存储帐户名称和密钥连接到 Azure 存储。|
 

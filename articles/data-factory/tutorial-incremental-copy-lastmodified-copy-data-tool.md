@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 1/24/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: 0427dd56d2883887bf1f6b993f8736e504f14495
-ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
+ms.date: 10/14/2019
+ms.openlocfilehash: 2b2e2568faa6329bd7ad50f3cac9d8bbebfdfba2
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332763"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275212"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>使用复制数据工具根据 LastModifiedDate 以增量方式复制新的和已更改的文件
 
@@ -54,15 +54,13 @@ ms.locfileid: "68332763"
 
 1. 在左侧菜单中，选择“创建资源”   > “数据 + 分析”   > “数据工厂”  ： 
    
-   ![在“新建”窗格中选择“数据工厂”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![在“新建”窗格中选择“数据工厂”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. 在“新建数据工厂”  页的“名称”下输入 **ADFTutorialDataFactory**  。 
-      
-     ![新建数据工厂](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
    数据工厂的名称必须全局唯一。  可能会收到以下错误消息：
    
-   ![新的数据工厂错误消息](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![新的数据工厂错误消息](./media/doc-common-process/name-not-available-error.png)
 
    如果收到有关名称值的错误消息，请为数据工厂输入另一名称。 例如，使用名称 _**yourname**_ **ADFTutorialDataFactory**。 有关数据工厂项目的命名规则，请参阅[数据工厂命名规则](naming-rules.md)。
 3. 选择要在其中创建新数据工厂的 Azure **订阅**。 
@@ -83,14 +81,14 @@ ms.locfileid: "68332763"
     ![“正在部署数据工厂”磁贴](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. 创建完以后，会显示“数据工厂”  主页。
    
-    ![数据工厂主页](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![数据工厂主页](./media/doc-common-process/data-factory-home-page.png)
 11. 若要在单独的选项卡中打开 Azure 数据工厂用户界面 (UI)，请选择“创作和监视”磁贴。  
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>使用“复制数据”工具创建管道
 
 1. 在“开始使用”页中选择“复制数据”标题，打开“复制数据”工具。   
 
-   ![“复制数据”工具磁贴](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![“复制数据”工具磁贴](./media/doc-common-process/get-started-page.png)
    
 2. 在“属性”页上执行以下步骤： 
 
@@ -124,7 +122,7 @@ ms.locfileid: "68332763"
     
     d. 选择新创建的链接服务，然后选择“下一步”。  
     
-    ![“源数据存储”页](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
+   ![“源数据存储”页](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. 在“选择输入文件或文件夹”页中完成以下步骤： 
     

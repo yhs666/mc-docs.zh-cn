@@ -1,7 +1,6 @@
 ---
 title: 使用 Azure 备份服务器备份 VMware VM
 description: 使用 Azure 备份服务器备份 VMware vCenter/ESXi 服务器上运行的 VMware VM。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,16 +8,16 @@ ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 12/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 77e62ac257a8fbf87b9dc8b3160ec50b726478ba
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: bddcb855541f7ac11bc44cfaccb487e7b99e6d81
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332032"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330192"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
-本文介绍如何使用 Azure 备份服务器将 VMware ESXi 主机/vCenter 服务器上运行的 VMware VM 备份到 Azure。 
+本文介绍如何使用 Azure 备份服务器将 VMware ESXi 主机/vCenter 服务器上运行的 VMware VM 备份到 Azure。
 
 本文介绍以下操作：
 
@@ -29,12 +28,13 @@ ms.locfileid: "68332032"
 - 设置一个包含要备份的 VMware VM 的保护组，指定备份设置，并计划备份。
 
 ## <a name="before-you-start"></a>开始之前
-- 验证运行的 vCenter/ESXi 版本是否支持备份 - 6.5、6.0 和 5.5。 
+- 验证运行的 vCenter/ESXi 版本是否支持备份 - 6.5、6.0 和 5.5。
 - 确保已设置 Azure 备份服务器。 如果没有，请在开始之前进行[设置](backup-azure-microsoft-azure-backup.md)。 应运行装有最新更新的 Azure 备份服务器。
+
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>与 vCenter 服务器建立安全连接
 
-默认情况下，Azure 备份服务器通过 HTTPS 来与 VMware 服务器通信。 若要设置 HTTPS 连接，请下载 VMware 证书颁发机构 (CA) 证书，并将其导入到 Azure 备份服务器。 
+默认情况下，Azure 备份服务器通过 HTTPS 来与 VMware 服务器通信。 若要设置 HTTPS 连接，请下载 VMware 证书颁发机构 (CA) 证书，并将其导入到 Azure 备份服务器。
 
 
 ### <a name="before-you-start"></a>开始之前
@@ -46,7 +46,7 @@ ms.locfileid: "68332032"
     - 然后，Azure 备份服务器会从本地磁盘存储备份到 Azure。
     - 获取测算所需存储空间量的[帮助](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need)。 该信息适用于 DPM，但也适用于 Azure 备份服务器。
 
-### <a name="set-up-the-certificate"></a>设置证书 
+### <a name="set-up-the-certificate"></a>设置证书
 
 按如下所述设置安全通道：
 
@@ -54,7 +54,7 @@ ms.locfileid: "68332032"
 
     ![vSphere Web 客户端](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
-2. 在 vSphere Web 客户端登录页上，单击“下载受信任的根 CA 证书”。  
+2. 在 vSphere Web 客户端登录页上，单击“下载受信任的根 CA 证书”。 
 
     ![下载受信任的根 CA 证书](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
@@ -103,10 +103,10 @@ ms.locfileid: "68332032"
 
 ### <a name="disable-https-certificate-validation"></a>禁用 HTTPS 证书验证
 
-如果你在组织中创建了安全边界并且不想要在 VMware 服务器与 Azure 备份服务器计算机之间使用 HTTPS 协议，请按如下所述禁用 HTTPS：
+如果你在组织中创建了安全边界并且不想要在 VMware 服务器与 Azure 备份服务器计算机之间使用 HTTPS 协议，请按如下所述禁用 HTTPS： 
 1. 将以下文本复制并粘贴到 .txt 文件中。
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -124,7 +124,7 @@ Azure 备份服务器需要一个有权访问 V-Center 服务器/ESXi 主机的�
 1. 登录到 vCenter 服务器（如果不使用 vCenter 服务器，则登录到 ESXi 主机）。
 2. 在“导航器”面板中，单击“管理”。  
 
-    ![管理 ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![管理](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. 在“管理” > “角色”中，单击“添加角色”图标（加号）。  
 
@@ -141,27 +141,26 @@ Azure 备份服务器需要一个有权访问 V-Center 服务器/ESXi 主机的�
      ![父子权限层次结构](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>角色权限
-
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace
 Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField | 
-Host.Local.CreateVM | Network.Assign 
-Network.Assign | 
-Resource.AssignVMToPool | 
+Global.SetCustomField |
+Host.Local.CreateVM | Network.Assign
+Network.Assign |
+Resource.AssignVMToPool |
 VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk   
 VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking 
-VirtualMachine.Config.HostUSBDevice | 
-VirtualMachine.Config.QueryUnownedFiles | 
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement 
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff 
-VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create 
-VirtualMachine.Provisioning.DiskRandomAccess | 
+VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
+VirtualMachine.Config.HostUSBDevice |
+VirtualMachine.Config.QueryUnownedFiles |
+VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
+VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
+VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
+VirtualMachine.Provisioning.DiskRandomAccess |
 VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
 VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot 
+VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 
 

@@ -7,14 +7,15 @@ manager: digimobile
 keywords: 恢复服务保管库; Azure VM 备份; Azure VM 还原;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2019
+origin.date: 08/30/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 658a6bbbd71e090b82a96079a23b3f82a6db391b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 33377c92c3874e972816b7b6f4542193d4cf7aa3
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330120"
 ---
 # <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 

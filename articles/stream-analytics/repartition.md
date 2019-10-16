@@ -1,21 +1,20 @@
 ---
 title: 通过重新分区优化使用 Azure 流分析进行的处理
 description: 本文介绍如何使用重新分区优化无法并行化的 Azure 流分析作业。
-services: stream-analytics
+ms.service: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: eb853d860df9dfc9b08331dc7319dd11b126e67d
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.custom: mvc
+ms.openlocfilehash: 01c63ece4585d1e2564a073e7e2752f784c4ebbb
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970496"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674786"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>通过重新分区优化使用 Azure 流分析进行的处理
 
@@ -57,7 +56,17 @@ SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY D
 
 ## <a name="repartitions-for-sql-output"></a>针对 SQL 输出的重新分区
 
-当作业使用 SQL 数据库进行输出时，请使用显式重新分区来匹配优化的分区计数，以便将吞吐量最大化。 由于 SQL 在使用八个写入器时效果最好，因此在刷新之前将流重新分区为八个（或在上游的某个位置进一步进行分区）可能会有益于作业性能。 有关详细信息，请参阅从 [Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。
+当作业使用 SQL 数据库进行输出时，请使用显式重新分区来匹配优化的分区计数，以便将吞吐量最大化。 由于 SQL 在使用八个写入器时效果最好，因此在刷新之前将流重新分区为八个（或在上游的某个位置进一步进行分区）可能会有益于作业性能。 
+
+如果输入分区超过 8 个，则继承输入分区方案可能不是适当的选择。 请考虑在查询中使用 [INTO](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) 来显式指定输出写入器的数量。 
+
+以下示例从输入中读取数据（而不考虑其自然分区情况如何），然后根据 DeviceID 维度将流重新划分为十份，并将数据刷新到输出。 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+有关详细信息，请参阅从 [Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。
 
 
 ## <a name="next-steps"></a>后续步骤

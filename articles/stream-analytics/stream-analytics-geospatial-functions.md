@@ -8,13 +8,14 @@ manager: digimobile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 53b1953c39ebe1c4f66463c43de7ca969ce5f100
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+origin.date: 12/06/2018
+ms.date: 08/06/2019
+ms.openlocfilehash: 5fe24ab843bf7f97830084a6f780ca7f06067f1b
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544758"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674819"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>流分析地理空间函数的简介
 
@@ -28,7 +29,7 @@ Azure 流分析中的地理空间函数支持对流式处理的地理空间数�
 * 地域隔离
 * 蜂窝站点之间的电话跟踪
 
-流分析查询语言具有七种内置地理空间函数：CreateLineString、CreatePoint、CreatePolygon、ST_DISTANCE、ST_OVERLAPS、ST_INTERSECTS 和 ST_WITHIN。
+流分析查询语言具有七种内置地理空间函数：CreateLineString、CreatePoint、CreatePolygon、ST_DISTANCE、ST_OVERLAPS、ST_INTERSECTS 和 ST_WITHIN        。
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -59,7 +60,7 @@ FROM input
 
 ## <a name="createpoint"></a>CreatePoint
 
-`CreatePoint` 函数接受纬度和经度，并返回一个 GeoJSON 点，这可在地图上被标绘出来。 维度和精度必须为 float 数据类型。
+`CreatePoint` 函数接受纬度和经度，并返回一个 GeoJSON 点，这可在地图上被标绘出来。 维度和精度必须为 float 数据类型  。
 
 下面的示例查询使用 `CreatePoint` 创建使用流式处理输入数据中的纬度和经度的点。
 
@@ -111,7 +112,7 @@ FROM input
 
 若要了解详细信息，请访问 [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) 引用。
 
-## <a name="stdistance"></a>ST_DISTANCE
+## <a name="st_distance"></a>ST_DISTANCE
 `ST_DISTANCE` 函数返回两个点之间的距离（以米为单位）。 
 
 下面的查询使用 `ST_DISTANCE` 在加油站距离汽车不足 10 千米时生成事件。
@@ -124,7 +125,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 
 若要了解详细信息，请访问 [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) 引用。
 
-## <a name="stoverlaps"></a>ST_OVERLAPS
+## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 函数比较两个多边形。 如果多边形重叠，函数将返回 1。 如果多边形不重叠，函数将返回 0。 
 
 下面的查询使用 `ST_OVERLAPS` 在某建筑位于可能发生洪灾的区域内时生成事件。
@@ -145,7 +146,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 
 若要了解详细信息，请访问 [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) 引用。
 
-## <a name="stintersects"></a>ST_INTERSECTS
+## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 函数比较两个 LineString。 如果 LineString 相交，函数将返回 1。 如果 LineString 不相交，函数将返回 0。
 
 下面的示例查询使用 `ST_INTERSECTS` 来确定柏油路是否与泥路相交。
@@ -171,7 +172,7 @@ FROM input
 
 若要了解详细信息，请访问 [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) 引用。
 
-## <a name="stwithin"></a>ST_WITHIN
+## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN` 函数确定一个点或多边形位于另一个多边形内。 如果多边形包含点或多边形，函数将返回 1。 如果点或多边形位于所声明的多边形之外，函数将返回 0。
 
 下面的示例查询使用 `ST_WITHIN` 来确定交付目标点是否位于给定的仓库多边形内。

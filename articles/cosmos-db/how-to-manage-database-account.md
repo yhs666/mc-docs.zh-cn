@@ -3,16 +3,16 @@ title: 了解如何在 Azure Cosmos DB 中管理数据库帐户
 description: 了解如何在 Azure Cosmos DB 中管理数据库帐户
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02bd79aa305a5b65b083832474a5b7a53d7bb011
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 4872182dcc298e903269f16c5417e06aee543f88
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254823"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306683"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
@@ -43,8 +43,8 @@ az cosmosdb create \
    --resource-group $resourceGroupName \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations regionName=ChinaNorth failoverPriority=0 \
-   --locations regionName=ChinaEast failoverPriority=1 \
+   --locations regionName=ChinaNorth failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=ChinaEast failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations true
 ```
 
@@ -103,6 +103,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单  。
 
     <!--MOONCAKE: submene correct on **Replicate data globally**-->
+    
 1. 要添加区域，请在地图上选择包含与所需区域对应的 +  标签的六边形。 另外，若要添加某个区域，请选择“+ 添加区域”选项，然后从下拉菜单中选择一个区域。 
 
 1. 若要删除区域，请选择带对号的蓝色六边形以从地图中清除一个或多个区域。 或者选择右侧位于区域旁边的“废纸篓”(🗑) 图标。
@@ -123,13 +124,13 @@ $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname' # must be lower case and <31 characters
 
 # Create an account with 1 region
-az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False
 
 # Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 --locations regionName=ChinaEast failoverPriority=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False --locations regionName=ChinaEast failoverPriority=1 isZoneRedundant=False
 
 # Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False
 ```
 
 <a name="add-remove-regions-via-ps"></a>
@@ -364,6 +365,8 @@ Cosmos 帐户配置为自动故障转移后，可以更改区域的故障转移�
 <a name="set-failover-priorities-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
+<!--MOONCAKE: China East and China East 2 change each other.-->
+
 ```azurecli
 # Assume region order is initially chinaeast=0 chinanorth=1 chinaeast2=2 on account creation
 $resourceGroupName = 'myResourceGroup'
@@ -430,7 +433,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 --locations regionName=chinaeast failoverPriority=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False --locations regionName=chinaeast failoverPriority=1 isZoneRedundant=False
 ```
 
 <a name="enable-manual-failover-via-ps"></a>

@@ -2,17 +2,18 @@
 title: 渲染器管理器支持 - Azure Batch
 description: 通过 Azure Batch 渲染器管理器集成将 Azure 用于渲染
 services: batch
+ms.service: batch
 author: lingliw
 ms.author: v-lingwu
 origin.date: 08/02/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 93e5d5f89b9e1216b3f063aa7992a8dadfabd427
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fe2c13004db732e7872a8ac0b2de892439fd235a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104054"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330358"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>将 Azure Batch 与渲染器场管理器配合使用
 
@@ -23,22 +24,28 @@ Azure 为常用的渲染器管理器提供内置支持或加载项。 然后，�
 支持以下渲染器管理器：
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
+
+## <a name="azure-render-hub"></a>Azure 渲染中心
+
+Azure 渲染中心简化了 Azure 渲染场的创建和管理。  渲染中心具有对 PipelineFx Qube 和 Deadline 10 的本机支持。  有关详细信息和详细说明，请参阅 [GitHub 存储库](https://github.com/Azure/azure-render-hub)。
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>将 Azure 与 PipelineFX Qube 配合使用
 
-若要将 Azure Batch 池 VM 用作 Qube 辅助角色，请使用 [GitHub 存储库](https://github.com/Azure/azure-qube)中的脚本和说明。
+Azure 渲染中心支持流行的渲染管理器，包括 Deadline。  有关部署和使用渲染中心的说明，请参阅 [GitHub 存储库](https://github.com/Azure/azure-render-hub)。
+
+[GitHub 存储库](https://github.com/Azure/azure-qube)中还提供了启用 Azure Batch 池 VM 作为 Qube 辅助角色的脚本和说明。
 
 ## <a name="using-azure-with-royal-render"></a>将 Azure 与 Royal Render 配合使用
 
-Royal Render 内置了 Azure 和 Azure Batch 集成，可以通过基于 Azure 的 VM 来扩展渲染器场。 有关摘要，请查看[帮助文件](http://www.royalrender.de/help8/index.html?Cloudrendering.html)。
+Royal Render 内置了 Azure 和 Azure Batch 集成，可以通过基于 Azure 的 VM 来扩展渲染器场。 有关摘要，请查看[帮助文件](https://www.royalrender.de/help8/index.html?Cloudrendering.html)。
 
 有关 Royal Render 客户使用 Azure 集成的示例，请参阅 [Jellyfish Pictures 客户案例](https://customers.microsoft.com/story/jellyfishpictures)。
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>将 Azure 与 Thinkbox Deadline 配合使用
 
-若要将 Azure Batch 池 VM 用作 Deadline 从属角色，请使用 [GitHub 存储库](https://github.com/Azure/azure-deadline)中的脚本和说明。
+Azure 渲染中心支持流行的渲染管理器，包括 Deadline。  有关部署和使用渲染中心的说明，请参阅 [GitHub 存储库](https://github.com/Azure/azure-render-hub)。
 
 ## <a name="next-steps"></a>后续步骤
 

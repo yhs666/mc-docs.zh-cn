@@ -1,6 +1,6 @@
 ---
-title: 将 Windows 计算机连接到 Azure Log Analytics | Azure Docs
-description: 本文介绍如何使用 Azure Monitoring Agent (MMA) 将在其他云中或本地托管的 Windows 计算机连接到 Log Analytics。
+title: 将 Windows 计算机连接到 Azure Monitor | Docs
+description: 本文介绍如何使用适用于 Windows 的 Log Analytics 代理将在其他云中或本地托管的 Windows 计算机连接到 Azure Monitor。
 services: log-analytics
 documentationcenter: ''
 author: lingliw
@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 06/14/2019
 ms.date: 07/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f3d2925d0fa911933ef460b7aa38249849f81050
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 9204c1af777d21a9b5c5ab85660286be7b7b030a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737248"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330187"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 
@@ -143,7 +143,7 @@ ms.locfileid: "70737248"
 2.  为 *OPSINSIGHTS_WS_ID* 和 *OPSINSIGHTS_WS_KEY* 创建 Azure 自动化变量资产。 将 OPSINSIGHTS_WS_ID 设置为 Log Analytics 工作区 ID，将 OPSINSIGHTS_WS_KEY 设置为工作区的主键   。
 3.  复制脚本，并将其另存为 MMAgent.ps1。
 
-    ```PowerShell
+    ```powershell
     Configuration MMAgent
     {
         $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
@@ -205,6 +205,6 @@ ms.locfileid: "70737248"
 
 ## <a name="next-steps"></a>后续步骤
 
-查看[管理并维护 Windows 和 Linux 的 Log Analytics 代理](agent-manage.md)，了解如何在代理部署生命周期内在计算机上管理代理。  
+- 查看[管理和维护 Windows 和 Linux 的 Log Analytics 代理](agent-manage.md)以了解如何重新配置、升级代理或从虚拟机中删除代理。
 
 - 如果在安装或管理代理时遇到问题，请查看 [Windows 代理疑难解答](agent-windows-troubleshoot.md)。

@@ -10,15 +10,15 @@ ms.reviewer: mamccrea
 ms.custom: mvc
 origin.date: 04/01/2018
 ms.date: 11/06/2018
-ms.openlocfilehash: 01bd0626b0c94d40891752916ce5e157710c195b
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 7558d05e4cad0871f5b9b576ac7b4a0559ce1850
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169536"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674810"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教程：Azure 流分析 JavaScript 用户定义的函数
-
+ 
 Azure 流分析支持以 JavaScript 编写的用户定义的函数。 利用 JavaScript 提供的丰富 **String**、**RegExp**、**Math**、**Array** 和 **Date** 方法，可以更轻松地创建包含流分析作业的复杂数据转换。
 
 本教程介绍如何执行下列操作：

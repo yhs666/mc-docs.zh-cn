@@ -10,19 +10,18 @@ tags: azure-resource-manager,azure-service-management
 keywords: VM 隔离,隔离的 VM,隔离,隔离的
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/08/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 346f0d816e220fb9b57abca7cb3f6dbd07c67854
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 863d5adfdc4a5d93fbcc75b7d60e6e6bfaf74deb
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921159"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272729"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 

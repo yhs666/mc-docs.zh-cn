@@ -9,14 +9,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
+origin.date: 07/24/2019
 ms.date: 06/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 027b988f180a64a1c0324f5fa1b5c3fe8ad9b87a
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 77c664d0318b55447ebf6c32257196bbdd188222
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103965"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329945"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>教程：使用 Pattern.any 实体提取自由格式数据
 

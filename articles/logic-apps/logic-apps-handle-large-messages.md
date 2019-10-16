@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.tgt_pltfrm: ''
 ms.topic: article
 origin.date: 04/27/2018
-ms.date: 09/09/2019
+ms.date: 10/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 87ac442efdc58d7ca8e70f61a715c8c90a462f2c
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 8617900bc8b0b6be251f619d22fce14fa35216fb
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174092"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340912"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用分块处理大型消息
 
@@ -129,7 +129,7 @@ GET 请求将表示字节范围的 "Range" 标头设置为 "bytes=0-1023"。 如
    | 终结点响应标头字段 | 类型 | 必须 | 说明 |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | 否 | 建议的区块大小（以字节为单位） |
-   | **Location** | String | 否 | 要向其发送 HTTP PATCH 消息的 URL 位置 |
+   | **Location** | String | 是 | 要向其发送 HTTP PATCH 消息的 URL 位置 |
    ||||
 
 3. 逻辑应用创建并发送后续 HTTP PATCH 消息 - 每条消息包含以下信息：

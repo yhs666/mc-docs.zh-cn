@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: d8e2ec246a48d267e048f8fda12bb7600e3e8501
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 420234eecfb4bd4ade07b21c7e9c7bfe5231062f
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993603"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155924"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT 中心模块标识和模块孪生 (Node.js) 入门
 
@@ -32,11 +32,11 @@ ms.locfileid: "69993603"
 > [!NOTE]
 > 有关 Azure IoT SDK 的信息（可以使用这些 SDK 构建可在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
 
-要完成本教程，需要以下各项：
+## <a name="prerequisites"></a>先决条件
+
+* Node.js 版本 10.0.x 或更高版本。 [准备开发环境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
-* IoT 中心。
-* 安装最新的 [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node)。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -189,18 +189,23 @@ ms.locfileid: "69993603"
     });
     ```
 
-4. 现在请使用命令 node twin.js 来运行它  。
+4. 现在请使用命令 node twin.js 来运行它 **** 。
 
-    ```
-    F:\temp\module_twin>node twin.js
-    client opened
-    twin contents:
-    { reported: { update: [Function: update], '$version': 1 },
-      desired: { '$version': 1 } }
-    new desired properties received:
-    {"$version":1}
-    twin state reported
-    ```
+   ```cmd/sh
+   F:\temp\module_twin>node twin.js
+   ```
+
+   然后，你将看到：
+
+   ```console
+   client opened
+   twin contents:
+   { reported: { update: [Function: update], '$version': 1 },
+     desired: { '$version': 1 } }
+   new desired properties received:
+   {"$version":1}
+   twin state reported
+   ```
 
 ## <a name="next-steps"></a>后续步骤
 

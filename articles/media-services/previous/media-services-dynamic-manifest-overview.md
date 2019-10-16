@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 2191eb48791078a14450dbc50b1324e551976c5c
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 10e20ff32c3fdff4a0faebfb34b8d109bc747915
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670947"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124508"
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
+
+> [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
+> * [第 2 版](media-services-dynamic-manifest-overview.md)
+> * [第 3 版](../latest/filters-dynamic-manifest-overview.md)
+
 从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择执行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单  可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
 
 本主题讨论一些常见方案，在这些方案中使用筛选器对于客户很有利，并链接到演示如何以编程方式创建筛选器的主题。
@@ -184,6 +189,10 @@ ms.locfileid: "69670947"
 * 动态清单在 GOP 边界（主键帧）内运行，因此修剪后具有精确的 GOP。 
 * 可以对本地和全局筛选器使用相同的筛选器名称。 本地筛选器的优先级更高，会替代全局筛选器。
 * 如果更新筛选器，则流式处理终结点需要最多 2 分钟来刷新规则。 如果内容是通过使用某些筛选器提供的（并在代理和 CDN 缓存中缓存），则更新这些筛选器会导致播放器失败。 建议在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 
 ## <a name="see-also"></a>另请参阅
 [将内容传送到客户概述](media-services-deliver-content-overview.md)

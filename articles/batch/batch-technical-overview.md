@@ -4,24 +4,23 @@ description: 了解如何使用 Azure Batch 服务执行大规模并发工作负
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 origin.date: 01/19/2018
 ms.date: 04/09/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 11e5bdbfff7db5d627053175d01077f43a641d63
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 00bad5203096521fbfa8e98d93dbc8c6a4fafa43
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332164"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329645"
 ---
 # <a name="what-is-azure-batch"></a>什么是 Azure Batch？
 
@@ -36,14 +35,14 @@ Batch 很适合处理本质并行（也称为“易并行”）的工作负荷�
 
 可以带到 Batch 来处理的本质并行工作负荷的示例包括：
 
-- 使用 Monte Carlo 模拟进行财务风险建模
-- VFX 和 3D 图像渲染
-- 图像分析和处理
-- 媒体转码
-- 基因序列分析
-- 光学字符识别 (OCR)
-- 数据引入、处理和 ETL 操作
-- 软件测试性执行
+* 使用 Monte Carlo 模拟进行财务风险建模
+* VFX 和 3D 图像渲染
+* 图像分析和处理
+* 媒体转码
+* 基因序列分析
+* 光学字符识别 (OCR)
+* 数据引入、处理和 ETL 操作
+* 软件测试性执行
 
 也可使用 Batch 来[运行紧密耦合工作负荷](batch-mpi.md)，此类工作负荷是指在其中运行的应用程序需要相互通信（而不是独立运行）的工作负荷。 紧密耦合应用程序通常使用消息传递接口 (MPI) API。 可以使用 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 或 Intel MPI，通过 Batch 来运行紧密耦合工作负荷。 
 

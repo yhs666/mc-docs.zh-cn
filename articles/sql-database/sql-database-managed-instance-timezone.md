@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-origin.date: 08/14/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 4c6b339fb7b5c288e2e26391b771bc0d1046d437
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+origin.date: 09/03/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: d40443ffbf989702a11046a06434bfd4a22316b8
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372967"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262949"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL 数据库托管实例中的时区
 
@@ -84,37 +84,19 @@ ms.locfileid: "70372967"
 
 ### <a name="point-in-time-restore"></a>时间点还原
 
-<del>执行时间点还原时，要还原到的时间将解释为 UTC 时间。 这样就避免了由于夏令时及其潜在变化而产生的任何歧义。<del>
-
- >[!WARNING]
-  > 当前行为与上述陈述不符，要还原到的时间按源托管实例的时区解释，在该时区中进行自动数据库备份。 我们正努力纠正此行为，会将给定的时间点解释为 UTC 时间。
+执行时间点还原时，要还原到的时间将解释为 UTC 时间。 这样就可避免由于夏令时及其潜在变化而产生的任何歧义。
 
 ### <a name="auto-failover-groups"></a>自动故障转移组
 
 不强制要求在故障转移组中的主要和辅助实例之间使用相同的时区，但我们强烈建议这样做。
 
   >[!WARNING]
-  > 我们强烈建议对故障转移组中的主要和辅助实例使用相同的时区。 不强制要求在主要和辅助实例之间使用相同的时区，因为这种情况非常罕见。 必须知道，在手动或自动故障转移时，辅助实例将保留其原始时区。
+  > 我们强烈建议对故障转移组中的主要和辅助实例使用相同的时区。 由于某些罕见的用例，不强制要求在主要实例和辅助实例之间使用相同的时区。 必须知道，在手动或自动故障转移时，辅助实例将保留其原始时区。
 
 ## <a name="limitations"></a>限制
 
 - 无法更改现有托管实例的时区。
 - 从 SQL Server 代理作业启动的外部进程不会观察实例的时区。
-
-## <a name="known-issues"></a>已知问题
-
-执行时间点还原 (PITR) 操作时，要还原到的时间按托管实例上设置的时区解释，在该时区中进行自动数据库备份，即使 PITR 的门户页建议将时间解释为 UTC。
-
-示例：
-
-假设在其中进行自动备份的实例设置的时区为东部标准时间 (UTC-5)。
-时间点还原的门户页建议将你选择还原到的时间设置为 UTC 时间：
-
-![通过门户使用本地时间进行的 PITR](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
-
-但是，要还原到的时间实际上会被解释为东部标准时间。在这个具体的示例中，数据库将还原到东部标准时间（而不是 UTC 时间）上午 9 点的状态。
-
-若要使用时间点还原来还原到特定的 UTC 时间，请先在源实例的时区中计算等效时间，然后在门户或 PowerShell/CLI 脚本中使用该时间。
 
 ## <a name="list-of-supported-time-zones"></a>支持的时区列表
 

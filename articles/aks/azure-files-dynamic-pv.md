@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 07/08/2019
-ms.date: 07/29/2019
+origin.date: 09/12/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1cbb3d467b259fff53f3f2efd52a9acfb1846f38
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 0e37bed09195bcd3baab63607366f61d60870b52
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731231"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155866"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -34,6 +34,7 @@ ms.locfileid: "68731231"
 * *Standard_LRS* - 标准本地冗余存储 (LRS)
 * *Standard_GRS* - 标准异地冗余存储 (GRS)
 * *Standard_RAGRS* - 标准读取访问异地冗余存储 (RA-GRS)
+* *Premium_LRS* - 高级本地冗余存储 (LRS)
 
 > [!NOTE]
 > Azure 文件存储支持运行 Kubernetes 1.13 或更高版本的 AKS 群集中的高级存储。
@@ -53,6 +54,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```
@@ -102,7 +106,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>创建永久性卷声明
 
-永久性卷声明 (PVC) 使用存储类对象来动态预配 Azure 文件共享。 可使用以下 YAML 创建大小为 *5GB*、访问权限为 *ReadWriteMany* 的永久性卷声明。 有关访问模式的详细信息，请参阅 [Kubernetes 永久性卷][access-modes]文档。
+永久性卷声明 (PVC) 使用存储类对象来动态预配 Azure 文件共享。 可使用以下 YAML 创建大小为 *5 GB*、访问权限为 *ReadWriteMany* 的永久性卷声明。 有关访问模式的详细信息，请参阅 [Kubernetes 永久性卷][access-modes]文档。
 
 现在，创建名为 `azure-file-pvc.yaml` 的文件，并将其复制到以下 YAML 中。 请确保 *storageClassName* 与上一步骤中创建的存储类匹配：
 
@@ -119,6 +123,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!NOTE]
+> 如果将 *Premium_LRS* SKU 用于存储类，则存储  的最小值必须为 100Gi  。
 
 使用 [kubectl apply][kubectl-apply] 命令创建永久性卷声明：
 
@@ -199,17 +206,7 @@ Volumes:
 
 ## <a name="mount-options"></a>装载选项
 
-默认的 *fileMode* 和 *dirMode* 值的 Kubernetes 版本有差异，如下表所述。
-
-| 版本 | value |
-| ---- | ---- |
-| v1.6.x、v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v1.8.6 或更高版本 | 0755 |
-| v1.9.0 | 0700 |
-| v1.9.1 或更高版本 | 0755 |
-
-如果使用版本 1.8.5 或更高版本的群集并使用存储类动态创建永久性卷，则可以在存储类对象上指定装载选项。 以下示例设置 *0777*：
+对于 Kubernetes 版本 1.9.1 及更高版本，fileMode  和 dirMode  的默认值为 0755  。 如果使用 Kuberetes 版本为 1.8.5 或更高版本的群集并使用存储类动态创建永久性卷，则可以在存储类对象上指定装载选项。 以下示例设置 *0777*：
 
 ```yaml
 kind: StorageClass
@@ -222,6 +219,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```
@@ -238,6 +238,7 @@ parameters:
 > [用于 Azure 文件的 Kubernetes 插件][kubernetes-files]
 
 <!-- LINKS - external -->
+
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
@@ -251,17 +252,18 @@ parameters:
 [smb-overview]: https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-list]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-list
+
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
+[az-group-list]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-list
 [az-resource-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
-[az-storage-account-create]: https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
-[az-storage-create]: https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
-[az-storage-key-list]: https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list
-[az-storage-share-create]: https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create
+[az-storage-account-create]: https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
+[az-storage-create]: https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
+[az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list
+[az-storage-share-create]: https://docs.azure.cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [storage-skus]: ../storage/common/storage-redundancy.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac

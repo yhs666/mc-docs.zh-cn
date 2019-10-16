@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 03/27/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7acc0afd974de3e7d178fd56f6806799305c1480
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 0e6a88ad016b379f97c016bca0c4a85b33ba6ff0
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736503"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330443"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>用于处理自定义事件和指标的 Application Insights API
 
@@ -52,6 +52,7 @@ ms.locfileid: "70736503"
 * 将 Application Insights SDK 添加到项目：
 
   * [ASP.NET 项目](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core 项目](../../azure-monitor/app/asp-net-core.md)
   * [Java 项目](../../azure-monitor/app/java-get-started.md)
   * [Node.js 项目](../../azure-monitor/app/nodejs.md)
   * [每个网页中的 JavaScript](../../azure-monitor/app/javascript.md) 
@@ -164,8 +165,6 @@ telemetry.trackEvent({name: "WinGame"});
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -954,7 +953,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();

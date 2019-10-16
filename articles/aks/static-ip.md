@@ -15,11 +15,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/06/2019
 ms.locfileid: "70500742"
 ---
-# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>将静态公用 IP 地址用于 Azure Kubernetes 服务 (AKS) 负载均衡器
+# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>将静态公共 IP 地址用于 Azure Kubernetes 服务 (AKS) 负载均衡器
 
-默认情况下，分配给 AKS 群集创建的负载均衡器资源的公用 IP 地址仅在该资源的保留期内有效。 如果删除 Kubernetes 服务，则会同时删除关联的负载均衡器和 IP 地址。 如果要分配特定 IP 地址或保留已重新部署的 Kubernetes 服务的 IP 地址，请创建并使用静态公用 IP 地址。
+默认情况下，分配给 AKS 群集创建的负载均衡器资源的公共 IP 地址仅在该资源的保留期内有效。 如果删除 Kubernetes 服务，则会同时删除关联的负载均衡器和 IP 地址。 如果要分配特定 IP 地址或保留已重新部署的 Kubernetes 服务的 IP 地址，请创建并使用静态公共 IP 地址。
 
-本文介绍如何创建静态公用 IP 地址并将其分配给 Kubernetes 服务。
+本文介绍如何创建静态公共 IP 地址并将其分配给 Kubernetes 服务。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -75,7 +75,7 @@ $ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_chi
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>使用静态 IP 地址创建服务
 
-若要使用静态公用 IP 地址创建服务，请将 `loadBalancerIP` 属性和静态公用 IP 地址的值添加到 YAML 清单。 创建名为 `load-balancer-service.yaml` 的文件，并将其复制到以下 YAML 中。 提供在前面的步骤中创建的你自己的公用 IP 地址。
+若要使用静态公共 IP 地址创建服务，请将 `loadBalancerIP` 属性和静态公共 IP 地址的值添加到 YAML 清单。 创建名为 `load-balancer-service.yaml` 的文件，并将其复制到以下 YAML 中。 提供在前面的步骤中创建的你自己的公共 IP 地址。
 
 ```yaml
 apiVersion: v1
@@ -134,7 +134,7 @@ spec:
 kubectl describe service azure-load-balancer
 ```
 
-将显示有关 Kubernetes 服务资源的信息。 以下示例输出末尾的“事件”  指示“找不到用户提供的 IP 地址”  。 在这些情况下，请验证是否已在节点资源组中创建静态公用 IP 地址，以及在 Kubernetes 服务清单中指定的 IP 地址是否正确。
+将显示有关 Kubernetes 服务资源的信息。 以下示例输出末尾的“事件”  指示“找不到用户提供的 IP 地址”  。 在这些情况下，请验证是否已在节点资源组中创建静态公共 IP 地址，以及在 Kubernetes 服务清单中指定的 IP 地址是否正确。
 
 ```
 Name:                     azure-load-balancer

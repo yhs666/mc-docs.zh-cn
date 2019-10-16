@@ -5,16 +5,16 @@ services: virtual-wan
 author: rockboyfor
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 03/04/2019
-ms.date: 06/28/2019
+origin.date: 09/13/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: 68112e21d7b75db658ff1e2cf6b9d86d2ef5b797
-ms.sourcegitcommit: 7ad1a199e9f81de27b9098b50062ef059099f765
+ms.openlocfilehash: 7f54b54f3e2c6a1c24e476a65dd0e1665dee780e
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461885"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155887"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>虚拟 WAN 合作伙伴和虚拟中心位置
 
@@ -43,6 +43,8 @@ Azure Virtual WAN 是一种网络服务，它通过 Azure 提供经优化、自�
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
+在不久的将来，我们的路线图中将列出以下合作伙伴：Arista、F5 Networks、Fortinet、Silver-Peak、Velocloud、Nuage Nokia。
+
 <a name="locations"></a>
 ## <a name="locations"></a>位置
 
@@ -54,5 +56,4 @@ Azure Virtual WAN 是一种网络服务，它通过 Azure 提供经优化、自�
 
 * 有关如何自动连接到 Azure 虚拟 WAN 的详细信息，请参阅[虚拟 WAN 合作伙伴 - 如何实现自动化](virtual-wan-configure-automation-providers.md)。
 
-<!--Update_Description: new articles on virtual wan locatons partners -->
-<!--ms.date: 07/01/2019-->
+<!--Update_Description: wording update -->

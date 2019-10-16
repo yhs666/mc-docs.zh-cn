@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 06/27/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 519db3273940a4fdd044d7daabfd14ba25bcd263
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: bf267068992d616b75ed2994e6797b04a12be25a
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134467"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340953"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 为多层 SharePoint 应用程序设置灾难恢复
 
@@ -50,7 +50,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 ## <a name="site-recovery-support"></a>Site Recovery 支持
 
-制作本文时，使用了装有 Windows Server 2012 R2 Enterprise 的 VMware 虚拟机。 使用了 SharePoint 2013 Enterprise Edition 和 SQL server 2014 Enterprise Edition。 由于 Site Recovery 复制不区分应用程序，因此本文提供的建议应该也适用于后续方案。
+Site Recovery 与应用程序无关，应与在受支持的计算机上运行的任何版本的 SharePoint 配合使用。 制作本文时，使用了装有 Windows Server 2012 R2 Enterprise 的 VMware 虚拟机。 使用了 SharePoint 2013 Enterprise Edition 和 SQL server 2014 Enterprise Edition。
 
 ### <a name="source-and-target"></a>源和目标
 
@@ -60,14 +60,6 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 **VMware** | 是 | 是
 **物理服务器** | 是 | 是
 **Azure** | 不可用 | 是
-
-### <a name="sharepoint-versions"></a>SharePoint 版本
-支持以下 SharePoint Server 版本。
-
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>要点
 

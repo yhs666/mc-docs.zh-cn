@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/07/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 43503dbaa8353bf01f550b4c1a8535017f8299ac
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 470f1b6735b211f9152e95cfeca15d2cdc255680
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539071"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272804"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 
@@ -32,7 +31,7 @@ ms.locfileid: "69539071"
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
     
-    <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
+    <!-- Not Available on - [Storage optimized](../sizes-storage.md)-->
     
 - [GPU 优化](sizes-gpu.md)
     

@@ -4,17 +4,17 @@ description: 了解 Azure 诊断日志支持的服务和事件架构。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
+ms.topic: reference
 origin.date: 10/11/2018
 ms.date: 07/06/2019
 ms.author: v-lingwu
-ms.component: logs
-ms.openlocfilehash: 9cd8879c13e2d5356c4455ecba885744e2d4d24b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.subservice: logs
+ms.openlocfilehash: 6eafb8c517222700603dfdf710408c0d7f35a410
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736880"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330440"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 

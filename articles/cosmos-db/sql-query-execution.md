@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/31/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8bd4df308e7b3948786fb8c48a8f52e80a796e92
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 2eb3b0c0e9e4bb82218bfec34418b9ee38349a92
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254441"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306767"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Azure Cosmos DB SQL 查询执行
 
@@ -247,7 +247,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 资源模型由 Az
 
 还可以通过使用 `IQueryable` 对象创建 `IDocumentQueryable`，并读取 `ResponseContinuationToken` 值并将它们作为 `FeedOptions` 中的 `RequestContinuationToken` 向回传递，从而显式控制分页。 可以设置 `EnableScanInQuery`，以便在配置的索引策略不支持该查询时启用扫描。 对于分区容器，可以使用 `PartitionKey` 针对单个分区运行查询，不过，Azure Cosmos DB 可以自动从查询文本中提取此信息。 可以使用 `EnableCrossPartitionQuery` 针对多个分区运行查询。
 
-有关更多包含查询的 .NET 示例，请参阅 GitHub 中的 [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)。
+有关更多包含查询的 .NET 示例，请参阅 GitHub 中的 [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)。
 
 <a name="JavaScript-server-side-API"></a>
 ## <a name="javascript-server-side-api"></a>JavaScript 服务器端 API
@@ -291,7 +291,7 @@ Azure Cosmos DB 提供一种编程模型，用于通过存储过程和触发器�
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Cosmos DB 简介](introduction.md)
-- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Azure Cosmos DB 一致性级别](consistency-levels.md)
 
 <!-- Update_Description: wording update, update link -->

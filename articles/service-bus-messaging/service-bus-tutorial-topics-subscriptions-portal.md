@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: lingliw
 manager: digimobile
 ms.author: v-lingwu
-ms.date: 01/28/19
+origin.date: 09/22/2018
+ms.date: 09/26/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f2118f514ba99e8e0aebb2d5bffac2eec890f116
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6c0e6f6c2729f9ae7e908815c2dbd209cdb62971
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627374"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330000"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新清单
 
@@ -50,43 +51,6 @@ ms.locfileid: "58627374"
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
-服务总线消息传送命名空间提供唯一的作用域容器，可以通过其[完全限定域名][]进行引用，而在该域名中，可以创建一个或多个队列、主题和订阅。 以下示例在新的或现有的[资源组](/azure/azure-resource-manager/resource-group-portal)中创建一个服务总线消息传送命名空间：
-
-1. 在门户的左侧导航窗格中，依次单击“+ 创建资源”、“企业集成”和“服务总线”。
-2. 在“创建命名空间”  对话框中，输入命名空间名称。 系统会立即检查该名称是否可用。
-3. 在确保命名空间名称可用后，请选择定价层（标准或高级）。
-4. 在“订阅”  字段中，选择要创建命名空间的 Azure 订阅。
-5. 在“资源组”  字段中，选择用于放置该命名空间的现有资源组，或者创建一个新资源组。      
-6. 在“位置” 中，选择应在其中托管该命名空间的国家或地区。
-7. 单击**创建**。 系统现已创建命名空间并已将其启用。 可能需要等待几分钟，因为系统会为你的帐户配置资源。
-
-   ![命名空间](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>获取管理凭据
-
-创建新的命名空间时，会自动生成一项初始的共享访问签名 (SAS) 规则，将一对主密钥和辅助密钥关联到一起，向每个密钥授予对命名空间的所有资产的完全控制权限。 若要复制初始规则，请执行以下步骤：
-
-1. 单击“所有资源”，然后单击新创建的命名空间名称。
-2. 在命名空间窗口中，单击“共享访问策略”。
-3. 在“共享访问策略”屏幕中，单击“RootManageSharedAccessKey”。
-4. 在“策略: RootManageSharedAccessKey”窗口中，单击“主连接字符串”旁边的“复制”按钮，将连接字符串复制到剪贴板供以后使用。 将此值粘贴到记事本或其他某个临时位置。
-
-    ![连接字符串][connection-string]
-5. 重复上述步骤，将**主键**的值复制和粘贴到临时位置，供以后使用。
-
-## <a name="create-a-topic-and-subscriptions"></a>创建主题和订阅
-
-若要创建服务总线主题，请指定要在其中创建该主题的命名空间。 以下示例演示如何在门户中创建主题：
-
-1. 在门户左侧的导航窗格中，单击“服务总线”（如果未看到“服务总线”，请单击“所有服务”）。
-2. 单击要在其中创建主题的命名空间。
-3. 在命名空间窗口中单击“主题”，然后在“主题”窗口中单击“+ 主题”。
-4. 输入主题**名称**，其他值则保留默认值。
-5. 在窗口底部，单击“创建”。
-6. 记下主题名称。
-7. 选择刚创建的主题。
-8. 单击“+ 订阅”，输入订阅名称 **S1**，所有其他值则保留默认值。
-9. 再重复上述步骤两次，创建名为 **S2** 和 **S3** 的订阅。
 
 ## <a name="create-filter-rules-on-subscriptions"></a>在订阅上创建筛选规则
 
@@ -104,7 +68,7 @@ ms.locfileid: "58627374"
 
 2. 导航到示例文件夹 `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`。
 
-3. 在本教程的[获取管理凭据](#obtain-the-management-credentials)部分获取复制到记事本的连接字符串。 此外还需要在上一部分创建的主题的名称。
+3. 在本教程的“获取管理凭据”部分获取复制到记事本的连接字符串。 此外还需要在上一部分创建的主题的名称。
 
 4. 在命令提示符窗口中键入以下命令：
 
@@ -137,7 +101,7 @@ ms.locfileid: "58627374"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要命名空间和队列时，可将其删除。 为此，请在门户中选择这些资源，然后单击“删除”。
+不再需要命名空间和队列时，可将其删除。 为此，请在门户中选择这些资源，然后单击“删除”。 
 
 ## <a name="understand-the-sample-code"></a>了解示例代码
 
@@ -370,7 +334,7 @@ private async Task SendItems(TopicClient tc, string store)
 
 ### <a name="receive-messages"></a>接收消息
 
-消息再次通过任务列表接收，代码使用批处理。 可以使用批处理进行发送和接收，但此示例仅演示如何进行批量接收。 事实上，你不会从循环中脱离出来，而是继续进行循环并设置更大的时间跨度，例如一分钟。 对代理的接收调用在此时段内会始终保持开放状态，消息在到达后会立即返回，然后发出新的接收调用。 此概念称为长轮询。 更典型的选项是使用接收泵，详见[快速入门](service-bus-quickstart-portal.md)以及存储库中的多个其他的示例。
+消息再次通过任务列表接收，代码使用批处理。 可以使用批处理进行发送和接收，但此示例仅演示如何进行批量接收。 事实上，你不会从循环中脱离出来，而是继续进行循环并设置更大的时间跨度，例如一分钟。 对代理的接收调用在此时段内会始终保持开放状态，消息在到达后会立即返回，然后发出新的接收调用。 此概念称为长轮询。  更典型的选项是使用接收泵，详见[快速入门](service-bus-quickstart-portal.md)以及存储库中的多个其他的示例。
 
 ```csharp
 public async Task Receive()
@@ -450,7 +414,7 @@ private async Task ReceiveMessages(string subscription)
 > [使用 PowerShell 和主题/订阅更新库存](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
-[完全限定域名]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.cn/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

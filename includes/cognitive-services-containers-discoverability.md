@@ -1,21 +1,25 @@
 ---
-author: diberry
-ms.author: v-junlch
+author: IEvangelist
+ms.author: v-tawe
+origin.date: 06/25/2019
+ms.date: 10/11/2019
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 05/28/2019
-ms.date: 06/11/2019
-ms.openlocfilehash: f67ff301a96dda61ca89d0de2054c0cd987ead16
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: e9ee71142a7462c1d734ec519a439d42bb272425
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844695"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275539"
 ---
 ## <a name="blog-posts"></a>博客文章
 
 * [运行认知服务容器](https://azure.microsoft.com/blog/running-cognitive-service-containers/)
 * [开始使用认知服务语言理解容器](https://azure.microsoft.com/blog/getting-started-with-cognitive-services-language-understanding-container/)
+
+## <a name="developer-samples"></a>开发人员示例
+
+可在 [GitHub 存储库](https://github.com/Azure-Samples/cognitive-services-containers-samples)中查看开发人员示例。
 
 ## <a name="view-webinar"></a>观看网络研讨会 
 
@@ -23,4 +27,3 @@ ms.locfileid: "67844695"
 
 * 如何将认知服务部署到任何使用 Docker 的计算机
 * 如何将认知服务部署到 AKS
-

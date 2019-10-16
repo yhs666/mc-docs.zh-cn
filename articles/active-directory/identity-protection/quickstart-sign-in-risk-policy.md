@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: quickstart
 origin.date: 09/13/2018
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f0e21dac6384badc5733d9dc0b858341eb6d06
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 21c5cd46fad7671b5b0838314d4318144872bb0f
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993377"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292077"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>快速入门：使用“Azure Active Directory 标识保护”检测到会话风险后阻止访问  
 
@@ -49,7 +49,7 @@ ms.locfileid: "69993377"
 
 ## <a name="create-your-conditional-access-policy"></a>创建条件访问策略 
 
-本快速入门中的方案使用 Tor 浏览器中的登录名生成检测到的“从匿名 IP 地址登录”风险事件。  此风险事件的风险级别为中等。 若要响应此风险事件，请将登录风险条件设置为中。 
+本快速入门中的方案使用 Tor 浏览器中的登录名生成检测到的“从匿名 IP 地址登录”风险检测。  此风险检测的风险级别为中等。 若要响应此风险检测，请将登录风险条件设置为中等。 
 
 此部分介绍如何创建所需的登录风险条件访问策略。 在策略中，设置：
 
@@ -92,4 +92,4 @@ ms.locfileid: "69993377"
 - 如果不知道如何删除 Azure AD 用户，请参阅[如何添加或删除用户](../fundamentals/add-users-azure-active-directory.md#delete-a-user)。
 - 有关删除 Tor 浏览器的说明，请参阅[卸载](https://tb-manual.torproject.org/uninstalling/)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

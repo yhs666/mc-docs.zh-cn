@@ -5,23 +5,21 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 08/12/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 71a55ab04382ea415a31a65dcff3c7a4e8fdb2de
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+origin.date: 09/06/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: c9115764d4dd2e4aee6928452267283bb094062f
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131836"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307870"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
 使用只读副本功能可将数据从 Azure Database for MySQL 服务器复制到只读服务器。 可将主服务器中的数据复制到最多 5 个副本。 使用 MySQL 引擎的基于本机二进制日志 (binlog) 文件位置的复制技术以异步方式更新副本。 若要了解有关 binlog 复制的详细信息，请参阅 [MySQL binlog 复制概述](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)。
+
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
-
-> [!IMPORTANT]
-> 可以在主服务器所在的区域或所选的任何其他 Azure 区域创建只读副本。 跨区域复制目前为公共预览版。
 
 副本是新的服务器，可以像管理普通的 Azure Database for MySQL 服务器一样对其进行管理。 每个只读副本按照预配计算资源的 vCore 数量以及每月 GB 存储量计费。
 
@@ -39,9 +37,6 @@ ms.locfileid: "70131836"
 
 ## <a name="cross-region-replication"></a>跨区域复制
 可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
-
-> [!IMPORTANT]
-> 跨区域复制目前为公共预览版。
 
 可以在任何 [Azure Database for MySQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
 
@@ -110,7 +105,7 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
 
 ### <a name="replica-configuration"></a>副本配置
 
-副本是使用与主服务器相同的服务器配置创建的。 创建副本后，可以独立于主服务器更改多项设置：计算代系、vCore 数、存储、备份保留期和 MySQL 引擎版本。 定价层也可以独立更改，但“基本”层除外。
+副本是使用与主服务器相同的服务器配置创建的。 创建副本后，可以独立于主服务器更改多项设置：计算代系、vCore 数、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
 
 > [!IMPORTANT]
 > 将主服务器的配置更新为新值之前，请将副本配置更新为与这些新值相等或更大的值。 此操作可确保副本与主服务器发生的任何更改保持同步。
@@ -148,4 +143,4 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何[使用 Azure 门户创建和管理只读副本](howto-read-replicas-portal.md)
-- 了解如何[使用 Azure CLI 创建和管理只读副本](howto-read-replicas-cli.md)
+- 了解如何[通过 Azure CLI 和 REST API 创建和管理只读副本](howto-read-replicas-cli.md)

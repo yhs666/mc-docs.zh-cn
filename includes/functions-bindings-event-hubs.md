@@ -3,14 +3,14 @@ author: craigshoemaker
 ms.service: azure-functions
 ms.topic: include
 origin.date: 03/05/2019
-ms.date: 09/05/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2c0bb6f37ac42c9b633dbbd1c58c13297c5d9aec
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: a755f02b0a81845a60e9f3eec67d13f11cff3ca5
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70807028"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71674205"
 ---
 ## <a name="trigger"></a>触发器
 
@@ -46,7 +46,6 @@ ms.locfileid: "70807028"
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -306,36 +305,6 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-### <a name="trigger---python-example"></a>触发器 - Python 示例
-
-以下示例演示 function.json 文件中的事件中心触发器绑定以及使用该绑定的 [Python 函数](../articles/azure-functions/functions-reference-python.md)  。 此函数将读取[事件元数据](#trigger---event-metadata)并记录消息。
-
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "event",
-  "direction": "in",
-  "eventHubName": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
-
-下面是 Python 代码：
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(event: func.EventHubEvent):
-    logging.info('Function triggered to process a message: ', event.get_body())
-    logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
-    logging.info('  SequenceNumber =', event.sequence_number)
-    logging.info('  Offset =', event.offset)
-```
-
 ### <a name="trigger---java-example"></a>触发器 - Java 示例
 
 以下示例演示 function.json  文件中的一个事件中心触发器绑定以及使用该绑定的 [Java 函数](../articles/azure-functions/functions-reference-java.md)。 该函数记录事件中心触发器的消息正文。
@@ -435,7 +404,6 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -607,36 +575,6 @@ module.exports = function(context) {
     context.bindings.outputEventHubMessage.push("2 " + message);
     context.done();
 };
-```
-
-### <a name="output---python-example"></a>输出 - Python 示例
-
-以下示例演示 function.json 文件中的事件中心触发器绑定以及使用该绑定的 [Python 函数](../articles/azure-functions/functions-reference-python.md)  。 该函数将消息写入事件中心。
-
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。
-
-```json
-{
-    "type": "eventHub",
-    "name": "$return",
-    "eventHubName": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-
-下面是可发送一条消息的 Python 代码：
-
-```python
-import datetime
-import logging
-import azure.functions as func
-
-
-def main(timer: func.TimerRequest) -> str:
-    timestamp = datetime.datetime.utcnow()
-    logging.info('Message created at: %s', timestamp)
-    return 'Message created at: {}'.format(timestamp)
 ```
 
 ### <a name="output---java-example"></a>输出 - Java 示例

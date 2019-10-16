@@ -2,21 +2,21 @@
 title: 为 Azure Blob 存储内容编制索引，以便进行全文搜索 - Azure 搜索
 description: 了解如何使用 Azure 搜索为 Azure Blob 存储编制索引，以及从文档中提取文本。
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: mgottein
-manager: cgronlun
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 755a6cfccfcf70680a223a1421100eda276610f3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 6f9318e14cd1d3379018e22303fb1dd59e102772
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004373"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674438"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜索为 Azure Blob 存储中的文档编制索引
 本文说明如何使用 Azure 搜索服务为存储在 Azure Blob 存储中的文档（例如 PDF、Microsoft Office 文档和其他多种常用格式的文档）编制索引。 首先，本文说明了设置和配置 Blob 索引器的基础知识。 其次，本文更加深入地探讨了你可能会遇到的行为和场景。
@@ -269,7 +269,7 @@ Blob 索引器可从以下文档格式提取文本：
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Azure 搜索会限制编入索引的 blob 的大小。 这些限制记录在 [Azure 搜索中的服务限制](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)中。 过大的 blob 会被默认视为错误。 但是，如果将 `indexStorageMetadataOnlyForOversizedDocuments` 配置参数设为 true，你仍可以对过大 blob 的存储元数据编制索引： 
+Azure 搜索会限制编入索引的 blob 的大小。 这些限制记录在 [Azure 搜索中的服务限制](search-limits-quotas-capacity.md)中。 过大的 blob 会被默认视为错误。 但是，如果将 `indexStorageMetadataOnlyForOversizedDocuments` 配置参数设为 true，你仍可以对过大 blob 的存储元数据编制索引： 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 

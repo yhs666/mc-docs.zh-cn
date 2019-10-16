@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 09a08184d8b0756c8d48d0f5922161ace7718c65
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: d8d14cb6a9a68d3ee1a05d40f8c5d1bc36e00ca9
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993038"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155979"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支持
 
@@ -72,10 +72,10 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-| 操作系统                                           | Arch | Node 版本 |
-|----------------------------------------------|------|--------------|
-| Ubuntu 16.04 LTS（使用 node 6 docker 映像） | X64  | Node 6       |
-| Windows Server 2016                          | X64  | Node 6       |
+| 操作系统                                           | Arch | Node 版本    |
+|----------------------------------------------|------|-----------------|
+| Ubuntu 16.04 LTS（使用 node 6 docker 映像） | X64  | LTS 和最新版 |
+| Windows Server 2016                          | X64  | LTS 和最新版 |
 
 ### <a name="java-sdk"></a>Java SDK
 

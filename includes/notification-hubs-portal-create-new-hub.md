@@ -5,39 +5,49 @@ services: notification-hubs
 author: jwargo
 ms.service: notification-hubs
 ms.topic: include
-origin.date: 03/28/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
+origin.date: 01/17/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: e43912f4ef4d7df9daee3748bbca812f5d17ec6f
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: be5655c5ad2b28ea01c65f540f4bbd238af10545
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578669"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272342"
 ---
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单上选择“所有服务”  ，然后在“移动”部分中选择“通知中心”。   选择服务名称旁边的星星 (`*`) 以将其添加到左侧菜单上的“收藏夹”部分。  在将“通知中心”  添加到“收藏夹”  之后，在菜单上选择它。 
+
+1. 在左侧菜单上选择“所有服务”  ，然后在“移动”部分中选择“通知中心”。   选择服务名称旁边的星形图标，以便将服务添加到左侧菜单上的“收藏夹”部分。  在将“通知中心”  添加到“收藏夹”  之后，在左侧菜单上选择它。
 
       ![Azure 门户 - 选择“通知中心”](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
-3. 在“通知中心”  页面上，在工具栏上选择“添加”  。 
+
+1. 在“通知中心”  页面上，在工具栏上选择“添加”  。
 
       ![通知中心 -“添加”工具栏按钮](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
-4. 在“通知中心”  页面上，执行以下步骤： 
-    1. 为通知中心指定一个名称。    
-    2. 为命名空间指定一个名称。   命名空间包含一个或多个中心。 
-    3. 选择要在其中创建通知中心的位置  。 
-    4. 选择一个现有资源组，或者为新资源组输入一个名称  。
-    5. 选择“创建”  。 
+
+1. 在“通知中心”  页面上，执行以下步骤：
+
+    1. 将一个名称输入“通知中心”。   
+
+    1. 在“创建新的命名空间”中输入名称。  命名空间包含一个或多个中心。
+
+    1. 从“位置”下拉列表框中选择值。  此值指定要在其中创建通知中心的位置。
+
+    1. 在“资源组”中选择现有的资源组，或者为新资源组创建一个名称。 
+
+    1. 选择“创建”  。
 
         ![Azure 门户 - 设置通知中心属性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. 选择“通知”（钟形图标），然后选择“转到资源”   。 还可以刷新“通知中心”  页中的列表，然后选择通知中心。 
+
+1. 选择“通知”（钟形图标），然后选择“转到资源”   。 还可以刷新“通知中心”  页上的列表，然后选择通知中心。
 
       ![Azure 门户 - 通知 -> 转到资源](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
-5. 从列表中选择“访问策略”  。 记下向你提供的两个连接字符串。 稍后在处理推送通知时需要它们。
+
+1. 从列表中选择“访问策略”  。 记下向你提供的两个连接字符串。 稍后在处理推送通知时需要它们。
 
       >[!IMPORTANT]
-      >请**勿**在应用程序中使用 DefaultFullSharedAccessSignature。 这只能在后端使用。
+      >请勿  在应用程序中使用 **DefaultFullSharedAccessSignature** 策略。 这只能在后端使用。
       >
 
       ![Azure 门户 - 通知中心连接字符串](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

@@ -2,23 +2,23 @@
 title: 条件认知搜索技能（Azure 搜索）| Microsoft Docs
 description: 使用条件技能可以筛选、创建默认值以及合并值。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
-origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: b1923cec7477fcdf0cb17bcbfcd64b95449d3f96
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+origin.date: 05/01/2019
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 894a7bf891acbd2f15604d2c96a222e5b9c89b6a
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004783"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674382"
 ---
-#   <a name="conditional-skill"></a>条件技能
+# <a name="conditional-skill"></a>条件技能
 
 条件技能可以实现需要使用布尔运算来确定要分配到输出的数据的 Azure 搜索方案。  这些方案包括基于条件进行筛选、分配默认值以及合并数据。
 

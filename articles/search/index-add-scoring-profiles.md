@@ -1,14 +1,14 @@
 ---
 title: 将计分概要文件添加到搜索索引 - Azure 搜索
 description: 通过添加计分概要文件，提高 Azure 搜索结果的搜索排名分数。
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 origin.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
-ms.author: v-biyu
-ms.manager: cgronlun
+ms.author: v-tawe
+ms.manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -20,12 +20,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c571a7bab9a2cd1bf64b0ea34b608cc08363aefb
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 196c6bd2972edc831281d0a88dfbe5b04958dc5d
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004889"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674369"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>将计分概要文件添加到 Azure 搜索索引
 

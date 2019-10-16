@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 从 VHD 创建快照以在短时间内创建多个相同的托管磁盘 | Azure
+title: 使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘 | Azure
 description: Azure PowerShell 脚本示例 - 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 services: virtual-machines-windows
 documentationcenter: storage
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 051b57d496510e53033e0b1cc615db494e302a09
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 02e2c8137099296312b2135fa9934ca5ebd0f08d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570256"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272759"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 
@@ -47,7 +46,7 @@ $resourceGroupName ='yourResourceGroupName'
 $snapshotName = 'yourSnapshotName'
 
 #Provide the storage type for snapshot. PremiumLRS or StandardLRS.
-$storageType = 'StandardLRS'
+$storageType = 'Standard_LRS'
 
 #Provide the Azure region (e.g. chinanorth) where snapshot will be located.
 #This location should be same as the storage account location where VHD file is stored 

@@ -12,19 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: d9abe6b93f80bad7ba917fa862b9afc58e943922
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 0a9b4f12a7d0041c538451ef90623dc753b8e36d
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254414"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124553"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念 
 
 > [!NOTE]
 > Google Widevine 目前在中国地区不可用。
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 本部分概述最重要的媒体服务概念。
 
@@ -165,9 +168,9 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 使用媒体服务时，建议始终将夹层文件编码为自适应比特率 MP4 集，并使用[动态打包](media-services-dynamic-packaging-overview.md)将该集转换为所需格式。
 
 ### <a name="streaming-endpoint"></a>流式处理终结点
-StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递给客户端播放器应用程序，也可以传递给内容分发网络 (CDN) 以进一步分发（Azure 媒体服务现在还提供了 Azure CDN 集成）。流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 媒体服务客户可以根据自身需要，选择**标准**流式处理终结点或者一个或多个**高级**流式处理终结点。 标准流式处理终结点适合用于大多数流式处理工作负荷。 
+流式处理终结点代表一个流服务，它可以直接将内容分发给客户端播放器应用程序。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 媒体服务客户可以根据自身需要，选择**标准**流式处理终结点或者一个或多个**高级**流式处理终结点。 标准流式处理终结点适合用于大多数流式处理工作负荷。 
 
-标准流式处理终结点适用于最消耗流的工作负荷。 标准流式处理终结点可以动态地将内容打包成 HLS、MPEG-DASH 和平滑流式处理，并针对 Microsoft PlayReady、Apple Fairplay 和 AES128 进行动态加密，从而灵活地将内容传送到几乎所有设备。  此外还可以通过 Azure CDN 集成将受众规模从极小扩展到极大，并发观看者可以成千上万。 如果有高级工作负荷或者流式处理容量要求无法适应标准流式处理终结点吞吐量目标，或者希望控制 StreamingEndpoint 服务的容量，以便处理不断增长的带宽需求，则我们建议分配缩放单元（也称为高级流单元）。
+标准流式处理终结点适用于最消耗流的工作负荷。 标准流式处理终结点可以动态地将内容打包成 HLS、MPEG-DASH 和平滑流式处理，并针对 Microsoft PlayReady、Apple Fairplay 和 AES128 进行动态加密，从而灵活地将内容传送到几乎所有设备。 如果有高级工作负荷或者流式处理容量要求无法适应标准流式处理终结点吞吐量目标，或者希望控制 StreamingEndpoint 服务的容量，以便处理不断增长的带宽需求，则我们建议分配缩放单元（也称为高级流单元）。
 
 建议使用动态打包和/或动态加密。
 
@@ -229,4 +232,6 @@ http:\//testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb
 
 http:\//testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-<!--Update_Description: add Premium Streaming endpoint information-->
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

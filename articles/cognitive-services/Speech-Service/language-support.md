@@ -1,45 +1,36 @@
 ---
 title: 语言支持 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 语音服务支持多种语言，可用于语音到文本和文本到语音转换，以及语音翻译。 本文提供按服务功能分类的语言支持的完整列表。
+description: 语音服务支持多种语言进行文本到语音转换。 本文提供按服务功能分类的语言支持的完整列表。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/13/2019
-ms.date: 07/05/2019
-ms.author: v-biyu
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 75a888af29c5d74d0da1d1e80b1b00d9d032c918
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fb9d3f1f29f8076585e50539f750362f89a28a44
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104092"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267063"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>语音服务的语言和区域支持
 
 不同的语音服务函数支持不同的语言。 下表汇总了语言支持。
 
-## <a name="speech-to-text"></a>语音转文本
-
-Microsoft 语音识别 SDK 和 REST API 都支持以下语言（区域设置）。 每种语言都有不同级别的自定义。
-
-  代码 | 语言 | 声学适应 | 语言适应 | 发音适应
- ------|----------|---------------------|---------------------|-------------------------
- en-US | 英语(美国) | 是 | 是 | 是
- zh-CN | 中文(普通话，简体) | 是 | 是 | 否
- zh-HK | 中文(粤语，繁体) | 否 | 是 | 否
-
+<!-- speech-to-text -->
 
 ## <a name="text-to-speech"></a>文本转语音
 
 文本转语音 REST API 支持以下语音，每种语音支持区域设置标识的特定语言和方言。
 
 > [!IMPORTANT]
-> 标准语音、自定义语音和神经语音的定价各不相同。 有关其他信息，请访问[定价](https://www.azure.cn/zh-cn/home/features/cognitive-services/)页。
+> 标准语音、自定义语音和神经语音的定价各不相同。 有关其他信息，请访问[定价](https://www.azure.cn/home/features/cognitive-services/)页。
 
 ### <a name="neural-voices"></a>神经语音
 
@@ -47,18 +38,22 @@ Microsoft 语音识别 SDK 和 REST API 都支持以下语言（区域设置）�
 
 可以使用神经语音使与聊天机器人和虚拟助手的交流更加自然和专注、可将数字文本（如电子书）转换为有声读物以及可增强车载导航系统。 随着类人的自然韵律和字词的清晰发音，用户在与 AI 系统交互时，神经语音显著减轻了听力疲劳。
 
-有关神经语音和区域可用性的完整列表，请参阅[区域](regions.md#neural-voices)。
+有关神经语音和区域可用性的完整列表，请参阅[区域](regions.md)。
 
-| Locale | 语言 | 性别 | 服务名称映射|
-|--------|----------|---------|--------------------|
-| zh-CN | 中文 | 女 | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
+Locale | 语言 | 性别 | 完整服务名称映射 | 短语音名称
+--------|----------|--------|---------|------------
+de-DE | 德语(德国) | 女 | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
+en-US | 英语(美国) | 男 | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
+en-US | 英语(美国) | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+it-IT | 意大利语(意大利) | 女 |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
+zh-CN | 中文(中国) | 女 | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 > [!NOTE]
 > 可以在语音合成请求中使用完整服务名称映射或短语音名称。
 
 ### <a name="standard-voices"></a>标准语音
 
-提供超过 75 种标准语音，涉及超过 45 种语言和区域设置，允许用户将文本转换为合成语音。 有关区域可用性的详细信息，请参阅[区域](regions.md#standard-and-neural-voices)。
+提供超过 75 种标准语音，涉及超过 45 种语言和区域设置，允许用户将文本转换为合成语音。 有关区域可用性的详细信息，请参阅[区域](regions.md)。
 
 Locale | 语言 | 性别 | 完整服务名称映射 | 短语音名称
 -------|----------|---------|----------|----------
@@ -151,25 +146,80 @@ zh-TW | 中文(中国台湾) | 女 | "Microsoft Server Speech Text to Speech Voi
 
 ### <a name="customization"></a>自定义
 
-语音自定义功能适用于美国英语 (en-US) 和中国大陆的普通话 (zh-CN)。
+语音自定义可用于 de-DE、en-GB、en-IN、en-US、es-MX、fr-FR、it-IT、pt-BR 和 zh-CN。 选择与训练自定义语音模型所需的训练数据相匹配的正确区域设置。 例如，如果你的录音数据是用英语说的，带有英国口音，请选择 en-GB。  
 
 > [!NOTE]
 > 我们不支持在自定义语音中进行双语模型训练，但中-英双语除外。 如果需要训练一个还能够说英语的中文语音，请选择“中-英双语”。 所有区域设置中的语音训练都从包含 2,000 多条话语的数据集开始，但 en-US 和 zh-CN 例外，你可以从任何大小的训练数据开始。
 
-## <a name="speech-translation"></a>语音翻译
-
-**语音翻译** API 支持使用不同的语言进行语音转语音和语音转文本的翻译。 源语言必须始终来自“语音转文本”语言表。 可用的目标语言取决于翻译目标是语音还是文本。 可以将传入的语音翻译成 60 种以上的语言。 这些语言的子集可用于[语音合成](language-support.md#text-languages)。
+<!-- speech-translation -->
 
 ### <a name="text-languages"></a>文本语言
 
 | 文本语言    | 语言代码 |
 |:----------- |:-------------:|
+| 南非荷兰语      | `af`          |
+| 阿拉伯语       | `ar`          |
+| Bangla      | `bn`          |
+| 波斯尼亚语(拉丁语系)      | `bs`          |
+| 保加利亚语      | `bg`          |
+| 粤语(繁体)      | `yue`          |
+| 加泰罗尼亚语      | `ca`          |
 | 中文(简体)      | `zh-Hans`          |
 | 中文(繁体)      | `zh-Hant`          |
-
-
+| 克罗地亚语      | `hr`          |
+| 捷克语      | `cs`          |
+| 丹麦语      | `da`          |
+| 荷兰语      | `nl`          |
+| 英语      | `en`          |
+| 爱沙尼亚语      | `et`          |
+| 斐济语      | `fj`          |
+| 菲律宾语      | `fil`          |
+| 芬兰语      | `fi`          |
+| 法语      | `fr`          |
+| 德语      | `de`          |
+| 希腊语      | `el`          |
+| 海地克里奥尔语      | `ht`          |
+| 希伯来语      | `he`          |
+| 印地语      | `hi`          |
+| 白苗文      | `mww`          |
+| 匈牙利语      | `hu`          |
+| 印度尼西亚语      | `id`          |
+| 意大利语      | `it`          |
+| 日语      | `ja`          |
+| 斯瓦希里语      | `sw`          |
+| 克林贡语      | `tlh`          |
+| 克林贡语(plqaD)      | `tlh-Qaak`          |
+| 韩语      | `ko`          |
+| 拉脱维亚语      | `lv`          |
+| 立陶宛语      | `lt`          |
+| 马达加斯加语      | `mg`          |
+| 马来语      | `ms`          |
+| 马耳他语      | `mt`          |
+| 挪威语      | `nb`          |
+| 波斯语      | `fa`          |
+| 波兰语      | `pl`          |
+| 葡萄牙语      | `pt`          |
+| 克雷塔罗奥托米语      | `otq`          |
+| 罗马尼亚语      | `ro`          |
+| 俄语      | `ru`          |
+| 萨摩亚语      | `sm`          |
+| 塞尔维亚语(西里尔文)      | `sr-Cyrl`          |
+| 塞尔维亚语(拉丁语系)      | `sr-Latn`          |
+| 斯洛伐克语     | `sk`          |
+| 斯洛文尼亚语      | `sl`          |
+| 西班牙语      | `es`          |
+| 瑞典语      | `sv`          |
+| 塔希提语      | `ty`          |
+| 泰米尔语      | `ta`          |
+| 泰语      | `th`          |
+| 汤加语      | `to`          |
+| 土耳其语      | `tr`          |
+| 乌克兰语      | `uk`          |
+| 乌尔都语      | `ur`          |
+| 越南语      | `vi`          |
+| 威尔士语      | `cy`          |
+| 尤卡坦玛雅语      | `yua`          |
 
 ## <a name="next-steps"></a>后续步骤
 
-* [获取语音试用订阅](https://www.azure.cn/zh-cn/home/features/cognitive-services/)
-* [了解如何在 C# 中识别语音](quickstart-csharp-dotnet-windows.md)
+* [获取语音服务试用订阅](https://www.azure.cn/home/features/cognitive-services/)

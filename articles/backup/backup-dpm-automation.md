@@ -1,19 +1,20 @@
 ---
 title: Azure 备份 - 使用 PowerShell 备份 DPM 工作负荷
 description: 了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 备份
-services: backup
+ms.reviewer: adigan
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/12/19
+origin.date: 1/23/2017
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1cf5ea835e028aab241d4a8e415ab73f9148a57b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 980c6f310e8b9c2e7a556a011869a6066bcfe7d6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569970"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330113"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
 本文说明如何使用 PowerShell 在 DPM 服务器上设置 Azure 备份，以及管理备份和恢复。

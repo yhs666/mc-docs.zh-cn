@@ -4,18 +4,16 @@ description: 本文比较了 Azure 流分析云和 IoT Edge 作业在 Azure 门�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/27/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 0dd11d7b24ac922bbeecd8907ed0c27dc85e7cc0
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: e9f9cee76341acb8868c27e6392f5efc29fec804
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169636"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674680"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure 流分析功能比较
 

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-origin.date: 05/09/2019
-ms.date: 6/4/2019
+origin.date: 08/22/2019
+ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 89a064a690fdb675461ea58ea2f5ecd039997712
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7f4bc51cf8d758a8a4b86705e73c96967f2e19dc
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737287"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330067"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -84,12 +84,11 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 可以编写[遥测处理器插件](../../azure-monitor/app/api-filtering-sampling.md)来实现此目的。
 
 ## <a name="how-long-is-the-data-kept"></a>数据保留多长时间？
-原始数据点（即，可以在 Analytics 中查询，在“搜索”中检查的项）保留 90 天。 如果需要将数据保留 7 天以上，可以使用[连续导出](../../azure-monitor/app/export-telemetry.md)将它复制到存储帐户。
+原始数据点（即，可以在 Analytics 中查询并在“搜索”中检查的项）最多可以保留 730 天。 可以[选择保留期限](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) 30 天、60 天、90 天、120 天、180 天、270 天、365 天、550 天或 730 天。 如果需要将数据保留超过 730 天，则可以使用[连续导出](../../azure-monitor/app/export-telemetry.md)在数据引入过程中将其复制到存储帐户。 
+
+保留时间超过 90 天的数据将产生额外费用。 在 [Azure Monitor 定价页](https://azure.microsoft.com/pricing/details/monitor/)上详细了解 Application Insights 定价。
 
 1 分钟粒度的聚合数据（即，在指标资源管理器中显示的计数、平均值和其他统计信息）可保留 90 天。
-
-> [!NOTE]
-> Application Insights 的变量保留现在处于预览状态。 在[此处](https://www.azure.cn/support/contact//forums/357324-application-insights/suggestions/17454031)了解更多信息。 
 
 [调试快照](../../azure-monitor/app/snapshot-debugger.md)将存储 15 天。 此保留策略是逐个应用程序进行设置。 如果需要，可以在 Azure 门户中打开支持案例，以请求增加此值。
 
@@ -102,7 +101,7 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 Azure 只使用这些数据来向你提供服务。
 
 ## <a name="where-is-the-data-held"></a>数据保存在哪个位置？
-* 在美国、欧洲或东南亚。 创建新的 Application Insights 资源时，可以选择存储位置。 
+* 在中国。 创建新的 Application Insights 资源时，可以选择存储位置。 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>这是否意味着必须在美国、欧洲或东南亚托管我的应用？
 * 否。 应用程序可在任何位置运行，不管是在自己的本地主机中还是云中。

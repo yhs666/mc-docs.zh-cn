@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/12/2019
-ms.date: 08/27/2019
+origin.date: 08/30/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3670acdf9a573de46246ade2b1d24f32286a9
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7b80b82d2327670b08d9c2038727c309dfe34aee
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134224"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292047"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft 标识平台和 OAuth 2.0 客户端凭据流
 
@@ -171,7 +171,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.partner.microsoftonline.cn/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.partner.microsoftonline.cn/{tenant}/oauth2/v2.0/token'
 ```
 
 | 参数 | 条件 | 说明 |
@@ -251,10 +252,6 @@ scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default
 | `trace_id` | 可帮助进行诊断的请求的唯一标识符。 |
 | `correlation_id` | 可帮助跨组件进行诊断的请求的唯一标识符。 |
 
-> [!NOTE]
-> 为了让应用程序能够接收 v2 令牌，可以从 Azure 门户中更新应用程序的清单文件。 可以添加属性 `accessTokenAcceptedVersion` 并将值设置为 2 作为 `"accessTokenAcceptedVersion": 2`。 请查看文章[应用程序清单](/active-directory/develop/reference-app-manifest#manifest-reference)以了解有关相同内容的更多信息。 默认情况下，应用程序当前接收 v1 令牌。 如果未在应用程序/Web API 清单中定义此属性，则清单中此属性的值将默认为 1，因此应用程序将接收 v1 令牌。  
-
-
 ## <a name="use-a-token"></a>使用令牌
 
 获取令牌后，使用该令牌对资源发出请求。 令牌过期时，向 `/token` 终结点重复该请求，即可获取全新的访问令牌。
@@ -270,7 +267,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://microsoftgraph.chinacloudapi.cn/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://microsoftgraph.chinacloudapi.cn/v1.0/me/messages'
 ```
 
 ## <a name="code-samples-and-other-documentation"></a>代码示例和其他文档

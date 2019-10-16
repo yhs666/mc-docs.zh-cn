@@ -15,52 +15,73 @@ ms.workload: na
 origin.date: 06/12/2018
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 68ec5bad8b38d149084b44967e48dd69cba89da1
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 0faca20be685bf877041c1e95efff61c4a749ad7
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169526"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674791"
 ---
 # <a name="21vianet-azure-storage-explorer-release-notes"></a>世纪互联 Azure 存储资源管理器发行说明
 
-本文包含 Azure 存储资源管理器 1.9.0 发行版及以前版本的发行说明。
+本文包含 Azure 存储资源管理器 1.10.0 发行版及以前版本的发行说明。
 
 [Microsoft Azure 存储资源管理器](./vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。
 
-## <a name="version-190"></a>版本 1.9.0
-2019/7/1
+## <a name="version-1100"></a>版本 1.10.0
+9/12/2019
 
-### <a name="download-azure-storage-explorer-190"></a>下载 Azure 存储资源管理器 1.9.0
-- [适用于 Windows 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [适用于 Mac 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [适用于 Linux 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-1100"></a>下载 Azure 存储资源管理器 1.10.0
+- [适用于 Windows 的 Azure 存储资源管理器 1.10.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 1.10.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Snap Store 上的 Azure 存储资源管理器 1.10.0](https://snapcraft.io/storage-explorer)
+- [适用于 Linux 的 Azure 存储资源管理器 1.10.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新建
 
-* 现在可以通过 Azure AD 附加 Blob 容器（RBAC 或 ACL 权限）。 此功能旨在帮助那些可以访问容器但不能访问容器所在的存储帐户的用户。 若要详细了解此功能，请参阅入门指南。
-* 获取和中断租约现在适用于 RBAC。 [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
-* 管理访问策略和设置公共访问级别现在适用于 RBAC。 [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
-* 删除 Blob 文件夹现在适用于 RBAC。 [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
-* 更改 Blob 访问层级现在适用于 RBAC。 [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
-* 现在可以通过“帮助”→“重置”快速重置“快速访问”。 [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+* 存储资源管理器现在提供专用的“设置”UI。 可以通过“编辑”→“设置”访问该 UI，或者，可以单击左侧垂直工具栏中的“设置”图标（齿轮）。 只有在了解此功能后，才能提供各种[用户请求的设置](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate)。 从此版本开始支持以下设置：
+    * 主题
+    * 代理
+    * 退出时注销 [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6)
+    * 启用设备代码流登录
+    * 自动刷新 [#1526](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526)
+    * 启用 AzCopy
+    * AzCopy SAS 持续时间
 
-### <a name="preview-features"></a>预览功能
+    如果你还希望添加其他设置，请[在 GitHub 上提出问题并描述所需的设置](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=)。
+* 存储资源管理器现在支持托管磁盘。 方法：
+    * 将本地 VHD 上传到新磁盘
+    * 下载磁盘
+    * 跨资源组和区域复制并粘贴磁盘
+    * 删除磁盘
+    * 创建磁盘的快照
 
-* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。
-* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
+    磁盘的上传、下载和跨区域复制由 AzCopy v10 提供支持。
+* 现在可以通过 Linux 上的 Snap Store 安装存储资源管理器。 通过 Snap Store 安装时，系统将为你安装所有依赖项，包括 .NET Core！ 目前，我们已验证存储资源管理器可在 Ubuntu 和 CentOS 上正常运行。 如果在从其他 Linux 分发版上的 Snap Store 安装时遇到问题，请[在 GitHub 上提出问题](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=)。 若要详细了解如何从 Snap Store 安装，请参阅[入门指南](https://aka.ms/storageexplorer/snapinformation)。 [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* 使用 Azure Active Directory Azure Active Directory (Azure AD) 附加资源的功能已发生两项重大更改，目的是使该功能为 ADLS Gen2 用户提供更大的价值：* 现在可以选择要附加的资源所在的租户。 这意味着，不再需要对资源的订阅拥有 RBAC 访问权限。
+        * 如果附加 ADLS Gen2 Blob 容器，现在可以附加到容器中的特定路径。
+* 管理 ADLS Gen2 文件和文件夹的 ACL 时，存储资源管理器现在会显示 ACL 中实体的易记名称。 [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
+* 通过 OID 添加到 ADLS Gen2 ACL 时，存储资源管理器现在会验证 OID 是否属于租户中的有效实体。 [#1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
+* 用于在选项卡之间导航的快捷键现在使用更标准的组合键。 [#1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
+* 现在，以鼠标中键单击某个选项卡会将其关闭。 [#1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
+* 如果 AzCopy 传输内容包含 skip 但不包含 failure，存储资源管理器现在会显示一个警告图标，强调已发生跳过动作。 [#1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
+* 集成式 AzCopy 已更新为版本 10.2.1。 此外，现在可以在“关于”对话框中查看安装的 AzCopy 版本。 [#1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
 
 ### <a name="fixes"></a>修复项
 
-* 修复了无法为一个帐户加载超过 50 个订阅的问题。 [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
-* 修复了“登录”按钮在信息栏上无法使用的问题。信息栏会在直接链接故障时显示。 [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
-* 修复了无法在 macOS 上上传 .app 文件的问题。 [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
-* 修复了 Blob 重命名失败时“全部重试”无法使用的问题。 [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
-* 修复了在打开 Blob 时“取消”无法使用的问题。 [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
-* 修复了产品中出现的多个拼写和工具提示问题。 十分感谢所有报告这些问题的人！ [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303)、[#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328)、[#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329)、[#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331)、[#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336)、[#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352)、[#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368)、[#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+* 许多用户在使用附加的存储帐户时遇到了各种“无法读取未定义的版本”或“无法读取未定义的连接”错误。 我们仍在继续调查此问题的根本原因，同时，在 1.10.0 中，我们改进了与加载附加存储帐户相关的错误处理。 [#1626](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626)、[#985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985) 和 [#1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
+* 资源管理器树（左侧）可能会进入某种状态，在该状态下，焦点反复跳转到顶层节点。 此问题已解决。 [#1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
+* 管理 Blob 的快照时，读屏器不会读取与快照关联的时间戳。 此问题已解决。 [#1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
+* 未及时设置 macOS 上的代理设置，导致身份验证进程无法使用这些设置。 此问题已解决。 [#1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
+* 如果使用名称和密钥附加了主权云中的存储帐户，AzCopy 将无法正常工作。 此问题已解决。 [#1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
+* 通过连接字符串附加时，存储资源管理器现在会删除尾部空格。 [#1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
 
 ### <a name="known-issues"></a>已知问题
 
+* “自动刷新”设置目前不会影响 Blob 资源管理器中的所有操作。
+* Azure Stack 不支持托管磁盘功能。
+* 如果磁盘上传或粘贴失败，并且在失败之前创建了新磁盘，则存储资源管理器不会删除新磁盘。
+* 根据取消磁盘上传或粘贴操作的时间，新磁盘可能会保持损坏状态。 如果发生这种情况，需要删除新磁盘，或手动调用磁盘 API 来替换磁盘内容，使其不再损坏。
 * 在执行非 AzCopy Blob 下载时，不会验证大型文件的 MD5。 这是由存储 SDK 中的一个 bug 导致的。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
 * 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](/storage/common/storage-explorer-troubleshooting)。
 * 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
@@ -78,6 +99,7 @@ ms.locfileid: "70169526"
    * 访问层级
    * 软删除
    * ADLS Gen2
+   * 托管磁盘
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
     ```
@@ -88,6 +110,7 @@ ms.locfileid: "70169526"
 
 ## <a name="previous-releases"></a>以前的版本
 
+* [版本 1.9.0](#version-190)
 * [版本 1.8.1](#version-181)
 * [版本 1.8.0](#version-180)
 * [版本 1.7.0](#version-170)
@@ -125,6 +148,65 @@ ms.locfileid: "70169526"
 * [版本 0.7.20160129.1](#version-07201601291)
 * [版本 0.7.20160105.0](#version-07201601050)
 * [版本 0.7.20151116.0](#version-07201511160)
+
+
+## <a name="version-190"></a>版本 1.9.0
+2019/7/1
+
+### <a name="download-azure-storage-explorer-190"></a>下载 Azure 存储资源管理器 1.9.0
+- [适用于 Windows 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [适用于 Linux 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新建
+
+* 现在可以通过 Azure AD 附加 Blob 容器（RBAC 或 ACL 权限）。 此功能旨在帮助那些可以访问容器但不能访问容器所在的存储帐户的用户。 若要详细了解此功能，请参阅入门指南。
+* 获取和中断租约现在适用于 RBAC。 [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* 管理访问策略和设置公共访问级别现在适用于 RBAC。 [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* 删除 Blob 文件夹现在适用于 RBAC。 [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* 更改 Blob 访问层级现在适用于 RBAC。 [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* 现在可以通过“帮助”→“重置”快速重置“快速访问”。 [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+
+### <a name="preview-features"></a>预览功能
+
+* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。
+* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
+
+### <a name="fixes"></a>修复项
+
+* 修复了无法为一个帐户加载超过 50 个订阅的问题。 [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* 修复了“登录”按钮在信息栏上无法使用的问题。信息栏会在直接链接故障时显示。 [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* 修复了无法在 macOS 上上传 .app 文件的问题。 [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* 修复了 Blob 重命名失败时“全部重试”无法使用的问题。 [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* 修复了在打开 Blob 时“取消”无法使用的问题。 [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* 修复了产品中出现的多个拼写和工具提示问题。 十分感谢所有报告这些问题的人！ [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303)、[#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328)、[#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329)、[#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331)、[#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336)、[#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352)、[#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368)、[#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+
+### <a name="known-issues"></a>已知问题
+
+* 在执行非 AzCopy Blob 下载时，不会验证大型文件的 MD5。 这是由存储 SDK 中的一个 bug 导致的。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
+* 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
+* 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
+* 如果使用用于 Mac 的 VS 并曾经创建过自定义 AAD 配置，可能无法登录。 若要解决此问题，请删除 ~/.IdentityService/AadConfigurations 的内容。 如果这样做不能对你解除阻止，请对此问题发表评论。
+* Azurite 还没有完全实现所有存储 API。 因此，在使用 Azurite 进行开发存储时可能会出现意外的错误或行为。
+* 在极少数情况下，树焦点可能会停滞在“快速访问”上。 要使焦点取消停滞，可以单击“全部刷新”。
+* 由于 NodeJS 中的 bug，从 OneDrive 文件夹上传不正常工作。 该 bug 已修复，但尚未集成到 Electron 中。 若要在向/从 Blob 容器上传或下载时解决此问题，可以使用试验性的 AzCopy 功能。
+* 当以 Azure Stack 为目标时，将某些文件作为追加 blob 进行上传可能会失败。
+* 对任务单击“取消”后，可能需要一段时间才能取消该任务。 这是因为我们使用的是此处介绍的“取消筛选”解决办法。
+* 如果选择错误的 PIN/智能卡证书，需要重启存储资源管理器，使其忘记该选择。
+* 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
+* Azure Stack 不支持以下功能。 在处理 Azure Stack 资源时尝试使用这些功能可能会导致意外错误。
+   * 文件共享
+   * 访问层级
+   * 软删除
+   * ADLS Gen2
+* 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 在 Linux 上运行存储资源管理器需要首先安装某些依赖项。 有关详细信息，请查看存储资源管理器[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)。
 
 ## <a name="version-181"></a>版本 1.8.1
 2019/5/13
@@ -430,7 +512,7 @@ ms.locfileid: "70169526"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -485,7 +567,7 @@ ms.locfileid: "70169526"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -549,7 +631,7 @@ ms.locfileid: "70169526"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -570,7 +652,7 @@ ms.locfileid: "70169526"
 2018/10/15
 
 ### <a name="hotfixes"></a>修补程序
-* Azure 资源管理 API 版本已回滚，以解除阻止 Azure 美国政府用户。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Azure 资源管理 API 版本已回滚，以对 Azure 美国政府用户解除阻止。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 加载微调控件现使用 CSS 动画来减少存储资源管理器所用的 GPU 数量。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>新建
@@ -602,11 +684,11 @@ ms.locfileid: "70169526"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -626,7 +708,7 @@ ms.locfileid: "70169526"
 2018/10/11
 
 ### <a name="hotfixes"></a>修补程序
-* Azure 资源管理 API 版本已回滚，以解除阻止 Azure 美国政府用户。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Azure 资源管理 API 版本已回滚，以对 Azure 美国政府用户解除阻止。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 加载微调控件现使用 CSS 动画来减少存储资源管理器所用的 GPU 数量。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>新建
@@ -658,11 +740,11 @@ ms.locfileid: "70169526"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -713,9 +795,9 @@ ms.locfileid: "70169526"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：

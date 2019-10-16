@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 06/26/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: f7d37c005549771e0b9f7705ded9d1b80ff5747c
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 09/30/2019
+ms.openlocfilehash: e3f6dd89ac374f066e11e50ef399f23f0e05db2d
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578537"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262938"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用基于 vCore 的购买模型限制的弹性池的资源限制
 
@@ -139,8 +138,8 @@ ms.locfileid: "69578537"
 |IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
 |目标 IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |日志速率限制 (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
-|每个池的最大并发工作线程数（请求数）*|1680|1890|2100|2520|33600|4200|8400|
-|每个池的最大并发登录数（请求数）*|1680|1890|2100|2520|33600|4200|8400|
+|每个池的最大并发工作线程数（请求数）*|1680|1890|2100|2520|3360|4200|8400|
+|每个池的最大并发登录数（请求数）*|1680|1890|2100|2520|3360|4200|8400|
 |每个数据库的最小/最大弹性池 vCore 选项|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |副本数|1|1|1|1|1|1|1|
 |Multi-AZ|不适用|不适用|不适用|不适用|不适用|不适用|不适用|

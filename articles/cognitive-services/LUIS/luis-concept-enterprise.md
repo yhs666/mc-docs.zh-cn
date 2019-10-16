@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 72abbd382ea0ad1bbe83d76d5f79b1d3140ed08a
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 70b37c142a03b1f5e2c6538127928ffd294dacbc
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104034"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329926"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 应用的企业策略
 查看企业应用的设计策略。
@@ -50,10 +51,10 @@ LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。
 计划定期（例如每两周一次）[查看终结点陈述](luis-how-to-review-endpoint-utterances.md)以进行主动学习，然后重新训练并重新发布。 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>需要超过 500 个意向
-例如，假设要开发一个包含超过 500 个意向的办公室助手。 如果有 200 个关于计划会议的意向、200 个关于提醒的意向、200 个关于获取同事信息的意向以及 200 个 关于发送电子邮件的意向，则对意向进行分组，每组位于一个应用中，然后创建包含每个意向的顶层应用。 使用[调度工具和体系结构](#dispatch-tool-and-model)来生成顶层应用。 然后将机器人更改为使用级联调用，如[调度教程][dispatcher-application-tutorial]中所示。 
+假设要开发一个包含超过 500 个意向的办公室助手。 如果有 200 个关于计划会议的意向、200 个关于提醒的意向、200 个关于获取同事信息的意向以及 200 个 关于发送电子邮件的意向，则对意向进行分组，每组位于一个应用中，然后创建包含每个意向的顶层应用。 使用[调度模型](#dispatch-tool-and-model)来生成顶层应用。 然后更改机器人以使用[调度模型教程](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)中所示的级联调用。 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>需要合并多个 LUIS 和 QnA Maker 应用
-如果有多个 LUIS 和 QnA Maker 应用需要响应一个机器人，请使用[调度工具](#dispatch-tool-and-model)来生成顶层应用。 然后将机器人更改为使用级联调用，如[调度教程][dispatcher-application-tutorial]中所示。 
+如果有多个 LUIS 和 QnA Maker 应用需要响应一个机器人，请使用[调度模型](#dispatch-tool-and-model)来生成顶层应用。  然后更改机器人以使用[调度模型教程](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)中所示的级联调用。 
 
 ## <a name="dispatch-tool-and-model"></a>调度工具和模型
 使用 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 中的 [Dispatch][dispatch-tool] 命令行工具，将多个 LUIS 和/或 QnA Maker 应用合并至父 LUIS 应用。 采用此方法可以得到一个父域，将所有使用者域和不同的子使用者域都包含在单独的应用中。 
@@ -64,10 +65,17 @@ LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。
 
 聊天机器人接收话语，然后发送至父 LUIS 应用进行预测。 父应用中的最高预测意向决定下一个要调用的 LUIS 子应用。 聊天机器人将话语发送至子应用进行更具体的预测。
 
-了解如何从 Bot Builder v4 [dispatcher-application-tutorial][dispatcher-application-tutorial] 生成这个调用层次结构。  
+了解如何从 Bot Builder v4 [dispatcher-application-tutorial](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs) 生成这个调用层次结构。  
 
 ### <a name="intent-limits-in-dispatch-model"></a>调度模型中的意向限制
 一个调度应用程序最多可包含 500 个调度资源，相当于 500 个意向。 
+
+## <a name="more-information"></a>详细信息
+
+* [Bot Framework SDK](https://github.com/Microsoft/botframework)
+* [调度模型教程](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [调度 CLI](https://github.com/Microsoft/botbuilder-tools)
+* 调度模型机器人示例 - .NET、Node.js
 
 ## <a name="next-steps"></a>后续步骤
 

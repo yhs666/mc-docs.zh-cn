@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/17/2019
-ms.date: 01/23/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 892590f98fbfeb8bcab90e93e2936ee5061ffb46
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 807481b76b51a5963eed46f7e42ab74278d759dd
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332259"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330331"
 ---
 # <a name="amqp-10-in-azure-service-bus-request-response-based-operations"></a>Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
@@ -36,7 +36,7 @@ ms.locfileid: "68332259"
   
 ### <a name="brokered-message"></a>中转消息  
 
-表示映射到 AMQP 消息的服务总线中的消息。 [服务总线 AMQP 协议指南](./service-bus-amqp-protocol-guide.md)中定义了映射。  
+表示映射到 AMQP 消息的服务总线中的消息。 [服务总线 AMQP 协议指南](service-bus-amqp-protocol-guide.md)中定义了映射。  
   
 ## <a name="attach-to-entity-management-node"></a>附加到实体管理节点  
 
@@ -189,7 +189,7 @@ properties: {
   
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 � 有更多消息<br /><br /> 204：无内容 � 没有更多消息|  
+|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：“正常”�有更多消息<br /><br /> 204：“无内容”�没有更多消息|  
 |statusDescription|string|否|状态的说明。|  
   
 响应消息正文必须包含 amqp-value  部分，其中所含映射  必须包括以下条目：  
@@ -239,7 +239,7 @@ properties: {
   
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 � 成功，其他表示失败。|  
+|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：“正常”�成功，否则失败。|  
 |statusDescription|string|否|状态的说明。|  
   
 响应消息正文必须包含 amqp-value  部分，其中所含映射必须包括以下条目：  
@@ -273,7 +273,7 @@ properties: {
   
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 � 成功，否则失败。|  
+|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：“正常”�成功，否则失败。|  
 |statusDescription|string|否|状态的说明。|  
   
 响应消息正文必须包含 amqp-value  部分，其中所含映射必须包括以下条目：  
@@ -656,7 +656,7 @@ sql-rule-action  映射必须包含以下条目：
   
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 � 成功，否则失败|  
+|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：“正常”�成功，否则失败|  
 |statusDescription|string|否|状态的说明。|  
   
 响应消息正文必须包含 amqp-value  部分，其中所含映射  必须包括以下条目：  

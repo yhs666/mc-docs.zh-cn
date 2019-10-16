@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/08/2018
-ms.date: 03/04/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c7a354535522ff61f9dbf02b9084bd91587bcca
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0bbb83cdbdec5baaa3a75bbb3f9f3a029d8639bc
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340782"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器应用程序和服务清单示例
 下面以示例方式说明了多容器 Service Fabric 应用程序的应用程序和服务清单。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Windows Server 2016 容器示例](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows)清单。
@@ -29,7 +29,7 @@ ms.locfileid: "58625702"
 
 |清单|功能|
 |---|---|
-|[应用程序清单](#application-manifest)| [重写环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[配置容器端口到主机的映射](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)、[配置容器注册表身份验证](service-fabric-get-started-containers.md#configure-container-registry-authentication)、[资源调控](service-fabric-resource-governance.md)、[设置隔离模式](service-fabric-get-started-containers.md#configure-isolation-mode)、[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[应用程序清单](#application-manifest)| [重写环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[配置容器端口到主机的映射](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)、[配置容器注册表身份验证](service-fabric-get-started-containers.md#configure-container-repository-authentication)、[资源调控](service-fabric-resource-governance.md)、[设置隔离模式](service-fabric-get-started-containers.md#configure-isolation-mode)、[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService 服务清单](#frontendservice-service-manifest)| [设置环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[配置终结点](service-fabric-get-started-containers.md#configure-communication)、向容器传递命令、[将证书导入到容器中](service-fabric-securing-containers.md)| 
 |[BackEndService 服务清单](#backendservice-service-manifest)|[设置环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[配置终结点](service-fabric-get-started-containers.md#configure-communication)、[配置卷驱动程序](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -42,8 +42,8 @@ ms.locfileid: "58625702"
 <ApplicationManifest ApplicationTypeName="Container.ApplicationType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="BackEndService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="FrontEndService_InstanceCount" DefaultValue="-1" />
@@ -173,8 +173,8 @@ ms.locfileid: "58625702"
 <ServiceManifest Name="FrontEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -223,8 +223,8 @@ ms.locfileid: "58625702"
 <ServiceManifest Name="BackEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -312,7 +312,7 @@ Windows Server 容器在不同 OS 版本中可能不兼容。  可以为每个�
 容器映像，对应于要启动的 OS 内部版本号。 如果 Os 属性未指定，则认为容器映像适合所有版本的 OS，并且会替代在服务清单中指定的映像。 有关详细信息，请参阅 [Image 元素](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)
 
 ### <a name="environmentoverrides-element"></a>EnvironmentOverrides 元素
- 有关详细信息，请参阅 [EnvironmentOverrides 元素](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
+有关详细信息，请参阅 [EnvironmentOverrides 元素](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
 环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)

@@ -4,18 +4,17 @@ description: 本文介绍如何使用 Azure 门户为 Azure 流分析作业设�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 06/21/2019
-ms.openlocfilehash: f0b13c48f2aab47482291ea3902f4d99aaab3a87
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/21/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: 14926839f282082b9b6b51c0418427336e006d53
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969564"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674759"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>为 Azure 流分析作业设置警报
 

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 05/27/2017
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3449a4172c8f05c516097b9288d7a923728c50f0
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: bde01d43d073d8c0b6f71e6fa241acbce1d7c3db
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737386"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330430"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自动化 runbook 收集 Log Analytics 中的数据
 
@@ -190,9 +190,9 @@ Azure 自动化包含用于[测试 runbook](../../automation/automation-testing-
 
 创建计划后，需要设置参数值，此计划每次启动 runbook 时都要使用此参数值。
 
-6. 单击“配置参数和运行设置”  。
-7. 填写“ResourceGroupName”和“AutomationAccountName”的值   。
-8. 单击 **“确定”** 。
+1. 单击“配置参数和运行设置”  。
+1. 填写“ResourceGroupName”和“AutomationAccountName”的值   。
+1. 单击 **“确定”** 。
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9.验证 runbook 是否按计划启动
 每次启动 runbook 时，都会[创建一个作业](../../automation/automation-runbook-execution.md)并记录任何输出。 实际上，这些正是 runbook 在收集的作业。 通过在计划启动时间已过去后，检查 runbook 作业，可以验证 runbook 是否按预期启动。

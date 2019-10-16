@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/06/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: a40777b41f7e2683872e866e203523f166e17e56
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: b7a3902406b45dbea8ea94db50494bf3d0b23ba0
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083185"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340900"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -209,11 +209,11 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
 ### <a name="apply-custom-configuration-changes"></a>应用自定义配置更改
 
-若要应用自定义配置更改，请使用以下步骤：
+若要应用自定义配置更改，请以 ROOT 用户身份使用以下步骤：
 
 1. 运行以下命令解压缩二进制文件。
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![要运行的命令的屏幕截图](./media/vmware-azure-install-linux-master-target/image16.png)
 

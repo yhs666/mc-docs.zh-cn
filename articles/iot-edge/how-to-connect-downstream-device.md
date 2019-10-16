@@ -9,12 +9,12 @@ ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f65efd062981d26dc3ffdc8ce0c2b87799abf7f3
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 82b16dc7fb94d4c3a82277a7ef333dd03eaa7047
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174005"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340822"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 
@@ -170,10 +170,9 @@ var options = {
 
 本部分介绍用于将 Azure IoT Python 设备客户端连接到 IoT Edge 网关的示例应用程序。 
 
-1. 从[适用于 Python 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples)获取 **edge_downstream_client** 的示例。 
-2. 查看 **readme.md** 文件，确保满足运行该示例的所有先决条件。 
-3. 在 edge_downstream_client.py 文件中，更新 **CONNECTION_STRING** 和 **TRUSTED_ROOT_CA_CERTIFICATE_PATH** 变量。 
-4. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。 
+1. 从[适用于 Python 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)获取 **send_message** 的示例。 
+2. 确保你正在 Edge 容器中运行，或在调试方案中运行，并设置了 `EdgeHubConnectionString` 和 `EdgeModuleCACertificateFile` 环境变量。
+3. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。 
 
 
 ## <a name="test-the-gateway-connection"></a>测试网关连接

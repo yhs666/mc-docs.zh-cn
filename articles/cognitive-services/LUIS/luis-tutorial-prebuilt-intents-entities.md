@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
+origin.date: 07/24/2019
 ms.date: 04/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2d7d3681dab5bcef6213621a9cbc7b4e8c03e252
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 0fdf01e378a3b03249cedb04fb58b7ce898ba01c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103877"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329949"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教程：确定常见意向和实体
 

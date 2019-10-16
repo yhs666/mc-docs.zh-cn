@@ -1,20 +1,19 @@
 ---
 title: Azure 文件常见问题解答 (FAQ) | Microsoft Docs
 description: 查看有关 Azure 文件的常见问题解答。
-services: storage
 author: WenJason
 ms.service: storage
-origin.date: 01/02/2019
-ms.date: 05/27/2019
+origin.date: 07/30/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4ca79aea16d74578771e92015b66f8c99ecf68c0
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+ms.openlocfilehash: 446b73f868cc7e703e52a1ef5d81cf475ef88735
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391986"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306482"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -136,10 +135,6 @@ ms.locfileid: "68391986"
 * <a id="where-are-snapshots-stored"></a>
 **共享快照存储在何处？**  
     共享快照与文件共享存储在同一个存储帐户中。
-
-* <a id="snapshot-perf-impact"></a>
-**使用共享快照是否会产生任何性能影响？**  
-    共享快照没有任何性能开销。
 
 * <a id="snapshot-consistency"></a>
 **共享快照是否与应用程序一致？**  

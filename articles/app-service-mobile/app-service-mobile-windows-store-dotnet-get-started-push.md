@@ -1,9 +1,9 @@
 ---
-title: 向通用 Windows 平台 (UWP) 应用添加推送通知
+title: 向通用 Windows 平台 (UWP) 应用添加推送通知 | Azure
 description: 了解如何使用 Azure 应用服务移动应用和 Azure 通知中心将推送通知发送到通用 Windows 平台 (UWP) 应用。
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
@@ -12,48 +12,53 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/12/2016
-ms.date: 01/29/2018
-ms.author: v-yiso
-ms.openlocfilehash: bf3e4964aadee759c4adbeff4dba238fdd551c15
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 24375eddc5aa2598f3d17272a778de57d65e3aa8
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627139"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006566"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>概述
-本教程介绍如何向 [Windows 快速入门](./app-service-mobile-windows-store-dotnet-get-started.md)项目添加推送通知，以便每次插入一条记录时，向设备发送一条推送通知。
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push)。
+>
 
-如果不使用下载的快速入门服务器项目，则需要推送通知扩展包。 有关详细信息，请参阅 [使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 。
+## <a name="overview"></a>概述
+
+本教程介绍如何向 [Windows 快速入门](app-service-mobile-windows-store-dotnet-get-started.md)项目添加推送通知，以便每次插入一条记录时，向设备发送一条推送通知。
+
+如果不使用下载的快速入门服务器项目，则需要推送通知扩展包。 有关详细信息，请参阅 [使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 。
 
 ## <a name="configure-hub"></a>配置通知中心
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>为推送通知注册应用程序
-需要将应用提交到 Windows 应用商店，然后配置服务器项目与 Windows 通知服务 (WNS) 集成，从而发送推送。
 
-1. 在 Visual Studio 解决方案资源管理器中，右键单击 UWP 应用项目，单击“应用商店” > “将应用与应用商店关联...”。 
+需要将应用提交到 Microsoft Store，然后配置服务器项目与 [Windows 通知服务 (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) 集成，以发送推送。
 
-    ![关联应用与 Windows 应用商店](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+1. 在 Visual Studio 解决方案资源管理器中，右键单击 UWP 应用项目，单击“应用商店”   > “将应用与应用商店关联...”  。
 
-2. 在向导中，单击“下一步”，使用 Microsoft 帐户登录，在“保留新应用名称”中键入应用的名称，然后单击“保留”。
+    ![将应用与 Microsoft Store 相关联](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
-3. 成功创建应用注册后，选择新应用名称，再依次单击“下一步”和“关联”。 这会将所需的 Windows 应用商店注册信息添加到应用程序清单中。  
-4. 导航到 [Windows 开发人员中心](https://dev.windows.com/en-us/overview)、用 Microsoft 帐户登录，再单击“我的应用”中的新应用注册，然后展开“服务” > “推送通知”。
-5. 在“推送通知”页中，单击“Microsoft Azure 移动服务”下的“Live 服务站点”。
-6. 在注册页中，记下“应用程序机密”和“包 SID”下的值，后面将使用这些值配置移动应用后端。
+2. 在向导中，单击“下一步”  ，使用 Microsoft 帐户登录，在“保留新应用名称”  中键入应用的名称，然后单击“保留”  。
+3. 成功创建应用注册后，选择新应用名称，再依次单击“下一步”  和“关联”  。 这会将所需的 Microsoft Store 注册信息添加到应用程序清单中。
+4. 导航到[应用程序注册门户](https://apps.dev.microsoft.com/)，并使用 Microsoft 帐户登录。 单击上一步中关联的 Windows 应用商店应用。
+5. 在注册页中，记下“应用程序机密”  和“包 SID”  下的值，后面将使用这些值配置移动应用后端。
 
-    ![关联应用与 Windows 应用商店](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![将应用与 Microsoft Store 相关联](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > 客户端密钥和程序包 SID 是重要的安全凭据。 请勿将这些值告知任何人或随应用程序分发它们。 将“应用程序 ID”  与机密配合使用来配置 Microsoft 帐户身份验证。
-   >
-   >
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) 还提供了有关为推送通知配置 UWP 应用的说明。
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>配置后端以发送推送通知
 
@@ -65,9 +70,8 @@ ms.locfileid: "58627139"
 
 ### <a name="dotnet"></a>.NET 后端项目
 
-1. 在 Visual Studio 中，右键单击服务器项目并单击“管理 NuGet 包”，搜索 Microsoft.Azure.NotificationHubs，然后单击“安装”。 这会安装通知中心客户端库。
-
-2. 展开“控制器”，打开 TodoItemController.cs，并添加以下 using 语句：
+1. 在 Visual Studio 中，右键单击服务器项目并单击“管理 NuGet 包”  ，搜索 Microsoft.Azure.NotificationHubs，然后单击“安装”  。 这会安装通知中心客户端库。
+2. 展开“控制器”  ，打开 TodoItemController.cs，并添加以下 using 语句：
 
     ```csharp
     using System.Collections.Generic;
@@ -75,7 +79,7 @@ ms.locfileid: "58627139"
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-3. 在 PostTodoItem 方法中，在调用 InsertAsync 后添加如下代码：
+3. 在 PostTodoItem 方法中，在调用 InsertAsync 后添加如下代码   ：
 
     ```csharp
     // Get the settings for the server project.
@@ -116,9 +120,7 @@ ms.locfileid: "58627139"
 4. 重新发布服务器项目。
 
 ### <a name="nodejs"></a>Node.js 后端项目
-
-1. 如果尚未执行此操作，请[下载快速入门项目](./app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 门户中的在线编辑器](./app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
-
+1. 设置后端项目。
 2. 将 todoitem.js 文件中的现有代码替换为以下内容：
 
     ```javascript
@@ -130,7 +132,7 @@ ms.locfileid: "58627139"
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs
+    // see https://aka.ms/nodejshubs
     logger.info('Running TodoItem.insert');
 
     // Define the WNS payload that contains the new item Text.
@@ -165,7 +167,7 @@ ms.locfileid: "58627139"
 
     插入新的待办事项时，会发送一条包含 item.text 的 WNS toast 通知。
 
-2. 编辑本地计算机上的文件时，重新发布服务器项目。
+3. 编辑本地计算机上的文件时，重新发布服务器项目。
 
 ## <a id="update-app"></a>向应用程序添加推送通知
 下一步，应用必须在启动时注册推送通知。 已启用身份验证时，请确保用户先登录，再尝试注册推送通知。
@@ -216,19 +218,13 @@ ms.locfileid: "58627139"
 
 了解有关推送通知的详细信息：
 
-* [如何使用 Azure 移动应用的托管客户端](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-  模板可以灵活地发送跨平台推送和本地化推送。 了解如何注册模板。
-  
-* [诊断推送通知问题](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-有多种原因可能导致通知被丢弃或最终未到达设备。 本主题演示如何分析和确定推送通知失败的根本原因。 
+* [如何使用 Azure 移动应用的托管客户端](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) 使用模板可以灵活地发送跨平台推送和本地化推送。 了解如何注册模板。
+* [诊断推送通知问题](../notification-hubs/notification-hubs-push-notification-fixer.md) 有多种原因可能导致通知被丢弃或最终未到达设备。 本主题演示如何分析和确定推送通知失败的根本原因。
 
 请考虑继续学习以下教程之一：
 
-+ [向应用添加身份验证](./app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  了解如何使用标识提供者对应用的用户进行身份验证。
-
-+ [为应用启用脱机同步](./app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  了解如何使用移动应用后端向应用添加脱机支持。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。
+* [向应用添加身份验证](app-service-mobile-windows-store-dotnet-get-started-users.md) 了解如何使用标识提供者对应用用户进行身份验证。
+* [为应用启用脱机同步](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。
 
 <!-- Anchors. -->
 

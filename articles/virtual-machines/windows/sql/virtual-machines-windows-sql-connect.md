@@ -8,20 +8,19 @@ manager: digimobile
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/12/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 051d0674e7092847c498ccd888e4f756c151d984
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 034d1de0161fe9343768b3910d9075d50f9d85ff
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538835"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272742"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 
@@ -95,6 +94,8 @@ Server=mysqlvm;Integrated Security=true
 
 <a name="change"></a>
 ## <a name="change-sql-connectivity-settings"></a>更改 SQL 连接设置
+
+<!--Not Available on [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]-->
 
 可以更改 Azure 门户中的 SQL Server 虚拟机的连接设置。
 

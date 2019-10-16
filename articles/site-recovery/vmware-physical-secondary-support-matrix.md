@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 08/22/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02b9ee0e53bf1ccd5cab8ec8a237d936baa372c8
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: ccb2c253e9884883938d59d13eeb2505089b1af5
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390815"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340955"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 和物理服务器灾难恢复到辅助站点时的支持矩阵
 
@@ -111,13 +111,10 @@ RDM | 是
 
 移动服务可协调本地 VMware 服务器/物理服务器和辅助站点之间的复制。 如果设置了复制，应确保安装了最新版本的移动服务和其他组件。
 
-
-|    **更新**     |                                                                                                                                                  **详细信息**                                                                                                                                                   |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   Scout 更新   |                                       Scout 更新是累积更新。 <br/><br/> [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新                                                                                                                     |
-| 组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。 |
-
-<!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)-->
+| **更新** | **详细信息** |
+| --- | --- |
+|Scout 更新 | Scout 更新是累积更新。 <br/><br/> [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 |
+|组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。|
 
 ## <a name="next-steps"></a>后续步骤
 

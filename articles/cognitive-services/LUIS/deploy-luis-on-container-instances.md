@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 origin.date: 8/26/2019
-ms.date: 7/5/2019
+ms.date: 9/6/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ba2c1f4a47e4979cf1b280be8e5487d5b7a6a89a
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: be06ed4e07e47030933e584e93649db76995308e
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103857"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330434"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>将语言理解 (LUIS) 容器部署到 Azure 容器实例
 

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 origin.date: 05/08/2019
-ms.date: 6/4/2019
+ms.date: 9/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7a0be2b0ad78e2ea77e514891063a03a0345aa99
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 86593fe854b6adcddb01a668b3aed2a9d3610a3d
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737229"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330415"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 .NET/.NET Core 跟踪日志
 
@@ -32,15 +32,15 @@ ms.locfileid: "70737229"
 在项目中安装所选的日志记录框架，这应该会在 app.config 或 web.config 中生成一个条目。
 
 ```XML
-    <configuration>
-      <system.diagnostics>
-    <trace autoflush="true" indentsize="0">
+ <configuration>
+  <system.diagnostics>
+    <trace>
       <listeners>
         <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
     </trace>
   </system.diagnostics>
-   </configuration>
+</configuration>
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>配置 Application Insights 以收集日志

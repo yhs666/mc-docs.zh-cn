@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 02/20/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: e5a0bdc1939833dadc7769bf47b351656e3cfc75
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.date: 09/30/2019
+ms.openlocfilehash: 13d799614d7ea4c8546b2cbf2365ba2a26df72c0
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277014"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262924"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教程：使用 Azure AD 服务器主体（登录名）确保 Azure SQL 数据库中托管实例的安全性
 
@@ -50,17 +49,19 @@ ms.locfileid: "67277014"
 - [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Azure SQL 数据库托管实例
   - 遵循以下文章：[快速入门：创建 Azure SQL 数据库托管实例](sql-database-managed-instance-get-started.md)
-- 能够访问你的托管实例，并且为托管实例预配了 Azure AD 管理员。 若要了解更多信息，请参阅以下文章：
+- 能够访问托管实例，并且[为托管实例预配了 Azure AD 管理员](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。 若要了解更多信息，请参阅以下文章：
     - [将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md) 
     - [托管实例连接体系结构](sql-database-managed-instance-connectivity-architecture.md)
     - [使用 SQL 配置和管理 Azure Active Directory 身份验证](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>限制对托管实例的访问
 
-只能通过专用 IP 地址访问托管实例。 在托管实例网络的外部，无法通过任何服务终结点连接到托管实例。 与在隔离的 SQL Server 本地环境中非常类似，应用程序或用户需要访问托管实例网络 (VNet) 才能建立连接。 有关详细信息，请参阅[将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md)。
+可以通过专用 IP 地址访问托管实例。 与在隔离的 SQL Server 本地环境中非常类似，应用程序或用户需要访问托管实例网络 (VNet) 才能建立连接。 有关详细信息，请参阅[将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md)。
+
+还可以在托管实例上配置服务终结点，该终结点允许使用与 Azure SQL 数据库相同的方式进行公共连接。 有关详细信息，请参阅以下文章：[在 Azure SQL 数据库托管实例中配置公共终结点](sql-database-managed-instance-public-endpoint-configure.md)。
 
 > [!NOTE] 
-> 由于只能在托管实例的 VNET 内部访问托管实例，因此 [SQL 数据库防火墙规则](sql-database-firewall-configure.md)不适用。 托管实例具有自身的[内置防火墙](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)。
+> 即使启用了服务终结点，[SQL 数据库防火墙规则](sql-database-firewall-configure.md)也不适用。 托管实例使用自己的[内置防火墙](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)来管理连接。
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>使用 SSMS 为托管实例创建 Azure AD 服务器主体（登录名）
 
@@ -208,10 +209,10 @@ ms.locfileid: "67277014"
 9. 在“对象资源管理器”中右键服务器，然后选择新连接对应的“新建查询”。  
 10. 执行以下命令，检查新建的 Azure AD 服务器主体（登录名）的服务器权限：
 
-     ```sql
-     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-     GO
-     ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > 对于 Azure AD 来宾用户，仅当已将其添加为 Azure AD 组的一部分时，才支持将其用于托管实例登录名。 Azure AD 来宾用户是指在另一个 Azure AD 中邀请其加入托管实例所属 Azure AD 的帐户。 例如，可将 joe@contoso.com（Azure AD 帐户）或 steve@outlook.com（MSA 帐户）添加到 Azure AD aadsqlmi 中的组。 将用户添加到组后，可以使用 **CREATE LOGIN** 语法在托管实例 **master** 数据库中为该组创建登录名。 属于此组的来宾用户可以使用其当前登录名（例如 joe@contoso.com 或 steve@outlook.com）连接到托管实例。
@@ -305,7 +306,7 @@ ms.locfileid: "67277014"
     GO
     ```
 
-    以下示例为用户 bob@aadsqlmi.net 和组 *mygroup* 提供对 **MyMITestDB** 数据库的 `db_datareader` 权限：
+    以下示例为用户 bob@aadsqlmi.net 和组 _mygroup_ 提供对 **MyMITestDB** 数据库的 `db_datareader` 权限：
 
     ```sql
     USE MyMITestDB
@@ -361,7 +362,7 @@ ms.locfileid: "67277014"
     GO
     ```
 
-4. 使用以下命令来查看执行该存储过程时模拟的用户是否为 <strong>bob@aadsqlmi.net</strong>。
+4. 使用以下命令来查看执行该存储过程时模拟的用户是否为 bob\@aadsqlmi.net  。
 
     ```sql
     Exec dbo.usp_Demo

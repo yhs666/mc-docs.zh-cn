@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/15/2018
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9e8dac3d8f538003264a018970e19a4304f091a9
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: e27f600acd48e20ba5f7825f620f954c8cdac392
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805764"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673545"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -56,7 +56,6 @@ ms.locfileid: "70805764"
 * [C# 脚本 (.csx)](#trigger---c-script-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -76,7 +75,7 @@ blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创�
 
 ### <a name="trigger---c-script-example"></a>触发器 - C# 脚本示例
 
-以下示例显示了 *function.json* 文件中的一个 Blob 触发器绑定以及使用该绑定的 [Python 代码](functions-reference-python.md)。 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)中添加或更新 Blob 时，该函数会写入一条日志。
+以下示例显示了使用绑定的 *function.json* 文件中的 blob 触发器绑定。 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)中添加或更新 Blob 时，该函数会写入一条日志。
 
 下面是 function.json  文件中的绑定数据：
 
@@ -153,43 +152,6 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
-```
-
-### <a name="trigger---python-example"></a>触发器 - Python 示例
-
-以下示例显示了 *function.json* 文件中的一个 Blob 触发器绑定以及使用该绑定的 [Python 代码](functions-reference-python.md)。 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)中添加或更新 Blob 时，该函数会写入一条日志。
-
-function.json  文件如下所示：
-
-```json
-{
-    "scriptFile": "__init__.py",
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myblob",
-            "type": "blobTrigger",
-            "direction": "in",
-            "path": "samples-workitems/{name}",
-            "connection":"MyStorageAccountAppSetting"
-        }
-    ]
-}
-```
-
-blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创建一个[绑定表达式](./functions-bindings-expressions-patterns.md)，可以在函数代码中使用它来访问触发 blob 的文件名。 有关详细信息，请参阅本文下文中的 [Blob 名称模式](#trigger---blob-name-patterns)。
-
-有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的[配置](#trigger---configuration)部分。
-
-下面是 Python 代码：
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(myblob: func.InputStream):
-    logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
 ### <a name="trigger---java-example"></a>触发器 - Java 示例
@@ -446,7 +408,6 @@ JavaScript 和 Java 函数会将整个 blob 加载到内存中，并且如果绑
 * [C# 脚本 (.csx)](#input---c-script-example)
 * [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
-* [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>输入 - C# 示例
 
@@ -559,58 +520,6 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
-```
-
-### <a name="input---python-example"></a>输入 - Python 示例
-
-<!--Same example for input and output. -->
-
-下面的示例展示了 *function.json* 文件中的 blob 输入和输出绑定，以及使用这些绑定的 [Python 代码](functions-reference-python.md)。 该函数创建 Blob 的副本。 该函数由包含要复制的 Blob 名称的队列消息触发。 新 Blob 名为 *{originalblobname}-Copy*。
-
-在 *function.json* 文件中，`queueTrigger` 元数据属性用于指定 `path` 属性中的 Blob 名称：
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "queuemsg",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "inputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "$return",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-[配置](#input---configuration)部分解释了这些属性。
-
-下面是 Python 代码：
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
-    return inputblob
 ```
 
 ### <a name="input---java-examples"></a>输入 - Java 示例
@@ -752,7 +661,6 @@ public static void Run(
 * [C# 脚本 (.csx)](#output---c-script-example)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -900,59 +808,6 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
-```
-
-### <a name="output---python-example"></a>输出 - Python 示例
-
-<!--Same example for input and output. -->
-
-下面的示例展示了 *function.json* 文件中的 blob 输入和输出绑定，以及使用这些绑定的 [Python 代码](functions-reference-python.md)。 该函数创建 Blob 的副本。 该函数由包含要复制的 Blob 名称的队列消息触发。 新 Blob 名为 *{originalblobname}-Copy*。
-
-在 *function.json* 文件中，`queueTrigger` 元数据属性用于指定 `path` 属性中的 Blob 名称：
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "queuemsg",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "inputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "outputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-[配置](#output---configuration)部分解释了这些属性。
-
-下面是 Python 代码：
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
-         outputblob: func.Out[func.InputStream]):
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
-    outputblob.set(inputblob)
 ```
 
 ### <a name="output---java-examples"></a>输出 - Java 示例

@@ -3,34 +3,33 @@ title: 创建任务以在计算节点上准备作业并完成作业 - Azure Batc
 description: 使用作业级准备任务最大程度地减少 Azure Batch 计算节点的数据传输，在完成作业时执行释放任务来清理节点。
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 02/27/2017
 ms.date: 06/29/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416413e088e9b38aca2b700b1ca0510d3789e81
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-lingwu
+ms.custom: seodec18
+ms.openlocfilehash: d658f454d717ad1b4e14573a39c369573ba0f0f6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646386"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329815"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>在 Batch 计算节点上运行作业准备和作业发布任务
 
- Azure Batch 作业在执行其任务之前，通常需要经过某种形式的设置，并且需要在其任务完成时进行作业后维护。 可能需要将常见的任务输入数据下载到计算节点，或者在作业完成之后，将任务输出数据上传到 Azure 存储。 可以使用“作业准备”和“作业释放”任务来执行这些操作。
+ Azure Batch 作业在执行其任务之前，通常需要经过某种形式的设置，并且需要在其任务完成时进行作业后维护。 可能需要将常见的任务输入数据下载到计算节点，或者在作业完成之后，将任务输出数据上传到 Azure 存储。 可以使用“作业准备”  和“作业释放”  任务来执行这些操作。
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>什么是作业准备和作业释放任务？
 在运行作业的任务之前，作业准备任务在计划要运行至少一个任务的所有计算节点上运行。 作业完成后，作业释放任务会在池中至少运行了一个任务的每个节点上运行。 与普通的 Batch 任务一样，可以指定在运行作业准备或释放任务时要调用的命令行。
 
-作业准备和释放任务可以提供许多熟悉的 Batch 任务功能，例如文件下载（[资源文件][net_job_prep_resourcefiles]），提升权限的执行，自定义环境变量，最大执行持续时间，重试计数和文件保留时间。
+作业准备和释放任务提供许多熟悉的 Batch 任务功能，例如文件下载（[资源文件][net_job_prep_resourcefiles]）、提升权限的执行、自定义环境变量、最大执行持续时间、重试计数和文件保留时间。
 
 以下部分介绍如何使用 [Batch .NET][api_net] 库中的 [JobPreparationTask][net_job_prep] 和 [JobReleaseTask][net_job_release] 类。
 
@@ -52,10 +51,10 @@ Batch 作业通常需要一组通用的数据作为作业任务的输入。 例�
 
 **日志保留**
 
-可能想要保留任务生成的日志文件的副本，或失败应用程序可能生成的崩溃转储文件。 在这种情况下，使用**作业释放任务**可将这些数据压缩并上传到 [Azure 存储][azure_storage] 帐户。
+可能想要保留任务生成的日志文件的副本，或失败应用程序可能生成的崩溃转储文件。 在这种情况下，使用**作业释放任务**可将这些数据压缩并上传到 [Azure 存储][azure_storage]帐户。
 
 > [!TIP]
-> 保存日志及其他作业和任务输出数据的另一种方法是，使用 [Azure Batch 文件约定](batch-task-output.md)库。
+> 保存日志及其他作业和任务输出数据的另一种方法是使用 [Azure Batch 文件约定](batch-task-output.md)库。
 > 
 > 
 
@@ -65,7 +64,7 @@ Batch 作业通常需要一组通用的数据作为作业任务的输入。 例�
 作业准备任务只会在计划运行任务的节点上运行。 例如，这可以防止未分配任务的节点不必要地执行准备任务， 当作业的任务数小于池中的节点数时，可能会出现这种情况。 此外，这也适用于在任务计数小于可能的并行任务总数的情况下启用[并行任务执行](batch-parallel-node-tasks.md)，从而留出一些空闲节点的情况。 不在空闲节点上运行作业准备任务可以节省数据传输费用。
 
 > [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob] 与 [CloudPool.StartTask][pool_starttask] 的不同之处在于，JobPreparationTask 在每个作业启动时执行，而 StartTask 只在计算节点首次加入池或重新启动时执行。
+> [JobPreparationTask][net_job_prep_cloudjob] 与 [CloudPool.StartTask][pool_starttask] 的不同之处在于，JobPreparationTask 在每个作业启动时执行，而 StartTask 只在计算节点首次加入池或重启时执行。
 > 
 > 
 
@@ -80,7 +79,7 @@ Batch 作业通常需要一组通用的数据作为作业任务的输入。 例�
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>使用 Batch .NET 执行作业准备和释放任务
 要使用作业准备任务，可将 [JobPreparationTask][net_job_prep] 对象分配到作业的 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 属性。 同样，初始化 [JobReleaseTask][net_job_release] 并将它分配到作业的 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 属性可以设置作业的释放任务。
 
-在此代码片段中，`myBatchClient` 是 [BatchClient][net_batch_client] 的实例，`myPool` 是批处理帐户中的现有池。
+在此代码片段中，`myBatchClient` 是 [BatchClient][net_batch_client] 的实例，`myPool` 是 Batch 帐户中的现有池。
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -106,7 +105,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-如前所述，终止或删除作业时会执行释放任务。 使用 [JobOperations.TerminateJobAsync][net_job_terminate]终止作业。 使用 [JobOperations.DeleteJobAsync][net_job_delete]删除作业。 通常在作业的任务完成时或者达到定义的超时时终止或删除操作。
+如前所述，终止或删除作业时会执行释放任务。 使用 [JobOperations.TerminateJobAsync][net_job_terminate] 终止作业。 使用 [JobOperations.DeleteJobAsync][net_job_delete] 删除作业。 通常在作业的任务完成时或者达到定义的超时时终止或删除操作。
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the
@@ -117,7 +116,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>GitHub 上的代码示例
-若要了解作业准备和释放的操作实践，请查看 GitHub 上的 [JobPrepRelease][job_prep_release_sample] 示例项目。 此控制台应用程序将执行以下操作：
+若要了解作业准备和释放任务的操作实践，请查看 GitHub 上的 [JobPrepRelease][job_prep_release_sample] 示例项目。 此控制台应用程序将执行以下操作：
 
 1. 创建包含两个节点的池。
 2. 创建具有作业准备、释放和标准任务的作业。
@@ -181,7 +180,7 @@ Sample complete, hit ENTER to exit...
 ### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>在 Azure 门户中检查作业准备和释放任务
 在运行示例应用程序时，可以使用 [Azure 门户][portal]查看作业及其任务的属性，甚至可以下载作业任务修改的共享文本文件。
 
-以下屏幕截图显示了在运行示例应用程序之后，Azure 门户中出现的“准备任务边栏选项卡”。 在任务完成之后（但在删除作业与池之前），导航到 *JobPrepReleaseSampleJob* 属性，并单击“准备任务”或“释放任务”以查看其属性。
+以下屏幕截图显示了在运行示例应用程序之后，Azure 门户中出现的“准备任务边栏选项卡”  。 在任务完成之后（但在删除作业与池之前），导航到 *JobPrepReleaseSampleJob* 属性，并单击“准备任务”  或“释放任务”  以查看其属性。
 
 ![Azure 门户中的作业准备属性][1]
 
@@ -192,7 +191,7 @@ Sample complete, hit ENTER to exit...
 ### <a name="installing-applications-and-staging-data"></a>安装应用程序和暂存数据
 以下 MSDN 论坛文章提供了有关准备节点以运行任务的各种方法的概述：
 
-[Installing applications and staging data on Batch compute nodes（在 Batch 计算节点上安装应用程序和暂存数据）][forum_post]
+[在 Batch 计算节点上安装应用程序和暂存数据][forum_post]
 
 此文章的作者是一位 Azure Batch 团队成员，其中介绍了将应用程序和数据部署到计算节点时可以使用的的多种方法。
 

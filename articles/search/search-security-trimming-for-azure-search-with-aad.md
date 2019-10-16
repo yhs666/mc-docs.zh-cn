@@ -2,20 +2,20 @@
 title: 使用 Active Directory 修剪结果的安全筛选器 - Azure 搜索
 description: 使用安全筛选器和 Azure Active Directory (AAD) 标识对 Azure 搜索内容进行访问控制。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 11/07/2017
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 9280b02bda9a90b88f6f05f5beba597a401920b2
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: a4a3d7ca59baecff1add973f1b0ceb5dae90540d
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004826"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674395"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>用于使用 Active Directory 标识修剪 Azure 搜索结果的安全筛选器
 
@@ -42,14 +42,14 @@ Azure 搜索中的索引必须有一个[安全字段](search-security-trimming-f
 
 ### <a name="register-your-application-with-aad"></a>将应用程序注册到 AAD
 
-此步骤将应用程序与 AAD 集成，以接受用户和组帐户的登录。 如果你不是组织中的 AAD 管理员，可能需要[创建新租户](https://docs.azure.cn/zh-cn/active-directory/develop/active-directory-howto-tenant)才能执行以下步骤。
+此步骤将应用程序与 AAD 集成，以接受用户和组帐户的登录。 如果你不是组织中的 AAD 管理员，可能需要[创建新租户](https://docs.azure.cn/active-directory/develop/active-directory-howto-tenant)才能执行以下步骤。
 
-1. 转到[**应用程序注册门户**](https://apps.dev.microsoft.com)  >   选择“聚合应用” > “添加应用”。
-2. 输入应用程序的名称，单击“创建”。 
+1. 转到[**应用程序注册门户**](https://apps.dev.microsoft.com)  >   选择“聚合应用” > “添加应用”。  
+2. 输入应用程序的名称，单击“创建”。  
 3. 在“我的应用程序”页中选择新注册的应用程序。
-4. 在应用程序注册页上 > 选择“平台” > “添加平台”>“Web API”。
-5. 仍在应用程序注册页上，转到“Microsoft Graph 权限” > “添加”。
-6. 在“选择权限”中添加以下委托权限，单击“确定”：
+4. 在应用程序注册页上 > 选择“平台” > “添加平台”>“Web API”。   
+5. 仍在应用程序注册页上，转到“Microsoft Graph 权限” > “添加”。  
+6. 在“选择权限”中添加以下委托权限，单击“确定”： 
 
    + **Directory.ReadWrite.All**
    + **Group.ReadWrite.All**

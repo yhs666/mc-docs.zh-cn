@@ -7,14 +7,15 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/18/2018
+origin.date: 09/18/2018
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 754018a5a855aea80eb1d1d6919108a703e91ac0
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 6aa4a4040ebb018ebc424428d6aef7bdd327b345
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330117"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服务总线队列、主题和订阅
 

@@ -3,7 +3,7 @@ title: 向 Xamarin.Forms 应用添加推送通知
 description: 了解如何使用 Azure 服务将多平台推送通知发送到 Xamarin.Forms 应用。
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
@@ -12,19 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/12/2016
-ms.date: 10/29/2018
-ms.author: v-biyu
-ms.openlocfilehash: 1e9088894463acf929b8118b2590473ec0c204f6
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: ec86abf907ca9953f8590f74f971f2c80c8b039e
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028335"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006574"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>向 Xamarin.Forms 应用添加推送通知
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-push)。
+>
 
 ## <a name="overview"></a>概述
 
@@ -44,6 +48,7 @@ ms.locfileid: "53028335"
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
+<!-- FCM not availible-->
 
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>配置和运行 iOS 项目（可选）
@@ -131,13 +136,13 @@ ms.locfileid: "53028335"
 
 #### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 应用中测试推送通知
 
-1. 右键单击 iOS 项目，并单击“设为启动项目” 。
-2. 在 Visual Studio 中按“运行”按钮或 **F5** 生成项目并在 iOS 设备中启动应用， 然后单击“确定”  接受推送通知。
+1. 右键单击 iOS 项目，并单击“设为启动项目”  。
+2. 在 Visual Studio 中按“运行”  按钮或 **F5** 生成项目并在 iOS 设备中启动应用， 然后单击“确定”  接受推送通知。
 
    > [!NOTE]
    > 必须显式接受来自应用程序的推送通知。 此请求只会在首次运行应用程序时出现。
 
-3. 在应用中，键入一项任务，然后单击加号 (**+**) 图标。
+3. 在应用中，键入一项任务，然后单击加号 ( **+** ) 图标。
 4. 检查是否已收到通知，并单击“确定”  取消通知。
 
 ## <a name="configure-and-run-windows-projects-optional"></a>配置和运行 Windows 项目（可选）
@@ -202,14 +207,14 @@ ms.locfileid: "53028335"
 
     这可确保每次启动应用时，创建或刷新推送通知注册。 请务必执行此操作，以保证 WNS 推送通道始终处于活动状态。  
 
-4. 在 Visual Studio 的解决方案资源管理器中，打开 **Package.appxmanifest** 文件，并在“通知”下将“支持 Toast 通知”设置为“是”。
+4. 在 Visual Studio 的解决方案资源管理器中，打开 **Package.appxmanifest** 文件，并在“通知”  下将“支持 Toast 通知”  设置为“是”  。
 5. 生成该应用并确认没有错误。 客户端应用现在应从移动应用后端注册模板通知。 对于解决方案中的每个 Windows 项目，重复此部分的操作。
 
 #### <a name="test-push-notifications-in-your-windows-app"></a>在 Windows 应用中测试推送通知
 
-1. 在 Visual Studio 中，右键单击 Windows 项目，并单击“设为启动项目” 。
+1. 在 Visual Studio 中，右键单击 Windows 项目，并单击“设为启动项目”  。
 2. 按“运行”按钮生成项目并启动应用程序  。
-3. 在应用中，为新 todoitem 键入一个名称，并单击加号 (**+**) 图标以添加它。
+3. 在应用中，为新 todoitem 键入一个名称，并单击加号 ( **+** ) 图标以添加它。
 4. 确认在添加项时收到了通知。
 
 ## <a name="next-steps"></a>后续步骤
@@ -232,4 +237,4 @@ ms.locfileid: "53028335"
 <!-- URLs. -->
 [Install Xcode]:https://developer.apple.com/xcode/
 [Xcode]: https://developer.apple.com/xcode/
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[apns object]: https://go.microsoft.com/fwlink/p/?LinkId=272333

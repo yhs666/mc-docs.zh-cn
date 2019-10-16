@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/03/2019
-ms.date: 09/02/2019
+origin.date: 08/21/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 72520789b909b4533c8f1b2111305d440c29e21e
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 6461717f24bcfa09e4075562ab7d97ad65c1d8bb
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254698"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340702"
 ---
 # <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
 
 请确保群集始终运行受支持的 Azure Service Fabric 版本。 在公告新版 Service Fabric 的发布日期以后，至少还要过 60 天我们才会结束对旧版本的支持。 可以在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中找到有关新版本的公告。
+
+<!--URL Correct on https://blogs.msdn.microsoft.com/azureservicefabric/-->
 
 若要详细了解如何使群集始终运行受支持的 Service Fabric 版本，请参阅以下文档：
 
@@ -60,9 +62,10 @@ ms.locfileid: "70254698"
 | Windows Server 2016 | 所有版本 |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
+
+<!--Not Available on | Windows Server 1809 | 6.4.654.9590 |-->
+<!--Not Available on | Windows Server 2019 | 6.4.654.9590 |-->
 
 ## <a name="supported-version-names"></a>支持的版本名称
 
@@ -109,5 +112,6 @@ ms.locfileid: "70254698"
 | 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
 | 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
+| 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 
 <!-- Update_Description: update meta properties, wording update -->

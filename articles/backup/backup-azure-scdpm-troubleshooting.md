@@ -1,20 +1,20 @@
 ---
 title: 排查 System Center Data Protection Manager 和 Azure 备份问题
 description: 排查 System Center Data Protection Manager 中的问题。
-services: backup
-author: adigan
-manager: shreeshd
+ms.reviewer: kasinh
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 11/24/2017
-ms.date: 07/06/2018
+origin.date: 01/30/2019
+ms.date: 07/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: d0800e39098bfdeaf5e8e6433f18195a1d087d01
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8d6079e3662d0de1554f2d40ad803b1542a5b2cc
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645945"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330251"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 
@@ -35,8 +35,8 @@ ms.locfileid: "52645945"
 
 若要解决此问题，请执行以下操作：
 - 若要消除不一致状态，请手动运行一致性检查，或计划每日一致性检查。
-- 确保使用最新版本的 Azure 备份服务器和 Data Protection Manager。
-- 确保启用“自动一致性”设置。
+- 确保使用最新版本的 Microsoft Azure 备份服务器和 Data Protection Manager。
+- 确保启用“自动一致性”设置。 
 - 尝试从命令提示符重启服务。 使用 `net stop dpmra` 命令，后接 `net start dpmra`。
 - 确保符合网络连接和带宽要求。
 - 检查源计算机是否意外关闭。
@@ -61,7 +61,7 @@ ms.locfileid: "52645945"
 若要解决此问题，请执行以下操作：
 - 确保使用最新版本的 Azure 备份代理。
 - 确保在 Data Protection Manager 服务器与受保护服务器之间建立连接（网络/防火墙/代理）。
-- 若要保护 SQL 服务器，请确保“登录属性” > “NT AUTHORITY\SYSTEM”属性显示已启用“sysadmin”设置。
+- 若要保护 SQL 服务器，请确保“登录属性” > “NT AUTHORITY\SYSTEM”属性显示已启用“sysadmin”设置。   
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>错误：未根据保管库凭据文件中的指定注册服务器
 

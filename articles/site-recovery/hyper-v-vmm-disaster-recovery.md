@@ -1,21 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复 | Azure
+title: 使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复
 description: 了解如何使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: a13673cb1b45832b76f810fd30ebcc0e0ea6f948
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: 0e516efd2902e79be5579abae3100a0f7b13a0be
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083169"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340724"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>为 Hyper-V VM 设置到辅助本地站点的灾难恢复
 
@@ -50,10 +49,10 @@ ms.locfileid: "71083169"
 
 准备 VMM，如下所示：
 
-1. 确保源服务器和目标 VMM 服务器上具有 [VMM 逻辑网络](https://docs.microsoft.com/zh-cn/system-center/vmm/network-logical)。
+1. 确保源服务器和目标 VMM 服务器上具有 [VMM 逻辑网络](https://docs.microsoft.com/system-center/vmm/network-logical)。
     - 源服务器上的逻辑网络应与 Hyper-V 主机所在的源云相关联。
     - 目标服务器上的逻辑网络应与目标云相关联。
-1. 确保源服务器和目标 VMM 服务器上具有 [VM 网络](https://docs.microsoft.com/zh-cn/system-center/vmm/network-virtual)。 VM 网络应链接到每个位置中的逻辑网络。
+1. 确保源服务器和目标 VMM 服务器上具有 [VM 网络](https://docs.microsoft.com/system-center/vmm/network-virtual)。 VM 网络应链接到每个位置中的逻辑网络。
 2. 将源 Hyper-V 主机上的 VM 连接到源 VM 网络。 
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
@@ -89,7 +88,7 @@ ms.locfileid: "71083169"
     - 在活动节点上安装提供程序，并完成安装以在保管库中注册 VMM 服务器。
     - 然后在其他节点上安装该提供程序。 所有群集节点应运行相同版本的提供程序。
 2. 安装程序运行几项先决条件检查，并请求停止 VMM 服务的权限。 VMM 服务会在安装程序完成时自动重启。 如果在 VMM 群集上进行安装，系统会提示停止群集角色。
-3. 在“Microsoft 更新”  中，可选择指定根据 Azure 更新策略安装提供程序更新。
+3. 在“Microsoft 更新”  中，可选择指定根据 Microsoft 更新策略安装提供程序更新。
 4. 在“安装”  中接受或修改默认安装位置，然后单击“安装”  。
 5. 安装完成后，单击“注册”，以便在保管库中注册服务器。 
 

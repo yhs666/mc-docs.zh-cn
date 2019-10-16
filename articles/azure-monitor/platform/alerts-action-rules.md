@@ -4,18 +4,18 @@ description: 了解 Azure Monitor 中的操作规则是什么，以及如何配�
 author: lingliw
 manager: digimobile
 services: azure-monitor
-ms.service: log-analytics
+ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 01/19/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: ed4e1b9e53be364ef0a8486bf598d2c7299cabc9
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: be373a24b2335df655e5d0ed9aeaab78e31e6d2d
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736965"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329871"
 ---
 # <a name="action-rules-preview"></a>操作规则（预览版）
 

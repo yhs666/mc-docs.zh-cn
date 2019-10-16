@@ -1,5 +1,5 @@
 ---
-title: 访问 Azure 媒体服务 API - CLI 2.0 | Azure
+title: 访问 Azure 媒体服务 API - Azure CLI | Microsoft Docs
 description: 按照本操作说明的步骤访问 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
@@ -10,41 +10,56 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-origin.date: 03/19/2018
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: 8a5d56294e0a2341dda10587fa771666d82a2dc2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 05/15/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: 44ff6cba90aac0fb4bae69c09e075bbfe9ced718
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656203"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124356"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>使用 CLI 2.0 访问 Azure 媒体服务 API
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>使用 Azure CLI 访问 Azure 媒体服务 API
  
-应使用 Azure AD 服务主体身份验证连接到 Azure 媒体服务 API。 应用程序需要请求具有以下参数 Azure AD 令牌：
+若要使用 Azure AD 服务主体身份验证连接到 Azure 媒体服务 API，应用程序需要请求具有以下参数的 Azure AD 令牌：
 
 * Azure AD 租户终结点
 * 媒体服务资源 URI
 * REST 媒体服务的资源 URI
 * Azure AD 应用程序值：客户端 ID 和客户端密码
 
-本文介绍了如何使用 CLI 2.0 创建 Azure AD 应用程序和服务主体，以及获取访问 Azure 媒体服务资源所需的值。
+有关详细说明，请参阅[访问媒体服务 v3 API](media-services-apis-overview.md#accessing-the-azure-media-services-api)。
+
+本文介绍如何使用 Azure CLI 创建 Azure AD 应用程序和服务主体，以及获取访问 Azure 媒体服务资源所需的值。
 
 ## <a name="prerequisites"></a>先决条件 
 
-按照[本快速入门](create-account-cli-quickstart.md)所述，创建新的 Azure 媒体服务帐户。
+[创建媒体服务帐户](create-account-cli-how-to.md)。
 
-## <a name="log-in-to-azure"></a>登录 Azure
-
-登录到 [Azure 门户](http://portal.azure.cn)。
-
-如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+请务必记住用于资源组名称和媒体服务帐户名称的值。
+ 
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
+## <a name="see-also"></a>另请参阅
+
+- [缩放媒体预留单位 - CLI](media-reserved-units-cli-how-to.md)
+- [创建媒体服务帐户 - CLI](create-account-cli-how-to.md) 
+- [重置帐户凭据 - CLI](cli-reset-account-credentials.md)
+- [创建资产 - CLI](cli-create-asset.md)
+- [上传文件 - CLI](cli-upload-file-asset.md)
+- [创建转换 - CLI](cli-create-transform.md)
+- [对自定义转换进行编码 - CLI](custom-preset-cli-howto.md)
+- [创建作业 - CLI](cli-create-jobs.md)
+- [发布资产 - CLI](cli-publish-asset.md)
+- [筛选器 - CLI](filters-dynamic-manifest-cli-howto.md)
+- [Azure CLI](/cli/ams?view=azure-cli-latest)
+
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [流式传输文件](stream-files-dotnet-quickstart.md)
+要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 以下 CLI 命令将启动默认的流式处理终结点：
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
 

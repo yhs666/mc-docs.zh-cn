@@ -1,21 +1,21 @@
 ---
 title: Azure 备份体系结构
 description: 概述 Azure 备份服务使用的体系结构、组件和流程。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/05/2019
+origin.date: 02/19/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 87b4334aa0527b4f77cb712a41c8d1abc171164e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 38356aab2e3626773d01c04a6ace58514b04764f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329678"
 ---
-# <a name="azure-backup-architecture"></a>Azure 备份体系结构
+# <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
 可以使用 [Azure 备份服务](backup-overview.md)将数据备份到 Microsoft Azure 云平台。 本文汇总了 Azure 备份体系结构、组件和流程。 
 
@@ -121,7 +121,7 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
     - 只会复制自上次备份以来发生更改的数据块。
     - 不会加密数据。 Azure 备份可以备份使用 Azure 磁盘加密进行加密的 Azure VM。
     - 快照数据可能不会立即复制到保管库。 在高峰期，可能需要好几个小时才能完成备份。 每日备份策略规定的 VM 备份总时间不会超过 24 小时。
-1. 将数据发送到保管库后，将删除快照，并创建恢复点。
+1. 将数据发送到保管库后，将创建恢复点。 默认情况下，快照会保留两天，然后再删除。 此功能允许从这些快照执行还原操作，从而缩短还原时间。 它减少了从保管库转换数据和复制回数据所需的时间。 请参阅 [Azure 备份即时还原功能](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability)。
 
 Azure VM 需要能够访问 Internet 才能执行控制命令。 如果备份 VM 中的工作负荷（例如 SQL Server 数据库备份），则也需要访问 Internet 来传输后端数据。 
 

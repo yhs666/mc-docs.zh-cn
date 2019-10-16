@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 06/27/2019
-ms.date: 08/05/2019
+origin.date: 09/03/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 32514e9c8013fed0a0b331406a178587910e1791
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: b760ec04aee7019e5274f5dc89f89e1380307c51
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819578"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340791"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -42,7 +42,7 @@ Site Recovery 可帮助实现应用程序级的保护和恢复，如下所示：
 * 丰富的自动化库，提供特定于应用程序的生产就绪型脚本，可以下载并与恢复计划集成。
 
 ## <a name="workload-summary"></a>工作负荷摘要
-Site Recovery 可复制受支持计算机上运行的任何应用。 此外，我们已经与产品团队合作执行其他特定于应用的测试。
+Site Recovery 可复制受支持计算机上运行的任何应用。 此外，我们还与产品团队合作，对表中指定的应用进行额外测试。
 
 | **工作负载** |**将 Azure VM 复制到 Azure** |**将 Hyper-V VM 复制到辅助站点** | **将 Hyper-V VM 复制到 Azure** | **将 VMware VM 复制到辅助站点** | **将 VMware VM 复制到 Azure** |
 | --- | --- | --- | --- | --- |---|
@@ -142,9 +142,7 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 -   能够对 Web 服务器上的多个 Web 应用程序进行一键式故障转移，因此在发生灾难时不会造成混淆。
 -   能够在适用于 DR 演练的隔离环境中测试恢复计划。
 
-[详细了解](site-recovery-iis.md)如何保护 IIS Web 场。
-
-<!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
+[详细了解](https://docs.azure.cn/site-recovery/site-recovery-iis)如何保护 IIS Web 场。
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>保护 Citrix XenApp 和 XenDesktop
 使用 Site Recovery 保护 Citrix XenApp 和 XenDesktop 部署，如下所示：

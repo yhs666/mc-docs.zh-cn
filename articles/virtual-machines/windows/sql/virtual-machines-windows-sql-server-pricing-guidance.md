@@ -9,20 +9,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/09/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 28fbd36dc386d248af0864b3815a0eaa1c056e3c
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: a0db6667817319fccf1cbf04010a5db3a1c4c59d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539015"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272807"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -104,6 +103,8 @@ ms.locfileid: "69539015"
 > [!IMPORTANT]
 > BYOL 映像需要具有软件保障的企业协议。 目前，它们未作为 Azure 云解决方案合作伙伴 (CSP) 的一部分提供。
 
+<!--Not Available on [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md)-->
+
 > [!NOTE]
 > BYOL 映像目前仅适用于 Windows 虚拟机。 但是，可以在仅限 Linux 的 VM 上手动安装 SQL Server。 请参阅 [Linux SQL VM 常见问题解答](../../linux/sql/sql-server-linux-faq.md)中的指导原则。
 
@@ -173,7 +174,7 @@ SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存�
 
 <!-- Not Available on [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md).  -->
 
-有关虚拟机最新定价（包括 SQL Server），请参阅 [Azure VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/)。
+有关最新的虚拟机定价（包括 SQL Server），请参阅适用于 [Windows VM](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux VM](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM Azure 定价页。
 
 有关 Azure 虚拟机上运行的 SQL Server 概述，请参阅以下文章：
 

@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Site Recovery 服务将 Azure IaaS VM 移动到另一个 Azure 区域 | Azure
+title: 使用 Azure Site Recovery 服务将 Azure IaaS VM 移动到另一个 Azure 区域 | Azure Docs
 description: 使用 Azure Site Recovery 将 Azure IaaS VM 从一个 Azure 区域移动到另一个 Azure 区域。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/28/2019
-ms.date: 07/08/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 382c49f1c981a1e5699ec0229ba1b7541547a6fb
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: 18caf8de2cda61c31134e1aaa66ae5ad8adc6d76
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083166"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340868"
 ---
 <!--Verify successfully-->
+
 # <a name="move-azure-vms-to-another-region"></a>将 Azure VM 移动到另一区域
 
 你可能想要将 Azure 基础结构即服务 (IaaS) 虚拟机从一个区域移到另一个区域，以提高可靠性、可用性或更好地满足监管要求。 本教程介绍如何使用 Azure Site Recovery 将 VM 移到另一区域。 将了解如何执行以下操作：
@@ -71,8 +71,8 @@ ms.locfileid: "71083166"
     为源 VM 启用复制时，Azure Site Recovery 会自动发现并创建虚拟网络和存储帐户。 你也可以预先创建这些资源，并在执行启用复制的步骤期间将这些资源分配到 VM。 但是，其他任何资源必须在目标区域中手动创建。 请参阅以下文档，根据源 VM 的配置创建最常用的网络资源。
 
     - [网络安全组](/virtual-network/manage-network-security-group)
-    - [负载均衡器](/load-balancer/#step-by-step-tutorials)
-    - [公共 IP](/load-balancer/#step-by-step-tutorials)
+    - [负载均衡器](/load-balancer/)
+    - [公共 IP](../virtual-network/virtual-network-public-ip-address.md)
 
     对于其他任何网络组件，请参阅 [Azure 网络文档](/#pivot=products&panel=network)。 
 
@@ -83,9 +83,14 @@ ms.locfileid: "71083166"
 
 ### <a name="create-the-vault-in-any-region-except-the-source"></a>在除源以外的任一区域中创建保管库
 
-1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+    
+    <!--MOONCAKE: Remove the **Recovery Services**-->
+    
 2. 选择“创建资源”   > “监视 + 管理”   >   “备份和站点恢复(OMS)”。
+
     <!--MOONCAKE: Monitoring + Management REPLACE Management Tools-->
+    
 3. 在“名称”  中，指定易记名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
 4. 创建资源组 **ContosoRG**。
 5. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)。
@@ -110,7 +115,9 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 ## <a name="test-the-configuration"></a>测试配置
 
 1. 转到保管库。 在“受保护的项” > “复制的项”中，选择要移到目标区域的虚拟机。   然后选择“测试故障转移”  。
-    <!--MOONCAKE: Protected Items to replace Setting-->
+    
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+    
 2. 在“测试故障转移”  中，选择要用于故障转移的恢复点：
 
     - **最新处理**：将 VM 故障转移到由 Site Recovery 服务处理的最新恢复点。 将显示时间戳。 使用此选项无需费时处理数据，因此恢复时间目标 (RTO) 会较低。
@@ -129,7 +136,9 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 ## <a name="perform-the-move-and-confirm"></a>执行移动并确认
 
 1. 转到保管库，在“受保护的项” > “复制的项”中选择虚拟机，然后选择“故障转移”。   
+    
     <!--MOONCAKE: Protected Items to replace Setting-->
+    
 1. 对于“故障转移”，请选择“最新”   。 
 2. 选择“在开始故障转移前关闭计算机”  。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 但是，即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 3. 作业完成后，检查 VM 是否按预期显示在目标 Azure 区域中。
@@ -154,5 +163,4 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 > [!div class="nextstepaction"]
 > [在迁移后设置灾难恢复](azure-to-azure-quickstart.md)
 
-<!--Update_Description: new articles on move azure VMs cross region -->
-<!--ms.date: 07/08/2019-->
+<!--Update_Description: wording update -->

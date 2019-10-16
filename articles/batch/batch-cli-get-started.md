@@ -3,25 +3,24 @@ title: Azure Batch CLI 入门 | Microsoft Docs
 description: Azure CLI 中用于管理 Azure Batch 服务资源的 Batch 命令简介
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 07/24/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44f8ee7fcea517d0f8bccb4b2ace6212cdcb7fac
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 0b4c65c74e17aa5dd33ba66216565adb0a08659d
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104081"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330210"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 资源
 
@@ -42,9 +41,9 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 它可以�
 
 在每个命令后面追加 `-h` 即可在 Azure CLI 中显示该命令的帮助文本。 忽略任何其他选项。 例如：
 
-- 若要获取 `az` 命令的帮助，请输入：`az -h`
-- 若要获取 CLI 中所有 Batch 命令的列表，请使用： `az batch -h`
-- 若要获取有关创建 Batch 帐户的帮助，请输入： `az batch account create -h`
+* 若要获取 `az` 命令的帮助，请输入：`az -h`
+* 若要获取 CLI 中所有 Batch 命令的列表，请使用： `az batch -h`
+* 若要获取有关创建 Batch 帐户的帮助，请输入： `az batch account create -h`
 
 如有疑问，请使用 `-h` 命令行选项获取有关任何 Azure CLI 命令的帮助。
 
@@ -112,7 +111,7 @@ az login
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-[示例 shell 脚本](#sample-shell-scripts)部分列出的示例演示了如何在使用 Azure AD 和共享密钥的情况下，通过 Azure CLI 登录到 Batch 帐户。
+“示例 shell 脚本”部分中列出的示例演示了如何在使用 Azure AD 和共享密钥的情况下，通过 Azure CLI 登录到 Batch 帐户。
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>使用 Azure Batch CLI 扩展命令
 
@@ -168,11 +167,10 @@ az batch task list --job-id job001
 
 排查 Azure CLI 问题时，可以参考以下提示：
 
-- 使用 `-h` 获取任何 CLI 命令的 **帮助文本**
-- 使用 `-v` 和 `-vv` 显示**详细的**命令输出。 包括 `-vv` 标志时，Azure CLI 显示实际的 REST 请求和响应。 使用这些开关可以方便地显示完整的错误输出。
-- 可以使用 `--json` 选项查看 **JSON 格式的命令输出**。 例如， `az batch pool show pool001 --json` 以 JSON 格式显示 pool001 的属性。 然后，可以复制并修改此输出，以便在 `--json-file` 中使用（请参阅本文前面的 [JSON 文件](#json-files) ）。
+* 使用 `-h` 获取任何 CLI 命令的 **帮助文本**
+* 使用 `-v` 和 `-vv` 显示**详细的**命令输出。 包括 `-vv` 标志时，Azure CLI 显示实际的 REST 请求和响应。 使用这些开关可以方便地显示完整的错误输出。
+* 可以使用 `--json` 选项查看 **JSON 格式的命令输出**。 例如， `az batch pool show pool001 --json` 以 JSON 格式显示 pool001 的属性。 然后，可以复制并修改此输出，以便在 `--json-file` 中使用（请参阅本文前面的“JSON 文件”）。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>后续步骤
 

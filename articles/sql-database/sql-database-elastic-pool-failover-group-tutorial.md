@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 06/19/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: b375dd3472816050ca065e61d65e6955e3aa7aa2
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: f13c93521300cf45c9f237b455f9762c4cc28c77
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373050"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262937"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>教程：将 Azure SQL 数据库弹性池添加到故障转移组
 
@@ -42,10 +42,10 @@ ms.locfileid: "70373050"
 
 ## <a name="2---add-single-database-to-elastic-pool"></a>2 - 将单一数据库添加到弹性池中
 
-1. 在 [Azure 门户](https://portal.azure.cn)的左上角选择“创建资源”。 
+1. 在 [Azure 门户](https://portal.azure.cn)的左侧菜单中选择“创建资源”  。
 1. 在搜索框中键入 `elastic pool`，按 Enter，选择“SQL 弹性数据库池”图标，然后选择“创建”。   
 
-    ![在市场中选择弹性池](media/sql-database-elastic-pool-create-failover-group-tutorial/elastic-pool-market-place.png)
+    ![选择弹性池](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
 
 1. 使用以下值配置弹性池：
    - **名称**：提供弹性池的唯一名称，例如 `myElasticPool`。 
@@ -53,13 +53,13 @@ ms.locfileid: "70373050"
    - **ResourceGroup**：从下拉菜单中选择在第 1 部分创建的资源组 `myResourceGroup`。 
    - **服务器**：从下拉菜单中选择在第 1 部分创建的服务器。  
 
-       ![为弹性池创建新服务器](media/sql-database-elastic-pool-create-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
+       ![为弹性池创建新服务器](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
    - **计算 + 存储**：选择“配置弹性池”以配置计算和存储，并将单一数据库添加到弹性池中。  在“池设置”选项卡上，保留默认值“第 5 代”、2 个 vCore 和 32GB 存储。  
 
 1. 在“配置”页上选择“数据库”选项卡，然后选择“添加数据库”。    选择在第 1 部分创建的数据库，然后选择“应用”将其添加到弹性池中。  再次选择“应用”以应用弹性池设置并关闭“配置”页。   
 
-    ![将 SQL 数据库添加到弹性池中](media/sql-database-elastic-pool-create-failover-group-tutorial/add-database-to-elastic-pool.png)
+    ![将 SQL 数据库添加到弹性池中](media/sql-database-elastic-pool-failover-group-tutorial/add-database-to-elastic-pool.png)
 
 1. 选择“查看 + 创建”以检查弹性池设置，然后选择“创建”以创建弹性池。   
 
@@ -67,17 +67,15 @@ ms.locfileid: "70373050"
 ## <a name="3---create-the-failover-group"></a>3 - 创建故障转移组 
 此步骤在现有的 Azure SQL 服务器与另一区域中的新 Azure SQL 服务器之间创建一个[故障转移组](sql-database-auto-failover-group.md)。 然后，将弹性池添加到该故障转移组。 
 
+1. 在 [Azure 门户](https://portal.azure.cn)的左侧菜单中选择“所有服务”  。 
+1. 选择在上一部分中创建的弹性池，例如 `myElasticPool`。 
+1. 在“概述”  窗格上，选择**服务器名称**下的服务器名称以打开服务器的设置。
+  
+    ![打开弹性池的服务器](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. 选择 [Azure 门户](https://portal.azure.cn)左上角的“所有服务”。  
-1. 在搜索框中键入 `sql servers`。 
-1. （可选）“SQL 服务器”旁边的星星图标将“SQL 服务器”加入收藏夹，然后将其添加到左侧导航窗格中。  
-    
-    ![找到“SQL 服务器”](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
-
-1. 选择“SQL 服务器”，然后选择在第 1 部分创建的服务器。 
 1. 在“设置”窗格下选择“故障转移组”，然后选择“添加组”以创建新的故障转移组。    
 
-    ![添加新的故障转移组](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![添加新的故障转移组](media/sql-database-elastic-pool-failover-group-tutorial/elastic-pool-failover-group.png)
 
 1. 在“故障转移组”页上输入或选择以下值，然后选择“创建”：  
     - **故障转移组名称**：键入唯一的故障转移组名称，例如 `failovergrouptutorial`。 
@@ -90,11 +88,11 @@ ms.locfileid: "70373050"
        > [!NOTE]
        > 服务器登录名和防火墙设置必须与主服务器相匹配。 
     
-       ![为故障转移组创建辅助服务器](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+       ![为故障转移组创建辅助服务器](media/sql-database-elastic-pool-failover-group-tutorial/create-secondary-failover-server.png)
 
 1. 选择“组中的数据库”，然后选择在第 2 部分创建的弹性池。  此时应会出现一条警告，提示你将在辅助服务器上创建弹性池。 选择该警告，然后选择“确定”以在辅助服务器上创建弹性池。  
         
-    ![将弹性池添加到故障转移组中](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![将弹性池添加到故障转移组中](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. 选择“选择”以将弹性池设置应用到故障转移组，然后选择“创建”以创建故障转移组。   将弹性池添加到故障转移组的操作会自动启动异地复制过程。 
 
@@ -105,13 +103,13 @@ ms.locfileid: "70373050"
 1. 在 [Azure 门户中](https://portal.azure.cn)导航到你的“SQL 服务器”服务器。  
 1. 在“设置”窗格下选择“故障转移组”，然后选择在第 2 部分创建的故障转移组。   
   
-   ![在门户中选择故障转移组](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![在门户中选择故障转移组](media/sql-database-elastic-pool-failover-group-tutorial/select-failover-group.png)
 
 1. 查看哪个服务器是主服务器，哪个服务器是辅助服务器。 
 1. 在“任务”窗格中选择“故障转移”，以故障转移包含弹性池的故障转移组。  
 1. 在告知将会断开 TDS 会话连接的警告中选择“是”。  
 
-   ![故障转移包含 SQL 数据库的故障转移组](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![故障转移包含 SQL 数据库的故障转移组](media/sql-database-elastic-pool-failover-group-tutorial/failover-sql-db.png)
 
 1. 查看哪个服务器是主服务器，哪个服务器是辅助服务器。 如果故障转移成功，这两个服务器的角色应会交换。 
 1. 再次选择“故障转移”，将故障转移组故障回复到原始设置。  

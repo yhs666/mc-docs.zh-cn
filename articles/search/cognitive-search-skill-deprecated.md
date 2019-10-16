@@ -2,22 +2,21 @@
 title: 已弃用的认知技能 - Azure 搜索
 description: 此页包含一系列被视为已弃用的认知搜索技能，这些技能在不久的将来将不再获得支持。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: e0dd42d32564d194a8b72e2892fbbb8dc75155af
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: 964a21d924ce5e1e7baeab087658e2da1552056a
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004782"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674381"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>已弃用的认知搜索技能
 
@@ -32,7 +31,7 @@ ms.locfileid: "66004782"
 
 ### <a name="last-available-api-version"></a>最后一个可用的 API 版本
 
-2019-05-06-Preview
+2017-11-11-预览版
 
 ### <a name="end-of-support"></a>结束支持
 

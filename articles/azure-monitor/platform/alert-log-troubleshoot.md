@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Monitor 中排查日志警报问题 | Azure Docs
-description: Azure 中日志警报规则的常见问题、错误和解法方法。
+title: 在 Azure Monitor 中排查日志警报问题 | Docs
+description: Azure 中日志警报规则的常见问题、错误和解决方法。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,18 +9,18 @@ origin.date: 10/29/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 95fb2a8e0788ff3210c4a182ce84a875a5814308
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 3c96a7214a52bd4a785be81da8f87620d7727e08
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737249"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330188"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>在 Azure Monitor 中排查日志警报问题  
 
 本文介绍如何解决在 Azure Monitor 中设置日志警报时可能发生的常见问题， 并提供有关日志警报功能或配置的常见问题的解决方法。 
 
-术语“日志警报”  描述基于 [Azure Log Analytics 工作区](/azure-monitor/log-query/get-started-portal)或 [Azure Application Insights](../../azure-monitor/log-query/log-query-overview.md) 中的日志查询触发的规则。 在 [Azure Monitor 中的日志警报](../platform/alerts-unified-log.md)中详细了解功能、术语和类型。
+术语“日志警报”  描述基于 [Azure Log Analytics 工作区](../log-query/get-started-portal.md)或 [Azure Application Insights](../../azure-monitor/log-query/log-query-overview .md) 中的日志查询触发的规则。 在 [Azure Monitor 中的日志警报](../platform/alerts-unified-log.md)中详细了解功能、术语和类型。
 
 > [!NOTE]
 > 本文不考虑 Azure 门户中显示警报规则已触发以及不是通过关联的操作组执行通知的情况。 对于此类情况，请参阅[在 Azure 门户中创建和管理操作组](../platform/action-groups.md)中的详细信息。
@@ -31,7 +31,7 @@ ms.locfileid: "70737249"
 
 ### <a name="data-ingestion-time-for-logs"></a>日志的数据引入时间
 
-日志警报基于 [Log Analytics](/azure-monitor/log-query/get-started-portal) 或 [Application Insights](../../azure-monitor/log-query/log-query-overview.md) 定期运行查询。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)。
+日志警报基于 [Log Analytics](../log-query/get-started-portal.md) 或 [Application Insights](../../azure-monitor/log-query/log-query-overview.md) 定期运行查询。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)。
 
 如果系统发现所需的数据尚未引入，为了缓解延迟，它会等待一段时间，并重试警报查询多次。 为系统设置的等待时间呈指数级递增。 日志警报只会在数据可用后才会触发，因此，延迟可能是日志数据引入速度缓慢造成的。 
 

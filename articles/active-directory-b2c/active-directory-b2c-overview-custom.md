@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 03/20/2019
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7f7ffadc4791b3c093f1517d288758106ddc3bb0
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 15efbed8b2db8a792b897e556ad09835737d501d
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310785"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083214"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的自定义策略
 
@@ -56,7 +56,7 @@ Azure 中的客户标识和访问管理 (CIAM) 服务包括：
 
 Azure AD B2C 依次与标识提供程序、用户、其他系统和本地用户目录交互，以完成标识任务。 例如，登录用户、注册新用户或重置密码。 “标识体验框架”和策略（亦称为“用户旅程”或“信任框架策略”）可建立多方信任并显式定义执行组件、操作、协议和要完成的步骤顺序。
 
-“标识体验框架”是一个完全可配置的、策略驱动的、基于云的 Azure 平台，用于协调采用标准协议格式（例如 OpenID Connect、OAuth、SAML、WSFed）的实体与一些非标准实体（例如基于 REST API 的系统间声明交换）之间的信任关系。 该框架创建支持 HTML 和 CSS 的用户友好的白标体验。
+“标识体验框架”是一个完全可配置的、策略驱动的、基于云的 Azure 平台，用于协调采用标准协议格式（例如 OpenID Connect、OAuth、SAML）的实体与一些非标准实体（例如基于 REST API 的系统间声明交换）之间的信任关系。 该框架创建支持 HTML 和 CSS 的用户友好的白标体验。
 
 自定义策略以一个或多个采用 XML 格式的文件表示，这些文件在分层链中相互引用。 XML 元素定义声明架构、声明转换、内容定义、声明提供程序、技术配置文件、用户旅程业务流程步骤，以及其他元素。 自定义策略可作为一个或多个 XML 文件进行访问，这些文件在信赖方调用时由标识体验框架执行。 配置自定义策略的开发人员必须严谨地定义信任关系，以包含元数据终结点和确切的声明交换定义，并配置每个标识提供者所需的机密、密钥和证书。
 

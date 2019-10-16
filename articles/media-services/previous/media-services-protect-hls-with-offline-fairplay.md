@@ -12,20 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 08/21/2019
+origin.date: 04/16/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 2ede382f59e2e4acc02d3e42c5dbb99cfd49e53f
-ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
+ms.reviewer: dwgeo
+ms.openlocfilehash: 50041c80db24497775aea1693eb5fbea3fb218ec
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69667650"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124596"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
 
+> [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
+> * [第 3 版](../latest/offline-fairplay-for-ios.md)
+> * [第 2 版](media-services-protect-hls-with-offline-fairplay.md)
+
 > [!NOTE]
 > Google Widevine 目前在中国地区不可用。
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：
 

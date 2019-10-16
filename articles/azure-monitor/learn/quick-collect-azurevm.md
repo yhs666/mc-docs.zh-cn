@@ -15,15 +15,16 @@ origin.date: 08/19/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 8c123e4f4eec003c64ff33fc32c196bcb9ae07ef
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 628128b3a929bd3cc09b8f98e92831624958f67c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737239"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329771"
 ---
-# <a name="collect-data-about-azure-virtual-machines"></a>收集 Azure 虚拟机相关数据
-[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 可直接从 Azure 虚拟机及环境中的其他资源收集数据，并将数据置于单个存储库进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Azure Linux 或 Windows VM 中配置或收集数据。  
+# <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>使用 Azure Monitor 从 Azure 虚拟机收集数据
+
+[Azure Monitor](../overview.md) 可以直接从 Azure 虚拟机将数据收集到 Log Analytics 工作区，以便进行详细分析和关联。 安装适用于 [Windows](../../virtual-machines/extensions/oms-windows.md) 和 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 扩展允许 Azure Monitor 从 Azure VM 收集数据。 本快速入门介绍如何通过几个简单步骤，使用 VM 扩展从 Azure Linux 或 Windows VM 中配置和收集数据。  
  
 本快速入门假定你拥有现有 Azure 虚拟机。 如果没有，可根据 VM 快速入门[创建 Windows VM](../../virtual-machines/windows/quick-create-portal.md) 或[创建 Linux VM](../../virtual-machines/linux/quick-create-cli.md)。
 
@@ -32,7 +33,7 @@ ms.locfileid: "70737239"
 
 ## <a name="create-a-workspace"></a>创建工作区
 
-1. 在 Azure 门户中，选择“所有服务”。  在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”  。
+1. 在 Azure 门户中，选择“所有服务”。  在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”  。
 
     ![Azure 门户](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
@@ -54,7 +55,7 @@ ms.locfileid: "70737239"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-对于已在 Azure 中部署的 Windows 和 Linux 虚拟机，可使用 Log Analytics VM 扩展安装 Log Analytics 代理。 使用扩展可简化安装流程，并可自动配置代理，以将数据发送至指定的 Log Analytics 工作区。 代理还会自动升级，以确保拥有最新的功能和修补程序。 在继续之前，请验证 VM 是否正在运行，否则此过程将无法成功完成。  
+对于已在 Azure 中部署的 Windows 和 Linux 虚拟机，可使用 Log Analytics VM 扩展安装 Log Analytics 代理。 使用扩展可简化安装流程，并可自动配置代理，以将数据发送至指定的 Log Analytics 工作区。 在发布新版本时，代理也会自动升级，以确保你拥有最新的功能和修补程序。 在继续之前，请验证 VM 是否正在运行，否则此过程将无法成功完成。  
 
 >[!NOTE]
 >无法将适用于 Linux 的 Log Analytics 代理配置为向多个 Log Analytics 工作区报告。 
@@ -73,7 +74,7 @@ ms.locfileid: "70737239"
 
 ## <a name="collect-event-and-performance-data"></a>收集的事件和性能数据
 
-Log Analytics 可从 Windows 事件日志或 Linux Syslog 以及指定用于长期分析的性能计数器中收集事件，并在检测到特定条件时采取措施。 首先，请按照下列步骤操作，配置从 Windows 系统日志和 Linux Syslog 以及几个常见性能计数器中收集事件。  
+Azure Monitor 可以从你为长期分析和报告指定的 Windows 事件日志或 Linux 系统日志和性能计数器中收集事件，并在检测到特定条件时采取措施。 首先，请按照下列步骤操作，配置从 Windows 系统日志和 Linux Syslog 以及几个常见性能计数器中收集事件。  
 
 ### <a name="data-collection-from-windows-vm"></a>Windows VM 中的数据收集
 
@@ -122,15 +123,15 @@ Log Analytics 可从 Windows 事件日志或 Linux Syslog 以及指定用于长�
 ## <a name="view-data-collected"></a>查看收集的数据
 现已启用数据收集，开始运行简单的日志搜索示例，查看来自目标 VM 的部分数据。  
 
-1. 在 Azure 门户中，导航到 Log Analytics 并选择之前创建的工作区。
+1. 在所选工作区中，从左侧窗格中选择“日志”  。
 
-2. 选择“日志搜索”  磁贴并在“日志搜索”窗格上的查询字段中键入 `Perf`，然后按 Enter 或选择查询字段右侧的搜索按钮。
+2. 在日志查询页上，在查询编辑器中键入 `Perf`，然后选择“运行”  。
 
-    ![Log Analytics 日志搜索查询示例](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+    ![Log Analytics 日志搜索查询示例](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 
-例如，下图中的查询返回了 735 条性能记录。  结果会大大减少。
+    例如，下图中的查询返回了 10,000 条性能记录。 结果会大大减少。
 
-![Log Analytics 日志搜索结果](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Log Analytics 日志搜索结果](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -146,4 +147,4 @@ Log Analytics 可从 Windows 事件日志或 Linux Syslog 以及指定用于长�
 若要了解如何查看和分析数据，请继续本教程。
 
 > [!div class="nextstepaction"]
-> [在 Log Analytics 中查看或分析数据](/azure-monitor/log-query/get-started-portal)
+> [在 Log Analytics 中查看或分析数据](../../azure-monitor/log-query/get-started-portal.md)

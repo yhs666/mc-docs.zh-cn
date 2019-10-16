@@ -2,37 +2,29 @@
 title: 整形程序认知搜索技能 - Azure 搜索
 description: 从非结构化数据中提取元数据和结构化信息，并将其整形为 Azure 搜索扩充管道中的复杂类型。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 8e22652156c032b8a14898371cd513671c615c41
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: 6bb0467bff8b0eef73fe3727e75cdb0a914294fd
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004766"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674427"
 ---
 #   <a name="shaper-cognitive-skill"></a>整形程序认知技能
 
 “整形程序”技能将多个输入整合成以后可在扩充管道中引用的[复杂类型](search-howto-complex-data-types.md)。  借助整形程序技能，可实质上创建结构、定义该结构的成员名称，并为每个成员分配值。  搜索方案中有用的合并字段示例包括将姓和名合并成单个结构、将城市和州合并成单个结构、或者将姓名和出生日期合并成单个结构，从而建立唯一标识。
 
-API 版本确定了可以实现的整形深度。 
+此外，[方案 3](#nested-complex-types) 中展示的**整形程序**技能为输入添加了一个可选的 *sourceContext* 属性。 *source* 和 *sourceContext* 属性是互斥的。 如果输入位于技能上下文中，则只需使用 *source*。 如果输入所在的上下文与技能上下文不同，则使用 *sourceContext*。  *sourceContext* 要求使用寻址为源的特定元素定义嵌套的输入。 
 
-| API 版本 | 整形行为 | 
-|-------------|-------------------|
-| REST API 版本 2019-05-06-preview（不支持 .NET SDK） | 在一个“整形程序”技能定义中指定复杂对象和多级深度。  |
-| 2019-05-06**（正式版）、2017-11-11-Preview| 复杂对象，单级深度。 多级形状要求将多个整形程序步骤链接在一起。|
-
-[方案 3](#nested-complex-types) 中演示的“整形程序”技能由 `api-version=2019-05-06-Preview` 提供，将一个新的可选 *sourceContext* 属性添加到输入。  *source* 和 *sourceContext* 属性是互斥的。 如果输入位于技能上下文中，则只需使用 *source*。 如果输入所在的上下文与技能上下文不同，则使用 *sourceContext*。  *sourceContext* 要求使用寻址为源的特定元素定义嵌套的输入。 
-
-在响应中，对于所有 API 版本，输出名称始终为“output”。 管道可在内部映射不同的名称，例如下图所示的“analyzedText”，但“整形程序”技能本身会在响应中返回“output”。  如果正在调试大量文档并发现存在命名差异，或者要生成自定义技能并自行构建响应，这一点非常重要。
+输出名称始终为“output”。 管道可在内部映射不同的名称，例如下图所示的“analyzedText”，但“整形程序”技能本身会在响应中返回“output”。  如果正在调试大量文档并发现存在命名差异，或者要生成自定义技能并自行构建响应，这一点非常重要。
 
 > [!NOTE]
 > “整形程序”技能未绑定到认知服务 API，使用它无需付费。  但是，你仍然应该[附加认知服务资源](cognitive-search-attach-cognitive-services.md)，以覆盖**免费**资源选项，该选项限制你每天进行少量的每日扩充。
@@ -196,9 +188,6 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>方案 3：从嵌套的上下文进行输入整合
 
-> [!NOTE]
-> [REST API 版本 2019年-05-06-Preview](search-api-preview.md) 中支持的嵌套结构可在[知识存储](knowledge-store-concept-intro.md)或 Azure 搜索索引中使用。
-
 假设你有某个书籍的标题、章节和内容，并已针对内容中的关键短语运行实体识别，现在需要将不同技能的结果聚合成包含章节名称、实体和关键短语的单个形状。
 
 此方案的“整形程序”技能定义可能如以下示例所示： 
@@ -238,7 +227,7 @@ Microsoft.Skills.Util.ShaperSkill
 ```
 
 ### <a name="skill-output"></a>技能输出
-在本例中，“整形程序”会创建一个复杂类型。  此结构存在于内存中。 若要将其保存到知识存储，应在技能集中创建一个用于定义存储特征的投影。
+在本例中，“整形程序”会创建一个复杂类型。  此结构存在于内存中。 若要将其保存到[知识存储](knowledge-store-concept-intro.md)，应在技能组中创建一个用于定义存储特征的投影。
 
 ```json
 {

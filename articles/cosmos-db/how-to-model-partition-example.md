@@ -3,16 +3,16 @@ title: 如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 description: 了解如何使用 Azure Cosmos DB Core API 为某个真实示例建模和分区
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba1c6013f95c5dfc04772ba62a740bf3a25f718c
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: fd04bc267b52537c58ff584f87fab613f6d71705
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151406"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306686"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 
@@ -578,5 +578,4 @@ function truncateFeed() {
 - [Azure Cosmos DB 中的分区](partitioning-overview.md)
 - [Azure Cosmos DB 中的更改源](change-feed.md)
 
-<!--Update_Description: new articles on how to model partition example -->
-<!--ms.date: 04/15/2019-->
+<!--Update_Description: wording update -->

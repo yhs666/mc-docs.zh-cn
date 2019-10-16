@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 本指南逐步说明如何为 Azure 认知服务启用诊断日志记录。 这些日志提供频繁生成的有关资源操作的丰富数据用于识别问题和调试。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 origin.date: 06/14/2019
 ms.date: 07/24/2019
 ms.author: v-junlch
-ms.openlocfilehash: ae8183bc9393aa5d984c2eef91322dc5bfb31a9f
-ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
+ms.openlocfilehash: 467cc57180ce68cafefc0bb7f77975fd7ea74ce6
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68439948"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275538"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>为 Azure 认知服务启用诊断日志记录
 

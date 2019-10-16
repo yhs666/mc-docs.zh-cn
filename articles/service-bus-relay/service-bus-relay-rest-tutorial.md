@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 11/06/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 38f1e7ca07761d424f5d854d1b7de5de47b4475b
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 12126c731674a8c5287aff220f184bd1bc867dff
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169620"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330342"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 中继 REST 教程
 本教程介绍如何生成简单的 Azure 中继主机应用程序，用于公开基于 REST 的接口。 REST 使 Web 客户端（例如 Web 浏览器）可通过 HTTP 请求访问服务总线 API。
@@ -46,9 +46,9 @@ ms.locfileid: "70169620"
 
 ## <a name="create-a-relay-namespace"></a>创建中继命名空间
 
-若要开始在 Azure 中使用中继功能，必须先创建一个服务命名空间。 命名空间提供了用于对应用程序中的 Azure 资源进行寻址的范围容器。 请按照[此处的说明](./relay-create-namespace-portal.md)创建中继命名空间。
+若要开始在 Azure 中使用中继功能，必须先创建一个服务命名空间。 命名空间提供了用于对应用程序中的 Azure 资源进行寻址的范围容器。 请按照[此处的说明](relay-create-namespace-portal.md)创建中继命名空间。
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>步骤 2：定义基于 REST 的 WCF 服务约定以用于 Azure 中继
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>定义基于 REST 的 WCF 服务约定以用于 Azure 中继
 
 创建创建 WCF REST 样式的服务时，必须定义协定。 约定指定主机支持的操作。 服务操作可以看作是 Web 服务方法。 协定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://docs.microsoft.com) 属性应用到每个接口，且必须将 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 属性应用到每个操作。 如果具有 [ServiceContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicecontractattribute) 的接口中的方法没有 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute)，则该方法是不公开的。 该过程后面的示例中显示了这些任务所用的代码。
 
@@ -58,7 +58,7 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
 1. 以管理员身份打开 Visual Studio：在“开始”  菜单中右键单击该程序，然后选择“以管理员身份运行”  。
 2. 创建新的控制台应用程序项目。 单击“文件”  菜单并选择“新建”  ，然后单击“项目”  。 在“新建项目”  对话框中，单击“Visual C#”  ，选择“控制台应用程序”  模板，并将其命名为“ImageListener”  。  使用默认“位置”。 单击“确定”以创建该项目  。
 3. 对于 C# 项目，Visual Studio 会创建 `Program.cs` 文件。 此类包含一个空的 `Main()` 方法，需要此方法才能正确生成控制台应用程序项目。
-4. 通过安装服务总线 NuGet 包，向项目添加对服务总线和 **System.ServiceModel.dll** 的引用。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 在“解决方案资源管理器”中，右键单击“ImageListener”  项目，然后单击“管理 NuGet 包”  。 单击“浏览”  选项卡，并搜索 `Azure Service Bus`。 单击“安装”  并接受使用条款。
+4. 通过安装服务总线 NuGet 包，向项目添加对服务总线和 **System.ServiceModel.dll** 的引用。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 在“解决方案资源管理器”中，右键单击“ImageListener”  项目，然后单击“管理 NuGet 包”  。 单击“浏览”  选项卡，并搜索 `Microsoft Azure Service Bus`。 单击“安装”  并接受使用条款。
 5. 必须在项目中显式添加对 **System.ServiceModel.dll** 的引用：
    
     a. 在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”  文件夹，然后单击“添加引用”  。
@@ -439,7 +439,7 @@ namespace Microsoft.ServiceBus.Samples
       </behaviors>
     </system.serviceModel>
     <appSettings>
-        <!-- Service Bus specific app setings for messaging connections -->
+        <!-- Service Bus specific app settings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
             value="Endpoint=sb://yourNamespace.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
     </appSettings>

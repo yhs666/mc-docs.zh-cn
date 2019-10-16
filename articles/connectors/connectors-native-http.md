@@ -11,13 +11,13 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 origin.date: 07/05/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 667467f7d3920529e6ce2c1f2d7ece7ff2f82f55
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.date: 10/08/2019
+ms.openlocfilehash: cb7e7b52d1a5398574d55781353beb7bdaedf638
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337490"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340982"
 ---
 # <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用调用 HTTP 或 HTTPS 终结点
 
@@ -90,6 +90,52 @@ ms.locfileid: "68337490"
 1. 若要添加其他可用参数，请打开“添加新参数”列表，并选择所需的参数。 
 
 1. 完成后，请记得保存逻辑应用。 在设计器工具栏上选择“保存”。 
+
+## <a name="content-with-multipartform-data-type"></a>具有多部分/表单数据类型的内容
+
+若要处理 HTTP 请求中具有 `multipart/form-data` 类型的内容，可以使用此格式向 HTTP 请求的正文添加包含 `$content-type` 和 `$multipart` 属性的 JSON 对象。
+
+```json
+"body": {
+   "$content-type": "multipart/form-data",
+   "$multipart": [
+      {
+         "body": "<output-from-trigger-or-previous-action>",
+         "headers": {
+            "Content-Disposition": "form-data; name=file; filename=<file-name>"
+         }
+      }
+   ]
+}
+```
+
+例如，假设你有一个逻辑应用，它使用该站点的 API（支持 `multipart/form-data` 类型）向网站发送对 Excel 文件的 HTTP POST 请求。 下面是此操作的可能外观：
+
+![多部分表单数据](./media/connectors-native-http/http-action-multipart.png)
+
+以下是在基础工作流定义中显示 HTTP 操作的 JSON 定义的同一示例：
+
+```json
+{
+   "HTTP_action": {
+      "body": {
+         "$content-type": "multipart/form-data",
+         "$multipart": [
+            {
+               "body": "@trigger()",
+               "headers": {
+                  "Content-Disposition": "form-data; name=file; filename=myExcelFile.xlsx"
+               }
+            }
+         ]
+      },
+      "method": "POST",
+      "uri": "https://finance.contoso.com"
+   },
+   "runAfter": {},
+   "type": "Http"
+}
+```
 
 ## <a name="connector-reference"></a>连接器参考
 

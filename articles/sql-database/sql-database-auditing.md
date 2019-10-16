@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-manager: digimobile
-origin.date: 04/16/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 83cce3abba303262905395ab1633444320f46b37
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 08/22/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 8576ed5006c29913b55c5e8285ac0c2eda5c3505
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544410"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262957"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -220,7 +219,7 @@ ms.locfileid: "69544410"
 - [获取数据库扩展  审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [获取服务器扩展  审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>使用 ARM 模板管理 SQL 数据库审核
+## <a id="subheading-10"></a>使用 Azure 资源管理器模板管理 SQL 数据库审核
 
 可以使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)模板管理 Azure SQL 数据库审核，如以下示例中所示：
 

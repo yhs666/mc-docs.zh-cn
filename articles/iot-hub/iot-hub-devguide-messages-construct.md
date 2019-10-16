@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 08/08/2019
 ms.author: v-yiso
-ms.date: 09/02/2019
-ms.openlocfilehash: 59b4a5171124f6d0c3e37187a9672e3a3057ce80
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 09/30/2019
+ms.openlocfilehash: 42785ffcc1d77cb2abc73a23e6f99463d7d9df6d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993042"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156004"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
@@ -72,7 +72,7 @@ IoT 中心消息由以下部分组成：
 
 ## <a name="message-size"></a>消息大小
 
-IoT 中心用于衡量消息大小的方法与协议无关，仅考虑实际有效负载。 以字节为单位的大小计算以下各项之和：
+IoT 中心用于衡量消息大小的方法与协议无关，仅考虑实际有效负载。 以字节为单位的大小计算为以下值的和：
 
 * 以字节为单位的正文大小。
 * 以字节为单位的消息系统属性的所有值的大小。

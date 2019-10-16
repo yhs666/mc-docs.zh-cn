@@ -8,18 +8,17 @@ manager: jeconnoc
 keywords: Azure Functions, 模式, 最佳做法, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/16/2017
-ms.date: 03/25/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8eb375473b7f1767f712460f1eae231919d39af
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: f84a41ad5c972d38d86017c1b12de1418683aabd
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408296"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673585"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
@@ -38,11 +37,11 @@ ms.locfileid: "58408296"
 
 ### <a name="cross-function-communication"></a>跨函数通信
 
-[Durable Functions](durable/durable-functions-concepts.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)用于管理状态转换以及多个函数之间的通信。
+[Durable Functions](durable/durable-functions-overview.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)用于管理状态转换以及多个函数之间的通信。
 
 如果不使用 Durable Functions 或逻辑应用来集成多个函数，将存储队列用于跨函数通信通常是最佳做法。  主要原因是因为存储队列成本更低、更易预配。 
 
-存储队列中各消息的大小限制为 64 KB。 如果需要在函数之间传递更大的消息，可使用 Azure 服务总线队列，以在标准层中支持最大为 256 KB 的消息大小，在高级层中最大为 1 MB 的消息大小。
+存储队列中各消息的大小限制为 64 KB。 如果需要在函数之间传递更大的消息，则可使用 Azure 服务总线队列，支持标准层中最大 256 KB 的消息大小。
 
 如果在处理前需要筛选消息，则服务总线主题十分有用。
 
@@ -109,7 +108,7 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 
 使用函数应用中的 `host.json` 文件可以配置主机运行时和触发器行为。  除了批处理行为以外，还可以管理大量触发器的并发性。  调整这些选项中的值往往有助于每个实例根据被调用函数的需求适当缩放。
 
-主机文件中的设置应用于应用中的所有函数，以及函数的单个实例。 例如，如果有包含 2 个 HTTP 函数的函数应用，并且并发请求设置为 25，则针对任一 HTTP 触发器发出的请求将计入 25 个共享的并发请求。  如果该函数应用扩展到 10 个实例，则 2 个函数将有效地允许 250 个并发请求（10 个实例 * 每个实例 25 个并发请求）。
+主机文件中的设置应用于应用中的所有函数，以及函数的单个实例。  例如，如果有包含 2 个 HTTP 函数的函数应用，并且并发请求设置为 25，则针对任一 HTTP 触发器发出的请求将计入 25 个共享的并发请求。  如果该函数应用扩展到 10 个实例，则 2 个函数将有效地允许 250 个并发请求（10 个实例 * 每个实例 25 个并发请求）。
 
 **HTTP 并发性主机选项**
 
@@ -124,4 +123,4 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 * [如何在 Azure Functions 中管理连接](manage-connections.md)
 * [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

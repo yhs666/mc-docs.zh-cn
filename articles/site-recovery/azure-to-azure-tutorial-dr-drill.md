@@ -10,12 +10,12 @@ origin.date: 08/05/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d3ba1586135cd1ede51e922ee32705730f45395e
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 868a8e16389be22d27077e4573f936081c3fbd46
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134417"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340726"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>运行 Azure VM 到 Azure 次要区域的灾难恢复演练
 
@@ -37,7 +37,9 @@ ms.locfileid: "70134417"
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移
 
-1. 在“设置” > “复制的项”中，单击“VM”>“+测试故障转移”。   
+1. 在“受保护的项”   > “复制的项”  中，单击 VM >“+测试故障转移”图标  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
 
 2. 在“测试故障转移”  中，选择要用于故障转移的恢复点：
 

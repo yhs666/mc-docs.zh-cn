@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 04/25/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 8f9ac4b785c047cd5ef300683f631e4db567bce9
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 84acc2d99d9fb7e986910c5f9e874ed411a28907
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913057"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272520"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>排查共享映像库问题
 

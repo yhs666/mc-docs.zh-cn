@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: b44e4ce85383db91ca485d692541c588ba47f371
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 16efb4348b13d194a7302ac32d3add081fd4b265
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69670960"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124542"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用媒体服务传送 DRM 许可证或 AES 密钥 
 
@@ -312,7 +312,9 @@ namespace DeliverDRMLicenses
 }
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
+## <a name="see-also"></a>另请参阅
+* [使用 PlayReady 动态通用加密](media-services-protect-with-playready-widevine.md)
 * [使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)
-<!--Update_Description:update code to use AAD token instead of ACS-->

@@ -5,16 +5,16 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 9/27/2018
+origin.date: 09/17/2018
 ms.date: 06/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 7b9f25db0c5c3776c73841683086e60d8c36b9cf
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7b48838d7cf4f705241ee7c542b932b35f533518
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737343"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330442"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>在 Azure Monitor 中创建日志的指标警报
 

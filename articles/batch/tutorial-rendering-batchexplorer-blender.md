@@ -2,17 +2,18 @@
 title: 使用 Azure Batch 和 Batch Explorer 渲染 Blender 场景
 description: 教程 - 如何使用 Azure Batch 和 Batch Explorer 客户端应用程序渲染 Blender 场景中的多个帧
 services: batch
+ms.service: batch
 author: mscurrell
 origin.date: 08/02/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: tutorial
-ms.openlocfilehash: 29f9e9c6364b7512172240d9bb42c938ba3ce2db
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c4da2b8a914b73d8579660b7d8431f56e66d48a2
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330050"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教程：使用 Batch Explorer 渲染 Blender 场景
 
@@ -24,8 +25,6 @@ ms.locfileid: "58627161"
 > * 创建包含多个节点的 Batch 池，以便执行渲染操作
 > * 渲染多个帧
 > * 查看并下载渲染的帧文件
-
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -61,8 +60,8 @@ ms.locfileid: "58627161"
 
 为演示场景输出文件创建存储帐户容器：
 
-- 从左侧的主菜单中，选择“数据”菜单项。
-- 选择“+”按钮，创建新的名为“render-output”的“空文件组”
+* 从左侧的主菜单中，选择“数据”菜单项。
+* 选择“+”按钮，创建新的名为“render-output”的“空文件组”
 
 ![输出文件的文件组](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_filegroup.png)
 
@@ -70,20 +69,20 @@ ms.locfileid: "58627161"
 
 使用包含 Blender 应用程序的渲染 Azure 市场 VM 映像创建 Batch 池：
 
-- 从左侧的主菜单中，选择“库”菜单项。
-- 从应用程序项列表中选择“Blender”项。
-- 选择用于在 Windows Server 上渲染帧的项
-- 可以选择项右侧的链接图标，以便查看将要用来创建池和作业的模板文件。
+* 从左侧的主菜单中，选择“库”菜单项。
+* 从应用程序项列表中选择“Blender”项。
+* 选择用于在 Windows Server 上渲染帧的项
+* 可以选择项右侧的链接图标，以便查看将要用来创建池和作业的模板文件。
 
 ![Blender 库项](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_gallery_item.png)
 
-- 选择“创建以后使用的池”按钮
+* 选择“创建以后使用的池”按钮
   * 保留池名称“blender-windows”
   * 将“专用 VM 计数”设置为“0”
   * 将“低优先级 VM 计数”设置为“3”
   * 将“节点大小”设置为“Standard_F16”- 可以选择其他 VM 大小，但渲染帧所需的时间将主要取决于核心数。
-- 选择用于创建池的绿色按钮
-  - 池差不多会立即创建，但分配和启动 VM 需要数分钟。
+* 选择用于创建池的绿色按钮
+  * 池差不多会立即创建，但分配和启动 VM 需要数分钟。
 
 ![用于 Blender 的池模板](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_template.png)
 
@@ -95,17 +94,17 @@ ms.locfileid: "58627161"
 ## <a name="create-a-rendering-job"></a>创建渲染作业
 
 创建渲染作业，以便使用已创建的池渲染一些帧：
-- 从左侧的主菜单中，选择“库”菜单项。
-- 从应用程序项列表中选择“Blender”项。
-- 选择用于在 Windows Server 上渲染帧的项。
-- 选择“使用现有池运行作业”按钮
-- 选择“blender-windows”池
-- 将“作业名称”设置为“blender-render-tutorial1”
-- 选择“fgrp-blender-classroom”作为“输入数据”
-- 选择“Blend 文件”的文件图标并选择“classroom.blend”
-- 将“帧开始”保留为“1”，将“帧结束”设置为“5”
-- 将“输出”设置为“fgrp-render-output”
-- 选择用于创建作业的绿色按钮；作业在创建后将包含五个任务，一个任务适用于一个帧
+* 从左侧的主菜单中，选择“库”菜单项。
+* 从应用程序项列表中选择“Blender”项。
+* 选择用于在 Windows Server 上渲染帧的项。
+* 选择“使用现有池运行作业”按钮
+* 选择“blender-windows”池
+* 将“作业名称”设置为“blender-render-tutorial1”
+* 选择“fgrp-blender-classroom”作为“输入数据”
+* 选择“Blend 文件”的文件图标并选择“classroom.blend”
+* 将“帧开始”保留为“1”，将“帧结束”设置为“5”
+* 将“输出”设置为“fgrp-render-output”
+* 选择用于创建作业的绿色按钮；作业在创建后将包含五个任务，一个任务适用于一个帧
 
 ![用于 Blender 的作业模板](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_template.png)
 
@@ -134,9 +133,9 @@ ms.locfileid: "58627161"
 > [!WARNING]
 > 必须删除池（也可将池的大小重设为零节点）才能阻止系统将 VM 费用计入 Azure 订阅。
 
-- 选择“池”
-- 选择“blender-windows”池
-- 可以在右键单击后选择“删除”，也可选择池上方的垃圾桶图标
+* 选择“池”
+* 选择“blender-windows”池
+* 可以在右键单击后选择“删除”，也可选择池上方的垃圾桶图标
 
 ## <a name="next-steps"></a>后续步骤
 - 通过 Batch Explorer 在“库”部分浏览可用的渲染应用程序。

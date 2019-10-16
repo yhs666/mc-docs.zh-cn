@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: a54090ba96edf883a2d2053c069e944dc4788a69
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 9d25df026bb21c98c8d883bf45395f44262fa0a7
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673061"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124400"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设
+# <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设  
 
 ## <a name="overview"></a>概述
 
@@ -30,15 +30,18 @@ ms.locfileid: "52673061"
 
 本文展示了何通过使用 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 预设并减少层数来自定义预设。 [自定义 Media Encoder Standard 预设](media-services-advanced-encoding-with-mes.md)一文演示了可用于执行高级编码任务的自定义预设。
 
+> [!NOTE]
+> 本文中所述的自定义预设不能用于[媒体服务 V3](/media-services/latest/) 转换或 CLI 命令。 有关更多详细信息，请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)。
+
 ## <a id="customizing_presets"></a> 自定义 MES 预设
 
 ### <a name="original-preset"></a>原始预设
 
-将 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 一文中定义的 JSON 保存到某个具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json。
+将 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 一文中定义的 JSON 保存到某个具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json  。
 
 ### <a name="customized-preset"></a>自定义的预设
 
-打开“CustomPreset_JSON.json”文件，删除“H264Layers” 中的前三层，使文件如下所示。
+打开“CustomPreset_JSON.json”  文件，删除“H264Layers”  中的前三层，使文件如下所示。
 
 ```json 
     {  
@@ -263,6 +266,10 @@ namespace CustomizeMESPresests
 ```
 
 ## <a name="see-also"></a>另请参阅
-[媒体服务编码概述](media-services-encode-asset.md)
 
-<!--Update_Description: update code to use AAD token instead of ACS-->
+- [如何使用 CLI 对自定义转换进行编码](../latest/custom-preset-cli-howto.md)
+- [使用媒体服务 v3 进行编码](../latest/encoding-concept.md)
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

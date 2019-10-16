@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 08/05/2019
-ms.date: 07/05/2019
-ms.author: v-biyu
-ms.openlocfilehash: 549b24efec651de76577c2a16aa9c35bcad124b9
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 89cd3257945c0732fec784d57b4150af5b24965e
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104082"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267052"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入门：使用 .NET Core 将文本转换为语音
 
 本快速入门介绍如何使用 .NET Core 和文本转语音 REST API 将文本转换为语音。 本指南中包含的示例文本以[语音合成标记语言 (SSML)](speech-synthesis-markup.md) 的形式构造，这样你就可以选择响应的语音和语言。
 
-此快速入门需要包含语音服务资源的 [Azure 认知服务帐户](https://docs.azure.cn/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/zh-cn/home/features/cognitive-services/)获取订阅密钥。
+此快速入门需要包含语音服务资源的 [Azure 认知服务帐户](https://docs.azure.cn/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/home/features/cognitive-services/)获取订阅密钥。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +49,7 @@ cd tts-sample
 
 打开项目，然后打开 `tts-sample.csproj`。 确保将 `LangVersion` 设置为 7.1 或更高版本。 如果没有用于语言版本的属性组，请添加以下行：
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>
@@ -73,7 +73,7 @@ using System.Threading.Tasks;
 
 文本转语音 REST API 需要访问令牌来进行身份验证。 若要获取访问令牌，需要进行交换。 此示例通过 `issueToken` 终结点使用语音服务订阅密钥来交换访问令牌。
 
-此示例假定语音服务订阅位于“中国北部”区域。 如果使用其他区域，请更新 `FetchTokenUri` 的值。 如需完整的列表，请参阅[区域](https://docs.azure.cn/cognitive-services/speech-service/regions#rest-apis)。
+此示例假定语音服务订阅位于“中国东部”区域。 如果使用其他区域，请更新 `FetchTokenUri` 的值。 如需完整的列表，请参阅[区域](regions.md#rest-apis)。
 
 ```csharp
 public class Authentication
@@ -109,6 +109,7 @@ public class Authentication
 }
 ```
 
+<!-- url not available -->
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>获取访问令牌并设置主机 URL
 
@@ -128,8 +129,8 @@ string accessToken;
 Console.WriteLine("Attempting token exchange. Please wait...\n");
 
 // Add your subscription key here
-// If your resource isn't in WEST US, change the endpoint
-Authentication auth = new Authentication("https://chinanorth.api.cognitive.microsoft.com/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
+// If your resource isn't in China East, change the endpoint
+Authentication auth = new Authentication("https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
 try
 {
     accessToken = await auth.FetchTokenAsync().ConfigureAwait(false);
@@ -147,7 +148,7 @@ catch (Exception ex)
 然后，设置文本转语音的主机和路由：
 
 ```csharp
-string host = "https://chinanorth.tts.speech.microsoft.com/cognitiveservices/v1";
+string host = "https://chinaeast.tts.speech.microsoft.com/cognitiveservices/v1";
 ```
 
 ## <a name="build-the-ssml-request"></a>生成 SSML 请求
@@ -235,5 +236,6 @@ dotnet run
 
 ## <a name="see-also"></a>另请参阅
 
-* [文本到语音 API 参考](https://docs.azure.cn/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [文本到语音 API 参考](overview.md)
+* [创建自定义语音字体](how-to-custom-voice-create-voice.md)
 * [录制语音样本用于创建自定义语音](record-custom-voice-samples.md)

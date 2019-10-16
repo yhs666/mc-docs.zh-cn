@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-origin.date: 10/03/2018
-ms.date: 06/26/2019
+origin.date: 06/26/2019
+ms.date: 09/23/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 75ff88c05c7ffbe70eb36c23b54d462fbf235922
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 13b5a2b58c9f1471f61a54a9bd0f9841ccf2f36a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330273"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>开始监视 ASP.NET Core Web 应用程序
 
@@ -71,7 +71,9 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 3. 选择帐户和订阅 > 选择在 Azure 门户中创建的**现有资源** > 单击“注册”。 
 
-4. 选择“调试”   > “开始执行(不调试)”  (Ctrl+F5) 启动应用
+4. 选择“项目” > “管理 NuGet 包” > “包源: nuget.org” > “更新”，将 Application Insights SDK 包更新到最新稳定版本     。
+
+5. 选择“调试”   > “开始执行(不调试)”  (Ctrl+F5) 启动应用
 
     ![Application Insights 概述菜单](./media/dotnetcore-quick-start/3debug.png)
 

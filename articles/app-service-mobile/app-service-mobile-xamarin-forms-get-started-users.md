@@ -1,5 +1,5 @@
 ---
-title: Xamarin.Forms 应用中的移动应用身份验证入门
+title: Xamarin Forms 应用中的移动应用身份验证入门 | Azure
 description: 了解如何使用移动应用通过各种标识提供者（包括 AAD、Google、Facebook、Twitter 和 Microsoft）对 Xamarin Forms 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: xamarin
@@ -12,19 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/07/2017
-ms.author: v-biyu
-ms.date: 07/15/2019
-ms.openlocfilehash: d783af5e6bcc22d9d892fdd43bfbb971cc5caba7
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: fb9bb5a571a17b0475098f9ded231e4803dafc9c
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560282"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006557"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>向 Xamarin Forms 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users)。
+>
 
 ## <a name="overview"></a>概述
 本主题演示如何从客户端应用程序对应用服务移动应用的用户进行身份验证。 在本教程中，使用应用服务支持的标识提供者向 Xamarin Forms 快速入门项目添加身份验证。 移动应用成功进行身份验证和授权后，将显示用户 ID 值，该用户能够访问受限制的表数据。
@@ -55,8 +58,7 @@ ms.locfileid: "67560282"
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>向可移植类库添加身份验证
-移动应用使用 [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
-uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]。 若要在生产应用中提供更好的用户体验，应考虑改用[客户端托管的身份验证][6]。
+移动应用使用 [MobileServiceClient][4] 上的 [LoginAsync][3] 扩展方法通过应用服务身份验证登录用户。 此示例使用服务器托管的身份验证流，在应用中显示提供程序的登录界面。 有关详细信息，请参阅[服务器托管的身份验证][5]。 若要在生产应用中提供更好的用户体验，应考虑改用[客户端托管的身份验证][6]。
 
 若要使用 Xamarin Forms 项目进行身份验证，请在可移植类库中为应用定义 **IAuthenticate** 接口。 然后，将“登录”按钮添加到可移植类库中定义的用户界面，用户单击此按钮即可开始进行身份验证  。 身份验证成功后，将从移动应用后端加载数据。
 
@@ -399,13 +401,11 @@ uses a server-managed authentication flow that displays the provider's sign-in i
 <!-- Images. -->
 
 <!-- URLs. -->
-[1]: ./app-service-mobile-xamarin-forms-get-started.md
-[2]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[3]: https://msdn.microsoft.com/zh-cn/library/azure/dn268341(v=azure.10).aspx
-[4]: https://msdn.microsoft.com/zh-cn/library/azure/JJ553674(v=azure.10).aspx
-[5]: ./app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
-[6]: ./app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
-[7]: https://msdn.microsoft.com/zh-cn/library/azure/jj730936(v=azure.10).aspx
-[8]: https://portal.azure.cn
-
-<!--Update_Description:add the section of "Add app to the Allowed External Redirect URLs" and update some code-->
+[1]: app-service-mobile-xamarin-forms-get-started.md
+[2]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[3]: https://msdn.microsoft.com/library/azure/dn268341(v=azure.10).aspx
+[4]: https://msdn.microsoft.com/library/azure/JJ553674(v=azure.10).aspx
+[5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
+[6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
+[7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

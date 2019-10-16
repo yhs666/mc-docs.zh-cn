@@ -2,21 +2,21 @@
 title: 使用“简单”搜索语法的查询示例 - Azure 搜索
 description: 用于查询 Azure 搜索索引的全文搜索、筛选搜索、地理搜索、分面搜索和其他搜索字符串的简单查询示例。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 1a11ff4c3ebf0c6f004475429427270df337296d
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 3438b87cf06c69344d3f104c2ba2a43b9591ae3b
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004699"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674399"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Azure 搜索中使用“简单”搜索语法的查询示例
 
@@ -28,7 +28,7 @@ ms.locfileid: "66004699"
 
 下面的示例使用“纽约工作岗位”搜索索引，它包含基于[纽约市开放数据](https://nycopendata.socrata.com/)计划提供的数据集得出的岗位。 此数据不应认为是最新或完整数据。 该索引位于 Microsoft 提供的一项沙盒服务上，也就是说无需 Azure 订阅或 Azure 搜索即可试用这些查询。
 
-要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[使用 REST 客户端进行浏览](search-fiddler.md)。
+要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[使用 REST 客户端进行浏览](search-get-started-postman.md)。
 
 ### <a name="set-the-request-header"></a>设置请求标头
 
@@ -56,7 +56,7 @@ URL 组合具备以下元素：
 
 ## <a name="send-your-first-query"></a>发送自己的第一个查询
 
-进行验证，将以下请求粘贴至 GET 并单击“发送”  。 结果以详细的 JSON 文档形式返回。 返回整个文档，这允许你查看所有字段和所有值。
+进行验证，将以下请求粘贴至 GET 并单击“发送”  。 结果以详细的 JSON 文档形式返回。 将返回整个文档，这样就可以查看所有字段和所有值。
 
 将此 URL 作为验证步骤粘贴到 REST 客户端中并查看文档结构。
 
@@ -120,7 +120,7 @@ https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs/9E1E3AF9-066
 
 ## <a name="example-3-filter-queries"></a>示例 3：筛选器查询
 
-[筛选器语法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)是可以配合 **search** 使用或单独使用的 OData 表达式。 如果筛选表达式能够完全限定所需的文档，则不带 search 参数的单独筛选器很有用。 不使用查询字符串也就不会执行词法或语言分析、评分（所有评分为 1）和排名。 请注意，搜索字符串为空。
+[筛选器语法](search-query-odata-filter.md)是可以配合 **search** 使用或单独使用的 OData 表达式。 如果筛选表达式能够完全限定所需的文档，则不带 search 参数的单独筛选器很有用。 不使用查询字符串也就不会执行词法或语言分析、评分（所有评分为 1）和排名。 请注意，搜索字符串为空。
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -148,7 +148,7 @@ https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs?api-version=
 https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-有关该函数的详细信息，请参阅[“筛选器示例”中的 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
+有关该函数的详细信息，请参阅[“筛选器示例”中的 search.ismatch](search-query-odata-full-text-search-functions.md#examples)。
 
 ## <a name="example-4-range-filters"></a>示例 4：范围筛选器
 
@@ -199,7 +199,7 @@ https://azs-playground.search.chinacloudapi.cn/indexes/nycjobs/docs?api-version=
 
 ## <a name="example-5-geo-search"></a>示例 5：地理搜索
 
-示例索引包含带有纬度和经度坐标的 geo_location 字段。 此示例使用 [geo.distance 函数](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)来筛选从起点开始，直到所提供的任意距离（以公里为单位）圆周范围内的文档。 可以调整查询 (4) 中的最后一个值，以缩小或放大查询的表面积。
+示例索引包含带有纬度和经度坐标的 geo_location 字段。 此示例使用 [geo.distance 函数](search-query-odata-geo-spatial-functions.md#examples)来筛选从起点开始，直到所提供的任意距离（以公里为单位）圆周范围内的文档。 可以调整查询 (4) 中的最后一个值，以缩小或放大查询的表面积。
 
 为方便阅读，以下示例采用 POST 格式：
 

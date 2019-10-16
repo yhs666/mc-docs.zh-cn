@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 45252a95ead79133583bff545dcf245cfe909b78
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 7a6c7fffd120b7aa009fe0f14e654b255b9bb127
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624168"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124668"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容 
+
+> [!NOTE]
+> 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
+>   
 
 强烈建议通过 AES-256 位加密在本地加密内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。
 
@@ -43,14 +47,15 @@ ms.locfileid: "58624168"
 
 ### <a name="storage-side-encryption"></a>存储端加密
 
-|加密选项|说明|媒体服务 v2|
-|---|---|---|
-|媒体服务存储加密|AES-256 加密，媒体服务管理的密钥|支持<sup>(1)</sup>|
-|[静态数据的存储服务加密](/storage/common/storage-service-encryption)|由 Azure 存储提供的服务器端加密，由 Azure 或客户管理的密钥|支持|
-|[存储客户端加密](/storage/common/storage-client-side-encryption)|由 Azure 存储提供的客户端加密，由 Key Vault 中的客户管理的密钥|不支持|
+|加密选项|说明|媒体服务 v2|媒体服务 v3|
+|---|---|---|---|
+|媒体服务存储加密|AES-256 加密，媒体服务管理的密钥|支持<sup>(1)</sup>|不支持<sup>(2)</sup>|
+|[静态数据的存储服务加密](/storage/common/storage-service-encryption)|由 Azure 存储提供的服务器端加密，由 Azure 或客户管理的密钥|支持|支持|
+|[存储客户端加密](/storage/common/storage-client-side-encryption)|由 Azure 存储提供的客户端加密，由 Key Vault 中的客户管理的密钥|不支持|不支持|
 
 <sup>1</sup> 虽然媒体服务确实支持处理明文形式（未经过任何形式的加密）的内容，但不建议这样做。
 
+<sup>2</sup> 在媒体服务 v3 中，仅当资产是使用媒体服务 v2 创建的时才支持存储加密（AES-256 加密）以实现向后兼容性。 这意味着 v3 会处理现有的存储加密资产，但不会允许创建新资产。
 
 ## <a name="connect-to-media-services"></a>连接到媒体服务
 
@@ -59,7 +64,7 @@ ms.locfileid: "58624168"
 ## <a name="storage-encryption-overview"></a>存储加密概述
 AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR 模式是一分组加密，无需填充便可对任意长度的数据进行加密。 它采用 AES 算法加密计数器分组，并使用要加密或解密的数据对 AES 的输出执行异或运算。  通过将 InitializationVector 的值复制到计数器值的第 0 到第 7 个字节，并将计数器值的第 8 到第 15 个字节设置为零来构造所用的计数器分组。 在长度为 16 字节的计数分组中，8 到 15 字节（即，最少有效字节）用作简单的 64 位无符号整数，对于所处理数据的每个后续分组，该整数都会递增 1 并保留网络字节顺序。 如果此整数达到最大值 (0xFFFFFFFFFFFFFFFF)，则递增会将分组计数器重置为零（8 到 15 字节），且不会影响其他 64 位计数器（即 0 到 7 字节）。   为了维护 AES-CTR 模式加密的安全性，每个内容密钥的给定密钥标识符的 InitializationVector 值对每个文件必须是唯一的，且文件长度应小于 2^64 分组。  此值唯一是为了确保计数器值永远不会重复用于给定密钥。 有关 CTR 模式的详细信息，请参阅[此 wiki 页](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR)（此 wiki 文章使用术语“Nonce”取代“InitializationVector”）。
 
-使用“存储加密” 通过 AES-256 位加密在本地加密明文内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
+使用“存储加密”  通过 AES-256 位加密在本地加密明文内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
 
 要传送存储加密资产，必须配置资产的传送策略，以使媒体服务了解要如何传送内容。 在流式传输资产之前，流式处理服务器会删除存储加密，然后再使用指定的传传送策略（例如 AES、通用加密或无加密）流式传输内容。
 
@@ -111,7 +116,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
 
     请求正文属性    | 说明
     ---|---
-    ID | 使用以下格式生成 ContentKey ID：“nb:kid:UUID:<NEW GUID>”。
+    ID | 使用以下格式生成 ContentKey ID：“nb:kid:UUID:\<NEW GUID>”。
     ContentKeyType | 内容密钥类型是一个整数，用于定义密钥。 存储加密格式的值为 1。
     EncryptedContentKey | 我们创建一个新的内容密钥值，这是一个 256 位（32 字节）的值。 此密钥使用存储加密 X.509 证书进行加密，该证书是我们通过执行 GetProtectionKeyId 和 GetProtectionKey 方法的 HTTP GET 请求从 Microsoft Azure 媒体服务中检索到的。 有关示例，请参阅下面的 .NET 代码： **此处**定义的[EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs) 方法。
     ProtectionKeyId | 这是存储加密 X.509 证书的保护密钥 ID，用于加密内容密钥。
@@ -311,7 +316,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
 
 **AssetFile** 实例和实际媒体文件是两个不同的对象。 AssetFile 实例包含有关媒体文件的元数据，而媒体文件包含实际媒体内容。
 
-将数字媒体文件上传到 blob 容器后，需要使用 MERGE HTTP 请求来更新 AssetFile 中有关媒体文件的信息（本文中未展示）。 
+将数字媒体文件上传到 blob 容器后，需要使用 MERGE HTTP 请求来更新 AssetFile 中有关媒体文件的信息（本文中未展示）  。 
 
 **HTTP 请求**
 

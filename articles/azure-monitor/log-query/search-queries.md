@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/06/2018
-ms.date: 08/06/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af204f7a473e8ddbf64679d534ff660e51c0d7da
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5588f2545e395ed5b90f9679fa3540fa01358aa3
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737077"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330383"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 日志中的搜索查询
 Azure Monitor 日志查询可以从表名或 search 命令开始。 本教程介绍基于搜索的查询。 每种方法各有优势。

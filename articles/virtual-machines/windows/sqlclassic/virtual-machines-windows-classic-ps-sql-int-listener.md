@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 05/21/2018
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8bcf1ef7acbf4e694c63c5e78cb3665671f76f80
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3af4bef05aff8fa2f11876c1e469531857e53985
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653085"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272857"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序
 > [!div class="op_single_selector"]
@@ -33,7 +32,7 @@ ms.locfileid: "52653085"
 ## <a name="overview"></a>概述
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Azure 资源管理器和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍经典部署模型的用法。 我们建议在大多数新部署中使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍经典部署模型的用法。 我们建议在大多数新部署中使用 Resource Manager 模型。
 
 若要在 Resource Manager 模型中配置 AlwaysOn 可用性组的侦听程序，请参阅[在 Azure 中配置 AlwaysOn 可用性组的负载均衡器](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
@@ -57,16 +56,16 @@ ms.locfileid: "52653085"
 
 1. 在 Azure 门户中，转到每个托管副本的 VM 查看详细信息。
 
-2. 单击每个 VM 的“终结点”选项卡。
+2. 单击每个 VM 的“终结点”选项卡。 
 
-3. 验证想要使用的侦听程序终结点“名称”和“公用端口”是否已被使用。 在本部分的示例中，名称为“MyEndpoint”，端口为“1433”。
+3. 验证想要使用的侦听程序终结点“名称”和“公用端口”是否已被使用。   在本部分的示例中，名称为“MyEndpoint”，端口为“1433”。  
 
 4. 在本地客户端上，下载并安装最新的 [PowerShell 模块](https://www.azure.cn/downloads/)。
 
 5. 启动 Azure PowerShell。  
     将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
 
-6. 运行 `Get-AzurePublishSettingsFile -Environment AzureChinaCloud `。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
+6. 运行 `Get-AzurePublishSettingsFile -Environment AzureChinaCloud`。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
 
 7. 结合下载的发布设置文件的路径运行以下 `Import-AzurePublishSettingsFile` 命令：
 
@@ -74,12 +73,12 @@ ms.locfileid: "52653085"
 
     导入发布设置文件后，便可以在 PowerShell 会话中管理 Azure 订阅。
 
-8. 对于 ILB，请分配一个静态 IP 地址。 运行以下命令检查当前虚拟网络配置：
+8. 对于 ILB，请分配一个静态 IP 地址  。 运行以下命令检查当前虚拟网络配置：
 
         (Get-AzureVNetConfig).XMLConfiguration
-9. 记下包含副本所在 VM 的子网的 Subnet 名称。 脚本中的 $SubnetName 参数将要使用此名称。
+9. 记下包含副本所在 VM 的子网的 Subnet  名称。 脚本中的 $SubnetName 参数将要使用此名称。
 
-10. 记下包含副本所在 VM 的子网的 VirtualNetworkSite 名称和起始值 AddressPrefix。 再通过将这两个值传递给 `Test-AzureStaticVNetIP` 命令并检查 AvailableAddresses 来查找可用的 IP 地址。 例如，如果虚拟网络名为 MyVNet，并包含从 172.16.0.128 开始的子网地址范围，则以下命令将列出可用地址：
+10. 记下包含副本所在 VM 的子网的 VirtualNetworkSite 名称和起始值 AddressPrefix   。 再通过将这两个值传递给 `Test-AzureStaticVNetIP` 命令并检查 AvailableAddresses 来查找可用的 IP 地址  。 例如，如果虚拟网络名为 MyVNet，并包含从 172.16.0.128 开始的子网地址范围，则以下命令将列出可用地址   ：
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. 选择一个可用地址，并将其用于下一步骤中脚本的 $ILBStaticIP 参数。
@@ -106,7 +105,7 @@ ms.locfileid: "52653085"
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. 设置变量后，将脚本从文本编辑器复制到 PowerShell 会话并运行。 如果提示符仍然显示 >>，请再次按 Enter，以确保脚本开始运行。
+13. 设置变量后，将脚本从文本编辑器复制到 PowerShell 会话并运行。 如果提示符仍然显示 >>，请再次按 Enter，以确保脚本开始运行  。
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>如果需要，请验证是否已安装 KB2854082
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -152,7 +151,7 @@ ms.locfileid: "52653085"
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. 设置变量之后，打开提升的 Windows PowerShell 窗口，然后将文本编辑器中的脚本粘贴到 PowerShell 会话并运行。 如果提示符仍然显示 >>，请再次按 Enter，确保脚本开始运行。
+3. 设置变量之后，打开提升的 Windows PowerShell 窗口，然后将文本编辑器中的脚本粘贴到 PowerShell 会话并运行。 如果提示符仍然显示 >>，请再次按 Enter，确保脚本开始运行  。
 
 4. 针对每个 VM 重复上述步骤。  
     此脚本使用云服务的 IP 地址配置 IP 地址资源，同时设置探测端口等其他参数。 在 IP 地址资源联机后，它可以响应我们前面创建的负载均衡终结点在探测端口上的轮询。
@@ -168,4 +167,5 @@ ms.locfileid: "52653085"
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
+
 <!-- Update_Description: wording update, update link, update meta properties -->

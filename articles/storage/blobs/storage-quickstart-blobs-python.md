@@ -3,17 +3,17 @@ title: Azure 快速入门 - 使用 Python 在对象存储中创建 Blob | Micros
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Python 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 author: WenJason
 ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 09/09/2019
+origin.date: 08/29/2019
+ms.date: 09/30/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 15b5e5ff9be19944300dc0c05a30d79f33367c80
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 03f17d50ee9e45fd02bbbb23f0accbff2e9c7384
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209316"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306824"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 在应用程序中，请提供存储帐户名称和帐户密钥，以创建 `BlockBlobService` 对象。 从 IDE 中的解决方案资源管理器打开 *example.py* 文件。 连接到中国云时，将 `accountname` 和 `accountkey` 值替换为自己的帐户名称和密钥，并添加 **endpoint_suffix** 值。 
 
-```python 
+```python
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey', endpoint_suffix='core.chinacloudapi.cn') 
 ```
 
@@ -57,7 +57,7 @@ block_blob_service = BlockBlobService(account_name='accountname', account_key='a
     pip install azure-storage-blob
 ```
 
-接下来，运行示例。 你将看到类似于以下输出的消息：
+接下来，运行示例。 会看到类似于以下输出的消息：
   
 ```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -102,7 +102,8 @@ container_name = 'quickstartblobs'
 block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
-block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+block_blob_service.set_container_acl(
+    container_name, public_access=PublicAccess.Container)
 ```
 ### <a name="upload-blobs-to-the-container"></a>将 blob 上传到容器
 
@@ -127,7 +128,8 @@ print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
 # Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+block_blob_service.create_blob_from_path(
+    container_name, local_file_name, full_path_to_file)
 ```
 
 Blob 存储支持多种上传方法。 例如，若有一个内存流，则可使用 `create_blob_from_stream` 方法而不是 `create_blob_from_path` 方法。 
@@ -153,9 +155,11 @@ for blob in generator:
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, local_file_name.replace(
+   '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
+block_blob_service.get_blob_to_path(
+    container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>清理资源

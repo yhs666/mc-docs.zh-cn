@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/05/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.custom: seodec18
-ms.openlocfilehash: b938005974587b756357f988e0bbc0b86ab79d69
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 54c854bd7d21bf921cfd4799d46f0c38dfc62d4c
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103746"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267050"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>录制语音样本用于创建自定义语音
 
@@ -216,3 +215,10 @@ ms.locfileid: "70103746"
 最后，创建脚本，它将每个 WAV 文件与相应语句的文本版本进行关联  。 创建自定义语音字体包括所需格式的详细信息。 可直接从脚本中复制文本。 然后创建 WAV 文件和 文本脚本的 Zip 文件。
 
 将原始录音存档在安全的地方，以备日后需要时使用。 同时也要保留脚本和注释。
+
+## <a name="next-steps"></a>后续步骤
+
+已准备好上传录音和创建自定义语音。
+
+> [!div class="nextstepaction"]
+> [创建自定义语音字体](how-to-custom-voice-create-voice.md)

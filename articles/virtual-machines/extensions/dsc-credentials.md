@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f81a04d302632f254968e3e7d34704c487b69e45
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 05e68d06072c135c62dcead4596583b5da11ba48
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835609"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272784"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>将凭据传递给 Azure DSC 扩展处理程序
 
@@ -62,7 +61,7 @@ configuration Main
 }
 ```
 
-必须将 **node localhost** 包含为配置的一部分。 扩展处理程序会特意查找 **node localhost** 语句。 如果缺少此语句，则以下步骤不起作用。 还必须包含类型强制转换 **[PsCredential]**。 此特定类型触发扩展对凭据进行加密。
+必须将 **node localhost** 包含为配置的一部分。 扩展处理程序会特意查找 **node localhost** 语句。 如果缺少此语句，则以下步骤不起作用。 还必须包含类型强制转换 **[PsCredential]** 。 此特定类型触发扩展对凭据进行加密。
 
 将此脚本发布到 Azure Blob 存储：
 
@@ -76,7 +75,7 @@ $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
 $vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument $configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
 $vm | Update-AzVM
 ```
@@ -87,7 +86,7 @@ $vm | Update-AzVM
 
 运行此代码时会出现输入凭据的提示。 提供凭据后，它短暂地存储在内存中。 使用 **Set-AzVMDscExtension** cmdlet 发布凭据时，会通过 HTTPS 将凭据传输到 VM。 在 VM 中，Azure 使用本地 VM 证书将加密的凭据存储在磁盘上。 若要将凭据传递给 DSC，将在内存中短暂地将其解密，然后将其重新加密。
 
-此过程不同于[使用不带扩展处理程序的安全配置](https://docs.microsoft.com/powershell/dsc/securemof)。 Azure 环境提供了通过证书安全地传输配置数据的方法。 使用 DSC 扩展处理程序时，无需在 **ConfigurationData** 中提供 **$CertificatePath** 或 **$CertificateID**/ **$Thumbprint** 条目。
+此过程不同于[使用不带扩展处理程序的安全配置](https://docs.microsoft.com/powershell/dsc/securemof)。 Azure 环境提供了通过证书安全地传输配置数据的方法。 使用 DSC 扩展处理程序时，无需在 **ConfigurationData** 中提供 **$CertificatePath** 或 **$CertificateID**/  **$Thumbprint** 条目。
 
 ## <a name="next-steps"></a>后续步骤
 

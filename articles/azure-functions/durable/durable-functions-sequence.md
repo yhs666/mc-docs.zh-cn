@@ -6,21 +6,20 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/16/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: e71f6b06e06d36cfc9260bf0c0ee0556b792ee5d
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: ffb86db1283a66a9f98b89f5337aa507dc5a4747
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334207"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673590"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函数链 - Hello 序列示例
 
-函数链是指以特定顺序执行一系列函数的模式。 通常需要将一个函数的输出应用于另一函数的输入。 本文介绍在完成 Durable Functions 快速入门（[C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md)）时创建的链接序列。 有关 Durable Functions 的详细信息，请参阅 [Durable Functions 模式和技术概念](durable-functions-concepts.md)。
+函数链是指以特定顺序执行一系列函数的模式。 通常需要将一个函数的输出应用于另一函数的输入。 本文介绍在完成 Durable Functions 快速入门（[C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md)）时创建的链接序列。 有关 Durable Functions 的详细信息，请参阅 [Durable Functions 概述](durable-functions-overview.md)。
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -28,19 +27,19 @@ ms.locfileid: "54334207"
 
 本文介绍示例应用中的以下函数：
 
-- `E1_HelloSequence`：在一个序列中多次调用 `E1_SayHello` 的业务流程协调程序函数。 它存储来自 `E1_SayHello` 调用的输出并记录结果。
-- `E1_SayHello`：在字符串前添加“Hello”的活动函数。
+* `E1_HelloSequence`：在一个序列中多次调用 `E1_SayHello` 的业务流程协调程序函数。 它存储来自 `E1_SayHello` 调用的输出并记录结果。
+* `E1_SayHello`：在字符串前添加“Hello”的活动函数。
 
 以下各部分介绍了用于 C# 脚本和 JavaScript 的配置和代码。 文章末尾展示了用于 Visual Studio 开发的代码。
 
 > [!NOTE]
 > JavaScript Durable Functions 仅适用于 Functions 2.x 运行时。
 
-## <a name="e1hellosequence"></a>E1_HelloSequence
+## <a name="e1_hellosequence"></a>E1_HelloSequence
 
 ### <a name="functionjson-file"></a>function.json 文件
 
-如果使用 Visual Studio Code 或 Azure 门户进行开发，则此处为用于业务流程协调程序函数的 function.json 文件的内容。 大多数 orchestrator function.json 文件的内容都与以下内容相似。
+如果使用 Visual Studio Code 或 Azure 门户进行开发，则此处为用于业务流程协调程序函数的 function.json  文件的内容。 大多数 orchestrator function.json  文件的内容都与以下内容相似。
 
 ```json
 {
@@ -80,7 +79,7 @@ public static async Task<List<string>> Run(DurableOrchestrationContext context)
 }
 ```
 
-所有 C# orchestration 函数都必须具有 `DurableOrchestrationContext` 类型的参数，此参数存在于 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 程序集中。 如果使用 C# 脚本，则可以使用 `#r` 表示法引用程序集。 借助此上下文对象，可使用其 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) 方法调用其他活动函数并传递输入参数。
+所有 C# orchestration 函数都必须具有 `DurableOrchestrationContext` 类型的参数，此参数存在于 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 程序集中。 如果使用 C# 脚本，则可以使用 `#r` 表示法引用程序集。 借助此上下文对象，可使用其 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) 方法调用其他活动  函数并传递输入参数。
 
 代码将在具有不同参数值的序列中调用三次 `E1_SayHello`。 每个调用的返回值都会添加到 `outputs` 列表，函数末尾会返回该列表。
 
@@ -108,13 +107,13 @@ module.exports = df(function*(context){
 2. 此函数包装在对 `durable-functions` 模块的 `orchestrator` 方法的调用（此处为 `df`）中。
 3. 此函数必须是同步的。 因为“orchestrator”方法处理“context.done”的调用，所以此函数应该只是“return”。
 
-`context` 对象包含一个 `df` 对象，可使用其 `callActivity` 方法调用其他活动函数并传递输入参数。 该代码按顺序采用不同的参数值三次调用 `E1_SayHello`，使用 `yield` 指示执行应当等待异步活动函数调用返回。 每个调用的返回值都会添加到 `outputs` 列表，函数末尾会返回该列表。
+`context` 对象包含一个 `df` 对象，可使用其 `callActivity` 方法调用其他活动  函数并传递输入参数。 该代码按顺序采用不同的参数值三次调用 `E1_SayHello`，使用 `yield` 指示执行应当等待异步活动函数调用返回。 每个调用的返回值都会添加到 `outputs` 列表，函数末尾会返回该列表。
 
-## <a name="e1sayhello"></a>E1_SayHello
+## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>function.json 文件
 
-活动函数 `E1_SayHello` 的 function.json 文件类似于 `E1_HelloSequence` 的 function.json 文件，只不过前者使用 `activityTrigger` 绑定类型而非 `orchestrationTrigger` 绑定类型。
+活动函数 `E1_SayHello` 的 function.json  文件类似于 `E1_HelloSequence` 的 function.json 文件，只不过前者使用 `activityTrigger` 绑定类型而非 `orchestrationTrigger` 绑定类型。
 
 ```json
 {
@@ -185,7 +184,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/96924899
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
-结果为业务流程的状态。 它运行和完成的速度很快，因此处于已完成状态，并伴有如下所示响应（已简化）：
+结果为业务流程的状态。 它运行和完成的速度很快，因此处于已完成  状态，并伴有如下所示响应（已简化）：
 
 ```
 HTTP/1.1 200 OK
@@ -195,12 +194,12 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":null,"output":["Hello Tokyo!","Hello Seattle!","Hello London!"],"createdTime":"2017-06-29T05:24:57Z","lastUpdatedTime":"2017-06-29T05:24:59Z"}
 ```
 
-可以看到，实例的 `runtimeStatus` 为已完成，且 `output` 包含 orchestrator 函数执行的 JSON 序列化结果。
+可以看到，实例的 `runtimeStatus` 为已完成  ，且 `output` 包含 orchestrator 函数执行的 JSON 序列化结果。
 
 > [!NOTE]
 > 启动 orchestrator 函数的 HTTP POST 终结点在示例应用中作为名为“HttpStart”的 HTTP 触发器函数实现。 可对其他触发器类型（如 `queueTrigger`、`eventHubTrigger` 或 `timerTrigger`）实施类似的启动器逻辑。
 
-查看函数执行日志。 由于[概述](durable-functions-concepts.md)中所述的重播行为，`E1_HelloSequence` 函数启动并完成了多次。 另一方面，由于未重播这些函数执行，因此只执行三次 `E1_SayHello`。
+查看函数执行日志。 由于[业务流程可靠性](durable-functions-orchestrations.md#reliability)主题中所述的重播行为，`E1_HelloSequence` 函数已多次启动和完成。 另一方面，由于未重播这些函数执行，因此只执行三次 `E1_SayHello`。
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 代码示例
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 996c435f8e471b85ab141728051d600485d65672
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 62ebaa6e87e311b38341d7bd8b9a8c576bb038ef
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736534"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329776"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringConfig
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 

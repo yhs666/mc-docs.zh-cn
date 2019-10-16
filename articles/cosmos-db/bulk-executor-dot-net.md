@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 05/28/2019
-ms.date: 09/09/2019
+origin.date: 09/01/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 5ac493ee10f0a151fee7569e22b1e0e91c8e3cb9
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 4b4ce7cae99ed0bc3a0448401354e65f30e58ef5
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254635"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306802"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用 Bulk Executor .NET 库在 Azure Cosmos DB 中执行批量操作
 
@@ -63,7 +63,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
     ```
 
-    批量导入程序会创建新的数据库和集合，并在 App.config 文件中指定数据库名称、集合名称与吞吐量值。 
+    批量导入程序会创建新的数据库和容器，并在 App.config 文件中指定数据库名称、容器名称与吞吐量值。 
 
 3. 接下来，使用直接 TCP 连接模式初始化 DocumentClient 对象：  
 

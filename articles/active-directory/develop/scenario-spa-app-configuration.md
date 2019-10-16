@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81196e2d72eb3d946278fb4c73f77a63f54aa78a
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 914aac4c996622f64e9eed05d7cee241a9bfee5a
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305991"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292055"
 ---
 # <a name="single-page-application---code-configuration"></a>单页应用程序 - 代码配置
 
@@ -62,9 +62,11 @@ const userAgentApplication = new UserAgentApplication(config);
 
 ```javascript
 //In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientId: 'your_app_id'
+                clientID: 'your_app_id'
             })]
          })
 
@@ -76,3 +78,4 @@ const userAgentApplication = new UserAgentApplication(config);
 > [!div class="nextstepaction"]
 > [登录和注销](scenario-spa-sign-in.md)
 
+<!-- Update_Description: code update -->

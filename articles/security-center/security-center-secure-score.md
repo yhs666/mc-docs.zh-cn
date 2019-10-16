@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
+origin.date: 1/15/2019
+ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: de2ab0219504837f06265286cff78a51f9e03a86
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 684e7fa61e84ba4b7f9ccdbdfa0be005e657e094
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514523"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674611"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>提高 Azure 安全中心的安全评分
 

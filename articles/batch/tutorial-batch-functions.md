@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/30/2019
+origin.date: 05/30/2019
+ms.date: 08/30/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 08f2a9a0d392627362959959dcad1fe4bdd29417
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 68ab76404df9a7638bae9ac273a3c2429646e739
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330048"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>教程：使用 Azure Functions 触发批处理作业
 

@@ -4,11 +4,11 @@ description: Azure 搜索中用于全文搜索查询的简单查询语法的参�
 services: search
 ms.service: search
 ms.topic: conceptual
-origin.date: 05/02/2019
-ms.date: 06/03/2019
+origin.date: 08/08/2019
+ms.date: 09/26/2019
 author: brjohnstmsft
-ms.author: v-biyu
-ms.manager: cgronlun
+ms.author: v-tawe
+ms.manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -20,15 +20,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 19370e351ff7460f51a79a9d41544c369722d947
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 566c50a01b4e538b830bd1f488a5589b6893031a
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004651"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674255"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure 搜索中的简单查询语法
-Azure 搜索实现两种基于 Lucene 的查询语言：[简单查询分析器](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查询分析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜索中，简单查询语法排除了模糊/贪婪选项。  
+Azure 搜索实现两种基于 Lucene 的查询语言：[简单查询分析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查询分析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜索中，简单查询语法排除了模糊/贪婪选项。  
 
 > [!NOTE]  
 >  Azure 搜索为更复杂的查询提供替代的 [Lucene 查询语法](query-lucene-syntax.md)。 若要详细了解查询分析体系结构和每种语法的好处，请参阅 [Azure 搜索中全文搜索的工作原理](search-lucene-query-architecture.md)。

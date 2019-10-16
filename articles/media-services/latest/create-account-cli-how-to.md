@@ -1,5 +1,5 @@
 ---
-title: 使用 CLI 2.0 创建 Azure 媒体服务帐户 | Azure
+title: 使用 Azure CLI 创建媒体服务帐户 - Azure | Microsoft Docs
 description: 按照本快速入门的步骤，创建 Azure 媒体服务帐户。
 services: media-services
 documentationcenter: ''
@@ -9,35 +9,37 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-origin.date: 03/27/2018
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: 9b51a06763c6f08cc1c6a1f8b71e8a30da498655
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+origin.date: 05/19/2019
+ms.date: 09/23/2019
+ms.author: v-jay
+ms.openlocfilehash: 3fe431de1b428310da69b832305bbb551d1d82a8
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648275"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124691"
 ---
 # <a name="create-an-azure-media-services-account"></a>创建 Azure 媒体服务帐户
 
-若要开始加密、编码、分析、管理和流式处理 Azure 中的媒体内容，需要创建媒体服务帐户。 创建媒体服务帐户时，还将在此帐户所在的地理区域内创建一个关联的存储帐户（或使用现有存储帐户）。
+若要开始加密、编码、分析、管理和流式处理 Azure 中的媒体内容，需要创建媒体服务帐户。 媒体服务帐户需与一个或多个存储帐户相关联。
 
-本主题介绍使用 CLI 2.0 创建新 Azure 媒体服务帐户的步骤。  
+> [!NOTE]
+> 媒体服务帐户和所有关联的存储帐户必须位于同一 Azure 订阅中。 强烈建议在媒体服务帐户所在的位置使用存储帐户，避免额外的延迟和数据出口成本。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+本文介绍使用 Azure CLI 创建新 Azure 媒体服务帐户的步骤。  
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="prerequisites"></a>先决条件
 
-登录到 [Azure 门户](http://portal.azure.cn)。
-如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="set-the-azure-subscription"></a>设置 Azure 订阅
 
 在以下命令中，为媒体服务帐户提供想要使用的 Azure 订阅 ID。 导航到[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)即可查看有权访问的订阅列表。
 
-```cli
+```azurecli
 az account set --subscription mySubscriptionId
 ```
  
@@ -45,5 +47,11 @@ az account set --subscription mySubscriptionId
  
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [流式传输文件](stream-files-dotnet-quickstart.md)
+* [访问 v3 API](access-api-cli-how-to.md)
+* [流式传输文件](stream-files-dotnet-quickstart.md)
+* [将辅助存储附加到媒体服务帐户](/cli/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+
+## <a name="see-also"></a>另请参阅
+
+[Azure CLI](/cli/ams?view=azure-cli-latest)
+

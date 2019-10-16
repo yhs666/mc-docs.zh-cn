@@ -2,26 +2,40 @@
 title: 安全性和数据隐私 - Azure 搜索
 description: Azure 搜索符合 SOC 2、HIPAA 和其他认证。 在 Azure 搜索筛选器中通过用户和组安全标识符进行连接和数据加密、身份验证和标识访问。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 113ca7012becedbe8047692a06b9a56b88b1d7ad
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 034fae93130beb9ba289b2f64c56746126d6cd61
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004832"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674397"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜索中的安全性和数据隐私
 
 Azure 搜索中内置了全面的安全功能和访问控制，以确保私有内容保持原有状态。 本文列举了 Azure 搜索中内置的安全功能和标准符合性。
 
 Azure 搜索安全体系结构跨越物理安全性、加密传输、加密存储和全平台标准符合性。 在操作上，Azure 搜索仅接受经过身份验证的请求。 可以选择通过安全筛选器针对内容添加基于用户的访问控制。 本文会涉及每个层的安全性，但侧重于有关如何在 Azure 搜索中保护数据和操作。
+
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>标准符合性：ISO 27001、SOC 2、HIPAA
+
+Azure 搜索针对以下标准进行了认证，如 [2018 年 6 月发布的公告](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)所述。
+
++ [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
++ [SOC 2 类型 2 符合性](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) 有关完整报告，请转到 [Azure - Azure 政府版 SOC 2 类型 II 报告](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)。 
++ [健康保险可携性和责任法案 (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP（CFR 第 21 篇第·11 部分）](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
++ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
++ [PCI DSS 1 级](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [澳大利亚 IRAP 未分类 DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
+
+标准符合性应用于正式版功能。 预览版功能在转变为正式版时进行认证，不能用于具有严格标准要求的解决方案中。 符合性认证记录在 [Microsoft Azure 符合性概述](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)和[信任中心](https://www.microsoft.com/en-us/trustcenter)中。 
 
 ## <a name="encrypted-transmission-and-storage"></a>加密的传输和存储
 
@@ -30,7 +44,7 @@ Azure 搜索安全体系结构跨越物理安全性、加密传输、加密存�
 | 安全层 | 说明 |
 |----------------|-------------|
 | 传输中加密 <br>(HTTPS/SSL/TLS) | Azure 搜索在 HTTPS 端口 443 上侦听。 与 Azure 服务建立的跨平台连接经过加密。 <br/><br/>所有从客户端到服务的 Azure 搜索交互都支持 SSL/TLS 1.2。  请务必为你的服务的 SSL 连接使用 TLSv1.2。|
-| 静态加密 <br>Microsoft 托管的密钥 | 加密在索引过程中完全进行内部化处理，而不会显著影响完成索引所需的时间或索引大小。 加密自动对所有索引进行，包括对未完全加密的索引（在 2018 年 1 月前创建）的增量更新。<br><br>在内部，加密基于 [Azure 存储服务加密](https://docs.azure.cn/zh-cn/storage/common/storage-service-encryption)，使用 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)进行。<br><br> 加密在 Azure 搜索内部进行，证书和加密密钥由 Microsoft 内部管理，并广泛应用。 无法在门户中或以编程方式打开或关闭加密、管理或替换为自己的密钥，或者查看加密设置。<br><br>静态加密已于 2018 年 1 月 24 日宣布推出并应用于所有区域中的所有服务层级，包括共享（免费）服务。 对于完全加密，必须删除该日期之前创建的索引并重新生成，以便进行加密。 否则，仅对 1 月 24 日以后添加的新数据进行加密。|
+| 静态加密 <br>Microsoft 托管的密钥 | 加密在索引过程中完全进行内部化处理，而不会显著影响完成索引所需的时间或索引大小。 加密自动对所有索引进行，包括对未完全加密的索引（在 2018 年 1 月前创建）的增量更新。<br><br>在内部，加密基于 [Azure 存储服务加密](https://docs.azure.cn/storage/common/storage-service-encryption)，使用 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)进行。<br><br> 加密在 Azure 搜索内部进行，证书和加密密钥由 Microsoft 内部管理，并广泛应用。 无法在门户中或以编程方式打开或关闭加密、管理或替换为自己的密钥，或者查看加密设置。<br><br>静态加密已于 2018 年 1 月 24 日宣布推出并应用于所有区域中的所有服务层级，包括共享（免费）服务。 对于完全加密，必须删除该日期之前创建的索引并重新生成，以便进行加密。 否则，仅对 1 月 24 日以后添加的新数据进行加密。|
 | 静态加密 <br>客户管理的密钥 | 使用客户管理的密钥进行加密是一项**预览版**功能，不适用于免费服务。 对于付费服务，该功能仅适用于在 2019 年 1 月或之后使用最新预览版 api-version (api-version=2019-05-06-Preview) 创建的搜索服务。<br><br>现在可以使用 Azure Key Vault 中客户管理的密钥来静态加密 Azure 搜索索引和同义词映射。 有关详细信息，请参阅[在 Azure 搜索中管理加密密钥](search-security-manage-encryption-keys.md)。<br>此功能不会替代默认的静态加密，而是对默认静态加密的补充。<br>启用此功能会增大索引大小，降低查询性能。 根据迄今为止的观察结果，查询时间预期会增加 30%-60%，不过，实际性能根据索引定义和查询类型而有所不同。 由于这种性能影响，我们建议仅对真正需要此功能的索引启用此功能。
 
 ## <a name="azure-wide-user-access-controls"></a>Azure 范围的用户访问控制
@@ -71,7 +85,7 @@ Azure 搜索安全体系结构跨越物理安全性、加密传输、加密存�
 
 ## <a name="admin-access"></a>管理访问权限
 
-[基于角色的访问 (RBAC)](https://docs.azure.cn/zh-cn/role-based-access-control/overview) 确定你是否对服务及其内容拥有控制访问权限。 Azure 搜索服务中的“所有者”或“参与者”可以使用门户或 PowerShell **Az.Search** 模块在服务中创建、更新或删除对象。 也可以使用 [Azure 搜索管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
+[基于角色的访问 (RBAC)](https://docs.azure.cn/role-based-access-control/overview) 确定你是否对服务及其内容拥有控制访问权限。 Azure 搜索服务中的“所有者”或“参与者”可以使用门户或 PowerShell **Az.Search** 模块在服务中创建、更新或删除对象。 也可以使用 [Azure 搜索管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
 
 ## <a name="user-access"></a>用户访问权限
 

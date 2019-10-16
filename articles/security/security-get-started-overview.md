@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/19/2018
-ms.date: 06/19/2018
+ms.date: 06/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1b06ac681f8f4aa26f7d586293206ce2bccb13be
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: f7e1d3aa925d587b9ef855a30d9c3174d4dec9b8
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332046"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674692"
 ---
 # <a name="azure-security-overview"></a>Azure 安全概述
 

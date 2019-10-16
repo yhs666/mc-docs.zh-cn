@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/13/2018
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5549470ff162fbca2935c7b11cbe01f1f84b3f56
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 83c87ddef02bfb93c4b3a44a37555591e635ec10
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514440"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306496"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教程：使用 Azure 门户通过网络安全组筛选网络流量
 
@@ -144,27 +144,27 @@ ms.locfileid: "68514440"
 
     <!--MOONCAKE: Correct on Virtual Machines-->
     
-3. 输入或选择以下信息，保留剩下的默认设置，然后选择“确定”  ：
+3. 输入或选择以下信息，并接受剩下的默认设置：
 
-    |设置|值|
+    |设置|Value|
     |---|---|
-    |Name|myVmWeb|
-    |用户名| 输入所选用户名。|
-    |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |订阅| 选择订阅。|
     |资源组| 选择“使用现有资源组”，再选择“myResourceGroup”   。|
-    |Location| 选择“中国东部” |
+    |Name|myVmWeb|
+    |Location| 选择“中国东部”。 |
+    |用户名| 输入所选用户名。|
+    |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
 
 4. 选择 VM 的大小，然后选择“选择”  。
-5. 在“设置”下选择以下值，接受剩下的默认设置，然后选择“确定”：  
+5. 在“网络”  下选择以下值，并接受剩下的默认设置：
 
     |设置|值|
     |---|---|
-    |虚拟网络 |选择“myVirtualNetwork” |
-    |网络安全组 | 选择“高级”。 |
-    |网络安全组（防火墙）| 选择“(新) myVmWeb-nsg”，然后在“选择网络安全组”下选择“无”。    |
+    |虚拟网络 |选择“myVirtualNetwork”  。|
+    |NIC 网络安全组 |选择“高级”。 |
+    |公共入站端口|选择“无”。  |
 
-6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署    。
+6. 选择左下角的“查看 + 创建”  ，选择“创建”  以开始 VM 部署。
 
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 

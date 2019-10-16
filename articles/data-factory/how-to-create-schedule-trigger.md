@@ -4,21 +4,20 @@ description: 了解如何在 Azure 数据工厂中创建按计划运行管道的
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-editor: ''
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/23/2018
-ms.date: 07/08/2019
-ms.author: v-jay
-ms.openlocfilehash: d7d95eafa4d13e5eada5ccdf3261ce0342116dd8
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 10/14/2019
+ms.openlocfilehash: 44cad371e37441cf123546ca1ef00ed27295f043
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570622"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275366"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>创建按计划运行管道的触发器
 本文提供有关计划触发器和创建、启动和监视计划触发器的步骤的信息。 有关其他类型的触发器，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md)。
@@ -255,9 +254,7 @@ Azure 数据工厂版本 1 支持使用以下系统变量读取或写入分区�
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-有关详细信息，请参阅[如何读取或写入分区的数据](how-to-read-write-partitioned-data.md)中的说明。
+```
 
 ## <a name="json-schema"></a>JSON 架构
 以下 JSON 定义演示如何创建一个带有计划和重复周期的计划触发器：

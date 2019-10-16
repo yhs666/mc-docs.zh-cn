@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 09/20/2018
+ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 683206dc5f5e751813f811e42e77cb91d1e302cf
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: a119cd3ad5df1f5cb9d0946585542b15fecc0505
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236583"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674618"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>了解 Azure 安全中心容器建议
 

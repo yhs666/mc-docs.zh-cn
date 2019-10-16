@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
-manager: digimobile
 origin.date: 03/12/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 2246c20ee7cb53f2a8e4d7f9a307fd6dc22465fb
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 09/30/2019
+ms.openlocfilehash: 6a29571130219f46fca6c0a530d47f46a03b84ae
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544389"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262954"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -370,7 +369,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 
 若要使用集成的身份验证和 Azure AD 标识连接到数据库，数据库连接字符串中的身份验证关键字必须设置为 Active Directory Integrated。 下面的 C# 代码示例使用 ADO.NET。
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.chinacloudapi.cn; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -383,7 +382,7 @@ conn.Open();
 
 要使用集成的身份验证和 Azure AD 标识连接到数据库，必须将“Authentication”关键字设置为“Active Directory Password”。 连接字符串必须包含“User ID/UID”和“Password/PWD”关键字和值。 下面的 C# 代码示例使用 ADO.NET。
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.chinacloudapi.cn; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.partner.onmschina.cn; PWD=MyPassWord!";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -403,7 +402,7 @@ conn.Open();
 
 示例连接字符串：
 
-```c#
+```csharp
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.chinacloudapi.cn; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
 conn.AccessToken = "Your JWT token"
@@ -415,6 +414,9 @@ conn.Open();
 ### <a name="sqlcmd"></a>sqlcmd
 
 以下语句使用版本 13.1 的 sqlcmd 进行连接，该版本可从 [下载中心](https://go.microsoft.com/fwlink/?LinkID=825643)下载。
+
+> [!NOTE]
+> 带 `-G` 的 `sqlcmd` 命令不适用于系统标识，它需要用户主体登录名。
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn  -G  

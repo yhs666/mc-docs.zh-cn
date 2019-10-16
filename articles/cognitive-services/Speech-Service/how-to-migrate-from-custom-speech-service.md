@@ -1,6 +1,6 @@
 ---
 title: 从自定义语音服务迁移到语音服务
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 自定义语音服务现在是语音服务的一部分。 切换到语音服务可受益于最新的质量和功能更新。
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 10/01/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 09/23/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: c0af3a8e3004627e8a3103f58d3650cf289ae472
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: a2e6c9f2c3bc5437ccfc174fd98c70c4892f1001
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348376"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267054"
 ---
-# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>从自定义语音服务迁移到语音服务
+# <a name="migrate-from-the-custom-speech-service-to-the-speech-services"></a>从自定义语音服务迁移到语音服务
 
 本文介绍如何将应用程序从自定义语音服务迁移到语音服务。
 
@@ -31,10 +31,7 @@ ms.locfileid: "58348376"
 
 1. 在应用程序的每个可用区域中创建一个 Azure 资源。 Azure 资源名称为 **Speech**。 可对同一区域中的以下服务使用单个 Azure 资源，而无需创建不同的资源：
 
-    * 语音转文本
-    * 自定义语音转文本
     * 文本转语音
-    * 语音翻译
 
 2. 下载[语音 SDK](speech-sdk.md)。
 
@@ -49,18 +46,17 @@ ms.locfileid: "58348376"
 > [!NOTE]
 > 只能迁移同一区域中的资源密钥。
 
-1. 登录到 [cris.ai](https://www.cris.ai) 门户，然后在右上角菜单中选择订阅。
+1. 登录到 [cris.ai](https://cris.ai/Home/CustomSpeech) 门户，然后在右上角菜单中选择订阅。
 
-2. 选择“迁移选定的订阅”。
+2. 选择“迁移选定的订阅”。 
 
-3. 在文本框中输入订阅密钥，然后选择“迁移”。
+3. 在文本框中输入订阅密钥，然后选择“迁移”  。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [试用语音服务](get-started.md)。
-* 了解[语音转文本](./speech-to-text.md)的概念。
 
 ## <a name="see-also"></a>另请参阅
 
 * [什么是语音服务](overview.md)
-* [语音服务和 SDK 文档](speech-sdk.md#get-the-sdk)
+* [语音服务和语音 SDK 文档](speech-sdk.md#get-the-sdk)

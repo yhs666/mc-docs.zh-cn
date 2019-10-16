@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 origin.date: 07/09/2019
-ms.date: 03/13/2019
-ms.author: v-junlch
+ms.date: 08/13/2019
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 324d6bf02709a2a0ff9517526f82a2e10de1872c
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 4206348761f76a0df66b994504399ac2de87e529
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67845284"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329808"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -328,8 +327,8 @@ Sample complete, hit ENTER to exit...
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- Microsoft HPC 和 Azure Batch 团队博客讨论 [Azure Batch 上针对 Linux 的 MPI 支持][blog_mpi_linux]，并介绍如何将 [OpenFOAM][openfoam] 与 Batch 配合使用。 可以查找适用于 [GitHub 上的 OpenFOAM 示例][github_mpi]的 Python 代码示例。
-- 了解如何[创建 Linux 计算节点池](batch-linux-nodes.md)，以便将其用在 Azure Batch MPI 解决方案中。
+* Microsoft HPC 和 Azure Batch 团队博客讨论 [Azure Batch 上针对 Linux 的 MPI 支持][blog_mpi_linux]，并介绍如何将 [OpenFOAM][openfoam] 与 Batch 配合使用。 可以查找适用于 [GitHub 上的 OpenFOAM 示例][github_mpi]的 Python 代码示例。
+* 了解如何[创建 Linux 计算节点池](batch-linux-nodes.md)，以便将其用在 Azure Batch MPI 解决方案中。
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 

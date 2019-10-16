@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4397e0ec927c03a1e1b65f0c0f4545c65f3f302d
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624172"
 documentType: LandingData
 title: Azure 媒体服务文档
 metadata:
-  document_id: 
+  document_id: null
   title: Azure 媒体服务文档 | Microsoft Docs
-  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  meta.description: 'Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.'
   services: media-services
   author: WenJason
   manager: digimobile
@@ -19,19 +13,29 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 03/11/2019
-  ms.date: 04/01/2019
+  ms.date: 09/23/2019
   ms.author: v-jay
 abstract:
-  description: Azure 媒体服务 (AMS) 是一个基于云的平台，可用于生成解决方案，以便实现观众可在大多数受欢迎的设备上体验的高清晰度视频编码和广播品质视频流。
+  description: Azure 媒体服务是一个基于云的媒体工作流平台，用于生成需要编码、打包、内容保护和直播活动广播的解决方案。 有了 Azure 媒体服务视频索引器，你就可以将 AI 与内置的视频和音频分析器预设配合使用，以便提取元数据和见解。 可以轻松地提高准确性，只需通过视频索引器 API 使用你自己的内容来训练提供的 AI 模型即可。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 1
-    items:
-    - href: /azure/media-services/previous/
-      html: <p>了解如何使用媒体服务 v2 对视频进行编码、按需流式处理和实时直播。</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV2.svg
-      title: Azure 媒体服务 v2
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /media-services/latest/
+            html: <p>使用媒体服务 v3 来编码、打包和保护内容；进行视频点播流式处理；实时广播和分析。</p>
+            image:
+              src: /media-services/latest/media/index/AMSIcons-encoding.svg
+            title: Azure 媒体服务 v3
+          - href: /media-services/previous/
+            html: <p>编码、打包、保护以及其他。 这是处于维护状态的旧服务。 建议客户迁移到媒体服务 v3 以利用其中的新功能和增强功能。</p>
+            image:
+              src: null
+            title: Azure 媒体服务 v2（旧版）
+          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
+            html: <p>在各种浏览器和设备中播放 Azure 媒体服务提供的媒体内容。</p>
+            image:
+              src: /media-services/latest/media/index/AMSIcons-Player.svg
+            title: Azure Media Player

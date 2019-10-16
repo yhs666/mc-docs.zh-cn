@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/20/2019
-ms.date: 06/03/2019
+origin.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: d0f64df39a62060fd32a2f50ca236e03b612fdb4
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 196fdc80f632e2e042ed7fb97e0c2a22fe0c5ba3
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671006"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124667"
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述 
 此页概述了如何以及为何调整媒体处理的规模。 
@@ -44,7 +44,7 @@ ms.locfileid: "69671006"
 > 
 > 
 
-* 适用于视频索引器触发的音频分析和视频分析作业。
+* 对于由媒体服务 v3 或视频索引器触发的音频分析和视频分析作业，强烈建议采用 S3 单位类型。
 * 如果使用共享的池（即没有任何预留单位），则编码任务将具有与 S1 RU 相同的性能。 但是，任务在排队状态下花费的时间可能没有上限，并且在任何给定的时间内，最多只会运行一项任务。
 
 ## <a name="billing"></a>计费
@@ -68,4 +68,7 @@ ms.locfileid: "69671006"
 > [!NOTE]
 > 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[媒体服务的 Java 客户端 SDK 入门](/media-services/media-services-java-how-to-use)。 <br/>
 > 若要下载最新的媒体服务 PHP SDK，请在 [Packagist 存储库](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中查找 0.5.7 版 Microsoft/WindowAzure 包。  
+
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

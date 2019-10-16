@@ -1,25 +1,22 @@
 ---
 title: Azure Functions 的缩放和托管 | Microsoft Docs
 description: 了解如何在 Azure Functions 消耗计划之间进行选择。
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions, Functions, 消耗计划, 事件处理, webhook, 动态计算, 无服务体系结构
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 03/27/2019
-ms.date: 09/06/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba2ca697922042cde8823990c9220ee31bbbfbfa
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 7dadf294bfeeefbca82814a1388d709053dbdab4
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805793"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673476"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -65,7 +62,7 @@ ms.locfileid: "70805793"
 
 ## <a name="app-service-plan"></a>专用（应用服务）计划
 
-函数应用也可以像其他应用服务应用（基本、标准、高级和隔离 SKU）一样在相同的专用 VM 上运行。
+函数应用也可以像其他应用服务应用（基本、标准和隔离 SKU）一样在相同的专用 VM 上运行。
 
 对于以下情况，可以考虑使用应用服务计划：
 
@@ -116,9 +113,6 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 在消耗计划中，Azure Functions 基础结构通过根据触发函数的事件数添加额外的 Functions 主机实例来自动缩放 CPU 和内存资源。 消耗计划中 Functions 主机的每个实例限制为 1.5 GB 内存和 1 个 CPU。  主机实例是整个函数应用，这意味着函数应用中的所有函数共享某个实例中的资源并同时缩放。 共享同一消耗计划的函数应用单独缩放。  
 
 函数代码文件存储在函数主要存储帐户中的 Azure 文件共享上。 删除函数应用的主存储帐户时，函数代码文件将被删除并且无法恢复。
-
-> [!NOTE]
-> 在消耗计划中使用 blob 触发器时，处理新的 blob 可能会出现长达 10 分钟的延迟。 函数应用处于空闲时会发生这种延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [blob 触发器绑定参考文章](functions-bindings-storage-blob.md#trigger)。
 
 ### <a name="runtime-scaling"></a>运行时缩放
 

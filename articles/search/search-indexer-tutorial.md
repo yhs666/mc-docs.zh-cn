@@ -1,22 +1,20 @@
 ---
-title: 教程：在 C# 代码示例中为 Azure SQL 数据库中的数据编制索引 - Azure 搜索
+title: C# 教程：为 Azure SQL 数据库中的数据编制索引 - Azure 搜索
 description: 本 C# 代码示例演示如何连接到 Azure SQL 数据库、提取可搜索的数据，并将其加载到 Azure 搜索索引中。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 9d18efcf83f5aeb28f4c6438fd695790bfeaf395
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 79334f2c6b622e25a478adf944db257cf53f6cac
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004855"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674363"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 教程：使用 Azure 搜索索引器搜索 Azure SQL 数据库
 
@@ -40,7 +38,7 @@ ms.locfileid: "66004855"
 
 本快速入门使用以下服务、工具和数据。 
 
-[创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。
+[创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。
 
 [Azure SQL 数据库](https://www.azure.cn/pricing/details/sql-database/)存储索引器所用的外部数据源。 示例解决方案提供了一个用于创建表的 SQL 数据文件。 本教程提供了创建服务和数据库的步骤。
 
@@ -55,11 +53,11 @@ ms.locfileid: "66004855"
 
 REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 搜索，则请按以下步骤获取必需信息：
 
-1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。 示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
+1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。  示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
 
-1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
+1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-![获取 HTTP 终结点和访问密钥](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -84,7 +82,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 ## <a name="prepare-sample-data"></a>准备示例数据
 
-在此步骤中，请创建一个可供索引器爬网的外部数据源。 可以使用 Azure 门户和示例中的 hotels.sql 文件，在 Azure SQL 数据库中创建数据集。 Azure 搜索使用平展行集，例如从视图或查询生成的行集。 示例解决方案中的 SQL 文件创建并填充单个表。
+在此步骤中，请创建一个可供索引器爬网的外部数据源。 可以使用 Azure 门户和示例中的  hotels.sql 文件，在 Azure SQL 数据库中创建数据集。 Azure 搜索使用平展行集，例如从视图或查询生成的行集。 示例解决方案中的 SQL 文件创建并填充单个表。
 
 以下练习假定没有现成的服务器或数据库，因此会指导你在步骤 2 中创建这两项。 （可选）如果有现成的资源，可以向其添加 hotels 表，从步骤 4 开始。
 
@@ -94,23 +92,23 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
    ![“新建数据库”页](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
-3. 单击“创建”，部署新的服务器和数据库。 等待服务器和数据库部署。
+3. 单击“创建”  ，部署新的服务器和数据库。 等待服务器和数据库部署。
 
-4. 打开新数据库的“SQL 数据库”页（如果尚未打开）。 资源名称应显示为“SQL 数据库”而非“SQL Server”。
+4. 打开新数据库的“SQL 数据库”页（如果尚未打开）。 资源名称应显示为“SQL 数据库”而非“SQL Server”。  
 
    ![“SQL 数据库”页](./media/search-indexer-tutorial/hotels-db.png)
 
-4. 在导航窗格中，单击“查询编辑器(预览版)”。
+4. 在导航窗格中，单击“查询编辑器(预览版)”  。
 
-5. 单击“登录”，输入服务器管理员的用户名和密码。
+5. 单击“登录”，输入服务器管理员的用户名和密码。 
 
-6. 单击“打开查询”，导航到 hotels.sql 所在位置。 
+6. 单击“打开查询”  ，导航到  hotels.sql 所在位置。 
 
-7. 选择该文件，然后单击“打开”。 此脚本应与以下屏幕截图类似：
+7. 选择该文件，然后单击“打开”。  此脚本应与以下屏幕截图类似：
 
    ![SQL 脚本](./media/search-indexer-tutorial/sql-script.png)
 
-8. 单击“运行”以执行查询。 在“结果”窗格中，应看到一条 3 行内容的消息，指示查询成功。
+8. 单击“运行”  以执行查询。 在“结果”窗格中，应看到一条 3 行内容的消息，指示查询成功。
 
 9. 若要从此表返回一个行集，可执行以下充当验证步骤的查询：
 
@@ -119,7 +117,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
     ```
     原型查询 `SELECT * FROM Hotels` 在查询编辑器中不起作用。 示例数据包括“位置”字段的地理坐标，目前在编辑器中无法处理。 如需要查询的其他列的列表，可执行以下语句：`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
-10. 有了外部数据集以后，请复制数据库的 ADO.NET 连接字符串。 在数据库的“SQL 数据库”页，转到“设置” > “连接字符串”，然后复制 ADO.NET 连接字符串。
+10. 有了外部数据集以后，请复制数据库的 ADO.NET 连接字符串。 在数据库的“SQL 数据库”页，转到“设置”   >   “连接字符串”，然后复制 ADO.NET 连接字符串。
  
     ADO.NET 连接字符串类似于以下示例，经修改后可使用有效的数据库名称、用户名和密码。
 
@@ -220,8 +218,8 @@ public string HotelName { get; set; }
 
 在此步骤中，请编译并运行程序。 
 
-1. 在解决方案资源管理器中右键单击“DotNetHowToIndexers”，然后选择“生成”。
-2. 再次右键单击“DotNetHowToIndexers”，接着单击“调试” > “启动新实例”。
+1. 在解决方案资源管理器中右键单击“DotNetHowToIndexers”，然后选择“生成”。  
+2. 再次右键单击“DotNetHowToIndexers”，接着  单击“调试”   >   “启动新实例”。
 
 程序在调试模式下执行。 控制台窗口报告每项操作的状态。
 
@@ -237,11 +235,11 @@ public string HotelName { get; set; }
 
 ## <a name="search-the-index"></a>搜索索引 
 
-在 Azure 门户的搜索服务“概览”页，单击顶部的“搜索浏览器”，提交一些有关新索引的查询。
+在 Azure 门户的搜索服务“概览”页，单击顶部的“搜索浏览器”，提交一些有关新索引的查询。 
 
-1. 单击顶部的“更改索引”，选择 hotels 索引。
+1. 单击顶部的“更改索引”，选择 hotels 索引。  
 
-2. 单击“搜索”按钮，发出一个空的搜索指令。 
+2. 单击“搜索”  按钮，发出一个空的搜索指令。 
 
    索引中的三个条目以 JSON 文档的形式返回。 搜索浏览器返回 JSON 格式的文档，方便你查看整个结构。
 
@@ -257,7 +255,7 @@ public string HotelName { get; set; }
 
 所有索引器（包括刚刚以编程方式创建的）都列在门户中。 可以打开一个索引器定义，然后查看其数据源，也可以配置一个刷新计划来拾取新行和已更改行。
 
-1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中，单击“索引”、“索引器”和“数据源”对应的链接。
+1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中，单击“索引”、“索引器”和“数据源”对应的链接。    
 3. 选择单个对象以查看或修改配置设置。
 
    ![索引器和数据源磁贴](./media/search-indexer-tutorial/tiles-portal.png)

@@ -3,22 +3,23 @@ title: 什么是与 Azure AD 的联合？ | Microsoft Docs
 description: 介绍了与 Azure AD 的联合。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 11/28/2018
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.date: 10/10/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: f03d43609023c0c0af619b6b46fba9349b32a542
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3234ff762fb8f5dc7fb0d7f998cea101deea381a
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996429"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292096"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>什么是与 Azure AD 的联合？
 
@@ -35,9 +36,10 @@ ms.locfileid: "53996429"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [什么是混合标识？](whatis-phs.md)
+- [什么是混合标识？](/active-directory/hybrid/whatis-hybrid-identity)
 - [什么是密码哈希同步？](whatis-phs.md)
 - [什么是联合身份验证？](whatis-fed.md)
 - [联合身份验证的工作原理](how-to-connect-fed-whatis.md)
 - [使用 PingFederate 进行联合身份验证](how-to-connect-install-custom.md#configuring-federation-with-pingfederate)
 
+<!-- Update_Description: link update -->

@@ -24,7 +24,7 @@ ms.locfileid: "70857120"
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
 
-了解如何使用 Azure 门户生成资源管理器模板，以及从门户编辑和部署该模板的过程。 Resource Manager 模板为 JSON 文件，用于定义针对解决方案进行部署时所需的资源。 若要了解与部署和管理 Azure 解决方案相关联的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
+了解如何使用 Azure 门户生成资源管理器模板，以及从门户编辑和部署该模板的过程。 资源管理器模板为 JSON 文件，用于定义针对解决方案进行部署时所需的资源。 若要了解与部署和管理 Azure 解决方案相关联的概念，请参阅 [Azure 资源管理器概述](resource-group-overview.md)。
 
 ![资源管理器模板快速入门门户关系图](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "70857120"
     ![使用 Azure 门户创建 Azure 存储帐户](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 输入以下信息：
 
-    |Name|Value|
+    |名称|值|
     |----|----|
     |**资源组**|选择“新建”  ，然后指定所选资源组的名称。 在屏幕截图中，资源组名称为 *mystorage1016rg*。 资源组是 Azure 资源的容器。 资源组方便 Azure 资源的管理。 |
     |**名称**|为存储帐户指定唯一的名称。 存储帐户名称在整个 Azure 中必须是唯一的，且仅包含小写字母和数字。 名称长度必须介于 3 到 24 个字符之间。 如果收到错误消息“存储帐户名称‘mystorage1016’已被占用”，请尝试使用“&lt;名称>存储&lt;MMDD 格式的今日日期>”，例如“johndolestorage1016”   。 |
@@ -103,7 +103,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 6. 选择“加载文件”，  然后按说明加载在上部分下载的 template.json。
 7. 对模板进行以下三处更改：
 
-    ![Azure Resource Manager 模板](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
+    ![Azure 资源管理器模板](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
     - 删除“storageAccountName”参数，如上一屏幕截图所示  。
     - 添加一个名为“storageAccountName”的变量，如上一屏幕截图所示  ：
@@ -166,7 +166,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
         "outputs": {}
         }
         ```
-8. 选择“其他安全性验证”  。
+8. 选择“保存”  。
 
     <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
   
@@ -174,16 +174,16 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 
     - “部署解决方案模板”面板。 
     
-        |Name|Value|
+        |名称|值|
         |----|----|
         |**资源组**| 选择“新建”  并使用唯一名称命名资源组。|
         |**资源组位置**| 选择资源组的位置。 例如，**中国北部**。 |
         
     - 选择“编辑参数”，显示“参数”面板。  
     
-        |Name|Value|
+        |名称|值|
         |----|----|
-        |**Location**| 选择存储帐户的位置。 例如，**中国北部**。|
+        |**位置**| 选择存储帐户的位置。 例如，**中国北部**。|
         |**帐户类型**| 对于本快速入门，请输入 **Standard_LRS**。|
         |**种类**| 对于本快速入门，请输入“StorageV2”。 |
         |**访问层**| 对于本快速入门，请输入“热”  。|

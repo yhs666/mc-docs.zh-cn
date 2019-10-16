@@ -12,18 +12,19 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/12/19
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fd5e1a169ee6ac137005711c66efa2e45c4001f4
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: c36832f57d0fec661549e92e7d2ac320cad94e4b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169600"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330102"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板为命名空间和队列创建服务总线授权规则
 
-本文介绍如何使用为服务总线命名空间和队列创建[授权规则](service-bus-authentication-and-authorization.md#shared-access-signature-authentication)的 Azure Resource Manager 模板。 本文介绍如何指定要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
+本文介绍如何使用为服务总线命名空间和队列创建[授权规则](service-bus-authentication-and-authorization.md#shared-access-signature)的 Azure Resource Manager 模板。 本文介绍如何指定要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
 
 有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
 
@@ -45,7 +46,7 @@ ms.locfileid: "70169600"
 
 利用此模板，将为命名空间和消息传送实体（在此示例中为队列）部署服务总线授权规则。
 
-此模板使用[共享访问签名 (SAS)](./service-bus-sas.md) 进行身份验证。 SAS 使应用程序能够使用在命名空间或在关联了特定权限的消息传送实体（队列或主题）上配置的访问密钥向服务总线进行身份验证。 然后可以使用此密钥生成 SAS 令牌，客户端反过来可用它向服务总线进行身份验证。
+此模板使用[共享访问签名 (SAS)](service-bus-sas.md) 进行身份验证。 SAS 使应用程序能够使用在命名空间或在关联了特定权限的消息传送实体（队列或主题）上配置的访问密钥向服务总线进行身份验证。 然后可以使用此密钥生成 SAS 令牌，客户端反过来可用它向服务总线进行身份验证。
 
 若要自动运行部署，请单击以下按钮：
 
@@ -150,7 +151,6 @@ ms.locfileid: "70169600"
 ```
 
 ## <a name="commands-to-run-deployment"></a>运行部署的命令
-
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -166,7 +166,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
 现在，已使用 Azure 资源管理器创建并部署了资源，请通过查看以下文章了解如何管理这些资源：
 
 - [使用 PowerShell 管理服务总线](/service-bus-messaging/service-bus-manage-with-ps)

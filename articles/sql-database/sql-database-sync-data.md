@@ -9,16 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: douglasl
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: b2e5ab0cce614df27bab1933e551c570cc12671d
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.reviewer: carlrab
+origin.date: 08/20/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 5141052a7ac60a09186d50422a00d3582048f28a
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578555"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262656"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -120,6 +119,12 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 ### <a name="general-requirements"></a>一般要求
 
 - 每个表都必须有主键。 请勿更改任何一行中的主键值。 如果必须更改主键值，请先删除行，再使用新的主键值重新创建此行。 
+
+> [!IMPORTANT]
+> 更改现有主键的值会导致以下错误行为：   
+> - 即使同步未报告任何问题，中心和成员之间的数据也会丢失。
+> - 由于主键更改，跟踪表的源行不存在，同步可能会失败。
+
 - 必须启用快照隔离。 有关详细信息，请参阅 [SQL Server 中的快照隔离](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
 
 ### <a name="general-limitations"></a>一般限制

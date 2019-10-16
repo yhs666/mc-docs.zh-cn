@@ -1,27 +1,26 @@
 ---
 title: 使用知识存储（预览版）中的投影 - Azure 搜索
 description: 保存并塑造 AI 索引管道中的扩充数据，以便在除搜索以外的方案中使用
-manager: eladz
+manager: nitinme
 author: vkurpad
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seomay2019
-ms.openlocfilehash: a7e31249d922a0973579b3f9a460263e00c741d9
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: 60b67aad09ace0dca04dc70ea9036c4342af5d8f
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004882"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674406"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>在 Azure 搜索中使用知识存储中的投影
 
 > [!Note]
-> 知识存储目前以预览版提供，不适合在生产环境中使用。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 没有不提供任何 .NET SDK 支持。
+> 知识存储目前以预览版提供，不适合在生产环境中使用。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供了此功能。 没有不提供任何 .NET SDK 支持。
 >
 
 Azure 搜索允许通过编制索引功能附带的 AI 认知技能和自定义技能来扩充内容。 扩充会将结构添加到文档，并提高搜索效率。 在许多情况下，扩充的文档可用于除搜索以外的方案，例如知识挖掘。
@@ -68,6 +67,9 @@ Azure 搜索允许通过编制索引功能附带的 AI 认知技能和自定义�
 ### <a name="defining-a-table-projection"></a>定义表投影
 
 在技能集的 `knowledgeStore` 元素中定义表投影时，请先将扩充树中的某个节点映射到表源。 此节点通常是添加到技能列表的、用于生成需要投影到表的“整形程序”技能的输出。  选择投影的节点可以分片，以投影到多个表。 表定义是要投影的表列表。 
+
+#### <a name="projection-slicing"></a>投影切片
+定义表投影组时，可以将扩充树中的单个节点切片为多个相关表。 添加源路径为现有表投影的子级的表将导致子节点从父节点中分割出来，并投影到新的但相关的表中。 这样，就可以使用整形程序技能定义单个节点，该节点可以作为所有表投影的源。
 
 每个表需要三个属性：
 
@@ -168,6 +170,7 @@ Azure 搜索允许通过编制索引功能附带的 AI 认知技能和自定义�
 
 分析时，可以方便地在 Power BI 中浏览数据，只需将 Azure 表存储设置为数据源即可。 可以利用数据内部的关系，十分轻松地基于数据创建一组可视化效果。
 
+<!-- Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md). -->
 
 最后，如果需要从知识存储导出数据，可以使用 Azure 数据工厂提供的连接器来导出数据，然后将其载入所选的数据库。 
 

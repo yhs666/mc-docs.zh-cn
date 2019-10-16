@@ -2,22 +2,21 @@
 title: 在认知搜索中处理和提取图像中的文本 - Azure 搜索
 description: 处理和提取 Azure 搜索的认知搜索管道中的图像中的文本和其他信息。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: 5280b94cbfe707826aaad76bb27b40f7db55f474
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9412558d59ad1cee88fe7076636f2a086fdf3716
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004814"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674410"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何处理和提取认知搜索方案中的图像中的信息
 
@@ -31,21 +30,20 @@ ms.locfileid: "66004814"
 
 在文档破解过程中，可以使用新的一组索引器配置参数来处理图像文件或嵌入文件中的图像。 这些参数用于将图像规范化，以便进行进一步的下游处理。 规范化图像可以使图像更统一。 可以根据最大高度和宽度来重设大型图像的大小，使之可用。 对于提供方向元数据的图像，可以调整图像旋转，使之适合垂直加载。 元数据调整项在为每个图像创建的复杂类型中捕获。 
 
-无法关闭图像规范化功能。 循环访问图像的技术需要规范化的图像。
+无法关闭图像规范化功能。 循环访问图像的技术需要规范化的图像。 在索引器上启用图像规范化需要将技能组附加到该索引器。
 
 | 配置参数 | 说明 |
 |--------------------|-------------|
 | imageAction   | 如果在遇到嵌入图像或图像文件时无需执行任何操作，请将此项设置为 "none"。 <br/>设置为 "generateNormalizedImages" 会在文档破解过程中生成一系列规范化的图像。<br/>设置为“generateNormalizedImagePerPage”，以生成一系列规范化的图像，对于数据源中的 PDF 文件，每一页呈现为一个输出图像。  对于非 PDF 文件类型，该功能与“generateNormalizedImages”相同。<br/>对于任何不是“none”的选项，这些图像会在 *normalized_images* 字段中公开。 <br/>默认为 "none"。 将 "dataToExtract" 设置为 "contentAndMetadata" 时，此配置仅与 Blob 数据源相关。 <br/>将从给定文档中提取最多 1000 个图像。 如果在文档中有超过 1000 个图像，则将提取前 1000 个，并将生成警告。 |
-|  normalizedImageMaxWidth | 生成的规范化图像的最大宽度（以像素为单位）。 默认为 2000。|
-|  normalizedImageMaxHeight | 生成的规范化图像的最大高度（以像素为单位）。 默认为 2000。|
+|  normalizedImageMaxWidth | 生成的规范化图像的最大宽度（以像素为单位）。 默认为 2000。 允许的最大值为 10000。 | 
+|  normalizedImageMaxHeight | 生成的规范化图像的最大高度（以像素为单位）。 默认为 2000。 允许的最大值为 10000。|
 
 > [!NOTE]
 > 如果将 *imageAction* 属性设置为 "none" 之外的其他值，则只能将 *parsingMode* 属性设置为 "default"。  在索引器配置中，只能将这两个属性中的一个设置为非默认值。
 
 将 **parsingMode** 参数设置为 `json`（将每个 Blob 作为单个文档进行索引编制）或 `jsonArray`（如果 Blob 包含 JSON 数组，且需要将数组的每个元素视为单独的文档）。
 
-将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到 [OCR 技术](cognitive-search-skill-ocr.md)所能够支持的最大大小以及[图像分析技术](cognitive-search-skill-image-analysis.md)。 如果提高最大限制，则在处理较大的图像时可能会失败。
-
+将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到 [OCR 技术](cognitive-search-skill-ocr.md)所能够支持的最大大小以及[图像分析技术](cognitive-search-skill-image-analysis.md)。 [OCR 技能](cognitive-search-skill-ocr.md)支持非英语语言的最大宽度和高度为 4200，支持英语语言的最大宽度和高度为 10000。  如果增加最大限制，则根据技能组定义和文档语言，对较大的图像进行处理可能会失败。 
 
 可以指定[索引器定义](https://docs.microsoft.com/rest/api/searchservice/create-indexer)中所述的 imageAction，如下所示：
 
@@ -73,7 +71,8 @@ ms.locfileid: "66004814"
 | originalWidth      | 图像在规范化之前的原始宽度。 |
 | originalHeight      | 图像在规范化之前的原始高度。 |
 | rotationFromOriginal |  在创建规范化图像过程中进行的逆时针旋转（以度为单位）。 值的范围为 0 度到 360 度。 此步骤从图像读取由照相机或扫描仪生成的元数据。 通常为 90 度的倍数。 |
-| contentOffset |从其提取图像的内容字段中的字符偏移。 此字段仅适用于包含嵌入图像的文件。 |
+| contentOffset | 从其提取图像的内容字段中的字符偏移。 此字段仅适用于包含嵌入图像的文件。 |
+| pageNumber | 如果图像是从 PDF 提取或呈现的，则此字段包含从中提取或呈现图像的 PDF 中的页码（从 1 开始）。  如果图像不是来自 PDF，则此字段将为 0。  |
 
  *normalized_images* 的示例值：
 ```json
@@ -85,7 +84,8 @@ ms.locfileid: "66004814"
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```
@@ -103,8 +103,6 @@ ms.locfileid: "66004814"
 ### <a name="ocr-skill"></a>OCR 技术
 
 [OCR 技术](cognitive-search-skill-ocr.md)可从图像文件（例如 JPG、PNG、位图）中提取文本。 它可以提取文本和布局信息。 布局信息为每个确定的字符串提供边框。
-
-可以通过 OCR 技术选择用于在图像中检测文本的算法。 它目前支持两种算法，一种适用于印刷体文本，另一种适用于手写体文本。
 
 ## <a name="embedded-image-scenario"></a>嵌入图像场景
 

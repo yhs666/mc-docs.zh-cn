@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: troubleshooting
 origin.date: 07/05/2019
-ms.date: 11/26/2018
+ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5e5d168611e64d57ef70e4b969f92a771b272082
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 9b7e00b62f050e7fdf9807dad7e3d323fba2b037
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969671"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330249"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题
 本文提供故障排除指导，帮助你诊断使用 Azure 备份来备份文件和文件夹时备份性能缓慢的原因。 使用 Azure 备份代理备份文件时，备份过程花费的时间可能比预期要长。 这种延迟可能由以下一个或多个原因所造成：

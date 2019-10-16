@@ -6,18 +6,18 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-origin.date: 07/11/2018
-ms.date: 03/04/2019
+origin.date: 07/24/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: f7e079904d405aba51c97517a01ad26727fe228a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 95f48b56ee45a1b111751bd22b59e91ccbf5ec5d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627681"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156206"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教程：为 IoT 中心执行手动故障转移（公共预览版）
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>教程：为 IoT 中心执行手动故障转移
 
 手动故障转移是 IoT 中心服务的一项功能，允许客户将其中心的操作从主要区域[故障转移](https://en.wikipedia.org/wiki/Failover)到相应的 Azure 异地配对区域。 在出现区域性灾难或者服务中断时间延长的情况下，可以进行手动故障转移。 也可通过执行计划内故障转移来测试灾难恢复功能，虽然我们建议使用测试性 IoT 中心而不是在生产环境中运行的 IoT 中心。 提供给客户的手动故障转移功能不另外收费。
 
@@ -38,25 +38,25 @@ ms.locfileid: "58627681"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 
 
-2. 单击“+ 创建资源”，选择“物联网”，然后选择“IoT 中心”。
+2. 单击“+ 创建资源”，选择“物联网”，然后选择“IoT 中心”。   
 
    ![显示正在创建 IoT 中心的屏幕截图](./media/tutorial-manual-failover/create-hub-01.png)
 
-3. 选择“基本信息”选项卡。在以下字段中进行填充。
+3. 选择“基本信息”  选项卡。在以下字段中进行填充。
 
     **订阅**：选择要使用的 Azure 订阅。
 
-    **资源组**：单击“新建”，指定“ManlFailRG”作为资源组名称。
+    **资源组**：单击“新建”，指定“ManlFailRG”作为资源组名称。  
 
-    **区域**：选择离你近的属于预览版一部分的区域。 本教程使用 `chinaeast`。 只能在 Azure 异地配对区域之间执行故障转移。 与 chinaeast 异地配对的区域是 chinanorth。
+    **区域**：选择离你近的区域。 本教程使用 `chinaeast`。 只能在 Azure 异地配对区域之间执行故障转移。 与 chinaeast 异地配对的区域是 chinanorth。
     
    **Iot 中心名称**：指定 IoT 中心的名称。 该中心名称必须在全局中独一无二。 
 
    ![显示用于创建 IoT 中心的“基本信息”窗格的屏幕截图](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
-   单击“查看 + 创建”。 （它使用大小和规模的默认值。） 
+   单击“查看 + 创建”  。 （它使用大小和规模的默认值。） 
 
-4. 查看信息，然后单击“创建”以创建 IoT 中心。 
+4. 查看信息，然后单击“创建”以创建 IoT 中心。  
 
    ![显示用于创建 IoT 中心的最后步骤的屏幕截图](./media/tutorial-manual-failover/create-hub-03-create.png)
 
@@ -64,37 +64,42 @@ ms.locfileid: "58627681"
 
 请注意，一个 IoT 中心每天的限制是两次故障转移和两次故障回复。
 
-1. 单击“资源组”，然后选择资源组“ManlFailRG”。 在资源列表中单击你的中心。 
+1. 单击“资源组”，然后选择资源组“ManlFailRG”   。 在资源列表中单击你的中心。 
 
-2. 在“IoT 中心”窗格的“复原”下，单击“手动故障转移(预览)”。 请注意，如果中心不是在有效区域中设置的，则会禁用手动故障转移选项。
+1. 在 IoT Hub 窗格上的“设置”  下，单击“故障转移”  。
 
    ![显示 IoT 中心属性窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. 在“手动故障转移”窗格中，可以看到“IoT 中心主位置”和“IoT 中心辅助位置”。 主位置一开始设置为你在创建 IoT 中心时指定的位置，并且始终表示中心当前处于活动状态时的位置。 辅助位置是标准的 Azure 异地配对区域，与主位置配对。 不能更改位置值。 在本教程中，主位置为 `chinaeast`，辅助位置为 `chinanorth`。
+3. 在“手动故障转移”窗格上，可以看到**当前位置**和**故障转移位置**。 当前位置始终指示中心当前处于活动状态的位置。 故障转移位置是标准的 Azure 异地配对区域，与当前位置配对。 不能更改位置值。 在本教程中，当前位置为 `chinaeast`，故障转移位置为 `chinanorth`。
 
    ![显示“手动故障转移”窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3. 在“手动故障转移”窗格顶部单击“启动故障转移”。 此时会看到“确认手动故障转移”窗格。 填充 IoT 中心的名称，确认是它需要故障转移。 然后，若要启动故障转移，请单击“确定”。
+1. 在“手动故障转移”窗格顶部单击“启动故障转移”。  
+
+1. 在“确认”窗格中填充 IoT 中心的名称，确认是它需要故障转移。 然后，若要启动故障转移，请单击“故障转移”  。
 
    执行手动故障转移所需时间与中心的已注册设备数成正比。 例如，如果有 1 百万台设备，可能需要 15 分钟，但如果有 5 百万台设备，则可能需要 1 小时或更长的时间。
 
-4. 在“确认手动故障转移”窗格中填充 IoT 中心的名称，确认是它需要故障转移。 然后，若要启动故障转移，请单击“确定”。 
-
    ![显示“手动故障转移”窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   当手动故障转移过程正在运行时，“手动故障转移”窗格中会有一个横幅，告知你手动故障转移正在进行。 
+   在手动故障转移进程正在运行时，会显示一个横幅，告诉你正在进行手动故障转移。 
 
    ![显示手动故障转移正在进行的屏幕截图](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-   如果在关闭“IoT 中心”窗格后又在“资源组”窗格中通过单击来打开它，则会看到一个横幅，指出该中心未处于活动状态。 
+   如果在关闭“IoT 中心”窗格后又在“资源组”窗格中通过单击来打开它，则会看到一个横幅，告诉你该中心正在进行手动故障转移。 
 
-   ![显示 IoT 中心处于非活动状态的屏幕截图](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![显示 IoT 中心正在进行故障转移的屏幕截图](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   完成后，“手动故障转移”页上的主要区域和次要区域会互换，中心又处于活动状态。 在本示例中，主位置现在为 `WestCentralUS`，辅助位置现在为 `westus2`。 
+   故障转移完成后，“手动故障转移”页上的当前区域和故障转移区域会互换，中心重新处于活动状态。 在本示例中，当前位置现在为 `chinaeast`，故障转移位置现在为 `chinanorth`。 
 
    ![显示故障转移已完成的屏幕截图](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-## <a name="perform-a-failover"></a> 执行故障回复 
+   “概述”页还显示一个横幅，指示故障转移已完成，并且 IoT 中心正在 `China East` 中运行。
+
+   ![“概述”页中显示故障转移已完成的屏幕截图](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
+
+
+## <a name="perform-a-failback"></a>执行故障回复 
 
 执行手动故障转移以后，可以将中心的操作切换回原始的主要区域 -- 这称为故障回复。 如果刚执行故障转移，则需等待大约一小时，然后才能请求故障回复。 如果尝试在比这更短的时间内执行故障回复，则会显示错误消息。
 
@@ -102,25 +107,25 @@ ms.locfileid: "58627681"
 
 1. 若要执行故障回复，请返回到 Iot 中心的“Iot 中心”窗格。
 
-2. 在“IoT 中心”窗格的“复原”下，单击“手动故障转移(预览)”。 
+2. 在 IoT Hub 窗格上的“设置”  下，单击“故障转移”  。 
 
-3. 在“手动故障转移”窗格顶部单击“启动故障转移”。 此时会看到“确认手动故障转移”窗格。 
+3. 在“手动故障转移”窗格顶部单击“启动故障转移”。  
 
-4. 在“确认手动故障转移”窗格中填充 IoT 中心的名称，确认是它需要故障回复。 然后，若要启动故障回复，请单击“确定”。 
+4. 在“确认”窗格中填充 IoT 中心的名称，确认是它需要故障回复。 然后，若要启动故障回复，请单击“确定”。 
 
-   ![手动故障回复请求的屏幕截图](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![手动故障回复请求的屏幕截图](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   横幅会如[执行故障转移](#perform-a-failover)部分所述一样显示。 故障回复完成之后，它会将 `chinaeast` 显示为主位置，将 `chinanorth` 显示为辅助位置，就像初始设置的一样。
+   横幅会如[执行故障转移](#perform-a-failover)部分所述一样显示。 故障回复完成之后，它会再次将 `chinaeast` 显示为当前位置，将 `chinanorth` 显示为故障转移位置，就像初始设置的一样。
 
 ## <a name="clean-up-resources"></a>清理资源 
 
 若要删除为本教程创建的资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在本示例中，它会删除 IoT 中心和资源组本身。 
 
-1. 单击“资源组”。 
+1. 单击“资源组”。  
 
-2. 找到并选择资源组“ManlFailRG”。 单击可将其打开。 
+2. 找到并选择资源组“ManlFailRG”。  单击可将其打开。 
 
-3. 单击“删除资源组”。 系统提示时，请输入资源组的名称，然后单击“删除”进行确认。 
+3. 单击“删除资源组”。  系统提示时，请输入资源组的名称，然后单击“删除”进行确认  。 
 
 ## <a name="next-steps"></a>后续步骤
 

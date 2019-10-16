@@ -8,16 +8,16 @@ manager: digimobile
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+origin.date: 08/13/2019
+ms.date: 09/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e763b9869fa184ab7a03f864a21feaf84a866677
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 094431e9494649e14c5cd1e4af55ffcf7deaafdd
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104187"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330038"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>在 Batch 池中装载虚拟文件系统
 

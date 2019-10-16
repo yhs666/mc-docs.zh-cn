@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: 7835c249be043f23fe43d51bd02d5b18dfd40e72
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 02/13/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: ac152a471de1a13fa16586ef370338a733a04855
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222584"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272875"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>针对 APNS 的基于令牌的 (HTTP/2) 身份验证
 
@@ -69,7 +69,7 @@ ms.locfileid: "56222584"
 
 ### <a name="authentication-token"></a>身份验证令牌
 
-在为应用程序生成令牌后，可以下载身份验证令牌。 有关如何生成此令牌的详细信息，请参阅 [Apple 的开发人员文档](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65)。
+在为应用程序生成令牌后，可以下载身份验证令牌。 有关如何生成此令牌的详细信息，请参阅 [Apple 的开发人员文档](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1)。
 
 ## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>将通知中心配置为使用基于令牌的身份验证
 
@@ -77,13 +77,13 @@ ms.locfileid: "56222584"
 
 若要在门户中启用基于令牌的身份验证，请登录到 Azure 门户，转到通知中心 >“通知服务”> APNS 面板。
 
-有一项新属性 – 身份验证模式。 选择“令牌”将允许你使用所有相关令牌属性更新你的中心。
+有一项新属性 – 身份验证模式  。 选择“令牌”将允许你使用所有相关令牌属性更新你的中心。
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
 * 输入从 Apple 开发人员帐户检索到的属性
 * 选择应用程序模式（“生产”或“沙盒”）
-* 单击“保存”按钮以更新 APNS 凭据
+* 单击“保存”  按钮以更新 APNS 凭据
 
 ### <a name="configure-via-management-api-rest"></a>通过管理 API (REST) 进行配置
 
@@ -100,17 +100,17 @@ ms.locfileid: "56222584"
 
     ```text
         PUT https://{namespace}.servicebus.chinacloudapi.cn/{Notification Hub}?api-version=2017-04
+      "Properties": {
+        "ApnsCredential": {
           "Properties": {
-            "ApnsCredential": {
-              "Properties": {
-                "KeyId": "<Your Key Id>",
-                "Token": "<Your Authentication Token>",
-                "AppName": "<Your Application Name>",
-                "AppId": "<Your Application Id>",
-                "Endpoint":"<Sandbox/Production Endpoint>"
-              }
-            }
+            "KeyId": "<Your Key Id>",
+            "Token": "<Your Authentication Token>",
+            "AppName": "<Your Application Name>",
+            "AppId": "<Your Application Id>",
+            "Endpoint":"<Sandbox/Production Endpoint>"
           }
+        }
+      }
     ```
 
 ### <a name="configure-via-the-net-sdk"></a>通过 .NET SDK 进行配置

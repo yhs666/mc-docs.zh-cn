@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/02/2018
+ms.date: 08/29/2019
 ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: da9ffc0c371af026b0a5aff5fa2d9ce567f0f00b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 3013e0560fa48715d6388ed65a171643d47b0596
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818559"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329671"
 ---
 # <a name="available-relay-apis"></a>可用的中继 API
 

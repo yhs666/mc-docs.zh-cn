@@ -8,15 +8,16 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 03b3fc079cb8593dc005a6f3c82d22ace2776b31
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: ed87356a43f2bfe39ccc54361039dc403ff6950f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104090"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329686"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和密钥的边界
 LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)，它可控制 LUIS 中的意向、实体和功能。 第二个是基于密钥类型的[配额限制](#key-limits)。 边界的第三个区域是用于控制 LUIS 网站的[键盘组合](#keyboard-controls)。 第四个是 LUIS 创作网站和 LUIS [终结点](luis-glossary.md#endpoint) API 之间的[世界区域映射](luis-reference-regions.md)。 
@@ -29,6 +30,7 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 |区域|限制|
 |--|:--|
 | [应用名称][luis-get-started-create-app] | *默认最大字符长度 |
+| 应用程序| 每个 Azure 创作资源 500 个应用程序 |
 | [批处理测试][batch-testing]| 10 个数据集，每个数据集 1000 条话语|
 | 显式列表 | 每个应用程序 50 个实体|
 | 外部实体 | 无限制 |
@@ -44,7 +46,7 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 | [角色](luis-concept-roles.md)|每个应用程序 300 个角色。 每个实体 10 个角色|
 | [单条话语][utterances] | 500 个字符|
 | [多条话语][utterances] | 每个应用程序 15,000 条 - 对每个意向的话语数量没有限制|
-| [版本](luis-concept-version.md)| 无限制 |
+| [版本](luis-concept-version.md)| 每个应用程序 100 个版本 |
 | [版本名称][luis-how-to-manage-versions] | 10 个字符，仅限字母数字和句点 (.) |
 
 *默认最大字符长度为 50 个字符。 
@@ -64,19 +66,22 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 
 语言理解拥有单独的密钥，一类用于创作，另一类用于查询预测终结点。 若要详细了解密钥类型之间的差异，请参阅 [LUIS 中的创作密钥和查询预测终结点密钥](luis-concept-keys.md)。
 
-## <a name="key-limits"></a>密钥限制
+<a name="key-limits"></a>
 
-创作密钥对于创作和终结点有不同的限制。 LUIS 服务终结点密钥仅对终结点查询有效。
+## <a name="resource-key-limits"></a>资源密钥限制
 
+资源密钥对于创作和终结点有不同的限制。 LUIS 预测查询终结点密钥仅对终结点查询有效。 
+
+* 每个 Azure 创作资源 500 个应用程序 
 
 |键|创作|终结点|目的|
 |--|--|--|--|
-|语言理解创作/入门|1 百万/月，5/秒|1 千/月，5/秒|创作 LUIS 应用|
-|语言理解[订阅][pricing] - F0 - 免费层 |无效|1 万/月，5/秒|查询 LUIS 终结点|
-|语言理解[订阅][pricing] - S0 - 基本层|无效|50/秒|查询 LUIS 终结点|
-|认知服务[订阅][pricing] - S0 - 标准层|无效|50/秒|查询 LUIS 终结点|
-|[情绪分析集成](luis-how-to-publish-app.md#enable-sentiment-analysis)|无效|免费|添加情绪信息，包括关键短语数据提取 |
-|语音集成|无效|5\.50 美元/1 千终结点请求|将口语话语转为文本话语并返回 LUIS 结果|
+|初学者|1 百万/月，5/秒|1 千/月，5/秒|创作 LUIS 应用|
+|F0 - 免费层 |1 百万/月，5/秒|1 万/月，5/秒|查询 LUIS 终结点|
+|S0 - 基本层|-|50/秒|查询 LUIS 终结点|
+|S0 - 标准层|-|50/秒|查询 LUIS 终结点|
+|[情绪分析集成](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|提供了添加情感信息（包括关键短语数据提取）的功能，而无需其他 Azure 资源。 |
+|[语音集成](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|每单位成本 1 千个终结点请求|将口语话语转为文本话语并返回 LUIS 结果|
 
 ## <a name="keyboard-controls"></a>键盘控件
 

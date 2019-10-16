@@ -12,14 +12,15 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2019
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f79b6f293889fe91066d0e6a5fccd32890d8cd0a
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 0f5f66c0e7eb6d02de24b1cbae71243babd3d14a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332263"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330321"
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 

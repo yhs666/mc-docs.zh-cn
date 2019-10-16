@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-origin.date: 08/08/2019
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 3029e049a5940554f5d7e2c2053f901a51c926d5
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: e0c1c49a8a1039938b808526eeec7aaf4bc5880d
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104189"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267069"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>教程：使用适用于 C# 的语音 SDK 从语音中识别意向
 
@@ -53,7 +53,7 @@ LUIS 使用两种密钥：
 |创作|用于以编程方式创建和修改 LUIS 应用|
 |endpoint |授权访问特定的 LUIS 应用|
 
-终结点密钥是本教程所需的 LUIS 密钥。 本教程使用一个示例家庭自动化 LUIS 应用，可以遵循[使用预生成的家庭自动化应用](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)来创建该应用。 如果你已创建自己的 LUIS 应用，可以改用该应用。
+终结点密钥是本教程所需的 LUIS 密钥。 本教程使用一个示例家庭自动化 LUIS 应用，可以遵循[使用预生成的家庭自动化应用](https://docs.azure.cn/cognitive-services/luis/luis-get-started-create-app)来创建该应用。 如果你已创建自己的 LUIS 应用，可以改用该应用。
 
 当你创建 LUIS 应用时，系统会自动生成一个初学者密钥，让你使用文本查询测试该应用。 此密钥不会启用语音服务集成，因此不适用于本教程。 必须在 Azure 仪表板中创建 LUIS 资源并将其分配给 LUIS 应用。 在本教程中，可以使用免费订阅层。
 
@@ -175,7 +175,7 @@ using (var recognizer = new IntentRecognizer(config))
 |占位符|替换为|
 |-----------|------------|
 |`YourLanguageUnderstandingSubscriptionKey`|LUIS 终结点密钥。 如前所述，此密钥必须是从 Azure 仪表板获取的密钥，而不是“初学者密钥”。 可以在 [LUIS 门户](https://luis.azure.cn)中应用的“密钥和终结点”页上（在“管理”下）找到此密钥。|
-|`YourLanguageUnderstandingServiceRegion`|LUIS 订阅所在区域的短标识符，例如 `chinaeast` 表示“美国西部”。|
+|`YourLanguageUnderstandingServiceRegion`|LUIS 订阅所在区域的短标识符，例如 `chinaeast` 表示“中国东部”。|
 |`YourLanguageUnderstandingAppId`|LUIS 应用 ID。 可以在 [LUIS 门户](https://luis.azure.cn)中应用的“设置”页上找到此 ID。|
 
 完成这些更改后，可以生成 (Ctrl-Shift-B) 和运行 (F5) 教程应用程序。 出现提示时，请尝试对着电脑麦克风说出“关灯”。 结果将显示在控制台窗口中。
@@ -233,7 +233,7 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 
 ## <a name="specify-recognition-language"></a>指定识别语言
 
-默认情况下，LUIS 可以识别美国英语中的意向 (`en-us`)。 将区域设置代码分配到语音配置的 `SpeechRecognitionLanguage` 属性可以识别其他语言的意向。 例如，创建识别器之前在教程应用程序中添加 `config.SpeechRecognitionLanguage = "de-de";` 可以识别德语中的意向。 请参阅[支持的语言](language-support.md#speech-to-text)。
+默认情况下，LUIS 可以识别美国英语中的意向 (`en-us`)。 将区域设置代码分配到语音配置的 `SpeechRecognitionLanguage` 属性可以识别其他语言的意向。 例如，创建识别器之前在教程应用程序中添加 `config.SpeechRecognitionLanguage = "de-de";` 可以识别德语中的意向。 请参阅[支持的语言](language-support.md)。
 
 ## <a name="continuous-recognition-from-a-file"></a>从文件中连续识别
 

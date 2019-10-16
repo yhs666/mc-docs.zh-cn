@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
+origin.date: 12/21/2018
 ms.date: 12/21/2018
-ms.author: lahugh
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 5ba1620a9df6260a1a04d444ba057d2fb4e20f4e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 63888a025d725e59788c507b568dd8b69537401b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103738"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330060"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教程：使用 .NET API 通过 Azure Batch 运行并行工作负荷
 
@@ -167,7 +168,7 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 应用将 `blobClient` 对象传递至 `CreateContainerIfNotExistAsync` 方法，以便为输入文件（MP4 格式）创建一个存储容器，并为任务输出创建一个容器。
 
 ```csharp
-CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 

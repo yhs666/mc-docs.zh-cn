@@ -1,5 +1,5 @@
-- name: Azure 存储文档
-  href: /storage/
+- name: Azure Blob 存储文档
+  href: /storage/blobs/
 - name: 概述
   expanded: true
   items:
@@ -27,8 +27,6 @@
           items:
             - name: .NET
               href: storage-quickstart-blobs-dotnet.md
-            - name: Java
-              href: storage-quickstart-blobs-java-v10.md
             - name: Node.js
               href: storage-quickstart-blobs-nodejs-v10.md
             - name: Python
@@ -81,6 +79,8 @@
           href: ../common/storage-samples-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: Java
           href: ../common/storage-samples-java.md?toc=%2fstorage%2fblobs%2ftoc.json
+        - name: Python
+          href: ../common/storage-samples-python.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: storage-samples-blobs-powershell.md
         - name: Azure CLI
@@ -108,8 +108,8 @@
                   href: storage-manage-access-to-resources.md
             - name: 不可变 blob
               href: storage-blob-immutable-storage.md
-            - name: Azure 的常见安全属性
-              href: ../common/storage-security-attributes.md?toc=%2fstorage%2fblobs%2ftoc.json
+            - name: 内置安全控件
+              href: ../common/storage-security-controls.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 数据冗余
           href: ../common/storage-redundancy.md?toc=%2fstorage%2fblobs%2ftoc.json
           items:
@@ -135,6 +135,8 @@
               href: ../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json
             - name: 性能和可伸缩性清单
               href: ../common/storage-performance-checklist.md?toc=%2fstorage%2fblobs%2ftoc.json
+            - name: Blob 存储中的延迟
+              href: storage-blobs-latency.md
         - name: 并发
           href: ../common/storage-concurrency.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 数据迁移
@@ -315,7 +317,7 @@
                       href: ../common/storage-account-sas-create-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
                     - name: 定义存储访问策略
                       href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
-            - name: 配置客户管理的密钥以进行服务加密
+            - name: 使用客户管理的密钥进行服务加密
               items:
                 - name: 门户
                   href: ../common/storage-encryption-keys-portal.md?toc=%2fstorage%2fblobs%2ftoc.json
@@ -524,8 +526,6 @@
           items:
             - name: .NET
               href: storage-quickstart-blobs-dotnet.md
-            - name: Java
-              href: storage-quickstart-blobs-java-v10.md
             - name: Python
               href: storage-quickstart-blobs-python.md
     - name: 教程

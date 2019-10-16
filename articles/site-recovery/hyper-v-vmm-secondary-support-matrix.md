@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 将 VMM 云中的 Hyper-V VM 灾难恢复到辅助站点时的支持矩阵 | Azure
+title: 使用 Azure Site Recovery 将 VMM 云中的 Hyper-V VM 灾难恢复到辅助站点时的支持矩阵
 description: 汇总了对使用 Azure Site Recovery 将 VMM 云中的 Hyper-V VM 复制到辅助站点的支持。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: e32304f2399adbebd0d1c7a48e92c3f6fca98c62
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: f67ccb875018ba837013b4fa0bce9cf4633c46c0
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861717"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340717"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>将 Hyper-V VM 灾难恢复到辅助站点时的支持矩阵
 
@@ -37,7 +36,7 @@ Windows Server 2016 |  目前不支持混合使用 Windows Server 2016 和 2012 
 **Windows 版本** | Hyper-V（有 VMM） 
 --- | ---
 Windows Server 2016 | Windows Server 2016 上的[Hyper-V 支持](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows)的所有来宾操作系统 
-Windows Server 2012 R2 | Windows Server 2012 R2 上的[Hyper-V 支持](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29)的所有来宾操作系统
+Windows Server 2012 R2 | Windows Server 2012 R2 上的[Hyper-V 支持](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29)的所有来宾操作系统
 
 ## <a name="linux-machine-storage"></a>Linux 计算机存储
 

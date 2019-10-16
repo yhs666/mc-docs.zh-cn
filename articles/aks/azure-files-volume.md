@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6bad71ca514848ba409c6629a81b637718360a05
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 20c2c81c636caff2897d7d9f2e1d923a7e004919
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731261"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155862"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 文件共享手动创建并使用卷
 
@@ -138,17 +138,7 @@ Volumes:
 
 ## <a name="mount-options"></a>装载选项
 
-默认的 *fileMode* 和 *dirMode* 值的 Kubernetes 版本有差异，如下表所述。
-
-| 版本 | value |
-| ---- | ---- |
-| v1.6.x、v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v1.8.6 或更高版本 | 0755 |
-| v1.9.0 | 0700 |
-| v1.9.1 或更高版本 | 0755 |
-
-如果使用版本 1.8.5 或更高版本的群集并静态创建永久性卷对象，则需要在 *PersistentVolume* 对象上指定装载选项。
+对于 Kubernetes 版本 1.9.1 及更高版本，fileMode  和 dirMode  的默认值为 0755  。 如果使用 Kuberetes 版本为 1.8.5 或更高版本的群集并静态创建永久性卷对象，则需要在 PersistentVolume  对象上指定装载选项。 以下示例设置 *0777*：
 
 ```yaml
 apiVersion: v1
@@ -160,18 +150,89 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
+  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
-    shareName: azurefile
+    shareName: aksshare
     readOnly: false
   mountOptions:
   - dir_mode=0777
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
 ```
 
 如果使用版本为 1.8.0 - 1.8.4 的群集，则可在指定安全性上下文时，将 *runAsUser* 值设置为 *0*。 有关 Pod 安全性上下文的详细信息，请参阅[配置安全性上下文][kubernetes-security-context]。
+
+若要更新装载选项，请创建包含 PersistentVolume  的 azurefile-mount-options-pv.yaml  文件。 例如：
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: azurefile
+  azureFile:
+    secretName: azure-secret
+    shareName: aksshare
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+```
+
+创建一个 azurefile-mount-options-pvc.yaml  文件，其中包含使用 PersistentVolume  的 PersistentVolumeClaim  。 例如：
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: azurefile
+  resources:
+    requests:
+      storage: 5Gi
+```
+
+使用 `kubectl` 命令创建 PersistentVolume  和 PersistentVolumeClaim  。
+
+```console
+kubectl apply -f azurefile-mount-options-pv.yaml
+kubectl apply -f azurefile-mount-options-pvc.yaml
+```
+
+验证 PersistentVolumeClaim  是否已创建并绑定到 PersistentVolume  。
+
+```console
+$ kubectl get pvc azurefile
+
+NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
+```
+
+更新容器规范以引用 PersistentVolumeClaim  并更新 Pod。 例如：
+
+```yaml
+...
+  volumes:
+  - name: azure
+    persistentVolumeClaim:
+      claimName: azurefile
+```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -180,6 +241,7 @@ spec:
 有关 AKS 群集与 Azure 文件存储进行交互的详细信息，请参阅 [Azure 文件存储的 Kubernetes 插件][kubernetes-files]。
 
 <!-- LINKS - external -->
+
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
@@ -188,13 +250,14 @@ spec:
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[az-storage-create]: https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
-[az-storage-key-list]: https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list
-[az-storage-share-create]: https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create
+
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
+[az-storage-create]: https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
+[az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list
+[az-storage-share-create]: https://docs.azure.cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 

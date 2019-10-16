@@ -11,15 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/19/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 9586a1140019239f3f2d545d57c5b66c8bf52657
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.reviewer: milanga
+ms.openlocfilehash: b5013e92458a8294fcbb73c307ecc064ddfe0898
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833377"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124650"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述
@@ -96,19 +97,19 @@ ms.locfileid: "56833377"
 | 元素 | 说明 |
 | --- | --- |
 | 版本 |这是指视频 API 的版本。 当前版本为 2。 |
-| 时间刻度 |视频每秒的“刻度”数。 |
-| Offset |时间戳的时间偏移量（以“刻度”为单位）。 在版本 1.0 的视频 API 中，此属性始终为 0。 在我们将来支持的方案中，此值可能会更改。 |
-| Framerate |视频的每秒帧数。 |
-| Width, Height |表示视频的宽度和高度（以像素为单位）。 |
-| 开始 |开始时间戳（以“刻度”为单位）。 |
-| 持续时间 |事件的长度（以“刻度”为单位）。 |
-| 时间间隔 |事件中每个条目的间隔（以“刻度”为单位）。 |
-| 事件 |每个事件片段包含在该持续时间内检测到的动作。 |
-| 类型 |在当前版本中，对于一般动作，该属性始终为“2”。 此标签可让视频 API 在将来的版本中灵活地为动作分类。 |
-| RegionID |如上所述，在此版本中此属性始终为 0。 此标签可让视频 API 在将来的版本中灵活地查找各区域中的动作。 |
-| Regions |表示你关注的动作在视频中的区域。 <br/><br/>-“id”表示区域面积 - 且在此版本中只有一个，ID 0。 <br/>-“type”代表你关注其动作的区域的形状。 目前支持“矩形”和“多边形”。<br/> 如果指定了“矩形”，则区域具有以 X、Y表示宽度及高度的维度。 X 和 Y 坐标表示规范化 0.0 到 1.0 比例中的区域的左上角 XY 坐标。 宽度和高度表示规范化 0.0 到 1.0 比例中的区域的大小。 在当前版本中，X、Y、宽度和高度始终固定为 0、0 和 1、1。 <br/>如果指定了“多边形”，则区域的维度以点来表示。 <br/> |
-| Fragments |元数据划分成称为“片段”的不同段。 每个片段包含开始时间、持续时间、间隔数字和事件。 没有事件的片段表示在该开始时间和持续时间内没有检测到任何动作。 |
-| 括号 [] |每个括号表示事件中的单个间隔。 如果该间隔显示空括号，则表示没有检测到动作。 |
+| timescale |视频每秒的“刻度”数。 |
+| offset |时间戳的时间偏移量（以“刻度”为单位）。 在版本 1.0 的视频 API 中，此属性始终为 0。 在我们将来支持的方案中，此值可能会更改。 |
+| framerate |视频的每秒帧数。 |
+| width, height |表示视频的宽度和高度（以像素为单位）。 |
+| start |开始时间戳（以“刻度”为单位）。 |
+| duration |事件的长度（以“刻度”为单位）。 |
+| interval |事件中每个条目的间隔（以“刻度”为单位）。 |
+| events |每个事件片段包含在该持续时间内检测到的动作。 |
+| type |在当前版本中，对于一般动作，该属性始终为“2”。 此标签可让视频 API 在将来的版本中灵活地为动作分类。 |
+| regionId |如上所述，在此版本中此属性始终为 0。 此标签可让视频 API 在将来的版本中灵活地查找各区域中的动作。 |
+| regions |表示你关注的动作在视频中的区域。 <br/><br/>-“id”表示区域面积 - 且在此版本中只有一个，ID 0。 <br/>-“type”代表你关注其动作的区域的形状。 目前支持“矩形”和“多边形”。<br/> 如果指定了“矩形”，则区域具有以 X、Y表示宽度及高度的维度。 X 和 Y 坐标表示规范化 0.0 到 1.0 比例中的区域的左上角 XY 坐标。 宽度和高度表示规范化 0.0 到 1.0 比例中的区域的大小。 在当前版本中，X、Y、宽度和高度始终固定为 0、0 和 1、1。 <br/>如果指定了“多边形”，则区域的维度以点来表示。 <br/> |
+| fragments |元数据划分成称为“片段”的不同段。 每个片段包含开始时间、持续时间、间隔数字和事件。 没有事件的片段表示在该开始时间和持续时间内没有检测到任何动作。 |
+| 方括号 [] |每个括号表示事件中的单个间隔。 如果该间隔显示空括号，则表示没有检测到动作。 |
 | 位置 |事件下的此新项列出发生动作的位置。 这比检测区域更具体。 |
 
 以下 JSON 示例显示输出：
@@ -376,10 +377,11 @@ namespace VideoMotionDetection
 }
 ```
 
+## <a name="media-services-learning-paths"></a>媒体服务学习路径
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务动作检测器博客](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒体分析演示](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-<!--Update_Description: update code to use AAD token instead of ACS-->

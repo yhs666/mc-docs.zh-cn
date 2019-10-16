@@ -5,19 +5,18 @@ services: batch
 author: lingliw
 manager: digimobile
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 08/26/2019
 ms.date: 07/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c8043ce42a8ffc9b6f1373b0c02d5d8372ed8c1e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: d55b39d67acd444d7ec2df5586039702a5cfa8e7
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330078"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Azure Batch 的成本分析和预算
 

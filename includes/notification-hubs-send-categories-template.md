@@ -9,22 +9,22 @@ origin.date: 03/30/2018
 ms.date: 04/08/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: bea14b56b3642e6f8245b1c958092cbaf93280eb
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: e7980cdf9db5bf209fa022843b4ee8bd0f3622c9
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505692"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272465"
 ---
 本部分说明如何从 .NET 控制台应用以标记模板通知的形式发送突发新闻。 
 
-1. 在 Visual Studio 中创建新的 Visual C# 控制台应用程序：a. 在菜单中，选择“文件” > “新建” > “项目”。
-    b. 展开“Visual C#”，然后选择“Windows 桌面”。 
-    c. 在模板列表中选择“控制台应用(.NET Framework)”。 
+1. 在 Visual Studio 中创建新的 Visual C# 控制台应用程序：a. 在菜单中，选择“文件”   > “新建”   > “项目”  。
+    b. 展开“Visual C#”，然后选择“Windows 桌面”   。 
+    c. 在模板列表中选择“控制台应用(.NET Framework)”  。 
     d. 输入应用的**名称**。 
     e. 为应用选择**文件夹**。
-    f. 选择“确定”创建该项目。 
-2. 在 Visual Studio 主菜单中，选择“工具” > “NuGet 包管理器” > “包管理器控制台”，并在控制台窗口中输入以下字符串：
+    f. 选择“确定”创建该项目。  
+2. 在 Visual Studio 主菜单中，选择“工具” > “NuGet 包管理器” > “包管理器控制台”，并在控制台窗口中输入以下字符串    ：
    
     ```
     Install-Package Microsoft.Azure.NotificationHubs
@@ -82,7 +82,7 @@ ms.locfileid: "58505692"
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft.Azure.Notification Hubs NuGet 包]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

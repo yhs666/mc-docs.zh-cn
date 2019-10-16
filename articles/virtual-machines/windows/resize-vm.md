@@ -11,17 +11,16 @@ ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f8c585dac401b98e84e043bf46a71187842f22d9
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 856c26fe90daeccc1849e731821c27dd5d241b8a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539207"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272329"
 ---
 # <a name="resize-a-windows-vm"></a>调整 Windows VM 的大小
 

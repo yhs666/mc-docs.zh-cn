@@ -1,5 +1,5 @@
 ---
-title: 为 Azure 流分析 Edge 作业开发 .NET Standard 用户定义函数（预览版）
+title: 为 Azure 流分析 Edge 作业（预览版）开发 .NET Standard 函数
 description: 了解如何为流分析 Edge 作业编写 c# 用户定义函数。
 services: stream-analytics
 author: lingliw
@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 12/06/2018
 ms.date: 07/12/2019
-ms.openlocfilehash: f47b326a81314c3df265e1c3990691a3c5e017c6
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 4e875651ba840c49cb10df36aba4a57fd71233f2
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169631"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674825"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>为 Azure 流分析 Edge 作业开发 .NET Standard 用户定义函数（预览版）
 

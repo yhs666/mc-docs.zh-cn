@@ -8,14 +8,14 @@ keywords: 项级恢复; 从 Azure VM 备份恢复文件; 从 Azure VM 还原文�
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 3/01/2019
+ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 39894a5a615253878e45d07149a6a7a792d5f2a1
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 56841ea01792d1624efa54f8939b224bd3d4c028
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570464"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330272"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -68,7 +68,7 @@ Azure 备份提供从 Azure VM 备份（也称恢复点）还原 [Azure 虚拟�
 
    - download.microsoft.com
    - 恢复服务 URL（地区名称是指恢复服务保管库的区域）
-       - <https://pod01-rec2.geo-name.backup.windowsazure.cn>（适用于 Azure 中国）
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn（适用于 Azure 中国世纪互联）
    - 出站端口 3260
 
      在 Linux 上，该脚本需要“open-iscsi”和“lshw”组件才能连接到恢复点。 如果这些组件不存在于运行脚本的计算机上，该脚本会请求权限以安装组件。 请同意安装必需组件。
@@ -249,7 +249,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 只有管理员可以运行此脚本，并且应该以提升模式运行它。 此脚本仅运行预先生成的一组步骤，不接受任何外部源的输入。
 
-若要运行此脚本，用户需要提供密码，该密码仅在 Azure 门户或 PowerShell/CLI 中在生成脚本时显示给经授权的用户。 这是为了确保下载脚本的经授权的用户也负责运行脚本。
+若要运行此脚本，用户需要提供密码，该密码仅在 Azure 门户或 PowerShell/CLI 中生成脚本时显示给经授权的用户。 这是为了确保下载脚本的经授权的用户也负责运行脚本。
 
 #### <a name="browse-files-and-folders"></a>浏览文件和文件夹
 

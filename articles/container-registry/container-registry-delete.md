@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 07/31/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5f26f1341b7677959bfebadeed37c1510bf94a27
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 216bc68fa1cf579cac8face8414f84ba47c81c4d
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134438"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306677"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 删除 Azure 容器注册表中的容器映像
 
@@ -228,7 +228,6 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    else
     echo "No data deleted."
     echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
@@ -261,6 +260,8 @@ if ($enableDelete) {
 }
 ```
 
+<!--Not Available on ## Automatically purge tags and manifests (preview)-->
+<!--Not Available on [Automatically purge images from an Azure container registry](container-registry-auto-purge.md)-->
 ## <a name="next-steps"></a>后续步骤
 
 要详细了解 Azure 容器注册表中的映像存储，请参阅 [Azure 容器注册表中的容器映像存储](container-registry-storage.md)。

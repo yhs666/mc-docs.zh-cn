@@ -1,25 +1,27 @@
 ---
-title: Azure 防火墙日志概述
-description: 本文是 Azure 防火墙诊断日志的概述。
+title: Azure 防火墙日志和指标的概述
+description: 本文概述 Azure 防火墙诊断日志和指标。
 services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 09/24/2018
-ms.date: 07/22/2019
+origin.date: 08/22/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4f179f1f22c8653fc744435af8a80785a18edcf4
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 7500bd1adfe4d938095bed8d6776cfcf9154bcae
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337591"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156199"
 ---
-# <a name="azure-firewall-logs"></a>Azure 防火墙日志
+# <a name="azure-firewall-logs-and-metrics"></a>Azure 防火墙日志和指标
 
 可以使用防火墙日志来监视 Azure 防火墙。 此外，可以使用活动日志来审核对 Azure 防火墙资源执行的操作。
 
 可通过门户访问其中部分日志。 可将日志发送到 [Azure Monitor 日志](../azure-monitor/insights/azure-networking-analytics.md)、存储和事件中心，并使用 Azure Monitor 日志或其他工具（例如 Excel 和 Power BI）对其进行分析。
+
+指标是能够为近实时方案提供支持的轻型数据，因此，它们特别适合用于警报和快速检测问题。 
 
 ## <a name="diagnostic-logs"></a>诊断日志
 
@@ -84,9 +86,46 @@ ms.locfileid: "68337591"
 
 可以使用 [Azure 活动日志](../azure-resource-manager/resource-group-audit.md)（以前称为操作日志和审核日志）查看提交到 Azure 订阅的所有操作。
 
+<!--Verify successfully-->
+
+## <a name="metrics"></a>指标
+
+Azure Monitor 中的指标是数字值，用于描述系统某些方面在特定时间的情况。 指标每分钟收集一次，可用于警报，因为可对其频繁采样。 可以使用相对简单的逻辑快速激发警报。
+
+以下指标适用于 Azure 防火墙：
+
+- **应用程序规则命中计数** - 应用程序规则的命中次数。
+
+    单位：计数
+
+- **网络规则命中计数** - 网络规则的命中次数。
+
+    单位：计数
+
+- **处理的数据量** - 遍历防火墙的数据量。
+
+    单位：字节
+
+- **防火墙运行状态** - 指示防火墙的运行状况。
+
+    单位：百分比
+
+    此指标有两个维度：
+    - **状态**：可能的值为“正常”、“已降级”和“不正常”。   
+    - **原因**：指示防火墙出现相应状态的原因。 例如，如果防火墙状态为“已降级”或“不正常”，则原因中可能指示“SNAT 端口”。 
+
+- **SNAT 端口利用率** - 防火墙利用的 SNAT 端口数百分比。
+
+    单位：百分比
+
+    将更多公共 IP 地址添加到防火墙时，将有更多的 SNAT 端口可用，从而减小 SNAT 端口利用率。 此外，当防火墙出于各种原因而横向扩展时（例如，增加 CPU 或吞吐量），也有更多的 SNAT 端口可用。 因此，如果不添加任何公共 IP 地址，而只是横向扩展了服务，给定的 SNAT 端口利用率百分比实际上可能会下降。可以直接控制可用的公共 IP 地址数来增加防火墙上的可用端口。 但无法直接控制防火墙缩放。 目前，只为前五个公共 IP 地址添加了 SNAT 端口。   
+
+<!--Verify successfully-->
+
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何监视 Azure 防火墙日志和指标，请参阅[教程：监视 Azure 防火墙日志](tutorial-diagnostics.md)。
+- 若要了解如何监视 Azure 防火墙日志和指标，请参阅[教程：监视 Azure 防火墙日志](tutorial-diagnostics.md)。
 
-<!-- Update_Description: new articles on logs and metrics -->
-<!--ms.date: 07/22/2019-->
+- 若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
+
+<!-- Update_Description: wording update -->

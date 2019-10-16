@@ -7,15 +7,15 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/07/2019
-ms.date: 09/09/2019
+ms.date: 10/08/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 75d906302d014835e197a072aebcffd71aaef492
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: e0b86b6616d8b3cfd9daafce5939335feea647e2
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340741"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 模块
 
@@ -60,7 +60,7 @@ ms.locfileid: "70174171"
     > [!TIP]
     > 对于原型和测试用途，可以使用本地 Docker 注册表，而不使用云注册表。
 
-除非使用 C 开发模块，否则还需要基于 Python 的 [Azure IoT EdgeHub 开发工具](https://pypi.org/project/iotedgehubdev/)，以便设置本地开发环境以调试、运行和测试 IoT Edge 解决方案。 如果尚未这样做，请安装 [Python (2.7/3.6) 和 Pip](https://www.python.org/)，然后在终端中运行此命令安装“iotedgehubdev”  。
+除非使用 C 开发模块，否则还需要基于 Python 的 [Azure IoT EdgeHub 开发工具](https://pypi.org/project/iotedgehubdev/)，以便设置本地开发环境以调试、运行和测试 IoT Edge 解决方案。 如果尚未这样做，请安装 [Python (2.7/3.6+) 和 Pip](https://www.python.org/)，然后在终端中运行此命令安装“iotedgehubdev”  。
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -268,26 +268,26 @@ Visual Studio Code 采用你提供的信息，创建一个 IoT Edge 解决方案
       ptvsd.break_into_debugger()
       ```
 
-     例如，如果要调试 `receive_message_callback` 方法，则应插入该行代码，如下所示：
+     例如，如果要调试 `receive_message_listener` 函数，则应插入该行代码，如下所示：
 
       ```python
-      def receive_message_callback(message, hubManager):
+      def receive_message_listener(client):
           ptvsd.break_into_debugger()
-          global RECEIVE_CALLBACKS
-          message_buffer = message.get_bytearray()
-          size = len(message_buffer)
-          print ( "    Data: <<<%s>>> & Size=%d" % (message_buffer[:size].decode ('utf-8'), size) )
-          map_properties = message.properties()
-          key_value_pair = map_properties.get_internals()
-          print ( "    Properties: %s" % key_value_pair )
-          RECEIVE_CALLBACKS += 1
-          print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-          hubManager.forward_event_to_output("output1", message, 0)
-          return IoTHubMessageDispositionResult.ACCEPTED
+          global RECEIVED_MESSAGES
+          while True:
+              message = client.receive_message_on_input("input1")   # blocking call
+              RECEIVED_MESSAGES += 1
+              print("Message received on input1")
+              print( "    Data: <<{}>>".format(message.data) )
+              print( "    Properties: {}".format(message.custom_properties))
+              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+              print("Forwarding message to output1")
+              client.send_message_to_output(message, "output1")
+              print("Message successfully forwarded")
       ```
 
 1. 在 Visual Studio Code 命令面板中：
-   1. 运行 **`Azure IoT Edge: Build and Push IoT Edge solution`** 命令。
+   1. 运行“Azure IoT Edge:  Build and Push IoT Edge solution”命令。
 
    1. 选择解决方案的 `deployment.debug.template.json` 文件。
 

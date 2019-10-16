@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+origin.date: 09/05/2018
+ms.date: 08/29/2019
 ms.author: aschhab
-ms.openlocfilehash: 9ba4155159f2b2c6a456347555ea1b45b925b75f
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: b591eb18000e2130bcbf57b5c1c9148f8ce3114b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818514"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329998"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服务总线到事件网格的集成概述
 

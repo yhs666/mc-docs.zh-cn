@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: v-lingwu
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: e372e71f6d7c4b350748af87096f4fdd2f24b4e4
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 1f35309f2b226e2aadfb78540012147e181ba27d
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104212"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329827"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>通过 REST API 使用 Azure 备份来备份 Azure VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "70104212"
 首先，保管库应能够识别 Azure VM。 这是使用[刷新操作](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh)触发的。 这是一种异步 POST 操作，可确保保险库获取当前订阅中所有未受保护的 VM 的最新列表并“缓存”它们  。 一旦 VM 完成缓存，恢复服务将能够访问 VM，并对其进行保护。
 
 ```http
-POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
+POST https://management..chinacloudapi.cn/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
 POST URI 包含参数 `{subscriptionId}`、`{vaultName}`、`{vaultresourceGroupName}`、`{fabricName}`。 `{fabricName}` 是“Azure”。 根据示例，`{vaultName}` 是“testVault”，`{vaultresourceGroupName}` 是“testVaultRG”。 由于 URI 中给出了所有必需的参数，因此不需要单独的请求正文。

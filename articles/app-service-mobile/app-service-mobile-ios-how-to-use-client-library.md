@@ -11,20 +11,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 10/01/2016
-ms.author: v-biyu
-ms.date: 07/15/2019
-ms.openlocfilehash: 971c92b9c6f94615440652798927ef3b54e70c8c
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+origin.date: 06/25/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: 56b8ff35719768217a227247aff8ef496b46b5eb
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560292"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006589"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library)。
+>
 
 ## <a name="overview"></a>概述
 本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1] 执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门]，创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
@@ -252,9 +255,9 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 可使用 **MSPullSettings** 配置页面大小，如下所示。 默认页面大小为 50，以下示例中则改为 3。
 
-可以配置不同的页面大小，以提高性能。 如果有大量小型数据记录，增大页面大小可减少服务器往返次数。 
+可以配置不同的页面大小，以提高性能。 如果有大量小型数据记录，增大页面大小可减少服务器往返次数。
 
-此设置仅控制客户端侧的页面大小。 如果客户端所需的页面大小大于移动应用后端支持的页面大小，则页面大小的上限为后端配置所支持的最大大小。 
+此设置仅控制客户端侧的页面大小。 如果客户端所需的页面大小大于移动应用后端支持的页面大小，则页面大小的上限为后端配置所支持的最大大小。
 
 此设置也是数据记录的数目  ，而不是字节大小  。
 
@@ -279,7 +282,7 @@ let pullSettings = MSPullSettings(pageSize: 3)
 table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
     if let err = error {
         print("ERROR ", err)
-    } 
+    }
 }
 ```
 
@@ -436,7 +439,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 ## <a name="customapi"></a>如何：调用自定义 API
 
-使用自定义 API 可以公开任何后端功能。 无需映射到表操作。 不仅能进一步控制消息，甚至还可以读取或设置标头，并更改响应正文格式。 若要了解如何在后端上创建自定义 API，请阅读[自定义 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+使用自定义 API 可以公开任何后端功能。 无需映射到表操作。 不仅能进一步控制消息，甚至还可以读取或设置标头，并更改响应正文格式。
 
 若要调用自定义 API，请调用 `MSClient.invokeAPI`。 请求和响应内容被视为 JSON。 若要使用其他媒体类型，[请使用 `invokeAPI` 的其他重载][5]。  若要发出 `GET` 请求而不是 `POST` 请求，请将参数 `HTTPMethod` 设置为 `"GET"`，将参数 `body` 设置为 `nil`（因为 GET 请求没有消息正文）。如果自定义 API 支持其他 HTTP 谓词，请相应地更改 `HTTPMethod`。
 
@@ -552,7 +555,6 @@ if (error.code == MSErrorPreconditionFailed) {
 可以借助 Active Directory 身份验证库 (ADAL) 使用 Azure Active Directory 将用户登录到应用程序。 使用标识提供者 SDK 的客户端流身份验证优于使用 `loginWithProvider:completion:` 方法。  客户端流身份验证提供更自然的 UX 体验，并允许进行额外的自定义。
 
 1. 根据 [How to configure App Service for Active Directory login][7] （如何为 Active Directory 登录配置应用服务）教程的说明，为 AAD 登录配置移动应用。 请务必完成注册本机客户端应用程序的可选步骤。 对于 iOS，建议重定向 URI 采用 `<app-scheme>://<bundle-id>` 格式。 有关详细信息，请参阅 [ADAL iOS 快速入门][8]。
-
 2. 使用 Cocoapods 安装 ADAL。 编辑 Podfile 以包含以下定义，将 **YOUR-PROJECT** 替换为 Xcode 项目的名称：
 
     ```
@@ -570,7 +572,7 @@ if (error.code == MSErrorPreconditionFailed) {
     * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com 。 可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”  下面的“高级”  选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
-   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_ 。
+   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done* 。
 
 **Objective-C**：
 
@@ -579,7 +581,7 @@ if (error.code == MSErrorPreconditionFailed) {
 #import <ADALiOS/ADAuthenticationSettings.h>
 // ...
 - (void) authenticate:(UIViewController*) parent
-           completion:(void (^) (MSUser*, NSError*))completionBlock;
+            completion:(void (^) (MSUser*, NSError*))completionBlock;
 {
     NSString *authority = @"INSERT-AUTHORITY-HERE";
     NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
@@ -590,21 +592,21 @@ if (error.code == MSErrorPreconditionFailed) {
     authContext.parentController = parent;
     [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
     [authContext acquireTokenWithResource:resourceId
-                                 clientId:clientId
-                              redirectUri:redirectUri
-                          completionBlock:^(ADAuthenticationResult *result) {
-                              if (result.status != AD_SUCCEEDED)
-                              {
-                                  completionBlock(nil, result.error);;
-                              }
-                              else
-                              {
-                                  NSDictionary *payload = @{
+                                    clientId:clientId
+                                redirectUri:redirectUri
+                            completionBlock:^(ADAuthenticationResult *result) {
+                                if (result.status != AD_SUCCEEDED)
+                                {
+                                    completionBlock(nil, result.error);;
+                                }
+                                else
+                                {
+                                    NSDictionary *payload = @{
                                                             @"access_token" : result.tokenCacheStoreItem.accessToken
                                                             };
-                                  [client loginWithProvider:@"aad" token:payload completion:completionBlock];
-                              }
-                          }];
+                                    [client loginWithProvider:@"aad" token:payload completion:completionBlock];
+                                }
+                            }];
 }
 ```
 
@@ -612,8 +614,8 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ```swift
 // add the following imports to your bridging header:
-//      #import <ADALiOS/ADAuthenticationContext.h>
-//      #import <ADALiOS/ADAuthenticationSettings.h>
+//        #import <ADALiOS/ADAuthenticationContext.h>
+//        #import <ADALiOS/ADAuthenticationSettings.h>
 
 func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
     let authority = "INSERT-AUTHORITY-HERE"
@@ -664,32 +666,25 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure 移动应用快速入门]: ./app-service-mobile-ios-get-started.md
-
-
-
+[Azure 移动应用快速入门]: app-service-mobile-ios-get-started.md
 
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [iOS SDK]: https://developer.apple.com/xcode
 [Azure 门户]: https://portal.azure.cn/
-[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/zh-cn/library/azure/jj193161.aspx
-[动态架构]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-lastest
-[Azure classic management portal]: http://manage.windowsazure.cn
+[Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
+[动态架构]: https://go.microsoft.com/fwlink/p/?LinkId=296271
+[Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965
+[CLI to manage Mobile Services tables]: /cli/get-started-with-az-cli2?view=azure-cli-lastest
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
-[2]: http://azure.github.io/azure-mobile-apps-ios-client/
-[3]: https://msdn.microsoft.com/zh-cn/library/azure/dn495101.aspx
-[4]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
-[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[2]: https://azure.github.io/azure-mobile-apps-ios-client/
+[3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
+[5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/configure-authentication-provider-aad.md
 [8]:../active-directory/develop/quickstart-v1-ios.md
-
 [10]: https://developers.facebook.com/docs/ios/getting-started

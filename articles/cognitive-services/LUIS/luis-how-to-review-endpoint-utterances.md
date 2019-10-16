@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/25/2019
+origin.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fc076c947ce91c05f14db955c5fe490a465c61ff
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 9b90bd1272561994ff00b8f4a7d6ed1ac89dc3e7
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104003"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329916"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>如何在 LUIS 门户中审核终结点话语以进行主动学习
 
@@ -25,11 +26,11 @@ ms.locfileid: "70104003"
 
 ## <a name="enable-active-learning"></a>启用主动学习
 
-若要启用主动学习，请记录用户查询。 这是通过使用 `log=true` querystring 参数和值设置[终结点查询](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)来实现的。
+若要启用主动学习，请记录用户查询。 这是通过使用 `log=true` querystring 参数和值设置[终结点查询](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)来实现的。
 
 ## <a name="disable-active-learning"></a>禁用主动学习
 
-若要禁用主动学习，请不要记录用户查询。 这是通过使用 `log=false` querystring 参数和值设置[终结点查询](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)来实现的。
+若要禁用主动学习，请不要记录用户查询。 这是通过使用 `log=false` querystring 参数和值设置[终结点查询](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)来实现的。
 
 ## <a name="filter-utterances"></a>筛选陈述
 

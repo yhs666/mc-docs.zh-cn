@@ -12,6 +12,8 @@
       href: expressroute-howto-routing-portal-resource-manager.md
     - name: 将虚拟网络链接到 ExpressRoute 线路
       href: expressroute-howto-linkvnet-portal-resource-manager.md
+    - name: 配置用于 Microsoft 对等互连的路由筛选器
+      href: how-to-routefilter-portal.md
 - name: 概念
   items:
     - name: 连接模型
@@ -19,7 +21,6 @@
     - name: 线路和对等互连
       href: expressroute-circuit-peerings.md
     - name: 位置与合作伙伴
-      href: expressroute-locations.md
       items:
         - name: 按位置列出的提供商
           href: expressroute-locations-providers.md
@@ -81,8 +82,18 @@
           href: expressroute-howto-add-gateway-resource-manager.md
     - name: 配置 ExpressRoute 和站点到站点并存连接
       href: expressroute-howto-coexist-resource-manager.md
+    - name: 配置用于 Microsoft 对等互连的路由筛选器
+      items:
+        - name: Azure 门户
+          href: how-to-routefilter-portal.md
+        - name: Azure PowerShell
+          href: how-to-routefilter-powershell.md
+        - name: Azure CLI
+          href: how-to-routefilter-cli.md
     - name: 启用和禁用对等互连
       href: expressroute-howto-reset-peering.md
+    - name: 从公共对等互连移到 Microsoft 对等互连
+      href: how-to-move-peering.md
     - name: 将线路从经典部署转移到 Resource Manager 部署
       href: expressroute-howto-move-arm.md
     - name: 将关联的虚拟网络从经典部署迁移到资源管理器部署

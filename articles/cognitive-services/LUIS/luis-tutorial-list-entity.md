@@ -7,20 +7,21 @@ author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+origin.date: 09/05/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d1d4782f51f1e66bd5d1563b82640dcd42dacb3e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: b9f4974f7da6de3447179fe99e3b7987109b1b42
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103862"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329944"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用列表实体提升实体检测 
-本教程展示了如何使用[列表实体](luis-concept-entity-types.md)提升实体检测。 无需标记列表实体，因为它们与术语完全匹配。  
+本文展示了如何使用[列表实体](luis-concept-entity-types.md)提升实体检测。 无需标记列表实体，因为它们与术语完全匹配。  
 
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 创建列表实体 
@@ -37,7 +38,7 @@ ms.locfileid: "70103862"
 > [!Tip]
 > 如果还没有订阅，可以注册一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-本教程中的所有代码都可在 [Azure 示例 GitHub 存储库](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)中找到。 
+本文中的所有代码都可在 [Azure-Samples GitHub 存储库](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)中找到。 
 
 ## <a name="use-homeautomation-app"></a>使用 HomeAutomation 应用
 使用 HomeAutomation 应用，可以控制灯等设备、娱乐系统和供热制冷等环境控制系统。 这些系统有多个不同名称，包括制造商名称、别名、首字母缩略词和行话。 
@@ -59,7 +60,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
 
 在这种情况下，列表实体  很适用，因为办公楼或校园中设备的术语集是已知的，即使这个集合很大，也不例外。 使用列表实体，LUIS 可以接收恒温调节器术语集中的任何可取值，并将它解析为同一个设备“恒温调节器”。 
 
-本教程将创建包含恒温调节器的实体列表。 在本教程中，恒温调节器的可选名称包括： 
+本文将创建包含恒温调节器的实体列表。 在本文中，恒温调节器的可选名称包括： 
 
 |恒温调节器的可选名称|
 |--|

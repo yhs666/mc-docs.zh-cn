@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 03/19/2019
+ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f819008b1819f243c05fe2629bc95ec1cf7fca76
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 2fb9c42d14d6278412f872c71d84a8198aa12e4b
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818563"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674619"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 安全中心常见问题 (FAQ)
-本常见问题解答文章解答有关 Azure 安全中心的问题。Azure 安全中心可帮助预防、检测和响应威胁，同时增加世纪互联 Azure 资源的可见性和安全方面的可控性。
-
-> [!NOTE]
-> 自 2017 年 6 月初开始，安全中心将使用 Azure Monitoring Agent 来收集和存储数据。 本文中的信息表示转换到 Azure Monitoring Agent 后的安全中心功能。
->
->
+此 FAQ 解答有关 Azure 安全中心的问题。Azure 安全中心可帮助预防、检测和响应威胁，同时增加 Microsoft Azure 资源的可见性和安全方面的可控性。
 
 ## <a name="general-questions"></a>一般问题
 ### <a name="what-is-azure-security-center"></a>什么是 Azure 安全中心？

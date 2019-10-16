@@ -2,20 +2,20 @@
 title: 升级到最新的 Azure 搜索服务 REST API 版本 - Azure 搜索
 description: 查看 API 版本的差异，了解将现有代码迁移到最新 Azure 搜索服务 REST API 版本所需的操作。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: b992837cfad781338bfd102464ce8262623f27b6
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.openlocfilehash: e1d895b9b5e1ab38132935e2e941cbe25d5f54cf
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004650"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674252"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>升级到最新的 Azure 搜索服务 REST API 版本
 如果使用的是早期版本的 [Azure 搜索服务 REST API](https://docs.microsoft.com/rest/api/searchservice/)，本文有助于升级应用程序，以便使用正式发布的最新 API 版本 2019-05-06。
@@ -145,7 +145,7 @@ API 版本 2017-11-11-Preview 中引入了一种更新的用于定义索引字�
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 Azure 搜索服务 REST API 参考文档。 如果遇到问题，请通过 [StackOverflow](https://stackoverflow.com/) 向我们寻求帮助，或[联系支持人员](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs)。
+查看 Azure 搜索服务 REST API 参考文档。 如果遇到问题，请通过 [StackOverflow](https://stackoverflow.com/) 向我们寻求帮助，或[联系支持人员](https://social.msdn.microsoft.com/Forums/home?forum=windowsazurezhchs)。
 
 > [!div class="nextstepaction"]
 > [搜索服务 REST API 参考](https://docs.microsoft.com/rest/api/searchservice/)

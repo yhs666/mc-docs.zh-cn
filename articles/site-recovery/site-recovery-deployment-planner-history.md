@@ -9,12 +9,12 @@ ms.service: site-recovery
 origin.date: 07/29/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6dff745cbe28fad24a08ee04a8c238624a41b09a
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 6286be5705e3c05d2350d41e7419b5278fd77ea1
+ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134454"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083153"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery 部署规划器版本历史记录
 
@@ -130,7 +130,10 @@ ms.locfileid: "70134454"
 
 - 对每个 VM 添加了启动类型（BIOS 或 EFI）检查，以确定 VM 是否与保护功能兼容。
 - 在兼容的 VM 和不兼容的 VM 工作表中添加了每个虚拟机的 OS 类型信息。
-- 添加了在 Azure 美国政府和 Azure 中国区域执行 GetThroughput 操作的支持。
+- 添加了对在 Azure 中国区域执行 GetThroughput 操作的支持。
+    
+    <!--Not Available on US Government and -->
+    
 - 添加了针对 vCenter 和 ESXi Server 的更多先决条件检查。
 - 修复了将区域设置指定为非英语时生成错误报告的问题。
 
@@ -150,7 +153,10 @@ ms.locfileid: "70134454"
 **已知限制：**
 
 - 仅支持 VMware 到 Azure 的灾难恢复方案。 对于 Hyper-V 到 Azure 的灾难恢复方案，请使用 [Hyper-V 容量规划器工具](./site-recovery-capacity-planning-for-hyper-v-replication.md)。
-- 不支持在 Azure 美国政府和 Azure 中国区域执行 GetThroughput 操作。
+- 不支持在 Azure 中国区域执行 GetThroughput 操作。
+
+    <!--Not Available on US Government and -->
+    
 - 如果 vCenter 服务器中有两个或更多个 VM 跨不同的 ESXi 主机使用相同的名称或 IP 地址，则该工具无法分析 VM。
 在此版本中，该工具将跳过 VMListFile 中针对重复 VM 名称或 IP 地址的分析。 解决方法是使用 ESXi 主机而不是 vCenter 服务器来分析 VM。 确保运行每个 ESXi 主机的一个实例。
 

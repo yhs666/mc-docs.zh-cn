@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: troubleshooting
-origin.date: 04/29/2019
-ms.date: 06/10/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5630e3855c930ac77a5dead7c4bf042dc8218874
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 442208c64dceea0cd957643329729e5a2ccd1839
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390924"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340965"
 ---
 # <a name="troubleshoot-the-process-server"></a>排查进程服务器问题
 
@@ -55,11 +55,11 @@ ms.locfileid: "66390924"
 ![Healthy][green] | 无  | 进程服务器已连接且正常运行。
 ![警告][yellow] | 指定的服务未运行。 | 1.检查服务是否正在运行。<br/> 2.如果服务已按预期方式运行，请遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。
 ![警告][yellow]  | 过去 15 分钟的 CPU 利用率超过 80%。 | 1.不要添加新计算机。<br/>2.检查使用进程服务器的 VM 数目是否符合[定义的限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。
-![关键][red] |  过去 15 分钟的 CPU 利用率超过 95%。 | 1.不要添加新计算机。<br/>2.检查使用进程服务器的 VM 数目是否符合[定义的限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。<br/> 4.如果问题持续出现，请针对 VMware/物理服务器复制运行[部署规划器](http://aka.ms/asr-v2a-deployment-planner)。
+![关键][red] |  过去 15 分钟的 CPU 利用率超过 95%。 | 1.不要添加新计算机。<br/>2.检查使用进程服务器的 VM 数目是否符合[定义的限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。<br/> 4.如果问题持续出现，请针对 VMware/物理服务器复制运行[部署规划器](https://docs.azure.cn/site-recovery/site-recovery-deployment-planner)。
 ![警告][yellow] | 过去 15 分钟的内存使用率超过 80%。 |  1.不要添加新计算机。<br/>2.检查使用进程服务器的 VM 数目是否符合[定义的限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.遵照警告相关的任何说明操作。<br/> 4.如果问题持续出现，请遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。
-![关键][red] | 过去 15 分钟的内存使用率超过 95%。 | 1.不要添加新计算机，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/> 2.遵照警告相关的任何说明操作。<br/> 3. 4. 如果问题持续出现，请遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。<br/> 4.如果问题持续出现，请针对 VMware/物理服务器复制问题运行[部署规划器](http://aka.ms/asr-v2a-deployment-planner)。
+![关键][red] | 过去 15 分钟的内存使用率超过 95%。 | 1.不要添加新计算机，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/> 2.遵照警告相关的任何说明操作。<br/> 3. 4. 如果问题持续出现，请遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。<br/> 4.如果问题持续出现，请针对 VMware/物理服务器复制问题运行[部署规划器](https://docs.azure.cn/site-recovery/site-recovery-deployment-planner)。
 ![警告][yellow] | 过去 15 分钟的缓存文件夹可用空间小于 30%。 | 1.不要添加新计算机，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>2.检查使用进程服务器的 VM 数量是否符合[指导原则](site-recovery-plan-capacity-vmware.md#capacity-considerations)。<br/> 3.遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。
-![关键][red] |  过去 15 分钟的可用空间小于 25%。 | 1.遵照警告相关的说明来解决问题。<br/> 2. 3. 遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。<br/> 3.如果问题持续出现，请针对 VMware/物理服务器复制运行[部署规划器](http://aka.ms/asr-v2a-deployment-planner)。
+![关键][red] |  过去 15 分钟的可用空间小于 25%。 | 1.遵照警告相关的说明来解决问题。<br/> 2. 3. 遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。<br/> 3.如果问题持续出现，请针对 VMware/物理服务器复制运行[部署规划器](https://docs.azure.cn/site-recovery/site-recovery-deployment-planner)。
 ![关键][red] | 进程服务器有 15 分钟或更长时间未发出检测信号。 Tmansvs 服务未与配置服务器通信。 | 1) 检查进程服务器是否已启动并运行。<br/> 2.检查 tmassvc 是否在进程服务器上运行。<br/> 3.遵照以下说明[排查连接和复制问题](#check-connectivity-and-replication)。
 
 ![表键](./media/vmware-physical-azure-troubleshoot-process-server/table-key.png)
@@ -72,7 +72,7 @@ ms.locfileid: "66390924"
 
 **部署** | **正在运行的服务**
 --- | ---
-**配置服务器上的进程服务器** | ProcessServer；ProcessServerMonitor；cxprocessserver；InMage PushInstall；Log Upload Service (LogUpload)；InMage Scout Application Service；Microsoft Azure 恢复服务代理 (obengine)；InMage Scout VX Agent-Sentinel/Outpost (svagents)；tmansvc；World Wide Web Publishing Service (W3SVC)；MySQL；Azure Site Recovery Service (dra)
+**配置服务器上的进程服务器** | ProcessServer；ProcessServerMonitor；cxprocessserver；InMage PushInstall；Log Upload Service (LogUpload)；InMage Scout Application Service；Microsoft Azure 恢复服务代理 (obengine)；InMage Scout VX Agent-Sentinel/Outpost (svagents)；tmansvc；World Wide Web Publishing Service (W3SVC)；MySQL；Microsoft Azure Site Recovery 服务 (dra)
 **作为独立服务器运行的进程服务器** | ProcessServer；ProcessServerMonitor；cxprocessserver；InMage PushInstall；Log Upload Service (LogUpload)；InMage Scout Application Service；Microsoft Azure 恢复服务代理 (obengine)；InMage Scout VX Agent-Sentinel/Outpost (svagents)；tmansvc。
 **Azure 中部署的用于故障回复的进程服务器** | ProcessServer；ProcessServerMonitor；cxprocessserver；InMage PushInstall；Log Upload Service (LogUpload)
 
@@ -162,7 +162,7 @@ ms.locfileid: "66390924"
 
     ![存在网络活动的进程下的数量](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
-如果 cbengine.exe 未发送大量数据，请完成以下部分中的步骤。
+    如果 cbengine.exe 未发送大量数据，请完成以下部分中的步骤。
 
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>步骤 9：检查进程服务器可以连接到 Azure Blob 存储
 
@@ -207,7 +207,7 @@ ms.locfileid: "66390924"
 
 1. 对于基于 IP 地址的防火墙规则：
 
-    a) 下载[中国 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=42064)的完整列表。
+    a) 下载[中国 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)的完整列表。
 
     b) 将 IP 地址范围添加到防火墙配置，以确保防火墙允许与 Azure（以及默认的 HTTPS 端口 443）通信。
 
@@ -234,11 +234,10 @@ ms.locfileid: "66390924"
 
 ## <a name="next-steps"></a>后续步骤
 
-如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)中提问。 
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://support.azure.cn/support/contact/)中提问。 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png
 [red]: ./media/vmware-physical-azure-troubleshoot-process-server/red.png
 
-<!--Update_Description: new articles on vmware physical azure troubleshoot process server -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->

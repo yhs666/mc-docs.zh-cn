@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 origin.date: 06/27/2019
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 39fe96c503b97e0ab5a4470c9c7de070c3e2dbf0
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 4729466265d5bb5505160b912ba57c071a3ab807
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819646"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340999"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>有关 VMware 到 Azure 的复制的常见问题
 
@@ -79,7 +79,7 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA 和 DPA 认证， 目前�
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>如何计算 VMware 灾难恢复的大约费用？
 
-可以使用[定价计算器](https://www.azure.cn/zh-cn/pricing/calculator)来估算使用 Site Recovery 时的费用。
+可以使用[定价计算器](https://www.azure.cn/pricing/calculator)来估算使用 Site Recovery 时的费用。
 
 若要对费用进行详细的估算，请运行适用于 [VMware](../site-recovery/site-recovery-vmware-deployment-planner-cost-estimation.md) 的部署规划器工具，并使用[成本估算报告](../site-recovery/site-recovery-vmware-deployment-planner-cost-estimation.md)。
 
@@ -156,6 +156,7 @@ Site Recovery 将本地 VMware VM 和物理服务器复制到 Azure 中的托管
 <!--Not Available on Request this feature in the [feedback forum](https://support.azure.cn/en-us/support/contact/)-->
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
+
 不支持脱机复制。 
 
 <!--Not Available on Request this feature in the [feedback forum](https://support.azure.cn/en-us/support/contact/)-->
@@ -236,7 +237,7 @@ Site Recovery 遵循 N-4 支持模型。 [详细了解](../site-recovery/service
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>是否可以手动设置配置服务器，而不使用模板进行设置？
 
-我们建议使用最新版本的开放虚拟机格式 (OVF) 模板来[创建配置服务器 VM](vmware-azure-deploy-configuration-server.md)。 如果你无法使用该模板（例如，无法访问 VMware 服务器），请从门户[下载](physical-azure-set-up-source.md)安装程序文件并设置配置服务器。
+我们建议使用最新版本的开放虚拟化格式 (OVF) 模板来[创建配置服务器 VM](vmware-azure-deploy-configuration-server.md)。 如果你无法使用该模板（例如，无法访问 VMware 服务器），请从门户[下载](physical-azure-set-up-source.md)安装程序文件并设置配置服务器。
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>是否可将配置服务器复制到多个区域？
 
@@ -293,6 +294,14 @@ Site Recovery 遵循 N-4 支持模型。 [详细了解](../site-recovery/service
 ### <a name="where-can-i-download-vault-registration-keys"></a>在哪里可以下载保管库注册密钥？
 
 在“恢复服务保管库”中，选择“Site Recovery 基础结构” > “管理”中的“配置服务器”。    然后在“服务器”中，选择“下载注册密钥”以下载保管库凭据文件。  
+
+### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>是否可以使用单个配置服务器来保护多个 vCenter 实例？
+
+是，单个配置服务器可以保护多个 vCenter 中的 VM。  对于可以添加到配置服务器的 vCenter 实例的数量没有限制，但是对于单个配置服务器可以保护的 VM 数量的限制确实适用。
+
+### <a name="can-a-single-configuration-server-protect-multiple-clusters-within-vcenter"></a>单个配置服务器是否可以保护 vCenter 中的多个群集？
+
+是，Azure Site Recovery 可以保护不同群集上的 VM。
 
 ## <a name="process-server"></a>进程服务器
 

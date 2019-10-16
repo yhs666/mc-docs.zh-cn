@@ -95,9 +95,6 @@
       items:
         - name: 创作周期
           href: luis-concept-app-iteration.md
-        - name: 协作
-          displayName: 'shared, transfer, ownership, author, access, import'
-          href: luis-concept-collaborator.md
         - name: 版本控制
           href: luis-concept-version.md
           displayName: import
@@ -147,9 +144,6 @@
           displayName: import
     - name: 安全性
       items:
-        - name: 应用访问
-          displayName: 'public, public app, AAD, compliance, ISO, certification, trust center, import'
-          href: luis-concept-security.md
         - name: 创作和终结点密钥
           href: luis-concept-keys.md
 - name: 操作指南

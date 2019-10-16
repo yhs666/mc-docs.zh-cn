@@ -4,18 +4,17 @@ description: 本文介绍了流分析作业的四种不同状态：正在运行�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 9569680d6fba0508a45cab9e82b0d204c0f5a379
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: a576d98a3d7430b704c818ec0560e1474b898737
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169524"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674831"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Azure 流分析作业状态
 

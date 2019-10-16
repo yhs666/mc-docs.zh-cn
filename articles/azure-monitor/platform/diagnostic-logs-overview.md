@@ -9,12 +9,12 @@ origin.date: 05/20/2019
 ms.date: 07/06/2019
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: afa812a47598146496ccdc0c8698f34f3dc315cf
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5d3b016dd107ca21a69c2cccaba5e84cb577fadf
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330403"
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Azure 诊断日志概述
 
@@ -76,4 +76,4 @@ ms.locfileid: "70736891"
 ## <a name="next-steps"></a>后续步骤
 
 * [将资源诊断日志流式传输到事件中心  ](diagnostic-logs-stream-event-hubs.md)
-* [使用 Azure Monitor REST API 更改资源诊断设置](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [使用 Azure Monitor REST API 更改资源诊断设置](https://docs.microsoft.com/rest/api/monitor/)

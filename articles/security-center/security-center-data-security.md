@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 11/28/2018
+ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 22f09b7d804dfcfa951930b3941761353954cb99
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 9e9d6b23e5a1ef45337c97382785cff2a2bb53c3
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818560"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674615"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 安全中心数据安全性
 为了帮助客户防止、检测和应对威胁，Azure 安全中心将收集和处理安全相关的数据，包括配置信息、元数据、事件日志、故障转储文件，等等。 从编程到服务运营，Azure 都严格遵守相关法规与安全准则。

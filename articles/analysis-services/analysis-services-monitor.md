@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/26/2019
-ms.date: 08/26/2019
+origin.date: 09/12/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ed2541d7f801850527bc47e28582306d6f1f6a2
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 48e39dcf95a34c50538c6b40006e2323f1ce2d8a
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993329"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155831"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
@@ -32,6 +32,8 @@ Analysis Services 在 Azure 指标资源管理器（门户中的一个免费工�
 
     ![“监视”图表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+
+<a name="server-metrics"></a>
 ## <a name="server-metrics"></a>服务器指标
 
 使用此表来确定哪些指标最适合监视方案。 在同一图表上只能显示同一单位的指标。
@@ -53,6 +55,10 @@ Analysis Services 在 Azure 指标资源管理器（门户中的一个免费工�
 |MemoryLimitLow|内存:内存下限|字节|平均值|内存下限，来自配置文件。|
 |MemoryLimitVertiPaq|内存:内存 VertiPaq 限制|字节|平均值|内存中限制，来自配置文件。|
 |MemoryUsage|内存:内存用量|字节|平均值|服务器进程的内存使用量（在计算清理器内存价格时使用）。 等于计数器 Process\PrivateBytes 加上内存映射数据的大小，并且将忽略由内存中分析引擎 (VertiPaq) 映射或分配的超出了引擎内存限制的任何内存。|
+|private_bytes_metric|专用字节数 |字节|平均值|Analysis Services 引擎进程和糅合容器进程已分配的内存总量，不包括与其他进程共享的内存。|
+|virtual_bytes_metric|虚拟字节数 |字节|平均值|Analysis Services 引擎进程和糅合容器进程正在使用的虚拟地址空间的当前大小。|
+|mashup_engine_private_bytes_metric|M 引擎专用字节数 |字节|平均值|糅合容器进程已分配的内存总量，不包括与其他进程共享的内存。|
+|mashup_engine_virtual_bytes_metric|M 引擎虚拟字节数 |字节|平均值|糅合容器进程正在使用的虚拟地址空间的当前大小。|
 |Quota|内存:Quota|字节|平均值|当前内存配额（字节）。 内存配额也称为内存授予或内存预留。|
 |QuotaBlocked|内存:阻止的配额|计数|平均值|在其他内存配额被释放之前已阻止的当前的配额请求数。|
 |VertiPaqNonpaged|内存:VertiPaq 未分页|字节|平均值|工作集中被锁定的供内存中引擎使用的内存字节数。|

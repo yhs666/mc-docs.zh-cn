@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: e5f8503accf17e38d2ce72e844302cf26f9aaf61
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 09/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: ccb5c1588c8bdbfd2619ace12e16a4d70a7dc593
+ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104193"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267057"
 ---
 # <a name="create-a-custom-voice"></a>创建自定义语音
 
-[为自定义语音准备数据](how-to-custom-voice-prepare-data.md)中已介绍可用于训练自定义语音的不同数据类型，以及不同的格式要求。 准备好数据后，可以开始将其上传到[自定义语音门户](https://aka.ms/custom-voice-portal)；也可以通过自定义语音训练 API 上传。 本文介绍通过门户训练自定义语音的步骤。
+[为自定义语音准备数据](how-to-custom-voice-prepare-data.md)中已介绍可用于训练自定义语音的不同数据类型，以及不同的格式要求。 准备好数据后，可以开始将其上传到[自定义语音门户](https://speech.microsoft.com/portal?projecttype=customvoice)；也可以通过自定义语音训练 API 上传。 本文介绍通过门户训练自定义语音的步骤。
 
 > [!NOTE]
 > 本页假设你已阅读[自定义语音入门](how-to-custom-voice.md)和[为自定义语音准备数据](how-to-custom-voice-prepare-data.md)，并已创建一个自定义语音项目。
@@ -28,7 +29,7 @@ ms.locfileid: "70104193"
 
 ## <a name="upload-your-datasets"></a>上传数据集
 
-如果你已准备好上传数据，请转到[自定义语音门户](https://aka.ms/custom-voice-portal)。 创建或选择一个自定义语音项目。 该项目必须与你打算用于语音训练的数据共享正确的语言/区域设置和性别属性。 例如，如果你的音频录制内容是使用英式口音录制的，请选择 `en-GB`。
+如果你已准备好上传数据，请转到[自定义语音门户](https://speech.microsoft.com/portal?projecttype=customvoice)。 创建或选择一个自定义语音项目。 该项目必须与你打算用于语音训练的数据共享正确的语言/区域设置和性别属性。 例如，如果你的音频录制内容是使用英式口音录制的，请选择 `en-GB`。
 
 转到“数据”选项卡并单击“上传数据”。   在向导中，选择与准备好的数据匹配的适当数据类型。
 
@@ -78,7 +79,9 @@ ms.locfileid: "70104193"
     > 在训练中将会删除重复的音频名称。 确保所选的数据集不会在多个 .zip 文件中包含相同的音频名称。
 
     > [!TIP]
-    > 为获得优质结果，必须使用同一讲话者的数据集。 如果提交用于训练的数据集包含的相异言语总数小于 6,000 个，你将通过“统计参数合成”技术训练语音模型。 如果训练数据的相异言语总数超过 6,000 个，则你将使用“串联合成”技术启动训练过程。 通常，串联技术可以生成更自然、更具保真度的语音结果。 若要使用最新的“神经 TTS”技术训练模型，请[联系自定义语音团队](mailto:speechsupport@microsoft.com)。该技术可生成相当于已公开的[神经语音](language-support.md#neural-voices)的数字语音。
+    > 为获得优质结果，必须使用同一讲话者的数据集。 如果提交用于训练的数据集包含的相异言语总数小于 6,000 个，你将通过“统计参数合成”技术训练语音模型。 如果训练数据的相异言语总数超过 6,000 个，则你将使用“串联合成”技术启动训练过程。 通常，串联技术可以生成更自然、更具保真度的语音结果。 
+
+    <!-- [Contact the Custom Voice team](mailto:speechsupport@microsoft.com) if you want to train a model with the latest Neural TTS technology that can produce a digital voice equivalent to the publically available [neural voices](language-support.md#neural-voices). -->
 
 5.  单击“训练”开始创建语音模型。 
 
@@ -139,8 +142,9 @@ ms.locfileid: "70104193"
 
 也可通过自定义语音门户对终结点进行联机测试。 若要测试终结点，请在“终结点详细信息”页中选择“检查终结点”。   此时会显示终结点测试页。 在文本框中输入要朗读的文本（采用纯文本或 [SSML 格式](speech-synthesis-markup.md)）。 若要收听以自定义语音字体朗读的文本，请选择“播放”。  此项测试功能会收取自定义语音合成使用费。
 
-从功能上说，自定义终结点与用于文本转语音请求的标准终结点相同。
+从功能上说，自定义终结点与用于文本转语音请求的标准终结点相同。 有关详细信息，请参阅 [REST API](rest-text-to-speech.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [指南：录制语音样本](record-custom-voice-samples.md)
+* [文本转语音 API 参考](rest-text-to-speech.md)

@@ -2,20 +2,20 @@
 title: 使用 Azure 门户将数据导入搜索索引 - Azure 搜索
 description: 了解如何使用 Azure 门户中的“导入数据”向导从 Cosmos DB、Blob 存储、表存储、SQL 数据库和 Azure VM 上的 SQL Server 抓取 Azure 数据。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: a614cdb747d7c1b9bd618b36a68abf884b87868c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: cbea71f701bc40115728e2e8c0094aa892414ca8
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004863"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674387"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure 搜索的导入数据向导
 
@@ -34,7 +34,7 @@ Azure 门户在“Azure 搜索”仪表板上提供了“导入数据”  向导
 
 本部分介绍如何启动向导，并提供每个步骤的高级概述。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，从仪表板打开搜索服务页，或者在服务列表中[查找服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
+1. 在 [Azure 门户](https://portal.azure.cn)中，从仪表板打开搜索服务页，或者在服务列表中[查找服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
 
 2. 在顶部服务概述页中，单击“导入数据”  。
 

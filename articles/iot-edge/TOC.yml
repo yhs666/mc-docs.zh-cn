@@ -101,13 +101,11 @@
           href: how-to-register-device-vscode.md
     - name: 安装和管理 IoT Edge
       items:
-        - name: Linux X64
+        - name: Linux
           href: how-to-install-iot-edge-linux.md
-        - name: Linux ARM32
-          href: how-to-install-iot-edge-linux-arm.md
-        - name: Windows X64
+        - name: Windows
           href: how-to-install-iot-edge-windows.md
-        - name: Windows X64 上的 Linux 容器
+        - name: Windows 上的 Linux 容器
           href: how-to-install-iot-edge-windows-with-linux.md
         - name: Windows Server VM
           href: how-to-install-iot-edge-windows-server-vm.md
@@ -179,12 +177,12 @@
           href: '/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: 时序见解
           href: /time-series-insights
-    - name: Azure IoT Edge
+    - name: IoT Edge
       items:
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: /iot-edge
         - name: IoT 设备 SDK
-          href: /iot-hub/iot-hub-devguide-sdks
+          href: '/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 资源
   items:
     - name: '适用于 C# 的 Azure IoT 示例 (.NET)'

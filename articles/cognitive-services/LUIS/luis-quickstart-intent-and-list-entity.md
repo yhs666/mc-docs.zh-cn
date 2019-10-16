@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+origin.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b0e56b6098471641bd0c906b3cadd735b2e2a695
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fe97d70842366de619284ea321e20fee592f033c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330388"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教程：从话语中获取文本完全匹配的数据
 

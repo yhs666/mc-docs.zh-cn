@@ -1,7 +1,7 @@
 ---
 title: 从 Azure 备份服务器恢复数据
 description: 将所保护的数据从任意 Azure 备份服务器恢复到恢复服务保管库，前提是服务器已注册到该保管库。
-services: backup
+ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/17/2019
 ms.date: 07/09/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7dbcca60b46c3ec96fc42d6539a6d32b3ff2665a
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 926c8f2a75bba475b85071d2b953f9369252aa56
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329676"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>从 Azure 备份服务器恢复数据
 可使用 Azure 备份服务器恢复已备份到恢复服务保管库的数据。 用于执行此操作的过程已集成到 Azure 备份服务器管理控制台中，且与其他 Azure 备份组件的恢复工作流类似。
@@ -79,7 +79,6 @@ ms.locfileid: "68332251"
     ![清除外部 DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>错误消息疑难解答
-
 | 没有。 | 错误消息 | 疑难解答步骤 |
 |:---:|:--- |:--- |
 | 1. |此服务器未注册到保管库凭据所指定的保管库。 |**原因：** 当所选保管库凭据文件不属于与 Azure 备份服务器（在其上进行恢复尝试）关联的恢复服务保管库时，会出现此错误。 <br> **解决方法：** 从 Azure 备份服务器所注册到的恢复服务保管库中下载保管库凭据文件。 |

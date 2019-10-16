@@ -1,6 +1,6 @@
 ---
-title: 意向
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 意向 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 单个意向表示用户想执行的任务或操作。 它是用户话语中表达的目的或目标。 定义一组意向，对应于用户希望在应用程序中执行的操作。
 services: cognitive-services
 author: lingliw
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 43a19691e59e590963e24dc0e41803407f1d763f
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: bc9193cf685c789065d5c398b0681dad538bd020
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103960"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329921"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>关于 LUIS 应用中的意向的概念
 

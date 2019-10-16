@@ -3,8 +3,8 @@ title: Azure 中继身份验证和授权
 description: Azure 中继中的共享访问签名 (SAS) 身份验证概述
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-bus-relay
@@ -13,32 +13,33 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/23/2018
+ms.date: 08/29/2019
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: e93b0e69418beaa41388b6c444209bd5b0d489aa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 50e039a32085acec2a38cb98b1c43d14300b51c6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649437"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329643"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure 中继身份验证和授权
 
 应用程序可以使用共享访问签名 (SAS) 身份验证对 Azure 中继进行身份验证。 通过 SAS 身份验证，应用程序能够使用在中继命名空间中配置的访问密钥向 Azure 中继服务进行身份验证。 然后可以使用此密钥生成共享访问签名令牌，客户端可用它向中继服务进行身份验证。
 
 ## <a name="shared-access-signature-authentication"></a>共享访问签名身份验证
+
 通过 [SAS 身份验证](../service-bus-messaging/service-bus-sas.md)可向具有特定权限的用户授予对 Azure 中继资源的访问权限。 SAS 身份验证涉及配置具有资源相关权限的加密密钥。 客户端随后即可通过提供 SAS 令牌获取该资源的访问权限，该令牌由要访问的资源 URI 和签有已配置密钥的过期时间组成。
 
-可以在中继命名空间上配置用于 SAS 的密钥。 与服务总线消息传送不同，[中继混合连接](relay-hybrid-connections-protocol.md)支持未经授权的发件人或匿名发件人。 可在创建实体时启用它的匿名访问权限，如门户中以下屏幕快照所示：
+可以在中继命名空间上配置用于 SAS 的密钥。 与服务总线消息传送不同，[中继混合连接](relay-hybrid-connections-protocol.md)支持未经授权的发件人或匿名发件人。 可在创建实体时启用它的匿名访问权限，如门户中以下屏幕截图所示：
 
 ![][0]
 
 若要使用 SAS，可在由以下项构成的中继命名空间上配置 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象：
 
-* 标识此规则的 KeyName。
+* 标识此规则的 KeyName  。
 * *PrimaryKey* ，是用于对 SAS 令牌进行签名/验证的加密密钥。
 * *SecondaryKey* ，是用于对 SAS 令牌进行签名/验证的加密密钥。
-* Rights，表示授予的侦听、发送或管理权限的集合。
+* Rights  ，表示授予的侦听、发送或管理权限的集合。
 
 在命名空间级别配置的授权规则，可以向具有使用相应密钥签名的令牌的客户端授予命名空间中所有中继连接的访问权限。 在中继命名空间上最多可配置 12 个此类授权规则。 默认情况下，首次预配时，为每个命名空间配置具有所有权限的 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 。
 

@@ -4,17 +4,17 @@ description: 使用 Windows 虚拟机规模集的资源管理器模板将来宾 
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-origin.date: 09/24/2018
-ms.date: 01/21/2019
+ms.topic: conceptual
+origin.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 0466710d09408a0160df1535a6da813f0e264430
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 55a834b2a5a686b61a97e3cae0fa95e458e251cd
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737237"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330340"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虚拟机规模集的 Azure 资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
 

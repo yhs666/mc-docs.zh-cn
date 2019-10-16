@@ -4,18 +4,17 @@ description: 本文介绍如何将 Azure 流分析与 Azure 机器学习一起�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 06/21/2019
-ms.openlocfilehash: a550a8aeffd99ae894f73c6380300528283eb864
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/21/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: b83473bd6aa3d62746d5c38ae424cdf039995d28
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970477"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674801"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 流分析中的异常情况检测
 

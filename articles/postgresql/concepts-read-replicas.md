@@ -5,21 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/12/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 1c8cf8cc9b6cf975d9a2bf6ae39a08bac824c694
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+origin.date: 09/06/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: ccd68ab3ebec2f1c49a82b4f855856c495510ed2
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131820"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307873"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
 使用只读副本功能可将数据从 Azure Database for PostgreSQL 服务器复制到只读服务器。 可将主服务器中的数据复制到最多 5 个副本。 副本是使用 PostgreSQL 引擎的本机复制技术以异步方式更新的。
-
-> [!IMPORTANT]
-> 可以在主服务器所在的区域或所选的任何其他 Azure 区域创建只读副本。 跨区域复制目前为公共预览版。
 
 副本是新的服务器，可以像管理普通的 Azure Database for PostgreSQL 服务器一样对其进行管理。 每个只读副本按照预配计算资源的 vCore 数量以及每月 GB 存储量计费。
 
@@ -37,14 +34,9 @@ ms.locfileid: "70131820"
 ## <a name="cross-region-replication"></a>跨区域复制
 可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
 
-> [!IMPORTANT]
-> 跨区域复制目前为公共预览版。
-
-可以在任何 [Azure Database for PostgreSQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=postgresql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
+可以在任何 [Azure Database for PostgreSQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。 主服务器可以在其配对区域中有一个副本。
 
 ### <a name="paired-regions"></a>配对区域
-可以在主服务器的 Azure 配对区域中创建只读副本。
-
 如果你使用跨区域副本进行灾难恢复规划，建议你在配对区域而不是其他某个区域中创建副本。 配对区域可避免同时更新，并优先考虑物理隔离和数据驻留。  
 
 ## <a name="create-a-replica"></a>创建副本
@@ -110,9 +102,27 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > 独立服务器不能再次成为副本。
 > 在只读副本上停止复制之前，请确保副本包含所需的全部数据。
 
-停止复制后，副本会丢失指向其以前的主服务器和其他副本的所有链接。 在主服务器与副本之间无法自动进行故障转移。 
+停止复制后，副本会丢失指向其以前的主服务器和其他副本的所有链接。
 
 了解如何[停止复制到副本](howto-read-replicas-portal.md)。
+
+## <a name="failover"></a>故障转移
+在主服务器与副本服务器之间无法自动进行故障转移。 
+
+由于复制是异步的，因此在主体和副本之间存在延迟。 延迟程度受许多因素影响，例如，在主服务器上运行的工作负荷有多大，以及数据中心之间的延迟有多严重。 大多数情况下，副本验证在几秒钟到几分钟之间。 可以使用“副本延迟”指标来跟踪实际的副本延迟，该指标适用于每个副本。  该指标显示的是自上次重播事务以来所经历的时间。 建议观察一段时间的副本延迟，以便确定平均延迟。 可以针对副本延迟设置警报，这样，当它超出预期范围时，你就可以采取行动。
+
+> [!Tip]
+> 如果故障转移到副本，则取消副本与主体之间的链接时遇到的延迟会指示丢失了多少数据。
+
+一旦决定要故障转移到某个副本， 
+
+1. 请停止将数据复制到副本<br/>
+   此步骤是使副本服务器能够接受写入所必需的。 在此过程中，副本服务器会重启并取消与主体的链接。 启动停止复制的操作后，后端进程通常需要大约 2 分钟才能完成。 请参阅本文的[停止复制](#stop-replication)部分，了解此操作的潜在影响。
+    
+2. 将应用程序指向（以前的）副本<br/>
+   每个服务器都有唯一的连接字符串。 更新应用程序，使之指向（以前的）副本而不是主体。
+    
+如果应用程序成功处理了读取和写入操作，则表明故障转移已完成。 应用程序经历的停机时间取决于何时检测到问题并完成上面的步骤 1 和 2。
 
 
 ## <a name="considerations"></a>注意事项
@@ -126,17 +136,17 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 只读副本创建为新的 Azure Database for PostgreSQL 服务器。 无法将现有的服务器设为副本。 无法创建另一个只读副本的副本。
 
 ### <a name="replica-configuration"></a>副本配置
-副本是使用与主服务器相同的服务器配置创建的。 创建副本后，可以独立于主服务器更改多项设置：计算代系、vCore 数、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
+使用与主服务器相同的计算和存储设置创建副本。 创建副本后，可以独立于主服务器更改多项设置：计算代系、vCore 数、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
 
 > [!IMPORTANT]
-> 将主服务器的配置更新为新值之前，请将副本配置更新为与这些新值相等或更大的值。 此操作可确保副本与主服务器发生的任何更改保持同步。
+> 将主服务器设置更新为新值之前，请将副本配置更新为一个相等或更大的值。 此操作可确保副本与主服务器发生的任何更改保持同步。
 
 PostgreSQL 要求只读副本上的 `max_connections` 参数值大于或等于主服务器上的值，否则副本不会启动。 在 Azure Database for PostgreSQL 中，`max_connections` 参数值基于 SKU。 有关详细信息，请参阅 [Azure Database for PostgreSQL 中的限制](concepts-limits.md)。 
 
 在不遵守限制的情况下尝试更新服务器值会导致出错。
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL 要求](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)只读副本上的 `max_prepared_transactions` 参数值大于或等于主服务器上的值，否则副本不会启动。 如果要更改主服务器上的 `max_prepared_transactions`，请先在副本上进行相应更改。
+[PostgreSQL 要求](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)只读副本上的 `max_prepared_transactions` 参数值大于或等于主服务器上的值，否则副本不会启动。 如果要更改主服务器上的 `max_prepared_transactions`，请先在副本上进行相应更改。
 
 ### <a name="stopped-replicas"></a>停止的副本
 如果停止主服务器与只读副本之间的复制，副本会重启以应用更改。 已停止的副本将成为可接受读取和写入的独立服务器。 独立服务器不能再次成为副本。
@@ -145,4 +155,5 @@ PostgreSQL 要求只读副本上的 `max_connections` 参数值大于或等于�
 删除主服务器后，其所有只读副本将成为独立服务器。 副本将会重启以反映此项更改。
 
 ## <a name="next-steps"></a>后续步骤
-了解如何[在 Azure 门户中创建和管理只读副本](howto-read-replicas-portal.md)。
+* 了解如何[在 Azure 门户中创建和管理只读副本](howto-read-replicas-portal.md)。
+* 了解如何[通过 Azure CLI 和 REST API 创建和管理只读副本](howto-read-replicas-cli.md)。

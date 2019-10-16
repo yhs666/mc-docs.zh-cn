@@ -1,5 +1,5 @@
 ---
-title: Azure 应用服务中针对移动应用的身份验证和授权
+title: Azure 应用服务中针对移动应用的身份验证和授权 | Azure
 description: Azure 应用服务的身份验证/授权功能的概念性参考和概述，尤其是针对移动应用
 services: app-service
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/07/2019
-ms.author: v-biyu
-ms.openlocfilehash: 59e057ae400fc0d11e7a504faf17ef4c220db1c4
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.author: v-tawe
+ms.openlocfilehash: cbcf192b8883033b6a963f662632fdbb319a2fd2
+ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083736"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71006594"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure 应用服务中针对移动应用的身份验证和授权
 
@@ -27,7 +27,7 @@ ms.locfileid: "54083736"
 
 本文重点介绍了移动应用开发。 若要快速了解如何将应用服务身份验证和授权用于移动应用，请参阅以下教程之一：[向 iOS 应用添加身份验证][iOS]（或 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova]）。 
 
-有关应用服务中的身份验证和授权如何工作的信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
+有关应用服务中的身份验证和授权如何工作的信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/overview-authentication-authorization.md)。
 
 ## <a name="authentication-with-provider-sdk"></a>在使用提供者 SDK 的情况下进行身份验证
 
@@ -36,7 +36,7 @@ ms.locfileid: "54083736"
 * 使用给定标识提供者发布的 SDK 来建立标识，即可获得应用服务的访问权限。
 * 使用单行代码即可让移动应用客户端 SDK 登录用户。
 
->[!TIP]
+> [!TIP]
 > 大多数应用程序应使用提供者 SDK，这样可以让用户在登录时获得更一致的体验，可以使用令牌刷新支持，还可以获得提供者指定的其他权益。
 > 
 > 
@@ -59,12 +59,12 @@ ms.locfileid: "54083736"
 以下教程展示了如何通过[服务器定向流](../app-service/overview-authentication-authorization.md#authentication-flow)向移动客户端添加身份验证：
 
 * [Add authentication to your iOS app][iOS]
-* [将身份验证添加到 Android 应用][Android]
-* [将身份验证添加到 Windows 应用][Windows]
-* [将身份验证添加到 Xamarin.iOS 应用][Xamarin.iOS]
-* [将身份验证添加到 Xamarin.Android 应用][Xamarin.Android]
-* [将身份验证添加到 Xamarin.Forms 应用][Xamarin.Forms]
-* [Add Authentication to your Cordova app][Cordova]
+* [向 Android 应用添加身份验证][Android]
+* [Add Authentication to your Windows app][Windows]
+* [Add authentication to your Xamarin.iOS app][Xamarin.iOS]
+* [Add authentication to your Xamarin.Android app][Xamarin.Android]
+* [向 Xamarin.Forms 应用添加身份验证][Xamarin.Forms]
+* [向 Cordova 应用添加身份验证][Cordova]
 
 若要为 Azure Active Directory 使用[客户端定向流](../app-service/overview-authentication-authorization.md#authentication-flow)，请参阅以下资源：
 

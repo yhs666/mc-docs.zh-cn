@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 04/25/2018
-ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: 999235a66c984c272d086d36ad0d06e046d90d34
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+origin.date: 01/04/2019
+ms.date: 10/08/2019
+ms.author: v-tawe
+ms.openlocfilehash: 709145ee56b075df0abe359108c56a74b0a325c0
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633031"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272626"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure 通知中心富推送
 
@@ -35,11 +35,11 @@ ms.locfileid: "68633031"
 在高级别中：
 
 1. 应用后端：
-   - 在后端数据库/本地存储中存储富有效负载（在本例中为图像）
-   - 向设备发送此富通知的 ID
+   * 在后端数据库/本地存储中存储富有效负载（在本例中为图像）
+   * 向设备发送此富通知的 ID
 2. 设备上的应用：
-   - 与使用设备接收到的 ID 请求富有效负载的后端进行联系
-   - 在数据检索完成后，向用户设备发送通知，并在用户点击“了解详细信息”时立即显示有效负载
+   * 与使用设备接收到的 ID 请求富有效负载的后端进行联系
+   * 在数据检索完成后，向用户设备发送通知，并在用户点击“了解详细信息”时立即显示有效负载
 
 ## <a name="webapi-project"></a>WebAPI 项目
 
@@ -47,7 +47,7 @@ ms.locfileid: "68633031"
 2. 获取想要用于通知用户的图像，并将其置于项目目录的 **img** 文件夹中。
 3. 单击“解决方案资源管理器”中的“显示所有文件”，右键单击该文件夹以“包括在项目中”   。
 4. 通过选定的图像，将“属性”窗口中的“生成操作”更改为 **嵌入的资源**。
-   
+
     ![][IOS2]
 5. 在 `Notifications.cs` 中，添加以下 using 语句：
 

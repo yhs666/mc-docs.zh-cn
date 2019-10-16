@@ -1,22 +1,23 @@
 ---
 title: Azure 备份：使用 Azure 门户还原虚拟机
 description: 使用 Azure 门户从恢复点还原 Azure 虚拟机
-services: backup
+ms.reviewer: geg
 author: lingliw
 manager: digimobile
 keywords: 还原备份; 如何还原; 恢复点;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+origin.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cb8f02db3bbb2cba9dbee27ed2d9c39580150f73
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 71136bef5f82b166db20d15ab486ea0bb11848d6
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818494"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329704"
 ---
-# <a name="restore-azure-vms"></a>还原 Azure VM
+# <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 门户中还原 Azure VM 数据
 
 本文介绍如何从 [Azure 备份](backup-overview.md)恢复服务保管库中存储的恢复点还原 Azure VM 数据。
 
@@ -28,7 +29,7 @@ Azure 备份提供多种方法用于还原 VM。
 
 **还原选项** | **详细信息**
 --- | ---
-**创建新 VM** | 从还原点快速创建并正常运行一个基本的 VM。<br/><br/> 可以为 VM 指定名称，选择要将其放入的资源组和虚拟网络 (VNet)，并为还原的 VM 指定存储帐户。
+**创建新 VM** | 从还原点快速创建并正常运行一个基本的 VM。<br/><br/> 可以为 VM 指定名称，选择要将其放入的资源组和虚拟网络 (VNet)，并为还原的 VM 指定存储帐户。 新 VM 必须在源 VM 所在的区域创建。
 **还原磁盘** | 还原某个 VM 磁盘，然后使用它来创建新的 VM。<br/><br/> Azure 备份提供一个模板来帮助你自定义和创建 VM。 <br/><br> 还原作业会生成一个模板，可以下载该模板，并使用它来指定自定义的 VM 设置和创建 VM。<br/><br/> 磁盘将复制到指定的存储帐户。<br/><br/> 或者，可将磁盘附加到现有 VM，或使用 PowerShell 创建新的 VM。<br/><br/> 若要自定义 VM、添加在备份时不存在的配置设置，或添加必须使用模板或 PowerShell 配置的设置，则此选项非常有用。
 **替换现有项** | 可以还原某个磁盘，并使用它来替换现有 VM 上的磁盘。<br/><br/> 当前 VM 必须存在。 如果已将其删除，则无法使用此选项。<br/><br/> Azure 备份将在替换磁盘前创建现有 VM 的快照，并将其存储在指定的暂存位置中。 连接到该 VM 的现有磁盘将替换为所选的还原点。<br/><br/> 该快照将复制到保管库，并根据保留策略予以保留。 <br/><br/> 支持替换未加密的托管 VM 的现有磁盘。 不支持对非托管磁盘、[通用化 VM](/virtual-machines/windows/capture-image-resource) 或[使用自定义映像创建的](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) VM 使用该选项。<br/><br/> 如果还原点中的磁盘数多于或少于当前 VM 中的磁盘数，则还原点中的磁盘数只反映 VM 配置。<br/><br/>
 
@@ -60,7 +61,7 @@ Azure 备份提供多种方法用于还原 VM。
 
 
 
-## <a name="select-a-restore-point"></a>选择还原点 
+## <a name="select-a-restore-point"></a>选择还原点
 
 1. 在与要还原的 VM 关联的保管库中，单击“备份项” > “Azure 虚拟机”。  
 2. 单击某个 VM。 VM 仪表板默认会显示过去 30 天的恢复点。 可以显示 30 天以前的恢复点，或者根据日期、时间范围和不同类型的快照一致性进行筛选，以找到所需的恢复点。
@@ -111,7 +112,8 @@ Azure 备份提供多种方法用于还原 VM。
 
 4. 在“还原配置”中，选择“确定”。   在“还原”中，选择“还原”以触发还原操作。  
 
-在 VM 还原期间，Azure 备份不使用存储帐户。 但在使用**还原磁盘**和**即时还原**时，存储帐户用于存储模板。
+当虚拟机使用托管磁盘，而你选择“创建虚拟机”选项时，  Azure 备份不使用指定的存储帐户。 在使用“还原磁盘”  和“即时还原”  时，存储帐户仅用于存储模板。 在指定的资源组中创建了托管磁盘。
+当虚拟机使用非托管磁盘时，它们会以 Blob 的形式还原到存储帐户。
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>使用模板自定义还原 VM
 
@@ -161,7 +163,7 @@ Azure 备份提供多种方法用于还原 VM。
 **NIC/子网上的网络安全组 (NSG)** | Azure VM 备份支持在 VNet、子网和 NIC 级别备份和还原 NSG 信息。
 
 ## <a name="track-the-restore-operation"></a>跟踪还原操作
-触发还原操作后，备份服务会创建一个作业用于跟踪。 Azure 备份在门户中显示有关作业的通知。 如果未显示通知，单击“通知”符号即可显示。 
+触发还原操作后，备份服务会创建一个作业用于跟踪。 Azure 备份在门户中显示有关作业的通知。 如果未显示通知，请选择“通知”符号，然后选择“查看所有作业”，此时即可看到“还原过程状态”。  
 
 ![已触发还原](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 
@@ -185,7 +187,27 @@ Azure 备份提供多种方法用于还原 VM。
 - 如果备份的 VM 使用了静态 IP 地址，则还原的 VM 将使用动态 IP 地址，以避免冲突。 可[将静态 IP 地址添加到还原的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)。
 - 还原的 VM 没有可用性集。 如果使用了还原磁盘选项，则使用提供的模板或 PowerShell 从磁盘创建 VM 时，可以[指定可用性集](../virtual-machines/windows/tutorial-availability-sets.md)。
 - 如果使用基于 cloud-init 的 Linux 分发版（例如 Ubuntu），出于安全原因，还原后将阻止密码。 请在还原的 VM 上使用 VMAccess 扩展 [重置密码](../virtual-machines/linux/reset-password.md)。 我们建议在这些分发版中使用 SSH 密钥，这样，在还原后就无需重置密码。
+- 如果在还原后因 VM 与域控制器的关系被破坏而无法访问 VM，请按以下步骤操作，以便启动 VM：
+    - 将 OS 磁盘作为数据磁盘附加到恢复的 VM。
+    - 如果发现 Azure 代理无响应，请按此[链接](/virtual-machines/troubleshooting/install-vm-agent-offline)的要求手动安装 VM 代理。
+    - 在 VM 上启用串行控制台访问，以便通过命令行访问 VM
+    
+  ```
+    bcdedit /store <drive letter>:\boot\bcd /enum
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    ```
+    - 重新生成 VM 后，请通过 Azure 门户重置本地管理员帐户和密码
+    - 使用串行控制台访问和 CMD，使 VM 从域中脱离
 
+    ```
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+    ```
+
+- VM 脱离并重启后，即可使用本地管理员凭据成功地通过 RDP 连接到 VM，并将 VM 成功地重新加入域。
 
 ## <a name="backing-up-restored-vms"></a>备份已还原的 VM
 
@@ -193,7 +215,6 @@ Azure 备份提供多种方法用于还原 VM。
 - 如果将 VM 还原到了其他资源组或者为还原的 VM 指定了其他名称，则需要为还原的 VM 设置备份。
 
 ## <a name="next-steps"></a>后续步骤
-
 
 - 如果在还原过程中遇到难题，请[查看](backup-azure-vms-troubleshoot.md#restore)常见问题和错误。
 - 还原 VM 后，请了解如何[管理虚拟机](backup-azure-manage-vms.md)

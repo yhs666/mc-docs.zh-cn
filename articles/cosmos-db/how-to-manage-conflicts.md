@@ -3,16 +3,16 @@ title: 了解如何管理 Azure Cosmos DB 中区域之间的冲突
 description: 了解如何管理 Azure Cosmos DB 中的冲突
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 08/05/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 225db9fbaa571d3cb752ce162f4a576b48b7d83a
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: a54b4f9e8c100050b67c63b9ffcf07aa98f2828f
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254774"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306722"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 
@@ -279,7 +279,8 @@ udp_collection = {
         'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
     }
 }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 创建容器后，必须创建 `resolver` 存储过程。

@@ -2,21 +2,21 @@
 title: 使用索引器连接 Azure SQL 数据库并为其内容编制索引 - Azure 搜索
 description: 了解如何使用索引器抓取 Azure SQL 数据库中的数据，以便在 Azure 搜索中进行全文搜索。 本文介绍连接、索引器配置和数据引入。
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 author: mgottein
-manager: cgronlun
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f71ac9168ad24c9406cf2b7eaa068d338e594e67
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 63a7cbcdb6ef9f62423663bc721d658f945a6dc2
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004417"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674401"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>使用 Azure 搜索索引器连接 Azure SQL 数据库并为其内容编制索引
 
@@ -24,7 +24,7 @@ ms.locfileid: "66004417"
 
 本文不但介绍了使用[索引器](search-indexer-overview.md)的机制，而且还介绍了仅适用于 Azure SQL 数据库的功能（如集成的更改跟踪）。 
 
-除了 Azure SQL 数据库之外，Azure 搜索还针对 [Azure Cosmos DB](search-howto-index-cosmosdb.md)、[Azure Blob 存储](search-howto-indexing-azure-blob-storage.md)和 [Azure 表存储](search-howto-indexing-azure-tables.md)提供了索引器。 若要请求对其他数据源的支持，请在 [Azure 搜索反馈论坛](https://feedback.azure.com/forums/263029-azure-search/)上提供反馈。
+除了 Azure SQL 数据库之外，Azure 搜索还针对 [Azure Cosmos DB](search-howto-index-cosmosdb.md)、[Azure Blob 存储](search-howto-indexing-azure-blob-storage.md)和 [Azure 表存储](search-howto-indexing-azure-tables.md)提供了索引器。
 
 ## <a name="indexers-and-data-sources"></a>索引器和数据源
 
@@ -99,7 +99,7 @@ ms.locfileid: "66004417"
 
 可自定义索引器行为的几个方面，例如批大小和可在索引器执行失败前跳过的文档数。 有关详细信息，请参阅[创建索引器 API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。
 
-可能需要允许 Azure 服务连接到数据库。 有关如何执行该操作的说明，请参阅[从 Azure 连接](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)。
+可能需要允许 Azure 服务连接到数据库。 有关如何执行该操作的说明，请参阅[从 Azure 连接](https://docs.azure.cn/sql-database/sql-database-firewall-configure)。
 
 若要监视索引器状态和执行历史记录（已编制索引的项目数、失败数等），请使用**索引器状态**请求：
 
@@ -179,7 +179,7 @@ ms.locfileid: "66004417"
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>捕获新的、更改的和删除的行
 
-Azure 搜索使用“增量索引编制”来避免索引器每次运行时都必须为整个表或视图重新编制索引。 Azure 搜索提供了两个更改检测策略来支持增量索引编制。 
+Azure 搜索使用  “增量索引编制”来避免索引器每次运行时都必须为整个表或视图重新编制索引。 Azure 搜索提供了两个更改检测策略来支持增量索引编制。 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 集成的更改跟踪策略
 如果 SQL 数据库支持[更改跟踪](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)，我们建议使用 **SQL 集成的更改跟踪策略**。 这是最有效的策略。 此外，它允许 Azure 搜索标识删除的行，无需向表中添加显式“软删除”列。
@@ -304,7 +304,7 @@ SQL 索引器公开多个配置设置：
 
 | 设置 | 数据类型 | 目的 | 默认值 |
 | --- | --- | --- | --- |
-| queryTimeout |字符串 |设置 SQL 查询执行的超时 |5 分钟（“00:05:00”） |
+| queryTimeout |string |设置 SQL 查询执行的超时 |5 分钟（“00:05:00”） |
 | disableOrderByHighWaterMarkColumn |bool |导致高使用标记策略使用的 SQL 查询省略 ORDER BY 子句。 请参阅[高使用标记策略](#HighWaterMarkPolicy) |false |
 
 在索引器定义的 `parameters.configuration` 对象中使用这些设置。 例如，要将查询超时设置为 10 分钟，请使用以下配置创建或更新索引器：
@@ -323,7 +323,7 @@ SQL 索引器公开多个配置设置：
 
 **问：是否可以将 Azure SQL 索引器与本地运行的 SQL 数据库配合使用？**
 
-无法直接配合使用。 我们不建议使用也不支持直接连接，因为这样做需要使用 Internet 流量打开数据库。 对于此方案，客户已使用诸如 Azure 数据工厂之类的桥技术取得了成功。 有关详细信息，请参阅[使用 Azure 数据工厂将数据推送到 Azure 搜索索引](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)。
+无法直接配合使用。 我们不建议使用也不支持直接连接，因为这样做需要使用 Internet 流量打开数据库。 对于此方案，客户已使用诸如 Azure 数据工厂之类的桥技术取得了成功。 有关详细信息，请参阅[使用 Azure 数据工厂将数据推送到 Azure 搜索索引](https://docs.azure.cn/data-factory/data-factory-azure-search-connector)。
 
 **问：是否可以将 Azure SQL 索引器与在 Azure 上 IaaS 中运行的非 SQL Server 数据库配合使用？**
 
@@ -337,7 +337,7 @@ SQL 索引器公开多个配置设置：
 
 是的。 索引器在搜索服务中的一个节点上运行，该节点的资源在编制查询流量索引并进行处理和其他 API 请求之间共享。 如果运行密集型编制索引和查询工作负荷，并频繁遇到 503 错误或响应时间增加，请考虑[纵向扩展搜索服务](search-capacity-planning.md)。
 
-**问：是否可以将[故障转移群集](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)中的次要副本用作数据源？**
+**问：是否可以将[故障转移群集](https://docs.azure.cn/sql-database/sql-database-geo-replication-overview)中的次要副本用作数据源？**
 
 视情况而定。 对于表或视图的完整索引编制，可以使用辅助副本。 
 

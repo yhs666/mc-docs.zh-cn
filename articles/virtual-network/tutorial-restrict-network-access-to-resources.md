@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 08/23/2018
-ms.date: 06/10/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67eb834a8a9ddbf687115a28bcfb223bfc6669d8
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: fb06b30b4108e4bebbe9bd793d42aade8a5662d6
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250331"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306478"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教程：使用 Azure 门户通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -56,11 +56,14 @@ ms.locfileid: "66250331"
     |地址空间| 10.0.0.0/16|
     |订阅| 选择订阅|
     |资源组 | 选择“新建”，并输入 myResourceGroup  |
-    |位置| 选择“中国东部”  |
+    |Location| 选择“中国东部”  |
     |子网名称| 公共|
     |子网地址范围| 10.0.0.0/24|
     |服务终结点| 已禁用|
-
+    
+    <!--Not Available on |DDoS protection| Basic|-->
+    <!--Not Available on 09/24/2019 |Service endpoints| Disabled|-->
+    
     ![输入虚拟网络的基本信息](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
 ## <a name="enable-a-service-endpoint"></a>启用服务终结点
@@ -80,8 +83,8 @@ ms.locfileid: "66250331"
     |地址范围| 10.0.1.0/24|
     |服务终结点| 在“服务”下选择“Microsoft.Storage”  |
 
-> [!CAUTION]
-> 在为其中有资源的现有子网启用服务终结点之前，请参阅[更改子网设置](virtual-network-manage-subnet.md#change-subnet-settings)。
+    > [!CAUTION]
+    > 在为其中有资源的现有子网启用服务终结点之前，请参阅[更改子网设置](virtual-network-manage-subnet.md#change-subnet-settings)。
 
 ## <a name="restrict-network-access-for-a-subnet"></a>限制子网的网络访问
 
@@ -96,7 +99,7 @@ ms.locfileid: "66250331"
     |Name| myNsgPrivate |
     |订阅| 选择订阅|
     |资源组 | 选择“使用现有资源组”，再选择“myResourceGroup”   。|
-    |位置| 选择“中国东部”  |
+    |Location| 选择“中国东部”  |
 
 4. 创建网络安全组后，在门户顶部的“搜索资源、服务和文档”框中输入 *myNsgPrivate*。  当“myNsgPrivate”出现在搜索结果中时，将其选中。 
 5. 在“设置”下，选择“出站安全规则”。  
@@ -157,14 +160,16 @@ ms.locfileid: "66250331"
 
 1. 选择 Azure 门户左上角的“+ 创建资源”  。
 2. 选择“存储”，然后选择“存储帐户”   。
+    
     <!--MOONCAKE: CORRECT ON Storage account-->
+    
 3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”  ：
 
     |设置|值|
     |----|----|
     |Name| 输入在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。|
     |帐户类型|StorageV2（常规用途 v2）|
-    |位置| 选择“中国东部”  |
+    |Location| 选择“中国东部”  |
     |复制| 本地冗余存储 (LRS)|
     |订阅| 选择订阅|
     |资源组 | 选择“使用现有资源组”，再选择“myResourceGroup”   。|
@@ -213,7 +218,9 @@ ms.locfileid: "66250331"
 
 1. 选择 Azure 门户左上角的“+ 创建资源”  。
 2. 选择“虚拟机”，然后选择“Windows Server 2016 Datacenter”。  
+    
     <!--MOONCAKE: CORRECT ON Virtual Machines-->
+    
 3. 输入或选择以下信息，然后选择“确定”  ：
 
     |设置|值|
@@ -223,13 +230,14 @@ ms.locfileid: "66250331"
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |订阅| 选择订阅。|
     |资源组| 选择“使用现有资源组”，再选择“myResourceGroup”   。|
-    |位置| 选择“中国东部”。 |
+    |Location| 选择“中国东部”。 |
 
     ![输入虚拟机的基本信息](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. 选择虚拟机的大小，然后选择“选择”  。
 5. 在“设置”下选择“网络”，然后选择“myVirtualNetwork”。    然后依次选择“子网”、“公共”，如下图中所示：  
 
     ![选择虚拟网络](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+
 6. 在“网络安全组”  下，选择“高级”。  门户会自动为你创建一个网络安全组，该组允许端口 3389。此端口需保持打开状态，然后才能在后面的步骤中连接到虚拟机。 在“设置”页中，选择“确定”。  
 7. 在“摘要”页上，选择“创建”以启动虚拟机部署   。 部署 VM 需要几分钟时间，但在创建 VM 期间，可以继续执行下一步骤。
 

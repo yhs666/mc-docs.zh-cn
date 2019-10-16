@@ -11,12 +11,12 @@ ms.topic: landing-page
 origin.date: 01/15/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36dbe82eb9a58a7705ede7d8d36c4969f5ac2e02
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 1b452a81db4b595147c8bc6b6acebf67e7e64fa3
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737008"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329962"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -85,7 +85,6 @@ ms.locfileid: "70737008"
                                                         <p>
                                                             <a href="./learn/tutorial-runtime-exceptions.md">查找和诊断运行时异常</a><br>
                                                             <a href="./learn/tutorial-performance.md">查找和诊断性能问题</a><br>
-                                                            <a href="./learn/tutorial-alert.md">监视应用程序运行状况并根据情况发出警报</a><br>
                                                             <a href="./learn/tutorial-users.md">理解用户行为</a><br>
                                                             <a href="./learn/tutorial-app-dashboards.md">创建自定义仪表板</a>
                                                             </p>

@@ -2,20 +2,20 @@
 title: 如何在类别层次结构中实现分面导航 - Azure 搜索
 description: 将分面导航添加到与 Azure 搜索（Microsoft Azure 上的一项云托管的搜索服务）集成的应用程序。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/13/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 08a3576f342982d294400b95ebb9a8aeb4c5b88f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: ee5a95ac03eb3c2175f654a1e2531bc27e4d0d86
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004585"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674225"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜索中实现分面导航
 分面导航是一种筛选机制，用于在搜索应用程序中提供自定向的深化导航。 术语“分面导航”可能让人觉得陌生，但我们以前也许用过它。 如以下示例所示，分面导航就是用于筛选结果的类别。
@@ -35,7 +35,7 @@ ms.locfileid: "66004585"
 ## <a name="sample-code-and-demo"></a>代码示例和演示
 本文使用作业搜索门户作为示例。 该示例作为 ASP.NET MVC 应用程序实现。
 
--   请参阅并测试 [Azure 搜索作业门户演示](https://azjobsdemo.azurewebsites.net/)中的在线实践演示。
+-   请参阅并测试 [Azure 搜索作业门户演示](https://azjobsdemo.chinacloudapi.cn/)中的在线实践演示。
 
 -   从 [GitHub 上的 Azure 示例存储库](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)中下载代码。
 
@@ -372,7 +372,7 @@ Azure 搜索中有两个地理空间函数：**geo.distance** 和 **geo.intersec
 ## <a name="try-the-demo"></a>尝试演示
 Azure 搜索作业门户演示包含本文中参考的示例。
 
--   请参阅并测试 [Azure 搜索作业门户演示](https://azjobsdemo.azurewebsites.net/)中的在线实践演示。
+-   请参阅并测试 [Azure 搜索作业门户演示](https://azjobsdemo.chinacloudapi.cn/)中的在线实践演示。
 
 -   从 [GitHub 上的 Azure 示例存储库](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)中下载代码。
 

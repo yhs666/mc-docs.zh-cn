@@ -4,19 +4,19 @@ description: Azure 快速入门 - 使用适用于 IoT 中心设备预配服务�
 author: wesmc7777
 ms.author: v-yiso
 origin.date: 05/21/2018
-ms.date: 06/03/2019
+ms.date: 10/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 2888c986f7370f25c39ebe7f24640ab8c514e6ed
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 36f455407f4fda636d6f7361613c77e039f5132f
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340721"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用适用于 IoT 中心设备预配服务的 Python 设备 SDK 创建和预配模拟的 TPM 设备
 
@@ -34,6 +34,9 @@ Azure IoT 设备预配服务支持两类注册：
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
+> [!NOTE]
+> 本指南仅适用于现已弃用的 V1 Python SDK。 V2 尚不支持模拟 TPM 设备。 该团队目前正在努力使 V2 具有功能奇偶一致性。
+
 ## <a name="prepare-the-environment"></a>准备环境 
 
 1. 确保你已安装了 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更高版本，并为你的 Visual Studio 安装启用“使用 C++ 的桌面开发”。
@@ -45,7 +48,7 @@ Azure IoT 设备预配服务支持两类注册：
 1. 打开命令提示符或 Git Bash。 为设备模拟代码示例克隆 GitHub 存储库：
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    git clone --single-branch --branch v1-deprecated https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
 1. 在该 GitHub 存储库的本地副本中创建一个用于 CMake 生成过程的文件夹。 

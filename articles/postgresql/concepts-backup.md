@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: a08efb6e93486e346a36893847324ffe37da9a95
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 08/21/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: c3ebaca399979c1546278004166efad9a167e2dc
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731950"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307879"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中进行备份和还原
 
@@ -63,7 +63,7 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 ### <a name="geo-restore"></a>异地还原
 
-如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
+如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
 
 在异地还原过程中，可以更改的服务器配置包括计算的代、vCore、备份保持期和备份冗余选项。 不支持更改定价层（“基本”、“常规用途”或“内存优化”）或存储大小。
 
@@ -78,6 +78,6 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 ## <a name="next-steps"></a>后续步骤
 
+- 了解如何使用  [Azure 门户](howto-restore-server-portal.md)进行还原。
+- 了解如何使用  [Azure CLI](howto-restore-server-cli.md) 进行还原。
 - 若要详细了解业务连续性，请参阅 [业务连续性概述](concepts-business-continuity.md)。
-- 若要使用 Azure 门户还原到某个时间点，请参阅 [使用 Azure 门户将数据库还原到某个时间点](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 还原到某个时间点，请参阅 [使用 CLI 将数据库还原到某个时间点](howto-restore-server-cli.md)。

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 07/22/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 681c25faf57c692a3f0df08c36926da68e162865
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 049c365687d02da2ef4cee7865bf74f2a924a58c
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391594"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083253"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授权代码流
 
@@ -25,64 +25,44 @@ ms.locfileid: "68391594"
 
 [OAuth 2.0 规范第 4.1 部分](https://tools.ietf.org/html/rfc6749)描述了 OAuth 2.0 授权代码流。 可在大多数[应用程序类型](active-directory-b2c-apps.md)中将其用于身份验证和授权，包括 Web 应用和本机安装的应用程序。 可使用 OAuth 2.0 授权代码流安全地获取应用程序的访问令牌和刷新令牌，这些令牌可用于访问受到[授权服务器](active-directory-b2c-reference-protocols.md)保护的资源。  刷新令牌允许客户端在访问令牌到期后（通常在一小时后）获取新的访问（和刷新）令牌。
 
-本文重点介绍**公共客户端** OAuth 2.0 授权代码流。 公共客户端是那些不能被信任以安全维护机密密码完整性的任何客户端应用程序。 这包括移动应用、桌面应用程序，以及在设备上运行并需要获取访问令牌的几乎所有应用程序。 
+本文重点介绍**公共客户端** OAuth 2.0 授权代码流。 公共客户端是那些不能被信任以安全维护机密密码完整性的任何客户端应用程序。 这包括移动应用、桌面应用程序，以及在设备上运行并需要获取访问令牌的几乎所有应用程序。
 
 > [!NOTE]
 > 若要使用 Azure AD B2C 向 Web 应用添加标识管理，请使用 [OpenID Connect](active-directory-b2c-reference-oidc.md)，而不要使用 OAuth 2.0。
 
-Azure AD B2C 扩展了标准 OAuth 2.0 流，使其功能远远超出了简单的身份验证和授权。 它引入了[用户流参数](active-directory-b2c-reference-policies.md)。 借助用户流，可使用 OAuth 2.0 向应用程序添加用户体验，例如注册、登录和配置文件管理。 使用 OAuth 2.0 协议的标识提供商包括 [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md)、[GitHub](active-directory-b2c-setup-github-app.md) 和 [LinkedIn](active-directory-b2c-setup-li-app.md)。
+Azure AD B2C 扩展了标准 OAuth 2.0 流，使其功能远远超出了简单的身份验证和授权。 它引入了[用户流](active-directory-b2c-reference-policies.md)。 借助用户流，可使用 OAuth 2.0 向应用程序添加用户体验，例如注册、登录和配置文件管理。 使用 OAuth 2.0 协议的标识提供者包括 [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md)、[GitHub](active-directory-b2c-setup-github-app.md) 和 [LinkedIn](active-directory-b2c-setup-li-app.md)。
 
-在本文的示例 HTTP 请求中，我们使用示例 Azure AD B2C 目录 **fabrikamb2c.partner.onmschina.cn**。 我们还使用示例应用程序和用户流。 你可以使用这些值亲自尝试这些请求，或者可以用自己的值替换它们。
-了解如何[获取自己的 Azure AD B2C 目录、应用程序和用户流](#use-your-own-azure-ad-b2c-directory)。
+若要尝试本文中的 HTTP 请求，请执行以下操作：
+
+1. 将 `{tenant}` 替换为 Azure AD B2C 租户的名称。
+1. 将 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` 替换为之前在 Azure AD B2C 租户中注册的应用程序的应用程序 ID。
+1. 将 `{policy}` 替换为在租户中创建的策略的名称，例如 `b2c_1_sign_in`。
 
 ## <a name="1-get-an-authorization-code"></a>1.获取授权代码
-授权代码流始于客户端将用户定向到 `/authorize` 终结点。 这是授权代码流中用户会执行操作的交互部分。 在此请求中，客户端指示在 `scope` 参数中需要从用户处获取的权限。 在 `p` 参数中，它指示要执行的用户流。 下面有三个示例（为方便阅读，提供了换行符），每个示例都使用不同的用户流。
+授权代码流始于客户端将用户定向到 `/authorize` 终结点。 这是授权代码流中用户会执行操作的交互部分。 在此请求中，客户端指示在 `scope` 参数中需要从用户处获取的权限。 下面有三个示例（为方便阅读，提供了换行符），每个示例都使用不同的用户流。
 
-### <a name="use-a-sign-in-user-flow"></a>使用登录用户流
-```
-GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+
+```HTTP
+GET https://{tenant}.b2clogin.cn/{tenant}.partner.onmschina.cn/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
 &response_mode=query
 &scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
-&p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-user-flow"></a>使用注册用户流
-```
-GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code
-&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
-&response_mode=query
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&p=b2c_1_sign_up
-```
-
-### <a name="use-an-edit-profile-user-flow"></a>使用编辑配置文件用户流
-```
-GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code
-&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
-&response_mode=query
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&p=b2c_1_edit_profile
-```
 
 | 参数 | 必需？ | 说明 |
 | --- | --- | --- |
+|{tenant}| 必须 | Azure AD B2C 租户的名称|
+| {policy} | 必须 | 要运行的用户流。 指定在 Azure AD B2C 租户中创建的用户流的名称。 例如：`b2c_1_sign_in`、`b2c_1_sign_up` 或 `b2c_1_edit_profile`。 |
 | client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。 |
 | response_type |必须 |响应类型，其中必须包括 `code` 的授权待码流。 |
 | redirect_uri |必须 |应用的重定向 URI，应用可通过此 URI 发送和接收身份验证响应。 它必须完全匹配在门户中注册的其中一个重定向 URI，但必须经 URL 编码。 |
 | scope |必须 |范围的空格分隔列表。 一个范围值可向 Azure Active Directory (Azure AD) 指示正在请求的两个权限。 使用客户端 ID 作为范围表示，应用需要可对自己的服务或 Web API（由同一客户端 ID 表示）使用的访问令牌。  `offline_access` 范围表示应用需要刷新令牌才能获取对资源的长生存期访问权限。 还可使用 `openid` 范围从 Azure AD B2C 请求 ID 令牌。 |
 | response_mode |建议 |用于将生成的授权代码发回应用的方法。 可以是 `query`、`form_post` 或 `fragment`。 |
 | state |建议 |请求中包含的值，可以是要使用的任何内容的字符串。 随机生成的唯一值通常用于防止跨网站请求伪造攻击。 它还可用于在身份验证请求发生前，对有关用户在应用中的状态信息进行编码。 例如，用户所处的页面或要执行的用户流。 |
-| p |必须 |执行的用户流。 它是在 Azure AD B2C 目录中创建的用户流的名称。 用户流名称值应以 b2c\_1\_ 开头  。 若要了解有关用户流的详细信息，请参阅 [Azure AD B2C 用户流](active-directory-b2c-reference-policies.md)。 |
 | prompt |可选 |需要的用户交互类型。 目前，唯一有效的值为 `login`，这会强制用户在该请求中输入其凭据。 单一登录不会生效。 |
 
 此时，要求用户完成用户流的工作流。 这可能涉及用户输入其用户名和密码、使用社交标识登录、注册目录，或任何其他步骤。 用户操作取决于用户流是如何定义的。
@@ -91,7 +71,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 使用 `response_mode=query` 的成功响应如下所示：
 
-```
+```HTTP
 GET urn:ietf:wg:oauth:2.0:oob?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the authorization_code, truncated
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
@@ -104,7 +84,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 错误响应也可能发送到重定向 URI，让应用能够对其进行适当处理：
 
-```
+```HTTP
 GET urn:ietf:wg:oauth:2.0:oob?
 error=access_denied
 &error_description=The+user+has+cancelled+entering+self-asserted+information
@@ -122,9 +102,9 @@ error=access_denied
 
 还可以按照将应用的客户端 ID 用作所请求范围（这将导致具有该客户端 ID 的访问令牌作为“受众”）的约定，为应用自己的后端 Web API 请求访问令牌：
 
-```
-POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.cn
+```HTTP
+POST {tenant}.partner.onmschina.cn/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -133,8 +113,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | 参数 | 必需？ | 说明 |
 | --- | --- | --- |
-| p |必须 |用于获取授权代码的用户流。 无法在此请求中使用不同的用户流。 请注意，将此参数添加到*查询字符串*中，而不是添加到 POST 正文中。 |
-| client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。 |
+|{tenant}| 必须 | Azure AD B2C 租户的名称|
+|{policy}| 必须| 用于获取授权代码的用户流。 无法在此请求中使用不同的用户流。 |
+| client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。|
 | grant_type |必须 |授权的类型。 对于授权代码流，授权类型必须为 `authorization_code`。 |
 | scope |建议 |范围的空格分隔列表。 一个范围值，该值向 Azure AD 指示正在请求的两个权限。 使用客户端 ID 作为范围表示，应用需要可对自己的服务或 Web API（由同一客户端 ID 表示）使用的访问令牌。  `offline_access` 范围表示应用需要刷新令牌才能获取对资源的长生存期访问权限。  还可使用 `openid` 范围从 Azure AD B2C 请求 ID 令牌。 |
 | code |必须 |在流的第一个阶段获取的授权代码。 |
@@ -142,7 +123,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 成功令牌响应如下所示：
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -163,7 +144,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 错误响应如下所示：
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -178,18 +159,18 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 ## <a name="3-use-the-token"></a>3.使用令牌
 现在，已成功获取访问令牌，可通过在 `Authorization` 标头中包含令牌，在后端 Web API 请求中使用令牌：
 
-```
+```HTTP
 GET /tasks
-Host: https://mytaskwebapi.com
+Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
 ## <a name="4-refresh-the-token"></a>4.刷新令牌
 访问令牌和 ID 令牌的生存期较短。 过期后，必须将其刷新才能继续访问资源。 若要执行此操作，请向 `/token` 终结点提交另一个 POST 请求。 这次提供的是 `refresh_token` 而不是 `code`：
 
-```
-POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.cn
+```HTTP
+POST {tenant}.partner.onmschina.cn/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -197,7 +178,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 | 参数 | 必需？ | 说明 |
 | --- | --- | --- |
-| p |必须 |用于获取原始刷新令牌的用户流。 无法在此请求中使用不同的用户流。 请注意，将此参数添加到*查询字符串*中，而不是添加到 POST 正文中。 |
+|{tenant}| 必须 | Azure AD B2C 租户的名称|
+|{policy} |必须 |用于获取原始刷新令牌的用户流。 无法在此请求中使用不同的用户流。 |
 | client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。 |
 | client_secret |必须 |在 [Azure 门户](https://portal.azure.cn)中关联到 client_id 的 client_secret。 |
 | grant_type |必须 |授权的类型。 对于授权代码流的此阶段，授权类型必须为 `refresh_token`。 |
@@ -207,7 +189,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 成功令牌响应如下所示：
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -228,7 +210,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 错误响应如下所示：
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",

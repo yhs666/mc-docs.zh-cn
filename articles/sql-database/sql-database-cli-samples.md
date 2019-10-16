@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 02/03/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: f44c41767ca3de7b1e36808c9493b6538f10afcd
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: 777d02b42dd1dbbe572ee03f7467153ea317f72b
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372981"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262953"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 
@@ -27,7 +27,7 @@ ms.locfileid: "70372981"
 
 可以在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
-## <a name="single-database--elastic-pools"></a>单一数据库和弹性池
+## <a name="single-database--elastic-poolstabsingle-database"></a>[单一数据库和弹性池](#tab/single-database)
 
 下表包括适用于 Azure SQL 数据库的 Azure CLI 脚本示例的链接。
 
@@ -45,7 +45,7 @@ ms.locfileid: "70372981"
 
 详细了解[单一数据库 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。
 
-## <a name="managed-instance"></a>托管实例
+## <a name="managed-instancetabmanaged-instance"></a>[托管实例](#tab/managed-instance)
 
 下表包括适用于 Azure SQL 数据库 - 托管实例的 Azure CLI 脚本示例的链接。
 
@@ -57,3 +57,5 @@ ms.locfileid: "70372981"
 |||
 
 详细了解[托管实例 Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) 并[在此处查找更多示例](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。
+
+---

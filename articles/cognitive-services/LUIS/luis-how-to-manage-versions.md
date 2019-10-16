@@ -1,6 +1,6 @@
 ---
-title: 管理版本
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 管理版本 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 版本允许你构建和发布不同的模型。 较好的做法是在对模型进行更改之前将当前的活动模型复制到一个不同的应用版本。
 services: cognitive-services
 author: lingliw
@@ -8,16 +8,16 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-origin.date: 08/26/2019
+origin.date: 07/29/2019
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 80a6d7fc762a12bf469f0fea5d2175f332c5b525
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 53f3fa69d3118b6b2b3a4f2292919bcac9d4bbfb
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103919"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329648"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本进行编辑和测试，而不会影响暂存应用或生产应用
 

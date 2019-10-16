@@ -11,17 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 04/01/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: acf6020be08857c22e5b8f906036e4633c1493a6
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 267e641b5d597d800c3c745943294c8f9301525b
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833391"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124417"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>配置 Postman 以便进行媒体服务 REST API 调用  
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 本教程介绍如何配置 **Postman**，以便可以使用它调用 Azure 媒体服务 (AMS) REST API。 本教程介绍如何将环境和集合文件导入到 **Postman**。 集合包含调用 Azure 媒体服务 (AMS) REST API 的 HTTP 请求的分组定义。 环境文件包含集合使用的变量。
 
@@ -37,10 +40,10 @@ ms.locfileid: "56833391"
 
 1. 创建一个包含 AMS 教程中所用环境变量的 .json 文件。 命名该文件（例如，**AzureMediaServices.postman_environment.json**）。 打开该文件并从[此代码清单](postman-environment.md)粘贴用于定义 Postman 环境的代码。 
 2. 打开 **Postman**。
-3. 在屏幕的右侧，选择“管理环境”选项。
+3. 在屏幕的右侧，选择“管理环境”  选项。
 
     ![上传文件](./media/media-services-rest-upload-files/postman-create-env.png)
-4. 从“管理环境”对话框中，单击“导入”。
+4. 从“管理环境”  对话框中，单击“导入”  。
 5. 浏览并选择 **AzureMediaServices.postman_environment.json** 文件。
 6. 添加 **AzureMedia** 环境。
 7. 关闭对话框。
@@ -51,7 +54,7 @@ ms.locfileid: "56833391"
 ## <a name="configure-the-collection"></a>配置集合
 
 1. 创建一个包含 **Postman** 集合的 .json 文件，该集合包含将文件上传到媒体服务所需的所有操作。 命名该文件（例如，**AzureMediaServicesOperations.postman_collection.json**）。 打开该文件并从[此代码清单](postman-collection.md)粘贴用于定义 **Postman** 集合的代码。
-2. 单击“导入”导入该集合文件。
+2. 单击“导入”  导入该集合文件。
 3. 选择 **AzureMediaServicesOperations.postman_collection.json** 文件。
 
     ![上传文件](./media/media-services-rest-upload-files/postman-import-collection.png)

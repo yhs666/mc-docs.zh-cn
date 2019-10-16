@@ -2,20 +2,20 @@
 title: Azure Key Vault 中使用客户托管密钥的静态加密（预览版）- Azure 搜索
 description: 通过在 Azure Key Vault 中创建和管理的密钥，来补充 Azure 搜索中基于索引和同义词映射的服务器端加密。
 author: NatiNimni
-manager: jlembicz
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 09/26/2019
 ms.custom: ''
-ms.openlocfilehash: d9bf71b91f7ab174a02655f60964596dea79adc8
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 9c70629c987374e4cdf17087224d12bd4c3c26c1
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004684"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674423"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault 中使用客户托管密钥的 Azure 搜索加密
 
@@ -24,9 +24,9 @@ ms.locfileid: "66004684"
 >
 > 此功能不适用于免费服务。 必须使用在 2019 年 1 月 1 日或之后创建的可计费搜索服务。 目前不提供 Azure 门户支持。
 
-默认情况下，Azure 搜索使用[服务托管的密钥](https://docs.azure.cn/zh-cn/security/azure-security-encryption-atrest#data-encryption-models)静态加密用户内容。 可以使用在 Azure Key Vault 中创建和管理的密钥，通过一个附加的加密层来补充默认加密。 本文将会讲解这些步骤。
+默认情况下，Azure 搜索使用[服务托管的密钥](https://docs.azure.cn/security/azure-security-encryption-atrest#data-encryption-models)静态加密用户内容。 可以使用在 Azure Key Vault 中创建和管理的密钥，通过一个附加的加密层来补充默认加密。 本文将会讲解这些步骤。
 
-通过与 [Azure Key Vault](https://docs.azure.cn/zh-cn/key-vault/key-vault-overview) 的集成来支持服务器端加密。 你可以创建自己的加密密钥并将其存储在 Key Vault 中，或使用 Azure Key Vault 的 API 来生成加密密钥。 使用 Azure Key Vault 还可以审核密钥用法。 
+通过与 [Azure Key Vault](https://docs.azure.cn/key-vault/key-vault-overview) 的集成来支持服务器端加密。 你可以创建自己的加密密钥并将其存储在 Key Vault 中，或使用 Azure Key Vault 的 API 来生成加密密钥。 使用 Azure Key Vault 还可以审核密钥用法。 
 
 使用客户托管密钥的加密级别是创建这些对象时在索引或同义词映射级别配置的，而不是在搜索服务级别配置的。 无法加密已存在的内容。 
 
@@ -38,11 +38,11 @@ ms.locfileid: "66004684"
 
 + [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://ms.portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可在本教程中使用免费服务。
 
-+ [创建 Azure Key Vault 资源](https://docs.azure.cn/zh-cn/key-vault/quick-create-portal#create-a-vault)，或者在订阅下找到一个现有的保管库。
++ [创建 Azure Key Vault 资源](https://docs.azure.cn/key-vault/quick-create-portal#create-a-vault)，或者在订阅下找到一个现有的保管库。
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli) 用于配置任务。
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 用于配置任务。
 
-+ [Postman](search-fiddler.md)、[Azure PowerShell](search-create-index-rest-api.md) 和 [Azure 搜索 SDK](https://aka.ms/search-sdk-preview) 可用于调用预览版 REST API。 客户托管的加密目前不支持门户或 .NET SDK。
++ [Postman](search-get-started-postman.md)、[Azure PowerShell](search-create-index-rest-api.md) 和 [Azure 搜索 SDK](https://aka.ms/search-sdk-preview) 可用于调用预览版 REST API。 客户托管的加密目前不支持门户或 .NET SDK。
 
 ## <a name="1---enable-key-recovery"></a>1 - 启用密钥恢复
 
@@ -63,7 +63,7 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 ```
 
 >[!Note]
-> 由于客户托管密钥功能的加密本质，删除 Azure Key Vault 密钥后，Azure 搜索将无法检索你的数据。 为了防止意外删除 Key Vault 密钥造成数据丢失，我们强烈建议在所选 Key Vault 中启用“软删除”和“清除保护”。 有关详细信息，请参阅 [Azure Key Vault 软删除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)。   
+> 由于客户托管密钥功能的加密本质，删除 Azure Key Vault 密钥后，Azure 搜索将无法检索你的数据。 为了防止意外删除 Key Vault 密钥造成数据丢失，我们强烈建议在所选 Key Vault 中启用“软删除”和“清除保护”。 有关详细信息，请参阅 [Azure Key Vault 软删除](https://docs.azure.cn/key-vault/key-vault-ovw-soft-delete)。   
 
 ## <a name="2---create-a-new-key"></a>2 - 创建新密钥
 
@@ -91,7 +91,7 @@ Azure 搜索支持通过两种方式来分配标识：托管标识，或外部�
 
 如果可能，请使用托管标识。 它是将标识分配给搜索服务的最简单方式，应该可在大多数方案中使用。 如果你对索引和同义词映射使用多个密钥，或者解决方案位于不符合基于标识的身份验证条件的分布式体系结构中，请使用本文末尾所述的高级[外部托管 Azure Active Directory 方法](#aad-app)。
 
- 一般情况下，搜索服务可以使用托管标识对 Azure Key Vault 进行身份验证，而无需在代码中存储凭据。 此类托管标识的生命周期与只包含一个托管标识的搜索服务的生命周期密切相关。
+ 一般情况下，搜索服务可以使用托管标识对 Azure Key Vault 进行身份验证，而无需在代码中存储凭据。 此类托管标识的生命周期与只包含一个托管标识的搜索服务的生命周期密切相关。 [详细了解托管标识](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)。
 
 1. 若要创建托管标识，请[登录到 Azure 门户](https://portal.azure.cn)并打开搜索服务仪表板。 
 
@@ -103,7 +103,7 @@ Azure 搜索支持通过两种方式来分配标识：托管标识，或外部�
 
 若要使搜索服务能够使用 Key Vault 密钥，需要向搜索服务授予特定的访问权限。
 
-可在任意给定时间撤销访问权限。 撤销后，使用该 Key Vault 的任何搜索服务索引或同义词映射都将不可用。 以后还原 Key Vault 访问权限会还原索引/同义词映射访问权限。 有关详细信息，请参阅[保护对 Key Vault 的访问](https://docs.azure.cn/zh-cn/key-vault/key-vault-secure-your-key-vault)。
+可在任意给定时间撤销访问权限。 撤销后，使用该 Key Vault 的任何搜索服务索引或同义词映射都将不可用。 以后还原 Key Vault 访问权限会还原索引/同义词映射访问权限。 有关详细信息，请参阅[保护对 Key Vault 的访问](https://docs.azure.cn/key-vault/key-vault-secure-your-key-vault)。
 
 1. [登录到 Azure 门户](https://portal.azure.cn)并打开 Key Vault 概述页。 
 
@@ -117,7 +117,7 @@ Azure 搜索支持通过两种方式来分配标识：托管标识，或外部�
 
 1. 单击“密钥权限”，然后选择“获取”、“解包密钥”和“包装密钥”。     可以使用 Azure Data Lake Storage 或 Azure 存储模板快速选择所需的权限。 
 
-   必须向 Azure 搜索授予以下[访问权限](https://docs.azure.cn/zh-cn/key-vault/about-keys-secrets-and-certificates#key-operations)：
+   必须向 Azure 搜索授予以下[访问权限](https://docs.azure.cn/key-vault/about-keys-secrets-and-certificates#key-operations)：
 
    * 获取 - 可让搜索服务检索 Key Vault 中密钥的公共部分 
    * 包装密钥 - 可让搜索服务使用密钥来保护内部加密密钥 
@@ -226,9 +226,9 @@ Azure 搜索支持通过两种方式来分配标识：托管标识，或外部�
 为了适应这种拓扑，Azure 搜索支持使用 Azure Active Directory (AAD) 应用程序在搜索服务与 Key Vault 之间进行身份验证。    
 若要在门户中创建 AAD 应用程序：
 
-1. [创建 Azure Active Directory 应用程序](https://docs.azure.cn/zh-cn/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)。
+1. [创建 Azure Active Directory 应用程序](https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)。
 
-1. [获取应用程序 ID 和身份验证密钥](https://docs.azure.cn/zh-cn/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)，因为创建加密的索引时需要用到这些信息。 需要提供的值包括**应用程序 ID** 和**身份验证密钥**。
+1. [获取应用程序 ID 和身份验证密钥](https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)，因为创建加密的索引时需要用到这些信息。 需要提供的值包括**应用程序 ID** 和**身份验证密钥**。
 
 >[!Important]
 > 决定使用 AAD 应用程序而不是托管标识进行身份验证时，请考虑到以下事实：Azure 搜索无权代表你管理 AAD 应用程序，需要由你自己管理 AAD 应用程序，例如，定期轮换应用程序身份验证密钥。
@@ -237,7 +237,7 @@ Azure 搜索支持通过两种方式来分配标识：托管标识，或外部�
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你不熟悉 Azure 安全体系结构，请查看 [Azure 安全文档](https://docs.azure.cn/zh-cn/security/)，具体而言，是以下文章：
+如果你不熟悉 Azure 安全体系结构，请查看 [Azure 安全文档](https://docs.azure.cn/security/)，具体而言，是以下文章：
 
 > [!div class="nextstepaction"]
-> [静态数据加密](https://docs.azure.cn/zh-cn/security/azure-security-encryption-atrest)
+> [静态数据加密](https://docs.azure.cn/security/azure-security-encryption-atrest)

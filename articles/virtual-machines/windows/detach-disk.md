@@ -11,18 +11,17 @@ ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 1b55b632feccf208879ccef1759b9aa5a4a4f069
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 28b7af12535dd5f3b488cc8fa92791ccee344f43
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538865"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272639"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离数据磁盘
 
@@ -42,6 +41,8 @@ ms.locfileid: "69538865"
 在此示例中，我们从 **myResourceGroup** 资源组的 VM **myVM** 中删除名为 **myDisk** 的磁盘。 首先，使用 [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet 删除磁盘。 然后，使用 [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet 更新虚拟机的状态，完成数据磁盘删除过程。
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
+
 $VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
 Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine

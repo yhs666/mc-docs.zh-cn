@@ -6,17 +6,16 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 06/03/2019
+origin.date: 09/04/2019
+ms.date: 09/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: a7be8a23ceee92a1f4b1c106906355a1aa3db15c
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 10b6ba6ee46376b81f12d71ff83c0d2dcd9c6cfb
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491478"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673551"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -115,9 +114,6 @@ module.exports = async function(context, req) {
 
 默认情况下，实例 ID 是随机生成的 GUID。 但在此示例中，实例 ID 通过 URL 在路由数据中传递。 该代码调用 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) 或 `getStatus` (JavaScript) 检查具有指定 ID 的实例是否已在运行。 如果未运行，将使用该 ID 创建实例。
 
-> [!WARNING]
-> 在 JavaScript 中进行本地开发时，需将环境变量 `WEBSITE_HOSTNAME` 设置为 `localhost:<port>`（例如， 设置为 `localhost:7071`），以便使用 `DurableOrchestrationClient` 上的方法。 有关此要求的详细信息，请参阅 [GitHub 问题](https://github.com/Azure/azure-functions-durable-js/issues/28)。
-
 > [!NOTE]
 > 在此示例中有潜在的争用条件。 如果 **HttpStartSingle** 的两个实例同时执行，则两个函数调用都将报告成功，但实际上只会启动一个业务流程实例。 根据你的要求，这可能会产生不良副作用。 因此，必须确保没有两个请求可以同时执行此触发器函数。
 
@@ -126,6 +122,6 @@ module.exports = async function(context, req) {
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [了解如何调用子业务流程](durable-functions-sub-orchestrations.md)
+> [了解业务流程的本机 HTTP 功能](durable-functions-http-features.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

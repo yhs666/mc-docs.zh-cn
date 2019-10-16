@@ -4,18 +4,17 @@ description: 了解如何通过流分析创建实时欺诈行为检测解决方�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 03/28/2017
-ms.date: 11/26/2018
-ms.openlocfilehash: 59b3295974ec8891e5d7e6f0c1d8a36b86adb639
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 12/07/2018
+ms.date: 12/26/2018
+ms.openlocfilehash: b7a10a1e6c5392b21aa7ffce7ca44bee0cd1af93
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969580"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674770"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时欺诈检测
 
@@ -60,17 +59,17 @@ ms.locfileid: "68969580"
 1. 登录 Azure 门户，然后依次单击“创建资源” > “物联网” > “事件中心”    。 
 
 2. 在“创建命名空间”  窗格中，输入命名空间名称，例如 `<yourname>-eh-ns-demo`。 可以对命名空间使用任何名称，但该名称必须对 URL 有效，并且在 Azure 中必须唯一。 
-
+    
 3. 选择订阅并创建或选择一个资源组，然后单击“创建”  。
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 4. 完成部署命名空间后，在 Azure 资源列表中找到事件中心命名空间。 
 
 5. 单击新的命名空间，然后在“命名空间”窗格中，单击“事件中心”  。
 
-    ![用于创建新事件中心的“添加事件中心”按钮 ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
-
+   ![用于创建新事件中心的“添加事件中心”按钮](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+ 
 6. 将新事件中心命名为 `asa-eh-frauddetection-demo`。 可以使用其他名称。 如果使用其他名称，请记下该名称，稍后会用到。 不需要立即为事件中心设置任何其他选项。
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
@@ -92,7 +91,7 @@ ms.locfileid: "68969580"
 3.  添加名为 `sa-policy-manage-demo` 的策略，对于“声明”，请选择“管理”。  
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
-
+ 
 4.  单击**创建**。
 
 5.  部署策略后，在共享访问策略列表中单击该策略。
@@ -100,7 +99,7 @@ ms.locfileid: "68969580"
 6.  找到标记为“连接字符串 - 主键”  的框，然后单击连接字符串旁边的“复制”按钮。 
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
-
+ 
 7.  将连接字符串粘贴到文本编辑器中。 对此连接字符串稍加编辑，以便在下一部分中使用。
 
     连接字符串如下所示：
@@ -115,36 +114,37 @@ ms.locfileid: "68969580"
 
 ### <a name="configure-the-telcogenerator-app"></a>配置 TelcoGenerator 应用
 
-1.  在复制连接字符串的编辑器中，记下 `EntityPath` 值，然后删除 `EntityPath` 对（不要忘了删除它前面的分号）。 
+1. 在复制连接字符串的编辑器中，记下 `EntityPath` 值，然后删除 `EntityPath` 对（不要忘了删除它前面的分号）。 
 
-2.  在 TelcoGenerator.zip 文件解压缩到的文件夹中，在编辑器中打开 telcodatagen.exe.config 文件。 （该文件夹中有多个 .config 文件，因此请确保打开正确的文件。）
+2. 在 TelcoGenerator.zip 文件解压缩到的文件夹中，在编辑器中打开 telcodatagen.exe.config 文件。 （该文件夹中有多个 .config 文件，因此请确保打开正确的文件。）
 
-3.  在 `<appSettings>` 元素中：
+3. 在 `<appSettings>` 元素中：
 
-    * 将 `EventHubName` 键的值设置为事件中心名称（即实体路径的值）。
-    * 将 `Microsoft.ServiceBus.ConnectionString` 键的值设置为连接字符串。 
+   * 将 `EventHubName` 键的值设置为事件中心名称（即实体路径的值）。
+   * 将 `Microsoft.ServiceBus.ConnectionString` 键的值设置为连接字符串。 
 
-    `<appSettings>` 部分与以下示例类似。 （为清楚起见，包装这些行，并从授权令牌中删除一些字符。）
+   `<appSettings>` 部分与以下示例类似。 （为清楚起见，包装这些行，并从授权令牌中删除一些字符。）
 
    ![TelcoGenerator 配置文件显示事件中心名称和连接字符串](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
-
-4.  保存文件。 
+ 
+4. 保存文件。 
 
 ### <a name="start-the-app"></a>启动应用
 1.  打开命令窗口，然后切换到 TelcoGenerator 应用解压缩到的文件夹。
+
 2.  输入以下命令：
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
-    参数包括： 
+   参数包括： 
 
-    * 每小时的 CDR 数。 
-    * SIM 卡欺诈概率：应用模拟欺诈呼叫的频率（占所有呼叫的百分比）。 值 0.2 表示大约有 20% 的通话记录似乎具有欺诈性。
-    * 持续时间（以小时为单位）。 应用应运行的小时数。 还可以通过在命令行按 Ctrl+C 来随时停止该应用。
+   * 每小时的 CDR 数。 
+   * SIM 卡欺诈概率：应用模拟欺诈呼叫的频率（占所有呼叫的百分比）。 值 0.2 表示大约有 20% 的通话记录似乎具有欺诈性。
+   * 持续时间（以小时为单位）。 应用应运行的小时数。 还可以通过在命令行按 Ctrl+C 来随时停止该应用。
 
-    几秒钟后，当应用将电话通话记录发送到事件中心时，应用将开始在屏幕上显示通话记录。
+   几秒钟后，当应用将电话通话记录发送到事件中心时，应用将开始在屏幕上显示通话记录。
 
 将在此实时欺诈检测应用程序中使用的某些关键字段如下所示：
 
@@ -156,6 +156,7 @@ ms.locfileid: "68969580"
 |`CallingIMSI`|国际移动用户标识 (IMSI)。 这是呼叫方的唯一标识符。 |
 |`CalledNum`|呼叫接收人的电话号码。 |
 |`CalledIMSI`|国际移动用户标识 (IMSI)。 这是呼叫接收人的唯一标识符。 |
+
 
 ## <a name="create-a-stream-analytics-job-to-manage-streaming-data"></a>创建流分析作业来管理流数据
 
@@ -180,8 +181,8 @@ ms.locfileid: "68969580"
 1. 在仪表板或“所有资源”  窗格中，查找并选择 `asa_frauddetection_job_demo` 流分析作业。 
 2. 在“流分析作业”窗格的“概述”  部分，单击“输入”  框。
 
-    ![“流分析作业”窗格的“拓扑”下的“输入”框](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
-
+   ![“流分析作业”窗格的“拓扑”下的“输入”框](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
+ 
 3. 单击“添加流输入”  并选择“事件中心”  。 然后使用以下信息填充“新建输入”页：
 
    |**设置**  |**建议的值**  |**说明**  |
@@ -217,7 +218,8 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 3. 单击“查询”  框。 Azure 会列出为作业配置的输入和输出，并允许创建查询，以便在将输入流发送到输出时对其进行转换。
 4. 在“查询”  窗格中，单击 `CallStream` 输入旁边的点，然后选择“来自输入的示例数据”  。
 
-    ![对流分析作业条目使用示例数据的菜单选项，其中选择了“来自输入的示例数据”](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
+   ![对流分析作业条目使用示例数据的菜单选项，其中选择了“来自输入的示例数据”](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
+
 
 5. 将“分钟”  设置为 3，然后单击“确定”  。 
     
@@ -251,10 +253,10 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
     流分析作业对示例数据运行查询，并在窗口底部显示输出。 这些结果指示已正确配置事件中心和流分析作业。 （如前所述，稍后需要创建查询可以向其写入数据的输出接收器。）
 
-    ![流分析作业输出，其中显示生成的 73 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
+   ![流分析作业输出，其中显示生成的 73 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
 
     你看到的确切记录数取决于你在 3 分钟采样中捕获的记录数。
-
+ 
 ### <a name="reduce-the-number-of-fields-using-a-column-projection"></a>减少使用列投影的字段数
 
 在许多情况下，分析并不需要输入流中的所有列。 可以使用查询投影一组返回的字段，这些字段比传递查询中的字段要小。
@@ -354,18 +356,18 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 4. 在“输出”  窗格中，单击“添加”  ，然后选择“BIob 存储”  。 使用以下信息填写“新建输出”页：
 
-
-   |   **设置**   |    **建议的值**     |                                                                                                           **说明**                                                                                                           |
-   |-----------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |  输出别名   | CallStream-FraudulentCalls |                                                                                             输入一个名称，用于标识作业的输出。                                                                                              |
-   |  订阅   |   \<订阅\>    | 选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
-   | 存储帐户 |        asaehstorage        |                                                                                         输入创建的存储帐户的名称。                                                                                          |
-   |    容器    |  asa-fraudulentcalls-demo  |                                                                                            选择“创建新名称”并输入容器名称。                                                                                            |
+   |**设置**  |**建议的值**  |**说明**  |
+   |---------|---------|---------|
+   |输出别名  |  CallStream-FraudulentCalls   |  输入一个名称，用于标识作业的输出。   |
+   |订阅   |  \<订阅\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
+   |存储帐户  |  asaehstorage |  输入创建的存储帐户的名称。 |
+   |容器  | asa-fraudulentcalls-demo | 选择“创建新名称”并输入容器名称。 |
 
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
 5. 单击“保存”  。 
+
 
 ## <a name="start-the-streaming-analytics-job"></a>启动流分析作业
 
@@ -377,6 +379,8 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
    ![启动流分析作业](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
+
+
 ## <a name="examine-the-transformed-data"></a>检查转换后的数据
 
 现在，已有了一个完整的流分析作业。 该作业检查电话呼叫元数据流、实时查找欺诈电话呼叫并将这些欺诈呼叫的相关信息写入到存储。 
@@ -385,7 +389,8 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 当检查 blob 存储中的文件内容时，将看到如下所示的内容：
 
-![Azure blob 存储与流分析输出](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
+   ![Azure blob 存储与流分析输出](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
+ 
 
 ## <a name="clean-up-resources"></a>清理资源
 

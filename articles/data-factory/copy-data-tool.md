@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 06/18/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: f05fbf8ceb2c375265e4a55bf6f9584e2de478f2
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c72521600bc6d75b002eae2402dd724c7fe92849
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569858"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275410"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure 数据工厂中的“复制数据”工具
 Azure 数据工厂“复制数据”工具可简化并优化将数据引入 Data Lake 的过程，这通常是端到端数据集成方案的第一步。  这可节省时间，尤其是首次使用 Azure 数据工厂引入数据源中的数据时。 下面是使用此工具的一些优势：
@@ -96,7 +96,7 @@ Azure 数据工厂“复制数据”工具可简化并优化将数据引入 Data
 
 ![筛选文件或文件夹](./media/copy-data-tool/filter-file-or-folder.png)
 
-创建管道时，“复制数据”工具生成包含表达式、函数和系统变量的参数，用于表示 {year}、{month}、{day}、{hour} 和 {minute}。 有关详细信息，请参阅[如何读取或写入分区的数据](how-to-read-write-partitioned-data.md)一文。
+创建管道时，“复制数据”工具生成包含表达式、函数和系统变量的参数，用于表示 {year}、{month}、{day}、{hour} 和 {minute}。
 
 ## <a name="scheduling-options"></a>计划选项
 可以一次性运行复制操作，也可按计划运行（每小时、每天等）。 这些选项可用于跨不同环境（包括本地、云和本地桌面）的连接器。 

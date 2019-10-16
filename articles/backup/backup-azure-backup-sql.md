@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/18/2018
 ms.date: 01/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0ab270115a3b441e6239822134df65455ac270a0
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 9f33c62b5a92e9244aae0c63af51976b62e422f3
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569646"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330179"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>将 SQL Server 备份到 Azure 作为 DPM 工作负荷
 本文将引导你使用 Azure 备份完成 SQL Server 数据库的备份配置步骤。
@@ -65,7 +65,6 @@ ms.locfileid: "67569646"
     默认情况下，DPM 将针对每个数据源（SQL Server 数据库）创建一个用于初始备份副本的卷。 使用此方法时，逻辑磁盘管理器 (LDM) 会限制 DPM 最多只能保护 300 个数据源（SQL Server 数据库）。 若要解决此限制，请选择“**在 DPM 存储池中共置数据**”选项。 如果使用此选项，DPM 对多个数据源使用单个卷，这可以让 DPM 保护多达 2000 个 SQL 数据库。
 
     如果选择了“自动增大卷”选项，则在生产数据增长时，DPM 可以相应地增加备份卷的大小  。 如果未选择“自动增大卷”选项，则 DPM 会限制保护组中用于备份数据源的备份存储的大小  。
-
 9. 管理员可以选择手动传输此初始备份（脱离网络），以免网络出现带宽拥塞现象。 管理员还可以配置初始传输发生的时间。 单击“下一步”  。
 
     ![初始复制方法](./media/backup-azure-backup-sql/pg-manual.png)
@@ -73,17 +72,14 @@ ms.locfileid: "67569646"
     初始备份副本需要将整个数据源（SQL Server 数据库）从生产服务器（SQL Server 计算机）传输到 DPM 服务器。 此类数据可能会非常大，通过网络传输此类数据可能会超过带宽限制。 因此，管理员可以选择通过以下方式传输初始备份：“手动”  （使用可移动媒体），以免网络出现带宽拥塞现象；或“自动通过网络”  （于指定时间）。
 
     初始备份完成后，其余的备份都是初始备份副本的增量备份。 增量备份往往比较小，能轻松地通过网络传输。
-
 10. 选择需要运行一致性检查的时间，并单击“**下一步**”。
 
     ![一致性检查](./media/backup-azure-backup-sql/pg-consistent.png)
 
     DPM 可以通过执行一致性检查来检查备份点的完整性。 它会计算生产服务器（在本方案中为 SQL Server 计算机）上备份文件和 DPM 上该文件已备份数据的校验和。 如果发生冲突，则会假定 DPM 上的备份文件受损。 DPM 会发送与校验和不匹配部分相对应的块，纠正备份的数据。 由于一致性检查是对性能影响很大的操作，因此管理员可以选择是按计划来运行还是自动运行一致性检查。
-
 11. 要指定对数据源进行在线保护，请选择要通过 Azure 进行保护的数据库，并单击“**下一步**”。
 
     ![选择数据源](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-
 12. 管理员可以选择适合组织策略的备份计划和保留策略。
 
     ![计划和保留](./media/backup-azure-backup-sql/pg-schedule.png)

@@ -10,10 +10,9 @@ metadata:
   manager: digimobile
   ms.service: virtual-machines
   ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 09/16/2019
+  ms.date: 10/14/2019
   ms.author: v-yeche
 abstract:
   description: 了解如何创建 Azure 虚拟机。 教程、API 参考和其他文档介绍了如何创建及部署 Windows 与 Linux 虚拟机和 VM 模板。

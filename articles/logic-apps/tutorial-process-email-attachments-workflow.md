@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 05/07/2019
 ms.author: v-yiso
-ms.date: 08/26/2019
-ms.openlocfilehash: d5f0ae2e6ab0e70b41dffc17474a9bf0bd35ec43
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 10/08/2019
+ms.openlocfilehash: 0f181b6e8784c70e62c8c22819849faa199b41d8
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539202"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340901"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教程：使用 Azure 逻辑应用自动处理电子邮件和附件
 
@@ -38,9 +38,9 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 ![完成的逻辑应用概览](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-如果没有 Azure 订阅，可以在开始前<a href="https://www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。 
-
 ## <a name="prerequisites"></a>先决条件
+
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * 逻辑应用支持的电子邮件提供商（例如 Office 365 Outlook、Outlook.com 或 Gmail）提供的电子邮件帐户。 至于其他提供商，请[查看此处的连接器列表](https://docs.microsoft.com/connectors/)。
 
@@ -62,8 +62,8 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | 设置 | 值 | 说明 |
    |---------|-------|-------------|
    | **订阅** | <*Azure-subscription-name*> | Azure 订阅的名称 |  
-   | **资源组** | LA-Tutorial-RG | 用于组织和管理相关资源的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的名称。 <p>**注意：** 资源组存在于特定的区域内。 本教程中的项目可能不在所有区域提供，请尽可能尝试使用同一区域。 |
-   | **存储帐户名称** | attachmentstorageacct | 存储帐户的名称 |
+   | **资源组** | <Azure-resource-group>  | 用于组织和管理相关资源的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的名称。 此示例使用“LA-Tutorial-RG”。 <p>**注意：** 资源组存在于特定的区域内。 本教程中的项目可能不在所有区域提供，请尽可能尝试使用同一区域。 |
+   | **存储帐户名称** | <*Azure-storage-account-name*> | 你的存储帐户名称，必须包含 3-24 个字符，并且只能包含小写字母和数字。 此示例使用“attachmentstorageacct”。 |
    | **Location** | 中国东部 | 用于存储存储帐户信息的区域 |
    | **性能** | 标准 | 此设置指定支持的数据类型以及用于存储数据的介质。 请参阅[存储帐户的类型](../storage/common/storage-introduction.md#types-of-storage-accounts)。 |
    |  帐户类型 | 常规用途 | [存储帐户类型](../storage/common/storage-introduction.md#types-of-storage-accounts) |
@@ -150,7 +150,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | **应用名称** | <*function-app-name*> | 函数应用的描述性全局唯一名称，在本例中为“CleanTextFunctionApp”，因此请提供不同的名称，例如“MyCleanTextFunctionApp” |
    | **订阅** | <*your-Azure-subscription-name*> | 以前使用过的同一 Azure 订阅 | 
    | **资源组** | LA-Tutorial-RG | 以前使用过的同一 Azure 资源组 | 
-   | **托管计划** | 使用计划 | 此设置决定了如何分配和缩放用于运行函数应用的资源，例如计算能力。 请参阅[托管计划比较](../azure-functions/functions-scale.md)。 | 
+   | **托管计划** | 消耗计划 | 此设置决定了如何分配和缩放用于运行函数应用的资源，例如计算能力。 请参阅[托管计划比较](../azure-functions/functions-scale.md)。 | 
    | **Location** | 美国西部 | 以前使用过的同一区域 |
    | **运行时堆栈** | 首选语言 | 选择支持你偏好的函数编程语言的运行时。 对于 C# 和 F# 函数，选择“.NET”  。 |
    | **存储** | cleantextfunctionstorageacct | 为函数应用创建存储帐户。 只使用小写字母和数字。 <p>**注意：** 此存储帐户包含函数应用，不同于以前创建的用于电子邮件附件的存储帐户。 |

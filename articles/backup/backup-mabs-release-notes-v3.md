@@ -2,18 +2,19 @@
 title: Microsoft Azure 备份服务器 v3 发行说明
 description: 本文提供了有关 MABS v3 的已知问题和解决方法的信息。
 services: backup
-author: JYOTHIRMAISURI
-manager: vvithal
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/22/2018
+origin.date: 11/22/2018
+ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9115a2ff88a2c24e0c8f990fd81e98914c34b484
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: e2665ced1c39ccc1cfa607c0b7c7aa12c3e815ce
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986996"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330226"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure 备份服务器发行说明
 本文提供了 Microsoft Azure 备份服务器 (MABS) V3 的已知的问题和解决方法。
@@ -24,7 +25,7 @@ ms.locfileid: "56986996"
 
 **变通方法：** 若要防止出现此问题，请打开 SQL Server Management Studio (SSMS)) 并在 DPM DB 上运行以下 SQL 脚本：
 
-
+```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
         WHERE id = OBJECT_ID(N'[dbo].[tbl_PRM_DatasourceLastActiveServerMap]')
         AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -49,6 +50,7 @@ ms.locfileid: "56986996"
             0
         ) FOR [IsGCed]
     GO
+```
 
 
 ##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>升级到 MABS V3 在俄罗斯语区域设置中失败
@@ -65,11 +67,11 @@ ms.locfileid: "56986996"
 6.  [安装](backup-azure-microsoft-azure-backup.md) MABS V3。
 7. 使用 SSMS [还原](https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL 并如[此处](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10))所述运行 DPM-Sync 工具。
 8.  使用以下命令更新 dbo.tbl_DLS_GlobalSetting 表中的“DataBaseVersion”属性：
-
+```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
         set PropertyValue = '13.0.415.0'
         where PropertyName = 'DatabaseVersion'
-
+```
 
 9.  启动 MSDPM 服务。
 

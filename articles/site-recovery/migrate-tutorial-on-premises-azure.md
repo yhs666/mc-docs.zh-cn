@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 8df5df8313a1185c70f8d87b7ce3a6eb490a17d4
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: c5ccc8f54e449c764f450411b98f246dc5bfe97a
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861636"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340747"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -40,7 +40,7 @@ ms.locfileid: "67861636"
 1. 按[此文](tutorial-prepare-azure.md)中所述准备好 Azure。 虽然此文介绍的是灾难恢复的准备步骤，但这些步骤同样适用于迁移。
 2. 准备本地 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 服务器或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 服务器。 如果迁移的是物理机，则不需要做任何准备。 只需检查[支持矩阵](vmware-physical-azure-support-matrix.md)即可。
 
-## <a name="select-a-replication-goal"></a>选择复制目标
+## <a name="select-a-protection-goal"></a>选择保护目标
 
 选择要复制的内容以及要复制到的位置。
 1. 单击“恢复服务保管库”> 保管库  。
@@ -93,8 +93,11 @@ Hyper-V | [启用复制](hyper-v-azure-tutorial.md#enable-replication)<br/><br/>
 
 为想要迁移的计算机运行故障转移。
 
-1. 在“设置”   > “复制的项”  中，单击计算机 >“故障转移”  。
-2. 在“故障转移”  中，选择要故障转移到的“恢复点”  。 选择最新的恢复点。
+1. 在“受保护的项”   > “复制的项”  中，单击计算机 >“故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
+2. 在“故障转移”中，选择要故障转移到的“恢复点”   。 选择最新的恢复点。
 3. 加密密钥设置与此方案无关。
 4. 选择“在开始故障转移前关闭计算机”  。 在触发故障转移之前，Site Recovery 会尝试关闭虚拟机。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。 
 5. 检查 Azure VM 是否在 Azure 中按预期显示。
@@ -125,17 +128,18 @@ Hyper-V | [启用复制](hyper-v-azure-tutorial.md#enable-replication)<br/><br/>
     - 如果是将 Azure VM 迁移到次要区域，则必须在迁移之前在 VM 上预配 Azure VM 代理。
     - 如果是将 Hyper-V VM 迁移到 Azure，请在迁移之后在 Azure VM 上安装 Azure VM 代理。
 - 手动从 VM 中删除任何 Site Recovery 提供程序/代理。 如果迁移 VMware VM 或物理服务器，请从 VM 中卸载移动服务。
+    
     <!--MOONCAKE: should be []() format-->
+    
 - 为增强恢复能力，请采取以下措施：
     - 通过使用 Azure 备份服务备份 Azure VM 来确保数据安全。 [了解详细信息]( https://docs.azure.cn/backup/quick-backup-vm-portal)。
     - 通过使用 Site Recovery 将 Azure VM 复制到次要区域，使工作负荷保持运行并持续可用。 [了解详细信息](azure-to-azure-quickstart.md)。
 - 为提高安全性，请采取以下措施：
-
-    <!-- Not Available on  [Just in time administration]( https://docs.azure.cn/security-center/security-center-just-in-time)-->
-    
+    - 通过 Azure 安全中心[恰时管理]( https://docs.azure.cn/security-center/security-center-just-in-time)锁定并限制入站流量访问。
     - 使用[网络安全组](/virtual-network/security-overview)限制到管理终结点的网络流量。
+    - 部署 [Azure 磁盘加密](/security/azure-security-disk-encryption-overview)来帮助保护磁盘，并确保数据安全，防止被盗和未经授权的访问。
+    - 详细了解 [Azure 安全中心](https://www.azure.cn/home/features/security-center/ )。
     
-    <!-- Not Available on  [Azure Disk Encryption](/security/azure-security-disk-encryption-overview)-->
     <!-- Not Available on  [securing IaaS resources]( https://www.azure.cn/services/virtual-machines/secure-well-managed-iaas/ )-->
     <!-- Not Available on  - For monitoring and management:-->
     <!-- Not Available on  [Azure Cost Management](/cost-management/overview)-->

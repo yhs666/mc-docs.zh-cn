@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
 origin.date: 01/29/2019
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ba7211fbb346780e371a9d7b90b1b341522e1e
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 4870c44a6de3fb3b7e8cd5998c91a320f2f122e3
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993379"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292079"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory 标识保护是什么？
 
@@ -46,10 +46,10 @@ Azure Active Directory 标识保护不只是一个监视和报告工具。 若�
 - 计算登录风险级别
 - 计算用户风险级别
 
-**调查风险事件：**
+**调查风险检测：**
 
-- 针对风险事件发送通知
-- 使用相关的区分上下文的信息调查风险事件
+- 针对风险检测发送通知
+- 使用相关的上下文的信息调查风险检测
 - 提供基本工作流来跟踪调查
 - 轻松使用补救措施，例如密码重置
 
@@ -77,9 +77,9 @@ Azure Active Directory 标识保护不只是一个监视和报告工具。 若�
 
 Azure Active Directory 标识保护分析配置，并检测影响用户标识的漏洞。 有关详细信息，请参阅[“Azure Active Directory 标识保护”检测到的漏洞](vulnerabilities.md)。
 
-### <a name="risk-events"></a>风险事件
+### <a name="risk-detections"></a>风险检测
 
-Azure Active Directory 使用自适应机器学习算法和试探法来检测与用户标识相关的可疑操作。 系统为检测到的每个可疑操作创建记录。 这些记录也称为风险事件。  
+Azure Active Directory 使用自适应机器学习算法和试探法来检测与用户标识相关的可疑操作。 系统为检测到的每个可疑操作创建记录。 这些记录也称为风险检测。  
 
 ## <a name="investigation"></a>调查
 
@@ -89,10 +89,10 @@ Azure Active Directory 使用自适应机器学习算法和试探法来检测与
 
 在仪表板中可以访问：
 
-- “已标记为存在风险的用户”、“风险事件”和“漏洞”等报告   
+- 报告，例如**已标记为有风险的用户**、**风险检测**和**漏洞**
 - 各种设置，例如“安全策略”、“通知”和“多重身份验证注册”的配置   
 
-这通常是调查的起点，在调查过程中查看风险事件相关活动、日志和其他相关信息可以确定是否需要采取补救或缓解措施，了解标识如何遭到入侵，以及遭到入侵的标识如何被利用。
+这通常是调查的起点，在调查过程中查看风险检测相关活动、日志和其他相关信息可以确定是否需要采取补救或缓解措施，了解标识如何受到安全威胁，以及受到安全威胁的标识如何被使用。
 
 可以将调查活动绑定到 Azure Active Directory Protection 发送的每封电子邮件[通知](notifications.md)。
 
@@ -113,4 +113,4 @@ Azure Active Directory 使用自适应机器学习算法和试探法来检测与
 - [第 9 频道：Azure AD 和标识展示：“标识保护”预览版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 - [启用 Azure Active Directory 标识保护](enable.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

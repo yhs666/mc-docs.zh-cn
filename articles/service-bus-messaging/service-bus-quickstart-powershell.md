@@ -8,14 +8,15 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+origin.date: 04/10/2019
+ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7115dc61a87c69f70c46fb66f5936fd7ad38e1d8
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 3ec21840624c07cf8e7c1fd15c5d3979b5042677
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818539"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330126"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入门：使用 Azure PowerShell 创建服务总线队列
 本快速入门介绍如何使用 PowerShell 创建消息命名空间并在该命名空间中创建队列，以及如何获取该命名空间上的授权凭据，以便将消息发送到服务总线队列及从中接收消息。 然后该过程展示了如何使用 [.NET Standard 库](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)从此队列发送和接收消息。
@@ -165,7 +166,7 @@ static void Main(string[] args)
 
 ### <a name="message-loop"></a>消息循环
 
-MainAsync() 方法使用命令行参数创建队列客户端，调用名为 `RegisterOnMessageHandlerAndReceiveMessages()` 的接收消息处理程序，并发送消息集：
+MainAsync() 方法使用命令行参数创建队列客户端、调用名为 `RegisterOnMessageHandlerAndReceiveMessages()` 的接收消息处理程序，并发送消息集：
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 逻辑应用连接到 GitHub
-description: 使用 Azure 逻辑应用自动执行 GitHub 的工作流
+title: 连接到 GitHub - Azure 逻辑应用
+description: 使用 GitHub REST API 和 Azure 逻辑应用监视 GitHub 事件
 services: logic-apps
 documentationcenter: ''
 author: ecfan
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 03/02/2018
 ms.author: v-yiso
-ms.date: 04/23/2018
-ms.openlocfilehash: b0f210f79d7c6c9afd1afaf868810156fbb32b64
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 10/08/2018
+ms.openlocfilehash: c9453617aa1865fea612587c92cac777fc4539db
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657725"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340986"
 ---
-# <a name="connect-to-github"></a>连接到 GitHub
+# <a name="connect-to-github-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 GitHub
 
 GitHub 是基于 Web 的 Git 存储库托管服务，它提供 Git 的所有分布式修订控制和源代码管理 (SCM) 功能以及其他功能。
 
@@ -42,10 +42,10 @@ GitHub 是基于 Web 的 Git 存储库托管服务，它提供 Git 的所有分�
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## <a name="connector-specific-details"></a>特定于连接器的详细信息
+## <a name="connector-reference"></a>连接器参考
 
-有关 Swagger 中定义的触发器和操作以及任何限制，请查看[连接器详细信息](/connectors/github/)。
+有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看[连接器的参考页](/connectors/github/)。
 
-## <a name="find-more-connectors"></a>查找更多连接器
+## <a name="next-steps"></a>后续步骤
 
-* 查看[连接器列表](apis-list.md)。
+* 了解其他[逻辑应用连接器](../connectors/apis-list.md)

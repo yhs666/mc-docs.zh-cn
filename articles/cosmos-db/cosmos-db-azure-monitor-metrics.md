@@ -5,14 +5,14 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 06/18/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 270e7674f2b254fb8a5a73b6a265ec20a565b7c8
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+origin.date: 09/01/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 2e24db20e9daed1874af407cb42514ec404914f3
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672265"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306474"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>从 Azure Monitor 监视和调试 Azure Cosmos DB 指标
 
@@ -55,8 +55,8 @@ ms.locfileid: "68672265"
 
 |Metric（指标显示名称）|Unit（聚合类型） |说明|维度| 时间粒度| 旧指标映射 | 使用情况 |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests（请求总数） | Count（计数） | 已发出的请求数| DatabaseName, CollectionName, Region, StatusCode| 全部 | TotalRequests、Http 2xx、Http 3xx、Http 400、Http 401、内部服务器错误、服务不可用、受限制的请求数、每秒平均请求数 | 用来按状态代码监视请求，以分钟为粒度进行收集。 若要获取每秒的平均请求数，请在分钟级别使用“计数”聚合并除以 60。 |
-| MetadataRequests（元数据请求数） |Count（计数） | 元数据请求的计数。 Azure Cosmos DB 为每个帐户维护系统元数据集合，允许你免费枚举集合、数据库及其配置等等。 | DatabaseName, CollectionName, Region, StatusCode| 全部| |用于监视由于元数据请求而导致的限制。|
+| TotalRequests（请求总数） | Count（计数） | 已发出的请求数| DatabaseName, CollectionName, Region, StatusCode| 全部 | TotalRequests、Http 2xx、Http 3xx、Http 400、Http 401、内部服务器错误、服务不可用、受限制的请求数、每秒平均请求数 | 用于按状态代码、容器监视请求，以分钟为粒度。 若要获取每秒的平均请求数，请在分钟级别使用“计数”聚合并除以 60。 |
+| MetadataRequests（元数据请求数） |Count（计数） | 元数据请求的计数。 Azure Cosmos DB 为每个帐户维护系统元数据容器，允许你免费枚举集合、数据库及其配置等等。 | DatabaseName, CollectionName, Region, StatusCode| 全部| |用于监视由于元数据请求而导致的限制。|
 | MongoRequests（Mongo 请求数） | Count（计数） | 已发出的 Mongo 请求数 | DatabaseName, CollectionName, Region, CommandName, ErrorCode| 全部 |Mongo 查询请求速率、Mongo 更新请求速率、Mongo 删除请求速率、Mongo 插入请求速率、Mongo 计数请求速率| 用于监视 Mongo 请求错误以及每个命令类型的使用情况。 |
 
 ### <a name="request-unit-metrics"></a>请求单位指标
@@ -65,17 +65,17 @@ ms.locfileid: "68672265"
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge（Mongo 请求费用） | Count（总数） |Mongo 已消耗的请求单位| DatabaseName, CollectionName, Region, CommandName, ErrorCode| 全部 |Mongo 查询请求费用、Mongo 更新请求费用、Mongo 删除请求费用、Mongo 插入请求费用、Mongo 计数请求费用| 用于监视一分钟内的 Mongo 资源 RU。|
 | TotalRequestUnits（请求单位总数）| Count（总数） | 已消耗的请求单位| DatabaseName, CollectionName, Region, StatusCode |全部| TotalRequestUnits| 用于在分钟粒度监视总的 RU 使用量。 若要获取每秒平均使用的 RU，请在分钟级别使用“总计”聚合并除以 60。|
-| ProvisionedThroughput（预配的吞吐量）| Count（最大值） |在集合粒度预配的吞吐量| DatabaseName、CollectionName| 5M| | 用于监视每个集合的预配吞吐量。|
+| ProvisionedThroughput（预配的吞吐量）| Count（最大值） |以容器粒度预配的吞吐量| DatabaseName、ContainerName| 5M| | 用于监视每个容器的预配吞吐量。|
 
 ### <a name="storage-metrics"></a>存储度量值
 
 |Metric（指标显示名称）|Unit（聚合类型）|说明|维度| 时间粒度| 旧指标映射 | 使用情况 |
 |---|---|---|---| ---| ---| ---|
 | AvailableStorage（可用存储空间） |Bytes（总数） | 每个区域按 5 分钟粒度报告的可用存储总量| DatabaseName、CollectionName、Region| 5M| 可用存储| 用于监视可用存储容量（仅适用于固定存储集合）。最小粒度应当为 5 分钟。| 
-| DataUsage（数据用量） |Bytes（总数） |每个区域按 5 分钟粒度报告的数据总用量| DatabaseName、CollectionName、Region| 5M |数据大小 | 用于在集合和区域级别监视总的数据使用情况，最小粒度应当为 5 分钟。|
-| IndexUsage（索引用量） | Bytes（总数） |每个区域按 5 分钟粒度报告的索引总用量| DatabaseName、CollectionName、Region| 5M| 索引大小| 用于在集合和区域级别监视总的数据使用情况，最小粒度应当为 5 分钟。 |
-| DocumentQuota（文档配额） | Bytes（总数） | 每个区域按 5 分钟粒度报告的存储配额总量。| DatabaseName、CollectionName、Region| 5M |存储容量| 用于在集合和区域级别监视总的配额，最小粒度应当为 5 分钟。|
-| DocumentCount（文档计数） | Count（总数） |每个区域按 5 分钟粒度报告的文档总数| DatabaseName、CollectionName、Region| 5M |文档计数|用于在集合和区域级别监视文档计数，最小粒度应当为 5 分钟。|
+| DataUsage（数据用量） |Bytes（总数） |每个区域按 5 分钟粒度报告的数据总用量| DatabaseName、CollectionName、Region| 5M |数据大小 | 用于在容器和区域级别监视总的数据使用情况，最小粒度应当为 5 分钟。|
+| IndexUsage（索引用量） | Bytes（总数） |每个区域按 5 分钟粒度报告的索引总用量| DatabaseName、CollectionName、Region| 5M| 索引大小| 用于在容器和区域级别监视总的数据使用情况，最小粒度应当为 5 分钟。 |
+| DocumentQuota（文档配额） | Bytes（总数） | 每个区域按 5 分钟粒度报告的存储配额总量。| DatabaseName、CollectionName、Region| 5M |存储容量| 用于在容器和区域级别监视总的配额，最小粒度应当为 5 分钟。|
+| DocumentCount（文档计数） | Count（总数） |每个区域按 5 分钟粒度报告的文档总数| DatabaseName、CollectionName、Region| 5M |文档计数|用于在容器和区域级别监视文档计数，最小粒度应当为 5 分钟。|
 
 ### <a name="latency-metrics"></a>延迟指标
 
@@ -100,7 +100,7 @@ ms.locfileid: "68672265"
 ## <a name="next-steps"></a>后续步骤
 
 * [从 Azure Cosmos DB 帐户指标窗格查看和监视指标](use-metrics.md)
+
 * [Azure Cosmos DB 中的诊断日志记录](logging.md)
 
-<!--Update_Description: new articles on cosmos db azure monitor metrics  -->
-<!--ms.date: 07/29/2019-->
+<!--Update_Description: wording update  -->

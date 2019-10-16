@@ -8,20 +8,19 @@ manager: digimobile
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/30/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 8aedddc7ba652dcfe4af4cca2db6e2dc18cdf2e3
-ms.sourcegitcommit: 9a7d473c53918bbcdfafed0ab6f324e0437601b1
+ms.openlocfilehash: 246c75c80af72047f546897ea0530187142091f3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71005407"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272740"
 ---
 <!--Verified successfully-->
 

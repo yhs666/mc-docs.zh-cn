@@ -9,12 +9,12 @@ origin.date: 04/23/2019
 ms.date: 06/28/2019
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: aa22f49f62dafb678379dd1e3e3a277c7233574d
-ms.sourcegitcommit: 7ad1a199e9f81de27b9098b50062ef059099f765
+ms.openlocfilehash: 3b5c9a45df9788194788c534000e578b74bc4a7a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461902"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272568"
 ---
 <!--MOONCAKE: NY VS Beijing, London VS Shanghai, LS VS Tianjing-->
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建站点到站点连接
@@ -48,9 +48,9 @@ ms.locfileid: "67461902"
 <a name="openvwan"></a>
 ## <a name="1-create-a-virtual-wan"></a>1.创建虚拟 WAN
 
-从浏览器导航到 [Azure 门户](https://portal.azure.cn/?feature.canmodifystamps=true&Microsoft_Azure_Network=flight16&feature.vwaner=true&feature.vwanp2s=true)并使用 Azure 帐户登录。
+从浏览器导航到 [Azure 门户](https://portal.azure.cn/)并使用 Azure 帐户登录。
 
-<!--MOONCAKE: CORRECT ON https://portal.azure.cn/?feature.canmodifystamps=true&Microsoft_Azure_Network=flight16&feature.vwaner=true&feature.vwanp2s=true-->
+<!--MOONCAKE: CORRECT ON https://portal.azure.cn-->
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

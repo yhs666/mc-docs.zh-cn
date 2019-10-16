@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f4f1447fcc8fa946485cb79804f0779e97961723
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ee64e684af2a3624411c237fb6d9c059ab5f8781
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570020"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272739"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -61,8 +60,11 @@ ms.locfileid: "67570020"
 
     * **数据库大小**：在更新这篇文章时，SQL 数据库支持最多包含 1 TB 数据的数据库。 如果应用程序需要 1 TB 以上的数据，但用户不希望实现自定义分片解决方案，则建议在 Azure 虚拟机中使用 SQL Server。 有关最新信息，请参阅[横向扩展 Azure SQL 数据库](/sql-database/sql-database-elastic-scale-introduction)、[基于 DTU 的购买模型](../../../sql-database/sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](../../../sql-database/sql-database-service-tiers-vcore.md)（预览版）。
     * **HIPAA 符合性**：医疗保健客户和独立软件供应商 (ISV) 可能选择 [Azure 虚拟机中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 而不选择 [Azure SQL 数据库](../../../sql-database/sql-database-technical-overview.md)，原因是 Azure 虚拟机中的 SQL Server 已纳入 HIPAA 商业伙伴协议 (BAA)。 有关符合性的信息，请参阅 [Azure 信任中心：符合性](https://www.trustcenter.cn/compliance/)。
+    
+        <!--Not Available on [Azure Trust Center: Compliance](https://www.trustcenter.cn/compliance/)-->
+    
     * **实例级功能**：目前，SQL 数据库不支持在数据库外部有效的功能（如链接服务器、代理作业、文件流、Service Broker 等）。 有关详细信息，请参阅 [Azure SQL 数据库指南和限制](/sql-database/sql-database-general-limitations)。
-
+    
 ## <a name="1-tier-simple-single-virtual-machine"></a>1 层（简单）：单个虚拟机
 在这种应用程序模式中，将 SQL Server 应用程序和数据库部署到 Azure 中的独立虚拟机上。 同一个虚拟机还包含客户端/Web 应用程序、业务组件、数据访问层级和数据库服务器。 呈现、业务和数据访问代码在逻辑上是分离的，但从物理位置来看是位于单台服务器计算机上。 大多数客户首先使用这种应用程序模式，然后通过向系统添加更多 Web 角色或虚拟机进行扩大。
 
@@ -193,7 +195,7 @@ ms.locfileid: "67570020"
 
 ![使用云服务的应用程序模式](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-实现此应用程序模式的另一种方法是使用包含呈现层和业务层组件的整合 Web 角色，如下图所示。 此应用程序模式适用于需要状态设计的应用程序。 由于 Azure 在 Web 角色和辅助角色上提供无状态计算节点，建议实现一个使用以下技术之一存储会话状态的逻辑：[Azure 缓存](/redis-cache/)、[Azure 表存储](../../../cosmos-db/table-storage-how-to-use-dotnet.md)或 [Azure SQL 数据库](../../../sql-database/sql-database-technical-overview.md)。
+实现此应用程序模式的另一种方法是使用包含呈现层和业务层组件的整合 Web 角色，如下图所示。 此应用程序模式适用于需要状态设计的应用程序。 由于 Azure 在 Web 角色和辅助角色上提供无状态计算节点，建议实现一个使用以下技术之一存储会话状态的逻辑：[Azure 缓存](/azure-cache-for-redis/)、[Azure 表存储](../../../cosmos-db/table-storage-how-to-use-dotnet.md)或 [Azure SQL 数据库](../../../sql-database/sql-database-technical-overview.md)。
 
 ![使用云服务的应用程序模式](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

@@ -12,19 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/20/2019
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 2a56bbcf90a047e8a1fc916a32ed77bc5118e554
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: c319fe3d3db3d3ae2413071b957dd502367d266a
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254861"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124655"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
 > [!NOTE]
 > Google Widevine 目前在中国地区不可用。
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 可以使用 Azure 媒体服务 (AMS) 安全地上传、存储、编码和打包视频或音频内容，以便将点播流和实时传送视频流交付到各种客户端（例如，电视、电脑和移动设备）。
 
@@ -253,4 +256,9 @@ AMS 提供两个按需编码器：  Media Encoder Standard 和  Media Encoder Pr
 |S2|GA|巴西南部和印度西部除外|
 |S3|GA|印度西部除外|
 
-<!--Update_Description:update three tables-->
+## <a name="next-steps"></a>后续步骤
+
+查看媒体服务学习路径。
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+

@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 76a2023ca029ed5ad2f151aae5b8f7b8166d6228
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: a1631347c5800739a2fd3afbb80f1e59e1ca9877
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329920"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 应用中的短语列表特征
 
@@ -88,7 +89,7 @@ ms.locfileid: "70104026"
 添加短语列表是将更多示例表述添加到意向的替代方法。 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>何时使用短语列表与列表实体
-尽管短语列表和列表实体都可以影响所有意向中的表述，但各自实现的方式不同。 短语列表用于影响意向预测评分。 列表实体用于影响完全文本匹配的实体提取。 
+尽管短语列表和[列表实体](reference-entity-list.md)都可以影响所有意向的话语，但各自实现的方式不同。 短语列表用于影响意向预测评分。 列表实体用于影响完全文本匹配的实体提取。 
 
 ### <a name="use-a-phrase-list"></a>使用短语列表
 有了短语列表，LUIS 仍可以考虑上下文并进行归纳，从而标识与列表项相似但并非完全匹配的项。 如果需要 LUIS 应用能够归纳和识别分类中的新项，请使用短语列表。 

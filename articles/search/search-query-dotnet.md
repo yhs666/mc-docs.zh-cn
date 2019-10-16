@@ -3,19 +3,19 @@ title: 将数据查询到 C# (.NET SDK) 中的 Azure 搜索索引 - Azure 搜索
 description: 用于在 Azure 搜索中生成搜索查询的 C# 代码示例。 将搜索参数添加到筛选器并对搜索结果进行排序。
 author: heidisteen
 manager: cgronlun
-ms.author: v-biyu
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 03/20/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: d0c960497097125c681c97c584c67ecbaf76fc97
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.openlocfilehash: 4df9cad93a91e9794e4b1ecbe8436ff11a19ba0e
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004709"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674417"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>快速入门：3 - 在 C# 中查询 Azure 搜索索引
 
@@ -56,7 +56,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 使用 .NET SDK 进行搜索与对 `SearchIndexClient` 调用 `Documents.Search` 方法一样简单。 此方法采用几个参数，包括搜索文本以及可用于进一步优化查询的 `SearchParameters` 对象。
 
 ### <a name="types-of-queries"></a>查询类型
-可以使用的两个主要[查询类型](search-query-overview.md#types-of-queries)分别为 `search` 和 `filter`。 `search` 查询可搜索索引中全部可搜索 字段中的一个或多个词。 `filter` 查询可对索引中的全部可筛选字段计算布尔表达式。 可单独使用 search 和 filter，也可一起使用。
+可以使用的两个主要[查询类型](search-query-overview.md#types-of-queries)分别为 `search` 和 `filter`。 `search` 查询可搜索索引中全部可搜索  字段中的一个或多个词。 `filter` 查询可对索引中的全部可筛选  字段计算布尔表达式。 可单独使用 search 和 filter，也可一起使用。
 
 使用 `Documents.Search` 方法可同时执行搜索和查询。 搜索查询可在`searchText` 参数中传递，而筛选表达式则可在 `SearchParameters` 类的 `Filter` 属性中传递。 若要筛选但不搜索，只需传递 `"*"` 作为 `searchText` 参数。 若要搜索但不筛选，只需不设置 `Filter` 属性，或不在 `SearchParameters` 实例中传递。
 

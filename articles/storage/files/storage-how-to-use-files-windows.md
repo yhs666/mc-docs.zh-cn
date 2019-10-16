@@ -1,20 +1,19 @@
 ---
 title: 将 Azure 文件共享与 Windows 配合使用 | Microsoft Docs
 description: 了解如何将 Azure 文件共享与 Windows 和 Windows Server 配合使用。
-services: storage
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 06/07/2018
-ms.date: 08/05/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 300e509db16cc7bcf5a26e4bed3d0c43e87f908a
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 3cb1e0af7a49862544c321b5f81bd02857e26c94
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732334"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306782"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -35,8 +34,8 @@ ms.locfileid: "68732334"
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows 10 版本 1507、1607、1703、1709、1803 和 1809。  
-<sup>2</sup>Windows Server 版本 1709 和 1803。
+<sup>1</sup>Windows 10 版本 1507、1607、1703、1709、1803、1809 和 1903。  
+<sup>2</sup>Windows Server 版本 1803、1809 和 1903。
 
 > [!Note]  
 > 我们始终建议使用相对于 Windows 版本来说最新的 KB。

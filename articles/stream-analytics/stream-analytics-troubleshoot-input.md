@@ -9,12 +9,13 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 08/07/2019
-ms.openlocfilehash: 7805a6008755298d4f4826cec9a1bd66c456bfbe
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.custom: seodec18
+ms.openlocfilehash: 7fa4e543018bdd09fdb72cd08beb892db0b0bacc
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169617"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674742"
 ---
 # <a name="troubleshoot-input-connections"></a>排查输入连接问题
 

@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/19/2019
+origin.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 87ceac660cbcfbce47ccb67117a5200599f49beb
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: cd1d55948934d88fa08371eb4a6155d34710e849
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103906"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330413"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 的语言和区域支持
 

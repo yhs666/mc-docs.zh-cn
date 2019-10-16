@@ -4,17 +4,17 @@ description: 了解如何创建可以查询和呈现 Azure 时序见解环境中
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-origin.date: 06/29/2019
-ms.date: 09/02/2019
+origin.date: 08/29/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 0dc5d4efc04030152f92066198cefa161e812bbf
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1ec963ac251310594aa6897312e80e9aafe61529
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993147"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292478"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教程：创建 Azure 时序见解单页 Web 应用
 
@@ -155,6 +155,10 @@ ms.locfileid: "69993147"
 
       [![Visual Studio - 发布配置文件窗格](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. 选择发布新的 Azure 应用服务实例或使用现有实例。
+
+      [![选择 Azure 应用服务实例](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. 选择要用于发布应用程序的订阅。 选择“TsiSpaApp”  项目。 选择“确定”。 
 
       [![Visual Studio - 发布配置文件应用服务窗格](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -165,12 +169,16 @@ ms.locfileid: "69993147"
 
    1. 成功发布的日志会出现在 Visual Studio “输出”  窗格中。 部署完成后，Visual Studio 会在浏览器选项卡中打开 Web 应用程序，提示进行登录。 成功登录后，时序见解控件会使用数据进行填充。
 
+   1. 导航到 Web 应用并登录以查看呈现的时序见解可视数据。
+
+      [![查看托管的 Web 应用](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## <a name="troubleshoot"></a>故障排除  
 
 错误代码/条件 | 说明
 ---------------------| -----------
-AADSTS50011：  未为应用程序注册回复地址。 | Azure AD 注册缺少“回复 URL”  属性。 转到 Azure AD 应用程序注册的“设置”   >   “回复 URL”。 验证在[注册应用程序以使用 Azure AD](#register-with-azure-ad) 时，可以选择在**步骤 2** 或**步骤 4** 中指定的**重定向 URI** 是否存在。
-AADSTS50011：*在请求中指定的回复 URL 与为以下应用程序配置的回复 URL 不匹配：'\<Application ID GUID>'。* | 在[生成并发布 Web 应用程序](#build-and-publish)的**步骤 6.b** 中指定的 `postLogoutRedirectUri` 必须与 Azure AD 应用程序注册中“设置”   > “回复 URL”  下指定的值匹配。 |
+AADSTS50011：  未为应用程序注册回复地址。 | Azure AD 注册缺少“重定向 URI”  属性。 转到“身份验证”   > “重定向 URI”  以注册 Azure AD 应用程序。 验证在[注册应用程序以使用 Azure AD](#register-with-azure-ad) 时，可以选择在**步骤 2** 或**步骤 4** 中指定的**重定向 URI** 是否存在。
+AADSTS50011：*在请求中指定的回复 URL 与为以下应用程序配置的回复 URL 不匹配：'\<Application ID GUID>'。* | 在[生成并发布 Web 应用程序](#build-and-publish)中的**步骤 6.b** 中指定的 `postLogoutRedirectUri` 必须与 Azure AD 应用程序注册中的“身份验证”   > “重定向 URI”  下指定的值匹配。 |
 Web 应用程序会加载，但登录页是未设置样式的纯文本页面，背景为白色。 | 验证在[生成并发布 Web 应用程序](#build-and-publish)的**步骤 6** 中论述的路径是否正确。 如果 Web 应用程序找不到 .css 文件，则页面无法正确设置样式。
 
 ## <a name="clean-up-resources"></a>清理资源

@@ -7,20 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 02/07/2019
-ms.date: 07/23/2019
+origin.date: 09/11/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d9057b546c8eabaf94113d6506c3506ee6005613
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: f29ba724af5d9e4cd4ade995107c92f2e441957b
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391575"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083240"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的用户界面自定义
 
-通过 Azure Active Directory (Azure AD) B2C，可为应用程序的用户界面 (UI) 提供标志并进行自定义，这一点对于为你的客户提供无缝体验至关重要。 这些体验包括注册、登录、配置文件编辑和密码重置。 本文提供的信息有助于你自定义应用程序的 UI。
+你能够标记和自定义 Azure Active Directory B2C (Azure AD B2C) 为应用程序提供的用户界面 (UI)，这对于向你的客户提供无缝体验非常重要。 这些体验包括注册、登录、配置文件编辑和密码重置。 本文提供的信息有助于你自定义应用程序的 UI。
 
 根据你对于这些体验的不同需求，可通过不同方式自定义应用程序的 UI。 例如：
 
@@ -113,10 +113,10 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 | 插入的页 | HTML 说明 |
 | ------------- | ------------------- |
-| 标识提供者选项 | 包含标识提供者的按钮列表，客户可在注册或登录时选择这些按钮。 这些按钮包括社交标识提供者本地帐户（基于电子邮件地址或用户名）。 |
+| 标识提供者选项 | 包含标识提供者的按钮列表，客户可在注册或登录时选择这些按钮。 这些按钮包括社交标识提供者。 |
 | 本地帐户注册 | 包含一个窗体，用于基于电子邮件地址或用户名的本地帐户注册。 该窗体可以包含不同的输入控件，如文本输入框、密码输入框、单选按钮、单选下拉框和多选复选框。 |
 | 社交帐户注册 | 使用社交标识提供者的现有帐户进行注册时，可能会显示此页面。 在必须使用注册窗体收集客户的其他信息时使用此页面。 |
-| 统一注册或登录 | 处理客户的注册和登录，这些客户可以使用社交标识提供者的帐户或本地帐户。 |
+| 统一注册或登录 | 处理可以使用社交标识提供者的客户的注册和登录。 |
 | 多重身份验证 | 用户可以在注册或登录期间（使用文字或语音）验证其电话号码。 |
 | 错误 | 向客户提供错误信息。 |
 
@@ -133,6 +133,7 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 ## <a name="next-steps"></a>后续步骤
 
-- 如果使用用户流，可以根据教程开始自定义 UI：[在 Azure Active Directory B2C 中自定义应用程序的用户界面](tutorial-customize-ui.md)。
+- 如果使用**用户流**，可以根据教程开始自定义 UI：
 
+    [在 Azure Active Directory B2C 中自定义应用程序的用户界面](tutorial-customize-ui.md)。
 <!-- Update_Description: wording update -->

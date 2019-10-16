@@ -3,20 +3,23 @@ author: mgottein
 ms.service: search
 ms.topic: include
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.openlocfilehash: 557578917cc19093e38d74ac7694e98a94796b74
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 0801b29ee3e9dce605eda6f6d64331f262a61778
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004372"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674437"
 ---
 * PDF
-* Microsoft Office 格式：DOCX/DOC、XLSX/XLS、PPTX/PPT、MSG（Outlook 电子邮件）  
+* Microsoft Office 格式：DOCX/DOC/DOCM、XLSX/XLS/XLSM、PPTX/PPT/PPTM、MSG（Outlook 电子邮件）、XML（2003 和 2006 Word XML）
+* “打开文档”格式：ODT、ODS、ODP  
 * HTML
 * XML
 * ZIP
+* GZ
+* EPUB
 * EML
 * RTF
 * 纯文本文件（另请参阅[为纯文本编制索引](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText)）

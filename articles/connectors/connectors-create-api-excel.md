@@ -10,13 +10,13 @@ ms.suite: integration
 tags: connectors
 ms.topic: article
 origin.date: 08/23/2018
-ms.date: 06/24/2019
-ms.openlocfilehash: e2e02a9876801a5c1eff3f5dcea8cc6f02c28ec5
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 10/08/2019
+ms.openlocfilehash: 47b0a26952b4bf98c83025742883a38d381dd902
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135776"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340987"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Excel Online 数据
 
@@ -54,7 +54,10 @@ ms.locfileid: "67135776"
 
 1. 在搜索框中，输入“excel”作为筛选器。 在操作列表下，选择所需的操作。
 
-1. 如果系统提示登录到 Office 365 帐户，请选择“登录”  。 
+   > [!NOTE]
+   > 逻辑应用设计器无法加载包含 100 列或更多列的表。 如果可能，请减少所选表中的列数，以便设计器可以加载表。
+
+1. 如果出现提示，请登录到 Office 365 帐户。
 
    你的凭据授权逻辑应用创建与 Excel Online 的连接并访问你的数据。
 
@@ -66,11 +69,6 @@ ms.locfileid: "67135776"
 
 * [Excel Online for Business](/connectors/excelonlinebusiness/) 
 * [Excel Online for OneDrive](/connectors/excelonline/) 
-
-## <a name="get-support"></a>获取支持
-
-* 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

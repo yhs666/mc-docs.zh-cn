@@ -13,16 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/02/2018
+ms.date: 11/26/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: dd407bfdeedf75535252d359b33872d8a5cbd02a
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 37dd32be27fab265aa1bb9235d6c123e9b816025
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332201"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330368"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 中继混合连接协议
+
 Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继的新“混合连接”功能是基于 HTTP 和 WebSocket 的安全、开放协议演化版  。 它取代了之前基于专用协议构建的名为“BizTalk 服务”的功能  。 将混合连接集成到 Azure 应用服务并不影响原有的运行方式。
 
 混合连接在两个联网应用程序之间启用双向二进制流通信和简单的数据报流。 任何一方或双方均可驻留在 NAT 或防火墙之后。
@@ -30,6 +31,7 @@ Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继
 本文介绍如何与混合连接中继的客户端交互，以连接侦听器和发送方角色中的客户端。 此外，还介绍侦听器如何接受新的连接和请求。
 
 ## <a name="interaction-model"></a>交互模型
+
 混合连接中继将通过提供双方都可在自身网络发现并连接到的 Azure 云中的集合点来连接两方。 该集合点就是在本文和其他文档、API 及 Azure 门户中提及的“混合连接”。 混合连接服务终结点在本文其余部分被称为“服务”。
 
 该服务允许中继 Web 套接字连接和 HTTP(S) 请求与响应。
@@ -49,6 +51,7 @@ Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继
 #### <a name="listen-message"></a>侦听消息
 
 侦听器会创建一个出站 WebSocket 连接，指示对服务的准备情况，即侦听器准备接受连接的情况。 连接握手包含中继命名空间所配置的混合连接名称，以及授予对该名称“侦听”权限的安全令牌。
+
 服务接受 WebSocket 后，注册完成并且建立的 WebSocket 作为“控制通道”保持活动状态，以支持所有后续交互。 在一个混合连接上服务最多可允许 25 个并行侦听器。 AppHooks 的配额待定。
 
 对于混合连接，如果有两个或更多活动的侦听器，则将传入连接以随机顺序均衡分布在这些侦听器上；尽最大努力实现平均分配。
@@ -128,6 +131,7 @@ HTTP 请求/响应模型为发送方提供受限程度极低的 HTTP 协议外�
 所有 WebSocket 连接都作为 HTTPS 1.1 的升级在端口 443 上生成，此操作通常被一些 WebSocket 框架或 API 抽象化。 此处的说明保持实现中立，不指示特定框架。
 
 ### <a name="listener-protocol"></a>侦听器协议
+
 侦听器协议由两个连接动作和三个消息操作组成。
 
 #### <a name="listener-control-channel-connection"></a>侦听器控制通道连接
@@ -233,7 +237,7 @@ URL 必须原样使用，用于创建接受套接字，但是要包含以下参�
 
  在检查 `accept` 消息后拒绝套接字，将需要一个相似的握手，以使传达拒绝原因的状态代码和状态说明可以返回至发送方。
 
-此处的协议设计选项是使用 WebSocket 握手（用于在定义的错误状态下结束），以便侦听器客户端实现可以继续依赖 WebSocket 客户端，而无需使用其他的裸 HTTP 客户端。
+ 此处的协议设计选项是使用 WebSocket 握手（用于在定义的错误状态下结束），以便侦听器客户端实现可以继续依赖 WebSocket 客户端，而无需使用其他的裸 HTTP 客户端。
 
  若要拒绝套接字，客户端需使用 `accept` 消息中的地址 URI 并将两个查询字符串参数追加到其中，如下所示：
 
@@ -413,7 +417,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 | WS 状态 | 说明                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
-| 1008 |安全令牌已到期，因此违背了授权策略。 |
+| 1008      | 安全令牌已到期，因此违背了授权策略。 |
 
 ### <a name="web-socket-connect-protocol"></a>Web 套接字连接协议
 

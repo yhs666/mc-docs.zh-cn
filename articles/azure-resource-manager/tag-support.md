@@ -3,16 +3,16 @@ title: 针对资源的 Azure 资源管理器标记支持
 description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服务的详细信息。
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.topic: reference
-origin.date: 08/05/2019
-ms.date: 08/26/2019
+ms.topic: conceptual
+origin.date: 09/13/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6155c4b11362efbdc13a1ba4e8b83c980ec7e00
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 677450fa2c5b4ba68bb0d4701b279a41af9e7c4d
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134375"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156086"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
 本文介绍某一资源类型是否支持[标记](resource-group-using-tags.md)。 标记为“支持标记”  的列指示资源类型是否具有标记的属性。 标记为“在成本报表中标记”  的列指示该资源类型是否将标记传递给成本报表。
@@ -47,6 +47,7 @@ ms.locfileid: "70134375"
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft.Features](#microsoftfeatures)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
@@ -68,6 +69,7 @@ ms.locfileid: "70134375"
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.Scheduler](#microsoftscheduler)
@@ -482,7 +484,18 @@ ms.locfileid: "70134375"
 <!--Not Available on ## Microsoft.DomainRegistration-->
 <!--Not Available on ## Microsoft.DynamicsLcs-->
 <!--Not Available on ## Microsoft.EnterpriseKnowledgeGraph-->
-<!--Not Available on ## Microsoft.EventGrid-->
+
+## <a name="microsofteventgrid"></a>Microsoft.EventGrid
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | domains | 是 |是 |
+> | 域/主题 | 否 |否 |
+> | eventSubscriptions | 否 |否 |
+> | extensionTopics | 否 |否 |
+> | topics | 是 |是 |
+> | topicTypes | 否 |否 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -817,7 +830,18 @@ ms.locfileid: "70134375"
 > | namespaces/wcfrelays/authorizationrules | 否 |否 |
 
 <!--Not Available on  ## Microsoft.RemoteApp-->
-<!--Not Available on  ## Microsoft.ResourceGraph-->
+
+## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | 查询 | 是 |是 |
+> | resourceChangeDetails | 否 |否 |
+> | resourceChanges | 否 |否 |
+> | 资源 | 否 |否 |
+> | resourcesHistory | 否 |否 |
+> | subscriptionsStatus | 否 |否 |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
@@ -890,6 +914,7 @@ ms.locfileid: "70134375"
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 否 |否 |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 否 |否 |
 > | jitNetworkAccessPolicies | 否 |否 |
+> | networkData | 否 |否 |
 > | playbookConfigurations | 是 |是 |
 > | 策略 | 否 |否 |
 > | pricings | 否 |否 |

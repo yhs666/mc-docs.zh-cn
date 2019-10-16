@@ -2,21 +2,21 @@
 title: 用于搜索索引中多语言内容的语言筛选器 - Azure 搜索
 description: 支持多语言搜索的筛选条件，将查询执行范围限定为特定于语言的字段。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
 origin.date: 10/23/2017
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: da9782795174167f7672ceaa9ab278f269183159
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 09f1c4e77814d4a3772a48fe961dddd8c5be56f1
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004567"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674361"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>如何在 Azure 搜索中按语言筛选 
 
@@ -40,11 +40,11 @@ ms.locfileid: "66004567"
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> 有关通过语言分析器显示字段定义的代码示例，请参阅[定义索引 (.NET)](https://docs.azure.cn/zh-cn/search/search-create-index-dotnet) 和[定义索引 (REST)](search-create-index-rest-api.md)。
+> 有关通过语言分析器显示字段定义的代码示例，请参阅[定义索引 (.NET)](search-create-index-dotnet.md) 和[定义索引 (REST)](search-create-index-rest-api.md)。
 
 ## <a name="build-and-load-an-index"></a>生成和加载索引
 
-编写查询之前的一个中间步骤（也许是众所周知的步骤）是[生成并填充索引](https://docs.azure.cn/zh-cn/search/search-create-index-dotnet)。 为了保持内容完整，此处阐述了此步骤。 确定索引是否可用的一种方法是在[门户](https://portal.azure.com)中查看索引列表。
+编写查询之前的一个中间步骤（也许是众所周知的步骤）是[生成并填充索引](search-create-index-dotnet.md)。 为了保持内容完整，此处阐述了此步骤。 确定索引是否可用的一种方法是在[门户](https://portal.azure.cn/)中查看索引列表。
 
 ## <a name="constrain-the-query-and-trim-results"></a>约束查询和修剪结果
 

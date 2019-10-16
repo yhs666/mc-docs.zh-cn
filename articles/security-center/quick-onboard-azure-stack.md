@@ -13,14 +13,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
+origin.date: 04/02/2019
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 827df308ea5436bf55c8f630eefde284bbd92f23
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: bd5592d74f04340efa7975a761e33a6aea24bfd2
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818204"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674794"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入门：将 Azure Stack 虚拟机载入安全中心
 载入 Azure 订阅后，可以通过从 Azure Stack 市场添加“Azure 监视、更新和配置管理”虚拟机扩展，启用安全中心来保护 Azure Stack 上运行的虚拟机。 

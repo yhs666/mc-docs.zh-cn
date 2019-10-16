@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: ea1e28d99f6680ef0e5ab3daacf0e12766559e0c
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: c67c792a92a00c635add8b897e6d32c80e56f7af
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861732"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340810"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>对复制到 Azure 的物理服务器进行故障转移和故障回复
 
@@ -43,7 +43,10 @@ ms.locfileid: "67861732"
 
 ## <a name="run-a-failover-to-azure"></a>运行到 Azure 的故障转移
 
-1. 在“设置”   > “复制的项”  中，单击计算机 >“故障转移”  。
+1. 在“受保护的项”   > “复制的项”  中，单击计算机 >“故障转移”  。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 2. 在“故障转移”中，选择要故障转移到的“恢复点”   。 可以使用以下选项之一：
     - **最新**：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
     - **最新处理**：此选项将计算机故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
@@ -86,7 +89,10 @@ ms.locfileid: "67861732"
 
 此过程假设本地 VM 不可用，你需要重新保护到另一位置。
 
-1. 在“设置”>“复制的项”中，右键单击已故障转移的 VM，然后单击“重新保护”    。
+1. 在“受保护的项”>“复制的项”中，右键单击已故障转移的 VM，然后单击“重新保护”    。
+
+    <!--MOONCAKE: **Protected Items** to replace **Setting**-->
+
 2. 在“重新保护”中，确保选择“Azure 到本地”   。
 3. 指定本地主目标服务器和进程服务器。
 
@@ -121,7 +127,10 @@ ms.locfileid: "67861732"
 
 数据现应返回到本地站点，但不会复制到 Azure。 可按如下操作开始再次复制到 Azure：
 
-1. 选择此保管库，单击“设置”>“复制的项”，再选择已故障回复的 VM，然后单击“重新保护”    。
+1. 在“保管库”>“受保护的项”  >“复制的项”  中，选择已故障回复的 VM，然后单击“重新保护”  。
+   
+    <!--MOONCAKE: Protected Items to replace Setting-->
+    
 2. 选择用于将复制数据发送到 Azure 的进程服务器，然后单击“确定”  。
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。

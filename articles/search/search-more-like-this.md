@@ -2,21 +2,21 @@
 title: Azure 搜索中的 moreLikeThis（预览版）- Azure 搜索
 description: Azure 搜索 REST API 中公开了有关 moreLikeThis 功能（预览）功能的初步文档。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: b7ea2907eb051106f127e1785bad2e2cebc11438
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 8e61515c24d223097fe85d9697fcb0bd42f26137
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004728"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674352"
 ---
 # <a name="morelikethis-in-azure-search"></a>Azure 搜索中的 moreLikeThis
 
@@ -51,4 +51,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 可以使用任何 Web 测试工具来试验此功能。  建议使用 Postman 完成此练习。
 
 > [!div class="nextstepaction"]
-> [使用 Postman 探索 Azure 搜索 REST API](search-fiddler.md)
+> [使用 Postman 探索 Azure 搜索 REST API](search-get-started-postman.md)

@@ -2,22 +2,21 @@
 title: 自定义认知搜索技能 - Azure 搜索
 description: 通过调用 Web API 来扩展认知搜索技能集的功能
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seojan2018
-ms.openlocfilehash: 897545bdbcdef2b0cb81117e98d0987348a3359e
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: 477399b70e785638c224859b8c3ce07977dd7bec
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004798"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674354"
 ---
 # <a name="custom-web-api-skill"></a>“自定义 Web API”技能
 
@@ -27,6 +26,7 @@ ms.locfileid: "66004798"
 
 > [!NOTE]
 > 索引器会对 Web API 返回的某些标准 HTTP 状态代码重试两次。 这些 HTTP 状态代码为： 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -42,7 +42,7 @@ Microsoft.Skills.Custom.WebApiSkill
 | uri | 将 _JSON_ 有效负载发送到的 Web API 的 URI。 只允许使用 https  URI 方案 |
 | httpMethod | 发送有效负载时使用的方法。 允许使用的方法为 `PUT` 或 `POST` |
 | httpHeaders | 键值对集合，其中键表示头名称，值表示发送到 Web API 的头值以及有效负载。 此集合中禁止使用以下头：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
-| timeout | （可选）如果指定，表明执行 API 调用的 http 客户端的超时值。 必须将其格式化为 XSD“dayTimeDuration”值（[ISO 8601 持续时间](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集）。 例如，`PT60S` 表示 60 秒。 如果未设置，选择的是默认值 30 秒。 超时值的设置上限为 90 秒，下限为 1 秒。 |
+| timeout | （可选）如果指定，表明执行 API 调用的 http 客户端的超时值。 必须将其格式化为 XSD“dayTimeDuration”值（[ISO 8601 持续时间](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集）。 例如，`PT60S` 表示 60 秒。 如果未设置，选择的是默认值 30 秒。 超时可以设置为最大 230 秒和最小 1 秒。 |
 | batchSize | （可选）表示每 API 调用发送多少个“数据记录”（请参阅下面的 JSON  有效负载结构）。 如果未设置，选择的是默认值 1000。 建议使用此参数在索引编制吞吐量和 API 负载之间进行适当取舍 |
 
 ## <a name="skill-inputs"></a>技能输入
@@ -206,4 +206,5 @@ Microsoft.Skills.Custom.WebApiSkill
 
 + [如何定义技能集](cognitive-search-defining-skillset.md)
 + [将自定义技能添加到认知搜索](cognitive-search-custom-skill-interface.md)
-+ [使用文本翻译 API 创建自定义技能](cognitive-search-create-custom-skill-example.md)
+
+<!-- + [Create a custom skill using the Text Translate API](cognitive-search-create-custom-skill-example.md) -->

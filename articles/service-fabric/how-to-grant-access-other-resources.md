@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/08/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: e00226b87d72b15125edc12f11bc6baf701aa13f
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 26cd46ed2f8452348b3173c54c3834fb8a95990f
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174535"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340751"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>为 Service Fabric 应用程序的托管标识授予对 Azure 资源的访问权限（预览）
 
@@ -23,6 +23,9 @@ ms.locfileid: "70174535"
 具体的步骤顺序取决于要访问的 Azure 资源的类型，以及用于授予权限的语言/客户端。 本文的余下内容假设已将用户分配的标识分配到应用程序，其中包含一些典型示例供你参考，但本主题的参考内容不可能做到详尽；有关授予权限的最新说明，请参阅相应 Azure 服务的文档。  
 
 ## <a name="granting-access-to-azure-storage"></a>授予对 Azure 存储的访问权限
+
+<!--Configre sequence exist in portal for storage account-->
+
 可以使用 Service Fabric 应用程序的托管标识（在本例中为用户分配的标识）来检索 Azure 存储 Blob 中的数据。 在 Azure 门户中使用以下步骤为标识授予所需的权限：
 
 1. 导航到存储帐户
@@ -70,22 +73,8 @@ ms.locfileid: "70174535"
 有关更多详细信息，请参阅[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。
 
 ## <a name="next-steps"></a>后续步骤
-
 * [使用系统分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-
 * [使用用户分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 
-## <a name="related-articles"></a>相关文章
-
-* 查看 Azure Service Fabric 中的[托管标识支持](./concepts-managed-identity.md)
-
-* [部署](./configure-new-azure-service-fabric-enable-managed-identity.md)支持托管标识的新 Azure Service Fabric 群集 
-
-* 在现有 Azure Service Fabric 群集中[启用托管标识](./configure-existing-cluster-enable-managed-identity-token-service.md)
-
-* 在源代码中利用 Service Fabric 应用程序的[托管标识](./how-to-managed-identity-service-fabric-app-code.md)
-
-* 参阅[支持 Azure AD 身份验证的 Azure 服务](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)列表
-
 <!--Update_Description: new articles on how to grant access other resources -->
-<!--ms.date: 09/02/2019-->
+<!--new.date: 09/02/2019-->

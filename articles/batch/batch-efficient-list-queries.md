@@ -8,19 +8,19 @@ manager: digimobile
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/12/19
+origin.date: 12/07/2018
+ms.date: 08/07/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 9958388693b58e81011c61e291c51464911af378
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: e60a3095e87f65b2d36b934b87bc98c5a925cd78
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566336"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329837"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
 
@@ -94,7 +94,7 @@ expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>filter、select 和 expand 字符串的规则
-* filter、select 和 expand 字符串中属性名称的显示方式应与其在 [Batch REST][api_rest] API 中的显示方式相同，即使用户使用 [Batch .NET][api_net] 或其他某个批处理 SDK 时也是如此。
+* filter、select 和 expand 字符串中属性名称的显示方式应与其在 [Batch REST][api_rest] API 中的显示方式相同，即使你使用 [Batch .NET][api_net] 或其他某个 Batch SDK 时也是如此。
 * 所有属性名称均区分大小写，但属性值不区分大小写。
 * 日期/时间字符串可以采用两种格式中的一种，并且必须在前面加上 `DateTime`。
   
@@ -106,11 +106,11 @@ expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 
 ## <a name="efficient-querying-in-batch-net"></a>在 Batch .NET 中进行高效查询
 在 [Batch .NET][api_net] API 中，将通过 [ODATADetailLevel][odata] 类来提供 filter、select 和 expand 字符串以列出相应操作。 ODataDetailLevel 类有三个公共字符串属性，这些属性可以在构造函数中指定，也可以直接在对象上设置。 然后即可将 ODataDetailLevel 对象作为参数传递给不同的列表操作，例如 [ListPools][net_list_pools]、[ListJobs][net_list_jobs] 和 [ListTasks][net_list_tasks]。
 
-* [ODATADetailLevel][odata] [FilterClause][odata_filter]：限制返回的项数。
-* [ODATADetailLevel][odata] [SelectClause][odata_select]：指定随每个项返回的属性值。
+* [ODATADetailLevel][odata].[FilterClause][odata_filter]：限制返回的项数。
+* [ODATADetailLevel][odata].[SelectClause][odata_select]：指定随每个项返回的属性值。
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]：通过单个 API 调用检索所有项的数据，不必针对每个项分别进行调用。
 
-以下代码段使用 Batch .NET API 对 Batch 服务进行有效的查询，查询其中是否存在特定池集的统计信息。 在此方案中，Batch 用户既有测试池又有生产池。 测试池 ID 具有“test”前缀，生产池 ID 具有“prod”前缀。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet#microsoft_azure_batch_batchclient) 类实例。
+以下代码段使用 Batch .NET API 对 Batch 服务进行有效的查询，查询其中是否存在特定池集的统计信息。 在此方案中，Batch 用户既有测试池又有生产池。 测试池 ID 具有“test”前缀，生产池 ID 具有“prod”前缀。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 类实例。
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -148,7 +148,7 @@ filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST A
 
 ### <a name="mappings-for-filter-strings"></a>filter 字符串的映射
 * **.NET 列表方法**：此列中的每个 .NET API 方法都接受 [ODATADetailLevel][odata] 对象作为参数。
-* **REST 列表请求**：此列中的每个 REST API 页面都包含一个表，该表指定了 filter 字符串中允许的属性和操作。 在构造 [ODATADetailLevel.FilterClause][odata_filter] 字符串时，需使用这些属性名称和操作。
+* **REST 列表请求**：此列中的每个 REST API 页面都包含一个表，该表指定了 filter 字符串中允许的属性和操作  。 在构造 [ODATADetailLevel.FilterClause][odata_filter] 字符串时，将使用这些属性名称和操作。
 
 | .NET 列表方法 | REST 列表请求 |
 | --- | --- |
@@ -165,7 +165,7 @@ filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST A
 
 ### <a name="mappings-for-select-strings"></a>select 字符串的映射
 * **Batch.NET 类型**：Batch.NET API 类型。
-* **REST API 实体**：此列中的每一页都包含一个或多个表，其中列出了类型的 REST API 属性名称。 在构造 *select* 字符串时使用这些属性名称。 在构造 [ODATADetailLevel.SelectClause][odata_select] 字符串时，需使用这些相同的属性名称。
+* **REST API 实体**：此列中的每一页都包含一个或多个表，其中列出了类型的 REST API 属性名称。 在构造 *select* 字符串时使用这些属性名称。 在构造 [ODATADetailLevel.SelectClause][odata_select] 字符串时，将使用这些相同的属性名称。
 
 | 批处理 .NET 类型 | REST API 实体 |
 | --- | --- |
@@ -177,7 +177,7 @@ filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST A
 | [CloudTask][net_task] |[获取有关任务的信息][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>示例：构造 filter 字符串
-针对 [ODATADetailLevel.FilterClause][odata_filter]构造 filter 字符串时，请查阅上表，在“filter 字符串的映射”下找到与所希望执行的列表操作相对应的 REST API 文档页。 会在该页第一个多行表中找到可筛选属性及其支持的运算符。 例如，如果希望检索其退出代码不为零的所有任务，则可查看 [列出与作业相关联的任务][rest_list_tasks] 上的此行，此行指定了相应的属性字符串以及允许的运算符：
+针对 [ODATADetailLevel.FilterClause][odata_filter] 构造 filter 字符串时，请查阅上表，在“filter 字符串的映射”下找到与所希望执行的列表操作相对应的 REST API 文档页。 会在该页第一个多行表中找到可筛选属性及其支持的运算符。 例如，如果希望检索其退出代码不为零的所有任务，则可查看[列出与作业相关联的任务][rest_list_tasks]上的此行，此行指定了相应的属性字符串以及允许的运算符：
 
 | 属性 | 允许的操作 | 类型 |
 |:--- |:--- |:--- |
@@ -188,7 +188,7 @@ filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST A
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>示例：构造 select 字符串
-若要构造 [ODATADetailLevel.SelectClause][odata_select]，请查阅上表，在“select 字符串的映射”下导航到与所列实体类型相对应的 REST API 页。 会在该页第一个多行表中找到可选择属性及其支持的运算符。 例如，如果希望仅检索列表中每个任务的 ID 和命令行，则可在[获取有关任务的信息][rest_get_task]的相应表中找到这些行：
+若要构造 [ODATADetailLevel.SelectClause][odata_select]，请查阅“select 字符串的映射”下的上表，并导航到与所列实体类型相对应的 REST API 页。 会在该页第一个多行表中找到可选择属性及其支持的运算符。 例如，如果希望仅检索列表中每个任务的 ID 和命令行，则可在[获取有关任务的信息][rest_get_task]的相应表中找到这些行：
 
 | 属性 | 类型 | 注释 |
 |:--- |:--- |:--- |
@@ -217,7 +217,7 @@ Adding 5000 tasks to job jobEffQuery...
 Sample complete, hit ENTER to continue...
 ```
 
-如所用时间中所示，限制返回的属性和项数可以大大缩短查询响应时间。 可以在 GitHub 的 [azure-batch-samples][github_samples] 存储库中查找此项目和其他示例项目。
+如所用时间中所示，限制返回的属性和项数可以大大缩短查询响应时间。 可以在 GitHub 上的 [azure-batch-samples][github_samples] 存储库中查找此项目和其他示例项目。
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics 库和代码示例
 除了上述 EfficientListQueries 代码示例，还可在 [azure-batch-samples][github_samples] GitHub 存储库中找到 [BatchMetrics][batch_metrics] 项目。 BatchMetrics 示例项目演示了如何使用批处理 API 有效地监视 Azure Batch 作业进度。

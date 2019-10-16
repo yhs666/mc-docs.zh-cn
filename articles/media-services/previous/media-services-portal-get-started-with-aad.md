@@ -11,17 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/03/2018
+origin.date: 03/29/2018
+ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 31c22ff01117e86fec3250934a1f78cbe7bc7935
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: a879ddfe8212859ff1ca4c501577f0f12a7e8795
+ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673057"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124625"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>通过 Azure 门户开始使用 Azure AD 身份验证
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](/media-services/latest/)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 了解如何使用 Azure 门户访问 Azure Active Directory (Azure AD) 身份验证设置，以便使用 Azure 媒体服务 API。
 
@@ -56,7 +59,7 @@ ms.locfileid: "52673057"
 * 媒体服务（本机）应用程序重定向 URI 
 * REST 媒体服务的资源 URI
 
-可以在“通过用户身份验证连接媒体服务 API”页上获取这些参数的值。 
+可以在“通过用户身份验证连接媒体服务 API”  页上获取这些参数的值。 
 
 ![“通过用户身份验证进行连接”页](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started02.png)
 
@@ -71,13 +74,13 @@ ms.locfileid: "52673057"
 * Azure AD 租户终结点
 * 媒体服务资源 URI 
 * REST 媒体服务的资源 URI
-* Azure AD 应用程序值：“客户端 ID”和“客户端机密”。
+* Azure AD 应用程序值：“客户端 ID”  和“客户端机密”  。
 
-可以在“通过服务主体选项连接媒体服务 API”页上获取这些参数的值。 在此页上，可以新建 Azure AD 应用程序，也可以选择现有应用程序。 选择 Azure AD 应用程序后，可以获取客户端 ID（应用程序 ID），并生成客户端机密（密钥）值。 
+可以在“通过服务主体选项连接媒体服务 API”  页上获取这些参数的值。 在此页上，可以新建 Azure AD 应用程序，也可以选择现有应用程序。 选择 Azure AD 应用程序后，可以获取客户端 ID（应用程序 ID），并生成客户端机密（密钥）值。 
 
 ![“通过服务主体进行连接”页](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started04.png)
 
-在打开的“服务主体”边栏选项卡上，选择首个满足以下条件的 Azure AD 应用程序：
+在打开的“服务主体”  边栏选项卡上，选择首个满足以下条件的 Azure AD 应用程序：
 
 - 已注册的 Azure AD 应用程序。
 - 对帐户拥有基于参与者或所有者角色的访问控制权限。
@@ -96,17 +99,17 @@ ms.locfileid: "52673057"
 
 ![“管理权限”按钮和“管理应用程序”按钮](./media/media-services-portal-get-started-with-aad/media-services-portal-manage.png)
 
-若要打开 Azure AD 应用程序边栏选项卡，请单击“管理应用程序”。 在“管理应用程序”边栏选项卡上，可以获取应用程序的客户端 ID（应用程序 ID）。 若要生成客户端机密（密钥），请选择“密钥”。
+若要打开 Azure AD 应用程序边栏选项卡，请单击“管理应用程序”  。 在“管理应用程序”  边栏选项卡上，可以获取应用程序的客户端 ID（应用程序 ID）。 若要生成客户端机密（密钥），请选择“密钥”  。
 
 ![“管理应用程序”边栏选项卡上的“密钥”选项](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started06.png) 
 
 ### <a name="manage-permissions-and-the-application"></a>管理权限和应用程序
 
-选择 Azure AD 应用程序后，可以管理应用程序和权限。 若要将 Azure AD 应用程序设置为访问其他应用程序，请单击“管理权限”。 若要执行管理任务（如更改密钥和回复 URL）或编辑应用程序清单，请单击“管理应用程序”。
+选择 Azure AD 应用程序后，可以管理应用程序和权限。 若要将 Azure AD 应用程序设置为访问其他应用程序，请单击“管理权限”  。 若要执行管理任务（如更改密钥和回复 URL）或编辑应用程序清单，请单击“管理应用程序”  。
 
 ### <a name="edit-the-apps-settings-or-manifest"></a>编辑应用程序设置或清单
 
-若要编辑应用程序设置或清单，请单击“管理应用程序”。
+若要编辑应用程序设置或清单，请单击“管理应用程序”  。
 
 ![“管理应用程序”页](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started05.png)
 

@@ -47,6 +47,10 @@
           href: service-fabric-host-app-in-a-container.md
         - name: 2- 使用 CI/CD 部署 Windows 容器应用程序
           href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
+    - name: 创建 Linux 容器应用
+      items:
+        - name: 1- 创建容器映像
+          href: service-fabric-tutorial-create-container-images.md
     - name: 创建和管理群集
       items:
         - name: 1- 在 Azure 上创建群集
@@ -115,8 +119,8 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric 群集安全性
           href: service-fabric-cluster-security.md
-        - name: Azure 的常见安全属性
-          href: service-fabric-security-attributes.md
+        - name: 内置安全控件
+          href: service-fabric-security-controls.md
     - name: 术语
       href: service-fabric-technical-overview.md
     - name: 构建应用程序

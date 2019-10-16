@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: overview
 origin.date: 06/28/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4dd8191d51fc4083c09e5abedd4875b8c55dfed
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: e0357fd34853363c09353a2b0d7ad247fb2b0dbf
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134459"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306796"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 
@@ -58,6 +58,6 @@ Azure 提供包括 Azure 命令行界面、Azure 门户和 API 支持在内的�
 
 * [使用 Azure 门户创建容器注册表](container-registry-get-started-portal.md)
 * [使用 Azure CLI 创建容器注册表](container-registry-get-started-azure-cli.md)
+* [使用 ACR 任务自动执行容器生成和维护](container-registry-tasks-overview.md)
 
-<!-- Not Available on * [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md)-->
 <!-- Update_Description: update meta properties, wording update -->

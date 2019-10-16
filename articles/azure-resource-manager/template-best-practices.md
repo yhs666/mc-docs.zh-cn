@@ -1,23 +1,18 @@
 ---
 title: Azure 资源管理器模板的最佳做法
 description: 介绍创作 Azure 资源管理器模板的建议方法。 提供相关建议，避免在使用模板时出现常见问题。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 08/16/2019
-ms.date: 08/26/2019
+origin.date: 09/12/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9b1fecf1393fc9e2aa4bc680b0a9b5b34d2922b5
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 5d90648694c6c9df23db12ff32cd44a5d45972b8
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993572"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156084"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法
 
@@ -48,7 +43,8 @@ ms.locfileid: "69993572"
 如果资源组的区域临时不可用，则不能更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍可按预期运行，但你不能更新它们。 为了尽量降低风险，请将资源组和资源放入同一个区域。
 
 ## <a name="parameters"></a>参数
-使用[参数](resource-group-authoring-templates.md#parameters)时，本部分中的信息可以提供帮助。
+
+使用[参数](template-parameters.md)时，本部分中的信息可以提供帮助。
 
 ### <a name="general-recommendations-for-parameters"></a>有关参数的一般建议
 
@@ -150,7 +146,7 @@ ms.locfileid: "69993572"
 
 ## <a name="variables"></a>变量
 
-使用[变量](resource-group-authoring-templates.md#variables)时，以下信息可以提供帮助：
+使用[变量](template-variables.md)时，以下信息可以提供帮助：
 
 * 对变量名称使用混合大小写。
 
@@ -176,7 +172,7 @@ ms.locfileid: "69993572"
 
 * 将子资源设置为依赖于其父资源。
 
-* 会自动从依赖项顺序中删除 [condition 元素](resource-group-authoring-templates.md#condition)设置为 false 的资源。 像始终部署了资源那样设置依赖项。
+* 会自动从依赖项顺序中删除 [condition 元素](conditional-resource-deployment.md)设置为 false 的资源。 像始终部署了资源那样设置依赖项。
 
 * 让依赖项级联，无需对其进行显式设置。 例如，虚拟机依赖于虚拟网络接口，虚拟网络接口依赖于虚拟网络和公共 IP 地址。 因此，虚拟机在所有这三个资源之后部署，但请勿将虚拟机显式设置为依赖于所有这三个资源。 此方法阐明了依赖顺序，在以后更改模板会更容易。
 
@@ -193,7 +189,7 @@ ms.locfileid: "69993572"
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -204,32 +200,21 @@ ms.locfileid: "69993572"
 * 如果在模板中使用“公共终结点”（例如 Azure Blob 存储公共终结点），请不要将命名空间硬编码   。 使用 **reference** 函数可动态检索命名空间。 可以使用此方法将模板部署到不同的公共命名空间环境，而无需在模板中手动更改终结点。 在模板中将 API 版本设置为用于存储帐户的同一版本：
 
     ```json
-    "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+    "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
     }
     ```
 
-    如果在创建的同一模板中部署存储帐户，则引用资源时不需要指定提供程序命名空间。 以下示例显示简化的语法：
-
-    ```json
-    "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-    }
-    ```
-
-    如果在模板中包含配置为使用公共命名空间的其他值，请更改这些值以反映相同的 **reference** 函数。 例如，可以设置虚拟机诊断配置文件的 **storageUri** 属性：
+   如果存储帐户部署在正在创建的同一模板中，并且存储帐户的名称未与模板中的其他资源共享，则在引用资源时不需要指定提供程序命名空间或 apiVersion。 以下示例显示简化的语法：
 
     ```json
     "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
     }
     ```
@@ -237,10 +222,10 @@ ms.locfileid: "69993572"
     还可以引用不同资源组中的现有存储帐户：
 
     ```json
-    "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+    "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
     }
     ```
@@ -299,7 +284,7 @@ ms.locfileid: "69993572"
 
 ## <a name="outputs"></a>Outputs
 
-如果使用模板创建公共 IP 地址，请包含 [outputs 节](resource-group-authoring-templates.md#outputs)，用于返回 IP 地址和完全限定域名 (FQDN) 的详细信息。 部署后，可以使用输出值轻松检索有关公共 IP 地址和 FQDN 的详细信息。
+如果使用模板创建公共 IP 地址，请包含 [outputs 节](template-outputs.md)，用于返回 IP 地址和完全限定域名 (FQDN) 的详细信息。 部署后，可以使用输出值轻松检索有关公共 IP 地址和 FQDN 的详细信息。
 
 ```json
 "outputs": {

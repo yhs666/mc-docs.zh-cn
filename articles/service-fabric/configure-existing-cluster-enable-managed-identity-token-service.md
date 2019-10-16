@@ -6,15 +6,18 @@ author: rockboyfor
 ms.service: service-fabric
 ms.topic: article
 origin.date: 07/25/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ea968d6c4698e24343d043ba08b60f9b4bb7919
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: ed2d7d18f1cc81e169520cde1fc68206c325437f
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340784"
 ---
+<!--Pending for Verify-->
+<!--Verify successfully with New Deployment-->
+
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>将现有的 Azure Service Fabric 群集配置为启用托管标识支持（预览版）
 若要访问 Azure Service Fabric 应用程序的托管标识功能，必须先在群集上启用**托管标识令牌服务**。 此服务负责使用 Service Fabric 应用程序的托管标识对这些应用程序进行身份验证，以及代表它们获取访问令牌。 启用此服务以后，即可在 Service Fabric Explorer 中左侧窗格的“系统”部分  看到它，它以 **fabric:/System/ManagedIdentityTokenService** 名称运行。
 
@@ -73,13 +76,8 @@ ms.locfileid: "70174541"
 ## <a name="next-steps"></a>后续步骤
 * [使用系统分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [使用用户分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [利用 Service Fabric 应用程序的托管标识（来自源代码）](./how-to-managed-identity-service-fabric-app-code.md)
+* [从服务代码中利用 Service Fabric 应用程序的托管标识](./how-to-managed-identity-service-fabric-app-code.md)
 * [为 Azure Service Fabric 应用程序授予对其他 Azure 资源的访问权限](./how-to-grant-access-other-resources.md)
 
-## <a name="related-articles"></a>相关文章
-* 查看 Azure Service Fabric 中的[托管标识支持](./concepts-managed-identity.md)
-
-* [在现有 Azure Service Fabric 群集中启用托管标识支持](./configure-existing-cluster-enable-managed-identity-token-service.md)
-
 <!--Update_Description: new articles on configure existing cluster enalbed managed identity token service-->
-<!--ms.date: 09/02/2019-->
+<!--new.date: 09/02/2019-->

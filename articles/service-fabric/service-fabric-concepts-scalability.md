@@ -9,21 +9,22 @@ editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/18/2017
-ms.date: 04/30/2018
+origin.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: eb24cd96e01722ee57bbb45be2f8551c21633c32
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 403b98dea4b00b41bd321b265572aad937113585
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626185"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340840"
 ---
 # <a name="scaling-in-service-fabric"></a>在 Service Fabric 中进行缩放
 Azure Service Fabric 通过管理服务、分区以及群集的节点上的副本，让生成可缩放的应用程序更简单。 在同一硬件上运行多个工作负荷不仅可实现最大资源使用率，还可提供在如何选择缩放工作负荷方面的灵活性。 
+
 <!-- Not Avaiable on VIDEO -->
 
 在 Service Fabric 中进行缩放可通过多种不同方式实现：
@@ -48,7 +49,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/servic
 
 Powershell：
 
-```posh
+```powershell
 Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 50
 ```
 ### <a name="using-dynamic-instance-count"></a>使用动态实例计数
@@ -65,14 +66,14 @@ await fc.ServiceManager.CreateServiceAsync(serviceDescription);
 
 Powershell：
 
-```posh
+```powershell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless -PartitionSchemeSingleton -InstanceCount "-1"
 ```
 
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>通过创建或删除新命名服务进行缩放
 命名服务实例是群集中某命名应用程序实例内的服务类型的特定实例（请参阅 [Service Fabric 应用程序生命周期](service-fabric-application-lifecycle.md)）。 
 
-新的命名服务实例可在服务变得更繁忙或不繁忙时进行创建（或删除）。 这使请求可在更多服务实例中进行传播，通常允许减少现有服务上的负载。 创建服务时，Service Fabric 群集资源管理器会以分布式方式放置群集中的服务。 确切的决策受群集中的[指标](service-fabric-cluster-resource-manager-metrics.md)和其他放置规则约束。 服务可以通过多种不同方式创建，但最常见的是通过管理操作（如用户调用 [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)）或通过代码调用 [`CreateServiceAsync`](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)。 `CreateServiceAsync` 甚至可从正在群集中运行的其他服务内进行调用。
+新的命名服务实例可在服务变得更繁忙或不繁忙时进行创建（或删除）。 这使请求可在更多服务实例中进行传播，通常允许减少现有服务上的负载。 创建服务时，Service Fabric 群集资源管理器会以分布式方式放置群集中的服务。 确切的决策受群集中的[指标](service-fabric-cluster-resource-manager-metrics.md)和其他放置规则约束。 服务可以通过多种不同方式创建，但最常见的是通过管理操作（如用户调用 [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)）或通过代码调用 [`CreateServiceAsync`](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)。 `CreateServiceAsync` 甚至可从正在群集中运行的其他服务内进行调用。
 
 动态创建服务可用于各种方案，属于通用模式。 例如，请想一想代表特定工作流的有状态服务。 表示工作的调用将向此服务显示，且此服务会执行该工作流的步骤并记录进度。 
 
@@ -80,20 +81,20 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 一种解决方案是为想要跟踪的工作流的每个不同实例创建一个此服务的实例。这是一种很好的模式，无论服务是无状态还是有状态均能正常运行。 为使此模式正常运行，通常会使用用作“工作负荷管理器服务”的另一服务。 此服务的功能是接收请求，并将这些请求路由到其他服务。 管理器在收到消息时可动态创建工作负荷服务的实例，并将请求传递到这些服务。 给定的工作流服务完成其作业后，管理器服务也可接收回调。 管理器接收这些回调后，可删除工作流服务的该实例，或者如果需要更多调用，可将其保留。 
 
-这种管理器的高级版本甚至可以创建它所管理的服务的池。 池有助于确保在传入新请求时，无需等待服务启动。 管理器可以从池中只选取当前不繁忙的工作流服务，或随机路由。 保持服务池可用性可更快速处理新请求，因为请求不太可能必须等待新服务启动。 创建新服务很快，但也不是免费或瞬时完成。 池有助于最大程度减少请求在维护之前需要等待的时间。 当响应时间是最重要因素时，经常使用此管理器和池模式。 请求排队，并在后台创建服务，然后将其传递也是一种常用的管理器模式，如同基于服务当前挂起的工作量的一些跟踪，创建和删除服务。 
+这种管理器的高级版本甚至可以创建它所管理的服务的池。 池有助于确保在传入新请求时，无需等待服务启动。 管理器可以从池中只选取当前不繁忙的工作流服务，或随机路由。 保持服务池可用性可更快速处理新请求，因为请求不太可能必须等待新服务启动。 创建新服务很快，但也不是免费或瞬时完成。 池有助于最大程度减少请求在维护之前需要等待的时间。 当响应时间是最重要因素时，经常使用此管理器和池模式。 请求排队，并在后台创建服务，然后将其传递也是一种常用的管理器模式，如同基于服务当前挂起的工作量的一些跟踪，创建和删除服务。  
 
 ## <a name="scaling-by-creating-or-removing-new-named-application-instances"></a>通过创建或删除新命名应用程序实例进行缩放
 创建和删除整个应用程序实例类似于创建和删除服务的模式。 对于此模式，一些管理器服务基于其查看的请求和从群集内其他服务接收的信息，制定决策。 
 
 在一些现有应用程序中，什么情况下应使用创建新命名应用程序实例，而不是使用创建新命名服务实例？ 存在一些情况：
 
-  * 新应用程序实例适用于其代码需要在某些特定标识或安全设置下运行的客户。
+* 新应用程序实例适用于其代码需要在某些特定标识或安全设置下运行的客户。
     * Service Fabric 允许定义不同的代码包在特定标识下运行。 若要在不同标识下启动相同的代码包，需要在不同应用程序实例中进行激活。 请想一想已部署现有客户的工作负荷的情况。 这些可能在特定标识下运行，以便用户监视并控制其对其他资源（如远程数据库或其他系统）的访问。 在这种情况下，新客户注册时，你可能不希望在相同的上下文（进程空间）中激活其代码。 尽管可以这么做，但这会使服务代码难以在特定标识的上下文中执行。 通常，必须具有多个安全、隔离和标识管理代码。 可以使用不同的命名 Service Fabric 应用程序实例，而不是在相同的应用程序实例和相同的进程空间中使用不同的命名服务实例。 这样可使定义不同的标识上下文更容易。
-  * 新的应用程序实例也会作为配置的一种方式
+* 新的应用程序实例也会作为配置的一种方式
     * 默认情况下，应用程序实例内的特定服务类型的所有命名服务实例会在给定节点的同一进程中运行。 这意味着，虽然可以不同的方式配置每个服务实例，但此操作很复杂。 服务必须具有用于在配置包中查找其配置的特定令牌。 通常这就是服务的名称。 这可正常使用，但它会将配置连接到应用程序实例中的单个命名服务实例的名称中。 这可能令人困惑且难以管理，因为配置通常是具有特定于应用程序实例的值的设计时项目。 创建更多的服务总是意味着更多的应用程序升级，以更改配置包内的信息，或者部署新的配置包，使新服务可查找其特定信息。 通常较简单的方式是创建全新的命名应用程序实例。 然后，可以使用应用程序参数设置服务所需的任何配置。 这样一来，在该命名应用程序实例中创建的所有服务均可继承特定的配置设置。 例如，可为每个客户创建不同的应用程序实例（替代所有设置），而不是为每个客户创建包含设置和自定义（如机密或每个客户的资源限制）的单个配置文件。 
-  * 新的应用程序用作升级边界
-    * 在 Service Fabric 中，不同的命名应用程序实例会用作升级边界。 升级一个命名应用程序实例不会影响正在运行的另一命名应用程序实例的代码。 不同的应用程序最后会在相同的节点上运行相同代码的不同版本。 在需要做出缩放决策时，这可以是一个考虑因素，因为可以选择新代码是否应遵循与另一服务相同的升级。 例如，假设调用到达负责通过动态创建和删除服务来缩放特定客户的工作负荷的管理器服务。 然而，在这种情况下，调用针对与新客户关联的工作负荷。 大多数客户希望保持相互独立，不仅是因为之前列出的安全性和配置原因，也因为这可在运行特定版本软件和选择升级时间方面提供更高的灵活性。 此外，还可以创建新的应用程序实例，并在其中创建服务，对任何升级可能涉及的服务量进行进一步分区。 执行应用程序升级时，单独的应用程序实例可提供更高的粒度，也支持 A/B 测试和蓝/绿部署。 
-  * 现有的应用程序实例已满
+* 新的应用程序用作升级边界
+    * 在 Service Fabric 中，不同的命名应用程序实例会用作升级边界。 升级一个命名应用程序实例不会影响正在运行的另一命名应用程序实例的代码。 不同的应用程序最后会在相同的节点上运行相同代码的不同版本。 在需要做出缩放决策时，这可以是一个考虑因素，因为可以选择新代码是否应遵循与另一服务相同的升级。 例如，假设调用到达负责通过动态创建和删除服务来缩放特定客户的工作负荷的管理器服务。 然而，在这种情况下，调用针对与新客户关联的工作负荷  。 大多数客户希望保持相互独立，不仅是因为之前列出的安全性和配置原因，也因为这可在运行特定版本软件和选择升级时间方面提供更高的灵活性。 此外，还可以创建新的应用程序实例，并在其中创建服务，对任何升级可能涉及的服务量进行进一步分区。 执行应用程序升级时，单独的应用程序实例可提供更高的粒度，也支持 A/B 测试和蓝/绿部署。 
+* 现有的应用程序实例已满
     * 在 Service Fabric 中，[应用程序容量](service-fabric-cluster-resource-manager-application-groups.md)是可用于控制特定应用程序实例可用资源量的一个概念。 例如，我们判断给定的服务需要创建另一实例，以便进行缩放。 但是，此应用程序实例的某些指标容量已超。 如果仍应向此特定客户或工作负荷授予更多资源，则可以增加该应用程序的现有容量或创建新的应用程序。 
 
 ## <a name="scaling-at-the-partition-level"></a>在分区级别进行缩放
@@ -102,13 +103,17 @@ Service Fabric 支持分区。 分区可将服务拆分成若干逻辑和物理�
 考虑一下这样一项服务：使用范围分区方案，低键为 0，高键为 99，分区计数为 4。 在包含三个节点的群集中，该服务可能如此处所示，按四个副本共享每个节点上的资源的方式进行布局：
 
 <center>
-<img src="./media/service-fabric-concepts-scalability/layout-three-nodes.png" alt="Partition layout with three nodes"/>
+
+![三节点式分区布局](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+
 </center>
 
 如果增加节点数目，Service Fabric 会移动其中的一些现有副本。 例如，假设节点数增加到 4，且已重新分发副本。 现在，服务在每个节点上有 3 个正在运行的副本，每个副本均属于不同的分区。 这可以实现更高的资源利用率，因为新节点不冷。 通常情况下，这还可提高性能，因为每项服务均有更多可用资源。
 
 <center>
-<img src="./media/service-fabric-concepts-scalability/layout-four-nodes.png" alt="Partition layout with four nodes"/>
+
+![四节点式分区布局](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>使用 Service Fabric 群集资源管理器和指标进行缩放
@@ -118,7 +123,12 @@ Service Fabric 支持分区。 分区可将服务拆分成若干逻辑和物理�
 使用 Service Fabric 进行缩放的另一种方法是更改群集大小。 更改群集的大小意味着添加或删除群集中的一个或多个节点类型的节点。 例如，想一想群集中的所有节点均为热的情况。 这意味着群集的资源几乎全部耗尽。 在这种情况下，缩放的最佳方法是将更多节点添加到群集中。 新节点联接群集后，Service Fabric 群集资源管理器将服务移到其中，导致现有节点上的总负载减少。 对于实例计数为 -1 的无状态服务，会自动创建更多服务实例。 这会使某些调用从现有节点移到新节点。 
 
 <!-- Check cluster scaling is release or not -->
+
 有关详细信息，请参阅[群集缩放](service-fabric-cluster-scaling.md)。
+
+## <a name="choosing-a-platform"></a>选择平台
+
+由于操作系统之间的实现差异，选择在 Windows 或 Linux 上使用 Service Fabric 可能是缩放应用程序的重要部分。 一个潜在的障碍是如何执行分段日志记录。 Windows 上的 Service Fabric 使用内核驱动程序来实现每台机器一个日志，在有状态服务副本之间共享。 此日志的大小约为 8 GB。 另一方面，Linux 为每个副本使用 256 MB 的暂存日志，因此对于希望最大化在给定节点上运行的轻量级服务副本数量的应用程序而言，Linux 不太理想。 临时存储要求的这些差异可能会潜在地通知所需的 Service Fabric 群集部署平台。
 
 ## <a name="putting-it-all-together"></a>汇总
 让我们汇总已在此文中讨论的所有观点，并讨论一个示例。 请考虑以下服务：要生成一个充当通讯簿的服务，其中保存名称和联系信息。 
@@ -130,18 +140,18 @@ Service Fabric 支持分区。 分区可将服务拆分成若干逻辑和物理�
 通过生成进行缩放时，请考虑以下动态模式。 可能需要使其适应具体的情况：
 
 1. 生成一项“管理器服务”，而不是尝试为所有人预先选取一个分区方案。
-2. 管理器服务作业的目标是在客户注册服务时，查看客户信息。 然后根据该信息，管理器服务只为该客户创建实际的联系人存储服务的实例。 如果需要特定配置、隔离或升级，还可决定为此客户启动应用程序实例。 
+2. 管理器服务作业的目标是在客户注册服务时，查看客户信息。 然后根据该信息，管理器服务只为该客户创建实际的联系人存储服务的实例   。 如果需要特定配置、隔离或升级，还可决定为此客户启动应用程序实例。 
 
-此动态创建模式有多种好处：
+    此动态创建模式有多种好处：
 
-  - 无需提前猜测所有用户的正确分区计数，或者自行生成可无限缩放的单一服务。 
-  - 不同的用户无需具有相同的分区计数、副本计数、替换约束、指标、默认负载、服务名称、DNS 设置或在服务或应用程序级别指定的任何其他属性。 
-  - 你将获得更多的数据段。 每个客户都有自己的服务副本
-    - 可以通过不同方式配置每个客户服务，且授予其更多或更少资源，并且可以根据需要基于客户预期的规模，增加或减少包含的分区或副本数。
-      - 例如，假设客户支付了“黄金”层 - 他们可以获取更多副本或更高分区计数，以及通过指标和应用程序容量专用于其服务的资源。
-      - 或者假设客户提供的信息指示他们需要的联系人数为“Small”- 则会只得到几个分区，或者甚至可能与其他客户一起放置到共享服务池中。
-  - 不需在等待客户出现时运行多个服务实例或副本
-  - 如果某个客户要离开，则从服务中删除其信息非常简单，就像让管理器删除它创建的服务或应用程序一样。
+    - 无需提前猜测所有用户的正确分区计数，或者自行生成可无限缩放的单一服务。 
+    - 不同的用户无需具有相同的分区计数、副本计数、替换约束、指标、默认负载、服务名称、DNS 设置或在服务或应用程序级别指定的任何其他属性。 
+    - 你将获得更多的数据段。 每个客户都有自己的服务副本
+        - 可以通过不同方式配置每个客户服务，且授予其更多或更少资源，并且可以根据需要基于客户预期的规模，增加或减少包含的分区或副本数。
+            - 例如，假设客户支付了“黄金”层 - 他们可以获取更多副本或更高分区计数，以及通过指标和应用程序容量专用于其服务的资源。
+            - 或者假设客户提供的信息指示他们需要的联系人数为“Small”- 则会只得到几个分区，或者甚至可能与其他客户一起放置到共享服务池中。
+    - 不需在等待客户出现时运行多个服务实例或副本
+    - 如果某个客户要离开，则从服务中删除其信息非常简单，就像让管理器删除它创建的服务或应用程序一样。
 
 ## <a name="next-steps"></a>后续步骤
 有关 Service Fabric 概念的详细信息，请参阅以下文章：

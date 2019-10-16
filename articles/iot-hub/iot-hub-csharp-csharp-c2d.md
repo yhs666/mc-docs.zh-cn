@@ -8,19 +8,17 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 04/03/2019
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0935c1c0bf561a7362e0a9ebb30dd3bbc54ed7d7
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: c58c04661d24acc94389d11faf1a717cfdd7af49
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993119"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156014"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到设备
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
-
-## <a name="introduction"></a>简介
 
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-dotnet.md)快速入门介绍了如何创建 IoT 中心、在其中预配设备标识，以及编写设备应用来发送设备到云的消息。
 
@@ -44,7 +42,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 > IoT 中心通过 [Azure IoT 设备 SDK](iot-hub-devguide-sdks.md) 对许多设备平台和语言（包括 C、Java、Python 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [IoT 中心开发人员指南](iot-hub-devguide.md)。
 >
 
-若要完成本教程，需要满足以下先决条件：
+## <a name="prerequisites"></a>先决条件
 
 * Visual Studio
 
@@ -207,7 +205,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
    ![应用接收消息](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按文章 [Transient Fault Handling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults)（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按[暂时性故障处理](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults)中所述实施重试策略（例如指数退避）。
 > 
 > 
 

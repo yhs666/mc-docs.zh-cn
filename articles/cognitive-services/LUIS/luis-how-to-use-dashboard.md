@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+origin.date: 09/09/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bc2fd67e8ce8974848eb1d0a13c1fb26edea73a1
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 5e7d3fe0145dce797b2763f3fd6ad1e0e3a5573a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330438"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用仪表板来改善应用
 
@@ -78,9 +79,9 @@ ms.locfileid: "70103920"
 
 添加示例言语的操作应由具备以下经验的人员来执行：
 
-* 对于不同意向中的言语具有较高程度的了解
-* 知道在哪种情况下，一个意向中的言语可能会与另一个意向发生混淆
-* 能够决定是否应该将两个经常相互混淆的意向折叠为单个意向，以及是否应该提取包含实体的不同数据
+* 对于不同意向中的言语具有较高程度的了解。
+* 知道在哪种情况下，一个意向中的言语可能会与另一个意向发生混淆。
+* 能够决定是否应该将两个经常相互混淆的意向折叠为单个意向。 如果是这种情况，则必须使用实体提取不同的数据。
 
 ### <a name="patterns-and-phrase-lists"></a>模式和短语列表
 

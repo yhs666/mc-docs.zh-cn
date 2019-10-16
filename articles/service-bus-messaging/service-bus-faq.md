@@ -4,16 +4,18 @@ description: 回答了一些关于 Azure 服务总线的常见问题。
 services: service-bus-messaging
 author: lingliw
 manager: digimobile
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 04/12/19
+origin.date: 01/23/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a5c19f0097313a15d4ffac27a546815cc599769d
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 5c887c0e6e6d690e01a02a9b34b5da697fe49be2
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332256"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330312"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 
@@ -85,7 +87,7 @@ ms.locfileid: "68332256"
 
 ## <a name="best-practices"></a>最佳实践
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服务总线的最佳实践有哪些？
-请参阅[使用服务总线改进性能的最佳做法][Best practices for performance improvements using Service Bus] - 此文介绍了如何在交换消息时优化性能。
+请参阅[使用服务总线改进性能的最佳做法][Best practices for performance improvements using Service Bus] � 此文介绍了如何在交换消息时优化性能。
 
 ### <a name="what-should-i-know-before-creating-entities"></a>创建实体前的须知事项有哪些？
 队列和主题的以下属性是固定不变的。 预配实体时，请考虑此限制，因为必须创建新的替代实体才可修改这些属性。

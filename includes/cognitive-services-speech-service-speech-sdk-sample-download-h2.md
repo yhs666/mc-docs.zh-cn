@@ -3,14 +3,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 07/16/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: 9b8b6f49fd9bf057eabcb82b643858b1b64a1adb
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.date: 09/24/2019
+ms.author: v-tawe
+ms.openlocfilehash: c075ae53551fc10d5d90a112f020eb6ac884abc3
+ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71267067"
 ---
 ## <a name="get-the-samples"></a>获取示例
 

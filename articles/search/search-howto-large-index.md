@@ -3,19 +3,19 @@ title: 使用内置索引器为大型数据集编制索引 - Azure 搜索
 description: 了解通过计划、并行和分布式索引的批处理模式、资源处理和技术，为大型数据编制索引或进行计算密集型索引编制的策略。
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.topic: conceptual
-origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+origin.date: 12/19/2018
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: 72c5ddd11c299426654362a296701b53196e8b48
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 20249b5a2d78570e11f6d3170d3d2768cc0e3471
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004868"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674435"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜索中为大型数据集编制索引
 
@@ -55,7 +55,7 @@ ms.locfileid: "66004868"
 
 根据设计，计划的索引按特定的间隔启动，作业通常会按下一个计划间隔在恢复之前完成。 但是，如果处理在该间隔内未完成，则索引器会停止（因为已超时）。 在下一个间隔，处理将上次中断的位置恢复，同时，系统会跟踪该位置。 
 
-实际上，对于跨越好几天的索引负载，可按 24 小时计划放置索引器。 在下一个 24 小时周期恢复索引编制时，该作业会从已知正常的文档重新开始。 这样，索引器便可以处理很多天的文档积压工作，直到处理完所有未处理的文档。 有关此方法的详细信息，请参阅[为 Azure Blob 存储中的大型数据集编制索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。 有关设置计划的一般详细信息，请参阅[创建索引器 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax)。
+实际上，对于跨越好几天的索引负载，可按 24 小时计划放置索引器。 在下一个 24 小时周期恢复索引编制时，该作业会从已知正常的文档重新开始。 这样，索引器便可以处理很多天的文档积压工作，直到处理完所有未处理的文档。 有关此方法的详细信息，请参阅[为 Azure Blob 存储中的大型数据集编制索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。 有关设置计划的一般详细信息，请参阅[创建索引器 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) 或[如何为 Azure 搜索计划索引器](search-howto-schedule-indexers.md)。
 
 <a name="parallel-indexing"></a>
 
@@ -80,9 +80,9 @@ ms.locfileid: "66004868"
 
 对于索引器，处理能力并不严格依赖于搜索服务所用每个服务单位 (SU) 的一个索引器子系统。 可以在基本或标准层上预配的、至少包含两个副本的 Azure 搜索服务中创建多个并发索引器。 
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，在搜索服务仪表板的“概述”页上，选中“定价层”以确认它能够适应并行索引。 基本和标准层提供多个副本。
+1. 在 [Azure 门户](https://portal.azure.cn)中，在搜索服务仪表板的“概述”页上，选中“定价层”以确认它能够适应并行索引。   基本和标准层提供多个副本。
 
-2. 在“设置” > “缩放”中，为并行处理[增加副本](search-capacity-planning.md)：为每个索引器工作负荷额外添加一个副本。 保留足够数量的现有查询卷。 为索引牺牲查询工作负荷并不是一个很好的折衷方法。
+2. 在“设置” > “缩放”中，为并行处理[增加副本](search-capacity-planning.md)：为每个索引器工作负荷额外添加一个副本。   保留足够数量的现有查询卷。 为索引牺牲查询工作负荷并不是一个很好的折衷方法。
 
 3. 在 Azure 搜索索引器可以访问的级别，将数据分配到多个容器。 这可能是 Azure SQL 数据库中的多个表、Azure Blob 存储中的多个容器，或多个集合。 为每个表或容器定义一个数据源对象。
 

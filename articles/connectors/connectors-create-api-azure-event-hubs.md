@@ -5,19 +5,19 @@ author: ecfan
 manager: jeconnoc
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 06/24/2019
+ms.date: 10/08/2019
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: cbfaf680042210dd86ab94974f9e71d43bebeb09
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 60b60052294b5367a6e94cf650b7aea56126c4ec
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135789"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340991"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中心和 Azure 逻辑应用监视、接收和发送事件 
 
@@ -36,7 +36,7 @@ ms.locfileid: "67135789"
 
 ## <a name="check-permissions-and-get-connection-string"></a>检查权限并获取连接字符串
 
-要使逻辑应用能够访问事件中心，请检查权限并获取事件中心命名空间的连接字符串。
+若要确保逻辑应用可以访问事件中心，请检查权限并获取事件中心命名空间的连接字符串。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -104,7 +104,7 @@ ms.locfileid: "67135789"
 
 1. 现在请继续向逻辑应用添加一个或多个操作，以便完成需对触发器结果执行的任务。 
 
-   例如，若要根据特定值（例如类别）来筛选事件，可以添加一个条件，这样“发送事件 - 事件中心”操作就只发送符合条件的事件。  
+   例如，若要根据特定值（例如类别）来筛选事件，可以添加一个条件，这样“发送事件”操作就只发送符合条件的事件。  
 
 > [!NOTE]
 > 所有事件中心触发器都是长轮询触发器，这意味着当触发器触发时，触发器将处理所有事件，然后等待 30 秒，让更多事件出现在事件中心  。

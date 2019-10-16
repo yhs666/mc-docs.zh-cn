@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 07/02/2019
-ms.date: 08/26/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: a9a8704d50d92867ae2b4918e51ef0f5a6ed6c68
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 8c83af6ec4fada4e34db86674e30e477a46802aa
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857109"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306794"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>有关 Azure 容器注册表的常见问题解答
 
@@ -22,8 +22,7 @@ ms.locfileid: "70857109"
 
 ## <a name="resource-management"></a>资源管理
 
-<!--Not Availble on - [Can I create an Azure container registry using a Resource Manager template?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)-->
-
+- [是否可以使用资源管理器模板创建 Azure 容器注册表？](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
 - [是否会对 ACR 中的映像执行安全漏洞扫描？](#is-there-security-vulnerability-scanning-for-images-in-acr)
 - [如何使用 Azure 容器注册表配置 Kubernetes？](#how-do-i-configure-kubernetes-with-azure-container-registry)
 - [如何获取容器注册表的管理员凭据？](#how-do-i-get-admin-credentials-for-a-container-registry)
@@ -31,8 +30,15 @@ ms.locfileid: "70857109"
 - [尽管使用 Azure CLI 或 Azure PowerShell 删除了复制，但删除复制操作仍然失败并出现“已禁止”状态](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
 - [防火墙规则已成功更新，但不生效](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
-<!--Not Available on ### Can I create an Azure Container Registry using a Resource Manager template?-->
-<!--Noy Available on [a template](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json)-->
+### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>是否可以使用资源管理器模板创建 Azure 容器注册表？
+
+是的。 下面是可用于创建注册表的[模版](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
+
+<!--MOONCAKE: CORRECT THE DEPLOYMENT-->
+
+[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry%2Fazuredeploy.json)
+
+<!--MOONCAKE: CORRECT THE DEPLOYMENT-->
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>是否会对 ACR 中的映像执行安全漏洞扫描？
 
@@ -456,5 +462,4 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 * [详细了解](container-registry-intro.md) Azure 容器注册表。
 
-<!--Update_Description: new articles on container registry faq -->
-<!--ms.date: 09/02/2019-->
+<!--Update_Description: wording update -->

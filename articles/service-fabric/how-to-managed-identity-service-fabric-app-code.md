@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/25/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08b0957d8b9f74da3cc30d92eb3be61d7b9b0929
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: dd9037fca83be5ab1dc81c5fdce90a39ee406536
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174545"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340878"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>如何利用 Service Fabric 应用程序的托管标识访问 Azure 服务（预览版）
 
@@ -95,6 +95,26 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
     using System.Threading;
     using System.Threading.Tasks;
     using System.Web;
+    using Newtonsoft.Json;
+
+    /// <summary>
+    /// Type representing the response of the SF Managed Identity endpoint for token acquisition requests.
+    /// </summary>
+    [JsonObject]
+    public sealed class ManagedIdentityTokenResponse
+    {
+        [JsonProperty(Required = Required.Always, PropertyName = "token_type")]
+        public string TokenType { get; set; }
+
+        [JsonProperty(Required = Required.Always, PropertyName = "access_token")]
+        public string AccessToken { get; set; }
+
+        [JsonProperty(PropertyName = "expires_on")]
+        public string ExpiresOn { get; set; }
+
+        [JsonProperty(PropertyName = "resource")]
+        public string Resource { get; set; }
+    }
 
     /// <summary>
     /// Sample class demonstrating access token acquisition using Managed Identity.
@@ -125,10 +145,12 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
 
                 response.EnsureSuccessStatusCode();
 
-                var accessToken = await response.Content.ReadAsStringAsync()
+                var tokenResponseString = await response.Content.ReadAsStringAsync()
                     .ConfigureAwait(false);
 
-                return accessToken.Trim('"');
+                var tokenResponseObject = JsonConvert.DeserializeObject<ManagedIdentityTokenResponse>(tokenResponseString);
+
+                return tokenResponseObject.AccessToken;
             }
             catch (Exception ex)
             {
@@ -158,10 +180,10 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
             // initialize a KeyVault client with a managed identity-based authentication callback
             var kvClient = new Microsoft.Azure.KeyVault.KeyVaultClient(new Microsoft.Azure.KeyVault.KeyVaultClient.AuthenticationCallback((a, r, s) => { return AuthenticationCallbackAsync(a, r, s); }));
 
-            Console.WriteLine($"\nRunning with configuration: \n\tobserved vault: {config.VaultName}\n\tobserved secret: {config.SecretName}\n\tMI endpoint: {config.ManagedIdentityEndpoint}\n\tMI auth code: {config.ManagedIdentityAuthenticationCode}\n\tMI auth header: {config.ManagedIdentityAuthenticationHeader}");
+            Log(LogLevel.Info, $"\nRunning with configuration: \n\tobserved vault: {config.VaultName}\n\tobserved secret: {config.SecretName}\n\tMI endpoint: {config.ManagedIdentityEndpoint}\n\tMI auth code: {config.ManagedIdentityAuthenticationCode}\n\tMI auth header: {config.ManagedIdentityAuthenticationHeader}");
             string response = String.Empty;
 
-            Console.WriteLine("\n== Probing secret...");
+            Log(LogLevel.Info, "\n== {DateTime.UtcNow.ToString()}: Probing secret...");
             try
             {
                 var secretResponse = await kvClient.GetSecretWithHttpMessagesAsync(vault, secret, version)
@@ -170,12 +192,11 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
                 if (secretResponse.Response.IsSuccessStatusCode)
                 {
                     // use the secret: secretValue.Body.Value;
-                    var secretMetadata = secretResponse.Body.ToString();
-                    Console.WriteLine($"Successfully probed secret '{secret}' in vault '{vault}': {PrintSecretBundleMetadata(secretResponse.Body)}");
+                    response = String.Format($"Successfully probed secret '{secret}' in vault '{vault}': {PrintSecretBundleMetadata(secretResponse.Body)}");
                 }
                 else
                 {
-                    Console.WriteLine($"Non-critical error encountered retrieving secret '{secret}' in vault '{vault}': {secretResponse.Response.ReasonPhrase} ({secretResponse.Response.StatusCode})");
+                    response = String.Format($"Non-critical error encountered retrieving secret '{secret}' in vault '{vault}': {secretResponse.Response.ReasonPhrase} ({secretResponse.Response.StatusCode})");
                 }
             }
             catch (Microsoft.Rest.ValidationException ve)
@@ -192,7 +213,7 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
                 response = String.Format($"encountered exception 0x{ex.HResult.ToString("X")} trying to access '{secret}' in vault '{vault}': {ex.Message}");
             }
 
-            Console.WriteLine(response);
+            Log(LogLevel.Info, response);
 
             return response;
         }
@@ -200,38 +221,60 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <summary>
         /// KV authentication callback, using the application's managed identity.
         /// </summary>
-        /// <param name="authority"></param>
-        /// <param name="resource"></param>
-        /// <param name="scope"></param>
+        /// <param name="authority">The expected issuer of the access token, from the KV authorization challenge.</param>
+        /// <param name="resource">The expected audience of the access token, from the KV authorization challenge.</param>
+        /// <param name="scope">The expected scope of the access token; not currently used.</param>
         /// <returns>Access token</returns>
         public async Task<string> AuthenticationCallbackAsync(string authority, string resource, string scope)
         {
-            if (config.DoVerboseLogging)
-                Console.WriteLine($"authentication callback invoked with: auth: {authority}, resource: {resource}, scope: {scope}");
+            Log(LogLevel.Verbose, $"authentication callback invoked with: auth: {authority}, resource: {resource}, scope: {scope}");
+            var encodedResource = HttpUtility.UrlEncode(resource);
 
-            var requestUri = $"{config.ManagedIdentityEndpoint}?api-version={config.ManagedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
-            if (config.DoVerboseLogging)
-                Console.WriteLine($"request uri: {requestUri}");
+            // This sample does not illustrate the caching of the access token, which the user application is expected to do.
+            // For a given service, the caching key should be the (encoded) resource uri. The token should be cached for a period
+            // of time at most equal to its remaining validity. The 'expires_on' field of the token response object represents
+            // the number of seconds from Unix time when the token will expire. You may cache the token if it will be valid for at
+            // least another short interval (1-10s). If its expiration will occur shortly, don't cache but still return it to the 
+            // caller. The MI endpoint will not return an expired token.
+            // Sample caching code:
+            //
+            // ManagedIdentityTokenResponse tokenResponse;
+            // if (responseCache.TryGetCachedItem(encodedResource, out tokenResponse))
+            // {
+            //     Log(LogLevel.Verbose, $"cache hit for key '{encodedResource}'");
+            //
+            //     return tokenResponse.AccessToken;
+            // }
+            //
+            // Log(LogLevel.Verbose, $"cache miss for key '{encodedResource}'");
+            //
+            // where the response cache is left as an exercise for the reader. MemoryCache is a good option, albeit not yet available on .NET core.
+
+            var requestUri = $"{config.ManagedIdentityEndpoint}?api-version={config.ManagedIdentityApiVersion}&resource={encodedResource}";
+            Log(LogLevel.Verbose, $"request uri: {requestUri}");
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(config.ManagedIdentityAuthenticationHeader, config.ManagedIdentityAuthenticationCode);
-            if (config.DoVerboseLogging)
-                Console.WriteLine($"added header '{config.ManagedIdentityAuthenticationHeader}': '{config.ManagedIdentityAuthenticationCode}'");
+            Log(LogLevel.Verbose, $"added header '{config.ManagedIdentityAuthenticationHeader}': '{config.ManagedIdentityAuthenticationCode}'");
 
             var response = await httpClient.SendAsync(requestMessage)
                 .ConfigureAwait(false);
-            if (config.DoVerboseLogging)
-                Console.WriteLine($"response status: success: {response.IsSuccessStatusCode}, status: {response.StatusCode}");
+            Log(LogLevel.Verbose, $"response status: success: {response.IsSuccessStatusCode}, status: {response.StatusCode}");
 
             response.EnsureSuccessStatusCode();
 
-            var accessToken = await response.Content.ReadAsStringAsync()
+            var tokenResponseString = await response.Content.ReadAsStringAsync()
                 .ConfigureAwait(false);
 
-            if (config.DoVerboseLogging)
-                Console.WriteLine("returning access code..");
+            var tokenResponse = JsonConvert.DeserializeObject<ManagedIdentityTokenResponse>(tokenResponseString);
+            Log(LogLevel.Verbose, "deserialized token response; returning access code..");
 
-            return accessToken.Trim('"');
+            // Sample caching code (continuation):
+            // var expiration = DateTimeOffset.FromUnixTimeSeconds(Int32.Parse(tokenResponse.ExpiresOn));
+            // if (expiration > DateTimeOffset.UtcNow.AddSeconds(5.0))
+            //    responseCache.AddOrUpdate(encodedResource, tokenResponse, expiration);
+
+            return tokenResponse.AccessToken;
         }
 
         private string PrintSecretBundleMetadata(SecretBundle bundle)
@@ -250,6 +293,21 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
             strBuilder.AppendFormat($"\t\trecoveryLevel: {bundle.Attributes.RecoveryLevel}\n");
 
             return strBuilder.ToString();
+        }
+
+        private enum LogLevel
+        {
+            Info,
+            Verbose
+        };
+
+        private void Log(LogLevel level, string message)
+        {
+            if (level != LogLevel.Verbose
+                || config.DoVerboseLogging)
+            {
+                Console.WriteLine(message);
+            }
         }
 ```
 
@@ -306,18 +364,12 @@ HTTP 响应标头的“状态代码”字段指示请求的成功状态；“200
 ## <a name="resource-ids-for-azure-services"></a>Azure 服务的资源 ID
 有关支持 Azure AD 的资源的列表及其相应资源 ID，请参阅[支持 Azure AD 身份验证的 Azure 服务](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)。
 
+<!--URL services-support-msi.md Redirect to (../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)-->
+
 ## <a name="next-steps"></a>后续步骤
 * [使用系统分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [使用用户分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [为 Azure Service Fabric 应用程序授予对其他 Azure 资源的访问权限](./how-to-grant-access-other-resources.md)
 
-## <a name="see-also"></a>另请参阅
-
-* 查看 Azure Service Fabric 中的[托管标识支持](./concepts-managed-identity.md)
-
-* [部署](./configure-new-azure-service-fabric-enable-managed-identity.md)支持托管标识的新 Azure Service Fabric 群集 
-
-* 在现有 Azure Service Fabric 群集中[启用托管标识](./configure-existing-cluster-enable-managed-identity-token-service.md)
-
 <!--Update_Description: new articles on service fabric how to managed identity service fabric app code -->
-<!--ms.date: 09/02/2019-->
+<!--new.date: 09/02/2019-->

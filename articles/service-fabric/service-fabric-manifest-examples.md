@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/11/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4db8066b7a7c2d6d09516a328e266c4dd8d23de4
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 01cae575d8086d7e3493d333ea62110c36f47f05
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340933"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 应用程序和服务清单示例
 此部分包含应用程序和服务清单的示例。 这些示例不是要演示重要的方案，而是演示可以使用的不同设置以及如何使用它们。 
@@ -40,7 +40,7 @@ ms.locfileid: "70174243"
 |[声明数据包](service-fabric-application-and-service-manifests.md)|[VotingData 服务清单](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[重写环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[容器应用程序清单](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[配置容器端口到主机的映射](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [容器应用程序清单](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[配置容器注册表身份验证](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[容器应用程序清单](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[配置容器注册表身份验证](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[容器应用程序清单](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[设置隔离模式](service-fabric-get-started-containers.md#configure-isolation-mode)|[容器应用程序清单](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[容器应用程序清单](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[设置环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[容器 FrontEndService 服务清单](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)、[容器 BackEndService 服务清单](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

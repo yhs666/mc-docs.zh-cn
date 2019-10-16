@@ -1,86 +1,156 @@
 ---
-title: Azure Site Recovery 中的新增功能 | Azure
+title: Azure Site Recovery 中的新增功能
 description: 提供 Azure Site Recovery 中引入的新功能的摘要
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/30/2019
-ms.date: 08/26/2019
+origin.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3288deafd7c055a14d05ff1d0a5899d105b00d8f
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7998437d8c44b6f31b88c6be08cb01a85ec95a09
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340792"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
 [Azure Site Recovery](site-recovery-overview.md) 服务会持续进行更新和改进。 本文介绍最新版本、新功能和新内容，让你始终了解最新动态。 此页会定期更新。
 
-如果有关于 Site Recovery 功能的建议，请[提供反馈](https://support.azure.cn/support/contact/)。
+可以在 [Azure 更新](https://azure.microsoft.com/updates/?product=site-recovery)频道中关注并订阅 Site Recovery 更新通知。
 
-## <a name="installing-updates"></a>安装更新
+<!--CORRECT ON [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery)-->
 
-[查看本文](service-updates-how-to.md)以获取 Site Recovery 更新支持和说明。
+## <a name="supported-updates"></a>支持的更新
 
-## <a name="updates-july-2019"></a>更新（2019 年 7 月）
+对于 Site Recovery 组件，我们支持 N-4 版本，其中 N 是最新发布的版本。 下表汇总了这些更新。
 
-### <a name="update-rollup-38"></a>更新汇总 38
+**更新** |  **统一安装程序** | **配置服务器 ova** | **移动服务代理** | **Site Recovery 提供程序** | **恢复服务代理**
+--- | --- | --- | --- | --- | ---
+[汇总 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[汇总 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[汇总 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[汇总 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[汇总 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
 
-[更新汇总 38](https://support.microsoft.com/help/4513507/) 提供以下更新。
+[详细了解](service-updates-how-to.md)更新安装和支持。
 
-**更新** | **详细信息**
+## <a name="updates-september-2019"></a>更新（2019 年 9 月）
+
+### <a name="update-rollup-40"></a>更新汇总 40
+
+[更新汇总 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) 提供以下更新。
+
+<!--MOONCAKE: CORRECT ON https://)
+
+**Update** | **Details**
 --- | ---
-**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）
-**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
 
-### <a name="general"></a>常规
+### Azure VM disaster recovery
 
-Site Recovery 现在支持将常规用途 v2 存储帐户用于缓存存储或目标存储。 以前仅支持 v1。
+New features for Azure VM disaster recovery are summarized in the table.
 
-### <a name="vmware-to-azure-disaster-recovery"></a>VMware 到 Azure 的灾难恢复
-
-复制到包含托管磁盘的 Azure VM 时，现在可以复制最多 8 TB 的磁盘。
-
-## <a name="updates-june-2019"></a>更新（2019 年 6 月）
-
-### <a name="update-rollup-37"></a>更新汇总 37
-
-[更新汇总 37](https://support.microsoft.com/help/4508614/) 提供以下更新。
-
-**更新** | **详细信息**
+**Feature** | **Details**
 --- | ---
-**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）
-**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）
+**Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMS and NICs.
+**Test failover retains IP address** | You can now retain the IP address of the source VM during a disaster recovery drill, and pick a static IP address for a test failover.
 
-### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/物理服务器灾难恢复
+### VMware/physical server disaster recovery
 
-下表中总结了本月添加的功能。
+Features added this month are summarized in the table.
 
-**功能** | **详细信息**
+**Feature** | **Details**
 --- | ---
-**GPT 分区** | 从更新汇总 37 开始（移动服务版本 9.25.5241.1），UEFI 最多支持五个 GPT 分区。 在此更新之前，支持了四个。
+New process server alerts | We've added new process server alerts. [Learn more](vmware-physical-azure-monitor-process-server.md). 
 
-## <a name="updates-may-2019"></a>更新（2019 年 5 月）
+### Hyper-V disaster recovery
 
-### <a name="update-rollup-36"></a>更新汇总 36
+Features added this month are summarized in the table.
 
-[更新汇总 36](https://support.microsoft.com/help/4503156) 提供以下更新。
-
-**更新** | **详细信息**
+**Feature** | **Details**
 --- | ---
-**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）
-**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）
+Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Azure services.
 
-### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复
+## Updates (August 2019)
 
-下表中总结了本月添加的功能。
+### Update rollup 39
 
-**功能** | **详细信息**
+[Update rollup 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
 --- | ---
-**复制添加的磁盘** | 为添加到已启用灾难恢复的 Azure VM 的数据磁盘启用复制。 [了解详细信息](azure-to-azure-enable-replication-added-disk.md)。
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+### Azure VM disaster recovery
+
+New features for Azure VM disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Encryption without Azure AD** | Encryption without an Azure AD app is now supported for Azure VM replication to managed disks running Windows.
+**Network resources for failover** | When failing over to another region, you can now attach network resource settings (NSGs, load balancing, public IP address) to a VM. 
+
+## Updates (July 2019)
+
+### Update rollup 38
+
+[Update rollup 38](https://support.microsoft.com/help/4513507/) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+### General
+
+Site Recovery now supports used of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
+
+### VMware to Azure disaster recovery
+
+You can now replicate disks up to 8 TB, when replicating to an Azure VM with managed disks.
+
+## Updates (June 2019)
+
+### Update rollup 37
+
+[Update rollup 37](https://support.microsoft.com/help/4508614/) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+### VMware/physical server disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**GPT partitions** | From Update Rollup 37 onwards (Mobility service version 9.25.5241.1), up to five GPT partitions are supported in UEFI. Prior to this update, four were supported.
+
+## Updates (May 2019)
+
+### Update rollup 36
+
+[Update rollup 36](https://support.microsoft.com/help/4503156) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+### Azure VM disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Replicate added disks** | Enable replication for data disks added to an Azure VM that's already enabled for disaster recovery. [Learn more](azure-to-azure-enable-replication-added-disk.md).
 
 <!--Not Available on **Automatic updates** | When configuring automatic updates for the Mobility service extension that runs on Azure VMs enabled for disaster recovery, you can now select an existing automation account to use, instead of using the default account created by Site Recovery.-->
 

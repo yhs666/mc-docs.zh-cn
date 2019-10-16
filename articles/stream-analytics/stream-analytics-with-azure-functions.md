@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 origin.date: 06/05/2019
 ms.date: 08/09/2019
-ms.openlocfilehash: 157de93b8d29032aba2bbed441fac090fc48d176
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: e477f00f7ce0eb3242990b8e279aa955dd57b124
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169624"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674740"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教程：从 Azure 流分析作业运行 Azure Functions 
 
@@ -162,8 +162,8 @@ ms.locfileid: "70169624"
 4. 打开流分析作业，将查询更新为以下内容。 如果没有将输出接收器命名为 **saop1**，请记住在查询中更改它。  
 
    ```sql
-    SELECT 
-            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
+    SELECT
+            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
             CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
         INTO saop1
         FROM CallStream CS1 TIMESTAMP BY CallRecTime

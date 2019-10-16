@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 07/11/2019
 ms.date: 08/11/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f16ee2bd30db2f9a15b01a173f955359925d101a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6b8c79ac31beab9b95c30ea7af87fa057d9a3c1c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737381"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330423"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Log Analytics 工作区
 
@@ -35,12 +35,14 @@ ms.locfileid: "70737381"
 * 从 Linux 和 Windows 计算机中收集性能计数器
 * 从 Linux 计算机的 syslog 中收集事件 
 * 从 Windows 事件日志中收集事件
+* 从 Windows 计算机收集自定义日志
 * 将日志分析代理添加到 Azure 虚拟机
 * 配置 Log Analytics 以便为使用 Azure 诊断收集的数据编制索引
 
 本文将提供模板示例，用于演示一些可以通过模板执行的配置。
 
 ## <a name="api-versions"></a>API 版本
+
 下表列出了此示例中使用的资源的 API 版本。
 
 | Resource | 资源类型 | API 版本 |
@@ -72,8 +74,8 @@ ms.locfileid: "70737381"
         "location": {
             "type": "String",
             "allowedValues": [
-              "East China",
-              "North China"
+              "China East",
+              "China North"
             ],
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
@@ -95,7 +97,8 @@ ms.locfileid: "70737381"
        ]
     }
     ```
-2. 按要求编辑模板。  查看 [Microsoft.OperationalInsights/workspaces 模板](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)参考，了解支持的属性和值。 
+
+2. 按要求编辑模板。 查看 [Microsoft.OperationalInsights/workspaces 模板](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)参考，了解支持的属性和值。 
 3. 在本地文件夹中将此文件另存为 **deploylaworkspacetemplate.json**。
 4. 已做好部署此模板的准备。 使用 PowerShell 或命令行创建工作区，并在命令中指定工作区名称和位置。
 
@@ -115,6 +118,7 @@ ms.locfileid: "70737381"
 部署可能需要几分钟才能完成。 完成后，会看到一条包含结果的消息，如下所示：<br><br> ![部署完成后的示例结果](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>配置 Log Analytics 工作区
+
 以下模板示例演示了如何：
 
 1. 向工作区添加解决方案
@@ -126,6 +130,7 @@ ms.locfileid: "70737381"
 7. 从 Windows 计算机的应用程序事件日志中收集错误和警告事件
 8. 从 Windows 计算机中收集可用内存 (MB) 性能计数器
 9. 收集由 Azure 诊断写入存储帐户的 IIS 日志和 Windows 事件日志
+10. 从 Windows 计算机收集自定义日志
 
 ```json
 {
@@ -162,9 +167,9 @@ ms.locfileid: "70737381"
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
+      "defaultValue": "false",
       "metadata": {
         "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
@@ -187,22 +192,28 @@ ms.locfileid: "70737381"
         "metadata": {
           "description": "The resource group name containing the storage account with Azure diagnostics output"
         }
-    }
-  },
-  "variables": {
-    "Updates": {
-      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "Updates"
+      }
     },
-    "AntiMalware": {
-      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "AntiMalware"
+    "customlogName": {
+    "type": "string",
+    "metadata": {
+      "description": "custom log name"
+      }
     },
-    "SQLAssessment": {
-      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "SQLAssessment"
-    },
-    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "variables": {
+      "Updates": {
+        "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "Updates"
+      },
+      "AntiMalware": {
+        "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "AntiMalware"
+      },
+      "SQLAssessment": {
+        "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "SQLAssessment"
+      },
+      "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
     {
@@ -211,13 +222,13 @@ ms.locfileid: "70737381"
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "properties": {
+        "retentionInDays": "[parameters('dataRetention')]",
+        "features": {
+          "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+        },
         "sku": {
           "name": "[parameters('pricingTier')]"
-          "features": {
-            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
-          }
-        },
-    "retentionInDays": "[parameters('dataRetention')]"
+        }
       },
       "resources": [
         {
@@ -359,6 +370,55 @@ ms.locfileid: "70737381"
         },
         {
           "apiVersion": "2015-11-01-preview",
+          "type": "dataSources",
+          "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "kind": "CustomLog",
+          "properties": {
+            "customLogName": "[parameters('customlogName')]",
+            "description": "this is a description",
+            "extractions": [
+              {
+                "extractionName": "TimeGenerated",
+                "extractionProperties": {
+                  "dateTimeExtraction": {
+                    "regex": [
+                      {
+                        "matchIndex": 0,
+                        "numberdGroup": null,
+                        "pattern": "((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]"
+                      }
+                    ]
+                  }
+                },
+                "extractionType": "DateTime"
+              }
+            ],
+            "inputs": [
+              {
+                "location": {
+                  "fileSystemLocations": {
+                    "linuxFileTypeLogPaths": null,
+                    "windowsFileTypeLogPaths": [
+                      "[concat('c:\\Windows\\Logs\\',parameters('customlogName'))]"
+                    ]
+                  }
+                },
+                "recordDelimiter": {
+                  "regexDelimiter": {
+                    "matchIndex": 0,
+                    "numberdGroup": null,
+                    "pattern": "(^.*((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9].*$)"
+                  }
+                }
+              }
+            ]
+          }
+        }
+        {
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleLinuxPerfCollection1",
           "dependsOn": [
@@ -487,6 +547,7 @@ ms.locfileid: "70737381"
 
 ```
 ### <a name="deploying-the-sample-template"></a>部署示例模板
+
 若要部署示例模板，请执行以下操作：
 
 1. 将附加的示例保存到文件中，例如 `azuredeploy.json` 
@@ -494,17 +555,20 @@ ms.locfileid: "70737381"
 3. 使用 PowerShell 或命令行来部署模板
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>命令行
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>示例 资源管理器模板
+
 Azure 快速入门模板库包含 Log Analytics 的多个模板，其中包括：
 
 * [使用 Log Analytics VM 扩展部署运行 Windows 的虚拟机](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)

@@ -7,21 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/10/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2d6c3b86aab9725c6a886acededa8e1a9ea6d063
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 024c65c523f04132611ad98c9524e75dffd15e01
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913064"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272527"
 ---
 [!INCLUDE [virtual-machines-common-regions](../../../includes/virtual-machines-common-regions.md)]
 
 <!--Update_Description: new articles on virtual machine linux regions -->
-<!--ms.date: 08/12/2019-->
+<!--NEW.date: 08/12/2019-->

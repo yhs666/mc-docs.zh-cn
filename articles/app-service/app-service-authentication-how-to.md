@@ -15,12 +15,12 @@ origin.date: 11/08/2018
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 9491044de17be00771b986bfa45fd17a69114a73
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: cc9871ab8cbd06615beb354ef1a07ba3d26d8798
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806833"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155810"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -30,11 +30,12 @@ ms.locfileid: "70806833"
 
 <!--* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)-->
 <!--* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)-->
-* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
 <!--* [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)-->
 <!--* [How to configure your app to use Google login](configure-authentication-provider-google.md)-->
-* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 <!--* [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)-->
+
+* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>使用多个登录提供程序
 
@@ -105,7 +106,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 
 - 清除当前会话中的身份验证 Cookie。
 - 从令牌存储中删除当前用户的令牌。
-- 对于 Azure Active Directory 和 Google，请对标识提供程序执行服务器端的注销。
+- 对于 Azure Active Directory，请对标识提供者执行服务器端注销。
 
 以下是网页中一个简单的注销链接：
 

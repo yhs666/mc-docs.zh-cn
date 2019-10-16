@@ -2,18 +2,18 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-origin.date: 11/03/2016
-ms.date: 12/31/2018
-ms.author: v-biyu
-ms.openlocfilehash: 7146fe591da421dc6d03695c5fd51088fbe2b11d
-ms.sourcegitcommit: b8aa5d05ef46f1db2df4f2653cdd8d150e847113
+origin.date: 08/12/2019
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: e5d127b1d8e2bcb60631b234924b3b0a1a0e6be2
+ms.sourcegitcommit: 0529a2aa102e058636d726b4a4f25208e1e60597
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906290"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059575"
 ---
 ## <a name="rest"></a>使用 REST API 部署 ZIP 文件 
- 
+
 可以使用[部署服务 REST API](https://github.com/projectkudu/kudu/wiki/REST-API) 将 .zip 文件部署到 Azure 中的应用。 若要部署，请将 POST 请求发送到 https://<应用名称>.scm.chinacloudsites.cn/api/zipdeploy。 POST 请求必须在消息正文中包含此 .zip 文件。 应用的部署凭据是通过使用 HTTP BASIC 身份验证在请求中提供的。 有关详细信息，请参阅 [.zip 推送部署参考](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。 
 
 对于 HTTP 基本身份验证，需使用应用服务部署凭据。 若要了解如何设置部署凭据，请参阅[设置和重置用户级别凭据](../articles/app-service/deploy-configure-credentials.md#userscope)。
@@ -34,22 +34,21 @@ curl -u <deployment_user> https://<app_name>.scm.chinacloudsites.cn/api/deployme
 
 ### <a name="with-powershell"></a>使用 PowerShell
 
-以下示例使用 [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod) 发送包含 .zip 文件的请求。 替换占位符 `<deployment_user>`、`<deployment_password>`、`<zip_file_path>` 和 `<app_name>`。
+下面的示例使用 [Publish-AzWebapp](https://docs.microsoft.com/powershell/module/az.websites/publish-azwebapp?view=azps-2.6.0) 上传 .zip 文件。 替换占位符 `<group-name>`、`<app-name>` 和 `<zip-file-path>`。
 
 ```PowerShell
-#PowerShell
-$username = "<deployment_user>"
-$password = "<deployment_password>"
-$filePath = "<zip_file_path>"
-$apiUrl = "https://<app_name>.scm.chinacloudsites.cn/api/zipdeploy"
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-$userAgent = "powershell/1.0"
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method POST -InFile $filePath -ContentType "multipart/form-data"
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
 ```
 
-此请求从已上传的 .zip 文件触发推送部署。 若要查看当前和之前的部署，请运行以下命令。 同样，请替换 `<app_name>` 占位符。
+此请求从已上传的 .zip 文件触发推送部署。 
+
+若要查看当前和之前的部署，请运行以下命令。 再次替换 `<deployment-user>`、`<deployment-password>` 和 `<app-name>` 占位符。
 
 ```bash
-$apiUrl = "https://<app_name>.scm.chinacloudsites.cn/api/deployments"
+$username = "<deployment-user>"
+$password = "<deployment-password>"
+$apiUrl = "https://<app-name>.scm.chinacloudsites.cn/api/deployments"
+$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
+$userAgent = "powershell/1.0"
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method GET
 ```

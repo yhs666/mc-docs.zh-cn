@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+origin.date: 02/22/2017
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 03a8abec61786c000e5f97c1320bbdfae7119fed
-ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
+ms.openlocfilehash: a3ab955775d76b21f1e0a14527edad5c6054c768
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597978"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674661"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 

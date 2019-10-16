@@ -11,17 +11,16 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: df53f61d5779a41a9b4ee975f0d7552de8682996
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 9c3378d2fcbedd1d0dbe55d7faa9ef19cd869272
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539197"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272661"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -45,6 +44,8 @@ ms.locfileid: "69539197"
 如果你的 VM 已删除，并且你希望重复使用 OS 磁盘创建新 VM，请使用 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)。
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
+
 $resourceGroupName = 'myResourceGroup'
 $osDiskName = 'myOsDisk'
 $osDisk = Get-AzDisk `
@@ -60,9 +61,9 @@ $osDisk = Get-AzDisk `
 ### <a name="prepare-the-vm"></a>准备 VM
 使用原始 VHD 创建新的 VM。 
 
-  * [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
-  * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
-  * 确保 VM 配置为从 DHCP 获取 IP 地址和 DNS 设置。 这可以确保服务器在启动时获得虚拟网络中的 IP 地址。 
+* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
+* 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
+* 确保 VM 配置为从 DHCP 获取 IP 地址和 DNS 设置。 这可以确保服务器在启动时获得虚拟网络中的 IP 地址。 
 
 ### <a name="get-the-storage-account"></a>获取存储帐户
 Azure 中需要有一个存储帐户用于存储上传的 VHD。 可以使用现有存储帐户，也可以创建新存储帐户。 

@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-origin.date: 04/11/2018
+origin.date: 07/17/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/05/2019
-ms.openlocfilehash: 98adfade18bf4fc3d5b1272cfef6645a831acb65
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 09/30/2019
+ms.openlocfilehash: 592525a047f39a188bcb043366a027600f27329b
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514468"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155938"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -82,11 +82,8 @@ ms.locfileid: "68514468"
 
 1. 下载 Raspbian。
 
-   a. [下载 Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)（.zip 文件）。
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
 
-   > [!WARNING]
-   > 请使用上面的链接来下载 `raspbian-2017-07-5` zip 映像。 Raspbian 映像的最新版本具有与接线 Pi 节点相关的已知问题，这可能会导致在接下来的步骤中发生故障。
- 
    b. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
 
 2. 将 Raspbian 安装到 microSD 卡。
@@ -182,10 +179,10 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    node -v
    ```
 
-   如果版本低于 10.x，或者 Pi 上没有 Node.js，请安装最新版本。
+   如果版本低于 11.x，或者 Pi 上没有 Node.js，请安装最新版本。
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

@@ -4,18 +4,17 @@ description: 本文介绍如何使用托管标识在 Azure Data Lake Storage Gen
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 04/08/2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 29d8d6128110bcae2b97d8aa9c666bf4904a73a3
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.custom: seodec18
+ms.openlocfilehash: cfab3c9f3e7f9ec0f90783d745a979690cf05237
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969585"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674715"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>使用托管标识在 Azure Data Lake Storage Gen1 中对流分析进行身份验证
 

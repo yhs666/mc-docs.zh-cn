@@ -6,18 +6,19 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+origin.date: 09/13/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3af3f0e24d16571f6e49a47539e3a6fed97e695e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: e6a358e996846058963e3edfd7c312681152036a
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103730"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330236"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>概要了解 Azure VM 备份
 
-本文介绍 [Azure 备份服务](backup-overview.md)如何备份 Azure 虚拟机 (VM)。
+本文介绍 [Azure 备份服务](backup-introduction-to-azure-backup.md)如何备份 Azure 虚拟机 (VM)。
 
 ## <a name="backup-process"></a>备份过程
 
@@ -141,48 +142,13 @@ Azure 备份根据备份计划创建快照。
 此示例中，VM 的实际大小为 17 GB + 30 GB + 0 GB = 47 GB。 此受保护实例大小 (47 GB) 成为按月计费的基础。 随着 VM 中数据量的增长，用于计费的受保护实例大小也会相应变化。
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>有限公共预览版：备份磁盘大小最大为 30 TB 的 VM
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>公共预览版：备份磁盘大小最大为 30 TB 的 VM
 
-Azure 备份现在支持大小更大且功能更强大的 [Azure 托管磁盘](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)（最大为 30 TB）的有限公共预览版。 该预览版为托管虚拟机提供生产级别的支持。
+Azure 备份现在支持大小更大且功能更强大的 [Azure 托管磁盘](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)（最大为 30 TB）的公共预览版。 该预览版为托管虚拟机提供生产级别的支持。
 
-可以无缝注册此预览版，不影响正在进行的备份。 在预览版中注册此订阅以后，所有磁盘大小高达 30 TB 的虚拟机应该能够成功进行备份。 若要在预览版中注册，请执行以下操作：
- 
-从权限提升的 PowerShell 终端执行以下 cmdlet：
+虚拟机的备份（每个磁盘大小高达 30TB，VM 中所有磁盘的最大合计容量为 256TB）应该可以无缝运行，而不会影响现有备份。 如果虚拟机已配置了 Azure 备份，则无需用户操作即可运行大容量磁盘的备份。
 
-1. 登录到 Azure 帐户。
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. 选择要在注册后进行升级的订阅：
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. 在预览计划中注册此订阅： 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    等待 30 分钟，以便此订阅注册到预览版中。 
-
- 4. 若要检查状态，请运行以下 cmdlet：
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. 如果订阅显示为已注册，请运行以下命令：
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> 此预览版不支持磁盘大于 4 TB 的已加密 VM。
-
-
+所有具有配置了备份的大磁盘的 Azure 虚拟机都应成功备份。
 
 ## <a name="next-steps"></a>后续步骤
 

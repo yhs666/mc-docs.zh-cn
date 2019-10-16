@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+origin.date: 01/23/2019
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c2c9aba0c1c54a7ec32bdfba4097f4b2bf4d0331
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: c8c2b3ac5e28ecfe820be17f9b35949a5fee2a91
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544669"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329782"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暂停（禁用）和重新激活消息实体
 
@@ -28,11 +29,13 @@ ms.locfileid: "58544669"
 
 暂停或重新激活可以由用户或系统执行。 系统只会出于重大管理原因（如达到订阅支出限制），才会暂停实体。 系统禁用的实体不能被用户重新激活，但在暂停原因消除后就会还原。
 
-在门户中各个实体的“属性”部分内，可以更改状态；下面的屏幕截图展示了队列状态的切换开关：
+在门户中各个实体的“属性”  部分内，可以更改状态；下面的屏幕截图展示了队列状态的切换开关：
 
 ![][1]
 
-门户只容许完全禁用队列。 也可以单独禁用发送和接收操作，方法是在 .NET Framework SDK 中使用服务总线 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API，或通过 Azure CLI 或 Azure PowerShell 使用 Azure 资源管理器模板。
+门户只容许完全禁用队列。 也可以单独禁用发送和接收操作，方法是在 .NET Framework SDK 中使用服务总线 [NamespaceManager](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) API，或通过 Azure CLI 或 Azure PowerShell 使用 Azure 资源管理器模板。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="suspension-states"></a>暂停状态
 
@@ -43,16 +46,16 @@ ms.locfileid: "58544669"
 -   **SendDisabled**：队列部分处于暂停状态，允许执行接收操作。
 -   **ReceiveDisabled**：队列部分处于暂停状态，允许执行发送操作。
 
-对于订阅和主题，只能设置“Active”和“Disabled”。
+对于订阅和主题，只能设置“Active”  和“Disabled”  。
 
-[EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) 枚举还定义了一组只能由系统设置的过渡状态。 下面的示例展示了用于禁用队列的 PowerShell 命令。 重新激活命令等同于以下示例，只需将 `Status` 设置为“Active”即可。
+[EntityStatus](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.entitystatus?view=azure-dotnet) 枚举还定义了一组只能由系统设置的过渡状态。 下面的示例展示了用于禁用队列的 PowerShell 命令。 重新激活命令等同于以下示例，只需将 `Status` 设置为“Active”  即可。
 
 ```powershell
-$q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
+$q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
 
 $q.Status = "Disabled"
 
-Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
+Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
 ## <a name="next-steps"></a>后续步骤

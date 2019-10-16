@@ -10,30 +10,31 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: ''
-manager: digimobile
+ms.reviewer: carlrab
 origin.date: 04/08/2019
-ms.date: 08/26/2019
-ms.openlocfilehash: e82ed493e1f48d357452aff1030b990a2a1a443c
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 09/30/2019
+ms.openlocfilehash: dffe0779e082ff14ba3de2838e3daaf7752c1c49
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578556"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262657"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务
 
-Azure SQL 数据库是一种通用型关系数据库托管服务，可用来为 Azure 云中的应用程序和解决方案创建高可用性和高性能数据存储层。 SQL 数据库可成为各种新式云应用程序的正确选择，因为它可让你使用强大的功能来处理关系数据和[非关系结构](sql-database-multi-model-features.md)（例如图形、JSON、空间和 XML）。 SQL 数据库基于 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/sql-database/toc.json)的最新稳定版本，可让你使用丰富的高级查询处理功能集，例如[高性能内存中技术](sql-database-in-memory.md)和[智能查询处理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/sql-database/toc.json)。
+Azure SQL 数据库是一种常规用途关系数据库托管服务，可用来为 Azure 云中的应用程序和解决方案创建高可用性和高性能数据存储层。 SQL 数据库可成为各种新式云应用程序的正确选择，因为它可让你使用强大的功能来处理关系数据和[非关系结构](sql-database-multi-model-features.md)（例如图形、JSON、空间和 XML）。 SQL 数据库基于 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/sql-database/toc.json)的最新稳定版本，可让你使用丰富的高级查询处理功能集，例如[高性能内存中技术](sql-database-in-memory.md)和[智能查询处理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/sql-database/toc.json)。
 利用 Microsoft 的云优先策略，首先将 SQL Server 的最新功能发布到 SQL 数据库，然后再发布到 SQL Server 本身。 此方法可为你提供 SQL Server 的最新功能，这些新功能已经过数百万个数据库的测试且无任何修补或升级开销。 使用 SQL 数据库可在两个不同的购买模型中轻松定义和缩放性能：[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)和[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。 SQL 数据库是完全托管型服务，提供内置的可用性、备份和其他常见维护操作。 Azure 可无缝处理 SQL 和 OS 代码的所有修补和更新，并且不需要用户进行任何底层基础结构管理。
 
 > [!NOTE]
 > 有关 Azure SQL 数据库术语词汇表，请参阅 [SQL 数据库术语词汇表](sql-database-glossary-terms.md)
 
+## <a name="deployment-models"></a>部署模型
+
 Azure SQL 数据库提供下述适用于 Azure SQL 数据库的部署选项：
 
 ![部署选项](./media/sql-database-technical-overview/deployment-options.png)
 
-- [单一数据库](sql-database-single-database.md)表示完全托管的独立数据库，对于需要单个可靠数据源的新式云应用程序和微服务，它是完美的选择。 单一数据库类似于 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/sql-database/toc.json)中的[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/sql-database/toc.json)。
+- [单一数据库](sql-database-single-database.md)表示完全托管的独立数据库，对于需要单个可靠数据源的新式云应用程序和微服务，它是完美的选择。 单一数据库类似于 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/sql-database/toc.json)中[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/sql-database/toc.json)。
 - [托管实例](sql-database-managed-instance.md)是 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/sql-database/toc.json)的完全托管型实例，其中包含一组可结合使用的数据库。 若要轻松将本地 SQL Server 数据库迁移到 Azure 云，或者对于需要利用 SQL Server 数据库引擎提供的强大的数据库功能的应用程序，托管实例都是完美的选择。
 - [弹性池](sql-database-elastic-pool.md)是[单一数据库](sql-database-single-database.md)的集合，其中包含一组共享的资源（例如 CPU 或内存）。 可以将单一数据库移入或移出弹性池。
 
@@ -53,11 +54,19 @@ SQL 数据库通过多个资源类型、服务层级和计算大小提供可预�
 
 动态可伸缩性不同于自动缩放。 自动缩放是指服务根据条件自动缩放，而动态可伸缩性允许在无停机时间的情况下进行手动缩放。 单个数据库支持手动动态可伸缩性，但不支持自动缩放。 若要获得更多*自动*体验，请考虑使用弹性池，它允许数据库根据各个数据库需求共享池中的资源。 但是，有一些脚本可帮助自动执行单个数据库的可伸缩性。 有关示例，请参阅[使用 PowerShell 监视和缩放单个数据库](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 
-### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>购买模型、服务层级、计算大小和存储量
+### <a name="purchasing-models"></a>购买模型
 
 SQL 数据库提供以下两种购买模型：
-- [基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)允许选择 vCore 数、内存容量，以及存储的容量和速度。 基于 vCore 的购买模型还允许使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)来节省成本。 有关 Azure 混合权益的详细信息，请参阅[常见问题解答](#sql-database-frequently-asked-questions-faq)。
+- [基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)允许选择 vCore 数、内存容量，以及存储的容量和速度。 基于 vCore 的购买模型还允许使用 **[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)** 来节省成本。 有关 Azure 混合权益的详细信息，请参阅[常见问题解答](#sql-database-frequently-asked-questions-faq)。
 - [基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)：混合提供三个服务层级中的计算、内存和 IO 资源，以支持轻型到重型数据库工作负荷。 每个层级中的不同计算大小提供这些资源的不同组合，你可以向其添加更多的存储资源。
+- [无服务器模型](sql-database-serverless.md)可根据工作负荷需求自动缩放计算，并按每秒使用的计算量计费。 此外，当仅对存储计费时，无服务器计算层将在非活动期间自动暂停数据库；当活动返回时，它将自动恢复数据库。
+
+### <a name="service-tiers"></a>服务层
+
+Azure SQL 数据库提供了三个专为不同类型的应用程序设计的服务层级：
+- [常规用途/标准](sql-database-service-tier-general-purpose.md)服务层级设计用于常见工作负荷。 提供以预算导向的、均衡的计算和存储选项。
+- [业务关键型/高级](sql-database-service-tier-business-critical.md)服务层级专为事务率较高、IO 延迟最低的 OLTP 应用程序而设计。 使用多个独立副本，提供最高级别的故障恢复能力。
+- [超大规模](sql-database-service-tier-hyperscale.md)服务层级专为超大型 OLTP 数据库设计，能够自动缩放存储和流畅地缩放计算。
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>弹性池可以最大化资源利用率
 
@@ -82,12 +91,12 @@ Azure SQL 数据库提供一组高级监视和故障排除功能，可帮助你�
  - 最新版本的 SQL Server 数据库引擎提供的内置监视功能，可让你找到实时性能见解。 
  - Azure 平台提供的 PaaS 监视功能，可让你轻松监视大量的数据库实例，并提供故障排除建议来帮助你解决性能问题。
 
-可利用的最重要内置数据库引擎监视功能是[查询存储](sql-database-operate-query-store.md)组件，它可以实时记录查询性能，并使你能够识别潜在的性能问题和排名靠前的资源消耗者。 自动优化和建议提供有关性能退化以及存在缺失或重复索引的查询的建议。 使用 Azure SQL 数据库中的自动优化，可以手动应用脚本来解决问题，或者让 Azure SQL 数据库应用修复措施，测试并验证该修复措施是否起了作用，并根据结果保留或还原更改。 除了查询存储和自动优化功能外，还可以使用标准的 [DMV 和 XEvent](sql-database-monitoring-with-dmvs.md) 来监视工作负荷性能。
+应利用的最重要内置数据库引擎监视功能是[查询存储](sql-database-operate-query-store.md)组件，它可以实时记录查询性能，并使你能够识别潜在的性能问题和排名靠前的资源使用者。 自动优化和建议提供有关性能退化以及存在缺失或重复索引的查询的建议。 使用 Azure SQL 数据库中的自动优化，可以手动应用脚本来解决问题，或者让 Azure SQL 数据库应用修复措施，测试并验证该修复措施是否起了作用，并根据结果保留或还原更改。 除了查询存储和自动优化功能外，还可以使用标准的 [DMV 和 XEvent](sql-database-monitoring-with-dmvs.md) 来监视工作负荷性能。
 
-Azure 平台提供[内置的性能监视](sql-database-performance.md)和[警报](sql-database-insights-alerts-portal.md)工具，将它们与性能评分相结合，可以轻松监视数千个数据库的状态。 使用这些工具，可以根据当前需求或项目性能的需求，快速评估调高或调低性能产生的影响。 此外，SQL 数据库可[发出指标和诊断日志](sql-database-metrics-diag-logging.md)，以便更轻松地监视。 可配置 SQL 数据库，将资源使用情况、辅助角色和会话以及连接性存储到以下 Azure 资源之一：
+Azure 平台提供[内置的性能监视](sql-database-performance.md)和[警报](sql-database-insights-alerts-portal.md)工具，将它们与性能评分相结合，可以轻松监视数千个数据库的状态。 使用这些工具，可以根据当前的或预计的性能需求，快速评估纵向扩展或纵向缩减产生的影响。 此外，SQL 数据库可[发出指标和诊断日志](sql-database-metrics-diag-logging.md)，以便更轻松地监视。 可配置 SQL 数据库，将资源使用情况、辅助角色和会话以及连接性存储到以下 Azure 资源之一：
 
-- **Azure 存储**：用于低价存档大量遥测
-- **Azure 事件中心**：用于将 SQL 数据库遥测与自定义监视解决方案或热门管道集成
+- **Azure 存储**：用于低价存档大量遥测数据。
+- **Azure 事件中心**：用于将 SQL 数据库遥测与自定义监视解决方案或热门管道集成。
 - **Azure Monitor 日志**：用于具有报告、警报和缓解功能的内置监视解决方案。
 
     ![体系结构](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -96,7 +105,7 @@ Azure 平台提供[内置的性能监视](sql-database-performance.md)和[警报
 
 在传统的 SQL Server 环境中，通常需要在本地设置（至少）2 台计算机（使用 AlwaysOn 可用性组或故障转移群集实例等功能进行设置），其中包含确切数目的数据副本（以同步方式维护，以便在单个计算机/组件出现故障时提供保护。 这样可以提供高可用性，但在发生损毁数据中心的自然灾难时无法提供保护。
 
-灾难恢复假设灾难性事件在局部地区发生，而远地部署了另一个包含数据副本的计算机/计算机组。  在 SQL Server 中，可以使用以异步模式运行的 Always On 可用性组来获取此功能。  光速问题通常意味着，用户不想要等到远端复制完成后再提交事务，因此，在执行计划外故障转移时可能会丢失数据。
+灾难恢复假设灾难性事件在局部地区发生，而远地部署了另一个包含数据副本的计算机/计算机组。  在 SQL Server 中，可以使用以异步模式运行的 Always On 可用性组来获取此功能。  光速问题通常意味着，人们不想等到远端复制完成后再提交事务，因此，在执行计划外故障转移时可能会丢失数据。
 
 高级和业务关键服务层级中的数据库的某些功能已经与可用性组的同步功能[非常类似](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)。 较低服务层级中的数据库使用[不同但等效的机制](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)通过存储提供冗余。 有相应的逻辑可以防范单个计算机发生故障。  使用活动异地复制功能可以在灾难损毁整个区域时提供保护。
 

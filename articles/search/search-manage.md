@@ -2,21 +2,21 @@
 title: 门户中 Azure 搜索的服务管理 - Azure 搜索
 description: 使用 Azure 门户管理 Azure 搜索服务（Microsoft Azure 上托管的云搜索服务）。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
 origin.date: 03/08/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
+ms.date: 09/26/2019
+ms.author: v-tawe
 ms.custom: seodec2018
-ms.openlocfilehash: bd674a2d9b1adb563071b4ea89f4eb862483abe5
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 3b31d91341d50267fd84cfb3171c07104d3d257d
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004727"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674353"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 门户中 Azure 搜索服务管理
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Azure 搜索服务不会通过门户或程序设计界面公开单个服务的�
 
 ## <a name="disaster-recovery-and-service-outages"></a>灾难恢复和服务中断
 
-虽然我们可以挽救数据，但 Azure 搜索在群集或数据中心级别发生服务中断时不提供服务的即时故障转移。 如果数据中心的群集出现故障，运营团队会检测故障，并努力还原服务。 在服务还原期间将遇到停机，但是可以根据[服务级别协议 (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 申请服务信用额度来补偿服务不可用的情况。 
+虽然我们可以挽救数据，但 Azure 搜索在群集或数据中心级别发生服务中断时不提供服务的即时故障转移。 如果数据中心的群集出现故障，运营团队会检测故障，并努力还原服务。 在服务还原期间将遇到停机，但是可以根据[服务级别协议 (SLA)](https://www.azure.cn/support/sla/search/) 申请服务信用额度来补偿服务不可用的情况。 
 
 如果在超出 Microsoft 控制的灾难性故障中需要连续性服务，可在其他区域[预配一个附加服务](search-create-service-portal.md)并实施异地复制策略，确保索引跨所有服务完全冗余。
 

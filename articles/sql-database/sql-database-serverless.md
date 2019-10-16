@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
-origin.date: 07/05/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 5fb12736939bef4ceb9637667ba6e35de4223be0
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+origin.date: 09/06/2019
+ms.date: 09/30/2019
+ms.openlocfilehash: 675468b2d9d0c84382fcdd9937611da401b84012
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372961"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262917"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL 数据库无服务器计算层（预览版）
 
@@ -116,7 +116,8 @@ Azure SQL 数据库无服务器计算层（预览版）是适用于单一数据�
 
 - 异地复制（活动异地复制和自动故障转移组）。
 - 长期备份保留 (LTR)。
-- SQL 数据同步中使用的同步数据库。
+- SQL 数据同步中使用的同步数据库。与同步数据库不同，中心数据库和成员数据库支持自动暂停。
+- 弹性作业中使用的作业数据库。
 
 在部署某些需要数据库联机的服务更新期间，会暂时阻止自动暂停。  在这种情况下，一旦服务更新完成，就会再次允许自动暂停。
 
@@ -132,12 +133,12 @@ Azure SQL 数据库无服务器计算层（预览版）是适用于单一数据�
 |审核|查看审核记录。<br>更新或查看审核策略。|
 |数据屏蔽|添加、修改、删除或查看数据屏蔽规则|
 |透明数据加密|查看透明数据加密的状况或状态|
-|查询（性能）数据存储|修改或查看查询存储设置；自动优化|
+|查询（性能）数据存储|修改或查看查询存储设置|
 |自动优化|自动优化建议的应用和验证，例如自动索引|
 |数据库复制|创建数据库作为副本。<br>导出到 BACPAC 文件。|
 |SQL 数据同步|按照可配置的时间表或手动执行中心和成员数据库之间的同步|
 |修改特定的数据库元数据|添加新的数据库标记。<br>更改最大 vCore 数、最小 vCore 数或自动暂停延迟。|
-|SQL Server Management Studio (SSMS)|使用 SSMS 版本 18 并在服务器中为任意数据库打开新的查询窗口会恢复同一服务器中任何自动暂停的数据库。 如果使用 IntelliSense 处于关闭状态的 SSMS 版本 17.9.1，则不会发生此行为。|
+|SQL Server Management Studio (SSMS)|使用早于 18.1 的 SSMS 版本并为服务器中的任何数据库打开新的查询窗口，将恢复同一服务器中任何自动暂停的数据库。 如果使用 SSMS 版本 18.1 或更高版本，则不会发生此行为。|
 
 在部署某些需要数据库联机的服务更新期间，也会触发自动恢复。
 
@@ -201,7 +202,7 @@ New-AzSqlDatabase `
 以下示例将某个数据库从预配的计算层中移入无服务器计算层。 此示例显式指定最小 vCore 数、最大 vCore 数和自动暂停延迟。
 
 ```powershell
-Set-AzSqlDatabase
+Set-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
   -ServerName $serverName `
   -DatabaseName $databaseName `

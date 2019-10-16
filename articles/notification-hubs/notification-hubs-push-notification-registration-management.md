@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.author: v-biyu
-ms.date: 07/29/2019
-ms.openlocfilehash: 4284c8a76e4c7f29eabef8328e33b6856457291e
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+origin.date: 04/08/2019
+ms.author: v-tawe
+ms.date: 10/09/2019
+ms.openlocfilehash: 53b2a0dacc375e7a6542c608ba9bc91cc5208b25
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232309"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272481"
 ---
 # <a name="registration-management"></a>注册管理
 
@@ -49,7 +49,7 @@ ms.locfileid: "68232309"
 - 此安装模型支持特殊的标记格式 (`$InstallationId:{INSTALLATION_ID}`)，该格式允许将通知直接发送到特定的设备。 例如，如果应用的代码为此特定设备设置了安装 ID `joe93developer`，则开发人员在向 `$InstallationId:{joe93developer}` 标记发送通知时，可以将此设备作为目标。 这样，无需编写任何额外的代码，就能将特定设备作为目标。
 - 使用安装还能执行部分注册更新。 可以使用 [JSON-Patch standard](https://tools.ietf.org/html/rfc6902)以 PATCH 方法来请求部分安装更新。 想要更新注册中的标记时，此方法很有用。 用户不需要删除整个注册，并重新发送前面的所有标记。
 
-安装可包含以下属性。 有关完整的安装属性列表，请参阅[使用 REST API 创建或覆盖安装](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安装属性](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet)。
+安装可包含以下属性。 有关完整的安装属性列表，请参阅[使用 REST API 创建或覆盖安装](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安装属性](/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet)。
 
 ```json
 // Example installation format to show some supported properties

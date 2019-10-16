@@ -9,20 +9,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: b75b15960d3e6055f856de972f4cb8afb9d1a6bf
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: e2c53589d536c9e0a485411773bafcfd46a6765d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004228"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272692"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在位于不同区域的 Azure 虚拟机上配置 Always On 可用性组
 
@@ -168,7 +167,7 @@ ms.locfileid: "66004228"
 
 测试连接后，将主副本移回主数据中心，将可用性模式设置回其正常运行的设置。 下表显示了本文档所述体系结构的正常运行的设置：
 
-| 位置 | 服务器实例 | 角色 | 可用性模式 | 故障转移模式
+| Location | 服务器实例 | 角色 | 可用性模式 | 故障转移模式
 | ----- | ----- | ----- | ----- | -----
 | 主数据中心 | SQL-1 | 主要 | 同步 | 自动
 | 主数据中心 | SQL-2 | 次要 | 同步 | 自动

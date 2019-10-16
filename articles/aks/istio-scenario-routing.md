@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/19/2019
-ms.date: 05/13/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3f387bf657f093e15635f930628505d679fda7b1
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 4771e54d1adfeed947ccf6edd9fac1986e699c62
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835718"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155859"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>借助 Istio 在 Azure Kubernetes 服务 (AKS) 中使用智能路由和 Canary 发布
 
@@ -36,7 +36,7 @@ ms.locfileid: "65835718"
 
 本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.11` 及更高版本）并已与该群集建立 `kubectl` 连接。 此外，还需在群集内安装 Istio。
 
-如果需要帮助你完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]和[在 AKS 中安装 Istio][istio-install] 的指南。
+如果需要上述任何项的帮助，请参阅 [AKS 快速入门][aks-quickstart]和[在 AKS 中安装 Istio][istio-install] 指南。
 
 ## <a name="about-this-application-scenario"></a>关于此应用程序方案
 
@@ -104,7 +104,7 @@ service/voting-app created
 > [!NOTE]
 > Istio 对 Pod 和服务有一些特定要求。 有关详细信息，请参阅[针对 Pod 和服务的 Istio 要求文档][istio-requirements-pods-and-services]。
 
-使用 [kubectl get pods][kubectl-get] 命令查看已创建的 Pod，如下所示：
+若要查看已创建的 Pod，请使用 [kubectl get pods][kubectl-get] 命令，如下所示：
 
 ```azurecli
 kubectl get pods -n voting
@@ -121,7 +121,7 @@ voting-app-1-0-956756fd-wsxvt           2/2       Running   0          39s
 voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s
 ```
 
-使用 [kubectl describe pod][kubectl-describe] 查看 Pod 的相关信息。 将 Pod 名称替换为前面输出中的自己的 AKS 群集内的某个 Pod 的名称：
+若要查看有关 Pod 的信息，请使用 [kubectl describe pod][kubectl-describe]。 将 Pod 名称替换为前面输出中的自己的 AKS 群集内的某个 Pod 的名称：
 
 ```azurecli
 kubectl describe pod voting-app-1-0-956756fd-d5w7z --namespace voting
@@ -143,9 +143,9 @@ Containers:
 创建 Istio [网关][istio-reference-gateway]和[虚拟服务][istio-reference-virtualservice]后，才能连接到投票应用。 这些 Istio 资源将来自默认 Istio Ingress 网关的流量路由到应用程序。
 
 > [!NOTE]
-> 网关是位于服务网格边缘的组件，用于接收入站或出站 HTTP 和 TCP 流量。
+> 网关是位于服务网格边缘的组件，用于接收入站或出站 HTTP 和 TCP 流量。 
 > 
-> 虚拟服务将定义一组适用于一个或多个目标服务的路由规则。
+> 虚拟服务将定义一组适用于一个或多个目标服务的路由规则。 
 
 使用 `kubectl apply` 命令部署网关和虚拟服务 yaml。 请记得指定这些资源要部署到的命名空间。
 
@@ -180,7 +180,7 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 
 ## <a name="update-the-application"></a>更新应用程序
 
-我们来部署分析组件的新版本。 除每个类别的计数外，新版本 `1.1` 还显示总数和百分比。
+让我们部署分析组件的新版本。 除每个类别的计数外，新版本 `1.1` 还显示总数和百分比。
 
 下图显示了此部分结束时要运行的内容 - 仅 `voting-analytics` 组件的 `1.1` 版本具有路由自 `voting-app` 组件的流量。 即使 `voting-analytics` 组件的 `1.0` 版本继续运行，并且 `voting-analytics` 服务引用了它，Istio 代理也禁用它的往返流量。
 
@@ -200,7 +200,7 @@ deployment.apps/voting-analytics-1-1 created
 
 使用在前面步骤中获取的 Istio Ingress 网关的 IP 地址，重新在浏览器中打开 AKS 投票应用示例。
 
-浏览器在下面所示的两个视图之间交替。 由于将 Kubernetes [服务][kubernetes-service]用于了 `voting-analytics` 组件，并且仅有单个标签选择器 (`app: voting-analytics`)，因此 Kubernetes 在匹配该选择器的 Pod 之间使用轮询机制的默认行为。 在本例中，它是 `voting-analytics` Pod 的 `1.0` 和 `1.1` 版本。
+浏览器在下面所示的两个视图之间交替。 由于你将 Kubernetes [服务][kubernetes-service]用于仅具有单个标签选择器 (`app: voting-analytics`) 的 `voting-analytics` 组件，因此 Kubernetes 在匹配该选择器的 Pod 之间使用轮询机制的默认行为。 在本例中，它是 `voting-analytics` Pod 的 `1.0` 和 `1.1` 版本。
 
 ![在 AKS 投票应用中运行的分析组件 1.0 版本。](media/istio/deploy-app-01.png)
 
@@ -236,9 +236,9 @@ $INGRESS_IP="20.188.211.19"
 
 现在我们仅将流量锁定到 `voting-analytics` 组件的 `1.1` 版本和 `voting-storage` 组件的 `1.0` 版本。 然后定义适用于所有其他组件的路由规则。
 
-> * 虚拟服务将定义一组适用于一个或多个目标服务的路由规则。
-> * “目标规则”定义流量策略和特定于版本的策略。
-> * “策略”定义工作负载可以接受的身份验证方法。
+> * 虚拟服务将定义一组适用于一个或多个目标服务的路由规则。 
+> * “目标规则”定义流量策略和特定于版本的策略。 
+> * “策略”定义工作负载可以接受的身份验证方法。 
 
 使用 `kubectl apply` 命令替换 `voting-app` 上的虚拟服务定义，并添加适用于其他组件的[目标规则][istio-reference-destinationrule]和[虚拟服务][istio-reference-virtualservice]。 将[策略][istio-reference-policy]添加到 `voting` 命名空间，以确保使用相互 TLS 和客户端证书保护服务之间的所有通信。
 
@@ -451,9 +451,10 @@ namespace "voting" deleted
 
 ## <a name="next-steps"></a>后续步骤
 
-可以使用 [Istio Bookinfo 应用程序示例][istio-bookinfo-example]探究其他方案。
+可以使用 [Istio Bookinfo 应用程序示例][istio-bookinfo-example]探索其他方案。
 
 <!-- LINKS - external -->
+
 [github-azure-sample]: https://github.com/Azure-Samples/aks-voting-app
 [istio-github]: https://github.com/istio/istio
 
@@ -472,5 +473,6 @@ namespace "voting" deleted
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- LINKS - internal -->
+
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [istio-install]: ./istio-install.md

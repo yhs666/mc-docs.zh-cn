@@ -1,21 +1,20 @@
 ---
 title: 使用 .NET 针对 Azure 文件进行开发 | Microsoft Docs
 description: 了解如何开发使用 Azure 文件来存储文件数据的 .NET 应用程序和服务。
-services: storage
 author: WenJason
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 origin.date: 11/22/2017
-ms.date: 02/25/2019
+ms.date: 09/30/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: c27d64b0020477baec74f09e5c98653bcb001ce0
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 93538a3e317f9a2744194df172a6edb38d843831
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844529"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306690"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -57,10 +56,11 @@ API | 何时使用 | 注释
 可以在任意类型的 .NET 应用程序（包括 Azure 云服务或 Web 应用，以及桌面和移动应用程序）中使用 Azure 存储客户端库。 为简单起见，我们在本指南中使用控制台应用程序。
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 安装所需包
-为完成此教程，需要在项目中引用两个包：
+为完成此教程，需要在项目中引用以下包：
 
 * [适用于 .NET 的 Microsoft Azure 存储通用库](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)：使用此包能够以编程方式访问存储帐户中的公共资源。
 * [适用于 .NET 的 Microsoft Azure 存储 Blob 库](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)：使用此包能够以编程方式访问存储帐户中的 Blob 资源。
+* [适用于 .NET 的 Microsoft Azure 存储文件库](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)：使用此包能够以编程方式访问存储帐户中的文件资源。
 * [适用于 .NET 的 Microsoft Azure 配置管理器库](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
 
 可以使用 NuGet 获取这两个包。 执行以下步骤：
@@ -222,7 +222,7 @@ if (share.Exists())
 }
 ```
 
-若要深入了解如何创建和使用共享访问签名，请参阅[使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2ffiles%2ftoc.json)。
+若要深入了解如何创建和使用共享访问签名，请参阅[使用共享访问签名 (SAS)](../common/storage-sas-overview.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 ## <a name="copy-files"></a>复制文件
 从 Azure 存储客户端库的 5.x 版开始，可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 在后续部分中，我们演示如何以编程方式执行这些复制操作。

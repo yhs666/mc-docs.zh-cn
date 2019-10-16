@@ -10,18 +10,18 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 02/19/2019
+origin.date: 02/19/2019
+ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 67dd6143a7ef793d142bb4c0ca81d390f08adb30
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: fd189cedb8412c39b03b8a14eadc4c41f0ef774b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330382"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>统一多个 Azure Monitor Application Insights 资源 
-本文介绍如何在一个位置查询和查看所有 Application Insights 应用程序日志数据（即使这些数据位于不同 Azure 订阅），可作为弃用 Application Insights 连接器的替换方式。 可以在单个查询中包含的资源（Application Insights 资源）数量限制为 100。  
+本文介绍如何在一个位置查询和查看所有 Application Insights 日志数据（即使这些数据位于不同 Azure 订阅），可作为弃用 Application Insights 连接器的替换方式。 可以在单个查询中包含的 Application Insights 资源的数量限制为 100。
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>用于查询多个 Application Insights 资源的建议做法 
 在查询中列出多个 Application Insights 资源可能很繁琐且难以维护。 可以改为利用函数将查询逻辑从应用程序范围中分离出来。  
@@ -33,7 +33,14 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-使用 union 运算符和应用程序列表创建函数，然后在工作区中使用别名 *applicationsScoping* 将该查询保存为函数。  
+使用 union 运算符和应用程序列表创建函数，然后在工作区中使用别名 *applicationsScoping* 将该查询保存为函数。 
+
+可以通过导航到工作区中的查询资源管理器，然后选择要编辑的函数并保存，或使用 `SavedSearch` PowerShell cmdlet 来随时修改列出的应用程序。 
+
+>[!NOTE]
+>此方法不能用于日志警报，因为警报规则资源（包括工作区和应用程序）的访问验证是在警报创建时执行的。 不支持在创建警报后将新资源添加到该函数。 如果更喜欢使用函数在日志警报中确定资源范围，则需要在门户中编辑警报规则或使用资源管理器模板来更新范围内的资源。 或者，可以在日志警报查询中包含资源列表。
+
+`withsource= SourceApp` 命令可向结果添加用于指定发送日志的应用程序的列。 本示例中的 parse 运算符为可选项，用于从 SourceApp 属性中提取应用程序名称。 
 
 ```
 union withsource=SourceApp 
@@ -44,13 +51,6 @@ app('Contoso-app4').requests,
 app('Contoso-app5').requests 
 | parse SourceApp with * "('" applicationName "')" *  
 ```
-
->[!NOTE]
->可以通过导航到工作区中的查询资源管理器，然后选择要编辑的函数并保存，或使用 `SavedSearch` PowerShell cmdlet 来随时修改列出的应用程序。 `withsource= SourceApp` 命令可向结果添加用于指定发送日志的应用程序的列。 
->
->虽然是在工作区中执行查询，但该查询使用 Application Insights 架构，因为 applicationsScoping 函数会返回 Application Insights 数据结构。 
->
->本示例中的 parse 运算符为可选项，可从 SourceApp 属性中提取应用程序名称。 
 
 现在便可以在跨资源查询中使用 applicationsScoping 函数：  
 
@@ -63,7 +63,7 @@ applicationsScoping
 | render timechart
 ```
 
-函数别名返回来自所有已定义应用程序的请求的并集。 然后，查询筛选失败的请求，并按应用程序显示趋势。
+虽然是在工作区中执行查询，但该查询使用 Application Insights 架构，因为 applicationsScoping 函数会返回 Application Insights 数据结构。 函数别名返回来自所有已定义应用程序的请求的并集。 然后，查询筛选失败的请求，并按应用程序显示趋势。
 
 ![跨查询结果示例](media/unify-app-resource-data/app-insights-query-results.png)
 
@@ -146,7 +146,3 @@ applicationsScoping //this brings data from Application Insights resources
 ## <a name="next-steps"></a>后续步骤
 
 使用[日志搜索](../../azure-monitor/log-query/log-query-overview.md)可以查看 Application Insights 应用的详细信息。
-
-
-
-

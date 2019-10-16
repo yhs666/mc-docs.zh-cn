@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/08/2018
 ms.date: 5/8/2018
 ms.author: v-junlch
-ms.openlocfilehash: 098070c59bc325bf00f5e7c287b74490e9c74951
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: f60a56058de3845b0465d2287bb52cee30432af4
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332246"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329809"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 和 Azure 备份服务器的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，可在将数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。
@@ -35,7 +35,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 > * 然后将 SATA 驱动器发送到最近的 Azure 数据中心
 > * 将备份数据上传到 Azure 之后，Azure 备份将备份数据复制到备份保管库，并计划增量备份。
 
-## <a name="supported-configurations"></a>支持的配置 
+## <a name="supported-configurations"></a>支持的配置
 在场外将数据从本地备份到 Microsoft 云的 Azure 备份的所有部署模型都支持脱机备份。 这包括：
 
 > [!div class="checklist"]
@@ -54,7 +54,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
     | 美国 | [链接](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | 中国 | [链接](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-- 在下载发布设置文件的订阅中已创建了采用经典部署模型的 Azure 存储帐户，如下所示  ： 
+* 在下载发布设置文件的订阅中已创建了采用经典部署模型的 Azure 存储帐户，如下所示  ：
 
     ![创建经典存储帐户](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
@@ -83,7 +83,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
    * **Azure 存储容器**：Azure 存储帐户中导入备份数据的目标存储 Blob 的名称。
 
      保存提供的暂存位置和 Azure 导入作业名称，因为准备磁盘需要它们   。  
-     
+
 2. 完成工作流，要启动脱机备份复制，请在 Azure 备份代理管理控制台中选择“立即备份”  。 初始备份写入到临时区域作为此步骤的一部分。
 
     ![立即备份](./media/backup-azure-backup-import-export/backupnow.png)
@@ -107,12 +107,12 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
    * 已在副本计算机上启用 BitLocker。
    * 副本计算机可以访问 Azure 门户。
 
-     必要时，副本计算机可与源计算机相同。 
-    
-     > [!IMPORTANT] 
+     必要时，副本计算机可与源计算机相同。
+
+     > [!IMPORTANT]
      > 如果源计算机是虚拟机，则它必须使用其他物理服务器或客户端计算机作为副本计算机。
-    
-    
+
+
 2. 在副本计算机上打开提升的命令提示符，以 AzureOfflineBackupDiskPrep 实用工具的目录作为当前目录并运行以下命令  ：
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
@@ -130,7 +130,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
     运行该命令时，该实用工具将请求选择需要准备的驱动器对应的 Azure 导入作业。 如果只有一个与提供的暂存位置关联的导入作业，会显示如下所示的屏幕。
 
     ![Azure 磁盘准备工具输入](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
-    
+
 3. 输入想要准备传输到 Azure 的已装载磁盘的驱动器号（不要包含尾部的冒号）。 出现提示时，确认格式化驱动器。
 
     工具随后便开始准备磁盘和复制备份数据。 可能需要工具的提示附加其他磁盘，以免提供的磁盘没有足够空间来容纳备份数据。 <br/>
@@ -138,24 +138,24 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
     在工具成功执行结束时，所提供的一个或多个磁盘便已准备好可以寄送到 Azure。 此外，还会在 Azure 中创建导入作业并使用在启动脱机备份工作流期间提供的名称来命名该作业  。 最后，工具上还显示磁盘所要寄送到的 Azure 数据中心的寄送地址。
 
     ![Azure 磁盘准备完成](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
-    
+
 4. 在命令执行末尾还会看到更新寄送信息的选项，如下所示：
 
     ![更新寄送信息选项](./media/backup-azure-backup-import-export/updateshippingutility.png)<br/>
 
-5. 可以立即输入详细信息。 该工具将指导完成涉及一系列输入的过程。 但如果你还没有追踪号码或其他与寄送相关的详细信息，则可以结束会话。 这篇文章介绍了随后更新寄送详情的操作步骤。 
+5. 可以立即输入详细信息。 该工具将指导完成涉及一系列输入的过程。 但如果你还没有追踪号码或其他与寄送相关的详细信息，则可以结束会话。 这篇文章介绍了随后更新寄送详情的操作步骤。
 
 6. 将磁盘寄送到工具提供的地址，保留跟踪号码供日后参考。
 
-   > [!IMPORTANT] 
-   > 两个 Azure 导入作业不能同时拥有相同的追踪号码。 确保使用一个包裹寄送实用工具在单次 Azure 导入作业中准备的驱动器，该包裹有一个唯一的追踪号码。 请勿在一个包裹中混合不同 Azure 导入作业中准备的驱动器  。 
+   > [!IMPORTANT]
+   > 两个 Azure 导入作业不能同时拥有相同的追踪号码。 确保使用一个包裹寄送实用工具在单次 Azure 导入作业中准备的驱动器，该包裹有一个唯一的追踪号码。 请勿在一个包裹中混合不同 Azure 导入作业中准备的驱动器  。
 
 7. 如果具有追踪号码信息，请转到正在等待导入作业完成的源计算机，然后在提升的命令提示符中运行以下命令，以 AzureOfflineBackupDiskPrep 实用工具的目录作为当前目录  ： 
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
    可以选择从副本计算机等其他计算机运行以下命令，以 AzureOfflineBackupDiskPrep 实用工具的目录作为当前目录   ：
-   
+
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
     | 参数 | 说明 |
@@ -163,9 +163,9 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
     | u: | 用于更新 Azure 导入作业的寄送详情的必需输入 |
     | s:&lt;*Staging Location Path*&gt; | 命令不在源计算机上运行时的必需输入。 用于提供在“启动脱机备份”  工作流中所输入的暂存位置路径。 |
     | p:&lt;*Path to PublishSettingsFile*&gt; | 命令不在源计算机上运行时的必需输入。 用于提供在“启动脱机备份”工作流中所输入的“Azure 发布设置”文件路径   。 |
-    
-    该实用工具会自动检测到源计算机正在等待的导入作业，或在另一台计算机上运行命令时，与暂存位置相关的导入作业。 随后它通过一系列输入提供更新寄送信息的选项，如下所示： 
-    
+
+    该实用工具会自动检测到源计算机正在等待的导入作业，或在另一台计算机上运行命令时，与暂存位置相关的导入作业。 随后它通过一系列输入提供更新寄送信息的选项，如下所示：
+
     ![输入寄送信息](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
 8. 提供所有的输入后，请仔细查看详情，并通过键入“yes”提交提供的寄送信息  。 
@@ -176,32 +176,32 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 
     ![存储寄送信息](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
-   > [!IMPORTANT] 
+   > [!IMPORTANT]
    > 确保驱动器在使用 AzureOfflineBackupDiskPrep 实用工具提供寄送信息后两周内送达 Azure 数据中心  。 如果不能做到，可能会导致驱动器得不到处理。  
 
-完成上述步骤后，Azure 数据中心已准备好接收驱动器并作进一步处理，将备份数据从驱动器传输到你创建的经典类型的 Azure 存储帐户。 
+完成上述步骤后，Azure 数据中心已准备好接收驱动器并作进一步处理，将备份数据从驱动器传输到你创建的经典类型的 Azure 存储帐户。
 
-### <a name="time-to-process-the-drives"></a>处理驱动器的时间 
-处理 Azure 导入作业的时间各不相同，具体取决于不同的因素，例如寄送时间、作业类型、要复制的数据的类型和大小，以及所提供磁盘的大小。 Azure 导入/导出服务没有 SLA，但在收到磁盘之后，该服务力求在 7 到 10 天内完成将备份数据复制到 Azure 存储帐户。 下一节会详细介绍如何监视 Azure 导入作业的状态。 
+### <a name="time-to-process-the-drives"></a>处理驱动器的时间
+处理 Azure 导入作业的时间各不相同，具体取决于不同的因素，例如寄送时间、作业类型、要复制的数据的类型和大小，以及所提供磁盘的大小。 Azure 导入/导出服务没有 SLA，但在收到磁盘之后，该服务力求在 7 到 10 天内完成将备份数据复制到 Azure 存储帐户。 下一节会详细介绍如何监视 Azure 导入作业的状态。
 
 ### <a name="monitoring-azure-import-job-status"></a>监视 Azure 导入作业状态
-驱动器在传输过程中或已在 Azure 数据中心，等待复制到存储帐户时，Azure 备份代理或 SC DPM 或源计算机上的 Azure 备份服务器控制台将为你的计划备份显示以下作业状态。 
+驱动器在传输过程中或已在 Azure 数据中心，等待复制到存储帐户时，Azure 备份代理或 SC DPM 或源计算机上的 Azure 备份服务器控制台将为你的计划备份显示以下作业状态。
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
-遵循以下步骤，查看导入作业状态。 
+遵循以下步骤，查看导入作业状态。
 1. 在源计算机上打开提升的命令提示符，并运行以下命令：
-    
+
      `AzureOfflineBackupDiskPrep.exe u:`
-    
-2.  输出显示导入作业的当前状态，如下所示： 
+
+2.  输出显示导入作业的当前状态，如下所示：
 
     ![查看导入作业状态](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
 有关 Azure 导入作业的各种状态的详细信息，请参阅[这篇文章](../storage/common/storage-import-export-view-drive-status.md)
 
 ### <a name="complete-the-workflow"></a>完成工作流
-导入作业完成后，存储帐户中的初始备份数据可供使用。 在进行到下一步计划的备份时，Azure 备份将数据的内容从存储帐户复制到恢复服务保管库，如下所示： 
+导入作业完成后，存储帐户中的初始备份数据可供使用。 在进行到下一步计划的备份时，Azure 备份将数据的内容从存储帐户复制到恢复服务保管库，如下所示：
 
    ![将数据复制到恢复服务保管库](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
 

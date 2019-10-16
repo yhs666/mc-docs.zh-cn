@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/06/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 1c2c248616a5647c53c51a7d7b09041c92d4cb12
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: ffec15352a5666b8f94d8bf7556d033cf7b80456
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254482"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306710"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -233,7 +233,7 @@ ms.locfileid: "70254482"
 1. 复制并粘贴以下代码，以设置数据库 ID 和容器 ID。 通过这些 ID，可了解 Azure Cosmos DB 客户端如何查找正确的数据库和容器。
 
     ```javascript
-    const client = new CosmosClient({ endpoint, key } });
+    const client = new CosmosClient({ endpoint, key });
 
     // ADD THIS PART TO YOUR CODE
     const HttpStatusCodes = { NOTFOUND: 404 };

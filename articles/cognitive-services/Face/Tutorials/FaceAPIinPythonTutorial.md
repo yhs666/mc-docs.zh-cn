@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/03/2018
 ms.date: 08/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0af82c137fae45c0a706e38df4577a3b4428d083
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: cb79dd312c24b42e7bc25a48b93f537dbfead88d
+ms.sourcegitcommit: 09bf291a235f43202ba3752323395db86b16343f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104167"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71119554"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入门：创建一个用于检测和定格图像中人脸的 Python 脚本
 
@@ -60,6 +60,9 @@ img_url = 'https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/ma
 faces = faceClient.face.detect_with_url(img_url)
 print(faces)
 ```
+
+> [!NOTE]
+> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/`。
 
 ### <a name="try-the-app"></a>试用应用
 

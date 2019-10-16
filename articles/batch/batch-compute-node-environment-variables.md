@@ -6,18 +6,18 @@ author: lingliw
 manager: digimobile
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/13/2019
+origin.date: 09/12/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 62179c3539c61d821a4ce712777a9a6e2e8ec2b9
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 321a0afc4ea33921e14e555a3e8202b967eed722
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104076"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330206"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 运行时环境变量
 

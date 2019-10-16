@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/02/2019
+origin.date: 04/02/2019
+ms.date: 07/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ac9e97f98a550cbd4db03943cc42181289223d0f
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 7fb6c8a5909d93b0baac9c4314a83671d9d44c4b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103852"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330445"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在认知服务中的语言理解 (LUIS) 中导出和删除客户数据
 

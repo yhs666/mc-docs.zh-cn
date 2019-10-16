@@ -3,18 +3,18 @@ title: 高级查询示例
 description: 使用 Azure 资源图来运行一些高级查询，包括 VMSS 容量、列出所有使用的标记以及使用正则表达式匹配虚拟机。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 01/23/2019
-ms.date: 09/16/2019
+origin.date: 08/29/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 101f6a5f68cad58f4a95479eb3e9a7cd4ece9158
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b767f04dd75da9f08b5fef6ba9359f8c6a4974b2
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737417"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292558"
 ---
 # <a name="advanced-resource-graph-queries"></a>高级资源图表查询
 
@@ -26,11 +26,9 @@ ms.locfileid: "70737417"
 > - [获取虚拟机规模集容量和大小](#vmss-capacity)
 > - [列出所有标记名称](#list-all-tags)
 > - [由正则表达式匹配的虚拟机](#vm-regex)
+> - [使用 DisplayNames 包括租户和订阅名称](#displaynames)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## <a name="language-support"></a>语言支持
 
 Azure CLI（通过扩展）和 Azure PowerShell（通过模块）支持 Azure 资源图表。 在运行以下任何查询之前，请检查环境是否已准备就绪。 有关安装和验证所选 shell 环境的步骤，请参阅 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 和 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)。
@@ -100,6 +98,22 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>使用 DisplayNames 包括租户和订阅名称
+
+此查询使用新的 **Include** 参数和选项 _DisplayNames_ 将 **subscriptionDisplayName** 和 **tenantDisplayName** 添加到结果中。 此参数仅可用于 Azure CLI 和 Azure PowerShell。
+
+```azurecli
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> 如果查询未使用 **project** 指定返回的属性，则 **subscriptionDisplayName** 和 **tenantDisplayName** 将自动包括在结果中。
+> 如果查询确实使用了 **project**，则每个 _DisplayName_ 字段必须显式包含在 **project** 中，否则它们将不会在结果中返回，即使使用了 **Include** 参数也是如此。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -2,17 +2,18 @@
 title: 配合 Azure Batch 使用渲染应用程序
 description: 如何配合 Azure Batch 使用渲染应用程序
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: v-junlch
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: afba6b4aaa56beafeb2f8009a89c36cb5bfef47c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 605b2333232a8a447146c7ad7c9644135c7fec1f
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659584"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330361"
 ---
 # <a name="rendering-applications"></a>渲染应用程序
 
@@ -26,8 +27,8 @@ ms.locfileid: "52659584"
 
 除了 3ds Max 中内置的渲染器以外，还可在渲染 VM 映像中使用以下渲染器，并通过 3ds Max 场景文件来引用这些渲染器：
 
-- Autodesk Arnold
-- Chaos Group V-Ray
+* Autodesk Arnold
+* Chaos Group V-Ray
 
 ### <a name="task-command-line"></a>任务命令行
 
@@ -41,12 +42,12 @@ ms.locfileid: "52659584"
 
 说明：
 
-- 请务必小心操作，以确保能够找到资产文件。  使用“资产跟踪”窗口来确保路径正确且相关，或者在命令行中使用 `-bitmapPath` 参数。
-- 运行任务时检查 3ds Max 写入的 `stdout.txt` 文件，查看渲染器是否有问题，例如，找不到资产。
+* 请务必小心操作，以确保能够找到资产文件。  使用“资产跟踪”窗口来确保路径正确且相关，或者在命令行中使用 `-bitmapPath` 参数。 
+* 运行任务时检查 3ds Max 写入的 `stdout.txt` 文件，查看渲染器是否有问题，例如，找不到资产。
 
 ### <a name="batch-explorer-templates"></a>Batch Explorer 模板
 
-可以从 Batch Explorer 中的“库”访问池和作业模板。  [GitHub 上的 Batch Explorer 数据存储库](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax)中提供了模板源文件。
+可以从 Batch Explorer 中的“库”访问池和作业模板。   [GitHub 上的 Batch Explorer 数据存储库](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax)中提供了模板源文件。
 
 ## <a name="rendering-with-autodesk-maya"></a>使用 Autodesk Maya 进行渲染
 
@@ -54,12 +55,12 @@ ms.locfileid: "52659584"
 
 除了 Maya 中内置的渲染器以外，还可在渲染 VM 映像中使用以下渲染器，并通过 3ds Max 场景文件来引用这些渲染器：
 
-- Autodesk Arnold
-- Chaos Group V-Ray
+* Autodesk Arnold
+* Chaos Group V-Ray
 
 ### <a name="task-command-line"></a>任务命令行
 
-`renderer.exe` 命令行渲染器在任务命令行中使用。 [Maya 帮助](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4)中介绍了命令行渲染器。
+`renderer.exe` 命令行渲染器在任务命令行中使用。 [Maya 帮助](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4)中介绍了命令行渲染器。
 
 在以下示例中，使用了作业准备任务将场景文件和资产复制到作业准备工作目录，使用了一个输出文件夹来存储渲染图像，并渲染了第 10 帧。
 
@@ -81,7 +82,7 @@ render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_B
 
 ### <a name="batch-explorer-templates"></a>Batch Explorer 模板
 
-可以从 Batch Explorer 中的“库”访问池和作业模板。  [GitHub 上的 Batch Explorer 数据存储库](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya)中提供了模板源文件。
+可以从 Batch Explorer 中的“库”访问池和作业模板。   [GitHub 上的 Batch Explorer 数据存储库](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya)中提供了模板源文件。
 
 ## <a name="next-steps"></a>后续步骤
 

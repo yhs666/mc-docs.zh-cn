@@ -1,5 +1,5 @@
 ---
-title: 在 Visual Studio 中为 Azure 流分析 Edge 作业编写 C# 用户定义函数（预览版）
+title: 了解如何在 Visual Studio（预览）中为 Azure 流分析 Edge 作业编写 C# 用户定义函数
 description: 了解如何在 Visual Studio 中为流分析 Edge 作业编写 c# 用户定义函数。
 services: stream-analytics
 author: lingliw
@@ -8,16 +8,16 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: tutorial
-origin.date: 08/09/2019
-ms.date: 12/06/2018
-ms.openlocfilehash: c4c478eb3ba25a2f6151075a986305d5980fac10
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 12/06/2018
+ms.date: 08/06/2019
+ms.openlocfilehash: 37879cc74a3c47b9829764f586783530255180f2
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969592"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674624"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>教程：在 Visual Studio 中为 Azure 流分析 Edge 作业编写 C# 用户定义函数（预览版）
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>教程：为 Azure 流分析 Edge 作业（预览版）编写 C# 用户定义函数
 
 使用 Visual Studio 中创建的 C# 用户定义函数 (UDF)，使你能够使用自己的函数扩展 Azure 流分析查询语言。 可以重复使用现有代码（包括 DLL），并对 C# 使用数学或复杂逻辑。 可通过三种方式实现 UDF：流分析项目中的 CodeBehind 文件、本地 C# 项目的 UDF 或存储帐户中现有包的 UDF。 本教程使用 CodeBehind 方法来实现基本的 C# 函数。 流分析 Edge 作业的 UDF 功能目前处于预览状态，不应在生产工作负荷中使用。
 
@@ -70,6 +70,7 @@ ms.locfileid: "68969592"
 
     ![Visual Studio 中的 Azure 流分析 Edge 作业配置](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)
 
+
 ## <a name="write-a-c-udf-with-codebehind"></a>使用 CodeBehind 编写 C# UDF
 CodeBehind 文件是与单个 ASA Edge 查询脚本关联的 C# 文件。 Visual Studio 工具会自动压缩 CodeBehind 文件并在提交后将其上传到 Azure 存储帐户。 必须将所有类定义为公共，并且必须将所有对象定义为静态公共   。
 
@@ -83,7 +84,7 @@ CodeBehind 文件是与单个 ASA Edge 查询脚本关联的 C# 文件。 Visual
         using System.IO; 
         using System.Linq; 
         using System.Text; 
-
+    
         namespace ASAEdgeUDFDemo 
         { 
             public class Class1 

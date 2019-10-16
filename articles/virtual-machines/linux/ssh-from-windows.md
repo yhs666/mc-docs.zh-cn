@@ -11,17 +11,16 @@ ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: d11175ee1dd7406156d0f28d608393e755045faa
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 89e5f3c63435323a834e5dcb987075ca644654da
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921156"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272028"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上将 SSH 密钥与 Windows 配合使用
 
@@ -131,7 +130,7 @@ ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 
 * 有关使用 SSH 密钥的详细步骤、选项以及高级示例，请参阅[创建 SSH 密钥对的详细步骤](create-ssh-keys-detailed.md)。
 
-<!-- Not Available on [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh)-->
+    <!-- Not Available on [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh)-->
 
 * 如果在使用 SSH 连接到 Linux VM 时遇到麻烦，请参阅 [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（通过 SSH 连接到 Azure Linux VM 故障排除）。
 

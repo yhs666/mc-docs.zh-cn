@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/08/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f42534e4385f4a9909c5967c3b0238b414554f2b
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: eea5e990c9aba5e5cc3fe9d64a69f3149157bc0d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538945"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272603"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>启动 Azure VM 时 Windows 在蓝色屏幕上显示“关键服务失败”
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能会遇到的“关键服务失败”错误， 并提供用于解决问题的故障排除步骤。 
@@ -88,6 +87,7 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
     Autoreboot = 0
 
     CrashDumpEnabled = 2
+    
 7. 选择“BROKENSYSTEM”  。 在菜单上，选择“文件”   > “卸载配置单元” 
 8. 修改 BCD 设置以在调试模式下启动。 在提升的命令提示符下运行以下命令：
 

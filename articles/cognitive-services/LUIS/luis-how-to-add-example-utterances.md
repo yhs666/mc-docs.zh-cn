@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+origin.date: 07/29/2019
+ms.date: 09/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a6c90de8b15542ec9fff6a17cbf47df3e5b38375
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: b501bf022831afcc3feabd6055bec0899efc6136
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329724"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>将实体添加到示例话语 
 

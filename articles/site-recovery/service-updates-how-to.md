@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08fcff317ce966c425eaeef27614bb662e11efad
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: a79d3b263b9aa9874067a374a5fbf746964efbd3
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134463"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340802"
 ---
 # <a name="service-updates-in-site-recovery"></a>Site Recovery 中的服务更新
 
@@ -91,7 +91,7 @@ Site Recovery 定期发布服务更新。 更新包括新功能、支持改进�
 
 1. 在保管库 >“复制的项”中，单击屏幕顶部的此通知：  
 
-    “有新的 Site Recovery 复制代理更新可用。 
+    “有新的 Site Recovery 复制代理更新可用。  单击以安装 ->”
 
 4. 选择要将更新应用到的 VM，然后单击“确定”。 
 
@@ -99,8 +99,7 @@ Site Recovery 定期发布服务更新。 更新包括新功能、支持改进�
 
 1. 根据当前版本和[支持声明](#support-statement-for-azure-site-recovery)，遵照[这些说明](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)先在本地配置服务器上安装更新。 
 2. 如果有横向扩展进程服务器，接下来请遵照[这些说明](vmware-azure-manage-process-server.md#upgrade-a-process-server)更新这些服务器。
-3. 若要更新每台受保护计算机上的移动代理，请打开“受保护的项” > “复制的项”。  
-4. 选择 VM，然后选择页面底部显示的、每个 VM 对应的“更新代理”按钮。  这会更新所有受保护 VM 上的移动服务代理。
+3. 若要更新每台受保护计算机上的移动代理，请参阅[此文](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)。
 
 <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>
 ### <a name="reboot-after-mobility-service-upgrade"></a>升级移动服务后重新启动
@@ -140,4 +139,4 @@ Site Recovery 定期发布服务更新。 更新包括新功能、支持改进�
 
 请关注我们的 [Azure 更新](https://www.azure.cn/what-is-new/)页来了解新的更新和版本。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

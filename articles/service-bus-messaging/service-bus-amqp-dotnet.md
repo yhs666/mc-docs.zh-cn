@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/16/2018
-ms.date: 01/23/2019
+origin.date: 09/25/2018
+ms.date: 10/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9b800912feb65b33985ba8014b959e5065ed11b0
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 5ef0b22aa15dfd75877f67bace6b62e84ea9c3b1
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330332"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 
@@ -99,10 +99,9 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 
 与默认协议相比，使用 AMQP 时在服务总线 .NET API 的行为方面也有一些细微的差异：
 
-- 将忽略 [OperationTimeout][OperationTimeout] 属性。
-
-- `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
-- 通过锁定令牌完成消息只能由最初收到消息的消息接收方完成。
+* 将忽略 [OperationTimeout][OperationTimeout] 属性。
+* `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
+* 通过锁定令牌完成消息只能由最初收到消息的消息接收方完成。
 
 ## <a name="control-amqp-protocol-settings"></a>控制 AMQP 协议设置
 

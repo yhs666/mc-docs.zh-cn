@@ -8,14 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+origin.date: 09/02/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dac5e8eaf637e26f46fa9b72ed8d4803aad74e3a
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 8a81c4ad45dc19998e17c30990af1f4440034f59
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103844"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330193"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中部署应用
 
@@ -58,9 +59,9 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 1. 登录 [LUIS 门户](https://luis.azure.cn)，从应用列表中选择“myEnglishApp”应用  。
 
-1. 在右上角的菜单中选择“管理”，然后选择“密钥和终结点”   。
+1. 在右上角菜单中选择“管理”  ，然后选择“Azure 资源”  。
 
-1. 若要添加 LUIS，请选择“分配资源 +”  。
+1. 若要添加 LUIS，请选择“添加预测资源”  。
 
    [![将资源分配给应用](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
 

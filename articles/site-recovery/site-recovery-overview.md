@@ -1,20 +1,19 @@
 ---
-title: 关于 Azure Site Recovery | Azure
+title: 关于 Azure Site Recovery
 description: 简要介绍 Azure Site Recovery 服务并概述灾难恢复和迁移部署方案。
-services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: overview
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: db2c819abd038f0bbc6c04056078561fcd0ab59c
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 2c72eac1f3930e4dd1313153e813d47682d878f4
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861635"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71341001"
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 

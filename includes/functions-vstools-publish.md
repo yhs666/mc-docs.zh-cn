@@ -6,15 +6,15 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 11/02/2018
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: c0c5ae04fb8b2eb0ff9c65427a76e01dfd41125f
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 081146a9cb295ae7a601a5609c70d653b9390867
+ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805733"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673582"
 ---
 1. **在“解决方案资源管理器”** 中，右键单击该项目并选择“发布”  。
 
@@ -26,7 +26,7 @@ ms.locfileid: "70805733"
     | ------------ |  -------------------------------------------------- |
     | **Azure Functions 消耗计划** |   将项目发布到在[消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan)中运行的函数应用时，只需为函数应用的执行付费。 其他托管计划会产生更高的成本。 若要了解更多信息，请参阅 [Azure Functions 的缩放和托管](../articles/azure-functions/functions-scale.md)。 | 
     | **新建** | 在 Azure 中创建具有相关资源的新函数应用。 选择“选择现有”  时，Azure 中现有函数应用中的所有文件都将被本地项目中的文件覆盖。 仅在将更新重新发布到现有函数应用时才使用此选项。 |
-    | **从包文件运行** | 在启用[从包运行](../articles/azure-functions/run-functions-from-deployment-package.md)模式的情况下使用 [Zip 部署](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy)来部署函数应用。 建议通过这种方式来运行函数，可以提高性能。 |
+    | **从包文件运行** | 在启用[从包运行](../articles/azure-functions/run-functions-from-deployment-package.md)模式的情况下使用 [Zip 部署](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy)来部署函数应用。 建议通过这种方式来运行函数，可以提高性能。 如果未使用此选项，请确保在发布到 Azure 之前先使函数应用项目停止在本地运行。 |
 
 
 3. 选择“发布”  。 如果尚未从 Visual Studio 登录到 Azure 帐户，请选择“登录”  。 也可以创建一个 Azure 帐户。

@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 12/17/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9395935dd6e44bf4259bd3251118ed22a1d24d2f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 61c8d2cc74f2b9f5f77eece1757a58bb1d41f7f4
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736585"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329964"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -327,7 +327,3 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 [platforms]: platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
-
-
-
-

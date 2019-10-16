@@ -12,20 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/15/2019
+origin.date: 04/15/2019
+ms.date: 08/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 20d366747adf16a0dcecd6e8f48fdf31ff64cd1b
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: ffa23e2e5a0347a15b396060ce21b32ecc3eae5b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329862"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>如何将服务总线主题和订阅与 Node.js 和 azure-sb 包配合使用
+> [!div class="op_multi_selector" title1="编程语言" title2="Node.js 包"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+本教程介绍如何创建 Node.js 应用程序，以便使用 [azure-sb](https://www.npmjs.com/package/azure-sb) 包向服务总线主题发送消息并从服务总线订阅接收消息。 示例使用 JavaScript 编写，并使用在内部使用 `azure-sb` 包的 Node.js [Azure 模块](https://www.npmjs.com/package/azure)。
 
-本指南介绍如何从 Node.js 应用程序使用服务总线主题和订阅。 涉及的方案包括：
+[azure-sb](https://www.npmjs.com/package/azure-sb) 包使用[服务总线 REST 运行时 API](/rest/api/servicebus/service-bus-runtime-rest)。 使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包可以获得更快的体验，该包使用更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)。 若要详细了解新包，请参阅[如何通过 Node.js 和 @azure/service-bus 包使用服务总线主题和订阅](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package)，否则请继续阅读以了解如何使用 [azure](https://www.npmjs.com/package/azure) 包。
+
+本文涉及的方案包括：
 
 - 创建主题和订阅 
 - 创建订阅筛选器 
@@ -43,10 +49,9 @@ ms.locfileid: "67046968"
     > 在本快速入门中，你将使用 **Node.js** 创建一个**主题**和对此主题的**订阅**。 
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
-创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、使用 Windows PowerShell [创建 Node.js 云服务][Node.js Cloud Service]或使用 WebMatrix 创建网站。
+创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、[Node.js 云服务][Node.js Cloud Service]（使用 Windows PowerShell），或“使用 WebMatrix 创建网站”。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
-
 若要使用服务总线，请下载 Node.js Azure 包。 此程序包包括一组用来与服务总线 REST 服务通信的库。
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
@@ -70,7 +75,6 @@ ms.locfileid: "67046968"
 3. 可以手动运行 **ls** 命令来验证是否创建了 **node\_modules** 文件夹。 在该文件夹中，找到 azure 包，其中包含访问服务总线主题所需的库  。
 
 ### <a name="import-the-module"></a>导入模块
-
 使用记事本或其他文本编辑器将以下内容添加到应用程序的 **server.js** 文件的顶部：
 
 ```javascript
@@ -143,7 +147,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 主题订阅也是使用 **ServiceBusService** 对象创建的。 订阅已命名，并可具有可选筛选器，用于限制传送到订阅的虚拟队列的消息集。
 
 > [!NOTE]
-> 除非删除它或与之相关的主题，否则订阅是永久性的。 如果应用程序包含创建订阅的逻辑，则它应首先使用 `getSubscription` 方法检查该订阅是否存在。
+> 默认情况下，除非删除订阅或与之关联的主题，否则订阅是永久性的。 如果应用程序包含创建订阅的逻辑，则它应首先使用 `getSubscription` 方法检查该订阅是否存在。
 >
 >
 
@@ -161,7 +165,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>创建具有筛选器的订阅
 还可以创建筛选器，以确定发送到主题的哪些消息应该在特定主题订阅中显示。
 
-订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器将对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的更多详细信息，请参阅 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 语法。
+订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的更多详细信息，请参阅 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 语法。
 
 可以使用 ServiceBusService 对象的 `createRule` 方法向订阅中添加筛选器  。 此方法允许向现有订阅中添加新筛选器。
 
@@ -182,8 +186,8 @@ serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error)
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'HighMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'HighMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -191,10 +195,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber > 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'HighMessages', 
-            'HighMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'HighMessages',
+            'HighMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -217,8 +221,8 @@ serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'LowMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'LowMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -226,10 +230,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber <= 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'LowMessages', 
-            'LowMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'LowMessages',
+            'LowMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -333,8 +337,8 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 ## <a name="next-steps"></a>后续步骤
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
-* 请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。
-* [SqlFilter][SqlFilter] 的 API 参考。
+* 请参阅 [队列、主题和订阅][Queues, topics, and subscriptions]。
+* [SqlFilter][SqlFilter]的 API 参考。
 * 访问 GitHub 上的 [Azure SDK for Node][Azure SDK for Node] 存储库。
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
@@ -346,4 +350,4 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [创建 Node.js 应用程序并将其部署到 Azure 网站]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
+

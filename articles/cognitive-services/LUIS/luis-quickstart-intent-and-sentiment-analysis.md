@@ -1,5 +1,5 @@
 ---
-title: 情绪分析 - LUIS
+title: 教程：情绪分析 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在本教程中，我们将创建一个应用，用于演示如何从话语中获取积极、消极和中性的情绪。 情绪是从整个话语确定的。
 services: cognitive-services
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/03/2019
+origin.date: 09/03/2019
+ms.date: 09/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9444a3f37b88b5a16035187037250a8ce8fb9d26
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 11dc45c669a5f24f6b06f2da1bd7ba96ef27744c
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103923"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330096"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>教程：获取话语的情绪
 

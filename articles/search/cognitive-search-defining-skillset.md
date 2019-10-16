@@ -1,26 +1,27 @@
 ---
 title: 在认知搜索管道中创建技能集 - Azure 搜索
 description: 定义数据提取、自然语言处理或图像分析步骤，从 Azure 搜索使用的数据扩充和提取结构化信息。
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.author: v-biyu
-ms.custom: seodec2018
-ms.openlocfilehash: faa5c7abeb3d13972326c6beaa1464031930e3ee
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.author: v-tawe
+ms.subservice: cognitive-search
+ms.openlocfilehash: dd7194d4053d3cb411fc2257eb3e661c4b0a1187
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004796"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674409"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>如何在扩充管道中创建技能集
 
-认知搜索可提取和扩充数据，使之能够在 Azure 搜索中可供搜索。 我们将提取和扩充步骤称作认知技能，这些技能将合并成索引编制期间所引用的技能集。   技能集可以使用[内置技能](cognitive-search-predefined-skills.md)或自定义技能（有关详细信息，请参阅[示例：创建自定义技能](cognitive-search-create-custom-skill-example.md)）。
+认知搜索可提取和扩充数据，使之能够在 Azure 搜索中可供搜索。 我们将提取和扩充步骤称作认知技能，这些技能将合并成索引编制期间所引用的技能集。   技能组可以使用[内置技能](cognitive-search-predefined-skills.md)。
+
+<!-- or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information). -->
 
 本文介绍如何对想要使用的技能创建扩充管道。 技能集将附加到 Azure 搜索[索引器](search-indexer-overview.md)。 本文介绍的管道设计的一个部分是构造技能集本身。 
 
@@ -105,7 +106,7 @@ Content-Type: application/json
     {
       "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
      "description": "Calls an Azure function, which in turn calls Bing Entity Search",
-      "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
+      "uri": "https://indexer-e2e-webskill.chinacloudapi.cn/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
@@ -210,10 +211,10 @@ Content-Type: application/json
     {
       "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
      "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
-      "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
+      "uri": "https://indexer-e2e-webskill.chinacloudapi.cn/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
-      }
+      },
       "context": "/document/organizations/*",
       "inputs": [
         {

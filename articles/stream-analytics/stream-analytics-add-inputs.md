@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2018
-ms.date: 06/11/2019
-ms.openlocfilehash: 44c3198e15ba07f0d42cfb94efb4c0d49acced26
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 06/11/2019
+ms.date: 08/11/2019
+ms.openlocfilehash: b37b4b086a92df1c046792d2cab33d5d0930e71d
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969600"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674782"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>理解 Azure 流分析的输入
 

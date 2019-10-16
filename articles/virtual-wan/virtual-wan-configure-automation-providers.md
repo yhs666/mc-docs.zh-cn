@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/22/2019
 ms.date: 06/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6aaef11df31470343b489a93600031f67241d661
-ms.sourcegitcommit: 7ad1a199e9f81de27b9098b50062ef059099f765
+ms.openlocfilehash: b1ff749167bd25b332a0e3f184a746d32ea4645c
+ms.sourcegitcommit: 1b4cb23c9bce2e9073e34eb9fb8b6765b9357d83
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461899"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170803"
 ---
 # <a name="virtual-wan-partners"></a>虚拟 WAN 合作伙伴
 
@@ -65,8 +65,8 @@ ms.locfileid: "67461899"
 
 **配置说明**
 
-    * 如果 Azure VNet 附加到虚拟中心，它们将显示为 ConnectedSubnets。
-    * VPN 连接使用基于路由的配置和 IKEv2/IKEv1。
+* 如果 Azure VNet 附加到虚拟中心，它们将显示为 ConnectedSubnets。
+* VPN 连接使用基于路由的配置和 IKEv2/IKEv1。
 
 #### <a name="understanding-the-device-configuration-file"></a>了解设备配置文件
 

@@ -1,12 +1,10 @@
 ---
-title: 通过百度开始使用 Azure 通知中心 | Azure Docs
+title: 通过百度开始使用 Azure 通知中心 | Azure
 description: 在本教程中，将了解如何通过百度使用 Azure 通知中心将通知推送到 Android 设备。
 services: notification-hubs
 documentationcenter: android
 author: jwargo
 manager: patniko
-editor: spelluru
-ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
@@ -15,12 +13,12 @@ ms.workload: mobile
 origin.date: 04/14/2018
 ms.date: 07/15/2019
 ms.author: v-biyu
-ms.openlocfilehash: 4ba0a0741f05916bd52d7b093a6dba14f2f25361
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: fb83bf6ab21642d14f64c834b5c843fd9449c4f5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560290"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272499"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>通过百度开始使用通知中心
 
@@ -165,7 +163,7 @@ ms.locfileid: "67560290"
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. 下载并解压缩[百度推送 Android SDK]。 复制 libs 文件夹中的 `pushservice-x.y.z jar` 文件。 然后复制 Android 应用程序的 `src/main/jniLibs`（创建新文件夹）文件夹中的 `.so` 文件。
+6. 下载并解压缩[百度推送 Android SDK](https://push.baidu.com/doc/android/api)。 复制 libs 文件夹中的 `pushservice-x.y.z jar` 文件。 然后复制 Android 应用程序的 `src/main/jniLibs`（创建新文件夹）文件夹中的 `.so` 文件。
 
     ![Azure 通知中心 - 百度 SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -206,7 +204,7 @@ ms.locfileid: "67560290"
         android:configChanges="orientation|keyboardHidden"
         android:label="MediaListActivity"
         android:launchMode="singleTask" />
- 
+
     <!-- Push application definition message -->
     <receiver android:name=".MyPushMessageReceiver">
         <intent-filter>
@@ -285,9 +283,9 @@ ms.locfileid: "67560290"
         public static String NotificationHubConnectionString = "...";
     }
     ```
-    
+
     使用百度云项目中的 API_KEY 设置 `API_KEY` 字符串的值。
-    
+
     使用 [Azure 门户]中的通知中心名称设置 `NotificationHubName` 字符串的值，然后使用 [Azure 门户]中的 `DefaultListenSharedAccessSignature` 设置 `NotificationHubConnectionString` 的值。
 
 11. 打开 MainActivity.java，并将以下内容添加到 onCreate 方法中：

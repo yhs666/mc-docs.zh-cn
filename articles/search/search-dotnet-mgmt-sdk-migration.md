@@ -2,20 +2,20 @@
 title: 升级到 Azure 搜索 .NET 管理 SDK 版本 2 - Azure 搜索
 description: 从以前版本升级到 Azure 搜索 .NET 管理 SDK 版本 2。 了解新增功能和所需的代码更改。
 author: brjohnstmsft
-manager: jlembicz
-ms.author: v-biyu
+manager: nitinme
+ms.author: v-tawe
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: 8ae6c7f6bc3a5302c66d585fe23d1fa122e6d728
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 09/26/2019
+ms.openlocfilehash: 7a218ae7a0f517b6f4d2370d92351f979db9f975
+ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004622"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674238"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>升级到 Azure 搜索 .NET 管理 SDK 版本 
 
@@ -48,6 +48,6 @@ ms.locfileid: "66004622"
 在修复了任何生成错误后，可以对应用程序进行更改，以利用新功能（如果愿意）。 有关 SDK 中的新功能的详细信息，请参阅[版本 2 中的新增功能](#WhatsNew)。
 
 ## <a name="conclusion"></a>结论
-我们欢迎你对 SDK 提供反馈。 如果遇到问题，请随时通过 [Azure 搜索 MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs)向我们寻求帮助。 如果找到 Bug，可以在 [Azure .NET SDK GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/issues)中提出问题。 务必在问题标题上加前缀“[Azure 搜索]”。
+我们欢迎你对 SDK 提供反馈。 如果遇到问题，请随时通过 [Azure 搜索 MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=windowsazurezhchs)向我们寻求帮助。 如果找到 Bug，可以在 [Azure .NET SDK GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/issues)中提出问题。 务必在问题标题上加前缀“[Azure 搜索]”。
 
 感谢使用 Azure 搜索！

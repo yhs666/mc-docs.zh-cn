@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 origin.date: 06/27/2017
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 215d602746b36b4f711add4b6dc298fcb1b721a2
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 6c63530f90ffb98639678d72a0f4145f70f5cab3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921130"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272545"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
@@ -27,5 +27,14 @@ ms.locfileid: "70921130"
 如果不熟悉高级存储，请在开始之前首先阅读[为 IaaS VM 选择 Azure 磁盘类型](disks-types.md)和[存储帐户的 Azure 存储可伸缩性和性能目标](../../storage/common/storage-scalability-targets.md)。
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
+
+如果你希望对磁盘进行基准测试，请参阅我们的关于[磁盘基准测试](disks-benchmarks.md)的文章。
+
+了解有关可用磁盘类型的详细信息：[选择磁盘类型](disks-types.md)  
+
+SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
+
+* [Azure 虚拟机中 SQL Server 的性能最佳做法](sql/virtual-machines-windows-sql-performance.md)
+* [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
 <!-- Update_Description: update meta properties -->

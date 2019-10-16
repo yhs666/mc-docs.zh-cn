@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 05/20/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 362de5189e8761f879cc7afd83f3b85dd97f9aee
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 09/30/2019
+ms.openlocfilehash: ae6ebe4506b1f703d03d0171f7d738e2c70bfef4
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254842"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306821"
 ---
 <!--Verify sucessfully-->
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>通过 .NET SDK 开始使用 Azure Cosmos DB 表 API 和 Azure 表存储

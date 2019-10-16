@@ -3,7 +3,7 @@ title: 诊断网络之间的通信问题 - 教程 - Azure 门户 | Azure
 description: 了解如何使用网络观察程序的 VPN 诊断功能诊断通过 Azure 虚拟网关连接到本地虚拟网络或其他虚拟网络的 Azure 虚拟网络之间的通信问题。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/27/2018
-ms.date: 07/02/2018
-ms.author: v-yeche
+ms.date: 04/27/2019
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 7be2ecefb1dd784ff562b6d63ffd0c9bc8fbf1d4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 54fff9fd643196000f59059509dae0edf5591b0b
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626577"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674797"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>教程：使用 Azure 门户诊断网络之间的通信问题
 
@@ -34,11 +34,13 @@ ms.locfileid: "58626577"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
-若要使用 VPN 诊断，必须有一个现成的正在运行的 VPN 网关。 如果没有现成的需要诊断的 VPN 网关，可以使用 [PowerShell 脚本](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fnetwork-watcher%2ftoc.json)部署一个。 可通过以下程序运行 PowerShell 脚本：
-
-- **本地安装的 PowerShell**：脚本要求使用 AzureRM PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 来创建与 Azure 的连接。
+若要使用 VPN 诊断，必须有一个现成的正在运行的 VPN 网关。 如果没有现成的需要诊断的 VPN 网关，可以使用 [PowerShell 脚本](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)部署一个。 可通过以下程序运行 PowerShell 脚本：
+- **本地安装的 PowerShell**：此脚本需要 Azure PowerShell `Az` 模块。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 来创建与 Azure 的连接。
 - **Azure Cloud Shell**：[Azure Cloud Shell](https://shell.azure.com/powershell) 安装并配置了最新版的 PowerShell，并允许登录到 Azure。
 
 脚本需要大约一小时来创建 VPN 网关。 剩余步骤假定要诊断的网关是通过此脚本部署的。 如果改为诊断你自己的现有网关，结果会有所不同。
@@ -51,32 +53,32 @@ ms.locfileid: "58626577"
 
 如果已在“中国东部”区域启用网络观察程序，请跳到[诊断网关](#diagnose-a-gateway)。
 
-1. 在门户中，选择“所有服务”。 在“筛选器”框中，输入“网络观察程序”。 结果中出现“网络观察程序”后，将其选中。
-2. 选择“区域”，以便将其展开，然后选择“中国东部”右侧的“...”，如下图所示：
+1. 在门户中，选择“所有服务”。  在“筛选器”框中，输入“网络观察程序”   。 结果中出现“网络观察程序”后，将其选中  。
+2. 选择“区域”，以便将其展开，然后选择“中国东部”右侧的“...”，如下图所示：   
 
     ![启用网络观察程序](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 
-3. 选择“启用网络观察程序”。
+3. 选择“启用网络观察程序”。 
 
 ## <a name="diagnose-a-gateway"></a>诊断网关
 
-1. 在门户左侧选择“所有服务”。
-2. 首先在“筛选”框中键入“网络观察程序”。 搜索结果中出现“网络观察程序”后，将其选中。
-3. 在“网络诊断工具”下选择“VPN 诊断”。
-4. 选择“存储帐户”，然后选择要向其写入诊断信息的存储帐户。
-5. 在“存储帐户”列表中，选择要使用的存储帐户。 如果没有现成的存储帐户，则请选择“+ 存储帐户”，输入或选择所需信息，然后选择“创建”，以便创建一个。 如果已使用[先决条件](#prerequisites)中的脚本创建了一个 VPN 网关，则可能需要在该网关所在的资源组 *TestRG1* 中创建存储帐户。
-6. 从“容器”列表中选择要使用的容器，然后选择“选择”。 如果没有任何容器，请选择“+ 容器”，输入容器的名称，然后选择“确定”。
-7. 选择一个网关，然后选择“开始故障排除”。 如下图所示，测试是针对名为 **Vnet1GW** 的网关运行的：
+1. 在门户左侧选择“所有服务”  。
+2. 首先在“筛选”框中键入“网络观察程序”   。 搜索结果中出现“网络观察程序”后，将其选中  。
+3. 在“网络诊断工具”下选择“VPN 诊断”。  
+4. 选择“存储帐户”，然后选择要向其写入诊断信息的存储帐户。 
+5. 在“存储帐户”列表中，选择要使用的存储帐户。  如果没有现成的存储帐户，则请选择“+ 存储帐户”，输入或选择所需信息，然后选择“创建”，以便创建一个。   如果已使用[先决条件](#prerequisites)中的脚本创建了一个 VPN 网关，则可能需要在该网关所在的资源组 *TestRG1* 中创建存储帐户。
+6. 从“容器”  列表中选择要使用的容器，然后选择“选择”。  如果没有任何容器，请选择“+ 容器”，输入容器的名称  ，然后选择“确定”。 
+7. 选择一个网关，然后选择“开始故障排除”。  如下图所示，测试是针对名为 **Vnet1GW** 的网关运行的：
 
     ![VPN 诊断](./media/diagnose-communication-problem-between-networks/vpn-diagnostics.png)
 
-8. 当测试正在运行时，“故障排除状态”列中会显示“正在运行”，而在上图中，该列显示“未启动”。 测试可能需要数分钟的运行时间。
+8. 当测试正在运行时，“故障排除状态”列中会显示“正在运行”，而在上图中，该列显示“未启动”。    测试可能需要数分钟的运行时间。
 9. 查看已完成测试的状态。 下图显示已完成的诊断测试的状态结果：
 
     ![状态](./media/diagnose-communication-problem-between-networks/status.png)
 
-    可以看到“故障排除状态”为“不正常”，还可以在“状态”选项卡上看到问题的“摘要”和“详细信息”。
-10. 选择“操作”选项卡时，VPN 诊断会提供其他信息。 在下图所示的示例中，VPN 诊断指示应检查每个连接的运行状况：
+    可以看到“故障排除状态”为“不正常”，还可以在“状态”选项卡上看到问题的“摘要”和“详细信息”。     
+10. 选择“操作”选项卡时，VPN 诊断会提供其他信息。  在下图所示的示例中，VPN 诊断指示应检查每个连接的运行状况：
 
     ![操作](./media/diagnose-communication-problem-between-networks/action.png)
 
@@ -89,25 +91,25 @@ ms.locfileid: "58626577"
     ![连接](./media/diagnose-communication-problem-between-networks/connection.png)
 
     测试运行时间为数分钟。
-2. 完成对连接的测试以后，收到的结果类似于下图中显示在“状态”和“操作”选项卡上的结果：
+2. 完成对连接的测试以后，收到的结果类似于下图中显示在“状态”和“操作”选项卡上的结果：  
 
     ![连接状态](./media/diagnose-communication-problem-between-networks/connection-status.png)
 
     ![连接操作](./media/diagnose-communication-problem-between-networks/connection-action.png)
 
-    VPN 诊断会在“状态”选项卡上指示具体错误，并会在“操作”选项卡上根据问题原因提供多项建议。
+    VPN 诊断会在“状态”选项卡上指示具体错误，  并会在“操作”选项卡上根据问题原因提供多项建议。 
 
-    如果测试的网关是通过[先决条件](#prerequisites)中的[脚本](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fnetwork-watcher%2ftoc.json)部署的，则“状态”选项卡上的问题和“操作”选项卡上的头两个项就是要找的问题。 脚本为本地 VPN 网关设备配置了占位符形式的 IP 地址 23.99.221.164。
+    如果测试的网关是通过[先决条件](#prerequisites)中的[脚本](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)部署的，则“状态”选项卡上的问题和“操作”选项卡上的头两个项就是要找的问题。   脚本为本地 VPN 网关设备配置了占位符形式的 IP 地址 23.99.221.164。
 
-    若要解决此问题，需确保本地 VPN 网关已[正确配置](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fnetwork-watcher%2ftoc.json)，并将脚本为本地网关配置的 IP 地址更改为本地 VPN 网关的实际公共地址。
+    若要解决此问题，需确保本地 VPN 网关已[正确配置](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)，并将脚本为本地网关配置的 IP 地址更改为本地 VPN 网关的实际公共地址。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 如果你使用[先决条件](#prerequisites)中的脚本创建 VPN 网关只是为了完成本教程，完成后就不再需要它，请删除资源组及其包含的所有资源：
 
-1. 在门户顶部的“搜索”框中输入“TestRG1”。 在搜索结果中看到 **TestRG1** 后，请将其选中。
-2. 选择“删除资源组”。
-3. 在“键入资源组名称:”字段中输入“TestRG1”，然后选择“删除”。
+1. 在门户顶部的“搜索”框中输入“TestRG1”   。 在搜索结果中看到 **TestRG1** 后，请将其选中。
+2. 选择“删除资源组”  。
+3. 在“键入资源组名称:”字段中输入“TestRG1”，然后选择“删除”。   
 
 ## <a name="next-steps"></a>后续步骤
 

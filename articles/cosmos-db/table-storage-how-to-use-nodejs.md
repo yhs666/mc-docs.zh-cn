@@ -6,15 +6,15 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 3474619c32dff2dc8a0ce4bf4ae3d98df443fe00
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 0aa078f069a50e6aba42a758733bdcef76e6d7fe
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254589"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306756"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -399,9 +399,7 @@ var host = tableSvc.host;
 
 请注意，还必须提供主机信息，因为 SAS 持有者尝试访问表时，必须提供该信息。
 
-然后，客户端应用程序将 SAS 用于 **TableServiceWithSAS**，以便针对表执行操作。 下面的示例连接到该表，并执行一个查询。 请参阅[使用共享访问签名](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)一文，了解 tableSAS 的格式。 
-
-<!--MOONCAKE: TEMPRARY KEEP THE URL of (../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)-->
+然后，客户端应用程序将 SAS 用于 **TableServiceWithSAS**，以便针对表执行操作。 下面的示例连接到该表，并执行一个查询。 有关 tableSAS 的格式，请参阅[使用共享访问签名 (SAS) 授予对 Azure 存储资源的有限访问权限](../storage/common/storage-sas-overview.md)一文。 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.chinacloudapi.cn` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

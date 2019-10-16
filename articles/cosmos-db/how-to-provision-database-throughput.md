@@ -3,16 +3,16 @@ title: 在 Azure Cosmos DB 中预配数据库吞吐量
 description: 了解如何在 Azure Cosmos DB 中预配数据库级别的吞吐量
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 07/03/2019
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 91aee7b9972e0aa4e98f229bbcc12c8f43cab796
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 020fd3fcb947f324f7d5cd6b11688ed49fdfbe1d
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254816"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306748"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库上预配吞吐量
 

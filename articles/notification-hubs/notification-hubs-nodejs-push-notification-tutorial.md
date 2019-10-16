@@ -13,15 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: 29891a2cbda42907b919bde9170118a548380f4b
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+origin.date: 01/04/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: e0e833e6ceb522b8bc950d81846382418a8a875e
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68232274"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272615"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 
@@ -61,22 +61,22 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 4. 在该文件夹中，找到 **azure** 包，其中包含访问通知中心所需的库。
 
 > [!NOTE]
-> 可以在官方 [NPM 博客](http://blog.npmjs.org/post/85484771375/how-to-install-npm)中了解有关安装 NPM 的详细信息。
+> 可在官方 [NPM 博客](https://blog.npmjs.org/post/85484771375/how-to-install-npm)中了解有关安装 NPM 的详细信息。
 
 ### <a name="import-the-module"></a>导入模块
 使用文本编辑器将以下内容添加到应用程序的 `server.js` 文件的顶部：
 
-    ```javascript
-    var azure = require('azure-sb');
-    ```
+```javascript
+var azure = require('azure-sb');
+```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>设置 Azure 通知中心连接
 
 可以通过 `NotificationHubService` 对象使用通知中心。 以下代码为名为 `hubname` 的通知中心创建 `NotificationHubService` 对象。 将它添加到靠近 `server.js` 文件顶部、用于导入 Azure 模块的语句之后的位置：
 
-    ```javascript
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
-    ```
+```javascript
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 通过执行以下步骤从 [Azure 门户] 获取连接 `connectionstring` 值：
 
@@ -88,7 +88,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 ![Azure 门户 — 通知中心](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> 还可以使用 [Azure PowerShell](/powershell-install-configure) 提供的 Get-AzureSbNamespace cmdlet 或者在 [Azure 命令行接口 (Azure CLI)](../cli-install-nodejs.md) 中使用 azure sb namespace show 命令检索连接字符串   。
+> 还可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 提供的 Get-AzureSbNamespace cmdlet 或者在 [Azure 命令行接口 (Azure CLI)](/cli-install-nodejs) 中使用 azure sb namespace show 命令检索连接字符串   。
 
 ## <a name="general-architecture"></a>一般体系结构
 
@@ -110,16 +110,16 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 以下代码使用由 `NotificationHubService` 公开的 `ApnsService` 实例将警报消息发送给所有客户端：
 
-    ```javascript
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>如何：向 Windows Phone 应用程序发送推送通知
 
@@ -136,14 +136,14 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 以下示例代码使用由 `NotificationHubService` 公开的 `MpnsService` 实例发送 toast 推送通知：
 
-    ```javascript
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>如何：向通用 Windows 平台 (UWP) 应用程序发送推送通知
 
@@ -159,14 +159,14 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 以下示例代码使用由 `NotificationHubService` 公开的 `WnsService` 实例将 toast 推送通知发送给 UWP 应用：
 
-    ```javascript
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -189,16 +189,17 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
 [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
-[Topic Concepts]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[image]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
-[2]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
-[3]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
-[4]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
-[5]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
+[image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+[2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
+[3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
+[4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
+[5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
 [nodejswebsite]: /app-service/app-service-web-get-started-nodejs
 [webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Azure 门户]: https://portal.azure.cn

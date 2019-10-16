@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6409ab355c9ddab372ffd0c054971c214e867e95
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 2ce9e598a378eb49b49accc95d4807438256a27b
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845533"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329789"
 ---
 # <a name="design-your-application-for-high-availability"></a>针对高可用性设计应用程序
 

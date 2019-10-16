@@ -2,26 +2,26 @@
 title: 在 Azure Active Directory B2C 中使用图形 API | Microsoft Docs
 description: 如何通过使用应用程序标识自动执行该过程为 B2C 租户调用图形 API。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/07/2017
-ms.date: 04/01/2019
+ms.date: 09/17/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: edad2399ece40e7a97101f2e2d0bee21bbc0696d
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a1ee684c8bdb9643e678fc0ca926a4d7845fddc5
+ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004232"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71083209"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 图形 API
 
 >[!NOTE]
-> 必须使用 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) 管理 Azure AD B2C 目录中的用户。 这不同于 Microsoft 图形 API。 
+> 必须使用 [Azure AD Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) 管理 Azure AD B2C 目录中的用户。 这不同于 Microsoft 图形 API。 在[此处](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)了解更多信息。
 
 Azure Active Directory (Azure AD) B2C 租户往往会非常大。 这意味着许多常见的租户管理任务需要以编程方式执行。 用户管理是一个主要示例。 可能需要将现有用户存储迁移到 B2C 租户。 可能想要在自己的页面上托管用户注册，并在 Azure AD B2C 目录后台创建用户帐户。 这些类型的任务需要能够创建、读取、更新和删除用户帐户。 可以通过使用 Azure AD 图形 API 来执行这些任务。
 
@@ -39,26 +39,28 @@ Azure Active Directory (Azure AD) B2C 租户往往会非常大。 这意味着�
 拥有 B2C 租户后，需通过 [Azure 门户](https://portal.azure.cn)注册应用程序。
 
 > [!IMPORTANT]
-> 若要将图形 API 用于 B2C 租户，需使用 Azure 门户中的“应用注册”服务（而非 Azure AD B2C 的“应用程序”菜单）注册应用程序。 根据以下介绍进入相应菜单。 不能重复使用在 Azure AD B2C 的“应用程序”菜单中注册的现有 B2C 应用程序。
+> 若要将图形 API 用于 B2C 租户，需使用 Azure 门户中的“应用注册”服务（而非 Azure AD B2C 的“应用程序”菜单）注册应用程序    。 根据以下介绍进入相应菜单。 不能重复使用在 Azure AD B2C 的“应用程序”菜单中注册的现有 B2C 应用程序  。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 通过在页面右上角选择帐户，选择 Azure AD B2C 租户。
-3. 在左侧导航窗格中，选择“所有服务”，单击“应用注册”，并单击“添加”。
+3. 在左侧导航窗格中，选择“所有服务”，单击“应用注册”，并单击“新建注册”。   
 4. 根据提示创建新的应用程序。 
-    1. 选择“Web 应用/API”作为应用程序类型。    
-    2. 提供任一登录 URL（例如 `https://B2CGraphAPI`），因为它与此示例不相关。  
+    1. 添加适当的名称
+    2. 选择“仅此组织目录中的帐户” 
+    3. 选择 **Web** 作为应用程序类型，并提供**任何登录 URL**（例如 `https://B2CGraphAPI`），因为它与此示例无关。  
+    4. 单击“注册”。
 5. 应用程序现在会显示在应用程序列表中，单击它以获取**应用程序 ID**（也称为客户端 ID）。 复制它，因为会在后面的部分用到它。
-6. 在“设置”菜单中，单击“密钥”。
-7. 在“密码”部分输入密钥说明，并选择持续时间，然后单击“保存”。 复制该密钥值（也称为客户端密码），便于在之后的章节中使用。
+6. 在“设置”菜单中，单击“证书和机密”  。
+7. 在“客户端密码”  部分中，单击“新建客户端密码”  ，提供机密的说明并选择持续时间，然后单击“添加”  。 复制机密的值（也称为客户端密码），以便在后面的部分中使用。
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>为应用程序配置创建、读取和更新权限
 现在，需要配置应用程序，以获取所有所需的创建、读取、更新和删除用户的权限。
 
 1. 继续在 Azure 门户的“应用注册”菜单中，选择应用程序。
-2. 在“设置”菜单中，单击“所需的权限”。
-3. 在“所需的权限”菜单中，单击“Azure Active Directory”。
-4. 在“启用访问权限”菜单中，从“应用程序权限”中选择“读取和写入目录数据”权限，并单击“保存”。
-5. 最后，返回“所需的权限”菜单，单击“授予权限”按钮。
+2. 在“设置”菜单中，单击“所需的权限”  。
+3. 在“所需的权限”菜单中，单击“Azure Active Directory”  。
+4. 在“启用访问权限”菜单中，从“应用程序权限”  中选择“读取和写入目录数据”  权限，并单击“保存”  。
+5. 最后，返回“所需的权限”菜单，单击“授予权限”  按钮。
 
 现在就有了一个有权限从 B2C 租户创建、读取和更新用户的应用程序。
 
@@ -68,7 +70,7 @@ Azure Active Directory (Azure AD) B2C 租户往往会非常大。 这意味着�
 > 
 
 ## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>为应用程序配置删除或更新密码权限
-目前，“读取和写入目录数据”权限**不**提供删除用户或更新用户密码的能力。 如果想要使应用程序能够删除用户或更新密码，就需要执行涉及 PowerShell 的这些额外步骤，否则，可以跳到下一部分。
+目前，“读取和写入目录数据”  权限**不**提供删除用户或更新用户密码的能力。 如果想要使应用程序能够删除用户或更新密码，就需要执行涉及 PowerShell 的这些额外步骤，否则，可以跳到下一部分。
 
 首先，请安装 [Azure AD PowerShell v1 模块 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)（如果还没有安装）：
 
@@ -127,7 +129,7 @@ B2C Help
 此操作会显示每个命令的简要说明。 每次调用其中一个命令时，`B2CGraphClient` 都会向 Azure AD 图形 API 发出请求。
 
 ### <a name="get-an-access-token"></a>获取访问令牌
-对图形 API 的任何请求都需要访问令牌来进行身份验证。 `B2CGraphClient` 使用开源 Active Directory 身份验证库 (ADAL) 来帮助获取访问令牌。 通过提供简单的 API 并处理某些重要细节（如缓存访问令牌），ADAL 使令牌获取变得更容易。 不过，不必非得使用 ADAL 获得令牌。 也可以通过制作 HTTP 请求获取令牌。
+对图形 API 的任何请求都需要访问令牌来进行身份验证。 `B2CGraphClient` 使用开放源 Active Directory Authentication Library (ADAL) 来帮助获取访问令牌。 通过提供简单的 API 并处理某些重要细节（如缓存访问令牌），ADAL 使令牌获取变得更容易。 不过，不必非得使用 ADAL 获得令牌。 也可以通过制作 HTTP 请求获取令牌。
 
 > [!NOTE]
 > 此代码示例使用 ADAL v2 以便与图形 API 进行通信。  必须使用 ADAL v2 或 v3，获取可配合 Azure AD 图形 API 使用的访问令牌。
@@ -240,7 +242,7 @@ Content-Length: 338
 }
 ```
 
-此请求中的大多数属性都是创建使用者用户所必需的。 若要了解详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)。 请注意，已包含 `//` 注释用于说明。 不要将它们包含在实际请求中。
+此请求中的大多数属性都是创建使用者用户所必需的。 若要了解详细信息，请单击[此处](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)。 请注意，已包含 `//` 注释用于说明。 不要将它们包含在实际请求中。
 
 若要查看请求，请运行以下命令之一：
 
@@ -249,7 +251,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` 命令将 .json 文件用作输入参数。 这包含用户对象的 JSON 表示形式。 示例代码中有两个示例 .json 文件：`usertemplate-email.json` 和 `usertemplate-username.json`。 可以修改这些文件以满足个人需要。 除了上述必填字段外，这些文件中还包含一些可以使用的可选字段。 有关可选字段的详细信息，请参阅 [Azure AD 图形 API 实体引用](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity)。
+`Create-User` 命令将 .json 文件用作输入参数。 这包含用户对象的 JSON 表示形式。 示例代码中有两个示例 .json 文件：`usertemplate-email.json` 和 `usertemplate-username.json`。 可以修改这些文件以满足个人需要。 除了上述必填字段外，这些文件中还包含一些可以使用的可选字段。 有关可选字段的详细信息，请参阅 [Azure AD 图形 API 实体引用](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity)。
 
 会看到如何在 `B2CGraphClient.SendGraphPostRequest(...)` 中构造 POST 请求。
 
@@ -258,7 +260,7 @@ B2C Create-User ..\..\..\usertemplate-username.json
 * 它会将 JSON 用户对象包含在请求的正文中。
 
 > [!NOTE]
-> 如果要从现有用户存储迁移的帐户的密码强度低于 [Azure AD B2C 强制实施的强密码强度](https://msdn.microsoft.com/library/azure/jj943764.aspx)，可以使用 `passwordPolicies` 属性中的 `DisableStrongPassword` 值禁用强密码要求。 例如，可以修改上面提供的创建用户请求，如下所示：`"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`。
+> 如果要从现有用户存储迁移的帐户的密码强度低于 [Azure AD B2C 强制实施的强密码强度](https://docs.microsoft.com/previous-versions/azure/jj943764(v=azure.100))，可以使用 `passwordPolicies` 属性中的 `DisableStrongPassword` 值禁用强密码要求。 例如，可以修改上面提供的创建用户请求，如下所示：`"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`。
 > 
 > 
 
@@ -318,7 +320,7 @@ B2C Delete-User <object-id-of-user>
 
 有关如何发送此请求的详细信息，请检查 `B2CGraphClient.SendGraphDeleteRequest(...)` 方法。
 
-除了用户管理之外，还可以使用 Azure AD 图形 API 执行许多其他操作。 [Azure AD 图形 API 参考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)提供了每个操作的详细信息以及示例请求。
+除了用户管理之外，还可以使用 Azure AD 图形 API 执行许多其他操作。 [Azure AD 图形 API 参考](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/api-catalog)提供了每个操作的详细信息以及示例请求。
 
 ## <a name="use-custom-attributes"></a>使用自定义属性
 大多数使用者应用程序需要存储某些类型的自定义用户配置文件信息。 一种方法是在 B2C 租户中定义自定义属性。 然后，可按照处理用户对象上的任何其他属性的方式一样来处理该属性。 可以更新属性、删除属性、按属性查询、发送属性等，如登录令牌中的声明一样。
@@ -366,3 +368,4 @@ B2C Update-User <object-id-of-user> <path-to-json-file>
 对于想要使用图形 API 在 B2C 租户上执行的操作，如有任何疑问或要求，请在本文留下批注，或在 GitHub 代码示例存储库中提出问题。
 
 
+<!-- Update_Description: wording update -->

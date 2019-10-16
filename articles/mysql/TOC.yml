@@ -162,6 +162,8 @@
       items:
         - name: Azure 门户
           href: howto-auto-grow-storage-portal.md
+        - name: Azure CLI
+          href: howto-auto-grow-storage-cli.md
     - name: 访问服务器日志
       items:
         - name: 慢查询日志
@@ -226,6 +228,8 @@
       items:
         - name: 产品视频
           href: videos.md
+    - name: 上市区域
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql'
     - name: 支持选项
       href: 'https://www.azure.cn/zh-cn/support/contact/'
     - name: 数据库迁移指南

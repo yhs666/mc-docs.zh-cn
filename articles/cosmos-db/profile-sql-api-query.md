@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/17/2019
-ms.date: 06/17/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3020ff365196d91e3aa62ba4af3e210e351b9c9
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 654058b6baa6420a7e9e8b64ab411c068f502acf
+ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254874"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306790"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>使用 .NET SDK 获取 SQL 查询执行指标并分析查询性能
 
@@ -240,13 +240,12 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 - [Azure Cosmos DB SQL 规范](/cosmos-db/sql-api-sql-query-reference)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
-- [LINQ](https://docs.microsoft.com/zh-cn/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
+- [LINQ](https://docs.microsoft.com/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 
 ## <a name="next-steps"></a>后续步骤
 
 - [优化查询性能](sql-api-query-metrics.md)
 - [索引概述](index-overview.md)
-- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 
-<!--Update_Description: new articles on profile sql api query -->
-<!--ms.date: 06/24/2019-->
+<!--Update_Description: wording update -->

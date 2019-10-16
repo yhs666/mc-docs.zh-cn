@@ -4,17 +4,17 @@ description: 本文将指导你完成为 Azure PowerShell 启用 Resource Graph 
 author: DCtheGeek
 origin.author: dacoulte
 origin.date: 01/23/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4013ee65ed5d145fefe76d10e4cf4c0fea3a7bcf
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 76b9e001cbc4327ecd212b44ed5cda727ed9ce63
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737415"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292547"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 运行首个 Resource Graph 查询
 
@@ -23,8 +23,6 @@ ms.locfileid: "70737415"
 在此过程结束时，应该已将模块添加到所选的 Azure PowerShell 安装中，并运行首个 Resource Graph 查询。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="add-the-resource-graph-module"></a>添加 Resource Graph 模块
 
@@ -49,7 +47,7 @@ Azure Resource Graph 模块需要以下软件：
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. 验证该模块是否已导入且是否为正确版本 (0.7.3)：
+1. 验证该模块是否已导入且是否为最新版本 (0.7.5)：
 
    ```azurepowershell
    # Get a list of commands for the imported Az.ResourceGraph module

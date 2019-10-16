@@ -1,5 +1,5 @@
 ---
-title: 教程 - 在 Azure Service Fabric 上创建 Java 应用
+title: 教程：在 Azure Service Fabric 上创建 Java 应用
 description: 本教程介绍如何创建一个包含前端的 Reliable Services Java 应用程序，并创建 Reliable Services 有状态后端，然后将该应用程序部署到群集。
 services: service-fabric
 documentationcenter: java
@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/01/2018
-ms.date: 09/02/2019
+ms.date: 09/30/2019
 ms.author: v-yeche
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: f9e8504fb0f978230b0781b1085f20b6b8a16f78
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: b23030c22e0d54dbbd4d1d0eba205f117e779620
+ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254771"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340706"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教程：在 Service Fabric 上创建包含 Java Web API 前端服务和有状态后端服务的应用程序
+# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>教程：在 Azure Service Fabric 上创建包含 Java API 前端服务和有状态后端服务的应用程序
 
-本教程是一个系列中的第一部分。 完成后，将生成一个带 Java Web 前端的 Voting 应用程序，用于将投票结果保存到群集的有状态后端服务中。 本教程系列要求你有一台工作的 Mac OSX 或 Linux 开发人员计算机。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-java-quickstart)，跳到[大致了解投票示例应用程序](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，请考虑以下 [Java 可靠服务快速入门。](service-fabric-quickstart-java-reliable-services.md)
+本教程是一个系列中的第一部分。 完成后，将生成一个带 Java Web 前端的 Voting 应用程序，用于将投票结果保存到 Azure Service Fabric 的有状态后端服务中。 本教程系列要求你有一台工作的 Mac OSX 或 Linux 开发人员计算机。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-java-quickstart)，跳到[大致了解投票示例应用程序](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，请考虑以下 [Java 可靠服务快速入门](service-fabric-quickstart-java-reliable-services.md)。
 
 ![本地 Voting 应用](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -555,7 +555,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 ## <a name="create-the-communication-interface-to-your-application"></a>创建应用程序的通信接口
 
- 下一步是连接前端无状态服务和后端服务。 这两个服务都利用一个名为 VotingRPC 的接口来定义 Voting 应用程序的操作。 此接口由前端和后端服务来共同实现，用于在这两项服务之间进行远程过程调用 (RPC)。 遗憾的是，Eclipse 不支持添加 Gradle 子项目，因此必须手动添加包含此接口的包。
+下一步是连接前端无状态服务和后端服务。 这两个服务都利用一个名为 VotingRPC 的接口来定义 Voting 应用程序的操作。 此接口由前端和后端服务来共同实现，用于在这两项服务之间进行远程过程调用 (RPC)。 遗憾的是，Eclipse 不支持添加 Gradle 子项目，因此必须手动添加包含此接口的包。
 
 1. 在包资源管理器中右键单击“Voting”项目，然后单击“新建” > “文件夹”    。 将文件夹命名为 **VotingRPC/src/rpcmethods**。
 

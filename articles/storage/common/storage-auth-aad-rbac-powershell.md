@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 07/25/2019
-ms.date: 09/022019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cde281e3e62520a26d43c4ee1f68664469e8c17c
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: d99bb8ef099e5d4ce1bd4bad63f8be84ec5049bd
+ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209391"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307883"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>在 PowerShell 中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限
 

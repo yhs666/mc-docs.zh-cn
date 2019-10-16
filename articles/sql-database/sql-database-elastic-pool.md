@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ninarn, carlrab
 origin.date: 08/06/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 51a27fe70c6f79b9b47fbbd7ddb2e10a758b26a5
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 09/30/2019
+ms.openlocfilehash: 6896b3118b363c00e3aaecebb9f01e435fb1f371
+ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372976"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262964"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -152,7 +152,8 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 在 Azure 门户中可以通过两种方法创建弹性池。
 
 1. 可以通过在**市场**中搜索“SQL 弹性池”  或者通过在 SQL 弹性池浏览边栏选项卡中单击“+添加”  来创建弹性池。 可以通过此池预配工作流指定新的或现有的服务器。
-2. 或者可以创建一个弹性池：导航到现有 SQL 服务器，然后单击“创建池”，直接在该服务器中创建一个池。  此处的唯一差别是要跳过在池预配工作流期间指定服务器的步骤。
+
+1. 或者可以创建一个弹性池：导航到现有 Azure SQL 服务器，然后单击“+ 新建池”，直接在该服务器中创建一个池。 
 
 > [!NOTE]
 > 可以在服务器上创建多个池，但不能将数据库从不同的服务器添加到同一个池中。

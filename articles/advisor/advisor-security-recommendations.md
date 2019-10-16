@@ -13,12 +13,12 @@ ms.workload: NA
 origin.date: 01/29/2019
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e76c39af6ba839436b9cb2731c637928c9d3d74d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 9dad310bf64401b3c0b29b9a828a261f7de6a5cc
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329785"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>使用 Azure 顾问提高资源的安全性
 
@@ -39,7 +39,7 @@ Azure 顾问针对所有 Azure 资源提供一个一致且统一的建议视图�
 若要了解有关顾问建议的详细信息，请参阅以下资源：
 * [顾问简介](advisor-overview.md)
 * [顾问入门](advisor-get-started.md)
-* [顾问成本建议](advisor-performance-recommendations.md)
+* [顾问成本建议](advisor-cost-recommendations.md)
 * [顾问性能建议](advisor-performance-recommendations.md)
 * [顾问高可用性建议](advisor-high-availability-recommendations.md)
 

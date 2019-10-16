@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 07/23/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3382242afdbfdb1b0b0db3d297462d12db85d87e
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 33574fd49c653fcfd4a472c14ebadac2c0a8d481
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737230"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71330068"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>排查无数据问题 - 用于 .NET 的 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>缺少一些遥测数据
@@ -264,7 +264,3 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 
 ## <a name="still-not-working"></a>仍然无法解决问题...
 * [Application Insights 论坛](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
-
-
-

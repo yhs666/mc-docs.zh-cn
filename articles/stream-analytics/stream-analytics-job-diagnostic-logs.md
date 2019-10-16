@@ -8,18 +8,21 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+origin.date: 06/21/2019
+ms.date: 07/19/2019
 ms.custom: v-lingwu
-ms.openlocfilehash: 49d8f5a561eff16bbf747df78ea601f8fcb1cbef
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: a0177b9726cf18021ffc85914440b2c5c91e6750
+ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169521"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674809"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用诊断日志对 Azure 流分析进行故障排除
 
-有时，Azure 流分析作业会意外地停止处理。 因此，能够解决此类事件是很重要的。 该事件可能由意外的查询结果、与设备的连接问题或意外的服务中断所导致而成。 流分析中的诊断日志可以帮助用户在问题发生时确定根本原因并缩短恢复时间。
+有时，Azure 流分析作业会意外地停止处理。 因此，能够解决此类事件是很重要的。 故障可能由意外的查询结果、与设备的连接问题或意外的服务中断导致。 流分析中的诊断日志可以帮助用户在问题发生时确定原因并缩短恢复时间。
+
+强烈建议为所有生产作业启用诊断日志。
 
 ## <a name="log-types"></a>日志类型
 
@@ -62,7 +65,7 @@ ms.locfileid: "70169521"
 
     ![在边栏选项卡中导航到诊断日志](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  在“诊断设置”中创建“名称”，并选中“发送到 Log Analytics”旁边的复选框    。 然后添加现有的或创建新的“Log Analytics 工作区”  。 选中“日志”下“执行”和“创作”的复选框，以及“指标”下“AllMetrics”的复选框      。 单击“保存”  。
+2.  在“诊断设置”中创建“名称”，并选中“发送到 Log Analytics”旁边的复选框    。 然后添加现有的或创建新的“Log Analytics 工作区”  。 选中“日志”下“执行”和“创作”的复选框，以及“指标”下“AllMetrics”的复选框      。 单击“保存”  。 建议使用与流分析作业位于同一 Azure 区域中的 Log Analytics 工作区，以防产生额外的成本。
 
     ![诊断日志设置](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 

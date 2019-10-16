@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: da681171-f045-4c80-a5a9-d8bd47964673
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/08/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 33fb894ecbbce8ccb936c3d31d842fb894bfe9e6
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 44bf6987c31f7d5b2c02dc9d04ea3f94ed20cfb4
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921154"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272577"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -33,14 +32,15 @@ ms.locfileid: "70921154"
 | [内存优化](sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 | [GPU](sizes-gpu.md)            |     NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 
-<!--Not Available on DC-->
-<!--Not Available [Storage optimized](sizes-storage.md) Lsv2, Ls-->
+<!--Not Available [General purpose](sizes-general.md) Dasv3, Dav3, DC-->
+<!--Not Available [Memory optimized](sizes-memory.md) Easv3, Eav3, Mv2-->
+<!--Not Available [Storage optimized](sizes-storage.md) Lsv2-->
 <!--Not Available NV, NVv2, NC, NCv2, ND, NDv2 (Preview)-->
 <!--Not Available [High performance compute](sizes-hpc.md) HB, HC, H -->
 
 <br />
 
-- 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)。 
+- 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。 
 - 有关各 Azure 区域中推出的 VM 大小，请查看[可用产品(按区域)](https://www.azure.cn/home/features/products-by-region)。
 - 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
 - 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
@@ -75,7 +75,6 @@ ms.locfileid: "70921154"
     <!--Not Available- [High performance compute](sizes-hpc.md)-->
     
 - 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）系列。
-
 
 <!--Not Available on A8-A11 series-->
 <!--Update_Description: update meta properties, wording update, update link -->

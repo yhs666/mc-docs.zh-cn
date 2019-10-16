@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
 origin.date: 05/31/2019
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e9d86263890965c24e61a6ad28a99de9f09c97d4
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 51cc837f64f76d76486cd5e80b85b3f5e6f632d3
+ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500715"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155860"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -34,7 +34,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 <!--MOONCAKE: Custmize for MC-->
 
-在 Azure 门户左上角，选择“+ 创建资源”  ，键入“Kubernetes 服务”  ，在“新建”页中按 Enter 键，然后在“市场”页中选择“Kubernetes 服务”  。
+在 Azure 门户左上角，选择“+ 创建资源”  ，键入“Kubernetes 服务”  ，在“新建”页中选择 Enter 键，然后在“市场”页中选择“Kubernetes 服务”  。
 
 <!--MOONCAKE: Custmize for MC-->
 
@@ -43,17 +43,22 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 1. 在“基本信息”页面上，配置以下选项  ：
     - *项目详细信息*：选择 Azure 订阅，然后选择或创建 Azure 资源组，例如 *myResourceGroup*。 输入 **Kubernetes 群集名称**，例如 *myAKSCluster*。
     - *群集详细信息*：选择 AKS 群集的区域、Kubernetes 版本和 DNS 名称前缀。
+        
         <!--MOONCAKE: CORRECT ON *SCALE* TILL ON 08/01/2019-->
+        
     - *规模*：选择 AKS 节点的 VM 大小。 一旦部署 AKS 群集，不能更改 VM 大小  。
         - 选择要部署到群集中的节点数。 对于本快速入门，请将“节点计数”设置为“1”。   部署群集后，可以调整节点计数  。
     
-    ![创建 AKS 群集 - 提供基本信息](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+        ![创建 AKS 群集 - 提供基本信息](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     在完成时选择“下一步:  身份验证”。
     
     <!--MOONCAKE: CORRECT ON Next: Authentication TILL ON 08/01/2019-->
     <!--MOONCAKE: No **Scale** page TILL ON 08/01/2019-->
     
+    > [!CAUTION]
+    > 创建新的 AAD 服务主体可能需要几分钟的时间才能传播并变得可用，这样会导致 Azure 门户中出现“找不到服务主体”错误和验证失败。 如果遇到这种情况，请访问[此处](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one)进行缓解。
+
 1. 在“身份验证”  页上，配置以下选项：
     - 通过将“服务主体”  字段保留为“(新)默认服务主体”  来创建新的服务主体。 或者，可以选择“配置服务主体”  以使用现有的服务主体。 如果使用现有的服务主体，则需要提供 SPN 客户端 ID 和机密。
     - 启用 Kubernetes 基于角色的访问控制 (RBAC) 所对应的选项。 这样可以对部署在 AKS 群集中的 Kubernetes 资源进行更精细的访问控制。
@@ -251,7 +256,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![查看在 AKS 中运行的容器的运行状况](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-若要查看 `azure-vote-front` Pod 的日志，请在容器列表右侧选择“查看容器日志”链接  。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
+若要查看 `azure-vote-front` Pod 的日志，请从容器列表的下拉列表中选择“查看容器日志”  。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
 
 ![查看 AKS 中的容器日志](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

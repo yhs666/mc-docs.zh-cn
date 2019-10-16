@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+origin.date: 07/24/2019
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cce30454e58cbc5610544f02fba3f4ff8c826382
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: adf1d957d9fd5b02086f4aad940a45b4f3cdc342
+ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329925"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>实体类型及其在 LUIS 中的目的
 
@@ -196,43 +197,11 @@ LUIS 提供许多类型的实体。 请根据数据的提取方式以及提取�
 
 ## <a name="regular-expression-entity"></a>正则表达式实体 
 
-正则表达式最适合用于原始话语文本。 不区分大小写，并忽略区域性变体。  完成字符级别而不是令牌级别的拼写检查更改后，会应用正则表达式匹配。 如果正则表达式过于复杂，例如使用了许多括号，则不能将表达式添加到模型。 使用部分但并非全部 [.NET Regex](https://docs.azure.cn/zh-cn/dotnet/standard/base-types/regular-expressions?view=azure-dotnet) 库。 
+[正则表达式实体](reference-entity-regular-expression.md)基于所提供的正则表达式模式提取实体。
 
-在以下情况下，非常适合使用该实体：
+## <a name="simple-entity"></a>简单实体
 
-* 数据的格式一致，并且其任何变体也是一致的。
-* 正则表达式不需要 2 个级别以上的嵌套。 
-
-![正则表达式实体](./media/luis-concept-entities/regex-entity.png)
-
-[教程](luis-quickstart-intents-regex-entity.md)<br>
-[实体的 JSON 响应示例](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-正则表达式可能匹配超出预期的匹配。 例如，数字单词匹配，例如 `one` 和 `two`。 例如，下面的正则表达式匹配数字 `one` 以及其他数字：
-
-```javascript
-(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
-
-此正则表达式还匹配以这些数字结尾的任何单词，如 `phone`。 为了解决这样的问题，请确保正则表达式匹配考虑到单词边界。 此示例中使用单词边界的正则表达式用于以下正则表达式：
-
-```javascript
-\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
-```
-
-## <a name="simple-entity"></a>简单实体 
-
-简单实体是描述单个概念的泛型实体，通过机器学习的上下文习得。 由于简单实体采用概括性的名称，例如公司名称、产品名称或其他类别的名称，因此，在使用简单实体时，请添加一个[短语列表](luis-concept-feature.md)，以提升所用名称的信号。 
-
-在以下情况下，非常适合使用该实体：
-
-* 数据格式不一致，但指示相同的事物。 
-
-![简单实体](./media/luis-concept-entities/simple-entity.png)
-
-[教程](luis-quickstart-primary-and-secondary-data.md)<br/>
-[实体响应示例](luis-concept-data-extraction.md#simple-entity-data)<br/>
-
+[简单实体](reference-entity-simple.md)是一种机器学习值。 它可以是一个单词或短语。
 ## <a name="entity-limits"></a>实体限制
 
 查看[限制](luis-boundaries.md#model-boundaries)，了解可添加到模型中的每种类型的实体的数量。

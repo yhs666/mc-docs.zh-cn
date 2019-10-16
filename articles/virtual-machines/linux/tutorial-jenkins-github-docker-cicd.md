@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7e85bd029d4ec263089330194a11fdc80b52aae1
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: cf7b46ec0266cc91eec521103dcb101c25a0fb0f
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912943"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272511"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 
@@ -145,7 +144,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 创建第一个管理用户。 输入用户名（例如 **admin**），然后提供自己的安全密码。 最后，键入全名和电子邮件地址。
 - 选择“保存并完成” 
 - 准备好 Jenkins 后，选择“开始使用 Jenkins” 
-  - 如果开始使用 Jenkins 时 Web 浏览器显示空白页，请重启 Jenkins 服务。 在 SSH 会话中键入 `sudo service jenkins restart`，然后刷新 Web 浏览器。
+    - 如果开始使用 Jenkins 时 Web 浏览器显示空白页，请重启 Jenkins 服务。 在 SSH 会话中键入 `sudo service jenkins restart`，然后刷新 Web 浏览器。
 - 根据需要使用创建的用户名和密码登录到 Jenkins。
 
 ## <a name="create-github-webhook"></a>创建 GitHub Webhook
@@ -161,7 +160,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 将“活动”设置为已勾选。 
 - 单击“添加 Webhook”  。
 
-![将 GitHub Webhook 添加到分叉的存储库](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+    ![将 GitHub Webhook 添加到分叉的存储库](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 ## <a name="create-jenkins-job"></a>创建 Jenkins 作业
 若要让 Jenkins 对 GitHub 中的事件（例如提交代码）做出响应，请创建 Jenkins 作业。 为自己的 GitHub 分叉使用 URL。
@@ -221,11 +220,11 @@ COPY index.js /var/www/
 - 选择“添加生成步骤”  ，然后选择“执行 shell” 
 - 在“命令”  框中输入以下 Docker 命令，然后选择“保存”  ：
 
-  ```bash
-  docker build --tag helloworld:$BUILD_NUMBER .
-  docker stop helloworld && docker rm helloworld
-  docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
-  ```
+    ```bash
+    docker build --tag helloworld:$BUILD_NUMBER .
+    docker stop helloworld && docker rm helloworld
+    docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
+    ```
 
 Docker 生成步骤将创建一个映像，并使用 Jenkins 生成编号对其进行标记，以便可以维护映像的历史记录。 运行应用的任何现有容器将会停止，随后被删除。 然后，将使用该映像启动新的容器，并基于 GitHub 中的最新提交内容运行 Node.js 应用。
 
