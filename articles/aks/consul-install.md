@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 06/19/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: e5fbc8b3916fc9b3e8dc3f87469431c55a5de5e8
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: e0c02289d62c000eb6d2333346f85eca4c7c3822
+ms.sourcegitcommit: 37e3e635c02303f976e89cd1b5e35455f356ebb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303273"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72392856"
 ---
 <!--Verify sucessfully-->
 
@@ -108,28 +108,28 @@ helm install -f consul-values.yaml --name consul --namespace consul .
 >     ```
 > 
 > * 创建 `helm-rbac.yaml` 并在其中填充以下 yaml 内容。
->      ```
->       apiVersion: v1
->       kind: ServiceAccount
->       metadata:
->         name: tiller
->         namespace: kube-system
->       ---
->       apiVersion: rbac.authorization.k8s.io/v1
->       kind: ClusterRoleBinding
->       metadata:
->         name: tiller
->       roleRef:
->         apiGroup: rbac.authorization.k8s.io
->         kind: ClusterRole
->         name: cluster-admin
->      subjects:
->         - kind: ServiceAccount
->           name: tiller
->           namespace: kube-system
->       ```
+>     ```
+>     apiVersion: v1
+>     kind: ServiceAccount
+>     metadata:
+>     name: tiller
+>     namespace: kube-system
+>     ---
+>     apiVersion: rbac.authorization.k8s.io/v1
+>     kind: ClusterRoleBinding
+>     metadata:
+>       name: tiller
+>     roleRef:
+>       apiGroup: rbac.authorization.k8s.io
+>       kind: ClusterRole
+>       name: cluster-admin
+>     subjects:
+>       - kind: ServiceAccount
+>       name: tiller
+>       namespace: kube-system
+>     ```
 >
-> * Run `kubectl apply` cmdlet to create the service account and role binding:
+> * 运行 `kubectl apply` cmdlet 创建服务帐户和角色绑定：
 >     ```console
 >     kubectl apply -f helm-rbac.yaml
 >     ```
