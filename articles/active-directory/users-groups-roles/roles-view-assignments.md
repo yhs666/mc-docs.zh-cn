@@ -8,24 +8,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 07/31/2019
-ms.date: 08/20/2019
+origin.date: 09/04/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d795f182e15bb9f7a5fdd879f02534fa77303096
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 256fdd4827d5359f8417b581fddbdefc3ba39f5d
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993670"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292122"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>在 Azure Active Directory 中查看自定义角色分配
 
-本文介绍如何在 Azure Active Directory (Azure AD) 中查看已分配的自定义角色。 在 Azure Active Directory (Azure AD) 中，角色可以在目录级别分配，也可以在单个应用程序的范围内分配。 在目录范围的角色分配添加到单个应用程序角色分配的列表中，但在单个应用程序范围的角色分配不添加到目录级别分配的列表中。
+本文介绍如何在 Azure Active Directory (Azure AD) 中查看已分配的自定义角色。 在 Azure Active Directory (Azure AD) 中，角色可以在组织范围内分配，也可以在单应用程序范围内分配。
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-the-azure-portal"></a>使用 Azure 门户查看目录范围角色的分配
+- 组织范围的角色分配会添加到单应用程序角色分配列表中，并可在其中查看它们。
+- 单应用程序范围的角色分配不会添加到组织范围的分配列表中，也不能在其中查看它们。
+
+## <a name="view-role-assignments-in-the-azure-portal"></a>在 Azure 门户中查看角色分配
+
+此过程介绍如何查看组织范围的角色分配。
 
 1. 在 Azure AD 组织中使用特权角色管理员或全局管理员权限登录 [Azure 门户](https://portal.azure.cn)。
 1. 选择“Azure Active Directory”，接着选择“角色和管理员”，然后选择一个角色，将其打开并查看其属性。 ****  ****
@@ -33,9 +38,9 @@ ms.locfileid: "69993670"
 
     ![从列表中打开一个角色时，查看角色分配和权限](./media/roles-view-assignments/role-assignments.png)
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-azure-ad-powershell"></a>使用 Azure AD PowerShell 查看目录范围的角色的分配
+## <a name="view-role-assignments-using-azure-ad-powershell"></a>使用 Azure AD PowerShell 查看角色分配
 
-可以自动使用 Azure PowerShell 将 Azure AD 管理员角色分配给用户。 本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 模块。
+此部分介绍如何查看组织范围的角色分配。 本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 模块。 若要使用 PowerShell 查看单应用程序范围的分配，可以使用[通过 PowerShell 分配自定义角色](roles-assign-powershell.md)中的 cmdlet。
 
 ### <a name="prepare-powershell"></a>准备 PowerShell
 
@@ -72,7 +77,9 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-microsoft-graph-api"></a>使用 Microsoft Graph API 查看目录范围的角色的分配
+## <a name="view-role-assignments-using-microsoft-graph-api"></a>使用 Microsoft Graph API 查看角色分配
+
+此部分介绍如何查看组织范围的角色分配。  若要使用 Graph API 查看单应用程序范围的分配，可以使用[通过 Graph API 分配自定义角色](roles-assign-graph.md)中的操作。
 
 HTTP 请求，用于获取给定角色定义的角色分配。
 
@@ -94,18 +101,20 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-portal-preview"></a>使用 Azure 门户查看单个应用程序范围角色的分配（预览）
+## <a name="view-assignments-of-single-application-scope"></a>查看单应用程序范围的分配
+
+此部分介绍如何查看单应用程序范围的角色分配。 此功能目前处于公开预览状态。
 
 1. 在 Azure AD 组织中使用特权角色管理员或全局管理员权限登录 [Azure 门户](https://portal.azure.cn)。
-1. 选择“Azure Active Directory”，接着选择“应用注册”，然后选择要查看其属性的应用注册。  可能必须选择“所有应用程序”，以便在 Azure AD 组织中查看应用注册的完整列表。 
+1. 选择“应用注册”，然后选择要查看其属性的应用注册。  可能必须选择“所有应用程序”，以便在 Azure AD 组织中查看应用注册的完整列表。 
 
     ![在“应用注册”页中创建或编辑应用注册](./media/roles-create-custom/appreg-all-apps.png)
 
-1. 选择“角色和管理员”，然后选择一个角色，查看其属性。 ****
+1. 在应用注册中，选择“角色和管理员”，然后选择一个角色，查看其属性。 ****
 
     ![在“应用注册”页中查看应用注册角色分配](./media/roles-view-assignments/appreg-assignments.png)
 
-1. 选择“分配”，查看角色的分配  。
+1. 选择“分配”，查看角色的分配  。 在应用注册中打开分配视图会显示局限于此 Azure AD 资源的分配。
 
     ![在应用注册的属性中查看应用注册角色分配](./media/roles-view-assignments/appreg-assignments-2.png)
 
@@ -115,3 +124,4 @@ HTTP/1.1 200 OK
 * 有关角色以及管理员角色分配的详细信息，请参阅[分配管理员角色](directory-assign-admin-roles.md)。
 * 有关默认用户权限，请参阅[默认来宾和成员用户权限的比较](../fundamentals/users-default-permissions.md)。
 
+<!-- Update_Description: wording update -->
