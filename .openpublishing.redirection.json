@@ -16640,6 +16640,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/governance/policy/how-to/getting-compliance-data.md",
+      "redirect_url": "/governance/policy/how-to/get-compliance-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user.md",
       "redirect_url": "/active-directory/user-help/user-help-two-step-verification-overview",
       "redirect_document_id": false
@@ -16664,13 +16669,6 @@
       "redirect_url": "/data-factory/tutorial-incremental-copy-overview",
       "redirect_document_id": false
     }
-
-
-
-
-
- 
-
   ]
 }
 
