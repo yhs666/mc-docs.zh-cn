@@ -10,21 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 07/08/2019
+origin.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 24f21347cbd5f2331d704475055e69b454cec15d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 59e5805e98f9e6392748e9c7b3a79d103f9bd202
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570396"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275464"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure 数据工厂通过 Open Hub 从 SAP Business Warehouse 复制数据
 
 本文概述了如何使用 Azure 数据工厂中的复制活动，通过 Open Hub 从 SAP Business Warehouse (BW) 复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
 
+>[!TIP]
+>若要了解 ADF 对 SAP 数据集成方案的总体支持，请参阅[使用 Azure 数据工厂进行 SAP 数据集成白皮书](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含详细介绍、比较和指导。
+
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 SAP Business Warehouse via Open Hub 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的 [Copy 活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以通过 Open Hub 将数据从 SAP Business Warehouse 复制到任何受支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -143,11 +151,8 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | type 属性必须设置为 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要从其复制数据的 Open Hub Destination 的名称。 | 是 |
-| excludeLastRequest | 是否排除最后一个请求的记录。 | 否（默认为 **true**） |
-| baseRequestId | 增量加载的请求的 ID。 设置以后，只会检索 requestId **大于**此属性的值的数据。  | 否 |
 
->[!TIP]
->如果 Open Hub 表只包含通过单个请求 ID 生成的数据（例如，始终进行完全加载并覆盖表中的现有数据，或者只在测试时运行 DTP 一次），则请记住取消选中“excludeLastRequest”选项，以便复制数据。
+如果在数据集中设置了 `excludeLastRequest` 和 `baseRequestId`，则仍按原样支持该数据集，但建议你以后在活动源中使用新模型。
 
 **示例：**
 
@@ -156,12 +161,13 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
     "name": "SAPBWOpenHubDataset",
     "properties": {
         "type": "SapOpenHubTable",
+        "typeProperties": {
+            "openHubDestinationName": "<open hub destination name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "openHubDestinationName": "<open hub destination name>"
         }
     }
 }
@@ -173,7 +179,18 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
 
 ### <a name="sap-bw-open-hub-as-source"></a>将 SAP BW Open Hub 作为源
 
-若要从 SAP BW Open Hub 复制数据，请将复制活动中的源类型设置为“SapOpenHubSource”  。 复制活动的 **source** 节中没有其他特定于类型的必需属性。
+若要从 SAP BW Open Hub 复制数据，复制活动的 **source** 节支持以下属性：
+
+| 属性 | 说明 | 必选 |
+|:--- |:--- |:--- |
+| type | 复制活动源的 **type** 属性必须设置为 **SapOpenHubSource**。 | 是 |
+| excludeLastRequest | 是否排除最后一个请求的记录。 | 否（默认为 **true**） |
+| baseRequestId | 增量加载的请求的 ID。 设置以后，只会检索 requestId **大于**此属性的值的数据。  | 否 |
+
+>[!TIP]
+>如果 Open Hub 表只包含通过单个请求 ID 生成的数据（例如，始终进行完全加载并覆盖表中的现有数据，或者只在测试时运行 DTP 一次），则请记住取消选中“excludeLastRequest”选项，以便复制数据。
+
+若要加快数据加载速度，可以在复制活动上设置 [`parallelCopies`](copy-activity-performance.md#parallel-copy)，以并行方式从 SAP BW Open Hub 加载数据。 例如，如果将 `parallelCopies` 设置为 4，则数据工厂会并发执行 4 个 RFC 调用，每个 RFC 调用都会从按 DTP 请求 ID 和包 ID 分区的 SAP BW Open Hub 表检索一部分数据。 这适用于唯一 DTP 请求 ID + 包 ID 的数目大于 `parallelCopies` 值的情况。 将数据复制到基于文件的数据存储中时，还建议将数据作为多个文件写入文件夹（仅指定文件夹名称），在这种情况下，性能优于写入单个文件。
 
 **示例：**
 
@@ -196,11 +213,13 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
         ],
         "typeProperties": {
             "source": {
-                "type": "SapOpenHubSource"
+                "type": "SapOpenHubSource",
+                "excludeLastRequest": true
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]
@@ -220,6 +239,11 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
 | P（BCD 打包，货币，小数，Qty） | 小数 |
 | N (Numc) | String |
 | X（二进制，原始） | String |
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

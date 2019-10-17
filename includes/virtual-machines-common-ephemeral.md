@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/08/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a9660b68fda2c00ecc7deac0e3a924a06477c37b
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: a9db56371d4dc208d3670fc7f662beaf561667cc
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921061"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272728"
 ---
 <!--Verify successfully-->
 
@@ -43,7 +43,7 @@ ms.locfileid: "70921061"
 | OS 磁盘重设大小              | 在 VM 创建期间以及将 VM 停止-解除分配后均受支持                                | 仅在 VM 创建期间受支持                                                  |
 | 将大小重设为新的 VM 大小   | 保留 OS 磁盘数据                                                                    | 删除 OS 磁盘上的数据并重新预配 OS                                      |
 
-<!--Not Available on Line 27 , and [GS](../articles/virtual-machines/linux/sizes-memory.md)-->
+<!--Not Available on Line 27 , and [GS](/virtual-machines/linux/sizes-previous-gen#gs-series)-->
 <!--Not Available on Line 28 GS -->
 
 ## <a name="size-requirements"></a>大小要求
@@ -83,8 +83,20 @@ az vm create \
 
 对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
-<!--Not Available on ## Portal-->
-<!-- ephemeral disk option is unable with gray color-->
+<!--Verify successfully on Portal-->
+
+## <a name="portal"></a>门户   
+
+在 Azure 门户中，可以选择在部署 VM 时使用临时磁盘，方法是：打开“磁盘”选项卡的“高级”部分。   对于“使用临时 OS 磁盘”选项，请选择“是”。  
+
+![显示单选按钮的屏幕截图，该按钮选中后即可使用临时 OS 磁盘](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+
+如果使用临时磁盘的选项灰显，则可能是因为选择的 VM 大小没有大于 OS 映像的缓存大小，或者不支持高级存储。 返回到“基本信息”页，尝试选择另一 VM 大小。 
+
+也可通过门户创建使用临时 OS 磁盘的规模集。 只需确保所选 VM 大小具有足够大的缓存大小，然后在“使用临时 OS 磁盘”中选择“是”即可。  
+
+![显示单选按钮的屏幕截图，该按钮选中后即可使用规模集的临时 OS 磁盘](./media/virtual-machines-common-ephemeral/scale-set.png)
+
 ## <a name="scale-set-template-deployment"></a>规模集模板部署  
 创建一个使用临时 OS 磁盘的规模集时，其过程很简单，就是将 `diffDiskSettings` 属性添加到模板中的 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` 资源类型。 另外，对于临时 OS 磁盘，必须将缓存策略设置为 `ReadOnly`。 
 
@@ -166,7 +178,7 @@ az vm create \
 ```
 
 ## <a name="reimage-a-vm-using-rest"></a>使用 REST 重置 VM 映像
-目前，若要重置使用临时 OS 磁盘的虚拟机实例的映像，唯一方法是使用 REST API。 对于规模集，已经可以通过 Powershell、CLI 和门户来重置映像。
+可以通过 REST API 重置使用临时 OS 磁盘的虚拟机实例的映像，详见下面的说明，只需通过 Azure 门户转到 VM 的“概览”窗格即可。 对于规模集，已经可以通过 Powershell、CLI 和门户来重置映像。
 
 ```
 POST https://management.chinacloudapi.cn/subscriptions/{sub-
