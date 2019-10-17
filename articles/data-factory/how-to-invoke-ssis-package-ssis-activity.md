@@ -8,18 +8,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-origin.date: 07/01/2019
-ms.date: 08/12/2019
+origin.date: 09/13/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: f4825ad235922daa6ab0fb860433309247c74aa8
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: d2c286b8872faf1e42e4b24433d1de4d28ce5cf3
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671009"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275357"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用“执行 SSIS 包”活动运行 SSIS 包
 本文介绍如何使用“执行 SSIS 包”活动在 Azure 数据工厂 (ADF) 管道中运行 SQL Server Integration Services (SSIS) 包。 
@@ -54,8 +54,8 @@ ms.locfileid: "69671009"
 
 4. 在“执行 SSIS 包”活动的“设置”选项卡上，选择要在其中运行包的 Azure-SSIS IR。  如果你的包使用 Windows 身份验证访问数据存储，例如本地的 SQL Server/文件共享、Azure 文件存储等，请选中“Windows 身份验证”复选框，并输入包执行凭据（**域**/**用户名**/**密码**）的值。  或者，可以将 Azure Key Vault (AKV) 中存储的机密用作其值。 为此，请单击相关凭据旁的“AZURE KEY VAULT”复选框  ，选择/编辑现有的 AKV 链接服务或新建该链接服务，然后为凭据值选择机密名称/版本。  创建/编辑 AKV 链接服务时，可以选择/编辑现有的 AKV 链接服务或新建该链接服务，但是，请授予对 AKV 的 ADF 托管标识访问权限（如果你尚未这样做）。 此外，还可以采用以下格式直接输入机密：`<AKV linked service name>/<secret name>/<secret version>`。 如果包需要 32 位运行时才能运行，请选中“32 位运行时”复选框  。 
 
-   对于“包位置”，请选择“SSISDB”、“文件系统(包)”或“文件系统(项目)”。     如果选择“SSISDB”作为包位置（如果为 Azure-SSIS IR 预配了 Azure SQL 数据库服务器/托管实例托管的 SSIS 目录 (SSISDB)，则会自动选择该选项），则需要指定要运行的、已部署到 SSISDB 中的包。  如果 Azure-SSIS IR 正在运行且未选中“手动输入内容”复选框，可以从 SSISDB 浏览并选择现有的文件夹/项目/包/环境  。 单击“刷新”按钮可从 SSISDB 获取新添加的文件夹/项目/包/环境，以便可以进行浏览和选择  。 
-   
+   对于“包位置”，请选择“SSISDB”、“文件系统(包)”或“文件系统(项目)”。     如果选择“SSISDB”作为包位置（如果为 Azure-SSIS IR 预配了 Azure SQL 数据库服务器/托管实例托管的 SSIS 目录 (SSISDB)，则会自动选择该选项），则需要指定要运行的、已部署到 SSISDB 中的包。  如果 Azure-SSIS IR 正在运行且未选中“手动输入内容”复选框，可以从 SSISDB 浏览并选择现有的文件夹/项目/包/环境  。 单击“刷新”按钮可从 SSISDB 获取新添加的文件夹/项目/包/环境，以便可以进行浏览和选择  。 若要浏览/选择包执行的环境，必须事先配置项目，以便从 SSISDB 下的相同文件夹中添加这些环境作为引用。 有关详细信息，请参阅[创建/映射 SSIS 环境](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)。
+
    对于“日志记录级别”，请为包执行选择预定义的日志记录范围  。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框  。 
 
    ![在“设置”选项卡上设置属性 - 自动](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
@@ -163,42 +163,43 @@ ms.locfileid: "69671009"
 1. 在 **C:\ADF\RunSSISPackage** 文件夹中创建名为 **RunSSISPackagePipeline.json** 的 JSON 文件，并在其中包含类似于以下示例的内容：
 
    > [!IMPORTANT]
-   > 在保存该文件之前，请替换对象名称、说明、路径、属性和参数值、密码及其他变量值。 
+   > 在保存该文件之前，请替换对象名称/说明/路径/属性/参数值、密码及其他变量值。 
 
    ```json
    {
        "name": "RunSSISPackagePipeline",
        "properties": {
            "activities": [{
-               "name": "mySSISActivity",
+               "name": "MySSISActivity",
                "description": "My SSIS package/activity description",
                "type": "ExecuteSSISPackage",
                "typeProperties": {
                    "connectVia": {
-                       "referenceName": "myAzureSSISIR",
+                       "referenceName": "MyAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
                    "executionCredential": {
-                       "domain": "MyDomain",
-                       "userName": "MyUsername",
+                       "domain": "MyExecutionDomain",
+                       "username": "MyExecutionUsername",
                        "password": {
                            "type": "SecureString",
-                           "value": "**********"
+                           "value": "MyExecutionPassword"
                        }
                    },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
-                       "packagePath": "FolderName/ProjectName/PackageName.dtsx"
+                       "packagePath": "MyFolder/MyProject/MyPackage.dtsx",
+                       "type": "SSISDB"
                    },
-                   "environmentPath": "FolderName/EnvironmentName",
+                   "environmentPath": "MyFolder/MyEnvironment",
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
                        },
                        "project_param_2": {
                            "value": {
-                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "value": "@pipeline().parameters.MyProjectParameter",
                                "type": "Expression"
                            }
                        }
@@ -214,40 +215,40 @@ ms.locfileid: "69671009"
                                    "referenceName": "myAKV",
                                    "type": "LinkedServiceReference"
                                },
-                               "secretName": "MySecret"
+                               "secretName": "MyPackageParameter"
                            }
                        }
                    },
                    "projectConnectionManagers": {
                        "MyAdonetCM": {
-                           "userName": {
-                               "value": "sa"
+                           "username": {
+                               "value": "MyConnectionUsername"
                            },
-                           "passWord": {
+                           "password": {
                                "value": {
                                    "type": "SecureString",
-                                   "value": "abc"
+                                   "value": "MyConnectionPassword"
                                }
                            }
                        }
                    },
                    "packageConnectionManagers": {
                        "MyOledbCM": {
-                           "userName": {
+                           "username": {
                                "value": {
-                                   "value": "@pipeline().parameters.MyUsername",
+                                   "value": "@pipeline().parameters.MyConnectionUsername",
                                    "type": "Expression"
                                }
                            },
-                           "passWord": {
+                           "password": {
                                "value": {
                                    "type": "AzureKeyVaultSecret",
                                    "store": {
                                        "referenceName": "myAKV",
                                        "type": "LinkedServiceReference"
                                    },
-                                   "secretName": "MyPassword",
-                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
+                                   "secretName": "MyConnectionPassword",
+                                   "secretVersion": "MyConnectionPasswordVersion"
                                }
                            }
                        }
@@ -265,6 +266,86 @@ ms.locfileid: "69671009"
                    "retryIntervalInSeconds": 30
                }
            }]
+       }
+   }
+   ```
+
+   若要执行存储在文件系统/文件共享/Azure 文件存储中的包，可以输入包/日志位置属性的值，如下所示。
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "packagePath": "//MyStorageAccount.file.core.chinacloudapi.cn/MyFileShare/MyPackage.dtsx",
+                       "type": "File",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "username": "MyStorageAccount",
+                               "password": {
+                                   "type": "SecureString",
+                                   "value": "MyAccountKey"
+                               }
+                           }
+                       }
+                   },
+                   "logLocation": {
+                       "logPath": "//MyStorageAccount.file.core.chinacloudapi.cn/MyFileShare/MyLogFolder",
+                       "type": "File",
+                       "typeProperties": {
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "username": "MyStorageAccount",
+                               "password": {
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyAccountKey"
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   若要执行存储在文件系统/文件共享/Azure 文件存储中项目中的包，可以输入包位置属性的值，如下所示。
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "packagePath": "//MyStorageAccount.file.core.chinacloudapi.cn/MyFileShare/MyProject.ispac:MyPackage.dtsx",
+                       "type": "File",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "userName": "MyStorageAccount",
+                               "password": {
+                                   "type": "SecureString",
+                                   "value": "MyAccountKey"
+                               }
+                           }
+                       }
+                   }
+               }
+           }
        }
    }
    ```
