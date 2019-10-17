@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/26/2019
-ms.date: 08/26/2019
+origin.date: 08/28/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce052422973da3cd0390abbf9d85ee5d066dd5dc
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: e14ebec01d4919f73327b0d4ad9546c374ce7e4b
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134279"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292061"
 ---
 # <a name="whats-new-for-authentication"></a>身份验证的新增功能 
 
@@ -42,7 +42,24 @@ ms.locfileid: "70134279"
 
 ## <a name="upcoming-changes"></a>即将推出的更改
 
-2019 年 8 月：根据 URL 分析规则强制实施 POST 语义 - 重复的参数将触发错误，不再忽略参数中的引号，忽略 [BOM](https://www.w3.org/International/questions/qa-byte-order-mark)。
+2019 年 9 月：根据 URL 分析规则进一步强制实施 POST 语义 - 重复的参数将触发错误，[BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 会被忽略。
+
+## <a name="august-2019"></a>2019 年 8 月
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>POST 表单语义会更严格地实施 - 空格和引号会被忽略
+
+**生效日期**：2019 年 9 月 2 日
+
+**受影响的终结点**：v1.0 和 v2.0
+
+**受影响的协议**：使用 POST 的任何位置（[客户端凭据](/active-directory/develop/v2-oauth2-client-creds-grant-flow)、[授权代码兑换](/active-directory/develop/v2-oauth2-auth-code-flow)、[ROPC](/active-directory/develop/v2-oauth-ropc)、[OBO](/active-directory/develop/v2-oauth2-on-behalf-of-flow)和[刷新令牌兑换](/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)）
+
+从 9 月 2 日那一周开始，使用 POST 方法的身份验证请求会按更严格的 HTTP 标准进行验证。  具体说来，空格和双引号 (“) 将不再从请求表单值中删除。 这些更改不应造成任何现有客户端出现中断，将确保发送到 Azure AD 的请求每次都能够得到可靠的处理。 在将来（见上），我们计划还要拒绝重复参数并忽略请求中的 BOM。 
+
+示例：
+
+目前，`?e=    "f"&g=h` 的分析与 `?e=f&g=h` 相同，因此 `e` == `f`。  进行此更改后，它现在可以进行分析，使得 `e` == `    "f"` - 这不可能成为一个有效的参数，请求会失败。 
+
 
 ## <a name="july-2019"></a>2019 年 7 月
 
@@ -149,3 +166,4 @@ ms.locfileid: "70134279"
 1. 客户端应用程序通过 `response_type=id_token` 请求 id_token 时，还会请求上面创建的 Web API 的访问令牌 (`response_type=token`)。 因此，使用 v2.0 终结点时，`scope` 参数应与 `api://GUID/SCOPE` 类似。 在 v1.0 终结点上，`resource` 参数应为 Web API 应用 URI。
 1. 将此访问令牌传递到中间层，代替 id_token。  
 
+<!-- Update_Description: wording update -->

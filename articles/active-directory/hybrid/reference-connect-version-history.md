@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/23/2019
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f89144b087b10a56933fcd55005a3c0477222ebf
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: b0aefaf610f0b6986c1cb19f67d95e13ad0dd800
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134336"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292098"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发行历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -44,6 +44,49 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 遵循此过程时，发行版的版本号将以“X”形式显示在次要版本号位置，例如“1.3.X.0”- 这表示此文档中的发行说明适用于以“1.3”开头的所有版本。 完成发布过程后，我们会立即将发行版本号更新为最近发布的版本，并将发布状态更新为“已发布供下载和自动升级”。
 并非所有版本的 Azure AD Connect 都可用于自动升级。 版本状态将指示版本是否可用于自动升级或仅供下载。 如果在 Azure AD Connect 服务器上启用了自动升级，那么该服务器将自动升级到针对自动升级发布的最新版 Azure AD Connect。 请注意，并非所有 Azure AD Connect 配置都有资格进行自动升级。 请点击此链接阅读有关[自动升级](/active-directory/hybrid/how-to-connect-install-automatic-upgrade)的详细信息
 
+## <a name="14x0"></a>1.4.X.0
+
+### <a name="release-status"></a>版本状态
+9/10/2019：仅发布用于自动升级
+
+### <a name="new-features-and-improvements"></a>新增功能和改进
+- 新的故障排除工具可帮助排查“用户未同步”、“组未同步”或“组成员未同步”问题。
+- 在 AAD Connect 故障排除脚本中添加了对国家云的支持 
+- 应通知客户 MIIS_Service 的已弃用 WMI 终结点现已删除。 现在，任何 WMI 操作应通过 PS cmdlet 完成。
+- 通过重置 AZUREADSSOACC 对象中的约束委托来提高安全性
+- 添加/编辑同步规则时，如果在规则中使用的任何属性位于未添加到连接器的连接器架构中，会自动将这些属性添加到连接器。 规则影响的对象类型也是如此。 如果在连接器中添加了任何内容，该连接器将标记为在下一个同步周期完全导入。
+- 不再支持使用企业或域管理员作为连接器帐户。
+- 在同步管理器中，创建/编辑/删除规则时将运行完全同步。 如果完全导入或完全同步操作将要运行，在发生任何规则更改时将弹出通知。
+- 已将密码错误的缓解步骤添加到“连接器 > 属性 > 连接”页
+- 在连接器属性页上添加了同步服务管理器弃用警告。 此警告通知用户应通过 AADC 向导进行更改。
+- 针对用户密码策略问题添加了新错误。
+- 防止不当配置通过域和 OU 筛选器进行组筛选。 已筛选出输入组的域/OU 时，组筛选将显示一条错误消息，并在问题得到解决之前阻止用户继续操作。
+- 用户不再可以在旧 UI 中为 Active Directory 域服务或 Azure Active Directory 创建连接器。
+- 在同步服务管理器中修复了自定义 UI 控件的辅助功能
+- 为 Azure AD Connect 中的所有登录方法启用了六个联合管理任务。  （以前，所有登录只能使用“更新 AD FS SSL 证书”任务。）
+- 添加了将登录方法从联合更改为 PHS 或 PTA 时的警告，指出所有 Azure AD 域和用户将转换为托管身份验证。
+- 从“重置 Azure AD 和 AD FS 信任”任务中删除了令牌签名证书，并添加了单独的子任务来更新这些证书。
+- 添加了名为“管理证书”的新联合管理任务，其中包含用于更新 AD FS 场的 SSL 或令牌签名证书的子任务。
+- 添加了名为“指定主服务器”的新联合管理子任务，该任务可让管理员为 AD FS 场指定新的主服务器。
+- 添加了名为“管理服务器”的新联合管理任务，其中包含用于部署 AD FS 服务器、部署 Web 应用程序代理服务器和指定主服务器的子任务。
+- 添加了名为“查看联合配置”的新联合管理任务，它会显示当前 AD FS 设置。  （由于添加了此任务，已从“查看解决方案”页中删除了 AD FS 设置。）
+
+### <a name="fixed-issues"></a>修复的问题
+- 解决了当接管相应联系人对象的用户对象存在自我引用情况（例如，用户是其自己的管理员）时出现同步错误的问题。
+- “帮助”弹出窗口现在会在键盘焦点上显示。
+- 在自动升级期间，如果任何有冲突的应用运行了 6 小时，则会将其终止，然后继续升级。
+- 将客户在选择目录扩展时可选择的属性数限制为每个对象 100 个属性。 这可以防止在导出过程中出错，因为 Azure 的最大限制为每个对象最多有 100 个扩展属性。
+- 修复了一个 bug，使 AD 连接脚本更可靠
+- 修复了一个 bug，使得通过现有命名管道 WCF 服务在计算机上安装的 AADConnect 更可靠。
+- 改进了在初始安装后不允许 ADSync 服务启动的组策略的诊断和故障排除。
+- 修复了一个 bug：Windows 计算机的显示名称拼写错误。
+- 修复了一个 bug：Windows 计算机的 OS 类型拼写错误。
+- 修复了一个 bug：非 Windows 10 计算机意外同步。 请注意，此项更改的影响是，以前已同步的非 Windows 10 计算机现在将被删除。 这不会影响任何功能，因为 Windows 计算机同步仅用于混合 Azure AD 域加入，而后者仅适用于 Windows 10 设备。 
+- 修复了一个 bug：Windows 计算机的显示名称拼写错误。
+- 修复了一个 bug：Windows 计算机的 OS 类型拼写错误。
+- 已将多个新的（内部）cmdlet 添加到 ADSync PowerShell 模块。
+
+
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
 >将 Azure AD Connect 从早期版本升级到 1.3.21.0 存在一个已知问题，即，即使 Azure AD Connect 升级成功，O365 门户也不反映已更新版本。
@@ -54,16 +97,13 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 >2. 运行 `Import-Module "ADSync"`
 >3. 运行 `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
-
-
 ### <a name="release-status"></a>版本状态 
 
 2019 年 5 月 14 日：已发布，供下载
 
-
 ### <a name="fixed-issues"></a>修复的问题 
 
-- 修复了 Azure Active Directory Connect 内部版本 1.3.20.0 中存在的特权提升漏洞。  在某些情况下，此漏洞可能允许攻击者在特权帐户的上下文中执行两个 powershell cmdlet，并执行特权操作。  此安全更新通过禁用这些 cmdlet 来解决此问题。 
+- 修复了 Azure Active Directory Connect 内部版本 1.3.20.0 中存在的特权提升漏洞。  在某些情况下，此漏洞可能允许攻击者在特权帐户的上下文中执行两个 powershell cmdlet，并执行特权操作。  此安全更新通过禁用这些 cmdlet 来解决此问题。 有关详细信息，请参阅[安全更新](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)。
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -86,7 +126,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 升级到了 ADAL 3.19.8 以便对 Ping 执行 WS-Trust 修复，并添加了对新 Azure 实例的支持 
 - 修改了组同步规则，以便将声明所需的 samAccountName、DomainNetbios 和 DomainFQDN 传送到云中 
 - 修改了默认同步规则处理 - 在[此处](how-to-connect-fix-default-rules.md)了解详细信息。
-- 添加了一个作为 Windows 服务运行的新代理。 此代理名为“管理代理”，可用于对 Azure AD Connect 服务器进行更深入的远程诊断，以帮助 Microsoft 工程师在收到支持案例时进行故障排除。 默认情况下不会安装并启用此代理。  有关如何安装并启用此代理的详细信息，请参阅[什么是 Azure AD Connect 管理员代理？](whatis-aadc-admin-agent.md)。 
+- 添加了一个作为 Windows 服务运行的新代理。 此代理名为“管理代理”，可用于对 Azure AD Connect 服务器进行更深入的远程诊断，以帮助 Microsoft 工程师在收到支持案例时进行故障排除。 默认情况下不会安装并启用此代理。  
 - 更新了最终用户许可协议 (EULA) 
 - 为使用 AD FS 作为登录类型的部署添加了自动升级支持。  借助此新增功能，在升级过程中不再需要更新 AD FS Azure AD 信赖方信任。 
 - 添加了一个 Azure AD 信任管理任务，该任务提供两个选项：分析/更新信任和重置信任。 
@@ -95,7 +135,6 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 更新了“安装新 AD FS 场”工作流，使其只允许部署 1 个 AD FS 和 1 个 WAP 服务器。  完成初始安装后，将配置所有附加服务器。 
 
 ### <a name="fixed-issues"></a>修复的问题 
-
 
 - 修复了 SQL 重新连接 ADSync 服务逻辑的问题 
 - 修复后允许使用空的 SQL AOA DB 执行全新安装 
@@ -207,7 +246,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 ### <a name="new-features-and-improvements"></a>新增功能和改进
 
 - Azure AD Connect 中的 Ping Federate 集成现已公开发布。 [深入了解如何将 Azure AD 与 Ping Federate 联合](/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Azure AD Connect 现在每次更新时都可在 AD FS 中创建 Azure AD 信任的备份，并将其存储在单独的文件中以便轻松还原（如果需要）。 [详细了解 Azure AD Connect 中的新增功能和 Azure AD 信任管理](https://aka.ms/fedtrustinaadconnect)。
+- Azure AD Connect 现在每次更新时都可在 AD FS 中创建 Azure AD 信任的备份，并将其存储在单独的文件中以便轻松还原（如果需要）。 
 - 新的故障排除工具有助于解决更改主要电子邮件地址和隐藏全局地址列表中的帐户的问题
 - 已更新 Azure AD Connect，以包括最新版 SQL Server 2012 本机客户端
 - 如果在“更改用户登录”任务中将用户登录切换为“密码哈希同步”或“直通身份验证”，将默认启用“无缝单一登录”复选框。

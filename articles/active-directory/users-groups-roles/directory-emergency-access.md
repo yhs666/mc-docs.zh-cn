@@ -1,11 +1,11 @@
 ---
 title: 管理紧急访问管理员帐户 - Azure Active Directory | Microsoft Docs
-description: 本文介绍如何借助紧急访问帐户来防止意外地被锁在 Azure Active Directory (Azure AD) 租户之外的情况。
+description: 本文介绍如何借助紧急访问帐户来防止意外地被锁在 Azure Active Directory (Azure AD) 组织之外的情况。
 services: active-directory
 author: markwahl-msft
 ms.author: v-junlch
-origin.date: 03/19/2019
-ms.date: 08/12/2019
+origin.date: 09/09/2019
+ms.date: 10/11/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d6eacb6ed73da843a6b074704367ab63bb7c74a
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: f55f9049a77caaf87b59f849cbce769b1bf91016
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973047"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292133"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>在 Azure AD 中管理紧急访问帐户
 
-必须防止意外地被锁在 Azure Active Directory (Azure AD) 租户之外，因为在这种情况下，无法以管理员的身份登录或激活现有的个人用户帐户。 可在租户中创建两个或更多紧急访问帐户，缓解不经意丧失管理访问权限造成的影响  。
+必须防止意外地被锁在 Azure Active Directory (Azure AD) 组织之外，因为在这种情况下，无法以管理员的身份登录或激活其他用户帐户。 可在组织中创建两个或更多个紧急访问帐户，缓解意外丧失管理访问权限造成的影响。 
 
-紧急访问帐户拥有较高的特权，因此请不要将其分配给特定的个人。 紧急访问帐户只能用于“破窗”紧急情况，即不能使用正常管理帐户的情况。 组织必须始终以将紧急帐户的使用限于绝对必要情况为目标。
+紧急访问帐户拥有较高的特权，因此请不要将其分配给特定的个人。 紧急访问帐户只能用于“不受限”紧急情况，即不能使用正常管理帐户的情况。 建议你始终以将紧急帐户的使用限于绝对必要情况为目标。
 
 本文提供有关在 Azure AD 中管理紧急访问帐户的指导。
 
-## <a name="when-would-you-use-an-emergency-access-account"></a>何时使用紧急访问帐户？
+## <a name="why-use-an-emergency-access-account"></a>为何使用紧急访问帐户
 
 在以下情况下，组织可能需要使用紧急访问帐户：
 
@@ -37,7 +37,7 @@ ms.locfileid: "68973047"
 - 具有最新全局管理访问权限的人员离开了组织。 Azure AD 将阻止删除最后一个全局管理员帐户，但它不会阻止从本地删除或禁用该帐户。 这两种情况都可能使组织无法恢复帐户。
 - 出现自然灾害等不可预见的紧急情况，导致手机或其他网络不可用。 
 
-## <a name="create-two-cloud-based-emergency-access-accounts"></a>创建两个基于云的紧急访问帐户
+## <a name="create-emergency-access-accounts"></a>创建紧急访问帐户
 
 创建两个或多个紧急访问帐户。 这些帐户应是仅限云帐户，使用 \*.partner.onmschina.cn 域且未与本地环境联合或同步。
 
@@ -48,7 +48,6 @@ ms.locfileid: "68973047"
 - 设备或凭据不得过期，或者由于使用次数不多而划归到自动清理的范围内。  
 - 应将全局管理员角色分配设为紧急访问帐户的永久角色。 
 
-
 ### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>从基于电话的多重身份验证中排除至少一个帐户
 
 为降低泄露密码所致攻击的风险，Azure AD 建议要求所有用户使用多重身份验证。 此组包括管理员和被盗帐户将产生重大影响的其他所有用户（例如财务）。
@@ -57,26 +56,25 @@ ms.locfileid: "68973047"
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>从条件访问策略中排除至少一个帐户
 
-在紧急情况下，你不希望某个策略阻止你进行访问以解决问题。 应从所有条件访问策略中排除至少一个紧急访问帐户。 如果已启用[基准策略](../conditional-access/concept-baseline-protection.md)，应排除紧急访问帐户。
+在紧急情况下，你不希望某个策略阻止你进行访问以解决问题。 应从所有条件访问策略中排除至少一个紧急访问帐户。 如果已启用[基准策略](../conditional-access/baseline-protection.md)，应排除紧急访问帐户。
 
-## <a name="additional-guidance-for-hybrid-customers"></a>面向混合客户的更多指导
+## <a name="federation-guidance"></a>联合身份验证指南
 
 对于使用 AD 域服务和 ADFS 或类似标识提供者联合到 Azure AD 的组织，另一种做法是配置一个可由该标识提供者提供 MFA 声明的紧急访问帐户。  例如，紧急访问帐户可由证书和密钥对（例如，存储在智能卡上）提供安全保障。  当该用户在 AD 中进行身份验证时，ADFS 可向 Azure AD 提供声明，指示该用户满足 MFA 要求。  即使使用此方法，组织也仍需要提供基于云的紧急访问帐户，否则无法建立联合。 
 
-## <a name="store-devices-and-credentials-in-a-safe-location"></a>将设备和凭据存储在安全位置
+## <a name="store-account-credentials-safely"></a>安全地存储帐户凭据
 
 组织需要确保紧急访问帐户的凭据始终安全且仅为有权使用它们的用户所知。 有些客户使用智能卡，有些客户使用密码。 紧急访问帐户的密码通常分为两到三个部分，分开写在纸上，存储在安全独立位置中的防火保险柜中。
 
 如果使用密码，请确保为帐户使用不会过期的强密码。 密码最好是至少包含 16 个字符，且随机生成。
 
-
 ## <a name="monitor-sign-in-and-audit-logs"></a>监视登录和审核日志
 
-监视 [Azure AD 登录和审核日志](../reports-monitoring/concept-sign-ins.md)中紧急访问帐户的任何登录和审核活动。 正常情况下，这些帐户不应有登录和更改行为，因此其使用很可能是异常且需要进行安全调查。
+组织应该监视紧急帐户的登录和审核日志活动，并触发目标为其他管理员的通知。 监视不受限帐户的活动时，可以验证这些帐户是仅用于测试，还是用于真实的紧急情况。 可以使用 Azure Log Analytics 监视登录日志，在不受限帐户登录时触发接收人为管理员的电子邮件和短信警报。
 
-## <a name="validate-accounts-at-regular-intervals"></a>定期验证帐户
+## <a name="validate-accounts-regularly"></a>定期验证帐户
 
-若要为员工培训紧急访问帐户的用法和验证紧急访问帐户，至少应定期执行以下步骤：
+为员工培训紧急访问帐户的用法和验证紧急访问帐户时，至少应定期执行以下步骤：
 
 - 确保安全监视人员了解正在进行帐户检查活动。
 - 确保使用这些帐户的紧急破窗流程有文档记录，且是最新的流程。
@@ -100,3 +98,4 @@ ms.locfileid: "68973047"
 - [在 Office 365 中为全局管理员配置额外的保护](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)（如果使用 Office 365）
 - [启动全局管理员访问评审](../privileged-identity-management/pim-how-to-start-security-review.md)并[将现有全局管理员转换为更具体的管理员角色](directory-assign-admin-roles.md)
 
+<!-- Update_Description: wording update -->

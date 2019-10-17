@@ -1,5 +1,5 @@
 ---
-title: Azure 数据工厂的复制活动性能和优化指南 | Microsoft Docs
+title: Azure 数据工厂的复制活动性能和可伸缩性指南 | Microsoft Docs
 description: 了解使用复制活动时影响 Azure 数据工厂中数据移动性能的关键因素。
 services: data-factory
 documentationcenter: ''
@@ -10,74 +10,130 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 07/02/2019
-ms.date: 08/12/2019
+origin.date: 09/02/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 47dc776e3488986ca6840642e065ce28683a9f1a
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 3f39d118911ad2c10927201de3e8f668069d3746
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908728"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275412"
 ---
-# <a name="copy-activity-performance-and-tuning-guide"></a>复制活动性能和优化指南
+# <a name="copy-activity-performance-and-scalability-guide"></a>复制活动性能和可伸缩性指南
 
-Azure 数据工厂复制活动提供安全、可靠且高性能的一流数据加载解决方案。 使用它可在各种云和本地数据存储中每天复制数十 TB 的数据。 速度超快的数据加载性能是确保用户能专注于核心“大数据”问题的关键：构建高级分析解决方案并从所有数据获得深入见解。
+无论是要执行从 Data Lake 或企业数据仓库 (EDW) 到 Azure 的大规模数据迁移，还是要将数据从不同的源大规模引入到 Azure 以进行大数据分析，实现最佳性能和可伸缩性都至关重要。  Azure 数据工厂提供高性能、可复原且经济高效的机制用于大规模引入数据，因此，想要生成高性能、可缩放数据引入管道的数据工程师非常适合使用数据工厂。
 
-Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活动提供高度优化的、易于配置和设置的数据加载体验。 使用单个复制活动可以：
+阅读本文后，能够回答以下问题：
 
-* 以 1.2 GBps 的速度将数据载入 Azure SQL 数据仓库。
-* 以 1.0 GBps 的速度将数据载入 Azure Blob 存储。
+- 对于数据迁移和数据引入方案，使用 ADF 复制活动可以实现哪种程度的性能和可伸缩性？
 
-本文介绍：
-
-* 支持的源和接收器数据存储的[性能参考数字](#performance-reference)，可帮助用户规划项目。
-* 可在不同情况下提高复制吞吐量的功能，包括[数据集成单元](#data-integration-units) (DIU)、[并行复制](#parallel-copy)和[分步复制](#staged-copy)。
-* 有关如何优化性能和调整影响复制性能的关键因素的[性能优化指南](#performance-tuning-steps)。
+- 应执行哪些步骤来优化 ADF 复制活动的性能？
+- 可以利用哪些 ADF 性能优化设置来优化单个复制活动运行的性能？
+- 优化复制性能时，需要考虑 ADF 以外的其他哪些因素？
 
 > [!NOTE]
 > 如果你对常规复制活动不熟悉，在阅读本文前请参阅[复制活动概述](copy-activity-overview.md)。
->
 
-## <a name="performance-reference"></a>性能参考
+## <a name="copy-performance-and-scalability-achievable-using-adf"></a>使用 ADF 可实现的复制性能和可伸缩性
 
-作为参考，下表基于内部测试显示了单次复制活动运行中给定源和接收器对的复制吞吐量数目（以 MBps 为单位）。 为进行比较，它还演示了[数据集成单元](#data-integration-units)或[自承载集成运行时可伸缩性](concepts-integration-runtime.md#self-hosted-integration-runtime)的不同设置（多个节点）如何提升复制性能。
+ADF 提供一个可在不同级别实现并行度的无服务器体系结构，使开发人员能够生成管道，以充分利用网络带宽以及存储 IOPS 和带宽将环境的数据移动吞吐量最大化。  这意味着，可以通过度量源数据存储、目标数据存储提供的最小吞吐量，以及源与目标之间的网络带宽，来估算可实现的吞吐量。  下表根据环境的数据大小和带宽限制计算复制持续时间。 
 
-![性能矩阵](./media/copy-activity-performance/CopyPerfRef.png)
+| 数据大小/ <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1 GB**                    | 2.7 分钟    | 1.4 分钟   | 0.3 分钟   | 0.1 分钟  | 0.03 分钟 | 0.01 分钟 | 0.0 分钟   |
+| **10 GB**                   | 27.3 分钟   | 13.7 分钟  | 2.7 分钟   | 1.3 分钟  | 0.3 分钟  | 0.1 分钟  | 0.03 分钟  |
+| **100 GB**                  | 4.6 小时    | 2.3 小时   | 0.5 小时   | 0.2 小时  | 0.05 小时 | 0.02 小时 | 0.0 小时   |
+| **1 TB**                    | 46.6 小时   | 23.3 小时  | 4.7 小时   | 2.3 小时  | 0.5 小时  | 0.2 小时  | 0.05 小时  |
+| **10 TB**                   | 19.4 天  | 9.7 天  | 1.9 天  | 0.9 天 | 0.2 天 | 0.1 天 | 0.02 天 |
+| **100 TB**                  | 194.2 天 | 97.1 天 | 19.4 天 | 9.7 天 | 1.9 天 | 1 天   | 0.2 天  |
+| **1 PB**                    | 64.7 个月    | 32.4 个月   | 6.5 个月    | 3.2 个月   | 0.6 个月   | 0.3 个月   | 0.06 个月   |
+| **10 PB**                   | 647.3 个月   | 323.6 个月  | 64.7 个月   | 31.6 个月  | 6.5 个月   | 3.2 个月   | 0.6 个月    |
 
-> [!IMPORTANT]
-> 对 Azure Integration Runtime 运行复制活动时，允许的数据集成单元（以前称为数据移动单元）数量下限为两个。 如果未指定，请参阅[数据集成单元](#data-integration-units)中使用的默认数据集成单元数。
+ADF 副本可在不同的级别缩放：
 
-**需要注意的要点：**
+![ADF 副本的缩放方式](media/copy-activity-performance/adf-copy-scalability.png)
 
-* 使用以下公式计算吞吐量：[从源读取的数据大小]/[复制活动运行持续时间]。
-* 表中的性能参考数字使用单次复制活动运行中的 [TPC-H](http://www.tpc.org/tpch/) 数据集测量得出。 基于文件的存储的测试文件是多个大小为 10 GB 的文件。
-* 在 Azure 数据存储中，源和接收器位于同一 Azure 区域。
-* 对于本地数据存储和云数据存储之间的混合复制，已在与数据存储分开并具有以下规格的计算机上运行每个自承载集成运行时节点。 单个活动运行时，复制操作仅使用测试计算机的一小部分 CPU、内存或网络带宽。
-    <table>
-    <tr>
-        <td>CPU</td>
-        <td>32 核 2.20 GHz Intel Xeon E5-2660 v2</td>
-    </tr>
-    <tr>
-        <td>内存</td>
-        <td>128 GB</td>
-    </tr>
-    <tr>
-        <td>网络</td>
-        <td>Internet 接口：10 Gbps；Intranet 接口：40 Gbps</td>
-    </tr>
-    </table>
+- ADF 控制流可以同时启动多个复制活动（例如，使用 [For Each 循环](control-flow-for-each-activity.md)）。
+- 单个复制活动可以利用可缩放的计算资源：使用 Azure Integration Runtime 时，能够以无服务器方式为每个复制活动指定[最多 256 个 DIU](#data-integration-units)；使用自承载集成运行时时，可以手动纵向扩展计算机或横向扩展为多个计算机（[最多 4 个节点](create-self-hosted-integration-runtime.md#high-availability-and-scalability)），单个复制活动会在所有节点之间将其文件集分区。
+- 单个复制活动[并行](#parallel-copy)使用多个线程读取和写入数据存储。
 
+## <a name="performance-tuning-steps"></a>性能优化步骤
 
-> [!TIP]
-> 使用更多的 DIU 可以实现更高的吞吐量。 例如，使用 100 个 DIU，可将数据以 1.0 GBps 的速率从 Azure Blob 存储复制到 Azure Data Lake Store 中。 有关此功能和受支持方案的详细信息，请参阅[数据集成单元](#data-integration-units)部分。 
+请执行以下步骤，通过复制活动优化 Azure 数据工厂服务的性能。
 
-## <a name="data-integration-units"></a>数据集成单元
+1. **选取测试数据集并建立基线。** 在开发阶段，通过对代表性数据示例使用复制活动来测试管道。 选择的数据集应代表典型的数据模式（文件夹结构、文件模式、数据架构等），并且应足够大，以便能够评估复制性能，例如，复制活动需要 10 分钟或更长时间才能完成。 按照[复制活动监视](copy-activity-overview.md#monitoring)收集执行详细信息和性能特征。
+
+2. **如何最大化单个复制活动的性能**：
+
+   首先，我们建议使用单个复制活动来最大化性能。
+
+   **如果复制活动在 Azure Integration Runtime 中执行：**
+
+   一开始对[数据集成单位 (DIU)](#data-integration-units) 和[并行复制](#parallel-copy)设置使用默认值。  执行性能测试运行，记下实现的性能，以及用于 DIU 和并行复制的实际值。  有关如何收集运行结果和所用性能设置，请参阅[复制活动监视](copy-activity-overview.md#monitoring)。
+
+   现在，请进一步执行性能测试运行，每次将 DIU 设置值加倍。  或者，如果你认为使用默认设置实现的性能远远低于预期，可以在后续测试运行中大幅提高 DIU 设置。
+
+   提高 DIU 设置时，复制活动应尽可接近完美地呈线性缩放。  如果已将 DIU 设置加倍，但吞吐量却未翻倍，可能表示存在两个问题：
+
+   - 添加更多的 DIU 不能使运行的特定复制模式受益。  尽管指定了更大的 DIU 值，但实际使用的 DIU 仍保持不变，因此，获得的吞吐量与以前相同。  如果存在这种情况，请参考步骤 3 并行运行多项复制，以最大化聚合吞吐量。
+   - 添加更多 DIU（提高计算能力），从而促成了更高的数据提取、传输和加载速率后，源数据存储、目标数据存储或两者之间的网络已达到其瓶颈，因此可能已受到限制。  如果存在这种情况，请尝试联系数据存储管理员或网络管理员来提高上限，或降低 DIU 设置，直到限制不再发生。
+
+   **如果复制活动在自承载集成运行时中执行：**
+
+   我们建议使用专用的计算机来承载集成运行时，而不要使用承载数据存储的服务器。
+
+   一开始对[并行复制](#parallel-copy)设置使用默认值，并对自承载 IR 使用单个节点。  执行性能测试运行，并记下实现的性能。
+
+   若要实现更高的吞吐量，可以纵向扩展或横向扩展自承载 IR：
+
+   - 如果自承载 IR 节点上的 CPU 和可用内存未充分利用，但并发作业执行即将达到限制，应通过增加节点上可运行的并发作业数进行纵向扩展。  有关说明，请参阅[此文](create-self-hosted-integration-runtime.md#scale-up)。
+   - 另一方面，如果 CPU 利用率在自承载 IR 节点上较高，或者可用内存较低，你可以添加新节点，以帮助在多个节点之间横向扩展负载。  有关说明，请参阅[此文](create-self-hosted-integration-runtime.md#high-availability-and-scalability)。
+
+   纵向或横向扩展自承载 IR 的容量时，请重复性能测试运行，以确定是否能够不断地提高吞吐量。  如果吞吐量不再改善，原因很可能是源数据存储、目标数据存储或两者之间的网络已达到其瓶颈，因此开始受到限制。 如果存在这种情况，请尝试联系数据存储管理员或网络管理员来提高上限，或者恢复为先前对自承载 IR 使用的缩放设置。 
+
+3. **如何通过并行运行多项复制来最大化聚合吞吐量：**
+
+   最大化单个复制活动的性能后，如果尚未实现环境（网络、源数据存储和目标数据存储）的吞吐量上限，可以使用 ADF 控制流构造（例如 [For Each 循环](control-flow-for-each-activity.md)）并行运行多个复制活动。
+
+4. **性能优化提示和优化功能。** 在某些情况下，当你在 Azure 数据工厂中运行复制活动时，[复制活动监视](copy-activity-overview.md#monitor-visually)的顶部会显示“性能调优提示”消息，如以下示例所示。 该消息将告知针对给定复制运行识别到的瓶颈。 此外，它还会提供有关如何进行更改以提升复制吞吐量的指导。 性能优化提示目前提供如下建议：
+
+   - 将数据加载到 Azure SQL 数据仓库时使用 PolyBase。
+   - 当数据存储端的资源造成瓶颈时，增加 Azure Cosmos DB 请求单位数或 Azure SQL 数据库 DTU（数据库吞吐量单位）数。
+   - 删除不必要的暂存副本。
+
+   性能优化规则也将逐渐丰富。
+
+   **示例：复制到 Azure SQL 数据库时的性能优化提示**
+
+   在此示例中，在执行复制运行过程中，Azure 数据工厂将会告知接收器 Azure SQL 数据库已达到高 DTU 利用率，从而减慢了写入速度。 建议使用更多的 DTU 来提高 Azure SQL 数据库层。 
+
+   ![包含性能优化提示的复制监视](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+   此外，还应注意下面的一些性能优化功能：
+
+   - [并行复制](#parallel-copy)
+   - [数据集成单元](#data-integration-units)
+   - [暂存复制](#staged-copy)
+   - [自承载集成运行时可伸缩性](concepts-integration-runtime.md#self-hosted-integration-runtime)
+
+5. **将配置扩展至整个数据集。** 对执行结果和性能满意时，可以扩展定义和管道以覆盖整个数据集。
+
+## <a name="copy-performance-optimization-features"></a>复制性能优化功能
+
+Azure 数据工厂提供以下性能优化功能：
+
+- [并行复制](#parallel-copy)
+- [数据集成单元](#data-integration-units)
+- [暂存复制](#staged-copy)
+
+### <a name="data-integration-units"></a>数据集成单元
 
 数据集成单元是一种度量单位，代表单个单位在 Azure 数据工厂中的能力（包含 CPU、内存、网络资源分配）。 数据集成单元仅适用于 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)，而不适用于[自承载集成运行时](concepts-integration-runtime.md#self-hosted-integration-runtime)。
 
-运行复制活动所需的最小 DIU 数为 2。 如果未指定，下表列出了不同复制方案中使用的默认 DIU 数目：
+计费公式为 (已用 DIU 数) \* (复制持续时间) \* (单价/DIU 小时数)。  [此网页](https://azure.cn/pricing/details/data-factory/data-pipeline/)上提供了当前价格。 可能会按订阅类型应用本地货币和不同的折扣。
+
+允许用来为复制活动运行提供支持的 DIU 数为 **2 到 256 个**。 如果未指定该数目或者在 UI 中选择“自动”，则数据工厂将根据源-接收器对和数据模式动态应用最佳的 DIU 设置。 下表列出了不同复制方案中使用的默认 DIU 数目：
 
 | 复制方案 | 服务决定的默认 DIU 数目 |
 |:--- |:--- |
@@ -85,15 +141,14 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 | 将数据复制到 Azure SQL 数据库或 Azure Cosmos DB |4 到 16 个，具体取决于接收器 Azure SQL 数据库或 Cosmos DB 的层（DTU/RU 数目） |
 | 所有其他复制方案 | 4 |
 
-若要替代此默认值，请如下所示指定 **dataIntegrationUnits** 属性的值。 **dataIntegrationUnits** 属性允许的值最大为 256。  复制操作在运行时使用的*实际 DIU 数*等于或小于配置的值，具体取决于数据模式。 有关为特定复制源和接收器配置更多单元时可能获得的性能增益级别的信息，请参阅[性能参考](#performance-reference)。
+若要替代此默认值，请如下所示指定 **dataIntegrationUnits** 属性的值。 复制操作在运行时使用的*实际 DIU 数*等于或小于配置的值，具体取决于数据模式。
 
 监视活动运行时，可以在复制活动输出中查看用于每个复制运行的 DIU。 有关详细信息，请参阅[复制活动监视](copy-activity-overview.md#monitoring)。
 
 > [!NOTE]
 > 当前仅当将多个文件从 Azure 存储、Amazon S3、Google Cloud Storage、云 FTP、云 SFTP 复制到任何其他云数据存储时，大于 4 的 DIU 设置才适用。
->
 
-**示例**
+**示例：**
 
 ```json
 "activities":[
@@ -115,11 +170,7 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 ]
 ```
 
-### <a name="data-integration-units-billing-impact"></a>数据集成单元计费影响
-
-请记住，会根据复制操作的总时间向你收费。 对数据移动计费的总持续时间是所有 DIU 的持续时间总和。 如果复制作业过去使用 2 个云单元花费 1 小时，现在使用 8 个云单元花费 15 分钟，则总费用几乎相同。
-
-## <a name="parallel-copy"></a>并行复制
+### <a name="parallel-copy"></a>并行复制
 
 可使用 **parallelCopies** 属性指示要让复制活动使用的并行度。 可将此属性视为复制活动内，可从源并行读取或并行写入接收器数据存储的最大线程数。
 
@@ -128,6 +179,7 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 | 复制方案 | 由服务确定的默认并行复制计数 |
 | --- | --- |
 | 在基于文件的存储之间复制数据 |取决于文件大小以及用于在两个云数据存储之间复制数据的 DIU 数，或自承载集成运行时计算机的物理配置。 |
+| 从启用了分区选项的关系数据存储（包括 [Oracle](connector-oracle.md#oracle-as-source)、[Netezza](connector-netezza.md#netezza-as-source)、[Teradata](connector-teradata.md#teradata-as-source)、[SAP Table](connector-sap-table.md#sap-table-as-source) 和 [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)）复制|4 |
 | 将数据从任何源存储复制到 Azure 表存储 |4 |
 | 所有其他复制方案 |1 |
 
@@ -135,6 +187,15 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 > 在基于文件的存储之间复制数据时，默认行为通常可提供最佳吞吐量。 默认行为是根据源文件模式自动确定的。
 
 若要控制托管数据存储的计算机上的负载或优化复制性能，可以替代默认值并为 **parallelCopies** 属性指定值。 该值必须是大于或等于 1 的整数。 在运行时，为了获得最佳性能，复制活动使用小于或等于所设置的值。
+
+**需要注意的要点：**
+
+- 在基于文件的存储之间复制数据时，**parallelCopies** 确定文件级别的并行度。 单个文件内的区块化会自动透明地在文件下进行。 它旨在对给定源数据存储类型使用最佳区块大小，以并行独立方式将数据加载到 **parallelCopies**。 数据移动服务在运行时用于复制操作的并行复制的实际数量不超过所拥有的文件数。 如果复制行为是 **mergeFile**，复制活动无法利用文件级别的并行度。
+- 将非基于文件的存储（将启用了数据分区的 [Oracle](connector-oracle.md#oracle-as-source)、[Netezza](connector-netezza.md#netezza-as-source)、[Teradata](connector-teradata.md#teradata-as-source)、[SAP Table](connector-sap-table.md#sap-table-as-source) 和 [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 连接器用作源时除外）中的数据复制到基于文件的存储时，数据移动服务将忽略 **parallelCopies** 属性。 即使指定了并行性，在此情况下也不适用。
+- **parallelCopies** 属性独立于 **dataIntegrationUnits**。 前者跨所有数据集成单元进行计数。
+- 为 **parallelCopies** 属性指定值时，请考虑源和接收器数据存储上的负载会增加。 另外请考虑到，如果复制活动由自承载集成运行时提供支持（例如，使用混合复制时），则自承载集成运行时的负载也会增加。 尤其在有多个活动或针对同一数据存储运行的相同活动有并发运行时，会发生这种负载增加的情况。 如果注意到数据存储或自承载集成运行时负载过重，请降低 **parallelCopies**  值以减轻负载。
+
+**示例：**
 
 ```json
 "activities":[
@@ -156,14 +217,7 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 ]
 ```
 
-**需要注意的要点：**
-
-* 在基于文件的存储之间复制数据时，**parallelCopies** 确定文件级别的并行度。 单个文件内的区块化会自动透明地在文件下进行。 它旨在对给定源数据存储类型使用最佳区块大小，以并行独立方式将数据加载到 **parallelCopies**。 数据移动服务在运行时用于复制操作的并行复制的实际数量不超过所拥有的文件数。 如果复制行为是 **mergeFile**，复制活动无法利用文件级别的并行度。
-* 将非基于文件的存储（已启用数据分区的用作源的 Oracle 数据库除外）中的数据复制到基于文件的存储时，数据移动服务将忽略 **parallelCopies** 属性。 即使指定了并行性，在此情况下也不适用。
-* **parallelCopies** 属性独立于 **dataIntegrationUnits**。 前者跨所有数据集成单元进行计数。
-* 为 **parallelCopies** 属性指定值时，请考虑源和接收器数据存储上的负载会增加。 另外请考虑到，如果复制活动由自承载集成运行时提供支持（例如，使用混合复制时），则自承载集成运行时的负载也会增加。 尤其在有多个活动或针对同一数据存储运行的相同活动有并发运行时，会发生这种负载增加的情况。 如果注意到数据存储或自承载集成运行时负载过重，请降低 **parallelCopies**  值以减轻负载。
-
-## <a name="staged-copy"></a>暂存复制
+### <a name="staged-copy"></a>暂存复制
 
 将数据从源数据存储复制到接收器数据存储时，可能会选择使用 Blob 存储作为过渡暂存存储。 暂存在以下情况下特别有用：
 
@@ -171,7 +225,7 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 - **有时，通过速度慢的网络连接执行混合数据移动（即从本地数据存储复制到云数据存储）需要一段时间。** 为了提高性能，可以使用暂存复制来压缩本地数据，缩短将数据移动到云中的暂存数据存储的时间。 然后，可先在暂存存储中解压缩数据，再将它们加载到目标数据存储。
 - **由于企业 IT 策略，不希望在防火墙中打开除端口 80 和端口 443 以外的端口。** 例如，将数据从本地数据存储复制到 Azure SQL 数据库接收器或 Azure SQL 数据仓库接收器时，需要对 Windows 防火墙和公司防火墙激活端口 1433 上的出站 TCP 通信。 在这种情况下，暂存复制可以利用自承载集成运行时首先在端口 443 上通过 HTTP 或 HTTPS 将数据复制到 Blob 存储暂存实例。 然后，它可以将数据从 Blob 暂存存储加载到 SQL 数据库或 SQL 数据仓库中。 在此流中，不需要启用端口 1433。
 
-### <a name="how-staged-copy-works"></a>暂存复制的工作原理
+#### <a name="how-staged-copy-works"></a>暂存复制的工作原理
 
 激活暂存功能时，首先将数据从源数据存储复制到暂存 Blob 存储（自带）。 然后，将数据从暂存数据存储复制到接收器数据存储。 Azure 数据工厂自动管理两阶段流。 数据移动完成后，Azure 数据工厂还将清除暂存存储中的临时数据。
 
@@ -181,7 +235,7 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 
 目前，无论是否使用暂存复制，都无法在通过不同自承载 IR 连接的两个数据存储之间复制数据。 对于这种情况，可以配置两个显式链接的复制活动，将数据从源复制到暂存存储，然后从暂存存储复制到接收器。
 
-### <a name="configuration"></a>配置
+#### <a name="configuration"></a>配置
 
 在复制活动中配置 **enableStaging** 设置，指定在将数据加载到目标数据存储之前是否要在 Blob 存储中暂存。 将 **enableStaging** 设置为 `TRUE` 时，请指定下表中列出的其他属性。 如果未指定，则还需要创建 Azure 存储或存储共享访问签名链接服务供暂存用。
 
@@ -225,186 +279,12 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 ]
 ```
 
-### <a name="staged-copy-billing-impact"></a>暂存复制计费影响
+#### <a name="staged-copy-billing-impact"></a>暂存复制计费影响
 
 基于两个步骤进行计费：复制持续时间和复制类型。
 
 * 在云复制期间（将数据从一个云数据存储复制到另一个云数据存储，两个阶段均由 Azure Integration Runtime 提供支持）使用暂存时，需要支付 [步骤 1 和步骤 2 的复制持续时间总和] x [云复制单元价格]。
 * 在混合复制期间（将数据从本地数据存储复制到云数据存储，一个阶段由自承载集成运行时提供支持）使用暂存时，需要支付 [混合复制持续时间] x [混合复制单元价格] + [云复制持续时间] x [云复制单元价格]。
-
-## <a name="performance-tuning-steps"></a>性能优化步骤
-
-请执行以下步骤，通过复制活动优化 Azure 数据工厂服务的性能。
-
-1. **建立基准。** 在开发阶段，通过对代表性数据示例使用复制活动来测试管道。 按照[复制活动监视](copy-activity-overview.md#monitoring)收集执行详细信息和性能特征。
-
-2. **诊断和优化性能。** 如果观察到的性能不符合预期，请识别性能瓶颈。 然后，优化性能以消除或减少瓶颈的影响。
-
-    在某些情况下，当你在 Azure 数据工厂中运行复制活动时，将直接在[复制活动监视](copy-activity-overview.md#monitor-visually)页上看到“性能调优提示”消息，如以下示例所示。 该消息将告知针对给定复制运行识别到的瓶颈。 此外，它还会提供有关如何进行更改以提升复制吞吐量的指导。 性能优化提示目前提供如下建议：
-
-    - 将数据加载到 Azure SQL 数据仓库时使用 PolyBase。
-    - 当数据存储端的资源造成瓶颈时，增加 Azure Cosmos DB 请求单位数或 Azure SQL 数据库 DTU（数据库吞吐量单位）数。
-    - 删除不必要的暂存副本。
-
-    性能优化规则也将逐渐丰富。
-
-    **示例：复制到 Azure SQL 数据库时的性能优化提示**
-
-    在此示例中，在执行复制运行过程中，Azure 数据工厂将会告知接收器 Azure SQL 数据库已达到高 DTU 利用率，从而减慢了写入速度。 建议使用更多的 DTU 来提高 Azure SQL 数据库层。 
-
-    ![包含性能优化提示的复制监视](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
-
-    此外，以下是一些常见的注意事项。 本文不涵盖性能诊断的完整说明。
-
-   * 性能功能：
-     * [并行复制](#parallel-copy)
-     * [数据集成单元](#data-integration-units)
-     * [暂存复制](#staged-copy)
-     * [自承载集成运行时可伸缩性](concepts-integration-runtime.md#self-hosted-integration-runtime)
-   * [自承载 Integration Runtime](#considerations-for-self-hosted-integration-runtime)
-   * [Source](#considerations-for-the-source)
-   * [接收器](#considerations-for-the-sink)
-   * [序列化和反序列化](#considerations-for-serialization-and-deserialization)
-   * [压缩](#considerations-for-compression)
-   * [列映射](#considerations-for-column-mapping)
-   * [其他注意事项](#other-considerations)
-
-3. **将配置扩展至整个数据集。** 对执行结果和性能满意时，可以扩展定义和管道以覆盖整个数据集。
-
-## <a name="considerations-for-self-hosted-integration-runtime"></a>自承载集成运行时注意事项
-
-如果在自承载集成运行时上运行复制活动，请注意以下事项：
-
-**设置**：建议使用专用计算机承载集成运行时。 请参阅[使用自承载集成运行时的注意事项](concepts-integration-runtime.md)。
-
-**横向扩展**：具有一个或多个节点的单个逻辑自承载集成运行时可同时用于在同一时间运行的多个复制活动。 如果非常需要包含大量并发复制活动运行或需要复制大量数据的混合数据移动，请考虑[横向扩展自承载集成运行时](create-self-hosted-integration-runtime.md#high-availability-and-scalability)，以便预配更多资源为复制提供支持。
-
-## <a name="considerations-for-the-source"></a>有关源的注意事项
-
-### <a name="general"></a>常规
-
-确保基础数据存储未被在其上运行或针对其运行的其他工作负荷过度占用。
-
-有关 Azure 数据存储的信息，请参阅特定于数据存储的[监视和优化主题](#performance-reference)。 这些主题可帮助用户了解数据存储性能特征、了解如何尽量缩短响应时间以及最大化吞吐量。
-
-* 如果将数据从 Blob 存储复制到 SQL 数据仓库，请考虑使用 PolyBase 来提高性能。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
-* 如果将数据从 HDFS 复制到 Azure Blob 存储，请考虑使用 DistCp 来提高性能。 有关详细信息，请参阅[使用 DistCp 从 HDFS 复制数据](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
-* 如果将数据从 Redshift 复制到 Azure SQL 数据仓库或 Azure Blob 存储，请考虑使用 UNLOAD 来提高性能。 有关详细信息，请参阅[使用 UNLOAD 从Amazon Redshift 复制数据](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
-
-### <a name="file-based-data-stores"></a>基于文件的数据存储
-
-* **平均文件大小和文件计数**：复制活动一次传输一个文件的数据。 在移动相同数据量的情况下，如果数据由许多小文件而不是几个大文件组成，则由于每个文件都有启动阶段，总吞吐量会较低。 尽可能将小文件合并为较大的文件，以获得更高的吞吐量。
-* **文件格式和压缩**：有关提高性能的更多方法，请参阅[序列化和反序列化注意事项](#considerations-for-serialization-and-deserialization)和[压缩注意事项](#considerations-for-compression)部分。
-
-### <a name="relational-data-stores"></a>关系数据存储
-
-* **数据模式**：表架构会影响复制吞吐量。 复制相同数据量时，较大行大小可比较小行大小提供更佳的性能。 原因是数据库可以更有效地检索包含较少行的较少批量数据。
-* **查询或存储过程**：优化在复制活动源中指定的查询或存储过程的逻辑，以更有效地提取数据。
-
-## <a name="considerations-for-the-sink"></a>有关接收器的注意事项
-
-### <a name="general"></a>常规
-
-确保基础数据存储未被在其上运行或针对其运行的其他工作负荷过度占用。
-
-有关 Azure 数据存储的信息，请参阅特定于数据存储的[监视和优化主题](#performance-reference)。 这些主题可帮助用户了解数据存储性能特征、了解如何尽量缩短响应时间以及最大化吞吐量。
-
-* 如果将数据从任何数据存储复制到 Azure SQL 数据仓库，请考虑使用 PolyBase 来提高性能。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
-* 如果将数据从 HDFS 复制到 Azure Blob 存储，请考虑使用 DistCp 来提高性能。 有关详细信息，请参阅[使用 DistCp 从 HDFS 复制数据](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
-* 如果将数据从 Redshift 复制到 Azure SQL 数据仓库或 Azure Blob 存储，请考虑使用 UNLOAD 来提高性能。 有关详细信息，请参阅[使用 UNLOAD 从Amazon Redshift 复制数据](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
-
-### <a name="file-based-data-stores"></a>基于文件的数据存储
-
-* **复制行为**：如果从基于文件的不同数据存储复制数据，则复制活动可通过 **copyBehavior** 属性提供三个选项。 它将保留层次结构、平展层次结构或合并文件。 保留或平展层次结构有少量的性能开销或没有性能开销，但合并文件会导致性能开销增加。
-* **文件格式和压缩**：有关提高性能的更多方法，请参阅[序列化和反序列化注意事项](#considerations-for-serialization-and-deserialization)和[压缩注意事项](#considerations-for-compression)部分。
-
-### <a name="relational-data-stores"></a>关系数据存储
-
-* **复制行为和性能含义**：可通过不同的方式将数据写入 SQL 接收器。 在[有关将数据载入 Azure SQL 数据库的最佳做法](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database)中了解详细信息。
-
-* **数据模式和批大小**：
-  * 表架构会影响复制吞吐量。 复制相同数据量时，较大行大小会比较小行大小提供更好的性能，因为数据库可以更有效地提交较少的数据批次。
-  * 复制活动以一系列批次插入数据。 可使用  **writeBatchSize** 属性设置批中的行数。 如果数据的行较小，可设置具有更高值的 **writeBatchSize** 属性，从更低的批开销和更高的吞吐量获益。 如果数据的行大小较大，请谨慎增加  **writeBatchSize**。 较高的值可能会导致复制失败（因为数据库负载过重）。
-
-### <a name="nosql-stores"></a>NoSQL 存储
-
-* 对于**表存储**：
-  * **分区**：将数据写入交错分区会显着降低性能。 按分区键将源数据排序，以便高效地将数据依次插入到一个分区。 或者，可以调整逻辑以将数据写入单个分区。
-
-## <a name="considerations-for-serialization-and-deserialization"></a>序列化和反序列化注意事项
-
-输入数据集或输出数据集是文件时，可能会发生序列化和反序列化。 有关复制活动支持的文件格式的详细信息，请参阅[支持的文件和压缩格式](supported-file-formats-and-compression-codecs.md)。
-
-**复制行为**：
-
-* 在基于文件的数据存储之间复制文件：
-  * 输入和输出数据集具有相同的文件格式设置或没有文件格式设置时，数据移动服务执行二进制复制，而不进行任何序列化或反序列化  。 与源和接收器文件格式设置彼此不同的情况相比，这提供的吞吐量更高。
-  * 输入和输出数据集都为文本格式且只有编码类型不同时，数据移动服务仅进行编码转换。 它不进行任何序列化和反序列化，与二进制复制相比，这会产生一些性能开销。
-  * 输入和输出数据集具有不同的文件格式或不同的配置时（如分隔符），数据移动服务会反序列化源数据，以进行流式传输、转换，然后将其序列化为指示的输出格式。 与其他方案相比，此操作会产生更多的性能开销。
-* 向/从不基于文件的数据存储复制文件时（例如，从基于文件的存储到关系存储），需要序列化或反序列化步骤。 此步骤将造成大量的性能开销。
-
-**文件格式**：选择的文件格式可能会影响复制性能。 例如，Avro 是一种将元数据与数据一起存储的压缩二进制格式。 它在 Hadoop 生态系统中对处理和查询具有广泛的支持。 Avro 进行序列化和反序列化的代价更高，这会导致比文本格式更低的复制吞吐量。 
-
-在选择整个处理流中使用的文件格式时，应考虑全面。 首先考虑：
-
-- 数据存储的格式、源数据存储，是否要从外部系统提取数据。
-- 存储、分析处理和查询的最佳格式。
-- 应以哪种格式将数据导出到数据市场，以便在工具中进行报告和可视化。
-
-有时，读取和写入性能不是最佳的文件格式可能对于整体分析处理来说却是不错的选择。
-
-## <a name="considerations-for-compression"></a>压缩注意事项
-
-输入或输出数据集是文件时，可以设置复制活动，使其在将数据写入目标时执行压缩或解压缩。 选择压缩时，请在输入/输出 (I/O) 和 CPU 之间进行权衡。 压缩数据会花费额外的计算资源。 但反过来减少了网络 I/O 和存储。 根据所用数据，可能会看到整体复制吞吐量的提升。
-
-**编解码器**：每中压缩编解码器各有优点。 例如，虽然 bzip2 复制吞吐量最低，但使用 bzip2 可获得最佳的 Hive 查询性能，因为可将其拆分处理。 Gzip 是最平衡的选项，也是最常用的选项。 选择最适合端到端方案的编解码器。
-
-**级别**：对于每个压缩编解码器，有以下两个选择：最快压缩和最佳压缩。 最快压缩选项可尽快压缩数据，不过无法以最佳方式压缩生成的文件。 最佳压缩选项花费更多时间进行压缩，产生最小量的数据。 可对这两个选项进行测试，确定可为方案提供最佳整体性能的选项。
-
-**注意事项**：若要在本地存储和云之间复制大量数据，请考虑使用启用了压缩的[暂存复制](#staged-copy)。 当公司网络和 Azure 服务的带宽是限制因素，并希望输入数据集和输出数据集都处于未压缩形式时，使用过渡存储将非常有用。
-
-## <a name="considerations-for-column-mapping"></a>列映射注意事项
-
-可在复制活动中设置 **columnMappings** 属性，将全部或部分输入列映射到输出列。 数据移动服务从源读取数据后，它需要先对数据执行列映射，再将数据写入接收器。 这一额外处理会降低复制吞吐量。
-
-如果源数据存储可查询，例如，如果存储是关系存储（如 SQL 数据库或 SQL Server），或者是 NoSQL 存储（如表存储或 Azure Cosmos DB），请考虑将列筛选和重排序逻辑推送到**查询**属性，而不使用列映射。 这样，当数据移动服务从源数据存储读取数据时会发生投影，使效率更高。
-
-在[复制活动架构映射](copy-activity-schema-and-type-mapping.md)中了解详细信息。
-
-## <a name="other-considerations"></a>其他注意事项
-
-如果要复制的数据大小较大，可以调整业务逻辑，以进一步对数据进行分区。 可以计划使复制活动更频繁地运行，减少运行的每个复制活动的数据大小。
-
-请谨慎对待需要 Azure 数据工厂同时连接到同一数据存储的数据集数和复制活动数。 许多并发复制作业可能会限制数据存储，并导致性能下降，复制作业内部重试，甚至在某些情况下导致执行失败。
-
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>示例方案：从本地 SQL Server 复制到 Blob 存储
-
-**场景**：构建管道，以 CSV 格式将数据从本地 SQL Server 复制到 Blob 存储。 要使复制作业更快，应将 CSV 文件压缩为 bzip2 格式。
-
-**测试和分析**：复制活动的吞吐量小于 2 MBps，这比性能基准慢得多。
-
-**性能分析和优化**：为排除性能问题，可查看数据的处理和移动方式。
-
-- **读取数据**：Integration Runtime 建立与 SQL Server 的连接并发送查询。 SQL Server 通过 Intranet 向 Integration Runtime 发送数据流，以此进行响应。
-- **序列化和压缩数据**：Integration Runtime 将数据流序列化为 CSV 格式，并将数据压缩为 bzip2 流。
-- **写入数据**：Integration Runtime 通过 Internet 将 bzip2 流上传到 Blob 存储。
-
-如你所见，数据以流式处理顺序方式进行处理和移动：SQL Server > LAN> Integration Runtime > WAN > Blob 存储。 整体性能受管道中最小吞吐量的限制。
-
-![数据流](./media/copy-activity-performance/case-study-pic-1.png)
-
-以下的一个或多个因素可能会导致性能瓶颈：
-
-* **源**：SQL Server 本身由于负载过重而吞吐量低。
-* **自承载集成运行时**：
-  * **LAN**：Integration Runtime 的位置离 SQL Server 计算机很远，且带宽连接低。
-  * **Integration Runtime**：Integration Runtime 已达到执行以下操作的负载限制：
-    * **序列化**：将数据流序列化为 CSV 格式时吞吐量缓慢。
-    * **压缩**：选择慢速压缩编解码器，例如，bzip2，其采用 Core i7，速度为 2.8 MBps。
-  * **WAN**：企业网络和 Azure 服务之间的带宽低，例如，T1 = 1,544 kbps；T2 = 6,312 kbps。
-* **接收器**：Blob 存储吞吐量低。 这种情况不太可能发生，因为其服务级别协议 (SLA) 保证至少有 60 MBps。
-
-在这种情况下，bzip2 数据压缩可能会拖慢整个管道的速度。 切换到 gzip 压缩编解码器可能会缓解此瓶颈。
 
 ## <a name="references"></a>参考
 
@@ -421,5 +301,5 @@ Azure 提供一组企业级数据存储和数据仓库解决方案。 复制活�
 请参阅其他复制活动文章：
 
 - [复制活动概述](copy-activity-overview.md)
-- [复制活动架构映射](copy-activity-schema-and-type-mapping.md)
-- [复制活动容错](copy-activity-fault-tolerance.md)
+- [使用 Azure 数据工厂将数据从 Data Lake 或数据仓库迁移到 Azure](data-migration-guidance-overview.md)
+- [将数据从 Amazon S3 迁移到 Azure 存储](data-migration-guidance-s3-azure-storage.md)
