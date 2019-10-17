@@ -11,18 +11,17 @@ ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 7ecb9d45ce861d8cdcc2b78e73965a1cf09faee7
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 3482c4411384b1bfa1ca9def66962e6f4ddcb33a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912981"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272522"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上配置软件 RAID
 一种比较常见的情况是，在 Azure 中的 Linux 虚拟机上使用软件 RAID 将多个附加的数据磁盘显示为单个 RAID 设备。 通常，与仅使用单个磁盘相比，使用此方法不但可改进性能，而且还可提高吞吐量。
@@ -125,19 +124,21 @@ ms.locfileid: "68912981"
 
 1. 在新 RAID 设备上创建文件系统
 
-    a. **CentOS、Oracle Linux、SLES 12、openSUSE 和 Ubuntu**
+    **CentOS、SLES 12、openSUSE 和 Ubuntu**
+    
+    <!--Not Available on Oracle Linux-->
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
 
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
 
-    c. **SLES 11** - 启用 boot.md 并创建 mdadm.conf
+    **SLES 11** - 启用 boot.md 并创建 mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -146,7 +147,6 @@ ms.locfileid: "68912981"
 
    > [!NOTE]
    > 在 SUSE 系统中进行这些更改后，可能需要重新启动。 在 SLES 12 中， *不* 需要执行此步骤。
-   > 
    > 
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>将新文件系统添加到 /etc/fstab

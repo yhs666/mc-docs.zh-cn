@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/27/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 23e8d0b31be1c155639ff56c8ce5c4dbfc80f588
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 84a1d8efb4cf8c67b85f721deeaa847163d44547
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737406"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292598"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上的 Apache Hadoop 服务所使用的端口
 
@@ -36,7 +36,7 @@ ms.locfileid: "70737406"
 > [!IMPORTANT]
 > 如果尚未指定某个 Azure 虚拟网络作为 HDInsight 的配置选项，系统自动创建一个 Azure 虚拟网络。 但无法将其他计算机（例如其他 Azure 虚拟机或客户端开发计算机）加入到此虚拟网络中。
 
-要将其他计算机添加到虚拟网络，必须先创建虚拟网络，然后在创建 HDInsight 群集时指定该网络。 有关详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+要将其他计算机添加到虚拟网络，必须先创建虚拟网络，然后在创建 HDInsight 群集时指定该网络。 有关详细信息，请参阅[为 HDInsight 规划虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
 ## <a name="public-ports"></a>公共端口
 

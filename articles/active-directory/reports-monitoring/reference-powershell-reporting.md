@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 07/12/2019
-ms.date: 08/21/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab617a3da2f6b69bcfa68f11c4154b9ced8b0dbf
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 80c4ce3cbdc65ec4398c4c5111fe5373cbbc1b8c
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993796"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292140"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>用于报告的 Azure AD PowerShell cmdlet
+
+> [!NOTE] 
+> 这些 Powershell cmdlet 目前仅适用于 [Azure AD 预览](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing)模块。 请注意，预览模块不建议用于生产用途。 
 
 通过 Azure Active Directory (Azure AD) 报告，可以详细了解在说明（审核日志）和身份验证数据（登录日志）中围绕所有写入操作进行的活动。 虽然可以使用 MS Graph API 来获取信息，但现在可以使用用于报告的 Azure AD PowerShell cmdlet 来检索相同的数据。
 
@@ -78,4 +81,6 @@ ms.locfileid: "69993796"
 
 - [Azure AD 报告概述](overview-reports.md)。
 - [审核日志报告](concept-audit-logs.md)。 
+
+<!-- Update_Description: wording update -->
 

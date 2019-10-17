@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/04/2019
-ms.date: 04/29/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 33fe27112b68fe006f31577bbaf987a92f23381d
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 3863fb6fb6c9bff0a60e1098014a20b076bd1990
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878480"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292379"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 
@@ -52,7 +52,7 @@ ms.locfileid: "68878480"
 
 在下面的关系图中，绿线表示以虚拟网络的 DNS 后缀结尾的资源请求。 蓝线表示本地网络或公共 Internet 上的资源请求。
 
-![本文档将使用如何解析配置中的 DNS 请求的关系图](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![如何在配置中解析 DNS 请求的示意图](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -79,7 +79,7 @@ ms.locfileid: "68878480"
   
 2. 在左侧菜单中，导航到“+创建资源”   > “计算”   > “Ubuntu Server 18.04 LTS”  。
 
-    ![创建 Ubuntu 虚拟机](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![创建 Ubuntu 虚拟机](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. 在“基本信息”选项卡中输入以下信息：   
   
@@ -96,7 +96,7 @@ ms.locfileid: "68878480"
     |密码或 SSH 公钥 | 可用字段取决于针对“身份验证类型”所做的选择。   输入相应的值。|
     |公共入站端口|选择“允许所选端口”  。 然后从“选择入站端口”  下拉列表中选择“SSH (22)”  。|
 
-    ![虚拟机基本配置](./media/connect-on-premises-network/vm-basics.png)
+    ![虚拟机基本配置](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     将其他项保留为默认值，然后选择“网络”选项卡  。
 
@@ -108,7 +108,7 @@ ms.locfileid: "68878480"
     |子网 | 选择前面创建的虚拟网络的默认子网。  请勿选择 VPN 网关使用的子网。|
     |公共 IP | 使用自动填充的值。  |
 
-    ![虚拟网络设置](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![HDInsight 虚拟网络设置](./media/connect-on-premises-network/virtual-network-settings.png)
 
     将其他项保留为默认值，然后选择“查看 + 创建”  。
 
@@ -122,7 +122,7 @@ ms.locfileid: "68878480"
 
 1. 记下“公共 IP 地址/DNS 名称标签”和“专用 IP 地址”的值供以后使用。  
 
-    ![公共和专用 IP 地址](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![公共和专用 IP 地址](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>安装和配置 Bind（DNS 软件）
 
@@ -252,7 +252,7 @@ ms.locfileid: "68878480"
 
 4. 选择“自定义”，然后输入自定义 DNS 服务器的专用 IP 地址   。   
 
-5. 选择“其他安全性验证”  。  <br />  
+5. 选择__保存__。  <br />  
 
     ![设置网络的自定义 DNS 服务器](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -288,14 +288,14 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.16
 > [!WARNING]
 > HDInsight 要求从 Azure 云中的特定 IP 地址进行入站访问，以及进行不受限制的出站访问。 使用 NSG 或 UDR 控制流量时，必须执行以下步骤：
 
-1. 找到虚拟网络所在位置的 IP 地址。 如需按位置列出的必需 IP，请参阅[必需 IP 地址](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)。
+1. 找到虚拟网络所在位置的 IP 地址。 如需按位置列出的必需 IP，请参阅[必需 IP 地址](./hdinsight-management-ip-addresses.md)。
 
 2. 对于步骤 1 中确定的 IP 地址，允许该 IP 地址的入站流量。
 
    * 如果使用 __NSG__：在端口 443上允许该 IP地址的入站流量   。
    * 如果使用 __UDR__：为该 IP 地址将路由的下一个跃点类型设置为“Internet”   。
 
-如需使用 Azure PowerShell 或 Azure CLI 来创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 文档。
+如需使用 Azure PowerShell 或 Azure CLI 来创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-create-virtual-network.md#hdinsight-nsg) 文档。
 
 ## <a name="create-the-hdinsight-cluster"></a>创建 HDInsight 群集
 
@@ -347,7 +347,7 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要详细了解如何在虚拟网络中使用 HDInsight，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
+* 有关在虚拟网络中使用 HDInsight 的详细信息，请参阅[为 Azure HDInsight 群集规划虚拟网络部署](./hdinsight-plan-virtual-network-deployment.md)。
 
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 

@@ -2,24 +2,24 @@
 title: 将品牌添加到组织的登录页面 - Azure Active Directory | Microsoft Docs
 description: 有关如何将组织的品牌添加到 Azure Active Directory 登录页面的说明。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 origin.date: 09/18/2018
-ms.date: 08/12/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2225fb4eead4f96dc19974c248151bd41ce35c5f
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 7735c8bd78d91535f52173d22656b158ead0f3f8
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973266"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292045"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>将品牌添加到组织的 Azure Active Directory 登录页面
 使用组织的徽标和自定义颜色方案，在 Azure Active Directory (Azure AD) 登录页面上提供一致外观和体验。 用户登录到组织的基于 Web 的应用（例如 Office 365，它使用 Azure AD 作为标识提供者时）时，将显示登录页面。
@@ -30,7 +30,7 @@ ms.locfileid: "68973266"
 ## <a name="customize-your-azure-ad-sign-in-page"></a>自定义 Azure AD 登录页面
 可以自定义 Azure AD 登录页面，这些页面会在用户登录到组织的特定于租户的应用时显示（例如 [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com)），或者在传递域变量时显示（例如 [ *https://passwordreset.activedirectory.windowsazure.cn/?whr=contoso.com* ](https://passwordreset.activedirectory.windowsazure.cn/?whr=contoso.com)）。
 
-用户访问 www\.office.com 等站点时，自定义品牌不会立即显示。 相反，用户必须先登录才会显示自定义品牌。
+用户访问 www\.office.com 等站点时，自定义品牌不会立即显示。 相反，用户必须先登录才会显示自定义品牌。 用户登录后，品牌可能需要 15 分钟或更长时间才能出现。 
 
 > [!NOTE]
 > 所有品牌元素都是可选的。 例如，如果指定没有背景图像的横幅徽标，则登录页面将显示带有目标网站（例如 Office 365）默认背景图像的徽标。<br><br>此外，登录页面品牌不会带到个人 Microsoft 帐户。 如果用户或企业访客使用个人 Microsoft 帐户登录，则其登录页面不会显示组织的品牌。
@@ -102,7 +102,7 @@ ms.locfileid: "68973266"
 
 3. 在“配置公司品牌”页面上，根据本文的[自定义 Azure AD 登录页面](#customize-your-azure-ad-sign-in-page)部分中的说明添加、删除或更改任何信息  。
 
-4. 选择“其他安全性验证”  。
+4. 选择**保存**。
 
    最长可能需要一个小时才能显示用户对登录页的品牌元素所做的任何更改。
 
@@ -119,7 +119,7 @@ ms.locfileid: "68973266"
 
 3. 在“配置公司品牌”页面上，选择语言（例如法语），然后根据本文的[自定义 Azure AD 登录页面](#customize-your-azure-ad-sign-in-page)部分中的说明添加已翻译的信息  。
 
-4. 选择“其他安全性验证”  。
+4. 选择**保存**。
 
     “Contoso - 公司品牌”页将更新以显示新的法语配置  。
 

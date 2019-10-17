@@ -7,35 +7,36 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-origin.date: 06/26/2019
-ms.date: 07/17/2019
-ms.author: v-junlch
-ms.openlocfilehash: e3afffcfd732e505848f4539cdbd74691389cd4e
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/17/2019
+ms.date: 10/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: e608a9e293030fb157e0d5f14b32dcb9a58cc009
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104133"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275542"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令行接口 (CLI) 创建认知服务资源
 
-使用本快速入门可通过 [Azure 命令行接口 (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 开始使用 Azure 认知服务。 认知服务由你在 Azure 订阅中创建的 Azure [资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。 
+使用本快速入门可通过 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 开始使用 Azure 认知服务。 认知服务由你在 Azure 订阅中创建的 Azure [资源](/azure-resource-manager/manage-resources-portal)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。 
 
 
-本快速入门介绍如何使用 [Azure 命令行接口 (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 注册 Azure 认知服务以及创建包含单服务或多服务订阅的帐户。 这些服务由 Azure [资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)表示，可用于连接到一个或多个 Azure 认知服务 API。
+本快速入门介绍如何使用 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 注册 Azure 认知服务以及创建包含单服务或多服务订阅的帐户。 这些服务由 Azure [资源](/azure-resource-manager/manage-resources-portal)表示，可用于连接到一个或多个 Azure 认知服务。
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 订阅。 免费[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 订阅。 [创建 1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>安装 Azure CLI 并登录 
 
 安装 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。 若要登录到本地安装的 CLI，请运行 [az login](/cli/reference-index#az-login) 命令：
 
 ```console
+az cloud set -n AzureChinaCloud
 az login
 ```
 
@@ -83,7 +84,7 @@ az group create \
 | 服务                    | 种类                      |
 |----------------------------|---------------------------|
 | 计算机视觉            | `ComputerVision`          |
-| 人脸 API                   | `Face`                    |
+| 人脸                   | `Face`                    |
 
 ### <a name="speech"></a>语音
 
@@ -120,18 +121,19 @@ az cognitiveservices account list-kinds
 ```azurecli
 az cognitiveservices account create \
     --name anomaly-detector-resource \
-    --group cognitive-services-resource-group \
+    --resource-group cognitive-services-resource-group \
     --kind AnomalyDetector \
     --sku F0 \
     --location chinanorth \
     --yes
 ```
 
-## <a name="get-the-keys-for-your-subscription"></a>获取订阅的密钥
+## <a name="get-the-keys-for-your-resource"></a>获取资源的密钥
 
 若要登录到本地安装的命令行接口 (CLI)，请使用 [az login](/cli/reference-index?view=azure-cli-latest#az-login) 命令。
 
 ```console
+az cloud set -n AzureChinaCloud
 az login
 ```
 
@@ -145,11 +147,18 @@ az login
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
+## <a name="pricing-tiers-and-billing"></a>定价层和计费
+
+定价层（以及你收到的账单金额）基于你使用身份验证信息发送的事务数。 每个定价层指定：
+* 每秒允许的最大事务数 (TPS)。
+* 在定价层中启用的服务功能。
+* 预定义事务量的成本。 超过此金额将产生[定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)中为服务指定的额外费用。
+
 ## <a name="clean-up-resources"></a>清理资源
 
-如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与资源组相关联的任何其他资源。
+如果想要清理并删除认知服务资源，可以删除资源或资源组。 删除资源组也会删除该组中包含的任何其他资源。
 
-若要删除资源组及其关联的资源（包括新的存储帐户），请使用 az group delete 命令。
+若要删除资源组及其关联的资源，请使用 az group delete 命令。
 
 ```azurecli
 az group delete --name storage-resource-group
@@ -157,7 +166,10 @@ az group delete --name storage-resource-group
 
 ## <a name="see-also"></a>另请参阅
 
+<!-- * [Authenticate requests to Azure Cognitive Services](authentication.md) -->
+
 * [什么是 Azure 认知服务？](Welcome.md)
 * [自然语言支持](language-support.md)
+* [Docker 容器支持](cognitive-services-container-support.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: content update -->

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中心向 Kindle 应用推送通知 | Azure Docs
+title: 使用 Azure 通知中心向 Kindle 应用推送通知 | Azure
 description: 本教程介绍如何使用 Azure 通知中心将推送通知发送到 Kindle 应用程序。
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.custom: mvc
 origin.date: 04/14/2018
 ms.date: 07/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 21abc5a5b28b301497fed9c4910c526d8f0bb16a
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 34abccd4e916622f222c7419ca6b3d78bea5ba8c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171371"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272619"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>通知中心入门（Kindle 应用）
 
@@ -56,7 +56,7 @@ ms.locfileid: "67171371"
     1. 输入“应用标题”的名称。 
     2. 选择任一**类别**（例如“教育”）
     4. 在“客户支持电子邮件地址”字段中输入电子邮件地址。  
-    5. 选择“其他安全性验证”  。
+    5. 选择**保存**。
 
         ![“新建应用提交内容”页](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
 2.  在顶部，切换到“应用程序服务”  标签页。
@@ -80,7 +80,7 @@ ms.locfileid: "67171371"
         ![“创建安全配置文件”按钮](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
     1. 输入安全配置文件的**名称**。 
     2. 输入安全配置文件的**说明**。 
-    3. 选择“其他安全性验证”  。 
+    3. 选择**保存**。 
 
         ![保存安全配置文件](./media/notification-hubs-kindle-get-started/save-security-profile.png)
     1. 选择“启用设备消息传送”  以在此安全配置文件上启用设备消息传送。 

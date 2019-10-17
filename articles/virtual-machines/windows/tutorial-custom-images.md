@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ee81f69b5baa15c55f4306428da40597ddbd0ceb
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 197e5955100cd78a6a6f80251e576f945322c432
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921252"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272671"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -36,6 +35,7 @@ ms.locfileid: "70921252"
 > * 删除映像
 
 <!--Not Available on [Azure VM Image Builder](/virtual-machines/windows/image-builder-overview)-->
+
 ## <a name="before-you-begin"></a>开始之前
 
 下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
@@ -43,6 +43,8 @@ ms.locfileid: "70921252"
 若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
+
+打开 Azure Powershell 控制台，并以管理员权限运行以下脚本。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

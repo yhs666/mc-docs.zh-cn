@@ -1,5 +1,5 @@
 ---
-title: 启动 Azure VM 时出现蓝屏错误 | Azure
+title: Windows 在启动 Azure VM 时显示蓝屏错误 | Azure
 description: 了解如何排查启动时收到蓝屏错误的问题 | Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/28/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 49266f75efe5b0fd9dfbf9e67394ef39e899407a
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 9af6eb9524b5cdb0c8368931e361f270e3d5d8fc
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004132"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272717"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示蓝屏错误
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的蓝屏错误。 本文提供用于收集支持票证数据的步骤。 
@@ -57,7 +56,7 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>找到转储文件并提交支持票证
 
 1. 在恢复 VM 上，转到附加的 OS 磁盘中的 Windows 文件夹。 如果分配给附加 OS 磁盘的驱动器号为 F，则需转到 F:\Windows。
-2. 找到 memory.dmp 文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/zh-cn/support/support-azure/)。 
+2. 找到 memory.dmp 文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/support/support-azure/)。 
 
 如果找不到转储文件，请转到下一步以启用转储日志和串行控制台。
 
@@ -96,6 +95,7 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
     2. 如果没有足够的空间，或者这是大型 VM（E 系列），则可随后更改创建此文件时所在的位置，将该位置指向任何其他附加到 VM 的数据磁盘。 为此，需更改以下密钥：
         
         <!--Not Available on G, GS series-->
+            
             reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
             REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
@@ -105,4 +105,4 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
 
 3. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 4. 启动 VM 以重现问题，然后就会生成转储文件。
-5. 将 OS 磁盘附加到恢复 VM，收集转储文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/zh-cn/support/support-azure/)。
+5. 将 OS 磁盘附加到恢复 VM，收集转储文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/support/support-azure/)。

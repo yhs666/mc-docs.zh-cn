@@ -6,35 +6,35 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 06/27/2018
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675d88ca803e47e68aeda5ba25da08736609f263
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: db6a98f94e875abc8169108c30d016e38268ef5c
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993378"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292078"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory 标识保护操作手册
 
 此操作手册有助于：
 
-* 通过模拟风险事件和漏洞在“标识保护”环境中填充数据
+* 通过模拟风险检测和漏洞在“标识保护”环境中填充数据
 * 设置基于风险的条件访问策略并测试这些策略的影响
 
-## <a name="simulating-risk-events"></a>模拟风险事件
+## <a name="simulating-risk-detections"></a>模拟风险检测
 
-本部分向你提供模拟以下风险事件类型的步骤：
+本部分向你提供模拟以下风险检测类型的步骤：
 
 * 从匿名 IP 地址登录（简单）
 * 从不熟悉的位置登录（中等）
 * 不可能前往异常位置（困难）
 
-不能以安全方式模拟其他风险事件。
+不能以安全方式模拟其他风险检测。
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>从匿名 IP 地址登录
 
@@ -73,12 +73,12 @@ ms.locfileid: "69993378"
 
 ### <a name="impossible-travel-to-atypical-location"></a>不可能前往异常位置
 
-模拟不可能前往条件很难，因为该算法使用机器学习来清除误报，如来自熟悉设备的不可能前往，或从目录中其他用户使用的 VPN 登录。 另外，此算法要求用户 14 天 10 次的登录历史记录，才能开始生成风险事件。 考虑到机器学习模型的复杂性以及上述规则的存在，以下步骤有可能不会导致风险事件。 如果有多个 Azure AD 帐户，则可能需要复制这些步骤来发布该风险事件。
+模拟不可能前往条件很难，因为该算法使用机器学习来清除误报，如来自熟悉设备的不可能前往，或从目录中其他用户使用的 VPN 登录。 另外，此算法要求用户 14 天 10 次的登录历史记录，才能开始生成风险检测。 考虑到机器学习模型的复杂性以及上述规则的存在，以下步骤有可能不会导致风险检测。 如果有多个 Azure AD 帐户，则可能需要复制这些步骤来发布该风险检测。
 
 **若要模拟不可能前往异常位置，请执行以下步骤**：
 
 1. 使用标准浏览器，导航到 [https://myapps.microsoft.com](https://myapps.microsoft.com)。  
-2. 输入你想要为其生成不可能前往风险事件的帐户的凭据。
+2. 输入你想要为其生成不可能前往风险检测的帐户的凭据。
 3. 更改用户代理。 可以在 Internet Explorer 中通过开发人员工具更改用户代理，或者在 Firefox 或 Chrome 中使用用户代理切换器加载项更改用户代理。
 4. 更改 IP 地址。 可以在不同的数据中心中通过使用 VPN、Tor 加载项或在 Azure 中启动新计算机更改 IP 地址。
 5. 像往常一样使用相同凭据并在上次登录后的数分钟内登录到 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
@@ -113,8 +113,8 @@ ms.locfileid: "69993378"
 
 5. 在“控制”部分，选择所需的访问控制（例如，需要更改密码）。
 5. 对于“强制实施策略”  ，请选择“关闭”  。
-6. 可以通过特定的方式来提升测试帐户的用户风险，例如，可以多次模拟某个风险事件。
-7. 等待几分钟，验证用户的用户级别是否为“中等”。 如果否，请为用户模拟更多的风险事件。
+6. 可以通过特定的方式来提升测试帐户的用户风险，例如，可以多次模拟某个风险检测。
+7. 等待几分钟，验证用户的用户级别是否为“中等”。 如果否，请为用户模拟更多的风险检测。
 8. 对于“强制实施策略”  ，请选择“打开”  。
 9. 现在可以使用风险级别已提升的用户登录，以便测试基于用户风险的条件访问。
 
@@ -142,4 +142,4 @@ ms.locfileid: "69993378"
 
 - [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

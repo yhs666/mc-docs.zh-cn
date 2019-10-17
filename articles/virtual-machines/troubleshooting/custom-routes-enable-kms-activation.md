@@ -10,17 +10,16 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 12/20/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 752832ebef5281fd549ec68d370871b3b65f7fe3
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 14d59398b18ff09dd3ecc2f8895d1d0d19e3ecb2
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921231"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272755"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>在强制隧道方案中，Windows 激活失败
 
@@ -28,7 +27,7 @@ ms.locfileid: "70921231"
 
 ## <a name="symptom"></a>症状
 
-在 Azure 虚拟网络子网上启用[强制隧道](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)，以将所有 Internet 绑定的流量定向回本地网络。 在此方案中，运行 Windows Server 2012 R2（或更高版本的 Windows ）的 Azure 虚拟机 (VM) 可成功激活 Windows。 但是，运行 Windows 早期版本的 VM 无法激活 Windows。
+在 Azure 虚拟网络子网上启用[强制隧道](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)，以将所有 Internet 绑定的流量定向回本地网络。 在此方案中，运行 Windows 的 Azure 虚拟机 (VM) 无法激活 Windows。
 
 ## <a name="cause"></a>原因
 
@@ -43,7 +42,7 @@ Azure Windows VM 需要连接到 Azure KMS 服务器才能激活 Windows。 激�
 
 Azure 中国云的 KMS 服务器的 IP 地址为 42.159.7.249。 其 DNS 名称为 kms.core.chinacloudapi.cn。 如果使用其他 Azure 平台，则必须使用相应 KMS 服务器的 IP 地址。 有关详细信息，请参阅下表：
 
-<!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
+<!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net 23.102.135.246-->
 
 |平台| KMS DNS|KMS IP|
 |------|-------|-------|
@@ -52,8 +51,8 @@ Azure 中国云的 KMS 服务器的 IP 地址为 42.159.7.249。 其 DNS 名称�
 |Azure 美国政府版|kms.core.usgovcloudapi.net|23.97.0.13|
 |Azure 中国世纪互联|kms.core.chinacloudapi.cn|42.159.7.249|
 
-<!--MOONCAKE CUSTOMIZE: China for kms.core.chinacloudapi.cn-->
-<!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
+<!--MOONCAKE CUSTOMIZE: China for kms.core.chinacloudapi.cn 42.159.7.249-->
+<!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net 23.102.135.246-->
 
 若要添加自定义路由，请执行以下步骤：
 

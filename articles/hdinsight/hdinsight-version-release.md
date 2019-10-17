@@ -7,17 +7,17 @@ ms.author: v-yiso
 ms.reviewer: hrasheed
 ms.topic: overview
 origin.date: 04/15/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: f8e374cb1668248cb580eb18764f3fb87c70b5f2
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 10/21/2019
+ms.openlocfilehash: d77004de15e60f2c2d2e93c42b2cd5e38f086b90
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829266"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292561"
 ---
-# <a name="hdinsight-40-overview"></a>HDInsight 4.0 概述
+# <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 概述
 
-Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和 Apache Spark 分析服务之一。 HDInsight 4.0 是 [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) 提供的 Apache Hadoop 组件的云分发版。 本文提供有关最新 Azure HDInsight 版本以及如何升级的信息。
+Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和 Apache Spark 分析服务之一。 HDInsight 4.0 是 Apache Hadoop 组件的云分发版。 本文提供有关最新 Azure HDInsight 版本以及如何升级的信息。
 
 ## <a name="whats-new-in-hdinsight-40"></a>HDInsight 4.0 中有哪些新功能？
 
@@ -79,7 +79,7 @@ Apache Oozie 4.3.1 包含在 HDI 4.0 中，并进行了以下更改：
 
 * Oozie 不再运行 Hive 操作。 已删除 Hive CLI 并替换为 BeeLine。
 
-* 可通过在“job.properties”文件中包含排除模式，以从共享 lib 中排除不需要的依赖项。
+* 可通过在“job.properties”文件中包含排除模式，以从共享 lib 中排除不需要的依赖项  。
 
 详细了解 [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html)。
 

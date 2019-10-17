@@ -10,14 +10,15 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+origin.date: 08/27/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 42db64130f8565060fd2ae16d9556bd4e93dd732
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: b14c53bc061f09dec6f77f38963fcd0576f68024
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456455"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292382"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>监视并缩减限制，以减少 Azure 时序见解中的延迟
 
@@ -37,15 +38,19 @@ ms.locfileid: "67456455"
 
 警报有助于诊断并缓解环境导致的延迟问题。
 
-1. 在 Azure 门户中选择“指标”  。
+1. 在 Azure 门户中，选择“警报”  。
 
-   [![指标](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
+   [![警报](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
-1. 选择“添加指标警报”。   
+1. 然后将显示“创建规则”  面板。 在“条件”  下选择“添加”  。
 
-   [![添加指标警报](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
+   [![添加警报](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
-在此处，可以使用以下指标配置警报：
+1. 接下来，配置信号逻辑的确切条件。
+
+   [![配置信号逻辑](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+
+   在此处，可以使用以下一些条件配置警报：
 
 |指标  |说明  |
 |---------|---------|
@@ -57,9 +62,17 @@ ms.locfileid: "67456455"
 |**入口收到消息时间延迟**    |  消息在事件源中排队的时间与消息在入口中处理之间的时间差（以秒为单位）。      |
 |**入口收到消息计数延迟**    |  上次排队的消息在事件源分区中的序列号与在入口中进行处理的消息的序列号之间的差异。      |
 
-![延迟](media/environment-mitigate-latency/latency.png)
+   选择“完成”  。
 
-* 如果受到限制，则会看到“入口收到消息时间延迟”  的值，该值告知你 TSI 落后于消息命中事件源时的实际时间多少秒（不计索引时间，该时间大约为 30-60 秒）。   入口收到消息计数延迟也应该有一个值，用于确定你在消息数方面落后多少。  若要赶上来，最容易的方式是增加环境的容量，使之达到能够克服此差异的规模。  
+1. 配置所需的信号逻辑后，直观地查看所选的警报规则。
+
+   [![入口](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+
+## <a name="throttling-and-ingress-management"></a>限制和入口管理
+
+* 如果受到限制，则会看到“入口收到消息时间延迟”  的值，该值告知你 TSI 落后于消息命中事件源时的实际时间多少秒（不计索引时间，该时间大约为 30-60 秒）。  
+
+   入口收到消息计数延迟也应该有一个值，用于确定你在消息数方面落后多少。  若要赶上来，最容易的方式是增加环境的容量，使之达到能够克服此差异的规模。  
 
   例如，如果你的 S1 环境是一个单元的，在计数方面滞后 5,000,000 条消息，则可增加环境的大小，使之达到六个单元，则大约一天就可以赶上来。  甚至可以增加更多，这样追赶速度会更快。 在一开始预配某个环境时，尤其是在将其连接到某个事件源，而该事件源中已经有事件时，或者在批量上传大量历史数据时，追赶期是常见的现象。
 

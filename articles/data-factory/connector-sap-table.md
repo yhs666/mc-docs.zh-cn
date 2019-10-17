@@ -10,21 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 07/09/2018
-ms.date: 08/12/2019
+origin.date: 09/02/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 399b7c1a82835da5c5b4fe61346f8efbaef37f87
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: dba83ca10accb402e3346dc35323aea5aaa2cfdc
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908687"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275459"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP 表复制数据
 
 本文概述如何使用 Azure 数据工厂中的复制活动从 SAP 表复制数据。 有关详细信息，请参阅[复制活动概述](copy-activity-overview.md)。
 
+>[!TIP]
+>若要了解 ADF 对 SAP 数据集成方案的总体支持，请参阅[使用 Azure 数据工厂进行 SAP 数据集成白皮书](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含详细介绍、比较和指导。
+
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 SAP 表连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 SAP 表复制到任何受支持的接收器数据存储。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -33,9 +41,9 @@ ms.locfileid: "68908687"
 - 在以下产品中从 SAP 表复制数据：
 
   - SAP ERP 中心组件 (SAP ECC) 7.01 或更高版本（包含在 2015 年之后发布的最新 SAP 支持包堆栈中）。
-  - SAP Business Warehouse (SAP BW) 7.01 或更高版本。
+  - SAP Business Warehouse (SAP BW) 版本 7.01 或更高版本（位于最新的 SAP 支持包堆栈中，该堆栈是 2015 年以后发布的）。
   - SAP S/4HANA。
-  - SAP Business Suite 7.01 或更高版本中的其他产品。
+  - SAP Business Suite 版本 7.01 或更高版本（位于最新的 SAP 支持包堆栈中，该堆栈是 2015 年以后发布的）中的其他产品。
 
 - 从 SAP 透明表、共用表、聚集表和视图复制数据。
 - 使用基本身份验证或安全网络通信 (SNC)（如果已配置 SNC）复制数据。
@@ -186,12 +194,13 @@ SAP BW Open Hub 链接服务支持以下属性：
     "name": "SAPTableDataset",
     "properties": {
         "type": "SapTableResource",
+        "typeProperties": {
+            "tableName": "<SAP table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP table linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "<SAP table name>"
         }
     }
 }
@@ -201,7 +210,7 @@ SAP BW Open Hub 链接服务支持以下属性：
 
 有关用于定义活动的各部分和属性的完整列表，请参阅[管道](concepts-pipelines-activities.md)。 以下部分提供 SAP 表源支持的属性的列表。
 
-### <a name="sap-table-as-a-source"></a>SAP 表作为源
+### <a name="sap-table-as-source"></a>SAP 表作为源
 
 支持使用以下属性从 SAP 表复制数据：
 
@@ -223,7 +232,7 @@ SAP BW Open Hub 链接服务支持以下属性：
 <br/>
 >以 `partitionOption` 和 `partitionOnInt` 为例，每个分区中的行数的计算公式为：(处于 `partitionUpperBound` 与 `partitionLowerBound` 之间的总行数)/`maxPartitionsNumber`。<br/>
 <br/>
->若要并行运行分区以加速复制，我们强烈建议将 `maxPartitionsNumber` 设为 `parallelCopies` 属性值的倍数。 有关详细信息，请参阅[并行复制](copy-activity-performance.md#parallel-copy)。
+>若要并行加载数据分区以加快复制速度，并行程度由复制活动的 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 设置控制。 例如，如果将 `parallelCopies` 设置为 4，则数据工厂会根据指定的分区选项和设置并行生成并运行 4 个查询，每个查询从 SAP 表检索一部分数据。 强烈建议将 `maxPartitionsNumber` 设为 `parallelCopies` 属性值的倍数。 将数据复制到基于文件的数据存储中时，还建议将数据作为多个文件写入文件夹（仅指定文件夹名称），在这种情况下，性能优于写入单个文件。
 
 在 `rfcTableOptions` 中，可以使用以下常用 SAP 查询运算符来筛选行：
 
@@ -269,7 +278,8 @@ SAP BW Open Hub 链接服务支持以下属性：
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]
@@ -289,6 +299,11 @@ SAP BW Open Hub 链接服务支持以下属性：
 | `P`（BCD Packed、货币、小数、数量） | `Decimal` |
 | `N`（数字） | `String` |
 | `X`（二进制和原始数据） | `String` |
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
 
 ## <a name="next-steps"></a>后续步骤
 

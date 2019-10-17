@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 08/26/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea79c5f39141076bb5609c968cecf12236ae74e0
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: c0a3c378717cda093e0225b34a65b24bfa244e6c
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134239"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292053"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>可将用户登录的 Web 应用 - 登录
 
@@ -29,7 +29,8 @@ ms.locfileid: "70134239"
 
 ## <a name="sign-in"></a>登录
 
-只需使用前一篇文章[应用的代码配置](scenario-web-app-sign-user-app-configuration.md)中的代码就能实现注销。在用户登录到你的应用后，你可能希望他们能够注销。ASP.NET Core 将为你处理注销。
+只需使用在前一篇文章[应用的代码配置](scenario-web-app-sign-user-app-configuration.md)中查看的代码就能实现登录。
+在用户登录到你的应用后，你可能希望他们能够注销。ASP.NET Core 将为你处理注销。
 
 ## <a name="what-sign-out-involves"></a>注销涉及的操作
 

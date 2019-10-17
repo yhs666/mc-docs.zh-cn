@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 07/08/2019
+origin.date: 08/27/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 6ffc52176dc8a5c65947702b3ea495265a9cae7e
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: de4892222851bcb556446975ca3ce8cf7ffb869e
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209291"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275515"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure 表存储复制数据
 
@@ -27,6 +27,11 @@ ms.locfileid: "70209291"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 Azure 表存储连接器：
+
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可将数据从任一支持的源数据存储复制到表存储。 也可以将数据从表存储复制到任一支持的接收器数据存储。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -203,12 +208,13 @@ ms.locfileid: "70209291"
     "properties":
     {
         "type": "AzureTable",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -218,10 +224,8 @@ ms.locfileid: "70209291"
 
 对于无架构的数据存储（如 Azure 表），数据工厂将使用下列方式之一推断架构：
 
-* 如果使用数据集定义中的**结构**属性指定数据的结构，数据工厂会将此结构作为架构。 在这种情况下，如果行不包含列的值，则会为其提供 null 值。
-* 如果不使用数据集定义中的**结构**属性指定数据结构，数据工厂将通过使用数据中的第一行来推断架构。 在这种情况下，如果第一行不包含完整架构，则复制操作的结果中会丢失部分列。
-
-对于无架构的数据源，最佳做法是使用**结构**属性指定数据的结构。
+* 如果在复制活动中指定列映射，数据工厂将使用源端列列表来检索数据。 在这种情况下，如果行不包含列的值，则会为其提供 null 值。
+* 如果未在复制活动中指定列映射，数据工厂将使用数据中的第一行来推断架构。 在这种情况下，如果第一行不包含完整架构（例如，某些列具有 null 值），则复制操作的结果中会丢失部分列。
 
 ## <a name="copy-activity-properties"></a>复制活动属性
 
@@ -338,6 +342,10 @@ ms.locfileid: "70209291"
 | Edm.Int32 |Int32 |32 位整数。 |
 | Edm.Int64 |Int64 |64 位整数。 |
 | Edm.String |String |UTF-16 编码值。 字符串值最大可以为 64 KB。 |
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>后续步骤
 有关数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

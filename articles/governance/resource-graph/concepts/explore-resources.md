@@ -3,24 +3,22 @@ title: 浏览 Azure 资源
 description: 了解如何使用 Resource Graph 查询语言浏览资源并发现资源的连接方式。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 04/23/2019
-ms.date: 09/16/2019
+origin.date: 08/22/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ce958aa22912f4c155f8ad1762e244cfa0638704
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: bc222f828c7b4328a73c1744aa050c673d0faceb
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737442"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292465"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>使用 Resource Graph 浏览 Azure 资源
 
 Azure Resource Graph 提供快速、大规模浏览和发现 Azure 资源的功能。 它专为快速响应而设计，是了解你的环境以及构成 Azure 资源的属性的好方法。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="explore-virtual-machines"></a>浏览虚拟机
 
@@ -260,17 +258,25 @@ JSON 结果的结构类似于下面的示例：
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>浏览虚拟机以查找公共 IP 地址
 
-这一组 Azure CLI 查询首先查找并存储已连接到虚拟机的所有网络接口 (NIC) 资源。 然后，它使用 NIC 列表查找是公共 IP 地址的每个 IP 地址资源并存储这些值。 最后，它提供公共 IP 地址的列表。
+这一组查询首先查找并存储已连接到虚拟机的所有网络接口 (NIC) 资源。 然后，查询使用 NIC 列表查找是公共 IP 地址的每个 IP 地址资源并存储这些值。 最后，查询提供公共 IP 地址的列表。
 
 ```azurecli
-# Use Resource Graph to get all NICs and store in the 'nic' variable
+# Use Resource Graph to get all NICs and store in the 'nics.txt' file
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
 
 # Review the output of the query stored in 'nics.txt'
 cat nics.txt
 ```
 
-在下一个查询中使用 `nics.txt` 文件来获取相关的网络接口资源详细信息，其中有一个公共 IP 地址附加到 NIC。
+```azurepowershell
+# Use Resource Graph to get all NICs and store in the $nics variable
+$nics = Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+
+# Review the output of the query stored in the variable
+$nics.nic
+```
+
+在下一个查询中使用文件 (Azure CLI) 或变量 (Azure PowerShell) 获取 NIC 附加了公共 IP 地址的相关网络接口资源详细信息。
 
 ```azurecli
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -280,11 +286,24 @@ az graph query -q="where type =~ 'Microsoft.Network/networkInterfaces' | where i
 cat ips.txt
 ```
 
-最后，使用 `ips.txt` 中存储的公共 IP 地址资源列表从中获取实际的公共 IP 地址并显示出来。
+```azurepowershell
+# Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
+$ips = Search-AzGraph -Query "where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+
+# Review the output of the query stored in the variable
+$ips.publicIp
+```
+
+最后，使用存储在文件 (Azure CLI) 或变量 (Azure PowerShell) 中的公共 IP 地址资源列表从相关对象获取实际公共 IP 地址并显示。
 
 ```azurecli
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
 az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
+```
+
+```azurepowershell
+# Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
+Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
 ## <a name="next-steps"></a>后续步骤

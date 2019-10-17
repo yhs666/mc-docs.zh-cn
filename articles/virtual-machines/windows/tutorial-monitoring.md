@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/05/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d66e3b948f4ef9d9b4974e2dda2046d254535ad3
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 48c327be54e233fcdc8ab199b5f130d8617d661b
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921251"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272528"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Windows 虚拟机
 
@@ -42,6 +41,8 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 <!-- Not Available on> * Set up advanced monitoring -->
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
+
+打开 Azure Powershell 控制台，并以管理员权限运行以下脚本。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

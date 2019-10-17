@@ -4,24 +4,25 @@ description: 本主题说明 Azure AD Connect 中的防止意外删除功能。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 10/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 89593e71fc07fd5d77396ae4ddc4cd92930efcf5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31032f4ea40ce78e2bcfabe9d8923c55a61cf14
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644821"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292034"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外删除
 本主题说明 Azure AD Connect 中的防止意外删除功能。
@@ -31,9 +32,9 @@ ms.locfileid: "52644821"
 ## <a name="what-is-prevent-accidental-deletes"></a>什么是防止意外删除？
 经常出现删除操作的场景包括：
 
-- 在取消选择整个 [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 或[域](how-to-connect-sync-configure-filtering.md#domain-based-filtering)的情况下更改[筛选](how-to-connect-sync-configure-filtering.md)设置。
-- 删除了 OU 中的所有对象。
-- 对某个 OU 进行了重命名，因此其中的所有对象被视为超出同步范围。
+* 在取消选择整个 [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 或[域](how-to-connect-sync-configure-filtering.md#domain-based-filtering)的情况下更改[筛选](how-to-connect-sync-configure-filtering.md)设置。
+* 删除了 OU 中的所有对象。
+* 对某个 OU 进行了重命名，因此其中的所有对象被视为超出同步范围。
 
 可以通过 PowerShell 使用 `Enable-ADSyncExportDeletionThreshold`（这是随 Azure Active Directory Connect 安装的 AD Sync 模块的一部分）更改默认值 500 个对象。 应对此值进行配置以适合组织的规模。 由于同步计划程序每隔 30 分钟运行一次，因此该值是 30 分钟内看到的删除数目。
 
@@ -45,30 +46,33 @@ ms.locfileid: "52644821"
 >
 > 
 
-在 Synchronization Service Manager UI 中查看导出配置文件时，还可以看到状态 `stopped-deletion-threshold-exceeded`。
+在 Synchronization Service Manager UI 中查看导出配置文件时，还可以看到状态 `stopped-deletion-threshold-exceeded`。 
 ![有关防止意外删除的 Sync Service Manager UI](./media/how-to-connect-sync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
 如果这是意外情况，请进行调查，并采取纠正措施。 要查看哪些对象即将被删除，请执行以下操作：
 
-1. 从“开始”菜单启动“同步服务”。
-2. 转到“连接器”。
+1. 从“开始”菜单启动“同步服务”。 
+2. 转到“连接器”。 
 3. 选择 **Azure Active Directory**类型的连接器。
-4. 在右侧的“操作”下，选择“搜索连接器空间”。
-5. 在“范围”下的弹出框中选择“连接断开起始时间”，并选择过去的一个时间。 单击“搜索”。 可以在此页上查看所有即将删除的对象。 单击每个项可以获取有关该对象的更多信息。 也可以单击“列设置”，添加要在网格中显示的其他属性。
+4. 在右侧的“操作”下，选择“搜索连接器空间”。  
+5. 在“范围”下的弹出框中选择“连接断开起始时间”，并选择过去的一个时间。   单击“搜索”。  可以在此页上查看所有即将删除的对象。 单击每个项可以获取有关该对象的更多信息。 也可以单击“列设置”，添加要在网格中显示的其他属性。 
 
 ![搜索连接器空间](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
+
+[!NOTE] 如果你不确定所有删除是否都是必需的，并且希望使用更安全的方法。 可以使用 PowerShell cmdlet：`Enable-ADSyncExportDeletionThreshold` 来设置新阈值，而不是禁用可能允许不需要的删除的阈值。 
 
 如果想要查看所有删除项，请执行以下操作：
 
 1. 若要检索当前的删除阈值，请运行 PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`。 提供 Azure AD 全局管理员帐户和密码。 默认值为 500。
 2. 若要暂时禁用此保护并允许删除这些项，请运行 PowerShell cmdlet： `Disable-ADSyncExportDeletionThreshold`。 提供 Azure AD 全局管理员帐户和密码。
    ![凭据](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
-3. 如果 Azure Active Directory 连接器仍被选中，请选择“运行”操作，再选择“导出”。
+3. 如果 Azure Active Directory 连接器仍被选中，请选择“运行”操作，再选择“导出”。  
 4. 若要重新启用保护，请运行 PowerShell cmdlet： `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`。 检索当前的删除阈值时，请将 500 替换成看到的值。 提供 Azure AD 全局管理员帐户和密码。
 
 ## <a name="next-steps"></a>后续步骤
 **概述主题**
 
-- [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
+<!-- Update_Description: wording update -->

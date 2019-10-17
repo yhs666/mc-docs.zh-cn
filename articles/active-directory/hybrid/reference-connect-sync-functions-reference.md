@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 07/12/2017
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10803968a8a22d690c797a15453ab45890759c0a
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 83106cecbb0b91346684c6caaba1e53addd9c555
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134335"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292099"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -103,7 +103,7 @@ BitAnd 函数设置值的指定位。
 **备注：**  
 此函数将两个参数转换为二进制表示形式，并将位设置为：
 
-* 0 - 如果掩码和标志中相应位的其中一个或两个均为 0  
+* 0 - 如果 *value1* 和 *value2* 中的一个或两个相应位为 0
 * 1 - 如果两个相应位均为 1。
 
 换而言之，除了当两个参数的相应位均为 1 时之外，所有情况下均返回 0。

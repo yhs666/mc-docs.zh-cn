@@ -3,7 +3,7 @@ title: 初始化客户端应用程序（适用于 JavaScript 的 Microsoft 身�
 description: 了解如何使用适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 初始化客户端应用程序。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/12/2019
-ms.date: 06/17/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a4e0ca66b5a10dc01f28b3d11ac66ba62f53881
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 4e8c76ffbc472de502640cd5529cbe6b891598e1
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306009"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292066"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL.js 初始化客户端应用程序
 本文介绍如何使用用户代理应用程序的实例初始化适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js)。 该用户代理应用程序是某种形式的公共客户端应用程序，其中的客户端代码在 Web 浏览器等用户代理中执行。 这些客户端不存储机密，因为浏览器上下文可公开访问。 若要详细了解客户端应用程序类型和应用程序配置选项，请阅读[概述](msal-client-applications.md)。
@@ -123,7 +123,7 @@ export type Configuration = {
 
 - **validateAuthority**：可选。  验证令牌的颁发者。 默认值为 `true`。 对于 B2C 应用程序，由于颁发机构值是已知的，并且根据不同的策略而异，因此，颁发机构验证不起作用，必须设置为 `false`。
 
-- **redirectUri**：可选。  应用的重定向 URI，应用可在其中发送和接收身份验证响应。 必须完全符合在门户中注册的重定向 URI 之一，否则必须是编码的 URL。 默认为 `window.location.href`。
+- **redirectUri**：可选。  应用的重定向 URI，应用可在其中发送和接收身份验证响应。 它必须完全符合在门户中注册的其中一个重定向 URI。 默认为 `window.location.href`。
 
 - **postLogoutRedirectUri**：可选。  注销后将用户重定向到 `postLogoutRedirectUri`。默认为 `redirectUri`。
 
@@ -144,3 +144,4 @@ export type Configuration = {
 
 - **protectedResourceMap**：可选。  资源到范围的映射，MSAL 在 Web API 调用中使用这种映射自动附加访问令牌。 将获取资源的单个访问令牌。 因此，可按如下所示映射特定的资源路径：{"https://microsoftgraph.chinacloudapi.cn/v1.0/me", ["https://microsoftgraph.chinacloudapi.cn/user.read"]}；或按如下所示映射资源的应用 URL：{"https://microsoftgraph.chinacloudapi.cn/", ["user.read", "mail.send"]}。 对于 CORS 调用，必须进行这种映射。 默认为 `null`。
 
+<!-- Update_Description: wording update -->

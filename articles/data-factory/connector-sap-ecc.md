@@ -10,21 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 07/02/2019
-ms.date: 08/12/2019
+origin.date: 09/02/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 01e67d6ee335a1f11af74928052a22c7a3242269
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: fd27a3774fecf1963a702aa80c5a251335c1306e
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908685"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275462"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP ECC 复制数据
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 SAP Enterprise Central Component (ECC) 复制数据。 有关详细信息，请参阅[复制活动概述](copy-activity-overview.md)。
 
+>[!TIP]
+>若要了解 ADF 对 SAP 数据集成方案的总体支持，请参阅[使用 Azure 数据工厂进行 SAP 数据集成白皮书](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含详细介绍、比较和指导。
+
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 SAP ECC 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 SAP ECC 复制到任何受支持的接收器数据存储。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -51,6 +59,10 @@ ms.locfileid: "68908685"
 
 - **激活并配置 SAP OData 服务**。 可以通过 TCODE SICF 在数秒内激活 OData 服务。 还可以配置需要公开哪些对象。 有关详细信息，请参阅[分步指南](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)。
 
+## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>入门
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +79,7 @@ SAP ECC 链接服务支持以下属性：
 | `url` | SAP ECC OData 服务的 URL。 | 是 |
 | `username` | 用于连接到 SAP ECC 的用户名。 | 否 |
 | `password` | 用于连接到 SAP ECC 的明文密码。 | 否 |
-| `connectVia` | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果可以公开访问数据存储，则可以使用自承载集成运行时或 Azure 集成运行时。 如果不指定运行时，`connectVia` 会使用默认的 Azure 集成运行时。 | 否 |
+| `connectVia` | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果不指定运行时，会使用默认的 Azure 集成运行时。 | 否 |
 
 ### <a name="example"></a>示例
 
@@ -114,6 +126,7 @@ SAP ECC 链接服务支持以下属性：
         "typeProperties": {
             "path": "<entity path, e.g., dd04tentitySet>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP ECC linked service name>",
             "type": "LinkedServiceReference"
@@ -194,6 +207,10 @@ SAP ECC 链接服务支持以下属性：
 > [!NOTE]
 > 目前不支持复杂数据类型。
 
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
 ## <a name="next-steps"></a>后续步骤
 
-如果需要一系列可供 Azure 数据工厂中的复制活动用作源和接收器的数据存储，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。
+有关可供 Azure 数据工厂中的复制活动用作源和接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

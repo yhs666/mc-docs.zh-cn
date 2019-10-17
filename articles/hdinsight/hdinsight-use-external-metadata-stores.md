@@ -1,6 +1,6 @@
 ---
 title: 使用外部元数据存储 - Azure HDInsight
-description: 对 HDInsight 群集使用外部元数据存储功能。
+description: 将外部元数据存储与 Azure HDInsight 群集一起使用以及最佳做法。
 services: hdinsight
 documentationcenter: ''
 author: jasonwhowell
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/27/2019
 ms.author: v-yiso
-ms.date: 07/22/2019
-ms.openlocfilehash: c8abc9b30251a7ad71a6f382077113fe27511273
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.date: 10/21/2019
+ms.openlocfilehash: 8bfd5134dff5c8e6572939af9f53fd9d679fdebf
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845188"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292491"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>使用外部元数据存储 - Azure HDInsight
 
@@ -79,6 +79,7 @@ HDInsight 还支持自定义元存储，建议对生产群集使用此项：
 - 使用 Azure SQL 数据库监视工具（例如 Azure 门户或 Azure Monitor 日志）监视元存储的性能和可用性。
 - 当针对现有的自定义元存储数据库创建一个新的更高版本的 Azure HDInsight 时，系统将升级元存储的架构，该架构在不从备份中还原数据库的情况下是不可逆的。
 - 如果在多个群集之间共享元存储，请确保所有群集都具有相同的 HDInsight 版本。 不同的 Hive 版本使用不同的元存储数据库架构。 例如，不能在具有 Hive 1.2 版本的群集和具有 Hive 2.1 版本的群集之间共享元存储。 
+- 在 HDInsight 4.0 中，Spark 和 Hive 使用独立目录来访问 SparkSQL 或 Hive 表。 Spark 创建的表位于 Spark 目录中。 Hive 创建的表位于 Hive 目录中。 这与 HDInsight 3.6 不同，在 HDInsight 3.6 中，Hive 和 Spark 共享公共目录。 HDInsight 4.0 中的 Hive 和 Spark 集成依赖于 Hive 仓库连接器 (HWC)。 HWC 在 Spark 和 Hive 之间起到桥梁作用。 [了解 Hive 仓库连接器](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)。
 
 ##  <a name="apache-oozie-metastore"></a>Apache Oozie 元存储
 

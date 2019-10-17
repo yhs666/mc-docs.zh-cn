@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/18/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: f91765d5d2c37884709929a93f9227db3cbcef52
-ms.sourcegitcommit: 2f7c24eff74f4de0d4a117fc2c327e00ab77ff88
+ms.openlocfilehash: 86c6374be79afbbf0e71f6b29e397c55fecee9d2
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70888186"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275409"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>创建和配置自承载集成运行时
 集成运行时 (IR) 是 Azure 数据工厂用于在不同的网络环境之间提供数据集成功能的计算基础结构。 有关 IR 的详细信息，请参阅[集成运行时概述](concepts-integration-runtime.md)。
@@ -44,6 +44,9 @@ ms.locfileid: "70888186"
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
+
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板在 Azure VM 上设置自承载 IR 
+可以使用[此 Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime)在 Azure 虚拟机上自动完成自承载 IR 设置。 使用此模板可以轻松地在 Azure 虚拟网络中设置一个完全正常运行的、具有高可用性和可伸缩性功能的自承载 IR（前提是能够将节点计数设置为 2 或以上）。
 
 ## <a name="command-flow-and-data-flow"></a>命令流和数据流
 在本地和云之间移动数据时，该活动使用自承载集成运行时将数据从本地数据源传输到云，反之亦然。
@@ -78,6 +81,9 @@ ms.locfileid: "70888186"
 - 如果主机计算机进入休眠状态，则自承载集成运行时不响应数据请求。 安装自承载集成运行时之前，请在计算机上配置相应的电源计划。 如果计算机配置为休眠，则自承载集成运行时安装会提示消息。
 - 只有计算机管理员才能成功安装和配置自承载集成运行时。
 - 复制活动按特定的频率发生。 计算机上的资源使用率（CPU、内存）也遵循相同的高峰期和空闲期模式。 资源利用率还很大程度上取决于正在移动的数据量。 进行多个复制作业时，会看到资源使用率在高峰期上升。
+- 如果提取 Parquet、ORC 或 Avro 格式的数据，则任务可能会失败。 文件创建在自托管集成计算机上运行，并且需要满足以下先决条件才能正常工作（请参阅 [Azure 数据工厂中的 Parquet 格式](/data-factory/format-parquet#using-self-hosted-integration-runtime)）。
+    - [Visual C++ 2010 可再发行软件包](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) (x64)
+    - JRE 提供程序（例如，[Adopt OpenJDK](https://adoptopenjdk.net/)）的 Java 运行时 (JRE) 版本 8，确保设置了 `JAVA_HOME` 环境变量。
 
 ## <a name="installation-best-practices"></a>安装最佳做法
 可以通过从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=39717)下载 MSI 安装程序包来安装自承载集成运行时。 请参阅文章[在本地和云之间移动数据](tutorial-hybrid-copy-powershell.md)以获取分步说明。
@@ -111,6 +117,9 @@ ms.locfileid: "70888186"
 
 ## <a name="automation-support-for-self-hosted-ir-function"></a>对自承载 IR 功能的自动化支持
 
+
+> [!NOTE]
+> 如果计划在 Azure 虚拟机上安装自承载 IR 并希望使用 Azure 资源管理器模板自动执行安装，请参阅[部分](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template)。
 
 可以使用命令行设置或管理现有的自承载 IR。 这可以专门用来自动完成安装，以及注册自承载 IR 节点。 
 
@@ -233,15 +242,13 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>自承载 IR 共享的已知限制
 
-* 要在其中创建链接 IR 的数据工厂必须包含一个 MSI。 默认情况下，在 Azure 门户或 PowerShell cmdlet 中创建的数据工厂已隐式创建 MSI。 但是，如果数据工厂是通过 Azure 资源管理器模板或 SDK 创建的，则必须显式设置 **Identity** 属性，以确保 Azure 资源管理器创建包含 MSI 的数据工厂。 
+* 要在其中创建链接 IR 的数据工厂必须包含一个 [MSI](/active-directory/managed-identities-azure-resources/overview)。 默认情况下，在 Azure 门户或 PowerShell cmdlet 中创建的数据工厂已隐式创建 MSI。 但是，如果数据工厂是通过 Azure 资源管理器模板或 SDK 创建的，则必须显式设置 **Identity** 属性，以确保 Azure 资源管理器创建包含 MSI 的数据工厂。 
 
 * 支持此功能的 Azure 数据工厂 .NET SDK 为 1.1.0 或更高版本。
 
 * 若要授予权限，用户在共享 IR 所在的数据工厂中需要“所有者”角色或继承的“所有者”角色。
 
 * 共享功能仅适用于同一 Azure Active Directory 租户中的数据工厂。
-
-* 对于 Active Directory 来宾用户，UI 中的搜索功能（使用搜索关键字列出所有数据工厂）[不起作用](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits)。 但只要来宾用户是数据工厂的“所有者”，则无需搜索功能也能共享 IR，方法是在“分配权限”文本框中直接键入需要共享 IR 的数据工厂的 MSI，然后在 Azure 数据工厂 UI 中选择“添加”。   
 
   > [!NOTE]
   > 此功能只能在 Azure 数据工厂 V2 中使用。 

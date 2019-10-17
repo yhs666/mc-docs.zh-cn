@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/06/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d3e505db73e1eacd97bed170b5099cd5968658d4
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 9b1e599cfdf0a760e95f5c0b4662b10b4e502866
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539132"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272819"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -36,6 +35,8 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 > * 查看并了解 VM 状态
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
+
+打开 Azure Powershell 控制台，并以管理员权限运行以下脚本。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -110,7 +111,7 @@ Azure 市场包括许多可用于新建 VM 的映像。 在之前的步骤中，
 Get-AzVMImagePublisher -Location "ChinaEast"
 ```
 
-使用 [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) 返回映像套餐的列表。 使用此命令，返回筛选了指定发布者（名为 `MicrosoftWindowsServer`）的列表：
+使用 [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) 返回映像产品的列表。 使用此命令，返回筛选了指定发布者（名为 `MicrosoftWindowsServer`）的列表：
 
 ```powershell
 Get-AzVMImageOffer `
@@ -128,7 +129,7 @@ WindowsServer     MicrosoftWindowsServer ChinaEast
 WindowsServer-HUB MicrosoftWindowsServer ChinaEast
 ```
 
-然后，使用 [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) 命令对发布者和套餐名称进行筛选，以返回映像名称的列表。
+然后，使用 [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) 命令对发布者和产品名称进行筛选，以返回映像名称的列表。
 
 ```powershell
 Get-AzVMImageSku `

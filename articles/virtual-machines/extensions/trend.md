@@ -1,5 +1,5 @@
 ---
-title: 在 VM 上安装 Trend Micro Deep Security | Azure
+title: 如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务 | Azure
 description: 本文介绍如何在 Azure 中使用经典部署模型创建的 VM 上安装和配置 Trend Micro Deep Security。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,17 +11,16 @@ ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: de3e5a33cd753f1e60399cb0d2a1699bd50cdf6c
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 03a46c6f26b46d389591da5f0ffbf6ae419df63d
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912925"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272492"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]

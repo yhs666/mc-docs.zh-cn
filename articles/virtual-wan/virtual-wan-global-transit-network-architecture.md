@@ -9,12 +9,12 @@ origin.date: 05/20/2019
 ms.date: 06/28/2019
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: cf6ef5bbcf66eb87a486b4efaff791160e10579c
-ms.sourcegitcommit: 7ad1a199e9f81de27b9098b50062ef059099f765
+ms.openlocfilehash: 363755c87bd18815adb85c8bb565630a7884a4ab
+ms.sourcegitcommit: 1b4cb23c9bce2e9073e34eb9fb8b6765b9357d83
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461888"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170806"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>全局传输网络体系结构和虚拟 WAN
 
@@ -51,7 +51,7 @@ ms.locfileid: "67461888"
 <a name="crossregion"></a>
 ## <a name="cross-region-connectivity"></a>跨区域连接
 
-对于企业而言，云足迹通常类似于物理足迹。 大多数企业会从最靠近其物理站点和用户的区域访问云。 全局网络体系结构的重要原则之一是在网络实体与终结点之间实现跨区域连接。 云足迹可以跨越多个区域。 这意味着，与一个区域中的云相连接的分支发出的流量，可以通过中心到中心的连接（此功能目前以预览版提供）抵达不同区域中的另一个分支或 VNet。
+对于企业而言，云足迹通常类似于物理足迹。 大多数企业会从最靠近其物理站点和用户的区域访问云。 全局网络体系结构的重要原则之一是在网络实体与终结点之间实现跨区域连接。 云足迹可以跨越多个区域。 这意味着，来自一个区域中连接到云的分支的流量可以使用中心到中心连接到达另一个分支或不同区域中的 VNet，此功能目前已在我们的路线图中。
 
 <a name="any"></a>
 ## <a name="any-to-any-connectivity"></a>任意点到任意点的连接
@@ -114,8 +114,8 @@ Azure 虚拟 WAN 支持以下全局传输连接路径。 括号中的字母对�
 使用虚拟 WAN 创建连接。
 
 * [使用虚拟 WAN 的站点到站点连接](virtual-wan-site-to-site-portal.md)
-* [使用虚拟 WAN 的点到站点连接](virtual-wan-point-to-site-portal.md)
 
+<!--Not Available on * [Point-to-site connections using Virtual WAN](virtual-wan-point-to-site-portal.md)-->
 <!--Not Available on * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)-->
 
 <!--Update_Description: new articles on virtaul wan transit network architecture -->

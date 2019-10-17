@@ -1,5 +1,5 @@
 ---
-title: 排查通过 RDP 连接到 Azure 中的 Windows VM 时发生的常规错误 | Azure
+title: 排查 Azure VM 的常规 RDP 错误 | Azure
 description: 了解如何排查通过 RDP 连接到 Azure 中的 Windows VM 时发生的常规错误 | Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/31/2018
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 47e40f2f064abe48ee5f09b2dd3bd8f4812e56c1
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 120e5f1c3bc9f50081c1cf0149ee631e9948499a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003782"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272714"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>排查 Azure VM 的常规 RDP 错误
 
@@ -72,9 +71,9 @@ RDP 侦听器配置不当。
 
 1. [将 OS 磁盘附加到恢复 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 开始与恢复 VM 建立远程桌面连接。
-3. 确保磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的 OS 磁盘的驱动器号。
+3. 确保磁盘在磁盘管理控制台中标记为“联机”。  请注意分配给附加的 OS 磁盘的驱动器号。
 4. 开始与恢复 VM 建立远程桌面连接。
-5. 打开权限提升的命令提示符会话（“以管理员身份运行”）。 运行以下脚本。 对于此脚本，我们假设分配给附加 OS 磁盘的驱动器号为 F。请将此驱动器号替换为 VM 中的相应值。
+5. 打开权限提升的命令提示符会话（“以管理员身份运行”）。  运行以下脚本。 对于此脚本，我们假设分配给附加 OS 磁盘的驱动器号为 F。请将此驱动器号替换为 VM 中的相应值。
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -137,7 +136,6 @@ RDP 侦听器配置不当。
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
-
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/support/support-azure/)以快速解决问题。
 
 <!-- Update_Description: wording update -->

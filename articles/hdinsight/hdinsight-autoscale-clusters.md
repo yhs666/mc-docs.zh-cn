@@ -7,14 +7,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/02/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: a39256b4b36e7f91ad65e5176a0620947f0df322
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e959c136bd5f2dd238dc0e6ef049cc629c43f2e4
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736610"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292428"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自动缩放 Azure HDInsight 群集（预览）
 
@@ -32,7 +32,7 @@ Azure HDInsight 的群集自动缩放功能可以自动增加和减少群集中�
 | 不包含 ESP 的 HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
 | 不包含 ESP 的 HDInsight 4.0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
 | 包含 ESP 的 HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 包含 ESP 的 HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 包含 ESP 的 HDInsight 4.0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
 
 ## <a name="how-it-works"></a>工作原理
 
@@ -86,7 +86,7 @@ HDInsight 服务将计算需要多少个新的工作器节点才能满足当前�
     * 最小  工作节点数。  
     * 最大  工作节点数。  
 
-    ![启用工作器节点的基于负载的自动缩放选项](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![启用工作器节点的基于负载的自动缩放](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 工作节点的初始数量必须介于最小值和最大值之间（含最大值和最小值）。 此值定义创建群集时的群集初始大小。 最小工作节点数必须大于零。
 
@@ -104,7 +104,7 @@ HDInsight 服务将计算需要多少个新的工作器节点才能满足当前�
 1. 编辑该条件生效的时间，以及群集要缩放到的节点数。
 1. 根据需要添加更多条件。
 
-    ![启用工作器节点的基于计划的自动缩放选项](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    ![启用工作器节点的基于计划的创建](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
 节点数最小为 1，最大为添加条件之前输入的工作器节点数。
 
@@ -112,7 +112,7 @@ HDInsight 服务将计算需要多少个新的工作器节点才能满足当前�
 
 对于基于负载和基于计划的缩放，请单击“工作器节点大小”和“头节点大小”选择工作器节点的 VM 类型。   为每个节点类型选择 VM 类型后，可以看到整个群集的估算成本范围。 请根据预算调整 VM 类型。
 
-![启用工作器节点的基于计划的自动缩放选项](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
+![启用工作器节点的基于计划的自动缩放节点大小](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 你的订阅具有针对每个区域的容量配额。 头节点核心总数加最大工作节点数不能超过容量配额。 但是，此配额是软性限制；始终可创建支持票证来轻松地增加此配额。
 
@@ -190,7 +190,7 @@ HDInsight 服务将计算需要多少个新的工作器节点才能满足当前�
 #### <a name="using-the-azure-portal"></a>使用 Azure 门户
 若要在运行中的群集上启用自动缩放，请选择“设置”下的“群集大小”。   然后单击“启用自动缩放”。  选择所需的自动缩放类型，然后输入基于负载或基于计划的缩放选项。 最后，单击“保存”  。
 
-![启用工作器节点的基于计划的自动缩放选项](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![启用工作器节点的基于计划的自动缩放运行群集](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
 #### <a name="using-the-rest-api"></a>使用 REST API
 若要使用 REST API 在运行中的群集上启用或禁用自动缩放，请向自动缩放终结点发出 POST 请求，如以下代码片段所示：
@@ -232,7 +232,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 
 Azure 门户中列出的群集状态可帮助你监视自动缩放活动。
 
-![启用工作器节点的基于负载的自动缩放选项](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+![启用工作器节点的基于负载的自动缩放群集状态](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
 
 以下列表解释了你可能会看到的所有群集状态消息。
 
@@ -252,7 +252,7 @@ Azure 门户中列出的群集状态可帮助你监视自动缩放活动。
 
 在“监视”下选择“指标”。   然后单击“添加指标”，并从“指标”下拉框中选择“活动辅助角色数”。    单击右上角的按钮更改时间范围。
 
-![启用工作器节点的基于计划的自动缩放选项](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+![启用工作器节点的基于计划的自动缩放指标](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 
 ## <a name="next-steps"></a>后续步骤

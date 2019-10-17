@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: a59d3bd2e66f981c24dd5013b51567e162ddff89
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 10/21/2019
+ms.openlocfilehash: 97e84f98e1a7c4396ea1da690ce369085ffb7e48
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569662"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292400"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -38,6 +38,7 @@ ms.locfileid: "67569662"
 * 自定义扩展在导入时将被忽略，并且不会为导出保存或保留。
 * **递归** - API 管理目前不支持以递归方式定义的定义（例如，引用自身的架构）。
 * 源文件 URL（如果可用）应用于相对服务器 URL。
+* 忽略安全定义。
 
 ### <a name="open-api-v2"> </a>OpenAPI 版本 2
 

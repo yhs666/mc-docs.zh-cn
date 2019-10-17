@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 02/13/2019
+ms.date: 10/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 36b33b49bd4c8e7bca2c30f05a0bb7c069360ebe
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6b290a7918854b6f9da9b8129dd72b3419bf4ed6
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222694"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292106"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -60,23 +61,23 @@ ms.locfileid: "56222694"
 
 许多组织具有包含多个本地 Active Directory 林的环境。 有多种原因导致出现多个本地 Active Directory 林。 典型示例是使用帐户资源林的设计，以及合并和收购之后采用的设计。
 
-如果使用多个林，所有林必须可由单个 Azure AD Connect 同步服务器访问。 不需要将服务器加入域。 如果需要访问所有林，可将服务器放在外围网络（也称为外围网络、外围安全区域或屏蔽子网）中。
+如果使用多个林，所有林必须可由单个 Azure AD Connect 同步服务器访问。 服务器必须加入域。 如果需要访问所有林，可将服务器放在外围网络（也称为外围网络、外围安全区域或屏蔽子网）中。
 
-Azure AD Connect 安装向导提供多个选项用于合并多个林中显示的用户。 目标是一个用户只在 Azure AD 中显示一次。 可以在安装向导的自定义安装路径中配置某些常见拓扑。 在“唯一标识你的用户”页上选择表示拓扑的相应选项。 只对用户配置合并。 复制的组不会与默认配置合并。
+Azure AD Connect 安装向导提供多个选项用于合并多个林中显示的用户。 目标是一个用户只在 Azure AD 中显示一次。 可以在安装向导的自定义安装路径中配置某些常见拓扑。 在“唯一标识你的用户”页上选择表示拓扑的相应选项。  只对用户配置合并。 复制的组不会与默认配置合并。
 
 有关独立的拓扑、[完整网格](#multiple-forests-full-mesh-with-optional-galsync)和[帐户资源拓扑](#multiple-forests-account-resource-forest)的部分讨论了常见拓扑。
 
 Azure AD Connect 同步中的默认配置假设：
 
-- 每个用户只有一个已启用的帐户并且此帐户所在的林用于对用户进行身份验证。 这种假设适用于密码哈希同步和联合。 UserPrincipalName 和 sourceAnchor/immutableID 来自此林。
-- 每个用户只有一个邮箱。
-- 托管用户邮箱的林具有 Exchange 全局地址列表 (GAL) 中可见属性的最佳数据质量。 如果用户没有邮箱，则任何林都可以用于提供这些属性值。
-- 如果有链接邮箱，则还有其他林中的某个帐户用于登录。
+* 每个用户只有一个已启用的帐户并且此帐户所在的林用于对用户进行身份验证。 这种假设适用于密码哈希同步和联合。 UserPrincipalName 和 sourceAnchor/immutableID 来自此林。
+* 每个用户只有一个邮箱。
+* 托管用户邮箱的林具有 Exchange 全局地址列表 (GAL) 中可见属性的最佳数据质量。 如果用户没有邮箱，则任何林都可以用于提供这些属性值。
+* 如果有链接邮箱，则还有其他林中的某个帐户用于登录。
 
 如果环境不符合这些假设，则会发生以下情况：
 
-- 如果使用多个活动帐户或多个邮箱，同步引擎将选择其中一个并忽略其他帐户或邮箱。
-- 没有其他活动帐户的链接邮箱不会导出到 Azure AD。 用户帐户不会显示为任何组中的成员。 DirSync 中的链接邮箱始终显示为普通邮箱。 这项更改是有意而为的，目的是使用不同的行为来更好地支持多林方案。
+* 如果使用多个活动帐户或多个邮箱，同步引擎将选择其中一个并忽略其他帐户或邮箱。
+* 没有其他活动帐户的链接邮箱不会导出到 Azure AD。 用户帐户不会显示为任何组中的成员。 DirSync 中的链接邮箱始终显示为普通邮箱。 这项更改是有意而为的，目的是使用不同的行为来更好地支持多林方案。
 
 可在[了解默认配置](concept-azure-ad-connect-sync-default-configuration.md)中找到更多详细信息。
 
@@ -140,7 +141,8 @@ Azure AD Connect 支持以 *暂存模式*安装第二个服务器。 使用此�
 如果想要在不同的数据中心拥有多个备份，也可以配置多个暂存服务器。
 
 ## <a name="multiple-azure-ad-tenants"></a>多个 Azure AD 租户
-建议组织在 Azure AD 中部署单个租户。
+我们建议组织在 Azure AD 中部署单个租户。
+在打算使用多个 Azure AD 租户之前，请参阅 [Administrative units management in Azure AD](../users-groups-roles/directory-administrative-units.md)（Azure AD 中的管理单位管理）一文， 其中介绍了可以使用单个租户的常见方案。
 
 ![多个林和多个租户的拓扑](./media/plan-connect-topologies/MultiForestMultiDirectory.png)
 
@@ -159,25 +161,25 @@ DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实�
 
 另外，此拓扑对支持的方案实施以下限制：
 
-- 只有一个 Azure AD 租户可以使用本地 Active Directory 实例启用 Exchange 混合部署。
-- Windows 10 设备只能与一个 Azure AD 租户相关联。
+* 只有一个 Azure AD 租户可以使用本地 Active Directory 实例启用 Exchange 混合部署。
+* Windows 10 设备只能与一个 Azure AD 租户相关联。
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>每个对象在 Azure AD 租户中运行多次
 ![单个林和多个租户不支持的拓扑](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![单个林和多个连接器不支持的拓扑](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
 不支持以下任务：
 
-- 将同一用户同步到多个 Azure AD 租户。
-- 进行配置更改，使一个 Azure AD 租户中的用户显示为另一个 Azure AD 租户中的联系人。
-- 将 Azure AD Connect 同步修改为连接到多个 Azure AD 租户。
+* 将同一用户同步到多个 Azure AD 租户。
+* 进行配置更改，使一个 Azure AD 租户中的用户显示为另一个 Azure AD 租户中的联系人。
+* 将 Azure AD Connect 同步修改为连接到多个 Azure AD 租户。
 
 ### <a name="galsync-by-using-writeback"></a>使用写回的 GALSync
 ![多个林和多个目录不支持的拓扑，其中的 GALSync 重点用于 Azure AD](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![多个林和多个目录不支持的拓扑，其中的 GALSync 重点用于本地 Active Directory](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD 租户在设计上是隔离的。 不支持以下任务：
 
-- 将 Azure AD Connect 同步更改为从另一个 Azure AD 租户读取数据。
-- 使用 Azure AD Connect 同步将用户作为联系人导出到另一个本地 Active Directory 实例。
+* 将 Azure AD Connect 同步更改为从另一个 Azure AD 租户读取数据。
+* 使用 Azure AD Connect 同步将用户作为联系人导出到另一个本地 Active Directory 实例。
 
 ### <a name="galsync-with-on-premises-sync-server"></a>使用本地同步服务器的 GALSync
 ![多个林和多个目录的拓扑中的 GALSync](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)

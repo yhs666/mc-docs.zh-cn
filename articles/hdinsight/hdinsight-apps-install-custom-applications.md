@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/14/2018
-ms.date: 06/10/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0e84c9722a3ffa2b3425c7308821366e3358435d
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 1796f7fe8f44fa30e795c99f129788d2997c9b1d
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424665"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292678"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装自定义 Apache Hadoop 应用程序
 
@@ -53,7 +53,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 1. 单击以下映像以登录到 Azure，然后在 Azure 门户中打开 Resource Manager 模板。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     单击此按钮可在 Azure 门户上打开 Resource Manager 模板。  资源管理器模板位于 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)。  若要了解如何编写此资源管理器模板，请参阅 [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)。
 2. 在“参数”  边栏选项卡中，输入以下内容：
@@ -68,7 +68,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 1. 单击以下映像以登录到 Azure，然后在 Azure 门户中打开 Resource Manager 模板。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
     > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
@@ -99,12 +99,12 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
     从门户打开群集，并在“设置”边栏选项卡中单击“应用程序”：
 
-    ![hdinsight 应用程序安装错误](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+    ![hdinsight 应用程序安装错误](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
 * HDInsight 脚本操作：如果 HDInsight 应用程序的错误消息指出脚本操作失败，“脚本操作”窗格会显示有关脚本失败的详细信息。
 
     在“设置”边栏选项卡中单击“脚本操作”。 脚本操作历史记录中显示了错误消息
 
-    ![hdinsight 应用程序脚本操作错误](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    ![hdinsight 应用程序脚本操作错误](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
 * Ambari Web UI：如果安装脚本是失败的原因，请使用 Ambari Web UI 来检查有关安装脚本的完整日志。
 
     有关详细信息，请参阅 [故障排除](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)。
@@ -118,7 +118,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧菜单中单击“HDInsight 群集”  。  如果未看到，请单击“浏览”，并单击“HDInsight 群集”。  
 3. 单击已安装应用程序的群集。
-4. 在“设置”边栏选项卡中，单击“常规”类别下的“应用程序”。    你会看到已安装的应用程序列表。 在本教程中，“hue”列在“已安装的应用”边栏选项卡中。  
+4. 在“设置”边栏选项卡中，单击“常规”类别下的“应用程序”。    你会看到已安装的应用程序列表。 在本文中，“hue”列在“已安装的应用”边栏选项卡中。  
 5. 右键单击想要删除的应用程序，并单击“删除”  。
 6. 单击“是”  确认。
 

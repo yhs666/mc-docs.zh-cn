@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 05/01/2019
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.author: v-junlch
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f45bf95876383b613f3faad35139b9d7518c76cb
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: b915def7b4bbc9738823e502ac13f213c062e4f5
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993397"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292088"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：配置 Azure 多重身份验证注册策略
 
@@ -32,7 +32,7 @@ Azure 多重身份验证提供了一种方法来实现不只使用用户名和�
 我们建议你要求用户登录使用 Azure 多重身份验证，因为这种身份验证方法可以：
 
 - 提供强式身份验证和一系列简单的验证选项
-- 在准备组织以在“标识保护”中进行保护以及从风险事件中恢复方面起关键作用
+- 在准备组织以在“标识保护”中进行保护以及从风险检测中恢复方面起关键作用
 
 有关 MFA 的更多详细信息，请参阅[什么是 Azure 多重身份验证？](../authentication/howto-mfa-getstarted.md)
 

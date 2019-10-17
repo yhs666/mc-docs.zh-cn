@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2019
-ms.date: 08/19/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 008a2f7d3301408a9780eec8d4830e1360a91ff5
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 2881cb885dac0fc1aa081a183eeb4d0293e86e61
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878700"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292432"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -67,7 +67,7 @@ Azure 存储具有一些[容量限制](../azure-subscription-service-limits.md#s
 
 ## <a name="choose-a-cluster-type"></a>选择群集类型
 
-群集类型确定 HDInsight 群集配置为运行的工作负荷，例如 [Apache Hadoop](https://hadoop.apache.org/)、[Apache Storm](https://storm.apache.org/)、[Apache Kafka](https://kafka.apache.org/) 或 [Apache Spark](https://spark.apache.org/)。 有关可用群集类型的详细说明，请参阅 [Azure HDInsight 简介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每个群集类型具有一个特定的部署拓扑，该拓扑附带大小和节点数方面的要求。
+群集类型确定 HDInsight 群集配置为运行的工作负荷，例如 [Apache Hadoop](https://hadoop.apache.org/)、[Apache Storm](https://storm.apache.org/)、[Apache Kafka](https://kafka.apache.org/) 或 [Apache Spark](https://spark.apache.org/)。 有关可用群集类型的详细说明，请参阅 [Azure HDInsight 简介](hdinsight-overview.md#cluster-types-in-hdinsight)。 每个群集类型具有一个特定的部署拓扑，该拓扑附带大小和节点数方面的要求。
 
 ## <a name="choose-the-vm-size-and-type"></a>选择 VM 大小和类型
 
@@ -101,11 +101,8 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ### <a name="isolate-cluster-job-errors"></a>查明群集作业错误
 
-有时，多节点群集上多个映射和化简组件的并行执行可能导致出错。 为了帮助查明问题，可以通过在单节点群集上运行多个并发作业来尝试执行分布式测试，然后延伸这种方法，在包含多个节点的群集上并发运行多个作业。 若要在 Azure 中创建单节点 HDInsight 群集，请使用高级选项。 
+有时，多节点群集上多个映射和化简组件的并行执行可能导致出错。 为了帮助查明问题，可以通过在单工作器节点群集上运行多个并发作业来尝试执行分布式测试，然后延伸这种方法，在包含多个节点的群集上并发运行多个作业。 若要在 Azure 中创建单节点 HDInsight 群集，请在门户中预配新群集时，使用“自定义(大小、设置、应用)”  选项，并使用值 1 作为**群集大小**部分中的*工作器节点数*。
 
-也可以在本地计算机上安装单节点开发环境，并在该环境中测试解决方案。 Hortonworks 为基于 Hadoop 的解决方案提供单节点本地开发环境，非常有利于初始开发、概念证明和测试。 有关详细信息，请参阅 [Hortonworks 沙盒](https://hortonworks.com/products/hortonworks-sandbox/)。
-
-若要识别单节点本地群集上的问题，可以重新运行失败的作业并调整输入数据，或使用更小的数据集。 这些作业的运行方式取决于平台和应用程序类型。
 
 ## <a name="quotas"></a>配额
 

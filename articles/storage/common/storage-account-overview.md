@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/07/2019
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 4f42b0630eaee67d591e4cb7d544784839a52918
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 61b4db6ca1e4241943af53b1e2ace37d725c2a5d
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306810"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275563"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 
@@ -61,6 +61,10 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 * 使用早于 2014-02-14 的[存储服务 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 的版本或使用版本低于 4.x 的客户端库，并且无法升级应用程序。
 
+### <a name="filestorage-storage-accounts"></a>FileStorage 存储帐户
+
+FileStorage 存储帐户是用于存储和创建高级文件共享的专用存储帐户。 FileStorage 存储帐户提供了独特的性能专用特征，例如 IOPS 突发。 有关这些特征的更多信息，请参阅文件规划指南的[文件共享性能层](../files/storage-files-planning.md#file-share-performance-tiers)部分。
+
 ## <a name="naming-storage-accounts"></a>为存储帐户命名
 
 为存储帐户命名时，请记住以下规则：
@@ -74,6 +78,8 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 * 用于存储 Blob、文件、表、队列和 Azure 虚拟机磁盘的标准性能层。
 * 仅用于存储非托管虚拟机磁盘的高级性能层。
+
+FileStorage 存储帐户为 Azure 文件共享提供高级性能层。
 
 ## <a name="access-tiers-for-block-blob-data"></a>块 Blob 数据的访问层
 

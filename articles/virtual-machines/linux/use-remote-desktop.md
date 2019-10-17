@@ -10,23 +10,22 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-origin.date: 05/30/2018
-ms.date: 09/16/2019
+origin.date: 09/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: eaaefa8d9d4e6c0ee328dcaf6ab99c7dd24ca498
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 304d05dff9fc0d1fba04de2ad215ef02dc014f76
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921026"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272504"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
 通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](https://www.xrdp.org))。
 
 ## <a name="prerequisites"></a>先决条件
-本文需要 Azure 中的现有 Ubuntu 16.04 LTS VM。 如果需要创建 VM，请使用以下方法之一：
+本文需要 Azure 中的现有 Ubuntu 18.04 LTS VM。 如果需要创建 VM，请使用以下方法之一：
 
 - [Azure CLI](quick-create-cli.md)
 - [Azure 门户](quick-create-portal.md)
@@ -59,7 +58,7 @@ sudo apt-get install xfce4
 安装桌面环境后，请配置远程桌面服务来侦听传入连接。 [xrdp](http://xrdp.org) 是大多数 Linux 分发版中提供的开源远程桌面协议 (RDP) 服务器，可与 xfce 完美配合。 在 Ubuntu VM 上安装 xrdp，如下所示：
 
 ```bash
-sudo apt-get install xrdp=0.6.1-2
+sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
 ```
 

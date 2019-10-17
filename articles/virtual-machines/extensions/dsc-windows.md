@@ -1,5 +1,5 @@
 ---
-title: Azure Desired State Configuration 扩展处理程序 | Azure
+title: PowerShell DSC 扩展 | Azure
 description: 使用 DSC 扩展在 Azure VM 中上传和应用 PowerShell DSC 配置
 services: virtual-machines-windows
 documentationcenter: ''
@@ -8,25 +8,26 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 origin.date: 03/26/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 68b6a29dd7a376b2965afd03059a2188708954ef
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 80f6080787a785c8093c36ff7fe04535d9220ce8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913043"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272780"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 
 ## <a name="overview"></a>概述
 
-适用于 Windows 的 PowerShell DSC 扩展由 Microsoft 发布和提供支持。 扩展在 Azure VM 中上传和应用 PowerShell DSC 配置。 DSC 扩展可调用 PowerShell DSC，在 VM 上启用收到的 DSC 配置。 本文档详细介绍适用于 Windows 的 DSC 虚拟机扩展支持的平台、配置和部署选项。
+适用于 Windows 的 PowerShell DSC 扩展由 Azure 发布和提供支持。 扩展在 Azure VM 中上传和应用 PowerShell DSC 配置。 DSC 扩展可调用 PowerShell DSC，在 VM 上启用收到的 DSC 配置。 本文档详细介绍适用于 Windows 的 DSC 虚拟机扩展支持的平台、配置和部署选项。
+
+<!--MOONCAKE: CORRECT FOR Azure-->
 
 ## <a name="prerequisites"></a>先决条件
 

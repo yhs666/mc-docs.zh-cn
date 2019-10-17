@@ -1,6 +1,6 @@
 ---
-title: 快速入门 - 使用 Azure PowerShell 创建 Windows VM | Azure
-description: 本快速入门介绍了如何使用 Azure PowerShell 创建 Windows 虚拟机
+title: 快速入门 - 使用 Azure CLI 创建 Windows 虚拟机 | Azure
+description: 本快速入门介绍如何使用 Azure CLI 创建 Windows 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -9,27 +9,25 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/02/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4819e8372c8d0952ab74a2e7ecf55afe9457dee8
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 9fcebd2c4cc30d6e714f81b3360bee24cb65aa05
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539157"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272538"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Windows 虚拟机
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门展示了如何使用 Azure CLI 在 Azure 中部署运行 Windows Server 2016 的虚拟机 (VM)。 若要查看运行中的 VM，可以通过 RDP 登录到该 VM 并安装 IIS Web 服务器。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
 
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
@@ -107,7 +105,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-web-server-in-action"></a>查看运行中的 Web 服务器
 
-IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页。 使用上一步中获取的 VM 的公用 IP 地址。 以下示例展示了默认 IIS 网站：
+如果 IIS 已安装，并且 VM 上的端口 80 已对 Internet 开放， 则可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页。 使用上一步中获取的 VM 的公用 IP 地址。 以下示例展示了默认 IIS 网站：
 
 ![IIS 默认站点](./media/quick-create-powershell/default-iis-website.png)
 

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 05/16/2019
-ms.date: 08/21/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb002c2492d42c5701c763ec5c85bac5bde2f7ab
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 892acce1644a34bbd46c936edcfc789f0b017b8f
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993185"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72291943"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>基线策略：最终用户保护（预览版）
 
@@ -25,7 +25,7 @@ ms.locfileid: "69993185"
 
 为了在安全性与可用性之间实现合理的平衡，不应在用户每次登录时都向其显示提示信息。 反映正常用户行为（例如，在同一位置通过同一台设备登录）的身份验证请求不太可能会透露敏感信息。 应该只针对被视为有风险并展示了恶意行动者特征的登录提出 MFA 质询。
 
-最终用户保护是一种基于风险的 MFA [基线策略](concept-baseline-protection.md)，可以保护目录中的所有用户，包括所有管理员角色。 启用此策略需要所有用户使用 Authenticator 应用注册 MFA。 用户可以忽略 MFA 注册提示 14天，此时限过后，除非注册 MFA，否则会阻止他们登录。 注册 MFA 后，只会在检测到有风险的登录企图时，才提示用户执行 MFA。 在重置用户密码并消除风险事件之前，遭到入侵的用户帐户将被阻止。
+最终用户保护是一种基于风险的 MFA [基线策略](concept-baseline-protection.md)，可以保护目录中的所有用户，包括所有管理员角色。 启用此策略需要所有用户使用 Authenticator 应用注册 MFA。 用户可以忽略 MFA 注册提示 14天，此时限过后，除非注册 MFA，否则会阻止他们登录。 注册 MFA 后，只会在检测到有风险的登录企图时，才提示用户执行 MFA。 在重置用户密码并消除风险检测之前，遭到入侵的用户帐户将被阻止。
 
 > [!NOTE]
 > 此策略适用于所有用户（包括来宾帐户）。登录所有应用程序时会评估此策略。
@@ -34,7 +34,7 @@ ms.locfileid: "69993185"
 
 为帮助保护客户，Microsoft 的已泄漏凭据服务将查找公开提供的用户名/密码对。 如果这些凭据对与我们的某个用户相匹配，我们会立即帮助保护该帐户。 识别为凭据已泄漏的用户将确认为已遭到入侵。 在重置其密码之前，我们会阻止这些用户登录。
 
-分配了 Azure AD Premium 许可证的用户可以通过自助式密码重置 (SSPR) 恢复访问权限（如果在其目录中启用了该功能）。 没有高级许可证而被阻止的用户必须联系管理员，以执行手动密码重置并解除标记的用户风险事件。
+分配了 Azure AD Premium 许可证的用户可以通过自助式密码重置 (SSPR) 恢复访问权限（如果在其目录中启用了该功能）。 没有高级许可证而被阻止的用户必须联系管理员，以执行手动密码重置并解除标记的用户风险检测。
 
 ### <a name="steps-to-unblock-a-user"></a>解除阻止用户的步骤
 
@@ -78,3 +78,4 @@ ms.locfileid: "69993185"
 * [条件访问基线保护策略](concept-baseline-protection.md)
 * [什么是 Azure Active Directory 中的条件访问？](overview.md)
 
+<!-- Update_Description: wording update -->

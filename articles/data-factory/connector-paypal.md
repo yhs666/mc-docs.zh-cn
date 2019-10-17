@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 07/08/2019
+origin.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 6c4bb99a567d612e65b5df494bcb109335f51da6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4686018797dc5458e6532d160f7ebf019e109753
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570402"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275472"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 PayPal 复制数据
 
@@ -28,6 +28,11 @@ ms.locfileid: "67570402"
 > 此连接器目前提供预览版。 欢迎试用并提供反馈。 若要在解决方案中使用预览版连接器的依赖项，请联系 [Azure 客户支持](https://www.azure.cn/zh-cn/support/contact/)。
 
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 PayPal 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 PayPal 复制到任何支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -90,11 +95,12 @@ PayPal 链接服务支持以下属性：
     "name": "PayPalDataset",
     "properties": {
         "type": "PayPalObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<PayPal linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -105,7 +111,7 @@ PayPal 链接服务支持以下属性：
 
 ### <a name="paypal-as-source"></a>以 PayPal 作为源
 
-要从 PayPal 复制数据，请将复制活动中的源类型设置为“PayPalSource”  。 复制活动源  部分支持以下属性：
+要从 PayPal 复制数据，请将复制活动中的源类型设置为“PayPalSource”  。 复制活动**source**部分支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -143,6 +149,11 @@ PayPal 链接服务支持以下属性：
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

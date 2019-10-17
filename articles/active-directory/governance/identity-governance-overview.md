@@ -3,8 +3,8 @@ title: 标识监管 - Azure Active Directory | Microsoft Docs
 description: 使用 Azure Active Directory 标识监管可以在组织的安全性和员工工作效率与适当的流程和可见性需求之间实现平衡。
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-origin.date: 04/29/2019
-ms.date: 08/09/2019
+origin.date: 08/28/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7418c402e1275abea9d3298a2000d2ebd6dc0014
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 59a554cc5fecc0f3d957e6ec6f2e906fa6f20166
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972813"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292039"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什么是 Azure AD Identity Governance？
 
@@ -69,6 +69,18 @@ ms.locfileid: "68972813"
 
 Azure AD Privileged Identity Management (PIM) 提供用于保护 Azure AD、Azure 和其他 Microsoft Online Services 中的资源访问权限的其他定制控制措施。  Azure AD PIM 提供的实时访问和角色更改警报功能，以及多重身份验证和条件访问，共同提供了一套综合性的监管控制措施，可帮助保护公司的资源（目录、Office 365 和 Azure 资源角色）。 与处理其他形式的访问权限一样，组织可以使用访问评审来针对充当管理员角色的所有用户配置定期的访问权限重新认证。
 
+## <a name="least-privileged-roles"></a>最小特权角色
+
+在标识治理中使用最小特权角色来执行管理任务是一种最佳做法。 我们建议你使用 Azure AD PIM 根据需要激活角色以执行这些任务。 以下是配置标识治理功能所需的最小特权目录角色： 
+
+| 功能 | 最小特权角色 |
+| ------- | --------------------- |
+| 权利管理 | 用户管理员（将 SharePoint Online 站点添加到目录中除外，这需要全局管理员） |
+| 使用条款 | 安全管理员或条件访问管理员 |
+| 访问评审 | 用户管理员（Azure 或 Azure AD 角色的访问评审除外，这需要特权角色管理员） |
+|Privileged Identity Management | 特权角色管理员 |
+
+
 ## <a name="getting-started"></a>入门
 
 尽管我们不能为每个客户提供完美的解决方案或建议，但以下配置提供了 Microsoft 建议你遵循的基准策略指南，以确保提高安全性和员工工作效率。
@@ -79,6 +91,8 @@ Azure AD Privileged Identity Management (PIM) 提供用于保护 Azure AD、Azur
 还可以在 Azure 门户中查看**标识监管**的“入门”选项卡，以开始使用权利管理、访问评审、Privileged Identity Management 和使用条款。
 
 ![标识监管入门](./media/identity-governance-overview/getting-started.png)
+
+如果你对标识治理功能有任何反馈，请在 Azure 门户中单击“获得反馈?”  以提交反馈。 团队定期审查反馈。
 
 ## <a name="next-steps"></a>后续步骤
 

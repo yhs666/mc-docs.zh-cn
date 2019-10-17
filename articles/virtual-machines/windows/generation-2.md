@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
-origin.date: 05/23/2019
-ms.date: 09/16/2019
+origin.date: 09/10/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 37d114bef309a31aa95cf7000e74fe4656dea079
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 1a858cda4f42186dd8c60672c4351472276eef3a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921216"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272699"
 ---
 <!--Verify sucessfully-->
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure 上的第 2 代 VM 支持（预览版）
@@ -138,6 +137,20 @@ Azure 目前不支持本地 Hyper-V 对第 2 代 VM 所支持的某些特性。
 
 * **第 1 代与第 2 代 VM 的价格是否有差别？**  
     否。
+
+* **我有一个来自本地第 2 代 VM 的 .vhd 文件。我可以使用该 .vhd 文件在 Azure 中创建第 2 代 VM 吗？**
+    是的，你可以将第 2 代 .vhd 文件带到 Azure，并使用该文件创建第 2 代 VM。 请使用以下步骤来执行该操作：1. 将 .vhd 上传到你要创建 VM 的同一区域中的存储帐户。
+        1. 从 .vhd 文件创建托管磁盘。 将“HyperV Generation”属性设置为 V2。 以下 PowerShell 命令在创建托管磁盘时设置“HyperV Generation”属性。
+
+            ```powershell
+            $sourceUri = 'https://xyzstorage.blob.core.chinacloudapi.cn/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
+            $osDiskName = 'gen2Diskfrmgenvhd'  #<Provide a name for your disk>
+            $diskconfig = New-AzDiskConfig -Location '<location>' -DiskSizeGB 127 -AccountType Standard_LRS -OsType Windows -HyperVGeneration "V2" -SourceUri $sourceUri -CreateOption 'Import'
+            New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
+            ```
+
+        1. Once the disk is available, create a VM by attaching this disk. The VM created will be a generation 2 VM.
+        When the generation 2 VM is created, you can optionally generalize the image of this VM. By generalizing the image you can use it to create multiple VMs.
 
 * **如何增大 OS 磁盘的大小？**  
     大于 2 TB 的 OS 磁盘是第 2 代 VM 的新配置。 默认情况下，第 2 代 VM 的 OS 磁盘小于 2 TB。 可将磁盘大小增大至 4 TB（建议的最大大小）。 使用 Azure CLI 或 Azure 门户增大 OS 磁盘大小。 有关如何以编程方式扩展磁盘的信息，请参阅[调整磁盘大小](expand-os-disk.md)。

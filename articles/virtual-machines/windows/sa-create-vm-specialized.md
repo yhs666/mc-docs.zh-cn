@@ -1,5 +1,5 @@
 ---
-title: 从 Azure 中的专用磁盘创建 VM | Azure
+title: 从存储帐户中的专用 VHD 创建 VM | Azure
 description: 通过在 Resource Manager 部署模型中附加专用非托管磁盘创建新 VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,18 +11,17 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 294bc459200670c2282e687010e83d2d16b51947
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: e122bfc6150cd08f112d33750bde8dc89d3a170f
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538979"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272175"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -210,7 +209,8 @@ Elapsed time:            00.00:13:07
     $vnetName = "myVnetName"
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```    
+    ```
+    
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
 若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 由于新 VM 的 VHD 是从现有专用 VM 创建的，因此在创建 VM 后，可以使用源虚拟机中有权通过 RDP 登录的现有帐户。
 这需要在创建与其关联的网络接口前完成。  

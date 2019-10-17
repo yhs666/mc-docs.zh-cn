@@ -6,26 +6,26 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
 origin.date: 11/03/2017
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe5e123df025bf54f8cff8c401ae445347164009
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 3c90deb1990b6b6f9bb1e7e3088d11211e46e111
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993403"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292091"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory 标识保护常见问题解答
 
 本文包括了对 Azure Active Directory (Azure AD) 标识保护常见问题的解答。 有关详细信息，请参阅 [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)。 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>为何某些风险事件具有“已关闭(系统)”状态？
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>为何某些风险检测具有“已关闭(系统)”状态？
 
-**答:** 这些是“标识保护”检测到的风险事件，之所以稍后关闭是因为已不再认为这些事件有风险。 这些事件不会计入用户的风险级别。 
+**答:** 这些是“标识保护”检测到的风险检测，之所以稍后关闭是因为已不再认为这些事件有风险。 这些事件不会计入用户的风险级别。 
 
 ---
 
@@ -46,4 +46,4 @@ ms.locfileid: "69993403"
 
 ---
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 对 Azure 中的限制错误进行故障排除 | Azure
+title: 排查 API 限制错误 | Azure
 description: Azure 计算中的限制错误、重试和回退。
 services: virtual-machines
 documentationcenter: ''
@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: ee81cb6c214e019fbfe34002cb6012463b7627fd
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: da33ea53be6b661d74fe291d2ba3035bf72069cd
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538778"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272877"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 

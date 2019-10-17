@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 数据工厂从 Azure Database for PostgreSQL 复制数据 | Microsoft Docs
-description: 了解如何通过在 Azure 数据工厂管道中使用复制活动，将数据从 Azure Database for PostgreSQL 复制到支持的接收器数据存储。
+title: 使用 Azure 数据工厂向/从 Azure Database for PostgreSQL 复制数据 | Microsoft Docs
+description: 了解如何通过在 Azure 数据工厂管道中使用复制活动，向/从 Azure Database for PostgreSQL 复制数据。
 services: data-factory
 documentationcenter: ''
 author: WenJason
@@ -10,23 +10,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 07/31/2019
+origin.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 142bf0a30238a4676d631c5b21138bdb2a2d996f
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: af5a2471132b710a10ec6c522d64df947e3e9187
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732331"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275519"
 ---
-# <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>使用 Azure 数据工厂从 Azure Database for PostgreSQL 复制数据
+# <a name="copy-data-to-and-from-azure-database-for-postgresql-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure Database for PostgreSQL 复制数据
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 Azure Database for PostgreSQL 复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
 
+此连接器专用于 [Azure Database for PostgreSQL 服务](../postgresql/overview.md)。 若要从位于本地或云中的通用 PostgreSQL 数据库复制数据，请使用 [PostgreSQL 连接器](connector-postgresql.md)。
+
 ## <a name="supported-capabilities"></a>支持的功能
 
-可将数据从 Azure Database for PostgreSQL 复制到任何支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
+可将数据从 Azure Database for PostgreSQL 复制到任何支持的接收器数据存储。 或者，可将数据从任何支持的源数据存储复制到 Azure Database for PostgreSQL。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
 Azure 数据工厂提供内置的驱动程序用于启用连接，因此无需使用此连接器手动安装任何驱动程序。
 
@@ -50,8 +52,8 @@ Azure Database for PostgreSQL 链接服务支持以下属性：
 
 | 属性 | 说明 | 选项 | 必须 |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| 驱动程序用于加密在驱动程序和数据库服务器之间发送的数据的方法。 例如 `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | 否 |
-| ValidateServerCertificate (VSC) | 启用 SSL 加密后，确定驱动程序是否验证数据库服务器发送的证书（加密方法=1）。 例如 `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | 否 |
+| EncryptionMethod (EM)| 驱动程序用于加密在驱动程序和数据库服务器之间发送的数据的方法。 例如，`EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | 否 |
+| ValidateServerCertificate (VSC) | 启用 SSL 加密后，确定驱动程序是否验证数据库服务器发送的证书（加密方法=1）。 例如，`ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | 否 |
 
 **示例：**
 
@@ -128,7 +130,7 @@ Azure Database for PostgreSQL 链接服务支持以下属性：
 
 ### <a name="azure-database-for-postgresql-as-source"></a>用于 PostgreSql 的 Azure 数据库作为源
 
-要从 Azure Database for PostgreSQL 复制数据，请将复制活动中的源类型设置为 **AzurePostgreSqlSource**。 复制活动源  部分支持以下属性：
+要从 Azure Database for PostgreSQL 复制数据，请将复制活动中的源类型设置为 **AzurePostgreSqlSource**。 复制活动**source**部分支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -166,6 +168,54 @@ Azure Database for PostgreSQL 链接服务支持以下属性：
     }
 ]
 ```
+
+### <a name="azure-database-for-postgresql-as-sink"></a>Azure Database for PostgreSQL 作为接收器
+
+将数据复制到 Azure Database for PostgreSQL 时，复制活动的 **sink** 节支持以下属性：
+
+| 属性 | 说明 | 必选 |
+|:--- |:--- |:--- |
+| type | 复制活动接收器的 type 属性必须设置为：**AzurePostgreSQLSink** | 是 |
+| preCopyScript | 每次运行时将数据写入 Azure Database for PostgreSQL 之前，为要执行的复制活动指定 SQL 查询。 可以使用此属性清除预加载的数据。 | 否 |
+| writeBatchSize | 当缓冲区大小达到 writeBatchSize 时，会将数据插入 Azure Database for PostgreSQL 表。<br>允许的值为 integer（表示行数）。 | 否（默认值为 10,000） |
+| writeBatchTimeout | 超时之前等待批插入操作完成时的等待时间。<br>允许的值为 Timespan。 示例为 00:30:00（30 分钟）。 | 否（默认值为 00:00:30） |
+
+**示例：**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureDatabaseForPostgreSQL",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure PostgreSQL output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "AzurePostgreSQLSink",
+                "preCopyScript": "<custom SQL script>",
+                "writeBatchSize": 100000
+            }
+        }
+    }
+]
+```
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

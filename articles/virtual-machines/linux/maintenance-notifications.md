@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
-origin.date: 04/30/2019
-ms.date: 08/12/2019
+origin.date: 08/22/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0345ba7d4a25a0e2d47441287a5287da1e1d5ccc
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 927665facfe42e6208fd99e45b75abdf5dc5fba5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912729"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272402"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -28,12 +27,12 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 - 如果维护不需重新启动，Azure 会在更新主机时使用就地迁移来暂停 VM。 这些非重启型维护操作会一个容错域接着一个容错域地应用。如果收到任何警告性运行状况信号，则进度会停止。
 
-- 如果维护需重新启动，系统会告知计划维护的时间。 在这些情况下，系统会提供一个时间窗口（通常为 30 天），方便你在适当的时间自行启动维护。
+- 如果维护需重新启动，系统会告知计划维护的时间。 在这些情况下，系统会提供一个时间窗口（通常为 35 天），方便你在适当的时间自行启动维护。
 
 需要重启的计划内维护是按批进行计划的。 每个批具有不同的作用域（区域）。
 
 - 一个批从向客户发送通知开始。 默认情况下，向订阅所有者和共同所有者发送通知。 可以使用 Azure [活动日志警报](../../azure-monitor/platform/activity-logs-overview.md)，向通知添加更多收件人和消息传送选项（如电子邮件、短信和 Webhook）。  
-- 在通知时会提供自助时段。  在此时段内（通常为 30 天），你可以找到包含在此批中的虚拟机，开始按照自己的计划主动进行维护。
+- 在通知时会提供自助时段。  在此时段内（通常为 35 天），你可以找到包含在此批中的虚拟机，开始按照自己的计划需求主动进行维护。
 - 自助时段过后，就会开始计划内维护时段。  在此时段的某个时刻，Azure 会计划所需的维护，并将其应用于虚拟机。 
 
 设置这两个时段的目的是，在了解 Azure 何时将自动启动维护时，提供足够的时间来启动维护和重新启动虚拟机。

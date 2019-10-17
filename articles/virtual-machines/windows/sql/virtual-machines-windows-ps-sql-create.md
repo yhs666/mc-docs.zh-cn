@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/21/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: baff7c9706a14c807957d57cfab26deb31acf5b5
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 63385eca8834b2bfbc10ee60622878b686581350
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427815"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272747"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
@@ -356,7 +355,7 @@ Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 还可以使用 **Remove-AzResourceGroup** 命令永久删除与虚拟机关联的所有资源。 这样做也会永久删除虚拟机，因此请小心使用此命令。
 
 ## <a name="example-script"></a>示例脚本
-以下脚本包含本教程的完整 PowerShell 脚本。 它假设已将 Azure 订阅设置为配合使用 **Connect-AzAccount** 和 **Select-AzSubscription** 命令。
+以下脚本包含本教程的完整 PowerShell 脚本。 假设你已经设置了 Azure 订阅以与 **Connect-AzAccount-Environment AzureChinaCloud** 和 **Select-AzSubscription** 命令一起使用。
 
 ```powershell
 # Variables

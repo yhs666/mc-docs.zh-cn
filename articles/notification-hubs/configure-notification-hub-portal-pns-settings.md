@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 通知中心设置推送通知 | Azure Docs
+title: 在 Azure 通知中心设置推送通知 | Azure
 description: 了解如何在 Azure 门户中使用平台通知系统 (PNS) 设置来设置 Azure 通知中心。
 services: notification-hubs
 author: jwargo
@@ -9,14 +9,14 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 origin.date: 02/14/2019
-ms.date: 07/15/2019
-ms.author: v-biyu
-ms.openlocfilehash: 9a74b1377874e148768472692f161cebc976a6a7
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 7cab017842956f574ec6d7c6b7d89760be05c5e8
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560301"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272380"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>使用 Azure 门户在通知中心设置推送通知
 
@@ -50,27 +50,13 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 
 有关详细信息，请参阅[通过 Azure 通知中心向 iOS 推送通知](notification-hubs-ios-apple-push-notification-apns-get-started.md)。
 
-## <a name="google-firebase-cloud-messaging"></a>Google Firebase Cloud Messaging
-
-为 Google Firebase Cloud Messaging (FCM) 设置推送通知：
-
-1. 在 Azure 门户的“通知中心”页上，从左侧菜单中选择“Google (GCM/FCM)”。   
-2. 粘贴前面保存的 FCM 项目“API 密钥”。  
-3. 选择“其他安全性验证”  。 
-
-   ![显示如何为 Google FCM 配置通知中心的屏幕截图](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
-
-完成这些步骤后，会有一条警报会指示已成功更新通知中心。 “保存”按钮已禁用。  
-
-
-
 ## <a name="windows-push-notification-service"></a>Windows 推送通知服务
 
 设置 Windows 推送通知服务 (WNS)：
 
 1. 在 Azure 门户的“通知中心”页上，从左侧菜单中选择“Windows (WNS)”。  
 2. 输入“包 SID”和“安全密钥”的值。  
-3. 选择“其他安全性验证”  。
+3. 选择**保存**。
 
    ![显示“包 SID”和“安全密钥”框的屏幕截图](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
@@ -104,7 +90,7 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 1. 在 Azure 门户的“通知中心”页上，从左侧菜单中选择“Baidu (Android China)”。   
 2. 在百度云推送项目中，输入从百度控制台获取的“API 密钥”。  
 3. 在百度云推送项目中，输入从百度控制台获取的“机密密钥”。  
-4. 选择“其他安全性验证”  。 
+4. 选择**保存**。 
 
     ![通知中心的屏幕截图，其中显示了百度 (Android China) 的推送通知配置](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 

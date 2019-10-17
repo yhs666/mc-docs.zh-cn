@@ -6,22 +6,22 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 08/16/2019
-ms.date: 08/20/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 671682699a0f4076e378b9114586e53345a18a4e
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 78a60d91c0a681c81c9f5c3957eb9421959a76bd
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993656"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72291942"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>条件访问：基于风险的条件访问
 
-使用 Azure AD Premium P2 许可证的组织可以创建纳入 Azure AD 标识保护风险事件的条件访问策略。 有三个可以立即启用的默认策略。 
+使用 Azure AD Premium P2 许可证的组织可以创建纳入 Azure AD 标识保护风险检测的条件访问策略。 有三个可以立即启用的默认策略。 
 
 * 要求所有用户注册 Azure 多重身份验证。
 * 要求高风险用户更改密码。
@@ -87,3 +87,4 @@ Microsoft 会与研究人员、执法机构、Microsoft 安全团队以及其他
 
 [Azure Active Directory 标识保护是什么？](../identity-protection/overview.md)
 
+<!-- Update_Description: wording update -->

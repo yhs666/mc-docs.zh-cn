@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/25/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: e67434f9437a06b394933d3e97abb619006939e3
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+origin.date: 08/20/2019
+ms.date: 10/14/2019
+ms.openlocfilehash: dad1ce1f9a4110782287402fd83ec2456b513701
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569835"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275375"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Delete 活动
 
@@ -44,6 +44,7 @@ ms.locfileid: "67569835"
 
 -   [Azure Blob 存储](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure 文件存储](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>文件系统数据存储
 
@@ -51,6 +52,7 @@ ms.locfileid: "67569835"
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>语法
 
@@ -86,7 +88,7 @@ ms.locfileid: "67569835"
 | maxConcurrentConnections | 用于删除文件夹或文件而同时连接到“存储”库的连接数。   |  否。 默认为 `1`。 |
 | enablelogging | 表明是否需要记录已删除的文件夹或文件名。 如果为 true，则需要进一步提供存储帐户来保存日志文件，以便可以通过读取日志文件跟踪 Delete 活动的行为。 | 否 |
 | logStorageSettings | 仅适用于 enablelogging = true 时。<br/><br/>可指定的一组存储属性，您要在其中保存包含已由 Delete 活动删除的文件夹或文件名的日志文件。 | 否 |
-| linkedServiceName | 仅适用于 enablelogging = true 时。<br/><br/>存储包含已由 Delete 活动删除的文件夹或文件名的日志文件的 [Azure 存储](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 链接服务。 | 否 |
+| linkedServiceName | 仅适用于 enablelogging = true 时。<br/><br/>存储包含已由 Delete 活动删除的文件夹或文件名的日志文件的 [Azure 存储](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 链接服务。 请注意，必须为它配置与删除活动用来删除文件的集成运行时类型相同的集成运行时类型。| 否 |
 | path | 仅适用于 enablelogging = true 时。<br/><br/>在存储帐户中保存日志文件的路径。 如果未提供路径，服务会为用户创建一个容器。 | 否 |
 
 ## <a name="monitoring"></a>监视
@@ -563,6 +565,9 @@ Copy 活动用于数据目标的数据集。
     }
 }
 ```
+
+还可以从[此处](solution-template-move-files.md)获取移动文件的模板。
+
 ## <a name="known-limitation"></a>已知限制
 
 -   Delete 活动不支持删除通配符描述的文件夹列表。

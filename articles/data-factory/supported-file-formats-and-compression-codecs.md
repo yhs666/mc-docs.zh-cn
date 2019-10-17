@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 05/22/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: e72569f4162ab358a3c765bb6c9f33909e4af1b6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: dd31575b29b9942beaabe89d0b38d2ab66da8181
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570615"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275243"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure 数据工厂中支持的文件格式和压缩编解码器
 
@@ -28,6 +28,7 @@ ms.locfileid: "67570615"
 * [Parquet 格式](#parquet-format)
 * [ORC 格式](#orc-format)
 * [Avro 格式](#avro-format)
+* [二进制格式](#binary-format)
 
 > [!TIP]
 > 了解复制活动如何将源数据映射到[复制活动中的架构映射](copy-activity-schema-and-type-mapping.md)的接收器。
@@ -87,6 +88,9 @@ ms.locfileid: "67570615"
 * 要从文本文件复制，并想跳过不包含数据或标头信息的开头几行。 通过指定 `skipLineCount` 指明要跳过的行数。 如果文件的剩余部分包含标头行，则也可指定 `firstRowAsHeader`。 如果同时指定了 `skipLineCount` 和 `firstRowAsHeader`，则先跳过代码行，然后从输入文件读取标头信息
 
 ## <a name="json-format"></a>JSON 格式
+
+>[!NOTE]
+>数据工厂引入了新的 JSON 格式数据集，请参阅 [JSON](format-json.md) 一文了解详细信息。 仍然按原样支持基于文件的数据存储数据集的以下配置，以实现向后兼容性。 建议你今后使用新模型。
 
 若要**在 Azure Cosmos DB 中按原样导入/导出 JSON 文件**，请参阅[将数据移入/移出 Azure Cosmos DB](connector-azure-cosmos-db.md) 一文中的“导入/导出 JSON 文档”部分。
 
@@ -413,7 +417,7 @@ ms.locfileid: "67570615"
 ## <a name="parquet-format"></a>Parquet 格式
 
 >[!NOTE]
->数据工厂引入了新的 Parquet 格式数据集，请参见 [Parquet 格式](format-parquet.md)一文了解详细信息。 仍然按原样支持基于文件的数据存储数据集的以下配置，以实现向后兼容性。 建议你今后使用新模型。
+>数据工厂引入了新的 Parquet 格式数据集，请参阅 [Parquet 格式](format-parquet.md)一文了解详细信息。 仍然按原样支持基于文件的数据存储数据集的以下配置，以实现向后兼容性。 建议你今后使用新模型。
 
 若要分析 Parquet 文件或以 Parquet 格式写入数据，请将 `format` `type` 属性设置为 **ParquetFormat**。 不需在 typeProperties 节的 Format 节中指定任何属性。 示例：
 
@@ -521,6 +525,9 @@ ms.locfileid: "67570615"
 
 ## <a name="avro-format"></a>AVRO 格式
 
+>[!NOTE]
+>数据工厂引入了新的 Avro 格式数据集，请参阅 [Avri 格式](format-avro.md)一文了解详细信息。 仍然按原样支持基于文件的数据存储数据集的以下配置，以实现向后兼容性。 建议你今后使用新模型。
+
 若要分析 Avro 文件或以 Avro 格式写入数据，请将 `format` `type` 属性设置为 **AvroFormat**。 不需在 typeProperties 节的 Format 节中指定任何属性。 示例：
 
 ```json
@@ -535,6 +542,10 @@ ms.locfileid: "67570615"
 请注意以下几点：
 
 * 不支持[复杂数据类型](https://avro.apache.org/docs/current/spec.html#schema_complex)（记录、枚举、数组、映射、联合与固定值）。
+
+## <a name="binary-format"></a>二进制格式
+
+有关详细信息，请参阅[二进制格式](format-binary.md)一文。
 
 ## <a name="compression-support"></a>压缩支持
 

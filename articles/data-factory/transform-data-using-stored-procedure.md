@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 1f93821e20de25b396e83a7e498e11b0aa03919d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 1ec2883446e3d7d12b068bed5899df4b0a247f4b
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569692"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275242"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 SQL Server 存储过程活动转换数据
 
@@ -71,6 +71,17 @@ ms.locfileid: "67569692"
 | linkedServiceName         | 引用注册为数据工厂中的链接服务的 Azure SQL 数据库或 Azure SQL 数据仓库或 SQL Server    。 若要了解此链接服务，请参阅[计算链接服务](compute-linked-services.md)一文。 | 是      |
 | storedProcedureName       | 指定要调用的存储过程的名称。 | 是      |
 | storedProcedureParameters | 指定存储过程的参数值。 使用 `"param1": { "value": "param1Value","type":"param1Type" }` 传递数据源支持的参数值及其类型。 如果需要为参数传递 null，请使用 `"param1": { "value": null }`（全部小写）。 | 否       |
+
+## <a name="parameter-data-type-mapping"></a>参数数据类型映射
+为参数指定的数据类型是 Azure 数据工厂类型，该类型映射到正在使用的数据源中的数据类型。 可以在连接器区域中找到数据源的数据类型映射。 下面是一些示例
+
+| 数据源          | 数据类型映射 |
+| ---------------------|-------------------|
+| Azure SQL 数据仓库 | /data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL 数据库   | /data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | /data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | /data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+
 
 ## <a name="error-info"></a>错误信息
 

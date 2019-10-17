@@ -6,22 +6,22 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 12/07/2017
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1602f056f51e16e1278fd0dbe35d5dfdd37a80cc
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 7dde9b193b7f59974f69b09b1ae67390dbf77d78
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993386"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292081"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>“Azure Active Directory 标识保护”通知
 
-Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件，帮助你管理用户风险和风险事件：
+Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件，帮助你管理用户风险和风险检测：
 
 - 检测到有风险的用户电子邮件
 - 每周摘要电子邮件
@@ -32,7 +32,7 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 
 当“Azure AD 标识保护”检测到帐户受到威胁时，会生成“检测到有风险的用户”  的警报电子邮件。 建议立即调查有风险的用户。
 
-此警报的配置允许你指定要生成警报的用户风险级别。 当用户的风险级别达到你指定的风险级别时，将生成电子邮件；但是，在用户达到此用户风险级别后，你将不会收到针对该用户的新的用户检测到风险电子邮件警报。 例如，如果你将策略设置为对中等用户风险发出警报，并且你的用户 John 达到中等风险，那么你将收到针对 John 的用户检测到风险电子邮件。 但是，如果 John 随后达到高风险或有其他风险事件，你将不会收到第二个用户检测到风险警报。
+此警报的配置允许你指定要生成警报的用户风险级别。 当用户的风险级别达到你指定的风险级别时，将生成电子邮件；但是，在用户达到此用户风险级别后，你将不会收到针对该用户的新的用户检测到风险电子邮件警报。 例如，如果你将策略设置为对中等用户风险发出警报，并且你的用户 John 达到中等风险，那么你将收到针对 John 的用户检测到风险电子邮件。 但是，如果 John 随后达到高风险或进行了其他风险检测，你将不会收到第二个“检测到存在风险的用户”警报。
 
 ![检测到有风险的用户电子邮件](./media/notifications/01.png)
 
@@ -49,7 +49,7 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 
 ## <a name="weekly-digest-email"></a>每周摘要电子邮件
 
-每周摘要电子邮件中包含新风险事件的摘要。  
+每周摘要电子邮件中包含新风险检测的摘要。  
 其中包括：
 
 - 有风险的用户
@@ -73,4 +73,4 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 
 - [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

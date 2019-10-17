@@ -9,12 +9,12 @@ origin.date: 08/27/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 62b3b155177b4785620525440f0ce42ed8806e68
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 01f8a60618cd78d5e4a09ab831eb27393412ad54
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155841"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272773"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -61,13 +61,17 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
+|S8v2*    |    640     |    200     |
+|S9v2*    |    1280    |    400     |
 
-<!--MOONCAKE Notice: Standared tier from S0,S1,S2,S4-->
+\* 并未在所有区域推出。 
+
+<!--MOONCAKE Notice: Standared tier from S0,S1,S2,S4,S8v2,S9v2 -->
 <!--MOONCAKE: Available on China East 2 and China North regions-->
 
 ## <a name="availability-by-region"></a>按区域列出的可用性
 
-中国的“中国北部”区域目前支持 Azure Analysis Services。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
+目前，Azure Analysis Services 在中国的所有区域都受支持。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
 
 <!--MOONCAKE: China East 2 Expected on Q3 2019-->
 
@@ -76,9 +80,11 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |区域  | 支持的计划 | 查询副本（仅限标准计划） |
 |---------|---------|---------|
 |中国北部     |    B1, B2, S0, S1, S2, S4    | 1 |
+|中国东部 2     |    B1, B2, S0, S1, S2, S4    | 7 |
+|中国东部 2     |    S8v2、S9v2    | 3 |
 
 <!--MOONCAKE: Available on China North regions-->
-<!--Notice: Standared tier from S0,S1,S2,S4 in Mooncake-->
+<!--Notice: Standared tier from S0,S1,S2,S4,S8v2,S9v2 in Mooncake-->
 
 ## <a name="scale-to-your-needs"></a>按需求缩放
 
@@ -90,11 +96,11 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 启用横向扩展后，客户端查询就会分布在查询池中的多个查询副本中。  查询副本已同步表格模型的副本。 可以通过分散查询工作负荷，缩短查询工作负荷高峰期间的响应时间。 可以将模型处理操作与查询池分开，确保客户端查询不受处理操作的负面影响。 
 
-<!--MOONCAKE: Replicas is one on China-->
+<!--MOONCAKE: Replicas is Max with seven on China-->
 
-创建查询池时，最多可以有一个其他的查询副本（总共为两个，包括你自己的服务器在内）。 可以在池中创建的查询副本数取决于所选的计划和区域。 查询副本不能分散到服务器区域的外部。 查询副本的计费方式与服务器相同。
+创建查询池时，最多可以有七个其他的查询副本（总共为八个，包括你自己的服务器在内）。 可以在池中创建的查询副本数取决于所选的计划和区域。 查询副本不能分散到服务器区域的外部。 查询副本的计费方式与服务器相同。
 
-<!--MOONCAKE: Replicas is one on China-->
+<!--MOONCAKE: Replicas is Max with seven on China-->
 
 可以根据需要横向扩展查询副本，就像更改层一样。 通过门户或 REST API 配置横向扩展。 有关详细信息，请参阅 [Azure Analysis Services 横向扩展](analysis-services-scale-out.md)。
 

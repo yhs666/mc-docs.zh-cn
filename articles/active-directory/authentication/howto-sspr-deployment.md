@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 06/24/2019
-ms.date: 08/29/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee37fac621b26c979906f9379828c778fd5304e
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 47cf468f8c9505c6d7812e16ef1eea51abb3f377
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134157"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72291949"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>部署 Azure AD 自助式密码重置
 

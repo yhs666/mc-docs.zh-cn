@@ -1,5 +1,5 @@
 ---
-title: Azure 的 Windows 虚拟机上的 SQL Server 常见问题解答 | Azure
+title: Azure 中的 Windows 虚拟机上运行的 SQL Server 常见问题解答 | Azure
 description: 本文提供有关运行 Azure VM 中的 SQL Server 时遇到的常见问题的解答。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/05/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ba44b615e3817b6c179d2ab4d630fe3b4742efc
-ms.sourcegitcommit: 9a7d473c53918bbcdfafed0ab6f324e0437601b1
+ms.openlocfilehash: 6f175a921f9ea1a68441348f7d0112f39aac85d4
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71005403"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272809"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure 的 Windows 虚拟机上运行的 SQL Server 常见问题解答
 
@@ -42,7 +41,9 @@ ms.locfileid: "71005403"
 1. **有哪些 SQL Server 虚拟机库映像可用？** 
 
     Azure 为所有 Windows 和 Linux 版本中的所有受支持 SQL Server 主要发行版维护虚拟机映像。 有关详细信息，请参阅 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payinadvance)和 [Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)的完整列表。
-
+    
+    <!--CORRECT ON payinadvance-->
+    
 1. **现有的 SQL Server 虚拟机库映像是否会更新？**
 
     每隔两个月，都会使用最新的 Windows 和 Linux 更新对虚拟机库中的 SQL Server 映像进行更新。 对于 Windows 映像，这包括 Windows 更新中标记为重要的任何更新，以及重要的 SQL Server 安全更新和 Service Pack。 对于 Linux 映像，这包括最新的系统更新。 Linux 和 Windows 的 SQL Server 累积更新以不同的方式进行处理。 对于 Linux，SQL Server 累积更新也包含在刷新中。 但目前，Windows VM 不会连同 SQL Server 或 Windows Server 累积更新一起更新。
@@ -91,13 +92,13 @@ ms.locfileid: "71005403"
 
 1. **如何在 Azure VM 上安装 SQL Server 的许可版本？**
 
-    可通过两种方式来执行此操作。 企业协议 (EA) 客户可以预配[支持许可证的虚拟机映像](virtual-machines-windows-sql-server-iaas-overview.md#BYOL)之一，也称为自带许可 (BYOL)。 或者，可将 SQL Server 安装媒体复制到 Windows Server VM，然后在 VM 上安装 SQL Server。 请务必更新 Azure 门户中“设置”边栏的 SQL Server 配置，以便能够使用门户管理、自动备份和自动修补等功能。 
+   可通过两种方式来执行此操作。 企业协议 (EA) 客户可以预配[支持许可证的虚拟机映像](virtual-machines-windows-sql-server-iaas-overview.md#BYOL)之一，也称为自带许可 (BYOL)。 或者，可将 SQL Server 安装媒体复制到 Windows Server VM，然后在 VM 上安装 SQL Server。 请务必更新 Azure 门户中“设置”边栏的 SQL Server 配置，以便能够使用门户管理、自动备份和自动修补等功能。 
 
 1. **如果 Azure VM 仅供备用/故障转移，是否必须支持该 VM 上的 SQL Server 许可费？**
 
     若要获得备用辅助可用性组或故障转移群集实例的免费被动许可证，必须满足[许可指南 PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf) 中所述的以下所有条件：
 
-    1. 已通过[软件保障](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)获得[许可移动性](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2)。 
+    1. 已通过[软件保障](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)获得[许可移动性](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2)。 
     1. 被动 SQL Server 实例不会为客户端提供 SQL Server 数据，也不会运行活动的 SQL Server 工作负荷。 它只用于与主服务器同步，或者使被动数据库保持热备用状态。 如果它正在提供数据（例如，向运行活动 SQL Server 工作负荷的客户端报告，或执行从辅助服务器进行附加备份等任何“工作”），则它必须是付费许可的 SQL Server 实例。 
     1. 活动的 SQL Server 许可证已涵盖在软件保障中，仅允许**一个**被动辅助 SQL Server 实例，允许的计算量不能超过已许可的活动服务器。 
     1. 辅助 SQL Server VM 利用自带许可 (BYOL)。 
@@ -144,7 +145,7 @@ ms.locfileid: "71005403"
 
 ## <a name="updating-and-patching"></a>更新和修补
 
-<!--Not Available on 1. **How do I change to a new version/edition of the SQL Server in an Azure VM?**-->
+<!--Not Available on 1. **How do I change to a different version/edition of the SQL Server in an Azure VM?**-->
 <!--MOONCAKE: Not Avaialble on [change edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md)-->
 <!--Not Available on 1. **Where can I get the setup media to change the edition or version of SQL Server?**-->
 1. **如何将更新和服务包应用于 SQL Server VM？**
@@ -159,7 +160,7 @@ ms.locfileid: "71005403"
     是的。 可在 [Windows Server 2016 上创建 Windows 故障转移群集 ](virtual-machines-windows-portal-sql-create-failover-cluster.md)，并将存储空间直通 (S2D) 用于群集存储。 或者，可使用第三方群集或存储解决方案，如 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)中所述。
 
     > [!IMPORTANT]
-    > 目前，Azure 上的 SQL Server FCI 不支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。 建议从参与 FCI 的 VM 中卸载此扩展。 此扩展支持自动备份和修补之类的功能，以及适用于 SQL Server 的某些门户功能。 卸载代理以后，这些功能将不适用于 SQL Server VM。
+    > 目前，Azure 上的 SQL Server FCI 不支持_完整的_ [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。 我们建议你从参与 FCI 的 VM 中卸载_完整_扩展，并改为在_轻型_模式下安装该扩展。 此扩展支持自动备份和修补之类的功能，以及适用于 SQL Server 的某些门户功能。 卸载_完整_代理以后，这些功能将不适用于 SQL Server VM。
 
 1. **SQL Server VM 与 SQL 数据库服务之间的差别是什么？**
 

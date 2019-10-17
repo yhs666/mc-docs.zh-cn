@@ -10,14 +10,15 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/06/2019
+origin.date: 08/26/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8a34cade334bcdf7f67d2141224d5158b35cf77
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 9607f59892dfa8dfd7965df6ad42a19fbf65753b
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456387"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292375"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>通过使用事件中心向时序见解环境发送事件
 
@@ -35,7 +36,7 @@ ms.locfileid: "67456387"
 1. 创建事件中心后，请在事件中心列表中选择它。
 1. 在菜单中的“实体”下，选择“事件中心”   。
 1. 选择事件中心的名称对其进行配置。
-1. 在“实体”下选择“使用者组”，然后选择“使用者组”    。
+1. 在“概述”下选择“使用者组”，然后选择“使用者组”    。
 
     [![创建使用者组](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
@@ -68,9 +69,9 @@ ms.locfileid: "67456387"
 
 1. 在搜索栏中搜索“事件中心”  。 在返回的列表中选择“事件中心”  。
 
-1. 选择事件中心。
+1. 选择事件中心实例。
 
-1. 转到“共享访问策略”   > “RootManageSharedAccessKey”  。 复制“连接字符串 - 主密钥”的值  。
+1. 转到“共享访问策略”   > “MySendPolicy”  。 复制“连接字符串 - 主密钥”的值  。
 
     [![复制主密钥连接字符串的值](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 

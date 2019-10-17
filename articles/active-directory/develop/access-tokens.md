@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/13/2019
-ms.date: 08/22/2019
+origin.date: 08/28/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
-ms.custom: fasttrack-edit
+ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6782eeed19b9d3f5228d8f8393f895beaf22da8e
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 43fec8de03a388e79ca77cb73ad5d7261de02e76
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993242"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292026"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -171,7 +171,7 @@ Azure AD 颁发的令牌已使用行业标准非对称式加密算法（例如 R
 }
 ```
 
-`alg` 声明表示用于对令牌进行签名的算法，而 `kid` 声明表示用于对令牌进行签名的特定公钥。
+`alg` 声明表示用于对令牌进行签名的算法，而 `kid` 声明表示用于验证令牌的特定公钥。
 
 在任何给定时间点，Azure AD 可以使用特定公钥 - 私钥对中的任何一组对 id_token 进行签名。 Azure AD 定期换用一组可能的密钥，因此应将应用编写成自动处理这些密钥更改。 对 Azure AD 所用公钥的更新进行检查的合理频率为每 24 小时一次。
 

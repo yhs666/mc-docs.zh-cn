@@ -7,20 +7,19 @@ author: rockboyfor
 manager: digimobile
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-origin.date: 05/11/2018
-ms.date: 08/12/2019
+origin.date: 07/11/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 77b76f23597e1a750bf8234959514205dba3fca2
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 39f2ccbf938b019f0b67ecaa0cd743ad825a1538
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538845"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272576"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
@@ -44,18 +43,20 @@ ms.locfileid: "69538845"
 
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在 Azure 门户中，选择“创建资源”  。 
+1. 在 Azure 门户中，选择“+创建资源”。  
 
-1. 在搜索框中键入 `SQL Server 2017 Developer on Windows Server 2016` 并按 ENTER。
+1. 在“新建”页的搜索字段中，键入 `SQL Server 2017 Developer on Windows Server 2016`，然后按 ENTER。
 
     <!--Not Available on Expand the SQL Server 2017 on Windows Server 2016 option.-->
     <!--MOONCAKE: ONLY ONE IMAGES Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016-->
 
-1. 选择“免费 SQL Server 许可证：  Windows Server 2016 上的 SQL Server 2017 Developer”映像。 本教程中使用 Developer 版，因为该版本是 SQL Server 的完整功能版本，并且可免费用于开发测试。 只需支付运行 VM 的成本。 有关完整的定价注意事项，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
+1. 选择“免费 SQL Server 许可证：  Windows Server 2016 上的 SQL Server 2017 Developer”映像。
 
     ![新搜索窗口](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
 1. 选择“创建”  。
+
+    <!--Not Available on ![New search window](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)-->
 
 <a name="configure"></a>
 ## <a name="provide-basic-details"></a>提供基本详细信息

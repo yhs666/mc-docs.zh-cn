@@ -3,7 +3,7 @@ title: 单页应用程序（获取用于调用 API 的令牌）- Microsoft 标�
 description: 了解如何构建单页应用程序（获取用于调用 API 的令牌）
 services: active-directory
 documentationcenter: dev-center-name
-author: navyasric
+author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 08/20/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9fb866f263eef6452c8528e23fcd3490710343
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 1a2b6ead59c629a968f101607c99a441a215015c
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305979"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292056"
 ---
 # <a name="single-page-application---acquire-a-token-to-call-an-api"></a>单页应用程序 - 获取用于调用 API 的令牌
 
@@ -73,7 +73,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 ### <a name="angular"></a>Angular
 
-MSAL Angular 包装器可以用来方便地添加 HTTP 侦听器 `MsalInterceptor`，后者会自动以无提示方式获取访问令牌并将其附加到针对 API 的 HTTP 请求。
+MSAL Angular 包装器可以用来方便地添加 HTTP 侦听器，后者会自动以无提示方式获取访问令牌并将其附加到针对 API 的 HTTP 请求。
 
 可以在 `protectedResourceMap` 配置选项中指定 API 的作用域，MsalInterceptor 会在自动获取令牌时请求该选项。
 
@@ -119,7 +119,7 @@ ngOnDestroy() {
 
 ### <a name="javascript"></a>Javascript
 
-此模式如上所述，但显示的是如何使用重定向方法以交互方式获取令牌。 请注意，需要注册重定向回叫，如上所述。
+此模式如上所述，但显示的是如何使用重定向方法以交互方式获取令牌。 将需要注册重定向回叫，如上所述。
 
 ```javascript
 function authCallback(error, response) {
@@ -145,6 +145,37 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
+## <a name="request-for-optional-claims"></a>请求提供可选声明
+可以在应用中请求可选声明，以指定要在应用程序的令牌中包含的其他声明。 为了请求 id_token 中的可选声明，可以将字符串化声明对象发送到 AuthenticationParameters.ts 类的 claimsRequest 字段。
+
+可以使用可选声明来实现以下目的：
+
+- 在应用程序的令牌中包括其他声明。
+- 更改 Azure AD 在令牌中返回的某些声明的行为。
+- 添加和访问应用程序的自定义声明。
+
+
+### <a name="javascript"></a>Javascript
+```javascript
+"optionalClaims":  
+   {
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": true
+             }
+      ],
+
+var request = {
+    scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read"],
+    claimsRequest: JSON.stringify(claims)
+};
+
+myMSALObj.acquireTokenPopup(request);
+```
+若要详细了解可选声明，请签出[可选声明](active-directory-optional-claims.md)
+
+
 ### <a name="angular"></a>Angular
 
 这与上述方法相同。
@@ -154,3 +185,4 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 > [!div class="nextstepaction"]
 > [调用 Web API](scenario-spa-call-api.md)
 
+<!-- Update_Description: wording update -->

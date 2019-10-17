@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/28/2019
-ms.date: 06/24/2019
+ms.date: 10/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 06cc0f148d2d2a9a3406d8594aeff0527347c081
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: f79d7f6ea5d482ebacb1f74a164ef4042bd8f7c2
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878759"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292579"
 ---
-# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Apache Ambari Web UI、JobHistory、NameNode、Apache Oozie 和其他 Web UI
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>使用 SSH 隧道访问 Apache Ambari Web UI、JobHistory、NameNode、Apache Oozie 和其他 UI
 
 使用 HDInsight 群集可以通过 Internet 访问 Apache Ambari Web UI，但某些功能需要 SSH 隧道。 例如，如果没有 SSh 隧道，将无法通过 Internet 访问 Apache Oozie 服务的 Web UI。
 
@@ -104,7 +104,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.cn
 
    * **动态** - 启用动态 SOCKS 代理路由。
      
-     ![隧道选项图像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
+     ![隧道选项图像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
 1. 选择“添加”  以添加设置，并单击“打开”  以打开 SSH 连接。
 
@@ -117,7 +117,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.cn
 
 1. 将浏览器配置为使用 **localhost**，并将创建隧道时使用的端口配置为 **SOCKS v5** 代理。 Firefox 中的设置如下所示。 如果使用的端口不是 9876，请将端口更改为所用的端口：
    
-    ![Firefox 设置图像](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
+    ![Firefox 设置图像](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
    
    > [!NOTE]
    > 通过选择“远程 DNS”  ，可使用 HDInsight 群集解析域名系统 (DNS) 请求。 此设置使用群集的头节点解析 DNS。
@@ -135,20 +135,20 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.cn
 
 2. 在 Ambari Web UI 中，请选择页面左侧列表中的“HDFS”。
 
-    ![已选择“HDFS”的截图](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
+    ![已选择“HDFS”的截图](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. 显示 HDFS 服务信息时，请选择“快速链接”  。 将显示群集头节点列表。 选择其中一个头节点，并选择“NameNode UI”  。
 
-    ![已展开“快速链接”菜单的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
+    ![已展开“快速链接”菜单的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png)
 
-   > [!NOTE]
-   > 选择“快速链接”时，可能会看到等待指示器。  如果 Internet 连接速度慢，则可能会出现此情况。 请等待一两分钟，让系统从服务器接收数据，然后再次尝试列出节点列表。
+    > [!NOTE]  
+    > 选择“快速链接”时，可能会看到等待指示器。  如果 Internet 连接速度慢，则可能会出现此情况。 请等待一两分钟，让系统从服务器接收数据，然后再次尝试列出节点列表。
    >
    > “快速链接”菜单中的某些项可能在屏幕右侧截断。  如果是这样，请使用鼠标展开菜单，然后使用向右键向右滚动屏幕，查看菜单的余下内容。
 
 4. 随后将显示类似于下图的页面：
 
-    ![NameNode UI 的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
+    ![NameNode UI 的截图](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
    > [!NOTE]  
    > 请注意此页的 URL，它应类似于 **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8088/cluster**。 此 URI 使用节点的内部完全限定域名 (FQDN)，只能在使用 SSH 隧道的情况下访问它。

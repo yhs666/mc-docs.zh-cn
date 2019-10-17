@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/20/2019
-ms.date: 08/27/2019
+origin.date: 08/30/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 692759588ec347639301664ff052edbf5fba928c
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 16cca3604e5b39345bc7c0afd3f3778da4fea781
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134226"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292046"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 标识平台和 OAuth 2.0 资源所有者密码凭据
 
@@ -43,7 +43,7 @@ Microsoft 标识平台支持[资源所有者密码凭据 (ROPC) 授予](https://
 
 ## <a name="authorization-request"></a>授权请求
 
-ROPC 流是单一请求&mdash;它将客户端标识和用户的凭据发送到 IDP，然后接收返回的令牌。 在这样做之前，客户端必须请求用户的电子邮件地址 (UPN) 和密码。 在成功进行请求之后，客户端应立即以安全方式释放内存中的用户凭据， 而不得保存这些凭据。
+ROPC 流是单一请求：它将客户端标识和用户的凭据发送到 IDP，然后接收返回的令牌。 在这样做之前，客户端必须请求用户的电子邮件地址 (UPN) 和密码。 在成功进行请求之后，客户端应立即以安全方式释放内存中的用户凭据， 而不得保存这些凭据。
 
 > [!TIP]
 > 尝试在 Postman 中执行此请求！
@@ -51,7 +51,7 @@ ROPC 流是单一请求&mdash;它将客户端标识和用户的凭据发送到 I
 
 
 ```
-// Line breaks and spaces are for legibility only.
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.partner.microsoftonline.cn
@@ -67,10 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
 | `tenant` | 必须 | 一个目录租户，用户需登录到其中。 此参数可采用 GUID 或友好名称格式。 此参数不能设置为 `common` 或 `consumers`，但可以设置为 `organizations`。 |
+| `client_id` | 必须 | [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页分配给应用的应用程序（客户端）ID。 | 
 | `grant_type` | 必须 | 必须设置为 `password`。 |
 | `username` | 必须 | 用户的电子邮件地址。 |
 | `password` | 必须 | 用户的密码。 |
 | `scope` | 建议 | 以空格分隔的[范围](v2-permissions-and-consent.md)或权限的列表，这是应用需要的。 在交互式流中，管理员或用户必须提前同意这些范围。 |
+| `client_secret`| 有时必需 | 如果应用是公共客户端，则无法包括 `client_secret` 或 `client_assertion`。  如果应用是机密客户端，则它必须包括在内。 | 
+| `client_assertion` | 有时必需 | 使用证书生成的不同形式的 `client_secret`。  有关更多详细信息，请参阅[证书凭据](active-directory-certificate-credentials.md)。 | 
 
 ### <a name="successful-authentication-response"></a>成功的身份验证响应
 
@@ -105,8 +108,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 错误 | 说明 | 客户端操作 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 身份验证失败 | 凭据不正确，或者客户端没有所请求范围的许可。 如果没有授予范围，则会返回 `consent_required` 错误。 如果发生这种情况，客户端应通过 Webview 或浏览器向用户发送交互式提示。 |
-| `invalid_request` | 请求的构造方式不正确 | 授予类型在 `/common` 或 `/consumers` 身份验证上下文中不受支持。  请改用 `/organizations`。 |
-| `invalid_client` | 应用未正确设置 | 如果未在[应用程序清单](reference-app-manifest.md)中将 `allowPublicClient` 属性设置为 true，则可能发生这种情况。 之所以需要 `allowPublicClient` 属性，是因为 ROPC 授予没有重定向 URI。 在设置此属性之前，Azure AD 不能确定应用是公共客户端应用程序还是机密客户端应用程序。 ROPC 只能用于公共客户端应用。 |
+| `invalid_request` | 请求的构造方式不正确 | 授予类型在 `/common` 或 `/consumers` 身份验证上下文中不受支持。  请改用 `/organizations` 或租户 ID。 |
 
 ## <a name="learn-more"></a>了解详细信息
 

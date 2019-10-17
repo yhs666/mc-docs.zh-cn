@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 08/26/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f24b63da53429bbc5f3cf0ce15ba714cf3785c2e
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 02e0fa4fe619f6048c9d7ca04aede1335f0f8cd8
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134124"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292064"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
@@ -94,7 +94,7 @@ ms.locfileid: "70134124"
 > 其中：
 > - `Enter_the_Application_Id_here` - 是已注册应用程序的应用程序 ID。
 > - `Enter_the_Tenant_Info_Here` - 是下述选项之一：
->   - 如果应用程序支持“仅我的组织”，  请将该值替换为**租户 ID** 或**租户名称**（例如 contoso.microsoft.com）
+>   - 如果应用程序支持“仅我的组织”，  请将该值替换为**租户 ID** 或**租户名称**（例如 contoso.partner.onmschina.cn）
 >   - 如果应用程序支持“任何组织目录中的帐户”，请将该值替换为  `organizations`
 >
 > > [!TIP]

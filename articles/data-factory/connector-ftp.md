@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/29/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 129c8a2bac91aa4b1bda8f34f954920f11a47ad0
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 048284c6fd8b9db435b0412e0f44964f42f6a527
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570575"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275498"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 FTP 服务器复制数据
 
@@ -28,14 +28,19 @@ ms.locfileid: "67570575"
 
 以下活动支持此 FTP 连接器：
 
-- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 - [GetMetadata 活动](control-flow-get-metadata-activity.md)
+- [Delete 活动](delete-activity.md)
 
 具体而言，此 FTP 连接器支持：
 
 - 使用 **Basic** 或 **Anonymous** 身份验证复制文件。
 - 按原样复制文件，或者使用[支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs.md)分析文件。
+
+## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>入门
 
@@ -57,7 +62,7 @@ FTP 链接服务支持以下属性：
 | authenticationType | 指定身份验证类型。<br/>允许值包括：**Basic**、**Anonymous** | 是 |
 | userName | 指定有权访问 FTP 服务器的用户。 | 否 |
 | password | 指定用户 (userName) 的密码。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 否 |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果数据存储位于专用网络，则可以使用 Azure Integration Runtime 或自承载集成运行时。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >FTP 连接器支持在不使用加密或使用显式 SSL/TLS 加密的情况下访问 FTP 服务器；不支持隐式 SSL/TLS 加密。
@@ -115,12 +120,12 @@ FTP 链接服务支持以下属性：
 
 有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](concepts-datasets-linked-services.md)一文。 
 
-- 有关 **Parquet 和带分隔符的文本格式**，请参阅 [Parquet 和带分隔符的文本格式数据集](#parquet-and-delimited-text-format-dataset)部分。
-- 有关其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
+- 对于 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集](#format-based-dataset)部分。
+- 有关其他格式（如 **ORC 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 和带分隔符的文本格式数据集
+### <a name="format-based-dataset"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集
 
-若要以 **Parquet 或带分隔符的文本格式**通过 FTP 复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 FTP 支持以下属性：
+若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 FTP 支持以下属性：
 
 | 属性   | 说明                                                  | 必选 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -159,7 +164,7 @@ FTP 链接服务支持以下属性：
 
 ### <a name="other-format-dataset"></a>其他格式数据集
 
-若要以 **ORC/Avro/JSON/Binary 格式**通过 FTP 复制数据，需要支持以下属性：
+若要以 **ORC 格式**通过 FTP 复制数据，需要支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -210,12 +215,12 @@ FTP 链接服务支持以下属性：
 
 ### <a name="ftp-as-source"></a>FTP 作为源
 
-- 若要从 **Parquet 和带分隔符的文本格式**复制，请参阅 [Parquet 和带分隔符的文本格式源](#parquet-and-delimited-text-format-source)部分。
-- 若要从其他格式（如 **ORC/Avro/JSON/Binary 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
+- 若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式源](#format-based-source)部分。
+- 若要从其他格式（如 **ORC 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 和带分隔符的文本格式源
+#### <a name="format-based-source"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式源
 
-若要以 **Parquet 或带分隔符的文本格式**通过 FTP 复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 FTP 支持以下属性：
+若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 FTP 支持以下属性：
 
 | 属性                 | 说明                                                  | 必选                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -274,7 +279,7 @@ FTP 链接服务支持以下属性：
 
 #### <a name="other-format-source"></a>其他格式源
 
-若要以 **ORC/Avro/JSON/Binary 格式**通过 FTP 复制数据，需要复制活动**源**部分支持以下属性：
+若要以 **ORC 格式**通过 FTP 复制数据，需要复制活动 **source** 节支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -324,6 +329,18 @@ FTP 链接服务支持以下属性：
 | `Folder*` | （为空，使用默认值） | 是 | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | `*.csv` | 是 | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活动属性
+
+若要了解有关属性的详细信息，请查看 [GetMetadata 活动](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>Delete 活动属性
+
+若要了解有关属性的详细信息，请查看 [Delete 活动](delete-activity.md)
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md##supported-data-stores-and-formats)。

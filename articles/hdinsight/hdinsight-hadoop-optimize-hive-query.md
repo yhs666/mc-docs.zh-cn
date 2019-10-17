@@ -11,18 +11,18 @@ ms.topic: conceptual
 origin.date: 03/21/2019
 ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: acfd11fc3591aaac7595c7153e9b41ae5ac822d0
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 4561f62a3ab7b6e26b8c5837b5a7efa01ab5e8fc
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878495"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292424"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
-在 Azure HDInsight 中，有多种群集类型和技术可以运行 Apache Hive 查询。 创建 HDInsight 群集时，选择适当的群集类型有助于根据工作负荷的需求优化性能。 
+在 Azure HDInsight 中，有多种群集类型和技术可以运行 Apache Hive 查询。 创建 HDInsight 群集时，选择适当的群集类型有助于根据工作负荷的需求优化性能。
 
-例如，选择**交互式查询**群集类型可以优化即席的交互式查询。 选择 Apache **Hadoop** 群集类型可以优化用作批处理的 Hive 查询。 **Spark** 和 **HBase** 群集类型也可以运行 Hive 查询。 有关针对不同 HDInsight 群集类型运行 Hive 查询的详细信息，请参阅[ Azure HDInsight 中的 Apache Hive 和 HiveQL 是什么？](./hadoop/hdinsight-use-hive.md)。
+例如，选择“交互式查询”  群集类型可以优化即席的交互式查询。 选择 Apache **Hadoop** 群集类型可以优化用作批处理的 Hive 查询。 **Spark** 和 **HBase** 群集类型也可以运行 Hive 查询。 有关针对不同 HDInsight 群集类型运行 Hive 查询的详细信息，请参阅[ Azure HDInsight 中的 Apache Hive 和 HiveQL 是什么？](hadoop/hdinsight-use-hive.md)。
 
 默认情况下，Hadoop 群集类型的 HDInsight 群集不会进行性能优化。 本文介绍可应用于查询的一些最常见 Hive 性能优化方法。
 
@@ -32,11 +32,11 @@ ms.locfileid: "68878495"
 
 * 创建群集时，可以使用 Azure 门户、Azure PowerShell 或命令行接口指定工作节点的数目。  有关详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。 以下屏幕截图显示了 Azure 门户上的工作节点配置：
   
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
     
 * 创建后，还可以通过编辑工作节点的数目来进一步横向扩展群集，而无需重新创建：
 
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 有关缩放 HDInsight 的详细信息，请参阅[缩放 HDInsight 群集](hdinsight-scaling-best-practices.md)
 
@@ -44,7 +44,7 @@ ms.locfileid: "68878495"
 
 [Apache Tez](https://tez.apache.org/) 是 MapReduce 引擎的替代执行引擎。 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez 速度更快，因为：
 
@@ -68,7 +68,7 @@ I/O 操作是运行 Hive 查询的主要性能瓶颈。 如果可以减少需要
 
 Hive 分区的实现方法是将原始数据重新组织成新目录。 每个分区都有自身的文件目录。 分区由用户定义。 下图说明如何根据年  列来分区 Hive 表。 每年都会创建新的目录。
 
-![Hive 分区][image-hdi-optimize-hive-partitioning_1]
+![Hive 分区](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 一些分区注意事项：
 
@@ -199,7 +199,6 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 
 * [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [使用 HDInsight 中的交互式查询分析航班延误数据](/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
-* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

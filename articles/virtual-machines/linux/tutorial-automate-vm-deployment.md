@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/30/2018
-ms.date: 08/12/2019
+origin.date: 09/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 59213f3fd6c91d2c9ad47dfe3ce6e28e4f078444
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 68c22be6353c2e1f7dd39d515eea768922a7dccc
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913056"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272518"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教程 - 如何在 Azure 中的 Linux 虚拟机首次启动时使用 cloud-init 对其进行自定义
 
@@ -46,23 +45,24 @@ Cloud-init 还支持不同的发行版。 例如，不需使用  apt-get install
 
 我们正在与合作伙伴协作，将 cloud-init 纳入用户向 Azure 提供的映像中并使其在映像中正常运行。 下表概述了 cloud-init 当前在 Azure 平台映像上的可用性：
 
-| 别名 | 发布者 | 产品/服务 | SKU | 版本 |
+| 发布者 | 产品/服务 | SKU | 版本 | cloud-init 就绪 |
 |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
-| CoreOS |CoreOS |CoreOS |Stable |最新 |
-| | OpenLogic | CentOS | 7-CI | 最新 |
+|Canonical |UbuntuServer |18.04-LTS |最新 |是 | 
+|Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
+|Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
+|CoreOS |CoreOS |Stable |最新 |是 |
+|OpenLogic 7.6 |CentOS |7-CI |最新 |预览 |
 
 <!-- Not Available on | | RedHat | RHEL | 7-RAW-CI | latest|-->
 
 ## <a name="create-cloud-init-config-file"></a>创建 cloud-init 配置文件
 若要运行 cloud-init，请创建一个 VM，以便安装 NGINX 并运行简单的“Hello World”Node.js 应用。 以下 cloud-init 配置会安装所需的程序包，创建 Node.js 应用，然后初始化并启动该应用。
 
-在当前 shell 中，创建名为“cloud-init.txt”  的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+在本地 Shell 中，创建名为“cloud-init.txt”  的文件并粘贴下面的配置。 例如，键入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 <!-- Not Avaialble cloud shell-->
 
-```yaml
+```azurecli
 #cloud-config
 package_upgrade: true
 packages:
@@ -118,7 +118,7 @@ az group create --name myResourceGroupAutomate --location chinaeast
 ```azurecli
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVM \
+    --name myAutomatedVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -185,7 +185,7 @@ vm_secret=$(az vm secret format --secret "$secret")
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>创建 cloud-init 配置以保护 NGINX
 创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/  目录中。 要将证书自动添加到 VM 并配置 NGINX，可使用上一示例中已更新的 cloud-init 配置。
 
-创建名为“cloud-init-secured.txt”  的文件并粘贴下面的配置。 再次使用 `sensible-editor cloud-init-secured.txt` 创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+创建名为“cloud-init-secured.txt”  的文件并粘贴下面的配置。 例如，键入 `sensible-editor cloud-init-secured.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 <!-- Not Available on Cloud Shell -->
 
@@ -244,7 +244,7 @@ runcmd:
 ```azurecli
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \

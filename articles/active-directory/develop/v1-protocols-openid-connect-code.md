@@ -12,19 +12,19 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 05/22/2019
-ms.date: 07/01/2019
+ms.topic: conceptual
+origin.date: 09/05/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 584a57ce7717c911bd2a60644fd95841f6a3e0b2
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: d7dcfcb45dc2983ade2443fa339979356f91992c
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568684"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292048"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 来授权访问 Web 应用程序
 
@@ -65,6 +65,8 @@ https://login.partner.microsoftonline.cn/{tenant}/.well-known/openid-configurati
     ...
 }
 ```
+
+如果应用因使用[声明映射](active-directory-claims-mapping.md)功能而具有自定义签名密钥，则必须追加包含应用 ID 的 `appid` 查询参数，以获取指向应用的签名密钥信息的 `jwks_uri`。 例如：`https://login.partner.microsoftonline.cn/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 包含 `https://login.partner.microsoftonline.cn/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 的 `jwks_uri`。
 
 ## <a name="send-the-sign-in-request"></a>发送登录请求
 
@@ -152,7 +154,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | temporarily_unavailable |服务器暂时繁忙，无法处理请求。 |重试请求。 客户端应用程序可向用户说明，其响应由于临时状况而延迟。 |
 | invalid_resource |目标资源无效，原因是它不存在，Azure AD 找不到它，或者未正确配置。 |这表示未在租户中配置该资源（如果存在）。 应用程序可以提示用户，并说明如何安装应用程序并将其添加到 Azure AD。 |
 
-## <a name="validate-the-idtoken"></a>验证 id_token
+## <a name="validate-the-id_token"></a>验证 id_token
 
 仅接收 `id_token` 不足以对用户进行身份验证，必须验证签名，并按照应用的要求验证 `id_token` 中的声明。 Azure AD 终结点使用 JSON Web 令牌 (JWT) 和公钥加密对令牌进行签名并验证其是否有效。
 
@@ -180,7 +182,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | 参数 |  | 说明 |
 | --- | --- | --- |
-| post_logout_redirect_uri |建议 |用户在成功注销后应重定向到的 URL。如果未包含此参数，系统会向用户显示一条常规消息。 |
+| post_logout_redirect_uri |建议 |用户在成功注销后应重定向到的 URL。此 URL 必须与在应用注册门户中为应用程序注册的重定向 URI 之一匹配。  如果未包含 post_logout_redirect_uri  ，系统会向用户显示一条常规消息。 |
 
 ## <a name="single-sign-out"></a>单一登录
 

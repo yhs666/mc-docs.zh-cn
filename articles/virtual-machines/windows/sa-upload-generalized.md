@@ -1,5 +1,5 @@
 ---
-title: 上传通用化 VHD 以在 Azure 中创建多个 VM | Azure
+title: 将通用化 VHD 上传到 Azure 以创建新 VM | Azure
 description: 将通用化 VHD 上传到 Azure 存储帐户，创建要用于资源管理器部署模型的 Windows VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,18 +11,17 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59099039819b3c5fa55dbce6d1d03de13b1f762b
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 251161ee43d824ecc2314cbc32034a74c249baa5
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538773"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272697"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>将通用化 VHD 上传到 Azure 以创建新 VM
 
@@ -60,10 +59,10 @@ ms.locfileid: "69538773"
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 
 
-> [!IMPORTANT]
-> 将 VHD 上传到 Azure 或从 VM 创建映像完成之前不要重启 VM。 如果 VM 意外重启，请运行 Sysprep 将其再次通用化。
-> 
-> 
+    > [!IMPORTANT]
+    > 将 VHD 上传到 Azure 或从 VM 创建映像完成之前不要重启 VM。 如果 VM 意外重启，请运行 Sysprep 将其再次通用化。
+    > 
+    > 
 
 <a name="upload-the-vm-vhd-to-your-storage-account"></a>
 ## <a name="upload-the-vhd"></a>上传 VHD
@@ -154,7 +153,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 ### <a name="set-the-uri-of-the-vhd"></a>设置 VHD 的 URI
 
-VHD 使用的 URI 采用以下格式： https://<strong>mystorageaccount</strong>.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
+VHD 使用的 URI 采用以下格式： https://**mystorageaccount**.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myVhd.vhd"

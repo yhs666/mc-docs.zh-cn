@@ -11,17 +11,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 05/31/2019
-ms.date: 08/28/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a354f833506e35fe22391dd8469712360d7e0ec
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 028b80fb35734a4f09eb7926dcdbb1a0f3459b09
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134341"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292123"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中按管理员任务委托管理员角色
 
@@ -119,10 +119,10 @@ ms.locfileid: "70134341"
 配置并启用/禁用登录风险策略| 安全管理员 | 
 配置并启用/禁用用户风险策略 | 安全管理员 | 
 配置每周摘要 | 安全管理员| 
-消除所有风险事件 | 安全管理员 | 
+消除所有风险检测 | 安全管理员 | 
 修复或消除漏洞 | 安全管理员 | 
 读取所有配置 | 安全读取者 | 
-读取所有风险事件 | 安全读取者 | 
+读取所有风险检测 | 安全读取者 | 
 读取漏洞 | 安全读取者 | 
 
 ## <a name="licenses"></a>许可证

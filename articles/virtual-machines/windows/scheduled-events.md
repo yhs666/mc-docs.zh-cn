@@ -1,5 +1,5 @@
 ---
-title: Azure 中 Windows VM 的计划事件 | Azure
+title: Azure 元数据服务 - 适用于 Windows VM 的计划事件 | Azure
 description: Windows 虚拟机上使用 Azure 元数据服务的计划事件。
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -9,19 +9,18 @@ editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: ddf74388023e98e7c6873932e0d652c2f41c8739
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: c83420f90d0a2cd4ab69368d6bbe6098bcf8c9a1
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538961"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272694"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 

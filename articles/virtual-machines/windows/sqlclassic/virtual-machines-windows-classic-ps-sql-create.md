@@ -1,5 +1,5 @@
 ---
-title: 在 Azure PowerShell 创建 SQL Server 虚拟机（经典）| Azure
+title: 使用 Azure PowerShell 预配 SQL Server 虚拟机（经典）| Azure
 description: 提供用于创建具有 SQL Server 虚拟机库映像的 Azure VM的步骤和 PowerShell 脚本。 本主题使用经典部署模式。
 services: virtual-machines-windows
 documentationcenter: na
@@ -8,20 +8,19 @@ manager: digimobile
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/07/2017
-ms.date: 02/18/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: a979b642e6dac05e6fa47d6bec627433358f35bd
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 8b6fc0e19015f4c5ba81ea3dd833e64b287ad52c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666267"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272855"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>使用 Azure PowerShell 预配 SQL Server 虚拟机（经典）
 
@@ -35,11 +34,11 @@ ms.locfileid: "56666267"
 ### <a name="install-and-configure-powershell"></a>安装和配置 PowerShell：
 1. 如果没有 Azure 帐户，请访问 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
 2. [下载和安装最新 Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/overview)。
-3. 启动 Windows PowerShell，并使用 **Add-AzureAccount -Environment AzureChinaCloud** 命令将其连接到 Azure 订阅。
+3. 启动 Windows PowerShell，并通过 **Add-AzureAccount** 命令将其连接到 Azure 订阅。
 
-   ```powershell
-   Add-AzureAccount -Environment AzureChinaCloud
-   ```
+    ```powershell
+    Add-AzureAccount -Environment AzureChinaCloud
+    ```
 
 ## <a name="determine-your-target-azure-region"></a>确定目标 Azure 区域
 
@@ -47,64 +46,64 @@ ms.locfileid: "56666267"
 
 1. 确定要用于托管 SQL Server VM 的数据中心。 以下 PowerShell 命令显示可用区域名称的列表。
 
-   ```powershell
-   (Get-AzureLocation).Name
-   ```
+    ```powershell
+    (Get-AzureLocation).Name
+    ```
 
 2. 确定首选位置后，为该区域设置一个名为 **$dcLocation** 的变量。 例如，以下命令可将区域设置为“中国东部”：
 
-   ```powershell
-   $dcLocation = "China East"
-   ```
+    ```powershell
+    $dcLocation = "China East"
+    ```
 
 ## <a name="set-your-subscription-and-storage-account"></a>设置订阅和存储帐户
 
 1. 确定用于新虚拟机的 Azure 订阅。
 
-   ```powershell
-   (Get-AzureSubscription).SubscriptionName
-   ```
+    ```powershell
+    (Get-AzureSubscription).SubscriptionName
+    ```
 
 2. 将目标 Azure 订阅分配到 **$subscr** 变量。 然后将它设置为当前的 Azure 订阅。
 
-   ```powershell
-   $subscr="<subscription name>"
-   Select-AzureSubscription -SubscriptionName $subscr -Current
-   ```
+    ```powershell
+    $subscr="<subscription name>"
+    Select-AzureSubscription -SubscriptionName $subscr -Current
+    ```
 
 3. 然后检查现有存储帐户。 以下脚本显示所选区域中存在的所有存储帐户：
 
-   ```powershell
-   (Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
-   ```
+    ```powershell
+    (Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
+    ```
 
-   > [!NOTE]
-   > 如果需要新的存储帐户，首先请使用 New-AzureStorageAccount 命令创建一个全部小写的存储帐户名称，如以下示例所示：`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+    > [!NOTE]
+    > 如果需要新的存储帐户，首先请使用 New-AzureStorageAccount 命令创建一个全部小写的存储帐户名称，如以下示例所示：`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
-4. 将目标存储帐户名称分配给 **$staccount**。 然后使用 Set-AzureSubscription 设置订阅和当前存储帐户。
+4. 将目标存储帐户名称分配给 **$staccount**。 然后使用 Set-AzureSubscription 设置订阅和当前存储帐户  。
 
-   ```powershell
-   $staccount="<storage account name>"
-   Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
-   ```
+    ```powershell
+    $staccount="<storage account name>"
+    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+    ```
 
 ## <a name="select-a-sql-server-virtual-machine-image"></a>选择 SQL Server 虚拟机映像
 
 1. 从库中找出可用 SQL Server 虚拟机映像的列表。 这些映像的 **ImageFamily** 属性都以“SQL”开头。 以下查询显示已预先安装 SQL Server 的可用映像系列。
 
-   ```powershell
-   Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
-   ```
+    ```powershell
+    Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
+    ```
 
 2. 发现虚拟机映像系列时，该系列中可能有多个已发布的映像。 使用以下脚本查找所选映像系列发布的最新虚拟机映像名称（例如 **Windows Server 2012 R2 上的 SQL Server 2016 RTM Enterprise**）：
 
-   ```powershell
-   $family="<ImageFamily value>"
-   $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+    ```powershell
+    $family="<ImageFamily value>"
+    $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-   echo "Selected SQL Server image name:"
-   echo "   $image"
-   ```
+    echo "Selected SQL Server image name:"
+    echo "   $image"
+    ```
 
 ## <a name="create-the-virtual-machine"></a>创建虚拟机
 
@@ -112,38 +111,38 @@ ms.locfileid: "56666267"
 
 1. 创建一个云服务以托管新 VM。 请注意，还可以改用现有云服务。 使用云服务的短名称创建新变量 **$svcname** 。
 
-   ```powershell
-   $svcname = "<cloud service name>"
-   New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
-   ```
+    ```powershell
+    $svcname = "<cloud service name>"
+    New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
+    ```
 
 2. 指定虚拟机名称和大小。 有关虚拟机大小的详细信息，请参阅 [Azure 的虚拟机大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-   ```powershell
-   $vmname="<machine name>"
-   $vmsize="<Specify one: Large, ExtraLarge, A5, A6, A7, or see the link to the other VM sizes>"
-   $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
-   ```
+    ```powershell
+    $vmname="<machine name>"
+    $vmsize="<Specify one: Large, ExtraLarge, A5, A6, A7, or see the link to the other VM sizes>"
+    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+    ```
 
 3. 指定本地管理员帐户和密码。
 
-   ```powershell
-   $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-   $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-   ```
+    ```powershell
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+    $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+    ```
 
 4. 运行以下脚本来创建虚拟机。
 
-   ```powershell
-   New-AzureVM -ServiceName $svcname -VMs $vm1
-   ```
+    ```powershell
+    New-AzureVM -ServiceName $svcname -VMs $vm1
+    ```
 
-> [!NOTE]
-> 有关更多说明和配置选项，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)中的**生成你的命令集**部分。
+    > [!NOTE]
+    > 有关更多说明和配置选项，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)中的**生成你的命令集**部分。
 
 ## <a name="example-powershell-script"></a>PowerShell 脚本示例
 
-以下脚本提供完整脚本的示例，该脚本在 Windows Server 2012 R2 虚拟机上创建 SQL Server 2016 RTM Enterprise。 如果使用此脚本，必须根据本主题中之前的步骤自定义初始变量。
+以下脚本提供完整脚本的示例，该脚本在 Windows Server 2012 R2 虚拟机上创建 SQL Server 2016 RTM Enterprise  。 如果使用此脚本，必须根据本主题中之前的步骤自定义初始变量。
 
 ```powershell
 # Customize these variables based on your settings and requirements:
@@ -182,17 +181,17 @@ New-AzureVM -ServiceName $svcname -VMs $vm1
 
 1. 在当前用户的文档文件夹中创建 RDP 文件，以启动这些虚拟机完成安装：
 
-   ```powershell
-   $documentspath = [environment]::getfolderpath("mydocuments")
-   Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
-   ```
+    ```powershell
+    $documentspath = [environment]::getfolderpath("mydocuments")
+    Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
+    ```
 
 2. 在文档目录中启动 RDP 文件。 使用之前提供的管理员用户名和密码进行连接（例如，如果你的用户名称是 VMAdmin，请指定“\VMAdmin”作为用户并提供密码）。
 
-   ```powershell
-   cd $documentspath
-   .\vm1.rdp
-   ```
+    ```powershell
+    cd $documentspath
+    .\vm1.rdp
+    ```
 
 ## <a name="complete-the-configuration-of-the-sql-server-machine-for-remote-access"></a>为远程访问完成 SQL Server 计算机的配置
 

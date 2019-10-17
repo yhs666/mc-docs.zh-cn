@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/26/2019
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: ashish
-ms.openlocfilehash: 7ef90940b2a5c00d781013921a8675e4e3ee7558
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 81f8cdb68c40412457dd81e4e182868664a170b6
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845061"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292672"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 优化 HDInsight 群集配置
 
@@ -30,7 +30,7 @@ HDInsight 为大规模数据处理应用程序提供 [Apache Hadoop](https://had
 
 使用群集凭据通过 `https://CLUSTERNAME.azurehdidnsight.cn` 登录到 Ambari。 初始屏幕显示了概述仪表板。
 
-![Ambari 仪表板](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
+![Ambari 仪表板](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 Ambari Web UI 可用于管理主机、服务、警报、配置和视图。 Ambari 不可用于创建 HDInsight 群集、升级服务、管理堆栈和版本、停用或重用主机，或者将服务添加到群集。
 
@@ -38,7 +38,7 @@ Ambari Web UI 可用于管理主机、服务、警报、配置和视图。 Ambar
 
 配置设置可帮助优化特定服务。 若要修改某个服务的配置设置，请从“服务”边栏（左侧）中选择该服务，然后在服务详细信息页中导航到“配置”选项卡。  
 
-![“服务”边栏](./media/hdinsight-changing-configs-via-ambari/services-sidebar.png)
+![“服务”边栏](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>修改 NameNode Java 堆大小
 
@@ -48,30 +48,30 @@ NameNode Java 堆大小取决于许多因素，例如群集上的负载、文件
 
 1. 从“服务”边栏中选择“HDFS”，然后导航到“配置”选项卡。  
 
-    ![HDFS 配置](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
+    ![HDFS 配置](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
-2. 找到“NameNode Java 堆大小”设置。  也可以使用“筛选器”文本框键入和查找特定的设置。  选择设置名称旁边的**笔**图标。
+1. 找到“NameNode Java 堆大小”设置。  也可以使用“筛选器”文本框键入和查找特定的设置。  选择设置名称旁边的**笔**图标。
 
-    ![NameNode Java 堆大小](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
+    ![NameNode Java 堆大小](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
-3. 在文本框中键入新值，然后按 **Enter** 保存更改。
+1. 在文本框中键入新值，然后按 **Enter** 保存更改。
 
-    ![编辑 NameNode Java 堆大小](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![编辑 NameNode Java 堆大小 1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. NameNode Java 堆大小已从 2 GB 更改为 1 GB。
 
-    ![已编辑 NameNode Java 堆大小](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![已编辑 NameNode Java 堆大小 2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-5. 单击配置屏幕顶部的绿色“保存”按钮保存所做的更改。 
+1. 单击配置屏幕顶部的绿色“保存”按钮保存所做的更改。 
 
-    ![保存更改](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![保存更改](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive 优化
 
 以下部分介绍了用于优化 Apache Hive 总体性能的配置选项。
 
 1. 若要修改 Hive 配置参数，请从“服务”边栏中选择“Hive”。 
-2. 导航到“配置”选项卡。 
+1. 导航到“配置”选项卡。 
 
 ### <a name="set-the-hive-execution-engine"></a>设置 Hive 执行引擎
 
@@ -79,11 +79,11 @@ Hive 提供两个执行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.
 
 1. 在 Hive 的“配置”选项卡上的筛选框中，键入“执行引擎”。  
 
-    ![搜索执行引擎](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
+    ![搜索执行引擎](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
-2. “优化”属性的默认值为 **Tez**。 
+1. “优化”属性的默认值为 **Tez**。 
 
-    ![优化 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
+    ![优化 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>优化映射器
 
@@ -98,9 +98,9 @@ Hadoop 会尝试将单个文件拆分（映射）为多个文件，以并行方�
 
 1. 若要修改限制参数，请导航到 Tez 服务的“配置”选项卡。  展开“常规”面板并找到 `tez.grouping.max-size` 和 `tez.grouping.min-size` 参数。 
 
-2. 将这两个参数设置为 **33,554,432** 字节 (32 MB)。
+1. 将这两个参数设置为 **33,554,432** 字节 (32 MB)。
 
-    ![Tez 分组大小](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
+    ![Tez 分组大小](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
  
 这些更改会影响整个服务器中的所有 Tez 作业。 若要获取最佳结果，请选择适当的参数值。
 
@@ -116,15 +116,15 @@ Hadoop 会尝试将单个文件拆分（映射）为多个文件，以并行方�
 
 1. 若要修改该参数，请导航到 Hive 的“配置”选项卡，然后在“设置”页上找到“每个化简器的数据”参数。  
 
-    ![每个化简器的数据](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
+    ![每个化简器的数据](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
  
-2. 选择“编辑”并将该值修改为 128 MB（134,217,728 字节），然后按 **Enter** 保存。 
+1. 选择“编辑”并将该值修改为 128 MB（134,217,728 字节），然后按 **Enter** 保存。 
 
     ![每个化简器的数据 - 已编辑](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     假设输入大小为 1024 MB，每个化简器的数据为 128 MB，则有 8 个化简器 (1024/128)。
 
-3. 为“每个化简器的数据”参数提供错误的值可能导致生成大量的化简器，从而对查询性能产生负面影响。  若要限制化简器的最大数目，请将 `hive.exec.reducers.max` 设置为适当的值。 默认值为 1009。
+1. 为“每个化简器的数据”参数提供错误的值可能导致生成大量的化简器，从而对查询性能产生负面影响。  若要限制化简器的最大数目，请将 `hive.exec.reducers.max` 设置为适当的值。 默认值为 1009。
 
 ### <a name="enable-parallel-execution"></a>启用并行执行
 
@@ -134,7 +134,7 @@ Hadoop 会尝试将单个文件拆分（映射）为多个文件，以并行方�
  
 1.  若要限制并行运行的作业数，请修改 `hive.exec.parallel.thread.number` 属性。 默认值为 8。
 
-    ![Hive 并行执行](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
+    ![Hive 并行执行](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 
 ### <a name="enable-vectorization"></a>启用矢量化
@@ -153,7 +153,7 @@ Hive 逐行处理数据。 矢量化指示 Hive 以块（一个块包含 1,024 �
 
 若要启用 CBO，请导航到 Hive 的“配置”选项卡并搜索 `parameter hive.cbo.enable`，然后将开关按钮切换到“开”。  
 
-![CBO 配置](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![CBO 配置](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 启用 CBO 后，可使用以下附加配置参数提高 Hive 查询性能：
 
@@ -372,7 +372,7 @@ Pig 在作业执行期间生成临时文件。 压缩临时文件可以在将文
 
 可以通过“HBase 配置”  选项卡修改 [Apache HBase](https://hbase.apache.org/) 配置。以下部分介绍了一些影响 HBase 性能的重要配置设置。
 
-### <a name="set-hbaseheapsize"></a>设置 HBASE_HEAPSIZE
+### <a name="set-hbase_heapsize"></a>设置 HBASE_HEAPSIZE
 
 HBase 堆大小指定区域服务器和主服务器要使用的最大堆数量（以 MB 为单位）。   默认值为 1,000 MB。 应该优化群集工作负荷的此项设置。
 
@@ -380,7 +380,7 @@ HBase 堆大小指定区域服务器和主服务器要使用的最大堆数量�
 
 2. 将默认值更改为 5,000 MB。
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 
 ### <a name="optimize-read-heavy-workloads"></a>优化读取密集型工作负荷

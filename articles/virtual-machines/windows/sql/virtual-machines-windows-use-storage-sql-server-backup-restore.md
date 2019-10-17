@@ -1,5 +1,5 @@
 ---
-title: 如何将 Azure 存储用于 SQL Server 备份和还原 | Azure
+title: 将 Azure 存储用于 SQL Server 备份和还原 | Azure
 description: 了解如何将 SQL Server 备份到 Azure 存储。 说明将 SQL 数据库备份到 Azure 存储的好处。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -8,19 +8,18 @@ manager: digimobile
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 11/26/2018
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f634b1547f7d9333e1b93eaa99c00b394b4e6ec
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e44e18817ca36d2974fd4068e61ff1d084530411
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626606"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272806"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>将 Azure 存储用于 SQL Server 备份和还原
 ## <a name="overview"></a>概述
@@ -48,23 +47,22 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](https://ms
 ## <a name="azure-blob-storage-service-components"></a>Azure Blob 存储服务组件
 备份到 Azure Blob 存储服务时，会使用以下 Azure 组件。
 
-
-|      组件      |                                                                                                                                                     说明                                                                                                                                                      |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **存储帐户** |         存储帐户是所有存储服务的起点。 若要访问 Azure Blob 存储服务，请先创建一个 Azure 存储帐户。 有关 Azure Blob 存储服务的详细信息，请参阅[如何使用 Azure Blob 存储服务](/storage/storage-dotnet-how-to-use-blobs)         |
-|    **容器**    |                                                       容器提供一组 Blob 集，并且可存储无限数量的 Blob。 要将 SQL Server 备份写入到 Azure Blob 服务，必须创建至少一个根容器。                                                       |
-|      **Blob**       | 任何类型和大小的文件。 可使用以下 URL 格式对 Blob 进行寻址：<strong>https://[storage account].blob.core.chinacloudapi.cn/[container]/[blob]</strong>。 有关页 Blob 的详细信息，请参阅[了解块 Blob 和页 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| 组件 | 说明 |
+| --- | --- |
+| **存储帐户** |存储帐户是所有存储服务的起点。 若要访问 Azure Blob 存储服务，请先创建一个 Azure 存储帐户。 有关 Azure Blob 存储服务的详细信息，请参阅[如何使用 Azure Blob 存储服务](/storage/storage-dotnet-how-to-use-blobs) |
+| **容器** |容器提供一组 Blob 集，并且可存储无限数量的 Blob。 要将 SQL Server 备份写入到 Azure Blob 服务，必须创建至少一个根容器。 |
+| **Blob** |任何类型和大小的文件。 可使用以下 URL 格式对 Blob 进行寻址：**https://[storage account].blob.core.chinacloudapi.cn/[container]/[blob]** 。 有关页 Blob 的详细信息，请参阅[了解块 Blob 和页 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server 组件
 备份到 Azure Blob 存储服务时，会使用以下 SQL Server 组件。
 
 | 组件 | 说明 |
 | --- | --- |
-| **URL** |URL 指定到唯一备份文件的统一资源标识符 (URI)。 URL 用于提供 SQL Server 备份文件的位置和名称。 URL 必须指向实际 blob，而不是仅指向容器。 如果 blob 不存在，则创建一个。 如果指定了现有 blob，除非指定了 > WITH FORMAT 选项，否则 BACKUP 将失败。 以下是在 BACKUP 命令中指定的 URL 示例：**http[s]://[存储帐户].blob.core.chinacloudapi.cn/[容器]/[文件名.bak]**。 HTTPS 不是必需的，但建议使用它。 |
+| **URL** |URL 指定到唯一备份文件的统一资源标识符 (URI)。 URL 用于提供 SQL Server 备份文件的位置和名称。 URL 必须指向实际 blob，而不是仅指向容器。 如果 blob 不存在，则创建一个。 如果指定了现有 blob，除非指定了 > WITH FORMAT 选项，否则 BACKUP 将失败。 以下是在 BACKUP 命令中指定的 URL 示例：**http[s]://[存储帐户].blob.core.chinacloudapi.cn/[容器]/[文件名.bak]** 。 HTTPS 不是必需的，但建议使用它。 |
 | **凭据** |连接到 Azure Blob 存储服务并通过其进行身份验证所需的信息将存储为凭据。  为了使 SQL Server 将备份写入 Azure Blob 或从中进行还原，必须创建 SQL Server 凭据。 有关详细信息，请参阅 [SQL Server 凭据](https://msdn.microsoft.com/library/ms189522.aspx)。 |
 
 > [!NOTE]
-> 如果选择将备份文件复制并上传到 Azure Blob 存储服务中，并且打算使用此文件执行还原操作，则必须将页 Blob 类型作为存储选项。 从块 Blob 类型执行 RESTORE 命令将失败并报错。
+> SQL Server 2016 已更新以支持块 blob。 有关详细信息，请参阅[教程：将 Azure Blob 存储服务用于 SQL Server 2016 数据库](https://msdn.microsoft.com/library/dn466438.aspx)。
 > 
 > 
 
@@ -72,8 +70,8 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](https://ms
 1. 创建 Azure 帐户（如果还没有帐户）。 如果你正在评估 Azure，请考虑使用[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 2. 接着，完成以下教程之一，这些教程会引导创建存储帐户以及执行还原。
 
-   * **SQL Server 2014**：[教程：SQL Server 2014 备份和还原到 Azure Blob 存储服务](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx)。
-   * **SQL Server 2016**：[教程：将 Azure Blob 存储服务用于 SQL Server 2016 数据库](https://msdn.microsoft.com/library/dn466438.aspx)
+    * **SQL Server 2014**：[教程：SQL Server 2014 备份和还原到 Azure Blob 存储服务](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx)。
+    * **SQL Server 2016**：[教程：将 Azure Blob 存储服务用于 SQL Server 2016 数据库](https://msdn.microsoft.com/library/dn466438.aspx)
 3. 查看其他文档，从[使用 Azure Blob 存储服务进行 SQL Server 备份和还原](https://msdn.microsoft.com/library/jj919148.aspx)开始。
 
 如果有任何问题，请查看 [SQL Server 备份到 URL 最佳实践和故障排除](https://msdn.microsoft.com/library/jj919149.aspx)主题。
