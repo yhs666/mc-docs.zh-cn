@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 58ef2a132997cb71d4934f5624b969987968eb85
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 875406d93636ad5c203f2d7ceac7f856c42b05ed
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845386"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583624"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件 (C#)
 
@@ -150,7 +150,7 @@ topologyBuilder.SetJavaBolt(
    | writer |发送 |
    | reader |侦听 |
 
-    ![共享访问策略窗口的屏幕截图](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
+    ![共享访问策略窗口的屏幕截图](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
 
 2. 选择“读取者”  和“写入者”  策略。 复制并保存两个策略的主密钥值，因为稍后将使用这些值。
 
@@ -192,15 +192,15 @@ topologyBuilder.SetJavaBolt(
 
 1. 在“解决方案资源管理器”  中，右键单击 **EventHubReader** 项目，然后选择“提交到 Storm on HDInsight”  。
 
-    ![解决方案资源管理器的屏幕截图，其中突出显示了“提交到 Storm on HDInsight”](./media/apache-storm-develop-csharp-event-hub-topology/submittostorm.png)
+    ![解决方案资源管理器的屏幕截图，其中突出显示了“提交到 Storm on HDInsight”](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
 2. 在“提交拓扑”  对话框中，选择“Storm 群集”  。 展开“其他配置”  ，选择“Java 文件路径”  ，选择“...”  ，然后选择前面下载的 JAR 文件所在的目录。 最后，单击“提交”  。
 
-    ![“提交拓扑”对话框的屏幕截图](./media/apache-storm-develop-csharp-event-hub-topology/submit.png)
+    ![“提交拓扑”对话框的屏幕截图](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
 3. 提交拓扑之后，将会出现“Storm 拓扑查看器”  。 **EventHubReader** 拓扑。
 
-    ![“Storm 拓扑查看器”的屏幕截图](./media/apache-storm-develop-csharp-event-hub-topology/topologyviewer.png)
+    ![“Storm 拓扑查看器”的屏幕截图](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
 4. 在“解决方案资源管理器”  中，右键单击 **EventHubWriter** 项目，然后选择“提交到 Storm on HDInsight”  。
 
@@ -222,7 +222,7 @@ topologyBuilder.SetJavaBolt(
 
 若要停止拓扑，请在“Storm 拓扑查看器”  中选择每个拓扑，然后单击“终止”  。
 
-![“Storm 拓扑查看器”的屏幕截图，其中突出显示了“终止”按钮](./media/apache-storm-develop-csharp-event-hub-topology/killtopology.png)
+![“Storm 拓扑查看器”的屏幕截图，其中突出显示了“终止”按钮](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 
 ## <a name="delete-your-cluster"></a>删除群集
 

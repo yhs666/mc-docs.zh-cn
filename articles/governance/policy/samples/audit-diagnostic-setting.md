@@ -1,20 +1,19 @@
 ---
 title: 示例 - 审核诊断设置
 description: 如果未对指定资源类型启用诊断设置，此示例策略定义会进行审核。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 04/27/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 05495e2139dfcf1f9cb76265f6ad4df511dae8b0
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: 08782109de4eade42c62bea8dbc07db91b17a911
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903125"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526662"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>示例 - 审核诊断设置
 
@@ -78,7 +77,7 @@ ms.locfileid: "56903125"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-分配策略时，请从可用的内置定义中选择“审核诊断设置”。
+分配策略时，请从可用的内置定义中选择“审核诊断设置”  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -102,7 +101,7 @@ Remove-AzPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'
 ```
 
@@ -110,7 +109,7 @@ az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```cli
+```azurecli
 az policy assignment delete --name "Audit diagnostics" --resource-group myResourceGroup
 ```
 

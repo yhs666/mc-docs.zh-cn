@@ -8,13 +8,13 @@ ms.service: batch
 ms.topic: article
 origin.date: 08/28/2019
 ms.date: 09/23/2019
-ms.author: v-lingli
-ms.openlocfilehash: f6675669b9c0bf1afaf23555fce991451806a7fc
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.author: v-lingwu
+ms.openlocfilehash: 680976dd5d1ecb6f29f4d7fb1de13ddabfff6bd6
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330205"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583783"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>使用共享映像库创建池
 

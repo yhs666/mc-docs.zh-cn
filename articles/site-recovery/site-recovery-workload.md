@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/03/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: b760ec04aee7019e5274f5dc89f89e1380307c51
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: a88a82e40ee919793822b2213f5a25a19248bbd7
+ms.sourcegitcommit: 4ada17c1bcd36e755afd0a8bd6e353e35cbb228b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340791"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72562123"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -136,11 +136,11 @@ Site Recovery 可按如下所示帮助保护 Exchange：
 
 Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或公有云（例如 Azure），从而提供灾难恢复。 由于包含 Web 服务器和数据库的虚拟机将复制到恢复站点，因此不需单独备份配置文件或证书。 依赖于环境变量（在故障转移后已更改）的应用程序映射和绑定可以通过集成到灾难恢复计划中的脚本进行更新。 仅当故障转移时，才会在恢复站点中启动虚拟机。 不仅如此，Azure Site Recovery 还提供以下功能，帮助你协调端到端故障转移：
 
--   顺序安排各层中虚拟机的关机和启动。
--   添加脚本，以便在虚拟机启动后更新其上的应用程序依赖项和绑定。 也可使用脚本更新 DNS 服务器，使之指向恢复站点。
--   通过映射主网络和恢复网络，在故障转移前向虚拟机分配 IP 地址，以便在故障转移后使用不需更新的脚本。
--   能够对 Web 服务器上的多个 Web 应用程序进行一键式故障转移，因此在发生灾难时不会造成混淆。
--   能够在适用于 DR 演练的隔离环境中测试恢复计划。
+- 顺序安排各层中虚拟机的关机和启动。
+- 添加脚本，以便在虚拟机启动后更新其上的应用程序依赖项和绑定。 也可使用脚本更新 DNS 服务器，使之指向恢复站点。
+- 通过映射主网络和恢复网络，在故障转移前向虚拟机分配 IP 地址，以便在故障转移后使用不需更新的脚本。
+- 能够对 Web 服务器上的多个 Web 应用程序进行一键式故障转移，因此在发生灾难时不会造成混淆。
+- 能够在适用于 DR 演练的隔离环境中测试恢复计划。
 
 [详细了解](https://docs.azure.cn/site-recovery/site-recovery-iis)如何保护 IIS Web 场。
 

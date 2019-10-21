@@ -78,10 +78,6 @@ sections:
             text: Java
             href: /azure-monitor/app/java-get-started
           - image:
-              src: 'https://docs.microsoft.com/azure/application-insights/media/index/mobile-center.png'
-            text: 移动
-            href: /azure-monitor/learn/mobile-center-quickstart
-          - image:
               src: 'https://docs.microsoft.com/media/common/i_web-color.svg'
             text: 网站
             href: /azure-monitor/app/website-monitoring

@@ -8,12 +8,12 @@ origin.date: 04/09/2019
 ms.date: 06/10/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 277a71bb1dbecae7f447257bf9c98b6132cd20f0
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: cfc8fa837042d29416b38da1cd6a369c1833b54f
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390715"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519390"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>规划容量和缩放以便将 VMware 灾难恢复到 Azure
 
@@ -137,9 +137,9 @@ CPU | 内存 | 缓存磁盘大小 | 数据更改率 | 受保护的计算机
 
 在以下情况下，需要多个主目标服务器：
 
-*   要保护基于 Linux 的虚拟机。
-*   配置服务器上的主目标服务器无法访问 VM 的数据存储。
-*   主目标服务器上的磁盘总数（服务器上的本地磁盘数加上要保护的磁盘数）超过 60。
+* 要保护基于 Linux 的虚拟机。
+* 配置服务器上的主目标服务器无法访问 VM 的数据存储。
+* 主目标服务器上的磁盘总数（服务器上的本地磁盘数加上要保护的磁盘数）超过 60。
 
 若要了解如何为基于 Linux 的虚拟机添加主目标服务器，请参阅[安装用于故障回复的 Linux 主目标服务器](vmware-azure-install-linux-master-target.md)。
 

@@ -14,12 +14,12 @@ origin.date: 04/12/2019
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 289023a51d039fadb7283f653a3559c64c88124b
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 70dabae19b5465c181644e12905275057c93ec2b
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806872"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583574"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Windows Java 应用
 
@@ -130,7 +130,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ## <a name="secure-applications"></a>安全应用程序
 
-<!--Java applications running in App Service have the same set of [security best practices](/azure/security/security-paas-applications-using-app-services) as other applications.-->
+<!--Java applications running in App Service have the same set of [security best practices](/security/security-paas-applications-using-app-services) as other applications.-->
 
 ### <a name="authenticate-users-easy-auth"></a>对用户进行身份验证（简易身份验证）
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 89cd3257945c0732fec784d57b4150af5b24965e
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: d52d5f589dab45dcab13e0945c75faa5efa523b0
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267052"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583730"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入门：使用 .NET Core 将文本转换为语音
 
@@ -130,7 +130,7 @@ Console.WriteLine("Attempting token exchange. Please wait...\n");
 
 // Add your subscription key here
 // If your resource isn't in China East, change the endpoint
-Authentication auth = new Authentication("https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
+Authentication auth = new Authentication("https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
 try
 {
     accessToken = await auth.FetchTokenAsync().ConfigureAwait(false);

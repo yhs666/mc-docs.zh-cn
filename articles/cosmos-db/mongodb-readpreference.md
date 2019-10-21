@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 02/26/2019
 ms.date: 06/17/2019
-ms.openlocfilehash: 7cdc0628438964d6cafe062f07d6cd220ce8da06
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 286a708c8e63be16f02b4b8c32e4b630c17f80cb
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171363"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519379"
 ---
 # <a name="how-to-multiple-regionally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 的 API for MongoDB 在多个区域中分配读取操作
 
@@ -39,9 +39,9 @@ ms.locfileid: "67171363"
 4. [Java 示例应用程序](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
 5. [SpringBoot 示例应用程序](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
-```bash
-git clone <sample repo url>
-```
+    ```bash
+    git clone <sample repo url>
+    ```
 
 ## <a name="run-the-application"></a>运行应用程序
 

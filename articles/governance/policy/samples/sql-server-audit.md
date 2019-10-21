@@ -1,20 +1,19 @@
 ---
 title: 示例 - 审核 SQL Server 审核设置
 description: 此示例策略定义使用 auditIfNotExists 审核 SQL Server 审核设置。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 04/27/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 27d49e6b44704930ff5caed56f41732b5bb4032d
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: d7b20a5d33f31930f23199a4849c72f493a036ad
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903146"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526584"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>示例 - 审核 SQL Server 审核设置
 
@@ -60,7 +59,7 @@ ms.locfileid: "56903146"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-分配策略时，请从可用的内置定义中选择“审核 SQL Server 级别的审核设置”。
+分配策略时，请从可用的内置定义中选择“审核 SQL Server 级别的审核设置”  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -84,7 +83,7 @@ Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9 --params '{"setting": {"value":"enabled"}}'
 ```
 
@@ -92,7 +91,7 @@ az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6
 
 运行以下命令删除策略分配。
 
-```cli
+```azurecli
 az policy assignment delete --name "SQL Audit audit" --resource-group myResourceGroup
 ```
 

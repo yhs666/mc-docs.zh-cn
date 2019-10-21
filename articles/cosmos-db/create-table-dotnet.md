@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 05/21/2019
 ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8d19076b3ce96f1bf810da9d9b2effb0f90d29b4
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 393884aa5bff33b4870df91961e3a9fb1a18bf07
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254797"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519405"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 生成表 API 应用 
@@ -72,7 +72,7 @@ ms.locfileid: "70254797"
 
 1. 在 Visual Studio 的“文件”菜单中选择“打开”，然后选择“项目/解决方案”。    
 
-   ![打开解决方案](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+    ![打开解决方案](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
 2. 导航到示例应用程序所克隆到的文件夹，然后打开 TableStorage.sln 文件。
 

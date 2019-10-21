@@ -15,11 +15,11 @@ origin.date: 02/02/2018
 ms.author: v-yiso
 ms.date: 12/31/2018
 ms.openlocfilehash: 6a52c49824505b3e0c3aeedf4aacbe1d431985b4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626982"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323780"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中配置通知和电子邮件模板
 API 管理提供的功能为特定事件配置通知，以及配置用于与 API 管理实例的管理员及开发人员通信的电子邮件模板。 本文演示如何为可用事件配置通知，并提供配置用于这些事件的电子邮件模板的概述。
@@ -33,7 +33,7 @@ API 管理提供的功能为特定事件配置通知，以及配置用于与 API
 ## <a name="publisher-notifications"></a>配置通知
 
 1. 选择 **API 管理**实例。
-2. 单击“通知”即可查看可用的通知。
+2. 单击“通知”  即可查看可用的通知。
 
     ![发布者通知][api-management-publisher-notifications]
 
@@ -52,7 +52,7 @@ API 管理提供的功能为特定事件配置通知，以及配置用于与 API
 3. 要指定被通知的电子邮件地址，请在电子邮件地址文本框中输入。 如果有多个电子邮件地址，请使用逗号分隔。
 
     ![通知收件人][api-management-email-addresses]
-4. 按“添加”。
+4. 按“添加”  。
 
 ## <a name="email-templates"></a>配置通知模板
 API 管理提供了在管理和使用服务的过程中发送的电子邮件的通知模板。 提供以下电子邮件模板。
@@ -70,7 +70,7 @@ API 管理提供了在管理和使用服务的过程中发送的电子邮件的�
 
 可按需修改这些模板。
 
-若要查看和配置 API 管理实例的电子邮件模板，请单击“通知模板”。
+若要查看和配置 API 管理实例的电子邮件模板，请单击“通知模板”  。
 
 ![电子邮件模板][api-management-email-templates]
 
@@ -78,12 +78,12 @@ API 管理提供了在管理和使用服务的过程中发送的电子邮件的�
 
 ![电子邮件模板编辑器][api-management-email-template]
 
-“参数”列表包含参数列表，插入到主题或正文时，会在发送电子邮件时替换为指定的值。 要插入一个参数，将光标置于要存放参数的位置，然后单击参数名称左侧的箭头。
+“参数”  列表包含参数列表，插入到主题或正文时，会在发送电子邮件时替换为指定的值。 要插入一个参数，将光标置于要存放参数的位置，然后单击参数名称左侧的箭头。
 
 > [!NOTE] 
 > 预览或发送测试时该参数不会替换为实际值。
 
-若要将更改保存到电子邮件模板，请单击“保存”，或要取消更改时单击“放弃”。
+若要将更改保存到电子邮件模板，请单击“保存”  ，或要取消更改时单击“放弃”  。
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

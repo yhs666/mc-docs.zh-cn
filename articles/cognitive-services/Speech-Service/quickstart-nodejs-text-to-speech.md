@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5bc58741a049c7d7af4249d149ca26cdc44efdeb
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 3b447452e963f3f07d1394749ca2731b3992cdf0
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267053"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583723"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>快速入门：使用 Node.js 将文本转换为语音
 
@@ -64,7 +64,7 @@ const xmlbuilder = require('xmlbuilder');
 function getAccessToken(subscriptionKey) {
     let options = {
         method: 'POST',
-        uri: 'https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken',
+        uri: 'https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken',
         headers: {
             'Ocp-Apim-Subscription-Key': subscriptionKey
         }

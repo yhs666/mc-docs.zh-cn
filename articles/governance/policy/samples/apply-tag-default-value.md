@@ -1,20 +1,19 @@
 ---
 title: 示例 - 应用标记及其默认值
 description: 此示例策略定义会追加指定的标记名称和值（如果未提供该标记）。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 10/30/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: cb15b57b5ff91bf6275fdc8dd4011b3015d5e4d4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 01/26/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: 989262350e67096a4b2e407f2a2ae3e52feb8bb6
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627004"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526678"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>示例 - 应用标记及其默认值
 
@@ -146,8 +145,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-portal"></a>Azure 门户
 
-
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](../media/deploy/deploybutton.png)](https://portal.azure.cn/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -199,7 +197,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-```cli
+```azurecli
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'apply-default-tag-value' --display-name 'Apply tag and its default value' --description 'Applies a required tag and its default value if it is not specified by the user' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' --mode All)
 
@@ -217,7 +215,7 @@ assignment=$(az policy assignment create --name 'apply-default-tag-value' --disp
 
 运行以下命令来删除以前的分配和定义：
 
-```cli
+```azurecli
 # Remove the Policy Assignment
 az policy assignment delete --name `echo $assignment | jq '.name' -r`
 
@@ -227,13 +225,13 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 ### <a name="azure-cli-explanation"></a>Azure CLI 说明
 
-|                                                 命令                                                 |                                                          注释                                                          |
-|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| [az policy definition create](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) |                                         创建新的 Azure Policy 定义。                                          |
-|                     [az group show](/cli/group?view=azure-cli-latest#az-group-show)                     |                                              获取单个资源组。                                              |
+| 命令 | 注释 |
+|---|---|
+| [az policy definition create](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) | 创建新的 Azure Policy 定义。 |
+| [az group show](/cli/group?view=azure-cli-latest#az-group-show) | 获取单个资源组。 |
 | [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [az policy assignment delete](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) |                                      删除现有的 Azure Policy 分配。                                       |
-| [az policy definition delete](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-delete) |                                      删除现有的 Azure Policy 定义。                                       |
+| [az policy assignment delete](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 删除现有的 Azure Policy 分配。 |
+| [az policy definition delete](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 删除现有的 Azure Policy 定义。 |
 
 有多个工具可以用来与资源管理器 REST API 进行交互，例如 [ARMClient](https://github.com/projectkudu/ARMClient) 或 PowerShell。 可以在[策略定义结构](../concepts/definition-structure.md#aliases)的**别名**部分中找到通过 PowerShell 调用 REST API 的示例。
 

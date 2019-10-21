@@ -13,10 +13,10 @@ origin.date: 06/20/2018
 ms.date: 10/21/2019
 ms.author: v-yiso
 ms.openlocfilehash: f7d9e22859dbed068ddb3cafff9edd225cbe0980
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "72292394"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>自动缩放 Azure API 管理实例  

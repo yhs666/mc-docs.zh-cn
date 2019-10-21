@@ -18,11 +18,11 @@ ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc,seodec18
 ms.openlocfilehash: 75697f6c1ebe4d1d344cafd2f3297fba1d6a3837
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004516"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323734"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 将快照导出/复制到不同区域中的存储帐户
 

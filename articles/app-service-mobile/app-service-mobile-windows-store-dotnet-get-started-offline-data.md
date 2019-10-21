@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 29107803b32e5ba3de6bb885800169db01fe0688
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 047a83121380a652e0921a27660a8d2bd0890667
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006563"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583581"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>为 Windows 应用启用脱机同步
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -62,7 +62,7 @@ ms.locfileid: "71006563"
 1. 编辑共享项目中的 App.xaml.cs。 注释掉 MobileServiceClient  的初始化并添加使用无效移动应用 URL 的以下行：
 
     ```
-     public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
+     public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.chinacloudsites.fail");
     ```
 
     还可以通过在设备上禁用 wifi 和手机网络或使用飞行模式来演示脱机行为。
@@ -70,7 +70,7 @@ ms.locfileid: "71006563"
 3. 输入新项，并注意每次单击 **保存** 时，推送将失败，并显示 [CancelledByNetworkError]状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
 4. 关闭应用程序并重新启动它，以验证你创建的新项目是否已永久保存到本地存储中。
 5. （可选）在 Visual Studio 中，打开“服务器资源管理器”  。 导航到“Azure”  ->“SQL 数据库”  中的数据库。 右键单击数据库并选择“在 SQL Server 对象资源管理器中打开”  。 现在便可以浏览 SQL 数据库表及其内容。 验证确认后端数据库中的数据未更改。
-6. （可选）通过 Fiddler 或 Postman 之类的 REST 工具使用 `https://<your-mobile-app-backend-name>.azurewebsites.cn/tables/TodoItem` 格式的 GET 查询，查询移动后端。
+6. （可选）通过 Fiddler 或 Postman 之类的 REST 工具使用 `https://<your-mobile-app-backend-name>.chinacloudsites.cn/tables/TodoItem` 格式的 GET 查询，查询移动后端。
 
 ## <a name="update-online-app"></a>更新应用以重新连接移动应用后端
 在本部分中，会将应用重新连接到移动应用后端。 这些更改可模拟应用上的网络重新连接。

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 7ffa14663ec3482b4cee661b4846c008f75d415a
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 33bfc24ef033b7e12fef85b2c280cd13f2747133
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006560"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583573"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>为 Xamarin.Forms 移动应用启用脱机同步
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -140,7 +140,7 @@ ms.locfileid: "71006560"
 1. 在解决方案资源管理器中，从 Portable  项目打开 Constants.cs 项目文件，然后更改 `ApplicationURL` 的值，使其指向无效的 URL：
 
     ```
-    public static string ApplicationURL = @"https://your-service.azurewebsites.cn/";
+    public static string ApplicationURL = @"https://your-service.chinacloudsites.cn/";
     ```
 
 2. 从 Portable 项目打开 TodoItemManager.cs 文件，然后在 SyncAsync 的 try...catch 块中为 Exception 基类添加一个 catch      。 此 **catch** 块会将异常消息写入控制台，如下所示：

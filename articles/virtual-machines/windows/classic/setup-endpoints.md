@@ -17,11 +17,11 @@ origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6c7cfd46d981492aa42a0341d3306b89b063a712
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674600"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323758"
 ---
 # <a name="set-up-endpoints-on-a-windows-virtual-machine-by-using-the-classic-deployment-model"></a>使用经典部署模型在 Windows 虚拟机上设置终结点
 在 Azure 中使用经典部署模型创建的 Windows 虚拟机 (VM) 可以通过专用网络通道与同一云服务或虚拟网络中的其他 VM 自动通信。 但是，Internet 上的计算机或其他虚拟网络需要终结点才能将入站网络流量定向到 VM。 
@@ -29,7 +29,7 @@ ms.locfileid: "52674600"
 也可以在 [Linux 虚拟机](../../linux/classic/setup-endpoints.md)上设置终结点。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。  
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。  
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 在**资源管理器**部署模型中，终结点使用**网络安全组 (NSG)** 进行配置。 有关详细信息，请参阅[使用 Azure 门户允许对 VM 进行外部访问](../nsg-quickstart-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 04/15/2019
+ms.date: 10/28/2019
 ms.author: ashishth
-ms.openlocfilehash: e7707a56287437c2203acaa118dbc15a1f03843b
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8740dfb2528bd38d7a298a14c6c2815a81ec6a4f
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004011"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583883"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>使用用于 Apache HBase 的 .Net SDK
 
@@ -49,9 +49,9 @@ client = new HBaseClient(credentials);
 
 ## <a name="create-a-new-table"></a>创建新表
 
-HBase 在表中存储数据。 表包含 *Rowkey*、主键以及一个或多个名为“列系列”的列组。 每个表中的数据按 Rowkey 范围水平分布到多个区域。 每个区域都有一个开始键和结束键。 一个表可以有一个或多个区域。 随着表中数据的增长，HBase 会将大区域拆分为较小的区域。 区域存储在区域服务器中，一个区域服务器可以存储多个区域。
+HBase 在表中存储数据。 表包含 *Rowkey*、主键以及一个或多个名为“列系列”的列组。  每个表中的数据按 Rowkey 范围水平分布到多个区域。  每个区域都有一个开始键和结束键。 一个表可以有一个或多个区域。 随着表中数据的增长，HBase 会将大区域拆分为较小的区域。 区域存储在区域服务器  中，一个区域服务器可以存储多个区域。
 
-数据以物理方式存储在 *HFile* 中。 单个 HFile 包含的数据适用于一个表、一个区域和一个列系列。 HFile 中的行在存储时按 Rowkey 排序。 每个 HFile 都有一个 B+ 树索引，用于快速检索行。
+数据以物理方式存储在 *HFile* 中。 单个 HFile 包含的数据适用于一个表、一个区域和一个列系列。 HFile 中的行在存储时按 Rowkey 排序。 每个 HFile 都有一个  B+ 树索引，用于快速检索行。
 
 若要创建新表，请指定 `TableSchema` 和列。 以下代码检查“RestSDKTable”表是否已存在 - 如果不存在，则会创建该表。
 
@@ -123,7 +123,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase 可实现 [Cloud BigTable](https://cloud.google.com/bigtable/)，因此数据格式如下所示：
 
-![具有“群集用户”角色的用户](./media/apache-hbase-rest-sdk/table.png)
+![具有“群集用户”角色的用户](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>选择数据
 

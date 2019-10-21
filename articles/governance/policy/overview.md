@@ -3,17 +3,17 @@ title: Azure Policy 概述
 description: Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理 Azure 环境中的策略定义。
 author: DCtheGeek
 ms.author: v-biyu
-origin.date: 07/31/2018
-ms.date: 07/29/2019
+origin.date: 12/06/2018
+ms.date: 10/12/2019
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 76b7ab00bacb9f9ea2b9140bf141990df40a7eff
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: a75f2c09cf9d43eee09e9c323fadf2db3e58d5be
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232273"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526689"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 服务概述
 
@@ -27,10 +27,11 @@ Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理策略
 > [!IMPORTANT]
 > 现在，无论定价层如何，为所有分配都提供了 Azure Policy 的符合性评估。 如果分配未显示符合性数据，请确保已向 Microsoft.PolicyInsights 资源提供程序注册订阅。
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>策略与 RBAC 有什么不同？
 
-策略和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 RBAC 关注不同范围内的用户操作。 你可能会被添加到资源组的参与者角色，可对该资源组做出更改。 策略关注部署期间的资源属性，以及现有资源。 Policy 控制属性，例如资源的类型或位置。 不同于 RBAC，Policy 是默认的允许和明确拒绝系统。
+Azure Policy 和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 RBAC 关注不同范围内的用户操作。 你可能会被添加到资源组的参与者角色，可对该资源组做出更改。 Azure Policy 关注部署期间的资源属性，以及现有资源。 Azure Policy 控制各种属性，例如资源的类型或位置。 不同于 RBAC，Azure Policy 是默认的允许和明确拒绝系统。
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure Policy 中的 RBAC 权限
 
@@ -39,7 +40,7 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者(预览版)”角色包括大多数 Policy 操作  。 “所有者”具有完全权限  。 “参与者”和“读者”都可以使用所有读取 Policy 操作，但“参与者”还可以触发修正    。
+许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者(预览版)”角色包括大多数 Azure Policy 操作  。 “所有者”具有完全权限  。 “参与者”和“读者”都可以使用所有读取 Azure Policy 操作，但“参与者”还可以触发修正    。
 
 如果没有任何内置角色具有所需的权限，可创建[自定义角色](../../role-based-access-control/custom-roles.md)。
 
@@ -78,7 +79,7 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 
 策略参数通过减少必须创建的策略定义数量来帮助简化策略管理。 在创建策略定义时可定义参数，以使其更为通用。 然后就可以为不同方案重复使用该策略定义。 要执行此操作，请在分配策略定义时传入不同的值。 例如，为订阅指定一组位置。
 
-在创建策略定义时定义/创建参数。 在定义参数后，会为它指定一个名称，并且可选择为其提供一个值。 例如，可以为标题为“位置”的策略定义一个参数  。 然后，可在分配策略时赋予其不同的值，如*中国东部*或*中国北部*。
+在创建策略定义时定义参数。 在定义参数后，会为它指定一个名称，并且可选择为其提供一个值。 例如，可以为标题为“位置”的策略定义一个参数  。 然后，可在分配策略时赋予其不同的值，如 EastUS 或 WestUS   。
 
 有关策略参数的详细信息，请参阅[定义结构 - 参数](./concepts/definition-structure.md#parameters)。
 
@@ -138,7 +139,7 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 
 ## <a name="next-steps"></a>后续步骤
 
-现在，你已大致了解 Azure Policy 以及一些关键概念，下面是建议的后续步骤：
+大致了解 Azure Policy 和一些关键概念后，建议执行后续步骤：
 
 - [使用门户分配策略定义](assign-policy-portal.md)
 - [使用 Azure CLI 分配策略定义](assign-policy-azurecli.md)

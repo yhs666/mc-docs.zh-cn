@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/29/2018
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 64feb920cc60372bfc9ffe71ae93206c55184a25
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 962bc9365f4a94884e8883df3c279b7e2cd9631e
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134430"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519406"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>将 Azure VM 复制到另一个 Azure 区域
 
@@ -115,7 +115,7 @@ ms.locfileid: "70134430"
     - 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。
     - 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
 
-    ![启用复制](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+        ![启用复制](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. 单击“创建目标资源” > “启用复制”。  
 6. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况 

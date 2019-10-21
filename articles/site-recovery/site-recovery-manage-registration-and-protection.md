@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 06/18/2019
 ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 39a9c42b14b7ab0edcd3ec5a76af87aaab3b8c6c
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: d08e5decf98a65bce4e54b715a26a13f0834045b
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083187"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519385"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -146,7 +146,7 @@ ms.locfileid: "71083187"
     - **删除** - 只有在源环境已删除或无法访问（未连接）时，才应使用此选项。 此选项会从 Azure Site Recovery 中删除复制的项（停止计费）。 不过，并不会  清理配置服务器上的复制配置。 
 
     > [!NOTE]
-    > <span data-ttu-id="c84da-151">这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。</span><span class="sxs-lookup"><span data-stu-id="c84da-151">这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。</span></span> <span data-ttu-id="c84da-152">如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。</span><span class="sxs-lookup"><span data-stu-id="c84da-152">如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。</span></span>
+    > 这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。 如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。
 
 > [!NOTE]
 > 如果已对 VM 进行了故障转移并且该 VM 正在 Azure 中运行，请注意，禁用保护不会删除/影响故障转移的 VM。

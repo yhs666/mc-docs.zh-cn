@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/24/2017
 ms.date: 09/07/2018
-ms.author: v-junlch
+ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 33b9b6202721bbb762dcc526aed61fd8e7e33199
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c2f17616b0184e375bba7ff86fb589a16fd21b5a
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329810"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583778"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 

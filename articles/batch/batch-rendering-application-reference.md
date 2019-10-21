@@ -4,16 +4,16 @@ description: 如何配合 Azure Batch 使用渲染应用程序
 services: batch
 ms.service: batch
 author: mscurrell
-ms.author: v-junlch
+ms.author: v-lingwu
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 605b2333232a8a447146c7ad7c9644135c7fec1f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8aee0aab8a488e7827eb30e20eae8069765455ae
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330361"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583775"
 ---
 # <a name="rendering-applications"></a>渲染应用程序
 

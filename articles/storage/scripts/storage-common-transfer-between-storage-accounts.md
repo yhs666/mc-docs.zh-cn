@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 02/01/2018
-ms.date: 01/21/2019
+ms.date: 04/22/2019
 ms.author: v-jay
-ms.openlocfilehash: bfb2508a7fd9b87fa3b3235f192b32d78448a473
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 99adc55a1c2e8e650a3a05f785856bc51a0903de
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334472"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323819"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>使用 Windows 版 AzCopy 跨存储帐户迁移 blob
 
@@ -38,7 +38,7 @@ ms.locfileid: "54334472"
 本示例的输入示例如下：
 
 如果 AzCopy 安装在默认目录：
-```PowerShell
+```powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
 DestStorageAccountName: ExampleTargetStorageAccountName

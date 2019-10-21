@@ -15,51 +15,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/20/2019
-ms.date: 05/27/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8989027aa32f4a6c36273ab3fc6073a877b78729
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 189214b953875e36e4575a719a21be135a1d7243
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829184"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583859"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>在 Apache Hadoop on HDInsight 中使用 MapReduce
 
-了解如何在 HDInsight 群集上运行 MapReduce 作业。 
-
-## <a id="whatis"></a>什么是 MapReduce
-
-Apache Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入的数据将拆分为独立的区块。 每个区块跨群集中的节点并行进行处理。 MapReduce 作业包括两个函数：
-
-* **Mapper**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
-
-* **Reducer**：使用 Mapper 发出的元组并执行汇总运算，以基于 Mapper 数据创建更小的合并结果
-
-下图演示了一个基本的单词计数 MapReduce 作业示例：
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-此作业的输出是文本中每个单词出现次数的计数。
-
-* mapper 将输入文本中的每一行作为一个输入并将其拆分为多个单词。 每当一个单词出现时，mapper 发出一个键/值对，其中在该单词后跟一个 1。 输出在发送到化简器之前经过排序。
-* 随后，化简器会计算每个单词的计数的和并发出一个键/值对（包含单词，后跟该单词的总出现次数）。
-
-MapReduce 可使用多种语言实现。 Java 是最常见的实现，本文档中使用该语言进行演示。
-
-## <a name="development-languages"></a>开发语言
-
-基于 Java 和 Java 虚拟机的语言或框架可作为 MapReduce 作业直接运行。 在本文档中使用的示例是 Java MapReduce 应用程序。 C#、Python 等非 Java 语言或独立可执行文件必须使用 **Hadoop 流式处理**。
-
-Hadoop 流式处理通过 STDIN 和 STDOUT 与映射器和化简器通信。 映射器和化简器从 STDIN 中一次读取一行数据，并将输出写入 STDOUT。 映射器和化简器读取或发出的每行必须采用制表符分隔的键/值对格式：
-
-    [key]/t[value]
-
-有关详细信息，请参阅 [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html)（Hadoop 流式处理）。
-
-有关将 Hadoop 流式处理与 HDInsight 配合使用的示例，请参阅以下文档：
-
-* [开发 C# MapReduce 作业](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+了解如何在 HDInsight 群集上运行 MapReduce 作业。
 
 ## <a id="data"></a>示例数据
 

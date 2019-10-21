@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
 ms.author: v-yiso
-ms.date: 01/14/2019
-ms.openlocfilehash: ddf026df41b6b4e5a941301757aa1043958121db
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.date: 10/28/2019
+ms.openlocfilehash: c2ba574b6feed6338db12bb478770cbca0dfbd15
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806495"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583688"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>使用 YARN 创建高可用性 Apache Spark 流式处理作业
 
@@ -30,15 +30,15 @@ ms.locfileid: "53806495"
 
 Spark 流创建长时间运行的作业，在此期间，你可以对数据应用转换，然后将结果推送到文件系统、数据库、仪表板和控制台。 Spark 流处理微批数据，它首先收集定义的时间间隔内的一批事件。 接下来，发送该批进行处理和输出。 批时间间隔通常以几分之一秒定义。
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
-Spark 流使用离散流 (DStream) 表示连续的数据流。 可以从事件中心或 Kafka 等输入源，或通过将转换应用到另一个 DStream，来创建此 DStream。 事件抵达 Spark 流应用程序后，将以可靠的方式存储该事件。 也就是说，会复制事件数据，使多个节点获取它的副本。 这可以确保任一节点发生故障不会导致事件丢失。
+Spark 流使用离散流 (DStream) 表示连续的数据流。  可以从事件中心或 Kafka 等输入源，或通过将转换应用到另一个 DStream，来创建此 DStream。 事件抵达 Spark 流应用程序后，将以可靠的方式存储该事件。 也就是说，会复制事件数据，使多个节点获取它的副本。 这可以确保任一节点发生故障不会导致事件丢失。
 
-Spark 核心使用弹性分布式数据集 (RDD)。 RDD 将数据分布到群集中的多个节点，其中每个节点通常完全在内存中维护其自身的数据，以实现最佳性能。 每个 RDD 表示在某个批间隔内收集的事件。 批间隔时间过后，Spark 流会生成新的 RDD，其中包含该间隔内的所有数据。 此连续 RDD 集将收集到 DStream 中。 Spark 流应用程序处理每个批的 RDD 中存储的数据。
+Spark 核心使用弹性分布式数据集 (RDD)。  RDD 将数据分布到群集中的多个节点，其中每个节点通常完全在内存中维护其自身的数据，以实现最佳性能。 每个 RDD 表示在某个批间隔内收集的事件。 批间隔时间过后，Spark 流会生成新的 RDD，其中包含该间隔内的所有数据。 此连续 RDD 集将收集到 DStream 中。 Spark 流应用程序处理每个批的 RDD 中存储的数据。
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
+![Spark DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Spark 结构化流作业
 
@@ -46,7 +46,7 @@ Spark 结构化流在 Spark 2.0 中引入，在流式处理结构化数据时用
 
 ![Spark 结构化流](./media/apache-spark-streaming-high-availability/structured-streaming.png)
 
-在结构化流中，数据抵达系统后立即被引入输入表中。 可以编写针对此输入表执行操作的查询。 查询输出将生成名为“结果表”的另一个表。 结果表包含查询的结果，从中可以抽取要发送到外部数据存储（例如关系数据库）的数据。 触发器间隔用于设置处理输入表中的数据的时间。 默认情况下，结构化流会在数据抵达时尽快处理数据。 但是，也可以将触发器配置为根据更长的间隔运行，以便在基于时间的批中处理流数据。 每当生成新数据时，可以完全刷新结果表中的数据，使之包含自开始执行流查询以来生成的所有输出数据（完整模式），或者只包含自上次处理查询以来生成的新数据（追加模式）。
+在结构化流中，数据抵达系统后立即被引入输入表中。 可以编写针对此输入表执行操作的查询。 查询输出将生成名为“结果表”的另一个表。 结果表包含查询的结果，从中可以抽取要发送到外部数据存储（例如关系数据库）的数据。 触发器间隔用于设置处理输入表中的数据的时间。  默认情况下，结构化流会在数据抵达时尽快处理数据。 但是，也可以将触发器配置为根据更长的间隔运行，以便在基于时间的批中处理流数据。 每当生成新数据时，可以完全刷新结果表中的数据，使之包含自开始执行流查询以来生成的所有输出数据（完整模式），或者只包含自上次处理查询以来生成的新数据（追加模式）。  
 
 ## <a name="create-fault-tolerant-spark-streaming-jobs"></a>创建容错的 Spark 流作业
 
@@ -66,7 +66,7 @@ RDD 包含多个属性，可帮助创建高可用性且容错的 Spark 流作业
 
 在 HDInsight 中，群集工作由 *Yet Another Resource Negotiator* (YARN) 协调。 设计 Spark 流的高可用性涉及到 Spark 流和 YARN 组件方面的技术。  下面显示了使用 YARN 的示例配置。 
 
-![YARN 体系结构](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![YARN 体系结构](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 以下部分描述此配置的设计注意事项。
 
@@ -76,7 +76,7 @@ RDD 包含多个属性，可帮助创建高可用性且容错的 Spark 流作业
 
 如果**执行器**发生故障，其任务和接收器将由 Spark 自动重启，因此无需进行配置更改。
 
-但是，如果**驱动程序**发生故障，则其所有关联的执行器都会发生故障，并且所有已收到的块和计算结果都会丢失。 若要在发生驱动程序故障后进行恢复，可以根据[创建支持“恰好一次”事件处理的 Spark 流作业](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)使用 *DStream 检查点*。 DStream 检查点会定期将 DStreams 的有向无环图 (DAG) 保存到 Azure 存储等容错存储中。  检查点可让 Spark 结构化流根据检查点信息重启有故障的驱动程序。  重启此驱动程序会启动新的执行器，同时重启接收器。
+但是，如果**驱动程序**发生故障，则其所有关联的执行器都会发生故障，并且所有已收到的块和计算结果都会丢失。 若要在发生驱动程序故障后进行恢复，可以根据[创建支持“恰好一次”事件处理的 Spark 流作业](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)使用 *DStream 检查点*。 DStream 检查点会定期将 DStreams 的有向无环图 (DAG) 保存到 Azure 存储等容错存储中。   检查点可让 Spark 结构化流根据检查点信息重启有故障的驱动程序。  重启此驱动程序会启动新的执行器，同时重启接收器。
 
 使用 DStream 检查点恢复驱动程序：
 
@@ -119,7 +119,7 @@ RDD 包含多个属性，可帮助创建高可用性且容错的 Spark 流作业
 
 * 应将长时间运行的作业分段。  将 Spark 流应用程序提交到群集后，必须定义运行作业的 YARN 队列。 可以使用 [YARN 容量计划程序](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)将长时间运行的作业提交到单独的队列。
 
-* 正常关闭流应用程序。 如果偏移量是已知的，并且所有应用程序状态存储在外部，则可以在适当的位置以编程方式停止流应用程序。 一种方法是使用 Spark 中的“线程挂钩”，每隔 *n* 秒检查外部标志。 也可以在启动应用程序时使用 HDFS 中创建的标记文件，然后在想要停止应用程序时删除该文件。 对于标记文件方法，可以在 Spark 应用程序中使用一个单独的线程，用于调用如下所示的代码：
+* 正常关闭流应用程序。 如果偏移量是已知的，并且所有应用程序状态存储在外部，则可以在适当的位置以编程方式停止流应用程序。 一种方法是使用 Spark 中的“线程挂钩”，每隔 *n* 秒检查外部标志。 也可以在启动应用程序时使用 HDFS 中创建的标记文件，然后在想要停止应用程序时删除该文件。  对于标记文件方法，可以在 Spark 应用程序中使用一个单独的线程，用于调用如下所示的代码：
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)
@@ -130,6 +130,6 @@ RDD 包含多个属性，可帮助创建高可用性且容错的 Spark 流作业
 
 * [Apache Spark 流式处理概述](apache-spark-streaming-overview.md)
 * [使用“恰好一次”事件处理创建 Apache Spark 流式处理作业](apache-spark-streaming-exactly-once.md)
-* [YARN 中长时间运行的 Apache Spark 流式处理作业](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [结构化流：容错语义](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [YARN 中长时间运行的 Apache Spark 流式处理作业](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [结构化流：容错语义](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [离散流：可缩放流处理的容错模型](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

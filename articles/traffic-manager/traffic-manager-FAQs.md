@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/26/2019
-ms.date: 09/09/2019
+ms.date: 10/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: b4e9db3d6b00fed6caf01b47b655da885dcc995e
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 8ee7844ea5173efb459b6f9aef660359b70253a6
+ms.sourcegitcommit: 4ada17c1bcd36e755afd0a8bd6e353e35cbb228b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254681"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72562125"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 

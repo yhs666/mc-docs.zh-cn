@@ -16,11 +16,11 @@ origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 04/22/2019
 ms.openlocfilehash: 38478b8eb5058721933c4b1da6aded52710c58e3
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529466"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323817"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -106,15 +106,15 @@ ms.locfileid: "59529466"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|`firstName`|字符串|当前用户的名字。|  
-|`lastName`|字符串|当前用户的姓氏。|  
-|`companyName`|字符串|当前用户所在公司的名称。|  
-|`addresserEmail`|字符串|当前用户的电子邮件地址。|  
-|`developersUsageStatisticsLink`|字符串|相对 URL，用于查看当前用户的分析。|  
+|`firstName`|string|当前用户的名字。|  
+|`lastName`|string|当前用户的姓氏。|  
+|`companyName`|string|当前用户所在公司的名称。|  
+|`addresserEmail`|string|当前用户的电子邮件地址。|  
+|`developersUsageStatisticsLink`|string|相对 URL，用于查看当前用户的分析。|  
 |`subscriptions`|[订阅](api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
 |`applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
-|`changePasswordUrl`|字符串|相对 URL，用于更改当前用户的密码。|  
-|`changeNameOrEmailUrl`|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
+|`changePasswordUrl`|string|相对 URL，用于更改当前用户的密码。|  
+|`changeNameOrEmailUrl`|string|相对 URL，用于更改当前用户的名称和电子邮件。|  
 |`canChangePassword`|布尔值|当前用户是否可更改其密码。|  
 |`isSystemUser`|布尔值|当前用户是否为某个内置[组](api-management-key-concepts.md#groups)的成员。|  
   
@@ -327,15 +327,15 @@ ms.locfileid: "59529466"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|`firstName`|字符串|当前用户的名字。|  
-|`lastName`|字符串|当前用户的姓氏。|  
-|`companyName`|字符串|当前用户所在公司的名称。|  
-|`addresserEmail`|字符串|当前用户的电子邮件地址。|  
-|`developersUsageStatisticsLink`|字符串|相对 URL，用于查看当前用户的分析。|  
+|`firstName`|string|当前用户的名字。|  
+|`lastName`|string|当前用户的姓氏。|  
+|`companyName`|string|当前用户所在公司的名称。|  
+|`addresserEmail`|string|当前用户的电子邮件地址。|  
+|`developersUsageStatisticsLink`|string|相对 URL，用于查看当前用户的分析。|  
 |`subscriptions`|[订阅](api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
 |`applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
-|`changePasswordUrl`|字符串|相对 URL，用于更改当前用户的密码。|  
-|`changeNameOrEmailUrl`|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
+|`changePasswordUrl`|string|相对 URL，用于更改当前用户的密码。|  
+|`changeNameOrEmailUrl`|string|相对 URL，用于更改当前用户的名称和电子邮件。|  
 |`canChangePassword`|布尔值|当前用户是否可更改其密码。|  
 |`isSystemUser`|布尔值|当前用户是否为某个内置[组](api-management-key-concepts.md#groups)的成员。|  
   
@@ -490,15 +490,15 @@ ms.locfileid: "59529466"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|`firstName`|字符串|当前用户的名字。|  
-|`lastName`|字符串|当前用户的姓氏。|  
-|`companyName`|字符串|当前用户所在公司的名称。|  
-|`addresserEmail`|字符串|当前用户的电子邮件地址。|  
-|`developersUsageStatisticsLink`|字符串|相对 URL，用于查看当前用户的分析。|  
+|`firstName`|string|当前用户的名字。|  
+|`lastName`|string|当前用户的姓氏。|  
+|`companyName`|string|当前用户所在公司的名称。|  
+|`addresserEmail`|string|当前用户的电子邮件地址。|  
+|`developersUsageStatisticsLink`|string|相对 URL，用于查看当前用户的分析。|  
 |`subscriptions`|[订阅](api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
 |`applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
-|`changePasswordUrl`|字符串|相对 URL，用于更改当前用户的密码。|  
-|`changeNameOrEmailUrl`|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
+|`changePasswordUrl`|string|相对 URL，用于更改当前用户的密码。|  
+|`changeNameOrEmailUrl`|string|相对 URL，用于更改当前用户的名称和电子邮件。|  
 |`canChangePassword`|布尔值|当前用户是否可更改其密码。|  
 |`isSystemUser`|布尔值|当前用户是否为某个内置[组](api-management-key-concepts.md#groups)的成员。|  
   
@@ -569,7 +569,7 @@ ms.locfileid: "59529466"
 ```  
   
 ##  <a name="UpdateAccountInfo"></a> 更新帐户信息  
- “更新帐户信息”模板用于自定义开发人员门户中的“更新帐户信息”页。  
+ “更新帐户信息”模板用于自定义开发人员门户中的“更新帐户信息”页。    
   
  ![用户帐户信息页开发人员门户模板](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM 用户帐户信息页开发人员门户模板")  
   

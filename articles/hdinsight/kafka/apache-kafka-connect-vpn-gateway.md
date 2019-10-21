@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/28/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: fefebfc689266cdba64f9b756271521e7198bd3c
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: d0c724bd20db33d3df904910f94dc226d53c8337
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921207"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583838"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Apache Kafka on HDInsight
 
@@ -256,7 +256,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
 3. 要查看 Kafka 配置，请在顶端的中间位置选择“配置”。 
 
-    ![Kafka 的配置链接](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Kafka 的配置链接](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. 要查找“kafka-env” 配置，请在右上方的“筛选器”字段中输入 `kafka-env`。  
 
@@ -278,7 +278,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
 8. 单击“保存”按钮以保存配置。  输入描述更改的文本消息。 保存更改后，选择“确定”。 
 
-    ![保存配置按钮](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![保存配置按钮](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. 要防止在重启 Kafka 时出错，请使用“服务操作”按钮，并选择“打开维护模式”。   选择“确定”完成操作。
 
@@ -286,7 +286,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
 10. 要重启 Kafka，请使用“重启”按钮，然后选择“重启所有受影响的项”。   确认重启，在操作完成后再使用“确定”按钮。 
 
-    ![重启按钮，其中突出显示了所有受影响的重启项](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![重启按钮，其中突出显示了所有受影响的重启项](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. 要禁用维护模式，请使用“服务操作”按钮，然后选择“关闭维护模式”。   选择“确定”完成操作。 
 

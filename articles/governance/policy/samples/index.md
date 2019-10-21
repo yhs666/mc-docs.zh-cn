@@ -1,14 +1,19 @@
 ---
 title: 策略示例索引
 description: Azure Policy 的示例索引。 类别包括命名、标记、Key Vault、网络、存储，等等。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 01/17/2018
-ms.date: 04/15/2019
-ms.author: v-biyu
+origin.date: 03/19/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: dbcc4cf6bcf8046434f8053587b136622243a098
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526634"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 示例
 
@@ -32,5 +37,5 @@ ms.author: v-biyu
 
 ## <a name="next-steps"></a>后续步骤
 
-- 查看[策略定义结构](../concepts/definition-structure.md)。
+- 查看 [Azure Policy 定义结构](../concepts/definition-structure.md)。
 - 查看[了解策略效果](../concepts/effects.md)。

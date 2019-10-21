@@ -12,15 +12,16 @@ ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
+ms.workload: infrastructure
 origin.date: 07/07/2017
-ms.date: 01/07/2019
-ms.author: v-biyu
-ms.openlocfilehash: 152328a74b4ac8b5e03a05dcf73c7b1142ecbd6a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.dat: 10/17/2017
+ms.author: v-tawe
+ms.openlocfilehash: 3e750fd50e776452f535d3ec9aa61b074d5ee2ce
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627676"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583564"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>筛选入站和出站 VM 网络流量
 
@@ -32,7 +33,7 @@ ms.locfileid: "58627676"
 
 ## <a name="sample-script"></a>示例脚本
 
-```bash
+```azurecli
 # !/bin/bash
 
 RgName="MyResourceGroup"
@@ -182,16 +183,16 @@ az group delete --name MyResourceGroup --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az network vnet create](/cli/network/vnet#az_network_vnet_create) | 创建 Azure 虚拟网络和前端子网。 |
-| [az network subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) | 创建后端子网。 |
-| [az network vnet subnet update](/cli/network/vnet/subnet#az_network_vnet_subnet_update) | 将 NSG 关联到子网。 |
-| [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) | 创建用于从 Internet 访问 VM 的公共 IP 地址。 |
-| [az network nic create](/cli/network/nic#az_network_nic_create) | 创建虚拟网络接口，并将其附加到虚拟网络的前端和后端子网。 |
-| [az network nsg create](/cli/network/nsg#az_network_nsg_create) | 创建关联到前端和后端子网的网络安全组 (NSG)。 |
-| [az network nsg rule create](/cli/network/nsg/rule#az_network_nsg_rule_create) |创建 NSG 规则，允许或阻止特定子网的特定端口。 |
-| [az vm create](/cli/vm#az_vm_create) | 创建虚拟机，并将 NIC 附加到每个 VM。 此命令还指定要使用的虚拟机映像和管理凭据。 |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组及其包含的所有资源。 |
+| [az group create](/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az network vnet create](/cli/network/vnet) | 创建 Azure 虚拟网络和前端子网。 |
+| [az network subnet create](/cli/network/vnet/subnet) | 创建后端子网。 |
+| [az network vnet subnet update](/cli/network/vnet/subnet) | 将 NSG 关联到子网。 |
+| [az network public-ip create](/cli/network/public-ip) | 创建用于从 Internet 访问 VM 的公共 IP 地址。 |
+| [az network nic create](/cli/network/nic) | 创建虚拟网络接口，并将其附加到虚拟网络的前端和后端子网。 |
+| [az network nsg create](/cli/network/nsg) | 创建关联到前端和后端子网的网络安全组 (NSG)。 |
+| [az network nsg rule create](/cli/network/nsg/rule) |创建 NSG 规则，允许或阻止特定子网的特定端口。 |
+| [az vm create](/cli/vm) | 创建虚拟机，并将 NIC 附加到每个 VM。 此命令还指定要使用的虚拟机映像和管理凭据。 |
+| [az group delete](/cli/group) | 删除资源组及其包含的所有资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 05/16/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 82f9b607d7b423a19c2a4a6c072baa4133ae7020
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: a905ae6f9a691df22cb091f61b3867cf8e485f6f
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "65835742"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72584093"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 
@@ -35,94 +35,122 @@ ms.locfileid: "65835742"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-# <a name="variables-for-common-values"></a>常见值的变量
-$rgName='MyResourceGroup' $location='chinaeast'
+```powershell
+# Variables for common values
+$rgName='MyResourceGroup'
+$location='chinaeast'
 
-# <a name="create-user-object"></a>创建用户对象
-$cred = Get-Credential -Message "输入用于虚拟机的用户名和密码。"
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 New-AzResourceGroup -Name $rgName -Location $location
 
-# <a name="create-an-availability-set-for-the-two-vms-that-host-both-websites"></a>为这两个托管了两个网站的 VM 创建可用性集。
-$as = New-AzAvailabilitySet -ResourceGroupName $rgName -Location $location ` -Name MyAvailabilitySet -Sku Aligned -PlatformFaultDomainCount 2 -PlatformUpdateDomainCount 2
+# Create an availability set for the two VMs that host both websites.
+$as = New-AzAvailabilitySet -ResourceGroupName $rgName -Location $location `
+  -Name MyAvailabilitySet -Sku Aligned -PlatformFaultDomainCount 2 -PlatformUpdateDomainCount 2
 
-# <a name="create-a-virtual-network-and-a-subnet"></a>创建虚拟网络和子网。
+# Create a virtual network and a subnet.
 $subnet = New-AzVirtualNetworkSubnetConfig -Name 'MySubnet' -AddressPrefix 10.0.0.0/24
 
-$vnet = New-AzVirtualNetwork -ResourceGroupName $rgName -Name MyVnet ` -AddressPrefix 10.0.0.0/16 -Location $location -Subnet $subnet
+$vnet = New-AzVirtualNetwork -ResourceGroupName $rgName -Name MyVnet `
+  -AddressPrefix 10.0.0.0/16 -Location $location -Subnet $subnet
 
-# <a name="create-three-public-ip-addresses-one-for-the-load-balancer-and-two-for-the-front-end-ip-configurations"></a>创建三个公共 IP 地址，一个用于负载均衡器，两个用于前端 IP 配置。
-$publicIpLB = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-LoadBalancer' ` -Location $location -AllocationMethod Dynamic
+# Create three public IP addresses; one for the load balancer and two for the front-end IP configurations.
+$publicIpLB = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-LoadBalancer' `
+  -Location $location -AllocationMethod Dynamic
 
-$publicIpContoso = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-Contoso' ` -Location $location -AllocationMethod Dynamic
+$publicIpContoso = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-Contoso' `
+  -Location $location -AllocationMethod Dynamic
 
-$publicIpFabrikam = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-Fabrikam' ` -Location $location -AllocationMethod Dynamic
+$publicIpFabrikam = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-Fabrikam' `
+  -Location $location -AllocationMethod Dynamic
 
-# <a name="create-two-front-end-ip-configurations-for-both-web-sites"></a>为两个网站创建两个前端 IP 配置。
-$feipcontoso = New-AzLoadBalancerFrontendIpConfig -Name 'FeContoso' -PublicIpAddress $publicIpContoso $feipfabrikam = New-AzLoadBalancerFrontendIpConfig -Name 'FeFabrikam' -PublicIpAddress $publicIpFabrikam
+# Create two front-end IP configurations for both web sites.
+$feipcontoso = New-AzLoadBalancerFrontendIpConfig -Name 'FeContoso' -PublicIpAddress $publicIpContoso
+$feipfabrikam = New-AzLoadBalancerFrontendIpConfig -Name 'FeFabrikam' -PublicIpAddress $publicIpFabrikam
 
-# <a name="create-the-back-end-address-pools"></a>创建后端地址池。
-$bepoolContoso = New-AzLoadBalancerBackendAddressPoolConfig -Name 'BeContoso' $bepoolFabrikam = New-AzLoadBalancerBackendAddressPoolConfig -Name 'BeFabrikam'
+# Create the back-end address pools.
+$bepoolContoso = New-AzLoadBalancerBackendAddressPoolConfig -Name 'BeContoso'
+$bepoolFabrikam = New-AzLoadBalancerBackendAddressPoolConfig -Name 'BeFabrikam'
 
-# <a name="create-a-probe-on-port-80"></a>在端口 80 上创建探测。
-$probe = New-AzLoadBalancerProbeConfig -Name 'MyProbe' -Protocol Http -Port 80 ` -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
+# Create a probe on port 80.
+$probe = New-AzLoadBalancerProbeConfig -Name 'MyProbe' -Protocol Http -Port 80 `
+  -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 
-# <a name="create-the-load-balancing-rules"></a>创建负载均衡规则。
+# Create the load balancing rules.
 $contosorule = New-AzLoadBalancerRuleConfig -Name 'LBRuleContoso' -Protocol Tcp `
-  -Probe $probe -FrontendPort 5000 -BackendPort 5000 ` -FrontendIpConfiguration $feipContoso -BackendAddressPool $bePoolContoso
+  -Probe $probe -FrontendPort 5000 -BackendPort 5000 `
+  -FrontendIpConfiguration $feipContoso -BackendAddressPool $bePoolContoso
 
 $fabrikamrule = New-AzLoadBalancerRuleConfig -Name 'LBRuleFabrikam' -Protocol Tcp `
-  -Probe $probe -FrontendPort 5000 -BackendPort 5000 ` -FrontendIpConfiguration $feipFabrikam -BackendAddressPool $bePoolfabrikam
+  -Probe $probe -FrontendPort 5000 -BackendPort 5000 `
+  -FrontendIpConfiguration $feipFabrikam -BackendAddressPool $bePoolfabrikam
 
-# <a name="create-a-load-balancer"></a>创建负载均衡器。
+# Create a load balancer.
 $lb = New-AzLoadBalancer -ResourceGroupName $rgName -Name 'MyLoadBalancer' -Location $location `
-  -FrontendIpConfiguration $feipcontoso,$feipfabrikam -BackendAddressPool $bepoolContoso,$bepoolfabrikam ` -Probe $probe -LoadBalancingRule $contosorule,$fabrikamrule
+  -FrontendIpConfiguration $feipcontoso,$feipfabrikam -BackendAddressPool $bepoolContoso,$bepoolfabrikam `
+  -Probe $probe -LoadBalancingRule $contosorule,$fabrikamrule
 
-# <a name="-vm1"></a>############## VM1 ###############
+# ############## VM1 ###############
 
-# <a name="create-an-public-ip-for-the-first-vm"></a>为第一个 VM 创建公共 IP。
-$publicipvm1 = New-AzPublicIpAddress -ResourceGroupName $rgName -Name MyPublicIp-Vm1 ` -location $location -AllocationMethod Dynamic
+# Create an Public IP for the first VM.
+$publicipvm1 = New-AzPublicIpAddress -ResourceGroupName $rgName -Name MyPublicIp-Vm1 `
+  -location $location -AllocationMethod Dynamic
 
-# <a name="create-ip-configurations-for-contoso-and-fabrikam"></a>为 Contoso 和 Fabrikam 创建 IP 配置。
-$ipconfig1 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig1' ` -Subnet $vnet.subnets[0] -Primary  
+# Create IP configurations for Contoso and Fabrikam.
+$ipconfig1 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig1' `
+  -Subnet $vnet.subnets[0] -Primary  
 
-$ipconfig2 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig2' ` -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolContoso
+$ipconfig2 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig2' `
+  -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolContoso
  
-$ipconfig3 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig3' ` -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolfabrikam 
+$ipconfig3 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig3' `
+  -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolfabrikam 
 
-# <a name="create-a-network-interface-for-vm1"></a>为 VM1 创建网络接口。
-$nicVM1 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location ` -Name 'MyNic-VM1' -IpConfiguration $ipconfig1, $ipconfig2, $ipconfig3
+# Create a network interface for VM1.
+$nicVM1 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
+-Name 'MyNic-VM1' -IpConfiguration $ipconfig1, $ipconfig2, $ipconfig3
 
-# <a name="create-a-virtual-machine-configuration"></a>创建虚拟机配置
+# Create a virtual machine configuration
 $vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS2 -AvailabilitySetId $as.Id | `
-  Set-AzureRmVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred | ` Set-AzureRmVMSourceImage -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' ` -Skus '2016-Datacenter' -Version latest | Add-AzureRmVMNetworkInterface -Id $nicVM1.Id
+  Set-AzureRmVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred | `
+  Set-AzureRmVMSourceImage -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' `
+  -Skus '2016-Datacenter' -Version latest | Add-AzureRmVMNetworkInterface -Id $nicVM1.Id
 
-# <a name="create-a-virtual-machine"></a>创建虚拟机
+# Create a virtual machine
 $vm = New-AzVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 
-###### <a name="-vm2"></a>######### VM2 ###############
+###### ######### VM2 ###############
 
-# <a name="create-an-public-ip-for-the-second-vm"></a>为第二个 VM 创建公共 IP。
+# Create an Public IP for the second VM.
 
-$publicipvm1 = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-Vm2' ` -location $location -AllocationMethod Dynamic
+$publicipvm1 = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIp-Vm2' `
+  -location $location -AllocationMethod Dynamic
 
-# <a name="create-ip-configurations-for-contoso-and-fabrikam"></a>为 Contoso 和 Fabrikam 创建 IP 配置。
-$ipconfig1 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig1' ` -Subnet $vnet.subnets[0] -Primary  
+# Create IP configurations for Contoso and Fabrikam.
+$ipconfig1 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig1' `
+  -Subnet $vnet.subnets[0] -Primary  
 
-$ipconfig2 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig2' ` -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolContoso 
+$ipconfig2 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig2' `
+  -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolContoso 
 
-$ipconfig3 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig3' ` -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolfabrikam 
+$ipconfig3 = New-AzNetworkInterfaceIpConfig -Name 'ipconfig3' `
+  -Subnet $vnet.Subnets[0] -LoadBalancerBackendAddressPool $bepoolfabrikam 
 
-# <a name="create-a-network-interface-for-vm2"></a>为 VM2 创建网络接口。
-$nicVM2 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location ` -Name 'MyNic-VM2' -IpConfiguration $ipconfig1, $ipconfig2, $ipconfig3
+# Create a network interface for VM2.
+$nicVM2 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
+-Name 'MyNic-VM2' -IpConfiguration $ipconfig1, $ipconfig2, $ipconfig3
 
-# <a name="create-a-virtual-machine-configuration"></a>创建虚拟机配置
+# Create a virtual machine configuration
 $vmConfig = New-AzVMConfig -VMName 'myVM2' -VMSize Standard_DS2 -AvailabilitySetId $as.Id | `
-  Set-AzureRmVMOperatingSystem -Windows -ComputerName 'myVM2' -Credential $cred | ` Set-AzureRmVMSourceImage -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' ` -Skus '2016-Datacenter' -Version latest | Add-AzureRmVMNetworkInterface -Id $nicVM2.Id
+  Set-AzureRmVMOperatingSystem -Windows -ComputerName 'myVM2' -Credential $cred | `
+  Set-AzureRmVMSourceImage -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' `
+  -Skus '2016-Datacenter' -Version latest | Add-AzureRmVMNetworkInterface -Id $nicVM2.Id
 
-# <a name="create-a-virtual-machine"></a>创建虚拟机
+# Create a virtual machine
 $vm = New-AzVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 
@@ -138,21 +166,21 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzAvailabilitySet](https://docs.microsoft.com/zh-cn/powershell/module/az.compute/new-azavailabilityset) | 创建 Azure 可用性集以提供高可用性。 |
-| [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 创建子网配置。 在虚拟网络创建过程中会使用此配置。 |
-| [New-AzVirtualNetwork](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。 |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azpublicipaddress) | 创建公共 IP 地址。 |
-| [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | 创建负载均衡器的前端 IP 配置。 |
-| [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | 创建负载均衡器的后端地址池配置。 |
-| [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azloadbalancerprobeconfig) | 创建 NLB 探测。 NLB 探测用于监视 NLB 集中的每个 VM。 如果任何 VM 无法访问，流量不会路由到该 VM。 |
-| [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azloadbalancerruleconfig) | 创建 NLB 规则。 在此示例中，为端口 80 创建一个规则。 当 HTTP 流量到达 NLB 时，它会路由到 NLB 集中的一个 VM 的端口 80。 |
-| [New-AzLoadBalancer](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azloadbalancer) | 创建负载均衡器。 |
-| [New-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-aznetworkinterfaceipconfig) | 定义虚拟网络接口的高级功能。 |
-| [New-AzNetworkInterface](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-aznetworkinterface) | 创建网络接口。 |
-| [New-AzVMConfig](https://docs.microsoft.com/zh-cn/powershell/module/az.compute/new-azvmconfig) | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间使用此配置。 |
-| [New-AzVM](https://docs.microsoft.com/zh-cn/powershell/module/az.compute/new-azvm) | 创建虚拟机。 |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) | 创建 Azure 可用性集以提供高可用性。 |
+| [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 创建子网配置。 在虚拟网络创建过程中会使用此配置。 |
+| [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。 |
+| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | 创建公共 IP 地址。 |
+| [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | 创建负载均衡器的前端 IP 配置。 |
+| [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | 创建负载均衡器的后端地址池配置。 |
+| [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) | 创建 NLB 探测。 NLB 探测用于监视 NLB 集中的每个 VM。 如果任何 VM 无法访问，流量不会路由到该 VM。 |
+| [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) | 创建 NLB 规则。 在此示例中，为端口 80 创建一个规则。 当 HTTP 流量到达 NLB 时，它会路由到 NLB 集中的一个 VM 的端口 80。 |
+| [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) | 创建负载均衡器。 |
+| [New-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterfaceipconfig) | 定义虚拟网络接口的高级功能。 |
+| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | 创建网络接口。 |
+| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间使用此配置。 |
+| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 创建虚拟机。 |
+|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

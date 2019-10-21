@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: c9485e8e829bfe20cc72238f1069e066ae0e4756
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 12fb0327e06ce09e1cb0cc0befa32c4abea6e753
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006599"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583588"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -122,7 +122,7 @@ import android.content.Context;
 import com.microsoft.windowsazure.mobileservices.*;
 
 public class AzureServiceAdapter {
-    private String mMobileBackendUrl = "https://myappname.azurewebsites.cn";
+    private String mMobileBackendUrl = "https://myappname.chinacloudsites.cn";
     private Context mContext;
     private MobileServiceClient mClient;
     private static AzureServiceAdapter mInstance = null;

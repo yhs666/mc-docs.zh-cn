@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/07/2019
 ms.author: v-tawe
-ms.openlocfilehash: cbcf192b8883033b6a963f662632fdbb319a2fd2
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: cf59ad658c7d280136f9cdc28711a912f252610d
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006594"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583586"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure 应用服务中针对移动应用的身份验证和授权
 
@@ -71,8 +71,6 @@ ms.locfileid: "71006594"
 * [使用适用于 iOS 的 Active Directory 身份验证库][ADAL-iOS]
 * [使用适用于 Android 的 Active Directory 身份验证库][ADAL-Android]
 * [使用适用于 Windows 和 Xamarin 的 Active Directory 身份验证库][ADAL-dotnet]
-
-若要为 Facebook 使用[客户端定向流](../app-service/overview-authentication-authorization.md#authentication-flow)，请参阅以下资源：
 
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md

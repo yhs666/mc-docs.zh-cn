@@ -17,12 +17,12 @@ ms.date: 06/13/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 87bc83443631b13266596842a4769f8e20bad16e
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: 89cb72a46760de0c2c84eddad9f72114bbe35d4c
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135446"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583799"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 连接型部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -69,7 +69,7 @@ ms.locfileid: "67135446"
 容量计费需要企业协议 (EA) Azure 订阅才能注册。 原因是注册设置了市场中项目的可用性，这需要 Azure 订阅。 此订阅不适用于 Azure Stack 使用情况。
 
 ## <a name="learn-more"></a>了解详细信息
-- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
+- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://www.azure.cn/overview/azure-stack/) 产品页。
 - 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 
 ## <a name="next-steps"></a>后续步骤

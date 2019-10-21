@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/03/2019
-ms.date: 05/27/2019
+ms.date: 10/28/2019
 ms.author: maxluk
-ms.openlocfilehash: b59defef326e9827051ac5205370a822789371c0
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 04767bbb2dc13bbfedca087dc4ac6f45b2c94e4b
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829324"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583971"
 ---
 # <a name="optimize-apache-spark-jobs"></a>优化 Apache Spark 作业
 
@@ -67,9 +67,9 @@ Spark 支持多种格式，比如 csv、json、xml、parquet、orc 和 avro。 S
 
 | 存储类型 | 文件系统 | Speed | 暂时性 | 用例 |
 | --- | --- | --- | --- | --- |
-| Azure Blob 存储 | **wasb[s]:**//url/ | **标准** | 是 | 暂时性群集 |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **较快** | 是 | 暂时性群集 |
-| 本地 HDFS | **hdfs:**//url/ | **最快** | 否 | 全天候交互型群集 |
+| Azure Blob 存储 | **wasb[s]:** //url/ | **标准** | 是 | 暂时性群集 |
+| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **较快** | 是 | 暂时性群集 |
+| 本地 HDFS | **hdfs:** //url/ | **最快** | 否 | 全天候交互型群集 |
 
 ## <a name="use-the-cache"></a>使用缓存
 
@@ -103,7 +103,7 @@ Spark 在运行时会将数据放在内存中，因此，管理内存资源是�
 
 如果使用 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)，则 YARN 会控制每个 Spark 节点上的所有容器使用的最大内存总和。  下图展示了一些键对象及其关系。
 
-![YARN Spark 内存管理](./media/apache-spark-perf/yarn-spark-memory.png)
+![YARN Spark 内存管理](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
 若要解决显示“内存不足”消息的问题，请尝试：
 

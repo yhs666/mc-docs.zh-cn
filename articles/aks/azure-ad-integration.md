@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 04/26/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: be0ff37194cd9e06ae1407d16cae7a6584fb0a93
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 94e9494297fcc00c612bdf9b22890e676ab7d16c
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993580"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303281"
 ---
 <!--NOTICE: MOONCAKE HAVE RELEASE THE AAD INTERGRATION-->
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>将 Azure Active Directory 与 Azure Kubernetes Service 集成
@@ -145,7 +145,7 @@ ms.locfileid: "69993580"
 
 4. 在 Azure AD 应用程序的左窗格中，记下应用程序 ID。 部署支持 Azure AD 的 AKS 群集时，此值称为“客户端应用程序 ID”。
 
-   ![获取应用程序 ID](media/aad-integration/application-id-client.png)
+    ![获取应用程序 ID](media/aad-integration/application-id-client.png)
 
 ## <a name="get-the-tenant-id"></a>获取租户 ID
 

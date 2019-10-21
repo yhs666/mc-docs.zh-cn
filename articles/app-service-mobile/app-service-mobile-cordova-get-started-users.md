@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: f36dc22cdc224efd8a2b8975ae7127458e998a51
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 66115dd695062f442e35be138e643dc27b07fb76
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006592"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583585"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>将身份验证添加到 Apache Cordova 应用
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -62,7 +62,7 @@ ms.locfileid: "71006592"
 
     ```
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-        data: gap: https://login.chinacloudapi.cn https://yourapp.azurewebsites.cn; style-src 'self'">
+        data: gap: https://login.chinacloudapi.cn https://yourapp.chinacloudsites.cn; style-src 'self'">
     ```
 
     将 `https://login.chinacloudapi.cn` 替换为上表中的 OAuth 主机。  有关 content-security-policy 元标记的详细信息，请参阅 [Content-Security-Policy 文档]。
