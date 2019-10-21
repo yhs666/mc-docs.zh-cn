@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: sashan, moslake, carlrab
 origin.date: 02/23/2019
 ms.date: 09/30/2019
-ms.openlocfilehash: e3d02f16444ee39d92060c8d6bf3d67c42957976
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.openlocfilehash: 8a7d1aeb8f36176b3045e396d793ef4301bd535c
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262908"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578538"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL 数据库服务层级
 
@@ -40,10 +40,10 @@ Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结�
 | **计算大小**|单一数据库/弹性池 | 1 - 80 个 vCore | 1 - 80 个 vCore | 1 - 80 个 vCore |
 | | 托管实例 | 4、8、16、24、32、40、64、80 个 vCore | 不适用 | 4、8、16、24、32、40、64、80 个 vCore |
 | **存储类型** | 全部 | 高级远程存储（每个实例） | 具有本地 SSD 缓存的分离的存储（每个实例） | 超快的本地 SSD 存储（每个实例） |
-| **数据库大小** | 单一数据库/弹性池 | 5 GB � 4 TB | 最多 100 TB | 5 GB � 4 TB |
-| | 托管实例  | 32 GB � 8 TB | 不适用 | 32 GB � 4 TB |
-| **存储大小** | 单一数据库/弹性池 | 5 GB � 4 TB | 最多 100 TB | 5 GB � 4 TB |
-| | 托管实例  | 32 GB � 8 TB | 不适用 | 32 GB � 4 TB |
+| **数据库大小** | 单一数据库/弹性池 | 5 GB - 4 TB | 最多 100 TB | 5 GB - 4 TB |
+| | 托管实例  | 32 GB - 8 TB | 不适用 | 32 GB - 4 TB |
+| **存储大小** | 单一数据库/弹性池 | 5 GB - 4 TB | 最多 100 TB | 5 GB - 4 TB |
+| | 托管实例  | 32 GB - 8 TB | 不适用 | 32 GB - 4 TB |
 | **TempDB 大小** | 单一数据库/弹性池 | [每个 vCore 32 GB](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [每个 vCore 32 GB](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [每个 vCore 32 GB](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
 | | 托管实例  | [每个 vCore 24 GB](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | 不适用 | 最大 4 TB - [受存储大小限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **日志写入吞吐量** | 单一数据库 | [每个 vCore 1.875 MB/秒（最大 30 MB/秒）](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 MB/秒 | [每个 vCore 6 MB/秒（最大 96 MB/秒）](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |

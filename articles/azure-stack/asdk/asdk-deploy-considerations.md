@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/13/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: da9e3aef82267989f91f0525a054ea09f7ee4787
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 4964cd601771777b0cb3d01f71aa5ab6c02c1bbd
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70856995"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578515"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 

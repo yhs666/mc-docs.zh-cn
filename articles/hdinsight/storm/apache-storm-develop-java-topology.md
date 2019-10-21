@@ -8,15 +8,15 @@ keywords: apache storm,apache storm 示例,storm java,storm 拓扑示例
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 51f80ce761054cb965766274abfd35f65546e846
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 5e9f302b3628a400a499d0b1bcffd1b96ddfa7d3
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921235"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583611"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -489,7 +489,7 @@ public class WordCount extends BaseBasicBolt {
 
 下图是此拓扑的组件的基本原理图。
 
-![显示 Spout 和 Bolt 排列方式的示意图](./media/apache-storm-develop-java-topology/wordcount-topology.png)
+![显示 Spout 和 Bolt 排列方式的示意图](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
 若要实现该拓扑，请输入以下命令，以创建并打开新文件 `WordCountTopology.java`：
 
