@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/14/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: e1aa2ac5877aba6be5d9cd2aecf6a0bb1f1bd57d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 69f563f2f3f8283d39c3bd04d79f7f272a766cfd
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993779"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303275"
 ---
 <!--Verify successfully-->
 <!--Merge with two files which contain PowerShell and CLI seperated-->
@@ -29,6 +29,8 @@ ms.locfileid: "69993779"
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
+
 New-AzResourceGroup `
   -Name ExampleGroup `
   -Location "China North"
@@ -47,7 +49,12 @@ New-AzStorageContainer `
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
+az cloud set -n AzureCloud
+az log
+
 az group create \
   --name "ExampleGroup" \
   --location "China North"

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/29/2019
 ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1dc16b4d800e9638e305efc9b41e9c5cd72207ab
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 389d0f86f762fcb9f96ff8fe2badcf7f7da4f430
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819670"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519402"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -381,9 +381,9 @@ $ChinaNorthTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" 
 
     # Extract the resource ID of the Azure virtual network the nic is connected to from the subnet ID
     $ChinaEastPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")  
-   ```
+    ```
 - 在主要虚拟网络与恢复虚拟网络之间创建网络映射
-   ```azurepowershell
+    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $ChinaEastPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $ChinaNorthRecoveryNetwork
 

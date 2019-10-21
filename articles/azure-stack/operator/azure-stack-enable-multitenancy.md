@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: bryanr
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 9784099afaca7622b7b608897a18ccb5505064fa
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 2cb7a547b44efaf888cecf1346512c6bd1a542d4
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529545"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578457"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 
@@ -72,11 +72,15 @@ $ResourceGroupName = "system.local"
 ## Replace the value below with the region location of the resource group. 
 $location = "local"
 
+# Subscription Name
+$SubscriptionName = "Default Provider Subscription"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
  -Location $location `
- -ResourceGroupName $ResourceGroupName
+ -ResourceGroupName $ResourceGroupName `
+ -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="configure-guest-directory"></a>配置来宾目录

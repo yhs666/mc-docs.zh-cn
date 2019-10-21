@@ -10,13 +10,13 @@ ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 2eb18da14815f4e49bb2db0f82ba6eb6891f44e7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632949"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "72323756"
 ---
-每个终结点都有一个公用端口和一个专用端口：
+每个终结点都有一个公用端口和一个专用端口   ：
 
 * Azure 负载均衡器使用公用端口侦听从 Internet 传入的虚拟机流量。
 * 虚拟机使用专用端口侦听通常发送到虚拟机上运行的应用程序或服务的传入流量。
@@ -33,26 +33,26 @@ ms.locfileid: "58632949"
 ## <a name="create-an-endpoint"></a>创建终结点
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“虚拟机”，然后选择要配置的虚拟机。
+2. 选择“虚拟机”，然后选择要配置的虚拟机。 
 
-3. 在“设置”组中选择“终结点”。 此时会显示“终结点”页，其中列出了虚拟机的所有当前终结点。 （本示例适用于 Windows VM。 Linux VM 将默认显示 SSH 终结点。）
+3. 在“设置”组中选择“终结点”。   此时会显示“终结点”页，其中列出了虚拟机的所有当前终结点。  （本示例适用于 Windows VM。 Linux VM 将默认显示 SSH 终结点。）
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
    ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
-4. 在终结点条目上方的命令栏中，选择“添加”。 此时会显示“添加终结点”页。
+4. 在终结点条目上方的命令栏中，选择“添加”  。 此时会显示“添加终结点”  页。
 
-5. 对于“名称”，请输入终结点的名称。
+5. 对于“名称”，请输入终结点的名称。 
 
-6. 对于“协议”，请选择“TCP”或“UDP”。
+6. 对于“协议”，请选择“TCP”或“UDP”。   
 
-7. 对于“公共端口”，请输入来自 Internet 的传入流量的端口号。 
+7. 对于“公共端口”，请输入来自 Internet 的传入流量的端口号。  
 
-8. 对于“专用端口”，请输入虚拟机正在侦听的端口号。 公共和专用端口号可以不同。 确保已将虚拟机的防火墙配置为允许与协议和专用端口对应的流量。
+8. 对于“专用端口”，请输入虚拟机正在侦听的端口号  。 公共和专用端口号可以不同。 确保已将虚拟机的防火墙配置为允许与协议和专用端口对应的流量。
 
-9. 选择“确定” 。
+9. 选择“确定”  。
 
-新终结点将在“终结点”页上列出。
+新终结点将在“终结点”页上列出  。
 
 ![成功创建终结点](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
 
@@ -68,13 +68,13 @@ ms.locfileid: "58632949"
 
 1. 登录到 Azure 门户。
 
-2. 选择“虚拟机”，然后选择要配置的虚拟机的名称。
+2. 选择“虚拟机”，然后选择要配置的虚拟机的名称。 
 
-3. 选择“终结点”。 在终结点列表中选择相应的终结点。 ACL 列表位于页面底部。
+3. 选择“终结点”。  在终结点列表中选择相应的终结点。 ACL 列表位于页面底部。
 
    ![指定 ACL 详细信息](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-4. 使用列表中的行为 ACL 添加、删除或编辑规则，并更改其顺序。 “远程子网”值是从 Internet 传入流量的 IP 地址范围，Azure 负载均衡器将使用该值根据流量的源 IP 地址允许或拒绝传入流量。 请务必以无类域间路由 (CIDR) 格式（也称为地址前缀格式）指定 IP 地址范围。 例如，`10.1.0.0/8`。
+4. 使用列表中的行为 ACL 添加、删除或编辑规则，并更改其顺序。 “远程子网”值是从 Internet 传入流量的 IP 地址范围，Azure 负载均衡器将使用该值根据流量的源 IP 地址允许或拒绝传入流量。  请务必以无类域间路由 (CIDR) 格式（也称为地址前缀格式）指定 IP 地址范围。 例如，`10.1.0.0/8`。
 
    ![新的 ACL 条目](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 

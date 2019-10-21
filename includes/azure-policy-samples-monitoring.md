@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
+origin.date: 09/18/2018
 ms.date: 01/14/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: b89aa3b89c5161b17c2293e260814b71e8be8684
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 5b2a4bd9eb30f70ce0e4e3dfe194ee89df2c9725
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996470"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526627"
 ---
 ## <a name="monitoring"></a>监视
 

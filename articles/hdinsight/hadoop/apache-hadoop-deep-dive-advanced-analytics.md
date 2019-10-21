@@ -15,24 +15,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/14/2017
-ms.date: 01/14/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: b32cdb6f54ee8743fc9207c182bb0e11d650b0d7
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 7882724334dd5eab879fcfd224f0a843fb83b437
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560481"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583930"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探讨 - 高级分析
 
 ## <a name="what-is-advanced-analytics-for-hdinsight"></a>什么是 HDInsight 的高级分析？
 
-HDInsight 提供可从大量结构化、非结构化和快速移动的数据中获取宝贵见解的功能。 高级分析使用高度可缩放的体系结构、统计、机器学习模型和智能仪表板提供有意义的见解。 机器学习（或预测分析）使用可从数据中的关系进行识别和学习的算法进行预测，然后引导你做出决策。
+HDInsight 提供可从大量结构化、非结构化和快速移动的数据中获取宝贵见解的功能。 高级分析使用高度可缩放的体系结构、统计、机器学习模型和智能仪表板提供有意义的见解。 机器学习（或预测分析）使用可从数据中的关系进行识别和学习的算法进行预测，然后引导你做出决策。 
 
 ## <a name="advanced-analytics-process"></a>高级分析过程
 
-![过程](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![过程](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 在识别业务问题并开始收集和处理数据之后，需要创建一个模型用于表示所要预测的问题。 该模型使用一种或多种机器学习算法做出最符合业务需求的预测类型。  大部分数据应该用于训练模型，剩余的数据用于测试或评估该模型。 
 
@@ -42,7 +42,7 @@ HDInsight 提供可从大量结构化、非结构化和快速移动的数据中�
 
 高级分析解决方案提供一套机器学习算法。 下面是算法类别和相关常见业务用例的摘要。
 
-![机器学习用例](./media/apache-hadoop-deep-dive-advanced-analytics/ml-use-cases.png)
+![机器学习用例](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 除了选择最合适的算法以外，还要考虑是否需要提供用于训练的数据。 机器学习算法划分为：
 
@@ -102,7 +102,7 @@ HDInsight 提供多个适用于高级分析工作流的机器学习选项：
 
 此示例使用 Alex Krizhevsky、Vinod Nair 及 Geoffrey Hinton 编译和分发的 CIFAR-10 图像集。 CIFAR-10 数据集包含 60,000 个分属 10 个互斥类的 32×32 彩色图像：
 
-![映像](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
+![映像](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 有关该数据集的详细信息，请参阅 Alex Krizhevsky 撰写的 [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)（从微小图像中学习多层特征）。
 
@@ -115,7 +115,7 @@ HDInsight 提供多个适用于高级分析工作流的机器学习选项：
 
 在包含 4 个工作节点的群集上，10,000 个图像的前处理/评分花费了不到 1 分钟。 该模型可准确预测大约 9,100 个 (91%) 图像的标签。 混淆矩阵可演示最常见的分类错误。 例如，以下矩阵显示，与其他标签对相比，发生将狗标记成猫（以及将猫标记成狗）的错误的频率较高。
 
-![结果](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
+![结果](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>试试吧！
 
@@ -123,12 +123,11 @@ HDInsight 提供多个适用于高级分析工作流的机器学习选项：
 
 ## <a name="next-steps"></a>后续步骤
 
-Spark 和 MLLib
+Apache Spark 和 MLLib
 
 * [Apache Spark 与机器学习：使用 HDInsight 中的 Apache Spark 来通过 HVAC 数据分析建筑物温度](../spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 与机器学习：使用 HDInsight 中的 Apache Spark 预测食品检验结果](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 深度学习、认知工具包和其他技术
 
-* [在 Azure HDInsight Spark 上使用认知工具包和 TensorFlow 执行易并行图像分类](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Azure HDInsight 上的 H2O.ai 简介](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)
