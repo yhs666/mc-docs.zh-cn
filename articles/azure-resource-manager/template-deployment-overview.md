@@ -71,7 +71,7 @@ ms.locfileid: "71156472"
 
 ## <a name="template-deployment-process"></a>模板部署过程
 
-部署模板时，资源管理器会将模板转换为 REST API 操作。 例如，当 Resource Manager 收到具有以下资源定义的模板时：
+部署模板时，资源管理器会将模板转换为 REST API 操作。 例如，当资源管理器收到具有以下资源定义的模板：
 
 ```json
 "resources": [
