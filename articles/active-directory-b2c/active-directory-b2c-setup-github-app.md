@@ -42,6 +42,6 @@ ms.locfileid: "70310772"
 1. 输入“名称”  。 例如，GitHub  。
 1. 对于**客户端 ID**，输入你之前创建的 GitHub 应用程序的客户端 ID。
 1. 对于**客户端密码**，输入你记录的客户端密码。
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 <!-- Update_Description: wording update -->

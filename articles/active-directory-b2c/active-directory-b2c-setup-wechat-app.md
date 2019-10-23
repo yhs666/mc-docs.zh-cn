@@ -43,6 +43,6 @@ ms.locfileid: "70310763"
 1. 输入“名称”  。 例如，WeChat  。
 1. 对于**客户端 ID**，输入你之前创建的 WeChat 应用程序的应用 ID。
 1. 对于**客户端密码**，输入你记录的应用密钥。
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 <!-- Update_Description: wording update -->

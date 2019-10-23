@@ -44,7 +44,7 @@ conceptualContent:
       text: Azure AD 自助密码重置
     footerLink:
       url: ./authentication/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 企业对客户 (B2C)
     links:
     - url: ../active-directory-b2c/active-directory-b2c-overview.md
@@ -55,8 +55,8 @@ conceptualContent:
       text: 创建 Azure AD B2C 租户
     footerLink:
       url: ../active-directory-b2c/index.yml
-      text: 另请参阅
-  - title: 条件性访问
+      text: 查看更多
+  - title: 条件访问
     links:
     - url: ./conditional-access/overview.md
       itemType: overview
@@ -69,7 +69,7 @@ conceptualContent:
       text: 基于位置的条件
     footerLink:
       url: ./conditional-access/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 开发人员
     links:
     - url: ./develop/about-microsoft-identity-platform.md
@@ -83,7 +83,7 @@ conceptualContent:
       text: 将应用注册到 Microsoft 标识平台
     footerLink:
       url: ./develop/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 企业用户
     links:
     - url: ./users-groups-roles/groups-create-rule.md
@@ -97,7 +97,7 @@ conceptualContent:
       text: Azure AD 服务限制和局限性
     footerLink:
       url: ./users-groups-roles/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 混合标识
     links:
     - url: ./hybrid/whatis-hybrid-identity.md
@@ -108,7 +108,7 @@ conceptualContent:
       text: Azure AD Connect 自定义安装
     footerLink:
       url: ./hybrid/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 标识治理
     links:
     - url: ./governance/create-access-review.md
@@ -116,13 +116,13 @@ conceptualContent:
       text: 创建访问评审
     - url: ./governance/perform-access-review.md
       itemType: how-to-guide
-      text: 开始访问审阅
+      text: 启动访问评审
     - url: ./conditional-access/terms-of-use.md
       itemType: how-to-guide
       text: 需要使用条款
     footerLink:
       url: ./governance/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 标识保护
     links:
     - url: ./identity-protection/overview.md
@@ -136,7 +136,7 @@ conceptualContent:
       text: 如何取消阻止用户
     footerLink:
       url: ./identity-protection/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: Azure 资源的托管标识
     links:
     - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
@@ -150,7 +150,7 @@ conceptualContent:
       text: 支持托管标识的服务
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: Privileged Identity Management (PIM)
     links:
     - url: ./privileged-identity-management/pim-getting-started.md
@@ -164,7 +164,7 @@ conceptualContent:
       text: 分配目录角色
     footerLink:
       url: ./privileged-identity-management/index.yml
-      text: 另请参阅
+      text: 查看更多
   - title: 报表和监视
     links:
     - url: ./reports-monitoring/concept-audit-logs.md
@@ -178,7 +178,7 @@ conceptualContent:
       text: 登录错误代码参考
     footerLink:
       url: ./reports-monitoring/index.yml
-      text: 另请参阅
+      text: 查看更多
 additionalContent:
   sections:
   - items:

@@ -72,6 +72,6 @@ ms.locfileid: "70310768"
     * **姓氏**：*family_name*
     * **电子邮件**：*unique_name*
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 <!-- Update_Description: wording update -->
