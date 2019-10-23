@@ -245,7 +245,7 @@ Export-PfxCertificate `
 
     ![添加后端服务器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 选择“其他安全性验证”  。
+6. 选择“保存”  。
 
 7. 等待部署完成之后再继续下一步。
 

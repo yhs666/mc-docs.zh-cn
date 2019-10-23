@@ -203,7 +203,7 @@ ms.locfileid: "70857257"
 
     ![添加后端服务器](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
-6. 选择“其他安全性验证”  。
+6. 选择“保存”  。
 7. 重复此步骤，将 fabrikamVM  和接口添加到 fabrikamPool  。
 
 等待部署完成之后再继续下一步。
