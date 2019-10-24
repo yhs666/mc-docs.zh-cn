@@ -61,7 +61,7 @@ ms.locfileid: "70134300"
 >    - 在“重定向 URI”中添加 `https://localhost:44321/signin-oidc`，然后选择“保存”。  
 >    - 在“高级设置”  部分，将“注销 URL”设置为 `https://localhost:44321/signout-oidc`。 
 >    - 在“隐式授权”下，勾选“ID 令牌”。  
->    - 选择“其他安全性验证”  。
+>    - 选择“保存”  。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步骤 1：在 Azure 门户中配置应用程序
