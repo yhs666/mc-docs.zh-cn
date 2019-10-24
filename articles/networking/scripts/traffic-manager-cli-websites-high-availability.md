@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 为实现应用程序的高可用性路由流量
+title: Azure CLI 脚本示例 - 为实现应用程序的高可用性路由流量 | Azure
 description: Azure CLI 脚本示例 - 为实现应用程序的高可用性路由流量
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 origin.date: 06/26/2018
-ms.date: 01/07/2019
-ms.author: v-biyu
-ms.openlocfilehash: b5029f99c19cfd2cc1fd04e6bb6c93cc5b986730
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: 26e30e955ef2912619f1f8bf949a5332cef63fac
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625815"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72584092"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>为实现应用程序的高可用性路由流量
 
@@ -32,7 +32,8 @@ ms.locfileid: "58625815"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
-```bash
+
+```azurecli
 # !/bin/bash
 
 RgName1="MyResourceGroup1"
@@ -139,14 +140,14 @@ az group delete --name myResourceGroup2 --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az appservice plan create](https://docs.azure.cn/zh-cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az webapp create](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务计划中的 Azure Web 应用。 |
-| [az network traffic-manager profile create](https://docs.azure.cn/zh-cn/cli/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | 创建 Azure 流量管理器配置文件。 |
-| [az network traffic-manager endpoint create](https://docs.azure.cn/zh-cn/cli/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) | 将终结点添加到 Azure 流量管理器配置文件。 |
+| [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az appservice plan create](https://docs.azure.cn/cli/appservice/plan) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
+| [az webapp create](https://docs.azure.cn/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务计划中的 Azure Web 应用。 |
+| [az network traffic-manager profile create](https://docs.azure.cn/cli/network/traffic-manager/profile) | 创建 Azure 流量管理器配置文件。 |
+| [az network traffic-manager endpoint create](https://docs.azure.cn/cli/network/traffic-manager/endpoint) | 将终结点添加到 Azure 流量管理器配置文件。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可在 [Azure 网络文档](../cli-samples.md)中找到其他应用服务 CLI 脚本示例。

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/23/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: d50854be1dd2e9b7de87a436115152d84220d0f3
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 147e702d1e99dc8cc1464ec4825ece3813704699
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857064"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578506"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>备份 Azure Stack 上的应用服务
 
@@ -44,17 +44,17 @@ ms.locfileid: "70857064"
 
 请遵循以下步骤，使用管理门户备份应用服务机密： 
 
-1. 以服务管理员身份登录到 Azure Stack 管理门户。
+1. 以服务管理员身份登录到 Azure Stack 管理员门户。
 
 2. 浏览到“应用服务” -> “机密”。   
 
 3. 选择“下载机密”。 
 
-   ![在 Azure Stack 管理门户中下载机密](./media/app-service-back-up/download-secrets.png)
+   ![在 Azure Stack 管理员门户中下载机密](./media/app-service-back-up/download-secrets.png)
 
 4. 准备好下载机密时，单击“保存”，并将应用服务机密 (**SystemSecrets.JSON**) 文件存储到安全位置。  
 
-   ![在 Azure Stack 管理门户中保存机密](./media/app-service-back-up/save-secrets.png)
+   ![在 Azure Stack 管理员门户中保存机密](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > 每次轮换应用服务机密时都需要重复这些步骤。

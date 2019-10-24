@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack 门户 | Microsoft Docs
+title: 使用 Azure Stack 用户门户 | Microsoft Docs
 description: 了解如何访问和使用 Azure Stack 中的用户门户。
 services: azure-stack
 documentationcenter: ''
@@ -11,18 +11,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f187fbda325feafbf1cce0bf5afe2babed03946e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: a1466e71e1e22632f7b24d15d2157ca8c8dd0f38
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857316"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578293"
 ---
-# <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
+# <a name="use-the-azure-stack-user-portal"></a>使用 Azure Stack 用户门户
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 

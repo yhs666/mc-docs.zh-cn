@@ -2,19 +2,18 @@
 title: 策略定义结构的详细信息
 description: 介绍 Azure Policy 如何使用资源策略定义，通过描述何时强制实施策略和要实现的效果为组织中的资源建立约定。
 author: DCtheGeek
-ms.author: v-biyu
-origin.date: 08/16/2018
-ms.date: 07/29/2019
+ms.author: v-tawe
+origin.date: 03/13/2019
+ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: b5ea5f1508ef30093c5f749ec996f3d0c8b167dd
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: e7be829cd7534ff70f34a3cf98619b82df3c1052
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232311"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526551"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -47,7 +46,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "chinanorth"
+                "defaultValue": [ "chinaeast2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -67,9 +66,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 }
 ```
 
-所有 Azure Policy 示例均位于[策略示例](../samples/index.md)内。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+所有 Azure Policy 示例均位于 [Azure Policy 示例](../samples/index.md)中。
 
 ## <a name="mode"></a>Mode
 
@@ -120,7 +117,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "chinanoorth",
+        "defaultValue": "chinaeast2",
         "allowedValues": [
             "chinanorth2",
             "chinaeast",
@@ -184,7 +181,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -235,6 +232,10 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 使用 like  和 notLike  条件时，请在值中指定通配符 `*`。
@@ -257,6 +258,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 - `location`
   - 对于不限位置的资源，请使用 **global**。 如需示例，请参阅[示例 - 允许的位置](../samples/allowed-locations.md)。
 - `identity.type`
+  - 返回在资源上启用的[托管标识](../../../active-directory/managed-identities-azure-resources/overview.md)类型。
 - `tags`
 - `tags['<tagName>']`
   - 此括号语法支持具有标点符号的标记名称，例如连字符、句点或空格。
@@ -269,8 +271,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 - 属性别名 - 若要查看列表，请参阅[别名](#aliases)。
 
 > [!NOTE]
-> `tags.<tagName>``tags[tagName]` 和 `tags[tag.with.dots]` 仍然是可接受的用于声明标记字段的方式。
-> 但是，首选表达式是上面列出的那些。
+> `tags.<tagName>``tags[tagName]` 和 `tags[tag.with.dots]` 仍然是可接受的用于声明标记字段的方式。 但是，首选表达式是上面列出的那些。
 
 #### <a name="use-tags-with-parameters"></a>使用带参数的标记
 
@@ -389,7 +390,8 @@ Azure Policy 支持以下类型的效果：
 - **Append**：会将定义的字段集添加到请求
 - **AuditIfNotExists**：如果资源不存在，则启用审核
 - **DeployIfNotExists**：如果资源不存在，则部署一个资源
-
+- **Disabled**：不评估资源是否符合策略规则
+- **EnforceRegoPolicy**：在 Azure Kubernetes 服务（预览版）中配置 Open Policy Agent 许可控制器
 
 对于 **append**，必须提供以下详细信息：
 
@@ -405,6 +407,17 @@ Azure Policy 支持以下类型的效果：
 
 AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并应用规则   。 如果资源与规则不匹配，则会实现效果。 例如，可以要求为所有虚拟网络部署网络观察程序。 有关更多信息，请参阅[在扩展不存在的情况下审核](../samples/audit-ext-not-exist.md)示例。
 
+**DeployIfNotExists** 效果需要策略规则的 **details** 部分中的 **roleDefinitionId** 属性。 有关详细信息，请参阅[修正 - 配置策略定义](../how-to/remediate-resources.md#configure-policy-definition)。
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 有关每种效果、评估顺序、属性和示例的完整详细信息，请参阅[了解 Azure Policy 效果](effects.md)。
 
@@ -456,28 +469,30 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 
 别名列表始终不断增长。 若要找出 Azure Policy 当前支持哪些别名，请使用以下方法之一：
 
-- PowerShell
+- Azure PowerShell
 
   ```powershell
-  # Login first with Connect-AzAccount if not using CLI
+  # Login first with Connect-AzAccount -EnvironmentName AzureChinaCloud command
 
   # Use Get-AzPolicyAlias to list available providers
   Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
+  (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
-- CLI
+- Azure CLI
 
-  ```cli
-  # Login first with az login 
+  ```azurecli
+  # Login first with below commands
+  az cloud set -n AzureChinaCloud
+  az login
 
   # List namespaces
   az provider list --query [*].namespace
 
-  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
-  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Compute -- Microsoft.Compute)
+  az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
 - REST API/ARMClient
@@ -599,8 +614,9 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在 [Azure Policy 示例](../samples/index.md)中查看示例
-- 查看[了解策略效果](effects.md)
-- 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)
-- 了解如何[获取符合性数据](../how-to/get-compliance-data.md)
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组
+- 在 [Azure Policy 示例](../samples/index.md)中查看示例。
+- 查看[了解策略效果](effects.md)。
+- 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
+- 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[修正不符合的资源](../how-to/remediate-resources.md)。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
+origin.date: 08/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 59cdd929924378c973bf80f6e9c754c619747f57
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 5e73bcdb8619dd71460512cd9881529f64943d77
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529459"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578452"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、套餐、配额和订阅概述
 
@@ -52,7 +52,7 @@ ms.locfileid: "64529459"
 
 ### <a name="quotas"></a>配额
 
-为了帮助管理云容量，可以使用预配置的配额，或者为计划中的每个服务创建新配额。 配额定义用户订阅可以部署或使用的资源上限。 例如，配额可能允许用户最多创建五个虚拟机 (VM)。
+为了帮助管理云容量，可以使用预配置的配额  ，或者为计划中的每个服务创建新配额。 配额定义用户订阅可以部署或使用的资源上限。 例如，配额可能允许用户最多创建五个虚拟机 (VM)。
 
 > [!IMPORTANT]
 > 在用户门户中出现可用的新配额或者强制实施更改的配额可能需要长达两小时的时间。
@@ -86,7 +86,7 @@ ms.locfileid: "64529459"
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 
-部署 Azure Stack 开发工具包时，系统会自动创建默认提供商订阅。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为用户创建计划和套餐。 出于安全和许可的原因，不应使用此订阅来运行客户工作负荷和应用程序。
+部署 Azure Stack 开发工具包时，系统会自动创建默认提供商订阅。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为用户创建计划和套餐。 出于安全和许可的原因，不应使用此订阅来运行客户工作负荷和应用程序。 无法更改默认提供程序订阅的配额。
 
 ## <a name="next-steps"></a>后续步骤
 

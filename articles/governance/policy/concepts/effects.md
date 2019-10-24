@@ -2,19 +2,18 @@
 title: 了解效果的工作原理
 description: Azure Policy 定义具有各种效果，可确定管理和报告符合性的方式。
 author: DCtheGeek
-ms.author: v-biyu
-origin.date: 05/24/2018
-ms.date: 07/15/2019
+ms.author: v-tawe
+origin.date: 03/29/2019
+ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 8d196f452059a6e9028e55c7f89d74f2312e1255
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: e1b0d3fffd0e399329286f26a068b95a723132d5
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560299"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526691"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -27,18 +26,25 @@ Azure Policy 中的每个策略定义都有单一效果。 该效果确定了在
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
+- [已禁用](#disabled)
 
 ## <a name="order-of-evaluation"></a>评估顺序
 
 Azure Policy 首先评估通过 Azure 资源管理器创建或更新资源的请求。 Azure Policy 创建应用于资源的所有分配列表，然后根据每个定义评估资源。 Azure Policy 在将请求转交给相应的资源提供程序之前处理多个效果。 这样做可以防止资源提供程序在资源不符合 Azure Policy 的设计治理控制时进行不必要的处理。
 
-
-
-- 首先评估  “附加”。 由于“附加”可能会改变请求，因此由“附加”所做的更改可能会阻止“审核”或“拒绝”效果的触发。
+- 首先检查**已禁用**以确定是否应评估策略规则。
+- 然后评估“追加​​”  。 由于“附加”可能会改变请求，因此由“附加”所做的更改可能会阻止“审核”或“拒绝”效果的触发。
 - 然后评估  “拒绝”。 通过在“审核”之前评估“拒绝”，可以防止两次记录不需要的资源。
 - 然后在请求传输到资源提供程序之前评估**审核**。
 
 资源提供程序返回成功代码后，将会评估 **AuditIfNotExists** 和 **DeployIfNotExists** 以确定是否需要其他合规性日志记录或操作。
+
+对于 **EnforceRegoPolicy** 效果，目前没有任何评估顺序。
+
+## <a name="disabled"></a>已禁用
+
+对于测试情况以及在策略定义已参数化效果时，此效果很有用。 借助这种灵活性可以禁用单个分配，而无需禁用该策略的所有分配。
+
 ## <a name="append"></a>附加
 
 附加用于在创建或更新期间向请求的资源添加其他字段。 一个常见示例是在 costCenter 等资源上添加标记，或者为存储资源指定允许的 IP。
@@ -84,8 +90,7 @@ Azure Policy 首先评估通过 Azure 资源管理器创建或更新资源的请
 }
 ```
 
-示例 3：使用具有数组**值**的非 **[\*]** 
-[别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 如果非 **[\*]** 别名是数组，该效果将以整个数组的形式附加**值**。 如果数组已存在，该冲突会导致拒绝事件发生。
+示例 3：使用具有数组**值**的非 **[\*]** [别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 如果非 **[\*]** 别名是数组，该效果将以整个数组的形式附加**值**。 如果数组已存在，该冲突会导致拒绝事件发生。
 
 ```json
 "then": {
@@ -232,7 +237,7 @@ AuditIfNotExists 效果的  “details”属性具有定义要匹配的相关资
 与 AuditIfNotExists 类似，DeployIfNotExists 在条件满足时执行模板部署。
 
 > [!NOTE]
-> **deployIfNotExists** 支持[嵌套模板](https://docs.azure.cn/zh-cn/azure-resource-manager/resource-group-linked-templates#nested-template)，但目前不支持[链接模版](https://docs.azure.cn/zh-cn/azure-resource-manager/resource-group-linked-templates)。
+> **deployIfNotExists** 支持[嵌套模板](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)，但目前不支持[链接模版](../../../azure-resource-manager/resource-group-linked-templates.md)。
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 评估
 
@@ -268,6 +273,8 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
   - 如果任何匹配的相关资源评估结果为 true，该效果就会得到满足并且不会触发部署。
   - 可以使用 [field()] 检查 if  条件中的值的等效性。
   - 例如，可用于验证父资源（位于 if  条件中）与匹配的相关资源位于相同的资源位置。
+- **roleDefinitionIds** [必选]
+  - 此属性必须包含与可通过订阅访问的基于角色的访问控制角色 ID 匹配的字符串数组。 有关详细信息，请参阅[修正 - 配置策略定义](../how-to/remediate-resources.md#configure-policy-definition)。
 - **DeploymentScope**（可选）
   - 允许的值为 Subscription  和 ResourceGroup  。
   - 设置要触发的部署类型。 _Subscription_ 指示[在订阅级别部署](../../../azure-resource-manager/deploy-to-subscription.md)，_ResourceGroup_ 指示部署到资源组。
@@ -294,7 +301,7 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -305,7 +312,7 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
             "properties": {
                 "mode": "incremental",
                 "template": {
-                    "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+                    "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "fullDbName": {
@@ -337,35 +344,35 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
 资源可能会受到多个分配的影响。 这些分配可能处于相同或不同的范围。 这些分配中的每一个也可能具有不同的定义效果。 将单独评估每个策略的条件和效果。 例如：
 
 - 策略 1
-  - 将资源位置限制为“chinanorth”
+  - 将资源位置限制为“chinaeast2”
   - 分配到订阅 A
   - “拒绝”效果
 - 策略 2
-  - 将资源位置限制为“chinanorth”
+  - 将资源位置限制为“chinaeast2”
   - 分配到订阅 A 中的资源组 B
   - “审核”效果
   
 此设置将产生以下结果：
 
-- 位于“chinanorth”的资源组 B 中的任何现有资源都符合策略 2，但不符合策略 1
-- 不位于“chinanorth”的资源组 B 中的任何现有资源都不符合策略 2，并且如果它们不在“chinaeast”中，则也不符合策略 1
-- 订阅 A 中任何不在“chinaeast”中的新资源将会被策略 1 拒绝。
-- 位于“chinaeast”的订阅 A 和资源组 B 中的任何新资源将会创建，但不符合策略 2
+- 位于“chinaeast2”的资源组 B 中的任何现有资源都符合策略 2，但不符合策略 1
+- 不位于“chinaeast2”的资源组 B 中的任何现有资源都不符合策略 2，并且如果它们不在“westus”中，则也不符合策略 1
+- 订阅 A 中任何不在“chinanorth2”中的新资源将会被策略 1 拒绝
+- 位于“westus”的订阅 A 和资源组 B 中的任何新资源将会创建，但不符合策略 2
 
 如果策略 1 和策略 2 都具有“拒绝”效果，则情况变为：
 
-- 不位于“chinanorth”的资源组 B 中的任何现有资源不符合策略 2
-- 不位于“chinaeast”的资源组 B 中的任何现有资源不符合策略 1
-- 订阅 A 中任何不在“chinaeast”中的新资源将会被策略 1 拒绝
+- 不位于“chinaeast2”的资源组 B 中的任何现有资源不符合策略 2
+- 不位于“chinaeast2”的资源组 B 中的任何现有资源不符合策略 1
+- 订阅 A 中任何不在“chinanorth2”中的新资源将会被策略 1 拒绝
 - 订阅 A 的资源组 B 中的任何新资源将被拒绝
 
 单独评估每个分配。 因此，不存在因范围差异致使资源溜过间隙的可能性。 我们认为分层策略或策略重叠的最终结果是**累积性的最高限制**。 例如，如果策略 1 和策略 2 都具有“拒绝”效果，则重叠和冲突策略会阻止资源。 如果仍然需要在目标范围内创建资源，请查看每项分配的排除项，以验证适当的策略是否会影响适当的范围。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在 [Azure Policy 示例](../samples/index.md)中查看示例
-- 查看[策略定义结构](definition-structure.md)
-- 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)
-- 了解如何[获取符合性数据](../how-to/get-compliance-data.md)
-
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组
+- 在 [Azure Policy 示例](../samples/index.md)中查看示例。
+- 查看 [Azure Policy 定义结构](definition-structure.md)。
+- 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
+- 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[修正不符合的资源](../how-to/remediate-resources.md)。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。

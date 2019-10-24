@@ -6,22 +6,22 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 05/09/2019
-ms.date: 06/03/2019
+origin.date: 08/21/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: wfayed
-ms.lastreviewed: 05/09/2019
+ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 36aaecba9fc796e038b58c9e647b7296cb77aac6
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 076889adc0cc7ebbb225174ddfbaa9dfee5183d9
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381840"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578456"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 
-若要能够从 Azure Stack 外部访问 Azure Stack 终结点（**门户**、**adminportal**、**管理**、**adminmanagement** 等），需将 Azure Stack DNS 服务与托管 DNS 区域（要在 Azure Stack 中使用）的 DNS 服务器集成。
+若要能够从 Azure Stack 外部访问 Azure Stack 终结点（例如**门户**、**adminportal**、**管理**和 **adminmanagement**），需将 Azure Stack DNS 服务与托管 DNS 区域（要在 Azure Stack 中使用）的 DNS 服务器集成。
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS 命名空间
 
@@ -33,7 +33,7 @@ ms.locfileid: "66381840"
 |区域|Azure Stack 部署的地理位置。|`east`|
 |外部域名|需要用于 Azure Stack 部署的区域的名称。|`cloud.fabrikam.com`|
 |内部域名|在 Azure Stack 中用于基础结构服务的内部区域的名称。  它是进行了目录服务集成的，并且是专用的（无法从 Azure Stack 部署外部访问）。|`azurestack.local`|
-|DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。|`10.57.175.34`<br>`8.8.8.8`|
+|DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。 如果替换 DNS 转发器，则需要更新 IP 地址。 |`10.57.175.34`<br>`8.8.8.8`|
 |命名前缀（可选）|需要在 Azure Stack 基础结构角色实例计算机名称中使用的命名前缀。  如果不提供，则默认值为 `azs`。|`azs`|
 
 Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外部域名参数的组合。 使用上表中示例的值时，此 Azure Stack 部署的 FQDN 将是以下名称：
@@ -81,7 +81,7 @@ Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>通过 Azure Stack 解析外部 DNS 名称
 
-若要解析 Azure Stack 外部的终结点（例如：www.bing.com）的 DNS 名称，需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。
+若要解析 Azure Stack 外部的终结点（例如：www\.bing.com）的 DNS 名称，需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。 如果替换了 DNS 转发器，请更新 IP 地址。 
 
 ### <a name="configure-conditional-dns-forwarding"></a>配置条件性 DNS 转发
 

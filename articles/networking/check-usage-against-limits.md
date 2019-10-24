@@ -1,5 +1,5 @@
 ---
-title: 根据限制检查 Azure 资源使用情况 | Azure Docs
+title: 根据限制检查 Azure 资源使用情况 | Azure
 description: 了解如何根据 Azure 订阅限制检查 Azure 资源使用情况。
 services: networking
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/05/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: cf4ca35cc40d3abd0e2a6238733da021e9d5fd41
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: c6ea3aef0a57f98dc931c4ae4f58e3c2de281beb
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232279"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72584060"
 ---
 # <a name="check-resource-usage-against-limits"></a>根据限制检查资源使用情况
 
@@ -50,7 +50,7 @@ ms.locfileid: "68232279"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-可以从计算机上的 PowerShell 中运行后面的命令。 如果在计算机上运行 PowerShell，需要 Azure PowerShell 模块 1.0.0 或更高版本。 在计算机上运行 `Get-Module -ListAvailable Az`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/zh-cn/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount` 以登录到 Azure。
+可以在 Azure PowerShell 中运行后面的命令。 如果在计算机上运行 PowerShell，需要 Azure PowerShell 模块 1.0.0 或更高版本。 在计算机上运行 `Get-Module -ListAvailable Az`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount  -EnvironmentName AzureChinaCloud` 以登录到 Azure。
 
 使用 [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage) 根据限制查看使用情况。 以下示例获取在“中国东部”位置至少部署了一个资源的资源的使用情况：
 
@@ -75,7 +75,7 @@ Network Watchers                   1     1
 
 ## <a name="azure-cli"></a>Azure CLI
 
-如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以登录到 Azure。
+如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 在本地运行 Azure CLI 之前，还需要运行 `az cloud set -n AzureChinaCloud` 以将环境更改为 Azure 中国，然后运行 `az login` 以登录 Azure。
 
 使用 [az network list-usages](/cli/network?view=azure-cli-latest#az-network-list-usages) 根据限制查看使用情况。 以下示例获取“美国东部”位置的资源使用情况：
 

@@ -17,12 +17,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: dc0c50034d3737f1f821f4e97c0f4590fe2c6502
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: b7384937ad3f327981cbe26bf993e7321945d803
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381920"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578462"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack 数据中心集成
 
@@ -39,7 +39,7 @@ Azure Stack 客户应该为以下阶段做好准备：
 
 
 ## <a name="planning-phase"></a>规划阶段
-在规划阶段，Azure Stack 解决方案合作伙伴将与你一起评估解决方案并了解你的需求，以确定 Azure Stack 解决方案是否是适合你：
+在规划阶段，Azure 或 Azure Stack 解决方案合作伙伴将与你一起评估解决方案并了解你的需求，以确定 Azure Stack 解决方案是否是适合你：
 
 他们将帮助你确定以下事宜：
 

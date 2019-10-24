@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 52dbc2206b364d49d255ec430620cb689ac96b46
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: a0ecef40ca4f9fc5d27f34c48efc512b417645c3
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857315"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578301"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>在 Azure Stack 存储中使用数据传输工具
 
@@ -58,8 +58,13 @@ AzCopy 是一个命令行实用程序，专用于通过简单的可以优化性�
 
 ### <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 
+::: moniker range=">=azs-1811"
 * 对于 1811 更新或更高版本，请[下载 AzCopy V10+](/storage/common/storage-use-azcopy-v10#download-azcopy)。
+::: moniker-end
+
+::: moniker range="<azs-1811"
 * 对于以前的版本（1802 到 1809 更新），请[下载 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
+::: moniker-end
 
 ### <a name="azcopy-101-configuration-and-limits"></a>AzCopy 10.1 配置和限制
 
@@ -108,6 +113,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.chinacloudapi.cn/[con
  - 在文件存储上执行的任何 AzCopy 操作都不可用，因为文件存储在 Azure Stack 中不可用。
  - 若要使用 AzCopy 10.1 在两个 Azure Stack Blob 位置之间或 Azure Stack 和 Azure 存储之间传输数据，需先将数据下载到本地位置，然后将数据重新上传到 Azure Stack 或 Azure 存储上的目标目录。 也可使用 AzCopy 7.1 通过 **/SyncCopy** 选项来指定传输，以便复制数据。  
  - AzCopy 的 Linux 版本仅支持 1802 更新或更高版本，不支持表服务。
+ - 如果要向/从 Azure 表存储服务复制数据，则[安装 AzCopy 版本 7.3.0](https://aka.ms/azcopyforazurestack20171109)
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 

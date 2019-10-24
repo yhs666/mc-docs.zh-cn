@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 06/13/2019
+origin.date: 06/13/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 4f78830abf800e3b36d67422cb4e5be30394795a
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: efeba88051cdd8df563829f1b67c463a7c591915
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135463"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583793"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -53,13 +53,13 @@ Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务�
 |应用服务|被损坏 - WebApps 可能需要访问 Internet 以获取更新的内容。|
 |命令行界面 (CLI)|被削弱 - CLI 在对服务主体进行身份验证和预配方面的功能已减弱。|
 |Visual Studio - Cloud discovery|被削弱 - Cloud Discovery 将发现不同的云或根本不工作。|
-|Visual Studio - AD FS|被削弱 - 只有 Visual Studio Enterprise 支持 AD FS。
+|Visual Studio - AD FS|被削弱 - 仅 Visual Studio Enterprise 和 Visual Studio Code 支持 AD FS 身份验证。
 遥测|不可用 - Azure Stack 的遥测数据以及依赖于遥测数据的任何第三方库包。|
 |证书|不可用 - 在 HTTPS 上下文中，证书吊销列表 (CRL) 和在线证书状态协议 (OSCP) 服务需要使用 Internet 连接。|
 |Key-Vault|被削弱 - Key Vault 的一个常见用例是让应用程序在运行时读取机密。 因此，应用程序需要目录中的一个服务主体。 在 Azure Active Directory 中，默认情况下允许常规用户（非管理员）添加服务主体。 在 AD 中（使用 ADFS）不允许。 这妨碍了端对端体验，因为用户必须始终通过目录管理员来添加任何应用程序。| 
 
 ## <a name="learn-more"></a>了解详细信息
-- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
+- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://www.azure.cn/overview/azure-stack/) 产品页。
 - 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 
 ## <a name="next-steps"></a>后续步骤

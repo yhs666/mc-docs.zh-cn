@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/30/2018
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 034427ac69684ab61636ff57c89b87139cd546d9
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 10716f5b39bd37d6befa199de148d8d93b0e2eb1
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845379"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583601"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的示例 Apache Storm 拓扑和组件
 
@@ -39,7 +39,6 @@ ms.locfileid: "67845379"
 | [使用 Apache Storm on HDInsight 从 Azure 事件中心提取、转换及加载 (ETL) 数据到 Apache HBase][b4b68194] |事件中心、HBase |C# |
 | [通过 Apache Storm on HDInsight 使用 Azure 服务的模板 C# Storm 拓扑项目][ce0c02a2] |事件中心、Cosmos DB、SQL 数据库、HBase、SignalR |C#、Java |
 | [使用 Apache Storm on HDInsight 从 Azure 事件中心读取数据的可伸缩性基准][d6c540e3] |消息吞吐量、事件中心、SQL 数据库 |C#、Java |
-| [将 Python 与 Apache Storm on HDInsight 配合使用](apache-storm-develop-python-topology.md) |具有 Flux 拓扑的 Python 组件 |Python |
 | [将 Apache Kafka 与 Apache Storm on HDInsight 配合使用](../hdinsight-apache-storm-with-kafka.md) | Apache Storm 读取和写入 Apache Kafka | Java |
 
 > [!WARNING]
@@ -47,7 +46,11 @@ ms.locfileid: "67845379"
 >
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。
 
-### <a name="next-steps"></a>后续步骤
+## <a name="python-only"></a>仅 Python
+
+有关具有 Flux 拓扑的 Python 组件的示例，请参阅[在 HDInsight 上将 Python 与 Apache Storm 一起使用](apache-storm-develop-python-topology.md)。
+
+## <a name="next-steps"></a>后续步骤
 
 * [在 Azure HDInsight 中创建和监视 Apache Storm 拓扑](./apache-storm-quickstart.md)
 * [了解如何使用 Apache Storm on HDInsight 部署和管理 Apache Storm 拓扑][6eb0d3b8]

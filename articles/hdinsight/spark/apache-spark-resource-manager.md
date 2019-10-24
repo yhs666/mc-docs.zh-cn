@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 01/23/2018
-ms.date: 01/14/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: c2d7c32c0c4a2e602a6ff809ea24bb5daf0a6b2b
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 8ae4c141adb8bd61155eecb0ebd138e84f33be55
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806590"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583703"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>管理 Azure HDInsight 上 Apache Spark 群集的资源 
 
@@ -36,9 +36,9 @@ Spark History Server 是已完成和正在运行的 Spark 应用程序的 Web UI
 **打开 Spark History Server Web UI**
 
 1. 从 [Azure 门户](https://portal.azure.cn/)打开 Spark 群集。 有关详细信息，请参阅[列出和显示群集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
-2. 在“快速链接”中，单击“群集仪表板”，并单击“Spark History Server”。
+2. 在“快速链接”中，单击“群集仪表板”，并单击“Spark History Server”。   
 
-    ![](./media/apache-spark-resource-manager/launch-history-server.png "")
+    ![Spark History Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark History Server")
 
     出现提示时，输入 Spark 群集的管理员凭据。 也可以通过浏览到以下 URL 打开 Spark History Server：
 
@@ -56,12 +56,12 @@ Spark History Server Web UI 如下所示：
 可以使用 YARN UI 监视当前正在 Spark 群集上运行的应用程序。
 
 1. 从 [Azure 门户](https://portal.azure.cn/)打开 Spark 群集。 有关详细信息，请参阅[列出和显示群集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
-2. 在“快速链接”中，单击“群集仪表板”，并单击“YARN”。
+2. 在“快速链接”中，单击“群集仪表板”，并单击“YARN”。   
 
-    ![启动 YARN UI](./media/apache-spark-resource-manager/launch-yarn-ui.png)
+    ![启动 YARN UI](./media/apache-spark-resource-manager/hdi-launch-apache-yarn.png)
 
    > [!TIP]
-   > 或者，也可以从 Ambari UI 启动 YARN UI。 要启动 Ambari UI，请单击“群集仪表板”，并单击“HDInsight 群集仪表板”。 在 Ambari UI 中依次单击“YARN”、“快速链接”、活动的资源管理器和“资源管理器 UI”。
+   > 或者，也可以从 Ambari UI 启动 YARN UI。 要启动 Ambari UI，请单击“群集仪表板”  ，并单击“HDInsight 群集仪表板”  。 在 Ambari UI 中依次单击“YARN”  、“快速链接”  、活动的资源管理器和“资源管理器 UI”  。
    >
    >
 
@@ -71,15 +71,16 @@ Spark History Server Web UI 如下所示：
 这三个配置参数可在群集级别配置（适用于群集上运行的所有应用程序），也可以针对每个应用程序指定。
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>使用 Ambari UI 更改参数
-1. 在 Ambari UI 中单击“Spark”，单击“配置”，然后展开“自定义 spark-defaults”。
+1. 在 Ambari UI 中单击“Spark”  ，单击“配置”  ，然后展开“自定义 spark-defaults”  。
 
-    ![使用 Ambari 设置参数](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
+    ![使用 Ambari 自定义设置参数](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "使用 Ambari 自定义设置参数")
 2. 默认值（在群集上并发运行 4 个 Spark 应用程序）是合理的。 可以从用户界面更改这些值，如以下屏幕截图所示：
 
-    ![使用 Ambari 设置参数](./media/apache-spark-resource-manager/set-executor-parameters.png)
-3. 单击“保存”  保存配置更改。 在页面顶部，系统会提示是否重启所有受影响的服务。 单击“重新启动” 。
+    ![使用 Ambari 设置参数](./media/apache-spark-resource-manager/set-executor-parameters.png "使用 Ambari 设置参数")
 
-    ![重新启动服务](./media/apache-spark-resource-manager/restart-services.png)
+3. 单击“保存”  保存配置更改。 在页面顶部，系统会提示是否重启所有受影响的服务。 单击“重新启动”  。
+
+    ![重新启动服务](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>更改 Jupyter 笔记本中运行的应用程序的参数
 对于在 Jupyter 笔记本中运行的应用程序，可以使用 `%%configure` magic 进行配置更改。 理想情况下，必须先在应用程序开头进行此类更改，然后再运行第一个代码单元。 这可以确保在创建 Livy 会话时会配置应用到该会话。 如果想要更改处于应用程序中后面某个阶段的配置，必须使用 `-f` 参数。 但是，这样做会使应用程序中的所有进度丢失。
@@ -106,53 +107,53 @@ Spark Thrift 服务器提供对 Spark 群集的 JDBC/ODBC 访问，用来为 Spa
 
 Spark Thrift 服务器使用 Spark 动态执行器分配，因此未使用 `spark.executor.instances` 。 相反，Spark Thrift 服务器使用 `spark.dynamicAllocation.minExecutors` 和 `spark.dynamicAllocation.maxExecutors` 来指定执行器计数。 使用配置参数 `spark.executor.cores` 和 `spark.executor.memory` 可以修改执行器大小。 可按以下步骤所示更改这些参数：
 
-* 展开“高级 spark-thrift-sparkconf”类别可更新参数 `spark.dynamicAllocation.minExecutors`、`spark.dynamicAllocation.maxExecutors` 和 `spark.executor.memory`。
+* 展开“高级 spark-thrift-sparkconf”  类别可更新参数 `spark.dynamicAllocation.minExecutors`、`spark.dynamicAllocation.maxExecutors` 和 `spark.executor.memory`。
 
-    ![配置 Spark Thrift 服务器](./media/apache-spark-resource-manager/spark-thrift-server-1.png)    
-* 展开“自定义 spark-thrift-sparkconf”类别可更新参数 `spark.executor.cores`。
+    ![配置 Spark Thrift 服务器](./media/apache-spark-resource-manager/spark-thrift-server-1.png "配置 Spark Thrift 服务器")
+* 展开“自定义 spark-thrift-sparkconf”  类别可更新参数 `spark.executor.cores`。
 
-    ![配置 Spark Thrift 服务器](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
+    ![配置 Spark Thrift 服务器参数](./media/apache-spark-resource-manager/spark-thrift-server-2.png "配置 Spark Thrift 服务器参数")
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>更改 Spark Thrift 服务器的驱动程序内存
 Spark Thrift 服务器驱动程序内存配置为头节点 RAM 大小的 25%，前提是头节点的 RAM 总大小大于 14 GB。 可以使用 Ambari UI 更改驱动程序内存配置，如以下屏幕截图所示：
 
-* 在 Ambari UI 中单击“Spark”，单击“配置”，展开“高级 spark-env”，然后提供“spark_thrift_cmd_opts”的值。
+* 在 Ambari UI 中单击“Spark”  ，单击“配置”  ，展开“高级 spark-env”  ，然后提供“spark_thrift_cmd_opts”的值  。
 
     ![配置 Spark Thrift 服务器 RAM](./media/apache-spark-resource-manager/spark-thrift-server-ram.png)
 
 ## <a name="reclaim-spark-cluster-resources"></a>回收 Spark 群集资源
 由于 Spark 动态分配，因此 Thrift 服务器使用的唯一资源是两个应用程序主机的资源。 若要回收这些资源，必须停止群集上运行的 Thrift 服务器服务。
 
-1. 在 Ambari UI 的左侧窗格中，单击“Spark” 。
-2. 在下一页中，单击“Spark Thrift 服务器” 。
+1. 在 Ambari UI 的左侧窗格中，单击“Spark”  。
+2. 在下一页中，单击“Spark Thrift 服务器”  。
 
-    ![重新启动 Thrift 服务器](./media/apache-spark-resource-manager/restart-thrift-server-1.png)
+    ![重启 thrift server1](./media/apache-spark-resource-manager/restart-thrift-server-1.png "重启 thrift server1")
 3. 应看到正在运行 Spark Thrift 服务器的两个头节点。 单击其中一个头节点。
 
-    ![重新启动 Thrift 服务器](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
-4. 下一页将列出该头节点上运行的所有服务。 在该列表中，单击 Spark Thrift 服务器旁边的下拉按钮，并单击“停止” 。
+    ![重启 thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "重启 thrift server2")
+4. 下一页列出该头节点上运行的所有服务。 在该列表中，单击 Spark Thrift 服务器旁边的下拉按钮，并单击“停止”  。
 
-    ![重新启动 Thrift 服务器](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
+    ![重启 thrift server3](./media/apache-spark-resource-manager/restart-thrift-server-3.png "重启 thrift server3")
 5. 同时对其他头节点重复上述步骤。
 
 ## <a name="restart-the-jupyter-service"></a>重新启动 Jupyter 服务
-启动 Ambari Web UI，如本文开头所示。 在左侧导航窗格中，依次单击“Jupyter”、“服务操作”和“全部重启”。 这会在所有头节点上启动 Jupyter 服务。
+启动 Ambari Web UI，如本文开头所示。 在左侧导航窗格中，依次单击“Jupyter”  、“服务操作”  和“全部重启”  。 这会在所有头节点上启动 Jupyter 服务。
 
-    ![Restart Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
+![重启 Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "重新启动 Jupyter")
 
 ## <a name="monitor-resources"></a>监视资源
-启动 Yarn UI，如本文开头所示。 在屏幕顶部的“群集指标”表中，选中“已用内存”和“内存总计”列的值。 如果这 2 个值很接近，则可能资源不足，无法启动下一个应用程序。 这同样适用于“已用 VCore”和“VCore 总计”列。 此外，在主视图中，如果有应用程序保持“已接受”状态，而不转换为“正在运行”或“失败”状态，这也可能指示该应用程序未获得足够的资源来启动。
+启动 Yarn UI，如本文开头所示。 在屏幕顶部的“群集指标”表中，选中“已用内存”  和“内存总计”  列的值。 如果这 2 个值很接近，则可能资源不足，无法启动下一个应用程序。 这同样适用于“已用 VCore”  和“VCore 总计”  列。 此外，在主视图中，如果有应用程序保持“已接受”  状态，而不转换为“正在运行”  或“失败”  状态，这也可能指示该应用程序未获得足够的资源来启动。
 
-    ![Resource Limit](./media/apache-spark-resource-manager/resource-limit.png "Resource Limit")
+![资源限制](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "资源限制")
 
 ## <a name="kill-running-applications"></a>终止正在运行的应用程序
-1. 在 Yarn UI 中，从左侧面板中，单击“正在运行”。 在正在运行的应用程序的列表中，确定要终止的应用程序，并单击 **ID**。
+1. 在 Yarn UI 中，从左侧面板中，单击“正在运行”  。 在正在运行的应用程序的列表中，确定要终止的应用程序，并单击 **ID**。
 
-    ![终止 App1](./media/apache-spark-resource-manager/kill-app1.png "终止 App1")
+    ![终止 App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "终止 App1")
 
-2. 单击右上角的“终止应用程序”，然后单击“确定”。
+2. 单击右上角的“终止应用程序”  ，然后单击“确定”  。
 
-    ![终止 App2](./media/apache-spark-resource-manager/kill-app2.png "终止 App2")
+    ![终止 App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "终止 App2")
 
 ## <a name="see-also"></a>另请参阅
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
@@ -167,7 +168,7 @@ Spark Thrift 服务器驱动程序内存配置为头节点 RAM 大小的 25%，�
 ### <a name="for-apache-spark-developers"></a>适用于 Apache Spark 开发人员
 
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
+* [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)

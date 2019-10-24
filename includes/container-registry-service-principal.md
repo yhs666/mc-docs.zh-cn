@@ -9,12 +9,12 @@ origin.date: 08/03/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 1379a0cf84b461e8cdea6bec64b4b9b09c059625
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 60b62ef3bc22a2fb59541056e790a46248fdb1b0
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655993"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303278"
 ---
 ## <a name="create-a-service-principal"></a>创建服务主体
 
@@ -28,7 +28,7 @@ ms.locfileid: "52655993"
 
 <!-- URL is D:\gitrep\azure-docs-cli-python-samples\container-registry\service-principal-create\service-principal-create.sh-->
 
-```
+```azurecli
 #!/bin/bash
 
 # Modify for your environment.
@@ -59,11 +59,11 @@ echo "Service principal password: $SP_PASSWD"
 
 若要向现有服务主体授予注册表访问权限，必须为服务主体分配新角色。 与创建新的服务主体一样，可以授予“拉取”、“推送和拉取”以及“所有者”访问权限。
 
-以下脚本使用 [az role assignment create][az-role-assignment-create] 命令向 `SERVICE_PRINCIPAL_ID` 变量中指定的服务主体授予“拉取”权限。 如果要授予不同的访问级别，请调整 `--role` 值。
+以下脚本使用 [az role assignment create][az-role-assignment-create] 命令向 `SERVICE_PRINCIPAL_ID` 变量中指定的服务主体授予“拉取”  权限。 如果要授予不同的访问级别，请调整 `--role` 值。
 
 <!-- URL is D:\gitrep\azure-docs-cli-python-samples\container-registry\service-principal-assign-role\service-principal-assign-role.sh-->
 
-```
+```azurecli
 #!/bin/bash
 
 # Modify for your environment. The ACR_NAME is the name of your Azure Container

@@ -5,14 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
-origin.date: 08/08/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: dfc6b96d0136f6fa3ec9f43f1bc6cd76da46041e
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+origin.date: 08/16/2019
+ms.date: 10/28/2019
+ms.openlocfilehash: 0c1b083e1bf213deaf69115b31d634ca2da8fa06
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921374"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583847"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>方案：BindException - 地址已在 Azure HDInsight 中使用
 
@@ -32,21 +32,21 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>原因
 
-在高工作负荷活动期间重启 HBase 区域服务器。 以下是当用户通过 Ambari UI 在 HBase 区域服务器上发起重启操作时，后台发生的情况：
+在高工作负荷活动期间重启 Apache HBase 区域服务器。 以下是当用户通过 Apache Ambari UI 在 HBase 区域服务器上发起重启操作时，后台发生的情况：
 
-1. Ambari 代理将向区域服务器发送停止请求。
+1. Ambari 代理向区域服务器发送停止请求。
 
-1. 然后，Ambari 代理等待 30 秒，让区域服务器正常关闭。
+1. Ambari 代理等待 30 秒让区域服务器正常关闭
 
-1. 如果应用程序继续与区域服务器进行连接，则区域服务器不会立即关闭，因此，30 秒的超时将很快到期。
+1. 如果应用程序继续与区域服务器进行连接，该服务器不会立即关闭。 在关闭之前，30 秒超时就会到期。
 
-1. 在 30 秒到期后，Ambari 代理将向区域服务器发送强制终止命令 (kill -9)。
+1. 30 秒之后，Ambari 代理向区域服务器发送强制终止 (`kill -9`) 命令。
 
 1. 由于此关闭很突然，尽管区域服务器进程已被终止，但与该进程关联的端口可能还没有释放，这最终会导致 `AddressBindException`。
 
 ## <a name="resolution"></a>解决方法
 
-在发起重启之前，减少 HBase 区域服务器上的负载。
+在发起重启之前，减少 HBase 区域服务器上的负载。 另外，最好是先刷新所有表。 有关如何刷新表的参考信息，请参阅 [HDInsight HBase：如何通过刷新表改进 Apache HBase 群集重启时间](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
 
 或者，尝试使用以下命令，手动重启工作器节点上的区域服务器：
 

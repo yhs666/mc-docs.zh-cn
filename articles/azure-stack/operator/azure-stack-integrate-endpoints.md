@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 07/30/2019
-ms.date: 09/16/2019
+origin.date: 09/09/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: wamota
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 152ef846d98c9daaf66dc7bcc11358e10a3c891e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.lastreviewed: 09/09/2019
+ms.openlocfilehash: 915e926b5d0d9773814ba0658eb99f4ce99a47ba
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857079"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578455"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack 数据中心集成 - 发布 Azure Stack 服务
 
@@ -35,16 +35,12 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。  “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
 
-此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。
+此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
 
 > [!Note]  
-> 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
+> IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 TCP 端口 50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 可能无法穿过代理和防火墙。
 
-> [!Note]  
-> IKEv2 VPN。 IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 IP 协议号 50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 有可能无法穿过代理和防火墙。
-
-> [!Note]  
-> 自 1811 更新起，由于添加了[扩展主机](azure-stack-extension-host-prepare.md)，因此不再需要打开 12495-30015 范围内的端口。
+添加[扩展主机](azure-stack-extension-host-prepare.md)后，不需要 12495-30015 范围内的端口。
 
 |终结点 (VIP)|DNS 主机 A 记录|协议|端口|
 |---------|---------|---------|---------|
@@ -77,7 +73,7 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 Azure Stack 仅支持透明代理服务器。 在使用到传统代理服务器的透明代理上行链路的部署中，必须允许下表中的端口和 URL，以便进行出站通信。
 
 > [!Note]  
-> Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务。
+> Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务，因为 ExpressRoute 可能无法将流量路由到所有终结点。
 
 |目的|目标 URL|协议|端口|源网络|
 |---------|---------|---------|---------|---------|
@@ -100,7 +96,7 @@ Azure Stack 仅支持透明代理服务器。 在使用到传统代理服务器�
 
 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载均衡 URL，Azure 可以更新和更改后端终结点，而不会影响客户。 Azure 不共享负载均衡 URL 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。
 
-任何时候都需要出站 DNS，不同的是查询外部 DNS 的源以及选择了哪种标识集成。 如果这是一个联网场景，则在部署期间，位于 BMC 网络上的 DVM 需要该出站访问，但在部署之后，DNS 服务将移到内部组件，该组件将通过公共 VIP 发送查询。 此时，可以删除通过 BMC 网络的出站 DNS 访问权限，但是必须保留对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
+任何时候都需要出站 DNS，不同的是查询外部 DNS 的源以及选择了哪种标识集成。 在联网场景的部署过程中，位于 BMC 网络上的 DVM 需要出站访问权限。 但在部署后，DNS 服务会移到通过公共 VIP 发送查询的内部组件。 此时，可以删除通过 BMC 网络的出站 DNS 访问权限，但是必须保留对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

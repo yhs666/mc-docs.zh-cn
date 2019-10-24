@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/11/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 3c19e0c93b96760ee061ab8af284523860e699c0
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 30450abe5f36f74c499c5437a580b7eda4c12972
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857311"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578284"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>配置 Azure Stack 的 VPN 网关设置
 
@@ -71,27 +71,25 @@ Azure Stack 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
 #### <a name="powershell"></a>PowerShell
 
-以下 PowerShell 示例将 `-GatewaySku` 指定为 **VpnGw1**：
+以下 PowerShell 示例将 `-GatewaySku` 指定为“Standard”  ：
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'China East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'China East' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>连接类型
 
-在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用 Resource Manager PowerShell 值为：
+在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用资源管理器 PowerShell 值为 **IPsec**。
 
-* **IPsec**
+以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
 
-   以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
-
-   ```powershell
-   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
-   -Location 'China East' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-   ```
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+-Location 'China East' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```
 
 ### <a name="vpn-types"></a>VPN 类型
 
@@ -112,8 +110,8 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 以下 PowerShell 示例将 `-VpnType` 指定为 **RouteBased**。 创建网关时，必须确保 `-VpnType` 符合你的配置。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'China East' -IpConfigurations $gwipconfig
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'China East' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
@@ -157,7 +155,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 以下 PowerShell 示例创建新的本地网络网关：
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'China East' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 对等互连两个虚拟网络
+title: Azure PowerShell 脚本示例 - 对等互连两个虚拟网络 | Azure
 description: Azure PowerShell 脚本示例 - 对等互连两个虚拟网络
 services: virtual-network
 documentationcenter: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 05/16/2017
-ms.date: 03/112019
-ms.author: v-biyu
-ms.openlocfilehash: a48bf0522268a21f983d11dcb9c0ab0a98b8f70b
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: 82d303fb84771968f694a2013d1f121cdc92d123
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63827152"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72584095"
 ---
 # <a name="peer-two-virtual-networks"></a>对等互连两个虚拟网络
 
@@ -35,23 +35,26 @@ ms.locfileid: "63827152"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-# <a name="variables-for-common-values"></a>常见值的变量
-$rgName='MyResourceGroup' $location='chinaeast'
+```powershell
+# Variables for common values
+$rgName='MyResourceGroup'
+$location='chinaeast'
 
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 New-AzResourceGroup -Name $rgName -Location $location
 
-# <a name="create-virtual-network-1"></a>创建虚拟网络 1。
+# Create virtual network 1.
 $vnet1 = New-AzVirtualNetwork -ResourceGroupName $rgName -Name 'Vnet1' -AddressPrefix '10.0.0.0/16' -Location $location
 
-# <a name="create-virtual-network-2"></a>创建虚拟网络 2。
+# Create virtual network 2.
 $vnet2 = New-AzVirtualNetwork -ResourceGroupName $rgName -Name 'Vnet2' -AddressPrefix '10.1.0.0/16' -Location $location
 
-# <a name="peer-vnet1-to-vnet2"></a>将 VNet1 对等互连到 VNet2。
+# Peer VNet1 to VNet2.
 Add-AzVirtualNetworkPeering -Name 'LinkVnet1ToVnet2' -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.Id
 
-# <a name="peer-vnet2-to-vnet1"></a>将 VNet2 对等互连到 VNet1。
+# Peer VNet2 to VNet1.
 Add-AzVirtualNetworkPeering -Name 'LinkVnet2ToVnet1' -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 
@@ -67,10 +70,10 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 | 
-| [New-AzVirtualNetwork](https://docs.microsoft.com/zh-cn/powershell/module/az.network/new-azvirtualnetwork)| 创建 Azure 虚拟网络和子网。 |
-| [Add-AzVirtualNetworkPeering](https://docs.microsoft.com/zh-cn/powershell/module/az.network/add-azvirtualnetworkpeering) | 创建两个虚拟网络之间的对等互连。  |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 | 
+| [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)| 创建 Azure 虚拟网络和子网。 |
+| [Add-AzVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworkpeering) | 创建两个虚拟网络之间的对等互连。  |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

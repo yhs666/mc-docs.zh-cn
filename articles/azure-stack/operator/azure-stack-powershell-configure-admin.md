@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 03/15/2019
-ms.date: 07/29/2019
+origin.date: 09/17/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 8c1e102dab1b366d7bd7e1166cdbd83cab91aa2b
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 38132985abc6781efcb21154feafb87c32721ce1
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513439"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578451"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
 
@@ -39,6 +39,9 @@ ms.locfileid: "68513439"
 ## <a name="connect-with-azure-ad"></a>与 Azure AD 连接
 
 使用 PowerShell 配置 Azure Stack 操作员环境。 运行以下脚本之一：将 Azure Active Directory (Azure AD) tenantName 和 Azure 资源管理器终结点值替换为你自己的环境配置。 
+
+>[!Note]
+>如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.

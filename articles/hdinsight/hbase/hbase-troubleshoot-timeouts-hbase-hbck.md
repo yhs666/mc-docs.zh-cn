@@ -5,14 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
-origin.date: 08/01/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: 52f9d857fa06c548838af3478a3e1d34c8bb57e2
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+origin.date: 08/16/2019
+ms.date: 10/28/2019
+ms.openlocfilehash: 4fe386b2df1fe4eefdba637b6c19c19cf16d1635
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921344"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583846"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>方案：Azure HDInsight 中的“hbase hbck”命令超时
 
@@ -24,19 +24,21 @@ ms.locfileid: "70921344"
 
 ## <a name="cause"></a>原因
 
-此问题的可能原因是，多个区域长时间处于“过渡”状态。 从 Apache HBase Master UI 中看，这些区域可能显示为脱机。 由于尝试转换的区域过多，HBase Master 可能会超时，因此无法让这些区域重新回到联机状态。
+使用 `hbck` 命令时出现超时问题的可能原因是多个区域长时间处于“正在转换”状态。 在 HBase Master UI 中可以看到这些区域显示为脱机。 由于有大量区域正在尝试进行转换，因此，HBase Master 可能会超时并且无法使那些区域恢复联机。
 
 ## <a name="resolution"></a>解决方法
 
 1. 使用 SSH 登录到 HDInsight HBase 群集。
 
-1. 运行 `hbase zkcli` 命令以连接 zookeeper shell。
+1. 运行 `hbase zkcli` 命令连接 Apache ZooKeeper shell。
 
 1. 运行 `rmr /hbase/regions-in-transition` 或 `rmr /hbase-unsecure/regions-in-transition` 命令。
 
 1. 使用 `exit` 命令从 `hbase zkcli` shell 退出。
 
-1. 打开 Ambari UI，从 Ambari 重启活动 HBase Master 服务。
+1. 在 Apache Ambari UI 中，重启 Active HBase Master 服务。
+
+1. 运行 `hbase hbck -fixAssignments` 命令。
 
 1. 监视 HBase Master UI 的“转换中的区域”部分，以确保没有区域停滞。
 
@@ -45,4 +47,4 @@ ms.locfileid: "70921344"
 如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
 
 
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 在 Microsoft Azure 订阅中可以访问订阅管理和计费支持；通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

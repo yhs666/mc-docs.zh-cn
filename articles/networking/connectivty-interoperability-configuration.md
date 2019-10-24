@@ -1,22 +1,22 @@
 ---
-title: 'Azure 后端连接功能中的互操作性：配置详细信息 '
+title: Azure 后端连接功能中的互操作性：配置详细信息 | Azure
 description: 本文介绍可用于分析 ExpressRoute、站点到站点 VPN 与 Azure 中虚拟网络对等互连之间的互操作性的测试设置的配置详细信息。
 documentationcenter: na
 services: networking
 author: rambk
 manager: tracsman
-ms.service: expressroute,vpn-gateway,virtual-network
+ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 10/18/2018
-ms.date: 01/07/2019
-ms.author: v-biyu
-ms.openlocfilehash: 637da7db0e69b31babfa3b7e853011ed3b77bfeb
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: 599580bfd51c1fd7e69c7a621a5564d1d0d3792c
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785292"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72584028"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 后端连接功能中的互操作性：测试配置详细信息
 
@@ -24,11 +24,11 @@ ms.locfileid: "53785292"
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>使用 VNet 对等互连建立辐射 VNet 连接
 
-下图显示了辐射虚拟网络 (VNet) 的 Azure 虚拟网络对等互连详细信息。 若要了解如何在两个 VNet 之间设置对等互连，请参阅[管理 VNet 对等互连][VNet-Config]。 如果希望辐射 VNet 使用连接到中心 VNet 的网关，请选择“使用远程网关”。
+下图显示了辐射虚拟网络 (VNet) 的 Azure 虚拟网络对等互连详细信息。 若要了解如何在两个 VNet 之间设置对等互连，请参阅[管理 VNet 对等互连][VNet-Config]。 如果希望辐射 VNet 使用连接到中心 VNet 的网关，请选择“使用远程网关”。 
 
 [![1]][1]
 
-下图显示了中心 VNet 的 VNet 对等互连详细信息。 如果希望辐射 VNet 使用中心 VNet 网关，请选择“使用远程网关”。
+下图显示了中心 VNet 的 VNet 对等互连详细信息。 如果希望中心 VNet 允许辐射 VNet 使用中心的网关，请选择“允许网关传输”  。
 
 [![2]][2]
 
@@ -165,6 +165,8 @@ ExpressRoute 1 将中心 VNet 和本地位置 1 连接到不同 Azure 区域中�
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>串联 ExpressRoute 和站点到站点 VPN 连接
 
+<!-- not support -->
+<!-- ###  Site-to-site VPN over ExpressRoute -->
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>将站点到站点 VPN 用作 ExpressRoute 的安全故障转移路径
 
 ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的 Azure 区域配置异地冗余的 ExpressRoute 连接。 另外，如测试设置中所示，在 Azure 区域中，可以使用站点到站点 VPN 为 ExpressRoute 连接创建故障转移路径。 通过 ExpressRoute 和站点到站点 VPN 播发相同的前缀时，Azure 会优先使用 ExpressRoute。 为了避免 ExpressRoute 与站点到站点 VPN 之间的非对称路由，本地网络配置同样应该优先使用 ExpressRoute 连接，然后再使用站点到站点 VPN 连接。
@@ -175,15 +177,15 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>使用 VNet 对等互连建立辐射 VNet 连接
 
-中心辐射型 VNet 体系结构的使用非常广泛。 中心是 Azure 中的一个 VNet，充当辐射 VNet 与本地网络之间的连接中心点。 辐射是与中心对等互连的 VNet，可用于隔离工作负荷。 流量通过 ExpressRoute 或 VPN 连接在本地数据中心与中心之间流动。 有关体系结构的详细信息，请参阅[在 Azure 中实现中心辐射型网络拓扑][Hub-n-Spoke]。
+中心辐射型 VNet 体系结构的使用非常广泛。 中心是 Azure 中的一个 VNet，充当辐射 VNet 与本地网络之间的连接中心点。 辐射是与中心对等互连的 VNet，可用于隔离工作负荷。 流量通过 ExpressRoute 或 VPN 连接在本地数据中心与中心之间流动。 有关详细信息，请参阅“体系结构”。
 
 在区域内的 VNet 对等互连中，辐射 VNet 可以使用中心 VNet 网关（VPN 和 ExpressRoute 网关）来与远程网络通信。
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>使用站点到站点 VPN 建立分支 VNet 连接
 
-你可能想让位于不同区域中的分支 VNet 和本地网络通过中心 VNet 相互通信。 此配置的原生 Azure 解决方案是使用 VPN 建立站点到站点 VPN 连接。 替代方案是对中心内部的路由使用网络虚拟设备 (NVA)。
+你可能想让位于不同区域中的分支 VNet 和本地网络通过中心 VNet 相互通信。 此配置的本机 Azure 解决方案是使用 VPN 建立站点到站点 VPN 连接。 替代方案是对中心内部的路由使用网络虚拟设备 (NVA)。
 
-有关详细信息，请参阅[什么是 VPN 网关？][VPN]和[部署高度可用的 NVA][Deploy-NVA]。
+有关详细信息，请参阅[什么是 VPN 网关？][VPN]。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -208,18 +210,17 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 [8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "ExpressRoute 2 到远程 VNet ExR 网关的连接配置"
 
 <!--Link References-->
-[Setup]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-preface
-[ExpressRoute]: https://docs.azure.cn/zh-cn/expressroute/expressroute-introduction
-[VPN]: https://docs.azure.cn/zh-cn/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.azure.cn/zh-cn/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.azure.cn/zh-cn/expressroute/expressroute-faqs
-
-[ExR-S2S-CoEx]: https://docs.azure.cn/zh-cn/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: https://docs.azure.cn/zh-cn/virtual-network/virtual-network-manage-peering
+[Setup]: https://docs.azure.cn/networking/connectivty-interoperability-preface
+[ExpressRoute]: https://docs.azure.cn/expressroute/expressroute-introduction
+[VPN]: https://docs.azure.cn/vpn-gateway/vpn-gateway-about-vpngateways
+[VNet]: https://docs.azure.cn/virtual-network/tutorial-connect-virtual-networks-portal
+[Configuration]: https://docs.azure.cn/networking/connectivty-interoperability-configuration
+[Control-Analysis]:https://docs.azure.cn/networking/connectivty-interoperability-control-plane
+[Data-Analysis]: https://docs.azure.cn/networking/connectivty-interoperability-data-plane
+[ExR-FAQ]: https://docs.azure.cn/expressroute/expressroute-faqs
+[ExR-S2S-CoEx]: https://docs.azure.cn/expressroute/expressroute-howto-coexist-resource-manager
+<!-- [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke -->
+<!-- [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha -->
+[VNet-Config]： https://docs.azure.cn/virtual-network/virtual-network-manage-peering
 
 

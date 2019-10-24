@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/14/2019
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 5b4d205205175111c8015a0d2dafae72606cc06a
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: b4539e3aa4dd47e4da14d8f651cee4e327b39574
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298103"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578523"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 
@@ -61,7 +61,7 @@ ms.locfileid: "68298103"
 
 ## <a name="activities"></a>活动
 
-下表中的活动用于在 Runbook 和 DSC 配置中访问凭据。
+下表中的活动用于在 Runbook 和 DSC 配置中访问变量。 本文档开头阐明了 Get-AzureRmAutomationVariable cmdlet 和 Get-AutomationVariable cmdlet 之间的区别。
 
 | 活动 | 说明 |
 |:---|:---|

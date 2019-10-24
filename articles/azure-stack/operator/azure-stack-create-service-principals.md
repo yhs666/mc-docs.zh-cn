@@ -1,25 +1,25 @@
 ---
 title: 使用应用标识访问资源
 description: 介绍如何管理可与基于角色的访问控制配合使用的、用于登录和访问资源的服务主体。
-services: azure-resource-manager
+services: azure-stack
 documentationcenter: na
 author: WenJason
 manager: digimobile
-ms.service: azure-resource-manager
+ms.service: azure-stack
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/25/2019
-ms.date: 07/29/2019
-ms.author: bryanla
+origin.date: 09/09/2019
+ms.date: 10/21/2019
+ms.author: v-jay
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: de249dbefbf49e687ccc1beb4099ee0865f66075
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 20c3fafa64f3f80f3a645276b93633a3fe2000de
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513474"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578466"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>使用应用标识访问资源
 
@@ -81,9 +81,9 @@ ms.locfileid: "68513474"
 
 为服务主体凭据创建证书时，必须符合以下要求：
 
- - 加密服务提供程序 (CSP) 必须是旧密钥提供程序。
+ - 对于生产环境，证书必须由内部证书颁发机构或公共证书颁发机构颁发。 如果你使用公共证书颁发机构，则必须将基础操作系统映像中的颁发机构包括为 Microsoft 受信任根颁发机构计划的一部分。 可以在 [Microsoft 信任根证书计划：参与者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)中找到完整列表。 稍后在[更新服务主体的证书凭据](#update-a-service-principals-certificate-credential)期间，还将显示创建“自签名”测试证书的示例。 
+ - 加密提供程序必须指定为 Microsoft 旧版加密服务提供程序 (CSP) 密钥提供程序。
  - 证书格式必须是 PFX 文件，因为公钥和私钥都是必需的。 Windows 服务器使用包含公钥文件（SSL 证书文件）和关联的私钥文件的 .pfx 文件。
- - 对于生产环境，证书必须由内部证书颁发机构或公共证书颁发机构颁发。 如果你使用公共证书颁发机构，则必须将基础操作系统映像中的颁发机构包括为 Microsoft 信任根颁发机构计划的一部分。 可以在 [Microsoft 信任根证书计划：参与者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)中找到完整列表。
  - Azure Stack 基础结构必须能够通过网络访问证书中发布的证书颁发机构的证书吊销列表 (CRL) 位置。 此 CRL 必须是一个 HTTP 终结点。
 
 创建证书后，使用以下 PowerShell 脚本来注册应用程序，并创建服务主体。 还要使用服务主体登录到 Azure。 请将以下占位符替换为自己的值：

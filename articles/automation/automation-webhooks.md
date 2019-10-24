@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/19/2019
-ms.date: 05/20/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3ace48079b7e3d8f418c4e294b68d47f942aabd9
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 529556f6381162142f0086aecb9f1118a3c84f1e
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668832"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578526"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
@@ -36,7 +36,7 @@ ms.locfileid: "65668832"
 | Name |可以提供用于 Webhook 的任何名称，因为该名称不会公开给客户端。 它只用来标识 Azure 自动化中的 Runbook。 <br> 最好是为 Webhook 提供一个名称，该名称需要与使用它的客户端相关。 |
 | URL |Webhook 的 URL 是客户端通过 HTTP POST 来调用的唯一地址，用于启动链接到 Webhook 的 Runbook。 它是在创建 Webhook 时自动生成的。 无法指定自定义 URL。 <br> <br> URL 包含一个允许第三方系统调用 Runbook 的安全令牌，不需要进一步进行身份验证。 因此，应将其视为密码。 出于安全原因，只能在创建 Webhook 时通过 Azure 门户查看该 URL。 请将保存在安全位置的 URL 记下来，供将来使用。 |
 | 到期日期 |与证书一样，每个 Webhook 都有一个过期日期，到了过期日期 Webhook 不再可用。 创建 Webhook 后，只要它没有到期，就可以修改此到期日期。 |
-| Enabled |Webhook 在创建后默认启用。 如果将它设置为“已禁用”，则没有客户端可以使用它。 可以在创建 Webhook 时设置“已启用”属性，也可以在创建后随时设置它。 |
+| Enabled |Webhook 在创建后默认启用。 如果将它设置为“已禁用”，则没有客户端可以使用它。 可以在创建 Webhook 时设置“已启用”  属性，也可以在创建后随时设置它。 |
 
 ### <a name="parameters"></a>parameters
 
@@ -46,7 +46,7 @@ Webhook 可以定义 Runbook 参数的值，当该 Webhook 启动 Runbook 时会
 
 ![Webhookdata 属性](media/automation-webhooks/webhook-data-properties.png)
 
-$WebhookData 对象具有以下属性：
+$WebhookData  对象具有以下属性：
 
 | 属性 | 说明 |
 |:--- |:--- |
@@ -55,6 +55,9 @@ $WebhookData 对象具有以下属性：
 | RequestBody |传入 POST 请求的正文。 用于保留任何格式，如字符串、JSON、XML，或窗体编码的数据。 编写的 Runbook 必须能够与预期的数据格式配合工作。 |
 
 不需配置 Webhook 即可支持 **$WebhookData** 参数，也不需要 Runbook 来接受它。 如果 Runbook 没有定义该参数，则会忽略从客户端发送的请求的任何详细信息。
+
+> [!NOTE]
+> 调用 webhook 时，应始终存储任何参数值，以防调用失败。 如果出现网络中断或连接问题，将无法检索失败的 webhook 调用。
 
 如果在创建 Webhook 时为 $WebhookData 指定了值，则会在 Webhook 使用客户端 POST 请求中的数据启动 Runbook 时重写该值，即使该客户端的请求正文中不包含任何数据。 如果使用 Webhook 以外的方法启动包含 $WebhookData 的 Runbook，则可为能够被 Runbook 识别的 $Webhookdata 提供值。 此值应该是 [属性](#details-of-a-webhook) 均为 $Webhookdata 的对象，这样 Runbook 就可以正常地使用它，如同使用 webhook 所传递的实际 WebhookData 一样。
 
@@ -65,7 +68,7 @@ $WebhookData 对象具有以下属性：
 对于以下 Runbook，如果 WebhookData 参数具有以下属性：
 
 * WebhookName：*MyWebhook*
-* RequestBody: [{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]
+* RequestBody: [{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}] 
 
 那么，应为 WebhookData 参数传递以下 UI 中的 JSON 值。 下面的示例带有回车符和换行符，与从 Webhook 中传递的格式相匹配。
 
@@ -90,9 +93,9 @@ Webhook 的安全性取决于其 URL 的私密性，可以通过 URL 中包含�
 
 在 Azure 门户中使用以下过程来创建新的链接到 Runbook 的 Webhook。
 
-1. 在 Azure 门户的“Runbook”页中，单击需要通过 Webhook 来启动以查看其详细信息页的 Runbook。 请确保 runbook **状态**为“已发布”。
-2. 单击页面顶部的 **Webhook** 以打开“添加 Webhook”页。
-3. 单击“新建 Webhook”以打开“创建 Webhook”页。
+1. 在 Azure 门户的“Runbook”页  中，单击需要通过 Webhook 来启动以查看其详细信息页的 Runbook。 请确保 runbook **状态**为“已发布”  。
+2. 单击页面顶部的 **Webhook** 以打开“添加 Webhook”  页。
+3. 单击“新建 Webhook”  以打开“创建 Webhook”  页。
 4. 指定 Webhook 的**名称**、**到期日期**，以及是否应启用它。 有关这些属性的详细信息，请参阅 [Webhook 详细信息](#details-of-a-webhook)。
 5. 单击复制图标，并按 Ctrl+C 以复制 Webhook 的 URL。 然后，将其记录在某个安全的位置。 **一旦创建 Webhook，就不能再次检索该 URL。**
 
@@ -130,11 +133,11 @@ http://<Webhook Server>/token?=<Token Value>
 
 Webhook 在创建后将具有一年的有效期。 一年后，Webhook 将自动到期。 Webhook 到期后将无法将其重新激活，必须将其删除并重新创建。 如果 Webhook 还未达到其到期时间，则可对其进行延期。
 
-若要扩展 Webhook，请导航到包含 Webhook 的 runbook。 选择“资源”****下的“Webhook”****。 单击要延期的 Webhook，此操作将打开“Webhook”页面。  选择新的到期日期和时间，然后单击“保存”。
+若要扩展 Webhook，请导航到包含 Webhook 的 runbook。 选择“资源” ****下的“Webhook”**** 。 单击要延期的 Webhook，此操作将打开“Webhook”  页面。  选择新的到期日期和时间，然后单击“保存”  。
 
 ## <a name="sample-runbook"></a>示例 Runbook
 
-以下示例 Runbook 将接受 Webhook 数据，并启动请求正文中指定的虚拟机。 若要在“Runbook”下的自动化帐户中测试此 Runbook，请单击“+ 添加 Runbook”。 如果不知道如何创建 Runbook，请参阅[创建 Runbook](automation-quickstart-create-runbook.md)。
+以下示例 Runbook 将接受 Webhook 数据，并启动请求正文中指定的虚拟机。 若要在“Runbook”  下的自动化帐户中测试此 Runbook，请单击“+ 添加 Runbook”  。 如果不知道如何创建 Runbook，请参阅[创建 Runbook](automation-quickstart-create-runbook.md)。
 
 ```powershell
 param
@@ -172,7 +175,7 @@ if ($WebhookData) {
             {
                 throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
             }
-            Write-Output "Authenticating to Azure with service principal." 
+            Write-Output "Authenticating to Azure with service principal."
             Add-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Output
 
         # Start each virtual machine
@@ -208,7 +211,7 @@ $response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $heade
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-下面的示例显示请求的正文，可在“WebhookData”的“RequestBody”属性中提供给 Runbook 使用。 此值格式化为 JSON，因为这是请求正文中包含的格式。
+下面的示例显示请求的正文，可在“WebhookData”  的“RequestBody”  属性中提供给 Runbook 使用。 此值格式化为 JSON，因为这是请求正文中包含的格式。
 
 ```json
 [
@@ -226,4 +229,8 @@ $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 下图显示了从 Windows PowerShell 发送的请求以及生成的响应。 作业 ID 是从响应中提取的，并转换为字符串。
 
 ![Webhook 按钮](media/automation-webhooks/webhook-request-response.png)
+
+## <a name="next-steps"></a>后续步骤
+
+* 若要了解如何使用 Azure 自动化对 Azure 警报执行操作，请参阅[使用警报触发 Azure 自动化 Runbook](automation-create-alert-triggered-runbook.md)。
 

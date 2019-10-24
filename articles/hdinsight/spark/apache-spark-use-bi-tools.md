@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/16/2019
-ms.date: 06/10/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 985b8878867ca6e209c8c6126294f40437d97d7a
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: a1488ca8604535133e7b2bb640ca7e7147a59b7e
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878695"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583662"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Apache Spark 数据 
 
@@ -49,7 +49,7 @@ ms.locfileid: "68878695"
 
     输出如下所示：
 
-    ![在 Spark 中显示表](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![在 Spark 中显示表](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     如果在开始本教程之前关闭笔记本，这会清除 `hvactemptable`，使其不包含在输出中。  只有元存储中存储的 Hive 表（由“isTemporary”列下的“False”表示）可从 BI 工具中进行访问   。 在本教程中，将连接到创建的 hvac 表  。
 
@@ -62,7 +62,7 @@ ms.locfileid: "68878695"
 
     输出如下所示：
 
-    ![在 Spark 中显示 hvac 表中的行](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![在 Spark 中显示 hvac 表中的行](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. 请在 Notebook 的“文件”菜单中选择“关闭并停止”   。 关闭 Notebook 以释放资源。
 
@@ -80,11 +80,11 @@ ms.locfileid: "68878695"
 
 2. 从“主页”  选项卡，导航到“获取数据”   > “更多...”  。
 
-    ![从 HDInsight Apache Spark 中获取数据到 Power BI Desktop](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "从 Apache Spark BI 中获取数据到 Power BI")
+    ![从 HDInsight Apache Spark 将数据获取到 Power BI Desktop](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "从 Apache Spark BI 将数据获取到 Power BI")
 
 3. 在搜索框中输入 `Spark`，选择 Azure HDInsight Spark，然后选择“连接”   。
 
-    ![从 Apache Spark BI 中获取数据到 Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "从 Apache Spark BI 中获取数据到 Power BI")
+    ![从 Apache Spark BI 将数据获取到 Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "从 Apache Spark BI 将数据获取到 Power BI")
 
 4. 在“服务器”  文本框中输入群集 URL（形式为 `mysparkcluster.azurehdinsight.cn`）。
 
@@ -105,21 +105,21 @@ ms.locfileid: "68878695"
     1. 在“可视化”窗格中，选择“分区图”   。 
     2. 将“BuildingID”字段拖到“轴”，并将“ActualTemp”和“TargetTemp”字段拖至“值”      。
 
-        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
+        ![添加值列](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "添加值列")
 
         关系图如下所示：
 
-        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
+        ![面积图总和](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "面积图总和")
 
         默认情况下，可视化效果效果会显示 **ActualTemp** 和 **TargetTemp** 的总和。 选择“可视化效果”窗格中 ActualTemp 和 TragetTemp 旁边的向下键，可看到已选中“总和”    。
 
     3. 选择“可视化效果”窗格中 ActualTemp 和 TragetTemp 旁边的向下键，选择“平均值”以获得每栋建筑物的实际温度与目标温度的平均值    。
 
-        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
+        ![值的平均值](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "值的平均值")
 
         数据可视化效果应与屏幕截图中类似。 在视觉效果上移动光标可获取相关数据的工具提示。
 
-        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
+        ![面积图](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "面积图")
 
 9. 导航到“文件”   > “保存”  ，为文件输入名称 `BuildingTemperature`，然后选择“保存”  。
 
@@ -134,11 +134,11 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 
 2. 选择要将数据集发布和报告到的工作区，然后单击“选择”  。 在下图中，默认选择“我的工作区”  。
 
-    ![选择要将数据集发布和报告到的工作区](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "选择要将数据集发布和报告到的工作区") 
+    ![选择要将数据集和报告发布到的工作区](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "选择要将数据集和报告发布到的工作区") 
 
 3. 发布成功后，单击“在 Power BI 中打开 BuildingTemperature.pbix”  。
 
-    ![发布成功，请单击输入凭据](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "发布成功，请单击输入凭据") 
+    ![发布成功，单击以输入凭据](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "发布成功，单击以输入凭据") 
 
 4. 在 Power BI 服务中，单击“输入凭据”  。
 
@@ -150,11 +150,11 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 
 6. 输入 HDInsight 登录帐户信息，然后单击“登录”  。 默认帐户名为 admin  。
 
-    ![登录 Spark 群集](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "登录 Spark 群集")
+    ![登录到 Spark 群集](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "登录到 Spark 群集")
 
 7. 在左窗格中，转到“工作区” > “我的工作区” > “报表”，然后单击 BuildingTemperature     。
 
-    ![报表位于左窗格的报表下](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "报表位于左窗格的报表下")
+    ![在左窗格中的报告下列出的报告](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "在左窗格中的报告下列出的报告")
 
     还可在左窗格中的“数据集”下找到 BuildingTemperature   。
 
@@ -162,11 +162,11 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 
 8. 将游标悬停在可视化效果上，然后单击右上角的固定图标。
 
-    ![Power BI 服务中的报表](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Power BI 服务中的报表")
+    ![Power BI 服务中的报告](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Power BI 服务中的报告")
 
 9. 选择“新的仪表板”，输入名称 `Building temperature`，再单击“固定”  。
 
-    ![固定到新的仪表板](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "固定到新仪表板")
+    ![固定到新仪表板](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "固定到新仪表板")
 
 10. 在报表中，单击“转到仪表板”  。 
 

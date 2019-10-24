@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/12/2019
-ms.date: 09/16/2019
+origin.date: 08/20/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: dae040eb0c18453d1c8dadc8dbfa9c68dc3dbb12
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 62f1311eca720e2f07ab489f02d4f620d7b57b1d
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857052"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578465"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
@@ -56,7 +56,7 @@ ms.locfileid: "70857052"
    >
    >
 
-8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。
+8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。 在发布映像之前，更新 manifest.json 文件并更新此行："name": "xxx"。 对于每个映像版本，请务必使用不同的名称。
 9. 在 **artifacts** 下，将 **name** 和 **path** 更改为你包括的 Azure 资源管理器模板的正确信息：
 
    ```json

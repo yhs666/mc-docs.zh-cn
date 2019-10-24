@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2019
-ms.date: 06/03/2019
+origin.date: 09/10/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: fa50cf315936fc82d403856bb46c8b844438cb7c
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: c2b7e180200b5434c22d020dace57ac322fd25cf
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381928"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578453"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -32,8 +32,8 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 - 获取与这些规范匹配的证书的过程是什么
 - 如何在部署期间准备、验证和使用这些证书
 
-> [!Note]  
-> 在部署期间，必须将证书复制到与要部署的标识提供者（Azure AD 或 AD FS）匹配的部署文件夹中。 如果将单个证书用于所有终结点，必须将该证书文件复制到下表所述的每个部署文件夹。 部署虚拟机中已预先构建了文件夹结构，路径为：C:\CloudDeployment\Setup\Certificates。 
+> [!NOTE]
+> 默认情况下，Azure Stack 还使用内部 Active Directory 集成证书颁发机构 (CA) 颁发的证书在节点之间进行身份验证。 为了验证证书，所有 Azure Stack 基础结构计算机都信任内部 CA 的根证书，方法是将该证书添加到其本地证书存储中。 在 Azure Stack 中没有证书固定或将证书加入允许列表的功能。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书到期日期（没有锁定证书的标准 TLS 服务器身份验证）。
 
 ## <a name="certificate-requirements"></a>证书要求
 以下列表描述了部署 Azure Stack 时需要满足的证书要求： 
@@ -57,7 +57,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 > 不支持自签名证书。
 
 > [!NOTE]  
-> 支持在证书的信任链 IS 中包含中间证书颁发机构。 
+> 支持在证书的信任链中包含中间证书颁发机构。 
 
 ## <a name="mandatory-certificates"></a>必需的证书
 本部分中的表格描述部署 Azure AD 和 AD FS Azure Stack 时所需的 Azure Stack 公共终结点 PKI 证书。 证书要求已根据区域以及所用命名空间和每个命名空间所需的证书分组。 此表格还描述了解决方案提供程序将每个公共终结点的不同证书所复制到的文件夹。 
@@ -66,8 +66,11 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 
 对于部署，[region] 和 [externalfqdn] 值必须与针对 Azure Stack 系统选择的区域和外部域名相匹配。 例如，如果区域名称为 *Redmond*，外部域名为 *contoso.com*，则 DNS 名称的格式为 *&lt;prefix>.redmond.contoso.com*。 *&lt;prefix>* 值由 Microsoft 预先指定，描述证书保护的终结点。 此外，外部基础结构终结点的 *&lt;prefix>* 值取决于使用特定终结点的 Azure Stack 服务。 
 
-> [!note]  
-> 对于生产环境，我们建议为每个终结点生成单独的证书并将其复制到相应的目录中。 对于开发环境，可以提供单个通配符证书作为证书，在其中涵盖“使用者”和“使用者可选名称”(SAN) 字段中的所有命名空间，并将该证书复制到所有目录中。 使用涵盖所有终结点和服务的单个证书是一种不安全的方式，因此仅用于开发。 请记住，这两个选项都要求对 **acs** 和 Key Vault 等需要通配符证书的终结点使用此类证书。 
+对于生产环境，我们建议为每个终结点生成单独的证书并将其复制到相应的目录中。 对于开发环境，可以提供单个通配符证书作为证书，在其中涵盖“使用者”和“使用者可选名称”(SAN) 字段中的所有命名空间，并将该证书复制到所有目录中。 使用涵盖所有终结点和服务的单个证书是一种不安全的方式，因此仅用于开发。 请记住，这两个选项都要求对 **acs** 和 Key Vault 等需要通配符证书的终结点使用此类证书。 
+
+> [!Note]  
+> 在部署期间，必须将证书复制到与要部署的标识提供者（Azure AD 或 AD FS）匹配的部署文件夹中。 如果将单个证书用于所有终结点，必须将该证书文件复制到下表所述的每个部署文件夹。 部署虚拟机中已预先构建了文件夹结构，路径为：C:\CloudDeployment\Setup\Certificates。 
+
 
 | 部署文件夹 | 所需的证书使用者和使用者可选名称 (SAN) | 范围（按区域） | 子域命名空间 |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

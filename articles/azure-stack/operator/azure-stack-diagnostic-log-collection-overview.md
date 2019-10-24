@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2019
-ms.date: 09/16/2019
+origin.date: 09/04/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 1c9c633ad3b6cbdfad8e162df54ddd75a1545074
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: 6a0088c10a2737ead187232362acc408dd229f67
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857368"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578461"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack 诊断日志收集概述 
 
@@ -78,4 +78,4 @@ CSS 会将共享访问签名 (SAS) URL 提供给 CSS 拥有的存储 Blob。 Azu
 
 [使用共享访问签名 (SAS)](/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[Azure Stack 日志自动收集的最佳做法](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[有关 Azure Stack 日志自动收集的最佳做法](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
