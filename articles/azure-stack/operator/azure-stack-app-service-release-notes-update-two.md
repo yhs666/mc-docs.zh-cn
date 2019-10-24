@@ -1,6 +1,6 @@
 ---
-title: 基于 Azure Stack 的应用服务 Update 2 发行说明 | Microsoft Docs
-description: 了解基于 Azure Stack 的应用服务 Update 2 的功能、已知问题和更新下载位置。
+title: Azure Stack 上的应用服务 Update 2 发行说明 | Microsoft Docs
+description: 了解 Azure Stack 上的应用服务 Update 2 中的改进、修复和已知问题。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,40 +13,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 04/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 2bd7d1a6bb97070e2a73c0ddc03db12e6929703c
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 6311f5699a4de0b1f315ce51050ce5c8fef69929
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529599"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578486"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>基于 Azure Stack 的应用服务 Update 2 发行说明
+# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Azure Stack 上的应用服务 Update 2 发行说明
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-这些发行说明介绍了基于 Azure Stack 的 Azure 应用服务 Update 2 中的改进和修复，以及任何已知问题。 已知问题分为与部署、更新过程直接相关的问题，以及内部版本（安装后）的问题。
+这些发行说明介绍 Azure Stack 上的 Azure 应用服务 Update 2 中的改进、修复和已知问题。 已知问题分为三个部分：与部署直接相关的问题、更新过程问题，以及内部版本（安装后）的问题。
 
 > [!IMPORTANT]
-> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.2。
->
->
+> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.2。
 
 ## <a name="build-reference"></a>内部版本参考
 
-基于 Azure Stack 的应用服务 Update 2 的生成号为 **72.0.13698.10**
+Azure Stack 上的应用服务 Update 2 的内部版本号为 **72.0.13698.10**。
 
 ### <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> 基于 Azure Stack 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为目前在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
->
->
+> 基于 Azure Stack 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
-在开始部署之前，请参阅[准备工作文档](azure-stack-app-service-before-you-get-started.md)。
+在开始部署之前，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
 
@@ -70,11 +66,11 @@ ms.locfileid: "64529599"
   - 更新了 .NET Core 组件，使其与公有云中的 Azure 应用服务保持一致。
   - 更新了 Kudu
 
-- 启用了部署槽位自动交换功能 - [配置自动交换](/app-service/deploy-staging-slots#configure-auto-swap)
+- 启用了部署槽位自动交换功能 - [配置自动交换](/app-service/deploy-staging-slots#configure-auto-swap)。
 
-- 启用了在生产中测试功能 - [在生产中测试简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+- 启用了在生产中测试功能 - [在生产中测试简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)。
 
-- 启用了 Azure Functions 代理 - [使用 Azure Functions 代理](/azure-functions/functions-proxies)
+- 启用了 Azure Functions 代理 - [使用 Azure Functions 代理](/azure-functions/functions-proxies)。
 
 - 针对以下项添加了应用服务管理扩展 UX 支持：
   - 机密轮换
@@ -86,7 +82,8 @@ ms.locfileid: "64529599"
 
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理员门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
+
 * 源：任意
 * 源端口范围：*
 * 目标：IP 地址
@@ -104,4 +101,4 @@ ms.locfileid: "64529599"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
-- 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
+- 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
