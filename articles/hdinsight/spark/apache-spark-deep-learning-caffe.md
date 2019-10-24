@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 02/17/2017
-ms.date: 02/04/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 07ce107a2361e85fae9cb0777a50407cd54ad3b2
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: d6f115974610e6cd7380754de13924afaaf593df
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906238"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583946"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>使用 Caffe on Azure HDInsight Spark 进行分布式深度学习
 
@@ -72,7 +72,7 @@ HDInsight 是一种 PaaS 解决方案，因此提供了出色的平台功能，�
 
 若要开始，可直接针对群集的所有工作节点和头节点运行此脚本操作（适用于 HDInsight 3.5）。 可在现有群集上运行脚本操作，或在群集创建过程中使用脚本操作。 有关脚本操作的详细信息，请参阅[此处](/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)的文档
 
-![用于安装依赖项的脚本操作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![用于安装依赖项的脚本操作](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步骤 2：在头节点上生成 Caffe on Apache Spark for HDInsight
@@ -182,7 +182,8 @@ CaffeOnSpark 提供了一些用于 MNIST 培训的网络拓扑示例。 它具�
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe 配置](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png)
+
 
 可以根据需要更改其他行。
 
@@ -191,7 +192,7 @@ CaffeOnSpark 提供了一些用于 MNIST 培训的网络拓扑示例。 它具�
 - 将 "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" 更改为 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - 将 "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" 更改为 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe 配置](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 如需详细了解如何定义网络，请查看[有关 MNIST 数据集的 Caffe 文档](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
@@ -211,15 +212,15 @@ CaffeOnSpark 提供了一些用于 MNIST 培训的网络拓扑示例。 它具�
 
     https://yourclustername.azurehdinsight.cn/yarnui
 
-![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![YARN UI](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 可以看看为这个特定的应用程序分配了多少资源。 单击“计划程序”链接即可查看此应用程序的资源分配情况，有九个容器正在运行。 你要求 YARN 提供八个执行程序，另一个容器用于驱动程序进程。 
 
-![YARN 计划程序](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![YARN 计划程序](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 如果发生故障，可能需要查看驱动程序日志或容器日志。 如果要查看驱动程序日志，可在 YARN UI 中单击应用程序 ID，并单击“日志”按钮。 此时驱动程序日志会写入 stderr 中。
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![YARN UI 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 例如，可能会显示下面列出的来自驱动程序日志的部分错误，指示用户分配的执行程序过多。
 
@@ -234,7 +235,7 @@ CaffeOnSpark 提供了一些用于 MNIST 培训的网络拓扑示例。 它具�
         at java.lang.reflect.Method.invoke(Method.java:498)
         at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 
-有时，问题可能会发生在执行程序而非驱动程序中。 在这种情况下，需检查容器日志。 始终可以获取容器日志，然后获取发生故障的容器。 例如，可能会在运行 Caffe 时遇到这种故障。
+有时，问题可能会发生在执行程序而非驱动程序中。 在这种情况下，需检查容器日志。 用户始终可以获取容器日志，然后获取发生故障的容器。 例如，可能会在运行 Caffe 时遇到这种故障。
 
     17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.
     Container id: container_1485916338528_0008_05_000005

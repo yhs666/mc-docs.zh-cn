@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2019
-ms.date: 09/16/2019
+origin.date: 09/05/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 05c49a6d4b44a5de2608bc3f3d6328d62bc020c7
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1907
+ms.openlocfilehash: e0d0a855d3a4f2ad28579dec6e1ea68945ca6f5f
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857380"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578444"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -78,7 +79,7 @@ Azure Stack 1907 更新内部版本类型为“快速”  。 有关更新内部
 
 ### <a name="changes"></a>更改
 
-- Azure Stack 版本 1907 包含警告警报，指示操作员在更新到版本 1908 **之前**，先将其系统的 OEM 包更新为版本 2.1 或更高版本。 硬件提供商将在 Azure Stack 版本 1908 的同一发布时间发布 OEM 包 2.1。 必须安装 OEM 包 2.1 或更高版本才能使用 Azure Stack 版本 1908。 有关如何下载 OEM 包 2.1 或更高版本的详细信息，请与系统的硬件提供商联系。
+- Azure Stack 版本 1907 包含警告警报，指示操作员在更新到版本 1908 之前，先将其系统的 OEM 包更新为版本 2.1 或更高版本。 有关如何应用 Azure Stack OEM 更新的详细信息，请参阅[应用 Azure Stack 原始设备制造商更新](azure-stack-update-oem.md)。
 
 - 已添加新的出站规则 (HTTPS) 来启用 Azure Stack 诊断日志收集服务的通信。 有关详细信息，请参阅 [Azure Stack 数据中心集成 - 发布终结点](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)。
 
@@ -119,14 +120,14 @@ Azure Stack 1907 更新内部版本类型为“快速”  。 有关更新内部
 
 ## <a name="security-updates"></a>安全更新
 
-有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates-1907.md)。
+有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates.md)。
 
 ## <a name="update-planning"></a>更新规划
 
 应用更新之前，请务必查看以下信息：
 
 - [已知问题](azure-stack-release-notes-known-issues-1907.md)
-- [安全更新](azure-stack-release-notes-security-updates-1907.md)
+- [安全更新](azure-stack-release-notes-security-updates.md)
 - [应用更新之前和之后的活动清单](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>下载更新
@@ -144,14 +145,14 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 必须在包含以下修补程序的版本 1906 中应用 Azure Stack 版本 1907：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack 修补程序 1.1906.13.56](https://support.microsoft.com/help/4520375)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>成功应用 1907 更新之后
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序 1.1907.12.44](https://support.microsoft.com/help/4517473)
+- [Azure Stack 修补程序 1.1907.15.50](https://support.microsoft.com/help/4520315)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 

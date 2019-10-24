@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 06/13/2019
-ms.date: 07/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4d458c011d6b5d4c75a2ac1cfd22a118bb0f31f4
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 35cf7e04bc96386ae4f29a355e624dcafb714a7c
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513223"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578309"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
@@ -129,28 +129,39 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
    ![选择“Service Fabric 群集”](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-1. 填写每个页（例如“基本信息”）中的部署窗体。  如果不确定要指定哪个值，请使用默认值。 选择“确定”转到下一页： 
+2. 填写每个页（例如“基本信息”）中的部署窗体。  如果不确定要指定哪个值，请使用默认值。
+
+    若要部署到断开连接的 Azure Stack 或部署另一个版本的 Service Fabric，请下载 Service Fabric 部署包及其相应的运行时包，并将其托管在 Azure Stack blob 上。 向“Service Fabric 部署包 URL”  和“Service Fabric 运行时包 URL”  字段提供这些值。
+    > [!NOTE]  
+    > 最新版本的 Service Fabric 及其相应的 SDK 之间存在兼容性问题。 在解决该问题之前，请向部署包 URL 和运行时包 URL 提供以下参数。 否则，部署将失败。
+    > - Service Fabric 部署包 URL：<https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - Service Fabric 运行时包 URL：<https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    >
+    > 对于断开连接的部署，请从指定位置下载这些包并将其托管在本地 Azure Stack Blob 上。
 
    ![基础知识](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-1. 在“网络设置”页上，可以指定要对应用程序打开的特定端口： 
+    
+3. 在“网络设置”页上，可以指定要对应用程序打开的特定端口： 
 
    ![网络设置](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-1. 在“安全性”页上，添加在[创建 Azure Key Vault](#add-a-secret-to-key-vault) 中获取的值并上传机密。 
+4. 在“安全性”页上，添加在[创建 Azure Key Vault](#add-a-secret-to-key-vault) 中获取的值并上传机密。 
 
    对于“管理客户端证书指纹”，请输入管理客户端证书的指纹。   （请参阅[先决条件](#prerequisites)。）
    
    - 源 Key Vault：指定脚本结果中的完整 `keyVault id` 字符串。 
    - 群集证书 URL：指定脚本结果中的 `Secret Id` 中的完整 URL。 
    - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint*（群集证书指纹）。
+   - 服务器证书 URL：如果要使用群集证书中的单独证书，请将证书上传到密钥保管库，并提供机密的完整 URL。 
+   - 服务器证书指纹：指定服务器证书的指纹
    - 管理客户端证书指纹：指定在先决条件中创建的*管理客户端证书指纹*。 
 
    ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![安全性](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-1. 完成向导，然后选择“创建”以部署 Service Fabric 群集。 
+5. 完成向导，然后选择“创建”以部署 Service Fabric 群集。 
 
 
 

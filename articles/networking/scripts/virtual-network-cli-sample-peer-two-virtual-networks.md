@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 对等互连两个虚拟网络
+title: Azure CLI 脚本示例 - 对等互连两个虚拟网络 | Azure
 description: Azure CLI 脚本示例 - 对等互连两个虚拟网络
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-origin.date: 05/16/2017
-ms.date: 01/07/2019
-ms.author: v-biyu
-ms.openlocfilehash: 4d10b22cc5419d9eb89e66cc3809916c21641d46
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 07/07/2017
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: 04281b7d87f6e71c4619619c71985545228318fb
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625586"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583565"
 ---
 # <a name="peer-two-virtual-networks"></a>对等互连两个虚拟网络
 
@@ -34,7 +34,7 @@ ms.locfileid: "58625586"
 
 ## <a name="sample-script"></a>示例脚本
 
-```bash
+```azurecli
 # !/bin/bash
 
 RgName="MyResourceGroup"
@@ -103,13 +103,13 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet#az_network_vnet_create) | 创建 Azure 虚拟网络和子网。 |
-| [az network vnet peering create](https://docs.azure.cn/zh-cn/cli/network/vnet/peering#az_network_vnet_peering_create) | 创建两个虚拟网络之间的对等互连。  |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az network vnet create](https://docs.azure.cn/cli/network/vnet) | 创建 Azure 虚拟网络和子网。 |
+| [az network vnet peering create](https://docs.azure.cn/cli/network/vnet/peering) | 创建两个虚拟网络之间的对等互连。  |
+| [az group delete](https://docs.azure.cn/cli/vm/extension) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可在 [Azure 网络概述文档](../cli-samples.md)中找到其他网络 CLI 脚本示例。

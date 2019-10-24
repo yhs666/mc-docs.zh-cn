@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/27/2019
-ms.date: 04/29/2019
+origin.date: 08/13/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 621e0932916181914a69de7f962dcdedb7a57e7e
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: cd08ab0e969585d15787a38cdb8e3cc6eb88abe1
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530042"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578448"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -45,7 +45,7 @@ ms.locfileid: "64530042"
 | 高级托管磁盘的最大容量 (GB) | 2048 | 可以在此位置中创建的高级托管磁盘的最大容量。 |
 
 > [!NOTE]  
-> 非托管磁盘（页 Blob）的最大容量独立于托管磁盘配额。 可以在“存储配额”中设置此值。
+> 非托管磁盘（页 Blob）的最大容量独立于托管磁盘配额。 可以在“存储配额”中设置此值。 
 
 ## <a name="storage-quota-types"></a>存储配额类型
 
@@ -55,18 +55,18 @@ ms.locfileid: "64530042"
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]  
-> 托管磁盘的最大容量独立于总存储配额。 可以在“计算配额”中设置此值。
+> 托管磁盘的最大容量独立于总存储配额。 可以在“计算配额”中设置此值。 
 
 ## <a name="network-quota-types"></a>网络配额类型
 
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
-| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址数目上限。 |
 | 虚拟网络数目上限 |50 |订阅可以在此位置创建的虚拟网络数目上限。 |
 | 虚拟网络网关数目上限 |1 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
 | 网络连接数目上限 |2 |订阅可以在此位置跨所有虚拟网络网关创建的网络连接（点到点或站点到站点）数目上限。 |
-| 负载均衡器数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
+| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址数目上限。 |
 | NIC 数目上限 |100 |订阅可以在此位置创建的网络接口数目上限。 |
+| 负载均衡器数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
 | 网络安全组数目上限 |50 |订阅可以在此位置创建的网络安全组数目上限。 |
 
 ## <a name="view-an-existing-quota"></a>查看现有配额
@@ -75,18 +75,18 @@ ms.locfileid: "64530042"
 
 ### <a name="plans"></a>计划
 
-1. 在管理员门户的左侧导航窗格中，选择“计划”。
+1. 在管理员门户的左侧导航窗格中，选择“计划”  。
 2. 单击要查看其详细信息的计划的名称，将其选中。
-3. 在打开的边栏选项卡中，选择“服务和配额”。
-4. 在“名称”列中单击要查看的配额，将其选中。
+3. 在打开的边栏选项卡中，选择“服务和配额”。 
+4. 在“名称”列中单击要查看的配额，将其选中。 
 
     [![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>资源提供程序
 
-1. 在管理门户的默认仪表板上，找到“资源提供程序”磁贴。
-2. 选择要查看其配额的服务，例如“计算”、“网络”或“存储”。
-3. 选择“配额”，然后选择要查看的配额。
+1. 在管理门户的默认仪表板上，找到“资源提供程序”磁贴。 
+2. 选择要查看其配额的服务，例如“计算”、“网络”或“存储”。   
+3. 选择“配额”  ，然后选择要查看的配额。
 
 ## <a name="edit-a-quota"></a>编辑配额
 
@@ -94,21 +94,21 @@ ms.locfileid: "64530042"
 
 ### <a name="edit-a-plan"></a>编辑计划
 
-1. 在管理员门户的左侧导航窗格中，选择“计划”。
+1. 在管理员门户的左侧导航窗格中，选择“计划”  。
 2. 单击要编辑其配额的计划的名称，将其选中。
-3. 在打开的边栏选项卡中，选择“服务和配额”。
-4. 在“名称”列中单击要编辑的配额，将其选中。
-    [![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
+3. 在打开的边栏选项卡中，选择“服务和配额”。 
+4. 在“名称”列中单击要编辑的配额，将其选中。 
+    [![配额](media/azure-stack-quota-types/quotas1sm.png "View quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5. 在打开的边栏选项卡中，选择“在计算中编辑”、“在网络中编辑”或“在存储中编辑”。
-    ![配额](media/azure-stack-quota-types/quotas3.png "查看配额")
+5. 在打开的边栏选项卡中，选择“在计算中编辑”、“在网络中编辑”或“在存储中编辑”。   
+    ![配额](media/azure-stack-quota-types/quotas3.png "View quotas")
 
 或者，可以按照以下过程来编辑配额：
 
-1. 在管理员门户的默认仪表板上，找到“资源提供程序”磁贴。
-2. 选择要修改其配额的服务，例如“计算”、“网络”或“存储”。
-3. 接下来选择“配额”，然后选择要更改的配额。
-4. 在“设置存储配额”、“设置计算配额”或“设置网络配额”窗格（具体取决于选择进行编辑的配额的类型）中编辑值，然后选择“保存”。
+1. 在管理员门户的默认仪表板上，找到“资源提供程序”磁贴。 
+2. 选择要修改其配额的服务，例如“计算”、“网络”或“存储”。   
+3. 接下来选择“配额”，然后选择要更改的配额。 
+4. 在“设置存储配额”、“设置计算配额”或“设置网络配额”窗格（具体取决于选择进行编辑的配额的类型）中编辑值，然后选择“保存”。    
 
 ### <a name="edit-original-configuration"></a>编辑原始配置
   

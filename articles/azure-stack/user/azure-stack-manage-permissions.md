@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2019
-ms.date: 09/16/2019
+origin.date: 09/13/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: ec4f91fdb0992a2e007f02aee52fe1e498ab14fa
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: b3c400611e5f7db5c9b679de0eea4aff4086766b
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857306"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578312"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>使用基于角色的访问控制来管理 Azure Stack 中的资源访问
 
@@ -32,7 +32,10 @@ Azure Stack 支持基于角色的访问控制 (RBAC)，这与 Azure 使用的[�
 
 ## <a name="basics-of-access-management"></a>访问管理基础知识
 
-基于角色的访问控制提供了精细的访问控制，可以用来保护环境安全。 通过在特定范围内分配 RBAC 角色，可以为用户授予他们所需的确切权限。 角色分配的范围可以是订阅、资源组或单个资源。 若要获取有关访问管理的更多详细信息，请阅读 [Azure 门户中基于角色的访问控制](/role-based-access-control/overview)一文。
+基于角色的访问控制 (RBAC) 提供了精细的访问控制，可以用来保护环境安全。 通过在特定范围内分配 RBAC 角色，可以为用户授予他们所需的确切权限。 角色分配的范围可以是订阅、资源组或单个资源。 有关访问管理的更多详细信息，请参阅 [Azure 门户中基于角色的访问控制](/role-based-access-control/overview)一文。
+
+> [!NOTE]
+> 使用 Active Directory 联合身份验证服务作为标识提供者部署 Azure Stack 时，RBAC 方案仅支持通用组。
 
 ### <a name="built-in-roles"></a>内置角色
 
@@ -79,7 +82,7 @@ Azure [角色分配](/role-based-access-control/role-assignments-portal)一文�
    * 从“将访问权限分配到”下拉列表中选择要分配的资源。 
    * 在你的目录中选择要向其授予访问权限的用户、组或应用。 可以通过显示名称、电子邮件地址和对象标识符搜索该目录。
 
-7. 选择“其他安全性验证”  。
+7. 选择**保存**。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 1907 的已知问题 | Microsoft Docs
-description: 了解 Azure Stack 1907 的已知问题。
+title: Azure Stack 1908 的已知问题 | Microsoft Docs
+description: 了解 Azure Stack 1908 的已知问题。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2019
+origin.date: 08/30/2019
 ms.date: 10/21/2019
 ms.author: v-jay
-ms.reviewer: hectorl
-ms.lastreviewed: 07/25/2019
-monikerRange: azs-1907
-ms.openlocfilehash: d2766b4e0c0228c765cdd72d597a4e6c2a55fa49
+ms.reviewer: prchint
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1908
+ms.openlocfilehash: d25374e7ecbbbe4228d925b55271277a53a8c1e4
 ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578440"
+ms.locfileid: "72578574"
 ---
-# <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 的已知问题
+# <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908 的已知问题
 
-本文列出了 Azure Stack 1907 版中的已知问题。 每当发现新的问题，此列表就会更新。
+本文列出了 Azure Stack 1908 版中的已知问题。 每当发现新的问题，此列表就会更新。
 
 > [!IMPORTANT]  
 > 在应用更新之前，请先查看本部分。
@@ -35,8 +35,8 @@ ms.locfileid: "72578440"
 ## <a name="update-process"></a>更新过程
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：尝试安装 1907 Azure Stack 更新时，更新状态可能会失败并更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
-- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“导入并安装更新”部分](azure-stack-apply-updates.md)的说明手动上传更新包。
+- 原因：尝试安装 Azure Stack 更新时，更新状态可能会失败并将状态更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
+- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“安装更新”部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)的说明手动上传更新包。
 - 发生次数：常见
 
 ## <a name="portal"></a>门户
@@ -53,6 +53,12 @@ ms.locfileid: "72578440"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在管理员门户中，订阅的“属性”  边栏选项卡未正确加载
 - 补救措施：可以在“订阅概述”边栏选项卡的“概要”窗格中查看这些订阅属性   。
+- 发生次数：常见
+
+### <a name="subscriptions-lock-blade"></a>“订阅锁定”边栏选项卡
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在管理员门户中，用户订阅的“锁定”  边栏选项卡有两个按钮，显示“订阅”  。
 - 发生次数：常见
 
 ### <a name="subscription-permissions"></a>订阅权限
@@ -92,6 +98,13 @@ ms.locfileid: "72578440"
 
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
 
+#### <a name="local-network-gateway-deletion"></a>本地网络网关删除
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，删除**本地网络网关**将显示以下错误消息：**无法删除具有活动连接的本地网络网关**，即使没有活动连接也是如此。
+- 缓解措施：此问题的修复将在 1907 中发布。 此问题的解决方法是以不同的名称创建具有相同 IP 地址、地址空间和配置详细信息的新本地网络网关。 环境更新到 1907 后，可以删除旧的 LNG。
+- 发生次数：常见
+
 #### <a name="alerts"></a>警报
 
 - 适用于：此问题适用于所有支持的版本。
@@ -109,12 +122,6 @@ ms.locfileid: "72578440"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。   Azure Stack 目前不支持此功能。
 - 发生次数：常见
-
-### <a name="network-connection-type"></a>网络连接类型
-
-- 适用于：此问题适用于任何 1906 或 1907 环境。 
-- 原因：在用户门户中，“添加连接”  边栏选项卡显示了使用 **VNet-to-VNet** 的选项。 Azure Stack 目前不支持此功能。 
-- 发生次数：常见 
 
 #### <a name="documentation"></a>文档
 
@@ -153,21 +160,21 @@ ms.locfileid: "72578440"
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>虚拟机规模集重置密码无法进行
 
-- 适用于：此问题适用于 1906 和 1907 版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：规模集 UI 中出现新的密码重置边栏选项卡，但 Azure Stack 尚不支持在规模集上重置密码。
 - 补救措施：无。
 - 发生次数：常见
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>规模集诊断上出现哭泣的云
 
-- 适用于：此问题适用于 1906 和 1907 版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：虚拟机规模集概述页显示空白图表。 单击该空白图表会打开“哭泣的云”边栏选项卡。 这是规模集诊断信息的图表（例如 CPU 百分比），但这不是当前 Azure Stack 内部版本支持的功能。
 - 补救措施：无。
 - 发生次数：常见
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
-- 适用于：此问题适用于 1906 和 1907 版本。    
+- 适用于：此问题适用于所有支持的版本。    
 - 原因：虚拟机诊断设置边栏选项卡包含“接收器”选项卡，用于请求 **Application Insights 帐户**  。 这是新边栏选项卡中的结果，Azure Stack 中尚不支持此功能。
 - 补救措施：无。
 - 发生次数：常见

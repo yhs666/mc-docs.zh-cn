@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 07/29/2019
+origin.date: 08/27/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4d6c667ff025d44b71e330f36e664201c95d4a50
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: 131ca78cfacdd9c3e184c767999cebe77634d24e
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671003"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578434"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的存储基础结构
 
@@ -82,7 +82,7 @@ Azure Stack 集成式系统合作伙伴提供众多的解决方案版本，包�
 
 ![Azure Stack 存储基础结构](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-镜像功能通过保存所有数据的多个副本来提供容错。 这些数据的条带化和放置方式非常重要（请参阅此博客了解详细信息），但肯定的是，使用镜像功能存储的任何数据都会完整地写入多次。 每个副本将写入不同的物理硬件（位于不同服务器中的不同驱动器），假设每个硬盘各自都有可能发生故障。 三向镜像可以安全容许至少两个硬件（驱动器或服务器）同时出现问题。 例如，如果你正在重新启动一台服务器，此时另一个驱动器或服务器突然发生故障，在这种情况下，所有数据将保持安全，可供持续访问。
+镜像功能通过保存所有数据的多个副本来提供容错。 如何对数据进行条带化和放置并不是无关紧要的，但肯定的是，使用镜像功能存储的任何数据都会完整地写入多次。 每个副本将写入不同的物理硬件（位于不同服务器中的不同驱动器），假设每个硬盘各自都有可能发生故障。 三向镜像可以安全容许至少两个硬件（驱动器或服务器）同时出现问题。 例如，如果你正在重新启动一台服务器，此时另一个驱动器或服务器突然发生故障，在这种情况下，所有数据将保持安全，可供持续访问。
 
 ## <a name="volume-states"></a>卷状态
 
@@ -100,12 +100,12 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 | VolumeLabel | HealthStatus | OperationalStatus |
 |-------------|--------------|------------------------|
-| ObjStore_1 | Unknown | 已分离 |
+| ObjStore_1 | 未知 | 已分离 |
 | ObjStore_2 | 警告 | {已降级，不完整} |
 
 以下部分列出了运行状况和工作状态。
 
-### <a name="volume-health-state-healthy"></a>卷运行状况：Healthy
+### <a name="volume-health-state-healthy"></a>卷运行状况：正常
 
 | 操作状态 | 说明 |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -134,7 +134,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 | 无冗余 | 由于过多的驱动器出现故障，该卷已丢失数据。<br> <br>**操作：** 请联系支持人员。 在此之前，请参考 https://docs.azure.cn/zh-cn/azure-stack/azure-stack-diagnostics#log-collection-tool 中的指导启动日志文件收集过程。 |
 
 
-### <a name="volume-health-state-unknown"></a>卷运行状况：Unknown
+### <a name="volume-health-state-unknown"></a>卷运行状况：未知
 
 如果虚拟磁盘已分离，卷也有可能处于“未知”运行状况。
 
@@ -156,14 +156,14 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 以下部分描述了驱动器可能处于的运行状况。
 
-### <a name="drive-health-state-healthy"></a>驱动器运行状况：Healthy
+### <a name="drive-health-state-healthy"></a>驱动器运行状况：正常
 
 | 操作状态 | 说明 |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | OK | 卷处于正常状态。 |
 | 运行中 | 驱动器正在执行某些内部保养操作。 操作完成后，驱动器应会恢复“正常”运行状况。 |
 
-### <a name="drive-health-state-healthy"></a>驱动器运行状况：Healthy
+### <a name="drive-health-state-healthy"></a>驱动器运行状况：正常
 
 处于“警告”状态的驱动器可以成功读取和写入数据，但存在问题。
 

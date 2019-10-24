@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2019
-ms.date: 09/16/2019
+origin.date: 08/27/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: cf2525e130567757ed99e78ebe358c6c810ea87e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 3b7526150949e92e2112f236db5ec828e84a3165
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857329"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578310"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
@@ -32,7 +32,7 @@ ms.locfileid: "70857329"
 
 ![Azure Stack Monitor 边栏选项卡](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure 监视器是一款平台服务，提供一个中心位置来让用户监视 Azure 资源。 通过 Azure Monitor 直观显示、查询、路由和存档来自 Azure 内部资源的指标和日志并对其采取其他操作。 可以通过使用 Azure Stack 管理门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 有关 Azure Stack 支持的具体连接，请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。
+Azure 监视器是一款平台服务，提供一个中心位置来让用户监视 Azure 资源。 通过 Azure Monitor 直观显示、查询、路由和存档来自 Azure 内部资源的指标和日志并对其采取其他操作。 可以通过使用 Azure Stack 管理员门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 有关 Azure Stack 支持的具体连接，请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。
 
 > [!Note]
 > 指标和诊断日志不可用于 Azure Stack 开发工具包。
@@ -41,7 +41,7 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
-1. 打开 Azure Stack 管理门户。
+1. 打开 Azure Stack 用户门户。
 2. 选择“套餐”。 
 3. 选择与订阅关联的套餐。
 4. 在“设置”下，选择“资源提供程序”。   
@@ -124,7 +124,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 可以使用以下方法之一处理数据跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。 
 
- - [Azure Stack 门户](azure-stack-use-portal.md)
+ - [Azure Stack 用户门户](azure-stack-use-portal.md)
  - [PowerShell](/monitoring-and-diagnostics/insights-powershell-samples)
  - [跨平台的命令行接口 (CLI)](/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)

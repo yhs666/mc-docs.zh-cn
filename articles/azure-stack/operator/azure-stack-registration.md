@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/01/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: c0caa29d6ea80da5bec91ed9e8d19365ab4925a6
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: c7f640730f4f6243482996b22d25798ba28ebd5a
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857136"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578447"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -133,6 +133,9 @@ Run: Get-AzureStackStampInformation
    | 参数 | 说明 |  
    |-----|-----|
    | EnvironmentName | Azure 云订阅环境名称。 受支持的环境名称是 **AzureChinaCloud**。 |
+
+   >[!Note]
+   > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 

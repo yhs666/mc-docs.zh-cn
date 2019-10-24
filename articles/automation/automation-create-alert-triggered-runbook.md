@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 04/29/2019
-ms.date: 08/26/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 12b928f45608ccfb998322dba5ffe77bf114f948
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 346c80dea04c6fe4e56d69bef87ea40a10eee65d
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993820"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578532"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 
@@ -27,16 +27,18 @@ ms.locfileid: "69993820"
 
 * 常见警报
 * 活动日志警报
+* 准实时指标警报
 
 > [!NOTE]
-> 通用警报架构将目前 Azure 中的警报通知的使用体验进行了标准化。 从历史上看，目前 Azure 中的三种警报类型（指标和活动日志）一直有其自己的电子邮件模板、Webhook 架构等。若要了解详细信息，请参阅[通用警报架构](../azure-monitor/platform/alerts-common-schema.md)
+> 通用警报架构将目前 Azure 中的警报通知的使用体验进行了标准化。 从历史上看，目前 Azure 中的三种警报类型（指标、日志、活动日志）一直有其自己的电子邮件模板、Webhook 架构等。若要了解详细信息，请参阅[通用警报架构](../azure-monitor/platform/alerts-common-schema.md)
 
 当警报调用 Runbook 时，实际调用是对 Webhook 的 HTTP POST 请求。 该 POST 请求的正文包含一个 JSON 格式的对象，该对象包含与警报相关的有用属性。 下表列出了每种警报类型的有效负载架构的相应链接：
 
 |警报  |说明|负载架构  |
 |---------|---------|---------|
-|[常见警报](../azure-monitor/platform/alerts-common-schema.md?toc=%2fautomation%2ftoc.json)|通用警报架构将目前 Azure 中的警报通知的使用体验进行了标准化。|[通用警报有效负载架构](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fautomation%2ftoc.json#sample-alert-payload)|
-|[活动日志警报](../azure-monitor/platform/activity-log-alerts.md?toc=%2fautomation%2ftoc.json)    |当 Azure 活动日志中的任何新事件符合特定条件时，就会发送通知。 例如，当 **myProductionResourceGroup** 中出现 `Delete VM` 操作或出现状态为 **Active** 的新 Azure 服务运行状况事件时。| [活动日志警报有效负载架构](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[常见警报](../azure-monitor/platform/alerts-common-schema.md?toc=%2fautomation%2ftoc.json)|通用警报架构将目前 Azure 中的警报通知的使用体验进行了标准化。|通用警报有效负载架构|
+|[活动日志警报](../azure-monitor/platform/activity-log-alerts.md?toc=%2fautomation%2ftoc.json)    |当 Azure 活动日志中的任何新事件符合特定条件时，就会发送通知。| [活动日志警报有效负载架构](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[准实时指标警报](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fautomation%2ftoc.json)    |当一个或多个平台级指标满足指定条件时，就会以快于指标警报的速度发送通知。| [准实时指标警报有效负载架构](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 由于每种警报提供的数据不同，因此需要以不同的方式处理每种警报。 下一部分将介绍如何创建 Runbook 来处理不同类型的警报。
 
