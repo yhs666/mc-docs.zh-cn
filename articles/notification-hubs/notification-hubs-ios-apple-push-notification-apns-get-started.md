@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中心向 iOS 应用推送通知 | Azure Docs
+title: 使用 Azure 通知中心向 iOS 应用推送通知 | Azure
 description: 在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。
 services: notification-hubs
 documentationcenter: ios
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 04/14/2018
-ms.date: 06/24/2019
-ms.author: v-biyu
-ms.openlocfilehash: 245f164362ad0147c3399308cddbb4822816339f
-ms.sourcegitcommit: b3434f6e7ee50a7f84e6b0868f418480aadb1368
+origin.date: 05/21/2019
+ms.date: 10/08/2019
+ms.author: v-tawe
+ms.openlocfilehash: 37c2cc66a30760eec3c7acb1ba9adfd8f1fbd6dd
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66829508"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272630"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 应用推送通知
 
@@ -44,7 +44,7 @@ ms.locfileid: "66829508"
 > * 发送测试推送通知
 > * 验证应用可以接收通知
 
-可以 [在 GitHub 上](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)找到本教程的已完成代码。 
+可以 [在 GitHub 上](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)找到本教程的已完成代码。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -234,15 +234,20 @@ ms.locfileid: "66829508"
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
 
 <!-- URLs. -->
-[Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
+<!-- link 404 -->
+<!-- [Mobile Services iOS SDK]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads -->
+<!-- [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582 -->
+<!-- [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253 -->
+<!-- [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios -->
+<!-- [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md -->
+
+[Windows Azure Messaging Framework]: https://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Notification Hubs Guidance]: https://docs.azure.cn/notification-hubs/notification-hubs-push-notification-overview
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: https://go.microsoft.com/fwlink/p/?LinkId=272456
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-
+[Local and Push Notification Programming Guide]: https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 门户]: https://portal.azure.cn

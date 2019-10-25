@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/09/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46b176b068665f788d0ca0be5d057d443f9ade1a
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 29ff72c9bdf9a55347bfb129eb24b1fe2770926a
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390721"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519387"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>管理用于本地到 Azure 灾难恢复的虚拟机网络接口
 Azure 中的虚拟机 (VM) 必须附加有至少一个网络接口。 它可以附加有 VM 的大小所能够支持的网络接口数量。
@@ -69,6 +69,6 @@ Azure 中的虚拟机 (VM) 必须附加有至少一个网络接口。 它可以�
 6. 选择“保存”  ，保存全部更改。
 
 ## <a name="next-steps"></a>后续步骤
-  [深入了解](../virtual-network/virtual-network-network-interface-vm.md) Azure 虚拟机的网络接口。
+[深入了解](../virtual-network/virtual-network-network-interface-vm.md) Azure 虚拟机的网络接口。
 
 <!-- Update_Description: update meta properties -->

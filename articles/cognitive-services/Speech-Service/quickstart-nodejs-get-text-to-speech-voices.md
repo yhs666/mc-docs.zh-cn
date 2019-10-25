@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 91ee66b378049c39065bcb0f99b3e92bd14951d7
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: d1dfa0f060c373f0fd1e8b38c4e181aabfbc4476
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267118"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583729"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>快速入门：使用 Node.js 获取“文本转语音”语音的列表
 
@@ -60,7 +60,7 @@ const fs = require('fs');
 function getAccessToken(subscriptionKey) {
     let options = {
         method: 'POST',
-        uri: 'https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken',
+        uri: 'https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken',
         headers: {
             'Ocp-Apim-Subscription-Key': subscriptionKey
         }

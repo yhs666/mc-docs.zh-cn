@@ -4,21 +4,20 @@ description: 本文提供了关于在创建数据工厂实体时可以使用的�
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-ms.reviewer: douglasl
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/10/2018
-ms.date: 08/12/2019
-ms.author: v-jay
-ms.openlocfilehash: 62ba45090dd8c1f468676f30bf34675bfb21703d
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.date: 10/14/2019
+ms.openlocfilehash: 881c0f5706a87b2b64e68cde154cb45ce00ed610
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908669"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275427"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure 数据工厂中的表达式和函数
 
@@ -150,13 +149,13 @@ ms.locfileid: "68908669"
 |函数名称|说明|  
 |-------------------|-----------------|  
 |concat|将任意数量的字符串合并在一起。 例如，如果 parameter1 为 `foo,`，以下表达式将返回 `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **参数编号**：1 ... *n*<br /><br /> **名称**：字符串 *n*<br /><br /> **说明**：必需。 要合并成单个字符串的字符串。|  
-|substring|返回字符串中的字符子集。 例如，以下表达式：<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 返回：<br /><br /> `foo`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要从中获取子字符串的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：起始索引<br /><br /> **说明**：必需。 参数 1 中子字符串的起始索引。<br /><br /> **参数编号**：3<br /><br /> **名称**：Length<br /><br /> **说明**：必需。 子字符串的长度。|  
+|substring|返回字符串中的字符子集。 例如，以下表达式：<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 返回：<br /><br /> `foo`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要从中获取子字符串的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：起始索引<br /><br /> **说明**：必需。 参数 1 中子字符串的起始索引。 起始索引是从零开始的。 <br /><br /> **参数编号**：3<br /><br /> **名称**：Length<br /><br /> **说明**：必需。 子字符串的长度。|  
 |replace|将某个字符串替换为给定的字符串。 例如，表达式：<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 返回：<br /><br /> `the new string`<br /><br /> **参数编号**：1<br /><br /> **名称**：字符串<br /><br /> **说明**：必需。  如果在参数 1 中找到参数 2，即要为参数 2 搜索并使用参数 3 更新的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：旧字符串<br /><br /> **说明**：必需。 在参数 1 中找到匹配项时，要替换为参数 3 的字符串<br /><br /> **参数编号**：3<br /><br /> **名称**：新字符串<br /><br /> **说明**：必需。 在参数 1 中找到匹配项时，用于替换参数 2 中字符串的字符串。|  
 |GUID| 生成全局唯一字符串（又称 guid）。 例如，可以生成下面的输出 `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`：<br /><br /> `guid()`<br /><br /> **参数编号**：1<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 单个格式说明符，指示[如何设置此 GUID 值的格式](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)。 格式参数可以是“N”、“D”、“B”、“P”或“X”。 如果未提供格式，则使用“D”。|  
 |toLower|将字符串转换为小写。 例如，以下表达式返回 `two by two is four`:  `toLower('Two by Two is Four')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要转换为小写的字符串。 如果字符串中的某个字符没有对应的小写形式，则在返回的字符串中按原样包含该字符。|  
 |toUpper|将字符串转换为大写。 例如，以下表达式返回 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要转换为大写的字符串。 如果字符串中的某个字符没有对应的大写形式，则在返回的字符串中按原样包含该字符。|  
-|indexof|在字符串中不区分大小写查找值的索引。 例如，以下表达式返回 `7`: `indexof('hello, world.', 'world')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能包含该值的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要搜索其索引的值。|  
-|lastindexof|在字符串中不区分大小写查找值的最后一个索引。 例如，以下表达式返回 `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能包含该值的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要搜索其索引的值。|  
+|indexof|在字符串中不区分大小写查找值的索引。 索引是从零开始的。 例如，以下表达式返回 `7`: `indexof('hello, world.', 'world')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能包含该值的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要搜索其索引的值。|  
+|lastindexof|在字符串中不区分大小写查找值的最后一个索引。 索引是从零开始的。 例如，以下表达式返回 `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能包含该值的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要搜索其索引的值。|  
 |startswith|检查字符串是否以某个值开头（不区分大小写）。 例如，以下表达式返回 `true`: `startswith('hello, world', 'hello')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能包含该值的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能为字符串开头的值。|  
 |endswith|检查字符串是否以某个值结尾（不区分大小写）。 例如，以下表达式返回 `true`: `endswith('hello, world', 'world')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能包含该值的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 可能为字符串结尾的值。|  
 |split|使用分隔符拆分字符串。 例如，以下表达式返回 `["a", "b", "c"]`: `split('a;b;c',';')`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要拆分的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：String<br /><br /> **说明**：必需。 分隔符。|  

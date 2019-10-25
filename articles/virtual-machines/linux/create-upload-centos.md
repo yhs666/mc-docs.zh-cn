@@ -11,17 +11,16 @@ ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: e75a93b09c4fafe96190feeaa7b3a9a29723e5c4
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: c583c986dfe39160df0b0d5e718687ac03966ea0
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921224"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272631"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 
@@ -177,10 +176,12 @@ ms.locfileid: "70921224"
 
     也可按照 [LIS 下载页](https://go.microsoft.com/fwlink/?linkid=403033) 上的手动安装说明进行操作，将 RPM 安装到 VM。
 
-12. 安装 Azure Linux 代理和依赖项：
+12. 安装 Azure Linux 代理和依赖项。 启动并启用 waagent 服务：
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
+    sudo service waagent start
+    sudo chkconfig waagent on
     ```
 
     如果没有如步骤 3 中所述删除 NetworkManager 包和 NetworkManager-gnome 包，则 WALinuxAgent 包会将其删除。

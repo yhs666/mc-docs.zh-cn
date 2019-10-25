@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: c9a7d0de9fc8bd82317edfe836609e0e381626b8
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: d613047ff48746138e8d84d5dfe40ee3cdf8e390
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006593"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583589"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>为 Cordova 移动应用启用脱机同步
 
@@ -58,13 +58,13 @@ ms.locfileid: "71006593"
 2. 接下来，将以下代码：
 
     ```
-    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn');
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.chinacloudsites.cn');
     ```
 
     替换为此代码：
 
     ```
-    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn');
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.chinacloudsites.cn');
 
     var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
 

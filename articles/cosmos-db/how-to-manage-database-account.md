@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/23/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4872182dcc298e903269f16c5417e06aee543f88
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: a22c3bf3501951f73c157ddcba7179046adeb04c
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306683"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519404"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
@@ -365,7 +365,7 @@ Cosmos 帐户配置为自动故障转移后，可以更改区域的故障转移�
 <a name="set-failover-priorities-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-<!--MOONCAKE: China East and China East 2 change each other.-->
+<!--MOONCAKE: the second(chinanorth) and the third(chinaeast2) change each other.-->
 
 ```azurecli
 # Assume region order is initially chinaeast=0 chinanorth=1 chinaeast2=2 on account creation
@@ -375,10 +375,12 @@ $accountName = 'myaccountname'
 az cosmosdb failover-priority-change --name $accountName --resource-group $resourceGroupName --failover-policies chinaeast=0 chinaeast2=1 chinanorth=2
 ```
 
+<!--MOONCAKE: the second(chinanorth) and the third(chinaeast2) change each other.-->
+
 <a name="set-failover-priorities-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-<!--MOONCAKE: China East and China East 2 change each other.-->
+<!--MOONCAKE: the second(China East) and the third(China East 2) change each other.-->
 
 ```powershell
 # Assume account currently has regions with priority: China North = 0, China East = 1, China East 2 = 2
@@ -387,14 +389,16 @@ $accountName = "myaccountname"
 
 $failoverPolicies = @(
     @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 },
-    @{ "locationName"="China East 2"; "failoverPriority"=2 }
+    @{ "locationName"="China East 2"; "failoverPriority"=1 },
+    @{ "locationName"="China East"; "failoverPriority"=2 }
 )
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
 ```
+
+<!--MOONCAKE: the second(China East) and the third(China East 2) change each other.-->
 
 <a name="manual-failover"></a>
 ## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a>在 Azure Cosmos 帐户上执行手动故障转移

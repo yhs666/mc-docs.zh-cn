@@ -13,14 +13,14 @@ ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 02/15/2019
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: a9ed13e302a91508b65cb57338c533f60a1f650f
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: c19f4e67fb60a847e1304a433581f557961818bf
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845364"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583878"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -161,7 +161,7 @@ namespace reducer
 
 4. 展开要将此应用程序部署到的 HDInsight 群集。 列出带有文本“（默认存储帐户）”  的条目。
 
-    ![显示群集存储帐户的服务器资源管理器](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![显示群集存储帐户的服务器资源管理器](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
     * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”  。
 
@@ -169,7 +169,7 @@ namespace reducer
 
     单击上传图标，并浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”  文件，并单击“确定”  。
 
-        ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+        ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
     上传“mapper.exe”  完成后，请为“reducer.exe”  文件重复该上传过程。
 

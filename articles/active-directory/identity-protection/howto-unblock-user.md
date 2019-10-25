@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 09/13/2018
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f0d54dba74ba7b2454a0aaba0cd0765cd6964ba
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 2523552431d1d8d21247361dc323bd3fae2314d2
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993385"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292084"
 ---
 # <a name="how-to-unblock-users"></a>如何：取消阻止用户
 
@@ -53,7 +53,7 @@ ms.locfileid: "69993385"
 要取消阻止有风险的帐户，具有以下选项：
 
 1. **重置密码** - 可以重置用户的密码。 
-2. **消除所有风险事件** - 如果已达到阻止访问的已配置用户风险级别，用户风险策略将阻止用户。 可以通过手动关闭报告的风险事件降低用户的风险级别。 
+2. **消除所有风险检测** - 如果已达到阻止访问的已配置用户风险级别，用户风险策略将阻止用户。 可以通过手动关闭报告的风险检测降低用户的风险级别。 
 3. **从策略中排除** - 如果认为登录策略的当前配置导致特定用户出现问题，可从中排除这些用户。 有关详细信息，请参阅 [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)。
 4. **禁用** - 如果认为策略配置导致所有用户出现问题，可禁用该策略。 有关详细信息，请参阅 [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)。
 
@@ -61,4 +61,4 @@ ms.locfileid: "69993385"
  
 是否要了解有关 Azure AD 标识保护的详细信息？ 请查看 [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

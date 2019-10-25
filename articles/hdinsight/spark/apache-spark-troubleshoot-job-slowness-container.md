@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
-origin.date: 07/29/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: 112aaca453f12bb644b975c3c7e4ebb161ccdd89
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+origin.date: 08/21/2019
+ms.date: 10/28/2019
+ms.openlocfilehash: fd5440237c79778b74d2470b337b84e2ab055d9c
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921332"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583956"
 ---
-# <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>方案：当 Azure 存储容器包含 Azure HDInsight 中的许多文件时，Apache Spark 作业运行速度缓慢
+# <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>当 Azure 存储容器包含 Azure HDInsight 中的许多文件时，Apache Spark 作业运行速度缓慢
 
 本文介绍在 Azure HDInsight 群集中使用 Apache Spark 组件时出现的问题的故障排除步骤和可能的解决方法。
 
@@ -27,8 +27,6 @@ ms.locfileid: "70921332"
 这是一个已知的 Spark 问题。 速度变慢的原因在于执行 Spark 作业期间的 `ListBlob` 和 `GetBlobProperties` 操作。
 
 为了跟踪分区，Spark 必须维护一个 `FileStatusCache`，其中包含有关目录结构的信息。 使用此缓存，Spark 可以分析路径并识别可用分区。 跟踪分区的好处是，Spark 只在读取数据时才处理必要的文件。 为了将此信息保持最新状态，当你写入新数据时，Spark 必须列出目录下的所有文件，并更新此缓存。
-
-在 Spark 1.6 中，每次更新目录时，都会：(1) 清除缓存；(2) 以递归方式列出所有文件；(3) 更新整个缓存。 这会导致出现许多的列出操作。
 
 在 Spark 2.1 中，尽管不需要在每次写入后更新缓存，但 Spark 会检查现有分区列是否与当前写入请求中的建议分区列匹配，因此它也会在每次写入时导致发生列出操作。
 

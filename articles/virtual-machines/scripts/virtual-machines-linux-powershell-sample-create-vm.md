@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 创建 Linux VM | Azure
+title: 使用 PowerShell 创建完全配置的虚拟机 | Azure
 description: Azure PowerShell 脚本示例 - 创建 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8c8783c1f90132f1f4f089768f404eb10fb6ddc0
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 38a5d426716045f549893c44fe06d958ffcaa621
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539188"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272858"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 创建完全配置的虚拟机
 

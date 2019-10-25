@@ -11,18 +11,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 08/02/2019
+origin.date: 09/04/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: e66cf2d142f1d282a32dc176e58e0e7e18b3b486
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 10/21/2019
+ms.openlocfilehash: 0f8fdf876e8ddd4ddf86676e89d51570fdee0bf8
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736636"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292573"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+
+## <a name="august-2019-guest-os"></a>2019 年 8 月来宾 OS
+
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-08   |  [4512482]  |  Windows 安全性   |  [3.76]  |  2019 年 8 月 13 日  |
+|  Rel 19-08   |  [4494175]  |  微代码更新   |  [5.34]  |  2019 年 6 月 18 日  |
+|  Rel 19-08   |  [4512517]  |  最新累积更新   |  [5.34]  |  2019 年 8 月 13 日  |
+|  Rel 19-08   |  [4494174]  |  微代码更新   |  [6.1]  |  2019 年 6 月 18 日  |
+|  Rel 19-08   |  [4511553]  |  最新累积更新   |  [6.1]  |  2019 年 8 月 13 日  |
+|  Rel 19-08   |  [4512486]  |  Windows 安全性   |  [2.89]  |  2019 年 8 月 13 日  |
+|  Rel 19-08   |  [4512489]  |  Windows 安全性   |  [4.69]  |  2019 年 8 月 13 日  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89]、[3.76]、[4.69]  |  2019 年 8 月 15 日  |
+|  Rel 19-08   |  [4507449]  |  非安全性   |  [2.89]  |  2019 年 7 月 9 日  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 非安全性   |  [3.76]  |  2019 年 8 月 12 日  |
+|  Rel 19-08   |  [4507002]  |  .NET 3.5 非安全性   |  [3.76]  |  2019 年 8 月 12 日  |
+|  Rel 19-08   |  [4507462]  |  非安全性   |  [3.76]  |  2019 年 7 月 9 日  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 非安全性    |  [4.69]  |  2019 年 8 月 12 日  |
+|  Rel 19-08   |  [4507005]  |  .NET 3.5 非安全性    |  [4.69]  |  2019 年 8 月 12 日  |
+|  Rel 19-08   |  [4507448]  |  非安全性   |  [4.69]  |  2019 年 7 月 9 日  |
+|  Rel 19-08   |  [4509091]  |  服务堆栈更新   |  [5.34]  |  2019 年 7 月 9 日  |
+|  Rel 19-08   |  [4509095]  |  服务堆栈更新   |  [6.1]  |  2019 年 7 月 9 日  |
+|  Rel 19-08   |  [4512937]  |  服务堆栈更新   |  [6.1]  |  2019 年 7 月 29 日  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 非安全性    |  [2.89]  |  2019 年 8 月 12 日  |
+|  Rel 19-08   |  [4504418]  |  服务堆栈更新   |  [3.76]、[4.69]  |  2019 年 7 月 11 日  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 非安全性   |  [2.89]  |  2019 年 8 月 12 日  |
+|  Rel 19-08   |  [4507704]  |  Windows 中巴西和摩洛哥的 DST 设置   |  [2.89]、[3.76]、[4.69]、[5.34]  |  2019 年 8 月 13 日  |
+
+[4512482]: https://support.microsoft.com/kb/4512482
+[4494175]: https://support.microsoft.com/kb/4494175
+[4512517]: https://support.microsoft.com/kb/4512517
+[4494174]: https://support.microsoft.com/kb/4494174
+[4511553]: https://support.microsoft.com/kb/4511553
+[4512486]: https://support.microsoft.com/kb/4512486
+[4512489]: https://support.microsoft.com/kb/4512489
+[4511872]: https://support.microsoft.com/kb/4511872
+[4507449]: https://support.microsoft.com/kb/4507449
+[4507000]: https://support.microsoft.com/kb/4507000
+[4507002]: https://support.microsoft.com/kb/4507002
+[4507462]: https://support.microsoft.com/kb/4507462
+[4506999]: https://support.microsoft.com/kb/4506999
+[4507005]: https://support.microsoft.com/kb/4507005
+[4507448]: https://support.microsoft.com/kb/4507448
+[4509091]: https://support.microsoft.com/kb/4509091
+[4509095]: https://support.microsoft.com/kb/4509095
+[4512937]: https://support.microsoft.com/kb/4512937
+[4507004]: https://support.microsoft.com/kb/4507004
+[4504418]: https://support.microsoft.com/kb/4504418
+[4507001]: https://support.microsoft.com/kb/4507001
+[4507704]: https://support.microsoft.com/kb/4507704
+
+[6.1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
 
 ## <a name="july-2019-guest-os"></a>2019 年 7 月来宾 OS
 

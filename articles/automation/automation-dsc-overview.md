@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 08/26/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3926ba8f10633b3c63814d895469eccedfd38095
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: f65d4d603fec0f211ad7300625ff81bd8e049153
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993597"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578530"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 
@@ -63,12 +63,7 @@ Azure Automation State Configuration 向 [PowerShell Desired State Configuration
 
 运行 Linux 的节点支持以下发行版/版本：
 
-DSC Linux 扩展支持所有[在 Azure 上认可的](/virtual-machines/linux/endorsed-distros) Linux 发行版，除了以下这些：
-
-分发 | 版本
--|-
-Debian  | 所有版本
-Ubuntu  | 18.04
+DSC Linux 扩展支持[支持的 Linux 发行版](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)下列出的所有 Linux 发行版。
 
 ### <a name="dsc-requirements"></a>DSC 要求
 

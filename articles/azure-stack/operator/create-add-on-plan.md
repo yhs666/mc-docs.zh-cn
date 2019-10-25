@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
 origin.date: 06/11/2019
-ms.date: 07/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: e9a8c392573d22814779678838d1acea50bf8ef8
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 4d01cc053c90bac3cef495b08b381ed7af90a476
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513367"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578331"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加计划
 
@@ -40,6 +40,7 @@ ms.locfileid: "68513367"
 
 修改现有的套餐即可创建附加计划。
 
+::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>创建附加计划（1902 及更高版本）
 
 1. 以云管理员身份登录到 Azure Stack 管理员门户。
@@ -59,7 +60,9 @@ ms.locfileid: "68513367"
 6. 查看随套餐提供的附加计划的列表，验证新附加计划是否已列出。
 
     [![创建附加计划](media/create-add-on-plan/add-on4.png "创建附加计划")](media/create-add-on-plan/add-on4lg.png#lightbox)
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>创建附加计划（1901 及更低版本）
 
 1. 以云管理员身份登录到 Azure Stack 管理员门户。
@@ -79,6 +82,7 @@ ms.locfileid: "68513367"
 6. 查看随套餐提供的附加计划的列表，验证新附加计划是否已列出。
 
     ![创建附加计划](media/create-add-on-plan/4.PNG)
+::: moniker-end
 
 ## <a name="next-steps"></a>后续步骤
 

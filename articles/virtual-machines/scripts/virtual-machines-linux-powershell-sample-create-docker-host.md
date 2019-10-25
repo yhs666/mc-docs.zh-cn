@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - Docker | Azure
+title: 使用 PowerShell 创建 Docker 主机 | Azure
 description: Azure PowerShell 脚本示例 - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/02/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 27399390a96e61ef2004d909e53e6dab0a0a1c16
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 2f7a97acd52e080f9ab323c920abefc82f1a2ffb
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539051"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272867"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>使用 PowerShell 创建 Docker 主机
 
@@ -100,6 +99,7 @@ $PublicSettings = '{"docker": {"port": "2375"},"compose": {"web": {"image": "ngi
 Set-AzVMExtension -ExtensionName "Docker" -ResourceGroupName $resourceGroup -VMName $vmName `
   -Publisher "Microsoft.Azure.Extensions" -ExtensionType "DockerExtension" -TypeHandlerVersion 1.0 `
   -SettingString $PublicSettings -Location $location
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

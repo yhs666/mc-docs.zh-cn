@@ -13,14 +13,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/25/2019
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: a15f79b05c91796e0fda21e19c92f2a7c949ee50
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 9bf66cc25929ecd2655201e2046fae873a8f4d18
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878740"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583850"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用 Apache HBase
 
@@ -48,7 +48,7 @@ ms.locfileid: "68878740"
 
 1. 选择下面的图像即可在 Azure 门户中打开该模板。 模板位于 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/)中。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 在“自定义部署”  边栏选项卡中，输入以下信息：
 

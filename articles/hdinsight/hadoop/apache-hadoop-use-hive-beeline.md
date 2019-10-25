@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/03/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 124c1a89d43ac2c113260d2eb6b6037775a15915
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: a4952a34b9f64de54f3a52528fcbae0c8045e67e
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921134"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583868"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>将 Apache Beeline 客户端与 Apache Hive 配合使用
 
@@ -55,12 +55,18 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 ---
 
-### <a name="over-public-internet"></a>通过公共 Internet
+### <a name="over-public-or-private-endpoints"></a>通过公共或专用终结点
 
-通过公共 Internet 连接时，必须提供群集登录帐户名（默认 `admin`）和密码。 例如，使用 Beeline 从客户端系统连接到 `<clustername>.azurehdinsight.cn` 地址。 此连接通过端口 `443` 建立，并使用 SSL 进行加密：
+使用公共或专用终结点连接到群集时，必须提供群集登录帐户名（默认值为 `admin`）和密码。 例如，使用 Beeline 从客户端系统连接到 `<clustername>.azurehdinsight.cn` 地址。 此连接通过端口 `443` 建立，并使用 SSL 进行加密：
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+或对于专用终结点：
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 将 `clustername` 替换为 HDInsight 群集的名称。 将 `admin` 替换为群集的群集登录帐户。 将 `password` 替换为群集登录帐户的密码。
@@ -71,13 +77,21 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMo
 
 Apache Spark 提供自己的 HiveServer2 实现（有时称为 Spark Thrift 服务器）。 此服务使用 Spark SQL 而不是 Hive 来解析查询，并且可以根据查询改善性能。
 
-#### <a name="over-public-internet-with-apache-spark"></a>使用 Apache Spark 通过公共 Internet
+#### <a name="through-public-or-private-endpoints"></a>通过公共或专用终结点
 
-通过 Internet 进行连接时使用的连接字符串略有不同。 它是 `httpPath/sparkhive2`，不包含 `httpPath=/hive2`：
+使用的连接字符串略有不同。 它是 `httpPath/sparkhive2`，不包含 `httpPath=/hive2`：
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+或对于专用终结点：
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+将 `clustername` 替换为 HDInsight 群集的名称。 将 `admin` 替换为群集的群集登录帐户。 将 `password` 替换为群集登录帐户的密码。
 
 ---
 
@@ -86,7 +100,7 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMo
 当直接从群集头节点或者从 HDInsight 群集所在的 Azure 虚拟网络中的资源进行连接时，应当为 Spark Thrift 服务器使用端口 `10002` 而非 `10001`。 以下示例演示如何直接连接到头节点：
 
 ```bash
-beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+/usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 ```
 
 ---

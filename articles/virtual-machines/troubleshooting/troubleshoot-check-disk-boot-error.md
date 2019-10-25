@@ -1,5 +1,5 @@
 ---
-title: 启动 Azure VM 时检查文件系统 | Azure
+title: Windows 在启动 Azure VM 时显示“正在检查文件系统”| Azure
 description: 了解如何解决 VM 在启动时显示“正在检查文件系统”的问题 | Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/31/2018
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd1aae220a6d4feddcd12b69b47431e5b8b22e41
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 4fcbbee9b729619135c32b0690fb760922aa1b88
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004023"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272605"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示“正在检查文件系统”
 
@@ -42,9 +41,9 @@ Windows VM 不启动。 检查[启动诊断](boot-diagnostics.md)中的启动屏
 ## <a name="solution"></a>解决方案 
 
 “磁盘检查”进程完成后，Windows 会正常启动。 如果 VM 一直卡在“磁盘检查”进程中，请尝试脱机后在 VM 上运行“磁盘检查”：
-1.  拍摄受影响的 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
-2.  [将 OS 磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。  
-3.  在恢复 VM 上，在附加的 OS 磁盘上运行“磁盘检查”。 在以下示例中，附加的 OS 磁盘的驱动器号为 E: 
+1. 拍摄受影响的 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
+2. [将 OS 磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。  
+3. 在恢复 VM 上，在附加的 OS 磁盘上运行“磁盘检查”。 在以下示例中，附加的 OS 磁盘的驱动器号为 E: 
 
         chkdsk E: /f
-4.  “磁盘检查”完成后，从恢复 VM 分离该磁盘，然后将磁盘作为 OS 磁盘重新附加到受影响的 VM。 有关详细信息，请参阅[通过将 OS 磁盘附加到恢复 VM 来排查 Windows VM 相关问题](troubleshoot-recovery-disks-portal-windows.md)。
+4. “磁盘检查”完成后，从恢复 VM 分离该磁盘，然后将磁盘作为 OS 磁盘重新附加到受影响的 VM。 有关详细信息，请参阅[通过将 OS 磁盘附加到恢复 VM 来排查 Windows VM 相关问题](troubleshoot-recovery-disks-portal-windows.md)。

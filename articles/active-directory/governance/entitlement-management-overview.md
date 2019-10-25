@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-origin.date: 07/10/2019
-ms.date: 08/22/2019
+origin.date: 09/03/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eba0f4ff8ed828f566b27a36153c46399aef944
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: d19b75905273a97551505d467c21a97ac06187bd
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993282"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292040"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 权利管理是什么？ （预览版）
 
@@ -120,6 +120,16 @@ Azure AD 权利管理可帮助解决这些难题。
 ## <a name="license-requirements"></a>许可要求
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+### <a name="which-users-must-have-licenses"></a>哪些用户必须有许可证？
+
+租户必须拥有至少与活动成员用户数量一样多的 Azure AD Premium P2 许可证。 权利管理中的活动成员用户包括：
+
+- 发起或批准访问包请求的用户。
+- 已分配有访问包的用户。 
+- 管理访问包的用户。
+
+有关如何将许可证分配给用户的信息，请参阅[使用 Azure Active Directory 门户分配或删除许可证](../fundamentals/license-users-groups.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

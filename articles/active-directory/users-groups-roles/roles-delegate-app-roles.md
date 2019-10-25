@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 08/06/2019
-ms.date: 08/28/2019
+origin.date: 09/04/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac928313ad512dbe7f619f64e99271ad8d5a2e85
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 930fa283f606333ad55bb6fe8af138a224f6af9d
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134342"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292121"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委托应用注册权限
 
-本文介绍如何在 Azure Active Directory (Azure AD) 中使用自定义角色的应用权限来解决应用程序管理需求。 Azure Active Directory (Azure AD) 允许通过以下方法委托应用程序创建和管理权限：
+本文介绍如何使用 Azure Active Directory (Azure AD) 中的自定义角色授予的权限来满足应用程序管理需求。 在 Azure AD中，可以通过以下方式委托应用程序创建和管理权限：
 
 - [限制谁可以创建应用程序](#restrict-who-can-create-applications)和管理他们创建的应用程序。 默认情况下，Azure AD 中的所有用户都可以注册应用程序，并全方面地管理他们创建的应用程序。 可将此权限限制为选定的人员。
 - [将一个或多个所有者分配到应用程序](#assign-application-owners)。 这是向用户授予全方面管理特定应用程序的 Azure AD 配置的权限的一种简单方法。
@@ -41,7 +41,7 @@ ms.locfileid: "70134342"
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>禁用创建应用程序注册或许可应用程序的默认权限
 
 1. 使用符合 Azure AD 组织中“全局管理员”角色条件的帐户登录到 Azure AD 组织。
-1. 拥有足够权限后，执行以下一个或两个设置：
+1. 设置下列一项或两项：
 
     - 在 [组织的“用户设置”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，将“用户可以注册应用程序”设置为“否”。  这会禁用用户用来创建应用程序注册的默认权限。
     - 在 [企业应用程序的用户设置](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)中，将“用户可以许可代表其访问公司数据的应用程序”设置为“否”。  这会禁用用户用来许可代表其访问公司数据的应用程序的默认权限。

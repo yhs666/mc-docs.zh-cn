@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/20/2018
-ms.date: 07/08/2019
+origin.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 9b962067514f57fc0753dfee09942647a8210a97
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 1ec7953ddcf455d41bbe625bae2e9976c4e65be6
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570558"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275482"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure 数据工厂从 MongoDB 复制数据
 
@@ -35,7 +35,7 @@ ms.locfileid: "67570558"
 
 ## <a name="prerequisites"></a>先决条件
 
-要从不可公开访问的 MongoDB 数据库复制数据，需要设置自承载集成运行时。 要了解详细信息，请参阅[自承载集成运行时](create-self-hosted-integration-runtime.md)一文。
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>入门
 
@@ -52,7 +52,7 @@ MongoDB 链接的服务支持以下属性：
 | type |type 属性必须设置为：MongoDbV2  |是 |
 | connectionString |指定 MongoDB 连接字符串，例如 `mongodb://[username:password@]host[:port][/[database][?options]]`。 请参阅 [MongoDB 连接字符串手册](https://docs.mongodb.com/manual/reference/connection-string/)获取详细信息。 <br/><br />将此字段标记为 SecureString 类型，以便安全地将其存储在数据工厂中  。 此外，还可以[引用 Azure Key Vault 中存储的机密](store-credentials-in-key-vault.md)。 |是 |
 | database | 要访问的数据库的名称。 | 是 |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果可以公开访问数据存储，则可以使用自承载集成运行时或 Azure Integration Runtime 时。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 **示例：**
 
@@ -92,12 +92,13 @@ MongoDB 链接的服务支持以下属性：
     "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
+        "typeProperties": {
+            "collectionName": "<Collection name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "collectionName": "<Collection name>"
         }
     }
 }
@@ -109,11 +110,11 @@ MongoDB 链接的服务支持以下属性：
 
 ### <a name="mongodb-as-source"></a>以 MongoDB 作为源
 
-复制活动源  部分支持以下属性：
+复制活动**source**部分支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
-| type | 复制活动源的 type 属性必须设置为：MongoDbV2Source  | 是 |
+| type | 复制活动 source 的 type 属性必须设置为：MongoDbV2Source  | 是 |
 | filter | 使用查询运算符指定选择筛选器。 若要返回集合中的所有文档，请省略此参数或传递空文档 ({})。 | 否 |
 | cursorMethods.project | 指定要在文档中返回用于投影的字段。 若要返回匹配文档中的所有字段，请省略此参数。 | 否 |
 | cursorMethods.sort | 指定查询返回匹配文档的顺序。 请参阅 [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)。 | 否 |

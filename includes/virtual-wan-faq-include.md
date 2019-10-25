@@ -9,16 +9,18 @@ origin.date: 08/06/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 002ed069aa5e2517d98268d0fed10920bf4b61fb
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 03216adef36f2dd622b9bc8ec7aa7f42aaddde76
+ms.sourcegitcommit: 1b4cb23c9bce2e9073e34eb9fb8b6765b9357d83
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156559"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170804"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 虚拟网络网关（VPN 网关）与 Azure 虚拟 WAN vpngateway 之间有什么差别？
 
-虚拟 WAN 提供大规模站点到站点连接，在设计上考虑到了吞吐量、可伸缩性和易用性。 用于虚拟 WAN 连接的 ExpressRoute 目前处于预览状态。 CPE 分支设备自动预配并连接到 Azure 虚拟 WAN。 这些设备由一个不断扩张的 SD-WAN 和 VPN 合作伙伴生态系统提供。 请参阅[首选合作伙伴列表](https://go.microsoft.com/fwlink/p/?linkid=2019615)。
+虚拟 WAN 提供大规模站点到站点连接，在设计上考虑到了吞吐量、可伸缩性和易用性。  CPE 分支设备自动预配并连接到 Azure 虚拟 WAN。 这些设备由一个不断扩张的 SD-WAN 和 VPN 合作伙伴生态系统提供。 请参阅[首选合作伙伴列表](https://go.microsoft.com/fwlink/p/?linkid=2019615)。
+
+<!--Not Available on ExpressRoute  for Virtual WAN connectivity is currently under Preview.-->
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>到 Azure 虚拟 WAN 的分支连接是什么？
 
@@ -107,7 +109,10 @@ ms.locfileid: "71156559"
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>虚拟 WAN 中是否允许分支到分支连接？
 
-是的，对于 VPN 和 VPN 到 ExpressRoute，分支到分支连接在虚拟 WAN 中可用。 虽然 VPN 站点到站点为正式版，但 ExpressRoute 当前为预览版。
+是的，VPN 的分支到分支连接在虚拟 WAN 中可用。 而 VPN 站点到站点是 GA。
+
+<!--Not Available on and VPN to ExpressRoute-->
+<!--Not Available on , ExpressRoute is currently in Preview-->
 
 ### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>分支到分支流量是否可以通过 Azure 虚拟 WAN？
 
@@ -126,7 +131,9 @@ ms.locfileid: "71156559"
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>此虚拟 WAN 是否要求每个站点中都有 ExpressRoute？
 
-否，虚拟 WAN 不要求每个站点中都有 ExpressRoute。 它通过 Internet 链接使用从设备到 Azure 虚拟 WAN 中心的标准 IPsec 站点到站点连接。 可以使用 ExpressRoute 线路将站点连接到提供商网络。 对于使用虚拟中心（预览版）内的 ExpressRoute 进行连接的站点，站点在 VPN 与 ExpressRoute 之间可能有分支到分支流量流。 
+否，虚拟 WAN 不要求每个站点中都有 ExpressRoute。 它通过 Internet 链接使用从设备到 Azure 虚拟 WAN 中心的标准 IPsec 站点到站点连接。 可以使用 ExpressRoute 线路将站点连接到提供商网络。
+
+<!--Not Availble on For Sites that are connected using ExpressRoute in Virtual Hub (Under Preview), sites can have branch to branch traffic flow between VPN and ExpressRoute.-->
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>使用 Azure 虚拟 WAN 时是否存在网络吞吐量限制？
 

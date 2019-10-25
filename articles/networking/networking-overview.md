@@ -1,5 +1,5 @@
 ---
-title: Azure 网络 | Azure Docs
+title: Azure 网络 | Azure
 description: 了解 Azure 中的网络服务及其功能。
 services: networking
 documentationcenter: na
@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/19/2017
-ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: 6a4db61ee4e9261cc6f830af887e3962f203223d
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+origin.date: 07/17/2019
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: c4953fa718a66723c08f1638cee6d1a989be397e
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633023"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583822"
 ---
 # <a name="azure-networking"></a>Azure 网络
 
 Azure 中的网络服务提供可以搭配使用或单独使用的各种网络功能。 请单击以下任一重要功能了解更多相关信息：
-- [**连接服务**](#connect)：使用 Azure 中的以下任一网络服务或其组合连接 Azure 资源和本地资源 - 虚拟网络 (VNet)、ExpressRoute、VPN 网关、Azure DNS。
-- [**应用程序保护服务**](#protect)：使用 Azure 中的以下任一网络服务或其组合来保护应用程序 - DDoS 防护、防火墙、网络安全组、Web 应用程序防火墙或虚拟网络终结点。
+- [**连接服务**](#connect)：使用 Azure 中的以下任一网络服务或其组合连接 Azure 资源和本地资源 - 虚拟网络 (VNet)、虚拟 WAN、ExpressRoute、VPN 网关、Azure DNS。
+- [**应用程序保护服务**](#protect)：使用 Azure 中的以下任一网络服务或其组合来保护应用程序 - 防火墙、网络安全组或虚拟网络终结点。
 - [**应用程序分发服务**](#deliver)：使用 Azure 中的以下任一网络服务或其组合在 Azure 网络中分发应用程序 - 内容分发网络 (CDN)、流量管理器、应用程序网关或负载均衡器。
 - [**网络监视**](#monitor) – 使用 Azure 中的以下任一网络服务或其组合来监视网络资源 - 网络观察程序、ExpressRoute Monitor、Azure Monitor。
 
@@ -35,8 +35,9 @@ Azure 中的网络服务提供可以搭配使用或单独使用的各种网络�
 |服务|为何使用此类服务？|方案|
 |---|---|---|
 |[虚拟网络](#vnet)|可让 Azure 资源以安全方式彼此通信、与 Internet 通信，以及与本地网络通信。| <p>[筛选网络流量](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[路由网络流量](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[限制对资源的网络访问](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[连接虚拟网络](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
-|[ExpressRoute](#expressroute)|通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。|<p>[创建和修改 ExpressRoute 线路](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[创建和修改 ExpressRoute 线路的对等互连](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[将 VNet 链接到 ExpressRoute 线路](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p>|
+|[ExpressRoute](#expressroute)|通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。|<p>[创建和修改 ExpressRoute 线路](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[创建和修改 ExpressRoute 线路的对等互连](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[将 VNet 链接到 ExpressRoute 线路](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[配置和管理 ExpressRoute 线路的路由筛选器](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN 网关](#vpngateway)|通过公共 Internet 在 Azure 虚拟网络与本地位置之间发送加密流量。|<p>[站点到站点连接](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet 到 VNet 连接](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
+|[虚拟 WAN](#virtualwan)|优化并自动化到 Azure 和通过 Azure 的分支连接。 Azure 区域充当可以选择将分支连接到的中心。|<p>[站点到站点连接](../virtual-wan/virtual-wan-site-to-site-portal.md)</p>|
 |[Azure DNS](#dns)|托管使用 Microsoft Azure 基础结构提供名称解析的 DNS 域。|<p>[在 Azure DNS 中托管域](../dns/dns-delegate-domain-azure-dns.md)</p><p>[为 Web 应用创建 DNS 记录](../dns/dns-web-sites-custom-domain.md)</p>|
 ||||
 
@@ -64,26 +65,24 @@ VPN 网关可帮助你创建从本地位置到虚拟网络的加密跨界连接�
 
 有关不同类型的 VPN 连接的详细信息，请参阅 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
+### <a name="virtualwan"></a>虚拟 WAN
+Azure Virtual WAN 是一种网络服务，提供到 Azure 并穿过该服务的经优化的自动分支连接。 Azure 区域充当可以选择将分支连接到的中心。 利用 Azure 主干网还可以连接分支并享用分支到 VNet 的连接。 Azure 虚拟 WAN 将许多 Azure 云连接服务（例如，站点到站点 VPN、ExpressRoute、点到站点用户 VPN）汇集到一个操作界面中。 通过使用虚拟网络连接建立与 Azure VNet 的连接。 有关详细信息，请参阅[什么是 Azure 虚拟 WAN？](../virtual-wan/virtual-wan-about.md)。
 
-若要从 Internet 入站通信到 Azure 资源或出站通信到不具 SNAT 的 Internet，则必须向资源分配一个公共 IP 地址。 若要详细了解公共 IP 地址，请阅读 [公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。
+![虚拟 WAN 示意图](./media/networking-overview/virtualwan1.png)
 
-## <a name="on-premises-connectivity"></a>本地连接
 ### <a name="dns"></a>Azure DNS
 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。 通过在 Azure 中托管域，可以使用与其他 Azure 服务相同的凭据、API、工具和计费来管理 DNS 记录。 有关详细信息，请参阅[什么是 Azure DNS？](../dns/dns-overview.md)
 
-可组合使用以下任何选项将本地网络连接到 VNet：
-
- 点到站点（基于 SSTP 的 VPN）
-
 ## <a name="protect"></a>应用程序保护服务
 
-本部分介绍 Azure 中可帮助你保护网络资源的网络服务 - 网络安全组和服务终结点。
+本部分介绍 Azure 中可帮助你保护网络资源的网络服务 - Azure 防火墙、网络安全组和服务终结点。
 
 |服务|为何使用此类服务？|方案|
 |---|---|---|
-此连接是在一台计算机与一个 VNet 之间建立的。 这种连接类型适用于刚开始使用 Azure 的人员或开发人员，因为该连接类型仅需对现有网络作出极少更改或不做任何更改。 此连接类型还可方便你从远程位置（例如会议室或家中）建立连接。 点到站点连接通常通过相同的虚拟网络网关与站点到站点连接结合使用。 此连接使用 SSTP 协议在计算机与 VNet 之间通过 Internet 提供加密通信。 由于流量遍历 Internet，因此点到站点 VPN 的延迟不可预测。
-
-|[网络安全组](#nsg)|在 VM/子网中针对所有网络流量流进行精细的分布式终端节点控制|[使用网络安全组筛选网络流量](../virtual-network/tutorial-filter-network-traffic.md)| |[虚拟网络服务终结点](#serviceendpoints)|可以限制为通过某个虚拟网络子网对某些 Azure 服务资源进行网络访问|[限制对 PaaS 资源的网络访问](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)| |||
+|[Azure 防火墙](#firewall)|Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚拟网络资源。 它是一个服务形式的完全有状态防火墙，具有内置的高可用性和不受限制的云可伸缩性。|<p>[在 Vnet 中部署 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- 在混合网络中部署 Azure 防火墙](../firewall/tutorial-hybrid-ps.md)</p> <p>[使用 Azure 防火墙 DNAT 筛选入站流量](../firewall/tutorial-firewall-dnat.md)</p>|
+|[网络安全组](#nsg)|在 VM/子网中对所有网络流量进行完全粒度的分布式终端节点控制|[使用网络安全组筛选网络流量](../virtual-network/tutorial-filter-network-traffic.md)|
+|[虚拟网络服务终结点](#serviceendpoints)|使你可以将对某些 Azure 服务资源的网络访问限制到虚拟网络子网|[限制 PaaS 资源的网络访问](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
+|||
 ### <a name="nsg"></a>网络安全组
 可以使用网络安全组来筛选 Azure 虚拟网络中出入 Azure 资源的网络流量。 有关详细信息，请参阅[安全性概述](../virtual-network/security-overview.md)。
 
@@ -136,7 +135,7 @@ Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 We
 |服务|为何使用此类服务？|方案|
 |---|---|---|
 |[网络观察程序](#networkwatcher)|帮助监视和排查连接问题，帮助诊断 VPN、NSG 和路由问题，捕获 VM 上的数据包，使用 Azure Functions 和逻辑应用自动触发诊断工具|<p>[诊断 VM 流量筛选器问题](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[诊断 VM 路由问题](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[监视 VM 之间的通信](../network-watcher/connection-monitor.md)</p><p>[诊断网络之间的通信问题](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[记录传入和传出 VM 的网络流量](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
-|[ExpressRoute Monitor](#expressroutemonitor)|提供网络性能、可用性和利用率的实时监视，帮助自动发现网络拓扑，提供更快的故障隔离，检测暂时性网络问题，帮助分析历史网络性能特征，支持多订阅|<p>[ExpressRoute 监视、指标和警报](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
+|[ExpressRoute 监视器](#expressroutemonitor)|提供网络性能、可用性和利用率的实时监视，帮助自动发现网络拓扑，提供更快的故障隔离，检测暂时性网络问题，帮助分析历史网络性能特征，支持多订阅|<p>[ExpressRoute 监视、指标和警报](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
 |
 
 ### <a name="networkwatcher"></a>网络观察程序

@@ -56,7 +56,7 @@ ms.locfileid: "70134101"
    1. 在“答复 URL”中添加 `https://localhost:44321/signin-oidc`。 
    1. 在“高级设置”  部分，将“注销 URL”设置为 `https://localhost:44321/signout-oidc`。 
    1. 在“隐式授权”下，勾选“ID 令牌”。  
-   1. 选择“其他安全性验证”  。
+   1. 选择“保存”  。
 
 ### <a name="register-an-app-using-powershell"></a>使用 PowerShell 注册应用
 

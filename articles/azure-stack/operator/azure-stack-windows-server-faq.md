@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/22/2019
-ms.date: 09/16/2019
+origin.date: 08/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: avishwan
-ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 1e4a8d6a6a2f8eabccecdd9a78746230727186de
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 360578f71278b7a57eed857b6db8c93a6da0c799
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857226"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578327"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
 
@@ -54,11 +54,29 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 
-请参阅[将 Windows Server BYOL VM 转换为预付费](/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)。
+可以通过运行以下脚本来更改许可证模型属性，以将自带许可 (BYOL) 切换为预付费模型：
+
+```powershell
+vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
+
+可以通过运行以下命令来检查 VM 的许可证类型。 如果许可证模型显示 **Windows_Server**，你将按 BYOL 价格收费，否则你将按预付费模型收取 Windows 计量费用：
+
+```powershell
+$vm | ft Name, VmId,LicenseType,ProvisioningState
+```
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>我有一个旧版映像，而我的用户忘记了选中“我有许可证”框，或者我们使用自己的映像且拥有企业协议权利，该怎么办？
 
-请参阅[将现有 Windows Server VM 转换为 BYOL](/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)。 请注意，Azure 混合权益不适用于 Azure Stack，但此项设置的影响确实存在。
+可以通过运行以下命令将许可证模型属性更改为自带许可模型：
+
+```powershell
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>对于使用 Windows Server 的其他 VM （例如 SQL 或 Machine Learning Server），该如何处理？
 

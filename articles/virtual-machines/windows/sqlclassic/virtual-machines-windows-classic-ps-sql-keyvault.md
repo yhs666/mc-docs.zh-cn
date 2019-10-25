@@ -1,5 +1,5 @@
 ---
-title: 将 Key Vault 与 Azure 中 Windows VM 上的 SQL Server 集成（经典）| Azure
+title: 在 Azure 虚拟机（经典）上配置 SQL Server 的 Azure Key Vault 集成 | Azure
 description: 了解如何自动配置用于 Azure 密钥保管库的 SQL Server 加密。 本主题说明了如何将 Azure 密钥保管库集成和经典部署模型中创建的 SQL Server 虚拟机结合使用。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/17/2017
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 21f3c8d7d141c51cdd2c184bfd8bf27ac56ec51c
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 6df011ab7c58e4c306a5b9c23945ae2b6bc4ea1f
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003838"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272601"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）上配置 SQL Server 的 Azure Key Vault 集成
 > [!div class="op_single_selector"]
@@ -56,7 +55,7 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 | --- | --- | --- |
 | **$akvURL** |**密钥保管库 URL** |“https:\//contosokeyvault.vault.azure.cn/” |
 | **$spName** |**服务主体名称** |“fde2b411-33d5-4e11-af04eb07b669ccf2” |
-| **$spSecret** |**服务主体机密** |“9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =” |
+| **$spSecret** |**服务主体密码** |“9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =” |
 | **$credName** |**凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |“mycred1” |
 | **$vmName** |**虚拟机名称**：以前创建的 SQL VM 的名称。 |“myvmname” |
 | **$serviceName** |**服务名称**：与 SQL VM 关联的云服务名称。 |“mycloudservicename” |
@@ -66,7 +65,7 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 
 1. 在 Azure PowerShell 中，首先使用特定的值配置输入参数，如本主题前面各节中所述。 下面的脚本就是一个示例。
 
-        $akvURL = "https://contosokeyvault.vault.azure.cn/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.cn/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

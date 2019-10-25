@@ -61,7 +61,3 @@
   items:
     - name: Azure Stack MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=AzureStack'
-    - name: 定价信息
-      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: 培训和认证
-      href: /azure-stack/operator/azure-stack-train-and-cert

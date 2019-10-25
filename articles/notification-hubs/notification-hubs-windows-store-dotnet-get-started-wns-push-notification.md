@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中心向通用 Windows 平台应用发送通知 | Azure Docs
+title: 使用 Azure 通知中心向通用 Windows 平台应用发送通知 | Azure
 description: 了解如何使用 Azure 通知中心将通知推送到 Windows 通用平台应用程序。
 services: notification-hubs
 documentationcenter: windows
@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 12/22/2017
 ms.date: 07/15/2019
 ms.author: v-biyu
-ms.openlocfilehash: 45daec1716ba8519e087b643bcd3385f13beb012
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: ed0e0f44634fbf16b90273c65c7433ad3df83ebd
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560302"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272598"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向通用 Windows 平台应用发送通知
 

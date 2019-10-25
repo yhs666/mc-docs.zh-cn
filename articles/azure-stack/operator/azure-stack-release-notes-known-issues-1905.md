@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/14/2019
-ms.date: 07/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 7e4a3afbcfe331002b79f3f67145ee04ba6565c5
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+monikerRange: azs-1905
+ms.openlocfilehash: 686bd13a6779a8f9bf8e3b9f566db85edcca557a
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513543"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578442"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 的已知问题
 
@@ -44,7 +45,7 @@ ms.locfileid: "68513543"
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：尝试安装 1905 Azure Stack 更新时，更新状态可能会显示失败并更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。 1905 更新包大于以前的更新包，导致此问题更可能发生。
-- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“导入并安装更新”部分](azure-stack-apply-updates.md#import-and-install-updates)的说明手动上传更新包。
+- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“导入并安装更新”部分](azure-stack-apply-updates.md)的说明手动上传更新包。
 - 发生次数：常见
 
 ## <a name="portal"></a>门户
@@ -185,4 +186,4 @@ ms.locfileid: "68513543"
 ## <a name="next-steps"></a>后续步骤
 
 - [查看更新活动清单](azure-stack-release-notes-checklist.md)
-- [查看安全更新列表](azure-stack-release-notes-security-updates-1905.md)
+- [查看安全更新列表](azure-stack-release-notes-security-updates.md)

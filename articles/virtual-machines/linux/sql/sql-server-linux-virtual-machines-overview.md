@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: iaas-sql-server
 origin.date: 04/10/2018
-ms.date: 02/18/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 6397bec5ce5686bde39454c1f6eb5789a6eec37d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c6b0cfe3b14d0ec56127a166664ef0a7d1fc3eaa
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665948"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272660"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure 虚拟机 (Linux) 上的 SQL Server 概述
 
@@ -27,14 +26,14 @@ ms.locfileid: "56665948"
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Azure 虚拟机上的 SQL Server 允许你在云中使用完整版本的 SQL Server，而不需管理任何本地硬件。 使用即用即付时，SQL Server VM 还可以简化许可成本。
+Azure 虚拟机上的 SQL Server 允许你在云中使用完整版本的 SQL Server，而不需管理任何本地硬件。 使用标准预付费套餐时，SQL Server VM 还可以简化许可成本。
 
 Azure 虚拟机在中国许多不同的[地理区域](https://www.azure.cn/support/service-dashboard/)运行， 并提供各种[虚拟机大小](../sizes.md)。 使用虚拟机映像库可以创建 SQL Server VM，而且版本和操作系统都很正确。 因此，虚拟机适用于许多不同的 SQL Server 工作负荷。
 
 <!--Notice: Change around the world to China -->
 
 <a name="create"></a>
-##  <a name="get-started-with-sql-vms"></a>SQL VM 入门
+## <a name="get-started-with-sql-vms"></a>SQL VM 入门
 
 若要开始，请选择一个 SQL Server 虚拟机映像，其中包含所需的版本和操作系统。 下面的各部分针对相关 SQL Server 虚拟机库映像提供了指向 Azure 门户的直接链接。
 
@@ -54,7 +53,7 @@ Azure 虚拟机在中国许多不同的[地理区域](https://www.azure.cn/suppo
 > 若要查看可用的 Windows SQL Server 虚拟机映像，请参阅 [Azure 虚拟机上的 SQL Server 概述 (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 
 <a name="packages"></a>
-##  <a name="installed-packages"></a>已安装程序包
+## <a name="installed-packages"></a>已安装程序包
 
 在 Linux 上配置 SQL Server 时，请先安装数据库引擎包，然后根据需要安装多个可选包。 用于 SQL Server 的 Linux 虚拟机自动安装大多数包。 下表显示为每个分发安装了哪些包。
 
@@ -93,6 +92,8 @@ Azure Linux 虚拟机上的 SQL Server 入门：
 
 * [在 Azure 门户中创建 SQL Server VM](provision-sql-server-linux-virtual-machine.md)
 
-<!-- Not Available on Get answers to commonly asked questions about SQL VMs on Linux: -->
-<!-- Not Available on [SQL Server on Azure Linux Virtual Machines FAQ](sql-server-linux-faq.md)-->
+获取有关 Linux 上的 SQL VM 的常见问题解答：
+
+* [Azure Linux 虚拟机中的 SQL Server 常见问题解答](sql-server-linux-faq.md)
+
 <!-- Update_Description: update meta properties, wording update, update link -->

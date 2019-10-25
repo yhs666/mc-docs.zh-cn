@@ -13,11 +13,11 @@ origin.date: 10/31/2018
 ms.date: 11/26/2018
 ms.author: v-jay
 ms.openlocfilehash: 518a7b8c42c670637920cb23c4cba32270181998
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673088"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323741"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>开始使用 Azure 经典 CLI 创建内部负载均衡器
 
@@ -29,7 +29,7 @@ ms.locfileid: "52673088"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何 [使用 Resource Manager 模型执行这些步骤](load-balancer-get-started-ilb-arm-cli.md)。
+> Azure 具有用于创建和处理资源的两个不同部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何 [使用 Resource Manager 模型执行这些步骤](load-balancer-get-started-ilb-arm-cli.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -176,5 +176,5 @@ azure vm endpoint delete DB1 tcp-1433-1433
 
 [使用源 IP 关联配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[为负载均衡器配置空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 <!-- Update_Description: update meta properties, wording update -->

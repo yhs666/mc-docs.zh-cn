@@ -8,20 +8,19 @@ manager: digimobile
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/04/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 09ea437647028c872c2673b7628bab1a26e9ea0c
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 502ba96f907de2a25bfacdbd10b3256c8e702cde
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921037"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272749"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -39,6 +38,8 @@ ms.locfileid: "70921037"
 
 创建 SQL Server 虚拟机时，可从虚拟机库中选择一个预配置的映像。 以下步骤演示如何选择一个 SQL Server 2017 映像。
 
+<!--MOONCAKE CUSTOMZIE: BE CAREFULLY BEFORE UPDATE-->
+
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在 Azure 门户中，单击“创建资源”  。 该门户会打开“新建”窗口。 
@@ -47,7 +48,7 @@ ms.locfileid: "70921037"
 
 1. 在“新建”  窗口中，单击“虚拟机”  ，然后单击“全部查看”  。
 
-   ![“新建计算”窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
+    ![“新建计算”窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 1. 在搜索字段中，键入“SQL Server 2017”  ，然后按 Enter。
 
@@ -71,16 +72,18 @@ ms.locfileid: "70921037"
     >
     > 有关这些选项的详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
-1. 在“选择部署模型”下面，确认已选择“Resource Manager”。   对于新虚拟机，建议使用“Resource Manager”部署模型。 
+1. 验证在“创建”  键下是否显示“使用资源管理器部署”  。 对于新虚拟机，建议使用“Resource Manager”部署模型。 
 
 1. 选择“创建”  。
+
+<!--MOONCAKE CUSTOMZIE: BE CAREFULLY BEFORE UPDATE-->
 
 <a name="configure"></a>
 ## <a name="configuration-options"></a>配置选项
 
 <!--MOONCAKE: CUSTOMIZE ON FROM 75 TO 276-->
 <!--MOONCAKE: DO NOT UPDATE BEFORE CONFIRM-->
-<!--MOONCAKE: LAST CHECK ON 09/12/2019-->
+<!--MOONCAKE: LAST CHECK ON 10/14/2019-->
 
 有五个用于配置 SQL Server 虚拟机的选项卡。
 
@@ -281,7 +284,7 @@ ms.locfileid: "70921037"
 
 <!--MOONCAKE: CUSTOMIZE ON FROM FROM 75 TO 276-->
 <!--MOONCAKE: DO NOT UPDATE BEFORE CONFIRM-->
-<!--MOONCAKE: LAST CHECK ON 09/12/2019-->
+<!--MOONCAKE: LAST CHECK ON 10/10/2019-->
 
 可以从 Azure 门户监视部署情况。 屏幕顶部的“通知”  按钮显示部署的基本状态。
 

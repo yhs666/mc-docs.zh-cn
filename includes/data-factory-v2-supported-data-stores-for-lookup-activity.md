@@ -5,28 +5,29 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: include
-origin.date: 05/24/2019
-ms.date: 07/08/2019
+origin.date: 08/06/2019
+ms.date: 10/14/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 4b6a9410089fdb6fce8e65d4aaf177269264441a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c2fec6af369a9425dd383f1b8c1e5ff9d180f742
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570369"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72287361"
 ---
 | Category | 数据存储 |
 |:--- |:--- |
 | **Azure** |[Azure Blob 存储](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
+| &nbsp; |[Azure 数据资源管理器](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure 文件](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL 数据库](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL 数据库托管实例](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
+| &nbsp; |[Azure SQL 数据库托管实例](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
 | &nbsp; |[Azure SQL 数据仓库](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure 表存储](../articles/data-factory/connector-azure-table-storage.md) |
 | **数据库** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
@@ -37,9 +38,9 @@ ms.locfileid: "67570369"
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
 | &nbsp; |[Apache Impala（预览）](../articles/data-factory/connector-impala.md) |
-| &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) 
+| &nbsp; |[Informix](../articles/data-factory/connector-informix.md) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
-| &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |
+| &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |
@@ -80,10 +81,10 @@ ms.locfileid: "67570369"
 | &nbsp; |[Oracle Eloqua（预览）](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys（预览）](../articles/data-factory/connector-oracle-responsys.md) |
 | &nbsp; |[Oracle 服务云（预览）](../articles/data-factory/connector-oracle-service-cloud.md) |
-| &nbsp; |[Paypal（预览）](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[PayPal（预览）](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks（预览）](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
-| &nbsp; |[Salesforce 服务云](../articles/data-factory/connector-salesforce.md) |
+| &nbsp; |[Salesforce 服务云](../articles/data-factory/connector-salesforce-service-cloud.md) |
 | &nbsp; |[Salesforce Marketing Cloud（预览）](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |

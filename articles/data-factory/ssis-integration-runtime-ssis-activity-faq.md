@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sawinark
 manager: digimobile
-ms.openlocfilehash: d28437e1a575ad85bbf865008fb51f88f5c21dae
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 8e99a5b1311d347295e35ba6a1810246690d1059
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908712"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275264"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>排查 SSIS Integration Runtime 中的包执行问题
 
@@ -129,12 +129,19 @@ ms.locfileid: "68908712"
 
 如果参数 *ConnectUsingManagedIdentity* 为 **True**，请确保不要将连接管理器的身份验证方法配置为“Active Directory密码身份验证”。  可将其配置为“SQL 身份验证”，设置了 *ConnectUsingManagedIdentity* 时会忽略此配置。 
 
+### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>意外触发多个包执行
+
+* 可能的原因和建议的操作：
+  * ADF 存储过程活动用于触发 SSIS 包执行。 t-sql 命令可能会遇到暂时性问题，并触发重新运行，这将导致多个包执行。
+  * 请改用 ExecuteSSISPackage 活动，以确保除非用户在活动中设置重试计数，否则包执行不会重新运行。 可以在 [https://docs.azure.cn/data-factory/how-to-invoke-ssis-package-ssis-activity](/data-factory/how-to-invoke-ssis-package-ssis-activity) 中找到详细信息
+
 ### <a name="package-execution-takes-too-long"></a>包执行时间太长
 
 下面是可能的原因和建议的操作：
+
 * 在 SSIS Integration Runtime 中计划了过多的包执行。 所有这些执行将在队列中等待发生。
-  * 使用以下公式确定最大值： 
-    
+  * 使用以下公式确定最大值：
+
     每个 IR 的最大并行执行计数 = 节点计数 * 每个节点的最大并行执行数
   * 若要了解如何设置节点计数以及每个节点的最大并行执行数，请参阅[在 Azure 数据工厂中创建 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。
 * SSIS Integration Runtime 已停止或处于不正常状态。 若要了解如何检查 SSIS Integration Runtime 状态和错误，请参阅 [Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime)。

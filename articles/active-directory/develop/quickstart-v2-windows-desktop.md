@@ -58,7 +58,7 @@ ms.locfileid: "70134293"
 > 1. 在应用的页面列表中，选择“身份验证”。 
 > 1. 展开“桌面 + 设备”部分。   （如果“桌面 + 设备”不可见，首先请单击顶部的横幅，以便查看预览版身份验证体验） 
 > 1. 在“重定向 URI”部分下选择“添加 URI”。    键入 **urn:ietf:wg:oauth:2.0:oob**。
-> 1. 选择“其他安全性验证”  。
+> 1. 选择“保存”  。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>步骤 1：在 Azure 门户中配置应用程序

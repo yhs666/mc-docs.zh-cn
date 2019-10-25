@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: 3273646173cb6fc9b963fa7c47c7a63cf4486bbb
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+origin.date: 01/04/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 325e99bb117cd2784cc4a137f8d3a4e0444214c9
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222573"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72584098"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>如何通过 PHP 使用通知中心
 
@@ -102,8 +102,10 @@ ms.locfileid: "56222573"
     ```
 
 ### <a name="create-a-security-token"></a>创建安全令牌
-有关安全令牌创建的详细信息，请访问 [此处](http://msdn.microsoft.com/library/dn495627.aspx)。
-以下方法必须添加到 **NotificationHub** 类，以便根据当前请求的 URI 和提取自连接字符串的凭据创建令牌。
+
+<!-- Refer to the Azure documentation for information about how to [Create a SAS Security Token](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token). -->
+
+将 `generateSasToken` 方法添加到 `NotificationHub` 类，以便根据当前请求的 URI 和提取自连接字符串的凭据创建令牌。
 
     ```php
     private function generateSasToken($uri) {
@@ -282,5 +284,3 @@ ms.locfileid: "56222573"
 
 [PHP REST 包装器示例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [入门教程]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
-
-

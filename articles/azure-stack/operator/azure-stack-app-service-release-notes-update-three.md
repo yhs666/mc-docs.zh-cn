@@ -1,6 +1,6 @@
 ---
-title: 基于 Azure Stack 的应用服务 Update 3 发行说明 | Microsoft Docs
-description: 了解基于 Azure Stack 的应用服务 Update 3 的功能、已知问题和更新下载位置。
+title: Azure Stack 上的应用服务 Update 3 发行说明 | Microsoft Docs
+description: 了解 Azure Stack 上的应用服务 Update 3 中的改进、修复和已知问题。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,37 +13,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 04/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 7e9b2c9a8370dfb860be66c28ae8446e6cc2f517
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 643e5f1ca25f4c7ec3f0762664b6323cc37badf2
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529674"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578488"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>基于 Azure Stack 的应用服务 Update 3 发行说明
+# <a name="app-service-on-azure-stack-update-3-release-notes"></a>Azure Stack 上的应用服务 Update 3 发行说明
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-这些发行说明介绍了基于 Azure Stack 的 Azure 应用服务 Update 3 中的改进和修复，以及任何已知问题。 已知问题分为与部署、更新过程直接相关的问题，以及内部版本（安装后）的问题。
+这些发行说明介绍 Azure Stack 上的 Azure 应用服务 Update 3 中的改进、修复和已知问题。 已知问题分为三个部分：与部署直接相关的问题、更新过程问题，以及内部版本（安装后）的问题。
 
 > [!IMPORTANT]
-> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.3。
->
->
+> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
 
 ## <a name="build-reference"></a>内部版本参考
 
-基于 Azure Stack 的应用服务 Update 3 的内部版本号为 **74.0.13698.31**
+Azure Stack 上的应用服务 Update 3 的内部版本号为 **74.0.13698.31**。
 
 ### <a name="prerequisites"></a>先决条件
 
-在开始部署之前，请参阅[准备工作文档](azure-stack-app-service-before-you-get-started.md)。
+在开始部署之前，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
-在开始将基于 Azure Stack 的 Azure 应用服务升级到 1.3 之前，请在 Azure Stack 管理门户中的“Azure 应用服务管理”中确保所有角色都已准备就绪。
+在开始将基于 Azure Stack 的 Azure 应用服务升级到 1.3 之前，请在 Azure Stack 管理员门户中的“Azure 应用服务管理”中确保所有角色都已准备就绪。
 
 ![应用服务角色状态](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
@@ -84,13 +82,13 @@ ms.locfileid: "64529674"
 对于希望为基于 Azure Stack 的现有 Azure 应用服务部署迁移到包含的数据库的客户，请在完成基于 Azure Stack 的 Azure 应用服务 1.3 更新后执行以下步骤：
 
 > [!IMPORTANT]
-> 此过程大约需要花费 5-10 分钟。  此过程涉及终止现有的数据库登录会话。  计划停机时间来进行迁移，并在迁移后验证基于 Azure Stack 的 Azure 应用服务
+> 此过程大约需要花费 5-10 分钟。 此过程涉及终止现有的数据库登录会话。 计划停机时间来进行迁移，并在迁移后验证基于 Azure Stack 的 Azure 应用服务
 >
 >
 
-1. [将 AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. [将 AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。
 
-1. 启用包含的数据库
+1. 启用包含的数据库。
     ```sql
 
         sp_configure 'contained database authentication', 1;
@@ -99,7 +97,7 @@ ms.locfileid: "64529674"
             GO
     ```
 
-1. 将数据库转换为“部分包含的”。  此步骤将导致停机，因为需要终止所有活动会话
+1. 将数据库转换为“部分包含”。 此步骤将导致停机，因为需要终止所有活动会话。
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -141,7 +139,7 @@ ms.locfileid: "64529674"
             /********[appservice_hosting] Migration End********/
     '''
 
-1. Migrate Logins to Contained Database Users
+1. Migrate logins to contained database users.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -170,24 +168,25 @@ ms.locfileid: "64529674"
         GO
     ```
 
-验证
+**验证**
 
-1. 检查 SQL Server 是否启用了包含
+1. 检查 SQL Server 是否启用了包含。
 
     ```sql
         sp_configure  @configname='contained database authentication'
     ```
 
-1. 检查现有的包含的行为
+1. 检查现有的包含的行为。
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
 ### <a name="known-issues-post-installation"></a>已知问题（安装后）
 
-- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。  在 Azure Stack 部署文档的 Azure 应用服务中也提到了这一点。
+- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。 在 Azure Stack 部署文档的 Azure 应用服务中也提到了此问题。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理员门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
+
  * 源：任意
  * 源端口范围：*
  * 目标：IP 地址
@@ -205,4 +204,4 @@ ms.locfileid: "64529674"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
-- 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
+- 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。

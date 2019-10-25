@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/17/2017
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 57ca4f3fc643f42a3dd2c2cc7759a5d98b6eaf78
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 780d29a895f05b17198e82fd1592961fc7b72596
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003784"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272491"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>使用 PowerShell 在 Azure VM 中配置 Always On 可用性组
 > [!div class="op_single_selector"]
@@ -240,7 +239,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    上面指定的 GUID 是计算机对象类型的 GUID。 **CORP\Install** 帐户需要“读取所有属性”和“创建计算对象”权限才能为故障转移群集创建 Active Direct 对象。 默认情况下，已经将“读取所有属性”权限授予 CORP\Install，因此无需显式授予该权限。 有关创建故障转移群集所需权限的详细信息，请参阅 [Failover Cluster Step-by-Step Guide:Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)（故障转移群集分步指南：在 Active Directory 中配置帐户）。
+    上面指定的 GUID 是计算机对象类型的 GUID。 **CORP\Install** 帐户需要“读取所有属性”  和“创建计算对象”  权限才能为故障转移群集创建 Active Direct 对象。 默认情况下，已经将“读取所有属性”  权限授予 CORP\Install，因此无需显式授予该权限。 有关创建故障转移群集所需权限的详细信息，请参阅 [Failover Cluster Step-by-Step Guide:Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)（故障转移群集分步指南：在 Active Directory 中配置帐户）。
 
     现完成 Active Directory 和用户对象的配置，接下来，请创建两个 SQL Server VM 并将其加入此域。
 
@@ -502,17 +501,17 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 10. 创建备份目录，并为 SQL Server 服务帐户授予权限。 将使用该目录在辅助副本上准备可用性数据库。
 
-         $backup = "C:\backup"
-         New-Item $backup -ItemType directory
-         net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
-         icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
+        $backup = "C:\backup"
+        New-Item $backup -ItemType directory
+        net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
+        icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 11. 在 **ContosoSQL1** 上创建一个名为 **MyDB1** 的数据库，创建完整备份和日志备份，并使用 **WITH NORECOVERY** 选项在 **ContosoSQL2** 上还原它们。
 
-         Invoke-SqlCmd -Query "CREATE database $db"
-         Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
-         Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
-         Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
-         Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
+        Invoke-SqlCmd -Query "CREATE database $db"
+        Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
+        Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
+        Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
+        Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
 12. 在 SQL Server VM 上创建可用性组终结点，并在这些终结点上设置适当的权限。
 
          $endpoint =

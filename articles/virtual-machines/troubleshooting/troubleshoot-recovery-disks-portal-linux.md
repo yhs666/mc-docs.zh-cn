@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 11/14/2016
-ms.date: 09/16/2019
+origin.date: 08/19/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: eef860340e988f1ebf2b9b75edff47036c5df82c
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 501cee9dd0f2fac69581febdfee701c5da184e86
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921244"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272704"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Linux VM 来修复所有错误，然后重新创建原始 VM。
@@ -28,7 +27,7 @@ ms.locfileid: "70921244"
 故障排除过程如下：
 
 1. 停止受影响的 VM。
-1. 为 VM 的 OS 磁盘创建快照。
+1. 为 VM 的 OS 磁盘拍摄快照。
 1. 从快照创建虚拟硬盘。
 1. 将虚拟硬盘附加并装入到另一个 Windows VM，以便进行故障排除。
 1. 连接到故障排除 VM。 编辑文件或运行任何工具以修复原始虚拟硬盘上的问题。
@@ -48,12 +47,12 @@ ms.locfileid: "70921244"
 也可以单击启动诊断日志顶部的“屏幕截图”，下载捕获的 VM 屏幕截图。 
 
 ## <a name="take-a-snapshot-of-the-os-disk"></a>拍摄 OS 磁盘的快照
-快照是虚拟硬盘 (VHD) 的完整只读副本。 建议在拍摄快照前完全关闭 VM，以清除正在运行的所有进程。 若要拍摄 OS 磁盘的快照，请执行以下步骤：
+快照是虚拟硬盘 (VHD) 的完整只读副本。 建议在创建快照之前完全关闭 VM，以清除正在运行的所有进程。 若要创建 OS 磁盘的快照，请执行以下步骤：
 
-1. 转到 [Azure 门户](https://portal.azure.cn)。 从边栏中选择“虚拟机”  ，然后选择有问题的 VM。
-1. 在左侧窗格中，选择“磁盘”  ，然后选择 OS 磁盘的名称。
-    ![有关 OS 磁盘名称的图像](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. 然后，在 OS 磁盘的“概述”  页上，选择“创建快照”  。
+1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
+1. 在左窗格中选择“磁盘”，然后选择 OS 磁盘的名称。 
+    ![有关 OS 磁盘名称的插图](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. 然后，在 OS 磁盘的“概述”页上，选择“创建快照”。  
 1. 在 OS 磁盘所在位置创建快照。
 
 ## <a name="create-a-disk-from-the-snapshot"></a>从快照创建磁盘
@@ -81,8 +80,8 @@ ms.locfileid: "70921244"
     #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
     $diskSize = '128'
 
-    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-    $storageType = 'StandardLRS'
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
 
     #Provide the Azure region (e.g. chinanorth) where Managed Disks will be located.
     #This location should be same as the snapshot location
@@ -175,24 +174,12 @@ ms.locfileid: "70921244"
 
 Azure 门户现在支持更改 VM 的 OS 磁盘。 为此，请执行以下步骤：
 
-1. 转到 [Azure 门户](https://portal.azure.cn)。 从边栏中选择“虚拟机”  ，然后选择有问题的 VM。
-1. 在左侧窗格中，选择“磁盘”  ，然后选择“交换 OS 磁盘”  。
-    ![有关在 Azure 门户中交换 OS 磁盘的图像](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
+1. 在左窗格中选择“磁盘”，然后选择“交换 OS 磁盘”。  
+    ![有关在 Azure 门户中交换 OS 磁盘的插图](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. 选择已修复的新磁盘，然后键入 VM 的名称以确认更改。 如果在列表中看不到该磁盘，请在从故障排除 VM 中分离磁盘后等待 10 到 15 分钟。 另外，请确保该磁盘与 VM 位于同一位置。
 1. 选择“确定”。
-
-## <a name="re-enable-boot-diagnostics"></a>重新启用启动诊断
-从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 要检查启动诊断的状态并根据需要打开启动诊断，请在门户中选择 VM。 在“监视”下面，单击“诊断设置”。   确保状态为“打开”，并检查“启动诊断”旁边的复选标记是否为选中状态。   If you make any changes, click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>:
-
-![更新启动诊断设置](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>通过附加新的操作系统磁盘对托管磁盘 VM 进行故障排除
-1. 停止受影响的 VM。
-2. [创建托管磁盘 VM 的操作系统磁盘的托管磁盘快照](../windows/snapshot-copy-managed-disk.md)。
-3. [从快照创建托管磁盘](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。
-4. [将托管磁盘附加为 VM 的数据磁盘](../windows/attach-disk-ps.md)。
-5. [将步骤 4 中的数据磁盘更改为操作系统磁盘](../windows/os-disk-swap.md)。
 
 ## <a name="next-steps"></a>后续步骤
 如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅 [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（排查 Linux VM 上的应用程序连接问题）。

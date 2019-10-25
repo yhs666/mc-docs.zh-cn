@@ -1,23 +1,23 @@
 ---
 title: Azure Active Directory 标识保护的 Microsoft Graph | Microsoft Docs
-description: 了解如何在 Microsoft Graph 中查询 Azure Active Directory 提供的风险事件列表和相关信息。
+description: 了解如何在 Microsoft Graph 中查询 Azure Active Directory 提供的风险检测列表和相关信息。
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: reference
 origin.date: 01/25/2019
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57b5d07c41ef70fc114cf0c282637097035660c4
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1d52ea8327ff6cf3677ced211f0e90f180466b38
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993405"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292094"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory 标识保护和 Microsoft Graph 入门
 
@@ -26,7 +26,7 @@ Microsoft Graph 是 Microsoft 的统一 API 终结点，并且是 [Azure Active 
 * [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
-
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 
 ## <a name="connect-to-microsoft-graph"></a>连接到 Microsoft Graph
 
@@ -69,7 +69,7 @@ Microsoft Graph 是 Microsoft 的统一 API 终结点，并且是 [Azure Active 
 
    ![创建应用程序](./media/graph-get-started/44.png)
 
-   1. 在“名称”  文本框中，键入应用程序的名称（例如：AADIP 风险事件 API 应用程序）。
+   1. 在“名称”  文本框中，键入应用程序的名称（例如：AADIP 风险检测 API 应用程序）。
 
    1. 在“类型”中，选择“Web 应用程序和/或 Web API”。  
 
@@ -123,7 +123,7 @@ Microsoft Graph 是 Microsoft 的统一 API 终结点，并且是 [Azure Active 
 
    ![创建应用程序](./media/graph-get-started/24.png)
 
-   1. 在“密钥说明”文本框中，键入说明（例如，AADIP 风险事件）   。
+   1. 在“密钥说明”文本框中，键入说明（例如，AADIP 风险检测）   。
    1. 对于“持续时间”，请选择“1 年内”   。
    1. 单击“保存”  。
    1. 复制此密钥值，然后将其粘贴到安全位置。   
@@ -132,7 +132,7 @@ Microsoft Graph 是 Microsoft 的统一 API 终结点，并且是 [Azure Active 
    > 如果丢失此密钥，必须返回到此部分并创建新密钥。 将此密钥保密：持有该密钥的任何人都可以访问数据。
    > 
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>在 Microsoft Graph 中进行身份验证并查询标识风险事件 API
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>在 Microsoft Graph 中进行身份验证并查询标识风险检测 API
 
 现在应已获得：
 
@@ -158,7 +158,7 @@ Microsoft Graph 是 Microsoft 的统一 API 终结点，并且是 [Azure Active 
 
 将此标头作为请求发送到以下 API URL：`https://microsoftgraph.chinacloudapi.cn/beta/identityRiskEvents`
 
-如果成功，响应中会包含标识风险事件的集合，以及采用 OData JSON 格式的相关数据，在适当的情况下可以分析和处理这些数据。
+如果成功，响应中会包含标识风险检测的集合，以及采用 OData JSON 格式的相关数据，在适当的情况下可以分析和处理这些数据。
 
 下面是使用 PowerShell 进行身份验证和调用 API 的示例代码。  
 只需添加客户端 ID、密钥和租户域即可。
@@ -205,9 +205,9 @@ Microsoft Graph 是 Microsoft 的统一 API 终结点，并且是 [Azure Active 
 GET https://microsoftgraph.chinacloudapi.cn/beta/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>获取高风险和中等风险事件 (identityRiskEvents API)
+### <a name="get-the-high-risk-and-medium-risk-detections-identityriskevents-api"></a>获取高风险和中等风险检测 (identityRiskEvents API)
 
-中等风险和高风险事件表示那些可能有能力触发“标识保护”登录或用户风险策略的事件。 对它们而言，尝试登录的用户不是合法身份所有者的可能性为中等或高，因此应当优先修正这些事件。 
+中等风险和高风险检测表示那些可能有能力触发“标识保护”登录或用户风险策略的检测。 对它们而言，尝试登录的用户不是合法身份所有者的可能性为中等或高，因此应当优先修正这些事件。 
 
 ```
 GET https://microsoftgraph.chinacloudapi.cn/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
@@ -231,7 +231,7 @@ https://microsoftgraph.chinacloudapi.cn/beta/identityRiskEvents?`$filter=userID 
 ## <a name="next-steps"></a>后续步骤
 
 恭喜，已向 Microsoft Graph 发出了第一个调用！  
-现在，可以在适当的情况下查询标识风险事件和使用数据。
+现在，可以在适当的情况下查询标识风险检测和使用数据。
 
 若要详细 Microsoft Graph 以及如何使用图形 API 构建应用程序，请查看[文档](https://docs.microsoft.com/graph/overview)。同时，[Microsoft Graph 站点](https://developer.microsoft.com/graph)上提供了更丰富的信息。 
 

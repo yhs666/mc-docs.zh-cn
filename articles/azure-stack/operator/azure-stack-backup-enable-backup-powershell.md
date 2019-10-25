@@ -1,6 +1,6 @@
 ---
 title: 使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs
-description: 使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
+description: 了解如何使用 PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,28 +12,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2019
-ms.date: 06/03/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: fca82e0e50a7bb5db867c473e8cf94a8fe08783e
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: e6839445169336f3ea5c4d46fc75b542545d20a0
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381904"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578474"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 使用 Windows PowerShell 启用基础结构备份服务，以便定期备份以下内容：
- - 内部标识服务和根证书
- - 用户计划、产品/服务、订阅
- - 计算配额、存储配额和网络用户配额
- - 用户密钥保管库机密
- - 用户 RBAC 角色和策略
- - 用户存储帐户
+ - 内部标识服务和根证书。
+ - 用户计划、套餐、订阅。
+ - 计算配额、存储配额和网络用户配额。
+ - 用户密钥保管库机密。
+ - 用户 RBAC 角色和策略。
+ - 用户存储帐户。
 
 可以访问 PowerShell cmdlet 以启用备份、启动备份，以及通过操作员管理终结点获取备份信息。
 
@@ -47,16 +47,16 @@ ms.locfileid: "66381904"
 
 | 变量        | 说明   |
 |---              |---                                        |
-| $username       | 使用共享驱动器位置具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。 |
-| $password       | 键入用户的**密码**。 |
-| $sharepath      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
-| $frequencyInHours | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
-| $retentionPeriodInDays | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
-| $encryptioncertpath | 适用于 1901 及更高版本。  参数在 Azure Stack 模块 1.7 及更高版本中提供。 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
-| $encryptionkey | 适用于 1811 或更低版本。 参数在 Azure Stack 模块 1.6 或更低版本中提供。 用于数据加密的加密密钥。 使用 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 来生成新密钥。 |
+| `$username`       | 使用共享驱动器位置具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。 |
+| `$password`       | 键入用户的**密码**。 |
+| `$sharepath`      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（例如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
+| `$frequencyInHours` | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
+| `$retentionPeriodInDays` | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
+| `$encryptioncertpath` | 适用于 1901 及更高版本。 参数在 Azure Stack 模块 1.7 及更高版本中提供。 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
+| `$encryptionkey` | 适用于内部版本 1811 或更低版本。 参数在 Azure Stack 模块 1.6 或更低版本中提供。 加密密钥用于数据加密。 使用 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 来生成新密钥。 |
 |     |     |
 
-### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>使用证书在 1901 及更高版本上启用备份
+### <a name="enable-backup-on-1901-and-later-using-certificate"></a>使用证书在 1901 及更高版本上启用备份
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -142,14 +142,14 @@ ms.locfileid: "66381904"
    ```
 
 ### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
-用于配置基础结构备份的 PowerShell cmdlet 为 Set-AzsBackupConfiguration。 在以前的版本中，此 cmdlet 为 Set-AzsBackupShare。 此 cmdlet 要求提供一个证书。 如果为基础结构备份配置了加密密钥，则不能更新加密密钥或查看属性。 需使用 1.6 版管理员 PowerShell。 
+用于配置基础结构备份的 PowerShell cmdlet 为 Set-AzsBackupConfiguration。 在以前的版本中，此 cmdlet 为 Set-AzsBackupShare。 此 cmdlet 要求提供一个证书。 如果为基础结构备份配置了加密密钥，则不能更新加密密钥或查看属性。 需使用 1.6 版管理员 PowerShell。
 
-如果基础结构备份在更新到 1901 之前已进行配置，则可使用 1.6 版管理员 PowerShell 来设置和查看加密密钥。 1.6 版不允许从加密密钥更新到证书文件。
-请参阅[安装 Azure Stack PowerShell](azure-stack-powershell-install.md)，详细了解如何安装模块的正确版本。 
+如果基础结构备份在更新到 1901 之前已进行配置，则可使用 1.6 版管理员 PowerShell 来设置和查看加密密钥。 1\.6 版不允许从加密密钥更新到证书文件。
+请参阅[安装 Azure Stack PowerShell](azure-stack-powershell-install.md)，详细了解如何安装模块的正确版本。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何运行备份，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)
+了解如何运行备份，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)。
 
-若要了解如何验证备份是否已运行，请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md)
+了解如何验证备份是否已运行，请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md)。

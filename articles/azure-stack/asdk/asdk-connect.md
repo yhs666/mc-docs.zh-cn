@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/06/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 2f7230dfe805dc1a2d176c8db7aefcd7d22f5173
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 211daeeaec40394892e8e1658ed497ab4a7b2c13
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857008"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578516"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -34,7 +34,7 @@ ms.locfileid: "70857008"
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>使用 RDP 连接到 Azure Stack
 
-单个并发用户可以在 Azure Stack 管理门户或用户门户中，通过远程桌面连接直接从 ASDK 主计算机管理资源。
+单个并发用户可以在 Azure Stack 管理员门户或用户门户中，通过远程桌面连接直接从 ASDK 主计算机管理资源。
 
 > [!TIP]
 > 此选项还可让你在已登录到 ASDK 主计算机的情况下，再次使用 RDP 登录到在 ASDK 主计算机上创建的虚拟机 (VM)。
@@ -43,7 +43,7 @@ ms.locfileid: "70857008"
 
 2. 在 ASDK 主计算机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。  
 
-3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理门户。 ASDK 管理门户地址为 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
+3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理员门户。 ASDK 管理员门户地址为 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
 
 4. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 用户凭据登录到用户门户。 ASDK 用户门户地址为 [https://portal.local.azurestack.external](https://portal.local.azurestack.external)。
 
@@ -128,7 +128,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-vpn-connectivity"></a>测试 VPN 连接
 
-若要测试门户连接，请打开浏览器，然后转到用户门户 (https://portal.local.azurestack.external/) 或管理门户 (https://adminportal.local.azurestack.external/) 。 
+若要测试门户连接，请打开浏览器，然后转到用户门户 (https://portal.local.azurestack.external/) 或管理员门户 (https://adminportal.local.azurestack.external/) 。
 
 使用相应的订阅凭据登录，以创建和管理资源。  
 

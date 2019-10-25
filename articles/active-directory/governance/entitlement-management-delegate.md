@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 origin.date: 07/10/2019
-ms.date: 08/22/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a238f632bb6c79ccb5d74799a26af77382d71ee2
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 1d1e39a771b05681949924b0ec548055c9125337
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993355"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292041"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 权利管理（预览版）中委托任务
 
@@ -31,13 +31,15 @@ ms.locfileid: "69993355"
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
 > 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
 
-默认情况下，全局管理员与用户管理员可以创建和管理 Azure AD 权利管理的各个方面。 但是，充当这些角色的用户不一定全面了解在哪些情况下需要访问包。 通常，部门中的用户知道哪些人员需要展开协作。
+默认情况下，全局管理员与用户管理员可以创建和管理 Azure AD 权利管理的各个方面。 但是，充当这些角色的用户不一定全面了解在哪些情况下需要访问包。 通常，部门中的用户知道哪些人员需要展开协作。 
 
-不要向非管理员授予不受限制的权限，而可以向用户授予执行其作业所需的最低权限，并避免创建有冲突或者不适当的访问权限。 本文介绍在权利管理中委托各种任务时可分配的角色。
+不要向非管理员授予不受限制的权限，而可以向用户授予执行其作业所需的最低权限，并避免创建有冲突或者不适当的访问权限。 本文介绍在权利管理中委托各种任务时可分配的角色。 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>供部门采用的委托示例
 
-为了了解如何在权利管理中委托任务，让我们从一个示例着手。 假设你的组织中有以下五个用户：
+为了了解如何在权利管理中委托任务，让我们从一个示例着手。 
+
+假设你的组织中有以下五个用户：
 
 | User | 系 | 注释 |
 | --- | --- | --- |
@@ -60,6 +62,7 @@ ms.locfileid: "69993355"
 现在，研究和营销部门可以利用权利管理。 Bob、Carol、Dave 和 Elisa 可在各自的目录中创建和管理访问包。
 
 ![权利管理委托示例](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>权利管理角色
 
@@ -114,6 +117,8 @@ ms.locfileid: "69993355"
 | [应用管理员](../users-groups-roles/directory-assign-admin-roles.md) | 目录所有者 |  |  | :heavy_check_mark: |  |
 | [云应用管理员](../users-groups-roles/directory-assign-admin-roles.md) | 目录所有者 |  |  | :heavy_check_mark: |  |
 | User | 目录所有者 | 仅限组所有者 | 仅限组所有者 | 仅限应用所有者 |  |
+
+若要确定任务的最小特权角色，还可以参考[按 Azure Active Directory 中的管理员任务划分的管理员角色](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)。
 
 ## <a name="add-a-catalog-creator"></a>添加目录创建者
 

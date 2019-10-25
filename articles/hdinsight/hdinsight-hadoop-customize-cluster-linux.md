@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 04/02/2019
-ms.date: 08/19/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1e0bab3d74ff49af813e56d95c85c395edeacfa9
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: f9f040a7641eece359bcce3cee5f764ebb2bb237
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878494"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292557"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义 Azure HDInsight 群集
 
@@ -153,17 +153,17 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在创建群集期间从 Azure 门户使用脚本操作
 
-1. 根据[使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)中所述开始创建群集。 创建群集期间，将会看到“群集摘要”页。  从“群集摘要”  页中选择 __的 __链接。
+1. 根据[使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)中所述开始创建群集。 创建群集期间，将会看到“群集摘要”页。  从“群集摘要”  页中选择__高级设置__的__编辑__链接。
 
     ![“高级设置”链接](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
 3. 从“高级设置”部分中选择“脚本操作”   。 在“脚本操作”部分选择“+ 提交新项”。  
 
-    ![提交新脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
+    ![提交新脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
 4. 使用“选择脚本”条目选择预制的脚本。  若要使用自定义脚本，请选择“自定义”  。 然后提供脚本的“名称”和“Bash 脚本 URI”。  
 
-    ![在“选择脚本”窗体中添加脚本](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![在“选择脚本”窗体中添加脚本](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     下表描述窗体中的元素：
 
@@ -179,7 +179,7 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 5. 选择“创建”保存脚本。  然后可以使用“+ 提交新项”再添加一个脚本。 
 
-    ![多个脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
+    ![多个脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     添加完脚本后，选择“选择”按钮，然后选择“下一步”按钮返回到“群集摘要”部分    。
 
@@ -332,7 +332,7 @@ HDInsight .NET SDK 提供客户端库，以方便从 .NET 应用程序使用 HDI
 
 4. 使用“选择脚本”条目选择预制的脚本。  若要使用自定义脚本，请选择“自定义”  。 然后提供脚本的“名称”和“Bash 脚本 URI”。  
 
-    ![在“选择脚本”窗体中添加脚本](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![在“选择脚本”窗体中添加脚本](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     下表描述窗体中的元素：
 
@@ -451,7 +451,7 @@ Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName `
 
 6. 还可以使用“脚本操作”部分条目右侧的省略号 **...** 来执行操作。
 
-    ![脚本操作 - 省略号](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![脚本操作 - 省略号](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -552,7 +552,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 2. 从页面顶部栏中选择“操作”条目  。 此时会显示通过 Ambari 在群集上执行的当前操作和以前操作的列表。
 
-    ![选中了“操作”的 Ambari Web UI 栏](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![选中了“操作”的 Ambari Web UI 栏](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. 查找“操作”  列中包含 **run\_customscriptaction** 的条目。 这些条目是在运行脚本操作时创建的。
 
@@ -566,7 +566,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 * 存储日志位于 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
 
-    ![操作的屏幕截图](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![脚本操作日志](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     在此目录下，日志分别针对**头节点**、**工作器节点**和 **Zookeeper 节点**进行组织。 请看以下示例：
 
@@ -597,7 +597,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 ### <a name="cant-import-name-blobservice"></a>无法导入名称 BlobService
 
-__症状__ 。 脚本操作失败。 在 Ambari 中查看该操作时，显示类似于以下错误的文本：
+__症状__。 脚本操作失败。 在 Ambari 中查看该操作时，显示类似于以下错误的文本：
 
 ```
 Traceback (most recent call list):
@@ -606,9 +606,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__原因__ 。 如果升级 HDInsight 群集中随附的 Python Azure 存储客户端，则会发生此错误。 HDInsight 需要 Azure 存储客户端 0.20.0。
+__原因__。 如果升级 HDInsight 群集中随附的 Python Azure 存储客户端，则会发生此错误。 HDInsight 需要 Azure 存储客户端 0.20.0。
 
-__解决方法__ 。 若要解决此错误，请使用 `ssh` 手动连接到每个群集节点。 运行以下命令重新安装正确的存储客户端版本：
+__解决方法__。 若要解决此错误，请使用 `ssh` 手动连接到每个群集节点。 运行以下命令重新安装正确的存储客户端版本：
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -634,6 +634,6 @@ sudo pip install azure-storage==0.20.0
 * [在 HDInsight 群集上安装并使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "群集创建过程中的阶段"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "群集创建过程中的阶段"
 
 <!--Update_Description: wording update: change 'blade' into 'sections'-->

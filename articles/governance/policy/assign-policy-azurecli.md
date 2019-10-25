@@ -4,21 +4,21 @@ description: 使用 Azure CLI 创建 Azure Policy 分配以识别不符合的资
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 04/22/2019
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 8e6c4ee9ebe01e5a877e01d4bd4ab612a44f5cf3
-ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
+ms.openlocfilehash: 698f181e7a9583d4e126b4f8e32902c85c7fd6df
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471966"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526697"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>使用 Azure CLI 创建策略分配以识别不符合的资源
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>快速入门：使用 Azure CLI 创建策略分配以识别不符合的资源
 
-若要了解 Azure 中的符合性，第一步是确定资源的状态。 本快速入门逐步讲解如何创建策略分配，以识别未使用托管磁盘的虚拟机。
+若要了解 Azure 中的符合性，第一步是确定资源的状态。
+本快速入门逐步讲解如何创建策略分配，以识别未使用托管磁盘的虚拟机。
 
 此过程结束时，你可以成功识别哪些虚拟机未使用托管磁盘。 这些虚拟机不符合策略分配要求。 
 
@@ -27,12 +27,11 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 
-
 本快速入门需要运行 Azure CLI 2.0.4 版或更高版本，以便在本地安装并使用 CLI。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="prerequisites"></a>先决条件
 
-使用 Azure CLI 注册 Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 要注册资源提供程序，必须具有注册资源提供程序操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
+使用 Azure CLI 注册 Azure Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 要注册资源提供程序，必须具有注册资源提供程序操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
 ```azurecli
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -48,15 +47,15 @@ az provider register --namespace 'Microsoft.PolicyInsights'
 
 运行以下命令创建策略分配：
 
-```cli
+```azurecli
 az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit VMs without managed disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 上述命令使用以下信息：
 
-- **名称** - 分配的实际名称。  对于此示例，使用 *audit-vm-manageddisks*。
+- **名称** - 分配的实际名称。 对于此示例，使用 *audit-vm-manageddisks*。
 - **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”  。
-- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID  。 若要获取策略定义 ID，请运行以下命令： `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID  。 若要获取策略定义 ID，请运行以下命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **范围** - 范围确定在其中实施策略分配的资源或资源组。 它可以从订阅延伸至资源组。 请务必将 &lt;scope&gt; 替换为资源组的名称。
 
 ## <a name="identify-non-compliant-resources"></a>识别不合规的资源
@@ -72,7 +71,7 @@ $policyAssignment.PolicyAssignmentId
 
 接下来，运行以下命令，获取输出到 JSON 文件中的不合规资源的资源 ID：
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

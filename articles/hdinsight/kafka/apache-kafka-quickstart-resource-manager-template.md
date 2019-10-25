@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2315c719c3e216b763d7db33097137d603a23bdc
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: ae51a450f8dc77237f4ad6f353bf1f5bd511ad91
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921118"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583820"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -41,7 +41,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
 
 1. 单击下面的图像可在 Azure 门户中打开模板。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 若要创建 Kafka 群集，请使用以下值：
 

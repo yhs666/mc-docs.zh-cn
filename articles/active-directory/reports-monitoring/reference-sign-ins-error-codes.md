@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 08/08/2019
-ms.date: 08/28/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d074e49ee4b9c0b31938725866721c9c37c6dbb7
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 6069c9135f34c8c8bd242427f0eefcf1b5cd34f2
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134364"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292138"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登录活动报告错误代码 
 
@@ -147,8 +147,11 @@ ms.locfileid: "70134364"
 |70018|由于用户为设备代码流键入了错误的用户代码，验证码无效。 授权未获批准。|
 |70019|验证码已过期。 让用户重试登录。|
 |70037|提供了错误的质询响应。 已拒绝远程控制身份验证会话。|
+|70043|Azure 条件访问会话管理强制会话过期|
+|70044|Azure 条件访问会话管理强制会话过期|
 |75001|SAML 消息绑定期间出错。|
 |75003|应用程序返回了与不受支持的绑定相关的错误（无法通过 HTTP POST 以外的绑定发送 SAML 协议响应）。 请联系应用程序所有者。|
+|75005|Azure AD 不支持应用程序针对单一登录所发送的 SAML 请求。 请联系应用程序所有者。|
 |75008|由于 SAML 请求的目标不符合预期，来自应用程序的请求被拒绝。 请联系应用程序所有者。|
 |75011|用户在服务中用于身份验证的身份验证方法与请求的身份验证方法不匹配。 请联系应用程序所有者。|
 |75016|SAML2 身份验证请求包含无效的 NameIdPolicy。 请联系应用程序所有者。|

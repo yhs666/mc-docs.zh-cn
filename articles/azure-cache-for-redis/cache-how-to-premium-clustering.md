@@ -40,15 +40,15 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.
 在 Azure 中，Redis 群集以主/副模型提供。在该模型中，每个分片都有一个带副本的主/副对，副本由 Azure Redis 缓存服务管理。 
 
 ## <a name="clustering"></a>群集功能
-在创建缓存期间，在“新建 Azure Redis 缓存”边栏选项卡上启用群集功能。 
+在创建缓存期间，在“新建 Azure Redis 缓存”边栏选项卡上启用群集功能  。 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-在“Redis 群集”边栏选项卡上配置群集功能。
+在“Redis 群集”  边栏选项卡上配置群集功能。
 
 ![群集功能][redis-cache-clustering]
 
-群集中最多可以有 10 个分片。 单击“启用”，滑动滑块或者针对“分片计数”键入一个 1 到 10 之间的数字，并单击“确定”。
+群集中最多可以有 10 个分片。 单击“启用”  ，滑动滑块或者针对“分片计数”  键入一个 1 到 10 之间的数字，并单击“确定”  。
 
 每个分片都是一个由 Azure 管理的主/副缓存对，而缓存的总大小则通过将定价层中选择的缓存大小乘以分片数来计算。 
 
@@ -67,7 +67,7 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>更改正在运行的高级缓存上的群集大小
-若要更改正在运行并且已启用群集功能的高级缓存上的群集大小，请在“资源菜单”中单击“Redis 群集大小”。
+若要更改正在运行并且已启用群集功能的高级缓存上的群集大小，请在“资源菜单”  中单击“Redis 群集大小”  。
 
 > [!NOTE]
 > 虽然 Azure Redis 缓存高级层已发行正式发布版，但 Redis 群集大小功能目前以预览版提供。
@@ -76,7 +76,7 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.
 
 ![Redis 群集大小][redis-cache-redis-cluster-size]
 
-如果要更改群集大小，请使用滑块，或在“分片计数”文本框中键入 1 到 10 之间的数字，并单击“确定”进行保存。
+如果要更改群集大小，请使用滑块，或在“分片计数”  文本框中键入 1 到 10 之间的数字，并单击“确定”  进行保存。
 
 增加群集大小会增加最大吞吐量和缓存大小。 增加群集大小不会增加用于客户端的最大连接数据。
 
@@ -125,7 +125,7 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.
 高级缓存的最大大小为 53 GB。 可以创建多达 10 个分片，因此最大大小为 530 GB。 如果需要的大小更大，则可[请求更多](https://www.azure.cn/support/support-azure)。 有关详细信息，请参阅 [Azure Redis 缓存定价](https://www.azure.cn/pricing/details/redis-cache/)。
 
 ### <a name="do-all-redis-clients-support-clustering"></a>是否所有 Redis 客户端都支持群集功能？
-目前，并非所有客户端都支持 Redis 群集功能。 StackExchange.Redis 是不支持该功能的客户端。 有关其他客户端的详细信息，请参阅 [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial)（Redis 群集教程）的 [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)（操作群集）部分。 
+目前，并非所有客户端都支持 Redis 群集功能。 StackExchange.Redis 是支持该功能的客户端之一。 有关其他客户端的详细信息，请参阅 [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial)（Redis 群集教程）的 [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)（操作群集）部分。 
 
 Redis 群集协议要求每个客户端直接以群集模式连接到每个分片。 尝试使用不支持群集的客户端可能会导致大量的 [MOVED 重定向异常](https://redis.io/topics/cluster-spec#moved-redirection)。
 

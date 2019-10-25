@@ -10,12 +10,12 @@ origin.date: 08/06/2019
 ms.date: 09/09/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a1e575614b262728872e3c3e9e2ad18e8d27df5f
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 240ef565dbcb13d15d59c836915ac0351fd9e801
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254488"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519401"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 
@@ -259,24 +259,24 @@ ms.locfileid: "70254488"
 
 2. 将以下代码添加到 **config.js** 文件。 此代码会定义应用程序所需的配置设置和值。
 
-   ```javascript
-   const config = {};
+    ```javascript
+    const config = {};
 
-   config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
-   config.authKey =
+    config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
+    config.authKey =
      process.env.AUTH_KEY || "[the PRIMARY KEY value of your Azure Cosmos DB account";
-   config.databaseId = "ToDoList";
-   config.containerId = "Items";
+    config.databaseId = "ToDoList";
+    config.containerId = "Items";
 
-   if (config.host.includes("https://localhost:")) {
+    if (config.host.includes("https://localhost:")) {
      console.log("Local environment detected");
      console.log("WARNING: Disabled checking of self-signed certs. Do not have this code in production.");
      process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
      console.log(`Go to http://localhost:${process.env.PORT || '3000'} to try the sample.`);
-   }
+    }
 
-   module.exports = config;
-   ```
+    module.exports = config;
+    ```
 
 3. 在 **config.js** 文件中，使用 [Azure 门户](https://portal.azure.cn)中 Azure Cosmos DB 帐户的“密钥”页中的值更新 HOST 和 AUTH_KEY 的值。 
 

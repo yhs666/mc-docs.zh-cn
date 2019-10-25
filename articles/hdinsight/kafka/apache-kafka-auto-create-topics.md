@@ -10,14 +10,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/18/2018
-ms.date: 01/14/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 89a1c3ad876aee79f4232b79d4aad2e06738d07b
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 6078c58ad70550caf273e84e55c229372e300940
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029147"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583842"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何将 Apache Kafka on HDInsight 配置为自动创建主题
 
@@ -29,7 +29,7 @@ ms.locfileid: "54029147"
 
 1. 从 [Azure 门户](https://portal.azure.cn)选择 Kafka 群集。
 
-2. 从“群集概览”中选择“群集仪表板”。 
+2. 从“群集概览”中选择“群集仪表板”   。 
 
     ![群集仪表板处于选中状态的门户的图像](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
@@ -39,15 +39,15 @@ ms.locfileid: "54029147"
 
 3. 从页面左侧的列表选择 Kafka 服务。
 
-    ![服务列表](./media/apache-kafka-auto-create-topics/service-list.png)
+    ![服务列表](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. 在页面中间选择“配置”。
 
-    ![“服务配置”选项卡](./media/apache-kafka-auto-create-topics/service-config.png)
+    ![“服务配置”选项卡](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
 5. 在“筛选器”字段中输入值 `auto.create`。 
 
-    ![筛选器字段图像](./media/apache-kafka-auto-create-topics/filter.png)
+    ![筛选器字段图像](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     这将筛选的属性，并显示列表`auto.create.topics.enable`设置。
 
@@ -55,7 +55,7 @@ ms.locfileid: "54029147"
 
     ![auto.create.topics.enable 条目的图像](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-7. 依次选择 Kafka 服务、“重启”、“重启所有受影响的项”。 出现提示时，选择“确认全部重启”。
+7. 依次选择 Kafka 服务、“重启”、“重启所有受影响的项”。   出现提示时，选择“确认全部重启”  。
 
     ![重启选择的图像](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 

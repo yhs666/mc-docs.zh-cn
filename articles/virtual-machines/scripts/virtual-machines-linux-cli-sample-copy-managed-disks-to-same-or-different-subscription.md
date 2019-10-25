@@ -18,11 +18,11 @@ ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: e9f47107de90ce545b604bb2be23eb8b1f85e63a
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666362"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323834"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘复制到相同或不同的订阅
 

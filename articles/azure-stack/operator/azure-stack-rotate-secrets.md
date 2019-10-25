@@ -16,12 +16,13 @@ ms.date: 09/16/2019
 ms.reviewer: ppacent
 ms.author: v-jay
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 02b6db4bc2ecea5c6a4ca8270ba6f93c427e6a0e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+monikerRange: '>=azs-1803'
+ms.openlocfilehash: 8f6a164528d656c53a76f55a0e2656e7ea9c7c04
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857027"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578437"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -205,7 +206,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 
 5. 等待机密完成轮换。 外部机密轮换通常需要大约一小时。
 
-    机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。 
+    机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。**
 
     > [!Note]
     > 如果机密轮换失败，请按照错误消息中的说明操作，并结合 **-ReRun** 参数重新运行 **Start-SecretRotation**。
@@ -253,7 +254,7 @@ Remove-PSSession -Session $PEPSession
 
 3. 等待机密完成轮换。
 
-   机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。 
+   机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。**
     > [!Note]
     > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Internal** 和 **-ReRun** 参数重新运行 **Start-SecretRotation**。  
 

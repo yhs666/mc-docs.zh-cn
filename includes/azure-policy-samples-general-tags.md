@@ -5,18 +5,18 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
+origin.date: 09/18/2018
 ms.date: 01/14/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 146c2f4778c79594e53cc9ba1b3d45614903286e
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 684202e89e822d72b4a46a3a2ebb5898c745180a
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996461"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526648"
 ---
-### <a name="tags"></a>标记
+### <a name="tags"></a>Tags
 
 |  |  |
 |---------|---------|

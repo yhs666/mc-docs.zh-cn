@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 3554c73798036fa06370804d935668b420ddec1a
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+monikerRange: azs-1907
+ms.openlocfilehash: d2766b4e0c0228c765cdd72d597a4e6c2a55fa49
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857379"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578440"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 的已知问题
 
@@ -35,7 +36,7 @@ ms.locfileid: "70857379"
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：尝试安装 1907 Azure Stack 更新时，更新状态可能会失败并更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
-- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“导入并安装更新”部分](azure-stack-apply-updates.md#import-and-install-updates)的说明手动上传更新包。
+- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“导入并安装更新”部分](azure-stack-apply-updates.md)的说明手动上传更新包。
 - 发生次数：常见
 
 ## <a name="portal"></a>门户
@@ -109,6 +110,12 @@ ms.locfileid: "70857379"
 - 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。   Azure Stack 目前不支持此功能。
 - 发生次数：常见
 
+### <a name="network-connection-type"></a>网络连接类型
+
+- 适用于：此问题适用于任何 1906 或 1907 环境。 
+- 原因：在用户门户中，“添加连接”  边栏选项卡显示了使用 **VNet-to-VNet** 的选项。 Azure Stack 目前不支持此功能。 
+- 发生次数：常见 
+
 #### <a name="documentation"></a>文档
 
 - 适用于：此问题适用于所有支持的版本。
@@ -175,4 +182,4 @@ ms.locfileid: "70857379"
 ## <a name="next-steps"></a>后续步骤
 
 - [查看更新活动清单](azure-stack-release-notes-checklist.md)
-- [查看安全更新列表](azure-stack-release-notes-security-updates-1907.md)
+- [查看安全更新列表](azure-stack-release-notes-security-updates.md)

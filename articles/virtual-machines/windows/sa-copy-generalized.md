@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中创建通用化 VM 的非托管映像 | Azure
+title: 如何从 Azure VM 创建非托管 VM 映像 | Azure
 description: 创建通用化 Windows VM 的非托管映像，用于在 Azure 中创建 VM 的多个副本。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,18 +11,17 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: e53c8b94e892d87fa1dfca0b405a520a8c78a867
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 7877192fdae56dfc1cd32a81e2326a3049233fe4
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539205"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272324"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -53,10 +52,10 @@ ms.locfileid: "69539205"
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 
 
-> [!IMPORTANT]
-> 将 VHD 上传到 Azure 或从 VM 创建映像完成之前不要重启 VM。 如果 VM 意外重启，请运行 Sysprep 将其再次通用化。
-> 
-> 
+    > [!IMPORTANT]
+    > 将 VHD 上传到 Azure 或从 VM 创建映像完成之前不要重启 VM。 如果 VM 意外重启，请运行 Sysprep 将其再次通用化。
+    > 
+    > 
 
 ## <a name="log-in-to-azure-powershell"></a>登录到 Azure PowerShell
 1. 打开 Azure PowerShell 并登录到 Azure 帐户。

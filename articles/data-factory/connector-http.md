@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/29/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 0762b486a9c7fc201722b6673143e55e574ed194
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: db773e7de31bb349c0d1dfb545d0272abd5f0453
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570567"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275490"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 HTTP 终结点复制数据
 
@@ -32,6 +32,11 @@ ms.locfileid: "67570567"
 
 ## <a name="supported-capabilities"></a>支持的功能
 
+以下活动支持此 HTTP 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
+
 可以将数据从 HTTP 源复制到任何支持的接收器数据存储。 有关复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
 
 可以使用此 HTTP 连接器：
@@ -42,6 +47,10 @@ ms.locfileid: "67570567"
 
 > [!TIP]
 > 若要先为数据检索测试 HTTP 请求，再在数据工厂中配置 HTTP 连接器，请了解标头和正文的 API 规范要求。 可以使用 Postman 或 Web 浏览器等工具进行验证。
+
+## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>入门
 
@@ -59,7 +68,7 @@ HTTP 链接的服务支持以下属性：
 | url | Web 服务器的基 URL。 | 是 |
 | enableServerCertificateValidation | 指定连接到 HTTP 终结点时，是否启用服务器 SSL 证书验证。 HTTPS 服务器使用自签名证书时，将此属性设置为 false  。 | 否<br /> （默认值为 true）  |
 | authenticationType | 指定身份验证类型。 允许的值为：Anonymous、Basic、Digest、Windows 和 ClientCertificate      。 <br><br> 有关这些身份验证类型的更多属性和 JSON 示例，请参阅此表格下面的部分。 | 是 |
-| connectVia | 用于连接到数据存储的 [ Integration Runtime](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络）。 如果未指定，则此属性使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的 [ Integration Runtime](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>使用基本、摘要或 Windows 身份验证
 
@@ -159,12 +168,12 @@ HTTP 链接的服务支持以下属性：
 
 有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](concepts-datasets-linked-services.md)一文。 
 
-- 有关 **Parquet 和带分隔符的文本格式**，请参阅 [Parquet 和带分隔符的文本格式数据集](#parquet-and-delimited-text-format-dataset)部分。
-- 有关其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
+- 对于 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集](#format-based-dataset)部分。
+- 有关其他格式（如 **ORC 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 和带分隔符的文本格式数据集
+### <a name="format-based-dataset"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集
 
-若要以 **Parquet 或带分隔符的文本格式**通过 HTTP 复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 HTTP 支持以下属性：
+若要在 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**之间来回复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 HTTP 支持以下属性：
 
 | 属性    | 说明                                                  | 必选 |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -205,7 +214,7 @@ HTTP 链接的服务支持以下属性：
 
 ### <a name="other-format-dataset"></a>其他格式数据集
 
-若要以 **ORC/Avro/JSON/Binary 格式**通过 HTTP 复制数据，需要支持以下属性：
+若要以 **ORC 格式**通过 HTTP 复制数据，需要支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -267,12 +276,12 @@ HTTP 链接的服务支持以下属性：
 
 ### <a name="http-as-source"></a>HTTP 作为源
 
-- 若要从 **Parquet 和带分隔符的文本格式**复制，请参阅 [Parquet 和带分隔符的文本格式源](#parquet-and-delimited-text-format-source)部分。
-- 若要从其他格式（如 **ORC/Avro/JSON/Binary 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
+- 若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式源](#format-based-source)部分。
+- 若要从其他格式（如 **ORC 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 和带分隔符的文本格式源
+#### <a name="format-based-source"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式源
 
-若要以 **Parquet 或带分隔符的文本格式**通过 HTTP 复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 HTTP 支持以下属性：
+若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 HTTP 支持以下属性：
 
 | 属性                 | 说明                                                  | 必选 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -329,7 +338,7 @@ HTTP 链接的服务支持以下属性：
 
 #### <a name="other-format-source"></a>其他格式源
 
-若要以 **ORC/Avro/JSON/Binary 格式**通过 HTTP 复制数据，需要复制活动**源**部分支持以下属性：
+若要以 **ORC 格式**通过 HTTP 复制数据，需要复制活动 **source** 节支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -367,6 +376,10 @@ HTTP 链接的服务支持以下属性：
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 
 ## <a name="next-steps"></a>后续步骤

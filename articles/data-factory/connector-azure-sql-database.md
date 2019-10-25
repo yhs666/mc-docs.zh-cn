@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 06/14/2019
-ms.date: 08/12/2019
+origin.date: 09/09/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: ae93f1e9c356d98302d20524f8c9349d211d6897
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 36b67c088ae731a78009c16319bb19b71d87cfcd
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908707"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275516"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure SQL 数据库复制数据
 
@@ -231,7 +231,9 @@ Azure SQL 数据库链接服务支持以下属性：
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为 AzureSqlTable   。 | 是 |
-| tableName | 链接服务引用的 Azure SQL 数据库实例中的表名称或视图名称。 | 对于源为“No”，对于接收器为“Yes” |
+| schema | 架构的名称。 |对于源为“No”，对于接收器为“Yes”  |
+| 表 | 表/视图的名称。 |对于源为“No”，对于接收器为“Yes”  |
+| tableName | 具有架构的表/视图的名称。 支持此属性是为了向后兼容。 对于新的工作负荷，请使用 `schema` 和 `table`。 | 对于源为“No”，对于接收器为“Yes” |
 
 #### <a name="dataset-properties-example"></a>数据集属性示例
 
@@ -247,7 +249,8 @@ Azure SQL 数据库链接服务支持以下属性：
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -259,18 +262,18 @@ Azure SQL 数据库链接服务支持以下属性：
 
 ### <a name="azure-sql-database-as-the-source"></a>Azure SQL 数据库作为源
 
-若要从 Azure SQL 数据库复制数据，请将复制活动源中的 **type** 属性设置为 **SqlSource**。 复制活动源  部分支持以下属性：
+若要从 Azure SQL 数据库复制数据，复制活动的 **source** 节需要支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
-| type | 复制活动源的 **type** 属性必须设置为 **SqlSource**。 | 是 |
+| type | 复制活动源的 **type** 属性必须设置为 **AzureSqlSource**。 为了向后兼容，仍然支持“SqlSource”类型。 | 是 |
 | sqlReaderQuery | 此属性使用自定义 SQL 查询来读取数据。 例如 `select * from MyTable`。 | 否 |
 | sqlReaderStoredProcedureName | 从源表读取数据的存储过程的名称。 最后一个 SQL 语句必须是存储过程中的 SELECT 语句。 | 否 |
 | storedProcedureParameters | 存储过程的参数。<br/>允许的值为名称或值对。 参数的名称和大小写必须与存储过程参数的名称和大小写匹配。 | 否 |
 
 **需要注意的要点：**
 
-- 如果为 **SqlSource** 指定 **sqlReaderQuery**，则复制活动针对 Azure SQL 数据库源运行此查询可获取数据。 也可通过指定 sqlReaderStoredProcedureName 和 storedProcedureParameters 来指定存储过程，前提是存储过程使用参数   。
+- 如果为 **AzureSqlSource** 指定 **sqlReaderQuery**，则复制活动针对 Azure SQL 数据库源运行此查询可获取数据。 也可通过指定 sqlReaderStoredProcedureName 和 storedProcedureParameters 来指定存储过程，前提是存储过程使用参数   。
 - 如果不指定 **sqlReaderQuery** 或 **sqlReaderStoredProcedureName**，则数据集 JSON 的“structure”节中定义的列用于构建查询。 查询 `select column1, column2 from mytable` 针对 Azure SQL 数据库运行。 如果数据集定义没有“structure”，则会从表中选择所有列。
 
 #### <a name="sql-query-example"></a>SQL 查询示例
@@ -294,7 +297,7 @@ Azure SQL 数据库链接服务支持以下属性：
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -326,7 +329,7 @@ Azure SQL 数据库链接服务支持以下属性：
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
                 "storedProcedureParameters": {
                     "stringData": { "value": "str3" },
@@ -365,17 +368,20 @@ GO
 > [!TIP]
 > 若要详细了解支持的写入行为、配置和最佳做法，请参阅[有关将数据载入 Azure SQL 数据库的最佳做法](#best-practice-for-loading-data-into-azure-sql-database)。
 
-若要向 Azure SQL 数据库复制数据，请将复制活动接收器中的 **type** 属性设置为 **SqlSink**。 复制活动接收器部分中支持以下属性  ：
+将数据复制到 Azure SQL 数据库时，复制活动的 **sink** 节支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
-| type | 复制活动接收器的 **type** 属性必须设置为 **SqlSink**。 | 是 |
+| type | 复制活动接收器的 **type** 属性必须设置为 **AzureSqlSink**。 为了向后兼容，仍然支持“SqlSink”类型。 | 是 |
 | writeBatchSize | 每批要插入到 SQL 表中的行数。 <br/> 允许的值为 **integer**（行数）。 默认情况下，Azure 数据工厂会根据行大小动态确定适当的批大小。 | 否 |
 | writeBatchTimeout | 超时前等待批插入操作完成的时间。<br/> 允许的值为 **timespan**。 例如“00:30:00”（30 分钟）。 | 否 |
 | preCopyScript | 将数据写入到 Azure SQL 数据库之前，指定复制活动要运行的 SQL 查询。 每次运行复制仅调用该查询一次。 使用此属性清理预加载的数据。 | 否 |
 | sqlWriterStoredProcedureName | 定义如何将源数据应用于目标表的存储过程的名称。 <br/>此存储过程由每个批处理调用  。 若要执行仅运行一次且与源数据无关的操作（例如删除或截断），请使用 `preCopyScript` 属性。 | 否 |
+| storedProcedureTableTypeParameterName |存储过程中指定的表类型的参数名称。  |否 |
+| sqlWriterTableType |要在存储过程中使用的表类型名称。 通过复制活动，使移动数据在具备此表类型的临时表中可用。 然后，存储过程代码可合并复制数据和现有数据。 |否 |
 | storedProcedureParameters |存储过程的参数。<br/>允许的值为名称和值对。 参数的名称和大小写必须与存储过程参数的名称和大小写匹配。 | 否 |
-| sqlWriterTableType | 指定要在存储过程中使用的表类型名称。 通过复制活动可以在具有此表类型的临时表中提供将移动的数据。 然后，存储过程代码可合并复制数据和现有数据。 | 否 |
+| tableOption | 指定是否根据源架构自动创建接收器表（如果不存在）。 当接收器指定存储过程或在复制活动中配置了暂存复制时，不支持自动表创建。 允许的值为：`none`（默认值）、`autoCreate`。 |否 |
+| disableMetricsCollection | 数据工厂收集指标（如 Azure SQL 数据库 DTU），以获取复制性能优化和建议。 如果你担心此行为，请指定 `true` 将其关闭。 | 否（默认值为 `false`） |
 
 **示例 1：追加数据**
 
@@ -401,8 +407,9 @@ GO
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 100000
+                "type": "AzureSqlSink",
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }
@@ -435,9 +442,10 @@ GO
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "AzureSqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-                "sqlWriterTableType": "CopyTestTableType",
+                "storedProcedureTableTypeParameterName": "MyTable",
+                "sqlWriterTableType": "MyTableType",
                 "storedProcedureParameters": {
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
@@ -508,77 +516,58 @@ END
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> 调用 SQL 接收器的存储过程
 
-将数据复制到 Azure SQL 数据库时，还可通过其他参数配置并调用某个用户指定的存储过程。
+将数据复制到 Azure SQL 数据库时，还可通过其他参数配置并调用某个用户指定的存储过程。 存储过程功能利用[表值参数](https://msdn.microsoft.com/library/bb675163.aspx)。
 
 > [!TIP]
 > 调用存储过程时，会逐行处理数据，而不使用批量操作，我们不建议将批量操作用于大规模复制。 在[有关将数据载入 Azure SQL 数据库的最佳做法](#best-practice-for-loading-data-into-azure-sql-database)中了解详细信息。
 
 当内置复制机制无法使用时，还可使用存储过程。 例如，在将源数据最终插入目标表之前应用额外的处理。 额外处理的示例包括合并列、查找其他值以及将数据插入多个表。
 
-以下示例演示如何使用存储过程在 Azure SQL 数据库数据库中的表内执行 upsert。 假设输入数据和接收器 **Marketing** 表各有三列：**ProfileID**、**State** 和 **Category**。 基于 ProfileID 列执行 upsert，并仅将其应用于特定类别  。
+以下示例演示如何使用存储过程在 Azure SQL 数据库数据库中的表内执行 upsert。 假设输入数据和接收器 **Marketing** 表各有三列：**ProfileID**、**State** 和 **Category**。 基于 ProfileID 列执行更新插入，并仅将其应用于名为“ProductA”的特定类别  。
 
-**输出数据集：** “tableName”是存储过程中相同的表类型参数名，如以下存储过程脚本中所示：
+1. 在数据库中，使用与 **sqlWriterTableType** 相同的名称定义表类型。 表类型的架构与输入数据返回的架构相同。
 
-```json
-{
-    "name": "AzureSQLDbDataset",
-    "properties":
-    {
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "<Azure SQL Database linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "Marketing"
+    ```sql
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL，
+        [Category] [varchar](256) NOT NULL
+    )
+    ```
+
+2. 在数据库中，使用与 **SqlWriterStoredProcedureName** 相同的名称定义存储过程。 它可处理来自指定源的输入数据，并将其合并到输出表中。 存储过程中的表类型的参数名称与数据集中定义的 **tableName** 相同。
+
+    ```sql
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
+    AS
+    BEGIN
+    MERGE [dbo].[Marketing] AS target
+    USING @Marketing AS source
+    ON (target.ProfileID = source.ProfileID and target.Category = @category)
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT MATCHED THEN
+        INSERT (ProfileID, State, Category)
+        VALUES (source.ProfileID, source.State, source.Category);
+    END
+    ```
+
+3. 在 Azure 数据工厂中，在复制活动中定义 **SQL sink** 节，如下所示：
+
+    ```json
+    "sink": {
+        "type": "AzureSqlSink",
+        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "storedProcedureTableTypeParameterName": "Marketing",
+        "SqlWriterTableType": "MarketingType",
+        "storedProcedureParameters": {
+            "category": {
+                "value": "ProductA"
+            }
         }
     }
-}
-```
+    ```
 
-按如下所示在复制活动中定义 **SQL sink** 节。
-
-```json
-"sink": {
-    "type": "SqlSink",
-    "SqlWriterTableType": "MarketingType",
-    "SqlWriterStoredProcedureName": "spOverwriteMarketing",
-    "storedProcedureParameters": {
-        "category": {
-            "value": "ProductA"
-        }
-    }
-}
-```
-
-在数据库中，使用与 **SqlWriterStoredProcedureName** 相同的名称定义存储过程。 它可处理来自指定源的输入数据，并将其合并到输出表中。 存储过程中的表类型的参数名称与数据集中定义的 **tableName** 相同。
-
-```sql
-CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
-AS
-BEGIN
-  MERGE [dbo].[Marketing] AS target
-  USING @Marketing AS source
-  ON (target.ProfileID = source.ProfileID and target.Category = @category)
-  WHEN MATCHED THEN
-      UPDATE SET State = source.State
-  WHEN NOT MATCHED THEN
-      INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category);
-END
-```
-
-在数据库中，使用与 **sqlWriterTableType** 相同的名称定义表类型。 表类型的架构与输入数据返回的架构相同。
-
-```sql
-CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL
-)
-```
-
-存储过程功能利用[表值参数](https://msdn.microsoft.com/library/bb675163.aspx)。
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL 数据库的数据类型映射
 
@@ -621,6 +610,14 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 
 >[!NOTE]
 > 对于映射到十进制临时类型的数据类型，目前 Azure 数据工厂支持的最大精度为 28。 如果有精度大于 28 的数据，请考虑在 SQL 查询中将其转换为字符串。
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活动属性
+
+若要了解有关属性的详细信息，请查看 [GetMetadata 活动](control-flow-get-metadata-activity.md) 
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持用作源和接收器的数据存储的列表，请参阅[支持的数据存储和格式](copy-activity-overview.md##supported-data-stores-and-formats)。

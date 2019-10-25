@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户 | Azure
+title: 使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户 | Azure
 description: Azure PowerShell 脚本示例 - 将托管磁盘的 VHD 导出/复制到相同或不同区域中的存储帐户
 services: virtual-machines-linux
 documentationcenter: storage
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/17/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0de279e72a44c449d216d50a44bca4a1117049e2
-ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
+ms.openlocfilehash: 5ad8fac74ab4a88d9de6b54a7568e7aa266ad14b
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67325780"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272870"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户
 
@@ -64,16 +63,31 @@ $storageAccountKey = 'yourStorageAccountKey'
 #Provide the name of the destination VHD file to which the VHD of the managed disk will be copied.
 $destinationVHDFileName = "yourvhdfilename"
 
+#Set the value to 1 to use AzCopy tool to download the data. This is the recommended option for faster copy.
+#Download AzCopy v10 from the link here: https://docs.azure.cn/storage/common/storage-use-azcopy-v10
+#Ensure that AzCopy is downloaded in the same folder as this file
+#If you set the value to 0 then Start-AzStorageBlobCopy will be used. Azure storage will asynchronously copy the data. 
+$useAzCopy = 1 
+
 # Set the context to the subscription Id where managed disk is created
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 #Generate the SAS for the managed disk 
 $sas = Grant-AzDiskAccess -ResourceGroupName $ResourceGroupName -DiskName $diskName -DurationInSecond $sasExpiryDuration -Access Read 
+
 #Create the context of the storage account where the underlying VHD of the managed disk will be copied
 $destinationContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-#Copy the VHD of the managed disk to the storage account 
-Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageContainerName -DestContext $destinationContext -DestBlob $destinationVHDFileName
+#Copy the VHD of the managed disk to the storage account
+if($useAzCopy -eq 1)
+{
+    $containerSASURI = New-AzStorageContainerSASToken -Context $destinationContext -ExpiryTime(get-date).AddSeconds($sasExpiryDuration) -FullUri -Name $storageContainerName -Permission rw
+    .\azcopy copy $sas.AccessSAS $containerSASURI
+
+}else{
+
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageContainerName -DestContext $destinationContext -DestBlob $destinationVHDFileName
+}
 
 ```
 

@@ -10,12 +10,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 0bb7b44fc219515008b1ef9c61c276a099e1adb6
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: fb3655a952849df26dacd61a91ca809147eb19e7
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857168"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583792"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack
 
@@ -31,7 +31,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 1. Azure Stack 环境 1904 内部版本或更高版本
 2. [Visual Studio Code](https://code.visualstudio.com/)
 3. [Azure 帐户扩展](https://github.com/Microsoft/vscode-azure-account)
-4. [Azure Stack 订阅](https://azure.microsoft.com/overview/azure-stack/)
+4. [Azure Stack 订阅](https://www.azure.cn/overview/azure-stack/)
 
 ## <a name="steps-to-connect-to-azure-stack"></a>连接到 Azure Stack 的步骤
 

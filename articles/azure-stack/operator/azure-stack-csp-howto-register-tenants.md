@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/07/2019
-ms.date: 07/29/2019
+origin.date: 09/17/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: cecb85d2a607a9c73aba54ea0630ffc20a798a18
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 9093ede07be810608525f4751a25ee1a543f1e7e
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513470"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578464"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -56,13 +56,17 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
-更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
-
-> [!NOTE]  
-> 若要执行此步骤，必须[注册 Azure Stack](azure-stack-registration.md)。
+更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用量跟踪和计费。 若要执行此步骤，必须先[注册 Azure Stack](azure-stack-registration.md)。
 
 1. 使用权限提升的提示符打开 Windows PowerShell，并运行：  
-    `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`
+
+   ```powershell
+   Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+   ```
+
+   >[!Note]
+   > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
 

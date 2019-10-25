@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 07/03/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 020fd3fcb947f324f7d5cd6b11688ed49fdfbe1d
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: f313517a9c0a8926d44d64d9b101331f156e3910
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306748"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519400"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库上预配吞吐量
 
@@ -38,7 +38,7 @@ ms.locfileid: "71306748"
 
 ## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
 
-```azcli-interactive
+```azurecli
 az cosmosdb database create --db-name
                             [--key]
                             [--name]

@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: na
 origin.date: 03/19/2018
 ms.date: 03/19/2019
-ms.author: markscu
+ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: c418f8aaddd8544c6acde13e58cf6a4eb87de749
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: da71dc51e514d39cd6c88ca4820a80f349b51efe
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329813"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583780"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>将低优先级 VM 与 Batch 配合使用
 

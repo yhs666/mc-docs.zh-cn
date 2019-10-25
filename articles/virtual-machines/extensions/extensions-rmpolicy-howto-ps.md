@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Policy 限制 VM 扩展安装 | Azure
+title: 使用 Azure Policy 限制 Windows VM 上的扩展安装 | Azure
 description: 使用 Azure Policy 限制扩展部署。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -7,20 +7,19 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: 00f8ec58a71dcd03f2d810ba1b84054dca770649
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: b67b20cf90bf527fbba32dfca47098c7ed8d6c43
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913042"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272779"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 

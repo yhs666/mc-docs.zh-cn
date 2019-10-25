@@ -1,0 +1,46 @@
+### YamlMime:Landing
+title: 使用帮助文档
+summary: 作为员工、IT 工作人员或最终用户，为你的工作或学校帐户设置身份验证、重置你自己的密码、设置 Microsoft Authenticator 应用以及使用各种门户。
+metadata:
+  title: 有关身份验证、应用和设备的用户帮助
+  description: 作为员工或最终用户，了解如何设置并使用身份验证、Microsoft Authenticator 应用和“我的应用”门户。
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  ms.collection: M365-identity-device-management
+  author: eross-msft
+  ms.author: v-junlch
+  origin.date: 08/26/2019
+  ms.date: 09/30/2019
+  ms.openlocfilehash: 4171cb27e42131efec2fa3bcdceaff3c0630f5b5
+  ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 10/12/2019
+  ms.locfileid: "72292172"
+landingContent:
+- title: 选择双重验证方法
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是双重验证？
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 设置验证方法
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: 管理设置
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: 获取帮助
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: 重置自己的密码
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是密码重置？
+      url: user-help-password-reset-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 注册密码重置
+      url: active-directory-passwords-reset-register.md

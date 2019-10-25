@@ -107,7 +107,7 @@ MSAL 负责管理缓存和刷新访问令牌，因此应用程序无需执行这
    1. 在“重定向 URI”  部分的重定向 URI 列表中：
    1. 在“类型”  列中选择“公共客户端(移动和桌面)”  。
    1. 在“重定向 URI”列中输入  `urn:ietf:wg:oauth:2.0:oob`
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 1. 转到 Visual Studio，打开 App.xaml.cs  文件，然后将下面代码片段中的 `Enter_the_Application_Id_here` 替换为刚注册并复制的应用程序 ID。
 
     ```csharp

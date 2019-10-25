@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: 3063f87a326fc5abf52fbcafb85b0d182d92c754
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.date: 10/28/2019
+ms.openlocfilehash: ea259fef24ba4d308d6d0b1180da2a9d1c612772
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921205"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583833"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入门：使用 Azure 门户在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -41,7 +41,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
 
 2. 在左侧菜单中，导航到“+ 创建资源” > “Analytics” > “HDInsight”    。
    
-    ![创建 HDInsight 群集](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![创建 HDInsight 群集](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 2. 在“基本信息”中，输入或选择以下信息  ：
 
@@ -52,7 +52,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
     
    选择“群集类型”，以显示“群集配置”   。
    
-   ![基于 HDInsight 基本配置的 Apache Kafka 群集](./media/apache-kafka-get-started/custom-basics-kafka.png)
+   ![基于 HDInsight 基本配置的 Apache Kafka 群集](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. 从“群集配置”中选择以下值  ：
 
@@ -63,7 +63,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
 
     选择“选择”以保存群集类型设置，然后返回到“基本信息”   。
 
-    ![选择群集类型](./media/apache-kafka-get-started/kafka-cluster-type.png)
+    ![选择群集类型](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 4. 在“基本信息”中，输入或选择以下信息  ：
 
@@ -102,7 +102,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
 
     “每个工作节点的磁盘数”条目配置 Apache Kafka on HDInsight 的可伸缩性。  Apache Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Apache Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Apache Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
-   ![设置 Apache Kafka 群集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
+   ![设置 Apache Kafka 群集大小](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
 8. 在“高级设置”中，选择“下一步”以使用默认设置继续   。
 

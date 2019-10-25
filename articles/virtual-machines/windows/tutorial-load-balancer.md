@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/03/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e34dd4c535f2c9dc722f52d384f7d7c439b75da5
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 13ec8c7960db1b580317ad1dc2289f272df86729
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539133"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272841"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>教程：在 Azure 中使用 Azure PowerShell 均衡 Windows 虚拟机负载以创建高可用性应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
@@ -46,6 +45,8 @@ Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通�
 若要控制流量流，需为映射到 VM 的特定端口和协议定义负载均衡器规则。
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
+
+打开 Azure Powershell 控制台，并以管理员权限运行以下脚本。
 
 <!--Not Available on Azure Cloud Shell-->
 

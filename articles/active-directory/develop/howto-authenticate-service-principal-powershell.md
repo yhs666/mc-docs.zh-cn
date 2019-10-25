@@ -8,21 +8,22 @@ manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 10/24/2018
-ms.date: 06/24/2019
+origin.date: 08/19/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3974da0ccb30511250a250f96e4d813ab1ff861
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 07635478dc413b531db384c5bf59725f196ca41c
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568479"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292031"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>如何：通过 Azure PowerShell 使用证书创建服务主体
 
@@ -32,7 +33,7 @@ ms.locfileid: "67568479"
 * 执行无人参与的脚本时，使用证书进行身份验证。
 
 > [!IMPORTANT]
-> 请考虑使用 Azure 资源的托管标识作为应用程序标识，而不是创建服务主体。 如果代码在支持托管标识的服务上运行并访问支持 Azure Active Directory (Azure AD) 身份验证的资源，则托管标识是更好的选择。 
+> 请考虑使用 Azure 资源的托管标识作为应用程序标识，而不是创建服务主体。 如果代码在支持托管标识的服务上运行并访问支持 Azure Active Directory (Azure AD) 身份验证的资源，则托管标识是更好的选择。 若要详细了解 Azure 资源的托管标识（包括当前支持它的服务），请参阅[什么是 Azure 资源的托管标识？](../managed-identities-azure-resources/overview.md)。
 
 本文演示如何创建使用证书进行身份验证的服务主体。 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
 
@@ -49,6 +50,9 @@ ms.locfileid: "67568479"
 ## <a name="create-service-principal-with-self-signed-certificate"></a>使用自签名证书创建服务主体
 
 下面的示例介绍了简单的方案。 它使用 [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) 创建具有自签名证书的服务主体，并使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) 将[参与者](../../role-based-access-control/built-in-roles.md#contributor)角色分配给该服务主体。 角色分配的范围限定为当前所选 Azure 订阅。 若要选择其他订阅，请使用 [Set-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)。
+
+> [!NOTE]
+> New-SelfSignedCertificate cmdlet 和 PKI 模块目前在 PowerShell Core 中不受支持。 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

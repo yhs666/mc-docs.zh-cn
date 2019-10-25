@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中心向特定 Windows Phone 推送通知 | Azure Docs
+title: 使用 Azure 通知中心向特定 Windows Phone 推送通知 | Azure
 description: 本教程介绍如何使用 Azure 通知中心将通知推送到注册到应用程序后端的特定（并非所有）Windows Phone 8 或 Windows Phone 8.1 设备。
 services: notification-hubs
 documentationcenter: windows
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: 55968f4ea924eb93f380394a7fc83809dbe92cf8
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5570590d17ebbfe6f2476283642364aa218157e1
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222583"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272464"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定 Windows Phone 设备推送通知
 
@@ -29,7 +29,7 @@ ms.locfileid: "56222583"
 
 本教程演示如何使用 Azure 通知中心将推送通知发送到特定 Windows Phone 8 或 Windows Phone 8.1 设备。 如果要以 Windows Phone 8.1（非 Silverlight）为目标，请参阅本教程的 [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 版本。
 
-在通知中心创建注册时，请通过加入一个或多个标记来启用此方案。 将通知发送到标记时，已注册该标记的所有设备将接收通知。 有关标记的详细信息，请参阅[注册中的标记](notification-hubs-tags-segment-push-message.md)。
+在通知中心创建注册时，请通过加入一个或多个标记  来启用此方案。 将通知发送到标记时，已注册该标记的所有设备将接收通知。 有关标记的详细信息，请参阅[注册中的标记](notification-hubs-tags-segment-push-message.md)。
 
 > [!NOTE]
 > 通知中心 Windows Phone SDK 不支持将 Windows 推送通知服务 (WNS) 与 Windows Phone 8.1 Silverlight 应用配合使用。 若要将 WNS（而不是 MPNS）与 Windows Phone 8.1 Silverlight 应用配合使用，请遵循使用 REST API 的[通知中心 - Windows Phone Silverlight 教程]。
@@ -206,7 +206,7 @@ ms.locfileid: "56222583"
     ```
 
     此类使用隔离存储区存储此设备要接收的新闻类别。 它还包含用于通过[模板](notification-hubs-templates-cross-platform-push-messages.md)通知注册来注册这些类别的方法。
-4. 在 `App.xaml.cs` 项目文件中，将以下属性添加到 `App` 类。 将 `<hub name>` 和 `<connection string with listen access>` 占位符替换为通知中心名称和前面获取的 DefaultListenSharedAccessSignature 的连接字符串。
+4. 在 `App.xaml.cs` 项目文件中，将以下属性添加到 `App` 类。 将 `<hub name>` 和 `<connection string with listen access>` 占位符替换为通知中心名称和前面获取的 DefaultListenSharedAccessSignature 的连接字符串  。
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
@@ -298,7 +298,7 @@ ms.locfileid: "56222583"
     ![包含类别的移动应用][1]
    
     应用 UI 提供了一组开关，可以使用它们选择要订阅的类别。
-2. 启用一个或多个类别开关，然后单击“订阅”。
+2. 启用一个或多个类别开关，然后单击“订阅”  。
    
     应用程序将所选类别转换为标签并针对所选标签从通知中心请求注册新设备。 返回注册的类别并显示在对话框中。
    
@@ -327,6 +327,9 @@ ms.locfileid: "56222583"
 
 <!-- URLs.-->
 [通知中心入门]: notification-hubs-windows-mobile-push-notifications-mpns.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Mobile Service]: /develop/mobile/android
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 
 <!-- Update_Description: wording update -->

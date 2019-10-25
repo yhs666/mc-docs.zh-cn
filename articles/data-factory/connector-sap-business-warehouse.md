@@ -10,21 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 08/07/2018
-ms.date: 07/08/2019
+origin.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: e383b32808eb4884bafd995054d4f8dd4e260cf7
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c56c071aecd848066266e5014717708fead1b7dd
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570393"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275463"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP Business Warehouse 复制数据
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 SAP Business Warehouse (BW) 复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
 
+>[!TIP]
+>若要了解 ADF 对 SAP 数据集成方案的总体支持，请参阅[使用 Azure 数据工厂进行 SAP 数据集成白皮书](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含详细介绍、比较和指导。
+
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 SAP Business Warehouse 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 SAP Business Warehouse 复制到任何受支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -93,9 +101,9 @@ SAP Business Warehouse (BW) 链接服务支持以下属性：
 
 ## <a name="dataset-properties"></a>数据集属性
 
-有关可用于定义数据集的各部分和属性的完整列表，请参阅数据集一文。 本部分提供 SAP BW 数据集支持的属性列表。
+有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](concepts-datasets-linked-services.md)一文。 本部分提供 SAP BW 数据集支持的属性列表。
 
-要从 SAP BW 复制数据，请将数据集的 type 属性设置为“RelationalTable”  。 RelationalTable 类型的 SAP BW 数据集不支持任何类型特定的属性。
+要从 SAP BW 复制数据，请将数据集的 type 属性设置为“SapBwCube”  。 RelationalTable 类型的 SAP BW 数据集不支持任何类型特定的属性。
 
 **示例：**
 
@@ -103,15 +111,18 @@ SAP Business Warehouse (BW) 链接服务支持以下属性：
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+如果使用 `RelationalTable` 类型数据集，该数据集仍按原样受支持，但我们建议今后使用新数据集。
 
 ## <a name="copy-activity-properties"></a>复制活动属性
 
@@ -119,11 +130,11 @@ SAP Business Warehouse (BW) 链接服务支持以下属性：
 
 ### <a name="sap-bw-as-source"></a>SAP BW 作为源
 
-要从 SAP BW 复制数据，请将复制活动中的源类型设置为“RelationalSource”  。 复制活动**source**部分支持以下属性：
+若要从 SAP BW 复制数据，复制活动的 **source** 节支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
-| type | 复制活动 source 的 type 属性必须设置为：**RelationalSource** | 是 |
+| type | 复制活动 source 的 type 属性必须设置为：**SapBwSource** | 是 |
 | 查询 | 指定要从 SAP BW 实例读取数据的 MDX 查询。 | 是 |
 
 **示例：**
@@ -147,7 +158,7 @@ SAP Business Warehouse (BW) 链接服务支持以下属性：
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -157,6 +168,8 @@ SAP Business Warehouse (BW) 链接服务支持以下属性：
     }
 ]
 ```
+
+如果使用 `RelationalSource` 类型源，该源仍按原样受支持，但我们建议今后使用新源。
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW 的数据类型映射
 
@@ -186,6 +199,11 @@ SAP Business Warehouse (BW) 链接服务支持以下属性：
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
+
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 
 ## <a name="next-steps"></a>后续步骤

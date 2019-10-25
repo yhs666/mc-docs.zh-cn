@@ -29,13 +29,13 @@ ms.locfileid: "65598797"
 ## <a name="to-add-or-change-profile-information"></a>添加或更改个人资料信息
 1. 以组织的用户管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 依次选择“Azure Active Directory”、“用户”，然后选择一个用户。 例如，_Alain Charon_。
+2. 依次选择“Azure Active Directory”、“用户”，然后选择一个用户。   例如，_Alain Charon_。
 
-    此时将出现“Alain Charon - 个人资料”页面。
+    此时将出现“Alain Charon - 个人资料”  页面。
 
     ![用户的个人资料页面，其中包括可编辑的信息](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. 选择“编辑”以有选择地添加或更新每个可用部分中包括的信息。
+3. 选择“编辑”  以有选择地添加或更新每个可用部分中包括的信息。
 
     ![用户的个人资料页面，其中显示了可编辑的区域](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "65598797"
 
     - **身份验证联系信息。** 请验证此信息，以确保用户具有处于活动状态的电话号码和电子邮件地址。 此信息由 Azure Active Directory 在登录期间用来确保用户确实是该用户。 只有全局管理员可以更新身份验证联系信息。
 
-4. 选择“其他安全性验证” 。
+4. 选择“保存”  。
 
     为用户保存所做的所有更改。
 

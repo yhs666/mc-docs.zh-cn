@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/23/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8c7220056192e0416f137a2eeb86fdff92fa8d64
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 9685dbc6c534b6acff69d267a04fba3949962a63
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306825"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519398"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>如何使用 JavaScript 查询 API 在 Azure Cosmos DB 中编写存储过程和触发器
 
@@ -36,13 +36,13 @@ function insertDocumentAndUpdateMetadata(item) {
     RETRY_WITH: 449,
   }
 
-  var isAccepted = __ .createDocument(__ .getSelfLink(), item, {}, function(err, item, options) {
+  var isAccepted = __.createDocument(__.getSelfLink(), item, {}, function(err, item, options) {
     if (err) throw err;
 
     // Check the item (ignore items with invalid/zero size and metadata itself) and call updateMetadata.
     if (!item.isMetadata && item.size > 0) {
       // Get the metadata. We keep it in the same container. it's the only item that has .isMetadata = true.
-      var result = __ .filter(function(x) {
+      var result = __.filter(function(x) {
         return x.isMetadata === true
       }, function(err, feed, options) {
         if (err) throw err;
@@ -65,7 +65,7 @@ function insertDocumentAndUpdateMetadata(item) {
         metaItem.totalSize += item.size;
 
         // Update/replace the metadata item in the store.
-        var isAccepted = __ .replaceDocument(metaItem._self, metaItem, function(err) {
+        var isAccepted = __.replaceDocument(metaItem._self, metaItem, function(err) {
           if (err) throw err;
           // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again
           //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).

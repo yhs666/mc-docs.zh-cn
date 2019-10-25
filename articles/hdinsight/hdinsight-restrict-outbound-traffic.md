@@ -8,13 +8,13 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 05/30/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 0b4603647ad93d1a3028941983f5de9c982d1afb
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 10/21/2019
+ms.openlocfilehash: 90eb6e074a2ff8e76b43a853d43eb6a7b19c5c54
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878768"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292466"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火墙配置 Azure HDInsight 群集的出站网络流量（预览）
 
@@ -24,7 +24,7 @@ ms.locfileid: "68878768"
 
 Azure HDInsight 群集通常部署在你自己的虚拟网络中。 群集在该虚拟网络外部的服务中包含依赖项，这些依赖项需要网络访问权限才能正常运行。
 
-有多个依赖项需要入站流量。 无法通过防火墙设备发送入站管理流量。 此流量的源地址是已知的，已在[此处](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)发布。 还可以使用此信息创建网络安全组 (NSG) 规则用于保护发往群集的入站流量。
+有多个依赖项需要入站流量。 无法通过防火墙设备发送入站管理流量。 此流量的源地址是已知的，已在[此处](hdinsight-management-ip-addresses.md)发布。 还可以使用此信息创建网络安全组 (NSG) 规则用于保护发往群集的入站流量。
 
 HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 FQDN 并未附带静态 IP 地址。 缺少静态地址意味着无法使用网络安全组 (NSG) 锁定来自群集的出站流量。 地址会频率更改，用户无法基于当前名称解析设置规则，然后使用这些规则来设置 NSG 规则。
 
@@ -64,7 +64,8 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
    | **名称** | **源地址** | **Protocol:Port** | **目标 FQDN** | **说明** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.chinacloudapi.cn | 允许 Windows 登录活动 |
-   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.chinacloudapi.cn> | 如果群集由 WASB 提供支持，则为 WASB 添加一个规则。 若只使用 https 连接，请确保在存储帐户上启用 [需要安全传输](/storage/common/storage-require-secure-transfer)。 |
+   | Rule_3 | * | https:443 | login.microsoftonline.cn | 允许 Windows 登录活动 |
+   | Rule_4 | * | https:443,http:80 | <storage_account_name.blob.core.chinacloudapi.cn> | 如果群集由 WASB 提供支持，则为 WASB 添加一个规则。 若只使用 https 连接，请确保在存储帐户上启用 [需要安全传输](/storage/common/storage-require-secure-transfer)。 |
 
 1. 单击“添加”  。
 
@@ -94,13 +95,13 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 
 1. 单击“添加”以完成网络规则集合的创建。 
 
-![标题：输入应用程序规则集合详细信息](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![标题：输入应用程序规则集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>创建并配置路由表
 
 创建包含以下条目的路由表：
 
-1. [此所需 HDInsight 管理 IP 地址列表](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)中的六个地址，其下一跃点为“Internet”： 
+1. [此所需 HDInsight 管理 IP 地址列表](../hdinsight/hdinsight-management-ip-addresses.md)中的六个地址，其下一跃点为“Internet”： 
     1. 所有区域中所有群集的四个 IP 地址
     1. 特定于创建群集的区域的两个 IP 地址
 1. IP 地址 0.0.0.0/0 的一个虚拟设备路由，其下一跃点为 Azure 防火墙专用 IP 地址。
@@ -177,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 | **终结点** | **详细信息** |
 |---|---|
 | \*:123 | NTP 时钟检查。 在端口 123 上的多个终结点中检查流量 |
-| [此处](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)发布的 IP | 这是一些 HDInsight 服务 |
+| [此处](hdinsight-management-ip-addresses.md)发布的 IP | 这是一些 HDInsight 服务 |
 | ESP 群集的 AAD-DS 专用 IP |
 | \*:16800，用于 KMS Windows 激活 |
 | \*12000，用于 Log Analytics |

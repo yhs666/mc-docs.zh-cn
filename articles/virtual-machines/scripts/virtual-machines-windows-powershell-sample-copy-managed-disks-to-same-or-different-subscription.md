@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 将托管磁盘复制（移动）到相同或不同的订阅 | Azure
+title: 在相同或不同订阅中通过 PowerShell 复制托管磁盘 | Azure
 description: Azure PowerShell 脚本示例 - 将托管磁盘复制（移动）到相同或不同的订阅
 services: virtual-machines-windows
 documentationcenter: storage
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/06/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1185c971adcf512c8de2966beea423654bb6a6d0
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 56ce1e9e9be50840871fcd48773940ca4e34d13e
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003991"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272726"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>在相同或不同订阅中通过 PowerShell 复制托管磁盘
 
@@ -69,6 +68,7 @@ $diskConfig = New-AzDiskConfig -SourceResourceId $managedDisk.Id -Location $mana
 
 #Create a new managed disk in the target subscription and resource group
 New-AzDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName $targetResourceGroupName
+
 ```
 
 ## <a name="script-explanation"></a>脚本说明

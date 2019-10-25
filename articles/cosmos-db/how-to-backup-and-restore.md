@@ -8,12 +8,12 @@ origin.date: 09/01/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 6e144d7fcba10504b5552f7db349eb0cf25ef58f
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: dd1ee38745360b3c86808040215b26ae597eef8c
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306827"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519403"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中从备份还原数据 
 
@@ -35,20 +35,20 @@ ms.locfileid: "71306827"
 
 * 如果删除了一个或多个容器，应提供 Azure Cosmos 帐户名、数据库名和容器名。 并指定是否存在同名容器。
 
-* 如果意外删除或损坏了数据，则应在 8 小时内联系 [Azure 支持](https://www.azure.cn/support/contact/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
+* 如果意外删除或损坏了数据，则应在 8 小时内联系 [Azure 支持](https://support.azure.cn/support/contact/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
 
     * 如果意外删除了数据库或容器，请提交一个严重性级别为 B 或 C 的 Azure 支持案例。 
     * 如果意外删除或损坏了容器中的某些文档，请提交一个严重性级别为 A 的支持案例。 
 
 发生数据损坏时，如果容器中的文档遭到修改或删除，请尽快删除容器  。 这样就可以避免 Azure Cosmos DB 覆盖备份。 如果因某种原因而无法删除，应尽快提交票证。 除了 Azure Cosmos 帐户名、数据库名、容器名以外，还应指定数据可以还原到的时间点。 务必尽量精确，因为这有助于我们确定当时可用的最佳备份。 指定 UTC 时间也很重要。 
 
-<!--MOONCAKE CUSTOMIZE on SUPPORT RREQUEST-->
+<!--MOONCAKE CUSTOMIZE on SUPPORT REQUEST-->
 
 下面的屏幕截图说明如何为容器（集合/图/表）创建通过 Azure 门户还原数据的支持请求。 提供其他详细信息（例如数据类型、还原目的、删除数据的时间），以帮助我们设置请求的优先级。
 
 ![使用 Azure 门户创建备份支持请求](./media/how-to-backup-and-restore/backup-support-request-portal.png)
 
-<!--MOONCAKE CUSTOMIZE on SUPPORT RREQUEST-->
+<!--MOONCAKE CUSTOMIZE on SUPPORT REQUEST-->
 
 ## <a name="post-restore-actions"></a>还原后的操作
 

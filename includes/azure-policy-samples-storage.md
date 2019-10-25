@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
+origin.date: 08/21/2019
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 8ed202d822f1e55b7faa5b264403aed5c45210e6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6f2bf276e7abcf05ff76d7eb391164b9660f9c73
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649046"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526633"
 ---
 ## <a name="storage"></a>存储
 

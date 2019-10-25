@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 origin.date: 01/25/2019
-ms.date: 08/21/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146d5c6388915029d453184d7450a4babbde43cc
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: f1bc278197aa54b94b900f2b92b4c528103255fd
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993131"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72291946"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中条件访问的最佳做法
 
@@ -88,7 +88,9 @@ ms.locfileid: "69993131"
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>条件访问是否适用于 Exchange ActiveSync？
 
-适用，可以在条件访问策略中使用 Exchange ActiveSync，但存在一些[限制](block-legacy-authentication.md)。 
+适用，可以在条件访问策略中使用 Exchange ActiveSync。
+
+某些云应用（如 SharePoint Online 和 Exchange Online）也支持旧式身份验证协议。 如果客户端应用可以使用旧式身份验证协议访问云应用，则 Azure AD 无法针对此访问尝试实施条件访问策略。 为了防止客户端应用绕过策略的实施，应该检查它是否能够做到只对受影响的云应用启用新式身份验证。
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>应如何使用 Office 365 应用配置条件访问？
 

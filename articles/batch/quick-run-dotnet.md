@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: lahugh
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 98664cdd256d3376880e2e05c6399369edc3ebde
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fd7559f2dafb60c8e7dda29651e35c970f53db34
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818451"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583750"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>快速入门：使用 .NET API 运行第一个 Azure Batch 作业
 

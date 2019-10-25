@@ -8,18 +8,19 @@ editor: cgronlun
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 05/03/2019
-ms.date: 05/27/2019
+origin.date: 06/12/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 6ff53d5d9bc00b01f291dfaf966a6a63eaa61894
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 08da44231984bf6e3a0b8fc9d2479fcd8c504bdf
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878653"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583978"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 HDInsight 中创建 Apache Spark 群集
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Spark 群集
+
 了解如何在 Azure HDInsight 中创建 [Apache Spark](https://spark.apache.org/) 群集，以及如何对 [Apache Hive](https://hive.apache.org/) 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
 在此快速入门中，使用 Azure PowerShell 创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
@@ -125,7 +126,7 @@ ms.locfileid: "68878653"
     ```
    创建群集大约需要 20 分钟时间。 必须先创建群集，才能继续下一会话。
 
-如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
+如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-hadoop-customize-cluster-linux.md#access-control)。
 
 ## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
 
@@ -138,13 +139,13 @@ ms.locfileid: "68878653"
 
 3. 在门户中，选择“群集仪表板”，然后选择“Jupyter Notebook”   。 出现提示时，请输入群集的群集登录凭据。
 
-   ![打开 Jupyter Notebook 来运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "打开 Jupyter Notebook 来运行交互式 Spark SQL 查询")
+   ![打开 Jupyter Notebook 以运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "打开 Jupyter Notebook 以运行交互式 Spark SQL 查询")
 
 4. 选择“新建” > “PySpark”，创建笔记本   。 
 
-   ![创建 Jupyter Notebook 来运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "创建 Jupyter Notebook 来运行交互式 Spark SQL 查询")
+   ![创建 Jupyter Notebook 以运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "创建 Jupyter Notebook 以运行交互式 Spark SQL 查询")
 
-   新笔记本随即已创建，并以 Untitled(Untitled.pynb) 名称打开。
+   新 Notebook 随即会创建，并以 Untitled(Untitled.pynb) 名称打开。
 
 
 ## <a name="run-spark-sql-statements"></a>运行 Spark SQL 语句
@@ -153,7 +154,7 @@ SQL（结构化查询语言）是用于查询和定义数据的最常见、最�
 
 1. 验证 kernel 已就绪。 如果在 Notebook 中的内核名称旁边看到空心圆，则内核已准备就绪。 实心圆表示内核正忙。
 
-    ![HDInsight Spark 中的 Hive 查询](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight Spark 中的 Hive 查询")
+    ![内核状态](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "内核状态")
 
     首次启动 Notebook 时，内核在后台执行一些任务。 等待内核准备就绪。 
 2. 将以下代码粘贴到一个空单元格中，然后按 **SHIFT + ENTER** 来运行这些代码。 此命令列出群集上的 Hive 表：
@@ -188,7 +189,7 @@ HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Storage 中，因�
 
 ![删除 HDInsight 群集](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "删除 HDInsight 群集")
 
-还可以选择资源组名称，打开“资源组”页，然后选择“删除资源组”  。 通过删除资源组，可以删除 HDInsight Spark 群集和默认存储帐户。
+还可以选择资源组名称来打开“资源组”页，然后选择“删除资源组”  。 通过删除资源组，可以删除 HDInsight Spark 群集和默认存储帐户。
 
 ### <a name="piecemeal-clean-up-with-powershell-az-module"></a>使用 PowerShell Az 模块进行段落清理
 

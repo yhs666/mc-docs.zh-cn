@@ -13,38 +13,37 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 11/29/2017
-ms.date: 08/12/2019
+origin.date: 08/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: ecf793b46b3bcae530369659d161b86b18fc0d8b
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 1e82436e80d0cf9fd226435920a716c2e630d3bf
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912932"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272573"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>cloud-init 对 Azure 中虚拟机的支持
-本文介绍了在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机缩放集 (VMSS) 的现有支持。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。  
+本文介绍了在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机规模集的现有支持。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。  
 
 ## <a name="cloud-init-overview"></a>Cloud-init 概述
 [Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。  有关如何正确设置 `#cloud-config` 文件格式的详细信息，请参阅 [cloud-init 文档站点](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 文件是采用 base64 编码的文本文件。
 
 Cloud-init 还支持不同的发行版。 例如，不需使用  apt-get install 或  yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
 
- 我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和 VM 规模集 (VMSS)。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
+我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像将使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
 
 | 发布者 | 产品/服务 | SKU | 版本 | cloud-init 就绪 |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |最新 |是 | 
-|Canonical |UbuntuServer |17.1 |最新 |是 | 
 |Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
 |CoreOS |CoreOS |Stable |最新 |是 |
-|OpenLogic |CentOS |7-CI |最新 |预览 |
+|OpenLogic 7.6 |CentOS |7-CI |最新 |预览 |
 
 <!-- Not Available on Red Hat -->
 
-目前，Azure Stack 不支持使用 cloud-init 预配 CentOS 7.4。
+目前，Azure Stack 不支持使用 cloud-init 预配 CentOS 7.x。
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理 (WALA) 之间的区别是什么？
 WALA 是一种特定于 Azure 平台的代理，用于预配和配置 VM 并处理 Azure 扩展。 我们正在优化配置 VM 的任务以使用 cloud-init 代替 Linux 代理，目的是让现有 cloud-init 客户可以使用他们当前的 cloud-init 脚本。  如果当前已使用 cloud-init 脚本来配置 Linux 系统，则不需要任何额外的设置就可以启用它们  。 

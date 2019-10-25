@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/09/2019
-ms.date: 06/03/2019
+origin.date: 08/13/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c44d92d9aa9a4b5a9bc7f461b5bdd5434ce34fcc
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 0d800738ce627bc6bf1224091ab7cae836efa39f
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381903"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578477"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -167,7 +167,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>说明
 
-**Start-AzsReadinessChecker** cmdlet 验证证书、Azure 帐户、Azure 订阅和 Azure Active Directory。 在部署 Azure Stack 之前或在运行 Azure Stack 服务操作（例如机密轮换）之前运行验证。 该 cmdlet 还可用于生成基础结构证书的证书签名请求，以及 PaaS 证书（可选）。 最后，该 cmdlet 可以重新打包 PFX 证书，以解决常见的打包问题。
+**Start-AzsReadinessChecker** cmdlet 验证证书、Azure 帐户、Azure 订阅和 Azure Active Directory (AAD)。 在部署 Azure Stack 之前或在运行 Azure Stack 服务操作（例如机密轮换）之前运行验证。 该 cmdlet 还可用于生成基础结构证书的证书签名请求，以及 PaaS 证书（可选）。 最后，该 cmdlet 可以重新打包 PFX 证书，以解决常见的打包问题。
 
 ## <a name="examples"></a>示例
 
@@ -198,7 +198,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-在此部署和支持示例中，出于安全性需要输入 PFX 密码，`Start-AzsReadinessChecker` 在相对文件夹 **Certificates** 中检查标识、区域和外部 FQDN 都是从针对部署生成的部署数据 JSON 文件中读取的部署是否有适用的有效证书。
+在此部署和支持示例中，出于安全性需要输入 PFX 密码，`Start-AzsReadinessChecker` 检查相对文件夹 **Certificates** 中是否存在对从为部署生成的部署数据 JSON 文件中读取标识、区域和外部 FQDN 的部署有效的证书。
 
 ### <a name="example-validate-paas-certificates"></a>示例：验证 PaaS 证书
 
@@ -238,7 +238,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 Azure Active Directory 是否适用于租户目录名称为 **azurestack.contoso.com** 的 AAD 部署
+在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 AAD 是否适用于租户目录名称为 **azurestack.contoso.com** 的 AAD 部署。
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>示例：使用部署数据验证 Azure 标识（部署支持）
 
@@ -247,7 +247,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 Azure Active Directory 是否适用于其 **AzureChinaCloud** 和 **TenantName** 都是从针对部署生成的部署数据 JSON 文件中读取的 AAD 部署。
+在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 AAD 是否适用于其 **AzureChinaCloud** 和 **TenantName** 都是从针对部署生成的部署数据 JSON 文件中读取的 AAD 部署。
 
 ### <a name="example-validate-azure-registration"></a>示例：验证 Azure 注册
 
@@ -277,7 +277,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-在此示例中，出于安全性需要输入 PFX 密码。 Ssl.pfx 文件 将导入到本地计算机证书存储，然后以相同的密码重新导出，并保存为 Ssl_new.pfx。 当证书验证以标志形式指出私钥中未设置“本地计算机”属性、证书链中断、PFX 中存在不相关的证书，或证书链顺序错误等时，将使用此过程。 
+在此示例中，出于安全性需要输入 PFX 密码。 Ssl.pfx 文件 将导入到本地计算机证书存储，然后以相同的密码重新导出，并保存为 Ssl_new.pfx。 当证书验证标志私钥中未设置“本地计算机”属性、证书链中断、PFX 中存在不相关的证书，或证书链顺序错误等时，将使用此过程。 
 
 ### <a name="example-view-validation-report-deployment-and-support"></a>示例：查看验证报告（部署和支持）
 
@@ -436,7 +436,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-指定用于 Azure Stack 部署的 Azure Active Directory 服务管理员。
+指定要用于 Azure Stack 部署的 AAD 服务管理员。
 
 |  |  |
 |----------------------------|---------|
@@ -448,7 +448,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-指定用于 Azure Stack 部署的 Azure Active Directory 名称。
+指定要用于 Azure Stack 部署的 AAD 名称。
 
 |  |  |
 |----------------------------|---------|
@@ -513,13 +513,13 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 指定只包含证书所需证书文件夹的路径。
 
-包含 Azure Active Directory 标识系统的 Azure Stack 部署的所需文件夹为：
+包含 AAD 标识系统的 Azure Stack 部署的所需文件夹为：
 
-ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
+- ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
 
 包含 Active Directory 联合身份验证服务标识系统的 Azure Stack 部署的所需文件夹为：
 
-ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
+- ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
 
 |  |  |
 |----------------------------|---------|
@@ -581,7 +581,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 
 ### <a name="-outputpath"></a>-OutputPath
 
-指定用于保存就绪性 JSON 报告和详细日志文件的自定义路径。 如果该路径不存在，命令会尝试创建目录。
+指定用于保存就绪性 JSON 报告和详细日志文件的自定义路径。 如果该路径尚不存在，此命令会尝试创建目录。
 
 |  |  |
 |----------------------------|------------------|

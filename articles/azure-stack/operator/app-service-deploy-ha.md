@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 4b382e61781e994201fdbec3f8e82ce1104e5b0f
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: b8d788e02aafa5523d09c207a484560440a4ecc0
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857099"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578511"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -74,12 +74,12 @@ ms.locfileid: "70857099"
 
     ![创建自定义部署](media/app-service-deploy-ha/4.png)
 
-6. 在管理门户中选择“资源组”，然后选择针对自定义部署创建的资源组的名称（在本示例中为 **app-service-ha**）。  查看部署状态，确保所有部署已成功完成。
+6. 在管理员门户中选择“资源组”，然后选择针对自定义部署创建的资源组名称（在本示例中为 **app-service-ha**）。  查看部署状态，确保所有部署已成功完成。
 
    > [!NOTE]
    > 模板部署大约需要一小时才能完成。
 
-   [![](media/app-service-deploy-ha/5-sm.png "查看模板部署状态")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Review template deployment status")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
 ### <a name="record-template-outputs"></a>记下模板输出
@@ -96,7 +96,7 @@ ms.locfileid: "70857099"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 在管理门户中选择“资源组”，然后选择针对自定义部署创建的资源组的名称（在本示例中为 **app-service-ha**）。  
+2. 在管理员门户中选择“资源组”，然后选择针对自定义部署创建的资源组名称（在本示例中为 **app-service-ha**）。  
 
 3. 单击“部署”，然后选择“Microsoft.Template”。  
 
@@ -122,9 +122,9 @@ ms.locfileid: "70857099"
 > 不一定要执行[应用服务准备工作](azure-stack-app-service-before-you-get-started.md)一文所述的所有步骤，因为模板部署会为你配置基础结构 VM。
 
 - [下载应用服务安装程序与帮助器脚本](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
-- [将最新的自定义脚本扩展下载到 Azure Stack 市场](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)。
+- [从 Azure Stack 市场下载项](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
 - [生成所需的证书](azure-stack-app-service-before-you-get-started.md#get-certificates)。
-- 根据你为 Azure Stack 选择的标识提供者创建 ID 应用程序。 可为 [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) 或 [Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application)创建 ID 应用程序，并记下应用程序 ID。
+- 根据你为 Azure Stack 选择的标识提供者创建 ID 应用程序。 可为 [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) 或 [Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app)创建 ID 应用程序，并记下应用程序 ID。
 - 确保已将 Windows Server 2016 Datacenter 映像添加到 Azure Stack 市场。 应用服务安装必须使用该映像。
 
 ### <a name="steps-for-app-service-deployment"></a>应用服务部署步骤
@@ -171,7 +171,7 @@ ms.locfileid: "70857099"
 
     ![应用服务上的预期错误对话框](media/app-service-deploy-ha/08.png)
 
-    如果选择部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。 转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+    如果选择部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。 转到管理员门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
     - 源：任意
     - 源端口范围：*
     - 目标：IP 地址

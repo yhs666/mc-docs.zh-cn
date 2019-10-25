@@ -1,20 +1,19 @@
 ---
 title: 示例 - 没有与 Express Route 网络对等互连的网络
 description: 此示例策略定义禁止将网络对等互连关联到指定资源组中的网络。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 09/18/2018
-ms.date: 03/11/2019
+origin.date: 01/23/2019
+ms.date: 10/12/2019
 ms.author: dacoulte
-ms.openlocfilehash: 23f8a1b0eef841cb76ecfa4fd92c96348fe282bd
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 8aedcb5ba4ceee00309de2e6d1cfe7bd6638f507
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903123"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526625"
 ---
 # <a name="sample---no-network-peering-to-express-route-network"></a>示例 - 没有与 Express Route 网络对等互连的网络
 
@@ -23,7 +22,6 @@ ms.locfileid: "56903123"
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
 
 ## <a name="sample-template"></a>示例模板
 ```json
@@ -66,7 +64,7 @@ ms.locfileid: "56903123"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fno-network-peerings-to-er-network%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fno-network-peerings-to-er-network%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -91,7 +89,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy definition create --name 'no-network-peerings-to-er-network' --display-name 'No network peering to ER network' --description 'No network peering can be associated to networks in network in a resource group containing central managed network infrastructure.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/no-network-peerings-to-er-network/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/no-network-peerings-to-er-network/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "no-network-peerings-to-er-network"
@@ -101,7 +99,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "no
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```cli
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

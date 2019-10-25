@@ -1,20 +1,19 @@
 ---
 title: 示例 - 审核 SQL 数据库的透明数据加密
 description: 如果 SQL 数据库未启用透明数据加密，则此示例策略定义会进行审核。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 04/27/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: f1380871e94fb32186e4346a62db87f380358dae
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: fd603f0b7aaabffac908fd411a48075ef1b28abe
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903228"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526576"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>示例 - 审核 SQL 数据库加密
 
@@ -81,7 +80,7 @@ ms.locfileid: "56903228"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-分配策略时，请从可用的内置定义中选择“审核透明数据加密状态”。
+分配策略时，请从可用的内置定义中选择“审核透明数据加密状态”  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -105,7 +104,7 @@ Remove-AzPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy assignment create --scope <scope> --name "SQL TDE Audit" --policy 17k78e20-9358-41c9-923c-fb736d382a12
 ```
 
@@ -113,7 +112,7 @@ az policy assignment create --scope <scope> --name "SQL TDE Audit" --policy 17k7
 
 运行以下命令删除策略分配。
 
-```cli
+```azurecli
 az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGroup
 ```
 

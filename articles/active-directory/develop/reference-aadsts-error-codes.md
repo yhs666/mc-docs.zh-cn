@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 02/13/2019
-ms.date: 08/26/2019
+origin.date: 08/30/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550c2096f03bd35527f83168e1d97f8af840673c
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: ddcaaea29663fa3c8ace3ea57899b6db0463902a
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134113"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292062"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -32,7 +32,12 @@ ms.locfileid: "70134113"
 > [!NOTE]
 > 本文中的信息属于初步信息，随时可能更改。 遇到了问题或者找不到所需的内容？ 请创建 GitHub 问题，或查看[面向开发人员的支持和帮助选项](active-directory-develop-help-support.md)来了解其他可以获得帮助和支持的方法。
 >
-> 本文档是为开发者和管理员提供的指导，但决不应当被客户自己使用。 错误代码可能会随时更改，以便提供更详细的错误消息，以在开发者构建应用程序时为其提供帮助。 依赖于文本或错误代码的应用程序随着时间的推移将会损坏。  
+> 本文档是为开发者和管理员提供的指导，但决不应当被客户自己使用。 错误代码可能会随时更改，以便提供更详细的错误消息，以在开发者构建应用程序时为其提供帮助。 依赖于文本或错误代码的应用程序随着时间的推移将会损坏。
+
+## <a name="lookup-current-error-code-information"></a>查找当前错误代码信息
+错误代码和消息可能会更改。  有关最新信息，请查看 [https://login.partner.microsoftonline.cn/error](https://login.partner.microsoftonline.cn/error) 页，以查找 AADSTS 错误说明、修复程序和一些建议的解决方法。  
+
+针对返回的错误代码的数字部分进行搜索。  例如，如果收到错误代码“AADSTS16000”，则在 [https://login.partner.microsoftonline.cn/error](https://login.partner.microsoftonline.cn/error) 中搜索“16000”。  还可以通过将错误代码编号添加到 URL [https://login.partner.microsoftonline.cn/error?code=16000](https://login.partner.microsoftonline.cn/error?code=16000) 来直接链接到特定错误。
 
 ## <a name="aadsts-error-codes"></a>AADSTS 错误代码
 
@@ -195,6 +200,7 @@ ms.locfileid: "70134113"
 | AADSTS90019 | MissingTenantRealm - Azure AD 无法确定请求中的租户标识符。 |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - 主体名称格式无效，或者不符合预期的 `name[/host][@realm]` 格式。 主体名称是必需的，而主机和领域是可选的，可设置为 null。 |
 | AADSTS90023 | InvalidRequest - 身份验证服务请求无效。 |
+| AADSTS9002313 | InvalidRequest - 请求格式错误或无效。 - 这里的问题是对某个终结点的请求出了问题。 对此问题的建议是获取发生的错误的 fiddler 跟踪，并查看请求的格式是否确实正确。 |
 | AADSTS90024 | RequestBudgetExceededError - 发生了暂时性错误。 重试。 |
 | AADSTS90033 | MsodsServiceUnavailable - Microsoft Online Directory Service (MSODS) 不可用。 |
 | AADSTS90036 | MsodsServiceUnretryableFailure - MSODS 托管的 WCF 服务发生意外的不可重试错误。 请[开具支持票证](https://support.azure.cn/en-us/support/support-azure/)，获取有关该错误的更多详细信息。 |
@@ -266,6 +272,7 @@ ms.locfileid: "70134113"
 | AADSTS700023 | InvalidResourcelessScope - 请求访问令牌时，为输入参数范围提供的值无效。 |
 | AADSTS1000000 | UserNotBoundError - 绑定 API 要求 Azure AD 用户同时使用外部 IDP 进行身份验证，但尚未执行此操作。 |
 | AADSTS1000002 | BindCompleteInterruptError - 绑定已成功完成，但必须通知用户。 |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - 应用程序处于禁用状态。 |
 
 ## <a name="next-steps"></a>后续步骤
 

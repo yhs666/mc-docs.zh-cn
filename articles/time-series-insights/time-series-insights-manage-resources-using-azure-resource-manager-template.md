@@ -9,14 +9,15 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/08/2019
+origin.date: 08/06/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f7c00c7bb492f1392a57e5f5a9717f6641671d6
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: a6f0834b6dda81d88daed122df1b4ed4b8303dcf
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456427"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292477"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建时序见解资源
 
@@ -33,7 +34,7 @@ ms.locfileid: "67456427"
 
 资源管理器模板是用于定义资源组中资源的基础结构和配置的 JSON 文件。 以下文档介绍更详细地介绍了模板文件：
 
-- [Azure 资源管理器概述 - 模板部署](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Azure 资源管理器模板部署](../azure-resource-manager/template-deployment-overview.md)
 - [使用 Resource Manager 模板和 Azure PowerShell 部署资源](../azure-resource-manager/resource-group-template-deploy.md)
 - [Microsoft.TimeSeriesInsights 资源类型](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)
 

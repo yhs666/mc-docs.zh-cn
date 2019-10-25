@@ -8,20 +8,19 @@ manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/05/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 02f39cbe8da0754a1cfa2d3c0857d3d17f3300ed
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 0ea4f0669d2843d31a1a1e7d99c50408e56dc217
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539135"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272842"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows VM 中安装 SQL、IIS、.NET 堆栈
 
@@ -34,6 +33,8 @@ ms.locfileid: "69539135"
 > * 安装 SQL Server 扩展
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
+
+打开 Azure Powershell 控制台，并以管理员权限运行以下脚本。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

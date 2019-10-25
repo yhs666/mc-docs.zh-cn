@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 04/29/2019
-ms.date: 07/08/2019
+origin.date: 09/09/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 77618843b2f1f5eadbb77748548afb27a9fab6b2
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: e83014e19b7d01975131c7d3ac89957b503fa6cf
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209290"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275526"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure Blob 存储复制数据
 
@@ -30,6 +30,7 @@ ms.locfileid: "70209290"
 - 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 - [GetMetadata 活动](control-flow-get-metadata-activity.md)
+- [Delete 活动](delete-activity.md)
 
 具体而言，此 Blob 存储连接器支持：
 
@@ -71,6 +72,9 @@ Azure Blob 连接器支持以下身份验证类型，有关详细信息，请参
 | type | type 属性必须设置为 **AzureBlobStorage**（建议）或 **AzureStorage**（参阅下面的注释）。 |是 |
 | connectionString | 为 connectionString 属性指定连接到存储所需的信息。 <br/>将此字段标记为 SecureString，以便安全地将其存储在数据工厂中。 还可以将帐户密钥放在 Azure 密钥保管库中，并从连接字符串中拉取 `accountKey` 配置。 有关更多详细信息，请参阅以下示例和[在 Azure 密钥保管库中存储凭据](store-credentials-in-key-vault.md)一文。 |是 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果数据存储位于专用网络，则可以使用 Azure 集成运行时或自承载集成运行时。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+
+>[!NOTE]
+>使用帐户密钥身份验证时，不支持辅助 Blob 服务终结点。 可以使用其他身份验证类型。
 
 >[!NOTE]
 >如果使用的是“AzureStorage”类型链接服务，它仍然按原样受支持，但建议今后使用此新的“AzureBlobStorage”链接服务类型。
@@ -309,12 +313,12 @@ Azure Blob 存储链接服务支持以下属性：
 
 有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](concepts-datasets-linked-services.md)一文。 
 
-- 有关 **Parquet 和带分隔符的文本格式**，请参阅 [Parquet 和带分隔符的文本格式数据集](#parquet-and-delimited-text-format-dataset)部分。
-- 有关其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
+- 对于 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集](#format-based-dataset)部分。
+- 有关其他格式（如 **ORC/JSON 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 和带分隔符的文本格式数据集
+### <a name="format-based-dataset"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集
 
-若要以 Parquet 或带分隔符的文本格式将数据复制到 Blob 存储或从中复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 Azure Blob 支持以下属性：
+若要以 Parquet、带分隔符文本、Avro 或二进制格式向/从 Blob 存储复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 Azure Blob 支持以下属性：
 
 | 属性   | 说明                                                  | 必选 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -356,7 +360,7 @@ Azure Blob 存储链接服务支持以下属性：
 
 ### <a name="other-format-dataset"></a>其他格式数据集
 
-若要向/从 Blob 存储复制 ORC/Avro/JSON/Binary 格式的数据，请将数据集的 type 属性设置为 **AzureBlob**。 支持以下属性。
+若要向/从 Blob 存储复制 ORC/JSON 格式的数据，请将数据集的 type 属性设置为 **AzureBlob**。 支持以下属性。
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -407,12 +411,12 @@ Azure Blob 存储链接服务支持以下属性：
 
 ### <a name="blob-storage-as-a-source-type"></a>将 Blob 存储用作源类型
 
-- 若要从 **Parquet 和带分隔符的文本格式**复制，请参阅 [Parquet 和带分隔符的文本格式源](#parquet-and-delimited-text-format-source)部分。
-- 若要从其他格式（如 **ORC/Avro/JSON/Binary 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
+- 若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式源](#format-based-source)部分。
+- 若要从其他格式（如 **ORC 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 和带分隔符的文本格式源
+#### <a name="format-based-source"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式源
 
-若要以 Parquet 或带分隔符的文本格式从 Blob 存储复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 Azure Blob 支持以下属性：
+若要以 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**向/从 Blob 存储复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的数据集和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 Azure Blob 支持以下属性：
 
 | 属性                 | 说明                                                  | 必选                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -470,7 +474,7 @@ Azure Blob 存储链接服务支持以下属性：
 
 #### <a name="other-format-source"></a>其他格式源
 
-若要从 Blob 存储复制 ORC/Avro/JSON/Binary 格式的数据，请将复制活动中的源类型设置为 **BlobSource**。 复制活动的 **source** 节支持以下属性。
+若要从 Blob 存储复制 **ORC 格式**的数据，请将复制活动中的源类型设置为 BlobSource  。 复制活动的 **source** 节支持以下属性。
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -512,12 +516,12 @@ Azure Blob 存储链接服务支持以下属性：
 
 ### <a name="blob-storage-as-a-sink-type"></a>用作接收器类型的 Blob 存储
 
-- 若要复制到 **Parquet 和带分隔符的文本格式**，请参阅 [Parquet 和带分隔符的文本格式接收器](#parquet-and-delimited-text-format-sink)部分。
-- 若要复制为其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式接收器](#other-format-sink)部分。
+- 若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式源](#format-based-source)部分。
+- 若要从其他格式（如 **ORC 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet 和带分隔符的文本格式接收器
+#### <a name="format-based-source"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式源
 
-若要将数据复制到 Parquet 或带分隔符的文本格式的 Blob 存储，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的复制活动接收器和支持的设置。 基于格式的复制接收器中 `storeSettings` 设置下的 Azure Blob 支持以下属性：
+若要以 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**从 Blob 存储复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的复制活动源和支持的设置。 基于格式的复制接收器中 `storeSettings` 设置下的 Azure Blob 支持以下属性：
 
 | 属性                 | 说明                                                  | 必选 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -565,7 +569,7 @@ Azure Blob 存储链接服务支持以下属性：
 
 #### <a name="other-format-sink"></a>其他格式接收器
 
-若要向 Blob 存储复制数据，请将复制活动中的接收器类型设置为 **BlobSink**。 **sink** 节支持以下属性。
+若要向 Blob 存储复制 **ORC 格式**的数据，请将复制活动中的接收器类型设置为 **BlobSink**。 **sink** 节支持以下属性。
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -627,7 +631,19 @@ Azure Blob 存储链接服务支持以下属性：
 | 是 |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 使用以下结构创建目标 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 的内容将合并到一个文件中，且自动生成文件名。 |
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 使用以下结构创建目标文件夹 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>不会选取带有 File3、File4 和 File5 的 Subfolder1。 |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 使用以下结构创建目标文件夹 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 的自动生成的名称<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2 的自动生成的名称<br/><br/>不会选取带有 File3、File4 和 File5 的 Subfolder1。 |
-| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 使用以下结构创建目标文件夹 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 的内容将合并到一个文件中，且自动生成文件名。 File1 的自动生成的名称<br/><br/>不会选取带有 File3、File4 和 File5 的 Subfolder1。 |
+| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 使用以下结构创建目标文件夹 Folder1<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 的内容将合并到一个文件中，且自动生成文件名。 File1 的自动生成的名称<br/><br/>不会选取带有 File3、File4 和 File5 的 Subfolder1。 |
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活动属性
+
+若要了解有关属性的详细信息，请查看 [GetMetadata 活动](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>Delete 活动属性
+
+若要了解有关属性的详细信息，请查看 [Delete 活动](delete-activity.md)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/08/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d98f7e56d22a5ccf8d1f1105beb9b5c5ff650135
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 9bdf1d5cd8acf9a5b6ddf1039ee9b47c4ec3d05b
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921010"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272544"
 ---
 ## <a name="application-performance-indicators"></a>应用程序性能指标
 
@@ -114,7 +114,7 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 
 影响运行在高级存储上的应用程序的性能的主要因素包括：IO 请求的性质、VM 大小、磁盘大小、磁盘数目、磁盘缓存、多线程处理和队列深度。 可使用系统提供的设置来控制其中部分因素。 大多数应用程序可能不提供直接更改 IO 大小和队列深度的选项。 例如，如果使用 SQL Server，则不能选择 IO 大小和队列深度。 SQL Server 会选择最佳 IO 大小和队列深度值以获取最大性能。 必须了解两类因素对应用程序性能的影响，以便根据性能需要预配相应的资源。
 
-此部分从始至终都需要参考所创建的应用程序要求清单，以便确定需要将应用程序性能优化到何种程度。 据此，可确定此部分中需要调整的因素。 若要了解每个因素对应用程序性能的影响，可在应用程序安装以后运行基准测试工具。 请参阅本文末尾的“基准测试”部分，了解需要执行哪些步骤才能在 Windows 和 Linux VM 上运行常见的基准测试工具。
+此部分从始至终都需要参考所创建的应用程序要求清单，以便确定需要将应用程序性能优化到何种程度。 据此，可确定此部分中需要调整的因素。 若要了解每个因素对应用程序性能的影响，可在应用程序安装以后运行基准测试工具。 有关在 Windows 和 Linux VM 上运行常用基准测试工具的步骤，请参阅最后链接的“基准测试”一文。
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>迅速优化 IOPS、吞吐量和延迟
 
@@ -169,7 +169,7 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 > [!NOTE]
 > 增加 IOPS 或吞吐量这两个指标中的其中一个时，另一指标也将增加，因此增加任一指标时都请勿超过磁盘或 VM 的吞吐量或 IOPS 限制。
 
-若要了解 IO 大小对应用程序性能的影响，可在 VM 和磁盘上运行基准测试工具。 创建多个测试运行并对每个运行使用不同的 IO 大小，即可观察相应的影响。 如需更多详细信息，请参阅本文末尾的“基准测试”部分。
+若要了解 IO 大小对应用程序性能的影响，可在 VM 和磁盘上运行基准测试工具。 创建多个测试运行并对每个运行使用不同的 IO 大小，即可观察相应的影响。 有关更多详细信息，请参阅最后链接的“基准测试”一文。
 
 ## <a name="high-scale-vm-sizes"></a>大型 VM 大小
 
@@ -234,7 +234,6 @@ Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小
 | 磁盘大小           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GiB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
 | 每个磁盘的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
 | 每个磁盘的吞吐量 | 25 MiB/秒  | 50 MiB/秒  | 100 MiB/秒 |125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 750 MiB/秒 | 750 MiB/秒 |
-
 
 选择多少磁盘取决于所选磁盘大小。 可以使用单个 P50 磁盘或多个 P10 磁盘来满足应用程序要求。 进行选择时，可考虑下面列出的注意事项。
 
@@ -412,14 +411,5 @@ Azure 将高级存储平台设计为可以进行大规模并行处理。 因此�
 Azure 高级存储根据所选 VM 大小和磁盘大小，预配指定数目的 IOPS 和吞吐量。 一旦应用程序尝试将 IOPS 或吞吐量提升到这些限制（VM 或磁盘能够处理的量）以上，高级存储就会对其进行限制。 这会以应用程序性能下降的方式体现出来。 具体表现为延迟增高、吞吐量下降或 IOPS 降低。 如果高级存储不对此进行限制，则应用程序可能因超过其资源能力而彻底崩溃。 因此，为了避免因限制而造成的性能问题，请始终为应用程序预配足够的资源。 请考虑一下我们在上面的 VM 大小和磁盘大小部分讨论过的内容。 若要了解承载应用程序所需的资源，最好进行基准测试。
 
 ## <a name="next-steps"></a>后续步骤
-
-了解有关可用磁盘类型的详细信息：
-
-* [选择磁盘类型](../articles/virtual-machines/windows/disks-types.md)  
-
-SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
-
-* [Azure 虚拟机中 SQL Server 的性能最佳做法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
 <!-- Update_Description: wording update, update link -->

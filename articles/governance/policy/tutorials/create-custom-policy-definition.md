@@ -3,17 +3,17 @@ title: 创建自定义策略定义
 description: 创建 Azure Policy 的自定义策略定义以强制实施自定义业务规则。
 author: DCtheGeek
 ms.author: v-biyu
-origin.date: 02/08/2019
-ms.date: 06/10/2019
+origin.date: 04/23/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: da6769e5d6e918e62937a3f7f8e4cb09a3e68b7a
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.openlocfilehash: 21186d63ce8bbe755268d5ef5b4ef7cf3d5976bb
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296720"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526549"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教程：创建自定义策略定义
 
@@ -47,12 +47,11 @@ ms.locfileid: "66296720"
 
 要求中应该明确规定“正常”和“不正常”资源状态。
 
-尽管我们已定义资源的预期状态，但尚未定义如何处理不合规的资源。 Policy 支持多种[效果](../concepts/effects.md)。 本教程将业务要求定义为阻止创建不符合业务规则的资源。 为了满足此目标，我们将使用“[拒绝](../concepts/effects.md#deny)”效果。 我们还需要使用相应的选项来暂停特定分配的策略。 因此，我们会将效果设为策略定义中的[参数](../concepts/definition-structure.md#parameters)。
+尽管我们已定义资源的预期状态，但尚未定义如何处理不合规的资源。 Azure Policy 支持多种[效果](../concepts/effects.md)。 本教程将业务要求定义为阻止创建不符合业务规则的资源。 为了满足此目标，我们将使用“[拒绝](../concepts/effects.md#deny)”效果。 我们还需要使用相应的选项来暂停特定分配的策略。 因此，我们将使用“[已禁用](../concepts/effects.md#disabled)”效果，并将其设为策略定义中的[参数](../concepts/definition-structure.md#parameters)。
 
 ## <a name="determine-resource-properties"></a>确定资源属性
 
-根据业务要求，要使用 Policy 审核的 Azure 资源是存储帐户。
-但是，我们不知道要在策略定义中使用的属性。 Policy 将会评估资源的 JSON 表示形式，因此，我们需要了解可在该资源中使用的属性。
+根据业务要求，要使用 Azure Policy 审核的 Azure 资源为存储帐户。 但是，我们不知道要在策略定义中使用的属性。 Azure Policy 将会评估资源的 JSON 表示形式，因此，需要了解可在该资源中使用的属性。
 
 可通过多种方式确定 Azure 资源的属性。 本教程将介绍其中的每种方式：
 
@@ -70,9 +69,9 @@ ms.locfileid: "66296720"
 #### <a name="existing-resource-in-the-portal"></a>门户中的现有资源
 
 查找属性的最简单方法是查找相同类型的现有资源。 已使用所要强制实施的设置配置的资源也会提供用于比较的值。
-在 Azure 门户中，找到该特定资源的“自动化脚本”页（在“设置”下）。  
+在 Azure 门户中，找到该特定资源的“导出模板”页（在“设置”下）   。
 
-![现有资源上的“导出模板”页](../media/create-custom-policy-definition/automation-script.png)
+![现有资源上的“导出模板”页](../media/create-custom-policy-definition/export-template.png)
 
 针对存储帐户执行此操作会显示以下示例所示的模板：
 
@@ -89,7 +88,9 @@ ms.locfileid: "66296720"
     "name": "[parameters('storageAccounts_mystorageaccount_name')]",
     "apiVersion": "2018-07-01",
     "location": "chiannorth",
-    "tags": {},
+    "tags": {
+        "ms-resource-usage": "azure-cli"
+    },
     "scale": null,
     "properties": {
         "networkAcls": {
@@ -120,8 +121,7 @@ ms.locfileid: "66296720"
 
 #### <a name="create-a-resource-in-the-portal"></a>在门户中创建资源
 
-另一种方式是通过门户中的资源创建体验。 通过门户创建存储帐户时，“高级”选项卡下会提供“需要安全传输”选项。  
-此属性具有“已禁用”和“已启用”选项。   信息图标包含附加文本，确认此选项可能是我们所需的属性。 但是，门户不会在此屏幕上显示属性名称。
+另一种方式是通过门户中的资源创建体验。 通过门户创建存储帐户时，“高级”选项卡下会提供“需要安全传输”选项。   此属性具有“已禁用”和“已启用”选项。   信息图标包含附加文本，确认此选项可能是我们所需的属性。 但是，门户不会在此屏幕上显示属性名称。
 
 在“查看 + 创建”选项卡上，页面底部提供了“下载自动化模板”链接。   选择该链接会打开用于创建所配置的资源的模板。 在这种情况下，我们会看到两段重要信息：
 
@@ -147,8 +147,9 @@ GitHub 上的 [Azure 快速入门模板](https://github.com/Azure/azure-quicksta
 #### <a name="resource-reference-docs"></a>资源参考文档
 
 若要验证 **supportsHttpsTrafficOnly** 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的资源管理器模板参考。
-属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters 对象](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters)链接会显示可接受的属性表。 若要满足业务要求，**supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
+属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求，**supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
 
+<!-- Azure Resource Explorer not availible -->
 
 
 ## <a name="find-the-property-alias"></a>查找属性别名
@@ -159,13 +160,16 @@ GitHub 上的 [Azure 快速入门模板](https://github.com/Azure/azure-quicksta
 
 - Azure CLI
 - Azure PowerShell
+- Azure Resource Graph
 
 ### <a name="azure-cli"></a>Azure CLI
 
 在 Azure CLI 中，`az provider` 命令组用于搜索资源别名。 我们将根据前面获取的有关 Azure 资源的详细信息来筛选 **Microsoft.Storage** 命名空间。
 
 ```azurecli
-# Login first with az login if not using Cloud Shell
+# Login first with below commands
+az cloud set -n AzureChinaCloud
+az login
 
 # Get Azure Policy aliases for type Microsoft.Storage
 az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
@@ -175,11 +179,10 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-在 Azure PowerShell 中， `Get-AzPolicyAlias` cmdlet 用于搜索资源别名。
-我们将根据前面获取的有关 Azure 资源的详细信息来筛选 **Microsoft.Storage** 命名空间。
+在 Azure PowerShell 中， `Get-AzPolicyAlias` cmdlet 用于搜索资源别名。 我们将根据前面获取的有关 Azure 资源的详细信息来筛选 **Microsoft.Storage** 命名空间。
 
 ```azurepowershell
-# Login first with Connect-AzAccount if not using Cloud Shell
+# Login first with Connect-AzAccount -Environmentname AzureChinaCloud command
 
 # Use Get-AzPolicyAlias to list aliases for Microsoft.Storage
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
@@ -187,11 +190,127 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 与在 Azure CLI 中一样，结果会显示名为 **supportsHttpsTrafficOnly** 的存储帐户支持的别名。
 
+### <a name="azure-resource-graph"></a>Azure Resource Graph
 
+[Azure Resource Graph](../../resource-graph/overview.md) 是一个新的预览版服务。 它是用于查找 Azure 资源属性的另一种方法。 下面是使用 Resource Graph 查找单个存储帐户的示例查询：
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+```
+
+```azurecli
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+```
+
+```azurepowershell
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+```
+
+结果类似于在资源管理器模板中和通过 Azure 资源浏览器查找后获得的结果。 但是，Azure Resource Graph 结果还可通过_投影_ _别名_数组来包含[别名](../concepts/definition-structure.md#aliases)详细信息：
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+下面是存储帐户别名的示例输出：
+
+```json
+"aliases": {
+    "Microsoft.Storage/storageAccounts/accessTier": null,
+    "Microsoft.Storage/storageAccounts/accountType": "Standard_LRS",
+    "Microsoft.Storage/storageAccounts/enableBlobEncryption": true,
+    "Microsoft.Storage/storageAccounts/enableFileEncryption": true,
+    "Microsoft.Storage/storageAccounts/encryption": {
+        "keySource": "Microsoft.Storage",
+        "services": {
+            "blob": {
+                "enabled": true,
+                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
+            },
+            "file": {
+                "enabled": true,
+                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
+            }
+        }
+    },
+    "Microsoft.Storage/storageAccounts/encryption.keySource": "Microsoft.Storage",
+    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyname": null,
+    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyvaulturi": null,
+    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyversion": null,
+    "Microsoft.Storage/storageAccounts/encryption.services": {
+        "blob": {
+            "enabled": true,
+            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
+        },
+        "file": {
+            "enabled": true,
+            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
+        }
+    },
+    "Microsoft.Storage/storageAccounts/encryption.services.blob": {
+        "enabled": true,
+        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
+    },
+    "Microsoft.Storage/storageAccounts/encryption.services.blob.enabled": true,
+    "Microsoft.Storage/storageAccounts/encryption.services.file": {
+        "enabled": true,
+        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
+    },
+    "Microsoft.Storage/storageAccounts/encryption.services.file.enabled": true,
+    "Microsoft.Storage/storageAccounts/networkAcls": {
+        "bypass": "AzureServices",
+        "defaultAction": "Allow",
+        "ipRules": [],
+        "virtualNetworkRules": []
+    },
+    "Microsoft.Storage/storageAccounts/networkAcls.bypass": "AzureServices",
+    "Microsoft.Storage/storageAccounts/networkAcls.defaultAction": "Allow",
+    "Microsoft.Storage/storageAccounts/networkAcls.ipRules": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*]": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].action": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id": [],
+    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].state": [],
+    "Microsoft.Storage/storageAccounts/primaryEndpoints": {
+        "blob": "https://mystorageaccount.blob.core.windows.net/",
+        "file": "https://mystorageaccount.file.core.windows.net/",
+        "queue": "https://mystorageaccount.queue.core.windows.net/",
+        "table": "https://mystorageaccount.table.core.windows.net/"
+    },
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.windows.net/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.windows.net/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.windows.net/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.windows.net/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.web": null,
+    "Microsoft.Storage/storageAccounts/primaryLocation": "eastus2",
+    "Microsoft.Storage/storageAccounts/provisioningState": "Succeeded",
+    "Microsoft.Storage/storageAccounts/sku.name": "Standard_LRS",
+    "Microsoft.Storage/storageAccounts/sku.tier": "Standard",
+    "Microsoft.Storage/storageAccounts/statusOfPrimary": "available",
+    "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly": false
+}
+```
+
+可以通过 Azure CLI 使用 Azure Resource Graph（预览版），快速轻松地浏览资源的属性。
 
 ## <a name="determine-the-effect-to-use"></a>确定要使用的效果
 
-确定如何处理不合规的资源几乎与确定最初要评估的项一样重要。 针对不合规资源做出的每种可能响应称为[效果](../concepts/effects.md)。 效果控制是否要记录、阻止不合规的资源、在其中追加数据，或者将一个部署关联到其中，使该资源恢复合规状态。
+确定如何处理不合规的资源几乎与确定最初要评估的项一样重要。 针对不合规资源做出的每种可能响应称为[效果](../concepts/effects.md)。
+效果控制是否要记录、阻止不合规的资源、在其中追加数据，或者将一个部署关联到其中，使该资源恢复合规状态。
 
 在本示例中，“拒绝”是所需的效果，因为我们不希望在 Azure 环境中创建不合规的资源。 “审核”是策略效果的第一个合理选项，它确定策略在设置为“拒绝”之前的影响。 使更改每个分配的效果变得更轻松的方法之一是将效果参数化。 有关详细信息，请参阅下面的[参数](#parameters)。
 

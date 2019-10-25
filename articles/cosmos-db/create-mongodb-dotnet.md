@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 05/21/2019
 ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f5443a6ae5f0af2c7ec39f4583e4d020be06474
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d224ae0b39affcbd4f7839931a9494dcfccdbfb4
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254529"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519394"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .NET Web 应用 
 
@@ -79,18 +79,18 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 初始化客户端。
 
     ```cs
-        MongoClientSettings settings = new MongoClientSettings();
-        settings.Server = new MongoServerAddress(host, 10255);
-        settings.UseSsl = true;
-        settings.SslSettings = new SslSettings();
-        settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
+    MongoClientSettings settings = new MongoClientSettings();
+    settings.Server = new MongoServerAddress(host, 10255);
+    settings.UseSsl = true;
+    settings.SslSettings = new SslSettings();
+    settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
 
-        MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
-        MongoIdentityEvidence evidence = new PasswordEvidence(password);
+    MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
+    MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
+    settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
-        MongoClient client = new MongoClient(settings);
+    MongoClient client = new MongoClient(settings);
     ```
 
 * 检索数据库和集合。

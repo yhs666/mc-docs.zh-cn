@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - Azure Monitor 日志 | Azure
+title: 使用 PowerShell 创建 Azure Monitor VM | Azure
 description: Azure PowerShell 脚本示例 - Azure Monitor 日志
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 270e84549a7bf2767c1953996eef188897c3e656
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 546f7a39412c49b236caaf08eb084aa2739539ee
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539189"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272860"
 ---
 <!--Verify successfully-->
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>使用 PowerShell 创建 Azure Monitor VM

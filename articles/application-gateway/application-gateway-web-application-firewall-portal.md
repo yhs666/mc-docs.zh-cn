@@ -205,7 +205,7 @@ Azure 需要一个虚拟网络才能在资源之间通信。 可以创建新的�
 
     ![添加后端服务器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 选择“其他安全性验证”  。
+6. 选择“保存”  。
 
 7. 等待部署完成之后再继续下一步。
 
@@ -232,7 +232,7 @@ Azure 需要一个虚拟网络才能在资源之间通信。 可以创建新的�
 4. 输入 *myDiagnosticsSettings* 作为诊断设置的名称。
 5. 选择“存档到存储帐户”  ，然后选择“配置”  以选择前面创建的 *myagstore1* 存储帐户，然后选择“确定”  。
 6. 选择要收集和保留的应用程序网关日志。
-7. 选择“其他安全性验证”  。
+7. 选择“保存”  。
 
     ![配置诊断](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 

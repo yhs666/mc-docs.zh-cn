@@ -1,20 +1,19 @@
 ---
 title: 示例 - 允许的位置
 description: 此示例策略定义要求所有资源都部署到已批准的位置。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 12/12/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: ff5cd22c6cf1e3fc72fea4eb431bc304794437c0
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/26/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: bd4f7d3baf7be63acb8da4bd50b8e391cdfec7c6
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903118"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526681"
 ---
 # <a name="sample---allowed-region-locations"></a>示例 - 允许的区域位置
 
@@ -131,7 +130,7 @@ ms.locfileid: "56903118"
 
 |Name |类型 |字段 |说明 |
 |---|---|---|---|
-|listOfAllowedLocations |Array |位置 |允许的位置的列表|
+|listOfAllowedLocations |Array |locations |允许的位置的列表|
 
 通过 PowerShell 或 Azure CLI 创建分配时，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 通过字符串或文件将参数值传递为 JSON。
 PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一个 Name/Value 哈希表，其中，**Name** 是参数名称，**Value** 是在赋值期间传递的单个值或值数组。
@@ -151,8 +150,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-portal"></a>Azure 门户
 
-
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -160,7 +158,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
-```azurepowershell
+```powershell
 # Create the Policy Definition (Subscription scope)
 $definition = New-AzPolicyDefinition -Name "allowed-locations" -DisplayName "Allowed locations" -description "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' -Mode Indexed
 
@@ -178,7 +176,7 @@ $assignment = New-AzPolicyAssignment -Name 'allowed-locations-assignment' -Displ
 
 运行以下命令来删除以前的分配和定义：
 
-```azurepowershell
+```powershell
 # Remove the Policy Assignment
 Remove-AzPolicyAssignment -Id $assignment.ResourceId
 
@@ -204,7 +202,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-```
+```azurecli
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'allowed-locations' --display-name 'Allowed locations' --description 'This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' --mode Indexed)
 

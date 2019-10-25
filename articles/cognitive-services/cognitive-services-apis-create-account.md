@@ -7,63 +7,93 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-origin.date: 06/11/2019
-ms.date: 07/16/2019
-ms.author: v-junlch
-ms.openlocfilehash: 2562017c6152229eeda4881a42d1ba841b9ff35f
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/16/2019
+ms.date: 10/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4e2c5e860012d243470f8c2a519679ad2c194c30
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104032"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275545"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>使用 Azure 门户创建认知服务资源
 
-使用本快速入门可通过 Azure 门户开始使用 Azure 认知服务。 认知服务由你在 Azure 订阅中创建的 Azure [资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。 
-
-## <a name="prerequisites"></a>先决条件
-
-* 有效的 Azure 订阅。 免费[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+使用此快速入门开始使用 Azure 认知服务。 在 Azure 门户中创建认知服务资源后，你将获得用于验证应用程序的终结点和密钥。
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
+## <a name="prerequisites"></a>先决条件
+
+* 有效的 Azure 订阅 - [创建 1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>新建 Azure 认知服务资源
 
-在创建认知服务资源之前，必须具有 Azure 资源组才能包含该资源。 在创建新资源时，可以选择新建资源组，或使用现有的资源组。 本文介绍如何创建新资源组。
+1. 创建资源。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)，然后单击“创建资源”  。
-
-    ![选择认知服务 API](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-2. 可以通过以下方式查找可用的认知服务：
-    * 使用搜索栏，并输入要订阅的服务的名称。
-        * 若要创建多服务资源，请在搜索栏中输入“认知服务”  ，然后选择“认知服务”  资源。
-
-        ![搜索“认知服务”](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
-
-    * 若要查看所有可用认知服务，请选择“Azure 市场”下的“AI + 机器学习”   。 如果看不到你感兴趣的服务，请单击“查看全部”，并滚动到“认知服务”   。 单击“更多”  以查看认知服务 API 的整个目录。
+    #### <a name="multi-service-resourcetabmultiservice"></a>[多服务资源](#tab/multiservice)
     
-        ![选择认知服务 API](media/cognitive-services-apis-create-account/azureMarketplace.png)
+    多服务资源在门户中名为“认知服务”  。 [创建认知服务资源](https://portal.azure.cn/#create/Microsoft.CognitiveServices)。
+    
+    此时，多服务资源允许访问以下认知服务：
+    
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | 计算机视觉  | 内容审查器                                    | 人脸               | 语言理解 (LUIS) | 文本分析   |
+    | 文本翻译  |
+    
+    #### <a name="single-service-resourcetabsingleservice"></a>[单服务资源](#tab/singleservice)
+
+    使用以下链接为可用的认知服务创建资源：
+
+    | 影像                      | 语音                  | 语言                          | 决策             |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|
+    | [计算机视觉](https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision) | [语音服务](https://portal.azure.cn/#create/Microsoft.CognitiveServicesSpeechServices) | [语言理解 (LUIS)](https://portal.azure.cn/#create/Microsoft.CognitiveServicesLUIS) | [内容审查器](https://portal.azure.cn/#create/Microsoft.CognitiveServicesContentModerator) |
+    | [人脸](https://portal.azure.cn/#create/Microsoft.CognitiveServicesFace) | | [文本分析](https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextAnalytics) | |
+    | | | [文本翻译](https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextTranslation) | |
+    ***
 
 3. 在“创建”页中提供以下信息： 
 
-    > [!IMPORTANT]
-    > 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。
+    #### <a name="multi-service-resourcetabmultiservice"></a>[多服务资源](#tab/multiservice)
 
     |    |    |
     |--|--|
-    | **名称** | 认知服务资源的描述性名称。 例如 MyCognitiveServicesAccount  。 |
+    | **名称** | 认知服务资源的描述性名称。 例如，*MyCognitiveServicesResource*。 |
     | **订阅** | 选择一个可用的 Azure 订阅。 |
-    | **Location** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 |
+    | **Location** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。 |
     | **定价层** | 认知服务帐户的费用取决于你所选的选项和你的使用情况。 有关详细信息，请参阅 API [定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)。
     | **资源组** | 将包含认知服务资源的 Azure 资源组。 可以创建新组或将其添加到预先存在的组。 |
 
-    ![“创建资源”屏幕](./media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![“创建资源”屏幕](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
+    单击**创建**。
+
+    #### <a name="single-service-resourcetabsingleservice"></a>[单服务资源](#tab/singleservice)
+
+    |    |    |
+    |--|--|
+    | **名称** | 认知服务资源的描述性名称。 例如，*TextAnalyticsResource*。 |
+    | **订阅** | 选择一个可用的 Azure 订阅。 |
+    | **Location** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。 |
+    | **定价层** | 认知服务帐户的费用取决于你所选的选项和你的使用情况。 有关详细信息，请参阅 API [定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)。
+    | **资源组** | 将包含认知服务资源的 Azure 资源组。 可以创建新组或将其添加到预先存在的组。 |
+
+    ![“创建资源”屏幕](media/cognitive-services-apis-create-account/resource_create_screen.png)
+
+    单击**创建**。
+
+    ***
 
 ## <a name="get-the-keys-for-your-resource"></a>获取资源的密钥
 
-创建资源后，如果已固定该资源，则可以从 Azure 仪表板对其进行访问。 否则，可以在“资源组”中查找该资源  。 在选择了资源后，可以通过选择“资源管理”下的“密钥”获取所需的密钥   。
+1. 成功部署资源后，单击“后续步骤”  下的“转到资源”  。
+
+    ![搜索“认知服务”](media/cognitive-services-apis-create-account/resource-next-steps.png)
+
+2. 从打开的快速入门窗格中，可以访问密钥和终结点。
+
+    ![获取密钥和终结点](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
@@ -71,15 +101,16 @@ ms.locfileid: "70104032"
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组也会删除该组中包含的任何其他资源。
 
-若要使用 Azure 门户删除资源组，请执行以下操作：
-
 1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。 
-2. 找到要删除的资源组，并右键单击列表右侧的“更多”按钮 (...)。
-3. 选择“删除资源组”并进行确认。 
+2. 找到包含要删除的资源的资源组
+3. 右键单击资源组列表。 选择“删除资源组”并进行确认。 
 
 ## <a name="see-also"></a>另请参阅
+
+<!-- * [Authenticate requests to Azure Cognitive Services](authentication.md) -->
 
 * [什么是 Azure 认知服务？](Welcome.md)
 * [自然语言支持](language-support.md)
 * [Docker 容器支持](cognitive-services-container-support.md)
 
+<!-- Update_Description: content update -->

@@ -16,12 +16,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 14578466a37b17f65730b6601d881469bf0c8c61
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: d84528c4fee59ed06a5ce8a8df4c5bbe8b60a531
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857323"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583791"
 ---
 # <a name="configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 配置混合云连接
 
@@ -56,7 +56,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 此解决方案假设你对 Azure 和 Azure Stack 有一些基本的了解。 若要在开始此解决方案之前了解更多信息，请阅读以下文章：
 
- - [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Azure 简介](https://www.azure.cn/home/features/what-is-azure/)
  - [Azure Stack 的重要概念](../operator/azure-stack-overview.md)
 
 ### <a name="azure"></a>Azure

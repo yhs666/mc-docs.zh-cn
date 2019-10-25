@@ -7,21 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/13/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f6567c252530b6b65c49d8f277b8128809cafe81
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: d1902e785d2cbd0b4ba5228b26d8e8e300cc32eb
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004134"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272716"
 ---
-#  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机
+# <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机
 
 本文介绍了在 Azure Windows 虚拟机 (VM) 中禁用 DHCP 客户端服务后无法通过远程桌面连接到该 VM 的问题。
 
@@ -68,8 +67,8 @@ DHCP 客户端服务未在 VM 上运行。
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>将 OS 磁盘附加到恢复 VM
 
 1. [将 OS 磁盘附加到恢复 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 开始与恢复 VM 建立远程桌面连接。 确保附加的磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的 OS 磁盘的驱动器号。
-3. 打开权限提升的命令提示符实例（“以管理员身份运行”）。 然后运行以下脚本。 此脚本假设分配给附加的 OS 磁盘的驱动器号为 **F**。使用 VM 中的值适当地替换该字母。
+2. 开始与恢复 VM 建立远程桌面连接。 确保附加的磁盘在磁盘管理控制台中标记为“联机”。  请注意分配给附加的 OS 磁盘的驱动器号。
+3. 打开权限提升的命令提示符实例（“以管理员身份运行”）。  然后运行以下脚本。 此脚本假设分配给附加的 OS 磁盘的驱动器号为 **F**。使用 VM 中的值适当地替换该字母。
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
@@ -89,6 +88,6 @@ DHCP 客户端服务未在 VM 上运行。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/support/support-azure/)以快速解决问题。
 
 <!-- Update_Description: wording update-->

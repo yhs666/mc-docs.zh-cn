@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/04/2019
-ms.date: 07/19/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 02c94b228aaaa2c9f9b4ca85a7006f2d36b7922f
-ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
+ms.openlocfilehash: 0bf7c486f251236b72f4a852d3065ee48b3cbd0b
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332751"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275262"
 ---
 # <a name="templates"></a>模板
 
@@ -50,6 +50,8 @@ ms.locfileid: "68332751"
     -   [按 LastModifiedDate 复制新文件](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [在基于文件的存储之间复制多个文件容器](solution-template-copy-files-multiple-containers.md)
+
+    -   [移动文件](solution-template-move-files.md)
 
     -   [从数据库进行增量复制](solution-template-delta-copy-with-control-table.md)
 

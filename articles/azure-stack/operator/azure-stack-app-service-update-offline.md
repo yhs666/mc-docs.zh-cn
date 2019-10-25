@@ -12,23 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/28/2019
-ms.date: 07/29/2019
+origin.date: 08/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.openlocfilehash: 4109bf5c60d95af66f10dda9f1946df1547d60eb
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: f109dc58e3c8524d2e58494be26e766d0f3bc75b
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513494"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578487"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请将 1904 更新或更高版本应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.6。
+> 请将 1907 更新或更高版本应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.7。
 
 遵循本文中的说明可以升级部署在处于以下状态的 Azure Stack 环境中的[应用服务资源提供程序](azure-stack-app-service-overview.md)：
 
@@ -36,13 +36,13 @@ ms.locfileid: "68513494"
 * 受 Active Directory 联合身份验证服务 (AD FS) 保护。
 
 > [!IMPORTANT]
-> 在运行升级之前，请确保已完成[在 Azure Stack 资源提供程序上部署 Azure应用服务](azure-stack-app-service-deploy-offline.md)，并已阅读版本 1.6 随附的[发行说明](azure-stack-app-service-release-notes-update-six.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
+> 在运行升级之前，请确保已完成[在 Azure Stack 资源提供程序上部署 Azure 应用服务](azure-stack-app-service-deploy-offline.md)，并已阅读版本 1.7 随附的[发行说明](azure-stack-app-service-release-notes-update-seven.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
 若要升级 Azure Stack 环境中的应用服务资源提供程序，必须完成以下任务：
 
-1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate6installer)
+1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate7installer)。
 2. 创建离线升级包。
 3. 运行应用服务安装程序 (appservice.exe) 并完成升级。
 
@@ -130,7 +130,7 @@ ms.locfileid: "68513494"
 
 ## <a name="next-steps"></a>后续步骤
 
-还可以试用其他[平台即服务 (PaaS) 服务](azure-stack-offer-services-overview.md)。
+准备 Azure Stack 上应用服务的其他管理员操作
 
-* [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
-* [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
+* [规划更多容量](azure-stack-app-service-capacity-planning.md)
+* [添加更多容量](azure-stack-app-service-add-worker-roles.md)

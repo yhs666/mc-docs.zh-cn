@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: aedc97cac139e3616cace289061dd835db0011e8
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 87b436b7d1f17419cee68c26a36b7db019c34db4
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845159"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583605"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
@@ -73,7 +73,7 @@ Nimbus 节点提供的功能与 Apache Hadoop JobTracker 类似，它通过 [Apa
 
 Apache Storm 群集的默认配置是只能有一个 Nimbus 节点。 HDInsight 上的 Storm 提供两个 Nimbus 节点。 如果主节点出现故障，Storm 群集将切换到辅助节点，同时主节点将会恢复。 下图说明了 Storm on HDInsight 的任务流配置：
 
-![nimbus、zookeeper 和 supervisor 示意图](./media/apache-storm-overview/nimbus.png)
+![nimbus、zookeeper 和 supervisor 示意图](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## <a name="ease-of-creation"></a>容易创建
 

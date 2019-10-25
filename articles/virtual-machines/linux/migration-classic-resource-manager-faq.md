@@ -1,5 +1,5 @@
 ---
-title: 有关从经典部署模型迁移到 Azure Resource Manager 部署模型的常见问题 | Azure
+title: 有关从经典部署模型迁移到 Azure 资源管理器部署模型的常见问题 | Azure
 description: 有关从经典部署模型迁移到 Azure Resource Manager 部署模型的常见问题
 services: virtual-machines-linux
 documentationcenter: ''
@@ -11,17 +11,16 @@ ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: aebe3e66707e162acab64f2530dacfa684dd909a
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: f2507f6290f3bba55e53e236b00313cbd3104c5c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913013"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272818"
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 

@@ -4,21 +4,20 @@ description: 了解数据工厂中的数据集。 数据集表示输入/输出�
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-ms.reviewer: douglasl
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/25/2018
-ms.date: 07/08/2019
-ms.author: v-jay
-ms.openlocfilehash: fa9a9fc3943426dfbe647d61ec4ded7f289f3559
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+origin.date: 04/25/2019
+ms.date: 10/14/2019
+ms.openlocfilehash: 19ca1c6d42da2728aaf959764092913ff6260ff5
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569891"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275533"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 数据工厂中的数据集
 
@@ -99,9 +98,7 @@ typeProperties | 每种类型的类型属性各不相同（例如：Azure Blob�
 - linkedServiceName 引用 AzureSqlDatabase 类型的链接服务，该类型在下一 JSON 片段中定义。
 
 ## <a name="dataset-type"></a>数据集类型
-数据集的类型很多，具体取决于使用的数据存储。 请参阅下表，获取数据工厂支持的数据存储的列表。 单击数据存储，了解如何创建链接服务和该数据存储的数据集。
-
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
+数据集的类型很多，具体取决于使用的数据存储。 可以从[连接器概述](connector-overview.md)一文中找到数据工厂支持的存储数据列表。 单击数据存储，了解如何创建链接服务和该数据存储的数据集。
 
 在上一节中的示例中，数据集的类型设置为 AzureSqlTable  。 同样，对于 Azure Blob 数据集，数据集的类型设置为 AzureBlob  ，如以下 JSON 中所示：
 

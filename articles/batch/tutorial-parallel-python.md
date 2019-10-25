@@ -9,14 +9,14 @@ ms.devlang: python
 ms.topic: tutorial
 origin.date: 11/29/2018
 ms.date: 09/23/2019
-ms.author: lahugh
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: dc58edf98220f5fbb4be83f93ecfc876f4caad76
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 17bd39b97bde3e15eb4bf67fb651bba1402e495e
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330054"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583745"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教程：使用 Python API 通过 Azure Batch 运行并行工作负荷
 

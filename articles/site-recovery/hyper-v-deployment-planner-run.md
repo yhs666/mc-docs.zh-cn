@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/09/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6519dba65c6a3f286b653c56088ec6222a38cd83
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: a00360f6bfab507f6abe3b30b8b5e15c884c5c74
+ms.sourcegitcommit: 8f810b0a4edb3343a694c72a221867763f20472d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340730"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72524839"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>运行用于从 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 
@@ -100,7 +100,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|（可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。|
 |-StorageAccountName|（可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
 |-StorageAccountKey|（可选）用于访问存储帐户的密钥。 转到 Azure 门户 >“存储帐户”   > *存储帐户名称* >   “设置” >   “访问密钥” > **Key1**（或经典存储帐户的主访问密钥）。|
-|-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标区域为 Azure 美国政府或 Azure 中国世纪互联时，请使用此参数。|
+|-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 美国政府或 Azure 中国世纪互联时，请使用此参数。|
+
+<!--MOONCAKE: the default is AzureCloud-->
 
 建议在分析 VM 时，分析 7 天以上。 如果变动量模式在某个月发生变化，建议在看到最大变动量的一周内进行分析。 最好的方式是分析 31 天，以便获取更好的建议。 
 

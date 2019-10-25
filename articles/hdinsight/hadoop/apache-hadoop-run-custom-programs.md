@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/04/2017
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: dc819209aa7287092e5760ce96066197485ce554
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 5d0497a1bdb409840887ded40e125f338fa40aad
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845050"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583871"
 ---
 # <a name="run-custom-mapreduce-programs"></a>运行自定义 MapReduce 程序
 
@@ -45,7 +45,6 @@ ms.locfileid: "67845050"
 自定义映射/化简组件通常以 Java 编写。 Hadoop 提供一个流式处理接口，借助该接口可以使用以其他语言（例如 C#、F#、Visual Basic、Python 及 JavaScript）开发的组件。
 
 * 有关开发自定义 Java MapReduce 程序的演练，请参阅[开发适用于 HDInsight 上的 Hadoop 的 Java MapReduce 程序](apache-hadoop-develop-deploy-java-mapreduce-linux.md)。
-* 若要查看使用 Python 的示例，请参阅[开发适用于 HDInsight 的 Python 流式处理 MapReduce 程序](apache-hadoop-streaming-python.md)。
 
 对于以下情况，请考虑创建自己的映射和化简组件：
 

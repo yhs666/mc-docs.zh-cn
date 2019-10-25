@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 04/22/2019
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: bf1b8b2af511dd36a01607c4d7f46e69205ea0bd
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 0b927f8dff7b360456bfa7fe8085e5cd813244c3
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845440"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292416"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Apache Giraph 并使用 Giraph 处理大型图形
 
@@ -114,7 +114,7 @@ ms.locfileid: "67845440"
 
     使用表示对象间距离的值（或权重）绘制图形后，上述数据看起来可能与下图类似：
 
-    ![tiny_graph.txt 中的对象绘制为圆圈，线条表示对象之间的不同距离](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
+    ![tiny_graph.txt 中的对象绘制为圆圈，线条表示对象之间的不同距离](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph.png)
 
 3. 如果要保存文件，请使用 **Ctrl+X**，并输入“Y”  ，最后按 **Enter** 以接受文件名。
 
@@ -144,9 +144,9 @@ ms.locfileid: "67845440"
    | `-op` |输出位置。 |
    | `-w 2` |要使用的辅助角色数目。 在此示例中为 2。 |
 
-    有关这些参数以及与 Giraph 示例搭配使用的其他参数的详细信息，请参阅 [Giraph 快速入门](https://giraph.apache.org/quick_start.html)。
+    有关这些参数以及与 Giraph 示例搭配使用的其他参数的详细信息，请参阅 [Giraph quickstart](https://giraph.apache.org/quick_start.html)（Giraph 快速入门）。
 
-6. 作业完成后，其结果存储在 **/example/out/shotestpaths** 目录。 创建的输出文件名称以 **part-m-** 开头，结尾的数字表示第一个文件、第二个文件，依此类推。 使用以下命令查看输出：
+6. 作业完成后，其结果将存储在 **/example/out/shortestpaths** 目录。 创建的输出文件名称以 **part-m-** 开头，结尾的数字表示第一个文件、第二个文件，依此类推。 使用以下命令查看输出：
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*
@@ -164,7 +164,7 @@ ms.locfileid: "67845440"
 
     在可视化此数据的情况下，你可以通过体验 ID 1 与所有其他对象之间的最短路径来验证结果。 ID 1 和 ID 4 之间的最短路径为 5。 这是从 <span style="color:orange">ID 1 到 ID 3</span>，再从 <span style="color:red">ID 3 到 ID 4</span> 的总距离。
 
-    ![将对象绘制为圆圈，并绘制对象之间的最短路径](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
+    ![将对象绘制为圆圈，并绘制对象之间的最短路径](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 开发工具包 (ASDK) 简介 | Microsoft Docs
-description: 介绍 ASDK 的概念以及进行 Azure Stack 评估的常见用例。
+title: 什么是 ASDK? | Microsoft Docs
+description: 了解 Azure Stack 开发工具包 (ASDK) 以及如何使用它来评估 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 origin.date: 02/08/2019
-ms.date: 04/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: e07d431d1d945d0423460715677d17b81af3e2c8
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: c360529697a800431b33e3d773b334e0adf08a99
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855162"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583810"
 ---
-# <a name="what-is-the-azure-stack-development-kit"></a>什么是 Azure Stack 开发工具包？
+# <a name="what-is-the-asdk"></a>什么是 ASDK?
 [Azure Stack 集成系统](../operator/azure-stack-overview.md)的大小范围为 4 到 16 个节点，由硬件合作伙伴和 Azure 共同提供支持。 使用 Azure Stack 集成系统可为生产工作负荷启用新方案。 如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅[操作员文档](/azure-stack/operator)。
 
-Azure Stack 开发工具包 (ASDK) 用于对 Azure Stack 进行单节点部署，可以**免费**下载和使用。 所有 ASDK 组件都安装在单主机服务器计算机上运行的虚拟机中，该计算机必须满足或超过[最低硬件要求](asdk-deploy-considerations.md#hardware)。 ASDK 旨在提供一个特定的环境，方便你在其中评估 Azure Stack 并开发现代应用程序，所使用的 API 和工具与非生产环境中的 Azure 一致。 
+Azure Stack 开发工具包 (ASDK) 用于对 Azure Stack 进行单节点部署，可以**免费**下载和使用。 所有 ASDK 组件都安装在单个主计算机上运行的虚拟机 (VM) 中，该计算机必须满足或超过[最低硬件要求](asdk-deploy-considerations.md#hardware)。 ASDK 旨在提供一个特定的环境，方便你在其中评估 Azure Stack 并开发新型应用，所使用的 API 和工具与*非生产*环境中的 Azure 一致。 
 
 > [!IMPORTANT]
 > 不应在生产环境中使用 ASDK 或为其提供支持。
 
-由于所有 ASDK 组件都部署到单个开发工具包主机，因此可用的物理资源有限。 进行 ASDK 部署时，Azure Stack 基础结构 VM 和租户 VM 共存于同一服务器计算机。 此配置不适用于规模或性能评估。
+由于所有 ASDK 组件都部署到单个主计算机，因此可用的物理资源有限。 进行 ASDK 部署时，Azure Stack 基础结构 VM 和租户 VM 共存于同一服务器计算机。 此配置不应用于规模或性能评估。
 
 ASDK 旨在为以下人员提供 Azure 一致性混合云体验：
-- **管理员**（Azure Stack 操作员）。 ASDK 是适用于评估和了解可用 Azure Stack 服务的资源。
-- **开发人员**。 ASDK 可以用来在本地（开发/测试环境）开发混合应用程序或现代应用程序。 这样就可以在进行 Azure Stack 生产部署的同时或之前重复地获得开发体验。 
+- **管理员**（Azure Stack 操作员）：ASDK 是适用于评估和了解可用 Azure Stack 服务的资源。
+- **开发人员**：ASDK 可以用来在本地（开发/测试环境）开发混合应用或新型应用。 这种灵活性提供了在 Azure Stack 产品部署之前或部署时开发体验的可重复性。
 
 观看此短视频，了解有关 ASDK 的详细信息：
 
@@ -45,15 +45,15 @@ ASDK 旨在为以下人员提供 Azure 一致性混合云体验：
 
 
 ## <a name="asdk-and-multi-node-azure-stack-differences"></a>ASDK 和多节点 Azure Stack 的差异
-单节点 ASDK 部署在一些应该注意的重要方面不同于多节点 Azure Stack 部署。
+单节点 ASDK 部署与多节点 Azure Stack 部署在几个重要方面有所不同：
 
 |说明|ASDK|多节点 Azure Stack|
 |-----|-----|-----|
 |**缩放**|所有组件都安装在一个单节点服务器计算机上。|大小范围为 4-16 节点。|
 |**复原能力**|单节点配置不提供高可用性|支持[高可用性](../operator/azure-stack-overview.md#providing-high-availability)功能。|
 |**联网**|ASDK 主机路由所有 ASDK 网络流量。 无其他切换要求。|需要在多节点部署中使用更复杂的[网络路由基础架构](../operator/azure-stack-network.md#network-infrastructure)，包括架顶 (TOR)、基板管理控制器 (BMC) 和边界（数据中心网络）交换机。|
-|**修补和更新过程**|若要改用新版 ASDK，必须在开发工具包主机上重新部署 ASDK。|[修补和更新](../operator/azure-stack-updates.md)过程用于更新已安装的 Azure Stack 版本。|
-|**支持**|MSDN Azure Stack 论坛。 Microsoft 客户服务和支持 (CSS) 支持不适用于非生产环境。|[MSDN Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)和完整的 CSS 支持。|
+|**修补和更新过程**|若要改用新版 ASDK，必须在 ASDK 主计算机上重新部署 ASDK。|[修补和更新](../operator/azure-stack-updates.md)过程用于更新已安装的 Azure Stack 版本。|
+|**支持**|MSDN Azure Stack 论坛。 Microsoft 客户服务和支持 (CSS) 支持不  适用于非生产环境。|[MSDN Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)和完整的 CSS 支持。|
 | | |
 
 ## <a name="learn-about-available-services"></a>了解可用的服务
@@ -77,9 +77,5 @@ ASDK 旨在为以下人员提供 Azure 一致性混合云体验：
 > [!NOTE]
 > 这些服务在提供给用户之前，需要进行额外的配置，并且不是在安装 ASDK 时默认提供的。
 
-## <a name="service-roadmap"></a>服务路线图
-Azure Stack 会持续增加对其他 Azure 服务的支持。 若要了解 Azure Stack 随后会推出哪项功能，请参阅 [Azure Stack 路线图](https://azure.microsoft.com/roadmap/?tag=azure-stack)。 
-
-
 ## <a name="next-steps"></a>后续步骤
-若要开始评估 Azure Stack，需要先[下载最新 ASDK](asdk-download.md) 并准备 ASDK 主机。 准备开发工具包主机后，可以安装 ASDK 并登录管理员和用户门户以开始使用 Azure Stack。
+若要开始评估 Azure Stack，需要先[下载最新 ASDK](asdk-download.md) 并准备 ASDK 主机。 然后，可以安装 ASDK 并登录到管理员和用户门户以开始使用 Azure Stack。

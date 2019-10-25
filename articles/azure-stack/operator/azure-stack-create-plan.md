@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/11/2019
-ms.date: 07/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 08142a2154a06e057e4e8db792267848c40d3bb5
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 0866d328abb440efa074e0d63ee91422e6613835
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513488"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578469"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中创建计划
 
@@ -30,6 +30,7 @@ ms.locfileid: "68513488"
 
 [Azure Stack 计划](azure-stack-overview.md)是一个或多个服务及其配额的分组。 作为提供商，可以创建提供给用户的计划。 而用户可以订阅你的套餐，以使用套餐中包含的计划、服务和配额。 此示例演示如何创建一个包括计算、网络和存储资源提供程序的计划。 订阅方使用此计划可以预配虚拟机。
 
+::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>创建计划（1902 和更高版本）
 
 1. 登录到 [Azure Stack 管理员门户](https://adminportal.local.azurestack.external)。
@@ -52,7 +53,7 @@ ms.locfileid: "68513488"
   
    ![选择服务](media/azure-stack-create-plan/services.png)
 
-6. 选择“配额”  选项卡，或单击“下一步:  配额 >”按钮。 在“Microsoft.Storage”的旁边，从下拉框中选择默认配额，或选择“新建”以创建自定义的配额。  
+6. 选择“配额”  选项卡，或单击“下一步:  配额 >”按钮。 在“Microsoft.Storage”的旁边，从下拉框中选择默认配额，或选择“新建”以创建自定义的配额。 
   
    ![配额](media/azure-stack-create-plan/quotas.png)
 
@@ -71,7 +72,9 @@ ms.locfileid: "68513488"
 10. 准备就绪后，选择“创建”以创建计划。 
 
 11. 若要查看新计划，请在左侧单击“所有服务”  ，选择“计划”  ，然后搜索计划并选择其名称。 如果资源列表很长，可使用“搜索”  来通过名称定位你的计划。
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>创建计划（1901 和更低版本）
 
 1. 登录到 [Azure Stack 管理员门户](https://adminportal.local.azurestack.external)。
@@ -115,6 +118,7 @@ ms.locfileid: "68513488"
 10. 若要查看新计划，请选择“所有资源”  ，然后搜索该计划并选择其名称。 如果资源列表很长，可使用“搜索”  来通过名称定位你的计划。
 
     ![检查计划](media/azure-stack-create-plan/plan-overview1901.png)
+::: moniker-end
 
 ## <a name="next-steps"></a>后续步骤
 

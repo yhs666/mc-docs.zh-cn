@@ -1,20 +1,19 @@
 ---
 title: 示例 - 在资源组强制执行标记及其值
 description: 此示例策略定义要求对资源组使用标记和值。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 10/30/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: bd9cae451908946c69bda9c65e3a719e612c895e
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: d4626b7281dac1c92fe2df7cee9a5463fb804591
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903108"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526670"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>示例 - 在资源组强制执行标记及其值
 
@@ -146,7 +145,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-portal"></a>Azure 门户
 
-[![“部署到 Azure”](../media/deploy/deploybutton.png)](https://portal.azure.cn)
+[![将策略示例部署到 Azure](../media/deploy/deploybutton.png)](https://portal.azure.cn/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -154,7 +153,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
-```azurepowershell
+```powershell
 # Create the Policy Definition (Subscription scope)
 $definition = New-AzPolicyDefinition -Name 'enforce-resourceGroup-tags' -DisplayName 'Enforce tag and its value on resource groups' -description 'Enforces a required tag and its value on resource groups.' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json' -Mode All
 
@@ -172,7 +171,7 @@ $assignment = New-AzPolicyAssignment -Name 'enforce-resourceGroup-tags-assignmen
 
 运行以下命令来删除以前的分配和定义：
 
-```azurepowershell
+```powershell
 # Remove the Policy Assignment
 Remove-AzPolicyAssignment -Id $assignment.ResourceId
 

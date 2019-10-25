@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 174688c616a13c79430df46498961d0d8a606363
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 8f78deac84a2fd6f88900281b2abc48f35732153
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006550"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583578"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>为 Xamarin.iOS 移动应用启用脱机同步
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "71006550"
 1. 在共享项目中编辑 QSToDoService.cs。 更改 **applicationURL** 以指向无效的 URL：
 
     ```
-     const string applicationURL = @"https://your-service.azurewebsites.fail";
+     const string applicationURL = @"https://your-service.chinacloudsites.fail";
     ```
 
     还可以通过在设备上禁用 wifi 和手机网络或使用飞行模式来演示脱机行为。

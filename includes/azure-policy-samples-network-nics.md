@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
+origin.date: 09/18/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: c61423f43bdacf8cba91b309660da5c8581eae8a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b869e26b33704b0f8ed6d1db8e323c83f034cb69
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651563"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526645"
 ---
 ### <a name="network-interfaces"></a>网络接口
 

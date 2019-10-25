@@ -8,13 +8,13 @@ ms.service: batch
 ms.topic: article
 origin.date: 02/13/2018
 ms.date: 06/29/2018
-ms.author: v-junlch
-ms.openlocfilehash: b988dbe659440955c3286be321716f7a284b86c1
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.author: v-lingwu
+ms.openlocfilehash: bf2db87c9d8afad6a22eed7e02d2f8ef8fe3f6fd
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330053"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583754"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>配置或禁用对 Azure Batch 池中计算节点的远程访问
 

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f494d78664259d23d7807aab7741f2165dca605f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: c101b7054de88a5679b5d66c95cb6aea2c663480
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993389"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292085"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>如何：配置用户风险策略
 
@@ -27,9 +27,9 @@ Azure AD 使用用户风险检测用户帐户泄露的可能性。 管理员可�
 
 ## <a name="what-is-a-user-risk-policy"></a>什么是用户风险策略？
 
-Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录而来的可疑操作。 在 Azure AD 中，系统可以检测到的可疑操作也称为风险事件。 尽管某些风险事件可以实时检测到，但有些风险事件需要更长的时间才能检测到。 例如，若要检测异常位置的不可能行程，系统需要花费 14 天的初始学习期来学习用户的常规行为。 可通过多个选项解决检测到的风险事件。 例如，可以手动解决单个风险事件，也可以使用登录风险或用户风险条件访问策略来解决这些事件。
+Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录而来的可疑操作。 在 Azure AD 中，系统可以检测到的可疑操作也称为风险检测。 尽管某些风险检测可以实时检测到，但有些风险检测也需要更长的时间才能检测到。 例如，若要检测异常位置的不可能行程，系统需要花费 14 天的初始学习期来学习用户的常规行为。 可通过多个选项解决检测到的风险检测。 例如，可以手动解决单个风险检测，也可以使用登录风险或用户风险条件访问策略来解决这些检测。
 
-已检测到的但尚未解决的所有用户风险事件称为活动风险事件。 与用户关联的活动风险事件称为用户风险。 Azure AD 根据用户风险计算用户遭到入侵的可能性（低、中、高）。 这种可能性称为用户风险级别。
+已检测到的但尚未解决的所有用户风险检测称为活动风险检测。 与用户关联的活动风险检测称为用户风险。 Azure AD 根据用户风险计算用户遭到入侵的可能性（低、中、高）。 这种可能性称为用户风险级别。
 
 ![用户风险](./media/howto-user-risk-policy/1031.png)
 
@@ -73,8 +73,8 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 阻止登录：
 
-* 避免针对受影响用户生成新的用户风险事件
-* 允许管理员手动补救影响用户标识的风险事件，并将它还原到安全状态
+* 避免针对受影响用户生成新的用户风险检测
+* 允许管理员手动补救影响用户标识的风险检测，并将它还原到安全状态
 
 ## <a name="best-practices"></a>最佳实践
 
@@ -105,4 +105,4 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 若要获取“Azure AD 标识保护”的概述，请参阅 [Azure AD 标识保护概述](overview.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

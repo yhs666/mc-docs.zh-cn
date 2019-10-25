@@ -6,33 +6,33 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e21fa665d1171df02309d1aa53d1d5432ab24ce
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 19e5e0a6b7dd091f8527f206c825861fb48ab8ff
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993404"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292090"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>如何：在 Azure Active Directory 标识保护（已刷新）中配置风险策略
 
-Azure AD 可以检测指示标识可能遭到入侵的风险事件。 通过配置风险策略，可以定义对检测结果的自动响应：
+Azure AD 可以检测指示标识可能遭到入侵的风险检测。 通过配置风险策略，可以定义对检测结果的自动响应：
 
-- 使用登录风险策略，可以配置对用户登录期间检测到的实时风险事件的响应。 
+- 使用登录风险策略，可以配置对用户登录期间检测到的实时风险检测的响应。 
 - 使用用户风险策略，可以配置响应，以应对在一段时间内为用户检测到的所有活动的用户风险。  
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>什么是登录风险策略？
 
-Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录而来的可疑操作。 例如，登录是否是使用匿名 IP 地址执行的？或者，登录是否是从不熟悉的位置发起的？ 在 Azure AD 中，系统可以检测到的可疑操作也称为风险事件。 根据在登录期间检测到的风险事件，Azure AD 会计算一个值。 该值表示登录不是由合法用户执行的可能性（低、中、高）。 此可能性称为**登录风险级别**。
+Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录而来的可疑操作。 例如，登录是否是使用匿名 IP 地址执行的？或者，登录是否是从不熟悉的位置发起的？ 在 Azure AD 中，系统可以检测到的可疑操作也称为风险检测。 根据在登录期间检测到的风险检测，Azure AD 会计算一个值。 该值表示登录不是由合法用户执行的可能性（低、中、高）。 此可能性称为**登录风险级别**。
 
 登录风险策略是可以为特定登录风险级别配置的自动响应。 在响应中，你可以阻止对资源的访问，或者要求传递多重身份验证 (MFA) 质询来获取访问权限。
 
-当用户成功完成由登录风险策略触发的 MFA 提示时，它将向标识保护提供反馈，说明登录源自合法用户。 因此，触发 MFA 提示的登录风险事件将自动关闭，标识保护将防止该事件加剧用户风险。 启用登录风险策略可允许用户在出现 MFA 提示时自行修复，并随后自动关闭关联的风险登录，从而减少风险登录视图中的噪声。
+当用户成功完成由登录风险策略触发的 MFA 提示时，它将向标识保护提供反馈，说明登录源自合法用户。 因此，触发 MFA 提示的登录风险检测将自动关闭，标识保护将防止该事件加剧用户风险。 启用登录风险策略可允许用户在出现 MFA 提示时自行修复，并随后自动关闭关联的风险登录，从而减少风险登录视图中的噪声。
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>如何访问登录风险策略？
    
@@ -92,9 +92,9 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 ## <a name="what-is-a-user-risk-policy"></a>什么是用户风险策略？
 
-Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录而来的可疑操作。 在 Azure AD 中，系统可以检测到的可疑操作也称为风险事件。 尽管某些风险事件可以实时检测到，但有些风险事件需要更长的时间才能检测到。 例如，若要检测异常位置的不可能行程，系统需要花费 14 天的初始学习期来学习用户的常规行为。 可通过多个选项解决检测到的风险事件。 例如，可以手动解决单个风险事件，也可以使用登录风险或用户风险条件访问策略来解决这些事件。
+Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录而来的可疑操作。 在 Azure AD 中，系统可以检测到的可疑操作也称为风险检测。 尽管某些风险检测可以实时检测到，但有些风险检测也需要更长的时间才能检测到。 例如，若要检测异常位置的不可能行程，系统需要花费 14 天的初始学习期来学习用户的常规行为。 可通过多个选项解决检测到的风险检测。 例如，可以手动解决单个风险检测，也可以使用登录风险或用户风险条件访问策略来解决这些检测。
 
-已检测到的但尚未解决的所有用户风险事件称为活动风险事件。 与用户关联的活动风险事件称为用户风险。 Azure AD 根据用户风险计算用户遭到入侵的可能性（低、中、高）。 这种可能性称为用户风险级别。
+已检测到的但尚未解决的所有用户风险检测称为活动风险检测。 与用户关联的活动风险检测称为用户风险。 Azure AD 根据用户风险计算用户遭到入侵的可能性（低、中、高）。 这种可能性称为用户风险级别。
 
 ![用户风险](./media/howto-configure-risk-policies/11031.png)
 
@@ -138,8 +138,8 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 阻止登录：
 
-* 避免针对受影响用户生成新的用户风险事件
-* 允许管理员手动补救影响用户标识的风险事件，并将它还原到安全状态
+* 避免针对受影响用户生成新的用户风险检测
+* 允许管理员手动补救影响用户标识的风险检测，并将它还原到安全状态
 
 ## <a name="best-practices"></a>最佳实践
 
@@ -161,4 +161,4 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
  [第 9 频道：Azure AD 和标识展示：“标识保护”预览版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -11,13 +11,13 @@ ms.topic: hero-article
 ms.workload: big-compute
 origin.date: 05/22/2017
 ms.date: 09/07/2018
-ms.author: v-junlch
-ms.openlocfilehash: 6d970938738fd4c56aa4018b55ffb38d6c03c6ec
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.author: v-lingwu
+ms.openlocfilehash: 456c0e39325014cff1d8dc64fd0be455147ff68e
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818458"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583779"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 

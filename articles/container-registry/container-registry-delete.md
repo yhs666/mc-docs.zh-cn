@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/31/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 216bc68fa1cf579cac8face8414f84ba47c81c4d
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 515ee780fdbb018599ef634d58be7f567c1c013f
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306677"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303279"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 删除 Azure 容器注册表中的容器映像
 
@@ -262,6 +262,7 @@ if ($enableDelete) {
 
 <!--Not Available on ## Automatically purge tags and manifests (preview)-->
 <!--Not Available on [Automatically purge images from an Azure container registry](container-registry-auto-purge.md)-->
+
 ## <a name="next-steps"></a>后续步骤
 
 要详细了解 Azure 容器注册表中的映像存储，请参阅 [Azure 容器注册表中的容器映像存储](container-registry-storage.md)。

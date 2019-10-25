@@ -12,23 +12,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/20/2019
-ms.date: 07/29/2019
+origin.date: 09/04/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: prchint
-ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: dec3b5ca91edaec70d377e6d851be37b5173106e
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: 4e7efa859ddf98b9fe6071d7c8df5cd26e7a1d8a
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513382"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578409"
 ---
 # <a name="azure-stack-troubleshooting"></a>Azure Stack 故障排除
 
-本文档提供 Azure Stack 的常见故障排除信息。 建议和代码示例按原样提供，可能不会始终解决你的问题。 
+本文档提供 Azure Stack 的故障排除信息。 
 
-## <a name="deployment"></a>部署
+
+## <a name="frequently-asked-questions"></a>常见问题
+
+这些部分包含指向涵盖发送到 Azure 客户支持服务 (CSS) 的常见问题的文档的链接。
+
+### <a name="azure-stack-development-kit-asdk"></a>Azure Stack 开发工具包 (ASDK)
+
+有关 [Azure Stack 开发工具包](../asdk/asdk-what-is.md)的帮助，请联系 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Stack)上的专家。 ASDK 作为评估环境提供，不通过 CSS 提供支持。 为 ASDK 建立的支持案例称为 MSDN 论坛。
+
+### <a name="updates-and-diagnostics"></a>更新和诊断
+
+* [如何在 Azure Stack 中使用诊断工具](azure-stack-diagnostics.md)
+* [如何验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md)
+* [更新包发布频率](azure-stack-servicing-policy.md#update-package-release-cadence)
+
+### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>来宾 VM 支持的操作系统和大小
+
+* [Azure Stack 上支持的来宾操作系统](azure-stack-supported-os.md)
+* [Azure Stack 支持的 VM 大小](../user/azure-stack-vm-sizes.md)
+
+### <a name="azure-marketplace"></a>Azure 市场
+
+* [可供 Azure Stack 使用的 Azure 市场项](azure-stack-marketplace-azure-items.md)
+
+### <a name="manage-capacity"></a>管理容量
+
+#### <a name="memory"></a>内存
+
+若要增加 Azure Stack 的总可用内存容量，可以添加内存。 在 Azure Stack 中，物理服务器也称为缩放单元节点。 属于单个缩放单元的所有缩放单元节点必须具有[相同的内存量](azure-stack-manage-storage-physical-memory-capacity.md)。
+
+#### <a name="retention-period"></a>保留期
+
+云操作员可以使用保留期设置来指定时间间隔天数（0 到 9999 天），在此期间，任何已删除的帐户都有可能能够恢复。 默认保留期设置为 0 天。 将值设置为“0”表示任何已删除的帐户会立即失去保留期，并标记为定期接受垃圾回收。
+
+* [设置保留期](azure-stack-manage-storage-accounts.md#set-the-retention-period)
+
+### <a name="security-compliance-and-identity"></a>安全性、合规性和标识  
+
+#### <a name="manage-rbac"></a>管理 RBAC
+
+Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的读取者、所有者或参与者。
+
+* [Azure Stack 管理 RBAC](azure-stack-manage-permissions.md)
+
+如果 Azure 资源的内置角色不能满足组织的特定需求，则你可以创建自己的自定义角色。 对于本教程，你将使用 Azure PowerShell 创建名为 Reader Support Tickets 的自定义角色。
+
+* [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](/role-based-access-control/tutorial-custom-role-powershell)
+
+### <a name="manage-usage-and-billing-as-a-csp"></a>以 CSP 身份管理使用情况和计费
+
+* [以 CSP 身份管理用量和计费](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+* [创建 CSP 或 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+
+选择用于 Azure Stack 的共享服务帐户的类型。 可以用来注册多租户 Azure Stack 的订阅类型为：
+
+* 云服务提供商
+* 合作伙伴共享服务订阅
+
+
+## <a name="troubleshoot-deployment"></a>排查部署问题 
 ### <a name="general-deployment-failure"></a>常见的部署失败
 如果安装期间发生失败，可以使用部署脚本的 -rerun 选项从失败的步骤重新开始部署。  
 
@@ -55,7 +114,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 
 如果此命令失败，请验证TOR 交换机以及任何其他的网络设备是否已配置为[允许网络流量](azure-stack-network.md)。
 
-## <a name="virtual-machines"></a>虚拟机
+## <a name="troubleshoot-virtual-machines"></a>对虚拟机进行故障排除
 ### <a name="default-image-and-gallery-item"></a>默认映像和库项
 在 Azure Stack 中部署 VM 之前，必须先添加 Windows Server 映像和库项。
 
@@ -67,7 +126,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 1.  在 Azure Stack 开发工具包主机上，从“开始”菜单启动“故障转移群集管理器”。 
 2.  选择群集“S-Cluster.azurestack.local”。 
 3.  选择“角色”  。
-4.  租户 VM 显示为“已保存”状态。  所有基础结构 VM 运行后，右键单击租户 VM，并选择“启动”以恢复该 VM。 
+4.  租户 VM 显示为“已保存”状态。  所有基础结构 VM 运行后，右键单击租户 VM，并选择“启动”以恢复这些 VM。 
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>我已删除某些虚拟机，但仍在磁盘上看到 VHD 文件。 这是预期行为吗？
 是的，这是预期的行为。 设计此行为的原因如下：
@@ -79,7 +138,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 
 可以在[管理存储帐户](azure-stack-manage-storage-accounts.md)中详细了解如何配置保留阈值和按需回收。
 
-## <a name="storage"></a>存储
+## <a name="troubleshoot-storage"></a>排查存储问题
 ### <a name="storage-reclamation"></a>存储回收
 回收的容量最长可能需要在 14 小时后才显示在门户中。 空间回收取决于多种因素，包括块 Blob 存储中内部容器文件的用量百分比。 因此，我们无法保证运行垃圾收集器时可回收的空间量，这取决于删除的数据量。
 

@@ -1,23 +1,23 @@
 ---
 title: 监视群集性能 - Azure HDInsight
-description: 如何监视 HDInsight 群集的容量和性能。
+description: 如何在 Azure HDInsight 中监视 Apache Hadoop 群集的运行状况和性能。
 services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 06/10/2019
+origin.date: 05/29/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 278443cce43d73dbdc9733cd48d81efab672dde8
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: effa5d94a4887c7b2418ebc8c0a8c61ef496c0a8
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878491"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292597"
 ---
-# <a name="monitor-cluster-performance"></a>监视群集性能
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>在 Azure HDInsight 中监视群集性能
 
 监视 HDInsight 群集的运行状况和性能对于维持最佳性能和资源利用率来说至关重要。 监视还可以帮助你检测并解决群集配置错误和用户代码问题。
 
@@ -38,11 +38,11 @@ ms.locfileid: "68878491"
 
 此外还将看到列，显示每个主机的内核数及 RAM 量、磁盘使用情况和平均负载。
 
-![“主机选”项卡](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![“主机选”项卡](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 选择任意主机名，详细了解在该主机上运行的组件及其指标。 查看 CPU 使用情况、负载、磁盘使用情况、内存使用情况、网络使用情况和进程数的可选时间线，了解这些指标。
 
-![主机详细信息](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![主机详细信息](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 有关设置警报和查看指标的详细信息，请参阅[使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
@@ -58,7 +58,7 @@ YARN 将 JobTracker、资源管理和作业计划/监视的两种责任划分为
 
 YARN 允许我们将资源分配给这些队列，并显示是否已分配所有可用资源。 若要查看有关队列的信息，请登录到 Ambari Web UI，然后从顶部菜单选择“YARN 队列管理器”  。
 
-![YARN 队列管理器](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![YARN 队列管理器](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 YARN 队列管理器页的左侧显示队列的列表，以及分配给每个队列的容量百分比。
 
@@ -66,11 +66,11 @@ YARN 队列管理器页的左侧显示队列的列表，以及分配给每个队
 
 若要更加详细地查看队列，在 Ambari 仪表板中，从左侧列表选择“YARN”  服务。 然后，在“快速链接”  下拉菜单下，选择活动节点下的“资源管理器 UI”  。
 
-![“资源管理器 UI”菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![“资源管理器 UI”菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 在资源管理器 UI 中，从左侧菜单中选择“计划程序”  。 “应用程序队列”  下将显示队列的列表。 此处可看到用于每个队列的容量、作业在队列之间的分布情况，以及作业是否受资源约束。
 
-![“资源管理器 UI”菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![“资源管理器 UI”菜单](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>存储限制
 

@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
-origin.date: 03/23/2019
-ms.date: 04/08/2019
+origin.date: 07/18/2019
+ms.date: 10/14/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: f5e24fddbad790dc9865ad12ebc6c0c54368bc2b
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 94db59909bafe97d18289828838b9ad047c9e900
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890151"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275171"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>存储帐户的 Azure 存储可伸缩性和性能目标
 
@@ -24,7 +24,7 @@ ms.locfileid: "58890151"
 
 当应用程序达到分区能够处理的工作负荷极限时，Azure 存储将开始返回错误代码 503（服务器忙）或错误代码 500（操作超时）响应。 如果发生 503 错误，请考虑修改应用程序以使用指数退避策略进行重试。 使用指数退让策略，可以减少分区上的负载，缓解该分区的流量高峰。
 
-## <a name="standard-performance-storage-account-scale-limits"></a>标准性能存储帐户缩放限制
+## <a name="storage-account-scale-limits"></a>存储帐户缩放限制
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -46,6 +46,16 @@ ms.locfileid: "58890151"
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+### <a name="premium-files-scale-targets"></a>高级文件缩放目标
+
+对于高级文件，需要考虑三类限制：存储帐户、共享和文件。
+
+例如：单个共享可以达到 100,000 IOPS，单个文件最多可以扩展到 5,000 IOPS。 例如，如果一个共享中有三个文件，则可以从该共享获取的最大 IOPS 为 15,000。
+
+#### <a name="premium-file-share-limits"></a>高级文件共享限制
+
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-queue-storage-scale-targets"></a>Azure 队列存储缩放目标
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
@@ -56,9 +66,7 @@ ms.locfileid: "58890151"
 
 ## <a name="see-also"></a>另请参阅
 
-* [存储定价详细信息](https://www.azure.cn/pricing/details/storage/)
-* [Azure 订阅和服务限制、配额和约束](../../azure-subscription-service-limits.md)
-* [Azure 存储复制](../storage-redundancy.md)
-* [Azure 存储性能和可伸缩性清单](../storage-performance-checklist.md)
-
-<!--Update_Description: update content-->
+- [存储定价详细信息](https://www.azure.cn/pricing/details/storage/)
+- [Azure 订阅和服务限制、配额和约束](../../azure-subscription-service-limits.md)
+- [Azure 存储复制](../storage-redundancy.md)
+- [Azure 存储性能和可伸缩性清单](../storage-performance-checklist.md)

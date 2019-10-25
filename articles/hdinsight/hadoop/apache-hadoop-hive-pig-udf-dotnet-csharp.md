@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/15/2019
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: de5245f4d0d8989bb9bde846ed205c5f3236f345
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 1f95a2349fc98c26decdc9ae98460b6c59751bdc
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845362"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583917"
 ---
-# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 用户定义函数与 Apache Hive 和 Apache Pig 流式处理配合使用
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 用户定义函数与 Apache Hive 和 Apache Pig 配合使用
 
 了解如何在 HDInsight 中将 C# 用户定义函数 (UDF) 与 Apache Hive 和 Apache Pig 配合使用。
 
@@ -170,7 +170,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 4. 展开要将此应用程序部署到的 HDInsight 群集。 列出带有文本“（默认存储帐户）”  的条目。
 
-    ![显示群集存储帐户的服务器资源管理器](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![显示群集存储帐户的服务器资源管理器](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
     * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”  。
 
@@ -178,7 +178,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
    * 如果使用的是 __Azure 存储帐户__，请单击“上传”图标，并浏览到“HiveCSharp”  项目的“bin\debug”  文件夹。 最后，选择 **HiveCSharp.exe** 文件并单击“确定”  。
 
-       ![上传图标](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![上传图标](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
      上传“HiveCSharp.exe”  完成后，请为“PigUDF.exe”  文件重复该上传过程。
 

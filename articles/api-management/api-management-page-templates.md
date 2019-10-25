@@ -16,11 +16,11 @@ origin.date: 01/09/2018
 ms.author: v-yiso
 ms.date: 12/31/2018
 ms.openlocfilehash: afe359e58222fbeaf2397ce03acbb1ed9d68f5c2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625964"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323800"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的页模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -228,11 +228,11 @@ ms.locfileid: "58625964"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|referenceCode|字符串|因内部错误显示此页时生成的代码。|  
-|errorCode|字符串|因内部错误显示页面时生成的代码。|  
-|emailBody|字符串|因内部错误显示页面时生成的电子邮件正文。|  
-|requestedUrl|字符串|找不到页面时请求的 URL。|  
-|referrerUrl|字符串|所请求的 URL 的引用 URL。|  
+|referenceCode|string|因内部错误显示此页时生成的代码。|  
+|errorCode|string|因内部错误显示页面时生成的代码。|  
+|emailBody|string|因内部错误显示页面时生成的电子邮件正文。|  
+|requestedUrl|string|找不到页面时请求的 URL。|  
+|referrerUrl|string|所请求的 URL 的引用 URL。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   

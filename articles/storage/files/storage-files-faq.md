@@ -4,16 +4,16 @@ description: 查看有关 Azure 文件的常见问题解答。
 author: WenJason
 ms.service: storage
 origin.date: 07/30/2019
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 ms.author: v-jay
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 446b73f868cc7e703e52a1ef5d81cf475ef88735
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: af9e000c2e7da936cebb901b482899dd8395a75d
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306482"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275565"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -62,12 +62,10 @@ ms.locfileid: "71306482"
 
 * <a id="tier-options"></a>
   **Azure 文件支持哪些存储层？**  
-    Azure 文件目前仅支持标准存储层。 当前我们暂无有关高级存储支持的日程表可供分享。 
+    Azure 文件存储支持两种存储层：高级和标准。 标准文件共享是在常规用途（GPv1 或 GPv2）存储帐户中创建的，高级文件共享是在 FileStorage 存储帐户中创建的。 详细了解如何创建[标准文件共享](storage-how-to-create-file-share.md)和[高级文件共享](storage-how-to-create-premium-fileshare.md)。 
     
     > [!NOTE]
-    > 你无法使用仅限 Blob 存储帐户或高级存储帐户创建 Azure 文件共享。
-
-
+    > 无法从 Blob 存储帐户或*高级*常规用途（GPv1 或 GPv2）存储帐户创建 Azure 文件共享。 必须仅在*标准*常规用途帐户中创建标准 Azure 文件共享，并且必须仅在 FileStorage 存储帐户中创建高级 Azure 文件共享。 *高级*常规用途（GPv1 和 GPv2）存储帐户仅适用于高级页 Blob。 
 
 ## <a name="security-authentication-and-access-control"></a>安全性、身份验证和访问控制
 * <a id="ad-support"></a>
@@ -209,8 +207,8 @@ ms.locfileid: "71306482"
     有关 Azure 文件的可伸缩性和性能目标的信息，请参阅 [Azure 文件可伸缩性和性能目标](storage-files-scale-targets.md)。
 
 * <a id="need-larger-share"></a>
-**我需要大于 Azure 文件目前提供的文件共享的文件共享。我是否可以增加 Azure 文件共享的大小？**  
-    否。 Azure 文件共享的上限是 5 TiB。 当前，这是硬限制，无法调整。 我们正致力于寻找将共享大小提升至 100 TiB 的解决方案，但当前尚无可供分享的时间表。
+**Azure 文件共享的可用大小是多少？**  
+    Azure 文件共享大小（高级）最多可以扩展到 100 TiB。 GA 产品可提供最大 100 TiB 的高级文件共享。 GA 产品可提供最大 5 TiB 的标准文件共享。
 
 * <a id="open-handles-quota"></a>
 **多少个客户端可以同时访问同一文件？**    

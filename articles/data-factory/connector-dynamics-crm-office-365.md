@@ -11,20 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 07/01/2019
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 0397990623a14aaf66add2d787fdc10b21fec2de
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 1a16e731ba19d152497fa44c4f9bae95f69294a2
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908699"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275503"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Dynamics 365 (Common Data Service) 或 Dynamics CRM 复制数据
 
 本文概述如何使用 Azure 数据工厂中的复制活动从/向 Microsoft Dynamics 365 或 Microsoft Dynamics CRM 复制数据。 本文是根据总体概述复制活动的[复制活动概述](copy-activity-overview.md)一文编写的。
 
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此连接器：
+
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 Dynamics 365 (Common Data Service) 或 Dynamics CRM 复制到任何支持的接收器数据存储。 还可以将数据从任何支持的源数据存储复制到 Dynamics 365 (Common Data Service) 或 Dynamics CRM。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
@@ -352,6 +357,10 @@ Dynamics 链接服务支持以下属性。
 
 > [!NOTE]
 > Dynamics 数据类型 AttributeType.CalendarRules、AttributeType.MultiSelectPicklist 和 AttributeType.PartyList 不受支持。
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>后续步骤
 有关数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

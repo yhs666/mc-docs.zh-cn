@@ -1,5 +1,5 @@
 ---
-title: 配置 AlwaysOn 可用性组的外部侦听器 | Azure
+title: 在 Azure 中配置 Always On 可用性组的外部侦听器 | Azure
 description: 本教程逐步说明如何在 Azure 中创建一个可以使用关联云服务公共虚拟 IP 地址从外部访问的 AlwaysOn 可用性组侦听器。
 services: virtual-machines-windows
 documentationcenter: na
@@ -9,24 +9,23 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 04/01/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: f778f4d283c1de1ebb37b9a3d61f47ea1b6ad233
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: fb98eae8408d6ef874120b23fc0c9079ff8a2649
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003741"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272650"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的外部侦听器
 > [!div class="op_single_selector"]
-> * [内部侦听程序](../classic/ps-sql-int-listener.md)
-> * [外部侦听程序](../classic/ps-sql-ext-listener.md)
+> * [内部侦听器](../classic/ps-sql-int-listener.md)
+> * [外部侦听器](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -57,12 +56,12 @@ ms.locfileid: "59003741"
 必须为每个托管 Azure 副本的 VM 创建一个负载均衡的终结点。 如果在多个区域中拥有副本，该区域的每个副本必须位于同一个 VNet 的同一个云服务中。 跨越多个 Azure 区域创建可用性组副本需要配置多个 Vnet。 有关配置跨 VNet 连接的详细信息，请参阅[配置 VNet 到 VNet 连接](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 1. 在 Azure 门户中，导航到托管副本的每个 VM 并查看详细信息。
-2. 单击每个 VM 的“终结点”选项卡。
-3. 确保想要使用的侦听器终结点“名称”和“公用端口”未被使用。 在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
+2. 单击每个 VM 的“终结点”选项卡。 
+3. 确保想要使用的侦听器终结点“名称”  和“公用端口”  未被使用。 在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
 4. 在本地的客户端上，下载并安装 [最新的 PowerShell 模块](https://www.azure.cn/downloads/)。
 5. 启动 **Azure PowerShell**。 随即打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
-6. 运行 **Get-AzurePublishSettingsFile**。 此 cmdlet 会定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
-7. 运行 Import-azurepublishsettingsfile 命令以及下载发布设置文件的路径：
+6. 运行 **Get-AzurePublishSettingsFile -Environment AzureChinaCloud**。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
+7. 运行 Import-azurepublishsettingsfile 命令以及下载发布设置文件的路径： 
 
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
@@ -96,8 +95,8 @@ ms.locfileid: "59003741"
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>在 PowerShell 中配置群集资源
-1. 对于外部负载均衡，你必须获取包含副本的云服务的公共虚拟 IP 地址。 登录到 Azure 门户。 导航到包含你的可用性组 VM 的云服务。 打开“仪表板”视图。
-2. 记下“公共虚拟 IP (VIP)地址”下显示的地址。 如果解决方案跨 VNet，请针对包含副本所在 VM 的每个云服务重复此步骤。
+1. 对于外部负载均衡，你必须获取包含副本的云服务的公共虚拟 IP 地址。 登录到 Azure 门户。 导航到包含你的可用性组 VM 的云服务。 打开“仪表板”  视图。
+2. 记下“公共虚拟 IP (VIP)地址”  下显示的地址。 如果解决方案跨 VNet，请针对包含副本所在 VM 的每个云服务重复此步骤。
 3. 在某个 VM 上，将以下 PowerShell 脚本复制到文本编辑器中，将变量设置为之前记下的值。
 
         # Define variables

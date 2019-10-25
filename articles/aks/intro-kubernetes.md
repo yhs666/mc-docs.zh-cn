@@ -9,12 +9,12 @@ origin.date: 05/06/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8d21a5cb142666d045304a9b8d26d402c9ffc441
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 264dfdf5cb1e4565c920e4dcf95fdd2d824fef1c
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500694"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303274"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS)
 
@@ -88,13 +88,13 @@ AKS 群集可以部署到现有的虚拟网络中。 在此配置中，群集中
 
 有关详细信息，请参阅 [AKS 中应用程序的网络概念][aks-networking]。
 
-有关入口流量的入门，请参阅 [HTTP 应用程序路由][aks-http-routing]。
+<!--Not Available on [HTTP application routing][aks-http-routing]-->
 
 ### <a name="ingress-with-http-application-routing"></a>使用 HTTP 应用程序路由的入口
 
 可以通过 HTTP 应用程序路由加载项轻松地访问部署到 AKS 群集的应用程序。 启用后，HTTP 应用程序路由解决方案可以在 AKS 群集中配置入口控制器。 部署应用程序后，会自动配置可以公开访问的 DNS 名称。 HTTP 应用程序路由会配置一个 DNS 区域并将其与 AKS 群集集成。 然后，你可以照常部署 Kubernetes 入口资源。
 
-有关入口流量的入门，请参阅 [HTTP 应用程序路由][aks-http-routing]。
+<!--Not Available on [HTTP application routing][aks-http-routing]-->
 
 ## <a name="development-tooling-integration"></a>开发工具集成
 

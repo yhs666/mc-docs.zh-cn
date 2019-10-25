@@ -1,20 +1,19 @@
 ---
 title: 示例 - 如果扩展不存在，则进行审核
 description: 如果虚拟机未部署扩展，此示例策略定义会进行审核。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 10/30/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 4e605700705dd0dd97e9485bcda8ede84094ac81
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: 790c1a3af33023c19af3c7c18a3fcdd0270addf8
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903078"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526675"
 ---
 # <a name="sample---audit-if-extension-does-not-exist"></a>示例 - 如果扩展不存在，则进行审核
 
@@ -93,7 +92,7 @@ ms.locfileid: "56903078"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-vm-extension%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-vm-extension%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -118,7 +117,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy definition create --name 'audit-vm-extension' --display-name 'Audit if extension does not exist' --description 'This policy audits if a required extension doesn't exist.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-vm-extension"
@@ -128,7 +127,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```cli
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

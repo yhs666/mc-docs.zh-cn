@@ -6,16 +6,16 @@ author: WenJason
 ms.service: azure-stack
 ms.topic: overview
 origin.date: 04/24/2019
-ms.date: 06/03/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b2f91fb612332da09434a7a8cfa4ff9b0461f2d8
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: d4a1ef557142ef335546fdf9e37a537c36b77b6a
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513307"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578313"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>将 Ruby Web 应用部署到 Azure Stack 中的 VM
 
@@ -32,8 +32,8 @@ ms.locfileid: "68513307"
     | 端口 | 协议 | 说明 |
     | --- | --- | --- |
     | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器传递网页的协议。 客户端使用 DNS 名称或 IP 地址通过 HTTP 进行连接。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是安全版的 HTTP，它需要一个安全证书，可以对信息进行加密传输。 |
-    | 22 | SSH | 安全外壳 (SSH) 是一种用于安全通信的加密网络协议。 在 SSH 客户端上使用此连接来配置 VM 并部署应用。 |
+    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是 HTTP 的安全版本，它需要一个安全证书，并允许对信息进行加密传输。 |
+    | 22 | SSH | 安全外壳 (SSH) 是一种用于安全通信的加密网络协议。 你在 SSH 客户端上使用此连接来配置 VM 并部署应用。 |
     | 3389 | RDP | 可选。 远程桌面协议 (RDP) 允许远程桌面连接使用计算机的图形用户界面。   |
     | 3000 | “自定义” | 开发中的 Ruby on Rails Web 框架使用的端口。 对于生产服务器，通过 80 和 443 路由流量。 |
 
@@ -103,4 +103,4 @@ ms.locfileid: "68513307"
 
 - 详细了解如何[针对 Azure Stack 进行开发](azure-stack-dev-start.md)。
 - 了解[用作 IaaS 的 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
-- 若要了解 Ruby 编程语言并找到适用于 Python 的其他资源，请参阅 [Ruby-lang.org](https://www.ruby-lang.org)。
+- 若要了解 Ruby 编程语言并找到适用于 Ruby 的其他资源，请参阅 [Ruby-lang.org](https://www.ruby-lang.org)。

@@ -1,5 +1,5 @@
 ---
-title: 向使用 Azure 通知中心的 Swift iOS 应用推送通知 | Azure Docs
+title: 向使用 Azure 通知中心的 Swift iOS 应用推送通知 | Azure
 description: 了解如何向使用 Azure 通知中心的 Swift iOS 应用推送通知。
 services: notification-hubs
 documentationcenter: ios
@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 07/01/2019
 origin.date: 05/21/2019
-ms.author: v-biyu
-ms.openlocfilehash: f8e32db5e7414fed92139756323438b7d75294fb
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.date: 10/08/2019
+ms.author: v-tawe
+ms.openlocfilehash: eb0c7a1c3f4e464d3c60ea3f1f3b1d05822d05b3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171374"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272633"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>教程：向使用通知中心 REST API 的 Swift iOS 应用推送通知
 
@@ -28,7 +28,7 @@ ms.locfileid: "67171374"
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
 > * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
 
-在本教程中，你将在 Azure 通知中心使用 [REST API](https://docs.microsoft.com//rest/api/notificationhubs/) 向基于 Swift 的 iOS 应用程序推送通知。 你将创建一个空白 iOS 应用，它使用 [Apple Push Notification 服务 (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) 接收推送通知。
+在本教程中，你将在 Azure 通知中心使用 [REST API](https://docs.microsoft.com/rest/api/notificationhubs/) 向基于 Swift 的 iOS 应用程序推送通知。 还将创建一个空白 iOS 应用，它使用 [Apple Push Notification 服务 (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) 接收推送通知。
 
 本教程引导你完成以下步骤：
 
@@ -57,7 +57,7 @@ ms.locfileid: "67171374"
 
 - 使用 Xcode 和 Swift 生成 iOS 应用。
 - 配置 iOS 的 [Azure 通知中心](notification-hubs-ios-apple-push-notification-apns-get-started.md)。
-- 熟悉 [Apple 开发人员门户](https://developer.apple.com)和 [Azure 门户](https://portal.azure.cn)
+- [Apple 开发人员门户](https://developer.apple.com)和 [Azure 门户](https://portal.azure.cn)
 
 > [!NOTE]
 > 通知中心将配置为仅使用“沙盒”身份验证模式。  不应将此身份验证模式用于生产工作负荷。
@@ -90,10 +90,10 @@ ms.locfileid: "67171374"
 
    | 键                            | 类型                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | <hubKey>                  |
-   | notificationHubKeyName         | String                   | <hubKeyName>              |
-   | notificationHubName            | String                   | <hubName>                 |
-   | notificationHubNamespace       | String                   | <hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    可以在 Azure 门户中导航到“通知中心”资源来找到所需的值。 具体而言，可以在“概述”页中“概要”摘要的右上角找到 **notificationHubName** 和 **notificationHubNamespace** 值。  
 
@@ -152,12 +152,12 @@ ms.locfileid: "67171374"
             self.notificationHubKey = configValues["notificationHubKey"] as? String
         }
     }
-        
+
     if #available(iOS 10.0, *){
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-                
+
             if (granted)
             {
                 DispatchQueue.main.async {
@@ -200,7 +200,7 @@ ms.locfileid: "67171374"
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         showAlert(withText: notification.request.content.body)
     }
-    
+
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, 
         didReceive response: UNNotificationResponse, 
@@ -272,9 +272,10 @@ ms.locfileid: "67171374"
     ```
 
 ### <a name="generate-a-sas-token"></a>生成 SAS 令牌
-**通知中心**使用的安全基础结构与 **Azure 服务总线**相同。 若要调用 REST API，需要[以编程方式生成](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token)一个可在请求的 **Authorization** 标头中使用的 SAS 令牌。  
 
-生成的令牌采用以下格式： 
+通知中心使用的安全基础结构与 Azure 服务总线相同。 若要调用 REST API，需要[以编程方式生成](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token)一个可在请求的 **Authorization** 标头中使用的 SAS 令牌。  
+
+生成的令牌采用以下格式：
 
 ```xml
 SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&sr=<UrlEncodedResourceUri>
@@ -411,7 +412,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
    | 键           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | 授权 | <sasToken>       |
+   | 授权 | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. 选择位于“保存”按钮右上方的“代码”按钮。   请求应类似于以下示例：
@@ -659,7 +660,7 @@ class NotificationRegistrationService {
    | 键                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | 授权                  | <sasToken>                     |
+   | 授权                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | template                       |
    | Tags                           | "12345"                        |
 
@@ -693,7 +694,7 @@ class NotificationRegistrationService {
 随后你应会收到一个成功状态代码，而客户端设备上会收到通知。
 
 ## <a name="next-steps"></a>后续步骤
-现已通过 [REST API](https://docs.microsoft.com/rest/api/notificationhubs/) 将一个基本的 iOS Swift 应用连接到**通知中心**，并且可以发送和接收通知。 有关详细信息，请参阅以下文章： 
+现已通过 [REST API](https://docs.microsoft.com/rest/api/notificationhubs/) 将一个基本的 iOS Swift 应用连接到通知中心，并且可以发送和接收通知。 有关详细信息，请参阅以下文章： 
 
 - [Azure 通知中心概述](notification-hubs-push-notification-overview.md)
 - [通知中心 REST API](https://docs.microsoft.com/rest/api/notificationhubs/)

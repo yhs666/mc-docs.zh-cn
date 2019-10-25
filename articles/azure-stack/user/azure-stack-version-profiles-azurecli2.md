@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/16/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: cf267f678aae29687d83e52ff8e97936f340104a
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 8d67c02070aa46abf71597e3f008c4c8dee545a4
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857169"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578298"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>使用 Azure CLI 管理资源以及将资源部署到 Azure Stack
 
@@ -45,7 +45,7 @@ ms.locfileid: "70857169"
 导出 PEM 格式的 ASDK 根证书：
 
 1. 获取 Azure Stack 根证书的名称：
-    - 登录到 Azure Stack 租户或管理门户。
+    - 登录到 Azure Stack 用户或管理员门户。
     - 单击地址栏附近的“安全”。 
     - 在弹出窗口中，单击“有效”。 
     - 在“证书”窗口中，单击“证书路径”选项卡。 

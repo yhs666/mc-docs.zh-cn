@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/28/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cda6147d14876f27b746e810d9129402c53d2d9e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 58f4698ecd09f9a6ca7eab236e3dbbb07490c803
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857005"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578517"
 ---
 # <a name="asdk-architecture"></a>ASDK 体系结构
 Azure Stack 开发工具包 (ASDK) 是在单个主计算机上运行的 Azure Stack 的单节点部署。 边缘路由组件安装在主计算机上，为 Azure Stack 提供 NAT 和 VPN 功能。 Azure Stack 基础结构角色在物理主计算机的 Hyper-V 层中运行。
@@ -42,7 +42,7 @@ ASDK 提供的服务使用托管在开发工具包主机上的以下 VM：
 | **AzS-NC01** | 用于管理 Azure Stack 网络服务的网络控制器。  |
 | **AzS-SLB01** | Azure Stack 中用于租户和 Azure Stack 基础结构服务的负载均衡多路复用器服务。  |
 | **AzS-SQL01** | Azure Stack 基础结构角色的内部数据存储。  |
-| **AzS-WAS01** | Azure Stack 管理门户和 Azure 资源管理器服务。|
+| **AzS-WAS01** | Azure Stack 管理员门户和 Azure 资源管理器服务。|
 | **AzS-WASP01**| Azure Stack 用户（租户）门户和 Azure 资源管理器服务。|
 | **AzS-XRP01** | Azure Stack 的基础结构管理控制器，包括计算、网络和存储资源提供程序。|
 | **AzS-SRNG01** | 支持环 VM，用于托管 Azure Stack 的日志收集服务。 |

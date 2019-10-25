@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/17/2019
-ms.date: 06/10/2019
+origin.date: 06/13/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: ef858aa3af6c605801cfa19f304a6767a3e2763f
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 9389d0f8d2fef1cfbbff61c2cd205ded5fd12f12
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424700"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292548"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>为 Visual Studio Code 设置 PySpark 交互式环境
 
@@ -33,7 +33,7 @@ ms.locfileid: "66424700"
 1. 安装 [Python](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installing/).
    
    + 从 [https://www.python.org/downloads/](https://www.python.org/downloads/) 安装 Python。
-   + 从 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 安装 pip。 （如果未从“Python 安装”进行安装）
+   + 从 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 安装 pip（如果未从“Python 安装”进行安装）。
    + 使用以下命令验证 Python 和 pip 是否成功安装。 (可选)
  
      ![Python pip 版本](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
@@ -48,13 +48,15 @@ ms.locfileid: "66424700"
    pip install virtualenv
    ```
 
-3. 仅对于 Linux，如果遇到错误消息，请通过运行以下命令安装所需的包。
-   
-    ![Python pip 版本](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
-       
-   ```
-   sudo apt-get install libkrb5-dev 
-   ```
+## <a name="other-packages"></a>其他包
+
+如果遇到错误消息，请通过运行以下命令安装所需的包：
+
+   ![libkrb5 包](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+
+```
+sudo apt-get install libkrb5-dev
+```
 
    ```
    sudo apt-get install python-dev
@@ -73,7 +75,6 @@ ms.locfileid: "66424700"
 * [使用 Azure Toolkit for IntelliJ 通过 SSH 远程调试 Apache Spark 应用程序](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [使用 Azure Toolkit for IntelliJ 通过 VPN 远程调试 Apache Spark 应用程序](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](spark/apache-spark-eclipse-tool-plugin.md)
-* [将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](spark/apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](spark/apache-spark-jupyter-notebook-use-external-packages.md)

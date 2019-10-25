@@ -10,21 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/13/2018
-ms.date: 07/08/2019
+origin.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: f0117ea3c304a2fcaeeadef5c1ccfe85a1db289f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ad51bed45e0c5d71b183b6691abd094ceff80564
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570578"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275505"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>使用 Azure 数据工厂从 Dynamics AX 中复制数据（预览版）
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 Dynamics AX 源复制数据。 本文是根据总体概述复制活动的 [Azure 数据工厂中的复制活动](copy-activity-overview.md)编写的。
 
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 Dynamics AX 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 Dynamics AX 复制到任何受支持的接收器数据存储。 有关复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
 
@@ -114,6 +119,7 @@ Dynamics AX 链接的服务支持以下属性：
         "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Dynamics AX linked service name>",
             "type": "LinkedServiceReference"
@@ -168,6 +174,11 @@ Dynamics AX 链接的服务支持以下属性：
     }
 ]
 ```
+
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

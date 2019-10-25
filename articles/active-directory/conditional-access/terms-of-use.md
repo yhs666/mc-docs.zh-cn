@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.topic: conceptual
 origin.date: 05/29/2019
-ms.date: 08/08/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d1513466dfd243ecb7243ff67e16f1e311720b7
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: bfa7693f2c05dff1a73a0fa548e70f991134c9d0
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973145"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292028"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 使用条款
 
@@ -336,7 +336,7 @@ Azure AD 使用条款包括审核日志，方便你查看其他活动。 每次�
 答：目前无法更新现有的使用条款文档。 若要更改使用条款文档，必须创建新的使用条款实例。
 
 **问：如果使用条款 PDF 文档中有超链接，最终用户能否单击这些超链接？**<br />
-答：该 PDF 默认呈现为 JPEG，因此无法单击超链接。 用户可以选择“查看时遇到问题? 请单击此处” **，以本机方式呈现该 PDF（支持超链接）** 。
+答：是的，最终用户可以选择指向其他页面的超链接，但不支持指向文档内各节的链接。
 
 **问：使用条款是否支持多种语言？**<br />
 答：是的。 目前，管理员可以为单个使用条款配置 108 种不同的语言。 管理员可以上传多个 PDF 文档，并使用相应的语言（最多 108 种）标记这些文档。 当最终用户登录时，我们会查看其浏览器语言首选项，并显示匹配的文档。 如果没有匹配项，我们将显示默认文档，即上传的第一个文档。
@@ -364,3 +364,4 @@ Azure AD 使用条款包括审核日志，方便你查看其他活动。 每次�
 - [快速入门：在访问云应用之前要求接受使用条款](require-tou.md)
 - [Azure Active Directory 中的条件访问的最佳做法](best-practices.md)
 
+<!-- Update_Description: wording update -->

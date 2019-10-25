@@ -16,11 +16,11 @@ origin.date: 02/09/2017
 ms.author: antonba
 ms.date: 12/31/2018
 ms.openlocfilehash: 09fdadf46717780d55142088818fc34a37d8ea8d
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736680"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323803"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改开发人员门户上的页面内容和页面布局
 在 Azure API 管理中自定义开发人员门户有三种基本方法：
@@ -47,12 +47,12 @@ ms.locfileid: "53736680"
 
 开发人员门户可从 Azure 门户进行访问。 
 
-1. 单击 API 管理实例的工具栏中的“开发人员门户”。
-2. 若要编辑小组件的内容，请单击左侧“开发人员门户”菜单中由两个画刷组成的图标。 
-3. 若要修改标头的内容，请滚动到左侧列表中的“标头”部分。
+1. 单击 API 管理实例的工具栏中的“开发人员门户”  。
+2. 若要编辑小组件的内容，请单击左侧“开发人员门户”菜单中由两个画刷组成的图标。  
+3. 若要修改标头的内容，请滚动到左侧列表中的“标头”部分。 
     
     可以在字段中对小组件进行编辑。
-4. 做好发布更改的准备以后，请单击页面底部的“发布”。
+4. 做好发布更改的准备以后，请单击页面底部的“发布”。 
 
 现在，就能够在开发人员门户中的每一页上看见此新的标题。
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 09/17/2018
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46e9d20aa66217874bce53b28bd2cc55dc8887ca
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: c44801bce0f46bab1e1e51cc4059727dc9e4b387
+ms.sourcegitcommit: 4ada17c1bcd36e755afd0a8bd6e353e35cbb228b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306799"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72562152"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理器路由方法
 
@@ -75,9 +75,11 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 这些 DNS 缓存影响常见于所有基于 DNS 的流量路由系统，不只存在于 Azure 流量管理器上。 在某些情况下，显式清除 DNS 缓存可能会解决问题。 在另外一些情况下，可能更适合使用替代性流量路由方法。
 
 <a name="performance"></a>
-## <a name="performance-traffic-routing-method"></a>性能流量路由方法
+## <a name="performance-traffic-routing-method"></a>“性能”流量路由方法
 
-在全球两个或更多的位置部署终结点，将流量路由到“最靠近”用户的位置，即可改善许多应用程序的响应能力。 “性能”流量路由方法提供这种能力。
+在国家或区域的两个或更多位置部署终结点，将流量路由到“最靠近”你的位置，即可改善许多应用程序的响应能力。 “性能”流量路由方法提供这种能力。
+
+<!--MOONCAKE: CORRECT ON globl to country or region-->
 
 ![Azure 流量管理器的“性能”流量路由方法](media/traffic-manager-routing-methods/performance.png)
 

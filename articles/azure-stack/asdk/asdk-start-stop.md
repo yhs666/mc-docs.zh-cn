@@ -1,6 +1,6 @@
 ---
-title: 启动和停止 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
-description: 了解如何启动和关闭 Azure Stack 开发工具包 (ASDK)。
+title: 启动和停止 ASDK | Microsoft Docs
+description: 了解如何启动和停止 Azure Stack 开发工具包 (ASDK)。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,19 +13,19 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 4b67a0702cfed1fb8259e187a1f68f07d9b14919
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 45f2c561cd70de7362b7e07affba6b925c5b55f7
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857236"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578278"
 ---
-# <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>启动和停止 Azure Stack 开发工具包 (ASDK)
-建议不要仅仅重启 ASDK 主机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。 
+# <a name="start-and-stop-the-asdk"></a>启动和停止 ASDK
+建议不要仅仅重启 ASDK 主计算机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。
 
 ## <a name="stop-azure-stack"></a>停止 Azure Stack 
 若要正常关闭 Azure Stack 服务和 ASDK 主机，请使用以下 PowerShell 命令：
@@ -45,7 +45,7 @@ ms.locfileid: "70857236"
 5. 查看 PowerShell 输出，确保在关闭 ASDK 主机之前已正常关闭所有 Azure Stack 服务。 关机过程需要花费几分钟时间。
 
 ## <a name="start-azure-stack"></a>启动 Azure Stack 
-启动主机时，ASDK 服务应会自动启动。 但是，ASDK 基础结构服务的启动时间根据 ASDK 主机硬件配置的性能而异。 在某些情况下，所有服务可能需要花费好几个小时才能成功重启。
+启动主机时，ASDK 服务应会自动启动。 但是，ASDK 基础结构服务的启动时间根据 ASDK 主计算机硬件配置的性能而异。 在某些情况下，所有服务可能需要花费好几个小时才能成功重启。
 
 不管 ASDK 是否已关闭，都应该使用以下步骤来验证打开主机后，所有 Azure Stack 服务是否都已启动并完全正常运行： 
 
@@ -64,7 +64,7 @@ ms.locfileid: "70857236"
    ```
 6. 查看输出，确保 Azure Stack 服务已成功重启。
 
-若要详细了解正常关闭和重启 Azure Stack 服务的建议过程，请参阅[启动和停止 Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。 
+若要详细了解正常关闭和重启 Azure Stack 服务的建议过程，请参阅[启动和停止 Azure Stack](../operator/azure-stack-start-and-stop.md)。
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>排查启动和关机问题 
 如果在打开 ASDK 主机后的两个小时内 Azure Stack 服务未成功启动，请执行以下步骤：

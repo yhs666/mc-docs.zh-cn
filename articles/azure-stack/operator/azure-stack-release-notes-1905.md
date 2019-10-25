@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/14/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 15092c89dbf7f764e1be0b66034c9e61fd4e8ea2
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+monikerRange: azs-1905
+ms.openlocfilehash: e7a6ced4504b3c5ee8d67971e470427ecd58b568
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857102"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578446"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -124,14 +125,14 @@ Windows Server 2019 现可通过此更新成功地在 2016 主机上启动。
 
 ### <a name="security-updates"></a>安全更新
 
-有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates-1905.md)。
+有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates.md)。
 
 ## <a name="update-planning"></a>更新规划
 
 应用更新之前，请务必查看以下信息：
 
 - [已知问题](azure-stack-release-notes-known-issues-1905.md)
-- [安全更新](azure-stack-release-notes-security-updates-1905.md)
+- [安全更新](azure-stack-release-notes-security-updates.md)
 - [应用更新之前和之后的活动清单](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>下载更新

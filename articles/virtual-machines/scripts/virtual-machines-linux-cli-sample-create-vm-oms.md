@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 使用 Azure Monitor 创建 Linux VM | Azure
+title: 使用 Azure Monitor 监视 VM | Azure
 description: Azure CLI 脚本示例 - 使用 Azure Monitor 创建 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 08/12/2019
+ms.date: 09/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cc2f92965f2a1d06ea56a3ffb375dbde552c5c01
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: fbe1158192f0765377a50b67e941a87e8cf2730a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539042"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272872"
 ---
 <!--Verify successfully-->
 # <a name="monitor-a-vm-with-azure-monitor"></a>使用 Azure Monitor 监视 VM
@@ -58,10 +58,13 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.0 --protected-settings '{"workspaceKey": "'"$omskey"'"}' \
-  --settings '{"workspaceId": "'"$omsid"'"}'
+  --version 1.0 --protected-settings "{'workspaceKey': '$omskey'}" \
+  --settings "{'workspaceId': '$omsid'}"
 
 ```
+
+<!--MOONCAKE: CORRECT ON --protected-settings "{'workspaceKey': '$omskey'}"-->
+<!--MOONCAKE: CORRECT ON --settings "{'workspaceId': '$omsid'}"-->
 
 ## <a name="clean-up-deployment"></a>清理部署
 

@@ -3,8 +3,8 @@ title: Azure CLI 示例 - Batch | Microsoft Docs
 description: 适用于 Batch 服务的 Azure CLI 示例
 services: batch
 documentationcenter: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 01/29/2018
 ms.date: 05/15/2018
-ms.author: v-junlch
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 81a28f273ebd30d577f874a55c3ebcf1e142a5d1
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1e6a182b10df3bd57fe630cc352d0f2f13911500
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329793"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583769"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>适用于 Azure Batch 的 Azure CLI 示例
 

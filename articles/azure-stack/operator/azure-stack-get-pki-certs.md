@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2019
-ms.date: 04/29/2019
+origin.date: 09/10/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 47a3ecdc39716cdf27f436cc27333ced6746a9ea
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: df656983f50c729712b46a6b4b940dc557fd872a
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529544"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578459"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 
@@ -40,7 +40,7 @@ ms.locfileid: "64529544"
   - 区域名称
   - 外部完全限定的域名 (FQDN)
   - 使用者
-- Windows 10 或 Windows Server 2016
+- Windows 10 或 Windows Server 2016 或更高版本
 
   > [!NOTE]  
   > 从证书颁发机构收回证书时，需要在同一个系统上完成[准备 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤！

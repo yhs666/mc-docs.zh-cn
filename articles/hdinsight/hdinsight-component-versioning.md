@@ -11,14 +11,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: c8a01d34acbb22d7af3b132ba32b1f7b8cdf0940
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: db6c51899146f7cb9691ab26a9fa04c59a7ccbb8
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736603"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292636"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Apache Hadoop 组件和版本？
 
@@ -34,12 +34,10 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 
 | 组件 | HDInsight 4.0 | HDInsight 3.6（默认） | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 |
 |---------------------------|---------------|-----------------------------|---------------|---------------|---------------|----------------------|
-| Hortonworks 数据平台 | 3.0 | 2.6 | 2.5 | 2.4 | 2.3 | 2.2 |
 | Apache Hadoop 和 YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
 | Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
 | Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
-| Apache Hive 和 HCatalog | - | 1.2.1 | 1.2.1 | 1.2.1 | 1.2.1 | 0.14.0 |
-| Apache Hive | 3.1.0 | 2.1.0 | - | - | - | - |
+| Apache Hive | 3.1.0 | 2.1.0、1.2.1 | - | - | - | - |
 | Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
 | Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
 | Apache HBase | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
@@ -153,52 +151,6 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
 * HDInsight 群集版本 2.1 使用基于 [Hortonworks 数据平台 1.3][hdp-1-3-0] 的 Hadoop 分发版。
 * HDInsight 群集版本 1.6 使用基于 [Hortonworks 数据平台 1.1][hdp-1-1-0] 的 Hadoop 分发版。
 
-
-
-
-
-
-## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>群集的默认节点配置和虚拟机大小
-下表列出了 HDInsight 群集的默认虚拟机 (VM) 大小。  此图表是了解在创建 PowerShell 或 Azure CLI 脚本以部署 HDInsight 群集时要使用的 VM 大小所必需的。
-
-> [!IMPORTANT]
-> 如果需要在群集中使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
-> 
->
-
-|群集类型|Hadoop|HBase|交互式查询|Storm|Spark|ML Server|Kafka|
-|---|---|---|---|---|---|---|---|
-|头：默认 VM 大小|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|头：建议的 VM 大小|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|辅助角色：默认 VM 大小|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2，每个中转站 2 个 S30 磁盘|
-|辅助角色：建议的 VM 大小|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|Zookeeper：默认 VM 大小||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|Zookeeper：建议的 VM 大小||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|边缘：默认 VM 大小||||||D4 v2||
-|边缘：建议的 VM 大小||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
-> [!NOTE]
-> - 头称为 Storm 群集类型的 *Nimbus* 。
-> - 对于 Storm 群集类型，辅助角色称为“主管”。 
-> - 对于 HBase 群集类型，辅助角色称为“区域”。 
 
 ## <a name="next-steps"></a>后续步骤
 - [为 HDInsight 上的 Apache Hadoop、Spark 和其他组件设置群集](hdinsight-hadoop-provision-linux-clusters.md)

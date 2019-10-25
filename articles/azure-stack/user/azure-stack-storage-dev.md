@@ -11,12 +11,12 @@ ms.service: azure-stack
 manager: digimobile
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: bd2d99735dba271eea619c0a75753bea65d8bea5
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 2935b2fef137d379737bdde554038ad6cda3ad8d
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513211"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578303"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
@@ -33,6 +33,7 @@ Azure Stack 提供一组存储服务，包括 Blob、表和队列存储。
 
 对于存储客户端库，请了解与 REST API 兼容的版本。 还必须在代码中指定 Azure Stack 终结点。
 
+::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>1811 更新或更高版本
 
 | 客户端库 | Azure Stack 支持的版本 | 链接 | 终结点规范 |
@@ -61,7 +62,9 @@ Azure Stack 提供一组存储服务，包括 Blob、表和队列存储。
 
 2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到项目根目录。
 3. 运行：`php composer.phar install`。
+::: moniker-end
 
+::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>以前的版本（1802 到 1809 更新）
 
 | 客户端库 | Azure Stack 支持的版本 | 链接 | 终结点规范 |
@@ -90,6 +93,7 @@ Azure Stack 提供一组存储服务，包括 Blob、表和队列存储。
 
 2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到项目根目录。
 3. 运行：`php composer.phar install`。
+:::moniker-end
 
 ## <a name="endpoint-declaration"></a>终结点声明
 

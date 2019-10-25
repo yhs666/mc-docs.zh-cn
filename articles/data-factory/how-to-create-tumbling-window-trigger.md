@@ -4,21 +4,20 @@ description: 了解如何在 Azure 数据工厂中创建按翻转窗口运行管
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-editor: ''
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/14/2018
-ms.date: 07/19/2019
-ms.author: v-jay
-ms.openlocfilehash: 40c1d9a6b0389abe57a1b4ff3322cf528a382c21
-ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
+origin.date: 09/11/2019
+ms.date: 10/14/2019
+ms.openlocfilehash: 540ec5fc1ace0fd7b04fc0860f275c35dcabef5c
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332753"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275356"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>创建按翻转窗口运行管道的触发器
 本文提供了创建、启动和监视翻转窗口触发器的步骤。 有关触发器和支持的类型的一般信息，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md)。
@@ -27,11 +26,14 @@ ms.locfileid: "68332753"
 
 ## <a name="data-factory-ui"></a>数据工厂 UI
 
-若要在 Azure 门户中创建翻转窗口触发器，请选择“触发器”>“翻转窗口”>“下一步”  ，然后配置定义翻转窗口的属性。
+1. 若要在数据工厂 UI 中创建翻转窗口触发器，请选择“触发器”  选项卡，然后选择“新建”  。 
+1. 在触发器配置窗格打开后，选择“翻转窗口”  ，然后定义翻转窗口触发器属性。 
+1. 完成后，选择“保存”  。
 
 ![在 Azure 门户中创建翻转窗口触发器](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## <a name="tumbling-window-trigger-type-properties"></a>翻转窗口触发器类型属性
+
 翻转窗口具有以下触发器类型属性：
 
 ```
@@ -80,7 +82,7 @@ ms.locfileid: "68332753"
 | **type** | 触发器的类型。 类型为固定值“TumblingWindowTrigger”。 | String | "TumblingWindowTrigger" | 是 |
 | **runtimeState** | 触发器运行时的当前状态。<br/>**注意**：此元素是 \<readOnly>。 | String | “Started”、“Stopped”、“Disabled” | 是 |
 | **frequency** | 一个字符串，表示触发器重复出现的频率单位（分钟或小时）。 如果 **startTime** 日期值粒度比 **frequency** 值更细，则会在计算窗口边界时考虑 **startTime** 日期。 例如：如果 **frequency** 值为每小时，**startTime** 值为 2017-09-01T10:10:10Z，则第一个窗口为 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)。 | String | “minute”、“hour”  | 是 |
-| **interval** | 一个正整数，表示 **frequency** 值对应的时间间隔，决定了触发器的运行频率。 例如，如果 **interval** 为 3，**frequency** 为“hour”，则触发器每 3 小时重复触发一次。 | Integer | 正整数。 | 是 |
+| **interval** | 一个正整数，表示 **frequency** 值对应的时间间隔，决定了触发器的运行频率。 例如，如果 **interval** 为 3，**frequency** 为“hour”，则触发器每 3 小时重复触发一次。 <br/>**注意**：最小窗口间隔为 15 分钟。 | Integer | 正整数。 | 是 |
 | **startTime**| 第一个匹配项，可以是过去的时间。 第一个触发器间隔是 (**startTime**, **startTime** + **interval**)。 | DateTime | 一个日期时间值。 | 是 |
 | **endTime**| 最后一个匹配项，可以是过去的时间。 | DateTime | 一个日期时间值。 | 是 |
 | **delay** | 延迟窗口数据处理开始的时间量。 管道运行在预期的执行时间加上 **delay** 的量之后启动。 **delay** 的定义是：在预期的执行时间过后，触发器在触发新的运行之前等待的时间。 **delay** 不改变窗口 **startTime**。 例如，值为 00:10:00 的 **delay** 意味着 10 分钟的延迟。 | Timespan<br/>(hh:mm:ss)  | 一个时间跨度值，默认值为 00:00:00。 | 否 |

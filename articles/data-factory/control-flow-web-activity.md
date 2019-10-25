@@ -4,24 +4,26 @@ description: 了解如何使用 Web 活动（数据工厂支持的控制流活�
 services: data-factory
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
 manager: digimobile
-editor: ''
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 12/19/2018
-ms.date: 07/08/2019
-ms.author: v-jay
-ms.openlocfilehash: eb87e64a320e45350fbcf80537aec71df1eef80e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 10/14/2019
+ms.openlocfilehash: fe52f59b8cb393f3b68c80a3f4b15c72523bdeb5
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570365"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275415"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Web 活动
 Web 活动可用于从数据工厂管道调用自定义的 REST 终结点。 可以传递数据集和链接服务以供活动使用和访问。
+
+> [!NOTE]
+> Web 活动只能调用公开显示的 URL。 专用虚拟网络中托管的 URL 不支持此活动。
 
 ## <a name="syntax"></a>语法
 

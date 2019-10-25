@@ -10,12 +10,12 @@ origin.date: 04/10/2018
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 923f52d8cefa617346afee3144c7dac135b72843
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 7a8a707f70ec04b08cc36f1ded35b5949a8922af
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306814"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519396"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB 表 API 数据
@@ -89,7 +89,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“连接字符串”  。 
 
-   ![在“连接字符串”窗格中查看并复制所需的连接字符串信息](./media/create-table-java/connection-string.png)
+    ![在“连接字符串”窗格中查看并复制所需的连接字符串信息](./media/create-table-java/connection-string.png)
 
 2. 使用右侧的复制按钮，复制主连接字符串。
 

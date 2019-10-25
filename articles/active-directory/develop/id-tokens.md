@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/13/2019
-ms.date: 06/25/2019
+origin.date: 08/27/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04047a54f24361bfbdcc3ff2dbdb78f38b4c4035
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 9384c57be379e271f56600a5c51f1b8724b45869
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "67568476"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292030"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft 标识平台 ID 令牌
 
@@ -31,7 +31,7 @@ ms.locfileid: "67568476"
 
 ## <a name="using-the-id_token"></a>使用 id_token
 
-ID 令牌应该用来验证某个用户是否符合其声称的身份，以及用来获取该用户的其他有用信息 - 它不应该用来替代[访问令牌](access-tokens.md)进行授权。 它提供的声明可以用于应用程序内部的用户体验、数据库键控以及提供客户端应用程序访问权限。
+ID 令牌应该用来验证某个用户是否符合其声称的身份，以及用来获取该用户的其他有用信息 - 它不应该用来替代[访问令牌](access-tokens.md)进行授权。 它提供的声明可以用于应用程序内部的用户体验、作为数据库中的键以及提供客户端应用程序访问权限。  为数据库创建键时，不应使用 `idp`，因为它会扰乱来宾方案。  应当仅在 `sub` 上进行键控（这始终是唯一的），如果需要，可以使用 `tid` 进行路由。  如果需要跨服务共享数据，`oid`+`sub`+`tid` 将起作用，因为多个服务都获得相同的 `oid`。
 
 ## <a name="claims-in-an-id_token"></a>id_token 中的声明
 
@@ -64,7 +64,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 ### <a name="payload-claims"></a>有效负载声明
 
-此列表显示了默认情况下位于 most id_tokens 中的声明（另外说明的除外）。 
+此列表显示了默认情况下位于 most id_tokens 中的声明（另外说明的除外）。  但是，应用可以使用[可选声明](active-directory-optional-claims.md)来请求 id_token 中的其他声明。  这些声明的范围可以从 `groups` 声明到有关用户名称的信息。
 
 |声明 | 格式 | 说明 |
 |-----|--------|-------------|

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 06/24/2019
-ms.date: 09/16/2019
+origin.date: 08/30/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: ade8f9de5c5ae55168e6693045be52c1a0d31c43
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 0e7ef568ff362910cfd1a799ffe78b31b06481c0
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921238"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272810"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>使用 SQL Server IaaS 代理扩展在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -102,7 +102,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 ### <a name="install-on-a-vm-with-a-single-named-sql-server-instance"></a>在包含单个命名 SQL Server 实例的 VM 上安装
 如果卸载了默认实例并重新安装了 IaaS 扩展，则 SQL Server IaaS 扩展可与 SQL Server 上的命名实例一起使用。
 
-若要使用 SQL Server 的命名实例：
+若要使用 SQL Server 的命名实例，请执行以下操作：
 1. 从 Azure 市场部署 SQL Server VM。 
 1. 在 [Azure 门户](https://portal.azure.cn)中卸载 IaaS 扩展。
 1. 在 SQL Server VM 中彻底卸载 SQL Server。

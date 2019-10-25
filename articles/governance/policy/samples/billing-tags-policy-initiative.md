@@ -1,20 +1,19 @@
 ---
 title: 示例 - 计费标记策略计划
 description: 此示例策略定义集需要成本中心和产品名称的指定标记值。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 10/30/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: af11e6801a7732f2ffca040910f4e06674003c3d
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: bc63ea2ef5f1c0405f8ca8042660e1f520e30a93
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56902959"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526653"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>示例 - 计费标记策略计划
 
@@ -94,11 +93,8 @@ ms.locfileid: "56902959"
     "name": "billingTagsPolicy"
 }
 ```
-可使用 [Azure 门户](#deploy-with-the-portal)或将其与 [PowerShell](#deploy-with-powershell) 配合使用来部署此模板。
 
-## <a name="deploy-with-the-portal"></a>使用门户进行部署
-
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-non-managed-disk-vm%2Fazurepolicy.json)
+可以使用 [PowerShell](#deploy-with-powershell) 部署此模板。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 

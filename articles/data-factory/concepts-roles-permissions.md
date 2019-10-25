@@ -2,7 +2,7 @@
 title: Azure 数据工厂的角色和权限 | Microsoft Docs
 description: 介绍创建数据工厂并使用子资源所需的角色和权限。
 origin.date: 11/5/2018
-ms.date: 07/19/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: e84d444f5cd8d20846b20679f3e356043a58d485
-ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
+ms.openlocfilehash: e3c5be9193ec78bb9bb6664669e94d22f24e8606
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332750"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275530"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure 数据工厂的角色和权限
 
@@ -45,7 +45,7 @@ ms.locfileid: "68332750"
 - 管理数据工厂的 App Insights 警报。
 - 创建支持票证。
 
-有关此角色的详细信息，请参阅[“数据工厂参与者”角色](../role-based-access-control/built-in-roles.md)。
+有关此角色的详细信息，请参阅[“数据工厂参与者”角色](../role-based-access-control/built-in-roles.md#data-factory-contributor)。
 
 ### <a name="resource-manager-template-deployment"></a>资源管理器模板部署
 
@@ -81,6 +81,10 @@ GitHub 上的权限独立于数据工厂权限。 因此，具有存储库权限
   1. 在数据工厂级别分配内置的“参与者”角色。 
   2. 创建权限为 **Microsoft.Resources/deployments/** 的自定义角色。 将此自定义角色分配给资源组级别的用户。
 
+- 让用户仅能在链接服务中测试连接
+
+    为以下操作创建具有权限的自定义角色：**Microsoft.DataFactory/factories/getFeatureValue/read** 和 **Microsoft.DataFactory/factories/getDataPlaneAccess/read**。 在用户的数据工厂资源上分配此自定义角色。
+
 - 允许用户通过 PowerShell 或 SDK 更新数据工厂，但不允许其在 Azure 门户中进行更新。
 
   为用户分配内置的“参与者”角色，其权限范围为数据工厂资源。  此角色允许用户在 Azure 门户中查看资源，但不允许其访问“发布”和“全部发布”按钮。  
@@ -89,4 +93,4 @@ GitHub 上的权限独立于数据工厂权限。 因此，具有存储库权限
 
 - 详细了解 Azure 中的角色 - [了解角色定义](../role-based-access-control/role-definitions.md)
 
-- 详细了解“数据工厂参与者”角色  - [“数据工厂参与者”角色](../role-based-access-control/built-in-roles.md)。
+- 详细了解“数据工厂参与者”角色  - [“数据工厂参与者”角色](../role-based-access-control/built-in-roles.md#data-factory-contributor)。

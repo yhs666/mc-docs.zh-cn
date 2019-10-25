@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 07/30/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: d9a05a08d861df8d56fc5951e48a1ef0f9ee03af
-ms.sourcegitcommit: e0225b4d68a71bfa5bbcb7d8d7e0214b9a17dc5d
+ms.openlocfilehash: 3adcec25546a3563eaccdf8f163dc62d90f35835
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083189"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519393"
 ---
 # <a name="monitor-site-recovery"></a>监视 Site Recovery
 
@@ -48,7 +48,7 @@ ms.locfileid: "71083189"
 
 **State** | **详细信息**
 --- | ---
-Healthy | 复制正常进行。 未检测到任何错误或警告症状。
+正常 | 复制正常进行。 未检测到任何错误或警告症状。
 警告 | 检测到一个或多个可能影响复制的警告症状。
 关键 | 检测到一个或多个严重复制错误症状。<br/><br/> 这些错误症状通常指示复制处于停滞状态，或者复制进度跟不上数据更改速率。
 不适用 | 目前预期服务器无法复制。 这可能包括已故障转移的计算机。
@@ -157,7 +157,7 @@ Healthy | 复制正常进行。 未检测到任何错误或警告症状。
     - **事件**：影响计算机的最近事件列表，按时间顺序列出。 错误详细信息显示当前可观测到的错误症状，而事件是影响了计算机的问题的历史记录。
     - **基础结构视图**：显示将计算机复制到 Azure 时方案的基础结构状态。
 
-     ![Azure Site Recovery 中复制的项详细信息/概述](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+        ![Azure Site Recovery 中复制的项详细信息/概述](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 <!--Not Available on ## Subscribe to email notifications-->
 <!--The Email function currently not supported on chinaeast and chinaeast2-->

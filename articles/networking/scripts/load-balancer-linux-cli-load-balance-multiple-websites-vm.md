@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 使用 Azure CLI 对多个网站进行负载均衡
+title: Azure CLI 脚本示例 - 使用 Azure CLI 对多个网站进行负载均衡 | Azure
 description: Azure CLI 脚本示例 - 对指向同一虚拟机的多个网站进行负载均衡
 services: load-balancer
 documentationcenter: load-balancer
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 07/07/2017
-ms.date: 01/07/2019
-ms.author: v-biyu
-ms.openlocfilehash: d863696b0b12aaf5688a616c42953878eee6e3d1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: a23d13915efa7ae4059368b4d9031c5b0a4a8a40
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627643"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583818"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 
@@ -33,7 +33,7 @@ ms.locfileid: "58627643"
 
 ## <a name="sample-script"></a>示例脚本
 
-```bash
+```azurecli
 # !/bin/bash
 
 RgName="MyResourceGroup"
@@ -231,22 +231,22 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet#az_network_vnet_create) | 创建 Azure 虚拟网络和子网。 |
-| [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip#az_network_public_ip_create) | 使用静态 IP 地址和关联的 DNS 名称创建公共 IP 地址。 |
-| [az network lb create](https://docs.azure.cn/zh-cn/cli/network/lb#az_network_lb_create) | 创建 Azure 负载均衡器。 |
-| [az network lb probe create](https://docs.azure.cn/zh-cn/cli/network/lb/probe#az_network_lb_probe_create) | 创建负载均衡器探测。 负载均衡器探测用于监视负载均衡器集中的每个 VM。 如果任何 VM 无法访问，流量不会路由到该 VM。 |
-| [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule#az_network_lb_rule_create) | 创建负载均衡器规则。 在此示例中，为端口 80 创建一个规则。 当 HTTP 流量到达负载均衡器时，它会路由到负载均衡器集中某个 VM 的端口 80。 |
-| [az network lb frontend-ip create](https://docs.azure.cn/zh-cn/cli/network/lb/frontend-ip#az_network_lb_frontend_ip_create) | 为负载均衡器创建前端 IP 地址。 |
-| [az network lb address-pool create](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool#az_network_lb_address_pool_create) | 创建后端地址池。 |
-| [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic#az_network_nic_create) | 创建虚拟网卡并将其连接到虚拟网络和子网。 |
-| [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/network/lb/rule#az_network_lb_rule_create) | 创建可用性集。 可用性集通过将虚拟机分布到各个物理资源上（以便发生故障时，不会影响整个集）来确保应用程序运行时间。 |
-| [az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config#az_network_nic_ip_config_create) | 创建 IP 配置。 必须为订阅启用 Microsoft.Network/AllowMultipleIpConfigurationsPerNic 功能。 对于每个 NIC，仅能使用 --make-primary 标志将一个配置指定为主要 IP 配置。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set#az_vm_availability_set_create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az network vnet create](https://docs.azure.cn/cli/network/vnet) | 创建 Azure 虚拟网络和子网。 |
+| [az network public-ip create](https://docs.azure.cn/cli/network/public-ip) | 使用静态 IP 地址和关联的 DNS 名称创建公共 IP 地址。 |
+| [az network lb create](https://docs.azure.cn/cli/network/lb) | 创建 Azure 负载均衡器。 |
+| [az network lb probe create](https://docs.azure.cn/cli/network/lb/probe) | 创建负载均衡器探测。 负载均衡器探测用于监视负载均衡器集中的每个 VM。 如果任何 VM 无法访问，流量不会路由到该 VM。 |
+| [az network lb rule create](https://docs.azure.cn/cli/network/lb/rule) | 创建负载均衡器规则。 在此示例中，为端口 80 创建一个规则。 当 HTTP 流量到达负载均衡器时，它会路由到负载均衡器集中某个 VM 的端口 80。 |
+| [az network lb frontend-ip create](https://docs.azure.cn/cli/network/lb/frontend-ip) | 为负载均衡器创建前端 IP 地址。 |
+| [az network lb address-pool create](https://docs.azure.cn/cli/network/lb/address-pool) | 创建后端地址池。 |
+| [az network nic create](https://docs.azure.cn/cli/network/nic) | 创建虚拟网卡并将其连接到虚拟网络和子网。 |
+| [az vm availability-set create](https://docs.azure.cn/cli/network/lb/rule) | 创建可用性集。 可用性集通过将虚拟机分布到各个物理资源上（以便发生故障时，不会影响整个集）来确保应用程序运行时间。 |
+| [az network nic ip-config create](https://docs.azure.cn/cli/network/nic/ip-config) | 创建 IP 配置。 必须为订阅启用 Microsoft.Network/AllowMultipleIpConfigurationsPerNic 功能。 对于每个 NIC，仅能使用 --make-primary 标志将一个配置指定为主要 IP 配置。 |
+| [az vm create](https://docs.azure.cn/cli/vm/availability-set) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
+| [az group delete](https://docs.azure.cn/cli/vm/extension) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可在 [Azure 网络概述文档](../cli-samples.md?toc=%2fnetworking%2ftoc.json)中找到其他网络 CLI 脚本示例。

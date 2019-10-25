@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/22/2018
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 02974c937f6e9cb847854a053c3a78d9fae2ce84
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: cfa7fd436a4d9ff29338c876934d963403ad56d4
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845247"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583625"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>在 Azure HDInsight 中部署和管理 Apache Storm 拓扑 
 
@@ -61,7 +61,7 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 
 3. 在“新建项目”  对话框中，展开“已安装”   > “模板”  ，并选择“HDInsight”  。 从模板列表中，选择“Storm 示例”  。 在对话框底部，键入应用程序的名称。
 
-    ![图像](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![图像](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
 4. 在“解决方案资源管理器”  中，右键单击项目，并选择“提交到 Storm on HDInsight”  。
 
@@ -97,7 +97,7 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 
 使用 Visual Studio 提交拓扑后，会出现“Storm 拓扑”视图  。 从列表中选择拓扑，以查看有关正在运行的拓扑的信息。
 
-![visual studio 监视器](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![visual studio 监视器](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]
 > 也可以通过依次展开“Azure”   > “HDInsight”  ，右键单击 Storm on HDInsight 群集，并选择“查看 Storm 拓扑”  ，以从“服务器资源管理器”  查看“Storm 拓扑”  。
@@ -216,13 +216,13 @@ Storm UI 是以 REST API 为基础生成的，因此，可以使用 API 执行�
 
 ### <a name="base-uri"></a>基本 URI
 
-可在 **https://HEADNODEFQDN:8744/api/v1/** 的头节点上获取基于 Linux 的 HDInsight 群集上的 REST API 的基 URI。 头节点的域名在群集创建过程中生成，且非静态。
+可在 **https:\//HEADNODEFQDN:8744/api/v1/** 的头节点上获取基于 Linux 的 HDInsight 群集上的 REST API 的基本 URI。 头节点的域名在群集创建过程中生成，且非静态。
 
 可以使用多种不同的方式查找群集头节点的完全限定域名 (FQDN)：
 
 * **从 SSH 会话**：通过与群集建立的 SSH 会话使用命令 `headnode -f`。
 * **从 Ambari Web**：从页面顶部选择“服务”  ，并选择“Storm”  。 在“摘要”  选项卡中，选择“Storm UI 服务器”  。 页面顶部会显示承载 Storm UI 和 REST API 的节点的 FQDN。
-* **从 Ambari REST API**：使用命令 `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 来检索有关 Storm UI 和 REST API 正在其上运行的节点的信息。 将 **CLUSTERNAME** 替换为群集名称。 出现提示时，请输入登录（管理员）帐户的密码。 在响应中，“host_name”条目包含节点的 FQDN。
+* **从 Ambari REST API**：使用命令 `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 来检索有关 Storm UI 和 REST API 正在其上运行的节点的信息。 将 **CLUSTERNAME** 替换为群集名称。 出现提示时，请输入登录（管理员）帐户的密码。 在响应中，“host_name”条目包含节点的 FQDN。
 
 ### <a name="authentication"></a>身份验证
 

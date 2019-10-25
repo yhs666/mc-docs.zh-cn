@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
+origin.date: 09/18/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: b8103365b6dc9cdc5aa6cfe8c7876462afa967e4
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 16c254e14c2202b47fab72ee30f32eb121e4d96f
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996472"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526630"
 ---
 ## <a name="data-lake-storage"></a>Data Lake Storage
 

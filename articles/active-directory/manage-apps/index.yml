@@ -1,30 +1,28 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 应用程序管理文档
+summary: 通过 Azure Active Directory 可以对云和本地应用程序进行安全无缝的访问。 此外，还无需管理密码。 最终用户一次登录即可访问 Office 365 和数以千计的其他应用程序。 使用我们的快速入门、教程和指南了解如何管理和部署应用程序。
 metadata:
-  title: Azure AD 应用程序管理文档 - Azure Active Directory
-  description: 了解如何使用 Azure Active Directory 管理和部署应用程序。
-  services: active-directory
-  author: barbkess
-  manager: mtillman
-  layout: LandingPage
-  ms.assetid: null
+  title: 应用程序管理文档
+  description: 通过 Azure Active Directory 可以对云和本地应用程序进行安全无缝的访问。 此外，还无需管理密码。 最终用户一次登录即可访问 Office 365 和数以千计的其他应用程序。 使用我们的快速入门、教程和指南了解如何管理和部署应用程序。
   ms.service: active-directory
+  ms.subservice: manage-apps
+  ms.workload: identity
   ms.topic: landing-page
-origin.date: 09/14/2018
-ms.date: 10/08/2018
-ms.author: v-junlch
-abstract:
-  description: 了解如何使用 Azure Active Directory 管理和部署应用程序。
-sections:
-  - title: 5 分钟快速入门
-    items:
-      - type: paragraph
-        text: 了解如何查看用户通过 Azure Active Directory 访问的应用程序。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
-            text: 查看应用程序
-            href: /active-directory/manage-apps/view-applications-portal
+  origin.date: 08/16/2019
+  ms.date: 10/12/2019
+  author: msmimart
+  ms.author: v-junlch
+  manager: celested
+  ms.openlocfilehash: 1871087a2cfe3d06cefb834ba70fbfb62142535d
+  ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 10/12/2019
+  ms.locfileid: "72292073"
+landingContent:
+- title: 管理云应用
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 向应用分配用户或组
+      url: assign-user-or-group-access-portal.md

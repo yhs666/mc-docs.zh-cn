@@ -3,7 +3,7 @@ title: Azure Active Directory (Azure AD) 审核活动参考 | Microsoft Docs
 description: 大致了解可以在 Azure Active Directory (Azure AD) 的审核日志中记录的审核活动。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 01/24/2019
-ms.date: 03/19/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902c7d6af949294ca97683321d7088e2a6bddff6
-ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
+ms.openlocfilehash: 1db63e6cca958d86e549f24c4cf061cbbf7a1538
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187485"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292139"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 审核活动参考
 
@@ -32,7 +32,8 @@ ms.locfileid: "58187485"
 Azure AD 中的报告体系结构由以下部分组成：
 
 - **活动报告** 
-    - [审核日志](concept-audit-logs.md) - 针对 Azure AD 中的各种功能所做的所有更改进行日志记录，通过这些日志提供可跟踪性。 
+    - [登录](concept-sign-ins.md) - 提供有关托管应用程序的使用情况和用户登录活动的信息
+    - [审核日志](concept-audit-logs.md) - 通过日志为 Azure AD 中的各种功能所做的所有更改提供可跟踪性。 
 
 本文列出了可以在审核日志中记录的审核活动。
 
@@ -244,89 +245,89 @@ Azure AD 中的报告体系结构由以下部分组成：
 |键|目录已删除|
 |其他|目录已永久删除|
 |其他|目录已计划删除|
-|资源|将公司提升为合作伙伴|
-|资源|清除 Rights Management 属性|
-|资源|从公司中删除合作伙伴|
-|资源|删除未验证的域|
-|资源|删除已验证的域|
-|资源|设置公司信息|
-|资源|设置 DirSync 功能|
-|资源|设置 DirSyncEnabled 标志|
-|资源|设置合作关系|
-|资源|设置意外删除阈值|
-|资源|设置公司允许的数据位置|
-|资源|设置公司跨国功能已启用|
-|资源|在租户上设置目录功能|
-|资源|设置域身份验证|
-|资源|在域中设置联合设置|
-|资源|设置密码策略|
-|资源|设置 Rights Management 属性|
-|资源|更新公司|
-|资源|更新公司设置|
-|资源|更新域|
-|资源|验证域|
-|资源|验证电子邮件验证域|
-|资源|登记|
-|资源|更新警报设置|
-|资源|更新每周摘要设置|
-|资源|对目录禁用密码写回|
-|资源|对目录启用密码写回|
-|资源|向组添加应用角色分配|
-|资源|添加组|
-|资源|将成员添加到组|
-|资源|将所有者添加到组|
-|资源|创建组设置|
-|资源|删除组|
-|资源|删除组设置|
-|资源|完成向用户应用基于组的许可证|
-|资源|硬删除组|
-|资源|从组删除应用角色分配|
-|资源|从组中删除成员|
-|资源|从组中删除所有者|
-|资源|还原组|
-|资源|设置组许可证|
-|资源|已设置要由用户管理的组|
-|资源|开始向用户应用基于组的许可证|
-|资源|触发组许可证重新计算|
-|资源|更新组|
-|资源|更新组设置|
-|资源|添加成员|
-|资源|创建组|
-|资源|删除组|
-|资源|删除成员|
-|资源|更新组|
-|资源|批准要求加入组的挂起请求|
-|资源|取消要求加入组的挂起请求|
-|资源|创建生命周期管理策略|
-|资源|删除要求加入组的挂起请求|
-|资源|拒绝要求加入组的挂起请求|
-|资源|续订组|
-|资源|请求加入组|
-|资源|设置动态组属性|
-|资源|更新生命周期管理策略|
-|资源|将基于 ASCII 机密的密钥添加到 CPIM 密钥容器|
-|资源|将密钥添加到 CPIM 密钥容器|
-|资源|删除 CPIM 密钥容器|
-|资源|删除密钥容器|
-|资源|获取 JWK 格式的密钥容器活动密钥元数据|
-|资源|获取密钥容器元数据|
-|资源|获取 jwk 格式的 CPIM 密钥容器|
-|资源|获取租户中密钥容器的列表|
-|资源|还原 CPIM 密钥容器备份|
-|资源|保存密钥容器|
-|资源|上传 CPIM 加密密钥|
-|资源|向应用程序颁发授权代码|
-|资源|向应用程序颁发 id_token|
+|Resource|将公司提升为合作伙伴|
+|Resource|清除 Rights Management 属性|
+|Resource|从公司中删除合作伙伴|
+|Resource|删除未验证的域|
+|Resource|删除已验证的域|
+|Resource|设置公司信息|
+|Resource|设置 DirSync 功能|
+|Resource|设置 DirSyncEnabled 标志|
+|Resource|设置合作关系|
+|Resource|设置意外删除阈值|
+|Resource|设置公司允许的数据位置|
+|Resource|设置公司跨国功能已启用|
+|Resource|在租户上设置目录功能|
+|Resource|设置域身份验证|
+|Resource|在域中设置联合设置|
+|Resource|设置密码策略|
+|Resource|设置 Rights Management 属性|
+|Resource|更新公司|
+|Resource|更新公司设置|
+|Resource|更新域|
+|Resource|验证域|
+|Resource|验证电子邮件验证域|
+|Resource|登记|
+|Resource|更新警报设置|
+|Resource|更新每周摘要设置|
+|Resource|对目录禁用密码写回|
+|Resource|对目录启用密码写回|
+|Resource|向组添加应用角色分配|
+|Resource|添加组|
+|Resource|将成员添加到组|
+|Resource|将所有者添加到组|
+|Resource|创建组设置|
+|Resource|删除组|
+|Resource|删除组设置|
+|Resource|完成向用户应用基于组的许可证|
+|Resource|硬删除组|
+|Resource|从组删除应用角色分配|
+|Resource|从组中删除成员|
+|Resource|从组中删除所有者|
+|Resource|还原组|
+|Resource|设置组许可证|
+|Resource|已设置要由用户管理的组|
+|Resource|开始向用户应用基于组的许可证|
+|Resource|触发组许可证重新计算|
+|Resource|更新组|
+|Resource|更新组设置|
+|Resource|添加成员|
+|Resource|创建组|
+|Resource|删除组|
+|Resource|删除成员|
+|Resource|更新组|
+|Resource|批准要求加入组的挂起请求|
+|Resource|取消要求加入组的挂起请求|
+|Resource|创建生命周期管理策略|
+|Resource|删除要求加入组的挂起请求|
+|Resource|拒绝要求加入组的挂起请求|
+|Resource|续订组|
+|Resource|请求加入组|
+|Resource|设置动态组属性|
+|Resource|更新生命周期管理策略|
+|Resource|将基于 ASCII 机密的密钥添加到 CPIM 密钥容器|
+|Resource|将密钥添加到 CPIM 密钥容器|
+|Resource|删除 CPIM 密钥容器|
+|Resource|删除密钥容器|
+|Resource|获取 JWK 格式的密钥容器活动密钥元数据|
+|Resource|获取密钥容器元数据|
+|Resource|获取 jwk 格式的 CPIM 密钥容器|
+|Resource|获取租户中密钥容器的列表|
+|Resource|还原 CPIM 密钥容器备份|
+|Resource|保存密钥容器|
+|Resource|上传 CPIM 加密密钥|
+|Resource|向应用程序颁发授权代码|
+|Resource|向应用程序颁发 id_token|
 
 
 ## <a name="core-directory"></a>核心目录
 
 |审核类别|活动|
 |---|---|
-|管理单元管理|下载单个风险事件类型|
+|管理单元管理|下载单个风险检测类型|
 |管理单元管理|下载选择加入的每周摘要的管理和状态|
-|管理单元管理|下载所有风险事件类型|
-|管理单元管理|下载免费的用户风险事件|
+|管理单元管理|下载所有风险检测类型|
+|管理单元管理|下载免费的用户风险检测|
 |管理单元管理|下载已标记为存在风险的用户|
 |应用程序管理|已处理批量邀请|
 |应用程序管理|已上传批量邀请|
@@ -407,18 +408,18 @@ Azure AD 中的报告体系结构由以下部分组成：
 |策略管理|GetIEFPolicies|
 |策略管理|GetIdentityProviders|
 |策略管理|GetTrustFrameworkPolicy|
-|资源|MigrateTenantMetadata|
-|资源|移动资源|
-|资源|修补 IdentityProvider|
-|资源|PutTrustFrameworkPolicy|
-|资源|PutTrustFrameworkpolicy|
-|资源|删除用户旅程|
-|资源|更新自定义 IDP|
-|资源|更新 IDP|
-|资源|更新本地 IDP|
-|资源|更新 B2C 目录资源|
-|资源|更新策略|
-|资源|更新订阅状态|
+|Resource|MigrateTenantMetadata|
+|Resource|移动资源|
+|Resource|修补 IdentityProvider|
+|Resource|PutTrustFrameworkPolicy|
+|Resource|PutTrustFrameworkpolicy|
+|Resource|删除用户旅程|
+|Resource|更新自定义 IDP|
+|Resource|更新 IDP|
+|Resource|更新本地 IDP|
+|Resource|更新 B2C 目录资源|
+|Resource|更新策略|
+|Resource|更新订阅状态|
 |角色管理|更新用户属性|
 |角色管理|验证移动资源|
 |角色管理|添加设备|
@@ -429,10 +430,12 @@ Azure AD 中的报告体系结构由以下部分组成：
 |角色管理|删除设备配置|
 |角色管理|设备不再合规|
 |角色管理|设备不再托管|
-|用户管理|从设备中删除注册的所有者|
-|用户管理|从设备中删除注册的用户|
-|用户管理|更新设备|
-|用户管理|更新设备配置|
+|用户管理|AccessReview_Review|
+|用户管理|AccessReview_Update|
+|用户管理|ActivationAborted|
+|用户管理|ActivationApproved|
+|用户管理|ActivationCanceled|
+|用户管理|ActivationRequested|
 |用户管理|将符合条件的成员添加到角色|
 |用户管理|将成员添加到角色|
 |用户管理|将角色分配添加到角色定义|
@@ -442,15 +445,28 @@ Azure AD 中的报告体系结构由以下部分组成：
 |用户管理|从角色中删除成员|
 |用户管理|从角色定义中删除角色分配|
 |用户管理|从角色中删除带有范围的成员|
+|用户管理|更新设备|
+|用户管理|更新设备配置|
 |用户管理|更新角色|
-|用户管理|AccessReview_Review|
-|用户管理|AccessReview_Update|
-|用户管理|ActivationAborted|
-|用户管理|ActivationApproved|
-|用户管理|ActivationCanceled|
-|用户管理|ActivationRequested|
-|用户管理|已添加|
-|用户管理|分配|
+
+## <a name="identity-protection"></a>标识保护
+
+|审核类别|活动|
+|---|---|
+|目录管理|提升|
+|目录管理|已删除|
+|目录管理|角色设置更改|
+|其他|ScanAlertsNow|
+|其他|注册|
+|其他|停用|
+|其他|UpdateAlertSettings|
+|其他|UpdateCurrentState|
+|策略管理|访问评审结束|
+|策略管理|向请求审核添加审核者|
+|策略管理|向访问评审添加评审者|
+|用户管理|应用访问评审|
+|用户管理|创建访问评审|
+
 
 ## <a name="invited-users"></a>受邀用户
 
@@ -477,6 +493,34 @@ Azure AD 中的报告体系结构由以下部分组成：
 |组管理|更新以天为单位的访问评审再评持续时间设置|
 |用户管理|更新访问评审再评结束类型设置|
 |用户管理|更新访问评审再评类型设置|
+
+
+
+## <a name="privileged-identity-management"></a>Privileged Identity Management
+
+|审核类别|活动|
+|---|---|
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|已添加|
+|PIM|AddedOutsidePIM|
+|PIM|分配|
+|PIM|DismissAlert|
+|PIM|提升|
+|PIM|ReactivateAlert|
+|PIM|已删除|
+|PIM|RemovedOutsidePIM|
+|PIM|请求停止评审|
+|PIM|角色设置更改|
+|PIM|ScanAlertsNow|
+|PIM|注册|
+|PIM|取消分配|
+|PIM|停用|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>自助组管理

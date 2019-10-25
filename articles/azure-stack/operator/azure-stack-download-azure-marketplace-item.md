@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/13/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f49aa3395c4cacb43de76e655c30493fa1aebe86
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: e06db4ef3ab2c5f0929ac60af9e0fb12bdfa1aea
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857101"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578460"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -101,6 +101,9 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
 2. 添加已经用来注册过 Azure Stack 的 Azure 帐户。 若要添加帐户，请在 PowerShell 中不结合任何参数运行 `Add-AzureRmAccount`。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
+
+>[!Note]
+>如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
 
 3. 如果有多个订阅，请运行以下命令，选择已经用于注册的那个订阅：  
 

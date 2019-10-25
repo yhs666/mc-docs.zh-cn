@@ -1,5 +1,5 @@
 ---
-title: Azure 计算 - Linux 诊断扩展 | Azure
+title: 使用 Linux 诊断扩展监视指标和日志 | Azure
 description: 如何配置 Azure Linux 诊断扩展 (LAD)，以收集 Azure 中运行的 Linux VM 的指标和日志事件。
 services: virtual-machines-linux
 author: rockboyfor
@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: fdcebee003b4b437ec661282237c9132fb616166
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: cef3ae81b61a1318ac891f5fbe84a33ca1a4374c
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913048"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272788"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -60,10 +60,10 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM 的运行状
 
 ### <a name="sample-installation"></a>示例安装
 
-在前三行填写正确的参数，然后以 root 身份执行此脚本：
+在运行前，为第一部分中的变量填写正确的值：
 
 ```bash
-# Set your Azure VM diagnostic parameters correctly below
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -140,8 +140,7 @@ sinksConfig | （可选）可将指标和事件传递到的替换目标的详细
 <!-- Not Available on Line 131 Azure Germany, Azure US Government-->
 <!-- Notice: storageAccountEndPoint contains https://core.windows.net and https://core.chinacloudapi.cn-->
 
-> [!NOTE]
-> 使用 Azure 部署模板部署扩展时，必须提前创建好存储帐户和 SAS 令牌并将其传递给模板。 无法在单个模板中部署 VM、存储帐户和配置扩展。 当前不支持在模板中创建 SAS 令牌。
+若要在资源管理器模板中获取 SAS 令牌，请使用 **listAccountSas** 函数。 有关示例模板，请参阅 [List 函数示例](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example)。
 
 可通过 Azure 门户轻松构造所需的 SAS 令牌。
 
@@ -702,7 +701,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 此外，可使用这些 UI 工具来访问 Azure 存储中的数据：
 
 * Visual Studio 服务器资源管理器。
-* [Azure 存储资源管理器](https://azurestorageexplorer.codeplex.com/ "Azure 存储资源管理器")上指定的所有系统数据。
+* [Azure 存储资源管理器](https://azurestorageexplorer.codeplex.com/ "Azure 存储资源管理器")。
 
 这是 Azure 存储资源管理器会话的快照，它显示了测试 VM 上正确配置的 LAD 3.0 扩展生成的 Azure 存储表和容器。 此图与[示例 LAD 3.0 配置](#an-example-lad-30-configuration)不完全匹配。
 

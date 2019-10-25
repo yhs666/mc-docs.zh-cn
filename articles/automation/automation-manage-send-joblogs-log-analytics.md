@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 02/05/2019
-ms.date: 08/26/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 355844413a2b959c589ffc555da5ede89899b293
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 51a2450a137e6ad4190810863fc60764669d1dab
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993474"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578525"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
 
@@ -186,6 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 Azure Monitor 日志可以更直观地显示自动化作业的运行情况，并且可以帮助更快地解决事件。  
 
 ## <a name="next-steps"></a>后续步骤
+
+* 有关对 Log Analytics 进行故障排除的帮助，请参阅[对 Log Analytics 不再收集数据的原因进行故障排除](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data)。
 * 若要详细了解如何使用 Azure Monitor 日志构造不同的搜索查询和查看自动化作业日志，请参阅 [Azure Monitor 日志中的日志搜索](/azure-monitor/log-query/log-query-overview)。
 * 若要了解如何通过 Runbook 创建和检索输出及错误消息，请参阅 [Runbook 输出和消息](automation-runbook-output-and-messages.md)。
 * 若要详细了解 Runbook 执行、Runbook 作业监视方式和其他技术细节，请参阅 [跟踪 Runbook 作业](automation-runbook-execution.md)。

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/22/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2e27e7faad4b124edbc5c2faa193f64f6362ef6c
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 9fb9f865d08d024403b941d710f312576bbd782e
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857060"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578468"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -222,22 +222,15 @@ ms.locfileid: "70857060"
 
 Azure Stack 开发工具包是自主性的，与部署物理主机的网络相隔离。 网关连接到的 VIP 网络不是在外部，而是隐藏在执行网络地址转换 (NAT) 的路由器后面。
 
-该路由器是充当路由和远程访问服务 (RRAS) 角色的 Windows Server 虚拟机 (AzS-BGPNAT01)。 必须在 AzS-BGPNAT01 虚拟机上配置 NAT，才能在两端建立站点到站点 VPN 连接。
+路由器是运行路由和远程访问服务 (RRAS) 角色的 ASDK 主机。 必须在 ASDK 主机上配置 NAT，才能在两端建立站点到站点 VPN 连接。
 
 #### <a name="configure-the-nat"></a>配置 NAT
 
 1. 使用管理员帐户登录到 Azure Stack 主机。
-1. 复制并编辑以下 PowerShell 脚本。 将 `your administrator password` 替换为自己的管理员密码，然后在权限提升的 PowerShell ISE 中运行此脚本。 此脚本返回**外部 BGPNAT 地址**。
+1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回**外部 BGPNAT 地址**。
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "your administrator password" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "azs-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 1. 若要配置 NAT，请复制并编辑以下 PowerShell 脚本。 编辑脚本，将 `External BGPNAT address` 和 `Internal IP address` 替换为以下示例值：
@@ -252,40 +245,32 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
    $IntBgpNat = 'Internal IP address'
 
    # Designate the external NAT address for the ports that use the IKE authentication.
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatExternalAddress `
+   Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
-      -PortEnd 501}
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatExternalAddress `
+      -PortEnd 501
+   Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
-      -PortEnd 4501}
+      -PortEnd 4501
    # Create a static NAT mapping to map the external address to the Gateway public IP address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel.
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatStaticMapping `
+   Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
       -ExternalIPAddress $Using:ExtBgpNat `
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
-      -InternalPort 500}
+      -InternalPort 500
    # Configure NAT traversal which uses port 4500 to  establish the complete IPSEC tunnel over NAT devices.
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatStaticMapping `
+   Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
       -ExternalIPAddress $Using:ExtBgpNat `
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
-      -InternalPort 4500}
+      -InternalPort 4500
    ```
 
 ## <a name="configure-azure"></a>配置 Azure

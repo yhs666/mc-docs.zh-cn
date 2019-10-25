@@ -8,28 +8,30 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-origin.date: 07/05/2019
-ms.date: 07/24/2019
-ms.author: v-junlch
-ms.openlocfilehash: b8e11a8c7fee9559243a3c7ee9736887f406ea97
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 08/21/2019
+ms.date: 10/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: 0e035e0ac9b9b1c709bf54e85b608ebae1d6da60
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104138"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583699"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 认知服务中的容器支持
 
 Azure 认知服务中的容器支持让开发人员能够使用与 Azure 中可用的 API 一样丰富的 API，并能够灵活地选择部署和托管随附 [Docker 容器](https://www.docker.com/what-container)的服务的位置。 目前已在 Azure 认知服务的子集中发布容器支持预览版，这些服务包括：
 
-* [计算机视觉][cv-containers]
-* [人脸][fa-containers]
+<!-- * [Computer Vision][cv-containers] -->
+<!-- * [Face][fa-containers] -->
+
 * [语言理解 (LUIS)][lu-containers]
+* [语音服务][sp-containers]
 * [文本分析][ta-containers]
 
 容器化是一种软件分发方法，其中应用程序或服务（包括其依赖关系和配置）被一起打包为容器映像。 如果几乎不进行修改，可将容器映像部署在容器主机上。 容器彼此隔离并与基础操作系统隔离，内存占用小于虚拟机。 容器可以从容器映像中实例化以用于短期任务，并在不再需要时将其删除。
 
-登录到 [Azure 门户](https://portal.azure.cn/)，创建和浏览适用于这些服务的 Azure 资源。
+认知服务资源可在 [Azure](https://www.azure.cn) 上获得。 登录到 [Azure 门户](https://portal.azure.cn/)，创建和浏览适用于这些服务的 Azure 资源。
 
 ## <a name="features-and-benefits"></a>功能和优势
 
@@ -44,14 +46,17 @@ Azure 认知服务容器提供以下一组 Docker 容器，其中每个容器都
 
 | 服务 | 支持的定价层 | 容器 | 说明 |
 |---------|----------|----------|-------------|
-|计算机视觉 |F0、S1|识别文本  |从具有不同表面和背景的各种对象的图像中提取打印文本，例如收据、海报和名片。<br/><br/>**重要提示：** 识别文本容器目前仅适用于英语。<br> 请求访问权限|
-|人脸 |F0、S0|**人脸** |检测图像中的人脸并标识属性，包括人脸特征（例如，鼻子和眼睛）、性别、年龄和其他计算机预测的面部特征。 除检测外，人脸还可以使用置信分数检查同一/不同图像中的两张人脸，或根据数据库比较人脸，以查看是否已存在类似或相同的人脸。 还可以使用共享视觉特征将类似人脸整理为许多组。<br> 请求访问权限 |
-|[LUIS][lu-containers] |F0、S0|**LUIS**（[映像](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)）|可将已训练或已发布的语言理解模型（也称为 LUIS 应用）加载到 docker 容器中并提供对容器的 API 终结点中的查询预测的访问权限。 可以从容器中收集查询日志并将这些日志上传回 [LUIS 门户](https://luis.azure.cn)以提高应用的预测准确性。|
-|[文本分析][ta-containers] |F0、S|关键短语提取（[映像](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)）  |提取关键短语，以标识要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 |
-|[文本分析][ta-containers]|F0、S|语言检测（[映像](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)）  |针对多达 120 种语言，检测输入文本是使用哪种语言编写的，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 |
-|[文本分析][ta-containers]|F0、S|情绪分析（[映像](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)）  |分析原始文本，获取正面或负面情绪的线索。 此 API 针对每个文档返回介于 0 和 1 之间的情绪评分，1 是最积极的评分。 分析模型已使用 Microsoft 提供的大量文本正文和自然语言技术进行预先训练。 对于[选定的语言](./text-analytics/language-support.md)，该 API 可以分析和评分提供的任何原始文本，并直接将结果返回给调用方应用程序。 |
+|[LUIS][lu-containers] |F0、S0|**LUIS**（[映像](https://hub.docker.com/_/microsoft-azure-cognitive-services-luis)）|可将已训练或已发布的语言理解模型（也称为 LUIS 应用）加载到 docker 容器中并提供对容器的 API 终结点中的查询预测的访问权限。 可以从容器中收集查询日志并将这些日志上传回 [LUIS 门户](https://luis.azure.cn)以提高应用的预测准确性。|
+|[语音服务 API][sp-containers] |F0、S0|**文本转语音** |将文本转换为自然发音的语音。|
+|[文本分析][ta-containers] |F0、S|关键短语提取（[映像](https://hub.docker.com/_/microsoft-azure-cognitive-services-keyphrase)）  |提取关键短语，以标识要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 |
+|[文本分析][ta-containers]|F0、S|语言检测（[映像](https://hub.docker.com/_/microsoft-azure-cognitive-services-language)）  |针对多达 120 种语言，检测输入文本是使用哪种语言编写的，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 |
+|[文本分析][ta-containers]|F0、S|情绪分析（[映像](https://hub.docker.com/_/microsoft-azure-cognitive-services-sentiment)）  |分析原始文本，获取正面或负面情绪的线索。 此 API 针对每个文档返回介于 0 和 1 之间的情绪评分，1 是最积极的评分。 分析模型已使用 Microsoft 提供的大量文本正文和自然语言技术进行预先训练。 对于[选定的语言](./text-analytics/language-support.md)，该 API 可以分析和评分提供的任何原始文本，并直接将结果返回给调用方应用程序。 |
 
-此外，认知服务[**一体化产品/服务**](https://portal.azure.cn/#create/Microsoft.CognitiveServicesAllInOne)资源密钥支持某些容器。 可以为以下服务创建单个认知服务一体化资源，并在支持的服务之间使用相同的计费密钥：
+<!--
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+-->
+
+此外，认知服务[**一体化产品/服务**](https://portal.azure.cn/#create/Microsoft.CognitiveServices)资源密钥支持某些容器。 可以为以下服务创建单个认知服务一体化资源，并在支持的服务之间使用相同的计费密钥：
 
 * 计算机视觉
 * 人脸
@@ -59,12 +64,14 @@ Azure 认知服务容器提供以下一组 Docker 容器，其中每个容器都
 * 文本分析
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure 认知服务中的容器可用性
-<a name="container-repositories-and-images"></a>
 
 Azure 认知服务容器通过 Azure 订阅公开发布，并可以从 Microsoft 容器注册表或 Docker 中心拉取 Docker 容器映像。 可以使用 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 命令从相应注册表下载容器映像。
 
 > [!IMPORTANT]
 > 目前，你必须完成注册过程才能访问以下容器，在此过程中，你需要填写并提交一份调查问卷，其中包含有关你、你的公司以及你要实施这些容器的用例的问题。 一旦被授予访问权限并提供了凭据，你就可以从 Azure 容器注册表托管的专用容器注册表中拉取容器映像。
+> * [文本转语音](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
+
+[!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -84,15 +91,19 @@ Azure 认知服务容器通过 Azure 订阅公开发布，并可以从 Microsoft
 
 ## <a name="next-steps"></a>后续步骤
 
+了解可以用于认知服务的[容器配方](containers/container-reuse-recipe.md)。
+
 安装和浏览 Azure 认知服务中的容器提供的功能：
 
 * [语言理解 (LUIS) 容器][lu-containers]
+* [语音服务容器][sp-containers]
 * [文本分析容器][ta-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
 
 [lu-containers]: luis/luis-container-howto.md
+[sp-containers]: speech-service/speech-container-howto.md
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: content update -->

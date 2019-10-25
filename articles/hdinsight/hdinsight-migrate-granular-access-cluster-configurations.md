@@ -6,14 +6,14 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 09/16/2019
-ms.openlocfilehash: dd542a11da2579ff71694e12d7e904145cd7a1e4
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+origin.date: 08/22/2019
+ms.date: 10/21/2019
+ms.openlocfilehash: 59b48783e9f870e7672bb8f09e3527c034aa1f3c
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736613"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292420"
 ---
 # <a name="Migrate-to-granular-role-based-access-for-cluster-configurations"></a> 迁移到群集配置的基于角色的细化访问权限
 
@@ -22,7 +22,7 @@ ms.locfileid: "70736613"
 ## <a name="What-is-changing"></a> 有什么变化？
 
 以前，处理“所有者”、“参与者”或“读取者”[RBAC 角色](/role-based-access-control/rbac-and-directory-admin-roles)的群集用户可以通过 HDInsight API 获取机密，因为这些机密可以通过给具有 `*/read` 权限的任何人。 机密定义为值，可用于获取比用户角色允许的访问权限更高的权限。 这些值包括群集网关 HTTP 凭据、存储帐户密钥和数据库凭据等值。
-今后，访问这些机密需要 `Microsoft.HDInsight/clusters/configurations/action` 权限，这意味着这些机密不再可供具有“读取者”角色的用户访问。 拥有此权限的角色为“参与者”、“所有者”和新的“HDInsight 群集操作员”角色（下面将详细说明）。
+从 2019 年 9 月 3 日开始，访问这些机密需要 `Microsoft.HDInsight/clusters/configurations/action` 权限，这意味着这些机密不再可供具有“读取者”角色的用户访问。 拥有此权限的角色为“参与者”、“所有者”和新的“HDInsight 群集操作员”角色（下面将详细说明）。
 
 另外，我们正在引入新的 [HDInisght 群集操作员](/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色，无需向此角色授予“参与者”或“所有者”的管理权限，即可让他们检索机密。 总结：
 
@@ -59,13 +59,13 @@ ms.locfileid: "70736613"
 
 - [**GET /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration)（已删除敏感信息）
     - 以前用于获取单个配置类型（包括机密）。
-    - 此 API 调用现在会返回省略机密的单个配置类型。 若要获取所有配置（包括机密），请使用新的 POST /configurations 调用。 如果只要获取网关设置，请使用新的 POST /getGatewaySettings 调用。
+    - 从 2019 年 9 月 3 日开始，此 API 调用现在会返回省略机密的单个配置类型。 若要获取所有配置（包括机密），请使用新的 POST /configurations 调用。 如果只要获取网关设置，请使用新的 POST /getGatewaySettings 调用。
 - [**GET /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration)（已弃用）
     - 以前用于获取所有配置（包括机密）
-    - 将不再支持此 API 调用。 今后若要获取所有配置，请使用新的 POST /configurations 调用。 若要获取省略敏感参数的配置，请使用 GET /configurations/{configurationName} 调用。
+    - 从 2019 年 9 月 3 日开始，此 API 调用将弃用且不再受支持。 今后若要获取所有配置，请使用新的 POST /configurations 调用。 若要获取省略敏感参数的配置，请使用 GET /configurations/{configurationName} 调用。
 - [**POST /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)（已弃用）
     - 以前用于更新网关凭据。
-    - 此 API 调用将被弃用且不再受支持。 请改用新的 POST /updateGatewaySettings。
+    - 从 2019 年 9 月 3 日开始，此 API 调用将弃用且不再受支持。 请改用新的 POST /updateGatewaySettings。
 
 已添加以下替换用的 API：</span>
 
@@ -201,7 +201,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>如果不采取任何措施，会发生什么情况？
 
-`GET /configurations` 和 `POST /configurations/gateway` 调用将不再返回任何信息，`GET /configurations/{configurationName}` 调用将不再返回存储帐户密钥或群集密码等敏感参数。 对于相应的 SDK 方法和 PowerShell cmdlet，也是如此。
+从 2019 年 9 月 3 日开始，`GET /configurations` 和 `POST /configurations/gateway` 调用将不再返回任何信息，`GET /configurations/{configurationName}` 调用将不再返回存储帐户密钥或群集密码等敏感参数。 对于相应的 SDK 方法和 PowerShell cmdlet，也是如此。
 
 如果使用上述适用于 Visual Studio、VSCode、IntelliJ 或 Eclipse 的旧版工具之一，在更新之前，这些工具将不再可正常运行。
 

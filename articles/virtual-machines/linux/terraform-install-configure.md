@@ -9,19 +9,18 @@ editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/19/2018
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe965a64ef4cb81809e60ce8624bf850c416efaa
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: c762aa8c03a05e46885e7e586ac2e104f2a57c49
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912988"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272796"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
 
@@ -48,12 +47,12 @@ Usage: terraform [--version] [--help] <command> [args]
 
 要使 Terraform 能够将资源预配到 Azure，请创建 [Azure AD 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)。 服务主体允许你的 Terraform 脚本在 Azure 订阅中预配资源。
 
-如果有多个 Azure 订阅，请先使用 [az account show](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-show) 查询帐户，以获取订阅 ID 和租户 ID 值列表：
+如果有多个 Azure 订阅，请先使用 [az account list](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-list) 查询帐户，以获取订阅 ID 和租户 ID 值列表：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 若要使用所选订阅，请使用 [az account set](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-set) 为此会话设置订阅。 设置 `SUBSCRIPTION_ID` 环境变量，用于保存从要使用的订阅返回的 `id` 字段值：

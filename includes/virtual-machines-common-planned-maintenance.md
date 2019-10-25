@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 04/30/2019
-ms.date: 07/01/2019
+origin.date: 08/22/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b1a8e04f23e1660db5c95f9f8f052015f59f6281
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 2a0bc1a9a8e447fcfd367b978fee3183a806a1f3
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332777"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272418"
 ---
 Azure 定期更新其平台，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新的目的包括修补托管环境中的软件组件、升级网络组件以及硬件解除授权，等等。 
 
@@ -22,7 +22,7 @@ Azure 定期更新其平台，以提高虚拟机的主机基础结构的可靠�
 
 - 如果更新不需要重新启动，则会在更新主机时暂停 VM，或者将 VM 实时迁移到已更新的主机。
 
-- 如果维护需要重新启动，则你会收到计划内维护通知。 Azure 还会提供一个时间范围，方便你在合适的时间自行启动维护。 除非紧急执行维护，否则自我维护时限通常为 30 天。 Azure 正在投资相关技术，减少进行计划内平台维护时必须重新启动 VM 的情况。 
+- 如果维护需要重新启动，则你会收到计划内维护通知。 Azure 还会提供一个时间范围，方便你在合适的时间自行启动维护。 除非紧急执行维护，否则自我维护时段通常为 35 天。 Azure 正在投资相关技术，减少进行计划内平台维护时必须重新启动 VM 的情况。 
 
 本页介绍 Azure 如何执行上述两种类型的维护。 有关非计划事件（服务中断）的详细信息，请参阅 [管理 Windows VM 的可用性](../articles/virtual-machines/windows/manage-availability.md)或适用于 [Linux](../articles/virtual-machines/linux/manage-availability.md) 的相应文章。
 

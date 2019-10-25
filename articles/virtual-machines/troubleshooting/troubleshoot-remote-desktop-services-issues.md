@@ -7,19 +7,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/23/2018
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: c97453404b544c9cc9e776b19debfd346166f8bf
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 7857fe4690a26558285fbef45bbdddefc827860a
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004273"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272700"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>远程桌面服务在 Azure VM 上不启动
 
@@ -91,5 +90,5 @@ ms.locfileid: "66004273"
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)解决问题。
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/support/support-azure/)解决问题。
 

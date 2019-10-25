@@ -9,14 +9,15 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+origin.date: 08/27/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed532d47b0804e5876e74a1c0311db1a0d889e6b
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: eb1815693ac8b2eb93f1e686cdc015df792376c4
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456466"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292429"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>诊断和解决时序见解环境中的问题
 
@@ -64,13 +65,12 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 下图显示了一个 SKU 为 S1 且容量为 3 的时序见解环境。 它每天可以引入 300 万个事件。
 
-![环境 SKU 当前容量](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+![环境 SKU 当前容量](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox) 例如，假设环境从事件中心引入消息。 每日流入速率大约为 67,000 条消息。 此速率相当于每分钟大约引入 46 条消息。 
 
-例如，假设此环境从事件中心引入消息。 下图显示了流入速率：
+* 如果将每条事件中心消息平展为单个时序见解事件，则不会发生限制。 
+* 如果将每条事件中心消息平展为 100 个时序见解事件，则每分钟应引入 4,600 个事件。 
 
-[![事件中心流入速率示例](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
-
-每日流入速率大约为 67,000 条消息。 此速率相当于每分钟大约引入 46 条消息。 如果将每条事件中心消息平展为单个时序见解事件，则不会发生限制。 如果将每条事件中心消息平展为 100 个时序见解事件，则每分钟应引入 4,600 个事件。 容量为 3 的 S1 SKU 环境每分钟只能流入 2,100 个事件（每天 100 万个事件 = 每分钟 700 个事件，3 个单位 = 每分钟 2,100 个事件）。 使用此设置时，限制会造成滞后。
+容量为 3 的 S1 SKU 环境每分钟只能流入 2,100 个事件（每天 100 万个事件 = 每分钟 700 个事件，3 个单位 = 每分钟 2,100 个事件）。 
 
 有关平展逻辑工作原理的深入介绍，请参阅[支持的 JSON 形状](./how-to-shape-query-json.md)。
 

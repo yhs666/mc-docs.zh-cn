@@ -18,11 +18,11 @@ ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: be5e635aea56cc3f6f7849ae08951ee178c6d185
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004369"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323733"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>使用 CLI 从快照创建托管磁盘
 
@@ -71,7 +71,7 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 | 命令 | 注释 |
 |---|---|
-| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性创建托管磁盘。  |
+| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-show) | 使用快照的名称和资源组属性获取快照的所有属性。 使用 ID 属性创建托管磁盘。  |
 | [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create) | 使用托管快照的快照 ID 创建托管磁盘 |
 
 ## <a name="next-steps"></a>后续步骤

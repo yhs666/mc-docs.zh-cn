@@ -7,12 +7,12 @@ ms.topic: reference
 origin.date: 09/06/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: a73bb1583c656550412c653448196631e8b3c9f6
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 14786c3a88d8f19d8ef59f73115f9b6469878e24
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156102"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303276"
 ---
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
 本文列出某个 Azure 资源类型是否支持移动操作。 它还提供了有关移动资源时要考虑的特殊条件的信息。
@@ -421,8 +421,12 @@ ms.locfileid: "71156102"
 > | webtests | 是 | 是 |
 > | workbooks | 是 | 是 |
 
+<!--MOONCAKE: CORRECT ON #monitor-limits -->
+
 > [!IMPORTANT]
-> 确保移到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#azure-monitor-limits)。
+> 确保移到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#monitor-limits)。
+
+<!--MOONCAKE: CORRECT ON #monitor-limits -->
 
 <!-- Not Available on ## Microsoft.IoTCentral-->
 <!-- Not Available on ## Microsoft.IoTSpaces-->
@@ -558,8 +562,12 @@ ms.locfileid: "71156102"
 > | ------------- | ----------- | ---------- |
 > | workspaces | 是 | 是 |
 
+<!--MOONCAKE: CORRECT ON #monitor-limits -->
+
 > [!IMPORTANT]
-> 确保移到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#azure-monitor-limits)。
+> 确保移到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#monitor-limits)。
+
+<!--MOONCAKE: CORRECT ON #monitor-limits -->
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

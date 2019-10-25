@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-origin.date: 08/06/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: f5be32e8940108c6b1dd670bb8bacf018e248ce7
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+origin.date: 08/26/2019
+ms.date: 10/28/2019
+ms.openlocfilehash: 670be99f84829f738b60f240fa0f74a80f9f34ae
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921313"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583895"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>排查 Azure HDInsight 中的群集创建失败问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "70921313"
 
 ## <a name="permissions-issues"></a>权限问题
 
-如果使用的是 Data Lake Storage Gen 2，请确保分配给 HDInsight 群集的用户分配的托管标识充当“存储 Blob 数据参与者”角色或“存储 Blob 数据所有者”角色。 ****  有关完整的设置说明，请参阅[将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)。
+如果使用的是 Azure Data Lake Storage Gen2 并收到错误 ```AmbariClusterCreationFailedErrorCode```、```Internal server error occurred while processing the request. Please retry the request or contact support.```，请打开 Azure 门户，前往存储帐户，并在访问控制 (IAM) 下确保“存储 Blob 数据参与者”或“存储 Blob 数据所有者”角色已分配给该订阅的“用户分配的托管标识”    。 有关详细说明，请参阅[在 Data Lake Storage Gen2 帐户上设置托管标识的权限](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)。
 
 
 如果使用 Azure 存储，请确保创建群集期间存储帐户名称有效。
@@ -74,6 +74,7 @@ ms.locfileid: "70921313"
 
 存储帐户名称不能超过 24 个字符，且不能包含特殊字符。 这些限制也适用于存储帐户中的默认容器名称。
 
+其他命名限制也适用于群集创建。 有关详细信息，请参阅[群集名称限制](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 03/13/2019
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: c4f49bdb7dec96a318c4253bf7a88d859652aff8
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 31056df447007a049083d4424f12cde580bb79e0
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570616"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275260"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中存储凭据
 
-可以在 [Azure Key Vault](../key-vault/key-vault-whatis.md) 中存储数据存储和计算的凭据。 执行使用数据存储/计算的活动时，Azure 数据工厂将检索凭据。
+可以在 [Azure Key Vault](../key-vault/key-vault-overview.md) 中存储数据存储和计算的凭据。 执行使用数据存储/计算的活动时，Azure 数据工厂将检索凭据。
 
 目前，除自定义活动之外的所有活动类型都支持此功能。 具体而言，对于连接器配置，请查阅[每个连接器主题](copy-activity-overview.md#supported-data-stores-and-formats)中的“链接服务属性”部分了解详细信息。
 

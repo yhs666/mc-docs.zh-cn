@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/08/2019
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 6442a7b58e1d57b9c79c315beb3c06d52c3e1048
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 2e25930d52a0a29657e3fedeb29dff4b47f5107f
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844531"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275406"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -183,3 +183,5 @@ Type                  : ServicePrincipal
 参阅以下主题，其中介绍了何时以及如何使用数据工厂托管标识：
 
 - [在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)
+
+有关数据工厂托管标识所基于的 Azure 资源的托管标识的更多背景信息，请参阅 [Azure 资源的托管标识概述](/active-directory/managed-identities-azure-resources/overview)。 

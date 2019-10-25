@@ -1,6 +1,6 @@
 ---
 title: 备份 Azure Stack | Microsoft Docs
-description: 在 Azure Stack 上使用备份就地执行按需备份。
+description: 了解如何在 Azure Stack 上执行按需备份。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 07/29/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: e74ce4e8ffe1d79ce52a474ac052ae34ed859076
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 294464d934465da987ba64e1284f2ccf9b4db764
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513492"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578476"
 ---
 # <a name="back-up-azure-stack"></a>备份 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 上执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
+本文说明如何在 Azure Stack 上执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
 
 ## <a name="start-azure-stack-backup"></a>启动 Azure Stack 备份
 
@@ -45,7 +45,7 @@ ms.locfileid: "68513492"
 > [!NOTE]
 > 备份作业将在作业完成前约 10-15 分钟在门户中显示为成功完成。
 >
-> 因此，通过下面的代码可以更好地观察实际状态。
+> 通过下面的代码可以更好地观察实际状态。
 
 > [!IMPORTANT]
 > 最初引入了 1 毫秒延迟是因为代码执行太快，无法正确注册作业，它返回时不带 **PSBeginTime**，从而不带作业的**状态**。
@@ -112,10 +112,10 @@ ms.locfileid: "68513492"
     Tags              : {}
 ```
 
-### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>在管理门户中确认备份已完成
-使用 Azure Stack 管理门户按照以下步骤验证备份是否已成功完成：
+### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>在管理员门户中确认备份已完成
+使用 Azure Stack 管理员门户按照以下步骤验证备份是否已成功完成：
 
-1. 打开 [Azure Stack 管理门户](azure-stack-manage-portals.md)。
+1. 打开 [Azure Stack 管理员门户](azure-stack-manage-portals.md)。
 2. 选择“所有服务”  ，然后在“管理”  类别下选择“基础结构备份”  。 在“基础结构备份”  边栏选项卡中选择“配置”  。
 3. 在“可用备份”  列表中查找备份的**名称**和**完成日期**。
 4. 验证**状态**是否为“成功”  。

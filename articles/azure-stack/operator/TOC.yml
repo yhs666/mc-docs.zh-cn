@@ -8,12 +8,14 @@
       href: azure-stack-hci-overview.md
     - name: 发行说明
       items:
-        - name: 更新和服务策略
-          href: azure-stack-servicing-policy.md
-        - name: 应用更新的清单
-          href: azure-stack-release-notes-checklist.md
         - name: 安全更新
-          href: azure-stack-release-notes-security-updates-1907.md
+          href: azure-stack-release-notes-security-updates.md
+        - name: 1908 更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1908.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1908.md
         - name: 1907 更新
           items:
             - name: 发行说明
@@ -32,12 +34,6 @@
               href: azure-stack-release-notes-1905.md
             - name: 已知问题
               href: azure-stack-release-notes-known-issues-1905.md
-        - name: 1904 更新
-          items:
-            - name: 发行说明
-              href: azure-stack-release-notes-1904.md
-            - name: 已知问题
-              href: azure-stack-release-notes-known-issues-1904.md
 - name: 快速入门
   expanded: true
   items:
@@ -80,6 +76,8 @@
               href: azure-stack-network.md
             - name: 边界连接
               href: azure-stack-border-connectivity.md
+            - name: 交换机配置
+              href: azure-stack-customer-defined.md
             - name: DNS 集成
               href: azure-stack-integrate-dns.md
             - name: 防火墙集成
@@ -139,6 +137,8 @@
       items:
         - name: 管理基础知识
           href: azure-stack-manage-basics.md
+        - name: 从门户中清除用户数据
+          href: azure-stack-portal-clear.md
         - name: 配置遥测数据的收集
           href: azure-stack-telemetry.md
         - name: 注册 Azure Stack
@@ -163,12 +163,22 @@
           items:
             - name: 管理更新概述
               href: azure-stack-updates.md
+            - name: 更新和服务策略
+              href: azure-stack-servicing-policy.md
+            - name: 应用更新的清单
+              href: azure-stack-release-notes-checklist.md
+            - name: 规划更新
+              href: azure-stack-update-plan.md
+            - name: 准备更新包
+              href: azure-stack-update-prepare-package.md
             - name: 应用更新
-              href: azure-stack-apply-updates.md
-            - name: 应用 OEM 更新
-              href: azure-stack-update-oem.md
+              items:
+                - name: 应用更新
+                  href: azure-stack-apply-updates.md
+                - name: 应用 OEM 更新
+                  href: azure-stack-update-oem.md
             - name: 监视更新状态
-              href: azure-stack-monitor-update.md
+              href: azure-stack-update-monitor.md
         - name: 监视运行状况和警报
           href: azure-stack-monitor-health.md
         - name: 管理网络资源
@@ -342,6 +352,8 @@
               href: azure-stack-app-service-release-notes-update-five.md
             - name: 基于 Azure Stack 的应用服务 Update 6 发行说明
               href: azure-stack-app-service-release-notes-update-six.md
+            - name: Azure Stack 上的应用服务 Update 7 发行说明
+              href: azure-stack-app-service-release-notes-update-seven.md
     - name: 创建计划、套餐和配额
       items:
         - name: 计划、套餐、配额和订阅概述
@@ -427,7 +439,7 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Azure Stack 验证
           href: azure-stack-diagnostic-test.md
-        - name: 已知问题
+        - name: 故障排除
           href: azure-stack-troubleshooting.md
 - name: 参考
   items:

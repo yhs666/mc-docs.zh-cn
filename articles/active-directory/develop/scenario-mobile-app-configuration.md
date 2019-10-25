@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/23/2019
-ms.date: 08/21/2019
+ms.date: 10/09/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37f6d7f68e62367ff6650a7906529094ccc84b00
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 3ac7a96068fe89ea52dbd86473416578cbfaecb2
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993733"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292058"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的移动应用 - 代码配置
 
-创建应用程序后，可以了解如何通过注册应用时获取的应用程序参数来配置代码。 移动应用程序还附带一些复杂的细节，必须处理好这些细节才能适应用于生成这些应用的框架
+创建应用程序后，你将了解如何使用应用注册参数配置代码。 移动应用程序还附带一些复杂的细节，必须处理好这些细节才能适应用于生成这些应用的框架
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>支持移动应用的 MSAL 库
 
@@ -39,7 +39,7 @@ ms.locfileid: "69993733"
 
 ## <a name="configuring-the-application"></a>配置应用程序
 
-移动应用程序使用 MSAL 的 `PublicClientApplication` 类。 下面是该类的实例化方式：
+移动应用程序使用 `PublicClientApplication` 类。 下面是该类的实例化方式：
 
 ### <a name="android"></a>Android
 
@@ -69,7 +69,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 #### <a name="instantiating-the-application"></a>实例化应用程序
 
-在 Xamarin 或 UWP 中，实例化应用程序的最简单方法如下（其中的 `ClientId` 是注册的应用程序的 GUID）。
+在 Xamarin 或 UWP 中，实例化应用程序的最简单方法如下（其中的 `ClientId` 是注册的应用的 Guid）。
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -129,7 +129,7 @@ var pca = PublicClientApplicationBuilder
 
 #### <a name="uwp-specific-considerations"></a>特定于 UWP 的注意事项
 
-在 UWP 上，可以使用企业网络。 有关 UWP 的具体信息，请参阅[与 MSAL.NET 配合使用时特定于通用 Windows 平台的注意事项](msal-net-uwp-considerations.md)。
+在 UWP 上，可以使用企业网络。 有关将 MSAL 库与 UWP 配合使用的其他信息，请参阅 [MSAL.NET 的特定于 Windows 平台的通用注意事项](msal-net-uwp-considerations.md)。
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>将应用程序配置为使用中介
 
@@ -186,7 +186,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 #### <a name="step-3-set-a-uiviewcontroller"></a>步骤 3：设置 UIViewController()
 
-在 Xamarin iOS 中，通常不需要设置对象窗口，但在这种情况下，需要发送请求并接收中介的响应。 仍在 `AppDelegate.cs` 中，设置 ViewController。
+在 Xamarin iOS 中，通常不需要设置对象窗口，但在这种情况下，需要发送请求并接收中转站的响应。 仍在 `AppDelegate.cs` 中，设置 ViewController。
 
 执行以下操作设置对象窗口：
 
@@ -263,3 +263,4 @@ MSAL.NET 尚不支持适用于 Android 的中介。
 > [!div class="nextstepaction"]
 > [获取令牌](scenario-mobile-acquire-token.md)
 
+<!-- Update_Description: wording update -->

@@ -6,24 +6,24 @@ ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
 origin.date: 08/02/2018
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d57ac441a1ddc9156bf50f6e90baf867e330f11f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 27bc0a5435bbfad824c786d343dfb0c8214e7d18
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993416"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292093"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>启用 Azure Active Directory 标识保护
 
 Azure Active Directory 标识保护是 Azure Active Directory (Azure AD) 的一项功能。 使用 Azure AD 标识保护，你能够：
 
-- 获得使用机器学习算法检测到的已标记用户和风险事件的综合视图
+- 获得使用机器学习算法检测到的已标记用户和风险检测的综合视图
 - 设置基于风险的条件访问策略以自动保护你的用户
 - 通过对漏洞执行操作提高安全状态 
 
@@ -54,4 +54,4 @@ Azure Active Directory 标识保护是 Azure Active Directory (Azure AD) 的一�
 ## <a name="next-steps"></a>后续步骤
 * [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

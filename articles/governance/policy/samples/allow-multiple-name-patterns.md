@@ -1,20 +1,19 @@
 ---
 title: 示例 - 多名称模式
 description: 此示例策略定义要求资源匹配所提供的其中一种名称模式。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 11/13/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: a40328aef01af64e326bce31564fd973769c55ba
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: 8fbb7283ac0e95d9f4742acb27336d22374fc631
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903090"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526687"
 ---
 # <a name="sample---allow-multiple-name-patterns"></a>示例 - 允许多种名称模式
 
@@ -57,7 +56,7 @@ ms.locfileid: "56903090"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -82,7 +81,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy definition create --name 'allow-multiple-name-patterns' --display-name 'Allow one of many name patterns to be used for resources.' --description 'Allow one of many name patterns to be used for resources.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allow-multiple-name-patterns" 
@@ -92,7 +91,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```cli
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 06/06/2019
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: cb2b54ae85a605c34ea48c0f08c9d597cbdbdaef
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 51d89e83221398d3d44e922bf4a32b6e6ace1d47
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878704"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583983"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -146,7 +146,7 @@ ms.locfileid: "68878704"
 
     a. 创建新的笔记本。 在右侧一角选择“新建”  。 应会看到默认内核 **Python 2** 和 **Python 3**，以及安装的内核。 实际值根据安装时所做的选择而有所不同。  选择“PySpark”。 
 
-    ![Jupyter notebook 中的内核](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter notebook 中的内核")
+    ![Jupyter notebook 中的内核](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter notebook 中的内核")
 
     > [!IMPORTANT]  
     > 选择“新建”后，检查 shell 中是否出现任何错误。   如果看到错误 `TypeError: __init__() got an unexpected keyword argument 'io_loop'`，原因可能是遇到了某些 Tornado 版本中的已知问题。  如果出现此情况，请停止内核，然后使用以下命令降级 Tornado 安装：`pip install tornado==4.5.3`。

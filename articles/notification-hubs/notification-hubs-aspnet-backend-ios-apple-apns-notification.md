@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 04/13/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: 36d69bd358d6249b6674e246ab7903ac568c2d0a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 01/04/2019
+ms.date: 10/08/2019
+ms.author: v-tawe
+ms.openlocfilehash: 49793ecb7758ba0aa330c7c6595ab82b25ced957
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627528"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272502"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户推送通知
 
@@ -58,11 +58,11 @@ ms.locfileid: "58627528"
     ![在 Xcode 接口生成器中编辑情节提要][1]
 
    * **用户名**：包含占位符文本“*输入用户名*”的 UITextField，直接位于发送结果标签的下面并受左右边距的限制。
-   * **密码**：包含占位符文本“*输入密码*”的 UITextField，直接位于用户名文本字段的下面并受左右边距的限制。 选中属性检查器中“返回密钥”下的“安全文本输入”选项。
-   * **登录**：直接位于密码文本字段下方的标签式 UIButton，并取消选中属性检查器中“控件内容”下的“已启用”选项
+   * **密码**：包含占位符文本“*输入密码*”的 UITextField，直接位于用户名文本字段的下面并受左右边距的限制。 选中属性检查器中“返回密钥”下的“安全文本输入”选项   。
+   * **登录**：直接位于密码文本字段下方的标签式 UIButton，并取消选中属性检查器中“控件内容”下的“已启用”选项  
    * **WNS**：标签和开关，用于已在中心设置 Windows 通知服务时，启用将通知发送到 Windows 通知服务。 请参阅 [Windows 入门](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教程。
    * **APNS**：标签和开关，用于启用将通知发送到 Apple 平台通知服务。
-   * **收件人用户名**：包含占位符文本“收件人用户名标记”的 UITextField，直接位于 GCM 标签下，受左右边距限制。
+   * **收件人用户名**：包含占位符文本“收件人用户名标记”的 UITextField，直接位于 GCM 标签下，受左右边距限制  。
 
      某些组件已在[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 教程中添加。
 
@@ -86,7 +86,7 @@ ms.locfileid: "58627528"
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. 在 **ViewController.h** 中，在 import 语句后面添加以下 `#define`。 将 <输入你的后端终结点>\> 占位符替换为在上一节中用于部署应用后端的目标 URL。 例如，*http://you_backend.chinacloudsites.cn*。
+4. 在 `ViewController.h` 中，在 import 语句后面添加以下 `#define`。 将 `<Enter Your Backend Endpoint>` 占位符替换为在上一部分中用于部署应用后端的目标 URL。 例如，`http://your_backend.chinacloudsites.cn`。
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
@@ -453,7 +453,7 @@ ms.locfileid: "58627528"
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. 现在，在 AppDelegate.m 中，删除 `application:didRegisterForPushNotificationWithDeviceToken:` 方法的所有内容并将其替换为以下内容，以确保视图控制器包含从 APN 中检索到的最新设备令牌：
+14. 现在，在 AppDelegate.m 中，删除 `application:didRegisterForPushNotificationWithDeviceToken:` 方法的所有内容并将其替换为以下内容，以确保视图控制器包含从 APN 中检索到的最新设备令牌  ：
 
     ```objc
     // Add import to the top of the file
@@ -479,15 +479,15 @@ ms.locfileid: "58627528"
 ## <a name="test-the-application"></a>测试应用程序
 
 1. 在 XCode 中，在物理 iOS 设备上运行此应用（推送通知无法在模拟器中正常工作）。
-2. 在 iOS 应用 UI 中，为用户名和密码输入相同的值。 然后，单击“登录”。
+2. 在 iOS 应用 UI 中，为用户名和密码输入相同的值。 然后，单击“登录”  。
 
     ![iOS 测试应用程序][2]
 
-3. 应看到弹出窗口通知你注册成功。 单击 **“确定”**。
+3. 应看到弹出窗口通知你注册成功。 单击 **“确定”** 。
 
     ![显示的 iOS 测试通知][3]
 
-4. 在“*收件人用户名标记”文本字段中，输入用于从另一台设备注册的用户名标记。
+4. 在“*收件人用户名标记”文本字段中，输入用于从另一台设备注册的用户名标记  。
 5. 输入通知消息，并单击“**发送通知**”。 只有使用该用户名标记注册的设备才会收到通知消息。 该消息将只发送给那些用户。
 
     ![iOS 测试带标记的通知][4]

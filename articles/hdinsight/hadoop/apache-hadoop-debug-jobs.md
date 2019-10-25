@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 07/22/2019
+ms.date: 10/28/2019
 ms.author: ashish
-ms.openlocfilehash: feeb1f4f2b0f4a8e4d913795659edc44cbbbb99a
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 76f7b4a2db6c43b846b6a5257534de725cda9f9a
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845366"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583881"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 日志
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>在 Azure HDInsight 中分析 Apache Hadoop 日志
 
 Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件系统的 Azure 存储帐户。 该存储帐户称作默认存储帐户。 群集使用默认存储帐户上的 Azure 表存储和 Blob 存储来存储其日志。  若要了解群集的默认存储帐户，请参阅[在 HDInsight 中管理 Apache Hadoop 群集](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)。 即使在删除群集以后，日志仍会保留在存储帐户中。
 
@@ -84,8 +84,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 5. 右键单击“导航器”窗格中的 hadoopservicelog 表，然后选择“编辑”   。 应看到四个列。 （可选）删除“分区键”、“行键”和“时间戳”列，方法是：选中这些项，然后在功能区的选项中单击“删除列”     。
 6. 单击“内容”列上的展开图标，选择要导入 Excel 电子表格中的列。 我选择了 TraceLevel 和 ComponentName 进行本次演示：这样我可以大致知道哪些组件有问题。
    
-    ![HDInsight Hadoop 日志选择列](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
-    
+    ![HDInsight Hadoop 日志选择列 excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "HDInsight Hadoop 日志选择列 excel")
 7. 单击“确定”导入数据  。
 8. 选择“TraceLevel”、“Role”和“ComponentName”列，然后单击功能区中的“分组依据”控件    。
 9. 单击“分组依据”对话框中的“确定” 
@@ -105,7 +104,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
    
         TraceLevel eq 'ERROR'
    
-    ![HDInsight Hadoop 日志选择列](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![HDInsight Hadoop 日志选择列 vs](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop 日志选择列 vs")
    
     有关构造筛选器的详细信息，请参阅[构造表设计器的筛选器字符串](../../vs-azure-tools-table-designer-construct-filter-strings.md)。
 
@@ -132,8 +131,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 
 * **获取群集状态**。 在左窗格中展开“群集”，然后单击“关于”   。 此时会显示群集状态详细信息，例如总分配内存、所用核心数、群集资源管理器状态、群集版本等。
   
-    ![启动群集仪表板](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
-    
+    ![启动群集仪表板 yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "启动群集仪表板 yarn")
 * **获取节点状态**。 在左窗格中展开“群集”，然后单击“节点”   。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
 * **监视作业状态**。 在左窗格中展开“群集”，然后单击“应用程序”列出群集中的所有作业   。 若要查看特定状态（例如“新”、“已提交”、“正在运行”等）的作业，请单击“应用程序”下的相应链接  。 可以进一步单击作业名称以查找该作业的详细信息，例如输出、日志等。
 

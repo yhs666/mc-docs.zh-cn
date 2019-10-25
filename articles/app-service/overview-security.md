@@ -16,12 +16,12 @@ origin.date: 08/24/2018
 ms.date: 09/05/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 7e5c499a49f8620dd0791c9d04aa34f16c7e9520
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: ff4050a960d06494e515a9eac6985e9b4d32117c
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806809"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583572"
 ---
 # <a name="security-in-azure-app-service"></a>Azure 应用服务中的安全性
 
@@ -44,7 +44,7 @@ ms.locfileid: "70806809"
 
 应用服务允许通过 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保护应用。 创建应用后，便可使用 HTTPS 访问其默认域名 (\<app_name>.chinacloudsites.cn)。 如果[为应用配置自定义域](app-service-web-tutorial-custom-domain.md)，则还应该[使用自定义证书对其进行保护](app-service-web-tutorial-custom-ssl.md)，以便客户端浏览器与自定义域建立安全的 HTTPS 连接。 可通过两种方式来执行此操作：
 
-- **应用服务证书**：直接在 Azure 中创建证书。 该证书在 [Azure Key Vault](/azure/key-vault/) 中受到保护，并且可以导入到应用服务应用中。 
+- **应用服务证书**：直接在 Azure 中创建证书。 该证书在 [Azure Key Vault](/key-vault/) 中受到保护，并且可以导入到应用服务应用中。 
 - **第三方证书**：上传从可信证书颁发机构购买的自定义 SSL 证书，并将其绑定到应用服务应用。 应用服务既支持单域证书，也支持通配型证书。 它还支持用于测试目的的自签名证书。 有关详细信息，请参阅[将现有的自定义 SSL 证书绑定到 Azure 应用服务](app-service-web-tutorial-custom-ssl.md)。
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>不安全的协议（HTTP、TLS 1.0、FTP）
@@ -70,7 +70,7 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 在向后端服务进行身份验证时，应用服务根据你的需要提供两种不同的机制：
 
-- **服务标识**：使用应用本身的标识登录到远程资源。 通过应用服务可轻松创建[托管标识](overview-managed-identity.md)，在向 [Azure SQL 数据库](/azure/sql-database/)或 [Azure Key Vault](/azure/key-vault/) 等其他服务进行身份验证时可使用该标识。 有关此方法的端到端教程，请参阅[使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全](app-service-web-tutorial-connect-msi.md)。
+- **服务标识**：使用应用本身的标识登录到远程资源。 通过应用服务可轻松创建[托管标识](overview-managed-identity.md)，在向 [Azure SQL 数据库](/sql-database/)或 [Azure Key Vault](/key-vault/) 等其他服务进行身份验证时可使用该标识。 有关此方法的端到端教程，请参阅[使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全](app-service-web-tutorial-connect-msi.md)。
 - **代表 (OBO)** ：代表用户对远程资源进行委托访问。 使用 Azure Active Directory 作为验证提供程序时，应用服务应用可以执行远程服务（例如 [Azure Active Directory 图形 API](../active-directory/develop/active-directory-graph-api.md) 或应用服务中的远程 API 应用）委托登录。
 
 ## <a name="connectivity-to-remote-resources"></a>远程资源连接
@@ -106,7 +106,7 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 ## <a name="network-isolation"></a>网络隔离
 
-除了**独立**定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器将与其他租户共享。应用服务环境在你自己的 [Azure 虚拟网络](/azure/virtual-network/)实例中运行。 它允许： 
+除了**独立**定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器将与其他租户共享。应用服务环境在你自己的 [Azure 虚拟网络](/virtual-network/)实例中运行。 它允许： 
 
 - 通过专用的公共终结点为应用提供专用前端。
 - 使用内部负载均衡器 (ILB) 为内部应用程序提供服务，该内部负载均衡器仅允许从 Azure 虚拟网络内部进行访问。 ILB 有一个来自专用子网的 IP 地址，它可以让应用与 Internet 完全隔离。

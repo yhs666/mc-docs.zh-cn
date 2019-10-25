@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
+origin.date: 09/18/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 3b0605769ff6867a2f9540930607eea760ea1f80
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c06755f5da9727865963b022158b7808ee51f7d0
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658118"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526638"
 ---
 ### <a name="network-security-groups"></a>网络安全组
 

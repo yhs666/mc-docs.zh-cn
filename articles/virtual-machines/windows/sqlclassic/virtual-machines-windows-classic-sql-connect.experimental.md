@@ -1,5 +1,5 @@
 ---
-title: 连接到 Azure 上的 SQL Server 虚拟机（经典）| Azure
+title: 连接到 Azure 上的 SQL Server 虚拟机（经典部署）| Azure
 description: 了解如何连接到在 Azure 中虚拟机上运行的 SQL Server。 本主题使用经典部署模型。 方案根据网络配置和客户端位置的不同而异。
 services: virtual-machines-windows
 documentationcenter: na
@@ -8,21 +8,21 @@ manager: digimobile
 tags: azure-service-management
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 05/20/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
+experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 91f54bc39a4dc3480bad17d663a078c6d73af6f1
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: c7d9470555b3ac38495348cc374aff63b87354e7
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004276"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272494"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ ms.locfileid: "66004276"
 ### <a name="connect-to-sql-server-over-the-internet"></a>通过 Internet 连接到 SQL Server
 如果想要通过 Internet 连接到 SQL Server 数据库引擎，则必须创建虚拟机终结点以进行传入 TCP 通信。 此 Azure 配置步骤将传入 TCP 端口通信定向到虚拟机可以访问的 TCP 端口。
 
-若要通过 Internet 进行连接，必须使用 VM 的 DNS 名称和（本文中稍后配置的）VM 终结点端口号。 若要查找 DNS 名称，请导航到 Azure 门户，然后选择“虚拟机(经典)”。 然后选择你的虚拟机。 “DNS 名称”显示在“概述”部分中。
+若要通过 Internet 进行连接，必须使用 VM 的 DNS 名称和（本文中稍后配置的）VM 终结点端口号。 若要查找 DNS 名称，请导航到 Azure 门户，然后选择“虚拟机(经典)”  。 然后选择你的虚拟机。 “DNS 名称”  显示在“概述”  部分中。
 
 例如，假设一台经典虚拟机名为 **mysqlvm**，其 DNS 名称为 **mysqlvm7777.chinacloudapp.cn** 且 VM 终结点为 **57500**。 假设正确配置了连接性，则可从 Internet 上的任意位置使用以下连接字符串访问该虚拟机：
 

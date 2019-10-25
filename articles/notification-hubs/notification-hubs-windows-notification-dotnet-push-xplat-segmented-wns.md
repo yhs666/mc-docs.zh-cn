@@ -1,5 +1,5 @@
 ---
-title: 向特定设备（通用 Windows 平台）发送通知 | Azure Docs
+title: 向特定设备（通用 Windows 平台）发送通知 | Azure
 description: 将 Azure 通知中心与注册中的标记配合使用，将突发新闻发送到通用 Windows 平台应用。
 services: notification-hubs
 documentationcenter: windows
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 04/14/2018
-ms.date: 04/08/2019
-ms.author: v-biyu
-ms.openlocfilehash: 53153d824a558127ab4146a02a32a21f1814b9db
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+origin.date: 03/22/2019
+ms.date: 10/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 3f39cb960a345f71e18e99cedd35bb8b5396dc64
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505530"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272484"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教程：向运行通用 Windows 平台应用程序的特定 Windows 设备推送通知
 
@@ -80,7 +80,7 @@ ms.locfileid: "58505530"
     </Grid>
     ```
 
-2. 在“解决方案资源管理器”中，右键单击项目，然后添加新类：**Notifications**。 向类定义添加 **public** 修饰符，然后将以下 `using` 语句添加到新的代码文件：
+2. 在“解决方案资源管理器”中，右键单击项目，然后添加新类：  **Notifications**。 向类定义添加 **public** 修饰符，然后将以下 `using` 语句添加到新的代码文件：
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -151,7 +151,7 @@ ms.locfileid: "58505530"
     在代码中，将 `<hub name>` 和 `<connection string with listen access>` 占位符替换为通知中心的名称和之前获取的 *DefaultListenSharedAccessSignature* 的连接字符串。
 
    > [!NOTE]
-   > 使用客户端应用分发的凭据通常不安全，因此请使用客户端应用仅分发具有侦听访问权限的密钥。 拥有侦听访问权限后，应用可注册通知，但是无法修改现有注册，也无法发送通知。 在受保护的后端服务中使用完全访问权限密钥，以便发送通知和更改现有注册。
+   > 使用客户端应用分发的凭据通常不安全，因此请使用客户端应用仅分发具有侦听访问权限的密钥  。 拥有侦听访问权限后，应用可注册通知，但是无法修改现有注册，也无法发送通知。 在受保护的后端服务中使用完全访问权限密钥，以便发送通知和更改现有注册。
 
 5. 在 `MainPage.xaml.cs` 文件中添加以下行：
 
@@ -202,7 +202,7 @@ ms.locfileid: "58505530"
     var result = await notifications.SubscribeToCategories();
     ```
 
-    此过程可确保应用启动时会从本地存储区检索类别并请求注册这些类别。 你已在[通知中心入门][get-started]教程中创建 `InitNotificationsAsync` 方法。
+    此过程可确保应用启动时会从本地存储区检索类别并请求注册这些类别。 你已在学习[通知中心入门][get-started]教程的过程中创建了 `InitNotificationsAsync` 方法。
 2. 在 `MainPage.xaml.cs` 项目文件的 `OnNavigatedTo` 方法中添加以下代码：
 
     ```csharp
@@ -223,17 +223,12 @@ ms.locfileid: "58505530"
 
 应用现已完成。 它可以在设备的本地存储中存储一组类别，当用户更改类别选择时，使用它向通知中心注册。 下一部分将定义一个后端，该后端可将类别通知发送到此应用。
 
-## <a name="send-tagged-notifications"></a>发送带标记的通知
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>运行应用并生成通知
-
-1. 在 Visual Studio 中，选择 F5 编译并启动应用。 应用 UI 提供了一组开关，可以使用它们选择要订阅的类别。
+## <a name="run-the-uwp-app"></a>运行 UWP 应用 
+1. 在 Visual Studio 中，选择 F5 编译并启动应用  。 应用 UI 提供了一组开关，可以使用它们选择要订阅的类别。
 
     ![突发新闻应用](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
-2. 启用一个或多个类别切换，然后单击“订阅”。
+2. 启用一个或多个类别切换，然后单击“订阅”  。
 
     应用程序将所选类别转换为标签并针对所选标签从通知中心请求注册新设备。 返回注册的类别并显示在对话框中。
 
@@ -267,9 +262,12 @@ ms.locfileid: "58505530"
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Mobile Service]: /develop/mobile/android
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+<!-- [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253 -->
+[wns 对象]： https://go.microsoft.com/fwlink/p/?LinkId=260591

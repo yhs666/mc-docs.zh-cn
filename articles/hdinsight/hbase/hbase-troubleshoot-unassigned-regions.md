@@ -5,14 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
-origin.date: 08/07/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: 3f3aa885965c95134c06e6dd2b5da1d402d14941
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+origin.date: 08/16/2019
+ms.date: 10/28/2019
+ms.openlocfilehash: 1e92af232e85117c77dda632884029ffaeac6522
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921386"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583845"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight 中的区域服务器问题
 
@@ -28,7 +28,7 @@ ms.locfileid: "70921386"
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-在 Apache HBase Master UI 中，可以看到各区域服务器中的区域计数不平衡。
+在 Apache HBase Master UI 中，可以看到所有区域服务器中非均衡区域的数目。 然后，可以运行 `hbase hbck` 命令查看区域链中的漏洞。
 
 ### <a name="cause"></a>原因
 
@@ -46,7 +46,7 @@ multiple regions being unassigned or holes in the chain of regions
 
 1. 使用 `exit` 命令退出 Zookeeper shell。
 
-1. 打开 Ambari UI，从 Ambari 重启活动 HBase Master 服务。
+1. 打开 Apache Ambari UI，并重启 Active HBase Master 服务。
 
 1. 再次运行 `hbase hbck` 命令（不带任何其他选项）。 检查输出并确保正在分配所有区域。
 
@@ -84,4 +84,4 @@ multiple regions being unassigned or holes in the chain of regions
 
 如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
 
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 在 Microsoft Azure 订阅中可以访问订阅管理和计费支持；通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

@@ -1,22 +1,21 @@
 ---
 title: 示例 - 已批准的 VM 映像
 description: 此示例策略定义要求在环境中仅部署已批准的自定义映像。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 09/13/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: c3e0d24f14b75b2bf3f66e01562d897c38285385
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/26/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: 6258adad879df69e7e0a697d2fd57b9f499dbd17
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903242"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526684"
 ---
-# <a name="sample---approved-vm-images"></a>示例 - 已批准的 VM 映像
+# <a name="sample---approved-virtual-machine-images"></a>示例 - 已批准的虚拟机映像
 
 此策略要求在环境中仅部署已批准的自定义映像。 指定已批准的映像 ID 的数组。
 
@@ -143,7 +142,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-portal"></a>Azure 门户
 
-[![“部署到 Azure”](../media/deploy/deploybutton.png)](https://portal.azure.cn/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -169,7 +168,7 @@ $assignment = New-AzPolicyAssignment -Name 'allowed-custom-images-assignment' -D
 
 运行以下命令来删除以前的分配和定义：
 
-```azurepowershell
+```powershell
 # Remove the Policy Assignment
 Remove-AzPolicyAssignment -Id $assignment.ResourceId
 

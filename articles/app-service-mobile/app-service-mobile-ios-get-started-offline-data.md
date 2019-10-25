@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 8fb5c2c521323fcee3f6b1c7cd001236f62b54a8
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: bdcca25ed1176d00e8cbe63068e90af3e6795d0c
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006590"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583582"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>启用 iOS 移动应用的脱机同步功能
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -244,11 +244,11 @@ MS_TableOperationErrors
 
    **Objective-C**。 在 QSTodoService.m 中：
    ```objc
-   self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
+   self.client = [MSClient clientWithApplicationURLString:@"https://sitename.chinacloudsites.net.fail"];
    ```
    **Swift**。 在 ToDoTableViewController.swift 中：
    ```swift
-   let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
+   let client = MSClient(applicationURLString: "https://sitename.chinacloudsites.net.fail")
    ```
 2. 添加一些待办事项。 退出模拟器（或强行关闭应用），然后重启。 验证更改是否已保存。
 

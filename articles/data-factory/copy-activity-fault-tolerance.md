@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 10/26/2018
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 2f54c98dc400516fed6b7a30ad66bf303d8c16b3
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 8718308ff4cd413684100a07e2a17842fa2f6785
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570362"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275414"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure 数据工厂中复制活动的容错
 
@@ -45,7 +45,7 @@ ms.locfileid: "67570362"
 >[!NOTE]
 >- 若要使用 PolyBase 将数据加载到 SQL 数据仓库中，请配置 PolyBase 的本机容错设置，方法是在复制活动中通过“[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)”指定拒绝策略。 同时，仍然可以正常启用将 PolyBase 不兼容行重定向到 Blob 或 ADLS，如下所示。
 >- 将复制活动配置为调用 [AmazonRedShift 卸载](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)时，此功能不适用。
-
+>- 当复制活动配置为调用 [SQL 接收器中的存储过程](/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)时，此功能不适用。
 
 ## <a name="configuration"></a>配置
 下面的 JSON 定义示例用于配置在复制活动中跳过不兼容行：

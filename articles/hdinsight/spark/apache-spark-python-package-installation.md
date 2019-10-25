@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 04/22/2019
-ms.date: 05/27/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7124febdaf41bc19ace66a28362e62461e46a794
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: bea0b0a53c16c4df91fbc14140beadf730909211
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829321"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583972"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 群集中使用建本操作安装适用于 Jupyter 笔记本的外部 Python 包
 > [!div class="op_single_selector"]
@@ -65,19 +65,19 @@ HDInsight 服务中有两种类型的开放源代码组件：
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到群集。  
 
-2. 在选中群集的情况下，在左窗格的“设置”下选择“脚本操作”。
+2. 在选中群集的情况下，在左窗格的“设置”下选择“脚本操作”   。
 
-3. 选择“+ 提交新项”。
+3. 选择“+ 提交新项”。 
 
-4. 对于“提交脚本操作”窗口，请输入以下值：  
+4. 对于“提交脚本操作”窗口，请输入以下值：   
 
 
     |参数 | Value |
     |---|---|
-    |脚本类型 | 从下拉列表中选择“- 自定义”。|
+    |脚本类型 | 从下拉列表中选择“- 自定义”。 |
     |Name |在文本框中输入 `tensorflow`。|
     |Bash 脚本 URI |在文本框中输入 `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh`。 |
-    |节点类型 | 选中“头”和“工作”复选框。 |
+    |节点类型 | 选中“头”和“工作”复选框。   |
 
     `tensorflowinstall.sh` 包含以下命令：
 
@@ -86,9 +86,9 @@ HDInsight 服务中有两种类型的开放源代码组件：
     /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. 选择“创建” 。  访问有关[如何使用自定义脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文档。
+5. 选择“创建”  。  访问有关[如何使用自定义脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文档。
 
-6. 等待脚本完成。  当脚本正在执行时，“脚本操作”窗格会显示“在当前的群集操作完成后，可以提交新的脚本操作”。  可以从 Ambari UI 的“后台操作”窗口查看进度栏。
+6. 等待脚本完成。  当脚本正在执行时，“脚本操作”窗格会显示“在当前的群集操作完成后，可以提交新的脚本操作”。    可以从 Ambari UI 的“后台操作”窗口查看进度栏。 
 
 7. 打开 PySpark Jupyter 笔记本。  有关步骤，请参阅[在 Spark HDInsight 上创建 Jupyter 笔记本](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight)。
 
@@ -105,7 +105,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 
     结果如下所示：
     
-    ![TensorFlow 代码执行](./media/apache-spark-python-package-installation/execution.png "执行 TensorFlow 代码")
+    ![TensorFlow 代码执行](./media/apache-spark-python-package-installation/tensorflow-execution.png "执行 TensorFlow 代码")
 
 > [!NOTE]  
 > 群集中有两个 python 安装。 Spark 将使用位于 `/usr/bin/anaconda/bin` 的 Anaconda python 安装并将默认为 Python 2.7 环境。 若要使用 Python 3.x 并将包安装到 PySpark3 内核中，请使用指向适用于该环境的 `conda` 可执行文件的路径，并使用 `-n` 参数来指定环境。 例如，`/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35` 命令使用 `conda-forge` 通道将 `ggplot` 包安装到 Python 3.5 环境。

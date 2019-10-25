@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2019
-ms.date: 05/20/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 732c286ab487517e2fae33f36ddd2657cb2c65e2
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.openlocfilehash: 2d5ece66f6c10f51fe5980cbc0be44a48b0684e5
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731979"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578535"
 ---
 # <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器
 
@@ -294,40 +294,37 @@ for ($i=1; $i -le 2; $i++)
 
 1. 获取负载均衡器的公用 IP 地址。 使用 `Get-AzPublicIPAddress`，获取负载均衡器的公用 IP 地址。
 
-   ```powershell
-    Get-AzPublicIPAddress `
-    -ResourceGroupName "myResourceGroupLB" `
-    -Name "myPublicIP" | select IpAddress
-   ```
-2. 使用在上一步骤中获取的公用 IP 地址创建到 VM1 的远程桌面连接。 
+    ```azurepowershell
+    Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
+    ```
 
-   ```powershell
+2. **在本地计算机上，为此步骤打开命令提示符或 PowerShell 窗口**。  使用在上一步骤中获取的公用 IP 地址创建到 VM1 的远程桌面连接。 
 
-      mstsc /v:PublicIpAddress:4221  
-  
-   ```
+    ```azurepowershell
+    mstsc /v:PublicIpAddress:4221  
+    ```
+
 3. 输入 *VM1* 的凭据来启动 RDP 会话。
 4. 在 VM1 上启动 Windows PowerShell 并使用以下命令安装 IIS 服务器并更新默认的 htm 文件。
-    ```powershell
-    # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
-    #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+
+    ```azurepowershell
+        # Install IIS
+          Install-WindowsFeature -name Web-Server -IncludeManagementTools
+        
+        # Remove default htm file
+          remove-item  C:\inetpub\wwwroot\iisstart.htm
+        
+        # Add custom htm file
+          Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
 5. 关闭与 *myVM1* 之间的 RDP 连接。
-6. 通过运行 `mstsc /v:PublicIpAddress:4222` 命令创建与 *myVM2* 的 RDP 连接，并为 *VM2* 重复步骤 4。
+6. 通过运行 `mstsc /v:PublicIpAddress:4222` 命令，使用 myVM2  **在本地计算机上创建 RDP 连接**，并对 VM2  重复步骤 4。
 
 ## <a name="test-load-balancer"></a>测试负载均衡器
 使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”  的 IP 地址：
 
-```powershell
-Get-AzPublicIPAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myPublicIP" | select IpAddress
+```azurepowershell
+Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
 ```
 
 然后，可将公共 IP 地址输入 Web 浏览器中。 网站随即显示，其中包括负载均衡器将流量分发到的 VM 的主机名，如下例所示：
@@ -340,7 +337,7 @@ Get-AzPublicIPAddress `
 
 如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令将其删除。
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroupLB
 ```
 

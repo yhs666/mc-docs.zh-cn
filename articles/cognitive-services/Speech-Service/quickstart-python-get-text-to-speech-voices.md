@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 23dcc22beb178eef7e7f60c0c699f1340a7a92de
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: d8df6f314f976d0574252cf16877d71278d09cf4
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267117"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583715"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>快速入门：使用 Python 获取“文本转语音”语音的列表
 
@@ -68,7 +68,7 @@ class GetVoices(object):
 
 ```python
 def get_token(self):
-    fetch_token_url = "https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken"
+    fetch_token_url = "https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken"
     headers = {
         'Ocp-Apim-Subscription-Key': self.subscription_key
     }

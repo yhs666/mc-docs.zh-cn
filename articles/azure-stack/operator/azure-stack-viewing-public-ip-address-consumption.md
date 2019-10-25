@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/16/2019
-ms.date: 09/16/2019
+origin.date: 09/17/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8e11568af01d0e9084353b56c8632bedc86823df
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 1d6bece697ae08e713cee86e0ba58be158779d2f
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70856967"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578336"
 ---
 # <a name="manage-network-resources"></a>管理网络资源
 
@@ -62,7 +62,7 @@ Azure Stack 使用静态 MAC 地址池自动生成 MAC 地址并将其分配给�
 1. 在 Azure Stack 管理员门户中，选择“所有服务”。  然后，在“管理”  类别下，选择“网络”  。
 1. “网络”窗格会在“概览”部分显示“公共 IP 池用量”磁贴。   
 
-![“网络资源提供程序”窗格](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+    ![“网络资源提供程序”窗格](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 “已用”数字代表公共 IP 地址池中已分配的公共 IP 地址数目。  “可用”数字代表公共 IP 地址池中尚未分配的仍可使用的公共 IP 地址数目。  “已用百分比”数字代表已使用或已分配地址占该位置公共 IP 地址池中公共 IP 地址总数的百分比。 
 
@@ -70,7 +70,7 @@ Azure Stack 使用静态 MAC 地址池自动生成 MAC 地址并将其分配给�
 
 在“租户资源”下选择“公共 IP 地址”。   查看特定区域中通过租户订阅显式创建的公共 IP 地址列表。
 
-![租户公共 IP 地址](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![租户公共 IP 地址](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 可能会看到，某些动态分配的公共 IP 地址显示在列表中， 但这些地址没有关联的地址。 此地址资源已在网络资源提供程序中创建，但尚未在网络控制器中创建。
 

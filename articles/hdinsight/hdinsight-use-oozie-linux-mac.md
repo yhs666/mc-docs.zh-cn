@@ -6,14 +6,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 07/22/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1422c76bafd4080566f03d0bb9a051dece896d92
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: c66492ae7fba89feff121c31217204b4434b32c7
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878765"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292571"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -514,29 +514,29 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 3. 在页面左侧，选择“Oozie” > “快速链接” > “Oozie Web UI”。   
 
-    ![菜单图像](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![菜单图像](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. Oozie Web UI 默认显示正在运行的工作流作业。 若要查看所有工作流作业，请选择“所有作业”  。
 
-    ![显示了所有作业](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
+    ![显示了所有作业](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. 若要查看有关某个作业的详细信息，请选择该作业。
 
-    ![作业信息](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![作业信息](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. 可以在“作业信息”选项卡中查看基本作业信息，以及作业中的各个操作。  可以使用顶部的选项卡查看“作业定义”和“作业配置”，访问“作业日志”，或者在“作业 DAG”下查看作业的有向无环图 (DAG)。    
 
    * **作业日志**：选择“获取日志”  按钮获取作业的所有日志，或使用“输入搜索条件”  字段来筛选日志。
 
-       ![作业日志](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![作业日志](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **作业 DAG**：DAG 是整个工作流中使用的数据路径的图形概览。
 
-       ![作业 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![作业 DAG](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. 如果在“作业信息”  选项卡中选择一个操作，会显示有关该操作的信息。 例如，选择 **RunSqoopExport** 操作。
 
-    ![操作信息](./media/hdinsight-use-oozie-linux-mac/action.png)
+    ![操作信息](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. 可以看到操作的详细信息，例如**控制台 URL** 的链接。 使用此链接可查看作业的作业跟踪器信息。
 
@@ -636,18 +636,18 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 7. 如果转到 Oozie Web UI 并选择“协调器作业”选项卡，会看到下图所示的信息  ：
 
-    ![协调器作业选项卡](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![“协调器作业”选项卡](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     “下一次具体化”条目包含下次运行作业的时间。 
 
 8. 与前面的工作流作业一样，在 Web UI 中选择作业条目会显示有关该作业的信息：
 
-    ![协调器作业信息](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![协调器作业信息](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 此图像只显示了作业的成功运行结果，而未显示计划工作流中的单个操作。 若要查看单个操作，请选择某个“操作”条目。 
 
-    ![操作信息](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![协调器操作信息](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>故障排除
 

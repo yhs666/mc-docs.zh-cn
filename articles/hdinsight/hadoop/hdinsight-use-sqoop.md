@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 05/20/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3988674d997d7d0a86a6829c5dc7b58c8e0fe906
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: f50a16027041c690458b315edbc12a6fb20aa666
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520782"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583861"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 中将 Apache Sqoop 与 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -49,14 +49,14 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
   
   | 字段 | 数据类型 |
   | --- | --- |
-  | clientid |字符串 |
-  | querytime |字符串 |
-  | market |字符串 |
-  | deviceplatform |字符串 |
-  | devicemake |字符串 |
-  | devicemodel |字符串 |
-  | state |字符串 |
-  | country |字符串 |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |Double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -76,7 +76,7 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
 
 1. 选择以下映像在 Azure 门户中打开资源管理器模板。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 输入以下属性：
 
@@ -84,7 +84,7 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
     |---|---|
     |订阅 |从下拉列表中选择你的 Azure 订阅。|
     |资源组 |从下拉列表中选择你的资源组，或新建一个资源组|
-    |位置 |从下拉列表中选择区域。|
+    |Location |从下拉列表中选择区域。|
     |群集名称 |输入 Hadoop 群集的名称。 请仅使用小写字母。|
     |群集登录用户名 |保留预先填充的值 `admin`。|
     |群集登录密码 |输入密码。|
@@ -95,13 +95,13 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
     |_artifacts 位置 | 使用默认值（除非想要在其他位置使用自己的 bacpac 文件）。|
     |_artifacts 位置 SAS 令牌 |留空。|
     |Bacpac 文件名 |使用默认值（除非想要使用自己的 bacpac 文件）。|
-    |位置 |使用默认值。|
+    |Location |使用默认值。|
 
     Azure SQL 服务器名称将是 `<ClusterName>dbserver`。 数据库名称将是 `<ClusterName>db`。 默认的存储帐户名将是 `e6qhezrh2pdqu`。
 
-3. 选择“我同意上述条款和条件”。
+3. 选择“我同意上述条款和条件”  。
 
-4. 选择“购买”。 此时会出现一个标题为“为模板部署提交部署”的新磁贴。 创建群集和 SQL 数据库大约需要 20 分钟时间。
+4. 选择“购买”。  此时会出现一个标题为“为模板部署提交部署”的新磁贴。 创建群集和 SQL 数据库大约需要 20 分钟时间。
 
 ## <a name="run-sqoop-jobs"></a>运行 Sqoop 作业
 HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定哪种方法最适合用户，并访问此链接进行演练。

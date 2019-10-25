@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 08/15/2019
+ms.date: 10/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ed2a5852e6cd27cc61658205e995281a5c2b22
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 3dafd9b0d2827986477b375c890e1c4688e48d68
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448471"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292023"
 ---
 # <a name="password-management-frequently-asked-questions"></a>密码管理常见问题
 
@@ -180,7 +180,7 @@ ms.locfileid: "69448471"
   >
 * **问：电子邮件和短信的一次性密码的有效期有多长？**
 
-  > **答:** 进行密码重置的会话生存期为 15 分钟。 从密码重置操作开始算，用户有 15 分钟的时间来重置其密码。 此时间段到期后，电子邮件和短信一次性密码无效。
+  > **答:** 进行密码重置的会话生存期为 15 分钟。 从密码重置操作开始算，用户有 15 分钟的时间来重置其密码。 电子邮件和 SMS 一次性密码在密码重置会话期间有效 5 分钟。
   >
   >
 * **问：可否阻止用户重置其密码？**
@@ -292,3 +292,4 @@ ms.locfileid: "69448471"
 * [SSPR 中的所有选项有哪些？它们有哪些含义？](concept-sspr-howitworks.md)
 * [我认为有些功能被破坏。如何对 SSPR 进行故障排除？](active-directory-passwords-troubleshoot.md)
 
+<!-- Update_Description: wording update -->

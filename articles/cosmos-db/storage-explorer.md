@@ -8,12 +8,12 @@ origin.date: 12/07/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 45bb2e29c8a18319c74b95d445b0889320211de3
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: aea2e190370733075c524d315a8869e1bd6e7e37
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578593"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519395"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器处理数据
 
@@ -159,6 +159,7 @@ ms.locfileid: "69578593"
 
 <!-- Not Available on ### Graph management-->
 <!-- Not Available on ### Table management -->
+
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>管理存储过程、触发器和 UDF
 * 若要创建存储过程，请在左侧树中，右键单击“存储过程”  ，选择“创建存储过程”  ，在左侧输入名称，在右侧窗口中输入存储过程脚本，然后单击“创建”  。 
 * 还可以双击，进行更新，然后单击“更新”  保存，从而编辑现有存储过程，或单击“放弃”  以取消更改。
@@ -213,7 +214,7 @@ ms.locfileid: "69578593"
     - .extaccounts
 - 登录查询任何错误消息时，请查看开发人员工具控制台（F12）
 
-![console](./media/storage-explorer/console.png)
+    ![console](./media/storage-explorer/console.png)
 
 #### <a name="unable-to-see-the-authentication-page"></a>无法查看身份验证页 
 

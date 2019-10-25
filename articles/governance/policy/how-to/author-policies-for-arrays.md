@@ -1,20 +1,19 @@
 ---
 title: 针对 Azure 资源中的数组属性创作策略
 description: 了解如何使用 Azure Policy 定义规则来创建数组参数、创建数组语言表达式的规则、评估 [*] 别名，以及将元素追加到现有数组。
-services: azure-policy
 author: DCtheGeek
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 03/06/2019
-ms.date: 04/15/2019
+ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6a46a75093deb78d686f1f09adcd1e298679b4a9
-ms.sourcegitcommit: dbabe5365653ce222005b2b666dddbfed2270063
+ms.openlocfilehash: 1ffccb0ff11ed5c93c71d70dec6d9258d0a650a2
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58760028"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526666"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>针对 Azure 资源中的数组属性创作策略
 
@@ -32,7 +31,7 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
 ### <a name="define-a-parameter-array"></a>定义参数数组
 
 如果需要多个值，将参数定义为数组可以提高策略的灵活性。
-此策略定义允许对参数 **allowedLocations** 使用任意单个位置，默认值为 chinanorth：
+此策略定义允许对参数 **allowedLocations** 使用任意单个位置，默认值为 _chinaeast2_：
 
 ```json
 "parameters": {
@@ -43,14 +42,14 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "chinanorth"
+        "defaultValue": "chinaeast2"
     }
 }
 ```
 
-由于**类型**是_字符串_，因此在分配该策略时，只能设置一个值。 如果分配此策略，只允许单个 Azure 区域中的处于范围内的资源。 大多数策略定义需要允许批准的选项列表，例如允许 chinanorth、chinanorth2 和 chinaeast。
+由于**类型**是_字符串_，因此在分配该策略时，只能设置一个值。 如果分配此策略，只允许单个 Azure 区域中的处于范围内的资源。 大多数策略定义需要允许批准的选项列表，例如允许 _chinanorth_、_chinanorth2_ 和 _chinaeast2_。
 
-若要创建允许多个选项的策略定义，请使用“数组”**类型**。 可按如下所示重新编写同一策略：
+若要创建允许多个选项的策略定义，请使用“数组”**类型**。  可按如下所示重新编写同一策略：
 
 ```json
 "parameters": {
@@ -61,7 +60,7 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "chinanorth",
+        "defaultValue": "chinaeast2",
         "allowedValues": [
             "chinanorth",
             "chinanorth2",
@@ -79,7 +78,7 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>在分配期间将值传递给参数数组
 
-通过 Azure 门户分配策略时，“数组”**类型**的参数将显示为单个文本框。 提示中会指出“请使用 ; 来分隔值。 (例如 London;New York)”。 若要将 chinanorth、chinanorth2 和 chinaeast2 的允许位置值传递给该参数，请使用以下字符串：
+通过 Azure 门户分配策略时，“数组”**类型**的参数将显示为单个文本框。  提示中会指出“请使用 ; 来分隔值。 (例如 London;New York)”。 若要将 _chinanorth_、_chinanorth2_ 和 _chinaeast2_ 的允许位置值传递给该参数，请使用以下字符串：
 
 `chinanorth;chinanorth2;chinaeast2`
 
@@ -100,15 +99,15 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
 若要在每个 SDK 中使用此字符串，请使用以下命令：
 
 - Azure CLI：命令 [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)，结合参数 **params**
-- Azure PowerShell：cmdlet [New-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicyassignment)，结合参数 **PolicyParameter**
-- REST API：在请求正文中使用 _PUT_ [create](https://docs.microsoft.com/zh-cn/rest/api/resources/policyassignments/create) 操作作为 **properties.parameters** 属性的值
+- Azure PowerShell：cmdlet [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicyassignment)，结合参数 **PolicyParameter**
+- REST API：在请求正文中使用 _PUT_ [create](https://docs.microsoft.com/rest/api/resources/policyassignments/create) 操作作为 **properties.parameters** 属性的值
 
 ## <a name="policy-rules-and-arrays"></a>策略规则和数组
 
 ### <a name="array-conditions"></a>数组条件
 
 可以结合“数组”
-**类型**的参数使用的策略规则[条件](../concepts/definition-structure.md#conditions)限制为 `in` 和 `notIn`。 以包含条件 `equals` 的以下策略定义为例：
+**类型**的参数使用的策略规则[条件](../concepts/definition-structure.md#conditions)限制为 `in` 和 `notIn`。  以包含条件 `equals` 的以下策略定义为例：
 
 ```json
 {
@@ -140,11 +139,11 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
 
 - “由于出现验证错误，无法参数化策略 '{GUID}'。 请检查是否正确定义了策略参数。 出现内部异常‘语言表达式 '[parameters('allowedLocations')]' 评估结果的类型为‘数组’，而预期类型为‘字符串’。’”
 
-条件 `equals` 的预期**类型**为“字符串”。 由于 **allowedLocations** 定义为“数组”**类型**，因此策略引擎会评估该语言表达式并引发错误。 使用 `in` 和 `notIn` 条件时，策略引擎预期语言表达式中的**类型**为“数组”。 若要解决此错误消息，请将 `equals` 更改为 `in` 或 `notIn`。
+条件 `equals` 的预期**类型**为“字符串”。  由于 **allowedLocations** 定义为“数组”**类型**，因此策略引擎会评估该语言表达式并引发错误。  使用 `in` 和 `notIn` 条件时，策略引擎预期语言表达式中的**类型**为“数组”。  若要解决此错误消息，请将 `equals` 更改为 `in` 或 `notIn`。
 
 ### <a name="evaluating-the--alias"></a>评估 [*] 别名
 
-名称中附加有 **[\*]** 的别名表示**类型**为“数组”。 指定 **[\*]** 可以评估数组的每个元素，而不会评估整个数组的值。 这种按项评估的功能在三种场合下非常有用：None、Any 和 All。
+名称中附加有 **[\*]** 的别名表示**类型**为“数组”。  指定 **[\*]** 可以评估数组的每个元素，而不会评估整个数组的值。 这种按项评估的功能在三种场合下非常有用：None、Any 和 All。
 
 仅当 **if** 规则评估为 true 时，策略引擎才会在 **then** 中触发**效果**。
 若要根据上下文了解 **[\*]** 如何评估数组的每个元素，必须知道这一事实。
@@ -209,8 +208,9 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在 [Azure Policy 示例](../samples/index.md)中查看示例
-- 查看[策略定义结构](../concepts/definition-structure.md)
-- 查看[了解策略效果](../concepts/effects.md)
-- 了解如何[以编程方式创建策略](programmatically-create.md)
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组
+- 在 [Azure Policy 示例](../samples/index.md)中查看示例。
+- 查看 [Azure Policy 定义结构](../concepts/definition-structure.md)。
+- 查看[了解策略效果](../concepts/effects.md)。
+- 了解如何[以编程方式创建策略](programmatically-create.md)。
+- 了解如何[修正不符合的资源](remediate-resources.md)。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。

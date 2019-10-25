@@ -1,20 +1,19 @@
 ---
 title: 示例 - 需要对 Data Lake Store 进行加密
 description: 此示例策略定义要求启用 Data Lake Store 加密。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 04/27/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 29802cbc68b4cf503ad5dadc56c446f59f239854
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 01/23/2019
+ms.date: 10/12/2019
+ms.author: v-tawe
+ms.openlocfilehash: 1fce2fdd5653c08d4c3aca5d3e90fc63488b0773
+ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903300"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72526654"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>示例 - 需要 Data Lake Store 加密
 
@@ -48,7 +47,7 @@ ms.locfileid: "56903300"
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
 
-分配策略时，请从可用的内置定义中选择“强制对 DataLakeStore 帐户启用加密”。
+分配策略时，请从可用的内置定义中选择“强制对 DataLakeStore 帐户启用加密”  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -72,7 +71,7 @@ Remove-AzPolicyAssignment -Name "Data Lake Store encryption" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli
 az policy assignment create --scope <scope> --name "Data Lake Store encryption" --policy a7ff3161-0087-490a-9ad9-ad6217f4f43a
 ```
 
@@ -80,7 +79,7 @@ az policy assignment create --scope <scope> --name "Data Lake Store encryption" 
 
 运行以下命令删除策略分配。
 
-```cli
+```azurecli
 az policy assignment delete --name "Data Lake Store encryption" --resource-group myResourceGroup
 ```
 

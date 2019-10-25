@@ -3,17 +3,17 @@ title: 排查常见错误
 description: 了解如何排查使用 Azure Resource Graph 查询 Azure 资源时出现的问题
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 07/24/2019
-ms.date: 09/16/2019
+origin.date: 08/21/2019
+ms.date: 10/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 7bbb94cc09ec957183a79798d2005c6be577da1d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 99597ce9436ef24bcb22d4ba6e8ae90d65b08ad5
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737425"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292459"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>排查使用 Azure Resource Graph 时出现的错误
 
@@ -61,6 +61,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>场景：不支持的 Content-Type REST 标头
+
+#### <a name="issue"></a>问题
+
+查询 Azure Resource Graph REST API 的客户获得返回的 _500_（内部服务器错误）响应。
+
+#### <a name="cause"></a>原因
+
+Azure Resource Graph REST API 仅支持 **application/json** 的 `Content-Type`。 某些 REST 工具或代理默认为 **text/plain**，REST API 不支持此选项。
+
+#### <a name="resolution"></a>解决方法
+
+验证用于查询 Azure Resource Graph 的工具或代理是否为 **application/json** 配置了 REST API 标头 `Content-Type`。
+### <a name="rest-403"></a>场景：对列表中的所有订阅没有读取权限
+
+#### <a name="issue"></a>问题
+
+使用 Azure Resource Graph 查询显式传递订阅列表的客户将获得 _403_（禁止）响应。
+
+#### <a name="cause"></a>原因
+
+如果客户对所有提供的订阅没有读取权限，则由于缺乏适当的安全权限，请求将被拒绝。
+
+#### <a name="resolution"></a>解决方法
+
+在订阅列表中包括至少一个订阅，运行查询的客户至少具有对该订阅的读取访问权限。 有关详细信息，请参阅 [Azure Resource Graph 中的权限](../overview.md#permissions-in-azure-resource-graph)。
 
 ## <a name="next-steps"></a>后续步骤
 

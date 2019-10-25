@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/21/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7f0f857cc5cf5f93ed30d10833ccfeaf5fb7eaab
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 552779555ea15a25af949ddd768737ab8196f98d
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736709"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292562"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API
 
 本指南介绍如何结合 Azure Active Directory (Azure AD) 使用 OAuth 2.0 协议配置 Azure API 管理实例，以保护 API。 
+
+> [!NOTE]
+> 此功能在 API 管理的“开发人员”  、“标准”  和“高级”  层中可用。
 
 ## <a name="prerequisites"></a>先决条件
 若要执行本文中的步骤，必须提供：
@@ -139,11 +142,11 @@ ms.locfileid: "70736709"
 
 1. 如果使用 **v2** 终结点，请在“默认范围”字段中使用为后端应用创建的范围。 
 
-1. 接下来，指定客户端凭据。 这些是客户端应用的凭据。
+1. 接下来，指定客户端凭据。 这些是 client-app 的凭据。
 
 1. 对于“客户端 ID”，请使用客户端应用的“应用程序 ID”。  
 
-1. 对于“客户端机密”，请使用前面为客户端应用创建的密钥。  
+1. 对于“客户端机密”，请使用前面为 client-app 创建的密钥。  
 
 1. 紧接在客户端机密的后面，是授权代码授权类型的 **redirect_url**。 记下此 URL。
 
@@ -165,7 +168,7 @@ ms.locfileid: "70736709"
 
 4. 在“安全性”下，选择“OAuth 2.0”并选择前面配置的 OAuth 2.0 服务器。   
 
-5. 选择“其他安全性验证”  。
+5. 选择**保存**。
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>从开发人员门户成功调用 API
 

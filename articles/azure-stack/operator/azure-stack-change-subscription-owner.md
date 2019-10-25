@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-origin.date: 06/04/2019
-ms.date: 07/29/2019
+origin.date: 09/17/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 12be3ec74eddd6b11335fa11cabb29e74aa4d0a6
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: f2f5907c9dac72be188e28ded9a51238dc8bde0f
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513477"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578470"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>更改 Azure Stack 用户订阅的所有者
 
@@ -64,6 +64,9 @@ $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
+
+>[!Note]
+>如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
 
 ## <a name="next-steps"></a>后续步骤
 

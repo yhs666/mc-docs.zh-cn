@@ -7,20 +7,19 @@ author: rockboyfor
 manager: digimobile
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/08/2019
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 8164b8f7e60b223a9c37aaa243659c82d6b75e68
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 833af1c2409e1c00710fb474335cbefafcf20a0f
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921211"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272738"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>借助 Azure 扩展对 SQL Server 2008 和 SQL Server 2008 R2 的支持
 
@@ -73,8 +72,9 @@ SQL Server 需要使用应用一致的 Azure Site Recovery 快照来保证成功
 - **Azure Site Recovery**：可以通过 Azure Site Recovery 在局部区域与区域之间复制 VM。 SQL Server 需要使用应用一致的快照来保证在发生灾难时成功恢复。 对于 EOS SQL Server 灾难恢复，Azure Site Recovery 提供最小 1 小时的 RPO，以及 2 小时（加上 SQL Server 恢复时间）的 RTO。
 
 ## <a name="security-patching"></a>安全修补
-将 SQL Server VM 注册到 SQL 资源提供程序后，将通过 Microsoft 更新通道传送 SQL Server VM 的扩展安全更新。 可以手动或自动下载修补程序。
+SQL Server VM 的扩展安全更新通过 Microsoft 更新通道提供。 可以手动或自动下载修补程序。
 
+<!--Not Available on after the SQL Server VM has been registered with the SQL resource provider-->
 <!--Not Available on [resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)-->
 
 *自动修补* ：默认处于启用状态。 Azure 可以通过自动修补来自动修补 SQL Server 和操作系统。 如果已安装 SQL Server IaaS 扩展，可为维护时段指定星期日期、时间和持续时间。 Azure 会在维护时段进行修补。 维护时段计划使用 VM 的时间区域设置。  有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的自动修补](virtual-machines-windows-sql-automated-patching.md)。

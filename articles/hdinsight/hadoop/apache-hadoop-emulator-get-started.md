@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2019
-ms.date: 06/24/2019
+ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5fd455fe37f6eb4c7ec000b01374089bc2da1f68
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 53b4dbb6db1b54701e823ae0a6843032500e30d2
+ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135755"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72583929"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Apache Hadoop 沙盒，它是虚拟机上的模拟器
 
@@ -50,9 +50,10 @@ ms.locfileid: "67135755"
 1. 打开 Oracle VM VirtualBox。
 2. 在“文件”菜单上，单击“导入设备”，然后指定 Hortonworks 沙盒映像   。
 1. 选择 Hortonworks 沙盒，依次单击“启动”  、“正常启动”  。 虚拟机完成启动过程后，显示登录说明。
-   
-    ![正常启动](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888) 。
+
+    ![正常启动](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+
+1. 打开 Web 浏览器并导航到显示的 URL（通常是 `http://127.0.0.1:8888`）。
 
 ## <a name="set-sandbox-passwords"></a>设置沙盒密码
 

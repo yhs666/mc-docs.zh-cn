@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 1/25/2019
-ms.date: 07/08/2019
+ms.date: 10/14/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: 347d69a71623a1d4acc763dab69e218f223dc7ac
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 3a478af7e43ba783efaf2e050ea161b7fdd6923c
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570543"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578539"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自定义 Azure-SSIS 集成运行时的安装
 
@@ -40,6 +40,8 @@ Azure-SSIS 集成运行时的自定义安装界面提供了一个界面，用于
 -   如果需要使用自定义安装程序将 Azure-SSIS IR 加入虚拟网络，仅支持 Azure 资源管理器虚拟网络。 不支持经典虚拟网络。
 
 -   Azure-SSIS IR 目前不支持管理共享。
+
+-   Azure-SSIS IR 不支持 IBM iSeries Access ODBC 驱动程序。 在自定义安装过程中，你可能会看到安装错误。 请联系 IBM 支持获取帮助。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -83,7 +85,7 @@ Azure-SSIS 集成运行时的自定义安装界面提供了一个界面，用于
 
       ![创建 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. 选择新容器并上传自定义安装脚本及其关联的文件。 请务必将 `main.cmd` 上传到容器的顶级目录，而不要上传到任何文件夹中。 另请确保你的容器仅包含所需的自定义安装文件，以便稍后将它们下载到 Azure-SSIS IR 时不会花费较长的时间。 自定义安装的最大期限目前设置为 45 分钟（以后将超时），这包括从容器下载所有文件并将其安装在 Azure-SSIS IR 上的时间。 如果需要更长的时间，请联系 Azure 支持。
+   1. 选择新容器并上传自定义安装脚本及其关联的文件。 请务必将 `main.cmd` 上传到容器的顶级目录，而不要上传到任何文件夹中。 另请确保你的容器仅包含所需的自定义安装文件，以便稍后将它们下载到 Azure-SSIS IR 时不会花费较长的时间。 自定义安装的最大期限目前设置为 45 分钟（以后将超时），这包括从容器下载所有文件并将其安装在 Azure-SSIS IR 上的时间。 如果需要延长期限，请提交支持票证。
 
       ![将文件上传到 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -129,7 +131,7 @@ Azure-SSIS 集成运行时的自定义安装界面提供了一个界面，用于
 
    b.  选择“使用 SAS URI”并输入公共预览版容器的以下 SAS URI。  依次选择“下一步”、“连接”。  
 
-      `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c`
+      `https://ssisazurefileshare.blob.core.chinacloudapi.cn/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c`
 
       ![提供容器的共享访问签名](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image10.png)
 

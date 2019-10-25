@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - WordPress | Azure
+title: 使用 PowerShell 创建 WordPress VM | Azure
 description: Azure PowerShell 脚本示例 - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e389d120d6bf4b05e03ee346259aad0cc640ab28
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: b565716cafe07c9745cd7d00e5b2d3c14d181129
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539200"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272859"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>使用 PowerShell 创建 WordPress VM
 
@@ -101,6 +100,7 @@ Set-AzVMExtension -ExtensionName "WordPress" -ResourceGroupName $resourceGroup -
   -Publisher "Microsoft.Azure.Extensions" -ExtensionType "CustomScript" -TypeHandlerVersion 2.0 `
   -SettingString $PublicSettings `
   -Location $location
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

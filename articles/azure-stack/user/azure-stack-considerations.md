@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 07/17/2019
-ms.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 4e875070f7d5da2b1f2c077eab98be85ac483176
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: af0160e9a16fd650dc32c1654607e9ea01ef4b38
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70856963"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578315"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack 与 Azure 之间的差异
 
@@ -78,7 +78,7 @@ Azure Stack 支持特定版本的 Azure PowerShell 和 Azure 服务 API。 使�
 若要确保使用正确版本的 Azure PowerShell，请使用 [API 版本配置文件](azure-stack-version-profiles.md)。 若要确定可以使用的最新 API 版本配置文件，请找出使用的 Azure Stack 内部版本。 可以从 Azure Stack 管理员获取此信息。
 
 > [!NOTE]
-> 如果使用 Azure Stack 开发工具包，并且拥有管理访问权限，请参阅[确定当前版本](../operator/azure-stack-updates.md#determine-the-current-version)部分来确定 Azure Stack 内部版本。
+> 如果使用 Azure Stack 开发工具包，并且拥有管理访问权限，请参阅[确定当前版本](../operator/azure-stack-updates.md)部分来确定 Azure Stack 内部版本。
 
 对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack 订阅中支持的命名空间、资源类型和 API 版本（在属性级别上可能仍然存在差异）。 若要正常运行此命令，必须事先[安装](../operator/azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack 环境的 PowerShell。 此外，必须有 Azure Stack 套餐的订阅。
 

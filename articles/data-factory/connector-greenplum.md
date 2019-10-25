@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 07/08/2019
+origin.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: v-jay
-ms.openlocfilehash: ad71f60081e6176d06492593e8e850a4c1caedd0
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d1b65b27f53e25e9bae3c02c6ccfedb589d20806
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570571"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275494"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>使用 Azure 数据工厂从 Greenplum 复制数据
 
@@ -26,9 +26,18 @@ ms.locfileid: "67570571"
 
 ## <a name="supported-capabilities"></a>支持的功能
 
+以下活动支持此 Greenplum 连接器：
+
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
+
 可以将数据从 Greenplum 复制到任何受支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
 Azure 数据工厂提供内置的驱动程序用于启用连接，因此无需使用此连接器手动安装任何驱动程序。
+
+## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>入门
 
@@ -44,7 +53,7 @@ Greenplum 链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | type 属性必须设置为：**Greenplum** | 是 |
 | connectionString | 用于连接到 Greenplum 的 ODBC 连接字符串。 <br/>将此字段标记为 SecureString，以便安全地将其存储在数据工厂中。 还可以将密码放在 Azure 密钥保管库中，并从连接字符串中拉取 `pwd` 配置。 有关更多详细信息，请参阅以下示例和[将凭据存储在 Azure 密钥保管库中](store-credentials-in-key-vault.md)一文。 | 是 |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果可以公开访问数据存储，则可以使用自承载集成运行时或 Azure Integration Runtime 时。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 **示例：**
 
@@ -105,7 +114,9 @@ Greenplum 链接服务支持以下属性：
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为：**GreenplumTable** | 是 |
-| tableName | 表名称。 | 否（如果指定了活动源中的“query”） |
+| schema | 架构的名称。 |否（如果指定了活动源中的“query”）  |
+| 表 | 表名称。 |否（如果指定了活动源中的“query”）  |
+| tableName | 具有架构的表的名称。 支持此属性是为了向后兼容。 对于新的工作负荷，请使用 `schema` 和 `table`。 | 否（如果指定了活动源中的“query”） |
 
 **示例**
 
@@ -114,11 +125,12 @@ Greenplum 链接服务支持以下属性：
     "name": "GreenplumDataset",
     "properties": {
         "type": "GreenplumTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Greenplum linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -129,7 +141,7 @@ Greenplum 链接服务支持以下属性：
 
 ### <a name="greenplumsource-as-source"></a>以 GreenplumSource 作为源
 
-要从 Greenplum 复制数据，请将复制活动中的源类型设置为“GreenplumSource”  。 复制活动源  部分支持以下属性：
+要从 Greenplum 复制数据，请将复制活动中的源类型设置为“GreenplumSource”  。 复制活动**source**部分支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -167,6 +179,10 @@ Greenplum 链接服务支持以下属性：
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

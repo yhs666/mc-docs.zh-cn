@@ -8,12 +8,12 @@ origin.date: 05/23/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: d74fd71a8d85c7daca30027dce87616aa8a013f4
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: d0b257d3716632b0fb8354f97cafa4a83ded3874
+ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306783"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519397"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的诊断日志记录 
@@ -109,7 +109,7 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
 
         * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
 
-3. 选择“其他安全性验证”  。
+3. 选择**保存**。
 
     如果收到一个错误，指出“无法更新 \<工作区名称> 的诊断。 订阅 \<订阅 ID> 未注册为使用 microsoft.insights”，请遵照[排查 Azure 诊断问题](/log-analytics/log-analytics-azure-storage)中的说明注册帐户，然后重试此过程。
 
@@ -490,8 +490,8 @@ $blobs | Get-AzStorageBlobContent `
 
 - 若要了解如何启用日志记录，以及各种 Azure 服务支持的指标和日志类别，请参阅文章 [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和 [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)。
 - 阅读以下文章，了解事件中心：
-   - [什么是 Azure 事件中心？](../event-hubs/event-hubs-what-is-event-hubs.md)
-   - [事件中心入门](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+    - [什么是 Azure 事件中心？](../event-hubs/event-hubs-what-is-event-hubs.md)
+    - [事件中心入门](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - 参阅[从 Azure 存储下载指标和诊断日志](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)。
 
 <!--Not Available on - Read [Understand log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search-new.md)-->

@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 01/31/2019
-ms.date: 08/12/2019
+origin.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743c1ad638b7cd1cff95ddb78b5268744a801cd3
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 96f26f17bc43500158f5b4206d9ab7ec2a979243
+ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973552"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292129"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中的动态组成员资格规则
 
@@ -28,24 +28,29 @@ ms.locfileid: "68973552"
 
 当用户或设备的任何属性发生更改时，系统会评估目录中的所有动态组规则，以查看该更改是否会触发任何组添加或删除。 如果用户或设备满足组的规则，它们将添加为该组的成员。 如果用户或设备不再满足该规则，则会将其删除。 无法手动添加或删除动态组的成员。
 
-* 可以创建设备或用户的动态组，但无法创建同时包含用户和设备的规则。
-* 无法根据设备所有者的属性创建设备组。 设备成员资格规则只能引用设备属性。
+- 可以创建设备或用户的动态组，但无法创建同时包含用户和设备的规则。
+- 无法根据设备所有者的属性创建设备组。 设备成员资格规则只能引用设备属性。
 
 > [!NOTE]
 > 对于每一个作为一个或多个动态组成员的唯一用户，此功能需要 Azure AD Premium P1 许可证。 无需将许可证分配给用户使其成为动态组成员，但必须在租户中具有涵盖所有此类用户所需的最小许可证数。 例如：如果在租户的所有动态组中总共拥有 1,000 个唯一用户，则需要至少具有 1,000 个 Azure AD Premium P1 版的许可证，才能满足许可证要求。
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>构造成员资格规则的主体
+## <a name="rule-builder-in-the-azure-portal"></a>Azure 门户中的规则生成器
 
-使用用户或设备自动填充组的成员资格规则是一个二进制表达式，会生成 true 或 false 结果。 一个简单的规则包含三个部分：
+Azure AD 提供了一个规则生成器，以便更快地创建和更新重要规则。 规则生成器支持的构造最多为五个表达式。 使用规则生成器可以通过一些简单的表达式轻松形成规则，但是，它不能用于重现每个规则。 如果规则生成器不支持要创建的规则，则可以使用文本框。
 
-* 属性
-* 运算符
-* Value
+下面是一些高级规则或语法的示例，我们建议你使用文本框构造这些规则或语法：
 
-表达式中各部分的顺序对于避免语法错误至关重要。
+- 包含五个以上表达式的规则
+- 直接下属规则
+- 设置[运算符优先顺序](groups-dynamic-membership.md#operator-precedence)
+- [包含复杂表达式的规则](groups-dynamic-membership.md#rules-with-complex-expressions)；例如 `(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rules-with-a-single-expression"></a>带有单个表达式的规则
+> [!NOTE]
+> 规则生成器可能无法显示在文本框中构造的某些规则。 当规则生成器无法显示规则时，可能会显示一条消息。 规则生成器不会以任何方式更改动态组规则支持的语法、验证或处理。
+
+
+### <a name="rule-syntax-for-a-single-expression"></a>单个表达式的规则语法
 
 单个表达式是成员资格规则的最简单形式，只包括上述的三个部分。 具有单个表达式的规则与此类似：`Property Operator Value`，其中属性的语法是 object.property 的名称。
 
@@ -57,13 +62,23 @@ user.department -eq "Sales"
 
 对于单个表达式，括号是可选的。 成员资格规则正文的总长度不能超过 2048 个字符。
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>构造成员资格规则的主体
+
+使用用户或设备自动填充组的成员资格规则是一个二进制表达式，会生成 true 或 false 结果。 一个简单的规则包含三个部分：
+
+- 属性
+- 运算符
+- Value
+
+表达式中各部分的顺序对于避免语法错误至关重要。
+
 ## <a name="supported-properties"></a>支持的属性
 
 有三种类型的属性可用于构建成员资格规则。
 
-* 布尔
-* String
-* 字符串集合
+- 布尔
+- String
+- 字符串集合
 
 以下是可用于创建单个表达式的用户属性。
 
@@ -114,7 +129,7 @@ user.department -eq "Sales"
 
 有关用于设备规则的属性，请参阅[设备规则](#rules-for-devices)。
 
-## <a name="supported-operators"></a>支持的运算符
+## <a name="supported-expression-operators"></a>支持的表达式运算符
 
 下表列出了单个表达式支持的所有运算符及其语法。 运算符可以带或不带连字符 (-) 前缀。
 
@@ -292,10 +307,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 以下提示可帮助你正确使用该规则。
 
-* “经理 ID”是经理的对象 ID  。 可在经理的“配置文件”中找到它  。
-* 要使规则起作用，请确保租户中用户的 Manager 属性已正确设置  。 可检查用户的“配置文件”中的当前值  。
-* 此规则仅支持经理的直接下属。 换言之，无法创建包含经理的直接下属及其下属的组  。
-* 此规则不能与任何其他成员资格规则结合使用。
+- “经理 ID”是经理的对象 ID  。 可在经理的“配置文件”中找到它  。
+- 要使规则起作用，请确保租户中用户的 Manager 属性已正确设置  。 可检查用户的“配置文件”中的当前值  。
+- 此规则仅支持经理的直接下属。 换言之，无法创建包含经理的直接下属及其下属的组  。
+- 此规则不能与任何其他成员资格规则结合使用。
 
 ### <a name="create-an-all-users-rule"></a>创建“所有用户”规则
 
@@ -342,6 +357,11 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 还可以创建一个规则来为组中的成员身份选择设备对象。 无法将用户和设备都作为组成员。 不再列出 **organizationalUnit** 属性，不应使用该属性。 此字符串由 Intune 在特定情况下设置，但 Azure AD 无法识别，因此不会根据此属性向组添加任何设备。
 
+> [!NOTE]
+> systemlabels 是不能与 Intune 一起设置的只读属性。
+>
+> 对于 Windows 10，deviceOSVersion 属性的正确格式如下：(device.deviceOSVersion -eq "10.0 (17763)")。 可以通过 Get-MsolDevice PowerShell cmdlet 验证格式设置。
+
 可以使用以下设备属性。
 
  设备属性  | 值 | 示例
@@ -354,7 +374,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceManufacturer | 任意字符串值 | (device.deviceManufacturer -eq "Samsung")
  deviceModel | 任意字符串值 | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 个人、公司、未知 | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Apple 设备注册配置文件或 Windows Autopilot 配置文件名称 | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple 设备注册配置文件、设备注册 - 企业设备标识符 (Android - Kiosk) 或 Windows Autopilot 配置文件名称 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM（适用于移动设备）<br>电脑（适用于由 Intune 电脑代理管理的计算机） | (device.managementType -eq "MDM")
  deviceId | 有效的 Azure AD 设备 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
@@ -368,9 +388,10 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 以下文章提供了有关 Azure Active Directory 中的组的更多信息。
 
-* [查看现有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [创建新组并添加成员](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [管理组的设置](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [管理组中用户的动态规则](groups-create-rule.md)
+- [查看现有组](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [创建新组并添加成员](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [管理组的设置](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [管理组中用户的动态规则](groups-create-rule.md)
 
+<!-- Update_Description: wording update -->

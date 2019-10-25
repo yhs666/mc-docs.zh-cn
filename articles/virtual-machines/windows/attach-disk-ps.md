@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 09/16/2019
+ms.date: 10/14/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: e499df1afa92914f2d4b9928e193d51a6eef10e0
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 91f54178e3e75f0269cf476413c84eebe9393b25
+ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921241"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272643"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -103,6 +103,6 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>后续步骤
 
-创建[快照](snapshot-copy-managed-disk.md)。
+还可以使用模板部署托管磁盘。 有关详细信息，请参阅[使用 Azure 资源管理器模板中的托管磁盘](using-managed-disks-template-deployments.md)或[快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)以部署多个数据磁盘。
 
 <!--Update_Description: update meta properties, wording update -->

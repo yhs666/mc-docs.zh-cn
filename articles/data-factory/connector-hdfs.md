@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 04/29/2019
 ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 4e2aa710cee30b6058c17414fab2282b46773f7e
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: bda8203bb972ffc7a3ad8ed27b34c886ea571788
+ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908701"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72275493"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>使用 Azure 数据工厂从 HDFS 复制数据
 
@@ -28,7 +28,7 @@ ms.locfileid: "68908701"
 
 以下活动支持此 HDFS 连接器：
 
-- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 
 具体而言，此 HDFS 连接器支持：
@@ -39,7 +39,7 @@ ms.locfileid: "68908701"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要从不可公开访问的 HDFS 复制数据，需要设置自承载集成运行时。 要了解详细信息，请参阅[自承载集成运行时](concepts-integration-runtime.md)一文。
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > 请确保 Integration Runtime 可以访问所有[名称节点服务器]:[名称节点端口]和 Hadoop 群集的[数据节点服务器]:[数据节点端口]  。 默认[名称节点端口]为 50070，默认[数据节点端口]为 50075。
@@ -61,7 +61,7 @@ HDFS 链接的服务支持以下属性：
 | authenticationType | 允许值包括：**Anonymous** 或 **Windows**。 <br><br> 若要对 HDFS 连接器使用 **Kerberos 身份验证**，请参阅[此部分](#use-kerberos-authentication-for-hdfs-connector)相应地设置本地环境。 |是 |
 | userName |Windows 身份验证的用户名。 对于 Kerberos 身份验证，指定 `<username>@<domain>.com`。 |是（对于 Windows 身份验证） |
 | password |Windows 身份验证的密码。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 |是（对于 Windows 身份验证） |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果可以公开访问数据存储，则可以使用自承载集成运行时或 Azure Integration Runtime 时。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 **示例：使用匿名身份验证**
 
@@ -111,12 +111,12 @@ HDFS 链接的服务支持以下属性：
 
 有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](concepts-datasets-linked-services.md)一文。 
 
-- 有关 **Parquet 和带分隔符的文本格式**，请参阅 [Parquet 和带分隔符的文本格式数据集](#parquet-and-delimited-text-format-dataset)部分。
-- 有关其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
+- 对于 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集](#format-based-dataset)部分。
+- 有关其他格式（如 **ORC 格式**），请参阅[其他格式数据集](#other-format-dataset)部分。
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 和带分隔符的文本格式数据集
+### <a name="format-based-dataset"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式数据集
 
-若要以 **Parquet 或带分隔符的文本格式**通过 HDFS 复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 HTTP 支持以下属性：
+若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 HTTP 支持以下属性：
 
 | 属性   | 说明                                                  | 必选 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -155,7 +155,7 @@ HDFS 链接的服务支持以下属性：
 
 ### <a name="other-format-dataset"></a>其他格式数据集
 
-若要以 **ORC/Avro/JSON/Binary 格式**通过 HDFS 复制数据，需要支持以下属性：
+若要以 **ORC 格式**通过 HDFS 复制数据，需要支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -206,12 +206,12 @@ HDFS 链接的服务支持以下属性：
 
 ### <a name="hdfs-as-source"></a>以 HDFS 作为源
 
-- 若要从 **Parquet 和带分隔符的文本格式**复制，请参阅 [Parquet 和带分隔符的文本格式源](#parquet-and-delimited-text-format-source)部分。
-- 若要从其他格式（如 **ORC/Avro/JSON/Binary 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
+- 若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制，请参阅 [Parquet、带分隔符文本、JSON、Avro 和二进制格式源](#format-based-source)部分。
+- 若要从其他格式（如 **ORC 格式**）复制，请参阅[其他格式源](#other-format-source)部分。
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 和带分隔符的文本格式源
+#### <a name="format-based-source"></a> Parquet、带分隔符文本、JSON、Avro 和二进制格式源
 
-若要以 **Parquet 或带分隔符的文本格式**通过 HDFS 复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 HDFS 支持以下属性：
+若要从 **Parquet、带分隔符文本、JSON、Avro 和二进制格式**复制数据，请参阅 [Parquet 格式](format-parquet.md)、[带分隔符文本格式](format-delimited-text.md)、[Avro 格式](format-avro.md)和[二进制格式](format-binary.md)文章，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 HDFS 支持以下属性：
 
 | 属性                 | 说明                                                  | 必选                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -221,6 +221,10 @@ HDFS 链接的服务支持以下属性：
 | wildcardFileName         | 给定的 folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 如果数据集中未指定 `fileName`，则为“是” |
 | modifiedDatetimeStart    | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
+| distcpSettings | 使用 HDFS DistCp 时的属性组。 | 否 |
+| resourceManagerEndpoint | Yarn 资源管理器终结点 | 是（如果使用 DistCp） |
+| tempScriptPath | 用于存储临时 DistCp 命令脚本的文件夹路径。 脚本文件由数据工厂生成，并在复制作业完成后删除。 | 是（如果使用 DistCp） |
+| distcpOptions | 提供给 DistCp 命令的其他选项。 | 否 |
 | maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否                                            |
 
 > [!NOTE]
@@ -254,7 +258,12 @@ HDFS 链接的服务支持以下属性：
                 },
                 "storeSettings":{
                     "type": "HdfsReadSetting",
-                    "recursive": true
+                    "recursive": true,
+                    "distcpSettings": {
+                        "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
+                        "tempScriptPath": "/usr/hadoop/tempscript",
+                        "distcpOptions": "-m 100"
+                    }
                 }
             },
             "sink": {
@@ -267,11 +276,11 @@ HDFS 链接的服务支持以下属性：
 
 #### <a name="other-format-source"></a>其他格式源
 
-若要以 **ORC/Avro/JSON/Binary 格式**通过 HDFS 复制数据，需要复制活动**源**部分支持以下属性：
+若要以 **ORC 格式**通过 HDFS 复制数据，需要复制活动 **source** 节支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
-| type | 复制活动源的 type 属性必须设置为：**HdfsSource** |是 |
+| type | 复制活动 source 的 type 属性必须设置为：**HdfsSource** |是 |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制/创建空的文件夹/子文件夹。<br/>允许的值为：true（默认）、false   | 否 |
 | distcpSettings | 使用 HDFS DistCp 时的属性组。 | 否 |
 | resourceManagerEndpoint | Yarn 资源管理器终结点 | 是（如果使用 DistCp） |
@@ -469,6 +478,10 @@ HDFS 链接的服务支持以下属性：
 **在 Azure 数据工厂中：**
 
 * 使用 **Windows 身份验证**配置 HDFS 连接器，以及用于连接到 HDFS 数据源的域帐户或 Kerberos 主体。 查看配置详细信息中的 [HDFS 链接服务属性](#linked-service-properties)部分。
+
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
+
+若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
 
 ## <a name="next-steps"></a>后续步骤

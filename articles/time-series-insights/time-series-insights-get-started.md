@@ -6,17 +6,18 @@ services: time-series-insights
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+origin.date: 08/27/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 442a7fdf170006a95b8b15994bb58d162526fd13
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 527d51ffaba16de6203db19300de3ba9bbf44a1f
+ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456385"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72292418"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 门户中创建新的时序见解环境
 本文介绍如何使用 Azure 门户创建新的时序见解环境。
@@ -28,40 +29,38 @@ ms.locfileid: "67456385"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“+ 新建”按钮。 
+1. 选择“+ 创建资源”  按钮。
 
-3. 选择“物联网”类别，再选择“时序见解”。  
+1. 选择“物联网”类别，再选择“时序见解”。  
 
-   ![创建时序见解环境](media/time-series-insights-get-started/1-new-tsi.png)
+   [![创建时序见解环境](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox)）
 
-4. 在“时序见解”页上，选择“创建”。  
+1. 在“时序见解”页上，选择“创建”。  
 
-5. 填写必需的参数。 下表解释了每个参数：
+1. 填写必需的参数。 下表解释了每个参数：
+   
+   [![创建时序见解资源组](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   
+   设置|建议的值|说明
+   ---|---|---
+   环境名称 | 唯一的名称 | 此名称在[时序资源管理器](https://insights.timeseries.azure.com)中代表环境
+   订阅 | 你的订阅 | 如果有多个订阅，最好是选择包含事件源的订阅。 时序见解可以自动检测存在于同一订阅中的 Azure IoT 中心和事件中心资源。
+   资源组 | 创建新资源组或使用现有的资源组 | 资源组是结合使用的 Azure 资源的集合。 可以选择现有的资源组，例如，包含事件中心或 IoT 中心的资源组。 或者，如果此资源与其他资源不相关，则可以创建新资源组。
+   Location | 最靠近事件源的位置 | 最好是选择包含事件源数据的同一个数据中心位置，以尽量避免增加跨界和跨区域的带宽费用，以及将数据移出区域时增大延迟。
+   定价层 | S1 | 选择所需的吞吐量。 若要尽量降低费用并获得入门容量，请选择 S1。
+   容量 | 1 | 容量是应用于入口速率、存储容量和所选 SKU 相关成本的乘数。  可以在创建环境后更改其容量。 若要尽量降低费用，请选择 1 个单位的容量。 
+  
+1. 选择“创建”开始执行预配过程。  这可能需要几分钟时间才能完成。
 
-   ![创建时序见解资源组](media/time-series-insights-get-started/2-create-tsi.png)
+1. 若要监视部署过程，请选择“通知”符号（钟形图标）。 
 
+   [![监视通知](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
 
-   |     设置      |       建议的值        |                                                                                                                         说明                                                                                                                          |
-   |------------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | 环境名称 |        唯一的名称         |                                                                            此名称在[时序资源管理器](https://insights.timeseries.azure.com)中代表环境                                                                             |
-   |   订阅   |      你的订阅       |                    如果有多个订阅，最好是选择包含事件源的订阅。 时序见解可以自动检测存在于同一订阅中的 Azure IoT 中心和事件中心资源。                     |
-   |  资源组  | 创建新资源组或使用现有的资源组 | 资源组是结合使用的 Azure 资源的集合。 可以选择现有的资源组，例如，包含事件中心或 IoT 中心的资源组。 或者，如果此资源与其他资源不相关，则可以创建新资源组。 |
-   |     位置     |  最靠近事件源的位置   |                      最好是选择包含事件源数据的同一个数据中心位置，以尽量避免增加跨界和跨区域的带宽费用，以及将数据移出区域时增大延迟。                       |
-   |   定价层   |              S1              |                                                                                       选择所需的吞吐量。 若要尽量降低费用并获得入门容量，请选择 S1。                                                                                        |
-   |     容量     |              1               |                  容量是应用于入口速率、存储容量和所选 SKU 相关成本的乘数。  可以在创建环境后更改其容量。 若要尽量降低费用，请选择 1 个单位的容量。                   |
+    部署成功后，可以选择“转到资源”配置其他属性、设置数据访问策略的安全性、添加事件源，以及执行其他操作。 
 
+1. 在资源**概述**中，选择右上角的“固定”图标  ，以方便将来访问“时序见解”环境。
 
-1. 选中“固定到仪表板”，以便将来轻松访问时序见解环境。 
-
-   ![创建时序见解 固定到仪表板](media/time-series-insights-get-started/3-pin-create.png)
-
-7. 选择“创建”开始执行预配过程。  这可能需要几分钟时间才能完成。
-
-8. 若要监视部署过程，请选择“通知”符号（钟形图标）。 
-
-   ![监视通知](media/time-series-insights-get-started/4-notifications.png)
-
-部署成功后，可以选择“转到资源”配置其他属性、设置数据访问策略的安全性、添加事件源，以及执行其他操作。 
+   [![创建时序见解（固定到仪表板）](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
 ## <a name="next-steps"></a>后续步骤
 * [定义数据访问策略](time-series-insights-data-access.md)来保护环境。

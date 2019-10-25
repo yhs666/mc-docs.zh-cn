@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 03/29/2019
-ms.date: 07/22/2019
+origin.date: 09/16/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 330ea8bd7658e16da05508ba5f145f2deffa23a7
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: f76ef7e63896ae76f70d1c9ad48b3b49d928221c
+ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513440"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578454"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack 概述
 
@@ -112,7 +112,7 @@ Azure Stack 操作员可以提供各种服务和应用程序，例如[虚拟机]
 ### <a name="optional-resource-providers"></a>可选的资源提供程序
 在 Azure Stack 中可以部署和使用三个可选的 PaaS 资源提供程序： 
 
-- **应用服务**。 [Azure Stack 上的 Azure 应用服务](azure-stack-app-service-overview.md)是 Azure 的一种可用于 Azure Stack 的平台即服务 (PaaS) 产品。 该服务可让你的内部或外部客户为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用程序。 
+- **应用服务**。 [Azure Stack 上的 Azure 应用服务](azure-stack-app-service-overview.md)是 Azure 的一种可用于 Azure Stack 的平台即服务 (PaaS) 套餐。 该服务可让你的内部或外部客户为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用程序。 
 - **SQL Server**。 使用 [SQL Server 资源提供程序](azure-stack-sql-resource-provider.md)将 SQL 数据库作为 Azure Stack 的一项服务提供。 安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建云原生应用的数据库、使用 SQL 的网站，以及使用 SQL 的其他工作负荷。
 - **MySQL Server**。 可以使用 [MySQL Server 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)将 MySQL 数据库公开为 Azure Stack 服务。 MySQL 资源提供程序以服务的形式在 Windows Server 2016 Server Core 虚拟机 (VM) 上运行。
 
@@ -123,10 +123,10 @@ Azure Stack 操作员可以提供各种服务和应用程序，例如[虚拟机]
 
 - **容错域**。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 节点）中。 出现硬件故障时，发生故障的容错域中的 VM 会在其他容错域中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 
  
-- **更新域**。 更新域是另一可以在可用性集中提供高可用性的 Azure 概念。 更新域是可以同时维护的基础硬件逻辑组。 同一个更新域中的 VM 会在计划内维护期间一起重启。 当租户在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 在 Azure Stack 中，VM 会先跨群集中的其他联机主机进行实时迁移，然后其基础主机才会进行更新。 由于在主机更新期间不会造成租户停机，因此 Azure Stack 上存在更新域功能只是为了确保与 Azure 实现模板兼容。 
+- **更新域**。 更新域是另一可以在可用性集中提供高可用性的 Azure 概念。 更新域是可以同时维护的基础硬件逻辑组。 同一个更新域中的 VM 会在计划内维护期间一起重启。 当租户在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 在 Azure Stack 中，VM 会先跨群集中的其他联机主机进行实时迁移，然后其基础主机才会进行更新。 由于在主机更新期间不会造成租户停机，因此 Azure Stack 上存在更新域功能只是为了确保与 Azure 实现模板兼容。 可用性集中的 VM 将显示 **0** 作为其在门户上的更新域编号。 
 
 ## <a name="role-based-access-control"></a>基于角色的访问控制
-可以使用基于角色的访问控制 (RBAC) 向已获授权的用户、组和服务授予系统访问权限：在订阅、资源组或单个资源的级别为其分配角色即可。 每个角色定义了用户、组或服务对 Azure Stack 资源拥有的访问级别。
+可以使用基于角色的访问控制 (RBAC) 向已获授权的用户、组和服务授予系统访问权限：在订阅、资源组或单个资源级别为其分配角色即可。 每个角色定义了用户、组或服务对 Azure Stack 资源拥有的访问级别。
 
 Azure Stack RBAC 有三种适用于所有资源类型的基本角色：所有者、参与者和读者。 “所有者”拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 参与者可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。 “读取者”只能查看现有资源。 其他 RBAC 角色允许对特定的 Azure 资源进行管理。 例如，“虚拟机参与者”角色允许创建和管理虚拟机，但不允许管理虚拟机连接到的虚拟网络或子网。
 

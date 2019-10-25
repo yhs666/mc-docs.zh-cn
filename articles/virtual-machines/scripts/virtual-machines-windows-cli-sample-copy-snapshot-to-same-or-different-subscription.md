@@ -18,11 +18,11 @@ ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 7611e6090834918f01e684365bfa71789a571980
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004339"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72323736"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘的快照复制到相同或不同的订阅
 
