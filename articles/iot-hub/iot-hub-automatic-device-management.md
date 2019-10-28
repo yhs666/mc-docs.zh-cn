@@ -183,7 +183,7 @@ SELECT deviceId FROM devices
    * Priority 
    * 指标
 
-4. 选择“其他安全性验证”  。
+4. 选择“保存”  。
 
 5. 按照[监视配置](#monitor-a-configuration)中的步骤观察更改的实施。 
 

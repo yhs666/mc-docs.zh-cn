@@ -157,7 +157,7 @@ ms.locfileid: "68952149"
 
    ![源详细信息](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
-3. 选择“其他安全性验证”  。
+3. 选择“保存”  。
 
 4. 在“选择源数据库”屏幕上，选择用于迁移的“Adventureworks2012”数据库   。
 
@@ -166,7 +166,7 @@ ms.locfileid: "68952149"
     > [!IMPORTANT]
     > 如果使用 SQL Server Integration Services (SSIS)，则 DMS 目前不支持将 SSIS 项目/包的目录数据库 (SSISDB) 从 SQL Server 迁移到 Azure SQL 数据库托管实例。 但是，你可以在 Azure 数据工厂 (ADF) 中预配 SSIS 并将 SSIS 项目/包重新部署到由 Azure SQL 数据库托管实例承载的目标 SSISDB。 有关如何迁移 SSIS 包的详细信息，请参阅[将 SQL Server Integration Services 包迁移到 Azure](/dms/how-to-migrate-ssis-packages)。
 
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 
 ## <a name="specify-target-details"></a>指定目标详细信息
 

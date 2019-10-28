@@ -2,20 +2,20 @@
 title: 使用 Key Vault 存储和访问 Azure Cosmos DB 密钥
 description: 使用 Azure Key Vault 来存储和访问 Azure Cosmos DB 连接字符串、密钥、终结点。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7b359ad95d1f567b36a83b73bcb16f8d39a1cf75
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 87c4965b5f40c2cffc95c8dfe07a50e136e63878
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151530"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970301"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>使用 Azure Key Vault 保护 Azure Cosmos 密钥 
 

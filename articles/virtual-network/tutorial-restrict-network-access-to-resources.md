@@ -202,7 +202,7 @@ ms.locfileid: "71306478"
 
     ![防火墙和虚拟网络](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png) 
 
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 6. 选中“防火墙和虚拟网络”框。 
 7. 在存储帐户的“设置”下，选择“访问密钥”，如下图所示：  
 

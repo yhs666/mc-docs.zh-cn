@@ -173,7 +173,7 @@ az servicebus queue create --name $sbQueueName \
 
    ![为存储帐户创建路由查询](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
-   选择“其他安全性验证”  。 完成后，返回到“消息路由”窗格，可在其中看到存储的新路由查询。 关闭“路由”窗格，将返回到资源组页。
+   选择“保存”  。 完成后，返回到“消息路由”窗格，可在其中看到存储的新路由查询。 关闭“路由”窗格，将返回到资源组页。
 
 ### <a name="route-to-a-service-bus-queue"></a>路由到服务总线队列
 
@@ -209,7 +209,7 @@ az servicebus queue create --name $sbQueueName \
 
    ![为服务总线队列创建路由查询](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
-7. 选择“其他安全性验证”  。 返回到“路由”窗格时，可看到这两个新的路由，如此处所示。
+7. 选择“保存”  。 返回到“路由”窗格时，可看到这两个新的路由，如此处所示。
 
    ![刚刚设置的路由](./media/tutorial-routing/message-routing-show-both-routes.png)
 

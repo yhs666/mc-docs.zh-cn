@@ -258,7 +258,7 @@ ms.locfileid: "69993199"
    | **级别 2** | 输入“城市”。  |
    | **级别 3** | 输入“建筑物”。  |
 
-   选择“其他安全性验证”  。
+   选择“保存”  。
 
     [![包含“创建”按钮的“层次结构”字段](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
 
@@ -283,7 +283,7 @@ ms.locfileid: "69993199"
 
     [![带“保存”按钮的实例字段](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
 
-   选择“其他安全性验证”  。
+   选择“保存”  。
 
 1. 针对其他传感器重复上一步骤。 更新以下值：
 

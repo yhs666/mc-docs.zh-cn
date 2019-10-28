@@ -61,7 +61,7 @@ ms.locfileid: "70921188"
 6. 在“myVnetA - 访问控制(IAM)”  下，选择“+ 添加角色分配”  。
 7. 在“角色”框中选择“网络参与者”。  
 8. 在“选择”框中，选择 *UserB*，或者键入 UserB 的电子邮件地址来搜索该用户。 
-9. 选择“其他安全性验证”  。
+9. 选择“保存”  。
 10. 在“myVnetA - 访问控制 (IAM)”下，选择左侧垂直选项列表中的“属性”   。 复制“资源 ID”，在稍后的步骤中使用  。 资源 ID 类似于以下示例：`/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`。
 11. 以 UserA 的身份注销门户，然后以 UserB 的身份登录。
 12. 完成步骤 2-3，在步骤 3 中输入或选择以下值：

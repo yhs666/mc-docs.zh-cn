@@ -53,7 +53,7 @@ ms.locfileid: "70806748"
 2. 在“应用设置”  下，添加此设置：
     * 键 = WEBSITE_TIME_ZONE
     * 值 = *所需时区*
-3. 选择“其他安全性验证”  。
+3. 选择“保存”  。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>为什么连续 Web 作业有时会失败？
 

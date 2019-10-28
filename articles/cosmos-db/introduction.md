@@ -2,17 +2,17 @@
 title: Azure Cosmos DB 简介
 description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性可伸缩性和高可用性而构建的，提供对 NoSQL 数据的本机支持。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: overview
 origin.date: 09/01/2019
-ms.date: 09/30/2019
-ms.author: v-yeche
-ms.openlocfilehash: 0f552a2a3ffbd50895f539be3946420f0b6ce844
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.openlocfilehash: daafe8b9b815c2ade0f0b818a9fbb26ef6cd6e88
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306787"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970252"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB

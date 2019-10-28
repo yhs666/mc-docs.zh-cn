@@ -143,7 +143,7 @@ ms.locfileid: "69993608"
 
    ![在 Azure 门户中添加路由规则](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. 选择“其他安全性验证”  。 可以关闭“消息路由”窗格。 
+1. 选择“保存”  。 可以关闭“消息路由”窗格。 
 
 ## <a name="create-and-configure-a-logic-app"></a>创建并配置逻辑应用
 

@@ -87,7 +87,7 @@ ms.locfileid: "67570439"
 
    ![逻辑应用的电子邮件选项](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
 
-9. 选择“其他安全性验证”  。 然后关闭逻辑应用设计器。
+9. 选择“保存”  。 然后关闭逻辑应用设计器。
 
 ## <a name="set-up-azure-stream-analytics"></a>设置 Azure 流分析
 
@@ -135,7 +135,7 @@ ms.locfileid: "67570439"
 
    ![设置流分析作业的输入](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. 选择“其他安全性验证”  。
+6. 选择“保存”  。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>向流分析作业添加输出
 
@@ -155,7 +155,7 @@ ms.locfileid: "67570439"
 
    ![设置流分析作业的输出](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
-4. 选择“其他安全性验证”  。
+4. 选择“保存”  。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
 
@@ -167,7 +167,7 @@ ms.locfileid: "67570439"
 
    ![设置流分析作业的查询](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
 
-4. 选择“其他安全性验证”  。
+4. 选择“保存”  。
 
 5. 关闭“查询”窗格。 随后将返回到资源组中资源的视图。 选择流分析作业。 本教程中将其称为 **contosoJob**。
 

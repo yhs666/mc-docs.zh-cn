@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 origin.date: 09/10/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a6a9b628b2efef7c67efb3db0dee38f89c9b175e
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 58350a9049ef195a69ddabdbef25bb5b737fb1fb
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306851"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970268"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB Gremlin 兼容性
 Azure Cosmos DB Graph 引擎紧密遵循 [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 遍历步骤规范，但是存在差异。
@@ -43,5 +43,4 @@ Azure Cosmos DB Graph 引擎紧密遵循 [Apache TinkerPop](https://tinkerpop.ap
 ## <a name="next-steps"></a>后续步骤
 * 访问 [Cosmos DB 支持](https://support.azure.cn/support/contact/)页以共享反馈并帮助团队专注于对你重要的功能。
 
-<!-- Update_Description: new article about gremlin compatibility -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: wording update -->

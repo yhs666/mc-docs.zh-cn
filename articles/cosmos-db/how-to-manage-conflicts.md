@@ -4,15 +4,15 @@ description: 了解如何管理 Azure Cosmos DB 中的冲突
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 08/05/2019
-ms.date: 09/30/2019
+origin.date: 10/15/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a54b4f9e8c100050b67c63b9ffcf07aa98f2828f
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: eaf3aef2f0b5759d26e66b4e24416e30ab4dd195
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306722"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970262"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 
@@ -384,7 +384,7 @@ FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.co
 ### <a name="net-sdk-v3"></a>.NET SDK V3
 
 ```csharp
-FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
 while (conflictFeed.HasMoreResults)
 {
     FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();

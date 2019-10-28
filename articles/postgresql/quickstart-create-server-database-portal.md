@@ -181,7 +181,7 @@ pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https
     角色 | 留空 | 此时无需提供角色名称。 此字段留空。
     SSL 模式 | *必需* | 可以在 pgAdmin 的 SSL 选项卡中设置 SSL 模式。默认情况下，所有 Azure Database for PostgreSQL 服务器在创建时都会启用“SSL 强制实施”。 若要关闭“SSL 强制实施”，请参阅 [SSL 强制实施](./concepts-ssl-connection-security.md)。
     
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 
 6. 在左侧的“浏览器”窗格中，展开“服务器”节点   。 选择服务器（例如，**mydemoserver**）以连接到它。
 

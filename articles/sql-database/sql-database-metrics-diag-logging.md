@@ -99,7 +99,7 @@ ms.locfileid: "71262951"
 1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”。  
 1. 选中数据库诊断日志遥测对应的以下复选框：“SQLInsights”、“AutomaticTuning”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”、“Errors”、“DatabaseWaitStatistics”、“Timeouts”、“Blocks”和“Deadlocks”。         
    ![为单一数据库、共用数据库或实例数据库配置诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 1. 针对要监视的每个数据库重复上述步骤。
 
 > [!NOTE]
@@ -135,7 +135,7 @@ ms.locfileid: "71262951"
 1. 输入设置名称供自己参考。
 1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”或“流式传输到事件中心”。  
 1. 选中实例诊断遥测对应的复选框：**ResourceUsageStats**。
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 1. 另外，请为托管实例中需要监视的每个实例数据库配置诊断遥测流，只需按下一部分所述的步骤操作即可。
 
 > [!IMPORTANT]
@@ -159,7 +159,7 @@ ms.locfileid: "71262951"
 1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”或“流式传输到事件中心”。  
 1. 选中数据库诊断遥测对应的复选框：“SQLInsights”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”和“Errors”。    
    ![为实例数据库配置诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 > [!TIP]
 > 针对要监视的每个实例数据库重复上述步骤。

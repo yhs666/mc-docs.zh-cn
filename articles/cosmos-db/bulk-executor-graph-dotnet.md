@@ -4,17 +4,17 @@ description: 了解如何使用批量执行程序库将图数据大规模导入 
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 origin.date: 05/28/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 3f594c4b01fb1fa4fbb9901c95a0bbf378a49a55
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 85b49aa9849e046aa5f3f3179a69573682d8968b
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254632"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970290"
 ---
 <!--Verify sucessfully-->
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>使用图批量执行程序 .NET 库在 Azure Cosmos DB Gremlin API 中执行批量操作
@@ -75,7 +75,7 @@ catch (Exception e)
 }
 ```
 
-有关批量执行程序库的参数的详细信息，请参阅[“将数据批量导入 Azure Cosmos DB”主题](/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db)。
+有关批量执行程序库的参数的详细信息，请参阅[“将数据批量导入 Azure Cosmos DB”主题](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account)。
 
 有效负载需实例化为 `GremlinVertex` 和 `GremlinEdge` 对象。 下面是创建这些对象的方法：
 

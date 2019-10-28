@@ -314,7 +314,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     1. 在“选择事件中心策略名称”列表中，选择 RootManagerSharedAccessKey   。
     1. 选择“确定”  。
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 ### <a name="connect-activity-logs-to-your-event-hub"></a>将活动日志连接到事件中心
 
