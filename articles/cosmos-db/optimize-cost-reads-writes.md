@@ -2,17 +2,17 @@
 title: 优化 Azure Cosmos DB 中的读取和写入成本
 description: 本文介绍如何在对数据执行读取和写入操作时降低 Azure Cosmos DB 成本。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 06/17/2019
-ms.author: v-yeche
-ms.openlocfilehash: 59b231cfa6f7a4f5718277fdde45f7f1889e8db2
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.date: 10/28/2019
+ms.openlocfilehash: a9952df742220a1fce8af5efc1a9125ade22046e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171404"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914424"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的读取和写入成本
 
@@ -49,7 +49,7 @@ Azure Cosmos DB 通过使用预配置吞吐量模型，在吞吐量和延迟方�
 
 如果同时运行其他工作负荷（例如，查询/读取/更新/删除），则还应添加执行这些操作所需的其他请求单位。 如果写入操作速率受到限制，可使用 Azure Cosmos DB SDK 自定义重试/回退策略。 例如，可以增加负载，直到一小部分请求的速率受到限制。 如果发生速率限制，则客户端应用程序应在指定重试间隔的速率限制请求时退出。 重试写入之前，重试之间应有最小的时间间隔。 重试策略支持包含在 SQL.NET、Java、Node.js 和 Python SDK 和所有受支持的 .NET Core SDK 版本中。 
 
-<!-- Not Available on You can also bulk insert data into Azure Cosmos DB or copy data from any supported source data store to Azure Cosmos DB by using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Azure Data Factory natively integrates with the Azure Cosmos DB Bulk API to provide the best performance, when you write data.-->
+此外，还可使用 [Azure 数据工厂](../data-factory/connector-azure-cosmos-db.md)将数据批量插入 Azure Cosmos DB 或将数据从任何受支持的源数据存储复制到 Azure Cosmos DB。 Azure 数据工厂与 Azure Cosmos DB Bulk API 集成，以便在写入数据时提供最佳性能。
 
 ## <a name="next-steps"></a>后续步骤
 

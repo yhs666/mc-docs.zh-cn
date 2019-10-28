@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/08/2019
-ms.date: 08/23/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2216f50c6369a223cf556ac2dd276f42e6fa776f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: e6cd3d124f4d8844bd7fd8a0b5a7a4116de77e6a
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993234"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912690"
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 
@@ -81,8 +81,6 @@ ms.locfileid: "69993234"
 **多重身份验证。**  Azure AD 提供本机多重身份验证。 IT 管理员可以要求访问应用程序之前经过多重身份验证，因此，无需编写此项支持的代码。 深入了解[多重身份验证](/multi-factor-authentication/)。
 
 **异常登录检测。**  Azure AD 每天要处理十亿次以上的登录，同时，使用机器学习算法来检测可疑活动，并通知 IT 管理员可能存在的问题。 通过支持 Azure AD 登录，你的应用程序可以从这种保护中受益。 深入了解如何[查看 Azure Active Directory 访问报告](/active-directory/reports-monitoring/overview-reports)。
-
-**条件访问。**  除了多重身份验证以外，管理员可以要求用户在登录应用程序之前满足特定的条件。 可设置的条件包括客户端设备的 IP 地址范围、指定的组中的成员资格，以及用于访问的设备的状态。 详细了解 [Azure Active Directory 条件访问](/active-directory/conditional-access/overview)。
 
 ### <a name="easy-development"></a>易于开发
 
