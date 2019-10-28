@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-origin.date: 04/17/2018
-ms.date: 04/01/2019
+origin.date: 08/23/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 2663f1c31132b1dbc342338ce2d34a37951849fd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4ebce5293e8e4fa36dcf387240726885dc40f426
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626226"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914512"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
 此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
@@ -98,9 +98,11 @@ ms.locfileid: "58626226"
 
 ## <a name="incremental-load"></a>增量加载
 
-若要增量加载数据，请先确保分配更大的资源类来加载数据。 建议使用 PolyBase 和 ADF V2 在 SQL 数据仓库中自动执行 ELT 管道。
+若要增量加载数据，请先确保分配更大的资源类来加载数据。  当加载到具有聚集列存储索引的表中时，这一点尤其重要。  有关更多详细信息，请参阅[资源类](/sql-data-warehouse/resource-classes-for-workload-management)。  
 
-对于历史数据中的大批量更新，请先删除相关数据。 然后可以批量插入新数据。 这种双步骤方法更高效。
+建议使用 PolyBase 和 ADF V2 在 SQL 数据仓库中自动执行 ELT 管道。
+
+对于历史数据中的大量更新，请考虑使用 [CTAS](/sql-data-warehouse/sql-data-warehouse-develop-ctas) 将要保留的数据写入表中，而不是使用 INSERT、UPDATE 和 DELETE。
 
 ## <a name="maintain-statistics"></a>维护统计信息
  在自动统计信息功能推出正式版之前，SQL 数据仓库要求手动维护统计信息。 对数据做*重大*更改时务必更新统计信息。 这有助于优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。 
@@ -152,8 +154,8 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[数据迁移]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[数据迁移]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 <!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store -->
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
 
 <!-- Update_Description: update meta properties, wording update -->
