@@ -108,7 +108,7 @@ availabilityResults
 
     ![“Azure 函数应用程序设置”屏幕截图](./media/automate-custom-reports/function-app-07.png)
 
-8. 使用合适的对应值 ``AI_APP_ID``、``AI_APP_KEY`` 和 ``SendGridAPI`` 创建三个新的应用程序设置。 选择“其他安全性验证”  。
+8. 使用合适的对应值 ``AI_APP_ID``、``AI_APP_KEY`` 和 ``SendGridAPI`` 创建三个新的应用程序设置。 选择“保存”  。
 
      ![“函数集成接口”屏幕截图](./media/automate-custom-reports/function-app-08.png)
     
