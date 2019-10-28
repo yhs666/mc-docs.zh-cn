@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB Gremlin API 的列出和获取�
 description: Azure PowerShell 脚本 - Azure Cosmos DB Gremlin API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: c9db13ace8dcdb7c1ecd0cbfd40759446828c75a
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 55879c43bf41e9fc31a29ebb025fcf0f9c34db5d
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514408"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913275"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>列出和获取 Azure Cosmos DB 的数据库和图 - Gremlin API
 
@@ -24,36 +25,40 @@ ms.locfileid: "68514408"
 
 ```powershell
 # List and Get operations for Azure Cosmos Gremlin API
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
 $graphName = "graph1"
 $accountResourceName = $accountName + "/gremlin/"
 $databaseResourceName = $accountName + "/gremlin/" + $databaseName
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
 $graphResourceName = $accountName + "/gremlin/" + $databaseName + "/" + $graphName
+$graphResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs"
 
 Read-Host -Prompt "List all databases in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $accountResourceName  | Select-Object Properties
 
 Read-Host -Prompt "Get a database in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName | Select-Object Properties
 
 Read-Host -Prompt "List all graphs in a database. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $graphResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName | Select-Object Properties
 
 Read-Host -Prompt "Get a graph in a database. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $graphResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $graphResourceName | Select-Object Properties
 
 ```

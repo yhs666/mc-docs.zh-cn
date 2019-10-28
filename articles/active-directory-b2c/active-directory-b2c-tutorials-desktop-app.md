@@ -6,21 +6,21 @@ author: mmacy
 manager: celestedg
 ms.author: v-junlch
 origin.date: 02/04/2019
-ms.date: 09/02/2019
+ms.date: 10/23/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c72d557f37ee83dcfb9787524d7d0a0b8a420908
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 4c1279159246cb3b46a669f464cf6e4fbb1a24ec
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310758"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846952"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在本机客户端应用程序中启用身份验证
 
-本教程展示了如何在 Windows Presentation Foundation (WPF) 桌面应用程序中使用 Azure Active Directory (Azure AD) B2C 执行用户登录和注册。 应用程序可以使用 Azure AD B2C 通过开放式标准协议对社交帐户、企业帐户和 Azure Active Directory 帐户进行身份验证。
+本教程展示了如何在 Windows Presentation Foundation (WPF) 桌面应用程序中使用 Azure Active Directory B2C (Azure AD B2C) 执行用户登录和注册。 应用程序可以使用 Azure AD B2C 通过开放式标准协议对社交帐户、企业帐户和 Azure Active Directory 帐户进行身份验证。
 
 本教程介绍如何执行下列操作：
 
@@ -38,20 +38,9 @@ ms.locfileid: "70310758"
 
 ## <a name="add-the-native-client-application"></a>添加本机客户端应用程序
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 请确保使用包含 Azure AD B2C 租户的目录，方法是单击顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录  。
-3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
-4. 选择“应用程序”，然后选择“添加”   。
-5. 输入应用程序的名称。 例如，“nativeapp1”  。
-6. 对于“包括 Web 应用/Web API”，请选择“否”。  
-7. 对于“包括本机客户端”，请选择“是”。  
-8. 对于“重定向 URI”，请使用自定义方案输入有效的重定向 URI  。 选择重定向 URI 时，有两个重要的注意事项：
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-    - **唯一** - 每个应用程序的重定向 URI 方案应是唯一的。 在示例 `com.onmicrosoft.contoso.appname://redirect/path` 中，`com.onmicrosoft.contoso.appname` 为方案。 应遵循此模式。 如果两个应用程序共享同一方案，则用户应选择一个应用程序。 如果用户的选择不正确，登录会失败。
-    - **完整** - 重定向 URI 必须同时包含方案和路径。 路径必须在域之后包含至少一个正斜杠。 例如，`//contoso/` 有效，而 `//contoso` 会失败。 确保重定向 URI 不包含特殊字符，例如下划线。
-
-9. 单击**创建**。
-10. 在属性页上，记下你在配置示例时将使用的应用程序 ID。
+记录**应用程序 ID**，以便在以后的步骤中使用。
 
 ## <a name="configure-the-sample"></a>配置示例
 

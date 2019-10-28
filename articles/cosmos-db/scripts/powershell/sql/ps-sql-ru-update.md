@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新 SQL (Core) API 的 RU/�
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新 SQL (Core) API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9a83dae09771631d39139a647595fa199e53273c
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 0d39a4b610f803fef9a67c64760eeb4df7781aac
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514449"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914459"
 ---
 # <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>更新 Azure Cosmos DB 的数据库或容器的 RU/秒 - SQL (Core) API
 
@@ -24,32 +25,38 @@ ms.locfileid: "68514449"
 
 ```powershell
 # Update RU for an Azure Cosmos DB SQL (Core) API database or container
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
 $containerName = "container1"
-$databaseResourceName = $accountName + "/sql/" + $databaseName + "/throughput"
-$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName + "/throughput"
+$databaseThroughputResourceName = $accountName + "/sql/" + $databaseName + "/throughput"
+$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
+$containerThroughputResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName + "/throughput"
+$containerThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers/settings"
 $throughput = 500
-$updateResource = "database" # or "container"
+$updateResource = "container" # or "database"
 
 $properties = @{
     "resource"=@{"throughput"=$throughput}
 }
 
+# Note: if the database or container does not have throughput set the operation will return a "Not Found" error
 if($updateResource -eq "database"){
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $properties
+Set-AzResource -ResourceType $databaseThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $databaseThroughputResourceName -PropertyObject $properties
 }
 elseif($updateResource -eq "container"){
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $containerResourceName -PropertyObject $properties
+Set-AzResource -ResourceType $containerThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $containerThroughputResourceName -PropertyObject $properties
 }
 else {
     Write-Host("Must select database or container")
 }
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

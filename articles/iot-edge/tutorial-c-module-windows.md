@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 05/28/2019
-ms.date: 10/08/2019
+ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 67c76de79902edc9de8d16469b62b405d9b21f4d
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 8e844689b82783f33a7ec18259dc65930f05e38e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340705"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914531"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C IoT Edge 模块
 
@@ -93,7 +93,7 @@ ms.locfileid: "71340705"
 
    ![配置目标设备、模块类型和容器注册表的项目](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. 选择“确定”以应用更改。  
+5. 选择“添加”  以创建项目。 
 
 ### <a name="add-your-registry-credentials"></a>添加注册表凭据
 

@@ -26,6 +26,8 @@
       items:
         - name: 以组织身份注册 Azure AD
           href: sign-up-organization.md
+        - name: 注册 Azure AD Premium
+          href: active-directory-get-started-premium.md
         - name: 添加自定义域名
           href: add-custom-domain.md
         - name: 关联 Azure 订阅

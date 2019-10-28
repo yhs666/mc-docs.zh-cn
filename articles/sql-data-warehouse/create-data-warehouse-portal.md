@@ -8,16 +8,16 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
 origin.date: 05/28/2019
-ms.date: 06/24/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 9ae42f66eee1172c3fc2b7c3f8c4a824a3009a37
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: d828e9bb4ad37c78d838b9ffb4ec0c47a20a650f
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131888"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914513"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建和查询 Azure SQL 数据仓库
 
@@ -98,7 +98,7 @@ SQL 数据仓库服务会在服务器级别创建防火墙。 此防火墙会阻
 > SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
 
 1. 部署完成后，从左侧菜单中选择“所有服务”  。 选择“数据库”  ，选择“SQL 数据仓库”  旁边的星号，以将 SQL 数据仓库添加到收藏夹中。
-1. 从左侧菜单中选择“SQL 数据仓库”  ，然后单击“SQL 数据仓库”  页上的“mySampleDatabase”  。 此时会打开数据库的概述页，显示完全限定的服务器名称（例如 **mynewserver-20181129.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。
+1. 从左侧菜单中选择“SQL 数据仓库”  ，然后单击“SQL 数据仓库”  页上的“mySampleDataWarehouse”  。 此时会打开数据库的概述页，显示完全限定的服务器名称（例如 **mynewserver-20181129.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。
 1. 复制此完全限定的服务器名称，以便在此快速入门和其他快速入门中使用它连接到服务器及其数据库。 单击服务器名称，打开服务器设置。
 
    ![查找服务器名称](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)

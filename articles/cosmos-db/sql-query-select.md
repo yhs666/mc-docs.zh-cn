@@ -7,14 +7,14 @@ ms.topic: conceptual
 origin.date: 06/10/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: 13c09a011f34f612e2db7b99d6c6dca24f94d67e
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 58f5467da2624e77876c7fc61b9e749c6618091c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306759"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913018"
 ---
-# <a name="select-clause"></a>SELECT 子句
+# <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 SELECT 子句
 
 每个查询按 ANSI SQL 标准由 SELECT 子句和可选的 [FROM](sql-query-from.md) 和 [WHERE](sql-query-where.md) 子句组成。 通常，将会枚举 FROM 子句中的源，WHERE 子句对该源应用一个筛选器，以检索 JSON 项的子集。 然后，SELECT 子句在 select 列表中投影请求的 JSON 值。
 

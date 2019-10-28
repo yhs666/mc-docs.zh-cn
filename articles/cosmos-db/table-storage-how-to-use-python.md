@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a41b93e027d625f8a0ed5898b63186e1bc4e7c08
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 079c8c00bfeed0ee19144d0cb99b5b8130867319
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254604"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912915"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>通过 Python 开始使用 Azure 表存储和 Azure Cosmos DB 表 API
 
@@ -71,6 +71,8 @@ from azure.cosmosdb.table.models import Entity
 
 若要连接到 Azure 存储表服务，请创建 [TableService][py_TableService] 对象，并传入存储帐户名称和帐户密钥。 将 `myaccount` 和 `mykey` 替换为自己的帐户名和密钥。
 
+<!--MOONCAKE: Add the endpoint_suffix configuration -->
+
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey',endpoint_suffix='core.chinacloudapi.cn')
 ```
@@ -82,7 +84,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey',endpo
 若要连接到 Azure Cosmos DB，请从 Azure 门户中复制主连接字符串，并使用复制的连接字符串创建 [TableService][py_TableService] 对象：
 
 ```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
 ```
 
 ## <a name="create-a-table"></a>创建表

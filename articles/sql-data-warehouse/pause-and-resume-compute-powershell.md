@@ -8,17 +8,17 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
 origin.date: 03/20/2019
-ms.date: 09/02/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a66322f7bb9e086014eefde82f98f149089b2f4d
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: d221679022203a0e90d31714218cd54cff76f3c8
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131825"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914444"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入门：使用 PowerShell 暂停和恢复 Azure SQL 数据仓库中的计算
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 暂停和恢复 Azure SQL 数据仓库中的计算
 
 使用 PowerShell 暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
 

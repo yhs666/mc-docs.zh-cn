@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 07/30/2019
-ms.date: 08/29/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 726c138edb076bb3e9bc9ab24ac84bac6b2b8add
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: f44a98f9f98e92ffd671df65f23da46544b7c9fc
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134166"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912734"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>为自助密码重置自定义 Azure AD 功能
 
@@ -79,8 +79,6 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 * 如果用户通过以下方式访问自定义的 URL：
    * 通过将 `whr` 参数传递到密码重置页，如 `https://login.partner.microsoftonline.cn/?whr=contoso.com`
    * 通过将 `username` 参数传递到密码重置页，如 `https://login.partner.microsoftonline.cn/?username=admin@contoso.com`
-
-有关如何配置公司品牌的详细信息，请参阅[将公司品牌添加到 Azure AD 中的登录页](../fundamentals/customize-branding.md)一文。
 
 ### <a name="directory-name"></a>目录名称
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2019
-ms.date: 06/24/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f63e84e30f983e7f168fbd56459ba7a9b57e4135
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: e95941ac22fed1393d6ed2352fcaa7eeb0edf06f
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568535"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912697"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 应用程序许可体验
 
@@ -55,7 +55,7 @@ ms.locfileid: "67568535"
 | 6 | 权限 | 此列表包含客户端应用程序请求的权限。 用户应始终评估请求的权限的类型，以便了解客户端应用程序在获得授权后将要代表用户访问的具体数据，前提是用户接受请求。 作为应用程序开发人员，最好是通过最低特权对请求访问权限进行限制。 |
 | 7 | 权限说明 | 此值由公开权限的服务提供。 若要查看权限说明，必须切换权限旁边的 V 形图标。 |
 | 8 | 应用条款 | 这些条款包含指向服务条款和应用程序隐私声明的链接。 发行商负责在其服务条款中概述其规则。 另外，发行商负责在其隐私声明中披露其使用和共享用户数据的方式。 如果发行商没有为多租户应用程序提供这些值的链接，则会在许可提示中显示一个加粗的警告。 |
-| 9 | https://myapps.microsoft.com | 这是供用户查看和删除当前可以访问其数据的非 Microsoft 应用程序的链接。 |
+| 9 | `https://myapps.microsoft.com` | 这是供用户查看和删除当前可以访问其数据的非 Microsoft 应用程序的链接。 |
 
 ## <a name="common-consent-scenarios"></a>常见许可场景
 

@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1f4ae7a0197d50091a85bd1421f699b678b2908c
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: daf019045e486b55785cd87fcbaed0ba2187f1ad
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209364"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914414"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -103,12 +103,6 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 * [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   该 API 参考信息介绍了可用于按编程方式管理存储帐户的 API。
-* [使用资源管理器身份验证 API 访问订阅](../../azure-resource-manager/resource-manager-api-authentication.md)
-
-  此文说明如何使用 Resource Manager API 进行身份验证。
-* [Role-Based Access Control for Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)（Ignite 中提供的适用于 Azure 的基于角色的访问控制）
-
-  这是第 9 频道中提供的 2015 MS Ignite 会议视频链接。 此次研讨会讨论了 Azure 中的访问管理和报告功能，并探索使用 Azure Active Directory 安全访问 Azure 订阅的最佳实践。
 
 ### <a name="managing-your-storage-account-keys"></a>管理存储帐户密钥
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象，例如，Blob、表中的实体、队列消息，以及 Azure 文件共享中的文件。 控制对存储帐户密钥的访问就能控制对该存储帐户的数据平面的访问。

@@ -5,17 +5,17 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/25/2019
-ms.date: 10/08/2019
+origin.date: 10/15/2019
+ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c3f71e8b3dbec23b6604d1e650e56b9254a22385
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 76108f010da659caaca1e1fcc7c8e9a10b34378e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340699"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914528"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教程：在边缘使用自定义视觉服务进行图像分类
 
@@ -76,7 +76,7 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
    | ----- | ----- |
    | Name | 为项目提供一个名称，例如 **EdgeTreeClassifier**。 |
    | 说明 | 可选项目说明。 |
-   | 资源组 | 选择一个包含自定义视觉服务资源的 Azure 资源组，或者如果尚未添加 Azure 资源组，则选择“新建”  。 |
+   | Resource | 选择一个包含自定义视觉服务资源的 Azure 资源组，或者如果尚未添加 Azure 资源组，则选择“新建”  。 |
    | 项目类型 | **分类** |
    | 分类类型 | **多类(一个图像一个标记)** |
    | 域 | **常规(精简)** |
@@ -141,8 +141,6 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
 ### <a name="create-a-new-solution"></a>创建新的解决方案
 
 可以通过解决方案以逻辑方式为单个 IoT Edge 部署开发和组织多个模块。 解决方案包含适用于一个或多个模块的代码，另外还包含部署清单，用于声明如何在 IoT Edge 设备上配置模块。 
-
-1. 在 Visual Studio Code 中选择“视图”   >   “终端”，打开 VS Code 集成终端。
 
 1. 选择“视图”   >   “命令面板”，打开 VS Code 命令面板。 
 

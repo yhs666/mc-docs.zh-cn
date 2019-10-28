@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7d6df55a150ea7e321dbca388064cc2c16fa3f30
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e2c0944e72342a80bf5d17507c976404ecb3cf06
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626303"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914378"
 ---
 # <a name="service-movement-cost"></a>服务移动成本
 尝试确定要对群集进行哪些更改时，Service Fabric 群集资源管理器考虑的一个因素是这些更改的成本。 “成本”这一概念根据能够改进的群集量而权衡。 移动服务以满足均衡、碎片整理和其他要求时，成本是一项考虑因素。 目标是以最稳妥或最便宜的方式满足这些要求。 
@@ -36,7 +36,7 @@ ms.locfileid: "58626303"
 
 PowerShell：
 
-```posh
+```powershell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -DefaultMoveCost Medium
 ```
 
@@ -54,7 +54,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 PowerShell： 
 
-```posh
+```powershell
 Update-ServiceFabricService -Stateful -ServiceName "fabric:/AppName/ServiceName" -DefaultMoveCost High
 ```
 
@@ -77,11 +77,12 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>移动成本的影响
-MoveCost 有四个级别：零、低、中和高。 MoveCost 是相互的，但零除外。 “零”移动成本表示移动不会产生成本，不应计入解决方案的分数。 将移动成本设置为“高”并不能确保副本始终呆在一个位置。
+MoveCost 有四个级别：零、低、中和高。 MoveCost 是相互的，但零除外。 “零”移动成本表示移动不会产生成本，不应计入解决方案的分数。 将移动成本设置为“高”并不能确保副本始终呆在一个位置。 
 
 <center>
 
 ![选择要移动的副本时考虑到移动成本因素][Image1]
+
 </center>
 
 MoveCost 可帮助我们在达成对等的均衡时，查找整体导致最少中断且最容易实现的解决方案。 服务的成本概念可以相对于许多事项。 计算移动成本时的最常见因素包括：

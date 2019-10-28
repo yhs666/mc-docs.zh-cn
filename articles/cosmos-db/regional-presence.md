@@ -2,22 +2,22 @@
 title: Azure Cosmos DB 的区域可用性
 description: 本文说明了 Azure Cosmos DB 存在的区域以及不同云环境。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23074f2cb4e7a83fe1accf121253e3321337ade9
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: a5104a20d71c52c42bf15160d27d13b437df80e7
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254871"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914387"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Azure Cosmos DB 的区域可用性
 
-Azure Cosmos DB 是 Azure 中的一项基础服务，默认情况下，在所有提供 Azure 的区域均可使用。 目前，Azure 在中国的 [4 个区域](https://www.azure.cn/support/service-dashboard)提供。 
+Azure Cosmos DB 是 Azure 中的一项基础服务，默认情况下，在所有提供 Azure 的区域均可使用。 目前，Azure 在中国的 [4 个区域](https://www.azure.cn/home/features/products-by-region/)提供。 
 
 <!--Not Available on ![Azure Cosmos DB regional availability](./media/regional-presence/regional-presence.png)-->
 Cosmos DB 在提供给客户的 Azure 中国云环境中均可使用：

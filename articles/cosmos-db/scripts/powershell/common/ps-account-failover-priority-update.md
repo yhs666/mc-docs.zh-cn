@@ -1,20 +1,20 @@
 ---
-title: Azure PowerShell 脚本 - 更改 Azure Cosmos 帐户的故障转移优先级
-description: Azure PowerShell 脚本示例 - 更改 Azure Cosmos 帐户的故障转移优先级
+title: Azure PowerShell 脚本 - 更改 Azure Cosmos 帐户的故障转移优先级或触发故障转移
+description: Azure PowerShell 脚本示例 - 更改 Azure Cosmos 帐户的故障转移优先级或触发故障转移
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/06/2019
-ms.date: 07/29/2019
+origin.date: 09/20/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 70eed5a2047f44e6617cc70efba2c57e89c59710
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 4e859923287526f7df954d7e0e0feee28b316aad
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514411"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914464"
 ---
-# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 更改 Azure Cosmos 帐户的故障转移优先级
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 更改 Azure Cosmos 帐户的故障转移优先级或触发故障转移
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,21 +22,56 @@ ms.locfileid: "68514411"
 
 ## <a name="sample-script"></a>示例脚本
 
-```powershell
-# Change the failover priority for an Azure Cosmos Account
-# Assume China North = 0 and China East = 1, the script below will flip them
-# Updating location with failoverPriority = 0 will trigger a failover
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
+> [!NOTE]
+> 对 `failoverPriority=0` 的区域进行的任何更改都会触发手动故障转移，并且只能对配置为手动故障转移的帐户进行更改。 对其他所有区域进行的更改只是更改了 Cosmos 帐户的故障转移优先级。
+> [!NOTE]
+> 此示例演示如何使用 SQL (Core) API 帐户。 若要将此示例用于其他 API，请复制相关属性，并将其应用于 API 特定的脚本
 
-$failoverPolicies = @(
-    @{ "locationName"="China East"; "failoverPriority"=0 },
-    @{ "locationName"="China North"; "failoverPriority"=1 }
+```powershell
+# Change the failover priority for a single-master Azure Cosmos Account
+# Note: Updating location with failoverPriority = 0 triggers a failover to the new region
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
+$location = "China North 2"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$resourceType = "Microsoft.DocumentDb/databaseAccounts"
+
+# Provision a new Cosmos account with the regions below
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 }
 )
 
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations
+}
+
+New-AzResource -ResourceType $resourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Change the failover priority. Updating write region which will trigger a failover
+Read-Host -Prompt "Press any key to change the failover priority"
+
+$failoverRegions = @(
+    @{ "locationName"="China East 2"; "failoverPriority"=0 },
+    @{ "locationName"="China North 2"; "failoverPriority"=1 }
+)
+
+$failoverPolicies = @{ 
+    "failoverPolicies"= $failoverRegions
+}
+
 Invoke-AzResourceAction -Action failoverPriorityChange `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
-    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+    -ResourceType $resourceType -ApiVersion $apiVersion `
+    -ResourceGroupName $resourceGroupName -Name $accountName `
+    -Parameters $failoverPolicies
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

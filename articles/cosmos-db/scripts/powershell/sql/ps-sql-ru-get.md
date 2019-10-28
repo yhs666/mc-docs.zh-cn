@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 获取预配吞吐量（RU/秒�
 description: Azure PowerShell 脚本 - Azure Cosmos DB 获取预配吞吐量（RU/秒）- SQL (Core) API
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 07/03/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a24bfda35b9fb9b140bfd1731e8e10426f7ea2df
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: e69f4c16133d7c962d27f42f4dfb6f3861781f83
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514536"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914479"
 ---
 # <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>获取 Azure Cosmos DB 的数据库或容器的预配吞吐量（RU/秒）- SQL (Core) API
 
@@ -26,13 +27,13 @@ ms.locfileid: "68514536"
 # Get RU for an Azure Cosmos SQL (Core) API database or container
 $apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
-$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
-$containerThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers/settings"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
 $containerName = "container1"
 $databaseThroughputResourceName = $accountName + "/sql/" + $databaseName + "/throughput"
+$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
 $containerThroughputResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName + "/throughput"
+$containerThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers/settings"
 
 # Check if throughput is set at database level (returns RU/s or error)
 Get-AzResource -ResourceType $databaseThroughputResourceType `
@@ -72,5 +73,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!-- Update_Description: new article about ps sql ru get-->
-<!--ms.date: 07/29/2019-->
+<!-- Update_Description: wording update -->

@@ -16,8 +16,6 @@
       href: active-directory-passwords-reset-register.md
 - name: Microsoft Authenticator 应用帮助
   items:
-    - name: 概述
-      href: user-help-auth-app-overview.md
     - name: 入门
       href: microsoft-authenticator-app-how-to.md
     - name: 备份和恢复

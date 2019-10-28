@@ -66,12 +66,6 @@
           href: groups-restore-deleted.md
         - name: 管理组设置
           href: /active-directory/fundamentals/active-directory-groups-settings-azure-portal
-        - name: 动态组
-          items:
-            - name: 创建动态组
-              href: groups-create-rule.md
-            - name: 动态组规则
-              href: groups-dynamic-membership.md
     - name: 分配许可证
       items:
         - name: 将许可证分配给组
@@ -82,8 +76,6 @@
           href: licensing-groups-migrate-users.md
         - name: 更改用户的许可证
           href: licensing-groups-change-licenses.md
-        - name: 其他方案
-          href: licensing-group-advanced.md
         - name: 使用 PowerShell 和 Graph 进行组许可
           href: licensing-ps-examples.md
         - name: 用于许可的服务计划 ID
@@ -116,14 +108,10 @@
           href: roles-m365-workload-docs.md
         - name: 管理员角色安全性
           items:
-            - name: 角色安全规划
-              href: directory-admin-roles-secure.md
             - name: 创建紧急帐户
               href: directory-emergency-access.md
     - name: 管理登录
       items:
-        - name: 自定义公司品牌
-          href: /active-directory/fundamentals/customize-branding
         - name: 登录选项
           href: signin-account-support.md
         - name: 主领域发现

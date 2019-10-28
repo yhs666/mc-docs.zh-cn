@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 10/08/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ab9e87a9227a48692264c3790d813a8f7f9b5fd
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 74d864f4f50f45326eb80598ef9f128a4da244a8
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292065"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912779"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>与 MSAL.NET 配合使用时特定于 Xamarin iOS 的注意事项
 在 Xamarin iOS 上使用 MSAL.NET 时必须考虑的几个注意事项
@@ -114,7 +114,7 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 应用程序可以使用 Microsoft Authenticator（中转站）来启用：
 
-- 设备标识。 通过访问设备证书，该证书是在设备加入工作区时在设备上创建的。 如果租户管理员启用了与设备相关的条件访问，则应用程序将准备就绪。
+- 设备标识。 通过访问设备证书，该证书是在设备加入工作区时在设备上创建的。 
 - 应用程序标识验证。 当应用程序调用中介时，它会传递其重定向 URL，而中介会验证该 URL。
 
 有关如何启用中转站的详细信息，请参阅[在 Xamarin iOS 和 Android 应用程序上使用 Microsoft Authenticator 或 Microsoft Intune 公司门户](msal-net-use-brokers-with-xamarin-apps.md)。

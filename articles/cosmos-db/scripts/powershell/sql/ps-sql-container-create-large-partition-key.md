@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - 在 Azure Cosmos 帐户中创建具有大分区
 description: Azure PowerShell 脚本示例 - 在 Azure Cosmos 帐户中创建具有大分区键的容器
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 07/03/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 69b1e028c9d930713caaacbd626164979c9324f8
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 3b663e06ad246b7cca9e3427ad92aeadd9be36db
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514538"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914445"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 在 Azure Cosmos 帐户中创建具有大分区键的容器
 
@@ -24,10 +25,14 @@ ms.locfileid: "68514538"
 
 ```powershell
 # Create a Cosmos SQL API container with large partition key support (version 2)
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
 $apiVersion = "2015-04-08"
 $location = "China North 2"
 $resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
 $databaseName = "database1"
 $containerName = "container1"
 $databaseResourceName = $accountName + "/sql/" + $databaseName
@@ -41,14 +46,14 @@ $locations = @(
     @{ "locationName"="China East 2"; "failoverPriority"=1 }
 )
 
-$CosmosDBProperties = @{
+$accountProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations
 }
 
 New-AzResource -ResourceType $accountResourceType `
     -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName -Location $location `
-    -Name $accountName -PropertyObject $CosmosDBProperties
+    -Name $accountName -PropertyObject $accountProperties
 
 #Database
 $databaseProperties = @{
@@ -112,5 +117,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!-- Update_Description: new article about ps sql create large partition key -->
-<!--ms.date: 07/29/2019-->
+<!-- Update_Description: wording update -->

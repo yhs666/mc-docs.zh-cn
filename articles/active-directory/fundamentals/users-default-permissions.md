@@ -9,17 +9,17 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/16/2019
-ms.date: 08/27/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb389f0c85867dac94487cac13d13f8adab4e720
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: ad8e76427b1b2cb53bc8e0b05c4eb1f3661af7a2
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134169"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912783"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色分配](active-directory-users-assign-role-azure-portal.md)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。 只能在 Azure AD 的用户设置中更改默认用户权限。
@@ -36,7 +36,7 @@ ms.locfileid: "70134169"
 **区域** | **成员用户权限** | **来宾用户权限**
 ------------ | --------- | ----------
 用户和联系人 | 读取用户和联系人的所有公共属性<br>邀请来宾<br>更改自己的密码<br>管理自己的手机号码<br>管理自己的照片<br>使自己的刷新令牌失效 | 读取自己的属性<br>读取其他用户和联系人的显示名称、电子邮件、登录名、照片、用户主体名称和用户类型属性<br>更改自己的密码
-组 | 创建安全组<br>创建 Office 365 组<br>读取组的所有属性<br>读取非隐藏的组成员身份<br>读取加入的组的隐藏 Office 365 组成员身份<br>管理用户拥有的组的属性、所有权和成员身份<br>将来宾添加到拥有的组<br>管理动态成员身份设置<br>删除拥有的组<br>还原拥有的 Office 365 组 | 读取组的所有属性<br>读取非隐藏的组成员身份<br>读取加入的组的隐藏 Office 365 组成员身份<br>管理拥有的组<br>将来宾添加到拥有的组（如果允许）<br>删除拥有的组<br>还原拥有的 Office 365 组<br>读取他们所属组的属性，包括成员身份。
+组 | 创建安全组<br>创建 Office 365 组<br>读取组的所有属性<br>读取非隐藏的组成员身份<br>读取加入的组的隐藏 Office 365 组成员身份<br>管理用户拥有的组的属性、所有权和成员身份<br>将来宾添加到拥有的组<br>删除拥有的组<br>还原拥有的 Office 365 组 | 读取组的所有属性<br>读取非隐藏的组成员身份<br>读取加入的组的隐藏 Office 365 组成员身份<br>管理拥有的组<br>将来宾添加到拥有的组（如果允许）<br>删除拥有的组<br>还原拥有的 Office 365 组<br>读取他们所属组的属性，包括成员身份。
 应用程序 | 注册（创建）新应用程序<br>读取已注册的应用程序和企业应用程序的属性<br>管理拥有的应用程序的应用程序属性、分配和凭据<br>创建或删除用户的应用程序密码<br>删除拥有的应用程序<br>还原拥有的应用程序 | 读取已注册的应用程序和企业应用程序的属性<br>管理拥有的应用程序的应用程序属性、分配和凭据<br>删除拥有的应用程序<br>还原拥有的应用程序
 设备 | 读取设备的所有属性<br>管理拥有的设备的所有属性<br> | 无权限<br>删除拥有的设备<br>
 Directory | 读取所有公司信息<br>读取所有域<br>读取所有合作伙伴协定 | 读取显示名称和已验证的域

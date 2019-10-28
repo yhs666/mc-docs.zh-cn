@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建 Gremlin API 数据库和
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建 Gremlin API 数据库和图
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: b8aed240b6249a0a71b02c2d726160864bdfc717
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: c3374eb337a38e1c5e430ac3f5192651b9349dec
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514407"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913276"
 ---
 # <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>为 Azure Cosmos DB 创建数据库和图 - Gremlin API
 
@@ -23,14 +24,24 @@ ms.locfileid: "68514407"
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Create an Azure Cosmos Account for Gremlin API with shared database throughput and dedicated graph throughput
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount" # must be lower case.
+# Create an Azure Cosmos Account for Gremlin API with multi-master enabled, shared database throughput,'
+# dedicated graph throughput with last writer wins conflict policy and custom resolution path
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
 $location = "China North 2"
+$resourceGroupName = "MyResourceGroup"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$apiType = "EnableGremlin"
+$accountResourceType = "Microsoft.DocumentDb/databaseAccounts"
 $databaseName = "database1"
 $databaseResourceName = $accountName + "/gremlin/" + $databaseName
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
 $graphName = "graph1"
 $graphResourceName = $accountName + "/gremlin/" + $databaseName + "/" + $graphName
+$graphResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs"
 
 # Create account
 $locations = @(
@@ -41,27 +52,27 @@ $locations = @(
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
 
 $accountProperties = @{
-    "capabilities"= @( @{ "name"="EnableGremlin" } );
+    "capabilities"= @( @{ "name"=$apiType } );
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
     "consistencyPolicy"=$consistencyPolicy;
     "enableMultipleWriteLocations"="true"
 }
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties -Force
+New-AzResource -ResourceType $accountResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $accountProperties -Force
 
 # Create database with shared throughput
 $databaseProperties = @{
     "resource"=@{ "id"=$databaseName };
     "options"=@{ "Throughput"= 400 }
 }
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+New-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName -PropertyObject $databaseProperties -Force
 
-# Create a graph with defaults
+# Create a graph with a partition key, last writer wins conflict policy and custom conflict resolution path
 $graphProperties = @{
     "resource"=@{
         "id"=$graphName; 
@@ -69,16 +80,15 @@ $graphProperties = @{
             "paths"=@("/myPartitionKey"); 
             "kind"="Hash"
         };
-        ; 
         "conflictResolutionPolicy"=@{
             "mode"="lastWriterWins"; 
             "conflictResolutionPath"="/myResolutionPath"
         }
-    }; 
+    };
     "options"=@{ "Throughput"= 400 }
-} 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+}
+New-AzResource -ResourceType $graphResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $graphResourceName -PropertyObject $graphProperties  -Force
 
 ```

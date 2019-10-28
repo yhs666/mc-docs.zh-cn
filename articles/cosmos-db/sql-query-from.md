@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: bb4b585f127652ad1b333b4441b655c04ac09e53
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 193570bf343b91827bc7316f6478d870ecf894f5
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672294"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913157"
 ---
-# <a name="from-clause"></a>FROM 子句
+# <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 FROM 子句
 
 FROM (`FROM <from_specification>`) 子句是可选的，除非稍后在查询中对源进行筛选或投影。 `SELECT * FROM Families` 之类的查询枚举整个 `Families` 容器。 还可以对容器使用特殊标识符 ROOT，而无需使用容器名称。
 

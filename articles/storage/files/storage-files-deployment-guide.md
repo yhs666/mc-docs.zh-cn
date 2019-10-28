@@ -1,20 +1,19 @@
 ---
 title: 如何部署 Azure 文件 | Microsoft Docs
 description: 了解如何从头至尾部署 Azure 文件。
-services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 05/22/2018
-ms.date: 03/25/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 934dfde34b95a41a7e42e686766c9c459be17d82
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 8588aa7c6695413953d92945eb68410d4a056299
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253933"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912887"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
@@ -60,7 +59,7 @@ ms.locfileid: "58253933"
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    可以指定同一存储帐户的多个共享。 有关详细信息，请参阅[准备数据集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)。
+    可以指定同一存储帐户的多个共享。 有关详细信息，请参阅[准备数据集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 5. 创建驱动器集 CSV 文件。 驱动器集 CSV 文件可列出本地导出代理可用的磁盘。 例如，以下驱动器集 CSV 文件可列出用于本地导出作业的 `X:`、`Y:` 和 `Z:` 驱动器：
 
@@ -71,7 +70,7 @@ ms.locfileid: "58253933"
     Z,Format,SilentMode,Encrypt,
     ```
     
-    有关详细信息，请参阅[准备驱动器集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)。
+    有关详细信息，请参阅[准备驱动器集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 6. 使用 [WAImportExport 工具](https://www.microsoft.com/download/details.aspx?id=55280)将数据复制到一个或多个硬盘驱动器。
 
@@ -104,7 +103,7 @@ Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Rob
 ### <a name="azcopy"></a>AzCopy
 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。 AzCopy 操作简单：
 
-1. 下载[最新版本的 AzCopy on Windows](http://aka.ms/downloadazcopy) 或 [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy)。
+1. 下载[最新版本的 AzCopy on Windows](https://aka.ms/downloadazcopy) 或 [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy)。
 2. 在命令行处使用 `azcopy` 将数据移动到 Azure 文件共享。 对于 Windows，其语法如下： 
 
     ```
@@ -128,7 +127,7 @@ AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简�
 ### <a name="windows"></a>Windows
 可使用 PowerShell 在多台电脑上运行装载命令。 在以下示例中，需要手动填充 `$computers`，但你可以生成要自动装载的计算机列表。 例如，可使用 Active Directory 中的结果填充此变量。
 
-```PowerShell
+```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.chinacloudapi.cn\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```

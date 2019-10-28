@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 08/27/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b4740fe7e71e8d77fbafaa3d20f752deaf315b7
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: c96e5358ed2651ca00e7d92a1c3dc5cac0ab0642
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134102"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912754"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory 中的租户
 
@@ -46,7 +46,6 @@ Azure Active Directory (Azure AD) 将用户和应用之类的对象组织到称�
 
 由于 IT 管理员可能会在其租户中设置大量的不同策略，因此，构建优秀的多租户应用可能很难。 如果你选择构建多租户应用，请遵循以下最佳做法：
 
-* 在配置了[条件访问策略](conditional-access-dev-guide.md)的租户中测试应用。
 * 遵循最小用户访问权限的原则，确保应用只请求它实际需要的权限。 避免请求需要管理员同意的权限，因为这可能会完全阻止某些组织中的用户访问应用。 
 * 为作为应用的一部分公开的任何权限提供合适的名称和说明。 这可帮助用户和管理员了解当他们尝试使用应用的 API 时他们要同意什么。 有关详细信息，请参阅[权限指南](v1-permissions-and-consent.md)中的最佳做法部分。
 

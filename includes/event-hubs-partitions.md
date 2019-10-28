@@ -5,16 +5,16 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 08/05/2019
 origin.date: 05/22/2019
+ms.date: 08/05/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 24c15fb8da4330dc487b80e60977b6921c841a0c
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+ms.openlocfilehash: 98422cd8e92ea1b5c594d6a03eea26d63e4f6d4c
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371753"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872850"
 ---
 事件中心使用分区使用者模式提供消息流式处理，在此模式下，每个使用者只读取消息流的特定子集或分区。 此模式允许以水平缩放规模进行事件处理，并提供其他面向流的功能，而队列和主题不能提供这些功能。
 
@@ -27,6 +27,8 @@ ms.locfileid: "68371753"
 ![事件中心](./media/event-hubs-partitions/multiple-partitions.png)
 
 分区数在创建时指定，必须介于 2 到 32 之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 可以通过联系事件中心团队将分区数增加到 32 个以上。
+
+你可能希望在创建时将其设置为最高可能值，即 32。 请记住，拥有多个分区将导致事件发送到多个分区而不保留顺序，除非你将发送方配置为仅发送到 32 个分区中的一个分区，剩下的 31 个分区是冗余分区。 在前一种情况下，必须跨所有 32 个分区读取事件。 在后一种情况下，除了必须在事件处理器主机上进行额外配置外，没有明显的额外成本。
 
 虽然可以标识分区并向其直接发送数据，但并不建议直接发送到分区。 而应使用[事件发布者](../articles/event-hubs/event-hubs-features.md#event-publishers)部分介绍的更高级构造。 
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 8da8b117fd33ac5f25093a82cd511e25dfe60e67
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: bef7463edd04bee026f450d8f800f08a621f47d1
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310766"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846974"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过 OpenID Connect 注册与登录
 
@@ -49,7 +49,6 @@ ms.locfileid: "70310766"
 响应类型描述在首次调用自定义标识提供者的 `authorization_endpoint` 时发回的信息类型。 可以使用以下响应类型：
 
 * `code`：根据[授权代码流](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，会将一个代码返回到 Azure AD B2C。 Azure AD B2C 将继续调用 `token_endpoint`，以交换令牌代码。
-* `token`：访问令牌将从自定义标识提供者返回到 Azure AD B2C。
 * `id_token`：ID 令牌将从自定义标识提供者返回到 Azure AD B2C。
 
 ## <a name="response-mode"></a>响应模式

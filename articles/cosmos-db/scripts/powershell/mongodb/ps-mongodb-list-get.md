@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB MongoDB API 的列出和获取�
 description: Azure PowerShell 脚本 - Azure Cosmos DB MongoDB API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5de5f7a5e7369f8090cc4f39314ad75d412e6470
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 7bdacef82dd2338d96447feece6957033df39319
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514371"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913272"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>列出和获取 Azure Cosmos DB 的数据库和图 - MongoDB API
 
@@ -24,36 +25,39 @@ ms.locfileid: "68514371"
 
 ```powershell
 # List and Get operations for Azure Cosmos MongoDB API
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount" # must be lower case.
 $databaseName = "database1"
 $collectionName = "collection1"
 $accountResourceName = $accountName + "/mongodb/"
 $databaseResourceName = $accountName + "/mongodb/" + $databaseName
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
 $collectionResourceName = $accountName + "/mongodb/" + $databaseName + "/" + $collectionName
+$collectionResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/collections"
 
 Read-Host -Prompt "List all databases in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $accountResourceName  | Select-Object Properties
 
 Read-Host -Prompt "Get a database in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName | Select-Object Properties
 
 Read-Host -Prompt "List all collections in a database. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/collections" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $collectionResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName | Select-Object Properties
 
 Read-Host -Prompt "Get a collection in a database. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/collections" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $collectionResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $collectionResourceName | Select-Object Properties
 
 ```

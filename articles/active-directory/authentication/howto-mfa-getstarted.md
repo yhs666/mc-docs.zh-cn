@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 09/01/2018
-ms.date: 11/05/2018
+ms.date: 10/25/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f4ad96a7bb3733f2931e11c18e7d4605e324966e
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 56eb6b68071d44e0b2dded9a02e318bf321ac729
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243670"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912733"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>部署基于云的 Azure 多重身份验证
 
@@ -29,7 +29,7 @@ Azure 多重身份验证 (Azure MFA) 入门是一个直截了当的过程。
 
 ## <a name="choose-how-to-enable"></a>选择启用方法
 
-通过更改用户状态启用 - 这是需要进行双重验证的传统方法。 它适用于云中的 Azure MFA 以及 Azure MFA 服务器。 使用此方法要求用户**每次**登录时都执行双重验证。 可在[如何要求对用户进行双重验证](howto-mfa-userstates.md)中找到有关此方法的详细信息。
+通过更改用户状态启用 - 这是需要进行双重验证的传统方法。  它与云中的 Azure MFA 配合工作。 使用此方法要求用户**每次**登录时都执行双重验证。 可在[如何要求对用户进行双重验证](howto-mfa-userstates.md)中找到有关此方法的详细信息。
 
 > [!Note]
 > 有关许可和定价的详细信息，请参见 [Azure AD](https://www.azure.cn/pricing/details/active-directory/
@@ -48,17 +48,17 @@ Azure 多重身份验证 (Azure MFA) 入门是一个直截了当的过程。
 
 在启用 Azure 多重身份验证之前，组织必须确定允许的验证选项。 在本练习中，我们将启用电话呼叫和手机短信身份验证方法，因为这是大多数人都可以使用的常规选项。 
 
-1. 浏览至“Azure Active Directory”、“用户”、“多重身份验证”。
+1. 浏览至“Azure Active Directory”  、“用户”  、“多重身份验证”  。
 
    ![从 Azure 门户中的“Azure AD 用户”边栏选项卡访问“多重身份验证”门户](./media/howto-mfa-getstarted/users-mfa.png)
 
-1. 在打开的新选项卡中，浏览至“服务设置”。
-1. 在“验证选项”下，选中可供用户使用的方法旁的所有框。
+1. 在打开的新选项卡中，浏览至“服务设置”  。
+1. 在“验证选项”下，选中可供用户使用的方法旁的所有框  。
 
    ![在多重身份验证服务设置选项卡中配置验证方法](./media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
-4. 单击“保存” 。
-5. 关闭“服务设置”选项卡。
+4. 单击“保存”  。
+5. 关闭“服务设置”选项卡  。
 
 ### <a name="test-azure-multi-factor-authentication"></a>测试 Azure 多重身份验证
 

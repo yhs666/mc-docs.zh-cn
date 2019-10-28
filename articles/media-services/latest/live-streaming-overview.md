@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/16/2019
 ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: 790e641c187f78f3d8e294a4706fd2ef6296fb10
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: ddca105393a9eab8c94a8f64865cb499c7a29fa4
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124682"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914397"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒体服务 v3 实时传送视频流
 
@@ -41,7 +41,7 @@ ms.locfileid: "71124682"
 
 ## <a name="dynamic-packaging"></a>动态打包
 
-借助媒体服务，可以利用[动态打包](dynamic-packaging-overview.md)，以便预览和广播正在发送到服务的贡献源中采用 [MPEG DASH、HLS 和平滑流式处理格式](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)的实时传送流。 观看者可以使用任何与 HLS、DASH 或平滑流式处理兼容的播放器播放实时流。 可以使用 Web 应用程序或移动应用程序中的 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) 传送采用上述任何协议的流。
+借助媒体服务，可以利用[动态打包](dynamic-packaging-overview.md)，以便预览和广播正在发送到服务的贡献源中采用 [MPEG DASH、HLS 和平滑流式处理格式](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)的实时传送流。 观看者可以使用任何与 HLS、DASH 或平滑流式处理兼容的播放器播放实时流。 可以使用 Web 应用程序或移动应用程序中的 Azure Media Player 传送采用上述任何协议的流。
 
 ## <a name="dynamic-encryption"></a>动态加密
 

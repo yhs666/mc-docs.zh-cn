@@ -5,7 +5,7 @@ services: active-directory
 author: markwahl-msft
 ms.author: v-junlch
 origin.date: 09/09/2019
-ms.date: 10/11/2019
+ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f55f9049a77caaf87b59f849cbce769b1bf91016
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 8b2a3d1ba6d2ee272c7c54475d4c7b5e5926e812
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292133"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912791"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>在 Azure AD 中管理紧急访问帐户
 
@@ -54,10 +54,6 @@ ms.locfileid: "72292133"
 
 但是，至少应有一个紧急访问帐户的多重身份验证机制与其他非紧急帐户不同。 这包括第三方多重身份验证解决方案。 如果条件访问策略要求每个管理员针对 Azure AD 及连接的其他软件即服务 (SaaS) 应用执行[多重身份验证](../authentication/howto-mfa-userstates.md)，则应从此要求中排除紧急访问帐户，并改而配置其他机制。 此外，应确保这些帐户不使用按用户的多重身份验证策略。
 
-### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>从条件访问策略中排除至少一个帐户
-
-在紧急情况下，你不希望某个策略阻止你进行访问以解决问题。 应从所有条件访问策略中排除至少一个紧急访问帐户。 如果已启用[基准策略](../conditional-access/baseline-protection.md)，应排除紧急访问帐户。
-
 ## <a name="federation-guidance"></a>联合身份验证指南
 
 对于使用 AD 域服务和 ADFS 或类似标识提供者联合到 Azure AD 的组织，另一种做法是配置一个可由该标识提供者提供 MFA 声明的紧急访问帐户。  例如，紧急访问帐户可由证书和密钥对（例如，存储在智能卡上）提供安全保障。  当该用户在 AD 中进行身份验证时，ADFS 可向 Azure AD 提供声明，指示该用户满足 MFA 要求。  即使使用此方法，组织也仍需要提供基于云的紧急访问帐户，否则无法建立联合。 
@@ -91,7 +87,6 @@ ms.locfileid: "72292133"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [确保 Azure AD 中混合部署和云部署的特权访问安全性](directory-admin-roles-secure.md)
 - [使用 Azure AD 添加用户](../fundamentals/add-users-azure-active-directory.md)并[将新用户分配到全局管理员角色](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [注册 Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)（如果尚未注册）
 - [如何要求用户进行双重验证](../authentication/howto-mfa-userstates.md)

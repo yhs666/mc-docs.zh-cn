@@ -21,7 +21,7 @@
   items: null
 - name: 概念
   items:
-    - name: 关于 Azure 文件
+    - name: 规划 Azure 文件部署
       href: storage-files-planning.md
     - name: 关于存储帐户
       href: ../common/storage-account-options.md?toc=%2fstorage%2ffiles%2ftoc.json
@@ -43,7 +43,7 @@
           href: ../common/storage-auth.md?toc=%2fstorage%2ffiles%2ftoc.json
         - name: Azure 存储安全
           href: ../common/storage-security-guide.md?toc=%2fstorage%2ffiles%2ftoc.json
-        - name: 存储帐户加密
+        - name: Azure 存储加密
           href: ../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 开发
       items:
@@ -97,10 +97,10 @@
       items:
         - name: 将数据移入和移出 Azure 存储
           href: ../common/storage-moving-data.md?toc=%2fstorage%2ffiles%2ftoc.json
-        - name: AzCopy on Windows
-          href: ../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json
-        - name: Linux 上的 AzCopy
-          href: ../common/storage-use-azcopy-linux.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 使用 AzCopy 移动数据
+          items:
+            - name: 入门
+              href: ../common/storage-use-azcopy-v10.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 开发
       items:
         - name: 配置连接字符串
@@ -129,88 +129,114 @@
           href: storage-troubleshoot-linux-file-connection-problems.md
 - name: 参考
   items:
-    - name: PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/azure.storage'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.storage'
     - name: Azure CLI
       href: 'https://docs.azure.cn/cli/storage'
     - name: .NET
       items:
-        - name: Blob、队列、表和文件
+        - name: Blob、队列和文件
           href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/client'
         - name: 数据移动
           href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.datamovement'
-        - name: 资源管理器
+        - name: 存储资源提供程序
           href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/management'
     - name: Java
       items:
-        - name: Blob、队列、表和文件
+        - name: Blob、队列和文件（版本 12.x - 预览版）
+          href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+        - name: Blob、队列和文件（版本 8）
           href: 'https://docs.azure.cn/java/api/storage/clientlibrary'
+        - name: 存储资源提供程序
+          href: 'https://docs.azure.cn/zh-cn/java/api/overview/storage/managementapi?view=azure-java-stable'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
     - name: REST
       items:
         - name: Blob、队列、表和文件
           href: 'https://docs.microsoft.com/rest/api/storageservices'
-        - name: 资源提供程序
+        - name: 存储资源提供程序
           href: 'https://docs.microsoft.com/rest/api/storagerp'
         - name: 导入/导出
           href: 'https://docs.microsoft.com/rest/api/storageimportexport'
+    - name: C++
+      href: 'https://azure.github.io/azure-storage-cpp'
+    - name: Ruby
+      href: 'https://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'https://azure.github.io/azure-storage-php/'
+    - name: iOS
+      href: 'https://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'https://azure.github.io/azure-storage-android'
     - name: Resource Manager 模板
       displayName: arm
       href: 'https://docs.microsoft.com/azure/templates/microsoft.storage/allversions'
 - name: 资源
   items:
-    - name: Azure 存储客户端工具
-      href: ../common/storage-explorers.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 定价
-      href: 'https://www.azure.cn/pricing/details/storage/blobs/'
-    - name: 定价计算器
-      href: 'https://www.azure.cn/pricing/calculator/'
     - name: Azure 存储资源管理器
       items:
-        - name: 存储资源管理器
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 下载存储资源管理器
+          href: 'https://azure.microsoft.com/features/storage-explorer/'
+        - name: 存储资源管理器入门
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 存储资源管理器发行说明
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2ffiles%2ftoc.json
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 排查存储资源管理器问题
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 存储资源管理器可访问性
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: NuGet 包
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: Azure 存储的定价
+      href: 'https://azure.cn/pricing/details/storage/'
+    - name: Azure 定价计算器
+      href: 'https://azure.cn/pricing/calculator/'
+    - name: NuGet 包 (.NET)
       items:
-        - name: Azure 存储公用客户端库
+        - name: Microsoft.Azure.Storage.Common（版本 11.x）
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-        - name: Azure 文件存储客户端库
+        - name: Azure.Storage.Common（版本 12.x - 预览版）
+          href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+        - name: Microsoft.Azure.Storage.File（版本 11.x）
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.File/'
-        - name: Azure 存储数据移动库
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure.Storage.File（版本 12.x - 预览版）
+          href: 'https://www.nuget.org/packages/Azure.Storage.Files/'
         - name: Azure 配置管理器
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+        - name: Azure 存储数据移动库
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: 存储资源提供程序库
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
     - name: 源代码
       items:
         - name: .NET
           items:
-            - name: Blob、队列和文件
-              href: 'https://github.com/Azure/azure-storage-net'
-            - name: 数据移动
-              href: /dotnet/api/microsoft.windowsazure.storage.datamovement
-            - name: 存储资源提供程序
-              href: /dotnet/api/overview/storage/management
+            - name: Azure 存储客户端库
+              items:
+                - name: 版本 12.x（预览版）
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                - name: 版本 11.x 和更早版本
+                  href: 'https://github.com/Azure/azure-storage-net'
+            - name: 数据移动库
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: 存储资源提供程序库
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
         - name: Java
-          href: 'https://github.com/Azure/azure-storage-java'
-        - name: C++
-          href: 'https://github.com/Azure/azure-storage-cpp'
+          items:
+            - name: Azure 存储客户端库版本 12.x（预览版）
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+            - name: Azure 存储客户端库版本 8.x 和更早版本
+              href: 'https://github.com/Azure/azure-storage-java'
+        - name: Node.js
+          items:
+            - name: Azure 存储客户端库版本 12.x（预览版）
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+            - name: Azure 存储客户端库版本 10.x
+              href: 'https://github.com/Azure/azure-storage-node'
         - name: Python
-          href: 'https://github.com/Azure/azure-storage-python'
+          items:
+            - name: Azure 存储客户端库版本 12.x（预览版）
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+            - name: Azure 存储客户端库版本 2.1
+              href: 'https://github.com/Azure/azure-storage-python'

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0e02b8824e932d3dfa9612f6591b475e35b6c0d5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c9713e1e73fb5f65f2867dd3efa7fedb44aa0345
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626965"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914509"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>群集 Resource Manager 体系结构概述
 Service Fabric 群集资源管理器是在群集中运行的中心服务。 它管理群集中服务所需的状态，对资源消耗和任何放置规则而言尤其如此。 
@@ -53,7 +53,8 @@ Service Fabric 群集资源管理器是在群集中运行的中心服务。 它�
 
 <center>
 
-![资源均衡器体系结构][Image1]
+![资源平衡器体系结构][Image1]
+
 </center>
 
 运行时阶段可能会发生很多更改。 例如，假设某些服务使用的资源量更改、某些服务失败以及某些节点加入并离开群集。 节点上的所有更改都要进行汇总，并定期发送到群集 Resource Manager 服务（1、2），并在其中再次聚合、分析和存储。 每隔几秒钟，服务就查看更改，并确定是否需要任何操作 (3)。 例如，它可能注意到某些空节点已添加到群集。 因此，确定要将某些服务移到这些节点。 群集 Resource Manager 可能还注意到特定节点已超载，或者某些服务已失败或已删除，在其他位置释放了资源。
@@ -62,7 +63,8 @@ Service Fabric 群集资源管理器是在群集中运行的中心服务。 它�
 
 <center>
 
-![资源均衡器体系结构][Image2]
+![资源平衡器体系结构][Image2]
+
 </center>
 
 ## <a name="next-steps"></a>后续步骤

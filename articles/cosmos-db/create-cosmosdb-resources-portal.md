@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/01/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 1c63be87e1d19ad17ee8bf0811cd46da0ce60738
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.openlocfilehash: 4990de49482720d164ec62311bc6afe4e136116e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306784"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913331"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-container-and-items-with-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Cosmos 帐户、容器和项
 
@@ -87,7 +87,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
      }
      ```
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
     ![通过复制添加 JSON 数据，然后在 Azure 门户上的数据资源管理器中选择“保存”](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
 

@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: dae23b777314c03ebdd8660d8c6f380423baa4c4
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: d84bbf92580efffd8227699fa6aff60774adfe58
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306808"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913304"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -190,7 +190,7 @@ ms.locfileid: "71306808"
 
 7. 应用不删除创建的资源。 切换回门户，以便在帐户中[清理资源](#clean-up-resources)，  以免产生费用。
 
-    ![控制台输出](./media/create-sql-api-java/rxjava-console-output.png)
+    ![在控制台窗口中查看输出](./media/create-sql-api-java/rxjava-console-output.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

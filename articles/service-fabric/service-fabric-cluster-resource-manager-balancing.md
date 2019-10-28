@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2bda41fb0ba215c0013413ac5728fd67be84cda8
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 14c525759810655517fcd8b0097ea987dbd2f28c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753180"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914386"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -134,7 +134,8 @@ ClusterManifest.xml
 
 <center>
 
-![均衡阈值示例操作][Image2]
+![平衡阈值示例操作][Image2]
+
 </center>
 
 > [!NOTE]
@@ -151,6 +152,7 @@ ClusterManifest.xml
 <center>
 
 ![活动阈值示例][Image3]
+
 </center>
 
 如同平衡阈值，活动阈值通过群集定义根据每个指标进行定义：

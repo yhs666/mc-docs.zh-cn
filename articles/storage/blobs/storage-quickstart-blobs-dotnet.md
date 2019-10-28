@@ -4,16 +4,16 @@ description: 本快速入门介绍如何使用适用于 .NET 的 Azure Blob 存�
 author: WenJason
 ms.author: v-jay
 origin.date: 07/20/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 147e4b34e10e73a3fe6f44541638d4148cf05ff8
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: a59afbc2101778aa47d3c7483b2518169c9767a8
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306776"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914395"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>快速入门：适用于 .NET 的 Azure Blob 存储客户端库
 
@@ -30,11 +30,13 @@ ms.locfileid: "71306776"
 
 [API 参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [示例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
-## <a name="required-before-you-begin"></a>开始前需要
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
 * Azure 存储帐户 - [创建存储帐户](/storage/common/storage-quickstart-create-account)
-* 适用于你的操作系统的 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) 或更高版本。 确保获取 SDK，而不是运行时。
+* 适用于操作系统的最新 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。 确保获取 SDK，而不是运行时。
 
 ## <a name="setting-up"></a>设置
 

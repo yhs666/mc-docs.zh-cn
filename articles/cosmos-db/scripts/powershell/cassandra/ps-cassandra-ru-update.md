@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新 Cassandra API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新 Cassandra API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 61ba7ee8bd51eb16fe8561d176c9514a8d2c4de9
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: af38154fed9f041742077da377f5f3ec0bf39c0c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514412"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914461"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>更新 Azure Cosmos DB 的密钥空间或表的 RU/秒 - Cassandra API
 
@@ -24,12 +25,16 @@ ms.locfileid: "68514412"
 
 ```powershell
 # Update RU for an Azure Cosmos Cassandra API keyspace or table
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $keyspaceName = "keyspace1"
 $tableName = "table1"
-$keyspaceResourceName = $accountName + "/cassandra/" + $keyspaceName + "/throughput"
-$tableResourceNAme = $accountName + "/cassandra/" + $keyspaceName + "/" + $tableName + "/throughput"
+$keyspaceThroughputResourceName = $accountName + "/cassandra/" + $keyspaceName + "/throughput"
+$keyspaceThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/settings"
+$tableThroughputResourceName = $accountName + "/cassandra/" + $keyspaceName + "/" + $tableName + "/throughput"
+$tableThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables/settings"
 $throughput = 500
 $updateResource = "keyspace" # or "table"
 
@@ -38,14 +43,14 @@ $properties = @{
 }
 
 if($updateResource -eq "keyspace"){
-    Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $keyspaceResourceName -PropertyObject $properties
+    Set-AzResource -ResourceType $keyspaceThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $keyspaceThroughputResourceName -PropertyObject $properties
 }
 elseif($updateResource -eq "table"){
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $tableResourceNAme -PropertyObject $tableProperties
+Set-AzResource -ResourceType $tableThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $tableThroughputResourceName -PropertyObject $tableProperties
 }
 else {
     Write-Host("Must select keyspace or table")    

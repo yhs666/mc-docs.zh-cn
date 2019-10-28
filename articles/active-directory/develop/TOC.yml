@@ -541,8 +541,6 @@
               href: consent-framework.md
             - name: 应用程序同意体验
               href: application-consent-experience.md
-        - name: 条件性访问
-          href: conditional-access-dev-guide.md
         - name: 国家云
           href: authentication-national-cloud.md
     - name: 操作指南
@@ -595,8 +593,6 @@
               href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
         - name: 使用 Azure AD 图形 API
           href: active-directory-graph-api-quickstart.md
-        - name: 针对开发人员的 AD FS
-          href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
     - name: 参考
       items:
         - name: 身份验证库
@@ -622,4 +618,4 @@
       displayName: 'support, help options'
       href: developer-support-help-options.md
     - name: Azure 资源的托管标识
-      href: /active-directory/managed-service-identity/overview
+      href: /active-directory/managed-identities-azure-resources/overview

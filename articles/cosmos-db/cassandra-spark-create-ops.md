@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 03/18/2019
-ms.openlocfilehash: bcb7d055b2da35f026c52bfced30466ea7675649
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 33f4a0f1c3028722f148d9a5153781eb78e1a09d
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988691"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72842905"
 ---
 <!--Verify sucessfully-->
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>通过 Spark 创建/插入数据到 Azure Cosmos DB Cassandra API
@@ -147,5 +147,4 @@ select * from books;
 * [表复制操作](cassandra-spark-table-copy-ops.md)
 
 <!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update  -->

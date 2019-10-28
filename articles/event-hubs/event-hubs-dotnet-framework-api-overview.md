@@ -2,26 +2,26 @@
 title: Azure 事件中心 .NET Framework API 概述 | Azure
 description: 汇总了一些重要的事件中心 .NET Framework 客户端 API。
 services: event-hubs
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 7966eccf53d6b3bd40561094181c5180f29322c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 09/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: 3094d5de3ce7cbf659b71dee1c42756259f0705c
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658860"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873022"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中心 .NET Framework API 概述
 
 本文汇总了一些重要的 Azure 事件中心 [.NET Framework 客户端 API](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 借助管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。
 
-[监视方案](event-hubs-metrics-azure-monitor.md)跨越管理和运行时。 有关 .NET API 的详细参考文档，请参阅 [.NET Framework](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient?view=azure-dotnet)、[.NET Standard](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs?view=azure-dotnet) 和 [EventProcessorHost API](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet) 参考。
+[监视方案](event-hubs-metrics-azure-monitor.md)跨越管理和运行时。 有关 .NET API 的详细参考文档，请参阅 [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient?view=azure-dotnet)、[.NET Standard](/dotnet/api/microsoft.azure.eventhubs?view=azure-dotnet) 和 [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet) 参考。
 
 ## <a name="management-apis"></a>管理 API
 
@@ -133,7 +133,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-[IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.ieventprocessor?view=azure-dotnet) 接口定义如下：
+[IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor?view=azure-dotnet) 接口定义如下：
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -184,7 +184,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 下面提供了 .NET API 参考：
 
-* [Microsoft.ServiceBus.Messaging](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging?view=azure-dotnet)
-* [Microsoft.Azure.EventHubs.EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet)
+* [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging?view=azure-dotnet)
+* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: change absolute path to relative path -->

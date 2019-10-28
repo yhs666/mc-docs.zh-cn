@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 05/27/2018
-ms.openlocfilehash: 3f133b1e626f23f6273d9a8069909e497182627f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 11/04/2019
+ms.openlocfilehash: 30969cbe8e9f94a111640c9cc139fb6669ba7fc9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736745"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913254"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理身份验证策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -120,6 +120,21 @@ ms.locfileid: "70736745"
 #### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>使用托管标识向后端服务进行身份验证
 ```xml  
 <authentication-managed-identity resource="https://graph.chinacloudapi.cn"/> 
+```
+```xml  
+<authentication-managed-identity resource="https://management.azure.cn/"/> <!--Azure Resource Manager-->
+```
+```xml  
+<authentication-managed-identity resource="https://vault.azure.cn"/> <!--Azure Key Vault-->
+```
+```xml  
+<authentication-managed-identity resource="https://servicebus.azure.cn/"/> <!--Azure Service Busr-->
+```
+```xml  
+<authentication-managed-identity resource="https://storage.azure.cn/"/> <!--Azure Blob Storage-->
+```
+```xml  
+<authentication-managed-identity resource="https://database.chinacloudapi.cn/"/> <!--Azure SQL-->
 ```
   
 #### <a name="use-managed-identity-in-send-request-policy"></a>在发送请求策略中使用托管标识

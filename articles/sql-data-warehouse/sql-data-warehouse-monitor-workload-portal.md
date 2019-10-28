@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 03/22/2019
-ms.date: 09/02/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: b9d5f6f407fc02607c1f45c0db4be9bcd5fc17c1
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: 7c3b1f7756ed9bc1959ff6ab36bdf775c49cefff
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131678"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914508"
 ---
 # <a name="monitor-workload---azure-portal"></a>监视工作负荷 - Azure 门户
 
@@ -37,7 +37,7 @@ ms.locfileid: "70131678"
 
 ![添加 Analytics 工作区](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-有关工作区的更多详细信息，请访问以下[文档](/azure-monitor/platform/manage-access#create-a-workspace)。
+有关工作区的更多详细信息，请访问以下[文档](/azure-monitor/learn/quick-create-workspace#create-a-workspace)。
 
 ## <a name="turn-on-diagnostic-logs"></a>启用诊断日志 
 

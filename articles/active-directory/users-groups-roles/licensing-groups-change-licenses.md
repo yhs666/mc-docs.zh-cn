@@ -12,17 +12,17 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
 origin.date: 03/18/2019
-ms.date: 08/12/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00e23740adc6ab0a6351c0a23d1c112528d88cd
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 9a9127e7121e962b591092894363dbeeef727723
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973517"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912651"
 ---
 # <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>在 Azure Active Directory 中更改许可组中单个用户的许可证
 
@@ -40,13 +40,13 @@ ms.locfileid: "68973517"
 - 已使用基于组的许可为用户分配了源许可证。  要从中移动产品的许可证继承自单个源组，而不是直接分配的。
 
     >[!NOTE]
-    >如果许可证也是直接分配的，它们可能会阻止应用目标许可证。  详细了解[直接许可证分配和组许可证分配](/active-directory/users-groups-roles/licensing-group-advanced#direct-licenses-coexist-with-group-licenses)。 可以使用 [PowerShell 脚本](/active-directory/users-groups-roles/licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)来检查用户是否具有直接许可证。
+    >如果许可证也是直接分配的，它们可能会阻止应用目标许可证。  可以使用 [PowerShell 脚本](/active-directory/users-groups-roles/licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)来检查用户是否具有直接许可证。
 
 - 目标产品有足够的许可证。 如果没有足够的许可证，则某些用户可能无法获取目标许可证。  可以检查[可用的许可证数目](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)。
 
 - 没有为用户分配可能与目标许可证冲突的，或者可能阻止删除源许可证的其他产品许可证。   例如，依赖于其他产品的 Workplace Analytics 或 Project Online 等附加产品中的许可证。
 
-- 了解组在环境中的管理方式。 例如，如果通过 Azure AD Connect 在本地管理组并将其同步到 Azure Active Directory (Azure AD) 中，则需要使用本地系统添加/删除用户。 将更改同步到 Azure AD 并在基于组的许可中拾取更改会花费一段时间。 如果使用 Azure AD 动态组成员身份，则需要改为通过修改属性来添加/删除用户。 但是，总体迁移过程保持不变。 唯一的差别是如何为组成员身份添加/删除用户。
+- 了解组在环境中的管理方式。 例如，如果通过 Azure AD Connect 在本地管理组并将其同步到 Azure Active Directory (Azure AD) 中，则需要使用本地系统添加/删除用户。 将更改同步到 Azure AD 并在基于组的许可中拾取更改会花费一段时间。 但是，总体迁移过程保持不变。 唯一的差别是如何为组成员身份添加/删除用户。
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>在不包含有冲突服务计划的产品之间迁移用户
 
@@ -829,6 +829,5 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 * [将许可证分配到 Azure Active Directory 中的组](../users-groups-roles/licensing-groups-assign.md)
 * [识别和解决 Azure Active Directory 中组的许可问题](../users-groups-roles/licensing-groups-resolve-problems.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](../users-groups-roles/licensing-groups-migrate-users.md)
-* [Azure Active Directory 基于组的许可的其他方案](../users-groups-roles/licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
 

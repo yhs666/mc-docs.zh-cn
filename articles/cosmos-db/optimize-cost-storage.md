@@ -2,17 +2,17 @@
 title: 优化 Azure Cosmos DB 中的存储成本
 description: 本文介绍如何管理 Azure Cosmos DB 中存储的数据的存储成本
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
-ms.openlocfilehash: e1e51690597fb5515fcf24fecbbb69d2e9d2228e
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 10/28/2019
+ms.openlocfilehash: f94e38d213652f4b437d53e0a56d2a7e9859f594
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254857"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914421"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的存储成本
 

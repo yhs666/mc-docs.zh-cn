@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 07/23/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 268c242422f6372e3f747c278a9fd0d88463c594
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 5bfe40940f23435b862545f242b04964e2b494e3
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254491"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913226"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 .NET 示例
 > [!div class="op_single_selector"]
@@ -106,10 +106,10 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | --- | --- |
 | [对新集合启用地理空间索引](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L48) |[IndexingPolicy](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.indexingpolicy?view=azure-dotnet) <br /> [IndexKind.Spatial](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.indexkind?view=azure-dotnet) <br />[DataType.Point](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.datatype?view=azure-dotnet) |
 | [使用 GeoJSON 点插入文档](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L104-L114) |[DocumentClient.CreateDocumentAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync?view=azure-dotnet) <br /> [DataType.Point](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.datatype?view=azure-dotnet) |
-| [查找指定距离内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L158-L199) |[ST_DISTANCE](sql-query-system-functions.md#spatial-functions) <br /> [GeometryOperationExtensions.Distance](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance?view=azure-dotnet) |
-| [查找多边形内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L204-L227) |[ST_WITHIN](sql-query-system-functions.md#spatial-functions) <br /> [GeometryOperationExtensions.Within](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance?view=azure-dotnet) <br />[多边形](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.polygon?view=azure-dotnet) |
+| [查找指定距离内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L158-L199) |[ST_DISTANCE](sql-query-st-distance.md) <br /> [GeometryOperationExtensions.Distance](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance?view=azure-dotnet) |
+| [查找多边形内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L204-L227) |[ST_WITHIN](sql-query-st-within.md) <br /> [GeometryOperationExtensions.Within](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance?view=azure-dotnet) <br />[多边形](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.polygon?view=azure-dotnet) |
 | [对现有集合启用地理空间索引](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L385-L391) |[DocumentClient.ReplaceDocumentCollectionAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync?view=azure-dotnet)<br />[DocumentCollection.IndexingPolicy](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.documentcollection.indexingpolicy?view=azure-dotnet) |
-| [验证点和多边形数据](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-system-functions.md#spatial-functions)<br />[ST_ISVALIDDETAILED](sql-query-system-functions.md#spatial-functions)<br />[GeometryOperationExtensions.IsValid](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid?view=azure-dotnet)<br />[GeometryOperationExtensions.IsValidDetailed](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed?view=azure-dotnet) |
+| [验证点和多边形数据](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br />[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br />[GeometryOperationExtensions.IsValid](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid?view=azure-dotnet)<br />[GeometryOperationExtensions.IsValidDetailed](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed?view=azure-dotnet) |
 
 ## <a name="query-examples"></a>查询示例
 示例 *Queries* 项目的 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) 方法显示了如何使用 SQL 查询语法、查询的 LINQ 提供程序和 Lambda 执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](how-to-sql-query.md)。 

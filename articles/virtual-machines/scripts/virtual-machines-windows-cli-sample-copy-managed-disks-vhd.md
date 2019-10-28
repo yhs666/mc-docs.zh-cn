@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 示例 - 将托管磁盘复制到存储帐户
+title: 使用 Azure CLI 将托管磁盘导出/复制到存储帐户
 description: Azure CLI 示例 - 将托管磁盘导出或复制到存储帐户。
 services: virtual-machines-windows
 documentationcenter: storage
@@ -17,12 +17,12 @@ origin.date: 09/17/2018
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 228bef281ed3628598e93f9f852f8d013fa79f1b
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: 4b2588650162cd350b487d1a891ee4af0e8469ac
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323735"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749596"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 将托管磁盘导出/复制到存储帐户
 

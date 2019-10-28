@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: e2c9e2bbcb5f2530b027a9ac228e8e665db2a95a
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 063b07e30dac027138c5f4eb75685a4fe62c91ab
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254657"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913340"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
 

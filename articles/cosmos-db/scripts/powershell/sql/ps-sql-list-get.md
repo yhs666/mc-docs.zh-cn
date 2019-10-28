@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB SQL (Core) API 的列出和获�
 description: Azure PowerShell 脚本 - Azure Cosmos DB SQL (Core) API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 54f91bc318f3b2613b429f9bb21c9fec123cb638
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: b0d8880dcb00dad71fb5db7babc85a52c356aff4
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514450"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914460"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>列出和获取 Azure Cosmos DB 的数据库和容器 - SQL (Core) API
 
@@ -24,36 +25,39 @@ ms.locfileid: "68514450"
 
 ```powershell
 # List and Get operations for Cosmos SQL API
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
 $accountResourceName = $accountName + "/sql/"
+$databaseName = "database1"
 $databaseResourceName = $accountName + "/sql/" + $databaseName
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
+$containerName = "container1"
 $containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
 
 Read-Host -Prompt "List all databases in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $accountResourceName  | Select-Object Properties
 
 Read-Host -Prompt "Get a database in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName | Select-Object Properties
 
 Read-Host -Prompt "List all containers in a database. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $containerResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName | Select-Object Properties
 
 Read-Host -Prompt "Get a container in a database. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $containerResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $containerResourceName | Select-Object Properties
 
 ```

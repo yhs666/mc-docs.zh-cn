@@ -2,18 +2,18 @@
 title: SQL API 的 Azure Cosmos DB 多区域分发教程
 description: 了解如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 07/15/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e90f8b2cc72bf7ebe8198edd3cf90370055ee43
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 0f11925a667d62964ec44d30cbf93d4108f84d59
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254837"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912898"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -55,6 +55,8 @@ SDK 只会尝试读取 PreferredLocations 中指定的区域。 因此，例如�
 > 不应将终结点 URL 视为长期不变的常量。 服务随时会更新这些 URL。 SDK 会自动处理这种更改。
 >
 >
+
+<!--MOONCAKE: WestUS TO CHINANORTH, EastUS TO China East, NorthEuropen TO CHINA EAST 2-->
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
@@ -147,6 +149,8 @@ AsyncDocumentClient client =
 服务返回副本的区域及其对应 Azure Cosmos DB 终结点 URI 的列表。 当前写入区域会在响应中指示。 然后，客户端可为所有其他 REST API 请求选择适当的终结点，如下所示。
 
 示例响应
+
+<!--MOONCAKE: WestUS TO CHINANORTH, EastUS TO China East, NorthEuropen TO CHINA EAST 2-->
 
     {
         "_dbs": "//dbs/",

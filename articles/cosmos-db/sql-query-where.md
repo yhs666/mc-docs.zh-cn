@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4527e453566c3235900e26097cbad4eddd07e098
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: f9999c4f2accbd3b25f557166496ff06f906555d
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306757"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912939"
 ---
-# <a name="where-clause"></a>WHERE 子句
+# <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 WHERE 子句
 
 可选的 WHERE 子句 (`WHERE <filter_condition>`) 指定条件，查询只会将满足这些条件的源 JSON 项包含在结果中。 JSON 项必须将指定的条件评估为 `true` 才被视作结果。 索引层使用 WHERE 子句来确定可以作为结果的一部分的源项的最小子集。
 
@@ -30,11 +30,11 @@ WHERE <filter_condition>
 
 - `<filter_condition>`  
 
-   指定需要满足什么条件才会返回文档。  
+    指定需要满足什么条件才会返回文档。  
 
 - `<scalar_expression>`  
 
-   表示待计算值的表达式。 有关详细信息，请参阅[标量表达式](sql-query-scalar-expressions.md)。  
+    表示待计算值的表达式。 有关详细信息，请参阅[标量表达式](sql-query-scalar-expressions.md)。  
 
 ## <a name="remarks"></a>备注
 
@@ -45,21 +45,21 @@ WHERE <filter_condition>
 以下查询请求包含值为 `AndersenFamily` 的 `id` 属性的项。 它会排除任何不带 `id` 属性或值与 `AndersenFamily` 不匹配的项。
 
 ```sql
-    SELECT f.address
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT f.address
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 其结果是：
 
 ```json
-    [{
-      "address": {
-        "state": "WA",
-        "county": "King",
-        "city": "Seattle"
-      }
-    }]
+[{
+  "address": {
+    "state": "WA",
+    "county": "King",
+    "city": "Seattle"
+  }
+}]
 ```
 
 ### <a name="scalar-expressions-in-the-where-clause"></a>WHERE 子句中的标量表达式
@@ -79,29 +79,29 @@ WHERE <filter_condition>
 以下查询使用二元运算符：
 
 ```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade % 2 = 1     -- matching grades == 5, 1
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade % 2 = 1     -- matching grades == 5, 1
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade ^ 4 = 1    -- matching grades == 5
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade ^ 4 = 1    -- matching grades == 5
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade >= 5    -- matching grades == 5
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade >= 5    -- matching grades == 5
 ```
 
 还可以在查询中使用一元运算符 +、-、~ 和 NOT，如以下示例所示：
 
 ```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE NOT(c.grade = 5)  -- matching grades == 1
+SELECT *
+FROM Families.children[0] c
+WHERE NOT(c.grade = 5)  -- matching grades == 1
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE (-c.grade = -5)  -- matching grades == 5
+SELECT *
+FROM Families.children[0] c
+WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
 还可以在查询中使用属性引用。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 返回包含值等于 `true` 的 `isRegistered` 属性的 JSON 项。 任何其他值（例如`false`、`null`、`Undefined`、`<number>`、`<string>`、`<object>` 或 `<array>`）会从结果中排除该项。 

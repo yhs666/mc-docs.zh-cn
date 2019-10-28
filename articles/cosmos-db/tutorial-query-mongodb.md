@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/21/2019
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a70aa01d79f255d32f420a240422c8f70b75fbb6
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 52bd872b49469e43f611f7570f2f2253f70b56b1
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309120"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912899"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 查询数据
 
@@ -62,7 +62,7 @@ ms.locfileid: "54309120"
 }
 ```
 <a name="examplequery1"></a>
-##  <a name="example-query-1"></a>示例查询 1 
+## <a name="example-query-1"></a>示例查询 1 
 
 在上述家庭示例文档中，以下查询返回其 ID 字段匹配 `WakefieldFamily` 的文档。
 
@@ -165,7 +165,7 @@ ms.locfileid: "54309120"
     db.families.find( { "isRegistered" : false })
 **结果**
 
-     {
+    {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -198,7 +198,7 @@ ms.locfileid: "54309120"
     },
     "creationDate": 1431620462,
     "isRegistered": false
-}
+    }
 
 <a name="examplequery5"></a>
 ## <a name="example-query-5"></a>示例查询 5
@@ -207,11 +207,11 @@ ms.locfileid: "54309120"
 
 **查询**
 
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+    db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
 **结果**
 
-     {
+    {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -244,7 +244,7 @@ ms.locfileid: "54309120"
     },
     "creationDate": 1431620462,
     "isRegistered": false
-}
+    }
 
 <a name="examplequery6"></a>
 ## <a name="example-query-6"></a>示例查询 6
@@ -257,7 +257,7 @@ ms.locfileid: "54309120"
 
 **结果**
 
-     {
+    {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -290,7 +290,7 @@ ms.locfileid: "54309120"
     },
     "creationDate": 1431620462,
     "isRegistered": false
-}
+    }
 
 <a name="examplequery7"></a>
 ## <a name="example-query-7"></a>示例查询 7
@@ -299,7 +299,7 @@ ms.locfileid: "54309120"
 
 **查询**
 
-      db.Family.find( {children: { $size:3} } )
+    db.Family.find( {children: { $size:3} } )
 
 **结果**
 
@@ -312,9 +312,9 @@ ms.locfileid: "54309120"
 > [!div class="checklist"]
 > * 学习了如何使用 Cosmos DB 的用于 MongoDB 的 API 进行查询
 
-现可继续学习下一教程，了解如何全局分发数据。
+现可继续学习下一教程，了解如何多区域分发数据。
 
 > [!div class="nextstepaction"]
-> [全局分发数据](tutorial-global-distribution-sql-api.md)
+> [多区域分配数据](tutorial-global-distribution-sql-api.md)
 
 <!-- Update_Description: update meta properties, wording update -->

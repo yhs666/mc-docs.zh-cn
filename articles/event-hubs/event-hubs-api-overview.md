@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/02/2018
-ms.date: 05/06/2019
-ms.author: v-biyu
-ms.openlocfilehash: 081768b0178453de030aa677ae85c12f177a4806
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 09/10/2019
+ms.author: v-tawe
+ms.openlocfilehash: c14588196708647f91876e57e9c7fc93c5b1d7be
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855152"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873088"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中心 API
 
@@ -48,7 +48,7 @@ ms.locfileid: "64855152"
 
 #### <a name="node"></a>节点
 
-[Node.js 库](https://github.com/Azure/azure-event-hubs-node)目前为预览版，由 Azure 员工和外部参与者将其作为副项目进行维护。 包括源代码在内的所有贡献都欢迎并会对其进行审查。
+[Node.js 库](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs)目前处于预览状态，由 Microsoft 员工和外部参与者作为副项目进行维护。 包括源代码在内的所有贡献都欢迎并会对其进行审查。
 
 ## <a name="management-apis"></a>管理 API
 

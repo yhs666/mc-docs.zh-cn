@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 获取吞吐量（RU/秒）- Ca
 description: Azure PowerShell 脚本 - Azure Cosmos DB 获取吞吐量（RU/秒）- Cassandra API
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 07/03/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: bf54db0f6a8e9eef9bf013aeead9f73fcbbd93fe
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: e53e674984bc8645d30c7468172f97c47813e822
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514522"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914466"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>获取 Azure Cosmos DB 的密钥空间或表的吞吐量（RU/秒）- Cassandra API
 
@@ -30,22 +31,16 @@ $accountName = "mycosmosaccount"
 $keyspaceName = "keyspace1"
 $tableName = "table1"
 $keyspaceThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/settings"
-$tableThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables/settings"
 $keyspaceThroughputResourceName = $accountName + "/cassandra/" + $keyspaceName + "/throughput"
 $tableThroughputResourceName = $accountName + "/cassandra/" + $keyspaceName + "/" + $tableName + "/throughput"
+$tableThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables/settings"
 
-# Get the throughput for a keyspace (returns RU/s or 404 "Not found" error if not set)
+# Get the throughput for a keyspace (returns RU/s or error)
 Get-AzResource -ResourceType $keyspaceThroughputResourceType `
     -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $keyspaceThroughputResourceName | Select-Object Properties
 
-if($error[0].Exception.Message.Split(",")[0].Split(":")[1].Replace("`"","") -eq "NotFound")
-{
-    Write-Host "Throughput not set on keyspace resource"
-    $error.Clear()
-}
-
-# Get the throughput for a table (returns RU/s or 404 "Not found" error if not set)
+# Get the throughput for a table (returns RU/s or error)
 Get-AzResource -ResourceType $tableThroughputResourceType `
     -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $tableThroughputResourceName | Select-Object Properties
@@ -78,5 +73,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!-- Update_Description: new article about ps cassandra ru get -->
-<!--ms.date: 07/29/2019-->
+<!-- Update_Description: wording update -->

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/28/2017
-ms.date: 08/05/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a7a556404f29d69fc81514261f769761090dfbe
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fe654fc44fcad7fa3f18f76edf4a983658ff91bc
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818631"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912738"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>使用 Azure SDK 为 VM 配置具有 Azure 资源托管标识
 
@@ -45,7 +45,6 @@ Azure 通过一系列 [Azure SDK](/downloads) 支持多个编程平台。 其中
 | Java   | [从具有 Azure 资源托管标识的已启用的 VM 中管理存储](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [创建启用了系统分配托管标识的 VM](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [创建启用了系统分配托管标识的 VM](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [创建启用了系统分配托管标识的 Azure VM](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>后续步骤
 

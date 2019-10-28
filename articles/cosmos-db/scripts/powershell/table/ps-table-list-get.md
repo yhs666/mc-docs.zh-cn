@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 表 API 的列出和获取操�
 description: Azure PowerShell 脚本 - Azure Cosmos DB 表 API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: e41ed2513d3fb24067c61bc20c7f20ba38ec0040
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: f488dabf791783c11b19c922390d3cf9216459d4
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514185"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913249"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>列出和获取 Azure Cosmos DB 的表 - 表 API
 
@@ -24,22 +25,25 @@ ms.locfileid: "68514185"
 
 ```powershell
 # List and Get operations for Azure Cosmos Table API
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount" # must be lower case.
 $tableName = "table1"
 $accountResourceName = $accountName + "/table/"
 $tableResourceName = $accountName + "/table/" + $tableName
+$tableResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/tables"
 
 Read-Host -Prompt "List all tables in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/tables" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $tableResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $accountResourceName  | Select-Object Properties
 
 Read-Host -Prompt "Get a table in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/tables" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $tableResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $tableResourceName | Select-Object Properties
 ```
 
@@ -69,4 +73,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

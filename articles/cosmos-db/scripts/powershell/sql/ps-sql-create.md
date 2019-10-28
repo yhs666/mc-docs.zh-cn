@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建 SQL (Core) API 数据库
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建 SQL (Core) API 数据库和容器
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-origin.date: 05/18/2019
-ms.date: 07/29/2019
+origin.date: 09/20/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: d198f3cc9de60755e2d70d3ca013a8c119c734ec
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 9c47cbd1977750c60ffb0f9c4d944ea4bbc7ef58
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514451"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914442"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>为 Azure Cosmos DB 创建数据库和容器 - SQL (Core) API
 
@@ -22,35 +23,45 @@ ms.locfileid: "68514451"
 
 ## <a name="sample-script"></a>示例脚本
 
+此脚本在两个具有会话级一致性的区域、具有共享吞吐量的数据库和具有分区键、自定义索引策略、唯一键策略、TTL、专用吞吐量和“以最后一次写入为准”冲突解决策略的容器中使用在 `multipleWriteLocations=true` 时将使用的自定义冲突解决路径为 SQL (Core) API 创建 Cosmos 帐户。
+
 ```powershell
-# Create a Cosmos SQL API account, database and container
+# Create a Cosmos SQL API account, single-master, a database with shared throughput, and a
+# container with its own dedicated thoughput, a unique key, and user defined conflict resolution path
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
+$location = "China North 2"
 $resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$accountResourceType = "Microsoft.DocumentDb/databaseAccounts"
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
 $databaseName = "database1"
 $containerName = "container1"
 $databaseResourceName = $accountName + "/sql/" + $databaseName
 $containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
 
 $locations = @(
-    @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 }
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{
-    "defaultConsistencyLevel"="BoundedStaleness";
-    "maxIntervalInSeconds"=300;
-    "maxStalenessPrefix"=100000
+    "defaultConsistencyLevel"="Session";
 }
 
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
     "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "enableMultipleWriteLocations"="false"
 }
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+New-AzResource -ResourceType $accountResourceType -ApiVersion $apiVersion `
+    -ResourceGroupName $resourceGroupName -Location $location `
     -Name $accountName -PropertyObject $CosmosDBProperties
 
 #Database
@@ -58,8 +69,8 @@ $databaseProperties = @{
     "resource"=@{ "id"=$databaseName };
     "options"=@{ "Throughput"= 400 }
 } 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+New-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName -PropertyObject $databaseProperties
 
 # Container
@@ -74,17 +85,6 @@ $containerProperties = @{
             "indexingMode"="Consistent"; 
             "includedPaths"= @(@{
                 "path"="/*";
-                "indexes"= @(@{
-                        "kind"="Range";
-                        "dataType"="number";
-                        "precision"=-1
-                    },
-                    @{
-                        "kind"="Range";
-                        "dataType"="string";
-                        "precision"=-1
-                    }
-                )
             });
             "excludedPaths"= @(@{
                 "path"="/myPathToNotIndex/*"
@@ -107,9 +107,10 @@ $containerProperties = @{
     "options"=@{ "Throughput"= 400 }
 } 
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+New-AzResource -ResourceType $containerResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $containerResourceName -PropertyObject $containerProperties
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -138,4 +139,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

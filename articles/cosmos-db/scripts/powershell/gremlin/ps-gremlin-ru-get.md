@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 获取吞吐量（RU/秒）- Gr
 description: Azure PowerShell 脚本 - Azure Cosmos DB 获取吞吐量（RU/秒）- Gremlin API
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 07/03/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3aaeb4109e855466b92188e0311637e08a41303
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 8de028a5399de5f9010e2f5c5ce1db0104160135
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514509"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913274"
 ---
 # <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>获取 Azure Cosmos DB 的数据库或图的吞吐量（RU/秒）- Gremlin API
 
@@ -26,20 +27,20 @@ ms.locfileid: "68514509"
 # Get RU for an Azure Cosmos Gremlin API database or graph
 $apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
-$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
-$graphThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs/settings"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
-$graphName = "graph1"
 $databaseThroughputResourceName = $accountName + "/gremlin/" + $databaseName + "/throughput"
+$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
+$graphName = "graph1"
 $graphThroughputResourceName = $accountName + "/gremlin/" + $databaseName + "/" + $graphName + "/throughput"
+$graphThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs/settings"
 
-# Get the throughput for a database (returns RU/s or 404 "Not found" error if not set)
+# Get the throughput for a database (returns RU/s or error if not set)
 Get-AzResource -ResourceType $databaseThroughputResourceType `
     -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $databaseThroughputResourceName  | Select-Object Properties
 
-# Get the throughput for a graph (returns RU/s or 404 "Not found" error if not set)
+# Get the throughput for a graph (returns RU/s or error if not set)
 Get-AzResource -ResourceType $graphThroughputResourceType `
     -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $graphThroughputResourceName  | Select-Object Properties
@@ -72,5 +73,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!-- Update_Description: new article about ps gremlin ru get-->
-<!--ms.date: 07/29/2019-->
+<!-- Update_Description: wording update -->

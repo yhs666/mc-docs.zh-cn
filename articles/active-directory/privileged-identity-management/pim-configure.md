@@ -11,16 +11,16 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
 origin.date: 04/09/2019
-ms.date: 08/08/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccc28e1943dd203888acfee438bc6d91370fe560
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 2af34c23661b57e419bd4ab20e7355ec028458d0
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973640"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912808"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什么是 Azure AD Privileged Identity Management？
 
@@ -106,6 +106,5 @@ PIM 支持以下方案：
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 PIM 所要满足的许可证要求](subscription-requirements.md)
-- [确保 Azure AD 中混合部署和云部署的特权访问安全性](../users-groups-roles/directory-admin-roles-secure.md)
 - [部署 PIM](pim-deployment-plan.md)
 

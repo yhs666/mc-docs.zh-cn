@@ -2,17 +2,17 @@
 title: Azure Cosmos DB 中的开发和测试优化
 description: 本文介绍 Azure Cosmos DB 为服务的免费开发和测试提供多个选项的情况。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 06/17/2019
-ms.author: v-yeche
-ms.openlocfilehash: e8b2ae29785882d848899621e67c1581e976829f
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.date: 10/28/2019
+ms.openlocfilehash: aa471692f41a189032e8574d15622c50718bf1c9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171399"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914419"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化开发和测试成本
 

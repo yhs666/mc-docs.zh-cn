@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 07/17/2019
-ms.date: 08/28/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4a91dddec4396b98f7ed167b0bbf9d7f9ca2f6
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 6c5da80362526cb74a4c1d7dbe3732c7141db855
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134079"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912700"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 
@@ -76,7 +76,6 @@ Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访�
 
 可以根据以下字段筛选审核数据：
 
-- 服务
 - Category
 - 活动
 - 状态
@@ -86,42 +85,14 @@ Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访�
 
 ![审核日志](./media/concept-audit-logs/filter.png "审核日志")
 
-使用“服务”  筛选器可以从以下服务的下拉列表中进行选择：
-
-- 全部
-- 访问评审
-- 帐户预配 
-- 应用程序 SSO
-- 身份验证方法
-- B2C
-- 条件性访问
-- 核心目录
-- 权利管理
-- 标识保护
-- 受邀用户
-- PIM
-- 自助服务组管理
-- 自助服务密码管理
-- 使用条款
-
 “类别”筛选器用于选择下述筛选器之一： 
 
 - 全部
-- AdministrativeUnit
-- ApplicationManagement
-- 身份验证
-- 授权
-- 联系人
-- 设备
-- DeviceConfiguration
-- DirectoryManagement
-- EntitlementManagement
-- GroupManagement
-- 其他
-- 策略
-- ResourceManagement
-- RoleManagement
-- UserManagement
+- B2C
+- 使用条款
+- 访问评审
+- 核心目录
+- 自助服务密码管理
 
 “活动”筛选器基于类别以及所做的活动资源类型选择。  可以选择要查看的特定活动，也可以全选。 
 

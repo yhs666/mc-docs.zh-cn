@@ -11,17 +11,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 05/31/2019
-ms.date: 10/11/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 028b80fb35734a4f09eb7926dcdbb1a0f3459b09
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 6dace35711212831b5722b8634dfdb85ca68a37f
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292123"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912648"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中按管理员任务委托管理员角色
 
@@ -110,21 +110,6 @@ ms.locfileid: "72292123"
 更新组所有者 | 组所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 用户管理员
 更新组属性 | 组所有者（[请参阅文档](/active-directory/fundamentals/users-default-permissions)） | 用户管理员
 
-## <a name="identity-protection"></a>标识保护
-
-任务 | 最小特权角色 | 其他角色
----- | --------------------- | ----------------
-配置警报通知| 安全管理员 | 
-配置并启用/禁用 MFA 策略| 安全管理员 | 
-配置并启用/禁用登录风险策略| 安全管理员 | 
-配置并启用/禁用用户风险策略 | 安全管理员 | 
-配置每周摘要 | 安全管理员| 
-消除所有风险检测 | 安全管理员 | 
-修复或消除漏洞 | 安全管理员 | 
-读取所有配置 | 安全读取者 | 
-读取所有风险检测 | 安全读取者 | 
-读取漏洞 | 安全读取者 | 
-
 ## <a name="licenses"></a>许可证
 
 任务 | 最小特权角色 | 其他角色
@@ -164,7 +149,6 @@ ms.locfileid: "72292123"
 ---- | --------------------- | ----------------
 管理标识提供者 | 全局管理员角色 | 
 管理设置 | 全局管理员角色 | 
-管理使用条款 | 全局管理员角色 | 
 读取所有配置 | 全局管理员角色 | 
 
 ## <a name="password-reset"></a>密码重置
@@ -202,26 +186,6 @@ ms.locfileid: "72292123"
 ---- | --------------------- | ----------------
 配置身份验证方法 | 全局管理员角色 | 
 读取所有配置 | 全局管理员角色 | 
-
-## <a name="security---conditional-access"></a>安全性 - 条件访问
-
-任务 | 最小特权角色 | 其他角色
----- | --------------------- | ----------------
-配置 MFA 受信任的 IP | 条件访问管理员 | 
-创建自定义控件 | 条件访问管理员 | 安全管理员
-创建命名位置 | 条件访问管理员 | 安全管理员
-创建策略 | 条件访问管理员 | 安全管理员
-创建使用条款 | 条件访问管理员 | 安全管理员
-创建 VPN 连接证书 | 条件访问管理员 | 安全管理员
-删除经典策略 | 条件访问管理员 | 安全管理员
-删除使用条款 | 条件访问管理员 | 安全管理员
-删除 VPN 连接证书 | 条件访问管理员 | 安全管理员
-禁用经典策略 | 条件访问管理员 | 安全管理员
-管理自定义控件 | 条件访问管理员 | 安全管理员
-管理命名位置 | 条件访问管理员 | 安全管理员
-管理使用条款 | 条件访问管理员 | 安全管理员
-读取所有配置 | 安全读取者 | 安全管理员
-读取命名位置 | 安全读取者 | 条件访问管理员、安全管理员
 
 ## <a name="security---identity-security-score"></a>安全性 - 标识安全分数
 

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/23/2019
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ac7a96068fe89ea52dbd86473416578cbfaecb2
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 0e44846099072b768294ca2ac1008dc4a61033a1
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292058"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912769"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的移动应用 - 代码配置
 
@@ -137,7 +137,6 @@ var pca = PublicClientApplicationBuilder
 
 在 Android 和 iOS 上，中介可以实现：
 
-- 设备标识。 通过访问将设备加入工作区时在设备上创建的设备证书，来启用 Azure AD 设备相关的条件访问策略。
 - 应用程序标识验证。 当应用程序调用中介时，它会传递其重定向 URL，而中介会验证该 URL。
 
 ### <a name="enable-the-brokers-on-xamarin"></a>在 Xamarin 上启用中介

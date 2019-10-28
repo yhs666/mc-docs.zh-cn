@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 150b60ba1b2a8b26ca17b329ff37eb5310416074
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 4765fbbe5d51334fb9e5cf73978e91fbc0164934
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174278"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914530"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C# IoT Edge 模块
 
@@ -37,7 +37,7 @@ ms.locfileid: "70174278"
 
 本教程演示如何使用 **Visual Studio 2019** 以 **C#** 开发模块，以及如何将其部署到 **Windows 设备**。 若要开发适用于 Linux 设备的模块，请转到[开发适用于 Linux 设备的 C# IoT Edge 模块](tutorial-csharp-module.md)。 
 
-使用下表了解开发 C 模块并将其部署到 Windows 设备的选项： 
+使用下表了解开发 C# 模块并将其部署到 Windows 设备的选项： 
 
 | C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
@@ -85,7 +85,7 @@ Azure IoT Edge Tools 为 Visual Studio 中支持的所有 IoT Edge 模块语言�
 
    ![配置目标设备、模块类型和容器注册表的项目](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. 选择“确定”以应用更改。  
+5. 选择“添加”  以创建项目。 
 
 ### <a name="add-your-registry-credentials"></a>添加注册表凭据
 
@@ -232,14 +232,16 @@ Azure IoT Edge Tools 为 Visual Studio 中支持的所有 IoT Edge 模块语言�
             {
                 Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
                     $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
+                using(var filteredMessage = new Message(messageBytes))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
             }
 
             // Indicate that the message treatment is completed.

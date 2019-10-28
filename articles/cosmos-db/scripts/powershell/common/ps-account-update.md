@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell 脚本 - 更新 Azure Cosmos 帐户
-description: Azure PowerShell 脚本示例 - 使用添加的区域更新 Azure Cosmos 帐户
+description: Azure PowerShell 脚本示例 - 更新 Azure Cosmos 帐户或修改区域
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/06/2019
-ms.date: 07/29/2019
+origin.date: 09/20/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8540076976ab52d6ced774c239c6ccca09deba43
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 5d182a23ceede7665e8bbc4700cdb3e37757d2cd
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514409"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913277"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帐户并添加区域
+# <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帐户或修改区域
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,26 +22,60 @@ ms.locfileid: "68514409"
 
 ## <a name="sample-script"></a>示例脚本
 
-```powershell
-# Update an Azure Cosmos Account and add a region
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
+> [!NOTE]
+> 不能在同一操作中修改区域并更改其他 Cosmos 帐户属性。 这些操作必须以两个单独的操作来完成。
+> [!NOTE]
+> 此示例演示如何使用 SQL (Core) API 帐户。 若要将此示例用于其他 API，请复制相关属性，并将其应用于 API 特定的脚本。
 
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
+```powershell
+# Create a Cosmos SQL API account in two regions, then update and add a third region
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
+$location = "China North 2"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$resourceType = "Microsoft.DocumentDb/databaseAccounts"
 
 $locations = @(
-    @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 },
-    @{ "locationName"="China East 2"; "failoverPriority"=2 }
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 }
 )
+
+$consistencyPolicy = @{
+    "defaultConsistencyLevel"="Session";
+}
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+}
+
+New-AzResource -ResourceType $resourceType -ApiVersion $apiVersion `
+    -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Add a new region
+Read-Host -Prompt "Press any key to add a region in China East"
+
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 },
+    @{ "locationName"="China East"; "failoverPriority"=2 }
+)
+
+$account = Get-AzResource -ResourceType $resourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $accountName
 
 $account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Set-AzResource -ResourceType $resourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
@@ -60,7 +94,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 命令 | 注释 |
 |---|---|
 |**Azure 资源**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | 获取资源。 |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 创建资源。 |
 | [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 更新资源。 |
 |**Azure 资源组**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
