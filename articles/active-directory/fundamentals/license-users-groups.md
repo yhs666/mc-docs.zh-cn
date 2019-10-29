@@ -10,17 +10,17 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 09/05/2018
-ms.date: 08/12/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 119d4b5c7b0abf5766a2bd47c5618f557506c043
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 659542c022345ff3dedbb0f3671d5ffd9dc15810
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973272"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912798"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户分配或删除许可证 | Microsoft Docs
 许多 Azure Active Directory (Azure AD) 服务要求激活 Azure AD 产品并且针对该产品向每个用户或组（以及关联成员）授予许可。 只有具有活动许可证的用户才能访问和使用已许可的 Azure AD 服务。
@@ -139,7 +139,5 @@ ms.locfileid: "68973272"
 
 - [将许可的用户添加到组以进行许可](../users-groups-roles/licensing-groups-migrate-users.md)
 
-- [在 Azure Active Directory 中使用组管理许可的方案、限制和已知问题](../users-groups-roles/licensing-group-advanced.md)
-
-- [添加或更改配置文件信息](active-directory-users-profile-azure-portal.md)
+- [添加或更改个人资料信息](active-directory-users-profile-azure-portal.md)
 

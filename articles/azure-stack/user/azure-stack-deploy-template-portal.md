@@ -40,7 +40,7 @@ ms.locfileid: "68513348"
 
    ![在 Azure Stack 门户中部署模板](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. 选择“编辑模板”  ，然后将 JSON 模板代码粘贴到代码窗口中。 选择“其他安全性验证”  。
+1. 选择“编辑模板”  ，然后将 JSON 模板代码粘贴到代码窗口中。 选择“保存”  。
 
    ![在 Azure Stack 门户中编辑模板](media/azure-stack-deploy-template-portal/template-deploy3.png)
 

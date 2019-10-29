@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/29/2019
-ms.date: 05/10/2019
+ms.date: 10/25/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95129ebba5684eff80a36b20b47f65eedd9dfd0e
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 4675196acd7b21c88552a048ad4ad15d037821a2
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520760"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912743"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步排查对象同步问题
 本文按步骤介绍了如何使用故障排除任务来排查对象同步问题。 
@@ -56,7 +56,6 @@ ms.locfileid: "65520760"
 2. 检查对象是否已因域筛选而被筛选出来
 3. 检查对象是否已因 OU 筛选而被筛选出来
 4. 检查对象同步是否由于链接的邮箱而被阻止
-5. 检查对象是否是不应该同步的动态通讯组
 
 本部分的剩余内容说明了此任务返回的具体结果。 在每个示例中，此任务都提供了分析以及解决问题所需的建议操作。
 
@@ -94,11 +93,6 @@ Azure Active Directory 不允许将 UserPrincipalName (UPN)/备用登录 ID 后�
 ## <a name="linked-mailbox-issue"></a>链接邮箱问题
 链接邮箱假设与位于另一个受信任帐户林中的外部主帐户相关联。 如果没有此类外部主帐户，则 Azure AD Connect 不会将 Exchange 林中对应于链接邮箱的用户帐户与 Azure AD 租户同步。</br>
 ![链接邮箱](./media/tshoot-connect-objectsync/objsynch12.png)
-
-## <a name="dynamic-distribution-group-issue"></a>动态通讯组问题
-由于本地 Active Directory 和 Azure Active Directory 之间的各种差异，Azure AD Connect 不会将动态通讯组与 Azure AD 租户同步。
-
-![动态通讯组](./media/tshoot-connect-objectsync/objsynch13.png)
 
 ## <a name="html-report"></a>HTML 报表
 除了分析对象，故障排除任务还会生成 HTML 报表，其中包含有关该对象的一切已知内容。 此 HTML 报表可以与支持团队共享，以便根据需要进行进一步的故障排除。

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ee9484285b24d433ad1d5f31beaac2111287085
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 40fcefd15e217ccfb0d4e56fff1cb3c859959ebf
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134267"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912774"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>方案：用于调用 Web API 的 桌面应用
 
@@ -52,7 +52,7 @@ ms.locfileid: "70134267"
   - 如果它是 .NET Core 应用程序，并且你同意在系统浏览器中与 Azure AD 进行身份验证交互
 
 - 对于 Windows 托管的应用程序，也可让加入到 Windows 域或加入 AAD 的计算机上运行的应用程序使用集成 Windows 身份验证以无提示方式获取令牌。
-- 最后，可以在公共客户端应用程序中使用用户名/密码，虽然不建议使用这种方式。 在某些情况下，这仍然是必需的，但请注意，使用它会对应用程序施加约束。 例如，它不能登录需要执行多重身份验证（条件访问）的用户。 
+- 最后，可以在公共客户端应用程序中使用用户名/密码，虽然不建议使用这种方式。 在某些情况下，这仍然是必需的，但请注意，使用它会对应用程序施加约束。 例如，它不能登录需要执行多重身份验证的用户。 
 
   它也违反新式身份验证的原则，提供它只是出于历史原因。
 

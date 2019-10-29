@@ -2,17 +2,17 @@
 title: 在 Azure Cosmos DB 中优化吞吐量成本
 description: 本文介绍如何优化 Azure Cosmos DB 中存储的数据的吞吐量成本。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/26/2019
-ms.date: 09/30/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1bf8c8a1d059b7ae0defeaaa9bb3a5ffb4ca1ebb
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.openlocfilehash: 1f5a2a0921c8f49c4a99fedb3277c15dd8f05f20
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306806"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914422"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 

@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新 Gremlin API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新 Gremlin API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 09deca9c5186d61193105fec0d263ad071eb0053
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: a3956effa44fd6d2999997b00056e927d21b01c2
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514370"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913273"
 ---
 # <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>更新 Azure Cosmos DB 的数据库或图的 RU/秒 - Gremlin API
 
@@ -24,12 +25,16 @@ ms.locfileid: "68514370"
 
 ```powershell
 # Update RU for an Azure Cosmos SQL Gremlin API database or graph
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
+$databaseThroughputResourceName = $accountName + "/gremlin/" + $databaseName + "/throughput"
+$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
 $graphName = "graph1"
-$databaseResourceName = $accountName + "/gremlin/" + $databaseName + "/throughput"
-$graphResourceName = $accountName + "/gremlin/" + $databaseName + "/" + $graphName + "/throughput"
+$graphThroughputResourceName = $accountName + "/gremlin/" + $databaseName + "/" + $graphName + "/throughput"
+$graphThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs/settings"
 $throughput = 500
 $updateResource = "database" # or "graph"
 
@@ -38,14 +43,14 @@ $properties = @{
 }
 
 if($updateResource -eq "database"){
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $properties
+Set-AzResource -ResourceType $databaseThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $databaseThroughputResourceName -PropertyObject $properties
 }
 elseif($updateResource -eq "graph"){
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $graphResourceName -PropertyObject $properties
+Set-AzResource -ResourceType $graphThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $graphThroughputResourceName -PropertyObject $properties
 }
 else {
     Write-Host("Must select database or graph")    

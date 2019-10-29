@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/13/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 30bf9ebd5d907906fe84f32cdf99fab60526b2ed
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: fb408a11f6bd7bc0263c9e7c16ec0de9f62a2977
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174272"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914527"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教程：开发适用于 Linux 设备的 IoT Edge 模块
 
@@ -64,6 +64,7 @@ ms.locfileid: "70174272"
 一台开发计算机：
 
 * 可以根据开发偏好，使用自己的计算机或虚拟机。
+  * 请确保开发计算机支持嵌套虚拟化。 此功能对于运行容器引擎是必需的，你将在下一部分中安装。
 * 大多数可以运行容器引擎的操作系统都可用于开发 Linux 设备的 IoT Edge 模块。 本教程使用 Windows 计算机，但会指出 MacOS 或 Linux 上的已知差异。 
 * 安装 [Git](https://git-scm.com/)，用于稍后在本教程中提取模块模板包。  
 * [适用于 Visual Studio Code 的 C# 扩展（由 OmniSharp 提供支持）](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。

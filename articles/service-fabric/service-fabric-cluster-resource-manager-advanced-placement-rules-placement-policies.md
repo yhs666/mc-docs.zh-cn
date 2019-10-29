@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: b1d8e8739aac9950dc07c387d95a0bda47d45765
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b084ec7f287267849045fa1175863a2f60a1f255
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626174"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914510"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服务的放置策略
 放置策略是可用于在某些不常见的特定情况下控制服务位置的附加规则。 这些情况可能包括：
@@ -47,6 +47,7 @@ ms.locfileid: "58626174"
 <center>
 
 ![无效域示例][Image1]
+
 </center>
 
 代码：
@@ -59,7 +60,7 @@ serviceDescription.PlacementPolicies.Add(invalidDomain);
 
 Powershell：
 
-```posh
+```powershell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast")
 ```
 ## <a name="specifying-required-domains"></a>指定所需域
@@ -68,6 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 <center>
 
 ![所需域示例][Image2]
+
 </center>
 
 代码：
@@ -80,7 +82,7 @@ serviceDescription.PlacementPolicies.Add(requiredDomain);
 
 Powershell：
 
-```posh
+```powershell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
 ```
 
@@ -90,6 +92,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 <center>
 
 ![首选主域和故障转移][Image3]
+
 </center>
 
 ```csharp
@@ -100,12 +103,12 @@ serviceDescription.PlacementPolicies.Add(primaryDomain);
 
 Powershell：
 
-```posh
+```powershell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/ChinaEast")
 ```
 
 ## <a name="requiring-replica-distribution-and-disallowing-packing"></a>需要副本分发并禁止封装
-群集正常运行时，副本通常分布在容错域和升级域中。 但是，存在给定分区的多个副本最终可能会暂时打包到单个域中的情况。 例如，假设群集有九个节点在三个容错域（fd:/0、fd:/1 和 fd:/2）中。 再假设服务具有三个副本。 假设 fd:/1 和 fd:/2 中用于这些副本的节点已关闭。 群集资源管理器通常会首选这些相同容错域中的其他节点。 在这种情况下，假设由于容量问题，这些域中的其他任何节点都无效。 如果群集 Resource Manager 要为这些副本生成替代项，则必须在 fd:/0 中选择节点。 但是，执行该操作就造成了违反容错域约束的情况。 打包副本会增加整个副本集发生故障或丢失的可能性。 
+群集正常运行时，副本通常分布在容错域和升级域中  。 但是，存在给定分区的多个副本最终可能会暂时打包到单个域中的情况。 例如，假设群集有九个节点在三个容错域（fd:/0、fd:/1 和 fd:/2）中。 再假设服务具有三个副本。 假设 fd:/1 和 fd:/2 中用于这些副本的节点已关闭。 群集资源管理器通常会首选这些相同容错域中的其他节点。 在这种情况下，假设由于容量问题，这些域中的其他任何节点都无效。 如果群集 Resource Manager 要为这些副本生成替代项，则必须在 fd:/0 中选择节点。 但是，执行该操作就造成了违反容错域约束的情况  。 打包副本会增加整个副本集发生故障或丢失的可能性。 
 
 > [!NOTE]
 > 有关约束和约束优先级的其他一般信息，请参阅[此主题](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities)。
@@ -126,7 +129,7 @@ serviceDescription.PlacementPolicies.Add(distributeDomain);
 
 Powershell：
 
-```posh
+```powershell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 

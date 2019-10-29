@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB Cassandra API 的列出和获�
 description: Azure PowerShell 脚本 - Azure Cosmos DB Cassandra API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 080acd7e4cab02fd5efbc4eb1f4bc36e5aca99f0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 62cda0d8e796e4a6121fcbf0620ec0284b1113c7
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514455"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914465"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>列出和获取 Azure Cosmos DB 的密钥空间和表 - Cassandra API
 
@@ -24,38 +25,43 @@ ms.locfileid: "68514455"
 
 ```powershell
 # List and get operations for Azure Cosmos account Cassandra API
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $keyspaceName = "keyspace1"
 $tableName = "table1"
 $accountResourceName = $accountName + "/cassandra/"
 $keyspaceResourceName = $accountName + "/cassandra/" + $keyspaceName
+$keyspaceResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces"
 $tableResourceName = $accountName + "/cassandra/" + $keyspaceName + "/" + $tableName
+$tableResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables"
 
 Read-Host -Prompt "List all Keyspaces in an account. Press Enter to continue"
 
 # List all keyspaces in an account
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $keyspaceResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $accountResourceName  | Select-Object Properties
 
 Read-Host -Prompt "Get a single Keyspace in an account. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $keyspaceResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $keyspaceResourceName | Select-Object Properties
 
 Read-Host -Prompt "List all tables in an keyspace. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $tableResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $keyspaceResourceName | Select-Object Properties
 
 Read-Host -Prompt "Get a single table in an keyspace. Press Enter to continue"
 
-Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+Get-AzResource -ResourceType $tableResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $tableResourceName | Select-Object Properties
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

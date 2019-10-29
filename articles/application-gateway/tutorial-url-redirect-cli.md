@@ -6,19 +6,19 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 origin.date: 07/30/2019
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 7763da676664b1bb6d2f185dc92a9a9d2a63ec20
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 005e940f58017b0ef5cf89ee7e767b189c46ae6e
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857196"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798476"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教程：通过 Azure CLI 使用基于 URL 路径的重定向创建应用程序网关
 
-创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure CLI 配置[基于 URL 路径的路由规则](application-gateway-url-route-overview.md)。 在本教程中，使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建后端池。 然后创建 URL 路由规则，以确保 Web 流量重定向到相应的后端池。
+创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure CLI 配置[基于 URL 路径的路由规则](tutorial-url-route-cli.md)。 在本教程中，使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建后端池。 然后创建 URL 路由规则，以确保 Web 流量重定向到相应的后端池。
 
 本教程介绍如何执行下列操作：
 
@@ -316,4 +316,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

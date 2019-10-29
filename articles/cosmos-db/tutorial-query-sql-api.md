@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 origin.date: 05/21/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 71d145c533f5c70157b01d41b8a42207424db1f1
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 08d37efa4340b5d32553d72e7a8da714ab015dc4
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306819"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912892"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 
 ## <a name="prerequisites"></a>先决条件
 
-本教程假定已拥有 Azure Cosmos DB 帐户和集合。 没有这些内容？ 完成 [5 分钟快速入门](create-mongodb-nodejs.md)。
+本教程假定已拥有 Azure Cosmos DB 帐户和集合。 没有这些内容？ 完成 [5 分钟快速入门](create-cosmosdb-resources-portal.md)。
 
 ## <a name="example-query-1"></a>示例查询 1
 
@@ -122,7 +122,14 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 
 **结果**
 
-[ { "givenName":"Jesse" }, { "givenName":"Lisa" } ]
+    [
+        {
+            "givenName": "Jesse"
+        },
+        {
+            "givenName": "Lisa"
+        }
+    ]
 
 ## <a name="next-steps"></a>后续步骤
 

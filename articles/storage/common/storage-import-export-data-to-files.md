@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 07/15/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: ed4ee3a98a85f2261406e353449f81ec1cf3d21b
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 6cc38e1662d9de1ff2308cc9524aa0c8851a8c47
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844444"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914437"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -63,7 +63,7 @@ ms.locfileid: "67844444"
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
                         
        ```
-     详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
+     详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md)。
     
 
 4. 修改工具所在的根文件夹中的 *driveset.csv* 文件。 在 *driveset.csv* 文件中添加类似于以下示例的条目。 此驱动器集文件包含磁盘列表和对应的驱动器号，因此，工具可以正确地选取要准备的磁盘列表。
@@ -84,7 +84,7 @@ ms.locfileid: "67844444"
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     可以在同一文件中创建与多个驱动器对应的多个条目。 详细了解如何[准备驱动器集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)。 
+     可以在同一文件中创建与多个驱动器对应的多个条目。 详细了解如何[准备驱动器集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md)。 
 
 5. 使用 `PrepImport` 选项将数据复制到磁盘驱动器并做好准备。 为了使第一个复制会话通过新的复制会话复制目录和/或文件，请运行以下命令：
 

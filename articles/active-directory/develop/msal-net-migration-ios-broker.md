@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/08/2019
-ms.date: 09/30/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3315fa34aedfa25c3fb2755d7b807525d2e66895
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 582a00ced7efc545cf2e902f390e7f2fc84e7bdd
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292163"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912784"
 ---
 # <a name="migrating-ios-applications-using-microsoft-authenticator-from-adalnet-to-msalnet"></a>将使用 Microsoft Authenticator 的 iOS 应用程序从 ADAL.NET 迁移到 MSAL.NET
 
@@ -42,7 +42,6 @@ ms.locfileid: "72292163"
 中介可以实现：
 
 - 单一登录；
-- 某些[条件访问策略](../conditional-access/overview.md)所需的设备标识（请参阅[设备管理](../conditional-access/conditions.md#device-platforms)）
 - 同样在某些企业方案中需要的应用程序标识验证（例如，参阅 [Intune 移动应用程序管理 (MAM)](https://docs.microsoft.com/intune/mam-faq)）
 
 ## <a name="migrate-from-adal-to-msal"></a>从 ADAL 迁移到 MSAL

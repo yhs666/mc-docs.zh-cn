@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b723146bee56d876dd1d7ae1bb0c39717e31da70
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: bb42187b34412ad6d136a4ad91dc95735c90f87e
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134112"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912771"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>调用 Web API 的桌面应用 - 移到生产环境
 
@@ -31,7 +31,7 @@ ms.locfileid: "70134112"
 
 ## <a name="handling-errors-in-desktop-applications"></a>在桌面应用程序中处理错误
 
-你已了解，在不同的流中如何处理静默流的错误（如代码片段所示）。 你还了解，有些情况下需要交互（增量许可和条件访问）。
+你已了解，在不同的流中如何处理静默流的错误（如代码片段所示）。 你还了解，有些情况下需要交互（增量许可）。
 
 ## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>如何让用户提前许可多个资源
 

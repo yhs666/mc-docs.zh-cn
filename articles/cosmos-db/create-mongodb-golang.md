@@ -2,18 +2,18 @@
 title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 Golang SDK 生成控制台应用
 description: 演示一个 Golang 代码示例，可以参考该示例使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行连接和查询。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: 5e85578140d6e5c9e67aa05465c20429366a40fe
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.date: 10/28/2019
+ms.openlocfilehash: b889404ae235139491e026f26a60b34e1ae9f76a
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987934"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970276"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>快速入门：使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 Golang SDK 生成控制台应用
 
@@ -26,11 +26,10 @@ ms.locfileid: "56987934"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Cosmos DB 核心的多区域分布和水平缩放功能。
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。
 
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: global to multiple-region -->
-<!-- Not Available on key/value an dGraph -->
 
 本快速入门演示如何采用以 [Golang](https://golang.org/) 编写的现有 MongoDB 应用，并使用 Azure Cosmos DB 的用于 MongoDB 的 API 将其连接到 Cosmos 数据库。
 
@@ -60,7 +59,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-golang-getting-started.git
     ```
-3.  运行以下命令以获取 mgo 包。 
+3. 运行以下命令以获取 mgo 包。 
 
     ```
     go get gopkg.in/mgo.v2
@@ -74,7 +73,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 单击左侧导航菜单中的“快速启动”，并单击“其他”，查看 Go 应用程序所需的连接字符串信息。
+1. 单击左侧导航菜单中的“快速启动”，并单击“其他”，查看 Go 应用程序所需的连接字符串信息。  
 
 2. 在 Goglang 的 GOROOT\CosmosDBSample 目录中打开 main.go 文件，并使用 Azure 门户中的连接字符串信息更新以下代码行，如以下屏幕截图所示。 
 
@@ -98,7 +97,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ### <a name="connecting-the-go-app-to-cosmos-db"></a>将 Go 应用连接到 Cosmos DB
 
-Azure Cosmos DB 的用于 MongoDB 的 API 支持启用了 SSL 的连接。 若要进行连接，需在 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) 中定义 **DialServer** 函数，然后使用 [tls.Dial](https://golang.org/pkg/crypto/tls#Dial) 函数进行连接。
+Azure Cosmos DB 的用于 MongoDB 的 API 支持启用了 SSL 的连接。 若要进行连接，需在 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) 中定义 **DialServer** 函数，然后使用 [tls.Dial  ](https://golang.org/pkg/crypto/tls#Dial) 函数进行连接。
 
 以下 Golang 代码片段通过 Azure Cosmos DB 的用于 MongoDB 的 API 连接 Go 应用。 *DialInfo* 类包含用于建立会话的选项。
 
@@ -218,9 +217,9 @@ if err != nil {
 
 ## <a name="run-the-app"></a>运行应用程序
 
-1. 在 Golang 中，确保 GOPATH（依次单击“文件”、“设置”、“Go”、“GOPATH”即可找到）包含安装 gopkg 时所在的位置，默认为 USERPROFILE\go。 
+1. 在 Golang 中，确保 GOPATH（依次单击“文件”、“设置”、“Go”、“GOPATH”即可找到）包含安装 gopkg 时所在的位置，默认为 USERPROFILE\go。     
 2. 注释掉用于删除文档的行（即第 103-107 行），这样就能在运行应用后看到文档。
-3. 在 Golang 中单击“运行”，然后单击“运行‘生成 main.go 并运行’”。
+3. 在 Golang 中单击“运行”，然后单击“运行‘生成 main.go 并运行’”。  
 
     应用完成后，将会显示在[创建文档](#create-document)中创建的文档的说明。
 
@@ -236,11 +235,11 @@ if err != nil {
 
 回到 Azure 门户，在数据资源管理器中查看文档。
 
-1. 在左侧导航菜单中单击“数据资源管理器(预览)”，展开“golang-coach”、“包”，并单击“文档”。 在“文档”选项卡中单击“\_id”，在右窗格中显示文档。 
+1. 在左侧导航菜单中单击“数据资源管理器(预览)”，展开“golang-coach”、“包”，并单击“文档”。     在“文档”选项卡中单击  “\_id”，在右窗格中显示文档。 
 
     ![数据资源管理器，显示新创建的文档](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
 
-2. 然后即可使用内联文档，单击“更新”将其保存。 也可删除该文档，或者创建新文档或查询。
+2. 然后即可使用内联文档，单击“更新”将其保存。  也可删除该文档，或者创建新文档或查询。
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

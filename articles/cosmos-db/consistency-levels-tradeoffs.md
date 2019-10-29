@@ -2,18 +2,18 @@
 title: Azure Cosmos DB 中各种一致性级别的可用性和性能权衡
 description: Azure Cosmos DB 中各种一致性级别的可用性和性能利弊。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9c3a74e542b9af58d84cb671781b9822148cdd58
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 5861b18cc9d7b2acadccef9165b9e7167f296a2f
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254582"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913339"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性和性能权衡 
 

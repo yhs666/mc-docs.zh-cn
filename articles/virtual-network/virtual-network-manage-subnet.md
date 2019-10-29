@@ -33,7 +33,7 @@ ms.locfileid: "66250463"
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
@@ -79,7 +79,7 @@ ms.locfileid: "66250463"
     - **网络安全组**和**路由表**：请参阅[添加子网](#add-a-subnet)的步骤 5。
     - **服务终结点**：请参阅[添加子网](#add-a-subnet)的步骤 5 中的服务终结点。 如果为某个现有子网启用服务终结点，请确保该子网的任何资源上未运行任何关键任务。 服务终结点可将子网每个网络接口上的路由，从使用地址前缀为 0.0.0.0/0 且下一跃点类型为 Internet 的默认路由，切换到使用服务地址前缀且下一跃点类型为 VirtualNetworkServiceEndpoint 的新路由    。 切换过程中，可能会终止任何打开的 TCP 连接。 对于使用新路由更新的所有网络接口，除非流量流向服务，否则不会启用服务终结点。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)。
         <!-- Not Available on - **Subnet delegation:** -->
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 
  命令
 

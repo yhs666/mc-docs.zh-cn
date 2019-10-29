@@ -8,19 +8,19 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 09/02/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 02374a61124a62998d14b727eb410798316c05d7
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: 1519ceee16d8d0d623e0b66d43b3bbf3acec28a0
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131863"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914441"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>快速入门：使用 Azure PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 
-使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
+使用 Azure PowerShell 在 Azure SQL 数据仓库中缩放计算资源。 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 

@@ -3,17 +3,17 @@ title: 使用 Azure Resource Graph Explorer 运行第一个查询
 description: 本文逐步引导你在 Azure 门户中使用 Azure Resource Graph Explorer 运行第一个查询。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 08/29/2019
-ms.date: 10/21/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f18a94ce957d7f60eb1707bd6566b72eb51741e2
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 20e059d13049801d1a875b421f9efa28bb0cd45d
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292694"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970251"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入门：使用 Azure Resource Graph Explorer 运行第一个 Resource Graph 查询
 
@@ -36,12 +36,12 @@ ms.locfileid: "72292694"
 
 1. 在“结果”选项卡中查看查询响应。  选择“消息”选项卡，以查看有关查询的详细信息，包括结果计数和查询持续时间。  出现的任何错误将显示在此选项卡下。
 
-1. 更新查询，以将 `order by` 条件指定为 **Name** 属性：`project name, type | limit 5 | order by name asc`。 然后选择“运行查询”。 
+1. 更新查询，以将 `order by` 条件指定为 **Name** 属性：`Resources | project name, type | limit 5 | order by name asc`。 然后选择“运行查询”。 
 
    > [!NOTE]
    > 与第一个查询一样，多次运行此查询可能会为每个请求生成一组不同的资源。 查询命令的顺序非常重要。 在本例中，`order by` 位于 `limit` 之后。 这将首先限制查询结果，然后对其进行排序。
 
-1. 将查询更新为先按 **Name** 属性应用 `order by`，然后对前五个结果应用 `limit`：`project name, type | order by name asc | limit 5`。 然后选择“运行查询”。 
+1. 将查询更新为先按 **Name** 属性应用 `order by`，然后对前五个结果应用 `limit`：`Resources | project name, type | order by name asc | limit 5`。 然后选择“运行查询”。 
 
 假设环境中没有任何变化，则多次运行最后一个查询时，返回的结果将是一致的且符合预期的 -- 按 **Name** 属性排序，但仍限制为前五个结果。
 
@@ -56,7 +56,8 @@ ms.locfileid: "72292694"
 1. 在窗口中的“查询 1”部分输入以下查询，然后选择“运行查询”。  
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

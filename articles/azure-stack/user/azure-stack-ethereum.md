@@ -70,7 +70,7 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
     
     ![编辑领导者模板](./media/azure-stack-ethereum/edit-leader-template.png)
 
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 6. 选择“编辑参数”并填写部署的模板参数。 
     
     ![编辑领导者模板参数](./media/azure-stack-ethereum/edit-leader-parameters.png)
@@ -122,7 +122,7 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 2. 在 Azure Stack 租户门户中，选择“+ 创建资源”>“模板部署”，以从自定义模板进行部署。 
 3. 选择“编辑模板”以编辑新的自定义模板。 
 4. 在右侧的编辑窗格中，复制并粘贴前面下载的领导者模板 JSON。
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 6. 选择“编辑参数”并填写部署的模板参数。 
 
     参数名称 | 说明 | 允许的值 | 示例值
@@ -177,7 +177,7 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
     
     ![编辑连接模板](./media/azure-stack-ethereum/edit-connect-template.png)
 
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 6. 选择“编辑参数”并填写部署的模板参数。 
     
     ![编辑连接模板参数](./media/azure-stack-ethereum/edit-connect-parameters.png)

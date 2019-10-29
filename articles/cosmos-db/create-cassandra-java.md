@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 09/30/2019
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 723d8d606f2766205a411ca2f319ae31434719dc
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: c3b92b69f2f3ca333b9a56524a1c50bfe29cbf68
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306797"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970278"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB Cassandra API 数据
@@ -156,9 +156,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“连接字符串”  。 
 
-    ![在 Azure 门户的“连接字符串”页面中查看并复制用户名](./media/create-cassandra-java/keys.png)
+    ![在 Azure 门户的“连接字符串”页面中查看并复制用户名](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
-2. 使用屏幕右侧的 ![“复制”按钮](./media/create-cassandra-java/copy.png) 复制“联系点”值。
+2. 使用屏幕右侧的 ![“复制”按钮](./media/create-cassandra-java/copy-button-azure-portal.png) 复制“联系点”值。
 
 3. 从 `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources` 文件夹打开 `config.properties` 文件。 
 
@@ -166,7 +166,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     config.properties 的第 2 行现在应类似于 
 
-    `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.cn`
+    `cassandra_host=cosmos-db-quickstart.cassandra.cosmos.azure.cn`
 
 3. 返回到门户，然后复制“用户名”值。 粘贴门户中的“用户名”值，并覆盖第 4 行中的 `<cassandra endpoint username>`。
 
@@ -212,7 +212,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 4. 在 Azure 门户中，打开数据资源管理器  ，以查询、修改和处理这些新数据。 
 
-    ![在数据资源管理器中查看数据](./media/create-cassandra-java/data-explorer.png)
+    ![在数据资源管理器中查看数据 - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

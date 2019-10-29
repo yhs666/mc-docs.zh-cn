@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 06/24/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab972dc800b83df6c2f49912d806e2cba6f75ded
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 958e31a0d4a0c947f95ed085918a25236f2ac406
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514423"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913296"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 图形支持
@@ -29,7 +29,7 @@ Azure Cosmos DB 支持 [Apache Tinkerpop](https://tinkerpop.apache.org) 的图�
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub 上的 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [使用 .NET 创建图形](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [使用 Java 创建图形](create-graph-java.md) | 3.2.0+ |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub 上的 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [使用 Node.js 创建图形](create-graph-nodejs.md) | 3.3.4+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub 上的 Gremlin-JavaScript](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [使用 Node.js 创建图形](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [GitHub 上的 Gremlin-Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [使用 Python 创建图形](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [GitHub 上的 Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [使用 PHP 创建图形](create-graph-php.md) | 3.1.0 |
 | [Gremlin 控制台](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 文档](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [使用 Gremlin 控制台创建图形](create-graph-gremlin-console.md) | 3.2.0 + |
@@ -50,7 +50,7 @@ TinkerPop 是涵盖多种图形技术的标准。 因此，它使用标准的术
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin 网络格式：GraphSON
 
-从 Gremlin 操作返回结果时，Azure Cosmos DB 使用 [GraphSON 格式](https://tinkerpop.apache.org/docs/3.3.2/reference/#graphson-reader-writer)。 GraphSON 是 Gremlin 标准格式，它使用 JSON 来表示顶点、边缘和属性（单值和多值属性）。 
+从 Gremlin 操作返回结果时，Azure Cosmos DB 使用 [GraphSON 格式](http://tinkerpop.apache.org/docs/current/reference/#graphson)。 Azure Cosmos DB 目前支持“GraphSONv2”版本。 GraphSON 是 Gremlin 标准格式，它使用 JSON 来表示顶点、边缘和属性（单值和多值属性）。
 
 例如，以下代码片段显示了从 Azure Cosmos DB *返回到客户端*的某个顶点的 GraphSON 表示形式。 
 

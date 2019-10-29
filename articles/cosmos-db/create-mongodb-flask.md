@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 06/17/2019
-ms.openlocfilehash: 851dbd9dca13f16b4fd0f59c31c8d450951a2652
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.date: 10/28/2019
+ms.openlocfilehash: 27a3c711d03fab167d311197034190910304217d
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151473"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913319"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 Python 应用
 
@@ -143,7 +143,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service-web/web-sites-configure#application-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
+然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service/configure-common#configure-app-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
 
 <!--Not Available on If you don't want to create a fork of this repo, you can also click the deploy to Azure button below. You should then go into Azure and set up the application settings with your Cosmos DB account info.-->
 <!-- Not Available on <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank"> -->

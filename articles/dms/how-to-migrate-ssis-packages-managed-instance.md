@@ -134,7 +134,7 @@ ms.locfileid: "68952154"
 
      ![目标详细信息](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 
 ## <a name="review-the-migration-summary"></a>查看迁移摘要
 

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852fd39c33c53f97be09f5d6bce5ecbfef17cbf
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 09d32cd1a39d4f19db196675995460c089eb579b
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292059"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912773"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>调用 Web API 的桌面应用 - 获取令牌
 
@@ -344,7 +344,7 @@ static async Task GetATokenForGraph()
 
 以下约束也适用：
 
-- 用户名/密码流与条件访问和多重身份验证不兼容：因此，如果应用在 Azure AD 租户中运行，而该租户中的租户管理员需要多重身份验证，则你无法使用此流。 许多组织都会提出这种要求。
+- 用户名/密码流与多重身份验证不兼容：因此，如果应用在 Azure AD 租户中运行，而该租户中的租户管理员需要多重身份验证，则你无法使用此流。 许多组织都会提出这种要求。
 - 它仅适用工作和学校帐户（而不适用于 MSA）
 - 可在 .NET Desktop 和 .NET Core 中使用该流，但不能在 UWP 中使用
 

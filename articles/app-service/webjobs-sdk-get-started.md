@@ -351,7 +351,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
 1. 将 *{instrumentation key}* 替换为所用 Application Insights 资源中的检测密钥。
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 1. 向项目添加 Application Insights 连接，以便在本地运行。 在“appsettings.json”文件中，添加 `APPINSIGHTS_INSTRUMENTATIONKEY` 字段，如下例所示  ：
 

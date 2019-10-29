@@ -2,17 +2,17 @@
 title: Azure Cosmos DB 中的请求单位和吞吐量
 description: 了解如何指定和评估 Azure Cosmos DB 中的请求单位要求。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
-ms.openlocfilehash: df218cf8aa910c439d617922b6239afdd91d0418
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 10/28/2019
+ms.openlocfilehash: c8c257866b9d4b0bf4b01383e9a8fb5793501e19
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254872"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914383"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 

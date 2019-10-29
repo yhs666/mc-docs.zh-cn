@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 256da4796ec45b358e66d3ee456fb651bb73002a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 414bc453909b53e327d7efea74ef97569b868d76
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627500"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914511"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中配置和使用服务相关性
 相关性是一个控件，主要用于帮助简化将较大型的单体式应用程序转换到云和微服务领域。 它也可以用作提升服务性能的优化，不过这样做可能会产生副作用。
@@ -62,6 +62,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 <center>
 
 ![相关性模式及其影响][Image1]
+
 </center>
 
 ### <a name="best-effort-desired-state"></a>尽力而为的所需状态
@@ -73,6 +74,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 <center>
 
 ![相关性关系上下文中的链形与星形][Image2]
+
 </center>
 
 目前关于相关性关系的另一个要注意的事项是，它们默认是双向的。 这意味着相关性规则只强制子级放置在父级的所在之处。 不能确保父级位于子级的所在之处。 因此，如果存在相关性违规并且由于某些原因无法通过将子级移动到父级节点来纠正违规行为，那么 - 即使将父级移动到子级节点可以纠正违规 - 父级也不会移动到子级节点。 将配置 [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 设置为 true 会消除方向性。 还请务必注意，相关性关系并不完美，或者无法立即强制执行，因为不同的服务具有不同的生命周期，会失败并且会单独移动。 例如，假设父级由于故障突然故障转移到另一个节点。 群集资源管理器和故障转移管理器会先处理故障转移，因为保证服务之间同步、一致和可用是优先考虑的。 故障转移完成后，相关性关系立即破裂，但群集资源管理器会认为一切都正常，直到它发现子级未与父级在一起。 这些种类的检查会定期执行。 若要深入了解群集资源管理器如何评估约束，可访问[本文](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)，[此文](service-fabric-cluster-resource-manager-balancing.md)详细介绍如何配置评估这些约束的频率。   

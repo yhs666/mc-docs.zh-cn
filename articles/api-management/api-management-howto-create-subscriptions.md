@@ -36,11 +36,11 @@ ms.locfileid: "59529293"
 
 ## <a name="create-a-new-subscription"></a>创建新订阅
 
-1. 选择左侧菜单中的“订阅”。
-2. 选择“添加订阅”。
+1. 选择左侧菜单中的“订阅”  。
+2. 选择“添加订阅”  。
 3. 提供订阅的名称，并选择范围。
 4. （可选）选择订阅是否应当与某个用户关联。
-5. 选择“其他安全性验证” 。
+5. 选择“保存”  。
 
 ![灵活的订阅](./media/api-management-subscriptions/flexible-subscription.png)
 

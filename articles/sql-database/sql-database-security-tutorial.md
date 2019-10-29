@@ -78,7 +78,7 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
 
 2. 在“概览”页上，选择“设置服务器防火墙”   。 此时会打开数据库服务器的“防火墙设置”页  。
 
-   1. 在工具栏上选择“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。  此规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。 选择“其他安全性验证”  。
+   1. 在工具栏上选择“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。  此规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。 选择“保存”  。
 
       ![设置服务器防火墙规则](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
@@ -281,7 +281,7 @@ Azure SQL 数据库提供可以通过 Azure 门户访问的安全功能。 这�
           > [!TIP]
           > 请对所有已审核的数据库使用同一存储帐户，以充分利用审核报告模板。
 
-   3. 选择“其他安全性验证”  。
+   3. 选择“保存”  。
 
       ![审核设置](./media/sql-database-security-tutorial/audit-settings.png)
 
@@ -306,7 +306,7 @@ Azure SQL 数据库提供可以通过 Azure 门户访问的安全功能。 这�
 
     ![掩码设置](./media/sql-database-security-tutorial/mask-settings.png)
 
-1. 选择“其他安全性验证”  。 现在会对所选信息进行掩码处理以维护隐私。
+1. 选择“保存”  。 现在会对所选信息进行掩码处理以维护隐私。
 
     ![掩码示例](./media/sql-database-security-tutorial/mask-query.png)
 
@@ -320,7 +320,7 @@ Azure SQL 数据库提供可以通过 Azure 门户访问的安全功能。 这�
 
 1. 在“安全性”部分，选择“透明数据加密”。  
 
-1. 必要时，将“数据加密”  设置为“打开”  。 选择“其他安全性验证”  。
+1. 必要时，将“数据加密”  设置为“打开”  。 选择“保存”  。
 
     ![透明数据加密](./media/sql-database-security-tutorial/encryption-settings.png)
 

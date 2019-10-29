@@ -127,7 +127,7 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
        azurePowerShellVersion: LatestVersion
    ```
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
    ![保存管道](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
 
@@ -240,7 +240,7 @@ location: '<location>'
        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
    ```
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 1. 提供要提交的消息，并直接提交到 **master**。
 

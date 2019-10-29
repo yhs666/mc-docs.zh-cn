@@ -3,18 +3,18 @@ title: 使用 Azure PowerShell 运行第一个查询
 description: 本文将指导你完成为 Azure PowerShell 启用 Resource Graph 模块并运行首个查询的步骤。
 author: DCtheGeek
 origin.author: dacoulte
-origin.date: 01/23/2019
-ms.date: 10/21/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 76b9e001cbc4327ecd212b44ed5cda727ed9ce63
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 726bf362f2dfdabfd01c2c80eed30f295d754211
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292547"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970253"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 运行首个 Resource Graph 查询
 
@@ -74,7 +74,7 @@ Azure Resource Graph 模块需要以下软件：
 
    ```azurepowershell
    # Run Azure Resource Graph query with 'order by'
-   Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
+   Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -84,7 +84,7 @@ Azure Resource Graph 模块需要以下软件：
 
    ```azurepowershell
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzGraph -Query 'project name, type | order by name asc | limit 5'
+   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 假设环境中没有任何变化，则多次运行最后一个查询时，返回的结果将是一致的且符合预期的 -- 按 Name 属性排序，但仍限制为前五个结果  。

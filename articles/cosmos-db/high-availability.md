@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 5507d7adfa481bc55323bedcd62bde62f70132db
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: c841c111052fa9e51aac2a95ba5c83be6dbbccb5
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254827"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970266"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 实现高可用性
 
@@ -66,6 +66,7 @@ Azure Cosmos DB 以透明方式在与 Cosmos 帐户关联的所有 Azure 区域�
 - 即使在罕见的不幸事件中，发生了 Azure 区域永久无法恢复的情况，如果为多区域 Cosmos 帐户配置了默认的非常一致性级别，也不会丢失数据。  在写入区域永久无法恢复的情况下，对于配置了有限过期一致性的多区域 Cosmos 帐户，可能的数据丢失时间范围限于过期时间范围（*K* 或 *T*）；对于会话、一致的前缀和最终一致性级别，可能的数据丢失时间范围限于最多五秒。 
 
 <!--Not Available on ## Availability Zone support-->
+
 ## <a name="building-highly-available-applications"></a>生成高可用性应用程序
 
 - 为确保较高的写入和读取可用性，请将 Cosmos 帐户配置为跨越多个写入区域中的至少两个区域。 对于读取和写入，此配置都可提供由 SLA 作为保障的最高可用性、最低延迟和最佳可伸缩性。 详细了解如何[将 Cosmos 帐户配置为使用多个写入区域](tutorial-global-distribution-sql-api.md)。

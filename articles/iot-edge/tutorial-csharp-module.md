@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 255e80ac68b7a639af7e6a7dd091d13e732b5d3f
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: e235a1dc147140b492fc91e0dfa8d802e0fa4e60
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174275"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914529"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C# IoT Edge 模块
 
@@ -37,7 +37,7 @@ ms.locfileid: "70174275"
 
 本教程演示如何使用 **Visual Studio Code** 以 **C#** 开发模块，以及如何将其部署到 **Linux 设备**。 若要开发适用于 Windows 设备的模块，请转到[开发适用于 Windows 设备的 C# IoT Edge 模块](tutorial-csharp-module-windows.md)。
 
-使用下表了解用于开发 C 模块并将其部署到 Linux 的选项： 
+使用下表了解开发 C# 模块并将其部署到 Linux 的选项： 
 
 | C# | Visual Studio Code | Visual Studio | 
 | -- | ------------------ | ------------- |
@@ -189,58 +189,60 @@ ms.locfileid: "70174275"
 
 7. 将 **PipeMessage** 方法替换为 **FilterMessages** 方法。 每当模块从 IoT Edge 中心接收消息，就会调用此方法。 此方法筛选掉那些所报告温度低于温度阈值（通过孪生模块进行设置）的消息。 它还将 **MessageType** 属性添加到消息，其值设置为“警报”。  
 
-   ```csharp
-   static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-   {
-       var counterValue = Interlocked.Increment(ref counter);
-       try
-       {
-           ModuleClient moduleClient = (ModuleClient)userContext;
-           var messageBytes = message.GetBytes();
-           var messageString = Encoding.UTF8.GetString(messageBytes);
-           Console.WriteLine($"Received message {counterValue}: [{messageString}]");
+    ```csharp
+    static async Task<MessageResponse> FilterMessages(Message message, object userContext)
+    {
+        var counterValue = Interlocked.Increment(ref counter);
+        try
+        {
+            ModuleClient moduleClient = (ModuleClient)userContext;
+            var messageBytes = message.GetBytes();
+            var messageString = Encoding.UTF8.GetString(messageBytes);
+            Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
-           // Get the message body.
-           var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+            // Get the message body.
+            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-           if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-           {
-               Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
-                   $"exceeds threshold {temperatureThreshold}");
-               var filteredMessage = new Message(messageBytes);
-               foreach (KeyValuePair<string, string> prop in message.Properties)
-               {
-                   filteredMessage.Properties.Add(prop.Key, prop.Value);
-               }
+            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            {
+                Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
+                    $"exceeds threshold {temperatureThreshold}");
+                using (var filteredMessage = new Message(messageBytes))
+                {
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-               filteredMessage.Properties.Add("MessageType", "Alert");
-               await moduleClient.SendEventAsync("output1", filteredMessage);
-           }
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
+            }
 
-           // Indicate that the message treatment is completed.
-           return MessageResponse.Completed;
-       }
-       catch (AggregateException ex)
-       {
-           foreach (Exception exception in ex.InnerExceptions)
-           {
-               Console.WriteLine();
-               Console.WriteLine("Error in sample: {0}", exception);
-           }
-           // Indicate that the message treatment is not completed.
-           var moduleClient = (ModuleClient)userContext;
-           return MessageResponse.Abandoned;
-       }
-       catch (Exception ex)
-       {
-           Console.WriteLine();
-           Console.WriteLine("Error in sample: {0}", ex.Message);
-           // Indicate that the message treatment is not completed.
-           ModuleClient moduleClient = (ModuleClient)userContext;
-           return MessageResponse.Abandoned;
-       }
-   }
-   ```
+            // Indicate that the message treatment is completed.
+            return MessageResponse.Completed;
+        }
+        catch (AggregateException ex)
+        {
+            foreach (Exception exception in ex.InnerExceptions)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", exception);
+            }
+            // Indicate that the message treatment is not completed.
+            var moduleClient = (ModuleClient)userContext;
+            return MessageResponse.Abandoned;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Error in sample: {0}", ex.Message);
+            // Indicate that the message treatment is not completed.
+            ModuleClient moduleClient = (ModuleClient)userContext;
+            return MessageResponse.Abandoned;
+        }
+    }
+    ```
 
 8. 保存 Program.cs 文件。
 

@@ -16,17 +16,13 @@
           href: time-series-insights-update-quickstart.md
 - name: 教程
   items:
-    - name: 探索时序见解 JavaScript 客户端库
-      href: tutorial-explore-js-client-lib.md
-    - name: 创建时序见解单页 Web 应用
-      href: tutorial-create-tsi-sample-spa.md
     - name: Azure 时序见解 GA
       items:
         - name: 创建时序见解环境
           href: tutorial-create-populate-tsi-environment.md
     - name: Azure 时序见解预览版
       items:
-        - name: Azure 时序见解预览版教程
+        - name: 设置预览版环境
           href: time-series-insights-update-create-environment.md
 - name: 概念
   items:
@@ -40,6 +36,16 @@
           href: time-series-insights-explorer.md
         - name: 了解数据保留
           href: time-series-insights-concepts-retention.md
+        - name: 开发
+          items:
+            - name: 身份验证和授权
+              href: time-series-insights-authentication-and-authorization.md
+            - name: '使用 C# 查询数据'
+              href: time-series-insights-query-data-csharp.md
+            - name: '使用 C# 管理参考数据'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: 共享自定义视图
+              href: time-series-insights-parameterized-urls.md
     - name: Azure 时序见解预览版
       items:
         - name: 规划环境
@@ -48,22 +54,14 @@
           href: time-series-insights-update-storage-ingress.md
         - name: 用例
           href: time-series-insights-update-use-cases.md
-        - name: 数据建模
+        - name: 时序模型
           href: time-series-insights-update-tsm.md
-        - name: 数据查询
+        - name: 时序查询
           href: time-series-insights-update-tsq.md
-        - name: 在资源管理器更新版中将数据可视化
-          href: time-series-insights-update-explorer.md
-    - name: 开发
-      items:
-        - name: 身份验证和授权
-          href: time-series-insights-authentication-and-authorization.md
-        - name: '使用 C# 查询数据'
-          href: time-series-insights-query-data-csharp.md
-        - name: '使用 C# 管理参考数据'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: 共享自定义视图
-          href: time-series-insights-parameterized-urls.md
+        - name: 开发
+          items:
+            - name: 身份验证和授权
+              href: time-series-insights-authentication-and-authorization.md
 - name: 操作指南
   items:
     - name: 授予数据访问权限
@@ -108,57 +106,26 @@
   items:
     - name: 时序见解
       items:
-        - name: Azure 时序见解 GA
-          href: /rest/api/time-series-insights/ga
+        - name: Azure Time Series Insights
+          href: 'https://docs.microsoft.com/rest/api/time-series-insights/index'
+        - name: 数据访问正式发行版
+          href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga'
           items:
             - name: 查询
-              href: /rest/api/time-series-insights/ga-query
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query'
               items:
                 - name: API
-                  href: /rest/api/time-series-insights/ga-query-api
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api'
                 - name: 语法
-                  href: /rest/api/time-series-insights/ga-query-syntax
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax'
             - name: 参考数据 API
-              href: /rest/api/time-series-insights/ga-reference-data-api
-        - name: Azure 时序见解预览版
-          href: /rest/api/time-series-insights/preview
-          items:
-            - name: 时序查询
-              href: /rest/api/time-series-insights/preview-query
-            - name: 时序模型
-              href: /rest/api/time-series-insights/preview-model
-            - name: 时序环境 API
-              href: /rest/api/time-series-insights/preview-env
-            - name: 时序表达式和语法
-              href: /rest/api/time-series-insights/preview-tsx
-- name: 相关内容
-  items:
-    - name: 解决方案
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api'
+        - name: 数据访问概念预览版
+          href: 'https://docs.microsoft.com/rest/api/time-series-insights/preview'
+    - name: 客户端 SDK
       items:
-        - name: IoT 套件预配置解决方案
-          href: /iot-suite
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: 平台服务
-      items:
-        - name: IoT 中心
-          href: /iot-hub
-        - name: IoT 中心设备预配服务
-          href: /iot-dps
-        - name: 地图
-          href: /azure-maps
-        - name: 服务 SDK
-          href: '/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: 时序见解
-          href: /time-series-insights
-    - name: Microsoft Edge
-      items:
-        - name: IoT Edge
-          href: /iot-edge
-        - name: IoT 设备 SDK
-          href: '/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-    - name: Azure 流分析
-      href: /stream-analytics/
+        - name: JavaScript 客户端 SDK
+          href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
 - name: 资源
   items:
     - name: 客户数据请求

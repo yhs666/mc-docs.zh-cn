@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - 在 Azure Cosmos 帐户中创建关闭了编制
 description: Azure PowerShell 脚本示例 - 在 Azure Cosmos 帐户中创建关闭了编制索引功能的容器
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 05/06/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 79d6b69720dbf8fcd331836976f05c7a1dd3cf2f
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 33881134049475e98305aa0534957429d0dcdda0
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514537"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914440"
 ---
 # <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 在 Azure Cosmos 帐户中创建关闭了编制索引功能的容器
 
@@ -23,14 +24,52 @@ ms.locfileid: "68514537"
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Create an Azure Cosmos container with no indexing 
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container4"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+# Create a SQL API account with a database and a container with dedicated through put and no indexing policy
 
-$ContainerProperties = @{
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 10 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
+$location = "China North 2"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$accountResourceType = "Microsoft.DocumentDb/databaseAccounts"
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
+$databaseName = "database1"
+$containerName = "container1"
+$databaseResourceName = $accountName + "/sql/" + $databaseName
+$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 }
+)
+
+$consistencyPolicy = @{
+    "defaultConsistencyLevel"="Session";
+}
+
+$accountProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "enableMultipleWriteLocations"="false"
+}
+
+New-AzResource -ResourceType $accountResourceType -ApiVersion $apiVersion `
+    -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $accountProperties
+
+#Database
+$databaseProperties = @{
+    "resource"=@{ "id"=$databaseName }
+} 
+New-AzResource -ResourceType $databaseResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $databaseResourceName -PropertyObject $databaseProperties
+
+$containerProperties = @{
     "resource"=@{
         "id"=$containerName; 
         "partitionKey"=@{
@@ -41,12 +80,13 @@ $ContainerProperties = @{
             "indexingMode"="none"
         }
     };
-    "options"=@{ "Throughput"="400" }
+    "options"=@{ "Throughput"= 400 }
 } 
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
+New-AzResource -ResourceType $containerResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $containerResourceName -PropertyObject $containerProperties
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -75,5 +115,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!-- Update_Description: new article about ps sql container create index none-->
-<!--ms.date: 07/29/2019-->
+<!-- Update_Description: wording update -->

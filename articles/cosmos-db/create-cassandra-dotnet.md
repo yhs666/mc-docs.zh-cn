@@ -8,13 +8,13 @@ ms.author: v-yeche
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 09/09/2019
-ms.openlocfilehash: fb3e77ea1706fa8632d1c5042736778caa2246c6
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 10/28/2019
+ms.openlocfilehash: 15da7a0de0142cd7f904d9b8db30acf33d447dde
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254547"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913336"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -143,7 +143,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     Program.cs 的第 15 行现在应该类似 
 
-    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.cn"; //  DnsName`
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmos.azure.cn"; //  DnsName`
 
 5. 保存 Program.cs 文件。
 

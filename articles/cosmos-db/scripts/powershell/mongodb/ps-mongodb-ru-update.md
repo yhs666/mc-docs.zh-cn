@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5dbe09464b46284e13476759ebdc7cf0b473dae0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: ff2538f824bc61029553f5ecedb298916ed56f4a
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514366"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914478"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>更新 Azure Cosmos DB 的数据库或集合的 RU/秒 - MongoDB API
 
@@ -24,12 +25,15 @@ ms.locfileid: "68514366"
 
 ```powershell
 # Update RU for an Azure Cosmos MongoDB API database or collection
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
+$databaseThroughputResourceName = $accountName + "/mongodb/" + $databaseName + "/throughput"
+$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
 $collectionName = "collection1"
-$databaseResourceName = $accountName + "/mongodb/" + $databaseName + "/throughput"
-$collectionResourceName = $accountName + "/mongodb/" + $databaseName + "/" + $collectionName + "/throughput"
+$collectionThroughputResourceName = $accountName + "/mongodb/" + $databaseName + "/" + $collectionName + "/throughput"
+$collectionThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers/settings"
 $throughput = 500
 $updateResource = "database" # or "collection"
 
@@ -38,14 +42,14 @@ $properties = @{
 }
 
 if($updateResource -eq "database"){
-    Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings" `
-        -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-        -Name $databaseResourceName -PropertyObject $properties
+    Set-AzResource -ResourceType $databaseThroughputResourceType `
+        -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+        -Name $databaseThroughputResourceName -PropertyObject $properties
 }
 elseif($updateResource -eq "collection"){
-    Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/collections/settings" `
-        -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-        -Name $collectionResourceName -PropertyObject $properties
+    Set-AzResource -ResourceType $collectionThroughputResourceType `
+        -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+        -Name $collectionThroughputResourceName -PropertyObject $properties
 }
 else {
     Write-Host("Must select database or collection")    

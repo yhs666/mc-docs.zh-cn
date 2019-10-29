@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8889136773bb3eb48836c2d2c20d8cb064cf9b51
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 59da462f4577a82dab8044d220345f1445b1aa01
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134106"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912772"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>调用 Web API 的桌面应用 - 调用 Web API
 
@@ -35,7 +35,7 @@ ms.locfileid: "70134106"
 More includes will come later for Python and Java
 -->
 
-## <a name="calling-several-apis---incremental-consent-and-conditional-access"></a>调用若干 API - 增量许可和条件访问
+## <a name="calling-several-apis---incremental-consent"></a>调用若干 API - 增量许可 
 
 如果你需要为同一用户调用多个 API，则在获得了第一个 API 的令牌后，就可以直接调用 `AcquireTokenSilent`，在大多数情况下你将以无提示方式获取其他 API 的令牌。
 

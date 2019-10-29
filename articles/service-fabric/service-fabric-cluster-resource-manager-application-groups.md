@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 006f668ee59911055baaef69889ec1a74cfa9805
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 66bba1165469091fa1cee97ff30924d706b01c63
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626352"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913269"
 ---
 # <a name="introduction-to-application-groups"></a>应用程序组简介
 Service Fabric 的群集 Resource Manager 通常通过将负载（通过[指标](service-fabric-cluster-resource-manager-metrics.md)表示）平均分散到整个群集来管理群集资源。 Service Fabric 管理群集中节点的容量，并通过[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理整个群集。 指标和容量非常适用于许多种工作负荷，但大量使用不同 Service Fabric 应用程序实例的模式有时还有其他要求。 例如，如果想要：
@@ -39,6 +39,7 @@ Service Fabric 的群集 Resource Manager 通常通过将负载（通过[指标]
 <center>
 
 ![定义最大节点数的应用程序实例][Image1]
+
 </center>
 
 在左侧的示例中，应用程序未定义最大节点数，并且有三个服务。 群集资源管理器已将所有副本分散到六个可用节点，从而在群集中实现最佳均衡（默认行为）。 在右侧示例中，可以看到限制在 3 个节点上的同一应用程序。
@@ -120,6 +121,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 <center>
 
 ![定义保留容量的应用程序实例][Image2]
+
 </center>
 
 在左侧的示例中，应用程序中未定义任何应用程序容量。 群集 Resource Manager 根据一般规则平衡所有内容。
@@ -128,13 +130,13 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 
 - MinimumNodes 设置为 2
 - 应用程序指标定义为
-  - NodeReservationCapacity 为 20
+    - NodeReservationCapacity 为 20
 
 Powershell
 
- ``` posh
- New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")
- ```
+``` posh
+New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")
+```
 
 C#
 
@@ -201,8 +203,8 @@ Update-ServiceFabricApplication -Name fabric:/MyApplication1 -RemoveApplicationC
 - 所有整数参数必须为非负数。
 - MinimumNodes 不得大于 MaximumNodes。
 - 如果已定义负载指标的容量，则这些容量必须遵守以下规则：
-  - 节点预留容量不得大于最大节点容量。 例如，不能将节点上指标“CPU”的容量限制为 2 个单位，也不能尝试在每个节点上保留 3 个单位。
-  - 如果已指定 MaximumNodes，则 MaximumNodes 和最大节点容量的积不得大于应用程序容量总计。 例如，如果将负载指标“CPU”的最大节点容量设置为 8， 将最大节点数设置为 10。 在这种情况下，此负载指标的应用程序容量总计必须大于 80。
+    - 节点预留容量不得大于最大节点容量。 例如，不能将节点上指标“CPU”的容量限制为 2 个单位，也不能尝试在每个节点上保留 3 个单位。
+    - 如果已指定 MaximumNodes，则 MaximumNodes 和最大节点容量的积不得大于应用程序容量总计。 例如，如果将负载指标“CPU”的最大节点容量设置为 8， 将最大节点数设置为 10。 在这种情况下，此负载指标的应用程序容量总计必须大于 80。
 
 在创建和更新应用程序的过程中，都会强制限制。
 

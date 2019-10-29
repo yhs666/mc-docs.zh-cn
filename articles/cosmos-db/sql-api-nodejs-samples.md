@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 08/23/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ee10fe2492adba0dc9e1686c00b033db668e438f
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 2e380fc9b5f76a9f1d40c6a8b902ae335fd8bced
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306709"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913213"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
-> * [.NET 示例](sql-api-dotnet-samples.md)
+> * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK 示例](sql-api-dotnet-v3sdk-samples.md)
 > * [Java 示例](sql-api-java-samples.md)
 > * [异步 Java 示例](sql-api-async-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)

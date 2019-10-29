@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 08/21/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2751153d43645361806fd3a14d65db534dcd3c6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: a5e9d93b5e38c09c97225644953c4f72a439dd86
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993718"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912782"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET 中的 Active Directory 联合身份验证服务支持
-使用 Windows Server 中的 Active Directory 联合身份验证服务 (AD FS) 可将基于 OpenID Connect 和 OAuth 2.0 的身份验证与授权添加到开发中的应用程序。 然后，这些应用程序可以根据 AD FS 直接对用户进行身份验证。 有关详细信息，请阅读[面向开发人员的 AD FS 方案](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)。
+使用 Windows Server 中的 Active Directory 联合身份验证服务 (AD FS) 可将基于 OpenID Connect 和 OAuth 2.0 的身份验证与授权添加到开发中的应用程序。 然后，这些应用程序可以根据 AD FS 直接对用户进行身份验证。 
 
 适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 支持根据 AD FS 使用两种身份验证方案：
 

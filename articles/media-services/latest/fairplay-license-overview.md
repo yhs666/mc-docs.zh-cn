@@ -15,12 +15,12 @@ origin.date: 12/08/2018
 ms.date: 09/23/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: c1e9f776e8d7671c7a27eaf104d7bb20a27a3746
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 1f96aac259a2a5c6ca61bcf2d9ca1fdb9c5b4e23
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125599"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914498"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 许可要求和配置 
 
@@ -67,7 +67,7 @@ ms.locfileid: "71125599"
 
 使用 Apple FairPlay 对内容进行加密时，各视频和音频示例都使用 AES-128 CBC 模式进行加密   。 FairPlay 流式处理 (FPS) 集成到设备操作系统，iOS 和 Apple TV 本身支持这项功能  。 OS X 上的 Safari 通过加密媒体扩展 (EME) 接口支持来启用 FPS。
 
-Azure Media Player 还支持 FairPlay 播放。 有关详细信息，请参阅 [Azure Media Player 文档](https://amp.azure.net/libs/amp/latest/docs/index.html)。
+Azure Media Player 还支持 FairPlay 播放。
 
 可以通过使用 iOS SDK 开发自己的播放器应用。 若要能够播放 FairPlay 内容，必须实现许可证交换协议。 此协议不由 Apple 指定。 而是取决于每个应用发送密钥传送请求的方式。 媒体服务 FairPlay 密钥传送服务需要 SPC 为采用以下形式的 www-form-url 编码后消息：
 

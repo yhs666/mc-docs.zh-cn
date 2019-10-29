@@ -154,7 +154,7 @@ ms.locfileid: "71674767"
    HAVING Temperature > 27
    ```
 
-3. 在此示例中，查询从 IoT 中心读取数据，然后将其复制到 Blob 中的新文件。 选择“其他安全性验证”  。  
+3. 在此示例中，查询从 IoT 中心读取数据，然后将其复制到 Blob 中的新文件。 选择“保存”  。  
 
    ![配置作业转换](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 

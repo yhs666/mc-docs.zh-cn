@@ -107,7 +107,7 @@ ms.locfileid: "68337473"
 
     ![选择存储帐户](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
-1. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“其他安全性验证”  。
+1. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“保存”  。
 
     ![显示模板](./media/resource-group-template-deploy-portal/show-json.png)
 

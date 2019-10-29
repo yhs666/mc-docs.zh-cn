@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中创建合成分区键，均匀分配数据和工作负载。
 description: 了解如何使用 Azure Cosmos 容器中的合成分区键
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: c5ad8eb9b0f85640dabc165db7c3b3b3c5ce8beb
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: acb8a19b1cdfa97f9af3cfd9191e3888eb64a2ca
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254805"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912937"
 ---
 # <a name="create-a-synthetic-partition-key"></a>创建合成分区键
 

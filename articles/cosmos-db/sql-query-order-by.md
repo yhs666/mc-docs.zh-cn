@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: c8d5c99ac806b83e4ece97a306e54e16c022555e
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 9b8c7bb3a450d4268f941973e17da251cbe5beca
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672276"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913066"
 ---
-# <a name="order-by-clause"></a>ORDER BY 子句
+# <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 ORDER BY 子句
 
 可选的 ORDER BY 子句指定查询返回的结果的排序顺序。
 

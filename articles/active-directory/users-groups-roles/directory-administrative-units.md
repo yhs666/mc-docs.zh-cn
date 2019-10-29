@@ -11,17 +11,17 @@ ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
 origin.date: 08/01/2019
-ms.date: 10/12/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26be19f0cfc8aa347cadd61c326af12c9b13bdea
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 5991dbf833cff9f177f0b0c08b204ba3dcf8da2f
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292169"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912650"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Azure Active Directory 中的管理单元管理（公共预览版）
 
@@ -37,9 +37,9 @@ ms.locfileid: "72292169"
 
 ## <a name="managing-administrative-units"></a>管理管理单元
 
-在此预览版中，可以使用 Windows PowerShell cmdlet 的 Azure Active Directory 模块创建和管理管理单元。 若要深入了解如何执行此操作，请参阅[使用管理单元](https://docs.microsoft.com/powershell/active-directory/working-with-administrative-units?view=azureadps-2.0)
+在此预览版中，可以使用 Windows PowerShell cmdlet 的 Azure Active Directory 模块创建和管理管理单元。 若要深入了解如何执行此操作，请参阅[使用管理单元](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-有关软件要求和安装 Azure AD 模块的详细信息，以及有关用于管理管理单元的 Azure AD 模块 cmdlet 的信息（包括语法、参数说明和示例），请参阅 [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/active-directory/overview?view=azureadps-2.0)。
+有关软件要求和安装 Azure AD 模块的详细信息，以及有关用于管理管理单元的 Azure AD 模块 cmdlet 的信息（包括语法、参数说明和示例），请参阅 [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,17 +11,17 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
 origin.date: 03/18/2019
-ms.date: 08/12/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0107a8bf4727c0ed607f0b2aae2b6574fc47e4a7
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: dff4d4dcdd50f4eb32db68a4317224e34815f4bd
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973645"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912802"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>按 Azure Active Directory 中的组成员资格将许可证分配给用户
 
@@ -78,7 +78,6 @@ ms.locfileid: "68973645"
 
    - 活动：**完成向用户应用基于组的许可证**。 当系统完成对组中所有用户的处理时，记录此活动。 它包含有关已成功处理多少个用户，以及无法为多少个用户分配组许可证的摘要。
 
-   [阅读此部分](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity)以详细了解如何使用审核日志分析由基于组的许可进行的更改。
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>步骤 3：检查和解决许可证问题
 
@@ -104,6 +103,5 @@ ms.locfileid: "68973645"
 * [识别和解决 Azure Active Directory 中组的许可问题](licensing-groups-resolve-problems.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](licensing-ps-examples.md)
 

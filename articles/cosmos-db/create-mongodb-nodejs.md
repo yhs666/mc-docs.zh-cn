@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 09/30/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: b2adae7a1833244e490cc11d9e5975783d5aaaa4
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: a44d8a5f04cbe896d6c8296210026a058e101639
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306729"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970275"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 
@@ -28,9 +28,9 @@ ms.locfileid: "71306729"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
+本快速入门演示如何使用以 Node.js 编写的现有 MongoDB 应用，并将其连接到支持 MongoDB 客户端的 Azure Cosmos 数据库。 换言之，应用程序完全知道数据存储在 Cosmos 数据库中。
 
-本快速入门演示如何使用以 Node.js 编写的现有 MongoDB 应用，并将其连接到支持 MongoDB 客户端的 Cosmos 数据库。 换言之，应用程序完全知道数据存储在 Cosmos 数据库中。
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。
 
 完成本教程后，[Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中会运行一个 MEAN（MongoDB、Express、Angular 和 Node.js）应用程序。 
 
@@ -183,11 +183,15 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>检索密钥
 
+<!--MOONCAKE: CORRECT ON [az cosmosdb list-keys](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys)-->
+
 若要连接到 Cosmos 数据库，需要使用数据库密钥。 使用 [az cosmosdb list-keys](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) 命令检索主键。
 
 ```azurecli
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
+
+<!--MOONCAKE: CORRECT ON az cosmosdb list-keys-->
 
 Azure CLI 输出类似于以下示例的信息。 
 

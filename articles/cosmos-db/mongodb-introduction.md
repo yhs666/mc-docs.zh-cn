@@ -4,16 +4,16 @@ description: 了解如何使用 Azure Cosmos DB 通过其用于 MongoDB 的 API 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 10/01/2019
+ms.date: 10/28/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 325167507e7bb2957db78978757e841b4ac3c6bb
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 811a71d9a75e864d0cc7c67de79baf99788a3782
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171362"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914368"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -21,11 +21,11 @@ ms.locfileid: "67171362"
 
 ## <a name="wire-protocol-compatibility"></a>网络协议兼容性
 
-Azure Cosmos DB 服务对 Cassandra、MongoDB、Gremlin 和 Azure 表存储等常见的 NoSQL 数据库实现网络协议。 它在 Cosmos DB 中直接有效地提供网络协议的本机实现，使 NoSQL 数据库的现有客户端 SDK、驱动程序和工具能够以透明方式与 Cosmos DB 交互。 Cosmos DB 不使用数据库的任何源代码来为任何 NoSQL 数据库提供网络兼容的 API。
+Azure Cosmos DB 服务对 Cassandra、MongoDB、Gremlin 和 Azure 表存储等常见的 NoSQL 数据库实现网络协议。 它在 Cosmos DB 中直接有效地提供网络协议的本机实现，使 NoSQL 数据库的现有客户端 SDK、驱动程序和工具能够以透明方式与 Cosmos DB 交互。 Cosmos DB 不使用数据库的任何源代码为任何 NoSQL 数据库提供与线路兼容的 API。
 
-默认情况下，Azure Cosmos DB 的用于 MongoDB 的 API 与 MongoDB 网络协议版本 3.2 兼容。 在网络协议版本 3.4 中添加的功能或查询运算符目前以预览版功能形式提供。 任何理解这些协议版本的 MongoDB 客户端驱动程序都应该可以通过本机方式连接到 Cosmos DB。
+默认情况下，使用 Azure Cosmos DB 的 API for MongoDB 创建的新帐户与 MongoDB 线路协议 3.6 版兼容。 任何识别此协议版本的 MongoDB 客户端驱动程序应该可以本机连接到 Cosmos DB。
 
-![Azure Cosmos DB 的用于 MongoDB 的 API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![Azure Cosmos DB 的用于 MongoDB 的 API](./media/mongodb-introduction/cosmosdb-mongodb.png)
 
 ## <a name="key-benefits"></a>主要优点
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 服务对 Cassandra、MongoDB、Gremlin 和 Azure 表存储等�
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>Cosmos DB 的用于 MongoDB 的 API
 
-遵循快速入门创建 Cosmos 帐户，并迁移现有 MongoDB 应用程序以使用 Azure Cosmos DB，或者生成一个新的应用程序：
+遵循快速入门创建 Azure Cosmos 帐户，并迁移现有 MongoDB 应用程序以使用 Azure Cosmos DB，或者生成一个新的应用程序：
 
 * [迁移现有的 MongoDB Node.js Web 应用](create-mongodb-nodejs.md)。
 * [使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 .NET SDK 生成 Web 应用](create-mongodb-dotnet.md)

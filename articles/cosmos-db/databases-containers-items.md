@@ -2,18 +2,18 @@
 title: 在 Azure Cosmos DB 中使用数据库、容器和项
 description: 本文介绍如何在 Azure Cosmos DB 中创建和使用数据库、容器与项。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/01/2019
-ms.date: 09/30/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4bcf1fa926f7fba9ab91ad552a207c4b5e939cb6
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: b3c4458411960ef6770b4430f107c9d0b34a783b
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306699"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913299"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数据库、容器和项
 

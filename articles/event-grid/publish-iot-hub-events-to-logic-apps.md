@@ -190,7 +190,7 @@ ms.locfileid: "68337501"
 1. 在 IoT 中心选择“IoT 设备”。  
 2. 选择“设置”  （应用程序对象和服务主体对象）。
 3. 对于“设备 ID”，请输入 `Building1_Floor1_Room1_Temperature`。 
-4. 选择“其他安全性验证”  。 
+4. 选择“保存”  。 
 5. 可以添加具有不同设备 ID 的多个设备来测试事件订阅筛选器。 尝试以下示例： 
    * Building1_Floor1_Room1_Light
    * Building1_Floor2_Room2_Temperature

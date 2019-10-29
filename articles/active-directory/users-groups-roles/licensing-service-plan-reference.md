@@ -12,17 +12,17 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
 origin.date: 09/03/2019
-ms.date: 10/11/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: arjay
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b376a2dcc9e9450efb8dde95ec668df343130241
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 745523f75e839cd6bdaeef3f82b3cd79380058ac
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292126"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912649"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用于许可的产品名称和服务计划标识符
 
@@ -227,7 +227,6 @@ ms.locfileid: "72292126"
 * [识别和解决 Azure Active Directory 中组的许可问题](licensing-groups-resolve-problems.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](licensing-group-advanced.md)
 * [Azure AD 中基于组的许可的 PowerShell 示例](licensing-ps-examples.md)
 
 <!-- Update_Description: wording update -->

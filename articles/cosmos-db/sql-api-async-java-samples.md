@@ -6,19 +6,20 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: sample
 origin.date: 12/03/2018
-ms.date: 06/17/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: c564e78fb9baeb44377608b16c4df059b42e7b1e
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 597e3d85930c7d3f0417b98b25f9874a0f1c61c5
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171328"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913228"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的异步 Java 示例
 
 > [!div class="op_single_selector"]
-> * [.NET 示例](sql-api-dotnet-samples.md)
+> * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK 示例](sql-api-dotnet-v3sdk-samples.md)
 > * [Java 示例](sql-api-java-samples.md)
 > * [异步 Java 示例](sql-api-async-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)

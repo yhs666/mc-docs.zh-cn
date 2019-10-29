@@ -10,12 +10,12 @@ ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a04bce7c9f144105eb2fd5da17859806fad162a2
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 9b1029414c8f9d94fb4103e0adccfed19bf24b20
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155894"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914433"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>使用读取访问异地冗余存储设计高度可用的应用程序
 

@@ -4,16 +4,16 @@ description: 查看、下载和运行 Azure 存储的示例代码和应用程序
 author: WenJason
 ms.author: v-jay
 origin.date: 09/06/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 046d17aab16812501ea0a7d8104d5320327e4fad
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: e806f474b199f7d793c19d0b52cd2c544a730eb2
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306694"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914373"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
@@ -99,5 +99,6 @@ ms.locfileid: "71306694"
 了解其他语言的示例：
 
 * Java:[使用 Java 的 Azure 存储示例](storage-samples-java.md)
+* JavaScript/Node.js：[使用 JavaScript 的 Azure 存储示例](storage-samples-javascript.md)
 * Python:[使用 Python 的 Azure 存储示例](storage-samples-python.md)
 * 所有其他语言：[Azure 存储示例](../storage-samples.md)

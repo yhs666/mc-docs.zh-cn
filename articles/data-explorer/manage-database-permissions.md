@@ -17,7 +17,7 @@ ms.locfileid: "59686643"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>管理 Azure 数据资源管理器数据库权限
 
-通过 Azure 数据资源管理器，可以使用基于角色的访问控制模型来控制对数据库和表的访问。 在此模型下，主体（用户、组和应用）将映射到角色。 主体可以根据分配的角色访问资源。
+通过 Azure 数据资源管理器，可以使用基于角色的访问控制模型来控制对数据库和表的访问  。 在此模型下，主体（用户、组和应用）将映射到角色   。 主体可以根据分配的角色访问资源。
 
 本文介绍可用角色以及如何使用 Azure 门户和 Azure 数据资源管理器管理命令将主体分配给这些角色。
 
@@ -41,23 +41,23 @@ Azure 数据资源管理器具有以下角色：
 
 1. 导航到 Azure 数据资源管理器群集。
 
-1. 在“概述”部分中，选择想要管理权限的数据库。
+1. 在“概述”部分中，选择想要管理权限的数据库  。
 
     ![选择数据库](media/manage-database-permissions/select-database.png)
 
-1. 选择“权限”，然后选择“添加”。
+1. 选择“权限”，然后选择“添加”   。
 
     ![数据库权限](media/manage-database-permissions/database-permissions.png)
 
-1. 在“添加数据库权限”下，选择要分配给主体的角色，然后选择“选择主体”。
+1. 在“添加数据库权限”下，选择要分配给主体的角色，然后选择“选择主体”   。
 
     ![添加数据库权限](media/manage-database-permissions/add-permission.png)
 
-1. 查找主体，请选择它，然后选择“选择”。
+1. 查找主体，请选择它，然后选择“选择”  。
 
     ![在 Azure 门户中管理权限](media/manage-database-permissions/new-principals.png)
 
-1. 选择“其他安全性验证” 。
+1. 选择“保存”  。
 
     ![在 Azure 门户中管理权限](media/manage-database-permissions/save-permission.png)
 

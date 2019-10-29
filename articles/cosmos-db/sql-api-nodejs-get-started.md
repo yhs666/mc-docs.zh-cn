@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/06/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: ffec15352a5666b8f94d8bf7556d033cf7b80456
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 7cf742f5e826c4c111c60cb1e1f1534713c78f26
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306710"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913214"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -922,7 +922,7 @@ Press any key to exit
 
 * ```npm install``` 
 
-接下来，在 ```config.js``` 文件中更新 config.endpoint 和 config.primaryKey 的值，如[步骤 3：设置应用的配置](#Config)中所述。  
+接下来，在 ```config.js``` 文件中更新 config.endpoint 和 config.key 的值，如[步骤 3：设置应用的配置](#Config)中所述。  
 
 然后在终端中找到 ```app.js``` 文件并运行以下命令：  
 

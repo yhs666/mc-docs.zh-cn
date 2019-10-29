@@ -3,17 +3,19 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建 Cassandra API 密钥空�
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建 Cassandra API 密钥空间和表
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9761a17597ee8ea9125ad0ad0e9eb2d1edd7bbe5
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 1100d71617c45ddecdce9b14bbcd4b02f022c462
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514454"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914462"
 ---
+<!--Verify successfully-->
 # <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>为 Azure Cosmos DB 创建密钥空间和表 - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
@@ -23,15 +25,25 @@ ms.locfileid: "68514454"
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Create a multi-master Azure Cosmos Account for Cassandra API with a keyspace with shared  
-# throughput, and a table with dedicated throughput with last writer wins conflict resolution policy
-$resourceGroupName = "myResourceGroup"
+# Create an Azure Cosmos Account for Cassandra API with multi-master enabled, a keyspace with shared throughput,
+# and a table with defined schema, also with dedicated throughput, last writer wins conflict resolution policy 
+# and custom conflict resolver path
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
 $location = "China North 2"
-$accountName = "mycosmosaccount" # must be lower case.
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$apiType = "EnableCassandra"
+$accountResourceType = "Microsoft.DocumentDb/databaseAccounts"
 $keyspaceName = "keyspace1"
 $keyspaceResourceName = $accountName + "/cassandra/" + $keyspaceName
+$keyspaceResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces"
 $tableName = "table1"
 $tableResourceName = $accountName + "/cassandra/" + $keyspaceName + "/" + $tableName
+$tableResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables"
 
 # Create account
 $locations = @(
@@ -46,24 +58,25 @@ $consistencyPolicy = @{
 }
 
 $accountProperties = @{
-    "capabilities"= @( @{ "name"="EnableCassandra" } );
+    "capabilities"= @( @{ "name"=$apiType } );
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
     "consistencyPolicy"=$consistencyPolicy;
     "enableMultipleWriteLocations"="true"
 }
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
+New-AzResource -ResourceType $accountResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $accountProperties
 
 # Create keyspace with shared throughput
 $keyspaceProperties = @{
     "resource"=@{ "id"=$keyspaceName };
     "options"=@{ "Throughput"= 400 }
 }
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+
+New-AzResource -ResourceType $keyspaceResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $keyspaceResourceName -PropertyObject $keyspaceProperties
 
 # Create a table with dedicated throughput and last writer wins conflict resolution policy
@@ -94,8 +107,8 @@ $tableProperties = @{
     }; 
     "options"=@{ "Throughput"=400 }
 } 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+New-AzResource -ResourceType $tableResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $tableResourceName -PropertyObject $tableProperties 
 
 ```

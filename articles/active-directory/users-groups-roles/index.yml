@@ -10,15 +10,15 @@ metadata:
   manager: mtillman
   ms.topic: landing-page
   origin.date: 08/28/2019
-  ms.date: 10/11/2019
+  ms.date: 10/25/2019
   author: curtand
   ms.author: v-junlch
-  ms.openlocfilehash: a71820ee5d33d80b125aab1cf4253cc1d7ea0444
-  ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+  ms.openlocfilehash: 763f481026d44924d22a6c7457d402e61d61452b
+  ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/12/2019
-  ms.locfileid: "72292127"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72912789"
 landingContent:
 - title: 关于用户、组、角色和许可证
   linkLists:
@@ -64,8 +64,6 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 创建动态组
-      url: groups-create-rule.md
     - text: PowerShell 中的组设置
       url: groups-settings-v2-cmdlets.md
 - title: 添加域

@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新表 API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新表 API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ca6c634cd2c51e47083fd7c4d67b29c64746d544
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 2d93f0a80e7c1033c9ab11bf9d1df4fe5eb12b75
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514448"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913247"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>更新 Azure Cosmos DB 的表的 RU/秒 - 表 API
 
@@ -24,18 +25,21 @@ ms.locfileid: "68514448"
 
 ```powershell
 # Update RU for an Azure Cosmos Table API table
+
+$apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $tableName = "table1"
-$resourceName = $accountName + "/table/" + $tableName + "/throughput"
+$tableThroughputResourceName = $accountName + "/table/" + $tableName + "/throughput"
+$tableThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/tables/settings"
 $throughput = 500
 
 $tableProperties = @{
     "resource"=@{"throughput"=$throughput}
 } 
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/tables/settings" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $tableProperties
+Set-AzResource -ResourceType $tableThroughputResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $tableThroughputResourceName -PropertyObject $tableProperties
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

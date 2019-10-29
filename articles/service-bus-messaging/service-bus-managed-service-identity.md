@@ -109,7 +109,7 @@ Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../
 4.  在“添加角色分配”页上，选择要分配的 Azure 服务总线角色  。 然后通过搜索找到已注册的服务标识，以便分配该角色。
     
     ![“添加角色分配”页](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  选择“其他安全性验证”  。 分配有该角色的标识列出在该角色下。 例如，下图显示服务标识有 Azure 服务总线数据所有者。
+5.  选择“保存”  。 分配有该角色的标识列出在该角色下。 例如，下图显示服务标识有 Azure 服务总线数据所有者。
     
     ![分配给角色的标识](./media/service-bus-managed-service-identity/role-assigned.png)
 

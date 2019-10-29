@@ -4,15 +4,15 @@ description: Azure PowerShell 脚本示例 - Azure Cosmos 帐户的帐户密钥�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/20/2019
-ms.date: 07/29/2019
+origin.date: 09/20/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ef7f96dd26604ad9ec1cf92801608c5525918935
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 9a9b1caf04894115a75a5207e6399c81d7fe8268
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514410"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913278"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 执行 Azure Cosmos 帐户的连接字符串和帐户密钥操作
 
@@ -22,31 +22,53 @@ ms.locfileid: "68514410"
 
 ## <a name="sample-script"></a>示例脚本
 
-此示例需要资源组和帐户存在。 首先使用现有的 PowerShell 创建示例来预配帐户。
+> [!NOTE]
+> 此示例演示如何使用 SQL (Core) API 帐户。 若要将此示例用于其他 API，请复制相关属性，并将其应用于 API 特定的脚本
 
 ```powershell
 # Account keys and connection string operations for Azure Cosmos account
 
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
+$location = "China North 2"
 $resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$resourceType = "Microsoft.DocumentDb/databaseAccounts"
 $keyKind = @{ "keyKind"="Primary" }
+
+# Provision a new Cosmos account with the regions below
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 }
+)
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations
+}
+
+New-AzResource -ResourceType $resourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 
 Read-Host -Prompt "List connection strings for an Azure Cosmos Account"
 
 Invoke-AzResourceAction -Action listConnectionStrings `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceType $resourceType -ApiVersion $apiVersion `
     -ResourceGroupName $resourceGroupName -Name $accountName | Select-Object *
 
 Read-Host -Prompt "List keys for an Azure Cosmos Account"
 
 Invoke-AzResourceAction -Action listKeys `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceType $resourceType -ApiVersion $apiVersion `
     -ResourceGroupName $resourceGroupName -Name $accountName | Select-Object *
 
 Read-Host -Prompt "Regenerate the primary key for an Azure Cosmos Account"
 
 $keys = Invoke-AzResourceAction -Action regenerateKey `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceType $resourceType -ApiVersion $apiVersion `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $keyKind
 
 Write-Host $keys

@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 06/25/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b68f0f2e782901a8abef2fe02a759863864e9651
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: ac28f88b287bd36774baf443b661289e8b30e4d9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174273"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914514"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -138,15 +138,17 @@ ms.locfileid: "70174273"
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
                        // Send the message to the output as the temperature value is greater than the threshold.
-                       var filteredMessage = new Message(messageBytes);
-                       // Copy the properties of the original message into the new Message object.
-                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
-                       // Add a new property to the message to indicate it is an alert.
-                       filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
-                       await output.AddAsync(filteredMessage);
-                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       using (var filteredMessage = new Message(messageBytes))
+                       {
+                            // Copy the properties of the original message into the new Message object.
+                            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                            {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                            // Add a new property to the message to indicate it is an alert.
+                            filteredMessage.Properties.Add("MessageType", "Alert");
+                            // Send the message.       
+                            await output.AddAsync(filteredMessage);
+                            logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       }
                    }
                }
            }

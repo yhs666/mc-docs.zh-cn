@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/26/2018
-ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: 747582a74624c107960d149ac7849e0d5e7d801c
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: c096535f8ce76220e9bc70fe294162fb6a48f302
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633006"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872922"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>如何通过 Python 应用程序使用 Azure 事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关详细信息，请参阅[事件中心简介](event-hubs-what-is-event-hubs.md)。 
@@ -163,7 +163,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 有关如何从使用 Python 编写的应用程序中读取 Azure Blob 存储中捕获的事件中心数据的完成教程，请参阅[本文](event-hubs-capture-python.md)
 
 ## <a name="github-samples"></a>GitHub 示例
-可在 [azure-event-hubs-python Git 存储库](https://github.com/Azure/azure-event-hubs-python/) 中找到更多 Python 示例。
+可在 [azure-event-hubs-python Git 存储库](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs) 中找到更多 Python 示例。
 
 ## <a name="next-steps"></a>后续步骤
 阅读“概念”部分中的文章，从[事件中心功能概述](event-hubs-features.md)开始。

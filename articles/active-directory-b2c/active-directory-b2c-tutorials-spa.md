@@ -1,26 +1,26 @@
 ---
-title: 教程 - 在单页应用程序中启用身份验证 - Azure Active Directory B2C
+title: 教程：在单页应用程序中启用身份验证 - Azure Active Directory B2C
 description: 了解如何使用 Azure Active Directory B2C 为单页应用程序 (JavaScript) 提供用户登录功能。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: v-junlch
 origin.date: 07/24/2019
-ms.date: 09/02/2019
-ms.custom: mvc
+ms.date: 10/23/2019
+ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 444abb28b7ac227f442e065a6b6f6baf81a976a5
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 3221673333bdf521eb09da6cc7fa09dc5af6136a
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310755"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846909"
 ---
-# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在单页应用程序中启用身份验证
+# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>教程：使用 Azure Active Directory B2C (Azure AD B2C) 在单页应用程序中启用身份验证
 
-本教程展示了如何在单页应用程序 (SPA) 中使用 Azure Active Directory (Azure AD) B2C 执行用户登录和注册。 应用程序可以使用 Azure AD B2C 通过开放式标准协议对社交帐户、企业帐户和 Azure Active Directory 帐户进行身份验证。
+本教程展示了如何在单页应用程序 (SPA) 中使用 Active Directory B2C (Azure AD B2C) 执行用户登录和注册。 应用程序可以使用 Azure AD B2C 通过开放式标准协议对社交帐户、企业帐户和 Azure Active Directory 帐户进行身份验证。
 
 本教程介绍如何执行下列操作：
 
@@ -50,7 +50,7 @@ ms.locfileid: "70310755"
 在按照先决条件完成的第二个教程中，你已在 Azure AD B2C 中注册了 Web 应用程序。 若要与教程中的示例通信，需添加一个指向 Azure AD B2C 中的应用程序的重定向 URI。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录和订阅”筛选器，然后选择包含租户的目录  。
+1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
 1. 选择“应用程序”，然后选择“webapp1”应用程序。  
 1. 在“回复 URL”下添加 `http://localhost:6420`。 

@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a84a147d61adb56e00b47c6a234b4b1122d53d
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: a7762e31fb336580c0de583eac800722a0ba8719
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134264"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912770"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>用于调用 Web API 的移动应用 - 获取令牌
 
@@ -202,7 +202,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ### <a name="via-the-protocol"></a>通过协议
 
-建议不要直接使用协议。 如果你直接使用，则应用将不支持某些条件访问方案。
+建议不要直接使用协议。 
 
 使用协议获取移动应用的令牌时，需发出两个请求：获取授权代码，然后用它来换取令牌。
 

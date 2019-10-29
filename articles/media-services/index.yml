@@ -34,8 +34,3 @@ sections:
             image:
               src: null
             title: Azure 媒体服务 v2（旧版）
-          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
-            html: <p>在各种浏览器和设备中播放 Azure 媒体服务提供的媒体内容。</p>
-            image:
-              src: /media-services/latest/media/index/AMSIcons-Player.svg
-            title: Azure Media Player

@@ -56,7 +56,7 @@ Azure 门户提供部署清单的创建向导，无需你手动构建 JSON 文�
    * **名称** - SimulatedTemperatureSensor
    * **映像 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 6. 必要时请填写可选字段。 要详细了解容器创建选项、重启策略和所需状态，请参阅 [EdgeAgent 必需属性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。 要详细了解模块孪生，请参阅[定义或更新所需属性](module-composition.md#define-or-update-desired-properties)。
-7. 选择“其他安全性验证”  。
+7. 选择“保存”  。
 8. 重复步骤 2-6，将其他模块添加到部署。 
 9. 选择“下一步”转到路由部分  。
 

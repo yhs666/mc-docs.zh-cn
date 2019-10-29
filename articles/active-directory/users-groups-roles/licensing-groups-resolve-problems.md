@@ -11,17 +11,17 @@ ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 origin.date: 03/18/2019
-ms.date: 08/12/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 190f9b2707e8841c74bf4ace936449ce9d63ee5a
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 332b2a6436b23d70237fa08c4e0a2798a8fff85e
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973515"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912662"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>识别和解决 Azure Active Directory 中组的许可证分配问题
 
@@ -181,6 +181,5 @@ Microsoft Workplace Analytics 是一个附加产品。 它包含同名单一服�
 * [将许可证分配到 Azure Active Directory 中的组](licensing-groups-assign.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](licensing-ps-examples.md)
 

@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 获取吞吐量（RU/秒）- �
 description: Azure PowerShell 脚本 - Azure Cosmos DB 获取吞吐量（RU/秒）- 表 API
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5264b0562c9355be52092f3189663147470fbd37
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: c74c69f82e1b187f83b19b30f0d3d5b7d3cfa722
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514534"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913250"
 ---
 # <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>获取 Azure Cosmos DB 的表的吞吐量（RU/秒）- 表 API
 
@@ -24,6 +25,7 @@ ms.locfileid: "68514534"
 
 ```powershell
 # Get RU for an Azure Cosmos Table API table
+
 $apiVersion = "2015-04-08"
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
@@ -64,5 +66,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!-- Update_Description: new article about ps table ru get-->
-<!--ms.date: 07/29/2019-->
+<!-- Update_Description: wording update-->

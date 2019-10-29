@@ -4,20 +4,20 @@ description: 查看、下载和运行 Azure 存储的示例代码和应用程序
 author: WenJason
 ms.author: v-jay
 origin.date: 09/06/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 67e6a7d6cb41baf07596c50946bf57284484827c
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 04549676e55677894d5c74f7207734531120bbdb
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306863"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914410"
 ---
 # <a name="azure-storage-samples-using-python"></a>使用 Python 的 Azure 存储示例
 
-下表概述了我们的示例存储库以及每个示例中介绍的方案。 单击链接可查看 GitHub 中相应的示例代码。
+下表概述了示例存储库和每个示例中涉及的方案。 单击链接可查看 GitHub 中相应的示例代码。
 
 ## <a name="blob-samples"></a>Blob 示例
 
@@ -100,4 +100,5 @@ ms.locfileid: "71306863"
 
 * .NET:[使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)
 * Java:[使用 Java 的 Azure 存储示例](storage-samples-java.md)
+* JavaScript/Node.js：[使用 JavaScript 的 Azure 存储示例](storage-samples-javascript.md)
 * 所有其他语言：[Azure 存储示例](storage-samples.md)

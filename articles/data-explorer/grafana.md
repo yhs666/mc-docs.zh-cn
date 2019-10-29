@@ -114,7 +114,7 @@ Grafana 是一个分析平台，可用于查询和可视化数据，然后根据
 
     ![在 Azure 门户中管理权限](media/grafana/new-principals.png)
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
     ![在 Azure 门户中管理权限](media/grafana/save-permission.png)
 

@@ -148,7 +148,7 @@ ms.locfileid: "70737134"
 
    ![指定源详细信息](media/tutorial-mongodb-to-cosmosdb/dms-specify-source.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 
 ## <a name="specify-target-details"></a>指定目标详细信息
 
@@ -156,7 +156,7 @@ ms.locfileid: "70737134"
 
     ![指定目标详细信息](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 
 ## <a name="map-to-target-databases"></a>映射到目标数据库
 
@@ -170,7 +170,7 @@ ms.locfileid: "70737134"
 
     ![映射到目标数据库](media/tutorial-mongodb-to-cosmosdb/dms-map-target-databases.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 3. 在“集合设置”屏幕上，展开集合列表，然后查看要迁移的集合的列表。 
 
     Azure 数据库迁移服务会自动选择存在于源 MongoDB 实例上但不存在于目标 Azure Cosmos DB 帐户上的所有集合。 若要重新迁移已含数据的集合，需要在此边栏选项卡上明确选择集合。
@@ -184,7 +184,7 @@ ms.locfileid: "70737134"
 
     ![选择集合表](media/tutorial-mongodb-to-cosmosdb/dms-collection-setting.png)
 
-4. 选择“其他安全性验证”  。
+4. 选择“保存”  。
 
 5. 在“迁移摘要”屏幕的“活动名称”文本框中指定迁移活动的名称。  
 

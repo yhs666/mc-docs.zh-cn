@@ -3,16 +3,17 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建表 API 表
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建表 API 表
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5d3e6cf8b6bc59eb2f05f0506ca99d9eb65b24ab
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 050e0820f31e7e44f05598682ccaf4557c12f678
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514391"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914458"
 ---
 # <a name="create-a-table-for-azure-cosmos-db---table-api"></a>为 Azure Cosmos DB 创建表 - 表 API
 
@@ -23,12 +24,20 @@ ms.locfileid: "68514391"
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Create an Azure Cosmos account and table for Table API
-$resourceGroupName = "myResourceGroup"
+# Create an Azure Cosmos account for Table API and a table 
+
+#generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$apiVersion = "2015-04-08"
 $location = "China North 2"
-$accountName = "mycosmosaccount" # must be lower case.
+$resourceGroupName = "mjbArmTest"
+$accountName = "mycosmosaccount-$uniqueId" # must be lower case.
+$apiType = "EnableTable"
+$accountResourceType = "Microsoft.DocumentDb/databaseAccounts"
 $tableName = "table1"
 $tableResourceName = $accountName + "/table/" + $tableName
+$tableResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/tables"
 $throughput = 400
 
 # Create account
@@ -40,24 +49,24 @@ $locations = @(
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
 
 $accountProperties = @{
-    "capabilities"= @( @{ "name"="EnableTable" } );
+    "capabilities"= @( @{ "name"=$apiType } );
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
     "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "enableMultipleWriteLocations"="false"
 }
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
+New-AzResource -ResourceType $accountResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $accountProperties -Force
 
 # Create table
 $tableProperties = @{
     "resource"=@{ "id"=$tableName };
     "options"=@{ "Throughput"= $throughput }
 }
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/tables" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+New-AzResource -ResourceType $tableResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
     -Name $tableResourceName -PropertyObject $tableProperties -Force
 
 ```
@@ -88,4 +97,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

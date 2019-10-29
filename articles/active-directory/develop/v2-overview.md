@@ -13,17 +13,17 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/08/2019
-ms.date: 08/27/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 900c28fb7e920ba7172c631a4fdf3b484a2d1a02
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 11d686fb8484d2dbb1d079b1131717a282f19a5b
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134210"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912755"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft 标识平台 (v2.0) 概述
 
@@ -37,7 +37,7 @@ Microsoft 标识平台由 Azure Active Directory (Azure AD) 开发人员平台�
 - **应用程序配置 API 和 PowerShell**：允许通过 REST API（Microsoft Graph 和 Azure Active Directory Graph 1.6）和 PowerShell 以编程方式配置应用程序。
 - **开发人员内容**：概念性和参考文档、快速入门示例、代码示例、教程以及操作指南。
 
-对于开发人员而言，Microsoft 标识平台可无缝集成到标识和安全领域的创新中，例如无密码身份验证、升级身份验证和条件访问。  你不需要自己实现这样的功能：集成了 Microsoft 标识平台的应用程序原本就可以利用这样的创新。
+对于开发人员而言，Microsoft 标识平台可无缝集成到标识和安全领域的创新中，例如无密码身份验证和升级身份验证。  你不需要自己实现这样的功能：集成了 Microsoft 标识平台的应用程序原本就可以利用这样的创新。
 
 使用 Microsoft 标识平台，你可以编写一次代码并影响任何用户。 你可以构建一次应用并使其在许多平台上运行，也可以构建充当客户端以及资源应用程序 (API) 的应用。
 

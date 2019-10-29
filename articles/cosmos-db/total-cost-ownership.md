@@ -2,18 +2,18 @@
 title: Azure Cosmos DB 的总拥有成本 (TCO)
 description: 本文比较包含 IaaS 和本地数据库的 Azure Cosmos DB 的总拥有成本
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/01/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a63eca7e125d90e9f44aa2d941e944ad26d53178
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: cc16da4322b0d97171d57e934881ed4e17ff84a9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254603"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912913"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB 的总拥有成本 (TCO)
 

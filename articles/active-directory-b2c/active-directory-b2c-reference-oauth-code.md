@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 09/17/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 049c365687d02da2ef4cee7865bf74f2a924a58c
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: f7742424cd36908c1d6c9742ecce839482a41110
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083253"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847055"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授权代码流
 
@@ -173,7 +173,7 @@ POST {tenant}.partner.onmschina.cn/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | 参数 | 必需？ | 说明 |
@@ -229,4 +229,4 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 2. [创建应用程序](active-directory-b2c-app-registration.md)，获取应用程序 ID 和重定向 URI。 在应用中包含本机客户端。
 3. [创建用户流](active-directory-b2c-reference-policies.md)以获取用户流名称。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

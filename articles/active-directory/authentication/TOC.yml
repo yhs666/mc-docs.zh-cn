@@ -31,8 +31,6 @@
           items:
             - name: Windows Server 2016 AD FS 适配器
               href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
-    - name: 无密码的手机登录
-      href: howto-authentication-phone-sign-in.md
     - name: 基于证书的身份验证
       items:
         - name: 开始使用证书身份验证

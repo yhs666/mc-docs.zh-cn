@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 21781172003a2f99672d85de36f6089c9ceaa07a
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 5593f44939ba8d835d276ca3c4143489c6bc9a63
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254754"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913330"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 .NET Framework 或 Core 应用程序
@@ -87,7 +87,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 跟踪上面创建的帐户设置连接参数（第 19 行）： 
 
     ```csharp
-    private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.cn";
+    private static string hostname = "your-endpoint.gremlin.cosmos.azure.cn";
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
@@ -164,15 +164,15 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     ![复制终结点](./media/create-graph-dotnet/endpoint.png)
 
-    若要运行此示例，请复制 **Gremlin 终结点**值，删除末尾的端口号，也就是说，URI 将变为 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.cn`
+    若要运行此示例，请复制 **Gremlin 终结点**值，删除末尾的端口号，也就是说，URI 将变为 `https://<your cosmos db account name>.gremlin.cosmos.azure.cn`
 
 2. 在 Program.cs 中粘贴该值，使之覆盖第 19 行的 `hostname` 变量中的 `your-endpoint`。 
 
-    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.cn";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmos.azure.cn";`
 
     终结点值现在应如下所示：
 
-    `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.cn";`
+    `"private static string hostname = "testgraphacct.gremlin.cosmos.azure.cn";`
 
 3. 接下来，从门户中导航到“密钥”选项卡并复制“主密钥”值，将其粘贴到 `authkey` 变量中，替换第 21 行中的 `"your-authentication-key"` 占位符。   
 

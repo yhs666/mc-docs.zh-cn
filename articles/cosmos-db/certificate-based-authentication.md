@@ -8,12 +8,12 @@ origin.date: 06/11/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 8435dfdad1bf87180c0479c29facbdf328537e72
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 195073f39b0de028ce79751591623384f17dd9c4
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303280"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749597"
 ---
 <!--Verify successfully-->
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>为基于证书的身份验证配置 Azure AD 标识以从 Azure Cosmos DB 帐户访问密钥
@@ -80,6 +80,7 @@ ms.locfileid: "72303280"
 ```powershell
 Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
 ```
+
 <!--MOONCAKE: CORRECT ON ADD -AzureEnvironmentName AzureChinaCloud-->
 
 ## <a name="create-a-self-signed-certificate"></a>创建自签名证书
@@ -160,6 +161,9 @@ namespace TodoListDaemonWithCert
         private static string tenantId = "<Your_Tenant_ID>";
         private static string clientId = "<Your_Client_ID>";
         private static string certName = "<Your_Certificate_Name>";
+        
+        //The <Your_Certificate_Name> will be replace with "CN=sampleAppCert",
+        //When you have already invoked the previous PowerShell cmdlet.
 
         private static int errorCode = 0;
         static int Main(string[] args)
@@ -212,7 +216,7 @@ namespace TodoListDaemonWithCert
             X509Certificate2Collection currentCerts = certCollection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
 
             // From the collection of unexpired certificates, find the ones with the correct name.
-            X509Certificate2Collection signingCert = currentCerts.Find(X509FindType.FindBySubjectName, certName, false);
+            X509Certificate2Collection signingCert = currentCerts.Find(X509FindType.FindBySubjectDistinguishedName, certName, false);
 
             // Return the first certificate in the collection, has the right name and is current.
             cert = signingCert.OfType<X509Certificate2>().OrderByDescending(c => c.NotBefore).FirstOrDefault();
@@ -222,6 +226,8 @@ namespace TodoListDaemonWithCert
     }
 }
 ```
+
+<!--MOONCAKE: CORRECT ON LINE 216 X509FindType.FindBySubjectDistinguishedName-->
 
 此脚本将输出以下屏幕截图所示的主要和辅助主密钥：
 

@@ -11,16 +11,16 @@ ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 origin.date: 03/18/2019
-ms.date: 10/11/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bce075b72c7058870e2f42c7cdbd4de36a34a2e
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: f534f9e42fc4ef9a8dd6e7af0428999e2e153885
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292128"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912788"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 和 Graph 示例
 
@@ -629,7 +629,6 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 * [识别和解决 Azure Active Directory 中组的许可问题](licensing-groups-resolve-problems.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
 
 <!-- Update_Description: link update -->

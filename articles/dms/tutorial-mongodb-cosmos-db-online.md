@@ -162,7 +162,7 @@ ms.locfileid: "68952153"
 
    ![指定源详细信息](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 
    > [!NOTE]
    > 如果源是副本集，则源服务器地址应是主节点的地址；如果源是分片的 MongoDB 群集，则源服务器地址应是路由器的地址。 对于分片的 MongoDB 群集，Azure 数据库迁移服务必须能够连接到该群集中的各个分片，这可能需要在其他计算机上打开防火墙。
@@ -173,7 +173,7 @@ ms.locfileid: "68952153"
 
     ![指定目标详细信息](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-target1.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 
 ## <a name="map-to-target-databases"></a>映射到目标数据库
 
@@ -187,7 +187,7 @@ ms.locfileid: "68952153"
 
    ![映射到目标数据库](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
-2. 选择“其他安全性验证”  。
+2. 选择“保存”  。
 
 3. 在“集合设置”屏幕上，展开集合列表，然后查看要迁移的集合的列表。 
 
@@ -202,7 +202,7 @@ ms.locfileid: "68952153"
 
    ![选择集合表](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
 
-4. 选择“其他安全性验证”  。
+4. 选择“保存”  。
 
 5. 在“迁移摘要”屏幕的“活动名称”文本框中指定迁移活动的名称。  
 

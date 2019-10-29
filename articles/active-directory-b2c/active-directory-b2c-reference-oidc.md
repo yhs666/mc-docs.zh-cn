@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/22/2019
-ms.date: 09/17/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 011cc448fb26ef645633ab22a43c07cba70e2334
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 1e4d6b7141812f7cc7dfe5feb877e67688fcbd99
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083248"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847054"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录
 
@@ -142,7 +142,7 @@ POST {tenant}.partner.onmschina.cn/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | 参数 | 必须 | 说明 |
@@ -211,7 +211,7 @@ POST {tenant}.partner.onmschina.cn/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | 参数 | 必须 | 说明 |
@@ -287,4 +287,4 @@ GET https://{tenant}.b2clogin.cn/{tenant}.partner.onmschina.cn/{policy}/oauth2/v
 
 将用户定向到 `end_session` 终结点会清除用户的某些 Azure AD B2C 的单一登录状态，但是不会将用户从其社交标识提供者 (IDP) 会话中注销。 如果用户在后续登录中选择相同的 IDP，他们将重新进行身份验证，且无需输入其凭据。 用户从应用程序注销不一定意味着他们要从其微信帐户注销。 但是，如果使用了本地帐户，则用户的会话将正常结束。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

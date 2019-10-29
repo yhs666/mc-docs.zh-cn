@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 导入/导出将数据传入/传出 Azure 存储 | Azure
+title: 使用 Azure 导入/导出将数据传入/传出 Azure 存储 | Microsoft Docs
 description: 了解如何在 Azure 门户中创建导入和导出作业，以便将数据传入/传出到 Azure 存储。
-author: yunan2016
-manager: digimobile
+author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 07/11/2018
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: d875d8bb3d097a665d525a2dca7fb223934146ed
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+origin.date: 05/07/2019
+ms.date: 10/28/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: bc264e4113ac589c7d82e967214ccf9ae57810bc
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391984"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914432"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -300,9 +300,6 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
     ```
    在上面的示例中，100M_1.csv.txt 将复制到“fileshare”的根目录中。 如果“Fileshare”不存在，将创建一个。 50M_original 下的所有文件和文件夹以递归方式复制到 fileshare。 文件夹结构保持不变。
 
-    详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
-
-
 
 **驱动器集 CSV 文件**
 
@@ -317,8 +314,6 @@ H,Format,SilentMode,Encrypt,
 ```
 
 在上面的示例中，假设附加了两个磁盘，并创建了盘符为 G:\ 和 H:\ 的基本 NTFS 卷。 工具会格式化并加密托管 H:\ 的磁盘，但不会格式化或加密托管卷 G:\ 的磁盘。
-
-详细了解如何[准备驱动器集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)。
 
 6. 使用 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)将数据复制到一个或多个硬盘驱动器。
 7. 可以通过在驱动器集 CSV 中的 Encryption 字段内指定“Encrypt”，在硬盘驱动器上启用 BitLocker 加密。 也可以手动在硬盘驱动器上启用 BitLocker 加密，并在运行工具时，在驱动器集 CSV 文件中指定“AlreadyEncrypted”并提供密钥。
@@ -366,8 +361,6 @@ WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
-
-若要更详细了解如何使用 WAImportExport 工具，请参阅[为导入准备硬盘驱动器](storage-import-export-tool-preparing-hard-drives-import.md)。
 
 另请参阅[为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)，以获取更详细的分步说明。  
 

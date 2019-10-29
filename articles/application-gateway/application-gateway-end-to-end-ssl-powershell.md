@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6b56b1ac7243d36a414ff5253450953d8efa0416
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 9cd602cea7b2b02137b29c62dc0a289e87f062dd
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857276"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798511"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 SSL
 
@@ -230,7 +230,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
 
 对于 V1 SKU，请使用以下命令
 ```powershell
-$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
 对于 V2 SKU，请使用以下命令
@@ -362,4 +362,4 @@ DnsSettings              : {
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

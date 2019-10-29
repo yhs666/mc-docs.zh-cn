@@ -4,16 +4,16 @@ description: 查看、下载和运行 Azure 存储的示例代码和应用程序
 author: WenJason
 ms.author: v-jay
 origin.date: 09/06/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 072556be83cda33bde1a96ce2e24dd592fef8300
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 373d595a3d2c995c3641f4d9c9eaf416ea0583d6
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306828"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914408"
 ---
 # <a name="azure-storage-samples"></a>Azure 存储示例
 
@@ -41,13 +41,7 @@ ms.locfileid: "71306828"
 ## <a name="nodejs-samples"></a>Node.js 示例
 要浏览 Node.js 示例，请下载 [Node.js 存储客户端库](https://github.com/Azure/azure-storage-node)。
 
-* [Blob 上传程序](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [上传和下载 Blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [继续标记](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [重试策略](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [共享访问签名](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [快照](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [表查询](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [使用 JavaScript/Node.js 的 Azure 存储示例](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>C ++ 示例
 若要浏览 C++ 示例，请从 NuGet 下载 [C++ 存储客户端库](https://www.nuget.org/packages/wastorage/) 。
@@ -72,4 +66,5 @@ ms.locfileid: "71306828"
 
 * [使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)
 * [使用 Java 的 Azure 存储示例](storage-samples-java.md)
+* [使用 JavaScript 的 Azure 存储示例](storage-samples-javascript.md)
 * [使用 Python 的 Azure 存储示例](storage-samples-python.md)

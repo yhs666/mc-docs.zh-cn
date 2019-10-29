@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 10/08/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 72c7545663a7f675b42ceb7368d72ac8b599e2bf
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 472f8397a93315d548748e7d35f18fd6714be7ad
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292029"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912692"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 标识平台集成查检表
 
@@ -94,7 +94,6 @@ Microsoft 标识平台集成查检表旨在引导你完成高质量且安全的�
 
 |   |   |
 |---|---|
-| ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 测试可能影响用户使用应用程序的能力的[条件访问策略](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)。 |
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 使用你打算支持的所有可能帐户（例如工作或学校帐户）测试应用程序。 |
 
 ## <a name="additional-resources"></a>其他资源

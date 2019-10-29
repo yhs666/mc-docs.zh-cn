@@ -32,7 +32,7 @@ ms.locfileid: "66250420"
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 - 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -131,7 +131,7 @@ ms.locfileid: "66250420"
 4. 完成以下选项之一：
     - **添加地址范围**：输入新的地址范围。 该地址范围不能与为虚拟网络定义的现有地址范围重叠。
     - **删除地址范围**：在要删除的地址范围右侧，选择“...”，然后选择“删除”   。 如果该地址范围包含子网，则无法删除该地址范围。 要删除某个地址范围，必须先删除存在于该地址范围内的所有子网（以及已连接到这些子网的所有资源）。
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 
  命令
 
@@ -153,7 +153,7 @@ ms.locfileid: "66250420"
     - **删除地址**：在要删除的服务器旁，选择“...”，然后选择“删除”   。 删除服务器只会将服务器从此虚拟网络列表中删除。 DNS 服务器在 Azure 中仍为注册状态，可供其他虚拟网络使用。
     - **重新排列 DNS 服务器的地址**：确认按所处环境的正确顺序列出 DNS 服务器，这一点很重要。 将按指定顺序使用 DNS 服务器列表， 而不是按轮循方式来使用。 如果列表中的第一个 DNS 服务器可以访问，则无论此 DNS 服务器是否正常运行，客户端都会使用该 DNS 服务器。 删除列出的所有 DNS 服务器，然后按照所需顺序，将这些服务器重新添加到列表中。
     - **更改地址**：在列表中突出显示 DNS 服务器，然后输入新地址。
-5. 选择“其他安全性验证”  。
+5. 选择“保存”  。
 6. 重启已连接到虚拟网络的 VM，以便为其分配新的 DNS 服务器设置。 VM 在重启之前，将继续使用其当前 DNS 设置。
 
  命令

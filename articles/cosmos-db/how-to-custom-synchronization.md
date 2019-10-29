@@ -2,17 +2,17 @@
 title: 如何实现自定义同步以根据 Azure Cosmos DB 的更高可用性和性能进行优化
 description: 了解如何实现自定义同步以根据 Azure Cosmos DB 的更高可用性和性能进行优化。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 09/30/2019
-ms.author: v-yeche
-ms.openlocfilehash: 467a7a820206f7e683b985b89f5e6b16c9bc7dc8
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.openlocfilehash: b1598e9bfb01ddca3ea88632784187b633a5d060
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306681"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970261"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>实现自定义同步以根据更高可用性和性能进行优化
 

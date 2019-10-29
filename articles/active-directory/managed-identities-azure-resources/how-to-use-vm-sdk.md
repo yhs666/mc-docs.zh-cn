@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/01/2017
-ms.date: 08/05/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69fd870b938bb5c3f6d0ed78931e7bf24c2d08d8
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 76d5777da8689c0c7c5aece7dd3387602eb12e7c
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818688"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912739"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>如何在 Azure VM 上将 Azure 资源的托管标识与 Azure SDK 配合使用 
 
@@ -43,7 +43,6 @@ ms.locfileid: "68818688"
 | .NET Core       | [使用 Azure 资源的托管标识从 Linux VM 调用 Azure 服务](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js         | [使用 Azure 资源的托管标识管理资源](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python          | [使用 Azure 资源的托管标识简单从 VM 内部进行身份验证](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
-| Ruby            | [从启用了 Azure 资源的托管标识的 VM 中管理资源](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
 
 ## <a name="next-steps"></a>后续步骤
 

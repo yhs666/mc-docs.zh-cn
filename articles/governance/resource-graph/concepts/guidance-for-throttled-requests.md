@@ -3,17 +3,17 @@ title: 针对受限制请求的指南
 description: 了解如何创建更好的查询，以避免对 Azure Resource Graph 发出的请求受到限制。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 06/19/2019
-ms.date: 09/16/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f71de723c2d677659cb144724178d9b7e52ee2d4
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4955784c9ce094ad8d003fb0d9b15a02979aec30
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737432"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914467"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>有关 Azure Resource Graph 中受限请求的指南
 
@@ -57,7 +57,7 @@ Azure Resource Graph 根据时间范围为每个用户分配配额数。 例如�
   {
       var userQueryRequest = new QueryRequest(
           subscriptions: new[] { subscriptionId },
-          query: "project name, type");
+          query: "Resoures | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -80,7 +80,7 @@ Azure Resource Graph 根据时间范围为每个用户分配配额数。 例如�
       var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
       var userQueryRequest = new QueryRequest(
           subscriptions: currSubscriptionBatch,
-          query: "project name, type");
+          query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -104,7 +104,7 @@ Azure Resource Graph 根据时间范围为每个用户分配配额数。 例如�
           resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -198,7 +198,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "project id, name, type | top 5000");
+      query: "Resources | project id, name, type | top 5000");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -220,11 +220,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   使用 Azure CLI 或 Azure PowerShell 时，对 Azure Resource Graph 的查询将自动分页，以最多提取 5000 个条目。 查询结果将返回所有分页调用中的条目的组合列表。 在这种情况下，根据查询结果中的条目数，单个分页查询可能会消耗多个查询配额。 例如，在以下示例中，运行一次查询最多可能会消耗五个查询配额：
 
   ```azurecli
-  az graph query -q 'project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' -top 5000
   ```
 
   ```azurepowershell
-  Search-AzGraph -Query 'project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
   ```
 
 ## <a name="still-get-throttled"></a>仍然受到限制？

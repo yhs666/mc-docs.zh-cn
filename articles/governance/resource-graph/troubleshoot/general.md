@@ -3,17 +3,17 @@ title: 排查常见错误
 description: 了解如何排查使用 Azure Resource Graph 查询 Azure 资源时出现的问题
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 08/21/2019
-ms.date: 10/21/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 99597ce9436ef24bcb22d4ba6e8ae90d65b08ad5
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 0fbea1c804cce01f0afc3c8bcff9377018d17492
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292459"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914500"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>排查使用 Azure Resource Graph 时出现的错误
 
@@ -41,7 +41,7 @@ Azure CLI 和 PowerShell 只会将前 1000 个订阅转发到 Azure Resource Gra
 
 ```azurepowershell
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription

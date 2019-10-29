@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: c8850f28e8ad02bdfa8c16e2e1d56fd746a8460d
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 08c875d43ccf065751f7531444e8eede5d3dfa13
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672285"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913077"
 ---
-# <a name="offset-limit-clause"></a>OFFSET LIMIT 子句
+# <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 OFFSET LIMIT 子句
 
 OFFSET LIMIT 子句是一个可选子句，可以跳过它，然后从查询中获取一些值。 必须在 OFFSET LIMIT 子句中指定 OFFSET 计数和 LIMIT 计数。
 

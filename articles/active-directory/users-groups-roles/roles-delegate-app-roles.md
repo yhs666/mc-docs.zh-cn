@@ -11,17 +11,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 09/04/2019
-ms.date: 10/11/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 930fa283f606333ad55bb6fe8af138a224f6af9d
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 11dea7ac3042fa86b467457f6c85b2331d17d7c5
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292121"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912646"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委托应用注册权限
 
@@ -85,7 +85,6 @@ Azure AD 提供一组内置的管理员角色，用于授予 Azure AD 中所有�
 
 > [!IMPORTANT]
 > 应用程序管理员和云应用程序管理员可向应用程序添加凭据，并使用这些凭据来模拟应用程序的标识。 与管理员角色的权限相比，应用程序的权限可能已提升。 在模拟应用程序时，根据应用程序的权限，充当此角色的管理员可能会创建或更新用户或其他对象。
-> 任何一个角色都不授权管理“条件访问”设置。
 
 ## <a name="create-and-assign-a-custom-role-preview"></a>创建和分配自定义角色（预览版）
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: 5eb811a3e579898bcd17438b6abf111efb9f74a3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 11/04/2019
+ms.openlocfilehash: defbe44d4d3b1140ac27aa294db4f57a09906c01
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736703"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913252"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 本文讨论策略表达式语法 C# 7。 每个表达式都可以访问隐式提供的[上下文](api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -54,15 +54,16 @@ ms.locfileid: "70736703"
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)
 
 @{
-  string value;
+  string[] value;
   if (context.Request.Headers.TryGetValue("Authorization", out value))
   {
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));
+      if(value != null && value.Length > 0)
+      {
+          return Encoding.UTF8.GetString(Convert.FromBase64String(value[0]));
+      }
   }
-  else
-  {
-    return null;
-  }
+  return null;
+
 }
 ```
 

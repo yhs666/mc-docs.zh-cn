@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/19/2019
 ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: f45a322b1db87dc79e54f84f0b625054778b01df
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: f45f41565a9c3fdf2e746cf29458972727d941f9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124600"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914391"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 
@@ -127,7 +127,7 @@ ms.locfileid: "71124600"
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player 支持 FairPlay 播放。 请参阅 [Azure Media Player 文档](https://amp.azure.net/libs/amp/latest/docs/index.html)了解详细信息。
+> Azure Media Player 支持 FairPlay 播放。
 >
 >
 

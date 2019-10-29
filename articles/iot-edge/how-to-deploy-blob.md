@@ -124,7 +124,7 @@ Azure 门户引导你创建部署清单并将部署推送到 IoT Edge 设备。
 
    有关在部署模块后配置 deviceToCloudUploadProperties 和 deviceAutoDeleteProperties 的信息，请参阅[编辑模块孪生](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)。 若要详细了解所需属性，请参阅[定义或更新所需属性](module-composition.md#define-or-update-desired-properties)。
 
-1. 选择“其他安全性验证”  。
+1. 选择“保存”  。
 
 1. 选择“下一步”转到路由部分  。
 

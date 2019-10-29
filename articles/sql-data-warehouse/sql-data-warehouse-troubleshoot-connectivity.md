@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: supportability
 origin.date: 03/27/2019
-ms.date: 09/02/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 84bbde8e98024188f4981c005794ecad0e22094f
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: 55a39873d3a88d790cbafc30a8915ea7577ec6e6
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131887"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913259"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>排查连接问题
 
@@ -58,7 +58,7 @@ SQL 数据仓库的状态将显示在这里。 如果服务未显示为“可用
 
 ## <a name="check-your-firewall-settings"></a>检查防火墙设置
 
-SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 在这种情况下，将无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。 可从[此处](/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal)找到有关防火墙配置的更多信息。
+SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 在这种情况下，将无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。 可从[此处](/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)找到有关防火墙配置的更多信息。
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>检查 VNet/服务终结点设置
 

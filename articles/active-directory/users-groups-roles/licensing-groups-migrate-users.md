@@ -12,17 +12,17 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
 origin.date: 03/18/2019
-ms.date: 08/12/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a5ac81e812bf899a7bc34cdc95156816af97c04
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: e35473ce77cb919bac5ef360c3cbaec8676ed588
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973558"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912793"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何将具有单个许可证的用户迁移到组以获取许可
 
@@ -41,8 +41,6 @@ ms.locfileid: "68973558"
 4. 验证是否已向这些组中的所有用户应用许可证。 要完成应用程序操作，可以检查每个组的处理状态并查看审核日志。
 
    - 查看单个用户的许可证详细信息，即可查明该用户的许可状态。 可以看到，他们具有“直接”分配的以及从组“继承”的相同许可证。
-
-   - 可以运行 PowerShell 脚本来[确认许可证是如何分配给用户的](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses)。
 
    - 如果将一个产品许可证直接分配给用户，同时又通过组将同一个许可证分配给用户，该用户只会使用一个许可证。 因此，不需要使用其他许可证来执行迁移。
 
@@ -90,6 +88,5 @@ ms.locfileid: "68973558"
 * [将许可证分配到 Azure Active Directory 中的组](licensing-groups-assign.md)
 * [识别和解决 Azure Active Directory 中组的许可问题](licensing-groups-resolve-problems.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](licensing-ps-examples.md)
 

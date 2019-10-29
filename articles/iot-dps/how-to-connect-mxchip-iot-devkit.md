@@ -4,17 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务的自动预配功�
 author: liydu
 ms.author: v-yiso
 origin.date: 06/25/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: c90bc697a22c277a6e47cb8248c713f14e8c57af
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 90c616a1aeb9f76d100d6494339acf53f28dc78c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174093"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912902"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心
 
@@ -92,9 +92,6 @@ ms.locfileid: "70174093"
 ## <a name="generate-x509-certificate"></a>生成 X.509 证书
 
 此示例使用的[证明机制](/iot-dps/concepts-device#attestation-mechanism)是 X.509 证书。 需要使用实用程序来生成它。
-
-> [!NOTE]
-> X.509 证书生成器现仅支持 Windows。
 
 1. 在 VS Code 中，单击 `F1`，键入并选择“打开新终端”以打开终端窗口  。
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 11/13/2018
-ms.date: 08/13/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 614d9955585b4182bc7ccc9c1a16dd0fb4c6d517
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 53f45bb8af52fc168435bb778a7068f1d2e8c347
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973586"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912674"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 存储报告数据多长时间？
 
@@ -56,13 +56,7 @@ ms.locfileid: "68973586"
 如果最近刚切换到高级版本（包括试用版），则最初最多能看到 7 天的数据。 随着数据累积，可以看到过去 30 天的数据。
 
 ---
-
-### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Azure AD 何时开始收集安全信号数据？  
-
-当用户选择使用**标识防护中心**时，收集安全信号的过程会开始。 
-
----
-
+ 
 ### <a name="how-long-does-azure-ad-store-the-data"></a>Azure AD 存储数据多长时间？
 
 **活动报告**    

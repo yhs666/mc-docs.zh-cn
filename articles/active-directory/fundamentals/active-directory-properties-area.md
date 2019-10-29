@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/17/2018
-ms.date: 01/02/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 1aeab5afd95aeb078d3951f54b3165120c136bac
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 6ab04d4e94fa404da99f9526a32e7c51d2efaca7
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996334"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912751"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>使用 Azure Active Directory 添加组织的隐私信息
 本文介绍租户管理员如何通过 Azure 门户将与隐私相关的信息添加到组织的 Azure Active Directory (Azure AD) 租户。
@@ -48,9 +48,7 @@ ms.locfileid: "53996334"
     - **隐私声明 URL。** 键入指向组织的文档的链接，该文档用于描述组织如何处理内部和外部来宾的数据隐私。
 
         >[!Important]
-        >如果未包括你自己的隐私声明或隐私联系人，外部来宾将在“审阅权限”  框中看到这样的文字：<_你的组织名称_> 尚未提供指向供你查看的条款的链接  。 例如，来宾用户将在收到通过 B2B 协作访问组织的邀请时看到此消息。
-
-        ![带有消息的 B2B 协作审阅权限框](./media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
+        >如果未包括你自己的隐私声明或隐私联系人，外部来宾将在“审阅权限”  框中看到这样的文字：<_你的组织名称_> 尚未提供指向供你查看的条款的链接  。 
 
 4.  选择“保存”  。
 

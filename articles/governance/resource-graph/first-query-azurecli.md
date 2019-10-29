@@ -3,17 +3,17 @@ title: 使用 Azure CLI 运行第一个查询
 description: 本文将指导你完成为 Azure CLI 启用 Resource Graph 扩展并运行第一个查询的步骤。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 07/26/2019
-ms.date: 09/16/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 5ce9dcb14c0939a902ee5e40abd4a0157dee6624
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4aa86abf114a77987260496db28a6e7efa8b18c9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737416"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970338"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入门：使用 Azure CLI 运行你的第一个 Resource Graph 查询
 
@@ -36,7 +36,7 @@ ms.locfileid: "70737416"
    az extension add --name resource-graph
    ```
 
-1. 验证该扩展是否已安装以及是否为预期的版本（至少为 **0.1.11**）：
+1. 验证该扩展是否已安装以及是否为预期的版本（至少为 **1.0.0**）：
 
    ```azurecli
    # Check the extension list (note that you may have other extensions installed)
@@ -56,7 +56,7 @@ ms.locfileid: "70737416"
    # Login first with az login if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   az graph query -q 'project name, type | limit 5'
+   az graph query -q 'Resources | project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -66,7 +66,7 @@ ms.locfileid: "70737416"
 
    ```azurecli
    # Run Azure Resource Graph query with 'order by'
-   az graph query -q 'project name, type | limit 5 | order by name asc'
+   az graph query -q 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -76,7 +76,7 @@ ms.locfileid: "70737416"
 
    ```azurecli
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   az graph query -q 'project name, type | order by name asc | limit 5'
+   az graph query -q 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 假设环境中没有任何变化，则多次运行最后一个查询时，返回的结果将是一致的且符合预期的 -- 按 Name 属性排序，但仍限制为前五个结果  。

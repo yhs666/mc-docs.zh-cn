@@ -11,13 +11,14 @@ metadata:
   ms.collection: collection
   author: mmacy
   ms.author: v-junlch
-  ms.date: 09/17/2019
-  ms.openlocfilehash: 548a123e7b2ee27cf4da0a3104a0ae72dca7204e
-  ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+  origin.date: 08/29/2019
+  ms.date: 10/24/2019
+  ms.openlocfilehash: 3cd48c01336744ee87f723a9629573c56c41bbdf
+  ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71083229"
+  ms.lasthandoff: 10/24/2019
+  ms.locfileid: "72847107"
 landingContent:
 - title: 了解基础知识
   linkLists:
@@ -25,6 +26,8 @@ landingContent:
     links:
     - text: 什么是 Azure AD B2C？
       url: active-directory-b2c-overview.md
+    - text: 技术和功能概述
+      url: technical-overview.md
   - linkListType: get-started
     links:
     - text: 创建 Azure AD B2C 租户
