@@ -17004,7 +17004,18 @@
       "source_path": "articles/azure-monitor/platform/archive-diagnostic-logs.md",
       "redirect_url": "/azure-monitor/platform/resource-logs-collect-storage",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/scripts/sample-pitr-restore.md",
+      "redirect_url": "/mysql/scripts/sample-point-in-time-restore",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
+      "redirect_url": "/mysql/reference-stored-procedures",
+      "redirect_document_id": false
     }
+
 
 
   ]
