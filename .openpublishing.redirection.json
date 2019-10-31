@@ -17014,7 +17014,13 @@
       "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
       "redirect_url": "/mysql/reference-stored-procedures",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
+      "redirect_url": "/mariadb/reference-stored-procedures",
+      "redirect_document_id": false
     }
+
 
 
 
