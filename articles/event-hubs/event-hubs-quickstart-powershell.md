@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 创建事件中心 - Azure 事件中心 | Azure Docs
+title: 使用 PowerShell 创建事件中心 - Azure 事件中心 | Azure
 description: 本快速入门介绍如何使用 Azure PowerShell 创建事件中心，然后使用 .NET Standard SDK 发送和接收事件。
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -9,15 +9,15 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-origin.date: 08/16/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
-ms.openlocfilehash: ed10b0b0af77462deab624cba13309690dc098ac
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+origin.date: 12/06/2018
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: acc181778a8c8329a68c0023c591d7b788c3dcd8
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296713"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872907"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
@@ -36,7 +36,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
 
-如果在本地使用 PowerShell，必须运行最新版本的 PowerShell 才能完成本快速入门。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.azure.cn/zh-cn/powershell-install-configure)。
+如果在本地使用 PowerShell，必须运行最新版本的 PowerShell 才能完成本快速入门。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](/powershell-install-configure)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -44,7 +44,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 以下示例在中国东部区域中创建一个资源组。 将 `myResourceGroup` 替换为要使用的资源组的名称：
 
-```PowerShell
+```powershell
 New-AzResourceGroup -Name myResourceGroup -Location chinaeast
 ```
 
@@ -52,7 +52,7 @@ New-AzResourceGroup -Name myResourceGroup -Location chinaeast
 
 创建资源组后，在该资源组中创建事件中心命名空间。 事件中心命名空间提供唯一的完全限定域名，可在其中创建事件中心。 将 `namespace_name` 替换为命名空间的唯一名称：
 
-```PowerShell
+```powershell
 New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location chinaeast
 ```
 
@@ -61,7 +61,7 @@ New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namesp
 创建事件中心命名空间后，在该命名空间中创建事件中心：  
 `MessageRetentionInDays` 的允许期限为 1 到 7 天。
 
-```PowerShell
+```powershell
 New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
@@ -80,8 +80,7 @@ New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name 
 - [C（仅发送）](event-hubs-c-getstarted-send.md)
 - [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
-
-[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps
 [New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-Azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

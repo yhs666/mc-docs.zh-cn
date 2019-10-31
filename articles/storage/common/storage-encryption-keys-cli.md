@@ -4,18 +4,18 @@ description: 了解如何使用 Azure CLI 来配置客户管理的密钥用于 A
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
-origin.date: 06/24/2019
-ms.date: 09/30/2019
+ms.topic: conceptual
+origin.date: 10/15/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 23d6216f513d7530d0061e7ccc7eff555e513e99
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 5f66e77f7665bc4bdff9f77e274fc8c95299bd77
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306731"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914434"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>通过 Azure CLI 配置客户管理的密钥用于 Azure 存储加密
 
@@ -24,7 +24,7 @@ ms.locfileid: "71306731"
 本文介绍如何使用 Azure CLI 配置包含客户管理的密钥的 Key Vault。
 
 > [!IMPORTANT]
-> 将客户管理的密钥用于 Azure 存储加密需要为 Key Vault 配置两个必需的属性：“软删除”和“不要清除”。   在 Azure 门户中创建新的 Key Vault 时，默认会启用这些属性。 但是，如果需要针对现有的 Key Vault 启用这些属性，必须使用 PowerShell 或 Azure CLI。
+> 使用带有 Azure 存储加密的客户管理密钥需要在密钥保管库上设置两个属性：“软删除”  和“不要清除”  。 默认情况下未启用这些属性。 若要启用这些属性，请使用 PowerShell 或 Azure CLI。
 > 仅支持 RSA 密钥以及密钥大小 2048。
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>将标识分配到存储帐户

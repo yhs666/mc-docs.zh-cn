@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB：批量执行程序 .NET API、SDK 和资源
-description: 了解有关批量执行程序 .NET API 的所有信息。
+description: 了解有关批量执行程序 .NET API 和 SDK 的所有信息。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 11/19/2018
-ms.date: 09/09/2019
+origin.date: 10/11/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 104628ec69e9e28b9211a6049d22c3b02ce6d76d
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d39f1bae1579c3299415d11e0f569973c6370760
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254469"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913208"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 批量执行程序库：下载信息 
 

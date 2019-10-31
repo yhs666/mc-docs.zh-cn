@@ -1,20 +1,19 @@
 ---
 title: Azure 文件的共享快照概述 | Microsoft Docs
 description: 作为备份共享的一种方式，共享快照是某个时间点拍摄的 Azure 文件共享的只读版本。
-services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/17/2018
-ms.date: 07/15/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 10b4a58e7fcf8994a3edba87b77ac76ec4cb11b3
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 99fc1685e0ad24cbe21d031781d585e98c9fe606
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844519"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914474"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 文件的共享快照概述 
 Azure 文件提供了获取文件共享的共享快照的功能。 共享快照可以捕获在某个时间点的共享状态。 本文介绍共享快照提供的功能，以及如何在自定义用例中加以利用。
@@ -73,7 +72,7 @@ Azure 文件目前允许的共享快照的上限是 200 个。 在 200 个共享
 
 复制后共享快照保持不变，但基本文件共享将被共享快照中可用的数据副本覆盖。 所有还原后的文件会计入“已更改内容”。
 
-可将共享快照中的文件复制到具有不同名称的目标。 生成的目标文件是可写文件，而不是共享快照。
+可将共享快照中的文件复制到具有不同名称的不同目标。 生成的目标文件是可写文件，而不是共享快照。 在这种情况下，基本文件共享将保持不变。
 
 使用副本覆盖目标文件时，与原始目标文件关联的所有共享快照均将保持不变。
 

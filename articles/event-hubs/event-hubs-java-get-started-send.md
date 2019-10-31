@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 发送和接收事件 - Azure 事件中心 | Azure Docs
+title: 使用 Java 向/从 Azure 事件中心发送数据
 description: 本文提供了创建 Java 应用程序的演练，该应用程序用于将事件发送到 Azure 事件中心。
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,21 +7,22 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-origin.date: 08/27/2018
-ms.date: 05/06/2019
-ms.author: v-biyu
-ms.openlocfilehash: 4c01e7824dcd8201dbd3b2a11a106b39bad98394
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019
+origin.date: 04/15/2019
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: 32cb323773d03d73dc193cc895dff967fd416058
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854700"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872962"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>使用 Java 将事件发送到 Azure 事件中心或从其接收事件
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>使用 Java 将事件发送到 Azure 事件中心或从其中接收事件
 
-Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
+本教程介绍如何创建 Java 应用程序来将事件发送到 Azure 事件中心或从其中接收事件。
 
-本教程介绍了如何创建 Java 应用程序来将事件发送到事件中心或从其接收事件。 
+Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅“事件中心概述”和“事件中心功能”。
 
 > [!NOTE]
 > 可以从 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) 下载此用作示例的快速入门，将 `EventHubConnectionString` 和 `EventHubName` 字符串替换为事件中心值，并运行它。 或者，可以按照本教程中的步骤创建自己的解决方案。
@@ -32,7 +33,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 - 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - Java 开发环境。 本教程使用 [Eclipse](https://www.eclipse.org/)。
-- **创建事件中心命名空间和事件中心**。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照文章中的以下说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 可在本教程后面编写的代码中使用该访问密钥。 默认密钥名称为：RootManageSharedAccessKey。
+- **创建事件中心命名空间和事件中心**。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照文章中的以下说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 可在本教程后面编写的代码中使用该访问密钥。 默认密钥名称为：RootManageSharedAccessKey  。
 
 ## <a name="send-events"></a>发送事件 
 本部分展示了如何创建 Java 应用程序来将事件发送到事件中心。 
@@ -88,10 +89,10 @@ public class SimpleSend {
 
 ```java
         final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-                .setNamespaceName("speventhubns") 
-                .setEventHubName("speventhub")
+                .setNamespaceName("<EVENTHUB NAMESPACE") 
+                .setEventHubName("EVENT HUB")
                 .setSasKeyName("RootManageSharedAccessKey")
-                .setSasKey("2+WMsyyy1XmUtEnRsfOmTTyGasfJgsVjGAOIN20J1Y8=");
+                .setSasKey("SHARED ACCESS KEY");
 ```
 
 ### <a name="write-code-to-send-events"></a>编写代码来发送事件
@@ -178,14 +179,14 @@ eventHubClient.closeSync();
 
 若要使用 EventProcessorHost，必须拥有 [Azure 存储帐户][Azure 存储帐户]：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)，然后单击屏幕左侧的“+创建资源”。
-2. 单击“存储”，并单击“存储帐户”。 在“创建存储帐户”窗口中，键入存储帐户的名称。 填写其余字段，选择所需区域，然后单击“创建”。
+1. 登录 [Azure 门户](https://portal.azure.cn)，并在屏幕左侧选择“创建资源”。
+2. 选择“存储”，然后选择“存储帐户”   。 在“创建存储帐户”  窗口中，键入存储帐户的名称。 填写其余字段，选择所需区域，然后选择“创建”  。
    
-    ![创建存储帐户](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![在 Azure 门户中创建存储帐户](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
-3. 单击新创建的存储帐户，并单击“访问密钥”：
+3. 选择新创建的存储帐户，然后选择“访问密钥”  ：
    
-    ![获取访问密钥](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![在 Azure 门户中获取访问密钥](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     将 key1 值复制到临时位置。 本教程后面部分需要使用它。
 
@@ -206,7 +207,7 @@ eventHubClient.closeSync();
 </dependency>
 ```
 
-对于不同类型的生成环境，可以从 Maven 中央存储库 [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22] 显式获取最新发布的 JAR 文件。  
+对于不同类型的生成环境，可以从 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)显式获取最新发布的 JAR 文件。
 
 1. 对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 此类名为 `ErrorNotificationHandler`。     
    

@@ -5,18 +5,18 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-origin.date: 07/10/2019
-ms.date: 09/09/2019
+origin.date: 10/04/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 795f8fe25d84d769d8ad65c64b5f81c8799f9296
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 73463ce623d77beaddfd6333b39ccc4fe45537ca
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174004"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914490"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用对称密钥证明创建和预配 IoT Edge 设备
 
@@ -28,7 +28,7 @@ ms.locfileid: "70174004"
 * 为设备创建个人注册。
 * 安装 IoT Edge 运行时并连接到 IoT 中心。
 
-对称密钥证明是一种通过设备预配服务实例对设备进行身份验证的简单方法。 此证明方法表示不熟悉设备预配或不具备严格安全要求的开发人员的“Hello world”体验。 使用 [TPM](../iot-dps/concepts-tpm-attestation.md) 的设备证明更加安全，且应当用于更严格的安全要求。
+对称密钥证明是一种通过设备预配服务实例对设备进行身份验证的简单方法。 此证明方法表示不熟悉设备预配或不具备严格安全要求的开发人员的“Hello world”体验。 使用 [TPM](../iot-dps/concepts-tpm-attestation.md) 或 [X.509 证书](../iot-dps/concepts-security.md#x509-certificates)的设备证明更加安全，且应该用于更严格的安全要求。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -99,13 +99,16 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
    1. 确保“启用项”设置为“启用”。  
 
-   1. 选择“其他安全性验证”  。
+   1. 选择“保存”  。
 
-既然此设备已存在注册，IoT Edge 运行时在安装期间可以自动预配设备。 确保复制注册的“主密钥”值，以便在创建设备密钥时使用。 
+既然此设备已存在注册，IoT Edge 运行时在安装期间可以自动预配设备。 在安装 IoT Edge 运行时，或者要创建用于组注册的设备密钥时，请确保复制注册的**主密钥**值以供使用。
 
 ## <a name="derive-a-device-key"></a>派生一个设备密钥
 
-设备将使用派生的设备密钥和唯一注册 ID，于预配期间在注册中执行对称密钥证明。 若要生成设备密钥，请使用从 DPS 注册复制的密钥计算设备的唯一注册 ID 的 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)，并将结果转换为 Base64 格式。
+> [!NOTE]
+> 仅当使用组注册时，才需要此部分。
+
+每个设备将使用其派生的设备密钥和唯一注册 ID，于预配期间在注册中执行对称密钥证明。 若要生成设备密钥，请使用从 DPS 注册复制的密钥计算设备的唯一注册 ID 的 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)，并将结果转换为 Base64 格式。
 
 不要在设备代码中包含注册的主密钥或辅助密钥。
 
@@ -160,7 +163,10 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 该运行时的组件在
 
 * DPS 的“ID 范围”值 
 * 为设备创建的“注册 ID” 
-* 设备的派生设备密钥，用于对称密钥证明
+* 从 DPS 注册复制的 **主密钥**
+
+> [!TIP]
+> 对于组注册，需要每个设备的[派生密钥](#derive-a-device-key)，而不是 DPS 注册密钥。
 
 ### <a name="linux-device"></a>Linux 设备
 
@@ -186,9 +192,29 @@ provisioning:
 
 ### <a name="windows-device"></a>Windows 设备
 
-遵照说明在为其生成了派生设备密钥的设备上安装 IoT Edge 运行时。 确保将 IoT Edge 运行时配置为自动预配而不是手动预配。
+在为其生成了派生设备密钥的设备上安装 IoT Edge 运行时。 将 IoT Edge 运行时配置为自动预配而不是手动预配。
 
-[在 Windows 上安装和自动预配 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+有关在 Windows 上安装 IoT Edge 的更多详细信息，包括管理容器和更新 IoT Edge 等任务的先决条件和说明，请参阅[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)。
+
+1. 在管理员模式下打开 PowerShell 窗口。 在安装 IoT Edge 而不是 PowerShell (x86) 时，请确保使用 PowerShell 的 AMD64 会话。
+
+1. **Deploy-IoTEdge** 命令检查 Windows 计算机是否使用了支持的版本，启用容器功能，然后下载 moby 运行时和 IoT Edge 运行时。 该命令默认使用 Windows 容器。
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. 此时，IoT Core 设备可能会自动重启。 其他 Windows 10 或 Windows Server 设备可能会提示你重启。 如果是这样，请立即重启设备。 设备准备就绪后，再次以管理员身份运行 PowerShell。
+
+1. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时  。 该命令默认为使用 Windows 容器手动预配，除非你使用 `-Dps` 标志以使用自动预配。
+
+   请将 `{scope_id}`、`{registration_id}` 和 `{symmetric_key}` 的占位符值替换为前面收集的数据。
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   ```
 
 ## <a name="verify-successful-installation"></a>验证是否成功安装
 

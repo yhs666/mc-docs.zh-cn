@@ -4,21 +4,19 @@ description: 了解如何管理 Azure Cosmos DB 中的索引策略
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 09/10/2019
-ms.date: 09/30/2019
+origin.date: 09/28/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ee67c418cfba6867cfe2ab51708f5b26cb0670f2
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 0cf263f55fb7585bb6f3f5802c93b5e58b16958c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306679"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913291"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 
 在 Azure Cosmos DB 中，数据是按照为每个容器定义的[索引策略](index-policy.md)编制索引的。 新建容器的默认索引策略会对任何字符串或数字强制使用范围索引。 可以使用你自己的自定义索引策略覆盖此策略。
-
-
 
 ## <a name="indexing-policy-examples"></a>索引策略示例
 
@@ -337,6 +335,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 - 从 Azure 门户
 - 使用 Azure CLI
+- 使用 PowerShell
 - 使用某个 SDK
 
 [索引策略更新](index-policy.md#modifying-the-indexing-policy)会触发索引转换。 还可以通过 SDK 跟踪此转换的进度。
@@ -364,60 +363,36 @@ Azure Cosmos 容器将其索引策略存储为 JSON 文档，可以在 Azure 门
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
-可以通过 Azure CLI 中的 [az cosmosdb collection update](https://docs.azure.cn/cli/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-update) 命令替换容器的索引策略的 JSON 定义：
+若要创建具有自定义索引策略的容器，请参阅[使用 CLI 创建具有自定义索引策略的容器](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
 
-```azurecli
-az cosmosdb collection update \
-    --resource-group-name $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName \
-    --collection-name $containerName \
-    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
-```
+## <a name="use-powershell"></a>使用 PowerShell
+
+若要创建具有自定义索引策略的容器，请参阅[使用 Powershell 创建具有自定义索引策略的容器](manage-with-powershell.md#create-container-custom-index)
 
 ## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
 
-[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 中的 `DocumentCollection` 对象（请参阅有关其用法的[此快速入门](create-sql-api-dotnet.md)）公开了一个 `IndexingPolicy` 属性，可以通过该属性更改 `IndexingMode` 以及添加或删除 `IncludedPaths` 和 `ExcludedPaths`。
-
-检索容器的详细信息
+[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 中的 `DocumentCollection` 对象公开了一个 `IndexingPolicy` 属性，可以通过该属性更改 `IndexingMode` 以及添加或删除 `IncludedPaths` 和 `ExcludedPaths`。
 
 ```csharp
+// Retrieve the container's details
 ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
-```
 
-将索引模式设置为“一致”
-
-```csharp
+// Set the indexing mode to consistent
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-```
 
-添加包含的路径
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
 
-```csharp
-containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
-```
-
-添加排除的路径
-
-```csharp
+// Add an excluded path
 containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
-```
 
-添加空间索引
-
-```csharp
+// Add a spatial index
 containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(new SpatialSpec() { Path = "/locations/*", SpatialTypes = new Collection<SpatialType>() { SpatialType.Point } } );
-```
 
-添加组合索引
-
-```csharp
+// Add a composite index
 containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> {new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending }});
-```
 
-使用更改更新容器
-
-```csharp
+// Update container with changes
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
@@ -430,73 +405,117 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
+## <a name="use-the-net-sdk-v3"></a>使用 .NET SDK V3
+
+[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 中的 `ContainerProperties` 对象（请参阅有关其用法的[此快速入门](create-sql-api-dotnet.md)）公开了一个 `IndexingPolicy` 属性，可以通过该属性更改 `IndexingMode` 以及添加或删除 `IncludedPaths` 和 `ExcludedPaths`。
+
+```csharp
+// Retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync();
+// Set the indexing mode to consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
+// Add a spatial index
+SpatialPath spatialPath = new SpatialPath
+{
+    Path = "/locations/*"
+};
+spatialPath.SpatialTypes.Add(SpatialType.Point);
+containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+// Add a composite index
+containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> { new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending } });
+// Update container with changes
+await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
+```
+
+若要跟踪索引转换进度，请传递一个用以将 `PopulateQuotaInfo` 属性设置为 `true` 的 `RequestOptions` 对象，然后从 `x-ms-documentdb-collection-index-transformation-progress` 响应标头中检索该值。
+
+```csharp
+// retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync(new ContainerRequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
+```
+
+在创建新容器的同时定义自定义索引策略时，SDK V3 的 fluent API 可让你以简洁高效的方式编写这个定义：
+
+```csharp
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithIndexingPolicy()
+        .WithIncludedPaths()
+            .Path("/*")
+        .Attach()
+        .WithExcludedPaths()
+            .Path("/name/*")
+        .Attach()
+        .WithSpatialIndex()
+            .Path("/locations/*", SpatialType.Point)
+        .Attach()
+        .WithCompositeIndex()
+            .Path("/name", CompositePathSortOrder.Ascending)
+            .Path("/age", CompositePathSortOrder.Descending)
+        .Attach()
+    .Attach()
+    .CreateIfNotExistsAsync();
+```
+
 ## <a name="use-the-java-sdk"></a>使用 Java SDK
 
 [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 中的 `DocumentCollection` 对象（请参阅有关其用法的[此快速入门](create-sql-api-java.md)）公开了 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 通过它们操作的 `IndexingPolicy` 对象，你可以更改索引模式，以及添加或删除包括的和排除的路径。
 
-检索容器的详细信息
-
 ```java
+// Retrieve the container's details
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
 containerResponse.subscribe(result -> {
 DocumentCollection container = result.getResource();
 IndexingPolicy indexingPolicy = container.getIndexingPolicy();
-```
 
-将索引模式设置为“一致”
-
-```java
+// Set the indexing mode to consistent
 indexingPolicy.setIndexingMode(IndexingMode.Consistent);
-```
 
-添加包含的路径
+// Add an included path
 
-```java
 Collection<IncludedPath> includedPaths = new ArrayList<>();
 ExcludedPath includedPath = new IncludedPath();
-includedPath.setPath("/age/*");
+includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);
-```
 
-添加排除的路径
+// Add an excluded path
 
-```java
 Collection<ExcludedPath> excludedPaths = new ArrayList<>();
 ExcludedPath excludedPath = new ExcludedPath();
 excludedPath.setPath("/name/*");
 excludedPaths.add(excludedPath);
 indexingPolicy.setExcludedPaths(excludedPaths);
-```
 
-添加空间索引
+// Add a spatial index
 
-```java
 Collection<SpatialSpec> spatialIndexes = new ArrayList<SpatialSpec>();
 Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
 SpatialSpec spec = new SpatialSpec();
 spec.setPath("/locations/*");
-collectionOfSpatialTypes.add(SpatialType.Point);          
+collectionOfSpatialTypes.add(SpatialType.Point);
 spec.setSpatialTypes(collectionOfSpatialTypes);
 spatialIndexes.add(spec);
 
 indexingPolicy.setSpatialIndexes(spatialIndexes);
 
-```
+// Add a composite index
 
-添加组合索引
-
-```java
 Collection<ArrayList<CompositePath>> compositeIndexes = new ArrayList<>();
 ArrayList<CompositePath> compositePaths = new ArrayList<>();
 
 CompositePath nameCompositePath = new CompositePath();
-nameCompositePath.setPath("/name/*");
+nameCompositePath.setPath("/name");
 nameCompositePath.setOrder(CompositePathSortOrder.Ascending);
 
 CompositePath ageCompositePath = new CompositePath();
-ageCompositePath.setPath("/age/*");
+ageCompositePath.setPath("/age");
 ageCompositePath.setOrder(CompositePathSortOrder.Descending);
 
 compositePaths.add(ageCompositePath);
@@ -504,12 +523,11 @@ compositePaths.add(nameCompositePath);
 
 compositeIndexes.add(compositePaths);
 indexingPolicy.setCompositeIndexes(compositeIndexes);
-```
 
-使用更改更新容器
+// Update the container with changes
 
-```java
  client.replaceCollection(container, null);
+});
 ```
 
 若要在容器上跟踪索引转换进度，请传递一个用以请求要填充的配额信息的 `RequestOptions` 对象，然后从 `x-ms-documentdb-collection-index-transformation-progress` 响应标头中检索该值。

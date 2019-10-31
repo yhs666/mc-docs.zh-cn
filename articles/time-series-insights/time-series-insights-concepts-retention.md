@@ -9,40 +9,40 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+origin.date: 10/03/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 09a07312621af50ba9950f36b9fdae2a748ae461
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 0df25c0681465d13b0da360d178175482816ed2b
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456456"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914363"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>了解 Azure 时序见解中的数据保留
 
 本文介绍影响 Azure 时序见解环境中的数据保留的两项设置。
 
 
-每个 Azure 时序环境都有一项控制“数据保留时间”的设置。  该值的范围为 1 到 400 天。 将根据环境存储容量或保留期限删除数据，以先达到的条件为准。
+每个 Azure 时序见解环境都有一项控制“数据保留时间”的设置。  该值的范围为 1 到 400 天。 将根据环境存储容量或保留期限删除数据，以先达到的条件为准。
 
-此外，Azure 时序环境还有一项“超出存储限制时的行为”设置。  此设置控制达到环境最大容量时的流入和清除行为。 配置时可以从两种行为中进行选择：
+此外，Azure 时序见解环境还有一项“超出存储限制时的行为”设置。  此设置控制达到环境最大容量时的流入和清除行为。 配置时可以从两种行为中进行选择：
 
 -  清除旧数据（默认行为）  
 - 暂停传入 
 
 > [!NOTE]
 > 创建新环境时，保留规则默认配置为“清除旧数据”。  在创建后，可以根据需要使用 Azure 门户或者在时序见解环境的“配置”页上切换此设置。 
+> * 有关如何配置保留策略的信息，请参阅[在时序见解中配置保留](time-series-insights-how-to-configure-retention.md)。
 
-有关切换保留行为的信息，请查看[在时序见解中配置保留](time-series-insights-how-to-configure-retention.md)。
-
-比较数据保留行为：
+下面将更详细地介绍这两种数据保留策略。
 
 ## <a name="purge-old-data"></a>清除旧数据
 
-- 此行为是时序见解环境的默认行为。  
-- 如果用户希望在其时序见解环境中始终能够看到最近的数据，则此行为是首选行为。 
-- 达到环境的限制（保留时间、大小或计数，以先达到的为准）时，此行为会立即清除数据。  默认情况下，保留时间设置为 30 天。
-- 最旧的引入数据最先清除（FIFO 方法）。
+- **清除旧数据**是 Azure 时序见解环境的默认设置。  
+- 如果用户希望在其时序见解环境中始终能够看到*最近的数据*，则**清除旧数据**是首选项。
+- 达到环境的限制（保留时间、大小或计数，以先达到的为准）时，“清除旧数据”  设置会立即*清除*数据。 默认情况下，保留时间设置为 30 天。
+- 最旧的引入数据最先清除（“先入先出”方法）。
 
 ### <a name="example-one"></a>示例一
 
@@ -88,8 +88,10 @@ ms.locfileid: "67456456"
 
 如果未在事件源中配置任何属性 (`timeStampPropertyName`)，时序见解默认为事件中心的抵达时间戳（X 轴）。 如果 `timeStampPropertyName` 配置为其他值，则在分析事件时，环境将在数据包中查找配置的 `timeStampPropertyName`。
 
-如果需要扩展环境以包含更多容量或延长保留持续时间，请参阅[如何缩放时序见解环境](time-series-insights-how-to-scale-your-environment.md)了解详细信息。  
+若要扩展环境以包含更多容量或延长保留持续时间，请参阅[如何缩放时序见解环境](time-series-insights-how-to-scale-your-environment.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关配置或更改数据保留设置的信息，请查看[在时序见解中配置保留](time-series-insights-how-to-configure-retention.md)。
+
+- 了解[在 Azure 时序见解中减少延迟](time-series-insights-environment-mitigate-latency.md)。

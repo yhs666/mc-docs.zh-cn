@@ -2,25 +2,25 @@
 title: Azure Active Directory B2C 中的用户流 | Microsoft Docs
 description: 详细了解 Azure Active Directory B2C 的可扩展策略框架以及如何创建各种用户流。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 04/02/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a8c9ab74da20c3d3d6c66a4cff54760bb7ba9d1a
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: a385df794013f577fbaf9f299a4a9ac38aaf054b
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235954"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847016"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的用户流
 
-Azure Active Directory (Azure AD) B2C可扩展的策略框架是服务的核心优势。 策略充分描述了标识体验，例如注册、登录或配置文件编辑。 若要帮助设置最常见的标识任务，Azure AD B2C 门户应包括名为“用户流”  的预定义且可配置的策略。 
+Azure Active Directory B2C (Azure AD B2C) 可扩展的策略框架是服务的核心优势。 策略充分描述了标识体验，例如注册、登录或配置文件编辑。 若要帮助设置最常见的标识任务，Azure AD B2C 门户应包括名为“用户流”  的预定义且可配置的策略。
 
 ## <a name="what-are-user-flows"></a>什么是用户流？
 
@@ -30,9 +30,9 @@ Azure Active Directory (Azure AD) B2C可扩展的策略框架是服务的核心�
 - 从使用者收集的属性，例如名字、邮政编码和鞋码
 - Azure 多重身份验证
 - 用户界面的自定义
-- 应用程序接收的信息（令牌中的声明） 
+- 应用程序接收的信息（令牌中的声明）
 
-可以在租户中创建多个不同类型的用户流，并根据需要在应用程序中使用它们。 可以跨应用程序重复使用用户流。 由于这种灵活性，只需对代码做出极少量的更改或根本不需要更改，即可定义和修改标识体验。 应用程序使用包含用户流参数的标准 HTTP 身份验证请求来触发用户流。 接收自定义[令牌](active-directory-b2c-reference-tokens.md)作为响应。 
+可以在租户中创建多个不同类型的用户流，并根据需要在应用程序中使用它们。 可以跨应用程序重复使用用户流。 由于这种灵活性，只需对代码做出极少量的更改或根本不需要更改，即可定义和修改标识体验。 应用程序使用包含用户流参数的标准 HTTP 身份验证请求来触发用户流。 接收自定义[令牌](active-directory-b2c-reference-tokens.md)作为响应。
 
 以下示例演示了指定要使用的用户流的“p”查询字符串参数：
 
@@ -72,21 +72,21 @@ Azure 门户中一直在添加[新版本的用户流](user-flow-versions.md)。 
 
 ## <a name="linking-user-flows"></a>链接用户流
 
-使用本地帐户的**注册或登录**用户流在体验的第一个页面上包含“忘记了密码?”链接  。 单击此链接不会自动触发密码重置用户流。 
+使用本地帐户的**注册或登录**用户流在体验的第一个页面上包含“忘记了密码?”链接  。 单击此链接不会自动触发密码重置用户流。
 
 而是将错误代码 `AADB2C90118` 返回给应用程序。 应用程序需要通过运行一个可重置密码的特定用户流来处理此错误代码。 有关示例，请查看演示用户流链接方法的[简单 ASP.NET 示例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)。
 
 ## <a name="email-address-storage"></a>电子邮件地址存储
 
 用户流中可能需要电子邮件地址。 如果用户使用社交标识提供者进行身份验证，电子邮件地址将存储在 **otherMails** 属性中。 如果本地帐户基于用户名，则电子邮件地址将存储在强身份验证详细信息属性中。 如果本地帐户基于电子邮件地址，则电子邮件地址将存储在 **signInNames** 属性中。
- 
+
 不保证在所有这些情况下都会验证电子邮件地址。 租户管理员可以在本地帐户的基本策略中禁用电子邮件验证。 即使启用了电子邮件地址验证，但如果地址来自社交标识提供者并且尚未更改，则也不会验证地址。
- 
+
 只会通过 Active Directory 图形 API 公开 **otherMails** 和 **signInNames** 属性。 强身份验证详细信息属性中的电子邮件地址不可用。
 
 ## <a name="next-steps"></a>后续步骤
 
 若要创建建议的用户流，请遵照[教程：创建用户流](tutorial-create-user-flows.md)中的说明。
 
-
+<!-- Update_Description: wording update -->
 

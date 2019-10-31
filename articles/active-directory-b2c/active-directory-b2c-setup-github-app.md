@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 08/29/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d6a203662ad6fd620f6c9a8a0fde86fbafa3cb07
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: f7b4cf3c5bf6086a6b830685b3d95d66f877c63a
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310772"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846977"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过 GitHub 帐户注册与登录
 
@@ -24,7 +24,7 @@ ms.locfileid: "70310772"
 
 ## <a name="create-a-github-oauth-application"></a>创建 GitHub OAuth 应用程序
 
-要将 GitHub 帐户用作 Azure Active Directory (Azure AD) B2C 中的[标识提供者](active-directory-b2c-reference-oauth-code.md)，需要在表示它的租户中创建一个应用程序。 如果还没有 GitHub 帐户，可以在 [https://www.github.com/](https://www.github.com/) 注册。
+要将 GitHub 帐户用作 Azure Active Directory B2C (Azure AD B2C) 中的[标识提供者](active-directory-b2c-reference-oauth-code.md)，需要在表示它的租户中创建一个应用程序。 如果还没有 GitHub 帐户，可以在 [https://www.github.com/](https://www.github.com/) 注册。
 
 1. 使用 GitHub 凭据登录 [GitHub 开发人员](https://github.com/settings/developers)网站。
 1. 选择  “OAuth 应用”，然后选择  “新建 OAuth 应用”。

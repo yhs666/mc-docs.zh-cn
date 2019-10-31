@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 origin.date: 01/24/2019
-ms.date: 07/22/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: b0c329c7ffe6189ff79ba848ed541f0238268d04
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 0853d0d44a8563ebd2aef57c022d70faf30ed1ef
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391552"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847085"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>将 Azure 订阅链接到 Azure Active Directory B2C 租户
 
 > [!IMPORTANT]
-> 有关 Azure Active Directory (Azure AD) B2C 的用量计费和定价的最新信息，请参阅 [Azure AD B2C 定价](https://www.azure.cn/pricing/details/active-directory-b2c/)。
+> 有关 Azure Active Directory B2C (Azure AD B2C) 的用量计费和定价的最新信息，请参阅 [Azure AD B2C 定价](https://www.azure.cn/pricing/details/active-directory-b2c/)。
 
 将在 Azure 订阅中计收 Azure AD B2C 的使用费。 创建 Azure AD B2C 租户后，租户管理员需要将 Azure AD B2C 租户显式链接到 Azure 订阅。 本文介绍如何进行此操作。
 

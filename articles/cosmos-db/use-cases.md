@@ -6,13 +6,13 @@ author: rockboyfor
 ms.author: v-yeche
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: e92ec7740fb9c16a1444db3e62718c4fee1d86e5
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 10/28/2019
+ms.openlocfilehash: 8a507e555fe289d097182a999195baaef311d9b1
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254833"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912900"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -45,7 +45,7 @@ Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分�
 这些特性对于需要低响应时间和需要处理大量读取和写入操作的 Web、移动、游戏和 IoT 应用程序尤为有益。
 
 ## <a name="iot-and-telematics"></a>IoT 和远程信息处理
-IoT 用例在引入、处理和存储数据方法方面通常具有相同的模式。  首先，这些系统需要引入各处设备传感器中的激增数据。 其次，这些系统可以处理和分析流式传输数据，以获得实时见解。 然后将数据存档到闲置存储进行批量分析。 Azure 提供可应用于 IoT 用例的多种服务，包括 Azure Cosmos DB、Azure 事件中心、Azure 流分析、Azure 通知中心、Azure 机器学习、Azure HDInsight 和 PowerBI。 
+IoT 用例在引入、处理和存储数据方法方面通常具有相同的模式。  首先，这些系统需要引入各处设备传感器中的激增数据。 其次，这些系统可以处理和分析流式传输数据，以获得实时见解。 然后将数据存档到闲置存储进行批量分析。 Azure 提供可应用于 IoT 用例的多种服务，包括 Azure Cosmos DB、Azure 事件中心、Azure 流分析、Azure 通知中心、Azure 机器学习、Azure HDInsight 和 Power BI。 
 
 ![Azure Cosmos DB IoT 参考体系结构](./media/use-cases/iot.png)
 
@@ -68,9 +68,7 @@ Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.m
 
 ![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)
 
-此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。
-
-<!-- Not Availableon [Run a Spark job with Cosmos DB and HDInsight](spark-connector.md)-->
+此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。 有关 Azure Cosmos DB 的 Spark 连接器的详细信息，请参阅[使用 Cosmos DB 和 HDInsight 运行 Spark 作业](spark-connector.md)。
 
 ## <a name="gaming"></a>游戏
 数据库层是游戏应用程序的关键组件。 新式游戏可在移动/控制台客户端执行图形处理，但需依赖云传输自定义的个性化内容，例如游戏中的统计数据、社交媒体集成以及高分排行榜。 游戏通常需要单毫秒的读取和写入延迟，从而带来具有吸引力的游戏体验。 新游戏启动和功能更新期间，游戏数据库需要具备很快的速度，并且要能够处理请求速率中的大量峰值。
@@ -110,36 +108,10 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>后续步骤
-可以根据[快速入门](create-sql-api-dotnet.md)开始使用 Azure Cosmos DB，其中逐步讲解了如何创建帐户并开始使用 Cosmos DB。 
 
-或者，如果想要了解有关使用 Cosmos DB 的客户的详细信息，可参阅以下客户案例：
+* 可以根据[快速入门](create-sql-api-dotnet.md)开始使用 Azure Cosmos DB，其中逐步讲解了如何创建帐户并开始使用 Cosmos DB。
 
-<!-- NOTICE: CAREFULLY TO CHANGE THE MICROSOFT/AZURE IN THE FOLLOWING REFERENCE LINK-->
-* [Jet.com](https://jet.com)。 电子商务挑战者的目标是占领最高位置，即在 Microsoft 云端运行并在多区域范围内利用 Cosmos DB。
-* [Asos.com](https://www.asos.com/)。 Asos.com 是英国的一家在线时尚与美容商店。 Asos 的产品主要面向年轻的成年人，销售 850 多个品牌，以及自营的一系列服装和饰品。
-* [Toyota](https://www.toyota.com/)。 Toyota Motor Corporation 是一家日本汽车制造商。 Toyota 对全球 IoT 应用利用 Cosmos DB。
-* [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 开发单一登录解决方案
-* [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 的革新性 IoT 解决方案可帮助车主节省时间、资金和燃气 - 同时有助于保护其安全。
-* [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。
-* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson Controls 是全球性的多样化技术和多行业领先企业，为 150 多个国家/地区的众多客户提供服务。
-* [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
-* [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 的数据和分析团队使用 Azure Cosmos DB 实现多区域规模的大数据收集
-* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。 Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
-* [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb)。 NewOrbit 使用了 Azure Cosmos DB。
-* [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale)。 Affinio 从 AWS 改用 Azure Cosmos DB 以大规模处理社交数据。
-* [Next Games](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)。 The Walking Dead:No Man’s Land（行尸走肉：无人之地）游戏在 Azure Cosmos DB 的支持下飙升至排行榜第 1 名。
-* [Halo（光环）](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/)。 “光环 5”使用 Azure Cosmos DB 实现社交游戏玩法。
-* [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/)。 Cortana Analytics Gallery - 构建在 Azure Cosmos DB 基础之上的可缩放社区站点。
-* [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602)。 领先集成商使用灵活的云技术在几分钟内为跨国公司提供全球见解。
-* [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639)。 让新闻更智能，以便为订阅的市民提供有目的性的信息。 
-* [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653)。 为了在全球范围内保持颜色一致，大品牌求救于 SGS。 而 SGS 采用 Azure。
-* [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608)。 全球领先企业 Telenor 使用云以初创企业的速度发展。 
-* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。 未来的存储依赖于数据的快速搜索和轻松流动。
-* [Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet)。 基于 Azure 的软件平台打破企业和客户之间的阻碍
-* [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases)。 Weka 智能冰箱可改善疫苗管理，保护更多人免受疾病侵扰
-* [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth)。 使用这款食品应用，得到的不仅仅是视觉或味觉上的满足。
-* [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f)。 皇家马德里足球俱乐部借助 Microsoft 云拉近体育场与全球 4.5 亿粉丝之间的距离。
-* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services)。 TUKU 借助 Azure 服务增加购买汽车的乐趣
+* 如果要了解有关使用 Azure Cosmos DB 的客户的详细信息，请参阅[客户案例研究](https://azure.microsoft.com/case-studies/?service=cosmos-db)页。
 
-<!-- NOTICE: CAREFULLY TO CHANGE THE MICROSOFT/AZURE IN THE FOLLOWING REFERENCE LINK-->
+<!--MOONCAKE: CORRECT ON https://azure.microsoft.com/en-us/case-studies/?service=cosmos-db-->
 <!--Update_Description: wording update, update link-->

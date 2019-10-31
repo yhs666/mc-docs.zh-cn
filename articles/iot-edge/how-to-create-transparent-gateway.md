@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/17/2019
-ms.date: 10/08/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 634c79cd93e4695d26c4bc470e1858482d06a38f
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 9359730aa2a6602de2103f78e35a227f424d023d
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340817"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914487"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>将 IoT Edge 设备配置为充当透明网关
 
@@ -34,7 +34,7 @@ ms.locfileid: "71340817"
 
 充当网关的设备必须能够安全地连接到下游设备。 Azure IoT Edge 允许使用公钥基础结构 (PKI) 在设备之间建立安全连接。 在这种情况下，我们可以将下游设备连接到充当透明网关的 IoT Edge 设备。 要维持合理的安全性，下游设备应确认网关设备的标识。 此标识检查可防止设备连接到潜在的恶意网关。
 
-下游设备可以是包含通过 [Azure IoT 中心](https://docs.microsoft.com/azure/iot-hub)云服务创建的标识的任何应用程序或平台。 在许多情况下，这些应用程序使用 [Azure IoT 设备 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 在各种实际用途中，下游设备甚至可以是 IoT Edge 网关设备本身上运行的应用程序。 
+透明网关方案中的下游设备可以是包含通过 [Azure IoT 中心](/iot-hub)云服务创建的标识的任何应用程序或平台。 在许多情况下，这些应用程序使用 [Azure IoT 设备 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 在各种实际用途中，下游设备甚至可以是 IoT Edge 网关设备本身上运行的应用程序。 但是，IoT Edge 设备不能位于 IoT Edge 网关的下游。 
 
 可以创建任何启用设备网关拓扑所需的信任的证书基础结构。 在本文中，我们假设使用相同的证书设置来启用 IoT 中心的 [X.509 CA 安全性](../iot-hub/iot-hub-x509ca-overview.md)，其中涉及与特定 IoT 中心（IoT 中心根 CA）关联的 X.509 CA 证书，以及通过此 CA 签名的一系列证书和 IoT Edge 设备的 CA。
 
@@ -49,7 +49,8 @@ ms.locfileid: "71340817"
 
 ## <a name="prerequisites"></a>先决条件
 
-要配置为网关的 Azure IoT Edge 设备。 对以下操作系统之一使用 IoT Edge 安装步骤：
+* 用于创建证书的开发计算机。 
+* 要配置为网关的 Azure IoT Edge 设备。 对以下操作系统之一使用 IoT Edge 安装步骤：
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
 
@@ -63,7 +64,7 @@ ms.locfileid: "71340817"
 
 在用于生成证书的计算机上安装 OpenSSL for Windows。 如果已在 Windows 设备上安装 OpenSSL，则可以跳过此步骤，但请确保 PATH 环境变量中包含 openssl.exe。 
 
-可通过多种方法安装 OpenSSL：
+可通过多种方法安装 OpenSSL，包括：
 
 * **更轻松：** 下载并安装任何[第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的 OpenSSL](https://sourceforge.net/projects/openssl/) 下载并安装。 将 openssl.exe 的完整路径添加到 PATH 环境变量。 
    
@@ -323,4 +324,4 @@ IoT Edge 运行时可以像模块发送的消息一样路由从下游设备发�
 
 ## <a name="next-steps"></a>后续步骤
 
-配置一个充当透明网关的 IoT Edge 设备后，需将下游设备配置为信任该网关，并向其发送消息。 有关详细信息，请参阅[将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)和[在 Azure IoT 中心对下游设备进行身份验证](how-to-authenticate-downstream-device.md)。
+配置一个充当透明网关的 IoT Edge 设备后，需将下游设备配置为信任该网关，并向其发送消息。 继续[在 Azure IoT 中心内对下游设备进行身份验证](how-to-authenticate-downstream-device.md)，以进行设置透明网关方案的后续步骤。 

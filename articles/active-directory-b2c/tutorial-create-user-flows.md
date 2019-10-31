@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 origin.date: 06/07/2019
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d89470832c3f1be208b644b5f2b3dcd029cdd2c9
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: c8c73c609353590840ebcaac29bbc73d6858bbdb
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391612"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847132"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中创建用户流
 
-可以在应用程序中使用[用户流](active-directory-b2c-reference-policies.md)，让用户注册、登录或管理其配置文件。 可以在 Azure Active Directory (Azure AD) B2C 租户中创建多个不同类型的用户流，并根据需要在应用程序中使用它们。 可以跨应用程序重复使用用户流。
+可以在应用程序中使用[用户流](active-directory-b2c-reference-policies.md)，让用户注册、登录或管理其配置文件。 可以在 Azure Active Directory B2C (Azure AD B2C) 租户中创建多个不同类型的用户流，并根据需要在应用程序中使用它们。 可以跨应用程序重复使用用户流。
 
 在本文中，学习如何：
 
@@ -42,7 +42,7 @@ ms.locfileid: "68391612"
 注册和登录用户流通过单一配置处理注册和登录体验。 根据上下文将应用程序用户引导至正确的路径。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 请确保使用包含 Azure AD B2C 租户的目录，方法是单击顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录  。
+1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 
     ![已选中 B2C 租户的目录和订阅筛选器](./media/tutorial-create-user-flows/switch-directories.PNG)
 

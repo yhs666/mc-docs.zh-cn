@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET Framework 发送和接收事件 - Azure 事件中心 | Azure Docs
+title: 使用 .NET Framework 发送和接收事件 - Azure 事件中心 | Azure
 description: 本文提供了一个演练，说明如何创建将事件发送到 Azure 事件中心的 .NET Framework 应用程序。
 services: event-hubs
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/03/2018
+origin.date: 04/15/2019
 ms.date: 05/20/2019
 ms.author: v-biyu
-ms.openlocfilehash: a74c86d60d94f1b6b5eeb10b8e7598ad8e426247
-ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
+ms.openlocfilehash: 2b1d5b48128c7a4970798c768452c5e9a84cb5ee
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412483"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873013"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心或从其接收事件
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -30,7 +30,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 ## <a name="prerequisites"></a>先决条件
 若要完成本教程，需要满足以下先决条件：
 
-- [Microsoft Visual Studio 2017 或更高版本](https://visualstudio.com)。
+- [Microsoft Visual Studio 2019](https://visualstudio.com)。
 - **创建事件中心命名空间和事件中心**。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照以下文章中的说明获取**事件中心命名空间的连接字符串**：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 本教程后面的步骤将使用此连接字符串。
 
 ## <a name="send-events"></a>发送事件 
@@ -44,8 +44,8 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ### <a name="add-the-event-hubs-nuget-package"></a>添加事件中心 NuGet 包
 
-1. 在解决方案资源管理器中，右键单击“Sender”项目，并单击“为解决方案管理 NuGet 包”。 
-2. 单击“浏览”选项卡，并搜索 `WindowsAzure.ServiceBus`。 单击“安装” 并接受使用条款。 
+1. 在解决方案资源管理器中，右键单击“Sender”项目，并单击“为解决方案管理 NuGet 包”。   
+2. 单击“浏览”  选项卡，并搜索 `WindowsAzure.ServiceBus`。 单击“安装”  并接受使用条款。 
    
     ![安装服务总线 NuGet 包](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -59,7 +59,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-2. 将以下字段添加到 **Program** 类，并将占位符值分别替换为在上一节中创建的事件中心的名称和前面保存的命名空间级别连接字符串。 可以在 Azure 门户中从“事件中心”页面上的 **RootManageSharedAccessKey** 下的“连接字符串-主要”密钥下复制你的事件中心的连接字符串。 有关详细步骤，请参阅[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。
+2. 将以下字段添加到 **Program** 类，并将占位符值分别替换为在上一节中创建的事件中心的名称和前面保存的命名空间级别连接字符串。 可以在 Azure 门户中从“事件中心”页面上的 **RootManageSharedAccessKey** 下的“连接字符串-主要”  密钥下复制你的事件中心的连接字符串。 有关详细步骤，请参阅[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。
    
     ```csharp
     static string eventHubName = "Your Event Hub name";
@@ -115,8 +115,8 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ### <a name="add-the-event-hubs-nuget-package"></a>添加事件中心 NuGet 包
 
-1. 在解决方案资源管理器中，右键单击“Receiver”项目，并单击“为解决方案管理 NuGet 包”。
-2. 单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`。 单击“安装” 并接受使用条款。
+1. 在解决方案资源管理器中，右键单击“Receiver”项目，并单击“为解决方案管理 NuGet 包”。  
+2. 单击“浏览”  选项卡，并搜索 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`。 单击“安装”  并接受使用条款。
    
     ![搜索事件处理器主机 NuGet 包](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
@@ -124,7 +124,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ### <a name="implement-the-ieventprocessor-interface"></a>实现 IEventProcessor 接口
 
-1. 右键单击 **Receiver** 项目，单击“添加”，并单击“类”。 将新类命名为 **SimpleEventProcessor**，并单击“添加”以创建该类。
+1. 右键单击 **Receiver** 项目，单击“添加”，并单击“类”   。 将新类命名为 **SimpleEventProcessor**，并单击“添加”以创建该类  。
    
     ![添加 SimpleEventProcessor 类](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. 在 SimpleEventProcessor.cs 文件的顶部添加以下语句：
@@ -178,7 +178,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
       }
       ```
     
-      此类由 EventProcessorHost 调用，用于处理从事件中心接收的事件。 `SimpleEventProcessor` 类使用秒表定期对 EventProcessorHost 上下文调用检查点方法。 此操作确保接收方重启时，其丢失的处理工作不会超过五分钟。
+      此类由 EventProcessorHost 调用，用于处理从事件中心接收的事件  。 `SimpleEventProcessor` 类使用秒表定期对 EventProcessorHost 上下文调用检查点方法  。 此操作确保接收方重启时，其丢失的处理工作不会超过五分钟。
 
 ### <a name="update-the-main-method-to-use-simpleeventprocessor"></a>更新 Main 方法以使用 SimpleEventProcessor
 
@@ -223,7 +223,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 
 <!-- Links -->
-[EventProcessorHost]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost?view=azure-dotnet
 [Event Hubs overview]: event-hubs-about.md
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md

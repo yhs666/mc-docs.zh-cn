@@ -4,18 +4,18 @@ description: 复制 Azure 存储帐户中的数据，实现持久性和高可用
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
-origin.date: 07/10/2019
-ms.date: 09/09/2019
+ms.topic: conceptual
+origin.date: 09/17/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5a6cc651b5c4b47286260cb7f220658721092fea
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: c1a1acc3854bb59e76d9215492d2ee8e33403103
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209365"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914372"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -29,22 +29,20 @@ Azure 存储使用循环冗余检验 (CRC) 定期验证存储的数据的完整�
 
 创建存储帐户时，可以选择以下冗余选项之一：
 
-* [本地冗余存储 (LRS)](storage-redundancy-lrs.md)
-* [异地冗余存储 (GRS)](storage-redundancy-grs.md)
-* [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 下表简要概述了每种复制策略为给定类型的事件（或具有类似影响性的事件）提供的持久性和可用性范围。
 
-| 方案                                                                                                 | LRS                             | GRS                              | RA-GRS                               |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- |
-| 数据中心内的节点不可用                                                                 | 是                             | 是                              | 是                                  |
-| 整个数据中心（区域性或非区域性）不可用                                           | 否                              | 是                              | 是                                  |
-| 区域范围的服务中断                                                                                     | 否                              | 是                              | 是                                  |
-| 整个区域不可用时对数据进行读取访问（远程异地复制区域中） | 否                              | 否                               | 是                                  |
-| 旨在给定年份为对象提供 \_\_ 的持续性                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） | 至少 99.99999999999999%（16 个 9） |
-| 支持的存储帐户类型                                                                   | GPv2、GPv1、Blob                | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
-| 读取请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.99%（冷访问层为 99.9%） |
-| 写入请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
+| 方案                                                                                                 | LRS                             | GRS/RA-GRS                              |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :----------------------------------- |
+| 数据中心内的节点不可用                                                                 | 是                             | 是                                  |
+| 整个数据中心（区域性或非区域性）不可用                                           | 否                              | 是                                  |
+| 区域范围的服务中断                                                                                     | 否                              | 是                              |
+| 整个区域不可用时对数据进行读取访问（远程异地复制区域中） | 否                              | 是（通过 RA-GRS）                                   |
+| 旨在给定年份为对象提供 \_\_ 的持续性                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） |
+| 支持的存储帐户类型                                                                   | GPv2、GPv1、Blob                | GPv2、GPv1、Blob                     |
+| 读取请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | GRS 至少为 99.9%（冷访问层为 99%）<br /><br />RA-GRS 至少为 99.99%（冷访问层为 99.9%） |
+| 写入请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
 
 将复制存储帐户中的所有数据，包括块 blob 和追加 blob、页 blob、队列、表和文件。 复制所有类型的存储帐户。
 
@@ -53,10 +51,11 @@ Azure 存储使用循环冗余检验 (CRC) 定期验证存储的数据的完整�
 有关 Azure 存储确保持续性和可用性的信息，请参阅 [Azure 存储 SLA](https://azure.cn/support/sla/storage/)。
 
 > [!NOTE]
-> Azure 高级存储仅支持本地冗余存储 (LRS)。
+> Azure 高级存储目前仅支持本地冗余存储 (LRS)。
 
 ## <a name="changing-replication-strategy"></a>更改复制策略
-你可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure 客户端库](https://docs.azure.cn/index?view=azure-dotnet#pivot=sdkstools)之一来更改存储帐户的复制策略。 更改存储帐户的复制类型不会导致停机。
+
+可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure 存储客户端库](https://docs.azure.cn/index?view=azure-dotnet#pivot=sdkstools)之一来更改存储帐户的复制策略。 更改存储帐户的复制类型不会导致停机。
 
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>更改帐户的复制策略是否产生任何费用？
 

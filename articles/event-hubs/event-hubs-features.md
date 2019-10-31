@@ -1,5 +1,5 @@
 ---
-title: Azure 事件中心功能概述 | Azure Docs
+title: 功能概述 - Azure 事件中心 | Azure
 description: 本文详细介绍 Azure 事件中心的功能和术语。
 services: event-hubs
 documentationcenter: .net
@@ -11,15 +11,15 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/08/2018
-ms.date: 08/05/2019
-ms.author: v-biyu
-ms.openlocfilehash: 3a253ba0d8deb9bf0187cd2c268cde7da0e95a3c
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+origin.date: 12/06/2018
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: f1f5794c36d33d65e8b344bbe2e98611cedcb27d
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371759"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872986"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure 事件中心的功能和术语
 
@@ -38,7 +38,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ### <a name="publishing-an-event"></a>发布事件
 
-可以通过 AMQP 1.0 或 HTTPS 发布事件。 服务总线提供了[客户端库和类](event-hubs-dotnet-framework-api-overview.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](http://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 256 KB，无论其为单个事件还是批量事件。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”  （如下一部分所述）或其标识。
+可以通过 AMQP 1.0 或 HTTPS 发布事件。 服务总线提供了[客户端库和类](event-hubs-dotnet-framework-api-overview.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](https://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 1 MB，不管它是单个事件还是事件批。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”  （如下一部分所述）或其标识。
 
 是要使用 AMQP 还 HTTPS 根据具体的使用方案而定。 AMQP 除了需要使用传输级别安全 (TLS) 或 SSL/TLS 以外，还需要建立持久的双向套接字。 AMQP 在初始化会话时的网络成本更高，而 HTTPS 则每次请求都需要额外的 SSL 开销。 对于活动频繁的发布者，AMQP 的性能更高。
 
@@ -110,7 +110,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 #### <a name="connect-to-a-partition"></a>连接到分区
 
-在连接到分区时，常见的做法是使用租用机制来协调读取者与特定分区的连接。 这样，便可以做到一个使用者组中每分区只有一个活动的读取者。 使用 .NET 客户端的 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 类可以简化检查点、租用和读取者管理功能。 事件处理程序主机是智能使用者代理。
+在连接到分区时，常见的做法是使用租用机制来协调读取者与特定分区的连接。 这样，便可以做到一个使用者组中每分区只有一个活动的读取者。 使用 .NET 客户端的 [EventProcessorHost](https://docs.azure.cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 类可以简化检查点、租用和读取者管理功能。 事件处理程序主机是智能使用者代理。
 
 #### <a name="read-events"></a>读取事件
 

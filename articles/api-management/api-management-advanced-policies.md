@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 82d717a0a3c02eb5a5186309509b89f5f1abd7c8
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 11/04/2019
+ms.openlocfilehash: 6ffffca042413829078c8b95cd87f99cb4dd034c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529202"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913255"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -136,7 +136,7 @@ ms.locfileid: "59529202"
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |choose|根元素。|是|  
 |when|条件，用于 `choose` 策略的 `if` 或 `ifelse` 部分。 如果 `choose` 策略包含多个 `when` 节，则按顺序对其求值。 一旦 when 元素的 `condition` 的求值结果为 `true`，不再对 `when` 条件求值。|是|  
@@ -144,7 +144,7 @@ ms.locfileid: "59529202"
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |condition="布尔表达式 &#124; 布尔常量"|对包含 `when` 的策略语句求值时需求值的布尔表达式或常量。|是|  
   
@@ -248,13 +248,13 @@ ms.locfileid: "59529202"
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |forward-request|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-| 属性                               | 说明                                                                                                      | 必需 | 默认     |
+| 属性                               | 说明                                                                                                      | 必须 | 默认     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | timeout="整数"                       | 在引发超时错误之前，等待后端服务返回 HTTP 响应标头的时间量（秒）。 最小值为 0 秒。 大于 240 秒的值可能不会被遵守，因为底层网络基础设施在此时间后可能会丢弃闲置的连接。 | 否       | 无 |
 | follow-redirects="true &#124; false"    | 指定是由网关执行从后端服务的重定向，还是将重定向返回到调用方。      | 否       | false       |
@@ -297,13 +297,13 @@ ms.locfileid: "59529202"
 
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|    
 |limit-concurrency|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|--------------|  
 |key|一个字符串。 允许使用表达式。 指定并发作用域。 可以由多个策略共享。|是|不适用|  
 |max-count|一个整数。 指定允许输入策略的最大请求数。|是|不适用|  
@@ -347,13 +347,13 @@ ms.locfileid: "59529202"
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|根元素。 此元素的值是要记录到事件中心的字符串。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |logger-id|注册到 API 管理服务的记录器的 ID。|是|  
 |partition-id|指定在其中发送消息的分区的索引。|可选。 如果使用 `partition-key`，则不能使用此属性。|  
@@ -390,13 +390,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |mock-response|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|指定响应状态代码并用于选择相应的示例或架构。|否|200|  
 |content-type|指定 `Content-Type` 响应标头值，并用于选择相应的示例或架构。|否|无|  
@@ -446,13 +446,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |retry|根元素。 可能包含任何可充当其子元素的其他策略。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |条件|一个布尔文本或[表达式](./api-management-policy-expressions.md)，指定是应停止重试 (`false`) 还是应继续重试 (`true`)。|是|不适用|  
 |计数|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
@@ -464,7 +464,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  仅指定 `interval` 时，则会执行**固定**时间间隔的重试。  
 >  仅指定 `interval` 和 `delta` 时，将使用**线性**时间间隔重试算法，其中，两次重试之间的等待时间按以下公式计算：`interval + (count - 1)*delta`。  
->  指定 `interval`、`max-interval`、`delta` 时，将应用指数时间间隔重试算法，其中，两次重试之间的等待时间根据以下公式从 `interval` 值呈指数增长到 `max-interval` 值：`min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`。
+>  指定 `interval`、`max-interval`、`delta` 时，将应用指数时间间隔重试算法，其中，两次重试之间的等待时间根据以下公式从 `interval` 值呈指数增长到 `max-interval` 值：`min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`  。
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。 请注意，此策略会继承子策略使用限制。  
@@ -501,7 +501,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |return-response|根元素。|是|  
 |set-header|[set-header](./api-management-transformation-policies.md#SetHTTPheader) 策略语句。|否|  
@@ -510,7 +510,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |response-variable-name|上下文变量的名称，该变量引用自特定的策略（例如上游 [send-request](./api-management-advanced-policies.md#SendRequest) 策略）且包含 `Response` 对象|可选。|  
   
@@ -568,7 +568,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|根元素。|是|  
 |url|请求的 URL。|如果 mode=copy，则为否；否则为是。|  
@@ -579,7 +579,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|确定请求是新请求还是当前请求的副本。 在出站模式下，mode=copy 不会初始化请求正文。|否|新建|  
 |name|指定要设置的标头的名称。|是|不适用|  
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |send-request|根元素。|是|  
 |url|请求的 URL。|如果 mode=copy，则为否；否则为是。|  
@@ -660,7 +660,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|确定请求是新请求还是当前请求的副本。 在出站模式下，mode=copy 不会初始化请求正文。|否|新建|  
 |response-variable-name="string"|将收到响应对象的上下文变量的名称。 如果该变量不存在，则将在成功执行策略时创建该变量，并且可通过 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 集合访问该变量。|是|不适用|
@@ -696,13 +696,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |proxy|Root 元素|是|  
 
 ### <a name="attributes"></a>属性  
   
-|     属性     |                      说明                       | 必需 | 默认 |
+|     属性     |                      说明                       | 必须 | 默认 |
 |-------------------|--------------------------------------------------------|----------|---------|
 |   url="string"    |       http://host:port 形式的代理 URL。       |   是    |   不适用   |
 | username="string" | 要用于向代理进行身份验证的用户名。 |    否    |   不适用   |
@@ -756,7 +756,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |set-method|根元素。 此元素的值指定 HTTP 方法。|是|  
   
@@ -796,13 +796,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |set-status|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |code="整数"|要返回的 HTTP 状态代码。|是|不适用|  
 |reason="字符串"|说明返回状态代码的原因。|是|不适用|  
@@ -832,13 +832,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |set-variable|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |name|变量的名称。|是|  
 |value|变量的值， 可以是表达式或文本值。|是|  
@@ -916,30 +916,47 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.DateTime?  
 
 ##  <a name="Trace"></a> 跟踪  
- `trace` 策略将字符串添加到 [API 检查器](./api-management-howto-api-inspector.md)输出中。 此策略会执行的前提是触发跟踪，即 `Ocp-Apim-Trace` 请求标头存在且设置为 `true`，同时 `Ocp-Apim-Subscription-Key` 请求标头存在且包含与管理员帐户关联的有效密钥。  
+* 触发跟踪时，策略将自定义跟踪添加到 [API 检查器](./api-management-howto-api-inspector.md)输出，即显示 `Ocp-Apim-Trace` 请求标头并将其设置为 `true`，将显示 `Ocp-Apim-Subscription-Key` 请求标头，其中包含允许跟踪的有效密钥。
+* 当启用[诊断日志](/api-management/api-management-howto-use-azure-monitor#diagnostic-logs)并且策略中指定的严重级别等于或高于诊断设置中指定的详细级别时，策略将在日志条目中添加属性。  
   
-### <a name="policy-statement"></a>策略语句  
-  
-```xml  
-  
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->  
-</trace>  
-  
-```  
-  
-### <a name="elements"></a>元素  
-  
-|元素|说明|必需|  
-|-------------|-----------------|--------------|  
-|trace|根元素。|是|  
-  
-### <a name="attributes"></a>属性  
-  
-|属性|说明|必需|默认|  
-|---------------|-----------------|--------------|-------------|  
-|源|对跟踪查看器有意义的字符串文本，指定消息的源。|是|不适用|  
-  
+
+### <a name="policy-statement"></a>策略语句
+
+```xml
+
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
+</trace>
+
+```
+
+### <a name="traceExample"></a> 示例
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
+```
+
+### <a name="elements"></a>元素
+
+| 元素 | 说明   | 必须 |
+| ------- | ------------- | -------- |
+| trace   | 根元素。 | 是      |
+| message | 要记录的字符串或表达式。 | 是 |
+| metadata | 将自定义属性添加到 Application Insights [跟踪](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry)遥测。 | 否 |
+
+### <a name="attributes"></a>属性
+
+| 属性 | 说明                                                                             | 必须 | 默认 |
+| --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
+| 源    | 对跟踪查看器有意义的字符串文本，指定消息的源。 | 是      | 不适用     |
+| severity    | 指定跟踪的严重性级别。 允许的值为 `verbose`、`information`、`error`（从低到高）。 | 否      | 详细     |
+| name    | 属性的名称。 | 是      | 不适用     |
+| value    | 属性的名称。 | 是      | 不适用     |
+
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
@@ -997,13 +1014,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |wait|根元素。 可能只包含 `send-request`、`cache-lookup-value`、`choose` 策略作为子元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必需|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |for|确定 `wait` 策略是等待所有直接子策略完成，还是只等待其中之一完成。 允许值包括：<br /><br /> -   `all` - 等待所有直接子策略完成<br />-   any - 等待任一直接子策略完成。 第一个直接子策略完成后，`wait` 策略即告完成，同时会终止执行任何其他直接子策略。|否|本应返回的所有记录的总数，|  
   

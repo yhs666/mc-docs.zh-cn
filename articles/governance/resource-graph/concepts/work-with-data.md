@@ -3,17 +3,17 @@ title: 处理大型数据集
 description: 了解使用 Azure Resource Graph 时如何获取和控制大型数据集。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 04/01/2019
-ms.date: 09/16/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d643646ddd727db5d0ae8c3753472e16ed2e779a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6f179dd1cb24ef5998d3482427f4e02dea73ca30
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737414"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970250"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>处理大型 Azure 资源数据集
 
@@ -31,11 +31,11 @@ Azure Resource Graph 旨在处理并获取 Azure 环境中资源的相关信息�
 通过与 Resource Graph 交互的所有方法，都可以替代默认限制。 下面的示例展示了如何将数据集大小限制更改为 200  ：
 
 ```azurecli
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
 在 [REST API](https://docs.microsoft.com/en-us/rest/api/azureresourcegraph/resources/resources) 中，控制措施是 $top  ，它属于 QueryRequestOptions  。
@@ -54,11 +54,11 @@ First  当前的最大允许值是 5000  。
 下面的示例展示了如何跳过查询生成的前 10  条记录，改从第 11 条记录开始返回结果集：
 
 ```azurecli
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
 在 [REST API](https://docs.microsoft.com/en-us/rest/api/azureresourcegraph/resources/resources) 中，控制措施是 $skip  ，它属于 QueryRequestOptions  。
@@ -70,14 +70,14 @@ resultTruncated  是布尔值，用于指示使用者返回的响应中是否还
 
 如果 resultTruncated  为 true  ，便会在响应中设置 $skipToken  属性。 此值与相同的查询值及订阅值一起使用，以获取与查询匹配的下一个记录集。
 
-以下示例演示了如何使用 Azure CLI 和 Azure PowerShell **跳过**头 3000 条记录，返回这些跳过的记录之后的**头** 1000 条记录：
+以下示例演示了如何使用 Azure CLI 和 Azure PowerShell **跳过**前 3000 条记录，返回这些跳过的记录之后的**前** 1000 条记录：
 
 ```azurecli
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
@@ -85,8 +85,92 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 
 有关示例，请参阅 REST API 文档中的[下一页查询](https://docs.microsoft.com/en-us/rest/api/azureresourcegraph/resources/resources#next-page-query)。
 
+## <a name="formatting-results"></a>设置结果的格式
+
+Resource Graph 查询的结果以两种格式提供：_Table_ 和 _ObjectArray_。 可以使用作为请求选项一部分的 **resultFormat** 参数配置格式。 _Table_ 格式是 **resultFormat** 的默认值。
+
+默认情况下，来自 Azure CLI 的结果以 JSON 提供。 默认情况下，Azure PowerShell 中的结果是 **PSCustomObject**，但可以使用 `ConvertTo-Json` cmdlet 快速转换为 JSON。 对于其他 SDK，可以将查询结果配置为输出 _ObjectArray_ 格式。
+
+### <a name="format---table"></a>格式 - Table
+
+默认格式 _Table_ 以 JSON 格式返回结果，旨在突出显示查询所返回的属性的列设计和行值。 此格式与结构化表或电子表格中定义的数据非常类似，其中首先标识了列，然后每一行表示与这些列相对应的数据。
+
+下面是一个使用 _Table_ 格式设置的查询结果示例：
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "chinaeast",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### <a name="format---objectarray"></a>格式 - ObjectArray
+
+_ObjectArray_ 格式也以 JSON 格式返回结果。 但是，这种设计与 JSON 中常见的键/值对关系保持一致，其中列和行数据在数组组中匹配。
+
+下面是使用 _ObjectArray_ 格式设置的查询结果示例：
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "chinaeast",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+下面是一些设置 **resultFormat** 以使用 _ObjectArray_ 格式的示例：
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
+
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅[初学者查询](../samples/starter.md)中使用的语言。
-- 请参阅[高级查询](../samples/advanced.md)中的高级用法。
+- 在[初学者查询](../samples/starter.md)中了解使用的语言。
+- 在[高级查询](../samples/advanced.md)中了解高级用法。
 - 了解如何[浏览资源](explore-resources.md)。

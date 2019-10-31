@@ -4,17 +4,17 @@ description: 如何使用对称密钥通过设备预配服务实例预配旧设�
 author: wesmc7777
 ms.author: v-yiso
 origin.date: 04/10/2019
-ms.date: 06/03/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: fbc340a6d767732faa03d3153bdb70d3f0e8b248
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: ef95c80177d039e029c1606c6b8ef10e8c168a51
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194974"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914505"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>使用对称密钥预配旧设备
 
@@ -29,6 +29,8 @@ ms.locfileid: "66194974"
 
 本文面向基于 Windows 的工作站。 但是，你也可以在 Linux 上执行过程。 对于 Linux 示例，请参阅[如何进行多租户预配](how-to-provision-multitenant.md)。
 
+> [!NOTE]
+> 本文中使用的示例是用 C 编写的。还有一个可用的 [C# 设备预配对称密钥示例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample)。 若要使用此示例，请下载或克隆 [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 存储库，并按照示例代码中的行说明进行操作。 可以按照本文中的说明使用门户创建对称密钥注册组，并查找运行示例所需的 ID 范围和注册组主密钥和辅助密钥。 还可以使用示例创建单个注册。
 
 ## <a name="overview"></a>概述
 
@@ -199,7 +201,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 此示例代码模拟将预配请求发送到你的设备预配服务实例的设备启动序列。 启动序列将会使设备被识别并分配到你在注册组上配置的 IoT 中心。
 
-1. 在 Azure 门户中，选择设备预配服务的“概述”选项卡，记下“ID 范围”的值。   
+1. 在 Azure 门户中，选择设备预配服务的“概述”选项卡，记下“ID 范围”的值。  
 
     ![从门户边栏选项卡中提取设备预配服务终结点信息](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

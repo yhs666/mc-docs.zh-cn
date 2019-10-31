@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 08/29/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 1ed1c6178611d90f05f0700807edd97e1a5aa8ec
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 171b5112d4ad70112bcab8825c01ba8f433ec6be
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310771"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846973"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过 LinkedIn 帐户注册与登录
 
 ## <a name="create-a-linkedin-application"></a>创建 LinkedIn 应用程序
 
-若要将 LinkedIn 帐户用作 Azure Active Directory (Azure AD) B2C 中的[标识提供者](active-directory-b2c-reference-oauth-code.md)，需要在表示它的租户中创建一个应用程序。 如果你没有 LinkedIn 帐户，可在 [https://www.linkedin.com/](https://www.linkedin.com/) 上注册一个。
+要将 LinkedIn 帐户用作 Azure Active Directory B2C (Azure AD B2C) 中的[标识提供者](active-directory-b2c-reference-oauth-code.md)，需要在表示它的租户中创建一个应用程序。 如果你没有 LinkedIn 帐户，可在 [https://www.linkedin.com/](https://www.linkedin.com/) 上注册一个。
 
 1. 使用 LinkedIn 帐户凭据登录到 [LinkedIn 开发人员网站](https://www.developer.linkedin.com/)。
 1. 选择“我的应用”  ，然后单击“创建应用程序”  。

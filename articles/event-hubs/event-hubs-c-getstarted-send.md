@@ -1,5 +1,5 @@
 ---
-title: 使用 C 发送事件 - Azure 事件中心
+title: 使用 C 发送事件 - Azure 事件中心 | Azure
 description: 本文提供了创建 C 应用程序的演练，该应用程序用于将事件发送到 Azure 事件中心。
 services: event-hubs
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-origin.date: 08/16/2018
+origin.date: 12/06/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: a653fc8b9efbd58eb32906d21ff35ff45f6294ee
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 92e640d6666c32bfd738654176d6f10f8e5ffe0a
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854457"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873080"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 将事件发送到 Azure 事件中心
 
@@ -34,7 +34,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 * C 语言开发环境。 本教程假定 gcc 堆栈在使用 Ubuntu 14.04 的 Azure Linux VM 上。
 * [Microsoft Visual Studio](https://www.visualstudio.com/)。
-* **创建事件中心命名空间和事件中心**。 使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 按照以下文章中的说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 可在本教程后面编写的代码中使用该访问密钥。 默认密钥名称为：RootManageSharedAccessKey。
+* **创建事件中心命名空间和事件中心**。 使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 按照以下文章中的说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 可在本教程后面编写的代码中使用该访问密钥。 默认密钥名称为：RootManageSharedAccessKey  。
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>编写将消息发送到事件中心的代码
 本部分介绍如何编写用于将事件发送到事件中心的 C 应用。 此代码使用 [Apache Qpid 项目](https://qpid.apache.org/)中的 Proton AMQP 库。 这类似于通过 C 将服务总线队列和主题与 AMQP 配合使用，如[此示例](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示。 有关详细信息，请参阅 [Qpid Proton 文档](https://qpid.apache.org/proton/index.html)。
@@ -60,7 +60,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. 在工作目录中，创建一个包含以下代码的名为 sender.c 的新文件。 请记得替换为你的 SAS 密钥/名称、事件中心名称和命名空间的值。 还必须用密钥的 URL 编码版本替换之前创建的 **SendRule**。 可以在 [此处](https://www.w3schools.com/tags/ref_urlencode.asp)对它进行 URL 编码。
+5. 在工作目录中，创建一个包含以下代码的名为 sender.c  的新文件。 请记得替换为你的 SAS 密钥/名称、事件中心名称和命名空间的值。 还必须用密钥的 URL 编码版本替换之前创建的 **SendRule**。 可以在 [此处](https://www.w3schools.com/tags/ref_urlencode.asp)对它进行 URL 编码。
    
     ```c
     #include "proton/message.h"
@@ -83,66 +83,66 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
           die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
         }                                                                        \
       }
-
+   
     pn_timestamp_t time_now(void)
     {
       struct timeval now;
       if (gettimeofday(&now, NULL)) pn_fatal("gettimeofday failed\n");
       return ((pn_timestamp_t)now.tv_sec) * 1000 + (now.tv_usec / 1000);
     }  
-
+   
     void die(const char *file, int line, const char *message)
     {
       printf("Dead\n");
       fprintf(stderr, "%s:%i: %s\n", file, line, message);
       exit(1);
     }
-
+   
     int sendMessage(pn_messenger_t * messenger) {
         char * address = (char *) "amqps://{SAS Key Name}:{SAS key}@{namespace name}.servicebus.chinacloudapi.cn/{event hub name}";
         char * msgtext = (char *) "Hello from C!";
-
+   
         pn_message_t * message;
         pn_data_t * body;
         message = pn_message();
-
+   
         pn_message_set_address(message, address);
         pn_message_set_content_type(message, (char*) "application/octect-stream");
         pn_message_set_inferred(message, true);
-
+   
         body = pn_message_body(message);
         pn_data_put_binary(body, pn_bytes(strlen(msgtext), msgtext));
-
+   
         pn_messenger_put(messenger, message);
         check(messenger);
         pn_messenger_send(messenger, 1);
         check(messenger);
-
+   
         pn_message_free(message);
     }
-
+   
     int main(int argc, char** argv) {
         printf("Press Ctrl-C to stop the sender process\n");
-
+   
         pn_messenger_t *messenger = pn_messenger(NULL);
         pn_messenger_set_outgoing_window(messenger, 1);
         pn_messenger_start(messenger);
-
+   
         while(true) {
             sendMessage(messenger);
             printf("Sent message\n");
             sleep(1);
         }
-
+   
         // release messenger resources
         pn_messenger_stop(messenger);
         pn_messenger_free(messenger);
-
+   
         return 0;
     }
     ```
 6. 使用 **gcc**编译该文件：
-
+   
     ```
     gcc sender.c -o sender -lqpid-proton
     ```

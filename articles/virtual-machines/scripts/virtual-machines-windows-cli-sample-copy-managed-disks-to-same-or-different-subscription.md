@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 将托管磁盘复制（移动）到相同或不同的订阅 | Azure
+title: 使用 CLI 将托管磁盘复制到相同或不同的订阅 | Azure
 description: Azure CLI 脚本示例 - 将托管磁盘复制（移动）到相同或不同的订阅
 services: virtual-machines-windows
 documentationcenter: storage
@@ -17,12 +17,12 @@ origin.date: 05/19/2017
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1fa5f2e92104524abb83f59997e6e19a270216a7
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: 785ec66592959b14dab379553ddfc416a54025ca
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323737"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749595"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘复制到相同或不同的订阅
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/17/2019
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0cc4cc5fc6fb1ba88e1ec4498249b91f472c5686
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: e0e29e6941a9a8c046150d8e29206573e8179c9a
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310736"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847108"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用用户流将访问令牌传递给应用程序
 
@@ -32,7 +32,7 @@ Azure AD B2C 当前仅支持传递 [OAuth 2.0](active-directory-b2c-reference-oa
 ## <a name="enable-the-claim"></a>启用声明
 
 1. 以 Azure AD B2C 租户的全局管理员身份登录 [Azure 门户](https://portal.azure.cn/)。
-2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录  。
+2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 3. 选择 Azure 门户左上角的“所有服务”  ，搜索并选择 **Azure AD B2C**。
 4. 选择“用户流(策略)”  ，然后选择用户流。 例如，**B2C_1_signupsignin1**。
 5. 选择“应用程序声明”  。

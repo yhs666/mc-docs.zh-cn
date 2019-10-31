@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/09/2019
-ms.date: 10/08/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e8e82f4f1dc86719d37965798fe2b584a101965c
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 3bca0424263755240820b023188ed4d080d38428
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340794"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914367"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>准备在生产环境中部署 IoT Edge 解决方案
 
@@ -84,7 +84,7 @@ IoT Edge 设备建立连接后，请务必在将来的部署中继续为两个�
 
 ### <a name="be-consistent-with-upstream-protocol"></a>与上游协议保持一致
 
-如果将 IoT Edge 设备上的 IoT Edge 代理配置为使用其他协议而不是默认的 AMQP，则应在所有将来的部署中声明同一协议。 例如，如果 IoT Edge 设备位于阻止 AMQP 端口的代理服务器后面，则你可能已将设备配置为通过基于 WebSocket 的 AMQP (AMQPWS) 进行连接。 将模块部署到设备时，请为 IoT Edge 代理和 IoT Edge 中心配置相同的 APQPWS 协议，否则默认的 AMQP 将会替代设置，并阻止你重新连接。 
+如果将 IoT Edge 设备上的 IoT Edge 代理配置为使用其他协议而不是默认的 AMQP，则应在所有将来的部署中声明同一协议。 例如，如果 IoT Edge 设备位于阻止 AMQP 端口的代理服务器后面，则你可能已将设备配置为通过基于 WebSocket 的 AMQP (AMQPWS) 进行连接。 将模块部署到设备时，请为 IoT Edge 代理和 IoT Edge 中心配置相同的 AMQPWS 协议，否则默认的 AMQP 将会替代设置，并阻止你重新连接。 
 
 只需为 IoT Edge 代理和 IoT Edge 中心模块配置 UpstreamProtocol 环境变量即可。 其他任何模块将采用运行时模块中设置的任何协议。 
 
@@ -94,7 +94,7 @@ IoT Edge 设备建立连接后，请务必在将来的部署中继续为两个�
 
 IoT Edge 中心和代理模块使用本地存储来保留状态，并允许在模块、设备和云之间传递消息。 为了提高可靠性和性能，请将系统模块配置为使用主机文件系统上的存储。
 
-有关详细信息，请参阅[系统模块的主机存储](offline-capabilities.md#host-storage-for-system-modules)。
+有关详细信息，请参阅[系统模块的主机存储](how-to-access-host-storage-from-module.md)。
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>减少 IoT Edge 中心使用的内存空间
 
@@ -178,7 +178,7 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
    | mcr.microsoft.com  | 443 | Microsoft 容器注册表 |
    | global.azure-devices-provisioning.net  | 443 | DPS 访问（可选） |
    | \*.azurecr.io | 443 | 个人和第三方容器注册表 |
-   | \*.blob.core.windows.net | 443 | 下载映像增量数据 | 
+   | \*.blob.core.windows.net | 443 | 从 blob 存储下载 Azure 容器注册表映像增量  | 
    | \*.azure-devices.net | 5671、8883、443 | IoT 中心访问 |
    | \*.docker.io  | 443 | Docker 中心访问（可选） |
 

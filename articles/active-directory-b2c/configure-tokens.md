@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: ebdaa8ce86e32ba7f8da316785e8d957fcb696e7
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 5fe5567a7f2ca8840700c9fdd2849379a5b2cbba
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391572"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847117"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中配置令牌
 
-本文介绍如何在 Azure Active Directory (Azure AD) B2C 中配置[令牌的生存期和兼容性](active-directory-b2c-reference-tokens.md)。
+本文介绍如何在 Azure Active Directory B2C (Azure AD B2C) 中配置[令牌的生存期和兼容性](active-directory-b2c-reference-tokens.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -31,7 +31,7 @@ ms.locfileid: "68391572"
 可以在任何用户流上配置令牌生存期。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含 Azure AD B2C 租户的目录  。
+2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD B2C 租户的目录  。
 3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
 4. 选择“用户流(策略)”  。
 5. 打开之前创建的用户流。

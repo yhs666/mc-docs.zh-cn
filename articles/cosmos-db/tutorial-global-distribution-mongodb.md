@@ -2,19 +2,19 @@
 title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行多区域分发的教程
 description: 了解如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分发。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/21/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 15f1be3173e1101106fb0234b9e168d9855cd7fd
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 75cb59e3fa5672539172c18d3c1294cd8c953de6
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309082"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912909"
 ---
 # <a name="set-up-multiple-region-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分布式数据库
 
@@ -29,7 +29,7 @@ ms.locfileid: "54309082"
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="verifying-your-regional-setup"></a>验证区域设置 
-检查 Azure Cosmos DB 的用于 MongoDB 的 API 中的多区域配置的一种简单方法是从 Mongo Shell 运行 *isMaster()* 命令。
+检查 Cosmos DB 的 API for MongoDB 的多区域配置的一种简单方法是从 Mongo Shell 运行 *isMaster()* 命令。
 
 从 Mongo Shell：
 
@@ -52,8 +52,9 @@ ms.locfileid: "54309082"
             "region": "China North "
          },
          "hosts": [
-            "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10255",
-            "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10255",
+            "vishi-api-for-mongodb-chinaeast2.documents.azure.cn:10255",
+            "vishi-api-for-mongodb-chinanorth2.documents.azure.cn:10255",
+            "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10255"
          ],
          "setName": "globaldb",
          "setVersion": 1,
@@ -64,14 +65,14 @@ ms.locfileid: "54309082"
 
 ## <a name="connecting-to-a-preferred-region"></a>连接到首选区域 
 
-使用 Azure Cosmos DB 的用于 MongoDB 的 API，可以为多区域分布式数据库指定集合的读取首选项。 为实现低延迟读取和多区域高可用性，建议将集合的读取首选项设置为“就近”。 当读取首选项配置为“就近”时，将从最近的区域进行读取。
+使用 Azure Cosmos DB 的 API for MongoDB，可以为多区域分布式数据库指定集合的读取首选项。 为实现低延迟读取和多区域高可用性，建议将集合的读取首选项设置为“就近”。  当读取首选项配置为“就近”时，将从最近的区域进行读取。 
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-对于具有主读取/写入区域和用于灾难恢复 (DR) 方案的辅助区域的应用程序，建议将集合的读取首选项设置为“辅助优先”。 当读取首选项配置为“辅助优先”时，如果主区域不可用，将从辅助区域进行读取。
+对于具有主读取/写入区域和用于灾难恢复 (DR) 方案的辅助区域的应用程序，建议将集合的读取首选项设置为“辅助优先”。  当读取首选项配置为“辅助优先”时，如果主区域不可用，将从辅助区域进行读取。 
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

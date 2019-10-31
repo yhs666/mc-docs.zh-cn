@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f29e0588a44ee7a2e01a90bdacadf75f39c948b9
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 62b1b1daef1e3d3f4591ff37af63c2f9786925cc
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310762"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846969"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过微博帐户注册与登录
 
@@ -24,7 +24,7 @@ ms.locfileid: "70310762"
 
 ## <a name="create-a-weibo-application"></a>创建 Weibo 应用程序
 
-要将微博帐户用作 Azure Active Directory (Azure AD) B2C 中的标识提供者，需要在表示它的租户中创建一个应用程序。 如果还没有微博帐户，可以在 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) 注册。
+要将微博帐户用作 Azure Active Directory B2C (Azure AD B2C) 中的标识提供者，需要在表示它的租户中创建一个应用程序。 如果还没有微博帐户，可以在 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) 注册。
 
 1. 使用微博帐户凭据登录[微博开发人员门户](https://open.weibo.com/)。
 1. 登录后，选择右上角的显示名称。

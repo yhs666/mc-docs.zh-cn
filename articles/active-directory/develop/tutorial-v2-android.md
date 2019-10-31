@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/09/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01eedc622ad5d5ef4880dba70f17bb0d3fe0737a
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 171502bfa6f9141b6cc9ef76ff5e14f450e30f8c
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134238"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912766"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>从 Android 应用将用户登录并调用 Microsoft Graph
 
@@ -276,7 +276,7 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 
 MSAL 公开两个主要方法用于获取令牌：`acquireTokenSilentAsync()` 和 `acquireToken()`。  
 
-如果帐户存在，`acquireTokenSilentAsync()` 会将用户登录并获取令牌，而无需任何用户交互。 如果成功，MSAL 会将令牌转交给应用，否则会生成 `MsalUiRequiredException`。  如果生成此异常或你希望用户具有交互式登录体验（不一定需要凭据、mfa 或其他条件访问策略），则使用 `acquireToken()`。  
+如果帐户存在，`acquireTokenSilentAsync()` 会将用户登录并获取令牌，而无需任何用户交互。 如果成功，MSAL 会将令牌转交给应用，否则会生成 `MsalUiRequiredException`。  如果生成了此异常或者你希望用户能够获得交互式登录体验（MFA 策略可能需要或不需要凭据），则使用 `acquireToken()`。  
 
 `acquireToken()` 会在尝试登录用户并获取令牌时显示 UI。 在 `MainActivity` 类中创建以下三个 UI 方法：
 

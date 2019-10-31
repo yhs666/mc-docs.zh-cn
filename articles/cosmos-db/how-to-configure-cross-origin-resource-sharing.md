@@ -4,21 +4,24 @@ description: 本文介绍如何使用 Azure 门户和 Azure 资源管理器模�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 10/11/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9384f994243ce294ad2173d260596c80b62c375d
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 4066268e713b1df6932dc52ab8884ae56170366c
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151440"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913293"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>配置跨源资源共享 (CORS) 
 
-跨源资源共享 (CORS) 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为“同源策略”的安全限制，防止网页调用不同域中的 API。 但是，CORS 提供了一种安全的方法，允许源域调用其他域中的 API。Azure Cosmos DB 中的核心 SQL API 现在通过使用“allowedOrigins”标头支持跨源资源共享 (CORS)。 为 Azure Cosmos 帐户启用 CORS 支持后，仅对经过身份验证的请求进行评估，以根据指定的规则确定是否允许这些请求。
+跨源资源共享 (CORS) 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为“同源策略”的安全限制，防止网页调用不同域中的 API。 但是，CORS 提供了一种安全的方式，允许源域调用另一个域中的 API。 Azure Cosmos DB 中的 Core (SQL) API 现在通过使用“allowedOrigins”标头来支持跨域资源共享 (CORS)。 为 Azure Cosmos 帐户启用 CORS 支持后，仅对经过身份验证的请求进行评估，以根据指定的规则确定是否允许这些请求。
 
-可以使用 Azure 门户或 Azure 资源管理器模板配置跨源资源共享 (CORS) 设置。 Azure Cosmos DB 中的核心 SQL API 支持同时适用于 Node.js 和基于浏览器的环境的 JavaScript 库。 使用网关模式时，该库现在可以充分利用 CORS 支持。 无需客户端配置即可使用此功能。 借助 CORS 支持，来自浏览器的资源可以通过 [JavaScript 库](https://www.npmjs.com/package/@azure/cosmos)直接访问 Azure Cosmos DB 或直接通过 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 进行访问来执行简单操作。 
+可以使用 Azure 门户或 Azure 资源管理器模板配置跨源资源共享 (CORS) 设置。 对于使用 Core (SQL) API 的 Cosmos 帐户，Azure Cosmos DB 支持在 Node.js 和基于浏览器的环境中均可使用的 JavaScript 库。 使用网关模式时，该库现在可以充分利用 CORS 支持。 无需客户端配置即可使用此功能。 借助 CORS 支持，来自浏览器的资源可以通过 [JavaScript 库](https://www.npmjs.com/package/@azure/cosmos)直接访问 Azure Cosmos DB 或直接通过 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 进行访问来执行简单操作。 
+
+> [!NOTE]
+> CORS 支持仅适用于 Azure Cosmos DB Core (SQL) API 并受其支持。 它不适用于用于 Cassandra、Gremlin 或 MongoDB 的 Azure Cosmos DB API，因为这些协议不使用 HTTP 进行客户端-服务器通信。 
 
 ## <a name="enable-cors-support-from-azure-portal"></a>通过 Azure 门户启用 CORS 支持
 
@@ -108,4 +111,4 @@ module.exports = {
 
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

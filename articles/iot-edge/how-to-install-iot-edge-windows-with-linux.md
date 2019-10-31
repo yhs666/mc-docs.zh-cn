@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: efa864176eb40475fb90abcff5fc4ed1715f1258
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 4c9a07019c27d46183c0c4ed0054386fdf53beba
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174039"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914485"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>使用 Windows 上的 IoT Edge 运行 Linux 容器
 
@@ -93,16 +93,22 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 ## <a name="verify-successful-installation"></a>验证是否成功安装
 
-检查 IoT Edge 服务的状态。 该服务应列为“正在运行”。  
+检查 IoT Edge 服务的状态： 
 
 ```powershell
 Get-Service iotedge
 ```
 
-检查过去 5 分钟的服务日志。 
+检查过去 5 分钟的服务日志： 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+运行自动检查以查找最常见的配置和网络错误： 
+
+```powershell
+iotedge check
 ```
 
 列出正在运行的模块。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 首次[部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，其他系统模块 **edgeHub** 也会在设备上启动。 

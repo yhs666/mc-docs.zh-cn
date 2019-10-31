@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 06/21/2019
-ms.date: 09/03/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: d5b2ce5232e318422a7a6303f6d2aa4ffe9c7915
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 37937751e566f548b346c6a805619ea492b3ca5e
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310856"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798474"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Azure Redis 缓存的最佳做法 
 遵循这些最佳做法可帮助最大化性能并在 Azure 中经济、高效地利用 Azure Redis 缓存实例。
@@ -28,9 +28,9 @@ ms.locfileid: "70310856"
 ## <a name="configuration-and-concepts"></a>配置和概念
  * **对生产系统使用标准层或高级层。**  基本层是没有数据复制和 SLA 的单节点系统。 此外，使用至少一个 C1 缓存。  C0 缓存适用于简单的开发/测试方案，因为它们只配备了共享的 CPU 核心和少量的内存，并且容易出现“干扰性邻居”问题。
 
- * **请记住，Redis 是一个内存中数据存储。**  [此文](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)概述了可能发生数据丢失的一些情况。
+ * **请记住，Redis 是一个内存中数据存储。**  
 
- * 在开发系统时让它可以处理[由于修补和故障转移](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md)出现的**连接故障**。
+ * **在开发系统时让它可以处理由于修补和故障转移出现的连接故障**。
 
  * **配置 [maxmemory-reserved 设置](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)，以提高系统在遇到内存压力时的响应能力**。  对于写入密集型工作负荷，或者，如果你要在 Redis 中存储较大的值（100 KB 或更大），此设置尤为重要。  我建议从缓存大小的 10% 开始，并在处理写入密集型负载时增大此设置。 选择值时，请参阅[一些注意事项](cache-how-to-troubleshoot.md#considerations-for-memory-reservations)。
 

@@ -2,23 +2,24 @@
 title: Azure Active Directory B2C 解决方案和培训 | Microsoft Docs
 description: 本文提供解决方案和培训信息的链接，这些解决方案和培训可帮助了解 Azure Active Directory B2C 并将其用于端到端业务解决方案。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
+manager: celestedg
 ms.author: v-junlch
 origin.date: 11/05/2018
-ms.date: 04/04/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e2b6a187431d57dd5e315d6cc05b44acd6292ca1
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 09878ad919826533594ebf6a0615d85434c205dc
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004243"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847146"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 解决方案和培训
 
-借助 Azure Active Directory (Azure AD) B2C，组织能够实现帮助其与客户建立联系的业务解决方案。 以下解决方案指南和培训是可供下载的文档，能够帮助你了解这些解决方案。
+借助 Azure Active Directory B2C (Azure AD B2C)，组织能够实现帮助其与客户建立联系的业务解决方案。 以下解决方案指南和培训是可供下载的文档，能够帮助你了解这些解决方案。
 
 | 标题 | 说明 |
 | ----- | ----------- |
@@ -31,3 +32,4 @@ ms.locfileid: "59004243"
 | 使用自定义策略：<br><ul><li>[自定义策略简介](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[利用租户中的自定义策略](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[结构策略和管理密钥](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[自带标识和迁移用户](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[排查策略问题和审核访问权限](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[深入了解自定义策略架构](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| 本系列文档提供了 Azure AD B2C 中自定义策略的端到端之旅，深入介绍了最常见的高级标识方案。<br><br> 它包括如何为这些方案实施和管理自定义策略，以及如何使用可用工具对其进行诊断。 它还深入探讨了自定义策略工作原理，并详细说明了如何对其进行微调以满足自己的特定要求。 |
 
 
+<!-- Update_Description: wording update -->

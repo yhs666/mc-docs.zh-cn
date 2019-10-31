@@ -2,27 +2,27 @@
 title: Azure Active Directory B2C 标识体验框架架构的布尔型声明转换示例 | Microsoft Docs
 description: Azure Active Directory B2C 标识体验框架架构的布尔型声明转换示例。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 04/03/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7639fe731836f2ce50a177241384c5b6f11a1cf6
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: d4cb920c4633fd89b236b3d2e421ad542196530d
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004337"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847124"
 ---
 # <a name="boolean-claims-transformations"></a>布尔型声明转换
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文演示了在 Azure Active Directory (Azure AD) B2C 中使用标识体验框架架构的布尔型声明转换的过程。 有关详细信息，请参阅 [ClaimsTransformations](claimstransformations.md)。
+本文提供了在 Azure Active Directory B2C (Azure AD B2C) 中使用标识体验框架架构的布尔型声明转换的示例。 有关详细信息，请参阅 [ClaimsTransformations](claimstransformations.md)。
 
 ## <a name="andclaims"></a>AndClaims
 
@@ -41,7 +41,7 @@ ms.locfileid: "59004337"
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -66,7 +66,7 @@ ms.locfileid: "59004337"
 | inputClaim | inputClaim | 布尔值 | 要断言的 ClaimType。 |
 | InputParameter |valueToCompareTo | 布尔值 | 要比较的值（true 或 false）。 |
 
-AssertBooleanClaimIsEqualToValue 声明转换始终从[验证技术配置文件](validation-technical-profile.md)执行，该文件由[自断言技术配置文件](self-asserted-technical-profile.md)调用。 UserMessageIfClaimsTransformationBooleanValueIsNotEqual 自断言技术配置文件元数据控制向用户显示的技术配置文件。
+AssertBooleanClaimIsEqualToValue  声明转换始终从[验证技术配置文件](validation-technical-profile.md)执行，该文件由[自断言技术配置文件](self-asserted-technical-profile.md)调用。 UserMessageIfClaimsTransformationBooleanValueIsNotEqual  自断言技术配置文件元数据控制向用户显示的技术配置文件。
 
 ![AssertStringClaimsAreEqual 执行](./media/boolean-transformations/assert-execution.png)
 
@@ -94,7 +94,7 @@ AssertBooleanClaimIsEqualToValue 声明转换始终从[验证技术配置文件]
 </TechnicalProfile>
 ```
 
-自断言技术配置文件调用验证 login-NonInteractive 技术配置文件。
+自断言技术配置文件调用验证 login-NonInteractive  技术配置文件。
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
@@ -142,7 +142,7 @@ AssertBooleanClaimIsEqualToValue 声明转换始终从[验证技术配置文件]
 - 输出声明：
     - **outputClaim**: true
 
-## <a name="orclaims"></a>OrClaims 
+## <a name="orclaims"></a>OrClaims
 
 执行两个布尔型 inputClaims 的 Or 运算并使用运算结果设置 outputClaim。
 
@@ -159,7 +159,7 @@ AssertBooleanClaimIsEqualToValue 声明转换始终从[验证技术配置文件]
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -176,3 +176,4 @@ AssertBooleanClaimIsEqualToValue 声明转换始终从[验证技术配置文件]
     - **outputClaim**: true
 
 
+<!-- Update_Description: wording update -->

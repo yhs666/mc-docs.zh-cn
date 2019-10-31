@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: b745a51fe85e78383b9e05a92d28d00ebf64ab9f
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: f841f9614ccb50abfcb1117bac84ab6e8f63fa5f
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391562"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847105"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>用于 Azure Active Directory B2C 中的 JavaScript 示例
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-可以向 Azure Active Directory (Azure AD) B2C 应用程序添加自己的 JavaScript 客户端代码。 若要为应用程序启用 JavaScript，必须在[自定义策略](active-directory-b2c-overview-custom.md)中添加一个元素，选择[页面布局](page-layout.md)，并在请求中使用 [b2clogin.cn](b2clogin.md)。 本文介绍如何更改自定义策略以启用脚本执行。
+可以向 Azure Active Directory B2C (Azure AD B2C) 应用程序添加自己的 JavaScript 客户端代码。 若要为应用程序启用 JavaScript，必须在[自定义策略](active-directory-b2c-overview-custom.md)中添加一个元素，选择[页面布局](page-layout.md)，并在请求中使用 [b2clogin.cn](b2clogin.md)。 本文介绍如何更改自定义策略以启用脚本执行。
 
 > [!NOTE]
 > 如果要为用户流启用 JavaScript，请参阅 [Azure Active Directory B2C 中的 JavaScript 和页面布局版本](user-flow-javascript-overview.md)。

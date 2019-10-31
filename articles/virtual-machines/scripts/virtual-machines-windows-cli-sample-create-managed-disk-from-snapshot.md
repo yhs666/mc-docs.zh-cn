@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 从快照创建托管磁盘 | Azure
+title: 使用 CLI 从快照创建托管磁盘 | Azure
 description: Azure CLI 脚本示例 - 从快照创建托管磁盘
 services: virtual-machines-windows
 documentationcenter: storage
@@ -17,12 +17,12 @@ origin.date: 05/19/2017
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: be5e635aea56cc3f6f7849ae08951ee178c6d185
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: e915b2546c7221309ff04fa6d3e197d4fb98b5ea
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323733"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749602"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>使用 CLI 从快照创建托管磁盘
 

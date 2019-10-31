@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 07/22/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 596edee0899a54c4d62cfbef52746135a9711505
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 0ae4f57f31d298f257fa2d72675be5aef5d3f11e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174042"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914486"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>在基于 Debian 的 Linux 系统上安装 Azure IoT Edge 运行时
 
@@ -193,6 +193,8 @@ sudo nano /etc/iotedge/config.yaml
    #     method: "tpm"
    #     registration_id: "{registration_id}"
    ```
+   
+将剪贴板内容粘贴到 Nano `Shift+Right Click` 或按 `Shift+Insert`。
 
 保存并关闭该文件。 
 
@@ -232,7 +234,9 @@ sudo nano /etc/iotedge/config.yaml
        registration_id: "{registration_id}"
    ```
 
-保存并关闭该文件。 
+将剪贴板内容粘贴到 Nano `Shift+Right Click` 或按 `Shift+Insert`。
+
+保存并关闭该文件。
 
    `CTRL + X`、`Y`、`Enter`
 
@@ -246,19 +250,25 @@ sudo systemctl restart iotedge
 
 如果使用了上一部分中的**手动配置**步骤，则应在设备上成功预配并运行 IoT Edge 运行时。 如果使用了**自动配置**步骤，则需要完成一些额外的步骤，以便运行时可以代表你向 IoT 中心注册你的设备。 有关后续步骤，请参阅[在 Linux 虚拟机上创建和预配模拟 TPM IoT Edge 设备](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
 
-使用以下命令检查 IoT Edge 守护程序的状态：
+可以检查 IoT Edge 守护程序的状态：
 
 ```bash
 systemctl status iotedge
 ```
 
-使用以下命令查看守护程序日志：
+检查守护程序日志：
 
 ```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
-此外，还可使用以下命令列出正在运行的模块：
+运行自动检查以查找最常见的配置和网络错误： 
+
+```bash
+sudo iotedge check
+```
+
+并且列出正在运行的模块：
 
 ```bash
 sudo iotedge list
@@ -268,7 +278,7 @@ sudo iotedge list
 
 ## <a name="tips-and-troubleshooting"></a>提示和故障排除
 
-需要提升的权限才能运行 `iotedge` 命令。 安装运行时后，请从计算机中注销并重新登录以自动更新权限。 在此之前，在任何 `iotedge` 命令前都要使用 **sudo**。
+需要提升权限才能运行 `iotedge` 命令。 安装运行时后，请从计算机中注销并重新登录以自动更新权限。 在此之前，在任何 `iotedge` 命令前都要使用 **sudo**。
 
 在资源受限的设备上，强烈建议按照[故障排除指南](troubleshoot.md)中的说明将 *OptimizeForPerformance* 环境变量设置为 *false*。
 

@@ -2,28 +2,28 @@
 title: 添加 Web 应用程序 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何向 Active Directory B2C 租户添加 Web 应用程序。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.author: v-junlch
 origin.date: 04/16/2019
-ms.date: 06/05/2019
+ms.date: 10/24/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dcb1a6c91662154def87b92008ed5c180aaf059b
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 27fcb4520b65a10fbc9066fafbd83958ef233b26
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687627"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847125"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>向 Azure Active Directory B2C 租户添加 Web API 应用程序
 
- 在租户中注册 Web API 资源，以便他们可以接受并响应呈现访问令牌的客户端应用程序的请求。 本文介绍如何在 Azure Active Directory (Azure AD) B2C 中注册应用程序。
+ 在租户中注册 Web API 资源，以便他们可以接受并响应提供访问令牌的客户端应用程序的请求。 本文介绍如何在 Azure Active Directory B2C (Azure AD B2C) 中注册应用程序。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录  。
+2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
 4. 选择“应用程序”，然后选择“添加”   。
 5. 输入应用程序的名称。 例如，“webapi1”  。
@@ -37,23 +37,13 @@ ms.locfileid: "66687627"
 
 可通过范围控制对受保护资源的访问。 Web API 使用作用域实施基于作用域的访问控制。 例如，可以让 Web API 用户拥有读取和写入访问权限，或者只拥有读取访问权限。 在本教程中，请使用作用域为 Web API 定义读取和写入权限。
 
-1. 选择“应用程序”，然后选择“webapi1”   。
-2. 选择“已发布的范围”  。
-3. 在“范围”中输入 `Read`，在“说明”中输入 `Read access to the application`  。
-4. 在“范围”中输入 `Write`，在“说明”中输入 `Write access to the application`  。
-5. 单击“保存”  。
-
-可以使用已发布的范围向客户端应用程序授予访问 Web API 的权限。
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>授予权限
 
 若要从应用程序调用受保护的 Web API，需授予应用程序访问该 API 的权限。 例如，在[教程：在 Azure Active Directory B2C 中注册应用程序](tutorial-register-applications.md)中，在 Azure AD B2C 中创建了名为 *webapp1* 的 Web 应用程序。 可使用此应用程序调用 Web API。
 
-1. 选择“应用程序”，然后选择你的 Web 应用程序  。
-2. 选择“API 访问”，然后选择“添加”   。
-3. 在“选择 API”下拉列表中，选择“webapi1”   。
-4. 在“选择范围”下拉列表中，选择之前定义的“读取”和“写入”范围    。
-5. 单击 **“确定”** 。
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 注册应用程序以调用受保护的 Web API。 用户通过 Azure AD B2C 进行身份验证，以便使用该应用程序。 应用程序从 Azure AD B2C 获取授权，以访问受保护的 Web API。
 

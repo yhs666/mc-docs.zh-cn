@@ -4,15 +4,15 @@ description: 了解如何将所有现有的未分区容器迁移到已分区的�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 09/09/2019
+origin.date: 09/25/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 94c62769ed7a3d0323d855f62b75f31cb1cdf509
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 95cdfc723d59534072f5133b1c6e1f1d519e0018
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254769"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914469"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>将未分区的容器迁移到已分区的容器
 
@@ -20,12 +20,12 @@ Azure Cosmos DB 支持创建不带分区键的容器。 目前可以使用 Azure
 
 未分区的容器已经过时，应将现有的未分区容器迁移到已分区的容器，以扩展存储量和吞吐量。 Azure Cosmos DB 提供系统定义的机制用于将未分区的容器迁移到已分区的容器。 本文档介绍如何将所有现有的未分区容器自动迁移到已分区的容器。 仅当使用的是支持所有语言的 V3 版 SDK 时，才能利用自动迁移功能。
 
-> [!NOTE] 
-> 目前，无法使用本文档中所述的步骤迁移 Azure Cosmos DB MongoDB 和 Gremlin API 帐户。 
+> [!NOTE]
+> 目前，无法使用本文档中所述的步骤迁移 Azure Cosmos DB MongoDB 和 Gremlin API 帐户。
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>使用系统定义的分区键迁移容器
 
-为了支持迁移，Azure Cosmos DB 将在没有分区键的所有容器中定义一个名为 `/_partitionkey` 的系统定义分区键。 迁移容器后，无法更改分区键定义。 例如，已迁移到分区容器的容器的定义如下所示： 
+为了支持迁移，Azure Cosmos DB 将在没有分区键的所有容器中提供一个名为 `/_partitionkey` 的系统定义分区键。 迁移容器后，无法更改分区键定义。 例如，已迁移到分区容器的容器的定义如下所示：
 
 ```json
 {
@@ -39,9 +39,9 @@ Azure Cosmos DB 支持创建不带分区键的容器。 目前可以使用 Azure
 }
 ```
 
-迁移容器后，可以通过填充 `_partitionKey` 属性以及其他文档属性来创建文档。 `_partitionKey` 属性表示文档的分区键。 
+迁移容器后，可以通过填充 `_partitionKey` 属性以及其他文档属性来创建文档。 `_partitionKey` 属性表示文档的分区键。
 
-选择适当的分区键非常重要，这样才能以最佳方式利用预配的吞吐量。 有关详细信息，请参阅[如何选择分区键](partitioning-overview.md)一文。 
+选择适当的分区键非常重要，这样才能以最佳方式利用预配的吞吐量。 有关详细信息，请参阅[如何选择分区键](partitioning-overview.md)一文。
 
 > [!NOTE]
 > 仅当使用的是支持所有语言的最新/V3 版 SDK 时，才能利用系统定义的分区键。
@@ -66,46 +66,46 @@ public class DeviceInformationItem
     [JsonProperty(PropertyName = "deviceId")]
     public string DeviceId { get; set; }
 
-    [JsonProperty(PropertyName = "_partitionKey")]
+    [JsonProperty(PropertyName = "_partitionKey", NullValueHandling = NullValueHandling.Ignore)]
     public string PartitionKey {get {return this.DeviceId; set; }
 }
 
 CosmosContainer migratedContainer = database.Containers["testContainer"];
 
 DeviceInformationItem deviceItem = new DeviceInformationItem() {
-  Id = "1234", 
+  Id = "1234",
   DeviceId = "3cf4c52d-cc67-4bb8-b02f-f6185007a808"
-} 
+}
 
-CosmosItemResponse<DeviceInformationItem > response = 
-  await migratedContainer.Items.CreateItemAsync(
+ItemResponse<DeviceInformationItem > response = 
+  await migratedContainer.CreateItemAsync<DeviceInformationItem>(
     deviceItem.PartitionKey, 
     deviceItem
   );
 
 // Read back the document providing the same partition key
-CosmosItemResponse<DeviceInformationItem> readResponse = 
-  await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
+ItemResponse<DeviceInformationItem> readResponse = 
+  await migratedContainer.ReadItemAsync<DeviceInformationItem>( 
     partitionKey:deviceItem.PartitionKey, 
     id: device.Id
-  ); 
+  );
 
 ```
 
-有关完整示例，请参阅 [.Net 示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub 存储库。 
+有关完整示例，请参阅 [.Net 示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub 存储库。
 
 ## <a name="migrate-the-documents"></a>迁移文档
 
-尽管容器定义已通过分区键属性得到增强，但容器中的文档不会自动迁移。 这意味着，系统分区键属性 `/_partitionKey` 路径不会自动添加到现有的文档。 需要通过读取创建的不带分区键的文档将现有文档重新分区，然后使用文档中的 `_partitionKey` 属性重新写入这些文档。 
+尽管容器定义已通过分区键属性得到增强，但容器中的文档不会自动迁移。 这意味着，系统分区键属性 `/_partitionKey` 路径不会自动添加到现有的文档。 需要通过读取创建的不带分区键的文档将现有文档重新分区，然后使用文档中的 `_partitionKey` 属性重新写入这些文档。
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>访问不带分区键的文档
 
-应用程序可以使用名为“CosmosContainerSettings.NonePartitionKeyValue”（这是未迁移的文档的值）的特殊系统属性来访问不带分区键的现有文档。 可以在所有 CRUD 和查询操作中使用此属性。 以下示例演示如何从 NonePartitionKey 读取单个文档。 
+应用程序可以使用名为“PartitionKey.None”（这是未迁移的文档的值）的特殊系统属性来访问不带分区键的现有文档。 可以在所有 CRUD 和查询操作中使用此属性。 以下示例演示如何从 NonePartitionKey 读取单个文档。 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
 await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
-  partitionKey: CosmosContainerSettings.NonePartitionKeyValue, 
+  partitionKey: PartitionKey.None, 
   id: device.Id
 ); 
 

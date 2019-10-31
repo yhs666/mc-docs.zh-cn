@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘 | Azure
+title: 使用 CLI 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘 | Azure
 description: Azure CLI 脚本示例 - 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘
 services: virtual-machines-windows
 documentationcenter: storage
@@ -17,12 +17,12 @@ origin.date: 05/19/2017
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 40feb965ba5ac668d6051bb3e97bdc7bbfe2f36a
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: e8f9aff9e54aa991ecfb73327933b63acb0013fe
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323732"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749600"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>使用 CLI 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘
 

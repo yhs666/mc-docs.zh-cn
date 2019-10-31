@@ -1,26 +1,27 @@
 ---
 title: Azure 事件中心 IP 连接筛选器 | Azure
-description: 使用 IP 筛选阻止从特定 IP 地址到 Azure 事件中心的连接。
+description: 使用防火墙规则允许从特定 IP 地址到 Azure 事件中心的链接。
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
 origin.date: 08/26/2018
 ms.date: 12/10/2018
 ms.author: v-biyu
-ms.openlocfilehash: 8093ae702399733602b8b1e49429714037371bfe
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 3d4ee9ba57446cb500848f04abf56d19fc1207ef
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676897"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872973"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
-对于只应通过某些已知站点访问 Azure 事件中心的方案，可使用 IP 筛选器功能配置相关规则，以拒绝或接受源自特定 IPv4 地址的流量。 例如，这些地址可能是企业 NAT 网关地址。
+对于只应通过某些已知站点访问 Azure 事件中心的方案，可使用 IP 筛选器功能配置相关规则，以拒绝或接受源自特定 IPv4 地址的流量  。 例如，这些地址可能是企业 NAT 网关地址。
 
 ## <a name="when-to-use"></a>何时使用
 
@@ -37,7 +38,7 @@ IP 筛选器规则应用于事件中心命名空间级别。 因此，这些规�
 
 ## <a name="default-setting"></a>默认设置
 
-默认情况下，门户中针对事件中心的“IP 筛选器”网格为空。 此默认设置意味着事件中心会接受来自任何 IP 地址的连接。 此默认设置等效于接受 0.0.0.0/0 IP 地址范围的规则。
+默认情况下，门户中针对事件中心的“IP 筛选器”网格为空。  此默认设置意味着事件中心会接受来自任何 IP 地址的连接。 此默认设置等效于接受 0.0.0.0/0 IP 地址范围的规则。
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 筛选器规则评估
 
@@ -54,9 +55,9 @@ IP 筛选器规则将按顺序应用，与 IP 地址匹配的第一个规则决�
 
 模板参数：
 
-- ipFilterRuleName 必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。
-- ipFilterAction 是要应用到 IP 筛选规则的“拒绝”或“接受”操作。
-- ipMask 是单个 IPv4 地址或者是以 CIDR 表示法表示的一个 IP 地址块。 例如，在 CIDR 表示法中，70.37.104.0/24 表示从 70.37.104.0 到 70.37.104.255 的 256 个 IPv4 地址，其中 24 表示范围的有效前缀位数。
+- ipFilterRuleName 必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符  。
+- ipFilterAction 是要应用到 IP 筛选规则的“拒绝”或“接受”操作    。
+- ipMask 是单个 IPv4 地址或者是以 CIDR 表示法表示的一个 IP 地址块  。 例如，在 CIDR 表示法中，70.37.104.0/24 表示从 70.37.104.0 到 70.37.104.255 的 256 个 IPv4 地址，其中 24 表示范围的有效前缀位数。
 
 ```json
 {  

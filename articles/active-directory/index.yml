@@ -4,20 +4,20 @@ summary: Azure Active Directory (Azure AD) 是多租户、基于云的标识和�
 brand: azure
 metadata:
   title: Azure Active Directory 文档
-  description: Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的多租户目录，也是标识管理服务，可以将核心目录服务、应用程序访问管理和标识保护组合到单个解决方案中。
+  description: Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的多租户目录，也是标识管理服务，可以将核心目录服务和应用程序访问管理组合到单个解决方案中。
   ms.service: active-directory
   ms.topic: hub-page
   ms.collection: M365-identity-device-management
   author: mtillman
   ms.author: v-junlch
   manager: daveba
-  ms.date: 08/21/2019
-  ms.openlocfilehash: c0ee7405f6eb51da247fd8bf2e491c99604b146f
-  ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+  ms.date: 10/25/2019
+  ms.openlocfilehash: c99cd262799827b3b777edc33141ded1438cef73
+  ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/23/2019
-  ms.locfileid: "69993740"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72912740"
 highlightedContent:
   items:
   - title: 什么是 Azure AD？
@@ -56,20 +56,6 @@ conceptualContent:
     footerLink:
       url: ../active-directory-b2c/index.yml
       text: 查看更多
-  - title: 条件访问
-    links:
-    - url: ./conditional-access/overview.md
-      itemType: overview
-      text: 什么是条件访问？
-    - url: ./conditional-access/app-based-mfa.md
-      itemType: quickstart
-      text: 要求对特定应用执行 MFA
-    - url: ./conditional-access/location-condition.md
-      itemType: concept
-      text: 基于位置的条件
-    footerLink:
-      url: ./conditional-access/index.yml
-      text: 查看更多
   - title: 开发人员
     links:
     - url: ./develop/about-microsoft-identity-platform.md
@@ -86,9 +72,6 @@ conceptualContent:
       text: 查看更多
   - title: 企业用户
     links:
-    - url: ./users-groups-roles/groups-create-rule.md
-      itemType: how-to-guide
-      text: 创建动态组
     - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
       itemType: how-to-guide
       text: 使用 PowerShell 管理 Azure AD 组
@@ -108,34 +91,6 @@ conceptualContent:
       text: Azure AD Connect 自定义安装
     footerLink:
       url: ./hybrid/index.yml
-      text: 查看更多
-  - title: 标识治理
-    links:
-    - url: ./governance/create-access-review.md
-      itemType: how-to-guide
-      text: 创建访问评审
-    - url: ./governance/perform-access-review.md
-      itemType: how-to-guide
-      text: 启动访问评审
-    - url: ./conditional-access/terms-of-use.md
-      itemType: how-to-guide
-      text: 需要使用条款
-    footerLink:
-      url: ./governance/index.yml
-      text: 查看更多
-  - title: 标识保护
-    links:
-    - url: ./identity-protection/overview.md
-      itemType: overview
-      text: 什么是“标识保护”？
-    - url: ./identity-protection/quickstart-sign-in-risk-policy.md
-      itemType: quickstart
-      text: 检测到会话风险时阻止访问
-    - url: ./identity-protection/howto-unblock-user.md
-      itemType: how-to-guide
-      text: 如何取消阻止用户
-    footerLink:
-      url: ./identity-protection/index.yml
       text: 查看更多
   - title: Azure 资源的托管标识
     links:

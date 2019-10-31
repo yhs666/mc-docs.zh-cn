@@ -4,18 +4,18 @@ description: 了解如何在 IoT 中心对下游设备（叶设备）进行身�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/07/2019
-ms.date: 10/08/2019
+origin.date: 09/23/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8f05a600f43eeb33e26b423ca338bc2e29f70365
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 3f8b1481d4f71b0ff207e1c59c097d7ae1d6c3d4
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340983"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914502"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>通过 Azure IoT 中心对下游设备进行身份验证
 
@@ -33,7 +33,7 @@ ms.locfileid: "71340983"
 
 ## <a name="prerequisites"></a>先决条件
 
-完成[配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)中的步骤。
+完成[配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)中的步骤。 如果要对下游设备使用 X.509 身份验证，则需要使用在透明网关文章中设置的相同的证书生成脚本。 
 
 本文在多个位置提到了“网关主机名”  。 网关主机名在 IoT Edge 网关设备上的 config.yaml 文件的 **hostname** 参数中声明。 它用于创建本文中所用的证书，并在下游设备的连接字符串中引用。 网关主机名必须能够解析成 IP 地址，不管是使用 DNS 还是主机文件条目。
 

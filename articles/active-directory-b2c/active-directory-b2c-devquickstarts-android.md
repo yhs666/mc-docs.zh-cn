@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 07/22/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a2a9481ca65e5bf52b102f0ac3ed4533de35c772
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 033e02d9ba1b23dacb5739626fd661b0af585283
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391618"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846904"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 Android 应用程序登录
 
 Microsoft 标识平台使用开放式标准，例如 OAuth2 和 OpenID Connect。 这些标准允许你利用任何你希望与 Azure Active Directory B2C 集成的库。 为了帮助使用其他库，可以使用演练（例如本演练），演示如何配置第三方库，使其连接到 Microsoft 标识平台。 大部分实施 [RFC6749 OAuth2 规范](https://tools.ietf.org/html/rfc6749)的库都能连接到 Microsoft 标识平台。
 
 > [!WARNING]
-> Microsoft 不提供第三方库的修复程序，且尚未审查这些库。 本示例使用名为 AppAuth 的第三方库，该库经测试可与 Azure AD B2C 的基本方案兼容。 问题和功能请求应重定向到库的开源项目。 有关详细信息，请参阅[此文](/active-directory/develop/reference-v2-libraries)。  
+> Microsoft 不提供第三方库的修复程序，且尚未审查这些库。 本示例使用名为 AppAuth 的第三方库，该库经测试可与 Azure AD B2C 的基本方案兼容。 问题和功能请求应重定向到库的开源项目。 有关详细信息，请参阅[此文](/active-directory/develop/reference-v2-libraries)。
 >
 >
 
@@ -35,11 +35,11 @@ Microsoft 标识平台使用开放式标准，例如 OAuth2 和 OpenID Connect�
 
 ## <a name="create-an-application"></a>创建应用程序
 
-接下来，需要在 B2C 目录中创建应用。 此应用为 Azure AD 提供所需的 Azure AD 信息，使之能够与应用安全通信。 若要创建移动应用，请遵循[这些说明](active-directory-b2c-app-registration.md)。 请务必：
+接下来，将应用程序注册到 Azure AD B2C 租户。 这为 Azure AD 提供了与应用安全通信所需的信息。
 
-* 在应用程序中包含**本机客户端**。
-* 复制分配给应用的 **应用程序 ID** 。 稍后会需要此项。
-* 设置本机客户端**重定向 URI**（例如 com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect）。 稍后也需要用到此信息。
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+记录**应用程序 ID**，以便在以后的步骤中使用。 接下来，在列表中选择应用程序并记录**自定义重定向 URI**，也可在稍后的步骤中使用。 例如，`com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
 
 ## <a name="create-your-user-flows"></a>创建用户流
 
@@ -118,8 +118,8 @@ AuthorizationServiceConfiguration config =
 
 配置或检索授权服务配置后，可以构造授权请求。 若要创建该请求，需要提供以下信息：
 
-* 客户端 ID（例如 00000000-0000-0000-0000-000000000000）
-* 使用自定义方案的重定向 URI（例如 com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect）
+* 之前记录的客户端 ID（应用程序 ID）。 例如，`00000000-0000-0000-0000-000000000000`。
+* 之前记录的自定义重定向 URI。 例如，`com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
 
 [注册应用](#create-an-application)时应已保存这两项信息。
 
@@ -134,4 +134,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 
 有关如何完成余下的过程，请参阅 [AppAuth 指南](https://openid.github.io/AppAuth-Android/)。 如果需要快速开始创建一个正常运行的应用，请查看[我们的示例](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c)。 遵循 [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) 中的步骤输入自己的 Azure AD B2C 配置。
 
-
+<!-- Update_Description: wording update -->

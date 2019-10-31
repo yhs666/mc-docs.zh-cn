@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 09/17/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c46a28d1be9ca0a719c114313dda4cba0a1d3d4e
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 7284836398f63ac4d54482041919887dff616af8
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083200"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846895"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中请求访问令牌
 
-访问令牌包含的声明可在 Azure Active Directory (Azure AD) B2C 中用于识别已授予的对 API 的权限。  调用资源服务器时，必须在 HTTP 请求中提供访问令牌。 访问令牌在 Azure AD B2C 的响应中以 **access_token** 表示。
+访问令牌包含的声明可在 Azure Active Directory B2C (Azure AD B2C) 中用于识别已授予的对 API 的权限。  调用资源服务器时，必须在 HTTP 请求中提供访问令牌。 访问令牌在 Azure AD B2C 的响应中以 **access_token** 表示。
 
 本文介绍如何请求 Web 应用程序和 Web API 的访问令牌。 有关 Azure AD B2C 中令牌的详细信息，请参阅 [Azure Active Directory B2C 中的令牌概述](active-directory-b2c-reference-tokens.md)。
 

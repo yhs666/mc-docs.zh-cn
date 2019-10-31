@@ -8,15 +8,15 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-origin.date: 04/30/2019
-ms.date: 07/08/2019
+origin.date: 09/24/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 50031ce3332a79490ec9c39ea8155da4690959bf
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: d36b711eeee27c12c4cfedb6687b30036de98021
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456509"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914403"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>计划 Azure 时序见解预览版环境
 
@@ -55,7 +55,7 @@ Azure 时序见解采用即用即付业务模型。 有关费用和容量的详�
 若要创建新的时序见解环境，请选择时序 ID。 此操作用作数据的逻辑分区。 如前所述，请确保时序 ID 已准备就绪。
 
 > [!IMPORTANT]
-> 时序 ID 不可变  并且以后无法更改  。 在进行最终选择和首次使用之前验证每个 ID。
+> 时序 ID *以后不能更改*。 在进行最终选择和首次使用之前验证每个 ID。
 
 可以选择最多三个键以唯一区分资源。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)和[存储和入口](./time-series-insights-update-storage-ingress.md)。
 
@@ -83,7 +83,7 @@ Azure 时序见解采用即用即付业务模型。 有关费用和容量的详�
 * 将元数据存储在时序模型中。
 * 时序模式、实例字段和事件仅包括必要信息，例如：时序 ID 或时间戳。
 
-有关详细信息，请参[塑造事件](./time-series-insights-send-events.md#json)。
+有关详细信息，请参[塑造事件](./time-series-insights-send-events.md#supported-json-shapes)。
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

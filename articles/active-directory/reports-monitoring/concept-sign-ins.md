@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 08/13/2019
-ms.date: 08/28/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21343d77d8db30421ea8a36147f2f7dc501b23d2
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7c34a95aa29892273227e6f70b11b45c182688e0
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134084"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912809"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“登录活动”报告
 
@@ -83,11 +83,6 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 ![登录活动](./media/concept-sign-ins/03.png "登录活动")
 
-> [!NOTE]
-> 客户现在可以通过所有登录报告对条件访问策略进行故障排除。 通过单击登录记录的“条件访问”  选项卡，客户可以查看条件访问状态，并深入了解应用于登录的策略的详细信息以及每个策略的结果。
->
-
-
 ## <a name="filter-sign-in-activities"></a>筛选登录活动
 
 若要将所报告数据的范围缩小到适合你的级别，可以使用日期字段作为默认筛选器来筛选登录数据。 此外，Azure AD 还提供了一系列可以设置的其他筛选器。
@@ -101,13 +96,6 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 “登录状态”筛选器用于选择： 
 
 - 全部
-- Success
-- 失败
-
-使用“条件访问”  筛选器可以选择登录的 CA 策略状态：
-
-- 全部
-- 未应用
 - Success
 - 失败
 

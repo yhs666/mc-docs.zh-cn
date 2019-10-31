@@ -2,18 +2,18 @@
 title: 如何将 Azure Cosmos DB 更改源与 Azure Functions 配合使用
 description: 将 Azure Cosmos DB 更改源与 Azure Functions 配合使用
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1450619304cc98a25b4538972c5457ef2d64d437
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 33af9e197c78bb7e694dd513ceae5ad8b69b2945
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254659"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970288"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 和 Azure Functions 的基于事件的无服务器体系结构
 
@@ -30,7 +30,7 @@ Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 
 
 若要实现基于事件的无服务器流，需要：
 
-* **受监视的容器**：受监视的容器是正在受到监视的 Azure Cosmos 容器，它存储生成了更改源的数据。 对受监视容器的任何插入和更改（例如 CRUD）都会反映在容器的更改源中。
+* **受监视的容器**：受监视的容器是正在受到监视的 Azure Cosmos 容器，它存储生成了更改源的数据。 对受监视容器的任何插入、更新都会反映在容器的更改源中。
 * **租约容器**：租约容器维护多个动态无服务器 Azure 函数实例的状态，并启用动态缩放。 可以通过适用于 Cosmos DB 的 Azure Functions 触发器手动或自动创建此租约容器。 若要自动创建租约容器，请在[配置](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)中设置 *CreateLeaseCollectionIfNotExists* 标记。 分区的租约容器需要包含 `/id` 分区键定义。
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>创建适用于 Cosmos DB 的 Azure Functions 触发器
@@ -38,7 +38,10 @@ Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 
 现在支持在所有 Azure Functions IDE 和 CLI 集成中创建包含适用于 Cosmos DB 的 Azure Functions 触发器的 Azure 函数：
 
 * 面向 Visual Studio 用户的 [Visual Studio 扩展](../azure-functions/functions-develop-vs.md)。
-* 面向 Visual Studio Code 用户的 [Visual Studio Core 扩展](https://code.visualstudio.com/tutorials/functions-extension/create-function)。
+* 面向 Visual Studio Code 用户的 [Visual Studio Core 扩展](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01)。
+
+    <!--MOONCAKE: CORRECT ON URL https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01-->
+    
 * 最后是适用于跨平台 IDE 不可知体验的 [Core CLI 工具](../azure-functions/functions-run-local.md#create-func)。
 
 ## <a name="run-your-trigger-locally"></a>在本地运行触发器

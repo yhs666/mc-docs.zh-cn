@@ -1,5 +1,5 @@
 ---
-title: 专用事件中心概述 - Azure 事件中心 | Azure Docs
+title: 专用事件中心概述 - Azure 事件中心 | Azure
 description: 本文概述专用 Azure 事件中心，它提供事件中心的单租户部署。
 services: event-hubs
 documentationcenter: na
@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 05/20/2019
-ms.author: v-biyu
-ms.openlocfilehash: ce8bcbd3f3736c0630b6619d33c0ff533935c60b
-ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
+ms.custom: seodec18
+origin.date: 12/06/2018
+ms.date: 09/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4e490cd29c406ab9f3708b805f92a34b88cae201
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412484"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873039"
 ---
+<!--event hubs dedicate is supported in mooncake, but event hubs cluster not availible, so don't update this content-->
+<!--This article do not need to update-->
 # <a name="overview-of-event-hubs-dedicated"></a>专用事件中心概述
 
 *专用事件中心* 容量提供单租户部署。 完整规模的 Azure 事件中心可每秒传入超过两百万个事件或每秒高达 2 GB 的遥测，并具有完全持久的存储和次秒级的延迟。 通过在同一系统上实时进行批处理，它还可以实现集成的解决方案。 借助包含在产品中的[事件中心捕获](event-hubs-capture-overview.md)功能，单个流可以同时支持实时和基于批处理的管道，从而降低解决方案的复杂性。
@@ -30,14 +33,15 @@ ms.locfileid: "65412484"
 
 | 功能 | 标准 | 专用 |
 | --- |:---:|:---:|
+| 带宽 | 20 TU（最多 40 TU） | 20 CU |
+| 命名空间 |  1 | 每个 CU 50 |
+| 事件中心 |  每个命名空间 10 | 每个命名空间 1000 |
 | 入口事件 | 按每百万个事件支付 | 已含 |
-| 吞吐量单位（传入为 1 MB/秒，传出为 2 MB/秒） | 按每小时支付 | 附送 |
-| 消息大小 | 1 MB | 1 MB |
+| 消息大小 | 1000000 字节 | 1000000 字节 |
 | 分区 | 每个命名空间 40 | 每个 CU 2000 |
-| 使用者组 | 每个事件中心 20 | 每个事件中心 1000 |
-| 最大 带宽 | 20 TU（最多 40 TU）    | 20 CU |
-| 中转连接 | 包括 1,000 个 | 包括 100,000 个 |
-| 消息保留期 | 包括 1 天 | 包括最长 7 天 |
+| 使用者组 | 每个事件中心 20 | 每个 CU 无限制，每个事件中心 1000 |
+| 中转连接 | 包括 1,000 个，最大 5,000 个 | 包括 100000 个，最大 100000 个 |
+| 消息保留期 | 7 天，每个 TU 包含 84 GB | 90 天，每个 CU 包含 10 TB |
 | 捕获 | 按每小时支付 | 已含 |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>专用事件中心容量的优点
@@ -65,7 +69,7 @@ ms.locfileid: "65412484"
 
 ## <a name="how-to-onboard"></a>如何加入
 
-通过添加或删除 CU，可以在一个月内随时扩展或缩小容量，满足自身需求。 专用计划独一无二，它提供了一种亲身实践的加入体验，用户可从事件中心产品团队获得适合自己的灵活部署。 若要加入到此 SKU，请[联系计费支持部门](https://www.azure.cn/support/support-ticket-form)或 Azure 代表。
+通过添加或删除 CU，可以在一个月内随时扩展或缩小容量，满足自身需求。 专用计划独一无二，它提供了一种亲身实践的加入体验，用户可从事件中心产品团队获得适合自己的灵活部署。 若要加入到此 SKU，请[联系计费支持部门](https://support.azure.cn/support/support-azure/)或 Azure 代表。
 
 ## <a name="next-steps"></a>后续步骤
 

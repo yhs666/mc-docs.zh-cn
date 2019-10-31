@@ -1,5 +1,5 @@
 ---
-title: 使用 Go 发送和接收事件 - Azure 事件中心 | Azure Docs
+title: 使用 Go 发送和接收事件 - Azure 事件中心 | Azure
 description: 本文演示了创建 Go 应用程序的过程，可使用该应用程序从 Azure 事件中心发送事件。
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,15 +7,15 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-origin.date: 07/23/2018
-ms.date: 05/06/2019
-ms.author: v-biyu
-ms.openlocfilehash: 753bbcc2c21d94a0d0c88582927227b352de5025
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 04/15/2019
+ms.date: 10/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: e062e8898b8c6cdd9e7d6faff182701379a7113e
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855246"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872978"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>使用 Go 将事件发送到事件中心或从其接收事件
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -63,7 +63,7 @@ import (
 
 ### <a name="create-service-principal"></a>创建服务主体
 
-按照[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)中的说明创建新的服务主体。 使用以下名称将提供的凭据保存在环境中。 同时预先配置 Azure SDK for Go 和事件中心包，查找以下变量名称：
+按照[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)中的说明创建新的服务主体。 使用以下名称将提供的凭据保存在环境中。 同时预先配置 Azure SDK for Go 和事件中心包，查找以下变量名称：
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -216,9 +216,9 @@ if err != nil {
 
 ### <a name="create-a-check-pointer-and-a-leaser"></a>创建检查指针和出租人 
 
-创建“出租人”，负责将分区租给特定接收器；创建检查指针，负责编写消息流的检查点，以便其他接收器可开始读取正确的偏移量。
+创建“出租人”，负责将分区租给特定接收器；创建检查指针，负责编写消息流的检查点，以便其他接收器可开始读取正确的偏移量   。
 
-目前，提供使用相同存储容器的单个 StorageLeaserCheckpointer 来管理租用和检查点。 除存储帐户和容器名称外，StorageLeaserCheckpointer 还需要上一步中创建的凭据和 Azure 结构，才能正确访问容器。
+目前，提供使用相同存储容器的单个 StorageLeaserCheckpointer 来管理租用和检查点  。 除存储帐户和容器名称外，StorageLeaserCheckpointer 还需要上一步中创建的凭据和 Azure 结构，才能正确访问容器  。
 
 ```go
 leaserCheckpointer, err := storageLeaser.NewStorageLeaserCheckpointer(

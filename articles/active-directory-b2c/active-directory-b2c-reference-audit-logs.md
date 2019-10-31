@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 origin.date: 09/14/2019
-ms.date: 09/17/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fe99b51490cae4015406c7beec059e8c508332a5
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 2a59a10ff67d27fe3daed06f287f6ddbc840e02c
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083207"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847060"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>访问 Azure AD B2C 审核日志
 
@@ -91,30 +91,25 @@ Azure Active Directory B2C (Azure AD B2C) 发出审核日志，其中包含有�
 
 可对 B2C 租户中的现有 Azure Active Directory 应用程序注册中启用这些权限，或者创建专用于审核日志自动化的新权限。
 
-若要创建新应用程序、分配所需的 API 权限和创建客户端机密，请执行以下步骤：
+按照以下步骤注册应用程序，向其授予所需的 Microsoft Graph API 权限，然后创建客户端机密。
 
-1. 在 Azure Active Directory 中注册应用程序
-    1. 登录到 [Azure 门户](https://portal.azure.cn)，并切换到包含你的 Azure AD B2C 租户的目录。
-    1. 在左侧菜单中，选择“Azure Active Directory”（不是“Azure AD B2C”）。   或者选择“所有服务”，然后搜索并选择“Azure Active Directory”。  
-    1. 在左侧菜单中的“管理”下，选择“应用注册(旧式)”。  
-    1. 选择“新建应用程序注册”。 
-    1. 输入应用程序的名称。 例如“审核日志应用”。 
-    1. 在“登录 URL”中输入任何有效的 URL。  例如， *https://localhost* 。 此终结点不需要可访问，但必须是有效的 URL。
-    1. 选择“创建”  。
-    1. 记下“已注册的应用”页上显示的“应用程序 ID”。   在自动化脚本（例如，后续部分所示的示例 PowerShell 脚本）中，需要使用此值进行身份验证。
-1. 分配 API 访问权限
-    1. 在“已注册的应用”概述页上，选择“设置”。  
-    1. 在“API 访问”下，选择“所需的权限”。  
-    1. 依次选择“添加”、“选择 API”。  
-    1. 依次选择“Microsoft Graph”、“选择”。  
-    1. 在“应用程序权限”下，选择“读取所有审核日志数据”。  
-    1. 依次选择“选择”按钮、“完成”。  
-    1. 选择“授予权限”，然后选择“是”   。
-1. 创建客户端机密
-    1. 在“API 访问”下，选择“密钥”。  
-    1. 在“密钥说明”框中输入密钥的说明。  例如“审核日志密钥”。 
-    1. 选择一个**有效期**，然后选择“保存”。 
-    1. 记下密钥的“值”。  在自动化脚本（例如，后续部分所示的示例 PowerShell 脚本）中，需要使用此值进行身份验证。
+### <a name="register-application-in-azure-active-directory"></a>在 Azure Active Directory 中注册应用程序
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### <a name="assign-api-access-permissions"></a>分配 API 访问权限
+
+1. 在“已注册的应用”概述页上，选择“设置”。  
+1. 在“API 访问”下，选择“所需的权限”。  
+1. 依次选择“添加”、“选择 API”。  
+1. 依次选择“Microsoft Graph”、“选择”。  
+1. 在“应用程序权限”下，选择“读取所有审核日志数据”。  
+1. 依次选择“选择”按钮、“完成”。  
+1. 选择“授予权限”，然后选择“是”   。
+
+### <a name="create-client-secret"></a>创建客户端机密
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 现已获取一个具有所需 API 访问权限的应用程序、一个应用程序 ID，以及一个可在自动化脚本中使用的密钥。 有关如何使用脚本获取活动事件的示例，请参阅本文稍后的“PowerShell 脚本”部分。
 

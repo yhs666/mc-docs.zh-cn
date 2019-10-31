@@ -1,5 +1,5 @@
 ---
-title: 捕获流式处理事件 - Azure 事件中心
+title: 捕获流式处理事件 - Azure 事件中心 | Azure
 description: 本文概述了捕获功能，该功能可以捕获通过 Azure 事件中心流式处理的事件。
 services: event-hubs
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 08/05/2019
-ms.author: v-biyu
-ms.openlocfilehash: e8dfc6dcb9cf0509fd3fd9edc112aa1d573fdbda
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+origin.date: 12/06/2018
+ms.date: 09/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: dc8baf98ce714a4cff1598ab0dadb704cc81b0b3
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371760"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873076"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage"></a>通过 Azure 事件中心将事件捕获到 Azure Blob 存储中
 使用 Azure 事件中心，可以更灵活地按指定的时间间隔或大小间隔将事件中心中的流数据自动捕获到你选择的 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)中。 设置捕获极其简单，无需管理费用即可运行它，并且可以使用事件中心[吞吐量单位](event-hubs-scalability.md#throughput-units)自动进行缩放。 事件中心捕获是在 Azure 中加载流式处理数据的最简单方法，并可让用户专注于数据处理，而不是数据捕获。
@@ -31,12 +31,12 @@ ms.locfileid: "68371760"
 
 ## <a name="how-event-hubs-capture-works"></a>Azure 事件中心捕获的工作原理
 
-事件中心是遥测数据入口的时间保留持久缓冲区，类似于分布式日志。 缩小事件中心的关键在于[分区使用者模式](event-hubs-features.md#partitions)。 每个分区是独立的数据段，并单独使用。 根据可配置的保留期，随着时间的推移此数据会过时。 因此，给定的事件中心永远不会装得“太满”。
+事件中心是遥测数据入口的时间保留持久缓冲区，类似于分布式日志。 缩小事件中心的关键在于[分区使用者模式](event-hubs-scalability.md#partitions)。 每个分区是独立的数据段，并单独使用。 根据可配置的保留期，随着时间的推移此数据会过时。 因此，给定的事件中心永远不会装得“太满”。
 
 事件中心捕获可让用户指定自己的 Azure Blob 存储帐户和容器（用于存储已捕获数据）。 这些帐户可以与事件中心在同一区域中，也可以在另一个区域中，从而增加了事件中心捕获功能的灵活性。
 <!-- Not available Azure Data Lake Store account-->
 
-已捕获数据以 [Apache Avro][Apache Avro] 格式写入；该格式是紧凑、便捷的二进制格式，并使用内联架构提供丰富的数据结构。 此格式广泛用于 Hadoop 生态系统、流分析。 在本文后面提供了有关如何使用 Avro 的详细信息。
+已捕获数据以 [Apache Avro][Apache Avro] 格式写入；该格式是紧凑、便捷的二进制格式，并使用内联架构提供丰富的数据结构。 这种格式广泛用于 Hadoop 生态系统、流分析和 Azure 数据工厂。 在本文后面提供了有关如何使用 Avro 的详细信息。
 
 ### <a name="capture-windowing"></a>捕获窗口
 
@@ -76,7 +76,7 @@ https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myev
 
 ![Avro 架构][3]
 
-浏览 Avro 文件的一种简单方法是使用 [Avro 工具][Avro Tools]jar from Apache. You can also use [Apache Drill][Apache Drill]获得轻量级 SQL 驱动的体验，或使用 [Apache Spark][Apache Spark] 对引入的数据执行复杂的分布式处理。 
+浏览 Avro 文件的简单方法是使用 Apache 中的 [Avro 工具][Avro Tools] jar。 还可以使用 [Apache Drill][Apache Drill] 实现轻量级 SQL 驱动的体验或者使用 [Apache Spark][Apache Spark] 对引入的数据执行复杂的分布式处理。 
 
 ### <a name="use-apache-drill"></a>使用 Apache Drill
 
@@ -132,7 +132,7 @@ java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 
 若要执行更高级的处理，请下载并安装适用于所选平台的 Avro。 在撰写本文时，有可用于 C、C++、C\#、Java、NodeJS、Perl、PHP、Python 和 Ruby 的实现。
 
-Apache Avro 针对 [Java][Java] and [Python][Python]提供了完整的入门指南。 还可以参阅[事件中心捕获入门](event-hubs-capture-python.md)一文。
+Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入门指南。 还可以参阅[事件中心捕获入门](event-hubs-capture-python.md)一文。
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Azure 事件中心捕获的收费方式
 
@@ -153,17 +153,17 @@ Apache Avro 针对 [Java][Java] and [Python][Python]提供了完整的入门指�
 * [开始发送和接收事件](event-hubs-dotnet-framework-getstarted-send.md)
 * [事件中心概述][Event Hubs overview]
 
-[Apache Avro]: http://avro.apache.org/
+[Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
-[support request]: https://www.azure.cn/support/support-azure/
-[Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
+[support request]: https://support.azure.cn/support/support-azure/
+[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
-[Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
-[Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
+[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.9.0/java/avro-tools-1.9.0.jar
+[Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
+[Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight: Address files in Azure storage]:https://docs.azure.cn/zh-cn/hdinsight/hdinsight-hadoop-use-blob-storage?toc=%2Fzh-cn%2Fhdinsight%2Fhadoop%2FTOC.json&bc=%2Fzh-cn%2Fbread%2Ftoc.json#address-files-in-azure-storage
+[HDInsight: Address files in Azure storage]:https://docs.azure.cn/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
 [大规模流式处理：事件中心捕获]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

@@ -1,20 +1,20 @@
 ---
 title: 连接下游设备 - Azure IoT Edge
-description: 如何将下游或叶设备配置为通过 Azure IoT Edge 网关设备进行连接。
+description: 如何将下游或叶设备连接到 Azure IoT Edge 网关设备。
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/07/2019
-ms.date: 09/09/2019
+origin.date: 10/08/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 82b16dc7fb94d4c3a82277a7ef333dd03eaa7047
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 177a4c9318318e10f38900f9c725b9ba23fc2303
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340822"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914489"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 
@@ -33,6 +33,10 @@ ms.locfileid: "71340822"
 * 演练不同语言的 Azure IoT 示例以帮助你入门。 
 
 在本文中，术语“网关”和“IoT Edge 网关”是指配置为透明网关的 IoT Edge 设备。   
+
+## <a name="prerequisites"></a>先决条件 
+
+让在[配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)中生成的 **azure-iot-test-only.root.ca.cert.pem** 证书文件可用于下游设备。 下游设备使用此证书来验证网关设备的标识。 
 
 ## <a name="prepare-a-downstream-device"></a>准备下游设备
 
@@ -89,6 +93,14 @@ sudo update-ca-certificates
 ### <a name="windows"></a>Windows
 
 以下示例步骤演示如何在 Windows 主机上安装 CA 证书。 此示例假设使用先决条件文章中的 **azure-iot-test-only.root.ca.cert.pem** 证书，并且已将该证书复制到下游设备上的某个位置。
+
+可以使用 PowerShell 的 [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) 以管理员身份安装证书：
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+还可以使用 **certlm** 实用工具安装证书： 
 
 1. 在“开始”菜单中，搜索并选择“管理计算机证书”。  此时会打开一个名为 **certlm** 的实用工具。
 2. 导航到“证书 - 本地计算机” > “受信任的根证书颁发机构”。  
@@ -171,17 +183,23 @@ var options = {
 本部分介绍用于将 Azure IoT Python 设备客户端连接到 IoT Edge 网关的示例应用程序。 
 
 1. 从[适用于 Python 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)获取 **send_message** 的示例。 
-2. 确保你正在 Edge 容器中运行，或在调试方案中运行，并设置了 `EdgeHubConnectionString` 和 `EdgeModuleCACertificateFile` 环境变量。
+2. 确保你正在 IoT Edge 容器中运行，或在调试方案中运行，并设置了 `EdgeHubConnectionString` 和 `EdgeModuleCACertificateFile` 环境变量。
 3. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。 
 
 
 ## <a name="test-the-gateway-connection"></a>测试网关连接
 
-这是测试所有内容是否已正确设置的示例命令。 应会看到一条消息指出“verified OK”。
+使用此示例命令测试下游设备是否可以连接到网关设备： 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+此命令通过 MQTTS（端口 8883）测试连接。 如果使用其他协议，请根据需要针对 AMQPS (5671) 或 HTTPS (433) 调整该命令。
+
+此命令的输出可能很长，其中包括有关链中所有证书的信息。 如果连接成功，将看到类似于 `Verification: OK` 或 `Verify return code: 0 (ok)` 的行。
+
+![验证网关连接](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## <a name="troubleshoot-the-gateway-connection"></a>对网关连接进行故障排除
 

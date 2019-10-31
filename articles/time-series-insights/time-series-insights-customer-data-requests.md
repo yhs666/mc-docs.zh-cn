@@ -2,19 +2,20 @@
 title: Azure 时序见解中的客户数据请求功能 | Microsoft Docs
 description: Azure 时序见解客户数据请求功能摘要。
 author: ashannon7
-ms.author: anshan
+ms.author: v-yiso
 manager: cshankar
-ms.date: 05/08/2019
+origin.date: 08/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: e0bc2637aa7acbc0c8f35edb2deb38dee441fbc4
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: b319333a04b4f0c0ad1da98e415c7d482e7c5ac7
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456471"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914480"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 
@@ -36,7 +37,7 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 但是，在通过门户删除客户数据之前，应该从 Azure 门户内的时序见解环境中删除用户的访问策略。 有关详细信息，请参阅[使用 Azure 门户授予对时序见解环境的数据访问权限](time-series-insights-data-access.md)。
 
-也可使用 REST API 对访问策略执行删除操作。 有关详细信息，请参阅 [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete)（访问策略 - 删除）。
+也可使用 REST API 对访问策略执行删除操作。 有关详细信息，请参阅 [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete)（访问策略 - 删除）。
 
 时序见解与 Azure 门户中的“策略”边栏选项卡集成。 可通过时序见解和“策略”边栏选项卡查看、导出和删除存储在服务中的用户数据。 在 Azure 门户的“策略”边栏选项卡中执行的任何删除操作都会导致删除时序见解中的用户数据。 例如，如果用户保存了一条个人查询，则该查询将从时序见解资源管理器中永久删除。 如果用户保存了一条共享查询，则查询仍然存在，但将永久删除用户信息。 以下注释包含有关如何完成这些任务的说明。
 
@@ -48,7 +49,7 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 如果你是租户管理员，则可在 Azure 门户的时序见解环境中查看数据访问策略。 有关详细信息，请参阅[使用 Azure 门户授予对时序见解环境的数据访问权限](time-series-insights-data-access.md)。
 
-也可使用提供的 REST API 中的“按环境列出”操作对访问策略执行导出操作。 有关详细信息，请参阅 [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/listbyenvironment)（访问策略 - 按环境列出）。
+也可使用提供的 REST API 中的“按环境列出”操作对访问策略执行导出操作。 有关详细信息，请参阅 [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment)（访问策略 - 按环境列出）。
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>删除时序见解内存储的数据
 
@@ -68,7 +69,7 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解如何[授予对 TSI 环境的数据访问权限](./time-series-insights-data-access.md)。
+* 阅读有关[授予对 Azure 时序见解环境的数据访问权限](./time-series-insights-data-access.md)的更多信息。
 
 * 查看 [Azure 时序见解资源管理器](time-series-insights-explorer.md)。
 

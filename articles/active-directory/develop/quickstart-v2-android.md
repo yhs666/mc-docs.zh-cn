@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/17/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28bcb1eb289109efae4ee94b1e6cd36fcf3aede4
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 6cdd0b0116159a7173a0e31aecd9fbecf381e7fb
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134128"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912777"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
@@ -59,7 +59,7 @@ ms.locfileid: "70134128"
 >
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 > 1. 选择“新注册”。 
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+> 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
 >      - 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `AndroidQuickstart`。
 >      - 可以跳过此页上的其他配置。 
 >      - 点击“`Register`”按钮。
@@ -201,8 +201,8 @@ MSAL 有两种用于获取令牌的方法：`acquireToken` 和 `acquireTokenSile
 * 如果用户重置其密码，则他们需要输入凭据 
 * 如果许可已撤销 
 * 如果应用显式要求许可。 
-* 应用程序首次请求访问资源时
-* 需要 MFA 或其他条件访问策略时
+* 当应用程序首次请求资源的访问权限时
+* 需要 MFA 时
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());

@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/31/2019
-ms.date: 09/17/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 43f1ae0a186b547357b7a27fee733ad1c321e5c9
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 743af399a561c78da6cd922a9ff467bece17628a
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083202"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846897"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
-此页面解答了有关 Azure Active Directory (Azure AD) B2C 的常见问题。 请随时返回查看更新信息。
+此页面解答了有关 Azure Active Directory B2C (Azure AD B2C) 的常见问题。 请随时返回查看更新信息。
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>为什么我在 Azure 门户中无法访问 Azure AD B2C 扩展？
 
@@ -28,7 +28,7 @@ ms.locfileid: "71083202"
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>我可以在基于员工的现有 Azure AD 租户中使用 Azure AD B2C 功能吗？
 
-Azure AD 和 Azure AD B2C 是独立的产品/服务，不能在同一租户中共存。 Azure AD 租户表示组织。 Azure AD B2C 租户表示信赖方应用使用的标识集合。 通过自定义策略（在公共预览版中），Azure AD B2C 可以联合 Azure AD，允许对组织中的员工进行身份验证。
+Azure AD 和 Azure AD B2C 是独立的产品/服务，不能在同一租户中共存。 Azure AD 租户表示组织。 Azure AD B2C 租户表示信赖方应用使用的标识集合。 通过自定义策略，Azure AD B2C 可以联合 Azure AD，允许对组织中的员工进行身份验证。
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-into-office-365"></a>我可以使用 Azure AD B2C 提供 Office 365 的社交登录吗？
 Azure AD B2C 不用于 Microsoft Office 365 用户的身份验证。  Azure AD B2C 提供用于生成 Web 和移动应用程序的标识和访问管理平台。  当 Azure AD B2C 配置为联合 Azure AD 租户时，Azure AD 租户将管理员工对依赖 Azure AD B2C 的应用程序的访问权限。
@@ -43,7 +43,7 @@ Azure AD B2C 不用于 Microsoft Office 365 用户的身份验证。  Azure AD B
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>现在支持哪些社交标识提供者？ 计划在未来支持哪些？
 
-我们当前支持微信（预览版）、微博（预览版）和 QQ（预览版）。 我们会根据客户需求添加对其他流行社交标志提供者的支持。
+目前，我们支持多个社交标识提供者，包括 QQ（预览版）、WeChat（预览版）和 Weibo（预览版）。 我们会根据客户需求来评估是否增加对其他常见社交标识提供者的支持。
 
 Azure AD B2C 还支持[自定义策略](active-directory-b2c-overview-custom.md)。 自定义策略允许你为支持 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 或 SAML 的任何标识提供者创建自己的策略。 查看我们的[自定义策略初学者包](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，开始使用自定义策略。
 
@@ -79,7 +79,7 @@ Azure AD B2C 还支持[自定义策略](active-directory-b2c-overview-custom.md)
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>我可以本地化 Azure AD B2C 所提供页面的 UI 吗？ 支持哪些语言？
 
-能！  请阅读公共预览版中的[语言自定义](active-directory-b2c-reference-language-customization.md)。 我们提供 36 种语言的翻译版本，并且你可以根据需要替代任何字符串。
+可以，请参阅[语言自定义](active-directory-b2c-reference-language-customization.md)。 我们提供 36 种语言的翻译版本，并且你可以根据需要替代任何字符串。
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincn-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的注册和登录页面上使用自己的 URL 吗？ 例如，可以将 URL 从 contoso.b2clogin.cn 更改为 login.contoso.com 吗？
 

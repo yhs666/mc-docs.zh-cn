@@ -15,12 +15,12 @@ ms.custom: mvc
 origin.date: 06/13/2019
 ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: c87feb895fd937ecca87308872cd51fa6dbbd9d6
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: f7cd0979f26d41fd0a508420ee62b6572a6682e1
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124375"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914457"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>教程：使用媒体服务进行实时流式传输
 
@@ -34,7 +34,7 @@ ms.locfileid: "71124375"
 > [!div class="checklist"]
 > * 下载本主题中所述的示例应用
 > * 检查执行实时传送视频流的代码
-> * 使用 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) 在 https://ampdemo.azureedge.net 观看事件
+> * 使用 Azure Media Player 在 https://ampdemo.azureedge.net 观看事件
 > * 清理资源
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -339,7 +339,7 @@ private static async Task CleanupLocatorandAssetAsync(IAzureMediaServicesClient 
 
 ## <a name="watch-the-event"></a>观看事件
 
-若要观看事件，请复制流式传输 URL（在运行“创建流定位符”中所述的代码时获得），然后使用所选的播放器。 可以使用 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) 来测试 https://ampdemo.azureedge.net 中的流。 
+若要观看事件，请复制流式传输 URL（在运行“创建流定位符”中所述的代码时获得），然后使用所选的播放器。 可以使用 Azure Media Player 来测试 https://ampdemo.azureedge.net 中的流。 
 
 直播活动在停止后会自动转换为点播内容。 即使你停止并删除了事件，只要没有删除资产，用户也能够按需将已存档内容作为视频进行流式传输。 如果资产被某个事件使用，则无法将其删除，必须先删除该事件。 
 

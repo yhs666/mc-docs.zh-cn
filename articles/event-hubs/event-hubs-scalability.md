@@ -1,5 +1,5 @@
 ---
-title: 可伸缩性 - Azure 事件中心 | Azure Docs
+title: 可伸缩性 - Azure 事件中心 | Azure
 description: 提供有关如何缩放 Azure 事件中心的信息。
 services: event-hubs
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.custom: seodec18
 origin.date: 06/18/2019
 ms.date: 08/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 18ef370e637ab621cbb566404861bcf1505f1759
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+ms.openlocfilehash: 378eccd8125803761070724712307333fa672c5a
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371756"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872849"
 ---
 # <a name="scaling-with-event-hubs"></a>通过事件中心进行缩放
 

@@ -1,18 +1,18 @@
 ---
 title: 从 Azure Monitor 获取 Azure Cosmos DB 指标
-description: ''
+description: 了解如何使用 Azure 门户从 Azure Monitor 查看不同类别的 Azure Cosmos DB 指标。
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/01/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 2e24db20e9daed1874af407cb42514ec404914f3
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 10/28/2019
+ms.openlocfilehash: daedad1f43f4ca656aa14dcfb592bd7cb7ef69f7
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306474"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913338"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>从 Azure Monitor 监视和调试 Azure Cosmos DB 指标
 

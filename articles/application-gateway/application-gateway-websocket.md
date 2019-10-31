@@ -7,13 +7,13 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 03/18/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 6a3306e4d34b99f85416d61f220a4fd9cf7b53f2
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.date: 10/23/2019
+ms.openlocfilehash: 9de820d8a6484b9d75eaea9fb534fa0b0c04b695
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960908"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798510"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>应用程序网关中的 WebSocket 支持概述
 
@@ -29,7 +29,7 @@ ms.locfileid: "65960908"
 
 若要建立 WebSocket 连接，需在客户端和服务器之间交换特定的基于 HTTP 的握手。 如果成功，则应用程序层协议会使用之前建立的 TCP 连接从 HTTP“升级”为 WebSocket。 然后就完全不使用 HTTP；两个终结点可以使用 WebSocket 协议来发送或接收数据，直至 WebSocket 连接关闭。 
 
-![addcert](./media/application-gateway-websocket/websocket.png)
+![websocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>侦听器配置元素
 
@@ -69,7 +69,7 @@ ms.locfileid: "65960908"
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool、BackendHttpSetting 和路由规则配置
 
-如果后端池具有已启用 WebSocket 的服务器，那么应使用 BackendAddressPool 对其进行定义。 backendHttpSetting 是使用后端端口 80 和 443 定义的。 基于 cookie 的相关性和 requestTimeouts 的属性与 WebSocket 流量不相关。 不需要对路由规则进行更改，可使用“基本”路由规则将适当的侦听器绑定到相应的后端地址池。 
+如果后端池具有已启用 WebSocket 的服务器，那么应使用 BackendAddressPool 对其进行定义。 backendHttpSetting 是使用后端端口 80 和 443 定义的。 HTTP 设置中的请求超时值也适用于 WebSocket 会话。 不需要对路由规则进行更改，可使用路由规则将适当的侦听器绑定到相应的后端地址池。 
 
 ```json
 "requestRoutingRules": [{

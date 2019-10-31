@@ -9,20 +9,20 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 origin.date: 03/01/2019
-ms.date: 08/27/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aac0d03fc8ed71250f006e4a66b9c39c3e2157b
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: ff32d2ea8e189479f1cf9e8c69c922f0ee734788
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134194"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912753"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>使用 Azure Active Directory 创建基本组并添成员
-可以使用 Azure Active Directory (Azure AD) 门户创建基本组。 为了更好地阐述本文，资源所有者（管理员）将基本组添加到单个资源，基本组中包含了需要访问该资源的特定成员（员工）。 有关更复杂的方案（包括动态成员身份和规则创建），请参阅 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)。
+可以使用 Azure Active Directory (Azure AD) 门户创建基本组。 对于本文而言，将由资源所有者（管理员）向单个资源中添加一个基本组，该组中将包括需要访问该资源的特定成员（员工）。 
 
 ## <a name="create-a-basic-group-and-add-members"></a>创建基本组并添加成员
 可以同时创建基本组并添加成员。
@@ -50,14 +50,7 @@ ms.locfileid: "70134194"
 
    - **成员身份类型（必填）。** 选择一个预定义的成员身份类型。 这包括：
 
-     - **已分配。** 允许将特定用户添加为该组的成员并获得独特权限。 为了更好地阐述本文，我们使用此选项。
-
-     - **动态用户。** 允许使用动态成员身份规则自动添加和删除成员。 如果成员的属性改变，系统会查看该目录的动态组规则，了解该成员是满足规则要求（添加），还是不再满足规则要求（删除）。
-
-     - **动态设备。** 允许使用动态组规则自动添加和删除设备。 如果设备的属性改变，系统会查看该目录的动态组规则，了解该设备是满足规则要求（添加），还是不再满足规则要求（删除）。
-
-       >[!Important]
-       >可以分别创建设备或用户的动态组，不能同时创建。 也不能根据设备所有者的属性创建设备组。 设备成员资格只能引用设备属性。 有关为用户和设备创建动态组的详细信息，请参阅[创建动态组并检查状态](../users-groups-roles/groups-create-rule.md)。
+     - **已分配。** 允许将特定用户添加为该组的成员并获得独特权限。 对于本文，我们将使用此选项。
 
 4. 选择“创建”  。
 
@@ -75,7 +68,7 @@ ms.locfileid: "70134194"
 
 ## <a name="turn-on-or-off-welcome-email"></a>打开或关闭欢迎电子邮件
 
-创建任何新的 Office 365 组时，无论是使用动态还是静态成员身份，都会向添加到该组的所有用户发送欢迎通知。 当用户或设备的任何属性发生更改时，将处理组织中的所有动态组规则以进行潜在的成员身份更改。 添加的用户也会收到欢迎通知。 可以在 [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps) 中关闭此行为。 
+创建任何新的 Office 365 组时，会向添加到该组的所有用户发送欢迎通知。 
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已添加了一个组和至少一个用户，你可以：
@@ -83,8 +76,6 @@ ms.locfileid: "70134194"
 - [查看组和成员](active-directory-groups-view-azure-portal.md)
 
 - [管理组成员身份](active-directory-groups-membership-azure-portal.md)
-
-- [管理组中用户的动态规则](../users-groups-roles/groups-create-rule.md)
 
 - [编辑组设置](active-directory-groups-settings-azure-portal.md)
 

@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/01/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 07c525ee8949b9ccc33993130114b8d23354cd64
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: ca0c63f134448e013b2cd5d624162a4c3fbb8932
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306795"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913298"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
 
@@ -118,6 +118,10 @@ Azure Cosmos DB 存在于所有 Azure 中国区域，详见 [Azure 区域](https
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支持时序分析？
 
 是的，Azure CosmosDB 支持时序分析，下面是[时序模式](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns)的示例。 此示例显示如何使用更改源来构建时序数据的聚合视图。 可以使用 Spark 流式处理或其他流数据处理器来扩展此方法。
+
+## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>什么是 Azure Cosmos DB 服务配额和吞吐量限制
+
+有关详细信息，请参阅 Azure Cosmos DB [服务配额](concepts-limits.md)和[每个容器和数据库的吞吐量限制](set-throughput.md#comparison-of-models)文章。
 
 ## <a name="sql-api"></a>SQL API
 
@@ -296,7 +300,7 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 连接字符串为：
 
 ```
-DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.table.cosmosdb.azure.cn
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.table.cosmos.azure.cn
 ```
 
 可以通过 Azure 门户中的“连接字符串”页获取连接字符串。
@@ -540,7 +544,7 @@ Azure Cosmos DB Gremlin API 实现了 Gremlin 图面区域中定义的功能的�
 
 这是图形数据库的文档终结点。  要使用的正确终结点是 Gremlin 终结点，它采用以下格式：
 
-`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.cn:443/`
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmos.azure.cn:443/`
 
 ### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>为什么会收到“RequestRateIsTooLarge”错误？
 
@@ -639,6 +643,8 @@ g.V('mary').out('knows').executionProfile()
 ### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Azure Cosmso DB Cassandra API 支持哪个协议版本？ 是否打算支持其他协议？
 
 Azure Cosmos DB 的 Apache Cassandra API 目前支持 CQL 版本 4。 如果有与支持其他协议相关的反馈，请通过 [Azure 支持部门](https://support.azure.cn/support/contact/)告知我们。
+
+<!--MOONCAKE: Not Available on [user voice feedback](https://support.azure.cn/support/contact/)-->
 
 ### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>为何要求选择表的吞吐量？
 
@@ -741,8 +747,6 @@ Azure Cosmos DB 是一个平台服务，可帮助你提高工作效率，而无�
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>哪些客户端 SDK 适用于 Azure Cosmos DB 的 Apache Cassandra API？
 
 Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程序。 如果使用其他驱动程序或者遇到问题，请联系 [Azure 支持部门](https://support.azure.cn/support/contact/)。
-
-<!--Correct on https://support.azure.cn/support/contact/-->
 
 ### <a name="is-composite-partition-key-supported"></a>是否支持复合分区键？
 

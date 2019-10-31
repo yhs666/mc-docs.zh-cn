@@ -10,15 +10,15 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-origin.date: 08/27/2019
-ms.date: 10/21/2019
+origin.date: 10/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b14c53bc061f09dec6f77f38963fcd0576f68024
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: e9216686409722aa06546dab155954e0a6ee093e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292382"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914354"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>监视并缩减限制，以减少 Azure 时序见解中的延迟
 
@@ -70,11 +70,11 @@ ms.locfileid: "72292382"
 
 ## <a name="throttling-and-ingress-management"></a>限制和入口管理
 
-* 如果受到限制，则会看到“入口收到消息时间延迟”  的值，该值告知你 TSI 落后于消息命中事件源时的实际时间多少秒（不计索引时间，该时间大约为 30-60 秒）。  
+* 如果受到限制，则会看到“入口收到消息时间延迟”  的值，该值告知你时序见解环境落后于消息命中事件源时的实际时间多少秒（不计索引时间，该时间大约为 30-60 秒）。  
 
    入口收到消息计数延迟也应该有一个值，用于确定你在消息数方面落后多少。  若要赶上来，最容易的方式是增加环境的容量，使之达到能够克服此差异的规模。  
 
-  例如，如果你的 S1 环境是一个单元的，在计数方面滞后 5,000,000 条消息，则可增加环境的大小，使之达到六个单元，则大约一天就可以赶上来。  甚至可以增加更多，这样追赶速度会更快。 在一开始预配某个环境时，尤其是在将其连接到某个事件源，而该事件源中已经有事件时，或者在批量上传大量历史数据时，追赶期是常见的现象。
+  例如，如果你看到 S1 环境显示有 5,000,000 条消息的延迟，那么可以将环境的大小增加到 6 个单元，以便在大约一天的时间内赶上进度。  甚至可以增加更多，这样追赶速度会更快。 在一开始预配某个环境时，尤其是在将其连接到某个事件源，而该事件源中已经有事件时，或者在批量上传大量历史数据时，追赶期是常见的现象。
 
 * 另一种方法是将“入口已存储事件”警报设置为在 2 小时的时间内 >= 略低于总环境容量的阈值  。  此警报有助于了解是否持续达到容量要求，指示很可能存在延迟。 
 
@@ -90,6 +90,6 @@ ms.locfileid: "72292382"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关其他疑难解答步骤，请参阅[在时序见解环境中诊断并解决问题](time-series-insights-diagnose-and-solve-problems.md)。
+- 阅读[在时序见解环境中诊断并解决问题](time-series-insights-diagnose-and-solve-problems.md)。
 
-- 有关其他帮助，请在 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) 中展开交流。 也可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)，获取辅助支持选项。
+- 了解[如何缩放时序见解环境](time-series-insights-how-to-scale-your-environment.md)。

@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 origin.date: 08/23/2019
-ms.date: 09/17/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: ff5d978d05d9c2bc5250353b42a600c862622b32
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 4783aa33288073d4bc848aab80ec7fcb9c78c110
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083205"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847130"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中注册应用程序
 
-必须在你管理的租户中注册应用程序，然后这些[应用程序](active-directory-b2c-apps.md)才能与 Azure Active Directory (Azure AD) B2C 交互。 本教程介绍如何使用 Azure 门户注册 Web 应用程序。
+必须在你管理的租户中注册应用程序，然后这些[应用程序](active-directory-b2c-apps.md)才能与 Azure Active Directory B2C (Azure AD B2C) 交互。 本教程介绍如何使用 Azure 门户注册 Web 应用程序。
 
 在本文中，学习如何：
 
@@ -36,7 +36,7 @@ ms.locfileid: "71083205"
 
 ## <a name="register-a-web-application"></a>注册 Web 应用程序
 
-1. 请确保使用包含 Azure AD B2C 租户的目录，方法是单击顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录  。
+1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
 1. 选择“应用程序”，然后选择“添加”   。
 1. 输入应用程序的名称。 例如，“webapp1”  。

@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 03/18/2019
-ms.openlocfilehash: 6ee5f91832288a6399790c0bf116108a2db6a840
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 272903117c1f7055c5a9ce2b7f5dab13cf6c4736
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988341"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72842907"
 ---
 <!--Verify sucessfully-->
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Spark 上 Azure Cosmos DB Cassandra API 中的 DDL 操作
@@ -100,7 +100,7 @@ cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXIST
 
 #### <a name="validate-in-cqlsh"></a>在 cqlsh 中验证
 
-在 cqlsh 中运行以下命令，可看到名为“books”的表： 
+在 cqlsh 中运行以下命令，应看到名为“books”的表： 
 
 ```bash
 USE books_ks;
@@ -150,5 +150,4 @@ DESCRIBE tables;
 * [表复制操作](cassandra-spark-table-copy-ops.md)
 
 <!--Verify sucessfully-->
-<!--Update_Description: new articles on cassandra spark ddl ops -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

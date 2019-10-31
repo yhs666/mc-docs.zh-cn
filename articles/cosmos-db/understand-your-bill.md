@@ -2,18 +2,18 @@
 title: 了解 Azure Cosmos DB 帐单
 description: 本文通过一些示例介绍如何了解 Azure Cosmos DB 帐单。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/01/2019
-ms.date: 09/09/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8cd825bff81fb7174cfd3b4a81ff056ae83e0812
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 1755014122762aa11f703425febc914a8193517e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254834"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912893"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
 
@@ -109,7 +109,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>计费示例：多区域 Azure Cosmos 帐户，多个区域写入
 
-假定创建位于中国北部的 Azure Cosmos 容器。 创建容器时，指定的吞吐量为 10K RU/秒，本月可存储 1 TB 的数据。 假定添加 3 个区域（中国东部、中国北部 2 和中国东部 2），每个区域的存储和吞吐量相同，并且希望能够通过 Azure Cosmos 帐户对所有关联区域中的容器进行写入。 则月度帐单（假定一个月 31 天）情况如下：
+假定创建位于中国北部的 Azure Cosmos 容器。 创建容器时，指定的吞吐量为 10K RU/秒，本月可存储 1 TB 的数据。 假定添加 3 个区域（中国东部、中国北部 2 和中国东部 2），每个区域的存储和吞吐量都相同，并且你希望能够写入到与 Azure Cosmos 帐户关联的所有区域中的容器。 则月度帐单（假定一个月 31 天）情况如下：
 
 <!--Should be China East, China North 2, China East 2-->
 

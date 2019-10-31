@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中管理数据库帐户
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 09/30/2019
+origin.date: 09/28/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a22c3bf3501951f73c157ddcba7179046adeb04c
-ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
+ms.openlocfilehash: 3059bd4e1c4fd473a4b17fcc15235e543de958f7
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519404"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970263"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
@@ -29,58 +29,12 @@ ms.locfileid: "72519404"
 <a name="create-database-account-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-```azurecli
-# Sign in the Azure China Cloud
-az cloud set -n AzureChinaCloud
-az login
-
-# Create an account
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname' # must be lower case and < 31 characters
-
-az cosmosdb create \
-   --name $accountName \
-   --resource-group $resourceGroupName \
-   --kind GlobalDocumentDB \
-   --default-consistency-level Session \
-   --locations regionName=ChinaNorth failoverPriority=0 isZoneRedundant=False \
-   --locations regionName=ChinaEast failoverPriority=1 isZoneRedundant=False \
-   --enable-multiple-write-locations true
-```
+请参阅[使用 Azure CLI 创建 Azure Cosmos DB 帐户](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
 <a name="create-database-account-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
-```powershell
-# Sign in the Azure China Cloud
-Connect-AzAccount -Environment AzureChinaCloud
 
-# Create an Azure Cosmos account for Core (SQL) API
-$resourceGroupName = "myResourceGroup"
-$location = "China North"
-$accountName = "mycosmosaccount" # must be lower case and < 31 characters
-
-$locations = @(
-    @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 }
-)
-
-$consistencyPolicy = @{
-    "defaultConsistencyLevel"="BoundedStaleness";
-    "maxIntervalInSeconds"=300;
-    "maxStalenessPrefix"=100000
-}
-
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+请参阅[使用 Powershell 创建 Azure Cosmos DB 帐户](manage-with-powershell.md#create-account)
 
 <a name="create-database-account-via-arm-template"></a>
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
@@ -119,72 +73,12 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 <a name="add-remove-regions-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-```azurecli
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname' # must be lower case and <31 characters
-
-# Create an account with 1 region
-az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False
-
-# Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False --locations regionName=ChinaEast failoverPriority=1 isZoneRedundant=False
-
-# Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False
-```
+请参阅[使用 Azure CLI 添加或删除区域](manage-with-cli.md#add-or-remove-regions)
 
 <a name="add-remove-regions-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
-# Create an account with 1 region
-$resourceGroupName = "myResourceGroup"
-$location = "China North"
-$accountName = "mycosmosaccount" # must be lower case and <31 characters
-
-$locations = @( @{ "locationName"="China North"; "failoverPriority"=0 } )
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy
-}
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-
-# Add a region
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
-
-$locations = @( 
-    @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 } 
-)
-
-$account.Properties.locations = $locations
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-
-# Azure Resource Manager does not wait on the resource update
-Write-Host "Confirm region added before continuing..."
-
-# Remove a region
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
-
-$locations = @( @{ "locationName"="China North"; "failoverPriority"=0 } )
-
-$account.Properties.locations = $locations
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+请参阅[使用 Powershell 添加或删除区域](manage-with-powershell.md#update-account)
 
 <a name="configure-multiple-write-regions"></a>
 ## <a name="configure-multiple-write-regions"></a>配置多个写入区域
@@ -192,40 +86,19 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 <a name="configure-multiple-write-regions-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-打开“全局复制数据”选项卡，选择“启用”以启用多区域写入   。 启用多区域写入后，你的帐户当前拥有的所有读取区域将变为读取和写入区域。 
-
-> [!NOTE]
-> 启用多区域写入后，无法禁用它。 
+打开“全局复制数据”选项卡，选择“启用”以启用多区域写入   。 启用多区域写入后，你的帐户当前拥有的所有读取区域将变为读取和写入区域。
 
 ![Azure Cosmos 帐户配置多主数据库屏幕快照](./media/how-to-manage-database-account/single-to-multi-master.png)
-
-<!--Not Available on Please reach out to the askcosmosdb@microsoft.com alias for additional questions about this feature.-->
 
 <a name="configure-multiple-write-regions-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-```azurecli
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
-```
+请参阅[使用 Azure CLI 启用多写入区域](manage-with-cli.md#enable-multiple-write-regions)
 
 <a name="configure-multiple-write-regions-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
-# Update an Azure Cosmos account from single to multi-master
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
-
-$account.Properties.enableMultipleWriteLocations = "true"
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+请参阅[使用 Powershell 启用多写入区域](manage-with-powershell.md#multi-master)
 
 <a name="configure-multiple-write-regions-arm"></a>
 ### <a name="resource-manager-template"></a>Resource Manager 模板
@@ -311,32 +184,12 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 <a name="enable-automatic-failover-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-```azurecli
-# Enable automatic failover on an existing account
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-automatic-failover true
-```
+请参阅[使用 Azure CLI 启用自动故障转移](manage-with-cli.md#enable-automatic-failover)
 
 <a name="enable-automatic-failover-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$account.Properties.enableAutomaticFailover="true";
-$CosmosDBProperties = $account.Properties;
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+请参阅[使用 Powershell 启用自动故障转移](manage-with-powershell.md#enable-automatic-failover)
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>为 Azure Cosmos 帐户设置故障转移优先级
 
@@ -365,40 +218,12 @@ Cosmos 帐户配置为自动故障转移后，可以更改区域的故障转移�
 <a name="set-failover-priorities-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-<!--MOONCAKE: the second(chinanorth) and the third(chinaeast2) change each other.-->
-
-```azurecli
-# Assume region order is initially chinaeast=0 chinanorth=1 chinaeast2=2 on account creation
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-
-az cosmosdb failover-priority-change --name $accountName --resource-group $resourceGroupName --failover-policies chinaeast=0 chinaeast2=1 chinanorth=2
-```
-
-<!--MOONCAKE: the second(chinanorth) and the third(chinaeast2) change each other.-->
+请参阅[使用 Azure CLI 设置故障转移优先级](manage-with-cli.md#set-failover-priority)
 
 <a name="set-failover-priorities-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-<!--MOONCAKE: the second(China East) and the third(China East 2) change each other.-->
-
-```powershell
-# Assume account currently has regions with priority: China North = 0, China East = 1, China East 2 = 2
-$resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
-
-$failoverPolicies = @(
-    @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East 2"; "failoverPriority"=1 },
-    @{ "locationName"="China East"; "failoverPriority"=2 }
-)
-
-Invoke-AzResourceAction -Action failoverPriorityChange `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
-    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
-```
-
-<!--MOONCAKE: the second(China East) and the third(China East 2) change each other.-->
+请参阅[使用 Powershell 设置故障转移优先级](manage-with-powershell.md#modify-failover-priority)
 
 <a name="manual-failover"></a>
 ## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a>在 Azure Cosmos 帐户上执行手动故障转移
@@ -431,40 +256,12 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 <a name="enable-manual-failover-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
-```azurecli
-# Assume account currently has regions with priority: chinaeast=0 chinanorth=1
-# Change the priority order to trigger a failover of the write region
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=chinanorth failoverPriority=0 isZoneRedundant=False --locations regionName=chinaeast failoverPriority=1 isZoneRedundant=False
-```
+请参阅[使用 Azure CLI 触发手动故障转移](manage-with-cli.md#trigger-manual-failover)
 
 <a name="enable-manual-failover-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
-# Assume account currently has regions with priority: China North = 0, China East = 1
-# Change the priority order to trigger a failover of the write region
-$resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$locations = @(
-    @{ "locationName"="China East"; "failoverPriority"=0 },
-    @{ "locationName"="China North"; "failoverPriority"=1 }
-)
-
-$account.Properties.locations=$locations;
-$CosmosDBProperties = $account.Properties;
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+请参阅[使用 Powershell 触发手动故障转移](manage-with-powershell.md#trigger-manual-failover)
 
 ## <a name="next-steps"></a>后续步骤
 

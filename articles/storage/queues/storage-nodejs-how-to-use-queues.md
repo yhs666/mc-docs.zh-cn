@@ -5,19 +5,19 @@ author: WenJason
 ms.service: storage
 ms.author: v-jay
 origin.date: 12/08/2016
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 2e08ec38633b6dcd0eccd5ea6fe8dd78e9c76398
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 138179e2d6f27cd3d5f370a8a70d51aff5750384
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306701"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914475"
 ---
-# <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>通过 Node.js 使用 Azure 队列服务创建和删除队列
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]

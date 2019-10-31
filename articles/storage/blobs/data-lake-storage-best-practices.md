@@ -6,19 +6,19 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: sachins
-ms.openlocfilehash: b7a5df2588496c76a90c877010badd39d67fe04f
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 6d49d7bd86e336c1e4d4a1667c41bd74df8af503
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306705"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914536"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
-在本文中，你将了解 Azure Data Lake Storage Gen2 使用方面的最佳做法和注意事项。 本文介绍 Data Lake Storage Gen2 的安全性、性能、复原能力和监视。 在 Data Lake Storage Gen2 出现之前，在 Azure HDInsight 之类的服务中使用真正大型的数据是很复杂的事情。 必须将数据在多个 Blob 存储帐户中分片，才能实现 PB 级的存储以及在该规模下的性能优化。 使用 Data Lake Storage Gen2 时，大部分针对大小和性能的硬性限制都会去除。 但是，若要充分利用 Data Lake Storage Gen2 的性能，仍有一些需要本文讨论的注意事项。
+在本文中，你将了解 Azure Data Lake Storage Gen2 使用方面的最佳做法和注意事项。 本文介绍 Data Lake Storage Gen2 的安全性、性能、复原能力和监视。 在 Data Lake Storage Gen2 出现之前，在 Azure HDInsight 之类的服务中使用真正大型的数据是很复杂的事情。 必须将数据在多个 Blob 存储帐户中分片，才能实现 PB 级的存储以及在该规模下的性能优化。 Data Lake Storage Gen2 支持高达 5TB 的单个文件大小，并且对性能的大多数硬限制都已消除。 但是，若要充分利用 Data Lake Storage Gen2 的性能，仍有一些需要本文讨论的注意事项。
 
 ## <a name="security-considerations"></a>安全注意事项
 

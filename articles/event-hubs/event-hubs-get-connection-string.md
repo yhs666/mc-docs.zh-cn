@@ -1,5 +1,5 @@
 ---
-title: 获取连接字符串 - Azure 事件中心 | Azure Docs
+title: 获取连接字符串 - Azure 事件中心 | Azure
 description: 本文说明如何获取客户端可用于连接 Azure 事件中心的连接字符串。
 services: event-hubs
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 10/15/2018
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 22f292ba69d01041e777a47c5a9cd3711b01b1cb
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a68451ca4400fb05dfa5ceceaddab4622ab618f2
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903230"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872982"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>获取事件中心连接字符串
 
@@ -38,16 +38,16 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 
 ## <a name="get-connection-string-from-the-portal"></a>从门户中获取连接字符串
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 
-2. 在左侧导航菜单中，选择“所有服务”。 
-3. 选择“分析”部分中的“事件中心”。 
+2. 在左侧导航菜单中，选择“所有服务”  。 
+3. 选择“分析”部分中的“事件中心”   。 
 4. 在事件中心列表中，选择事件中心。
-6. 在“事件中心命名空间”页中的左侧菜单上选择“共享访问策略”。
+6. 在“事件中心命名空间”页中的左侧菜单上选择“共享访问策略”   。
 
     ![共享访问策略菜单项](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. 在策略列表中选择“共享访问策略”。 默认值命名为：RootManageSharedAccessPolicy。 可以添加具有适当权限（读取、写入）的策略，并使用该策略。 
+7. 在策略列表中选择“共享访问策略”  。 默认值命名为：RootManageSharedAccessPolicy  。 可以添加具有适当权限（读取、写入）的策略，并使用该策略。 
 
     ![事件中心共享访问策略](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-8. 选择“连接字符串 - 主密钥”字段旁边的“复制”按钮。 
+8. 选择“连接字符串 - 主密钥”字段旁边的“复制”按钮   。 
 
     ![事件中心 - 获取连接字符串](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
@@ -55,7 +55,7 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-可以使用 [Get-AzEventHubNamespaceKey](https://docs.microsoft.com/zh-cn/powershell/module/az.eventhub/get-azeventhubkey) 获取特定策略/规则名称的连接字符串，如下所示：
+可以使用 [Get-AzEventHubNamespaceKey](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) 获取特定策略/规则名称的连接字符串，如下所示：
 
 ```azurepowershell
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -68,7 +68,7 @@ Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummyname
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-有关详细信息，请参阅[适用于事件中心的 Azure CLI](https://docs.azure.cn/zh-cn/cli/eventhubs?view=azure-cli-latest)。
+有关事件中心 Azure CLI 命令的详细信息，请参阅[事件中心的 Azure CLI](https://docs.azure.cn/cli/eventhubs?view=azure-cli-latest)。
 
 ## <a name="next-steps"></a>后续步骤
 

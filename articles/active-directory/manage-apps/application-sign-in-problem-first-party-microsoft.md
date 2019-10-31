@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/10/2018
-ms.date: 08/27/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3391c7c0a8cced7b8fe2822dfce699a1180980d
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: cd214c1b5fb99349dde945b68b663a46ccf49a51
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134334"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912737"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登录 Microsoft 应用程序时出现的问题
 
@@ -45,8 +45,6 @@ ms.locfileid: "70134334"
 
 -   [组问题](#problems-with-groups)
 
--   [条件访问策略问题](#problems-with-conditional-access-policies)
-
 -   [应用程序许可问题](#problems-with-application-consent)
 
 ## <a name="steps-to-troubleshoot-microsoft-application-access"></a>对 Microsoft 应用程序访问进行故障排除的步骤
@@ -67,19 +65,13 @@ ms.locfileid: "70134334"
 
   * 确保**多重身份验证**不会阻止用户访问。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
 
-  * 确保**条件访问策略**或**标识保护**策略不会阻止用户访问。 [检查特定的条件访问策略](#problems-with-conditional-access-policies)或[检查特定应用程序的条件访问策略](#check-a-specific-applications-conditional-access-policy)或者[禁用特定的条件访问策略](#disable-a-specific-conditional-access-policy)
-
-  * 确保用户的**身份验证联系信息**是最新的以允许强制执行多重身份验证或条件访问策略。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
+  * 确保用户的**身份验证联系信息**是最新的，以便实施多重身份验证。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
 
 - 对于**需要许可证的 Microsoft** **应用程序**（如 Office365），以下是排除上述常规问题后需要检查的一些特定问题：
 
   * 确保已为用户**分配许可证**。 [检查用户的已分配许可证](#check-a-users-assigned-licenses)或[检查组的已分配许可证](#check-a-groups-assigned-licenses)
 
   * 如果许可证**分配到** **静态组**，请确保**用户是该组的成员**。 [检查用户的组成员身份](#check-a-users-group-memberships)
-
-  * 如果许可证**分配到** **动态组**，请确保**动态组规则设置正确**。 [检查动态组的成员身份条件](#check-a-dynamic-groups-membership-criteria)
-
-  * 如果许可证**已分配到** **动态组**，请确保动态组的成员身份已**处理完毕**，并确保**用户是该组的成员**（这可能需要一些时间）。 [检查用户的组成员身份](#check-a-users-group-memberships)
 
   *  一旦确保已分配许可证，请确保许可证**未过期**。
 
@@ -201,7 +193,7 @@ ms.locfileid: "70134334"
 
 ### <a name="check-a-users-authentication-contact-info"></a>检查用户的身份验证联系信息
 
-若要检查用于多重身份验证、条件访问、标识保护和密码重置的用户身份验证联系信息，请执行以下步骤：
+若要检查用于多重身份验证和密码重置的用户身份验证联系信息，请执行以下步骤：
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”  身份登录。
 
@@ -281,8 +273,6 @@ ms.locfileid: "70134334"
 
 -   [检查组的成员身份](#check-a-groups-membership)
 
--   [检查动态组的成员身份条件](#check-a-dynamic-groups-membership-criteria)
-
 -   [检查组的已分配许可证](#check-a-groups-assigned-licenses)
 
 -   [重新处理组的许可证](#reprocess-a-groups-licenses)
@@ -304,24 +294,6 @@ ms.locfileid: "70134334"
 6.  **搜索**感兴趣的组，并**单击对应的行**进行选择。
 
 7.  单击“成员”  查看分配到此组的用户列表。
-
-### <a name="check-a-dynamic-groups-membership-criteria"></a>检查动态组的成员身份条件 
-
-若要检查动态组的成员身份条件，请执行以下步骤：
-
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”  身份登录。
-
-2.  选择 **Azure Active Directory** 项。
-
-4.  在导航菜单中，单击“用户和组”  。
-
-5.  单击“所有组”  。
-
-6.  **搜索**感兴趣的组，并**单击对应的行**进行选择。
-
-7.  单击“动态成员身份规则”  。
-
-8.  查看为此组定义的**简单**或**高级**规则，并确保希望使其成为此组成员的用户满足这些条件。
 
 ### <a name="check-a-groups-assigned-licenses"></a>检查组的已分配许可证
 
@@ -390,75 +362,6 @@ ms.locfileid: "70134334"
     >要更快地执行此操作，可考虑暂时会许可证直接分配给用户。 [为用户分配许可证](#problems-with-application-consent)。
     > 
     >
-
-## <a name="problems-with-conditional-access-policies"></a>条件访问策略问题
-
-### <a name="check-a-specific-conditional-access-policy"></a>检查特定的条件访问策略
-
-若要检查或验证单个条件访问策略，请执行以下操作：
-
-1. 打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”  身份登录。
-
-3. 选择 **Azure Active Directory** 项。
-
-4. 在导航菜单中，单击“企业应用程序”  。
-
-5. 单击“条件访问”  导航项。
-
-6. 单击要检查的策略。
-
-7. 检查不存在任何可能会阻止用户访问的特定条件、分配或其他设置。
-
-   >[!NOTE]
-   >可能需要暂时禁用此策略，确保它不影响登录。为此，请将“启用策略”  切换按钮设置为“否”  ，然后单击“保存”  按钮。
-   >
-   >
-
-### <a name="check-a-specific-applications-conditional-access-policy"></a>检查特定应用程序的条件访问策略
-
-若要检查或验证单个应用程序当前配置的条件访问策略，请执行以下操作：
-
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”  身份登录。
-
-2.  选择 **Azure Active Directory** 项。
-
-4.  在导航菜单中，单击“企业应用程序”  。
-
-5.  单击“所有应用程序”  。
-
-6.  按应用程序显示名称或应用程序 ID 搜索你感兴趣的或用户正在尝试登录到的应用程序。
-
-     >[!NOTE]
-     >如果看不到要查找的应用程序，请单击“筛选器”  按钮并将列表的范围扩展到“所有应用程序”  。 如果要查看更多列，请单击“列”  按钮为应用程序添加其他详细信息。
-     >
-     >
-
-7.  单击“条件访问”  导航项。
-
-8.  单击要检查的策略。
-
-9.  检查不存在任何可能会阻止用户访问的特定条件、分配或其他设置。
-
-     >[!NOTE]
-     >可能需要暂时禁用此策略，确保它不影响登录。为此，请将“启用策略”  切换按钮设置为“否”  ，然后单击“保存”  按钮。
-     >
-     >
-
-### <a name="disable-a-specific-conditional-access-policy"></a>禁用特定的条件访问策略
-
-若要检查或验证单个条件访问策略，请执行以下操作：
-
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”  身份登录。
-
-2.  选择 **Azure Active Directory** 项。
-
-4.  在导航菜单中，单击“企业应用程序”  。
-
-5.  单击“条件访问”  导航项。
-
-6.  单击要检查的策略。
-
-7.  通过将“启用策略”  切换按钮设置为“否”  来禁用策略，然后单击“保存”  按钮。
 
 ## <a name="problems-with-application-consent"></a>应用程序许可问题
 

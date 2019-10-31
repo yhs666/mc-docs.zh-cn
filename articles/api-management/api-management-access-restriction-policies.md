@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: 8ae92d73f1aa3be9e21af3d5739d99268bb9f00c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 11/04/2019
+ms.openlocfilehash: dda281c7a96d07a486e89a948a77ac7205ffe279
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736746"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913262"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -125,7 +125,7 @@ ms.locfileid: "70736746"
   
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
-|set-limit|根元素。|是|  
+| rate-limit | 根元素。                                                                                                                                                                                                                                                                                            | 是      |
 |api|添加一个或多个此类元素，对产品中的 API 施加调用速率限制。 产品和 API 的调用速率限制是各自独立应用的。 可以通过 `name` 或 `id` 引用 API。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
 |operation|添加一个或多个此类元素，对 API 中的操作施加调用速率限制。 产品、API 和操作的调用速率限制是各自独立应用的。 可以通过 `name` 或 `id` 引用 Operation。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
   
@@ -184,7 +184,7 @@ ms.locfileid: "70736746"
   
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
-|set-limit|根元素。|是|  
+| rate-limit-by-key | 根元素。 | 是      |
   
 ### <a name="attributes"></a>属性  
   
