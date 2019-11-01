@@ -17019,7 +17019,13 @@
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/mariadb/reference-stored-procedures",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/scripts/traffic-manager-cli-create-dns-zone-record.md",
+      "redirect_url": "/dns/scripts/dns-cli-create-dns-zone-record",
+      "redirect_document_id": false
     }
+
 
 
 
