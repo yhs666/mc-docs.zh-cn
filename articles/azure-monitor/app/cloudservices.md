@@ -1,25 +1,19 @@
 ---
 title: 适用于 Azure 云服务的 Application Insights | Azure Docs
 description: 使用 Application Insights 有效监视 Web 角色和辅助角色
-services: application-insights
-documentationcenter: ''
-keywords: WAD2AI, Azure 诊断
-author: lingliw
-manager: digimobile
-ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.workload: tbd
+author: lingliw
 origin.date: 09/05/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3b68696778c4a22d3491ea5c97de230344991778
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: c962f0d91965efac0cdbdc3e2eafee2734647096
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737310"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970922"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>适用于 Azure 云服务的 Application Insights
 [Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
@@ -85,8 +79,9 @@ ms.locfileid: "70737310"
 
     ![“Application Insights”窗格](./media/cloudservices/01-new.png)
 
-1. 在“应用程序类型”下拉列表中，选择“ASP.NET Web 应用程序”   。  
-    每个资源由检测密钥标识。 以后若要手动配置或验证 SDK 的配置，可能需要使用此密钥。
+1. 在“应用程序类型”下拉列表中，选择“ASP.NET Web 应用程序”   。
+
+每个资源由检测密钥标识。 以后若要手动配置或验证 SDK 的配置，可能需要使用此密钥。
 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>为每个角色设置 Azure 诊断
@@ -135,8 +130,9 @@ ms.locfileid: "70737310"
     * [辅助角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [对于网页](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. 将 *ApplicationInsights.config* 文件设置为始终复制到输出目录。  
-    *.config* 文件中的消息会询问是否要将检测密钥放在该处。 但是，对于云应用，最好是通过 *.cscfg* 文件设置检测密钥。 此方法可确保在门户中正确识别角色。
+1. 将 *ApplicationInsights.config* 文件设置为始终复制到输出目录。
+
+   *.config* 文件中的消息会询问是否要将检测密钥放在该处。 但是，对于云应用，最好是通过 *.cscfg* 文件设置检测密钥。 此方法可确保在门户中正确识别角色。
 
 ## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>设置状态监视器以收集完整的 SQL 查询（可选）
 

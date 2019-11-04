@@ -1,28 +1,25 @@
 ---
 title: 使用 Azure CLI 创建第一个函数
-description: 了解如何使用 Azure CLI 和 Azure Functions Core Tools 创建第一个可无服务器执行的 Azure Function。
-services: functions
-keywords: ''
+description: 了解如何使用 Azure CLI 和 Azure Functions Core Tools 创建第一个支持无服务器执行的 Azure 函数。
 author: ggailey777
 ms.author: v-junlch
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 origin.date: 11/13/2018
-ms.date: 09/06/2019
+ms.date: 10/28/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: b8e8abccddaec3812cbb8fe48d493e0f4603a821
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+manager: gwallace
+ms.openlocfilehash: 9805c4abf1ed94a7de7b1693be2e4e1a8f65cbb5
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805752"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034419"
 ---
-# <a name="create-your-first-function-from-the-command-line"></a>从命令行创建第一个函数
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>快速入门：使用 Azure CLI 通过命令行创建第一个函数
 
-本快速入门主题逐步讲解如何使用命令行或终端创建第一个函数。 使用 Azure CLI 创建函数应用（托管函数的[无服务器](https://azure.microsoft.com/solutions/serverless/)基础结构）。 此函数代码项目通过 [Azure Functions Core Tools](functions-run-local.md) 从模板生成，该工具也用于将函数应用项目部署到 Azure。
+本快速入门主题逐步讲解如何通过命令行或终端创建第一个函数。 使用 Azure CLI 创建函数应用（托管函数的[无服务器](https://azure.microsoft.com/solutions/serverless/)基础结构）。 此函数代码项目通过 [Azure Functions Core Tools](functions-run-local.md) 从模板生成，该工具也用于将函数应用项目部署到 Azure。
 
 可以使用 Mac、Windows 或 Linux 计算机执行以下步骤。
 

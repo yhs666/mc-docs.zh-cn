@@ -8,15 +8,15 @@ ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 07/29/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1ef6fab77a12cad2065859b340e7f7fd910b9c34
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 8f68a4a951b79028767fed5b2a201d42bab76cef
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673486"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034369"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教程：在 Azure Functions 中使用 Python 和 TensorFlow 应用机器学习模型
 
@@ -141,7 +141,7 @@ http://localhost:7071/api/classify?name=Azure
 > [!NOTE]
 > 若要使用自定义视觉服务的免费层生成自己的模型，可以遵照[示例项目存储库中的说明](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md)操作。
 
-该模型包含 *<存储库根目录>/resources/model* 文件夹中的两个文件：*model.db* 和 *labels.txt*。 请将这些文件复制到 *classify* 函数的文件夹中。
+该模型包含 <REPOSITORY_ROOT>/resources/model  文件夹中的两个文件：*model.db* 和 *labels.txt*。 请将这些文件复制到 *classify* 函数的文件夹中。
 
 #### <a name="linux-and-macos"></a>Linux 和 macOS：
 
@@ -180,7 +180,7 @@ copy ..\resources\predict.py classify
 帮助器库具有一些需要安装的依赖项。 在编辑器中打开 *start/requirements.txt*，并将以下依赖项添加到该文件。
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```
@@ -284,4 +284,6 @@ py -3.6  -m http.server
 可以使用本教程中所述的方法生成具有不同复杂性的 API，所有这些 API 都可在 Azure Functions 提供的无服务器计算模型上运行。
 
 若要将函数应用部署到 Azure，请使用 [Azure Functions Core Tools](./functions-run-local.md#publish)。
+
+<!-- Update_Description: wording update -->
 

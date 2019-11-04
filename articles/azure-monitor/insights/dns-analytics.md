@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 03/20/2018
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d5c777e02890bc60cf42a30c1c89f4f524448e89
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f0b304836bb16ad2c8c02012eee9d5904a64bf29
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329752"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970982"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>使用 DNS Analytics 预览解决方案收集有关 DNS 基础结构的见解
 
@@ -45,7 +45,7 @@ DNS Analytics 可帮助：
 | --- | --- | --- |
 | [Windows 代理](../platform/agent-windows.md) | 是 | 解决方案会从 Windows 代理收集 DNS 信息。 |
 | [Linux 代理](../learn/quick-collect-linux-computer.md) | 否 | 解决方案不会从直接 Linux 代理收集 DNS 信息。 |
-| [Azure 存储帐户](../platform/diagnostic-logs-stream-log-store.md) | 否 | 解决方案不会使用 Azure 存储。 |
+| [Azure 存储帐户](../platform/resource-logs-collect-workspace.md) | 否 | 解决方案不会使用 Azure 存储。 |
 
 ### <a name="data-collection-details"></a>数据收集详细信息
 

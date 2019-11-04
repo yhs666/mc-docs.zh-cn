@@ -11,21 +11,21 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: digimobile
-ms.openlocfilehash: 7cfdfa8ab1092560be1c351299457f3442695206
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9c30f6449184dd9cdf49729b5f0bd3327bcfbd6a
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329703"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970807"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 创建自定义 KPI 仪表板
 
-你可以在 Azure 门户中创建多个仪表板，每个仪表板都包含跨不同资源组和订阅可视化多个 Azure 资源数据的磁贴。  你可以从 Azure Application Insights 中固定不同的图表和视图，以创建自定义仪表板，为你提供应用程序运行状况和性能的完整画面。  本教程将引导你完成自定义仪表板的创建，其中包括来自 Azure Application Insights 的多种类型的数据和可视化内容。  你将学习如何执行以下操作：
+你可以在 Azure 门户中创建多个仪表板，每个仪表板都包含跨不同资源组和订阅可视化多个 Azure 资源数据的磁贴。  你可以从 Azure Application Insights 中固定不同的图表和视图，以创建自定义仪表板，为你提供应用程序运行状况和性能的完整画面。 本教程将引导你完成自定义仪表板的创建，其中包括来自 Azure Application Insights 的多种类型的数据和可视化内容。  你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建自定义仪表板
 > * 从磁贴库添加磁贴
-> * 将 Application Insights 中的标准指标添加到仪表板 
+> * 将 Application Insights 中的标准指标添加到仪表板
 > * 将 Application Insights 中的自定义指标图标添加到仪表板
 > * 将日志（分析）查询的结果添加到仪表板
 
@@ -35,7 +35,7 @@ ms.locfileid: "71329703"
 
 完成本教程：
 
-- 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。 
+- 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
@@ -47,14 +47,14 @@ ms.locfileid: "71329703"
 
    ![新建仪表板](media/tutorial-app-dashboards/1newdashboard.png)
 
-2. 键入仪表板的名称。
-3. 查看“磁贴库”  ，获取可以添加到仪表板中的各种磁贴。  除了从库添加磁贴之外，还可以将图表和其他视图直接从 Application Insights 固定到仪表板。
-4. 找到“Markdown”  磁贴，并将其拖动到仪表板中。  该磁贴允许添加 markdown 格式的文本，这对于向仪表板添加描述性文本而言是理想选择。
-5. 将文本添加到磁贴属性，然后在仪表板画布上调整其大小。
+1. 键入仪表板的名称。
+1. 查看“磁贴库”  ，获取可以添加到仪表板中的各种磁贴。  除了从库添加磁贴之外，还可以将 Application Insights 中的图表和其他视图直接固定到仪表板。
+1. 找到“Markdown”  磁贴，并将其拖动到仪表板中。  该磁贴允许添加 markdown 格式的文本，这对于向仪表板添加描述性文本而言是理想选择。
+1. 将文本添加到磁贴属性，然后在仪表板画布上调整其大小。
     
     ![编辑 markdown 磁贴](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. 单击屏幕顶部的“完成自定义”  以退出自定义模式。
+1. 单击屏幕顶部的“完成自定义”  以退出自定义模式。
 
 ## <a name="add-health-overview"></a>添加运行状况概述
 包含静态文本的仪表板并不是很有趣，所以现在从 Application Insights 添加磁贴，以显示有关应用程序的信息。  你可以从“磁贴库”添加 Application Insights 磁贴，也可以直接从“Application Insights”屏幕固定它们。  该操作允许将已经熟悉的图表和视图固定到仪表板之前对其进行配置。  首先添加应用程序的标准运行状况概述。  这不需要进行配置，并允许在仪表板中进行最起码的自定义操作。

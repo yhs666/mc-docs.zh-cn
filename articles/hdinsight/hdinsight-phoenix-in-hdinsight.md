@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 09/05/2019
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 964b5d73dc1dd0323ab4154ba35e329ae0f528f3
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 4175750c52333e1e7a0eda821edc57f2eb0151fd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292467"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426055"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Phoenix
 
@@ -139,4 +139,4 @@ HDInsight HBase 群集提供 [Ambari UI](hdinsight-hadoop-manage-ambari.md) 用�
 
 ## <a name="see-also"></a>另请参阅
 
-* [将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](hbase/apache-hbase-query-with-phoenix.md)

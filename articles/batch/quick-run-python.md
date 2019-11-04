@@ -11,18 +11,20 @@ origin.date: 11/27/2018
 ms.date: 09/03/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 9cdd94c62ad3cdec551a8af3642eec20e121bf17
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: db3c0942b79398c2db9847ac62170461ad3b40eb
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583747"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041084"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入门：使用 Python API 运行你的第一个 Batch 作业
 
-本快速入门通过基于 Azure Batch Python API 生成的应用程序运行 Azure Batch 作业。 此应用将多个输入数据文件上传到 Azure 存储，然后创建包含 Batch 计算节点（虚拟机）的*池*。 再然后，它创建一个示例*作业*，以便运行*任务*，在池中使用基本命令来处理每个输入文件。 完成本快速入门以后，你会了解 Batch 服务的重要概念，并可使用更逼真的工作负荷进行更大规模的 Batch 试用。
+本快速入门通过基于 Azure Batch Python API 生成的应用程序运行 Azure Batch 作业。  完成本快速入门以后，你会了解 Batch 服务的重要概念，并可使用更逼真的工作负荷进行更大规模的 Batch 试用。
+
+此应用将多个输入数据文件上传到 Azure 存储，然后创建包含 Batch 计算节点（虚拟机）的*池*。 再然后，它创建一个示例*作业*，以便运行*任务*，在池中使用基本命令来处理每个输入文件。
  
-![快速入门应用工作流](./media/quick-run-python/sampleapp.png)
+![Azure Batch 工作流概述](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -175,7 +177,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>创建 Batch 作业
 
-Batch 作业是对一个或多个任务进行逻辑分组。 作业包含任务的公用设置，例如优先级以及运行任务的池。 此应用使用 [JobAddParameter](https://docs.microsoft.com/python/api/azure.batch.models.jobaddparameter) 类在池中创建作业。 [job.add](https://docs.microsoft.com/python/api/azure.batch.operations.joboperations) 方法将池提交到 Batch 服务。 作业一开始没有任务。
+Batch 作业是对一个或多个任务进行逻辑分组。 作业包含任务的公用设置，例如优先级以及运行任务的池。 此应用使用 [JobAddParameter](https://docs.microsoft.com/python/api/azure-batch/azure.batch.models.jobaddparameter) 类在池中创建作业。 [job.add](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.joboperations) 方法将作业添加到指定的 Batch 帐户。 作业一开始没有任务。
 
 ```python
 job = batch.models.JobAddParameter(
@@ -186,9 +188,9 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>创建任务
 
-此应用使用 [TaskAddParameter](https://docs.microsoft.com/python/api/azure.batch.models.taskaddparameter) 类创建任务对象的列表。 每个任务都使用 `command_line` 参数来处理输入 `resource_files` 对象。 在示例中，命令行运行 Bash shell `cat` 命令来显示文本文件。 此命令是一个用于演示的简单示例。 使用 Batch 时，可以在命令行中指定应用或脚本。 Batch 提供多种将应用和脚本部署到计算节点的方式。
+此应用使用 [TaskAddParameter](https://docs.microsoft.com/python/api/azure-batch/azure.batch.models.taskaddparameter) 类创建任务对象的列表。 每个任务都使用 `command_line` 参数来处理输入 `resource_files` 对象。 在示例中，命令行运行 Bash shell `cat` 命令来显示文本文件。 此命令是一个用于演示的简单示例。 使用 Batch 时，可以在命令行中指定应用或脚本。 Batch 提供多种将应用和脚本部署到计算节点的方式。
 
-然后，应用使用 [task.add_collection](https://docs.microsoft.com/python/api/azure.batch.operations.taskoperations) 方法将任务添加到作业，使任务按顺序在计算节点上运行。 
+然后，应用使用 [task.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.taskoperations) 方法将任务添加到作业，使任务按顺序在计算节点上运行。 
 
 ```python
 tasks = list()

@@ -7,14 +7,15 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: robinsh
-ms.openlocfilehash: 4b5aae7c848f75d2f8fcaa533a33ab73dac1bfc2
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+origin.date: 03/14/2019
+ms.date: 11/11/2019
+ms.author: v-yiso
+ms.openlocfilehash: 1d36a2c9a530fff3b5a68cb49bb7634132e5bd4f
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993747"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426034"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入门：使用 C# 代理应用程序通过 IoT 中心设备流实现 SSH 和 RDP 方案（预览）
 
@@ -43,9 +44,8 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
 > [!NOTE]
 > 通过设备流发送的 SSH 流量将通过 IoT 中心的流式处理终结点以隧道方式进行传输，而不是直接在服务与设备之间发送。 有关详细信息，请参阅[使用 IoT 中心设备流的好处](iot-hub-device-streams-overview.md#benefits)。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -72,6 +72,8 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
 
 * [下载示例 C# 项目](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)并解压缩 ZIP 存档。
 
+* 设备（Windows 或 Linux）上用于对用户进行身份验证的有效用户帐户和凭据。
+
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
@@ -84,10 +86,10 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
 
    > [!NOTE]
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
-   > * 如示例中所示使用 *MyDevice*。 它是为注册的设备提供的名称。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   > * 对于正在注册的设备的名称，建议使用 *MyDevice*，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要获取刚刚注册的设备的*设备连接字符串*，请在 Cloud Shell 中运行以下命令：
@@ -96,10 +98,10 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    请记下设备连接字符串，稍后需要在本快速入门中用到它。 如以下示例所示：
+    请记下返回的设备连接字符串，以便稍后在此快速入门中使用。 如以下示例所示：
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -109,10 +111,10 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    请记下返回的值，因为稍后要在本快速入门中用到它。 如以下示例所示：
+    请记下返回的服务连接字符串，以便稍后在此快速入门中使用。 如以下示例所示：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -122,15 +124,15 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
 
 ### <a name="run-the-device-local-proxy-application"></a>运行设备本地代理应用程序
 
-转到解压缩的项目文件夹中的 *device-streams-proxy/device* 目录。 请保留以下信息：
+在本地终端窗口中，导航到解压缩项目文件夹中的 `device-streams-proxy/device` 目录。 请保留以下信息：
 
 | 参数名称 | 参数值 |
 |----------------|-----------------|
-| `deviceConnectionString` | 前面创建的设备的连接字符串。 |
+| `DeviceConnectionString` | 前面创建的设备的设备连接字符串。 |
 | `targetServiceHostName` | SSH 服务器侦听的 IP 地址。 如果设备本地代理应用程序在此 IP 地址中运行，则此地址为 `localhost`。 |
 | `targetServicePort` | 应用程序协议使用的端口（默认情况下，对于 SSH 连接，此端口为端口 22）。  |
 
-按如下所示编译并运行代码：
+使用以下命令编译并运行代码：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device/
@@ -140,23 +142,23 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $deviceConnectionString localhost 22
+dotnet run ${DeviceConnectionString} localhost 22
 
 # In Windows
-dotnet run %deviceConnectionString% localhost 22
+dotnet run {DeviceConnectionString} localhost 22
 ```
 
 ### <a name="run-the-service-local-proxy-application"></a>运行服务本地代理应用程序
 
-导航到解压缩的项目文件夹中的 `device-streams-proxy/service`。 需要准备好以下信息：
+在另一个本地终端窗口中，导航到解压缩项目文件夹中的 `device-streams-proxy/service`。 请保留以下信息：
 
 | 参数名称 | 参数值 |
 |----------------|-----------------|
-| `iotHubConnectionString` | IoT 中心的服务连接字符串。 |
-| `deviceId` | 前面创建的设备标识符。 |
+| `ServiceConnectionString` | IoT 中心的服务连接字符串。 |
+| `MyDevice` | 前面创建的设备标识符。 |
 | `localPortNumber` | SSH 客户端要连接到的本地端口。 本示例使用端口 2222，但也可以使用其他任意端口号。 |
 
-按如下所示编译并运行代码：
+使用以下命令编译并运行代码：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -166,10 +168,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-the-ssh-client"></a>运行 SSH 客户端
@@ -177,7 +179,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 现在，请使用 SSH 客户端应用程序并连接到端口 2222 上的服务本地代理应用程序（而不要直接连接到 SSH 守护程序）。
 
 ```
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 此时，SSH 登录窗口会提示输入凭据。
@@ -196,42 +198,42 @@ SSH 客户端应用程序的控制台输出。 SSH 客户端通过连接到服�
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>使用 RDP 通过设备流连接到设备
 
-RDP 的设置与 SSH 的设置（如上所述）非常类似。 我们只需改用 RDP 目标 IP 和端口 3389，并使用 RDP 客户端（而不是 SSH 客户端）。
+RDP 的设置与 SSH 的设置（如上所述）类似。 我们只需改用 RDP 目标 IP 和端口 3389，并使用 RDP 客户端（而不是 SSH 客户端）。
 
 ### <a name="run-the-device-local-proxy-application-rdp"></a>运行设备本地代理应用程序 (RDP)
 
-转到解压缩的项目文件夹中的 *device-streams-proxy/device* 目录。 请保留以下信息：
+在本地终端窗口中，导航到解压缩项目文件夹中的 `device-streams-proxy/device` 目录。 请保留以下信息：
 
 | 参数名称 | 参数值 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 前面创建的设备的连接字符串。 |
+| `DeviceConnectionString` | 前面创建的设备的设备连接字符串。 |
 | `targetServiceHostName` | 运行 RDP 服务器的主机名或 IP 地址。 如果设备本地代理应用程序在此 IP 地址中运行，则此地址为 `localhost`。 |
 | `targetServicePort` | 应用程序协议使用的端口（默认情况下，对于 RDP 连接，此端口为端口 3389）。  |
 
-按如下所示编译并运行代码：
+使用以下命令编译并运行代码：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux or macOS
-dotnet run $DeviceConnectionString localhost 3389
+dotnet run ${DeviceConnectionString} localhost 3389
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 3389
+dotnet run {DeviceConnectionString} localhost 3389
 ```
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>运行服务本地代理应用程序 (RDP)
 
-导航到解压缩的项目文件夹中的 `device-streams-proxy/service`。 需要准备好以下信息：
+在另一个本地终端窗口中，导航到解压缩项目文件夹中的 `device-streams-proxy/service`。 请保留以下信息：
 
 | 参数名称 | 参数值 |
 |----------------|-----------------|
-| `iotHubConnectionString` | IoT 中心的服务连接字符串。 |
-| `deviceId` | 前面创建的设备标识符。 |
+| `ServiceConnectionString` | IoT 中心的服务连接字符串。 |
+| `MyDevice` | 前面创建的设备标识符。 |
 | `localPortNumber` | SSH 客户端要连接到的本地端口。 本示例使用端口 2222，但可以修改为其他任意端口号。 |
 
-按如下所示编译并运行代码：
+使用以下命令编译并运行代码：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -241,10 +243,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-rdp-client"></a>运行 RDP 客户端

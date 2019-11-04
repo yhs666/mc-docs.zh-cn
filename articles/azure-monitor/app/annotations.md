@@ -1,24 +1,19 @@
 ---
 title: Application Insights 的版本批注 | Microsoft 文档
 description: 为 Application Insights 中的指标资源管理器图表添加部署或版本标记。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 07/01/2019
 ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 75fb3d773a66701a29c961db791f5eb74418dce3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a582245c5cbef9551dcd0444d89ebf43e514fbe5
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737401"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970883"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>为 Application Insights 中的指标图表添加批注
 

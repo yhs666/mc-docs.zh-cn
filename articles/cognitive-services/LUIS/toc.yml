@@ -25,18 +25,6 @@
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
     - name: 使用 REST API
       items:
-        - name: 获取意向
-          items:
-            - name: 'C#'
-              href: luis-get-started-cs-get-intent.md
-            - name: Go
-              href: luis-get-started-go-get-intent.md
-            - name: Java
-              href: luis-get-started-java-get-intent.md
-            - name: Node.js
-              href: luis-get-started-node-get-intent.md
-            - name: Python
-              href: luis-get-started-python-get-intent.md
         - name: 更改模型
           items:
             - name: 'C#'
@@ -210,8 +198,6 @@
         - name: 管理作者和协作者
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
-        - name: 管理创作密钥
-          href: luis-how-to-account-settings.md
         - name: 使用流量管理器将终结点配额分布在各个密钥上
           href: luis-traffic-manager.md
     - name: 迁移 API

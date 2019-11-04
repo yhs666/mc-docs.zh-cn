@@ -1,5 +1,5 @@
 ---
-title: 使用 Node.js 查询 Azure SQL 数据库 | Microsoft Docs
+title: 快速入门：使用 Node.js 查询 Azure SQL 数据库
 description: 如何使用 Node.js 创建连接到 Azure SQL 数据库的程序并使用 T-SQL 语句对其进行查询。
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,24 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
 origin.date: 03/25/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 6219d197fe092dd99675ccf32ca375f2678e141c
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 11/04/2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 506f8a8f3290271e745b19a1eaea4b6c5b4b8fca
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372979"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041195"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入门：使用 Node.js 查询 Azure SQL 数据库
 
-本文演示了如何使用 [Node.js](https://nodejs.org) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
+本快速入门演示了如何使用 [Node.js](https://nodejs.org) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成此示例，请确保具备以下先决条件：
 
-- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+- Azure SQL 数据库。 可以根据下述快速入门之一，在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
   || 单一数据库 | 托管实例 |
   |:--- |:--- |:---|

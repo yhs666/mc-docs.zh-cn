@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 36053b5858ed6ad3cff0c507cd1a294b84539fc2
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 8a78341f10ba596a978c503a6a1e2b6a2e07750d
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500734"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068880"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的高级计划程序功能的最佳做法
 
@@ -88,6 +88,7 @@ spec:
     - 实际上，*node1* 变成了 *node3*，*node2* 变成了 *node1*。
 
 <!--Not Available on - **Clusters that use virtual machine scale sets** (currently in preview in AKS)-->
+
 缩放 AKS 中的节点池时，排斥和容许不会转移，这是设计使然。
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>使用节点选择器和关联控制 pod 计划

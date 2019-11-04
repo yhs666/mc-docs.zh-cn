@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 0bcd869a298c8ebc8a8e05109bdb7a4fc8198f25
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 11/04/2019
+ms.openlocfilehash: e3ff721efb51248a25b933cee5813df3aff227fd
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68331933"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191598"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MariaDB 中配置服务器参数
 
@@ -64,6 +64,41 @@ InnoDB 缓冲池和最大连接数不可配置，因[定价层](concepts-pricing
 |innodb_log_file_size|512MB|
 
 在 [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/) 中，上表中未列出的其他服务器参数将设置为其 MariaDB 现成默认值。
+
+## <a name="working-with-the-time-zone-parameter"></a>使用时区参数
+
+### <a name="populating-the-time-zone-tables"></a>填充时区表
+
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具调用 `az_load_timezone` 存储过程，填充服务器上的时区表。
+
+> [!NOTE]
+> 如果正在运行 MySQL Workbench 中的 `az_load_timezone` 命令，可能需要先使用 `SET SQL_SAFE_UPDATES=0;` 关闭安全更新模式。
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+要查看可用的时区值，请运行以下命令：
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### <a name="setting-the-global-level-time-zone"></a>设置全局级时区
+
+可以从 Azure 门户中的“服务器参数”  页设置全局级时区。 下面将全局时区值设置为“美国/太平洋”。
+
+![设置时区参数](./media/howto-server-parameters/timezone.png)
+
+### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
+
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具运行 `SET time_zone` 命令来设置会话级时区。 以下示例将时区设置为“美国/太平洋”  时区。
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+若要了解[日期和时间函数](https://mariadb.com/kb/en/library/convert_tz/)，请参阅 MariaDB 文档。
 
 <!--
 ## Next steps

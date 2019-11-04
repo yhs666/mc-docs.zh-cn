@@ -12,15 +12,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/22/2019
-ms.date: 10/21/2019
+origin.date: 10/08/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: af91646eb6aac14b6e1b9cd2b9b0569745ffb10b
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: c49a4c98d2d98224ff888522a14adcac875d4abe
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292653"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425955"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Spark 结构化流式处理与 Apache Kafka on HDInsight 配合使用
 
@@ -161,7 +161,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 3. 阅读“条款和条件”，然后选择“我同意上述条款和条件”  
 
-4. 最后，选中“固定到仪表板”  ，并选择“购买”  。 
+4. 选择“购买”。 
 
 > [!NOTE]
 > 创建群集可能需要长达 20 分钟的时间。
@@ -189,14 +189,17 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 3. 选择“新建”>“Spark”，创建一个笔记本。 
 
-4. 加载供 Notebook 使用的包，方法是在 Notebook 单元格中输入以下信息。 使用 **CTRL + ENTER** 运行该命令。
+4. Spark 流式处理具有微型批处理，这意味着数据是成批传入的，而执行程序则对这批数据运行。 如果执行程序的空闲超时少于处理批处理所需的时间，则将不断添加和删除执行程序。 如果执行程序的空闲超时大于批处理持续时间，则不会删除执行程序。 因此，**我们建议你在运行流式处理应用程序时通过将 spark.dynamicAllocation.enabled 设置为 false 来禁用动态分配。**
 
-    ```
+    加载供 Notebook 使用的包，方法是在 Notebook 单元格中输入以下信息。 使用 **CTRL + ENTER** 运行该命令。
+
+    ```configuration
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```

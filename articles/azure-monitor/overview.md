@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d82c2be90527ec63d50e26f2b21be0ea5610f87c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: da875b42f70df910754417ac4c5abf370fc569a8
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329779"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970966"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 概述
 
@@ -57,7 +57,7 @@ Azure Monitor 可从各种源收集数据。 可将应用程序的监视数据�
 
 在创建 Azure 订阅并开始添加虚拟机和 Web 应用等资源后，Azure Monitor 会立即开始收集数据。  [活动日志](platform/activity-logs-overview.md)记录创建或修改资源的时间。 [指标](platform/data-platform.md)告知资源的性能如何，以及该资源消耗的资源。 
 
-通过[启用诊断](platform/diagnostic-logs-overview.md)并[将代理添加](platform/agent-windows.md)到计算资源，将数据收集范围扩展到资源的实际操作。 这会收集资源内部操作的遥测数据，并可让你配置不同的[数据源](platform/agent-data-sources.md)用于从 Windows 和 Linux 来宾操作系统收集日志与指标。 
+通过[启用诊断](platform/resource-logs-overview.md)并[将代理添加](platform/agent-windows.md)到计算资源，将数据收集范围扩展到资源的实际操作。 这会收集资源内部操作的遥测数据，并可让你配置不同的[数据源](platform/agent-data-sources.md)用于从 Windows 和 Linux 来宾操作系统收集日志与指标。 
 
 启用对[应用程序服务应用程序](app/azure-web-apps.md)的监视，使 Application Insights 能够收集有关应用程序的详细信息，包括页面视图、应用程序请求和异常。 通过配置[可用性测试](app/monitor-web-app-availability.md)来模拟用户流量，进一步验证应用程序的可用性。
 

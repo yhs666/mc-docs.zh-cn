@@ -3,22 +3,23 @@ title: Azure Application Insights 遥测数据模型 | Azure Docs
 description: Application Insights 数据模型概述
 services: application-insights
 documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.service: application-insights
+author: mrbullwinkle
+manager: carmonm
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-origin.date: 04/25/2017
-ms.date: 6/4/2019
+origin.date: 10/14/2019
+ms.date: 10/25/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 99712e57205d2f16607aa83b61aa988d1136af37
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b3b9c2b33c1ef99f0667f58b8c037ab51019a9b9
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737290"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970914"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 遥测数据模型
 
@@ -50,7 +51,7 @@ Application Insights 遥测模型定义了将遥测与它所属的操作进行[�
 
 Application Insights 数据模型采用简单基本的结构，不过，它能够非常有效地为应用程序遥测建模。 我们将努力保持该模型的精简结构，以便支持基本方案，并让用户根据高级用途扩展架构。
 
-若要报告数据模型或架构问题以及提供建议，请使用 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) 存储库。
+若要报告数据模型或架构问题以及提供建议，请使用 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) 存储库。
 
 ## <a name="next-steps"></a>后续步骤
 

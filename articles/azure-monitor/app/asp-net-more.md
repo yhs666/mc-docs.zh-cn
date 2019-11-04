@@ -1,24 +1,19 @@
 ---
 title: 充分利用 Azure Application Insights | Azure Docs
 description: 开始使用 Application Insights 后，下面概述了可以浏览的功能。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 02/03/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 93851ab9633d069e54bae0d444d83ba8707f4537
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ac009ce9537eeb22a32f6088061ddac83ad5f753
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737311"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970878"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application Insights 中的更多遥测
 [将 Application Insights 添加到 ASP.NET 代码](../../azure-monitor/app/asp-net.md)后，可执行一些操作来获取更多遥测。 

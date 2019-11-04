@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7dfbcf1ab9d0bd2994aae418ab8ab06611bd1e3b
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f6708b25344f101257f3d575735138f3dd540df7
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330407"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970693"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 数据平台
 
@@ -49,7 +49,7 @@ Azure Monitor 中的指标存储在时序数据库中，该数据库经过优化
 Azure Monitor 中的日志存储在基于 [Azure 数据资源管理器](/data-explorer/)的 Log Analytics 工作区中。数据资源管理器提供强大的分析引擎和[丰富查询语言](https://docs.microsoft.com/azure/kusto/query/)。 日志通常提供足够的信息来给出所要识别的问题的完整上下文，在识别问题的根本原因时很有价值。
 
 > [!NOTE]
-> 必须将 Azure Monitor 日志与 Azure 中的日志数据源区分开来。 例如，Azure 中的订阅级事件将写入到可以通过 Azure Monitor 菜单查看的[活动日志](activity-logs-overview.md)。 大多数资源会将操作信息写入可转发到不同位置的[诊断日志](diagnostic-logs-overview.md)。 Azure Monitor 日志是一个日志数据平台，它可以收集活动日志和诊断日志以及其他监视数据，以针对整个资源集提供深入分析。
+> 必须将 Azure Monitor 日志与 Azure 中的日志数据源区分开来。 例如，Azure 中的订阅级事件将写入到可以通过 Azure Monitor 菜单查看的[活动日志](activity-logs-overview.md)。 大多数资源会将操作信息写入可转发到不同位置的[诊断日志](resource-logs-overview.md)。 Azure Monitor 日志是一个日志数据平台，它可以收集活动日志和诊断日志以及其他监视数据，以针对整个资源集提供深入分析。
 
 
  可以在 Azure 门户中通过 Log Analytics 以交互方式使用[日志查询](../log-query/log-query-overview.md)，或者将结果添加到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)，以结合其他数据生成可视化效果。 还可以创建[日志警报](alerts-log.md)，以根据计划查询的结果触发警报。

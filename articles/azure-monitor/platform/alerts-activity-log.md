@@ -1,18 +1,19 @@
 ---
 title: 在 Azure Monitor 中创建、查看和管理活动日志警报
 description: 使用 Azure 门户、Azure 资源管理器模板和 Azure PowerShell 创建活动日志警报。
-author: lingliw
-services: azure-monitor
+ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/25/2019
 ms.date: 07/25/2019
-ms.author: vinagara
-ms.openlocfilehash: 56eafa501f0301ae556c2f18eb1a29eab0b8a3f6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.author: v-lingwu
+ms.openlocfilehash: fb114c05179a3bd76988bf4f7a7442cc4bbd611e
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329868"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970758"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 

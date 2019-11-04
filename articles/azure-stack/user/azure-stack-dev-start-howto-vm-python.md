@@ -10,12 +10,12 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 781a4ab7410c45b084284cebac36cec9c3a3d868
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 7f8054bf3a0d3442fce9ccd39203abe360cc9fbf
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513308"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142136"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>将 Python Web 应用部署到 Azure Stack 中的 VM
 
@@ -58,7 +58,7 @@ ms.locfileid: "68513308"
        sudo apt-get -y install nginx git
     ```
 
-4. [安装 Git](https://git-scm.com)（一种广泛分布的版本控制和源代码管理 (SCM) 系统）。 仍在 SSH 会话中连接到 VM 时，输入以下命令：
+4. [安装 Git](https://git-scm.com)，一种广泛分布的版本控制和源代码管理 (SCM) 系统。 仍在 SSH 会话中连接到 VM 时，输入以下命令：
 
     ```bash  
        sudo apt-get -y install git
@@ -89,7 +89,7 @@ ms.locfileid: "68513308"
 3. 转到新服务器。 应会看到你的 Web 应用程序正在运行。
 
     ```HTTP  
-       http://yourhostname.cloudapp.net:5000
+       http://yourhostname.chinacloudapp.cn:5000
     ```
 
 ## <a name="update-your-server"></a>更新服务器

@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: v-junlch
   manager: daveba
-  ms.date: 10/25/2019
-  ms.openlocfilehash: c99cd262799827b3b777edc33141ded1438cef73
-  ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+  ms.date: 10/28/2019
+  ms.openlocfilehash: 09db2b54586455c77d26f1f52af2718697ecfa05
+  ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72912740"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73068922"
 highlightedContent:
   items:
   - title: 什么是 Azure AD？
@@ -137,9 +137,6 @@ conceptualContent:
 additionalContent:
   sections:
   - items:
-    - title: Microsoft 365
-      summary: 探索 Microsoft 365，一个包括 Azure AD 的完整解决方案。
-      url: https://docs.microsoft.com/microsoft-365/
     - title: Azure AD PowerShell
       summary: 了解如何安装和使用 Azure AD PowerShell 模块。
       url: https://docs.microsoft.com/powershell/module/azuread/

@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/11/2019
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 28bb91742766837b3a99f58f7da994ebf4696a5f
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: c3def35dff02e3c83ec556f407ff68c5b6d4d3f7
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673566"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068929"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理对 Azure 资源的访问权限
 
@@ -421,7 +421,7 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-如果收到错误消息：“提供的信息未映射到角色分配”，请确保还指定了 `-Scope` 或 `-ResourceGroupName` 参数。 有关详细信息，请参阅[对 Azure 资源的 RBAC 进行故障排除](troubleshooting.md#role-assignments-without-a-security-principal)。
+如果收到错误消息：“提供的信息未映射到角色分配”，请确保还指定了 `-Scope` 或 `-ResourceGroupName` 参数。 有关详细信息，请参阅[对 Azure 资源的 RBAC 进行故障排除](troubleshooting.md#role-assignments-with-unknown-security-principal)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -429,4 +429,4 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 - [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](tutorial-custom-role-powershell.md)
 - [使用 Azure PowerShell 管理资源](../azure-resource-manager/manage-resources-powershell.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

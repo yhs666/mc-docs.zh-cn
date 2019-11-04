@@ -1,23 +1,19 @@
 ---
 title: Azure Monitor - Azure Application Insights 替代默认 SDK 终结点 | Microsoft Docs
 description: 修改 Azure 政府等区域的默认 Azure Application Insights SDK 终结点。
-services: application-insights
-author: lingliw
-manager: digimobile
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/25/2019
 ms.date: 07/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 262159e1fe621797439cbce8b1aa73a77b057455
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 3a9d00aefe81ca92cda30560b67204ff9fb4e9c1
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737301"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970916"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>替代默认终结点的 Application Insights
 

@@ -1,25 +1,19 @@
 ---
 title: Azure Monitor 中的代理运行状况解决方案 | Azure Docs
 description: 本文旨在帮助你了解如何使用此解决方案来监视代理的运行状况，这些代理直接向 Log Analytics 或 System Center Operations Manager 报告。
-services: operations-management-suite
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-origin.date: 03/19/2017
-ms.date: 04/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
+origin.date: 07/02/2019
+ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a4c6a3c657f69afcd4b9edb7337dac7c9786580c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 22bc2210ada00354b4e60bbcb357eff4eef4b20c
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737327"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970900"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor 中的代理运行状况解决方案
 Azure 中的代理运行状况解决方案有助于你了解，在所有直接向 Azure Monitor 中的 Log Analytics 工作区报告或向连接到 Azure Monitor 的 System Center Operations Manager 管理组报告的代理中，哪些不响应且提交的是操作数据。  也可跟踪所部署代理的数目及其地理分布情况，并通过执行其他查询来不断了解在 Azure 或其他云环境中或本地部署的代理的分布情况。    

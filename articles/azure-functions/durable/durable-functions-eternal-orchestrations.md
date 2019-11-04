@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 572427fae7e343ff41bac24132c59995febdd942
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 1368243cd558280ce215c9886f1b4d9ae32ec82f
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673594"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034430"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions 中的永久业务流程 (Azure Functions)
 
@@ -88,7 +88,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 {
     string instanceId = "StaticId";
     // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
@@ -104,4 +104,4 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 > [!div class="nextstepaction"]
 > [了解如何实现单一实例业务流程](durable-functions-singletons.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

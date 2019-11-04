@@ -1,25 +1,19 @@
 ---
 title: 如何对用于容器的 Azure Monitor 进行故障排除 | Azure Docs
 description: 本文介绍如何排查和解决用于容器的 Azure Monitor 存在的问题。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: lingliw
+ms.author: v-lingwu
 origin.date: 03/27/2018
 ms.date: 04/12/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 51c326315108f1ea6a064b0c5024092555ecb2ea
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: abd728b50e0bdfead750ae44191854dd39d8758c
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737400"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970843"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>对用于容器的 Azure Monitor 进行故障排除
 

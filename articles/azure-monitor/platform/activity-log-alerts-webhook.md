@@ -1,21 +1,19 @@
 ---
 title: 了解活动日志警报中使用的 Webhook 架构
 description: 了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。
-author: lingliw
-manager: digimobile
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: alerts
 ms.topic: conceptual
+author: lingliw
+ms.author: v-lingwu
 origin.date: 03/31/2017
 ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.subservice: alerts
-ms.openlocfilehash: b96867c099e7603012a62f34489d0d67aad9fed6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: bd54252f7e52e62c77ab460c98f8ca35258523c4
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736787"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970963"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -61,7 +59,9 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
     }
 }
 ```
+
 ### <a name="administrative"></a>管理
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -219,6 +219,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 有关服务运行状况通知活动日志警报的特定架构详细信息，请参阅[服务运行状况通知](/service-health/service-notifications)。 此外，请了解如何[使用现有的问题管理解决方案配置服务运行状况 Webhook 通知](../../service-health/service-health-alert-webhook-guide.md)。
 
 ### <a name="resourcehealth"></a>ResourceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",

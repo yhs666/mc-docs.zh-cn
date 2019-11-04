@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 06/20/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0e877bea78133a9d6b74bb164e5d73b9c261430a
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 9048afcf5410f8fc7259effbbaaec743ca85db2a
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500712"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068890"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>快速入门：使用 Draft 在 Azure Kubernetes 服务 (AKS) 上进行开发
 
@@ -35,8 +35,10 @@ Draft 是一种开源工具，有助于在 Kubernetes 群集中打包和运行�
 
 ```azurecli
 az group create --name MyResourceGroup --location chinaeast2
-az aks create -g MyResourceGroup -n MyAKS --location chinaeast2 --node-vm-size Standard_DS2_v2 --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location chinaeast2 --node-vm-size Standard_DS2_v2 --node-count 1 --generate-ssh-keys --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 ## <a name="create-an-azure-container-registry"></a>创建 Azure 容器注册表
 若要使用 Draft 在 AKS 群集中运行应用程序，需要使用 Azure 容器注册表来存储容器映像。 以下示例使用 [az acr create][az-acr-create] 在位于“基本”SKU 的 *MyResourceGroup* 资源组中创建名为 *MyDraftACR* 的 ACR。  你应提供自己的唯一注册表名称。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 “基本”SKU 是用于开发目的的成本优化入口点，可在存储与吞吐量之间实现平衡。 

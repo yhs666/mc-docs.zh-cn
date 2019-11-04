@@ -14,12 +14,12 @@ origin.date: 08/31/2019
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 67e366b42ccf6b4a00c2885ec99090da6b6bb345
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 534bc0bc9fa6340bdba773e62903620a5c7ae955
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156346"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041122"
 ---
 # <a name="locking-down-an-app-service-environment"></a>锁定应用服务环境
 
@@ -222,129 +222,6 @@ Azure 防火墙可将日志发送到 Azure 存储、事件中心或 Azure Monito
 | \*.identity.azure.cn:443 |
 
 <!-- Linux is not available in mooncake -->
-
-## <a name="us-gov-dependencies"></a>US Gov 依赖项
-
-对于 US Gov，仍需为存储、SQL 和事件中心设置服务终结点。  还可以根据本文档前面的说明使用 Azure 防火墙。 如果需要使用自己的出口防火墙设备，请使用下面列出的终结点。
-
-| 终结点 |
-|----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
-|admin.core.usgovcloudapi.net:80 |
-|azperfmerges.blob.core.chinacloudapi.cn:80 |
-|azperfmerges.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads1.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads10.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads2.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads3.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads4.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads5.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads6.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads7.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads8.blob.core.chinacloudapi.cn:80 |
-|azprofileruploads9.blob.core.chinacloudapi.cn:80 |
-|azureprofilerfrontdoor.cloudapp.cn:80 |
-|azurewatsonanalysis.usgovcloudapp.cn:80 |
-|cacerts.digicert.com:80 |
-|client.wns.windows.com:80 |
-|crl.microsoft.com:80 |
-|crl.verisign.com:80 |
-|crl3.digicert.com:80 |
-|csc3-2009-2.crl.verisign.com:80 |
-|ctldl.windowsupdate.com:80 |
-|definitionupdates.microsoft.com:80 |
-|download.windowsupdate.com:80 |
-|fairfax.warmpath.usgovcloudapi.net:80 |
-|flighting.cp.wd.microsoft.com:80 |
-|gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:80 |
-|gcwsprodgmdm2billing.table.core.usgovcloudapi.net:80 |
-|global.metrics.nsatc.net:80 |
-|go.microsoft.com:80 |
-|gr-gcws-prod-bd3.usgovcloudapp.cn:80 |
-|gr-gcws-prod-bn1.usgovcloudapp.cn:80 |
-|gr-gcws-prod-dd3.usgovcloudapp.cn:80 |
-|gr-gcws-prod-dm2.usgovcloudapp.cn:80 |
-|gr-gcws-prod-phx20.usgovcloudapp.cn:80 |
-|gr-gcws-prod-sn5.usgovcloudapp.cn:80 |
-|login.live.com:80 |
-|login.microsoftonline.us:80 |
-|management.core.usgovcloudapi.net:80 |
-|management.usgovcloudapi.net:80 |
-|maupdateaccountff.blob.core.usgovcloudapi.net:80 |
-|mscrl.microsoft.com
-|ocsp.digicert.0 |
-|ocsp.msocsp.co|
-|ocsp.verisign.0 |
-|rteventse.trafficmanager.cn:80 |
-|settings-n.data.microsoft.com:80 |
-|shavamafestcdnprod1.azureedge.net:80 |
-|shavanifestcdnprod1.azureedge.net:80 |
-|v10ortex-win.data.microsoft.com:80 |
-|wp.microsoft.com:80 |
-|dcpalt.microsoft.com:80 |
-|www.microsoft.com:80 |
-|www.msftconnecttest.com:80 |
-|www.thawte.com:80 |
-|\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
-|\*.update.microsoft.com:443 |
-|admin.core.usgovcloudapi.net:443 |
-|azperfmerges.blob.core.chinacloudapi.cn:443 |
-|azperfmerges.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads1.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads10.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads2.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads3.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads4.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads5.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads6.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads7.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads8.blob.core.chinacloudapi.cn:443 |
-|azprofileruploads9.blob.core.chinacloudapi.cn:443 |
-|azureprofilerfrontdoor.cloudapp.cn:443 |
-|azurewatsonanalysis.usgovcloudapp.cn:443 |
-|cacerts.digicert.com:443 |
-|client.wns.windows.com:443 |
-|crl.microsoft.com:443 |
-|crl.verisign.com:443 |
-|crl3.digicert.com:443 |
-|csc3-2009-2.crl.verisign.com:443 |
-|ctldl.windowsupdate.com:443 |
-|definitionupdates.microsoft.com:443 |
-|download.windowsupdate.com:443 |
-|fairfax.warmpath.usgovcloudapi.net:443 |
-|flighting.cp.wd.microsoft.com:443 |
-|gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
-|gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
-|global.metrics.nsatc.net:443 |
-|go.microsoft.com:443 |
-|gr-gcws-prod-bd3.usgovcloudapp.cn:443 |
-|gr-gcws-prod-bn1.usgovcloudapp.cn:443 |
-|gr-gcws-prod-dd3.usgovcloudapp.cn:443 |
-|gr-gcws-prod-dm2.usgovcloudapp.cn:443 |
-|gr-gcws-prod-phx20.usgovcloudapp.cn:443 |
-|gr-gcws-prod-sn5.usgovcloudapp.cn:443 |
-|login.live.com:443 |
-|login.microsoftonline.us:443 |
-|management.core.usgovcloudapi.net:443 |
-|management.usgovcloudapi.net:443 |
-|maupdateaccountff.blob.core.usgovcloudapi.net:443 |
-|mscrl.microsoft.com:443 |
-|ocsp.digicert.com:443 |
-|ocsp.msocsp.com:443 |
-|ocsp.verisign.com:443 |
-|rteventservice.trafficmanager.cn:443 |
-|settings-win.data.microsoft.com:443 |
-|shavamanifestcdnprod1.azureedge.net:443 |
-|shavamanifestcdnprod1.azureedge.net:443 |
-|v10.vortex-win.data.microsoft.com:443 |
-|wdcp.microsoft.com:443 |
-|wdcpalt.microsoft.com:443 |
-|www.microsoft.com:443 |
-|www.msftconnecttest.com:443 |
-|www.thawte.com:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

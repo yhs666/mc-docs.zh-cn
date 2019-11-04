@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/01/2019
 ms.date: 09/23/2019
 ms.author: v-jay
-ms.openlocfilehash: bf8bcf2369c55d020a2786fe4be0302e6733a7d7
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 06d5c2bbf0648491b15161abc8603e77680cbcbb
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125650"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416257"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI 示例：创建转换
 
@@ -31,6 +31,11 @@ ms.locfileid: "71125650"
 [创建媒体服务帐户](create-account-cli-how-to.md)。
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
+
+> [!NOTE]
+> 只能为 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 指定自定义标准编码器预设 JSON 文件的路径，请参阅[使用自定义转换进行编码](custom-preset-cli-howto.md)示例。
+>
+> 使用 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 时，不能传递文件名。
 
 ## <a name="example-script"></a>示例脚本
 
@@ -72,4 +77,4 @@ read continue
 
 ## <a name="next-steps"></a>后续步骤
 
-[媒体服务概述](media-services-overview.md)
+[az ams transform (CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)

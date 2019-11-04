@@ -13,12 +13,12 @@ origin.date: 09/18/2018
 ms.date: 6/4/2019
 ms.reviewer: nimolnar
 ms.author: v-lingwu
-ms.openlocfilehash: 22ba570be183f0b71a158ddda4ef9140f8512e0e
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e697c552d49e327b41040e27c47f768494ffb081
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737050"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970902"
 ---
 # <a name="local-forwarder-preview"></a>本地转发器（预览版）
 
@@ -155,7 +155,7 @@ systemctl start localforwarder
 ### <a name="self-hosting"></a>自托管
 本地转发器还作为 .NET Standard NuGet 包分发，可将它托管在你自己的 .NET 应用程序中。
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

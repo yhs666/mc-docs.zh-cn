@@ -6,19 +6,18 @@ author: lingliw
 manager: digimobile
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/21/2019
 ms.date: 05/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 91f78650b37e934ab62c444eaa1290cde14ce89c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 586e0adb070792fd5dfe159cfd1d886e1e842110
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736929"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970946"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Azure Monitor 中的监视数据位置
 

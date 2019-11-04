@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 05/07/2019
-ms.date: 09/07/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b7a400a8d2db2d9e5b6117027c4fbff730de14e6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1807820856c1197165527e4a1e9b4bb0b799a2db
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329831"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416378"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 GeographyV2 预生成实体
 预构建的 geographyV2 可以检测地点。 由于此实体已经过训练，因此不需要将包含 GeographyV2 的陈述示例添加到应用程序意向中。 GeographyV2 实体支持英语[区域性](luis-reference-prebuilt-entities.md)。
@@ -36,7 +36,7 @@ ms.locfileid: "71329831"
 
 ## <a name="resolution-for-geographyv2-entity"></a>GeographyV2 实体的解析
 
-### <a name="api-version-2x"></a>API 版本 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 以下示例显示了 builtin.geographyV2 实体的解析  。
 
@@ -94,7 +94,7 @@ ms.locfileid: "71329831"
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
 
 以下 JSON 的 `verbose` 参数设置为 `false`：
 
@@ -191,6 +191,8 @@ ms.locfileid: "71329831"
     }
 }
 ```
+
+* * * 
 
 ## <a name="next-steps"></a>后续步骤
 

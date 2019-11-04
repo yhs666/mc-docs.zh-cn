@@ -3,19 +3,19 @@ title: 监视和管理证书创建
 description: 通过方案演示如何使用一系列选项在 Key Vault 中创建证书、监视证书创建过程并与之交互。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-origin.date: 05/09/2018
-ms.date: 05/27/2019
-ms.author: v-biyu
-ms.openlocfilehash: 1b3ddf652c84bd17e835cca0f9a51a87b946b508
-ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
+origin.date: 01/07/2019
+ms.date: 10/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: 302daeaa4ac8f5f0bfc59b872646bc76eacc92f8
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65628783"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426024"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>监视和管理证书创建
 适用于：Azure
@@ -64,9 +64,9 @@ ms.locfileid: "65628783"
 
 ```
 StatusCode: 202, ReasonPhrase: 'Accepted'
-Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"  
+Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"
 {
-  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",  
+  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",
   "issuer": {
     "name": "mydigicert"
   },
@@ -83,14 +83,14 @@ Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-
 
 |方法|请求 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|  
+|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>请求
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OR
 
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
 > 如果在查询中指定 *request_id*，则它充当筛选器。 如果 *request_id* 在查询中和在挂起对象中不同，则会返回 Http 状态代码 404。
@@ -100,7 +100,7 @@ OR
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
 {
-  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",  
+  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",
   "issuer": {
     "name": "{issuer-name}"
   },
@@ -119,20 +119,20 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |方法|请求 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|  
+|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|
 
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OR
 
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>响应
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
 {
-  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",  
+  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",
   "issuer": {
     "name": "{issuer-name}"
   },
@@ -140,7 +140,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
   "cancellation_requested": false,
   "status": "completed",
   "request_id": "a76827a18b63421c917da80f28e9913d",
-   "target": “https://mykeyvault.vault.azure.cn/certificates/mycert1?api-version={api-version}"  
+   "target": “https://mykeyvault.vault.azure.cn/certificates/mycert1?api-version={api-version}"
 }
 
 ```
@@ -151,20 +151,20 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |方法|请求 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|  
+|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|
 
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OR
 
- GET  `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`  
+ GET  `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>响应
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
 {
-  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",  
+  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",
   "issuer": {
     "name": "{issuer-name}"
   },
@@ -189,14 +189,14 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |方法|请求 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|  
+|GET|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>请求
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OR
 
- GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`  
+ GET `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>响应
 
@@ -227,7 +227,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
 |方法|请求 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/create?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>请求
 
@@ -264,7 +264,7 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 |方法|请求 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending/merge?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>请求
 
@@ -293,14 +293,14 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 |方法|请求 URI|
 |------------|-----------------|
-|PATCH|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|  
+|PATCH|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>请求
- PATCH `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ PATCH `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OR
 
- PATCH `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`  
+ PATCH `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`
 
 ```json
 {
@@ -314,7 +314,7 @@ OR
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
 {
-  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",  
+  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",
   "issuer": {
     "name": "{issuer-name}"
   },
@@ -333,14 +333,14 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |方法|请求 URI|
 |------------|-----------------|
-|删除|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|  
+|删除|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>请求
- DELETE `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ DELETE `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 OR
 
- DELETE `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`  
+ DELETE `“https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>响应
 
@@ -363,7 +363,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |方法|请求 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/create?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>请求
 
@@ -385,9 +385,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 StatusCode: 202, ReasonPhrase: 'Accepted'
-Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"  
+Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"
 {
-  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",  
+  "id": “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending",
   "issuer": {
     "name": "Unknown"
   },
@@ -403,7 +403,7 @@ Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-
 
 |方法|请求 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending/merge?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>请求
 
@@ -416,17 +416,17 @@ Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-
 
 |元素名称|必须|类型|版本|说明|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|是|数组|\<引入版本>|Base 64 字符串数组形式的 X509 证书链。|
+|x5c|是|array|\<引入版本>|Base 64 字符串数组形式的 X509 证书链。|
 
 ### <a name="response"></a>响应
 
 ```
 StatusCode: 201, ReasonPhrase: 'Created'
-Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1?api-version={api-version}"  
+Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1?api-version={api-version}"
 {  
-"id": "https mykeyvault.vault.azure.cn/certificates/mycert1/f366e1a9dd774288ad84a45a5f620352",  
-    "kid": "https:// mykeyvault.vault.azure.cn/keys/mycert1/f366e1a9dd774288ad84a45a5f620352",  
-    "sid": " mykeyvault.vault.azure.cn/secrets/mycert1/f366e1a9dd774288ad84a45a5f620352",  
+"id": "https mykeyvault.vault.azure.cn/certificates/mycert1/f366e1a9dd774288ad84a45a5f620352",
+    "kid": "https:// mykeyvault.vault.azure.cn/keys/mycert1/f366e1a9dd774288ad84a45a5f620352",
+    "sid": " mykeyvault.vault.azure.cn/secrets/mycert1/f366e1a9dd774288ad84a45a5f620352",
     "cer": "……de34534……",
     "x5t": "n14q2wbvyXr71Pcb58NivuiwJKk",
     "attributes": {
@@ -437,10 +437,10 @@ Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1?api-version=
         "updated": 1435699919
     },
     "pending": {
-        "id": "https:// mykeyvault.vault.azure.cn/certificates/mycert1/pending"  
+        "id": "https:// mykeyvault.vault.azure.cn/certificates/mycert1/pending"
     },
     "policy": {
-        "id": "https:// mykeyvault.vault.azure.cn/certificates/mycert1/policy",  
+        "id": "https:// mykeyvault.vault.azure.cn/certificates/mycert1/policy",
         "key_props": {
             "exportable": false,
             "kty": "RSA",

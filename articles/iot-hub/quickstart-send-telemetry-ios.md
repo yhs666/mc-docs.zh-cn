@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 04/20/2018
-ms.date: 12/03/2018
+origin.date: 04/03/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 076757fc4717d9c2cd9e84d70cb89e92b334adc9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c1034591d0b354f38f5e279d7d835dfececa1029
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675112"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426085"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入门：将遥测数据从设备发送到 IoT 中心 (iOS)
 
@@ -33,8 +33,13 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 ## <a name="prerequisites"></a>先决条件
 
 - 从 [Azure 示例](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)下载代码示例 
-- 最新版本的 [XCode](https://developer.apple.com/xcode/)，运行最新版本的 iOS SDK。 本快速入门已使用 XCode 9.3 和 iOS 11.3 测试过。
+- 最新版本的 [XCode](https://developer.apple.com/xcode/)，运行最新版本的 iOS SDK。 本快速入门已使用 XCode 10.2 和 iOS 12.2 测试过。
 - 最新版 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)。
+- 运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IOT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
+
+   ```azurecli
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -45,26 +50,26 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本快速入门中，请使用 Azure CLI 来注册模拟设备。
 
-1. 运行以下命令，以添加 IoT 中心 CLI 扩展并创建设备标识。 
+1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **myiOSdevice**：这是为注册的设备提供的名称。 请按显示的方法使用 myiOSdevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **myiOSdevice**：这是所注册的设备的名称。 建议使用 **myiOSdevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
-   az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
+   az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
 
-1. 运行以下命令，获取刚注册设备的设备连接字符串：
+1. 运行以下命令，获取刚注册设备的设备连接字符串： 
 
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
    ```azurecli
-   az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id myiOSdevice --output table
+   az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
    ```
 
    记下如下所示的设备连接字符串：
 
-   `HostName={YourIoTHubName}.azure-devices.cn;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.cn;DeviceId=myiOSdevice;SharedAccessKey={YourSharedAccessKey}`
 
     稍后会在快速入门中用到此值。
 
@@ -98,15 +103,15 @@ pod install
    open "MQTT Client Sample.xcworkspace"
    ```
 
-2. 展开“MQTT 客户端示例”项目，然后展开同一名称的文件夹。  
+2. 展开“MQTT 客户端示例”项目，然后展开同一名称的文件夹。   
 3. 打开 **ViewController.swift**，以便在 XCode 中进行编辑。 
 4. 搜索 **connectionString** 变量，并使用以前记下的设备连接字符串更新其值。
 5. 保存所做更改。 
-6. 使用“生成并运行”按钮或“Command + R”组合键在设备模拟器中运行项目。 
+6. 使用“生成并运行”按钮或“Command + R”组合键在设备模拟器中运行项目。   
 
    ![运行项目](media/quickstart-send-telemetry-ios/run-sample.png)
 
-7. 当模拟器打开后，在示例应用中选择“启动”。
+7. 当模拟器打开后，在示例应用中选择“启动”。 
 
 以下屏幕截图显示了在应用程序将模拟遥测数据发送到 IoT 中心后的一些示例输出：
 
@@ -119,7 +124,7 @@ pod install
 运行以下命令，并将 `YourIoTHubName` 替换为 IoT 中心的名称：
 
 ```azurecli
-az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
 
 以下屏幕截图显示了扩展接收到模拟设备发送到中心的遥测数据时的输出：
@@ -134,7 +139,7 @@ az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，你设置了 IoT 中心、注册了设备、将模拟遥测数据从 iOS 设备发送到了中心，并从中心读取了遥测数据。 
+在本快速入门中，你设置了 IoT 中心、注册了设备、将模拟遥测数据从 iOS 设备发送到了中心，并从中心读取了遥测数据。 
 
 若要了解如何从后端应用程序控制模拟设备，请继续阅读下一快速入门教程。
 

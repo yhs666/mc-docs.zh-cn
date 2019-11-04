@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0df8f16e5fb780ebdde0610a4e3c034f388d3720
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 3ac09165f8a18c7bdfd7344b7b8f9c32086d7b56
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993351"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068857"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中运行应用程序
 
@@ -103,20 +103,20 @@ kubectl get service azure-vote-front --watch
 最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*：
 
 ```
-azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   5s
+azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 当 *EXTERNAL-IP* 地址从 *pending* 更改为实际公共 IP 地址时，请使用 `CTRL-C` 停止 `kubectl` 监视进程。 以下示例输出显示向服务分配了有效的公共 IP 地址：
 
 ```
-azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   67s
+azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 若要查看应用程序的实际效果，请打开 Web 浏览器，以转到服务的外部 IP 地址：
 
 ![Azure 上的 Kubernetes 群集映像](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-如果应用程序未加载，可能是因为映像注册表存在授权问题。 若要查看容器的状态，请使用 `kubectl get pods` 命令。 如果无法拉取容器映像，请参阅[允许使用 Kubernetes 机密访问容器注册表](/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)。
+如果应用程序未加载，可能是因为映像注册表存在授权问题。 若要查看容器的状态，请使用 `kubectl get pods` 命令。 如果无法拉取容器映像，请参阅[使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证](cluster-container-registry-integration.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

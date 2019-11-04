@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 05/29/2019
-ms.date: 08/12/2019
-ms.openlocfilehash: 1a168bae337d732e23cdf55031d0cbb22cf12306
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+origin.date: 09/25/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 3aae2a81a6321dd153d82bb092b189bd199bad99
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952153"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416224"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -124,7 +124,7 @@ ms.locfileid: "68952153"
 
 3. 选择“+ 新建迁移项目”  。
 
-4. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“MongoDB”，在“目标服务器类型”文本框中选择“CosmosDB (MongoDB API)”，然后在“选择活动类型”中选择“联机数据迁移”。       
+4. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“MongoDB”，在“目标服务器类型”文本框中选择“CosmosDB (MongoDB API)”，然后在“选择活动类型”中选择“联机数据迁移 [预览]”。       
 
     ![创建数据库迁移服务项目](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
@@ -133,6 +133,9 @@ ms.locfileid: "68952153"
 ## <a name="specify-source-details"></a>指定源详细信息
 
 1. 在“源详细信息”  屏幕上，指定源 MongoDB 服务器的连接详细信息。
+
+   > [!IMPORTANT]
+   > Azure 数据库迁移服务不支持将 Azure Cosmos DB 作为源。
 
     可通过三种模式连接到源：
    * **标准模式**：接受完全限定的域名或 IP 地址、端口号和连接凭据。

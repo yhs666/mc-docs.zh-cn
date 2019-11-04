@@ -10,12 +10,12 @@ origin.date: 09/01/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 39f78ab3704c7328fe536c7cff34dd368f50abfb
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 2ee45fb68a8ebd90115190b35684292061184011
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970291"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191590"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量操作
 
@@ -49,6 +49,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 “BulkImportSample”应用程序生成随机文档并将其批量导入 Azure Cosmos 帐户。 “BulkUpdateSample”应用程序通过指定要对特定文档字段执行的修补操作，来批量更新导入的文档。 在后续部分，我们将查看其中每个示例应用中的代码。
 
+<a name="bulk-import-data-to-an-azure-cosmos-account"></a>
 ## <a name="bulk-import-data-to-an-azure-cosmos-account"></a>将数据批量导入到 Azure Cosmos 帐户
 
 1. 导航到“BulkImportSample”文件夹并打开“BulkImportSample.sln”文件。  

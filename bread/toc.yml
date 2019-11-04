@@ -1,475 +1,743 @@
-items:
-- name: 中国区 Azure
+- name: Azure
   tocHref: /
   topicHref: /index
   items:
-  - name: Active Directory
-    tocHref: /active-directory/
-    topicHref: /active-directory/
-    items:
-    - name: 连接
-      tocHref: /active-directory/connect/
-      topicHref: /active-directory/connect/
-    - name: Connect Health
-      tocHref: /active-directory/connect-health/
-      topicHref: /active-directory/connect-health/
-    - name: 开发
-      tocHref: /active-directory/develop/
-      topicHref: /active-directory/develop/
-    - name: Privileged Identity Management
-      tocHref: /active-directory/privileged-identity-management/
-      topicHref: /active-directory/privileged-identity-management/
-    - name: 托管服务标识
-      tocHref: /active-directory/managed-service-identity/
-      topicHref: /active-directory/managed-service-identity/
-  - name: Active Directory B2C
-    tocHref: /active-directory-b2c/
-    topicHref: /active-directory-b2c/
-  - name: Active Directory 域服务
-    tocHref: /active-directory-domain-services/
-    topicHref: /active-directory-domain-services/
-  - name: Analysis Services
-    tocHref: /analysis-services/
-    topicHref: /analysis-services/
-  - name: API 管理
-    tocHref: /api-management/
-    topicHref: /api-management/
-    items:
-    - name: 策略
-      tocHref: /api-management/policies/
-      topicHref: /api-management/policy-samples/
-    - name: Azure PowerShell
-      tocHref: /api-management/scripts/
-      topicHref: /api-management/powershell-samples/
-  - name: 应用服务
-    tocHref: /app-service/
-    topicHref: /app-service/
-    items:
-    - name: Linux 上的应用服务
-      tocHref: /app-service/containers/
-      topicHref: /app-service/containers/
-    - name: 应用服务环境
-      tocHref: /app-service/environment/
-      topicHref: /app-service/environment/
-    - name: Web 应用
+    - name: Active Directory
+      tocHref: /active-directory/
+      topicHref: /active-directory/
+      items:
+        - name: 混合标识
+          tocHref: /active-directory/hybrid/
+          topicHref: /active-directory/hybrid/
+        - name: 基本
+          tocHref: /active-directory/fundamentals/
+          topicHref: /active-directory/fundamentals/
+        - name: 标识保护
+          tocHref: /active-directory/identity-protection/
+          topicHref: /active-directory/identity-protection/
+        - name: 设备
+          tocHref: /active-directory/devices/
+          topicHref: /active-directory/devices/
+        - name: 条件性访问
+          tocHref: /active-directory/conditional-access/
+          topicHref: /active-directory/conditional-access/
+        - name: 身份验证
+          tocHref: /active-directory/authentication/
+          topicHref: /active-directory/authentication/
+        - name: 开发
+          tocHref: /active-directory/develop/
+          topicHref: /active-directory/develop/
+        - name: Privileged Identity Management
+          tocHref: /active-directory/privileged-identity-management/
+          topicHref: /active-directory/privileged-identity-management/
+        - name: Azure 资源的托管标识
+          tocHref: /active-directory/managed-identities-azure-resources/
+          topicHref: /active-directory/managed-identities-azure-resources/
+        - name: 用户帮助
+          tocHref: /active-directory/user-help/
+          topicHref: /active-directory/user-help/
+        - name: B2B
+          tocHref: /active-directory/b2b/
+          topicHref: /active-directory/b2b/
+        - name: B2C
+          tocHref: /active-directory-b2c/
+          topicHref: /active-directory-b2c/
+        - name: 域服务
+          tocHref: /active-directory-domain-services/
+          topicHref: /active-directory-domain-services/
+        - name: 用户、组和角色
+          tocHref: /active-directory/users-groups-roles/
+          topicHref: /active-directory/users-groups-roles/
+        - name: 标识监管
+          tocHref: /active-directory/governance/
+          topicHref: /active-directory/governance/
+        - name: 应用程序管理
+          tocHref: /active-directory/manage-apps/
+          topicHref: /active-directory/manage-apps/
+          items:
+            - name: SaaS 应用程序教程
+              tocHref: /active-directory/saas-apps/
+              topicHref: /active-directory/saas-apps/tutorial-list
+        - name: 报表和监视
+          tocHref: /active-directory/reports-monitoring/
+          topicHref: /active-directory/reports-monitoring/
+    - name: Analysis Services
+      tocHref: /analysis-services/
+      topicHref: /analysis-services/
+    - name: API 管理
+      tocHref: /api-management/
+      topicHref: /api-management/
+      items:
+        - name: 策略
+          tocHref: /api-management/policies/
+          topicHref: /api-management/policy-samples/
+        - name: Azure PowerShell
+          tocHref: /api-management/scripts/
+          topicHref: /api-management/powershell-samples/
+    - name: Avere vFXT for Azure
+      tocHref: /avere-vfxt/
+      topicHref: /avere-vfxt/
+    - name: Azure 应用配置
+      tocHref: /azure-app-configuration/
+      topicHref: /azure-app-configuration/
+    - name: 应用服务
       tocHref: /app-service/
       topicHref: /app-service/
-    - name: Mobile Apps
-      tocHref: /app-service-mobile/
-      topicHref: /app-service-mobile/
-  - name: 顾问
-    tocHref: /advisor/
-    topicHref: /advisor/
-  - name: 应用程序网关
-    tocHref: /application-gateway/
-    topicHref: /application-gateway/
-  - name: Application Insights
-    tocHref: /application-insights/
-    topicHref: /application-insights/
-  - name: 自动化
-    tocHref: /automation/
-    topicHref: /automation/
-  - name: Azure Databricks
-    tocHref: /azure-databricks/
-    topicHref: /azure-databricks/
-  - name: 容器注册表
-    tocHref: /container-registry/
-    topicHref: /container-registry/
-  - name: 成本管理
-    tocHref: /cost-management/
-    topicHref: /cost-management/
-  - name: 函数
-    tocHref: /azure-functions/
-    topicHref: /azure-functions/
-  - name: 'Azure Government '
-    tocHref: /azure-government/
-    topicHref: /azure-government/
-  - name: Azure 德国
-    tocHref: /germany/
-    topicHref: /germany/
-  - name: Azure 中国世纪互联
-    tocHref: /china/
-    topicHref: /china/
-  - name: Azure 门户
-    tocHref: /azure-portal/
-    topicHref: /azure-portal/
-  - name: Resource Manager
-    tocHref: /azure-resource-manager/
-    topicHref: /azure-resource-manager/
-  - name: Azure Stack
-    tocHref: /azure-stack/
-    topicHref: /azure-stack/
-  - name: Azure Stack 用户
-    tocHref: /azure-stack/user/
-    topicHref: /azure-stack/user/
-  - name: 可支持性
-    tocHref: /azure-supportability/
-    topicHref: /azure-supportability/
-  - name: Backup
-    tocHref: /backup/
-    topicHref: /backup/
-  - name: 批处理
-    tocHref: /batch/
-    topicHref: /batch/
-  - name: Batch AI
-    tocHref: /batch-ai/
-    topicHref: /batch-ai/
-  - name: 计费
-    tocHref: /billing/
-    topicHref: /billing/
-  - name: BizTalk 服务
-    tocHref: /biztalk-services/
-    topicHref: /biztalk-services/
-  - name: 缓存
-    tocHref: /cache/
-    topicHref: /cache/
-  - name: CDN
-    tocHref: /cdn/
-    topicHref: /cdn/
-  - name: 云服务
-    tocHref: /cloud-services/
-    topicHref: /cloud-services/
-  - name: 认知服务
-    tocHref: /#pivot=products&panel=ai
-    topicHref: /#pivot=products&panel=ai
-    items:
-    - name: 必应自定义搜索
-      tocHref: /cognitive-services/bing-custom-search/
-      topicHref: /cognitive-services/bing-custom-search/
-    - name: 必应 Web 搜索
-      tocHref: /cognitive-services/bing-web-search/
-      topicHref: /cognitive-services/bing-web-search/
-    - name: 语音
-      tocHref: /cognitive-services/Speech/
-      topicHref: /cognitive-services/Speech/
-    - name: 计算机视觉
-      tocHref: /cognitive-services/computer-vision/
-      topicHref: /cognitive-services/computer-vision/
-    - name: 自定义语音服务
-      tocHref: /cognitive-services/custom-speech-service/
-      topicHref: /cognitive-services/custom-speech-service/
-    - name: 自定义影像服务
-      tocHref: /cognitive-services/custom-vision-service/
-      topicHref: /cognitive-services/custom-vision-service/
-    - name: 人脸
-      tocHref: /cognitive-services/face/
-      topicHref: /cognitive-services/face/
-    - name: 语言理解 (LUIS)
-      tocHref: /cognitive-services/LUIS/
-      topicHref: /cognitive-services/LUIS/
-    - name: 文本分析
-      tocHref: /cognitive-services/text-analytics/
-      topicHref: /cognitive-services/text-analytics/overview
-    - name: 视频索引器
-      tocHref: /cognitive-services/video-indexer/video-indexer-overview
-      topicHref: /cognitive-services/video-indexer/video-indexer-overview
-  - name: 连接器
-    tocHref: /connectors/
-    topicHref: /connectors/
-  - name: 容器实例
-    tocHref: /container-instances/
-    topicHref: /container-instances/
-  - name: AKS
-    tocHref: /aks/
-    topicHref: /aks/
-  - name: 容器服务
-    tocHref: /container-service/
-    topicHref: /container-service/
-    items:
-    - name: DC/OS 和 Swarm
-      tocHref: /container-service/dcos-swarm/
-      topicHref: /container-service/dcos-swarm/
-    - name: kubernetes
-      tocHref: /container-service/kubernetes/
-      topicHref: /container-service/kubernetes/
-  - name: CosmosDB
-    tocHref: /cosmos-db/
-    topicHref: /cosmos-db/
-  - name: 数据目录
-    tocHref: /data-catalog/
-    topicHref: /data-catalog/
-  - name: Data Factory
-    tocHref: /data-factory/
-    topicHref: /data-factory/
-  - name: Data Lake Analytics
-    tocHref: /data-lake-analytics/
-    topicHref: /data-lake-analytics/
-  - name: Data Lake Store
-    tocHref: /data-lake-store/
-    topicHref: /data-lake-store/
-  - name: 开发测试实验室
-    tocHref: /devtest-lab/
-    topicHref: /devtest-lab/
-  - name: DNS
-    tocHref: /dns/
-    topicHref: /dns/
-  - name: 事件网格
-    tocHref: /event-grid/
-    topicHref: /event-grid
-  - name: 事件中心
-    tocHref: /event-hubs/
-    topicHref: /event-hubs/
-  - name: ExpressRoute
-    tocHref: /expressroute/
-    topicHref: /expressroute/
-  - name: 指南
-    tocHref: /guidance/
-    topicHref: /guidance/
-  - name: HDInsight
-    tocHref: /hdinsight/
-    topicHref: /hdinsight/
-    items:
-    - name: Hadoop
-      tocHref: /hdinsight/hadoop
-      topicHref: /hdinsight/hadoop/apache-hadoop-introduction
-    - name: HBase
-      tocHref: /hdinsight/hbase
-      topicHref: /hdinsight/hbase/apache-hbase-overview
-    - name: 交互式查询
-      tocHref: /hdinsight/interactive-query
-      topicHref: /hdinsight/interactive-query/apache-interactive-query-get-started
-    - name: Kafka
-      tocHref: /hdinsight/kafka
-      topicHref: /hdinsight/kafka/apache-kafka-introduction
-    - name: 企业安全性
-      tocHref: /hdinsight/domain-joined
-      topicHref: /hdinsight/domain-joined/apache-domain-joined-introduction
-    - name: R Server
-      tocHref: /hdinsight/r-server
-      topicHref: /hdinsight/r-server-overview
-    - name: Spark
-      tocHref: /hdinsight/spark
-      topicHref: /hdinsight/spark/apache-spark-overview
-    - name: Storm
-      tocHref: /hdinsight/storm
-      topicHref: /hdinsight/storm/apache-storm-overview
-  - name: IoT Edge
-    tocHref: /iot-edge/
-    topicHref: /iot-edge/
-  - name: IoT 中心
-    tocHref: /iot-hub/
-    topicHref: /iot-hub/
-  - name: IoT 套件
-    tocHref: /iot-suite/
-    topicHref: /iot-suite/
-  - name: Jenkins
-    tocHref: /jenkins/
-    topicHref: /jenkins/
-  - name: 密钥保管库
-    tocHref: /key-vault/
-    topicHref: /key-vault/
-  - name: Location Based Services
-    tocHref: /location-based-services/
-    topicHref: /location-based-services/
-  - name: 负载均衡器
-    tocHref: /load-balancer/
-    topicHref: /load-balancer/
-  - name: Log Analytics
-    tocHref: /log-analytics/
-    topicHref: /log-analytics/
-  - name: Logic Apps
-    tocHref: /logic-apps/
-    topicHref: /logic-apps/
-  - name: 机器学习
-    tocHref: /machine-learning/
-    topicHref: /machine-learning/
-    items:
-    - name: 服务（预览版）
-      tocHref: /machine-learning/preview
-      topicHref: /machine-learning/preview/
-    - name: 工作室
-      tocHref: /machine-learning/studio
-      topicHref: /machine-learning/studio/
-    - name: Team Data Science Process
-      tocHref: /machine-learning/team-data-science-process
-      topicHref: /machine-learning/team-data-science-process/overview
-    - name: 数据科学虚拟机
-      tocHref: /machine-learning/data-science-virtual-machine
-      topicHref: /machine-learning/data-science-virtual-machine/virtual-machine-overview
-  - name: 市场消费者
-    tocHref: /marketplace-consumer/
-    topicHref: /marketplace-consumer/
-  - name: 市场发布
-    tocHref: /marketplace-publishing/
-    topicHref: /marketplace-publishing/
-  - name: 媒体服务
-    tocHref: /media-services/
-    topicHref: /media-services/
-  - name: Mobile Engagement
-    tocHref: /mobile-engagement/
-    topicHref: /mobile-engagement/
-  - name: 移动服务
-    tocHref: /mobile-services/
-    topicHref: /mobile-services/
-  - name: 监视和诊断
-    tocHref: /monitoring-and-diagnostics/
-    topicHref: /monitoring-and-diagnostics/
-  - name: 多重身份验证
-    tocHref: /multi-factor-authentication/
-    topicHref: /multi-factor-authentication/
-    items:
-    - name: 用户指南
-      tocHref: /multi-factor-authentication/end-user/
-      topicHref: /multi-factor-authentication/end-user/
-  - name: MySQL
-    tocHref: /mysql/
-    topicHref: /mysql/
-  - name: 网络观察程序
-    tocHref: /network-watcher/
-    topicHref: /network-watcher/
-  - name: 网络
-    tocHref: /networking/
-    topicHref: /networking/networking-overview
-  - name: 通知中心
-    tocHref: /notification-hubs/
-    topicHref: /notification-hubs/
-  - name: Operations Management Suite
-    tocHref: /operations-management-suite/
-    topicHref: /operations-management-suite/
-  - name: 策略文档
-    tocHref: /azure-policy/
-    topicHref: /azure-policy/
-    items:
-    - name: Azure Policy 概述
-      tocHref: /azure-policy/azure-policy-introduction/
-      topicHref: /azureazure-policy/azure-policy-introduction/
-    - name: 分配策略 - 门户
-      tocHref: /azure-policy/assign-policy-definition/
-      topicHref: /azureazure-policy/assign-policy-definition/
-    - name: 分配策略 - PowerShell
-      tocHref: /azure-policy/assign-policy-definition-ps/
-      topicHref: /azureazure-policy/assign-policy-definition-ps/
-    - name: 分配策略 - Azure CLI
-      tocHref: /azure-policy/assign-policy-definition-cli/
-      topicHref: /azureazure-policy/assign-policy-definition-cli/
-    - name: 创建和管理 Azure Policy
-      tocHref: /azure-policy/create-manage-polic/
-      topicHref: /azureazure-policy/create-manage-polic/
-    - name: 策略模板
-      tocHref: /azure-policy/json-samples/
-      topicHref: /azureazure-policy/json-samples/
-    - name: Azure Policy 定义结构
-      tocHref: /azure-policy/policy-definition/
-      topicHref: /azureazure-policy/policy-definition/
-  - name: PostgreSQL
-    tocHref: /postgresql/
-    topicHref: /postgresql/
-  - name: Power BI Embedded
-    tocHref: /power-bi-embedded/
-    topicHref: /power-bi-embedded/
-  - name: Power BI 工作区集合
-    tocHref: /power-bi-workspace-collections/
-    topicHref: /power-bi-workspace-collections/
-  - name: Redis 缓存
-    tocHref: /redis-cache/
-    topicHref: /redis-cache/
-  - name: RemoteApp
-    tocHref: /remoteapp/
-    topicHref: /remoteapp/
-  - name: 复原能力
-    tocHref: /resiliency/
-    topicHref: /resiliency/
-  - name: 服务运行状况
-    tocHref: /service-health/
-    topicHref: /service-health/
-  - name: 计划程序
-    tocHref: /scheduler/
-    topicHref: /scheduler/
-  - name: 搜索
-    tocHref: /search/
-    topicHref: /search/
-  - name: 安全性
-    tocHref: /security/
-    topicHref: /security/
-  - name: 安全中心
-    tocHref: /security-center/
-    topicHref: /security-center/
-  - name: 服务总线
-    tocHref: /service-bus/
-    topicHref: /service-bus/
-  - name: 服务总线消息传送
-    tocHref: /service-bus-messaging/
-    topicHref: /service-bus-messaging/
-  - name: Service Bus 中继
-    tocHref: /service-bus-relay/
-    topicHref: /service-bus-relay/
-  - name: Service Fabric
-    tocHref: /service-fabric/
-    topicHref: /service-fabric/
-  - name: 站点恢复
-    tocHref: /site-recovery/
-    topicHref: /site-recovery/
-  - name: SQL 数据仓库
-    tocHref: /sql-data-warehouse/
-    topicHref: /sql-data-warehouse/
-  - name: SQL 数据库
-    tocHref: /sql-database/
-    topicHref: /sql-database/
-  - name: SQL Server Stretch Database
-    tocHref: /sql-server-stretch-database/
-    topicHref: /sql-server-stretch-database/
-  - name: 存储
-    tocHref: /storage/
-    topicHref: /storage/
-    items:
-    - name: Blob
-      tocHref: /storage/blobs/
-      topicHref: /storage/blobs/storage-blobs-introduction
-    - name: 文件
-      tocHref: /storage/files/
-      topicHref: /storage/files/storage-files-introduction
-    - name: 队列
-      tocHref: /storage/queues/
-      topicHref: /storage/queues/storage-queues-introduction
-  - name: StorSimple
-    tocHref: /storsimple/
-    topicHref: /storsimple/
-  - name: 流分析
-    tocHref: /stream-analytics/
-    topicHref: /stream-analytics/
-  - name: 时序见解
-    tocHref: /time-series-insights/
-    topicHref: /time-series-insights/
-  - name: 流量管理器
-    tocHref: /traffic-manager/
-    topicHref: /traffic-manager/
-  - name: 虚拟机规模集
-    tocHref: /virtual-machine-scale-sets/
-    topicHref: /virtual-machine-scale-sets/
-  - name: 虚拟机
-    tocHref: /virtual-machines/
-    topicHref: /virtual-machines/
-    items:
-    - name: 工作负荷
-      tocHref: /virtual-machines/workloads/
-      topicHref: /virtual-machines/workloads/sap/get-started
       items:
-      - name: SAP
-        tocHref: /virtual-machines/workloads/sap/
-        topicHref: /virtual-machines/workloads/sap/get-started
-    - name: Linux
-      tocHref: /virtual-machines/linux/
-      topicHref: /virtual-machines/linux/
+        - name: Linux 上的应用服务
+          tocHref: /app-service/containers/
+          topicHref: /app-service/containers/
+        - name: 应用服务环境
+          tocHref: /app-service/environment/
+          topicHref: /app-service/environment/
+        - name: Web 应用
+          tocHref: /app-service/
+          topicHref: /app-service/
+        - name: 移动应用
+          tocHref: /app-service-mobile/
+          topicHref: /app-service-mobile/
+    - name: 顾问
+      tocHref: /advisor/
+      topicHref: /advisor/
+    - name: 应用程序网关
+      tocHref: /application-gateway/
+      topicHref: /application-gateway/
+    - name: 适用于 IoT 的 ASC
+      tocHref: /asc-for-iot/
+      topicHref: /asc-for-iot/
+    - name: 自动化
+      tocHref: /automation/
+      topicHref: /automation/
+    - name: 区块链
+      tocHref: /blockchain/
+      topicHref: /blockchain/
       items:
-      - name: Linux 经典部署
-        tocHref: /virtual-machines/linux/classic/
-        topicHref: /virtual-machines/linux/classic/
-    - name: Windows
-      tocHref: /virtual-machines/windows/
-      topicHref: /virtual-machines/windows/
+        - name: 区块链服务
+          tocHref: /blockchain/service/
+          topicHref: /blockchain/service/index
+        - name: Blockchain Workbench
+          tocHref: /blockchain/workbench/
+          topicHref: /blockchain/workbench/
+    - name: Azure Databricks
+      tocHref: /azure-databricks/
+      topicHref: /azure-databricks/
+    - name: Azure 数据资源管理器
+      tocHref: /data-explorer/
+      topicHref: /data-explorer/
+    - name: Azure 数字孪生
+      tocHref: /digital-twins/
+      topicHref: /digital-twins/
+    - name: Azure HPC 缓存
+      tocHref: /hpc-cache/
+      topicHref: /hpc-cache/
+    - name: Azure Lighthouse
+      tocHref: /lighthouse/
+      topicHref: /lighthouse/
+    - name: Azure Monitor
+      tocHref: /azure-monitor/
+      topicHref: /azure-monitor/
+    - name: Azure 空间定位点
+      tocHref: /spatial-anchors/
+      topicHref: /spatial-anchors/
+    - name: 容器注册表
+      tocHref: /container-registry/
+      topicHref: /container-registry/
+    - name: 成本管理
+      tocHref: /cost-management/
+      topicHref: /cost-management/
+    - name: 函数
+      tocHref: /azure-functions/
+      topicHref: /azure-functions/
       items:
-      - name: Windows 经典部署
-        tocHref: /virtual-machines/windows/classic/
-        topicHref: /virtual-machines/windows/classic/
-  - name: 虚拟网络
-    tocHref: /virtual-network/
-    topicHref: /virtual-network/
-  - name: VPN 网关
-    tocHref: /vpn-gateway/
-    topicHref: /vpn-gateway/
-ms.openlocfilehash: 149fc86912074f0fa775e93205ca2f3c5854ee9d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652937"
+        - name: Durable Functions
+          tocHref: /azure-functions/durable/
+          topicHref: /azure-functions/durable/
+    - name: Azure 澳大利亚
+      tocHref: /azure-australia/
+      topicHref: /azure-australia/
+    - name: Azure Government
+      tocHref: /azure-government/
+      topicHref: /azure-government/
+    - name: Azure 德国
+      tocHref: /germany/
+      topicHref: /germany/
+    - name: Azure NetApp 文件
+      tocHref: /azure-netapp-files/
+      topicHref: /azure-netapp-files/
+    - name: CloudSimple 提供的 Azure VMware 解决方案
+      tocHref: /vmware-cloudsimple/
+      topicHref: /vmware-cloudsimple/
+    - name: Azure 门户自定义
+      tocHref: /azure-portal/
+      topicHref: /azure-portal/
+    - name: 物联网
+      tocHref: /iot-fundamentals/
+      topicHref: /iot-fundamentals/
+      items:
+        - name: IoT 中心
+          tocHref: /iot-hub/
+          topicHref: /iot-hub/
+        - name: IoT Central
+          tocHref: /iot-central/
+          topicHref: /iot-central/
+        - name: IoT Edge
+          tocHref: /iot-edge/
+          topicHref: /iot-edge/
+        - name: IoT 即插即用
+          tocHref: /iot-pnp/
+          topicHref: /iot-pnp/
+        - name: Azure 数字孪生
+          tocHref: /digital-twins/
+          topicHref: /digital-twins/
+        - name: IoT 解决方案加速器
+          tocHref: /iot-accelerators/
+          topicHref: /iot-accelerators/
+        - name: IoT 中心设备预配服务
+          tocHref: /iot-dps/
+          topicHref: /iot-dps/
+        - name: 时序见解
+          tocHref: /time-series-insights/
+          topicHref: /time-series-insights/
+        - name: Azure Maps
+          tocHref: /azure-maps/
+          topicHref: /azure-maps/
+    - name: Resource Manager
+      tocHref: /azure-resource-manager/
+      topicHref: /azure-resource-manager/
+    - name: SignalR 服务
+      tocHref: /azure-signalr/
+      topicHref: /azure-signalr/
+    - name: Azure Stack
+      tocHref: /azure-stack/
+      topicHref: /azure-stack/
+    - name: Azure Stack 用户
+      tocHref: /azure-stack/user/
+      topicHref: /azure-stack/user/
+    - name: 可支持性
+      tocHref: /azure-supportability/
+      topicHref: /azure-supportability/
+    - name: 备份
+      tocHref: /backup/
+      topicHref: /backup/
+    - name: Batch
+      tocHref: /batch/
+      topicHref: /batch/
+    - name: Batch AI
+      tocHref: /batch-ai/
+      topicHref: /batch-ai/
+    - name: 计费 + 成本管理
+      tocHref: /billing/
+      topicHref: /billing/
+    - name: BizTalk 服务
+      tocHref: /biztalk-services/
+      topicHref: /biztalk-services/
+    - name: Bot 服务
+      tocHref: /bot-service/
+      topicHref: /bot-service/
+    - name: 缓存
+      tocHref: /cache/
+      topicHref: /cache/
+    - name: CDN
+      tocHref: /cdn/
+      topicHref: /cdn/
+    - name: 云服务
+      tocHref: /cloud-services/
+      topicHref: /cloud-services/
+    - name: 认知服务
+      tocHref: /cognitive-services/
+      topicHref: /cognitive-services/
+      items:
+        - name: 学术知识
+          tocHref: /cognitive-services/academic-knowledge/
+          topicHref: /cognitive-services/academic-knowledge/home
+        - name: 异常检测器
+          tocHref: /cognitive-services/anomaly-detector/
+          topicHref: /cognitive-services/anomaly-detector/
+        - name: 必应自动建议
+          tocHref: /cognitive-services/Bing-Autosuggest/
+          topicHref: /cognitive-services/Bing-Autosuggest/
+        - name: 必应自定义搜索
+          tocHref: /cognitive-services/bing-custom-search/
+          topicHref: /cognitive-services/bing-custom-search/
+        - name: 必应实体搜索
+          tocHref: /cognitive-services/bing-entities-search/
+          topicHref: /cognitive-services/bing-entities-search/
+        - name: 必应图像搜索
+          tocHref: /cognitive-services/bing-image-search/
+          topicHref: /cognitive-services/bing-image-search/
+        - name: 必应新闻搜索
+          tocHref: /cognitive-services/bing-news-search/
+          topicHref: /cognitive-services/bing-news-search/
+        - name: 必应拼写检查
+          tocHref: /cognitive-services/bing-spell-check/
+          topicHref: /cognitive-services/bing-spell-check/
+        - name: 必应视频搜索
+          tocHref: /cognitive-services/Bing-Video-Search/
+          topicHref: /cognitive-services/Bing-Video-Search/
+        - name: 必应视觉搜索
+          tocHref: /cognitive-services/bing-visual-search/
+          topicHref: /cognitive-services/bing-visual-search/
+        - name: 必应 Web 搜索
+          tocHref: /cognitive-services/bing-web-search/
+          topicHref: /cognitive-services/bing-web-search/
+        - name: 必应当地企业搜索
+          tocHref: /cognitive-services/bing-local-business-search/
+          topicHref: /cognitive-services/bing-local-business-search/
+        - name: 计算机视觉
+          tocHref: /cognitive-services/computer-vision/
+          topicHref: /cognitive-services/computer-vision/
+        - name: 内容审查器
+          tocHref: /cognitive-services/content-moderator/
+          topicHref: /cognitive-services/content-moderator/
+        - name: 自定义决策服务
+          tocHref: /cognitive-services/custom-decision-service/
+          topicHref: /cognitive-services/custom-decision-service/custom-decision-service-overview
+        - name: 说话人识别
+          tocHref: /cognitive-services/speaker-recognition/
+          topicHref: /cognitive-services/speaker-recognition/home
+        - name: 自定义影像服务
+          tocHref: /cognitive-services/custom-vision-service/
+          topicHref: /cognitive-services/custom-vision-service/
+        - name: 实体链接
+          tocHref: /cognitive-services/entitylinking/
+          topicHref: /cognitive-services/entitylinking/home
+        - name: 异常查找器
+          tocHref: /cognitive-services/labs/anomaly-finder/
+          topicHref: /cognitive-services/labs/anomaly-finder/overview
+        - name: 对话学习器
+          tocHref: /cognitive-services/labs/conversation-learner/
+          topicHref: /cognitive-services/labs/conversation-learner/overview
+        - name: URL 预览
+          tocHref: /cognitive-services/labs/url-preview/
+          topicHref: /cognitive-services/labs/url-preview/overview
+        - name: 答案搜索
+          tocHref: /cognitive-services/labs/answer-search/
+          topicHref: /cognitive-services/labs/answer-search/overview
+        - name: 人脸
+          tocHref: /cognitive-services/face/
+          topicHref: /cognitive-services/face/
+        - name: 知识探索
+          tocHref: /cognitive-services/kes/
+          topicHref: /cognitive-services/kes/overview
+        - name: 语言理解 (LUIS)
+          tocHref: /cognitive-services/LUIS/
+          topicHref: /cognitive-services/LUIS/
+        - name: 语言分析
+          tocHref: /cognitive-services/linguisticanalysisapi/
+          topicHref: /cognitive-services/linguisticanalysisapi/home
+        - name: QnA Maker
+          tocHref: /cognitive-services/qnamaker/
+          topicHref: /cognitive-services/qnamaker/home
+        - name: 语音 API
+          tocHref: /cognitive-services/Speech/
+          topicHref: /cognitive-services/Speech/home
+        - name: 语音服务
+          tocHref: /cognitive-services/Speech-Service/
+          topicHref: /cognitive-services/Speech-Service/
+        - name: 文本分析
+          tocHref: /cognitive-services/text-analytics/
+          topicHref: /cognitive-services/text-analytics/
+        - name: 文本翻译
+          tocHref: /cognitive-services/translator/
+          topicHref: /cognitive-services/translator/
+        - name: 视频索引器
+          tocHref: /cognitive-services/video-indexer/
+          topicHref: /cognitive-services/video-indexer/video-indexer-overview
+        - name: Web 语言模型
+          tocHref: /cognitive-services/web-language-model/
+          topicHref: /cognitive-services/web-language-model/home
+        - name: 个性聊天
+          tocHref: /cognitive-services/project-personality-chat/
+          topicHref: /cognitive-services/project-personality-chat/overview
+        - name: 项目音响效果
+          tocHref: /cognitive-services/acoustics/
+          topicHref: /cognitive-services/acoustics/what-is-acoustics
+        - name: 表单识别器
+          tocHref: /cognitive-services/form-recognizer/
+          topicHref: /cognitive-services/form-recognizer/
+        - name: 墨迹识别器
+          tocHref: /cognitive-services/Ink-Recognizer/
+          topicHref: /cognitive-services/Ink-Recognizer/
+        - name: 个性化体验创建服务
+          tocHref: /cognitive-services/personalizer/
+          topicHref: /cognitive-services/personalizer/
+        - name: 沉浸式阅读器
+          tocHref: /cognitive-services/immersive-reader/
+          topicHref: /cognitive-services/immersive-reader/
+    - name: 连接器
+      tocHref: /connectors/
+      topicHref: /connectors/
+    - name: 容器实例
+      tocHref: /container-instances/
+      topicHref: /container-instances/
+    - name: AKS
+      tocHref: /aks/
+      topicHref: /aks/
+    - name: OpenShift
+      tocHref: /openshift/
+      topicHref: /openshift/
+    - name: 容器服务
+      tocHref: /container-service/
+      topicHref: /container-service/
+      items:
+        - name: DC/OS 和 Swarm
+          tocHref: /container-service/dcos-swarm/
+          topicHref: /container-service/dcos-swarm/
+        - name: kubernetes
+          tocHref: /container-service/kubernetes/
+          topicHref: /container-service/kubernetes/
+    - name: Bastion
+      tocHref: /bastion/
+      topicHref: /bastion/
+    - name: Cosmos DB
+      tocHref: /cosmos-db/
+      topicHref: /cosmos-db/
+    - name: Data Box 系列
+      tocHref: /databox-family/
+      topicHref: /databox-family/
+      items:
+        - name: Data Box 脱机传输
+          tocHref: /databox/
+          topicHref: /databox/
+        - name: Data Box 联机传输
+          tocHref: /databox-online/
+          topicHref: /databox-online/
+    - name: 数据目录
+      tocHref: /data-catalog/
+      topicHref: /data-catalog/
+    - name: 数据工厂
+      tocHref: /data-factory/
+      topicHref: /data-factory/
+    - name: Data Lake Analytics
+      tocHref: /data-lake-analytics/
+      topicHref: /data-lake-analytics/
+    - name: Data Lake Storage Gen1
+      tocHref: /data-lake-store/
+      topicHref: /data-lake-store/
+    - name: 专用 HSM
+      tocHref: /dedicated-hsm/
+      topicHref: /dedicated-hsm/
+    - name: 开发测试实验室
+      tocHref: /devtest-lab/
+      topicHref: /devtest-lab/
+    - name: DNS
+      tocHref: /dns/
+      topicHref: /dns/
+    - name: 事件网格
+      tocHref: /event-grid/
+      topicHref: /event-grid
+    - name: 事件中心
+      tocHref: /event-hubs/
+      topicHref: /event-hubs/
+    - name: ExpressRoute
+      tocHref: /expressroute/
+      topicHref: /expressroute/
+    - name: 防火墙
+      tocHref: /firewall/
+      topicHref: /firewall/
+    - name: Front Door 服务
+      tocHref: /frontdoor/
+      topicHref: /frontdoor/
+    - name: FXT Edge Filer
+      tocHref: /fxt-edge-filer/
+      topicHref: /fxt-edge-filer/
+    - name: 基因组学
+      tocHref: /genomics/
+      topicHref: /genomics/
+    - name: 调控
+      tocHref: /governance/
+      topicHref: /governance/
+      items:
+        - name: 蓝图
+          tocHref: /governance/blueprints/
+          topicHref: /governance/blueprints/
+        - name: 管理组
+          tocHref: /governance/management-groups/
+          topicHref: /governance/management-groups/
+        - name: 策略
+          tocHref: /governance/policy/
+          topicHref: /governance/policy/
+        - name: Resource Graph
+          tocHref: /governance/resource-graph/
+          topicHref: /governance/resource-graph/
+    - name: 指南
+      tocHref: /guidance/
+      topicHref: /guidance/
+    - name: HDInsight
+      tocHref: /hdinsight/
+      topicHref: /hdinsight/
+      items:
+        - name: Hadoop
+          tocHref: /hdinsight/hadoop
+          topicHref: /hdinsight/hadoop/apache-hadoop-introduction
+        - name: HBase
+          tocHref: /hdinsight/hbase
+          topicHref: /hdinsight/hbase/apache-hbase-overview
+        - name: 交互式查询
+          tocHref: /hdinsight/interactive-query
+          topicHref: /hdinsight/interactive-query/apache-interactive-query-get-started
+        - name: Kafka
+          tocHref: /hdinsight/kafka
+          topicHref: /hdinsight/kafka/apache-kafka-introduction
+        - name: 企业安全性
+          tocHref: /hdinsight/domain-joined
+          topicHref: /hdinsight/domain-joined/apache-domain-joined-introduction
+        - name: ML Services
+          tocHref: /hdinsight/r-server
+          topicHref: /hdinsight/r-server/r-server-overview
+        - name: Spark
+          tocHref: /hdinsight/spark
+          topicHref: /hdinsight/spark/apache-spark-overview
+        - name: Storm
+          tocHref: /hdinsight/storm
+          topicHref: /hdinsight/storm/apache-storm-overview
+    - name: 适用于 FHIR 的 Azure API
+      tocHref: /healthcare-apis
+      topicHref: /healthcare-apis
+    - name: Jenkins
+      tocHref: /jenkins/
+      topicHref: /jenkins/
+    - name: 密钥保管库
+      tocHref: /key-vault/
+      topicHref: /key-vault/
+    - name: Azure Kinect DK
+      tocHref: /kinect-dk/
+      topicHref: /kinect-dk/
+    - name: 实验室服务
+      tocHref: /lab-services/
+      topicHref: /lab-services/
+    - name: 负载均衡器
+      tocHref: /load-balancer/
+      topicHref: /load-balancer/
+    - name: 逻辑应用
+      tocHref: /logic-apps/
+      topicHref: /logic-apps/
+    - name: 机器学习
+      tocHref: /machine-learning/
+      topicHref: /machine-learning/
+      items:
+        - name: 服务
+          tocHref: /machine-learning/service
+          topicHref: /machine-learning/service/
+          items:
+            - name: 算法和模块参考
+              tocHref: /machine-learning/algorithm-module-reference
+              topicHref: /machine-learning/algorithm-module-reference/module-reference
+        - name: 工作室
+          tocHref: /machine-learning/studio
+          topicHref: /machine-learning/studio/
+        - name: Team Data Science Process
+          tocHref: /machine-learning/team-data-science-process
+          topicHref: /machine-learning/team-data-science-process/overview
+        - name: 数据科学虚拟机
+          tocHref: /machine-learning/data-science-virtual-machine
+          topicHref: /machine-learning/data-science-virtual-machine/
+    - name: 市场消费者
+      tocHref: /marketplace-consumer/
+      topicHref: /marketplace-consumer/
+    - name: 市场发布
+      tocHref: /marketplace-publishing/
+      topicHref: /marketplace-publishing/
+    - name: 媒体服务
+      tocHref: /media-services/
+      topicHref: /media-services/
+      items:
+        - name: v3
+          tocHref: /media-services/latest/
+          topicHref: /media-services/latest/
+        - name: v2
+          tocHref: /media-services/previous/
+          topicHref: /media-services/previous/
+        - name: 视频索引器
+          tocHref: /media-services/video-indexer/
+          topicHref: /media-services/video-indexer/
+    - name: 迁移
+      tocHref: /migrate/
+      topicHref: /migrate/
+    - name: Mobile Engagement
+      tocHref: /mobile-engagement/
+      topicHref: /mobile-engagement/
+    - name: 移动服务
+      tocHref: /mobile-services/
+      topicHref: /mobile-services/
+    - name: 多重身份验证
+      tocHref: /multi-factor-authentication/
+      topicHref: /multi-factor-authentication/
+      items:
+        - name: 用户指南
+          tocHref: /multi-factor-authentication/end-user/
+          topicHref: /multi-factor-authentication/end-user/
+    - name: MySQL
+      tocHref: /mysql/
+      topicHref: /mysql/
+    - name: 网络观察程序
+      tocHref: /network-watcher/
+      topicHref: /network-watcher/
+    - name: 网络
+      tocHref: /networking/
+      topicHref: /networking/networking-overview
+    - name: Notebooks
+      tocHref: /notebooks/
+      topicHref: /notebooks/azure-notebooks-overview
+    - name: 通知中心
+      tocHref: /notification-hubs/
+      topicHref: /notification-hubs/
+    - name: 开放数据集
+      tocHref: /open-datasets/
+      topicHref: /open-datasets/
+    - name: Operations Management Suite
+      tocHref: /operations-management-suite/
+      topicHref: /operations-management-suite/
+    - name: PostgreSQL
+      tocHref: /postgresql/
+      topicHref: /postgresql/
+    - name: Power BI Embedded
+      tocHref: /power-bi-embedded/
+      topicHref: /power-bi-embedded/
+    - name: Power BI 工作区集合
+      tocHref: /power-bi-workspace-collections/
+      topicHref: /power-bi-workspace-collections/
+    - name: 专用链接
+      tocHref: /private-link/
+      topicHref: /private-link/
+    - name: 用于 Redis 的 Azure 缓存
+      tocHref: /azure-cache-for-redis/
+      topicHref: /azure-cache-for-redis/
+    - name: RemoteApp
+      tocHref: /remoteapp/
+      topicHref: /remoteapp/
+    - name: 复原
+      tocHref: /resiliency/
+      topicHref: /resiliency/
+    - name: 基于角色的访问控制
+      tocHref: /role-based-access-control/
+      topicHref: /role-based-access-control/
+    - name: 服务运行状况
+      tocHref: /service-health/
+      topicHref: /service-health/
+    - name: 计划程序
+      tocHref: /scheduler/
+      topicHref: /scheduler/
+    - name: 搜索
+      tocHref: /search/
+      topicHref: /search/
+    - name: 安全性
+      tocHref: /security/
+      topicHref: /security/
+      items:
+        - name: 基本
+          tocHref: /security/fundamentals/
+          topicHref: /security/fundamentals/
+        - name: 开发
+          tocHref: /security/develop/
+          topicHref: /security/develop/
+    - name: 安全中心
+      tocHref: /security-center/
+      topicHref: /security-center/
+    - name: Azure Sentinel
+      tocHref: /sentinel/
+      topicHref: /sentinel/
+    - name: 服务总线
+      tocHref: /service-bus/
+      topicHref: /service-bus/
+    - name: 服务总线消息传送
+      tocHref: /service-bus-messaging/
+      topicHref: /service-bus-messaging/
+    - name: Service Bus 中继
+      tocHref: /service-bus-relay/
+      topicHref: /service-bus-relay/
+    - name: Service Fabric
+      tocHref: /service-fabric/
+      topicHref: /service-fabric/
+    - name: Service Fabric 网格
+      tocHref: /service-fabric-mesh/
+      topicHref: /service-fabric-mesh/
+    - name: 站点恢复
+      tocHref: /site-recovery/
+      topicHref: /site-recovery/
+    - name: SQL 数据仓库
+      tocHref: /sql-data-warehouse/
+      topicHref: /sql-data-warehouse/
+    - name: SQL 数据库
+      tocHref: /sql-database/
+      topicHref: /sql-database/
+    - name: SQL Server Stretch Database
+      tocHref: /sql-server-stretch-database/
+      topicHref: /sql-server-stretch-database/
+    - name: 存储
+      tocHref: /storage/
+      topicHref: /storage/
+      items:
+        - name: Blob
+          tocHref: /storage/blobs/
+          topicHref: /storage/blobs/storage-blobs-introduction
+        - name: Data Lake Storage Gen2
+          tocHref: /storage/data-lake-storage-gen2/
+          topicHref: /storage/data-lake-storage/introduction
+        - name: 文件
+          tocHref: /storage/files/
+          topicHref: /storage/files/storage-files-introduction
+        - name: 队列
+          tocHref: /storage/queues/
+          topicHref: /storage/queues/storage-queues-introduction
+        - name: 表
+          tocHref: /storage/tables/
+          topicHref: /storage/tables/table-storage-overview
+    - name: StorSimple
+      tocHref: /storsimple/
+      topicHref: /storsimple/
+    - name: 流分析
+      tocHref: /stream-analytics/
+      topicHref: /stream-analytics/
+    - name: 流量管理器
+      tocHref: /traffic-manager/
+      topicHref: /traffic-manager/
+    - name: 虚拟机规模集
+      tocHref: /virtual-machine-scale-sets/
+      topicHref: /virtual-machine-scale-sets/
+    - name: 虚拟机
+      tocHref: /virtual-machines/
+      topicHref: /virtual-machines/
+      items:
+        - name: 工作负荷
+          tocHref: /virtual-machines/workloads/
+          topicHref: /virtual-machines/workloads/workloads
+          items:
+            - name: 高性能计算
+              tocHref: /virtual-machines/workloads/hpc/
+              topicHref: /virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
+            - name: SAP
+              tocHref: /virtual-machines/workloads/sap/
+              topicHref: /virtual-machines/workloads/sap/get-started
+            - name: Oracle
+              tocHref: /virtual-machines/workloads/oracle/
+              topicHref: /virtual-machines/workloads/oracle/oracle-considerations
+            - name: 大型机重新托管
+              tocHref: /virtual-machines/workloads/mainframe-rehosting/
+              topicHref: /virtual-machines/workloads/mainframe-rehosting/overview
+        - name: Linux
+          tocHref: /virtual-machines/linux/
+          topicHref: /virtual-machines/linux/
+          items:
+            - name: Linux 经典部署
+              tocHref: /virtual-machines/linux/classic/
+              topicHref: /previous-versions/virtual-machines/linux/classic/
+        - name: Windows
+          tocHref: /virtual-machines/windows/
+          topicHref: /virtual-machines/windows/
+          items:
+            - name: Windows 经典部署
+              tocHref: /virtual-machines/windows/classic/
+              topicHref: /previous-versions/virtual-machines/windows/classic/
+            - name: SQL VM
+              tocHref: /virtual-machines/windows/sql
+              topicHref: /virtual-machines/windows/sql
+    - name: 虚拟网络
+      tocHref: /virtual-network/
+      topicHref: /virtual-network/
+    - name: VPN 网关
+      tocHref: /vpn-gateway/
+      topicHref: /vpn-gateway/
+    - name: Windows 虚拟桌面
+      tocHref: /virtual-desktop/
+      topicHref: /virtual-desktop/

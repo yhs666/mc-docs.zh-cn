@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 89dfedcd2c385400ec8b08568754457f252477a3
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: c2c5a36f5fa48173fa970fc15f4ad2cce1bd31da
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913267"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041223"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 存储：热、冷、存档访问层
 
@@ -192,7 +192,7 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 **哪些区域提供了热、冷、存档访问层？**
 
-所有区域均提供热访问层和冷访问层以及 Blob 级别的分层。 存档存储一开始只会在选定区域提供。 如需完整列表，请参阅 [Azure 产品（按区域）](https://azure.microsoft.com/en-us/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
+所有区域均提供热访问层和冷访问层以及 Blob 级别的分层。 存档存储一开始只会在选定区域提供。 如需完整列表，请参阅 [Azure 产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
 
 **冷访问层中 Blob 的行为方式是否与热访问层中的不同？**
 
@@ -231,7 +231,6 @@ Azure 门户、PowerShell 和 CLI 工具以及 .NET、Java、Python 和 Node.js 
 - [按区域查看热层、冷层和存档层](https://www.azure.cn/zh-cn/support/service-dashboard/)
 - [管理 Azure Blob 存储生命周期](storage-lifecycle-management-concepts.md)
 - [了解如何从存档层解冻 Blob 数据](storage-blob-rehydration.md)
-- [确定高级性能是否会使应用受益](storage-blob-performance-tiers.md)
 - [通过启用 Azure 存储度量值来评估当前存储帐户的使用情况](../common/storage-enable-and-view-metrics.md)
 - [按区域查看 Blob 存储帐户和 GPv2 帐户中的热层、冷层和存档层定价](https://www.azure.cn/pricing/details/storage/)
 - [检查数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)

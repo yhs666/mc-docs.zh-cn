@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights 数据模型 | Azure Docs
 description: 介绍在 JSON 中通过连续导出导出的、用作筛选器的属性。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 01/08/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 58ea4e4abec45ea6368c8f1147f170421dbcb953
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e080e039085040e131108a9f0f994cb13ec3cd50
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737282"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970912"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 导出数据模型
 此表列出了从 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK 发送到门户的遥测属性。

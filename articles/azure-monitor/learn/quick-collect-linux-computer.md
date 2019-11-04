@@ -14,13 +14,13 @@ ms.topic: quickstart
 origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: cbc4c2e9f50fdb4ca9d1f1e759ddbc9f6f7c7f45
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: f7aaefa9422bac9c2ff4c86b47f7dbbd8c4e8e28
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329899"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970886"
 ---
 # <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
 
@@ -37,7 +37,7 @@ ms.locfileid: "71329899"
 
 1. 在 Azure 门户中，选择“所有服务”。  在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”  。
 
-    ![Azure 门户](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![在 Azure 门户中查找 Log Analytics 工作区](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. 选择“创建”  ，然后为以下各项选择选项：
 
@@ -47,7 +47,7 @@ ms.locfileid: "71329899"
    * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
    * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
   
-        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![在 Azure 门户中创建 Log Analytics 工作区](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. 在“Log Analytics 工作区”窗格中提供所需的信息后，选择“确定”。    
 
@@ -65,7 +65,7 @@ ms.locfileid: "71329899"
 
 3. 选择“高级设置”： 
 
-    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png) 
+    ![Azure 门户中 Log Analytics 的“高级设置”菜单](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. 选择“已连接的源”，然后选择“Linux 服务器”   。
 
@@ -128,7 +128,7 @@ Azure Monitor 可以从你为长期分析和报告指定的 Linux syslog 和性�
 
 7. 首次为新的 Log Analytics 工作区配置 Linux 性能计数器时，可以选择快速创建几个通用的计数器。 将这些计数器在一个复选框中依次列出。
 
-    ![选中的默认 Windows 性能计数器](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Azure Monitor 中选择的默认 Linux 性能计数器](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     选择“将下列配置应用到我的计算机”  ，然后选择“添加选定的性能计数器”  。 随即会添加它们，并且通过 10 秒收集示例间隔进行预设。  
 

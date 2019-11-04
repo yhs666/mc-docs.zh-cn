@@ -5,15 +5,14 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 09/27/2019
-ms.date: 10/17/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 40e0214304db21225bfcb530ef90ac150f2f3a26
-ms.sourcegitcommit: 4ada17c1bcd36e755afd0a8bd6e353e35cbb228b
+ms.openlocfilehash: 29e42cd8bcdb11c64f67489346b3b7a3356e641e
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578067"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068881"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用标准 SKU 负载均衡器
 
@@ -87,11 +86,13 @@ az group create --name myResourceGroup --location chinaeast2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
-    --generate-ssh-keys
+    --generate-ssh-keys \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 片刻之后，该命令将会完成，并返回有关群集的 JSON 格式信息。
 
@@ -343,12 +344,14 @@ az aks update \
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
     --generate-ssh-keys \
-    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2> \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 结合 *load-balancer-outbound-ip-prefixes* 参数使用 *az aks create* 命令可在启动时使用你的公共 IP 前缀创建新的群集。
 
@@ -356,12 +359,14 @@ az aks create \
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
     --generate-ssh-keys \
-    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2> \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>清理标准 SKU 负载均衡器配置
 

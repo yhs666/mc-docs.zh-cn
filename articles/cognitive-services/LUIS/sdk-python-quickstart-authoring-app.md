@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 08/07/2019
 ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f83de6e525382431f2bc3b9c66844f30e6622cad
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e9cf62ce492207c8a508748935b9ba4cd71de5c1
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329661"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416329"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入门：适用于 Python 的语言理解 (LUIS) 创作客户端库
 
@@ -40,7 +40,7 @@ ms.locfileid: "71329661"
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>获取语言理解 (LUIS) 初学者密钥
 
-获取[创作密钥](luis-how-to-account-settings.md)，并为该密钥[创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)（名为 `LUIS_AUTHORING_KEY`），以及为密钥所对应的区域创建环境变量 `LUIS_REGION`。
+获取[创作密钥](luis-how-to-azure-subscription.md)，并为该密钥[创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)（名为 `LUIS_AUTHORING_KEY`），以及为密钥所对应的区域创建环境变量 `LUIS_REGION`。
 
 ### <a name="install-the-python-library-for-luis"></a>安装适用于 LUIS 的 Python 库
 

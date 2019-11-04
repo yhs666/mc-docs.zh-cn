@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6ac50ce62f71d85a88c3e993245b45089a1035fd
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: ac7ae4ad93c8e39d0cbfe828704d10c86a30720c
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583875"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426030"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中创建 Apache Hadoop 群集
 
@@ -83,7 +83,8 @@ ms.locfileid: "72583875"
 
 在本快速入门中，你已了解了如何使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集。 下一篇文章将介绍如何使用 Hadoop on HDInsight 执行提取、转换和加载 (ETL) 操作。
 
-
+> [!div class="nextstepaction"]
+>[使用 HDInsight 上的交互式查询提取、转换和加载数据](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
 

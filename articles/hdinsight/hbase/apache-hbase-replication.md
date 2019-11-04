@@ -13,12 +13,12 @@ ms.workload: big-data
 origin.date: 09/15/2018
 ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 785e6119a9477e614b28526738803fc51818ad45
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 27a3d934c41223686ebe3497e8397f6660f20329
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583848"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426069"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>在 Azure 虚拟网络中设置 Apache HBase 群集复制
 
@@ -44,7 +44,7 @@ ms.locfileid: "72583848"
 可以使用 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication) 中的[脚本操作](../hdinsight-hadoop-customize-cluster-linux.md)脚本复制群集。
 
 ## <a name="prerequisites"></a>先决条件
-在开始学习本教程之前，必须有一个 Azure 订阅。 请参阅[获取 Azure 免费试用版](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+在开始学习本教程之前，必须有一个 Azure 订阅。 
 
 ## <a name="set-up-the-environments"></a>设置环境
 

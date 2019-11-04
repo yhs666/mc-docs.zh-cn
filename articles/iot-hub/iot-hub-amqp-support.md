@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/30/2019
-ms.date: 07/15/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: d713fc2fc1c5e39dadc22fdfbc54f838418efa20
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 75ffb89a79c0a455860bd873ccd4b967575290d9
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570507"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426087"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>使用 AMQP 协议来与 IoT 中心通信
 
@@ -246,7 +246,7 @@ send_client = uamqp.SendClient(uri, debug=True)
 | 创建者 | 链接类型 | 链接路径 | 说明 |
 |------------|-----------|-----------|-------------|
 | 设备 | 接收方链接 | `/devices/<deviceID>/messages/devicebound` | 每个目标设备将在此链接上接收发往设备的云到设备消息。 |
-| 设备 | 发送方链接 | `/devices/<deviceID>messages/events` | 设备发送的设备到云消息将通过此链接发送。 |
+| 设备 | 发送方链接 | `/devices/<deviceID>/messages/events` | 设备发送的设备到云消息将通过此链接发送。 |
 | 设备 | 发送方链接 | `/messages/serviceBound/feedback` | 设备通过此链接将云到设备的消息反馈发送到服务。 |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>接收云到设备的命令（设备客户端）

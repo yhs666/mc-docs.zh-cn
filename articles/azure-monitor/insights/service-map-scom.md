@@ -1,25 +1,19 @@
 ---
 title: 用于 VM 的 Azure Monitor 与 System Center Operations Manager 的集成 | Microsoft Docs
 description: 用于 VM 的 Azure Monitor 可以自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 本文介绍如何使用映射功能在 Operations Manager 中自动创建分布式应用程序关系图。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
+ms.author: v-lingwu
 origin.date: 07/02/2019
 ms.date: 07/12/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 8d0a2e62ef0fdb59e55bd0c98677a1372af9a3e6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a0c21fa6e35d8f791c376858dfb243b90dba1d5a
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737377"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970906"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager 与用于 VM 的 Azure Monitor 的映射功能的集成
 

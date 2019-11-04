@@ -9,12 +9,12 @@ origin.date: 05/20/2019
 ms.date: 03/14/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 7808d2dbc09a4ac1eb697cf5617651dbef107be9
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: cca5a344c65cf8ae969f22ba486412ae1ed01fa5
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329656"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970629"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -229,7 +229,7 @@ Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优
 ## <a name="next-steps"></a>后续步骤
 - [了解有关 Azure Monitor 的详细信息](../../azure-monitor/overview.md)
 - [使用 REST API 访问指标](rest-api-walkthrough.md)
-- [将诊断日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+- [将诊断日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

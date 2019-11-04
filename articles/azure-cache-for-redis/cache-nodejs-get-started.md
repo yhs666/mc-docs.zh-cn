@@ -1,5 +1,5 @@
 ---
-title: 快速入门：了解如何将 Azure Redis 缓存与 Node.js 配合使用 | Microsoft Docs
+title: 快速入门：将 Azure Redis 缓存与 Node.js 配合使用
 description: 本快速入门介绍如何将 Azure Redis 缓存与 Node.js 和 node_redis 配合使用。
 services: cache
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/21/2018
-ms.date: 09/03/2019
+ms.date: 10/29/2019
 ms.author: v-junlch
-ms.custom: mvc
-ms.openlocfilehash: 3bc8e3a6732eb6f7a4cf5192d55b37d9039350d5
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 22b173e56018c6064e34e8901322e6c9ddda06cc
+ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310868"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068807"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>快速入门：将 Azure Redis 缓存与 Node.js 配合使用
 
@@ -114,7 +114,7 @@ node redistest.js
 
 在以下示例中可以看到，`Message` 键事先已包含一个缓存值，该值是使用 Azure 门户中的 Redis 控制台设置的。 应用更新了该缓存值。 应用还执行了 `PING` 和 `CLIENT LIST` 命令。
 
-![已完成的缓存应用](./media/cache-nodejs-get-started/cache-app-complete.png)
+![已完成的 Redis 缓存应用](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -130,7 +130,7 @@ node redistest.js
 
 在“按名称筛选”文本框中，输入资源组的名称  。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，选择“...”，然后选择“删除资源组”   。
 
-![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+![删除 Azure 资源组](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
 系统会要求确认是否删除资源组。 重新键入资源组的名称进行确认，然后选择“删除”  。
 

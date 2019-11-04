@@ -1,21 +1,18 @@
 ---
 title: 如何在 Azure Database for MySQL 中还原服务器
 description: 本文介绍如何使用 Azure 门户在 Azure Database for MySQL 中还原服务器。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 0d96a24377542504e2dafd5e85407691f8e05dcb
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.date: 11/04/2019
+ms.openlocfilehash: aff27f453b22b344d86375ffcac9bc1a8db0a848
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236597"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142153"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中备份和还原服务器
 
@@ -68,7 +65,7 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 3. 使用必需信息填写“还原”窗体：
 
-   ![Azure Database for MySQL - 还原信息 ](./media/howto-restore-server-portal/3-restore.png)
+   ![Azure Database for MySQL - 还原信息](./media/howto-restore-server-portal/3-restore.png)
    - **还原点**：选择要还原到的时间点。
    - **目标服务器**：提供新服务器的名称。
    - **位置**：不可选择区域。 默认情况下，此值与源服务器相同。
@@ -84,7 +81,7 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 ## <a name="geo-restore"></a>异地还原
 如果为服务器配置了异地冗余备份，则可以从该现有服务器的备份创建新服务器。 可以在 Azure Database for MySQL 可用的任何区域中创建此新服务器。  
 
-1. 选择门户左上角的“创建资源”按钮 (+)  。 在搜索框中键入 **Azure Database for MySQL** 以查找该服务。
+1. 选择门户左上角的“创建资源”按钮 (+)  。 选择“数据库”   >   “Azure Database for MySQL”。
 
    ![“Azure Database for MySQL”选项](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 

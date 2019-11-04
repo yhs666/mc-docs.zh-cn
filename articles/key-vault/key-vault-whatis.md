@@ -1,5 +1,5 @@
 ---
-title: 什么是 Azure 密钥保管库？ | Azure Docs
+title: 什么是 Azure 密钥保管库？ | Azure
 description: 了解 Azure Key Vault 如何保护云应用程序和服务使用的加密密钥和机密。
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 01/26/2017
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: f68bcb3fb27bfb47b73caa6faf642641f1107c2f
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 5e8b93c51c838bcf4d5fa56afb63b2f748992823
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63820791"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425951"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 
@@ -47,7 +47,7 @@ Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密
 
 - **服务主体**：Azure 服务主体是用户创建的应用、服务和自动化工具用来访问特定 Azure 资源的安全标识。 可将其视为具有特定角色，并且权限受到严格控制的“用户标识”（用户名和密码，或者证书）。 与普通的用户标识不同，服务主体只需执行特定的操作。 如果只向它授予执行管理任务所需的最低权限级别，则可以提高安全性。
 
-- **[Azure Active Directory (Azure AD)](/active-directory/fundamentals/active-directory-whatis)**：Azure AD 是租户的 Active Directory 服务。 每个目录有一个或多个域。 每个目录可以有多个订阅与之关联，但只有一个租户。 
+- **[Azure Active Directory (Azure AD)](/active-directory/fundamentals/active-directory-whatis)** ：Azure AD 是租户的 Active Directory 服务。 每个目录有一个或多个域。 每个目录可以有多个订阅与之关联，但只有一个租户。 
 
 - **Azure 租户 ID**：租户 ID 是用于在 Azure 订阅中标识 Azure AD 实例的唯一方法。
 

@@ -1,20 +1,19 @@
 ---
 title: 智能组
 description: 智能组是警报的聚合，可帮助你降低警报噪音
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: alerts
 ms.topic: conceptual
+author: lingliw
 origin.date: 01/28/2018
 ms.date: 05/15/2018
-ms.author: anantr
-ms.subservice: alerts
-ms.openlocfilehash: f2a84079632ad742eccb76ea97f5182c442656c8
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.author: v-lingwu
+ms.openlocfilehash: 60591486622dffdcc442683d849d88d428d6ab29
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737342"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970951"
 ---
 # <a name="smart-groups"></a>智能组
 处理警报时面临的一个常见难题是筛选噪音以找出真正重要的事项 - 智能组旨在解决该问题。  

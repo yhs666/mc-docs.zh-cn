@@ -1,6 +1,6 @@
 ---
-title: 快速入门 - 使用 Azure 逻辑应用创建并自动执行第一个工作流 | Microsoft Docs
-description: 使用 Azure 逻辑应用创建第一个自动执行任务、流程和工作流的逻辑应用。 为系统和云服务创建用于系统集成和企业应用程序集成 (EAI) 解决方案的逻辑应用。
+title: 创建并自动执行第一个工作流 - Azure 逻辑应用
+description: 快速入门 - 使用 Azure 逻辑应用创建第一个自动化任务或工作流以实现系统集成和企业应用程序集成 (EAI) 解决方案
 services: logic-apps
 ms.service: logic-apps
 ms.workload: na
@@ -10,23 +10,23 @@ ms.topic: quickstart
 ms.custom: mvc
 origin.date: 08/20/2018
 ms.author: v-yiso
-ms.date: 10/08/2019
-ms.openlocfilehash: d1c35385de36f5e878cdf279ff316325ff557bb3
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: b80d7419355314cb07fc64f44cb93b2fb1b6ab89
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340978"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425787"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个自动化工作流 - Azure 门户
 
 本快速入门介绍如何使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)构建第一个自动化工作流。 在本文中，请创建一个逻辑应用，以便定期查看网站的 RSS 源中是否有新项。 如果存在新项，逻辑应用会针对每个项发送电子邮件。 完成后，逻辑应用看起来大致与以下工作流类似：
 
-![概述 - 逻辑应用示例](./media/quickstart-create-first-logic-app-workflow/overview.png)
+![高级示例逻辑应用工作流](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-若要按照本快速入门进行操作，你需要逻辑应用支持的提供商（例如 Office 365 Outlook、Outlook.com 或 Gmail）提供的电子邮件帐户。 至于其他提供商，请[查看此处的连接器列表](/connectors/)。 此逻辑应用使用 Office 365 Outlook 帐户。 如果使用其他电子邮件帐户，整个步骤仍然是相同的，但 UI 可能稍有不同。 
+若要按照本快速入门进行操作，你需要逻辑应用支持的提供商（例如 Office 365 Outlook、Outlook.com 或 Gmail）提供的电子邮件帐户。 至于其他提供商，请[查看此处的连接器列表](https://docs.microsoft.com/connectors/)。 此逻辑应用使用 Office 365 Outlook 帐户。 如果使用其他电子邮件帐户，整个步骤仍然是相同的，但 UI 可能稍有不同。
 
-另外，如果没有 Azure 订阅，请<a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">注册一个 Azure 试用帐户</a>。
+另外，如果还没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -34,9 +34,9 @@ ms.locfileid: "71340978"
 
 ## <a name="create-your-logic-app"></a>创建逻辑应用 
 
-1. 在 Azure 主菜单中，选择“创建资源” > “集成” > “逻辑应用”    。
+1. 在 Azure 主菜单中，依次选择“创建资源” > “集成” > “逻辑应用”。   
 
-   ![创建逻辑应用](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
+   ![创建逻辑应用 - Azure 门户](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
 
 3. 在“创建逻辑应用”下，提供有关逻辑应用的详细信息，如下所示。  完成后，选择“创建”  。
 
@@ -53,13 +53,13 @@ ms.locfileid: "71340978"
 
 1. 在 Azure 部署你的应用后，在 Azure 工具栏上，选择“通知”   > “转到资源”  ，查看你部署的逻辑应用。
 
-   ![转到资源](./media/quickstart-create-first-logic-app-workflow/go-to-logic-app.png)
+   ![转到新创建的逻辑应用资源](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    或者，可以通过在搜索框中键入名称来查找和选择逻辑应用。
 
    逻辑应用设计器打开并显示一个包含简介视频和常用触发器的页面。   在“模板”下选择“空白逻辑应用”。
 
-   ![选择空白逻辑应用模板](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![选择逻辑应用的空白模板](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 接下来请添加一个[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)，该触发器在出现新的 RSS 源项时触发。 每个逻辑应用都必须从触发器开始，该触发器在发生特定事件或特定条件得到满足的情况下触发。 每当触发器触发时，逻辑应用引擎就会创建一个逻辑应用实例来启动并运行工作流。
 
@@ -71,11 +71,11 @@ ms.locfileid: "71340978"
 
 1. 在搜索框中输入“rss”。 从触发器列表中选择此触发器：**当有源项发布时 - RSS**
 
-   ![选择触发器：“RSS - 发布源项时”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![选择“发布源项时”触发器](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. 为触发器提供如下所示的信息：
 
-   ![使用 RSS 源、频率和间隔设置触发器](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
+   ![使用 RSS 源、频率和间隔设置触发器](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | 属性 | 值 | 说明 | 
    |----------|-------|-------------| 
@@ -100,7 +100,7 @@ ms.locfileid: "71340978"
 
 1. 在“发布源项时”触发器下，选择“新建步骤”   。
 
-   ![添加操作](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
+   ![在触发器下，选择“新建步骤”](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
 1. 在“选择操作”和搜索框下，选择“全部”   。
 
@@ -162,7 +162,7 @@ ms.locfileid: "71340978"
 
 例如，下面是此逻辑应用发送的一封示例电子邮件。
 
-![针对新的 RSS 源项发送的电子邮件](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
+![出现新的 RSS 源项时发送的示例电子邮件](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
 从技术上讲，当触发器检查 RSS 源并找到新项时，触发器将会激发，并且逻辑应用引擎会创建一个逻辑应用工作流实例，用于运行工作流中的操作。
 如果触发器未找到新项，则触发器不会激发，而是“跳过”实例化工作流的操作。

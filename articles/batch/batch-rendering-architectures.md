@@ -2,17 +2,19 @@
 title: Azure 渲染 - 参考体系结构
 description: 使用 Azure Batch 和其他 Azure 服务以迸发到云的方式扩展本地渲染场时对应的体系结构
 services: batch
+ms.service: batch
 author: lingliw
 manager: digimobile
-ms.author: v-lingwu
+origin.date: 02/07/2019
 ms.date: 02/07/2019
+ms.author: v-lingwu
 ms.topic: conceptual
-ms.openlocfilehash: 0ca3d56e79646917fbb487f87399a20c65352c4a
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 1da369614270bfd0b8bca28c96bc4b721582e638
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583772"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041119"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 渲染的参考体系结构
 

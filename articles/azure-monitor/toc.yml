@@ -627,17 +627,17 @@
             - name: 诊断日志
               items:
                 - name: 概述
-                  href: platform/diagnostic-logs-overview.md
+                  href: platform/resource-logs-overview.md
                 - name: 在日志中收集
-                  href: platform/diagnostic-logs-stream-log-store.md
+                  href: platform/resource-logs-collect-workspace.md
                 - name: 从 Azure 存储中收集
                   href: platform/azure-storage-iis-table.md
                 - name: 存档到存储
-                  href: platform/archive-diagnostic-logs.md
+                  href: platform/resource-logs-collect-storage.md
                 - name: 将数据流式传输到事件中心
-                  href: platform/diagnostic-logs-stream-event-hubs.md
+                  href: platform/resource-logs-stream-event-hubs.md
                 - name: 通过资源管理器模板启用
-                  href: platform/diagnostic-logs-stream-template.md
+                  href: platform/diagnostic-settings-template.md
             - name: 将数据流式传输到事件中心
               href: platform/stream-monitoring-data-event-hubs.md
             - name: 密钥保管库分析
@@ -869,8 +869,6 @@
               href: platform/autoscale-common-metrics.md
             - name: 常见模式
               href: platform/autoscale-common-scale-patterns.md
-            - name: 使用自定义指标缩放
-              href: platform/autoscale-custom-metric.md
             - name: 缩放 VM 规模集
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
             - name: 使用资源管理器模板缩放 VM 规模集
@@ -911,10 +909,8 @@
               href: insights/solutions-resources-searches-alerts.md
             - name: 视图
               href: insights/solutions-resources-views.md
-            - name: 最佳做法
+            - name: 最佳实践
               href: insights/solutions-best-practices.md
-            - name: 从 runbook 收集监视数据
-              href: platform/runbook-datacollect.md
 - name: 参考
   items:
     - name: 服务限制

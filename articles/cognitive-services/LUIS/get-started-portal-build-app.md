@@ -1,6 +1,6 @@
 ---
 title: 快速入门：在 LUIS 门户中创建新应用
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 LUIS 门户创建新应用。 创建应用的基本部件、意向和实体。 通过在交互式测试面板中提供用于获取预测的意向的示例用户话语，对应用进行测试。 生成应用是免费的操作，不需要 Azure 订阅。
 services: cognitive-services
 author: lingliw
@@ -8,14 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+origin.date: 09/04/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 876d8b075c7d2912ea404aa5a1943ecd887c2df8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 411eb56ff895ac2ad8b8e4a4114ad3af828819a5
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103851"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416395"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中创建新应用
 
@@ -25,19 +26,18 @@ ms.locfileid: "70103851"
 
 ## <a name="create-an-app"></a>创建应用
 
-1. 在浏览器中打开 [LUIS 门户](https://luis.azure.cn)并登录。 首次登录时，需要创建一个免费的 LUIS 门户用户帐户。
-
 1. 在上下文工具栏中选择“创建新应用”。 
 
-    [![在 LUIS 门户中创建新应用](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![在 LUIS 门户中创建新应用](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 
 1. 在弹出窗口中使用以下设置配置应用，然后选择“完成”。 
 
-    |设置名称| Value | 目的|
-    |--|--|--|
-    |Name|`myEnglishApp`|唯一的 LUIS 应用名称<br>必填|
-    |环境|**英语**|用户的言语语言：**en-us**<br>必填|
-    |说明|`App made with LUIS Portal`|应用的说明<br>可选|
+   |设置名称| Value | 目的|
+   |--|--|--|
+   |Name|`myEnglishApp`|唯一的 LUIS 应用名称<br>必填|
+   |环境|**英语**|用户的言语语言：**en-us**<br>必填|
+   |说明|`App made with LUIS Portal`|应用的说明<br>可选|
+   | | | |
 
    ![输入新应用设置](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -171,6 +171,3 @@ ms.locfileid: "70103851"
 
 > [!div class="nextstepaction"]
 > [2.部署应用](get-started-portal-deploy-app.md)
-
-
-

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82828e090698c3f178691d7ef54ce6b9d73e337c
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 68909dce8b5a837d7e77c19b73fb2e705a6a1c88
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500714"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068884"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 的服务主体
 
@@ -36,8 +36,10 @@ AKS 群集需要 [Azure Active Directory (AD) 服务主体][aad-service-principa
 在下述 Azure CLI 示例中，尚未指定服务主体。 在此方案中，Azure CLI 为 AKS 群集创建一个服务主体。 若要成功完成此操作，Azure 帐户必须具有创建服务主体所需的相应权限。
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup
+az aks create --name myAKSCluster --resource-group myResourceGroup --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 ## <a name="manually-create-a-service-principal"></a>手动创建服务主体
 
@@ -68,8 +70,11 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --service-principal <appId> \
-    --client-secret <password>
+    --client-secret <password> \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 如果使用 Azure 门户来部署 AKS 群集，请在“创建 Kubernetes 群集”对话框的“身份验证”页上选择“配置服务主体”。    选择“使用现有”并指定以下值： 
 
@@ -164,21 +169,22 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 有关如何更新凭据的信息，请参阅[为 AKS 中的服务主体更新或轮换凭据][update-credentials]。
 
 <!-- LINKS - internal -->
+
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
-[az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[service-principal]: ../active-directory/develop/app-objects-and-service-principals.md
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
-[az-ad-app-list]: https://docs.azure.cn/zh-cn/cli/ad/app?view=azure-cli-latest#az-ad-app-list
-[az-ad-app-delete]: https://docs.azure.cn/zh-cn/cli/ad/app?view=azure-cli-latest#az-ad-app-delete
+[az-ad-app-list]: https://docs.azure.cn/cli/ad/app?view=azure-cli-latest#az-ad-app-list
+[az-ad-app-delete]: https://docs.azure.cn/cli/ad/app?view=azure-cli-latest#az-ad-app-delete
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2faks%2ftoc.json#grant-aks-access-to-acr
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
 

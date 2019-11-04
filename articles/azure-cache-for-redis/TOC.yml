@@ -37,6 +37,8 @@
       items:
         - name: 用于 Redis 的 Azure 缓存的最佳做法
           href: cache-best-practices.md
+    - name: 故障转移和修补介绍
+      href: cache-failover.md
 - name: 操作指南
   items:
     - name: 计划

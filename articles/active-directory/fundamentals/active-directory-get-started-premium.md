@@ -9,17 +9,17 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 origin.date: 09/07/2017
-ms.date: 10/25/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67ec7d7f08f2bfbdb7721b3b432ad33aa16fe548
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 48490669f33107cad00413ef159487651a2bef7e
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912761"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068849"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>注册 Azure Active Directory Premium 版本
 可购买 Azure Active Directory (Azure AD) Premium 版本并将其与 Azure 订阅进行关联。 如果需要创建新的 Azure 订阅，则还需要激活许可计划和 Azure AD 服务访问权限。
@@ -62,8 +62,6 @@ Azure 或 Office 365 订阅者可在线购买 Azure Active Directory Premium 版
 8. 如果使用支付宝作为付款方式，请扫描 QR 码以完成支付。
 
     ![8](./media/active-directory-get-started-premium/8.png)        
-
-有关一些更详细的步骤，请参阅[如何购买 Azure Active Directory Premium - 现有客户](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer)。
 
 ## <a name="next-steps"></a>后续步骤
 现在你已购买 Azure AD Premium，便可以[自定义域](add-custom-domain.md)、[创建租户](active-directory-access-create-new-tenant.md)以及[添加组](active-directory-groups-create-azure-portal.md)和[用户](add-users-azure-active-directory.md)了。

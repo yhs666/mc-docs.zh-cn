@@ -2,24 +2,20 @@
 title: 常见参数和标头
 description: 这些参数和标头常见于与 Key Vault 资源相关的所有操作。
 services: key-vault
-documentationcenter: ''
-author: bryanla
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 05/09/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 0f19c31ddb0232c5ffe35c95c15bc3c1cf92ac27
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+origin.date: 01/07/2019
+ms.date: 10/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: 229270428120d1de4782e0dd09933a4e95db0590
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63861107"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426048"
 ---
 # <a name="common-parameters-and-headers"></a>常见参数和标头
 
@@ -46,11 +42,10 @@ ms.locfileid: "63861107"
 
 |元素名称 | 类型 | 说明 |
 |---|---|---|
-| code | 字符串 | 发生的错误类型。|
-| message | 字符串 | 错误原因说明。 |
+| code | string | 发生的错误类型。|
+| message | string | 错误原因说明。 |
 
 
 
 ## <a name="see-also"></a>另请参阅
  [Azure Key Vault REST API 参考](https://docs.microsoft.com/rest/api/keyvault/)
-

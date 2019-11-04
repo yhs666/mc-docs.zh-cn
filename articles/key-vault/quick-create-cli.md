@@ -1,26 +1,26 @@
 ---
-title: Azure 快速入门 - 使用 Azure CLI 在 Key Vault 中设置和检索机密 | Azure Docs
+title: 快速入门：在 Azure Key Vault 中设置和检索机密
 description: 快速入门介绍如何使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
-ms.custom: mvc
-origin.date: 05/10/2018
-ms.date: 05/27/2019
-ms.author: v-biyu
-ms.openlocfilehash: 60fe9f5c6feb8fc2be592a35c2c8213d3550c502
-ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+origin.date: 09/03/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5e4f347202caebf6f2139887570b2f993b3f3afc
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65628777"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425866"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 
-Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全地存储密钥、密码、证书和其他机密。 有关 Key Vault 的详细信息，可以参阅[概述](key-vault-overview.md)。 Azure CLI 用于通过命令或脚本创建和管理 Azure 资源。 在本快速入门中，请创建一个密钥保管库。 完成该操作后，即可存储机密。
+在本快速入门中，你将使用 Azure CLI 在 Azure Key Vault 中创建一个密钥保管库。 Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全地存储密钥、密码、证书和其他机密。 有关 Key Vault 的详细信息，可以参阅[概述](key-vault-overview.md)。 Azure CLI 用于通过命令或脚本创建和管理 Azure 资源。 完成该操作后，即可存储机密。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
@@ -93,7 +93,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建 Key Vault 并在其中存储了一个机密。 若要详细了解 Key Vault 以及如何将它与应用程序配合使用，请继续学习有关如何将 Web 应用程序与 Key Vault 配合使用的教程。
+在本快速入门中，你创建了 Key Vault 并在其中存储了一个机密。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章。
 
-> [!div class="nextstepaction"]
-> 若要了解如何使用 Web 应用程序通过 Azure 资源的托管标识从 Key Vault 读取机密，请继续学习以下教程：[将 Azure Web 应用程序配置为从 Key Vault 读取机密](quick-create-net.md)
+- 阅读 [Azure Key Vault 概述](key-vault-overview.md)
+- 请参阅 [Azure CLI az keyvault 命令](/cli/keyvault?view=azure-cli-latest)参考
+- 了解[密钥、机密和证书](about-keys-secrets-and-certificates.md)
+- 查看 [Azure Key Vault 最佳做法](key-vault-best-practices.md)

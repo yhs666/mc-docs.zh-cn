@@ -1,5 +1,5 @@
 ---
-title: 收集有关 Azure 虚拟机的数据 | Azure Docs
+title: 使用 Azure Monitor 从 Azure 虚拟机收集数据 | Microsoft Docs
 description: 了解如何启用 Log Analytics 代理 VM 扩展，以及启用通过 Log Analytics 从 Azure VM 收集数据的功能。
 services: log-analytics
 documentationcenter: log-analytics
@@ -14,13 +14,13 @@ ms.topic: quickstart
 origin.date: 08/19/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.custom: mvc
-ms.openlocfilehash: 628128b3a929bd3cc09b8f98e92831624958f67c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.custom: mvc, sec-javascript-october2019
+ms.openlocfilehash: 7f7d8f71d9707b68e016e0998098590bc0ebefd6
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329771"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970838"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>使用 Azure Monitor 从 Azure 虚拟机收集数据
 
@@ -35,17 +35,17 @@ ms.locfileid: "71329771"
 
 1. 在 Azure 门户中，选择“所有服务”。  在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”  。
 
-    ![Azure 门户](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure 门户](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. 选择“创建”  ，然后为以下各项选择选项：
 
    * 为新的 Log Analytics 工作区  提供名称，如 DefaultLAWorkspace  。  
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于“资源组”  ，选择包含一个或多个 Azure 虚拟机的现有资源组。  
-   * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。
-   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
+   * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
+   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
   
-        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. 在“Log Analytics 工作区”窗格中提供所需的信息后，选择“确定”。    
 
@@ -80,7 +80,7 @@ Azure Monitor 可以从你为长期分析和报告指定的 Windows 事件日志
 
 1. 选择“高级设置”  。
 
-    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
 
 2. 选择“数据”  ，然后选择“Windows 事件日志”  。
 
@@ -114,13 +114,14 @@ Azure Monitor 可以从你为长期分析和报告指定的 Windows 事件日志
 
 6. 首次为新的 Log Analytics 工作区配置 Linux 性能计数器时，可以选择快速创建几个通用的计数器。 将这些计数器在一个复选框中依次列出。
 
-    ![选中的默认 Windows 性能计数器](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![选中的默认 Windows 性能计数器](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     选择“将下列配置应用到我的计算机”  ，然后选择“添加选定的性能计数器”  。  随即会添加它们，并且通过 10 秒收集示例间隔进行预设。  
 
 7. 选择页面顶部的“保存”来保存配置。 
 
 ## <a name="view-data-collected"></a>查看收集的数据
+
 现已启用数据收集，开始运行简单的日志搜索示例，查看来自目标 VM 的部分数据。  
 
 1. 在所选工作区中，从左侧窗格中选择“日志”  。

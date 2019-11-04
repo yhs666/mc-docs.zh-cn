@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 07/13/2017
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dceb35f06186a8b57ad81ed3ca6ac93c9512d3a1
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 775d73ebfd8df6064387176a5adf277749a4b36a
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736836"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970984"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>使用容量和性能解决方案（已弃用）规划 Hyper-V 虚拟机容量
 
@@ -51,7 +51,7 @@ ms.locfileid: "70736836"
 |---|---|---|
 | [Windows 代理](../../azure-monitor/platform/agent-windows.md) | 是 | 解决方案从 Windows 代理收集容量和性能数据信息。 |
 | [Linux 代理](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否    | 解决方案不从直接 Linux 代理收集容量和性能数据信息。|
-| [Azure 存储帐户](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) | 否 | Azure 存储不包括容量和性能数据。|
+| [Azure 存储帐户](../../azure-monitor/platform/resource-logs-collect-workspace.md) | 否 | Azure 存储不包括容量和性能数据。|
 
 ## <a name="prerequisites"></a>先决条件
 

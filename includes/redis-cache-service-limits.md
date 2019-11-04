@@ -3,18 +3,18 @@ author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 03/21/2019
+ms.date: 10/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5ed37fa5f46cbbca856b390c06b67a428b50160f
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 82e5eb0a0d3c38ebba6b4a6a00792a3fa9dbd558
+ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319734"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083723"
 ---
-| 资源 | 限制 |
+| Resource | 限制 |
 | --- | --- |
-| 缓存大小 |530 GB |
+| 缓存大小 |1.2 TB |
 | 数据库 |64 |
 | 连接的最大客户端数 |40,000 |
 | Azure Redis 缓存副本，用于高可用性 |1 |

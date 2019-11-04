@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/09/2018
 ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6d1d724bcb5c1961ff9650e569b2a218a4630cf9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4986f6a8c29543016d87a8b5250e984ebe49121c
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651146"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426050"
 ---
 # <a name="key-vault-versions"></a>Key Vault 版本
 
@@ -50,7 +50,7 @@ ms.locfileid: "52651146"
 
 ## <a name="2015-02-01-preview"></a>2015-02-01-预览版 
 
-2015 年 4 月 20 日发布了第二版 2015-02-01-预览版。 有关详细信息，请参阅 [REST API 更新](http://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) 博客文章。
+2015 年 4 月 20 日发布了第二版 2015-02-01-预览版。 有关详细信息，请参阅 [REST API 更新](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) 博客文章。
 
 更新了以下任务：
 

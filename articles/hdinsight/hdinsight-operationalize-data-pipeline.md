@@ -1,27 +1,23 @@
 ---
 title: 使数据分析管道可操作化 - Azure
 description: 设置和运行由新数据触发的示例数据管道并生成简明结果。
-services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
+author: ashishthaps
+ms.assetid: ''
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/11/2018
 ms.author: v-yiso
-ms.date: 10/21/2019
-ms.openlocfilehash: 36ba40bf2ca565e570978b580710a93b5bdd4470
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 11/11/2019
+ms.openlocfilehash: 77bf89f0dc0153c89bb6a409d62e0c4ce98591fd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292513"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425950"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使数据分析管道可操作化
 
@@ -194,7 +190,7 @@ Azure SQL 数据库现已准备就绪。
 
 4. 在查询文本区域中，粘贴以下语句以创建 `rawFlights` 表。 `rawFlights` 表在 Azure 存储的 `/example/data/flights` 文件夹内为 CSV 文件提供读取时架构。 
 
-    ```
+    ```sql
     CREATE EXTERNAL TABLE IF NOT EXISTS rawflights (
         YEAR INT,
         MONTH INT,
@@ -483,7 +479,7 @@ day=03
 
 若要将此工作流计划为每日运行（或者是一段日期范围内的所有日期），可以使用协调器。 协调器由 XML 文件定义，例如 `coordinator.xml`：
 
-```
+```xml
 <coordinator-app name="daily_export" start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" timezone="UTC" xmlns="uri:oozie:coordinator:0.4">
     <datasets>
         <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -562,7 +558,7 @@ day=03
 
 * 第 2 点：在工作流的日期范围内，`dataset` 元素指定 HDFS 中查找特定日期范围的数据的位置，并配置 Oozie 如何确定数据是否还可进行处理。
 
-    ```
+    ```xml
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
         <uri-template>${sourceDataFolder}${YEAR}-${MONTH}-FlightData.csv</uri-template>
         <done-flag></done-flag>
@@ -575,7 +571,7 @@ day=03
 
 * 第 3 点：`data-in` 元素指定在 `uri-template` 中替换关联数据集的值时，要用作名义时间的特定时间戳。
 
-    ```
+    ```xml
     <data-in name="event_input1" dataset="ds_input1">
         <instance>${coord:current(0)}</instance>
     </data-in>

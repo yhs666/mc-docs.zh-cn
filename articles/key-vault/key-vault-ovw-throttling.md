@@ -2,23 +2,20 @@
 title: Azure Key Vault 限制指南
 description: Key Vault 限制可限制并发调用数，以防止过度使用资源。
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
-ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 origin.date: 05/10/2018
-ms.date: 04/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: 03333cacd94983dbd3c8e8e7b8809c6b00161515
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 866fcf8f5512c4ec03113ea8f63cbd0e167d7629
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566255"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426097"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 限制指南
 

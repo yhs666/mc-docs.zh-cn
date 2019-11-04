@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 origin.date: 05/06/2019
-ms.date: 08/05/2019
-ms.openlocfilehash: 70e414842be21e119691d8845a8758babac479ff
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.date: 11/04/2019
+ms.openlocfilehash: 50ed14c038d901813f46a1ca1ff60527f9f00667
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732416"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191531"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>什么是用于 PostgreSQL 的 Azure 数据库？
 Azure Database for PostgreSQL 是 Azure 云中为开发人员构建的关系型数据库服务。 它基于开源 [PostgreSQL](https://www.postgresql.org/) 数据库引擎的社区版本。
@@ -36,7 +36,7 @@ Azure Database for PostgreSQL 是 Azure 云中为开发人员构建的关系型�
 ## <a name="data-security"></a>数据安全性
 Azure Database for PostgreSQL 沿袭了 Azure 数据库服务的数据安全传统。 它的功能可以限制访问、保护静态数据和移动数据，以及帮助你监视活动。 有关 Azure 平台安全性的信息，请访问 [Azure 信任中心](https://www.trustcenter.cn/)。
 
-Azure Database for PostgreSQL 服务对静态数据使用存储加密，并且符合 FIPS 140-2 标准。 在磁盘上加密数据（包括备份）。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥由系统进行管理。 存储加密始终处于启用状态，无法禁用。 默认情况下，Azure Database for PostgreSQL 服务要求对整个网络的动态数据以及数据库和客户端应用程序之间的动态数据实施安全连接。
+Azure Database for PostgreSQL 服务使用 FIPS 140-2 验证的加密模块对静态数据进行存储加密。 数据（包括备份）在磁盘上加密，运行查询时创建的临时文件除外。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥由系统进行管理。 存储加密始终处于启用状态，无法禁用。 默认情况下，Azure Database for PostgreSQL 服务要求对整个网络的动态数据以及数据库和客户端应用程序之间的动态数据实施安全连接。
 
 ## <a name="contacts"></a>联系人
 若要联系 Azure 支持部门或修复帐户问题，请[通过 Azure 门户提交票证](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。

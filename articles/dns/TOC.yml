@@ -7,96 +7,104 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: 名称解析 - 门户
-      href: dns-getstarted-portal.md
-    - name: 名称解析 - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: 名称解析 - CLI
-      href: dns-getstarted-cli.md
+    - name: 公共 DNS
+      items:
+        - name: 创建公用区域 - 门户
+          href: dns-getstarted-portal.md
+        - name: 创建公用区域 - PowerShell
+          href: dns-getstarted-powershell.md
+        - name: 创建公用区域 - CLI
+          href: dns-getstarted-cli.md
 - name: 教程
   items:
-    - name: 在 Azure DNS 中托管域
-      href: dns-delegate-domain-azure-dns.md
-    - name: 为 Web 应用创建自定义 DNS 记录
-      href: dns-web-sites-custom-domain.md
-- name: 示例
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
+    - name: 公共 DNS
+      items:
+        - name: 在 Azure DNS 中托管域
+          href: dns-delegate-domain-azure-dns.md
+        - name: 为 Web 应用创建自定义 DNS 记录
+          href: dns-web-sites-custom-domain.md
 - name: 概念
   items:
-    - name: 区域和记录
-      href: dns-zones-records.md
-    - name: 使用 Azure DNS 进行委派
-      href: dns-domain-delegation.md
-    - name: 常见问题
-      href: dns-faq.md
-    - name: DNS 指标和警报
-      href: dns-alerts-metrics.md
-    - name: 反向 DNS
-      href: dns-reverse-dns-overview.md
-    - name: 使用 Azure DNS 和流量管理器进行灾难恢复
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: 公共 DNS
+      items:
+        - name: 区域和记录
+          href: dns-zones-records.md
+        - name: 使用 Azure DNS 进行委派
+          href: dns-domain-delegation.md
+        - name: 常见问题
+          href: dns-faq.md
+        - name: DNS 指标和警报
+          href: dns-alerts-metrics.md
+        - name: 反向 DNS
+          href: dns-reverse-dns-overview.md
+        - name: 使用 Azure DNS 和流量管理器进行灾难恢复
+          href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 如何
   items:
-    - name: 管理 DNS 区域
+    - name: 公共 DNS
       items:
-        - name: Azure 门户
-          href: dns-operations-dnszones-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-dnszones.md
-        - name: Azure CLI
-          href: dns-operations-dnszones-cli.md
-    - name: 管理 DNS 记录
+        - name: 管理 DNS 区域
+          items:
+            - name: Azure 门户
+              href: dns-operations-dnszones-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-dnszones.md
+            - name: Azure CLI
+              href: dns-operations-dnszones-cli.md
+        - name: 管理 DNS 记录
+          items:
+            - name: Azure 门户
+              href: dns-operations-recordsets-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-recordsets.md
+            - name: Azure CLI
+              href: dns-operations-recordsets-cli.md
+        - name: 管理反向 DNS
+          items:
+            - name: Azure DNS 中的主机反向查找区域
+              href: dns-reverse-dns-hosting.md
+            - name: 管理 Azure 服务的反向 DNS 记录
+              href: dns-reverse-dns-for-azure-services.md
+        - name: 导入和导出 DNS 区域文件
+          href: dns-import-export.md
+        - name: 委托子域
+          href: delegate-subdomain.md
+        - name: 使用 PowerShell 委托子域
+          href: delegate-subdomain-ps.md
+        - name: 与其他 Azure 服务集成
+          href: dns-for-azure-services.md
+        - name: 保护 DNS 区域和记录
+          href: dns-protect-zones-recordsets.md
+        - name: 使用 .NET SDK 自动化 DNS 操作
+          href: dns-sdk.md
+        - name: Azure 资源的自定义域
+          href: dns-custom-domain.md
+    - name: 故障排除
       items:
-        - name: Azure 门户
-          href: dns-operations-recordsets-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-recordsets.md
-        - name: Azure CLI
-          href: dns-operations-recordsets-cli.md
-    - name: 管理反向 DNS
-      items:
-        - name: Azure DNS 中的主机反向查找区域
-          href: dns-reverse-dns-hosting.md
-        - name: 管理 Azure 服务的反向 DNS 记录
-          href: dns-reverse-dns-for-azure-services.md
-    - name: 导入和导出 DNS 区域文件
-      href: dns-import-export.md
-    - name: 委托子域
-      href: delegate-subdomain.md
-    - name: 使用 PowerShell 委托子域
-      href: delegate-subdomain-ps.md
-    - name: 与其他 Azure 服务集成
-      href: dns-for-azure-services.md
-    - name: 保护 DNS 区域和记录
-      href: dns-protect-zones-recordsets.md
-    - name: 使用 .NET SDK 自动化 DNS 操作
-      href: dns-sdk.md
-    - name: Azure 资源的自定义域
-      href: dns-custom-domain.md
-- name: 故障排除
-  items:
-    - name: 故障排除指南
-      href: dns-troubleshoot.md
+        - name: 故障排除指南
+          href: dns-troubleshoot.md
 - name: 参考
   items:
-    - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.dns'
-    - name: Azure CLI
-      href: /cli/network/dns
-    - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.dns.models'
-    - name: Java
-      href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.dns'
-    - name: Node.js
-      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
-    - name: Ruby
-      href: 'http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
-    - name: Python
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/dns/'
+    - name: 公共 DNS
+      items:
+        - name: CLI 示例
+          href: cli-samples.md
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.dns'
+        - name: Azure CLI
+          href: /cli/network/dns
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.dns.models'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.dns'
+        - name: Node.js
+          href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
+        - name: Ruby
+          href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
+        - name: Python
+          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
+        - name: REST
+          href: 'https://docs.microsoft.com/rest/api/dns/'
 - name: 相关内容
   items:
     - name: 应用程序网关

@@ -7,16 +7,16 @@ author: cjgronlund
 manager: jhubbard
 ms.author: v-yiso
 origin.date: 04/24/2019
-ms.date: 05/27/2019
+ms.date: 11/11/2019
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 6d23e6d77442a1032ec24fdc2958c02956fcf86b
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: adaa6869c4172e69631ad8a9265bb187d84da995
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829268"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425663"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 生态系统中工作
 
@@ -33,7 +33,7 @@ Azure PowerShell 是一个脚本编写环境，使用它可以通过 Windows 在
 * [使用 PowerShell 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-powershell.md)。
 * [使用 PowerShell 管理群集](hdinsight-administer-use-powershell.md)
 
-请遵循[安装和配置 Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 的步骤来获取最新版本。 如果脚本需要修改后才能使用 Azure Resource Manager 的新 cmdlet，请参阅[迁移到基于 Azure Resource Manager 的面向 HDInsight 群集的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)。
+请遵循[安装和配置 Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 的步骤来获取最新版本。
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>可在浏览器中运行的实用工具
 以下实用工具提供可在浏览器中运行的 Web UI：
@@ -59,9 +59,6 @@ Azure PowerShell 是一个脚本编写环境，使用它可以通过 Windows 在
 * [通过 .NET Framework 应用程序创建群集和使用 HDInsight](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 * [使用 .NET SDK 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 * [在 Apache Hadoop 上将 C# 用户定义函数与 Apache Hive 和 Apache Pig 流式处理配合使用](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
-
-> [!TIP]
-> 如果在基于 Windows 的 HDInsight 群集中运行 .NET 解决方案，现在正好可以计划迁移到基于 Linux 的群集。 有关详细信息，请参阅[将基于 Windows 的 HDInsight 的 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>用于 Spark 群集的 Intellij IDEA 和 Eclipse IDE
 [Intellij IDEA](https://www.jetbrains.com/idea/download) 和 [Eclipse IDE](https://www.eclipse.org/downloads/) 都可用于：

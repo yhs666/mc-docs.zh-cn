@@ -1,24 +1,19 @@
 ---
 title: Azure Monitor 中的 Insights 概述 | Microsoft Docs
 description: Insights 在 Azure Monitor 中为特定的应用程序和服务提供了自定义的监视体验。 本文简要介绍了目前可用的每种 Insights。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: ''
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/22/2019
 ms.date: 06/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c34eac44e701d7f409707ca49b2588d93716a870
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 375ed47775e1014ba08eabb11bfa1d378fe91243
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737398"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970829"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Azure Monitor 中的 Insights 概述
 Insights 在 Azure Monitor 中为特定的应用程序和服务提供了自定义的监视体验。 他们将数据存储在 [Azure Monitor 数据平台](../platform/data-platform.md)中，并利用其他 Azure Monitor 功能进行分析和发警报，但可能会收集其他数据，并在 Azure 门户中提供独特的用户体验。 从 Azure 门户中 Azure Monitor 菜单的 **Insights** 部分访问 Insights。

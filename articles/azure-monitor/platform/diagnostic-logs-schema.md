@@ -1,24 +1,23 @@
 ---
 title: Azure 诊断日志支持的服务和架构
 description: 了解 Azure 诊断日志支持的服务和事件架构。
-author: lingliw
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: reference
+author: lingliw
+ms.author: v-lingwu
 origin.date: 10/11/2018
 ms.date: 07/06/2019
-ms.author: v-lingwu
-ms.subservice: logs
-ms.openlocfilehash: 6eafb8c517222700603dfdf710408c0d7f35a410
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: fbc23385ddb6e5c3ad4475de47efc4cd2dbb7222
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330440"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970672"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
-[Azure Monitor 诊断日志](../../azure-monitor/platform/diagnostic-logs-overview.md)是 Azure 服务发出的日志，用于描述这些服务或资源的操作。 通过 Azure Monitor 提供的所有诊断日志共享公共顶级架构，且每个服务都能灵活地为其事件发出唯一属性。
+[Azure Monitor 诊断日志](../../azure-monitor/platform/resource-logs-overview.md)是 Azure 服务发出的日志，用于描述这些服务或资源的操作。 通过 Azure Monitor 提供的所有诊断日志共享公共顶级架构，且每个服务都能灵活地为其事件发出唯一属性。
 
 资源类型（为 `resourceId` 属性时可用）和 `category` 的组合唯一标识架构。 本文介绍了诊断日志的顶级架构以及每个服务的架构链接。
 
@@ -193,8 +192,8 @@ ms.locfileid: "71330440"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [详细了解诊断日志](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [将资源诊断日志流式传输到事件中心  ](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+* [详细了解诊断日志](../../azure-monitor/platform/resource-logs-overview.md)
+* [将资源诊断日志流式传输到事件中心  ](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [使用 Azure Monitor REST API 更改资源诊断设置](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [使用 Log Analytics 分析 Azure 存储中的日志](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md)
+* [使用 Log Analytics 分析 Azure 存储中的日志](../../azure-monitor/platform/resource-logs-collect-workspace.md)
 

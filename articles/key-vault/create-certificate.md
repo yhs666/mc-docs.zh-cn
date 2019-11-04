@@ -3,19 +3,19 @@ title: 证书创建方法
 description: 在 Key Vault 中创建证书的方法。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-origin.date: 05/09/2018
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 52c458e8c35f05f6c92740d73b84a799f94c71c3
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+origin.date: 01/07/2019
+ms.date: 10/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: 75a858dcaef747dd9fc2b2c29d5e542b004e186a
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687479"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425899"
 ---
 # <a name="certificate-creation-methods"></a>证书创建方法
 
@@ -25,7 +25,7 @@ ms.locfileid: "66687479"
 
 -    **手动创建新证书：** 此方法将创建一个公钥-私钥对并生成 X.509 证书签名请求。 签名请求可以由注册机构或证书颁发机构进行签名。 签名的 x509 证书可以与挂起的密钥对合并，以便完成 Key Vault 中的 KV 证书。 虽然此方法需要更多步骤，但其安全性更高，因为私钥是在 Key Vault 中创建的，其范围局限于 Key Vault。 下图对此进行了说明。  
 
-![使用自己的证书颁发机构创建证书](./media/certificate-authority-1.png)  
+![使用自己的证书颁发机构创建证书](media/certificate-authority-1.png)  
 
 以下说明对应于上图中绿色字母代表的步骤。
 
@@ -37,7 +37,7 @@ ms.locfileid: "66687479"
 
 -   **使用已知的证书颁发者提供程序创建证书：** 此方法要求你执行一项一次性任务，即创建一个证书颁发者对象。 在密钥保管库中创建证书颁发者对象以后，即可在 KV 证书的策略中引用其名称。 请求创建此类 KV 证书时，将在保管库中创建一个密钥对，并使用所引用的证书颁发者对象中的信息与证书颁发者提供者服务通信，以便获取 x509 证书。 从证书颁发者服务中检索 x509 证书并将其与密钥对合并以完成 KV 证书创建过程。  
 
-![通过与 Key Vault 配合使用的证书颁发机构创建证书](./media/certificate-authority-2.png)  
+![通过与 Key Vault 配合使用的证书颁发机构创建证书](media/certificate-authority-2.png)  
 
 以下说明对应于上图中绿色字母代表的步骤。
 
@@ -83,7 +83,7 @@ KV 证书创建是一个异步过程。 此操作会创建 KV 证书请求并返
 |提供程序|证书类型|  
 |--------------|----------------------|  
 |DigiCert|Key Vault 提供 DigiCert 的 OV 或 EV SSL 证书|
-|GlobalCert|Key Vault 提供 Globaltrust 的 OV 或 EV SSL 证书 |
+|GlobalSign|Key Vault 提供 GlobalSign 的 OV 或 EV SSL 证书|
 
  证书颁发者是 Azure Key Vault (KV) 中表示为 CertificateIssuer 资源的实体。 它用于提供有关 KV 证书来源的信息，例如颁发者名称、提供者、凭据和其他管理详细信息。
 

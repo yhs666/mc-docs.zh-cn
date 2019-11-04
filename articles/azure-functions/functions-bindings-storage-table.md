@@ -7,17 +7,16 @@ author: craigshoemaker
 manager: gwallace
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 09/06/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 08f91facc6e57e1870f3364f2a5ae9582bc64f5b
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 50b26cc1b12ba34939999c85840e7b25de803bdb
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805761"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034450"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -494,7 +493,7 @@ public int run(
 
 ## <a name="input---java-annotations"></a>输入 - Java 注释
 
-在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将来自表存储的参数使用 `@TableInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional\<T> 的可为 null 的值一起使用。 
+在 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中，对其值将来自表存储的参数使用 `@TableInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional\<T> 的可为 null 的值一起使用。 
 
 ## <a name="input---configuration"></a>输入 - 配置
 
@@ -531,7 +530,7 @@ public int run(
 
 * **在 JavaScript 中读取一行或多行**
 
-  设置 `filter` 和 `take` 属性。 不要设置 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<name>` 访问输入一个或多个输入表实体。 反序列化的对象具有 `RowKey` 和 `PartitionKey` 属性。
+  设置 `filter` 和 `take` 属性。 不要设置 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<BINDING_NAME>` 访问输入一个或多个输入表实体。 反序列化的对象具有 `RowKey` 和 `PartitionKey` 属性。
 
 ## <a name="output"></a>输出
 
@@ -788,7 +787,7 @@ public static MyPoco TableOutput(
 
 * **在 JavaScript 中写入一行或多行**
 
-  在 JavaScript 函数中，可以使用 `context.bindings.<name>` 访问表输出。
+  在 JavaScript 函数中，可以使用 `context.bindings.<BINDING_NAME>` 访问表输出。
 
 ## <a name="exceptions-and-return-codes"></a>异常和返回代码
 

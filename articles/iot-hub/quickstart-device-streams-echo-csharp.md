@@ -7,14 +7,15 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
+origin.date: 03/14/2019
+ms.date: 11/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 55c29a707381557552c23d1e2c5f75aac749d46d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: c63224bc6817d65951f2fa82ddf06c077a476fd4
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993750"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426075"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流（预览版）使用 C# 与设备应用程序进行通信
 
@@ -62,10 +63,10 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
    > [!NOTE]
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
-   > * 如示例中所示使用 *MyDevice*。 它是为注册的设备提供的名称。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   > * 对于正在注册的设备的名称，建议使用 *MyDevice*，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要获取刚刚注册的设备的*设备连接字符串*，请在 Cloud Shell 中运行以下命令：
@@ -74,10 +75,10 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    请记下设备连接字符串，稍后需要在本快速入门中用到它。 如以下示例所示：
+    请记下返回的设备连接字符串，以便稍后在此快速入门中使用。 如以下示例所示：
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -87,10 +88,10 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    请记下返回的值，因为稍后要在本快速入门中用到它。 如以下示例所示：
+    请记下返回的服务连接字符串，以便稍后在此快速入门中使用。 如以下示例所示：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -100,14 +101,14 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 ### <a name="run-the-service-side-application"></a>运行服务端应用程序
 
-转到解压缩的项目文件夹中的 *iot-hub/Quickstarts/device-streams-echo/service* 目录。 请保留以下信息：
+在本地终端窗口中，导航到解压缩项目文件夹中的 `iot-hub/Quickstarts/device-streams-echo/service` 目录。 请保留以下信息：
 
 | 参数名称 | 参数值 |
 |----------------|-----------------|
-| `ServiceConnectionString` | 提供 IoT 中心的服务连接字符串。 |
-| `DeviceId` | 提供之前创建的设备的 ID（例如 *MyDevice*）。 |
+| `ServiceConnectionString` | IoT 中心的服务连接字符串。 |
+| `MyDevice` | 前面创建的设备标识符。 |
 
-按如下所示编译并运行代码：
+使用以下命令编译并运行代码：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/service/
@@ -117,24 +118,25 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<ServiceConnectionString>" "<MyDevice>"
+dotnet run "{ServiceConnectionString}" "MyDevice"
 
 # In Windows
-dotnet run <ServiceConnectionString> <MyDevice>
+dotnet run {ServiceConnectionString} MyDevice
 ```
+应用程序将等待设备应用程序变为可用。
 
 > [!NOTE]
 > 如果设备端应用程序未及时响应，则会发生超时。
 
 ### <a name="run-the-device-side-application"></a>运行设备端应用程序
 
-转到解压缩的项目文件夹中的 *iot-hub/Quickstarts/device-streams-echo/device* 目录。 请保留以下信息：
+在另一个本地终端窗口中，导航到解压缩项目文件夹中的 `iot-hub/Quickstarts/device-streams-echo/device` 目录。 请保留以下信息：
 
 | 参数名称 | 参数值 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 提供 IoT 中心的设备连接字符串。 |
+| `DeviceConnectionString` | IoT 中心的设备连接字符串。 |
 
-按如下所示编译并运行代码：
+使用以下命令编译并运行代码：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/device/
@@ -144,10 +146,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<DeviceConnectionString>"
+dotnet run "{DeviceConnectionString}"
 
 # In Windows
-dotnet run <DeviceConnectionString>
+dotnet run {DeviceConnectionString}
 ```
 
 最后一个步骤结束时，服务端应用程序会向设备发起流。 建立流后，应用程序会通过该流将一个字符串缓冲区发送到服务。 在此示例中，服务端应用程序直接将相同的数据回显到设备，表明已成功地在两个应用程序之间建立双向通信。

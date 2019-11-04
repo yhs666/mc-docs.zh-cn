@@ -3,26 +3,15 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 09/04/2018
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: d96c4d000f590602d9f41f94249e8826cee7da12
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 73f9fc715d28b3bd153f8fcb3a3893017e7e8289
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491475"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034384"
 ---
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 200,
-        "maxConcurrentRequests": 100,
-        "dynamicThrottlesEnabled": true
-    }
-}
-```
-
 |属性  |默认 | 说明 |
 |---------|---------|---------| 
 |routePrefix|api|应用到所有路由的路由前缀。 使用空字符串可删除默认前缀。 |

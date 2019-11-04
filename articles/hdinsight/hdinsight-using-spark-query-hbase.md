@@ -11,15 +11,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 06/06/2019
+origin.date: 10/02/2019
 ms.author: v-yiso
-ms.date: 07/22/2019
-ms.openlocfilehash: 2248c02c2b879b370b43e22cd9a08cd951378d73
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 11/11/2019
+ms.openlocfilehash: cb0d6621b81accde7d3a16b22e5fce41bf987588
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878762"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425893"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 读取和写入 Apache HBase 数据
 
@@ -149,7 +149,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     |}""".stripMargin
     ```
 
-    该代码执行以下操作：  
+    代码执行以下操作：  
 
      a. 定义名为 `Contacts` 的 HBase 表的目录架构。  
      b. 将 rowkey 标识为 `key`，并将 Spark 中使用的列名映射到 HBase 中使用的列族、列名和列类型。  
@@ -197,8 +197,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 8. 针对 `contacts` 表发出 SQL 查询：
 
     ```scala
-    val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
-    query.show()
+    spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
 9. 应看到如下结果：

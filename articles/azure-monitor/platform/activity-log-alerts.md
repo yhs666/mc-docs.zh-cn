@@ -1,21 +1,19 @@
 ---
 title: Azure Monitor 中的活动日志警报
 description: 当活动日志中出现某些事件时，通过 SMS、Webhook、短信、电子邮件等方式进行通知。
-author: lingliw
-manager: digimobile
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: alerts
 ms.topic: conceptual
+author: lingliw
 origin.date: 09/17/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.subservice: alerts
-ms.openlocfilehash: 31eb24d6d9eca88a4ed752cd471d691b33519044
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: dbd86c47f20ab048eb9c9259cb2949a63a8dcbb3
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737364"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970773"
 ---
 # <a name="alerts-on-activity-log"></a>根据活动日志发出警报 
 

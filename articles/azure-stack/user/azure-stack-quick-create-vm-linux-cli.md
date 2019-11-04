@@ -16,16 +16,16 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e577a03542f4ce93ed42cac558804f3521d9986
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 3405f136af228afcd723a2d74a766e8ca19ed8ed
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513250"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142132"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Linux 服务器 VM
 
-适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
+*适用于：* Azure Stack 集成系统和 Azure Stack 开发工具包
 
 可以使用 Azure CLI 创建 Ubuntu Server 16.04 LTS 虚拟机 (VM)。 在本文中，我们将创建和使用虚拟机。 本文还介绍以下操作：
 
@@ -120,4 +120,3 @@ az group delete --name myResourceGroup
 
 在本快速入门中，你已部署了一个带有 Web 服务器的基本 Linux 服务器虚拟机。 若要详细了解 Azure Stack 虚拟机，请参阅 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
 
-<!-- Update_Description: wording update -->

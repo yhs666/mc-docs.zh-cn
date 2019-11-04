@@ -1,24 +1,20 @@
 ---
 title: 通过多步骤 Web 测试和 Azure Application Insights 监视 Web 应用程序 | Microsoft Docs
 description: 设置多步骤 Web 测试以通过 Azure Application Insights 监视 Web 应用程序
-services: application-insights
-author: lingliw
-manager: digimobile
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 07/25/2019
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: f1637abf5a36231965060519ef9340f65fd5ea6c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a98c41d0fdd9ab44aad739dbcbc39bcfbe3fa9f2
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737108"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970927"
 ---
 # <a name="multi-step-web-tests"></a>多步骤 Web 测试
 

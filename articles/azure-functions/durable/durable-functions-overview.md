@@ -8,15 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: overview
 origin.date: 08/07/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.reviewer: azfuncdf
-ms.openlocfilehash: ae502cdaa8baad5e48e39b7bbaf357d4e139c417
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 450f4e272929dc7c185ad46e670431180f5a8905
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673561"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034429"
 ---
 # <a name="what-are-durable-functions"></a>什么是 Durable Functions？
 
@@ -62,7 +62,7 @@ public static async Task<object> Run(
 {
     try
     {
-        var x = await context.CallActivityAsync<object>("F1");
+        var x = await context.CallActivityAsync<object>("F1", null);
         var y = await context.CallActivityAsync<object>("F2", x);
         var z = await context.CallActivityAsync<object>("F3", y);
         return  await context.CallActivityAsync<object>("F4", z);
@@ -114,7 +114,7 @@ public static async Task Run(
     var parallelTasks = new List<Task<int>>();
 
     // Get a list of N work items to process in parallel.
-    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1", null);
     for (int i = 0; i < workBatch.Length; i++)
     {
         Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
@@ -288,7 +288,7 @@ module.exports = df.orchestrator(function*(context) {
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("RequestApproval");
+    await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
     {
         DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
@@ -302,7 +302,7 @@ public static async Task Run(
         }
         else
         {
-            await context.CallActivityAsync("Escalate");
+            await context.CallActivityAsync("Escalate", null);
         }
     }
 }
@@ -379,7 +379,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            currentValue += amount;
             break;
         case "reset":
             currentValue = 0;
@@ -465,4 +465,4 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的高级扩�
 > [!div class="nextstepaction"]
 > [Durable Functions 函数类型和功能](durable-functions-types-features-overview.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->
