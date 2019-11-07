@@ -4,17 +4,17 @@ description: 了解如何使用 .NET 客户端库列出 Azure 存储帐户中的
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
-origin.date: 07/10/2019
-ms.date: 09/09/2019
+ms.topic: conceptual
+origin.date: 10/01/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 7d65e3e93779e6cf7971be8652974f9d22dadc25
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 5cd4525938f04ee68beb956eb276cfc7f5d3195f
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209442"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914455"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 Blob 容器
 
@@ -41,9 +41,9 @@ ms.locfileid: "70209442"
 
 若要筛选容器列表，请为 `prefix` 参数指定一个字符串。 前缀字符串可以包含一个或多个字符。 然后，Azure 存储只返回其名称以该前缀开头的容器。
 
-### <a name="return-container-metadata"></a>返回容器元数据
+### <a name="return-metadata"></a>返回元数据
 
-若要连同结果一起返回容器元数据，请指定 [ContainerListDetails](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.containerlistingdetails) 枚举的 **Metadata** 值。 Azure 存储包含每个返回的容器的元数据，因此无需同时调用 **FetchAttributes** 方法之一即可检索容器元数据。
+若要连同结果一起返回容器元数据，请指定 [ContainerListingDetails](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.containerlistingdetails) 枚举的 **Metadata** 值。 Azure 存储包含每个返回的容器的元数据，因此无需同时调用 **FetchAttributes** 方法之一即可检索容器元数据。
 
 ## <a name="example-list-containers"></a>示例：列出容器
 

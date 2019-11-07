@@ -1,22 +1,20 @@
 ---
 title: Azure Application Insights 中的分布式跟踪 | Azure Docs
 description: 介绍世纪互联如何在 OpenCensus 项目中通过本地转发器和合作伙伴关系提供对分布式跟踪的支持
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-ms.reviewer: mbullwin
 origin.date: 09/17/2018
 ms.date: 6/4/2019
-ms.service: application-insights
-ms.topic: conceptual
-manager: digimobile
-ms.openlocfilehash: d3937d373321555895f244589616d8743a4528bd
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.reviewer: mbullwin
+ms.openlocfilehash: b405f1c62d744255b2936c63223580a1e016e9f0
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737285"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970913"
 ---
 # <a name="what-is-distributed-tracing"></a>什么是分布式跟踪？
 

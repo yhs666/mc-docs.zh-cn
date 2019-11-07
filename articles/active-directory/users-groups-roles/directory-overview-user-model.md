@@ -7,7 +7,7 @@ manager: mtillman
 ms.author: v-junlch
 ms.reviewer: vincesm
 origin.date: 01/28/2019
-ms.date: 08/28/2019
+ms.date: 10/25/2019
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -15,12 +15,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b5515ddc7ee3da88d1979adad2b89e3a5c17475
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 05c351ad12313d880e436798610b8a864c9ac837
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134504"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912790"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>大型组织的用户、组、许可和角色
 
@@ -33,8 +33,6 @@ ms.locfileid: "70134504"
 ## <a name="assign-users-to-groups"></a>将用户分配到组
 
 可以使用 Azure AD 中的组将许可证分配给大量用户，或者为用户分配已部署企业应用的访问权限。 可以使用组在 Azure AD 中分配管理员角色，或者，可以授予对外部资源（例如 SaaS 应用程序或 SharePoint 站点）的访问权限。
-
-为了提高灵活性和减少管理组成员身份的工作量，可以使用 Azure AD 中的[动态组](groups-create-rule.md)来自动扩展和收缩组成员身份。 对于属于一个或多个动态组的每个独特用户，需要 Azure AD Premium P1 许可证。
 
 ## <a name="assign-licenses-to-groups"></a>将许可证分配到组
 
@@ -53,7 +51,7 @@ ms.locfileid: "70134504"
 
  角色名称 | 权限摘要
  --------- | -------------------
- **应用程序管理员** | 可以添加和管理企业应用程序与应用程序注册，以及配置代理应用程序设置。 应用程序管理员可以查看条件访问策略和设备，但不能对其进行管理。
+ **应用程序管理员** | 可以添加和管理企业应用程序与应用程序注册。 
  **云应用程序管理员** | 可以添加和管理企业应用程序与企业应用注册。 此角色拥有应用程序管理员的所有权限，但不能管理应用程序代理设置。
 **应用程序开发人员** | 可以添加和更新应用程序注册，但不能管理企业应用程序或配置应用程序代理。
 
@@ -61,7 +59,7 @@ ms.locfileid: "70134504"
 
 ## <a name="assign-app-access"></a>分配应用访问权限
 
-可以使用 Azure AD 为组分配对 [Azure AD 租户中部署的企业应用](/active-directory/manage-apps/methods-for-assigning-users-and-groups)的访问权限。 如果在应用中结合使用动态组和组分配，则可以在组织不断发展的过程中，来自动分配用户对应用的访问权限。 需要一个 Azure Active Directory Premium P1 或 Premium P2 许可证才能分配对企业应用的访问权限。
+可以使用 Azure AD 为组分配对 [Azure AD 租户中部署的企业应用](/active-directory/manage-apps/methods-for-assigning-users-and-groups)的访问权限。 
 
 在 Azure AD 中，还可以精细控制你有权访问的应用和组之间流动的数据。 在[企业应用程序](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)中打开一个应用，并选择“预配”以执行以下操作： 
 

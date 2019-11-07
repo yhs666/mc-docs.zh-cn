@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 origin.date: 11/09/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: b072ab48688acfe083d029c695d76a9e504cce29
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 11/04/2019
+ms.openlocfilehash: 221a0e3ade689a4fcfd6c3ad0d5ac3cc0c717252
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308883"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191578"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>使用 Azure CLI 自定义服务器配置参数
 可以使用 Azure CLI、Azure 命令行实用工具来列出、显示和更新 Azure Database for MariaDB 服务器的配置参数。 在服务器级别会公开引擎配置的一个子集，并可以进行修改。
@@ -55,6 +55,45 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 ```
 
 此代码会将 slow\_query\_log  配置重置为默认值 OFF  。 
+
+## <a name="working-with-the-time-zone-parameter"></a>使用时区参数
+
+### <a name="populating-the-time-zone-tables"></a>填充时区表
+
+可以通过从 MariaDB 命令行或 MariaDB Workbench 等工具调用 `az_load_timezone` 存储过程，填充服务器上的时区表。
+
+> [!NOTE]
+> 如果是从 MariaDB Workbench 中运行 `az_load_timezone` 命令，可能需要先使用 `SET SQL_SAFE_UPDATES=0;` 关闭安全更新模式。
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+要查看可用的时区值，请运行以下命令：
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### <a name="setting-the-global-level-time-zone"></a>设置全局级时区
+
+可以使用 [az mariadb server configuration set](/cli/mariadb/server/configuration#az-mariadb-server-configuration-set) 命令来设置全局级时区。
+
+以下命令将资源组 **myresourcegroup** 下的服务器 **mydemoserver.mariadb.database.chinacloudapi.cn** 的服务器配置参数 **time\_zone** 更新为 **US/Pacific**。
+
+```azurecli
+az mariadb server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
+```
+
+### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
+
+可以通过从 MariaDB 命令行或 MariaDB Workbench 等工具运行 `SET time_zone` 命令来设置会话级时区。 以下示例将时区设置为“美国/太平洋”  时区。  
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+若要了解[日期和时间函数](https://mariadb.com/kb/en/library/date-time-functions/)，请参阅 MariaDB 文档。
 
 ## <a name="next-steps"></a>后续步骤
 

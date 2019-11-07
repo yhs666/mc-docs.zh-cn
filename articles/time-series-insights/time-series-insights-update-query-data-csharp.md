@@ -4,20 +4,21 @@ description: 本文介绍如何通过编码以 C# (C-sharp) .NET 语言编写的
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: dpalled
+ms.author: v-yiso
 manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+origin.date: 10/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 427483af97b3521f83d2ec05e19d46cb6ec93079
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 1a0c4b00fd1a2068693b7aa5602c2404fd51dcda
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337330"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914402"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>使用 C# 查询 Azure 时序见解预览版环境中的数据
 
@@ -44,4 +45,4 @@ ms.locfileid: "68337330"
 
 - 若要详细了解查询，请阅读[查询 API 参考](/rest/api/time-series-insights/preview-query)。
 
-- 了解如何[将 JavaScript 单页应用程序连接](tutorial-create-tsi-sample-spa.md)到时序见解。
+- 阅读如何[使用客户端 SDK 将 JavaScript 应用连接到时序见解](https://github.com/microsoft/tsiclient)。

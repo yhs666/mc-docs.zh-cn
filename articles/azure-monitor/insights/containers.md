@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 06/22/2019
 ms.date: 07/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1d7096f007a7231fdffc38efd25d728f738fa8a2
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 95d4c9a5acc8fa057f6ea8fc6296eaa87504a8b5
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736684"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970845"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor 中的容器监视解决方案
 
@@ -60,14 +60,12 @@ ms.locfileid: "70736684"
 | Windows Server<br>（独立） | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Server<br>（独立） | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
-
 ### <a name="docker-versions-supported-on-linux"></a>Linux 上支持的 Docker 版本
 
 - Docker 1.11 到 Docker 1.13
 - Docker CE 和 EE v17.06
 
 ### <a name="x64-linux-distributions-supported-as-container-hosts"></a>支持用作容器主机的 x64 Linux 分发
-
 
 - Ubuntu 14.04 LTS 和 16.04 LTS
 - CoreOS(stable)

@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 08/16/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: 1e92af232e85117c77dda632884029ffaeac6522
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.date: 11/11/2019
+ms.openlocfilehash: 416f3db03a6300752b5a8a00ebebe04b9f1f085d
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583845"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426058"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight 中的区域服务器问题
 
@@ -82,6 +82,6 @@ multiple regions being unassigned or holes in the chain of regions
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
+如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
 
 * 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

@@ -1,20 +1,18 @@
 ---
 title: 虚拟机、云服务和 Web 应用自动缩放概述
 description: 世纪互联 Azure 中的自动缩放。 适用于虚拟机、虚拟机规模集、云服务和 Web 应用。
-author: lingliw
-services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
+author: lingliw
 origin.date: 09/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.subservice: autoscale
-ms.openlocfilehash: bee0f6f3f16d80011a7f25b0a3f3f5e376203bcb
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: eae7a0e747b24824b49b219fc46d209a544a6de9
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737369"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970725"
 ---
 # <a name="overview-of-autoscale-in-21vianet-azure-virtual-machines-cloud-services-and-web-apps"></a>世纪互联 Azure 虚拟机、云服务和 Web 应用自动缩放概述
 本文介绍了世纪互联 Azure 自动缩放的定义、其优点，以及如何开始使用它。  
@@ -92,6 +90,7 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scal
 
 纵向缩放与此不同。 它保持 VM 数量不变，但会增强（“提高”）或削弱（“降低”）VM 的功能。 功能按内存、CPU 速度、磁盘空间等指标衡量。垂直缩放有更多的限制。 具体取决于更大型硬件的可用性，此可用性会快速达到上限，并因区域而异。 纵向缩放通常还需要停止和重新启动 VM。
 
+
 ## <a name="methods-of-access"></a>访问方法
 可以通过以下方式设置自动缩放：
 
@@ -101,7 +100,6 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scal
 * [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>支持进行自动缩放的服务
-
 | 服务 | 架构和文档 |
 | --- | --- |
 | Web 应用 |[缩放 Web 应用](../../azure-monitor/platform/autoscale-get-started.md) |

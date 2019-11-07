@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 07/19/2019
-ms.date: 09/17/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7d7845e70255afce213c897e236ad6d0720a0630
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: c7fa432b0e46437e16a8220993d1fb5ac08eb598
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083246"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847000"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 中的 OAuth 2.0 隐式流的单页登录
 
@@ -172,7 +172,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |必须 |必须包含 OpenID Connect 登录的 `id_token` 。  也可能包含响应类型 `token`。 如果在此处使用 `token`，应用能够立即从授权终结点接收访问令牌，而无需向授权终结点发出第二次请求。 如果使用 `token` 响应类型，`scope` 参数必须包含一个范围，以指出要对哪个资源发出令牌。 |
 | redirect_uri |建议 |应用的重定向 URI，应用可在其中发送和接收身份验证响应。 它必须与门户中注册的其中一个重定向 URI 完全匹配，否则必须经过 URL 编码。 |
 | scope |必须 |范围的空格分隔列表。  若要获取令牌，请包含相应资源所需的所有范围。 |
-| response_mode |建议 |指定用于将生成的令牌送回到应用的方法。  可以是 `query`、`form_post` 或 `fragment`。 |
+| response_mode |建议 |指定用于将生成的令牌送回到应用的方法。 对于隐式流，请使用 `fragment`。 可以指定其他两种模式（`query` 和 `form_post`），但在隐式流中不起作用。 |
 | state |建议 |随令牌响应返回的请求中所包含的值。  它可以是你想要使用的任何内容的字符串。  随机生成的唯一值通常用于防止跨站点请求伪造攻击。  它还可用于在身份验证请求发生前，对有关用户在应用中的状态信息进行编码。 例如，用户之前所在的页面或视图。 |
 | nonce |必须 |由应用生成且包含在请求中的值，以声明方式包含在生成的 ID 令牌 中。  应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机产生的唯一字符串，可识别请求的来源。 |
 | prompt |必须 |若要刷新并获取隐藏的 iframe 中的令牌，请使用 `prompt=none` 以确保 iframe 会立即返回，而不会停滞在登录页面上。 |

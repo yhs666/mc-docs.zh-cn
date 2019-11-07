@@ -10,12 +10,12 @@ origin.date: 09/04/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 63bac16937a2881ca1e379cc280941c32e2b067a
-ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
+ms.openlocfilehash: 00d7b714ea15fd4b9725306bbc5bf9206d00e978
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519391"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191589"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -115,7 +115,9 @@ Azure 防火墙存在以下已知问题：
 ## <a name="next-steps"></a>后续步骤
 
 - [教程：使用 Azure 门户部署和配置 Azure 防火墙](tutorial-firewall-deploy-portal.md)
+
     <!--Not Available on - [Deploy Azure Firewall using a template](deploy-template.md)-->
+    
 - [创建 Azure 防火墙测试环境](scripts/sample-create-firewall-test.md)
 
 <!-- Update_Description: wording update -->

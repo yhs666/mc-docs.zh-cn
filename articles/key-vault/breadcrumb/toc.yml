@@ -1,60 +1,50 @@
-items:
 - name: Azure
   tocHref: /
   topicHref: /index
   items:
-  - name: 密钥保管库
-    tocHref: /
-    topicHref: /key-vault/index
+    - name: 密钥保管库
+      tocHref: /
+      topicHref: /key-vault/index
 - name: Azure
   tocHref: /java/
   topicHref: /index
   items:
-  - name: 密钥保管库
-    tocHref: /java/
-    topicHref: /key-vault/
-    items:
-    - name: Spring
-      tocHref: /java/spring-framework/
-      topicHref: /java/spring-framework/
+    - name: 密钥保管库
+      tocHref: /java/
+      topicHref: /key-vault/
+      items:
+        - name: Spring
+          tocHref: /java/spring-framework/
+          topicHref: /java/spring-framework/
 - name: Azure
-  tocHref: https://docs.microsoft.com/powershell/
+  tocHref: 'https://docs.microsoft.com/powershell/'
   topicHref: /index
   items:
-  - name: 密钥保管库
-    tocHref: https://docs.microsoft.com/powershell/module/
-    topicHref: /key-vault/
-    items:
-    - name: Key Vault PowerShell cmdlet
-      tocHref: https://docs.microsoft.com/powershell/module/azurerm.keyvault/
-      topicHref: https://docs.microsoft.com/powershell/module/azurerm.keyvault/
+    - name: 密钥保管库
+      tocHref: 'https://docs.microsoft.com/powershell/module/'
+      topicHref: /key-vault/
+      items:
+        - name: Key Vault PowerShell cmdlet
+          tocHref: 'https://docs.microsoft.com/powershell/module/azurerm.keyvault/'
+          topicHref: 'https://docs.microsoft.com/powershell/module/azurerm.keyvault/'
 - name: Azure
   tocHref: /cli/
   topicHref: /index
   items:
-  - name: 密钥保管库
-    tocHref: /cli/
-    topicHref: /key-vault/
-    items:
-    - name: Key Vault CLI 参考
-      tocHref: /cli/keyvault/
+    - name: 密钥保管库
+      tocHref: /cli/
       topicHref: /key-vault/
       items:
-      - name: 证书
-        tocHref: /cli/keyvault/certificate
-        topicHref: /key-vault/
-      - name: 密钥
-        tocHref: /cli/keyvault/key
-        topicHref: /key-vault/
-      - name: 机密
-        tocHref: /cli/keyvault/secret
-        topicHref: /key-vault/
-- name: Azure
-  tocHref: https://docs.microsoft.com/sccm/
-  topicHref: /index
-ms.openlocfilehash: 9f1487e4df435ce93cf1c53ffcf4eb6ad5e089e5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645499"
+        - name: Key Vault CLI 参考
+          tocHref: /cli/keyvault/
+          topicHref: /key-vault/
+          items:
+            - name: 证书
+              tocHref: /cli/keyvault/certificate
+              topicHref: /key-vault/
+            - name: 密钥
+              tocHref: /cli/keyvault/key
+              topicHref: /key-vault/
+            - name: 机密
+              tocHref: /cli/keyvault/secret
+              topicHref: /key-vault/

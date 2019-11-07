@@ -1,5 +1,5 @@
 ---
-title: 常见问题解答 - Azure 事件中心 | Azure Docs
+title: 常见问题解答 - Azure 事件中心 | Azure
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 services: event-hubs
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 08/07/2018
 ms.date: 08/12/2019
 ms.author: v-biyu
-ms.openlocfilehash: 06fc562d950ecb2f7168c8973b3803a66126b40d
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+ms.openlocfilehash: 7b9012f38ee23cd56ce733b35f16f3bea81e0fd1
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633009"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872980"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -46,7 +46,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
 
-在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://www.azure.cn/zh-cn/home/features/products-by-region)页。  
+在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://www.azure.cn/home/features/products-by-region)页。  
 
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>是否可以使用单个 AMQP 连接来与多个事件中心相互收发数据？
 

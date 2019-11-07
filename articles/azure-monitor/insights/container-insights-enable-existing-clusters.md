@@ -1,25 +1,19 @@
 ---
 title: 监视已部署的 Azure Kubernetes 服务 (AKS) 群集 | Microsoft Docs
 description: 了解如何使用用于容器的 Azure Monitor 启用对订阅中已部署的 Azure Kubernetes 服务 (AKS) 群集的监视。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: mgoedtel
+ms.author: v-lingwu
 origin.date: 09/12/2019
 ms.date: 09/20/2019
-ms.author: v-lingwu
-ms.openlocfilehash: f76cb71ba69665ca92028767dfc503ee84647a96
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 6ddb1cba0919a5fea1d864c8fd51ba68c14414ef
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330014"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970981"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -291,7 +285,8 @@ provisioningState       : Succeeded
        ```azurecli
        provisioningState       : Succeeded
        ```
-     启用监视后，可能需要约 15 分钟才能查看群集的运行状况指标。 
+     
+       启用监视后，可能需要约 15 分钟才能查看群集的运行状况指标。 
 
 ## <a name="verify-agent-and-solution-deployment"></a>验证代理和解决方案部署
 

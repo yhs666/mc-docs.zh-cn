@@ -4,18 +4,18 @@ description: 使用 Azure Active Directory 授予对 Azure Blob 和队列的访�
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/02/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 717934132089654fd02a7b1857aba2beb08718d8
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: a34fe46931cd9f83715f8cdffb75c68adc66f858
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306704"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914404"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授予对 Azure Blob 和队列的访问权限
 
@@ -35,7 +35,7 @@ Azure 存储支持使用 Azure Active Directory (AD) 授予对 Blob 和队列存
 
 向 Azure Blob 或队列服务发出请求的本机应用程序和 Web 应用程序也可以使用 Azure AD 进行访问授权。 若要了解如何请求访问令牌并使用它来授权对 Blob 或队列数据的请求，请参阅[从 Azure 存储应用程序使用 Azure AD 授予对 Azure 存储的访问权限](storage-auth-aad-app.md)。
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>分配 RBAC 角色以授予访问权限
+## <a name="assign-rbac-roles-for-access-rights"></a>分配 RBAC 角色以授予访问权限
 
 Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 授权访问受保护的资源。 Azure 存储定义了一组内置的 RBAC 角色，它们包含用于访问 Blob 和队列数据的通用权限集。 还可以定义自定义角色来访问 Blob 和队列数据。
 

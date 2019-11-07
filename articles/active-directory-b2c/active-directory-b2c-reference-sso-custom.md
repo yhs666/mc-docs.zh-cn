@@ -2,27 +2,27 @@
 title: 在 Azure Active Directory B2C 中使用自定义策略管理单一登录会话 | Microsoft Docs
 description: 了解如何使用 Azure AD B2C 中的自定义策略管理 SSO 会话。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 04/01/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4112a897c1363f8b3ea6d1291759281643eef5ab
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: ea6f74177ce16787b7c0d2fc8c8e5fefa9284dba
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004251"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846983"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的单一登录会话管理
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-使用 Azure Active Directory (Azure AD) B2C 中的单一登录 (SSO) 会话管理，管理员可在用户已通过身份验证之后控制与用户的交互。 例如，管理员可以控制是否显示所选的标识提供者，或是否需要再次输入本地帐户详细信息。 本文介绍如何配置 Azure AD B2C SSO 的设置。
+使用 Azure Active Directory B2C (Azure AD B2C) 中的单一登录 (SSO) 会话管理，管理员可在用户已通过身份验证之后控制与用户的交互。 例如，管理员可以控制是否显示所选的标识提供者，或是否需要再次输入本地帐户详细信息。 本文介绍如何配置 Azure AD B2C SSO 的设置。
 
 SSO 会话管理包括两个部分。 第一个部分处理用户与 Azure AD B2C 之间的直接交互，另一个部分处理用户与外部参与方之间的交互。 Azure AD B2C 不会重写或绕过外部参与方可能保留的 SSO 会话。 通过 Azure AD B2C 转到外部参与方的路由将被“记住”，因此无需重新提示用户选择其社交或企业标识提供者。 最终的 SSO 决策仍由外部参与方做出。
 
@@ -97,4 +97,4 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 
 使用提供程序存储 SAML 标识提供者会话时，上述项应该均为 false。 使用提供程序存储 B2C SAML 会话时，上述项应为 true 或被省略，因为默认值为 true。 需要 `SessionIndex` 和 `NameID` 才能完成 SAML 会话注销。
 
-
+<!-- Update_Description: wording update -->

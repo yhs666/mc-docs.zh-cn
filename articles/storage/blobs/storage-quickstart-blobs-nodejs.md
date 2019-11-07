@@ -4,19 +4,19 @@ description: 在对象 (Blob) 存储中创建存储帐户和容器。 随后，�
 author: WenJason
 ms.author: v-jay
 origin.date: 02/04/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: b850cc11a1e7e4e2d5e6f5dd80c9f44dae9051c5
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 95653900f48de0184e524489862ba2c4b0fd2274
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306826"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912916"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用适用于 Node.js v2 的客户端库上传、下载和列出 Blob
+# <a name="upload-download-and-list-blobs-using-the-client-library-for-nodejs"></a>使用适用于 Node.js 的客户端库上传、下载和列出 Blob
 
 本操作指南介绍如何使用适用于 Node.js v2 的客户端库通过 Azure Blob 存储来上传、下载和列出 Blob。
 

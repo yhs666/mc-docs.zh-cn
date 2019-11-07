@@ -1,21 +1,19 @@
 ---
 title: Azure Monitor 警报的操作规则
 description: 了解 Azure Monitor 中的操作规则是什么，以及如何配置和管理操作规则。
-author: lingliw
-manager: digimobile
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-origin.date: 01/19/2018
-ms.date: 01/21/2019
-ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: be373a24b2335df655e5d0ed9aeaab78e31e6d2d
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.topic: conceptual
+author: lingliw
+origin.date: 04/25/2019
+ms.date: 10/25/2019
+ms.author: v-lingwu
+ms.openlocfilehash: cdb5dd73bc85b35029c485d23e6d76c4a608aaab
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329871"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970764"
 ---
 # <a name="action-rules-preview"></a>操作规则（预览版）
 
@@ -200,22 +198,22 @@ Contoso [在订阅级别定义了一个指标警报](/azure-monitor/platform/ale
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>如果在两个不同的操作规则中监视资源，会发生什么情况？ 我会收到一条还是两条通知？ 以此方案中的 **VM2** 为例：
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1"
+      action rule AR1 defined for VM1 and VM2 with action group AG1
+      action rule AR2 defined for VM2 and VM3 with action group AG1
 
 对于 VM1 和 VM3 上的每条警报，操作组 AG1 将触发一次。 对于 **VM2** 上的每条警报，操作组 AG1 会触发两次，因为操作规则不会删除重复的操作。 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>如果在两个不同的操作规则监视资源，其中一个规则请求操作，而另一个规则请求消除，会发生什么情况？ 以此方案中的 **VM2** 为例：
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression"
+      action rule AR1 defined for VM1 and VM2 with action group AG1 
+      action rule AR2 defined for VM2 and VM3 with suppression
 
 对于 VM1 上的每条警报，操作组 AG1 将触发一次。 对于 VM2 和 VM3 上的每条警报，将消除操作和通知。 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>如果为调用不同操作组的同一个资源定义了警报规则和操作规则，会发生什么情况？ 以此方案中的 **VM1** 为例：
 
-      "alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1" 
+      alert rule rule1 on VM1 with action group AG2
+      action rule AR1 defined for VM1 with action group AG1 
  
 对于 VM1 上的每条警报，操作组 AG1 将触发一次。 每当触发警报规则“rule1”时，会一并触发 AG2。 在操作规则和警报规则中定义的操作组会独立运行，不会进行任何重复数据删除。 
 

@@ -1,21 +1,19 @@
 ---
 title: 监视 Azure 应用服务的性能 | Azure Docs
 description: Azure 应用服务的应用程序性能监视。 对加载和响应时间、依赖项信息绘制图表，并针对性能设置警报。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 04/26/2019
+author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3131b34ddb0df00671a28ad2d913d404e9ecc860
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4e50c27282cd85da03ab34ba8ad2763623e7b473
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737312"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970924"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 

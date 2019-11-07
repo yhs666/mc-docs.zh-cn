@@ -1,23 +1,24 @@
 ---
-title: 规划 Azure 时序见解环境的缩放 | Microsoft Docs
+title: 计划 Azure 时序见解环境的缩放 | Microsoft Docs
 description: 本文介绍如何遵循最佳做法来规划 Azure 时序见解环境。 涉及的方面包括存储容量、数据保留、流入容量、监视及业务连续性和灾难恢复 (BCDR)。
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: dpalled
+ms.author: v-yiso
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/29/2019
+origin.date: 10/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: fab11b86a98aee53817181e31d4b20919e758ed4
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: f428174cc7a08e884040c94d9440c620e58c7129
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456383"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914362"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>规划 Azure 时序见解正式版环境
 
@@ -31,11 +32,11 @@ ms.locfileid: "67456383"
 
 若要最合理地规划时序见解环境以取得长期成功，请考虑以下属性：
 
-- <a href="#storage-capacity">存储容量</a>
-- <a href="#data-retention">数据保留期</a>
-- <a href="#ingress-capacity">流入容量</a>
-- <a href="#shape-your-events">调整事件</a>
-- <a href="#ensure-that-you-have-reference-data">确保已准备好参考数据</a>
+- [存储容量](#storage-capacity)
+- [数据保留期](#data-retention)
+- [流入容量](#ingress-capacity)
+- [调整事件](#shape-your-events)
+- [确保已准备好参考数据](#ensure-that-you-have-reference-data)
 
 ## <a name="storage-capacity"></a>存储容量
 
@@ -45,13 +46,15 @@ ms.locfileid: "67456383"
 
 可以更改时序见解环境中的“数据保留时间”设置。  可以启用最长 400 天的保留期。 
 
-时序见解具有两种模式。 其中一种模式为确保在环境中提供最新数据而经过优化。 此模式默认已启用。 
+Azure 时序见解具有两种模式：
 
-另一种模式为确保满足保留限制而经过优化。 在第二种模式下，如果达到了环境的总存储容量，则会暂停数据流入。 
+* 一种模式针对最新数据进行了优化。 它强制执行**清除旧数据**的策略，使实例可以使用最新数据。 此模式默认已启用。 
+* 其他模式将优化数据，使其保持低于配置的保留限制。 **暂停流入**防止新数据在选择为“超过存储限制的行为”  时被读取。 
 
 可在 Azure 门户的环境配置页中调整保留期并在这两种模式之间切换。
 
-可在时序见解环境中配置最长 400 天的数据保留。
+> [!IMPORTANT]
+> 可在 Azure 时序见解 GA 环境中配置最长 400 天的数据保留。
 
 ### <a name="configure-data-retention"></a>配置数据保留
 
@@ -68,7 +71,7 @@ ms.locfileid: "67456383"
 
 ## <a name="ingress-capacity"></a>入口容量
 
-在规划时序见解环境时，需要重点考虑的第二个方面是流入容量。 流入容量是每分钟分配量的一个衍生属性。
+在规划时序见解环境时，需要重点考虑的第二个方面是*流入容量*。 流入容量是每分钟分配量的一个衍生属性。
 
 从限制的角度看，大小达到 32 KB 的流入数据包被视为 32 个事件，每个事件的大小为 1 KB。 允许的最大事件为 32 KB。 大于 32 KB 的数据包将被截断。
 
@@ -89,7 +92,7 @@ ms.locfileid: "67456383"
 
 你可能无法提前知道想要推送多少数据。 在这种情况下，可以在 Azure 门户订阅的 [Azure IoT 中心](/iot-hub/iot-hub-metrics)和 [Azure 事件中心](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)查找遥测数据。 这些遥测数据有助于确定如何预配环境。 在 Azure 门户使用相应事件源的“指标”页查看遥测数据  。 了解事件源指标后，可以更有效地计划和预配时序见解环境。
 
-### <a name="calculate-ingress-requirements"></a>计算流入要求
+### <a name="calculate-ingress-requirements"></a>计算入口需求
 
 若要计算流入要求：
 
@@ -101,7 +104,7 @@ ms.locfileid: "67456383"
 
 有关如何避免限制和延迟的信息，请参阅[缓解限制和延迟](time-series-insights-environment-mitigate-latency.md)。
 
-## <a name="shape-your-events"></a>调整事件
+## <a name="shape-your-events"></a>塑造事件
 
 必须确保向时序见解发送事件的方式支持预配的环境大小。 （相反，可将环境大小映射到时序见解读取的事件数和每个事件的大小。）另外，必须考虑到在查询数据时要用作切片和筛选依据的属性。
 

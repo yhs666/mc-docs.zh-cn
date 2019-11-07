@@ -10,17 +10,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 09/05/2019
-ms.date: 10/11/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f468c0cff10453d1ffc3228d7fda3d9d210ee7b
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 4ae7b86b002057ff7bfc7b52916d6e4a2fdd57b2
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292134"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912795"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -82,7 +82,7 @@ ms.locfileid: "72292134"
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure 信息保护管理员](#azure-information-protection-administrator-permissions)
 
-具有此角色的用户拥有 Azure 信息保护服务中的所有权限。 此角色可以配置 Azure 信息保护策略的标签、管理保护模板，以及激活保护。 此角色不会授予标识保护中心、Privileged Identity Management、监视 Office 365 服务运行状况或 Office 365 安全与合规中心的权限。
+具有此角色的用户拥有 Azure 信息保护服务中的所有权限。 此角色可以配置 Azure 信息保护策略的标签、管理保护模板，以及激活保护。 此角色不会授予 Privileged Identity Management、监视 Office 365 服务运行状况或 Office 365 安全与合规中心的任何权限。
 
 ### <a name="b2c-user-flow-administratorb2c-user-flow-administrator-permissions"></a>[B2C 用户流管理员](#b2c-user-flow-administrator-permissions)
 
@@ -182,7 +182,7 @@ In | 有权执行的操作
 此管理员可以管理 Azure Active Directory 租户与外部标识提供者之间的联合。 用户可以使用此角色添加新的标识提供者及配置所有可用设置（例如身份验证路径、服务 ID 和分配的密钥容器）。 此用户可让租户信任来自外部标识提供者的身份验证。 对最终用户体验造成的影响取决于租户类型：
 
 * 员工与合作伙伴的 Azure Active Directory 租户： 添加联合身份验证（例如使用 Gmail）会立即影响所有尚未兑换的来宾邀请。
-* Azure Active Directory B2C 租户：在将标识提供者添加为用户流（也称为内置策略）中的一个选项之前，添加联合身份验证（例如，使用另一个 Azure AD 组织）不会立即影响最终用户流。 有关示例，请参阅[将 Microsoft 帐户配置为标识提供者](/active-directory-b2c/active-directory-b2c-setup-msa-app)。 若要更改用户流，需要使用受限角色“B2C 用户流管理员”。
+* Azure Active Directory B2C 租户：在将标识提供者添加为用户流（也称为内置策略）中的一个选项之前，添加联合身份验证（例如，使用另一个 Azure AD 组织）不会立即影响最终用户流。 若要更改用户流，需要使用受限角色“B2C 用户流管理员”。
 
 ### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[全局管理员/公司管理员](#company-administrator-permissions)
 
@@ -276,12 +276,11 @@ In | 有权执行的操作
 
 ### <a name="security-administratorsecurity-administrator-permissions"></a>[安全管理员](#security-administrator-permissions)
 
-具有此角色的用户有权管理 Microsoft 365 安全中心、Azure Active Directory 标识保护、Azure 信息保护和 Office 365 安全与合规中心中与安全相关的功能。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
+具有此角色的用户有权管理 Microsoft 365 安全中心、Azure 信息保护和 Office 365 安全与合规中心中与安全相关的功能。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
 
 In | 有权执行的操作
 --- | ---
-[Microsoft 365 安全中心](https://protection.office.com) | 跨 Microsoft 365 服务监视与安全相关的策略<br>管理安全威胁和警报<br>查看报告
-标识保护中心 | 安全读取者角色的所有权限<br>此外，还能够执行除了重置密码以外的所有“标识保护中心”操作
+[Microsoft 365 安全中心](https://protection.office.com) | 跨 Microsoft 365 服务监视与安全相关的策略<br>管理安全威胁和警报 | 安全读取者角色的所有权限<br>此外，还能够执行除了重置密码以外的所有“标识保护中心”操作
 [Privileged Identity Management](/active-directory/privileged-identity-management/pim-configure) | 安全读取者角色的所有权限<br>无法管理 Azure AD 角色分配或设置 
 [Office 365 安全与合规中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理安全策略<br>查看、调查和响应安全威胁<br>查看报告
 Azure 高级威胁防护 | 监视和响应可疑安全活动
@@ -293,7 +292,7 @@ Windows Defender ATP 和 EDR | 分配角色<br>管理计算机组<br>配置终�
 
 ### <a name="security-operatorsecurity-operator-permissions"></a>[安全操作员](#security-operator-permissions)
 
-具有此角色的用户可以管理警报，并对安全相关的功能拥有全局只读访问权限，包括 Microsoft 365 安全中心、Azure Active Directory、标识保护、Privileged Identity Management 以及 Office 365 安全与合规中心。 [Office 365 安全与合规中心](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)提供了有关 Office 365 权限的详细信息。
+具有此角色的用户可以管理警报，并对安全相关的功能具有全局只读访问权限，包括 Microsoft 365 安全中心、Azure Active Directory、Privileged Identity Management 以及 Office 365 安全与合规中心。 [Office 365 安全与合规中心](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)提供了有关 Office 365 权限的详细信息。
 
 In | 有权执行的操作
 --- | ---
@@ -308,7 +307,7 @@ Windows Defender ATP 和 EDR | 安全读取者角色的所有权限<br>查看、
 
 ### <a name="security-readersecurity-reader-permissions"></a>[安全读取者](#security-reader-permissions)
 
-具有此角色的用户对安全相关的功能具有全局只读访问权限，包括 Microsoft 365 安全中心、Azure Active Directory、标识保护、Privileged Identity Management 中的所有信息，并且能够阅读 Azure Active Directory 登录报告和审核日志，还授予了对 Office 365 安全与合规中心的只读权限。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
+具有此角色的用户对安全相关的功能具有全局只读访问权限，包括 Microsoft 365 安全中心、Azure Active Directory、Privileged Identity Management 中的所有信息，并且能够阅读 Azure Active Directory 登录报告和审核日志，还授予了对 Office 365 安全与合规中心的只读权限。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
 
 In | 有权执行的操作
 --- | ---

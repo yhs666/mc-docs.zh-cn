@@ -4,6 +4,8 @@
   items:
     - name: 什么是用于 MySQL 的 Azure DB？
       href: overview.md
+    - name: 我应选择哪个 MySQL 选项？
+      href: select-right-deployment-type.md
 - name: 快速入门
   expanded: true
   items:
@@ -52,6 +54,8 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Java 连接池
+      href: sample-scripts-java-connection-pooling.md
 - name: 概念
   items:
     - name: 数据库和服务器
@@ -80,7 +84,8 @@
           href: concepts-connectivity-architecture.md
     - name: 业务连续性
       items:
-        - name: 概述
+        - name: 业务连续性简介
+          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
           href: concepts-business-continuity.md
         - name: 备份和还原
           href: concepts-backup.md
@@ -186,7 +191,7 @@
           href: howto-data-in-replication.md
         - name: 创建只读副本 Azure 门户
           href: howto-read-replicas-portal.md
-        - name: 创建只读副本 Azure CLI
+        - name: 使用 Azure CLI、REST API 创建只读副本
           href: howto-read-replicas-cli.md
     - name: 故障排除
       items:
@@ -216,8 +221,8 @@
       href: 'https://docs.microsoft.com/rest/api/mysql'
     - name: Resource Manager 模板
       href: 'https://docs.microsoft.com/azure/templates/microsoft.dbformysql/allversions'
-    - name: 复制中数据存储过程
-      href: reference-data-in-stored-procedures.md
+    - name: 管理存储过程
+      href: reference-stored-procedures.md
 - name: 资源
   items:
     - name: 定价

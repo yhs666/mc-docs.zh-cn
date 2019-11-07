@@ -1,6 +1,6 @@
 ---
-title: 将交互式查询与 Azure HDInsight 配合使用
-description: 了解如何通过 HDInsight 使用交互式查询 (Hive LLAP)。
+title: 什么是 Azure HDInsight 中的交互式查询？
+description: Azure HDInsight 中的交互式查询（也称为 Apache Hive LLAP）简介
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
@@ -8,17 +8,18 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/07/2019
-ms.date: 06/10/2019
-ms.openlocfilehash: fdf726a31662fdcb9bb593b18e14aa85efec9b3e
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+origin.date: 09/17/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 3e825d4eb978baa3d33c5b7f771e5e64a70c2bc6
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878640"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425677"
 ---
-# <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
-交互式查询（也称为 Apache Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Apache Hive 查询速度和交互性。
+# <a name="what-is-interactive-query-in-azure-hdinsight"></a>什么是 Azure HDInsight 中的交互式查询？
+
+交互式查询（也称为 Apache Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Apache Hive 查询速度和交互性。 客户使用交互式查询以超快的方式查询存储在 Azure 存储和 Azure Data Lake Storage 中的数据。 交互式查询使开发人员和数据科学家可以使用他们最喜欢的 BI 工具轻松处理大数据。 HDInsight 交互式查询支持使用多种工具轻松访问大数据。
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
@@ -31,6 +32,9 @@ ms.locfileid: "68878640"
 
 ## <a name="create-an-interactive-query-cluster"></a>创建交互式查询群集
 有关创建 HDInsight 群集的信息，请参阅[在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。 选择“交互式查询”群集类型。
+
+> [!IMPORTANT]
+> 交互式查询群集的最小头节点大小为 Standard_D13_v2。 有关详细信息，请参阅 [Azure VM 大小调整图表](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)。
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>从交互式查询执行 Apache Hive 查询
 若要执行 Hive 查询，可以使用以下选项：
@@ -72,9 +76,3 @@ ms.locfileid: "68878640"
 * 了解如何[在 HDInsight 中创建交互式查询群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * 了解如何[在 Azure HDInsight 中使用 Power BI 直观显示大数据](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
 * 了解如何[在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](../interactive-query/hdinsight-connect-hive-zeppelin.md)。
-* 了解如何[使用针对 Visual Studio 的 Data Lake 工具运行 Apache Hive 查询](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries)。
-* 了解如何[使用用于 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md)。
-* 了解如何[在 HDInsight 中将 Apache Hive 视图与 Apache Hadoop 配合使用](../hadoop/apache-hadoop-use-hive-ambari-view.md)
-* 了解如何[使用 Beeline 在 HDInsight 中提交 Apache Hive 查询](../hadoop/apache-hadoop-use-hive-beeline.md)。
-* 了解如何[使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Apache Hadoop](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。
-

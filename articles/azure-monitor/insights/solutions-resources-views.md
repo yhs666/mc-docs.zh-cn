@@ -1,25 +1,19 @@
 ---
 title: 管理解决方案中的视图 | Azure Docs
 description: '管理解决方案通常包括一个或多个用来可视化数据的视图。  本文介绍如何导出视图设计器所创建的视图，并将其包含在管理解决方案中。 '
-services: monitoring
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
+ms.author: v-lingwu
 origin.date: 08/22/2019
 ms.date: 01/16/2018
-ms.author: v-lingwu
-ms.openlocfilehash: 89bfe961dd6de72ba0ed8e4f791a7b30c0305cca
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6ee54ca6b74581830ad368bf9a1b8ffd9a466326
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737320"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970885"
 ---
 # <a name="views-in-management-solutions-preview"></a>管理解决方案（预览版）中的视图
 > [!NOTE]

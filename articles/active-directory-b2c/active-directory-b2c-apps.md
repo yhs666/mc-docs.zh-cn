@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 07/24/2019
-ms.date: 08/29/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c2cb194f47e8c3699b442f050c6e7e1e18e3a085
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 782b99ad00037d8a8c528066efb08339269a8a6b
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310791"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846896"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>可在 Azure Active Directory B2C 中使用的应用程序类型
 
-Azure Active Directory (Azure AD) B2C 支持各种新式应用程序体系结构的身份验证。 所有这些体系结构都以行业标准协议 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 为基础。 本文介绍可独立于首选语言或平台构建的应用程序类型。 在开始构建应用程序之前，不妨从中了解一些高级方案。
+Azure Active Directory B2C (Azure AD B2C) 支持各种新式应用程序体系结构的身份验证。 所有这些体系结构都以行业标准协议 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 为基础。 本文介绍可独立于首选语言或平台构建的应用程序类型。 在开始构建应用程序之前，不妨从中了解一些高级方案。
 
 必须通过 [Azure 门户](https://portal.azure.cn/)将使用 Azure AD B2C 的每个应用程序注册到 [Azure AD B2C 租户](active-directory-b2c-get-started.md)中。 应用程序注册过程将收集和分配一些值，例如：
 
@@ -142,3 +142,4 @@ Web API 可从许多类型的客户端（包括 Web 应用程序、桌面和移�
 
 详细了解 [Azure Active Directory B2C 中的用户流](active-directory-b2c-reference-policies.md)提供的内置策略。
 
+<!-- Update_Description: wording update -->

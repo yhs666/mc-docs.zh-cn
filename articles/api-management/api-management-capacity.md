@@ -10,20 +10,23 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 06/18/2018
-ms.date: 08/12/2019
+ms.date: 11/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 38e09653401e26465a7befd02efb74cd4a5bd99e
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.openlocfilehash: d792ed9ba59999036f8904ab805219fa1b56f7c5
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68733523"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913256"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理实例的容量
 
 **容量**是最重要的 [Azure Monitor 指标](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis)，在是否扩展 API 管理实例以容纳更多负载方面，它可以帮助做出明智的决策。 容量的构造比较复杂，并且会施加特定的行为。
 
 本文介绍**容量**的定义及其行为。 其中介绍了如何在 Azure 门户中访问**容量**指标，并建议何时应考虑扩展或升级 API 管理实例。
+
+> [!IMPORTANT]
+> 本文介绍如何基于容量指标来监视和缩放 Azure API 管理实例。 但是，同样重要的是要了解当单个 API 管理实例实际上*达到*其容量时会发生什么情况。 Azure API 管理不会应用任何服务级别限制来防止实例的物理过载。 当实例达到其物理容量时，它的行为将类似于任何无法处理传入请求的过载 Web 服务器：延迟将增加，连接将丢弃，将发生超时错误，等等。这意味着 API 客户端应该准备好处理这种可能性，就像处理任何其他外部服务一样（例如，通过应用重试策略）。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,7 +46,8 @@ ms.locfileid: "68733523"
 
 **容量**是 API 管理实例中负载的指标。 它反映资源用量（CPU、内存）和网络队列的长度。 CPU 和内存用量反映以下对象的资源消耗量：
 
-+ API 管理服务，例如管理操作或请求处理，可以包括转发请求或运行策略
++ API 管理数据平面服务（如请求处理）可以包括转发请求或运行策略。
++ API 管理管理平面服务，例如通过 Azure 门户或 ARM 应用的管理操作，或者来自[开发人员门户](api-management-howto-developer-portal.md)的负载。
 + 选定的操作系统进程，包括在新连接上造成 SSL 握手开销的进程。
 
 总**容量**是 API 管理实例的每个单元中容量自有值的平均值。
@@ -74,7 +78,7 @@ ms.locfileid: "68733523"
 ![容量指标](./media/api-management-capacity/capacity-metric.png)  
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 APIM 实例。
-2. 选择“指标(预览)”。 
+2. 选择“指标”  。
 3. 在紫色部分，从可用指标中选择“容量”，并保留默认的“平均值”聚合。  
 
     > [!TIP]

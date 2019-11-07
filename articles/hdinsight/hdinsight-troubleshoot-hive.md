@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/02/2017
-ms.date: 04/15/2019
+origin.date: 08/15/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5a4b90aca059485726b95f7784ac5e3d9c24dd2f
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: e206bd49d1891f6ba9e97c53175fe9caf7ae63bb
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003892"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426068"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hive 进行故障排除
 
@@ -172,16 +172,17 @@ hive -f alltables.sql
   1. 转到 Ambari。 
   2. 转到 Tez 视图（隐藏在右上角的磁贴图标下面）。 
   3. 选择想要查看的 DAG。
-  4. 选择“下载数据”。
+  4. 选择“下载数据”  。
 
 ### <a name="additional-reading-end"></a>其他阅读材料
 
 [使用 SSH 连接到 HDInsight 群集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
+## <a name="next-steps"></a>后续步骤
 
-### <a name="see-also"></a>另请参阅
-[使用 Azure HDInsight 进行故障排除](hdinsight-troubleshoot-guide.md)
-
-
+如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
 
 
+
+
+- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 

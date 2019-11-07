@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 06/17/2018
-ms.openlocfilehash: 9fdee6a299340b818904ecd8e80e4feaa973a384
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 11/04/2019
+ms.openlocfilehash: e51995a93290f22811f604f086ed7c888c32ecc8
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732492"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913253"
 ---
 # <a name="api-management-policies"></a>API 管理策略
 本部分提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
@@ -68,9 +68,9 @@ ms.locfileid: "66732492"
   
     -   [设置状态代码](./api-management-advanced-policies.md#SetStatus) - 将 HTTP 状态代码更改为指定的值。  
   
-    -   [跟踪](./api-management-advanced-policies.md#Trace) - 将字符串添加到 [API 检查器](./api-management-howto-api-inspector.md)输出中。  
+    -   [跟踪](./api-management-advanced-policies.md#Trace) - 将自定义跟踪添加到 [API 检查器](./api-management-howto-api-inspector.md)输出中。  
   
-    -   [等待](./api-management-advanced-policies.md#Wait) - 继续之前，等待括住的[发送请求](./api-management-advanced-policies.md#SendRequest)、[从缓存中获取值](./api-management-caching-policies.md#GetFromCacheByKey)或[控制流](./api-management-advanced-policies.md#choose)策略完成。  
+    -   [等待](./api-management-advanced-policies.md#Wait) - 在继续下一步之前，等待括住的[发送请求](./api-management-advanced-policies.md#SendRequest)、[从缓存中获取值](./api-management-caching-policies.md#GetFromCacheByKey)或[控制流](./api-management-advanced-policies.md#choose)策略完成。  
   
 -   [身份验证策略](./api-management-authentication-policies.md#AuthenticationPolicies)  
   

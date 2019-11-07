@@ -10,15 +10,15 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-origin.date: 06/05/2019
-ms.date: 07/08/2019
+origin.date: 10/03/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b35b7b667955af86fa894655cfbbcb48299c0fa3
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 5795b39eefdfcf226cf22fbf97ff1010560eae80
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456381"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970347"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>使用 C# 查询 Azure 时序见解正式版环境中的数据
 
@@ -45,4 +45,4 @@ ms.locfileid: "67456381"
 
 - 若要详细了解查询，请阅读[查询 API 参考](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)。
 
-- 了解如何[将 JavaScript 单页应用程序连接](tutorial-create-tsi-sample-spa.md)到时序见解。
+- 阅读如何[使用客户端 SDK 将 JavaScript 应用连接](https://github.com/microsoft/tsiclient)到时序见解。

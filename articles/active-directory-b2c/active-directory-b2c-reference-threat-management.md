@@ -7,20 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 07/10/2019
-ms.date: 07/23/2019
+origin.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 1ab7fd4dcfaf4911d8d762a4ccc815926f2dc4a9
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: aadf173c187ec7a068b2f85d883eb30b870e5c5a
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391591"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846975"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理对资源和数据的威胁
 
-Azure Active Directory (Azure AD) B2C 具有可以针对对资源和数据的威胁提供保护的内置功能。 这些威胁包括拒绝服务攻击和密码攻击。 拒绝服务攻击可能会使目标用户无法使用资源。 密码攻击会导致未经授权的资源访问。
+Azure Active Directory B2C (Azure AD B2C) 具有内置功能，可以帮助你防御对资源和数据的威胁。 这些威胁包括拒绝服务攻击和密码攻击。 拒绝服务攻击可能会使目标用户无法使用资源。 密码攻击会导致未经授权的资源访问。
 
 ## <a name="denial-of-service-attacks"></a>拒绝服务攻击
 

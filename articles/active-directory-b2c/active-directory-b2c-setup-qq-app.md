@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 09/17/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: e6dc1757a96015a8937e067db7c3f139e263ead6
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 9ed491555720270789510d585b0cddc292b27938
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083243"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846976"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过 QQ 帐户注册与登录
 
@@ -24,7 +24,7 @@ ms.locfileid: "71083243"
 
 ## <a name="create-a-qq-application"></a>创建 QQ 应用程序
 
-要将 QQ 帐户用作 Azure Active Directory (Azure AD) B2C 中的标识提供者，需要在表示它的租户中创建一个应用程序。 如果还没有 QQ 帐户，可以在 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) 注册。
+要将 QQ 帐户用作 Azure Active Directory B2C (Azure AD B2C) 中的标识提供者，需要在表示它的租户中创建一个应用程序。 如果还没有 QQ 帐户，可以在 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) 注册。
 
 ### <a name="register-for-the-qq-developer-program"></a>注册 QQ 开发人员计划
 
@@ -57,4 +57,4 @@ ms.locfileid: "71083243"
 1. 对于**客户端密码**，输入你记录的应用密钥。
 1. 选择“保存”  。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

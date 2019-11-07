@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   origin.date: 09/09/2019
-  ms.date: 09/30/2019
+  ms.date: 11/04/2019
   ms.author: v-jay
 abstract:
   description: Azure SQL 数据库是基于最新稳定版 Microsoft SQL Server 数据库引擎的通用关系数据库即服务 (DBaaS)。 SQL 数据库是高性能、可靠且安全的云数据库，可用于以所选编程语言构建数据驱动的应用程序和网站，而无需管理基础结构。 使用我们的快速入门、教程和示例了解如何使用 SQL 数据库。
@@ -58,6 +58,15 @@ sections:
             image:
               src: media/index/i_security.svg
             title: 高级安全
+  - title: 部署模型
+    items:
+      - type: paragraph
+        text: 选择满足你的需求的部署模型：单一数据库是新的现代云应用程序的最佳选择，弹性池是托管大量数据库的最佳位置，托管实例提供与 SQL Server 的高兼容性，并且使你可以轻松迁移到云。
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
           - href: /sql-database/sql-database-single-index
             html: <p>如果你的 SaaS 应用程序和微服务需要一个具有可预测性能的单一数据库，请为其使用 SQL 数据库服务器托管的单一数据库。</p>
             image:

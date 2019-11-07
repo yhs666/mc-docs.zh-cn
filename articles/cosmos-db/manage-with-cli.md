@@ -4,15 +4,15 @@ description: 使用 Azure CLI 管理 Azure Cosmos DB 帐户、数据库和容器
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 08/05/2019
-ms.date: 09/09/2019
+origin.date: 09/28/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46318bcac41b4cb880a38fa3d9a93bde2be60317
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 148327f351bdc22b63bae5cad6425469a7b72ffe
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254639"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970257"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 资源
 
@@ -24,102 +24,341 @@ ms.locfileid: "70254639"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
-若要在“中国东部”和“中国北部”区域创建启用了 SQL API 和会话一致性的 Azure Cosmos DB 帐户，请运行以下命令：
-
-<!-- Not Available on cloud shell-->
-
-```azurecli
-az cosmosdb create \
-   --name mycosmosdbaccount # must be lowercase and < 31 characters \
-   --resource-group myResourceGroup \
-   --kind GlobalDocumentDB \
-   --default-consistency-level Session \
-   --locations regionName=ChinaEast failoverPriority=0 \
-   --locations regionName=ChinaNorth failoverPriority=1 \
-   --enable-multiple-write-locations false
-```
+在“中国北部 2”和“中国东部 2”区域创建启用了 SQL API 和会话一致性的 Azure Cosmos DB 帐户：
 
 > [!IMPORTANT]
-> Azure Cosmos 帐户名称必须小写。
-
-## <a name="create-a-database"></a>创建数据库
-
-若要创建 Cosmos 数据库，请运行以下命令：
-
-<!-- Not Available on cloud shell-->
+> Azure Cosmos 帐户名称必须为小写且小于 31 个字符。
 
 ```azurecli
-az cosmosdb database create \
-   --name mycosmosdbaccount \
-   --db-name myDatabase \
-   --resource-group myResourceGroup
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount' #needs to be lower case and less than 31 characters
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --default-consistency-level Session \
+    --locations regionName='China North 2' failoverPriority=0 isZoneRedundant=False \
+    --locations regionName='China East 2' failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="create-a-container"></a>创建容器
+## <a name="add-or-remove-regions"></a>添加或删除区域
 
-若要创建吞吐量为 400 RU/秒且具有分区键的 Cosmos 容器，请运行以下命令：
+创建包含两个区域的 Azure Cosmos 帐户，添加一个区域，并删除一个区域。
 
-<!-- Not Available on cloud shell-->
+> [!NOTE]
+> 不能同时添加或删除区域 `locations` 并更改 Azure Cosmos 帐户的其他属性。 修改区域的操作必须作为单独的操作与任何其他对帐户资源的更改操作分开执行。
+> [!NOTE]
+> 此命令可添加和删除区域，但不可修改故障转移优先级或触发手动故障转移。 请参阅[设置故障转移优先级](#set-failover-priority)和[触发手动故障转移](#trigger-manual-failover)。
 
 ```azurecli
-# Create a container
-az cosmosdb collection create \
-   --collection-name myContainer \
-   --name mycosmosdbaccount \
-   --db-name myDatabase \
-   --resource-group myResourceGroup \
-   --partition-key-path /myPartitionKey \
-   --throughput 400
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount' # must be lower case and <31 characters
+
+# Create an account with 2 regions
+az cosmosdb create --name $accountName --resource-group $resourceGroupName \
+    --locations regionName= "China North 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName= "China East 2" failoverPriority=1 isZoneRedundant=False
+
+# Add a region
+az cosmosdb update --name $accountName --resource-group $resourceGroupName \
+    --locations regionName= "China North 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName= "China East 2" failoverPriority=1 isZoneRedundant=False \
+    --locations regionName= "China East" failoverPriority=2 isZoneRedundant=False
+
+# Remove a region
+az cosmosdb update --name $accountName --resource-group $resourceGroupName \
+    --locations regionName= "China North 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName= "China East 2" failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="change-the-throughput-of-a-container"></a>更改容器的吞吐量
+## <a name="enable-multiple-write-regions"></a>启用多个写入区域
 
-<!-- Not Available on cloud shell-->
-
-若要将 Cosmos 容器的吞吐量更改为 1000 RU/秒，请运行以下命令：
+为 Cosmos 帐户启用多主数据库
 
 ```azurecli
-# Update container throughput
-az cosmosdb collection update \
-   --collection-name myContainer \
-   --name mycosmosdbaccount \
-   --db-name myDatabase \
-   --resource-group myResourceGroup \
-   --throughput 1000
+# Update an Azure Cosmos account from single to multi-master
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 ```
 
-## <a name="list-account-keys"></a>列出帐户密钥
+## <a name="set-failover-priority"></a>设置故障转移优先级
 
-若要获取 Cosmos 帐户的密钥，请运行以下命令：
+为已为自动故障转移而配置的 Azure Cosmos 帐户设置故障转移优先级
 
 ```azurecli
-# List account keys
+# Assume region order is initially 'China North 2'=0 'China East 2'=1 'China East'=2 for account
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+# Make China East the next region to fail over to instead of China East 2
+az cosmosdb failover-priority-change --ids $accountId \
+    --failover-policies 'China North 2'=0 'China East'=1 'China East 2'=2
+```
+
+## <a name="enable-automatic-failover"></a>启用自动故障转移
+
+```azurecli
+# Enable automatic failover on an existing account
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+az cosmosdb update --ids $accountId --enable-automatic-failover true
+```
+
+## <a name="trigger-manual-failover"></a>触发手动故障转移
+
+> [!CAUTION]
+> 在 priority = 0 的情况下更改区域会为 Azure Cosmos 帐户触发手动故障转移。 任何其他优先级更改都不会触发故障转移。
+
+```azurecli
+# Assume region order is initially 'China North 2'=0 'China East 2'=1 'China East'=2 for account
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+# Trigger a manual failover to promote China East 2 as new write region
+az cosmosdb failover-priority-change --ids $accountId \
+    --failover-policies 'China East 2'=0 'China East'=1 'China North 2'=2
+```
+
+<a name="list-account-keys"></a>
+## <a name="list-all-account-keys"></a>列出所有帐户密钥
+
+获取 Cosmos 帐户的所有密钥。
+
+```azurecli
+# List all account keys
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
 az cosmosdb keys list \
-   --name  mycosmosdbaccount \
-   --resource-group myResourceGroup
+   -n $accountName \
+   -g $resourceGroupName
+```
+
+## <a name="list-read-only-account-keys"></a>列出只读帐户密钥
+
+获取 Cosmos 帐户的只读密钥。
+
+```azurecli
+# List read-only account keys
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## <a name="list-connection-strings"></a>列出连接字符串
 
-若要获取 Cosmos 帐户的连接字符串，请运行以下命令：
+获取 Cosmos 帐户的连接字符串。
 
 ```azurecli
 # List connection strings
-az cosmosdb list-connection-strings \
-   --name mycosmosdbaccount \
-   --resource-group myResourceGroup
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## <a name="regenerate-account-key"></a>重新生成帐户密钥
 
-若要重新生成 Cosmos 帐户的新主密钥，请运行以下命令：
+重新生成 Cosmos 帐户的新密钥。
 
 ```azurecli
-# Regenerate account key
-az cosmosdb regenerate-key \
-   --name mycosmosdbaccount \
-   --resource-group myResourceGroup \
-   --key-kind primary
+# Regenerate secondary account keys
+# key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
+az cosmosdb keys regenerate \
+    -n $accountName \
+    -g $resourceGroupName \
+    --key-kind secondary
+```
+
+## <a name="create-a-database"></a>创建数据库
+
+创建 Cosmos 数据库。
+
+```azurecli
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+az cosmosdb sql database create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName
+```
+
+## <a name="create-a-database-with-shared-throughput"></a>创建具有共享吞吐量的数据库
+
+创建具有共享吞吐量的 Cosmos 数据库。
+
+```azurecli
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+throughput=400
+
+az cosmosdb sql database create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    --throughput $throughput
+```
+
+## <a name="change-the-throughput-of-a-database"></a>更改数据库的吞吐量
+
+将 Cosmos 数据库的吞吐量增加 1000 RU/s。
+
+```azurecli
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+increaseRU=1000
+
+originalRU=$(az cosmosdb sql database throughput show \
+    -g $resourceGroupName -a $accountName -n $databaseName \
+    --query throughput -o tsv)
+
+newRU=$((originalRU + increaseRU))
+
+az cosmosdb sql database throughput update \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    --throughput $newRU
+```
+
+## <a name="create-a-container"></a>创建容器
+
+创建带有默认索引策略、分区键且 RU/s 为 400 的 Cosmos 容器。
+
+```azurecli
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput
+```
+
+## <a name="create-a-container-with-ttl"></a>创建带有 TTL 的容器
+
+创建启用了 TTL 的 Cosmos 容器。
+
+```azurecli
+# Create an Azure Cosmos container with TTL of one day
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+databaseName = 'database1'
+containerName = 'container1'
+
+az cosmosdb sql container update \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --ttl = 86400
+```
+
+## <a name="create-a-container-with-a-custom-index-policy"></a>创建带有自定义索引策略的容器
+
+创建带有自定义索引策略、空间索引、组合索引、分区键且 RU/s 为 400 的 Cosmos 容器。
+
+```azurecli
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+# Generate a unique 10 character alphanumeric string to ensure unique resource names
+uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Define the index policy for the container, include spatial and composite indexes
+idxpolicy=$(cat << EOF
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {"path": "/*"}
+    ],
+    "excludedPaths": [
+        { "path": "/headquarters/employees/?"}
+    ],
+    "spatialIndexes": [
+        {"path": "/*", "types": ["Point"]}
+    ],
+    "compositeIndexes":[
+        [
+            { "path":"/name", "order":"ascending" },
+            { "path":"/age", "order":"descending" }
+        ]
+    ]
+}
+EOF
+)
+# Persist index policy to json file
+echo "$idxpolicy" > "idxpolicy-$uniqueId.json"
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput \
+    --idx @idxpolicy-$uniqueId.json
+
+# Clean up temporary index policy file
+rm -f "idxpolicy-$uniqueId.json"
+```
+
+## <a name="change-the-throughput-of-a-container"></a>更改容器的吞吐量
+
+将 Cosmos 容器的吞吐量增加 1000 RU/s。
+
+```azurecli
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+increaseRU=1000
+
+originalRU=$(az cosmosdb sql container throughput show \
+    -g $resourceGroupName -a $accountName -d $databaseName \
+    -n $containerName --query throughput -o tsv)
+
+newRU=$((originalRU + increaseRU))
+
+az cosmosdb sql container throughput update \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    --throughput $newRU
 ```
 
 ## <a name="next-steps"></a>后续步骤

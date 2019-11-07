@@ -1,27 +1,21 @@
 ---
 title: 检查状态、设置日志记录并获取警报 - Azure 逻辑应用
 description: 针对 Azure 逻辑应用监视状态、记录诊断数据并设置警报
-author: jeffhollan
-manager: anneta
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: H1Hack27Feb2017
-origin.date: 07/21/2017
+ms.suite: integration
+author: divyaswarnkar
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 52493eb76567b1fdd93df26918487c72ca33e70a
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.reviewer: jonfan, estfan, LADocs
+ms.topic: article
+origin.date: 07/21/2017
+ms.date: 11/11/2019
+ms.openlocfilehash: 60faeaea3d577be4a6d3438065fdcd365bca20e2
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174217"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425972"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -161,7 +155,7 @@ ms.locfileid: "70174217"
 结合使用 Azure Monitor 日志后，可以扩展将逻辑应用的诊断数据用于其他 Azure 服务的方式，例如： 
 
 * [在 Azure 存储中存档 Azure 诊断日志](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [将 Azure 诊断日志流式传输到 Azure 事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [将 Azure 诊断日志流式传输到 Azure 事件中心](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
 然后，可通过使用其他服务（如 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)）的遥测数据和分析来进行实时监视。 例如：
 
@@ -211,7 +205,7 @@ ms.locfileid: "70174217"
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure 诊断事件设置和详细信息
 
-每个诊断事件都有关于逻辑应用和该事件的详细信息，例如状态、开始时间、结束时间等。 若要以编程方式设置监视、跟踪和日志记录，可以将这些详细信息用于 [Azure 逻辑应用适用的 REST API](https://docs.microsoft.com/rest/api/logic) 和 [Azure 诊断适用的 REST API](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
+每个诊断事件都有关于逻辑应用和该事件的详细信息，例如状态、开始时间、结束时间等。 若要以编程方式设置监视、跟踪和日志记录，可以将这些详细信息用于 [Azure 逻辑应用适用的 REST API](https://docs.microsoft.com/rest/api/logic) 和 [Azure 诊断适用的 REST API](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows)。
 
 例如，`ActionCompleted` 事件具有可用于跟踪和监视的 `clientTrackingId` 和 `trackedProperties` 属性：
 
@@ -295,4 +289,4 @@ ms.locfileid: "70174217"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [创建模板以用于逻辑应用部署和版本管理](../logic-apps/logic-apps-create-deploy-template.md)
+* [自动完成逻辑应用部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

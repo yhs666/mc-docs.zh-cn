@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sashan, carlrab
 manager: digimobile
 origin.date: 06/27/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 20edcdaed5473b12182f4d963571d546813c4fe5
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: b9775372a3d93aec301d0d966ff39d395ced681d
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262945"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041208"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>教程：将 SQL 数据库托管实例添加到故障转移组
 
@@ -32,7 +32,7 @@ ms.locfileid: "71262945"
   > [!NOTE]
   > - 在学习本教程时，请确保使用[为托管实例设置故障转移组的先决条件](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)来配置资源。 
   > - 创建托管实例可能需要花费很长时间。 因此，本教程可能需要几个小时才能完成。 有关预配时间的详细信息，请参阅[托管实例管理操作](sql-database-managed-instance.md#managed-instance-management-operations)。 
-  > - 对托管实例使用故障转移组的功能目前为预览版。 
+
 
 ## <a name="prerequisites"></a>先决条件
 

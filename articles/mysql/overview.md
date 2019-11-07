@@ -1,19 +1,19 @@
 ---
 title: Azure Database for MySQL 关系数据库服务概述
-description: 用于 MySQL 关系数据库服务的 Azure 数据库的概述。
-ms.service: mysql
+description: 了解 Azure Database for MySQL 服务，这是 Microsoft 云中基于 MySQL 社区版的关系数据库服务。
 author: WenJason
+ms.service: mysql
 ms.author: v-jay
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: overview
 origin.date: 08/13/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 1a82c951f5f18b984406614b9e07c0732354ae76
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.date: 11/04/2019
+ms.openlocfilehash: 441ad84fb348acea8fb8a6361a50a0415500a94d
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131868"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142134"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什么是用于 MySQL 的 Azure 数据库？
 
@@ -54,12 +54,12 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA)（由 Microsoft �
 ## <a name="secure-your-data"></a>保护数据
 Azure 数据库沿袭了 Azure Database for MySQL 的若干数据安全性功能，包括限制访问、保护静止和移动数据，以及帮助监视活动等。 有关 Azure 平台安全性的信息，请访问 [Azure 信任中心](https://www.microsoft.com/en-us/trustcenter/security)。
 
-Azure Database for MySQL 服务对静态数据使用存储加密，并且符合 FIPS 140-2 标准。 包括备份在内的数据都在磁盘中加密（运行查询时由引擎创建的临时文件除外）。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥由系统进行管理。 存储加密始终可用，并且不能禁用。
+Azure Database for MySQL 服务使用 FIPS 140-2 验证的加密模块对静态数据进行存储加密。 数据（包括备份）在磁盘上加密，运行查询时创建的临时文件除外。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥由系统进行管理。 存储加密始终可用，并且不能禁用。
 
 默认情况下，将用于 MySQL 的 Azure 数据库服务配置为要求网络中传输的数据具备 [SSL 连接安全性](./concepts-ssl-connection-security.md)。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。 （可选）如果客户端应用程序不支持 SSL 连接，则可以禁止要求 SSL 连接到数据库服务。
 
 ## <a name="next-steps"></a>后续步骤
-现在，已阅读了用于 MySQL 的 Azure 数据库的简介并回答了“什么是用于 MySQL 的 Azure 数据库？”这个问题，因此可以继续完成以下内容：
+现在，已阅读了 Azure Database for MySQL 的简介并回答了“什么是 Azure Database for MySQL？”这个问题， 因此可以继续完成以下内容：
 
 - 有关成本比较和计算器，请参阅定价页。 [价格](https://azure.microsoft.com/pricing/details/mysql/)
 - 从创建第一个服务器开始。 [使用 Azure 门户创建用于 MySQL 服务器的 Azure 数据库](quickstart-create-mysql-server-database-using-azure-portal.md)

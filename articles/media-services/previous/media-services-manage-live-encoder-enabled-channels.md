@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
 ms.reviewer: juliako
-ms.openlocfilehash: be1c1c8323a199bbf80821c436598b690266ce2b
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 17bcb9806e9d2df6ee1f85efdb48024edd311e9a
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124458"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416283"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -90,7 +90,9 @@ ms.locfileid: "71124458"
 以下是在创建常见的实时流应用程序时涉及的常规步骤。
 
 > [!NOTE]
-> 目前，直播活动的最大建议持续时间为 8 小时。 实时编码会影响计费，应该记住，将实时编码通道保持为“正在运行”状态会产生按小时计算的费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
+> 目前，直播活动的最大建议持续时间为 8 小时。
+>
+> 实时编码会影响计费，应该记住，将实时编码通道保持为“正在运行”状态会产生按小时计算的费用。 建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。 
 
 1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出  单比特率流的本地实时编码器：RTMP 或平滑流式处理。 
 
@@ -269,7 +271,6 @@ ms.locfileid: "71124458"
 > [!NOTE] 
 > 在创建频道之前，具有以下约束的盖板图像应当作为专用资产上传（该资产中不应有其他文件）。 只有在广告时间，或已明确收到信号要求插入盖板时，实时编码器才会插入盖板，此时才会使用此图像。 实时编码器进入这种“输入信号丢失”状态时，目前无法使用自定义图像。
 
-
 * 分辨率最大为 1920x1080。
 * 大小最大为 3 MB。
 * 文件名必须具有 *.jpg 扩展名。
@@ -330,7 +331,7 @@ ms.locfileid: "71124458"
 * 默认情况下，只能向媒体服务帐户添加 5 个通道。 这是所有新帐户的软配额。 有关详细信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。
 * 通道或其关联的节目正在运行时，无法更改输入协议。 如果需要不同的协议，应当针对每个输入协议创建单独的频道。
 * 仅当通道处于“正在运行”  状态时才会收取费用。 有关详细信息，请参阅[此](media-services-manage-live-encoder-enabled-channels.md#states)部分。
-* 目前，直播活动的最大建议持续时间为 8 小时。
+* 目前，直播活动的最大建议持续时间为 8 小时。 
 * 确保使要从中流式传输内容的流式处理终结点处于“正在运行”状态  。
 * 编码预设使用“最大帧速率”30 fps 的思路。 因此，如果输入为 60fps/59.94i，则输入帧将修剪/反交错为 30/29.97 fps。 如果输入为 50fps/50i，则输入帧将修剪/反交错为 25 fps。 如果输入为 25 fps，则输出将保持为 25 fps。
 * 完成后请不要忘记关闭通道。 否则会继续计费。
@@ -341,6 +342,7 @@ ms.locfileid: "71124458"
 * 再次强调，完成流式处理后请不要忘记关闭通道。 否则会继续计费。
 
 ## <a name="next-step"></a>后续步骤
+
 查看媒体服务学习路径。
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

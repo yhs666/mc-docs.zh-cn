@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 origin.date: 09/24/2018
-ms.date: 07/29/2019
-ms.openlocfilehash: c73f32990d342bd5db205de83470080a63334fb3
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 10/28/2019
+ms.openlocfilehash: 16e893a75927df5645eb0a8cd05223a1892912f6
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514355"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970289"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支持的 Apache Cassandra 功能 
 
@@ -93,9 +93,9 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 函数：
     * toTimestamp(date)  
     * toUnixTimestamp(date)  
 
-## <a name="cassandra-query-language-limits"></a>Cassandra 查询语言限制
+## <a name="cassandra-api-limits"></a>Cassandra API 限制
 
-Azure Cosmos DB Cassandra API 对表中存储的数据大小没有任何限制。 在确保遵循分区键限制的同时，可以存储数百 TB 或 PB 的数据。 同样，每个实体或等效行对列数也没有任何限制，但实体的总大小不应超过 2 MB。
+Azure Cosmos DB Cassandra API 对表中存储的数据大小没有任何限制。 在确保遵循分区键限制的同时，可以存储数百 TB 或 PB 的数据。 同样，每个实体或等效行对列数也没有任何限制，但实体的总大小不应超过 2 MB。与所有其他 API 中的情况一样，每个分区键的数据不能超过 10 GB。
 
 ## <a name="tools"></a>工具 
 
@@ -115,21 +115,21 @@ CQLSH 命令行实用程序随 Apache Cassandra 3.1.1 一起提供，开箱即�
 set SSL_VERSION=TLSv1_2 
 SSL_CERTIFICATE=<path to Baltimore root ca cert>
 set CQLSH_PORT=10350 
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.cn 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmos.azure.cn 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
 ```
 **Unix/Linux/Mac：**
 
 ```bash
 export SSL_VERSION=TLSv1_2 
 export SSL_CERTFILE=<path to Baltimore root ca cert>
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.cn 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmos.azure.cn 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
 ```
 
 ## <a name="cql-commands"></a>CQL 命令
 
 Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 
-* CREATE KEYSPACE 
+* CREATE KEYSPACE（忽略此命令的复制设置）
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
@@ -139,7 +139,7 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 * BATCH - 仅支持未记录的命令 
 * 删除
 
-通过 CQLV4 兼容的 SDK 执行的所有 crud 操作都会返回有关错误、使用的请求单位、活动 ID 等的额外信息。 删除和更新命令在使用时需考虑资源调控，以避免过度使用预配的资源。 
+通过 CQLV4 兼容的 SDK 执行的所有 crud 操作都会返回有关错误、使用的请求单位等的额外信息。 删除和更新命令在使用时需考虑资源调控，以避免过度使用预配的吞吐量。 
 * 请注意：如果指定，gc_grace_seconds 值必须为零。
 
     ```csharp
@@ -156,15 +156,34 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 
 ## <a name="consistency-mapping"></a>一致性映射 
 
-Azure Cosmos DB Cassandra API 为读取操作提供了一致性选择。 一致性映射的详细信息[在这里](https://docs.azure.cn/cosmos-db/consistency-levels-across-apis#cassandra-mapping)。
+Azure Cosmos DB Cassandra API 为读取操作提供了一致性选择。  一致性映射的详细信息[在这里](/cosmos-db/consistency-levels-across-apis#cassandra-mapping)。
 
 ## <a name="permission-and-role-management"></a>权限和角色管理
 
-Azure Cosmos DB 支持基于角色的访问控制 (RBAC) 用于预配、旋转密钥、查看指标以及读写和只读密码/密钥（可通过 [Azure 门户](https://portal.azure.cn)获取）。 Azure Cosmos DB 在 CRUD 活动中尚不支持用户和角色。 
+Azure Cosmos DB 支持基于角色的访问控制 (RBAC) 用于预配、旋转密钥、查看指标以及读写和只读密码/密钥（可通过 [Azure 门户](https://portal.azure.cn)获取）。 Azure Cosmos DB 不支持 CRUD 活动的角色。
 
-## <a name="planned-support"></a>计划的支持 
-* 目前忽略 create keypace 命令中的区域名称 - 数据分配在底层 Cosmos DB 平台中实现，并通过门户或 powershell 向帐户公开。 
+## <a name="keyspace-and-table-options"></a>密钥空间和表选项
+
+目前会忽略“创建密钥空间”命令中针对区域名称、类、replication_factor 和数据中心的选项。 系统使用基础 Azure Cosmos DB 的[多区域分发](/cosmos-db/global-dist-under-the-hood)复制方法来添加区域。 如果需要数据跨区域存在，可以使用 PowerShell、CLI 或门户在帐户级别启用它。若要了解详细信息，请参阅[如何添加区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)一文。 Durable_writes 不能禁用，因为 Azure Cosmos DB 需确保每次写入都是持久的。 在每个区域，Azure Cosmos DB 都会跨副本集（由 4 个副本组成）来复制数据。该副本集[配置](global-dist-under-the-hood.md)不能修改。
+
+在创建表时，会忽略所有选项，但 gc_grace_seconds 除外，后者应设置为零。
+密钥空间和表有一个名为“cosmosdb_provisioned_throughput”的额外选项，该选项的最小值为 400 RU/秒。 密钥空间吞吐量允许跨多个表共享吞吐量，这适用于所有表都不利用预配的吞吐量的情况。 “更改表”命令允许跨区域更改预配的吞吐量。 
+
+```
+CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+
+CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+
+ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
+
+```
+
+## <a name="usage-of-cassandra-retry-connection-policy"></a>使用 Cassandra 重试连接策略
+
+Azure Cosmos DB 是一种资源治理系统。 这意味着，你可以根据操作消耗的请求单位数在给定的秒内执行特定数目的操作。 如果应用程序在给定的秒内超出该限制，则请求会受到速率限制，并会引发异常。 Azure Cosmos DB 中的 Cassandra API 在 Cassandra 本机协议中将这些异常解释为过载错误。 为了确保应用程序在速率受限的情况下能够截获并重试请求，我们提供了 [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) 和 [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) 扩展。 在 Azure Cosmos DB 中，如果使用其他 SDK 来访问 Cassandra API，请创建一项连接策略，以便在出现这些异常时进行重试。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 通过使用 Java 应用程序开始[创建 Cassandra API 帐户、数据库和表](create-cassandra-api-account-java.md)
+
+<!--Update_Description: wording update-->

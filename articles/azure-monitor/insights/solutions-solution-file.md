@@ -1,26 +1,20 @@
 ---
 title: 在 Azure 中创建管理解决方案文件 | Azure Docs
 description: 管理解决方案提供打包的管理方案，客户可将其添加到 Azure 环境。  本文提供有关如何创建要在自己的环境中使用或可供客户使用的管理解决方案的详细信息。
-services: monitoring
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
+ms.author: v-lingwu
 origin.date: 01/09/2018
 ms.date: 01/21/2019
-ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97686189d365f194363a7a162d6b802089c986ff
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 73fda5ef0bd3ea83e7133cc9fd875f4e6c150e5d
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737318"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970969"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中创建管理解决方案文件（预览版）
 > [!NOTE]

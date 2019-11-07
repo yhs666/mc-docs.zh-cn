@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: douglas, carlrab
 origin.date: 07/11/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: ce64445e21157c31c606a3d2954c2d3957399ed1
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 11/04/2019
+ms.openlocfilehash: c3ad32ff0ea61f20b88af41acfbccda9ddfb2fa8
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372972"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041237"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>将 SQL Server 实例迁移到 Azure SQL 数据库托管实例
 
@@ -167,7 +167,7 @@ ms.locfileid: "70372972"
 性能比较的结果可能是：
 - 托管实例上的工作负荷性能与 SQL Server 上的性能相当，或者优于后者。 如果存在这种情况，则表示迁移成功。
 - 工作负荷中的大多数性能参数和查询可正常工作，但也存在一些例外和性能下降的情况。 对于这种情况，需要识别差异及其重要性。 如果某些重要查询出现性能下降，则你应该调查基础 SQL 计划是否已更改，或者查询是否遇到了某些资源限制。 这种情况的缓解措施可能是直接或使用计划指南对关键查询应用一些提示（例如，更改兼容性级别、传统基数估算器，重新生成或创建可能会影响计划的统计信息和索引。 
-- 与源 SQL Server 相比，托管实例上的大多数查询速度较慢。 对于这种情况，请尝试识别差异的根本原因，例如，[即将达到资源限制](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)（如 IO 限制、内存限制、实例日志速率限制，等等）。如果没有任何资源限制会导致出现差异，请尝试更改数据库的兼容性级别，或更改数据库设置（例如传统基数估算），然后重新开始测试。 查看托管实例或查询存储视图中提供的建议来识别使性能倒退的查询。
+- 与源 SQL Server 相比，托管实例上的大多数查询速度较慢。 对于这种情况，请尝试识别差异的根本原因，例如，[即将达到资源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)（如 IO 限制、内存限制、实例日志速率限制，等等）。如果没有任何资源限制会导致出现差异，请尝试更改数据库的兼容性级别，或更改数据库设置（例如传统基数估算），然后重新开始测试。 查看托管实例或查询存储视图中提供的建议来识别使性能倒退的查询。
 
 > [!IMPORTANT]
 > 托管实例具有内置的自动计划更正功能（默认已启用）。 此功能确保过去正常工作的查询在将来不会导致性能下降。 在更改新设置，使托管实例能够了解基线性能和计划之前，请确保启用此功能，并使用旧设置执行工作负荷足够长的时间。

@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 遥测数据模型 - 请求遥测 | Azure Docs
 description: 适用于请求遥测的 Application Insights 数据模型
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 01/07/2019
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 09a7e7c538e8f2b7dd397807cfbb61adbdbfc5bc
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 17f6b87278c06b9b9b254f0565666c145fb2f02f
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737295"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970915"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>请求遥测：Application Insights 数据模型
 

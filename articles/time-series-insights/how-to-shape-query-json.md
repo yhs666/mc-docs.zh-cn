@@ -6,15 +6,16 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 05/09/2019
-ms.author: dpalled
+origin.date: 10/09/2019
+ms.date: 11/04/2019
+ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: 8c544b36e78b7da6b10f640329c7ceec86a4bf93
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: d11b6ddc419bc4dd9e4bed6e70a8095aa28f8c28
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456469"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914453"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查询性能 
 
@@ -52,9 +53,10 @@ ms.locfileid: "67456469"
 
 以下示例涉及到单个 Azure IoT 中心消息，其中的外部数组包含通用维度值的共享节。 该外部数组使用参考数据来提高消息的效率。 参考数据包含设备元数据，这些数据不会根据每个事件变化，但提供有用的属性用于数据分析。 批处理通用维度值和采用参考数据都能减少通过网络发送的字节数，这可以提高消息的效率。
 
-示例 JSON 有效负载：
+请考虑使用 [IoT 设备消息对象](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet)发送到时序见解 GA 环境的以下 JSON 有效负载，该有效负载在发送到 Azure 云时会序列化为 JSON：
 
-```json
+
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -98,13 +100,12 @@ ms.locfileid: "67456469"
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-有关这两个表的说明：
-
-- **deviceId** 列充当机群中各种设备的列标题。 对于其他五个列，使 deviceId 值成为其自身的属性名称会将设备总数限制为 595（对于 S1 环境）或 795（对于 S2 环境）。
-- 避免不必要的属性，例如制造商和型号信息。 由于将来不会查询这些属性，消除它们对网络和存储效率有利。
-- 参考数据用于减少通过网络传输的字节数。 已使用键属性 **deviceId** 联接 **messageId** 和 **deviceLocation** 这两个特性。 此数据在流入时联接到遥测数据，然后存储在时序见解中以供查询。
-- 使用了两个嵌套层，这是时序见解支持的最大嵌套数量。 必须避免深层嵌套的数组。
-- 由于度量很少，因此将其作为单独的属性在同一对象中发送。 此处的 **series.Flow Rate psi** 和 **series.Engine Oil Pressure ft3/s** 是唯一的列。
+> [!NOTE]
+> - **deviceId** 列充当机群中各种设备的列标题。 对于其他五个列，使 **deviceId** 值成为其自身的属性名称会将设备总数限制为 595（对于 S1 环境）或 795（对于 S2 环境）。
+> - 避免不必要的属性（例如制造商和型号信息）。 由于将来不会查询这些属性，消除它们对网络和存储效率有利。
+> - 参考数据用于减少通过网络传输的字节数。 已使用键属性 **deviceId** 联接 **messageId** 和 **deviceLocation** 这两个特性。 此数据在流入时联接到遥测数据，然后存储在时序见解中以供查询。
+> - 使用了两个嵌套层，这是时序见解支持的最大嵌套数量。 必须避免深层嵌套的数组。
+> - 由于度量很少，因此将其作为单独的属性在同一对象中发送。 此处的 **series.Flow Rate psi** 和 **series.Engine Oil Pressure ft3/s** 是唯一的列。
 
 ## <a name="scenario-two-several-measures-exist"></a>方案二：存在多个度量
 
@@ -174,12 +175,11 @@ ms.locfileid: "67456469"
    | FYYY | pumpRate | LINE\_DATA | US | 流速 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | 引擎油压 | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-有关这两个表的说明：
-
-- 列 **deviceId** 和 **series.tagId** 充当机群中各个设备和标记的列标题。 对于其他六个列，将每个值用作其自身的特性会将设备总数查询限制为 594（对于 S1 环境）或 794（对于 S2 环境）。
-- 出于第一个示例中提到的原因，请避免不必要的属性。
-- 参考数据用于减少通过网络传输的字节数，因为针对 **messageId** 和 **deviceLocation** 的唯一对引入了 **deviceId**。 针对 **type** 和 **unit** 的唯一对使用了组合键 **series.tagId**。 该组合键允许使用 **deviceId** 和 **series.tagId** 对来引用四个值：**messageId、deviceLocation、type** 和 **unit**。 在流入时，此数据将联接到遥测数据。 然后，它将存储在时序见解中供查询。
-- 出于第一个示例中提到的原因，使用了两个嵌套层。
+> [!NOTE]
+> - 列 **deviceId** 和 **series.tagId** 充当机群中各个设备和标记的列标题。 对于其他六个列，将每个值用作其自身的特性会将设备总数查询限制为 594（对于 S1 环境）或 794（对于 S2 环境）。
+> - 出于第一个示例中提到的原因，请避免不必要的属性。
+> - 参考数据用于减少通过网络传输的字节数，因为针对 **messageId** 和 **deviceLocation** 的唯一对引入了 **deviceId**。 针对 **type** 和 **unit** 的唯一对使用了组合键 **series.tagId**。 该组合键允许使用 **deviceId** 和 **series.tagId** 对来引用四个值：**messageId、deviceLocation、type** 和 **unit**。 在流入时，此数据将联接到遥测数据。 然后，它将存储在时序见解中供查询。
+> - 出于第一个示例中提到的原因，使用了两个嵌套层。
 
 ### <a name="for-both-scenarios"></a>对于两种场景
 
@@ -189,6 +189,8 @@ ms.locfileid: "67456469"
   - 在第二个示例中，度量未指定为单独的属性， 而是通用系列属性下的值或度量数组。 发送了新键 **tagId**，该键在平展表中创建新列 **series.tagId**。 新属性 **type** 和 **unit** 是使用参考数据创建的，因此不会达到属性限制。
 
 ## <a name="next-steps"></a>后续步骤
+
+- 阅读有关[将 IoT 中心设备消息发送到云](/iot-hub/iot-hub-devguide-messages-construct)的详细信息。
 
 - 请参阅 [Azure 时序见解查询语法](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax)，以详细了解时序见解数据访问 REST API 的查询语法。
 - 了解[如何调整事件](./time-series-insights-send-events.md)。

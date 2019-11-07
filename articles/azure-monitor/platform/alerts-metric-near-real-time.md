@@ -9,12 +9,12 @@ origin.date: 9/27/2018
 ms.date: 07/17/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 7184541d447469a0d98c3cfa9e80e6e5dca0862f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e31f66d2739dd9587dd391e48561da3ce672cfda
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737341"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970953"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 
@@ -88,11 +88,13 @@ Azure Monitor 现在支持[新型指标警报类型](../../azure-monitor/platfor
       "name": "StorageCheck",
       "description": "",
       "conditionType": "SingleResourceMultipleMetricCriteria",
+      "severity":"3",
       "condition": {
         "windowSize": "PT5M",
         "allOf": [
           {
             "metricName": "Transactions",
+            "metricNamespace":"microsoft.storage/storageAccounts",
             "dimensions": [
               {
                 "name": "AccountResourceId",

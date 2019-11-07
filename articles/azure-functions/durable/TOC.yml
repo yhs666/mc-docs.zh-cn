@@ -1,5 +1,5 @@
 - name: Durable Functions 文档
-  href: durable-functions-overview.md
+  href: index.yml
 - name: 概述
   items:
     - name: 关于 Azure Functions
@@ -73,6 +73,8 @@
       href: durable-functions-bindings.md
     - name: HTTP API
       href: durable-functions-http-api.md
+    - name: Durable 扩展 API
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet-preview'
 - name: 操作指南
   items:
     - name: 开发
@@ -85,12 +87,16 @@
           href: durable-functions-unit-testing.md
         - name: 创建为 WebJobs
           href: durable-functions-webjobs-sdk.md
+        - name: .NET 中的持久实体
+          href: durable-functions-dotnet-entities.md
     - name: 部署
       items:
         - name: Zip 部署
           href: ../deployment-zip-push.md
         - name: 从程序包运行
           href: ../run-functions-from-deployment-package.md
+        - name: 零停机时间部署
+          href: durable-functions-zero-downtime-deployment.md
     - name: 监视
       items:
         - name: 定价

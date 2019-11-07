@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/25/2019
-ms.date: 08/23/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e29415a7e131144d42f47c4c400ad8ee288d227
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: b4a332ad01ca655c8c85bfad1530865f678f526d
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993274"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912787"
 ---
 # <a name="authentication-flows"></a>身份验证流
 
@@ -208,7 +208,7 @@ MSAL 支持 [OAuth 2 资源所有者密码凭据授予](v2-oauth-ropc.md)，后�
 
 除了 [Windows 集成身份验证约束](#integrated-windows-authentication)以外，以下约束也适用：
 
-- 用户名/密码流与条件访问和多重身份验证不兼容。 因此，如果应用在 Azure AD 租户中运行，而该租户中的租户管理员需要多重身份验证，则你无法使用此流。 许多组织都会提出这种要求。
+- 用户名/密码流与多重身份验证不兼容。 因此，如果应用在 Azure AD 租户中运行，而该租户中的租户管理员需要多重身份验证，则你无法使用此流。 许多组织都会提出这种要求。
 - 它仅适用工作和学校帐户。
 - 可在 .NET Desktop 和 .NET Core 中使用该流，但不能在通用 Windows 平台中使用。
 

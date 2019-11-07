@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中预配数据库级别的吞吐�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 07/03/2019
-ms.date: 09/30/2019
+origin.date: 09/28/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: f313517a9c0a8926d44d64d9b101331f156e3910
-ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
+ms.openlocfilehash: b8fb2fddd181cf0aebc8b637d30f05625bd24d10
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519400"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970256"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库上预配吞吐量
 
@@ -36,36 +36,12 @@ ms.locfileid: "72519400"
 
     ![“新建数据库”对话框屏幕截图](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>使用 Azure CLI 或 PowerShell 预配吞吐量
 
-```azurecli
-az cosmosdb database create --db-name
-                            [--key]
-                            [--name]
-                            [--resource-group-name]
-                            [--subscription]
-                            [--throughput]
-                            [--url-connection]
-```
+若要创建具有共享吞吐量的数据库，请参阅：
 
-## <a name="provision-throughput-using-powershell"></a>使用 PowerShell 预配吞吐量
-
-```powershell
-# Create a database and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$databaseResourceName = $accountName + "/sql/" + $databaseName
-
-$databaseProperties = @{
-    "resource"=@{ "id"=$databaseName };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $databaseProperties
-```
+* [使用 Azure CLI 创建数据库](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [使用 Powershell 创建数据库](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
 
@@ -74,6 +50,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 
 <a name="dotnet-all"></a>
 ### <a name="all-apis"></a>所有 API
+
 ### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 ```csharp
@@ -92,11 +69,13 @@ await client.CreateDatabaseIfNotExistsAsync(
 ### <a name="net-v3-sdk"></a>.NET V3 SDK
 
 ```csharp
+
 //create the database with throughput
 string databaseName = "MyDatabaseName";
 await this.cosmosClient.CreateDatabaseIfNotExistsAsync(
         id: databaseName,
         throughput: 1000);
+
 ```
 
 <a name="dotnet-cassandra"></a>

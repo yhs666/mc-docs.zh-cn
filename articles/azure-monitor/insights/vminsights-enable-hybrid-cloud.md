@@ -1,25 +1,19 @@
 ---
 title: 为混合环境启用 Azure Monitor（预览版） | Microsoft Docs
 description: 本文介绍如何为包含一个或多个虚拟机的混合云环境启用用于 VM 的 Azure Monitor。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: lingliw
+ms.author: v-lingwu
 origin.date: 07/02/2019
 ms.date: 07/12/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 8655448ca96305ae3113acb6df3363ffe8095572
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e0626f89093d914dc6ae2bd3cb99666e93211bb7
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736984"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970884"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>为混合环境启用用于 VM 的 Azure Monitor（预览版）
 
@@ -200,24 +194,6 @@ configuration ServiceMap {
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -250,7 +226,7 @@ configuration ServiceMap {
 
 1. Dependency Agent 是否已安装成功？ 可通过检查是否已安装并运行服务来验证这一点。
 
-    Windows  ：查找名为“Microsoft Dependency Agent”的服务。 
+    **Windows**：查找名为“Microsoft Dependency Agent”的服务。 
 
     Linux  ：查找正在运行的进程“microsoft-dependency-agent”。
 
@@ -275,6 +251,6 @@ configuration ServiceMap {
 
 既然虚拟机已启用了监视，此信息在用于 VM 的 Azure Monitor 中可供分析。
  
-- 若要了解如何使用运行状况功能，请参阅[查看用于 VM 的 Azure Monitor 的运行状况](vminsights-health.md)。
 - 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。
-- 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。
+
+- 若要通过 VM 的性能了解瓶颈和整体利用率，请参阅[查看 Azure VM 性能](vminsights-performance.md)。

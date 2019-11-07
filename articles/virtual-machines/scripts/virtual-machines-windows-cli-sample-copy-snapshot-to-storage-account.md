@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 示例 - 将快照复制到另一个区域中的存储帐户
+title: 使用 CLI 将快照导出/复制到不同区域中的存储帐户 | Azure
 description: Azure CLI 脚本示例 - 将快照作为 VHD 导出/复制到相同或不同区域中的存储帐户。
 services: virtual-machines-windows
 documentationcenter: storage
@@ -17,12 +17,12 @@ origin.date: 05/19/2017
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 75697f6c1ebe4d1d344cafd2f3297fba1d6a3837
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: 24aab8c063f4c5dfd0f2c4f2f756252a171887ae
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323734"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749593"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 将快照导出/复制到不同区域中的存储帐户
 

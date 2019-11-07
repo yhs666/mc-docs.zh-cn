@@ -1,24 +1,19 @@
 ---
 title: 在 Azure Application Insights 中使用搜索 | Azure Docs
 description: 搜索和筛选由 Web 应用发送的原始遥测数据。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 07/30/2019
 ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6247be7f33b195ce8bc6bdf6e8aa04727bd1832b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 67889eaa369d5d78c7093914583932d5109301a7
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737288"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970866"
 ---
 # <a name="using-search-in-application-insights"></a>使用 Application Insights 中的搜索
 
@@ -68,7 +63,7 @@ ms.locfileid: "70737288"
 
 * **跟踪** - [诊断日志](../../azure-monitor/app/asp-net-trace-logs.md)，包括 TrackTrace、log4Net、NLog 和 System.Diagnostic.Trace 调用。
 * **请求** - 服务器应用程序收到的 HTTP 请求，包括页面、脚本、图像、样式文件和数据。 这些事件用于创建请求和响应概述图表。
-* **页面视图** - [由 Web 客户端发送的遥测数据](../../azure-monitor/app/javascript.md)，用于创建页面视图报告。 
+* **页面视图** - [由 Web 客户端发送的遥测数据](../../azure-monitor/app/javascript.md)，用于创建页面视图报告。
 * **自定义事件** - 如果插入了对 TrackEvent() 的调用以便[监视使用情况](../../azure-monitor/app/api-custom-events-metrics.md)，可以在此处搜索这些调用。
 * **异常** - 未捕获到的[服务器中的异常](../../azure-monitor/app/asp-net-exceptions.md)，以及使用 TrackException() 记录的异常。
 * **依赖项** - [发自服务器应用程序的调用](../../azure-monitor/app/asp-net-dependencies.md)，调用对象为 REST API 或数据库等其他服务器，以及[客户端代码](../../azure-monitor/app/javascript.md)中的 AJAX 调用。

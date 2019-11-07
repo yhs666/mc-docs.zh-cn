@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本 - 更改服务器配置
+title: Azure CLI 脚本 - 更改服务器配置 (PostgreSQL)
 description: 此示例 CLI 脚本列出所有可用的服务器配置选项，并更新某个选项的值。
 author: WenJason
 ms.author: v-jay
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
 ms.date: 02/18/2019
-ms.openlocfilehash: c81001a1ee66bf0d2322236bb24553f31d289cf1
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: d40a8b41819e392d14da5fbd3646190efb30d2d4
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303039"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191530"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新 Azure Database for PostgreSQL 服务器的配置
 此示例 CLI 脚本列出所有 Azure Database for PostgreSQL 服务器的可用配置参数及其允许的值，并将 log_retention_days  设置为默认值以外的值。

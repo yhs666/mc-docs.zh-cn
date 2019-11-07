@@ -1,24 +1,19 @@
 ---
 title: 从 Azure Application Insights 导出到 SQL | Azure Docs
 description: 使用流分析将 Application Insights 数据连续导出到 SQL。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 09/11/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3f462cd3aa004df67c817049964ac1bebf2ec90d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 08fad879fa46e4be719f0e678d12f675969e97b4
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737314"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970923"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>演练：使用流分析从 Application Insights 导出到 SQL
 本文说明如何使用[连续导出][export]和 [Azure 流分析](/stream-analytics/)，将遥测数据从 [Azure Application Insights][start] 移入 Azure SQL 数据库。 

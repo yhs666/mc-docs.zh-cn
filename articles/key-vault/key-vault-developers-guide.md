@@ -3,19 +3,18 @@ title: Azure 密钥保管库开发人员指南
 description: 开发人员可以使用 Azure 密钥保管库来管理 Azure 环境中的加密密钥。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-origin.date: 10/12/2017
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 5ae3d539f74aff5b33449bca2e66f7423af1cbab
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+origin.date: 02/11/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 34c6f032186887410e115fced7aa22103f00c638
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903134"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426042"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -26,37 +25,17 @@ ms.locfileid: "56903134"
 - 应用程序可以使用密钥进行签名和加密，不过使密钥管理与应用程序分开，可以使解决方案适用于地理分散的应用。
 - 自 2016 年 9 月版本的 Key Vault 发布起，应用程序现在可以管理 Key Vault 证书。 有关详细信息，请参阅 [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)（关于密钥、机密和证书）。
 
-有关 Azure 密钥保管库的更多常规信息，请参阅[什么是密钥保管库](key-vault-whatis.md)。
+有关 Azure 密钥保管库的更多常规信息，请参阅[什么是密钥保管库](key-vault-overview.md)。
 
 ## <a name="public-previews"></a>公共预览版
 
 我们会定期发布新 Key Vault 功能的公共预览版。 抢先试用这些版本，并通过反馈电子邮件地址 azurekeyvault@microsoft.com 将想法告诉我们。
 
-### <a name="storage-account-keys---july-10-2017"></a>存储帐户密钥 - 2017 年 7 月 10 日
-
->[!NOTE]
->在 Azure Key Vault 的此更新版中，只有**存储帐户密钥**功能以预览版提供。
-
-此预览版包含通过 [.NET/C#](/dotnet/api/microsoft.azure.keyvault/)、[REST](https://docs.microsoft.com/rest/api/keyvault/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 接口提供的新存储帐户密钥功能。 
-
-有关新存储帐户密钥功能的详细信息，请参阅 [Azure Key Vault 存储帐户密钥概述](key-vault-ovw-storage-keys.md)。
-
-## <a name="videos"></a>视频
-
-此视频介绍如何创建自己的密钥保管库以及如何使用从“Hello Key Vault”示例应用程序使用它。
-
-- [Key Vault 开发人员 - 快速入门指南](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-上述视频中提到的资源：
-
-- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure 密钥保管库代码示例](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
-
 ## <a name="creating-and-managing-key-vaults"></a>创建和管理密钥保管库
 
 虽然 Azure Key Vault 可用于安全存储凭据以及其他密钥和机密，但代码需要通过 Key Vault 的身份验证才能检索它们。 Azure 资源的托管标识为 Azure 服务提供了 Azure Active Directory (Azure AD) 中的自动托管标识，更巧妙地解决了这个问题。 此标识可用于通过支持 Azure AD 身份验证的任何服务（包括 Key Vault）的身份验证，这样就无需在代码中插入任何凭据了。 
 
-若要详细了解如何使用 AAD，请参阅[将应用程序与 Azure Active Directory 集成](/active-directory/develop/active-directory-integrating-applications)。
+有关 Azure 资源的托管标识的详细信息，请参阅[标识概述](../active-directory/managed-identities-azure-resources/overview.md)。 若要详细了解如何使用 AAD，请参阅[将应用程序与 Azure Active Directory 集成](../active-directory/develop/active-directory-integrating-applications.md)。
 
 使用密钥保管库中的密钥、机密或证书前，请通过 CLI、PowerShell、资源管理器模板或 REST 创建和管理密钥保管库，如以下文章所述：
 
@@ -139,7 +118,6 @@ ms.locfileid: "56903134"
 这些文章介绍了使用 Key Vault 或与之集成的其他方案和服务。
 
 - [Azure 磁盘加密](../security/azure-security-disk-encryption.md)利用 Windows 的行业标准 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 功能和 Linux 的 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能，为 OS 和数据磁盘提供卷加密。 该解决方案与 Azure 密钥保管库集成，可帮助你控制和管理密钥保管库订阅中的磁盘加密密钥和机密，同时确保虚拟机磁盘中的所有数据可在 Azure 存储中静态加密。
-- [Azure 信息保护](https://docs.microsoft.com/azure/information-protection/plan-implement-tenant-key)允许管理自己的租户密钥。 例如，不是由 Microsoft 管理租户密钥（默认设置），可以管理自己的租户密钥，以遵守适用于组织的具体规定。 管理自己的租户密钥也称为自带密钥（简称 BYOK）。
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 概述和概念
 
@@ -154,9 +132,7 @@ ms.locfileid: "56903134"
 
 ## <a name="supporting-libraries"></a>支持库
 
-- [Azure Key Vault 核心库](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)提供 IKey 和 IKeyResolver 接口，用于通过标识符查找密钥，以及使用密钥执行操作。
-- [Azure 密钥保管库扩展](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) 为 Azure 密钥保管库提供了扩展功能。
+- [Azure Key Vault 核心库](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)提供 IKey  和 IKeyResolver  接口，用于通过标识符查找密钥，以及使用密钥执行操作。
+- [Azure 密钥保管库扩展](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) 为 Azure 密钥保管库提供了扩展功能。
 
 <!-- Update_Description: wording update -->
-
-

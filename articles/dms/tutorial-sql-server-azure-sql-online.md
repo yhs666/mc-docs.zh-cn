@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 07/09/2019
-ms.date: 08/12/2019
-ms.openlocfilehash: 72fa96611ff23a3ca482826ea9b880588fbb3cd1
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+origin.date: 09/22/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: d27fb8368454a87ddf11b3fd2666b9ef075ece1c
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952145"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416228"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 数据库中的单一数据库或共用数据库
 
@@ -79,16 +79,16 @@ ms.locfileid: "68952145"
 - 如果某个表没有主键，请对数据库和特定表启用变更数据捕获 (CDC)。
     > [!NOTE]
     > 可以使用以下脚本查找没有主键的表。
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >如果结果显示一个或多个表的“is_tracked_by_cdc”为“0”，请按照[启用和禁用变更数据捕获 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 一文中描述的流程操作，为数据库和特定表启用变更数据捕获。
+    如果结果显示一个或多个表的“is_tracked_by_cdc”为“0”，请按照[启用和禁用变更数据捕获 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 一文中描述的流程操作，为数据库和特定表启用变更数据捕获。
 
 - 配置源 SQL Server 的分发服务器角色。
 
@@ -133,12 +133,12 @@ ms.locfileid: "68952145"
 1. 在 DMA 中，选择“新建(+)”图标，然后选择“评估”  项目类型。
 2. 指定项目名称，在“源服务器类型”文本框中，选择“SQL Server”，在“目标服务器类型”文本框中，选择“Azure SQL 数据库”，然后选择“创建”，从而创建项目      。
 
-    评估迁移到 Azure SQL 数据库中的单一数据库或共用数据库的源 SQL Server 数据库时，可以选择以下一种或两种评估报告类型：
+   评估迁移到 Azure SQL 数据库中的单一数据库或共用数据库的源 SQL Server 数据库时，可以选择以下一种或两种评估报告类型：
 
    - 检查数据库兼容性
    - 检查功能奇偶校验
 
-     默认情况下会选择这两种报告类型。
+   默认情况下会选择这两种报告类型。
 
 3. 在 DMA 的“选项”  屏幕上，选择“下一步”  。
 4. 在“选择源”  屏幕上的“连接到服务器”  对话框中，向 SQL Server 提供连接详细信息，然后选择“连接”  。

@@ -1,23 +1,19 @@
 ---
 title: 使用逻辑应用自动执行 Azure Application Insights 过程。
 description: 了解如何通过将 Application Insights 连接器添加到逻辑应用来快速自动执行可重复的过程。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 03/11/2019
+author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 15171dbe530a244bf5747f123aa9dc7dc68d1212
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 2c79b3011afd7aef3f8e23e2bba93356a8f22212
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737315"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970929"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用逻辑应用自动执行 Application Insights 过程
 

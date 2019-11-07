@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Azure Kubernetes 服务 (AKS)
+      tocHref: 'https://docs.microsoft.com//virtualization/windowscontainers/'
+      topicHref: /aks/index

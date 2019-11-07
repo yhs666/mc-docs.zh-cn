@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 origin.date: 07/23/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: f34f8841d93a2c630ce324b679a7d9fec69ade3b
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 75304aebaf55640fa336e8e2d6b6d37c485860e9
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254539"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913332"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入门：使用 Gremlin 控制台创建、查询和遍历 Azure Cosmos DB 图形数据库
@@ -58,12 +58,12 @@ Gremlin 控制台基于 Groovy/Java，在 Linux、Mac 和 Windows 上运行。 �
 
     设置|建议的值|Description
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmos.azure.cn]|请参阅下面的屏幕截图。 这是 Azure 门户的“概述”页上的“Gremlin URI”值，方括号中已删除尾部的 :443/。
-    port|443|设置为 443。
+    hosts|[*account-name*.**gremlin**.cosmos.azure.cn]|请参阅下面的屏幕截图。 这是 Azure 门户的“概述”页上的“Gremlin URI”  值，方括号中已删除尾部的 :443/。 注意：请确保使用 Gremlin 值，并且**不是**以 [*account-name*.documents.azure.cn] 结尾的 URI，这可能会在稍后尝试执行 Gremlin 查询时导致“主机未及时响应”异常。 
+    端口|443|设置为 443。
     username|*用户名*|采用 `/dbs/<db>/colls/<coll>` 格式的资源，其中，`<db>` 是数据库名称，`<coll>` 是集合名称。
     password|*主密钥*| 请参阅下面的第二幅屏幕截图。 这是主密钥，可以从 Azure 门户的“密钥”页上的“主密钥”框中检索到。 使用该框左侧的复制按钮可复制该值。
     connectionPool|{enableSsl: true}|SSL 的连接池设置。
-    serializer|{ className: org.apache.tinkerpop.gremlin.<br />driver.ser.GraphSONMessageSerializerV1d0,<br /> config: { serializeResultToString: true }}|请设置为此值，并在粘贴此值时删除所有 `\n` 换行符。
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br />driver.ser.GraphSONMessageSerializerV2d0,<br /> config: { serializeResultToString: true }}|请设置为此值，并在粘贴此值时删除所有 `\n` 换行符。
 
     对于 Hosts 值，请从“概览”页复制“Gremlin URI”值   ：![在 Azure 门户的“概览”页上查看和复制 Gremlin URI 值](./media/create-graph-gremlin-console/gremlin-uri.png)
 
@@ -84,13 +84,13 @@ Gremlin 控制台基于 Groovy/Java，在 Linux、Mac 和 Windows 上运行。 �
 
     确保将 hosts 参数的值括在括号 [] 中。 
 
-3. 在终端中运行 `bin/gremlin.bat` 或 `bin/gremlin.sh` 启动[Gremlin 控制台](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/)。
-4. 在终端中运行 `:remote connect tinkerpop.server conf/remote-secure.yaml` 连接到应用服务。
+1. 在终端中运行 `bin/gremlin.bat` 或 `bin/gremlin.sh` 启动[Gremlin 控制台](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/)。
+1. 在终端中运行 `:remote connect tinkerpop.server conf/remote-secure.yaml` 连接到应用服务。
 
     > [!TIP]
-    > 如果收到错误`No appenders could be found for logger`，请确保已更新 remote-secure.yaml 文件中的序列化程序值，如步骤 2 中所述。 
+    > 如果收到错误`No appenders could be found for logger`，请确保已更新 remote-secure.yaml 文件中的序列化程序值，如步骤 2 中所述。 如果配置正确，则可以安全地忽略此警告，因为它不应影响控制台的使用。 
 
-5. 接下来运行 `:remote console`，将所有控制台命令重定向到远程服务器。
+1. 接下来运行 `:remote console`，将所有控制台命令重定向到远程服务器。
 
    > [!NOTE]
    > 如果你不运行 `:remote console` 命令但希望将所有控制台命令重定向到远程服务器，则应在命令前添加 `:>` 前缀，例如，应该以 `:> g.V().count()` 形式运行命令。 此前缀是命令的一部分，在将 Gremlin 控制台与 Azure Cosmos DB 一起使用时非常重要。 省略此前缀将指示控制台在本地执行命令，通常针对一个内存中图表执行。 使用此前缀 `:>` 则指示控制台执行远程命令，在此示例中针对 Azure Cosmos DB（localhost 仿真器或 Azure 实例）执行。

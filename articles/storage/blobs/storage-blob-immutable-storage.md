@@ -6,18 +6,18 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/01/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 840c2d31f7c49202dd83bffc4cfc9c11befe781b
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 876033e95790fa33a26f53bb665de4c110d886d8
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306818"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914392"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 存储中存储业务关键型数据
+# <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>将业务关键型数据永久存储在 Azure Blob 存储中 
 
 Azure Blob 存储的不可变存储可让用户以 WORM（一次写入，多次读取）状态存储业务关键型数据对象。 此状态可以根据用户指定的时间间隔使数据保持不可擦除且不可修改的状态。 在保留时间间隔期间，可以创建和读取，但不能修改或删除 Blob 对象。 所有 Azure 区域都为常规用途 v2 和 Blob 存储帐户启用了不可变存储。
 

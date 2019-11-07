@@ -1,24 +1,19 @@
 ---
 title: 新建 Azure Application Insights 资源 | Azure Docs
 description: 为新的实时应用程序手动设置 Application Insights 监视。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 08/16/2019
 ms.date: 08/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dbb898c35de9a91a1227dfd0e80d1f9ccccc8110
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 87a97e414f1570cf92a1fbb690572eee43ed24bc
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737304"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970919"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 

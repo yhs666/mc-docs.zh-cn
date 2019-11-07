@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/10/2017
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: a0969779568d8c348e0ee22495a20a486c97a168
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 7858305d28399c9b2cbe1759254974e48eee4c62
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583893"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426070"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 将数据批量加载到 Apache Phoenix
 
@@ -149,6 +149,6 @@ ms.locfileid: "72583893"
 ## <a name="next-steps"></a>后续步骤
 
 * [使用 Apache Phoenix 进行批量数据加载](https://phoenix.apache.org/bulk_dataload.html)
-* [将 Apache Phoenix 与 HDInsight 中基于 Linux 的 Apache HBase 群集配合使用](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [将 Apache Phoenix 与 HDInsight 中基于 Linux 的 Apache HBase 群集配合使用](../hbase/apache-hbase-query-with-phoenix.md)
 * [加盐表](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix 语法](https://phoenix.apache.org/language/index.html)

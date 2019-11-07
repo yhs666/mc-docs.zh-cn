@@ -1,6 +1,6 @@
 ---
 title: 错误和异常 (MSAL) | Azure
-description: 了解如何处理 MSAL 应用程序中的错误和异常、条件访问与声明质询。
+description: 了解如何处理 MSAL 应用程序中的错误和异常以及声明质询。
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/08/2019
-ms.date: 10/08/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b17d56dc33f254448150f57cc965f76a41d7f4d9
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 8c8ca08d86d95ada1352e23d656c8ea7bfe11ec8
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292068"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912781"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>使用 MSAL 处理异常和错误
 
@@ -55,7 +55,7 @@ Microsoft 身份验证库 (MSAL) 中的异常旨在帮助应用开发人员进�
 
 在大多数情况下，`AcquireTokenSilent` 失败的原因是令牌缓存中没有与请求匹配的令牌。 访问令牌将在 1 小时后过期，`AcquireTokenSilent` 会尝试基于刷新令牌获取新令牌（在 OAuth2 中，这称为“刷新令牌”流）。 此流也可能出于各种原因（例如，租户管理员配置了更严格的登录策略）而失败。 
 
-交互的目的是让用户采取某种措施。 其中的某些条件可让用户轻松解决（例如，单击一下鼠标接受使用条款），但某些条件无法使用当前配置来解决（例如，相关的计算机需要连接到特定的企业网络）。 有些条件可帮助用户设置多重身份验证，或者在其设备上安装 Microsoft Authenticator。
+交互的目的是让用户采取某种措施。 其中的某些条件可让用户轻松解决，但某些条件无法使用当前配置来解决（例如，相关的计算机需要连接到特定的企业网络）。 有些条件可帮助用户设置多重身份验证，或者在其设备上安装 Microsoft Authenticator。
 
 ### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException` 分类枚举
 
@@ -227,45 +227,6 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-## <a name="conditional-access-and-claims-challenges"></a>条件访问和声明质询
-以无提示方式获取令牌时，如果你尝试访问的 API 需要[条件访问声明质询](conditional-access-dev-guide.md)（例如 MFA 策略），则应用程序可能会收到错误。
-
-处理此错误的模式是使用 MSAL 以交互方式获取令牌。 以交互方式获取令牌会提示用户，并使他们能够满足所需的条件访问策略。
-
-在某些情况下调用需要条件访问的 API 时，API 返回的错误中可能会包含声明质询。 例如，如果条件访问策略要求使用托管设备 (Intune)，则错误将类似于 [AADSTS53000:需要管理你的设备才能访问此资源](reference-aadsts-error-codes.md)。 在这种情况下，可以在令牌获取调用中传递声明，使系统提示用户，以满足相应的策略。
-
-### <a name="net"></a>.NET
-从 MSAL.NET 调用需要条件访问的 API 时，应用程序需要处理声明质询异常。 此错误将显示为 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)，其中的 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) 属性不为空。
-
-若要处理声明质询，需要使用 `PublicClientApplicationBuilder` 类的 `.WithClaim()` 方法。
-
-### <a name="javascript"></a>Javascript
-使用 MSAL.js 以无提示方式获取令牌时（使用 `acquireTokenSilent`），如果你尝试访问的 API 需要[条件访问声明质询](conditional-access-dev-guide.md)（例如 MFA 策略），则应用程序可能会收到错误。
-
-处理此错误的模式是发出交互式调用（例如 `acquireTokenPopup` 或 `acquireTokenRedirect`）以获取 MSAL.js 中的令牌，如以下示例所示：
-
-```javascript
-myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
-    // call API
-}).catch( function (error) {
-    if (error instanceof InteractionRequiredAuthError) {
-        // Extract claims from error message
-        accessTokenRequest.claimsRequest = extractClaims(error.errorMessage);
-        // call acquireTokenPopup in case of InteractionRequiredAuthError failure
-        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function (accessTokenResponse) {
-            // call API
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
-});
-```
-
-以交互方式获取令牌会提示用户，并使他们能够满足所需的条件访问策略。
-
-调用需要条件访问的 API 时，API 返回的错误中可能会包含声明质询。 在这种情况下，可将错误中返回的声明传递到 `AuthenticationParameters.ts` 类的 `claimsRequest` 字段，以符合相应的策略。 
-
-有关更多详细信息，请参阅[请求其他声明](active-directory-optional-claims.md)。
 
 ## <a name="retrying-after-errors-and-exceptions"></a>出现错误和异常后重试
 

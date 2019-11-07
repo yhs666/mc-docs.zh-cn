@@ -4,16 +4,16 @@ description: Azure 存储模拟器为开发和测试 Azure 存储应用程序提
 author: WenJason
 ms.author: v-jay
 origin.date: 08/21/2018
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 53a4e751e15cdd90202241d1c2f10de63742b8e2
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: f846ebc4c3e1f52f477baa418c6c096d5727e9f1
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306687"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914452"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -60,7 +60,7 @@ Azure 存储模拟器工具可以针对本地开发目的模拟 Azure Blob、队
 存储模拟器默认安装到 `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`。
 
 > [!TIP]
-> 可使用 [Microsoft Azure 存储资源管理器](https://storageexplorer.com)处理本地存储模拟器资源。 安装并启动存储模拟器后，在存储资源管理器资源树中的“存储帐户”下查找“(开发)”。
+> 可使用 [Microsoft Azure 存储资源管理器](https://storageexplorer.com)处理本地存储模拟器资源。 安装并启动存储模拟器后，在存储资源管理器资源树中的“本地和附加”下查找“(模拟器 - 默认端口) (密钥)”。
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>初始化存储模拟器以使用其他的 SQL 数据库

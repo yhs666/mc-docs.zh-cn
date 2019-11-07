@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 06/14/2019
-ms.date: 07/14/2019
+origin.date: 10/07/2019
+ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9204c1af777d21a9b5c5ab85660286be7b7b030a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 95215b403ba4aba66fc3e6b48b31237d723c7d30
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330187"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970962"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 

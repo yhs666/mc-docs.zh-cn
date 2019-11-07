@@ -1,5 +1,5 @@
 ---
-title: 在经典 Windows VM 上设置终结点 | Azure
+title: 使用经典部署模型在 Windows 虚拟机上设置终结点 | Azure
 description: 了解如何在 Azure 门户中为经典 Windows VM 设置终结点，以便能够与 Azure 中的 Windows 虚拟机通信。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6c7cfd46d981492aa42a0341d3306b89b063a712
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: 0cf69de4e181cba3b657c9e3f6de44d548ceb10c
+ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323758"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749601"
 ---
 # <a name="set-up-endpoints-on-a-windows-virtual-machine-by-using-the-classic-deployment-model"></a>使用经典部署模型在 Windows 虚拟机上设置终结点
 在 Azure 中使用经典部署模型创建的 Windows 虚拟机 (VM) 可以通过专用网络通道与同一云服务或虚拟网络中的其他 VM 自动通信。 但是，Internet 上的计算机或其他虚拟网络需要终结点才能将入站网络流量定向到 VM。 

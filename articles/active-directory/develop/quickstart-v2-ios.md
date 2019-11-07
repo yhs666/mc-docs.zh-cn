@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2019
-ms.date: 08/26/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104473cf9ebae4e8b328b24844d0b7cca642b951
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 88216b2011617c782b3436b784f22e53a31e90f0
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134298"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912775"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入门：从 iOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -58,7 +58,7 @@ ms.locfileid: "70134298"
 >
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 > 1. 选择“新注册”。 
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+> 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
 >      - 在“名称”  部分输入一个有意义的应用程序名称（例如 `iOSQuickstart`），当应用的用户登录或许可你的应用时，系统会向其显示该名称。
 >      - 跳过此页上的其他配置。 
 >      - 点击“`Register`”按钮。
@@ -221,8 +221,8 @@ MSAL 有两种用来获取令牌的方法：`acquireToken` 和 `acquireTokenSile
 
 * 用户首次登录应用程序
 * 如果用户重置其密码，则他们需要输入凭据 
-* 应用程序首次请求访问资源时
-* 需要 MFA 或其他条件访问策略时
+* 当应用程序首次请求资源的访问权限时
+* 需要 MFA 时
 
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes)

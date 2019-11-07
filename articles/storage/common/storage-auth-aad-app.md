@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 07/18/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 44c9d8ca340167cdcad9db85576a8c7491926cda
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 284de14652c355fbad2fe5656ebd2de06c9bd9ce
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209396"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914450"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>使用客户端应用程序中的 Azure Active Directory 授权访问 Blob 和队列
 
@@ -77,7 +77,7 @@ ms.locfileid: "70209396"
 
 注册应用程序并向其授予 Azure Blob 存储或队列存储中的数据的访问权限后，可将代码添加到应用程序，以便对安全主体进行身份验证并获取 OAuth 2.0 令牌。 若要进行身份验证并获取令牌，可以使用 [Microsoft 标识平台身份验证库](../../active-directory/develop/reference-v2-libraries.md)，或其他支持 OpenID Connect 1.0 的开源库。 然后，应用程序可以使用访问令牌来授权针对 Azure Blob 存储或队列存储发出的请求。
 
-有关支持获取令牌的方案列表，请参阅[适用于 .NET 的 Microsoft 身份验证库 (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub 存储库的[方案](https://aka.ms/msal-net-scenarios)部分。
+有关支持获取令牌的方案的列表，请参阅 [Microsoft 身份验证库内容](/active-directory/develop/msal-overview)的[身份验证流](/active-directory/develop/msal-authentication-flows)部分。
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>使用 Azure AD 进行身份验证的已知值
 
@@ -207,13 +207,15 @@ public async Task<IActionResult> Blob()
 以下方法将会构造用于请求增量许可的身份验证属性：
 
 ```csharp
-private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes, MsalUiRequiredException ex)
+private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes,
+                                                                                    MsalUiRequiredException ex)
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
     // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
-    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope, scopes.Union(additionalBuildInScopes).ToList());
+    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
+                                                 scopes.Union(additionalBuildInScopes).ToList());
 
     // Attempt to set the login_hint so that the logged-in user is not presented
     // with an account selection dialog.

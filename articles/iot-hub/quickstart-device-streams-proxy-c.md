@@ -8,14 +8,14 @@ ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/14/2019
-ms.date: 09/02/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 627df1218d6d460f46a50340df215ad97791e33d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 289e3744ba3903db7c10ad6a0b7e0d80b13a054e
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993751"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426090"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入门：使用 C 代理应用程序通过 IoT 中心设备流实现 SSH 和 RDP 方案（预览）
 
@@ -124,10 +124,10 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
    > [!NOTE]
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
-   > * 如示例中所示使用 *MyDevice*。 它是为注册的设备提供的名称。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   > * 对于正在注册的设备的名称，建议使用 *MyDevice*，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要获取刚刚注册的设备的*设备连接字符串*，请在 Cloud Shell 中运行以下命令：
@@ -136,10 +136,10 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    请记下设备连接字符串，稍后需要在本快速入门中用到它。 如以下示例所示：
+    请记下返回的设备连接字符串，以便稍后在此快速入门中使用。 如以下示例所示：
 
    `HostName={YourIoTHubName}.azure-devices.cn;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,12 +149,12 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 ### <a name="run-the-device-local-proxy-application"></a>运行设备本地代理应用程序
 
-1. 编辑 iothub_client/samples/iothub_client_c2d_streaming_proxy_sample  文件夹中的源文件 iothub_client_c2d_streaming_proxy_sample.c  ，并提供设备连接字符串、目标设备 IP/主机名和 SSH 端口 22：
+1. 在文件夹 `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` 中编辑源文件 **iothub_client_c2d_streaming_proxy_sample.c**，并提供设备连接字符串、目标设备 IP/主机名，以及 SSH 端口 22：
 
    ```C
-   /* Paste in your iothub connection string  */
-   static const char* connectionString = "[Connection string of IoT Hub]";
-   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   /* Paste in your device connection string  */
+   static const char* connectionString = "{DeviceConnectionString}";
+   static const char* localHost = "{IP/Host of your target machine}"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
@@ -198,7 +198,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 设备本地代理和服务本地代理都在运行以后，请使用 SSH 客户端程序并连接到端口 2222 上的服务本地代理（而不要直接连接到 SSH 守护程序）。
 
 ```cmd/sh
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 此时，SSH 登录窗口会提示输入凭据。

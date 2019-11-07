@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 中的指标 - Azure 事件中心 | Azure Docs
+title: Azure Monitor 中的指标 - Azure 事件中心 | Azure
 description: 本文介绍如何使用 Azure 监视功能来监视 Azure 事件中心
 services: event-hubs
 documentationcenter: .NET
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2018
-ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: b482e2c512c004300edb73477b9201c687bb346b
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+ms.custom: seodec18
+origin.date: 09/18/2019
+ms.date: 10/23/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9cb5935ab86905b860b3bf67d7f7d4dc20c0c54e
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633012"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872930"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 事件中心指标
 
@@ -30,10 +31,9 @@ Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服�
 
 ## <a name="access-metrics"></a>访问指标
 
-Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)或使用 Azure Monitor API（REST 和 .NET）与分析解决方案（例如事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](https://docs.azure.cn/zh-cn/monitoring-and-diagnostics/monitoring-overview-metrics#access-metrics-via-the-rest-api)。
-<!-- Not Available on Operation Management Suite-->
+Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Log Analytics 和事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 收集的监视数据](../azure-monitor/platform/data-platform.md)。
 
-默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](https://docs.azure.cn/zh-cn/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings) 中完成这种配置。
+默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 中完成这种配置。
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 
@@ -49,7 +49,7 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 
 ## <a name="billing"></a>计费
 
-在预览版中，目前可免费使用 Azure Monitor 中的指标。 但是，如果使用引入指标数据的其他解决方案，可能就需要收费。 例如，如果将指标数据存档到 Azure 存储帐户，则 Azure 存储会收费。
+目前，在 Azure Monitor 中可以免费使用指标。 但是，如果使用引入指标数据的其他解决方案，可能就需要收费。 例如，如果将指标数据存档到 Azure 存储帐户，则 Azure 存储会收费。
 <!-- Not Available on Log Analytics for advanced analysis -->
 
 以下指标可提供服务运行状况的概述。 
@@ -111,6 +111,17 @@ Azure 事件中心支持对 Azure Monitor 中的指标使用以下维度。 为�
 | 指标名称 | 说明 |
 | ------------------- | ----------------- |
 |EntityName| 事件中心支持命名空间下的事件中心实体。|
+
+## <a name="azure-monitor-integration-with-siem-tools"></a>Azure Monitor 与 SIEM 工具集成
+使用 Azure Monitor 将监视数据（活动日志、诊断日志等）路由到事件中心，可以轻松地与安全信息和事件管理 (SIEM) 工具集成。 有关详细信息，请参阅以下文章/博客文章：
+
+- [将 Azure 监视数据流式传输到事件中心以便外部工具使用](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [使用 Azure Monitor 与 SIEM 工具集成](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+
+在 SIEM 工具使用事件中心的日志数据的情况下，如果在指标图中看不到传入消息，或者看到传入消息但看不到传出消息，请按照下列步骤操作：
+
+- 如果**没有传入消息**，则表示 Azure Monitor 服务没有将审核/诊断日志移到事件中心。 在此方案中，通过 Azure Monitor 团队建立支持票证。 
+- 如果有传入消息，但**没有传出消息**，则意味着 SIEM 应用程序未读取消息。 请与 SIEM 提供者联系，以确定这些应用程序的事件中心配置是否正确。
 
 ## <a name="next-steps"></a>后续步骤
 

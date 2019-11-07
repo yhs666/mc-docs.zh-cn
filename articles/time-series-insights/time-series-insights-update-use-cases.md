@@ -8,14 +8,15 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+origin.date: 09/24/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee49f15f15466dae004f6408e2b4bf022a918283
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: e35fbe6ef72683b2854a9999a788af22dad87e91
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456475"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914399"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 时序见解预览版用例
 
@@ -38,13 +39,17 @@ Azure 时序见解是一种端到端的平台即服务产品/服务。 它用于
 
 即时浏览和分析数十亿事件，确定其中的异常，发现数据的隐藏趋势。 时序见解可为 IoT 和 DevOps 分析工作负荷提供近实时的性能。
 
-[![数据资源管理器](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[![数据资源管理器](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
 
-大多数客户都认为，获取见解的效率是时序见解最强大的资产之一。 时序见解无需前期数据准备。 时序见解可在几分钟内快速将你连接到 Azure IoT 中心或 Azure 事件中心中的数十亿个事件。 连接后，可直观显示和分析数十亿事件，发现异常，发现数据的隐藏趋势。
+大多数客户都认为，获得见解所需的最短时间是时序见解的突出功能之一：
 
-时序见解直观且易于使用。 连一行代码也无需编写即可与数据交互。 此外，无需学习新语言。 时序见解为熟悉 SQL 的高级用户提供基于文本的精细查询。 为初学者提供“选择+单击”式探索模式。
+* 时序见解无需前期数据准备。 
+* 时序见解可在几分钟内快速将你连接到 Azure IoT 中心或 Azure 事件中心中的数十亿个事件。 
+* 连接后，可直观显示和分析数十亿事件，发现异常，发现数据的隐藏趋势。
 
-客户可以利用这种高效率，快速诊断与资产相关的问题。 时序见解可以执行 DevOps 来找出 IoT 解决方案中 bug 的根本原因。 它们还可以针对数据科学方面的问题，标识出要调查的区域。  
+时序见解直观且易于使用。 连一行代码也无需编写即可与数据交互。 尽管时序见解为熟悉 SQL 的高级用户提供了一种基于文本的细粒度查询语言，但你也不需要学习任何新语言。 为初学者提供“选择+单击”式探索模式。
+
+客户可以利用这种高效率，快速诊断与资产相关的问题。 时序见解可以执行 DevOps 分析来找出 IoT 解决方案中 bug 的根本原因。 作为数据科学计划的一部分，时序见解还可以识别要标记的区域，以便进一步调查。  
 
 与时序见解中存储的数据进行交互主要有三种方式：
 
@@ -62,7 +67,7 @@ Azure 时序见解是一种端到端的平台即服务产品/服务。 它用于
 
 使用时序见解可大规模监视设备的运行状况、使用情况和性能。 时序见解提供了一种衡量操作效率的简便方法。 时序见解有助于管理多种不可预测的 IoT 工作负荷，且不影响引入或查询性能。
 
-[![概述](media/v2-update-use-cases/overview.svg)](media/v2-update-use-cases/overview.svg#lightbox)
+[![概述](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 如果与正确的技术或解决方案相结合，来自操作过程的数据的流式传输和连续处理可成功地转换任何业务。 这些解决方案通常是多个系统的组合。 它们可以探索和分析不断变化的数据，特别是在 IoT 领域，并且采用相同的模式。
 
@@ -82,7 +87,7 @@ Azure 时序见解是一种端到端的平台即服务产品/服务。 它用于
 
 与机器学习和 Azure Databricks 等高级分析服务集成。 时序见解从数百万台设备中引入原始数据。 它添加了可由 Azure 分析服务套件无缝使用的上下文数据。
 
-[![分析](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
+[![分析](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 高级分析和机器学习会使用和处理大量数据。 该数据用于制定数据驱动的决策并执行预测分析。 在 IoT 用例中，高级分析算法可以从数百万台设备中收集数据。 这些设备每秒内会多次传输数据。 从 IoT 设备收集的数据是原始数据。 它缺少上下文信息，例如设备的位置和传感器读数的单位。 因此，原始数据很难直接用于高级分析。
 
@@ -92,7 +97,7 @@ Azure 时序见解是一种端到端的平台即服务产品/服务。 它用于
 
     时序见解可以作为整个组织中所有数据的真实来源。 它创建了一个供下游分析工作负荷使用的中央存储库。 由于时序见解是一种近实时存储服务，因此高级分析模型可以利用传入的 IoT 遥测数据不断学习。 这样一来，模型可以更准确地进行预测。
 
-- 其次，可将机器学习和预测模型的输出馈送到时序见解，以直观显示和存储其结果。 此过程可帮助组织优化和调整其模型。 使用时序见解，可轻松直观显示与训练模型输出相同平面上的流式遥测数据。 通过这种方式，它可以帮助数据科学团队发现异常并识别模式。  
+- 其次，机器学习和预测模型的输出可以输入到时序见解中，以直观显示并存储其结果。 此过程可帮助组织优化和调整其模型。 使用时序见解，可轻松直观显示与训练模型输出相同平面上的流式遥测数据。 通过这种方式，它可以帮助数据科学团队发现异常并识别模式。  
 
 ## <a name="next-steps"></a>后续步骤
 

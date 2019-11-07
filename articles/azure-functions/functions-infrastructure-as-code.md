@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.server: functions
 ms.topic: conceptual
 origin.date: 04/03/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 582e58ff6b73d7fb2250648d62e2be0d2cb72ce1
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 529871b25a350e85173082aa89ec108fb6e026ce
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673576"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034444"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -51,11 +51,11 @@ Azure Functions 部署通常包括以下资源：
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2018-07-01",
+    "apiVersion": "2019-04-01",
     "location": "[resourceGroup().location]",
     "kind": "StorageV2",
-    "properties": {
-        "accountType": "[parameters('storageAccountType')]"
+    "sku": {
+        "name": "[parameters('storageAccountType')]"
     }
 }
 ```
@@ -227,7 +227,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
         }
     }
 }
-```                    
+```
 
 
 <a name="app-service-plan"></a> 
@@ -245,15 +245,15 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 ```json
 {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
+    "apiVersion": "2018-02-01",
     "name": "[variables('hostingPlanName')]",
     "location": "[resourceGroup().location]",
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "sku": "[parameters('sku')]",
-        "workerSize": "[parameters('workerSize')]",
-        "hostingEnvironment": "",
-        "numberOfWorkers": 1
+    "sku": {
+        "name": "S1",
+        "tier": "Standard",
+        "size": "S1",
+        "family": "S",
+        "capacity": 1
     }
 }
 ```

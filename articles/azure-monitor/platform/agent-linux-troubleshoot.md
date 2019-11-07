@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a27bf796a846c8115f1490b38026c6677407533b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b7e27807f43f3c07d56d827aa4d3016c08815ab2
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737252"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970765"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -51,7 +51,7 @@ ms.locfileid: "70737252"
 
  >[!NOTE]
  >如果从 Azure 门户中针对你的工作区的[数据菜单 Log Analytics 高级设置](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)中配置收集，则性能计数器的编辑配置文件和 Syslog 将会被覆盖。 要禁用所有代理的配置，则禁用从 Log Analytics“高级设置”  收集，若禁用单个代理，则运行以下命令：  
-> `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>安装错误代码
 
@@ -131,7 +131,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 在 Log Analytics 常规代理配置文件中的 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` 处，通过在每一行的前面添加 `#` 注释掉 OMS 输出插件：
 
 ```
-# <match oms.** docker.**>
+#<match oms.** docker.**>
 #  type out_oms
 #  log_level info
 #  num_threads 5
@@ -142,7 +142,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 #  flush_interval 20s
 #  retry_limit 10
 #  retry_wait 30s
-# </match>
+#</match>
 ```
 
 在输出插件下面，通过在每一行的前面删除 `#` 注释掉以下部分：
@@ -192,7 +192,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 ## <a name="issue-you-see-omiagent-using-100-cpu"></a>问题：你看到 omiagent 使用100% CPU
 
 ### <a name="probable-causes"></a>可能的原因
-nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) 中的回归导致了严重的性能问题，我们已在 Redhat/CentOS 7.x 发行版中看到发生了很多这样的问题。 若要详细了解此问题，请查看以下文档：Bug [libcurl 中的 1667121 性能回归](https://bugzilla.redhat.com/show_bug.cgi?id=1667121)。
+nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) 中的回归导致了严重的性能问题，我们已在 Redhat/CentOS 7.x 发行版中看到发生了很多这样的问题。 若要详细了解此问题，请查看以下文档：Bug [libcurl 中的 1667121 性能回归](https://bugzilla.redhat.com/show_bug.cgi?id=1667121)。
 
 与性能相关的 bug 并不总是发生，而且它们很难再现。 如果你在 omiagent 中遇到这样的问题，应该使用脚本 omiHighCPUDiagnostics.sh，它将在超过某个阈值时收集 omiagent 的堆栈跟踪。
 
@@ -206,7 +206,7 @@ nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3
 
 ### <a name="resolution-step-by-step"></a>解决方法（分步）
 
-1. 将 nss-pem 包升级到 [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html)。 <br/>
+1. 将 nss-pem 包升级到 [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html)。 <br/>
 `sudo yum upgrade nss-pem`
 
 2. 如果 nss-pem 不可用于升级（主要发生在 Centos 上），则将 curl 降级到 7.29.0-46。 如果错误地运行了“yum update”，则 curl 将升级到 7.29.0-51，问题将再次发生。 <br/>

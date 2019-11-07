@@ -1,5 +1,5 @@
 ---
-title: 使用 Node.js 发送和接收事件 - Azure 事件中心 | Azure Docs
+title: 使用 Node.js 发送和接收事件 - Azure 事件中心 | Azure
 description: 本文提供了一个演练，说明如何创建从 Azure 事件中心发送事件的 Node.js 应用程序。
 services: event-hubs
 author: spelluru
@@ -7,15 +7,15 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
-ms.openlocfilehash: a956e2cf2639628a4444ff8c10fc3a3adc09ad83
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+origin.date: 04/15/2019
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: b2c46bbdd834fa39a52c406454f0af1191ab345e
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296717"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872924"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>使用 Node.js 将事件发送到 Azure 事件中心或从其接收事件
 
@@ -54,13 +54,17 @@ npm install @azure/event-processor-host
 本部分展示了如何创建 Node.js 应用程序来将事件发送到事件中心。 
 
 1. 打开你常用的编辑器，例如 [Visual Studio Code](https://code.visualstudio.com)。 
-2. 创建一个名为 `send.js` 的文件，并将下面的代码粘贴到其中。
+2. 创建一个名为 `send.js` 的文件，并将下面的代码粘贴到其中。 按照以下文章中的说明获取事件中心命名空间的连接字符串：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 
+
     ```javascript
     const { EventHubClient } = require("@azure/event-hubs");
 
-    // Define connection string and the name of the Event Hub
-    const connectionString = "";
-    const eventHubsName = "";
+    // Connection string - primary key of the Event Hubs namespace. 
+    // For example: Endpoint=sb://myeventhubns.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+
+    // Name of the event hub. For example: myeventhub
+    const eventHubsName = "<EVENT HUB NAME>";
 
     async function main() {
       const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
@@ -93,9 +97,12 @@ npm install @azure/event-processor-host
     ```javascript
     const { EventHubClient, delay } = require("@azure/event-hubs");
 
-    // Define connection string and related Event Hubs entity name here
-    const connectionString = "";
-    const eventHubsName = "";
+    // Connection string - primary key of the Event Hubs namespace. 
+    // For example: Endpoint=sb://myeventhubns.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+
+    // Name of the event hub. For example: myeventhub
+    const eventHubsName = "<EVENT HUB NAME>";
 
     async function main() {
       const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
@@ -133,10 +140,15 @@ npm install @azure/event-processor-host
     ```javascript
     const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
-    // Define connection string and related Event Hubs entity name here
-    const eventHubConnectionString = "";
-    const eventHubName = "";
-    const storageConnectionString = "";
+    // Connection string - primary key of the Event Hubs namespace. 
+    // For example: Endpoint=sb://myeventhubns.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+
+    // Name of the event hub. For example: myeventhub
+    const eventHubsName = "<EVENT HUB NAME>";
+
+    // Azure Storage connection string
+    const storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=<STORAGE ACCOUNT NAME>;AccountKey=<STORAGE ACCOUNT KEY>;EndpointSuffix=core.chinacloudapi.cn";
 
     async function main() {
       const eph = EventProcessorHost.createFromConnectionString(
@@ -180,4 +192,4 @@ npm install @azure/event-processor-host
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Azure 事件中心的功能和术语](event-hubs-features.md)
 - [事件中心常见问题](event-hubs-faq.md)
-- 在 [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/) 中查看事件中心的其他 Node.js 示例。
+- 查看 GitHub 上[事件中心](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples)和[事件处理程序主机](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-processor-host/samples)的其他 Node.js 示例

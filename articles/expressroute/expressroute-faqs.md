@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 05/20/2019
+origin.date: 09/18/2019
 ms.author: v-yiso
-ms.date: 06/24/2019
-ms.openlocfilehash: 76b8583b489428fbaa4f6492e71840c8689a883d
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 11/04/2019
+ms.openlocfilehash: 666df4cc359d023edf30b069c9ca61707ceafd96
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136014"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914504"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -54,6 +54,18 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 ### <a name="private-peering"></a>专用对等互连
 * 虚拟网络，包括所有虚拟机和云服务
 
+### <a name="microsoft-peering"></a>Microsoft 对等互连
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI - 通过 Azure 区域社区提供，有关如何查找 Power BI 租户的区域，请参阅[此处](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)。
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)（Azure 全球服务社区）
+* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br><br>**不支持以下服务**：
+    * CDN
+    * Azure Front Door
+    * 多重身份验证服务器（旧版）
+    * 流量管理器
+
 ### <a name="public-peering"></a>公共对等互连
 
 >[!NOTE]
@@ -61,21 +73,8 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 >
 
 * Power BI
-* Dynamics 365 for Finance and Operations（以前称为 Dynamics AX Online）
 * 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br><br>
   **不支持以下服务**：
-    * CDN
-    * 多重身份验证
-    * 流量管理器
-
-### <a name="microsoft-peering"></a>Microsoft 对等互连
-
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)（Azure 全球服务社区）
-* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br><br>**不支持以下服务**：
     * CDN
     * 多重身份验证
     * 流量管理器
@@ -109,6 +108,11 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>如何在专用对等互连上实现冗余？
 
 多个来自不同对等互连位置的 ExpressRoute 线路可以连接到同一虚拟网络，在单个线路变得不可用的情况下提供高可用性。 然后，可以为本地连接[分配更高的权重](/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)，首选特定的线路。 强烈建议客户设置至少两条 ExpressRoute 线路，避免单点故障。 
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>如何在 Microsoft 对等互连上实现冗余？
+
+当客户使用 Microsoft 对等互连访问 Azure 公共服务（如 Azure 存储或 Azure SQL）时，以及当客户对 Office 365 使用 Microsoft 对等互连并且他们在不同的对等位置实现多个线路以避免单一故障点时，强烈建议使用此方法。 客户可以在这两条线路上播发相同的前缀，并使用 [AS PATH 预置](/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)或播发不同的前缀来从本地确定路径。
+
+
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何确保连接到 ExpressRoute 的虚拟网络上的高可用性？
 
 可以通过将不同对等互连位置的 ExpressRoute 线路连接到虚拟网络来实现高可用性。如果一个 ExpressRoute 线路出现故障，则连接将故障转移到另一条 ExpressRoute 线路。 默认情况下，将基于等成本多路径路由 (ECMP) 对离开虚拟网络的流量进行路由。 可以使用连接权重来使一条线路优先于另一条线路。 有关详细信息，请参阅[优化 ExpressRoute 路由](expressroute-optimize-routing.md)。

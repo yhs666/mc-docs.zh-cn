@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 06/13/2019
+ms.date: 10/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 654c8a2d0af22bb5a176acf04490d10d78034725
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 6552378e2a404862486f8ffb9fdde9060f353042
+ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046935"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068801"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何监视用于 Redis 的 Azure 缓存
 用于 Redis 的 Azure 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
@@ -62,7 +62,7 @@ ms.locfileid: "67046935"
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>导出缓存指标
-默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../azure-monitor/platform/data-collection.md#metrics)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md)，并指定“保留期（天）”  策略。 
+默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../azure-monitor/platform/data-platform-metrics.md)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md)，并指定“保留期（天）”  策略。 
 
 若要配置缓存指标的存储帐户，请执行以下操作：
 
@@ -106,7 +106,7 @@ ms.locfileid: "67046935"
 | 缓存写入量 |指定报告间隔期间，写入缓存中的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 此值对应于从客户端发送到缓存的数据的网络带宽。 |
 | 连接的客户端数 |指定的报告间隔期间，客间户端与缓存的连接数。 此值映射到 Redis INFO 命令输出中的 `connected_clients` 。 一旦达到了[连接限制](cache-configure.md#default-redis-server-configuration)，则对缓存的后续连接尝试将失败。 注意，即使没有任何活动的客户端应用程序，由于内部进程和连接，仍可能存在一些连接的客户端的实例。 |
 | CPU |指定报告间隔期间，用于 Redis 的 Azure 缓存服务器的 CPU 使用率（以百分比表示）。 此值映射到操作系统 `\Processor(_Total)\% Processor Time` 性能计数器。 |
-| 错误 | 在指定的报告间隔期间，缓存可能会出现的特定故障和性能问题。 该指标具有八个维度，表示不同的错误类型，但在将来可能会添加更多维度。 现在所代表的错误类型如下所示： <br/><ul><li>**Failover** - 缓存故障转移时（从属设备提升为主机）</li><li>**Crash** - 缓存在任一节点上意外故障时</li><li>**Dataloss** - 缓存上发生数据丢失时</li><li>**UnresponsiveClients** - 客户端从服务器读取数据的速度不够快时</li><li>**AOF** - 存在与 AOF 暂留有关的问题时</li><li>**RDB** - 存在与 RDB 暂留有关的问题时</li><li>**Import** - 存在与导入 RDB 有关的问题时</li><li>**Export** - 存在与导出 RDB 有关的问题时</li></ul> |
+| 错误 | 在指定的报告间隔期间，缓存可能会出现的特定故障和性能问题。 该指标具有八个维度，表示不同的错误类型，但在将来可能会添加更多维度。 现在所代表的错误类型如下所示： <br/><ul><li>**Failover** - 缓存故障转移时（从属设备提升为主机）</li><li>**Dataloss** - 缓存上发生数据丢失时</li><li>**UnresponsiveClients** - 客户端从服务器读取数据的速度不够快时</li><li>**AOF** - 存在与 AOF 暂留有关的问题时</li><li>**RDB** - 存在与 RDB 暂留有关的问题时</li><li>**Import** - 存在与导入 RDB 有关的问题时</li><li>**Export** - 存在与导出 RDB 有关的问题时</li></ul> |
 | 逐出的密钥数 |由于 `maxmemory` 限制，指定的报告间隔期间从缓存中逐出的项目数。 此值映射到 Redis INFO 命令输出中的 `evicted_keys` 。 |
 | 过期的密钥数 |指定的报告间隔期间，缓存中过期的项目数。 此值映射到 Redis INFO 命令输出中的 `expired_keys` 。|
 | 获取数 |指定的报告间隔期间，缓存中的获取操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_get`、`cmdstat_hget`、`cmdstat_hgetall`、`cmdstat_hmget`、`cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，并且等效于报告间隔期间缓存命中和未命中数的总和。 |

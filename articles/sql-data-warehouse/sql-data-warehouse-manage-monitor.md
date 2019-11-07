@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 07/23/2019
-ms.date: 09/02/2019
+origin.date: 08/23/2019
+ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 199f9361b20fb03043b9f6d4dedc0a163c7b78a2
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: abb75d92762839987940de3928ba0019c8608937
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131862"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914506"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
 本文介绍如何使用动态管理视图 (DMV) 监视工作负荷。 这包括调查 Azure SQL 数据仓库中的查询执行情况。
@@ -207,9 +207,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-如果某个查询消耗了大量内存或收到了与 tempdb 分配相关的错误消息，原因往往是运行的极大规模 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 或 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 语句在最终的数据移动操作期间失败。 在分布式查询计划中，紧靠在最后一条 INSERT SELECT 前面的语句会将此操作识别为 ShuffleMove 操作。
+如果某个查询消耗了大量内存或收到了与 tempdb 分配相关的错误消息，原因可能是运行的极大规模 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 或 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 语句在最终的数据移动操作期间失败。 在分布式查询计划中，紧靠在最后一条 INSERT SELECT 前面的语句会将此操作识别为 ShuffleMove 操作。  使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 监视 ShuffleMove 操作。 
 
-最常见的缓解措施是将 CTAS 或 INSERT SELECT 语句分解为多个加载语句，使数据量不会超过每个节点不超过 1 TB tempdb 空间的限制。 也可以将群集扩展到更大的大小，以便将 tempdb 大小分散到更多的节点，从而减少每个节点的 tempdb 空间量。 
+最常见的缓解措施是将 CTAS 或 INSERT SELECT 语句分解为多个加载语句，使数据量不会超过每个节点不超过 1 TB tempdb 空间的限制。 也可以将群集扩展到更大的大小，以便将 tempdb 大小分散到更多的节点，从而减少每个节点的 tempdb 空间量。
+
+除了 CTAS 和 INSERT SELECT 语句外，在内存不足的情况下运行的大型复杂查询可能会溢出到 tempdb 中，导致查询失败。  请考虑使用更大的[资源类](/sql-data-warehouse/resource-classes-for-workload-management)运行，以避免溢出到 tempdb。
 
 ## <a name="monitor-memory"></a>监视内存
 
@@ -261,6 +263,31 @@ SELECT
 FROM sys.dm_pdw_nodes_tran_database_transactions t
 JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
+```
+
+## <a name="monitor-polybase-load"></a>监视 PolyBase 负载
+以下查询提供了负载进度的大致估算。 查询仅显示当前正在处理的文件。 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## <a name="next-steps"></a>后续步骤

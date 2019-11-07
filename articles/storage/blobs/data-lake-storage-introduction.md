@@ -4,17 +4,17 @@ description: 提供 Azure Data Lake Storage Gen2 的概述
 author: WenJason
 ms.service: storage
 ms.topic: overview
-origin.date: 12/06/2018
-ms.date: 09/30/2019
+origin.date: 10/11/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 703657b7cf891282342dd06edd075c1264be88b8
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 2034cb4c0de6648d3da754f610b21173d3b382cc
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306835"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914535"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 简介
 
@@ -38,7 +38,7 @@ Data Lake Storage Gen2 的一个基本部分是向 Blob 存储添加[分层命�
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2 的主要功能
 
--   Hadoop 兼容访问  ：使用 Data Lake Storage Gen2，可以像使用 [Hadoop 分布式文件系统 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。 新的 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)可在所有 Apache Hadoop 环境中使用，包括 [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)，以访问 Data Lake Storage Gen2 中存储的数据。
+-   Hadoop 兼容访问  ：使用 Data Lake Storage Gen2，可以像使用 [Hadoop 分布式文件系统 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。 新的 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)可在所有 Apache Hadoop 环境（包括 [Azure HDInsight](/hdinsight/index) 和 [SQL 数据仓库](/sql-data-warehouse/)）中使用，以访问 Data Lake Storage Gen2 中存储的数据。
 
 -   **POSIX 权限的超集**：Data Lake Gen2 的安全模型支持 ACL 和 POSIX 权限，以及特定于 Data Lake Storage Gen2 的一些额外粒度。 可以通过存储资源管理器或 Hive 和 Spark 等框架来配置设置。
 
@@ -65,7 +65,7 @@ Data Lake Storage Gen2 是用于大数据分析的附加功能，基于 Azure Bl
 | 概念                                | 顶级组织 | 较低级别的组织                                            | 数据容器 |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blob - 常规用途对象存储 | 容器              | 虚拟目录（仅限 SDK - 不提供原子操作） | Blob           |
-| ADLS Gen2 - 分析存储          | 容器            | Directory                                                           | 文件           |
+| Azure Data Lake Storage Gen2 - 分析存储          | 容器            | Directory                                                           | 文件           |
 
 ## <a name="supported-open-source-platforms"></a>支持的开源平台
 
@@ -81,9 +81,15 @@ Data Lake Storage Gen2 是用于大数据分析的附加功能，基于 Azure Bl
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x 发行说明](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 |[HortonWorks](https://hortonworks.com/)| 3.1.x++ | [配置云数据访问](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
+## <a name="supported-azure-services"></a>支持的 Azure 服务
+
+Data Lake Storage gen2 支持多个可用于引入数据、执行分析和创建可视化表示形式的 Azure 服务。 有关支持的 Azure 服务的列表，请参阅[将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-store-integrate-with-azure-services.md)。
+
 ## <a name="next-steps"></a>后续步骤
 
 以下文章介绍 Data Lake Storage Gen2 的一些主要概念，并详细介绍如何存储、访问、管理数据以及从数据中获取见解：
 
--   [分层命名空间](data-lake-storage-namespace.md)
--   [创建存储帐户](data-lake-storage-quickstart-create-account.md)
+- [分层命名空间](data-lake-storage-namespace.md)
+- [创建存储帐户](data-lake-storage-quickstart-create-account.md)
+- [Azure Data Lake Storage 的多协议访问](data-lake-storage-multi-protocol-access.md)
+- [将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-store-integrate-with-azure-services.md)；

@@ -1,31 +1,23 @@
 ---
 title: 用于处理自定义事件和指标的 Application Insights API | Azure Docs
 description: 在设备、桌面应用、网页或服务中插入几行代码，即可跟踪使用情况和诊断问题。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 03/27/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0e6a88ad016b379f97c016bca0c4a85b33ba6ff0
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 4fa479129017b47de1418a027ca90b497a1ed14a
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330443"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970935"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>用于处理自定义事件和指标的 Application Insights API
 
 在应用程序中插入几行代码，即可了解用户在该应用程序中执行的操作或帮助诊断问题。 可以从设备和桌面应用、Web 客户端和 Web 服务器发送遥测数据。 使用 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) 核心遥测 API 发送自定义事件和指标，以及自己的标准遥测版本。 此 API 与标准 Application Insights 数据收集器使用的 API 相同。
-
-> [!NOTE]
-> `TrackMetric()` 不再是用于为基于 .NET 的应用程序发送自定义指标的首选方法。 Application Insights .NET SDK 的[版本 2.60-beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) 中引入了一个新方法：[`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)。 从 Application Insights .NET SDK [版本 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) 开始，此功能现在是稳定版本的一部分。
 
 ## <a name="api-summary"></a>API 摘要
 
@@ -125,7 +117,7 @@ telemetry.getContext().getDevice().setId("...");
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent("WinGame");
+appInsights.trackEvent({name:"WinGame"});
 ```
 
 *C#*
@@ -974,7 +966,7 @@ telemetry.trackEvent("SignalProcessed", properties, metrics);
 using Microsoft.ApplicationInsights.DataContracts;
 
 var gameTelemetry = new TelemetryClient();
-gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+gameTelemetry.Context.GlobalProperties["Game"] = currentGame.Name;
 // Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame");
 ```
@@ -983,7 +975,7 @@ Visual Basic
 
 ```vb
 Dim gameTelemetry = New TelemetryClient()
-gameTelemetry.Context.Properties("Game") = currentGame.Name
+gameTelemetry.Context.GlobalProperties("Game") = currentGame.Name
 ' Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame")
 ```
@@ -1193,7 +1185,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 ## <a name="reference-docs"></a>参考文档
 
 * [ASP.NET 参考](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Java 参考](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Java 参考](https://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript 参考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 * [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)

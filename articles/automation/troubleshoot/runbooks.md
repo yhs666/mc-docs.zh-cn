@@ -9,18 +9,18 @@ ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: c09c381373244f36ca1f31b3be385f5d76a6be4d
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 2ac23a738c76d723a12223e70b9cb5f2ae5794ea
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578520"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142097"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
 在 Azure 自动化中执行 Runbook 出现错误时，可使用以下步骤来诊断问题。
 
-1. **确保 Runbook 脚本在本地计算机上执行成功：** 请参阅 [PowerShell 文档](/powershell/scripting/overview)或 [Python 文档](https://docs.python.org/3/)，了解语言参考和学习模块。
+1. **确保 Runbook 脚本在本地计算机上执行成功：** 请参阅 [PowerShell 文档](https://docs.microsoft.com/powershell/scripting/overview)或 [Python 文档](https://docs.python.org/3/)，了解语言参考和学习模块。
 
    在本地执行脚本即可发现并解决常见错误，例如：
 

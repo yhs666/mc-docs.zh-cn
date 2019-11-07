@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/10/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: d2fd8df0edf978ae938550f819c17e817c8ed22d
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: d704df2354e85dca61d8354dcaf43064c72e93a7
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306793"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970254"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 
@@ -121,7 +121,7 @@ Azure Cosmos DB 默认不会创建任何空间索引。 若要使用空间 SQL �
 - 顺序（升序或降序）。
 
 > [!NOTE]
-> 添加组合索引时，与其他索引类型一样，查询可能会在更新索引时返回不一致的结果。
+> 添加组合索引时，该查询将利用现有范围索引，直到新的组合索引添加已完成。 因此，在添加组合索引时，可能不会立即观察到性能改进。 可以[使用某个 SDK](how-to-manage-indexing-policy.md) 跟踪索引转换的进度。
 
 ### <a name="order-by-queries-on-multiple-properties"></a>针对多个属性的 ORDER BY 查询：
 
@@ -145,6 +145,7 @@ Azure Cosmos DB 默认不会创建任何空间索引。 若要使用空间 SQL �
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
 应该自定义索引策略，以便可为所有必要的 `ORDER BY` 查询提供服务。
+
 ### <a name="queries-with-filters-on-multiple-properties"></a>包含针对多个属性的筛选器的查询
 
 如果查询包含针对两个或更多个属性的筛选器，为这些属性创建组合索引可能会有帮助。
@@ -193,6 +194,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 例如，通过将筛选器中的属性添加到 ORDER BY 子句，可以重写以下查询来利用组合索引：
 
 使用范围索引的查询：
+
 ```sql
 SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
 ```
@@ -236,7 +238,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 随时可以[使用 Azure 门户或某个支持的 SDK](how-to-manage-indexing-policy.md) 更新容器的索引策略。 更新索引策略会触发从旧索引到新索引的转换，该操作是在线和就地执行的（因此，在执行该操作期间不会消耗更多的存储空间）。 旧策略的索引将有效转换为新策略，而不会影响写入可用性或针对容器预配的吞吐量。 索引转换是一个异步操作，完成该操作所需的时间取决于预配的吞吐量、项的数目及其大小。
 
 > [!NOTE]
-> 当重新编制索引正在进行时，查询可能不会返回所有匹配的结果，且返回结果时不会返回任何错误。 这意味着，在索引转换完成之前，查询结果可能不一致。 可以[使用某个 SDK](how-to-manage-indexing-policy.md) 跟踪索引转换的进度。
+> 当添加范围索引或空间索引时，查询可能不会返回所有匹配的结果，并且在返回结果时不会返回任何错误。 这意味着，在索引转换完成之前，查询结果可能不一致。 可以[使用某个 SDK](how-to-manage-indexing-policy.md) 跟踪索引转换的进度。
 
 如果新索引策略的模式设置为“一致”，当索引转换正在进行时，无法应用其他任何索引策略更改。 可以通过将索引策略的模式设置为“无”（立即删除索引），来取消正在运行的索引转换。
 

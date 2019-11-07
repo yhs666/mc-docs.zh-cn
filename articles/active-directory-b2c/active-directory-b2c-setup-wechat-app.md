@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 450a9f097eceadee08536441ea8733758dbb2bc5
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 5fc198a6f30dd8f4923494b48cd8dece77ec70d8
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310763"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72846972"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过微信帐户注册与登录
 
@@ -24,7 +24,7 @@ ms.locfileid: "70310763"
 
 ## <a name="create-a-wechat-application"></a>创建 WeChat 应用程序
 
-要将微信帐户用作 Azure Active Directory (Azure AD) B2C 中的标识提供者，需要在表示它的租户中创建一个应用程序。 如果还没有微信帐户，可以在 [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html) 处获取信息。
+要将微信帐户用作 Azure Active Directory B2C (Azure AD B2C) 中的标识提供者，需要在表示它的租户中创建一个应用程序。 如果还没有微信帐户，可以在 [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html) 处获取信息。
 
 ### <a name="register-a-wechat-application"></a>注册微信应用程序
 

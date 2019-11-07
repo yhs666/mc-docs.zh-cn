@@ -1,21 +1,21 @@
 ---
-title: 将自定义事件发送到 Web 终结点 - 事件网格，Azure CLI | Microsoft Docs
+title: 快速入门：使用事件网格和 Azure CLI 发送自定义事件
 description: 使用 Azure 事件网格和 Azure CLI 发布自定义主题，然后订阅该主题的事件。 事件由 Web 应用程序处理。
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: v-yiso
 origin.date: 12/07/2018
-ms.date: 09/02/2019
+ms.date: 11/11/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a1d71585644d516cfb2988fa1d1207e7c3f6ea7c
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 83e40afa434d0bce0829a286db3eb6dd1dc1bee0
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993563"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426074"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>快速入门：使用 Azure CLI 和事件网格将自定义事件路由到 Web 终结点
 
@@ -23,7 +23,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，将使用 
 
 完成后即可看到事件数据已发送到 Web 应用。
 
-![查看结果](./media/custom-event-quickstart/view-result.png)
+![在 Azure 事件网格查看器中查看结果](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -92,7 +92,7 @@ az eventgrid event-subscription create \
 
 再次查看 Web 应用，并注意现已向该应用发送了订阅验证事件。 选择眼睛图标以展开事件数据。 事件网格发送验证事件，以便终结点可以验证它是否想要接收事件数据。 Web 应用包含用于验证订阅的代码。
 
-![查看订阅事件](./media/custom-event-quickstart/view-subscription-event.png)
+![在 Azure 事件网格查看器中查看订阅事件](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 ## <a name="send-an-event-to-your-custom-topic"></a>向自定义主题发送事件
 
@@ -147,5 +147,6 @@ az group delete --name gridResourceGroup
 了解如何创建主题和事件订阅以后，即可进一步学习事件网格的功能：
 
 - [关于事件网格](overview.md)
+- [将 Blob 存储事件路由到自定义 Web 终结点](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fevent-grid%2ftoc.json)
 - [通过 Azure 事件网格和逻辑应用监视虚拟机的更改](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [将大数据流式传输到数据仓库](event-grid-event-hubs-integration.md)

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/31/2019
-ms.date: 09/17/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f56af0e3794c91ccf56025cec8acdaa0f5c66e02
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: 11c4959088c1009c36299c24accf4adecfe1f4ec
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083277"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847152"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>使用 Azure AD B2C 保护 Azure API 管理 API
 
@@ -204,17 +204,17 @@ https://yourb2ctenant.b2clogin.cn/99999999-0000-0000-0000-999999999999/v2.0/
 
 ## <a name="support-multiple-applications-and-issuers"></a>支持多个应用程序和颁发者
 
-往往会有多个应用程序与单个 REST API 交互。 若要允许多个应用程序调用你的 API，请将其应用程序 ID 添加到 APIM 入站策略中的 `<audiences>` 元素。
+往往会有多个应用程序与单个 REST API 交互。 要使 API 接受用于多个应用程序的令牌，请将其应用程序 ID 添加到 APIM 入站策略中的 `<audiences>` 元素。
 
 ```XML
-<!-- Accept requests from multiple applications -->
+<!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
     <audience>66666666-0000-0000-0000-666666666666</audience>
 </audiences>
 ```
 
-同样，若要支持多个令牌颁发者，请将其终结点 URI 添加到 APIM 入站策略中的 `<audiences>` 元素。
+同样，若要支持多个令牌颁发者，请将其终结点 URI 添加到 APIM 入站策略中的 `<issuers>` 元素。
 
 ```XML
 <!-- Accept tokens from multiple issuers -->
@@ -261,4 +261,6 @@ https://yourb2ctenant.b2clogin.cn/99999999-0000-0000-0000-999999999999/v2.0/
 ## <a name="next-steps"></a>后续步骤
 
 有关 Azure API 管理策略的更多详细信息，请参阅 [APIM 策略参考索引](../api-management/api-management-policies.md)。
+
+<!-- Update_Description: wording update -->
 

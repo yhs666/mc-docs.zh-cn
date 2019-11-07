@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 07/04/2019
-ms.date: 07/22/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0c273df52e6a4fe7c24e8d36d1cd2f202e5bc0be
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 7513e885850eaafe2f50cd39c7452317b83ac695
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391621"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847158"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>使用自定义策略在 Azure Active Directory B2C 中选择页面布局
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-无论你使用的是用户流还是自定义策略，都可以在你的 Azure Active Directory (Azure AD) B2C 策略中启用 JavaScript 客户端代码。 若要为应用程序启用 JavaScript，必须在[自定义策略](active-directory-b2c-overview-custom.md)中添加一个元素，选择一个页面布局，并在请求中使用 [b2clogin.cn](b2clogin.md)。
+无论你使用的是用户流还是自定义策略，都可以在 Azure Active Directory B2C (Azure AD B2C) 策略中启用 JavaScript 客户端代码。 若要为应用程序启用 JavaScript，必须在[自定义策略](active-directory-b2c-overview-custom.md)中添加一个元素，选择一个页面布局，并在请求中使用 [b2clogin.cn](b2clogin.md)。
 
 页面布局是 Azure AD B2C 提供的元素与你提供的内容之间的关联。
 
@@ -69,6 +69,17 @@ ms.locfileid: "68391621"
 
 页面布局包会定期更新，其中包括页面元素的修复和改进。 以下更改日志详述了在每个版本中引入的更改。
 
+### <a name="120"></a>1.2.0 
+- 所有页面
+  - 辅助功能修复
+  - 现在可以在 HTML 标记中添加 `data-preload="true"` 特性来控制 CSS 和 JavaScript 的加载顺序。 方案包括：
+      - 在 CSS链接上使用此特性可以与 HTML 同时加载 CSS，以免在加载文件之间“闪烁”
+      - 此特性允许你控制在页面加载之前提取和执行脚本标记的顺序。
+  - 电子邮件字段现在为 `type=email`，移动键盘将提供正确的建议
+  - 对 Chrome 转换的支持
+- “统一和自断言”页
+  - “用户名/电子邮件”和“密码”字段现在使用表单 HTML 元素。  现在，这将允许 Edge 和 IE 正确保存此信息
+  
 ### <a name="110"></a>1.1.0
 
 - 异常页面 (globalexception)
@@ -94,4 +105,6 @@ ms.locfileid: "68391621"
 ### <a name="100"></a>1.0.0
 
 - 初始版本
+
+<!-- Update_Description: wording update -->
 

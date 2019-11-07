@@ -5,37 +5,37 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 09a3134328ec87ccee7727984f90a780082171c2
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 09/24/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 388b73f152b1cfb61434061898f3189974c311d6
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65732013"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191592"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
-可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
+可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
 - 一个 [Azure Database for PostgreSQL 服务器](quickstart-create-server-database-portal.md)，其防火墙规则设置为允许访问，并且包含数据库。
-- 已安装 [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) 命令行实用程序
+- 已安装 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 命令行实用程序
 
 按照以下步骤转储并还原 PostgreSQL 数据库：
 
-## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>使用 pg_dump 创建转储文件，该文件包含要加载数据
+## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>使用 pg_dump 创建转储文件，该文件包含要加载数据
 若要在本地或某个 VM 中备份现有 PostgreSQL 数据库，请运行以下命令：
 ```bash
-pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
+pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> -f <database>.dump
 ```
-例如，如果有一个本地服务器，并且该服务器中包含一个名为 testdb 的数据库
+例如，如果有一个本地服务器，并且该服务器中包含一个名为 testdb 的数据库 
 ```bash
-pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
+pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb.dump
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>使用 pg_restore 将数据还原到目标 Azure Database for PostrgeSQL
+## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>使用 pg_restore 将数据还原到目标 Azure Database for PostrgeSQL
 创建目标数据库后，可以使用 pg_restore 命令和 -d、--dbname 参数将数据从转储文件还原到目标数据库。
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
@@ -58,14 +58,14 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn 
 将现有的 PostgreSQL 数据库迁移到 Azure Database for PostgreSQL 服务的一种方法是，在源上备份数据库并在 Azure 中进行还原。 若要最大限度地缩短完成迁移所需的时间，请考虑将以下参数与备份和还原命令结合使用。
 
 > [!NOTE]
-> 有关语法的详细信息，请参阅 [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) 文章。
+> 有关语法的详细信息，请参阅 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 文章。
 >
 
 ### <a name="for-the-backup"></a>对于备份
 - 使用 -Fc 交换机进行备份，以便能够并行执行还原以提高速度。 例如：
 
     ```
-    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
 ### <a name="for-the-restore"></a>对于还原

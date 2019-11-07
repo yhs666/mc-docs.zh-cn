@@ -15,18 +15,18 @@ origin.date: 01/16/2018
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 92fa6f77b98eef8360543151d5fe1d3bf142e270
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 0456d2c5a092bdf244452ec93fabc6632b4eebef
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156428"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041151"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>应用服务环境的自定义配置设置
 ## <a name="overview"></a>概述
 由于应用服务环境 (ASE) 对单个客户是隔离的，因此有一些可专门应用于应用服务环境的配置设置。 本文介绍各种可用于应用服务环境的特定自定义设置。
 
-如果没有应用服务环境，请参阅 [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md)（如何创建应用服务环境）。
+如果没有应用服务环境，请参阅 [How to Create an App Service Environment](create-external-ase.md)（如何创建应用服务环境）。
 
 可以在新的 **clusterSettings** 属性中使用数组存储应用服务环境自定义设置。 可以在 *hostingEnvironments* Azure Resource Manager 实体的“Properties”字典中找到此属性。
 

@@ -2,27 +2,27 @@
 title: Azure Active Directory B2C 标识体验框架架构的日期声明转换示例 | Microsoft Docs
 description: Azure Active Directory B2C 标识体验框架架构的日期声明转换示例。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 04/04/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 196b087c6cf1e4b30f78ea3aa13aef84be5948e3
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 0ed00c702a8f5fa4b11b52c5da440d7b806c3ba7
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004496"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847109"
 ---
 # <a name="date-claims-transformations"></a>日期声明转换
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文演示了在 Azure Active Directory (Azure AD) B2C 中使用标识体验框架架构的日期声明转换的过程。 有关详细信息，请参阅 [ClaimsTransformations](claimstransformations.md)。
+本文提供了在 Azure Active Directory B2C (Azure AD B2C) 中使用标识体验框架架构的日期声明转换的示例。 有关详细信息，请参阅 [ClaimsTransformations](claimstransformations.md)。
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -30,13 +30,13 @@ ms.locfileid: "59004496"
 
 | 项目 | TransformationClaimType | 数据类型 | 注释 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | 字符串 | 第一个声明的类型，应晚于第二个声明。 |
-| inputClaim | rightOperand | 字符串 | 第二个声明的类型，应早于第一个声明。 |
+| InputClaim | leftOperand | string | 第一个声明的类型，应晚于第二个声明。 |
+| InputClaim | rightOperand | string | 第二个声明的类型，应早于第一个声明。 |
 | InputParameter | AssertIfEqualTo | 布尔值 | 指定如果左操作数等于右操作数，是否应传递此断言。 |
 | InputParameter | AssertIfRightOperandIsNotPresent | 布尔值 | 指定如果缺少右操作数，是否应传递此断言。 |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 指定将两个日期时间视为相等时允许两者之间相差的毫秒数（例如，用于说明时钟偏差）。 |
 
-AssertDateTimeIsGreaterThan 声明转换始终从[验证技术配置文件](validation-technical-profile.md)执行，该文件由[自断言技术配置文件](self-asserted-technical-profile.md)调用。 DateTimeGreaterThan 自断言技术配置文件元数据控制技术配置文件向用户呈现的错误消息。
+AssertDateTimeIsGreaterThan  声明转换始终从[验证技术配置文件](validation-technical-profile.md)执行，该文件由[自断言技术配置文件](self-asserted-technical-profile.md)调用。 DateTimeGreaterThan  自断言技术配置文件元数据控制技术配置文件向用户呈现的错误消息。
 
 ![AssertStringClaimsAreEqual 执行](./media/date-transformations/assert-execution.png)
 
@@ -66,7 +66,7 @@ AssertDateTimeIsGreaterThan 声明转换始终从[验证技术配置文件](vali
 </TechnicalProfile>
 ```
 
-自断言技术配置文件调用验证 login-NonInteractive 技术配置文件。
+自断言技术配置文件调用验证 login-NonInteractive  技术配置文件。
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
@@ -82,17 +82,17 @@ AssertDateTimeIsGreaterThan 声明转换始终从[验证技术配置文件](vali
 ### <a name="example"></a>示例
 
 - 输入声明：
-    - leftOperand：2018-10-01T15:00:00.0000000Z
-    - rightOperand：2018-10-01T14:00:00.0000000Z
+    - leftOperand  ：2018-10-01T15:00:00.0000000Z
+    - rightOperand  ：2018-10-01T14:00:00.0000000Z
 - 结果：引发错误
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
-将 Date ClaimType 转换为 DateTime ClaimType。 该声明转换会转换时间格式并向日期添加 12:00:00 AM。
+将 Date  ClaimType 转换为 DateTime  ClaimType。 该声明转换会转换时间格式并向日期添加 12:00:00 AM。
 
 | 项目 | TransformationClaimType | 数据类型 | 注释 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | 日期 | 要转换的 ClaimType。 |
+| InputClaim | inputClaim | date | 要转换的 ClaimType。 |
 | OutputClaim | outputClaim | dateTime | 调用此 ClaimsTransformation 后生成的 ClaimType。 |
 
 下面的示例演示声明 `dateOfBirth`（date 数据类型）到另一个声明 `dateOfBirthWithTime`（dateTime 数据类型）的转换。
@@ -134,7 +134,7 @@ AssertDateTimeIsGreaterThan 声明转换始终从[验证技术配置文件](vali
 ### <a name="example"></a>示例
 
 * 输出声明：
-    * currentDateTime：1534418820（2018 年 8 月 16 日上午 11:27:00）
+    * currentDateTime  ：1534418820（2018 年 8 月 16 日上午 11:27:00）
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -144,7 +144,7 @@ AssertDateTimeIsGreaterThan 声明转换始终从[验证技术配置文件](vali
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | 第一个日期/时间，用于比较它是在第二个日期/时间之前还是之后。 Null 值会引发异常。 |
 | InputClaim | secondDateTime | dateTime | 第二个日期/时间，用于比较它是在第一个日期/时间之前还是之后。 NULL 值被视为当前日期/时间。 |
-| InputParameter | operator | 字符串 | 以下值之一：same、later than 或 earlier than。 |
+| InputParameter | operator | string | 以下值之一：same、later than 或 earlier than。 |
 | InputParameter | timeSpanInSeconds | int | 向第一个日期/时间添加的时间范围。 |
 | OutputClaim | 结果 | 布尔值 | 调用此 ClaimsTransformation 后生成的 ClaimType。 |
 
@@ -170,11 +170,12 @@ AssertDateTimeIsGreaterThan 声明转换始终从[验证技术配置文件](vali
 ### <a name="example"></a>示例
 
 - 输入声明：
-    - firstDateTime：2018-01-01T00:00:00.100000Z
-    - secondDateTime：2018-04-01T00:00:00.100000Z
+    - firstDateTime  ：2018-01-01T00:00:00.100000Z
+    - secondDateTime  ：2018-04-01T00:00:00.100000Z
 - 输入参数：
-    - operator: later than
-    - timeSpanInSeconds：7776000（90 天）
+    - operator: later than 
+    - timeSpanInSeconds  ：7776000（90 天）
 - 输出声明：
-    - 结果：true
+    - 结果  ：true
 
+<!-- Update_Description: wording update -->

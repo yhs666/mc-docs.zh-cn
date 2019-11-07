@@ -1,26 +1,20 @@
 ---
 title: 管理解决方案中的 Azure 自动化资源 | Azure Docs
 description: 管理解决方案通常在 Azure 自动化中包含 Runbook 以自动执行各种进程，例如收集和处理监控数据。  本文介绍如何在解决方案中包含 Runbook 和其相关资源。
-services: monitoring
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
+ms.author: v-lingwu
 origin.date: 05/24/2017
 ms.date: 01/21/2019
-ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a166ed9a4b1738fb9ea8e8bb579c9534249445b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4ce7db30d9675688d72ca4772a47dd704db0fc31
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737322"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970897"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>将 Azure 自动化资源添加到管理解决方案（预览版）
 > [!NOTE]
@@ -30,7 +24,7 @@ ms.locfileid: "70737322"
 [管理解决方案]( solutions.md)通常在 Azure 自动化中包含 Runbook 以自动执行各种进程，例如收集和处理监控数据。  除了 Runbook，自动化帐户还包含资产，例如支持在解决方案中使用的 Runbook 的变量和计划。  本文介绍如何在解决方案中包含 Runbook 和其相关资源。
 
 > [!NOTE]
-> 本文中的示例使用管理解决方案需要或通用的参数和变量，[在 Azure 中设计和开发解决方案]( solutions-creating.md)中对它们进行了介绍。 
+> 本文中的示例使用管理解决方案需要或通用的参数和变量，[在 Azure 中设计和开发解决方案]( solutions-creating.md)中对它们进行了介绍 
 
 
 ## <a name="prerequisites"></a>先决条件

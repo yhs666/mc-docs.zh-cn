@@ -11,6 +11,10 @@
   items:
     - name: 存储事件
       items:
+        - name: Azure CLI
+          href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fevent-grid%2ftoc.json
+        - name: PowerShell
+          href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fevent-grid%2ftoc.json
         - name: 门户
           href: blob-event-quickstart-portal.md
     - name: 自定义事件
@@ -74,7 +78,7 @@
     - name: 资源管理器模板
       href: template-samples.md
     - name: 代码示例
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
+      href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
 - name: 概念
   items:
     - name: 事件网格概念

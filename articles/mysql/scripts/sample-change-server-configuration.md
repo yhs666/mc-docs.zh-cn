@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本 - 更改服务器配置
+title: Azure CLI 脚本 - 更改服务器配置 (MySQL)
 description: 此示例 CLI 脚本列出了所有可用服务器配置，并更新了 innodb_lock_wait_timeout 的值。
 author: WenJason
 ms.author: v-jay
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
 ms.date: 03/18/2019
-ms.openlocfilehash: 4526dea4147fca6bcc37c00ff53f0267cef2faf1
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: d2f80a590019158dcc3f50f60a8d29349f80e85a
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990172"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142074"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新用于 MySQL 服务器的 Azure 数据库的配置
 > [!NOTE]

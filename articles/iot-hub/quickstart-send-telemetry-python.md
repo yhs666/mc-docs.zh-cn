@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 02/28/2019
-ms.date: 09/30/2019
+origin.date: 10/17/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 28d5e804548bc067603323075ca0197d28df5dad
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: f1855a8d791a4bd95d5a0b6c89d8628a5f14f5cd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156209"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426082"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Python)
 
@@ -41,6 +41,8 @@ az extension add --name azure-cli-iot-ext
 
 从 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 下载示例 Python 项目并提取 ZIP 存档。
 
+已在开发计算机上安装 Python 版本 3.5.3+。 
+
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -53,22 +55,22 @@ az extension add --name azure-cli-iot-ext
 
     **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-    **MyPythonDevice**：这是为注册的设备提供的名称。 请按显示的方法使用 MyPythonDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+    **MyPythonDevice**：这是所注册的设备的名称。 建议使用 **MyPythonDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
     ```azurecli
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
-1. 在 Azure Cloud Shell 中运行以下命令，以获取已注册设备的_设备连接字符串_：
+1. 运行以下命令，获取你注册的设备的_设备连接字符串_：
 
     **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     记下如下所示的设备连接字符串：
 
-   `HostName={YourIoTHubName}.azure-devices.cn;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.cn;DeviceId=MyPythonDevice;SharedAccessKey={YourSharedAccessKey}`
 
     稍后会在快速入门中用到此值。
 
@@ -80,7 +82,7 @@ az extension add --name azure-cli-iot-ext
 
 1. 在所选文本编辑器中打开 SimulatedDevice.py 文件  。
 
-    将 `CONNECTION_STRING` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.py 文件  。
+    将 `CONNECTION_STRING` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.py**。
 
 1. 在本地终端窗口中，运行以下命令，为模拟设备应用程序安装所需的库：
 
@@ -106,7 +108,7 @@ IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端**事件**终结�
 运行以下命令，并将 `YourIoTHubName` 替换为 IoT 中心的名称：
 
 ```azurecli
-az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
+az iot hub monitor-events --hub-name {YourIoTHubName} --device-id MyPythonDevice 
 ```
 
 以下屏幕截图显示了扩展接收到模拟设备发送到中心的遥测数据时的输出：
@@ -119,7 +121,7 @@ az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，已设置 IoT 中心、注册设备、使用 Python 应用程序发送模拟遥测数据到中心并使用简单的后端应用程序读取中心的遥测数据。
+在本快速入门中，已设置了 IoT 中心、注册了设备、使用 Python 应用程序发送模拟遥测数据到中心并使用简单的后端应用程序读取中心的遥测数据。
 
 若要了解如何从后端应用程序控制模拟设备，请继续阅读下一快速入门教程。
 

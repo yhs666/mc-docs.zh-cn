@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 08/05/2019
-ms.date: 09/09/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 703d7e1c22ba5cc0f8ae7a92bc097760a6836c16
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 42ef1233c3869ea32e56f03b67f30192e064da02
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254415"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913282"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB SQL API 资源
 
@@ -47,6 +47,7 @@ ms.locfileid: "70254415"
 * [重新生成 Azure Cosmos 帐户的密钥](#regenerate-keys)
 * [列出 Azure Cosmos 帐户的连接字符串](#list-connection-strings)
 * [修改 Azure Cosmos 帐户的故障转移优先级](#modify-failover-priority)
+* [触发 Azure Cosmos 帐户的手动故障转移](#trigger-manual-failover)
 
 <a name="create-account"></a>
 ### <a name="create-an-azure-cosmos-account"></a>创建 Azure Cosmos 帐户
@@ -56,12 +57,12 @@ ms.locfileid: "70254415"
 ```powershell
 # Create an Azure Cosmos Account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
-$location = "China North"
-$accountName = "mycosmosaccount" # must be lower case.
+$location = "China North 2"
+$accountName = "mycosmosaccount" # must be lowercase and < 31 characters .
 
 $locations = @(
-    @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 }
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{
@@ -129,27 +130,86 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 * 启用多主数据库
 
 > [!NOTE]
-> 此命令可添加和删除区域，但不可使用 `failoverPriority=0` 修改故障转移优先级或更改区域。 若要修改故障转移优先级，请参阅[修改 Azure Cosmos 帐户的故障转移优先级](#modify-failover-priority)。
+> 不能同时添加或删除区域 `locations` 并更改 Azure Cosmos 帐户的其他属性。 修改区域的操作必须作为单独的操作与任何其他对帐户资源的更改操作分开执行。
+
+> [!NOTE]
+> 此命令可添加和删除区域，但不可修改故障转移优先级或触发手动故障转移。 请参阅[修改故障转移优先级](#modify-failover-priority)和[触发手动故障转移](#trigger-manual-failover)。
 
 ```powershell
-# Get an Azure Cosmos Account (assume it has two regions currently China North 2 and China East 2) and add a third region
-
+# Create an account with 2 regions
 $resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+$resourceType = "Microsoft.DocumentDb/databaseAccounts"
+$accountName = "mycosmosaccount" # must be lower case and < 31 characters
 
 $locations = @(
-    @{ "locationName"="China North 2"; "failoverPriority"=0 },
-    @{ "locationName"="China East 2"; "failoverPriority"=1 },
-    @{ "locationName"="China East"; "failoverPriority"=2 }
+    @{ "locationName"="China North 2"; "failoverPriority"=0, "isZoneRedundant"=false },
+    @{ "locationName"="China East 2"; "failoverPriority"=1, "isZoneRedundant"=false }
+)
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy
+}
+New-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Add a region
+$account = Get-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
+
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0, "isZoneRedundant"=false },
+    @{ "locationName"="China East 2"; "failoverPriority"=1, "isZoneRedundant"=false },
+    @{ "locationName"="China East"; "failoverPriority"=2, "isZoneRedundant"=false }
 )
 
 $account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+Set-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Azure Resource Manager does not wait on the resource update
+Write-Host "Confirm region added before continuing..."
+
+# Remove a region
+$account = Get-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
+
+$locations = @(
+    @{ "locationName"="China North 2"; "failoverPriority"=0, "isZoneRedundant"=false },
+    @{ "locationName"="China East 2"; "failoverPriority"=1, "isZoneRedundant"=false }
+)
+
+$account.Properties.locations = $locations
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+<a name="multi-master"></a>
+### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a>为 Azure Cosmos 帐户启用多个写入区域
+
+```powershell
+# Update an Azure Cosmos account from single to multi-master
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$resourceType = "Microsoft.DocumentDb/databaseAccounts"
+
+$account = Get-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
+
+$account.Properties.enableMultipleWriteLocations = "true"
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType $resourceType `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
@@ -249,26 +309,81 @@ $keys = Invoke-AzResourceAction -Action regenerateKey `
 Select-Object $keys
 ```
 
+<a name="enable-automatic-failover"></a>
+### <a name="enable-automatic-failover"></a>启用自动故障转移
+
+使 Cosmos 帐户能够在主要区域不可用时故障转移到其次要区域。
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$resourceType = "Microsoft.DocumentDb/databaseAccounts"
+
+$account = Get-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
+
+$account.Properties.enableAutomaticFailover="true";
+$CosmosDBProperties = $account.Properties;
+
+Set-AzResource -ResourceType $resourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 <a name="modify-failover-priority"></a>
 ### <a name="modify-failover-priority"></a>修改故障转移优先级
 
-对于多区域数据库帐户，可以更改在主写入副本上发生区域性故障转移的情况下，Cosmos 提升辅助只读副本权限的顺序。 修改 `failoverPriority=0` 还可用于启动灾难恢复演练，以测试灾难恢复规划。
+对于配置了自动故障转移的帐户，可以更改在主要副本不可用时 Cosmos 将次要副本提升为主要副本的顺序。
 
-在下面的示例中，假设帐户的当前故障转移优先级为 `China North 2 = 0` 和 `China East 2 = 1`，然后将区域互换。
+对于以下示例，假定当前的故障转移优先级为 `China North 2 = 0`、`China East 2 = 1`、`China East = 2`。
 
 > [!CAUTION]
 > 在 `failoverPriority=0` 的情况下更改 `locationName` 会触发 Azure Cosmos 帐户的手动故障转移。 任何其他的优先级更改不会触发故障转移。
 
 ```powershell
 # Change the failover priority for an Azure Cosmos Account
-# Assume existing priority is "China North 2" = 0 and "China East 2" = 1
+# Assume existing priority is "China North 2" = 0, "China East 2" = 1, "China East" = 2
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
 $failoverRegions = @(
-    @{ "locationName"="China East 2"; "failoverPriority"=0 },
-    @{ "locationName"="China North 2"; "failoverPriority"=1 }
+    @{ "locationName"="China North 2"; "failoverPriority"=0 },
+    @{ "locationName"="China East"; "failoverPriority"=1 },
+    @{ "locationName"="China East 2"; "failoverPriority"=2 }
+)
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+<a name="trigger-manual-failover"></a>
+### <a name="trigger-manual-failover"></a>触发手动故障转移
+
+对于配置了手动故障转移的帐户，可以通过修改为 `failoverPriority=0` 来进行故障转移并将所有次要副本提升为主要副本。 此操作可用于启动灾难恢复演练以测试灾难恢复规划。
+
+在下面的示例中，假设帐户的当前故障转移优先级为 `China North 2 = 0` 和 `China East 2 = 1`，然后将区域互换。
+
+> [!CAUTION]
+> 在 `failoverPriority=0` 的情况下更改 `locationName` 会触发 Azure Cosmos 帐户的手动故障转移。 任何其他优先级更改都不会触发故障转移。
+
+```powershell
+# Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "China North 2" = 0, "China East 2" = 1, "China East" = 2
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$failoverRegions = @(
+    @{ "locationName"="China East"; "failoverPriority"=0 },
+    @{ "locationName"="China East 2"; "failoverPriority"=1 },
+    @{ "locationName"="China North 2"; "failoverPriority"=2 }
 )
 
 $failoverPolicies = @{
@@ -571,7 +686,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 ### <a name="create-an-azure-cosmos-container-with-unique-key-policy-and-ttl"></a>创建使用唯一键策略和 TTL 的 Azure Cosmos 容器
 
 ```powershell
-# Create a container with a unique key policy and TTL
+# Create a container with a unique key policy and TTL of one day
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
@@ -601,7 +716,7 @@ $ContainerProperties = @{
                 )
             })
         };
-        "defaultTtl"= 100;
+        "defaultTtl"= 86400;
     };
     "options"=@{ "Throughput"="400" }
 }

@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/07/2019
-ms.date: 09/23/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3f9b27848608d7f9fcde6bb261172b876b33dfb0
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: b6d54d34ca278f2d826b1848a2f4761a02779a10
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329755"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416383"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 DatetimeV2 预生成实体
 
@@ -186,6 +186,8 @@ ms.locfileid: "71329755"
 
 以下示例演示 LUIS 如何使用 **datetimeV2** 来解析包含时间范围的陈述。
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -207,7 +209,7 @@ ms.locfileid: "71329755"
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
 
 DatetimeV2 JSON 响应在 API V3 中已更改。 
 
@@ -290,6 +292,9 @@ DatetimeV2 JSON 响应在 API V3 中已更改。
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>已弃用的预生成日期时间
 
 `datetime` 预生成实体已弃用，已由 datetimeV2 取代  。 
@@ -302,6 +307,8 @@ DatetimeV2 JSON 响应在 API V3 中已更改。
 4. 选择“datetimeV2”并单击“保存”。  
 
 ## <a name="next-steps"></a>后续步骤
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
 了解[维度](luis-reference-prebuilt-dimension.md)、[电子邮件](luis-reference-prebuilt-email.md)实体和[数字](luis-reference-prebuilt-number.md)。 
 

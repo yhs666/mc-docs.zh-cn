@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 07/24/2019
-ms.date: 04/19/2019
+origin.date: 10/21/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0fdf01e378a3b03249cedb04fb58b7ce898ba01c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 34cc52a197ccda98e6a2d4c694a9d7adecc4716c
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329949"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416354"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教程：确定常见意向和实体
 
@@ -52,17 +52,7 @@ LUIS 提供几个预生成意向，以便提供常见用户意向。
 
 1. 搜索 `Utilities`。 
 
-    [![“预生成意向”对话框的屏幕截图，其中的搜索框中包含“实用工具”](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
-
-1. 选择以下意向，然后选择“完成”  ： 
-
-   * Utilities.Cancel
-   * Utilities.Confirm
-   * Utilities.Help
-   * Utilities.StartOver
-   * Utilities.Stop
-
-     这些意向有助于确定用户在聊天中所处的位置及其需求。 
+1. 选择所有意向并选择“完成”  。 这些意向有助于确定用户在聊天中所处的位置及其需求。 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>添加预生成的实体以帮助提取常见数据类型
@@ -75,12 +65,9 @@ LUIS 为常见数据提取提供多个预生成的实体。
 
 1. 从预生成的实体列表中选择以下实体，然后选择“完成”： 
 
-   * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![在“预生成的实体”对话框中选择的数字的屏幕截图](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
-
-     这些实体可帮助你在客户端应用程序中添加名称和位置识别。
+     此实体将帮助你将位置识别添加到客户端应用程序。
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>将话语示例添加到 None 意向 
 
@@ -98,39 +85,83 @@ LUIS 为常见数据提取提供多个预生成的实体。
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. 将光标定位到浏览器地址栏中 URL 的末尾，并输入 `I want to cancel my trip to Seattle to see Bob Smith`。 最后一个查询字符串参数为 `q`，表示陈述查询 (**q**uery)。 
+1. 将光标定位到浏览器地址栏中 URL 的末尾，并输入 `I want to cancel my trip to Seattle`。 最后一个查询字符串参数为 `q`，表示陈述查询 (**q**uery)。 
 
     ```json
     {
-      "query": "I want to cancel my trip to Seattle to see Bob Smith",
+      "query": "I want to cancel my trip to Seattle",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.807676256
+        "score": 0.1055009
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.807676256
+          "score": 0.1055009
         },
         {
-          "intent": "Utilities.StartOver",
-          "score": 0.0487322025
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.0208660364
-        },
-        {
-          "intent": "None",
-          "score": 0.008789532
+          "intent": "Utilities.SelectItem",
+          "score": 0.02659072
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.006929268
+          "score": 0.0253379084
+        },
+        {
+          "intent": "Utilities.ReadAloud",
+          "score": 0.02528683
+        },
+        {
+          "intent": "Utilities.SelectNone",
+          "score": 0.02434013
+        },
+        {
+          "intent": "Utilities.Escalate",
+          "score": 0.009161292
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.006861785
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00633448
+        },
+        {
+          "intent": "Utilities.ShowNext",
+          "score": 0.0053827134
+        },
+        {
+          "intent": "None",
+          "score": 0.002602003
+        },
+        {
+          "intent": "Utilities.ShowPrevious",
+          "score": 0.001797354
+        },
+        {
+          "intent": "Utilities.SelectAny",
+          "score": 0.000831930141
+        },
+        {
+          "intent": "Utilities.Repeat",
+          "score": 0.0006924066
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00136293867
+          "score": 0.000606057351
+        },
+        {
+          "intent": "Utilities.GoBack",
+          "score": 0.000276725681
+        },
+        {
+          "intent": "Utilities.FinishTask",
+          "score": 0.000267822179
+        },
+        {
+          "intent": "Utilities.Reject",
+          "score": 3.21784828E-05
         }
       ],
       "entities": [
@@ -139,18 +170,12 @@ LUIS 为常见数据提取提供多个预生成的实体。
           "type": "builtin.geographyV2.city",
           "startIndex": 28,
           "endIndex": 34
-        },
-        {
-          "entity": "bob smith",
-          "type": "builtin.personName",
-          "startIndex": 43,
-          "endIndex": 51
         }
       ]
     }
     ```
 
-    结果中预测了置信度为 80% 的 Utilities.Cancel 意向，并提取了城市和人名数据。 
+    结果中预测了置信度为 80% 的 Utilities.Cancel 意向，并提取了城市数据。 
 
 
 ## <a name="clean-up-resources"></a>清理资源

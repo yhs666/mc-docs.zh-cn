@@ -12,12 +12,12 @@ ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 45576497a81dd5acc198b6275fce039c6e433e6a
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: b2326d4f46aac2131051453310e2f362da85f31f
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828824"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913257"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的表统计信息
 
@@ -83,7 +83,7 @@ table_name 是包含要显示的统计信息的表的名称。 该表不能为�
 
 在排查查询问题时，首先要询问的问题之一就是 **“统计信息是最新的吗？”**
 
-此问题不可以根据数据期限提供答案。 如果对基础数据未做重大更改，则最新的统计信息对象有可能非常陈旧。 如果行数有明显变化或给定列的值分布有重大变化，则需要更新统计信息。
+此问题不可以根据数据期限提供答案。 如果对基础数据未做重大更改，则最新的统计信息对象有可能非常陈旧。 如果行数有明显变化或给定列的值分布有重大变化，则  需要更新统计信息。
 
 没有任何动态管理视图可用于确定自上次更新统计信息以来表中的数据是否发生更改。 如果知道统计信息的期限，可以大致猜出更新状态。 可以使用以下查询来确定上次更新每个表的统计信息的时间。
 
@@ -211,7 +211,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 > [!NOTE]
 > 用于估计查询结果中行数的直方图只适用于统计信息对象定义中所列的第一个列。
 
-在此示例中，直方图针对的是 product\_category。 跨列统计信息是根据 *product\_category* 和 *product\_sub_category* 计算的：
+在此示例中，直方图针对的是 product\_category  。 跨列统计信息是根据 *product\_category* 和 *product\_sub_category* 计算的：
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -390,7 +390,7 @@ UPDATE STATISTICS [schema_name].[table_name];
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS 语句很容易使用。 只要记住，这会更新表中的所有统计信息，因此执行的工作可能会超过所需的数量。 如果性能不是一个考虑因素，这是保证拥有最新统计信息的最简单、最全面的操作方式。
+UPDATE STATISTICS 语句很容易使用。 只要记住，这会更新表中的所有统计信息，因此执行的工作可能会超过所需的数量。  如果性能不是一个考虑因素，这是保证拥有最新统计信息的最简单、最全面的操作方式。
 
 > [!NOTE]
 > 更新表中的所有统计信息时，SQL 数据仓库将执行扫描，以针对每个统计信息对象进行表采样。 如果表很大、包含许多列和许多统计信息，则根据需要更新各项统计信息可能比较有效率。
@@ -466,7 +466,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() 示例
+## <a name="dbcc-show_statistics-examples"></a>DBCC SHOW_STATISTICS() 示例
 
 DBCC SHOW_STATISTICS() 显示统计信息对象中保存的数据。 这些数据包括三个组成部分：
 
@@ -490,7 +490,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>显示 DBCC SHOW_STATISTICS() 的一个或多个组成部分
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>显示 DBCC SHOW_STATISTICS() 的一个或多个组成部分
 
 如果只想要查看特定部分，请使用 `WITH` 子句并指定要查看哪些部分：
 
@@ -504,7 +504,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS() 差异
+## <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() 差异
 
 相比于 SQL Server，在 SQL 数据仓库中，DBCC SHOW_STATISTICS() 的实现更加严格：
 

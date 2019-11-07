@@ -1,23 +1,25 @@
 ---
-title: 与 Azure 逻辑应用的企业集成 | Microsoft Docs
-description: 有关如何通过自动执行和协调跨企业和组织集成应用、数据、服务和系统的任务、工作流和业务流程来构建企业集成解决方案的概述。 创建适用于数据集成、系统集成、企业应用程序集成 (EAI) 和业务流程方案的解决方案。
+title: 自动执行企业集成任务 - Azure 逻辑应用
+description: 了解如何使用 Azure 逻辑应用以最少的代码自动执行集成应用、数据、服务和系统的工作流，以实现企业集成。
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: v-yiso
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 origin.date: 06/29/2018
-ms.date: 09/09/2019
-ms.openlocfilehash: 5eed0d8a574c695e8425f13f568b8c3bac494c78
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.date: 11/11/2019
+ms.openlocfilehash: 749f3a4077789060efc1641128dcad7f675aff63
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174198"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425965"
 ---
-# <a name="what-is-azure-logic-apps"></a>什么是 Azure 逻辑应用？
+# <a name="overview---what-is-azure-logic-apps"></a>概述 - 什么是 Azure 逻辑应用？
 
 [Azure 逻辑应用](/logic-apps)是一项云服务，用于在需要跨企业或组织集成应用、数据、系统和服务时计划、自动执行和协调任务、业务流程和[工作流](#logic-app-concepts)。 逻辑应用可简化可缩放解决方案的设计和构建方式，适用于应用集成、数据集成、系统集成、企业应用程序集成 (EAI) 和企业到企业 (B2B) 通信，不管是在云中还是在本地。
 
@@ -37,7 +39,7 @@ ms.locfileid: "70174198"
 
 每当触发器触发时，逻辑应用引擎就会创建一个逻辑应用实例来运行工作流中的操作。 这些操作也可包括数据转换和流控制，如条件语句、开关语句、循环和分支。 例如，以下逻辑应用通过 Dynamics 365 触发器启动，带有内置的条件“当更新记录时”。 触发器在检测到与此条件匹配的事件时，会触发并运行工作流的操作。 在这里，这些操作包括 XML 转换、数据更新、决策分支和电子邮件通知。
 
-![逻辑应用设计器 - 示例逻辑应用](./media/logic-apps-overview/overview.png)
+![逻辑应用设计器 - 示例逻辑应用](./media/logic-apps-overview/azure-logic-apps-overview.png)
 
 可以使用逻辑应用设计器直观地构建逻辑应用。该设计器可通过浏览器在 Azure 门户中获取，也可在 Visual Studio 中获取。 若要获取更多的自定义逻辑应用，可以使用“代码视图”编辑器以 JavaScript 对象表示法 (JSON) 创建或编辑逻辑应用定义。 也可对选定的任务使用 Azure PowerShell 命令和 Azure 资源管理器模板。 逻辑应用部署和运行在 Azure 云中。 
 
@@ -65,6 +67,7 @@ ms.locfileid: "70174198"
 
 某些模式和工作流描述起来容易，但难以在代码中实现。 逻辑应用可用于跨本地环境和云环境无缝连接不同的系统。 例如，可以将云营销解决方案连接到本地计费系统，也可以使用企业服务总线集中进行跨 API 和系统的消息传送。 可以通过逻辑应用快速、可靠且一致地为这些方案提供可重复使用和重新配置的解决方案。
 
+
 ### <a name="write-once-reuse-often"></a>编写一次即可多次重复使用
 
 将逻辑应用作为模板创建，然后即可跨多个环境和区域[部署和重新配置应用](../logic-apps/logic-apps-create-deploy-template.md)。
@@ -90,7 +93,6 @@ ms.locfileid: "70174198"
 
 * **操作**：操作是在触发器之后发生的所有步骤。 每个操作通常都会映射到由托管连接器、自定义 API 或自定义连接器定义的操作。
 
-* **Enterprise Integration Pack**：对于更高级的集成方案，逻辑应用会包括 BizTalk Server 中的功能。 Enterprise Integration Pack 提供的连接器可以帮助逻辑应用轻松地执行验证、转换等操作。
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>逻辑应用与 Functions、WebJobs 及 Flow 的区别在哪里？
 

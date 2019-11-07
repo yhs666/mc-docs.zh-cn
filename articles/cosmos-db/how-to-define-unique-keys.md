@@ -4,15 +4,15 @@ description: 了解如何为 Azure Cosmos 容器定义唯一键
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 09/30/2019
+origin.date: 09/28/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a5142fdd4010adc09afd57750066db166e5a9435
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 5dfccadcd2bfb3ee09d4f3cbac8143ae68738029
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306792"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913292"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>为 Azure Cosmos 容器定义唯一键
 
@@ -36,6 +36,10 @@ ms.locfileid: "71306792"
 
     ![Azure 门户中唯一键约束条目的屏幕截图](./media/how-to-define-unique-keys/unique-keys-portal.png)
 
+## <a name="use-powershell"></a>使用 PowerShell
+
+要创建具有唯一键的容器，请参阅[创建具有唯一键和 TTL 的 Azure Cosmos 容器](manage-with-powershell.md#create-container-unique-key-ttl)
+
 ## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
 
 使用 [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 创建新的容器时，可使用 `UniqueKeyPolicy` 对象定义唯一键约束。
@@ -44,15 +48,33 @@ ms.locfileid: "71306792"
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
 {
     Id = "container",
+    PartitionKey = new PartitionKeyDefinition { Paths = new Collection<string>(new List<string> { "/myPartitionKey" }) },
     UniqueKeyPolicy = new UniqueKeyPolicy
     {
         UniqueKeys = new Collection<UniqueKey>(new List<UniqueKey>
         {
-            new UniqueKey { Paths = new Collection<string>(new List<string> { "/firstName", "/lastName", "emailAddress" }) },
+            new UniqueKey { Paths = new Collection<string>(new List<string> { "/firstName", "/lastName", "/emailAddress" }) },
             new UniqueKey { Paths = new Collection<string>(new List<string> { "/address/zipCode" }) }
         })
     }
 });
+```
+
+## <a name="use-the-net-sdk-v3"></a>使用 .NET SDK V3
+
+使用 [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 创建新容器时，请使用 SDK 的 Fluent API 以简洁且可读的方式声明唯一键。
+
+```csharp
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithUniqueKey()
+        .Path("/firstName")
+        .Path("/lastName")
+        .Path("/emailAddress")
+    .Attach()
+    .WithUniqueKey()
+        .Path("/address/zipCode")
+    .Attach()
+    .CreateIfNotExistsAsync();
 ```
 
 ## <a name="use-the-java-sdk"></a>使用 Java SDK
@@ -63,6 +85,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 // create a new DocumentCollection object
 DocumentCollection container = new DocumentCollection();
 container.setId("container");
+
 // create array of strings and populate them with the unique key paths
 Collection<String> uniqueKey1Paths = new ArrayList<String>();
 uniqueKey1Paths.add("/firstName");
@@ -70,19 +93,23 @@ uniqueKey1Paths.add("/lastName");
 uniqueKey1Paths.add("/emailAddress");
 Collection<String> uniqueKey2Paths = new ArrayList<String>();
 uniqueKey2Paths.add("/address/zipCode");
+
 // create UniqueKey objects and set their paths
 UniqueKey uniqueKey1 = new UniqueKey();
 UniqueKey uniqueKey2 = new UniqueKey();
 uniqueKey1.setPaths(uniqueKey1Paths);
 uniqueKey2.setPaths(uniqueKey2Paths);
+
 // create a new UniqueKeyPolicy object and set its unique keys
 UniqueKeyPolicy uniqueKeyPolicy = new UniqueKeyPolicy();
 Collection<UniqueKey> uniqueKeys = new ArrayList<UniqueKey>();
 uniqueKeys.add(uniqueKey1);
 uniqueKeys.add(uniqueKey2);
 uniqueKeyPolicy.setUniqueKeys(uniqueKeys);
+
 // set the unique key policy
 container.setUniqueKeyPolicy(uniqueKeyPolicy);
+
 // create the container
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
@@ -124,5 +151,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 - 了解有关[分区](partition-data.md)的详细信息
 - 探索[索引编制的工作原理](index-overview.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, wording update -->
 

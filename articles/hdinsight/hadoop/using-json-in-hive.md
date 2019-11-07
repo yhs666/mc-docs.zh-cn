@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/03/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: aec5d3b7fcfb8994202b92872e59fa5dde070cc5
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 73506f5b973f2ddeb37b796f4242930e85e70f1d
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583856"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426073"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 
@@ -160,6 +160,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择。 使用它可以定义 
 相关文章请参阅：
 
 * [在 HDInsight 中将 Apache Hive 和 HiveQL 与 Apache Hadoop 配合使用来分析示例 Apache log4j 文件](../hdinsight-use-hive.md)
+* [使用 HDInsight 中的交互式查询分析航班延误数据](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

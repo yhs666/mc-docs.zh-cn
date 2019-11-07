@@ -1,27 +1,27 @@
 ---
-title: 使用 Python 查询 Azure SQL 数据库 | Microsoft Docs
+title: 快速入门：使用 Python 查询 Azure SQL 数据库
 description: 本主题介绍如何使用 Python 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/25/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: b13b778a1e480438facb340f8efa518545e618d4
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: 377364851b1e568ca31e524e4d119ce3ffdf2acf
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262952"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041194"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入门：使用 Python 查询 Azure SQL 数据库
 
- 本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句查询数据。 如需进一步的 SDK 详细信息，请查看[参考](https://docs.microsoft.com/python/api/overview/azure/sql)文档、[pyodbc GitHub 存储库](https://github.com/mkleehammer/pyodbc/wiki/)以及 [pyodbc 示例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)。
+ 本文演示了如何使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句查询数据。 如需进一步的 SDK 详细信息，请查看[参考](https://docs.microsoft.com/python/api/overview/azure/sql)文档、[pyodbc GitHub 存储库](https://github.com/mkleehammer/pyodbc/wiki/)以及 [pyodbc 示例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +49,7 @@ ms.locfileid: "71262952"
 
   - **Ubuntu**：使用 `sudo apt-get install python python-pip gcc g++ build-essential` 安装 Python 和其他所需的程序包。 下载并安装用于 SQL Server 的 ODBC 驱动程序、SQLCMD 和 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)。
 
-  - Windows  ：安装用于 SQL Server 的 Python、ODBC 驱动程序和 SQLCMD 以及 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)。
+  - **Windows**：安装用于 SQL Server 的 Python、ODBC 驱动程序和 SQLCMD 以及 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)。
 
 ## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 

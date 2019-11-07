@@ -4,20 +4,19 @@ description: 为 Visual Studio 中的 C# 函数和 VS Code 中的 JavaScript 函
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions，函数，事件处理，webhook，动态计算，无服务体系结构，测试
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 03/25/2019
-ms.date: 06/04/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: d9d9e7d74d6c029f009e7cb310348ea5a5f20a22
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: c33864bba5043de876ac14d16b18a55eeb71de37
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491486"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034441"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -313,7 +312,7 @@ module.exports = {
 ```
 此模块实现 `IsPastDue` 属性，表示该实例是一个虚构的计时器实例。
 
-接下来，使用 VS Code Functions 扩展[创建新的 JavaScript HTTP 函数](https://code.visualstudio.com/tutorials/functions-extension/getting-started)，并将其命名为 *HttpTrigger*。 创建函数后，在名为 **index.test.js** 的同一文件夹中添加一个新文件，然后添加以下代码：
+接下来，使用 VS Code Functions 扩展[创建新的 JavaScript HTTP 函数](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01)，并将其命名为 *HttpTrigger*。 创建函数后，在名为 **index.test.js** 的同一文件夹中添加一个新文件，然后添加以下代码：
 
 ```javascript
 const httpFunction = require('./index');
@@ -365,7 +364,8 @@ npm test
   "type": "node",
   "request": "launch",
   "name": "Jest Tests",
-  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
   "args": [
       "-i"
   ],
@@ -380,6 +380,6 @@ npm test
 了解如何为函数编写自动测试后，请继续参阅以下资源：
 - [手动运行非 HTTP 触发的函数](./functions-manually-run-non-http.md)
 - [Azure Functions 错误处理](./functions-bindings-error-pages.md)
+- [Azure 函数事件网格触发器本地调试](./functions-debug-event-grid-trigger-local.md)
 
-
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

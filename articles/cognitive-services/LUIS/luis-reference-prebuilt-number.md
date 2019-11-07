@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 05/07/2019
-ms.date: 09/23/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2d955eeaa393f7354b5f9fcda2b515ef808dd990
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: b039ebabeffd91ed529ffb65d7fd0f85bdbbf3ae
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329753"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416376"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的数字预生成实体
 有许多方式使用数字值来量化、表达和描述信息片段。 本文仅包括了其中一些可能的示例。 LUIS 解释用户陈述中的变体并返回一致的数字值。 此实体已定型，因此不需要将包含数字的陈述示例添加到应用程序意向中。 
@@ -44,7 +44,7 @@ LUIS 在它返回的 JSON 响应的 `resolution` 字段中包括 **`builtin.numb
 ## <a name="resolution-for-prebuilt-number"></a>预构建数字解析
 
 
-### <a name="api-version-2x"></a>API 版本 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 下面的示例显示了来自 LUIS 的 JSON 响应，其中包括了对陈述“two dozen”的值 24 的解析。
 
@@ -84,7 +84,7 @@ LUIS 在它返回的 JSON 响应的 `resolution` 字段中包括 **`builtin.numb
 }
 ```
 
-### <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
 
 以下 JSON 的 `verbose` 参数设置为 `false`：
 
@@ -142,7 +142,11 @@ LUIS 在它返回的 JSON 响应的 `resolution` 字段中包括 **`builtin.numb
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>后续步骤
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
 了解[货币](luis-reference-prebuilt-currency.md)、[序号](luis-reference-prebuilt-ordinal.md)和[百分比](luis-reference-prebuilt-percentage.md)。 
 

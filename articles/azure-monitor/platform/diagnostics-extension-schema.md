@@ -1,21 +1,19 @@
 ---
 title: Azure 诊断扩展配置架构版本历史记录
 description: 有关收集 Azure 虚拟机、VM 规模集、Service Fabric 和云服务中的性能计数器的信息。
-services: azure-monitor
-author: lingliw
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-origin.date: 09/20/2018
-ms.date: 6/4/2019
-ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: d1426a525b00daf7a59b96a41bd9c9249277a255
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.topic: reference
+author: lingliw
+origin.date: 09/04/2019
+ms.date: 10/25/2019
+ms.author: v-lingwu
+ms.openlocfilehash: b628a8f7e95e9fdab984fc14d9585391d0cc57ea
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330401"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970662"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
 此页为世纪互联 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  

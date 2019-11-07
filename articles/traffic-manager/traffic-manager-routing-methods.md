@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 09/17/2018
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: c44801bce0f46bab1e1e51cc4059727dc9e4b387
-ms.sourcegitcommit: 4ada17c1bcd36e755afd0a8bd6e353e35cbb228b
+ms.openlocfilehash: e2644caca6c22e6515608b97ae2c6de596c407f5
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72562152"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191586"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理器路由方法
 
@@ -89,9 +89,11 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 
 如[流量管理器工作原理](traffic-manager-how-it-works.md)中所述，流量管理器不会直接从客户端接收 DNS 查询。 DNS 查询来自客户端配置使用的递归 DNS 服务。 因此，用于确定“最靠近”终结点的 IP 地址不是客户端的 IP 地址，而是递归 DNS 服务的 IP 地址。 在实践中，此 IP 地址是客户端的适当代理。
 
-流量管理器定期更新 Internet 延迟表，反映全球 Internet 的变化以及新的 Azure 区域。 但是，由于 Internet 上的负载会实时变化，应用程序性能也会随之变化。 “性能”流量路由不会监视给定服务终结点上的负载。 但是，如果某个终结点变得不可用，则流量管理器不会在 DNS 查询响应中包括该终结点。
+<!--Change global Internet to national Internet -->
 
-<!--Change Global to national-->
+流量管理器定期更新 Internet 延迟表，反映全国 Internet 的变化以及新的 Azure 区域。 但是，由于 Internet 上的负载会实时变化，应用程序性能也会随之变化。 “性能”流量路由不会监视给定服务终结点上的负载。 但是，如果某个终结点变得不可用，则流量管理器不会在 DNS 查询响应中包括该终结点。
+
+<!--Change global Internet to national Internet -->
 
 需要注意的要点：
 

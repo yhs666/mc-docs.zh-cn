@@ -1,5 +1,5 @@
 ---
-title: 自动增加吞吐量单位 - Azure 事件中心 | Azure Docs
+title: 自动增加吞吐量单位 - Azure 事件中心 | Azure
 description: 在命名空间上启用自动膨胀，以自动按比例增加吞吐量单位。
 services: event-hubs
 documentationcenter: na
@@ -13,21 +13,23 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/02/2018
-ms.date: 08/05/2019
-ms.author: v-biyu
-ms.openlocfilehash: 69b300f0a0340a663f651f60044dffb414665b3a
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+origin.date: 12/06/2018
+ms.date: 10/22/2019
+ms.author: v-tawe
+ms.openlocfilehash: f3f4ae19c02545a530eb9d405608349d7949ab8b
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371748"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873086"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自动增加 Azure 事件中心吞吐量单位
 Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开始使用该服务后事件中心使用量通常会增加。 这样的使用量需要增加预先确定的[吞吐量单位](event-hubs-scalability.md#throughput-units)，以扩展事件中心和处理更大的传输速率。 事件中心的自动膨胀功能通过增加吞吐量单位数进行自动纵向扩展，以便满足使用量需求  。 增加吞吐量单位数可防止出现限制情况，在这些情况下：
 
 * 数据入口速率超过设置的吞吐量单位数。
 * 数据出口请求速率超过设置的吞吐量单位数。
+
+当负载的增加超过最小阈值时，事件中心服务会增加吞吐量，不会因服务器繁忙错误导致任何请求失败。
 
 ## <a name="how-auto-inflate-works"></a>自动膨胀的工作原理
 
@@ -39,10 +41,13 @@ Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开�
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>在命名空间上启用自动膨胀
 
-可使用下列方法之一在事件中心命名空间上启用或禁用自动膨胀：
+可使用下列方法之一在标准层事件中心命名空间上启用或禁用自动膨胀：
 
 - [Azure 门户](https://portal.azure.cn)。
 - [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate)。
+
+> [!NOTE]
+> 基本层事件中心命名空间不支持自动膨胀。
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>通过门户启用自动膨胀
 
@@ -66,7 +71,7 @@ Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开�
 3. 输入吞吐量单位的**最大**数目或使用滚动条设置该值。 
 4. （可选）在此页顶部更新吞吐量单位的**最小**数目。 
 
-
+<!--not availible in event-hubs-diagnostic-logs -->
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板启用自动膨胀
 
@@ -115,9 +120,10 @@ Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开�
 
 有关完整的模板，请参阅 GitHub 上的[创建事件中心命名空间和启用膨胀模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate)。
 
+
 ## <a name="next-steps"></a>后续步骤
 
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
-<!--Update_Description: update meta properties -->
+

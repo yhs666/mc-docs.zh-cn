@@ -5,16 +5,16 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 07/23/2019
-ms.date: 09/30/2019
+origin.date: 10/11/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 4fc74bed56ad48e7cc6321cf2d1d7970f1022d5d
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 7de03c4c58f459609981afab236c6325f1114dbd
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306700"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914443"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 满足大数据需求
 
@@ -27,6 +27,8 @@ ms.locfileid: "71306700"
 > * 可视化数据
 
 首先，请创建存储帐户和容器。 然后，授予对数据的访问权限。 本文的前几个部分介绍如何完成这些任务。 剩下部分将重点介绍每个处理阶段的选项和工具。
+
+有关可与 Azure Data Lake Storage Gen2 一起使用的 Azure 服务的完整列表，请参阅[将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-store-integrate-with-azure-services.md)
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>创建 Data Lake Storage Gen2 帐户
 
@@ -56,7 +58,7 @@ Data Lake Storage Gen2 帐户是一个存储帐户，其命名空间具有层次
 
   [存储 Blob 数据读者](/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-blob-data-contributor)
+  [存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 
   [存储 Blob 数据所有者](/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
@@ -86,7 +88,7 @@ Data Lake Storage Gen2 帐户是一个存储帐户，其命名空间具有层次
 
 本部分重点介绍不同的数据源和将数据引入 Data Lake Storage Gen2 帐户的不同方式。
 
-![将数据引入 Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Ingest data into Data Lake Storage Gen2")
+![将数据引入 Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "将数据引入 Data Lake Storage Gen2")
 
 ### <a name="ad-hoc-data"></a>临时数据
 
@@ -101,7 +103,7 @@ Data Lake Storage Gen2 帐户是一个存储帐户，其命名空间具有层次
 
 ### <a name="streamed-data"></a>流数据
 
-这表示可由应用程序、设备、传感器等多种源生成的数据。可通过各种工具将此数据引入 Data Lake Storage Gen2。 这些工具通常实时逐事件捕获和处理数据，并随后批量将事件写入 Data Lake Storage Gen2，以便这些事件可以得到进一步处理。
+这表示可由应用程序、设备、传感器等多种源生成的数据。此数据可通过各种工具引入 Data Lake Storage Gen2。 这些工具通常实时逐事件捕获和处理数据，并随后批量将事件写入 Data Lake Storage Gen2，以便这些事件可以得到进一步处理。
 
 下面是一个列表，其中包含可以用来引入流式处理的数据的工具。
 
@@ -162,7 +164,7 @@ Azure ExpressRoute 允许在 Azure 数据中心与本地中的基础结构之间
 
 数据在 Data Lake Storage Gen2 中可用后，可使用支持的大数据应用程序对此数据运行分析。 
 
-![分析 Data Lake Storage Gen2 中的数据](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
+![分析 Data Lake Storage Gen2 中的数据](./media/data-lake-storage-data-scenarios/analyze-data.png "分析 Data Lake Storage Gen2 中的数据")
 
 下面是一个列表，其中包含的工具可以用来对存储在 Data Lake Storage Gen2 中的数据运行数据分析作业。
 
@@ -178,7 +180,7 @@ Azure ExpressRoute 允许在 Azure 数据中心与本地中的基础结构之间
 
 * 构建应用程序原型时，下载数据到本地计算机以在 IDE 中进行处理。
 
-![从 Data Lake Storage Gen2 流出数据](./media/data-lake-storage-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen2")
+![从 Data Lake Storage Gen2 传出数据](./media/data-lake-storage-data-scenarios/egress-data.png "从 Data Lake Storage Gen2 传出数据")
 
 下面是一个列表，其中包含的工具可以用来从 Data Lake Storage Gen2 下载数据。
 

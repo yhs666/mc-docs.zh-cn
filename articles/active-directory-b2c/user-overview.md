@@ -2,31 +2,31 @@
 title: Azure Active Directory B2C 中的用户帐户概述 | Microsoft Docs
 description: 了解 Azure Active Directory B2C 中的用户帐户。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 04/04/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: abebfdae1bd3ba4ade55a42fe65b7e3f446ca0ef
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: a9d02b3eba9305f8e84d60a12b65c970d6033771
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236443"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847128"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的用户帐户概述
 
-在 Azure Active Directory (Azure AD) B2C 中，可以使用不同类型的帐户。 可以使用的用户帐户类型中的 Azure Active Directory、Azure Active Directory B2B 和 Azure Active Directory B2C 共享。
+在 Azure Active Directory B2C (Azure AD B2C) 中，可以使用不同类型的帐户。 可以使用的用户帐户类型中的 Azure Active Directory、Azure Active Directory B2B 和 Azure Active Directory B2C 共享。
 
 可以使用以下类型的帐户：
 
 - 工作帐户  - 工作帐户可以访问租户中的资源，并且通过管理员角色可以管理租户。
-- 来宾帐户  - 来宾帐户只能是一个 Microsoft 帐户或可用于访问应用程序或管理租户的 Azure Active Directory 用户。 
-- **使用者帐户** - 通过执行 Azure AD B2C 应用程序中的注册用户流或使用 Azure AD Graph API 创建使用者帐户，并由注册 Azure AD B2C 的应用程序的用户使用。 
+- 来宾帐户  - 来宾帐户只能是一个 Microsoft 帐户或可用于访问应用程序或管理租户的 Azure Active Directory 用户。
+- **使用者帐户** - 通过执行 Azure AD B2C 应用程序中的注册用户流或使用 Azure AD Graph API 创建使用者帐户，并由注册 Azure AD B2C 的应用程序的用户使用。
 
 ## <a name="work-account"></a>工作帐户
 
@@ -36,12 +36,12 @@ ms.locfileid: "67236443"
 
 - “名称”  和“用户名”  - Name  属性包含用户的名和姓。 用户名  是用户登录时输入的标识符。 用户名包括完整域。 用户名的域名部分必须是初始默认域名 *your-domain.partner.onmschina.cn* 或已验证的非联合[自定义域名](../active-directory/fundamentals/add-custom-domain.md)（例如 *contoso.com*）。
 - 配置文件  - 通过用户数据的配置文件设置帐户。 可以输入名字、姓氏、职务和部门名称。 可以在创建帐户后编辑配置文件。
-- 组  - 使用组执行管理任务，例如一次为多个用户或设备分配许可证或权限。 可以将新帐户放入租户现有的[组](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)中。 
+- 组  - 使用组执行管理任务，例如一次为多个用户或设备分配许可证或权限。 可以将新帐户放入租户现有的[组](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)中。
 - 目录角色  - 需要指定用户帐户对租户中资源的访问级别。 可以使用以下权限级别：
 
     - 用户  - 用户可以访问分配的资源，但不能管理大多数租户资源。
     - 全局管理员  - 全局管理员可以完全控制所有租户资源。
-    - 受限的管理员  - 为用户选择一个或多个管理角色。 有关可以选择的角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。 
+    - 受限的管理员  - 为用户选择一个或多个管理角色。 有关可以选择的角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
 
 ### <a name="create-a-work-account"></a>创建工作帐户
 
@@ -59,7 +59,7 @@ ms.locfileid: "67236443"
 
 ### <a name="reset-a-password-for-a-user"></a>重置用户密码
 
-可以使用以下信息来重置用户密码： 
+可以使用以下信息来重置用户密码：
 
 - [Azure 门户](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
@@ -84,3 +84,4 @@ ms.locfileid: "67236443"
 
 可能需要将现有的使用者用户帐户从任何标识提供者迁移到 Azure AD B2C。 
 
+<!-- Update_Description: wording update -->

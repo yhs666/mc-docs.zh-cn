@@ -4,25 +4,26 @@ description: 了解如何查找资源更改时间以及获取已更改属性的�
 services: resource-graph
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 05/10/2019
-ms.date: 09/16/2019
+origin.date: 10/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 50fced8211f09ce252827ea62459349db0885aa2
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7ddda66c4a7c5979f5511c108f1c93b5a177e038
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737429"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970303"
 ---
 # <a name="get-resource-changes"></a>获取资源更改
 
 在日常使用、重新配置甚至是重新部署的过程中，资源都会发生更改。
 更改可能是个人或者自动化过程做出的。 大部分更改是依设计做出的，但有时并非如此。 Azure Resource Graph 提供过去 14 天的更改历史记录，可让你：
 
-- 查找在 Azure 资源管理器属性中检测到更改的时间。
-- 查看在发生该更改事件期间更改了哪些属性。
+- 查找在 Azure 资源管理器属性中检测到更改的时间
+- 对于每个资源更改，请参阅属性更改详细信息
+- 查看检测到的更改之前和之后的资源的完整比较
 
 对于以下示例场景，更改检测和详细信息很有作用：
 
@@ -37,14 +38,15 @@ ms.locfileid: "70737429"
 > [!IMPORTANT]
 > Azure Resource Graph 中的更改历史记录目前以公共预览版提供。
 
-## <a name="find-when-changes-were-detected"></a>查找检测到更改的时间
+## <a name="find-detected-change-events-and-view-change-details"></a>查找检测到的更改事件并查看更改详细信息
 
-查看资源发生的更改的第一步是查找某个时段内与该资源相关的更改事件。 此步骤是通过 **resourceChanges** REST 终结点完成的。
+查看资源发生的更改的第一步是查找某个时段内与该资源相关的更改事件。 每个更改事件还包含有关资源的哪些信息发生更改的详细信息。 此步骤是通过 **resourceChanges** REST 终结点完成的。
 
-**resourceChanges** 终结点要求在请求正文中使用两个参数：
+**resourceChanges** 终结点接受请求正文中的以下参数：
 
-- **resourceId**：要查看其更改的 Azure 资源。
-- **interval**：包含检查更改事件的开始日期和结束日期（采用**祖鲁时区 (Z)** ）的属性。  
+- **resourceId** \[必需\]：要查看其更改的 Azure 资源。
+- **interval** \[必需\]：包含检查更改事件的开始日期和结束日期（采用**祖鲁时区 (Z)** ）的属性。  
+- **fetchPropertyChanges**（可选）：一个布尔值属性，它设置响应对象是否包括属性更改。
 
 请求正文示例：
 
@@ -52,9 +54,10 @@ ms.locfileid: "70737429"
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "interval": {
-        "start": "2019-03-28T00:00:00.000Z",
-        "end": "2019-03-31T00:00:00.000Z"
-    }
+        "start": "2019-09-28T00:00:00.000Z",
+        "end": "2019-09-29T00:00:00.000Z"
+    },
+    "fetchPropertyChanges": true
 }
 ```
 
@@ -68,38 +71,100 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 ```json
 {
-    "changes": [{
-            "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
+    "changes": [
+        {
+            "changeId": "{\"beforeId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"beforeTime\":\"2019-09-28T00:45:35.012Z\",\"afterId\":\"6178968e-981e-4dac-ac37-340ee73eb577\",\"afterTime\":\"2019-09-28T00:52:53.371Z\"}",
             "beforeSnapshot": {
-                "timestamp": "2019-03-29T01:32:05.993Z"
+                "snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
+                "timestamp": "2019-09-28T00:45:35.012Z"
             },
             "afterSnapshot": {
-                "timestamp": "2019-03-29T01:54:24.42Z"
-            }
+                "snapshotId": "6178968e-981e-4dac-ac37-340ee73eb577",
+                "timestamp": "2019-09-28T00:52:53.371Z"
+            },
+            "changeType": "Create"
         },
         {
-            "changeId": "9dc352cb-b7c1-4198-9eda-e5e3ed66aec8",
+            "changeId": "{\"beforeId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"beforeTime\":\"2019-09-28T00:43:38.366Z\",\"afterId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"afterTime\":\"2019-09-28T00:45:35.012Z\"}",
             "beforeSnapshot": {
-                "timestamp": "2019-03-28T10:30:19.68Z"
+                "snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
+                "timestamp": "2019-09-28T00:43:38.366Z"
             },
             "afterSnapshot": {
-                "timestamp": "2019-03-28T21:12:31.337Z"
-            }
+                "snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
+                "timestamp": "2019-09-28T00:45:35.012Z"
+            },
+            "changeType": "Delete"
+        },
+        {
+            "changeId": "{\"beforeId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"beforeTime\":\"2019-09-28T00:43:15.518Z\",\"afterId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"afterTime\":\"2019-09-28T00:43:38.366Z\"}",
+            "beforeSnapshot": {
+                "snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
+                "timestamp": "2019-09-28T00:43:15.518Z"
+            },
+            "afterSnapshot": {
+                "snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
+                "timestamp": "2019-09-28T00:43:38.366Z"
+            },
+            "propertyChanges": [
+                {
+                    "propertyName": "tags.org",
+                    "afterValue": "compute",
+                    "changeCategory": "User",
+                    "changeType": "Insert"
+                },
+                {
+                    "propertyName": "tags.team",
+                    "afterValue": "ARG",
+                    "changeCategory": "User",
+                    "changeType": "Insert"
+                }
+            ],
+            "changeType": "Update"
+        },
+        {
+            "changeId": "{\"beforeId\":\"19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268\",\"beforeTime\":\"2019-09-28T00:42:46.839Z\",\"afterId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"afterTime\":\"2019-09-28T00:43:15.518Z\"}",
+            "beforeSnapshot": {
+                "snapshotId": "19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268",
+                "timestamp": "2019-09-28T00:42:46.839Z"
+            },
+            "afterSnapshot": {
+                "snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
+                "timestamp": "2019-09-28T00:43:15.518Z"
+            },
+            "propertyChanges": [{
+                "propertyName": "tags.cgtest",
+                "afterValue": "hello",
+                "changeCategory": "User",
+                "changeType": "Insert"
+            }],
+            "changeType": "Update"
         }
     ]
 }
 ```
 
-对 **resourceId** 检测到的每个更改事件具有该资源的唯一 **changeId**。 **changeId** 字符串有时可能包含其他属性，只能保证它是唯一的。 更改记录包括创建快照之前和之后的时间。
-更改事件是在此时段内的某个时间点发生的。
+**resourceId** 的每个检测到的更改事件都具有以下属性：
 
-## <a name="see-what-properties-changed"></a>查看更改的属性
+- **changeId** - 此值对于该资源是唯一的。 **changeId** 字符串有时可能包含其他属性，只能保证它是唯一的。
+- **beforeSnapshot** - 包含检测到更改之前创建的资源快照的 **snapshotId** 和 **timestamp**。
+- **afterSnapshot** - 包含检测到更改之后创建的资源快照的 **snapshotId** 和 **timestamp**。
+- **changeType** - 描述已针对 **beforeSnapshot** 和 **afterSnapshot** 之间的整个更改记录检测到的更改的类型。 值为：_Create_、_Update_ 和 _Delete_。 仅当 **changeType** 为 _Update_ 时，才包括 **propertyChanges** 属性数组。
+- **propertyChanges** - 此属性数组提供了 **beforeSnapshot** 和 **afterSnapshot** 之间已更新的所有资源属性的详细信息：
+  - **propertyName** - 已更改的资源属性的名称。
+  - **changeCategory** - 描述哪类更改者执行了更改。 值为：_System_ 和 _User_。
+  - **changeType** - 描述已为单个资源属性检测到的更改的类型。
+    值为：_Insert_、_Update_、_Remove_。
+  - **beforeValue** - **beforeSnapshot** 中资源属性的值。 当 **changeType** 为 _Insert_ 时不显示。
+  - **afterValue** - **afterSnapshot** 中的资源属性的值。 当 **changeType** 为 _Remove_ 时不显示。
 
-获取 **resourceChanges** 终结点的 **changeId** 后，可以使用 **resourceChangeDetails** REST 终结点获取更改事件的细节。
+## <a name="compare-resource-changes"></a>比较资源更改
+
+有了来自 **resourceChanges** 终结点的 **changeId** 后，可以使用 **resourceChangeDetails** REST 终结点获取更改资源之前和之后的资源快照。
 
 **resourceChangeDetails** 终结点要求在请求正文中使用两个参数：
 
-- **resourceId**：要查看其更改的 Azure 资源。
+- **resourceId**：要比较其更改的 Azure 资源。
 - **changeId**：从 **resourceChanges** 中收集的 **resourceId** 的唯一更改事件。
 
 请求正文示例：
@@ -164,7 +229,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
                     "table": "https://mystorageaccount.table.core.windows.net/",
                     "file": "https://mystorageaccount.file.core.windows.net/"
                 },
-                "primaryLocation": "westus",
+                "primaryLocation": "chinaeast",
                 "statusOfPrimary": "available"
             }
         }
@@ -211,7 +276,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
                     "table": "https://mystorageaccount.table.core.windows.net/",
                     "file": "https://mystorageaccount.file.core.windows.net/"
                 },
-                "primaryLocation": "westus",
+                "primaryLocation": "chinaeast",
                 "statusOfPrimary": "available"
             }
         }
@@ -221,7 +286,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 **beforeSnapshot** 和 **afterSnapshot** 分别提供快照创建时间以及当时的属性。 更改是在这些快照之间的某个时间点发生的。 在以上示例中我们可以看到，更改的属性是 **supportsHttpsTrafficOnly**。
 
-若要以编程方式比较结果，请比较每个快照的 **content** 部分来确定差异。 如果比较整个快照，**timestamp** 始终会显示差异，不过这符合预期。
+若要对结果进行比较，请使用 **resourceChanges** 中的 **changes** 属性，或评估 **resourceChangeDetails** 中每个快照的 **content** 部分，以确定差异。 如果对快照进行比较，**timestamp** 始终会显示为差异，不过这符合预期。
 
 ## <a name="next-steps"></a>后续步骤
 

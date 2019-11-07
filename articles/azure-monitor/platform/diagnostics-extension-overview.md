@@ -1,19 +1,19 @@
 ---
 title: Azure 诊断扩展概述
 description: 使用 Azure 诊断在云服务、虚拟机和 Service Fabric 中进行调试、性能度量、监视和流量分析
-author: lingliw
 ms.service: azure-monitor
+ms.subservice: diagnostic-extension
 ms.topic: conceptual
+author: lingliw
 origin.date: 02/13/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.subservice: diagnostic-extension
-ms.openlocfilehash: f356829e4e7f15f07607047bd0d40f2bb975be72
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d652c10cc95dc257deb86295b0a2f0a2d9809ed6
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736875"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970669"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](../../azure-monitor/overview.md)。

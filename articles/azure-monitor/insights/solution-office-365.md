@@ -10,15 +10,15 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 08/13/2019
-ms.date: 09/20/2019
+origin.date: 07/02/2019
+ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 28dff3ec86fe239a8a851d7001545560807d9df7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 987dd5225d11b1a8c2157198ad80c20e9aa6e1a6
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330300"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970973"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 

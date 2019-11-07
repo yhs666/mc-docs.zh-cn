@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/17/2017
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
-ms.openlocfilehash: 709daedf5b1dd90550735882cf6325e1f1e29abe
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 58df08cc75e06b0d6d571ce9f50d52626a55c46b
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854819"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142076"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -30,7 +30,7 @@ ms.locfileid: "64854819"
 可以使用 Azure Resource Manager 模板配置本文介绍的所有功能。 此外，还为选定功能提供了 Azure CLI 和 PowerShell 示例。
 
 ## <a name="accelerated-networking"></a>加速网络
-Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从而提升网络性能。 若要详细了解如何使用加速网络，请查看适用于 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虚拟机的加速网络。 若要对规模集使用加速网络，请在规模集的 networkInterfaceConfigurations 设置中将 enableAcceleratedNetworking 设置为 true。 例如：
+Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从而提升网络性能。 若要详细了解如何使用加速网络，请查看适用于 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虚拟机的加速网络。 若要对规模集使用加速网络，请在规模集的 networkInterfaceConfigurations 设置中将 enableAcceleratedNetworking 设置为  true。 例如：
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -96,7 +96,7 @@ az vmss create `
 默认情况下，规模集采用其创建时所在的 VNET 和子网的特定 DNS 设置。 但是，可以直接配置规模集的 DNS 设置。
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>通过可配置的 DNS 服务器创建规模集
-若要通过 Azure CLI 使用自定义 DNS 配置创建规模集，请将 --dns-servers 参数添加到 vmss create 命令中，后接空格分隔的服务器 IP 地址。 例如：
+若要通过 Azure CLI 使用自定义 DNS 配置创建规模集，请将 --dns-servers 参数添加到 vmss create 命令中，后接空格分隔的服务器 IP 地址   。 例如：
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -108,7 +108,7 @@ az vmss create `
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>使用可配置的虚拟机域名创建规模集
-若要通过 CLI 使用自定义 DNS 名称为虚拟机创建规模集，请将 --vm-domain-name 参数添加到 **virtual machine scale set create** 命令中，后接表示域名的字符串。
+若要通过 CLI 使用自定义 DNS 名称为虚拟机创建规模集，请将 --vm-domain-name 参数添加到 **virtual machine scale set create** 命令中，后接表示域名的字符串  。
 
 若要在 Azure 模板中设置域名，请将 **dnsSettings** 属性添加到规模集的 **networkInterfaceConfigurations** 节。 例如：
 
@@ -118,7 +118,7 @@ az vmss create `
     {
     "name": "nic1",
     "properties": {
-      "primary": "true",
+      "primary": true,
       "ipConfigurations": [
       {
         "name": "ip1",
@@ -153,7 +153,7 @@ az vmss create `
 但某些情况下，确实需要规模集虚拟机拥有自己的公共 IP 地址。 例如，玩游戏时，主机需直接连接到云虚拟机进行游戏的物理处理。 再举例来说，虚拟机有时需在分布式数据库中跨区域进行外部互连。
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>使用公共 IP 为每个虚拟机创建规模集
-若要通过 CLI 创建向每个虚拟机分配公共 IP 地址的规模集，请将 --public-ip-per-vm 参数添加到 vmss create 命令中。 
+若要通过 CLI 创建向每个虚拟机分配公共 IP 地址的规模集，请将 --public-ip-per-vm 参数添加到 vmss create 命令中   。 
 
 若要使用 Azure 模板创建规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本至少为 **2017-03-30**，并将 **publicIpAddressConfiguration** JSON 属性添加到规模集的 ipConfigurations 节。 例如：
 
@@ -168,7 +168,7 @@ az vmss create `
 示例模板：[201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>在规模集中查询虚拟机的公共 IP 地址
-若要通过 CLI 列出分配到规模集虚拟机的公共 IP 地址，请使用 az vmss list-instance-public-ips 命令。
+若要通过 CLI 列出分配到规模集虚拟机的公共 IP 地址，请使用 az vmss list-instance-public-ips 命令  。
 
 若要使用 PowerShell 列出规模集的公共 IP 地址，请使用_Get-AzPublicIpAddress_ 命令。 例如：
 ```powershell
@@ -240,7 +240,7 @@ Azure REST API 的示例输出：
         {
         "name": "nic1",
         "properties": {
-            "primary": "true",
+            "primary": true,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -272,7 +272,7 @@ Azure REST API 的示例输出：
         {
         "name": "nic2",
         "properties": {
-            "primary": "false",
+            "primary": false,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -319,7 +319,7 @@ Azure REST API 的示例输出：
         {
             "name": "nic1",
             "properties": {
-                "primary": "true",
+                "primary": true,
                 "ipConfigurations": [
                     {
                         "name": "ip1",
@@ -358,7 +358,7 @@ Azure REST API 的示例输出：
 
 ```bash
 az vmss show `
-    -g myResourceGroup v
+    -g myResourceGroup `
     -n myScaleSet `
     --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
 

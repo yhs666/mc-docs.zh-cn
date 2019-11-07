@@ -1,5 +1,5 @@
 ---
-title: 创建具有使用者组的事件中心 - Azure 事件中心 | Azure Docs
+title: 创建具有使用者组的事件中心 - Azure 事件中心 | Azure
 description: 使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
 services: event-hubs
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 08/16/2018
-ms.date: 08/05/2019
-ms.author: v-biyu
-ms.openlocfilehash: a78e9822ecc012328abc3051b77a8396c9dcc277
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+origin.date: 07/02/2019
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: a5158cb561b3fe0a3803aa069c4af4d943a31562
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371757"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872853"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建事件中心
 
@@ -33,6 +33,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 ## <a name="create-an-event-hub"></a>创建事件中心
 
 本快速入门使用[现有快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)：
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -96,9 +97,13 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
   ]
 }
 ```
+
+
+若要查找更多模板示例，请参阅 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular)。
+
 若要部署模板，请执行以下操作：
 
-1. 从以下代码块中选择“试用”  ，然后按照说明登录 Azure CLI。
+1. 从以下代码块中选择“试一试”  ，然后按照说明登录到 Azure PowerShell。
 
    ```azurepowershell
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -163,7 +168,7 @@ Write-Host "Press [ENTER] to continue ..."
 [5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
+[Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/manage-resources-cli.md
 [Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

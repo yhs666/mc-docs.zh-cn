@@ -1,6 +1,6 @@
 ---
 title: 采用 Azure ExpressRoute 所要满足的先决条件 | Azure
-description: 本页提供了在订购 Azure ExpressRoute 线路之前需要满足的要求列表。
+description: 本页提供了在订购 Azure ExpressRoute 线路之前需要满足的要求列表。 其中包括了一个清单。
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/20/2019
+origin.date: 09/18/2019
 ms.date: ''
 ms.author: v-yiso
-ms.openlocfilehash: 9b74382dc37c07f2cd8d43dfa6344443c6b0e77b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 170ba9112f593b5515db72b404da48836c660ea0
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627051"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914369"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 
@@ -40,6 +40,7 @@ ms.locfileid: "58627051"
 * **每个对等互连位置的冗余性**：Microsoft 要求在 Microsoft 的路由器和每个 ExpressRoute 线路上的对等互连路由器之间建立冗余的 BGP 会话（即使只有[一个到云交换的物理连接](expressroute-faqs.md#onep2plink)）。
 * **灾难恢复的冗余**：Microsoft 强烈建议你在不同的对等互连位置设置至少两条 ExpressRoute 线路，避免单点故障。
 * **路由**：你或提供商需设置和管理针对[路由域](expressroute-circuit-peerings.md)的 BGP 会话，具体取决于连接到 Microsoft 云的方式。 某些以太网连接服务提供商或云交换服务提供商可能会以增值服务的形式提供 BGP 管理。
+* **NAT**：Microsoft 只能通过 Microsoft 对等互连接受公共 IP 地址。 如果使用的是本地网络中的专用 IP 地址，你或提供商需[使用 NAT](expressroute-nat.md)将专用 IP 地址转换为公共 IP 地址。
 
 
 
@@ -47,7 +48,7 @@ ms.locfileid: "58627051"
 
 - 有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。
 - 查找 ExpressRoute 连接服务提供商。 请参阅 [ExpressRoute 合作伙伴和对等位置](./expressroute-locations.md)。
-- 请参阅[路由](./expressroute-routing.md)的要求。
+- 请参阅[路由](expressroute-routing.md)、[NAT](expressroute-nat.md) 的要求。
 - 配置 ExpressRoute 连接。
   - [创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md)
   - [配置路由](expressroute-howto-routing-arm.md)

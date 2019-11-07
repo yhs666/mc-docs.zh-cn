@@ -1,5 +1,5 @@
 ---
-title: 快速入门：从 Azure IoT 中心控制设备 (Node.js) | Microsoft Docs
+title: 快速入门：通过 Azure IoT 控制设备 (Node.js)
 description: 本快速入门会运行两个示例 Node.js 应用程序。 一个为后端应用程序，可远程控制连接到中心的设备。 另一个应用程序可模拟连接到中心的可受远程控制的设备。
 author: dominicbetts
 manager: timlt
@@ -11,20 +11,20 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 06/21/2019
-ms.date: 09/30/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: ab41a60a22cc669446f89da2b061e8c9c3265714
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 29883dce511d0391e196836e337ad7fc16850180
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156083"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425963"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>快速入门：控制连接到 IoT 中心的设备 (Node.js)
+# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>快速入门：使用 Node.js 控制连接到 Azure IoT 中心的设备
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入云，并从云管理设备。 在本快速入门中，会使用直接方法来控制连接到 IoT 中心的模拟设备  。 可使用直接方法远程更改连接到 IoT 中心的设备的行为。
+IoT 中心是一项 Azure 服务，使你可以从云管理 IoT 设备，并将大量设备遥测引入云以进行存储或处理。 在本快速入门中，会使用直接方法来控制连接到 IoT 中心的模拟设备  。 可使用直接方法远程更改连接到 IoT 中心的设备的行为。
 
 本快速入门使用两个预先编写的 Node.js 应用程序：
 
@@ -70,11 +70,11 @@ az extension add --name azure-cli-iot-ext
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyNodeDevice**：所注册的设备的名称。 如下所示请使用 MyNodeDevice 。  如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyNodeDevice**：这是所注册的设备的名称。 建议使用 **MyNodeDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyNodeDevice
+      --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
 
 2. 运行以下命令，获取刚注册设备的_设备连接字符串_：
@@ -83,7 +83,7 @@ az extension add --name azure-cli-iot-ext
 
     ```azurecli
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyNodeDevice \
       --output table
     ```
@@ -99,14 +99,15 @@ az extension add --name azure-cli-iot-ext
     **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
     ```azurecli
     az iot hub show-connection-string \
-      --name YourIoTHubName --policy-name service --output table
+      --policy-name service --name {YourIoTHubName} --output table
+
     ```
 
     记下如下所示的服务连接字符串：
 
    `HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    稍后会在快速入门中用到此值。 服务连接字符串与设备连接字符串不同。
+    稍后会在快速入门中用到此值。 此服务连接字符串与你在上一步中记录的设备连接字符串不同。
 
 ## <a name="listen-for-direct-method-calls"></a>侦听直接方法调用
 
@@ -116,7 +117,7 @@ az extension add --name azure-cli-iot-ext
 
 2. 在所选文本编辑器中打开 SimulatedDevice.js 文件  。
 
-    将 `connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.js 文件  。
+    将 `connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.js**。
 
 3. 在本地终端窗口中，运行以下命令以安装所需的库，并运行模拟设备应用程序：
 
@@ -127,7 +128,7 @@ az extension add --name azure-cli-iot-ext
 
     以下屏幕截图显示了模拟设备应用程序将遥测数据发送到 IoT 中心后的输出：
 
-    ![运行模拟设备](./media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![运行模拟设备](./media/quickstart-control-device-node/simulated-device-telemetry-iot-hub.png)
 
 ## <a name="call-the-direct-method"></a>调用直接方法
 
@@ -137,7 +138,7 @@ az extension add --name azure-cli-iot-ext
 
 2. 在所选文本编辑器中打开 BackEndApplication.js 文件  。
 
-    将 `connectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 BackEndApplication.js 文件  。
+    将 `connectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 **BackEndApplication.js**。
 
 3. 在本地终端窗口中运行以下命令，以安装所需的库并运行后端应用程序：
 
@@ -148,11 +149,11 @@ az extension add --name azure-cli-iot-ext
 
     以下屏幕截图显示了应用程序对设备进行直接方法调用并接收确认后的输出：
 
-    ![运行后端应用程序](media/quickstart-control-device-node/BackEndApplication.png)
+    ![应用程序对设备进行直接方法调用时的输出](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     运行后端应用程序后，在运行模拟设备的控制台窗口中会出现一条消息，且其发送消息的速率也会发生变化：
 
-    ![模拟客户端的变化](media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![模拟客户端发生更改时的输出](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

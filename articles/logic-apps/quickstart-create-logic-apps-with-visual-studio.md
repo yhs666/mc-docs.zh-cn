@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.custom: mvc
 origin.date: 04/25/2019
 ms.author: v-yiso
-ms.date: 10/08/2019
-ms.openlocfilehash: ed3e0c2efe04e6feac35c2e0551e15068722eb51
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: d96d50e0eebd0a68386484b9d55c07b8c03cc2a5
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340979"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425777"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入门：使用 Azure 逻辑应用创建自动化任务、流程和工作流 - Visual Studio
+# <a name="quickstart-automate-tasks-processes-and-workflows-by-using-azure-logic-apps-and-visual-studio"></a>快速入门：使用 Azure 逻辑应用和 Visual Studio 自动执行任务、流程和工作流
 
 可以通过 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和 Visual Studio 创建工作流，以便自动完成用于跨企业和组织集成应用、数据、系统和服务的任务和流程。 本快速入门展示了如何通过在 Visual Studio 中创建逻辑应用并将这些应用部署到 Azure 来设计和构建这些工作流。 尽管可以在 Azure 门户中执行这些任务，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为不同的部署环境创建 Azure 资源管理器模板时，也可以使用 Visual Studio。
 
@@ -27,7 +27,7 @@ ms.locfileid: "71340979"
 
 在本快速入门中，你将使用 Visual Studio 创建与 Azure 门户快速入门相同的逻辑应用。 此逻辑应用监视网站的 RSS 源，并针对该源中的每个新项发送电子邮件。 完成后的逻辑应用看起来与以下概略性的工作流类似：
 
-![完成的逻辑应用](./media/quickstart-create-logic-apps-with-visual-studio/overview.png)
+![高级逻辑应用工作流概述](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
@@ -142,7 +142,7 @@ ms.locfileid: "71340979"
 
 1. 在触发器出现在设计器中后，通过执行 [Azure 门户快速入门](../logic-apps/quickstart-create-first-logic-app-workflow.md#add-rss-trigger)中的工作流步骤来完成逻辑应用的构建。 完成后，逻辑应用如以下示例所示：
 
-   ![完成的逻辑应用](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
+   ![完成的示例逻辑应用工作流](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app-workflow.png)
 
 1. 保存你的 Visual Studio 解决方案。 （键盘：Ctrl + S）
 
@@ -177,7 +177,7 @@ ms.locfileid: "71340979"
    下面是此逻辑应用发送的示例电子邮件。 
    如果没有收到任何电子邮件，请检查垃圾邮件文件夹。
 
-   ![Outlook 针对每个新的 RSS 项发送电子邮件](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
+   ![Outlook 针对每个新的 RSS 项发送电子邮件](./media/quickstart-create-logic-apps-with-visual-studio/example-outlook-email.png)
 
 祝贺你，你已使用 Visual Studio 成功生成并部署了逻辑应用。 若要管理逻辑应用并查看其运行历史记录，请参阅[使用 Visual Studio 管理逻辑应用](../logic-apps/manage-logic-apps-with-visual-studio.md)。
 
@@ -191,11 +191,11 @@ ms.locfileid: "71340979"
 
 1. 若要将资源添加到模板文件，请在“JSON 大纲”窗口顶部选择“添加资源”  。 或者在“JSON 大纲”窗口中，右键单击“资源”  ，并选择“添加新资源”  。
 
-   ![“JSON 大纲”窗口](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+   ![在“JSON 大纲”窗口中，添加新资源](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
 1. 在“添加资源”  对话框中，找到并选择“逻辑应用”  。 为逻辑应用命名，并选择“添加”  。
 
-   ![添加资源](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
+   ![向项目中添加新的逻辑应用资源](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

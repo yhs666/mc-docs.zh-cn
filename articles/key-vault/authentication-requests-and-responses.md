@@ -2,25 +2,20 @@
 title: 身份验证、请求和响应
 description: 对 AD 进行身份验证以使用 Key Vault
 services: key-vault
-documentationcenter: ''
-author: lleonard-msft
-manager: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 05/09/2018
-ms.date: 10/22/2018
-ms.author: v-biyu
-ms.openlocfilehash: 039af8c86b450da80a3f6d032b45540dc4972f2e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.topic: conceptual
+origin.date: 01/07/2019
+ms.date: 10/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: 9c9aa45b1c3f0f6df3ac0c1c65daba1376d254ef
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627696"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425755"
 ---
 # <a name="authentication-requests-and-responses"></a>身份验证、请求和响应
 
@@ -94,7 +89,7 @@ Azure Key Vault 支持 JSON 格式的请求和响应。 Azure Key Vault 请求�
 ```  
 
 ## <a name="authentication"></a>身份验证  
- 必须对所有 Azure Key Vault 请求进行身份验证。 Azure Key Vault 支持通过 OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)] 获得的 Azure Active Directory 访问令牌。 
+ 必须对所有 Azure Key Vault 请求进行身份验证。 Azure Key Vault 支持通过 OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)] 获得的 Azure Active Directory 访问令牌。 
  
  若要详细了解如何注册应用程序和进行身份验证以使用 Azure Key Vault，请参阅[通过 Azure AD 注册客户端应用程序](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)。
  

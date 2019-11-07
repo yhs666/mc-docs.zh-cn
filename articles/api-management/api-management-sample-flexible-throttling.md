@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/03/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 6aed7cfa8852e193945c9d97fca7d920de93860d
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 11/04/2019
+ms.openlocfilehash: 95852050892cd8eef16e76759c8809a97bb39acb
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529294"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913251"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>使用 Azure API 管理进行高级请求限制
 限制传入请求是 Azure API 管理的重要功能。 通过控制请求的速率或传输的请求/数据总量，API 管理让 API 提供程序能够保护其 API 不被滥用，为不同的 API 产品层创造价值。
@@ -76,6 +76,6 @@ ms.locfileid: "59529294"
 Azure API 管理提供速率和配额限制，不但能保护 API 服务，而且能为 API 服务增加价值。 使用新的限制策略与自定义范围规则，可以更精细地控制这些策略，让客户构建更好的应用程序。 本文中的示例演示如何使用这些新策略，使用客户端 IP 地址、用户标识和客户端生成的值来创建速率限制密钥。 但是，消息中还有许多其他部分可供使用，例如用户代理、URL 路径段和消息大小。
 
 ## <a name="next-steps"></a>后续步骤
-欢迎在本主题的 Disqus 贴子中提供反馈。 我们很想知道是否还可以在方案中合理地选择其他可能的密钥值。
+请将对此主题的反馈作为 GitHub 问题提供给我们。 我们很想知道是否还可以在方案中合理地选择其他可能的密钥值。
 
 

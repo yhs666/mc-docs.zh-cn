@@ -12,24 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 03/18/2019
-ms.date: 09/23/2019
+origin.date: 09/22/2019
+ms.date: 11/04/2019
 ms.author: v-jay
 ms.reviewer: johndeu
-ms.openlocfilehash: 82927edc19ff6702bc60a6f0688de561f30e510b
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 661574ecc7d0055e4ee15f2844657573d265ed1e
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124469"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416271"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 为媒体文件编制索引
 使用 Azure Media Indexer，可以使媒体文件内容可供搜索，并为隐藏的字幕和关键字生成全文本脚本。 可以只处理一个媒体文件，也可以一次处理多个媒体文件。  
 
-> [!IMPORTANT]
-> 在编制内容的索引时，请确保使用语音清晰的媒体文件（没有背景音乐、噪音、特效音或麦克风电流嘶嘶声）。 适当内容的某些示例包括：录制的会议、讲座或演示内容。 以下内容可能不适合用于编制索引：电影、电视剧、混合了音频和声音特效的任何内容、带有背景噪音（电流嘶嘶声）的不当录制内容。
-> 
-> 
+在编制内容的索引时，请确保使用语音清晰的媒体文件（没有背景音乐、噪音、特效音或麦克风电流嘶嘶声）。 适当内容的某些示例包括：录制的会议、讲座或演示内容。 以下内容可能不适合用于编制索引：电影、电视剧、混合了音频和声音特效的任何内容、带有背景噪音（电流嘶嘶声）的不当录制内容。
 
 索引作业可生成以下输出：
 
@@ -154,7 +151,7 @@ ms.locfileid: "71124469"
 
 | 文件名 | 说明 |
 | --- | --- |
-| **InputFileName.aib** |音频索引 Blob 文件。 <br/><br/> 音频索引 Blob (AIB) 文件是二进制文件，可使用全文本搜索在 Microsoft SQL Server 中对其进行搜索。  AIB 文件的功能比简单的字幕文件要强大，因为它包含每个单词的替代项，使你可以获得更丰富的搜索体验。 <br/> <br/>它要求在运行 Microsoft SQL Server 2008 或更高版本的计算机上安装 Indexer SQL 外接程序。 使用 Microsoft SQL Server 全文搜索对 AIB 进行搜索时，搜索结果比搜索由 WAMI 生成的隐藏式字幕文件要准确。 这是因为，AIB 包含发音类似的单词替代项，而隐藏式字幕文件包含每个音频段的最高置信度单词。 如果搜索说过的话很重要，则建议将 AIB 与 Microsoft SQL Server 结合使用。<br/><br/> 若要下载外接程序，请单击 <a href="https://aka.ms/indexersql">Azure Media Indexer SQL 外接程序</a>。 <br/><br/>此外，还可以利用其他搜索引擎，如 Apache Lucene/Solr，仅根据隐藏式字幕文件和关键字 XML 文件为视频编制索引，但这将导致搜索结果不太准确。 |
+| **InputFileName.aib** |音频索引 Blob 文件。 <br/><br/> 音频索引 Blob (AIB) 文件是二进制文件，可使用全文本搜索在 Microsoft SQL Server 中对其进行搜索。  AIB 文件的功能比简单的字幕文件要强大，因为它包含每个单词的替代项，使你可以获得更丰富的搜索体验。 <br/> <br/>它要求在运行 Microsoft SQL Server 2008 或更高版本的计算机上安装 Indexer SQL 外接程序。 使用 Microsoft SQL Server 全文搜索对 AIB 进行搜索时，搜索结果比搜索由 WAMI 生成的隐藏式字幕文件要准确。 这是因为，AIB 包含发音类似的单词替代项，而隐藏式字幕文件包含每个音频段的最高置信度单词。 如果搜索说过的话很重要，则建议将 AIB 与 Microsoft SQL Server 结合使用。 <br/><br/>此外，还可以利用其他搜索引擎，如 Apache Lucene/Solr，仅根据隐藏式字幕文件和关键字 XML 文件为视频编制索引，但这将导致搜索结果不太准确。 |
 | **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |采用 SAMI、TTML 和 WebVTT 格式的隐藏式字幕 (CC) 文件。<br/><br/>这些文件可用于使听力障碍用户能够访问音频和视频文件。<br/><br/>隐藏式字幕文件包含名为 Recognizability 的标记，该标记可以根据源视频中的语音辨别度对索引作业评分<b></b>。  可使用 Recognizability 的值筛选可用的输出文件<b></b>。 如果分数较低，则表示索引结果由于音频质量问题而不佳。 |
 | **InputFileName.kw.xml<br/>InputFileName.info** |关键字和信息文件。 <br/><br/>关键字文件是 XML 文件，其中包含从语音内容中提取的关键字，以及频率和偏移量信息。 <br/><br/>信息文件是一种纯文本文件，其中包含有关每个已识别术语的详细信息。 第一行很特别，包含 Recognizability 评分。 后续每一行是使用制表符分隔的以下数据的列表：开始时间、结束时间、单词/短语、置信度。 时间以秒为单位，置信度为数字 0-1。 <br/><br/>示例行：“1.20    1.45    word    0.67” <br/><br/>这些文件可用于各种目的，如执行语音分析，公开给必应、Google 或 Microsoft SharePoint 等搜索引擎以使媒体文件更容易被发现，甚至用于传送更具相关性的广告。 |
 | **JobResult.txt** |输出清单（仅在为多个文件编制索引时存在），包含以下信息：<br/><br/><table border="1"><tr><th>InputFile</th><th>别名</th><th>MediaLength</th><th>错误</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/07/2018
+origin.date: 09/17/2019
 ms.author: v-yiso
-ms.date: 09/09/2018
-ms.openlocfilehash: ba31139601a12ebf73b022eccf7e833ea6040e69
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.date: 11/04/2018
+ms.openlocfilehash: 39b975822520446d07f305573295d3ae3402bb80
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174190"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914499"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用门户将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "70174190"
 - 必须有一个活动的 ExpressRoute 线路。 
     - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-portal-resource-manager.md)，并通过连接提供商启用该线路。
 
-    - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-portal-resource-manager.md)一文。 
+    - 确保为线路配置 Azure 专用对等互连。 有关对等互连和路由说明，请参阅[为 ExpressRoute 线路创建和修改对等互连](expressroute-howto-routing-portal-resource-manager.md)一文。
 
     - 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
     - 确保已创建并完全预配一个虚拟网络和一个虚拟网络网关。 按照说明[为 ExpressRoute 创建虚拟网关](./expressroute-howto-add-gateway-resource-manager.md)。 ExpressRoute 的虚拟网关使用 GatewayType“ExpressRoute”，而不是 VPN。

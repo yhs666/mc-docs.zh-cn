@@ -6,13 +6,13 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/05/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 8a3179c1e7562b55516fae4e58b6175e2a785460
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 10/28/2019
+ms.openlocfilehash: 6e2d95e5094bb84a0f593d488891b1a9648db8c4
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254829"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970282"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服务配额
 
@@ -31,11 +31,10 @@ ms.locfileid: "70254829"
 | 最大相异（逻辑）分区键数目 | 无限制 |
 | 每个容器的最大存储 | 无限制 |
 | 每个数据库的最大存储 | 无限制 |
-
-<!--MOONCAKE: Not Available on [filing an Azure support ticket](/azure-supportability/how-to-create-azure-support-request)-->
+| 每个帐户的最大附件大小（附件功能即将弃用） | 2 GB | 
 
 > [!NOTE]
-> 对于其分区键的存储或吞吐量需求超过限制的工作负荷，[热分区键设计](synthetic-partition-keys.md)中提供了其管理最佳做法。
+> 对于具有需要更高存储或吞吐量限制的分区键的工作负荷，若要了解其最佳管理实践，请参阅[创建合成分区键](synthetic-partition-keys.md)。
 >
 
 Cosmos 容器（或共享吞吐量数据库）的吞吐量必须至少为 400 RU。 随着容器的不断扩大，支持的最小吞吐量还取决于以下因素：

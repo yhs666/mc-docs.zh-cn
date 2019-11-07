@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中预配容器级别的吞吐量
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 07/03/2019
-ms.date: 09/30/2019
+origin.date: 09/28/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 608eb86572d85d985b845b37f877d834ec49a36a
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: e7a6d2b93e964b8ec4b5980807759ef52d29de4b
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306680"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913290"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上预配吞吐量
 
@@ -34,46 +34,15 @@ ms.locfileid: "71306680"
 
     ![数据资源管理器的屏幕截图，突出显示“新建集合”](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>使用 Azure CLI 或 PowerShell 预配吞吐量
 
-```azurecli
-# Create a container with a partition key and provision throughput of 400 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
-```
+若要创建具有专用吞吐量的容器，请参阅
 
-## <a name="provision-throughput-using-powershell"></a>使用 PowerShell 预配吞吐量
+* [使用 Azure CLI 创建容器](manage-with-cli.md#create-a-container)
+* [使用 Powershell 创建容器](manage-with-powershell.md#create-container)
 
-```powershell
-# Create a container with a partition key and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
-
-$ContainerProperties = @{
-    "resource"=@{
-        "id"=$containerName;
-        "partitionKey"=@{
-            "paths"=@("/myPartitionKey");
-            "kind"="Hash"
-        }
-    };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
-```
-
-若要在 Azure Cosmos DB 帐户（使用用于 MongoDB 的 Azure Cosmos DB API）为容器预配吞吐量，请使用 `/myShardKey` 作为分区键路径。 若要使用 Cassandra API 在 Azure Cosmos DB 帐户中为容器预配吞吐量，请使用 `/myPrimaryKey` 作为分区键路径。
+> [!Note]
+> 若要在 Azure Cosmos DB 帐户（使用用于 MongoDB 的 Azure Cosmos DB API）为容器预配吞吐量，请使用 `/myShardKey` 作为分区键路径。 若要使用 Cassandra API 在 Azure Cosmos DB 帐户中为容器预配吞吐量，请使用 `/myPrimaryKey` 作为分区键路径。
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
 
@@ -99,6 +68,7 @@ await client.CreateDocumentCollectionAsync(
 ### <a name="net-v3-sdk"></a>.NET V3 SDK
 
 ```csharp
+
 // Create a container with a partition key and provision throughput of 1000 RU/s
 string containerName = "myContainerName";
 string partitionKeyPath = "/myPartitionKey";
@@ -107,6 +77,7 @@ await this.cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(
     id: containerName,
     partitionKeyPath: partitionKeyPath,
     throughput: 1000);
+
 ```
 
 <a name="dotnet-cassandra"></a>

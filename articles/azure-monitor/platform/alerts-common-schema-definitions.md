@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor 的通用警报架构定义
 description: 了解 Azure Monitor 的通用警报架构定义
-author: anantr
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -9,12 +9,12 @@ origin.date: 03/14/2019
 ms.date: 04/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 0e4f8fb22b865ad1b1873844fe1d726547b36f0e
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ed9b8869fbab3939c32c39126028ebb376575f86
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329851"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970959"
 ---
 # <a name="common-alert-schema-definitions"></a>常见警报架构定义
 

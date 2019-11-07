@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: aebd797924ba873f7ffc407e630d4a9a8b82182b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ea81f0c6548228cae6b1d369b1a9153d51ed5cf4
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736931"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970702"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor 中的日志
 
@@ -27,7 +27,7 @@ ms.locfileid: "70736931"
 针对各种源中的数据执行复杂分析时，Azure Monitor 中的日志特别有用。 本文将会介绍如何在 Azure Monitor 中构建日志、可对数据执行哪些操作，以及如何识别需要在日志中存储数据的不同数据源。
 
 > [!NOTE]
-> 必须将 Azure Monitor 日志与 Azure 中的日志数据源区分开来。 例如，Azure 中的订阅级事件将写入到可以通过 Azure Monitor 菜单查看的[活动日志](activity-logs-overview.md)。 大多数资源会将操作信息写入可转发到不同位置的[诊断日志](diagnostic-logs-overview.md)。 Azure Monitor 日志是一个日志数据平台，它可以收集活动日志和诊断日志以及其他监视数据，以针对整个资源集提供深入分析。
+> 必须将 Azure Monitor 日志与 Azure 中的日志数据源区分开来。 例如，Azure 中的订阅级事件将写入到可以通过 Azure Monitor 菜单查看的[活动日志](activity-logs-overview.md)。 大多数资源会将操作信息写入可转发到不同位置的[诊断日志](resource-logs-overview.md)。 Azure Monitor 日志是一个日志数据平台，它可以收集活动日志和诊断日志以及其他监视数据，以针对整个资源集提供深入分析。
 
 ## <a name="what-are-azure-monitor-logs"></a>什么是 Azure Monitor 日志？
 
@@ -86,9 +86,9 @@ Azure Monitor 可从 Azure 和本地资源中的各种源收集日志数据。 �
 
 | 数据 | 说明 |
 |:---|:---|
-| 资源诊断 | 配置诊断设置以写入诊断数据，包括将指标写入 Log Analytics 工作区。 参阅[将 Azure 诊断日志流式传输到 Log Analytics](diagnostic-logs-stream-log-store.md)。 |
+| 资源诊断 | 配置诊断设置以写入诊断数据，包括将指标写入 Log Analytics 工作区。 参阅[将 Azure 诊断日志流式传输到 Log Analytics](resource-logs-collect-workspace.md)。 |
 | 监视解决方案 | 监视解决方案将其收集的数据写入其 Log Analytics 工作区。 有关解决方案的列表，请参阅 [Azure 中的管理解决方案的数据收集详细信息](../insights/solutions-inventory.md)。 有关安装和使用解决方案的详细信息，请参阅 [Azure Monitor 中的监视解决方案](../insights/solutions.md)。 |
-| 指标 | 将 Azure Monitor 资源的平台指标发送到 Log Analytics 工作区以长期保留日志数据，并使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)对其他数据类型执行复杂分析。 参阅[将 Azure 诊断日志流式传输到 Log Analytics](diagnostic-logs-stream-log-store.md)。 |
+| 指标 | 将 Azure Monitor 资源的平台指标发送到 Log Analytics 工作区以长期保留日志数据，并使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)对其他数据类型执行复杂分析。 参阅[将 Azure 诊断日志流式传输到 Log Analytics](resource-logs-collect-workspace.md)。 |
 | Azure 表存储 | 从某些 Azure 资源会将监视数据写入到的 Azure 存储中收集数据。 参阅[将适用于 IIS 的 Azure Blob 存储和适用于事件的 Azure 表存储与 Log Analytics 配合使用](azure-storage-iis-table.md)。 |
 
 ### <a name="virtual-machines"></a>虚拟机

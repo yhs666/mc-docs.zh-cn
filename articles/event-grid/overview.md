@@ -6,16 +6,16 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-origin.date: 04/04/2019
-ms.date: 06/03/2019
+origin.date: 05/25/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: 2fabe776ea6ff62aeba4c7ad17b9cbaae97274e3
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: a7276820ba92242fc41dbf6ef7f61569a48c5d1a
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195104"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426077"
 ---
 # <a name="what-is-azure-event-grid"></a>什么是 Azure 事件网格？
 
@@ -23,6 +23,7 @@ ms.locfileid: "66195104"
 
 可以使用筛选器将特定事件路由到不同的终结点，多播到多个终结点，并确保事件可靠传送。
 
+部署 Azure 事件网格是为了通过本机分布在每个区域中的多个容错域和可用性区域（在支持它们的区域中）来最大限度地提高可用性。 
 
 本文将对 Azure 事件网格进行简要概述。 若要开始使用事件网格，请参阅[使用 Azure 事件网格创建和路由自定义事件](custom-event-quickstart.md)。 
 
@@ -43,7 +44,7 @@ ms.locfileid: "66195104"
 * [资源组（管理操作）](event-sources.md#resource-groups)
 * [服务总线](event-sources.md#service-bus)
 * [存储 Blob](event-sources.md#storage)
-* [Azure Maps](event-sources.md)
+
 
 ## <a name="event-handlers"></a>事件处理程序
 
@@ -56,17 +57,18 @@ ms.locfileid: "66195104"
 * [逻辑应用](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [队列存储](event-handlers.md#queue-storage)
+* [服务总线](event-handlers.md#service-bus-queue-preview)（预览版）
 * [WebHook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>概念
 
 在可以开始进行操作的 Azure 事件网格中有五个概念：
 
-* 事件 - 发生了什么。
+*  事件 - 发生了什么。
 * **事件源** - 事件发生的地点。
-* 主题 - 其中发布者发送事件的终结点。
+*  主题 - 其中发布者发送事件的终结点。
 * **事件订阅** - 用于路由事件，有时用于多个处理程序的终结点或内置机制。 订阅还用于处理程序，以便智能地筛选传入事件。
-* 事件处理程序 - 对事件作出反应的应用或服务。
+*  事件处理程序 - 对事件作出反应的应用或服务。
 
 有关这些概念的详细信息，请参阅 [Azure 事件网格中的概念](concepts.md)。
 
@@ -74,14 +76,14 @@ ms.locfileid: "66195104"
 
 下面是 Azure 事件网格中的一些主要功能：
 
-* 简洁性 - 指向并单击从 Azure 资源到任何事件处理程序或终结点的目标事件。
+*  简洁性 - 指向并单击从 Azure 资源到任何事件处理程序或终结点的目标事件。
 * **高级筛选** - 筛选事件类型或事件发布路径，以确保事件处理程序仅接收相关的事件。
 * **扇出** - 订阅到相同事件的多个终结点，以将该事件的副本发送到所需的所有位置。
 * **可靠性** - 使用指数退避算法在 24 小时内重试，以确保事件成功传送。
-* 按事件支付 - 仅支付事件网格的使用量。
-* 高吞吐量 - 通过对每秒数以百万计事件的支持，在事件网格上生成大量工作负荷。
-* 内置事件 - 使用资源定义的内置事件快速启动和运行。
-* 自定义事件 - 在应用中使用事件网格路由、筛选并可靠地传送自定义事件。
+*  按事件支付 - 仅支付事件网格的使用量。
+*  高吞吐量 - 通过对每秒数以百万计事件的支持，在事件网格上生成大量工作负荷。
+*  内置事件 - 使用资源定义的内置事件快速启动和运行。
+*  自定义事件 - 在应用中使用事件网格路由、筛选并可靠地传送自定义事件。
 
 有关事件网格、事件中心和服务总线之间的比较，请参阅[在传送消息的 Azure 服务之间进行选择](compare-messaging-services.md)。
 
@@ -113,6 +115,7 @@ Azure 事件网格使用按事件支付的定价模型，因此，你只需为�
 
 ## <a name="next-steps"></a>后续步骤
 
+* [路由存储 Blob 事件](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fevent-grid%2ftoc.json)  
   使用事件网格响应存储 blob 事件。
 * [创建并订阅自定义事件](custom-event-quickstart.md)  
   立即开始使用 Azure 事件网格快速入门，将自己的自定义事件发送到任何终结点。

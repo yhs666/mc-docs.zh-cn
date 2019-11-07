@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 遥测数据模型 - 依赖项遥测 | Azure Docs
 description: 适用于依赖项遥测的 Application Insights 数据模型
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 04/17/2017
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: fe32e59334e9d2bf53f15c26060029d4e5bc86bc
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a32f7717dabed91d968c17f37177eebb902ddbc5
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737298"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970871"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>依赖项遥测：Application Insights 数据模型
 

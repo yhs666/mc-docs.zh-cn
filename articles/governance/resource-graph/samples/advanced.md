@@ -3,18 +3,18 @@ title: 高级查询示例
 description: 使用 Azure 资源图来运行一些高级查询，包括 VMSS 容量、列出所有使用的标记以及使用正则表达式匹配虚拟机。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 08/29/2019
-ms.date: 10/21/2019
+origin.date: 10/18/2019
+ms.date: 11/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b767f04dd75da9f08b5fef6ba9359f8c6a4974b2
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: cc21b844badbb0a55a91e92caa9a9d9703e25d8e
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292558"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914503"
 ---
 # <a name="advanced-resource-graph-queries"></a>高级资源图表查询
 
@@ -24,8 +24,15 @@ ms.locfileid: "72292558"
 
 > [!div class="checklist"]
 > - [获取虚拟机规模集容量和大小](#vmss-capacity)
+> - [删除结果中的列](#remove-column)
 > - [列出所有标记名称](#list-all-tags)
 > - [由正则表达式匹配的虚拟机](#vm-regex)
+> - [列出具有特定写入位置的 Cosmos DB](#mvexpand-cosmosdb)
+> - [具有订阅名称的密钥保管库](#join)
+> - [列出 SQL 数据库及其弹性池](#join-sql)
+> - [列出其网络接口和公共 IP 的虚拟机](#join-vmpip)
+> - [在资源组中查找具有特定标记的存储帐户](#join-findstoragetag)
+> - [将两个查询的结果合并为单个结果](#unionresults)
 > - [使用 DisplayNames 包括租户和订阅名称](#displaynames)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
@@ -38,18 +45,38 @@ Azure CLI（通过扩展）和 Azure PowerShell（通过模块）支持 Azure �
 此查询将查找虚拟机规模集资源，并获取各种详细信息，包括规模集的虚拟机大小和容量。 此查询使用 `toint()` 函数将容量强制转换为数字以供排序。 最后会将列重命名为自定义命名属性。
 
 ```kusto
-where type=~ 'microsoft.compute/virtualmachinescalesets'
+Resources
+| where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
 | order by Capacity desc
 ```
 
 ```azurecli
-az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
+az graph query -q "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
 ```azurepowershell
-Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
+Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
+```
+
+## <a name="remove-column"></a>删除结果中的列
+
+以下查询使用 `summarize` 按订阅对资源进行计数，使用 `join` 将其与 _ResourceContainers_ 表中的订阅详细信息合并，然后使用 `project-away` 删除某些列。
+
+```kusto
+Resources
+| summarize resourceCount=count() by subscriptionId
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
+| project-away subscriptionId, subscriptionId1
+```
+
+```azurecli
+az graph query -q "Resources | summarize resourceCount=count() by subscriptionId | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId| project-away subscriptionId, subscriptionId1"
+```
+
+```azurepowershell
+Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscriptionId | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId| project-away subscriptionId, subscriptionId1"
 ```
 
 ## <a name="list-all-tags"> </a>列出所有标记名称
@@ -57,16 +84,17 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 此查询以标记开头，并生成一个 JSON 对象，列出所有唯一标记名称及其对应的类型。
 
 ```kusto
-project tags
+Resources
+| project tags
 | summarize buildschema(tags)
 ```
 
 ```azurecli
-az graph query -q "project tags | summarize buildschema(tags)"
+az graph query -q "Resources | project tags | summarize buildschema(tags)"
 ```
 
 ```azurepowershell
-Search-AzGraph -Query "project tags | summarize buildschema(tags)"
+Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 ```
 
 ## <a name="vm-regex"></a>由正则表达式匹配的虚拟机
@@ -86,17 +114,163 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 按名称进行匹配后，查询将对名称进行投影并按名称升序排序。
 
 ```kusto
-where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
+Resources
+| where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc
 ```
 
 ```azurecli
-az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
 ```azurepowershell
-Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+```
+
+## <a name="mvexpand-cosmosdb"></a>列出具有特定写入位置的 Cosmos DB
+
+以下查询限制为 Cosmos DB 资源，使用 `mv-expand` 扩展了 **properties.writeLocations** 的属性包，然后投影了特定字段并将结果进一步限制为 **properties.writeLocations.locationName** 值（与“中国东部”或“中国北部”匹配）。
+
+```kusto
+Resources
+| where type =~ 'microsoft.documentdb/databaseaccounts'
+| project id, name, writeLocations = (properties.writeLocations)
+| mv-expand writeLocations
+| project id, name, writeLocation = tostring(writeLocations.locationName)
+| where writeLocation in ('China East', 'China North')
+| summarize by id, name
+```
+
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.documentdb/databaseaccounts' | project id, name, writeLocations = (properties.writeLocations) | mv-expand writeLocations | project id, name, writeLocation = tostring(writeLocations.locationName) | where writeLocation in ('China East', 'China North') | summarize by id, name"
+```
+
+```azurepowershell
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databaseaccounts' | project id, name, writeLocations = (properties.writeLocations) | mv-expand writeLocations | project id, name, writeLocation = tostring(writeLocations.locationName) | where writeLocation in ('China East', 'China North') | summarize by id, name"
+```
+
+## <a name="join"></a>具有订阅名称的密钥保管库
+
+以下查询显示了 `join` 的复杂用法。 查询将联接表限制为订阅资源并具有 `project`，以仅包括原始字段 _SubscriptionId_ 和重命名为 _SubName_ 的 _name_ 字段。 字段重命名避免了 `join` 将其添加为 _name1_，因为该字段已存在于_资源_中。 原始表使用 `where` 进行筛选，以下 `project` 包括两个表中的列。 查询结果是单个密钥保管库，其中显示密钥保管库的类型、名称以及其所在的订阅的名称。
+
+```kusto
+Resources
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
+| where type == 'microsoft.keyvault/vaults'
+| project type, name, SubName
+| limit 1
+```
+
+```azurecli
+az graph query -q "Resources | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId | where type == 'microsoft.keyvault/vaults' | project type, name, SubName| limit 1"
+```
+
+```azurepowershell
+Search-AzGraph -Query "Resources | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId | where type == 'microsoft.keyvault/vaults' | project type, name, SubName| limit 1"
+```
+
+## <a name="join-sql"></a>列出 SQL 数据库及其弹性池
+
+以下查询使用 **leftouter** `join` 将 SQL 数据库资源及其相关弹性池组合在一起（如果有）。
+
+```kusto
+Resources
+| where type =~ 'microsoft.sql/servers/databases'
+| project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId))
+| join kind=leftouter (
+    Resources
+    | where type =~ 'microsoft.sql/servers/elasticpools'
+    | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state)
+on elasticPoolId
+| project-away elasticPoolId1
+```
+
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.sql/servers/databases' | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId)) | join kind=leftouter ( Resources | where type =~ 'microsoft.sql/servers/elasticpools' | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state) on elasticPoolId | project-away elasticPoolId1"
+```
+
+```azurepowershell
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/databases' | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId)) | join kind=leftouter ( Resources | where type =~ 'microsoft.sql/servers/elasticpools' | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state) on elasticPoolId | project-away elasticPoolId1"
+```
+
+## <a name="join-vmpip">列出具有其网络接口和公共 IP 的虚拟机</a>
+
+此查询使用两个 **leftouter**  `join` 命令将虚拟机、其相关网络接口以及与这些网络接口相关的任何公共 IP 地址组合在一起。
+
+```kusto
+Resources
+| where type =~ 'microsoft.compute/virtualmachines'
+| extend nics=array_length(properties.networkProfile.networkInterfaces) 
+| mvexpand nic=properties.networkProfile.networkInterfaces 
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| join kind=leftouter (
+    Resources
+    | where type =~ 'microsoft.network/networkinterfaces'
+    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
+    | mvexpand ipconfig=properties.ipConfigurations 
+    | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
+    | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
+on nicId
+| project-away nicId1
+| summarize by vmId, vmName, vmSize, nicId, publicIpId
+| join kind=leftouter (
+    Resources
+    | where type =~ 'microsoft.network/publicipaddresses'
+    | project publicIpId = id, publicIpAddress = properties.ipAddress)
+on publicIpId
+| project-away publicIpId1
+```
+
+```azurecli
+azure graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mvexpand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mvexpand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
+```
+
+```azurepowershell
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mvexpand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mvexpand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
+```
+
+## <a name="join-findstoragetag"></a>在资源组上查找具有特定标记的存储帐户
+
+以下查询使用 **innerunique** `join`将存储帐户与具有指定标记名称和标记值的资源组连接。
+
+```kusto
+Resources
+| where type =~ 'microsoft.storage/storageaccounts'
+| join kind=innerunique (
+    ResourceContainers
+    | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
+    | where tags['key1'] == 'value1'
+    | project subscriptionId, resourceGroup)
+on subscriptionId, resourceGroup
+| project-away subscriptionId1, resourceGroup1
+```
+
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=innerunique ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
+```
+
+```azurepowershell
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=innerunique ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
+```
+
+## <a name="unionresults"></a>将两个查询的结果合并为单个结果
+
+以下查询使用 `union` 从 _ResourceContainers_ 表中获取结果，并将它们添加到 _Resources_ 表中的结果。
+
+```kusto
+ResourceContainers
+| where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5
+| union  (Resources | project name, type | limit 5)
+```
+
+```azurecli
+az graph query -q "ResourceContainers | where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5 | union  (Resources | project name, type | limit 5)"
+```
+
+```azurepowershell
+Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5 | union  (Resources | project name, type | limit 5)"
 ```
 
 ## <a name="displaynames"></a>使用 DisplayNames 包括租户和订阅名称

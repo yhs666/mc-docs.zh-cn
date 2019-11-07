@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 01/27/2019
 ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 920508da3b9c6df97ea80aee0839f9b71b6bb567
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ba6a55aeec608884cab8562da7188ac036a5a234
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570262"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72979319"
 ---
 通过收集、查看和分析诊断与日志数据，可以利用很多机会来监视 VM。 若要执行简单的 VM [监视](../articles/azure-monitor/overview.md)，可以在 Azure 门户中使用 VM 的“概述”屏幕。 可以使用[扩展](../articles/virtual-machines/windows/extensions-features.md)配置 VM 的诊断以收集更多指标数据。
 
@@ -56,12 +56,12 @@ ms.locfileid: "67570262"
 
 还可以通过使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest) 或[监视 REST API](https://docs.microsoft.com/rest/api/monitor/) 访问活动日志数据。
 
-[Azure 诊断日志](../articles/azure-monitor/platform/diagnostic-logs-overview.md)是 VM 发出的日志，其中提供与该 VM 的操作相关的各种频繁生成的数据。 不同于活动日志，诊断日志提供有关在 VM 中执行的操作的见解。
+[Azure 诊断日志](../articles/azure-monitor/platform/resource-logs-overview.md)是 VM 发出的日志，其中提供与该 VM 的操作相关的各种频繁生成的数据。 不同于活动日志，诊断日志提供有关在 VM 中执行的操作的见解。
 
 可以对诊断日志执行的部分操作包括：
 
-- 将诊断日志保存到[存储帐户](../articles/azure-monitor/platform/archive-diagnostic-logs.md)进行审核或手动检查。 可以使用“资源诊断设置”指定保留时间（天）。
-- [将诊断日志流式传输到事件中心](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
+- 将诊断日志保存到[存储帐户](../articles/azure-monitor/platform/resource-logs-collect-storage.md)进行审核或手动检查。 可以使用“资源诊断设置”指定保留时间（天）。
+- [将诊断日志流式传输到事件中心](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
 <!--Not Available on  [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)-->
 
 ## <a name="advanced-monitoring"></a>高级监视

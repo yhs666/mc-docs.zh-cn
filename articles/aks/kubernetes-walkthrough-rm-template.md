@@ -6,22 +6,22 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
 origin.date: 04/19/2019
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6fd08a392eefbaf808caee9a0a58e3422affcfe5
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 12937548c9f23c8a36c5ad3363f1ab8aa8c50680
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500709"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068885"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板部署 Azure Kubernetes 服务 (AKS) 群集
 
 Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管式 Kubernetes 服务。 在本快速入门中，我们将使用 Azure 资源管理器模板部署一个 AKS 群集。 该群集中将运行一个包含 Web 前端和 Redis 实例的多容器应用程序。
 
-![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 本快速入门假设读者基本了解 Kubernetes 的概念。 有关详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
@@ -29,9 +29,9 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 <!--MOONCAKE : NOT available on Cloud Shell-->
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.61 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -270,7 +270,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 若要查看 Azure Vote 应用的实际效果，请打开 Web 浏览器并转到服务的外部 IP 地址。
 
-![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="delete-cluster"></a>删除群集
 

@@ -4,17 +4,17 @@ description: Azure 存储现提供 Blob 对象软删除，目的是为了在应�
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 07/15/2019
+ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 7f4a757fb6e16f5cd0f09ba8fa6d628ac9399e26
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 194df465bc2cc2aac869772cc6bccc134a9e9a7b
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844502"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913268"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 存储 Blob 的软删除
 Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或其他存储帐户用户错误地修改或删除数据后可以更轻松地恢复数据。
@@ -228,10 +228,12 @@ from azure.storage.blob import BlockBlobService
 from azure.storage.common.models import DeleteRetentionPolicy
 
 # Initialize a block blob service
-block_blob_service = BlockBlobService(account_name='<enter your storage account name>', account_key='<enter your storage account key>', endpoint_suffix='core.chinacloudapi.cn')
+block_blob_service = BlockBlobService(
+    account_name='<enter your storage account name>', account_key='<enter your storage account key>', endpoint_suffix='core.chinacloudapi.cn')
 
 # Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
+block_blob_service.set_blob_service_properties(
+    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
 ### <a name="net-client-library"></a>.Net 客户端库

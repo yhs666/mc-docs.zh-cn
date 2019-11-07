@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 02/13/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 71adaebd457b0277ae4e37e2eec31b570f6554a8
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 82671e3308110a6f983447906506e088fb28ccf8
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329848"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970739"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
@@ -54,7 +54,7 @@ ms.locfileid: "71329848"
 | --- | --- | --- |
 | [Windows 代理](../../azure-monitor/platform/agent-windows.md) | 否 | 解决方案不会从 Windows 代理收集信息。 |
 | [Linux 代理](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解决方案不会从 Linux 代理收集信息。 |
-| [Azure 存储帐户](diagnostic-logs-stream-log-store.md) | 否 | 该解决方案不会从 Azure 存储收集信息。 |
+| [Azure 存储帐户](resource-logs-collect-workspace.md) | 否 | 该解决方案不会从 Azure 存储收集信息。 |
 
 ## <a name="prerequisites"></a>先决条件
 

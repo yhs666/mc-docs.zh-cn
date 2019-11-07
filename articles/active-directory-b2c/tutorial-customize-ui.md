@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: b23362e8435eaa16e2d5a3ffb236305a7645010b
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: f186f0c6aaf2d65d60f79b7da4c18f4ec3b67247
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391605"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847131"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中自定义用户界面体验
 
-对于更常见的用户体验，例如注册、登录和配置文件编辑，可在 Azure Active Directory (Azure AD) B2C 中使用[用户流](active-directory-b2c-reference-policies.md)。 本教程中的信息有助于了解如何使用自己的 HTML 和 CSS 文件[自定义用户界面 (UI)](customize-ui-overview.md)。
+对于更常见的用户体验，例如注册、登录和配置文件编辑，可在 Azure Active Directory B2C (Azure AD B2C) 中使用[用户流](active-directory-b2c-reference-policies.md)。 本教程中的信息有助于了解如何使用自己的 HTML 和 CSS 文件[自定义用户界面 (UI)](customize-ui-overview.md)。
 
 在本文中，学习如何：
 
@@ -44,7 +44,7 @@ ms.locfileid: "68391605"
 虽然可以通过多种方式存储文件，但在本教程中，可以将其存储在 [Azure Blob 存储](../storage/blobs/storage-blobs-introduction.md)中。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 请确保使用的是包含 Azure 订阅的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含订阅的目录  。 此目录与包含 Azure B2C 租户的目录不同。
+2. 请确保使用的是包含 Azure 订阅的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含订阅的目录  。 此目录与包含 Azure B2C 租户的目录不同。
 3. 选择 Azure 门户左上角的“所有服务”，搜索并选择“存储帐户”  。
 4. 选择“设置”  （应用程序对象和服务主体对象）。
 5. 在“资源组”下，选择“新建”，输入新资源组的名称，然后单击“确定”    。
@@ -64,7 +64,7 @@ ms.locfileid: "68391605"
 
 1. 在菜单中，选择“CORS”  。
 2. 对于“允许的源”  ，请输入 `https://your-tenant-name.b2clogin.cn`。 将 `your-tenant-name` 替换为 Azure AD B2C 租户的名称。 例如，`https://fabrikam.b2clogin.cn`。 输入租户名称时，需要使用全小写字母。
-3. 对于“允许的方法”，请同时选择 `GET` 和 `OPTIONS`  。
+3. 对于**允许的方法**，请选择 `GET`、`PUT` 和 `OPTIONS`。
 4. 对于“允许的标头”  ，请输入一个星号 (*)。
 5. 对于“公开的标头”  ，请输入一个星号 (*)。
 6. 对于“最大期限”  ，请输入 200。

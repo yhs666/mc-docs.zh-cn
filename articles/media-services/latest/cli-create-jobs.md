@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/01/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 2c92aedc06100e7a4df5eb67cea4a23a19c8e1f8
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 736e4863a1874d03099dff1939f61a9ef6f9f30f
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125652"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416258"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 示例：创建并提交作业
 
@@ -88,4 +88,4 @@ az ams job start \
 
 ## <a name="next-steps"></a>后续步骤
 
-[媒体服务概述](media-services-overview.md)
+[az ams job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)

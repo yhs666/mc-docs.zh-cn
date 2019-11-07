@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: afe22015f0a9c62b4f991574a7ad3d68fd8f0c90
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 9d09bbb51736f6775063d990e4f3ce256c3ef036
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391615"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847134"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -42,7 +42,7 @@ ms.locfileid: "68391615"
 | 属性 | 必须 | 说明 |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | 是 | 用于执行策略的架构版本。 值必须是 `0.3.0.0` |
-| TenantObjectId | 否 | Azure Active Directory (Azure AD) B2C 租户的唯一对象标识符。 |
+| TenantObjectId | 否 | Azure Active Directory B2C (Azure AD B2C) 租户的唯一对象标识符。 |
 | TenantId | 是 | 此策略所属的租户的唯一标识符。 |
 | `PolicyId` | 是 | 策略的唯一标识符。 此标识符必须带有 *B2C_1A_* 前缀 |
 | PublicPolicyUri | 是 | 策略的 URI，它是租户 ID 和策略 ID 的组合。 |

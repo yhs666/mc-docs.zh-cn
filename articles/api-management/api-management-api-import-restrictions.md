@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2019
 ms.author: v-yiso
-ms.date: 10/21/2019
-ms.openlocfilehash: 97e84f98e1a7c4396ea1da690ce369085ffb7e48
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 11/04/2019
+ms.openlocfilehash: bdd2c3cbeea0180b73c453a3b8caaafb57a71518
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292400"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913261"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -39,6 +39,7 @@ ms.locfileid: "72292400"
 * **递归** - API 管理目前不支持以递归方式定义的定义（例如，引用自身的架构）。
 * 源文件 URL（如果可用）应用于相对服务器 URL。
 * 忽略安全定义。
+* 不支持 API 操作的内联架构定义。 架构定义在 API 范围内定义，可在 API 操作请求或响应范围内引用。
 
 ### <a name="open-api-v2"> </a>OpenAPI 版本 2
 
@@ -49,9 +50,6 @@ ms.locfileid: "72292400"
 * 如果指定了多个服务器，API 管理将尝试选择第一个 HTTP URL  。 如果不存在任何 HTTP URL，则为第一个 HTTP URL。 如果不存在任何 HTTP URL，则服务器 URL 将为空。
 * 不支持“Examples”，但支持“example”   。
 * 不支持“Multipart/form-data”  。
-
-> [!IMPORTANT]
-> 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)。
 
 ## <a name="wsdl"> </a>WSDL
 

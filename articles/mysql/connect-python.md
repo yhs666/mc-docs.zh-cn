@@ -1,27 +1,29 @@
 ---
-title: 通过 Python 连接到 Azure Database for MySQL
+title: 快速入门：通过 Python 连接到 Azure Database for MySQL
 description: 本快速入门提供了多个 Python 代码示例，你可以使用它来连接到 Azure Database for MySQL 并查询其中的数据。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.custom: mvc
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 08/08/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 51861f710c67b502635459c37eefe97068eb2b53
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: de07b409dce643b836eea962f2263f38294f6342
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307761"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142140"
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Python 连接和查询数据
+# <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>快速入门：使用 Python 通过 Azure Database for MySQL 连接并查询数据
 
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure Database for MySQL。 该语言可以通过 Mac OS、Ubuntu Linux 和 Windows 平台，使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本主题假设你熟悉如何使用 Python 进行开发，但不太熟悉 Azure Database for MySQL 的用法。
+本文演示了如何使用 [Python](https://python.org) 连接到 Azure Database for MySQL。 该语言可以通过 Mac OS、Ubuntu Linux 和 Windows 平台，使用 SQL 语句在数据库中查询、插入、更新和删除数据。 
+
+本主题假设你熟悉如何使用 Python 进行开发，但不太熟悉 Azure Database for MySQL 的用法。
 
 ## <a name="prerequisites"></a>先决条件
 此快速入门使用以下任意指南中创建的资源作为起点：
@@ -71,7 +73,7 @@ ms.locfileid: "71307761"
 2. 在 Azure 门户的左侧菜单中，选择“所有资源”  ，然后搜索已创建的服务器（例如 mydemoserver  ）。
 3. 选择服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。    如果忘记了密码，也可通过此面板来重置密码。
- ![Azure Database for MySQL 服务器名称](./media/connect-python/1_server-overview-name-login.png)
+ ![Azure Database for MySQL 服务器名称](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
 
 ## <a name="run-python-code"></a>运行 Python 代码
 - 将代码粘贴到文本文件中，然后将该文件使用 .py 文件扩展名保存到项目文件夹中（例如 C:\pythonmysql\createtable.py 或 /home/username/pythonmysql/createtable.py）。

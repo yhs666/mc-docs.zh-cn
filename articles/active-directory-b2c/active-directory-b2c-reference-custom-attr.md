@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 07/22/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 2e8af1bf4172ba4fbd735f2887812f554b45d036
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: a4cb5777764b40c3c620a757da866d156b891f41
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391598"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847059"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中定义自定义属性
 
- 每个面向客户的应用程序对需要收集的信息都有独特的要求。 Azure Active Directory (Azure AD) B2C 租户附带了一组存储在属性中的内置信息：名、姓、市、邮编。 在 Azure AD B2C 中，可以扩展存储在每个客户帐户上的属性集。
+ 每个面向客户的应用程序对需要收集的信息都有独特的要求。 Azure Active Directory B2C (Azure AD B2C) 租户附带了一组存储在属性中的内置信息：名字、姓氏、城市和邮政编码。 在 Azure AD B2C 中，可以扩展存储在每个客户帐户上的属性集。
 
  可以在 [Azure 门户](https://portal.azure.cn/) 中创建自定义属性并将其用于注册用户流、注册或登录用户流或配置文件编辑用户流。 还可以使用 [Azure AD 图形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 读取和写入这些属性。 Azure AD B2C 中的自定义属性使用 [Azure AD 图形 API 目录架构扩展](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)。  
 

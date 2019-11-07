@@ -17,12 +17,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 95c880d7e40ce7efb29c88e43e2100db16e82788
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: cf30b9522ff85bf7204d9f25e22a569ff9cc093b
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857373"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142113"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>配置 Azure Stack 诊断日志自动收集
 
@@ -38,7 +38,7 @@ ms.locfileid: "70857373"
 
 可以使用新的或 Azure 中的现有 Blob 容器。 若要在 Azure 中创建 Blob 容器，至少需要拥有[存储 Blob 参与者角色](/role-based-access-control/built-in-roles#storage-blob-data-contributor)或[特定的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 全局管理员也拥有所需的权限。 
 
-有关如何为日志自动收集存储帐户选择参数的最佳做法，请参阅有关[自动收集 Azure Stack 日志的最佳做法](azure-stack-best-practices-automatic-diagnostic-log-collection.md)。 有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户概述](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
+有关如何为日志自动收集存储帐户选择参数的最佳做法，请参阅有关[自动收集 Azure Stack 日志的最佳做法](azure-stack-best-practices-automatic-diagnostic-log-collection.md)。 有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户概述](/storage/common/storage-account-overview)
 
 ### <a name="create-a-blob-storage-account"></a>创建 Blob 存储帐户
  

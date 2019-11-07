@@ -1,24 +1,19 @@
 ---
 title: 在 Azure Application Insights 中监视 Docker 应用程序 | Azure Docs
 description: Docker 性能计数器、事件和异常可连同容器化应用发送的遥测数据一起显示在 Application Insights 中。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: acc89ebfb2e23f7785c71e7a637f02436c1249a8
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 71f7355e29c19d688fbf98d7b4cb80ab7445679a
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737286"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970864"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>在 Application Insights 中监视 Docker 应用程序（已弃用）
 

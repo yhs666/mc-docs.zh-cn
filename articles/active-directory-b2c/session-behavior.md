@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 28e17c6e8ed1b86f5698b88ce8f32632f18107c7
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: 6501015cd62b931ac9c0a38816596ddeeedc363d
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391608"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847149"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中配置会话行为
 
@@ -50,7 +50,7 @@ Azure AD B2C 支持 [OpenID Connect 身份验证协议](active-directory-b2c-ref
 ## <a name="configure-the-properties"></a>配置属性
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 请务必使用包含 Azure AD B2C 租户的目录，具体方法是单击顶部菜单中的“目录和订阅筛选器”  ，再选择包含 Azure AD B2C 租户的目录。
+2. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD B2C 租户的目录  。
 3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
 4. 选择“用户流(策略)”  。
 5. 打开之前创建的用户流。

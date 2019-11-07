@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/05/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6fbf62be60fd91050a389d016b058831468413b8
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: a25d075314173a3ee91a985e7e9452d51f054754
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329943"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416337"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以编程方式生成 LUIS 应用
 
@@ -85,7 +85,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         inFile: path.join(__dirname, uploadFile),
         batchSize: 100,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
+        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
     };
 
     /* create app parameters */
@@ -94,7 +94,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         appName: LUIS_appName,
         culture: LUIS_appCulture,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/"
+        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/"
     };
 
     /* add intents parameters */
@@ -103,7 +103,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         intentList: intents,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
+        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
     };
 
     /* add entities parameters */
@@ -112,7 +112,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         entityList: entities,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
+        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
     };
 
     /* input and output files for parsing CSV */

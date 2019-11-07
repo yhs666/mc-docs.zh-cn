@@ -16,12 +16,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: b08603e87a6d531cf64188c934d9de6f3a983211
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 275da99e0661a20ef5750ce657499852ce16f27a
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857314"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142127"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM 功能
 
@@ -123,4 +123,3 @@ Azure 使用 KMS 激活来激活 Windows VM。 如果将 VM 从 Azure Stack 移�
 
 [在 Azure Stack 中使用 PowerShell 创建 Windows VM](azure-stack-quick-create-vm-windows-powershell.md)
 
-<!-- Update_Description: wording update -->

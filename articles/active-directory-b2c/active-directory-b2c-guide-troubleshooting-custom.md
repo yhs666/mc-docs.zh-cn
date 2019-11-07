@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/13/2019
-ms.date: 08/29/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 24d76cd95fe229dd7d1bf22b15bf90e8725367bf
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: 3b72611e208968672af36aeb0444e4fea5ed9e08
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310788"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847099"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 自定义策略和标识体验框架故障排除
 
@@ -57,13 +57,11 @@ XML 架构验证在上传 XML 文件之前会识别错误。 在[初学者包](h
 
 ## <a name="troubleshoot-the-runtime"></a>运行时故障排除
 
-* 使用“立即运行”和 `https://jwt.ms` 独立于 Web 应用程序或移动应用程序测试策略。  此网站的作用类似于信赖方应用程序。 它显示 Azure AD B2C 策略生成的 JSON Web 令牌 (JWT) 的内容。 若要创建测试应用程序，请在 Azure 门户中导航到“Azure AD B2C”\>“应用程序”，并添加使用以下值的应用程序：  
+* 使用“立即运行”和 `https://jwt.ms` 独立于 Web 应用程序或移动应用程序测试策略。  此网站的作用类似于信赖方应用程序。 它显示 Azure AD B2C 策略生成的 JSON Web 令牌 (JWT) 的内容。
 
-  * **名称**：TestApp
-  * **Web 应用/Web API**：否
-  * **本机客户端**：否
+    若要创建可重定向到 `https://jwt.ms` 进行令牌检查的测试应用程序，请执行以下操作：
 
-  然后，添加 `https://jwt.ms` 作为“回复 URL”。 
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * 若要跟踪客户端浏览器与 Azure AD B2C 之间的消息交换，请使用 [Fiddler](https://www.telerik.com/fiddler)。 通过它可以了解用户旅程在业务流程步骤中的哪个环节失败。
 

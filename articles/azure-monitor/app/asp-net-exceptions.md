@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure Application Insights 诊断 Web 应用中的故障和异常 | Azure Docs
 description: 从 ASP.NET 应用中捕获异常以及请求遥测。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 07/11/2019
+author: lingliw
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 69f3b3738e24140ff3d5857e7833ebab22f8bc35
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a1d21ccea100251f01090bcc0f03a70066f961c0
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737313"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970933"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 诊断 Web 应用中的异常
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可报告实时 Web 应用中的异常。 可以将失败的请求与异常关联到客户端和服务器上的其他事件，从而快速诊断原因。

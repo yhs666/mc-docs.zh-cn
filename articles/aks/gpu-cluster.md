@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 05/16/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: c54d3752cd906620df2cecede898014598325822
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: af90caab0366b00de0c3d11d6682fdfdcdaebd9c
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155853"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068893"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -74,8 +74,11 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-vm-size Standard_NC6s_v3 \
-    --node-count 1
+    --node-count 1 \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 使用 [az aks get-credentials][az-aks-get-credentials] 命令获取 AKS 群集的凭据：
 

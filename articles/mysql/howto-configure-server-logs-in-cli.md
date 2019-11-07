@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: conceptual
 origin.date: 06/12/219
 ms.date: 07/15/2019
-ms.openlocfilehash: b02ee6e6ce19d039f12ffb8996b0884b0879f872
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: c254933cb38b7c05d76d73b37d70f80e1a7291ad
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845103"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142161"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>使用 Azure CLI 配置和访问慢查询日志
+
+> [!NOTE] 
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
+
 可以使用 Azure CLI（Azure 命令行实用工具）下载 Azure Database for MySQL 慢查询日志。
 
 ## <a name="prerequisites"></a>先决条件
@@ -26,7 +30,7 @@ ms.locfileid: "67845103"
 ## <a name="configure-logging"></a>配置日志记录
 通过执行下列步骤，可以对服务器进行配置以访问 MySQL 慢查询日志：
 1. 通过将 slow\_query\_log  参数设置为 ON 启用慢查询日志记录。
-2. 调整其他参数，例如 **long\_query\_time**  和  **log\_slow\_admin\_statements**。
+2. 调整其他参数，例如 long\_query\_time  和 log\_slow\_admin\_statements  。
 
 若要了解如何通过 Azure CLI 设置这些参数的值，请参阅[如何配置服务器参数](howto-configure-server-parameters-using-cli.md)。
 

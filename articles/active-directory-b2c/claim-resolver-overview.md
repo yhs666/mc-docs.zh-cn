@@ -2,29 +2,29 @@
 title: 关于 Azure Active Directory B2C 自定义策略中的声明解析程序 | Microsoft Docs
 description: 了解声明解析程序如何用于 Azure Active Directory B2C 中的自定义策略。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 01/25/2019
-ms.date: 04/03/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4a67d69c3aefb92648d1f7e15ec393f8248fa843
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a943f3c2d9323edbf31c3363fc4e21fdba850ae7
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004283"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847120"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的声明解析程序
 
-Azure Active Directory (Azure AD) B2C [自定义策略](active-directory-b2c-overview-custom.md)中的声明解析程序提供关于授权请求的上下文信息，例如策略名称、请求相关 ID、用户界面语言等。
+Azure Active Directory B2C (Azure AD B2C) [自定义策略](active-directory-b2c-overview-custom.md)中的声明解析程序提供关于授权请求的上下文信息，例如策略名称、请求相关 ID、用户界面语言等。
 
-若要在输入或输出声明中使用声明解析程序，请在 [ClaimsSchema](claimsschema.md) 元素下定义字符串 ClaimType，然后将 DefaultValue 设置为输入或输出声明元素中的声明解析程序。 Azure AD B2C 读取声明解决程序的值并将该值用于技术配置文件中。 
+若要在输入或输出声明中使用声明解析程序，请在 [ClaimsSchema](claimsschema.md) 元素下定义字符串 ClaimType，然后将 DefaultValue 设置为输入或输出声明元素中的声明解析程序   。 Azure AD B2C 读取声明解决程序的值并将该值用于技术配置文件中。
 
-在以下示例中，使用 `string` 数据类型定义名为 `correlationId` 的声明类型。  
+在以下示例中，使用 `string` 数据类型定义名为 `correlationId` 的声明类型  。
 
 ```XML
 <ClaimType Id="correlationId">
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) B2C [自定义策略](active-directory-b2c-ove
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | 语言的两字母 ISO 代码。 | en |
 | {Culture:LCID}   | 语言代码的 LCID。 | 1033 |
-| {Culture:RegionName} | 区域的两字母 ISO 代码。 | 美国 |
+| {Culture:RegionName} | 区域的两字母 ISO 代码。 | US |
 | {Culture:RFC5646} | RFC5646 语言代码。 | en-US |
 
 ### <a name="policy"></a>策略
@@ -108,7 +108,7 @@ Azure Active Directory (Azure AD) B2C [自定义策略](active-directory-b2c-ove
 
 ### <a name="restful-technical-profile"></a>RESTful 技术配置文件
 
-在 [RESTful](restful-technical-profile.md) 技术配置文件中，可能想要发送用户语言、策略名称、作用域和客户端 ID。 根据这些声明，REST API 可以运行自定义业务逻辑，并提出已本地化的错误消息（如有必要）。 
+在 [RESTful](restful-technical-profile.md) 技术配置文件中，可能想要发送用户语言、策略名称、作用域和客户端 ID。 根据这些声明，REST API 可以运行自定义业务逻辑，并提出已本地化的错误消息（如有必要）。
 
 以下示例演示了一个 RESTful 技术配置文件：
 
@@ -139,7 +139,7 @@ Azure Active Directory (Azure AD) B2C [自定义策略](active-directory-b2c-ove
 
 通过 Azue AD B2C，可将查询字符串参数传递给 HTML 内容定义终结点，以便可以动态呈现页面内容。 例如，可以基于从 Web 或移动应用程序传递的自定义参数，更改 Azure AD B2C 注册或登录页面上的背景图像。 此外，还可以根据语言参数本地化 HTML 页，或者根据客户端 ID 更改内容。
 
-以下示例将名为 campaignId，且值为 `hawaii`，语言代码为 `en-US`，以及表示客户端 ID 的 app 的参数传入查询字符串：
+以下示例将名为 campaignId，且值为 `hawaii`，语言代码为 `en-US`，以及表示客户端 ID 的 app 的参数传入查询字符串    ：
 
 ```XML
 <UserJourneyBehaviors>
@@ -157,4 +157,4 @@ Azure Active Directory (Azure AD) B2C [自定义策略](active-directory-b2c-ove
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
 ```
 
-
+<!-- Update_Description: wording update -->

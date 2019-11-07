@@ -2,19 +2,19 @@
 title: 使用 Azure Cosmos DB 中的更改源处理器库
 description: 使用 Azure Cosmos DB 更改源处理器库。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/30/2019
-ms.author: v-yeche
+ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d43e1be630c18263f5f1f25236974014ac3255c0
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 4b1439bf3485c3abdc5a5423c934a3f74b6f1802
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306804"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72970287"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 更改源处理器 
 
@@ -43,6 +43,7 @@ ms.locfileid: "71306804"
 入口点始终是受监视容器。从 `Container` 实例调用 `GetChangeFeedProcessorBuilder`：
 
 ```csharp
+
 /// <summary>
 /// Start the Change Feed Processor to listen for changes and process them with the HandlerChangesAsync implementation.
 /// </summary>
@@ -66,6 +67,7 @@ private static async Task<ChangeFeedProcessor> StartChangeFeedProcessorAsync(
     Console.WriteLine("Change Feed Processor started.");
     return changeFeedProcessor;
 }
+
 ```
 
 其中，第一个参数是描述此处理器的目标的唯一名称，第二个参数是要处理更改的委托实现。 
@@ -73,6 +75,7 @@ private static async Task<ChangeFeedProcessor> StartChangeFeedProcessorAsync(
 委托的示例如下：
 
 ```csharp
+
 /// <summary>
 /// The delegate receives batches of changes as they are generated in the change feed and can process them.
 /// </summary>
@@ -88,6 +91,7 @@ static async Task HandleChangesAsync(IReadOnlyCollection<ToDoItem> changes, Canc
 
     Console.WriteLine("Finished handling changes.");
 }
+
 ```
 
 最后，使用 `WithInstanceName` 定义此处理器实例的名称，该实例是用于维护包含 `WithLeaseContainer` 的状态租约的容器。
@@ -136,6 +140,7 @@ static async Task HandleChangesAsync(IReadOnlyCollection<ToDoItem> changes, Canc
 现在，可以通过以下文章继续详细了解更改源处理器：
 
 * [更改源概述](change-feed.md)
+* [如何从更改源处理器库迁移](how-to-migrate-from-change-feed-library.md)
 * [使用更改源估算器](how-to-use-change-feed-estimator.md)
 * [更改源处理器开始时间](how-to-configure-change-feed-start-time.md)
 

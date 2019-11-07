@@ -1,23 +1,19 @@
 ---
-title: 使用 Azure Flow 自动执行 Azure Application Insights 过程
-description: 了解如何通过 Azure Flow 使用 Application Insights 连接器快速自动执行可重复的过程。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: 使用 Microsoft Flow自动执行 Azure Application Insights 过程
+description: 了解如何通过 Microsoft Flow 使用 Application Insights 连接器快速自动执行可重复的过程。
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 08/29/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8c0f64b684fb36387f903af1bb5bbce0be3bacb9
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 79882cbac7421b5c888ea1002f063ddf4559a62e
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330069"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970879"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-azure-flow"></a>使用 Azure Flow 的连接器自动执行 Azure Application Insights 过程
 

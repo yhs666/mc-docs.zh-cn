@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 08/26/2019
 ms.date: 08/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2c17130913c9cd213d051ff560d1d54cf9f48c2a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e47b17b0cd3a67e423c2950dc53f227bd7e98e4e
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330400"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970941"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure Monitor 中的日志数据和工作区
 
@@ -107,7 +107,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 * **false**：将工作区设置为工作区上下文权限。 如果未设置该标志，则这是默认设置。
 * **true**：将工作区设置为资源上下文权限。
 
-## 使用工作区权限管理访问 <a name="manage-accounts-and-users"></a>
+## 使用工作区权限管理访问 <a name="manage-access-using-workspace-permissions"></a>
 
 每个工作区可有多个与其关联的帐户，每个帐户可访问多个工作区。 使用 [Azure 基于角色的访问](../../role-based-access-control/role-assignments-portal.md)来管理访问权限。
 

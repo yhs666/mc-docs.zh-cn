@@ -1,8 +1,17 @@
+---
+ms.openlocfilehash: 3f5d598c83ba8692af65b30efa9f356ec11f20cb
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425890"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>通过诊断设置启用日志记录
 
-1. 登录 [Azure 门户][lnk-portal]，并导航到 IoT 中心。
-1. 选择“诊断设置”。
-1. 选择“启用诊断”。
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+1. 登录 [Azure 门户][lnk-portal]并导航到 IoT 中心。
+1. 选择“诊断设置”。 
+1. 选择“启用诊断”  。
 
    ![启用诊断](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
@@ -28,12 +37,12 @@
 如果想要通过 PowerShell 打开诊断设置，请使用以下代码：
 
 ```
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
-Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
+Connect-AzAccount -EnvironmentName AzureChinaCloud
+Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub>
+Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-新设置在大约 10 分钟后生效。 在此之后，日志将出现在“诊断设置”边栏选项卡上配置的存档目标中。 有关配置诊断的详细信息，请参阅[从 Azure 资源收集和使用日志数据](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
+新设置在大约 10 分钟后生效。 在此之后，日志将出现在“诊断设置”  边栏选项卡上配置的存档目标中。 有关配置诊断的详细信息，请参阅[从 Azure 资源收集和使用日志数据](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
 
 <!-- Images -->
 [1]: ./media/iot-hub-diagnostics-settings/turnondiagnostics.png

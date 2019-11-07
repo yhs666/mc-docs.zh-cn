@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/06/2019
 ms.date: 10/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 446e58454a22d42a65c80e000f1ae70e5308dcfa
-ms.sourcegitcommit: 4ada17c1bcd36e755afd0a8bd6e353e35cbb228b
+ms.openlocfilehash: a3fd1dcdca801da79c1f0c1af95fc2ea45c36619
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578066"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068850"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用网络策略保护 Pod 之间的流量
 
@@ -132,8 +132,11 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy azure
+    --network-policy azure \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 创建群集需要几分钟时间。 群集准备就绪后，使用 [az aks get-credentials][az-aks-get-credentials] 命令将 `kubectl` 配置为连接到 Kubernetes 群集。 此命令将下载凭据，并将 Kubernetes CLI 配置为使用这些凭据：
 

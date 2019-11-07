@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 创建事件中心 - Azure 事件中心 | Azure Docs
+title: 使用 Azure CLI 创建事件中心 - Azure 事件中心 | Azure
 description: 本快速入门介绍如何使用 Azure CLI 创建事件中心，然后使用 Java 发送和接收事件。
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,15 +8,15 @@ ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: seodec18
-origin.date: 08/16/2018
-ms.date: 05/06/2019
-ms.author: v-biyu
-ms.openlocfilehash: 34a3c70aeac3c2d732e5fb7ba2cb38d2369d25c1
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 12/06/2018
+ms.date: 09/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: 99159f401f8bdc01fdb4e67174c5d55f3d1886e7
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855022"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872921"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>快速入门：使用 Azure CLI 创建事件中心
 
@@ -28,7 +28,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 若要完成本快速入门，需要一个 Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户][]。
 
 
-如果选择在本地安装并使用 Azure CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 Azure CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -87,6 +87,6 @@ az eventhubs eventhub create --name <event hub name> --resource-group <resource 
 - [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
 [创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
-[Install Azure CLI 2.0]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[Install Azure CLI 2.0]: /cli/install-azure-cli?view=azure-cli-latest
+[az group create]: /cli/group?view=azure-cli-latest#az-group-create
+[fully qualified domain name]: https://en.wikipedia.org/wiki/Fully_qualified_domain_name

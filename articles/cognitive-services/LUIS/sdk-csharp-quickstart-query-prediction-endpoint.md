@@ -8,17 +8,17 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-origin.date: 08/07/2019
-ms.date: 09/16/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fd1eb1a85259bfa16fa78442c44ed837348fb36a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 948bac94c0f30c6664f3aadde1f192099e03bf28
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329662"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416339"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询预测终结点
+# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询 V2 预测终结点
 
 使用在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) 上提供的 .NET SDK 向语言理解 (LUIS) 发送用户话语，并接收对用户意向的预测。 
 
@@ -108,7 +108,7 @@ var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
 // Create Luis client and set endpoint
 // region of endpoint must match key's region, for example `chinaeast`
 var luisClient = new LUISRuntimeClient(credentials, new System.Net.Http.DelegatingHandler[] { });
-luisClient.Endpoint = "https://<REPLACE-WITH-YOUR-KEY-REGION>.api.cognitive.microsoft.com";
+luisClient.Endpoint = "https://<REPLACE-WITH-YOUR-KEY-REGION>.api.cognitive.azure.cn";
 ```
 
 ## <a name="set-query-parameters"></a>设置查询参数

@@ -6,16 +6,16 @@ author: lingliw
 manager: digimobile
 ms.service: batch
 ms.topic: tutorial
-origin.date: 10/24/2018
-ms.date: 11/26/2018
+origin.date: 12/11/2018
+ms.date: 10/26/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 6b513728b6a0eb3c0b18e89cd84fff3f1f2e0810
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 05964a255511666317912c6b757a51ece2e5f836
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731449"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041078"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -178,7 +178,7 @@ az storage account generate-sas \
 记下该命令返回的令牌，如下所示。 在稍后的步骤中会使用此令牌。
 
 ```
-se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## <a name="render-a-single-frame-scene"></a>渲染单帧场景

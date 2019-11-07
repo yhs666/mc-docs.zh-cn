@@ -1,10 +1,10 @@
 ---
-title: Azure 事件中心内的可用性和一致性 | Azure
+title: 可用性和一致性 - Azure 事件中心 | Azure
 description: 如何使用分区为 Azure 事件中心提供最大程度的可用性和一致性。
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: e66f7b92c699bcfc2496aa3556f494aba4b36501
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/06/2018
+ms.date: 09/11/2019
+ms.author: v-tawe
+ms.openlocfilehash: a0891ab9f7a0da020ffd2eb56993f56aa7e62ec3
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654450"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72873081"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中心内的可用性和一致性
 
 ## <a name="overview"></a>概述
-Azure 事件中心使用[分区模型](event-hubs-features.md#partitions)在单个事件中心内提高可用性和并行化。 例如，如果事件中心具有四个分区，并且其中一个分区要在负载均衡操作中从一台服务器移动到另一台服务器，则仍可以通过其他三个分区进行发送和接收。 此外，具有更多分区可以让更多并发读取器处理数据，从而提高聚合吞吐量。 了解分布式系统中分区和排序的意义是解决方案设计的重要方面。
+Azure 事件中心使用[分区模型](event-hubs-scalability.md#partitions)在单个事件中心内提高可用性和并行化。 例如，如果事件中心具有四个分区，并且其中一个分区要在负载均衡操作中从一台服务器移动到另一台服务器，则仍可以通过其他三个分区进行发送和接收。 此外，具有更多分区可以让更多并发读取器处理数据，从而提高聚合吞吐量。 了解分布式系统中分区和排序的意义是解决方案设计的重要方面。
 
 为了帮助说明排序与可用性之间的权衡，请参阅 [CAP 定理](https://en.wikipedia.org/wiki/CAP_theorem)（也称为 Brewer 的定理）。 此定理论述了如何在一致性、可用性和分区容差之间进行选择。 它指出对于由网络分区的系统，始终在一致性与可用性之间作出权衡。
 
@@ -38,7 +38,7 @@ Brewer 的定理按如下所示定义一致性和可用性：
 事件中心在分区数据模型的基础上构建。 可以在设置过程中配置事件中心内的分区数，但以后无法更改此值。 由于必须对事件中心使用分区，因此需要在应用程序的可用性和一致性方面进行决策。
 
 ## <a name="availability"></a>可用性
-开始使用事件中心的最简单方法是使用默认行为。 如果创建新的 **[EventHubClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient?view=azure-dotnet)** 对象并使用 **[Send](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
+开始使用事件中心的最简单方法是使用默认行为。 如果创建新的 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient?view=azure-dotnet)** 对象并使用 **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
 
 对于需要最大运行时间的用例，此模型是首选模型。
 
@@ -67,5 +67,3 @@ await eventHubClient.SendAsync(data);
 
 * [事件中心服务概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
-
-<!--Update_Description: update meta properties  -->

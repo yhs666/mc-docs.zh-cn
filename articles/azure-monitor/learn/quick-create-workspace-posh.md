@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 03/12/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 236ce4d9df4bad6d1c7a3a5317459bd5554eff82
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 962722039d7569216e5d8dc54533a9c2dfb74683
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737219"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970825"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 创建 Log Analytics 工作区
 
@@ -131,7 +131,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 ## <a name="next-steps"></a>后续步骤
 现在，你已有可用的工作区，可以配置监视遥测收集、运行日志搜索分析该数据，以及添加管理解决方案以提供其他数据和分析见解。  
 
-* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[在 Azure Monitor 中收集要使用的 Azure 服务日志和指标](../platform/diagnostic-logs-stream-log-store.md)。  
+* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[在 Azure Monitor 中收集要使用的 Azure 服务日志和指标](../platform/resource-logs-collect-workspace.md)。  
 * 连接 [Configuration Manager](../platform/collect-sccm.md) 以导入作为层次结构中集合成员的计算机。  
 * 查看可用的[监视解决方案](../insights/solutions.md)以及如何从工作区添加或删除解决方案。
 

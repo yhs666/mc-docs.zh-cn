@@ -14,13 +14,13 @@ ms.topic: quickstart
 origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.custom: mvc
-ms.openlocfilehash: c9c4fa2d5ffbecf62606837d5e2ab3d9ba315b2f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 485565f4f7ae1dd8a9ca6ab85450f1261df7a89c
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329711"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970856"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Windows 计算机收集数据
 
@@ -37,7 +37,7 @@ ms.locfileid: "71329711"
 
 1. 在 Azure 门户中，选择“所有服务”。  在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”  。
 
-    ![Azure 门户](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure 门户](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. 选择“创建”  ，然后为以下各项选择选项：
 
@@ -47,11 +47,12 @@ ms.locfileid: "71329711"
    * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
    * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
   
-        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. 在“Log Analytics 工作区”窗格中提供所需的信息后，选择“确定”。    
 
 在验证信息和创建工作区时，可以在菜单中的“通知”下面跟踪操作进度  。 
+
 
 ## <a name="get-the-workspace-id-and-key"></a>获取工作区 ID 和密钥
 
@@ -63,15 +64,18 @@ ms.locfileid: "71329711"
 
 3. 选择“高级设置”： 
 
-    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. 选择“已连接的源”，然后选择“Windows 服务器”   。
+
 5. 复制“工作区 ID”和“主密钥”右侧的值   。 将其粘贴到你偏爱的编辑器中。
 
 ## <a name="install-the-agent-for-windows"></a>安装适用于 Windows 的代理
+
 以下步骤将安装并配置 Azure 和 Azure 政府版中用于 Log Analytics 的代理。 你将使用 Microsoft Monitoring Agent 安装程序在计算机上安装该代理。
 
 1. 延续前面的步骤，在“Windows 服务器”页上，选择要下载的 **Windows 代理**版本。  选择适用于你的 Windows 操作系统处理器体系结构的版本。
+
 2. 运行安装程序在计算机上安装该代理。
 
 3. 在“欢迎”页上，选择“下一步”。  
@@ -105,13 +109,18 @@ Azure Monitor 可从 Windows 事件日志以及性能计数器中收集指定的
 
 2. 选择“高级设置”： 
 
-    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 高级设置](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. 选择“数据”  ，然后选择“Windows 事件日志”  。  
+
 4. 可通过输入日志名称来添加事件日志。 输入“系统”，然后选择加号 ( **+** )。   
+
 5. 在表中，选择“错误”和“警告”严重性。  
+
 6. 在页面顶部选择“保存”  。
+
 7. 选择“Windows 性能计数器”  ，在 Windows 计算机上启用性能计数器收集。
+
 8. 首次为新的 Log Analytics 工作区配置 Windows 性能计数器时，可以选择快速创建几个通用的计数器。 每个选项将会列出，其旁边带有一个复选框：
 
     ![Windows 性能计数器](media/quick-collect-windows-computer/windows-perfcounters-default.png)上获取。

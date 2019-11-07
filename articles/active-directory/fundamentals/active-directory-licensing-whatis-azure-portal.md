@@ -10,17 +10,17 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 origin.date: 10/29/2018
-ms.date: 08/27/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a4ad25af9b9f9348ebd2d5078bed37083108cb9
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: ca55652bf71c96499d98b5f9e5ad82515bf91077
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134184"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912752"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory 中基于组的许可是什么？
 
@@ -44,7 +44,7 @@ Microsoft 付费云服务（如 Office 365、企业移动性 + 安全性、Dynam
 
 基于组的许可功能提供以下主要功能：
 
-- 可以将许可证分配到 Azure AD 中的任何安全组。 可以使用 Azure AD Connect 从本地同步安全组。 还可以在 Azure AD 中直接创建安全组（也称为仅限云的组），或通过 Azure AD 的动态组功能自动创建安全组。
+- 可以将许可证分配到 Azure AD 中的任何安全组。 可以使用 Azure AD Connect 从本地同步安全组。 还可以在 Azure AD 中直接创建安全组（也称为仅限云的组）。
 
 - 将产品许可证分配到组时，管理员可以禁用产品中的一个或多个服务计划。 通常，在组织尚未准备好开始使用产品中包含的服务时会执行此分配。 例如，管理员可能要将 Office 365 分配给某个部门，但又要暂时禁用 Yammer 服务。
 
@@ -70,7 +70,6 @@ Microsoft 付费云服务（如 Office 365、企业移动性 + 安全性、Dynam
 * [识别和解决 Azure Active Directory 中组的许可问题](../users-groups-roles/licensing-groups-resolve-problems.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](../users-groups-roles/licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](../users-groups-roles/licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
 
 <!-- Update_Description: wording update -->

@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 06/13/2019
-ms.date: 09/10/2019
+origin.date: 10/09/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 736674424a1a5c20b4ac977decb88a8fdceeaccc
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 43245de28dc83b5b71bf31f73c482891b23acb89
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857425"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798516"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自动缩放和区域冗余应用程序网关 v2 
 
@@ -59,7 +59,7 @@ ms.locfileid: "70857425"
 
 可将应用程序网关和 WAF 配置为以两种模式进行缩放：
 
-- **自动缩放** - 启用自动缩放后，应用程序网关和 WAF v2 SKU 将会根据应用程序流量要求进行纵向缩放。 此模式为应用程序提供更好的弹性，使你无需猜测应用程序网关大小或实例计数。 另外，使用此模式无需在预配容量达到峰值时，为预见的最大流量负载运行网关，因而可以节省成本。 客户必须指定最小和（可选）最大实例计数。 最小容量确保应用程序网关和 WAF v2 不会低于指定的最小实例计数，即使在没有流量时也是如此。 即使没有任何流量，你也需要为此最小容量付费。 你还可以选择性地指定最大实例计数，这样可以确保应用程序网关不会扩展到超出指定数量的实例。 你要继续为网关服务的流量付费。 实例计数的范围为 0 到 125。 如果未指定，最大实例计数的默认值为 20。
+- **自动缩放** - 启用自动缩放后，应用程序网关和 WAF v2 SKU 将会根据应用程序流量要求进行纵向缩放。 此模式为应用程序提供更好的弹性，使你无需猜测应用程序网关大小或实例计数。 使用此模式还可以不要求网关为预期的最大流量负载以最大预配容量运行，从而节省成本。 必须指定最小和（可选）最大实例计数。 最小容量确保应用程序网关和 WAF v2 不会低于指定的最小实例计数，即使在没有流量时也是如此。 每个实例计为 10 个额外的预留容量单位。 0 表示没有保留容量，本质上是纯自动缩放。 请注意，0 个额外的最小实例仍可确保服务的高可用性，该服务始终包含在固定价格中。 你还可以选择性地指定最大实例计数，这样可以确保应用程序网关不会扩展到超出指定数量的实例。 你要继续为网关服务的流量付费。 实例计数的范围为 0 到 125。 如果未指定，最大实例计数的默认值为 20。 
 - **手动** - 也可以选择“手动”模式，在这种情况下，网关不会自动缩放。 在此模式下，如果流量超过了应用程序网关或 WAF 可以处理的流量，可能会导致流量丢失。 使用手动模式时，必须指定实例计数。 实例计数可以在 1 到 125 的范围内变化。
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>v1 SKU 与 v2 SKU 之间的功能比较
@@ -115,3 +115,4 @@ PowerShell 库中提供了一个 Azure PowerShell 脚本，以帮助你从 v1 �
 - 了解有关[应用程序网关](overview.md)的详细信息。
 - 了解有关 [Azure 防火墙](../firewall/overview.md)的详细信息。
 
+<!-- Update_Description: wording update -->

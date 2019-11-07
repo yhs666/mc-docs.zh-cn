@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/22/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 318b0163bf8ae1784ad8e79079ac3344164a063b
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: dbd9e1e876d8134a1f19fe98e4abf23e171bcf0c
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124445"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416211"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教程：基于 URL 对远程文件进行编码并流式传输视频 - REST
 
@@ -63,11 +63,9 @@ ms.locfileid: "71124445"
 
 ## <a name="configure-postman"></a>配置 Postman
 
-此部分配置 Postman。
-
 ### <a name="configure-the-environment"></a>配置环境 
 
-1. 打开 **Postman**。
+1. 打开 **Postman** 应用。
 2. 在屏幕的右侧，选择“管理环境”  选项。
 
     ![管理环境](./media/develop-with-postman/postman-import-env.png)
@@ -108,7 +106,7 @@ ms.locfileid: "71124445"
 
 ### <a name="get-azure-ad-token"></a>获取 Azure AD 令牌 
 
-1. 在 Postman 的左窗口中，选择“步骤 1: 获取 AAD 身份验证令牌”。
+1. 在 Postman 应用的左窗口中，选择“步骤 1: 获取 AAD 身份验证令牌”。
 2. 然后，选择“获取适用于服务主体身份验证的 Azure AD 令牌”。
 3. 按“发送”。 
 
@@ -126,7 +124,7 @@ ms.locfileid: "71124445"
 
 输出[资产](https://docs.microsoft.com/rest/api/media/assets)会存储作业编码的结果。 
 
-1. 在 Postman 的左窗口中，选择“资产”。
+1. 在 Postman 应用的左侧窗口中，选择“资产”。
 2. 然后选择“创建或更新资产”。
 3. 按“发送”。 
 
@@ -157,7 +155,7 @@ ms.locfileid: "71124445"
 > [!Note]
 > 在创建[转换](https://docs.microsoft.com/rest/api/media/transforms)时，首先应检查是否已存在一个使用 **Get** 方法的转换。 本教程假定你使用唯一名称创建该转换。
 
-1. 在 Postman 的左窗口中，选择“编码和分析”。
+1. 在 Postman 应用的左侧窗口中，选择“编码和分析”。
 2. 然后选择“创建转换”。
 3. 按“发送”。 
 
@@ -192,7 +190,7 @@ ms.locfileid: "71124445"
 
 在此示例中，作业的输入基于 HTTPS URL（“https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/”）。
 
-1. 在 Postman 的左窗口中，选择“编码和分析”。
+1. 在 Postman 应用的左侧窗口中，选择“编码和分析”。
 2. 然后选择“创建或更新作业”。
 3. 按“发送”。 
 
@@ -244,7 +242,7 @@ ms.locfileid: "71124445"
 
 媒体服务帐户具有对应于**流式处理策略**条目数的配额。 不应为每个**流式处理定位符**创建新的**流式处理策略**。
 
-1. 在 Postman 的左窗口中，选择“流式处理策略”。
+1. 在 Postman 应用的左侧窗口中，选择“流式处理策略”。
 2. 然后选择“创建流式处理定位符”。
 3. 按“发送”。 
 
@@ -270,7 +268,7 @@ ms.locfileid: "71124445"
 
 创建[流式处理定位符](https://docs.microsoft.com/rest/api/media/streaminglocators)后，即可获取流式处理 URL
 
-1. 在 Postman 的左窗口中，选择“流式处理策略”。
+1. 在 Postman 应用的左侧窗口中，选择“流式处理策略”。
 2. 然后，选择“列出路径”。
 3. 按“发送”。 
 

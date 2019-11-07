@@ -1,5 +1,5 @@
 ---
-title: Azure 资源的托管标识 - Azure 事件中心
+title: Azure 资源的托管标识 - Azure 事件中心 | Azure
 description: 本文介绍如何将 Azure 资源托管标识与 Azure 事件中心结合使用
 services: event-hubs
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.topic: article
 origin.date: 07/05/2018
 ms.date: 06/17/2019
 ms.author: v-biyu
-ms.openlocfilehash: 053300492162f2e6477b68a2bf41bafec5c7e7ad
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: b75f2378e447a324e4293f1a61eb6f760d35d7b8
+ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687481"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72872964"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>具有事件中心的 Azure 资源托管标识
 
-Azure 资源的托管标识是一项跨 Azure 功能，可方便你创建与其下运行应用程序代码的部署关联的安全标识。 然后可以将该标识与访问控制角色进行关联，后者授予的自定义权限可用于访问应用程序需要的特定 Azure 资源。 
+[Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)是一项跨 Azure 功能，可便于用户创建与其中运行应用程序代码的部署关联的安全标识。 然后可以将该标识与访问控制角色进行关联，后者授予的自定义权限可用于访问应用程序需要的特定 Azure 资源。 
 
 借助托管标识，Azure 平台可管理此运行时标识。 对于标识本身和需要访问的资源，都不需要在应用程序代码或配置中存储和保护访问密钥。 在启用了 Azure 资源托管标识支持的 Azure 应用服务应用程序内或虚拟机中运行的事件中心客户端应用不需要处理 SAS 规则和密钥，也不需要处理任何其他访问令牌。 客户端应用只需要事件中心命名空间的终结点地址。 当应用进行连接时，事件中心通过一个操作将托管标识的上下文绑定到该客户端，本文后面的一个示例展示了该操作。
 
@@ -43,7 +43,7 @@ Azure 资源的托管标识是一项跨 Azure 功能，可方便你创建与其�
 5. 在“添加角色分配”  页上，执行以下步骤： 
     1. 对于“角色”  ，选择“Azure 事件中心数据所有者”  。 
     2. 选择要添加到角色的**标识**。
-    3. 选择“其他安全性验证”  。 
+    3. 选择“保存”  。 
 
         ![“事件中心数据所有者”角色](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
 6. 切换到“角色分配”  页，并确认用户已添加到“Azure 事件中心数据所有者”  角色。 
@@ -58,7 +58,7 @@ Azure 资源的托管标识是一项跨 Azure 功能，可方便你创建与其�
 2. 授予该标识对事件中心命名空间的访问权限。
 3. 应用程序如何与使用该标识的事件中心交互。
 
-此介绍描述的是 [Azure 应用服务](https://www.azure.cn/zh-cn/home/features/app-service/)中托管的 Web 应用程序。 VM 托管的应用程序所需的步骤与之类似。
+此介绍描述的是 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)中托管的 Web 应用程序。 VM 托管的应用程序所需的步骤与之类似。
 
 ### <a name="create-an-app-service-web-application"></a>创建应用服务 Web 应用程序
 
@@ -80,7 +80,7 @@ Azure 资源的托管标识是一项跨 Azure 功能，可方便你创建与其�
 
 ### <a name="run-the-app"></a>运行应用程序
 
-现在，修改所创建的 ASP.NET 应用程序的默认页面。 还可以使用[此 GitHub 存储库](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp)中的 Web 应用程序代码。 
+现在，修改所创建的 ASP.NET 应用程序的默认页面。 还可以使用[此 GitHub 存储库](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp)中的 Web 应用程序代码。 
 
 启动应用后，将浏览器指向 EventHubsMSIDemo.aspx。 还可以将其设置为起始页。 可以在 EventHubsMSIDemo.aspx.cs 文件中找到代码。 结果是一个最小的 Web 应用程序，其中包含几个输入字段以及用来连接到事件中心以发送或接收事件的“发送”  和“接收”  按钮。 
 
@@ -100,5 +100,5 @@ Azure 资源的托管标识是一项跨 Azure 功能，可方便你创建与其�
 
 * 开始使用[事件中心教程](event-hubs-dotnet-standard-getstarted-send.md)
 * [事件中心常见问题](event-hubs-faq.md)
-* [事件中心定价详细信息](https://azure.microsoft.com/pricing/details/event-hubs/)
+* [事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)
 * [使用事件中心的示例应用程序](https://github.com/Azure/azure-event-hubs/tree/master/samples)

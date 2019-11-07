@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 12ab0b8e80e5b301f330a1635d684837aeb7b7a8
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: eceec9003bb0e0398ce38a9c70c1e1a6e8f20d48
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737095"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970709"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>从 Azure 存储收集 Azure 诊断日志
 
@@ -196,7 +196,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 
 ## <a name="next-steps"></a>后续步骤
-* 针对支持的 Azure 服务[收集 Azure 服务的日志和指标](diagnostic-logs-stream-log-store.md)。
+* 针对支持的 Azure 服务[收集 Azure 服务的日志和指标](resource-logs-collect-workspace.md)。
 * [启用解决方案](../../azure-monitor/insights/solutions.md)深入分析数据。
 * [使用搜索查询](../../azure-monitor/log-query/log-query-overview.md)分析数据。
 

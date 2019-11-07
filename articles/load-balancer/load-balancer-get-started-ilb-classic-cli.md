@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 10/31/2018
 ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: 518a7b8c42c670637920cb23c4cba32270181998
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: 6a7f0702649d86b94c56aac851088c75ef7e6a18
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323741"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142143"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>开始使用 Azure 经典 CLI 创建内部负载均衡器
 
@@ -177,4 +177,3 @@ azure vm endpoint delete DB1 tcp-1433-1433
 [使用源 IP 关联配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
-<!-- Update_Description: update meta properties, wording update -->

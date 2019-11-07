@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 06/01/2019
-ms.date: 09/18/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: a1a313e21d27ff2157685f3abff9c39ca0a67200
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: e1d57888ecc2607e94b5314e0f1964fa38a11690
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083268"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798509"
 ---
 # <a name="application-gateway-configuration-overview"></a>应用程序网关配置概述
 
@@ -49,7 +49,7 @@ Azure 应用程序网关由多个组件构成，可根据不同的方案以不�
 
 应用程序网关支持网络安全组 (NSG)。 但同时存在多种限制：
 
-- 对于应用程序网关 v1 SKU，必须为端口 65503-65534 上的传入流量设置例外，对于 v2 SKU，必须为端口 65200 - 65535 上的传入流量设置例外。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
+- 对于应用程序网关 v1 SKU，必须允许 TCP 端口 65503-65534 上的传入 Internet 流量，对于目标子网为 *Any* 的 v2 SKU，必须允许 TCP 端口 65200-65535 上的传入 Internet 流量。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
 - 不能阻止出站 Internet 连接。 NSG 中的默认出站规则允许 Internet 连接。 建议：
 
@@ -62,7 +62,7 @@ Azure 应用程序网关由多个组件构成，可根据不同的方案以不�
 
 对于此方案，请在应用程序网关子网中使用 NSG。 按以下优先顺序对子网施加以下限制：
 
-1. 允许来自源 IP/IP 范围的传入流量。
+1. 允许从源 IP/IP 范围到整个应用程序网关子网或特定已配置的专用前端 IP 的传入流量。 NSG 在公共 IP 上不起作用。
 2. 允许来自所有源的传入请求到达应用程序网关 v1 SKU 的端口 65503-65534，以及 v2 SKU 的端口 65200-65535 以便进行[后端运行状况通信](/application-gateway/application-gateway-diagnostics)。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体将无法对这些终结点做出任何更改。
 3. 允许[网络安全组](/virtual-network/security-overview)中的传入 Azure 负载均衡器探测（*AzureLoadBalancer* 标记）和入站虚拟网络流量（*VirtualNetwork* 标记）。
 4. 使用“全部拒绝”规则阻止其他所有传入流量。

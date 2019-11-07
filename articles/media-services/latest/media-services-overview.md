@@ -13,20 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-origin.date: 05/13/2019
-ms.date: 09/23/2019
+origin.date: 09/17/2019
+ms.date: 11/04/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 21cc64ea9b870d3346d2173006ff955e911d96ce
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: ad0a6813adc35979ac21182f6fc91fc791e905d8
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124363"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416280"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure 媒体服务 v3 概述
 
 Azure 媒体服务是一个基于云的平台，用于生成解决方案，以便实现广播质量的视频流、增强可访问性和分发、分析内容，等等。 无论你是应用程序开发者、呼叫中心、政府机构还是娱乐公司，媒体服务都能帮助你创建应用程序，通过当今最热门的移动设备和浏览器向广大受众提供品质卓越的媒体体验。 
+
+媒体服务 v3 SDK 基于[媒体服务 v3 OpenAPI 规范 (Swagger)](https://aka.ms/ams-v3-rest-sdk)。
 
 > [!NOTE]
 > 目前，无法使用 Azure 门户来管理 v3 资源。 请使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](/cli/ams?view=azure-cli-latest) 或支持的 [SDK](media-services-apis-overview.md#sdks) 之一。
@@ -69,6 +71,10 @@ Azure 媒体服务是一个基于云的平台，用于生成解决方案，以�
 * [分析视频 - .NET](analyze-videos-tutorial-with-api.md)
 * [AES-128 动态加密 - .NET](protect-with-aes128.md)
     
+### <a name="samples"></a>示例
+
+使用[此示例浏览器](https://docs.microsoft.com/samples/browse/?products=azure-media-services)浏览 Azure 媒体服务代码示例。
+
 ### <a name="how-to-guides"></a>操作指南
 
 文章中包含的示例演示如何完成某项任务。 在此部分可以找到许多示例，下面只是其中的一些示例：

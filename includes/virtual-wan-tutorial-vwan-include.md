@@ -9,15 +9,20 @@ origin.date: 03/27/2019
 ms.date: 06/28/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 7f2206a76c386518ad4040fd9bc0dd141cb37b7b
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: 632135fcfea64f23bb13029286de2da1ef06221b
+ms.sourcegitcommit: 4b02efccd5569084b162f6b9c590e42c5e069a73
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540087"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678704"
 ---
-1. 导航到“虚拟 WAN”页。 若要浏览到此页，一种方法是转到“所有服务”，然后搜索“虚拟 WAN”。 
-1. 单击“+添加”打开“创建 WAN”页。  
+<!--MOONCAKE: CORRECT ON BELOW -->
+
+1. 导航到“虚拟 WAN”页。 在门户中，单击“+ 创建资源”  。 在搜索框中键入“虚拟 WAN”，然后选择 Enter。
+1. 从结果中选择“虚拟 WAN”。 在“虚拟 WAN”页上，单击“创建”。
+    
+    <!--MOONCAKE: CORRECT ON ABOVE -->
+    
 1. 在“创建 WAN”  页上填写以下字段：
 
     * **名称** - 选择 WAN 的名称。

@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 09/06/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: d86e6665b6c04d0217223703d6093551cd5f3006
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 7c6ff87fb806068f1ff7cabe4cc9a94db3c3275c
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805805"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034446"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
@@ -137,6 +136,20 @@ ms.locfileid: "70805805"
 ## <a name="http"></a>http
 
 可在 [http 触发器和绑定](functions-bindings-http-webhook.md)中查找配置设置。
+
+```json
+{
+    "extensions": {
+        "http": {
+            "routePrefix": "api",
+            "maxOutstandingRequests": 200,
+            "maxConcurrentRequests": 100,
+            "dynamicThrottlesEnabled": true
+        }
+    }
+}
+```
+
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 

@@ -1,25 +1,19 @@
 ---
 title: 在 Azure Monitor 中设定监视解决方案的目标 | Microsoft Docs
 description: 设定监视解决方案的目标允许将监视解决方案限制用于特定的一组代理。  本文介绍了如何创建范围配置并将其应用于解决方案。
-services: monitoring
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
+ms.author: v-lingwu
 origin.date: 04/27/2017
 ms.date: 04/12/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 1e66baddf3ea1ec055d9331198435c11f9374583
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b00a58479f1bbfcaa6cd02028bd5fe878991b8ff
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737326"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970899"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>在 Azure Monitor 中设定监视解决方案的目标（预览版）
 向订阅添加监视解决方案时，默认情况下会自动将它部署到连接到 Log Analytics 工作区的所有 Windows 和 Linux 代理。  你可能希望管理成本，并通过将解决方案的应用范围限制为特定的一组代理来限制为解决方案收集的数据量。  本文介绍了如何使用“解决方案目标”  ，这是一种允许向解决方案界定一个范围的功能。

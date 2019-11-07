@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 429beaddfa5b848029e2c32d5f80a7968ebe8d53
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: a20199af029d3591da188729a92c985ac49ace9a
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337536"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914361"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure 时序见解 API 的身份验证和授权
 
@@ -100,6 +100,50 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
     ```
 
 1. 随后可在应用程序调用时序见解 API 时，将令牌传入 `Authorization` 标头。
+
+## <a name="common-headers-and-parameters"></a>常用标头和参数
+
+本部分介绍用于对时序见解 GA 和预览版 API 进行查询的常见 HTTP 请求标头和参数。 [时序见解 REST API 参考文档](https://docs.microsoft.com/rest/api/time-series-insights/)中更详细地介绍了特定于 API 的要求。
+
+### <a name="authentication"></a>身份验证
+
+若要对[时序见解 REST API](https://docs.microsoft.com/rest/api/time-series-insights/) 执行经过身份验证的查询，必须使用所选的 REST 客户端（Postman、JavaScript、C#）在[授权标头](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate)中传递有效的 OAuth 2.0 持有者令牌。 
+
+> [!IMPORTANT]
+> 令牌必须严格颁发给 `https://api.timeseries.azure.com/` 资源（也称为令牌的“受众”）。
+> * 因此，[Postman](https://www.getpostman.com/) **AuthURL** 符合：`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+
+> [!TIP]
+> 请参阅托管的 Azure 时序见解[客户端 SDK 示例可视化](https://tsiclientsample.azurewebsites.net/)，以了解如何使用 [JavaScript 客户端 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 以及图表和图形以编程方式使用时序见解 API 进行身份验证。
+
+### <a name="http-headers"></a>HTTP 标头
+
+必需请求标头：
+
+- `Authorization` 用于身份验证和授权，必须在授权标头中传递有效的 OAuth 2.0 持有者令牌。 令牌必须严格颁发给 `https://api.timeseries.azure.com/` 资源（也称为令牌的“受众”）。
+
+可选请求标头：
+
+- `Content-type` - 仅支持 `application/json`。
+- `x-ms-client-request-id` - 客户端请求 ID。 服务记录此值。 允许服务跨服务跟踪操作。
+- `x-ms-client-session-id` - 客户端会话 ID。 服务记录此值。 允许服务跟踪跨服务的一组相关操作。
+- `x-ms-client-application-name` - 生成此请求的应用程序的名称。 服务记录此值。
+
+响应标头：
+
+- `Content-type` - 仅支持 `application/json`。
+- `x-ms-request-id` - 服务器生成的请求 ID。 可用于与 Microsoft 联系以调查请求。
+
+### <a name="http-parameters"></a>HTTP 参数
+
+必需的 URL 查询字符串参数：
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+可选的 URL 查询字符串参数：
+
+- `timeout=<timeout>` �用于执行请求的 C 服务器端超时。 仅适用于[获取环境事件](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)和[获取环境聚合](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API。 超时值应采用 ISO 8601 持续时间格式（例如 `"PT20S"`），并且应在 `1-30 s` 范围内。 默认值为 `30 s`。
 
 ## <a name="next-steps"></a>后续步骤
 

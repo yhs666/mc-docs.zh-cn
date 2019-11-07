@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 36964024612c4178612780f48c9ddb673aab2f88
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 7eed6fbf7ebe872a88ac7edb6c6163292cae6d1f
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155848"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068854"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 

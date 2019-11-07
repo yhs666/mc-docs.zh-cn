@@ -6,21 +6,21 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
 origin.date: 05/31/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 51cc837f64f76d76486cd5e80b85b3f5e6f632d3
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: fe79f74c8ae17ae953959405af5557e6e5a83df2
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155860"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068887"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
 Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管式 Kubernetes 服务。 本快速入门介绍如何使用 Azure 门户部署 AKS 群集。 该群集中将运行一个包含 Web 前端和 Redis 实例的多容器应用程序。 然后，你将了解如何监视群集的运行状况，以及监视运行该应用程序的 Pod。
 
-![浏览到 Azure Vote 示例应用程序的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![浏览到 Azure Vote 示例应用程序的图像](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 本快速入门假设读者基本了解 Kubernetes 的概念。 有关详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
@@ -59,11 +59,11 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
     > [!CAUTION]
     > 创建新的 AAD 服务主体可能需要几分钟的时间才能传播并变得可用，这样会导致 Azure 门户中出现“找不到服务主体”错误和验证失败。 如果遇到这种情况，请访问[此处](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one)进行缓解。
 
-1. 在“身份验证”  页上，配置以下选项：
-    - 通过将“服务主体”  字段保留为“(新)默认服务主体”  来创建新的服务主体。 或者，可以选择“配置服务主体”  以使用现有的服务主体。 如果使用现有的服务主体，则需要提供 SPN 客户端 ID 和机密。
-    - 启用 Kubernetes 基于角色的访问控制 (RBAC) 所对应的选项。 这样可以对部署在 AKS 群集中的 Kubernetes 资源进行更精细的访问控制。
+3. 在“身份验证”  页上，配置以下选项：
+   - 通过将“服务主体”  字段保留为“(新)默认服务主体”  来创建新的服务主体。 或者，可以选择“配置服务主体”  以使用现有的服务主体。 如果使用现有的服务主体，则需要提供 SPN 客户端 ID 和机密。
+   - 启用 Kubernetes 基于角色的访问控制 (RBAC) 所对应的选项。 这样可以对部署在 AKS 群集中的 Kubernetes 资源进行更精细的访问控制。
 
-        默认情况下将使用“基本”  网络，并且会启用适用于容器的 Azure Monitor。 验证完成后，依次单击“查看 + 创建”  、“创建”  。
+默认情况下将使用“基本”  网络，并且会启用适用于容器的 Azure Monitor。 验证完成后，依次单击“查看 + 创建”  、“创建”  。
 
 创建 AKS 群集需要几分钟时间。 完成部署后，单击“转到资源”  ，或浏览到 AKS 群集资源组（如 myResourceGroup  ），然后选择 AKS 资源（如 myAKSCluster  ）。 此时会显示 AKS 群集仪表板，如以下示例所示：
 
@@ -239,7 +239,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 若要查看 Azure Vote 应用的实际效果，请打开 Web 浏览器并转到服务的外部 IP 地址。
 
-![浏览到 Azure Vote 示例应用程序的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![浏览到 Azure Vote 示例应用程序的图像](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="monitor-health-and-logs"></a>监视运行状况和日志
 

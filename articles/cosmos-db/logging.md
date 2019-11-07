@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: d0b257d3716632b0fb8354f97cafa4a83ded3874
-ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
+ms.openlocfilehash: 3a9aceb1ec85139ddc0ccf00c228425836182560
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519397"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913283"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的诊断日志记录 
@@ -95,21 +95,28 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
             ```
             { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "China East","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
             ```
+
         * **MongoRequests**：选择此选项可记录用户从前端发起的请求，这些请求的内容是要求处理发送给 Azure Cosmos DB 的 MongoDB API 的请求。 MongoDB 请求会显示在 MongoRequests 和 DataPlaneRequests 中。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。 以下 JSON 数据是使用 MongoRequests 记录的详细信息的示例输出。 要记录的关键属性：Requestcharge、opCode：
 
             ```
             { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
             ```
 
-      * **QueryRuntimeStatistics**：选择此选项以记录已执行的查询文本。  以下 JSON 数据是使用 QueryRuntimeStatistics 记录的详细信息的示例输出：
+        * **QueryRuntimeStatistics**：选择此选项以记录已执行的查询文本。  以下 JSON 数据是使用 QueryRuntimeStatistics 记录的详细信息的示例输出：
 
-           ```
-           { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
-           ```
+            ```
+            { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+            ```
+
+        * **PartitionKeyStatistics**：此日志报告分区键的统计信息。 目前，统计信息用分区键的存储大小 (KB) 来表示。 日志针对占用大部分数据存储空间的前三个分区键发出。
+
+            ```
+            { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "China North 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
+            ```
 
         * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
 
-3. 选择**保存**。
+3. 选择“保存”  。
 
     如果收到一个错误，指出“无法更新 \<工作区名称> 的诊断。 订阅 \<订阅 ID> 未注册为使用 microsoft.insights”，请遵照[排查 Azure 诊断问题](/log-analytics/log-analytics-azure-storage)中的说明注册帐户，然后重试此过程。
 
@@ -125,7 +132,7 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
     az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
     ```
 
-   `resource` 是 Azure Cosmos DB 帐户的名称。 资源采用的格式为“/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/<Azure_Cosmos_account_name>” `storage-account` 是要将日志发送到的存储帐户的名称。 将类别参数值更新为 "MongoRequests" 或 "DataPlaneRequests" 即可记录其他日志。 
+    `resource` 是 Azure Cosmos DB 帐户的名称。 资源采用的格式为“/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/<Azure_Cosmos_account_name>” `storage-account` 是要将日志发送到的存储帐户的名称。 将类别参数值更新为 "MongoRequests" 或 "DataPlaneRequests" 即可记录其他日志。 
 
 - 要允许将诊断日志流式传输到事件中心，请使用以下命令：
 
@@ -488,7 +495,10 @@ $blobs | Get-AzStorageBlobContent `
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解如何启用日志记录，以及各种 Azure 服务支持的指标和日志类别，请参阅文章 [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和 [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)。
+- 若要了解如何启用日志记录，以及各种 Azure 服务支持的指标和日志类别，请参阅文章 [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+
+    <!--Not Available on  and [Overview of Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-overview.md)-->
+    
 - 阅读以下文章，了解事件中心：
     - [什么是 Azure 事件中心？](../event-hubs/event-hubs-what-is-event-hubs.md)
     - [事件中心入门](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

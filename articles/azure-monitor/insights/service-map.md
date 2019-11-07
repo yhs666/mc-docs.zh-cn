@@ -1,25 +1,19 @@
 ---
 title: 使用 Azure 中的服务映射解决方案 | Azure Docs
 description: 服务映射是 Azure 中的解决方案，可自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 本文提供了有关在环境中部署服务映射并在各种方案中使用它的详细信息。
-services: monitoring
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: ''
+ms.topic: conceptual
 author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 07/24/2019
 ms.date: 08/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c366f67adc45e3cd1ef1b61b48b4dafe30b07b9c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 591c48cd2b67ddeff6b7fd8c3fc366f0e345f334
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330447"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970980"
 ---
 # <a name="using-service-map-solution-in-azure"></a>使用 Azure 中的服务映射解决方案
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 可使用服务映射如所想一般作为提供重要服务的互连系统查看服务器。 服务映射显示 TCP 连接的任何体系结构中服务器、进程、入站和出站连接延迟和端口之间的连接，只需安装代理，无需任何其他配置。

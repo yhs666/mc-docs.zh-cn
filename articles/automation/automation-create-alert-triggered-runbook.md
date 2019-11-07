@@ -10,12 +10,12 @@ origin.date: 04/29/2019
 ms.date: 10/21/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 346c80dea04c6fe4e56d69bef87ea40a10eee65d
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 7a41d86faa1806a4af0e656b0fc23a1b0bbc2ff8
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578532"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142095"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 
@@ -60,7 +60,7 @@ ms.locfileid: "72578532"
 4. 在“添加 Runbook”页上，  输入 **Stop-AzureVmInResponsetoVMAlert** 作为 Runbook 名称。 对于 runbook 类型，选择“PowerShell”  。 然后选择“创建”  。  
 5. 将以下 PowerShell 示例复制到“编辑”页中。 
 
-    ```powershell-interactive
+    ```powershell
     [OutputType("PSAzureOperationResponse")]
     param
     (
@@ -190,7 +190,7 @@ ms.locfileid: "72578532"
 
     ![“添加操作组”页](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-    可以在创建的[活动日志警报](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)和[准实时警报](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json)中使用此操作组。
+    可以在创建的[活动日志警报](../azure-monitor/platform/activity-log-alerts.md?toc=%2fautomation%2ftoc.json)和[准实时警报](../azure-monitor/platform/alerts-overview.md?toc=%2fautomation%2ftoc.json)中使用此操作组。
 
 1. 在“警报详细信息”下添加警报规则名称和说明，然后单击“创建警报规则”。  
 

@@ -9,12 +9,12 @@ origin.date: 11/27/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: d43406009c4f2e9076b1ec93fb9141f7543baee7
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4039f1ec9284e506582f4ef9582f801b4c336d9f
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737383"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970624"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor 的角色、权限和安全入门
 
@@ -32,7 +32,7 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 * 查看 [Azure 警报](alerts-overview.md)中定义的预警规则
 * 使用 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlet](powershell-quickstart-samples.md) 或 [跨平台 CLI](cli-samples.md) 查询指标。
 * 使用门户、Azure Monitor REST API、PowerShell cmdlet 或跨平台 CLI 查询活动日志。
-* 查看资源的[诊断设置](diagnostic-logs-overview.md#diagnostic-settings)。
+* 查看资源的[诊断设置](resource-logs-overview.md)。
 * 查看订阅的[日志配置文件](activity-log-export.md)。
 * 查看自动缩放设置。
 * 查看警报活动和设置。
@@ -53,7 +53,7 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 拥有“监视参与者”角色的人员可以查看订阅中的所有监视数据，以及创建或修改监视设置，但无法修改其他任何资源。 此角色是“监视读取者”角色的超集，适用于组织中的监视团队成员或托管服务提供商，这些人员除了上述权限外，还必须能够：
 
 * 将监视仪表板发布为共享仪表板。
-* 设置资源的[诊断设置](diagnostic-logs-overview.md#diagnostic-settings)。\*
+* 设置资源的[诊断设置](resource-logs-overview.md)。\*
 * 设置订阅的[日志配置文件](activity-log-export.md)。\*
 * 通过 [Azure 警报](alerts-overview.md)设置预警规则活动和设置。
 * 创建 Application Insights Web 测试和组件。

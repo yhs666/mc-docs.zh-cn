@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 04/16/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: d3b27671868bbad34a22461b7ce5fb3100f82a5e
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 69e1bee4433b18bc6a23368072cf8d5af343cfc4
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731264"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068924"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Active Directory 与 Azure Kubernetes 服务集成
 
@@ -153,8 +153,11 @@ az aks create \
     --aad-server-app-id $serverApplicationId \
     --aad-server-app-secret $serverApplicationSecret \
     --aad-client-app-id $clientApplicationId \
-    --aad-tenant-id $tenantId
+    --aad-tenant-id $tenantId \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 最后，使用 [az aks get-credentials][az-aks-get-credentials] 命令获取群集管理员凭据。 在以下步骤之一中，你将获取普通用户群集凭据，以查看 Azure AD 身份验证流的运作方式。 
 

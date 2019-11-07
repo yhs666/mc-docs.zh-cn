@@ -1,22 +1,19 @@
 ---
 title: 使用 Azure Monitor 中的应用程序更改分析以查找 Web 应用问题 | Docs
 description: 使用 Azure Monitor 中的应用程序更改分析排查 Azure 应用服务中的实时站点应用程序问题。
-services: application-insights
-author: lingliw
-manager: digimobile
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 05/07/2019
+author: lingliw
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 25410a5166caa1bf2c9c7ace0db22fe115d07aaf
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 7797387654ad7e4db8adc55fb51b86ea15c97900
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330419"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970921"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>使用 Azure Monitor 中的应用程序更改分析（预览版）
 
@@ -90,7 +87,7 @@ ms.locfileid: "71330419"
 如果订阅包含大量的 Web 应用，在 Web 应用级别启用该服务的做法就不够有效。 运行以下脚本以启用订阅中的所有 Web 应用。
 
 先决条件：
-* PowerShell Az 模块。 请按照[安装 Azure PowerShell 模块](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)中的说明操作
+* PowerShell Az 模块。 请按照[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)中的说明操作
 
 运行以下脚本：
 

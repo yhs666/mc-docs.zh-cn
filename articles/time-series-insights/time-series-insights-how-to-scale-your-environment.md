@@ -4,20 +4,21 @@ description: 本文介绍如何缩放 Azure 时序见解环境。 使用 Azure �
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: v-yiso
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+origin.date: 10/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01e31ea72b9c9bd91312dd3b727be3af1164ab45
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 3e7477cab1aa6bbd6dce525a777d314b058bff5b
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456426"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914364"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何缩放时序见解环境
 

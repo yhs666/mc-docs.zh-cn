@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 03/12/2019
 ms.date: 08/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8765899b6b7180e39022d407c7150c4e0b7ac13e
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 16ef9f5ca150fdde20e53eee286f9f79dcb204b5
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737121"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970828"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Log Analytics 工作区
 
@@ -127,6 +127,6 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
 ## <a name="next-steps"></a>后续步骤
 现在，你已有可用的工作区，可以配置监视遥测收集、运行日志搜索分析该数据，以及添加管理解决方案以提供其他数据和分析见解。  
 
-* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[收集要在 Log Analytics 中使用的 Azure 服务日志和指标](../platform/diagnostic-logs-stream-log-store.md)。  
+* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[收集要在 Log Analytics 中使用的 Azure 服务日志和指标](../platform/resource-logs-collect-workspace.md)。  
 * 连接 [Configuration Manager](../platform/collect-sccm.md) 以导入作为层次结构中集合成员的计算机。  
 * 查看可用的[监视解决方案](../insights/solutions.md)以及如何从工作区添加或删除解决方案。

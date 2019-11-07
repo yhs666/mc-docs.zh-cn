@@ -1,25 +1,25 @@
 ---
 title: Azure Cosmos DB：SQL .NET API、SDK 和资源
-description: 了解有关 SQL .NET API 的所有信息。
+description: 了解有关 SQL .NET API 和 SDK 的所有信息。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 03/09/2018
-ms.date: 09/30/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3816220d50fc9bfde24affb493ba21ec115fbe65
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 9c4554cc5e91bb2b76d780e2410b33ec103c8a92
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306805"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72913209"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET](sql-api-sdk-dotnet-standard.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET 更改源](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)

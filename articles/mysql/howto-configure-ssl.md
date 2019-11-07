@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 07/02/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: d964eaac311bcd1670b64faffbab2b7159bb062e
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d16c09b389385e981c9f8dbd032ad4cafc7425d
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131867"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142155"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 
@@ -79,7 +79,7 @@ mysql> status
 ```php
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem", NULL, NULL) ; 
-mysqli_real_connect($conn, 'mydemoserver.mysql.database.chinacloudapi.cn', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
+mysqli_real_connect($conn, 'mydemoserver.mysql.database.chinacloudapi.cn', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }

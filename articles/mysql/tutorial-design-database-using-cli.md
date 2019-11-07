@@ -6,15 +6,15 @@ ms.author: v-jay
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 04/01/2018
-ms.date: 03/18/2019
+origin.date: 04/29/2018
+ms.date: 11/04/2019
 ms.custom: mvc
-ms.openlocfilehash: 338f8698d5879bc9c8b64cbc34b7d884aa437528
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 24d0a12853d9a5364e42a153c89da482251e445d
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627705"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142058"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -55,7 +55,7 @@ az group create --name myresourcegroup --location chinaeast
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
 使用 az mysql server create 命令创建 Azure Database for MySQL 服务器。 一个服务器可以管理多个数据库。 通常，每个项目或每个用户使用一个单独的数据库。
 
-以下示例在资源组 `myresourcegroup` 中的 `chinaeast` 处创建名为 `mydemoserver` 的 Azure Database for MySQL 服务器。 该服务器的管理员登录名为 `myadmin`。 它是第 4 代常规用途服务器，带有 2 个 2 vCore。 用自己的值替换 `<server_admin_password>`。
+以下示例在资源组 `myresourcegroup` 中的 `chinaeast` 处创建名为 `mydemoserver` 的 Azure Database for MySQL 服务器。 该服务器的管理员用户名为 `myadmin`。 它是第 4 代常规用途服务器，带有 2 个 2 vCore。 用自己的值替换 `<server_admin_password>`。
 
 ```cli
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
@@ -189,7 +189,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 | 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  源服务器所在的资源组。  |
+| resource-group |  myresourcegroup | 源服务器所在的资源组。 |
 | name | mydemoserver-restored | 通过还原命令创建的新服务器的名称。 |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 选择要还原到的时间点。 此日期和时间必须在源服务器的备份保留期限内。 使用 ISO8601 日期和时间格式。 例如，可使用自己的本地时区（如 `2017-04-13T05:59:00-08:00`），或使用 UTC Zulu 格式 `2017-04-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要从其还原的源服务器的名称或 ID。 |

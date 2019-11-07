@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 08/16/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: 4fe386b2df1fe4eefdba637b6c19c19cf16d1635
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.date: 11/11/2019
+ms.openlocfilehash: 1a446a44f442e295a6c054a9fb00b5e5a8cc6f5b
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583846"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426059"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>方案：Azure HDInsight 中的“hbase hbck”命令超时
 
@@ -44,7 +44,7 @@ ms.locfileid: "72583846"
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
+如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
 
 
 * 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 在 Microsoft Azure 订阅中可以访问订阅管理和计费支持；通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

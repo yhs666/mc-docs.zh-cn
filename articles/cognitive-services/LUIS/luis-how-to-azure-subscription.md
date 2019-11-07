@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/09/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d8d96f6d05248c93829e31a8bd2ecf3920e8d2e2
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 380ea97a3fdeb337ed3d0c54a4a2e9aca2ccc88b
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329719"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416386"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>使用创作和运行时资源密钥
 
@@ -36,7 +36,7 @@ ms.locfileid: "71329719"
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>登录 LUIS 门户并开始创作
 
-1. 登录 [LUIS 门户](https://www.luis.ai)并同意使用条款。
+1. 登录 [LUIS 门户](https://luis.azure.cn)并同意使用条款。
 1. 开始使用 LUIS 应用时，请选择要使用的 LUIS 创作密钥的类型：免费试用密钥或新的 Azure LUIS 创作密钥。 
 
     ![选择语言理解创作资源的类型](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)

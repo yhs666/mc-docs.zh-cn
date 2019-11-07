@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/11/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: d1a81ed3d351cc4810a1e5a6cdc2feb09858a5e9
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: a829038ae5b974671573a452882ec89fc5802c9a
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125567"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416282"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>配置 Postman 以便进行媒体服务 REST API 调用
 
@@ -48,11 +48,9 @@ ms.locfileid: "71125567"
 
 ## <a name="configure-postman"></a>配置 Postman
 
-此部分配置 Postman。
-
 ### <a name="configure-the-environment"></a>配置环境 
 
-1. 打开 **Postman**。
+1. 打开 **Postman** 应用。
 2. 在屏幕的右侧，选择“管理环境”  选项。
 
     ![管理环境](./media/develop-with-postman/postman-import-env.png)
@@ -81,7 +79,7 @@ ms.locfileid: "71125567"
 
 在开始操作 AMS v3 资源之前，需要获取并设置 Azure AD 令牌，以用于服务主体身份验证。
 
-1. 在 Postman 的左窗口中，选择“步骤 1: 获取 AAD 身份验证令牌”。
+1. 在 Postman 应用的左窗口中，选择“步骤 1: 获取 AAD 身份验证令牌”。
 2. 然后，选择“获取适用于服务主体身份验证的 Azure AD 令牌”。
 3. 按“发送”。 
 

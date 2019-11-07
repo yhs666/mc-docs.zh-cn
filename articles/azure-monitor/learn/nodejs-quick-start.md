@@ -8,21 +8,21 @@ ms.author: v-lingwu
 origin.date: 07/12/2019
 ms.date: 08/12/2019
 ms.service: application-insights
-ms.custom: mvc, seo-javascript-2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 49ce3e99fa6bbe6d556b0d03c42b0fa0236a2316
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d85d7ae43e528f0189a77345eef3557045dd7d54
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329901"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970890"
 ---
-# <a name="start-monitoring-your-nodejs-web-application"></a>开始监视 Node.js Web 应用程序
-
-使用 Azure Application Insights，可轻松监视 Web 应用程序的可用性、性能和使用情况。 还可以快速确定并诊断应用程序中的错误，而无需等待用户报告这些错误。 使用 0.20 版 SDK 发行版及更高版本，可以监视常见的第三方包，包括 MongoDB、MySQL 和 Redis。
+# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>快速入门：使用 Azure Application Insights 开始监视 Node.js Web 应用程序
 
 本快速入门介绍如何将用于 Node.js 的 0.22 版 Application Insights SDK 添加到现有 Node.js Web 应用程序。
+
+使用 Azure Application Insights，可轻松监视 Web 应用程序的可用性、性能和使用情况。 还可以快速确定并诊断应用程序中的错误，而无需等待用户报告这些错误。 使用 0.20 版 SDK 发行版及更高版本，可以监视常见的第三方包，包括 MongoDB、MySQL 和 Redis。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -44,7 +44,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 1. 选择“创建资源”   >   “开发人员工具” >   “Application Insights”。
 
-   ![添加 Application Insights 资源](./media/nodejs-quick-start/1createresourseappinsights.png)
+   ![添加 Azure Application Insights 资源](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
    >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)文档来了解更多信息。
@@ -63,7 +63,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 1. 选择“概述”，然后复制应用程序的**检测密钥**。 
 
-   ![“新建 App Insights 资源”窗体](./media/nodejs-quick-start/3key.png)
+   ![查看 Application Insights 检测密钥](./media/nodejs-quick-start/azure-app-insights-instrumentation-key.png)
 
 2. 将用于 Node.js 的 Application Insights SDK 添加到应用程序。 从应用的根文件夹运行：
 
@@ -87,19 +87,19 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 1. 现在可以在 Azure 门户中重新打开 Application Insights“概述”  页（已在其中检索到检测密钥），查看有关当前正在运行的应用程序的详细信息。
 
-   ![Application Insights 概述菜单](./media/nodejs-quick-start/4overview.png)
+   ![Application Insights“概述”菜单](./media/nodejs-quick-start/azure-app-insights-overview-menu.png)
 
 2. 选择“应用程序映射”  以获取应用程序组件之间依赖关系的可视布局。 每个组件均显示 KPI，如负载、性能、失败和警报。
 
-   ![应用程序地图](./media/nodejs-quick-start/5appmap.png)
+   ![Application Insights 应用程序映射](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. 选择“应用分析”  图标 ![“应用程序映射”图标](./media/nodejs-quick-start/006.png)  “在 Analytics 中查看”。  这将打开“Application Insights Analytics”  ，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
+3. 选择“应用分析”  图标 ![“应用程序映射”图标](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png)  “在 Analytics 中查看”。  这将打开“Application Insights Analytics”  ，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
 
-   ![一段时间内用户请求的分析图](./media/nodejs-quick-start/6analytics.png)
+   ![Application Insights Analytics 图形](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
 4. 返回到“概述”  页并检查 KPI 图形。  此仪表板提供有关应用程序运行状况的统计信息，包括传入请求数、这些请求的持续时间，以及发生的任何故障。
 
-   ![“运行状况概述时间线”图](./media/nodejs-quick-start/7kpidashboards.png)
+   ![Application Insights“运行状况概述时间线”图](./media/nodejs-quick-start/azure-app-insights-health-overview.png)
 
    若要启用“页面视图加载时间”  图表以填充“客户端遥测”  数据，请将此脚本添加到要跟踪的每一页：
 
@@ -125,7 +125,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 5. 在左侧，选择“指标”。  使用指标资源管理器调查资源的运行状况和利用率。 可以选择“添加新图表”  创建其他自定义视图，或者选择“编辑”  修改现有的图表类型、高度、调色板、分组和指标。 例如，可以制作一个图表来显示浏览器页面的平均加载时间，只需从指标下拉列表中选择“浏览器页面加载时间”并从聚合中选择“平均”即可。 若要详细了解 Azure 指标资源管理器，请访问 [Azure 指标资源管理器入门](../../azure-monitor/platform/metrics-getting-started.md)。
 
-   ![“服务器指标”图](./media/nodejs-quick-start/8metrics.png)
+   ![Application Insights“服务器指标”图](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
 若要了解有关监视 Node.js 的详细信息，请查看[其他 App Insights Node.js 文档](../../azure-monitor/app/nodejs.md)。
 

@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-origin.date: 08/31/2019
-ms.date: 09/18/2019
+origin.date: 09/27/2019
+ms.date: 10/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 650afe85eb02732e467925f880e83105a230681f
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: b6cbec7e10d89714d32df5e88caf7c7f8936de1d
+ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083266"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72798505"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>教程：通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -155,13 +155,13 @@ Export-PfxCertificate `
   
       接受“侦听器”选项卡上其他设置的默认值，然后选择“后端目标”选项卡以配置剩余的传递规则   。
 
-   ![新建应用程序网关：侦听器](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![新建应用程序网关：侦听器](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. 在“后端目标”选项卡上，为“后端目标”选择“myBackendPool”    。
 
 5. 对于“HTTP 设置”，选择“新建”以创建新的 HTTP 设置   。 HTTP 设置将决定传递规则的行为。 在打开的“添加 HTTP 设置”窗口中，为“HTTP 设置名称”输入“myHTTPSetting”    。 接受“添加 HTTP 设置”窗口中其他设置的默认值，然后选择“添加”以返回到“添加传递规则”窗口    。 
 
-     ![新建应用程序网关：HTTP 设置](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+   ![新建应用程序网关：HTTP 设置](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. 在“添加传递规则”窗口上，选择“添加”以保存传递规则并返回到“配置”选项卡    。
 
@@ -209,7 +209,7 @@ Export-PfxCertificate `
 
 本示例在虚拟机上安装 IIS，只为验证 Azure 是否已成功创建应用程序网关。
 
-1. 在 PowerShell 中使用以下命令登录 Azure 门户：
+1. 在 powershell 中使用以下命令登录 Azure 门户：
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud

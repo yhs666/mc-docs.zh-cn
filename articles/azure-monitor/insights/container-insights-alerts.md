@@ -1,25 +1,19 @@
 ---
 title: 使用用于容器的 Azure Monitor 创建性能警报 | Azure Docs
 description: 本文介绍如何使用用于容器的 Azure Monitor 基于内存和 CPU 利用率的日志查询创建自定义警报。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: lingliw
+ms.author: v-lingwu
 origin.date: 04/26/2019
 ms.date: 08/22/2019
-ms.author: v-lingwu
-ms.openlocfilehash: e1e4b842ca3206e66b182e1cf17f9059cd2c28ab
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e43bae3960a08ce0780582e1d910649a643032a6
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736829"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970983"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何在用于容器的 Azure Monitor 中针对性能问题设置警报
 用于容器的 Azure Monitor 可以监视部署到 Azure 容器实例或 Azure Kubernetes 服务 (AKS) 上托管的托管 Kubernetes 群集的容器工作负荷的性能。

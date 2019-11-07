@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/25/2019
-ms.date: 08/21/2019
+ms.date: 10/25/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07849f09eac1e5873d6faf855725b20c0d6ebc46
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 81c8391f0600882acbc0b36e54326f44edf136ef
+ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993705"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72912709"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>身份验证流和应用程序方案
 
@@ -121,7 +121,7 @@ Microsoft 标识平台终结点支持多种应用体系结构的身份验证：�
 
 ![设备代码流](./media/scenarios/device-code-flow-app.svg)
 
-最后，可以在公共客户端应用程序中使用[用户名/密码](https://aka.ms/msal-net-up)，虽然我们并不推荐这种方式。 在某些情况下，此流仍然是必需的，但请注意，使用它会对应用程序施加约束。 例如，使用该流的应用不能让需要运行多重身份验证（条件访问）的用户登录。 使用用户名/密码进行身份验证这种方式违反新式身份验证原则，仅出于遗留原因提供。
+最后，可以在公共客户端应用程序中使用[用户名/密码](https://aka.ms/msal-net-up)，虽然我们并不推荐这种方式。 在某些情况下，此流仍然是必需的，但请注意，使用它会对应用程序施加约束。 例如，使用此流的应用不能让需要运行多重身份验证的用户登录。 使用用户名/密码进行身份验证这种方式违反新式身份验证原则，仅出于遗留原因提供。
 
 在“桌面应用程序”中，如果希望令牌缓存能持久，应[自定义令牌缓存序列化](https://aka.ms/msal-net-token-cache-serialization)。 你甚至可以通过[双重令牌缓存序列化](https://aka.ms/msal-net-dual-cache-serialization)来启用身份验证库（ADAL.NET 3.x 和 4.x）前一代向后和向前兼容的令牌缓存。
 
@@ -135,7 +135,7 @@ Microsoft 标识平台终结点支持多种应用体系结构的身份验证：�
 
 MSAL iOS 和 MSAL Android 默认使用系统 Web 浏览器。 但是，你也可以指示它使用嵌入式 Web 视图。 也有一些特殊情况，具体取决于移动平台：（UWP、iOS、Android）。
 
-某些方案（涉及设备 ID 相关的条件性访问）或注册的设备需要在设备上安装[代理](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS)。 代理的示例包括 Microsoft 公司门户（Android 上）、Microsoft Authenticator（Android 和 iOS）。 MSAL 现在能够与代理交互。
+某些方案要求在设备上安装[中转站](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS)。 代理的示例包括 Microsoft 公司门户（Android 上）、Microsoft Authenticator（Android 和 iOS）。 MSAL 现在能够与代理交互。
 
 > [!NOTE]
 > 移动应用（使用 MSAL.iOS、MSAL.Android 或 MSAL.NET/Xamarin）可以应用应用保护策略（例如，阻止用户复制某些受保护的文本）。 这[由 Intune 管理](https://docs.microsoft.com/intune/app-sdk)并被 Intune 识别为托管应用。 [Intune SDK](https://docs.microsoft.com/intune/app-sdk-get-started)独立于 MSAL 库，并单独与 AAD 交流。

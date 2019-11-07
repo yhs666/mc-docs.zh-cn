@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlr
 origin.date: 07/11/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 01d2f8ac038c94f070c7eeb453c8304192c1df1f
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: 932c9323de61c52c5b0f8887271800e91b4caf35
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262933"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041234"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL 数据库托管实例入门
 
@@ -74,6 +74,6 @@ ms.locfileid: "71262933"
 ## <a name="next-steps"></a>后续步骤
 
 - 查看[托管实例支持的功能的概要列表](sql-database-features.md)和[详细信息与已知问题](sql-database-managed-instance-transact-sql-information.md)。
-- 了解[托管实例的技术特征](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
+- 了解[托管实例的技术特征](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
 - 在[如何在 Azure SQL 数据库中使用托管实例](sql-database-howto-managed-instance.md)中查看更深入的操作指南。
 - [确定适合本地数据库的 Azure SQL 数据库/托管实例 SKU](https://docs.microsoft.com/sql/dma/dma-sku-recommend-sql-db/)。

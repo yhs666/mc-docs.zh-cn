@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 07/23/2019
+ms.date: 10/24/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 07346b32dfe53c844dbc123a63d36c0e76aea419
-ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
+ms.openlocfilehash: ba90c59b81aeda8627ba787c8c21f27f93029b55
+ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391616"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72847156"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 和 PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Predicates  和 PredicateValidations  元素可用于执行验证过程，以确保向 Azure Active Directory (Azure AD) B2C 租户仅输入正确格式的数据。
+Predicates  和 PredicateValidations  元素可用于执行验证过程，以确保向 Azure Active Directory B2C (Azure AD B2C) 租户仅输入正确格式的数据。
 
 以下图示显示了元素之间的关系：
 

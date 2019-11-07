@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 04/05/2017
-ms.date: 04/26/2018
+ms.date: 10/30/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0502d8b4177662ad5372b3736d53fd496cdc194d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 181777d76e444b4b0cec90068854170add03bfdc
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657013"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142075"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>将虚拟机规模集与 Azure DSC 扩展配合使用
 [虚拟机规模集](virtual-machine-scale-sets-overview.md)可与 [Azure 所需状态配置 (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 扩展处理程序配合使用。 虚拟机规模集提供部署和管理大量虚拟机的方法，并且可根据负载情况实现弹性扩大和缩小。 VM 联机时，DSC 用于配置 VM，使它们能够运行生产软件。
@@ -108,6 +108,6 @@ ms.locfileid: "52657013"
 
 有关 Azure DSC 扩展处理程序的详细信息，请参阅 [Azure Desired State Configuration 扩展处理程序简介](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
-有关 PowerShell DSC 的详细信息，请 [访问 PowerShell 文档中心](https://msdn.microsoft.com/powershell/dsc/overview)。 
+有关 PowerShell DSC 的详细信息，请 [访问 PowerShell 文档中心](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)。 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

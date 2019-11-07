@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 03/01/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0f88e9565753e85a8f7462ad7699c27fac5846eb
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 6852225ce5f5df729e768a5d61949e9a5503701d
+ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173957"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72914492"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>使用 Linux 虚拟机上的虚拟 TPM 创建和预配 IoT Edge 设备
 
@@ -28,12 +28,19 @@ ms.locfileid: "70173957"
 * 为设备创建个人注册
 * 安装 IoT Edge 运行时并将设备连接到 IoT 中心
 
-本文中的步骤仅用于测试目的。
+> [!NOTE]
+> 将 TPM 证明与 DPS 一起使用时，TPM 2.0 是必需的，并且只能用于创建个人（而非组）注册。
+
+> [!TIP]
+> 本文介绍了如何使用 TPM 模拟器测试 DPS 预配，但其中的大部分内容都适用于物理 TPM 硬件，例如 Infineon OPTIGA&trade; TPM（针对 IoT 设备的 Azure 认证）。
+>
+> 如果使用的是物理设备，则可以跳至本文的[从物理设备中检索预配信息](#retrieve-provisioning-information-from-a-physical-device)部分。
 
 ## <a name="prerequisites"></a>先决条件
 
 * [已启用 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 的 Windows 开发计算机。 本文使用运行 Ubuntu Server VM 的 Windows 10。 
 * 活动的 IoT 中心。 
+* 如果使用模拟 TPM，则需要启用了[“使用 C++ 的桌面开发”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作负荷的 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更高版本。
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>创建包含虚拟 TPM 的 Linux 虚拟机
 
@@ -87,7 +94,7 @@ ms.locfileid: "70173957"
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>启动虚拟机并收集 TPM 数据
 
-在虚拟机中，生成一个可用于检索设备“注册 ID”和“认可密钥”的 C SDK 工具。   
+在虚拟机中，生成一个可用于检索设备“注册 ID”和“认可密钥”的工具。  
 
 1. 启动并连接到虚拟机。
 
@@ -98,7 +105,37 @@ ms.locfileid: "70173957"
    >[!TIP]
    >在本文中，我们将在虚拟机中进行复制和粘贴，而在 Hyper-V 管理器连接应用程序中难以执行此类操作。 可以通过 Hyper-V 管理器连接到虚拟机一次，以检索其 IP 地址：`ifconfig`。 然后，可以使用该 IP 地址通过 SSH 进行连接：`ssh <username>@<ipaddress>`。
 
-4. 运行以下命令，生成用于检索设备预配信息的 C SDK 工具。 
+1. 运行以下命令，生成用于从 TPM 模拟器检索设备预配信息的 SDK 工具。
+
+   ```bash
+   cd azure-iot-sdk-c/cmake
+   cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+   cd provisioning_client/tools/tpm_device_provision
+   make
+   sudo ./tpm_device_provision
+   ```
+
+1. 在命令窗口中，导航到 `azure-iot-sdk-c` 目录并运行 TPM 模拟器。 该模拟器通过套接字在端口 2321 和 2322 上进行侦听。 请勿关闭此命令窗口；将需要让此模拟器保持运行。
+
+   从 `azure-iot-sdk-c` 目录运行以下命令，以启动模拟器：
+
+   ```bash
+   ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
+   ```
+
+1. 使用 Visual Studio，在 `cmake` 目录中打开生成的名为 `azure_iot_sdks.sln` 的解决方案，并使用“生成”  菜单上的“生成解决方案”  命令生成它。
+
+1. **在 Visual Studio 的** “解决方案资源管理器”窗格中，导航到 **Provision\_Tools** 文件夹。 右键单击“tpm_device_provision”项目，  然后选择“设为启动项目”。 
+
+1. 使用“调试”  菜单上的任一“启动”  命令来运行此解决方案。 输出窗口显示 TPM 模拟器的**注册 ID**和**认可密钥**，你应该复制这些内容以供以后为设备创建个人注册时使用。可以关闭此窗口（包含注册 ID 和认可密钥），但让 TPM 模拟器窗口保持运行。
+
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>从物理设备检索预配信息
+
+在设备上，生成一个可用于检索设备的预配信息的工具。
+
+1. 按照[设置 Linux 开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)中的步骤安装并生成适用于 C 的 Azure IoT 设备 SDK。
+
+1. 运行以下命令，生成用于从 TPM 设备检索设备预配信息的 SDK 工具。
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -107,8 +144,6 @@ ms.locfileid: "70173957"
    make
    sudo ./tpm_device_provision
    ```
-   >[!TIP]
-   >如果要使用 TPM 模拟器进行测试，则需要放置一个额外的参数 `-Duse_tpm_simulator:BOOL=ON` 来启用它。 完整命令将为 `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..`。
 
 5. 复制“注册 ID”和“认可密钥”的值。   稍后要使用这些值在 DPS 中为设备创建个人注册。 
 
@@ -133,7 +168,10 @@ ms.locfileid: "70173957"
    1. 对于“机制”，请选择“TPM”。   
    
    2. 提供从虚拟机中复制的“认可密钥”和“注册 ID”。  
-   
+
+      > [!TIP]
+      > 如果使用的是物理 TPM 设备，则需要确定**认可密钥**，该密钥对于每个 TPM 芯片都是唯一的，并且可以从与之关联的 TPM 芯片制造商处获得。 例如，可以通过创建认可密钥的 SHA-256 哈希来为 TPM 设备派生唯一的**注册 ID**。
+
    3. 选择“True”，以声明此虚拟机是 IoT Edge 设备。  
    
    4. 选择要将设备连接到的链接“IoT 中心”。  可以选择多个中心，设备将根据所选的分配策略分配到其中的一个中心。 
@@ -153,7 +191,7 @@ ms.locfileid: "70173957"
       }
       ```
 
-   7. 选择“其他安全性验证”  。 
+   7. 选择“保存”  。 
 
 既然此设备已存在注册，IoT Edge 运行时在安装期间可以自动预配设备。 
 
@@ -217,35 +255,6 @@ IoT Edge 运行时需要有权访问 TPM 才能自动预配设备。
    ```
 
    如果未看到应用了正确的权限，请尝试重新启动计算机来刷新 udev。 
-
-8. 打开 IoT Edge 运行时 overrides 文件。 
-
-   ```bash
-   sudo systemctl edit iotedge.service
-   ```
-
-9. 添加以下代码以建立 TPM 环境变量。
-
-   ```input
-   [Service]
-   Environment=IOTEDGE_USE_TPM_DEVICE=ON
-   ```
-
-10. 保存并退出该文件。
-
-11. 验证重写是否成功。
-
-    ```bash
-    sudo systemctl cat iotedge.service
-    ```
-
-    如果重写成功，输出将显示 **iotedge** 默认服务变量，然后显示 **override.conf** 中设置的环境变量。 
-
-12. 重载设置。
-
-    ```bash
-    sudo systemctl daemon-reload
-    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>重启 IoT Edge 运行时
 
