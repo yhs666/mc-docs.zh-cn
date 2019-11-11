@@ -1,25 +1,20 @@
 ---
 title: 在 Azure Monitor 日志查询中使用字符串 | Azure Docs
 description: 本文提供了有关使用 Azure 门户中的 Azure Monitor Log Analytics 对 Azure Monitor 中的日志数据进行查询和分析的教程。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/16/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 96148bbeb442f3801c78c0d5fbc870332e664776
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 054bd2fe5819a019b080a9ea22e2dbc208a55932
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329702"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730456"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用 JSON 和数据结构
 

@@ -1,32 +1,28 @@
 ---
 title: 将 Configuration Manager 连接到 Azure Monitor | Azure Docs
 description: 本文介绍将 Configuration Manager 连接到 Azure Monitor 中的工作区以及开始分析数据的步骤。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/28/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da9a118bb985ac2314a70b43aff4e57bb631fc46
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 857c0dcb174dc52e1c785f8f21d735b6a0fc83e8
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329902"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730549"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>将 Configuration Manager 连接到 Azure Monitor
 可将 System Center Configuration Manager 环境连接到 Azure Monitor 以同步设备集合数据，并在 Azure Monitor 和 Azure 自动化中引用这些集合。  
 
 ## <a name="prerequisites"></a>先决条件
 
-Azure Monitor 支持 System Center Configuration Manager 当前分支版本 1606 和更高版本。  
+Azure Monitor 支持 System Center Configuration Manager 当前分支版本 1606 和更高版本。
+
 
 ## <a name="configuration-overview"></a>配置概述
 
@@ -61,6 +57,7 @@ Azure Monitor 支持 System Center Configuration Manager 当前分支版本 1606
 4. 在“访问控制(IAM)”页面中，单击“添加角色分配”，随即出现“添加角色分配”窗格   。
 
 5. 在“添加角色分配”窗格中的“角色”下拉列表内，选择“参与者”角色。     
+
 6. 在“将访问权限分配到”下拉列表中，选择前面在 AD 中创建的 Configuration Manager 应用程序，然后单击“确定”。    
 
 ## <a name="download-and-install-the-agent"></a>下载并安装代理

@@ -1,19 +1,20 @@
 ---
 title: 使用 PowerShell 将 Windows Server 备份到 Azure
 description: 了解如何使用 PowerShell 部署和管理 Azure 备份
-services: backup
+ms.reviewer: shivamg
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/12/19
+origin.date: 08/20/2019
+ms.date: 11/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 94702d4c5161656fa3f8b1a7cfad7074f079a065
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 3d54991c07b696dec9dacb828a4d9fd48aad9554
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103736"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730410"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -24,6 +25,7 @@ ms.locfileid: "70103736"
 若要开始操作，请[安装最新的 PowerShell 版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
+
 以下步骤引导用户创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
 
 1. 首次使用 Azure 备份时，必须使用 **Register-AzResourceProvider** cmdlet 将 Azure 恢复服务提供程序注册到订阅。
@@ -31,6 +33,7 @@ ms.locfileid: "70103736"
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
 2. 恢复服务保管库是一种 ARM 资源，因此需要将它放在资源组中。 可以使用现有资源组，也可以创建新组。 创建新的资源组时，请指定资源组的名称和位置。  
 
     ```powershell

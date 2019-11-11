@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 日志查询中的计算机组 | Azure Docs
 description: 使用 Azure Monitor 中的计算机组可为一组特定的计算机设定日志查询的范围。  本文介绍用于创建计算机组的不同方法以及如何在日志查询中使用这些方法。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 02/05/2019
+origin.date: 02/05/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9e653b9fd7da2a3a35f35fd95d245d0679653cf3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6b2c7520b6deabe9939e8a29f2f030960cfaecaf
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736947"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730547"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的计算机组
 使用 Azure Monitor 中的计算机组可为一组特定的计算机设定[日志查询](../log-query/log-query-overview.md)的范围。  每个组使用定义的查询或通过从不同源导入组填充计算机。  当日志查询中包括组时，结果仅限于与组中的计算机匹配的记录。

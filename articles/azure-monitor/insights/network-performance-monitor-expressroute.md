@@ -1,25 +1,20 @@
 ---
 title: Azure Log Analytics 中的网络性能监视器解决方案 | Azure Docs
 description: 使用网络性能监视器中的 ExpressRoute 监视器功能通过 Azure ExpressRoute 监视分支办事处与 Azure 之间的端到端连接和性能。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a859c765b800219ac136a56c7baebec049b0c425
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: f6d562dc811a223094e3566646514cad175cb9d7
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736506"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730403"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 监视器
 

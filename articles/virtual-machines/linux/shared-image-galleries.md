@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/06/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 45a900dd94383680388cfc440a7e129bb181ad3d
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 221e88e85ce03393dbe797ca5d6a020f3b1e69d1
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272602"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831220"
 ---
 <!--Verify Successfully-->
 # <a name="shared-image-galleries-overview"></a>共享映像库概述

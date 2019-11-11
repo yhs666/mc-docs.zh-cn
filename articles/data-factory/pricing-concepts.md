@@ -3,19 +3,20 @@ title: 通过示例了解 Azure 数据工厂定价 | Microsoft Docs
 description: 本文使用详细的示例介绍并演示 Azure 数据工厂定价模型
 documentationcenter: ''
 author: WenJason
+ms.author: v-jay
+manager: digimobile
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 09/25/2018
-ms.date: 07/26/2019
-ms.author: v-jay
-ms.openlocfilehash: a456d1c5c3f0ffc4c5161e08539776dc44897c52
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.date: 11/11/2019
+ms.openlocfilehash: b456fc37b11fa7cf8e2b3665cc20ef9ee8440049
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513516"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648824"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>通过示例了解数据工厂定价
 
@@ -133,3 +134,5 @@ ms.locfileid: "68513516"
 - [使用 Azure 数据工厂 UI 创建数据工厂](quickstart-create-data-factory-portal.md)
 
 - [Azure 数据工厂简介](introduction.md)
+
+- [Azure 数据工厂中的视觉对象创作](author-visually.md)

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 02/05/2019
-ms.date: 06/25/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baae8f26b08a85d0c56badd70f06bc1f60759a5a
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: f06e39f3993372474b225d460139d73c0c9cb938
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568739"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830955"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>快速入门：设置开发环境
+# <a name="quickstart-set-up-a-tenant"></a>快速入门：设置租户
 
 Microsoft 标识平台可让开发人员生成面向各种自定义 Microsoft 365 环境和标识的应用程序。 要开始使用 Microsoft 标识平台，你将需要访问环境（也称为 Azure AD 租户），该环境可以注册和管理应用、可以访问 Microsoft 365 数据并部署租户限制。
 
@@ -35,7 +35,7 @@ Microsoft 标识平台可让开发人员生成面向各种自定义 Microsoft 36
 
 ## <a name="determining-environment-type"></a>确定环境类型
 
-有两种可以创建的环境类型。 确定所需的内容仅基于你的应用将进行身份验证的用户类型。
+有两种可以创建的环境类型。 确定所需的环境类型仅基于你的应用将进行身份验证的用户类型。
 
 * 工作和学校（Azure AD 帐户） 
 * 社交和本地帐户（Azure AD B2C）
@@ -50,7 +50,7 @@ Microsoft 标识平台可让开发人员生成面向各种自定义 Microsoft 36
 
 1. 要检查租户，请使用要用于管理应用程序的帐户登录 [Azure 门户](https://portal.azure.cn)。
 1. 查看右上角。 如果你有一个租户，则会自动登录到该租户，并且帐户名的正下方会显示租户名称。
-   * 将鼠标指针悬停在 Azure 门户右上角的帐户名上，可以查看你的姓名、电子邮件、目录和租户 ID (GUID) 以及域。
+   * 将鼠标指针悬停在 Azure 门户右上角的帐户名上，可以查看你的姓名、电子邮件、目录/租户 ID (GUID) 以及域。
    * 如果帐户与多个租户相关联，则可以选择帐户名打开一个菜单，并在其中切换租户。 每个租户都有自己的唯一租户 ID。
 
 > [!TIP]

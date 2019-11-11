@@ -10,12 +10,12 @@ origin.date: 06/28/2019
 ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: f2ac1abdc7d233a86ec3b6ce97e12af426b0812d
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: db9b079bc6cc8d1ecea5be49719a181ad6c3145c
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914380"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648677"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -167,7 +167,7 @@ az storage account create \
 
 # <a name="templatetabtemplate"></a>[模板](#tab/template)
 
-可以使用 Azure Powershell 或 Azure CLI 来部署资源管理器模板以创建存储帐户。 本操作指南文章中使用的模板来自 [Azure 资源管理器快速入门模板](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 若要运行脚本，请选择“试用”  打开 Azure Cloud shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  。
+可以使用 Azure Powershell 或 Azure CLI 来部署资源管理器模板以创建存储帐户。 本操作指南文章中使用的模板来自 [Azure 资源管理器快速入门模板](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

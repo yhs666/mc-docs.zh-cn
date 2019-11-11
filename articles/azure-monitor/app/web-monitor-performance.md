@@ -1,25 +1,21 @@
 ---
 title: 使用 Application Insights 监视应用的运行状况和使用情况
-description: Application Insights 入门。 分析本地或世纪互联 Azure 应用程序的使用情况、可用性和性能。
-services: application-insights
-documentationcenter: ''
+description: Application Insights 入门。 分析本地或 Microsoft Azure 应用程序的使用情况、可用性和性能。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 05/10/2018
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 72997004e1b230c18127663017856853ac65fcbb
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: f05937c6e896d27b6f0c3da0b6d351179fb22183
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736569"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730515"
 ---
 # <a name="monitor-performance-in-web-applications"></a>在 Web 应用程序中监视性能
 

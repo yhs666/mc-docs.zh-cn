@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/09/2019
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db23ddbcb7e16ac1f9e56998925d14e0119f6904
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 67f43efc0d48e261fe09837e27923c3938f3485a
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134312"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830956"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入门：将应用程序注册到 Microsoft 标识平台
 
@@ -47,7 +47,7 @@ ms.locfileid: "70134312"
        | **任何组织目录中的帐户** | 若要面向所有企业和教育客户，请选择此选项。<br><br>此选项映射到仅限 Azure AD 的多租户。<br><br>如果已将应用注册为仅限 Azure AD 的单租户，则可通过“身份验证”边栏选项卡将其更新为 Azure AD 多租户，以及从多租户更新为单租户。  |
 
    - **重定向 URI (可选)** - 选择要生成的应用的类型：“Web”  或“公共客户端(移动和桌面)”  ，然后输入应用程序的重定向 URI (或回复 URL)。
-       - 对于 Web 应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。
+       - 对于 Web 应用程序，请提供应用的基 URL。 例如，`https://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。
        - 对于公共客户端应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `myapp://auth`。
 
      若要查看 Web 应用程序或本机应用程序的具体示例，请参阅[快速入门](/active-directory/develop)。

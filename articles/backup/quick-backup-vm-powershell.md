@@ -1,7 +1,6 @@
 ---
 title: Azure 快速入门 - 使用 PowerShell 备份 VM
 description: 了解如何使用 Azure PowerShell 备份虚拟机
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -11,12 +10,12 @@ origin.date: 04/16/2019
 ms.date: 09/16/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: e058f87c82574c9f3e431d0d836d753ca3b5a4d6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1034fc56ca8ff99b018dd3116650ea4f0cc5b45d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330392"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730542"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 

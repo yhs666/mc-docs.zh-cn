@@ -1,25 +1,21 @@
 ---
 title: 使用 Azure Application Insights 为 Web 应用程序进行用户留存情况分析 | Azure docs
 description: 有多少用户回归到应用？
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 05/03/2017
 ms.date: 6/4/2019
-ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 8fc4317593bb5849270f28d7cd9abf29517b923f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6e9133ac1a0ce35d5bc7bd9ea664c0c66d885d2e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736579"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730189"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>使用 Azure Application Insights 为 Web 应用程序进行用户留存情况分析
 

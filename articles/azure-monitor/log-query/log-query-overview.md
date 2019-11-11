@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor 中的日志查询概述 | Docs
 description: 解答有关日志查询的常见问题，并帮助你开始使用日志查询。
-services: log-analytics
+ms.service: azure-monitor
 author: lingliw
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/16/2018
 ms.date: 06/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ef23a4706fcb522b4b68289cb727b29385fad1f3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 05579b7fc4348facd85393d632c7bfd26596133c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737169"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730455"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure Monitor 中的日志查询概述
 日志查询可帮助你充分利用 [Azure Monitor 日志](../platform/data-platform-logs.md)中收集的数据的价值。 使用功能强大的查询语言，只需编写极少量的代码即可联接多个表中的数据、聚合大型数据集，以及执行复杂的操作。 只要收集了支持数据，并且你了解如何构造适当的查询，就几乎能够解答任何问题和执行分析。

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 07/01/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ab93fc26a61c429bf241e915ad74df96492443b
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: c9d0c005b07a935dd7bc9796c73c81eeaf42821b
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568649"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830880"
 ---
 # <a name="web-api"></a>Web API
 
@@ -82,6 +82,6 @@ Web 应用程序使用其授权代码来获取 JWT 访问令牌时，它还会�
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解其他[应用程序类型和方案](app-types.md)
-- 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
+- 了解 Azure AD [身份验证基础知识](v1-authentication-scenarios.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

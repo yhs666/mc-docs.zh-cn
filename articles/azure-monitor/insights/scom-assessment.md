@@ -1,25 +1,20 @@
 ---
 title: 使用 Azure Log Analytics 优化 System Center Operations Manager 环境 | Azure Docs
 description: 可以使用 System Center Operations Manager 运行状况检查解决方案定期评估环境的风险和运行状况。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 06/25/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0f78f5a0237c7d4650efcbb68116caef6230b6c6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d9838fd74e66d6bc7f90b7f2efa679a09795f041
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736505"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730412"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 运行状况检查（预览版）解决方案优化环境
 

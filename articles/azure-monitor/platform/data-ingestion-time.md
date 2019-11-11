@@ -1,24 +1,20 @@
 ---
 title: Azure Monitor 中的日志数据引入时间 | Azure Docs
 description: 介绍了影响在 Azure Monitor 中收集数据时的延迟的各种因素。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.service: log-analytics
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: logs
+ms.topic: conceptual
 origin.date: 07/18/2019
 ms.date: 08/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2bcb5ca2d3627d1bb73441b9c49e8a0d5ca77a07
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 0679d111ac5065b165d82f6458edd97c303de9cc
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330409"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730543"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor 中的日志数据引入时间
 Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发送数 TB 的数据，并且此数据仍在不断增长。 关于日志数据在收集后需要多长时间才可供使用，大家通常存有疑问。 本文将对影响此延迟的不同因素进行说明。

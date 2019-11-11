@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 日志查询中的有用运算符 | Microsoft Docs
 description: Azure Monitor 日志查询中用于各种方案的常见函数。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/21/2018
 ms.date: 08/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a08f9a3741e3a9c8cf0732156bd99bfc63c26f8c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 73fc1434eba8af91631b75ff70d5c2f6d3061727
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737064"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730321"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的有用运算符
 

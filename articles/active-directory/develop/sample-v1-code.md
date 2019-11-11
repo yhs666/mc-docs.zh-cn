@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/15/2019
-ms.date: 10/25/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f13319f948c4011295710caec5dd349aabee39ec
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 6cc7acebc3e8638fb7c80fa222aa20f18b35b2a7
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912776"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830937"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 代码示例（v1.0 终结点）
 
@@ -37,7 +37,7 @@ ms.locfileid: "72912776"
 > [!NOTE]
 > 如果对 Azure AD V2 代码示例感兴趣，请参阅[按方案分类的 v2.0 代码示例](sample-v2-code.md)。
 
-若要了解每种示例类型的基本方案，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
+若要了解每种示例类型的基本方案，请参阅 [Azure AD 的身份验证方案](v1-authentication-scenarios.md)。
 
 你也可以在 GitHub 上为我们的示例做出补充。 若要了解如何操作，请参阅 [Azure Active Directory 示例和文档](https://github.com/Azure-Samples?page=3&query=active-directory)。
 
@@ -119,7 +119,7 @@ ASP.NET Web 应用  | ![此图显示了 .NET 徽标](./media/sample-v2-code/logo
 
 | 平台 |  调用 Microsoft Graph | 调用另一个 ASP.NET 或 ASP.NET Core 2.0 Web API |
 | -------- |  --------------------- | ------------------------- |
-| ![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p>  |
+| ![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 示例
 

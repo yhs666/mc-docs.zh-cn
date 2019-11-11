@@ -1,25 +1,20 @@
 ---
 title: 使用 Azure 资源管理器模板创建和配置 Log Analytics 工作区 | Azure Docs
 description: 可以使用 Azure 资源管理器模板创建和配置 Log Analytics 工作区。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 07/11/2019
-ms.date: 08/11/2019
+origin.date: 10/22/2019
+ms.date: 11/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6b8c79ac31beab9b95c30ea7af87fa057d9a3c1c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9d5a96c82d20cc37ede53a373b043ed47f2612a8
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330423"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730594"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Log Analytics 工作区
 
@@ -169,7 +164,7 @@ ms.locfileid: "71330423"
     },
     "immediatePurgeDataOn30Days": {
       "type": "bool",
-      "defaultValue": "false",
+      "defaultValue": "[bool('false')]",
       "metadata": {
         "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
@@ -192,13 +187,13 @@ ms.locfileid: "71330423"
         "metadata": {
           "description": "The resource group name containing the storage account with Azure diagnostics output"
         }
-      }
     },
-    "customlogName": {
+    "customLogName": {
     "type": "string",
     "metadata": {
-      "description": "custom log name"
+      "description": "The custom log name"
       }
+     }
     },
     "variables": {
       "Updates": {
@@ -371,13 +366,13 @@ ms.locfileid: "71330423"
         {
           "apiVersion": "2015-11-01-preview",
           "type": "dataSources",
-          "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
+          "name": "[concat(parameters('workspaceName'), parameters('customLogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
-            "customLogName": "[parameters('customlogName')]",
+            "customLogName": "[parameters('customLogName')]",
             "description": "this is a description",
             "extractions": [
               {
@@ -402,7 +397,7 @@ ms.locfileid: "71330423"
                   "fileSystemLocations": {
                     "linuxFileTypeLogPaths": null,
                     "windowsFileTypeLogPaths": [
-                      "[concat('c:\\Windows\\Logs\\',parameters('customlogName'))]"
+                      "[concat('c:\\Windows\\Logs\\',parameters('customLogName'))]"
                     ]
                   }
                 },
@@ -416,7 +411,7 @@ ms.locfileid: "71330423"
               }
             ]
           }
-        }
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "type": "datasources",
@@ -544,8 +539,8 @@ ms.locfileid: "71330423"
     }
   }
 }
-
 ```
+
 ### <a name="deploying-the-sample-template"></a>部署示例模板
 
 若要部署示例模板，请执行以下操作：

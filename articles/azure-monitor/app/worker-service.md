@@ -1,23 +1,20 @@
 ---
 title: 适用于辅助角色服务应用（非 HTTP 应用）的 Application Insights | Microsoft Docs
 description: 使用 Application Insights 监视 .NET Core/.NET Framework 非 HTTP 应用。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
 author: lingliw
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+manager: digimobile
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/15/2019
+origin.date: 09/15/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af4040c09d47894dd2837f86db70d587906cac2d
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: d3db602690416ba7d83b8ad4a8b10f1f6ee246f9
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72971155"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730509"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>适用于辅助角色服务应用程序（非 HTTP 应用）的 Application Insights
 

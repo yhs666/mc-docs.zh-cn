@@ -1,24 +1,20 @@
 ---
 title: 查看和分析 Azure Log Analytics 中的数据 | Azure Docs
 description: 帮助用户从 Log Analytics 日志搜索过渡到 Azure Monitor 日志查询体验。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 01/16/2019
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6c3576c1df825ad79361106acdcc843e092afc3e
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 31532d9f4dc250e666f648a4cda41ea8ac94c306
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737177"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730454"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>从 Log Analytics 日志搜索过渡到 Azure Monitor 日志
 Log Analytics 中的日志搜索功能最近已由一个可以分析 Azure Monitor 日志的新体验取代。 目前，仍可以在 Azure 门户中通过“Log Analytics 工作区”页上的“日志(经典)”菜单项访问日志搜索页，但该搜索页将在 2019 年 2 月 15 日删除。   本文介绍两种体验之间的差异，以帮助你从日志搜索过渡到新体验。 

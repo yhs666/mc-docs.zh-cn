@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 日志查询中的 app() 表达式 | Azure Docs
 description: app 表达式用于 Azure Monitor 日志查询中，可从特定 Application Insights 应用中的同一资源组、另一个资源组或另一个订阅中检索数据。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-origin.date: 08/22/2019
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7211ea3368e6d4d4702df95ea32e9166fb634226
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+origin.date: 01/25/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 10c3a2f155bf2c88e19839f724fd1f5f81024402
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989250"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730464"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 查询中的 app() 表达式
 

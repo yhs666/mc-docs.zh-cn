@@ -1,25 +1,25 @@
 ---
-title: 通过 Azure IoT 中心设置和使用指标与诊断日志 | Microsoft Docs
-description: 通过 Azure IoT 中心设置和使用指标与诊断日志
+title: 通过 Azure IoT 中心设置和使用指标和诊断日志 | Microsoft Docs
+description: 通过 Azure IoT 中心设置和使用指标和诊断日志
 author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 3/13/2019
-ms.date: 04/08/2019
+ms.date: 11/18/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: bbecc5fd2b60b1d39f59a5ec1d4773b3f9454942
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4d4d26b33813e8229bd3340a17fc2d0704949944
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625298"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831368"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教程：通过 IoT 中心设置和使用指标与诊断日志
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教程：通过 IoT 中心设置和使用指标和诊断日志
 
-如果你的 IoT 中心解决方案在生产环境中运行，则需要设置一些指标并启用诊断日志。 然后，在出现问题的情况下，可以查看数据，以便诊断问题并更快进行修复。 本文介绍如何启用诊断日志，以及如何检查其中记录的错误。 此外还介绍如何设置一些监视指标，以及如何设置在指标达到特定阈值时触发的警报。 例如，可以在发送的遥测消息数超出特定限制时，或者所使用的消息数接近 IoT 中心每天允许的消息配额时，让系统给你发送电子邮件。 
+如果有在生产环境中运行的 IoT 中心解决方案，则需设置一些指标并启用诊断日志。 然后，在出现问题的情况下，可以查看数据，以便诊断问题并更快进行修复。 本文介绍如何启用诊断日志，以及如何检查其中记录的错误。 此外还介绍如何设置一些监视指标，以及如何设置在指标达到特定阈值时触发的警报。 例如，可以在发送的遥测消息数超出特定限制时，或者所使用的消息数接近 IoT 中心每天允许的消息配额时，让系统给你发送电子邮件。 
 
 以加油站为例，油泵是可以与 IoT 中心通信的 IoT 设备。 在验证信用卡之后，系统会将最终的交易写入数据存储。 在 IoT 设备停止连接到中心并停止发送消息的情况下，如果看不到正在进行的操作，则更加难以解决问题。
 
@@ -125,7 +125,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>启用诊断日志 
 
-创建新的 IoT 中心时，默认会禁用[诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)。 在此部分，请为中心启用诊断日志。
+创建新的 IoT 中心时，会默认禁用[诊断日志](../azure-monitor/platform/resource-logs-overview.md)。 在此部分，请为中心启用诊断日志。
 
 1. 首先，如果尚未进入门户的中心，请单击“资源组”，然后单击资源组 Contoso-Resources  。 从显示的资源列表中选择中心。 
 
@@ -146,7 +146,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
     单击“配置”，此时会看到“选择存储帐户”屏幕，选择右侧的帐户   (*contosostoragemon*)，然后单击“确定”，返回到“诊断设置”窗格。  
 
-   ![显示如何将诊断日志设置为存档到存储帐户的屏幕截图。](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
+   ![屏幕截图，显示如何将诊断日志设置为存档到存储帐户。](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
 6. 在“日志”下，勾选“连接”和“设备遥测”，然后将“保留期(天)”设置为每项 7 天。     “诊断设置”屏幕现在应如下图所示：
 
@@ -315,11 +315,11 @@ await Task.Delay(10);
 
 ### <a name="see-the-diagnostic-logs"></a>查看诊断日志
 
-设置要导出到 Blob 存储的诊断日志。 转到资源组，选择存储帐户 *contosostoragemon*。 选择“Blob”，然后打开容器 *insights-logs-connections*。 向下钻取到当前日期，然后选择最近的文件。 
+设置诊断日志，以便将其导出到 Blob 存储。 转到资源组，选择存储帐户 *contosostoragemon*。 选择“Blob”，然后打开容器 *insights-logs-connections*。 向下钻取到当前日期，然后选择最近的文件。 
 
-   ![显示如何向下钻取到存储容器来查看诊断日志的屏幕截图。](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
+   ![屏幕截图，显示如何向下钻取到存储容器来查看诊断日志。](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
-单击“下载”  以下载该文件，然后将其打开。 此时会看到在将消息发送到中心时进行连接和断开连接的设备的日志。 下面是一个示例：
+单击“下载”  以下载该文件，然后将其打开。 此时会看到日志，描述设备在将消息发送到中心时进行的连接和断开连接操作。 下面是一个示例：
 
 ``` json
 { 
@@ -370,7 +370,7 @@ az group delete --name $resourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何通过执行以下任务来使用指标和诊断日志：
+本教程介绍了如何执行以下任务，以便使用指标和诊断日志：
 
 > [!div class="checklist"]
 > * 使用 Azure CLI 创建 IoT 中心、模拟设备和存储帐户。  

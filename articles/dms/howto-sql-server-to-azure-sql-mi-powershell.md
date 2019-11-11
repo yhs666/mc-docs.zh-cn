@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 origin.date: 04/29/2019
-ms.date: 08/12/2019
-ms.openlocfilehash: 0a93a5615b4d874228c4b180e36a7d81e9026450
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.date: 11/11/2019
+ms.openlocfilehash: c53d89b2c209cc61866267ec228eaa1ee1b73471
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952150"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831377"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>使用 Azure PowerShell 将本地 SQL Server 迁移到 Azure SQL 数据库托管实例
 在本文中，我们将使用 Azure PowerShell 将还原为 SQL Server 2005 或更高版本的本地实例的 **Adventureworks2016** 数据库迁移到 Azure SQL 数据库托管实例。 可以使用 Azure PowerShell 中的 `Az.DataMigration` 模块，将数据库从本地 SQL Server 实例迁移到 Azure SQL 数据库托管实例。
@@ -124,7 +124,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.chinacloudapi.cn" `
+  -DataSource "targetmanagedinstance.database.chinacloudapi.cn" `
   -AuthType SqlAuthentication `
   -TrustServerCertificate:$false
 ```
@@ -377,15 +377,15 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMiSync `
     ```powershell
     if (($CheckTask.ProjectTask.Properties.State -eq "Running") -or ($CheckTask.ProjectTask.Properties.State -eq "Queued"))
     {
-      write-host "migration task running"
+      Write-Host "migration task running"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
     { 
-      write-host "Migration task is completed Successfully"
+      Write-Host "Migration task is completed Successfully"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation"  -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation" -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
     { 
-      write-host "Migration Task Failed"
+      Write-Host "Migration Task Failed"
     }
     ```
 

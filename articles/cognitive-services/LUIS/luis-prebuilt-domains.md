@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dc67a0cfb0c6aa13d488383a7064ab3d8d560c1b
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c035d205078e1403a2c1db7a6642d5ed043c3284
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329760"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730602"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>为常用使用方案添加预生成域 
 

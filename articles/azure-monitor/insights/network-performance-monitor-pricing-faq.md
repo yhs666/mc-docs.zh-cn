@@ -1,26 +1,20 @@
 ---
 title: Azure 网络性能监视器的定价常见问题解答 | Azure Docs
 description: 常见问题解答 - Azure 网络性能监视器
-services: monitoring-and-diagnostics
-documentationcenter: na
-author: lingliw
+author: agummadi
 manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.author: v-lingwu
 origin.date: 04/02/2018
 ms.date: 04/12/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 2dec47b8476f5b51d4f5c82df870a66776f4c367
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: bd17fae62112697961d910fa278f80bce05ba1b0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736986"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730400"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 网络性能监视器的定价变化
 

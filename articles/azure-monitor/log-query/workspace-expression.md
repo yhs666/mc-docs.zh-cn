@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 日志查询中的 workspace() 表达式 | Azure Docs
 description: workspace 表达式用于 Azure Monitor 日志查询中，以从同一资源组、另一个资源组或另一个订阅的特定工作区中检索数据。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.author: v-lingwu
 origin.date: 09/10/2018
 ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: a0a16bb9767188d914d69859caecba658a13f78f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7a575c0b0975d698f24db711c19f667286ff18dd
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737062"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730319"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 日志查询中的 workspace() 表达式
 

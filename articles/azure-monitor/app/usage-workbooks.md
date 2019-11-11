@@ -1,25 +1,21 @@
 ---
 title: 使用 Azure Monitor 工作簿创建交互式报表 | Azure docs
 description: 使用预先构建的自定义参数化工作簿简化复杂的报表
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 09/19/2018
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
-ms.openlocfilehash: 38ad2a4a453821b26565c26cd89e507b61501285
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b757f8ccea3fd04bfd5c2cd99843c1de77ee33af
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736580"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730517"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 

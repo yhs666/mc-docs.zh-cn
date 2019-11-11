@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: e29a0808182a5c73b2e29f8aa40b4be5d02cd321
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 93748dce2b950b139a4288159617bfea8760efe8
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272789"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831376"
 ---
 <!--Verify successfully-->
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
@@ -38,7 +38,7 @@ ms.locfileid: "72272789"
 
 ### <a name="operating-system"></a>操作系统
 
-适用于 Linux 的自定义脚本扩展将在扩展支持的扩展 OS 上运行，有关详细信息，请参阅[此文](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
+适用于 Linux 的自定义脚本扩展将在扩展支持的扩展 OS 上运行，有关详细信息，请参阅[此文](/virtual-machines/linux/endorsed-distros)。
 
 ### <a name="script-location"></a>脚本位置
 
@@ -254,8 +254,8 @@ az vm extension set \
   --vm-name exttest \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]}"
-  --protected-settings '{"commandToExecute": "./config-music.sh"}'
+  --settings "{'fileUris': ['https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh']}" \
+  --protected-settings "{'commandToExecute': './config-music.sh'}"
 ```
 
 <!--MOONCAKE: IMPORTANT: Should split settings and protected-settings JSON file-->
@@ -419,4 +419,4 @@ info:    vm extension get command OK
 ## <a name="next-steps"></a>后续步骤
 若要查看代码、当前问题和版本，请参阅 [custom-script-extension-linux 存储库](https://github.com/Azure/custom-script-extension-linux)。
 
-<!-- Update_Description: update meta properties, wording update, correct the wrong cmdlet -->
+<!-- Update_Description: update meta properties, wording update, update link -->

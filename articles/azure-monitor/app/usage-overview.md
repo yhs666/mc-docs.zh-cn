@@ -1,23 +1,20 @@
 ---
 title: 使用 Azure Application Insights 进行使用情况分析 | Azure docs
 description: 了解用户，以及他们将应用用于哪些目的。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 09/19/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8150073428717bc92a19198f41d382b798a74cef
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f29a21b249c00aa51bfb4cf0c140fa854e0cefba
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329978"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730452"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights 使用分析
 

@@ -1,22 +1,20 @@
 ---
 title: 快速入门：使用 Azure Monitor Application Insights 监视网站 | Azure Docs
 description: 提供使用 Azure Monitor Application Insights 快速设置客户端/浏览器端网站监视的说明
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: lingliw
 ms.author: v-lingwu
 origin.date: 07/15/2019
 ms.date: 8/4/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: digimobile
-ms.openlocfilehash: 3f4344fd08a5e360bffe6fe3350cf3b146defd23
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: c476d28a0d125b08e5c7cf681797be025ea3d5e2
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736563"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730514"
 ---
 # <a name="start-monitoring-your-website"></a>开始监视网站
 

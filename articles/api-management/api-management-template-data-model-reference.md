@@ -12,24 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/05/2017
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 3c406ecf2e64a56108867281e3333243d4b3ed16
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.date: 11/18/2019
+ms.openlocfilehash: e230de285e3cddaf7bb9804de584d5a685ac932d
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323791"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831364"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理模板数据模型参考
 本主题介绍数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。  
   
  如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
   
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-在“消耗”层中，开发人员门户不可用。
 
 ## <a name="reference"></a>参考
 -   [API](#API)  

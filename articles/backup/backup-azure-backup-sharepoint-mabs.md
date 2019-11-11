@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 备份服务器将 SharePoint 场备份到 Azure
 description: 使用 Azure 备份服务器备份和还原 SharePoint 数据。 本文介绍如何配置 SharePoint 场，以便在 Azure 中存储所需的数据。 可以从磁盘或 Azure 还原受保护的 SharePoint 数据。
-services: backup
+ms.reviewer: kasinh
 author: pvrk
 manager: shivamg
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: f71f281415a4cdfe00a01abca8e8b5ad52da7101
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: d23175abc1f06d4e22caa628fd0cef3c84fb8caa
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332209"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730396"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>将 SharePoint 场备份到 Azure
 使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
@@ -162,10 +162,10 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
 
     ![恢复类型](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
-    > [!NOTE]
-    > 示例中所选的“恢复到原始”会将该项恢复到原始 SharePoint 站点  。
-    >
-    >
+   > [!NOTE]
+   > 示例中所选的“恢复到原始”会将该项恢复到原始 SharePoint 站点  。
+   >
+   >
 8. 选择要使用的“恢复过程”  。
 
    - 如果 SharePoint 场未更改，并且与正在还原的恢复点相同，请选择“不使用恢复场进行恢复”  。

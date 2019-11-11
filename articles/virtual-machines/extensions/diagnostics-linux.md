@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: cef3ae81b61a1318ac891f5fbe84a33ca1a4374c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 5b4484c8630da71cf33b75d4a648790b5f3ba130
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272788"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831449"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -62,11 +62,14 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM 的运行状
 
 在运行前，为第一部分中的变量填写正确的值：
 
+<!--MOONCAKE: CORRECT TO ADD my_diagnostic_storage_endpoint=https://core.chinacloudapi.cn/-->
+
 ```bash
 # Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
+my_diagnostic_storage_endpoint="https://core.chinacloudapi.cn/"
 
 # Should login to Azure first before anything else
 az cloud set -n AzureChinaCloud
@@ -85,11 +88,13 @@ sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 
 # Build the protected settings (storage account SAS token)
 my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
-my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
+my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountEndPoint': '$my_diagnostic_storage_endpoint', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
+
+<!--MOONCAKE: CORRECT ON 'storageAccountEndPoint': '$my_diagnostic_storage_endpoint',-->
 
 示例配置的 URL 及其内容可能会有所更改。 下载门户设置 JSON 文件的副本，并根据需要进行自定义。 构造的任何模板或自动化应使用自己的副本，而不是每次下载该 URL。
 
@@ -389,7 +394,7 @@ minSeverity | Syslog 严重性级别（例如“LOG\_ERR”或“LOG\_INFO”）
 
 元素 | Value
 ------- | -----
-命名空间 | （可选）应在其中执行查询的 OMI 命名空间。 如果未指定，则默认值为“root/scx”，由 [ System Center 跨平台提供程序](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)实现。
+命名空间 | （可选）应在其中执行查询的 OMI 命名空间。 如果未指定，则默认值为“root/scx”，由 [ System Center 跨平台提供程序](https://github.com/Microsoft/SCXcore)实现。
 查询 | 要执行的 OMI 查询。
 表 | （可选）指定存储帐户中的 Azure 存储表（请参阅[受保护的设置](#protected-settings)）。
 frequency | （可选）两次执行查询之间的秒数。 默认值为 300 秒（5 分钟）；最小值为 15 秒。
@@ -549,8 +554,11 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 * 匹配的帐户 SAS 令牌
 * 几个接收器（有 SAS 令牌的 JsonBlob 或 EventHubs）
 
+<!--MOONCAKE: CORRECT ON ADD "storageAccountEndPoint": "https://core.chinacloudapi.cn/"-->
+
 ```json
 {
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "storageAccountName": "yourdiagstgacct",
   "storageAccountSasToken": "sv=xxxx-xx-xx&ss=bt&srt=co&sp=wlacu&st=yyyy-yy-yyT21%3A22%3A00Z&se=zzzz-zz-zzT21%3A22%3A00Z&sig=fake_signature",
   "sinksConfig": {
@@ -590,6 +598,8 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
   }
 }
 ```
+
+<!--MOONCAKE: CORRECT ON ADD "storageAccountEndPoint": "https://core.chinacloudapi.cn/"-->
 
 ### <a name="publicconfigjson"></a>PublicConfig.json
 

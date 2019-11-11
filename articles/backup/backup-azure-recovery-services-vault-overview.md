@@ -1,7 +1,6 @@
 ---
 title: 恢复服务保管库概述
 description: 恢复服务保管库和 Azure 备份保管库的概述和比较。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/10/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a6e7e6c5d3c6a97f8398ef55e1fe386c1af55e3b
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: f6a00dbed8d9cc2597ff5165ff2d143cedf031b0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104150"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730363"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 

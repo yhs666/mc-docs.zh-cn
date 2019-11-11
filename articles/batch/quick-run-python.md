@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 运行 Batch 作业 - Python
+title: 快速入门：运行 Azure Batch 作业 - Python API
 description: 使用 Batch Python 客户端库快速运行 Batch 作业和任务。
 services: batch
 author: lingliw
@@ -11,12 +11,12 @@ origin.date: 11/27/2018
 ms.date: 09/03/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: db3c0942b79398c2db9847ac62170461ad3b40eb
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 0692db9b6302035cc038314539e06625329e09fc
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041084"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730408"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入门：使用 Python API 运行你的第一个 Batch 作业
 

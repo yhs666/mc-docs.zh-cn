@@ -1,24 +1,20 @@
 ---
 title: 在 Azure Application Insights 中浏览 HockeyApp 数据 | Azure Docs
 description: 使用 Application Insights 分析 Azure 应用的使用情况和性能。
-services: application-insights
-documentationcenter: windows
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 03/30/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 615bf3176f1aca4f7a29aa4f0f8b17112f622640
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: aa1362e2a02b42a8895ba5645bbb43e2087c0d22
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737284"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730483"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中浏览 HockeyApp 数据
 

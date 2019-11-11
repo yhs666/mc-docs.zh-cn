@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 04/11/2019
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0798e389bfd3d67689c66e7dec56a48dfe1f67b
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 1d1be5405c2e9a433563cd68eff3cb7a3ca85ff6
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913021"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831420"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中将基础结构自动化工具与虚拟机配合使用
 若要以一致的方式大规模创建和管理 Azure 虚拟机 (VM)，通常需要某种形式的自动化。 可以通过许多工具和解决方案来自动完成整个 Azure 基础结构部署和管理生命周期。 本文介绍了一些可以在 Azure 中使用的基础结构自动化工具。 这些工具通常适合以下某个方法：
@@ -58,15 +58,15 @@ Cloud-init 还支持不同的发行版。 例如，不需使用  apt-get install
 - [试着学习使用 cloud-init 自动进行 VM 配置的教程](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) 是一个管理平台，用于定义目标计算机的配置。 也可通过 [Open Management Infrastructure (OMI) 服务器](https://collaboration.opengroup.org/omi/)在 Linux 上使用 DSC。
+[PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) 是一个管理平台，用于定义目标计算机的配置。 也可通过 [Open Management Infrastructure (OMI) 服务器](https://collaboration.opengroup.org/omi/)在 Linux 上使用 DSC。
 
 DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 本地配置管理器 (LCM) 引擎在每个目标节点上运行，此类节点根据推送的配置处理请求的操作。 拉取服务器是一项在中心主机上运行的 Web 服务，用于存储 DSC 配置和关联的资源。 该拉取服务器与每个目标主机上的 LCM 引擎通信，提供所需的配置并报告符合性情况。
 
 了解如何：
 
 - [创建基本的 DSC 配置](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart)。
-- [配置 DSC 拉取服务器](https://msdn.microsoft.com/powershell/dsc/pullserver)。
-- [使用适用于 Linux 的 DSC](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)。
+- [配置 DSC 拉取服务器](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/pullserver)。
+- [使用适用于 Linux 的 DSC](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/lnxgettingstarted)。
 
 ## <a name="azure-custom-script-extension"></a>Azure 自定义脚本扩展
 适用于 [Linux](../articles/virtual-machines/linux/extensions-customscript.md) 或 [Windows](../articles/virtual-machines/windows/extensions-customscript.md) 的 Azure 自定义脚本扩展在 Azure VM 上下载和执行脚本。 可以在创建 VM 时使用该扩展，也可以在 VM 处于使用状态后随时使用该扩展。 
@@ -106,6 +106,7 @@ Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对
 <!-- Not Available on - [Use Hybrid Runbook Worker to manage on-premises resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
 <!-- Not Available on - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md) -->
 
+<a name="azure-devops-services"></a>
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 是一套工具，用于共享和跟踪代码、使用自动化生成，以及创建完整的持续集成和开发 (CI/CD) 管道。 Azure DevOps Services 集成了 Visual Studio 和其他编辑器，简化了使用过程。 Azure DevOps Services 还可以创建和配置 Azure VM，然后向其部署代码。
 

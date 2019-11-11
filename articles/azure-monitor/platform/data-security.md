@@ -1,25 +1,20 @@
 ---
 title: Log Analytics 数据安全 | Azure Docs
 description: 了解 Log Analytics 如何保护隐私和数据安全。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 03/04/2019
 ms.date: 05/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 873efba3d4b72d25d6fdafd60d1e9ac31467ec89
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: e81389f44c9f5c3cd4d47c667aa35b63ba2841f1
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736922"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730217"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 数据安全
 本文档旨在提供特定于 Azure Log Analytics 的信息（Azure Monitor 的功能），用于补充有关 [Azure 信任中心](../../security/security-microsoft-trust-center.md)的信息。  

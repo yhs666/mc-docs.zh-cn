@@ -74,7 +74,7 @@
           items:
             - name: 复制数据工具
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: 转换云中的数据
+    - name: 外部转换
       items:
         - name: HDInsight Spark
           items:
@@ -82,7 +82,7 @@
               href: tutorial-transform-data-spark-portal.md
             - name: Azure PowerShell
               href: tutorial-transform-data-spark-powershell.md
-    - name: 转换虚拟网络中的数据
+    - name: 虚拟网络中的 Hive 转换
       items:
         - name: 用户界面 (UI)
           href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -259,6 +259,8 @@
           href: connector-oracle-responsys.md
         - name: Oracle 服务云
           href: connector-oracle-service-cloud.md
+        - name: ORC 格式
+          href: format-orc.md
         - name: Parquet 格式
           href: format-parquet.md
         - name: PayPal
@@ -369,6 +371,8 @@
           href: control-flow-get-metadata-activity.md
         - name: If Condition 活动
           href: control-flow-if-condition-activity.md
+        - name: 切换活动
+          href: control-flow-switch-activity.md
         - name: 查找活动
           href: control-flow-lookup-activity.md
         - name: 设置变量活动
@@ -429,6 +433,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: 在 Azure 中运行 SSIS 包
       items:
+        - name: 使用 Azure 支持的 dtexec 实用工具运行 SSIS 包
+          href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: 使用“执行 SSIS 包”活动运行 SSIS 包
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 使用存储过程活动运行 SSIS 包
@@ -457,6 +463,8 @@
           href: how-to-create-schedule-trigger.md
         - name: 创建翻转窗口触发器
           href: how-to-create-tumbling-window-trigger.md
+        - name: 创建翻转窗口触发器依赖项
+          href: tumbling-window-trigger-dependency.md
     - name: 模板
       items:
         - name: 模板概述
@@ -469,6 +477,8 @@
           href: solution-template-bulk-copy-with-control-table.md
         - name: 从数据库进行增量复制
           href: solution-template-delta-copy-with-control-table.md
+        - name: 将数据从 Amazon S3 迁移到 Azure 存储
+          href: solution-template-migration-s3-azure.md
         - name: 移动文件
           href: solution-template-move-files.md
     - name: 故障排除指南

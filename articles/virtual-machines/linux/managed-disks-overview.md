@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: overview
 origin.date: 08/15/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 73c8bd7dda887e474490329817efdfa6796c1762
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 658a68a6a4a9b374caa1930f2a98c5ecdd2f0dd7
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272829"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831357"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
 

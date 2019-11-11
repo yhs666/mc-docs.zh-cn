@@ -1,22 +1,20 @@
 ---
 title: Azure Application Insights IP 地址收集 | Microsoft Docs
 description: 了解如何使用 Azure Application Insights 处理 IP 地址和地理位置
-services: application-insights
-author: lingliw
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-origin.date: 08/22/2019
+author: lingliw
+manager: digimobile
+origin.date: 09/11/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 02f14f1a04dfd3b34f5da161e3b3878ad39fe4f9
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: c3ed29bd4e6f1c087a8ba7f30d70f23e40586e75
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72971147"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730479"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>地理位置和 IP 地址处理
 

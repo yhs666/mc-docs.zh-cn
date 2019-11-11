@@ -1,25 +1,21 @@
 ---
 title: 在用于 VM 的 Azure Monitor（预览版）中禁用监视 | Microsoft Docs
 description: 本文介绍如何在用于 VM 的 Azure Monitor 中停止监视虚拟机。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
+author: mgoedtel
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
+ms.subservice: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 11/05/2018
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 19a22f6d3761447854e32a22cc76ff7c9324a33d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d8b6ac39df44a7035e9383eaa581fd94ed2e3570
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737373"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730567"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>在用于 VM 的 Azure Monitor（预览版）中禁用 VM 监视
 

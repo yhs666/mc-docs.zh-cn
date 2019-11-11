@@ -1,25 +1,21 @@
 ---
 title: 在 Azure Application Insights 中使用 Impact | Azure docs
 description: 分析不同的属性对应用部件的转换率造成的潜在影响。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 01/08/2019
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
-ms.openlocfilehash: 64bbbc8b4cef85b5c8874dae0f207bf8aba6fbe8
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5bdaeb4024bf5d8b483c0a36ae3645821a063469
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736583"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730176"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights 中的 Impact 分析功能
 

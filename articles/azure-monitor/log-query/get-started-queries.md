@@ -1,25 +1,21 @@
 ---
 title: Azure Monitor 中的日志查询入门 | Azure Docs
 description: 本文提供了有关在 Azure Monitor 中编写日志查询的入门教程。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
+ms.subservice: logs
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 05/09/2019
-ms.date: 08/22/2019
+origin.date: 10/24/2019
+ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a09b3458401fb1da487170f5873ac02e13b8c5dd
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 3c412b8470b13e072e47ac798c3bf583c7200417
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737180"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730458"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor 中的日志查询入门
 

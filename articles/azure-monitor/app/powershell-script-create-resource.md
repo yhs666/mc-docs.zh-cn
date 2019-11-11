@@ -1,24 +1,20 @@
 ---
 title: 用于创建 Application Insights 资源的 PowerShell 脚本 | Azure Docs
 description: 自动创建 Application Insights 资源。
-services: application-insights
-documentationcenter: windows
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 11/19/2016
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0702a1d23178a85ac2b4ad5eb24aa4c63448fad9
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 74c9f5b5548634a80e9528044e609aaec5424191
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737025"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730603"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>用于创建 Application Insights 资源的 PowerShell 脚本
 

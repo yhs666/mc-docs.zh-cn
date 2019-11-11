@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: v-lingwu
 origin.date: 09/12/2019
 ms.date: 09/20/2019
-ms.openlocfilehash: 6ddb1cba0919a5fea1d864c8fd51ba68c14414ef
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 172150e4fb9aded8f77aec58abb2b7fe155d130b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970981"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730083"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -81,7 +81,7 @@ provisioningState       : Succeeded
 4. 运行以下命令以启用监视加载项，并替换 `--workspace-resource-id` 参数的值。 字符串值必须在双引号内：
 
     ```azurecli
-    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  �/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>�
+    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
     ```
 
     输出如下所示：

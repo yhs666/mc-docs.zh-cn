@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/17/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a80c8d116157de4863331d9ed8a1ba4c429e3140
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 5fc567c961aab55056241a35ad2e2e573607b185
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272730"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831412"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建 Linux 虚拟机
 
@@ -32,7 +32,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 <a name="launch-azure-cloud-shell"></a>
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
-若要在本地安装和使用 PowerShell，请运行 `Get-Module -ListAvailable AzureRM` 以查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 来创建与 Azure 的连接。
+若要在本地安装和使用 PowerShell，请运行 `Get-Module -ListAvailable Az.*` 以查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
 ## <a name="create-ssh-key-pair"></a>创建 SSH 密钥对
 
@@ -213,7 +213,7 @@ sudo apt-get -y install nginx
 
 使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 输入 VM 的公共 IP 地址作为 Web 地址。 可以在 VM 概览页上或此前使用过的 SSH 连接字符串中找到公共 IP 地址。
 
-![NGINX 默认站点](./media/quick-create-cli/nginx.png)
+![NGINX 默认欢迎页](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

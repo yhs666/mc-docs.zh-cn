@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 中的容器监视解决方案 | Azure Docs
 description: Azure Monitor 中的容器监视解决方案可帮助用户在单个位置查看和管理 Docker 和 Windows 容器主机。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 06/22/2019
 ms.date: 07/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 95d4c9a5acc8fa057f6ea8fc6296eaa87504a8b5
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: fbe604af62b72f7c6d66b3339d5e3063b40cc01b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970845"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730316"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor 中的容器监视解决方案
 

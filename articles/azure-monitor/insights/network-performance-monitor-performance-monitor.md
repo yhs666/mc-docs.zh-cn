@@ -1,25 +1,20 @@
 ---
 title: Azure Log Analytics 中的网络性能监视器解决方案中的性能监视器功能 | Azure Docs
 description: 借助网络性能监视器中的性能监视器功能可以监视网络中各个位置的网络连接。 可以监视云部署和本地位置、多个数据中心和分支机构、任务关健型多层应用程序或微服务。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 02/20/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 07992b32080b1da76596c72d30f34be45d54f12c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: cfbdeadfa9e1e5ed8a7a6430200aa7e73e46634e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737260"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730401"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>网络性能监视器解决方案：性能监视
 

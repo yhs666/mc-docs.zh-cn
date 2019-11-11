@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/07/2019
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0097320f4dc5aa9f43c3349efbcc0415acafe92b
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 2bd2cbf40ad66f59f87bde47867daa57a5a717a6
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134316"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830957"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入门：配置客户端应用程序以访问 Web API
 
@@ -81,8 +81,9 @@ ms.locfileid: "70134316"
 
 1. 若要从建议用于公共客户端（移动、桌面）的重定向 URI 中进行选择，请执行以下步骤：
     1. 找到“建议用于公共客户端(移动、桌面)的重定向 URI”部分。 
-    1. 通过复选框选择适用于应用程序的重定向 URI。
+    1. 通过复选框选择适用于应用程序的重定向 URI。 还可以输入自定义重定向 URI。 如果不确定要使用什么，请查看库文档。
 
+有一些限制适用于重定向 URI。 详细了解[重定向 URI 限制和限制](/active-directory/develop/reply-url)。
 > [!NOTE]
 > 尝试新的“身份验证设置”体验，在其中可以根据要面向的平台或设备配置应用程序的设置。 
 >
@@ -191,3 +192,4 @@ ms.locfileid: "70134316"
 
 深入了解使用 Azure Active Directory 开发应用程序时应使用的品牌准则，请参阅[应用程序的品牌准则](howto-add-branding-in-azure-ad-apps.md)。
 
+<!-- Update_Description: wording update -->

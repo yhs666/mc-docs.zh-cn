@@ -1,25 +1,20 @@
 ---
 title: 将 Windows 计算机连接到 Azure Monitor | Docs
 description: 本文介绍如何使用适用于 Windows 的 Log Analytics 代理将在其他云中或本地托管的 Windows 计算机连接到 Azure Monitor。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 10/07/2019
 ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 95215b403ba4aba66fc3e6b48b31237d723c7d30
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 914a8b411a46863327b7ef934067ee70b6951051
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970962"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730040"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 

@@ -1,24 +1,20 @@
 ---
 title: 使用 Application Insights Profiler 探查在 Azure VM 上运行的 Web 应用 | Azure Docs
 description: 使用 Application Insights Profiler 探查 Azure VM 上的 Web 应用。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 ms.reviewer: mbullwin
 origin.date: 08/06/2018
-ms.date: 6/4/2019
+ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 61dd54a15defb46c4e761b6aed89a5e87e45cb0d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 82d4c6386c408b89b2444a3db69066b4335f225e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736864"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730381"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>使用 Application Insights Profiler 探查在 Azure 虚拟机或虚拟机规模集上运行的 Web 应用
 
