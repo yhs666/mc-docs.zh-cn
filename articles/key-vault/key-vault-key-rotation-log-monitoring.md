@@ -1,25 +1,21 @@
 ---
-title: 使用端到端密钥轮换和审核设置 Azure Key Vault | Azure Docs
+title: 使用端到端密钥轮替和审核设置 Azure Key Vault | Azure
 description: 借助本操作指南设置密钥轮换和监视 Key Vault 日志。
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: ''
-ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 06/12/2018
-ms.date: 04/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: 045ae40e0d3727753c896f4f4200d4885f51733e
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+origin.date: 01/07/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 98b59a86edc983bf88e994178f5f61a050837a8d
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63852697"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425902"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用密钥轮换和审核设置 Azure Key Vault
 
@@ -94,19 +90,19 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 > [!NOTE]
 > 必须在与 Key Vault 相同的 Azure Active Directory 租户上创建应用程序。
 
-1. 打开“Azure Active Directory”。
-2. 选择“应用注册” 。 
-3. 选择“新建应用程序注册”，以将一个应用程序添加到 Azure Active Directory。
+1. 打开“Azure Active Directory”。 
+2. 选择“应用注册”  。 
+3. 选择“新建应用程序注册”，以将一个应用程序添加到 Azure Active Directory。 
 
     ![在 Azure Active Directory 中打开应用程序](./media/keyvault-keyrotation/azure-ad-application.png)
 
-4. 在“创建”下，将应用程序类型保留为“Web 应用/API”，并为应用程序命名。 为应用程序指定“登录 URL”。 此 URL 可以是任意 URL，适合本演示即可。
+4. 在“创建”下，将应用程序类型保留为“Web 应用/API”，并为应用程序命名。   为应用程序指定“登录 URL”  。 此 URL 可以是任意 URL，适合本演示即可。
 
     ![创建应用程序注册](./media/keyvault-keyrotation/create-app.png)
 
-5. 将应用程序添加到 Azure Active Directory 后，应用程序页将会打开。 依次选择“设置”、“属性”。 复制“应用程序 ID”值。 后面的步骤需要用到。
+5. 将应用程序添加到 Azure Active Directory 后，应用程序页将会打开。 依次选择“设置”、“属性”。   复制“应用程序 ID”值。  后面的步骤需要用到。
 
-接下来，为应用程序生成密钥，使其可与 Azure Active Directory 交互。 若要创建密钥，请在“设置”下选择“密钥”。 记下为 Azure Active Directory 应用程序生成的新密钥。 后面的步骤需要用到。 从此部分导航出来以后，该密钥将不可用。 
+接下来，为应用程序生成密钥，使其可与 Azure Active Directory 交互。 若要创建密钥，请在“设置”下选择“密钥”。   记下为 Azure Active Directory 应用程序生成的新密钥。 后面的步骤需要用到。 从此部分导航出来以后，该密钥将不可用。 
 
 ![Azure Active Directory 应用密钥](./media/keyvault-keyrotation/create-key.png)
 
@@ -178,11 +174,11 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 本文结合使用 Azure PowerShell 和 Azure 自动化来更改 Azure 存储帐户的访问密钥。 然后使用新密钥更新 Key Vault 机密。
 
-若要允许 Azure 自动化在 Key Vault 中设置机密值，必须获取名为 **AzureRunAsConnection** 的连接的客户端 ID。 此连接是建立 Azure 自动化实例时创建的。 若要查找此 ID，请在 Azure 自动化实例中选择“资产”。 在此处选择“连接”，然后选择“AzureRunAsConnection”服务主体。 记下“ApplicationId”值。
+若要允许 Azure 自动化在 Key Vault 中设置机密值，必须获取名为 **AzureRunAsConnection** 的连接的客户端 ID。 此连接是建立 Azure 自动化实例时创建的。 若要查找此 ID，请在 Azure 自动化实例中选择“资产”。  在此处选择“连接”，然后选择“AzureRunAsConnection”服务主体。   记下“ApplicationId”值。 
 
 ![Azure 自动化客户端 ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
-在“资产”中选择“模块”。 选择“库”，然后搜索并导入以下每个模块的更新版本：
+在“资产”中选择“模块”。   选择“库”，然后搜索并导入以下每个模块的更新版本： 
 
     Azure
     Azure.Storage
@@ -200,7 +196,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
-接下来，选择 Azure 自动化实例下的“Runbook”，然后选择“添加 Runbook”。 选择“快速创建”。 为 Runbook 命名，然后选择“PowerShell”作为 Runbook 类型。 可以添加说明。 最后，选择“创建”。
+接下来，选择 Azure 自动化实例下的“Runbook”，然后选择“添加 Runbook”。   选择“快速创建”。  为 Runbook 命名，然后选择“PowerShell”作为 Runbook 类型。  可以添加说明。 最后，选择“创建”  。
 
 ![创建 Runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
@@ -244,9 +240,214 @@ $SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $Storage
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
-在编辑器窗格中，选择“测试”窗格以测试脚本。 正常运行脚本后，可以选择“发布”，并在 Runbook 配置窗格中应用 Runbook 的计划。
+在编辑器窗格中，选择“测试”窗格以测试脚本。  正常运行脚本后，可以选择“发布”，并在 Runbook 配置窗格中应用 Runbook 的计划。 
 
-<!-- Update_Description: wording update -->
+## <a name="key-vault-auditing-pipeline"></a>密钥保管库审核管道
+
+设置密钥保管库时，可以打开审核功能，收集有关对密钥保管库发出的访问请求的日志。 这些日志存储在指定的 Azure 存储帐户中，可以提取、监视和分析。 以下方案将使用 Azure Functions、Azure 逻辑应用和 Key Vault 审核日志创建管道，以便在与该 Web 应用的应用 ID 不匹配的应用从保管库检索机密时发送电子邮件。
+
+首先，必须对密钥保管库启用日志记录。 使用以下 PowerShell 命令。 （可以在[这篇有关 Key Vault 日志记录的文章](key-vault-logging.md)中查看完整详细信息。）
+
+```powershell
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
+```
+
+启用日志记录后，审核日志将开始存储到指定的存储帐户中。 这些日志包含有关访问密钥保管库的方式、时间和用户的事件。
+
+> [!NOTE]
+> 在执行 Key Vault 操作 10 分钟后，即可访问日志记录信息。 但通常不用等待这么长时间。
+
+下一步是[创建 Azure 服务总线队列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。 此队列是 Key Vault 审核日志的推送位置。 审核日志消息进入队列后，逻辑应用将选择并处理它们。 使用以下步骤创建服务总线实例：
+
+1. 创建服务总线命名空间（如果已有一个可用的命名空间，请跳到步骤 2）。
+2. 在 Azure 门户中浏览到服务总线实例，并选择要在其中创建队列的命名空间。
+3. 选择“创建资源” > “企业集成” > “服务总线”，并输入所需的详细信息。   
+4. 通过选择命名空间并选择“连接信息”  ，找到服务总线连接信息。 在下一部分需要用到此信息。
+
+接下来，[创建 Azure 函数](../azure-functions/functions-create-first-azure-function.md)以轮询存储帐户中的 Key Vault 日志并选取新的事件。 此函数将按计划触发。
+
+若要创建 Azure 函数应用，请选择“创建资源”  ，在市场中搜索“函数应用”  ，并选择“创建”  。 在创建过程中，可以使用现有的托管计划，或创建新的计划。 也可以选择动态托管。 有关 Azure Functions 的托管选项的详细信息，请参阅 [如何缩放 Azure Functions](../azure-functions/functions-scale.md)。
+
+创建 Azure 函数应用后，转到该应用，然后选择“计时器”作为方案，选择“C\#”作为语言。   然后选择“创建此函数”  。
+
+![Azure Functions“开始”屏幕边栏选项卡](./media/keyvault-keyrotation/Azure_Functions_Start.png)
+
+在“开发”选项卡中，将 run.csx 代码替换为以下内容： 
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.ServiceBus.Messaging;
+using System.Text;
+
+public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outputBlob, TraceWriter log)
+{
+    log.Info("Starting");
+
+    CloudStorageAccount sourceStorageAccount = new CloudStorageAccount(new StorageCredentials("<STORAGE_ACCOUNT_NAME>", "<STORAGE_ACCOUNT_KEY>"), true);
+
+    CloudBlobClient sourceCloudBlobClient = sourceStorageAccount.CreateCloudBlobClient();
+
+    var connectionString = "<SERVICE_BUS_CONNECTION_STRING>";
+    var queueName = "<SERVICE_BUS_QUEUE_NAME>";
+
+    var sbClient = QueueClient.CreateFromConnectionString(connectionString, queueName);
+
+    DateTime dtPrev = DateTime.UtcNow;
+    if(inputBlob != null)
+    {
+        var txt = inputBlob.ReadToEnd();
+
+        if(!string.IsNullOrEmpty(txt))
+        {
+            dtPrev = DateTime.Parse(txt);
+            log.Verbose($"SyncPoint: {dtPrev.ToString("O")}");
+        }
+        else
+        {
+            dtPrev = DateTime.UtcNow;
+            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+        }
+    }
+
+    var now = DateTime.UtcNow;
+
+    string blobPrefix = "insights-logs-auditevent/resourceId=/SUBSCRIPTIONS/<SUBSCRIPTION_ID>/RESOURCEGROUPS/<RESOURCE_GROUP_NAME>/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/<KEY_VAULT_NAME>/y=" + now.Year +"/m="+now.Month.ToString("D2")+"/d="+ (now.Day).ToString("D2")+"/h="+(now.Hour).ToString("D2")+"/m=00/";
+
+    log.Info($"Scanning:  {blobPrefix}");
+
+    IEnumerable<IListBlobItem> blobs = sourceCloudBlobClient.ListBlobs(blobPrefix, true);
+
+    log.Info($"found {blobs.Count()} blobs");
+
+    foreach(var item in blobs)
+    {
+        if (item is CloudBlockBlob)
+        {
+            CloudBlockBlob blockBlob = (CloudBlockBlob)item;
+
+            log.Info($"Syncing: {item.Uri}");
+
+            string sharedAccessUri = GetContainerSasUri(blockBlob);
+
+            CloudBlockBlob sourceBlob = new CloudBlockBlob(new Uri(sharedAccessUri));
+
+            string text;
+            using (var memoryStream = new MemoryStream())
+            {
+                sourceBlob.DownloadToStream(memoryStream);
+                text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+            }
+
+            dynamic dynJson = JsonConvert.DeserializeObject(text);
+
+            //Required to order by time as they might not be in the file
+            var results = ((IEnumerable<dynamic>) dynJson.records).OrderBy(p => p.time);
+
+            foreach (var jsonItem in results)
+            {
+                DateTime dt = Convert.ToDateTime(jsonItem.time);
+
+                if(dt>dtPrev){
+                    log.Info($"{jsonItem.ToString()}");
+
+                    var payloadStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonItem.ToString()));
+                    //When sending to ServiceBus, use the payloadStream and set keeporiginal to true
+                    var message = new BrokeredMessage(payloadStream, true);
+                    sbClient.Send(message);
+                    dtPrev = dt;
+                }
+            }
+        }
+    }
+    outputBlob.Write(dtPrev.ToString("o"));
+}
+
+static string GetContainerSasUri(CloudBlockBlob blob)
+{
+    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+
+    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
+    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+    sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
+
+    //Generate the shared access signature on the container, setting the constraints directly on the signature.
+    string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+
+    //Return the URI string for the container, including the SAS token.
+    return blob.Uri + sasBlobToken;
+}
+```
+
+> [!NOTE]
+> 更改上面代码中的变量，以指向写入 Key Vault 日志的存储帐户、以前创建的服务总线实例和 Key Vault 存储日志的特定路径。
+
+该函数在写入密钥保管库日志的存储帐户中选取最新日志文件、从该文件中获取最新事件，并将这些事件推送到服务总线队列。 
+
+由于单个文件可以包含多个事件，因此应该创建了一个 sync.txt 文件，函数会参照该文件确定所选最后一个事件的时间戳。 使用此文件可以确保不会多次推送相同的事件。 
+
+sync.txt 文件包含上次遇到的事件的时间戳。 加载日志时，必须根据其时间戳将其排序，以确保其顺序正确。
+
+在此函数中，我们引用了 Azure Functions 中几个无法现成使用的附加库。 若要包含这些库，需要在 Azure Functions 中使用 NuGet 提取它们。 在“代码”框下，选择“查看文件”。  
+
+![“查看文件”选项](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+
+添加包含以下内容的名为 project.json 的文件：
+
+```json
+    {
+      "frameworks": {
+        "net46":{
+          "dependencies": {
+                "WindowsAzure.Storage": "7.0.0",
+                "WindowsAzure.ServiceBus":"3.2.2"
+          }
+        }
+       }
+    }
+```
+
+选择“保存”  后，Azure Functions 将下载所需的二进制文件。
+
+切换到“**集成**”选项卡，为计时器参数指定一个要在函数中使用的有意义名称。 在以上代码中，函数需要名为 *myTimer* 的计时器。 按如下所示为计时器指定 [CRON 表达式](../app-service/webjobs-create.md#CreateScheduledCRON)：`0 * * * * *`。 此表达式会导致函数一分钟运行一次。
+
+在同一个“集成”  选项卡上，添加类型为“Azure Blob 存储”  的输入。 此输入会指向 sync.txt 文件，其中包含该函数查看的最后一个事件的时间戳。 将在函数中使用参数名称访问此输入。 在以上代码中，Azure Blob 存储输入要求参数名称为 *inputBlob*。 选择 sync.txt 文件所在的存储帐户（该存储帐户可以相同，也可以不同）。 在路径字段中，以 `{container-name}/path/to/sync.txt` 格式提供文件的路径。
+
+添加一个类型为“Azure Blob 存储”  的输出。 此输出会指向刚在输入中定义的 sync.txt 文件。 函数使用此输出写入所查找的最后一个事件的时间戳。 在上面的代码中，要求此参数名为 *outputBlob*。
+
+函数现已准备就绪。 确保切换回“开发”  选项卡并保存代码。 检查输出窗口中是否有任何编译错误并根据需要进行更正。 如果代码可以编译，则代码现在应会每隔一分钟检查 Key Vault 日志，并将所有新事件推送到定义的服务总线队列。 每次触发该函数时，应该都会看到向日志窗口写入日志记录信息。
+
+### <a name="azure-logic-app"></a>Azure 逻辑应用
+
+接下来，必须创建一个 Azure 逻辑应用，用于选择函数推送到服务总线队列的事件、分析内容，并根据匹配的条件发送电子邮件。
+
+选择“创建资源” > “集成” > “逻辑应用”来[创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。   
+
+创建逻辑应用后，转到该应用并选择“编辑”。  在逻辑应用编辑器中，选择“服务总线队列”  ，并输入服务总线凭据以将其连接到队列。
+
+![Azure 逻辑应用服务总线](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
+
+选择“添加条件”。  在条件中，切换到高级编辑器并输入以下代码。 将 *APP_ID* 替换为 Web 应用的实际应用 ID：
+
+```
+@equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
+```
+
+如果传入事件中的 *appid*（这是服务总线消息的正文）不是该应用的 *appid*，则此表达式实质上将返回 **false**。
+
+现在，在“如果否，则不执行任何操作”  下创建一个操作。
+
+![在 Azure 逻辑应用中选择操作](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
+
+对于操作，选择“Office 365 - 发送电子邮件”  。 **false**时要发送的电子邮件。 如果没有 Office 365，请查看能够实现相同结果的替代方案。
+
+现在端到端管道已创建完毕，它每分钟都会查找一次是否有新的 Key Vault 审核日志。 它将发现的新日志推送到服务总线队列。 新消息进入队列后，会触发逻辑应用。 如果事件中的 *appid* 与调用方应用程序的应用 ID 不匹配，该管道将发送电子邮件。
