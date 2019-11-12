@@ -17029,6 +17029,11 @@
       "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-registry/container-registry-auth-aks.md",
+      "redirect_url": "/aks/cluster-container-registry-integration",
+      "redirect_document_id": true
     }
 
 
