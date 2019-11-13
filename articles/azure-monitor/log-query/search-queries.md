@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 08/06/2018
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5588f2545e395ed5b90f9679fa3540fa01358aa3
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 3fe1fe1c7def83f3eca9b1f7177152e4dc90af90
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330383"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970798"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 日志中的搜索查询
 Azure Monitor 日志查询可以从表名或 search 命令开始。 本教程介绍基于搜索的查询。 每种方法各有优势。
@@ -51,7 +51,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>表和列范围限定
-默认情况下，**search** 将评估数据集中的所有列。 如果只想搜索特定的列，请使用以下语法：
+默认情况下，**search** 将评估数据集中的所有列。 若要仅搜索特定列（在以下示例中名为“Source”  ），请使用以下语法：
 
 ```Kusto
 search in (Event) Source:"error"

@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 12/17/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 61c8d2cc74f2b9f5f77eece1757a58bb1d41f7f4
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 22ea4bb885f498bc23d8baf672720557e48c42cc
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329964"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970850"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -38,6 +38,7 @@ ms.locfileid: "71329964"
 
 ## <a name="can-i-use-application-insights-with-"></a>是否可以将 Application Insights 用于...？
 
+* [Azure VM 或 Azure 虚拟机规模集中 IIS 服务器上的 Web 应用](azure-vm-vmss-apps.md)
 * [IIS 服务器上的 Web 应用 - 本地或在 VM 中](asp-net.md)
 * [Java Web 应用](java-get-started.md)
 * [Node.js 应用](nodejs.md)
@@ -59,7 +60,7 @@ ms.locfileid: "71329964"
 
 [阅读定价计划](https://www.azure.cn/pricing/details/monitor/)。
 
-## <a name="how-much-is-it-costing"></a>花费是多少？
+## <a name="how-much-does-it-cost"></a>它的成本是多少？
 
 * 在 Application Insights 资源中打开“使用情况和估算成本”页面。  此处提供了一个最近使用情况的图表。 如果愿意，可以设置数据上限。
 * 打开 [Azure 计费边栏选项卡](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/BillingBlade/Overview)查看所有资源的帐单。

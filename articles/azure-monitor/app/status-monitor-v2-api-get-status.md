@@ -1,6 +1,6 @@
 ---
-title: Azure 状态监视器 v2 API 参考：获取状态 | Azure Docs
-description: 状态监视器 v2 API 参考 Get-ApplicationInsightsMonitoringStatus。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+title: Azure Application Insights 代理 API 参考：获取状态 | Microsoft Docs
+description: Application Insights 代理 API 参考。 Get-ApplicationInsightsMonitoringStatus。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
 services: application-insights
 documentationcenter: .net
 author: lingliw
@@ -13,14 +13,14 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 11c5e5fb43412f0e9e427e423ddd49dba3fa5757
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: c33e262660ef17e98b21b27b04794cfe32de9a4b
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736529"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970857"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringStatus
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Application Insights 代理 API：Get-ApplicationInsightsMonitoringStatus
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
@@ -205,5 +205,5 @@ listdlls64.exe -accepteula w3wp
 
 ## <a name="next-steps"></a>后续步骤
 
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。

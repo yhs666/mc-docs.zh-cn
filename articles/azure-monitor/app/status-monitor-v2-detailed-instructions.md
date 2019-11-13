@@ -1,6 +1,6 @@
 ---
-title: Azure 状态监视器 v2 详细说明 | Azure Docs
-description: 有关如何开始使用状态监视器 v2 的详细说明。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+title: Azure Application Insights 代理详细说明 | Microsoft Docs
+description: 有关如何开始使用 Application Insights 代理的详细说明。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
 services: application-insights
 documentationcenter: .net
 author: lingliw
@@ -13,14 +13,14 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9db3218ac137bc832fba614ca0778694835ffb6d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: c1d9ef8281dec2922c12f466e8664ebcbaf06f3b
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736600"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970986"
 ---
-# <a name="status-monitor-v2-detailed-instructions"></a>状态监视器 v2：详细说明
+# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 代理（以前称为状态监视器 v2）：详细说明
 
 本文介绍如何载入到 PowerShell 库和下载 ApplicationMonitor 模块。
 包含了开始使用所需的最常见参数。
@@ -246,10 +246,6 @@ Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 �
 - [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
 
-使用状态监视器 v2 执行更多操作：
+使用 Application Insights 代理执行更多操作：
 
-- 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
-
-
-
-
+- 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。

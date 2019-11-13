@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 02/20/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: be11caf81b5d4a1679bae12b833477a9187a80fd
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 3984c0bcf02817b7c60df11d0cc188a0251d92cc
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736632"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970903"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的网络性能监视器解决方案
 
@@ -97,7 +97,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 1. 将网络性能监视器解决方案从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)添加到工作区。 也可以使用[从解决方案库中添加 Azure Monitor 解决方案](../../azure-monitor/insights/solutions.md)中所述的过程。 
 2. 打开 Log Analytics 工作区，然后选择“概览”磁贴  。 
-3. 选择消息为 **“解决方案需要进行额外配置”**  的 *“网络性能监视器”* 磁贴。
+3. 选择带有“解决方案需要进行额外配置”  消息的“网络性能监视器”  磁贴。
 
    ![网络性能监视器磁贴](media/network-performance-monitor/npm-config.png)
 

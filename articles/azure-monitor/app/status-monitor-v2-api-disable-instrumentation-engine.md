@@ -1,6 +1,6 @@
 ---
-title: Azure 状态监视器 v2 API 参考：禁用检测引擎 | Microsoft Docs
-description: 状态监视器 v2 API 参考。 Disable-InstrumentationEngine。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+title: Azure Application Insights 代理 API 参考：禁用检测引擎 | Microsoft Docs
+description: Application Insights 代理 API 参考。 Disable-InstrumentationEngine。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
 services: application-insights
 documentationcenter: .net
 author: lingliw
@@ -13,14 +13,14 @@ ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3ac97dd97ce3302e73d311d58ada51e6e2d4452
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1f92ba2235fe6cbfd3766b80bb89dfbfc42fbf25
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329784"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970991"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>状态监视器 v2 API：Disable-InstrumentationEngine
+# <a name="application-insights-agent-api-disable-instrumentationengine"></a>Application Insights 代理 API：Disable-InstrumentationEngine
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
@@ -58,5 +58,5 @@ Configuring registry for instrumentation engine...
 
 ## <a name="next-steps"></a>后续步骤
 
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。

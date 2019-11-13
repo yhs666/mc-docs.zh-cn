@@ -1,6 +1,6 @@
 ---
-title: Azure 状态监视器 v2 API 参考：启用检测引擎 | Azure Docs
-description: 状态监视器 v2 API 参考 Enable-InstrumentationEngine。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+title: Azure Application Insights 代理 API 参考：启用检测引擎 | Microsoft Docs
+description: Application Insights 代理 API 参考。 Enable-InstrumentationEngine。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
 services: application-insights
 documentationcenter: .net
 author: lingliw
@@ -13,14 +13,14 @@ ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cb10d1a0287ecb8e2ac8109da1c721b31bf8ee21
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: fc6275a1a48a86e84c81156bbebe1d858797aac6
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329780"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970989"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>状态监视器 v2 API：Enable-InstrumentationEngine
+# <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights 代理 API：Enable-InstrumentationEngine
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 

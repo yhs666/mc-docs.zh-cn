@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/12/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 478e2eed347ea487afce025675aac2ae09b07c19
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 52d2da47b3b6bbc53c3316f3b9f139df22ac5f3d
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329651"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970896"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>了解 Azure 虚拟机的运行状况
 
@@ -118,7 +118,7 @@ Azure 包含监视空间中特定角色或任务的服务，但不提供 Azure �
 - 代理已重新配置，不再向启用用于 VM 的 Azure Monitor 时指定的工作区报告。 若要将代理配置为向该工作区报告，请参阅[添加或删除工作区](../platform/agent-manage.md#adding-or-removing-a-workspace)。
 - VM 已删除。
 - 与用于 VM 的 Azure Monitor 关联的工作区已删除。 如果你享有顶级支持权益，可以恢复该工作区。 转到 [顶级支持](https://premier.microsoft.com/) 并提出支持请求。
-- 解决方案依赖项已删除。 若要在 Log Analytics 工作区中重新启用 ServiceMap 和 InfrastructureInsights 解决方案，请使用 [Azure 资源管理器模板](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions)重新安装这些解决方案。 或者，使用“开始”选项卡中的“配置工作区”选项。
+- 解决方案依赖项已删除。 若要在 Log Analytics 工作区中重新启用 ServiceMap 和 InfrastructureInsights 解决方案，请使用 [Azure 资源管理器模板](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution)重新安装 ServiceMap 解决方案。 
 - VM 已关闭。
 - Azure VM 服务不可用，或正在执行维护。
 - 已达到工作区的[每日数据或保留期限制](../platform/manage-cost-storage.md)。

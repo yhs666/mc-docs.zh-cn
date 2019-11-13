@@ -1,6 +1,6 @@
 ---
-title: Azure 状态监视器 v2 API 参考：启动跟踪 | Microsoft Docs
-description: 状态监视器 v2 API 参考。 Start-Trace。 从状态监视器和 Application Insights SDK 收集 ETW 日志。
+title: Azure Application Insights 代理 API 参考：启动跟踪 | Microsoft Docs
+description: Application Insights 代理 API 参考。 Start-Trace。 从状态监视器和 Application Insights SDK 收集 ETW 日志。
 services: application-insights
 documentationcenter: .net
 author: lingliw
@@ -13,14 +13,14 @@ ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 06/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d1e6371c1e7a83b31df64b5d7e9ab9913ac22d8f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: de9fc53508fc34b530bd77a1fc7a46080da3d12d
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736601"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970855"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>状态监视器 v2 API：Start-ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights 代理 API：Start-ApplicationInsightsMonitoringTrace
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
@@ -122,7 +122,7 @@ Timeout Reached. Stopping...
 
 
 
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南可[排查状态监视器 v2 问题](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
  - [获取配置](status-monitor-v2-api-get-config.md)以确认是否正确记录了你的设置。
  - [获取状态](status-monitor-v2-api-get-status.md)以检查监视。

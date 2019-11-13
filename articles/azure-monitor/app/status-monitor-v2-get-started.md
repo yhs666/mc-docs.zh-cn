@@ -1,26 +1,22 @@
 ---
-title: Azure 状态监视器 v2 入门 | Azure Docs
-description: 状态监视器 v2 的快速入门指南。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+title: Azure Application Insights 代理 - 入门 | Microsoft Docs
+description: Application Insights 代理的快速入门指南。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 045bf0318bf77a03ff5ab8719ca1cc0a7242d472
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 815e3bcbae19094fa4951d75a9d49817236d1ddf
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736597"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730499"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>状态监视器 v2 入门
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>本地服务器的 Azure Monitor Application Insights 代理入门
 
 本文包含应适用于大多数环境的快速入门命令。
 这些说明依赖于 PowerShell 库来分发更新。
@@ -42,7 +38,7 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 关闭 PowerShell。
 
-### <a name="install-status-monitor-v2"></a>安装状态监视器 v2
+### <a name="install-application-insights-agent"></a>安装 Application Insights 代理
 以管理员身份运行 PowerShell。
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -60,7 +56,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ### <a name="download-the-module"></a>下载模块
 从 [PowerShell 库](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)手动下载最新版本的模块。
 
-### <a name="unzip-and-install-status-monitor-v2"></a>解压缩并安装状态监视器 v2
+### <a name="unzip-and-install-application-insights-agent"></a>解压缩并安装 Application Insights 代理
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -90,7 +86,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
 
-使用状态监视器 v2 执行更多操作：
+使用 Application Insights 代理执行更多操作：
 
 - 有关此处找到的命令的说明，请查看[详细说明](status-monitor-v2-detailed-instructions.md)。
-- 使用我们的指南可[排查状态监视器 v2 问题](status-monitor-v2-troubleshoot.md)。
+- 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。

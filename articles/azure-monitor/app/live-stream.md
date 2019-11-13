@@ -1,25 +1,21 @@
 ---
 title: Azure Application Insights 中具有自定义指标和诊断的实时指标流 | Azure Docs
 description: 通过自定义指标实时监视 Web 应用，使用实时失败、跟踪和事件源以诊断问题。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/22/2019
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 852067592c13408c31d1bf3a5c255f24e6097150
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 309ce8021500d52a0eea8b6b2c28d98e125d634c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737356"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73729956"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>实时指标流：以 1 秒的延迟进行监视和诊断
 
@@ -106,7 +102,12 @@ ms.locfileid: "70737356"
 ![采样的实时失败](./media/live-stream/live-stream-filter.png)
 
 ## <a name="sdk-requirements"></a>SDK 要求
+
+### <a name="net"></a>.NET
 自定义实时指标流适用于 2.4.0-beta2 或更高版本的 [Application Insights SDK for Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)。 请记得从 NuGet 包管理器中选择“包括预发行版”选项。
+
+### <a name="nodejs"></a>Node.js
+实时指标流随 1.3.0 版或更高版本的 [Application Insights SDK for Node.JS](https://npmjs.com/package/applicationinsights) 提供。 在代码中配置 SDK 时，请记得使用 `setSendLiveMetrics(true)`。
 
 ## <a name="secure-the-control-channel"></a>确保控制通道的安全
 指定的自定义筛选器条件将发回到 Application Insights SDK 中的“实时指标”组件。 筛选器可能包含 customerID 等敏感信息。 可以使用机密 API 密钥以及检测密钥来保护通道的安全。
@@ -174,13 +175,13 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 首先添加
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
 然后，在 ConfigureServices 方法内添加：
 
-``` C#
+```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 

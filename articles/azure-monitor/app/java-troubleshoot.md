@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ce40d736499ef718a6f4f6c5d7d426880267648
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: acb554891e0562e5706d460c70453f83593599ec
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737357"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970861"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>用于 Java 的 Application Insights 的故障排除与常见问题解答
 使用 [Java 中的 Azure Application Insights][java] 时有疑问或遇到问题？ 请参考下面的提示。
@@ -137,7 +137,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Java 代理
 
-若要启用 JVM 代理日志记录，请更新 [AI-Agent.xml 文件](java-agent.md)。
+若要启用 JVM 代理日志记录，请更新 [AI-Agent.xml 文件](java-agent.md)：
 
 ```xml
 <AgentLogger type="FILE">

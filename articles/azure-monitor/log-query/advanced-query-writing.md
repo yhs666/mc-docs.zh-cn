@@ -14,17 +14,17 @@ ms.topic: conceptual
 origin.date: 11/15/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1991baad30e57f80751e9965d018b274989a7cb3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d203eb5e1779ccc2e35e97e5270c1f8128195275
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737196"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970965"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure Monitor 中编写高级查询
 
 > [!NOTE]
-> 在完成本课程之前，应先完成 [Azure Monitor 日志分析入门](get-started-portal.md)和[查询入门](get-started-queries.md)。
+> 在完成本课程之前，应先完成 [Azure Monitor Log Analytics 入门](get-started-portal.md)和[查询入门](get-started-queries.md)。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

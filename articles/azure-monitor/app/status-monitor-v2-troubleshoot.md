@@ -1,26 +1,22 @@
 ---
-title: Azure Status Monitor v2 故障排除和已知问题 | Azure Docs
-description: 状态监视器 v2 的已知问题和故障排除示例。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+title: Azure Application Insights 代理故障排除和已知问题 | Microsoft Docs
+description: Application Insights 代理和故障排除已知问题的示例。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 06/23/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2555dd39c0353d8155fdeb6031d4de8175982fb0
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ad7a19061a3d9013e63040baa977a65de92dc949
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736595"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730495"
 ---
-# <a name="troubleshooting-status-monitor-v2"></a>对状态监视器 v2 进行故障排除
+# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 代理（以前称为状态监视器 v2）故障排除
 
 启用监视时，可能会遇到阻止数据收集的问题。
 本文列出了所有已知问题，并提供了故障排除示例。
@@ -100,9 +96,9 @@ HttpModule 无法注入到此共享配置中。
 如果模块尚未加载到 PowerShell 会话中，你可以使用 `Import-Module <path to psd1>` 命令手动加载该模块。
 
 
-### <a name="troubleshooting-the-status-monitor-v2-module"></a>对状态监视器 v2 模块进行故障排除
+### <a name="troubleshooting-the-application-insights-agent-module"></a>Application Insights 代理模块故障排除
 
-#### <a name="list-the-commands-available-in-the-status-monitor-v2-module"></a>列出状态监视器 v2 模块中的可用命令
+#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>列出 Application Insights 代理模块中可用的命令
 运行 `Get-Command -Module Az.ApplicationMonitor` 命令来获取可用命令：
 
 ```
@@ -118,7 +114,7 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>确定状态监视器 v2 模块的当前版本
+#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>确定 Application Insights 代理模块的当前版本
 运行 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 命令来显示有关该模块的以下信息：
    - PowerShell 模块版本
    - Application Insights SDK 版本

@@ -1,6 +1,6 @@
 ---
-title: 有关联机迁移到 Azure Database for MySQL 时存在的已知问题/迁移限制的文章 | Microsoft Docs
-description: 了解在联机迁移到 Azure Database for MySQL 时存在的已知问题/迁移限制。
+title: 有关从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 单一服务器时存在的已知问题/迁移限制的文章 | Microsoft Docs
+description: 了解从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时存在的已知问题/迁移限制。
 services: database-migration
 author: WenJason
 ms.author: v-jay
@@ -10,18 +10,18 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-origin.date: 08/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 9981dc9f288acb61cf5bb4b5f2d5676b968e6a52
-ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
+origin.date: 10/03/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 381ddd480d8403c092e92e61c70eab48bc1935c9
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71333649"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416251"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>联机迁移到 Azure DB for PostgreSQL 时存在的已知问题/迁移限制
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>从 PostgreSQL 联机迁移到 Azure DB for PostgreSQL 单一服务器时存在的已知问题/迁移限制
 
-以下部分描述了在从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时存在的已知问题和限制。
+以下部分介绍了与从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 单一服务器关联的已知问题和限制。
 
 ## <a name="online-migration-configuration"></a>联机迁移配置
 
@@ -33,7 +33,7 @@ ms.locfileid: "71333649"
 
 - 若要在源 PostgreSQL postgresql.config 文件中启用逻辑复制，请设置以下参数  ：
   - wal_level = logical 
-  - max_replication_slots = [要迁移的数据库最大数]；如果要迁移 4 个数据库，请将该值设为 4 
+  - **max_replication_slots** = [要迁移的数据库最大数]；如果要迁移四个数据库，请将该值设为 4
   - max_wal_senders = [并发运行的数据库数]；建议值为 10 
 - 向源 PostgreSQL pg_hba.conf 添加 DMS 代理 IP
   1. 预配 DMS 实例完成以后，记下 DMS IP 地址。
@@ -43,7 +43,7 @@ ms.locfileid: "71333649"
 
 - 用户必须对承载源数据库的服务器具有超级用户权限
 - 除了源数据库架构中具有 ENUM，源和目标数据库架构还必须匹配。
-- 目标 Azure Database for PostgreSQL 中的架构不能包含外键。 使用以下查询来删除外键：
+- 目标 Azure Database for PostgreSQL 单一服务器中的架构不能包含外键。 使用以下查询来删除外键：
 
     ```
                                 SELECT Queries.tablename
@@ -74,7 +74,7 @@ ms.locfileid: "71333649"
 
     运行查询结果中的 drop foreign key（第二列）。
 
-- 目标 Azure Database for PostgreSQL 中的架构不得包含任何触发器。 若要禁用目标数据库中的触发器，请使用以下设置：
+- 目标 Azure Database for PostgreSQL 单一服务器中的架构不能包含任何触发器。 若要禁用目标数据库中的触发器，请使用以下设置：
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

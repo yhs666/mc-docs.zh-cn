@@ -6,16 +6,16 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: v-yiso
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-origin.date: 09/01/2019
-ms.date: 10/08/2019
-ms.openlocfilehash: e0deb24cb390db202a6e30241e1b60220d63b909
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+origin.date: 10/18/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: a6ca60a1797b63db2f435fe76d1e6706081d53c6
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340920"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425971"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -32,17 +32,21 @@ ms.locfileid: "71340920"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 帐户和订阅。 如果你没有一个带有订阅的 Azure 帐户，请[注册试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-  * 必须使用同一个 Azure 帐户来安装和管理网关。 在安装过程中，你将使用此 Azure 帐户将计算机上的网关与 Azure 订阅相关联。 稍后在 Azure 门户中为网关安装创建 Azure 资源时，也要使用此 Azure 帐户。 
+  * 需要使用同一 Azure 帐户在本地计算机上安装和管理网关。
 
-  * 必须使用工作帐户或学校帐户（也称为组织帐户，类似于 `username@contoso.com`）登录。  不能使用类似于 @hotmail.com 或 @outlook.com 的 Azure B2B （来宾）帐户或个人 Microsoft 帐户。
+    在网关安装期间，请使用 Azure 帐户登录，这会将网关安装链接到 Azure 帐户，并且仅链接到该帐户。 稍后，在 Azure 门户中，需要使用相同的 Azure 帐户来创建用于注册并声明网关安装的 Azure 网关资源。 然后，在 Azure 逻辑应用中，本地触发器和操作将使用网关资源连接到本地数据源。
+
+    > [!NOTE]
+    > 只能将一个网关安装和一个 Azure 网关资源相互链接。 不能将相同的网关安装链接到多个 Azure 帐户或 Azure 网关资源。 但是，Azure 帐户可以链接到多个网关安装和 Azure 网关资源。 在本地触发器或操作中，可以从各种 Azure 订阅中进行选择，然后选择关联的网关资源。
+
+  * 需要使用工作帐户或学校帐户（也称为组织帐户，类似于 `username@contoso.com`）登录。  不能使用类似于 @hotmail.com 或 @outlook.com 的 Azure B2B （来宾）帐户或个人 Microsoft 帐户。
 
     > [!TIP]
     > 如果你已注册 Office 365 产品/服务但未提供工作电子邮件地址，则你的地址可能类似于 `username@domain.onmicrosoft.com`。 帐户将存储在 Azure Active Directory (Azure AD) 中的某个租户内。 在大多数情况下，Azure AD 帐户的用户主体名称 (UPN) 与电子邮件地址相同。
     >
-    > 若要使用与 Microsoft 帐户关联的 [Visual Studio 标准订阅](https://visualstudio.microsoft.com/vs/pricing/)，请先[在 Azure AD 中创建一个租户](../active-directory/develop/quickstart-create-new-tenant.md)，或使用默认目录。 将具有密码的用户添加到该目录，然后向该用户提供对订阅的访问权限。 
-    > 然后在网关安装期间可以使用此用户名和密码登录。
+    > 若要使用链接到 Microsoft 帐户的 [Visual Studio Standard 订阅](https://visualstudio.microsoft.com/vs/pricing/)，请首先[在 Azure AD 中创建租户](../active-directory/develop/quickstart-create-new-tenant.md)或使用默认目录。 将具有密码的用户添加到该目录，然后向该用户提供对 Azure 订阅的访问权限。 然后在网关安装期间可以使用此用户名和密码登录。
 
 * 下面是本地计算机的要求：
 
@@ -59,7 +63,7 @@ ms.locfileid: "71340920"
   * 用于后台处理的固态硬盘 (SSD) 存储
 
   > [!NOTE]
-  > 网关不支持 Windows Server 2016 Core。
+  > 网关不支持 Windows Server Core。
 
 * **相关注意事项**
 
@@ -94,11 +98,11 @@ ms.locfileid: "71340920"
 
    ![查看要求并接受使用条款](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. 成功安装网关后，提供组织帐户的电子邮件地址，然后选择“登录”，例如： 
+1. 成功安装网关后，提供 Azure 帐户的电子邮件地址，然后选择“登录”，例如： 
 
    ![使用工作或学校帐户登录](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   你现已登录到自己的帐户。
+   网关安装只能链接到一个 Azure 帐户。
 
 1. 选择“在此计算机上注册新网关” > “下一步”。   此步骤会将网关安装注册到[网关云服务](#gateway-cloud-service)。
 
@@ -154,7 +158,7 @@ ms.locfileid: "71340920"
 
 为了避免在访问本地数据时出现单一故障点，可以在多个不同的计算机上各使用一个网关安装（仅限标准模式），并将这些安装设置为群集或组。 这样一来，如果主网关不可用，数据请求将路由到第二个网关，依此类推。 由于在一台计算机上只能安装一个标准网关，因此必须在另一台计算机上安装位于群集中的每个附加网关。 使用本地数据网关的所有连接器都支持高可用性。
 
-* 主网关所在的同一个 Azure 订阅中必须至少有一个网关安装，并且你能够提供该安装的恢复密钥。
+* 你必须已至少安装一个网关，该网关使用与主网关相同的 Azure 帐户和恢复密钥。
 
 * 主网关必须运行网关 2017 年 11 月更新版或更高版本。
 
@@ -234,15 +238,15 @@ ms.locfileid: "71340920"
 
 存储的凭据用于从网关连接到本地数据源。 不管用户是谁，网关都会使用存储的凭据来建立连接。 针对特定服务的身份验证可能存在例外情况，例如 Power BI 中适用于 Analysis Services 的 DirectQuery 和 LiveConnect。
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Microsoft 云服务使用 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) 对用户进行身份验证。 Azure AD 租户包含用户名和安全组。 通常，用于登录的电子邮件地址与帐户的用户主体名称 (UPN) 相同。
+Microsoft 云服务使用 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) 对用户进行身份验证。 Azure AD 租户包含用户名和安全组。 通常，用于登录的电子邮件地址与帐户的用户主体名称 (UPN) 相同。
 
 ### <a name="what-is-my-upn"></a>什么是 UPN？
 
 如果你不是域管理员，你可能不知道自己的 UPN。 若要查找帐户的 UPN，请在工作站中运行 `whoami /upn` 命令。 尽管结果类似于电子邮件地址，但它是本地域帐户的 UPN。
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>将本地 Active Directory 同步到 Azure Active Directory
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>将本地 Active Directory 与 Azure AD 同步
 
 本地 Active Directory 帐户和 Azure AD 帐户的 UPN 必须相同。 因此，请确保每个本地 Active Directory 帐户与 Azure AD 帐户相匹配。 云服务仅知道 Azure AD 中的帐户。 因此，无需将帐户添加到本地 Active Directory。 如果 Azure AD 中不存在该帐户，则你无法使用该帐户。 
 
