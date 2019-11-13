@@ -1,24 +1,20 @@
 ---
 title: Application Insights 和 Log Analytics 使用的 IP 地址 | Azure Docs
 description: Application Insights 所需的服务器防火墙例外
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 10/09/2019
 ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fbd82b6a1b4b172ead5e8d64da7c12b68b979b33
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: b5060efea12a17cdc3e44a4f3ba148b047e30bed
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970911"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730480"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 地址
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服务使用许多 IP 地址。 如果要监视的应用托管在防火墙后面，可能需要知道这些 IP 地址。

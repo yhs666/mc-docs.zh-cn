@@ -1,24 +1,20 @@
 ---
 title: Application Insights 中的性能计数器 | Azure Docs
 description: 监视 Application Insights 中的系统和自定义的 .NET 性能计数器。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 12/13/2018
-ms.date: 12/13/2018
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 475d9a670b12721ef58bc2ca629cd31eabc8f230
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 6246e649a65e7aff9acdfeb150fb677f1fda9d2d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970901"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730423"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系统性能计数器
 

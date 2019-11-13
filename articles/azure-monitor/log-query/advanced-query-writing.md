@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 中的高级查询 | Azure Docs
 description: 本文提供有关在 Azure Monitor 中使用 Analytics 门户编写查询的教程。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 11/15/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d203eb5e1779ccc2e35e97e5270c1f8128195275
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 22530a0741d749ecd48b38f2d59782ef7ce3a6e8
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970965"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730467"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure Monitor 中编写高级查询
 

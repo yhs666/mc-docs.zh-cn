@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 代理概述 | Microsoft Docs
 description: Application Insights 代理的概述。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 04/23/2019
-ms.date: 6/4/2019
+origin.date: 09/16/2019
+ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5acce99fa50afe4caa4232b8f04b1e9ca5d7dec6
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 14580c08e451a60d6d1954951d12a74810379363
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970985"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730496"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>为本地服务器部署 Azure Monitor Application Insights 代理
 

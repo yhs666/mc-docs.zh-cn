@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 常见问题解答 | Azure Docs
 description: 有关 Application Insights 的常见问题。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 12/17/2018
-ms.date: 6/4/2019
+origin.date: 09/16/2019
+ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 22ea4bb885f498bc23d8baf672720557e48c42cc
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 811f91ba61ef211327629cef80adc7809de4a958
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970850"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730490"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 

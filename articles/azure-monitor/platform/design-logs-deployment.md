@@ -1,25 +1,21 @@
 ---
 title: 设计 Azure Monitor 日志部署 | Microsoft Docs
 description: 本文介绍有关客户在 Azure Monitor 中准备部署工作区时的注意事项和建议。
-services: azure-monitor
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 08/07/2019
-ms.date: 8/21/2019
+origin.date: 09/20/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 37f23af0cda459e0a3f7cb2344372efac7b3bccd
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 26f528d1518f78824006fa069abe89fcff89f956
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970683"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730555"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>设计 Azure Monitor 日志部署
 

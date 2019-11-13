@@ -9,12 +9,12 @@ origin.date: 9/27/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 9884ce625de20f5633cb19500be37de738d9a8fa
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: fb8c839662413953efd47d8f22746903d40ee0df
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970954"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730354"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 
@@ -130,13 +130,30 @@ ms.locfileid: "72970954"
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -196,7 +213,7 @@ ms.locfileid: "72970954"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -264,7 +281,272 @@ az group deployment create \
 >
 > 虽然可以在与目标资源不同的资源组中创建指标警报，但建议使用与目标资源相同的资源组。
 
-<!-- template-for-a-simple-dynamic-thresholds-metric-alert is unavailable now -->
+## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>用于简单动态阈值指标警报的模板
+
+若要使用 Resource Manager 模板创建警报，需要创建 `Microsoft.Insights/metricAlerts` 类型的资源，并填充所有相关属性。 下面是创建指标警报规则的示例模板。
+
+为进行本次演练，请将下面的 json 保存为 simpledynamicmetricalert.json。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterOrLessThan",
+            "allowedValues": [
+                "GreaterThan",
+                "LessThan",
+                "GreaterOrLessThan"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "alertSensitivity": {
+            "type": "string",
+            "defaultValue": "Medium",
+            "allowedValues": [
+                "High",
+                "Medium",
+                "Low"
+            ],
+            "metadata": {
+                "description": "Tunes how 'noisy' the Dynamic Thresholds alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
+            }
+        },
+        "numberOfEvaluationPeriods": {
+            "type": "string",
+            "defaultValue": "4",
+            "metadata": {
+                "description": "The number of periods to check in the alert evaluation."
+            }
+        },
+        "minFailingPeriodsToAlert": {
+            "type": "string",
+            "defaultValue": "3",
+            "metadata": {
+                "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total",
+                "Count"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "criterionType": "DynamicThresholdCriterion",
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "alertSensitivity": "[parameters('alertSensitivity')]",
+                            "failingPeriods": {
+                                "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
+                                "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
+                            },
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+[此处提供](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate)了警报规则的架构和属性说明。
+
+参数的值可以在命令行上设置，也可以通过参数文件设置。 下面提供一个示例参数文件。 
+
+将下面的 json 保存为 simpledynamicmetricalert.parameters.json 并根据需要对其进行修改。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New Metric Alert with Dynamic Thresholds"
+        },
+        "alertDescription": {
+            "value": "New metric alert with Dynamic Thresholds created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/Microsoft.Compute/virtualMachines/replace-with-resource-name"
+        },
+        "metricName": {
+            "value": "Percentage CPU"
+        },
+        "operator": {
+          "value": "GreaterOrLessThan"
+        },
+        "alertSensitivity": {
+            "value": "Medium"
+        },
+        "numberOfEvaluationPeriods": {
+            "value": "4"
+        },
+        "minFailingPeriodsToAlert": {
+            "value": "3"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group"
+        }
+    }
+}
+```
+
+
+可以通过 PowerShell 或 Azure CLI 使用模板和参数文件创建指标警报。
+
+使用 Azure PowerShell
+
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+  -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
+```
+
+
+使用 Azure CLI
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file simpledynamicmetricalert.json \
+    --parameters @simpledynamicmetricalert.parameters.json
+```
 
 > [!NOTE]
 >
@@ -853,13 +1135,29 @@ az group deployment create \
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -918,7 +1216,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2434,6 +2732,9 @@ az group deployment create \
     },
     "actionGroupId": {
       "type": "string"
+    },
+    "location": {
+      "type": "string"
     }
   },
   "variables": {
@@ -2445,7 +2746,7 @@ az group deployment create \
       "name": "[variables('pingTestName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "location": "West Central US",
+      "location": "[parameters('location')]",
       "tags": {
         "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
       },
@@ -2524,13 +2825,16 @@ az group deployment create \
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
-            "value": "Replace with your Application Insights component name"
+            "value": "Replace with your Application Insights resource name"
         },
         "pingURL": {
             "value": "https://www.yoursite.com"
         },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        },
+        "location": {
+            "value": "Replace with the location of your Application Insights resource"
         }
     }
 }
