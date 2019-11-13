@@ -12342,6 +12342,11 @@
       "redirect_document_id": false
   },
   {
+    "source_path": "articles/governance/policy/samples/audit-trans-data-enc-status.md",
+    "redirect_url": "/governance/policy/samples/sql-database-encryption-audit",
+    "redirect_document_id": false
+  },
+  {
       "source_path": "articles/azure-policy/scripts/billing-tags-policy-init.md",
       "redirect_url": "/governance/policy/samples/billing-tags-policy-init",
       "redirect_document_id": false
@@ -12480,6 +12485,11 @@
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
       "redirect_url": "/governance/policy/samples/require-storage-account-encryption",
       "redirect_document_id": true
+  },
+  {
+    "source_path": "articles/governance/policy/samples/require-storage-account-encryption.md",
+    "redirect_url": "/governance/policy/samples/index",
+    "redirect_document_id": false
   },
   {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
@@ -16886,6 +16896,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
+      "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
+      "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-performance-checklist.md",
       "redirect_url": "/storage/blobs/storage-performance-checklist",
       "redirect_document_id": true
@@ -17150,13 +17170,6 @@
       "redirect_url": "/aks/cluster-container-registry-integration",
       "redirect_document_id": true
     }
-
-
-
-
-
-
-
   ]
 }
 
