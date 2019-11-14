@@ -1,25 +1,19 @@
 ---
 title: 如何为容器启用 Azure Monitor | Docs
 description: 本文介绍如何为容器启用和配置 Azure Monitor，以便了解容器的性能以及已识别的性能相关问题。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 07/12/2019
-ms.date: 07/12/2019
+author: lingliw
 ms.author: v-lingwu
-ms.openlocfilehash: 90f59b2f14754b75d343bd4e487b83a28615788c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+origin.date: 07/12/2019
+ms.date: 10/25/2019
+ms.openlocfilehash: 7faaf8c2500b81df78ff4359da783f4a65289db5
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737404"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970976"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何为容器启用 Azure Monitor  
 
@@ -37,7 +31,7 @@ ms.locfileid: "70737404"
 
 * **Log Analytics 工作区。**
 
-    用于容器的 Azure Monitor 支持在 Azure [产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) 中列出的区域中的 Log Analytics 工作区，不包括 **US Gov 弗吉尼亚州**区域。
+    用于容器的 Azure Monitor 支持在 Azure [产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) 中列出的区域中的 Log Analytics 工作区。
 
     可以在对新 AKS 群集启用监视时创建工作区，或者让加入体验在 AKS 群集订阅的默认资源组中创建默认的工作区。 如果选择自行创建工作区，可以通过 [Azure 资源管理器](../platform/template-workspace-configuration.md)、[PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) 或在 [Azure 门户](../learn/quick-create-workspace.md)来创建。 
 

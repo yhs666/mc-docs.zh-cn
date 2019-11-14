@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/21/2018
-ms.date: 10/28/2019
-ms.openlocfilehash: f66c444923dee384a88fab79917a9ee4c5f14aa4
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+origin.date: 10/03/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: a132af667d6c3bdaf8d7eb93551eb5438e76fe43
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584026"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426091"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 群集在 Azure SQL 数据库中读取和写入数据
 
@@ -82,7 +82,7 @@ ms.locfileid: "72584026"
 
     按 **SHIFT + ENTER** 运行代码单元。  
 
-2. 使用以下代码片段生成可传递给 Spark 数据帧 API 的 JDBC URL，并创建用于保存参数的 `Properties` 对象。 粘贴代码单元中的代码片段，然后按 **SHIFT + ENTER** 运行。
+1. 使用以下代码片段生成可传递给 Spark 数据帧 API 的 JDBC URL。 此代码创建一个 `Properties` 对象来保存参数。 粘贴代码单元中的代码片段，然后按 **SHIFT + ENTER** 运行。
 
        import java.util.Properties
 
@@ -127,7 +127,7 @@ ms.locfileid: "72584026"
 
     按 **SHIFT + ENTER** 运行代码单元。  
 
-2. 以下代码片段生成可以传递给 Spark 数据帧的 JDBC URL。API 将创建用于保存参数的 `Properties` 对象。 粘贴代码单元中的代码片段，然后按 **SHIFT + ENTER** 运行。
+1. 以下代码片段生成可传递给 Spark 数据帧 API 的 JDBC URL。 此代码创建一个 `Properties` 对象来保存参数。 粘贴代码单元中的代码片段，然后按 **SHIFT + ENTER** 运行。
 
        import java.util.Properties
 
@@ -162,7 +162,9 @@ ms.locfileid: "72584026"
 
 7. 在 SSMS 中运行查询以查看表中的列。
 
-        SELECT * from hvactable
+    ```sql
+    SELECT * from hvactable
+    ```
 
 ## <a name="stream-data-into-azure-sql-database"></a>将数据流式传输到 Azure SQL 数据库
 
@@ -170,7 +172,9 @@ ms.locfileid: "72584026"
 
 1. 首先，请确保 **hvactable** 中没有记录。 使用 SSMS 针对该表运行以下查询。
 
-       TRUNCATE TABLE [dbo].[hvactable]
+    ```sql
+    TRUNCATE TABLE [dbo].[hvactable]
+    ```
 
 2. 在 HDInsight Spark 群集上创建一个新的 Jupyter Notebook。 在代码单元中粘贴以下代码片段，然后按 **SHIFT + ENTER**：
 
@@ -233,9 +237,12 @@ ms.locfileid: "72584026"
 
 6. 通过在 SQL Server Management Studio (SSMS) 中运行以下查询，验证数据是否正在流式传输到 hvactable  。 每次运行该查询时，它都会显示表中的行数已递增。
 
-        SELECT COUNT(*) FROM hvactable
+    ```sql
+    SELECT COUNT(*) FROM hvactable
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 
 
+* [使用事件中心处理结构化流事件](apache-spark-streaming-overview.md)
 * [将 Apache Spark 结构化流式处理与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)

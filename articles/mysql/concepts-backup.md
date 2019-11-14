@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 02/28/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: da91cb5147acaf4447ae112459513832eabdc4ba
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 11/04/2019
+ms.openlocfilehash: bd13c25dac05f91267a99c8eaae2405bc3832224
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663599"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142145"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -23,7 +23,7 @@ Azure Database for MySQL 可自动创建服务器备份并将其存储在用户�
 
 ## <a name="backups"></a>备份
 
-Azure Database for MySQL 可以进行完整备份、差异备份和事务日志备份。 可以通过这些备份将服务器还原到所配置的备份保留期中的任意时间点。 默认的备份保留期为七天。 可以选择将其配置为长达 35 天。 所有备份都使用 AES 256 位加密进行加密。
+Azure Database for MySQL 可以进行完整备份、差异备份和事务日志备份。 可以通过这些备份将服务器还原到所配置的备份保留期中的任意时间点。 默认的备份保留期为七天。 可以[选择将其配置](howto-restore-server-portal.md#set-backup-configuration)为长达 35 天。 所有备份都使用 AES 256 位加密进行加密。
 
 ### <a name="backup-frequency"></a>备份频率
 

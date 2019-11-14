@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-service
 ms.topic: article
-origin.date: 07/08/2019
-ms.date: 09/23/2019
+origin.date: 10/02/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ccb543d538fe873591c32d02ba2c60a4a2c2753d
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: d0a1f34764b5c54f00781220e851dd1c82a04c5d
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155855"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068894"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -58,7 +58,14 @@ Azure 会按照夜间计划自动将安全修补程序应用于群集中的 Linu
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>为什么使用 AKS 创建两个资源组？
 
-每个 AKS 部署都跨越两个资源组：
+AKS 在多个 Azure 基础结构资源之上构建，包括可用性集、虚拟网络和托管磁盘。 这使你能够在 AKS 提供的托管 Kubernetes 环境中利用 Azure 平台的许多核心功能。 
+
+<!--Not Available on virtual machine scale sets-->
+<!--MOONCAKE: REPLACE WITH availability set-->
+<!--Not Available on For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.-->
+<!--Not Available on Azure Reservations-->
+
+为了启用此体系结构，每个 AKS 部署跨越两个资源组：
 
 1. 创建第一个资源组。 此组仅包含 Kubernetes 服务资源。 在部署过程中，AKS 资源提供程序会自动创建第二个资源组。 例如，第二个资源组为 *MC_myResourceGroup_myAKSCluster_chinaeast2*。 有关如何指定这第二个资源组的名称，请参阅下一部分。
 1. 第二个资源组（称为节点资源组）包含与该群集相关联的所有基础结构资源。  这些资源包括 Kubernetes 节点 VM、虚拟网络和存储。 默认情况下，节点资源组使用类似于 *MC_myResourceGroup_myAKSCluster_chinaeast2* 的名称。 每当删除群集，AKS 就会自动删除节点资源，因此，请只对生命周期与群集相同的资源使用 AKS。
@@ -103,7 +110,7 @@ AKS 支持以下[许可控制器][admission-controllers]：
 
 目前无法在 AKS 中修改许可控制器列表。
 
-## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否已与 AKS 集成？
+## <a name="is-azure-key-vault-integrated-with-aks"></a>不是，它没有与 Azure Key Vault 集成。
 
 AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目的 Azure Key Vault FlexVolume][keyvault-flexvolume] 实现了从 Kubernetes pod 到 Key Vault 机密的直接集成。
 

@@ -1,18 +1,18 @@
 ---
-title: 如何对 Azure Database for MariaDB 中的查询性能问题进行故障排除
-description: 本文介绍了如何使用 EXPLAIN 对 Azure Database for MariaDB 中的查询性能问题进行故障排除。
+title: 排查 Azure Database for MariaDB 中的查询性能问题
+description: 了解如何使用 EXPLAIN 对 Azure Database for MariaDB 中的查询性能问题进行故障排除。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 origin.date: 11/09/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: 600dc6e8f092026e9211c4736db131b8bb9b8fc8
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 11/04/2019
+ms.openlocfilehash: 63c8cd846a8e4b891a7a812f78e482a01d92b267
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173320"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191587"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>如何使用 EXPLAIN 分析 Azure Database for MariaDB 中的查询性能
 **EXPLAIN** 是一个可用来优化查询的易用工具。 可以使用 EXPLAIN 语句来获取有关 SQL 语句执行情况的信息。 下面的输出显示了 EXPLAIN 语句的一个执行示例。
@@ -140,7 +140,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MariaDB 执行“文件排序”操作时非常缓慢，尤其是必须对大量行进行排序时。 若要优化此查询，可以基于要排序的两个列创建一个组合索引。
+MariaDB 执行“文件排序”操作时非常缓慢，尤其是必须对大量行进行排序时。  若要优化此查询，可以基于要排序的两个列创建一个组合索引。
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);

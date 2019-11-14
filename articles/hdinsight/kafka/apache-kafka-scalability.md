@@ -1,11 +1,8 @@
 ---
-title: Apache Kafka 增加可伸缩性 - Azure HDInsight | Microsoft Docs
+title: Apache Kafka 增加可伸缩性 - Azure HDInsight
 description: 了解如何在 Azure HDInsight 上为 Apache Kafka 群集配置托管磁盘以提高可伸缩性。
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
@@ -13,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/30/2018
-ms.date: 01/14/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6d16db818525875a13c3c07aec08447faf9dd1f7
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: e007078c76d9e4f0e83f231c807f4f07ba0070a4
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029183"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425669"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上为 Apache Kafka 配置存储和可伸缩性
 
@@ -30,16 +27,16 @@ Kafka on HDInsight 在 HDInsight 群集中使用虚拟机的本地磁盘。 由�
 
 下图提供不带托管磁盘的 Kafka on HDInsight 与带托管磁盘的 Kafka on HDInsight 之间的比较：
 
-![显示每 VM 使用单个 VHD 与每 VM 使用多个托管磁盘的 Kafka on HDInsight 的图表](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+![具有托管磁盘体系结构的 kafka](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>配置托管磁盘：Azure 门户
 
 1. 按照[创建 HDInsight 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤操作，了解使用门户创建群集的常用步骤。 请勿完成门户创建过程。
 
-2. 在“群集大小”部分中，使用“每个工作节点的磁盘数”字段来配置磁盘数。
+2. 在“群集大小”  部分中，使用“每个工作节点的磁盘数”  字段来配置磁盘数。
 
     > [!NOTE]
-    > 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 高级磁盘可与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
+    > 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 高级磁盘可与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
     ![“群集大小”部分的图像，其中突出显示了每个工作节点的磁盘数](./media/apache-kafka-scalability/set-managed-disks-portal.png)
 
@@ -55,7 +52,7 @@ Kafka on HDInsight 在 HDInsight 群集中使用虚拟机的本地磁盘。 由�
     ],
 ```
 
-可以在 [https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) 找到演示如何配置托管磁盘的完整模板。
+可以在 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) 找到演示如何配置托管磁盘的完整模板。
 
 ## <a name="next-steps"></a>后续步骤
 

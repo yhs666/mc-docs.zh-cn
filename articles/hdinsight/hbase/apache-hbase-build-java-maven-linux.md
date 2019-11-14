@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 07/22/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 55c0a99d97672131da2f36089e3c11b62c6e364d
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 6c7f5cd0f87b8a7b10232e3aa7e278ffe8fb580b
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845243"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426071"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -710,4 +710,4 @@ notepad src\main\java\com\microsoft\examples\DeleteTable.java
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解如何将 SQuirreL SQL 与 Apache HBase 配合使用](apache-hbase-phoenix-squirrel-linux.md)
+[了解如何将 SQLLine 与 Apache HBase 配合使用](apache-hbase-query-with-phoenix.md)

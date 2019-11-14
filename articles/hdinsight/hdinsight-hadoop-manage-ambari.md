@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 10/21/2019
+origin.date: 10/11/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 74a5e3b3e0612682685b174c3b8e29b0479dd781
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: edb27d0fec4c77268ea0732965f47c1b8cc078b4
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292610"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425956"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 群集
 
@@ -84,7 +84,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Apache Hadoop 
 
 ![管理警报组对话框](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-还可管理警报方式，并通过在“操作”菜单中选择“管理警报通知”来创建警报通知。   所有当前通知都会显示。 还可以从此处创建通知。 出现特定的警报/严重性组合时，可通过**电子邮件**或 **SNMP** 发送通知。 例如，可在“YARN 默认设置”组中的任何警报设为“严重”时发送电子邮件消息。  
+还可管理发警报方式，并通过在“操作”菜单中选择“管理通知”来创建警报通知。   所有当前通知都会显示。 还可以从此处创建通知。 出现特定的警报/严重性组合时，可通过**电子邮件**或 **SNMP** 发送通知。 例如，可在“YARN 默认设置”组中的任何警报设为“严重”时发送电子邮件消息。  
 
 ![创建警报对话框](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 

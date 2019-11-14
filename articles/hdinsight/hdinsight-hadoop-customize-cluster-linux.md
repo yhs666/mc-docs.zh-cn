@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/02/2019
-ms.date: 10/21/2019
+origin.date: 10/03/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: f9f040a7641eece359bcce3cee5f764ebb2bb237
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 4f62ff3e31da0888937bffd58c0fc1a6de32e367
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292557"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425877"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义 Azure HDInsight 群集
 
@@ -153,13 +153,9 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在创建群集期间从 Azure 门户使用脚本操作
 
-1. 根据[使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)中所述开始创建群集。 创建群集期间，将会看到“群集摘要”页。  从“群集摘要”  页中选择__高级设置__的__编辑__链接。
+1. 按照[使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的说明，开始创建群集。 在群集创建期间，将到达步骤 6 **脚本操作**。 导航到“可选”   > “+ 提交新项”  。
 
-    ![“高级设置”链接](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-3. 从“高级设置”部分中选择“脚本操作”   。 在“脚本操作”部分选择“+ 提交新项”。  
-
-    ![提交新脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Azure 门户群集脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 4. 使用“选择脚本”条目选择预制的脚本。  若要使用自定义脚本，请选择“自定义”  。 然后提供脚本的“名称”和“Bash 脚本 URI”。  
 
@@ -181,7 +177,7 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
     ![多个脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    添加完脚本后，选择“选择”按钮，然后选择“下一步”按钮返回到“群集摘要”部分    。
+    添加完脚本后，选择“选择”按钮，然后选择“下一步”按钮继续到“群集摘要”部分    。
 
 3. 要创建群集，请从“群集摘要”部分中选择“创建”   。
 
@@ -318,9 +314,7 @@ HDInsight .NET SDK 提供客户端库，以方便从 .NET 应用程序使用 HDI
 
 转到 [Azure 门户](https://portal.azure.cn)：
 
-1. 在左侧菜单中，选择“所有服务”。 
-
-1. 在“数据 + 分析”下，选择“HDInsight 群集”   。
+1. 在左侧菜单中，导航到“所有服务” >  “分析” > “HDInsight 群集”。   
 
 1. 从列表中选择你的群集。此时会打开默认视图。
 
@@ -433,9 +427,7 @@ Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName `
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在左侧菜单中，选择“所有服务”。 
-
-1. 在“数据 + 分析”下，选择“HDInsight 群集”   。
+1. 在左侧菜单中，导航到“所有服务” > “分析” > “HDInsight 群集”。   
 
 1. 从列表中选择你的群集。此时会打开默认视图。
 

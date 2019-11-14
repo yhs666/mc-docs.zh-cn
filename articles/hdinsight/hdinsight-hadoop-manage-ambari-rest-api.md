@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 06/07/2019
-ms.date: 07/22/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4349c9dd69b54a9d50ec1065d51c5be2034386d7
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: c51cb99e90ceecdfeeb8a80d885bb200c934311e
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878496"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425954"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 管理 HDInsight 群集
 
@@ -161,7 +161,7 @@ $respObj.host_components.HostRoles.host_name
 
 本部分中的示例所返回的 IP 地址不可直接通过 Internet 进行访问。 仅可在包含 HDInsight 群集的 Azure 虚拟网络内部对其进行访问。
 
-有关将 HDInsight 与虚拟网络配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+有关使用 HDInsight 和虚拟网络的详细信息，请参阅[为 HDInsight 规划虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
 要查找 IP 地址，必须知道群集节点的内部完全限定的域名 (FQDN)。 拥有 FQDN 后即可获取主机的 IP 地址。 下面的示例首先会向 Ambari 查询所有主机节点的 FQDN，再向 Ambari 查询每个主机的 IP 地址。
 

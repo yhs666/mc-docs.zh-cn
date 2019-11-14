@@ -3,30 +3,30 @@ title: 关于 Azure 密钥保管库密钥、机密和证书 - Azure 密钥保管
 description: Azure Key Vault REST 接口概述以及密钥、机密和证书的开发人员详细信息。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-origin.date: 05/09/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: ffc41e1fc8ce3c47f909c770b872eb7d286a5e9f
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+origin.date: 09/04/2019
+ms.date: 10/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: eb738087b3435e079c3bd0ee5f4ac3f406d13fab
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232278"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425759"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>关于密钥、机密和证书
 
 凭借 Azure Key Vault，Microsoft Azure 应用程序和用户能够存储和使用多种类型的机密/密钥数据：
 
-- 加密密钥：支持多种密钥类型和算法，可以对高价值的密钥使用硬件安全模块 (HSM)。 
+- 加密密钥：支持多种密钥类型和算法。
 - 机密：提供机密（例如密码和数据库连接字符串）的安全存储。
 - 证书：支持基于密钥和机密并且添加了自动续订功能的证书。
-- Azure 存储：可以管理 Azure 存储帐户的密钥。 在内部，Key Vault 可以使用 Azure 存储帐户列出（同步）密钥，并定期重新生成（轮换）密钥。 
+- Azure 存储：可以管理 Azure 存储帐户的密钥。 在内部，Key Vault 可以使用 Azure 存储帐户列出（同步）密钥，并定期重新生成（轮换）密钥。
 
-有关 Key Vault 的更多常规信息，请参阅[什么是 Azure Key Vault？](/key-vault/key-vault-whatis)
+有关 Key Vault 的更多常规信息，请参阅[什么是 Azure Key Vault？](/key-vault/key-vault-overview)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 
@@ -36,10 +36,10 @@ ms.locfileid: "68232278"
 
 JavaScript 对象表示法 (JSON) 与 JavaScript 对象的签名和加密 (JOSE) 规范是重要的背景信息。  
 
--   [JSON Web 密钥 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web 加密 (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web 算法 (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web 签名 (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Web 加密 (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
+-   [JSON Web 算法 (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JSON Web 签名 (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>数据类型
 
@@ -74,15 +74,14 @@ Key Vault 中的对象通过 URL 唯一标识。 不管地理位置如何，系�
 
 |||  
 |-|-|  
-|`keyvault-name`|Azure Key Vault 服务中的密钥保管库名称。<br /><br /> Key Vault 名称由用户选择，并且全局唯一。<br /><br /> Key Vault 的名称必须是 3-24 个字符，且仅包含 0-9、a-z、A-Z 的字符串。|  
+|`keyvault-name`|Azure Key Vault 服务中的密钥保管库名称。<br /><br /> Key Vault 名称由用户选择，并且全局唯一。<br /><br /> Key Vault 的名称必须是 3-24 个字符，且仅包含 0-9、a-z、A-Z 和 -。|  
 |`object-type`|对象的类型，要么为“密钥”，要么为“机密”。|  
 |`object-name`|`object-name` 是用户提供名称，在 Key Vault 中必须保持唯一。 该名称必须是 1-127 个字符，且仅包含 0-9、a-z、A-Z 和 - 的字符串。|  
 |`object-version`|`object-version` 是系统生成的 32 个字符的字符串标识符，可以选择用来对某个对象的唯一版本进行寻址。|  
 
 ## <a name="key-vault-keys"></a>Key Vault 密钥
 
-###  <a name="BKMK_RSAAlgorithms"></a> RSA 算法  
- Azure Key Vault 中的 RSA 密钥支持以下算法标识符。  
+<!-- HSM not available -->
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>包装密钥/解包密钥、加密/解密
 
@@ -110,7 +109,7 @@ Key Vault 支持对密钥对象执行以下操作：
 -   **备份**：导出受保护窗体中的密钥。  
 -   **还原**：导入以前备份的密钥。  
 
-有关详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/rest/api/keyvault/key-operations)  
+有关详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/rest/api/keyvault)。  
 
 在 Key Vault 中创建密钥后，即可使用密钥执行以下加密操作：  
 
@@ -124,7 +123,7 @@ Key Vault 不支持“导出”操作。 在系统中设置密钥后，便无法
 
 用户可以使用 JWK 对象的 key_ops 属性按密钥限制 Key Vault 支持的任何加密操作。  
 
-有关 JWK 对象的详细信息，请参阅 [JSON Web 密钥 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)。  
+有关 JWK 对象的详细信息，请参阅 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)。  
 
 ###  <a name="key-attributes"></a>密钥属性
 
@@ -147,7 +146,7 @@ Key Vault 不支持“导出”操作。 在系统中设置密钥后，便无法
 
 有关数据类型的详细信息，请参阅[数据类型](#data-types)。
 
-有关其他可能的属性的详细信息，请参阅 [JSON Web 密钥 (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)。
+有关其他可能的属性的详细信息，请参阅 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)。
 
 ### <a name="key-tags"></a>密钥标记
 
@@ -160,7 +159,7 @@ Key Vault 不支持“导出”操作。 在系统中设置密钥后，便无法
 
 Key Vault 托管的密钥的访问控制是在充当密钥容器的 Key Vault 级别提供的。 在同一 Key Vault 中，密钥的访问控制策略不同于机密的访问控制策略。 用户可以创建一个或多个保管库来保存密钥，并且需要维护方案相应的密钥分段和管理。 密钥的访问控制与机密的访问控制无关。  
 
-在保管库上的密钥访问控制条目中可以按用户/服务主体授予以下权限。 这些权限对密钥对象上允许的操作采取严密的镜像操作：  
+在保管库上的密钥访问控制条目中可以按用户/服务主体授予以下权限。 这些权限严密地反映了对密钥对象所允许的操作。  授予对密钥保管库中的服务主体的访问权限是一次性操作，并且对于所有 Azure 订阅都将保持相同。 可以使用它部署所需的任意数量的证书。 
 
 - 针对密钥管理操作的权限
   - *get*：读取密钥的公共部分及其属性
@@ -184,7 +183,7 @@ Key Vault 托管的密钥的访问控制是在充当密钥容器的 Key Vault �
 - 针对特权操作的权限
   - *purge*：清除（永久删除）已删除的密钥
 
-有关使用密钥的详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault/)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。 
+有关使用密钥的详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。 
 
 ## <a name="key-vault-secrets"></a>Key Vault 机密 
 
@@ -233,7 +232,7 @@ Key Vault 中托管的机密的访问控制是在包含这些机密的 Key Vault
 - 针对特权操作的权限
   - *purge*：清除（永久删除）已删除的机密
 
-有关使用机密的详细信息，请参阅 [Key Vault REST API 中的机密操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault/)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。 
+有关使用机密的详细信息，请参阅 [Key Vault REST API 中的机密操作参考](https://docs.microsoft.com/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。 
 
 ### <a name="secret-tags"></a>机密标记  
 可以用标记的形式指定其他特定于应用程序的元数据。 Key Vault 支持多达 15 种标记，每种标记可以有 256 个字符的名称和 256 个字符的值。  
@@ -268,6 +267,7 @@ Key Vault 中托管的机密的访问控制是在包含这些机密的 Key Vault
 
 可寻址密钥与不可导出的 KV 证书的相关性变得更高。 可寻址 KV 密钥的操作从用于创建 KV 证书的 KV 证书策略的“密钥使用情况”字段映射  。  
 
+证书支持以下两种类型的密钥：RSA 或 RSA HSM  。
 
 ### <a name="certificate-attributes-and-tags"></a>证书属性和标记
 
@@ -397,7 +397,7 @@ Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对�
 - 针对特权操作的权限
   - *purge*：清除（永久删除）已删除的证书
 
-有关详细信息，请参阅 [Key Vault REST API 中的证书操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault/)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。
+有关详细信息，请参阅 [Key Vault REST API 中的证书操作参考](https://docs.microsoft.com/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。
 
 ## <a name="azure-storage-account-key-management"></a>Azure 存储帐户密钥管理
 
@@ -432,7 +432,7 @@ Key Vault 可以管理 Azure 存储帐户密钥：
 - 针对特权操作的权限
   - *purge*：清除（永久删除）托管存储帐户
 
-有关详细信息，请参阅 [Key Vault REST API 中的存储帐户操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。
+有关详细信息，请参阅 [Key Vault REST API 中的存储帐户操作参考](https://docs.microsoft.com/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。
 
 ## <a name="see-also"></a>另请参阅
 

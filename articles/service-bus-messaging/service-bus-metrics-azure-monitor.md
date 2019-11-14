@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 11/06/2018
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 96da63ffe1a13ba2cf76534e64b86111ecc357b6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 65326681e5ccfb2ed5b8327d333c34ba8581f5b0
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329880"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041202"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 服务总线指标
 
@@ -30,7 +30,7 @@ Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服�
 
 Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Azure Monitor 日志和事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 
-默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 此值是在 Azure Monitor 中的[诊断设置](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)中配置的。
+默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 此值是在 Azure Monitor 中的[诊断设置](../azure-monitor/platform/diagnostic-logs-overview.md)中配置的。
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 

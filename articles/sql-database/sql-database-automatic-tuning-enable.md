@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
 origin.date: 01/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 31806c5fdb6b3a10bd52583a5f592ccc3da46d3d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 11/04/2019
+ms.openlocfilehash: 210607dcd6e892d8f1094ba2491cca9c8892fca1
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544400"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041156"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>启用自动优化以监视查询并提高工作负荷性能
 
@@ -43,7 +42,7 @@ Azure SQL 数据库是一种自动托管的数据服务，它会不断监视查�
 ![服务器](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 请注意，此时 **DROP_INDEX** 选项与使用分区切换和索引提示的应用程序不兼容，并且不应在这些情况下打开。
+> 请注意，此时 **DROP_INDEX** 选项与使用分区切换和索引提示的应用程序不兼容，并且不应在这些情况下打开。 高级和业务关键服务层不支持删除未使用的索引。
 >
 
 选择想要启用的自动优化选项，然后选择“应用”  。

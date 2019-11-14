@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 03/12/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 8026d8e1ff2cdf3b862e4a7317523b2ff47bb899
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: d99d3dc0119e53a3bbced016173919a3928d6ba2
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262939"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041201"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL 数据库和 Azure SQL 数据仓库 IP 防火墙规则
 
@@ -39,7 +39,7 @@ ms.locfileid: "71262939"
 
 ### <a name="server-level-ip-firewall-rules"></a>服务器级别 IP 防火墙规则
 
-  这些规则允许客户端访问整个 Azure SQL 服务器，即同一 SQL 数据库服务器内的所有数据库。 这些规则存储在 *master* 数据库中。
+  这些规则允许客户端访问整个 Azure SQL 服务器，即同一 SQL 数据库服务器内的所有数据库。 这些规则存储在 *master* 数据库中。 对于 Azure SQL Server，最多可以有 128 个服务器级别 IP 防火墙规则。
   
   可以使用 Azure 门户、PowerShell 或 Transact-SQL 语句来配置服务器级 IP 防火墙规则。
   - 只有订阅所有者或订阅参与者才能使用门户或 PowerShell。

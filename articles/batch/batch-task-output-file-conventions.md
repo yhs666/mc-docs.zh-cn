@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 11/14/2018
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be2d8fa68c8936f3e868f001a045c9490ed8fe3f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9c2d176b1776aa5ac92f85f9cfcf52b10f9ef46c
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330356"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041112"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储
 
@@ -69,7 +69,7 @@ Azure Batch 提供多种持久保存任务输出的方式。 文件约定库最�
 若要详细了解如何在 Azure 存储中使用容器和 Blob，请参阅[通过 .NET 使用 Azure Blob 存储入门](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。
 
 > [!WARNING]
-> 使用文件约定库持久保存的所有作业和任务输出都存储在同一容器中。 如果大量任务同时尝试持久保存文件，则可能会强制实施[存储限制](../storage/common/storage-performance-checklist.md#blobs)。
+> 使用文件约定库持久保存的所有作业和任务输出都存储在同一容器中。 如果大量任务同时尝试持久保存文件，则可能会强制实施 Azure 存储限制。 有关限制的详细信息，请参阅 [Blob 存储的性能和可伸缩性清单](../storage/blobs/storage-performance-checklist.md)。
 
 ### <a name="create-storage-container"></a>创建存储容器
 

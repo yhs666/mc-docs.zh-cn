@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 08/26/2019
-ms.date: 09/23/2019
+origin.date: 09/30/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: d7bbd8750d62283af7cde97e4cc511aca2c2ce17
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 021629cfb0934a77eb1ed00f02dd8b4f81c3f348
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125574"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416260"
 ---
 # <a name="live-events-and-live-outputs"></a>直播活动和实时输出
 
@@ -28,15 +28,15 @@ ms.locfileid: "71125574"
 > [!TIP]
 > 对于从媒体服务 v2 API 迁移的客户，“实时事件”实体取代了 v2 中的“频道”，“实时输出”取代了“节目”。    
 
-## <a name="live-events"></a>实时事件
+## <a name="live-events"></a>直播活动
 
-[实时事件](https://docs.microsoft.com/rest/api/media/liveevents)负责引入和处理实时视频源。 创建实时事件时，会创建一个主要和辅助输入终结点，可以使用它来从远程编码器发送实时信号。 远程实时编码器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或[平滑流式处理](https://msdn.microsoft.com/library/ff469518.aspx)（分段 MP4）输入协议将贡献源发送到该输入终结点。 对于 RTMP 引入协议，内容可以通过明文 (`rtmp://`) 或网络安全加密 (`rtmps://`) 的方式发送。 对于平滑流式处理引入协议，支持的 URL 方案为 `http://` 或 `https://`。  
+[直播活动](https://docs.microsoft.com/rest/api/media/liveevents)负责引入和处理实时视频源。 创建实时事件时，会创建一个主要和辅助输入终结点，可以使用它来从远程编码器发送实时信号。 远程实时编码器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或[平滑流式处理](https://msdn.microsoft.com/library/ff469518.aspx)（分段 MP4）输入协议将贡献源发送到该输入终结点。 对于 RTMP 引入协议，内容可以通过明文 (`rtmp://`) 或网络安全加密 (`rtmps://`) 的方式发送。 对于平滑流式处理引入协议，支持的 URL 方案为 `http://` 或 `https://`。  
 
 ## <a name="live-event-types"></a>实时事件类型
 
 [直播活动](https://docs.microsoft.com/rest/api/media/liveevents)可以是下述两种类型之一：直通和实时编码。 这些类型是在创建期间使用 [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) 设置的：
 
-* **LiveEventEncodingType.None** - 本地实时编码器发送多比特率流。 引入的流通过实时事件传递，而不会经过任何进一步的处理。 
+* **LiveEventEncodingType.None** - 本地实时编码器发送多比特率流。 引入的流通过直播活动传递，而不会经过任何进一步的处理。 
 * **LiveEventEncodingType.Standard** - 本地实时编码器将单比特率流发送到实时事件，媒体服务创建多比特率流。 如果贡献源的分辨率为 720p 或更高，则 **Default720p** 预设将编码一组 6 分辨率/比特率对。
 * **LiveEventEncodingType.Premium1080p** - 本地实时编码器将单比特率流发送到实时事件，媒体服务创建多比特率流。 Default1080p 预设指定分辨率/比特率对的输出集。 
 
@@ -67,15 +67,29 @@ ms.locfileid: "71125574"
 > [!NOTE]
 > 如果需要自定义实时编码预设，请通过 Azure 门户开具支持票证。 你应当指定所需的分辨率和比特率的表。 请务必确认只有一个层的分辨率为 720p（如果请求 Standard 实时编码器的预设）或 1080p（如果请求 Premium1080p 实时编码器的预设），且最多有 6 个层。
 
-## <a name="live-event-creation-options"></a>直播活动创建选项
+## <a name="creating-live-events"></a>创建直播活动 
+
+### <a name="options"></a>选项
 
 创建直播活动时，可以指定以下选项：
 
 * 直播活动的流式处理协议（目前支持 RTMP 和平滑流式处理协议）。<br/>运行直播活动或其关联的实时输出时，无法更改协议选项。 如果需要其他协议，应当为每个流式处理协议创建单独的直播活动。  
-* 对引入和预览的 IP 限制。 可定义允许向该直播活动引入视频的 IP 地址。 允许的 IP 地址可以指定为单个 IP 地址（例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如“10.0.0.1/22”）或使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如“10.0.0.1(255.255.252.0)”）。<br/>如果未指定 IP 地址并且没有规则定义，则不会允许任何 IP 地址。 若要允许任何 IP 地址，请创建规则并设置 0.0.0.0/0。<br/>IP 地址必须采用以下格式之一：具有 4 个数字、CIDR 地址范围的 IpV4 地址。
 * 创建事件时，可以将其启动方式指定为自动启动。 <br/>如果将 autostart 设置为 true，则直播活动会在创建后启动。 只要直播活动开始运行，就会开始计费。 必须显式对直播活动资源调用停止操作才能停止进一步计费。 或者，可以在准备好开始流式传输后，启动事件。 
 
     有关详细信息，请参阅[直播活动状态和计费](live-event-states-billing.md)。
+* 对引入和预览的 IP 限制。 可定义允许向该直播活动引入视频的 IP 地址。 允许的 IP 地址可以指定为单个 IP 地址（例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如“10.0.0.1/22”）或使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如“10.0.0.1(255.255.252.0)”）。<br/>如果未指定 IP 地址并且没有规则定义，则不会允许任何 IP 地址。 若要允许任何 IP 地址，请创建规则并设置 0.0.0.0/0。<br/>IP 地址必须采用以下格式之一：具有 4 个数字、CIDR 地址范围的 IpV4 地址。
+
+    如果要在自己的防火墙上启用某些 IP，或者要将直播活动的输入约束到 Azure IP 地址，请从 [Azure 数据中心 IP 地址范围](https://www.microsoft.com/download/details.aspx?id=42064)下载 JSON 文件。 有关此文件的详细信息，请单击页面上的“详细信息”  部分。
+        
+### <a name="naming-rules"></a>命名规则
+
+* 最大直播活动名称为 32 个字符。
+* 该名称应遵循此[正则表达式](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)模式：`^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`。
+
+另请参阅[流式处理终结点命名约定](streaming-endpoint-concept.md#naming-convention)。
+
+> [!TIP]
+> 为了保证直播活动名称的唯一性，可以生成 GUID，并删除所有连字符和大括号（如果有）。 该字符串在所有直播活动中都是唯一的，并且其长度保证为 32。
 
 ## <a name="live-event-ingest-urls"></a>直播活动引入 URL
 

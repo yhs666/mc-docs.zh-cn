@@ -1,25 +1,22 @@
 ---
-title: Azure Key Vault 安全性 | Azure Docs
+title: Azure Key Vault 安全性 | Azure
 description: 管理 Azure Key Vault、密钥和机密的访问权限。 介绍 Key Vault 的身份验证和授权模型以及如何保护 Key Vault。
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/18/2019
-ms.date: 05/06/2019
-ms.author: v-biyu
+ms.date: 10/30/2019
+ms.author: v-tawe
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 69c7046896d43f94ba94f84be5926059c35d0578
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 34bad6ea4c70c8c69fa19e3f02b5e48cc8b4a131
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63861277"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425870"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 安全性
 
@@ -36,8 +33,8 @@ ms.locfileid: "63861277"
 
 对保管库的访问是通过两个界面或平面发生的。 这些平面为管理平面和数据平面。
 
-- 管理平面是管理 Key Vault 本身的位置，它是用来创建和删除保管库的界面。 你还可以读取 Key Vault 属性及管理访问策略。
-- 数据平面用于处理 Key Vault 中存储的数据。 可以添加、删除和修改密钥、机密及证书。
+- 管理平面是管理 Key Vault 本身的位置，它是用来创建和删除保管库的界面。  你还可以读取 Key Vault 属性及管理访问策略。
+- 数据平面用于处理 Key Vault 中存储的数据。  可以添加、删除和修改密钥、机密及证书。
 
 若要在任一平面中访问 Key Vault，所有调用方（用户或应用程序）必须已经过身份验证且已获得授权。 对于身份验证，这两个平面都使用 Azure Active Directory (Azure AD)。 对于授权，管理平面使用基于角色的访问控制 (RBAC)，而数据平面使用密钥保管库访问策略。
 
@@ -68,9 +65,9 @@ Key Vault 访问策略单独授予对密钥、机密或证书的权限。 可以
 > [!IMPORTANT]
 > 密钥保管库访问策略不支持粒度、对象级别权限，例如特定的密钥、机密或证书。 如果授予某个用户创建和删除密钥的权限，该用户可以针对该密钥保管库中的所有密钥执行这些操作。
 
-若要为密钥保管库设置访问策略，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs) 或[密钥保管库管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)。
+若要为密钥保管库设置访问策略，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[密钥保管库管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)。
 
-可以通过使用[适用于 Azure 密钥保管库的虚拟网络服务终结点](key-vault-overview-vnet-service-endpoints.md)来限制数据平面访问权限。
+可以通过使用[适用于 Azure 密钥保管库的虚拟网络服务终结点](key-vault-overview-vnet-service-endpoints.md)来限制数据平面访问权限。 可以配置[防火墙和虚拟网络规则](key-vault-network-security.md)以提供额外的安全层。
 
 ## <a name="network-access"></a>网络访问
 

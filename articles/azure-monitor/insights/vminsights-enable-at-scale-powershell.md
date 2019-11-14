@@ -1,25 +1,19 @@
 ---
 title: 通过 Azure PowerShell 或资源管理器模板启用用于 VM 的 Azure Monitor（预览版）| Microsoft Docs
 description: 本文介绍如何使用 Azure PowerShell 或 Azure 资源管理器模板为一个或多个 Azure 虚拟机或虚拟机规模集启用用于 VM 的 Azure Monitor。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: lingliw
+ms.author: v-lingwu
 origin.date: 06/09/2019
 ms.date: 07/09/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 9717c1749deb1f60bee1b4fde83fa78130b2f6d0
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 69aec8d8190eba607a7cf764963a59bd439fb53e
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736778"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970968"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>通过 Azure PowerShell 或资源管理器模板启用用于 VM 的 Azure Monitor（预览版）
 
@@ -37,7 +31,8 @@ ms.locfileid: "70736778"
 * 手动方式，如 [Log Analytics 中的 Windows 和 Linux 性能数据源](../../azure-monitor/platform/data-sources-performance-counters.md)所述
 * 通过下载并运行可从 [Azure PowerShell 库](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)获取的 PowerShell 脚本
 
-### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>安装 ServiceMap 和 InfrastructureInsights 解决方案
+### <a name="install-the-servicemap-solution"></a>安装 ServiceMap 解决方案
+
 此方法包含一个 JSON 模板，其中指定了用于在 Log Analytics 工作区中启用解决方案组件的配置。
 
 如果不知道如何使用模板部署资源，请参阅以下内容：
@@ -85,24 +80,6 @@ ms.locfileid: "70736778"
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -144,6 +121,7 @@ ms.locfileid: "70736778"
         ```
 
 ## <a name="enable-with-azure-resource-manager-templates"></a>通过 Azure 资源管理器模板来启用
+
 我们已创建示例性的 Azure 资源管理器模板，用于载入虚拟机和虚拟机规模集。 这些模板中包含的方案可以用来在现有的资源上启用监视，并可创建新的启用了监视的资源。
 
 >[!NOTE]
@@ -165,7 +143,7 @@ Azure 资源管理器模板在存档文件 (.zip) 中提供，该文件可以从
 - **NewVmOnboarding** 模板用于创建虚拟机并启用用于 VM 的 Azure Monitor 来监视它。
 - **ExistingVmssOnboarding** 模板可启用用于 VM 的 Azure Monitor，前提是虚拟机规模集已存在。
 - **NewVmssOnboarding** 模板用于创建虚拟机规模集并启用用于 VM 的 Azure Monitor 来监视它们。
-- **ConfigureWorksapce** 目标可将 Log Analytics 工作区配置为支持用于 VM 的 Azure Monitor，只需启用相关解决方案以及 Linux 和 Windows 操作系统性能计数器集合即可。
+- **ConfigureWorkspace** 模板可将 Log Analytics 工作区配置为支持用于 VM 的 Azure Monitor，只需启用相关解决方案以及 Linux 和 Windows 操作系统性能计数器集合即可。
 
 >[!NOTE]
 >如果虚拟机规模集已经存在，且升级策略已设置为“手动”，  则不需在运行 **ExistingVmssOnboarding** Azure 资源管理器模板后默认为实例启用用于 VM 的 Azure Monitor。 必须手动升级实例。
@@ -364,8 +342,8 @@ Failed: (0)
 
 ## <a name="next-steps"></a>后续步骤
 
-现已为虚拟机启用了监视，可在用于 VM 的 Azure Monitor 中使用此信息进行分析。
+既然虚拟机已启用了监视，此信息在用于 VM 的 Azure Monitor 中可供分析。
  
-- 若要了解如何使用运行状况功能，请参阅[查看用于 VM 的 Azure Monitor 的运行状况](vminsights-health.md)。 
-- 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。
-- 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。
+- 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。 
+
+- 若要通过 VM 的性能了解瓶颈和整体利用率，请参阅[查看 Azure VM 性能](vminsights-performance.md)。 

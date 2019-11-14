@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MariaDB 服务器防火墙规则
-description: 介绍 Azure Database for MariaDB 服务器的防火墙规则。
+description: 了解如何使用防火墙规则启用到 Azure Database for MariaDB 服务器的连接。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: d2511908d97141f2580e6592f323642a8dea733b
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+origin.date: 09/22/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 5abdcc41247d655d4cb9593876fcfba5b467f8f3
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308926"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191597"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB 服务器防火墙规则
 在指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
@@ -49,7 +49,7 @@ ms.locfileid: "68308926"
 
 <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
-## <a name="troubleshooting-the-database-firewall"></a>数据库防火墙故障排除
+## <a name="troubleshooting-firewall-issues"></a>排查防火墙问题
 对 Azure Database for MariaDB 服务器服务的访问未按预期工作时，请考虑以下几点：
 
 * **对允许列表的更改尚未生效：** 对 Azure Database for MariaDB 防火墙配置所做的更改可能最多需要 5 分钟的延迟才可生效。
@@ -58,9 +58,11 @@ ms.locfileid: "68308926"
 
 * **动态 IP 地址：** 如果 Internet 连接使用动态 IP 寻址，并且在通过防火墙时遇到问题，则可以尝试以下解决方法之一：
 
-* 向 Internet 服务提供商 (ISP) 询问分配给客户端计算机、用于访问 Azure Database for MariaDB 服务器的 IP 地址范围，然后将该 IP 地址范围作为防火墙规则添加。
+   * 向 Internet 服务提供商 (ISP) 询问分配给客户端计算机、用于访问 Azure Database for MariaDB 服务器的 IP 地址范围，然后将该 IP 地址范围作为防火墙规则添加。
 
-* 改为获取用户的客户端计算机的静态 IP 地址，并将该 IP 地址作为防火墙规则添加。
+   * 改为获取用户的客户端计算机的静态 IP 地址，并将该 IP 地址作为防火墙规则添加。
+
+* **服务器 IP 似乎为公共 IP：** 到 Azure Database for MariaDB 服务器的连接通过可公开访问的 Azure 网关进行路由。 但是，实际的服务器 IP 受防火墙保护。 有关详细信息，请参阅[连接体系结构文章](concepts-connectivity-architecture.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure 门户创建和管理 Azure Database for MariaDB 防火墙规则](./howto-manage-firewall-portal.md)

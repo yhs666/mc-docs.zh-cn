@@ -14,16 +14,16 @@ origin.date: 04/03/2019
 ms.date: 09/16/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5545d6c6e368e0b342da384f6453eb6eff9c4eda
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 3d7744f552d5c7503b443045f49bd0e9f2ede8cd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737408"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426029"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Apache Hadoop)
 
-了解如何使用[安全外壳 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 安全地连接到 Azure HDInsight 上的 Apache Hadoop。 有关通过虚拟网络连接的信息，请参阅 [Azure HDInsight 虚拟网络体系结构](./hdinsight-virtual-network-architecture.md)和[使用 Azure 虚拟网络扩展 Azure HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
+了解如何使用[安全外壳 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 安全地连接到 Azure HDInsight 上的 Apache Hadoop。 有关通过虚拟网络进行连接的信息，请参阅 [Azure HDInsight 虚拟网络体系结构](./hdinsight-virtual-network-architecture.md)和[为 Azure HDInsight 群集规划虚拟网络部署](./hdinsight-plan-virtual-network-deployment.md)。
 
 下表包含使用 SSH 客户端连接到 HDInsight 时所需的地址和端口信息：
 
@@ -80,7 +80,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
     ssh-keygen -t rsa -b 2048
 
-在创建密钥的过程中，系统会提示输入信息。 例如，密钥的存储位置，或者是否要使用密码。 完成该过程后，会创建两个文件：一个公钥文件和一个私钥文件。
+在密钥创建过程中会提示你输入信息。 例如，密钥的存储位置，或者是否要使用密码。 完成该过程后，会创建两个文件：一个公钥文件和一个私钥文件。
 
 * __公钥__用于创建 HDInsight 群集。 公钥的扩展名为 `.pub`。
 
@@ -93,7 +93,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 | 创建方法 | 如何使用公钥 |
 | ------- | ------- |
-| Azure 门户 | 取消选中“使用与群集登录相同的密码”，并选择“公钥”作为 SSH 身份验证类型。   最后，在“SSH 公钥”字段中选择公钥文件，或粘贴该文件的文本内容。 </br>![创建 HDInsight 群集时的 SSH 公钥对话框](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure 门户 | 取消选中“对 SSH 使用群集登录密码”  ，然后选择“公钥”  作为 SSH 身份验证类型。 最后，在“SSH 公钥”字段中选择公钥文件，或粘贴该文件的文本内容。 </br>![创建 HDInsight 群集时的 SSH 公钥对话框](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | 使用 [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet 的 `-SshPublicKey` 参数，并以字符串的形式传递公钥内容。|
 | Azure CLI | 使用 [az hdinsight create](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-create) 命令的 `--sshPublicKey` 参数，并以字符串的形式传递公钥内容。 |
 | **Resource Manager 模板** | 有关在模板中使用 SSH 密钥的示例，请参阅 [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)（使用 SSH 密钥在 Linux 上部署 HDInsight）。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 文件中的 `publicKeys` 元素用于在创建群集时向 Azure 传递密钥。 |
@@ -112,7 +112,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 | 创建方法 | 如何指定密码 |
 | --------------- | ---------------- |
-| Azure 门户 | 默认情况下，SSH 用户帐户的密码与群集登录帐户的密码相同。 如果要使用不同的密码，请取消选中“使用与群集登录相同的密码”，并在“SSH 密码”字段中输入密码。  </br>![创建 HDInsight 群集时的 SSH 密码对话框](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure 门户 | 默认情况下，SSH 用户帐户的密码与群集登录帐户的密码相同。 若要使用不同的密码，请取消选中“对 SSH 使用群集登录密码”  ，然后在“SSH 密码”  字段中输入密码。</br>![创建 HDInsight 群集时的 SSH 密码对话框](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | 使用 [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet 的 `--SshCredential` 参数，并传递包含 SSH 用户帐户名和密码的 `PSCredential` 对象。 |
 | Azure CLI | 使用 [az hdinsight create](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-create) 命令的 `--sshPassword` 参数，并提供密码值。 |
 | Resource Manager 模板 | 有关在模板中使用密码的示例，请参阅 [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)（使用 SSH 密码在 Linux 上部署 HDInsight）。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 文件中的 `linuxOperatingSystemProfile` 元素用于在创建群集时向 Azure 传递 SSH 帐户名和密码。|
@@ -154,7 +154,9 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 1. 使用 SSH 连接到头节点或边缘节点：
 
-        ssh sshuser@myedge.mycluster-ssh.azurehdinsight.cn
+    ```bash
+    ssh sshuser@myedge.mycluster-ssh.azurehdinsight.cn
+    ```
 
 2. 通过 SSH 连接到头节点或边缘节点后，使用 `ssh` 命令连接到群集中的工作节点：
 
@@ -171,7 +173,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 > [!NOTE]
 > 直接访问群集中所有节点的另一种方法是在 Azure 虚拟网络中安装 HDInsight。 然后，可将远程计算机加入相同的虚拟网络，这样就可以直接访问群集中的所有节点。
 >
-> 有关详细信息，请参阅将 [Use a virtual network with HDInsight](hdinsight-extend-hadoop-virtual-network.md)（对 HDInsight 使用虚拟网络）。
+> 有关详细信息，请参阅[为 HDInsight 规划虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
 ### <a name="configure-ssh-agent-forwarding"></a>配置 SSH 代理转发
 
@@ -182,24 +184,32 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 2. 将以下文本添加到 `config` 文件。
 
-        Host <edgenodename>.<clustername>-ssh.azurehdinsight.cn
-          ForwardAgent yes
+    ```
+    Host <edgenodename>.<clustername>-ssh.azurehdinsight.cn
+        ForwardAgent yes
+    ```
 
     将 __Host__ 信息替换为使用 SSH 连接到的节点的地址。 上面的示例使用边缘节点。 此条目为指定的节点配置 SSH 代理转发。
 
 3. 在终端中通过使用以下命令测试 SSH 代理转发：
 
-        echo "$SSH_AUTH_SOCK"
+    ```bash
+    echo "$SSH_AUTH_SOCK"
+    ```
 
     此命令返回类似于以下文本的信息：
 
-        /tmp/ssh-rfSUL1ldCldQ/agent.1792
+    ```output
+    /tmp/ssh-rfSUL1ldCldQ/agent.1792
+    ```
 
-    如未返回任何信息，则 `ssh-agent` 未运行。 有关详细信息，请参阅 [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)（将 ssh-agent 与 ssh 配合使用）中的代理启动脚本信息，或者查阅 SSH 客户端文档。
+    如果未返回任何内容，则 `ssh-agent` 没有运行。 有关详细信息，请参阅 [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)（将 ssh-agent 与 ssh 配合使用）中的代理启动脚本信息，或者查阅 SSH 客户端文档。
 
-4. 验证了 **ssh-agent** 处于运行状态后，请使用以下方式将 SSH 私钥添加到代理：
+4. 验证 **ssh-agent** 正在运行后，请使用以下步骤将 SSH 私钥添加到代理：
 
-        ssh-add ~/.ssh/id_rsa
+    ```bash
+    ssh-add ~/.ssh/id_rsa
+    ```
 
     如果私钥存储在不同文件中，请将 `~/.ssh/id_rsa` 替换为该文件的路径。
 
@@ -233,6 +243,6 @@ scp sshuser@clustername-ssh.azurehdinsight.cn:test.txt .
 ## <a name="next-steps"></a>后续步骤
 
 * [对 HDInsight 使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)
-* [对 HDInsight 使用虚拟网络](hdinsight-extend-hadoop-virtual-network.md)
+* [使用 HDInsight 规划虚拟网络](hdinsight-plan-virtual-network-deployment.md)
 * [在 HDInsight 中使用边缘节点](hdinsight-apps-use-edge-node.md#access-an-edge-node)
 <!--Update_Description: add 'connect to nodes' and 'copy files' section-->

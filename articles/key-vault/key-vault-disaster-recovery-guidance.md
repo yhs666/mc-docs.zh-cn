@@ -1,21 +1,20 @@
 ---
-title: 发生影响 Azure 密钥保管库的 Azure 服务中断时该怎么办 - Azure 密钥保管库 | Azure Docs
+title: 发生影响 Azure 密钥保管库的 Azure 服务中断时该怎么办 - Azure 密钥保管库 | Azure
 description: 了解发生影响 Azure Key Vault 的 Azure 服务中断时该怎么办。
 services: key-vault
-author: barclayn
-manager: barbkess
-editor: ''
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-origin.date: 01/07/2017
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 3a3922d9af830d3d2db6a62f2668f8da009c4087
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.topic: tutorial
+origin.date: 08/12/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5f8e34e5d697021b31b6c7dfa30d3bd940e8b34c
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687474"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426041"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 密钥保管库可用性和冗余
 

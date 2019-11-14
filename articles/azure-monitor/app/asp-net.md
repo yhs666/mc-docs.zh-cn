@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure Application Insights 为 ASP.NET 设置 Web 应用分析 | Azure Docs
 description: 为托管在本地或 Azure 中的 ASP.NET 网站配置性能、可用性和用户行为分析工具。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/08/2019
 ms.date: 7/2/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 54774ff2a374c2e20d5d0514cc77c7219cd7d131
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 2bec57c05888bd6ba40f5a052fcd18c30c3e3aa7
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737233"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970931"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>为 ASP.NET 网站设置 Application Insights
 
@@ -61,7 +56,8 @@ Application Insights 配置屏幕：
 
 ![使用 Application Insights 页注册应用的屏幕截图](./media/asp-net/00005-register-ed.png)
 
- 在调试期间以及发布应用后，遥测数据将发送到 [Azure 门户](https://portal.azure.cn)。
+ 选择“项目”   > “管理 NuGet 包”   > “包源: nuget.org”  > 确认你具备 Application Insights SDK 的最新稳定版本。
+在调试期间以及发布应用后，遥测数据将发送到 [Azure 门户](https://portal.azure.cn)。
 > [!NOTE]
 > 如果不希望在进行调试时向门户发送遥测，则请直接向应用添加 Application Insights SDK，但不要在门户中配置资源。 在调试时，可以在 Visual Studio 中查看遥测数据。 稍后可以返回此配置页，或者等到部署应用后，启用[在运行时打开遥测](../../azure-monitor/app/monitor-performance-live-website-now.md)。
 

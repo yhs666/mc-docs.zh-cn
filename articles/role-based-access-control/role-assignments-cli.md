@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/11/2019
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 42696f242eeab790d0a9d7d82a329b2de934dab2
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: ac47e9e5e3592c37cb1b6ccb9210c24190165f1a
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673554"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068925"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 和 Azure CLI 管理对 Azure 资源的访问权限
 
@@ -369,6 +369,22 @@ az role assignment create --role <role_name_or_id> --assignee <assignee> --scope
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+### <a name="create-a-role-assignment-for-a-new-service-principal"></a>为新服务主体创建角色分配
+
+如果创建新的服务主体并立即尝试将角色分配给该服务主体，则在某些情况下该角色分配可能会失败。 例如，如果使用脚本创建新的托管标识，然后尝试将角色分配给该服务主体，则角色分配可能会失败。 此失败的原因可能是复制延迟。 服务主体是在一个区域中创建的；但是，角色分配可能发生在尚未复制服务主体的另一个区域中。 若要解决这种情况，应该在创建角色分配时指定主体类型。
+
+若要创建角色分配，请使用 [az role assignment create](/cli/role/assignment#az-role-assignment-create)，为 `--assignee-object-id` 指定值，然后将 `--assignee-principal-type` 设置为 `ServicePrincipal`。
+
+```azurecli
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+以下示例将“虚拟机参与者”  角色分配给“pharma-sales”  资源组范围内的 msi-test  托管标识：
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>删除访问权限

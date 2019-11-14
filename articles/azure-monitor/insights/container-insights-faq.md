@@ -1,24 +1,19 @@
 ---
 title: 用于容器的 Azure Monitor 常见问题解答 | Microsoft Docs
 description: 用于容器的 Azure Monitor 是用于监视 Azure 中的 AKS群集和容器实例的运行状况的解决方案。 本文将解答一些常见问题。
-services: azure-monitor
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 08/14/2019
-ms.date: 08/19/2019
+author: mgoedtel
 ms.author: v-lingwu
-ms.openlocfilehash: d81b38b8bb991975634f3ad4fd187b66a4f25133
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+origin.date: 08/14/2019
+ms.date: 10/29/2019
+ms.openlocfilehash: 52a6965c8de4442f0b7f6428fc7a12312bef84ef
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736823"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041105"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>用于容器的 Azure Monitor 常见问题解答
 
@@ -85,9 +80,10 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 如果为 AKS 群集启用用于容器的 Azure Monitor 后，删除了该群集将其数据发送到的 Log Analytics 工作区，则尝试升级该群集时，该操作将会失败。 若要解决这一问题，必须禁用监视，然后重新启用该监视，同时引用订阅中的另一个有效工作区。 当你尝试再次升级群集时，该升级操作应进行处理并成功完成。  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>需要为代理打开哪些端口和域，或将哪些端口和域加入允许列表？
-- *.ods.opinsights.azure.cn   443
-- *.oms.opinsights.azure.cn   443
-- *.blob.core.chinacloudapi.cn      443
+- .ods.opinsights.azure.cn 443
+- .oms.opinsights.azure.cn 443
+- .blob.core.windows.net 443
+- microsoft.com 80（*说明：用于网络连接。仅当代理映像版本为 ciprod09262019 或更低版本时，才需要此项。* ）
 - dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>后续步骤

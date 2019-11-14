@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 03/06/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: a41166198b1fc1a7d9e6286fbdc7e984235db4fc
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 11/04/2019
+ms.openlocfilehash: 68913c267973559e2886ba8e33ec2bdb0e08cd36
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544399"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041106"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL 数据库中的自动优化
 
@@ -70,14 +69,14 @@ Azure SQL 数据库中可用的自动优化选项包括：
 | 自动优化选项 | 单一数据库和共用数据库支持 | 实例数据库支持 |
 | :----------------------------- | ----- | ----- |
 | **创建索引** - 标识可提高工作负载性能的索引，创建索引，并自动验证查询性能是否有所提高。 | 是 | 否 | 
-| **删除索引** - 每日识别冗余和重复的索引，但不包括唯一索引和长时间（>90 天）未使用的索引。 请注意，目前此选项与使用分区切换和索引提示的应用程序不兼容。 | 是 | 否 |
+| **删除索引** - 每日识别冗余和重复的索引，但不包括唯一索引和长时间（>90 天）未使用的索引。 请注意，此选项与使用分区切换和索引提示的应用程序不兼容。 高级和业务关键服务层不支持删除未使用的索引。 | 是 | 否 |
 | **强制执行上一卓越计划**（自动更正计划）- 标识使用执行计划的 SQL 查询（该执行计划速度慢于上一卓越计划），并标识使用上一已知卓越计划的查询而不是回归计划。 | 是 | 是 |
 
-自动优化确定可以优化数据库性能的“创建索引”、“删除索引”和“强制执行上一个卓越计划”建议，在 [Azure 门户](sql-database-advisor-portal.md)中显示它们，并通过 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 公开它们。    
+自动优化确定可以优化数据库性能的“创建索引”、“删除索引”和“强制执行上一个卓越计划”建议，在 [Azure 门户](sql-database-advisor-portal.md)中显示它们，并通过 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 公开它们。    若要详细了解如何强制执行上一个卓越计划和通过 T-SQL 配置自动优化选项，请参阅[自动优化引入自动计划更正](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)。
 
 可以使用门户手动应用优化建议，也可以让“自动优化”自主为你应用优化建议。 让系统自主为你应用优化建议的好处是，它会自动验证对工作负荷性能是否有正向提升，如果检测不到显著的性能改进，它会自动还原优化建议。 请注意，按照设计，如果受优化建议影响的查询不是频繁执行，则验证阶段可能要花费长达 72 小时。
 
-如果是手动应用优化建议，则自动性能验证和回退机制不可用。 此外，手动应用的建议在系统自动撤消它们之前， 将在 24-48 小时内保持活动状态并显示在建议列表中。 如果你想要更快地删除建议，可以手动放弃它。
+如果通过 T-SQL 应用优化建议，则自动性能验证和反转机制不可用。 以这种方式应用的建议将保持活动状态，并在 24-48 小时显示在优化建议列表中。 将在 24-48 小时内保持活动状态并显示在建议列表中。 如果你想要更快地删除建议，可以通过 Azure 门户放弃它。
 
 每个数据库都可以独立启用或禁用自动优化选项，也可以在 SQL 数据库服务器上配置这些选项，并将其应用于从服务器继承设置的每个数据库。 SQL 数据库服务器可继承 Azure 默认值，用于自动调整设置。 目前 Azure 默认值设为启用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，禁用 DROP_INDEX。
 

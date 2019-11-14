@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-origin.date: 07/24/2019
-ms.date: 09/02/2019
+origin.date: 09/29/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d38d0ee3c744113a417aaec035221c20a9a571dc
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 22ea9ef8605f6dd2bf774f4aa72192df8d3b044f
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104203"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416340"
 ---
 # <a name="list-entity"></a>列表实体 
 
@@ -46,45 +46,72 @@ ms.locfileid: "70104203"
 
 在之前的陈述中，单词 `paris` 映射至属于 `Cities` 列表实体一部分的“巴黎”项。 列表实体同时匹配项的规范化名称及其同义词。
 
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-另一个使用巴黎的同义词的示例陈述：
-
-`book 2 tickets to roissy`
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
+  "entities": [
+    {
+      "entity": "paris",
+      "type": "Cities",
+      "startIndex": 18,
+      "endIndex": 22,
+      "resolution": {
+        "values": [
+          "Paris"
+        ]
+      }
     }
-  }
-]
+  ]
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+
+如果在查询字符串中设置了 `verbose=false`，则这是 JSON：
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ]
+}
+```
+
+如果在查询字符串中设置了 `verbose=true`，则这是 JSON：
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ],
+    "$instance": {
+        "Cities": [
+            {
+                "type": "Cities",
+                "text": "paris",
+                "startIndex": 18,
+                "length": 5,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |数据对象|实体名称|Value|
 |--|--|--|
-|简单实体|`Customer`|`bob jones`|
+|列表实体|`Cities`|`paris`|
+
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,22 +1,22 @@
 ---
-title: Azure 快速入门 - 使用 PowerShell 在 Key Vault 中设置和检索机密 | Azure Docs
+title: Azure 快速入门 - 使用 PowerShell 在 Key Vault 中设置和检索机密 | Azure
 description: ''
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 05/10/2018
-ms.date: China North
-ms.author: v-biyu
-ms.openlocfilehash: f34737c988b805d33d13c7cd4f4ff2dd4ac85747
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+origin.date: 09/03/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 5837b8aa2d49ad0ba505991c999846917ebb19c8
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171245"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425863"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>快速入门：使用 PowerShell 在 Azure Key Vault 中设置和检索机密
 
@@ -26,7 +26,7 @@ Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 键入 `$PSVersionTable.PSVersion` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/zh-cn/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount` 来创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 键入 `$PSVersionTable.PSVersion` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount -EnvironmentName AzureChinaCloud` 来创建与 Azure 的连接。
 
 ```azurepowershell
 Login-AzAccount -EnvironmentName AzureChinaCloud
@@ -99,9 +99,9 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建 Key Vault 并在其中存储了一个软件密钥。 若要详细了解 Key Vault 以及如何将它与应用程序配合使用，请继续学习有关如何将 Web 应用程序与 Key Vault 配合使用的教程。
+在本快速入门中，你创建了 Key Vault 并在其中存储了一个机密。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章。
 
-若要了解如何使用 Web 应用程序通过 Azure 资源的托管标识从 Key Vault 读取机密，请继续学习以下教程
-
-> [!div class="nextstepaction"]
-> [将 Azure Web 应用程序配置为从 Key Vault 读取机密](quick-create-net.md)。
+- 阅读 [Azure Key Vault 概述](key-vault-overview.md)
+- 请参阅 [Azure PowerShell Key Vault cmdlet](https://docs.microsoft.com/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault) 参考
+- 了解[密钥、机密和证书](about-keys-secrets-and-certificates.md)
+- 查看 [Azure Key Vault 最佳做法](key-vault-best-practices.md)

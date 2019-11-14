@@ -1,5 +1,5 @@
 ---
-title: 安全地保存 Web 应用程序的机密应用程序设置 - Azure 密钥保管库 | Azure Docs
+title: 安全地保存 Web 应用程序的机密应用程序设置 - Azure 密钥保管库 | Azure
 description: 如何使用 ASP.NET Core 密钥保管库提供程序、用户密钥或 .NET 4.7.1 配置生成器来安全地保存密钥应用程序设置（如 Azure 凭据或第三方 API 密钥）
 services: visualstudio
 author: cawaMS
@@ -7,15 +7,15 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-origin.date: 11/09/2017
-ms.date: 06/10/2019
-ms.author: v-biyu
-ms.openlocfilehash: e4ff51eeb4c908e0b221ff5bae28891943b25aaa
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+origin.date: 07/17/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: ebaa2c60e61731f1b17ca362598d0d3e450bd7de
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296716"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425848"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -24,7 +24,7 @@ ms.locfileid: "66296716"
 
 传统上，所有 Web 应用配置设置都保存在配置文件（如 Web.config）中。这一做法会导致将密钥设置（如云凭据）签入到公共源代码管理系统（如 GitHub）中。 同时，因为更改源代码和重新配置开发设置都需要开销，因此会难以遵循安全最佳实践。
 
-为了确保开发过程的安全性，创建了工具和框架库，以安全地保存应用程序密钥设置，并最大程度地减少对源代码的更改或不对其进行更改。
+为了确保开发过程的安全性，创建了工具和框架库，以安全地保存应用程序机密设置，并最大程度地减少对源代码的更改或不对其进行更改。
 
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 应用程序
 
@@ -98,10 +98,10 @@ ms.locfileid: "66296716"
 
 1. 将以下 NuGet 包安装到你的项目
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
-2. 创建类似于以下的文件。 将其保存在你的项目文件夹外部的某个位置下。
+2. 创建一个类似于以下内容的文件。 将其保存在你的项目文件夹外部的某个位置下。
 
     ```xml
     <root>
@@ -124,7 +124,7 @@ ms.locfileid: "66296716"
     </configBuilders>
     ```
 
-4. 指定 appSettings 部分使用密钥配置生成器。 确保有任何含有虚拟值的密钥设置的条目。
+4. 指定 appSettings 部分使用密钥配置生成器。 确保有含有虚拟值的机密设置的条目。
 
     ```xml
         <appSettings configBuilders="Secrets">

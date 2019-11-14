@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 02badbb18a2f45fde088ab20c0fac4dea07f175b
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 87ccab35286e29ea297500f13a98fcefd8b2a6cd
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673575"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034445"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -98,12 +98,19 @@ Functions 中的虚拟网络集成使用与应用服务 Web 应用共享的基�
 * [区域 VNET 集成](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [需要网关的 VNet 集成](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>将存储帐户限制到虚拟网络
+## <a name="connecting-to-service-endpoint-secured-resources"></a>连接到服务终结点保护的资源
 
 > [!note] 
-> 对该存储帐户配置访问限制后，暂时可能需要多达 12 个小时才能使该存储帐户对函数应用可用。 在这段时间内，应用程序将完全脱机。
+> 对下游资源配置访问限制后，暂时可能需要多达 12 个小时才能使新的服务终结点对函数应用可用。 在此期间，资源将对应用完全不可用。
 
-为了提供更高级别的安全性，可以将应用程序的存储帐户限制到虚拟网络。 然后，必须将站点与该虚拟网络集成，才能访问存储帐户。 支持虚拟网络集成的所有计划都支持此配置。
+为了提供更高级别的安全性，可以使用服务终结点将许多 Azure 服务限制在一个虚拟网络中。 然后，必须将函数应用与该虚拟网络集成，才能访问资源。 支持虚拟网络集成的所有计划都支持此配置。
+
+[在此处详细了解虚拟网络服务终结点。](../virtual-network/virtual-network-service-endpoints-overview.md)
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>将存储帐户限制到虚拟网络
+创建函数应用时，必须创建或链接到支持 Blob、队列和表存储的常规用途的 Azure 存储帐户。 目前不能对此帐户使用任何虚拟网络限制。 如果在用于函数应用的存储帐户上配置虚拟网络服务终结点，则会破坏应用。
+
+[在此处详细了解存储帐户要求。](./functions-create-function-app-portal.md#storage-account-requirements)
 
 ## <a name="virtual-network-triggers-non-http"></a>虚拟网络触发器（非 HTTP）
 
@@ -115,11 +122,11 @@ Functions 中的虚拟网络集成使用与应用服务 Web 应用共享的基�
 
 ## <a name="hybrid-connections"></a>混合连接
 
-[混合连接](../service-bus-relay/relay-hybrid-connections-protocol.md)是可用于访问其他网络中的应用程序资源的一项 Azure 中继功能。 使用混合连接可以从应用访问应用程序终结点。 不能使用混合连接来访问应用程序。 在[应用服务计划](functions-scale.md#app-service-plan)中运行的函数可以使用混合连接。
+[混合连接](../service-bus-relay/relay-hybrid-connections-protocol.md)是可用于访问其他网络中的应用程序资源的一项 Azure 中继功能。 使用混合连接可以从应用访问应用程序终结点。 不能使用混合连接来访问应用程序。 在除消耗计划以外的所有计划中运行的函数都可以使用混合连接。
 
 在 Azure Functions 中使用时，每个混合连接与单个 TCP 主机和端口组合相关联。 这意味着，混合连接终结点可以位于任何操作系统和任何应用程序上，前提是能够访问 TCP 侦听端口。 混合连接功能不知道、也不关心应用程序协议或者要访问的内容是什么。 它只提供网络访问。
 
-有关详细信息，请参阅支持应用服务计划中的 Functions 的[混合连接的应用服务文档](../app-service/app-service-hybrid-connections.md)。
+若要了解详细信息，请参阅[混合连接的应用服务文档](../app-service/app-service-hybrid-connections.md)，该文档通过相同的配置步骤支持 Functions。
 
 
 ## <a name="next-steps"></a>后续步骤

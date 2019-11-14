@@ -1,18 +1,18 @@
 ---
-title: 将数据复制到 Azure Database for MariaDB。
-description: 本文介绍 Azure Database for MariaDB 的数据传入复制功能。
+title: 将数据复制到 Azure Database for MariaDB
+description: 了解如何使用数据传入复制从外部服务器同步到 Azure Database for MariaDB 服务。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 09/13/2019
 ms.date: 09/30/2019
-ms.openlocfilehash: b91614c6841c1ea2034a63fbcffd44d65dc9104b
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.openlocfilehash: f398cee5871ff28600d0b08864a3bc3e0e0e038a
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307885"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191575"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>将数据复制到 Azure Database for MariaDB
 

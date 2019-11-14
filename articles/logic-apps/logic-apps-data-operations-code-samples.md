@@ -1,22 +1,22 @@
 ---
-title: 数据操作示例 - Azure 逻辑应用 | Microsoft Docs
-description: 有关 Azure 逻辑应用中数据操作定义的代码示例
+title: 数据操作示例 - Azure 逻辑应用
+description: 有关 Azure 逻辑应用中数据操作的代码示例
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: v-yiso
 manager: jeconnoc
 ms.topic: reference
-origin.date: 07/25/2018
-ms.date: 12/10/2018
+origin.date: 09/01/2019
+ms.date: 11/11/2019
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 7c52239650c1a5940aac5e4e0783f38f6a125fb3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6ff6cad64db4ea3f440f777e176ef1b01db7fe9c
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676664"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425969"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Azure 逻辑应用的数据操作代码示例
 
@@ -367,11 +367,6 @@ ms.locfileid: "52676664"
    }
 },
 ```
-
-## <a name="get-support"></a>获取支持
-
-* 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

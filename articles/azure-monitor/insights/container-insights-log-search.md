@@ -1,25 +1,19 @@
 ---
 title: 如何从用于容器的 Azure Monitor 查询日志 | Microsoft Docs
 description: 用于容器的 Azure Monitor 收集指标和日志数据，本文介绍了这些记录并包含了示例查询。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
+ms.author: v-lingwu
 origin.date: 07/12/2019
 ms.date: 07/19/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 949c4538921c37d1f512c8f71f29a05ae43dc615
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: f4ecc4da757233572bf8e6b7aa0861d05489e20f
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737258"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970979"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何从用于容器的 Azure Monitor 查询日志
 用于容器的 Azure Monitor 从容器主机和容器收集性能指标、清单数据和运行状况状态信息，并将其转发到 Azure Monitor 中的 Log Analytics 工作区。 每隔三分钟收集数据。 此数据可用于 Azure Monitor 中的[查询](../../azure-monitor/log-query/log-query-overview.md)。 此数据可应用于包括迁移计划、容量分析、发现和按需性能故障排除在内的方案。
@@ -67,6 +61,7 @@ Azure Monitor 日志有助于查找趋势、诊断瓶颈、预测或关联有助
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 映像清单 | 
 | 选择“折线图”显示选项  ：<br> 性能<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器 CPU | 
 | 选择“折线图”显示选项  ：<br> 性能<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器内存 |
+| InsightsMetrics<br> &#124; where Name == "requests_count"<br> &#124; summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)<br> &#124; sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated <br> &#124; render barchart  | 每分钟请求数（按照自定义指标） |
 
 以下示例是 Prometheus 指标查询。 收集的指标是计数，为了确定在特定时间段内发生的错误数，我们必须从计数中减去。 数据集按 *partitionKey* 分区，这意味着对于 Name  、HostName  和 OperationType  的每个唯一集合，我们都会对该集合运行子查询以按 *TimeGenerated* 对日志进行排序，使用此过程可以查找以前的 *TimeGenerated* 以及为该时间记录的计数，以确定速率。
 

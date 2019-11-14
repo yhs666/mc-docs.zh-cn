@@ -6,19 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: bonova, carlrab
-manager: digimobile
-origin.date: 12/12/2018
-ms.date: 03/11/2019
-ms.openlocfilehash: 8b5ec6e1282d991481108b08927d2fb141198179
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.reviewer: sstein, bonova, carlrab
+origin.date: 02/22/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 3335f9bff97d573ccda9fcc0a97ffd137eedbf37
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347214"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041207"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>根据 Azure SQL 数据库托管实例确定 VNet子网大小
 
@@ -31,7 +30,7 @@ Azure SQL 数据库托管实例必须部署在 Azure [虚拟网络 (VNet)](../vi
 根据设计，托管实例至少需要子网中的 16 个 IP 地址，有时使用多达 256 个 IP 地址。 因此，在定义子网 IP 范围时，可以使用介于 /28 和 /24 之间的子网掩码。 对于单一的常规用途或业务关键部署，网络掩码位 /28（每个网络 14 台主机）是一个不错的大小。 对于位于同一 VNet 内的多个托管实例部署，掩码位 /27（每个网络 30 台主机）是理想的。 掩码位设置 /26（62 台主机）和 /24（254 台主机）允许进一步横向扩展 VNet 来支持更多的托管实例。
 
 > [!IMPORTANT]
-> 具有 16 个 IP 地址的子网大小是绝对最小值，进一步实现托管实例横向扩展的潜力有限。强烈建议选择前缀为 /27 或更低值的子网。
+> 具有 16 个 IP 地址的子网大小是最小值，在不支持 vCore 大小更改等缩放操作的情况下潜力有限。 强烈建议选择前缀为 /27 或最长前缀的子网。
 
 ## <a name="determine-subnet-size"></a>确定子网大小
 

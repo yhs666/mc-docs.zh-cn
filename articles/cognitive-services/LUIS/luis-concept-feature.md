@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a1631347c5800739a2fd3afbb80f1e59e1ca9877
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c12ba13c04dafa9fe04d0de8e785eca4e788d8a9
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329920"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416391"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 应用中的短语列表特征
 
@@ -47,14 +47,7 @@ ms.locfileid: "71329920"
 
 输入几个字词或短语后，立即使用“建议”  功能来查找相关值。 先检查相关值，再添加到短语列表值。
 
-|列表类型|目的|
-|--|--|
-|可互换|将其更换为列表中的其他字词后具有相同意向和实体提取的同义词或字词。|
-|不可互换|相对于该语言中的其他通用字词，更特定于应用的应用词汇。|
-
-### <a name="interchangeable-lists"></a>可交换列表
-
-可交换  短语列表适用于作为同义词的值。 例如，如果希望找到所有水体，且有示例言语，如： 
+短语列表适用于作为同义词的值。 例如，如果希望找到所有水体，且有示例言语，如： 
 
 * 什么城市靠近五大湖？ 
 * 什么道路沿着哈瓦苏湖城走？
@@ -66,17 +59,7 @@ ms.locfileid: "71329920"
 * 什么道路沿着 [bodyOfWater] 走？
 * [bodyOfWater] 的起点和终点在哪里？ 
 
-由于水体的字词或短语是同义词，并能在言语中交换使用，因此对短语列表使用“可交换”  设置。 
-
-### <a name="non-interchangeable-lists"></a>不可交换列表
-
-不可交换短语列表是增强 LUIS 检测的信号。 短语列表指示比其他字词更重要的字词或短语。 这有助于确定意向和实体检测。 例如，假设有全局主题域（即跨区域性，但仍为一种语言），如旅行。 虽有对应用重要的字词和短语，但它们不是同义词。 
-
-再比如，对罕见词、专有词和外来词使用不可交换短语列表。 LUIS 可能无法识别罕见词、专有词以及外来词（在应用区域性以外）。 不可互换设置指示罕见字词集组成 LUIS 应学会识别的类，但它们不是同义词，也不能彼此互换。
-
-不要将每个可能的字词或短语都添加到短语列表，一次添加几个字词或短语，再重新训练和发布。 
-
-随着短语列表随时间越来越长，可能会发现一些术语有许多种形式（同义词）。 将它们分入另一个可互换的短语列表。 
+因为水体的字词或短语是同义词，并能在言语中交换使用。 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

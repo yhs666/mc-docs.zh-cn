@@ -9,26 +9,26 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 origin.date: 08/15/2016
-ms.date: 11/12/2018
-ms.openlocfilehash: 80aca76439aafbe02557a148f0aa708b49131441
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.date: 11/04/2019
+ms.openlocfilehash: 1da0b552d6aa270ccf8394c05925a16bee8dbd10
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858199"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416284"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure 计划程序的出站身份验证
 
 > [!IMPORTANT]
-> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换即将停用的 Azure 计划程序。 若要计划作业，请[改为试用 Azure 逻辑应用](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换[即将停用](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 计划程序。 若要继续使用在计划程序中设置的作业，请尽快[迁移到 Azure 逻辑应用](../scheduler/migrate-from-scheduler-to-logic-apps.md)。
 
 Azure 计划程序作业必须调用需要进行身份验证的服务，例如其他 Azure 服务、Salesforce.com、Facebook 和安全自定义网站。 被调用的服务可以确定计划程序作业是否可以访问请求的资源。 
 
 计划程序支持以下身份验证模型： 
 
-* 使用 SSL/TLS 客户端证书时的客户端证书身份验证
-* 基本身份验证
-* Active Directory OAuth 身份验证
+* 使用 SSL/TLS 客户端证书时的客户端证书  身份验证
+* 基本身份验证 
+* Active Directory OAuth  身份验证
 
 ## <a name="add-or-remove-authentication"></a>添加或删除身份验证
 
@@ -47,8 +47,8 @@ Azure 计划程序作业必须调用需要进行身份验证的服务，例如�
 
 | 元素 | 必须 | 说明 |
 |---------|----------|-------------|
-| authentication（父元素） | 用于使用 SSL 客户端证书的身份验证对象 |
-| **类型** | 是 | 身份验证类型。 对于 SSL 客户端证书，该值为 `ClientCertificate`。 |
+| authentication（父元素）  | 用于使用 SSL 客户端证书的身份验证对象 |
+| **type** | 是 | 身份验证类型。 对于 SSL 客户端证书，该值为 `ClientCertificate`。 |
 | **pfx** | 是 | PFX 文件的 base64 编码内容 |
 | **password** | 是 | 用于访问 PFX 文件的密码 |
 ||| 
@@ -59,8 +59,8 @@ Azure 计划程序作业必须调用需要进行身份验证的服务，例如�
 
 | 元素 | 说明 | 
 |---------|-------------| 
-| authentication（父元素） | 用于使用 SSL 客户端证书的身份验证对象 |
-| **类型** | 身份验证类型。 对于 SSL 客户端证书，该值为 `ClientCertificate`。 |
+| authentication（父元素）  | 用于使用 SSL 客户端证书的身份验证对象 |
+| **type** | 身份验证类型。 对于 SSL 客户端证书，该值为 `ClientCertificate`。 |
 | **certificateThumbprint** |证书的指纹 |
 | **certificateSubjectName** |证书使用者可分辨名称 |
 | **certificateExpiration** | 证书的过期日期 |
@@ -168,8 +168,8 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 | 元素 | 必须 | 说明 |
 |---------|----------|-------------|
-| authentication（父元素） | 用于使用基本身份验证的身份验证对象 | 
-| **类型** | 是 | 身份验证类型。 对于基本身份验证，该值为 `Basic`。 | 
+| authentication（父元素）  | 用于使用基本身份验证的身份验证对象 | 
+| **type** | 是 | 身份验证类型。 对于基本身份验证，该值为 `Basic`。 | 
 | **username** | 是 | 要进行身份验证的用户名 | 
 | **password** | 是 | 要进行身份验证的密码 |
 |||| 
@@ -180,8 +180,8 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 | 元素 | 说明 | 
 |---------|-------------|
-| authentication（父元素） | 用于使用基本身份验证的身份验证对象 |
-| **类型** | 身份验证类型。 对于基本身份验证，该值为 `Basic`。 |
+| authentication（父元素）  | 用于使用基本身份验证的身份验证对象 |
+| **type** | 身份验证类型。 对于基本身份验证，该值为 `Basic`。 |
 | **username** | 经过身份验证的用户名 |
 ||| 
 
@@ -286,8 +286,8 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 | 元素 | 必须 | 说明 |
 |---------|----------|-------------|
-| authentication（父元素） | 是 | 用于使用 ActiveDirectoryOAuth 身份验证的身份验证对象 |
-| **类型** | 是 | 身份验证类型。 对于 ActiveDirectoryOAuth 身份验证，该值为 `ActiveDirectoryOAuth`。 |
+| authentication（父元素）  | 是 | 用于使用 ActiveDirectoryOAuth 身份验证的身份验证对象 |
+| **type** | 是 | 身份验证类型。 对于 ActiveDirectoryOAuth 身份验证，该值为 `ActiveDirectoryOAuth`。 |
 | **tenant** | 是 | Azure AD 租户的租户标识符。 若要找到 Azure AD 租户的租户标识符，请在 Azure PowerShell 中运行 `Get-AzureAccount`。 |
 | **audience** | 是 | 此值设置为 `https://management.core.chinacloudapi.cn/`。 | 
 | **clientId** | 是 | Azure AD 应用程序的客户端标识符 | 
@@ -300,8 +300,8 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 | 元素 | 说明 |
 |---------|-------------|
-| authentication（父元素） | 用于使用 ActiveDirectoryOAuth 身份验证的身份验证对象 |
-| **类型** | 身份验证类型。 对于 ActiveDirectoryOAuth 身份验证，该值为 `ActiveDirectoryOAuth`。 | 
+| authentication（父元素）  | 用于使用 ActiveDirectoryOAuth 身份验证的身份验证对象 |
+| **type** | 身份验证类型。 对于 ActiveDirectoryOAuth 身份验证，该值为 `ActiveDirectoryOAuth`。 | 
 | **tenant** | Azure AD 租户的租户标识符 |
 | **audience** | 此值设置为 `https://management.core.chinacloudapi.cn/`。 |
 | **clientId** | Azure AD 应用程序的客户端标识符 |

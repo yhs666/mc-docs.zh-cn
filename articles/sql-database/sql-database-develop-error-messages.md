@@ -11,19 +11,18 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
-origin.date: 03/06/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 7aea404f1a62b7bd196ac64a3a35babf67cb20f0
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 10/02/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 1e46085916862d7273198104b4675fd9e2386c7f
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544345"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041192"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
-本文列出了 SQL 数据库客户端应用程序的 SQL 错误代码，包括数据库连接错误、暂时性错误（也称为暂时性故障）、资源调控错误、数据库复制问题、弹性池和其他错误。 大多数类别特定于 Azure SQL 数据库，并不适用于 Microsoft SQL Server。 另请参阅[系统错误消息](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)。
+本文列出了 SQL 数据库客户端应用程序的 SQL 错误代码，包括数据库连接错误、暂时性错误（也称为暂时性故障）、资源调控错误、数据库复制问题、弹性池和其他错误。 大多数类别特定于 Azure SQL 数据库，并不适用于 Microsoft SQL Server。 另请参阅[系统错误消息](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15)。
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>数据库连接错误、暂时性错误和其他临时错误
 
@@ -57,13 +56,35 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 错误代码 | 严重性 | 说明 |
 | ---:| ---:|:--- |
 | 4060 |16 |无法打开该登录请求的数据库“%.&#x2a;ls”。 登录失败。 有关详细信息，请参阅[错误 4000 到 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |该服务在处理你的请求时遇到错误。 请重试。 错误代码 %d。<br/><br/>当服务由于软件或硬件升级、硬件故障或任何其他故障转移问题而关闭时，将收到此错误。 错误 40197 的消息中嵌入的错误代码 (%d) 提供有关所发生的故障或故障转移类型的其他信息。 错误 40197 的消息中嵌入的错误代码的一些示例有 40020、40143、40166 和 40540。<br/><br/>重新连接到 SQL 数据库服务器会将你自动连接到数据库的正常运行副本。 应用程序必须捕获错误 40197、记录该消息中嵌入的错误代码 (%d) 以供进行故障排除，然后尝试重新连接到 SQL 数据库，直到资源可用且再次建立连接为止。 有关详细信息，请参阅[暂时性错误](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
+| 40197 |17 |该服务在处理你的请求时遇到错误。 请重试。 错误代码 %d。<br/><br/>当服务由于软件或硬件升级、硬件故障或任何其他故障转移问题而关闭时，将收到此错误。 [错误 40197 的消息中嵌入](sql-database-develop-error-messages.md#embedded-error-codes)的错误代码 (%d) 提供有关所发生的故障或故障转移类型的其他信息。 错误 40197 的消息中嵌入的错误代码的一些示例有 40020、40143、40166 和 40540。<br/><br/>重新连接到 SQL 数据库服务器会将你自动连接到数据库的正常运行副本。 应用程序必须捕获错误 40197、记录该消息中嵌入的错误代码 (%d) 以供进行故障排除，然后尝试重新连接到 SQL 数据库，直到资源可用且再次建立连接为止。 有关详细信息，请参阅[暂时性错误](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
 | 40501 |20 个 |服务当前正忙。 请在 10 秒钟后重试请求。 事件 ID：%ls。 代码：%d。 有关详细信息，请参阅： <br/>&bull; &nbsp;[数据库服务器资源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[单一数据库的基于 DTU 的限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[弹性池的基于 DTU 的限制](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[单一数据库的基于 vCore 的限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[弹性池的基于 vCore 的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。|
 | 40613 |17 |数据库“%.&#x2a;ls”（在服务器“%.&#x2a;ls”上）当前不可用。 请稍后重试连接。 如果问题仍然存在，请与客户支持人员联系，并向其提供“%.&#x2a;ls”的会话跟踪 ID。<br/><br/> 如果已建立到数据库的现有专用管理员连接 (DAC)，则可能发生此错误。 有关详细信息，请参阅[暂时性错误](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
 | 49918 |16 |无法处理请求。 没有足够的资源来处理请求。<br/><br/>服务当前正忙。 请稍后重试请求。 有关详细信息，请参阅： <br/>&bull; &nbsp;[数据库服务器资源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[单一数据库的基于 DTU 的限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[弹性池的基于 DTU 的限制](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[单一数据库的基于 vCore 的限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[弹性池的基于 vCore 的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。 |
 | 49919 |16 |无法处理创建或更新请求。 订阅“%ld”有太多创建或更新操作正在进行。<br/><br/>服务正忙于为订阅或服务器处理多个创建或更新请求。 为了优化资源，当前阻止了请求。 请查询 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以了解挂起的操作。 请等到挂起的创建或更新请求完成后，或删除其中一个挂起的请求，再重试请求。 有关详细信息，请参阅： <br/>&bull; &nbsp;[数据库服务器资源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[单一数据库的基于 DTU 的限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[弹性池的基于 DTU 的限制](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[单一数据库的基于 vCore 的限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[弹性池的基于 vCore 的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。 |
 | 49920 |16 |无法处理请求。 订阅“%ld”有太多操作正在进行。<br/><br/>服务正忙于为此订阅处理多个请求。 为了优化资源，当前阻止了请求。 请查询 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以了解操作状态。 请等到挂起的请求完成，或删除其中一个挂起的请求，然后重试请求。 有关详细信息，请参阅： <br/>&bull; &nbsp;[数据库服务器资源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[单一数据库的基于 DTU 的限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[弹性池的基于 DTU 的限制](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[单一数据库的基于 vCore 的限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[弹性池的基于 vCore 的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。 |
 | 4221 |16 |由于等待“HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING”的时间过长，登录以读取次要副本失败。 副本不可用于登录，因为回收副本时缺少正在进行中的事务的行版本。 可以通过回滚或提交主要副本上的活动事务来解决此问题。 通过避免在主要副本上长时间写入事务，可以将此状况的发生次数降到最低。 |
+
+## <a name="embedded-error-codes"></a>嵌入的错误代码
+
+更常见的错误代码 40197 中嵌入了以下错误：
+
+```
+The service has encountered an error processing your request. Please try again. Error code %d.
+```
+
+| 错误代码 | 严重性 | 说明 | 
+| ---:| ---:|:---|
+|  1104 |17 |TEMPDB 在溢出期间用尽了空间。 通过删除对象来创建空间和/或重写查询以占用更少的行。 如果此问题仍然存在，请考虑升级到更高的服务级别目标。|
+| 40020 |16 |数据库正在转换中，正在终止事务。|
+| 40143 |16 |数据节点为请求的分区托管的副本不是主副本。|
+| 40166 |16 |正在进行 CloudDB 重新配置，并中止所有新用户事务。|
+| 40540 |16 |事务已中止，因为数据库已转到只读模式。 这是暂时情况，请重试该操作。|
+
+有关其他嵌入错误的详细信息，可以通过查询 `sys.messages` 来找到：
+
+```sql
+SELECT * FROM sys.[messages] WHERE [message_id] = <error_code>
+```
 
 ## <a name="database-copy-errors"></a>数据库复制错误
 

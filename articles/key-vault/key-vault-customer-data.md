@@ -1,25 +1,21 @@
 ---
-title: Azure Key Vault 客户数据功能 | Microsoft Docs
+title: Azure 密钥保管库客户数据功能 - Azure 密钥保管库 | Azure
 description: 了解 Key Vault 中的客户数据
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-origin.date: 05/22/2018
-ms.date: 09/17/2018
-ms.author: v-biyu
-ms.openlocfilehash: 32760ed3f261a045d98054cd5a8759ff4f4fce57
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 01/07/2019
+ms.date: 10/30/2018
+ms.author: v-tawe
+ms.openlocfilehash: 7a581bde69135ad7c47ca24420692ac246183965
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029059"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426043"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客户数据功能
 
@@ -38,6 +34,7 @@ Azure Key Vault 在创建或更新保管库、密钥、机密、证书和托管�
 - 证书联系人可能包含用户电子邮件地址、姓名或电话号码
 - 证书颁发者可能包含电子邮件地址、姓名、电话号码、帐户凭据和组织详细信息
 - 可以向 Azure Key Vault 中的对象应用任意标记。 这些对象包括保管库、密钥、机密、证书和存储帐户。 使用的标记可能包含个人数据
+- Azure Key Vault 访问日志包含每个 REST API 调用的对象 ID、[UPN](../active-directory/hybrid/plan-connect-userprincipalname.md) 和 IP 地址
 - Azure Key Vault 诊断日志可能包含 REST API 调用的对象 ID 和 IP 地址
 
 ## <a name="deleting-customer-data"></a>删除客户数据
@@ -50,7 +47,7 @@ Azure Key Vault 在创建或更新保管库、密钥、机密、证书和托管�
 
 用于创建保管库、密钥、机密、证书和托管存储帐户的相同 REST API、门户体验和 SDK 也可以让你查看和导出这些对象。
 
-Azure Key Vault 访问日志记录是可选功能，可将其打开，为每个 REST API 调用生成日志。 这些日志将被传输到订阅中的存储帐户，并且你向该订阅应用符合组织要求的保留策略。
+Azure Key Vault 访问日志记录是可选功能，可将其启用以便为每个 REST API 调用生成日志。 这些日志将传输到应用了符合组织要求的保留策略的订阅中的存储帐户。
 
 Azure Key Vault 诊断日志包含可通过在用户隐私门户中发出导出请求来进行检索的个人数据。 此请求必须由租户管理员发出。
 
@@ -66,4 +63,4 @@ Azure Key Vault 诊断日志包含可通过在用户隐私门户中发出导出�
 
 - [Azure Key Vault 存储帐户操作](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: content update -->

@@ -1,22 +1,19 @@
 ---
 title: 从包运行 Azure Functions | Microsoft Docs
 description: 通过装载包含函数应用项目文件的部署包文件，让 Azure Functions 运行时运行函数。
-services: functions
-documentationcenter: na
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 07/15/2019
-ms.date: 09/06/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3c705425197838dfdecfd945cc279f9d6d37de6d
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 333f692845b85f9fcad049e019e400e6b8d47052
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805723"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034438"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>从包文件运行 Azure Functions
 
@@ -57,7 +54,7 @@ ms.locfileid: "70805723"
 
 ## <a name="integration-with-zip-deployment"></a>与 zip 部署集成
 
-[Zip 部署][Zip deployment for Azure Functions]是 Azure 应用服务的一项功能，可用于将函数应用项目部署到 `wwwroot` 目录。 项目打包为 .zip 部署文件。 可以使用相同的 API 将包部署到 `d:\home\data\SitePackages` 文件夹。 对 `WEBSITE_RUN_FROM_PACKAGE` 应用设置使用值 `1` 时，zip 部署 API 会将包复制到 `d:\home\data\SitePackages` 文件夹，而不是将文件提取到 `d:\home\site\wwwroot`。 它还会创建 `packagename.txt` 文件。 然后，函数应用在重启后会从该包运行，而 `wwwroot` 变为只读。 有关 zip 部署的详细信息，请参阅 [Azure Functions 的 Zip 部署](deployment-zip-push.md)。
+[Zip 部署][Zip deployment for Azure Functions]是 Azure 应用服务的一项功能，可用于将函数应用项目部署到 `wwwroot` 目录。 项目打包为 .zip 部署文件。 可以使用相同的 API 将包部署到 `d:\home\data\SitePackages` 文件夹。 对 `WEBSITE_RUN_FROM_PACKAGE` 应用设置使用值 `1` 时，zip 部署 API 会将包复制到 `d:\home\data\SitePackages` 文件夹，而不是将文件提取到 `d:\home\site\wwwroot`。 它还会创建 `packagename.txt` 文件。 重启后，该包将作为只读文件系统装载到 `wwwroot`。 有关 zip 部署的详细信息，请参阅 [Azure Functions 的 Zip 部署](deployment-zip-push.md)。
 
 ## <a name="adding-the-website_run_from_package-setting"></a>添加 WEBSITE_RUN_FROM_PACKAGE 设置
 

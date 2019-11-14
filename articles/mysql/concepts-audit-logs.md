@@ -6,15 +6,18 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 06/26/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: f38debf8e858c2b972bd9385496770f5165ff714
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 11/04/2019
+ms.openlocfilehash: 2b6a4bdf6d42e3dca49e327bbd437becc1160f9b
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514184"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142089"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的审核日志
+
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 在 Azure Database for MySQL 中，审核日志可供用户使用。 审核日志可以用来跟踪数据库级别的活动，通常用于确保符合性。
 
@@ -28,7 +31,13 @@ ms.locfileid: "68514184"
 可以调整的其他参数包括：
 
 - `audit_log_events`：控制要记录的事件。 请查看下表以了解具体的审核事件。
-- `audit_log_exclude_users`：不对 MySQL 用户进行日志记录。 最多允许对四个用户这样做。 参数的最大长度为 256 个字符。
+- `audit_log_include_users`：要包括 MySQL 用户进行日志记录。 此参数的默认值为空，这将包括所有用户进行日志记录。 此参数的优先级高于 `audit_log_exclude_users`。 此参数的最大长度为 512 个字符。
+> [!Note]
+> `audit_log_include_users` 的优先级高于 `audit_log_exclude_users`。例如，如果 audit_log_include_users = `demouser` 并且 audit_log_exclude_users = `demouser`，它将审核日志，因为 `audit_log_include_users` 的优先级更高。
+- `audit_log_exclude_users`：不对 MySQL 用户进行日志记录。 此参数的最大长度为 512 个字符。
+
+> [!Note]
+> 对于 `sql_text`，如果日志超过 2048 个字符，则会截断日志。
 
 | **事件** | **说明** |
 |---|---|
@@ -97,7 +106,7 @@ ms.locfileid: "68514184"
 | `LogicalServerName_s` | 服务器的名称 |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`、`ERROR`、`RESULT`（仅适用于 MySQL 5.6） |
-| `event_time` | 以 UNIX 时间戳表示的查询开始时的秒数 |
+| `event_time` | 查询开始时间（UTC 时间戳） |
 | `error_code_d` | 查询失败时的错误代码。 `0` 意味着无错误 |
 | `thread_id_d` | 执行了查询的线程的 ID |
 | `host_s` | 空白 |

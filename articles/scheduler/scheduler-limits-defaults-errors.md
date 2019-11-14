@@ -9,18 +9,18 @@ ms.reviewer: klam
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 origin.date: 08/18/2016
-ms.date: 11/12/2018
-ms.openlocfilehash: cb0ec026ac30b80bcb26373aadbddf81d8c0d9e0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 11/04/2019
+ms.openlocfilehash: 08795c479d441304c786c2ba2c9b1890bba1ba5c
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666768"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416276"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Azure 计划程序中的限制、配额和限制阈值
 
 > [!IMPORTANT]
-> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换即将停用的 Azure 计划程序。 若要安排作业，请[改为试用 Azure 逻辑应用](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换[即将停用](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 计划程序。 若要继续使用在计划程序中设置的作业，请尽快[迁移到 Azure 逻辑应用](../scheduler/migrate-from-scheduler-to-logic-apps.md)。
 
 ## <a name="limits-quotas-and-thresholds"></a>限制、配额和阈值
 

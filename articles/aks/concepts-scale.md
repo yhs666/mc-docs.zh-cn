@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: fd01f53fe9824e5c7dd6bced82acd988fe2674e2
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: ed5a960c4f41387dd9735898f054c841281e781d
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155858"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068897"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序缩放选项
 
@@ -29,7 +29,7 @@ ms.locfileid: "71155858"
 
 ## <a name="manually-scale-pods-or-nodes"></a>手动缩放 Pod 或节点
 
-可以手动缩放副本 (Pod) 和节点，以测试应用程序如何响应可用资源和状态的更改。 手动缩放资源还可以定义用于维持固定成本的设定数量的资源，例如节点数。 要手动缩放，请定义副本或节点数，且 Kubernetes API 计划创建其他 Pod 或耗尽节点。
+可以手动缩放副本 (Pod) 和节点，以测试应用程序如何响应可用资源和状态的更改。 手动缩放资源还可以定义用于维持固定成本的设定数量的资源，例如节点数。 若要手动缩放，请定义副本或节点计数。 然后，Kubernetes API 根据该副本或节点计数计划创建其他 Pod 或排空节点。
 
 若要开始使用手动缩放 Pod 和节点，请参阅[在 AKS 中缩放应用程序][aks-scale]。
 
@@ -45,9 +45,9 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 
 ### <a name="cooldown-of-scaling-events"></a>缩放事件的冷却时间
 
-由于水平 Pod 自动缩放程序每 30 秒检查一次指标 API，因此在进行另一次检查之前，先前的缩放事件可能尚未成功完成。 此行为可能导致水平 Pod 自动缩放程序会在上一个缩放事件能够接收应用程序工作负载且需要对资源进行相应调整之前更改副本数。
+由于水平 Pod 自动缩放程序每 30 秒检查一次指标 API，因此在进行另一次检查之前，先前的缩放事件可能尚未成功完成。 此行为可能导致水平 Pod 自动缩放程序会在上一个缩放事件能够接收应用程序工作负荷且需要对资源进行相应调整之前更改副本数。
 
-为最大限度地减少这些争用事件，可以设置冷却时间值或延迟值。 这些值定义水平 Pod 自动缩放程序在执行一个缩放事件之后，触发另一个缩放事件之前必须等待的时间。 此行为允许新副本计数生效，指标 API 反映分布式工作负载。 默认情况下，纵向扩展事件的延迟为 3 分钟，纵向缩减事件的延迟为 5 分钟
+为最大限度地减少这些争用事件，可以设置冷却时间值或延迟值。 这些值定义水平 Pod 自动缩放程序在执行一个缩放事件之后，触发另一个缩放事件之前必须等待的时间。 此行为允许新副本计数生效，指标 API 反映分布式工作负荷。 默认情况下，纵向扩展事件的延迟为 3 分钟，纵向缩减事件的延迟为 5 分钟
 
 目前，无法从默认值调整这些冷却时间值。
 

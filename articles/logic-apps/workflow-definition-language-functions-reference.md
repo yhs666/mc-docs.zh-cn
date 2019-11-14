@@ -1,6 +1,6 @@
 ---
-title: 工作流定义语言中的函数引用 - Azure 逻辑应用和 Microsoft Flow
-description: 使用工作流定义语言为 Azure 逻辑应用和 Microsoft Flow 创建的表达式中的函数引用指南
+title: 表达式中函数的参考指南 - Azure 逻辑应用
+description: Azure 逻辑应用和 Microsoft Flow 的表达式中的函数参考指南
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,15 +9,15 @@ ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.topic: reference
 origin.date: 08/23/2019
-ms.date: 10/08/2019
-ms.openlocfilehash: 5693f84b54f148dfbafa3eb54e720acdbc296c31
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: 7974fc3ac395ff4d749dc926c15ba3632cbcf6dd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340838"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425770"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure 逻辑应用和 Microsoft Flow 中工作流定义语言的函数引用
+# <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>使用 Azure 逻辑应用和 Microsoft Flow 的表达式中的函数的参考指南
 
 就 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和 [Microsoft Flow](https://docs.microsoft.com/flow/getting-started) 中的工作流定义来说，某些[表达式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)获取的值来自运行时操作，而这些运行时操作在你的工作流开始运行时可能尚未存在。 若要在这些表达式中引用或处理这些值，可以使用[工作流定义语言](../logic-apps/logic-apps-workflow-definition-language.md)提供的函数  。 
 

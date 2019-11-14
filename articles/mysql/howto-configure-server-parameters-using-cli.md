@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Database for MySQL 中配置服务参数
+title: 配置服务参数 - Azure Database for MySQL
 description: 本文介绍如何使用 Azure CLI 命令行实用工具在 Azure Database for MySQL 中配置服务参数。
 author: WenJason
 ms.author: v-jay
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 origin.date: 07/18/2018
-ms.date: 07/15/2019
-ms.openlocfilehash: 6f8cea892a76a5600901d2aa47ea56df0670bb72
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.date: 11/04/2019
+ms.openlocfilehash: 6149f0e4d8acf1430f8f87164ea1c909e662a19f
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845097"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142154"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>使用 Azure CLI 自定义服务器配置参数
 
@@ -55,6 +55,46 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 此代码会将 slow\_query\_log  配置重置为默认值 OFF  。 
+
+## <a name="working-with-the-time-zone-parameter"></a>使用时区参数
+
+### <a name="populating-the-time-zone-tables"></a>填充时区表
+
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具调用 `az_load_timezone` 存储过程，填充服务器上的时区表。
+
+> [!NOTE]
+> 如果正在运行 MySQL Workbench 中的 `az_load_timezone` 命令，可能需要先使用 `SET SQL_SAFE_UPDATES=0;` 关闭安全更新模式。
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+要查看可用的时区值，请运行以下命令：
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### <a name="setting-the-global-level-time-zone"></a>设置全局级时区
+
+可以使用 [az mysql server configuration set](/cli/mysql/server/configuration#az-mysql-server-configuration-set) 命令来设置全局级时区。
+
+以下命令将资源组 myresourcegroup 下的服务器 mydemoserver.mysql.database.chinacloudapi.cn 的 time\_zone 服务器配置参数更新为“美国/太平洋”     。
+
+```azurecli
+az mysql server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
+```
+
+### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
+
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具运行 `SET time_zone` 命令来设置会话级时区。 以下示例将时区设置为“美国/太平洋”  时区。  
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+若要了解[日期和时间函数](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz)，请参阅 MySQL 文档。
+
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/22/2019
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: ae8f5b2d69b5f7326490319974d452113a55196d
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 67392b670a75a547f0a225819b643ba049b6b378
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673565"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068935"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>对 Azure 资源的 RBAC 问题进行故障排除
 
@@ -55,7 +55,7 @@ ms.locfileid: "71673565"
 - 如果尝试创建资源时收到权限错误“具有此对象 id 的客户端无权在此作用域内执行操作(代码:AuthorizationFailed)”，请检查你当前登录时使用的用户是否分配有在所选作用域内对资源具有写入权限的角色。 例如，若要管理某个资源组中的虚拟机，则你应当在该资源组（或父作用域）中具有[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色。 有关每个内置角色的权限列表，请参阅 [Azure 资源的内置角色](built-in-roles.md)。
 - 如果尝试创建或更新支持票证时收到权限错误“无权创建支持票证”，请检查你当前登录时使用的用户是否分配有具有 `Microsoft.Support/supportTickets/write` 权限的角色，例如[支持请求参与者](built-in-roles.md#support-request-contributor)。
 
-## <a name="role-assignments-without-a-security-principal"></a>没有安全主体的角色分配
+## <a name="role-assignments-with-unknown-security-principal"></a>具有未知安全主体的角色分配
 
 使用 Azure PowerShell 列出角色分配时，可能会看到分配的 `DisplayName` 为空且 `ObjectType` 设置为“未知”。 例如，[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment) 返回的角色分配如下所示：
 

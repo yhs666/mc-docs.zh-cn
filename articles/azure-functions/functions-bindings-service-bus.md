@@ -10,14 +10,14 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
 ms.topic: reference
 origin.date: 04/01/2017
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 910ade446a4828e3f1b98c227ab4d4bbe808dd4d
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 87fbd8ca24c440830de003ce830725d30586a26f
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673557"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034451"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -34,6 +34,9 @@ ms.locfileid: "71673557"
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 包 3.x 版中提供了服务总线绑定。 `azure-webjobs-sdk` GitHub 存储库中提供了此包的源代码。
+
+> [!NOTE]
+> 版本 2.x 不会创建在 `ServiceBusTrigger` 实例中配置的主题或订阅。 版本 2.x 基于 [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)，但不处理队列管理。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -148,7 +151,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>触发器 - Java 示例
 
-以下 Java 函数使用 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中的 `@ServiceBusQueueTrigger` 注释来说明服务总线队列触发器的配置。 此函数获取放置在队列上的消息，然后将其添加到日志。
+以下 Java 函数使用 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中的 `@ServiceBusQueueTrigger` 注释来说明服务总线队列触发器的配置。 此函数获取放置在队列上的消息，然后将其添加到日志。
 
 ```java
 @FunctionName("sbprocessor")
@@ -486,7 +489,7 @@ public String pushToQueue(
  }
 ```
 
- 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入服务总线队列的函数参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+ 在 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中，对其值将写入服务总线队列的函数参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
 Java 函数也可将内容写入服务总线主题。 以下示例使用 `@ServiceBusTopicOutput` 注释来说明输出绑定的配置。 
 
@@ -671,3 +674,4 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording update -->

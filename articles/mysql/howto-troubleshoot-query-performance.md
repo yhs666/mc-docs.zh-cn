@@ -1,20 +1,18 @@
 ---
 title: 如何对 Azure Database for MySQL 中的查询性能问题进行故障排除
-description: 本文介绍了如何使用 EXPLAIN 对 Azure Database for MySQL 中的查询性能问题进行故障排除。
-services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
-editor: jasonwhowell
+description: 了解如何使用 EXPLAIN 对 Azure Database for MySQL 中的查询性能问题进行故障排除。
+author: WenJason
+ms.author: v-jay
 ms.service: mysql
-ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 652829a1295cd26fa7136854317d1911d866f9a6
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.topic: troubleshooting
+origin.date: 06/16/2018
+ms.date: 11/04/2019
+ms.openlocfilehash: 61f4f4d1f3018e1145e3f40c153b26af705d100e
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236594"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142150"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>如何使用 EXPLAIN 分析 Azure Database for MySQL 中的查询性能
 

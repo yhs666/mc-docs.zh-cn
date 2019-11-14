@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 07/18/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: b865cf602f0e831cafabaa5483ec8d396af3d552
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 11/04/2019
+ms.openlocfilehash: b704af6d7bbba0a2d8610d9a396151638a3441ef
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372985"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041218"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持
 
@@ -109,7 +109,7 @@ ms.locfileid: "70372985"
 - 使用 [PowerShell 在 Key Vault 中启用“软删除”属性](/key-vault/key-vault-soft-delete-powershell)（目前无法从 AKV 门户使用此选项 – 但 SQL 需要此选项），在两个不同的区域中创建两个 Azure Key Vault。
 - 这两个 Azure Key Vault 必须位于同一 Azure 地理位置中的两个区域，这样才能正常备份和还原密钥。
 - 在第一个 Key Vault 中创建新密钥：  
-  - RSA/RSA-HSA 2048 密钥
+  - RSA 2048 密钥
   - 无过期日期
   - 密钥已启用并有权执行“获取”、“包装密钥”和“解包密钥”操作
 - 备份主密钥，并将密钥还原到第二个 Key Vault。  请参阅 [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) 和 [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey)。
@@ -145,8 +145,8 @@ ms.locfileid: "70372985"
 
 ![故障转移组和异地灾难恢复](./media/transparent-data-encryption-byok-azure-sql/geo_DR_ex_config.PNG)
 
->[!NOTE]
->将 Key Vault 分配到服务器时，必须从辅助服务器开始。  在第二个步骤中，将 Key Vault 分配到主服务器并更新 TDE 保护器；异地灾难恢复链接会继续工作，因为复制的数据库使用的 TDE 保护器此时可供这两个服务器使用。
+> [!NOTE]
+> 将 Key Vault 分配到服务器时，必须从辅助服务器开始。  在第二个步骤中，将 Key Vault 分配到主服务器并更新 TDE 保护器；异地灾难恢复链接会继续工作，因为复制的数据库使用的 TDE 保护器此时可供这两个服务器使用。
 
 在使用 Azure Key Vault 中客户管理的密钥为 SQL 数据库异地灾难恢复方案启用 TDE 之前，必须使用同一区域中用于 SQL 数据库异地复制的相同内容创建并维护两个 Azure Key Vault。  具体而言，“相同内容”是指这两个 Key Vault 必须包含相同 TDE 保护器的副本，以便这两个服务器能够访问所有数据库使用的 TDE 保护器。  接下来，必须使这两个 Key Vault 保持同步，这意味着，它们在密钥轮换之后必须包含 TDE 保护器的相同副本，并保留用于日志文件或备份的旧版密钥；TDE 保护器必须保留相同的密钥属性；Key Vault 必须保留 SQL 的相同访问权限。  
 

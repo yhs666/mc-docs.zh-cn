@@ -6,46 +6,29 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 09/23/2019
+origin.date: 09/17/2018
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e8812e178c565bc3d89ca753bc346aecfdefeb1
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 5e8494649a212b683f558ce316e1c540f1f3e4d2
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155863"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068901"
 ---
 <!--Verify successfully-->
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
 
-# <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>预览 - 使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
-
-结合使用 Azure 容器注册表 (ACR) 和 Azure Kubernetes 服务 (AKS) 时，需要建立身份验证机制。 本文详细介绍这两种 Azure 服务之间的建议身份验证配置。
+结合使用 Azure 容器注册表 (ACR) 和 Azure Kubernetes 服务 (AKS) 时，需要建立身份验证机制。 本文提供了在这两个 Azure 服务之间配置身份验证的示例。
 
 可以使用 Azure CLI 通过几个简单的命令设置 AKS 与 ACR 的集成。
 
-> [!IMPORTANT]
-> AKS 预览功能是自助式选择加入功能。 预览版“按原样”提供，并且仅在“可用情况下”提供，不包含在服务级别协议和有限保障中。 AKS 预览版的内容部分包含在客户支持中，我们只能尽力提供支持。 因此，这些功能不应用于生产。 有关其他信息，请参阅以下支持文章：
->
-> * [AKS 支持策略](support-policies.md)
-> * [Azure 支持常见问题](faq.md)
-
 ## <a name="before-you-begin"></a>准备阶段
 
-必须满足以下条件：
+这些示例需要：
 
 * **Azure 订阅**上的**所有者**或 **Azure 帐户管理员**角色
-* 此外还需 Azure CLI 2.0.70 或更高版本，以及 aks-preview 0.4.8 扩展
-* 需要在客户端上[安装 Docker](https://docs.docker.com/install/)，并且需要访问 [docker 中心](https://hub.docker.com/)
-
-## <a name="install-latest-aks-cli-preview-extension"></a>安装最新的 AKS CLI 预览版扩展
-
-需要 **aks-preview 0.4.13** 扩展或更高版本。
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
+* Azure CLI 2.0.73 版或更高版本
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>通过 ACR 集成创建新的 AKS 群集
 
@@ -54,16 +37,28 @@ az extension add -y --name aks-preview
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az login
+# set this to the name of your Azure Container Registry.  It must be globally unique
+MYACR=myContainerRegistry
 
-# Create one ACR in case you do not have an existing one.
-az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
+# Run the following line to create an Azure Container Registry if you do not already have one
+az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
+
+# Create an AKS cluster with ACR integration
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr $MYACR --vm-set-type AvailabilitySet
+
 ```
 
-**ACR 资源 ID 采用以下格式： 
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
-/subscriptions/<subscription-d>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/{name} 
+或者，可以使用 ACR 资源 ID 指定 ACR 名称，其格式如下：
+
+/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\> 
+
+```azurecli
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry --vm-set-type AvailabilitySet
+```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 此步骤可能需要几分钟才能完成。
 
@@ -73,56 +68,46 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+```
+
+或者，
+
+```
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 还可以使用以下命令删除 ACR 与 AKS 群集之间的集成
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+```
+
+或
+
+```
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
-## <a name="log-in-to-your-acr"></a>登录到 ACR
+## <a name="working-with-acr--aks"></a>使用 ACR 和 AKS
 
-使用以下命令登录到 ACR。  将 <acrname> 参数替换为你的 ACR 名称。  例如，默认值为 **aks<your-resource-group>acr**。
+### <a name="import-an-image-into-your-acr"></a>将映像导入 ACR
+
+通过运行以下命令，将映像从 Docker Hub 导入到 ACR：
 
 ```azurecli
-az acr login -n <acrName>
+az acr import  -n <myContainerRegistry> --source dockerhub.azk8s.cn/library/nginx:latest --image nginx:v1
 ```
 
-## <a name="pull-an-image-from-docker-hub-and-push-to-your-acr"></a>从 Docker 中心拉取一个映像并将其推送到 ACR
+### <a name="deploy-the-sample-image-from-acr-to-aks"></a>将示例映像从 ACR 部署到 AKS
 
-从 Docker 中心拉取一个映像，对该映像进行标记，然后将其推送到 ACR。
-
-```console
-acrloginservername=$(az acr show -n <acrname> -g <myResourceGroup> --query loginServer -o tsv)
-docker pull nginx
-```
-
-```
-$ docker tag nginx $acrloginservername/nginx:v1
-$ docker push $acrloginservername/nginx:v1
-
-The push refers to repository [someacr1.azurecr.cn/nginx]
-fe6a7a3b3f27: Pushed
-d0673244f7d4: Pushed
-d8a33133e477: Pushed
-v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af958f size: 948
-```
-
-## <a name="update-the-state-and-verify-pods"></a>更新状态并验证 Pod
-
-执行以下步骤以验证部署。
+确保你具有正确的 AKS 凭据
 
 ```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-查看 yaml 文件，然后编辑映像属性，将值替换为你的 ACR 登录服务器、映像和标记。
+创建名为 **acr-nginx.yaml** 的文件，其中包含以下内容：
 
 ```
-$ cat acr-nginx.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -144,12 +129,23 @@ spec:
         image: <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
+```
 
-$ kubectl apply -f acr-nginx.yaml
-$ kubectl get pods
+接下来，在 AKS 群集中运行此部署：
 
-You should have two running pods.
+```
+kubectl apply -f acr-nginx.yaml
+```
 
+可以通过运行以下命令来监视部署：
+
+```
+kubectl get pods
+```
+
+应有两个正在运行的 pod。
+
+```
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
@@ -157,6 +153,6 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 <!-- LINKS - external -->
 
-[AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[AKS AKS CLI]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 
 <!-- Update_Description: wording update -->

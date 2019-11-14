@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: v-yiso
 ms.topic: conceptual
-origin.date: 4/29/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 71a010afc3691f238d66351ca9f9100fc256cef1
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 08/21/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: e8a42759e0406e9aa6544e6a57daa05a547e0d8f
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845529"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426072"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight 的 Apache HBase 加速写入
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+缩减群集时按照类似的步骤操作：刷新表并禁用表以停止传入数据。 不能将群集缩减为少于三个节点。
+
+按照这些步骤操作将确保成功缩小规模，并避免由于复制不足或临时文件而导致 namenode 进入安全模式的可能性。
+
+如果在缩小规模后 namenode 确实进入了安全模式，请使用 hdfs 命令重新复制复制不足的块，并使 hdfs 退出安全模式。 通过此复制，可以成功地重启 HBase。
 
 ## <a name="next-steps"></a>后续步骤
 

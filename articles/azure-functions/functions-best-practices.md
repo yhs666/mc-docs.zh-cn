@@ -1,28 +1,25 @@
 ---
 title: Azure Functions 最佳做法 | Microsoft Docs
 description: 了解 Azure Functions 的最佳做法和模式。
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: Azure Functions, 模式, 最佳做法, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/16/2017
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f84a41ad5c972d38d86017c1b12de1418683aabd
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 19cd060d9fdd0544b2bc31626e16cb12c8f6ad16
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673585"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034463"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
-本文为提高[无服务器](https://azure.microsoft.com/solutions/serverless/)函数应用的性能和可靠性提供了指南。 
+本文为提高[无服务器](https://azure.microsoft.com/solutions/serverless/)函数应用的性能和可靠性提供了指南。  
 
 ## <a name="general-best-practices"></a>常规最佳做法
 
@@ -30,7 +27,9 @@ ms.locfileid: "71673585"
 
 ### <a name="avoid-long-running-functions"></a>避免使用长时间运行的函数
 
-长时间运行的大型函数可能会引起意外超时问题。 函数规模可能因含有许多 Node.js 依赖项而变大。 导入依赖项也会导致加载时间增加，引起意外的超时问题。 显式和隐式加载依赖项。 由代码加载的单个模块可能会加载自己的附加模块。  
+长时间运行的大型函数可能会引起意外超时问题。 若要详细了解给定托管计划的超时，请参阅[函数应用超时持续时间](functions-scale.md#timeout)。 
+
+函数规模可能因含有许多 Node.js 依赖项而变大。 导入依赖项也会导致加载时间增加，引起意外的超时问题。 显式和隐式加载依赖项。 由代码加载的单个模块可能会加载自己的附加模块。 
 
 尽可能将大型函数重构为可协同工作且快速返回响应的较小函数集。 例如，webhook 或 HTTP 触发器函数可能需要在特定时间限制内确认响应；webhook 需要快速响应，这很常见。 可将 HTTP 触发器有效负载传递到由队列触发器函数处理的队列。 此方法允许延迟实际工作并返回即时响应。
 
@@ -123,4 +122,4 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 * [如何在 Azure Functions 中管理连接](manage-connections.md)
 * [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

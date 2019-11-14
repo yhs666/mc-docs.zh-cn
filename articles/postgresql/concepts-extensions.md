@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/23/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 8c82757cd3fbecebf431deb767c29352d943caf6
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+origin.date: 10/11/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 27dfc659fb760c91a516d38c9bd8d54f4aedd2de
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307877"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191563"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的 PostgreSQL 扩展
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展会如同内置功能一样运行。
@@ -45,6 +45,7 @@ PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中�
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 用于国际产品编号标准的数据类型|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 用于分层树形结构的数据类型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 函数和运算符，用于模拟商业 RDBMS 提供的部分函数和包|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | 提供审核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 加密函数|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting 扩展|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 显示行级锁定信息|
@@ -62,6 +63,7 @@ PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中�
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS 拓扑空间类型和函数|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | 外部数据包装器，用于远程 PostgreSQL 服务器|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | 可操作整个表（包括交叉表）的函数|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | 允许对时序数据进行可缩放的插入和复杂查询|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | 删除了重音的文本搜索字典|
 > |[uuid ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | 生成全局唯一标识符 (UUID)|
 
@@ -89,6 +91,7 @@ PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中�
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | 用于国际产品编号标准的数据类型|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | 用于分层树形结构的数据类型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 函数和运算符，用于模拟商业 RDBMS 提供的部分函数和包|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | 提供审核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | 加密函数|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting 扩展|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | 显示行级锁定信息|
@@ -134,6 +137,7 @@ PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中�
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | 用于国际产品编号标准的数据类型|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | 用于分层树形结构的数据类型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 函数和运算符，用于模拟商业 RDBMS 提供的部分函数和包|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | 提供审核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | 加密函数|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting 扩展|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | 显示行级锁定信息|
@@ -179,6 +183,7 @@ PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中�
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | 用于国际产品编号标准的数据类型|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | 用于分层树形结构的数据类型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 函数和运算符，用于模拟商业 RDBMS 提供的部分函数和包|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | 提供审核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | 加密函数|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting 扩展|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | 显示行级锁定信息|
@@ -214,6 +219,9 @@ dblink 和 postgres_fdw 允许从一台 PostgreSQL 服务器连接到另一台�
 如果计划使用 uuid-ossp 扩展中的 `uuid_generate_v4()`，请考虑将其与 pgcrypto 扩展中的 `gen_random_uuid()` 进行比较，以了解性能优势。
 
 
+## <a name="pgaudit"></a>pgAudit
+pgAudit 扩展提供会话和对象审核日志记录。 若要了解如何在 Azure Database for PostgreSQL 中使用此扩展，请访问[“审核概念”一文](concepts-audit.md)。 
+
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB 是一个时序数据库，已作为 PostgreSQL 的扩展打包。 TimescaleDB 提供以时间为导向的分析功能、优化，并根据时序工作负荷来缩放 Postgres。
 
@@ -221,9 +229,6 @@ TimescaleDB 是一个时序数据库，已作为 PostgreSQL 的扩展打包。 T
 
 ### <a name="installing-timescaledb"></a>安装 TimescaleDB
 若要安装 TimescaleDB，需将其包括在服务器的共享预加载库中。 更改 Postgres 的 `shared_preload_libraries` 参数需要**重启服务器**才能生效。 可以使用 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 更改参数。
-
-> [!NOTE]
-> 可以在 Azure Database for PostgreSQL 版本 9.6 和 10 上启用 TimescaleDB
 
 使用 [Azure 门户](https://portal.azure.cn/)：
 

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 05/24/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ab96378162b46c8c7ce997f9495f391d27ae009
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 3d7c03bc40fedf0f3e8ac574c76f2e38fcf1f851
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500704"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068891"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>创建 HTTPS 入口控制器并在 Azure Kubernetes 服务 (AKS) 中使用自己的 TLS 证书
 
@@ -23,8 +23,10 @@ ms.locfileid: "70500704"
 
 也可执行以下操作：
 
-- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
+- [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
+    
     <!--Not Available on - [Enable the HTTP application routing add-on][aks-http-app-routing]-->
+    
 - [创建使用内部、专用网络和 IP 地址的入口控制器][aks-ingress-internal]
 - 创建一个使用 Let's Encrypt 的入口控制器，以自动生成[具有动态公共 IP 地址][aks-ingress-tls]或[具有静态公共 IP 地址][aks-ingress-static-tls]的 TLS 证书
 
@@ -141,7 +143,7 @@ helm install azure-samples/aks-helloworld \
 在以下示例中，传往地址 `https://demo.azure.com/` 的流量将路由到名为 `aks-helloworld` 的服务。 传往地址 `https://demo.azure.com/hello-world-two` 的流量将路由到 `ingress-demo` 服务。 在本文中，无需更改这些演示主机名。 对于生产用途，请提供在证书请求和生成过程中指定的名称。
 
 > [!TIP]
-> 如果在证书请求过程中指定的主机名（CN 名称）与在入口路由中定义的主机不匹配，则入口控制器将显示“Kubernetes 入口控制器虚构证书”。  请确保证书和入口路由主机名匹配。
+> 如果在证书请求过程中指定的主机名（CN 名称）与在入口路由中定义的主机不匹配，则入口控制器将显示“Kubernetes 入口控制器虚构证书”警告。  请确保证书和入口路由主机名匹配。
 
 *tls* 节告知入口路由要对主机 *demo.azure.com* 使用名为 *aks-ingress-tls* 的机密。 同样，对于生产用途，请指定自己的主机地址。
 
@@ -314,15 +316,17 @@ kubectl delete namespace ingress-basic
 - 创建一个使用 Let's Encrypt 的入口控制器，以自动生成[具有动态公共 IP 地址][aks-ingress-tls]或[具有静态公共 IP 地址][aks-ingress-static-tls]的 TLS 证书
 
 <!-- LINKS - external -->
+
 [helm-cli]: /aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 
 <!-- LINKS - internal -->
+
 [use-helm]: kubernetes-helm.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
-[az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
+[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md

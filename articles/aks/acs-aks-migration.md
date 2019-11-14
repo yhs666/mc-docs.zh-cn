@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 06/24/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b617c891f4dad8527a6fc6c07133b0ee1fa20acc
-ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
+ms.openlocfilehash: 559ed452443b530616c5a87f9791b0e749367169
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67325778"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068923"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>从 Azure 容器服务 (ACS) 迁移到 Azure Kubernetes 服务 (AKS)
 
@@ -30,17 +30,18 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
     * Azure 磁盘的自定义 `StorageClass` 对象必须从 `unmanaged` 更改为 `managed`。
     * 任何 `PersistentVolumes` 应使用 `kind: Managed`。
 * AKS 目前仅支持一个代理池。
+    
     <!--Not Available on AKS supports [multiple node pools](/aks/use-multiple-node-pools) (currently in preview).-->
     <!--Not Available on * Nodes based on Windows Server are currently in [preview in AKS](https://azure.microsoft.com/blog/kubernetes-on-azure/).-->
+
 * AKS 支持有限的一组[区域](/aks/quotas-skus-regions)。
 * AKS 是带有托管 Kubernetes 控制平面的托管服务。 如果以前修改了 ACS 主节点的配置，则现在可能需要修改应用程序。
 
 ## <a name="differences-between-kubernetes-versions"></a>Kubernetes 版本之间的差异
 
-若要迁移到较新版本的 Kubernetes（例如，从 1.7.x 迁移到 1.9.x），请查看以下资源，以了解 Kubernetes API 发生的几处更改：
+若要迁移到较新版本的 Kubernetes，请查看以下资源以了解 Kubernetes 版本控制策略：
 
-* [将 ThirdPartyResource 迁移到 CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
-* [版本 1.8 和 1.9 中的工作负荷 API 更改](https://kubernetes.io/docs/reference/workloads-18-19/)
+* [Kubernetes 版本和版本偏差支持策略](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
 
 ## <a name="migration-considerations"></a>迁移注意事项
 
@@ -52,8 +53,10 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
 
 | Name | 计数 | VM 大小 | 操作系统 |
 | --- | --- | --- | --- |
-| agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+| agentpool0 | 1 | Standard_D8_v2 | Linux |
+
+<!--Not Support on [multiple node pools](/aks/use-multiple-node-pools)-->
+<!--Not Available on | agentpool1 | 1 | Standard_D2_v2 | Windows |-->
 
 由于在迁移期间要将其他虚拟机部署到订阅中，因此，应该检查配额和限制是否足以应对这些资源。 
 
@@ -118,7 +121,7 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
 4. 验证。
 5. 将流量指向 AKS 群集。
 
-若要从空共享开始，然后创建源数据的副本，可以使用 [`az storage file copy`](https://docs.azure.cn/zh-cn/cli/storage/file/copy?view=azure-cli-latest) 命令迁移数据。
+若要从空共享开始，然后创建源数据的副本，可以使用 [`az storage file copy`](https://docs.azure.cn/cli/storage/file/copy?view=azure-cli-latest) 命令迁移数据。
 
 ### <a name="deployment-strategy"></a>部署策略
 
@@ -138,8 +141,10 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ## <a name="migration-steps"></a>迁移步骤
 
-1. 通过 Azure 门户、Azure CLI 或 Azure 资源管理器模板[创建 AKS 群集](/aks/create-cluster)。
-
+1. 通过 Azure 门户、Azure CLI 或 Azure 资源管理器模板[创建 AKS 群集](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create)。
+    
+    <!--MOONCAKE: REDIRECT TO URL OF https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create-->
+    
     > [!NOTE]
     > 在 GitHub 上的 [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) 存储库中找到 AKS 的示例 Azure 资源管理器模板。
 

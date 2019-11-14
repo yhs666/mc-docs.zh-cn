@@ -1,18 +1,18 @@
 ---
-title: 将数据复制到 Azure Database for MySQL。
-description: 本文介绍 Azure Database for MySQL 的复制中数据。
+title: 将数据复制到 Azure Database for MySQL
+description: 了解如何使用数据传入复制从外部服务器同步到 Azure Database for MySQL 服务。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 59606dd8fcbdbd2ff6516925ae62372d2f7b4f61
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: 9d9f129d0027760fe5ea1d1c09f63c7ce54a11ad
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307763"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142096"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>将数据复制到 Azure Database for MySQL
 

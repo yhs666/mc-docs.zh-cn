@@ -9,19 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-origin.date: 04/21/2019
-ms.date: 09/23/2019
+origin.date: 09/21/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: f0080ddd4d22da67da2aeebd4a28f646493a907e
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: bb8b721d07244caab7b66fb368a901bee7b61d92
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125663"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416272"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析视频和音频文件
 
-借助 Azure 媒体服务 v3，还可使用视频索引器通过 AMS v3 分析器预设（在本文中介绍）从视频和音频文件中提取见解。
+借助 Azure 媒体服务 v3，还可使用视频索引器通过媒体服务 v3 分析器预设（在本文中介绍）从视频和音频文件中提取见解。
 
 若要使用媒体服务 v3 预设分析内容，请创建**转换**，然后提交使用以下某个预设的**作业**：[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 或 **AudioAnalyzerPreset**。 以下文章演示了如何使用 **VideoAnalyzerPreset**：[教程：使用 Azure 媒体服务分析视频](analyze-videos-tutorial-with-api.md)。
 

@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/05/2019
-ms.date: 09/23/2019
+origin.date: 09/26/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7f7c58a253312b2bff1da8794f76c9adae9c6524
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e3074fb2324e8d7059c3b3938d269b2158f8b68e
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329932"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416393"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>在预测之前或预测期间更改话语数据
 LUIS 提供在预测之前或预测期间操作陈述的方法。 这些方法包括修复拼写，以及修复预生成 datetimeV2 的时区问题。 
@@ -38,6 +38,8 @@ LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加�
 
 [必应拼写检查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+
 ```JSON
 {
   "query": "Book a flite to London?",
@@ -49,7 +51,27 @@ LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加�
   "entities": []
 }
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
  
+```JSON
+{
+    "query": "Book a flite to London?",
+    "prediction": {
+        "normalizedQuery": "book a flight to london?",
+        "topIntent": "BookFlight",
+        "intents": {
+            "BookFlight": {
+                "score": 0.780123
+            }
+        },
+        "entities": {},
+    }
+}
+```
+
+* * * 
+
 ### <a name="list-of-allowed-words"></a>允许的字词列表
 LUIS 中使用的必应拼写检查 API 不支持在拼写检查更改期间要忽略的字词列表（也称为允许列表）。 如果需要允许字词或首字母缩写词的列表，请在将话语发送到 LUIS 进行意向预测之前在客户端应用程序中处理话语。
 
@@ -66,6 +88,8 @@ LUIS 应用使用预生成的 datetimeV2 实体时，可以在预测响应中返
 ### <a name="daylight-savings-example"></a>夏令时示例
 如果需要返回的预生成 datetimeV2 来调整夏令时，则对于该[终结点](https://aka.ms/luis-endpoint-apis)查询应使用值为正数/负数（以分钟为单位）的 `timezoneOffset` querystring 参数。
 
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 预测终结点请求](#tab/V2)
+
 增加 60 分钟： 
 
 https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
@@ -74,8 +98,22 @@ https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/{appId}?q=Turn the lights
 
 https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 预测终结点请求](#tab/V3)
+
+增加 60 分钟：
+
+https://{region}.api.cognitive.azure.cn/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+减去 60 分钟： 
+
+https://{region}.api.cognitive.azure.cn/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
+
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C# 代码确定正确的 timezoneOffset 值
-下面的 C# 代码使用 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=azure-dotnet?view=netframework-4.7.1) 类的 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) 方法基于系统时间来确定正确的 `timezoneOffset`：
+下面的 C# 代码使用 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) 类的 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) 方法基于系统时间来确定正确的 `timezoneOffset`：
 
 ```CSharp
 // Get CST zone id

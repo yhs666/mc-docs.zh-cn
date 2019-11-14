@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/20/2019
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 298a77d257838082c7e0cbaad9cdf31691fecee6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 59912402a66057ec4012093b28ac1961bca59ef9
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737407"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426028"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -87,7 +87,7 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 
 Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包含以下子目录：
 
-* **2.6.5.3006-29**：目录名称是 HDInsight 使用的 Hortonworks 数据平台的版本。 群集上的数字可能与这里列出的有所不同。
+* **2.6.5.3006-29**：目录名称是 HDInsight 使用的 Hadoop 平台版本。 群集上的数字可能与这里列出的有所不同。
 * **current**：此目录包含 **2.6.5.3006-29** 目录下的子目录的链接。 由于该目录存在，因此无需记住版本号。
 
 可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到示例数据和 JAR 文件。

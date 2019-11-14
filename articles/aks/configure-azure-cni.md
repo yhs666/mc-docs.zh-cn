@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 06/03/2019
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86388edc9b4fbbd18f58df78d3411785a4af7d13
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 88261b3d57e312093858d5bc5281ead2017ebc6e
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993578"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068900"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中配置 Azure CNI 网络
 
@@ -58,7 +58,7 @@ AKS 群集 IP 地址计划包括虚拟网络、至少一个节点和 Pod 子网�
 | 子网 | 大小必须足以容纳群集中可能预配的节点、Pod 以及所有 Kubernetes 和 Azure 资源。 例如，如果部署内部 Azure 负载均衡器，其前端 IP 分配自群集子网（而不是公共 IP）。 子网大小还应考虑到帐户升级操作或将来的缩放需求。<p />若要计算最小子网大小，包括用于升级操作的其他节点：  `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 个节点群集的示例：`(51) + (51  * 30 (default)) = 1,581`（/21 或更大）<p/>50 节点群集的示例，其中还包括纵向扩展额外 10 个节点的预配：`(61) + (61 * 30 (default)) = 1,891`（/21 或更大）<p>如果在创建群集时没有指定每个节点的最大 Pod 数，则每个节点的最大 Pod 数将设置为 30  。 所需的最小 IP 地址数取决于该值。 如果基于不同的最大值计算最小 IP 地址要求，请参阅[如何配置每个节点的最大 Pod 数](#configure-maximum---new-clusters)，以便在部署群集时设置此值。 |
 | Kubernetes 服务地址范围 | 此范围不应由此虚拟网络上或连接到此虚拟网络的任何网络元素使用。 服务地址 CIDR 必须小于 /12。 |
 | Kubernetes DNS 服务 IP 地址 | Kubernetes 服务地址范围内的 IP 地址将由群集服务发现 (kube-dns) 使用。 请勿使用地址范围内的第一个 IP 地址，例如 1。 子网范围内的第一个地址用于 kubernetes.default.svc.cluster.local 地址  。 |
-| Docker 桥地址 | IP 地址（采用 CIDR 表示法）用作节点上的 Docker 桥 IP 地址。 此 CIDR 关系到节点上的容器数。 默认地址为 172.17.0.1/16。 |
+| Docker 桥地址 | Docker 桥网络地址表示所有 Docker 安装中都存在的默认 docker0  桥网络地址。 虽然 AKS 群集或 Pod 本身不使用 docker0  桥，但必须设置此地址以继续支持 AKS 群集内的 docker build  等方案。 需要为 Docker 桥网络地址选择 CIDR，否则 Docker 会自动选择一个可能与其他 CIDR 冲突的子网。 必须选择一个不与网络上其他 CIDR（包括群集的服务 CIDR 和 Pod CIDR）冲突的地址空间。 默认地址为 172.17.0.1/16。 |
 
 ## <a name="maximum-pods-per-node"></a>每个节点的最大 Pod 数
 
@@ -124,7 +124,7 @@ AKS 群集中每个节点的最大 Pod 数为 250。 每个节点的默认  最�
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
-    --query [].id --output tsv
+    --query "[0].id" --output tsv
 
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
@@ -140,8 +140,11 @@ az aks create \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
-    --generate-ssh-keys
+    --generate-ssh-keys \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 ## <a name="configure-networking---portal"></a>配置网络 - 门户
 
@@ -155,23 +158,25 @@ az aks create \
 
 * 是否可以在群集子网中部署 VM？ 
 
-  否。 不支持在 Kubernetes 群集使用的子网中部署 VM。 可将 VM 部署在同一虚拟网络中，但必须部署在不同的子网中。
+    否。 不支持在 Kubernetes 群集使用的子网中部署 VM。 可将 VM 部署在同一虚拟网络中，但必须部署在不同的子网中。
 
-<!--Not Available on * *Can I configure per-pod network policies?*-->
+* *是否可以配置基于 Pod 的网络策略？*
+
+    是的，Kubernetes 网络策略在 AKS 中可用。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
 
 * 可部署到节点的 Pod 数上限是否可配置？ 
 
-  是的，使用 Azure CLI 或资源管理器模板部署群集时可配置。 请参阅[每个节点的最大 Pod 数](#maximum-pods-per-node)。
+    是的，使用 Azure CLI 或资源管理器模板部署群集时可配置。 请参阅[每个节点的最大 Pod 数](#maximum-pods-per-node)。
 
-  无法在现有群集上更改每个节点的最大 Pod 数。
+    无法在现有群集上更改每个节点的最大 Pod 数。
 
 * 如何配置创建 AKS 群集期间创建的子网的其他属性？  例如服务终结点。
 
-  可以在 Azure 门户的标准虚拟网络配置页中，配置创建 AKS 群集期间创建的虚拟网络和子网的完整属性列表。
+    可以在 Azure 门户的标准虚拟网络配置页中，配置创建 AKS 群集期间创建的虚拟网络和子网的完整属性列表。
 
 * 是否可以在我的群集虚拟网络中将另一子网用于 Kubernetes 服务地址范围   ？
 
-  此配置是可以的，但建议不要这样做。 该服务地址范围是 Kubernetes 分配给群集中的内部服务的虚拟 IP (VIP) 的集合。 Azure 网络无法查看 Kubernetes 群集的服务 IP 范围。 由于无法查看群集的服务地址范围，因此有可能以后会在群集虚拟网络中创建新的子网，该子网与服务地址范围重叠。 如果出现这种形式的重叠，则 Kubernetes 为服务分配的 IP 可能是子网中另一资源正在使用的，导致不可预测的行为或故障。 如果能够确保所用地址范围不在群集的虚拟网络中，则可避免这种重叠风险。
+    此配置是可以的，但建议不要这样做。 该服务地址范围是 Kubernetes 分配给群集中的内部服务的虚拟 IP (VIP) 的集合。 Azure 网络无法查看 Kubernetes 群集的服务 IP 范围。 由于无法查看群集的服务地址范围，因此有可能以后会在群集虚拟网络中创建新的子网，该子网与服务地址范围重叠。 如果出现这种形式的重叠，则 Kubernetes 为服务分配的 IP 可能是子网中另一资源正在使用的，导致不可预测的行为或故障。 如果能够确保所用地址范围不在群集的虚拟网络中，则可避免这种重叠风险。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -223,8 +228,8 @@ az aks create \
 <!--Not Available on [aks-http-app-routing]: http-application-routing.md-->
 
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md
 
-<!--Not Available on [network-policy]: use-network-policies.md-->
 <!--Not Available on [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool-->
 
 [network-comparisons]: concepts-network.md#compare-network-models

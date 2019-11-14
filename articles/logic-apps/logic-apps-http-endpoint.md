@@ -16,15 +16,15 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 origin.date: 03/31/2017
 ms.author: v-yiso
-ms.date: 08/26/2018
-ms.openlocfilehash: 77d67ed1c737801e576da84bd8414554da555f92
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 11/11/2019
+ms.openlocfilehash: 651d59acf0a260c7c2b0f4b4deafeb06181a975b
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539127"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425970"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流
+# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP 终结点调用、触发或嵌套逻辑应用
 
 可以在逻辑应用中以触发器的形式本机公开同步的 HTTP 终结点，以便通过 URL 触发或调用逻辑应用。 还可以通过可调用的终结点模式在逻辑应用中嵌套工作流。
 
@@ -43,7 +43,7 @@ ms.locfileid: "69539127"
 
 若要创建 HTTP 终结点，请添加一个可以接收传入请求的触发器。
 
-1. 登录 [Azure 门户](https://portal.azure.cn "Azure portal")。 转到逻辑应用，并打开逻辑应用设计器。
+1. 登录到 [Azure 门户](https://portal.azure.cn "Azure 门户")。 转到逻辑应用，并打开逻辑应用设计器。
 
 2. 添加可让逻辑应用接收传入请求的触发器。 例如，将“请求”  触发器添加到逻辑应用。
 

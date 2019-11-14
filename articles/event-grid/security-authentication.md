@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5632aedbbb71bb1f9d1a454cb58bc81dec63b12e
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 3ea093c3ed4d5c5eb136b6efa5e5ff05c68b4d2d
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195309"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425686"
 ---
 # <a name="event-grid-security-and-authentication"></a>事件网格安全和身份验证 
 
@@ -44,6 +44,9 @@ Webhook 是从 Azure 事件网格接收事件的多种方式之一。 当新事�
 
     此身份验证机制还要求 Webhook 终结点返回 HTTP 状态代码 200，这样它就知道验证事件的 POST 已被接受，然后它就可以进入手动验证模式。 换句话说，如果终结点返回 200，但没有以编程方式返回验证响应，则此模式会转到手动验证模式。 如果在 5 分钟内在验证 URL 上出现 GET，则可以认为验证握手成功。
 
+> [!NOTE]
+> 不支持使用自签名证书进行验证。 改用来自证书颁发机构 (CA) 的签名证书。
+
 ### <a name="validation-details"></a>验证详细信息
 
 * 在创建/更新事件订阅时，事件网格会将一个订阅验证事件发送到目标终结点。 
@@ -64,7 +67,7 @@ Webhook 是从 Azure 事件网格接收事件的多种方式之一。 当新事�
   "subject": "",
   "data": {
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-chinaeast2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationUrl": "https://rp-chinaeast2.eventgrid.azure.cn:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",

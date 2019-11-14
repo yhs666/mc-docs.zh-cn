@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/01/2019
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 52dd9d8c97e6523ca2c55aef0491feb7d76e6e98
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 904feb27794346cfea54b8162abf9f0524368f84
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993446"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068877"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes 服务的支持策略
 
@@ -30,6 +30,8 @@ ms.locfileid: "69993446"
 基本的基础结构即服务 (IaaS) 云组件（例如计算或网络组件）可让用户访问低级别的控件机制和自定义选项。 相比之下，AKS 提供统包式的 Kubernetes 部署，为客户提供一组通用配置和所需的功能。 AKS 客户可用的自定义功能、部署和其他选项有限。 这些客户不需要考虑或直接管理 Kubernetes 群集。
 
 借助 AKS，客户可以获得一个完全托管型的控制平面。  该控制平面包含客户操作以及向最终用户提供 Kubernetes 群集的全部所需组件和服务。 所有 Kubernetes 组件都由 Azure 维护和运营。
+
+<!--MOONCAKE: CORRECT ON operated by Azure.-->
 
 Azure 通过控制平面管理和监视以下组件：
 
@@ -97,7 +99,7 @@ Azure 不提供以下方面的技术支持：
     * Docker 或 Moby 守护程序
 
 > [!NOTE]
-> 在工作器节点上，如果某个控制平面组件无法正常运行，则 AKS 团队可能需要重新启动整个工作器节点。 由于 AKS 团队对客户的活动工作负荷和数据的访问权限受限，因此，仅当客户将问题升级时，AKS 团队才会重新启动工作器节点。 AKS 团队会尽一切努力来防止所需的重新启动给应用程序造成影响。
+> 在工作器节点上，如果某个控制平面组件无法正常运行，则 AKS 团队可能需要重新启动单个组件或整个工作器节点。 这些重新启动操作会自动执行，并为常见问题提供自动修正。 这些重新启动仅发生在_节点_级别，而不是群集，除非是紧急维护或停机。
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>客户对 AKS 工作器节点承担的责任
 
@@ -142,18 +144,22 @@ AKS 仅支持上游 Kubernetes 项目中的稳定功能。 除非另有说明，
 * 客户已与 AKS 产品、支持或工程团队会谈，团队请求他们尝试这些新功能。
 * 这些功能已[通过功能标志启用](https://github.com/Azure/AKS/blob/master/previews.md)。 客户必须明确选择使用这些功能。
 
-## <a name="feature-flags"></a>功能标志
+<!--MOONCAKE: CUSTOMIZED CAREFULLY-->
 
-<!--Not Available on Preview features-->
+## <a name="preview-features-or-feature-flags"></a>预览功能或功能标志
 
-对于需要进行广泛测试和接收用户反馈的功能，Azure 会凭借功能标志发布新功能。 请将这些功能视为预发行版或 beta 功能。 
+对于需要扩展测试和用户反馈的功能，Azure 会发布新的预览功能或在采用了功能标志的情况下发布功能。 请将这些功能视为预发行版或 beta 功能。
 
-<!--Not Available on preview features-->
+预览功能或功能标志功能不适用于生产环境。 API 和行为的持续更改、bug 修复及其他更改可能导致群集不稳定和停机。
 
-功能标志功能不适用于生产环境。 API 和行为的持续更改、bug 修复及其他更改可能导致群集不稳定和停机。 对这些功能的支持仅限于 bug 报告和问题报告。 请不要对生产系统或订阅启用这些功能。
+公共预览版中的功能受到“尽力而为”支持，因为这些功能处于预览状态，而不是用于生产环境，并且仅在工作时间由 AKS 技术支持团队提供支持。 有关其他信息，请参阅：
 
-<!--Not Available on preview features-->
-<!--Not Available on > Preview features take effect at the Azure *subscription* level. Don't install preview features on a production subscription. On a production subscription, preview features can change default API behavior and affect regular operations.-->
+* [Azure 支持常见问题](https://www.azure.cn/support/faq/)
+
+> [!NOTE]
+> 预览功能在 Azure 订阅  级别生效。 请勿在生产订阅上安装预览功能。 在生产订阅上，预览功能可以更改默认 API 行为并影响常规操作。
+
+<!--MOONCAKE: CUSTOMIZED CAREFULLY-->
 
 ## <a name="upstream-bugs-and-issues"></a>上游 bug 和问题
 

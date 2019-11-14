@@ -1,22 +1,22 @@
 ---
 title: Azure Database for MariaDB 中的查询存储
-description: 本文介绍 Azure Database for MariaDB 中的查询存储功能
+description: 了解 Azure Database for MariaDB 中的查询存储功能，可以帮助你跟踪一段时间内的性能。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 06/27/2019
-ms.date: 09/16/2019
-ms.openlocfilehash: 7562965721702aa31682a8b077176775f58fbae1
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+origin.date: 10/17/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: fba7dc9bc47ee9e346da4e2015b78aa41c3e04e6
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857057"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191581"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>使用查询存储监视 Azure Database for MariaDB 的性能
 
-**适用于：**  Azure Database for MariaDB 10.2
+**适用于：** Azure Database for MariaDB 10.2
 
 > [!IMPORTANT]
 > 查询存储目前以预览版提供。
@@ -38,14 +38,14 @@ ms.locfileid: "70857057"
 ### <a name="enable-query-store-using-the-azure-portal"></a>使用 Azure 门户启用查询存储
 
 1. 登录到 Azure 门户，选择你的 Azure Database for MariaDB 服务器。
-1. 在菜单的“设置”部分选择“服务器参数”。 ****   ****  
+1. 在菜单的“设置”部分中选择“服务器参数”   。
 1. 搜索 query_store_capture_mode 参数。
-1. 将值设置为 ALL，然后 **保存**。
+1. 将值设置为 ALL，然后**保存**。
 
 若要在查询存储中启用等待统计信息，请执行以下操作：
 
 1. 搜索 query_store_wait_sampling_capture_mode 参数。
-1. 将值设置为 ALL，然后 **保存**。
+1. 将值设置为 ALL，然后**保存**。
 
 第一批数据可在 mysql 数据库中最长保留 20 分钟。
 
@@ -72,6 +72,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="finding-wait-queries"></a>查找等待查询
 
+> [!NOTE]
+> 不应该在工作负荷高峰时段启用等待统计信息，或者对于敏感的工作负荷无限期地启用等待统计信息。 <br>对于在 CPU 利用率较高的情况下运行的工作负荷，或在配置了较低 vCore 的服务器上运行的工作负荷，启用等待统计信息时请格外小心。 不应无限期地启用等待统计信息。 
+
 等待事件类型按相似性将不同的等待事件组合到存储桶中。 查询存储提供等待事件类型、特定等待事件名称和有争议的查询。 能将此等待信息与查询运行时统计信息相关联，意味着可更深入地了解有助于查询性能特征的因素。
 
 以下是一些示例，说明如何使用查询存储中的等待统计信息获得有关工作负载的更多见解：
@@ -79,8 +82,8 @@ SELECT * FROM mysql.query_store_wait_stats;
 | **观测** | **操作** |
 |---|---|
 |高锁定等待 | 检查受影响查询的查询文本，并确定目标实体。 在查询存储中查找修改同一实体的其他查询，这些查询经常执行和/或持续很长时间。 确定这些查询后，请考虑更改应用程序逻辑以提高并发性，或使用限制较少的隔离级别。 |
-|高缓冲 IO 等待 | 在查询存储中查找具有大量物理读取的查询。 如果它们匹配具有高 IO 等待的查询，考虑在基础实体上引入索引，以便进行搜索而不是扫描。 这将最小化查询的 IO 开销。 检查门户中服务器的“性能建议”，以查看是否存在可优化查询的此服务器的索引建议 **** 。  |
-|高内存等待 | 在查询存储中查找消耗内存最多的查询。 这些查询可能会延迟受影响查询的进度。 检查门户中服务器的“性能建议”，以查看是否存在可优化这些查询的索引建议 **** 。 |
+|高缓冲 IO 等待 | 在查询存储中查找具有大量物理读取的查询。 如果它们匹配具有高 IO 等待的查询，考虑在基础实体上引入索引，以便进行搜索而不是扫描。 这将最小化查询的 IO 开销。 检查门户中服务器的“性能建议”，以查看是否存在可优化查询的此服务器的索引建议  。 |
+|高内存等待 | 在查询存储中查找消耗内存最多的查询。 这些查询可能会延迟受影响查询的进度。 检查门户中服务器的“性能建议”，以查看是否存在可优化这些查询的索引建议  。|
 
 ## <a name="configuration-options"></a>配置选项
 
@@ -105,11 +108,11 @@ SELECT * FROM mysql.query_store_wait_stats;
 > [!NOTE]
 > 目前，**query_store_capture_mode** 将取代此配置，这意味着，**query_store_capture_mode** 和 **query_store_wait_sampling_capture_mode** 都必须启用 ALL，才能正常查询等待统计信息。 如果关闭 **query_store_capture_mode**，则等待统计信息也会关闭，因为等待统计信息利用已启用的 performance_schema，以及查询存储捕获的 query_text。
 
-使用  [Azure 门户](howto-server-parameters.md)获取或设置参数的不同值。
+使用 [Azure 门户](howto-server-parameters.md)获取或设置参数的不同值。
 
 ## <a name="views-and-functions"></a>视图和函数
 
-使用以下视图和函数查看并管理查询存储。 [选择特权公共角色](howto-create-users.md#create-additional-admin-users)中的任何人都可使用这些视图来查看查询存储中的数据。 这些视图仅在 **mysql** 数据库中提供。
+使用以下视图和函数查看并管理查询存储。 [选择特权公共角色](howto-create-users.md#create-additional-admin-users)中的任何人都可使用这些视图来查看查询存储中的数据。 这些视图仅在 **mysql** 数据库中提供。
 
 删除文本和常数后，通过查看查询的结构来规范化查询。 如果除文本值之外两个查询相同，则它们将具有相同的哈希值。
 

@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-service
 ms.topic: article
-origin.date: 03/15/2018
-ms.date: 03/04/2019
+origin.date: 10/18/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d6c02fcd2ed699bb0938f5b3906834e6c8878969
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 1ba8037551adcf53f0a08c845dd395dd3af05d7c
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854715"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068878"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 中运行 Apache Spark 作业
 
@@ -26,7 +26,7 @@ ms.locfileid: "64854715"
 为了完成本文中的步骤，需要具备以下各项。
 
 * 基本了解 Kubernetes 和 [Apache Spark][spark-quickstart]。
-* [Docker 中心][docker-hub]帐户，或 [Azure 容器注册表][acr-create]。
+* [Docker Hub][docker-hub] 帐户，或 [Azure 容器注册表][acr-create]。
 * 已在开发系统上[安装][azure-cli] Azure CLI。
 * 已在系统上安装 [JDK 8][java-install]。
 * 已在系统上安装 SBT（[Scala 生成工具][sbt-install]）。
@@ -44,11 +44,19 @@ Spark 用于大规模数据处理，要求根据 Spark 资源的要求调整 Kub
 az group create --name mySparkCluster --location chinaeast2
 ```
 
-创建 AKS 群集，其中包含大小为 `Standard_D3_v2` 的节点。
+创建群集的服务主体。 创建后，下一条命令将需要服务主体 appId 和密码。
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
 ```
+
+使用大小为 `Standard_D3_v2` 的节点以及作为服务主体和客户端密码参数传递的 appId 和密码值创建 AKS 群集。
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD> --vm-set-type AvailabilitySet
+```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 连接到 AKS 群集。
 
@@ -65,7 +73,7 @@ az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 将 Spark 项目存储库克隆到开发系统。
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 切换到克隆的存储库所在的目录，并将 Spark 源的路径保存到某个变量。
@@ -137,7 +145,7 @@ cd sparkpi
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 运行以下命令，将示例代码复制到新建的项目，并添加全部所需的依赖项。
@@ -152,7 +160,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -215,6 +223,13 @@ kubectl proxy
 cd $sparkdir
 ```
 
+创建具有足够权限的服务帐户来运行作业。
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 使用 `spark-submit` 提交作业。
 
 ```bash
@@ -224,6 +239,7 @@ cd $sparkdir
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
@@ -324,17 +340,19 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 > [Spark 文档][spark-docs]
 
 <!-- LINKS - external -->
+
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable
+[java-install]: https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 <!-- LINKS - internal -->
-[acr-aks]: /container-registry/container-registry-auth-aks
+
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: /container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: /aks/
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/cli/?view=azure-cli-latest?view=azure-cli-latest
 [storage-account]: /storage/common/storage-azure-cli

@@ -8,18 +8,17 @@ manager: gwallace
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/08/2018
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 586f4714fafe46aade4599735f9150c8209071fb
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 6620f8829726bf111c255f80a4aace21448d7876
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673580"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034421"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -180,7 +179,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>配置
 
@@ -193,7 +192,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 |**name** | 不适用 | 在函数代码中表示计时器对象的变量的名称。 | 
 |**schedule**|**ScheduleExpression**|[CRON 表达式](#ncrontab-expressions)或 [TimeSpan](#timespan) 值。 只能对在应用服务计划中运行的函数应用使用 `TimeSpan`。 可以将计划表达式放在应用设置中并将此属性设置为用 **%** 符号括起的应用设置名称，例如此示例中的“%ScheduleAppSetting%”。 |
 |**runOnStartup**|**RunOnStartup**|如果为 `true`，则在运行时启动时调用此函数。 例如，当函数应用从由于无活动而进入的空闲状态醒来后，运行时会启动。 当函数应用由于函数更改而重新启动时，以及当函数应用横向扩展时。因此 **runOnStartup** 应该很少设置为 `true`，特别是在生产中。 |
-|**useMonitor**|**UseMonitor**|设置为 `true` 或 `false` 以指示是否应当监视计划。 计划监视在各次计划发生后会持续存在，以帮助确保即使在函数应用实例重新启动的情况下也能正确维护计划。 如果未显式设置，则对于重复周期间隔大于 1 分钟的计划，默认值为 `true`。 对于每分钟触发多次的计划，默认值为 `false`。
+|**useMonitor**|**UseMonitor**|设置为 `true` 或 `false` 以指示是否应当监视计划。 计划监视在各次计划发生后会持续存在，以帮助确保即使在函数应用实例重新启动的情况下也能正确维护计划。 如果未显式设置，则对于重复周期间隔大于或等于 1 分钟的计划，默认值为 `true`。 对于每分钟触发多次的计划，默认值为 `false`。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -231,7 +230,7 @@ Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来�
 |---------|---------|---------|
 |一个具体值 |<nobr>"0 5 * * * *"</nobr>|在 hh:05:00，其中 hh 表示每小时（每小时一次）|
 |所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|在每天的 5:mm:00，其中 mm 表示该小时的每分钟（一天 60 次）|
-|一个范围（`-` 运算符）|<nobr>"5-7 * * * * *"</nobr>|在 hh:mm:05、hh:mm:06 和 hh:mm:07，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|  
+|一个范围（`-` 运算符）|<nobr>"5-7 * * * * *"</nobr>|在 hh:mm:05、hh:mm:06 和 hh:mm:07，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|
 |一组值（`,` 运算符）|<nobr>"5,8,10 * * * * *"</nobr>|在 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|
 |一个间隔值（`/` 运算符）|<nobr>"0 */5 * * * *"</nobr>|在 hh:05:00、hh:10:00、hh:15:00，依此类推，直到 hh:55:00，其中 hh 表示每小时（每小时 12 次）|
 
@@ -284,7 +283,7 @@ CRON 表达式使用的默认时区为协调世界时 (UTC)。 若要让 CRON �
 |---------|---------|
 |"01:00:00" | 每小时        |
 |"00:01:00"|每分钟         |
-|"24:00:00" | 每 24 天        |
+|"24:00:00" | 每 24 小时        |
 |"1.00:00:00" | 每天        |
 
 ## <a name="scale-out"></a>横向扩展
@@ -293,7 +292,16 @@ CRON 表达式使用的默认时区为协调世界时 (UTC)。 若要让 CRON �
 
 ## <a name="function-apps-sharing-storage"></a>共享同一存储的函数应用
 
-如果在多个函数应用之间共享存储帐户，请确保每个函数应用在 *host.json* 中都有不同的 `id`。 可以省略 `id` 属性或手动将每个函数应用的 `id` 设置为不同的值。 计时器触发器使用存储锁来确保当函数应用横向扩展到多个实例时将只有一个计时器实例。 如果两个函数应用共享相同的 `id` 且每个都使用计时器触发器，则只会运行一个计时器。
+如果要在未部署到应用服务的函数应用之间共享存储帐户，则可能需要为每个应用显式分配主机 ID。
+
+| Functions 版本 | 设置                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | `AzureFunctionsWebHost__hostid` 环境变量 |
+| 1.x               | *host.json* 中的 `id`                                  |
+
+可以省略标识值，也可以手动将每个函数应用的标识配置设置为不同的值。
+
+计时器触发器使用存储锁来确保当函数应用横向扩展到多个实例时将只有一个计时器实例。 如果两个函数应用共享相同的标识配置，并且每个函数应用都使用一个计时器触发器，则只有一个计时器运行。
 
 ## <a name="retry-behavior"></a>重试行为
 

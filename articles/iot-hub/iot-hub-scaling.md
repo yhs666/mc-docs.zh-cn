@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 06/28/2019
 ms.author: v-yiso
 ms.date: 09/30/2019
-ms.openlocfilehash: 09528a52dc5dbff0ddfb755477270a561268d64a
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 5494d9342aca0f41b95222300e6098195efb7353
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156103"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425961"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -34,7 +34,7 @@ Azure IoT 中心提供两个层，即基本层和标准层，这两个层在所�
 
 IoT 中心的标准层启用了所有功能，是任何需要使用双向通信功能的 IoT 解决方案所必需的。 基本层启用了部分功能，适用于只需单向通信（从设备到云）的 IoT 解决方案。 这两个层提供相同的安全性和身份验证功能。
 
-每个 IoT 中心在每个层内只能选择一种类型的[版本](https://www.azure.cn/pricing/details/iot-hub/)。 例如，可以创建具有多个 S1 单元的 IoT 中心，但不能创建混合使用不同版本的单元，例如 S1 和 B3，或者 S1 和 S2。
+每个 IoT 中心在每个层内只能选择一种类型的[版本](https://www.azure.cn/pricing/details/iot-hub/)。 例如，可以创建具有多个 S1 单元的 IoT 中心，但不能创建混合使用不同版本的单元，例如 S1 和 S2。
 
 | 功能 | 基本层 | 免费/标准层 |
 | ---------- | ---------- | ------------- |

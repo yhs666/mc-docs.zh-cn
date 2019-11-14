@@ -1,28 +1,23 @@
 ---
 title: 在 Application Insights 中浏览 .NET 跟踪日志
 description: 搜索 Trace、NLog 或 Log4Net 生成的日志。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 05/08/2019
+author: lingliw
 ms.date: 9/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 86593fe854b6adcddb01a668b3aed2a9d3610a3d
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 421a14bc798def792e5e0d3a0783c8a8ff0e2ba4
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330415"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970930"
 ---
-# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 .NET/.NET Core 跟踪日志
+# <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 .NET/.NET Core 和 Python 跟踪日志
 
-将 ILogger、NLog、log4Net 或 System.Diagnostics.Trace 生成的 ASP.NET/ASP.NET Core 应用程序诊断跟踪日志发送到 [Azure Application Insights][start]。 然后，可以浏览和搜索这些日志。 这些日志将与应用程序中的其他日志文件合并，因此，你可以识别与每个用户请求关联的跟踪，并将其关联到其他事件和异常报告。
+将 ILogger、NLog、log4Net 或 System.Diagnostics.Trace 生成的 ASP.NET/ASP.NET Core 应用程序诊断跟踪日志发送到 [Azure Application Insights][start]。 对于 Python 应用程序，在用于 Azure Monitor 的 OpenCensus Python 中使用 AzureLogHandler 发送诊断跟踪日志。 然后，可以浏览和搜索这些日志。 这些日志将与应用程序中的其他日志文件合并，因此，你可以识别与每个用户请求关联的跟踪，并将其关联到其他事件和异常报告。
 
 > [!NOTE]
 > 是否需要日志捕获模块？ 它是第三方记录器的有用适配器。 但如果你未使用 NLog、log4Net 或 System.Diagnostics.Trace，只需考虑直接调用 [**Application Insights TrackTrace()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)。
@@ -156,6 +151,23 @@ TrackTrace 的一个优势是可将相对较长的数据放置在消息中。 �
                    new Dictionary<string,string> { {"database", db.ID} });
 
 这样便可以在[搜索][diagnostic]中轻松筛选出与特定数据库相关的所有特定严重性级别的消息。
+
+## <a name="azureloghandler-for-opencensus-python"></a>用于 OpenCensus Python 的 AzureLogHandler
+使用 Azure Monitor 日志处理程序可以将 Python 日志导出到 Azure Monitor。
+
+使用用于 Azure Monitor 的 [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md) 检测应用程序。
+
+此示例演示如何将警告级别日志发送到 Azure Monitor。
+
+```python
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>'))
+logger.warning('Hello, World!')
+```
 
 ## <a name="explore-your-logs"></a>浏览日志
 在调试模式下运行应用，或者实时部署它。

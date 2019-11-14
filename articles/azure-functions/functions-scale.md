@@ -8,15 +8,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 03/27/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dadf294bfeeefbca82814a1388d709053dbdab4
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: d6b45a2dee495b16ac54643daf5cad3d7a82ba3a
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673476"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034442"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -60,6 +60,8 @@ ms.locfileid: "71673476"
 
 可将同一区域中的函数应用分配到同一个消耗计划。 在同一个消耗计划中运行多个应用不会产生负面影响。 将多个应用分配到同一个消耗计划不会影响每个应用的复原能力、可伸缩性或可靠性。
 
+若要详细了解在消耗计划中运行时如何估算成本，请参阅[了解消耗计划成本](functions-consumption-costs.md)。
+
 ## <a name="app-service-plan"></a>专用（应用服务）计划
 
 函数应用也可以像其他应用服务应用（基本、标准和隔离 SKU）一样在相同的专用 VM 上运行。
@@ -71,7 +73,7 @@ ms.locfileid: "71673476"
 
 应用服务计划中函数应用的费用与其他应用服务资源（例如 Web 应用）的费用相同。 如需详细了解如何使用应用服务计划，请参阅 [Azure 应用服务计划深入概述](../app-service/overview-hosting-plans.md)。
 
-借助应用服务计划，可通过添加更多 VM 实例手动进行横向扩展。 也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)。 还可以通过选择不同的应用服务计划来进行增加。 有关详细信息，请参阅[增加 Azure 中的应用](../app-service/web-sites-scale.md)。 
+借助应用服务计划，可通过添加更多 VM 实例手动进行横向扩展。 也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)。 还可以通过选择不同的应用服务计划来进行增加。 有关详细信息，请参阅[增加 Azure 中的应用](../app-service/manage-scale-up.md)。 
 
 在应用服务计划上运行 JavaScript 函数时，应选择具有较少 vCPU 的计划。 有关详细信息，请参阅[选择单核应用服务计划](functions-reference-node.md#choose-single-vcpu-app-service-plans)。 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
@@ -102,7 +104,9 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ## <a name="storage-account-requirements"></a>存储帐户要求
 
-在任何计划中，函数应用需要一个支持 Azure Blob、队列、文件和表存储的常规 Azure 存储帐户。 这是因为 Functions 依赖于 Azure 存储来执行管理触发器和记录函数执行等操作，但某些存储帐户不支持队列和表。 这些帐户包括仅限 Blob 的存储帐户（包括高级存储），会在创建函数应用时从现有的“存储帐户”选项中过滤掉  。
+在任何计划中，函数应用需要一个支持 Azure Blob、队列、文件和表存储的常规 Azure 存储帐户。 这是因为 Functions 依赖 Azure 存储来执行管理触发器和记录函数执行等操作，但某些存储帐户不支持队列和表。 这些帐户包括仅限 blob 的存储帐户（包括高级存储）和使用区域冗余存储空间复制的常规用途存储帐户，已在创建函数应用时将从现有的“存储帐户”选项中过滤掉  。
+
+触发器和绑定也可以使用函数应用使用的相同存储帐户来存储应用程序数据。 但是，对于存储密集型操作，应使用单独的存储帐户。   
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 

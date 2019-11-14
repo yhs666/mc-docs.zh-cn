@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 07/30/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: 573403bdd4d13a9f6f12cd0bb127b97105bb0a3a
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.date: 11/11/2019
+ms.openlocfilehash: 9fabe49cb65ccee2ce8c0a1aca7e7b757a652d76
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921358"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425673"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>方案：Apache Hive 中的联接导致 Azure HDInsight 中出现 OutOfMemory 错误
 
@@ -40,6 +40,6 @@ hive.auto.convert.join=false
 
 ## <a name="next-steps"></a>后续步骤
 
-如果设置此值不能解决问题，请访问以下项之一。
+如果设置此值不能解决问题，请访问以下...
 
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 在 Microsoft Azure 订阅中可以访问订阅管理和计费支持；通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

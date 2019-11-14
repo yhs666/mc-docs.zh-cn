@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MariaDB 中的只读副本
-description: 本文介绍 Azure Database for MariaDB 的只读副本。
+description: 了解 Azure Database for MariaDB 中的只读副本：选择区域、创建副本、连接到副本、监视复制和停止复制。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 09/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 6369a426b698e7b945018fceb2e243f2c25c50ca
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: e1e6fe68011447ea35e5c2b8ee90ea30bb6cf30f
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307884"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191580"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的只读副本
 
@@ -35,6 +35,9 @@ ms.locfileid: "71307884"
 
 ## <a name="cross-region-replication"></a>跨区域复制
 可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
+
+> [!NOTE]
+> 跨区域复制处于预览状态。
 
 可以在任何 [Azure Database for MariaDB 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
 ### <a name="paired-regions"></a>配对区域

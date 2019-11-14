@@ -7,15 +7,15 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 03/13/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 70fe2d1f3476e5e6e95b50f4ff5743221acb6d0a
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: cade40e50f597d95803c467ed775e37e469bfee6
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673485"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034372"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -98,19 +98,37 @@ Azure Functions Core Tools 有两个版本。 使用的版本取决于本地开�
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. 验证你的 Ubuntu 服务器正在运行下表中的合适版本之一。 若要添加 apt 源，请运行：
+1. 在进行 APT 更新之前，设置 .NET 开发源代码列表。
+
+   若要为 Ubuntu 设置 APT 源列表，请运行以下命令：
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    sudo apt-get update
     ```
+
+   若要为 Debian 设置 APT 源列表，请运行以下命令：
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+
+1. 查看 `/etc/apt/sources.list.d/dotnetdev.list` 文件以获取下面列出的相应 Linux 版本字符串之一：
 
     | Linux 分发版 | 版本 |
     | --------------- | ----------- |
+    | Debian 10 | `buster` |
+    | Debian 9 | `stretch` |
+    | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+1. 启动 APT 源更新：
+
+    ```bash
+    sudo apt-get update
+    ```
 
 1. 安装 Core Tools 包：
 
@@ -227,6 +245,7 @@ func new
 Select a language: Select a template:
 Blob trigger
 Cosmos DB trigger
+Event Grid trigger
 HTTP trigger
 Queue trigger
 SendGrid
@@ -422,7 +441,7 @@ Azure Functions Core Tools 支持两种类型的部署：通过 [Zip Deploy](fun
 func azure functionapp publish <FunctionAppName>
 ```
 
-此命令发布到 Azure 中的现有函数应用。 如果尝试发布到订阅中不存在的 `<FunctionAppName>`，则会收到错误。 若要了解如何使用 Azure CLI 从命令提示符或终端窗口创建函数应用，请参阅[为无服务器执行创建函数应用](./scripts/functions-cli-create-serverless.md)。 默认情况下，此命令将应用部署为[从部署包运行](run-functions-from-deployment-package.md)。 若要禁用此建议的部署模式，请使用 `--nozip` 选项。
+此命令发布到 Azure 中的现有函数应用。 如果尝试发布到订阅中不存在的 `<FunctionAppName>`，则会收到错误。 若要了解如何使用 Azure CLI 从命令提示符或终端窗口创建函数应用，请参阅[为无服务器执行创建函数应用](./scripts/functions-cli-create-serverless.md)。 默认情况下，此命令使用[远程生成](functions-deployment-technologies.md#remote-build)并将应用部署为[从部署包运行](run-functions-from-deployment-package.md)。 若要禁用此建议的部署模式，请使用 `--nozip` 选项。
 
 >[!IMPORTANT]
 > 在 Azure 门户中创建函数应用时，该应用默认使用 2.x 版函数运行时。 若要让函数应用使用 1.x 版运行时，请遵照[在版本 1.x 上运行](functions-versions.md#creating-1x-apps)中的说明操作。

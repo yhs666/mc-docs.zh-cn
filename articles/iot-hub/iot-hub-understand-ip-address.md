@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 07/29/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 39a8e74d25ffcdbe284dc92384db511bb8f1d939
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 11/11/2019
+ms.openlocfilehash: 2b4ff2bf3303c83fc2061b847b76244f3ec8d9bd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993721"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425962"
 ---
 # <a name="understanding-the-ip-address-of-your-iot-hub"></a>了解 IoT 中心的 IP 地址
 
@@ -35,3 +35,6 @@ nslookup {YourIoTHubName}.azure-devices.cn
 
 尝试创建防火墙规则，根据 IoT 中心的主机名或域进行筛选。 如果只能允许出站流量发往特定地址，则请定期轮询 IoT 中心 IP 地址并更新防火墙规则。
 
+## <a name="support-for-ipv6"></a>对 IPv6 的支持 
+
+目前 IoT 中心不支持 IPv6。

@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-origin.date: 07/24/2019
-ms.date: 09/02/2019
+origin.date: 09/29/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1339953cc10a6e4842a703fc21e5fc8fd5fd6308
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fb37474ce2261d168b6411cee2a31ff4a3815ccf
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104200"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416341"
 ---
 # <a name="regular-expression-entity"></a>正则表达式实体 
 
@@ -47,35 +47,63 @@ ms.locfileid: "70104200"
 
 ### <a name="example-json"></a>示例 JSON
 
-如果将 `kb[0-9]{6}` 用作正则表达式实体定义，则下面的 JSON 响应就是一个示例话语，其包含为查询 `When was kb123456 published?` 返回的正则表达式实体：
+如果将 `kb[0-9]{6}` 用作正则表达式实体定义，则下面的 JSON 响应就是一个示例话语，其中包含查询返回的正则表达式实体：
+
+`When was kb123456 published?`：
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
+"entities": [
+  {
+    "entity": "kb123456",
+    "type": "KB number",
+    "startIndex": 9,
+    "endIndex": 16
+  }
+]
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+
+如果在查询字符串中设置了 `verbose=false`，则这是 JSON：
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ]
 }
 ```
+
+如果在查询字符串中设置了 `verbose=true`，则这是 JSON：
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ],
+    "$instance": {
+        "KB number": [
+            {
+                "type": "KB number",
+                "text": "kb123456",
+                "startIndex": 9,
+                "length": 8,
+                "modelTypeId": 8,
+                "modelType": "Regex Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>后续步骤
 

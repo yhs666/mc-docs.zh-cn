@@ -8,15 +8,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: get-started-article
 ms.devlang: na
-origin.date: 04/08/2019
-ms.date: 04/29/2019
+origin.date: 10/01/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1739a18a3ef642adc5cc8977337f7fe32f80a742
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: b73a4caf9f8544abec581e825827676c1d26ee62
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236057"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425665"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -28,7 +28,7 @@ Apache Hadoop 支持默认文件系统的概念。 默认文件系统意指默�
 
 Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无缝集成。 HDInsight 可将 Azure 存储中的 Blob 容器用作群集的默认文件系统。 通过 Hadoop 分布式的文件系统 (HDFS) 界面，可以针对作为 Blob 存储的结构化或非结构化数据直接运行 HDInsight 中的整套组件。
 
-> [!WARNING]  
+> [!IMPORTANT]  
 > 存储帐户类型 **BlobStorage** 仅可用作 HDInsight 群集的辅助存储器。
 
 | 存储帐户类型 | 支持的服务 | 支持的性能层 | 支持的访问层 |
@@ -37,7 +37,7 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
 | 存储（常规用途 v1）   | Blob     | 标准                    | 不适用                    |
 | BlobStorage                    | Blob     | 标准                    | 热、冷、存档\*   |
 
-建议不要使用默认 Blob 容器来存储业务数据。 最佳做法是每次使用之后删除默认 Blob 容器以降低存储成本。 默认容器包含应用程序日志和系统日志。 请确保在删除该容器之前检索日志。
+建议不要使用默认 blob 容器来存储业务数据。 最佳做法是每次使用之后删除默认 Blob 容器以降低存储成本。 默认容器包含应用程序日志和系统日志。 请确保在删除该容器之前检索日志。
 
 不支持将单个 blob 容器共享为多个群集的默认文件系统。
  
@@ -49,9 +49,9 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 存储体系结构
 下图提供了使用 Azure 存储的 HDInsight 存储体系结构的抽象视图：
 
-![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight 存储体系结构")
 
-HDInsight 提供对在本地附加到计算节点的分布式文件系统的访问。 可使用完全限定 URI 访问该文件系统，例如：
+HDInsight 提供对在本地附加到计算节点的分布式文件系统的访问权限。 可使用完全限定 URI 访问该文件系统，例如：
 
     hdfs://<namenodehost>/<path>
 

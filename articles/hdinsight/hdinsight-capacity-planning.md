@@ -1,26 +1,21 @@
 ---
-title: Azure HDInsight 中的群集容量规划 | Microsoft Docs
-description: 如何指定 HDInsight 群集的容量和性能。
-services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+title: Azure HDInsight 中的群集容量规划
+description: 确定 Azure HDInsight 群集的容量和性能规划的关键问题。
+author: hrasheed-msft
+ms.author: v-yiso
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 05/23/2019
-ms.date: 10/21/2019
-ms.author: v-yiso
-ms.openlocfilehash: 2881cb885dac0fc1aa081a183eeb4d0293e86e61
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+origin.date: 10/15/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 0ef2f6ba1bed532d179cf79224c17da8c3a6636b
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292432"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425949"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -73,7 +68,7 @@ Azure 存储具有一些[容量限制](../azure-subscription-service-limits.md#s
 
 每个群集类型具有一组节点类型，每个节点类型在 VM 大小和类型方面提供特定的选项。
 
-若要确定应用程序的最佳群集大小，可以建立群集容量基准，并根据指示增加大小。 例如，可以使用模拟工作负荷或“canary 查询”。  使用模拟工作负荷时，可在不同大小的群集上运行预期的工作负荷，并逐渐增加大小，直到达到所需的性能。 可在其他生产查询之间定期插入 canary 查询，以显示群集是否有足够的资源。
+若要确定应用程序的最佳群集大小，可以建立群集容量基准，并根据指示增加大小。 例如，可以使用模拟工作负荷或“canary 查询”。  使用模拟工作负荷时，可在不同大小的群集上运行预期的工作负荷，并逐渐增加大小，直到达到所需的性能。 可在其他生产查询中定期插入 canary 查询，以显示群集是否具有足够的资源。
 
 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 

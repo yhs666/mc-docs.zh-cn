@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 08/21/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: f505e8ef5a7351d04d04e48d9f3aa551c85b002f
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: e04c2e4f70ed07762e7344a06a95227dcc6c0e45
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307757"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191547"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MariaDB 中创建和管理只读副本
 
@@ -48,7 +48,7 @@ ms.locfileid: "71307757"
     ![Azure Database for MariaDB - 副本位置](./media/howto-read-replica-portal/replica-location.png)
 
    > [!NOTE]
-   > 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
+   > 跨区域复制处于预览状态。 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
 
 7. 选择“确定”以确认创建该副本。 
 

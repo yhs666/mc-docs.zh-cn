@@ -1,23 +1,21 @@
 ---
-title: 在 Azure HDInsight 中使用 Power BI 直观显示大数据
+title: 使用 Power BI 直观显示 Apache Hive 数据 - Azure HDInsight
 description: 了解如何使用 Microsoft Power BI 直观显示 Azure HDInsight 已处理的 Hive 数据。
 keywords: hdinsight,hadoop,hive,交互式查询,交互式 hive,LLAP,odbc
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 06/24/2019
+origin.date: 10/15/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 31e32874f338a380f864fae26875112c2025d45d
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 0332b75eb0943df475d849af0a8b9647168c53a0
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135731"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425718"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Microsoft Power BI 使用 ODBC 直观显示 Apache Hive 数据
 
@@ -26,7 +24,7 @@ ms.locfileid: "67135731"
 >[!IMPORTANT]
 > 可以利用 Hive ODBC 驱动程序，通过 Power BI Desktop 中的通用 ODBC 连接器执行导入操作。 但是，鉴于 Hive 查询引擎的非交互性质，不建议对 BI 工作负荷执行此操作。 出于性能考量，[HDInsight 交互式查询连接器](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Spark 连接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)是更好的选择。
 
-在本教程中，从 `hivesampletable` Hive 表将数据加载到 Power BI 中。 Hive 表包含一些移动电话使用情况数据。 然后在世界地图上绘制使用情况数据：
+在本文中，从 `hivesampletable` Hive 表将数据加载到 Power BI 中。 Hive 表包含一些移动电话使用情况数据。 然后在世界地图上绘制使用情况数据：
 
 ![HDInsight Power BI 地图报表](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
@@ -44,21 +42,21 @@ ms.locfileid: "67135731"
 
 ## <a name="load-data-from-hdinsight"></a>从 HDInsight 加载数据
 
-所有 HDInsight 群集都随附了 hivesampletable Hive 表。
+所有 HDInsight 群集都随附了 **hivesampletable** Hive 表。
 
 1. 启动 Power BI Desktop。
 
-2. 在顶部菜单中，导航到“主页” > “获取数据” > “更多...”。   
+1. 在顶部菜单中，导航到“主页” > “获取数据” > “更多...”。   
 
-    ![HDInsight Power BI 开放数据](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Excel Power BI 开放数据](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
-3. 在“获取数据”  对话框中，选择左侧的“其他”  ，选择右侧的 **ODBC**，然后选择底部的“连接”  。
+1. 在“获取数据”  对话框中，选择左侧的“其他”  ，选择右侧的 **ODBC**，然后选择底部的“连接”  。
 
-4. 在“从 ODBC”  对话框中，从下拉列表中选择在上一部分中创建的数据源名称，然后选择“确定”  。
+1. 在“从 ODBC”  对话框中，从下拉列表中选择在上一部分中创建的数据源名称， 然后选择“确定”。 
 
-5. 在“导航器”  对话框中，依次展开“ODBC”>“HIVE”>“默认”  ，选择 **hivesampletable**，然后选择“加载”  。
+1. 第一次使用时，将打开“ODBC 驱动程序”  对话框。 从左侧菜单中选择“默认值或自定义”  。 然后选择“连接”以打开**导航器**  。
 
-6. 在“ODBC 驱动程序”  对话框中，选择“默认或自定义”  ，然后选择“连接”  。
+1. 在“导航器”  对话框中，依次展开“ODBC”>“HIVE”>“默认”  ，选择 **hivesampletable**，然后选择“加载”  。
 
 ## <a name="visualize-data"></a>可视化数据
 

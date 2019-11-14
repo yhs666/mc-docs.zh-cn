@@ -11,13 +11,13 @@ ms.topic: conceptual
 origin.date: 07/17/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 09/30/2019
-ms.openlocfilehash: 592525a047f39a188bcb043366a027600f27329b
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/11/2019
+ms.openlocfilehash: ccb7e442a3c95f6691e0cacd3b413e0748bd485f
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155938"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426102"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -179,10 +179,10 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    node -v
    ```
 
-   如果版本低于 11.x，或者 Pi 上没有 Node.js，请安装最新版本。
+   如果版本低于 10.x，或者 Pi 上没有 Node.js，请安装最新版本。
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -196,7 +196,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   npm install
    ```
    > [!NOTE]
    > 完成此安装过程可能需要几分钟，具体取决于网络连接情况。
@@ -214,6 +214,8 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    此文件中有两个可以配置的项。 第一个是 `interval`，它定义发送到云的消息之间的时间间隔（以毫秒为单位）。 第二个是 `simulatedData`，它是一个布尔值，指示是否使用模拟的传感器数据。
 
    如果**没有传感器**，请将 `simulatedData` 值设置为 `true`，使示例应用程序创建和使用模拟的传感器数据。
+
+   *注意：默认情况下，本教程中使用的 i2c 地址为 0x77。根据配置，它也可能是 0x76：如果遇到 i2c 错误，请尝试将该值更改为 118，然后看看效果是否更好。若要查看传感器使用的地址，请在 raspberry pi 上的 shell 中运行 `sudo i2cdetect -y 1`*
 
 2. 通过按“Ctrl-O”>“Enter”>“Ctrl-X”保存并退出。
 

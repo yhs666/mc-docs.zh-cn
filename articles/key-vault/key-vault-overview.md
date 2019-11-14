@@ -1,25 +1,22 @@
 ---
-title: Azure Key Vault 概述 - Azure Key Vault | Azure Docs
+title: Azure Key Vault 概述 - Azure Key Vault | Azure
 description: Azure Key Vault 是一项云服务，用作安全的机密存储。
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.custom: mvc
-origin.date: 05/08/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: 5466f998bc7fbed6a528bf6bdfa77db2ff43bf92
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+origin.date: 01/07/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 047d76cd99ed93491db8addad10d0e55ceef39c5
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135514"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426100"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 

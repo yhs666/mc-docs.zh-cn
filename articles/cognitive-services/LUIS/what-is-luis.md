@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-origin.date: 07/24/2019
-ms.date: 09/11/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d87b0a81ad8d9a763c98315071c7a7a54dc80ceb
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 3539348d6cb4b8d8a458bbc236c374da6f076630
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329655"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416316"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 
@@ -24,7 +24,7 @@ ms.locfileid: "71329655"
 
 LUIS 的客户端应用程序可以是任何传统的应用程序，只要其能够以自然语言与用户通信并完成任务即可。 这些客户端应用程序包括社交媒体应用、聊天机器人以及支持语音的桌面应用程序。  
 
-![使用认知服务语言理解 (LUIS) 的 3 个客户端应用程序的概念图像](./media/luis-overview/luis-entry-point.png "使用认知服务语言理解 (LUIS) 的 3 个客户端应用程序的概念图像")
+![3 个客户端应用程序使用认知服务语言理解 (LUIS) 的概念图](./media/luis-overview/luis-entry-point.png "3 个客户端应用程序使用认知服务语言理解 (LUIS) 的概念图")
 
 ## <a name="use-luis-in-a-chat-bot"></a>在聊天机器人中使用 LUIS
 
@@ -33,7 +33,7 @@ LUIS 的客户端应用程序可以是任何传统的应用程序，只要其能
 LUIS 应用一旦发布，客户端应用程序即可向 LUIS 自然语言处理终结点 [API][endpoint-apis] 发送话语（文本）并接收结果作为 JSON 响应。 LUIS 的常用客户端应用程序是聊天机器人。
 
 
-![使用聊天机器人通过自然语言理解 (NLP) 来预测用户文本的 LUIS 的概念图像](./media/luis-overview/luis-overview-process-2.png "使用聊天机器人通过自然语言理解 (NLP") 来预测用户文本的 LUIS 的概念图像
+![LUIS 使用聊天机器人以通过自然语言理解 (NLP) 预测用户文本的概念图](./media/luis-overview/luis-overview-process-2.png "LUIS 使用聊天机器人以通过自然语言理解 (NLP) 预测用户文本的概念图")
 
 |步骤|操作|
 |:--|:--|
@@ -118,7 +118,7 @@ LUIS 提供工具、版本控制以及与其他 LUIS 创建者的协作，以便
 
 ## <a name="next-steps"></a>后续步骤
 
-使用[预构建的](luis-get-started-create-app.md)或[自定义的](luis-quickstart-intents-only.md)域创作新的 LUIS 应用。 [查询公用 IoT 应用的预测终结点](luis-get-started-cs-get-intent.md)。
+使用[预构建的](luis-get-started-create-app.md)或[自定义的](luis-quickstart-intents-only.md)域创作新的 LUIS 应用。 
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/

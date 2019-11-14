@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2019
-ms.date: 10/28/2019
+origin.date: 10/01/2019
+ms.date: 11/11/2019
 ms.author: maxluk
-ms.openlocfilehash: 04767bbb2dc13bbfedca087dc4ac6f45b2c94e4b
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 95693cb810a4e2a67f952ccdd28c0eefc39b7659
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583971"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425873"
 ---
-# <a name="optimize-apache-spark-jobs"></a>优化 Apache Spark 作业
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>在 HDInsight 中优化 Apache Spark 作业
 
 了解如何为特定工作负荷优化 [Apache Spark](https://spark.apache.org/) 群集配置。  最常面临的难题是内存压力，这归因于不正确的配置（尤其是大小不合的执行程序）、长时间运行的操作以及导致笛卡尔操作的任务。 可通过以下方式为作业提速：使用适当的缓存，并允许[数据倾斜](#optimize-joins-and-shuffles)。 若要实现最佳性能，应监视和查看长时间运行并耗用资源的 Spark 作业执行。
 
@@ -158,7 +158,7 @@ sql("SELECT col1, col2 FROM V_JOIN")
 
 联接的顺序至关重要，尤其是在较为复杂的查询中。 应先从最严格的联接开始。 此外，尽可能移动在聚合后增加行数的联接。
 
-若要管理并行度，特别是在使用笛卡尔联接时，可以添加嵌套结构，进行窗口化，以及在可能的情况下跳过 Spark 作业中的一个或多个步骤。
+若要管理笛卡尔联接的并行度，可以添加嵌套结构，进行窗口化，以及在可能的情况下跳过 Spark 作业中的一个或多个步骤。
 
 ## <a name="customize-cluster-configuration"></a>自定义群集配置
 
@@ -189,14 +189,14 @@ sql("SELECT col1, col2 FROM V_JOIN")
     
 1. 最开始，每个执行程序 30 GB，并分发可用的计算机内核。
 2. 对于较大的群集（超过 100 个执行程序），增加执行程序内核数。
-3. 基于试运行和上述因素（比如 GC 开销）增加或减小大小。
+3. 基于试运行和上述因素（比如 GC 开销）修改大小。
 
 运行并发查询时，考虑以下做法：
 
 1. 最开始，每个执行程序 30 GB，并分发所有计算机内核。
 2. 通过超额订阅 CPU，创建多个并行 Spark 应用程序（延迟缩短大约 30%）。
 3. 跨并行应用程序分布查询。
-4. 基于试运行和上述因素（比如 GC 开销）增加或减小大小。
+4. 基于试运行和上述因素（比如 GC 开销）修改大小。
 
 通过查看时间线视图、SQL 图、作业统计信息等等，监视查询性能中的离群值或其他性能问题。 有时，一个或几个执行程序的速度比其他执行程序要慢，执行任务时花费的时间也长得多。 这通常发生在较大的群集（超过 30 个节点）上。 在这种情况下，应将工作划分成更多任务，以便计划程序可以补偿速度较慢的任务。 例如，任务数量应至少为应用程序中执行程序内核数的两倍。 也可以使用 `conf: spark.speculation = true` 对任务启用推理执行。
 

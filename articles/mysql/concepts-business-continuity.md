@@ -1,24 +1,25 @@
 ---
-title: 有关使用 Azure Database for MySQL 确保业务连续性的概述
-description: 有关使用 Azure Database for MySQL 确保业务连续性的概述。
+title: 了解 Azure Database for MySQL 中的业务连续性
+description: 使用 Azure Database for MySQL 服务时，了解业务连续性（时间点还原、数据中心服务中断、异地还原）。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: ec48e30b8ed4b41f108ce073f8a72ed50bc24ec4
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 11/04/2019
+ms.openlocfilehash: 40fd785cf79b47c365f654d8f468dd83ca861495
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663679"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142144"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>有关使用 Azure Database for MySQL 确保业务连续性的概述
+# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>了解 Azure Database for MySQL 中的业务连续性
+
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-本概述介绍了 Azure Database for MySQL 针对业务连续性和灾难恢复所提供的功能。 了解在发生破坏性事件后用于进行恢复的选项，破坏性事件可能导致数据丢失或者数据库和应用程序无法使用。 了解对一些情况的处理方式，包括用户或应用程序错误影响数据完整性、Azure 区域发生服务中断，或者应用程序需要维护。
+本文介绍了 Azure Database for MySQL 针对业务连续性和灾难恢复所提供的功能。 了解在发生破坏性事件后用于进行恢复的选项，破坏性事件可能导致数据丢失或者数据库和应用程序无法使用。 了解对一些情况的处理方式，包括用户或应用程序错误影响数据完整性、Azure 区域发生服务中断，或者应用程序需要维护。
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>可用来提供业务连续性的功能
 

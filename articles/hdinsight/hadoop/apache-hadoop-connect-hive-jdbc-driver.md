@@ -9,15 +9,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/14/2019
-ms.date: 03/18/2019
+origin.date: 06/03/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 182c92423ed81cf989f4a965a85cb78c988d1ebd
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 8e861ceda8543e79d5af2d93c43feea09e4e8a60
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583889"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425898"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive
 
@@ -87,7 +87,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
 6. 在 SQuirreL SQL 窗口左侧，选择“别名”  。 然后选择 **+** 图标来创建连接别名。
 
-    ![添加新的别名](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
+    ![SQuirreL SQL“添加新别名”对话框](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. 将以下值用于“添加别名”  对话框。
 

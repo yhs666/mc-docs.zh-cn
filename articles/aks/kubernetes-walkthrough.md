@@ -1,36 +1,48 @@
 ---
-title: 快速入门 - 创建 Azure Kubernetes 服务 (AKS) 群集
+title: 快速入门：部署 Azure Kubernetes 服务群集
 description: 了解如何使用 Azure CLI 快速创建 Kubernetes 群集、部署应用程序，以及监视 Azure Kubernetes 服务 (AKS) 中的性能。
 services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
-origin.date: 05/20/2019
-ms.date: 08/26/2019
+origin.date: 09/13/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b40fa0bf2fc83ec0551664d03da7d2a94be9b634
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.custom:
+- H1Hack27Feb2017
+- mvc
+- devcenter
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: a039d97073c7301b8e40ef05d9f3fc8d7cddab48
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993196"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068882"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
+# <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务群集
 
-Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管式 Kubernetes 服务。 本快速入门介绍如何使用 Azure CLI 部署 AKS 群集。 该群集中将运行一个包含 Web 前端和 Redis 实例的多容器应用程序。 然后，介绍如何监视群集的运行状况，以及监视运行该应用程序的 Pod。
+在本快速入门中，将使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集。 AKS 是可用于快速部署和管理群集的托管式 Kubernetes 服务。 该群集中将运行一个包含 Web 前端和 Redis 实例的多容器应用程序。 然后，你将了解如何监视群集的运行状况，以及监视运行该应用程序的 Pod。
 
 <!--Not Available on [Create an AKS cluster that supports Windows Server containers][windows-container-cli]-->
 
-![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Kubernetes 服务中部署的投票应用](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 本快速入门假设读者基本了解 Kubernetes 的概念。 有关详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.64 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+> [!Note]
+> 如果在本地运行此快速入门中的命令，请确保以管理员身份运行命令。
+
+<!--MOONCAKE: Not Available on (instead of Azure Cloud Shell)-->
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -59,16 +71,15 @@ az group create --name myResourceGroup --location chinaeast2
 
 ## <a name="create-aks-cluster"></a>创建 AKS 群集
 
-使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为  myAKSCluster 的群集。 也可通过 *--enable-addons monitoring* 参数启用用于容器的 Azure Monitor。
+使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为  myAKSCluster 的群集。 也可通过 *--enable-addons monitoring* 参数启用用于容器的 Azure Monitor。  此操作将需要几分钟才能完成。
+
+> [注意] 创建 AKS 群集时，会自动创建另一个资源组来存储 AKS 资源。 有关详细信息，请参阅[为什么使用 AKS 创建两个资源组？](/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ```azurecli
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 1 \
-    --enable-addons monitoring \
-    --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 片刻之后，该命令将会完成，并返回有关群集的 JSON 格式信息。
 
@@ -236,32 +247,13 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 若要查看 Azure Vote 应用的实际效果，请打开 Web 浏览器并转到服务的外部 IP 地址。
 
-![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Kubernetes 服务中部署的投票应用](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
-## <a name="monitor-health-and-logs"></a>监视运行状况和日志
-
-创建 AKS 群集时，即已为容器启用了 Azure Monitor 来捕获群集节点和 Pod 的运行状况指标。 Azure 门户提供这些运行状况指标。
-
-若要查看 Azure Vote Pod 的当前状态、运行时间和资源使用情况，请完成以下步骤：
-
-1. 将 Web 浏览器打开到 Azure 门户 [https://portal.azure.cn][azure-portal] 的位置。
-1. 选择资源组（例如 *myResourceGroup*），然后选择 AKS 群集（例如 *myAKSCluster*）。
-1. 在左侧的“监视”  下，选择“见解”  。
-1. 在顶部，选择“+添加筛选器”  。
-1. 选择“命名空间”  作为属性，然后选择“\<除 kube-system 之外的所有项\>”  。
-1. 选择“容器”  。
-
-将显示 *azure-vote-back* 和 *azure-vote-front* 容器，如下面的示例中所示：
-
-![查看在 AKS 中运行的容器的运行状况](media/kubernetes-walkthrough/monitor-containers.png)
-
-若要查看 `azure-vote-back` Pod 的日志，请选择“在分析中查看”选项，然后选择容器列表右侧的“查看容器日志”链接   。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
-
-![查看 AKS 中的容器日志](media/kubernetes-walkthrough/monitor-container-logs.png)
+创建 AKS 群集时，即已启用了[用于容器的 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 来捕获群集节点和 Pod 的运行状况指标。 Azure 门户提供这些运行状况指标。
 
 ## <a name="delete-the-cluster"></a>删除群集
 
-如果不再需要群集，可以使用 [az group delete][az-group-delete] 命令删除资源组、容器服务及所有相关资源。
+若要避免 Azure 费用，应清除不需要的资源。  如果不再需要群集，可以使用 [az group delete][az-group-delete] 命令删除资源组、容器服务及所有相关资源。
 
 ```azurecli
 az group delete --name myResourceGroup --yes --no-wait

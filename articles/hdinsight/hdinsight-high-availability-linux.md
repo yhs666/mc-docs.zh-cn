@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 04/24/2019
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4d83c05db38ac5f2dab6281fafab1b7d504c8050
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: b5cabb81098f000f22010436e21b8192b1618e3c
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292585"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425664"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
 
@@ -96,7 +96,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 * **SSH 隧道**：如果需要访问托管在某个节点上的 Web 服务，并且该服务不在 Internet 上公开，则必须使用 SSH 隧道。 有关详细信息，请参阅 [将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
-* **Azure 虚拟网络**：如果 HDInsight 群集是 Azure 虚拟网络的一部分，则同一虚拟网络中的任何资源都可以直接访问该群集中的所有节点。 有关详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文档。
+* **Azure 虚拟网络**：如果 HDInsight 群集是 Azure 虚拟网络的一部分，则同一虚拟网络中的任何资源都可以直接访问该群集中的所有节点。 有关详细信息，请参阅[为 HDInsight 规划虚拟网络](hdinsight-plan-virtual-network-deployment.md)文档。
 
 ## <a name="how-to-check-on-a-service-status"></a>如何检查服务状态
 

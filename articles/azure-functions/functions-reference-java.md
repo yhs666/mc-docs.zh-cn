@@ -10,26 +10,54 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 26db7ad17ab39c006b73b6ce1d52008f49cef15a
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: f78fd58bd9bd41fdfd91130cab3e2c0ebec0050f
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673571"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034365"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
 Azure Functions 运行时支持 [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)。 本指南包含有关使用 Java 编写 Azure Functions 的复杂性的信息。
 
-Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 进行修饰。 此方法定义 java 函数的条目，必须在特定的包中独一无二。 
+与其他语言一样，函数应用可能有一个或多个函数。 Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 进行修饰。 此方法定义 java 函数的条目，必须在特定的包中独一无二。 使用 Java 编写的一个函数应用可能有多个类，这些类具有使用 `@FunctionName` 批注的多个公共方法。
 
 本文假定你已阅读 [Azure Functions 开发人员参考](functions-reference.md)。 此外，应该完成有关如何使用 [Visual Studio Code](functions-create-first-function-vs-code.md) 或 [Maven](functions-create-first-java-maven.md) 创建第一个函数的 Functions 快速入门。
 
 ## <a name="programming-model"></a>编程模型 
 
 [触发器和绑定](functions-triggers-bindings.md)是 Azure Functions 的基本概念。 触发器启动代码的执行。 绑定可让你向函数传递数据以及从函数返回数据，而无需编写自定义的数据访问代码。
+
+## <a name="project-scaffolding"></a>项目基架
+
+搭建基于 Java 的 Azure 函数项目的最简单方法是使用 `Apache Maven` 原型。 还可以在 Visual Studio Code 中找到项目生成向导，以及用于 Eclipse 和 IntelliJ 的 Azure 工具包。
+
+Maven 目前有两种 Azure Functions 原型：
+
+### <a name="java-archetype"></a>Java 原型
+
+此原型使用以下 groupId 和 artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/) 发布。
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Kotlin 原型（预览版）
+
+此原型使用以下 groupId 和 artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/) 发布。
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+这些原型的源代码可以在 [Azure Maven 原型 GitHub 存储库](https://github.com/microsoft/azure-maven-archetypes)中找到。
 
 ## <a name="folder-structure"></a>文件夹结构
 
@@ -56,6 +84,8 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
+
+_* Kotlin 项目看起来非常相似，因为它仍然是 Maven_
 
 可以使用共享的 [host json](functions-host-json.md) 文件配置函数应用。 每个函数都有自己的代码文件 (.java) 和绑定配置文件 (function.json)。
 

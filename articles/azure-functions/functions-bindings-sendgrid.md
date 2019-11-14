@@ -4,19 +4,18 @@ description: Azure Functions SendGrid 绑定参考。
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 11/29/2017
-ms.date: 03/20/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 800134e9f7afa33e486485b5339da875a8fd3084
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 8e0ae9ab0b707fef937a2ac7938b73b9eb0c8f51
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256367"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034453"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 绑定
 
@@ -33,6 +32,9 @@ ms.locfileid: "58256367"
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 包 3.x 版本中提供了 SendGrid 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 存储库中提供了此包的源代码。
+
+> [!NOTE]
+> 版本 2.x 不会创建在 `ServiceBusTrigger` 实例中配置的主题或订阅。 版本 2.x 基于 [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)，但不处理队列管理。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -108,7 +110,7 @@ public class OutgoingEmail
 
 以下示例演示 *function.json* 文件中的一个 SendGrid 输出绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。
 
-下面是 function.json 文件中的绑定数据：
+下面是 function.json  文件中的绑定数据：
 
 ```json 
 {
@@ -165,7 +167,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 示例
 
-以下示例使用 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中的 `@SendGridOutput` 注释来发送使用 SendGrid 输出绑定的电子邮件。
+以下示例使用 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中的 `@SendGridOutput` 注释来发送使用 SendGrid 输出绑定的电子邮件。
 
 ```java
 @FunctionName("SendEmail")
@@ -194,7 +196,7 @@ public class Message
 
 以下示例演示 *function.json* 文件中的一个 SendGrid 输出绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。
 
-下面是 function.json 文件中的绑定数据：
+下面是 function.json  文件中的绑定数据：
 
 ```json 
 {
@@ -252,7 +254,7 @@ public static void Run(
 
 ## <a name="configuration"></a>配置
 
-下表解释了在 function.json 文件和 `SendGrid` 特性中设置的绑定配置属性。
+下表解释了在 function.json  文件和 `SendGrid` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -297,4 +299,3 @@ public static void Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: code update -->

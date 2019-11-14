@@ -1,28 +1,21 @@
 ---
 title: 适用于 Visual Studio Code 的 Azure HDInsight
 description: 了解如何使用适用于 Visual Studio Code 的 Spark 和 Hive 工具 (Azure HDInsight) 来创建、提交查询和脚本。
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,交互式 Hive,交互式查询
-services: HDInsight
-documentationcenter: ''
-author: jejiang
-manager: ''
-editor: jgao
-tags: azure-portal
-ms.assetid: ''
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/30/2019
-ms.date: 10/21/2019
+origin.date: 10/11/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: be50e52a65382ccd1faa9d6be4c38d479d73c92c
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: ab951576e015b93efd042617818621d9f2003f97
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292487"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425744"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Spark 和 Hive 工具
 
@@ -38,7 +31,7 @@ ms.locfileid: "72292487"
 - [Visual Studio Code](https://code.visualstudio.com/)。
 - [Mono](https://www.mono-project.com/docs/getting-started/install/)。 只有 Linux 和 macOS 需要 Mono。
 - [Visual Studio Code 的 PySpark 交互式环境](set-up-pyspark-interactive-environment.md)。
-- 名为 **HDexample** 的本地目录。  本文使用 **C:\HD\HDexample**。
+- 本地目录。 本文使用 **C:\HD\HDexample**。
 
 ## <a name="install-spark--hive-tools"></a>安装 Spark 和 Hive 工具
 
@@ -46,7 +39,7 @@ ms.locfileid: "72292487"
 
 1. 打开 Visual Studio Code。
 
-2. 在菜单栏中，转到“视图” > “扩展”。  
+2. 在菜单栏中，导航到“视图” > “扩展”。  
 
 3. 在搜索框中，输入“Spark 和 Hive”。 
 
@@ -61,20 +54,20 @@ ms.locfileid: "72292487"
 
 若要打开工作文件夹并在 Visual Studio Code 中创建文件，请执行以下步骤：
 
-1. 在菜单栏中，转到“文件” > “打开文件夹” > “C:\HD\HDexample”，然后选择“选择文件夹”按钮。     该文件夹将显示在左侧的“资源管理器”视图中。 
+1. 在菜单栏中，导航到“文件” > “打开文件夹...” > “C:\HD\HDexample”，然后选择“选择文件夹”按钮。     该文件夹将显示在左侧的“资源管理器”视图中。 
 
 2. 在“资源管理器”视图中选择“HDexample”文件夹，然后选择工作文件夹旁边的“新建文件”图标：   
 
-   ![新建文件](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
+   ![visual studio code“新建文件”图标](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. 为新文件命名，使用 `.hql`（Hive 查询）或 `.py`（Spark 脚本）作为文件扩展名。 本示例使用 **HelloWorld.hql**。
 
 ## <a name="set-the-azure-environment"></a>设置 Azure 环境
 
 国家云用户请先遵循以下步骤设置 Azure 环境，然后使用“Azure:  登录”命令登录到 Azure：
-   
-1. 选择“文件”>“首选项”>“设置”。 
-2. 搜索以下字符串：**Azure:** 云”
+
+1. 导航到“文件” > “首选项” > “设置”。   
+2. 搜索以下字符串：**Azure:云**。
 3. 从列表中选择国家云：
 
    ![设置默认登录入口配置](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -83,7 +76,7 @@ ms.locfileid: "72292487"
 
 将脚本从 Visual Studio Code 提交到群集之前，必须连接到 Azure 帐户，或链接群集（使用 Apache Ambari 用户名和密码凭据或已加入域的帐户）。 遵循以下步骤连接到 Azure：
 
-1. 在菜单栏中，转到“视图” > “命令面板”，然后输入“Azure:    登录”：
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入“Azure:    登录”：
 
     ![适用于 Visual Studio Code 的 Spark 和 Hive 工具登录](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -96,9 +89,9 @@ ms.locfileid: "72292487"
 
 可以使用 [Apache Ambari](https://ambari.apache.org/) 管理的用户名链接标准群集，也可以使用域用户名（例如：`user1@contoso.com`）链接 Enterprise Security Pack 安全 Hadoop 群集。
 
-1. 在菜单栏中，转到“视图” > “命令面板”，然后输入“Spark/Hive:    链接群集”。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入“Spark/Hive:    链接群集”。
 
-   ![链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
+   ![命令面板链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
 2. 选择链接的群集类型“Azure HDInsight”。 
 
@@ -120,7 +113,7 @@ ms.locfileid: "72292487"
 
 ### <a name="link-generic-livy-endpoint"></a>链接：通用 Livy 终结点
 
-1. 在菜单栏中，转到“视图” > “命令面板”，然后输入“Spark/Hive:    链接群集”。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入“Spark/Hive:    链接群集”。
 
 2. 选择链接的群集类型“通用 Livy 终结点”。 
 
@@ -134,7 +127,7 @@ ms.locfileid: "72292487"
 
 ## <a name="list-clusters"></a>列出群集
 
-1. 在菜单栏中，转到“视图” > “命令面板”，然后输入“Spark/Hive:   **List Cluster**。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入“Spark/Hive:   **List Cluster**。
 
 2. 选择所需的订阅。
 
@@ -281,7 +274,7 @@ ms.locfileid: "72292487"
 <a id="triggerlivyconf"></a>**如何触发 Livy 配置**
 
 方法 1  
-1. 在菜单栏中，转到“文件” > “首选项” > “设置”。     
+1. 在菜单栏中，导航到“文件” > “首选项” > “设置”。   
 2. 在“搜索设置”框中，输入“HDInsight 作业提交:   Livy 配置”。  
 3. 在相关搜索结果中选择“在 settings.json 中编辑”。 
 
@@ -335,22 +328,6 @@ ms.locfileid: "72292487"
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>通过资源管理器与 Azure HDInsight 集成
 
-**Azure HDInsight** 已添加到“资源管理器”视图中。 可以直接通过 **Azure HDInsight** 浏览和管理群集。
-
-1. [连接](#connect-to-an-azure-account)到 Azure 帐户或链接某个群集（如果尚未这样做）。
-
-2. 在菜单栏中，转到“视图” > “资源管理器”。  
-
-3. 在左窗格中，展开“AZURE HDINSIGHT”。   将列出可用的订阅和群集（支持 Spark、Hadoop 和 HBase）：
-
-   ![Azure HDInsight 订阅](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
-
-4. 展开群集以查看 hive 元数据数据库和表架构：
-
-   ![Azure HDInsight 群集](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
-
-
-## <a name="preview-hive-table"></a>预览 Hive 表
 可以通过 **Azure HDInsight** 资源管理器直接在群集中预览 Hive 表：
 1. [连接](#connect-to-an-azure-account)到 Azure 帐户（如果尚未这样做）。
 
@@ -439,7 +416,7 @@ ms.locfileid: "72292487"
 
 ## <a name="unlink-cluster"></a>取消链接群集
 
-1. 在菜单栏中，转到“视图” > “命令面板”，然后输入“Spark/Hive:    取消链接群集”。  
+1. 在菜单栏中，转到“视图” > “命令面板”，然后输入“Spark/Hive:   **Unlink a Cluster**。  
 
 2. 选择要取消链接的群集。  
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 06/26/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 999fc11be31033ab8115db588213c216701c83c1
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: b09a34b30736da244db7a321e5df189e88ae9701
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731257"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068896"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中结合自己的 IP 地址范围使用 kubenet 网络
 
@@ -75,16 +75,16 @@ Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节
 
 - IP 地址空间有限。
 - 大部分 Pod 通信在群集中进行。
-- 不需要虚拟节点或网络策略等高级功能。
+- 不需要虚拟节点或 Azure 网络策略等高级 AKS 功能。  使用 [Calico 网络策略][calico-network-policies]。
 
 对于以下情况，可使用 *Azure CNI*：
 
 - 有可用的 IP 地址空间。
 - 大部分 Pod 通信是与群集外部的资源进行的。
 - 你不想要管理 UDR。
-- 需要虚拟节点或网络策略等高级功能。
+- 需要虚拟节点或 Azure 网络策略等 AKS 高级功能。  使用 [Calico 网络策略][calico-network-policies]。
 
-<!--Not Aavailable on enable network policy-->
+有关帮助你决定使用哪个网络模型的详细信息，请参阅[比较网络模型及其支持范围][network-comparisons]。
 
 ## <a name="create-a-virtual-network-and-subnet"></a>创建虚拟网络和子网
 
@@ -169,8 +169,32 @@ az aks create \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \
-    --client-secret <password>
+    --client-secret <password> \
+    --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
+
+> [!Note]
+> 如果希望启用 AKS 群集以包括 [Calico 网络策略][calico-network-policies]，可以使用以下命令。
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password> \
+    --vm-set-type AvailabilitySet
+```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 创建 AKS 群集时，将创建网络安全组和路由表。 这些网络资源可以通过 AKS 控制平面进行管理。 网络安全组自动与节点上的虚拟 NIC 相关联。 路由表自动与虚拟网络子网相关联。 在你创建和公开服务时，系统会自动更新网络安全组规则和路由表。
 
@@ -184,19 +208,18 @@ az aks create \
 
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [aks-network-concepts]: concepts-network.md
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[az-network-vnet-create]: https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-show
-[az-network-vnet-subnet-show]: https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-
-<!-- Not Available on cli/aks -->
-
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
+[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-network-vnet-show]: https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-show
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [use-helm]: kubernetes-helm.md
 [use-draft]: kubernetes-draft.md

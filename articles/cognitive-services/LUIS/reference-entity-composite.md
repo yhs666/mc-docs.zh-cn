@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-origin.date: 07/24/2019
-ms.date: 09/02/2019
+origin.date: 09/29/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3938293210824b81772363599131c8d132942b91
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 2adcc632d6de6b0cf4e17372e814e61ccd72ee22
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104205"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416342"
 ---
 # <a name="composite-entity"></a>复合实体 
 
@@ -36,63 +36,147 @@ ms.locfileid: "70104205"
 
 考虑一个预生成的 `number` 和 `Location::ToLocation` 的复合实体，它包含以下话语：
 
-`book 2 tickets to paris`
+`book 2 tickets to cairo`
 
-注意数字 `2` 和 ToLocation `paris` 之间有单词，这些单词不属于任何实体。 [LUIS](luis-reference-regions.md) 网站中的已标记话语中使用的绿色下划线指示复合实体。
+注意数字 `2` 和 ToLocation `cairo` 之间有单词，这些单词不属于任何实体。 [LUIS](luis-reference-regions.md) 网站中的已标记话语中使用的绿色下划线指示复合实体。
 
 ![复合实体](./media/luis-concept-data-extraction/composite-entity.png)
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 复合实体返回在 `compositeEntities` 数组中，且该复合中的所有实体也都返回在 `entities` 数组中：
 
 ```JSON
-
-"entities": [
+  "entities": [
     {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
+      "entity": "2 tickets to cairo",
+      "type": "ticketinfo",
+      "startIndex": 5,
+      "endIndex": 22,
+      "score": 0.9214487
     },
     {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
+      "entity": "cairo",
+      "type": "builtin.geographyV2.city",
+      "startIndex": 18,
+      "endIndex": 22
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 5,
+      "endIndex": 5,
+      "resolution": {
         "subtype": "integer",
         "value": "2"
+      }
     }
-    },
+  ],
+  "compositeEntities": [
     {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
+      "parentType": "ticketinfo",
+      "value": "2 tickets to cairo",
+      "children": [
         {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
+          "type": "builtin.number",
+          "value": "2"
         },
         {
-        "type": "builtin.number",
-        "value": "2"
+          "type": "builtin.geographyV2.city",
+          "value": "cairo"
+        }
+      ]
+    }
+  ]
+```    
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+如果在查询字符串中设置了 `verbose=false`，则这是 JSON：
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ]
         }
     ]
+}
+```
+
+如果在查询字符串中设置了 `verbose=true`，则这是 JSON：
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 5,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2.city",
+                        "text": "cairo",
+                        "startIndex": 18,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "$instance": {
+        "ticketinfo": [
+            {
+                "type": "ticketinfo",
+                "text": "2 tickets to cairo",
+                "startIndex": 5,
+                "length": 18,
+                "score": 0.9214487,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
     }
-]
-```    
+}
+```
+
+* * * 
+
 
 |数据对象|实体名称|Value|
 |--|--|--|
 |预构建实体 - 数量|"builtin.number"|"2"|
-|预生成实体 - GeographyV2|"Location::ToLocation"|"paris"|
+|预生成实体 - GeographyV2|"Location::ToLocation"|"cairo"|
 
 ## <a name="next-steps"></a>后续步骤
 

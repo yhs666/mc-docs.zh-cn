@@ -1,5 +1,5 @@
 ---
-title: 教程 - 将 Azure Key Vault 与通过 .NET 编写的 Windows 虚拟机配合使用 | Azure Docs
+title: 教程 - 在 .NET 中将 Azure Key Vault 与 Windows 虚拟机配合使用 | Azure
 description: 本教程介绍如何将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密。
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ origin.date: 09/05/2018
 ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: cd27e4b41e1c31c0eac0d9ee5efab2b45e052f75
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 13850b7d8bbe38ae8e558f945ea577cd2eef6ddc
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171355"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425852"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>教程：将 Azure Key Vault 与通过 .NET 编写的 Windows 虚拟机配合使用
 
@@ -107,9 +107,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 ### <a name="create-a-virtual-machine"></a>创建虚拟机
 使用以下方法之一创建虚拟机：
 
-[Azure CLI](https://docs.azure.cn/zh-cn/virtual-machines/windows/quick-create-cli) 
-[Powershell](https://docs.azure.cn/zh-cn/virtual-machines/windows/quick-create-powershell)
-[门户](https://docs.azure.cn/zh-cn/virtual-machines/windows/quick-create-portal)
+[Azure CLI](https://docs.azure.cn/virtual-machines/windows/quick-create-cli) 
+[Powershell](https://docs.azure.cn/virtual-machines/windows/quick-create-powershell)
+[门户](https://docs.azure.cn/virtual-machines/windows/quick-create-portal)
 
 ### <a name="assign-an-identity-to-the-vm"></a>为 VM 分配标识
 使用 [az vm identity assign](/cli/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 命令为虚拟机创建系统分配的标识：
@@ -136,7 +136,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ### <a name="sign-in-to-the-virtual-machine"></a>登录到虚拟机
 
-若要登录到虚拟机，请按[连接并登录到运行 Windows 的 Azure 虚拟机](https://docs.azure.cn/zh-cn/virtual-machines/windows/connect-logon)中的说明操作。
+若要登录到虚拟机，请按[连接并登录到运行 Windows 的 Azure 虚拟机](https://docs.azure.cn/virtual-machines/windows/connect-logon)中的说明操作。
 
 ## <a name="set-up-the-console-app"></a>设置控制台应用
 
@@ -202,7 +202,7 @@ using Newtonsoft.Json.Linq;
 
         static string GetToken()
         {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn");
+            WebRequest request = WebRequest.Create("https://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn");
             request.Headers.Add("Metadata", "true");
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");

@@ -1,5 +1,5 @@
 ---
-title: 将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 动机和权益
+title: 将本地 Apache Hadoop 迁移到 Azure HDInsight - 动机和权益
 description: 了解将本地 Hadoop 群集迁移到 Azure HDInsight 的动机和权益。
 services: hdinsight
 author: hrasheed-msft
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/25/2018
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: bc32e75661b3978b45216eaa94364bf9c99051ff
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: d1cbd8a98483c71fdff7665ef61754edccbaaacb
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583906"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426053"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 动机和权益
 
@@ -137,10 +137,10 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 |数据目标|HDFS、RDBMS、Kafka、MPP ||
 |**主题**：元数据 |||
 |Hive 数据库类型|Mysql、Postgres||
-|否。 Hive 元存储|2||
-|否。 Hive 表|100||
-|否。 Ranger 策略|20 个||
-|否。 Oozie 工作流|100||
+|Hive 元存储的数目|2||
+|Hive 表的数目|100||
+|Ranger 策略的数目|20 个||
+|Oozie 工作流的数目|100||
 |**主题**：**缩放**|||
 |数据量包括复制|100 TB||
 |每日引入量|50 GB||
@@ -152,11 +152,11 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 |已使用的磁盘空间|75%||
 |已使用的平均网络百分比|25%
 |**主题**：人员 |||
-|否。 管理员|2||
-|否。 开发人员|10 个||
-|否。 最终用户|100||
+|管理员的数目|2||
+|开发人员的数目|10 个||
+|最终用户的数目|100||
 |技能|Hadoop、Spark||
-|否。 可用于迁移工作的资源|2||
+|可用于迁移工作的资源数目|2||
 |**主题**：**限制**|||
 |当前限制|延迟较高||
 |当前挑战|并发问题||
@@ -180,7 +180,7 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 |专用和受保护的数据管道？|是||
 |已加入域的群集 (ESP)？|     是||
 |本地 AD 同步到云？|     是||
-|否。 AD 用户同步？|          100||
+|要同步的 AD 用户数？|          100||
 |确定将密码同步到云？|    是||
 |仅云用户？|                 是||
 |需要 MFA？|                       否|| 
