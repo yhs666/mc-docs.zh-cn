@@ -14,18 +14,18 @@ origin.date: 05/31/2019
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 9050ddb789c007113ee718157cae857abc4aee15
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 7b9049de8051d5ba3ff10d6d714965011b3f270b
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156281"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041087"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>应用服务环境的网络注意事项 #
 
 ## <a name="overview"></a>概述 ##
 
- Azure [应用服务环境][Intro]是指将 Azure 应用服务部署到 Azure 虚拟网络 (VNet) 的子网中。 应用服务环境 (ASE) 具有两种部署类型：
+ Azure [应用服务环境][简介] 将 Azure 应用服务部署到 Azure 虚拟网络 (VNet) 中的子网。 应用服务环境 (ASE) 具有两种部署类型：
 
 - **外部 ASE**：在 Internet 可访问的 IP 地址上公开 ASE 托管的应用。 有关详细信息，请参阅[创建外部 ASE][MakeExternalASE]。
 - **ILB ASE**：在 VNet 中的 IP 地址上公开 ASE 托管的应用。 内部终结点是一个内部负载均衡器 (ILB)，因此该类部署被称为 ILB ASE。 有关详细信息，请参阅[创建和使用 ILB ASE][MakeILBASE]。
@@ -151,7 +151,7 @@ ASE 具有一些需要注意的 IP 地址。 它们具有以下特点：
 
 ## <a name="network-security-groups"></a>网络安全组 ##
 
-[网络安全组][NSGs]可用于控制 VNet 中的网络访问。 使用门户时，有一个最低优先级的隐式拒绝规则可拒绝任何流量。 因此，只需生成允许规则。
+使用[网络安全组][NSG] 可以控制 VNet 中的网络访问。 使用门户时，有一个最低优先级的隐式拒绝规则可拒绝任何流量。 因此，只需生成允许规则。
 
 在 ASE 中，你无权访问用于托管 ASE 本身的 VM。 它们位于 Microsoft 管理订阅中。 若要限制对 ASE 上的应用的访问，请在 ASE 子网中设置 NSG。 操作时，需特别注意 ASE 依赖项。 如果阻止任何依赖项，ASE 将停止工作。
 
@@ -238,20 +238,6 @@ ASE 具有一些需要注意的 IP 地址。 它们具有以下特点：
 [8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
-[Intro]: ./intro.md
-[MakeExternalASE]: ./create-external-ase.md
-[MakeASEfromTemplate]: ./create-from-template.md
-[MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
-[Functions]: ../../azure-functions/index.yml
-[Pricing]: https://www.azure.cn/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 <!-- [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md -->
 <!--[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/-->
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md [ASEManagement]: ./management-addresses.md [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md [forcedtunnel]: ./forced-tunnel-support.md [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md [ASEManagement]: ./management-addresses.md [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md [forcedtunnel]: ./forced-tunnel-support.md [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

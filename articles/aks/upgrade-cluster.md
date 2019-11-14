@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 05/31/2019
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7066b02f99a9744724006da1556dff2d7a6b2211
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 3fe018c957f311e1bcb56607a922deadc32b7dfd
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155844"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068851"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 
@@ -51,6 +51,11 @@ Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
 
+如果没有可用的升级，你将获得：
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
+
 ## <a name="upgrade-an-aks-cluster"></a>升级 AKS 群集
 
 如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 将向运行指定 Kubernetes 版本的群集添加一个新节点，然后仔细地一次[隔离并清空][kubernetes-drain]一个旧节点，将对正在运行的应用程序造成的中断情况降到最低。 确认新节点运行应用程序 Pod 以后，就会删除旧节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。
@@ -61,7 +66,10 @@ default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
-升级群集需要几分钟时间，具体取决于有多少节点。
+升级群集需要几分钟时间，具体取决于有多少节点。 
+
+> [!NOTE]
+> 允许群集升级完成的总时间。 此时间是通过取 `10 minutes * total number of nodes in the cluster` 的乘积来计算的。 例如，在 20 节点群集中，升级操作必须在 200 分钟内成功，否则 AKS 将使操作失败，以避免出现无法恢复的群集状态。 若要在升级失败时恢复，请在达到超时值后重试升级操作。
 
 若要确认升级是否成功，请使用 [az aks show][az-aks-show] 命令：
 

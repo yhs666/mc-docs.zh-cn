@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/05/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.reviewer: jehollan
-ms.openlocfilehash: 5782756059fcce7559f22e1cf78ee2fba9f194b5
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: ce8a75097693aaf470c360a5a4fbe2fbdef2bd12
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673577"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034399"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用依赖项注入
 
@@ -148,9 +148,11 @@ Azure Functions 应用提供与 [ASP.NET 依赖项注入](https://docs.microsoft
 
 ## <a name="working-with-options-and-settings"></a>使用选项和设置
 
-在“应用设置”中定义的值可以在[](./functions-how-to-use-azure-function-app-settings.md#settings) `IConfiguration` 实例中使用，这使得你可以读取启动类中的应用设置值。
+在[应用设置](./functions-how-to-use-azure-function-app-settings.md#settings)中定义的值可以在 `IConfiguration` 实例中使用，这使得你可以读取启动类中的应用设置值。
 
-可以将 `IConfiguration` 实例中的值提取为自定义类型。 将应用设置值复制为自定义类型以后，即可使这些值变得可注入，方便测试服务。 考虑以下类，该类包含与应用设置一致的命名属性。
+可以将 `IConfiguration` 实例中的值提取为自定义类型。 将应用设置值复制为自定义类型以后，即可使这些值变得可注入，方便测试服务。 读取到配置实例的设置必须是简单的键/值对。
+
+考虑以下类，该类包含与应用设置一致的命名属性。
 
 ```csharp
 public class MyOptions
@@ -190,6 +192,9 @@ public class HttpTrigger
 ```
 
 请参阅 [ASP.NET Core 中的选项模式](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)，更详细地了解如何使用选项。
+
+> [!WARNING]
+> 请避免尝试从有关消耗计划的 local.settings.json  或 appsettings.{environment}.json  等文件中读取值。 从与触发器连接相关的这些文件中读取的值在应用缩放时不可用，因为托管基础结构无法访问配置信息。
 
 ## <a name="next-steps"></a>后续步骤
 

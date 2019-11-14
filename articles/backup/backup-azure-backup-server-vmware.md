@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 12/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: bddcb855541f7ac11bc44cfaccb487e7b99e6d81
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9ce02d901b7a9cd3da36eb35d8ad4ea706b56a11
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330192"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416398"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
@@ -36,15 +36,14 @@ ms.locfileid: "71330192"
 
 默认情况下，Azure 备份服务器通过 HTTPS 来与 VMware 服务器通信。 若要设置 HTTPS 连接，请下载 VMware 证书颁发机构 (CA) 证书，并将其导入到 Azure 备份服务器。
 
-
-### <a name="before-you-start"></a>开始之前
+### <a name="before-you-begin"></a>准备阶段
 
 - 如果不想使用 HTTPS，可以[对所有 VMware 服务器禁用 HTTPS 证书验证](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)。
 - 通常，你会使用 vSphere Web 客户端从 Azure 备份服务器计算机上的浏览器连接到 vCenter/ESXi 服务器。 首次执行此操作时，连接并不安全，会显示以下消息。
 - 必须了解 Azure 备份服务器处理备份的方式。
-    - Azure 备份服务器首先将数据备份到本地磁盘存储。 对于保护的数据，Azure 备份服务器将使用存储池，即，Azure 备份服务器用来存储磁盘恢复点的一组磁盘和卷。 该存储池可以是直接附加存储 (DAS)、光纤通道 SAN，或者 iSCSI 存储设备或 SAN。 必须确保为 VMware VM 数据的本地备份提供足够的存储空间。
-    - 然后，Azure 备份服务器会从本地磁盘存储备份到 Azure。
-    - 获取测算所需存储空间量的[帮助](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need)。 该信息适用于 DPM，但也适用于 Azure 备份服务器。
+  - Azure 备份服务器首先将数据备份到本地磁盘存储。 对于保护的数据，Azure 备份服务器将使用存储池，即，Azure 备份服务器用来存储磁盘恢复点的一组磁盘和卷。 该存储池可以是直接附加存储 (DAS)、光纤通道 SAN，或者 iSCSI 存储设备或 SAN。 必须确保为 VMware VM 数据的本地备份提供足够的存储空间。
+  - 然后，Azure 备份服务器会从本地磁盘存储备份到 Azure。
+  - 获取测算所需存储空间量的[帮助](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need)。 该信息适用于 DPM，但也适用于 Azure 备份服务器。
 
 ### <a name="set-up-the-certificate"></a>设置证书
 
@@ -68,24 +67,23 @@ ms.locfileid: "71330192"
    - 根证书文件的扩展名以类似 .0 和 .1 的编号顺序开头。
    - CRL 文件的扩展名以类似 .r0 或 .r1 的序列开头。 CRL 文件与证书关联。
 
-     ![下载的证书](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+         ![Downloaded certificates](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 6. 在 **certs** 文件夹中，右键单击根证书文件并选择“重命名”。 
 
-    ![重命名根证书 ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![重命名根证书](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
 7. 将根证书的扩展名更改为 .crt，并确认。 文件图标将更改为表示根证书的图标。
 
-8. 右键单击根证书，然后在弹出菜单中选择“安装证书”。  
+8. 右键单击根证书，然后在弹出菜单中选择“安装证书”。 
 
 9. 在“证书导入向导”中，选择“本地计算机”作为证书的目标，然后单击“下一步”。    如果系统询问是否要允许对计算机所做的更改，请确认。
 
     ![向导中的“欢迎使用”](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-
 10. 在“证书存储”页上，选择“将所有的证书都放入下列存储”，然后单击“浏览”以选择证书存储。   
 
-     ![证书存储](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+         ![Certificate storage](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 11. 在“选择证书存储”中，选择“受信任的根证书颁发机构”作为证书的目标文件夹，然后单击“确定”。   
 
@@ -95,15 +93,12 @@ ms.locfileid: "71330192"
 
     ![验证证书是否位于正确的文件夹中](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-
 13. 确认导入证书后，登录到 vCenter 服务器以确认连接安全。
-
-
-
 
 ### <a name="disable-https-certificate-validation"></a>禁用 HTTPS 证书验证
 
-如果你在组织中创建了安全边界并且不想要在 VMware 服务器与 Azure 备份服务器计算机之间使用 HTTPS 协议，请按如下所述禁用 HTTPS： 
+如果你在组织中创建了安全边界并且不想要在 VMware 服务器与 Azure 备份服务器计算机之间使用 HTTPS 协议，请按如下所述禁用 HTTPS：
+
 1. 将以下文本复制并粘贴到 .txt 文件中。
 
       ```text
@@ -115,7 +110,6 @@ ms.locfileid: "71330192"
 2. 使用文件名 **DisableSecureAuthentication.reg** 将该文件保存在 Azure 备份服务器计算机上。
 
 3. 双击文件激活注册表项。
-
 
 ## <a name="create-a-vmware-role"></a>创建 VMware 角色
 
@@ -130,7 +124,6 @@ Azure 备份服务器需要一个有权访问 V-Center 服务器/ESXi 主机的�
 
     ![添加角色](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-
 4. 在“创建角色” > “角色名称”中，输入 *BackupAdminRole*。   角色名称可以是所需的任何名称，但应有助于识别该角色。
 
 5. 选择下表中汇总的特权，然后单击“确定”。   新角色随即显示在“角色”窗格中的列表内。 
@@ -138,9 +131,10 @@ Azure 备份服务器需要一个有权访问 V-Center 服务器/ESXi 主机的�
    - 若要选择 VirtualMachine 权限，需跳转几个级别转到父子层次结构。
    - 不需要选择父特权中的所有子特权。
 
-     ![父子权限层次结构](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+             ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>角色权限
+
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace
@@ -149,7 +143,7 @@ Global.SetCustomField |
 Host.Local.CreateVM | Network.Assign
 Network.Assign |
 Resource.AssignVMToPool |
-VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk   
+VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
 VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
 VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
 VirtualMachine.Config.HostUSBDevice |
@@ -161,9 +155,6 @@ VirtualMachine.Provisioning.DiskRandomAccess |
 VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
 VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
 VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
-
-
-
 
 ## <a name="create-a-vmware-account"></a>创建 VMware 帐户
 
@@ -361,18 +352,27 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
   >[!Note]
   >VMWare 6.7 及更高版本已启用 TLS 作为通信协议。
 
-- 按如下所示设置注册表项：  
+- 按如下所示设置注册表项：
 
-  Windows 注册表编辑器版本 5.00
+```text
+ Windows Registry Editor Version 5.00
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
-
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+```
 
 ## <a name="next-steps"></a>后续步骤
 

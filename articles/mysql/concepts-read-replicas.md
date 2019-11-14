@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MySQL 中的只读副本。
-description: 本文介绍 Azure Database for MySQL 的只读副本。
+description: 了解 Azure Database for MySQL 中的只读副本：选择区域、创建副本、连接到副本、监视复制和停止复制。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 09/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: c9115764d4dd2e4aee6928452267283bb094062f
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: 2678283270f3a236597196c45ae2c6024e8dd116
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307870"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142147"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 

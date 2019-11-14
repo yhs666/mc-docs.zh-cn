@@ -13,24 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/06/2019
+origin.date: 10/11/2019
 ms.author: v-yiso
-ms.date: 10/08/2019
-ms.openlocfilehash: 9a9cb21be3219e1731acd2a98909fc56df4e2fff
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: 15e2f7c16e9aabf8ec89291c384e6e2885f096e0
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340976"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425942"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用响应 HTTP 请求
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用接收和响应传入的 HTTPS 调用
 
-使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置的“请求”触发器或“响应”操作，可以创建自动化任务和工作流用于实时接收和响应 HTTP 请求。 例如，可以使用逻辑应用：
+使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置的“请求”触发器或“响应”操作，可以创建自动化任务和工作流用于接收和响应传入的 HTTPS 请求。 例如，可以使用逻辑应用：
 
-* 响应针对本地数据库中的数据发出的 HTTP 请求。
+* 接收并响应对本地数据库中数据的 HTTPS 请求。
 * 发生外部 Webhook 事件时触发工作流。
-* 从一个逻辑应用内部调用另一个逻辑应用。
+* 接收并响应来自另一个逻辑应用的 HTTPS 调用。
 
+> [!NOTE]
+> 对于传入呼叫，请求触发器仅支持  传输层安全 (TLS) 1.2。 传出呼叫继续支持 TLS 1.0、1.1 和 1.2。 如果出现 SSL 握手错误，请确保使用 TLS 1.2。
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -39,9 +41,9 @@ ms.locfileid: "71340976"
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>添加“请求”触发器
+## <a name="add-request-trigger"></a>添加请求触发器
 
-此内置触发器创建可手动调用的终结点，该终结点可以接收传入的 HTTP 请求。 发生此事件时，该触发器将会激发，并运行逻辑应用。 有关此触发器的基础 JSON 定义以及如何调用此触发器的详细信息，请参阅[“请求”触发器类型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)，以及[在 Azure 逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)
+此内置触发器创建可手动调用的 HTTPS 终结点，该终结点只能接收  传入的 HTTPS 请求。 发生此事件时，该触发器将会激发，并运行逻辑应用。 有关此触发器的基础 JSON 定义以及如何调用此触发器的详细信息，请参阅[“请求”触发器类型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)，以及[在 Azure 逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
 
@@ -56,10 +58,10 @@ ms.locfileid: "71340976"
    | 属性名称 | JSON 属性名称 | 必须 | 说明 |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {无} | 是 | 保存逻辑应用后生成的终结点 URL，用于调用逻辑应用 |
-   | **请求正文 JSON 架构** | `schema` | 否 | 描述传入的 HTTP 请求正文中的属性和值的 JSON 架构 |
+   | **请求正文 JSON 架构** | `schema` | 否 | 描述传入请求正文中的属性和值的 JSON 架构 |
    |||||
 
-1. 在“请求正文 JSON 架构”框中，选择性地输入一个用于描述传入请求中的 HTTP 请求正文的 JSON 架构，例如： 
+1. 在“请求正文 JSON 架构”框中，有选择性地输入一个用于描述传入请求中的正文的 JSON 架构，例如： 
 
    ![示例 JSON 架构](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -194,7 +196,7 @@ ms.locfileid: "71340976"
 
 ## <a name="add-a-response-action"></a>添加“响应”操作
 
-可以使用“响应”操作向传入的 HTTP 请求发送包含有效负载（数据）的响应，但只能在 HTTP 请求触发的逻辑应用中执行此操作。 可以在工作流中的任意位置添加“响应”操作。 有关此触发器的基础 JSON 定义的详细信息，请参阅[“响应”操作类型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
+可以使用“响应”操作以有效负载（数据）响应传入的 HTTPS 请求，但只能在由 HTTPS 请求触发的逻辑应用中响应。 可以在工作流中的任意位置添加“响应”操作。 有关此触发器的基础 JSON 定义的详细信息，请参阅[“响应”操作类型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
 
 逻辑应用只会使传入的请求保持打开一分钟。 假设逻辑应用工作流包含“响应”操作，如果在这段时间后逻辑应用未返回响应，则逻辑应用会向调用方返回 `504 GATEWAY TIMEOUT`。 否则，如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 响应。
 
@@ -228,7 +230,7 @@ ms.locfileid: "71340976"
 
    | 属性名称 | JSON 属性名称 | 必须 | 说明 |
    |---------------|--------------------|----------|-------------|
-   | **状态代码** | `statusCode` | 是 | 要在响应中返回的 HTTP 状态代码 |
+   | **状态代码** | `statusCode` | 是 | 要在响应中返回的状态代码 |
    | **标头** | `headers` | 否 | 一个 JSON 对象，描述要包含在响应中的一个或多个标头 |
    | **正文** | `body` | 否 | 响应正文 |
    |||||

@@ -14,12 +14,12 @@ origin.date: 05/28/2019
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f8c21a8fe017fb6af27203d7626ca70e0f0d5a69
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: a016799ae7d327850d05c97505a941f70ae0b8f9
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156293"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041079"
 ---
 # <a name="use-an-app-service-environment"></a>使用应用服务环境 #
 
@@ -30,12 +30,7 @@ Azure 应用服务环境指将 Azure 应用服务部署到客户 Azure 虚拟网
 - **数据库**：数据库保存用于定义环境的信息。
 - **存储**：存储用于托管客户发布的应用。
 
-> [!NOTE]
-> 应用服务环境有两个版本：ASEv1 和 ASEv2。 在 ASEv1 中，使用资源之前必须先管理资源。 若要了解如何配置和管理 ASEv1，请参阅[配置应用服务环境 v1][ConfigureASEv1]。 本文的余下内容重点介绍 ASEv2。
->
->
-
-可以使用外部或内部 VIP 来部署 ASE（ASEv1 和 ASEv2）进行应用访问。 使用外部 VIP 的部署通常称为外部 ASE。 内部版本称为 ILB ASE，因为它使用内部负载均衡器 (ILB)。 若要详细了解 ILB ASE，请参阅[创建和使用 ILB ASE][MakeILBASE]。
+可以使用外部或内部 VIP 来部署 ASE 以进行应用访问。 使用外部 VIP 的部署通常称为外部 ASE。 内部版本称为 ILB ASE，因为它使用内部负载均衡器 (ILB)。 若要详细了解 ILB ASE，请参阅[创建和使用 ILB ASE][MakeILBASE]。
 
 ## <a name="create-an-app-in-an-ase"></a>在 ASE 中创建应用 ##
 
@@ -44,7 +39,7 @@ Azure 应用服务环境指将 Azure 应用服务部署到客户 Azure 虚拟网
 - 不要选择某个地理位置来部署应用，而应该选择 ASE 作为位置。
 - 在 ASE 中创建的所有应用服务计划必须在“隔离”定价层中。
 
-如果没有 ASE，可以根据[创建应用服务环境][MakeExternalASE]中的说明创建一个。
+如果没有 ASE，可以按照[创建应用服务环境][MakeExternalASE] 中的说明创建一个。
 
 在 ASE 中创建应用：
 
@@ -82,7 +77,7 @@ Azure 应用服务环境指将 Azure 应用服务部署到客户 Azure 虚拟网
 
 每个应用服务应用在应用服务计划中运行。 容器模型是环境保存应用服务计划，应用服务计划保存应用。 缩放某个应用时，会缩放应用服务计划，因此，会缩放同一计划中的所有应用。
 
-在 ASEv2 中缩放应用服务计划时，会自动添加所需的基础结构。 添加基础结构时，缩放操作存在一定的时间延迟。 在 ASEv1 中，只有在添加所需的基础结构之后，才能创建或扩展应用服务计划。 
+在 ASEv2 中缩放应用服务计划时，会自动添加所需的基础结构。 添加基础结构时，缩放操作存在一定的时间延迟。
 
 在多租户应用服务中，缩放通常是即时发生的，因为有现成可用的资源池用于支持。 ASE 中没有此类缓冲区，而会根据需要分配资源。
 
@@ -92,13 +87,13 @@ Azure 应用服务环境指将 Azure 应用服务部署到客户 Azure 虚拟网
 
 应用服务能够向应用分配专用的 IP 地址。 此功能在配置基于 IP 的 SSL 之后可用。 但是，ASE 中有一个明显的差异。 无法添加更多的 IP 地址用于 ILB ASE 中基于 IP 的 SSL。
 
-在 ASEv1 中，需要先分配 IP 地址作为资源，然后才能使用这些 IP 地址。 在 ASEv2 中，可以从应用使用 IP 地址，就像在多租户应用服务中一样。 ASEv2 中始终有一个备用地址，最多可包含 30 个 IP 地址。 每次使用一个地址时，会添加另一个地址，因此，始终有一个现成可用的地址。 分配另一个 IP 地址会产生一定的时间延迟，这会给快速连续添加 IP 地址带来阻碍。
+在 ASEv2 中，可以从应用使用 IP 地址，就像在多租户应用服务中一样。 ASEv2 中始终有一个备用地址，最多可包含 30 个 IP 地址。 每次使用一个地址时，会添加另一个地址，因此，始终有一个现成可用的地址。 分配另一个 IP 地址会产生一定的时间延迟，这会给快速连续添加 IP 地址带来阻碍。
 
 ## <a name="front-end-scaling"></a>前端缩放 ##
 
 在 ASEv2 中扩展应用服务计划时，会自动添加工作线程来支持这些计划。 创建的每个 ASE 包含两个前端。 此外，前端还会自动扩展，扩展的速率是针对应用服务计划中的每 15 个实例扩展一个前端。 例如，如果有 15 个实例，则会获得 3 个前端。 如果扩展到 30 个实例，则会获得 4 个前端，依此类推。
 
-在大多数情况下，前端数目应该足够。 但是，可以按更快的速率扩展。 可以将比率改到最小，即针对每 5 个实例扩展一个前端。 更改比率不会产生费用。 有关详细信息，请参阅 [Azure 应用服务定价][Pricing]。
+在大多数情况下，前端数目应该足够。 但是，可以按更快的速率扩展。 可以将比率改到最小，即针对每 5 个实例扩展一个前端。 更改比率不会产生费用。 有关详细信息，请参阅 [Azure 应用服务定价][定价]。
 
 前端资源是 ASE 的 HTTP/HTTPS 终结点。 使用默认前端配置时，每个前端的内存使用率一致地保持在大约 60%。 客户工作负荷不会在前端上运行。 在缩放方面，前端的一个关键因素是 CPU（主要取决于 HTTPS 流量）。
 
@@ -131,7 +126,7 @@ URL contoso.scm.external-ase.p.chinacloudsites.cn 用于访问 Kudu 控制台，
 
 使用外部 ASE 时，这些发布选项的行为都是相同的。 有关详细信息，请参阅 [Azure 应用服务中的部署][AppDeploy]。 
 
-在发布方面，主要差别在于 ILB ASE。 使用 ILB ASE 时，只能通过 ILB 访问所有发布终结点。 ILB 位于虚拟网络中 ASE 子网内的专用 IP 上。 如果无法通过网络访问 ILB，则无法在该 ASE 上发布任何应用。 根据[创建和使用 ILB ASE][MakeILBASE] 中所述，需要在系统中配置应用的 DNS。 这包括 SCM 终结点。 如果未正确定义 DNS，则无法发布。 IDE 也需要能够通过网络访问 ILB 才能直接在 ASE 中发布应用。
+在发布方面，主要差别在于 ILB ASE。 使用 ILB ASE 时，只能通过 ILB 访问所有发布终结点。 ILB 位于虚拟网络中 ASE 子网内的专用 IP 上。 如果无法通过网络访问 ILB，则无法在该 ASE 上发布任何应用。 按照[创建和使用 ILB ASE][MakeILBASE] 中所述，需要在系统中配置应用的 DNS。 这包括 SCM 终结点。 如果未正确定义 DNS，则无法发布。 IDE 也需要能够通过网络访问 ILB 才能直接在 ASE 中发布应用。
 
 现成的基于 Internet 的 CI 系统（例如 GitHub 和 Azure DevOps）不支持 ILB ASE，因为发布终结点不可访问 Internet。 对于 Azure DevOps，可以通过在可访问 ILB 的内部网络中安装自托管版的代理来解决此问题。 或者，可以利用某个使用提取模型的 CI 系统，例如 Dropbox。
 
@@ -149,7 +144,7 @@ ILB ASE 中应用的发布终结点使用创建该 ILB ASE 所用的域。 可�
 
 如果将前端的大小调整为 2 个核心，但不调整比率，则需要为额外的核心付费。  对于使用 2 个前端创建的 ASE，即使低于自动缩放阈值，也需在将大小增加到 2 个核心的前端时为 2 个额外的核心付费。
 
-有关详细信息，请参阅 [Azure 应用服务定价][Pricing]。
+有关详细信息，请参阅 [Azure 应用服务定价][定价]。
 
 ## <a name="delete-an-ase"></a>删除 ASE ##
 
@@ -168,19 +163,6 @@ ILB ASE 中应用的发布终结点使用创建该 ILB ASE 所用的域。 可�
 
 
 <!--Links-->
-[Intro]: ./intro.md
-[MakeExternalASE]: ./create-external-ase.md
-[MakeASEfromTemplate]: ./create-from-template.md
-[MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[Functions]: ../../azure-functions/index.yml
-[Pricing]: https://www.azure.cn/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 <!-- [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md -->
 <!-- [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/ -->
-[AppDeploy]: ../deploy-local-git.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md [AppDeploy]: ../deploy-local-git.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

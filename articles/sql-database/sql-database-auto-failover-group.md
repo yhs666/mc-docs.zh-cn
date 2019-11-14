@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
-origin.date: 09/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 67d93dd7dda63433c7da0072dbee2e4a4fc7994b
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+origin.date: 10/09/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: e4bdd1f0055b727dc39d491028183dee5e6b8507
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262955"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041157"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
@@ -174,9 +174,6 @@ ms.locfileid: "71262955"
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>有关将故障转移组与托管实例配合使用的最佳做法
 
-> [!IMPORTANT]
-> 托管实例的自动故障转移组功能以公共预览版提供。
-
 自动故障转移组必须在主要实例上进行配置，需将其连接到不同 Azure 区域中的辅助实例。  实例中的所有数据库将复制到辅助实例。 
 
 下图演示了使用托管实例和自动故障转移组的异地冗余云应用程序的典型配置。
@@ -308,9 +305,6 @@ ms.locfileid: "71262955"
 > [!NOTE]
 > 如果辅助数据库是作为故障转移组配置的一个部分创建的，则我们不建议对辅助数据库进行降级。 这是为了确保激活故障转移后，数据层有足够的容量来处理常规工作负荷。
 
-> [!IMPORTANT]
-> 目前不支持升级或降级作为故障转移组成员的托管实例。
-
 ## <a name="preventing-the-loss-of-critical-data"></a>防止丢失关键数据
 
 由于广域网的延迟时间较长，连续复制使用了异步复制机制。 在发生故障时，异步复制会不可避免地丢失某些数据。 但是，某些应用程序可能要求不能有数据丢失。 为了保护这些关键更新，应用程序开发人员可以在提交事务后立即调用 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系统过程。 调用 `sp_wait_for_database_copy_sync` 会阻止调用线程，直到将上次提交的事务传输到辅助数据库。 但是，它不会等待传输的事务提交到辅助数据库进行重播。 `sp_wait_for_database_copy_sync` 的范围限定为特定的连续复制链接。 对主数据库具有连接权限的任何用户都可以调用此过程。
@@ -366,7 +360,7 @@ ms.locfileid: "71262955"
 | [更新故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | 更新某个故障转移组。 |
 |  | |
 
-### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API：使用托管实例管理故障转移组（预览版）
+### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API：使用托管实例管理故障转移组
 
 | API | 说明 |
 | --- | --- |

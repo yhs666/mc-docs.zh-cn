@@ -14,12 +14,12 @@ origin.date: 08/05/2019
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 7f6e92a39b7ed8f70c1b45d8d703212bba922bf4
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 98d1a9c8ad82454f82cca056e1239c1f0aabb79d
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156319"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041129"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>创建和使用内部负载均衡器应用服务环境 
 
@@ -144,22 +144,7 @@ ILB ASE 中应用的发布终结点使用创建该 ILB ASE 所用的域。 此�
 [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
-[Intro]: ./intro.md
-[MakeExternalASE]: ./create-external-ase.md
-[MakeASEfromTemplate]: ./create-from-template.md
-[MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
-[Functions]: ../../azure-functions/index.yml
-[Pricing]: https://www.azure.cn/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 <!-- [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md -->
 <!-- [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/ -->
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [webapps]: ../overview.md [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md [customdomain]: ../app-service-web-tutorial-custom-domain.md
 <!-- [linuxapp]: ../containers/app-service-linux-intro.md -->
