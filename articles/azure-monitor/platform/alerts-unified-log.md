@@ -9,12 +9,12 @@ origin.date: 5/31/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 459bd540982fd9c40af36a6c6f8d1481043dcb9b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 1778eaf46e2fb389e19693b57942ebb98ad5a802
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737335"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970949"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor 中的日志警报
 本文提供日志警报的详细信息，该警报是 [Azure 警报](../platform/alerts-overview.md)中支持的警报类型之一，允许用户使用 Azure 分析平台作为警报的基础。
@@ -123,16 +123,25 @@ ms.locfileid: "70737335"
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>日志搜索警报规则 - 触发和状态
 
-日志搜索警报规则在特定逻辑上运行，该逻辑是由用户根据配置和所使用的自定义分析查询断言的。 由于监视逻辑（包括警报规则的具体触发条件或原因）封装在分析查询中，每个日志警报规则可能有所不同。 当达到或超过日志搜索警报规则的阈值条件时，Azure 警报包含的有关具体根本原因（或）情景的信息很少。 因此，日志警报被称为无状态警报。 只要所提供的自定义分析查询的结果符合警报条件，日志警报规则就会保持触发状态。 如果每个警报未得到解决，监视失败的确切根本原因的逻辑将屏蔽在用户提供的分析查询内部。 目前，Azure Monitor 警报不提供任何机制来最终推断所要解决的根本原因。
+日志搜索警报规则仅基于内置到查询中的逻辑。 警报系统没有查询所隐含的系统状态、意图或根本原因的任何其他上下文。 因此，日志警报被称为无状态警报。 条件在每次运行时的计算结果为“TRUE”或“FALSE”。  警报条件的计算结果一旦为“TRUE”就会触发警报，不管该警报以前是否已触发。    
 
-让我们通过一个实际示例来了解上述原理。 假设我们有一条名为 *Contoso-Log-Alert* 的日志警报规则，该规则符合[针对“结果数”类型的日志警报提供的示例](#example-of-number-of-records-type-log-alert)中的配置 - 其中，自定义日志查询旨在查找日志中的 500 结果代码。
+让我们通过一个实际示例来实际了解该行为。 假设我们有一条名为 *Contoso-Log-Alert* 的日志警报规则，该规则的配置如[针对“结果数”类型的日志警报提供的示例](#example-of-number-of-records-type-log-alert)中所示。 条件是一个自定义警报查询，旨在查找日志中的 500 结果代码。 如果在日志中找到一个或多个 500 结果代码，则警报的条件为 true。 
 
-- 在下午 1:05，Azure 警报执行了 Contoso-Log-Alert，日志搜索结果生成了 0 条包含结果代码 500 的记录。 由于 0 低于阈值，因此不会激发警报。
-- 下一次迭代发生在下午 1:10，Azure 警报执行了 Contoso-Log-Alert，日志搜索结果提供了 5 条包含结果代码 500 的记录。 由于 5 超出了阈值，因此激发了警报，同时触发了关联的操作。
-- 在下午 1:15，Azure 警报执行了 Contoso-Log-Alert，日志搜索结果提供了 2 条包含 500 结果代码的记录。 由于 2 超出了阈值，因此激发了警报，同时触发了关联的操作。
-- 现在，下一次迭代发生在下午 1:20，Azure 警报执行了 Contoso-Log-Alert，日志搜索结果再次提供了 0 条包含 500 结果代码的记录。 由于 0 低于阈值，因此不会激发警报。
+Azure 警报系统按下面的每个时间间隔评估 *Contoso-Log-Alert* 的条件。
 
-但在上面列出的案例中，在下午 1:15，Azure 警报无法确定在 1:10 出现的根本问题是否仍然存在，以及是否存在新的错误。 由于用户提供的查询可能考虑到了以前的记录 - Azure 警报可以确定这一点。 由于警报逻辑封装在警报查询中 - 因此，在下午 1:15 出现的 2 条包含 500 结果代码的记录不一定已在下午 1:10 出现。 因此，为谨慎起见，在下午 1:15 执行 Contoso-Log-Alert 时，再次触发了已配置的操作。 在下午 1:20，当出现 0 条包含 500 结果代码的记录时，Azure 警报无法确定在下午 1:10 和 1:15 出现 500 结果代码的原因现在是否已得到解决，而 Azure Monitor 警报可以自信地推断，500 错误问题不会再次出于相同的原因发生。 因此 Contoso-Log-Alert 的状态不会在 Azure 警报仪表板中更改为“已解决”，并且/或者不会发出通知来指出警报已解决。 了解分析查询中嵌入逻辑的确切条件或原因的用户可以根据需要[将警报标记为已关闭](alerts-managing-alert-states.md)。
+
+| 时间    | 日志搜索查询返回的记录数 | 日志条件评估 | 结果 
+| ------- | ----------| ----------| ------- 
+| 下午 1:05 | 0 个记录 | 0 不 > 0，因此为 FALSE |  警报不触发。 没有调用任何操作。
+| 下午 1:10 | 2 个记录 | 2 > 0，因此为 TRUE  | 警报触发，操作组被调用。 警报状态为 ACTIVE。
+| 下午 1:15 | 5 个记录 | 5 > 0，因此为 TRUE  | 警报触发，操作组被调用。 警报状态为 ACTIVE。
+| 下午 1:20 | 0 个记录 | 0 不 > 0，因此为 FALSE |  警报不触发。 没有调用任何操作。 警报状态仍然为 ACTIVE。
+
+使用上面的情况作为示例：
+
+在下午 1:15，Azure 警报无法确定在 1:10 出现的根本问题是否仍然存在，以及记录是存在新的故障，还是下午 1:10 出现的旧故障的重复。 用户提供的查询可能考虑到了（也可能未考虑到）以前的记录，但系统不知道。 Azure 警报系统必须谨慎，因此在下午 1:15 再次触发警报和关联的操作。 
+
+在下午 1:20，当出现 0 条包含 500 结果代码的记录时，Azure 警报无法确定在下午 1:10 和 1:15 出现 500 结果代码的原因现在是否已得到解决。 它不知道 500 错误问题是否会再次出于相同的原因而发生。 因此 *Contoso-Log-Alert* 的状态不会在 Azure 警报仪表板中更改为“已解决”，并且/或者不会发出表明警报已解决的通知。  只有你了解分析查询中嵌入逻辑的确切条件或原因，因此可以根据需要[将警报标记为已关闭](alerts-managing-alert-states.md)。
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>日志警报的定价和计费
 
@@ -141,7 +150,7 @@ ms.locfileid: "70737335"
 - Application Insights 上的日志警报显示确切的警报名称以及资源组和警报属性
 - 如果是使用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 创建的，则 Log Analytics 上的日志警报显示确切的警报名称以及资源组和警报属性
 
-
+[旧 Log Analytics API](../../azure-monitor/platform/api-alerts.md) 将警报操作和计划作为 Log Analytics 保存的搜索的一部分，而不是相应 [Azure 资源](../../azure-resource-manager/resource-group-overview.md)的一部分。 因此，为了对使用 Azure 门户（**未**[切换到新的 API](../../azure-monitor/platform/alerts-log-api-switch.md)）或通过[旧 Log Analytics API](../../azure-monitor/platform/api-alerts.md) 为 Log Analytics 创建的此类旧日志警报启用计费 - `microsoft.insights/scheduledqueryrules` 上会创建用于在 Azure 上计费的隐藏伪警报规则。 在 `microsoft.insights/scheduledqueryrules` 上创建的用于计费的隐藏伪警报规则将随资源组和警报属性一起显示，格式为 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`。
 
 > [!NOTE]
 > 如果存在无效字符（例如 `<, >, %, &, \, ?, /`），则它们在隐藏的伪警报规则名称以及 Azure 帐单中会被替换为 `_`。

@@ -15,13 +15,13 @@ ms.topic: article
 ms.custom: mvc
 origin.date: 05/07/2019
 ms.author: v-yiso
-ms.date: 10/08/2019
-ms.openlocfilehash: 14797f6c206f8412050e1ff4603ceb4e102d218b
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: c0c9c4378fa8d82d43e44a469e10067813dc61d1
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340861"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426094"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
@@ -111,26 +111,51 @@ ms.locfileid: "71340861"
 
 ## <a name="download-from-azure"></a>从 Azure 下载
 
-可以从 [Azure 门户](https://portal.azure.cn)下载逻辑应用，并将其保存为 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板。 然后，可以在本地使用 Visual Studio 编辑模板，并根据不同的部署环境自定义逻辑应用。 下载逻辑应用会在[资源管理器模板](../azure-resource-manager/template-deployment-overview.md)中将这些逻辑应用的定义（也使用 JavaScript 对象表示法 (JSON)）*参数化*。
+可以从 [Azure 门户](https://portal.azure.com)下载逻辑应用，并将其保存为 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板。 然后，可以在本地使用 Visual Studio 编辑模板，并根据不同的部署环境自定义逻辑应用。  下载逻辑应用会在[资源管理器模板](../azure-resource-manager/template-deployment-overview.md)中将这些逻辑应用的定义（也使用 JavaScript 对象表示法 (JSON)）*参数化*。
 
-1. 在 Visual Studio 中打开 Cloud Explorer，然后找到并选择要从 Azure 下载的逻辑应用。
+1. 在 Visual Studio 中打开 Cloud Explorer。 找到并选择要从 Azure 下载的逻辑应用。
 
-2. 在该应用的快捷菜单中，选择“使用逻辑应用编辑器打开”  。
+1. 在该应用的快捷菜单中，选择“使用逻辑应用编辑器打开”  。
 
    > [!TIP]
    > 如果你的 Visual Studio 2019 中没有此命令，请检查是否安装了 Visual Studio 的最新更新。
 
-   逻辑应用设计器随即打开并显示该逻辑应用。 
-   若要查看逻辑应用的基础定义和结构，请在设计器的底部选择“代码视图”。  
+   逻辑应用设计器随即打开并显示该逻辑应用。 若要查看逻辑应用的基础定义和结构，请在设计器的底部选择“代码视图”。 
 
-3. 在设计器工具栏上选择“下载”  。
+1. 在设计器工具栏上选择“下载”。 
 
    ![选择“下载”](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
-4. 当系统提示输入位置时，请浏览到该位置，并在资源管理器模板中以 JSON (.json) 文件格式保存逻辑应用的定义。 
+1. 当系统提示输入位置时，请浏览到该位置，并在资源管理器模板中以 JSON (.json) 文件格式保存逻辑应用的定义。
 
-逻辑应用定义显示在资源管理器模板中的 `resources` 子节内。 现在，可以使用 Visual Studio 来编辑逻辑应用定义和资源管理器模板。 还可以将模板作为 [Azure 资源组项目](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)添加到 Visual Studio 解决方案中。 了解 [Visual Studio 中逻辑应用的 Azure 资源组项目](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。 
+   逻辑应用定义显示在资源管理器模板中的 `resources` 子节内。 现在，可以使用 Visual Studio 来编辑逻辑应用定义和资源管理器模板。 还可以将模板作为 [Azure 资源组项目](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)添加到 Visual Studio 解决方案中。 了解 [Visual Studio 中逻辑应用的 Azure 资源组项目](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>关联到集成帐户
+
+若要针对企业到企业 (B2B) 企业集成方案构建逻辑应用，可以将逻辑应用关联到以前创建的[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，该帐户与逻辑应用存在于同一区域。 集成帐户包含 B2B 项目（例如贸易合作伙伴、协议、架构和映射），允许逻辑应用使用 B2B 连接器进行 XML 验证和平面文件编码或解码。 虽然可以[使用 Azure 门户创建此关联](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)，但也可以在满足[先决条件](#requirements)后使用 Visual Studio，而逻辑应用则以 JSON (.json) 文件形式存在于 [Azure 资源组项目](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)中。 了解 [Visual Studio 中逻辑应用的 Azure 资源组项目](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project)。
+
+1. 在 Visual Studio 中，打开逻辑应用所在的 Azure 资源组项目。
+
+1. 在解决方案资源管理器中打开 **<logic-app-name>.json** 文件的快捷菜单，然后选择“使用逻辑应用设计器打开”。  （键盘：Ctrl+L）
+
+   ![使用逻辑应用设计器打开逻辑应用的 .json 文件](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > 如果你的 Visual Studio 2019 中没有此命令，请检查是否安装了 Visual Studio 的最新更新。
+
+1. 为了确保逻辑应用设计器有焦点，请选择设计器的选项卡或图面，使“属性”窗格显示逻辑应用的“集成帐户”属性。 
+
+   ![“属性”窗格显示“集成帐户”属性](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. 打开“集成帐户”列表，选择要关联到逻辑应用的集成帐户，例如： 
+
+   ![打开“集成帐户”属性列表](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. 完成后，请记得保存 Visual Studio 解决方案。
+
+在 Visual Studio 中设置“集成帐户”属性并将逻辑应用另存为 Azure 资源管理器模板时，该模板也包含一个针对所选集成帐户的参数声明。  有关模板参数和逻辑应用的详细信息，请参阅[概述：自动完成逻辑应用部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)。
 
 <a name="refresh"></a>
 

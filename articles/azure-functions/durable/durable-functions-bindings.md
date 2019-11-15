@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 09/04/2019
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 96dbbc3b04937130064cbc854039cbade1c1abea
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 16dcabf1d2db8cf820b03174d7e23ed08d9dfb4b
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673553"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034433"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 的绑定
 
@@ -374,62 +374,62 @@ module.exports = async function (context) {
 
 每个实体函数具有参数类型 `IDurableEntityContext`，其中包含以下成员：
 
-* **EntityName**：获取当前正在执行的实体的名称。
-* **EntityKey**：获取当前正在执行的实体的键。
-* **EntityId**：获取当前正在执行的实体的 ID。
-* **OperationName**：获取当前操作的名称。
-* **IsNewlyConstructed**：如果在调用该操作之前该实体不存在，则返回 `true`。
-* **GetState\<TState>()** ：获取实体的当前状态。 `TState` 参数必须是基元或 JSON 可序列化类型。
-* **SetState(object)** ：更新实体的状态。 `object` 参数必须是基元或 JSON 可序列化对象。
-* **GetInput\<TInput>()** ：获取当前操作的输入。 `TInput` 类型参数必须代表基元或 JSON 可序列化类型。
-* **Return(object)** ：将值返回到调用该操作的业务流程。 `object` 参数必须是基元或 JSON 可序列化对象。
-* **DestructOnExit()** ：完成当前操作后删除实体。
-* **SignalEntity(EntityId, string, object)** ：向实体发送单向消息。 `object` 参数必须是基元或 JSON 可序列化对象。
+* **EntityName**：当前正在执行的实体的名称。
+* **EntityKey**：当前正在执行的实体的键。
+* **EntityId**：当前正在执行的实体的 ID。
+* **OperationName**：当前操作的名称。
+* **HasState**：实体是否存在，即，是否存在某种状态。 
+* **GetState\<TState>()** ：获取实体的当前状态。 如果它不存在，则会创建它并将它初始化为 `default<TState>`。 `TState` 参数必须是基元或 JSON 可序列化类型。 
+* **GetState\<TState>(initfunction)** ：获取实体的当前状态。 如果它不存在，则会通过调用提供的 `initfunction` 参数来创建它。 `TState` 参数必须是基元或 JSON 可序列化类型。 
+* **SetState(arg)** ：创建或更新实体的状态。 `arg` 参数必须是 JSON 可序列化对象或基元。
+* **DeleteState()** ：删除实体的状态。 
+* **GetInput\<TInput>()** ：获取当前操作的输入。 `TInput` 类型参数必须是基元或 JSON 可序列化类型。
+* **Return(arg)** ：将值返回到调用该操作的业务流程。 `arg` 参数必须是基元或 JSON 可序列化对象。
+* **SignalEntity(EntityId, operation, input)** ：向实体发送单向消息。 `operation` 参数必须是非 null 字符串，`input` 参数必须是基元或 JSON 可序列化对象。
+* **CreateNewOrchestration(orchestratorFunctionName, input)** ：启动新的业务流程。 `input` 参数必须是基元或 JSON 可序列化对象。
 
-使用基于类的实体编程模式时，可以使用 `Entity.Current` 线程静态属性来引用 `IDurableEntityContext` 对象。
+传递给实体函数的 `IDurableEntityContext` 对象可以使用 `Entity.Current` 异步本地属性进行访问。 在使用基于类的编程模型时，此方法很方便。
 
-### <a name="trigger-sample---entity-function"></a>触发器示例 - 实体函数
+### <a name="trigger-sample-function-based-syntax"></a>触发器示例（基于函数的语法）
 
-以下代码是作为标准函数实现的简单 *Counter* 实体示例。 该函数定义三个操作：`add`、`reset` 和 `get`，其中的每个操作针对整数状态值 `currentValue` 运行。 
+以下代码是作为持久函数实现的简单 *Counter* 实体示例。 此函数定义三个操作：`add`、`reset` 和 `get`，每个操作针对整数状态运行。
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-### <a name="trigger-sample---entity-class"></a>触发器示例 - 实体类
+有关基于函数的语法及其用法的详细信息，请参阅[基于函数的语法](durable-functions-dotnet-entities.md#function-based-syntax)。
 
-以下示例是使用 .NET 类和方法对前面的 `Counter` 实体的等效实现。
+### <a name="trigger-sample-class-based-syntax"></a>触发器示例（基于类的语法）
+
+以下示例是使用类和方法的 `Counter` 实体的等效实现。
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -438,10 +438,14 @@ public class Counter
 }
 ```
 
+此实体的状态是 `Counter` 类型的对象，该对象包含存储计数器当前值的字段。 为了将此对象持久保存在存储中，[Json.NET](https://www.newtonsoft.com/json) 库会将其序列化和反序列化。 
+
+有关基于类的语法及其用法的详细信息，请参阅[定义实体类](durable-functions-dotnet-entities.md#defining-entity-classes)。
+
 > [!NOTE]
 > 使用实体类时，必须将具有 `[FunctionName]` 属性的函数入口点方法声明为 `static`。  非静态入口点方法可能会导致多次进行对象初始化，并可能导致其他不确定的行为。
 
-实体类使用特殊的机制来与绑定和 .NET 依赖项注入交互。 有关详细信息，请参阅[持久实体](durable-functions-entities.md)一文。
+实体类使用特殊的机制来与绑定和 .NET 依赖项注入交互。 有关详细信息，请参阅[实体构造](durable-functions-dotnet-entities.md#entity-construction)。
 
 ## <a name="entity-client"></a>实体客户端
 
@@ -474,17 +478,15 @@ public class Counter
 
 在 .NET 函数中，通常会绑定到 `IDurableEntityClient`，后者可提供对持久实体支持的所有客户端 API 的完全访问权限。 也可以绑定到 `IDurableClient` 接口，该接口提供对实体和业务流程的客户端 API 的访问。 客户端对象上的 API 包括：
 
-* **ReadEntityStateAsync\<T>** ：读取实体的状态。
+* **ReadEntityStateAsync\<T>** ：读取实体的状态。 它会返回响应，指出目标实体是否存在，以及在存在的情况下，其状态是什么。
 * **SignalEntityAsync**：将单向消息发送到实体，并等待消息排队。
-* **SignalEntityAsync\<TEntityInterface>** ：与 `SignalEntityAsync` 相同，但使用生成的 `TEntityInterface` 类型的代理对象。
-* **CreateEntityProxy\<TEntityInterface>** ：动态生成类型为 `TEntityInterface` 的动态代理，用于对实体进行类型安全的调用。
+
+不需在发送信号之前创建目标实体 - 实体状态可以在处理信号的实体函数内部创建。
 
 > [!NOTE]
-> 必须知道，前面的“信号”操作都是异步的。 无法调用某个实体函数并从客户端获取返回值。 同样，在实体开始执行操作之前，`SignalEntityAsync` 可能会返回。 只有业务流程协调程序函数可以同步调用实体函数并处理返回值。
+> 必须知道，从客户端发送的“信号”会直接排队，稍后以异步方式对其进行处理。 具体说来，`SignalEntityAsync` 通常会在实体开始操作之前返回，因此不可能获取返回值或观察异常。 如果需要更强的保证（例如，在使用工作流的情况下），则应使用*业务流程协调程序函数*，此类函数会等待实体操作完成，可以处理返回值并观察异常。
 
-`SignalEntityAsync` API 需要将实体的唯一标识符指定为 `EntityId`。 这些 API 还可以选择性地使用实体操作的名称作为 `string`，并使用操作的有效负载作为 JSON 可序列化的 `object`。 如果目标实体不存在，将使用指定的实体 ID 自动创建目标实体。
-
-### <a name="client-sample-untyped"></a>客户端示例（非类型化）
+### <a name="example-client-signals-entity-directly"></a>示例：客户端直接向实体发出信号
 
 下面是一个调用“计数器”实体的示例队列触发的函数。
 
@@ -501,16 +503,16 @@ public static Task Run(
 }
 ```
 
-### <a name="client-sample-typed"></a>客户端示例（类型化）
+### <a name="example-client-signals-entity-via-interface"></a>示例：客户端同接口向实体发出信号
 
-可以生成代理对象来对实体操作进行类型安全的访问。 若要生成类型安全的代理，实体类型必须实现一个接口。 例如，假设前面所述的 `Counter` 实体实现 `ICounter` 接口，定义如下：
+我们建议尽量[通过接口访问实体](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)，因为这种方法提供更多的类型检查。 例如，假设前面所述的 `Counter` 实体实现 `ICounter` 接口，定义如下：
 
 ```csharp
 public interface ICounter
 {
     void Add(int amount);
     void Reset();
-    int Get();
+    Task<int> Get();
 }
 
 public class Counter : ICounter
@@ -519,7 +521,7 @@ public class Counter : ICounter
 }
 ```
 
-然后，客户端代码可以使用 `SignalEntityAsync<TEntityInterface>` 并将 `ICounter` 接口指定为类型参数，以生成类型安全的代理。 以下代码示例演示了类型安全的代理的这种用法：
+然后，客户端代码可以使用 `SignalEntityAsync<ICounter>`，以生成类型安全的代理：
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -533,23 +535,14 @@ public static async Task AddValueClient(
 }
 ```
 
-在以上示例中，`proxy` 参数是动态生成的 `ICounter` 实例，它在内部将 `Add` 调用转换为等效的（非类型化）`SignalEntityAsync` 调用。
-
-有几个用于定义实体接口的规则：
-
-* `SignalEntityAsync<TEntityInterface>` 中的类型参数 `TEntityInterface` 必须是接口。
-* 实体接口只能定义方法。
-* 实体接口方法不能定义多个参数。
-* 实体接口方法必须返回 `void`、`Task` 或 `Task<T>`，其中 `T` 是某个返回值。
-* 实体接口在同一程序集中必须只有一个具体的实现类（即实体类）。
-
-如果违反上述任何规则，在运行时将引发 `InvalidOperationException`。 异常消息将会解释违反了哪个规则。
+`proxy` 参数是动态生成的 `ICounter` 实例，它在内部将 `Add` 调用转换为等效的（非类型化）`SignalEntityAsync` 调用。
 
 > [!NOTE]
 > `SignalEntityAsync` API 表示单向操作。 如果实体接口返回 `Task<T>`，则 `T` 参数的值始终为 null 或 `default`。
 
-<a name="host-json"></a>
+具体说来，向 `Get` 操作发出信号没有意义，因为这不会返回任何值。 客户端可以改用 `ReadStateAsync` 来直接访问计数器状态，或者可以启动一个调用 `Get` 操作的业务流程协调程序函数。 
 
+<a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 设置
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]

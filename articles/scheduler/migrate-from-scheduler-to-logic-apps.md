@@ -8,41 +8,45 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: klam, LADocs
 ms.topic: article
-origin.date: 09/20/2018
-ms.date: 08/26/2018
-ms.openlocfilehash: 7da903cf4bb209048eaa9c686584d2b5509f9e6a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+origin.date: 09/23/2018
+ms.date: 11/04/2019
+ms.openlocfilehash: d5e9b2ec1ed5daf80e7c2b7ebeba202e1fe7143a
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993574"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416286"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>将 Azure 计划程序作业迁移到 Azure 逻辑应用
 
 > [!IMPORTANT]
-> Azure 逻辑应用将替换即将停用的 Azure 计划程序。 若要安排作业，请按照本文说明迁移到 Azure 逻辑应用。
+> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换[即将停用](#retire-date)的 Azure 计划程序。 若要继续使用在计划程序中设置的作业，请尽快按本文的要求迁移到 Azure 逻辑应用。 
 
 本文介绍如何通过使用 Azure 逻辑应用而非 Azure 计划程序来创建自动化工作流，从而安排一次性作业和重复作业。 使用逻辑应用创建计划的作业时，将获得以下好处：
 
-* 不必担心*作业集合*的概念，因为每个逻辑应用都是一个单独的 Azure 资源。
+* 使用可视化设计器和成百上千的服务（例如 Azure Blob 存储、Azure 服务总线、Office 365 Outlook 和 SAP）提供的[随时可用的连接器](../connectors/apis-list.md)生成作业。
 
-* 可以使用单个逻辑应用运行多个一次性作业。
+* 将每个计划的工作流作为一级 Azure 资源进行管理。 不必担心*作业集合*的概念，因为每个逻辑应用都是单独的 Azure 资源。
 
-* Azure 逻辑应用服务支持时区和夏令时 (DST)。
+* 使用单个逻辑应用运行多个一次性作业。
 
-若要了解详细信息，请参阅[什么是 Azure 逻辑应用？](../logic-apps/logic-apps-overview.md) 或尝试在此快速入门中创建第一个逻辑应用：[创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 设置支持时区并可自动调整为夏令时 (DST) 的计划。
+
+若要了解详细信息，请参阅[什么是 Azure 逻辑应用？](../logic-apps/logic-apps-overview.md)，或尝试在此快速入门中创建第一个逻辑应用：[创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth" target="_blank">注册一个 Azure 试用帐户</a>。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 * 若要通过发送 HTTP 请求来触发逻辑应用，请使用 [Postman 桌面应用](https://www.getpostman.com/apps)等工具。
+
+## <a name="migrate-by-using-a-script"></a>使用脚本进行迁移
+
+每个计划程序作业都是唯一的，因此不存在一个可以将计划程序作业迁移到 Azure 逻辑应用的通用工具。 但是，可以根据需要[编辑此脚本](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)。
 
 ## <a name="schedule-one-time-jobs"></a>安排一次性作业
 
 只需创建一个逻辑应用即可运行多个一次性作业。 
-
-### <a name="create-your-logic-app"></a>创建逻辑应用
 
 1. 在 [Azure 门户](https://portal.azure.cn)的逻辑应用设计器中创建一个空白的逻辑应用。 
 
@@ -104,9 +108,9 @@ ms.locfileid: "69993574"
 例如，通过使用 Postman 应用，可以采用与此示例类似的设置创建 POST 请求，然后选择“发送”以发出请求  。
 
 | 请求方法 | URL | 正文 | 标头 |
-|----------------|-----|------|---------| 
-| **POST** | <endpoint-URL  > | **raw** <p>**JSON(application/json)** <p>在“raw”框中，输入要在请求中发送的有效负载  。 <p>**注意**：此设置会自动配置“标头”值  。 | **密钥**：Content-Type <br>**值**：application/json
- |||| 
+|----------------|-----|------|---------|
+| **POST** | <endpoint-URL  > | **raw** <p>**JSON(application/json)** <p>在“raw”框中，输入要在请求中发送的有效负载  。 <p>**注意**：此设置会自动配置“标头”值  。 | **密钥**：Content-Type <br>**值**：application/json |
+|||||
 
 ![发送请求以手动触发逻辑应用](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
@@ -126,8 +130,6 @@ ms.locfileid: "69993574"
 
 ## <a name="schedule-recurring-jobs"></a>安排重复作业
 
-### <a name="create-your-logic-app"></a>创建逻辑应用
-
 1. 在 [Azure 门户](https://portal.azure.cn)的逻辑应用设计器中创建一个空白的逻辑应用。 
 
    有关基本步骤，请遵循[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
@@ -140,7 +142,7 @@ ms.locfileid: "69993574"
 
    ![高级计划](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-   有关高级计划选项的详细信息，请参阅[使用 Azure 逻辑应用创建和运行重复任务和工作流](../connectors/connectors-native-recurrence.md)
+   有关高级计划选项的详细信息，请参阅[使用 Azure 逻辑应用创建和运行重复任务和工作流](../connectors/connectors-native-recurrence.md)。
 
 1. 通过从[数百个现成的连接器](../connectors/apis-list.md)中进行选择，来添加其他操作。 在触发器下，选择“下一步”。  查找并选择所需的操作。
 
@@ -160,7 +162,7 @@ ms.locfileid: "69993574"
 
 若要控制在出现间歇性失败时操作尝试在逻辑应用中重新运行的方式，可以在每个操作的设置中设置[重试策略](../logic-apps/logic-apps-exception-handling.md#retry-policies)，例如：
 
-1. 打开该操作的 ( **...** ) 菜单，选择“设置”  。
+1. 打开该操作的省略号 ( **...** ) 菜单，选择“设置”  。
 
    ![打开操作设置](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -180,7 +182,7 @@ ms.locfileid: "69993574"
 
    ![添加并行操作](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. 在替代操作上，打开 ( **...** ) 菜单，选择“配置随后运行”  。
+1. 在替代操作上，打开省略号 ( **...** ) 菜单，选择“配置随后运行”  。
 
    ![配置随后运行](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -194,19 +196,19 @@ ms.locfileid: "69993574"
 
 ## <a name="faq"></a>常见问题
 
-<a name="retire-date"></a> 
+<a name="retire-date"></a>
 
 **问**：Azure 计划程序何时停用？ <br>
-**答**：Azure 计划程序计划于 2019 年 9 月 30 日停用。
+**答**：Azure 计划程序计划于 2019 年 12 月 31 日完全停用。
 
-**问**：该服务停用后，会对我的计划程序作业集合和作业有何影响？ <br>
-**答**：将从系统中删除所有计划程序作业集合和作业。
+**问**：该服务停用后，会对我的作业集合和作业有何影响？ <br>
+**答**：所有计划程序作业集合和作业都会停止运行，然后会从系统中删除。
 
 **问**：在将我的计划程序作业迁移到逻辑应用之前，是否必须备份或执行任何其他任务？ <br>
 **答**：最佳做法是始终备份你的工作。 在删除或禁用计划程序作业之前，请检查你创建的逻辑应用是否按预期运行。 
 
 **问**：是否有可以帮助我将作业从计划程序迁移到逻辑应用的工具？ <br>
-**答**：每个计划程序作业都是唯一的，因此不存在一个通用的工具。 但是，可以使用各种脚本来根据需要进行修改。 对于脚本可用性，请以后再回来查看。
+**答**：每个计划程序作业都是唯一的，因此不存在一个通用的工具。 但是，可以根据需求[编辑此脚本，以便将 Azure 计划程序作业迁移到 Azure 逻辑应用](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)。
 
 **问**：迁移计划程序作业时，可从何处获得支持？ <br>
 **答**：以下是获得支持的一些方法： 
@@ -217,12 +219,12 @@ ms.locfileid: "69993574"
 
 1. 在 [Azure 门户](https://portal.azure.cn)主菜单中，选择“帮助和支持”  。
 
-1. 在“支持”下，选择“新建支持请求”   。 为请求提供以下详细信息：
+1. 在“支持”菜单中选择“新建支持请求”。   提供请求的以下信息：
 
-   | 设置 | Value |
+   | 属性 | Value |
    |---------|-------|
-   | **问题类型** | **技术** | 
-   | **订阅** | <*your-Azure-subscription*> | 
+   | **问题类型** | **技术** |
+   | **订阅** | <*your-Azure-subscription*> |
    | **服务** | 选择“计划程序”  。 | 
    ||| 
 
