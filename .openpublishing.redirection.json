@@ -17024,7 +17024,13 @@
       "source_path": "articles/dns/scripts/traffic-manager-cli-create-dns-zone-record.md",
       "redirect_url": "/dns/scripts/dns-cli-create-dns-zone-record",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
+      "redirect_url": "/vpn-gateway/point-to-site-about",
+      "redirect_document_id": false
     }
+
 
 
 
