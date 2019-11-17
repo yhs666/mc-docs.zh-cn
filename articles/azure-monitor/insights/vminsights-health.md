@@ -1,25 +1,20 @@
 ---
 title: 了解 Azure 虚拟机的运行状况 | Microsoft Docs
 description: 本文介绍如何使用用于 VM 的 Azure Monitor 来了解虚拟机和基础操作系统的运行状况。
-services: azure-monitor
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 09/12/2019
-ms.date: 09/20/2019
+origin.date: 10/15/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 52d2da47b3b6bbc53c3316f3b9f139df22ac5f3d
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 76f206f6dac24cbc4c26cc0a91388fc95e96d509
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970896"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730413"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>了解 Azure 虚拟机的运行状况
 
@@ -346,7 +341,7 @@ Azure 包含监视空间中特定角色或任务的服务，但不提供 Azure �
 2. 输入以下命令检索特定 VM 上处于活动状态的所有运行状况条件，并确定 *monitorId* 属性的值：
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     以下示例显示了 *armclient GET* 命令的输出。 记下 *MonitorId* 的值。 执行下一步骤时需要使用此值，其中，我们必须指定运行状况条件的 ID 并修改其属性，以创建警报。
@@ -442,4 +437,5 @@ Azure 包含监视空间中特定角色或任务的服务，但不提供 Azure �
 ## <a name="next-steps"></a>后续步骤
 
 - 若要了解限制和 VM 总体性能，请参阅[查看 Azure VM 性能](vminsights-performance.md)。
+
 - 若要了解已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。

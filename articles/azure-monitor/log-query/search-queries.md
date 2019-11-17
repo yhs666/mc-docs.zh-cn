@@ -1,25 +1,20 @@
 ---
-title: Azure Monitor 日志中的搜索查询 | Microsoft Docs
+title: Azure Monitor 日志中的搜索查询 | Docs
 description: 本文提供有关在 Azure Monitor 日志中使用搜索查询的入门教程。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/06/2018
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3fe1fe1c7def83f3eca9b1f7177152e4dc90af90
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 8023491822ca930e0df7bbb466237d124a4658f8
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970798"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730325"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 日志中的搜索查询
 Azure Monitor 日志查询可以从表名或 search 命令开始。 本教程介绍基于搜索的查询。 每种方法各有优势。

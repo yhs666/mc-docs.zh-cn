@@ -1,24 +1,20 @@
 ---
-title: Azure Application Insights 代理 API 参考：启用检测引擎 | Microsoft Docs
+title: Azure Application Insights 代理 API 参考
 description: Application Insights 代理 API 参考。 Enable-InstrumentationEngine。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fc6275a1a48a86e84c81156bbebe1d858797aac6
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 3f730591d8f9333de0b8e1b88066d31a64048a76
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970989"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730503"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights 代理 API：Enable-InstrumentationEngine
 
@@ -49,7 +45,7 @@ ms.locfileid: "72970989"
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>parameters 
+## <a name="parameters"></a>parameters
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **可选。** 使用此开关可在无外设安装中接受许可条款和隐私声明。
@@ -80,8 +76,8 @@ Configuring registry for instrumentation engine...
 - [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
  
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南可[排查状态监视器 v2 问题](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
  - [获取配置](status-monitor-v2-api-get-config.md)以确认是否正确记录了你的设置。
  - [获取状态](status-monitor-v2-api-get-status.md)以检查监视。
 

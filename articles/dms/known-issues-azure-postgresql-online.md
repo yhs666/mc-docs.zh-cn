@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-origin.date: 10/03/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 381ddd480d8403c092e92e61c70eab48bc1935c9
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+origin.date: 10/27/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 2c8e38af10911941f54a16513a9be4679db04857
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416251"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831378"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>从 PostgreSQL 联机迁移到 Azure DB for PostgreSQL 单一服务器时存在的已知问题/迁移限制
 
@@ -153,6 +153,9 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 -- ALTER USER PG_User SET search_path TO DEFAULT;
 COMMIT;
 ```
+
+  > [!NOTE]
+  > 在上一脚本中，“PG_User”是指用于连接到迁移源的用户名。
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>从 AWS RDS PostgreSQL 联机迁移时的限制
 

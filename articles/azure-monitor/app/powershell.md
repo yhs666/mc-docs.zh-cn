@@ -1,24 +1,20 @@
 ---
-title: 使用 PowerShell 自动化 Azure Application Insights | Azure Docs
-description: 使用 Azure 资源管理器模板在 PowerShell 中自动创建资源、警报和可用性测试。
-services: application-insights
-documentationcenter: ''
+title: 使用 PowerShell 自动化 Azure Application Insights | Microsoft Docs
+description: 使用 Azure 资源管理器模板在 PowerShell 中自动创建和管理资源、警报和可用性测试。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 06/04/2019
-ms.date: 6/8/2019
+origin.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2d91b343f1fad0f939469c780d5314ac2e880e00
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 2390207e195deaf11283a9f59f4c067e02a67a5e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970993"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730417"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 资源
 

@@ -1,24 +1,20 @@
 ---
 title: 在 Azure Application Insights 中监视 Java Web 应用的性能 | Azure Docs
 description: 使用 Application Insights 监视 Java 网站的扩展性能和使用情况。
-services: application-insights
-documentationcenter: java
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 08/22/2019
+origin.date: 01/10/2019
 ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 553ee8804c2c80fb833d2430818a09d39b5d85d0
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 12d5996a3a4d31152c1eb116152100cb0fe3336d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970910"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730475"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>监视 Java Web 应用中的依赖项、捕获的异常和方法执行时间
 

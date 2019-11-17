@@ -5,15 +5,15 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: lingliw
-origin.date: 08/22/2019
-ms.date: 09/20/2019
+origin.date: 09/29/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cbae10f72bbe065719ce7309bfac902dd69cff0f
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 1eb476adef2b29affc282f3bf30e321e234caf31
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970865"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730478"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -40,7 +40,6 @@ Application Insights 服务存储并分析遥测数据。 若要查看分析或�
 Application Insights SDK 可用于多种应用程序类型：托管在自己的 Java EE 或 ASP.NET 服务器中或者 Azure 中的 Web 服务；Web 客户端（即网页中运行的代码）；桌面应用和服务；设备应用，例如 Windows Phone、iOS 和 Android。 它们都将遥测数据发送到相同的服务。
 
 ## <a name="what-data-does-it-collect"></a>它收集哪些数据？
-### <a name="how-is-the-data-is-collected"></a>它如何收集数据？
 有三种数据源：
 
 * SDK。可以[在开发阶段](../../azure-monitor/app/asp-net.md)或者[在运行时](../../azure-monitor/app/monitor-performance-live-website-now.md)将它与应用集成。 不同类型的应用程序有不同的 SDK。 此外还有[网页 SDK](../../azure-monitor/app/javascript.md)，连同页面一起加载到用户的浏览器中。
@@ -133,7 +132,7 @@ Azure 工作人员对数据的访问将受到限制。 我们只有在获得许�
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp` 用于暂留数据。 此位置无法通过配置目录进行配置，只有拥有所需凭据的特定用户，才有权访问此文件夹。 （请参阅此处的[实现](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)。）
+`C:\Users\username\AppData\Local\Temp` 用于暂留数据。 此位置无法通过配置目录进行配置，只有拥有所需凭据的特定用户，才有权访问此文件夹。 （有关详细信息，请参阅[实现](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)。）
 
 ###  <a name="net"></a>.Net
 
@@ -213,7 +212,7 @@ openssl version -a
 
 ### <a name="run-a-test-tls-12-transaction-on-linux"></a>在 Linux 上运行测试 TLS 1.2 事务
 
-运行基本的初步测试来查看 Linux 系统是否能够通过 TLS 1.2 进行通信。 打开终端并运行：
+若要运行初步测试来查看 Linux 系统是否能够通过 TLS 1.2 进行通信，请打开终端并运行以下命令：
 
 ```terminal
 openssl s_client -connect bing.com:443 -tls1_2
@@ -252,9 +251,9 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 | 收集的数据类 | 包含（此列表并不详尽） |
 | --- | --- |
 | **属性** |**任何数据 - 由代码确定** |
-| DeviceContext |ID、IP、区域性、设备型号、网络、网络类型、OEM 名称、屏幕分辨率、角色实例、角色名称、设备类型 |
+| DeviceContext |`Id`、IP、区域性、设备型号、网络、网络类型、OEM 名称、屏幕分辨率、角色实例、角色名称、设备类型 |
 | ClientContext |OS、区域性、语言、网络、窗口分辨率 |
-| 会话 |会话 ID |
+| 会话 |`session id` |
 | ServerContext |计算机名称、区域性、OS、设备、用户会话、用户上下文、操作 |
 | 推断 |IP 地址中的地理位置、时间戳、OS、浏览器 |
 | 指标 |指标名称和值 |
@@ -264,8 +263,8 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 | Ajax |从网页到服务器的 HTTP 调用 |
 | 请求 |URL、持续时间、响应代码 |
 | 依赖项 |类型（SQL、HTTP...）、连接字符串或 URI、同步/异步、持续时间、成功结果、SQL 语句（包含状态监视器） |
-| **异常** |类型、**消息**、调用堆栈、源文件与行号、线程 ID |
-| 崩溃 |进程 ID、父进程 ID、崩溃线程 ID；应用程序修补程序、ID、版本；异常类型、地址、原因；模糊符号和寄存器、二进制开始和结束地址、二进制文件名和路径、CPU 类型 |
+| **异常** |类型、**消息**、调用堆栈、源文件、行号、`thread id` |
+| 崩溃 |`Process id`、`parent process id`、`crash thread id`、应用程序修补程序、`id`、版本；异常类型、地址、原因；模糊符号和寄存器、二进制开始和结束地址、二进制文件名和路径、CPU 类型 |
 | 跟踪 |**消息**和严重级别 |
 | 性能计数器 |处理器时间、可用内存、请求速率、异常率、进程专用字节、IO 速率、请求持续期间、请求队列长度 |
 | 可用性 |Web 测试响应代码、每个测试步骤的持续时间、测试名称、时间戳、成功结果、响应时间、测试位置 |

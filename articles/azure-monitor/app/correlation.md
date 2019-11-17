@@ -9,12 +9,12 @@ origin.date: 06/07/2019
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 75280d795b4861006a2d645652e457f5a25d58da
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: d02f346405c64fccdc274f7d2bedf13c6e7b9639
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970873"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730294"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 
@@ -222,7 +222,7 @@ OpenCensus Python 遵循上述 `OpenTracing` 数据模型规范。 它还支持 
 
 ### <a name="incoming-request-correlation"></a>传入请求关联
 
-OpenCensus Python 将传入请求中的 W3C 跟踪上下文标头关联到从请求本身生成的范围。 OpenCensus 会通过适合常用 Web 应用程序框架（例如 `flask`、`django` 和 `pyramid`）的集成自动完成该操作。 W3C 跟踪上下文标头只需使用[正确格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)填充并通过请求发送即可。 下面是一个演示该操作的示例 `flask` 应用程序。
+OpenCensus Python 将传入请求中的 W3C 跟踪上下文标头关联到从请求本身生成的范围。 OpenCensus 会通过适合常用 Web 应用程序框架（`flask`、`django` 和 `pyramid`）的集成自动完成该操作。 W3C 跟踪上下文标头只需使用[正确格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)填充并通过请求发送即可。 下面是一个演示该操作的示例 `flask` 应用程序。
 
 ```python
 from flask import Flask
@@ -254,7 +254,7 @@ curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7
 `parent-id/span-id`：`00f067aa0ba902b7`
 `trace-flags`：`01`
 
-如果查看发送到 Azure Monitor 的请求条目，可以看到填充了跟踪标头信息的字段。
+如果查看发送到 Azure Monitor 的请求条目，可以看到填充了跟踪标头信息的字段。 可以在 Azure Monitor Application Insights 资源中的“日志(分析)”下找到此数据。
 
 ![“日志(分析)”中请求遥测的屏幕截图，其中的跟踪标头字段以红框突出显示](./media/opencensus-python/0011-correlation.png)
 

@@ -1,24 +1,20 @@
 ---
-title: Azure Application Insights 代理 API 参考：禁用监视 | Microsoft Docs
+title: Azure Application Insights 代理 API 参考
 description: Application Insights 代理 API 参考。 Disable-ApplicationInsightsMonitoring。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cff558e433aceb49e4ad4513bebe804dc4d46875
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: b3135f58f40ed9049bb5abfd49aa16ed3aaaad4c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970990"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730504"
 ---
 # <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Application Insights 代理 API：Disable-ApplicationInsightsMonitoring
 
