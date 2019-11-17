@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 853c97eaa1aea903f64e78bf6a1cce16b2bd22fa
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 59f68a09bcd7235f109628d0c1922f98cc7bdf9e
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272791"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831219"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>适用于 Windows 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -29,23 +29,19 @@ Azure 磁盘加密利用 BitLocker 在运行 Windows 的 Azure 虚拟机上提�
 
 ## <a name="prerequisites"></a>先决条件
 
-有关先决条件的完整列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption-prerequisites.md)。
+有关先决条件的完整列表，请参阅[适用于 Linux VM 的 Azure 磁盘加密](../linux/disk-encryption-overview.md)，特别是以下部分：
 
-### <a name="operating-system"></a>操作系统
-
-有关当前 Windows 版本的列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption-prerequisites.md)。
-
-### <a name="internet-connectivity"></a>Internet 连接
-
-Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vault、存储和包管理终结点。  有关网络安全设置的详细信息，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption-prerequisites.md)。
+- [适用于 Linux VM 的 Azure 磁盘加密](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [网络要求](../windows/disk-encryption-overview.md#networking-requirements)
+- [组策略要求](../windows/disk-encryption-overview.md#group-policy-requirements)
 
 ## <a name="extension-schemata"></a>扩展架构
 
-Azure 磁盘加密有两种架构：v1.1，一种不使用 Azure Active Directory (AAD) 属性的较新推荐架构；v0.1，一种需要 AAD 属性的较旧架构。 你必须使用与所使用的扩展对应的架构版本：架构 v1.1 用于 AzureDiskEncryption 扩展版本 1.1，架构 v0.1 用于 AzureDiskEncryption 扩展版本 0.1。
+Windows AzureDiskEncryption 扩展有两种架构：v2.2（一种建议的较新架构，不使用 Azure Active Directory (AAD) 属性）和 v1.1（一种较旧的架构，需要 AAD 属性）。 必须使用与正在使用的扩展相对应的架构版本：架构 v2.2 对应于 AzureDiskEncryption 扩展版本 2.2，架构 v1.1 对应于 AzureDiskEncryption 扩展版本 1.1。
 
-### <a name="schema-v11-no-aad-recommended"></a>架构 v1.1：无 AAD（推荐）
+### <a name="schema-v22-no-aad-recommended"></a>架构 v2.2：无 AAD（推荐）
 
-建议使用 v1.1 架构，它不需要 Azure Active Directory 属性。
+v2.2 架构建议用于所有新 VM，并且不需要 Azure Active Directory 属性。
 
 ```json
 {
@@ -71,9 +67,9 @@ Azure 磁盘加密有两种架构：v1.1，一种不使用 Azure Active Director
 }
 ```
 
-### <a name="schema-v01-with-aad"></a>架构 v0.1：使用 AAD 
+### <a name="schema-v11-with-aad"></a>架构 v1.1：使用 AAD 
 
-0\.1 版架构需要 `aadClientID` 和 `aadClientSecret` 或 `AADClientCertificate`。
+1\.1 架构需要 `aadClientID` 和 `aadClientSecret` 或 `AADClientCertificate`，建议不要用于新 VM。
 
 使用 `aadClientSecret`：
 
@@ -142,10 +138,10 @@ Azure 磁盘加密有两种架构：v1.1，一种不使用 Azure Active Director
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryption | string |
-| typeHandlerVersion | 0.1、1.1 | int |
-| （0.1 版架构）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| （0.1 版架构）AADClientSecret | password | string |
-| （0.1 版架构）AADClientCertificate | thumbprint | string |
+| typeHandlerVersion | 1.1、2.2 | string |
+| （1.1 架构）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| （1.1 架构）AADClientSecret | password | string |
+| （1.1 架构）AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 字典 |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |

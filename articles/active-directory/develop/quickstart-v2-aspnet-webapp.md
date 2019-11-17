@@ -14,22 +14,22 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02e0fa4fe619f6048c9d7ca04aede1335f0f8cd8
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 3da2c06998669caac153ed85d1f784a373f2476c
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292064"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830944"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
+# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 标识平台登录功能
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-本快速入门介绍如何使用 ASP.NET Web 应用从任何 Azure Active Directory (Azure AD) 实例登录工作和学校帐户。
+在本快速入门中，你将使 ASP.NET Web 应用从任何 Azure Active Directory (Azure AD) 实例登录工作和学校帐户。
 
 ![显示本快速入门生成的示例应用的工作原理](./media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
@@ -54,7 +54,7 @@ ms.locfileid: "72292064"
 > 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 > 1. 选择“新注册”。 
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+> 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
 >      - 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `ASPNET-Quickstart`。
 >      - 在“重定向 URI”中添加 `http://localhost:44368/`，  然后单击“注册”。 
 >      - 在“管理”部分下的左侧导航窗格中，选择“身份验证” 

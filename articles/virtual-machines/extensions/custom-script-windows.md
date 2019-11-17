@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 05/02/2019
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 03943b328250d15dc0f68f044ac8dabf28d11360
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 1ad279a708161a4001a2878b1e0aee8a3968b575
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921194"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831373"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -56,7 +56,7 @@ ms.locfileid: "70921194"
 * 脚本运行时，Azure 门户或 CLI 中只会显示“正在转换”扩展状态。 如果希望更频繁地更新正在运行的脚本的状态，需要创建自己的解决方案。
 * 自定义脚本扩展本身不支持代理服务器，但可以在脚本中使用支持代理服务器的文件传输工具，如 Curl 
 * 请注意脚本或命令可能依赖的非默认目录位置，按逻辑对这种情况进行处理。
-* 自定义脚本扩展将在 LocalSystem 帐户下运行。
+* 自定义脚本扩展将在 LocalSystem 帐户下运行
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -70,7 +70,7 @@ ms.locfileid: "70921194"
 {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "config-app",
+    "name": "virtualMachineName/config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
@@ -92,6 +92,7 @@ ms.locfileid: "70921194"
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
+            "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey"
         }
@@ -101,6 +102,9 @@ ms.locfileid: "70921194"
 
 > [!NOTE]
 > 在某个时间点，只能在 VM 上安装一个扩展版本，在同一资源管理器模板中为同一 VM 指定两次自定义脚本将会失败。
+
+> [!NOTE]
+> 我们可以在 VirtualMachine 资源内部使用此架构，也可以将其用作独立资源。 如果此扩展用作 ARM 模板中的独立资源，则资源的名称必须采用“virtualMachineName/extensionName”格式。 
 
 ### <a name="property-values"></a>属性值
 
@@ -296,4 +300,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 还可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update  -->

@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2018
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 06/17/2019
-ms.openlocfilehash: 71a2201613c6f4ae8e673295048d659e78e81381
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 11/18/2019
+ms.openlocfilehash: 1dd0cbcea43940d344406fe688b46c7ee88dbccd
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732558"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831389"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -103,7 +103,17 @@ ms.locfileid: "66732558"
  
 配置的 Azure AD 实例中的用户现在可以登录开发人员门户。 他们可以查看和订阅可见的任何组。
 
-## <a name="a-idlogintodevportalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>使用 Azure AD 帐户登录开发人员门户
+## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> 开发人员门户 - 添加 Azure AD 帐户身份验证
+
+若要在开发人员门户中启用使用 AAD 登录，需要将“OAuth 按钮”  小组件添加到登录表单。
+
+![“AAD 按钮”小组件](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+尽管每当新用户使用 AAD 登录时都会自动创建一个新帐户，但你可以考虑在注册表单中添加相同的小组件。
+
+## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>旧开发人员门户 - 如何使用 Azure AD 登录
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 使用前面部分中配置的 Azure AD 帐户登录开发人员门户：
 

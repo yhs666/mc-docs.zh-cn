@@ -1,20 +1,19 @@
 ---
 title: Azure 备份支持矩阵
 description: 汇总 Azure 备份服务的支持设置和限制。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 02/17/2019
-ms.date: 08/17/2019
+ms.date: 11/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ada463aedd354d547d91906172d28dbbf696612f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c421e85cd94bde73214999456136a2f70e3d7323
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330218"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730524"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 
@@ -61,7 +60,7 @@ Azure 备份使用恢复服务保管库来安排和管理备份。 它还使用�
 **限制** | **详细信息**
 --- | ---
 **Azure VM 数据磁盘** | 限制为 16 个
-**Azure VM 数据磁盘大小** | 单个磁盘最大可以为 4,095 GB
+**Azure VM 数据磁盘大小** | 对于 VM 中的所有磁盘，单个磁盘大小最大为 32 TB，组合磁盘大小最大为 256 TB。
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 备份选项
 

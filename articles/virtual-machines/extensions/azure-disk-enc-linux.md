@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/10/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: d9d00f6f58cb42f0792b8ada60a6292916c5d1bc
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: c1b7505bae2d4dee1c0e3b19a5e6f883247fcf7b
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272792"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831446"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>适用于 Linux 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -31,15 +31,11 @@ Azure 磁盘加密利用 Linux 中的 dm-crypt 子系统在选定的 Azure Linux
 
 ## <a name="prerequisites"></a>先决条件
 
-有关先决条件的完整列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption-prerequisites.md)。
+有关先决条件的完整列表，请参阅[适用于 Linux VM 的 Azure 磁盘加密](../linux/disk-encryption-overview.md)，特别是以下部分：
 
-### <a name="operating-system"></a>操作系统
-
-目前，选择的发行版和版本支持 Azure 磁盘加密。  请参阅 [Azure 磁盘加密支持的操作系统：Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux)，以获取受支持的 Linux 发行版列表。
-
-### <a name="internet-connectivity"></a>Internet 连接
-
-适用于 Linux 的 Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vault、存储和包管理终结点。  有关详细信息，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption-prerequisites.md)。
+- [适用于 Linux VM 的 Azure 磁盘加密](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [其他 VM 要求](../linux/disk-encryption-overview.md#additional-vm-requirements)
+- [网络要求](../linux/disk-encryption-overview.md#networking-requirements)
 
 ## <a name="extension-schemata"></a>扩展架构
 
@@ -158,6 +154,9 @@ Azure 磁盘加密有两种架构：v1.1，一种不使用 Azure Active Director
 ## <a name="template-deployment"></a>模板部署
 
 有关模板部署的示例，请参阅[在正在运行的 Linux VM 上启用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)。
+
+>[!NOTE]
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的 VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 

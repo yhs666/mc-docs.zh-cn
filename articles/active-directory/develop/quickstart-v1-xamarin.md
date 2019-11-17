@@ -14,17 +14,17 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 07/17/2019
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff71f46014edd3f6a3d76aba6f41f1dcfeb48301
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: b36b449f18110efa851a0781010886bdeac3b749
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134292"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830945"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入门：构建集成 Microsoft 登录的 Xamarin 应用
 
@@ -32,7 +32,8 @@ ms.locfileid: "70134292"
 
 借助 [Microsoft 身份验证库 (MSAL)](msal-overview.md)，开发人员能够从 Microsoft 标识平台终结点获取令牌，以访问受保护的 Web API。 Active Directory 身份验证库 (ADAL) 与适用于开发人员的 Azure AD (v1.0) 终结点集成，其中 MSAL 与 Microsoft 标识平台 (v2.0) 终结点集成。
 
-对于新的 Xamarin 应用程序，我们建议你使用 Microsoft 标识平台 (v2.0) 和 MSAL 来获取令牌并访问受保护的 Web API：[使用 MSAL 将 Microsoft 标识和 Microsoft Graph 集成到 Xamarin Forms 应用程序中](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal)（没有可选步骤）。
+## <a name="next-steps"></a>后续步骤
 
+对于新的 Xamarin 应用程序，我们建议你使用 Microsoft 标识平台 (v2.0) 和 MSAL 来获取令牌并访问受保护的 Web API。 请参阅[使用 MSAL 将 Microsoft 标识和 Microsoft Graph 集成到 Xamarin Forms 应用](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal)（没有可选步骤）以开始使用。
 
 <!-- Update_Description: wording update -->

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7a67112a71308dd387b1f908fc48927dc177242
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b23e6444b3597cd26836ddc5bd9d2765004b4826
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272776"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831392"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -36,7 +36,7 @@ Azure 虚拟机 (VM) 扩展是小型应用程序，可在 Azure VM 上提供部�
 有许多不同的 Azure VM 扩展可用，每个都有特定用例。 示例包括：
 
 - 使用适用于 Windows 的 DSC 扩展将 PowerShell 所需状态配置应用到 VM。 有关详细信息，请参阅 [Azure Desired State configuration extension](dsc-overview.md)（Azure Desired State Configuration 扩展）。
-- 使用 Azure Monitoring Agent VM 扩展配置 VM 监视功能。 有关详细信息，请参阅[将 Azure VM 连接到 Azure Monitor 日志](https://docs.azure.cn/azure-monitor/learn/quick-collect-azurevm)。
+- 使用 Log Analytics 代理 VM 扩展配置 VM 监视功能。 有关详细信息，请参阅[将 Azure VM 连接到 Azure Monitor 日志](https://docs.azure.cn/azure-monitor/learn/quick-collect-azurevm)。
 - 使用 Chef 配置 Azure VM。 有关详细信息，请参阅[使用 Chef 自动执行 Azure VM 部署](../windows/chef-automation.md)。
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 
@@ -64,14 +64,14 @@ Windows 来宾代理在多个 OS 上运行，但是，扩展框架对扩展的 O
 
 #### <a name="network-access"></a>网络访问
 
-从 Azure 存储扩展存储库下载扩展包，将扩展状态上传内容发布到 Azure 存储。 如果使用[受支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)版本的代理，则不需要允许对 VM 区域中 Azure 存储的访问，因为可以使用代理将通信重定向到 Azure 结构控制器，以进行代理通信。 如果使用不受支持的代理版本，则需要允许从 VM 对该区域中 Azure 存储的出站访问。
+从 Azure 存储扩展存储库下载扩展包，将扩展状态上传内容发布到 Azure 存储。 如果使用[受支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)版本的代理，则不需要允许访问 VM 区域中的 Azure 存储，因为可以使用代理将通信重定向到 Azure 结构控制器以进行代理通信（HostGAPlugin 功能通过专用 IP [168.63.129.16](/virtual-network/what-is-ip-address-168-63-129-16) 上的特权通道工作）。 如果使用不受支持的代理版本，则需要允许从 VM 对该区域中 Azure 存储的出站访问。
 
 > [!IMPORTANT]
-> 如果已使用来宾防火墙阻止对 168.63.129.16 的访问，则不管采用上述哪种方法，扩展都会失败  。
+> 如果已使用来宾防火墙或代理阻止对 168.63.129.16 的访问，则不管采用上述哪种方法，扩展都会失败  。 需要端口 80、443 和 32526。
 
-代理只可用于下载扩展包和报告状态。 例如，如果扩展安装需要从 GitHub 下载脚本（自定义脚本），或需要访问 Azure 存储（Azure 备份），则需要打开其他防火墙/网络安全组端口。 不同的扩展具有不同的要求，因为它们本身就是应用程序。 对于需要访问 Azure 存储的扩展，可以使用[存储](/virtual-network/security-overview#service-tags)的 Azure NSG 服务标记来允许访问。
+代理只可用于下载扩展包和报告状态。 例如，如果扩展安装需要从 GitHub 下载脚本（自定义脚本），或需要访问 Azure 存储（Azure 备份），则需要打开其他防火墙/网络安全组端口。 不同的扩展具有不同的要求，因为它们本身就是应用程序。 对于需要访问 Azure 存储或 Azure Active Directory 的扩展，可以使用 [Azure NSG 服务标记](/virtual-network/security-overview#service-tags)允许访问存储或 AzureActiveDirectory。
 
-Windows 来宾代理不提供用于重定向代理流量请求的代理服务器支持。
+Windows 来宾代理不支持通过代理服务器重定向代理流量请求，这意味着 Windows 来宾代理将依赖自定义代理（如果有）通过 IP 168.63.129.16 访问 Internet 或主机上的资源。
 
 ## <a name="discover-vm-extensions"></a>发现 VM 扩展
 
@@ -99,27 +99,27 @@ Get-Command Set-Az*Extension* -Module Az.Compute
 
 此命令的输出如下所示：
 
-<!--MOONCAKE: CORRECT ON 1.2.0 Version -->
+<!--MOONCAKE: CORRECT ON 2.6.0 the latested Version -->
 
 ```powershell
 CommandType     Name                                          Version    Source
 -----------     ----                                          -------    ------
-Cmdlet          Set-AzVMAccessExtension                       1.2.0      Az.Compute
-Cmdlet          Set-AzVMADDomainExtension                     1.2.0      Az.Compute
-Cmdlet          Set-AzVMAEMExtension                          1.2.0      Az.Compute
-Cmdlet          Set-AzVMBackupExtension                       1.2.0      Az.Compute
-Cmdlet          Set-AzVMBginfoExtension                       1.2.0      Az.Compute
-Cmdlet          Set-AzVMChefExtension                         1.2.0      Az.Compute
-Cmdlet          Set-AzVMCustomScriptExtension                 1.2.0      Az.Compute
-Cmdlet          Set-AzVMDiagnosticsExtension                  1.2.0      Az.Compute
-Cmdlet          Set-AzVMDiskEncryptionExtension               1.2.0      Az.Compute
-Cmdlet          Set-AzVMDscExtension                          1.2.0      Az.Compute
-Cmdlet          Set-AzVMExtension                             1.2.0      Az.Compute
-Cmdlet          Set-AzVMSqlServerExtension                    1.2.0      Az.Compute
-Cmdlet          Set-AzVmssDiskEncryptionExtension             1.2.0      Az.Compute
+Cmdlet          Set-AzVMAccessExtension                       2.6.0      Az.Compute
+Cmdlet          Set-AzVMADDomainExtension                     2.6.0      Az.Compute
+Cmdlet          Set-AzVMAEMExtension                          2.6.0      Az.Compute
+Cmdlet          Set-AzVMBackupExtension                       2.6.0      Az.Compute
+Cmdlet          Set-AzVMBginfoExtension                       2.6.0      Az.Compute
+Cmdlet          Set-AzVMChefExtension                         2.6.0      Az.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 2.6.0      Az.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  2.6.0      Az.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               2.6.0      Az.Compute
+Cmdlet          Set-AzVMDscExtension                          2.6.0      Az.Compute
+Cmdlet          Set-AzVMExtension                             2.6.0      Az.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    2.6.0      Az.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             2.6.0      Az.Compute
 ```
 
-<!--MOONCAKE: CORRECT ON 1.2.0 Version -->
+<!--MOONCAKE: CORRECT ON 2.6.0 the latest Version -->
 
 以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，并运行该脚本。 有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](custom-script-windows.md)。
 

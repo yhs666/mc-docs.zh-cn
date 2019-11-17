@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
 description: 了解如何使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
-services: backup
+ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/26/2019
 ms.date: 07/05/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 102bff8c1c96cbca16d66898f4365816d265c251
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: d381c8b4133525850826cdcad0c65c465d6273c0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103790"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730349"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>使用 Azure 备份服务器将 Exchange Server 备份到 Azure
 本文说明如何配置 Microsoft Azure 备份服务器 (MABS)，将 Microsoft Exchange Server 备份到 Azure。  
@@ -29,8 +29,9 @@ ms.locfileid: "70103790"
 2. 通过在 MABS 管理员控制台中单击“管理”>“代理”>“安装”  ，在 Exchange Server 上安装代理。 有关详细步骤，请参阅[安装 MABS 保护代理](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396)。
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>为 Exchange Server 创建保护组
+
 1. 在 MABS 管理员控制台中，单击“保护”  ，并单击工具功能区上的“新建”  ，打开“新建保护组”  向导。
-2. 在向导的“**欢迎**”屏幕上单击“**下一步**”。
+2. 在向导的“欢迎”  屏幕上单击“下一步”  。
 3. 在“**选择保护组类型**”屏幕上，选择“**服务器**”并单击“**下一步**”。
 4. 选择想要保护的 Exchange Server 数据库，并单击“**下一步**”。
 
@@ -90,6 +91,7 @@ ms.locfileid: "70103790"
 19. 单击“**关闭**”。
 
 ## <a name="recover-the-exchange-database"></a>恢复 Exchange 数据库
+
 1. 若要恢复 Exchange 数据库，请在 MABS 管理员控制台中单击“恢复”  。
 2. 找到要恢复的 Exchange 数据库。
 3. 从“*恢复时间*”下拉列表中选择在线恢复点。
@@ -106,6 +108,7 @@ ms.locfileid: "70103790"
     ![选择在线复制](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>后续步骤
+
 * [Azure 备份常见问题](backup-azure-backup-faq.md)
 
 <!-- Update_Description: link update -->

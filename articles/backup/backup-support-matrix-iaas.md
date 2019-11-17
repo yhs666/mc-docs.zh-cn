@@ -1,7 +1,6 @@
 ---
 title: Azure VM 备份的 Azure 备份支持矩阵
 description: 提供有关在使用 Azure 备份服务备份 Azure VM 时的支持设置和限制摘要。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/13/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6f19eef25f11c140cfcda8f4ee51966133c2999e
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 3c6660bf97adf0ce5a6e7bd927f5535750c4279f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330224"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730559"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 可以使用 [Azure 备份服务](backup-overview.md)备份本地计算机和工作负荷以及 Azure 虚拟机 (VM)。 本文汇总了使用 Azure 备份服务备份 Azure VM 时的支持设置和限制。
@@ -47,16 +46,15 @@ ms.locfileid: "71330224"
 迁移到托管磁盘后备份磁盘 | 。<br/><br/> 备份将继续工作。 因此不需要执行任何操作。
 启用资源组锁定后备份托管磁盘 | 不支持。<br/><br/> Azure 备份无法删除旧的还原点；如果达到了还原点数目的上限，备份将开始失败。
 修改 VM 的备份策略 | 。<br/><br/> 将使用新策略中的计划和保留期设置备份 VM。 如果保留期设置已延长，则会标记并保留现有的恢复点。 如果保留期设置已缩短，则会在下一个清理作业中清理现有的恢复点，并最终将其删除。
-取消备份作业 | 在快照过程中受支持。<br/><br/> 快照正在传输到保管库时不受支持。
-将 VM 备份到其他区域或订阅 |  不支持。
+取消备份作业| 在快照过程中受支持。<br/><br/> 快照正在传输到保管库时不受支持。
+将 VM 备份到其他区域或订阅 |不支持。
 每日备份（通过 Azure VM 扩展） | 每日进行一次计划的备份。<br/><br/> 每日最多可以创建四个按需备份。
 每日备份（通过 MARS 代理） | 每日进行三次计划的备份。
 每日备份（通过 DPM/MABS） | 每日进行两次计划的备份。
-每月/每年备份   | 使用 Azure VM 扩展备份时不受支持。 仅支持每日和每周备份。<br/><br/> 可将策略设置为按每月/每年保留期保留每日/每周备份。
+每月/每年备份| 使用 Azure VM 扩展备份时不受支持。 仅支持每日和每周备份。<br/><br/> 可将策略设置为按每月/每年保留期保留每日/每周备份。
 自动时钟调整 | 不支持。<br/><br/> 备份 VM 时，Azure 备份不会根据夏令时自动调整。<br/><br/>  请根据需要手动修改策略。
 [混合备份的安全功能](/backup/backup-azure-security-feature) |  不支持禁用安全功能。
 备份计算机时间已发生更改的 VM | 不支持。<br/><br/> 如果在为 VM 启用备份后，其计算机时间已更改为将来的日期时间，那么，即使时间更改已还原，也不能保证备份成功。  
-
 
 ## <a name="operating-system-support-windows"></a>操作系统支持 (Windows)
 
@@ -86,7 +84,6 @@ ms.locfileid: "71330224"
 - Azure 备份不支持 32 位操作系统。
 - 只要 VM 上装有[适用于 Linux 的 Azure VM 代理](/virtual-machines/extensions/agent-linux)且支持 Python，其他自带 Linux 分发版也能正常运行。
 - 如果代理配置的 Linux VM 上未安装 Python 版本 2.7，Azure 备份将不支持此 VM。
-
 
 ## <a name="backup-frequency-and-retention"></a>备份频率和保留期
 
@@ -131,13 +128,13 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 跨订阅/区域/局部区域还原。 | 不支持。
 还原到现有 VM | 使用“替换磁盘”选项。
 在为存储帐户启用了 Azure 存储服务加密 (SSE) 的情况下还原磁盘 | 不支持。<br/><br/> 还原到未启用 SSE 的帐户。
-还原到混合存储帐户 | 不支持。<br/><br/> 根据存储帐户类型，所有已还原的磁盘将是高级或标准类型，而不是混合类型。
+还原到混合存储帐户 |不支持。<br/><br/> 根据存储帐户类型，所有已还原的磁盘将是高级或标准类型，而不是混合类型。
 将 VM 直接还原到可用性集 | 对于托管磁盘，可以还原磁盘，并在模板中使用可用性集选项。<br/><br/> 不支持非托管磁盘。 对于非托管磁盘，可以还原磁盘，然后在可用性集中创建 VM。
 升级到托管 VM 后还原非托管 VM 的备份| 。<br/><br/> 可以还原磁盘，然后创建托管 VM。
 在将 VM 迁移到托管磁盘之前将 VM 还原到还原点 | 。<br/><br/> 还原到非托管磁盘（默认设置），将已还原的磁盘转换为托管磁盘，然后使用托管磁盘创建 VM。
 还原已删除的 VM。 | 。<br/><br/> 可以从恢复点还原 VM。
 通过门户还原属于多 DC 配置的域控制器 (DC) VM | 如果使用 PowerShell 还原磁盘并创建 VM，则支持此操作。
-还原不同虚拟网络中的 VM |   。<br/><br/> 虚拟网络必须位于同一订阅和区域中。
+还原不同虚拟网络中的 VM |。<br/><br/> 虚拟网络必须位于同一订阅和区域中。
 
 ## <a name="vm-compute-support"></a>VM 计算支持
 
@@ -158,8 +155,8 @@ VM 大小 |   至少有 2 个 CPU 核心和 1-GB RAM 的任意 Azure VM 大小�
 
 **组件** | **支持**
 --- | ---
-Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。 <br/><br/> 支持备份虚拟机，每个磁盘大小最大为 30TB，VM 中所有磁盘的总大小最大为 256TB。
-数据磁盘大小 | 单个磁盘最大可以为 30TB。
+Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。
+数据磁盘大小 | 对于 VM 中的所有磁盘，单个磁盘大小最大为 32 TB，组合磁盘大小最大为 256 TB。
 存储类型 | 标准 HDD、标准 SSD、高级 SSD。
 托管磁盘 | 。
 加密的磁盘 | 。<br/><br/> 可以备份已启用 Azure 磁盘加密的 Azure VM（包含或不包含 Azure AD 应用）。<br/><br/> 无法在文件/文件夹级别恢复已加密的 VM。 必须恢复整个 VM。<br/><br/> 可以在已受 Azure 备份保护的 VM 上启用加密。
@@ -175,20 +172,18 @@ Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。 <br/><
 **组件** | **支持**
 --- | ---
 网络接口 (NIC) 数 | 特定 Azure VM 大小支持最大数量的 NIC。<br/><br/> NIC 是在还原过程中创建 VM 时创建的。<br/><br/> 已还原 VM 上的 NIC 数目与启用保护时 VM 上的 NIC 数目相同。 启用保护后移除 NIC 不影响计数。
-内部/外部负载均衡器 |   。 <br/><br/> [详细了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何还原使用特殊网络设置的 VM。
-多个保留的 IP 地址 |    。 <br/><br/> [详细了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何还原使用特殊网络设置的 VM。
-具有多个网络适配器的 VM  | 。 <br/><br/> [详细了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何还原使用特殊网络设置的 VM。
-具有公共 IP 地址的 VM    | 。<br/><br/> 将现有的公共 IP 地址与 NIC 相关联，或者在完成还原后创建一个地址，并将其与 NIC 相关联。
-NIC/子网上的网络安全组 (NSG)。 |   。
+内部/外部负载均衡器 |。 <br/><br/> [详细了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何还原使用特殊网络设置的 VM。
+多个保留的 IP 地址 |。 <br/><br/> [详细了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何还原使用特殊网络设置的 VM。
+具有多个网络适配器的 VM| 。 <br/><br/> [详细了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何还原使用特殊网络设置的 VM。
+具有公共 IP 地址的 VM| 。<br/><br/> 将现有的公共 IP 地址与 NIC 相关联，或者在完成还原后创建一个地址，并将其与 NIC 相关联。
+NIC/子网上的网络安全组 (NSG)。 |。
 静态 IP 地址 | 不支持。<br/><br/> 将为从还原点创建的新 VM 分配动态 IP 地址。<br/><br/> 对于经典 VM，无法备份具有保留 IP 地址且未定义终结点的 VM。
-动态 IP 地址 |    。<br/><br/> 如果源 VM 上的 NIC 使用动态 IP 地址，则默认情况下，已还原 VM 上的 NIC 也使用动态 IP 地址。
-Azure 流量管理器   | 。<br/><br/>如果备份的 VM 位于流量管理器中，请手动将已还原的 VM 添加到同一个流量管理器实例。
-Azure DNS | 。
-自定义 DNS |    。
+动态 IP 地址 |。<br/><br/> 如果源 VM 上的 NIC 使用动态 IP 地址，则默认情况下，已还原 VM 上的 NIC 也使用动态 IP 地址。
+Azure 流量管理器| 。<br/><br/>如果备份的 VM 位于流量管理器中，请手动将已还原的 VM 添加到同一个流量管理器实例。
+Azure DNS |。
+自定义 DNS |。
 通过 HTTP 代理建立出站连接 | 。<br/><br/> 不支持经过身份验证的代理。
-虚拟网络服务终结点   | 。<br/><br/> 防火墙和虚拟网络存储帐户设置应允许从所有网络进行访问。
-
-
+虚拟网络服务终结点| 。<br/><br/> 防火墙和虚拟网络存储帐户设置应允许从所有网络进行访问。
 
 ## <a name="vm-security-and-encryption-support"></a>VM 安全与加密支持
 
@@ -210,15 +205,12 @@ Azure 备份支持针对传输中数据和静态数据的加密：
 - Azure 备份支持 Azure 磁盘加密，后者在 Windows 虚拟机上使用 BitLocker，在 Linux 虚拟机上使用 **dm-crypt**。
 - 在后端，Azure 备份使用 [Azure 存储服务加密](../storage/common/storage-service-encryption.md)来保护静态数据。
 
-
 **计算机** | **传输中** | **静态**
 --- | --- | ---
 没有 DPM/MABS 的本地 Windows 计算机 | ![是][green] | ![是][green]
 Azure VM | ![是][green] | ![是][green]
 本地计算机/装有 DPM 的 Azure VM | ![是][green] | ![是][green]
 本地计算机/装有 MABS 的 Azure VM | ![是][green] | ![是][green]
-
-
 
 ## <a name="vm-compression-support"></a>VM 压缩支持
 
@@ -233,7 +225,6 @@ Azure 备份支持对备份流量进行压缩，详细情况汇总在下表中�
 Azure VM | 不可用 | 不可用
 本地计算机/装有 DPM 的 Azure VM | ![是][green] | ![是][green]
 本地计算机/装有 MABS 的 Azure VM | ![是][green] | ![是][green]
-
 
 ## <a name="next-steps"></a>后续步骤
 

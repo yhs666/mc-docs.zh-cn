@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 07/07/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ed62ae829feee30914aa11b807b7e19beadbb677
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 56ae9664d8a77d850ff602e2a14e9ae107eba345
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330170"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730389"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -110,7 +110,6 @@ Exchange |正在备份 Exchange 服务器中所有 Exchange 数据库的总和�
 BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>使用恢复服务保管库备份的数据量是否有限制？
-
 对可以使用恢复服务保管库进行备份的数据量没有限制。
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>为什么传输到恢复服务保管库的数据的大小小于选择进行备份的数据？
@@ -160,7 +159,7 @@ Azure 备份存储体系结构在这两方面都能提供最佳性能，它以�
 - 了解有关[备份和保留](./backup-overview.md#backup-and-retention)的更多信息。
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>我可以恢复多少次备份到 Azure 的数据？
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>我可以恢复多少次备份到 Azure 的数据？
 从 Azure 备份执行恢复的次数没有限制。
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>还原数据时，Azure 的出口流量是否需要付费？

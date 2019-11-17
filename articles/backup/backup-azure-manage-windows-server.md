@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/08/2019
 ms.date: 09/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d3c80b65063799f8a6399a61c45fed7a9270912b
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ae0bc1782f40053655c0de179a2bcee2ec963e87
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330441"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730369"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 
@@ -41,7 +41,7 @@ ms.locfileid: "71330441"
 
     ![创建恢复服务保管库步骤 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. 在保管库列表中，单击某个保管库打开其“概述”仪表板。  
+4. 在保管库列表中，单击某个保管库打开其“概述”仪表板。 
 
     ![恢复服务保管库仪表板](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -76,7 +76,7 @@ ms.locfileid: "71330441"
 
 ![备份警报](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-“备份警报”报告列出保管库的警报。 
+“备份警报”报告列出保管库的警报。
 
 ![备份警报](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -125,7 +125,7 @@ ms.locfileid: "71330441"
 
 ### <a name="change-the-filter-in-alerts-report"></a>更改警报报告中的筛选器
 
-使用“筛选器”菜单可以更改警报的“严重性”、“状态”、“开始时间”和“结束时间”。  
+使用“筛选器”菜单可以更改警报的“严重性”、“状态”、“开始时间”和“结束时间”。 
 
 > [!NOTE]
 > 编辑“备份警报”筛选器不会更改保管库“概述”仪表板中的“严重”或“警告”警报。
@@ -177,7 +177,7 @@ ms.locfileid: "71330441"
 
 保管库仪表板中的“备份作业”磁贴显示过去 24 小时“正在进行”或“失败”的作业数。  磁贴提供“备份作业”菜单的概览。
 
-![设置中的备份项](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![从设置备份项](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 若要查看有关作业的其他详细信息，请单击“正在进行”或“失败”，打开根据该状态筛选的“备份作业”菜单。  
 
@@ -185,13 +185,13 @@ ms.locfileid: "71330441"
 
 “备份作业”菜单显示有关“项类型”、“操作”、“状态”、“开始时间”和“持续时间”的信息。   
 
-若要打开“备份作业”菜单，请在保管库的主菜单中单击“备份作业”。  
+若要打开“备份作业”菜单，请在保管库的主菜单中单击“备份作业”。 
 
-![设置中的备份项](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![从设置备份项](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 此时会打开备份作业的列表。
 
-![设置中的备份项](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![从设置备份项](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 “备份作业”菜单显示过去 24 小时针对所有备份类型执行的所有操作的状态。 使用“筛选器”可更改筛选器。  后续部分将介绍筛选器。
 
@@ -199,11 +199,11 @@ ms.locfileid: "71330441"
 
 1. 在保管库的“备份作业”菜单中单击“筛选器”。 
 
-   ![设置中的备份项](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![从设置备份项](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     此时会打开“筛选器”菜单。
 
-   ![设置中的备份项](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![从设置备份项](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. 选择筛选器设置，并单击“完成”。  筛选的列表会根据新设置刷新。
 

@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/09/2019
-ms.date: 10/14/2019
+origin.date: 10/24/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: dd31575b29b9942beaabe89d0b38d2ab66da8181
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 61b2b4d2e25a36577c590400509af6f0eb5e5e59
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275243"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648619"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure 数据工厂中支持的文件格式和压缩编解码器
 
@@ -475,6 +475,9 @@ ms.locfileid: "72275243"
 | CharArray | 不支持 | 不适用 | 不适用 |
 
 ## <a name="orc-format"></a>ORC 格式
+
+>[!NOTE]
+>数据工厂引入了新的 ORC 格式数据集，请参阅 [ORC 格式](format-orc.md)一文了解详细信息。 仍然按原样支持基于文件的数据存储数据集的以下配置，以实现向后兼容性。 建议你今后使用新模型。
 
 若要分析 ORC 文件或以 ORC 格式写入数据，请将 `format` `type` 属性设置为 **OrcFormat**。 不需在 typeProperties 节的 Format 节中指定任何属性。 示例：
 

@@ -3,28 +3,28 @@ title: 在 PIM 中批准或拒绝 Azure AD 角色的请求 - Azure Active Direct
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中批准或拒绝 Azure AD 角色的请求。
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: curtand
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 origin.date: 04/09/2019
-ms.date: 08/08/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4f69300f18c9f6bed913b1b8321d8e444489bd3
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: c83e0568e2802a35fdc7b2da0b309ddcc9c0c009
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973578"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830841"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>在 PIM 中批准或拒绝 Azure AD 角色的请求
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中批准或拒绝 Azure AD 角色的请求
 
 利用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，可以将角色配置为需要审批才可激活，还可选择一个或多个用户或组作为委托的审批者。 委派的审批者有 24 小时可以审批请求。 如果请求未在 24 小时内获得审批，则符合条件的用户必须重新提交新请求。 24 小时的审批时间范围不可供配置。
 
@@ -32,7 +32,7 @@ ms.locfileid: "68973578"
 
 ## <a name="view-pending-requests"></a>查看待处理请求
 
-有 Azure AD 角色请求正在等待审批时，委托的审批者将收到电子邮件通知。 可在 PIM 中查看这些待处理的请求。
+有 Azure AD 角色请求正在等待审批时，委托的审批者将收到电子邮件通知。 可以在 Privileged Identity Management 中查看这些挂起的请求。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
@@ -78,6 +78,7 @@ ms.locfileid: "68973578"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [PIM 中的电子邮件通知](pim-email-notifications.md)
-- [在 PIM 中批准或拒绝 Azure 资源角色的请求](pim-resource-roles-approval-workflow.md)
+- [Privileged Identity Management 中的电子邮件通知](pim-email-notifications.md)
+- [在 Privileged Identity Management 中批准或拒绝 Azure 资源角色的请求](pim-resource-roles-approval-workflow.md)
 
+<!-- Update_Description: wording update -->

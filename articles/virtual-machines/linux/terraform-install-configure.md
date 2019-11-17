@@ -1,5 +1,5 @@
 ---
-title: 安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构 | Azure
+title: 安装并配置 Terraform 以预配 Azure 资源 | Azure
 description: 了解如何安装和配置用于创建 Azure 资源的 Terraform
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -12,17 +12,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/19/2018
-ms.date: 10/14/2019
+origin.date: 09/20/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: c762aa8c03a05e46885e7e586ac2e104f2a57c49
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: f934f242644f1488309207feed23e6914d946d44
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272796"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831226"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
+# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>安装并配置 Terraform 以预配 Azure 资源
 
 借助 Terraform，可以轻松使用[简单模板语言](https://www.terraform.io/docs/configuration/syntax.html)来定义、预览和部署云基础结构。 本文介绍使用 Terraform 在 Azure 中预配资源的必要步骤。
 
@@ -38,7 +38,7 @@ ms.locfileid: "72272796"
 
 使用 `terraform` 目录验证路径配置。 将显示可用 Terraform 选项的列表，如以下示例输出所示：
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -100,7 +100,7 @@ export ARM_ENVIRONMENT=china
 
 在空白目录下创建文件 `test.tf`，并粘贴到以下脚本中。
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -117,7 +117,7 @@ terraform init
 
 输出类似于以下示例：
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -131,7 +131,7 @@ terraform apply
 
 输出类似于以下示例：
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

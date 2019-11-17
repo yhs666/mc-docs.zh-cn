@@ -1,5 +1,6 @@
 ---
-title: 单一登录（适用于 JavaScript 的 Microsoft 身份验证库）| Azure
+title: 单一登录（适用于 JavaScript 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解如何使用适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 构建单一登录体验。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/24/2019
-ms.date: 06/18/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554893a6068bbdae5c65c6a4c39565280a35f1b2
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 3d9c98845d406b7b4f7cc64dea2b6c64fc2d75ad
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305871"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830969"
 ---
 # <a name="single-sign-on-with-msaljs"></a>使用 MSAL.js 进行单一登录
 
@@ -40,7 +41,7 @@ ms.locfileid: "67305871"
 ```javascript
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     },
     cache: {
         cacheLocation: 'localStorage'
@@ -162,7 +163,7 @@ var authContext = new AuthenticationContext(config);
 // In latest MSAL.js version
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     },
     cache: {
         cacheLocation: 'localStorage'
@@ -174,3 +175,4 @@ const myMSALObj = new UserAgentApplication(config);
 
 完成配置后，MSAL.js 可以在 ADAL.js 中读取经过身份验证的用户的缓存状态，并使用该状态在 MSAL.js 中提供 SSO。
 
+<!-- Update_Description: wording update -->

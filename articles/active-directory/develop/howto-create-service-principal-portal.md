@@ -1,5 +1,6 @@
 ---
-title: 在门户中为 Azure 应用创建标识 | Microsoft 文档
+title: 在门户中创建 Azure 应用标识
+titleSuffix: Microsoft identity platform
 description: 介绍如何创建新的 Azure Active Directory 应用程序和服务主体，在 Azure Resource Manager 中将此服务主体与基于角色的访问控制配合使用可以管理对资源的访问权限。
 services: active-directory
 documentationcenter: na
@@ -11,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/17/2019
-ms.date: 08/23/2019
+origin.date: 10/14/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c33743a55f4f8a2a0c607dcf08d2f4ec38ee0f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 4126198e8bb24e73eed469c8a4e2eaee97a4255d
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993217"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830985"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -63,7 +64,7 @@ ms.locfileid: "69993217"
 
 1. 选择“访问控制(IAM)”  。
 1. 选择“添加角色分配”  。
-1. 选择要分配到应用程序的角色。 若要允许应用程序执行诸如“重启”、“启动”和“停止”实例之类的操作，请选择“参与者”角色     。 默认情况下，可用选项中不显示 Azure AD 应用程序。 若要查找应用程序，请搜索其名称并选中它。
+1. 选择要分配到应用程序的角色。 例如，若要允许应用程序执行诸如“重新启动”、“启动”和“停止”实例之类的操作，请选择“参与者”角色     。  详细阅读[可用角色](../../role-based-access-control/built-in-roles.md)，默认情况下，Azure AD 应用程序不会显示在可用选项中。 若要查找应用程序，请搜索其名称并选中它。
 
    ![选择要分配给应用程序的角色](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -90,7 +91,13 @@ ms.locfileid: "69993217"
 
 ### <a name="upload-a-certificate"></a>上传证书
 
-可以使用现有证书（如果有）。  （可选）可以创建自签名证书以进行测试。 打开 PowerShell 并使用以下参数运行 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)，以在计算机上的用户证书存储中创建自签名证书：`$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`。  使用可从 Windows 控制面板访问的[管理用户证书](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 管理单元导出此证书。
+可以使用现有证书（如果有）。  （可选）可以创建自签名证书以进行测试。 打开 PowerShell 并使用以下参数运行 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)，以在计算机上的用户证书存储中创建自签名证书： 
+
+```powershell
+$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
+```
+
+使用可从 Windows 控制面板访问的[管理用户证书](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 管理单元将此证书导出到文件。
 
 若要上传证书，请执行以下操作：
 
@@ -115,6 +122,14 @@ ms.locfileid: "69993217"
 
    ![复制机密值，因为以后不再可以检索到此值](./media/howto-create-service-principal-portal/copy-secret.png)
 
+## <a name="configure-access-policies-on-resources"></a>在资源上配置访问策略
+请记住，你可能需要对应用程序需要访问的资源配置附加权限。 例如，你还必须[更新密钥保管库的访问策略](/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies)，以使应用程序能够访问密钥、机密或证书。  
+
+1. 在 [Azure 门户](https://portal.azure.cn)中，导航到密钥保管库并选择“访问策略”  。  
+1. 选择“添加访问策略”  ，然后选择要授予应用程序的密钥、机密和证书权限。  选择之前创建的服务主体。
+1. 选择“添加”  以添加访问策略，然后选择“保存”  以提交更改。
+    ![添加访问策略](./media/howto-create-service-principal-portal/add-access-policy.png)
+
 ## <a name="required-permissions"></a>所需的权限
 
 必须具有足够的权限向 Azure AD 租户注册应用程序，并将应用程序分配到 Azure 订阅中的角色。
@@ -126,7 +141,7 @@ ms.locfileid: "69993217"
 
    ![找到你的角色。 如果你是用户，请确保非管理员可以注册应用](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. 选择“用户设置”  。
+1. 在左侧窗格中，选择“用户设置”  。
 1. 检查“应用注册”  设置。 只有管理员可设置此值。 如果设置为“是”，则 Active AD 租户中的任何用户都可以注册应用  。
 
 如果应用注册设置设定为“否”  ，则只有具有管理员角色的用户才能注册这些类型的应用程序。 请参阅[可用角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)和[角色权限](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)来了解 Azure AD 中的可用管理员角色以及授予每个角色的具体权限。 如果将帐户分配到“用户”角色，但应用注册设置仅限于管理员用户，请要求管理员为你分配可以创建和管理应用注册的所有方面的管理员角色之一，或者让用户能够注册应用。
@@ -151,7 +166,6 @@ ms.locfileid: "69993217"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](../../azure-resource-manager/resource-manager-api-authentication.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)。  
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。
 

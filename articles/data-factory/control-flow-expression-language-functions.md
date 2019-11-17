@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 01/10/2018
-ms.date: 10/14/2019
-ms.openlocfilehash: 881c0f5706a87b2b64e68cde154cb45ce00ed610
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.date: 11/11/2019
+ms.openlocfilehash: 9f8b481def30563e4db5a0ba7850aa8d0afbe517
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275427"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648678"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure 数据工厂中的表达式和函数
 
@@ -257,7 +257,7 @@ ms.locfileid: "72275427"
 |addminutes|将整数分钟数添加到传入的字符串时间戳。 分钟数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如，`2015-03-15T14:00:36Z`：<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Timestamp<br /><br /> **说明**：必需。 包含时间的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：分钟数<br /><br /> **说明**：必需。 要添加的分钟数。 可为负数（减去相应的分钟数）。<br /><br /> **参数编号**：3<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |addhours|将整数小时数添加到传入的字符串时间戳。 小时数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-03-16T01:27:36Z`：<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Timestamp<br /><br /> **说明**：必需。 包含时间的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：小时<br /><br /> **说明**：必需。 要添加的小时数。 可为负数（减去相应的小时数）。<br /><br /> **参数编号**：3<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |adddays|将整数天数添加到传入的字符串时间戳。 天数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-02-23T13:27:36Z`：<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Timestamp<br /><br /> **说明**：必需。 包含时间的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：天<br /><br /> **说明**：必需。 要添加的天数。 可为负数（减去相应的天数）。<br /><br /> **参数编号**：3<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
-|formatDateTime|返回日期格式的字符串。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-02-23T13:27:36Z`：<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **参数编号**：1<br /><br /> **名称**：Date<br /><br /> **说明**：必需。 包含日期的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
+|formatDateTime|返回日期格式的字符串。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-02-23T13:27:36Z`：<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br />若要以“yyyy/MM/dd”设置日期格式，请使用 formatDateTime(utcnow(),'yyyy/MM/dd')。</br>若要在日期后面追加名称，请使用 @concat('foo-','/',formatDateTime(utcnow(),'yyyy/MM/dd'))。<br><br> **参数编号**：1<br /><br /> **名称**：Date<br /><br /> **说明**：必需。 包含日期的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。 |  
 
 ## <a name="next-steps"></a>后续步骤
 对于可以在表达式中使用的系统变量列表，请参阅[系统变量](control-flow-system-variables.md)。

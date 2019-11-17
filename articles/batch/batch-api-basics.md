@@ -15,12 +15,12 @@ origin.date: 08/29/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: e14d97b6587b6932239352134093bf678e90249f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 816a9ae41410d56831bde9c4d0a0ac2f777fa060
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330219"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730489"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -47,11 +47,12 @@ ms.locfileid: "71330219"
 以下部分介绍可实现分布式计算方案的 Batch 资源。
 
 > [!NOTE]
-> 需要有[批处理帐户](#account)才能使用批处理服务。 此外，大多数 Batch 解决方案都可以使用关联的 [Azure 存储][azure_storage]帐户存储和检索文件。 
+> 需要有[批处理帐户](#account)才能使用批处理服务。 此外，大多数 Batch 解决方案都可以使用关联的 [Azure 存储][azure_storage]帐户存储和检索文件。
 >
 >
 
 ## <a name="batch-service-resources"></a>Batch 服务资源
+
 使用 Batch 服务的所有解决方案需要以下某些资源：帐户、计算节点、池、作业、任务。 其他资源（如作业计划和应用程序包）都很有用，但为可选功能。
 
 * [帐户](#account)
@@ -68,6 +69,7 @@ ms.locfileid: "71330219"
 * [应用程序包](#application-packages)
 
 ## <a name="account"></a>帐户
+
 批处理帐户是批处理服务中唯一标识的实体。 所有处理都与一个 Batch 帐户相关联。
 
 可以通过 [Azure 门户](batch-account-create-portal.md)或编程方式（例如使用[批处理管理 .NET 库](batch-management-dotnet.md)）创建 Azure Batch 帐户。 创建该帐户时，可以关联一个 Azure 存储帐户，用于存储与作业相关的输入和输出数据或应用程序。
@@ -146,14 +148,16 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>虚拟机池的自定义映像
 
-若要使用自定义映像，需以通用化方式准备映像。 有关从 Azure VM 准备自定义 Linux 映像的信息，请参阅[如何创建虚拟机或 VHD 的映像](../virtual-machines/linux/capture-image.md)。 若要了解如何通过 Azure VM 准备自定义 Windows 映像，请参阅[在 Azure 中创建通用 VM 的托管映像](../virtual-machines/windows/capture-image-resource.md)。 
+若要了解如何使用自定义映像创建池，请参阅[使用共享映像库创建自定义池](batch-sig-images.md)。
+
+或者，可以使用[托管映像](batch-custom-images.md)资源创建自定义的虚拟机池。 有关从 Azure VM 准备自定义 Linux 映像的信息，请参阅[如何创建虚拟机或 VHD 的映像](../virtual-machines/linux/capture-image.md)。 若要了解如何通过 Azure VM 准备自定义 Windows 映像，请参阅[在 Azure 中创建通用 VM 的托管映像](../virtual-machines/windows/capture-image-resource.md)。
 
 有关详细要求和步骤，请参阅[使用自定义映像创建虚拟机池](batch-custom-images.md)。
 
 #### <a name="container-support-in-virtual-machine-pools"></a>虚拟机池中的容器支持
 
 使用 Batch API 创建虚拟机配置池时，可以将池设置为在 Docker 容器中运行任务。 目前，必须使用支持 Docker 容器的映像创建池。 将 Windows Server 2016 Datacenter 与 Azure 市场中的容器映像配合使用，或者提供自定义 VM 映像（其中包含 Docker Community Edition 或 Enterprise Edition 以及任何必需的驱动程序）。 池设置必须包括[容器配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration)，该配置在创建池时将容器映像复制到 VM。 然后，在池中运行的任务即可引用容器映像和容器运行选项。
-
+<!-- docker is unavailable -->
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
 

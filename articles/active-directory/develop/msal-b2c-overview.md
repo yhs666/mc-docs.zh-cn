@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/04/2019
-ms.date: 08/23/2019
+origin.date: 09/16/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48609932f6085c4560366a728d6a1c3d0a94c96f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 9ae30d61ce68830c5c8fc8abdecf79afb810ce47
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993268"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830973"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>使用 Microsoft 身份验证库与 Azure Active Directory B2C 交互
 
@@ -57,21 +57,30 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 1. 打开示例中的 index.html 文件  。
 
-1. 在注册应用程序时，使用以前记录的应用程序 ID 和密钥配置示例。 更改以下代码行，将值替换为你的目录和 API 的名称：
+1. 在注册应用程序时，使用以前记录的客户端 ID 和密钥配置示例。 更改以下代码行，将值替换为你的目录和 API 的名称：
 
    ```javascript
-   // The current application coordinates were pre-registered in a B2C directory.
+   // The current application coordinates were pre-registered in a B2C tenant.
 
-   const msalConfig = {
-       auth:{
-           clientId: "Enter_the_Application_Id_here",
-           authority: "https://login.partner.microsoftonline.cn/tfp/<your-tenant-name>.partner.onmschina.cn/<your-sign-in-sign-up-policy>",
-           b2cScopes: ["https://<your-tenant-name>.partner.onmschina.cn/hello/demo.read"],
-           webApi: 'http://localhost:5000/hello',
-     };
+    var appConfig = {
+        b2cScopes: ["https://fabrikamb2c.partner.onmschina.cn/helloapi/demo.read"],
+        webApi: "https://fabrikamb2chello.chinacloudsites.cn/hello"
+    };
 
-   // create UserAgentApplication instance
-   const myMSALObj = new UserAgentApplication(msalConfig);
+    const msalConfig = {
+        auth: {
+            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902" //This is your client/application ID
+            authority: "https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
+    };
+    // create UserAgentApplication instance
+    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
+
    ```
 
 本教程中的[用户流](/active-directory-b2c/active-directory-b2c-reference-policies)的名称为 B2C_1_signupsignin1  。 如果使用了不同的用户流名称，请将 authority 值设置为该名称  。
@@ -119,4 +128,4 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 - [自定义策略](/active-directory-b2c/active-directory-b2c-overview-custom)
 - [用户界面自定义](/active-directory-b2c/customize-ui-overview)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/31/2019
-ms.date: 08/05/2019
+origin.date: 09/30/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: a94f221cbcc4dc405566e10f5ab28b83b784d729
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: b58b6dbe00984164c571d09e3b7c7c7be982a5c7
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732269"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742280"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -49,8 +49,7 @@ ms.locfileid: "68732269"
     | 证书 | 位置 |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
-    | Azuregateway-*GUID*.chinacloudapp.cn  | Current User\Trusted Root Certification Authorities|
-    | AzureGateway-*GUID*.chinacloudapp.cn, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+    | AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
 3. 转到 C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在用户和计算机的存储上手动安装证书（*.cer 文件）。
 
@@ -86,7 +85,7 @@ ms.locfileid: "68732269"
    | Windows 10 版本 1709 | 2018 年 3 月 22 日 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. 设置注册表项值。 在注册表中创建“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload”REG_DWORD 键或将其设置为 1。
+2. 设置注册表项值。 在注册表中创建 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD 项或将其设置为 1。
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 客户端错误：收到意外或格式不当的消息
 
@@ -253,32 +252,6 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 已达到允许的最大连接数。 可以在 Azure 门户中查看连接的客户端总数。
 
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>点到站点 VPN 将 10.0.0.0/8 路由错误添加到路由表
-
-### <a name="symptom"></a>症状
-
-在点到站点客户端上进行 VPN 拨号连接时，VPN 客户端应该将一个路由添加到 Azure 虚拟网络。 IP 帮助程序服务应添加 VPN 客户端子网的路由。 
-
-VPN 客户端范围属于 10.0.0.0/8 的较小子网（如 10.0.12.0/24）。 添加了具有更高优先级的 10.0.0.0/8 的路由，而不是 10.0.12.0/24 的路由。 
-
-这种错误的路由会断开与可能属于 10.0.0.0/8 范围内另一子网（如未定义特定路由的 10.50.0.0/24）的其他本地网络的连接。 
-
-### <a name="cause"></a>原因
-
-此行为专为 Windows 客户端设计。 客户端使用 PPP IPCP 协议时，会从服务器（在本例中为 VPN 网关）中获取隧道接口的 IP 地址。 不过，由于协议有限制，因此客户端没有子网掩码。 因为无法通过其他方式获取子网掩码，所以客户端会尝试根据隧道接口 IP 地址的种类来猜测子网掩码。 
-
-因此，路由的添加依据为以下静态映射： 
-
-如果地址属于 A 类 --> 应用 /8
-
-如果地址属于 B 类 --> 应用 /16
-
-如果地址属于 C 类 --> 应用 /24
-
-### <a name="solution"></a>解决方案
-
-将其他网络的路由注入具有最长前缀匹配或指标低于点到站点（因此具有更高优先级）的路由表中。 
-
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN 客户端无法访问网络文件共享
 
 ### <a name="symptom"></a>症状
@@ -388,4 +361,3 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased  。
 ### <a name="solution"></a>解决方案
 
 在 VPN 客户端运行的计算机中检查睡眠和休眠设置。
-<!-- Update_Description: wording update -->

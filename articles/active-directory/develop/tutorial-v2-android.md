@@ -11,24 +11,35 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/09/2019
-ms.date: 10/25/2019
+origin.date: 10/10/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 171502bfa6f9141b6cc9ef76ff5e14f450e30f8c
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 2f2c7909b2f41874674364dcc1786ab11b0331ca
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830899"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>从 Android 应用将用户登录并调用 Microsoft Graph
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>教程：从 Android 应用将用户登录并调用 Microsoft Graph
+
+> [!NOTE]
+> 本教程尚未更新为使用适用于 Android 1.0 版库的 MSAL。 它可以与本教程中配置的早期版本配合使用。
 
 本教程介绍如何将 Android 应用与 Microsoft 标识平台集成。 应用会将用户登录，获取用于调用 Microsoft Graph API 的访问令牌，并针对 Microsoft Graph API 发出请求。  
 
-完成本指南后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。
+> [!div class="checklist"]
+> * 将 Android 应用与 Microsoft 标识平台集成
+> * 将用户登录
+> * 获取用于调用 Microsoft Graph API 的访问令牌
+> * 调用 Microsoft Graph API。  
+
+完成本教程后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。
+
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="how-this-tutorial-works"></a>本教程的工作原理
 
@@ -46,29 +57,30 @@ ms.locfileid: "72912766"
 
 该示例使用 Android 的 Microsoft 身份验证库 (MSAL) 来实现身份验证：[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)。
 
- MSAL 会自动续订令牌。
+ MSAL 将自动续订令牌，在设备上的其他应用之间提供单一登录 (SSO)，并管理帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 本教程需要 Android Studio 16 版本或更高版本（建议使用 19+ 版本）。
+* 本教程需要 Android Studio 版本 3.5。
 
 ## <a name="create-a-project"></a>创建一个项目
 
-本教程将创建一个新项目。 若要下载已完成的教程，请[下载代码](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)。
+本教程将创建一个新项目。 若要下载已完成的教程，请[下载代码](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)。
 
 1. 打开 Android Studio，然后选择“启动新的 Android Studio 项目”  。
 2. 选择“基本活动”，再选择“下一步”   。
 3. 为应用程序命名。
 4. 保存包名称。 以后需将它输入 Azure 门户中。
-5. 将“最低 API 级别”  设置为 **API 19** 或更高，然后单击“完成”。 
-6. 在项目视图的下拉列表中选择“项目”  ，以便显示源和非源的项目文件，然后打开 **app/build.gradle**，将 `targetSdkVersion` 设置为 `27`。
+5. 将语言从“Kotlin”  更改为“Java”  。
+6. 将“最低 API 级别”  设置为 **API 19** 或更高，然后单击“完成”。 
+7. 在项目视图的下拉列表中选择“项目”  ，以便显示源和非源的项目文件，然后打开 **app/build.gradle**，将 `targetSdkVersion` 设置为 `28`。
 
 ## <a name="register-your-application"></a>注册应用程序
 
 1. 转到 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)。
 2. 打开[“应用注册”边栏选项卡](https://portal.azure.cn/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)，单击“+新建注册”。 
 3. 输入应用的“名称”，然后在不设置重定向  URI 的情况下单击“注册”。 
-4. 在显示的窗格的“管理”部分，  选择“身份验证”   > “+ 添加平台”   >   “Android”。
+4. 在显示的窗格的“管理”部分，  选择“身份验证”   > “+ 添加平台”   >   “Android”。 （可能必须选择边栏选项卡顶部附近的“切换到新体验”才能看到此部分）
 5. 输入项目的包名称。 如果下载了代码，则此值为 `com.azuresamples.msalandroidapp`。
 6. 在“配置 Android 应用”页的“签名哈希”部分，单击“生成开发签名哈希”。    然后复制用于平台的 KeyTool 命令。
 
@@ -84,8 +96,8 @@ ms.locfileid: "72912766"
 
 1. 在 Android Studio 的项目窗格中，导航到 **app\src\main\res**。
 2. 右键单击“res”  ，选择“新建”   >   “目录”。 输入 `raw` 作为新目录名称，然后单击“确定”。 
-3. 在 **app** > **src** > **res** > **raw** 中，新建名为 `auth_config.json` 的 JSON 文件，然后粘贴以前保存的 MSAL 配置。 有关详细信息，请参阅 [MSAL 配置](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
-4. 在 **app** > **src** > **main** > **AndroidManifest.xml** 中，添加下面的 `BrowserTabActivity` 活动。 此条目可让 Microsoft 在完成身份验证后回调你的应用程序：
+3. 在 **app** > **src** > **main** > **res** > **raw** 中，新建名为 `auth_config.json` 的 JSON 文件，然后粘贴以前保存的 MSAL 配置。 有关详细信息，请参阅 [MSAL 配置](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
+4. 在 **app** > **src** > **main** > **AndroidManifest.xml** 中，将以下 `BrowserTabActivity` 活动添加到应用程序主体。 此条目可让 Microsoft 在完成身份验证后回调你的应用程序：
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -115,7 +127,7 @@ ms.locfileid: "72912766"
 ### <a name="create-the-apps-ui"></a>创建应用的 UI
 
 1. 在 Android Studio 项目窗口中导航到 **app** > **src** > **main** > **res** > **layout**，打开 **activity_main.xml**，然后打开“文本”视图。 
-2. 更改活动布局，例如，将 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 更改为 `<androidx.coordinatorlayout.widget.LinearLayout`。
+2. 更改活动布局，例如，将 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 更改为 `<androidx.coordinatorlayout.widget.DrawerLayout`。 
 3. 将 `android:orientation="vertical"` 属性添加到 `LinearLayout` 节点。
 4. 将以下代码粘贴到 `LinearLayout` 节点，替换当前内容：
 
@@ -177,13 +189,13 @@ ms.locfileid: "72912766"
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:0.3.+'
+    implementation 'com.microsoft.identity.client:msal:0.3+'
     ```
 
 ### <a name="use-msal"></a>使用 MSAL
 
 现在，请在 `MainActivity.java` 中进行更改，以便在应用中添加并使用 MSAL。
-在 Android Studio 项目窗口中，导航到 app  >  src  >  main  >  java  >  com.example.msal，然后打开 `MainActivity.java`      。
+在 Android Studio 项目窗口中，导航到 **app** > **src** > **main** > **java** > **com.example.（你的应用）** ，然后打开 `MainActivity.java`。
 
 #### <a name="required-imports"></a>所需的 import 语句
 
@@ -278,7 +290,9 @@ MSAL 公开两个主要方法用于获取令牌：`acquireTokenSilentAsync()` �
 
 如果帐户存在，`acquireTokenSilentAsync()` 会将用户登录并获取令牌，而无需任何用户交互。 如果成功，MSAL 会将令牌转交给应用，否则会生成 `MsalUiRequiredException`。  如果生成了此异常或者你希望用户能够获得交互式登录体验（MFA 策略可能需要或不需要凭据），则使用 `acquireToken()`。  
 
-`acquireToken()` 会在尝试登录用户并获取令牌时显示 UI。 在 `MainActivity` 类中创建以下三个 UI 方法：
+`acquireToken()` 会在尝试登录用户并获取令牌时显示 UI。 但是，它可能会使用浏览器中的会话 Cookie 或 Microsoft Authenticator 中的帐户来提供交互式 SSO 体验。
+
+在 `MainActivity` 类中创建以下三个 UI 方法：
 
 ```java
 /* Set the UI for successful token acquisition data */
@@ -417,6 +431,7 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 ```java
 /* Clears an account's tokens from the cache.
  * Logically similar to "sign out" but only signs out of this app.
+ * User will get interactive SSO if trying to sign back-in.
  */
 private void onSignOutClicked() {
     /* Attempt to get a user and acquireTokenSilent
@@ -532,6 +547,10 @@ private void updateGraphUI(JSONObject graphResponse) {
 ### <a name="consent"></a>同意
 
 当任何用户首次登录你的应用时，Microsoft 标识会提示他们许可请求的权限。  虽然大多数用户都能够同意，但某些 Azure AD 租户已禁用用户同意功能，这要求管理员代表所有用户同意。 要支持此方案，请在 Azure 门户中注册应用的作用域。
+
+## <a name="clean-up-resources"></a>清理资源
+
+不再需要时，请删除在[注册应用程序](#register-your-application)步骤中创建的应用对象。
 
 ## <a name="get-help"></a>获取帮助
 

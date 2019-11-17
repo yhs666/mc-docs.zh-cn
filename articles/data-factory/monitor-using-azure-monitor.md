@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 10/14/2019
-ms.openlocfilehash: 0e65fa096cb658f164733df50b41942caf805a57
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.date: 11/11/2019
+ms.openlocfilehash: d39bd528822c6ff3923bb950f81d603fea243b26
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275323"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648628"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>使用 Azure Monitor 发出警报和监视数据工厂
 
@@ -447,15 +447,33 @@ Azure 数据工厂版本 2 发出以下指标。
 
 ### <a name="configure-diagnostic-settings-and-workspace"></a>配置诊断设置和工作区
 
-为数据工厂启用诊断设置。
+为数据工厂创建或添加诊断设置。
 
-1.  选择“Azure Monitor” -> “诊断设置”-> 选择数据工厂 -> 启用诊断。  
+1. 在门户中，转到“监视”。 选择“设置”   > “诊断设置”  。
 
-    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+1. 选择要为其设置诊断设置的数据工厂。
 
-2.  提供包括工作区配置在内的诊断设置。
+1. 如果所选数据工厂不存在任何设置，则系统会提示你创建设置。 选择“启用诊断”  。
 
-    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+   ![如果不存在任何设置，请创建一个诊断设置](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+   如果数据工厂中存在现有设置，你将看到数据工厂中已配置的设置列表。 选择“添加诊断设置”。 
+
+   ![如果存在设置，则添加诊断设置](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+
+1. 为设置指定名称，选择“发送到 Log Analytics”  ，然后从 **Log Analytics 工作区**中选择一个工作区。
+
+    ![命名设置并选择 log-analytics 工作区](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+1. 选择“保存”  。
+
+几分钟后，新设置将出现在此数据工厂的设置列表中。 生成新的事件数据后，诊断日志将立即流式传输到该工作区。 发出事件后可能需要最多 15 分钟的时间该事件才会出现在 Log Analytics 中。
+
+* 在“特定于资源”模式下，  Azure 数据工厂中的诊断日志将流入 _ADFPipelineRun_、_ADFTriggerRun_ 和 _ADFActivityRun_ 表
+* 在“Azure 诊断”模式下，  诊断日志流入 _AzureDiagnostics_ 表
+
+> [!NOTE]
+> 由于 Azure 日志表的列数不能超过 500，因此强烈建议选择“特定于资源”模式。
 
 ## <a name="alerts"></a>警报
 

@@ -1,24 +1,21 @@
 ---
-title: 在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用快照调试器 | Azure Docs
+title: 在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用 Snapshot Debugger | Microsoft Docs
 description: 在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用快照调试器
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 ms.reviewer: mbullwin
 origin.date: 03/07/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 62bafdb57711f31c900af9a8303420b9595f1803
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: c6b8d6b9b4ed0c052b816d2a79a5bad62a8040b8
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736841"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730372"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用快照调试器
 

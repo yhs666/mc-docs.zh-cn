@@ -1,25 +1,20 @@
 ---
 title: 使用 Azure Monitor 优化 Active Directory 环境 | Azure Docs
 description: 可以使用 Active Directory 运行状况检查解决方案定期评估环境的风险和运行状况。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 09/10/2019
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ab5d4496bf77cf270db322335ff17d569e2da17
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 17efcf4223dfc38a5046d18fb03661b92b1469cb
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330030"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730585"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>使用 Azure Monitor 中的 Active Directory 运行状况检查解决方案优化 Active Directory 环境
 
@@ -43,9 +38,9 @@ ms.locfileid: "71330030"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Active Directory 运行状况检查解决方案要求在每台装有 Azure Monitoring Agent (MMA) 的计算机上安装受支持版本的 .NET Framework 4.5.2 或更高版本。  MMA 代理由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 以及 Azure Monitor 使用。
+* Active Directory 运行状况检查解决方案要求在每台安装了适用于 Windows 的 Log Analytics 代理（也称为 Microsoft Monitoring Agent (MMA)）的计算机上安装受支持的 .NET Framework 4.5.2 或更高版本。  该代理由 System Center 2016 - Operations Manager、Operations Manager 2012 R2 和 Azure Monitor 使用。
 * 该解决方案支持运行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 以及 Windows Server 2016 的域控制器。
-* 一个 Log Analytics 工作区，用于在 Azure 门户中通过 Azure 市场添加 Active Directory 运行状况检查解决方案。  无需进一步的配置。
+* 一个 Log Analytics 工作区，用于在 Azure 门户中通过 Azure 市场添加 Active Directory 运行状况检查解决方案。 无需其他配置。
 
   > [!NOTE]
   > 添加该解决方案后，AdvisorAssessment.exe 文件会随代理添加到服务器中。 读取配置数据，然后将其发送到云中的 Azure Monitor 进行处理。 逻辑应用于接收的数据，云服务则记录数据。
@@ -54,7 +49,7 @@ ms.locfileid: "71330030"
 
 若要对属于要评估的域的域控制器执行运行状况检查，该域中的每个域控制器都需要一个代理并使用以下受支持的方法之一连接到 Azure Monitor：
 
-1. 如果域控制器尚不受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 的监视，请安装 [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md)。
+1. 如果域控制器尚不受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 监视，请安装[适用于 Windows 的 Log Analytics 代理](../../azure-monitor/platform/agent-windows.md)。
 2. 如果域控制器受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 的监视并且管理组未与 Azure Monitor 集成，则它可与 Azure Monitor 共用多个宿主，以收集数据并将其转发到服务，同时仍可由 Operations Manager 监视。  
 
 域控制器上的代理向 Operations Manager 管理组报告、收集数据、将数据转发到为其分配的管理服务器，然后将数据从管理服务器直接发送到 Azure Monitor。  数据不会写入 Operations Manager 数据库。  
@@ -116,7 +111,11 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 
 1. 在“概述”页上，单击“Active Directory 运行状况检查”磁贴。  
 2. 在“运行状况检查”页上，查看某个重点区域边栏选项卡中的摘要信息，并单击其中一个查看针对该重点区域的建议。 
-3. 在任何重点区域页上，均可以查看针对环境所做的优先级建议。 单击“**受影响的对象**”下的建议，以查看有关为何给出此建议的详细信息。<br><br> ![运行状况检查建议图像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+
+3. 在任何重点区域页上，均可以查看针对环境所做的优先级建议。 单击“**受影响的对象**”下的建议，以查看有关为何给出此建议的详细信息。
+
+    ![运行状况检查建议的图像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+
 4. 可以采取“建议的操作”  中建议的纠正操作。 解决该项后，以后的评估将记录已执行的建议操作，并且合规性分数将提高。 已更正的项会显示为“通过的对象”  。
 
 ## <a name="ignore-recommendations"></a>忽略建议
@@ -131,7 +130,9 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-下面是一个显示了日志查询的屏幕截图：<br><br> ![失败的建议](media/ad-assessment/ad-failed-recommendations.png)
+下面是一个显示日志查询的屏幕截图：<
+
+![失败的建议](media/ad-assessment/ad-failed-recommendations.png)
 
 选择要忽略的建议。 将 RecommendationId 的值用于接下来的过程。
 
@@ -144,6 +145,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
    * 在 Operations Manager 2016 管理服务器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>验证建议是否已被忽略
+
 在下一次计划运行状况检查运行后（默认情况下每隔七天运行一次），指定的建议会被标记为“已忽略”，不会在仪表板上显示。 
 
 1. 可以使用以下日志查询列出所有已忽略的建议。
@@ -155,6 +157,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 2. 如果以后决定想要查看已忽略的建议，请删除任何 IgnoreRecommendations.txt 文件，或者可以从中删除 RecommendationID。
 
 ## <a name="ad-health-check-solutions-faq"></a>AD 运行状况检查解决方案常见问题解答
+
 运行状况检查的运行频率如何？ 
 
 * 每隔七天运行检查。
@@ -192,8 +195,5 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 * 有的，请参阅上面的 [忽略建议](#ignore-recommendations) 部分。
 
 ## <a name="next-steps"></a>后续步骤
-* 使用 [Azure Monitor 日志查询](../log-query/log-query-overview.md)来了解如何分析详细的 AD 运行状况检查数据和建议。
 
-
-
-
+使用 [Azure Monitor 日志查询](../log-query/log-query-overview.md)来了解如何分析详细的 AD 运行状况检查数据和建议。

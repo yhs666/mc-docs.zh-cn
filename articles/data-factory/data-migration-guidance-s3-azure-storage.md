@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 8/04/2019
-ms.date: 10/14/2019
-ms.openlocfilehash: c091e077d1cb1a9595f9dd983e11a030c879bebc
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.date: 11/11/2019
+ms.openlocfilehash: f1859c5ffeb611838aced706f7fe57ea2a1351c4
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275893"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648766"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>使用 Azure 数据工厂将数据从 Amazon S3 迁移到 Azure 存储 
 
@@ -137,7 +137,6 @@ ADF 默认通过 HTTPS 协议使用加密的连接将数据从 Amazon S3 传输�
 
 ![pricing-table](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
-
 ### <a name="additional-references"></a>其他参考 
 - [Amazon 简单存储服务连接器](/data-factory/connector-amazon-simple-storage-service)
 - [Azure Blob 存储连接器](/data-factory/connector-azure-blob-storage)
@@ -150,6 +149,10 @@ ADF 默认通过 HTTPS 协议使用加密的连接将数据从 Amazon S3 传输�
 - [基于时间分区文件名增量复制文件](/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
 - [基于 LastModifiedDate 复制新文件和更改的文件](/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [ADF 定价页](https://azure.cn/pricing/details/data-factory/data-pipeline/)
+
+## <a name="template"></a>模板
+
+下面是[模板](solution-template-migration-s3-azure.md)，开始时它将由数亿个文件组成的 PB 级数据从 Amazon S3 迁移到 Azure Data Lake Storage Gen2。
 
 ## <a name="next-steps"></a>后续步骤
 

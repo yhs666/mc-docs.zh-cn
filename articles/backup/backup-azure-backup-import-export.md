@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 备份导入/导出服务进行脱机备份种子设定
+title: 使用 Azure 备份导入/导出服务设定脱机备份种子
 description: 了解如何在 Azure 备份中使用 Azure 导入/导出服务离线发送数据。 本文介绍如何使用 Azure 导入导出服务来脱机设定初始备份数据的种子。
 ms.reviewer: saurse
 author: lingliw
@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 05/17/2018
-ms.date: 09/23/19
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0e040e0729324e9419afd4402911bdfb9395b6b9
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d6731f32e71249e558a21389b1ccd72c2b7dfc5c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329828"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730406"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure 备份中的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，能在数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 通过脱机种子设定，Azure 备份可以使用磁盘将脱机备份数据上传到 Azure。
@@ -150,8 +150,6 @@ Azure 备份脱机种子设定过程与 [Azure 导入/导出服务](../storage/c
 
    > [!IMPORTANT] 
    > 两个 Azure 导入作业不能同时拥有相同的追踪号码。 确保使用一个包裹寄送实用工具在单次 Azure 导入作业中准备的驱动器，该包裹有一个唯一的跟踪号。 请勿在一个包裹中混合不同 Azure 导入作业中准备的驱动器。
-
-
 
 ## <a name="update-shipping-details-on-the-azure-import-job"></a>更新 Azure 导入作业中的寄送详细信息
 

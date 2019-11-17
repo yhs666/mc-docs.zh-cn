@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 01/28/2019
-ms.date: 02/25/2019
+origin.date: 10/08/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 6743e9d06d6cc5c7349bbac739f253d5b94f0d3e
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 74ba888dee283d2d2832b6cc831e2a2b13503211
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833172"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742297"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>关于点到站点 VPN 路由
 
@@ -31,9 +31,9 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 ## <a name="isolatedvnet"></a>独立 VNet
 
-本示例中的点到站点 VPN 网关连接适用于未连接或未与其他任何虚拟网络 (VNet1) 对等互连的 VNet。 在此示例中，使用 SSTP 或 IKEv2 的客户端可以访问 VNet1。
+本示例中的点到站点 VPN 网关连接适用于未连接或未与其他任何虚拟网络 (VNet1) 对等互连的 VNet。 在此示例中，客户端可以访问 VNet1。
 
-![独立 VNet 路由](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolated VNet routing")
+![独立 VNet 路由](./media/vpn-gateway-about-point-to-site-routing/1.jpg "独立 VNet 路由")
 
 ### <a name="address-space"></a>地址空间
 
@@ -57,7 +57,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 使用 Windows 的客户端可以直接访问对等互连 VNet，但如果 VNet 对等互连或网络拓扑发生任何更改，必须重新下载 VPN 客户端。 非 Windows 客户端可直接访问对等互连 VNet。 访问不可传递，且仅限直接对等互连的 VNet。
 
-![多个对等互连 VNet](./media/vpn-gateway-about-point-to-site-routing/2.jpg "multiple peered VNets")
+![多个对等互连 VNet](./media/vpn-gateway-about-point-to-site-routing/2.jpg "多个对等互连 VNet")
 
 ### <a name="address-space"></a>地址空间：
 
@@ -87,7 +87,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 使用 Windows 或其他受支持 OS 的客户端只能访问 VNet1。 若要访问其他 VNet，必须使用 BGP。
 
-![多个 VNet 和 S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "multiple VNets and S2S")
+![多个 VNet 和 S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "多个 VNet 和 S2S")
 
 ### <a name="address-space"></a>地址空间
 
@@ -115,7 +115,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 使用 Windows 或其他受支持的 OS 的客户端可以访问使用站点到站点 VPN 连接连接的所有 VNet，但必须将到已连接 VNet 的路由手动添加到 Windows 客户端。
 
-![多个 VNet 和 S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "multiple VNets and S2S BGP")
+![多个 VNet 和 S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "多个 VNet 和 S2S BGP")
 
 ### <a name="address-space"></a>地址空间
 
@@ -143,7 +143,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 Windows 客户端和非 Windows 客户端只能访问 VNet1。
 
-![VNet 和分支机构的路由](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing with a VNet and a branch office")
+![使用 VNet 和分支机构进行路由](./media/vpn-gateway-about-point-to-site-routing/5.jpg "使用 VNet 和分支机构进行路由")
 
 ### <a name="address-space"></a>地址空间
 
@@ -169,7 +169,7 @@ Windows 客户端和非 Windows 客户端只能访问 VNet1。
 
 Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将到 Site1 的路由手动添加到客户端。 非 Windows 客户端可以访问 VNet 以及本地分支机构。
 
-![一个 VNet 和一个分支机构 (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "one VNet and a branch office")
+![一个 VNet 和一个分支机构 (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "一个 VNet 和一个分支机构")
 
 ### <a name="address-space"></a>地址空间
 
@@ -196,7 +196,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 所有客户端都只能访问 VNet1。
 
-![多 VNet S2S 和分支机构](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S and branch office")
+![多个 VNet S2S 和分支机构](./media/vpn-gateway-about-point-to-site-routing/7.jpg "多个 VNet S2S 和分支机构")
 
 ### <a name="address-space"></a>地址空间
 
@@ -226,7 +226,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 使用 Windows 的客户端可以访问使用站点到站点 VPN 连接连接的 VNet 和站点，但必须将到 VNet2、VNet3 和 Site1 的路由手动添加到该客户端。 非 Windows 客户端可以访问使用站点到站点 VPN 连接连接的 VNet 和站点，而无需任何手动干预。 访问权限是可传递的，并且客户端可访问所有已连接 VNet 和站点（本地）中的资源。
 
-![多 VNet S2S 和分支机构](./media/vpn-gateway-about-point-to-site-routing/8.jpg "multi-VNet S2S and branch office")
+![多个 VNet S2S 和分支机构](./media/vpn-gateway-about-point-to-site-routing/8.jpg "多个 VNet S2S 和分支机构")
 
 ### <a name="address-space"></a>地址空间
 
@@ -253,5 +253,3 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 ## <a name="next-steps"></a>后续步骤
 
 若要开始创建 P2S VPN，请参阅[使用 Azure 门户创建 P2S VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
-
-<!-- Update_Description: wording update -->

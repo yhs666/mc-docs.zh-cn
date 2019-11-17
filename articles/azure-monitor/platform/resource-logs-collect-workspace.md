@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Monitor 的 Log Analytics 工作区中收集 Azure 资源日志
+title: 在 Log Analytics 工作区中收集 Azure 资源日志
 description: 了解如何将 Azure 资源日志流式传输到 Azure Monitor 中的 Log Analytics 工作区。
 author: lingliw
 services: azure-monitor
@@ -9,12 +9,12 @@ origin.date: 09/20/2019
 ms.date: 10/20/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 824d4ff49025b28c89069f7af17815e040aeba08
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 7129c4c51ea708e26fc1963acdf560409c880a4e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72971134"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730336"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure Monitor 的 Log Analytics 工作区中收集 Azure 资源日志
 Azure 中的[资源日志](resource-logs-overview.md)提供有关 Azure 资源内部操作的丰富、频繁的数据。 本文介绍如何收集 Log Analytics 工作区中的资源日志，以便可以结合通过强大的日志查询在 Azure Monitor 日志中收集的其他监视数据对其进行分析，并利用其他 Azure Monitor 功能，例如警报和可视化。 

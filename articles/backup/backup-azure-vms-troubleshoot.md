@@ -1,7 +1,7 @@
 ---
 title: 排查 Azure 虚拟机备份错误
 description: Azure 虚拟机备份和还原疑难解答
-services: backup
+ms.reviewer: srinathv
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 46d807abcdf5571e33c5b6914e891cdd54ac9f8f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8c4093d1536ba54da97bf03f07eccda2dd718e03
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330234"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730411"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>排查 Azure 虚拟机上出现的备份失败问题
 

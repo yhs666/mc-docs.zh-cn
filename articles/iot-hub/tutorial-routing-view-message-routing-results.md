@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 03/25/2018
-ms.date: 07/15/2019
+ms.date: 11/18/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff895dcd40895dca0fe26ba8fb66e98ccfc9bc0d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 9447cd68c2c37a7d86bf446b30a364a7a3ecc89a
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570439"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831372"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>教程：第 2 部分 - 查看路由的消息
 
@@ -53,7 +53,8 @@ ms.locfileid: "67570439"
 
    ![“创建逻辑应用”屏幕](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   选择“创建”  。
+   选择“创建”  。 可能需要花费几分钟时间才能部署应用。
+   
 
 2. 现在转到该逻辑应用。 转到“逻辑应用”的最简单方法是选择“资源组”，选择你的资源组（本教程使用 **ContosoResources**），然后从资源列表中选择“逻辑应用”  。 随即将显示该逻辑应用设计器页面（可能需要向右滚动才可查看完整页面）。 在“逻辑应用设计器”页上向下滚动，直到出现带有“空白逻辑应用 +”字样的磁贴；选择该磁贴  。 默认选项卡是“为你提供”。 如果此窗格为空，请选择“全部”以查看所有可用的连接器和触发器。 
 
@@ -77,7 +78,7 @@ ms.locfileid: "67570439"
 
    ![队列选项](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. 现在，设置一个在队列接收到消息时发送电子邮件的操作。 在逻辑应用设计器中选择“+ 新建步骤”以添加步骤，然后选择“全部”以查看所有可用选项。   在“选择操作”窗格中，找到并选择“Office 365 Outlook”   。 在触发器屏幕上，选择“发送电子邮件/Office 365 Outlook”  。  
+7. 现在，设置一个在队列接收到消息时发送电子邮件的操作。 在逻辑应用设计器中选择“+ 新建步骤”以添加步骤，然后选择“全部”以查看所有可用选项。   在“选择操作”窗格中，找到并选择“Office 365 Outlook”   。 在“操作”屏幕上，选择“发送电子邮件/Office 365 Outlook”  。  
 
    ![Office365 选项](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
@@ -109,7 +110,9 @@ ms.locfileid: "67570439"
 
    ![创建流分析作业](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. 选择“创建”  来创建作业。 若要返回到该作业，请选择“资源组”。  本教程使用 ContosoResources  。 选择资源组，然后在资源列表中选择流分析作业。
+3. 选择“创建”  来创建作业。 部署可能需要几分钟时间。
+
+    若要返回到该作业，请选择“资源组”。  本教程使用 ContosoResources  。 选择资源组，然后在资源列表中选择流分析作业。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>向流分析作业添加输入
 
@@ -129,7 +132,7 @@ ms.locfileid: "67570439"
 
    **共享访问策略名称**：选择“服务”  。 门户将填充共享访问策略密钥。
 
-   **使用者组**：选择在本教程的步骤 1 中设置的使用者组。 本教程使用 contosoconsumers  。
+   **使用者组**：选择在本教程的第 1 部分中设置的使用者组。 本教程使用 contosoconsumers  。
    
    其余字段接受默认值。 
 
@@ -179,20 +182,20 @@ ms.locfileid: "67570439"
 
 ## <a name="run-simulated-device-app"></a>运行模拟设备应用
 
-在本教程的第 1 部分，我们已设置一个使用 IoT 设备进行模拟的设备。 假设在本教程的第 1 部分尚未下载相应的应用和资源，则在本部分，我们将下载 .NET 控制台应用，用于模拟设备向 IoT 中心发送设备到云的消息。
+在本教程的第 1 部分中，我们已设置一个使用 IoT 设备进行模拟的设备。 在本部分中，我们将下载 .NET 控制台应用，用于模拟设备向 IoT 中心发送设备到云的消息（假设在第 1 部分中尚未下载相应的应用和资源）。
 
 此应用程序针对每个不同的消息路由方法发送消息。 下载内容还带有一个文件夹，其中包含完整的 Azure 资源管理器模板和参数文件，以及 Azure CLI 和 PowerShell 脚本。
 
-如果在本教程的步骤 1 中未从存储库下载这些文件，现在请继续从 [IoT 设备模拟](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)下载。 选择此链接可下载包含多个应用程序的存储库；要查找的解决方案是 iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln。 
+如果在本教程的第 1 部分中未从存储库下载这些文件，现在请继续从 [IoT 设备模拟](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)下载。 选择此链接可下载包含多个应用程序的存储库；要查找的解决方案是 iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln。 
 
-双击解决方案文件 (IoT_SimulatedDevice.sln) 以在 Visual Studio 中打开代码，然后打开 Program.cs。 使用 IoT 中心主机名代替 `{iot hub hostname}`。 IoT 中心主机名的格式为“{iot-hub-name}.azure-devices.net”  。 本教程的中心主机名为“ContosoTestHub.azure-devices.net”  。 接下来，使用之前设置模拟设备时保存的设备密钥代替 `{device key}`。 
+双击解决方案文件 (IoT_SimulatedDevice.sln) 以在 Visual Studio 中打开代码，然后打开 Program.cs。 使用 IoT 中心主机名代替 `{your hub name}`。 IoT 中心主机名的格式为“{iot-hub-name}.azure-devices.net”  。 本教程的中心主机名为“ContosoTestHub.azure-devices.net”  。 接下来，使用之前设置模拟设备时保存的设备密钥代替 `{your device key}`。 
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
+        static string s_myDeviceId = "Contoso-Test-Device";
+        static string s_iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
+        static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>运行和测试
@@ -213,7 +216,9 @@ ms.locfileid: "67570439"
    * 从服务总线队列检索消息的逻辑应用运行正常。
    * 连接到 Outlook 的逻辑应用连接器工作正常。 
 
-2. 在 [Azure 门户](https://portal.azure.com)中选择“资源组”，然后选择你的资源组  。 本教程使用 ContosoResources  。 依次选择存储帐户、“Blob”、“容器”  。 本教程使用 contosoresults  。 现在应该可以看见一个文件夹，可继续深入查看目录，直到看见一个或多个文件。 打开其中某个文件；这些文件中包含路由到存储帐户的条目。 
+2. 在 [Azure 门户](https://portal.azure.cn)中选择“资源组”，然后选择你的资源组  。 本教程使用 ContosoResources  。 
+
+    依次选择存储帐户、“容器”  和相应的容器。 本教程使用 contosoresults  。 现在应该可以看见一个文件夹，可继续深入查看目录，直到看见一个或多个文件。 打开其中某个文件；这些文件中包含路由到存储帐户的条目。 
 
    ![存储中的结果文件](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -251,11 +256,11 @@ ms.locfileid: "67570439"
 
    已创建一个折线图。 X 轴显示 UTC 时区的日期和时间。 Y 轴显示来自传感器的温度。
 
-6. 创建另一个折线图，显示某段时间的实时湿度。 要设置第二个折线图，请执行上诉相同步骤，将“EventEnqueuedUtcTime”置于 x 轴，将“湿度”置于 y 轴   。
+6. 创建另一个折线图，显示某段时间的实时湿度。 若要设置第二个图表，请对第一个图表执行相同的过程，将 **EventEnqueuedUtcTime** 置于 x 轴（**轴**），将“湿度”  置于 y 轴（**值**）。
 
    ![最终的 Power BI 报表，其中包含两个图表](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. 选择“保存”以保存报表。 
+7. 选择“保存”  以保存报表，并在出现提示时输入报表名称。
 
 现在应在两个图表上都能看到数据。 此结果表示以下语句为 true：
 
@@ -267,7 +272,7 @@ ms.locfileid: "67570439"
 
 ## <a name="clean-up-resources"></a>清理资源 
 
-若要删除在本教程的两个部分中创建的所有资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在这种情况下，它会删除 IoT 中心、服务总线命名空间和队列、逻辑应用、存储帐户和资源组本身。 
+若要删除在本教程的两个部分中创建的所有 Azure 资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在这种情况下，它会删除 IoT 中心、服务总线命名空间和队列、逻辑应用、存储帐户和资源组本身。 还可以删除 Power BI 资源并清除在教程中发送的电子邮件。
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>清理 Power BI 可视化效果中的资源
 
@@ -288,6 +293,10 @@ az group delete --name $resourceGroup
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
+
+### <a name="clean-up-test-emails"></a>清理测试电子邮件
+
+你可能还希望删除收件箱中在设备应用程序运行时通过逻辑应用生成的电子邮件数。
 
 ## <a name="next-steps"></a>后续步骤
 

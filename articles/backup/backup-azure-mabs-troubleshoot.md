@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 412fb4c764a97ead57f029c5da5e1f5ece4b9586
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e8e3481d88515c9bcd3a442475d1153eff2ed029
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330156"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730533"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 

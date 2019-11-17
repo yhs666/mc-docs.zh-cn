@@ -8,16 +8,16 @@ ms.topic: conceptual
 origin.date: 02/19/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 38356aab2e3626773d01c04a6ace58514b04764f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 45c801a4c9812b5274848369c25269dfbbdbda9b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329678"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730571"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
-可以使用 [Azure 备份服务](backup-overview.md)将数据备份到 Microsoft Azure 云平台。 本文汇总了 Azure 备份体系结构、组件和流程。 
+可以使用 [Azure 备份服务](backup-overview.md)将数据备份到 Microsoft Azure 云平台。 本文汇总了 Azure 备份体系结构、组件和流程。
 
 ## <a name="what-does-azure-backup-do"></a>Azure 备份有什么功能？
 
@@ -28,13 +28,13 @@ Azure 备份可以备份数据、计算机状态，以及本地计算机和 Azur
 可以使用许多方法备份计算机和数据：
 
 - **备份本地计算机**：
-    - 可以使用 Azure 备份 Microsoft Azure 恢复服务 (MARS) 代理直接将本地 Windows 计算机备份到 Azure。 不支持 Linux 计算机。
-    - 可将本地计算机备份到备份服务器（System Center Data Protection Manager (DPM) 或 Microsoft Azure 备份服务器 (MABS)）。 然后，可将备份服务器备份到 Azure 中的恢复服务保管库。
+  - 可以使用 Azure 备份 Microsoft Azure 恢复服务 (MARS) 代理直接将本地 Windows 计算机备份到 Azure。 不支持 Linux 计算机。
+  - 可将本地计算机备份到备份服务器 - System Center Data Protection Manager (DPM) 或 Microsoft Azure 备份服务器 (MABS)。 然后，可将备份服务器备份到 Azure 中的恢复服务保管库。
 
 - **备份 Azure VM**：
-    - 可以直接备份 Azure VM。 Azure 备份会将一个备份扩展安装到 VM 上运行的 Azure VM 代理。 此扩展备份整个 VM。
-    - 可以通过运行 MARS 代理来备份 Azure VM 上的特定文件和文件夹。
-    - 可将 Azure VM 备份到 Azure 中运行的 MABS，然后可将 MABS 备份到恢复服务保管库。
+  - 可以直接备份 Azure VM。 Azure 备份会将一个备份扩展安装到 VM 上运行的 Azure VM 代理。 此扩展备份整个 VM。
+  - 可以通过运行 MARS 代理来备份 Azure VM 上的特定文件和文件夹。
+  - 可将 Azure VM 备份到 Azure 中运行的 MABS，然后可将 MABS 备份到恢复服务保管库。
 
 详细了解[可以备份哪些内容](backup-overview.md)，以及[支持的备份方案](backup-support-matrix.md)。
 
@@ -57,9 +57,9 @@ Azure 备份将备份的数据存储在恢复服务保管库中。 保管库是 
 
 Azure 备份提供不同的备份代理，具体取决于要备份哪种类型的计算机：
 
-**代理** | **详细信息** 
---- | --- 
-**MARS 代理** | <ul><li>在独立的本地 Windows Server 计算机上运行，可以备份文件、文件夹和系统状态。</li> <li>在 Azure VM 上运行，可以备份文件、文件夹和系统状态。</li> <li>在 DPM/MABS 服务器上运行，可将 DPM/MABS 本地存储磁盘备份到 Azure。</li></ul> 
+**代理** | **详细信息**
+--- | ---
+**MARS 代理** | <ul><li>在独立的本地 Windows Server 计算机上运行，可以备份文件、文件夹和系统状态。</li> <li>在 Azure VM 上运行，可以备份文件、文件夹和系统状态。</li> <li>在 DPM/MABS 服务器上运行，可将 DPM/MABS 本地存储磁盘备份到 Azure。</li></ul>
 **Azure VM 扩展** | 在 Azure VM 上运行，可以将其备份到保管库。
 
 ## <a name="backup-types"></a>备份类型
@@ -121,7 +121,7 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
     - 只会复制自上次备份以来发生更改的数据块。
     - 不会加密数据。 Azure 备份可以备份使用 Azure 磁盘加密进行加密的 Azure VM。
     - 快照数据可能不会立即复制到保管库。 在高峰期，可能需要好几个小时才能完成备份。 每日备份策略规定的 VM 备份总时间不会超过 24 小时。
-1. 将数据发送到保管库后，将创建恢复点。 默认情况下，快照会保留两天，然后再删除。 此功能允许从这些快照执行还原操作，从而缩短还原时间。 它减少了从保管库转换数据和复制回数据所需的时间。 请参阅 [Azure 备份即时还原功能](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability)。
+1. 将数据发送到保管库后，将创建恢复点。 默认情况下，快照会保留两天，然后再删除。 此功能允许从这些快照执行还原操作，从而缩短还原时间。 它减少了从保管库转换数据和复制回数据所需的时间。 请参阅 [Azure 备份即时还原功能](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability)。
 
 Azure VM 需要能够访问 Internet 才能执行控制命令。 如果备份 VM 中的工作负荷（例如 SQL Server 数据库备份），则也需要访问 Internet 来传输后端数据。 
 

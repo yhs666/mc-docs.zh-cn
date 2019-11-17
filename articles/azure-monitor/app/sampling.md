@@ -1,25 +1,21 @@
 ---
 title: Azure Application Insights 中的遥测采样 | Azure Docs
 description: 如何使受控制的遥测数据的卷。
-services: application-insights
-documentationcenter: windows
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.reviewer: vitalyg
 ms.author: v-lingwu
-ms.openlocfilehash: 1099513b959acc8c618877a6f0d06f5fe51c5d25
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 9b7e76de9a3fe8ff7199b1d405e1343c44f78fc0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737019"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730378"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -198,7 +194,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 **如果使用上面的方法来配置采样，请确保将 ```aiOptions.EnableAdaptiveSampling = false;``` 设置与 AddApplicationInsightsTelemetry() 配合使用。**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>ASP.NET、ASP.NET Core 和 Java 网站的固定速率采样
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications"></a>ASP.NET、ASP.NET Core、Java 网站和 Python 应用程序的固定速率采样
 
 固定速率采样会减少从 Web 服务器和 Web 浏览器发送的流量。 与自适应采样不同，它会按用户确定的固定速率来降低遥测。 它还将同步客户端和服务器采样，以便保留相关项，例如，如果在“搜索”中查看页面视图，可以查找其相关的请求。
 
@@ -337,7 +333,27 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 <a name="other-web-pages"></a>
 
+### <a name="configuring-fixed-rate-sampling-in-opencensus-python"></a>在 OpenCensus Python 中配置固定速率采样 ###
 
+1. 使用最新的 [OpenCensus Azure Monitor 导出程序](../../azure-monitor/app/opencensus-python.md)检测应用程序。
+
+> [!NOTE]
+> 固定速率采样仅可使用跟踪导出程序进行。 这意味着传入和传出请求是唯一可以配置采样的遥测类型。
+> 
+> 
+
+2. 可以在 `Tracer` 配置中指定 `sampler`。 如果未提供显式采样器，则默认使用 ProbabilitySampler。 默认情况下，ProbabilitySampler 将使用采样率 1/10000，这意味着每 10000 个请求中就有一个将发送到 Application Insight。 如需指定采样率，请参阅下文。
+
+3. 指定采样器时，请确保 `Tracer` 指定的采样器使用的采样率为 0.0 到 1.0（含）。 采样率 1.0 代表 100%，这意味着所有请求都会作为遥测数据发送到 Application Insights。
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## <a name="ingestion-sampling"></a>引入采样
 
@@ -516,13 +532,19 @@ ASP.NET 和 ASP.NET Core SDK 中的默认采样行为是什么？
 
 *我总是想要查看某些罕见的事件。如何让它们通过采样模块？*
 
-* 为此，最佳方法是编写一个自定义的 [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering)，以便在想要保留的遥测项中将 `SamplingPercentage` 设置为 100，如下所示。 这可以确保所有采样方法都不会在任何采样中考虑此项。
+* 为此，最佳方法是编写一个自定义的 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)，以便在想要保留的遥测项中将 `SamplingPercentage` 设置为 100，如下所示。 由于保证初始化程序将在遥测处理器（包括采样）之前运行，因此可以确保所有采样技术都会出于任何采样考虑而忽略此项目。
 
 ```csharp
-    if(somecondition)
-    {
-        ((ISupportSampling)item).SamplingPercentage = 100;
-    }
+     public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+         public void Initialize(ITelemetry telemetry)
+        {
+            if(somecondition)
+            {
+                ((ISupportSampling)item).SamplingPercentage = 100;
+            }
+        }
+      }
 ```
 
 ## <a name="next-steps"></a>后续步骤

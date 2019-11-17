@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 07/08/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: a1febdb47bc9cfb0492391d3ec08891d92cef8b0
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ef3e51755355c753834c2980121b2f8db1fbe926
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570480"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648770"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>复制活动中的架构映射
 
@@ -93,7 +93,7 @@ ms.locfileid: "67570480"
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | 源或接收器列的名称。                           | 是      |
 | 序号  | 列索引。 从 1 开始。 <br>在使用带分隔符的文本但没有标头行时应用，为必填项。 | 否       |
-| path     | 要提取或映射的每个字段的 JSON 路径表达式。 适用于分层数据，例如 MongoDB/REST。<br>对于根对象下的字段，JSON 路径以根 $ 开头；对于按 `collectionReference` 属性选择的数组中的字段，JSON 路径以数组元素开头。 | 否       |
+| path     | 要提取或映射的每个字段的 JSON 路径表达式。 适用于分层数据，例如 MongoDB/REST。<br>对于根对象下的字段，JSON 路径以根 $ 开头；对于 `collectionReference` 属性选择的数组内的字段，JSON 路径从数组元素开始。 | 否       |
 | type     | 源或接收器列的数据工厂临时数据类型。 | 否       |
 | culture  | 源或接收器列的区域性。 <br>当类型为 `Datetime` 或 `Datetimeoffset` 时应用。 默认为 `en-us`。 | 否       |
 | format   | 当类型为 `Datetime` 或 `Datetimeoffset` 时要使用的格式字符串。 请参阅[自定义日期和时间格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)，了解如何设置日期时间格式。 | 否       |
@@ -106,14 +106,14 @@ ms.locfileid: "67570480"
 
 ### <a name="alternative-column-mapping"></a>备用列映射
 
-可以指定复制活动 -> `translator` -> `columnMappings`，在表格形式的数据之间进行映射。 在此示例中，“structure”节对于输入和输出数据集都是必需的。 列映射支持将源数据集“structure”中的所有列或列子集接收器数据集“structure”中的所有列  。 以下是导致异常的错误条件：
+可以指定复制活动 -> `translator` -> `columnMappings`，在表格形式的数据之间进行映射。 在这种情况下，输入和输出数据集都需要“structure”节。 列映射支持将源数据集“structure”中的所有列或列子集接收器数据集“structure”中的所有列  。 以下是导致异常的错误条件：
 
 * 源数据存储查询结果中没有输入数据集“structure”部分中指定的列名称。
 * 接收器数据存储（如果具有预定义架构）没有输出数据集“structure”部分中指定的列名称。
 * 接收器数据集“structure”中的列数量多于或少于映射中指定的数量。
 * 重复的映射。
 
-在以下示例中，输入数据集有一个结构，并指向本地 Oracle 数据库中的表。
+在以下示例中，输入数据集有一个结构，并且它指向本地 Oracle 数据库中的表。
 
 ```json
 {

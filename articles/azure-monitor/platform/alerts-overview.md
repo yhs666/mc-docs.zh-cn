@@ -4,17 +4,17 @@ description: Azure 中的警报概述。 警报、经典警报和警报界面。
 author: lingliw
 services: monitoring
 ms.service: azure-monitor
+ms.subservice: alerts
 ms.topic: conceptual
 origin.date: 01/28/2018
 ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.subservice: alerts
-ms.openlocfilehash: cc69a22d262e39c9708e2619e81141aad058b4ca
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ae10c0bd3c1ddb437953680874618e00a9fc3db6
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329940"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730353"
 ---
 # <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 
@@ -184,9 +184,9 @@ ms.locfileid: "71329940"
 
 你可能希望以编程方式查询针对订阅生成的警报。 这可以是在 Azure 门户之外创建自定义视图，也可以是分析警报以确定模式和趋势。
 
-可以使用[警报管理 REST API](https://aka.ms/alert-management-api) 或[用于警报的 Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) 查询针对订阅生成的警报。
+可以使用[警报管理 REST API](https://aka.ms/alert-management-api) 或[用于警报的 Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 查询针对订阅生成的警报。
 
-[用于警报的 Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) 允许你大规模地查询警报实例。 如果必须管理跨多个订阅生成的警报，建议使用此 API。 
+[用于警报的 Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 允许你大规模地查询警报实例。 如果必须管理跨多个订阅生成的警报，建议使用此 API。 
 
 以下对 API 的示例请求返回一个订阅中的警报计数：
 

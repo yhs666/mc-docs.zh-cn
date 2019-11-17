@@ -1,30 +1,25 @@
 ---
 title: Azure Monitor 日志查询中的联接 | Azure Docs
 description: 本文包含的课程介绍了如何在 Azure Monitor 日志查询中使用联接。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/16/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36a59dcbae6eb026e84a1a267a4857ae5330338a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 12bdb2f9815565c839cd7b1f91813f29423a96da
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737176"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730457"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的联接
 
 > [!NOTE]
-> 在完成本课程之前，应先完成 [Azure Monitor 日志分析入门](get-started-portal.md)和 [Azure Monitor 日志查询](get-started-queries.md)。
+> 在完成本课程之前，应先完成 [Azure Monitor Log Analytics 入门](get-started-portal.md)和 [Azure Monitor 日志查询](get-started-queries.md)。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

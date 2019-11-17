@@ -1,25 +1,20 @@
 ---
 title: 在 Azure 门户中创建 Log Analytics 工作区 | Microsoft Docs
 description: 了解如何在 Azure 门户中创建 Log Analytics 工作区，以启用管理解决方案以及从云和本地环境进行的数据收集。
-services: log-analytics
-documentationcenter: log-analytics
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 03/12/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2bd2830f45be187c846c11b6688e55527b9ea6a3
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 2913ebc111721346d944dbc23492a61df9c3623e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970822"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730305"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 门户中创建 Log Analytics 工作区
 使用“Log Analytics 工作区”菜单通过 Azure 门户创建 Log Analytics 工作区  。 Log Analytics 工作区是适用于 Azure Monitor 日志数据的唯一环境。 每个工作区都有其自己的数据存储库和配置，并且数据源和解决方案均配置为将其数据存储在特定工作区中。 如果打算从以下源收集数据，则需要 Log Analytics 工作区：
@@ -47,7 +42,7 @@ ms.locfileid: "72970822"
   
 2. 单击“添加”，然后为以下各项选择选项  ：
 
-   * 为新的 Log Analytics 工作区  提供名称，如 DefaultLAWorkspace  。 
+   * 为新的 Log Analytics 工作区  提供名称，如 DefaultLAWorkspace  。 此名称在所有 Azure Monitor 订阅中必须全局唯一。
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于**资源组**，选择要使用已设置的现有资源组，还是要创建一个新资源组。  
    * 选择可用**位置**。  有关详细信息，请参阅[提供 Log Analytics 的区域](/home/features/products-by-region)。

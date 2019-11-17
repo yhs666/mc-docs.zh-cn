@@ -1,5 +1,6 @@
 ---
-title: 客户端应用程序配置（Microsoft 身份验证库）| Azure
+title: 客户端应用程序配置（Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解 Microsoft 身份验证库 (MSAL) 中公共客户端和机密客户端应用程序的配置选项。
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/16/2019
-ms.date: 08/22/2019
+origin.date: 09/27/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce038a6cb69c54fbe98c063b2ba8add67af6b04a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 086a61c91705f655435d75574d45d16362b9972f
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993269"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830974"
 ---
 # <a name="application-configuration-options"></a>应用程序配置选项
 
@@ -37,6 +38,7 @@ ms.locfileid: "69993269"
 - [日志记录选项](#logging)，包括日志级别，以及使用该库的组件的名称。
 
 ## <a name="authority"></a>颁发机构
+
 颁发机构是一个 URL，表示 MSAL 可从中请求令牌的目录。 常见的颁发机构包括：
 
 - https\://login.partner.microsoftonline.cn/\<tenant\>/，其中，&lt;tenant&gt; 是 Azure Active Directory (Azure AD) 租户的租户 ID，或者与此 Azure AD 租户关联的域。 仅用于将特定组织的用户登录。
@@ -61,11 +63,12 @@ Azure AD 云颁发机构有两个组成部分：
 ![如何构成颁发机构 URL](./media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>云实例
+
 实例用于指定应用是要从 Azure 公有云还是国家/地区云将用户登录。  在代码中使用 MSAL 可以通过枚举或者将 URL 作为 `Instance` 成员（如果知道该成员）传递给[国家/地区云实例](authentication-national-cloud.md#azure-ad-authentication-endpoints)，来设置 Azure 云实例。
 
 如果同时指定 `Instance` 和 `AzureCloudInstance`，MSAL.NET 将引发显式异常。
 
-如果未指定实例，应用将面向 Azure 公有云实例。
+如果未指定实例，应用将面向 Azure 公有云实例（URL `https://login.onpartner.microsoftonline.cn` 的实例）。
 
 ## <a name="application-audience"></a>应用程序受众
 
@@ -74,6 +77,7 @@ Azure AD 云颁发机构有两个组成部分：
 - ISV 可能想要使用任一组织或某些组织（多租户应用）中的用户工作帐户和学校帐户将用户登录。 
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>如何在代码/配置中指定受众
+
 在代码中使用 MSAL 时，可以使用以下值之一指定受众：
 - Azure AD 颁发机构受众枚举
 - 租户 ID，可以是：
@@ -88,15 +92,19 @@ Azure AD 云颁发机构有两个组成部分：
 如果你未指定受众，应用将面向充当受众的 Azure AD。 （也就是说，它的行为与指定了 `common` 时一样。）
 
 ### <a name="effective-audience"></a>有效的受众
+
 应用程序的有效受众是在应用中设置的受众与在应用注册中指定的受众之间的最小值（如果存在交集）。 实际上，可以在[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)体验中指定应用的受众（支持的帐户类型）。 有关详细信息，请参阅[快速入门：将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)。
 
 ## <a name="client-id"></a>客户端 ID
+
 客户端 ID 是注册应用时由 Azure AD 分配给应用的唯一应用程序（客户端）ID。
 
 ## <a name="redirect-uri"></a>重定向 URI
+
 重定向 URI 是标识提供者将安全令牌发回到的 URI。
 
 ### <a name="redirect-uri-for-public-client-apps"></a>公共客户端应用的重定向 URI
+
 如果你是使用 MSAL 的公共客户端应用开发人员：
 - 可能需要在桌面或 UWP 应用程序 (MSAL.NET 4.1+) 中使用 `.WithDefaultRedirectUri()`。 此方法会将公共客户端应用程序的重定向 URI 属性设置为建议用于公共客户端应用程序的默认重定向 URI。 
 
@@ -117,22 +125,26 @@ Azure AD 云颁发机构有两个组成部分：
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
-有关详细信息，请参阅[适用于 Android 和 iOS 的文档](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)。
+有关更多 iOS 详细信息，请参阅[将使用 Microsoft Authenticator 的 iOS 应用程序从 ADAL.NET 迁移到 MSAL.NET](msal-net-migration-ios-broker.md) 和[在 iOS 上利用中转站](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)。
+有关更多 Android 详细信息，请参阅 [Android 中的代理身份验证](brokered-auth.md)。
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>机密客户端应用的重定向 URI
+
 对于 Web 应用，重定向 URI（或回复 URI）是 Azure AD 用来向应用程序发回令牌的 URI。 如果机密应用是 Web 应用/Web API，则此 URI 可以是该 Web 应用/Web API 的 URL。 重定向 URI 需在应用注册中注册。 部署一个最初已在本地测试的应用时，这种注册尤其重要。 然后，需要在门户中添加已部署的应用的回复 URL。
 
 对于守护程序应用，不需要指定重定向 URI。
 
 ## <a name="client-secret"></a>客户端机密
+
 此选项指定机密客户端应用的客户端机密。 在使用 PowerShell AzureAD、PowerShell AzureRM 或 Azure CLI 注册应用期间，此机密（应用密码）将提供给 Azure AD。
 
 ## <a name="logging"></a>日志记录
+
 其他配置选项可用于日志记录和故障排除。 有关其用法的详细信息，请参阅[日志记录](msal-logging.md)一文。
 
 ## <a name="next-steps"></a>后续步骤
-了解如何[使用 MSAL.NET 实例化客户端应用程序](msal-net-initializing-client-applications.md)。
 
+了解如何[使用 MSAL.NET 实例化客户端应用程序](msal-net-initializing-client-applications.md)。
 了解如何[使用 MSAL.js 实例化客户端应用程序](msal-js-initializing-client-applications.md)。
 
 <!-- Update_Description: wording update -->

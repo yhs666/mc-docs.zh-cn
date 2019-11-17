@@ -1,6 +1,6 @@
 ---
-title: 将 Azure-SSIS 集成运行时加入虚拟网络 | Microsoft Docs
-description: 了解如何将 Azure-SSIS 集成运行时加入 Azure 虚拟网络。
+title: 将 Azure-SSIS Integration Runtime 加入虚拟网络 | Microsoft Docs
+description: 了解如何将 Azure-SSIS Integration Runtime 加入 Azure 虚拟网络。
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/15/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: 9d2101c25e941e42c3f80397abe45ecc60b111d3
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 61e17f618916be814b9839fe9b9eaded4b500c0c
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275347"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648759"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>将 Azure-SSIS 集成运行时加入虚拟网络
 在 Azure 数据工厂中使用 SQL Server Integration Services (SSIS) 时，对于以下情况，应将 Azure SSIS 集成运行时 (IR) 加入 Azure 虚拟网络： 
@@ -332,7 +332,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 ```
 
 ### <a name="create-an-azure-ssis-ir-and-join-it-to-a-virtual-network"></a>创建 Azure-SSIS IR 并将其加入虚拟网络
-可以创建 Azure-SSIS IR，并将其加入虚拟网络。 有关完整的脚本和说明，请参阅[创建 Azure-SSIS IR](create-azure-ssis-integration-runtime.md#azure-powershell)。
+可以创建 Azure-SSIS IR，并将其加入虚拟网络。 有关完整的脚本和说明，请参阅[创建 Azure-SSIS IR](create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime)。
 
 ### <a name="join-an-existing-azure-ssis-ir-to-a-virtual-network"></a>将现有 Azure-SSIS IR 加入虚拟网络
 [创建 Azure-SSIS IR](create-azure-ssis-integration-runtime.md) 一文介绍了如何在同一个脚本中创建 Azure-SSIS IR 并将其加入虚拟网络。 如果你已有一个 Azure-SSIS IR，请执行以下步骤将其加入虚拟网络： 

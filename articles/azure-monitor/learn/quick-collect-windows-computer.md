@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Monitor 从混合 Windows 计算机收集数据 | Microsoft Docs
+title: 使用 Azure Monitor 从混合 Windows 计算机收集数据
 description: 本快速入门介绍如何为 Azure 外部运行的 Windows 计算机部署 Log Analytics 代理，并通过 Azure Monitor 日志启用数据收集。
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -15,12 +15,12 @@ origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 485565f4f7ae1dd8a9ca6ab85450f1261df7a89c
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 1375e1a0a4584ccbd22d58783c25d57cb8cc3fc0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970856"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730311"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Windows 计算机收集数据
 
@@ -30,7 +30,7 @@ ms.locfileid: "72970856"
  
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth?WT.mc_id=A261C142F)。
 
-## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
+## <a name="sign-in-to-azure-portal"></a>登录到 Azure 门户
 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。 
 
 ## <a name="create-a-workspace"></a>创建工作区

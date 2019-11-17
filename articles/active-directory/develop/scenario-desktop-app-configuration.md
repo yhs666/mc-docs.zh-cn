@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a843d5a5ba9a6ecbe2eb846b830e73b9659999
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: bfa65971ccf558d1a6b454fd2ea728ad5523b0be
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134107"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830928"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的桌面应用 - 代码配置
 
@@ -29,11 +29,22 @@ ms.locfileid: "70134107"
 
 ## <a name="msal-libraries"></a>MSAL 库
 
-目前，支持桌面应用程序的唯一 MSAL 库是 MSAL.NET
+支持桌面应用程序的 Microsoft 库包括：
+
+  MSAL 库 | 说明
+  ------------ | ----------
+  ![MSAL.NET](./media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支持在多个平台中构建桌面应用程序 - Linux、Windows 和 MacOS
+  ![Python](./media/sample-v2-code/logo_python.png) <br/> MSAL Python | 支持在多个平台中构建桌面应用程序。 开发中 -目前为公共预览版
+  ![Java](./media/sample-v2-code/logo_java.png) <br/> MSAL Java | 支持在多个平台中构建桌面应用程序。 开发中 -目前为公共预览版
+  ![MSAL iOS](./media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | 仅支持在 macOS 上运行的桌面应用程序
 
 ## <a name="public-client-application"></a>公共客户端应用程序
 
-从代码角度来看，桌面应用程序是公共客户端应用程序，因此需构建并操作 MSAL.NET `IPublicClientApplication`。 同样，是否使用交互式身份验证会存在一些差异。
+从代码的角度看，桌面应用程序是公共客户端应用程序。 根据是否使用交互式身份验证，配置将略有不同。
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
+需要生成并操作 MSAL.NET `IPublicClientApplication`。
 
 ![IPublicClientApplication](./media/scenarios/public-client-application.png)
 
@@ -104,7 +115,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 - 如需 `PublicClientApplicationBuilder` 上提供的所有修饰符的列表，请参阅参考文档 [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 - 如需 `PublicClientApplicationOptions` 中公开的所有选项的说明，请参阅参考文档中的 [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)
 
-## <a name="complete-example-with-configuration-options"></a>包含配置选项的完整示例
+### <a name="complete-example-with-configuration-options"></a>包含配置选项的完整示例
 
 假设有一个 .NET Core 控制台应用程序，其中包含以下 `appsettings.json` 配置文件：
 
@@ -133,8 +144,6 @@ public class SampleConfiguration
  public PublicClientApplicationOptions PublicClientApplicationOptions { get; set; }
 
  /// <summary>
- /// Base URL for Microsoft Graph (it varies depending on whether the application is ran
- /// in Azure public clouds or national / sovereign clouds
  /// </summary>
  public string MicrosoftGraphBaseEndpoint { get; set; }
 
@@ -176,9 +185,86 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
 
 在调用 `.Build()` 方法之前，可以使用对 `.WithXXX` 方法的调用来重写配置，如前所示。
 
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+下面是 MSAL Java 开发示例中用于配置示例的类：[TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
+
+```Java
+PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
+        .authority(TestData.AUTHORITY_COMMON)
+        .build();
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+app = msal.PublicClientApplication(
+    config["client_id"], authority=config["authority"],
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
+
+以下代码实例化公共客户端应用程序，使用工作和学校帐户在 Azure 公有云中登录用户。
+
+### <a name="quick-configuration"></a>快速配置
+
+Objective-C：
+
+```objc
+NSError *msalError = nil;
+
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
+```
+
+Swift：
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
+if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
+```
+
+### <a name="more-elaborated-configuration"></a>更详细的配置
+
+可以通过添加多个修饰符来详细阐述应用程序的构建。 例如，如果希望应用程序成为国家/地区云（此处为美国政府）的多租户应用程序，可以编写：
+
+Objective-C：
+
+```objc
+MSALAADAuthority *aadAuthority =
+                [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
+                                                   audienceType:MSALAzureADMultipleOrgsAudience
+                                                      rawTenant:nil
+                                                          error:nil];
+
+MSALPublicClientApplicationConfig *config =
+                [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
+                                                                redirectUri:@"<your-redirect-uri-here>"
+                                                                  authority:aadAuthority];
+
+NSError *applicationError = nil;
+MSALPublicClientApplication *application =
+                [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
+```
+
+Swift：
+
+```swift
+let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
+
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
+if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
+```
+---
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [获取桌面应用的令牌](scenario-desktop-acquire-token.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

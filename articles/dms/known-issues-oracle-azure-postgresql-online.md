@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 origin.date: 10/03/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 8516161aa34bbd6a8cc8d3a484f476582429806e
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+ms.date: 11/11/2019
+ms.openlocfilehash: 62c7c85ee6236275647b20f6ab0c67370c714808
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416292"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831386"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>从 Oracle 联机迁移到 Azure DB for PostgreSQL（单一服务器）时存在的已知问题/迁移限制
 
@@ -64,7 +64,7 @@ Azure 数据库迁移服务支持迁移到 Azure Database for PostgreSQL（单�
 
 ## <a name="known-issues-and-limitations"></a>已知问题和限制
 
-- 客户必须使用 SYSDB 连接到 Oracle。
+- 客户必须使用 SYSDBA 连接到 Oracle。
 - 因分区/子分区操作（ADD、DROP、EXCHANGE 和 TRUNCATE）而导致的数据更改不能迁移，可能导致以下错误：
   - 对于 ADD 操作，在已添加的数据上执行更新和删除操作可能会返回“0 行受影响”警告。
   - 对于 DROP 和 TRUNCATE 操作，执行新的插入操作可能会导致“重复”错误。

@@ -14,18 +14,18 @@ ms.topic: article
 origin.date: 09/25/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 956a9c6455c75a41768d9622a900bb0f3a98aef7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4f1cea327d2e6510c5cf016b39a7d85a4c7d156
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656102"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730216"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>消息传输、锁定和处置
 
 消息代理（如服务总线）的最核心功能是将消息接受到队列或主题中以及保存它们以用于将来检索。 *发送*是常用于指消息传输到消息代理中的术语。 *接收*是常用于指将消息传输到检索客户端的术语。
 
-当客户端发送消息时，它通常希望了解消息是否正确传输到代理并由代理接受，或是否发生某种形式的错误。 这种肯定或否定确认会使客户端和代理了解消息传输状态，因而称为。
+当客户端发送消息时，它通常希望了解消息是否正确传输到代理并由代理接受，或是否发生某种形式的错误。 这种肯定或否定确认会使客户端和代理了解消息传输状态，因而称为  。
 
 同样，当中转站向客户端传输消息时，中转站和客户端都希望了解消息是已成功处理（因而可以删除消息），还是消息传递或处理失败（因而可能需要再次传递消息）。
 
@@ -97,11 +97,15 @@ for (int i = 0; i < 100; i++)
 
 ## <a name="settling-receive-operations"></a>处置接收操作
 
-对于接收操作，服务总线 API 客户端启用两种不同的显式模式：接收并删除和扫视锁定。
+对于接收操作，服务总线 API 客户端启用两种不同的显式模式：*Receive-and-Delete* 和 *Peek-Lock*。
+
+### <a name="receiveanddelete"></a>ReceiveAndDelete
 
 [接收并删除](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式告知代理将它发送到接收客户端的所有消息都在发送时视为已处置。 这意味着在代理将消息置于线路上之后，它会立即被视为已使用。 如果消息传输失败，则消息会丢失。
 
 此模式的优点是接收方无需对消息执行进一步操作，也不会由于等待处置结果而减慢速度。 如果各个消息中包含的数据具有较低值并且/或者只在很短时间内才有意义，则此模式是合理选择。
+
+### <a name="peeklock"></a>PeekLock
 
 [扫视锁定](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式告知代理接收客户端希望显式处置收到的消息。 消息可供接收方进行处理，同时在服务中保持在排他锁下，以便其他竞争接收方无法看到它。 该锁的持续时间最初在队列或订阅级别进行定义，可以由拥有该锁的客户端通过 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 操作进行延长。
 
@@ -122,6 +126,14 @@ for (int i = 0; i < 100; i++)
 如果 **Complete** 失败（这通常在消息处理结束时发生，在某些情况下会在处理工作进行几分钟之后发生），则接收应用程序可以决定是否在第二次传递时保留工作状态并忽略相同消息，或是否在重新传递消息时丢弃工作结果并重试。
 
 用于标识重复消息传递的典型机制是检查消息 ID，它可以并且应该由发送方设置为唯一值（可能与来自发起进程的标识符一致）。 作业计划程序可能会将消息 ID 设置为它尝试通过给定辅助进程分配给辅助进程的作业的标识符，并且该辅助进程会在作业已完成时忽略该作业的第二次出现。
+
+> [!IMPORTANT]
+> 请务必注意，PeekLock 在消息上获取的锁是易失的，在以下情况下可能会丢失
+>   * 服务更新
+>   * OS 更新
+>   * 在持有锁时更改实体（队列、主题、订阅）的属性。
+>
+> 当锁丢失时，Azure 服务总线将生成一个 LockLostException，该异常将出现在客户端应用程序代码上。 在这种情况下，客户端的默认重试逻辑应自动启动，并重试该操作。
 
 ## <a name="next-steps"></a>后续步骤
 

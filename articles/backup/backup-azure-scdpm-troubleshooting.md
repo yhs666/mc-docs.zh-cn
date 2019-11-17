@@ -1,5 +1,5 @@
 ---
-title: 排查 System Center Data Protection Manager 和 Azure 备份问题
+title: 排查 System Center Data Protection Manager 问题 - Azure 备份
 description: 排查 System Center Data Protection Manager 中的问题。
 ms.reviewer: kasinh
 author: lingliw
@@ -8,13 +8,13 @@ ms.service: backup
 ms.topic: conceptual
 origin.date: 01/30/2019
 ms.date: 07/06/2019
-ms.author: v-junlch
-ms.openlocfilehash: 8d6079e3662d0de1554f2d40ad803b1542a5b2cc
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.author: v-lingwu
+ms.openlocfilehash: 412513f0f1a74fb3400a46be18b3fd0ecff886f7
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330251"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730340"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 
@@ -22,10 +22,10 @@ ms.locfileid: "71330251"
 
 有关 System Center Data Protection Manager 的最新发行说明，请参阅 [System Center 文档](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)。 可在[此矩阵](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)中详细了解 Data Protection Manager 支持的功能。
 
-
 ## <a name="error-replica-is-inconsistent"></a>错误：副本不一致
 
 副本可能出于以下原因而不一致：
+
 - 副本创建作业失败。
 - 更改日记存在问题。
 - 卷级筛选器位图包含错误。
@@ -34,6 +34,7 @@ ms.locfileid: "71330251"
 - 副本确实不一致。
 
 若要解决此问题，请执行以下操作：
+
 - 若要消除不一致状态，请手动运行一致性检查，或计划每日一致性检查。
 - 确保使用最新版本的 Microsoft Azure 备份服务器和 Data Protection Manager。
 - 确保启用“自动一致性”设置。 
@@ -46,6 +47,7 @@ ms.locfileid: "71330251"
 ## <a name="error-online-recovery-point-creation-failed"></a>错误：在线恢复点创建失败
 
 若要解决此问题，请执行以下操作：
+
 - 确保使用最新版本的 Azure 备份代理。
 - 尝试在保护任务区域中手动创建恢复点。
 - 确保对数据源运行一致性检查。
@@ -56,7 +58,7 @@ ms.locfileid: "71330251"
 
 ## <a name="error-unable-to-configure-protection"></a>错误：无法配置保护
 
-如果 Data Protection Manager 服务器无法访问受保护的服务器，则会出现此错误。 
+如果 Data Protection Manager 服务器无法访问受保护的服务器，则会出现此错误。
 
 若要解决此问题，请执行以下操作：
 - 确保使用最新版本的 Azure 备份代理。

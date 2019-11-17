@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 03/25/2019
-ms.date: 09/30/2019
+ms.date: 11/18/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: fc07eccd88dc748bef446881126c6dba0d0696c0
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 043c347bedbacb9c03afba265908f2914bf82f26
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156196"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831410"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>教程：使用 Azure CLI 配置 IoT 中心消息路由
 
@@ -156,7 +156,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 首先设置存储帐户的终结点，然后设置路由。 
 
-需设置以下变量：
+以下是脚本使用的变量，必须进行设置：
 
 **storageConnectionString**：此值是从前述脚本设置的存储帐户中检索的。 消息路由使用此值来访问存储帐户。
 
@@ -176,7 +176,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 **endpointName**：此字段是用于标识终结点的名称。 
 
-**enabled**：此字段默认为 `true`，表示创建消息路由后应启用该路由。
+**enabled**：此字段默认为 `true`，指示消息路由应在创建后启用。
 
 **condition**：此字段是用于筛选发送到此终结点的消息的查询。 路由到存储的消息的查询条件是 `level="storage"`。
 
@@ -258,7 +258,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-现在，为服务总线队列设置路由终结点和消息路由。 需设置以下变量：
+现在，为服务总线队列设置路由终结点和消息路由。 以下是脚本使用的变量，必须进行设置：
 
 **endpointName**：此字段是用于标识终结点的名称。 
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/08/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9bdf1d5cd8acf9a5b6ddf1039ee9b47c4ec3d05b
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: fefcaf74d5651fc0ae60c2f0cc75db67dff960f5
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272544"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831354"
 ---
 ## <a name="application-performance-indicators"></a>应用程序性能指标
 
@@ -138,7 +138,7 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 
 ## <a name="nature-of-io-requests"></a>IO 请求的性质
 
-IO 请求是应用程序要执行的输入/输出操作单元。 识别 IO 请求的性质（随机或有序、读取或写入、小型或大型）有助于确定应用程序的性能要求。 了解 IO 请求的性质很重要，这有助于在设计应用程序基础结构时作出正确决策。
+IO 请求是应用程序要执行的输入/输出操作单元。 识别 IO 请求的性质（随机或有序、读取或写入、小型或大型）有助于确定应用程序的性能要求。 了解 IO 请求的性质很重要，这有助于在设计应用程序基础结构时作出正确决策。 IO 必须均匀分布，以实现可能的最佳性能。
 
 IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的输入/输出操作请求的大小。 IO 大小对性能（尤其是应用程序能够实现的 IOPS 和带宽）有很大的影响。 下面的公式说明了 IOPS、IO 大小和带宽/吞吐量之间的关系。  
     ![](media/premium-storage-performance/image1.png)
@@ -225,15 +225,9 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 
 ## <a name="premium-storage-disk-sizes"></a>高级存储磁盘大小
 
-Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小对 IOPS、带宽和存储空间设置了不同规格的限制。 选择正确的高级存储磁盘大小，具体取决于应用程序要求和高规格 VM 大小。 下表显示了 11 种磁盘大小及其功能。 目前，仅托管磁盘支持 P4、P6、P15、P60、P70 和 P80 大小。
+Azure 高级存储提供了多种大小，因此你可以选择最适合需求的大小。 每种磁盘大小对 IOPS、带宽和存储空间设置了不同规格的限制。 选择正确的高级存储磁盘大小，具体取决于应用程序要求和高规格 VM 大小。 下表显示了多种磁盘大小及其功能。 目前，仅托管磁盘支持 P4、P6、P15、P60、P70 和 P80 大小。
 
-<!--Not Available on and three disk sizes which are in preview-->
-
-| 高级磁盘类型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 磁盘大小           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GiB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
-| 每个磁盘的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
-| 每个磁盘的吞吐量 | 25 MiB/秒  | 50 MiB/秒  | 100 MiB/秒 |125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 750 MiB/秒 | 750 MiB/秒 |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 选择多少磁盘取决于所选磁盘大小。 可以使用单个 P50 磁盘或多个 P10 磁盘来满足应用程序要求。 进行选择时，可考虑下面列出的注意事项。
 
@@ -267,7 +261,7 @@ Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小
 
 | **磁盘类型** | **默认缓存设置** |
 | --- | --- |
-| 操作系统磁盘 |ReadWrite |
+| OS 磁盘 |ReadWrite |
 | 数据磁盘 |ReadOnly |
 
 以下是针对数据磁盘建议的磁盘缓存设置：
@@ -310,20 +304,20 @@ Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小
 * 对于缓存设置为 **ReadWrite** 的高级存储磁盘，请启用屏障来实现写入持久性。
 * 若要在重新启动 VM 后保留卷标，必须在 /etc/fstab 中更新对磁盘的全局唯一标识符 (UUID) 引用。 有关详细信息，请参阅[将托管磁盘添加到 Linux VM](../articles/virtual-machines/linux/add-disk.md)。
 
-下面是我们使用高级 SSD 验证过的 Linux 发行版。 为了高级 SSD 更好的性能和稳定性，建议将 VM 升级到其中至少一个版本（或更新版本）。 
+下面是我们使用高级 SSD 验证过的 Linux 发行版。 为了提高高级 SSD 的性能和稳定性，建议将 VM 升级到其中一个版本（或更新版本）。 
 
 某些版本需要最新的适用于 Azure 的 Linux Integration Services (LIS) v4.0。 若要下载并安装某个发行版，请单击下表中所列的链接。 完成验证后，我们将陆续在该列表中添加映像。 我们的验证表明，性能根据每个映像的不同而异。 性能取决于工作负荷特征和映像设置。 不同的映像已针对不同种类的工作负荷进行优化。
 
 | 分发 | 版本 | 支持的内核 | 详细信息 |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x、8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br /> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [需要 LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br /> *请参阅下一部分中的注释* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [建议使用 LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br /> *请参阅下一部分中的注释* |
+| Ubuntu | 12.04 或更高版本| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 或更高版本| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x、8.x 或更高版本| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 或更高版本| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br /> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 或更高版本| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+ 或更高版本| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5、6.6、6.7、7.0 或更高版本| &nbsp; | [需要 LIS4](https://www.microsoft.com/download/details.aspx?id=51612) <br /> *请参阅下一部分中的注释* |
+| CentOS | 7.1+ 或更高版本| 3.10.0-229.1.2.el7+ | [建议使用 LIS4](https://www.microsoft.com/download/details.aspx?id=51612) <br /> *请参阅下一部分中的注释* |
 
 <!--Not Available on | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |-->
 <!--Not Available on | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK |-->
@@ -412,4 +406,4 @@ Azure 高级存储根据所选 VM 大小和磁盘大小，预配指定数目的 
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

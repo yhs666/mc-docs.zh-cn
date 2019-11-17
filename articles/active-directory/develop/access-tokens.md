@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/28/2019
-ms.date: 10/25/2019
+origin.date: 10/22/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 587933fabbdcf2f3a32e127478238b8e5c61d300
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: e1e0e1547ba208017edc54f912521ea42ddf1106
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831002"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -116,6 +116,29 @@ JWT 拆分成三个部分：
 | `rh` | 不透明字符串 | Azure 用来重新验证令牌的内部声明。 资源不应使用此声明。 |
 | `ver` | 字符串，`1.0` 或 `2.0` | 指示访问令牌的版本。 |
 
+
+> [!NOTE]
+> **组超额声明**
+>
+> 为了确保令牌大小不超过 HTTP 标头大小限制，Azure AD 对它包含在组声明中的对象 ID 数进行了限制。 如果用户所属的组数超过超额限制（SAML 令牌为 150 个，JWT 令牌为 200 个），则 Azure AD 不会在令牌中发出组声明。 但是，它会在令牌中包含超额声明，该声明指示应用程序查询图形 API 以检索用户的组成员身份。
+  ```csharp
+  {
+    ...
+    "_claim_names": {
+     "groups": "src1"
+      },
+      {
+    "_claim_sources": {
+      "src1": {
+          "endpoint":"[Graph Url to get this user's group membership from]"
+          }
+         }
+       }
+    ...
+   }
+   ```
+> 可以使用 [App Creation Scripts](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) 文件夹中提供的 `BulkCreateGroups.ps1` 来帮助测试超额方案。
+
 #### <a name="v10-basic-claims"></a>v1.0 基本声明
 
 以下声明将包含在 v1.0 令牌中（如果适用），默认不会包含在 v2.0 令牌中。 如果使用 v2.0 并需要其中的某个声明，请使用[可选声明](active-directory-optional-claims.md)来请求它们。
@@ -187,7 +210,7 @@ https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configur
 此元数据文档：
 
 * 是一个 JSON 对象，其中包含一些有用的信息，例如执行 OpenID Connect 身份验证所需的各种终结点的位置。
-* 包含 `jwks_uri`，提供用于对令牌进行签名的公钥集的位置。 位于 `jwks_uri` 的 JSON 文档包含在该特定时间点使用的所有公钥信息。 应用可以使用 JWT 标头中的 `kid` 声明选择本文档中已用于对特定令牌进行签名的公钥。 然后可以使用正确的公钥和指定的算法来执行签名验证。
+* 包含 `jwks_uri`，提供用于对令牌进行签名的公钥集的位置。 位于 `jwks_uri` 的 JSON Web 密钥 (JWK) 包含在该特定时间点使用的所有公钥信息。  [RFC 7517](https://tools.ietf.org/html/rfc7517) 中对 JWK 格式进行了说明。  应用可以使用 JWT 标头中的 `kid` 声明选择本文档中已用于对特定令牌进行签名的公钥。 然后可以使用正确的公钥和指定的算法来执行签名验证。
 
 > [!NOTE]
 > V1.0 终结点返回 `x5t` 和 `kid` 声明，尽管 v2.0 终结点仅使用 `kid` 声明进行响应。 从目前开始，我们建议使用 `kid` 声明来验证令牌。

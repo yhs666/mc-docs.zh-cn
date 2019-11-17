@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights 中的智能检测 | Azure Docs
 description: Application Insights 执行应用遥测的自动深入分析，并在有潜在问题时发出警告。
-services: application-insights
-documentationcenter: windows
-author: lingliw
-manager: digimobile
-ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 02/07/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bffcd5bbf97237558c4860a6d2e00b78d4ea160b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5a687a5ef33de6c01e127a11fc64c2e8805bf8b2
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737271"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730576"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智能检测
  当 Web 应用程序中存在潜在性能问题和故障异常时，智能检测会自动向你发出警告。 它会对应用发送至 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遥测数据执行主动分析。 如果失败率中存在骤升或者客户端或服务器性能中存在异常模式，将收到警报。 此功能不需要任何配置。 它会在应用程序发送足够的遥测时运行。
@@ -50,7 +45,7 @@ ms.locfileid: "70737271"
 
 ## <a name="smart-detection-email-notifications"></a>智能检测电子邮件通知
 
-除了标为预览版的规则以外，所有智能检测规则都默认配置为在发现检测时发送电子邮件通知。
+除了标为_预览版_的规则以外，所有智能检测规则都默认配置为在发现检测时发送电子邮件通知。
 
 可以通过打开智能检测“设置”  边栏选项卡并选择规则（这将打开“编辑规则”  边栏选项卡）来为特定的智能检测规则配置电子邮件通知。
 

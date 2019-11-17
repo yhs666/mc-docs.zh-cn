@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 10/18/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: c3685330a57af3a5903d97ee302e79218c3ae602
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+origin.date: 10/26/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 2416bbacebe482854357a62dac86fcdaf3c18f61
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416245"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831303"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 数据库托管实例
 
@@ -31,7 +31,7 @@ ms.locfileid: "73416245"
 > * 创建 Azure 数据库迁移服务的实例。
 > * 使用 Azure 数据库迁移服务创建迁移项目并开始联机迁移。
 > * 监视迁移。
-> * 准备就绪后交接迁移。
+> * 准备就绪后执行迁移交接。
 
 > [!IMPORTANT]
 > 若要使用 Azure 数据库迁移服务从 SQL Server 联机迁移到 SQL 数据库托管实例，必须在 SMB 网络共享中提供完整的数据库备份和后续日志备份，供服务用来迁移数据库。 Azure 数据库迁移服务不启动任何备份，而是使用现有备份进行迁移。你可能已经在灾难恢复计划中有了这些备份。
@@ -45,7 +45,7 @@ ms.locfileid: "73416245"
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-本文介绍如何从 SQL Server 联机迁移到 SQL 数据库托管实例。 有关脱机迁移，请参阅[使用 DMS 将 SQL Server 迁移到 Azure SQL 数据库托管实例](tutorial-sql-server-to-managed-instance.md)。
+本文介绍如何从 SQL Server 联机迁移到 SQL 数据库托管实例。 有关脱机迁移，请参阅[使用 DMS 将 SQL Server 脱机迁移到 SQL 数据库托管实例](tutorial-sql-server-to-managed-instance.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -80,7 +80,7 @@ ms.locfileid: "73416245"
 * 创建一个 Azure Active Directory 应用程序 ID，用于生成可由 Azure 数据库迁移服务用来连接目标 Azure 数据库托管实例和 Azure 存储容器的应用程序 ID 密钥。 有关详细信息，请参阅[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](/azure-resource-manager/resource-group-create-service-principal-portal)一文。
 
   > [!NOTE]
-  > Azure 数据库迁移服务需要对指定的应用程序 ID 的订阅具有参与者权限。 我们正在积极努力减少这些权限要求。
+  > Azure 数据库迁移服务需要对指定的应用程序 ID 的订阅具有参与者权限。 或者，你可以创建自定义角色，以授予 Azure 数据库迁移服务所需的特定权限。 有关使用自定义角色的分步指导，请参阅文章[用于 SQL Server 到 SQL 数据库托管实例联机迁移的自定义角色](/dms/resource-custom-roles-sql-db-managed-instance)。
 
 * 创建或记下可让 DMS 服务将数据库备份文件上传到的并可用来迁移数据库的**标准性能层** Azure 存储帐户。  请务必在创建 Azure 数据库迁移服务实例的同一区域创建 Azure 存储帐户。
 

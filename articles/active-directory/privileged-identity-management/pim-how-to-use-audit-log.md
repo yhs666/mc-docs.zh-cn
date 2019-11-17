@@ -3,28 +3,28 @@ title: 在 PIM 中查看 Azure AD 角色的审核历史记录 - Azure Active Dir
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中查看 Azure AD 角色的审核历史记录。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-origin.date: 06/10/2019
-ms.date: 08/08/2019
+origin.date: 10/22/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb525d707f9b8ad0783d3c34111fb7fc2f4d4def
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: e335aaf68e7b4dbf1b6c3313204bf3d56345e68b
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973097"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830778"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>在 PIM 中查看 Azure AD 角色的审核历史记录
 
-可以使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 审核历史记录查看过去 30 天内所有特权角色的所有角色分配和激活。 如果想要在目录中查看活动的完整审核历史记录（包括管理员、最终用户和同步活动），可以使用 [Azure Active Directory 安全和活动报告](../reports-monitoring/overview-reports.md)。
+可以使用 Privileged Identity Management (PIM) 审核历史记录来查看过去 30 天内所有特权角色的所有角色分配和激活操作。 若要查看 Azure Active Directory (Azure AD) 组织中活动的完整审核历史记录（包括管理员、最终用户和同步活动），可以使用 [Azure Active Directory 安全和活动报告](../reports-monitoring/overview-reports.md)。
 
 ## <a name="view-audit-history"></a>查看审核历史记录
 
@@ -64,7 +64,7 @@ ms.locfileid: "68973097"
 
 1. 在“时间范围”中，  选择时间范围。
 
-1. 在“角色”中，添加要查看的角色的复选标记。 
+1. 在**角色**中，选中指示要查看的角色的复选框。
 
     ![“更新图表参数”窗格](./media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
@@ -72,5 +72,6 @@ ms.locfileid: "68973097"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 PIM 中查看 Azure 资源角色的活动和审核历史记录](azure-pim-resource-rbac.md)
+- [在 Privileged Identity Management 中查看 Azure 资源角色的活动和审核历史记录](azure-pim-resource-rbac.md)
 
+<!-- Update_Description: wording update -->

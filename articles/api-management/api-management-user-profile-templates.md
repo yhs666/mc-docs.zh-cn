@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 38478b8eb5058721933c4b1da6aded52710c58e3
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.date: 11/18/2019
+ms.openlocfilehash: f655aca9640dcdeb0a45a41ddb0866573c3addc6
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323817"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831363"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -37,12 +37,13 @@ ms.locfileid: "72323817"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="Profile"></a> 配置文件  
  **配置文件**模板用于自定义开发人员门户中用户配置文件页的用户配置文件部分。  
   
- ![用户配置文件页](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM 用户配置文件页")  
+ ![“用户配置文件”页](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "“APIM 用户配置文件”页")  
   
 ### <a name="default-template"></a>默认模板  
   
@@ -187,7 +188,7 @@ ms.locfileid: "72323817"
 ##  <a name="Subscriptions"></a> 订阅  
  **订阅**模板用于自定义开发人员门户中用户配置文件页的订阅部分。  
   
- ![用户订阅页](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM 用户订阅页")  
+ ![“用户订阅”页](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "“APIM 用户订阅”页")  
   
 ### <a name="default-template"></a>默认模板  
   
@@ -408,7 +409,7 @@ ms.locfileid: "72323817"
 ##  <a name="Applications"></a> 应用程序  
  **应用程序**模板用于自定义开发人员门户中用户配置文件页的订阅部分。  
   
- ![用户帐户应用程序页](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 用户帐户应用程序页")  
+ ![“用户帐户应用程序”页](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "“APIM 用户帐户应用程序”页")  
   
 ### <a name="default-template"></a>默认模板  
   
@@ -571,7 +572,7 @@ ms.locfileid: "72323817"
 ##  <a name="UpdateAccountInfo"></a> 更新帐户信息  
  “更新帐户信息”模板用于自定义开发人员门户中的“更新帐户信息”页。    
   
- ![用户帐户信息页开发人员门户模板](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM 用户帐户信息页开发人员门户模板")  
+ ![“用户帐户信息”页开发人员门户模板](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "“APIM 用户帐户信息”页开发人员门户模板")  
   
 ### <a name="default-template"></a>默认模板  
   

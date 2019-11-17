@@ -4,7 +4,7 @@ description: 本文列出有关 Microsoft Azure 云服务的配置和管理的�
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/23/2018
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: d30019ebfef03fc177529ca67a56ef0fb96f079c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 11/18/2019
+ms.openlocfilehash: 15af5020bf9cdd442e8f1ea9c9febcc74ff8ece9
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625532"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831440"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务配置和管理问题：常见问题 (FAQ)
 
@@ -102,7 +102,7 @@ CSR 只是一个文本文件。 无需从最终使用此证书的计算机中创
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-**AzurePublishSettingsFile** 将在 Azure 门户上的“订阅” > “管理证书”中创建新的管理证书。 新证书的名称类似于“[订阅名称]-[当前日期]-credentials”。
+**AzurePublishSettingsFile** 将在 Azure 门户上的“订阅” > “管理证书”中创建新的管理证书。   新证书的名称类似于“[订阅名称]-[当前日期]-credentials”。
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>如何自动安装主要 SSL 证书 (.pfx) 和中间证书 (.p7b)？
 
@@ -139,7 +139,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 有关详细信息，请参阅以下文档：
 * [在 Azure 存储中存储和查看诊断数据](../monitoring-and-diagnostics/azure-diagnostics-storage.md)
-* [IIS 日志停止写入云服务](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [IIS 日志停止写入到云服务中](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何为云服务启用 WAD 日志记录？
 可以通过以下选项启用 Windows Azure 诊断 (WAD) 日志记录：
@@ -195,7 +195,7 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 3. 创建名为 **DuoEnabled** 的新 DWORD 值。
 4. 将其值设置为 1。
 5. 重启服务器。
-6. 转到“默认网站”，在“绑定”下，使用刚刚创建的自签名证书创建新的 TLS 绑定。 有关详细信息，请参阅：
+6. 转到“默认网站”，在“绑定”下，使用刚刚创建的自签名证书创建新的 TLS 绑定。   有关详细信息，请参阅：
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)（IIS 上的 HTTP/2） 可通过启动任务自动完成这些步骤，这样，每次创建新的 PaaS 实例后，都可以在系统注册表中执行上述更改。 有关详细信息，请参阅[如何配置和运行云服务的启动任务](cloud-services-startup-tasks.md)。
 
@@ -223,7 +223,7 @@ Microsoft 遵循严格的流程，未经所有者或其被委派者书面许可�
 
 如果在已加入 Azure Active Directory 的计算机上使用 RDP 文件，则可能会发生此错误。 若要解决此问题，请执行以下步骤：
 
-1. 右键单击下载的 RDP 文件，然后选择“编辑”。
+1. 右键单击下载的 RDP 文件，然后选择“编辑”。 
 2. 在用户名的前面添加“&#92;”前缀。 例如，使用 **.\username** 而不要使用 **username**。
 
 ## <a name="scaling"></a>扩展
@@ -234,6 +234,17 @@ Azure 订阅对可以使用的内核数存在限制。 如果已使用所有可�
 ### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>如何基于内存指标配置自动缩放？
 
 当前不支持基于内存指标为云服务配置自动缩放。 
+
+若要解决此问题，可以使用 Application Insights。 自动缩放支持将 Application Insights 作为指标源，可以基于“内存”等来宾指标缩放角色实例计数。  必须在云服务项目包文件 (*.cspkg) 中配置 Application Insights 并对该服务启用 Azure 诊断扩展，才能实现此功能。
+
+有关如何在云服务上通过 Application Insights 利用自定义指标来配置自动缩放的更多详细信息，请参阅[在 Azure 中根据自定义指标自动缩放入门](../azure-monitor/platform/autoscale-custom-metric.md)
+
+有关如何针对云服务将 Azure 诊断与 Application Insights 集成的详细信息，请参阅[将云服务、虚拟机或 Service Fabric 诊断数据发送到 Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+
+有关如何为云服务启用 Application Insights 的详细信息，请参阅[适用于 Azure 云服务的 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+有关如何为云服务启用 Azure 诊断日志记录的详细信息，请参阅[为 Azure 云服务和虚拟机设置诊断](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
 ## <a name="generic"></a>泛型
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>如何将“nosniff”添加到网站？
@@ -266,7 +277,7 @@ Azure 订阅对可以使用的内核数存在限制。 如果已使用所有可�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>云服务 VM 上的驱动器为何显示可用磁盘空间不足？
 这是预期的行为，不会导致应用程序出现任何问题。 为 Azure PaaS VM 中的 %approot% 驱动器启用了日记，因此，占用的空间量在实际上是文件平时占用的空间量的两倍。 但是，有几个因素会在本质上消除此状态造成的问题。
 
-%approot% 的大小计算为 <.cspkg 大小 + 最大日记大小 + 富余的可用空间> 或 1.5 GB，以较大者为准。 VM 大小对于计算结果没有任何影响。 （VM 大小只会影响临时 C: 驱动器的大小。） 
+%approot% 驱动器大小计算为 \<.cspkg 大小 + 最大日记大小 + 富余的可用空间> 或 1.5 GB，以较大者为准。 VM 大小对于计算结果没有任何影响。 （VM 大小只会影响临时 C: 驱动器的大小。） 
 
 不支持写入 %approot% 驱动器。 如果要写入 Azure VM，必须在临时 LocalStorage 资源中执行此操作（或使用其他选项，例如 Blob 存储、Azure 文件，等等）。 因此，%approot% 文件夹的可用空间量没有意义。 如果不确定应用程序是否写入 %approot% 驱动器，始终可以让服务运行数日，然后比较“之前”和“之后”的大小。 
 
@@ -295,7 +306,7 @@ Azure 不会将任何数据写入 %approot% 驱动器。 从 .cspkg 创建 VHD �
     
 如[此文](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可为以下值之一：
 
-|值|含义|
+|Value|含义|
 ------|------
 |0|没有 SNI|
 |1|已启用 SNI |
@@ -310,8 +321,8 @@ Azure 不会将任何数据写入 %approot% 驱动器。 从 .cspkg 创建 VHD �
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

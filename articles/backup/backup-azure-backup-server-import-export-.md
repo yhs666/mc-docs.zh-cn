@@ -1,7 +1,7 @@
 ---
 title: Azure 备份 - DPM 和 Azure 备份服务器的脱机备份
-description: 了解如何在 Azure 备份中使用 Azure 导入/导出服务离线发送数据。 本文介绍如何使用 Azure 导入导出服务来脱机设定初始备份数据的种子。
-services: backup
+description: 通过 Azure 备份使用 Azure 导入/导出服务脱机发送数据。 本文说明 DPM 和 Azure 备份服务器 (MABS) 的脱机备份工作流。
+ms.reviewer: saurse
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/08/2018
 ms.date: 5/8/2018
 ms.author: v-junlch
-ms.openlocfilehash: f60a56058de3845b0465d2287bb52cee30432af4
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 830721c8881833f4e31c3322af8b3c19fc10b448
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329809"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730404"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 和 Azure 备份服务器的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，可在将数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。

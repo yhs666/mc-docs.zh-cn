@@ -5,16 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-origin.date: 10/17/2018
-ms.date: 03/04/2019
+origin.date: 09/24/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: d2319d5c01b084d107693982af3014931bacb0a0
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 0bf334716dca7a541af335f15dadc082ad06a00e
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236501"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742292"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 
@@ -102,7 +101,7 @@ SKU = VpnGw1 <br>
 
 1. 导航到“所有资源”  并在列表中找到“ClassicVNet”。 
 2. 在“概述”  页面的“VPN 连接”  部分中，单击“网关”  ，创建网关。
-  ![配置 VPN 网关](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "配置 VPN 网关")
+  ![配置 VPN 网关](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "C配置 VPN 网关)
 3. 在“新建 VPN 连接”  页面上，对于“连接类型”，  选择“站点到站点”  。
 4. 对于“本地站点”  ，请单击“配置所需设置”  。 这会打开“本地站点”页面。 
 5. 在“本地站点”  页面上，创建一个表示资源管理器 VNet 的名称。 例如，RMVNetLocal。
@@ -115,7 +114,7 @@ SKU = VpnGw1 <br>
 1. 在“新建 VPN 连接”  页上，选中“立即创建网关”复选框  。
 2. 单击“可选网关配置”  打开“网关配置”  页。
 
-   ![打开网关配置页面](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "打开网关配置页面")
+   ![打开“网关配置”页](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "打开“网关配置”页")
 3. 单击“子网 - 配置所需设置”  ，打开“添加子网”  页面。 “名称”  已配置为所需值：**GatewaySubnet**。
 4. **地址范围** 指网关子网的范围。 虽然可以创建具有地址范围 /29（3 个地址）的网关子网，但建议创建包含更多 IP 地址的网关子网。 这可以适应将来可能需要更多可用 IP 地址的配置。 如果可能，请使用 /27 或 /28。 如果使用这些步骤进行练习，可以参考[示例](#values)值。 本示例使用“10.0.0.32/28”。 单击“确定”  创建网关子网。
 5. “网关配置”  页面上的“大小”  指的是网关 SKU。 选择 VPN 网关的网关 SKU。
@@ -145,20 +144,13 @@ SKU = VpnGw1 <br>
 * 子网名称 = Subnet-1 <br>
 * 地址范围 = 192.168.1.0/24 <br>
 
-
 如果还没有资源管理器 VNet 并且运行这些步骤进行练习，则可以使用[创建虚拟网络](../virtual-network/quick-create-portal.md)中的步骤以及示例设置值创建虚拟网络。
 
-### <a name="2-create-a-gateway-subnet"></a>2.创建网关子网
+### <a name="creategw"></a>2.创建虚拟网关
 
-**示例值：** GatewaySubnet = 192.168.0.0/26
+在此步骤中为 VNet 创建虚拟网络网关。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。
 
-创建虚拟网关前，先要创建网关子网。 创建 CIDR 计数为 /28 或更大（/27、/26 等）的网关子网。 如果正在练习创建此配置，可以使用示例值。
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3.创建虚拟网关
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **示例值：**
 
@@ -168,11 +160,14 @@ SKU = VpnGw1 <br>
 * SKU = VpnGw1 <br>
 * 位置 = 中国北部 <br>
 * 虚拟网络 = RMVNet <br>
+* GatewaySubnet = 192.168.0.0/26 <br>
 * 第一个 IP 配置 = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>4.创建本地网关
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3.创建本地网关
 
 **示例值：** 本地网关 = ClassicVNetLocal
 
@@ -193,16 +188,16 @@ SKU = VpnGw1 <br>
 2. 在虚拟网络页面上，单击“概述”  。
 3. 在“VPN 连接”  部分中，单击图中的本地站点名称。
 
-   ![VPN 连接](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
+   ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 连接")
 4. 在“站点到站点 VPN 连接”  页面上，单击站点名称。
 
-   ![站点名称](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "本地站点名称")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "本地站点名称")
 5. 在本地站点的连接页面上，单击本地站点的名称以打开“本地站点”  页面。
 
-   ![打开本地站点](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "打开本地站点")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "打开本地站点")
 6. 在“本地站点”页面上，将 VPN 网关的 IP 地址替换为 Resource Manager 网关的 IP 地址。  
 
-   ![网关 IP 地址](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "网关 IP 地址")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "网关 IP 地址")
 7. 单击“确定”  更新 IP 地址。
 
 ## <a name="RMtoclassic"></a>第 4 节 - 创建从资源管理器虚拟网络到经典虚拟网络的连接
@@ -305,4 +300,3 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 ## <a name="faq"></a>VNet 到 VNet 常见问题解答
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-<!--Update_Description: code update-->

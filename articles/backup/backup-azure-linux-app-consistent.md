@@ -1,7 +1,7 @@
 ---
 title: Azure 备份：Linux VM 的应用程序一致性备份
 description: 创建 Linux 虚拟机到 Azure 的应用程序一致性备份。 本文介绍如何配置脚本框架以备份 Azure 部署的 Linux VM。 本文还包括故障排除信息。
-services: backup
+ms.reviewer: anuragm
 author: lingliw
 manager: digimobile
 keywords: 应用程序一致性备份; 应用程序一致性 Azure VM 备份; Linux VM 备份; Azure 备份
@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 01/12/2018
 ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dd1cc5833cd218a59227934ec9303fa709d48aa8
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d032452970cd7c76a92e21f8927d7b43f38fb719
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330160"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730366"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的应用程序一致性备份
 
@@ -40,10 +40,10 @@ ms.locfileid: "71330160"
    - **VMSnapshotScriptPluginConfig.json**：权限“600”。 例如，只有“root”用户才对此文件拥有“读取”和“写入”权限，任何用户都不得拥有其“执行”权限。
 
    - **操作前脚本文件：** 权限“700”。  例如，只有“root”用户才对此文件拥有“读取”、“写入”和“执行”权限。
-  
+
    - 操作后脚本：权限“700”。  例如，只有“root”用户才对此文件拥有“读取”、“写入”和“执行”权限。
 
-   > [!Important]
+   > [!IMPORTANT]
    > 该框架为用户提供强大功能。 保护该框架，并确保只有“root”用户可以访问关键 JSON 和脚本文件。
    > 如果不符合要求，该脚本将不会运行，从而导致文件系统崩溃和生成不一致性备份。
    >
@@ -69,7 +69,9 @@ ms.locfileid: "71330160"
 
     - **fsFreezeEnabled**：指定为了确保文件系统一致性，在创建 VM 快照时是否应调用 Linux fsfreeze。 建议将此设置保留为 true，除非必须禁用 fsfreeze 才能让应用程序正常工作。 
 
-6. 现已配置脚本框架。 如果已配置 VM 备份，则下一次备份将调用这些脚本，并触发应用程序一致性备份。 如果未配置 VM 备份，请使用[将 Azure 虚拟机备份到恢复服务保管库](/backup/backup-azure-vms-first-look-arm)进行配置。
+    - **ScriptsExecutionPollTimeSeconds**：设置在每次轮询到脚本执行之间，扩展必须进入睡眠状态的时间。 例如，如果值为 2，则扩展会每 2 秒检查一次前/后脚本执行是否完成。 它可以采用的最小值和最大值分别为 1 和 5。 该值应严格为一个整数。
+
+6. 现已配置脚本框架。 如果已配置 VM 备份，则下一次备份将调用这些脚本，并触发应用程序一致性备份。 如果未配置 VM 备份，请使用[将 Azure 虚拟机备份到恢复服务保管库](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)进行配置。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -77,11 +79,11 @@ ms.locfileid: "71330160"
 
 | 错误 | 错误消息 | 建议的操作 |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |操作前脚本返回错误，因此备份可能不具有应用程序一致性。   | 查看脚本的失败日志来解决问题。|  
-|   Post-ScriptExecutionFailed |    操作后脚本返回了可能影响应用程序状态的错误。 |    查看脚本的失败日志来解决问题，并检查应用程序状态。 |
-| Pre-ScriptNotFound |  在 VMSnapshotScriptPluginConfig.json 配置文件中指定的位置找不到操作前脚本。  |   确保配置文件中指定的路径处存在操作前脚本，以保证应用程序一致性备份。|
-| Post-ScriptNotFound | 在 VMSnapshotScriptPluginConfig.json 配置文件中指定的位置找不到操作后脚本。  |   确保配置文件中指定的路径处存在操作后脚本，以保证应用程序一致性备份。|
-| IncorrectPluginhostFile | VmSnapshotLinux 扩展随附的 Pluginhost 文件已损坏，因此操作前脚本和操作后脚本无法运行，且不会创建应用程序一致性的备份。  | 卸载 VmSnapshotLinux 扩展，下一次备份时会自动重新安装它，这样即可解决问题。  |
+| Pre-ScriptExecutionFailed |操作前脚本返回错误，因此备份可能不具有应用程序一致性。| 查看脚本的失败日志来解决问题。|  
+|Post-ScriptExecutionFailed |操作后脚本返回了可能影响应用程序状态的错误。 |查看脚本的失败日志来解决问题，并检查应用程序状态。 |
+| Pre-ScriptNotFound |在 VMSnapshotScriptPluginConfig.json 配置文件中指定的位置找不到操作前脚本。  |确保配置文件中指定的路径处存在操作前脚本，以保证应用程序一致性备份。|
+| Post-ScriptNotFound |在 VMSnapshotScriptPluginConfig.json 配置文件中指定的位置找不到操作后脚本。  |确保配置文件中指定的路径处存在操作后脚本，以保证应用程序一致性备份。|
+| IncorrectPluginhostFile |VmSnapshotLinux 扩展随附的 Pluginhost 文件已损坏，因此操作前脚本和操作后脚本无法运行，且不会创建应用程序一致性的备份。 | 卸载 VmSnapshotLinux 扩展，下一次备份时会自动重新安装它，这样即可解决问题。  |
 | IncorrectJSONConfigFile | VMSnapshotScriptPluginConfig.json 文件不正确，因此操作前脚本和操作后脚本无法运行，且不会创建应用程序一致的备份。  | 从 [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) 下载副本并重新配置该文件。 |
 | InsufficientPermissionforPre-Script | 对于正在运行的脚本，“root”用户应是该文件的所有者，并且应对文件设置“700”权限（即只有“所有者”才拥有“读取”、“写入”和“执行”权限）。 | 确保“root”用户是脚本文件的“所有者”，只有“所有者”才拥有“读取”、“写入”和“执行”权限。 |
 | InsufficientPermissionforPost-Script | 对于正在运行的脚本，root 用户应是该文件的所有者，并且应该对文件设置“700”权限（即，只有“所有者”才拥有“读取”、“写入”和“执行”权限）。 | 确保“root”用户是脚本文件的“所有者”，只有“所有者”才拥有“读取”、“写入”和“执行”权限。 |
@@ -89,7 +91,6 @@ ms.locfileid: "71330160"
 | Post-ScriptTimeout | 执行应用程序一致性备份时操作后脚本超时。 | 检查脚本，并在 /etc/azure 中的 VMSnapshotScriptPluginConfig.json 文件中增加超时时间。   |
 
 ## <a name="next-steps"></a>后续步骤
-[配置 VM 到恢复服务保管库的备份](/backup/backup-azure-arm-vms)
 
 
 <!-- Update_Description: update metedata properties -->

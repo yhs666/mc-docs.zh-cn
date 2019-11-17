@@ -1,5 +1,6 @@
 ---
-title: 身份验证流（Microsoft 身份验证库）| Azure
+title: 身份验证流（Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解 Microsoft 身份验证库 (MSAL) 使用的身份验证流和授权。
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/25/2019
-ms.date: 10/25/2019
+origin.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4a332ad01ca655c8c85bfad1530865f678f526d
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: b76e73c99801abb4222ea33f3ace06d1645ed78c
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912787"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830979"
 ---
 # <a name="authentication-flows"></a>身份验证流
 
@@ -38,9 +39,26 @@ ms.locfileid: "72912787"
 | [客户端凭据](#client-credentials) | 允许你使用应用程序的标识访问 Web 托管的资源。 通常用于必须在后台运行的服务器间交互，不需要立即与用户交互。 | [守护程序应用](scenario-daemon-overview.md) |
 | [设备代码](#device-code) | 允许用户登录到智能电视、IoT 设备或打印机等输入受限的设备。 | [桌面/移动应用](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
 | [Windows 集成身份验证](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 允许已加入域或已加入 Azure Active Directory (Azure AD) 的计算机上的应用程序以静默方式获取令牌（无需用户进行任何 UI 交互）。| [桌面/移动应用](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [用户名/密码](scenario-desktop-acquire-token.md#username--password) | 允许应用程序通过直接处理用户的密码将用户登录。 不建议使用此流。 | [桌面/移动应用](scenario-desktop-acquire-token.md#username--password) | 
+| [用户名/密码](scenario-desktop-acquire-token.md#username--password) | 允许应用程序通过直接处理用户的密码将用户登录。 不建议使用此流。 | [桌面/移动应用](scenario-desktop-acquire-token.md#username--password) |
+
+## <a name="how-each-flow-emits-tokens-and-codes"></a>每个流如何发出令牌和代码
+ 
+根据客户端的生成方式，客户端可以使用 Microsoft 标识平台支持的一种（或几种）身份验证流。  这些流可以生成各种令牌（id_tokens、刷新令牌、访问令牌）以及授权代码，并需要不同的令牌使其正常工作。 此图表提供概述：
+ 
+|流向 | 需要 | id_token | 访问令牌 | 刷新令牌 | 授权代码 | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[授权代码流](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[隐式流](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[混合 OIDC 流](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[刷新令牌兑换](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | 刷新令牌 | x | x | x| |
+|[代理流](v2-oauth2-on-behalf-of-flow.md) | 访问令牌| x| x| x| |
+|[设备代码流](v2-oauth2-device-code.md) | | x| x| x| |
+|[客户端凭据](v2-oauth2-client-creds-grant-flow.md) | | | x（仅限应用）| | |
+ 
+通过隐式模式颁发的令牌由于通过 URL（其中 `response_mode` 是 `query` 或 `fragment`）传回浏览器而具有长度限制。  有些浏览器对可以放在浏览器栏中的 URL 的大小有限制，当 URL 太长时会失败。  因此，这些令牌没有 `groups` 或 `wids` 声明。
 
 ## <a name="interactive"></a>交互
+
 MSAL 支持以交互方式提示用户输入其凭据，以使用这些凭据登录并获取令牌。
 
 ![交互式流示意图](./media/msal-authentication-flows/interactive.png)
@@ -63,6 +81,7 @@ MSAL 支持 [OAuth 2 隐式授权流](v2-oauth2-implicit-grant-flow.md)，可让
 此身份验证流不包括使用 Electron 和 React-Native 之类的跨平台 JavaScript 框架的应用程序方案，因为它们需要使用其他功能才能与本机平台交互。
 
 ## <a name="authorization-code"></a>授权代码
+
 MSAL 支持 [OAuth 2.0 授权代码授予](v2-oauth2-auth-code-flow.md)。 可在设备上安装的应用中使用此授权，以访问受保护的资源，例如 Web API。 这样，就可以添加对移动应用和桌面应用的登录与 API 访问权限。 
 
 当用户登录到 Web 应用程序（网站）时，Web 应用程序会收到授权代码。  兑换该授权代码可获取用于调用 Web API 的令牌。 在 ASP.NET 和 ASP.NET Core Web 应用中，`AcquireTokenByAuthorizationCode` 的唯一目的是将令牌添加到令牌缓存。 然后，应用程序可以使用该令牌（通常在控制器中，只需使用 `AcquireTokenSilent` 即可获取 API 的令牌）。
@@ -75,6 +94,7 @@ MSAL 支持 [OAuth 2.0 授权代码授予](v2-oauth2-auth-code-flow.md)。 可�
 2. 使用访问令牌调用 Web API。
 
 ### <a name="considerations"></a>注意事项
+
 - 只能使用授权代码兑换令牌一次。 不要尝试使用同一个授权代码多次获取令牌（协议标准规范明确禁止此行为）。 如果你有意地多次用该代码兑换令牌，或者你没有意识到框架也在为你兑换令牌，则会收到以下错误：`AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
 - 编写 ASP.NET 或 ASP.NET Core 应用程序时，如果未告知框架你已用授权代码兑换令牌，则可能会发生此错误。 为此，需要调用 `AuthorizationCodeReceived` 事件处理程序的 `context.HandleCodeRedemption()` 方法。
@@ -105,7 +125,7 @@ MSAL 支持 [OAuth 2 客户端凭据流](v2-oauth2-client-creds-grant-flow.md)�
 
 MSAL.NET 支持两种类型的客户端凭据。 这些客户端凭据需要注册到 Azure AD。 凭据将传入代码中机密客户端应用程序的构造函数。
 
-### <a name="application-secrets"></a>应用程序密钥 
+### <a name="application-secrets"></a>应用程序密钥
 
 ![使用密码的机密客户端示意图](./media/msal-authentication-flows/confidential-client-password.png)
 
@@ -114,7 +134,7 @@ MSAL.NET 支持两种类型的客户端凭据。 这些客户端凭据需要注�
 1. 使用应用程序机密或密码凭据获取令牌。
 2. 使用该令牌发出资源请求。
 
-### <a name="certificates"></a>证书 
+### <a name="certificates"></a>证书
 
 ![使用证书的机密客户端示意图](./media/msal-authentication-flows/confidential-client-certificate.png)
 
@@ -127,8 +147,8 @@ MSAL.NET 支持两种类型的客户端凭据。 这些客户端凭据需要注�
 - 注册到 Azure AD。
 - 传入代码中机密客户端应用程序的构造。
 
-
 ## <a name="device-code"></a>设备代码
+
 MSAL 支持 [OAuth 2 设备代码流](v2-oauth2-device-code.md)，可让用户登录到智能电视、IoT 设备或打印机等输入受限的设备。 使用 Azure AD 的交互式身份验证需要 Web 浏览器。 如果设备或操作系统不提供 Web 浏览器，设备代码流可让用户使用另一台设备（例如另一台计算机或手机）以交互方式登录。
 
 应用程序使用设备代码流通过专门为这些设备或操作系统设计的双步过程获取令牌。 此类应用程序的例子包括 IoT 设备上运行的应用程序，或命令行工具 (CLI)。 
@@ -149,6 +169,7 @@ MSAL 支持 [OAuth 2 设备代码流](v2-oauth2-device-code.md)，可让用户�
   - 适用于任何工作和学校帐户 (`https://login.partner.microsoftonline.cn/organizations/`)。
 
 ## <a name="integrated-windows-authentication"></a>Windows 集成身份验证
+
 对于已加入域或已加入 Azure AD 的 Windows 计算机上运行的桌面或移动应用程序，MSAL 支持 Windows 集成身份验证 (IWA)。 这些应用程序可以使用 IWA 以静默方式获取令牌（无需用户进行任何 UI 交互）。 
 
 ![Windows 集成身份验证示意图](./media/msal-authentication-flows/integrated-windows-authentication.png)
@@ -186,7 +207,8 @@ IWA 不会绕过多重身份验证。 如果配置了多重身份验证，需要
   
 有关许可的详细信息，请参阅 [v2.0 权限和许可](v2-permissions-and-consent.md)。
 
-## <a name="usernamepassword"></a>用户名/密码 
+## <a name="usernamepassword"></a>用户名/密码
+
 MSAL 支持 [OAuth 2 资源所有者密码凭据授予](v2-oauth-ropc.md)，后者允许应用程序通过直接处理用户的密码来登录用户。 在桌面应用程序中，可以使用用户名/密码流以静默方式获取令牌。 使用应用程序时无需 UI。
 
 ![用户名/密码流示意图](./media/msal-authentication-flows/username-password.png)
@@ -203,6 +225,7 @@ MSAL 支持 [OAuth 2 资源所有者密码凭据授予](v2-oauth-ropc.md)，后�
 
 尽管在某些情况下此流有用，但如果你要在交互式方案中（需要提供自己的 UI）使用用户名/密码，请尽量避免使用此流。 使用用户名/密码：
 - 需要执行多重身份验证的用户将无法登录（因为没有交互）。
+- 用户无法执行单一登录。
 
 ### <a name="constraints"></a>约束
 

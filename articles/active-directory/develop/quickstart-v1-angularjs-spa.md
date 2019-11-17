@@ -1,5 +1,5 @@
 ---
-title: 生成使用 Azure Active Directory 登录和注销的 AngularJS 单页应用 | Microsoft Docs
+title: 生成使用 Azure AD 登录和注销的 AngularJS 单页应用 | Microsoft Docs
 description: 了解如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 AngularJS 单页应用程序。
 services: active-directory
 documentationcenter: ''
@@ -13,22 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-origin.date: 09/24/2018
-ms.date: 07/01/2019
+origin.date: 10/25/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ddec11b1bba94d82a696426f6feb17905f577ec
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 45edeb5723066452204e7b1ba49ba8a75c1b9f9f
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568734"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830954"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>快速入门：生成使用 Azure Active Directory 登录和注销的 AngularJS 单页应用
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft 标识平台](v2-overview.md)由 Azure Active Directory (Azure AD) 开发人员平台演变而来。 开发人员可以通过它来生成应用程序，从而可以采用所有 Microsoft 标识登录，以及获取令牌来调用 Microsoft Graph 等 Microsoft API 或开发人员生成的 API。
+> 如果需要为工作和学校帐户启用登录，可以使用 [Microsoft 标识平台终结点](azure-ad-endpoint-comparison.md)  。
+> 本快速入门适用于较旧的 Azure AD v1.0 终结点。 我们建议对新项目使用 v2.0 终结点。 有关详细信息，请参阅[此 JavaScript SPA 教程](tutorial-v2-javascript-spa.md)以及[此文](azure-ad-endpoint-comparison.md)对 Microsoft 标识平台终结点的解释  。
 
 使用 Azure Active Directory (Azure AD) 可以简单直接地在单页面应用程序中添加登录、注销和安全 OAuth API 调用。 它允许应用使用用户的 Windows Server Active Directory 帐户对用户进行身份验证，并使用 Azure AD 帮助保护的任何 Web API（例如 Office 365 API 或 Azure API）。
 

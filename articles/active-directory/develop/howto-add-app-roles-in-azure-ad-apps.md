@@ -1,5 +1,6 @@
 ---
-title: 如何在 Azure Active Directory 注册的应用程序中添加应用角色，以及如何在令牌中接收它们
+title: 在 Azure Active Directory 注册的应用中添加应用角色并在令牌中接收这些角色
+titleSuffix: Microsoft identity platform
 description: 了解如何在注册到 Azure Active Directory 的应用程序中添加应用角色、如何向这些角色分配用户和组，以及如何在令牌的 `roles` 声明中接收它们。
 services: active-directory
 documentationcenter: ''
@@ -13,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 06/24/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fb9c6b1ece2a2663515de9dc6b21b0c40077538
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 778fea2289011f5e09c32aa0f71403b7eb38010a
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568478"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830982"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>如何：在应用程序中添加应用角色并在令牌中接收它们
 
@@ -129,6 +130,8 @@ ms.locfileid: "67568478"
 1. 确认已添加的用户和组显示在更新的“用户和组”列表中。 
 
 ## <a name="more-information"></a>详细信息
+
+- [使用 Azure AD 应用程序角色在 Web 应用中授权 &amp; 角色声明（示例）](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [Azure Active Directory 现在可以与组声明和应用程序角色配合使用](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Azure Active Directory 应用清单](/active-directory/develop/reference-app-manifest)
 - [AAD 访问令牌](access-tokens.md)

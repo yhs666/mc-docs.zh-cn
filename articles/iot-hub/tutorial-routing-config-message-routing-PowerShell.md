@@ -6,15 +6,16 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
-ms.author: robinsh
+origin.date: 03/25/2019
+ms.date: 11/18/2019
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 98c80f82fb5feb063b285b7cbeaa092fdd1e4402
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: 8416aaa82c533d63fdb15ce2814e98dddc7022be
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65960933"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831411"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>教程：使用 Azure PowerShell 配置 IoT 中心消息路由
 
@@ -44,7 +45,7 @@ ms.locfileid: "65960933"
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 $subscriptionID = (Get-AzContext).Subscription.Id
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -140,7 +141,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-需设置以下变量：
+以下是脚本使用的变量，必须进行设置：
 
 **resourceGroup**：此字段会在两个位置出现 - 请将两者设置为你的资源组。
 
@@ -162,7 +163,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 **condition**：此字段是用于筛选发送到此终结点的消息的查询。 路由到存储的消息的查询条件是 `level="storage"`。
 
-**enabled**：此字段默认为 `true`，表示创建消息路由后应启用该路由。
+**enabled**：此字段默认为 `true`，指示消息路由应在创建后启用。
 
 请复制此脚本，并将其粘贴到 Cloud Shell 窗口中。
 
@@ -232,7 +233,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-现在，为服务总线队列设置路由终结点和消息路由。 需设置以下变量：
+现在，为服务总线队列设置路由终结点和消息路由。 以下是脚本使用的变量，必须进行设置：
 
 **endpointName**：此字段是用于标识终结点的名称。 
 

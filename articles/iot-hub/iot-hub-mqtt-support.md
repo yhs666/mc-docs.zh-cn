@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 10/12/2018
-ms.date: 11/11/2019
+ms.date: 11/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7f46e823dce4d164fe35e922959d711dbc898c3d
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: f7f96041dd11202e26d9f39cb9ea595acbe2b00e
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831218"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -80,7 +80,7 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > 如果使用 X.509 证书身份验证，则不需要使用 SAS 令牌密码。 有关详细信息，请参阅[在 Azure IoT 中心设置 X.509 安全性][lnk-x509]
+  > 如果使用 X.509 证书身份验证，则不需要使用 SAS 令牌密码。 有关详细信息，请参阅[在 Azure IoT 中心设置 X.509 安全性](iot-hub-security-x509-get-started.md)，并按照[以下](#tlsssl-configuration)代码说明进行操作。
 
   有关如何生成 SAS 令牌的详细信息，请参阅[使用 IoT 中心安全令牌][lnk-sas-tokens]的设备部分。
 
@@ -108,6 +108,38 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 
 设备应用可以在 CONNECT 数据包中指定 Will 消息   。 设备应用应该使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作为 Will 主题名称，用于定义要作为遥测消息转发的 Will 消息   。 在此情况下，如果关闭网络连接，但之前未从设备中接收到 DISCONNECT 数据包，则 IoT 中心将 CONNECT 数据包中提供的 Will 消息发送到遥测通道    。 遥测通道可以是默认事件终结点或由 IoT 中心路由定义的自定义终结点  。 消息具有 iothub-MessageType 属性，其中包含分配给它的 Will 的值   。
 
+### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>在没有 Azure IoT C SDK 的情况下使用 MQTT 的 C 代码示例
+在此[存储库](https://github.com/Azure-Samples/IoTMQTTSample)中，你将发现两个 C/C++ 演示项目，演示如何在不使用 Azure IoT C SDK 的情况下使用 IoT 中心发送遥测消息、接收事件。 
+
+这些示例使用 Eclipse Mosquitto 库向在 IoT 中心实现的 MQTT 中转站发送消息。
+
+此存储库包含：
+
+**对于 Windows：**
+
+•   TelemetryMQTTWin32：包含将遥测消息发送到在 Windows 计算机上生成并运行的 Azure IoT 中心的代码。
+
+•   SubscribeMQTTWin32：包含用于在 Windows 计算机上订阅给定 IoT 中心事件的代码。
+
+•   DeviceTwinMQTTWin32：包含用于在 Windows 计算机上查询和订阅 Azure IoT 中心内设备的设备孪生事件的代码。
+
+•   PnPMQTTWin32：包含使用 IoT 即插即用预览设备功能将遥测消息发送到在 Windows 计算机上生成并运行的 Azure IoT 中心的代码。 有关 IoT 即插即用的更多信息，请参阅[此处](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+
+**对于 Linux：**
+
+•   MQTTLinux：包含要在 Linux 上运行的代码和生成脚本（到目前为止，WSL、Ubuntu 和 Raspbian 已经过测试）。
+
+•   LinuxConsoleVS2019：包含相同的代码，但在针对 WSL（Windows Linux 子系统）的 VS2019 项目中。 使用此项目可以从 Visual Studio 逐步调试在 Linux 上运行的代码。
+
+**对于 mosquito_pub：**
+
+•   此文件夹包含与 Mosquitto.org 提供的 mosquitto_pub 实用工具一起使用的两个示例命令。
+
+Mosquitto_sendmessage：用于将简单的文本消息发送到充当设备的 Azure IoT 中心。
+
+Mosquitto_subscribe：用于查看 Azure IoT 中心内发生的事件。
+
+
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>直接使用 MQTT 协议（作为模块）
 
 通过 MQTT 并使用模块标识连接到 IoT 中心的操作与设备类似（如[上面](#using-the-mqtt-protocol-directly-as-a-device)所述），但需要：
@@ -118,7 +150,7 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 * 模块和设备的孪生 GET 和 PATCH 主题是相同的。
 * 模块和设备的孪生状态主题是相同的。
 
-### <a name="tlsssl-configuration"></a>TLS/SSL 配置
+## <a name="tlsssl-configuration"></a>TLS/SSL 配置
 
 若要直接使用 MQTT 协议，客户端*必须*通过 TLS/SSL 连接。 尝试跳过此步骤失败并显示连接错误。
 
@@ -308,7 +340,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 有关详细信息，请参阅[设备孪生开发人员指南][lnk-devguide-twin]。
 
-### <a name="receiving-desired-properties-update-notifications"></a>接收所需属性更新通知
+## <a name="receiving-desired-properties-update-notifications"></a>接收所需属性更新通知
 
 设备连接时，IoT 中心会向主题 `$iothub/twin/PATCH/properties/desired/?$version={new version}`发送通知，内附解决方案后端执行的更新内容。 例如：
 
@@ -327,7 +359,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 有关详细信息，请参阅[设备孪生开发人员指南][lnk-devguide-twin]。
 
-### <a name="respond-to-a-direct-method"></a>响应直接方法
+## <a name="respond-to-a-direct-method"></a>响应直接方法
 
 首先，设备需要订阅 `$iothub/methods/POST/#`。 IoT 中心向主题 `$iothub/methods/POST/{method name}/?$rid={request id}` 发送方法请求，其中包含有效的 JSON 或空正文。
 
@@ -335,7 +367,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 有关详细信息，请参阅[直接方法开发人员指南][lnk-methods]。
 
-### <a name="additional-considerations"></a>其他注意事项
+## <a name="additional-considerations"></a>其他注意事项
 
 最后要考虑的是，若需在客户端自定义 MQTT 协议行为，应参阅 [Azure IoT 协议网关][lnk-azure-protocol-gateway]。 可以通过本软件部署高性能自定义协议网关，该网关直接与 IoT 中心接合。 使用 Azure IoT 协议网关可以自定义设备协议，以适应要重建的 MQTT 部署或其他自定义协议。 但是，这种方法要求运行并使用自定义协议网关。
 

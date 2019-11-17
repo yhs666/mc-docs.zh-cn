@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/20/2017
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 84434bc2a87786cdbb45b3e1eb98271015609748
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.date: 11/18/2018
+ms.openlocfilehash: 34b5399a9175a5185ad47bae3443e45c918cb0cb
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323804"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831414"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API 管理页面控件
 Azure API 管理提供以下控件，适用于开发人员门户模板。  
@@ -33,6 +33,7 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
  参数的值作为模板的数据模型的一部分传入。 大多数情况下，只需粘贴提供的每个控件的示例，即可正常使用该控件。 有关参数值的详细信息，可参阅每个模板的数据模型部分，其中可能使用了控件。  
   
  如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="developer-portal-template-page-controls"></a>开发人员门户模板页面控件  
@@ -160,7 +161,7 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 ##  <a name="sign-up"></a> sign-up  
  `sign-up` 控件提供了一个控件，用于收集开发人员门户中注册页上的用户配置文件信息。  
   
- ![注册控件](./media/api-management-page-controls/APIM-sign-up-control.png "APIM 注册控件")  
+ ![sign&#45;up 控件](./media/api-management-page-controls/APIM-sign-up-control.png "APIM 注册控件")  
   
 ### <a name="usage"></a>使用情况  
   

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/26/2019
 ms.date: 01/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1a56279101959f6210c10e9aab98221c0bf83bc5
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: d36f9ab36b3f3c1d5d2210c319d492d0cc6bbeb4
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103803"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730558"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>使用 System Center DPM 准备将工作负载备份到 Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "70103803"
 
 ## <a name="why-back-up-dpm-to-azure"></a>为什么将 DPM 备份到 Azure？
 
-[System Center DPM](https://docs.microsoft.com/zh-cn/system-center/dpm/dpm-overview) 备份文件和应用程序数据。 DPM 可与 Azure 备份交互，如下所述：
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) 备份文件和应用程序数据。 DPM 可与 Azure 备份交互，如下所述：
 
 * 物理服务器或本地 VM 上运行的 DPM  — 除了磁盘和磁带备份以外，还可以在 Azure 中将数据备份到备份保管库。
 * Azure VM 上运行的 DPM  — 从 System Center 2012 R2 Update 3 或更高版本起，可以在 Azure VM 上部署 DPM。 可以将数据备份到附加到 VM 的 Azure 磁盘，或使用 Azure 备份将数据备份到备份保管库。
@@ -46,15 +46,15 @@ ms.locfileid: "70103803"
 **设置** | **要求**
 --- | ---
 Azure VM 上的 DPM | System Center 2012 R2 DPM 2012 R2 更新汇总 3 或更高版本。
-物理服务器上的 DPM | System Center 2012 SP1 或更高版本；System Center 2012 R2。 
-Hyper-V VM 上的 DPM | System Center 2012 SP1 或更高版本；System Center 2012 R2。 
+物理服务器上的 DPM | System Center 2012 SP1 或更高版本；System Center 2012 R2。
+Hyper-V VM 上的 DPM | System Center 2012 SP1 或更高版本；System Center 2012 R2。
 VMware VM 上的 DPM | System Center 2012 R2 更新汇总 5 或更高版本。
 组件 | DPM 服务器上应已安装 Windows PowerShell 和 .NET Framework 4.5。
-支持的应用 | [了解](https://docs.microsoft.com/zh-cn/system-center/dpm/dpm-protection-matrix) DPM 可以进行哪些备份。
+支持的应用 | [了解](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) DPM 可以进行哪些备份。
 支持的文件类型 | 使用 Azure 备份，可以备份下列文件类型：加密（仅完整备份）；压缩（支持增量备份）；稀疏（支持增量备份）；压缩和稀疏（处理为稀疏）。
 不受支持的文件类型 | 区分大小写的文件系统上的服务器；硬链接（跳过）；重分析点（跳过）；加密和压缩（跳过）；加密和稀疏（跳过）；压缩流；分析流。
-本地存储 | 要备份的每台计算机上的可用本地存储必须至少为要备份的数据大小的 5%。  例如，如果要备份 100 GB 的数据，则暂存位置至少需要 5 GB 的可用空间。
-保管库存储 | 可以备份到 Azure 备份保管库的数据量没有限制，但数据源（例如虚拟机或数据库）的大小不应超过 54400 GB。
+本地存储 | 要备份的每台计算机上的可用本地存储必须至少为要备份的数据大小的 5%。 例如，如果要备份 100 GB 的数据，则暂存位置至少需要 5 GB 的可用空间。
+保管库存储 | 可以备份到 Azure 备份保管库的数据量没有限制，但数据源（例如，虚拟机或数据库）的大小不应超过 54400 GB。
 Azure ExpressRoute | 如果 Azure ExpressRoute 配置了专用或 Microsoft 对等互连，则不能使用它将数据备份到 Azure。<br/><br/> 如果 Azure ExpressRoute 配置了公共对等互连，则可以使用它将数据备份到 Azure。<br/><br/> **注意：** 对于新线路，公共对等互连已弃用。
 Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安装 DPM SP1 汇总 2 或更高版本。 这是代理安装所必需的。<br/><br/> 本文介绍如何部署最新版本的 Azure 备份代理，也称 Azure 恢复服务 (MARS) 代理。 如果已部署早期版本，请更新到最新版本以确保备份按预期运行。 
 
@@ -83,14 +83,14 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
 
 ## <a name="download-vault-credentials"></a>下载保管库凭据
 
-在保管库中注册 DPM 服务器时使用保管库凭据。 
+在保管库中注册 DPM 服务器时使用保管库凭据。
 
 - 保管库凭据文件是门户为每个备份保管库生成的证书。
 - 然后，门户会将公钥上传到访问控制服务 (ACS)。
 - 在执行计算机注册工作流期间，证书的私钥将可供用户使用，它用来对计算机进行身份验证。
 - Azure 备份服务根据身份验证将数据发送到所标识的保管库。
 
-  ### <a name="best-practices-for-vault-credentials"></a>保管库凭据的最佳做法
+### <a name="best-practices-for-vault-credentials"></a>保管库凭据的最佳做法
 
 若要获取凭据，请从 Azure 门户通过安全通道下载保管库凭据文件：
 
@@ -146,7 +146,7 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
 
     ![保管库凭据](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. 在“限制设置”  中，可以选择性地为备份启用带宽限制。 可以为指定的工作小时和天数设置速度限制。 
+10. 在“限制设置”  中，可以选择性地为备份启用带宽限制。 可以为指定的工作小时和天数设置速度限制。
 
     ![限制设置](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 

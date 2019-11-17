@@ -3,7 +3,7 @@ title: 在 PIM 中激活 Azure AD 角色 - Azure Active Directory | Microsoft Do
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中激活 Azure AD 角色。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 origin.date: 06/28/2019
-ms.date: 08/08/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfaff85597f096fa92ceee231b72dbf688495761
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: c4bfcab843038dfe46ea326a1c4af48273b7b5a2
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973616"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830829"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>在 PIM 中激活我的 Azure AD 角色
 
@@ -28,15 +28,15 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
 如果符合管理角色的资格，即表示可以在需要执行特权操作时激活该角色。 例如，如果偶尔管理 Office 365 功能，则组织的特权角色管理员可能不会让你成为永久全局管理员，因为该角色也影响其他服务。 他们会让你符合 Azure AD 角色（例如“Exchange Online 管理员”）的资格。 可以在需要权限时，请求暂时分配该角色，并将在预定的时段内拥有管理员控制权。
 
-本文面向需要在 PIM 中激活其 Azure AD 角色的管理员。
+本文面向需要在 Privileged Identity Management 中激活其 Azure AD 角色的管理员。
 
 ## <a name="activate-a-role"></a>激活角色
 
-需要充当某个 Azure AD 角色时，可在 PIM 中使用“我的角色”导航选项请求激活。 
+需要充当某个 Azure AD 角色时，可在 Privileged Identity Management 中使用“我的角色”导航选项请求激活。 
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 打开“Azure AD Privileged Identity Management”。  有关如何将 PIM 磁贴添加到仪表板的信息，请参阅[开始使用 PIM](pim-getting-started.md)。
+1. 打开“Azure AD Privileged Identity Management”。  有关如何将 Privileged Identity Management 磁贴添加到仪表板的信息，请参阅[开始使用 Privileged Identity Management](pim-getting-started.md)。
 
 1. 单击“Azure AD 角色”。 
 
@@ -130,15 +130,16 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>激活角色后，权限未被授予
 
-在 PIM 中激活角色时，激活可能不会立即传播到需要特权角色的所有门户。 有时，即使更改已传播，门户中的 Web 缓存也可能会导致更改不能立即生效。 如果激活已延迟，应当按照以下步骤操作。
+在 Privileged Identity Management 中激活角色时，激活可能不会立即传播到需要特权角色的所有门户。 有时，即使更改已传播，门户中的 Web 缓存也可能会导致更改不能立即生效。 如果激活已延迟，应当按照以下步骤操作。
 
 1. 注销 Azure 门户，然后重新登录。
 
     激活 Azure AD 角色时，将会看见激活的各阶段。 在所有阶段都完成后，**注销**链接将会显示。 可以使用此链接进行注销。这将解决大多数情况下激活延迟的问题。
 
-1. 在 PIM 中，验证是否已将你列为角色的成员。
+1. 在 Privileged Identity Management 中，验证是否已将你列为角色的成员。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 PIM 中激活 Azure 资源角色](pim-resource-roles-activate-your-roles.md)
+- [在 Privileged Identity Management 中激活 Azure 资源角色](pim-resource-roles-activate-your-roles.md)
 
+<!-- Update_Description: wording update -->

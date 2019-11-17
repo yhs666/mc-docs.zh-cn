@@ -1,5 +1,6 @@
 ---
-title: Xamarin iOS 注意事项（适用于 .NET 的 Microsoft 身份验证库）| Azure
+title: Xamarin iOS 注意事项（适用于 .NET 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解将 Xamarin iOS 与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 10/25/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74d864f4f50f45326eb80598ef9f128a4da244a8
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: c0947e2cf1b670d0d324a285aade008b0e38b865
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912779"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830960"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>与 MSAL.NET 配合使用时特定于 Xamarin iOS 的注意事项
 在 Xamarin iOS 上使用 MSAL.NET 时必须考虑的几个注意事项
@@ -60,6 +61,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 若要启用密钥链访问，应用程序必须有密钥链访问组。
 可以在创建应用程序时使用 `WithIosKeychainSecurityGroup()` API 来设置密钥链访问组，如下所示：
 
+若要启用单一登录，需将所有应用程序中的 `PublicClientApplication.iOSKeychainSecurityGroup` 属性设置为相同的值。
 
 使用 MSAL v3.x 的示例如下：
 ```csharp
@@ -98,6 +100,8 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 从 MSAL 2.x 开始，可以指定一个密钥链访问组，用于在多个应用程序之间保留令牌缓存。 此设置允许在使用相同密钥链访问组的多个应用程序之间共享令牌缓存，其中包括使用 [ADAL.NET](https://aka.ms/adal-net) 开发的应用程序、MSAL.NET Xamarin.iOS 应用程序，以及使用 [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 或 [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 开发的本机 iOS 应用程序。
 
+共享令牌缓存可以在使用相同密钥链访问组的所有应用程序之间实现单一登录。
+
 若要启用此缓存共享，需在所有共享同一缓存的应用程序中使用“WithIosKeychainSecurityGroup()”方法将密钥链访问组设置为同一值，如以上示例所示。
 
 此前提到过，只要使用 `WithIosKeychainSecurityGroup()` API，MSAL 就会添加 $(AppIdentifierPrefix)。 这是因为，AppIdentifierPrefix 或“团队 ID”用于确保只有同一发布者创建的应用程序可以共享密钥链访问权限。
@@ -114,6 +118,7 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 应用程序可以使用 Microsoft Authenticator（中转站）来启用：
 
+- 单一登录 (SSO)。 用户将无需登录到每个应用程序。
 - 设备标识。 通过访问设备证书，该证书是在设备加入工作区时在设备上创建的。 
 - 应用程序标识验证。 当应用程序调用中介时，它会传递其重定向 URL，而中介会验证该 URL。
 

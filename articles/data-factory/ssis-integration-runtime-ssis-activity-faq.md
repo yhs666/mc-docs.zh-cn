@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sawinark
 manager: digimobile
-ms.openlocfilehash: 8e99a5b1311d347295e35ba6a1810246690d1059
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 3ecaf6bca1106815d5549da9a6e1a9d0dee1eb42
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275264"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648623"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>排查 SSIS Integration Runtime 中的包执行问题
 
@@ -122,6 +122,7 @@ ms.locfileid: "72275264"
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>错误消息：“Microsoft OLE DB Provider for Analysis Services。 ‘Hresult:0x80004005 说明:’COM 错误:COM 错误: mscorlib；某个调用的目标引发了异常”
 
 一种潜在原因是为 Azure Analysis Services 身份验证配置了已启用 Azure 多重身份验证的用户名或密码。 SSIS Integration Runtime 不支持这种身份验证。 尝试使用服务主体进行 Azure Analysis Services 身份验证：
+
 1. 请根据[使用服务主体进行自动化](/analysis-services/analysis-services-service-principal)中所述准备服务主体。
 2. 在连接管理器中，配置“使用特定的用户名和密码”：将“AppID”设为用户名，将“clientSecret”设为密码。   
 
@@ -129,11 +130,30 @@ ms.locfileid: "72275264"
 
 如果参数 *ConnectUsingManagedIdentity* 为 **True**，请确保不要将连接管理器的身份验证方法配置为“Active Directory密码身份验证”。  可将其配置为“SQL 身份验证”，设置了 *ConnectUsingManagedIdentity* 时会忽略此配置。 
 
+### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>错误消息：“0xC020801F 出现在...，OData 源 [...]:无法从运行时连接管理器获取托管连接”
+
+一个可能的原因是，未在 SSIS 集成运行时中启用 OData 源所需的传输层安全性 (TLS)。 可以使用自定义设置在 SSIS 集成运行时中启用 TLS。 有关更多详细信息，请参见[无法通过 SSIS 连接 Project Online Odata](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) 和[自定义 Azure-SSIS 集成运行时的设置](how-to-configure-azure-ssis-ir-custom-setup.md)。
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>错误消息：“暂存任务状态:已失败。 暂存任务错误:ErrorCode:2010, ErrorMessage:自承载集成运行时...脱机”
+
+请确保已安装并启动了自承载集成运行时。 有关更多详细信息，请参阅[创建和配置自承载集成运行时](create-self-hosted-integration-runtime.md)
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>错误消息：“暂存任务错误:ErrorCode:2906, ErrorMessage:包执行失败，输出: {"OperationErrorMessages":“错误:System.IO.FileLoadException:无法加载文件或程序集 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' 或它的某一个依赖项。 找到的程序集清单定义与程序集引用不匹配...”
+
+一个可能的原因是自承载集成运行时未正确安装或升级。 建议下载并重新安装最新的自承载集成运行时。 有关更多详细信息，请参阅[创建和配置自承载集成运行时](create-self-hosted-integration-runtime.md#installation-best-practices)
+
+### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>错误消息：“请求元数据时必须建立连接。 如果正在脱机工作，请取消选中‘SSIS’菜单上的‘脱机工作’，以启用连接”
+
+* 可能的原因和建议的操作：
+  * 可以在 [SSMS 报告](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports)或在 SSIS 包执行活动中指定的日志文件夹中找到执行日志。
+  * 作为替代方法，vNet 也可用于访问本地数据。 有关更多详细信息，请参阅[将 Azure-SSIS Integration Runtime 加入虚拟网络](join-azure-ssis-integration-runtime-virtual-network.md)
+
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>意外触发多个包执行
 
 * 可能的原因和建议的操作：
-  * ADF 存储过程活动用于触发 SSIS 包执行。 t-sql 命令可能会遇到暂时性问题，并触发重新运行，这将导致多个包执行。
+  * ADF 存储过程活动或 Lookup 活动用于触发 SSIS 包执行。 t-sql 命令可能会遇到暂时性问题，并触发重新运行，这将导致多个包执行。
   * 请改用 ExecuteSSISPackage 活动，以确保除非用户在活动中设置重试计数，否则包执行不会重新运行。 可以在 [https://docs.azure.cn/data-factory/how-to-invoke-ssis-package-ssis-activity](/data-factory/how-to-invoke-ssis-package-ssis-activity) 中找到详细信息
+  * 优化 t-sql 命令，以便能够通过检查是否已触发执行来重新运行
 
 ### <a name="package-execution-takes-too-long"></a>包执行时间太长
 
