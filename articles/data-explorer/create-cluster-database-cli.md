@@ -2,18 +2,18 @@
 title: 使用 Azure CLI 创建 Azure 数据资源管理器群集和数据库
 description: 了解如何使用 Azure CLI 创建 Azure 数据资源管理器群集和数据库
 author: radennis
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 03/25/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 572dcb248d499a5181b5109d19af576ec5e67abf
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 5e6bea3516be9c09135c1949f91958f4dc9a0470
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717340"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020697"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 创建 Azure 数据资源管理器群集和数据库
 
@@ -23,7 +23,7 @@ ms.locfileid: "67717340"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->
+> * [ARM 模板](create-cluster-database-resource-manager.md)
 
 Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本文中，将使用 Azure CLI 创建群集和数据库。
 
@@ -31,7 +31,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 若要完成本文，需要 Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
 如果选择在本地安装并使用 Azure CLI，本文需要 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -88,8 +88,8 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
    | cluster-name | *azureclitest* | 将在其中创建数据库的群集的名称。|
    | name | *clidatabase* | 数据库名称。|
    | resource-group | *testrg* | 将在其中创建群集的资源组名称。 |
-   | soft-delete-period | P365D  | 表示供查询使用的数据的保留时间。 有关详细信息，请参阅[保留策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/retentionpolicy)。 |
-   | hot-cache-period | P31D  | 表示数据将在缓存中保留的时间。 有关详细信息，请参阅[缓存策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/cachepolicy)。 |
+   | soft-delete-period | P365D  | 表示供查询使用的数据的保留时间。 有关详细信息，请参阅[保留策略](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy)。 |
+   | hot-cache-period | P31D  | 表示数据将在缓存中保留的时间。 有关详细信息，请参阅[缓存策略](https://docs.microsoft.com/azure/kusto/concepts/cachepolicy)。 |
 
 1. 若要查看已创建的数据库，请运行以下命令：
 

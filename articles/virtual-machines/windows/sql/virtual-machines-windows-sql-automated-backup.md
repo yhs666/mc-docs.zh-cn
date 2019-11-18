@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/03/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 25ebbe9617efc576d80abf3bcccf251f92865a41
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b24addc14847837c870e067319a625e88f5c24ca
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272745"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116918"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虚拟机 (Resource Manager) 的自动备份
 
@@ -83,21 +83,19 @@ ms.locfileid: "72272745"
 
 ## <a name="configure-existing-vms"></a>配置现有 VM
 
-<!--MOONCAKE: CUSTOMIZE ON 08/13/2019-->
+<!--MOONCAKE: CUSTOMIZE ON 11/15/2019-->
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
 
 对于现有的 SQL Server 虚拟机，请选择 SQL Server 虚拟机。 然后选择 VM“设置”的“SQL Server 配置”部分   。
 
-![现有 VM 的 SQL 自动备份](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
-
 在“SQL Server 配置”窗格的“自动备份”部分，单击“编辑”按钮   。
 
-![为现有 VM 配置 SQL 自动备份](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
+![现有 VM 的 SQL 自动备份](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
 完成后，单击“SQL Server 配置”设置底部的“确定”按钮保存更改   。
 
 <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
-<!--MOONCAKE: CUSTOMIZE ON 08/13/2019-->
+<!--MOONCAKE: CUSTOMIZE ON 11/15/2019-->
 
 
 首次启用自动备份时，Azure 会在后台配置 SQL Server IaaS 代理。 在此期间，Azure 门户可能不会显示自动备份已配置。 请等待几分钟，以便安装和配置代理。 之后，Azure 门户将反映新设置。

@@ -13,22 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 origin.date: 11/01/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 283d7fb7a9ed173d9c2d1b5831dc6d86a90569e0
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: eafe1ccb4bc22ce85ece4308baae5044cd17fdde
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272017"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116888"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 
 若要排查 Azure 中虚拟机 (VM) 的部署问题，请查看[常见问题](#top-issues)了解常见故障和解决方法。
 
 如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。
-
-<!--MOONCAKE CUSTOMIZE : WeChat-->
 
 ## <a name="top-issues"></a>常见问题
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
@@ -85,7 +83,7 @@ ms.locfileid: "72272017"
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>能否将现有经典 VM 添加到可用性集？
 
-是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](../windows/classic/configure-availability-classic.md#addmachine)。
+是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine)。
 
 ## <a name="next-steps"></a>后续步骤
 如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。

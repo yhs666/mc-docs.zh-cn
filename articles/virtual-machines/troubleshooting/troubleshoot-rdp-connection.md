@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 03/23/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 831c7964481ebbf759df4e78d2c90c2935008504
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 4626e8e7a336088bfd19fe41616cbefcf9ab1c2f
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538942"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116890"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 

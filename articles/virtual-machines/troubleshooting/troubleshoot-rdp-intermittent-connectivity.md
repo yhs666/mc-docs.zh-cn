@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/24/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9d4941a0971b851595d90db30c73269a40a11f14
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: bf6c30ad9b1686ba4cea195956497552f786c06b
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272713"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116885"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM 中远程桌面频繁断开连接
 

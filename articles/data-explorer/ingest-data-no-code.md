@@ -2,18 +2,18 @@
 title: 教程：在 Azure 数据资源管理器中不使用任何代码引入诊断和活动日志数据
 description: 本教程介绍如何在不使用任何代码和查询数据的情况下将该数据引入到 Azure 数据资源管理器。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-origin.date: 04/07/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: a291ad0c789ec98d01e967765136e00ffdab4edd
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 04/29/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 46fb215eafba25894d7d7b9c807303fc56c7ed7d
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717337"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020806"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教程：在 Azure 数据资源管理器中不使用任何代码引入数据
 
@@ -183,7 +183,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 <!--
      ```kusto
      .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
-    <[Retention](https://docs.microsoft.com/zh-cn/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
+    <[Retention](https://docs.microsoft.com/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
 -->
 
 ### <a name="create-table-mappings"></a>创建表映射
@@ -210,7 +210,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 #### <a name="activity-log-data-update-policy"></a>活动日志数据更新策略
 
-1. 创建一个[函数](https://docs.microsoft.com/zh-cn/azure/kusto/management/functions)用于扩展活动日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](https://docs.microsoft.com/zh-cn/azure/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](https://docs.microsoft.com/azure/kusto/management/functions)用于扩展活动日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator) 运算符：
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -231,7 +231,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 ActivityLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 ActivityLogsRecords 表中   ：
+2. 将[更新策略](https://docs.microsoft.com/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 ActivityLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 ActivityLogsRecords 表中   ：
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
@@ -239,7 +239,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 #### <a name="diagnostic-log-data-update-policy"></a>诊断日志数据更新策略
 
-1. 创建一个[函数](https://docs.microsoft.com/zh-cn/azure/kusto/management/functions)用于扩展诊断日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](https://docs.microsoft.com/zh-cn/azure/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](https://docs.microsoft.com/azure/kusto/management/functions)用于扩展诊断日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator) 运算符：
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
@@ -257,7 +257,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 DiagnosticLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 DiagnosticLogsRecords 表中   ：
+2. 将[更新策略](https://docs.microsoft.com/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 DiagnosticLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 DiagnosticLogsRecords 表中   ：
 
     ```kusto
     .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'

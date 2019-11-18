@@ -3,18 +3,18 @@ title: Azure 数据资源管理器数据可视化
 description: 了解可视化 Azure 数据资源管理器数据的不同方式
 services: data-explorer
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 08/05/2019
-ms.openlocfilehash: d85d8d36dc5d15f7fcffaa3f25d5b673643605c8
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+ms.openlocfilehash: c2ce63f470d245fecf1492049e391eab96bc5e8d
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371747"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020847"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>使用 Azure 数据资源管理器进行数据可视化 
 
@@ -24,7 +24,7 @@ Azure 数据资源管理器是一项适用于日志和遥测数据的快速且�
 
 ## <a name="kusto-query-language-visualizations"></a>Kusto 查询语言可视化
 
-Kusto 查询语言 [`render operator`](https://docs.microsoft.com/zh-cn/azure/kusto/query/renderoperator) 提供各种可视化效果（如表格、饼图和条形图）来描述查询结果。 查询可视化用于异常情况检测和预测、机器学习等。
+Kusto 查询语言 [`render operator`](https://docs.microsoft.com/azure/kusto/query/renderoperator) 提供各种可视化效果（如表格、饼图和条形图）来描述查询结果。 查询可视化用于异常情况检测和预测、机器学习等。
 
 ## <a name="power-bi"></a>Power BI
 
@@ -54,9 +54,9 @@ Azure 数据资源管理器提供使用 [ODBC 连接器](/data-explorer/connect-
 
 ## <a name="qlik"></a>Qlik
 
-Azure 数据资源管理器提供使用 [ODBC 连接器](/azure/data-explorer/connect-odbc)连接到 [Qlik](https://www.qlik.com) 的功能，然后可创建 Qlik Sense 仪表板并直观显示数据。
+Azure 数据资源管理器提供使用 [ODBC 连接器](/data-explorer/connect-odbc)连接到 [Qlik](https://www.qlik.com) 的功能，然后可创建 Qlik Sense 仪表板并直观显示数据。
 
 
 ## <a name="sisense"></a>Sisense
 
-Azure 数据资源管理器提供使用 JDBC 连接器连接到 [Sisense](https://www.sisense.com) 的功能。 请[将 Azure 数据资源管理器设置为 Sisense 的数据源，然后将数据可视化](/azure/data-explorer/sisense)。
+Azure 数据资源管理器提供使用 JDBC 连接器连接到 [Sisense](https://www.sisense.com) 的功能。 请[将 Azure 数据资源管理器设置为 Sisense 的数据源，然后将数据可视化](/data-explorer/sisense)。

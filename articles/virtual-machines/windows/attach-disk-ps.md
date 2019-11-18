@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 91f54178e3e75f0269cf476413c84eebe9393b25
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b773e2c7c879b0667954387ff50734ec19c9f7f5
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272643"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116872"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 

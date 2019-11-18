@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 04/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: abbbcc2893c61dbf5599b8f66596b8bc19461c43
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8e3c7967cfdeacfd6d6d8426a6b98e9e9a2c53c6
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003824"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116899"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 来宾 OS 防火墙配置不正确
 
@@ -28,9 +28,9 @@ ms.locfileid: "59003824"
 
 ## <a name="symptoms"></a>症状
 
-1.  虚拟机 (VM) 欢迎屏幕显示 VM 已完全加载。
+1. 虚拟机 (VM) 欢迎屏幕显示 VM 已完全加载。
 
-2.  根据来宾操作系统的配置方式，可能有一些网络流量到达 VM，也可能没有。
+2. 根据来宾操作系统的配置方式，可能有一些网络流量到达 VM，也可能没有。
 
 ## <a name="cause"></a>原因
 

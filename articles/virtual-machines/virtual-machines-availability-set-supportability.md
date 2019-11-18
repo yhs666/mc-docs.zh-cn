@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 04/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82d4691b8869d17548cb907f6ebf27ea63d7bae5
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: dfe1d223bfd48b4eab1cbcd4369a780071fb6334
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004128"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116876"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 
@@ -29,6 +29,7 @@ ms.locfileid: "59004128"
 以下是混合不同类型的 VM 的可支持性矩阵：
 
 <!--PENDING FOR Dv3 GA ANOUNCEMENT -->
+
 系列和可用性集|第二个 VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |第一个 VM|||||||
@@ -37,6 +38,7 @@ ms.locfileid: "59004128"
 |D||OK|OK|OK|OK|OK|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
+
 <!-- Checking the last Row and Coloumn in the above matrix -->
 <!--PENDING FOR Dv3 GA ANOUNCEMENT -->
 

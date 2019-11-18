@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8b9332171accd44c3cc784f8e8ff9421977c56a8
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: ca5cb5fe54368458ca48d793d4c981c8c3517eaa
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538894"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116905"
 ---
 <!-- Verify part successfully-->
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则

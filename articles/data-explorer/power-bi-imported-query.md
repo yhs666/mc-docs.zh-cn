@@ -2,18 +2,18 @@
 title: '使用 Power BI 中已导入的查询直观显示 Azure 数据资源管理器中的数据 '
 description: 本文介绍如何使用三个选项中的一个选项在 Power BI 中直观显示数据：从 Azure 数据资源管理器导入查询。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 11/14/2018
-ms.date: 08/05/2019
-ms.openlocfilehash: 9263801cb8ab7bd62d64129f75b5e32d2dcd59a7
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+origin.date: 07/10/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: c5650fbe067d751c65c151c75c515cd370983264
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371752"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020835"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>使用已导入到 Power BI 中的查询来可视化数据
 
@@ -27,11 +27,11 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
 
 要完成本文，需要以下各项：
 
-* 一个属于 Azure Active Directory 成员的组织电子邮件帐户，以便连接到 [Azure 数据资源管理器帮助群集](https://dataexplorer.azure.com/clusters/help/databases/samples)。
+* 一个属于 Azure Active Directory 成员的组织电子邮件帐户，以便连接到 [Azure 数据资源管理器帮助群集](https://dataexplorer.azure.cn/clusters/help/databases/samples)。
 
 * [Power BI Desktop](https://powerbi.microsoft.com/get-started/)（选择“免费下载”  ）
 
-* [Azure 数据资源管理器桌面应用](https://docs.microsoft.com/zh-cn/azure/kusto/tools/kusto-explorer)
+* [Azure 数据资源管理器桌面应用](https://docs.microsoft.com/azure/kusto/tools/kusto-explorer)
 
 ## <a name="get-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器获取数据
 

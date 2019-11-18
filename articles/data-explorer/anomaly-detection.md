@@ -2,18 +2,18 @@
 title: 在 Azure 数据资源管理器中进行时序异常情况检测和预测
 description: 了解如何使用 Azure 数据资源管理器分析时序数据以检测和预测异常情况。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/24/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 74e4916b0cafbbcc3447deb04b4193541cd0443c
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.openlocfilehash: 55cb4cb22e6ce2f3d9054fc2b63280b6c7119745
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717400"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020879"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>在 Azure 数据资源管理器中进行异常情况检测和预测
 
@@ -23,12 +23,12 @@ Azure 数据资源管理器持续从云服务或 IoT 设备收集遥测数据。
 
 ## <a name="prerequisites"></a>先决条件
 
-有关时序功能的概述，请参阅 [Azure 数据资源管理器中的时序分析](https://docs.microsoft.com/zh-cn/data-explorer/time-series-analysis)。
+有关时序功能的概述，请参阅 [Azure 数据资源管理器中的时序分析](https://docs.microsoft.com/data-explorer/time-series-analysis)。
 
 ## <a name="time-series-decomposition-model"></a>时序分解模型
 
 用于时序预测和异常情况检测的 Azure 数据资源管理器本机实现使用一个已知的分解模型。 此模型将应用到预期的指标时序，以揭示定期行为和趋势的行为（例如服务流量、组件检测信号和 IoT 定期度量值），从而预测将来的指标值和检测异常的指标值。 此回归过程的假设条件是，时序是随机分布的，而不是存在事先已知的季节性行为和趋势行为。 然后，你可以通过季节性组件和趋势组件（统称为基线）预测将来的指标值，并忽略残余部分。 也可以仅使用残余部分基于离群值分析检测异常值。
-若要创建分解模型，请使用函数 [`series_decompose()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/series-decomposefunction)。 `series_decompose()` 函数采用一系列时序，并自动将每个时序分解成其季节性、趋势、残余和基线组件。 
+若要创建分解模型，请使用函数 [`series_decompose()`](https://docs.microsoft.com/azure/kusto/query/series-decomposefunction)。 `series_decompose()` 函数采用一系列时序，并自动将每个时序分解成其季节性、趋势、残余和基线组件。 
 
 例如，可以使用以下查询分解内部 Web 服务的流量：
 
@@ -46,14 +46,14 @@ demo_make_series2
 ![时序分解](media/anomaly-detection/series-decompose-timechart.png)
 
 * 原始时序带有 **num**（如红色所示）标签。 
-* 分解过程首先使用函数 [`series_periods_detect()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/series-periods-detectfunction) 自动检测季节性，并提取**季节性**模式（如紫色所示）。
-* 从原始时序中减去季节性模式，并使用函数 [`series_fit_line()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/series-fit-linefunction) 运行线性回归，以找到**趋势**组件（如浅蓝色所示）。
+* 分解过程首先使用函数 [`series_periods_detect()`](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) 自动检测季节性，并提取**季节性**模式（如紫色所示）。
+* 从原始时序中减去季节性模式，并使用函数 [`series_fit_line()`](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) 运行线性回归，以找到**趋势**组件（如浅蓝色所示）。
 * 该函数减去趋势，余下的部分是**残余**组件（如绿色所示）。
 * 最后，该函数将季节性组件和趋势组件相加，以生成**基线**（如蓝色所示）。
 
 ## <a name="time-series-anomaly-detection"></a>时序异常情况检测
 
-函数 [`series_decompose_anomalies()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/series-decompose-anomaliesfunction) 查找一组时序中的异常点。 此函数调用 `series_decompose()` 来生成分解模型，然后对残余组件运行 [`series_outliers()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/series-outliersfunction)。 `series_outliers()` 使用 Tukey 隔离测试计算残余组件的每个点的异常评分。 异常评分大于 1.5 或小于 -1.5 分别表示异常有轻微的上升或下降。 异常评分大于 3.0 或小于 -3.0 表示明显的异常。 
+函数 [`series_decompose_anomalies()`](https://docs.microsoft.com/azure/kusto/query/series-decompose-anomaliesfunction) 查找一组时序中的异常点。 此函数调用 `series_decompose()` 来生成分解模型，然后对残余组件运行 [`series_outliers()`](https://docs.microsoft.com/azure/kusto/query/series-outliersfunction)。 `series_outliers()` 使用 Tukey 隔离测试计算残余组件的每个点的异常评分。 异常评分大于 1.5 或小于 -1.5 分别表示异常有轻微的上升或下降。 异常评分大于 3.0 或小于 -3.0 表示明显的异常。 
 
 使用以下查询可以检测内部 Web 服务流量的异常：
 
@@ -76,7 +76,7 @@ demo_make_series2
 
 ## <a name="time-series-forecasting"></a>时序预测
 
-函数 [`series_decompose_forecast()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/series-decompose-forecastfunction) 预测一组时序的未来值。 此函数调用 `series_decompose()` 生成分解模型，然后针对每个时序，推断未来的基线组件。
+函数 [`series_decompose_forecast()`](https://docs.microsoft.com/azure/kusto/query/series-decompose-forecastfunction) 预测一组时序的未来值。 此函数调用 `series_decompose()` 生成分解模型，然后针对每个时序，推断未来的基线组件。
 
 使用以下查询可以预测下一周的 Web 服务流量：
 
@@ -124,4 +124,4 @@ demo_make_series2
 
 ## <a name="next-steps"></a>后续步骤
 
-了解 Azure 数据资源管理器中的[机器学习功能](https://docs.microsoft.com/zh-cn/azure/data-explorer/machine-learning-clustering)。
+了解 Azure 数据资源管理器中的[机器学习功能](https://docs.microsoft.com/azure/data-explorer/machine-learning-clustering)。

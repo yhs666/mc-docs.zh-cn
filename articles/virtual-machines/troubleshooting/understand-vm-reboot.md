@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 35f5bd73b16c00fcdd678096c53c05999d7eca9c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 5b3d65b8bf42239778f98171c27ff5c7da96a010
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272873"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116923"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 

@@ -2,18 +2,18 @@
 title: 使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据
 description: 本文介绍如何使用 .NET Standard SDK 将数据引入（加载）到 Azure 数据资源管理器中。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 11/18/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: 2283d3ae3d0bb84766ec0a7d2bdc2f88167cf315
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 93564d4ea6dc8404aae372bcf48689ead623c3e8
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717328"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020866"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据
 
@@ -78,7 +78,7 @@ var kustoConnectionStringBuilder =
 设置源文件的路径。 此示例使用 Azure Blob 存储上托管的示例文件。 StormEvents  示例数据集包含[美国国家环境信息中心](https://www.ncdc.noaa.gov/stormevents/)中与天气相关的数据。
 
 ```csharp
-var blobPath = "https://kustosamplefiles.blob.core.chinacloudapi.cn/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
+var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>在测试群集上创建表
@@ -124,6 +124,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ## <a name="define-ingestion-mapping"></a>定义引入映射
 
 将传入的 CSV 数据映射到创建表时使用的列名称。
+在该表上预配 [CSV 列映射对象](https://docs.microsoft.com/azure/kusto/management/tables#create-ingestion-mapping)
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";

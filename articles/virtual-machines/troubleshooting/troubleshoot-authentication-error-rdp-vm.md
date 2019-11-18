@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/01/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: e2bbef233b457f69f45daad8483026392c054f6c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 31437bc5d30eceee54f69d383514f3355713b7c2
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272016"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116940"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>使用 RDP 连接到 Azure VM 时排查身份验证错误
 

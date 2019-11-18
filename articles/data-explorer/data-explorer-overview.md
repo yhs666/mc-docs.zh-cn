@@ -2,18 +2,18 @@
 title: 什么是 Azure 数据资源管理器？
 description: Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 origin.date: 09/24/2018
-ms.date: 05/01/2019
-ms.openlocfilehash: 92ad4976d7019c57cf9dc3a6e6eb84af3f8b10c4
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.date: 11/18/2019
+ms.openlocfilehash: 9988be29e32b84819a3c32d12fd6321cd9a0b093
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686647"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020825"
 ---
 # <a name="what-is-azure-data-explorer"></a>什么是 Azure 数据资源管理器？
 
@@ -31,7 +31,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="data-warehousing-workflow"></a>数据仓库工作流
 
-Azure 数据资源管理器与其他主要服务相集成，提供数据收集、引入、存储、索引、查询和可视化等端到端解决方案。 它通过对数 TB 的各种原始数据上执行流的“探索”步骤，在数据仓库流中发挥着关键作用。
+Azure 数据资源管理器与其他主要服务相集成，提供数据收集、引入、存储、索引、查询和可视化等端到端解决方案。 它通过对数 TB 的各种原始数据上执行流的“探索”步骤，在数据仓库流中发挥着关键作用  。
 
 ![数据仓库图](media/data-explorer-overview/data-warehouse.png)
 
@@ -45,7 +45,7 @@ Azure 数据资源管理器支持多个引入方法，包括连接到常见服�
 
 Azure 数据资源管理器中的工作通常遵循以下模式：
 
-1. **创建数据库：** 创建群集，然后在该群集中创建一个或多个数据库。 [快速入门：创建 Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)
+1. **创建数据库：** 创建群集，然后在该群集中创建一个或多个数据库   。 [快速入门：创建 Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)
 
 1. **引入数据：** 将数据加载到数据库表，以便对其运行查询。 [快速入门：将数据从事件中心引入到 Azure 数据资源管理器](ingest-data-event-hub.md)
 
@@ -57,7 +57,7 @@ Azure 数据资源管理器中的查询是只读的请求，用于处理数据�
 
 Azure 数据资源管理器同样可以处理大量的结构化、半结构化（类似于 JSON 的嵌套类型）和非结构化（自由文本）数据。 这允许你搜索特定文本术语、查找特定事件，以及对结构化数据执行指标式的计算。 Azure 数据资源管理器通过从自由格式文本字段中提取运行时中的值，来桥接非结构化文本日志和结构化数字以及维度。 通过将快速文本索引、列存储和时间序列操作相结合，简化了数据探索。
 
-依托 Azure 数据资源管理器强大的查询语言，构建了一系列其他服务（包括 [Azure Monitor 日志](https://docs.azure.cn/zh-cn/azure-monitor/overview)），进一步扩展了其功能。
+依托 Azure 数据资源管理器强大的查询语言，构建了一系列其他服务，包括 [Azure Monitor 日志](/azure-monitor/overview)、[Application Insights](/azure-monitor/overview)、[时序见解](/time-series-insights/)以及 [Windows Defender 高级威胁防护](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/)，从而进一步扩展了其功能。
 
 ## <a name="feedback"></a>反馈
 
@@ -65,7 +65,9 @@ Azure 数据资源管理器同样可以处理大量的结构化、半结构化�
 
 - 提出问题
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
-  - [MSDN](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs)
+  - [Microsoft 技术社区](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
+  - [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=windowsazurezhchs)
+- [在 User Voice 中提出产品建议](https://support.azure.cn/support/contact)
 
 ## <a name="next-steps"></a>后续步骤
 

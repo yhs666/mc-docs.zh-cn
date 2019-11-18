@@ -2,18 +2,18 @@
 title: 使用 Azure 数据资源管理器 Python 库引入数据
 description: 本文介绍如何使用 Python 将数据引入（加载）到 Azure 数据资源管理器中。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 08/12/2019
-ms.openlocfilehash: c5b5be82fe8a0b382f19e8eac8e31437dc8978b4
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: b1b21e8d2e657376529047c580be795b1acd883d
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633017"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020832"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库引入数据
 
@@ -54,7 +54,7 @@ Azure 数据资源管理器使用 AAD 租户 ID，以对应用程序进行身份
 https://login.chinacloudapi.cn/<YourDomain>/.well-known/openid-configuration/
 ```
 
-例如，如果域名为 contoso.com，则该 URL 将是：[https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/)  。 单击此 URL 以查看结果；第一行如下所示。 
+例如，如果域名为 contoso.com，则该 URL 将是：[https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/](https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/)  。 单击此 URL 以查看结果；第一行如下所示。 
 
 ```
 "authorization_endpoint":"https://login.chinacloudapi.cn/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
