@@ -6,22 +6,19 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 08/26/2019
+origin.date: 06/26/2017
 ms.date: 08/08/2018
 ms.author: v-lingwu
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5e547455ab2a8acf5924fd0f9dfb7ff5385f25a
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 2b688144fa07e35fa7198a3d72a01ccc2b9e215b
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104148"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116243"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 
 
-## <a name="creating-new-reports-in-power-bi"></a>在 Power BI 中创建新报表
-Power BI 提供了自定义功能，可用于[通过数据模型创建报表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)。
 
 ## <a name="using-azure-backup-data-model"></a>使用 Azure 备份数据模型
 可使用下面提供的字段作为数据模型的一部分，创建报表和自定义现有报表。

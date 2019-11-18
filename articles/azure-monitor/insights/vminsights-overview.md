@@ -1,43 +1,39 @@
 ---
 title: 什么是用于 VM 的 Azure Monitor（预览版）？ | Microsoft Docs
 description: 用于 VM 的 Azure Monitor 是 Azure Monitor 的一项功能，它合并了 Azure VM 操作系统的运行状况和性能监视、应用程序组件及其与其他资源的依赖关系的自动发现功能，并映射这些组件和资源之间的通信。 本文提供了概述。
-services: azure-monitor
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
+ms.subservice: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/13/2019
-ms.date: 07/02/2019
+origin.date: 10/15/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 832f6d36c5e644163ce8dc0360c75905f847e3af
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 4b847a839fb2b28d261d7da79e194c34504aafcc
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737374"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730522"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>什么是用于 VM 的 Azure Monitor（预览版）？
 
 用于 VM 的 Azure Monitor 可以大规模监视 Azure 虚拟机 (VM) 和虚拟机规模集。 它分析 Windows 和 Linux VM 的性能和运行状况，并监视它们的进程及其对其他资源和外部进程的依赖关系。 
 
-作为一种解决方案，用于 VM 的 Azure Monitor 支持监视本地或其他云提供程序中托管的 VM 的性能和应用程序依赖关系。 三个主要功能提供深入的见解：
+它支持监视本地或其他云提供程序中托管的 VM 的性能和应用程序依赖项。 三个主要功能提供深入的见解：
 
-* **运行 Windows 和 Linux 的 Azure VM 的逻辑组件**：根据预配置的运行状况条件进行衡量，并在满足评估条件时提醒你。  
+- **运行 Windows 和 Linux 的 Azure VM 和虚拟机规模集的逻辑组件**：根据预配置的运行状况条件进行衡量，并在满足评估条件时提醒你。  
 
-* **预定义的趋势性能图表**：显示来宾 VM 操作系统的核心性能指标。
+- **预定义的趋势性能图表**：显示来宾 VM 操作系统的核心性能指标。
 
-* **依赖项映射**：显示来自各种资源组和订阅的 VM 的互连组件。  
+- **依赖项映射**：显示来自各种资源组和订阅的 VM 的互连组件。  
 
 这些功能分成三个透视图：
 
-* 运行状况
-* 性能
-* 映射
+- 运行状况
+- 性能
+- 映射
 
 >[!NOTE]
 >目前，运行状况功能仅为 Azure 虚拟机提供。 性能和映射功能支持 Azure VM、Azure VM 规模集以及托管在你的环境或其他云提供商中的虚拟机。
@@ -46,8 +42,8 @@ ms.locfileid: "70737374"
 
 可直接从虚拟机在单个 VM 中查看此数据，也可使用 Azure Monitor 提供 VM 的聚合视图。 此视图基于每个功能的透视图：
 
-* **运行状况**：VM 与资源组相关。
-* 映射和性能   ：VM 配置为向特定的 Log Analytics 工作区进行报告。
+- **运行状况**：VM 与资源组相关。
+- 映射和性能   ：VM 配置为向特定的 Log Analytics 工作区进行报告。
 
 ![Azure 门户中的虚拟机见解透视图](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
@@ -57,10 +53,10 @@ ms.locfileid: "70737374"
 
 部署用于 VM 的 Azure Monitor 时，系统会引入 VM 收集的数据并将其存储在 Azure Monitor 中。 运行状况标准指标存储在时序数据库的 Azure Monitor 中，收集的性能和依赖关系数据存储在 Log Analytics 工作区中。 根据在 [Azure Monitor 定价页](https://www.azure.cn/pricing/details/monitor/)上发布的定价，将针对以下内容对用于 VM 的 Azure Monitor 进行计费：
 
-* 引入和存储的数据。
-* 受监视的运行状况条件指标时序的数量。
-* 创建的预警规则。
-* 发送的通知。 
+- 引入和存储的数据。
+- 受监视的运行状况条件指标时序的数量。
+- 创建的预警规则。
+- 发送的通知。 
 
 日志大小因性能计数器的字符串长度而异，并且可能会随分配给 VM 的逻辑磁盘和网络适配器的数量而增大。 如果你已有一个工作区并且正在收集这些计数器，则不会重复收费。 如果已在使用服务映射，则你看到的唯一变化是发送到 Azure Monitor 的额外连接数据。
 

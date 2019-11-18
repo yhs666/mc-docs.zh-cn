@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/06/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 630ec0e4dfb200b2319631a279e231268833f240
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: e9ab3b0faa7a29d5c6adcfbf987179de2a57e4c0
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272183"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831402"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>适用于 Linux 的 Azure Monitor 虚拟机扩展
 
@@ -178,7 +178,7 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-可以使用 Azure CLI 将 Log Analytics 代理 VM 扩展部署到现有的虚拟机。 将 workspaceId 和 workspaceKey 替换为 Log Analytics 工作区中的对应项   。 
+可以使用 Azure CLI 将 Log Analytics 代理 VM 扩展部署到现有的虚拟机。 将下面的 myWorkspaceKey  值替换为工作区密钥，并将 myWorkspaceId  值替换为工作区 ID。 这些值可以在 Azure 门户的 Log Analytics 工作区中的“高级设置”  下找到。 
 
 ```azurecli
 az vm extension set \
@@ -186,9 +186,11 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
-  --settings '{"workspaceId":"omsid"}'
+  --version 1.10.1 --protected-settings "{'workspaceKey':'myWorkspaceKey'}" \
+  --settings "{'workspaceId':'myWorkspaceId'}"
 ```
+
+<!--MOONCAKE: OUT IS " WITH IN `-->
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 

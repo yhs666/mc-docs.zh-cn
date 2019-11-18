@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: bd6e9b2bc0d0b3b0dc7319134ff085fd8c6d1d74
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 671a0c073bdb9ea0e75dccd78ee62928cfd66ee1
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272830"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831358"
 ---
 ## <a name="benefits-of-managed-disks"></a>托管磁盘的优势
 
@@ -36,7 +36,7 @@ ms.locfileid: "72272830"
 
 ### <a name="azure-backup-support"></a>Azure 备份支持
 
-若要防范区域灾难，可以使用 [Azure 备份](../articles/backup/backup-overview.md)创建具有基于时间的备份和备份保留策略的备份作业。 这样就可以随意执行简单的 VM 还原。 目前，Azure 备份支持高达 4 TB (TiB) 的磁盘大小。 Azure 备份支持备份和还原托管磁盘。 [详细了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 备份支持。
+若要防范区域灾难，可以使用 [Azure 备份](../articles/backup/backup-overview.md)创建具有基于时间的备份和备份保留策略的备份作业。 这样就可以随意执行简单的 VM 还原。 目前，Azure 备份支持高达 4 TB (TiB) 的磁盘大小。  Azure 备份支持备份和还原托管磁盘。 [详细了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 备份支持。
 
 <!--MOONCAKE: URL using-managed-disk-vms-with-azure-backup DIRECT TO /backup/backup-overview.md-->
 <!--MOONCAKE: NOT EXITS ON #using-managed-disk-vms-with-azure-backup-->
@@ -45,15 +45,21 @@ ms.locfileid: "72272830"
 
 可以使用 [Azure 基于角色的访问控制 (RBAC)](../articles/role-based-access-control/overview.md) 将对托管磁盘的特定权限分配给一个或多个用户。 托管磁盘公开了各种操作，包括读取、写入（创建/更新）、删除，以及检索磁盘的[共享访问签名 (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)。 可以仅将某人员执行其工作所需的操作的访问权限授予该人员。 例如，如果不希望某人员将某个托管磁盘复制到存储帐户，则可以选择不授予对该托管磁盘的导出操作的访问权限。 类似地，如果不希望某人员使用 SAS URI 复制某个托管磁盘，则可以选择不授予对该托管磁盘的该权限。
 
+### <a name="upload-your-vhd"></a>上传 vhd
+
+ 通过直接上传，可以轻松地将 vhd 传输到 Azure 托管磁盘。 以前，必须遵循一个更复杂的过程，包括将数据暂存到存储帐户中。 现在，步骤更少了。 可以更方便地将本地 VM 上传到 Azure、上传到大型托管磁盘，并简化了备份和还原过程。 通过允许你直接将数据上传到托管磁盘而不将它们附加到 VM，还降低了成本。 可以使用直接上传来上传最大为 32 TiB 的 vhd。
+
+ 若要了解如何将 vhd 传输到 Azure，请参阅 [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) 或 [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) 文章。
+
 ## <a name="encryption"></a>Encryption
 
-托管磁盘提供两种不同的加密。 第一种是存储服务加密 (SSE)，由存储服务执行。 第二种是 Azure 磁盘加密，可以在 VM 的 OS 和数据磁盘上启用。
+托管磁盘提供两种不同的加密。 第一种是服务器端加密 (SSE)，由存储服务执行。 第二种是 Azure 磁盘加密 (ADE)，可以在 VM 的 OS 和数据磁盘上启用。
 
-### <a name="storage-service-encryption-sse"></a>存储服务加密 (SSE)
+### <a name="server-side-encryption"></a>服务器端加密
 
-[Azure 存储服务加密](../articles/storage/common/storage-service-encryption.md)可提供静态加密和保护数据，使组织能够信守在安全性与符合性方面所做的承诺。 默认情况下，在所有可用托管磁盘的区域中，所有托管磁盘、快照和映像都启用了 SSE。 有关详细信息请访问[托管磁盘常见问题解答页](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+[Azure 服务器端加密](../articles/storage/common/storage-service-encryption.md)可提供静态加密并保护数据，让你的组织能够信守安全性与合规性方面所做的承诺。 默认情况下，在所有可用托管磁盘的区域中，所有托管磁盘、快照和映像都启用了服务器端加密。 有关详细信息请访问[托管磁盘常见问题解答页](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
-### <a name="azure-disk-encryption-ade"></a>Azure 磁盘加密 (ADE)
+### <a name="azure-disk-encryption"></a>Azure 磁盘加密
 
 Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。 此加密包括托管磁盘。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 对于 Linux，磁盘是使用 DM-Crypt 技术加密的。 加密过程与 Azure Key Vault 集成，可让你控制和管理磁盘加密密钥。 有关详细信息，请参阅[适用于 IaaS VM 的 Azure 磁盘加密](../articles/security/azure-security-disk-encryption-overview.md)。
 
@@ -69,7 +75,7 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 
 ### <a name="os-disk"></a>OS 磁盘
 
-每个虚拟机都附加了一个操作系统磁盘。 该 OS 磁盘有一个预先安装的 OS，是在创建 VM 时选择的。
+每个虚拟机都附加了一个操作系统磁盘。 该 OS 磁盘有一个预先安装的 OS，是在创建 VM 时选择的。 此磁盘包含启动卷。
 
 此磁盘最大容量为 2,048 GiB。
 

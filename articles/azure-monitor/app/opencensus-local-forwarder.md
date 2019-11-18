@@ -1,24 +1,21 @@
 ---
 title: Azure Application Insights OpenCensus 分布式跟踪本地转发器（预览版）| Azure docs
 description: 将 Python 和 Go 等语言的 OpenCensus 分布式跟踪与范围转发到 Azure Application Insights
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 09/18/2018
 ms.date: 6/4/2019
 ms.reviewer: nimolnar
 ms.author: v-lingwu
-ms.openlocfilehash: e697c552d49e327b41040e27c47f768494ffb081
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 2df7d67bbe3fdaed5b3969163bb315ec39bf6450
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970902"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730527"
 ---
 # <a name="local-forwarder-preview"></a>本地转发器（预览版）
 

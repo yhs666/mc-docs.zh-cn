@@ -7,15 +7,15 @@ ms.subservice: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 04/16/2019
-ms.date: 08/26/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 04198047bf036141b5d28b60f9792599ffe1a7d9
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 3ad95e5ab48ba94b9a13fa44bc4cb996cbcfe06c
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993565"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116241"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) 疑难解答
 
@@ -25,7 +25,7 @@ ms.locfileid: "69993565"
 
 如果在 Azure State Configuration 中编译或部署配置时出错，可使用以下步骤来诊断问题。
 
-1. **确保配置在本地计算机上编译成功：** Azure State Configuration 在 PowerShell DSC 基础上构建。 可以在 [PowerShell DSC 文档](https://docs.microsoft.com/en-us/powershell/scripting/overview)中找到 DSC 语言和语法的文档。
+1. **确保配置在本地计算机上编译成功：** Azure State Configuration 在 PowerShell DSC 基础上构建。 可以在 [PowerShell DSC 文档](https://docs.microsoft.com/powershell/scripting/overview)中找到 DSC 语言和语法的文档。
 
    在本地计算机上编译 DSC 配置即可发现并解决常见错误，例如：
 
@@ -124,7 +124,7 @@ No instance found with given property values
 
 #### <a name="resolution"></a>解决方法
 
-若要解决此问题，请按照 [DSC 已知问题和限制](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc)一文中的说明进行操作。
+若要解决此问题，请按照 [DSC 已知问题和限制](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)一文中的说明进行操作。
 
 ### <a name="issue-using-credential"></a>场景：无法在 DSC 配置中使用凭据
 

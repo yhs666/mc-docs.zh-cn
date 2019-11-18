@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/11/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 843737464d98a369f0696c426d955d44f3f49cac
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ecb789bbfbcdcfe7c6bd9aa75cbe047d4ca1ec25
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330239"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730587"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>使用 PowerShell 备份和恢复 Azure VM
 
@@ -29,9 +29,9 @@ ms.locfileid: "71330239"
 
 ## <a name="before-you-start"></a>开始之前
 
-- [详细了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。
-- [查看](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM 备份的体系结构、[了解](backup-azure-vms-introduction.md)备份过程，以及[查看](backup-support-matrix-iaas.md)支持、限制和先决条件。
-- 查看恢复服务的 PowerShell 对象层次结构。
+* [详细了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。
+* [查看](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM 备份的体系结构、[了解](backup-azure-vms-introduction.md)备份过程，以及[查看](backup-support-matrix-iaas.md)支持、限制和先决条件。
+* 查看恢复服务的 PowerShell 对象层次结构。
 
 ## <a name="recovery-services-object-hierarchy"></a>恢复服务对象层次结构
 
@@ -161,8 +161,7 @@ $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg
 使用 [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) 命令，将保管库的存储复制配置设置为 LRS/GRS
 
 ```powershell
-$vault= Get-AzRecoveryServicesVault -name "testvault"
-Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+Set-AzRecoveryServicesBackupProperty -Vault $targetVault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
 ```
 
 > [!NOTE]
@@ -281,7 +280,7 @@ V2VM             Backup               InProgress            4/23/2016           
 与其使用额外的不必要的代码来轮询这些作业的完成情况，不如使用 [Wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet。 该 cmdlet 暂停操作的执行，直到作业完成或达到了指定的超时值。
 
 ```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200 -VaultId $targetVault.ID
 ```
 
 ## <a name="manage-azure-vm-backups"></a>管理 Azure VM 备份
@@ -320,9 +319,9 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 > 从 Az PS 版本 1.6.0 开始，用户可以使用 Powershell 在策略中更新即时还原快照保留期
 
 ````powershell
-$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
+$bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
 $bkpPol.SnapshotRetentionInDays=7
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
+Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
 默认值为 2，用户可以将值设置为 1 到 5。 每周备份策略的保留期设置为 5，不能更改。
@@ -340,7 +339,7 @@ $job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID 
 
 输出类似于以下示例：
 
-```
+```output
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
 V2VM              Backup              InProgress          4/23/2016                  5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -482,7 +481,7 @@ VMConfig.JSON  文件将还原到存储帐户，托管磁盘将还原到指定�
 
 输出类似于以下示例：
 
-```powershell
+```output
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -767,8 +766,8 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 若要获取用于标识正确备份项的 PowerShell 对象，请从保管库中的容器开始，按对象层次结构进行操作。 若要选择代表 VM 的容器，请使用 [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) cmdlet，然后通过管道将其传递给 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) cmdlet。
 
 ```powershell
-$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
 ### <a name="choose-a-recovery-point"></a>选择恢复点
@@ -780,13 +779,13 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $targetVault.ID
 $rp[0]
 ```
 
 输出类似于以下示例：
 
-```powershell
+```output
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -810,12 +809,12 @@ BackupManagementType        : AzureVM
 >
 
 ```powershell
-Get-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+Get-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
 输出类似于以下示例：
 
-```powershell
+```output
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
@@ -828,7 +827,7 @@ Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc54
 复制所需的文件后，请使用 [Disable-AzRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackuprpmountscript) 卸载磁盘。 请确保卸载磁盘，以便删除对恢复点的文件的访问权限。
 
 ```powershell
-Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
 ## <a name="next-steps"></a>后续步骤

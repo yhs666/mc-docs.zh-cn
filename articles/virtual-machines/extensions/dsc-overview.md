@@ -14,21 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 87b56680e0c4b773121dc9440bb7f01d181b0ab5
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: e197f9a441cd5e9c9391a8027aaaa75753043064
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272782"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831457"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration 扩展处理程序简介
 
 Azure VM 代理和关联的扩展是 Azure 基础结构服务的一部分。 VM 扩展是软件组件，可以扩展 VM 功能并简化各种 VM 管理操作。
 
 Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到 [Azure Automation State Configuration (DSC) 服务](../../automation/automation-dsc-overview.md)。
-该服务带来的[好处](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service)包括：持续管理 VM 的配置，并与其他操作工具（例如 Azure 监视）集成。
+该服务带来的[好处](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)包括：持续管理 VM 的配置，并与其他操作工具（例如 Azure 监视）集成。
 使用扩展将 VM 注册到该服务可以提供一个甚至可跨 Azure 订阅工作的灵活解决方案。
 
 可以独立于 Automation DSC 服务使用 DSC 扩展。
@@ -40,7 +40,7 @@ Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到
 ## <a name="prerequisites"></a>先决条件
 
 - **本地计算机**：若要与 Azure VM 扩展交互，必须使用 Azure 门户或 Azure PowerShell SDK。
-- **来宾代理**：使用 DSC 配置进行配置的 Azure VM 必须采用支持 Windows Management Framework (WMF) 4.0 或更高版本的 OS。 有关支持的 OS 版本的完整列表，请参阅 [DSC 扩展版本历史记录](https://docs.microsoft.com/powershell/dsc/azuredscexthistory)。
+- **来宾代理**：使用 DSC 配置进行配置的 Azure VM 必须采用支持 Windows Management Framework (WMF) 4.0 或更高版本的 OS。 有关支持的 OS 版本的完整列表，请参阅 [DSC 扩展版本历史记录](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/azuredscexthistory)。
 
 ## <a name="terms-and-concepts"></a>术语和概念
 
@@ -52,7 +52,7 @@ Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到
 
 ## <a name="architecture"></a>体系结构
 
-Azure DSC 扩展使用 Azure VM 代理框架来传送、启用和报告 Azure VM 上运行的 DSC 配置。 DSC 扩展接受配置文档和一组参数。 如果未提供任何文件，[默认配置脚本](#default-configuration-script)会嵌入到扩展中。 默认配置脚本仅用于在[本地配置管理器](https://docs.microsoft.com/powershell/dsc/metaconfig)中设置元数据。
+Azure DSC 扩展使用 Azure VM 代理框架来传送、启用和报告 Azure VM 上运行的 DSC 配置。 DSC 扩展接受配置文档和一组参数。 如果未提供任何文件，[默认配置脚本](#default-configuration-script)会嵌入到扩展中。 默认配置脚本仅用于在[本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)中设置元数据。
 
 首次调用扩展时，该扩展使用以下逻辑安装某个版本的 WMF：
 
@@ -64,7 +64,7 @@ Azure DSC 扩展使用 Azure VM 代理框架来传送、启用和报告 Azure VM
 
 ### <a name="default-configuration-script"></a>默认配置脚本
 
-Azure DSC 扩展包括一个默认配置脚本，该脚本计划在对 Azure Automation DSC 服务载入 VM 时使用。 脚本参数符合[本地配置管理器](https://docs.microsoft.com/powershell/dsc/metaconfig)的可配置属性。 有关脚本参数，请参阅 [Desired State Configuration 扩展与 Azure 资源管理器模板](dsc-template.md)中的[默认配置脚本](dsc-template.md#default-configuration-script)。 有关完整脚本，请参阅 [GitHub 中的 Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)。
+Azure DSC 扩展包括一个默认配置脚本，该脚本计划在对 Azure Automation DSC 服务载入 VM 时使用。 脚本参数符合[本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)的可配置属性。 有关脚本参数，请参阅 [Desired State Configuration 扩展与 Azure 资源管理器模板](dsc-template.md)中的[默认配置脚本](dsc-template.md#default-configuration-script)。 有关完整脚本，请参阅 [GitHub 中的 Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)。
 
 ## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>有关注册到 Azure Automation State Configuration (DSC) 服务的信息
 
@@ -197,7 +197,7 @@ az vm extension set \
 
 - **数据收集**：确定扩展是否将收集遥测数据。 有关详细信息，请参阅 [Azure DSC 扩展数据集合](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)。
 
-- **版本**：指定要安装的 DSC 扩展的版本。 有关版本信息，请参阅 [DSC 扩展版本历史记录](https://docs.microsoft.com/powershell/dsc/azuredscexthistory)。
+- **版本**：指定要安装的 DSC 扩展的版本。 有关版本信息，请参阅 [DSC 扩展版本历史记录](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/azuredscexthistory)。
 
 - **自动升级次要版本**：此字段映射到 cmdlet 中的 **AutoUpdate** 开关，使扩展能够在安装过程中自动更新到最新版本。 “是”  将指示扩展处理程序使用最新可用版本，“否”  将强制安装指定的版本  。 既不选择“是”  也不选择“否”  相当于选择“否”  。
 
@@ -207,7 +207,7 @@ az vm extension set \
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/dsc/overview)。
+- 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)。
 - 查看[适用于 DSC 扩展的资源管理器模板](dsc-template.md)。
 - 若要了解可以使用 PowerShell DSC 管理的其他功能并获取更多 DSC 资源，请浏览 [PowerShell 库](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)。
 - 有关将敏感参数传入配置的详细信息，请参阅[使用 DSC 扩展处理程序安全管理凭据](dsc-credentials.md)。

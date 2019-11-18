@@ -1,25 +1,21 @@
 ---
 title: 使用 Azure Log Analytics 代理收集日志数据 | Azure Docs
 description: 本主题可帮助你了解如何使用 Log Analytics 收集数据并监视托管在 Azure、本地或其他云环境中的计算机。
-services: log-analytics
-documentationcenter: ''
+ms.service: log-analytics
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 08/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 805eafdc1bcedd284837a923f85b21e08f8c5957
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 8ef1f573dd4f630518081aa72dfc31f5bf1d2a32
+ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737126"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906413"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理收集日志数据
 
@@ -52,14 +48,15 @@ Azure Log Analytics 代理，以前称为 Azure Monitoring Agent (MMA) 或 OMS L
 Windows 代理官方支持以下版本的 Windows 操作系统：
 
 * Windows Server 2019
-* Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
+* Windows Server 2008 SP2 (x64)、2008 R2、2012、2012 R2、2016，版本 1709 和 1803
 * Windows 7 SP1、Windows 8 企业版和专业版，以及 Windows 10 企业版和专业版
 
 >[!NOTE]
 >虽然 Windows 的 Log Analytics 代理旨在支持服务器监视方案，但我们认识到，你可能会运行 Windows 客户端来支持为服务器操作系统配置和优化的工作负荷。 此代理确实支持 Windows 客户端，但是，我们的监视解决方案并不专注于客户端监视方案，除非明确指出。
 
 ## <a name="supported-linux-operating-systems"></a>受支持的 Linux 操作系统
-本部分提供有关受支持的 Linux 分发版的详细信息。    
+
+本部分提供有关受支持的 Linux 分发版的详细信息。
 
 从 2018 年 8 月之后发布的版本开始，我们对支持模型进行了以下更改：  
 
@@ -101,6 +98,7 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 >收集 Syslog 消息时需要 rsyslog 或 syslog ng。 不支持将 Red Hat Enterprise Linux 版本 5、CentOS 和 Oracle Linux 版本 (sysklog) 上的默认 syslog 守护程序用于 syslog 事件收集。 要从这些发行版的此版本中收集 syslog 数据，应安装并配置 rsyslog 守护程序以替换 sysklog。
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 协议
+
 为了确保传输到 Azure Monitor 日志的数据的安全性，我们强烈建议你将代理配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管目前出于向后兼容，这些协议仍可正常工作，但我们**不建议使用**。  有关其他信息，请查看[使用 TLS 1.2 安全地发送数据](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
 
 ## <a name="network-firewall-requirements"></a>网络防火墙要求
@@ -112,7 +110,7 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 |*.ods.opinsights.chinacloudapi.cn |端口 443 |出站|是 |  
 |*.oms.opinsights.chinacloudapi.cn|端口 443 |出站|是 |  
 |*.blob.core.chinacloudapi.cn |端口 443 |出站|是 |  
-|\* .azure-automation.net |端口 443 |出站|是 |  
+|*.azure-automation.cn |端口 443 |出站|是 |  
 
 
 如果计划使用 Azure 自动化混合 Runbook 辅助角色连接到自动化服务并在其中注册以在环境中使用 Runbook，则它必须可以访问“针对混合 Runbook 辅助角色配置网络”中所述的端口号和 URL。 
@@ -139,7 +137,8 @@ Windows 和 Linux 代理支持使用 HTTPS 协议通过代理服务器或 Log An
 > [!NOTE]
 > 如果密码中使用了特殊字符（如“\@”），则会收到代理连接错误，因为值解析不正确。  若要解决此问题，请使用 [URLDecode](https://www.urldecoder.org/) 等工具在 URL 中对密码进行编码。  
 
-## <a name="install-and-configure-agent"></a>安装并配置代理 
+## <a name="install-and-configure-agent"></a>安装并配置代理
+
 可以根据要求使用不同的方法，将 Azure 订阅或混合环境中的计算机直接连接到 Azure Monitor 日志。 下表详细介绍了每种方法，以便用户确定组织中最适用的方法。
 
 |Source | 方法 | 说明|

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 09/15/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71cdfb5b015a0909d6f2b1d002e4131b5474a0b9
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 269cabe1d5fedec29f84b863a7cb919f1442858f
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305918"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830934"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>调用 Web API 的守护程序应用 - 应用注册
 
@@ -37,13 +37,16 @@ ms.locfileid: "67305918"
 
 ## <a name="authentication---no-reply-uri-needed"></a>身份验证 - 不需回复 URI
 
-如果机密客户端应用程序**仅**使用客户端凭据流，则不需注册回复 URL。 应用程序配置/构造也不需要它。 客户端凭据流不使用它。
+如果机密客户端应用程序**仅**使用客户端凭据流，则不需注册回复 URI。 应用程序配置/构造也不需要它。 客户端凭据流不使用它。
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>API 权限 - 应用权限和管理员许可
 
 守护程序应用程序只能请求针对 API 的应用程序权限（非委托权限）。 在应用程序注册的“API 权限”页中，  在选择“添加权限”并选择  API 系列以后，请在选择“应用程序权限”后再选择权限 
 
 ![应用权限和管理员许可](./media/scenario-daemon-app/app-permissions-and-admin-consent.png)
+
+> [!NOTE]
+> 要调用的 Web API 需要定义**应用程序权限（应用角色）** ，而不是委托的权限。 有关如何公开此类 API 的详细信息，请参阅[受保护的 Web API：应用注册 - 当守护程序应用调用 Web API 时](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)
 
 守护程序应用程序需要获得租户管理员的预先许可，然后该应用程序才能调用 Web API。 此许可在同一“API 权限”页中提供，  由租户管理员选择“向我们的组织授予管理员许可”即可。 
 
@@ -56,3 +59,4 @@ ms.locfileid: "67305918"
 > [!div class="nextstepaction"]
 > [守护程序应用 - 应用代码配置](./scenario-daemon-app-configuration.md)
 
+<!-- Update_Description: wording update -->

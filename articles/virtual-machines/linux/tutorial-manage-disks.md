@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 30fccff979258ce8adbb428d9a9a8fa2a4837dcc
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 3b4beb9ce48b736f1aacc926a917de9e13741984
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272510"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831433"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教程 - 使用 Azure CLI 管理 Azure 磁盘
 
@@ -72,7 +72,7 @@ Azure 提供两种类型的磁盘：标准磁盘和高级磁盘。
 
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
-可以在本地电脑上启动 Azure 本地 Shell。
+可以在本地电脑上使用 Azure 本地 Shell 运行本文中的步骤。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

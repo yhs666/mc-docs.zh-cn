@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 02/27/2019
+ms.date: 10/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 871a94f6bdf5da5e073fcef6bea673ebe39e63c0
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 5b8c425479f70ad85c9a2509971b8a676740ef14
+ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903030"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068813"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置 Redis 群集功能
 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 本文介绍如何配置高级 Azure Redis 缓存实例中的群集功能。
@@ -30,10 +30,10 @@ Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和�
 ## <a name="what-is-redis-cluster"></a>什么是 Redis 群集？
 Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.io/topics/cluster-tutorial)的一样。 Redis 群集具有以下优势： 
 
-- 能够在多个节点中自动拆分数据集。 
-- 能够在部分节点遇到故障或无法与群集其余部分通信的情况下继续运行。 
-- 更大的吞吐量：增加分片数时，吞吐量呈线性增加。 
-- 更大的内存大小：增加分片数时，内存大小呈线性增加。  
+* 能够在多个节点中自动拆分数据集。 
+* 能够在部分节点遇到故障或无法与群集其余部分通信的情况下继续运行。 
+* 更大的吞吐量：增加分片数时，吞吐量呈线性增加。 
+* 更大的内存大小：增加分片数时，内存大小呈线性增加。  
 
 群集不会增加可用于群集缓存的连接数。 若要深入了解高级缓存的大小、吞吐量和带宽，请参阅[应使用哪种类型和大小的 Azure Redis 缓存产品/服务？](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -88,32 +88,32 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.
 ## <a name="clustering-faq"></a>群集功能常见问题
 以下列表包含有关 Azure Redis 缓存群集功能的常见问题解答。
 
-- [使用群集功能时，是否需要对客户端应用程序进行更改？](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
-- [密钥在群集中是如何分布的？](#how-are-keys-distributed-in-a-cluster)
-- [我可以创建的最大缓存大小是多大？](#what-is-the-largest-cache-size-i-can-create)
-- [是否所有 Redis 客户端都支持群集功能？](#do-all-redis-clients-support-clustering)
-- [启用群集功能后，如何连接到我的缓存？](#how-do-i-connect-to-my-cache-when-clustering-is-enabled)
-- [我可以直接连接到缓存的各个分片吗？](#can-i-directly-connect-to-the-individual-shards-of-my-cache)
-- [我可以为以前创建的缓存配置群集功能吗？](#can-i-configure-clustering-for-a-previously-created-cache)
-- [我可以为基本缓存或标准缓存配置群集功能吗？](#can-i-configure-clustering-for-a-basic-or-standard-cache)
-- [能否在 Redis ASP.NET 会话状态和输出缓存提供程序中使用群集功能？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
-- [我在使用 StackExchange.Redis 和群集功能时出现 MOVE 异常，应该怎么办？](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
+* [使用群集功能时，是否需要对客户端应用程序进行更改？](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+* [密钥在群集中是如何分布的？](#how-are-keys-distributed-in-a-cluster)
+* [我可以创建的最大缓存大小是多大？](#what-is-the-largest-cache-size-i-can-create)
+* [是否所有 Redis 客户端都支持群集功能？](#do-all-redis-clients-support-clustering)
+* [启用群集功能后，如何连接到我的缓存？](#how-do-i-connect-to-my-cache-when-clustering-is-enabled)
+* [我可以直接连接到缓存的各个分片吗？](#can-i-directly-connect-to-the-individual-shards-of-my-cache)
+* [我可以为以前创建的缓存配置群集功能吗？](#can-i-configure-clustering-for-a-previously-created-cache)
+* [我可以为基本缓存或标准缓存配置群集功能吗？](#can-i-configure-clustering-for-a-basic-or-standard-cache)
+* [能否在 Redis ASP.NET 会话状态和输出缓存提供程序中使用群集功能？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+* [我在使用 StackExchange.Redis 和群集功能时出现 MOVE 异常，应该怎么办？](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
 ### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>使用群集功能时，是否需要对客户端应用程序进行更改？
-- 启用群集功能时，仅数据库 0 可用。 如果客户端应用程序使用多个数据库并尝试读取或写入数据库 0 之外的其他数据库，则会引发以下异常。 `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+* 启用群集功能时，仅数据库 0 可用。 如果客户端应用程序使用多个数据库并尝试读取或写入数据库 0 之外的其他数据库，则会引发以下异常。 `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   有关详细信息，请参阅 [Redis 群集规范 - 已实现子集](https://redis.io/topics/cluster-spec#implemented-subset)。
-- 如果使用的是 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，则必须使用 1.0.481 或更高版本。 连接到该缓存时，可以使用的[终结点、端口和密钥](cache-configure.md#properties)与连接到未启用群集功能的缓存时使用的相同。 唯一的区别是，所有读取和写入都必须在数据库 0 中进行。
+* 如果使用的是 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，则必须使用 1.0.481 或更高版本。 连接到该缓存时，可以使用的[终结点、端口和密钥](cache-configure.md#properties)与连接到未启用群集功能的缓存时使用的相同。 唯一的区别是，所有读取和写入都必须在数据库 0 中进行。
   
-  - 其他客户端可能有不同的要求。 请参阅 [是否所有 Redis 客户端都支持群集功能？](#do-all-redis-clients-support-clustering)
-- 如果应用程序使用的多个密钥操作都在单个命令中成批执行，则所有密钥都必须位于同一分片。 若要查找同一分片中的密钥，请参阅[密钥在群集中是如何分布的？](#how-are-keys-distributed-in-a-cluster)
-- 如果使用的是 Redis ASP.NET 会话状态提供程序，则必须使用 2.0.1 或更高版本。 请参阅 [能否在 Redis ASP.NET 会话状态和输出缓存提供程序中使用群集功能？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+  * 其他客户端可能有不同的要求。 请参阅 [是否所有 Redis 客户端都支持群集功能？](#do-all-redis-clients-support-clustering)
+* 如果应用程序使用的多个密钥操作都在单个命令中成批执行，则所有密钥都必须位于同一分片。 若要查找同一分片中的密钥，请参阅[密钥在群集中是如何分布的？](#how-are-keys-distributed-in-a-cluster)
+* 如果使用的是 Redis ASP.NET 会话状态提供程序，则必须使用 2.0.1 或更高版本。 请参阅 [能否在 Redis ASP.NET 会话状态和输出缓存提供程序中使用群集功能？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>密钥在群集中是如何分布的？
 请参阅 Redis [密钥分布模型](https://redis.io/topics/cluster-spec#keys-distribution-model)文档：密钥空间拆分成 16384 个槽。 每个密钥都经过哈希处理并分配到其中一个槽，这些槽分布在群集的节点中。 对密钥的哪部分进行哈希处理是可以配置的，这样可确保多个使用哈希标记的密钥位于同一分片。
 
-- 使用哈希标记的密钥 - 如果将密钥的任意部分括在 `{` 和 `}` 中，则只会对密钥的该部分进行哈希处理，以便确定密钥的哈希槽。 例如，以下 3 个密钥将位于同一分片中：`{key}1`、`{key}2` 和 `{key}3`，因为只对名称的 `key` 部分进行了哈希处理。 如需密钥哈希标记规范的完整列表，请参阅 [密钥哈希标记](https://redis.io/topics/cluster-spec#keys-hash-tags)。
-- 没有哈希标记的密钥 - 使用整个密钥名称进行哈希处理。 从统计学意义上来说，这样会导致密钥平均分布到缓存的各个分片中。
+* 使用哈希标记的密钥 - 如果将密钥的任意部分括在 `{` 和 `}` 中，则只会对密钥的该部分进行哈希处理，以便确定密钥的哈希槽。 例如，以下 3 个密钥将位于同一分片中：`{key}1`、`{key}2` 和 `{key}3`，因为只对名称的 `key` 部分进行了哈希处理。 如需密钥哈希标记规范的完整列表，请参阅 [密钥哈希标记](https://redis.io/topics/cluster-spec#keys-hash-tags)。
+* 没有哈希标记的密钥 - 使用整个密钥名称进行哈希处理。 从统计学意义上来说，这样会导致密钥平均分布到缓存的各个分片中。
 
 为了优化性能和吞吐量，建议将密钥平均分布。 如果使用带哈希标记的密钥，则应用程序会负责确保密钥平均分布。
 
@@ -122,12 +122,12 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](https://redis.
 有关在 StackExchange.Redis 客户端中使用群集和查找同一分片中的密钥的示例代码，请参阅 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 示例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>可以创建的最大缓存大小是多大？
-高级缓存的最大大小为 53 GB。 可以创建多达 10 个分片，因此最大大小为 530 GB。 如果需要的大小更大，则可[请求更多](https://www.azure.cn/support/support-azure)。 有关详细信息，请参阅 [Azure Redis 缓存定价](https://www.azure.cn/pricing/details/redis-cache/)。
+高级缓存的最大大小为 120 GB。 可以创建多达 10 个分片，因此最大大小为 1.2TB。 如果需要的大小更大，则可[请求更多](https://www.azure.cn/support/support-azure)。 有关详细信息，请参阅 [Azure Redis 缓存定价](https://www.azure.cn/pricing/details/redis-cache/)。
 
 ### <a name="do-all-redis-clients-support-clustering"></a>是否所有 Redis 客户端都支持群集功能？
-目前，并非所有客户端都支持 Redis 群集功能。 StackExchange.Redis 是支持该功能的客户端之一。 有关其他客户端的详细信息，请参阅 [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial)（Redis 群集教程）的 [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)（操作群集）部分。 
+并非所有客户端都支持 Redis 群集功能！ 请查看所使用的库的文档，以验证所使用的库和版本是否支持群集。 StackExchange.Redis 是一个库，它在更新的版本中确实支持群集。 有关其他客户端的详细信息，请参阅 [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial)（Redis 群集教程）的 [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)（操作群集）部分。 
 
-Redis 群集协议要求每个客户端直接以群集模式连接到每个分片。 尝试使用不支持群集的客户端可能会导致大量的 [MOVED 重定向异常](https://redis.io/topics/cluster-spec#moved-redirection)。
+Redis 群集协议要求每个客户端以群集模式直接连接到每个分片，并且还定义了新的错误响应，例如“MOVED”或“CROSSSLOTS”。 尝试将不支持群集的客户端用于群集模式缓存可能会导致大量 [MOVED 重定向异常](https://redis.io/topics/cluster-spec#moved-redirection)，或者如果你正在进行跨槽多键请求，则只会中断应用程序。
 
 > [!NOTE]
 > 如果使用 StackExchange.Redis 作为客户端，请确保使用最新版本的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，即 1.0.481 或更高，以便群集功能能够正常使用。 如果对 move 异常有任何疑问，请参阅 [move 异常](#move-exceptions)了解详细信息。
@@ -151,14 +151,17 @@ Redis 群集协议要求每个客户端直接以群集模式连接到每个分�
 对于 ssl，请将 `1300N` 替换为 `1500N`。
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>可以为以前创建的缓存配置群集功能吗？
-目前，只能在创建缓存时启用群集。 创建缓存后，可以更改群集大小，但不能将群集添加到高级缓存，或者从高级缓存中删除群集。 已启用群集且只包含一个分片的高级缓存不同于具有相同大小且没有群集的高级缓存。
+是的。 首先，请确保缓存为高级缓存，如果不是，则进行缩放。 接下来，应该能够看到群集配置选项，包括用于启用群集的选项。 可以在创建缓存或首次启用群集功能后更改群集大小。
+
+   >[!IMPORTANT]
+   >无法撤消启用群集功能。 启用了群集功能且只有一个分片的缓存的行为与*没有*群集功能的相同大小缓存的行为*不同*。
 
 ### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>可以为基本缓存或标准缓存配置群集功能吗？
 群集功能仅适用于高级缓存。
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>能否在 Redis ASP.NET 会话状态和输出缓存提供程序中使用群集功能？
-- **Redis 输出缓存提供程序** - 无需进行更改。
-- **Redis 会话状态提供程序** - 若要使用群集功能，必须使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 或更高版本，否则会引发异常。 这是一项重大更改；有关详细信息，请参阅 [2.0.0 版重大更改详细信息](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
+* **Redis 输出缓存提供程序** - 无需进行更改。
+* **Redis 会话状态提供程序** - 若要使用群集功能，必须使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 或更高版本，否则会引发异常。 这是一项重大更改；有关详细信息，请参阅 [2.0.0 版重大更改详细信息](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
 
 <a name="move-exceptions"></a>
 
@@ -168,7 +171,7 @@ Redis 群集协议要求每个客户端直接以群集模式连接到每个分�
 ## <a name="next-steps"></a>后续步骤
 了解如何使用更多的高级缓存功能。
 
-- [Azure Redis 缓存高级层简介](cache-premium-tier-intro.md)
+* [Azure Redis 缓存高级层简介](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 
@@ -179,5 +182,5 @@ Redis 群集协议要求每个客户端直接以群集模式连接到每个分�
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->
 

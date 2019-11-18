@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/30/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: e1de3a1a6e565ac415e41b5afbafc154de3e2aba
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 6e94243c65b818a23a7e57d1cea8be853f04f04e
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857429"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020296"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Node.js 软件开发工具包 (SDK) 配合使用
 
@@ -74,7 +74,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 2. 安装或升级到 [Node.js](https://nodejs.org/en/download/) 的最新版本。 Node.js 还包含 [npm](https://www.npmjs.com/) JavaScript 包管理器。
 
-3. 安装或升级 [Visual Studio Code](https://code.visualstudio.com/)，并安装适用于 Visual Studio Code 的 [Node.js 扩展](https://code.visualstudio.com/docs/Node.js/nodejs-debugging)。
+3. 安装或升级 [Visual Studio Code](https://code.visualstudio.com/)，并安装适用于 Visual Studio Code 的 [Node.js 扩展](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)。
 
 2. 安装 Azure Stack 资源管理器的客户端包。 有关详细信息，请参阅[如何安装客户端库](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid)。
 
@@ -96,7 +96,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | --- | --- | --- |
 | 租户 ID | TENANT\_ID | Azure Stack [租户 ID](/azure-stack/azure-stack-identity-overview) 的值。 |
 | 客户端 ID | CLIENT\_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。  |
-| 订阅 ID | AZURE\_SUBSCRIPTION\_ID：[订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的套餐。  |
+| 订阅 ID | AZURE\_SUBSCRIPTION\_ID：[订阅 ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) 用于访问 Azure Stack 中的套餐。  |
 | 客户端机密 | APPLICATION\_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM\_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint)。 |
 

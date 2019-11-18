@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/17/2019
-ms.date: 07/09/2019
+origin.date: 07/09/2019
+ms.date: 11/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 926c8f2a75bba475b85071d2b953f9369252aa56
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ffd2b05e006d2bf94c8c5aa0070d85886804c021
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329676"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730370"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>从 Azure 备份服务器恢复数据
 可使用 Azure 备份服务器恢复已备份到恢复服务保管库的数据。 用于执行此操作的过程已集成到 Azure 备份服务器管理控制台中，且与其他 Azure 备份组件的恢复工作流类似。
@@ -56,7 +56,7 @@ ms.locfileid: "71329676"
 8. 选择与“创建副本”、“跳过”或“覆盖”相关的选项    。
 
    * **创建副本** - 在存在名称冲突时创建文件副本。
-   * **跳过** - 存在名称冲突时，不恢复保留了原始文件的文件。
+   * **跳过** - 如果存在名称冲突，则不恢复文件，从而保留原始文件。
    * **覆盖** - 存在名称冲突时，覆盖文件的现有副本。
 
      选择与“还原安全”相对应的选项  。 可以应用进行数据恢复的目标计算机的安全设置，也可以应用在创建恢复点时适用于产品的安全设置。

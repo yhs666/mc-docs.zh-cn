@@ -1,14 +1,10 @@
 ---
-title: Azure Monitor PowerShell 示例 | Azure Docs
+title: Azure Monitor PowerShell 示例 | Microsoft Docs
 description: Azure Monitor PowerShell 示例
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-tags: ''
-ms.assetid: ''
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -16,12 +12,12 @@ origin.date: 09/14/2017
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 7b130036ca2730f6741251e1901aea5e833fe99f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 3de63b7ad80e4551e3499744f3a64f204d78a80a
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329638"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730338"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 示例
 

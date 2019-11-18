@@ -1,6 +1,6 @@
 ---
-title: 数据提取
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 数据提取 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 从包含意向和实体的话语文本中提取数据。 了解可以从语言理解智能服务 (LUIS) 中提取什么类型的数据。
 services: cognitive-services
 author: lingliw
@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 09/23/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9b19bfacd8f29aab480c42f1432125747488294f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 89b90aa8a6e223cf6f33ab0b9f76c42b2bfc1bc9
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329928"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416392"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从包含意向和实体的话语文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
@@ -27,14 +27,25 @@ ms.locfileid: "71329928"
 ## <a name="data-location-and-key-usage"></a>数据位置和密钥用法
 LUIS 从已发布的[终结点](luis-glossary.md#endpoint)提供数据。 HTTPS 请求（POST 或 GET）包含陈述以及一些可选配置，例如暂存或生产环境  。
 
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 预测终结点请求](#tab/V2)
 `https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
+
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 预测终结点请求](#tab/V3)
+
+`https://chinaeast2.api.cognitive.azure.cn/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
 
 在编辑 LUIS 应用时，`appID` 可在该 LUIS 应用的“设置”  页上找到，也可在 URL 中找到（在 `/apps/` 之后）。 `subscription-key` 是用于查询应用的终结点密钥。 虽然可以在学习 LUIS 时使用免费的创作/初学者密钥，但是将终结点密钥更改为支持[所需 LUIS 用法](luis-boundaries.md#key-limits)的密钥非常重要。 `timezoneOffset` 的单位是分钟。
 
 HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模型确定的所有意向和实体信息  。 终结点 URL 位于 [LUIS](luis-reference-regions.md) 网站的“管理”  部分的“密钥和终结点”  页上。
 
 ## <a name="data-from-intents"></a>意向中的数据
-主数据是评分最高的意向名称  。 使用 `MyStore` [快速入门](luis-quickstart-intents-only.md)，则终结点响应为：
+主数据是评分最高的意向名称  。 终结点响应为：
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 {
@@ -47,11 +58,38 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+```JSON
+{
+  "query": "when do you open next?",
+  "prediction": {
+    "normalizedQuery": "when do you open next?",
+    "topIntent": "GetStoreInfo",
+    "intents": {
+        "GetStoreInfo": {
+            "score": 0.984749258
+        }
+    }
+  },
+  "entities": []
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
+
 |数据对象|数据类型|数据位置|Value|
 |--|--|--|--|
 |Intent|String|topScoringIntent.intent|"GetStoreInfo"|
 
-如果机器人或 LUIS 调用应用基于不止一个意向评分来进行决策，则通过设置查询字符串参数 `verbose=true` 来返回所有意向的评分。 终结点响应为：
+如果聊天机器人或 LUIS 调用应用基于不止一个意向评分来进行决策，则返回所有意向的评分。
+
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+
+设置 querystring 参数 `verbose=true`。 终结点响应为：
 
 ```JSON
 {
@@ -74,6 +112,34 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+设置 querystring 参数 `show-all-intents=true`。 终结点响应为：
+
+```JSON
+{
+    "query": "when do you open next?",
+    "prediction": {
+        "normalizedQuery": "when do you open next?",
+        "topIntent": "GetStoreInfo",
+        "intents": {
+            "GetStoreInfo": {
+                "score": 0.984749258
+            },
+            "None": {
+                 "score": 0.2040639
+            }
+        },
+        "entities": {
+        }
+    }
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
+
 意向按评分从高到低排序。
 
 |数据对象|数据类型|数据位置|Value|Score|
@@ -82,6 +148,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 |Intent|String|intents[1].intent|"None"|0.0168218873|
 
 如果添加预构建的域，则意向名称指示该域，例如 `Utilties` 或 `Communication` 以及意向：
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 {
@@ -107,6 +175,34 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+```JSON
+{
+    "query": "Turn on the lights next monday at 9am",
+    "prediction": {
+        "normalizedQuery": "Turn on the lights next monday at 9am",
+        "topIntent": "Utilities.ShowNext",
+        "intents": {
+            "Utilities.ShowNext": {
+                "score": 0.07842206
+            },
+            "Communication.StartOver": {
+                "score": 0.0239675418
+            },
+            "None": {
+                "score": 0.00085447653
+            }
+        },
+        "entities": []
+    }
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
+
 |域|数据对象|数据类型|数据位置|Value|
 |--|--|--|--|--|
 |实用程序|Intent|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
@@ -120,6 +216,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 陈述中的单个单词或短语可以匹配多个实体。 在这种情况下，会返回每个匹配实体及其评分。
 
 所有实体都返回在终结点响应中的“实体”数组中  ：
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 "entities": [
@@ -142,6 +240,18 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 ]
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+```JSON
+"entities": {
+    "name":["bob jones"],
+    "number": [3]
+}
+```
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
+
 ## <a name="tokenized-entity-returned"></a>返回的切分后的实体
 几个[区域性](luis-language-support.md#tokenization)会返回 `entity` 值[已切分](luis-glossary.md#token)的实体对象。 在实体对象中由 LUIS 返回的 startIndex 和 endIndex 不会映射到已切分的新值，而是映射到原始查询，从而以编程方式提取原始实体。 
 
@@ -163,6 +273,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 [预构建](luis-concept-entity-types.md)实体是基于正则表达式匹配项、使用开源 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 项目发现的。 预构建实体返回在实体数组中，并使用前缀为 `builtin::` 的类型名称。 以下文本是一个示例陈述，其中包含返回的预构建实体：
 
 `Dec 5th send to +1 360-555-1212`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 "entities": [
@@ -243,6 +355,186 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
   ]
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+不使用 querystring 参数 `verbose=true`：
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2018-12-05"
+                },
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2019-12-05"
+                }
+            ]
+        }
+    ],
+    "ordinal": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "ordinalV2": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "number": [
+        1360,
+        555,
+        1212
+    ],
+    "phonenumber": [
+        "1 360-555-1212"
+    ]
+}
+```
+
+使用 querystring 参数 `verbose=true`：
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2018-12-05"
+                },
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2019-12-05"
+                }
+            ]
+        }
+    ],
+    "ordinal": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "ordinalV2": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "number": [
+        1360,
+        555,
+        1212
+    ],
+    "phonenumber": [
+        "1 360-555-1212"
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "Dec 5th",
+                "startIndex": 0,
+                "length": 7,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ordinal": [
+            {
+                "type": "builtin.ordinal",
+                "text": "5th",
+                "startIndex": 4,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ordinalV2": [
+            {
+                "type": "builtin.ordinalV2",
+                "text": "5th",
+                "startIndex": 4,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "number": [
+            {
+                "type": "builtin.number",
+                "text": "1 360",
+                "startIndex": 17,
+                "length": 5,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.number",
+                "text": "555",
+                "startIndex": 23,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.number",
+                "text": "1212",
+                "startIndex": 27,
+                "length": 4,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "phonenumber": [
+            {
+                "type": "builtin.phonenumber",
+                "text": "1 360-555-1212",
+                "startIndex": 17,
+                "length": 14,
+                "score": 1.0,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
 ## <a name="regular-expression-entity-data"></a>正则表达式实体数据
 
 [正则表达式实体](reference-entity-regular-expression.md)基于所提供的正则表达式模式提取实体。
@@ -270,63 +562,127 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 ## <a name="pattern-roles-data"></a>模式角色数据
 角色是实体间的上下文差别。
 
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+
+实体名称为 `Location`，具有两个角色 `Origin` 和 `Destination`。
+
 ```JSON
-{
-  "query": "move bob jones from seattle to redmond",
-  "topScoringIntent": {
-    "intent": "MoveAssetsOrPeople",
-    "score": 0.9999998
+"entities": [
+  {
+    "entity": "bob jones",
+    "type": "Employee",
+    "startIndex": 5,
+    "endIndex": 13,
+    "score": 0.922820568,
+    "role": ""
   },
-  "intents": [
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 0.9999998
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 6.12244548E-07
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 6.12244548E-07
-    },
-    {
-      "intent": "FindForm",
-      "score": 1.1E-09
-    }
-  ],
-  "entities": [
-    {
-      "entity": "bob jones",
-      "type": "Employee",
-      "startIndex": 5,
-      "endIndex": 13,
-      "score": 0.922820568,
-      "role": ""
-    },
-    {
-      "entity": "seattle",
-      "type": "Location",
-      "startIndex": 20,
-      "endIndex": 26,
-      "score": 0.948008537,
-      "role": "Origin"
-    },
-    {
-      "entity": "redmond",
-      "type": "Location",
-      "startIndex": 31,
-      "endIndex": 37,
-      "score": 0.7047979,
-      "role": "Destination"
-    }
-  ]
+  {
+    "entity": "seattle",
+    "type": "Location",
+    "startIndex": 20,
+    "endIndex": 26,
+    "score": 0.948008537,
+    "role": "Origin"
+  },
+  {
+    "entity": "redmond",
+    "type": "Location",
+    "startIndex": 31,
+    "endIndex": 37,
+    "score": 0.7047979,
+    "role": "Destination"
+  }
+]
+```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+在 V3 中，**角色名称**是对象的主要名称。 
+
+实体名称为 `Location`，具有两个角色 `Origin` 和 `Destination`。
+
+不使用 querystring 参数 `verbose=true`：
+
+```json
+"entities": {
+    "Employee": [
+        "bob jones"
+    ],
+    "Origin": [
+        "seattle"
+    ],
+    "Destination": [
+        "redmond"
+    ]
 }
 ```
+
+使用 querystring 参数 `verbose=true`：
+
+```json
+"entities": {
+    "Employee": [
+        "bob jones"
+    ],
+    "LocationOrigin": [
+        "seattle"
+    ],
+    "LocationDestination": [
+        "redmond"
+    ],
+    "$instance": {
+        "Employee": [
+            {
+                "type": "Employee",
+                "text": "bob jones",
+                "startIndex": 5,
+                "length": 9,
+                "score": 0.982873261,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Origin": [
+            {
+                "role": "Origin",
+                "type": "Location",
+                "text": "seattle",
+                "startIndex": 20,
+                "length": 7,
+                "score": 0.9913306,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Destination": [
+            {
+                "role": "Destination",
+                "type": "Location",
+                "text": "redmond",
+                "startIndex": 31,
+                "length": 7,
+                "score": 0.898179531,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * *
 
 ## <a name="patternany-entity-data"></a>Pattern.any 实体数据
 
@@ -358,6 +714,7 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 ### <a name="key-phrase-extraction-entity-data"></a>关键短语提取实体数据
 关键短语提取实体返回陈述中的关键短语，由[文本分析](/cognitive-services/text-analytics/)提供。
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 {
@@ -392,13 +749,85 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+不使用 querystring 参数 `verbose=true`：
+
+```json
+"entities": {
+    "keyPhrase": [
+        "map of places",
+        "beautiful views",
+        "favorite trail"
+    ]
+}
+```
+
+使用 querystring 参数 `verbose=true`：
+
+```json
+"entities": {
+    "keyPhrase": [
+        "map of places",
+        "beautiful views",
+        "favorite trail"
+    ],
+    "$instance": {
+        "keyPhrase": [
+            {
+                "type": "builtin.keyPhrase",
+                "text": "map of places",
+                "startIndex": 11,
+                "length": 13,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "beautiful views",
+                "startIndex": 30,
+                "length": 15,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "favorite trail",
+                "startIndex": 51,
+                "length": 14,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * *
+
+
 ## <a name="data-matching-multiple-entities"></a>匹配多个实体的数据
 
 LUIS 返回在陈述中发现的所有实体。 因此，机器人可能需要基于这些结果进行决策。 一个陈述中可能包含很多实体：
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-LUIS 终结点可以发现不同实体中的相同数据：
+LUIS 终结点可以发现不同实体中的相同数据。
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 {
@@ -524,11 +953,194 @@ LUIS 终结点可以发现不同实体中的相同数据：
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+不使用 `verbose=true` 作为 querystring 参数。
+
+```json
+"entities": {
+    "TicketsOrder": [
+        {
+            "number": [
+                2
+            ],
+            "PassengerCategory": [
+                "adult"
+            ],
+            "TravelClass": [
+                "business"
+            ]
+        }
+    ],
+    "Location::LocationTo": [
+        "paris"
+    ],
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-09-28",
+                    "value": "2019-09-28"
+                }
+            ]
+        }
+    ],
+    "Airline": [
+        "air france"
+    ]
+}
+```
+
+使用 `verbose=true` 作为 querystring 参数。
+
+
+```json
+"entities": {
+    "TicketsOrder": [
+        {
+            "number": [
+                2
+            ],
+            "PassengerCategory": [
+                "adult"
+            ],
+            "TravelClass": [
+                "business"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 8,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "PassengerCategory": [
+                    {
+                        "type": "PassengerCategory",
+                        "text": "adult",
+                        "startIndex": 10,
+                        "length": 5,
+                        "score": 0.9503733,
+                        "modelTypeId": 3,
+                        "modelType": "Hierarchical Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "TravelClass": [
+                    {
+                        "type": "TravelClass",
+                        "text": "business",
+                        "startIndex": 16,
+                        "length": 8,
+                        "score": 0.950095,
+                        "modelTypeId": 3,
+                        "modelType": "Hierarchical Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "Location::LocationTo": [
+        "paris"
+    ],
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-09-28",
+                    "value": "2019-09-28"
+                }
+            ]
+        }
+    ],
+    "Airline": [
+        "air france"
+    ],
+    "$instance": {
+        "TicketsOrder": [
+            {
+                "type": "TicketsOrder",
+                "text": "2 adult business",
+                "startIndex": 8,
+                "length": 16,
+                "score": 0.942183256,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Location::LocationTo": [
+            {
+                "type": "Location::LocationTo",
+                "text": "paris",
+                "startIndex": 36,
+                "length": 5,
+                "score": 0.9905354,
+                "modelTypeId": 3,
+                "modelType": "Hierarchical Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "tomorrow",
+                "startIndex": 42,
+                "length": 8,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Airline": [
+            {
+                "type": "Airline",
+                "text": "air france",
+                "startIndex": 54,
+                "length": 10,
+                "score": 0.9455415,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * *
+
 ## <a name="data-matching-multiple-list-entities"></a>匹配多个列表实体的数据
 
 如果一个单词或短语与多个列表实体匹配，则终结点查询会返回每个列表实体。
 
 对于查询 `when is the best time to go to red rock?`，且应用中的单词 `red` 出现在多个列表中，LUIS 会识别所有实体，并返回一组实体作为 JSON 终结点响应的一部分： 
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 
 ```JSON
 {
@@ -563,6 +1175,101 @@ LUIS 终结点可以发现不同实体中的相同数据：
   ]
 }
 ```
+
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+在查询字符串中不包含 `verbose=true`：
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ]
+        }
+    }
+}
+```
+
+
+在查询字符串中包含 `verbose=true`：
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ],
+            "$instance": {
+                "Colors": [
+                    {
+                        "type": "Colors",
+                        "text": "red",
+                        "startIndex": 31,
+                        "length": 3,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "Cities": [
+                    {
+                        "type": "Cities",
+                        "text": "red rock",
+                        "startIndex": 31,
+                        "length": 8,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 

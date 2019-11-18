@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/24/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 547576a3dac24d56b76cae17ef505071b16be64c
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: f809115ab04a7664dcc53536e6bef4a29a62bcba
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578489"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020315"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>基于 Azure Stack 的应用服务 Update 6 发行说明
 
@@ -102,7 +102,7 @@ Azure Stack 上的 Azure 应用服务 Update 6 包含以下改进和修复：
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
 
-请参阅 [Azure Stack 1908 发行说明](azure-stack-release-notes-1908.md)中的文档
+请参阅 [Azure Stack 1908 发行说明](/azure-stack/operator/release-notes?view=azs-1908)中的文档
 
 ### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>将应用程序部署到基于 Azure Stack 的 Azure 应用服务的租户的已知问题
 

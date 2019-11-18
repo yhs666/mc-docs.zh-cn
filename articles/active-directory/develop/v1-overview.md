@@ -9,21 +9,21 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/24/2018
-ms.date: 07/01/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e06fea619308b3ebe5abab13677f3c163853532f
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: df8b659388a68126be44ba4d4132cad40ce9042e
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568693"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830897"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>适用于开发人员的 Azure Active Directory (v1.0) 概述
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 是一个云标识服务，开发人员可以�
 
 | | |
 | --- | --- |
-|[身份验证基础知识](authentication-scenarios.md) | 使用 Azure AD 进行身份验证简介 |
+|[身份验证基础知识](v1-authentication-scenarios.md) | 使用 Azure AD 进行身份验证简介 |
 |[应用程序的类型](app-types.md) | Azure AD 支持的身份验证方案概述。 |
 | | |
 
@@ -57,4 +57,4 @@ v1.0 快速入门和教程将逐步讲解如何使用 Azure AD 身份验证库 (
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

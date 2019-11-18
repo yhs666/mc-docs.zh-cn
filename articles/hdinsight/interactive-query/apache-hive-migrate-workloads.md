@@ -8,13 +8,13 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 04/24/2019
-ms.date: 06/10/2019
-ms.openlocfilehash: db16f18e0e737b3e2812b68e162749bff16dbfa3
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.date: 11/11/2019
+ms.openlocfilehash: c18159d599b3dee3c09db4572efe1c231ac69fb4
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424691"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191541"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>将 Azure HDInsight 3.6 Hive 工作负荷迁移到 HDInsight 4.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "66424691"
 Hive 的一项优势是能够将元数据导出到外部数据库（也称为 Hive 元存储）。 **Hive 元存储**负责存储表统计信息，包括表存储位置、列名称和表索引信息。 元存储数据库架构根据 Hive 版本的不同而异。 执行以下操作以升级 HDInsight 3.6 Hive 元存储，使之与 HDInsight 4.0 兼容。
 
 1. 创建外部元存储的新副本。 HDInsight 3.6 和 HDInsight 4.0 需要不同的元存储架构，并且不能共享单个元存储。 请参阅[在 Azure HDInsight 中使用外部元数据存储](../hdinsight-use-external-metadata-stores.md)，以详细了解如何将外部元存储附加到 HDInsight 群集。 
-2. 使用“头节点”作为执行的节点类型，针对 HDI 3.6 群集启动某个脚本操作。 将以下 URI 粘贴到标有“Bash 脚本 URI”的文本框中： https://hdiconfigactions.blob.core.chinacloudapi.cn/hivemetastoreschemaupgrade/launch-schema-upgrade.sh。在标记为“参数”的文本框中，针对**复制的** Hive 元存储输入使用空格分隔的服务器名、数据库、用户名和密码。 在指定服务器名时，请勿包含“.database.chinacloudapi.cn”。
+2. 使用“头节点”作为执行的节点类型，针对 HDI 3.6 群集启动某个脚本操作。 将以下 URI 粘贴到标有“Bash 脚本 URI”的文本框中： https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh 。在标记为“参数”的文本框中，针对**复制的** Hive 元存储输入使用空格分隔的服务器名、数据库、用户名和密码。 在指定服务器名时，请勿包含“.database.chinacloudapi.cn”。
 
 > [!Warning]
 > 将 HDInsight 3.6 元数据架构转换为 HDInsight 4.0 架构的升级过程不可逆。
@@ -73,7 +73,7 @@ alter table myacidtable compact 'major';
 1. 从 shell 执行以下命令。 请将 `${{STACK_VERSION}}` 替换为在上一步骤中获取的版本字符串：
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
 执行完迁移工具后，Hive 仓库可供 HDInsight 4.0 使用。 
@@ -99,9 +99,34 @@ alter table myacidtable compact 'major';
 
 在 HDInsight 3.6 中，用来与 Hive 服务器交互的 GUI 客户端是 Ambari Hive 视图。 HDInsight 4.0 使用 Hortonworks Data Analytics Studio (DAS) 取代了 Hive 视图。 DAS 未随附现成可用的 HDInsight 群集，并不是受官方支持的包。 但是，可按如下所述在群集上安装 DAS：
 
-使用“头节点”作为执行的节点类型，针对群集启动某个脚本操作。 将以下 URI 粘贴到标有“Bash 脚本 URI”的文本框中： https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+<!--PAY ATTENTION HERE-->
 
+使用“头节点”作为执行的节点类型，针对群集启动某个脚本操作。 
 
+在[此处](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-data-analytics-studio.sh)下载脚本，将脚本中的“azurehdinsight.net”替换为“azurehdinsight.cn”，并在本地另存为 `YOUR_LOCAL_PATH/install-data-analytics-studio.sh`。 
+
+运行以下脚本以安装 DAS。 请注意，占位符 `YOUR_LOCAL_PATH` 应替换为上面刚刚保存的实际路径。 
+
+```shell
+#!/bin/sh
+set -e
+set -x
+
+echo "Launching DAS installation setup script."
+
+sudo wget YOUR_LOCAL_PATH/install-data-analytics-studio.sh -O /tmp/install-das.sh
+sudo chmod +x /tmp/install-das.sh
+
+# Fire-and-forget the das installer to circumvent Ambari operation deadlock
+# We also make sure the script cleans up after itself
+
+nohup sh -c '/tmp/install-das.sh && rm -f /tmp/install-das.sh' &
+
+echo "Das installation launch succeeded."
+exit 0
+```
+
+等待 5 到 10 分钟，然后使用以下 URL 启动 Data Analytics Studio： https://\<clustername>.azurehdinsight.cn/das/
 
 安装 DAS 后，如果看不到在查询查看器中运行的查询，请执行以下步骤：
 

@@ -4,20 +4,20 @@ description: 本教程介绍如何在 Azure 门户中创建 Linux SQL Server 201
 services: virtual-machines-linux
 author: rockboyfor
 manager: digimobile
-origin.date: 12/05/2018
-ms.date: 10/14/2019
+origin.date: 10/22/2019
+ms.date: 11/11/2019
 ms.topic: conceptual
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: b912b3cddd0646cddedf65ee26685a04fe33c3c2
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 97432e667ec5b29cbaebcb616a19dfe714480b56
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272019"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831424"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Linux SQL Server 虚拟机
 
@@ -78,7 +78,7 @@ ms.locfileid: "72272019"
 ### <a name="set-up-your-linux-vm"></a>设置 Linux VM
 
 <!--MOONCAKE CUSTOMIZE BELOW-->
-<!--REVIEWED ON 09/30/2019-->
+<!--REVIEWED ON 11/08/2019-->
     
 1. 在“基本信息”  选项卡中，键入或选择以下值：
 
@@ -110,13 +110,15 @@ ms.locfileid: "72272019"
 
 1. 选择“选择”  。
 
-1. 在“设置”  窗口中，从“选择公共入站端口”  列表中选择“SSH (22)”  端口。 这是在本快速入门中连接并完成 SQL Server 配置所必需的。 如果想要远程连接到 SQL Server，还选择“MS SQL (1433)”  以通过 Internet 打开端口 1433 进行连接。
+1. 在“设置”  窗口中，从“选择公共入站端口”  列表中选择“SSH (22)”  端口。 这是在本快速入门中连接并完成 SQL Server 配置所必需的。 
 
-   ![入站端口](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+    ![入站端口](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. 可以对其他设置进行更改，也可以保留默认设置。  。
 
 1. 在“摘要”页中，选择“确定”以创建该 VM。  
+
+    <!--REVIEWED ON 11/08/2019-->
 
 <a name="connect"></a>
 ## <a name="connect-to-the-linux-vm"></a>连接到 Linux VM

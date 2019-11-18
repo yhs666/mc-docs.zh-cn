@@ -4,16 +4,16 @@ description: 为 VPN 网关配置 Always On VPN 隧道的步骤
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
-ms.topic: conceptional
-origin.date: 07/09/2019
-ms.date: 08/05/2019
+ms.topic: conceptual
+origin.date: 10/02/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: ec7c2debd553ca6c18cbd0bcdcbb24e8f3d7b17f
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: b204368c6476ae41465ade82f9b4ec05df1f1a5c
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732444"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742290"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>配置 Always On VPN 设备隧道
 
@@ -33,12 +33,7 @@ Always On VPN 连接包括两种隧道：
 
 使用此[点到站点文章](vpn-gateway-howto-point-to-site-resource-manager-portal.md)将 VPN 网关配置为使用 IKEv2 和基于证书的身份验证。
 
-## <a name="2-configure-the-user-tunnel"></a>2.配置用户隧道
-
-1. 如此[点到站点 VPN 客户端文章](point-to-site-how-to-vpn-client-install-azure-cert.md)中所述，在 Windows 10 客户端上安装客户端证书。 该证书需位于当前用户存储中
-2. 使用[这些说明](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)通过 PowerShell、SCCM 或 Intune 配置 Always On VPN 客户端。
-
-## <a name="3-configure-the-device-tunnel"></a>3.配置设备隧道
+## <a name="2-configure-the-device-tunnel"></a>2.配置设备隧道
 
 必须满足以下要求才能成功建立设备隧道：
 

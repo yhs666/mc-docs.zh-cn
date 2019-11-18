@@ -1,9 +1,10 @@
 ---
-title: Xamarin Android 注意事项（适用于 .NET 的 Microsoft 身份验证库）| Azure
-description: 了解将 Xamarin Android 与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
+title: Xamarin Android 系统浏览器注意事项（适用于 .NET 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
+description: 了解使用 Xamarin Android 上的系统浏览器时以及使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 时的具体注意事项。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/24/2019
-ms.date: 06/18/2019
+origin.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2d80152b55a493f6f8d297183d8fb6d72592b8d
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 2a4dc84a60adbd53d39cb0c91ba354cb8ec410f8
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306033"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830963"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>与 MSAL.NET 配合使用时特定于 Xamarin Android 的注意事项
+#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>使用 MSAL.NET 的 Xamarin Android 系统浏览器注意事项
+
 本文介绍将 Xamarin Android 上的系统浏览器与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
 
 从 MSAL.NET 2.4.0-preview 开始，MSAL.NET 支持 Chrome 之外的浏览器，不再要求在 Android 设备上安装 Chrome 进行身份验证。
@@ -78,3 +80,4 @@ ms.locfileid: "67306033"
 ## <a name="next-steps"></a>后续步骤
 如需代码片段并详细了解如何将系统浏览器与 Xamarin Android 配合使用，请阅读此[指南](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)。  
 
+<!-- Update_Description: wording update -->

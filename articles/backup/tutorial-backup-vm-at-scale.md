@@ -10,12 +10,12 @@ ms.date: 09/23/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 60b3357299a417c5ba9bbab30be22a9a43bb9176
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 63a3aca54a83e4d6d5ff09c73ea849586a2934a1
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416397"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730173"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 门户备份多个虚拟机
 
@@ -43,7 +43,7 @@ ms.locfileid: "73416397"
 
     ![打开保管库菜单](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. 在“恢复服务保管库”菜单中， 
+3. 在“恢复服务保管库”菜单中，
 
     - 在“名称”中键入“myRecoveryServicesVault”   。
     - 当前订阅 ID 显示在“订阅”中  。 如有其他订阅，可为新保管库选择另一订阅。

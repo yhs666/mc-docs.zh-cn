@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake, carlrab
-origin.date: 08/29/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: b74a94b0199356caf0160dba38f056e0eb859007
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+origin.date: 10/01/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: f7a2faa366f3fb1ed3534bb9080f6503a0daeeee
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578537"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041224"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>在 vCore 服务层级中进行选择，然后从 DTU 服务层级进行迁移
 
@@ -41,7 +41,7 @@ ms.locfileid: "72578537"
 
 ||**常规用途**|**业务关键**|**超大规模**|
 |---|---|---|---|
-|最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|I/O 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|具有很高的可缩放存储和读取缩放要求的大多数业务工作负荷。|
+|最适用于|提供以预算导向的、均衡的计算和存储选项。|事务率较高、IO 延迟较低的 OLTP 应用程序。 使用多个同步更新的副本提供最高故障复原能力和快速故障转移。|大多数业务工作负荷。 自动缩放存储大小，最大可达 100 TB，流畅的垂直和水平计算缩放，快速数据库还原。|
 |计算|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore<br/>**无服务器计算**<br/>Gen5：0.5 到 16 个 vCore|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore|
 |内存|**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB<br/>**无服务器计算**<br/>Gen5：每个 vCore 最多 24 GB|**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB |**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB|
 |存储|使用远程存储。<br/>**单一数据库和弹性池预配计算**：<br/>5 GB - 4 TB<br/>**无服务器计算**<br/>5 GB - 3 TB<br/>**托管实例**：32 GB - 8 TB |使用本地 SSD 存储。<br/>**单一数据库和弹性池预配计算**：<br/>5 GB - 4 TB<br/>**托管实例**：<br/>32 GB - 4 TB |可以根据需要灵活地自动扩展存储。 最多支持 100 TB 存储空间。 使用本地 SSD 存储作为本地缓冲池缓存和本地数据存储。 使用 Azure 远程存储作为最终的长期数据存储。 |

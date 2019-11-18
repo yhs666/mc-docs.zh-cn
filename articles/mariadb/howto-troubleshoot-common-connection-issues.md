@@ -1,19 +1,18 @@
 ---
-title: 解决 Azure Databases for MariaDB 的连接问题 | Microsoft Docs
-description: 了解如何解决 Azure Databases for MariaDB 的连接问题。
-keywords: mariadb 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
+title: 解决 Azure Databases for MariaDB 的连接问题
+description: 了解如何排查与 Azure Database for MariaDB 的连接问题，包括需要重试的暂时性错误、防火墙问题和服务中断。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 origin.date: 11/09/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: 27df2eb7a9c90a079bd65eee128487f828961788
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 11/04/2019
+ms.openlocfilehash: 599977badf0b17446f2348a224310e91a59a4818
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173324"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191588"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>解决 Azure Databases for MariaDB 的连接问题
 

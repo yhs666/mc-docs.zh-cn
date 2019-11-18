@@ -1,26 +1,22 @@
 ---
-title: Azure 状态监视器 v2 API 参考：禁用监视 | Azure Docs
-description: 状态监视器 v2 API 参考 Disable-ApplicationInsightsMonitoring。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+title: Azure Application Insights 代理 API 参考
+description: Application Insights 代理 API 参考。 Disable-ApplicationInsightsMonitoring。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9f9cd1321d9617b1d585a2aafdb60f4df3004fd5
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b3135f58f40ed9049bb5abfd49aa16ed3aaaad4c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736537"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730504"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>状态监视器 v2 API：Disable-ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Application Insights 代理 API：Disable-ApplicationInsightsMonitoring
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
@@ -72,9 +68,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>后续步骤
 
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
-
-
-
-
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。

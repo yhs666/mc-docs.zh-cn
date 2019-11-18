@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/30/2019
-ms.date: 10/09/2019
+origin.date: 10/11/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16cca3604e5b39345bc7c0afd3f3778da4fea781
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 180ef48f161b557ed854bb059ab375ebe8dcb9ca
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292046"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830886"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 标识平台和 OAuth 2.0 资源所有者密码凭据
 
@@ -34,6 +34,7 @@ Microsoft 标识平台支持[资源所有者密码凭据 (ROPC) 授予](https://
 > * Microsoft 标识平台终结点仅支持将 ROPC 用于 Azure AD 租户。 这意味着，必须使用特定于租户的终结点 (`https://login.partner.microsoftonline.cn/{TenantId_or_Name}`) 或 `organizations` 终结点。
 > * 没有密码的帐户不能通过 ROPC 登录。 对于这种情况，建议改用适合应用的其他流。
 > * 如果用户需使用多重身份验证 (MFA) 来登录应用程序，则系统会改为阻止用户。
+> * [混合标识联合身份验证](/active-directory/hybrid/whatis-fed)方案（例如，用于对本地帐户进行身份验证的 Azure AD 和 ADFS）不支持 ROPC。 如果用户已整页重定向到本地标识提供者，则 Azure AD 将无法针对该标识提供者测试用户名和密码。 
 
 ## <a name="protocol-diagram"></a>协议图
 

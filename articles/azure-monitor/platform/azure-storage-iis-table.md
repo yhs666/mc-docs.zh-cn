@@ -1,25 +1,20 @@
 ---
 title: 在 Azure Monitor 中使用适用于 IIS 的 blob 存储和适用于事件的表存储 | Azure Docs
 description: Azure Monitor 可以读取将诊断写入到表存储的 Azure 服务的日志或写入到 Blob 存储的 IIS 日志。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 08/22/2019
+origin.date: 04/12/2017
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eceec9003bb0e0398ce38a9c70c1e1a6e8f20d48
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 20ef1e73dd073a2275f33aac8236a4b6c29d8e40
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970709"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730385"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>从 Azure 存储收集 Azure 诊断日志
 
@@ -73,6 +68,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
    6. 单击 **“确定”** 。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中为 IIS 日志和事件收集启用 Azure 诊断
+
 有关启用 Azure 诊断的常规步骤，请参阅[如何在云服务中启用诊断](../../cloud-services/cloud-services-dotnet-diagnostics.md)。 下面的说明使用此信息并进行自定义以用于 Log Analytics。
 
 在 Azure 诊断已启用的情况下：
@@ -81,6 +77,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 * 默认情况下，不会传输 Windows 事件日志。
 
 ### <a name="to-enable-diagnostics"></a>启用诊断
+
 若要启用 Windows 事件日志，或要更改 scheduledTransferPeriod，可使用 XML 配置文件 (diagnostics.wadcfg) 配置 Azure 诊断，如[步骤 4：创建诊断配置文件并安装扩展](../../cloud-services/cloud-services-dotnet-diagnostics.md)中所示
 
 以下示例配置文件从应用程序日志和系统日志中收集 IIS 日志和所有事件：

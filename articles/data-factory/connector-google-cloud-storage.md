@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 09/09/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 34684893ece9aa7cf99eaf96d16165a96127d1b0
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: aa9e1c94327a65d71a98e7f6876dba61adb0cbf9
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275495"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648803"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>使用 Azure 数据工厂从 Google 云存储复制数据
 
@@ -26,7 +26,7 @@ ms.locfileid: "72275495"
 
 以下活动支持此 Google 云存储连接器：
 
-- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 - [GetMetadata 活动](control-flow-get-metadata-activity.md)
 - [Delete 活动](delete-activity.md)

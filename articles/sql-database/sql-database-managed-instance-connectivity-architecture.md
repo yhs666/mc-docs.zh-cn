@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, bonova, carlrab
 origin.date: 04/16/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: a90c6be322c9ba4517df6da2e29dea7cfdd8c669
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 11/04/2019
+ms.openlocfilehash: 2c69a828ccce86c15130318174a4f262152874bd
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373027"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041080"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -107,7 +107,7 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 
 | Name       |端口          |协议|Source           |目标|操作|
 |------------|--------------|--------|-----------------|-----------|------|
-|管理  |80、443、12000|TCP     |MI SUBNET        |AzureChinaCloud |允许 |
+|管理  |443、12000|TCP     |MI SUBNET        |AzureChinaCloud |允许 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允许 |
 
 > [!IMPORTANT]

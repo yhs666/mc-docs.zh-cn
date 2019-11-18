@@ -5,22 +5,22 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 07/31/2019
-ms.date: 09/02/2019
+origin.date: 09/24/2019
+ms.date: 11/11/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 74339013fefa122643ced2a3ce61254fba32ff6b
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: be16fca96f3666b6363a0b4241ec775e7b02038e
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131718"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742282"
 ---
 1. 在门户左侧单击“+ 创建资源”  ，然后在搜索框中键入“虚拟网关”。 在搜索返回结果中找到“虚拟网络网关”，并单击该条目  。 在“虚拟网络网关”页上，单击“创建”   。 这会打开“创建虚拟网关”页  。
 
-   ![创建虚拟网关页字段](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "创建虚拟网关页字段")
+   ![“创建虚拟网关”页字段](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "“创建虚拟网关”页字段")
 
-   ![创建虚拟网关页字段](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "创建虚拟网关页字段")
+   ![“创建虚拟网关”页字段](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "“创建虚拟网关”页字段")
 2. 在“创建虚拟网关”页中，填写虚拟网关的值。 
 
    **项目详细信息**
@@ -40,7 +40,7 @@ ms.locfileid: "70131718"
 
       **网关子网地址范围**：仅当所选虚拟网络没有网关子网时，才会显示此字段。 如果还没有网关子网，请填写范围。 如果可能，请将范围设为“/27”或更大（/26、/25 等）
 
-    **公共 IP 地址**：此设置指定与 VPN 网关关联的公共 IP 地址对象。 创建 VPN 网关后，会将公共 IP 地址动态分配给此对象。 VPN 网关当前仅支持动态  公共 IP 地址分配。 但这并不意味着 IP 地址在分配到 VPN 网关后会更改。 公共 IP 地址只在删除或重新创建网关时更改。 该地址不会因为 VPN 网关大小调整、重置或其他内部维护/升级而更改。
+   **公共 IP 地址**：此设置指定与 VPN 网关关联的公共 IP 地址对象。 创建 VPN 网关后，会将公共 IP 地址动态分配给此对象。 公共 IP 地址只在删除或重新创建网关时更改。 该地址不会因为 VPN 网关大小调整、重置或其他内部维护/升级而更改。
 
      - **公共 IP 地址**：让“新建”  保持选中状态。
      - **公共 IP 地址名称**：在文本框中，键入公共 IP 地址实例的名称。

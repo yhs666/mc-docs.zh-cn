@@ -16,12 +16,12 @@ origin.date: 04/24/2017
 ms.date: 09/07/2018
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: c2f17616b0184e375bba7ff86fb589a16fd21b5a
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 91fd66cfd91d27872fe2418cbe37dbdf3096dd36
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583778"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730539"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> 使用 Batch Management .NET 库及其 BatchManagementClient 类的应用程序需有**服务管理员**或**共同管理员**访问权限才能使用拥有要管理的 Batch 帐户的订阅。 有关详细信息，请参阅 [Azure Active Directory](#azure-active-directory) 部分和 [AccountManagement][acct_mgmt_sample] 代码示例。
+> 使用 Batch Management .NET 库及其 BatchManagementClient 类的应用程序需有**服务管理员**或**共同管理员**访问权限才能使用拥有要管理的 Batch 帐户的订阅。 有关详细信息，请参阅 Azure Active Directory 部分和 [AccountManagement][acct_mgmt_sample] 代码示例。
 > 
 > 
 

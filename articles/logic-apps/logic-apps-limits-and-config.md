@@ -8,13 +8,13 @@ author: ecfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 origin.date: 07/19/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 7799b2560671a541536df99cf35f2fbb0ffe4df0
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.date: 11/11/2019
+ms.openlocfilehash: 9781542d19ec580242c0e68e06233492f48ace00
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174202"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425966"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -102,8 +102,11 @@ ms.locfileid: "70174202"
 | 运行时终结点：每 5 分钟调用调用 | 45,000 | 可根据需要在多个应用中分发工作负荷。 | 
 | 每 5 分钟的内容吞吐量 | 600 MB | 可根据需要在多个应用中分发工作负荷。 | 
 |||| 
+<a name="gateway-limits"></a>
 
-若要在正常处理中超过这些限制，或要运行可能超过这些限制的负载测试，请[与逻辑应用团队联系](mailto://logicappsemail@microsoft.com)，获取满足要求的帮助。
+## <a name="gateway-limits"></a>网关限制
+
+Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新）。 但是，这些操作存在[有效负载大小限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
 
 <a name="request-limits"></a>
 
@@ -226,20 +229,26 @@ ms.locfileid: "70174202"
 
 ## <a name="firewall-configuration-ip-addresses"></a>防火墙配置：IP 地址
 
-同一区域中的所有逻辑应用都使用相同的 IP 地址范围。 若要支持逻辑应用通过 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 和其他 HTTP 请求直接发出的调用，请根据这些逻辑应用所在的区域，使用逻辑应用服务所用的所有  [入站](#inbound)和  [出站](#outbound) IP 地址对防火墙进行设置。 这些地址显示在本部分的“入站”  和“出站”  标题下，并按区域进行排序。
+Azure 逻辑应用用于传入和传出调用的 IP 地址取决于逻辑应用所在的区域。 同一区域中的所有逻辑应用都使用相同的 IP 地址范围。 
 
-若要支持 [Microsoft 托管的连接器](../connectors/apis-list.md)发出的调用，请根据逻辑应用所在的区域，使用这些连接器所用的所有  [出站](#outbound) IP 地址对防火墙进行设置。 这些地址显示在本部分的“出站”  标题下，并按区域进行排序。
+> [!NOTE]
+> 某些 Microsoft Flow 调用（例如 **HTTP** 和 **HTTP + OpenAPI** 请求）直接通过 Azure 逻辑应用服务来执行，来自此处列出的 IP 地址。 若要详细了解 Microsoft Flow 使用的 IP 地址，请参阅 [Microsoft Flow 中的配置和限制](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)。
 
+* 若要支持逻辑应用通过 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 和其他 HTTP 请求直接发出的调用，请根据这些逻辑应用所在的区域，使用逻辑应用服务所用的所有  [入站](#inbound)和  [出站](#outbound) IP 地址对防火墙进行设置。 这些地址显示在本部分的“入站”  和“出站”  标题下，并按区域进行排序。
+
+* 若要支持 [Microsoft 托管的连接器](../connectors/apis-list.md)发出的调用，请根据逻辑应用所在的区域，使用这些连接器所用的所有  [出站](#outbound) IP 地址对防火墙进行设置。 这些地址显示在本部分的“出站”  标题下，并按区域进行排序。 
+
+* 对于在集成服务环境 (ISE) 中运行的逻辑应用，请确保[打开这些端口](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)。
+
+* 逻辑应用不能直接访问有[防火墙规则](../storage/common/storage-network-security.md)的 Azure 存储帐户，因此存在于同一区域中。 但是，如果允许[区域中托管连接器的出站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#outbound)，则逻辑应用可以访问其他区域中的存储帐户，除非你使用 Azure 表存储连接器或 Azure 队列存储连接器。 若要访问表存储或队列存储，则仍可使用 HTTP 触发器和操作。 否则，可使用此处的更高级选项：
+
+  * 创建[集成服务环境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，该环境可以连接到 Azure 虚拟网络中的资源。
+
+  * 如果使用 API 管理的专用层级，则可支持存储 API，方法是使用 API 管理并允许后者的 IP 地址通过防火墙。 基本上，可以先将 API 管理所使用的 Azure 虚拟网络添加到存储帐户的防火墙设置， 然后使用 API 管理操作或 HTTP 操作调用 Azure 存储 API 即可。 但是，如果选择此选项，则需自行处理身份验证过程。 有关详细信息，请参阅[简单的企业集成体系结构](https://aka.ms/aisarch)。
 
 
 > [!IMPORTANT]
->
-> 如果已有配置，请**在 2018 年 9 月 1 日前尽早**更新这些配置，使其包括并匹配这些列表中与逻辑应用所在的区域对应的 IP 地址。
-
-逻辑应用不支持通过防火墙直接连接到 Azure 存储帐户。 若要访问这些存储帐户，请使用以下任一选项：
-
-
-* 如果已使用 API 管理，可以将该服务用于此方案。 有关详细信息，请参阅[简单的企业集成体系结构](https://aka.ms/aisarch)。
+> 如果防火墙配置是在 2018 年 9 月 1 日之前设置的，请确保其匹配这些列表中与逻辑应用所在的区域对应的当前 IP 地址。
 
 <a name="inbound"></a>
 

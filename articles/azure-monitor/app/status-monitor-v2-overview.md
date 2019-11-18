@@ -1,35 +1,36 @@
 ---
-title: Azure 状态监视器 v2 概述 | Azure Docs
-description: 状态监视器 v2 的概述。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+title: Azure Application Insights 代理概述 | Microsoft Docs
+description: Application Insights 代理的概述。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 04/23/2019
-ms.date: 6/4/2019
+origin.date: 09/16/2019
+ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a12e57e933cc59c7b013098e606dea412b9cde6b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 14580c08e451a60d6d1954951d12a74810379363
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736521"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730496"
 ---
-# <a name="status-monitor-v2"></a>状态监视器 v2
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>为本地服务器部署 Azure Monitor Application Insights 代理
 
-状态监视器 v2 是发布到 [PowerShell 库](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模块。
+> [!IMPORTANT]
+> 对于 Application Insights 代理的本地和非 Azure 云部署，建议使用本指南。 下面是建议用于 [Azure 虚拟机和虚拟机规模集部署](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)的方法。
+
+Application Insights 代理（以前称为状态监视器 V2）是发布到 [PowerShell 库](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模块。
 它将替换[状态监视器](/azure-monitor/app/monitor-performance-live-website-now)。
-该模块提供了使用 IIS 托管的 .NET Web 应用的无代码检测。
-遥测数据将发送到 Azure 门户，你可以在其中[监视](/azure-monitor/app/app-insights-overview)应用。
+遥测数据将发送到 Azure 门户，你可以在其中[监视](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)应用。
+
+> [!NOTE]
+> 目前，该模块仅支持使用 IIS 托管的 .NET Web 应用的无代码检测。 使用 SDK 检测 ASP.NET Core、Java 和 Node.js 应用程序。
 
 ## <a name="powershell-gallery"></a>PowerShell 库
 
-状态监视器 v2 位于此处： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
+Application Insights 代理位于此处： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
 
 ![PowerShell 库](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -55,12 +56,16 @@ ms.locfileid: "70736521"
 
 ## <a name="faq"></a>常见问题
 
-- 状态监视器 v2 是否支持代理安装？
+- Application Insights 代理是否支持代理安装？
 
-  *是*。 可以通过多种方式下载状态监视器 v2。 如果计算机可以访问 Internet，则可以使用 `-Proxy` 参数登录到 PowerShell 库。
+  *是*。 可以通过多种方式下载 Application Insights 代理。 如果计算机可以访问 Internet，则可以使用 `-Proxy` 参数登录到 PowerShell 库。
 还可以手动下载此模块，并将其安装到计算机上或直接使用它。
 上述每个选项都在[详细说明](status-monitor-v2-detailed-instructions.md)中进行了说明。
-  
+
+- 状态监视器 v2 是否支持 ASP.NET Core 应用程序？
+
+  *不*。 有关启用对 ASP.NET Core 应用程序的监视的说明，请参阅[适用于 ASP.NET Core 应用程序的 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)。 无需为 ASP.NET Core 应用程序安装 StatusMonitor。 即使 ASP.NET Core 应用程序托管在 IIS 中，也是如此。
+
 - 如何验证启用是否成功？
 
   - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet 可用于验证启用是否成功。

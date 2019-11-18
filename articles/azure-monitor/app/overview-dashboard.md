@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 概览仪表板 | Azure Docs
 description: 使用 Azure Application Insights 概览仪表板功能来监控应用程序。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a584ae0c6b50ebf9a333d868004afebf2ed72919
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 95e096641f6cc1a2ee658e41c2195ba710f7dd65
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737051"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730525"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 概述仪表板
 

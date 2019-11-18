@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 中的 VMware 监视解决方案 | Microsoft Docs
 description: 了解 VMware 监视解决方案如何帮助管理日志和监视 ESXi 主机。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 05/04/2018
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5520cd588e1aad9b0f3d983404d139640b2e3113
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 8d14f57ba8dc629d800f274beb2cb4ae36b207bd
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736798"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73729963"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor 中的 VMware 监视（已弃用）解决方案
 

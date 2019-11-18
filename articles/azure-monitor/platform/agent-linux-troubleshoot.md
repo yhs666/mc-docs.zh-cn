@@ -1,25 +1,20 @@
 ---
 title: Azure Log Analytics Linux 代理故障排除 | Azure Docs
 description: 描述 Azure Monitor 中 Log Analytics Linux 代理最常见问题的表现、原因和解决方法。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b7e27807f43f3c07d56d827aa4d3016c08815ab2
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 0cc09f5c2acb61dc210226935348d45df7c25629
+ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970765"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906410"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -36,7 +31,7 @@ ms.locfileid: "72970765"
 
  文件 | 路径
  ---- | -----
- Log Analytics Linux 代理日志文件 | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
+ Log Analytics Linux 代理日志文件 | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Log Analytics 代理配置日志文件 | `/var/opt/microsoft/omsconfig/omsconfig.log`
 
  我们建议你在进行故障排除或提交 GitHub 问题之前使用我们的日志收集器工具来检索重要日志。 你可以点击[此处](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)了解有关该工具的详细信息以及如何运行该工具。
@@ -171,7 +166,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
     |*.ods.opinsights.azure.cn | 端口 443| 入站和出站 |  
     |*.oms.opinsights.azure.cn | 端口 443| 入站和出站 |  
     |*.blob.core.chinacloudapi.cn | 端口 443| 入站和出站 |  
-    |\* .azure-automation.net | 端口 443| 入站和出站 | 
+    |*.azure-automation.cn | 端口 443| 入站和出站 | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>问题：尝试载入时收到 403 错误
 

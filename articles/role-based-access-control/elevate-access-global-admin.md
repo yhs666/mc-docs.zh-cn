@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/02/2019
-ms.date: 09/24/2019
+origin.date: 10/17/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: c686e1dd67ba4ee98353e15244a1bda2cbcca7ba
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: aff619186cc4235a3576014cee3d648736fe6ebc
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673603"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068932"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>提升访问权限以管理所有 Azure 订阅和管理组
 
@@ -66,6 +66,9 @@ Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分
 
    将开关设为“否”时，会从用户帐户中删除 Azure RBAC 中的用户访问管理员角色。  将无法再分配在与此 Azure AD 目录关联的所有 Azure 订阅和管理组中的角色。 只能查看和管理已获取访问权限的 Azure 订阅和管理组。
 
+    > [!NOTE]
+    > 如果使用的是 [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)，则停用角色分配不会将此开关更改为“否”  。 为了保持最小特权访问，我们建议你在停用角色分配之前，将此开关设置为“否”  。
+    
 1. 单击“保存”，保存设置  。
 
    此设置不是全局属性，仅适用于当前已登录的用户。 无法提升所有全局管理员角色成员的访问权限。
@@ -78,7 +81,7 @@ Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分
 
 1. 以提升的访问权限做出所需的更改。
 
-    有关如何分配角色的信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](role-assignments-portal.md)。 
+    有关如何分配角色的信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](role-assignments-portal.md)。 如果使用 Azure AD Privileged Identity Management (PIM)，请参阅[在 PIM 中发现要管理的 Azure 资源](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md)或[在 PIM 中分配 Azure 资源角色](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)。
 
 1. 完成后，将“Azure 资源的访问管理”切换回到“否”。   由于此设置特定于用户，因此，必须以提升访问权限时所用的同一用户登录。
 
@@ -258,4 +261,4 @@ CanDelegate        : False
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
 - [使用 RBAC 和 REST API 管理对 Azure 资源的访问权限](role-assignments-rest.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -6,18 +6,19 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 08/08/2019
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: cbe81cc4a39cfab44f927eb9902fd0e1c753f051
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: dfcb25bda8b4aab74ba3ae60b1a0712e737110c5
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921162"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831469"
 ---
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 <!-- CORRECT ON Max NICs / Expected network bandwidth (Mbps)-->
+
 常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数和存储吞吐量。
 
 <!--Not Available on [DC-series](#dc-series)-->
@@ -26,9 +27,9 @@ ms.locfileid: "70921162"
 
     示例用例包括开发和测试服务器、低流量 Web 服务器、中小型数据库、概念证明和代码存储库。
 
-- Dv2 系列（原始 D 系列的后续产品）提供更强大的 CPU 和最优 CPU 到内存的配置，使其可适合大多数生产工作负荷。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 它基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 处理器，通过英特尔睿频加速技术 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+- Dv2 系列（原始 D 系列的后续产品）提供更强大的 CPU 和最优 CPU 到内存的配置，使其可适合大多数生产工作负荷。 Dv2 系列比 D 系列快大约 35%。 Dv2 系列在 Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，并采用 Intel Turbo Boost Technology 2.0。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
-- Dv3 系列在超线程配置中采用 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或最新的 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 处理器，针对最常规用途的工作负荷提供了更好的价值主张。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。  Dv3 不再有 D/Dv2 系列的高内存 VM 大小，那些已成为新的 EV3 系列。
+- Dv3 系列在超线程配置中在 Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，针对最常规用途的工作负荷提供了更好的价值主张。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。  Dv3 系列不再具有 D/Dv2 系列的高内存 VM 大小，这些 VM 大小已移到已针对 [Windows](/virtual-machines/windows/sizes-memory#ev3-series) 和 [Linux](/virtual-machines/linux/sizes-memory#ev3-series) 的 Ev3 系列优化的内存。
 
     示例 D 系列用例包括企业级应用程序、关系数据库、内存中缓存和分析。 
     
@@ -68,7 +69,7 @@ ACU：160-190
 
 高级存储缓存：支持
 
-Dsv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或最新 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz，并使用高级存储。 Dsv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
+Dsv3 系列大小在 Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，采用 Intel Turbo Boost Technology 2.0 并使用高级存储。 Dsv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
 
 | 大小             | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/Mbps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/Mbps | 最大 NIC 数/预期网络带宽 (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
@@ -91,13 +92,13 @@ ACU：160-190
 
 高级存储缓存：不支持
 
-Dv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz。 Dv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
+Dv3 系列大小在 Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，采用 Intel Turbo Boost Technology 2.0。 Dv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
 
 数据磁盘存储与虚拟机分开计费。 若要使用高级存储磁盘，请使用 Dsv3 大小。 Dsv3 大小的定价和计费标准与 Dv3 系列相同。 
 
 <!--CORRECT ON Max NICs / Expected network bandwidth (Mbps) -->
 
-| 大小            | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大 NIC 数/预期网络带宽 (Mbps) |
+| 大小            | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大网卡数/网络带宽等级 |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2 / 1000                    |
 | Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / 2000                    |
@@ -118,6 +119,8 @@ ACU：210-250
 高级存储：支持
 
 高级存储缓存：支持
+
+DSv2 系列大小在 Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，采用 Intel Turbo Boost Technology 2.0 并使用高级存储。
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/Mbps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/Mbps | 最大 NIC 数/预期网络带宽 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -5,17 +5,19 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 2f2fb097c2ef4214ae64c03855f2e50062b6a4a6
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 09/22/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: b7beb0157e63a97ab74a0aa9a5ad055d8a110dcd
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65732021"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191593"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中创建用户
-本文介绍了如何在 Azure Database for PostgreSQL 服务器中创建用户。
+本文介绍了如何在 Azure Database for PostgreSQL 服务器中创建用户。 
+
+如果想要了解如何创建和管理 Azure 订阅用户及其权限，可以访问[“Azure 基于角色的访问控制 (RBAC)”一文](../role-based-access-control/built-in-roles.md)或查看[如何自定义角色](../role-based-access-control/custom-roles.md)。
 
 ## <a name="the-server-admin-account"></a>服务器管理员帐户
 首次创建 Azure Database for PostgreSQL 时，需要提供服务器管理员登录用户名和密码。 有关详细信息，可以参考[快速入门](quickstart-create-server-database-portal.md)来查看分步方法。 由于服务器管理员用户名是自定义名称，因此可以从 Azure 门户中找到所选的服务器管理员用户名。
@@ -33,7 +35,7 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-postgresql"></a>如何在 Azure Database for PostgreSQL 中创建其他管理员用户
 1. 获取连接信息和管理员用户名。
-   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。 
+   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。   
 
 2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你喜欢的客户端工具，例如 pgAdmin 或 psql。
    如果不确定如何连接，请参阅[快速入门](./quickstart-create-server-database-portal.md)
@@ -49,7 +51,7 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
 ## <a name="how-to-create-database-users-in-azure-database-for-postgresql"></a>如何在 Azure Database for PostgreSQL 中创建数据库用户
 
 1. 获取连接信息和管理员用户名。
-   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。 
+   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。   
 
 2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你喜欢的客户端工具，例如 pgAdmin 或 psql。
 

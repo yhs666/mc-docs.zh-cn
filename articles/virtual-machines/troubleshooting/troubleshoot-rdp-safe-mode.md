@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/13/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: e14c0f33b02b857a4a4ad99a0dd1ded9a9bb6c9c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 01e35cff67ab01b0f397f56dc580ce02ed0af0c4
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272706"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116932"
 ---
 # <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因 VM 启动到安全模式而无法通过 RDP 连接到该 VM
 
@@ -45,6 +45,7 @@ RDP 服务在安全模式下不可用。 VM 启动到安全模式时，只会加
 
 <!-- Not Available on use Serial control to configure the VM to boot into normal mode or-->
 <!-- Not Available on ### Use Serial control-->
+
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>将 OS 磁盘附加到恢复 VM

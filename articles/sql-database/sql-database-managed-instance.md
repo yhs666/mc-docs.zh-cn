@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab, vanto
 origin.date: 08/05/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 93056d34ba546bb6393247c6f2ce7d9f1b8ab9cd
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 11/04/2019
+ms.openlocfilehash: 5b8fbf656dd1f25ce67428b1bf3aa074f56c109e
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372964"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041226"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什么是 Azure SQL 数据库托管实例？
 
@@ -273,7 +273,7 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 - 托管实例不允许指定完整的物理路径，因此必须以不同的方式为相应的方案提供支持：RESTORE DB 不支持 WITH MOVE，CREATE DB 不允许使用物理路径，BULK INSERT 仅适用于 Azure Blob，等等。
 - 托管实例支持使用 [Azure AD 身份验证](sql-database-aad-authentication.md)作为 Windows 身份验证的云替代方法。
 - 对于包含内存中 OLTP 对象的数据库，托管实例会自动管理 XTP 文件组和文件
-- 托管实例支持 SQL Server Integration Services (SSIS)，并且可以托管存储 SSIS 包的 SSIS 目录 (SSISDB)，但它们在 Azure 数据工厂 (ADF) 的托管 Azure-SSIS 集成运行时 (IR) 上执行，请参阅[在 ADF 中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。 若要比较 SQL 数据库中的 SSIS 功能，请参阅[比较 Azure SQL 数据库单一数据库/弹性池和托管实例](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)。
+- 托管实例支持 SQL Server Integration Services (SSIS)，并且可以托管存储 SSIS 包的 SSIS 目录 (SSISDB)，但它们在 Azure 数据工厂 (ADF) 的托管 Azure-SSIS 集成运行时 (IR) 上执行，请参阅[在 ADF 中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。 若要比较 SQL 数据库中的 SSIS 功能，请参阅[比较 Azure SQL 数据库单一数据库、弹性池和托管实例](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)。
 
 ### <a name="managed-instance-administration-features"></a>托管实例管理功能
 

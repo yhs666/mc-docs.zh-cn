@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: include
 origin.date: 04/17/2018
-ms.date: 06/04/2018
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c6f5a97ff67afb493b978681398ed41340b5729f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 31a5a368816f335d93d13274fe1f7806aea8a60e
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831284"
 ---
 ## <a name="supported-ssh-key-formats"></a>受支持的 SSH 密钥格式
 

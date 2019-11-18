@@ -1,24 +1,20 @@
 ---
 title: 使用 Application Insights 探查实时 Azure 应用服务应用 | Azure Docs
 description: 使用 Application Insights Profiler 探查 Azure 应用服务上的实时应用。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 ms.reviewer: mbullwin
 origin.date: 08/06/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fd1c19a5630822960cd657c221012056b95cc21c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 7b1d9ee81e623920ab3298d7d4254e296f607aeb
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737263"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730380"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>使用 Application Insights 探查实时 Azure 应用服务应用
 

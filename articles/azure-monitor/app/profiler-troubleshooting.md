@@ -1,24 +1,20 @@
 ---
 title: 排查 Azure Application Insights Profiler 的问题 | Azure Docs
 description: 本文提供故障排除步骤和信息，帮助开发人员解决在启用或使用 Application Insights Profiler 时遇到的难题。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 ms.reviewer: mbullwin
 origin.date: 08/06/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0f63e8e5614c3ea16faa30a66d3fb62597f9d344
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6387489ef9a21cbf94cdb491007725eba4ab1fd3
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736544"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730507"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>排查启用或查看 Application Insights Profiler 时遇到的问题
 

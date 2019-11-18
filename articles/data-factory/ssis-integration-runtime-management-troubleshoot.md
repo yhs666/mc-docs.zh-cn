@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 07/08/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sawinark
 manager: digimobile
-ms.openlocfilehash: 3a90ae1ab044f0f9ded83e41096b1469b1e65f05
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 68f5b00c97d8abbf30b344d28e794f407aa70c8d
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275261"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648615"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>在 Azure 数据工厂中排查 SSIS Integration Runtime 管理问题
 
@@ -106,7 +106,7 @@ ms.locfileid: "72275261"
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-此错误指示执行自定义安装脚本超时。 确保 Blob 容器只包含必要的自定义安装文件。 还应检查 Blob 容器中的自定义安装执行日志。 自定义安装的最长持续时间为 45 分钟，超过此时限则超时。这段时间包括从容器下载所有文件并将其安装在 SSIS IR 上的时间。 如果需要更长时间，请提交支持票证。
+此错误指示执行自定义安装脚本超时。 确保你的脚本可以在无提示的情况下执行，且无需任何交互式输入，并确保你的 blob 容器只包含必要的自定义安装文件。 建议先在本地计算机上测试脚本。 还应检查 Blob 容器中的自定义安装执行日志。 自定义安装的最长持续时间为 45 分钟，超过此时限则超时。这段时间包括从容器下载所有文件并将其安装在 SSIS IR 上的时间。 如果需要更长时间，请提交支持票证。
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

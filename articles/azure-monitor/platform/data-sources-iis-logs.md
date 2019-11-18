@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 中的 IIS 日志 | Microsoft Docs
 description: Internet 信息服务 (IIS) 会将用户活动存储在日志文件中，并可通过 Azure Monitor 进行收集。  本文介绍了如何配置 IIS 日志收集以及在 Azure Monitor 中创建的记录的详细信息。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 11/28/2018
 ms.date: 6/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e8001d7a7acb796f73435a9ff4d01a526dc1afa7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 85864291257bff1cbff9022251de03b86f6a2feb
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330406"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730193"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure Monitor 中收集 IIS 日志
 Internet 信息服务 (IIS) 会将用户活动存储在日志文件中，并可通过 Azure Monitor 进行收集并将其存储为[日志数据](data-platform.md)。

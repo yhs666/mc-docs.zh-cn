@@ -1,20 +1,19 @@
 ---
 title: 如何将常见警报架构与逻辑应用集成
 description: 了解如何创建一个逻辑应用，以利用常见警报架构来处理所有警报。
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: alerts
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/27/2019
 ms.date: 06/27/2019
-ms.author: anantr
-ms.subservice: alerts
-ms.openlocfilehash: bf4f0785dbf8aad9b3a98e22bdf153b6ccd29f36
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.author: v-lingwu
+ms.openlocfilehash: c1aed9c97bf15ed3e4bfb59218d043ec52e503bf
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737244"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970960"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>如何将常见警报架构与逻辑应用集成
 
@@ -126,7 +125,7 @@ ms.locfileid: "70737244"
 
     ![逻辑应用表达式](media/alerts-common-schema-integrations/logic-app-expressions.png "逻辑应用表达式")
     
-     [“monitoringService”字段](/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)可用于唯一标识警报类型，基于该警报类型，可以创建条件逻辑。
+     [“monitoringService”字段](alerts-common-schema-definitions.md#alert-context)可用于唯一标识警报类型，基于该警报类型，可以创建条件逻辑。
 
     
     例如，以下代码片段会检查警报是否为基于 Application Insights 的日志警报，如果是，则会输出搜索结果。 否则，输出“不可用”。

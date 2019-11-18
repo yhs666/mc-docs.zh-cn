@@ -11,17 +11,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 09/04/2019
-ms.date: 10/25/2019
+ms.date: 11/14/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11dea7ac3042fa86b467457f6c85b2331d17d7c5
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: b2d980a942f20014df4496ed214f390b58d13fe1
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912646"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084714"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委托应用注册权限
 
@@ -64,8 +64,8 @@ ms.locfileid: "72912646"
 
 1. 使用符合组织中应用管理员或云应用管理员条件的帐户登录到 [Azure AD 组织](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 1. 在组织的 [应用注册页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上，选择某个应用以打开该应用的“概述”页。 
-1. 选择“所有者”以查看该应用的所有者列表。 ****  
-1. 选择“添加”，以选择一个或多个要添加到该应用的所有者。 ****  
+1. 选择“所有者”  ，以查看应用所有者列表。
+1. 选择“添加”  ，以选择一个或多个要添加到应用的所有者。
 
 > [!IMPORTANT]
 > 用户和服务主体可以是应用程序注册的所有者。 只有用户才能是企业应用程序的所有者。 无法将组分配为任何应用程序的所有者。

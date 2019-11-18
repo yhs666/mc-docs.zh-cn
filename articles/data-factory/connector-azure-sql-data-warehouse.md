@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 09/16/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 74b84d73c77a6746613a1c6008956ce6c2caa96d
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 52925cc37c89d2dcb13cdd7b610cac4722c85aac
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275517"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648671"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据复制到 Azure SQL 数据仓库或从 Azure SQL 数据仓库复制数据 
 
@@ -404,7 +404,7 @@ GO
 
 使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是将大量数据加载到高吞吐量 Azure SQL 数据仓库的有效方法。 使用 PolyBase 而非默认 BULKINSERT 机制可以实现吞吐量的巨大增加。
 
-* 如果源数据位于 **Azure Data Lake Storage Gen2** 中，且**格式与 PolyBase 兼容**，则可使用复制活动直接调用 PolyBase，让 Azure SQL 数据仓库从源拉取数据。 有关详细信息，请参阅 **[使用 PolyBase 直接复制](#direct-copy-by-using-polybase)** 。
+* 如果源数据位于 **Azure Blob、Azure Data Lake Storage Gen2** 中，且**格式与 PolyBase 兼容**，则可使用复制活动直接调用 PolyBase，让 Azure SQL 数据仓库从源拉取数据。 有关详细信息，请参阅 **[使用 PolyBase 直接复制](#direct-copy-by-using-polybase)** 。
 * 如果 PolyBase 最初不支持源数据存储和格式，请改用 **[使用 PolyBase 的暂存复制](#staged-copy-by-using-polybase)** 功能。 暂存复制功能也能提供更高的吞吐量。 它自动将数据转换为 PolyBase 兼容的格式。 它将数据存储在 Azure Blob 存储中。 然后，它将数据载入 SQL 数据仓库。
 
 >[!TIP]

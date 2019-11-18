@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/12/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0844be7ff08a7b03d3983f38858d1faa0bf9cf8c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: e63d16407d63ee5c6c8dddfcf56f6ebf5a575381
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272566"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831401"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Azure Monitor 虚拟机扩展
 

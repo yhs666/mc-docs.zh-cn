@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/01/2019
 ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1755014122762aa11f703425febc914a8193517e
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 17f37c432ceac0ede52151d11b9bf9d5c52f99ab
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912893"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934243"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
 
@@ -23,7 +23,8 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 
 本文通过一些示例来帮助你了解每月帐单上的详细信息。 若存在以下情况，则示例中显示的数字可能会有所不同：Azure Cosmos 容器预配的吞吐量不同；容器跨多个区域；或在一个月内在不同时期运行。
 
->!注意：计费针对挂钟时间的任何部分，而不是 60 分钟的持续时间。
+> [!Note]
+> 计费针对挂钟时间的任何部分，而不是 60 分钟的持续时间。
 
 ## <a name="billing-examples"></a>计费示例
 

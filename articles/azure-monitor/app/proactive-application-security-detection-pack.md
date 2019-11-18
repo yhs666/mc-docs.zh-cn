@@ -1,24 +1,19 @@
 ---
 title: 智能检测 - Azure Application Insights 中的安全检测包 | Azure Docs
 description: 使用 Azure Application Insights 监视应用程序的潜在安全问题。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 12/12/2017
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 584a22b885662f6aaea05f7336d2f708449b19c1
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 558fbfb2274911310d769f666fb244c54aebfb7c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736551"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730519"
 ---
 # <a name="application-security-detection-pack-preview"></a>应用程序安全检测包（预览版）
 

@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3b9adf52521417b81d13f8687577ae5e397d596
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 30cfc79a84ed43a0cc4c7fe1da0ee047a2befe77
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70920998"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831434"
 ---
 为了所运行的应用程序，请务必确保虚拟机 (VM) 安全。 保护 VM 可以添加一个或多个 Azure 服务和功能，这些服务和功能涵盖保护对 VM 的访问和保护数据存储。 按照本文提供的信息操作，可确保 VM 和应用程序安全。
 
@@ -23,7 +23,7 @@ ms.locfileid: "70920998"
 
 ## <a name="encryption"></a>Encryption
 
-为了增强 [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 和 [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) 的安全性，可以加密 Azure 中的虚拟磁盘。 Windows VM 上的虚拟磁盘使用 BitLocker 进行静态加密。 Linux VM 上的虚拟磁盘是使用 dm-crypt 静态加密的。 
+为了增强 [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 和 [Linux VM](../articles/virtual-machines/linux/disk-encryption-overview.md) 的安全性，可以加密 Azure 中的虚拟磁盘。 Windows VM 上的虚拟磁盘使用 BitLocker 进行静态加密。 Linux VM 上的虚拟磁盘是使用 dm-crypt 静态加密的。 
 
 加密 Azure 中的虚拟磁盘不会产生费用。 可以使用软件保护将加密密钥存储在 Azure Key Vault 中。 这些加密密钥用于加密和解密附加到 VM 的虚拟磁盘。 可以控制这些加密密钥，以及审核对它们的使用。 打开和关闭 VM 时，Azure Active Directory 服务主体提供一个安全机制用于颁发这些加密密钥。
 

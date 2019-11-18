@@ -10,18 +10,18 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 origin.date: 11/14/2018
-ms.date: 02/19/2019
-ms.openlocfilehash: e82c652446571cf1444b40534cf2cc7709819598
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 11/04/2019
+ms.openlocfilehash: b61e3b907bc8a7e6dffd84f6545d617939a19727
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303066"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416281"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>在 Azure 计划程序中为作业生成高级计划和重复周期
 
 > [!IMPORTANT]
-> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换即将停用的 Azure 计划程序。 若要安排作业，请[改为试用 Azure 逻辑应用](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)将替换[即将停用](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 计划程序。 若要继续使用在计划程序中设置的作业，请尽快[迁移到 Azure 逻辑应用](../scheduler/migrate-from-scheduler-to-logic-apps.md)。
 
 在 [Azure 计划程序](../scheduler/scheduler-intro.md)作业中，计划是确定计划程序服务何时以及如何运行作业的核心。 可以使用计划程序为作业设置多个一次性计划和重复计划。 一次性计划仅在指定时间运行一次，并且基本上是仅运行一次的重复计划。 重复计划按照指定频率运行。 由于具有这种灵活性，可以使用计划程序支持各种业务方案，例如：
 
@@ -135,7 +135,7 @@ ms.locfileid: "56303066"
 1. 在上述条件下，首次执行时间为 2015 年 4 月 9 日下午 2:00。 
 
    计划程序根据开始时间计算执行次数、放弃过去的所有实例，并使用将来的下一个实例。 
-   在本例中，“startTime”为 2015 年 4 月 7 日下午 2:00，因此下一个实例为从该时间算起的两天后，即 2015 年 4 月 9 日下午 2:00。
+   在本例中，“startTime”为 2015 年 4 月 7 日下午 2:00，因此下一个实例为从该时间算起的两天后，即 2015 年 4 月 9 日下午 2:00  。
 
    首次执行时间是相同的，不管 **startTime** 是 2015-04-05 14:00 还是 2015-04-01 14:00。 在首次执行后，根据该计划计算后续执行。 
    
@@ -152,9 +152,9 @@ ms.locfileid: "56303066"
 
 ## <a name="details-schedule"></a>详细信息：schedule
 
-可以使用 **schedule** 来限制作业执行的次数。 例如，如果“frequency”为“month”的作业具有仅在 31 号运行的计划，该作业仅在包含 31 号的月份运行。
+可以使用 **schedule** 来限制作业执行的次数。  例如，如果“frequency”为“month”的作业具有仅在 31 号运行的计划，该作业仅在包含 31 号的月份运行  。
 
-还可以使用 **schedule** 来扩展作业执行的次数。 例如，如果**频率**为“month”的作业具有在1 号和 2 号运行的计划，则该作业将在每月的 1 号和 2 号运行，而不只是在每月运行一次。
+还可以使用 **schedule** 来扩展作业执行的次数。  例如，如果**频率**为“month”的作业具有在1 号和 2 号运行的计划，则该作业将在每月的 1 号和 2 号运行，而不只是在每月运行一次。
 
 如果指定了多个计划元素，则求值顺序为从大到小：周次、月份日期、星期、小时和分钟。
 
@@ -165,7 +165,7 @@ ms.locfileid: "56303066"
 | **minutes** |运行作业的小时中的分钟。 |整数数组。 |
 | **小时数** |运行作业的日期中的小时。 |整数数组。 |
 | **工作日** |运行作业的星期日期。 只能配合每周频率指定。 |包含以下任意值的数组（最大数组大小为 7）：<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />不区分大小写。 |
-| **monthlyOccurrences** |确定运行作业的月份日期。 只能配合每月频率指定。 |**monthlyOccurrences** 对象的数组：<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 是运行作业的星期日期。 例如，*{Sunday}* 表示月份中的每个星期日。 必需。<br /><br />**occurrence** 是月份中重复的日期。 例如，*{Sunday, -1}* 表示月份中的最后一个星期日。 可选。 |
+| **monthlyOccurrences** |确定运行作业的月份日期。 只能配合每月频率指定。 |**monthlyOccurrences** 对象的数组：<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 是运行作业的星期日期。 例如， *{Sunday}* 表示月份中的每个星期日。 必需。<br /><br />**occurrence** 是月份中重复的日期。 例如， *{Sunday, -1}* 表示月份中的最后一个星期日。 可选。 |
 | **monthDays** |运行作业的月份日期。 只能配合每月频率指定。 |以下值的数组：<br /><= -1 且 >= -31 的任意值<br />>= 1 且 <= 31 的任意值|
 
 ## <a name="examples-recurrence-schedules"></a>示例:循环计划
@@ -181,8 +181,8 @@ ms.locfileid: "56303066"
 | `{"minutes":[15], "hours":[5,17]}` |在每天早晨 5:15 和下午 5:15 运行。 |
 | `{"minutes":[15,45], "hours":[5,17]}` |在每天早晨 5:15、5:45 和下午 5:15、5:45 运行。 |
 | `{"minutes":[0,15,30,45]}` |每 15 分钟运行一次。 |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |每小时运行一次。<br /><br />此作业每隔一小时运行一次。 分钟由“startTime”的值（如果已指定）控制。 如果未指定 **startTime** 值，则分钟由创建时间控制。 例如，如果开始时间或创建时间（以适用的为准）为 12:25 PM，则作业会在 00:25、01:25、02:25 ... 23:25 运行。<br /><br />该计划与“frequency”为“hour”、“interval”为 1 且无“schedule”值的作业相同。 区别是，可以配合不同的 **frequency** 和 **interval** 值使用此计划来创建其他作业。 例如，如果 **frequency** 为“month”，则该计划将每月运行一次，而不是每天运行一次（如果 **frequency** 为“day”）。 |
-| `{minutes:[0]}` |每小时整点运行。<br /><br />此作业也是每隔一小时运行一次，不过是在整点运行（例如 12:00 AM、1:00 AM、2:00 AM，等等）。 此计划与“frequency”为“hour”、“startTime”值为 0 分钟且无“schedule”（“frequency”为“day”时）的作业相同。 但是，如果**频率**为 "week" 或 "month"，则计划分别只会在一个星期日期或月份日期执行。 |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |每小时运行一次。<br /><br />此作业每隔一小时运行一次。 分钟由“startTime”的值（如果已指定）控制  。 如果未指定 **startTime** 值，则分钟由创建时间控制。 例如，如果开始时间或创建时间（以适用的为准）为 12:25 PM，则作业会在 00:25、01:25、02:25 ... 23:25 运行。<br /><br />该计划与“frequency”为“hour”、“interval”为 1 且无“schedule”值的作业相同    。 区别是，可以配合不同的 **frequency** 和 **interval** 值使用此计划来创建其他作业。 例如，如果 **frequency** 为“month”，则该计划将每月运行一次，而不是每天运行一次（如果 **frequency** 为“day”）。 |
+| `{minutes:[0]}` |每小时整点运行。<br /><br />此作业也是每隔一小时运行一次，不过是在整点运行（例如 12:00 AM、1:00 AM、2:00 AM，等等）。 此计划与“frequency”为“hour”、“startTime”值为 0 分钟且无“schedule”（“frequency”为“day”时）的作业相同    。 但是，如果**频率**为 "week" 或 "month"，则计划分别只会在一个星期日期或月份日期执行。 |
 | `{"minutes":[15]}` |在过去每隔一小时的第 15 分钟运行。<br /><br />每隔一小时运行，从 00:15 AM、1:15 AM、2:15 AM 等开始。 在 11:15 PM 结束。 |
 | `{"hours":[17], "weekDays":["saturday"]}` |在每周星期六的 5:00 PM 运行。 |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |在每周星期一、星期三和星期五的 5:00 PM 运行。 |
@@ -193,7 +193,7 @@ ms.locfileid: "56303066"
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |在工作日的 9:00 AM 到 4:45 PM 每 15 分钟运行一次。 |
 | `{"weekDays":["sunday"]}` |在星期日的开始时间运行。 |
 | `{"weekDays":["tuesday", "thursday"]}` |在星期二和星期四的开始时间运行。 |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |在每月 28 日的早晨 6 点运行（假设“frequency”为“month”）。 |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |在每月 28 日的早晨 6 点运行（假设“frequency”为“month”）  。 |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |在当月最后一天的 6:00 AM 运行。<br /><br />如果要在月份的最后一天运行作业，请使用 -1 而不是日期 28、29、30 或 31。 |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |在每月第一天和最后一天的 6:00 AM 运行。 |
 | `{monthDays":[1,-1]}` |在每月第一天和最后一天的开始时间运行。 |

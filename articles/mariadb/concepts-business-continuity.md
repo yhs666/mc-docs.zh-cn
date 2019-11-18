@@ -1,22 +1,22 @@
 ---
-title: 有关使用 Azure Database for MariaDB 确保业务连续性的概述
-description: 有关使用 Azure Database for MariaDB 确保业务连续性的概述。
+title: 了解 Azure Database for MariaDB 中的业务连续性
+description: 使用 Azure Database for MariaDB 服务时，了解业务连续性（时间点还原、数据中心服务中断、异地还原）。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: 4b8525080acfab934e645f3c58b41ff0ef1df227
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 11/04/2019
+ms.openlocfilehash: 6807ed3114e8c7562b19f47bd0c6d3539ce62b3d
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173315"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191576"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>有关使用 Azure Database for MariaDB 确保业务连续性的概述
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>了解 Azure Database for MariaDB 中的业务连续性
 
-本概述介绍了 Azure Database for MariaDB 针对业务连续性和灾难恢复所提供的功能。 了解在发生破坏性事件后用于进行恢复的选项，破坏性事件可能导致数据丢失或者数据库和应用程序无法使用。 了解对一些情况的处理方式，包括用户或应用程序错误影响数据完整性、Azure 区域发生服务中断，或者应用程序需要维护。
+本文介绍了 Azure Database for MariaDB 针对业务连续性和灾难恢复所提供的功能。 了解在发生破坏性事件后用于进行恢复的选项，破坏性事件可能导致数据丢失或者数据库和应用程序无法使用。 了解对一些情况的处理方式，包括用户或应用程序错误影响数据完整性、Azure 区域发生服务中断，或者应用程序需要维护。
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>可用来提供业务连续性的功能
 

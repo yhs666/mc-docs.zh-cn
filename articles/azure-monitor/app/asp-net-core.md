@@ -1,28 +1,23 @@
 ---
 title: 适用于 ASP.NET Core 的 Azure Application Insights | Azure Docs
 description: 监视 ASP.NET Core Web 应用程序的可用性、性能和使用情况。
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 originate.date: 05/22/2019
+author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a7277e2121fbfc8aca2802296ee4810c53c9db7d
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 00918ac222dee3bc84e4839aa5b8e1f065bd4eb0
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737104"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970934"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>适用于 ASP.NET Core 应用程序的 Application Insights
 
-本文介绍如何为 [ASP.NET Core](https://docs.microsoft.com/aspnet/core) 应用程序启用 Application Insights。 完成本文中所述的步骤后，Application Insights 将从 ASP.NET Core 应用程序收集请求、依赖项、异常、性能计数器、检测信号和日志。 
+本文介绍如何为 [ASP.NET Core](https://docs.microsoft.com/aspnet/core) 应用程序启用 Application Insights。 完成本文中所述的步骤后，Application Insights 将从 ASP.NET Core 应用程序收集请求、依赖项、异常、性能计数器、检测信号和日志。
 
 本文所用的示例是一个面向 `netcoreapp2.2` 的 [MVC 应用程序](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app)。 这些说明适用于所有 ASP.NET Core 应用程序。
 
@@ -30,11 +25,15 @@ ms.locfileid: "70737104"
 
 无论在何处以何种方式运行你的应用程序，[适用于 ASP.NET Core 的 Application Insights SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 都可对其进行监视。 如果应用程序正在运行并与 Azure 建立了网络连接，则可以收集遥测数据。 只要支持 .NET Core，就能支持 Application Insights 监视。 支持范围包括：
 * **操作系统**：Windows、Linux 或 Mac。
-* **托管方法**：进程内或进程外。 
+* **托管方法**：进程内或进程外。
 * **部署方法**：框架相关或独立。
-* **Web 服务器**：IIS (Internet Information Server) 或 Kestrel。 
+* **Web 服务器**：IIS (Internet Information Server) 或 Kestrel。
 * **托管平台**：Azure 应用服务的 Web 应用功能、Azure VM、Docker、Azure Kubernetes 服务 (AKS) 等。
+* **.NET Core 运行时版本**：1.XX、2.XX 或 3.XX
 * **IDE**：Visual Studio、VS Code 或命令行。
+
+> [!NOTE]
+> 如果将 ASP.NET Core 3.0 与 Application Insights 一起使用，请使用 [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 或更高版本。 只有此版本支持 ASP.NET Core 3.0。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -68,7 +67,7 @@ ms.locfileid: "70737104"
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
         </ItemGroup>
     ```
 
@@ -122,39 +121,36 @@ ms.locfileid: "70737104"
 
 ## <a name="run-your-application"></a>运行应用程序
 
-运行应用程序并向其发出请求。 现在，遥测数据应会流入 Application Insights。 Application Insights SDK 自动收集以下遥测数据。
-
-|请求/依赖项 |详细信息|
-|---------------|-------|
-|请求 | 传入应用程序的 Web 请求。 |
-|HTTP 或 HTTPS | 使用 `HttpClient` 发出的调用。 |
-|SQL | 使用 `SqlClient` 发出的调用。 |
-|[Azure 存储](https://www.nuget.org/packages/WindowsAzure.Storage/) | 使用 Azure 存储客户端发出的调用。 |
-|[事件中心客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 和更高版本。 |
-|[服务总线客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 和更高版本。 |
-|Azure Cosmos DB | 仅当使用 HTTP/HTTPS 时，才会自动跟踪。 Application Insights 不会捕获 TCP 模式。 |
-
-### <a name="performance-counters"></a>性能计数器
-
-对 ASP.NET Core 中的[性能计数器](/azure-monitor/app/web-monitor-performance)的支持限制如下：
-
-   * 如果应用程序在 Web 应用 (Windows) 中运行，则 SDK 2.4.1 和更高版本将收集性能计数器。
-   * 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.0-beta3 和更高版本将收集性能计数器。
-   * 对于面向 .NET Framework 的应用程序，所有版本的 SDK 都支持性能计数器。
- 
-在 Linux 中添加性能计数器支持后，本文将会更新。
-
-### <a name="ilogger-logs"></a>ILogger 日志
-
-SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILogger 日志](/azure-monitor/app/ilogger)。
+运行应用程序并向其发出请求。 现在，遥测数据应会流入 Application Insights。 Application Insights SDK 自动将传入的 Web 请求收集到应用程序，并收集以下遥测数据。
 
 ### <a name="live-metrics"></a>实时指标
 
-可能需要在几分钟后，遥测数据才开始显示在门户中。 若要快速确认是否一切正常，最好是在向运行中的应用程序发出请求时使用[实时指标](/azure-monitor/app/live-stream)。
+[实时指标](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)可用于快速验证是否正确配置了 Application Insights 监视。 尽管可能需要在几分钟时间后遥测数据才开始显示在门户和分析结果中，但实时指标能够近实时地显示正在运行的进程的 CPU 使用率。 它还可以显示其他遥测数据，例如请求、依赖项、跟踪等。
+
+### <a name="ilogger-logs"></a>ILogger 日志
+
+自动捕获通过 `Warning` 或更高严重性的 `ILogger` 发出的日志。 遵循 [ILogger 文档](ilogger.md#control-logging-level)自定义 Application Insights 捕获的日志级别。
+
+### <a name="dependencies"></a>依赖项
+
+默认情况已启用依赖项收集。 [此文](asp-net-dependencies.md#automatically-tracked-dependencies)介绍了自动收集的依赖项，并提供了执行手动跟踪的步骤。
+
+### <a name="performance-counters"></a>性能计数器
+
+对 ASP.NET Core 中的[性能计数器](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)的支持限制如下：
+
+* 如果应用程序在 Azure Web 应用 (Windows) 中运行，则 SDK 2.4.1 和更高版本将收集性能计数器。
+* 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.1 和更高版本将收集性能计数器。
+* 对于面向 .NET Framework 的应用程序，所有版本的 SDK 都支持性能计数器。
+* SDK 版本 2.8.0 和更高版本支持 Linux 中的 cpu/内存计数器。 Linux 不支持其他计数器。 在 Linux（和其他非 Windows 环境）中，获取系统计数器的建议方法是使用 [EventCounter](#eventcounter)
+
+### <a name="eventcounter"></a>EventCounter
+
+`EventCounterCollectionModule` 默认已启用，它会从 .NET Core 3.0 应用收集默认的计数器集。 
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>为 Web 应用程序启用客户端遥测
 
-完成前面所述的步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循后续步骤开始收集[使用情况遥测数据](/azure-monitor/app/usage-overview)。
+完成前面所述的步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循后续步骤开始收集[使用情况遥测数据](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)。
 
 1. 在 `_ViewImports.cshtml` 中添加注入代码：
 
@@ -178,27 +174,37 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 可以自定义适用于 ASP.NET Core 的 Application Insights SDK 以更改默认配置。 Application Insights SDK ASP.NET 的用户可以使用 `ApplicationInsights.config` 或通过修改 `TelemetryConfiguration.Active` 来熟悉配置更改。 对于 ASP.NET Core，需以不同的方式更改配置。 使用 ASP.NET Core 的内置[依赖项注入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)将 ASP.NET Core SDK 添加到应用程序并对其进行配置。 除非另有指示，否则几乎所有的配置更改都是在 `Startup.cs` 类的 `ConfigureServices()` 方法中完成的。 以下部分提供了详细信息。
 
 > [!NOTE]
-> 在 ASP.NET Core 应用程序中，不建议通过修改 `TelemetryConfiguration.Active` 来更改配置。
+> 在 ASP.NET Core 应用程序中，不支持通过修改 `TelemetryConfiguration.Active` 来更改配置。
 
 ### <a name="using-applicationinsightsserviceoptions"></a>使用 ApplicationInsightsServiceOptions
 
 可以通过向 `AddApplicationInsightsTelemetry` 传递 `ApplicationInsightsServiceOptions` 来修改一些通用设置，如以下示例所示：
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions aiOptions
-                    = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-        // Disables adaptive sampling.
-        aiOptions.EnableAdaptiveSampling = false;
+public void ConfigureServices(IServiceCollection services)
+{
+    Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions aiOptions
+                = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+    // Disables adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
 
-        // Disables QuickPulse (Live Metrics stream).
-        aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetry(aiOptions);
-    }
+    // Disables QuickPulse (Live Metrics stream).
+    aiOptions.EnableQuickPulseMetricStream = false;
+    services.AddApplicationInsightsTelemetry(aiOptions);
+}
 ```
 
-有关详细信息，请参阅 [`ApplicationInsightsServiceOptions` 中的可配置设置](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs)
+`ApplicationInsightsServiceOptions` 中的完整设置列表
+
+|设置 | 说明 | 默认
+|---------------|-------|-------
+|EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | 是
+|EnableAdaptiveSampling | 启用/禁用自适应采样 | 是
+|EnableHeartbeat | 启用/禁用检测信号功能，该功能定期（默认间隔为 15 分钟）发送名为“HeartBeatState”的自定义指标，其中包含有关运行时等的信息，例如 .NET 版本、Azure 环境信息（如果适用）等。 | 是
+|AddAutoCollectedMetricExtractor | 启用/禁用 AutoCollectedMetrics 提取程序 - 一个 TelemetryProcessor，在采样发生之前发送有关请求/依赖项的聚合前指标。 | 是
+|RequestCollectionOptions.TrackExceptions | 启用/禁用请求收集模块的未经处理的异常跟踪报告。 | 在 NETSTANDARD2.0 中为 false（因为异常是通过 ApplicationInsightsLoggerProvider 跟踪的），否则为 true。
+
+有关最新列表，请参阅 [`ApplicationInsightsServiceOptions` 中的可配置设置](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs)。
 
 ### <a name="sampling"></a>采样
 
@@ -213,10 +219,10 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 将任何新的 `TelemetryInitializer` 添加到 `DependencyInjection` 容器，如以下代码所示。 SDK 会自动拾取添加到 `DependencyInjection` 容器的任何 `TelemetryInitializer`。
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
+}
 ```
 
 ### <a name="removing-telemetryinitializers"></a>删除 TelemetryInitializer
@@ -224,52 +230,52 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 默认已提供遥测初始化表达式。 若要删除所有或特定的遥测初始化表达式，请在调用 `AddApplicationInsightsTelemetry()` 之后使用以下示例代码。 
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry();
+
+    // Remove a specific built-in telemetry initializer
+    var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
+                        (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
+    if (tiToRemove != null)
     {
-        services.AddApplicationInsightsTelemetry();
-
-        // Remove a specific built-in telemetry initializer
-        var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
-                         (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
-        if (tiToRemove != null)
-        {
-            services.Remove(tiToRemove);
-        }
-
-        // Remove all initializers
-        // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
-        services.RemoveAll(typeof(ITelemetryInitializer));
+        services.Remove(tiToRemove);
     }
+
+    // Remove all initializers
+    // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
+    services.RemoveAll(typeof(ITelemetryInitializer));
+}
 ```
 
 ### <a name="adding-telemetry-processors"></a>添加遥测处理程序
 
-可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
+可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 在[高级筛选方案](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中使用遥测处理器。 使用以下示例。
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // ...
-        services.AddApplicationInsightsTelemetry();
-        services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+    services.AddApplicationInsightsTelemetry();
+    services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
 
-        // If you have more processors:
-        services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
-    }
+    // If you have more processors:
+    services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
+}
 ```
 
 ### <a name="configuring-or-removing-default-telemetrymodules"></a>配置或删除默认的 TelemetryModule
 
-Application Insights 使用遥测模块[自动收集有关特定工作负荷的有用信息](/azure-monitor/app/auto-collect-dependencies)，而无需进行额外的配置。
+Application Insights 使用遥测模块自动收集有关特定工作负荷的有用遥测数据，无需用户手动跟踪。
 
 默认已启用以下自动收集模块。 这些模块负责自动收集遥测数据。 可以禁用或配置这些模块，以改变其默认行为。
 
-* `RequestTrackingTelemetryModule`
-* `DependencyTrackingTelemetryModule`
-* `PerformanceCollectorModule`
-* `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
-* `AzureInstanceMetadataTelemetryModule`
+* `RequestTrackingTelemetryModule` - 从传入的 Web 请求收集 RequestTelemetry。
+* `DependencyTrackingTelemetryModule` - 从传出的 http 调用和 sql 调用收集 DependencyTelemetry。
+* `PerformanceCollectorModule` - 收集 Windows PerformanceCounters。
+* `QuickPulseTelemetryModule` - 收集遥测数据以便在实时指标门户中显示。
+* `AppServicesHeartbeatTelemetryModule` - 收集有关托管应用程序的 Azure 应用服务环境的检测信号（以自定义指标的形式发送）。
+* `AzureInstanceMetadataTelemetryModule` - 收集有关托管应用程序的 Azure VM 环境的检测信号（以自定义指标的形式发送）。
 
 若要配置任何默认的 `TelemetryModule`，请按以下示例中所示使用 `IServiceCollection` 中的扩展方法 `ConfigureTelemetryModule<T>`。
 
@@ -277,27 +283,35 @@ Application Insights 使用遥测模块[自动收集有关特定工作负荷的�
 using Microsoft.ApplicationInsights.DependencyCollector;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
-    public void ConfigureServices(IServiceCollection services)
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry();
+
+    // The following configures DependencyTrackingTelemetryModule.
+    // Similarly, any other default modules can be configured.
+    services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
+            {
+                module.EnableW3CHeadersInjection = true;
+            });
+
+    // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+    services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+            (module, o) =>
+            {
+                module.Counters.Clear();
+                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+            }
+        );
+
+    // The following removes PerformanceCollectorModule to disable perf-counter collection.
+    // Similarly, any other default modules can be removed.
+    var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
+    if (performanceCounterService != null)
     {
-        services.AddApplicationInsightsTelemetry();
-
-        // The following configures DependencyTrackingTelemetryModule.
-        // Similarly, any other default modules can be configured.
-        services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
-                        {
-                            module.EnableW3CHeadersInjection = true;
-                        });
-
-        // The following removes PerformanceCollectorModule to disable perf-counter collection.
-        // Similarly, any other default modules can be removed.
-        var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
-        if (performanceCounterService != null)
-        {
-         services.Remove(performanceCounterService);
-        }
+        services.Remove(performanceCounterService);
     }
+}
 ```
-
 
 ### <a name="configuring-a-telemetry-channel"></a>配置遥测通道
 
@@ -333,7 +347,15 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+上述操作不会阻止任何自动收集模块收集遥测数据。 使用上述方法只会禁止向 Application Insights 发送遥测数据。 如果不需要某个特定的自动收集模块，最好是[删除遥测模块](#configuring-or-removing-default-telemetrymodules)
+
 ## <a name="frequently-asked-questions"></a>常见问题
+
+### <a name="does-application-insights-support-aspnet-core-30"></a>Application Insights 是否支持 ASP.NET Core 3.0？
+
+是的。 请更新到 [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.8.0 或更高版本。 早期的 SDK 版本不支持 ASP.NET Core 3.0。
+
+此外，如果使用[此处](#enable-application-insights-server-side-telemetry-visual-studio)基于 Visual Studio 的说明，请更新到最新版本的 Visual Studio 2019 (16.3.0) 以完成加入。 旧版 Visual Studio 不支持 ASP.NET Core 3.0 应用的自动加入。
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>如何跟踪不会自动收集的遥测数据？
 
@@ -366,7 +388,7 @@ public class HomeController : Controller
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>某些 Visual Studio 模板使用 IWebHostBuilder 中的 UseApplicationInsights() 扩展方法来启用 Application Insights。 这种用法是否仍然有效？
 
-使用此方法启用 Application Insights 是有效的。 在 Visual Studio 载入以及 Azure Web 应用扩展中都会使用此方法。 但是，我们建议使用 `services.AddApplicationInsightsTelemetry()`，因为它提供重载来控制某些配置。 这两个方法在内部执行相同的操作，因此，如果不需要应用自定义配置，则可调用其中的任一方法。
+尽管 `UseApplicationInsights()` 扩展方法仍受支持，但它在 Application Insights SDK 版本 2.8.0 中已标记为弃用。 在下一个 SDK 主要版本中，将会删除此方法。 启用 Application Insights 遥测的建议方式是使用 `AddApplicationInsightsTelemetry()`，因为它提供用于控制某个配置的重载。 此外，在 ASP.NET Core 3.0 应用中，`services.AddApplicationInsightsTelemetry()` 是启用 Application Insights 的唯一方式。
 
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>我正在将 ASP.NET Core 应用程序部署到 Web 应用。 是否仍要从 Web 应用启用 Application Insights 扩展？
 
@@ -377,6 +399,7 @@ public class HomeController : Controller
        * 所有发布模式，包括“独立”或“框架相关”。
        * 所有目标框架，包括完整的 .NET Framework。
        * 所有托管选项，包括 Web 应用、VM、Linux、容器、Azure Kubernetes 服务和非 Azure 托管。
+       * 所有 .NET Core 版本，包括预览版。
    * 从 Visual Studio 调试时，可在本地查看遥测数据。
    * 可以使用 `TrackXXX()` API 跟踪其他自定义遥测数据。
    * 可以完全控制配置。
@@ -411,6 +434,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+### <a name="is-this-sdk-supported-for-the-new-net-core-30-worker-service-template-applications"></a>新的 .NET Core 3.0 辅助角色服务模板应用程序是否支持此 SDK？
+
+此 SDK 需要 `HttpContext`，因此在任何非 HTTP 应用程序（包括 .NET Core 3.0 辅助角色服务应用程序）中无法正常工作。 有关如何使用新发布的 Microsoft.ApplicationInsights.WorkerService SDK 在此类应用程序中启用 Application Insights，请参阅[此文档](worker-service.md)。
 
 ## <a name="open-source-sdk"></a>开源 SDK
 ## <a name="next-steps"></a>后续步骤

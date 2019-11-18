@@ -11,19 +11,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2018
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: 71f89bc30da102715e690148e6d84a3a1c4db697
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 11/18/2019
+ms.openlocfilehash: 6ffbc223a2d10d5750dbe6887a1c3034d72f69f5
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736723"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831400"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 为开发人员帐户授权
 
 许多 API 支持使用 [OAuth 2.0](https://oauth.net/2/) 维护 API 的安全，并确保仅有效用户具有访问权限且只能访问有权访问的资源。 要将 Azure API 管理的交互式开发人员门户与此类 API 配合使用，需通过该服务对服务实例进行配置，使之适用于支持 OAuth 2.0 的 API。
+
+> [!IMPORTANT]
+> OAuth 2.0 授权在新开发人员门户的交互式控制台中尚不可用。
 
 ## <a name="prerequisites"> </a>先决条件
 本指南了介绍如何配置 API 管理服务实例，以便针对开发人员帐户使用 OAuth 2.0 授权，但不介绍如何配置 OAuth 2.0 提供程序。 每个 OAuth 2.0 提供程序的配置均不相同，虽然步骤类似，不过在 API 管理服务实例中配置 OAuth 2.0 时使用的必需信息是相同的。 本主题介绍的示例使用 Azure Active Directory 作为 OAuth 2.0 提供程序。
@@ -97,11 +100,11 @@ ms.locfileid: "70736723"
 
     ![OAuth 2.0 设置](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>在开发人员门户中测试 OAuth 2.0 用户授权
+## <a name="step3"> </a>旧开发人员门户 - 测试 OAuth 2.0 用户授权
 
-配置 OAuth 2.0 授权服务器并将 API 配置为使用该服务器以后，即可转到开发人员门户并调用 API 对其进行测试。  从 Azure API 管理实例“概览”页面的顶部菜单中单击“开发人员门户”。  
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![开发人员门户][api-management-developer-portal-menu]
+配置 OAuth 2.0 授权服务器并将 API 配置为使用该服务器以后，即可转到开发人员门户并调用 API 对其进行测试。 在 Azure API 管理实例“概述”页的顶部菜单中，单击“开发人员门户(旧)”。  
 
 单击顶部菜单中的“API”，并选择“Echo API”。  
 

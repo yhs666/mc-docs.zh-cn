@@ -1,26 +1,22 @@
 ---
 title: 适用于 JavaScript Web 应用的 Azure Application Insights | Azure Docs
 description: 获取页面视图、会话计数和 Web 客户端数据，以及跟踪使用模式。 检测 JavaScript 网页中的异常和性能问题。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 09/12/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d13c6248ec955927e6ddd3114cc43f9ece5523bb
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9721f8fd649fbc56bb8fd9b8334f43a9fbcb1660
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330444"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730473"
 ---
-# 适用于网页的 Application Insights <a name="set-up-application-insights-for-your-web-page"></a>
+# <a name="application-insights-for-web-pages"></a>适用于网页的 Application Insights
 
 了解网页或应用的性能和使用情况。 如果将 [Application Insights](app-insights-overview.md) 添加到页面脚本，可以获取页面加载和 AJAX 调用的时间、浏览器异常和 AJAX 失败的计数和详细信息，以及用户和会话计数。 所有这些信息可按页面、客户端 OS 和浏览器版本、地理位置和其他维度细分。 可以针对失败计数或页面加载缓慢情况设置警报。 并且通过在 JavaScript 代码中插入跟踪调用，可以跟踪网页应用程序的不同功能的使用情况。
 
@@ -31,13 +27,13 @@ ms.locfileid: "71330444"
 1. 首先需要一个 Application Insights 资源。 如果你尚未获得资源和检测密钥，请遵照[有关创建新资源的说明](create-new-resource.md)。
 2. 从你要将 JavaScript 遥测数据发送到的资源复制检测密钥。
 3. 通过以下两个选项之一，将 Application Insights JavaScript SDK 添加到网页或应用：
-    * [NPM 设置](#npm-based-setup)
+    * [npm 设置](#npm-based-setup)
     * [JavaScript 代码片段](#snippet-based-setup)
 
 > [!IMPORTANT]
-> 只需使用下述方法之一即可将 Application Insights JavaScript SDK 添加到应用程序。 如果使用基于 NPM 的设置，请不要使用基于代码片段的设置。 反之亦然，在使用基于代码片段的方法时，请不要使用基于 NPM 的设置。 
+> 只需使用下述方法之一即可将 Application Insights JavaScript SDK 添加到应用程序。 如果使用基于 npm 的设置，请不要使用基于代码片段的设置。 反之亦然，在使用基于代码片段的方法时，请不要使用基于 npm 的设置。 
 
-### <a name="npm-based-setup"></a>基于 NPM 的设置 
+### <a name="npm-based-setup"></a>基于 npm 的设置
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -51,7 +47,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>基于代码片段的设置
 
-如果应用程序不使用 NPM，则可以通过直接使用 Application Insights 来检测网页：只需将此代码片段粘贴到每个页面的顶部即可。 最好是将它用作 `<head>` 节中的第一个脚本，以便它可以监视所有依赖项存在的任何潜在问题。
+如果应用不使用 npm，则可以通过直接使用 Application Insights 来检测网页：只需将此代码片段粘贴到每个页面的顶部即可。 最好是将它用作 `<head>` 节中的第一个脚本，以便它可以监视所有依赖项存在的任何潜在问题。 如果使用的是 Blazor Server 应用，请在文件 `_Host.cshtml` 的顶部 `<head>` 部分中添加代码片段。
 
 ```html
 <script type="text/javascript">
@@ -144,14 +140,14 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 默认情况下，此 SDK **不会**处理单页应用程序中发生的基于状态的路由更改。 若要为单页应用程序启用自动路由更改跟踪，可将 `enableAutoRouteTracking: true` 添加到设置配置。
 
-目前，我们提供了一个可通过此 SDK 初始化的独立 [React 插件](#react-extensions)。 该插件也能为你实现路由更改跟踪，并可收集[其他特定于 React 的遥测数据](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js)。
+目前，我们提供了一个可通过此 SDK 初始化的独立 [React 插件](#react-extensions)。 该插件也能为你实现路由更改跟踪，并可收集[其他特定于 React 的遥测数据](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)。
 
 ## <a name="react-extensions"></a>React 扩展
 
 | 扩展 |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native)|
+| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>浏览浏览器/客户端数据
 
@@ -199,7 +195,7 @@ dataset
 2. 确定哪些源映射对应于此调用堆栈。 源映射必须与堆栈帧的源文件相匹配，但后缀为 `.map`
 3. 将源映射拖放到 Azure 门户中的调用堆栈上 ![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Application Insights Web 基本版
+### <a name="application-insights-web-basic"></a>Application Insights Web 基本版
 
 若要获得精简的体验，可以改为安装基本版 Application Insights
 ```
@@ -226,7 +222,7 @@ SDK V2 版本中的重大更改：
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- NPM 方案调用 `downloadAndSetup` 以从 CDN 下载完整的 ApplicationInsights 脚本，并使用检测密钥将其初始化：
+- npm 方案：调用 `downloadAndSetup` 以从 CDN 下载完整的 ApplicationInsights 脚本，并使用检测密钥将其初始化：
 
    ```ts
    appInsights.downloadAndSetup({

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/01/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 141fb41bced54ce0ec3fb03c6046621de26d0363
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 19abc417e0c81e668480e65316e4c56de4ce8818
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275446"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648682"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 Web 表复制数据
 
@@ -34,7 +34,7 @@ ms.locfileid: "72275446"
 
 以下活动支持此 Web 表连接器：
 
-- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 Web 表数据库复制到任何支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。

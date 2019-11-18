@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/01/2019
-ms.date: 08/22/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ff77cda5ef633ffb793970d70d95bbb9227ae6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: fee74b6d4dc8600171af6b3c6e4468b459e97482
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993221"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830987"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>为何更新为 Microsoft 标识平台 (v2.0)？
 

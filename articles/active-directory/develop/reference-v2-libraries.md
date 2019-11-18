@@ -14,23 +14,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/25/2019
-ms.date: 08/26/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cbfbb74fead4fc015f22bfbc111b8344813a557
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7bfe1cd268ce888963a3fe1dd8b80a6ea721f14e
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134291"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830938"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft 标识平台身份验证库
 
 [Microsoft 标识平台终结点](azure-ad-endpoint-comparison.md)支持行业标准协议 OAuth 2.0 和 OpenID Connect 1.0。 Microsoft 身份验证库 (MSAL) 设计为适用于 Microsoft 标识平台终结点。 还可以使用支持 OAuth 2.0 和 OpenID Connect 1.0 的开放源代码库。
 
-建议使用协议领域的专家根据安全开发生命周期 (SDL) 方法编写的库。 此类库包含 [Microsoft 遵循的方法][Microsoft-SDL]。 如果手动编写协议代码，应遵循 Microsoft SDL 之类的方法。 请认真对待每个协议的标准规范中的安全注意事项。
+建议使用协议领域的专家根据安全开发生命周期 (SDL) 方法编写的库。 此类方法包括 [Microsoft 遵循的方法][Microsoft-SDL]。 如果手动编写协议代码，应遵循 Microsoft SDL 之类的方法。 请认真对待每个协议的标准规范中的安全注意事项。
 
 > [!NOTE]
 > 想要使用 Azure Active Directory 身份验证库 (ADAL)？ 请查看 [ADAL 库指南](active-directory-authentication-libraries.md)。
@@ -62,9 +62,9 @@ Microsoft 标识平台终结点使用两种类型的库：
 ![Angular](./media/sample-v2-code/logo_angular.png) | MSAL Angular（预览） | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET framework](./media/sample-v2-code/logo_NET.png) ![UWP](./media/sample-v2-code/logo_windows.png) ![Xamarin](./media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](tutorial-v2-windows-desktop.md) | [MSAL.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[概念文档](msal-overview.md) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![Python](./media/sample-v2-code/logo_python.png) | MSAL Python（预览版） | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
-| ![Java](./media/sample-v2-code/logo_java.png) | MSAL Java（预览版） | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-| ![iOS / Objective C 或 swift](./media/sample-v2-code/logo_iOS.png) | MSAL obj_c（预览） | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 应用](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki) | |
-|![Android / Java](./media/sample-v2-code/logo_Android.png) | MSAL（预览） | [中央存储库](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 应用](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki) |
+| ![Java](./media/sample-v2-code/logo_java.png) | MSAL Java（预览版） | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [引用](https://javadoc.io/doc/com.microsoft.azure/msal4j/0.6.0-preview/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
+| iOS 和 macOS | MSAL iOS 和 macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 应用](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)、[macOS 应用](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [引用](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [概念文档](msal-overview.md) | |
+|![Android / Java](./media/sample-v2-code/logo_Android.png) | MSAL Android | [中央存储库](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 应用](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [概念文档](msal-overview.md) |[路线图](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Roadmap)
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft 支持的服务器中间件库
 
@@ -80,15 +80,14 @@ Microsoft 标识平台终结点使用两种类型的库：
 
 至于支持的操作系统和语言，映射如下：
 
-|             | ![Windows](./media/sample-v2-code/logo_windows.png) Windows    | Linux      | macOS      | ![iOS](./media/sample-v2-code/logo_iOS.png)        | ![Android / Java](./media/sample-v2-code/logo_Android.png) Android    |
+|             | Windows    | Linux      | macOS      | iOS | Android    |
 |-------------|------------|------------|------------|------------|------------|
 | ![Javascript](./media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | <img alt="C#" src="../../cognitive-services/speech-service/media/index/logo_csharp.svg" width="64px" height="64px" /> | ASP.NET、ASP.NET Core、MSAL.Net（.NET FW、Core、UWP）| ASP.NET Core、MSAL.Net (.NET Core) | ASP.NET Core、MSAL.Net (MacOS)       | MSAL.Net (Xamarin.iOS) | MSAL.Net (Xamarin.Android)|
-| <img alt="Objective C" src="../../cognitive-services/speech-service/media/index/logo_objc.jpg" width="64px" height="64px" /> |            |            |        | MSAL.iOS |            |
-| ![Java](./media/sample-v2-code/logo_java.png) Java       |        |        |       | | MSAL.Android
-| ![Java](./media/sample-v2-code/logo_java.png) Java       | msal4j       | msal4j       | msal4j      | |
-| ![Python](./media/sample-v2-code/logo_python.png) Python     | MSAL Python | MSAL Python | MSAL Python |
-| ![Node.Js](./media/sample-v2-code/logo_nodejs.png) Node.JS     | Passport.node | Passport.node | Passport.node |
+| Swift <br> Objective-C |            |            | [适用于 iOS 和 macOS 的 MSAL](msal-overview.md) | [适用于 iOS 和 macOS 的 MSAL](msal-overview.md) |            |
+| ![Java](./media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
+| ![Python](./media/sample-v2-code/logo_python.png) Python | MSAL Python | MSAL Python | MSAL Python |
+| ![Node.Js](./media/sample-v2-code/logo_nodejs.png) Node.JS | Passport.node | Passport.node | Passport.node |
 
 另请参阅[按支持的平台和语言划分的方案](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
@@ -103,7 +102,7 @@ Microsoft 标识平台终结点使用两种类型的库：
 | ![Node.js](./media/sample-v2-code/logo_nodejs.png) | [openid-client](https://github.com/panva/node-openid-client) | [版本 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [openid-client](https://github.com/panva/node-openid-client) | |
 | ![PHP](./media/sample-v2-code/logo_php.png) | [The PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [版本 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
 | ![Ruby](./media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth：1.3.1<br />omniauth-oauth2：1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
-| ![iOS](./media/sample-v2-code/logo_iOS.png) ![Android](./media/sample-v2-code/logo_Android.png) | [React Native 应用身份验证](https://github.com/FormidableLabs/react-native-app-auth) | [版本 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native 应用身份验证](https://github.com/FormidableLabs/react-native-app-auth) | |
+| iOS、macOS 和 Android  | [React Native 应用身份验证](https://github.com/FormidableLabs/react-native-app-auth) | [版本 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native 应用身份验证](https://github.com/FormidableLabs/react-native-app-auth) | |
 
 对于任何符合标准的库，都可以使用 Microsoft 标识平台终结点。 了解去哪里寻求支持非常重要：
 

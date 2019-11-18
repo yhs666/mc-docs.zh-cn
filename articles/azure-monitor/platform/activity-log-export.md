@@ -10,12 +10,12 @@ origin.date: 05/20/2019
 ms.date: 09/23/2019
 ms.author: v-lingwus
 ms.subservice: logs
-ms.openlocfilehash: bef20497b9ecbac890aaa8a4962763bf59b790ec
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 7ca8432e17470439c1a5aeaf3a32503f839d71bb
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330079"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970964"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>将 Azure 活动日志导出到存储或 Azure 事件中心
 [Azure 活动日志](activity-logs-overview.md)提供 Azure 订阅中发生的订阅级事件的见解。 除了在 Azure 门户中查看活动日志或者将其复制到 Log Analytics 工作区（在其中可以结合 Azure Monitor 收集的其他数据一起分析这些日志）以外，还可以创建一个日志配置文件，以将活动日志存档到 Azure 存储帐户或流式传输到事件中心。
@@ -62,11 +62,9 @@ ms.locfileid: "71330079"
 如果设置了保留策略，但禁止将日志存储在存储帐户中，则保留策略无效。 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。
 
 
+> [!IMPORTANT]
+> 如果未注册 Microsoft.Insights 资源提供程序，则在创建日志配置文件时可能会收到错误。 若要注册此提供程序，请参阅 [Azure 资源提供程序和类型](../../azure-resource-manager/resource-manager-supported-services.md)。
 
-> [!WARNING]
-> 存储帐户中日志数据的格式已在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](diagnostic-logs-append-blobs.md)
->
->
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>使用 Azure 门户创建日志配置文件
 
@@ -159,7 +157,7 @@ ms.locfileid: "71330079"
     | name |是 |日志配置文件的名称。 |
     | storage-account-id |是 |活动日志应保存到的存储帐户的资源 ID。 |
     | locations |是 |要为其收集活动日志事件的空格分隔区域列表。 可以使用 `az account list-locations --query [].name` 查看订阅的所有区域列表。 |
-    | days |是 |活动的保留天数，介于 1 到 365 之间。 值为零时，将无限期（永久）存储日志。  如果为零，则启用的参数应设置为 true。 |
+    | days |是 |活动的保留天数，介于 1 到 365 之间。 值为零时，将无限期（永久）存储日志。  如果为零，则启用的参数应设置为 false。 |
     |enabled | 是 |True 或 False。  用于启用或禁用保留策略。  如果为 True，则 days 参数必须为大于 0 的值。
     | Categories |是 |应收集的事件类别的空格分隔列表。 可能值包括：Write、Delete 和 Action。 |
 

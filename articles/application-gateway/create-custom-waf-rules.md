@@ -6,14 +6,14 @@ ms.topic: article
 author: vhorne
 ms.service: application-gateway
 origin.date: 06/18/2019
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0c0cea0d65f58cfa4b4bc97f3f2e295e43c3e55a
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+ms.openlocfilehash: 2b4e736541a4a4183929a1cd63b17298c2d49d6d
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798502"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934205"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>创建并使用 Web 应用程序防火墙 v2 自定义规则
 
@@ -370,7 +370,7 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
       {
         "name": "myrule4",
         "ruleType": "MatchRule",
-        “priority”: 100
+        "priority": 100,
         "action": "block",
         "matchConditions": [
           {

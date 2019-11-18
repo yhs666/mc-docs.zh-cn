@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 06/21/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8fbd1e4537c32640b7475b403329ab484a281e38
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 3d4c6d39a0db01319288ba938f9f6f97345603cd
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124686"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416264"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>媒体服务 v3 常见问题解答
 
@@ -69,6 +69,14 @@ ms.locfileid: "71124686"
 客户通常希望知道他们应该使用 AES 加密还是 DRM 系统。 这两个系统之间的主要差别在于，使用 AES 加密时，内容密钥将通过 TLS 传输到客户端，这样，密钥将经过传输中加密，但不会经过任何进一步的加密（“明文加密”）。 因此，用于解密内容的密钥可由客户端播放器访问，并且可以在客户端上的网络跟踪中以纯文本形式显示。 AES-128 明文密钥加密适合查看者是受信任方的用例（例如，加密员工观看的在公司内部分发的公司视频）。
 
 相比 AES-128 明文密钥，DRM 系统（例如 PlayReady 和 FairPlay）可对用于解密内容的密钥提供额外的加密级别。 内容密钥将会加密成受 DRM 运行时保护的密钥，此外，还会受到 TLS 提供的任何传输级加密。 此外，解密是在安全的环境中在操作系统级别处理的，在这样的环境中，恶意用户更难进行攻击。 在观看者可能不是受信任方且需要更高等级的安全性的用例中，建议使用 DRM。
+
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>如何在不使用 Azure AD 的情况下仅向具有特定权限的用户显示视频？
+
+无需使用任何特定的令牌提供程序（例如 Azure AD）。 可以使用非对称密钥加密创建自己的 [JWT](https://jwt.io/) 提供程序（所谓 STS，安全令牌服务）。 在自定义 STS 中，可以根据业务逻辑添加声明。
+
+确保颁发者、受众和声明在 JWT 中的内容和 ContentKeyPolicy 中使用的 ContentKeyPolicyRestriction 之间完全匹配。
+
+有关详细信息，请参阅[使用媒体服务动态加密保护内容](content-protection-overview.md)。
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>在使用 JWT 令牌请求许可证或密钥之前，如何以及在何处获取 JWT 令牌？
 

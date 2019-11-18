@@ -1,24 +1,20 @@
 ---
 title: 在 Azure Application Insights 中监视 Java Web 应用的性能 | Azure Docs
 description: 使用 Application Insights 监视 Java 网站的扩展性能和使用情况。
-services: application-insights
-documentationcenter: java
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 01/10/2019
+origin.date: 01/10/2019
+ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2117e5ed4588d739b822ed8c99f78fcc5f886914
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 12d5996a3a4d31152c1eb116152100cb0fe3336d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737277"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730475"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>监视 Java Web 应用中的依赖项、捕获的异常和方法执行时间
 
@@ -26,19 +22,26 @@ ms.locfileid: "70737277"
 如果已[使用 Application Insights 检测了 Java Web 应用][java]，则无需更改任何代码，就能使用 Java 代理来获取更深入的见解：
 
 * **依赖项：** 有关应用程序对其他组件的调用数据，包括：
-  * 已捕获通过 HttpClient、OkHttp 和 RestTemplate (Spring) 发出的 REST 调用  。
-  * 已捕获通过 Jedis 客户端发出的 Redis 调用  。
-  * **[JDBC 调用](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - 会自动捕获 MySQL、SQL Server 和 Oracle DB 命令。 对于 MySQL，如果调用时间长于 10 秒，代理将报告查询计划。
-* **捕获异常：** 代码处理的异常相关信息。
-* **方法执行时间：** 有关执行特定方法所花费的时间的信息。
+  * 捕获通过 Apache HttpClient、OkHttp 和 `java.net.HttpURLConnection` 进行的**传出 HTTP 调用**。
+  * 捕获通过 Jedis 客户端进行的 **Redis 调用**。
+  * **JDBC 查询** - 对于 MySQL 和 PostgreSQL，如果调用花费的时间长于 10 秒，代理将报告查询计划。
+
+* **应用程序日志记录：** 捕获应用程序日志并将其与 HTTP 请求和其他遥测数据相关联
+  * **Log4j 1.2**
+  * **Log4j2**
+  * **Logback**
+
+* **更好的操作命名：** （用于在门户中对请求进行聚合）
+  * **Spring** - 基于 `@RequestMapping`。
+  * **JAX-RS** - 基于 `@Path`。 
 
 若要使用 Java 代理，请在服务器上安装该代理。 必须使用 [Application Insights Java SDK][java] 检测 Web 应用。 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>安装适用于 Java 的 Application Insights 代理
 1. 在运行 Java 服务器的计算机上[下载该代理](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)。 请确保下载与 Application Insights Java SDK 核心和 Web 程序包版本相同的 Java 代理版本。
-2. 编辑应用程序服务器启动脚本，并添加以下 JVM：
+2. 编辑应用程序服务器启动脚本，并添加以下 JVM 参数：
    
-    `javaagent:`*代理 JAR 文件的完整路径*
+    `-javaagent:<full path to the agent JAR file>`
    
     例如，在 Linux 计算机上的 Tomcat 中：
    
@@ -51,44 +54,32 @@ ms.locfileid: "70737277"
 设置 xml 文件的内容。 编辑以下示例，根据需要包含或省略功能。
 
 ```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsightsAgent>
-      <Instrumentation>
+         <!-- capture logging via Log4j 1.2, Log4j2, and Logback, default is true -->
+         <Logging enabled="true" />
 
-        <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
-               Defaults: enabled, 10000 ms -->
-           <Jedis enabled="true" thresholdInMS="1000"/>
+         <!-- capture outgoing HTTP calls performed through Apache HttpClient, OkHttp,
+              and java.net.HttpURLConnection, default is true -->
+         <HTTP enabled="true" />
 
-           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
-           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
-        </BuiltIn>
+         <!-- capture JDBC queries, default is true -->
+         <JDBC enabled="true" />
 
-        <!-- Collect data about caught exceptions
-             and method execution times -->
+         <!-- capture Redis calls, default is true -->
+         <Jedis enabled="true" />
 
-        <Class name="com.myCompany.MyClass">
-           <Method name="methodOne"
-               reportCaughtExceptions="true"
-               reportExecutionTime="true"
-               />
-           <!-- Report on the particular signature
-                void methodTwo(String, int) -->
-           <Method name="methodTwo"
-              reportExecutionTime="true"
-              signature="(Ljava/lang/String;I)V" />
-        </Class>
+         <!-- capture query plans for JDBC queries that exceed this value (MySQL, PostgreSQL),
+              default is 10000 milliseconds -->
+         <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
 
-      </Instrumentation>
-    </ApplicationInsightsAgent>
-
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
 ```
-
-必须针对各个方法启用报告异常和方法计时。
-
-默认情况下，`reportExecutionTime` 为 true，`reportCaughtExceptions` 为 false。
 
 ## <a name="additional-config-spring-boot"></a>其他配置 (Spring Boot)
 
@@ -99,7 +90,7 @@ ms.locfileid: "70737277"
 * 选择“设置”>“应用程序设置”
 * 在“应用设置”下添加新的键/值对：
 
-注册表项：`JAVA_OPTS` 值：`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+注册表项：`JAVA_OPTS` 值：`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
 有关 Java 代理的最新版本，请在[此处](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )查看版本。 
@@ -111,33 +102,16 @@ ms.locfileid: "70737277"
 > [!NOTE]
 > AI-Agent.xml 和代理 jar 文件应位于同一文件夹中。 它们通常一起放在该项目的 `/resources` 文件夹中。  
 
-### <a name="spring-rest-template"></a>Spring Rest 模板
-
-为了使 Application Insights 能够成功检测使用 Spring Rest 模板进行的 HTTP 调用，需要使用 Apache HTTP 客户端。 默认情况下，Spring Rest 模板未配置为使用 Apache HTTP 客户端。 通过在 Spring Rest 模版的构造函数中指定 [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html)，它将使用 Apache HTTP。
-
-下面是一个演示如何使用 Spring Beans 执行此操作的示例。 这是一个非常简单的示例，它使用工厂类的默认设置。
-
-```java
-@bean
-public ClientHttpRequestFactory httpRequestFactory() {
-return new HttpComponentsClientHttpRequestFactory()
-}
-@Bean(name = 'myRestTemplate')
-public RestTemplate dcrAccessRestTemplate() {
-    return new RestTemplate(httpRequestFactory())
-}
-```
-
 #### <a name="enable-w3c-distributed-tracing"></a>启用 W3C 分布式跟踪
 
 将以下代码添加到 AI-Agent.xml：
 
 ```xml
 <Instrumentation>
-        <BuiltIn enabled="true">
-            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
-        </BuiltIn>
-    </Instrumentation>
+   <BuiltIn enabled="true">
+      <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+   </BuiltIn>
+</Instrumentation>
 ```
 
 > [!NOTE]
@@ -145,7 +119,7 @@ public RestTemplate dcrAccessRestTemplate() {
 
 理想情况下，所有服务都已更新为支持 W3C 协议的较新版 SDK 时，就会出现这种情况。 强烈建议尽快迁移到提供 W3C 支持的新版 SDK。
 
-请确保[传入](correlation.md#w3c-distributed-tracing)和传出（代理）配置完全相同  。
+请确保[传入](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps)和传出（代理）配置完全相同  。
 
 ## <a name="view-the-data"></a>查看数据
 在 Application Insights 资源中，聚合的远程依赖项和方法执行时间显示在[“性能”磁贴下][metrics]。

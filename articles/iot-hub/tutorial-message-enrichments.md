@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 05/10/2019
-ms.date: 06/17/2019
+ms.date: 11/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: c02801a3e347ec626d2bd54286c9bed606176888
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 3b18abc0f978d5a745c3cf15d39a6cf90cfe12f9
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732752"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831415"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>教程：使用 Azure IoT 中心消息扩充（预览版）
 
@@ -84,7 +84,7 @@ ms.locfileid: "66732752"
 
 ```azurecli
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -168,10 +168,10 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ##### ROUTING FOR STORAGE #####
 
 # You're going to have two routes and two endpoints.
-# One points to container1 in the storage account
-#   and includes all messages.
-# The other points to container2 in the same storage account
-#   and only includes enriched messages.
+# One route points to the first container ("original") in the storage account
+#   and includes the original messages.
+# The other points to the second container ("enriched") in the same storage account
+#   and includes the enriched versions of the messages.
 
 endpointType="azurestoragecontainer"
 endpointName1="ContosoStorageEndpointOriginal"
@@ -190,7 +190,7 @@ storageConnectionString=$(az storage account show-connection-string \
 # Create the routing endpoints and routes.
 # Set the encoding format to either avro or json.
 
-# This is the endpoint for container 1, for endpoint messages that are not enriched.
+# This is the endpoint for the first container, for endpoint messages that are not enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName1 \
@@ -202,7 +202,7 @@ az iot hub routing-endpoint create \
   --resource-group $resourceGroup \
   --encoding json
 
-# This is the endpoint for container 2, for endpoint messages that are enriched.
+# This is the endpoint for the second container, for endpoint messages that are enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName2 \
@@ -225,7 +225,8 @@ az iot hub route create \
   --enabled \
   --condition $condition
 
-# This is the route for messages that are not enriched.
+# This is the route for messages that are enriched.
+# Create the route for the second storage endpoint.
 az iot hub route create \
   --name $routeName2 \
   --hub-name $iotHubName \
@@ -269,7 +270,7 @@ az iot hub route create \
 
 ## <a name="send-messages-to-the-iot-hub"></a>将消息发送到 IoT 中心
 
-为终结点配置消息扩充后，请运行模拟设备应用程序，以将消息发送到 IoT 中心。 为中心设置了可实现以下目的的规则：
+为终结点配置消息扩充后，请运行模拟设备应用程序，以将消息发送到 IoT 中心。 为中心设置了可实现以下项的设置：
 
 * 路由到存储终结点 ContosoStorageEndpointOriginal 的消息不会扩充，将会存储在存储容器 `original` 中。
 
@@ -277,16 +278,16 @@ az iot hub route create \
 
 模拟设备应用程序是已解压缩的下载内容中的应用程序之一。 该应用程序针对[路由教程](tutorial-routing.md)中每个不同的消息路由方法（包括 Azure 存储）发送消息。
 
-双击解决方案文件 (IoT_SimulatedDevice.sln) 以在 Visual Studio 中打开代码，然后打开 Program.cs。 请将 `{your hub name}` 替换为 IoT 中心名称。 IoT 中心主机名的格式为 **{中心名称}.azure-devices.net**。 本教程中的中心主机名为 **ContosoTestHubMsgEn.azure-devices.net**。 接下来，请将 `{device key}` 替换为前面在运行脚本创建资源时所保存的设备密钥。
+双击解决方案文件 (IoT_SimulatedDevice.sln) 以在 Visual Studio 中打开代码，然后打开 Program.cs。 将标记 `{your hub name}` 替换为 IoT 中心名称。 IoT 中心主机名的格式为 **{中心名称}.azure-devices.net**。 本教程中的中心主机名为 **ContosoTestHubMsgEn.azure-devices.net**。 接下来，将标记 `{your device key}` 替换为先前运行用于创建资源的脚本时保存的设备密钥。
 
 如果没有设备密钥，可以从门户中检索。 登录后，转到“资源组”，选择你的资源组，然后选择你的 IoT 中心。  在“IoT 设备”下找到你的测试设备，然后选择该设备。  选择“主密钥”旁边的复制图标，将主密钥复制到剪贴板。 
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHubMsgEn.azure-devices.cn";
+        private readonly static string s_myDeviceId = "Contoso-Test-Device";
+        private readonly static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.cn";
         // This is the primary key for the device. This is in the portal.
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key.
-        static string deviceKey = "{your device key here}";
+        private readonly static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>运行和测试
@@ -315,7 +316,7 @@ az iot hub route create \
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","device location":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-下面是一条未扩充的消息。 此处未显示“我的 IoT 中心”、“设备位置”和“客户 ID”，因为此终结点未启用扩充。
+下面是未扩充的消息。 "my IoT Hub"、"devicelocation" 和 "customerID" 未显示在此处，因为这些字段是添加了扩充内容的字段，而此终结点没有扩充内容。
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}

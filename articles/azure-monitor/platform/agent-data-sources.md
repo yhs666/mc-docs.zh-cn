@@ -1,25 +1,21 @@
 ---
 title: 在 Azure Monitor 中配置代理数据源 | Azure Docs
 description: 数据源定义 Azure Monitor 从代理和其他已连接的源收集的日志数据。  本文介绍有关 Azure Monitor 如何使用数据源的概念，详细解释如何配置数据源，并对不同的可用数据源进行概要介绍。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 11/28/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c57ab82e25744484f8aa518390bbfdb3a224f695
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ced87fd53b5c84f1ef0a8fcb3e54bb47b0f69aca
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736967"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730041"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor 中的代理数据源
 Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  来自代理的数据存储为包含记录集的[日志数据](data-platform-logs.md)。  每个数据源将创建具有某种特殊类型的记录，而每个类型都具有自己的一组属性。

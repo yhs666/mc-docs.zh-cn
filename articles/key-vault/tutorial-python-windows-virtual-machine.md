@@ -1,5 +1,5 @@
 ---
-title: 教程 - 将 Azure Key Vault 与通过 Python 编写的 Windows 虚拟机配合使用 | Azure Docs
+title: 教程 - 在 Python 中将 Azure Key Vault 与 Windows 虚拟机配合使用 | Azure
 description: 本教程介绍如何将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密。
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ origin.date: 09/05/2018
 ms.date: 06/10/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 0f4693fdb8f9011040b4f9315bec3980272810e6
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.openlocfilehash: 6f80c2d3cb70cf66e7bc15c4a0f4c2da430ca2bd
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296698"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425849"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>教程：将 Azure Key Vault 与通过 Python 编写的 Windows 虚拟机配合使用
 
@@ -66,7 +66,7 @@ az login
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-使用 [az group create](/cli/azure/group#az-group-create) 命令创建资源组。 
+使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 
 
 选择一个资源组名称，然后将其填充在占位符中。 以下示例在“中国北部”位置创建一个资源组：
 
@@ -140,7 +140,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="create-and-run-a-sample-python-app"></a>创建并运行示例 Python 应用
 
-下一部分演示名为 *Sample.py* 的示例文件。 该文件使用 [requests](http://docs.python-requests.org/en/master/) 库发出 HTTP GET 调用。
+下一部分演示名为 *Sample.py* 的示例文件。 该文件使用 [requests](https://docs.python-requests.org/en/master/) 库发出 HTTP GET 调用。
 
 ## <a name="edit-samplepy"></a>编辑 Sample.py
 
@@ -157,7 +157,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
     # Step 1: Fetch an access token from a Managed Identity enabled azure resource.      
     # Note that the resource here is https://vault.azure.cn for public cloud and api-version is 2018-02-01
-    MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn"
+    MSI_ENDPOINT = "https://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
       
     # extracting data in json format 

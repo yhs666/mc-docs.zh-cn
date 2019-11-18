@@ -2,26 +2,20 @@
 title: 验证到达 Azure 虚拟网络的 VPN 吞吐量 | Microsoft Docs
 description: 本文旨在帮助用户验证从本地资源到达 Azure 虚拟机的网络吞吐量。
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
 manager: digimobile
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/15/2018
-ms.date: 03/25/2019
+origin.date: 05/29/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 24bff705481b9a7002d99d377b89a3d3316c87d8
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.reviewer: chadmat;genli
+ms.openlocfilehash: 6b58ec7b79367a3f003f1a6369c01773ec99990e
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732349"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742281"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -126,24 +120,149 @@ VPN 网关连接涉及以下组件：
 
 > [!Note]
 > Iperf 不是唯一工具。 [NTTTCP 是用于测试的备用解决方案](/virtual-network/virtual-network-bandwidth-testing)。
-## <a name="address-slow-file-copy-issues"></a>解决文件复制速度缓慢问题
-在使用 Windows 资源管理器时，或者在通过 RDP 会话进行拖放时，文件的复制速度可能会很缓慢。 此问题通常是由以下的一个或两个因素造成的：
 
-- 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作”   > “复制选项”   > “文件复制”  。<br><br>
-![文件复制速度缓慢问题](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/common/storage-e2e-troubleshooting.md)。
+## <a name="test-vms-running-windows"></a>测试运行 Windows 的 VM
+
+### <a name="load-latteexe-onto-the-vms"></a>将 Latte.exe 加载到 VM
+
+下载最新版本的 [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+
+考虑将 Latte.exe 放在单独的文件夹中，例如 `c:\tools`
+
+### <a name="allow-latteexe-through-the-windows-firewall"></a>允许 Latte.exe 通过 Windows 防火墙
+
+在接收端上的 Windows 防火墙中创建“允许”规则，以允许 Latte.exe 流量抵达。 最简单的方法是按名称允许整个 Latte.exe 程序，而不是允许特定的 TCP 端口入站。
+
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>如下所示允许 Latte.exe 通过 Windows 防火墙
+
+`netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
+
+例如，如果已将 Latte.exe 复制到“c:\tools”文件夹中，则此命令为
+
+`netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
+
+### <a name="run-latency-tests"></a>运行延迟测试
+
+在接收端启动 latte.exe（从 CMD 运行，而不要从 PowerShell 运行）：
+
+`latte -a <Receiver IP address>:<port> -i <iterations>`
+
+大约 65000 次迭代就足以返回代表性的结果。
+
+可输入任意可用端口号。
+
+如果 VM 的 IP 地址为 10.0.0.4，则命令如下
+
+`latte -c -a 10.0.0.4:5005 -i 65100`
+
+在发送端启动 latte.exe（从 CMD 运行，而不要从 PowerShell 运行）
+
+`latte -c -a <Receiver IP address>:<port> -i <iterations>`
+
+生成的命令与接收端上的命令相同，只是添加了“-c”来指示这是“客户端”或发送端
+
+`latte -c -a 10.0.0.4:5005 -i 65100`
+
+等待结果。 该命令可能需要几分钟时间才能完成，具体取决于 VM 之间的距离。 考虑先运行较少的迭代次数以使测试成功，然后再运行较长的测试。
+
+## <a name="test-vms-running-linux"></a>测试运行 Linux 的 VM
+
+使用 [SockPerf](https://github.com/mellanox/sockperf) 测试 VM。
+
+### <a name="install-sockperf-on-the-vms"></a>在 VM 上安装 SockPerf
+
+在 Linux VM（发送端和接收端）上，运行以下命令以在 VM 上准备 SockPerf：
+
+#### <a name="centos--rhel---install-git-and-other-helpful-tools"></a>CentOS/RHEL - 安装 GIT 和其他有用的工具
+
+`sudo yum install gcc -y -q`
+`sudo yum install git -y -q`
+`sudo yum install gcc-c++ -y`
+`sudo yum install ncurses-devel -y`
+`sudo yum install -y automake`
+
+#### <a name="ubuntu---install-git-and-other-helpful-tools"></a>Ubuntu - 安装 GIT 和其他有用的工具
+
+`sudo apt-get install build-essential -y`
+`sudo apt-get install git -y -q`
+`sudo apt-get install -y autotools-dev`
+`sudo apt-get install -y automake`
+
+#### <a name="bash---all"></a>Bash - 所有分发版
+
+从 bash 命令行（假设已安装 git）
+
+`git clone https://github.com/mellanox/sockperf`
+`cd sockperf/`
+`./autogen.sh`
+`./configure --prefix=`
+
+Make 速度较慢，可能需要几分钟时间
+
+`make`
+
+Make install 速度较快
+
+`sudo make install`
+
+### <a name="run-sockperf-on-the-vms"></a>在 VM 上运行 SockPerf
+
+#### <a name="sample-commands-after-installation-serverreceiver---assumes-servers-ip-is-10004"></a>安装后的示例命令。 服务器/接收端 - 假设服务器 IP 为10.0.0.4
+
+`sudo sockperf sr --tcp -i 10.0.0.4 -p 12345 --full-rtt`
+
+#### <a name="client---assumes-servers-ip-is-10004"></a>客户端 - 假设服务器 IP 为 10.0.0.4
+
+`sockperf ping-pong -i 10.0.0.4 --tcp -m 1400 -t 101 -p 12345  --full-rtt`
+
+> [!Note]
+> 在 VM 与网关之间执行吞吐量测试过程中，请确保没有中间跃点（例如虚拟设备）。
+> 如果上述 iPERF/NTTTCP 测试返回的结果不佳（在总体吞吐量方面），请参阅以下文章，了解此问题的可能性根本原因是哪些重要因素造成的： https://docs.azure.cn/virtual-network/virtual-network-tcpip-performance-tuning
+
+具体而言，在执行这些测试期间同时从客户端和服务器收集的数据包捕获跟踪（Wireshark/网络监视器）有助于对不良性能进行评估。 这些跟踪可能包括丢包、高延迟、MTU 大小问题、 碎片、TCP 0 窗口、失序片段等。
+
+## <a name="address-slow-file-copy-issues"></a>解决文件复制速度缓慢问题
+
+即使使用上述步骤评估得出的总体吞吐量（iPERF/NTTTCP/等）良好，在使用 Windows 资源管理器或通过 RDP 会话拖放时，也仍可能会遇到文件复制速度缓慢的情况。 此问题通常是由以下的一个或两个因素造成的：
+
+* 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作”   > “复制选项”   > “文件复制”  。
+
+   ![文件复制速度缓慢问题](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+
+   > [!Note]
+   > 并非所有应用程序的工作方式都相同，此外，并非所有应用程序/进程都利用所有线程。 如果运行测试，可以看到某些线程是空的，不能提供准确的吞吐量结果。
+   > 若要检查应用程序文件的传输性能，请通过增加连续线程数来使用多线程，或减少线程数，以找到应用程序或文件传输的最佳吞吐量。
+
+* VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/common/storage-e2e-troubleshooting.md)。
 
 ## <a name="on-premises-device-external-facing-interface"></a>本地设备上的对外接口
-如果 Azure 中的[本地网络](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)定义中包含本地 VPN 设备面向 Internet 的 IP 地址，则可能会出现 VPN 无法显示、偶发性断连或性能问题。
 
-## <a name="checking-latency"></a>检查延迟
-请使用 tracert 跟踪 Azure 边缘设备，以确定跃点间是否存在任何超过 100 毫秒的延迟。
+指定希望 Azure 通过本地网络网关上的 VPN 访问的本地范围的子网。 同时，将 Azure 中的 VNET 地址空间定义为本地设备的相同地址空间。
 
-通过本地网络，针对 Azure 网关或 VM 的 VIP 运行 *tracert*。 当看到只返回了 *，则代表已到达 Azure 的边缘。 如果看到返回了包含“MSN”的 DNS 名称，则代表已到达 Microsoft 的主干。<br><br>
+* **基于路由的网关**：基于路由的 VPN 的策略或流量选择器配置为任意到任意（或通配符）。
+
+* **基于策略的网关**：基于策略的 VPN 会根据本地网络和 Azure VNet 之间的地址前缀的各种组合，加密数据包并引导其通过 IPsec 隧道。 通常会在 VPN 配置中将策略（或流量选择器）定义为访问列表。
+
+* **UsePolicyBasedTrafficSelector** 连接：将“UsePolicyBasedTrafficSelectors”设置为 $True，此时会配置 Azure VPN 网关，以连接到基于策略的本地 VPN 防火墙。 如果启用 PolicyBasedTrafficSelectors，则需确保对于本地网络（本地网关）前缀与 Azure 虚拟网络前缀的所有组合，VPN 设备都定义了与之匹配的（而不是任意到任意）流量选择器。
+
+不当的配置可能导致隧道中频繁断开连接、丢包、吞吐量不佳和延迟。
+
+## <a name="check-latency"></a>检查延迟
+
+可使用以下工具来检查延迟：
+
+* WinMTR
+* TCPTraceroute
+* `ping` 和 `psping`（这些工具能够很好地评估 RTT，但不能在所有情况下使用。）
+
 ![检查延迟](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
+
+如果在进入 MS 网络主干之前发现任一跃点出现较高的延迟峰值，可以在 Internet 服务提供商的配合下进一步展开调查。
+
+如果在“msn.net”内部的跃点中发现了非同寻常的高延迟峰值，请联系 MS 支持部门进一步展开调查。
 
 ## <a name="next-steps"></a>后续步骤
 
 有关详细信息或帮助，请查看以下链接：
 
-* [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

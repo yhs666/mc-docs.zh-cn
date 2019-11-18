@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/23/2019
-ms.date: 06/24/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ba28f59927c3539e7c937bc97e92d463d7d54f
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: fcb42ffc268af659dca7e81cf0dbb9f70118aae9
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568491"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830983"
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项
 
@@ -95,11 +95,5 @@ Stack Overflow 中的以下帖子包含有关如何提问和如何添加源代�
 * 如果你不是 Azure 客户，也可以通过[我们的商业支持](https://support.microsoft.com/gp/contactus81?Audience=Commercial)向 Microsoft 提出支持请求。
 
 还可以尝试通过[虚拟代理](https://www.azure.cn/support/contact/?ws=support)获取支持或提出问题。
-
-### <a name="free-chat-support-for-a-limited-time"></a>获取限时免费聊天支持
-
-Microsoft 合作伙伴还可以使用限时免费聊天支持。 如果你的公司不是 Microsoft 合作伙伴，可在[此处](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx)免费将其登记并获取其他权益。
-
-登记公司后，可在[此处](https://aka.ms/devchat)发起聊天请求。
 
 <!-- Update_Description: wording update -->

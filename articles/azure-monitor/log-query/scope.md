@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor Log Analytics 中的日志查询范围 | Microsoft Docs
 description: 介绍 Azure Monitor Log Analytics 中的日志查询的范围和时间范围。
-services: log-analytics
+ms.service: azure-monitor
 author: bwren
 manager: carmonm
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 01/11/2019
-ms.date: 06/25/2019
+origin.date: 06/25/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 102b05a5b010482e0d9af05d54bdd4233bb0fd4b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d12f0999a09965e9cc277be6aa74e3073329d4c9
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737089"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730520"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics 中的日志查询范围和时间范围
 在 [Azure 门户上的 Log Analytics 中](get-started-portal.md)运行[日志查询](log-query-overview.md)时，该查询评估的数据集取决于所选的范围和时间范围。 本文介绍范围和时间范围，以及如何根据要求设置这两项。 本文还介绍了不同范围类型的行为。

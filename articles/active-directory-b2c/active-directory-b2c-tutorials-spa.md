@@ -6,17 +6,17 @@ author: mmacy
 manager: celestedg
 ms.author: v-junlch
 origin.date: 07/24/2019
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3221673333bdf521eb09da6cc7fa09dc5af6136a
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: ebbb6f5e5ecd49dfacfc2c300c153aaeaafea72f
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846909"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934372"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>教程：使用 Azure Active Directory B2C (Azure AD B2C) 在单页应用程序中启用身份验证
 
@@ -116,6 +116,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>使用电子邮件地址注册
 
+> [!WARNING]
+> 注册或登录后，你可能会看到[“权限不足”错误](#error-insufficient-permissions)。 由于代码示例的当前实现，因此预期会出现此错误。 此问题将在代码示例的未来版本中解决，此时将删除此警告。
+
 1. 选择“登录”  以启动在前面步骤中指定的 B2C_1_signupsignin1  用户流。
 1. Azure AD B2C 会显示带注册链接的登录页面。 由于你还没有帐户，因此请选择“立即注册”链接。 
 1. 注册工作流会显示一个页面，用于收集用户的标识并通过电子邮件地址对其进行验证。 注册工作流还收集用户的密码和请求的属性（在用户流中定义）。
@@ -132,7 +135,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="error-insufficient-permissions"></a>错误: 权限不足
 
-登录后，应用显示“权限不足”错误 - 这是**预期行为**：
+登录后，应用程序可能会返回“权限不足”错误：
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
@@ -140,7 +143,7 @@ Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
 Timestamp: 2019-07-20 22:17:27Z
 ```
 
-你会收到此错误，是因为 Web 应用程序正在尝试访问受演示目录 fabrikamb2c  保护的 Web API。 由于你的访问令牌仅对 Azure AD 目录有效，因此 API 调用是未经授权的。
+你会收到此错误，是因为 Web 应用程序正在尝试访问受演示目录 fabrikamb2c  保护的 Web API。 由于你的访问令牌仅对 Azure AD 目录有效，因此此 API 调用是未经授权的。
 
 若要修复此错误，请继续学习本系列中的下一教程（请参阅[后续步骤](#next-steps)），了解如何为目录创建受保护的 Web API。
 

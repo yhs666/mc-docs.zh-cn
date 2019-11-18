@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 05/31/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ff8b2fbe3a42c774a4dd6d9b3b927fc0afeb574e
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: fcb85964b352d74970ca91d51b1973336174d6f9
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500744"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068855"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的服务主体更新或轮换凭据
 
@@ -30,9 +30,7 @@ ms.locfileid: "70500744"
 * 为群集使用的现有服务主体更新凭据，或
 * 创建服务主体并更新群集以使用这些新凭据。
 
-如果要创建服务主体，然后更新 AKS 群集，请跳过此部分中的其余步骤并继续浏览[创建服务主体](#create-a-service-principal)。 如果要为 AKS 群集使用的现有服务主体更新凭据，请继续执行此部分中的步骤。
-
-### <a name="get-the-service-principal-id"></a>获取服务主体 ID
+### <a name="update-existing-service-principal-expiration"></a>更新现有服务主体到期时间
 
 若要为现有服务主体更新凭据，请使用 [az aks show][az-aks-show] 命令获取群集的服务主体 ID。 以下示例获取 myResourceGroup 资源组中名为 myAKSCluster 的群集的 ID   。 服务主体 ID 设置为名为“SP_ID”  变量以供在其他命令中使用。
 
@@ -41,17 +39,15 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 ```
 
-### <a name="update-the-service-principal-credentials"></a>更新服务主体凭据
-
 借助包含服务主体 ID 的变量集，现在使用 [az ad sp credential reset][az-ad-sp-credential-reset] 重置凭据。 下面的示例可让 Azure 平台为服务主体生成新安全密码。 此新安全密码也存储为变量。
 
 ```azurecli
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-现在继续浏览[使用新凭据更新 AKS 群集](#update-aks-cluster-with-new-credentials)。
+现在继续浏览[使用新凭据更新 AKS 群集](#update-aks-cluster-with-new-credentials)。 若要在 AKS 群集上反映服务主体更改，必须执行此步骤。
 
-## <a name="create-a-service-principal"></a>创建服务主体
+### <a name="create-a-new-service-principal"></a>创建新服务主体
 
 如果在上一部分中选择更新现有服务主体凭据，请跳过此步骤。 继续浏览[使用新凭据更新 AKS 群集](#update-aks-cluster-with-new-credentials)。
 
@@ -79,6 +75,8 @@ SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
 
+现在继续浏览[使用新凭据更新 AKS 群集](#update-aks-cluster-with-new-credentials)。 若要在 AKS 群集上反映服务主体更改，必须执行此步骤。
+
 ## <a name="update-aks-cluster-with-new-credentials"></a>使用新凭据更新 AKS 群集
 
 无论是选择为现有服务主体更新凭据还是创建服务主体，现在都通过 [az aks update-credentials][az-aks-update-credentials] 命令，使用新凭据更新 AKS 群集。 会使用 --service-principal  和 --client-secret  的变量：
@@ -100,11 +98,11 @@ az aks update-credentials \
 
 <!-- LINKS - internal -->
 
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
-[az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset
+[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-reset]: https://docs.azure.cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset
 
 <!-- Update_Description: wording update, update link -->

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/10/2018
-ms.date: 08/05/2019
+origin.date: 09/26/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46116e5e0dfed5d6251b978b9d075df11af748ad
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 2249205b5cb51e806db59f0afa7eab92ba217b88
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818652"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084540"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上配置 Azure 资源托管标识
 
@@ -103,8 +103,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```azurecli
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-> [!NOTE]
-> 如果已为 Azure 资源 VM 扩展（将弃用）配置了托管标识，则需要使用 [az vm extension delete](/cli/vm/) 将其删除。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ## <a name="user-assigned-managed-identity"></a>用户分配的托管标识
 
@@ -217,7 +216,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' ide
   - [使用 CLI 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-cli.md) 
 
 
-
+<!-- Update_Description: wording update -->
 
 
 

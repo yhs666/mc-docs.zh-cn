@@ -4,32 +4,32 @@ description: 如何为 Privileged Identity Management (PIM) 分配 Azure AD 自�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/06/2019
-ms.date: 08/20/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183620192c92b8a63cbc75a5e14e963c13d06980
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 9aa12b15daa77fd86acc149177cb216def80047f
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993685"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830864"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>在 Privileged Identity Management 中分配 Azure AD 自定义角色
 
 本文介绍如何使用 Privileged Identity Management (PIM) 来创建对自定义角色进行的恰时分配和有时限的分配，这些自定义角色是在 Azure Active Directory (Azure AD) 管理体验中为了管理应用程序而创建的。
 
 - 若要详细了解如何在 Azure AD 中创建自定义角色来委托应用程序管理，请参阅 [Azure Active Directory 中的自定义管理员角色（预览）](../users-groups-roles/roles-custom-overview.md)。
-- 如果你未曾用过 Privileged Identity Management，请参阅[开始使用 PIM](pim-getting-started.md) 来获取详细信息。
-- 有关如何授予其他管理员访问权限以管理 Privileged Identity Management 的信息，请参阅[授予其他管理员访问权限以管理 PIM](pim-how-to-give-access-to-pim.md)。
+- 如果未使用过 Privileged Identity Management，请参阅[开始使用 Privileged Identity Management](pim-getting-started.md) 以获取详细信息。
+- 有关如何授予其他管理员访问权限以管理 Privileged Identity Management 的信息，请参阅[授予其他管理员访问权限以管理 Privileged Identity Management](pim-how-to-give-access-to-pim.md)。
 
 > [!NOTE]
 > 在预览版中，Azure AD 自定义角色未集成内置的目录角色。 此功能的正式版发布后，可在内置的角色体验中进行角色管理。
@@ -83,3 +83,4 @@ Privileged Identity Management 可以管理可在 Azure Active Directory (Azure 
 - [配置 Azure AD 自定义角色分配](azure-ad-custom-roles-configure.md)
 - [Azure AD 中的角色定义](../users-groups-roles/directory-assign-admin-roles.md)
 
+<!-- Update_Description: wording update -->

@@ -1,7 +1,6 @@
 ---
 title: 将 Windows Server 备份到 Azure
 description: 本教程详细介绍了如何将本地 Windows Server 备份到恢复服务保管库。
-services: backup
 author: lingliw
 manager: digimobile
 keywords: windows server 备份; 备份 windows server; 备份和灾难恢复
@@ -11,12 +10,12 @@ origin.date: 08/25/2018
 ms.date: 8/22/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 2355de6b81072fd865ca8421e50dbaba56bc432f
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 2ce2309b81da6fe749ff874a1b47699849f3892e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416396"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730165"
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
@@ -40,11 +39,11 @@ ms.locfileid: "73416396"
 
 1. 在左侧菜单上，选择“所有服务”，然后在服务列表中键入“恢复服务”   。 单击“恢复服务保管库”  。
 
-    ![打开恢复服务保管库](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![打开恢复服务保管库](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2. 在“恢复服务保管库”菜单中，单击“添加”   。
 
-    ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
+   ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
 3. 在“恢复服务保管库”菜单中  ，
 

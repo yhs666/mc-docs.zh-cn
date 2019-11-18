@@ -1,19 +1,19 @@
 ---
-title: 在 Azure Kubernetes 服务 (AKS) 中为多个 Pod 动态创建磁盘卷
-description: 了解如何使用 Azure 磁盘动态创建永久性卷，以便与 Azure Kubernetes 服务 (AKS) 中的多个并发 Pod 一起使用
+title: 在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
+description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 Azure 磁盘动态创建永久性卷
 services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 07/29/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 45062ccc8c8ecbec307db1ded6a399be5b680305
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 840e6ef5776e57dccba5d06e315a577c457016bd
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731262"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068926"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
@@ -274,6 +274,7 @@ Volumes:
 > [用于 Azure 磁盘的 Kubernetes 插件][azure-disk-volume]
 
 <!-- LINKS - external -->
+
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -282,16 +283,17 @@ Volumes:
 [managed-disk-pricing-performance]: https://www.azure.cn/pricing/details/storage/
 
 <!-- LINKS - internal -->
+
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/disks-types.md
-[az-disk-list]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list
-[az-snapshot-create]: https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-create
-[az-disk-create]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create
-[az-disk-show]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-show
+[az-disk-list]: https://docs.azure.cn/cli/disk?view=azure-cli-latest#az-disk-list
+[az-snapshot-create]: https://docs.azure.cn/cli/snapshot?view=azure-cli-latest#az-snapshot-create
+[az-disk-create]: https://docs.azure.cn/cli/disk?view=azure-cli-latest#az-disk-create
+[az-disk-show]: https://docs.azure.cn/cli/disk?view=azure-cli-latest#az-disk-show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes

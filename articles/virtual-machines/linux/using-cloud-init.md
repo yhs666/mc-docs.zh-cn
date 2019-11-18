@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 08/20/2019
-ms.date: 10/14/2019
+origin.date: 10/11/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e82436e80d0cf9fd226435920a716c2e630d3bf
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: e76db6b187714dfad5b31bc20efa3ff0990916ae
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272573"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831359"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>cloud-init 对 Azure 中虚拟机的支持
 本文介绍了在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机规模集的现有支持。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。  
@@ -39,7 +39,7 @@ Cloud-init 还支持不同的发行版。 例如，不需使用  apt-get install
 |Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
 |CoreOS |CoreOS |Stable |最新 |是 |
-|OpenLogic 7.6 |CentOS |7-CI |最新 |预览 |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |预览 |
 
 <!-- Not Available on Red Hat -->
 

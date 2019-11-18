@@ -3,14 +3,14 @@ author: craigshoemaker
 ms.service: azure-functions
 ms.topic: include
 origin.date: 03/05/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1acf500127fa8db849aca776cdc13c60ef281c41
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 276f5ffd0489a68e4173b9102ee4230111af0575
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034461"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73987378"
 ---
 ## <a name="trigger"></a>触发器
 
@@ -335,7 +335,7 @@ public void eventHubProcessor(
 
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
-在 [C# 类库](../articles/azure-functions/functions-dotnet-class-library.md)中，使用 `EventHubTriggerAttribute` 特性。
+在 [C# 类库](../articles/azure-functions/functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 特性。
 
 该特性的构造函数使用事件中心的名称、使用者组的名称和包含连接字符串的应用设置的名称。 有关这些设置的详细信息，请参阅[触发器配置部分](#trigger---configuration)。 下面是 `EventHubTriggerAttribute` 特性的示例：
 

@@ -1,22 +1,20 @@
 ---
-title: Azure Application Insights 快速入门 | Azure docs
+title: 快速入门：使用 Azure Application Insights 进行监视
 description: 提供有关快速安装 Node.js Web 应用以使用 Application Insights 进行监视的说明
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: lingliw
 ms.author: v-lingwu
 origin.date: 07/12/2019
 ms.date: 08/12/2019
-ms.service: application-insights
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.topic: quickstart
-manager: digimobile
-ms.openlocfilehash: d85d7ae43e528f0189a77345eef3557045dd7d54
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 0214ee9036685f08021dad4885e67dce59d1d371
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970890"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730313"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>快速入门：使用 Azure Application Insights 开始监视 Node.js Web 应用程序
 

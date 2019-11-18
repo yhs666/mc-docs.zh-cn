@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/30/2017
-ms.date: 02/27/2019
+ms.date: 10/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 04fb5253241a8ee215e0e1a4ca1d05d677b5992f
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 65705b639888af248cf6d380009b3ceaf6f2d231
+ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903075"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068804"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>从托管缓存服务迁移到 Azure Redis 缓存
 在将使用 Azure 托管缓存服务的应用程序迁移到 Azure Redis 缓存时，只需对应用程序略做更改，具体情况取决于缓存应用程序所使用的托管缓存服务功能。 API 虽非完全相同，但却极为类似，而且使用托管缓存服务来访问缓存的多数现有代码，只需略做更改即可重复使用。 本文介绍了为迁移托管缓存服务应用程序以使用 Azure Redis 缓存，如何进行必要的配置和应用程序更改；还介绍了如何使用 Azure Redis 缓存的某些功能实现托管缓存服务缓存功能。
@@ -31,17 +31,17 @@ ms.locfileid: "56903075"
 ## <a name="migration-steps"></a>迁移步骤
 要将托管缓存服务应用程序迁移为使用 Azure Redis 缓存，需执行以下步骤。
 
-- 将托管缓存服务功能映射到 Azure Redis 缓存
-- 选择缓存产品/服务
-- 创建缓存
-- 配置缓存客户端
-  - 删除托管缓存服务配置
-  - 使用 StackExchange.Redis NuGet 包配置缓存客户端
-- 迁移托管缓存服务代码
-  - 使用 ConnectionMultiplexer 类连接到缓存
-  - 访问缓存中的基元数据类型
-  - 处理缓存中的 .NET 对象
-- 将 ASP.NET 会话状态和输出缓存迁移到 Azure Redis 缓存 
+* 将托管缓存服务功能映射到 Azure Redis 缓存
+* 选择缓存产品/服务
+* 创建缓存
+* 配置缓存客户端
+  * 删除托管缓存服务配置
+  * 使用 StackExchange.Redis NuGet 包配置缓存客户端
+* 迁移托管缓存服务代码
+  * 使用 ConnectionMultiplexer 类连接到缓存
+  * 访问缓存中的基元数据类型
+  * 处理缓存中的 .NET 对象
+* 将 ASP.NET 会话状态和输出缓存迁移到 Azure Redis 缓存 
 
 ## <a name="map-managed-cache-service-features-to-azure-cache-for-redis"></a>将托管缓存服务功能映射到 Azure Redis 缓存
 Azure 托管缓存服务与 Azure Redis 缓存类似，但两者在实现某些功能时会使用不同的方式。 本节描述其中的一些差异，并针对如何在 Azure Redis 缓存中实现托管缓存服务功能提供指导。
@@ -61,9 +61,9 @@ Azure 托管缓存服务与 Azure Redis 缓存类似，但两者在实现某些�
 ## <a name="choose-a-cache-offering"></a>选择缓存产品/服务
 Azure Redis 缓存在下述层中提供：
 
-- **基本** - 单个节点。 多种大小，最大 53 GB。
-- **标准** - 双节点主/副本配置。 多种大小，最大 53 GB。 99.9% SLA。
-- **高级** - 双节点主/副本配置，最多有 10 个分片。 多个大小（从 6 GB 到 530 GB）。 标准层的所有功能加上其他功能，包括支持 [Redis 群集](cache-how-to-premium-clustering.md)、[Redis 持久性](cache-how-to-premium-persistence.md)和 [Azure 虚拟网络](cache-how-to-premium-vnet.md)。 99.9% SLA。
+* **基本** - 单个节点。 多种大小，最大 53 GB。
+* **标准** - 双节点主/副本配置。 多种大小，最大 53 GB。 99.9% SLA。
+* **高级** - 双节点主/副本配置，最多有 10 个分片。 多个大小（从 6 GB 到 1.2 TB）。 标准层的所有功能加上其他功能，包括支持 [Redis 群集](cache-how-to-premium-clustering.md)、[Redis 持久性](cache-how-to-premium-persistence.md)和 [Azure 虚拟网络](cache-how-to-premium-vnet.md)。 99.9% SLA。
 
 每个级别在功能和定价方面存在差异。 在本指南的后面将介绍这些功能，而有关定价的详细信息，则请参阅[缓存定价详细信息](https://www.azure.cn/pricing/details/redis-cache/)。
 
@@ -75,13 +75,13 @@ Azure Redis 缓存在下述层中提供：
 ## <a name="configure-the-cache-clients"></a>配置缓存客户端
 创建并配置缓存后，接下来就是删除托管缓存服务配置，并添加 Azure Redis 缓存配置和引用，让缓存客户端可以访问缓存。
 
-- 删除托管缓存服务配置
-- 使用 StackExchange.Redis NuGet 包配置缓存客户端
+* 删除托管缓存服务配置
+* 使用 StackExchange.Redis NuGet 包配置缓存客户端
 
 ### <a name="remove-the-managed-cache-service-configuration"></a>删除托管缓存服务配置
 要将客户端应用程序配置为使用 Azure Redis 缓存，必须先卸载托管缓存服务 NuGet 包，以便删除现有托管缓存服务的配置和组件引用。
 
-要卸载托管缓存服务 NuGet 包，请在“解决方案资源管理器”中右键单击客户端项目，并选择“管理 NuGet 程序包”。 选择“已安装的包”节点，并在“搜索已安装的包”框中键入 **WindowsAzure.Caching**。 选择“Windows Azure Cache”（或“Windows Azure Caching”，视 NuGet 包的版本而定）、单击“卸载”，并单击“关闭”。
+要卸载托管缓存服务 NuGet 包，请在“解决方案资源管理器”  中右键单击客户端项目，并选择“管理 NuGet 程序包”  。 选择“已安装的包”  节点，并在“搜索已安装的包”框中键入 **WindowsAzure.Caching**。 选择“Windows Azure Cache”   （或“Windows Azure Caching”   ，视 NuGet 包的版本而定）、单击“卸载”  ，并单击“关闭”  。
 
 ![卸载 Azure 托管缓存服务 NuGet 包](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -155,7 +155,7 @@ public static ConnectionMultiplexer Connection
 }
 ```
 
-可以从缓存实例的“Azure Redis 缓存”边栏选项卡中获取缓存终结点、密钥和端口。 有关详细信息，请参阅 [Azure Redis 缓存属性](cache-configure.md#properties)。
+可以从缓存实例的“Azure Redis 缓存”  边栏选项卡中获取缓存终结点、密钥和端口。 有关详细信息，请参阅 [Azure Redis 缓存属性](cache-configure.md#properties)。
 
 建立连接后，通过调用 `ConnectionMultiplexer.GetDatabase` 方法返回对 Azure Redis 缓存数据库的引用。 从 `GetDatabase` 方法返回的对象是一个轻型直通对象，不需要存储。
 
@@ -192,5 +192,5 @@ Azure Redis 缓存有适用于 ASP.NET 会话状态和页面输出缓存的提�
 ## <a name="next-steps"></a>后续步骤
 浏览 [Azure Redis 缓存文档](https://www.azure.cn/zh-cn/home/features/redis-cache)中的教程、示例、视频及其他信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->
 

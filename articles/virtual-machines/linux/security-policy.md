@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 origin.date: 11/27/2018
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 53645f8b0522da50c5f419550be05352873e78b7
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: e9d43bb9594300c1bb1cff036e973a22cd2a9d1b
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70920996"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831435"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>在 Azure 中保护和使用虚拟机上的策略
 

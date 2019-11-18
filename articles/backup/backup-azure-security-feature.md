@@ -1,7 +1,7 @@
 ---
-title: 有助于保护使用 Azure 备份的混合备份的安全功能
+title: 使用 Azure 备份来保护混合备份的安全功能
 description: 了解如何在 Azure 备份中使用安全功能，使备份更加安全
-services: backup
+ms.reviewer: utraghuv
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 3b7ef959a0c1b26d20bf2a4666f124b9eef94654
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 90323df756f510f73f58b85a4bb9412c23e21de3
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555466"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730341"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>有助于保护使用 Azure 备份的混合备份的安全功能
 对安全问题（例如恶意软件、勒索软件、入侵）的关注在逐渐上升。 这些安全问题可能会代价高昂（就金钱和数据来说）。 为了防止此类攻击，Azure 备份现提供可保护混合备份的安全功能。 本文介绍如何通过 Azure 恢复服务代理和 Azure 备份服务器来启用和使用这些功能。 这些功能包括：
@@ -27,7 +27,7 @@ ms.locfileid: "65555466"
 > 如果使用基础结构即服务 (IaaS) VM 备份，则不应启用安全功能。 这些功能对于 IaaS VM 备份尚不可用，因此启用这些功能没有任何影响。 只有使用以下项才应启用安全功能： <br/>
 >  * **Azure 备份代理**。 最低代理版本 2.0.9052。 启用这些功能后，应升级到此代理版本，以执行关键操作。 <br/>
 >  * **Azure 备份服务器**。 Azure 备份服务器 Update 1 的最低 Azure 备份代理版本为 2.0.9052。 <br/>
->  * **System Center Data Protection Manager**。 Data Protection Manager 2012 R2 UR12 或 Data Protection Manager 2016 UR2 的最低 Azure 备份代理版本为 2.0.9052。 <br/> 
+>  * **System Center Data Protection Manager**。 Data Protection Manager 2012 R2 UR12 或 Data Protection Manager 2016 UR2 的最低 Azure 备份代理版本为 2.0.9052。 <br/>
 
 
 > [!NOTE]
@@ -35,31 +35,32 @@ ms.locfileid: "65555466"
 >
 
 ## <a name="enable-security-features"></a>启用安全功能
+
 如果创建恢复服务保管库，则可使用所有安全功能。 如果使用现有的保管库，则可通过以下步骤启用安全功能：
 
 1. 使用 Azure 凭据登录到 Azure 门户。
-2. 选择“浏览”，并键入“恢复服务”。
+2. 选择“浏览”  ，并键入“恢复服务”  。
 
     ![Azure 门户“浏览”选项的屏幕截图](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     此时显示恢复服务保管库列表。 从此列表中，选择一个保管库。 此时会打开选定的保管库仪表板。
-3. 从保管库下显示的项目列表中，单击“设置”下的“属性”。
+3. 从保管库下显示的项目列表中，单击“设置”下的“属性”   。
 
     ![恢复服务保管库选项的屏幕截图](./media/backup-azure-security-feature/vault-list-properties.png)
-4. 单击“安全设置”下的“更新”。
+4. 单击“安全设置”下的“更新”   。
 
     ![恢复服务保管库属性的屏幕截图](./media/backup-azure-security-feature/security-settings-update.png)
 
-    更新链接会打开“安全设置”边栏选项卡，其中提供功能摘要，并允许启用它们。
-5. 从下拉列表“是否已配置 Azure 多重身份验证?”中选择一个值，确认是否已启用 [Azure 多重身份验证](../active-directory/authentication/multi-factor-authentication.md)。 如果已启用，则在登录到 Azure 门户时，系统会要求从另一设备（例如移动电话）进行身份验证。
+    更新链接会打开“安全设置”边栏选项卡，其中提供功能摘要，并允许启用它们。 
+5. 从下拉列表“是否已配置 Azure 多重身份验证?”  中选择一个值，确认是否已启用 [Azure 多重身份验证](../active-directory/authentication/multi-factor-authentication.md)。 如果已启用，则在登录到 Azure 门户时，系统会要求从另一设备（例如移动电话）进行身份验证。
 
    在备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure 多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
-6. 要保存安全设置，请选择“启用”，并单击“保存”。 只有从上一步的“是否已配置 Azure 多重身份验证?”列表中选择值后，才可选择“启用”。
+6. 要保存安全设置，请选择“启用”，  并单击“保存”  。 只有从上一步的“是否已配置 Azure 多重身份验证?”列表中选择值后，才可选择“启用”。  
 
     ![安全设置的屏幕截图](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>恢复已删除的备份数据
-如果执行“停止备份并删除备份数据”操作，备份会将已删除的备份数据另外再保留 14 天，不会立即删除数据。 若要在 14 天的期限内还原该数据，请根据所用软件执行以下步骤：
+如果执行“停止备份并删除备份数据”操作，备份会将已删除的备份数据另外再保留 14 天，不会立即删除数据。  若要在 14 天的期限内还原该数据，请根据所用软件执行以下步骤：
 
 对于 **Azure 恢复服务代理**用户：
 
@@ -80,7 +81,7 @@ ms.locfileid: "65555466"
 已添加检查，确保只有效用户才可执行各种操作。 这些检查包括：添加额外的身份验证层，以及为恢复目的而保持一个最小的保留期时间范围。
 
 ### <a name="authentication-to-perform-critical-operations"></a>执行关键操作的身份验证
-在为关键操作添加额外身份验证层的过程中，在执行“停止保护并删除数据”和“更改密码”操作时，系统会提示输入安全 PIN。
+在为关键操作添加额外身份验证层的过程中，在执行“停止保护并删除数据”和“更改密码”操作时，系统会提示输入安全 PIN。  
 
 > [!NOTE]
 > 
@@ -89,8 +90,8 @@ ms.locfileid: "65555466"
 若要接收此 PIN，请执行以下操作：
 
 1. 登录到 Azure 门户。
-2. 浏览到“恢复服务保管库” > “设置” > “属性”。
-3. 单击“安全 PIN”下的“生成”。 此时会打开一个边栏选项卡，其中包含的 PIN 将输入到 Azure 恢复服务代理用户界面中。
+2. 浏览到“恢复服务保管库”   > “设置”   >   “属性”。
+3. 单击“安全 PIN”下的“生成”   。 此时会打开一个边栏选项卡，其中包含的 PIN 将输入到 Azure 恢复服务代理用户界面中。
     此 PIN 的有效时间仅为五分钟，并在五分钟后自动生成。
 
 ### <a name="maintain-a-minimum-retention-range"></a>维持最短的保留期
@@ -112,7 +113,7 @@ ms.locfileid: "65555466"
 | --- | --- | --- |
 | 策略更改 |无法修改备份策略。 错误：由于内部服务错误 [0x29834]，当前操作失败。 请稍后重试操作。 如果问题持续出现，请联系 Azure 支持部门。 |**原因：**<br/>当启用安全设置、尝试缩短保留期范围至低于以上指定的最小值和使用不受支持的版本时，将出现此错误（本文第一条注释已指定所支持的版本）。 <br/>**建议的操作：**<br/> 在这种情况下，应将保留期设置为高于指定保留期的最小值（以日计为七天、以周记为四周、以月计为三个月或以年计为一年），以进行策略相关的更新。 （可选）首选更新备份代理、Azure 备份服务器和/或 DPM UR 来利用所有的安全性更新。 |
 | 更改通行短语 |输入的安全 PIN 不正确。 (ID:100130) 请提供正确的安全 PIN 来完成此操作。 |**原因：**<br/> 当执行关键操作（如更改通行短语）时输入无效或已过期的安全 PIN 将出现此错误。 <br/>**建议的操作：**<br/> 若要完成该操作，必须输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
-| 更改通行短语 |操作失败。 ID:120002 |**原因：**<br/>当启用安全设置、尝试更改通行短语和使用不受支持的版本时，将出现此错误（本文第一条注释已指定有效版本）。<br/>建议的操作<br/> 若要更改通行短语，必须首先更新备份代理至最低版本 minimum 2.0.9052、更新Azure 备份服务器至最低更新 1 和/或更新 DPM 至最低 DPM 2012 R2 UR12 或 DPM 2016 UR2 （下载链接如下），然后输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
+| 更改通行短语 |操作失败。 ID:120002 |**原因：**<br/>当启用安全设置、尝试更改通行短语和使用不受支持的版本时，将出现此错误（本文第一条注释已指定有效版本）。<br/>建议的操作 <br/> 若要更改通行短语，必须首先更新备份代理至最低版本 minimum 2.0.9052、更新Azure 备份服务器至最低更新 1 和/或更新 DPM 至最低 DPM 2012 R2 UR12 或 DPM 2016 UR2 （下载链接如下），然后输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 恢复服务保管库入门](backup-azure-vms-first-look-arm.md)，介绍如何启用这些功能。

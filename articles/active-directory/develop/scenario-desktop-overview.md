@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 10/25/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40fcefd15e217ccfb0d4e56fff1cb3c859959ebf
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 43e05ae2647265da5e726c17c232a4cb9e7bd747
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912774"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830924"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>方案：用于调用 Web API 的 桌面应用
 
@@ -33,7 +33,7 @@ ms.locfileid: "72912774"
 
 ## <a name="getting-started"></a>入门
 
-如果还未创建第一个应用程序，请按 .NET 桌面快速入门或 UWP 快速入门的说明来这样做：
+如果尚未创建第一个应用程序，请按照 .NET 桌面快速入门、UWP 快速入门或 macOS 本机应用快速入门进行创建：
 
 > [!div class="nextstepaction"]
 > [快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API](./quickstart-v2-windows-desktop.md)
@@ -42,13 +42,16 @@ ms.locfileid: "72912774"
 > [!div class="nextstepaction"]
 > [快速入门：获取令牌并从 UWP 应用中调用 Microsoft Graph API](./quickstart-v2-uwp.md)
 
+> [!div class="nextstepaction"]
+> [快速入门：获取令牌并从 macOS 本机应用调用 Microsoft Graph API](./quickstart-v2-ios.md)
+
 ## <a name="overview"></a>概述
 
 你编写桌面应用程序，需要将用户登录到应用程序并调用 Web API，例如 Microsoft Graph、其他 Microsoft API 或你自己的 Web API。 有几种可能性：
 
 - 在以下情况下，可以使用交互式令牌获取：
 
-  - 如果桌面应用程序支持图形控制，例如，它是 Windows.Form 应用程序或 WPF 应用程序。
+  - 如果桌面应用程序支持图形控制，例如，它是 Windows.Form 应用程序、WPF 应用程序或 macOS 本机应用程序。
   - 如果它是 .NET Core 应用程序，并且你同意在系统浏览器中与 Azure AD 进行身份验证交互
 
 - 对于 Windows 托管的应用程序，也可让加入到 Windows 域或加入 AAD 的计算机上运行的应用程序使用集成 Windows 身份验证以无提示方式获取令牌。

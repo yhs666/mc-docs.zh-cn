@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 09/11/2019
-ms.date: 10/14/2019
-ms.openlocfilehash: 540ec5fc1ace0fd7b04fc0860f275c35dcabef5c
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.date: 11/11/2019
+ms.openlocfilehash: 2ba20fe01a40f10b155e8b3f2e9da2a537a59b68
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275356"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648763"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>创建按翻转窗口运行管道的触发器
 本文提供了创建、启动和监视翻转窗口触发器的步骤。 有关触发器和支持的类型的一般信息，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md)。
@@ -43,16 +43,32 @@ ms.locfileid: "72275356"
         "type": "TumblingWindowTrigger",
         "runtimeState": "<<Started/Stopped/Disabled - readonly>>",
         "typeProperties": {
-            "frequency": "<<Minute/Hour>>",
+            "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: "<<datetime – optional>>"",
-            "delay": "<<timespan – optional>>",
-            “maxConcurrency”: <<int>> (required, max allowed: 50),
+            "endTime: <<datetime – optional>>,
+            "delay": <<timespan – optional>>,
+            "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
-                “intervalInSeconds”: <<int>>,
-            }
+                "intervalInSeconds": <<int>>,
+            },
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         },
         "pipeline": {
             "pipelineReference": {
@@ -89,6 +105,9 @@ ms.locfileid: "72275356"
 | **maxConcurrency** | 同时针对已就绪窗口触发的触发器运行数。 例如，若要每小时回填，昨天的运行会产生 24 个 windows。 如果 **maxConcurrency** = 10，则仅针对头 10 个窗口 (00:00-01:00 - 09:00-10:00) 触发触发器事件。 在头 10 个触发的管道运行完成后，将针对接下来的 10 个窗口 (10:00-11:00 - 19:00-20:00) 触发触发器运行。 继续进行 **maxConcurrency** = 10 的此示例，如果有 10 个窗口就绪，则总共有 10 个管道运行。 如果只有 1 个窗口就绪，则只有 1 管道运行。 | Integer | 一个介于 1 到 50 之间的整数。 | 是 |
 | **retryPolicy: Count** | 将管道运行标记为“失败”之前的重试次数。  | Integer | 一个整数，其默认值为 0（不重试）。 | 否 |
 | **retryPolicy: intervalInSeconds** | 重试之间的延迟（以秒为单位指定）。 | Integer | 秒数，其默认值为 30。 | 否 |
+| **dependsOn: type** | TumblingWindowTriggerReference 的类型。 如果设置了依赖项，则为必需。 | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 否 |
+| **dependsOn: size** | 依赖项翻转窗口的大小。 | Timespan<br/>(hh:mm:ss)  | 一个正的时间跨度值，其中默认值为子触发器的窗口大小  | 否 |
+| **dependsOn: offset** | 依赖项触发器的偏移量。 | Timespan<br/>(hh:mm:ss) |  在自我依赖项中必须为负的时间跨度值。 如果未指定任何值，则该窗口与触发器本身相同。 | 自我依赖项：是<br/>其他：否  |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart 和 WindowEnd 系统变量
 
@@ -130,6 +149,10 @@ ms.locfileid: "72275356"
 
 * 如果触发器的 **frequency** 元素（或窗口大小）的值更改，则已处理窗口的状态不会  重置。 触发器会根据新的窗口大小继续触发一段时间（从上次执行开始计算）。
 * 如果触发器的 **endTime** 元素的值更改（添加或更新），则已处理窗口的状态不会  重置。 触发器会遵循新的 **endTime** 值。 如果新的 **endTime** 值在已执行的窗口之前，则触发器会停止。 否则，触发器会在遇到新的 **endTime** 值停止。
+
+### <a name="tumbling-window-trigger-dependency"></a>翻转窗口触发器依赖项
+
+若要确保仅在数据工厂中成功执行另一个翻转窗口触发器后才执行翻转窗口触发器，请[创建翻转窗口触发器依赖项](tumbling-window-trigger-dependency.md)。 
 
 ## <a name="sample-for-azure-powershell"></a>Azure PowerShell 示例
 
@@ -206,4 +229,6 @@ ms.locfileid: "72275356"
 若要在 Azure 门户中监视触发器运行和管道运行，请参阅[监视管道运行](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)。
 
 ## <a name="next-steps"></a>后续步骤
-有关触发器的详细信息，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md#triggers)。
+
+* 有关触发器的详细信息，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md#triggers)。
+* [创建翻转窗口触发器依赖项](tumbling-window-trigger-dependency.md)

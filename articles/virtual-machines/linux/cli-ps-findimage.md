@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 01/25/2019
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de10dab779fddf3861d8e70223c2b68045c13e7e
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: f527d0f0462a3ef6821471a1b962ba9b99520886
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912913"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831289"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>使用 Azure CLI 在 Azure 市场中查找 Linux VM 映像
 
@@ -30,7 +30,7 @@ ms.locfileid: "68912913"
 
 还可以使用 [Azure 市场](https://market.azure.cn/marketplace/)店面、[Azure 门户](https://portal.azure.cn)或 [Azure PowerShell](../windows/cli-ps-findimage.md) 浏览可用的映像和产品/服务。 
 
-<!--MOONCAKE: [Azure Marketplace](https://market.azure.cn/marketplace/)-->
+<!--MOONCAKE: CORRECT FORMAT ON [Azure Marketplace](https://market.azure.cn/marketplace/)-->
 
 请确保已安装最新版的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 且已登录到 Azure 帐户 (`az login`)。
 

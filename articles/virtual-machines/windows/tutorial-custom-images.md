@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 197e5955100cd78a6a6f80251e576f945322c432
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 923a6d2989629f6a11dd56bd81bdff3dde217502
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272671"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116855"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -131,6 +131,8 @@ New-AzVm `
     -PublicIpAddressName "myImagePIP" `
     -OpenPorts 3389
 ```
+
+我们建议你将单个映像的并发部署数量限制为 20 个 VM。 如果计划从同一自定义映像中同时大规模部署 20 多个 VM，则应将[共享映像库](shared-image-galleries.md)与多个映像副本一起使用。 
 
 ## <a name="image-management"></a>映像管理 
 

@@ -6,14 +6,15 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
+origin.date: 09/20/2019
 ms.date: 07/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2d4981ca487ffe62e573bff5406e0b1df243d6be
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 3f824e0bb537f78b32f9290f8a37792b79f6aea7
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104177"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730279"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure 备份服务器和 DPM - 常见问题解答
 本文解答有关 Azure 备份服务器和 DPM 的常见问题。

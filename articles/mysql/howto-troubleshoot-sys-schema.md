@@ -1,23 +1,20 @@
 ---
-title: 如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
-description: 本文介绍如何在 Azure Database for MySQL 中使用 sys_schema 发现性能问题和维护数据库。
-services: mysql
+title: 使用 sys_schema 优化性能和维护 Azure Database for MySQL
+description: 了解如何在 Azure Database for MySQL 中使用 sys_schema 发现性能问题和维护数据库。
 author: WenJason
 ms.author: v-jay
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-origin.date: 08/01/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 33a81e775fd3dde53bb19bfb61d6aad18e7548a5
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.topic: troubleshooting
+origin.date: 08/27/2018
+ms.date: 11/04/2019
+ms.openlocfilehash: df26b2f0adfd4e4a6ab071ba2874dc3ad5977244
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236595"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142151"
 ---
-# <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
+# <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
@@ -40,7 +37,7 @@ sys_schema 中有 52 个视图，每个视图具有以下前缀之一：
 
 ## <a name="performance-tuning"></a>性能调优
 
-### <a name="sysusersummarybyfileio"></a>*sys.user_summary_by_file_io*
+### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
 IO 是数据库中开销最高的操作。 我们可以通过查询 *sys.user_summary_by_file_io* 视图找出平均 IO 延迟。 使用 125 GB 默认预配存储时，IO 延迟大约为 15 秒。
 
@@ -50,13 +47,13 @@ IO 是数据库中开销最高的操作。 我们可以通过查询 *sys.user_su
 
 ![io 延迟：1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
-### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
+### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
 尽管经过认真规划，但许多查询仍可能导致全表扫描。 有关索引类型及其优化方式的其他信息，请参阅此文：[如何排查查询性能问题](./howto-troubleshoot-query-performance.md)。 全表扫描属于资源密集型操作，会降低数据库性能。 查找执行全表扫描的表的最快方法是查询 *sys.schema_tables_with_full_table_scans* 视图。
 
 ![全表扫描](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 
-### <a name="sysusersummarybystatementtype"></a>*sys.user_summary_by_statement_type*
+### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
 若要排查数据库性能问题，识别数据库中发生的事件可能很有帮助，而使用 *sys.user_summary_by_statement_type* 视图就能实现此目的。
 
@@ -66,7 +63,7 @@ IO 是数据库中开销最高的操作。 我们可以通过查询 *sys.user_su
 
 ## <a name="database-maintenance"></a>数据库维护
 
-### <a name="sysinnodbbufferstatsbytable"></a>*sys.innodb_buffer_stats_by_table*
+### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 InnoDB 缓冲池驻留在内存中，是 DBMS 与存储之间的主要缓存机制。 InnoDB 缓冲池大小与性能层密切相关，除非选择不同的产品 SKU，否则不能更改。 与操作系统中的内存一样，旧页面将被换出，以便为较新数据留出空间。 若要了解哪些表占用了大部分 InnoDB 缓冲池内存，可以查询 *sys.innodb_buffer_stats_by_table* 视图。
 
@@ -74,7 +71,7 @@ InnoDB 缓冲池驻留在内存中，是 DBMS 与存储之间的主要缓存机�
 
 在上图中，很明显，除系统表和视图以外，mysqldatabase033 数据库中的每个表（托管某个 WordPress 站点）占用了 16 KB 或 1 个页面的内存中数据。
 
-### <a name="sysschemaunusedindexes--sysschemaredundantindexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
+### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 
 索引是提高读取性能的极佳工具，但它们确实会产生额外的插入和存储开销。 *Sys.schema_unused_indexes* 和 *sys.schema_redundant_indexes* 提供未使用或重复索引的洞察信息。
 

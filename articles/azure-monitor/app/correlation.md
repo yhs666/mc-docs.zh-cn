@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 遥测关联 | Azure Docs
 description: Application Insights 遥测关联
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/07/2019
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: fccf419f11847ad14baa8d4f6df3abc0e316cf67
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d02f346405c64fccdc274f7d2bedf13c6e7b9639
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737303"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730294"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 
@@ -63,24 +59,35 @@ Application Insights 定义了用于分配遥测关联的[数据模型](../../az
 
 ## <a name="correlation-headers"></a>关联标头
 
-我们正在开发[关联 HTTP 协议](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)的 RFC 提案。 此提案定义两个标头：
-
-- `Request-Id`：承载调用的全局唯一 ID。
-- `Correlation-Context`：承载分布式跟踪属性的名称值对集合。
-
-该标准还定义了 `Request-Id` 生成项的两个架构：平面和分层。 使用平面架构时，将为 `Correlation-Context` 集合定义一个已知的 `Id` 键。
-
-Application Insights 为关联 HTTP 协议定义了[扩展](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)。 它使用 `Request-Context` 名称值对来传播直接调用方或被调用方使用的属性集合。 Application Insights SDK 使用此标头设置 `dependency.target` 和 `request.source` 字段。
-
-### <a name="w3c-distributed-tracing"></a>W3C 分布式跟踪
-
-我们正在转换为 [W3C 分布式跟踪格式](https://w3c.github.io/trace-context/)。 定义的内容：
+我们将过渡到 [W3C 跟踪上下文](https://w3c.github.io/trace-context/)，该协议用于定义：
 
 - `traceparent`：承载调用的全局唯一操作 ID 和唯一标识符。
 - `tracestate`：承载跟踪系统特定的上下文。
 
-#### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>启用对经典 ASP.NET 应用的 W3C 分布式跟踪支持
+最新版 Application Insights SDK 支持跟踪上下文协议，但你可能需要选择加入此协议（它会保持与 Application Insights SDK 支持的旧关联协议的后向兼容性）。
 
+[关联 HTTP 协议（即 Request-Id）](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)即将弃用。 此协议定义两个标头：
+
+- `Request-Id`：承载调用的全局唯一 ID。
+- `Correlation-Context`：承载分布式跟踪属性的名称值对集合。
+
+Application Insights 还为关联 HTTP 协议定义了[扩展](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)。 它使用 `Request-Context` 名称值对来传播直接调用方或被调用方使用的属性集合。 Application Insights SDK 使用此标头设置 `dependency.target` 和 `request.source` 字段。
+
+### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>启用对经典 ASP.NET 应用的 W3C 分布式跟踪支持
+ 
+  > [!NOTE]
+  > 从 `Microsoft.ApplicationInsights.Web` 和 `Microsoft.ApplicationInsights.DependencyCollector` 开始，不需进行配置 
+
+W3C 跟踪上下文支持以后向兼容方式提供，关联预期可以与使用旧版 SDK（没有 W3C 支持）进行检测的应用程序配合使用。 
+
+如果因故需要继续使用旧的 `Request-Id` 协议，则可通过以下配置禁用  跟踪上下文
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+如果运行较旧版的 SDK，建议更新它，或应用以下配置来启用跟踪上下文。
 从版本 2.8.0-beta1 开始，`Microsoft.ApplicationInsights.Web` 和 `Microsoft.ApplicationInsights.DependencyCollector` 包中提供此功能。
 此项默认禁用。 若要启用该项，请更改 `ApplicationInsights.config`：
 
@@ -95,7 +102,21 @@ Application Insights 为关联 HTTP 协议定义了[扩展](https://github.com/l
 </TelemetryInitializers> 
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>启用对 ASP.NET Core 应用的 W3C 分布式跟踪支持
+### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>启用对 ASP.NET Core 应用的 W3C 分布式跟踪支持
+
+ > [!NOTE]
+  > 从 `Microsoft.ApplicationInsights.AspNetCore` 版本 2.8.0 开始，不需进行配置。
+ 
+W3C 跟踪上下文支持以后向兼容方式提供，关联预期可以与使用旧版 SDK（没有 W3C 支持）进行检测的应用程序配合使用。 
+
+如果因故需要继续使用旧的 `Request-Id` 协议，则可通过以下配置禁用  跟踪上下文
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+如果运行较旧版的 SDK，建议更新它，或应用以下配置来启用跟踪上下文。
 
 此功能在 `Microsoft.ApplicationInsights.AspNetCore` 的版本 2.5.0-beta1 以及 `Microsoft.ApplicationInsights.DependencyCollector` 的版本 2.8.0-beta1 中提供。
 此项默认禁用。 若要启用该项，请将 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` 设置为 `true`：
@@ -109,7 +130,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>启用对 Java 应用的 W3C 分布式跟踪支持
+### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>启用对 Java 应用的 W3C 分布式跟踪支持
 
 - **传入配置**
 
@@ -146,7 +167,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!IMPORTANT]
 > 请确保传入和传出配置完全相同。
 
-#### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>启用对 Web 应用的 W3C 分布式跟踪支持
+### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>启用对 Web 应用的 W3C 分布式跟踪支持
 
 此功能在 `Microsoft.ApplicationInsights.JavaScript` 中。 此项默认禁用。 若要启用它，请使用 `distributedTracingMode` 配置。提供 AI_AND_W3C 是为了与任何旧版 Application Insights 检测服务向后兼容：
 
@@ -195,6 +216,82 @@ public void ConfigureServices(IServiceCollection services)
 
 有关 OpenTracing 概念的定义，请参阅 OpenTracing [规范](https://github.com/opentracing/specification/blob/master/specification.md)和 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)。
 
+## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python 中的遥测关联
+
+OpenCensus Python 遵循上述 `OpenTracing` 数据模型规范。 它还支持 [W3C 跟踪上下文](https://w3c.github.io/trace-context/)，无需任何配置。
+
+### <a name="incoming-request-correlation"></a>传入请求关联
+
+OpenCensus Python 将传入请求中的 W3C 跟踪上下文标头关联到从请求本身生成的范围。 OpenCensus 会通过适合常用 Web 应用程序框架（`flask`、`django` 和 `pyramid`）的集成自动完成该操作。 W3C 跟踪上下文标头只需使用[正确格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)填充并通过请求发送即可。 下面是一个演示该操作的示例 `flask` 应用程序。
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+它在本地计算机上运行示例 `flask` 应用程序，侦听端口 `8080`。 为了关联跟踪上下文，我们向终结点发送一个请求。 在以下示例中，我们可以使用 `curl` 命令。
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+看看[跟踪上下文标头格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，我们可以获得以下信息：`version`：`00`
+`trace-id`：`4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`：`00f067aa0ba902b7`
+`trace-flags`：`01`
+
+如果查看发送到 Azure Monitor 的请求条目，可以看到填充了跟踪标头信息的字段。 可以在 Azure Monitor Application Insights 资源中的“日志(分析)”下找到此数据。
+
+![“日志(分析)”中请求遥测的屏幕截图，其中的跟踪标头字段以红框突出显示](./media/opencensus-python/0011-correlation.png)
+
+`id` 字段采用 `<trace-id>.<span-id>` 格式，其中的 `trace-id` 取自在请求中传递的跟踪标头，`span-id` 是针对该范围生成的 8 字节数组。 
+
+`operation_ParentId` 字段采用 `<trace-id>.<parent-id>` 格式，其中的 `trace-id` 和 `parent-id` 取自在请求中传递的跟踪标头。
+
+### <a name="logs-correlation"></a>日志关联
+
+OpenCensus Python 允许使用跟踪 ID、范围 ID 和采样标志来扩充日志记录，从而对日志进行关联。 若要执行该操作，请安装 OpenCensus [日志记录集成](https://pypi.org/project/opencensus-ext-logging/)。 以下属性将添加到 Python `LogRecord`：`traceId`、`spanId` 和 `traceSampled`。 请注意，这只对集成后创建的记录器生效。
+下面是一个演示该操作的示例应用程序。
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+运行该代码时，我们会在控制台中获得以下信息：
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+注意，有一个针对范围中的日志消息的 spanId，它与属于名为 `hello` 的范围的 spanId 相同。
+
 ## <a name="telemetry-correlation-in-net"></a>.NET 中的遥测关联
 
 .NET 至今已定义了多种方式来关联遥测和诊断日志：
@@ -210,7 +307,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ASP.NET Core 2.0 支持提取 HTTP 标头和启动新的活动。
 
-从版本 4.1.0 开始，`System.Net.HttpClient` 支持自动注入关联 HTTP 标头和以活动形式跟踪 HTTP 调用。
+从版本 4.1.0 开始，`System.Net.Http.HttpClient` 支持自动注入关联 HTTP 标头和以活动形式跟踪 HTTP 调用。
 
 经典 ASP.NET 有一个新的 HTTP 模块 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)。 此模块使用 `DiagnosticSource` 实现遥测关联。 它会基于传入的请求标头启动活动。 它还会关联不同请求处理阶段的遥测，即使 Internet Information Services (IIS) 处理的每个阶段在不同的托管线程上运行。
 

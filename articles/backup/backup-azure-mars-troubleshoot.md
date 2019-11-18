@@ -1,7 +1,7 @@
 ---
 title: 排查 Azure 备份代理问题
 description: 排查 Azure 备份代理的安装和注册问题
-services: backup
+ms.reviewer: saurse
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/15/2019
 ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3b6191623a3a82a7ccfa770bcd9312db2075bbbb
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 6d81752a7b1d88cc692149ab04bc3dbe2a8345a7
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330435"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730347"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>排查 Microsoft Azure 恢复服务 (MARS) 代理问题
 

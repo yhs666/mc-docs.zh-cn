@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 04/08/2019
-ms.date: 05/26/2019
-ms.openlocfilehash: 25a54c46c3a036709b820287d768da66de30b8d6
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 11/04/2019
+ms.openlocfilehash: b11436db1a2667b656c4936a63416055cb26d09a
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578560"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041186"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什么是 Azure SQL 数据库中的单一数据库
 
@@ -61,6 +60,6 @@ SQL 数据库提供一系列[内置安全性和符合性](sql-database-security-
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要快速开始使用单一数据库，请从 [Single database quickstart guide.md](sql-database-single-database-quickstart-guide.md) 开始。
+- 若要快速开始使用单一数据库，请从[单一数据库快速入门指南](sql-database-single-database-quickstart-guide.md)开始。
 - 若要详细了解如何将 SQL Server 数据库迁移到 Azure，请参阅[迁移到 Azure SQL 数据库](sql-database-single-database-migrate.md)。
 - 有关受支持功能的信息，请参阅[功能](sql-database-features.md)。

@@ -1,6 +1,6 @@
 ---
-title: 访问和自定义新的开发人员门户 - Azure API 管理 | Microsoft Docs
-description: 了解如何使用 API 管理中的新开发人员门户。
+title: Azure API 管理开发人员门户概述 - Azure API 管理 | Microsoft Docs
+description: 了解 API 管理中的开发人员门户。
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -9,100 +9,124 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2019
-ms.date: 09/16/2019
+origin.date: 11/04/2019
+ms.date: 11/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: d99aecd17204dff06167ddd76b9ac1e38183e7a4
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 93df0058a85630b27de83746d80117a349c105dd
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737440"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831418"
 ---
-# <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>访问和自定义 Azure API 管理中的新开发人员门户
+# <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理开发人员门户概述
 
-本文介绍如何访问新的 Azure API 管理开发人员门户。 其中逐步介绍了视觉编辑器体验（添加和编辑内容），以及如何自定义网站的外观。
+开发人员门户是一个自动生成的、完全可自定义的网站，其中包含 API 的文档。 API 使用者可在其中找到 API、了解 API 的用法、请求访问权限以及试用这些 API。
 
-![新的 API 管理开发人员门户](media/api-management-howto-developer-portal/cover.png)
+本文介绍了 API 管理中开发人员门户的自承载版本与托管版本之间的差异。 此外介绍此门户的体系结构，并提供常见问题的解答。
 
-## <a name="prerequisites"></a>先决条件
+> [!IMPORTANT]
+> [了解如何从开发人员门户预览版迁移到正式版](#preview-to-ga)。
 
-- 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
-- 导入并发布 Azure API 管理实例。 有关详细信息，请参阅[导入和发布](import-and-publish.md)。
+![API 管理开发人员门户](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-> [!NOTE]
-> 新的开发人员门户目前以预览版提供。
 
 ## <a name="managed-vs-self-hosted"></a> 托管版本和自承载版本
 
 可通过两种方式构建开发人员门户：
 
-- **托管版本** - 通过编辑和自定义 API 管理实例中内置的、可通过 URL `<your-api-management-instance-name>.developer.azure-api.net` 访问的门户。
-- **自承载版本** - 通过在 API 管理实例外部部署和自承载门户。 使用此方法可以编辑门户的基代码并扩展所提供的核心功能。 有关详细信息和说明，请参阅[包含门户源代码的 GitHub 存储库][1]。
+- **托管版本** - 通过编辑和自定义 API 管理实例中内置的、可通过 URL `<your-api-management-instance-name>.developer.azure-api.net` 访问的门户。 请参阅[此文档](api-management-howto-developer-portal-customize.md)了解如何访问和自定义托管门户。
+- **自承载版本** - 通过在 API 管理实例外部部署和自承载门户。 使用此方法可以编辑门户的基代码并扩展所提供的核心功能。 还需要自行将门户升级到最新版本。 有关详细信息和说明，请参阅[包含门户源代码的 GitHub 存储库][1]。 [托管版本的教程](api-management-howto-developer-portal-customize.md)全面介绍了门户的管理面板（自承载版本中也有此面板）。
 
-## <a name="managed-access"></a> 访问托管版本的门户
+## <a name="portal-architectural-concepts"></a>门户体系结构概念
 
-遵循以下步骤访问托管版本的门户。
+门户组件在逻辑上可以划分为两个类别：代码和内容。  
 
-1. 在 Azure 门户中转到你的 API 管理服务实例。
-1. 单击顶部导航栏中的“新开发人员门户(预览版)”按钮。  此时会打开一个新的浏览器标签页，其中包含管理版本的门户。 首次访问门户时，将自动预配默认内容。
+代码在 [GitHub 存储库][1]中维护，包括： 
 
-## <a name="managed-tutorial"></a> 编辑和自定义托管版本的门户
+- 小组件 - 呈现视觉元素并组合了 HTML、JavaScript、样式功能、设置和内容映射。 例如，图像、文本段落、表单、API 列表等。
+- 样式定义 - 指定如何设置小组件的样式
+- 引擎 - 基于门户内容生成静态网页，是以 JavaScript 编写的
+- 视觉编辑器 - 用于浏览器内部的自定义和创作体验
 
-以下视频演示了如何编辑门户的内容、自定义网站的外观，以及发布所做的更改。
+内容划分为两个子类别：门户内容和 API 管理内容。   
 
-> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
+门户内容特定于门户，包括： 
+
+- 页面 - 例如登陆页、API 教程和博客文章
+- 媒体 - 图像、动画和其他基于文件的内容
+- 布局 - 与 URL 匹配的模板，定义页面显示方式
+- 样式 - 样式定义值，例如字体、颜色和边框
+- 设置 - 网站图标、网站元数据等配置
+
+门户内容（媒体除外）以 JSON 文档的形式表示。 
+
+API 管理内容包括 API、操作、产品和订阅等实体。 
+
+门户基于 [Paperbits 框架](https://paperbits.io/)的改编分叉。 原始 Paperbits 功能已经过扩展，提供特定于 API 管理的小组件（例如 API 列表、产品列表）以及与 API 管理服务之间的连接器，可以保存和检索内容。
 
 ## <a name="faq"></a> 常见问题
 
-本部分解答了有关新开发人员门户的一般性常见问题。 有关自承载版本的特定问题，请参阅 [GitHub 存储库的 wiki 部分](https://github.com/Azure/api-management-developer-portal/wiki)。
+本部分解答有关新开发人员门户的一般性常见问题。 有关自承载版本的特定问题，请参阅 [GitHub 存储库的 wiki 部分](https://github.com/Azure/api-management-developer-portal/wiki)。
 
-### <a name="how-can-i-migrate-content-from-the-old-developer-portal-to-the-new-one"></a>如何将旧开发人员门户中的内容迁移到新开发人员门户？
+### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> 如何从门户预览版迁移？
 
-无法迁移。 这两个门户不兼容。
+你已使用开发人员门户预览版在 API 管理服务中预配了预览内容。 为了提供更好的用户体验，默认内容已在正式版中进行重大修改。 正式版中还包括新的小组件。
 
-### <a name="when-will-the-portal-become-generally-available"></a>该门户何时推出正式版？
+如果使用的是托管版本，请通过单击“操作”菜单部分中的“重置内容”来重置门户内容。   确认此操作会删除门户的所有内容并预配新的默认内容。 门户引擎已在 API 管理服务中自动更新。
 
-该门户目前为预览版，将在 2019 年日历年底推出正式版。 请不要将预览版用于生产目的。
+![重置门户内容](media/api-management-howto-developer-portal/reset-content.png)
 
-### <a name="will-the-old-portal-be-deprecated"></a>将来是否会弃用旧门户？
+如果使用的是自承载版本，请使用 GitHub 存储库中的 `scripts/cleanup.bat` 和 `scripts/generate.bat` 删除现有内容并预配新内容。 确保提前将门户代码升级到 GitHub 存储库中的最新版本。
 
-是的，在新门户推出正式版后，即会弃用旧门户。 如果你有疑虑，请提出[相关的 GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/121)。
+如果不想要重置门户内容，可以考虑在整个页面中使用新的可用小组件。 现有的小组件已自动更新到最新版本。
+
+如果门户是宣布推出正式版后预配的，则它应已具有新的默认内容。 你无需在自己的一端执行任何操作。
+
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>如何从旧开发人员门户迁移到新开发人员门户？
+
+这两个门户不兼容，需要手动迁移内容。
 
 ### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>新门户是否拥有旧门户的所有功能？
 
-正式版的目标是提供与旧门户相当的基于方案的功能。 在此之前，预览版中可能未实现某些功能。
+新开发人员门户不支持“应用程序”和“问题”。   如果你在旧门户中使用了“问题”，并需要在新门户中继续使用该功能，请在[相关的 GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/122)中留言。 
 
-旧门户中的“应用程序”和“问题”除外，新门户中不会提供这些功能。   如果你在使用旧门户中的“问题”，并需要在新门户中继续使用该功能，请在[相关的 GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/122)中留言。 
+### <a name="has-the-old-portal-been-deprecated"></a>旧门户是否已弃用？
 
-### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>我发现了 bug，并且/或者想要请求某项功能。
+旧的开发人员和发布者门户现在属于旧版功能 - 它们只会接收安全更新。  新功能只会在新开发人员门户中实现。
 
-很好！ 你可以向我们提供反馈、提交功能请求，或者通过 [GitHub 存储库的“问题”部分](https://github.com/Azure/api-management-developer-portal/issues)提交 bug 报告。 在此过程中，我们还会感谢你对带有 `community` 标签的问题提供反馈。
+旧门户弃用时，我们会另行通告。 若有问题、疑虑或意见，请提出[相关的 GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/121)。
 
-### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>我想在不同的环境之间移动新门户的内容。 如何做到这一点，是否需要使用自承载版本？
+### <a name="how-can-i-automate-portal-deployments"></a>如何自动部署门户？
 
-在托管版本和自承载版本的门户中都可以做到这一点。 新开发人员门户支持通过 API 管理服务的管理 API 提取内容。 [GitHub 存储库的 wiki 部分](https://github.com/Azure/api-management-developer-portal/wiki/)介绍了这些 API。 我们还编写了一个可帮助你入门的[脚本](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat)。
+不管使用的是托管版本还是自承载版本，都可以通过 REST API 以编程方式访问和管理开发人员门户的内容。
 
-我们仍在努力使此过程与 API 管理 DevOps 资源工具包相一致。
+[GitHub 存储库的 Wiki 部分][2]介绍了该 API。 也可以使用该 API 在环境之间自动迁移门户内容 - 例如，从测试环境迁移到生产环境。 可以在 GitHub 上的[此文档](https://aka.ms/apimdocs/migrateportal)中详细了解此过程。
 
-### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>创建新的页面时如何选择布局？  
+### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>门户是否支持 Azure 资源管理器模板，和/或是否与 API 管理 DevOps 资源工具包兼容？
 
-将布局的 URL 模板与页面的 URL 相匹配即可将该布局应用到该页面。   例如，使用 URL 模板 `/wiki/*` 的布局将应用到包含 `/wiki/` 段的每个页面：`/wiki/getting-started`、`/wiki/styles`，等等。  
+否。
 
-### <a name="why-doesnt-the-interactive-developer-console-work"></a>交互式开发人员控制台为何无法正常工作？
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>是否需要为托管门户依赖项启用额外的 VNET 连接？
 
-这有可能与 CORS 相关。 交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数 (例如，来源为 https://contoso.com) ，或使用通配符值 `*` 。
+否。
+
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>使用交互式控制台时出现 CORS 错误。 我该怎么办？
+
+交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数 (例如，来源为 https://contoso.com) ，或使用通配符值 `*` 。
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解新开发人员门户：
 
+- [访问和自定义托管开发人员门户](api-management-howto-developer-portal-customize.md)
+- [设置自承载版本的门户][2]
+
+浏览其他资源：
+
 - [包含源代码的 GitHub 存储库][1]
-- [有关自承载门户的说明][2]
 - [项目的公开路线图][3]
 
 [1]: https://aka.ms/apimdevportal

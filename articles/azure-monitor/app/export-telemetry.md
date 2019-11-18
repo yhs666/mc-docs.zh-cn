@@ -1,24 +1,20 @@
 ---
-title: 从 Application Insights 连续导出遥测数据 | Azure Docs
-description: 将诊断和使用情况数据导出到世纪互联 Azure 中的存储，然后从中下载这些数据。
-services: application-insights
-documentationcenter: ''
+title: 从 Application Insights 连续导出遥测数据 | Microsoft Docs
+description: 将诊断和使用情况数据导出到 Microsoft Azure 中的存储，然后从中下载这些数据。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 07/25/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 99c8f4f19935a1674a34a0e8d4fc80488d2164ab
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8353f2300ec7fcb3c695134954590949d4403975
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330427"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730484"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到世纪互联 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  

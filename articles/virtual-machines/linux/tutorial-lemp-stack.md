@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 01/30/2019
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3fe2df2af00a3e8d6e048062d9046c8bd5063ba0
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 82bc15dd1ae1e5905a286ff1a211de04b704fc98
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912942"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831360"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LEMP Web 服务器
 

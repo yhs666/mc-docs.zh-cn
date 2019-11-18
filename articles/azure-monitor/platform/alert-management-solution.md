@@ -1,32 +1,28 @@
 ---
 title: Azure Log Analytics 中的警报管理解决方案 | Azure Docs
 description: Log Analytics 中的警报管理解决方案有助于分析环境中的所有警报。  除了整合 Log Analytics 内生成的警报之外，它还会将连接的 System Center Operations Manager 管理组中的警报导入到 Log Analytics。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 01/19/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bc4e1c297cd4e90ef829b9e97834e7d67c2c85b2
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 0b697a0407ce3f6a79ef3da6ee2e5503e4705a08
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737247"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730044"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警报管理解决方案
 
 ![警报管理图标](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor 现在支持[大规模管理警报](https://aka.ms/azure-alerts-overview)的增强功能，包括由[监视工具（如 SCOM、Zabbix 或 Nagios）](https://aka.ms/managing-alerts-other-monitoring-services)生成的警报。
+>  Azure Monitor 现在支持用于[大规模管理警报](https://aka.ms/azure-alerts-overview)的增强功能，包括由[监视工具（如 System Center Operations Manager、Zabbix 或 Nagios）](https://aka.ms/managing-alerts-other-monitoring-services)生成的警报。
 >  
 
 
@@ -71,7 +67,7 @@ ms.locfileid: "70737247"
 |:--- |:--- |
 | 严重警报 |按警报名称分组并且严重级别为“严重”的所有警报。  单击某个警报名称，以运行会返回该警报所有记录的日志搜索。 |
 | 警告警报 |按警报名称分组并且严重级别为“警告”的所有警报。  单击某个警报名称，以运行会返回该警报所有记录的日志搜索。 |
-| 活动 SCOM 警报 |按生成警报的源分组并且状态为非“已关闭”  的从 Operations Manager 收集的所有警报。 |
+| 活动 System Center Operations Manager 警报 |按生成警报的源分组并且状态为非“已关闭”  的从 Operations Manager 收集的所有警报。 |
 | 所有活动警报 |按警报名称分组并且具有任意严重级别的所有警报。 仅包括状态为非“已关闭”  的 Operations Manager 警报。 |
 
 向右滚动时，仪表板会列出几个常见查询，可以单击这些查询执行[日志搜索](../../azure-monitor/log-query/log-query-overview.md)以获取警报数据。

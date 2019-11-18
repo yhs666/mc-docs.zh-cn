@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 07/11/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 947f49ef301584f1b03c91b5d4fc669c23c88b1e
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: ecb24996e554b6409d239cceb108382cfb2e3a22
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125545"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416201"
 ---
 # <a name="streaming-endpoints"></a>流式处理终结点 
 
@@ -32,9 +32,14 @@ ms.locfileid: "71125545"
 
 ## <a name="naming-convention"></a>命名约定
 
-对于默认终结点：`{AccountName}-{DatacenterAbbreviation}.streaming.media.chinacloudapi.cn`
+流式处理 URL 的主机名格式为：`{servicename}-{accountname}-{regionname}.streaming.media.chinacloudapi.cn`，其中 `servicename` = 流式处理终结点名称或实时事件名称。 
 
-对于任何其他终结点：`{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.chinacloudapi.cn`
+使用默认的流式处理终结点时，将省略 `servicename`，因此 URL 为：`{accountname}-{regionname}.streaming.chinacloudapi.cn`。 
+
+### <a name="limitations"></a>限制
+
+* 流式处理终结点名称的最大值为 24 个字符。
+* 该名称应遵循此[正则表达式](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)模式：`^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`。
 
 ## <a name="types"></a>类型  
 

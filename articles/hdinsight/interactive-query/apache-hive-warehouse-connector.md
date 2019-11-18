@@ -1,20 +1,19 @@
 ---
 title: 将 Apache Spark 和 Apache Hive 与 Hive 仓库连接器相集成
 description: 了解如何将 Apache Spark 和 Apache Hive 与 Azure HDInsight 上的 Hive 仓库连接器相集成。
-services: hdinsight
+author: nakhanha
+ms.reviewer: hrasheed
 ms.service: hdinsight
-author: hrasheed-msft
 ms.author: v-yiso
-ms.reviewer: jasonh
 ms.topic: conceptual
-origin.date: 04/29/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: 8b27e956b9fa69f75b54acef4efdd9c9affb76d9
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+origin.date: 10/08/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 405d8eef371b504bc6e20d21ca47db6f95ecd957
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583844"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425676"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>将 Apache Spark 和 Apache Hive 与 Hive 仓库连接器相集成
 
@@ -40,49 +39,52 @@ Hive 仓库连接器支持的部分操作如下：
 
 遵循以下步骤在 Azure HDInsight 中的 Spark 与交互式查询群集之间设置 Hive 仓库连接器：
 
-1. 在 Azure 门户中使用存储帐户和自定义的 Azure 虚拟网络创建 HDInsight Spark 4.0 群集。 有关在 Azure 虚拟网络中创建群集的信息，请参阅[将 HDInsight 添加到现有的虚拟网络](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet)。
-1. 在 Azure 门户中使用与在 Spark 群集中所用的同一个存储帐户和 Azure 虚拟网络创建 HDInsight 交互式查询 (LLAP) 4.0 群集。
-1. 将交互式查询群集的头节点 0 上的 `/etc/hosts` 文件内容，复制到 Spark 群集的头节点 0 上的 `/etc/hosts` 文件中。 执行此步骤可让 Spark 群集解析交互式查询群集中节点的 IP 地址。 使用 `cat /etc/hosts` 查看已更新文件的内容。 输出应如以下屏幕截图所示。
+### <a name="create-clusters"></a>创建群集
 
-    ![查看 hosts 文件](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+1. 使用存储帐户和自定义的 Azure 虚拟网络创建 HDInsight Spark **4.0** 群集。 有关在 Azure 虚拟网络中创建群集的信息，请参阅[将 HDInsight 添加到现有的虚拟网络](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet)。
 
-1. 执行以下步骤配置 Spark 群集设置： 
-    1. 转到 Azure 门户，选择 HDInsight 群集，然后单击群集名称。
-    1. 在右侧的**群集仪表板**下，选择“Ambari 主页”。 
-    1. 在 Ambari Web UI 中，单击“SPARK2” > “配置” > “自定义 spark2-defaults”。   
+1. 使用与在 Spark 群集中所用的同一个存储帐户和 Azure 虚拟网络创建 HDInsight 交互式查询 (LLAP) **4.0** 群集。
 
-        ![Spark2 Ambari 配置](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+### <a name="modify-hosts-file"></a>修改 hosts 文件
 
-    1. 将 `spark.hadoop.hive.llap.daemon.service.hosts` 设置为与“高级 hive-interactive-site”下的属性 **hive.llap.daemon.service.hosts** 相同的值。 例如： `@llap0`
+复制交互式查询群集的头节点 0 上的 `/etc/hosts` 文件中的节点信息，然后将该信息连接到 Spark 群集的头节点 0 上的 `/etc/hosts` 文件。 执行此步骤可让 Spark 群集解析交互式查询群集中节点的 IP 地址。 使用 `cat /etc/hosts` 查看已更新文件的内容。 最终输出应如以下屏幕截图所示。
 
-    1. 将 `spark.sql.hive.hiveserver2.jdbc.url` 设置为 JDBC 连接字符串，用于连接到交互式查询群集上的 Hiveserver2。 群集的连接字符串如以下 URI 所示。 `CLUSTERNAME` 是 Spark 群集的名称，`user` 和 `password` 参数设置为群集的正确值。
+![hive 仓库连接器 hosts 文件](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
-        ```
-        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.cn:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
-        ```
+### <a name="gather-preliminary-information"></a>收集初步信息
 
-        >[!Note] 
-        > JDBC URL 应包含用于连接到 Hiveserver2 的凭据（包括用户名和密码）。
+#### <a name="from-your-interactive-query-cluster"></a>在交互式查询群集中
 
-    1. 将 `spark.datasource.hive.warehouse.load.staging.dir` 设置为与 HDFS 兼容的适当暂存目录。 如果你有两个不同的群集，则暂存目录应是 LLAP 群集存储帐户的暂存目录中的某个文件夹，这样，HiveServer2 才能访问它。 例如 `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.chinacloudapi.cnt/tmp`，其中，`STORAGE_ACCOUNT_NAME` 是群集所用存储帐户的名称，`STORAGE_CONTAINER_NAME` 是存储容器的名称。
+1. 使用 `https://LLAPCLUSTERNAME.azurehdinsight.net` 导航到群集的 Apache Ambari 主页，其中的 `LLAPCLUSTERNAME` 是交互式查询群集的名称。
 
-    1. 使用交互式查询群集的元存储 URI 值设置 `spark.datasource.hive.warehouse.metastoreUri`。 若要查找 LLAP 群集的 metastoreUri，请在 LLAP 群集的 Ambari UI 中的“Hive” > “高级” > “常规”下查找“hive.metastore.uris”属性。     该值如以下 URI 所示：
+1. 导航到“Hive”   >   “CONFIGS” >   “高级” >   “高级 hive-site” > **hive.zookeeper.quorum**，然后记下该值。 该值可能类似于 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`。
 
-        ```
-        thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,
-        thrift://hn1-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083
-        ```
+1. 导航到“Hive”   >   “CONFIGS” >   “高级” >   “常规” > **hive.metastore.uris**，然后记下该值。 该值可能类似于 `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`。
 
-    1. 将 `spark.security.credentials.hiveserver2.enabled` 设置为 YARN 客户端部署模式的 `false`。
-    1. 将 `spark.hadoop.hive.zookeeper.quorum` 设置为 LLAP 群集的 Zookeeper 仲裁。 若要查找 LLAP 群集的 Zookeeper 仲裁，请在 LLAP 群集的 Ambari UI 中的“Hive” > “高级” > “高级 hive-site”下查找“hive.zookeeper.quorum”属性。     该值如以下字符串所示：
+#### <a name="from-your-apache-spark-cluster"></a>在 Apache Spark 群集中
 
-        ```
-        zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk4-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk6-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181
-        ```
+1. 使用 `https://SPARKCLUSTERNAME.azurehdinsight.net` 导航到群集的 Apache Ambari 主页，其中的 `SPARKCLUSTERNAME` 是 Apache Spark 群集的名称。
 
-若要测试 Hive 仓库连接器的配置，请遵循[连接和运行查询](#connecting-and-running-queries)部分中的步骤。
+1. 导航到“Hive”   >   “CONFIGS” >   “高级” >   “高级 hive-interactive-site” > **hive.llap.daemon.service.hosts**，然后记下该值。 该值可能类似于 `@llap0`。
+
+### <a name="configure-spark-cluster-settings"></a>配置 Spark 群集设置
+
+在 Spark Ambari Web UI 中，导航到“Spark2”   >   “CONFIGS” >   “自定义 spark2-defaults”。
+
+![Apache Ambari Spark2 配置](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+
+根据需要选择“添加属性...”  ，以便添加/更新以下属性：
+
+| 键 | Value |
+|----|----|
+|`spark.hadoop.hive.llap.daemon.service.hosts`|此前从 **hive.llap.daemon.service.hosts** 获取的值。|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`。 设置为 JDBC 连接字符串，用于连接到交互式查询群集上的 Hiveserver2。 将 `LLAPCLUSTERNAME` REPLACE 为交互式查询群集的名称。 将 `PWD` 替换为实际密码。|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`。 设置为与 HDFS 兼容的适当暂存目录。 如果你有两个不同的群集，则暂存目录应是 LLAP 群集存储帐户的暂存目录中的某个文件夹，这样，HiveServer2 才能访问它。  将 `STORAGE_ACCOUNT_NAME` 替换为群集使用的存储帐户的名称，将 `STORAGE_CONTAINER_NAME` 替换为存储容器的名称。|
+|`spark.datasource.hive.warehouse.metastoreUri`|此前从 **hive.metastore.uris** 获取的值。|
+|`spark.security.credentials.hiveserver2.enabled`|`false`，适用于 YARN 客户端部署模式。|
+|`spark.hadoop.hive.zookeeper.quorum`|此前从 **hive.zookeeper.quorum** 获取的值。|
+
+保存所做的更改，并根据需要重启组件。
 
 ## <a name="using-the-hive-warehouse-connector"></a>使用 Hive 仓库连接器
 
@@ -100,13 +102,13 @@ Hive 仓库连接器支持的部分操作如下：
 
 若要启动 spark-shell 会话，请执行以下步骤：
 
-1. 通过 SSH 连接到群集的头节点。 有关使用 SSH 连接到群集的详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
-1. 键入 `cd /usr/hdp/current/hive_warehouse_connector` 切换到正确的目录，或者提供在 spark-shell 命令中用作参数的所有 jar 文件的完整路径。
+1. 通过 SSH 连接到 Apache Spark 群集的头节点。 有关使用 SSH 连接到群集的详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
+
 1. 输入以下命令启动 spark shell：
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
@@ -123,7 +125,8 @@ Hive 仓库连接器支持的部分操作如下：
 
 企业安全性套餐 (ESP) 为 Azure HDInsight 中的 Apache Hadoop 群集提供企业级功能，例如，基于 Active Directory 的身份验证、多用户支持和基于角色的访问控制。 
 
-1. 执行[连接和运行查询](#connecting-and-running-queries)中的初始步骤 1 和 2。
+1. 通过 SSH 连接到 Apache Spark 群集的头节点。 有关使用 SSH 连接到群集的详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
+
 1. 键入 `kinit` 并使用域用户登录。
 1. 使用配置参数的完整列表启动 spark-shell，如下所示。 必须根据群集指定尖括号中所有全大写的值。 如果需要了解以下任何参数的输入值，请参阅有关 [Hive 仓库连接器设置](#hive-warehouse-connector-setup)的部分。
 
@@ -166,9 +169,13 @@ Spark 原生并不支持写入到 Hive 管理的 ACID 表。 但是，使用 HWC
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
-以下屏幕截图显示了生成的表。
+1. 使用以下命令查看结果：
 
-![显示生成的表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    ```scala
+    hive.table("sampletable_colorado").show()
+    ```
+    
+    ![hive 仓库连接器显示 hive 表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>结构化流写入
 
@@ -176,25 +183,25 @@ Spark 原生并不支持写入到 Hive 管理的 ACID 表。 但是，使用 HWC
 
 遵循以下步骤创建一个 Hive 仓库连接器示例，用于在 localhost 端口 9999 上将 Spark 流中的数据引入 Hive 表。
 
-1. 在 Spark 群集上打开一个终端。
+1. 执行[连接和运行查询](#connecting-and-running-queries)中的步骤。
+
 1. 开始使用以下命令执行 Spark 流式传输：
 
     ```scala
-    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
+    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9999).load()
     ```
 
 1. 执行以下步骤，为创建的 Spark 流生成数据：
-    1. 在同一个 Spark 群集上打开另一个终端。
+    1. 在同一个 Spark 群集上打开另一个 SSH 会话。
     1. 在命令提示符处，键入 `nc -lk 9999`。 此命令使用 netcat 实用工具通过命令行将数据发送到指定的端口。
-    1. 键入希望 Spark 流引入的单词，后接回车符。
-        ![将数据输入 Spark 流](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
-1. 创建新的 Hive 表用于保存流数据。 在 spark-shell 中键入以下命令：
+
+1. 返回到第一个 SSH 会话，并创建新的 Hive 表来保存流数据。 在 spark-shell 中输入以下命令：
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
     ```
 
-1. 使用以下命令将流数据写入新建的表：
+1. 然后，使用以下命令将流数据写入新建的表：
 
     ```scala
     lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
@@ -203,11 +210,21 @@ Spark 原生并不支持写入到 Hive 管理的 ACID 表。 但是，使用 HWC
     >[!Important]
     > 由于 Apache Spark 的已知问题，目前必须手动设置 `metastoreUri` 和 `database` 选项。 有关此问题的详细信息，请参阅 [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460)。
 
-1. 可以使用以下命令查看插入到表中的数据：
+1. 返回到另一个 SSH 会话，然后输入以下值：
+
+    ```bash
+    foo
+    HiveSpark
+    bar
+    ```
+
+1. 返回到第一个 SSH 会话，并记下简单的活动。 若要查看数据，请使用以下命令：
 
     ```scala
     hive.table("stream_table").show()
     ```
+
+使用 **Ctrl + C** 停止第二个 SSH 会话上的 netcat。 使用 `:q` 退出第一个 SSH 会话上的 spark-shell。
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>在 Spark ESP 群集上保护数据
 
@@ -231,10 +248,13 @@ Spark 原生并不支持写入到 Hive 管理的 ACID 表。 但是，使用 HWC
 1. 应用仅显示该列最后四个字符的列掩码策略。  
     1. 转到 Ranger 管理 UI (`https://CLUSTERNAME.azurehdinsight.cn/ranger/`)。
     1. 在“Hive”下单击群集的 Hive 服务。 
-        ![应用 Ranger 策略之前的演示表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. 依次单击“掩码”选项卡、“添加新策略”![策略列表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)  
-    1. 提供所需的策略名称。 从“选择掩码选项”菜单中选择数据库“默认”、Hive 表“演示”、Hive 列“名称”、用户“rsadmin2”、访问类型“选择”和“部分掩码: 显示最后 4 个”。        单击“添加”  。
-                ![策略列表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+        ![ranger 服务管理器](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+    1. 单击“掩码”选项卡，然后单击“添加新策略”  
+
+        ![hive 数据仓库连接器 ranger hive 策略列表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+
+    a. 提供所需的策略名称。 从“选择掩码选项”菜单中选择数据库“默认”、Hive 表“演示”、Hive 列“名称”、用户“rsadmin2”、访问类型“选择”和“部分掩码: 显示最后 4 个”。        单击“添加”  。
+                ![创建策略](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 再次查看该表的内容。 应用 Ranger 策略之后，我们只能看到该列的最后四个字符。
 
     ![应用 Ranger 策略之后的演示表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

@@ -51,7 +51,11 @@
 - name: 如何
   items:
     - name: 配置出站规则
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: 配置出站规则 - CLI
+          href: configure-load-balancer-outbound-cli.md
+        - name: 配置出站规则 - PowerShell
+          href: configure-load-balancer-outbound-powershell.md
     - name: 使用 REST API 创建 Azure 负载均衡器
       href: create-load-balancer-rest-api.md
     - name: 创建基本负载均衡器（模板）
@@ -81,6 +85,16 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: 为内部负载均衡器配置高可用性端口
       href: load-balancer-configure-ha-ports.md
+    - name: 跨区域移动
+      items:
+        - name: 外部负载均衡器 - 门户
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: 外部负载均衡器 - PowerShell
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: 内部负载均衡器 - 门户
+          href: move-across-regions-internal-load-balancer-portal.md
+        - name: 内部负载均衡器 - PowerShell
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: 故障排除
       items:
         - name: 对 Azure 负载均衡器进行故障排除

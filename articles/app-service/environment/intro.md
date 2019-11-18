@@ -14,12 +14,12 @@ origin.date: 04/19/2018
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 1bafe3c22f578d7a85cbfe1c773a8ab63521cfc3
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 99dcf6a63c1c0fd402c8dee8fe1dd39f8e5cd122
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156300"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041086"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>应用服务环境简介 #
  
@@ -49,7 +49,7 @@ ASE 可在隔离后只运行单个客户的应用程序，并可始终部署到�
 * ASE 附带自己的定价层，隔离套餐有助于驱动超大规模和安全性。
 * 应用服务环境 v2 提供了一个环境来保护网络子网中的应用，并提供你自己的 Azure 应用服务专用部署。
 * 可使用多个 ASE 进行水平缩放。 有关详细信息，请参阅[如何设置异地分布式应用布局](app-service-app-service-environment-geo-distributed-scale.md)。
-* 可使用 ASE 配置安全体系结构，如“AzureCon 深入探讨”中所示。 若要查看“AzureCon 深入探讨”中所示的安全体系结构的配置方式，请参阅有关如何使用应用服务环境实现[分层安全体系结构](app-service-app-service-environment-layered-security.md)的文章。
+* 可使用 ASE 配置安全体系结构，如“AzureCon 深入探讨”中所示。
 * 在 ASE 中运行的应用的访问权限可能受到 Web 应用程序防火墙 (WAF) 等上游设备的管制。 有关详细信息，请参阅 [Web 应用程序防火墙 (WAF)][AppGW]。
 
 ## <a name="dedicated-environment"></a>专用环境 ##
@@ -82,18 +82,11 @@ ASE 既可以是面向 Internet 的（使用公共 IP 地址），也可以是�
 
 <!-- > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player] -->
 
-## <a name="app-service-environment-v1"></a>应用服务环境 v1 ##
-
-应用服务环境有两个版本：ASEv1 和 ASEv2。 上述信息基于 ASEv2。 本部分说明 ASEv1 和 ASEv2 之间的差异。 
-
-在 ASEv1 中，需手动管理所有资源。 它们包括基于 IP 的 SSL 所用的前端、辅助角色和 IP 地址。 扩大应用服务计划之前，需要先扩大要托管该计划的辅助角色池。
-
-ASEv1 使用与 ASEv2 不同的定价模型。 在 ASEv1 中，需要为分配的每个 vCPU 付费。 包括未托管任何工作负荷的前端或辅助角色所使用的 vCPU。 在 ASEv1 中，ASE 的默认最大规模为 55 个主机总数。 其中包括辅助角色和前端。 ASEv1 的一项优势是可在经典虚拟网络和资源管理器虚拟网络中进行部署。 若要深入了解 ASEv1，请参阅 [应用服务环境 v1 简介][ASEv1Intro]。
+<!-- ## App Service Environment v1 ## -->
 
 <!--Links-->
 <!-- [App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment -->
 <!-- [Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment -->
-[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md [ASEv1Intro]: app-service-app-service-environment-intro.md [webapps]: ../overview.md [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 <!-- [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md -->
 <!-- [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/ -->
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/waf-overview.md
+[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [webapps]: ../overview.md [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/waf-overview.md

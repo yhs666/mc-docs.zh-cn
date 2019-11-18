@@ -1,23 +1,21 @@
 ---
 title: Azure Monitor 中的监视数据位置 | Microsoft Docs
 description: 介绍 Azure 中存储监视数据的不同位置，包括 Azure Monitor 数据平台。
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
+ms.subservice: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 05/21/2019
 ms.date: 05/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 586e0adb070792fd5dfe159cfd1d886e1e842110
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: d64f43405077ad3b97a2c47dabfa2d9b26ceee97
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970946"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730541"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Azure Monitor 中的监视数据位置
 

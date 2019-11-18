@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 11/01/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2525c5e172b71d04cc9d23821feb0c7f8f01b679
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 9e0c4e545b1bf6e3f93ed41fca701f681aa12155
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538930"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116937"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 

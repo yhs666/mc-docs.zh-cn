@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/31/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fcbbee9b729619135c32b0690fb760922aa1b88
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: f7a1a0fb58372d7dc509dc28b41db8eadd669da5
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272605"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116938"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示“正在检查文件系统”
 
@@ -47,3 +47,5 @@ Windows VM 不启动。 检查[启动诊断](boot-diagnostics.md)中的启动屏
 
         chkdsk E: /f
 4. “磁盘检查”完成后，从恢复 VM 分离该磁盘，然后将磁盘作为 OS 磁盘重新附加到受影响的 VM。 有关详细信息，请参阅[通过将 OS 磁盘附加到恢复 VM 来排查 Windows VM 相关问题](troubleshoot-recovery-disks-portal-windows.md)。
+
+<!-- Update_Description: update meta properties -->

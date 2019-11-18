@@ -1,25 +1,20 @@
 ---
 title: 有关启用用于 VM 的 Azure Monitor（预览版）的概述 | Microsoft Docs
 description: 了解如何部署和配置用于 VM 的 Azure Monitor。 了解系统要求。
-services: azure-monitor
-documentationcenter: ''
-author: lingliw
+author: mgoedtel
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.author: v-lingwu
 origin.date: 09/17/2019
 ms.date: 09/20/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 5d79fdade2abe482ae3c696b01ae80c4f3a3bba6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d3e559e7199248cf010501242c183e9a3b026fa9
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330146"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730394"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>有关启用用于 VM 的 Azure Monitor（预览版）的概述
 
@@ -155,7 +150,7 @@ ms.locfileid: "71330146"
 >[!NOTE]
 >本部分中所述的以下信息也适用于[服务映射解决方案](service-map.md)。  
 
-在混合环境中，可以手动下载并安装依赖项代理。 如果 VM 托管在 Azure 外部，请使用自动部署方法。
+在混合环境中，可以手动或使用自动方法下载并安装 Dependency Agent。
 
 下表描述了映射功能在混合环境中支持的连接源。
 

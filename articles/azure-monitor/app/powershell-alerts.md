@@ -1,24 +1,20 @@
 ---
 title: 使用 Powershell 在 Application Insights 中设置警报 | Azure Docs
 description: 自动配置 Application Insights，以获取有关指标更改的电子邮件。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 10/31/2016
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 133cfd06ea8e85e5f6ceb476d7925e6e3193f968
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ad5c65f62ac72b69b0f59c80bad8034ee88118e9
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737030"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730419"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>使用 PowerShell 在 Application Insights 中设置警报
 

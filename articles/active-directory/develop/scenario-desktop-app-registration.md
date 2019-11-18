@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/09/2019
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6a496f06424a5d25362d93f61015c80712511c2
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 5f111d6c107c5222c60b6a00f1165d7747b7605b
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292057"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830926"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>调用 Web API 的桌面应用 - 应用注册
 
@@ -51,6 +51,7 @@ ms.locfileid: "72292057"
   > [!IMPORTANT]
   > 目前，在默认情况下，MSAL.NET 会在 Windows 上运行的桌面应用程序中使用另一重定向 URI (`urn:ietf:wg:oauth:2.0:oob`)。 我们在将来需要更改此默认设置，因此建议你使用 `https://login.partner.microsoftonline.cn/common/oauth2/nativeclient`
 
+- 如果要生成用于 macOS 的本机 Objective-C 或 Swift 应用，则需要基于应用程序的捆绑包标识符以以下格式注册 redirectUri：**msauth.<your.app.bundle.id>://auth**（将 <your.app.bundle.id> 替换为应用程序的捆绑包标识符）
 - 如果应用仅使用集成 Windows 身份验证或用户名/密码，则不需为应用程序注册重定向 URI。 这些流会往返 Microsoft 标识平台 v2.0 终结点，因此不会在任何特定 URI 上回调你的应用程序。
 - 为了将设备代码流、集成 Windows 身份验证和用户名/密码与也没有重定向 URI 的机密客户端应用程序流（在守护程序应用程序中使用的客户端凭据流）区分开来，你需要表示你的应用程序是公共客户端应用程序。 若要实现此配置，请转到应用程序的“身份验证”部分。  然后，在“默认客户端类型”段落的“高级设置”子部分中，针对“将应用程序视为公共客户端”问题选择“是”。    
 

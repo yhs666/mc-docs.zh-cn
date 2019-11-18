@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/25/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: azmetadata
-ms.openlocfilehash: 0bafceb38838a95834b5049393f70171a9f2cdf1
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: d967e10f060a7f0e2deb46beba01638d64b54cd7
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272828"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116762"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -593,7 +593,7 @@ Department:IT;Environment:Test;Role:WebRole
 **请求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=JSON"
 ```
 
 **响应**
@@ -626,7 +626,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 
 ```bash
 # Get the signature
-curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2018-10-01 | jq -r '.["signature"]' > signature
+curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
 # Decode the signature
 base64 -d signature > decodedsignature
 #Get PKCS7 format

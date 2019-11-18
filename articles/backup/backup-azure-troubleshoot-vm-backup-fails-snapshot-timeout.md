@@ -1,7 +1,7 @@
 ---
-title: 对 Azure 备份失败进行故障排除：来宾部署状态不可用
+title: 对 Azure 备份失败进行故障排除：代理和扩展问题
 description: 与代理、扩展和磁盘相关的 Azure 备份失败的症状、原因及解决方法。
-services: backup
+ms.reviewer: saurse
 author: lingliw
 manager: digimobile
 keywords: Azure 备份; VM 代理; 网络连接;
@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 origin.date: 07/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c797db503a83d4119d051211e3ddfaaee6238e2d
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ade741914e7f1b0a6896f9e86786a0142d2fbfb5
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330252"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730588"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -23,17 +23,15 @@ ms.locfileid: "71330252"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-
-
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 代理无法与 Azure 备份通信
 
 **错误代码**：UserErrorGuestAgentStatusUnavailable <br>
 **错误消息**：VM 代理无法与 Azure 备份进行通信<br>
 
 Azure VM 代理可能已停止、已过期、处于不一致状态或未安装，从而阻止 Azure 备份服务触发快照。  
-    
-- 如果 VM 代理已停止或处于不一致状态，请**重启代理**，然后重试备份操作（尝试临时备份）。 有关重启代理的步骤，请参阅 [Windows VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。 
-- 如果未安装 VM 代理或 VM 代理已过期，请安装/更新 VM 代理，然后重试备份操作。 有关安装/更新代理的步骤，请参阅 [Windows VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。  
+
+- 如果 VM 代理已停止或处于不一致状态，请**重启代理**，然后重试备份操作（尝试临时备份）。 有关重启代理的步骤，请参阅 [Windows VM](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。
+- 如果未安装 VM 代理或 VM 代理已过期，请安装/更新 VM 代理，然后重试备份操作。 有关安装/更新代理的步骤，请参阅 [Windows VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 无法与 VM 代理通信以获取快照状态
 
@@ -113,7 +111,7 @@ Azure VM 代理可能已停止、已过期、处于不一致状态或未安装�
 **错误代码**：UserErrorUnsupportedDiskSize <br>
 **错误消息**：Azure 备份当前不支持配置的磁盘大小。 <br>
 
-对磁盘大小大于 30 TB 的 VM 进行备份时，备份操作可能会失败。 此外，目前不支持备份大小超过 4TB 的加密磁盘。 通过拆分磁盘，确保磁盘大小于或等于支持的限制。
+对磁盘大小大于 32 TB 的 VM 进行备份时，备份操作可能会失败。 此外，目前不支持备份大小超过 4 TB 的加密磁盘。 通过拆分磁盘，确保磁盘大小于或等于支持的限制。
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 无法启动备份，因为另一个备份操作当前正在进行中
 
@@ -235,7 +233,11 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 
 ### <a name="clean_up_restore_point_collection"></a>清理还原点集合
 
-删除锁后，必须清理还原点。 若要清理还原点，请执行以下任一方法：<br>
+删除锁后，必须清理还原点。
+
+如果删除 VM 的资源组或 VM 本身，则托管磁盘的即时还原快照会保持活动状态，并根据保留集过期。 若要删除存储在还原点集合中的即时还原快照（如果不再需要这些快照），请按照以下步骤清理还原点集合。
+
+若要清理还原点，请执行以下任一方法：<br>
 
 - [通过运行即席备份来清理还原点集合](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [从 Azure 门户清理还原点集合](#clean-up-restore-point-collection-from-azure-portal)<br>

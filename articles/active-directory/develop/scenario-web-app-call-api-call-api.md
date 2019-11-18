@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe4e7e7974fc2183ad9772cd7477aa460439e6c
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 7515f39ae84c42287c0ebc5d23ec4a3c57b43891
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134245"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830911"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>调用 Web API 的 Web 应用 - 调用 Web API
 
 现在你已有令牌，可以调用受保护的 Web API 了。
 
-## <a name="aspnet-core"></a>ASP.NET Core
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 以下是 `HomeController` 操作的简化代码。 此代码获取用于调用 Microsoft Graph 的令牌。 这一次添加了代码，显示了如何将 Microsoft Graph 作为 REST API 调用。 图形 API 的 URL 在 `appsettings.json` 文件中提供，并在名为 `webOptions` 的变量中读取：
 
@@ -87,6 +87,49 @@ public async Task<IActionResult> Profile()
 > 可以使用相同的原则来调用任何 Web API。
 >
 > 大多数 Azure Web API 都提供了一个 SDK 来简化调用。 Microsoft Graph 也是如此。 下一篇文章介绍如何找到说明这些方面的教程。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```Java
+private String getUserInfoFromGraph(String accessToken) throws Exception {
+    // Microsoft Graph user endpoint
+    URL url = new URL("https://microsoftgraph.chinacloudapi.cn/v1.0/me");
+
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+    // Set the appropriate header fields in the request header.
+    conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+    conn.setRequestProperty("Accept", "application/json");
+
+    String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+    int responseCode = conn.getResponseCode();
+    if(responseCode != HttpURLConnection.HTTP_OK) {
+        throw new IOException(response);
+    }
+
+    JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+    return responseObject.toString();
+}
+
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+@app.route("/graphcall")
+def graphcall():
+    token = _get_token_from_cache(app_config.SCOPE)
+    if not token:
+        return redirect(url_for("login"))
+    graph_data = requests.get(  # Use token to call downstream service
+        app_config.ENDPOINT,
+        headers={'Authorization': 'Bearer ' + token['access_token']},
+        ).json()
+    return render_template('display.html', result=graph_data)
+```
+
+---
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,24 +1,20 @@
 ---
 title: 在 Java Web 项目中排查 Application Insights 问题
 description: 故障排除指南 - 使用 Application Insights 监视实时 Java 应用。
-services: application-insights
-documentationcenter: java
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ce40d736499ef718a6f4f6c5d7d426880267648
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: fa63b87cd091aea8db35067258f916d7b024d673
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737357"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73729946"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>用于 Java 的 Application Insights 的故障排除与常见问题解答
 使用 [Java 中的 Azure Application Insights][java] 时有疑问或遇到问题？ 请参考下面的提示。
@@ -137,7 +133,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Java 代理
 
-若要启用 JVM 代理日志记录，请更新 [AI-Agent.xml 文件](java-agent.md)。
+若要启用 JVM 代理日志记录，请更新 [AI-Agent.xml 文件](java-agent.md)：
 
 ```xml
 <AgentLogger type="FILE">

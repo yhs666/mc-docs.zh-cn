@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/04/2019
-ms.date: 09/23/2019
+origin.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: b74eb4886f52313cab8d3248b1d16313b62a93fa
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 147fa60de35833bf0910de1f5e53784bb5215c2a
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125634"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416269"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>连接到媒体服务 v3 API - .NET
 
@@ -243,4 +243,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>另请参阅
 
-[.NET 参考](/dotnet/api/overview/mediaservices/management?view=azure-dotnet)
+* [.NET 参考](/dotnet/api/overview/mediaservices/management?view=azure-dotnet)
+* 有关更多代码示例，请参阅 [.NET SDK 示例](https://github.com/Azure-Samples/media-services-v3-dotnet)存储库。

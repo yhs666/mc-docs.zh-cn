@@ -1,27 +1,44 @@
 ---
 title: 在 Azure Application Insights 中浏览 Java 跟踪日志 | Azure Docs
 description: 在 Application Insights 中搜索 Log4J 或 Logback 跟踪
-services: application-insights
-documentationcenter: java
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 05/18/2019
-ms.date: 6/4/2019
+ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 53d6f66c0954d5507ccd7e2c166cd9d8767a43ab
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: f4a014b0db87ec9a5a6c7520969f55cb13b1056b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737359"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730474"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 Java 跟踪日志
 如果使用 Logback 或 Log4J（v1.2 或 v2.0）进行跟踪，可将跟踪日志自动发送到 Application Insights，以便在其中发现和搜索日志。
+
+> [!TIP]
+> 只需为应用程序设置一次 Application Insights 检测密钥。 如果使用的是 Java Spring 之类的框架，则可能已经在应用配置中的其他位置注册了密钥。
+
+## <a name="using-the-application-insights-java-agent"></a>使用 Application Insights Java 代理
+
+可以通过在 `AI-Agent.xml` 文件中启用相应功能，将 Application Insights Java 代理配置为自动捕获日志：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+或者，可以按照以下说明进行操作。
 
 ## <a name="install-the-java-sdk"></a>安装 Java SDK
 

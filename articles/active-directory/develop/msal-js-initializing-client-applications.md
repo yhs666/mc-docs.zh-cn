@@ -1,5 +1,6 @@
 ---
-title: 初始化客户端应用程序（适用于 JavaScript 的 Microsoft 身份验证库）| Azure
+title: 初始化客户端应用程序（适用于 JavaScript 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解如何使用适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 初始化客户端应用程序。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/12/2019
-ms.date: 10/08/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e8c76ffbc472de502640cd5529cbe6b891598e1
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 4e358f48ea6cd06b69cca0661b2cb7adc2e368f9
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292066"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830971"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL.js 初始化客户端应用程序
 本文介绍如何使用用户代理应用程序的实例初始化适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js)。 该用户代理应用程序是某种形式的公共客户端应用程序，其中的客户端代码在 Web 浏览器等用户代理中执行。 这些客户端不存储机密，因为浏览器上下文可公开访问。 若要详细了解客户端应用程序类型和应用程序配置选项，请阅读[概述](msal-client-applications.md)。
@@ -46,7 +47,7 @@ ms.locfileid: "72292066"
 // Configuration object constructed
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     }
 }
 
@@ -91,6 +92,7 @@ export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
+    navigateFrameWait?: number;
 };
 
 // Developer App Environment Support
@@ -138,6 +140,8 @@ export type Configuration = {
 - **loadFrameTimeout**：可选。  处于非活动状态的毫秒数，如果 Azure AD 在此时限内未返回令牌续订响应，则被视为超时。默认值为 6 秒。
 
 - **tokenRenewalOffsetSeconds**：可选。 在令牌过期之前续订令牌的偏差时限，以毫秒为单位。 默认值为 300 毫秒。
+
+- **navigateFrameWait**：可选。 毫秒数，用于设置隐藏的 iframe 导航到其目标之前的等待时间。 默认值为 500 毫秒。
 
 这些值只适合从 MSAL Angular 包装器库向下传递：
 - **unprotectedResources**：可选。  不受保护资源的 URI 数组。 MSAL 不会将令牌附加到包含这些 URI 的传出请求。 默认为 `null`。

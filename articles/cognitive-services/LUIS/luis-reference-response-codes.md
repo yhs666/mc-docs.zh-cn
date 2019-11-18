@@ -1,6 +1,6 @@
 ---
-title: API HTTP 响应代码
-titleSuffix: Azure
+title: API HTTP 响应代码 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解从 LUIS 创作和终结点 API 返回的 HTTP 响应代码
 services: cognitive-services
 author: lingliw
@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 03/04/2019
 ms.date: 09/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3b5d4dc01b701cf73512b74d71d043beaa946066
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c13fd97466d90646c4624c5515ebfd0f2e0336a1
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329742"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730561"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>常见的 API 响应代码及其含义
 

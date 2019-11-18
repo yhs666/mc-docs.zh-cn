@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 01/23/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 316d5ce25a23174f88d472a177585d2d81fb5c2e
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c7c963683786ccb66cca590fb4743c2ed33dd55a
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330304"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041206"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>通过 Java 使用 Azure 服务总线队列发送和接收消息
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "71330304"
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用了 Eclipse，则可以安装包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] 。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![将适用于 Java 的 Microsoft Azure 库添加到 Eclipse 项目](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 将以下 `import` 语句添加到 Java 文件顶部：
 
@@ -59,6 +59,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 import org.apache.commons.cli.*;
+
 ```
 
 ## <a name="send-messages-to-a-queue"></a>向队列发送消息
@@ -109,7 +110,7 @@ public void run() throws Exception {
     }
 ```
 
-发送到服务总线队列以及从服务总线队列收到的消息是 [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) 类的实例。 Message 对象包含一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及大量任意应用程序数据。 应用程序可通过将任何可序列化对象传入到 Message 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。 或者，可提供 java.IO.InputStream 对象  。
+发送到服务总线队列以及从服务总线队列收到的消息是 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 类的实例。 Message 对象包含一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及大量任意应用程序数据。 应用程序可通过将任何可序列化对象传入到 Message 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。 或者，可提供 java.IO.InputStream 对象  。
 
 
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。
@@ -176,7 +177,6 @@ public void run() throws Exception {
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
-
 服务总线提供了相关功能，帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序出于某种原因无法处理消息，则其可以对收到的消息调用 unlockMessage 方法（而不是 deleteMessage 方法）   。 这会导致服务总线解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
 还存在与队列中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），服务总线会自动解锁该消息并使它可再次被接收。

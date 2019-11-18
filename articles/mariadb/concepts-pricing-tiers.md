@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MariaDB 的定价层
-description: 本文介绍 Azure Database for MariaDB 的定价层。
+description: 了解 Azure Database for MariaDB 的各种定价层，包括计算代系、存储类型、存储大小、vCore 数、内存和备份保留期。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 09/16/2019
-ms.openlocfilehash: 78314545709179569794dae02fbacbdb8f390a1d
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.date: 11/04/2019
+ms.openlocfilehash: a067f70ade01a35d61b2d88a5f3c252358386494
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70856990"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191573"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 定价层
 
@@ -65,7 +65,7 @@ ms.locfileid: "70856990"
 
 对于预配存储不到 100 GB 的服务器，如果可用存储低于 512MB 或 5% 的预配存储大小，则会将该服务器标记为只读。 对于预配存储超出 100 GB 的服务器，当可用存储不到 5 GB 时，会将该服务器标记为只读。
 
-例如，如果已预配 110 GB 的存储，而实际使用量超过 105 GB，则会将服务器标记为只读。 或者，如果已预配 5 GB 的存储，则当可用存储少于 512 MB 时，服务器会标记为只读。
+例如，如果已预配 110 GB 的存储，而实际使用量超过 105 GB，则会将服务器标记为只读。 或者，如果已预配 5 GB 的存储，则当可用存储少于 256 MB 时，服务器会标记为只读。
 
 当服务试图将服务器标记为只读时，会阻止所有新的写入事务请求，现有的活动事务将继续执行。 当服务器设置为只读时，所有后续写入操作和事务提交均会失败。 读取查询将继续不间断工作。 增加预配的存储后，服务器将准备好再次接受写入事务。
 
@@ -73,9 +73,9 @@ ms.locfileid: "70856990"
 
 ### <a name="storage-auto-grow"></a>存储自动增长
 
-存储自动增长可防止服务器耗尽存储空间并变为只读。 如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储大小小于 100 GB 的服务器，可用存储空间一小于 1 GB 或预配的存储的 10%，预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间一小于预配的存储大小的 5%，预配的存储大小就会立即增加 5%。 适用上面指定的最大存储限制。
+存储自动增长可防止服务器耗尽存储空间并变为只读。 如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储小于 100 GB 的服务器，可用存储小于预配的存储的 10% 时，预配的存储大小就会增加 5 GB。 对于预配的存储大于 100 GB 的服务器，可用存储空间小于预配的存储大小的 10% 时，预配的存储大小就会增加 5%。 适用上面指定的最大存储限制。
 
-例如，如果已预配 1000 GB 的存储，而实际使用量超过 950 GB，则服务器存储大小会增加到 1050 GB。 或者，如果已预配 10 GB 的存储，则当可用存储少于 1 GB 时，存储大小会增加到 15 GB。
+例如，如果已预配 1000 GB 的存储，而实际使用量超过 900 GB，则服务器存储大小会增加到 1050 GB。 或者，如果已预配 10 GB 的存储，则当可用存储少于 1 GB 时，存储大小会增加到 15 GB。
 
 请记住，存储只能增加，不能减少。
 

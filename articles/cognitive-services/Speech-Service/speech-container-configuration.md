@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/11/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: e939e2c3ff9db3b46243693fb7ddf3b1c495f2c0
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 8c50b0c61a7ba2028de7ba5763a303a187baab7d
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583721"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020724"
 ---
 # <a name="configure-speech-service-containers"></a>配置语音服务容器
 
@@ -53,7 +53,7 @@ ms.locfileid: "72583721"
 
 |必须| Name | 数据类型 | 说明 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 账单终结点 URI<br><br>示例：<br>`Billing=https://chinaeast.api.cognitive.china.cn/sts/v1.0` |
+|是| `Billing` | String | 账单终结点 URI<br><br>示例：<br>`Billing=https://chinaeast2.api.cognitive.azure.cn/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 设置
 
@@ -96,7 +96,7 @@ ms.locfileid: "72583721"
 | 占位符 | Value | 格式或示例 |
 |-------------|-------|---|
 |{API_KEY} | 语音资源的 API 密钥。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 包括区域的终结点值。|`https://chinaeast.api.cognitive.china.cn/sts/v1.0`|
+|{ENDPOINT_URI} | 包括区域的终结点值。|`https://chinaeast2.api.cognitive.azure.cn/sts/v1.0`|
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](#billing-configuration-setting)。

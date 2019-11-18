@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 08/06/2019
+ms.date: 10/29/2019
 ms.author: v-junlch
-ms.openlocfilehash: 469a6a126ae52c528ceea7749f85ab41e32872e5
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 8bf24a467f20e7f25d567c4c630471330709a230
+ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878519"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068802"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上很灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -119,12 +119,16 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 | 10221-10231 |出站 |TCP |Redis 的内部通信 | （Redis 子网） | （Redis 子网） |
 | 20226 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 | 13000-13999 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
-| 15000-15999 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
+| 15000-15999 |出站 |TCP |Redis 的内部通信和异地复制 | （Redis 子网） |（Redis 子网）（地域副本对等子网） |
 | 6379-6380 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
 <sup>1</sup> Microsoft 拥有的这些 IP 地址用于对为 Azure DNS 提供服务的主机 VM 进行寻址。
 
 <sup>3</sup> 没有自定义 DNS 服务器的子网或忽略自定义 DNS 的更新 redis 缓存不需要。
+
+#### <a name="geo-replication-peer-port-requirements"></a>异地复制对等端口要求
+
+如果在 Azure 虚拟网络中的缓存之间使用异地复制，请注意，建议的配置是在两个缓存的入站和出站方向上取消阻止整个子网的端口 15000-15999，这样即使将来发生异地故障转移，子网中的所有副本组件也可以直接相互通信。
 
 #### <a name="inbound-port-requirements"></a>入站端口要求
 
@@ -137,7 +141,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 | 8500 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
 | 10221-10231 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网）、Azure 负载均衡器 |
 | 13000-13999 |入站 |TCP |与 Redis 群集的客户端通信、Azure 负载均衡 | （Redis 子网） |虚拟网络、Azure 负载均衡器 |
-| 15000-15999 |入站 |TCP |与 Redis 群集的客户端通信、Azure 负载均衡 | （Redis 子网） |虚拟网络、Azure 负载均衡器 |
+| 15000-15999 |入站 |TCP |与 Redis 群集的客户端通信、Azure 负载均衡和异地复制 | （Redis 子网） |虚拟网络、Azure 负载均衡器（地域副本对等子网） |
 | 16001 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
 | 20226 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 

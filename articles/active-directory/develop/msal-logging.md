@@ -1,6 +1,7 @@
 ---
-title: 在 MSAL 应用程序中进行日志记录 | Azure
-description: 了解如何在 Microsoft 身份验证库 (MSAL) 应用程序中进行日志记录。
+title: Microsoft 身份验证库 (MSAL) 应用程序中的日志记录
+titleSuffix: Microsoft identity platform
+description: 了解 Microsoft 身份验证库 (MSAL) 应用程序中的日志记录。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -12,45 +13,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/22/2019
-ms.date: 10/08/2019
+origin.date: 09/05/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b21f88303cec5981c53e6881bb5dce60e736f09
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: cac522f197ecee9dbead09464652cd8419c9f7e0
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292067"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830968"
 ---
-# <a name="logging"></a>日志记录
-用于生成日志消息的 Microsoft 身份验证库 (MSAL) 应用，这些消息可以用来诊断问题并提供详细信息。 应用可以通过数行代码配置日志记录，并可对详细程度以及是否记录组织数据进行自定义控制。 建议设置 MSAL 日志记录回调，并提供一种允许用户在遇到身份验证问题时提交日志的方法。
+# <a name="logging-in-msal-applications"></a>MSAL 应用程序中的日志记录
+
+用于生成日志消息的 Microsoft 身份验证库 (MSAL) 应用，这些消息可以用来诊断问题。 应用可以通过数行代码配置日志记录，并可对详细程度以及是否记录个人和组织数据进行自定义控制。 建议创建 MSAL 日志记录回调，并提供一种方式来让用户在遇到身份验证问题时提交日志。
 
 ## <a name="logging-levels"></a>日志记录级别
 
-MSAL 的记录器允许捕获多个级别的详细信息：
+MSAL 提供多个日志记录详细级别：
 
 - 错误：指示出现问题并已生成错误。 用于调试并确定问题。
-- 警告：出问题的事件，应用需要该事件的更多信息。 不一定会出现错误或故障，只是为了诊断和指出问题。
+- 警告：不一定会出现错误或故障，只是为了诊断和指出问题。
 - 信息：MSAL 将要记录的事件可为用户提供信息，不一定用于调试。
-- 详细：默认。 MSAL 会记录大量的信息，让用户全面且详细地了解库的具体行为。
+- 详细：默认。 MSAL 将记录库行为的完整详细信息。
 
-## <a name="organizational-data"></a>组织数据
-默认情况下，MSAL 记录器不捕获任何高度敏感的组织数据。 该库提供相关选项，允许你自行决定是否记录组织数据。
+## <a name="personal-and-organizational-data"></a>个人和组织数据
+
+默认情况下，MSAL 记录器不捕获任何高度敏感的个人或组织数据。 该库提供相关选项，允许你自行决定是否记录个人和组织数据。
 
 ## <a name="logging-in-msalnet"></a>在 MSAL.NET 中进行日志记录
 
  > [!NOTE]
- > 有关 MSAL.NET 的详细信息，请查看 [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)。 获取 MSAL.NET 日志记录的示例等内容。 
- 
+ > 有关 MSAL.NET 日志记录的示例和其他信息，请参阅 [MSAL.NET Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)。
+
 在 MSAL 3.x 中，日志记录是在创建应用时使用 `.WithLogging` 生成器修饰符按应用程序设置的。 该方法采用以下可选参数：
 
-- *Level*：用于确定你需要哪种级别的日志记录。 将其设置为“Errors”时，就只会获得错误
-- *PiiLoggingEnabled* 在设置为 true 的情况下可以记录组织数据。 默认情况下，此项设置为 false，不允许应用程序记录个人数据。
-- *LogCallback* 设置为一个执行日志记录的委托。 如果 *PiiLoggingEnabled* 为 true，则此方法会接收消息两次：第一次时 *containsPii* 参数为 false，消息没有个人数据；第二次时 *containsPii* 参数为 true，消息可能包含个人数据。 在某些情况下（消息不含个人数据），消息是相同的。
-- *DefaultLoggingEnabled* 为平台启用默认日志记录。 默认为 false。 如果将它设置为 true，它会在桌面/UWP 应用程序中使用事件跟踪，在 iOS 上使用 NSLog，在 Android 上使用 logcat。
+- `Level` 用于确定你需要哪种级别的日志记录。 将其设置为“Errors”时，就只会获得错误
+- `PiiLoggingEnabled` 在设置为 true 的情况下可以记录个人和组织数据。 默认情况下，此项设置为 false，不允许应用程序记录个人数据。
+- `LogCallback` 设置为一个执行日志记录的委托。 如果 `PiiLoggingEnabled` 为 true，则此方法会接收消息两次：第一次时 `containsPii` 参数为 false，消息没有个人数据；第二次时 `containsPii` 参数为 true，消息可能包含个人数据。 在某些情况下（消息不含个人数据），消息是相同的。
+- `DefaultLoggingEnabled` 为平台启用默认日志记录。 默认为 false。 如果将它设置为 true，它会在桌面/UWP 应用程序中使用事件跟踪，在 iOS 上使用 NSLog，在 Android 上使用 logcat。
 
 ```csharp
 class Program
@@ -79,27 +82,64 @@ class Program
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>MSAL.js 中的日志记录
+## <a name="logging-in-msal-for-android-using-java"></a>使用 Java 的 MSAL for Android 中的日志记录
+
+创建应用时通过创建日志记录回调来启用日志记录。 该回调采用以下参数：
+
+- `tag` 由库传递给回调的字符串。 它与日志条目相关联，可用于对日志记录消息排序。
+- `logLevel` 用于确定所需的日志记录级别。 支持的日志级别为：`Error`、`Warning`、`Info` 和 `Verbose`。
+- `message` 是日志条目的内容。
+- `containsPII` 指定是要记录包含个人数据还是组织数据的消息。 默认情况下，此项设置为 false，不允许应用程序记录个人数据。 如果 `containsPII` 为 `true`，则此方法会接收消息两次：第一次时 `containsPII` 参数设置为 `false`，`message` 不包含个人数据；第二次时 `containsPii` 参数设置为 `true`，消息可能包含个人数据。 在某些情况下（消息不含个人数据），消息是相同的。
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+默认情况下，MSAL 记录器将不会捕获任何个人身份信息或组织身份信息。
+若要记录个人身份信息或组织身份信息：
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+若要禁止记录个人数据和组织数据：
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+默认情况下，将禁用记录到 logcat。 若要启用： 
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## <a name="logging-in-msaljs"></a>MSAL.js 中的日志记录
 
  可以在 MSAL.js 中启用日志记录，方法是在配置过程中传递一个记录器对象，以便创建 `UserAgentApplication` 实例。 此记录器对象具有以下属性：
 
-- *localCallback*：一个回调实例，可以由开发人员提供，目的是以自定义方式使用并发布日志。 根据所需要的重定向日志的方式，实现 localCallback 方法。
-
-- *level*（可选）：可配置的日志级别。 支持的日志级别为：错误、警告、信息、详细。 默认值为“信息”。
-
-- *piiLoggingEnabled*（可选）：在设置为 true 的情况下可以记录组织数据。 默认情况下，此项设置为 false，不允许应用程序记录个人数据。 默认设置为 false。
-
-- *correlationId*（可选）： 唯一标识符，用于映射请求与响应，以便进行调试。 默认为 RFC4122 版本 4 guid（128 位）。
+- `localCallback`：一个回调实例，可以由开发人员提供，目的是以自定义方式使用并发布日志。 根据所需要的重定向日志的方式，实现 localCallback 方法。
+- `level`（可选）：可配置的日志级别。 支持的日志级别为：`Error`、`Warning`、`Info` 和 `Verbose`。 默认为 `Info`。
+- `piiLoggingEnabled`（可选）：如果设置为 true，则记录个人数据和组织数据。 默认情况下，此项设置为 false，不允许应用程序记录个人数据。 个人数据日志不会写入到默认的输出（例如控制台、Logcat 或 NSLog）中。
+- `correlationId`（可选）：唯一标识符，用于映射请求与响应，以便进行调试。 默认为 RFC4122 版本 4 guid（128 位）。
 
 ```javascript
-
 function loggerCallback(logLevel, message, containsPii) {
    console.log(message);
 }
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: "<Enter your client id>",
     },
      system: {
              logger: new Msal.Logger(
@@ -115,4 +155,111 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-<!-- Update_Description: wording update -->
+## <a name="logging-in-msal-for-ios-and-macos"></a>适用于 iOS 和 macOS 的 MSAL 中的日志记录
+
+设置一个回调来捕获 MSAL 日志记录，并将其合并到自己应用程序的日志记录中。 回调的签名如下所示：
+
+```objc
+/*!
+    The LogCallback block for the MSAL logger
+ 
+    @param  level           The level of the log message
+    @param  message         The message being logged
+    @param  containsPII     If the message might contain Personally Identifiable Information (PII)
+                            this will be true. Log messages possibly containing PII will not be
+                            sent to the callback unless PIllLoggingEnabled is set to YES on the
+                            logger.
+
+ */
+typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
+```
+
+例如：
+
+Objective-C
+```objc
+[MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
+    {
+        if (!containsPII)
+        {
+#if DEBUG
+            // IMPORTANT: MSAL logs may contain sensitive information. Never output MSAL logs with NSLog, or print, directly unless you're running your application in debug mode. If you're writing MSAL logs to file, you must store the file securely.
+            NSLog(@"MSAL log: %@", message);
+#endif
+        }
+    }];
+```
+
+Swift
+```swift
+MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
+    if let message = message, !containsPII
+    {
+#if DEBUG
+    // IMPORTANT: MSAL logs may contain sensitive information. Never output MSAL logs with NSLog, or print, directly unless you're running your application in debug mode. If you're writing MSAL logs to file, you must store the file securely.
+    print("MSAL log: \(message)")
+#endif
+    }
+}
+```
+
+### <a name="personal-identifiable-information-pii"></a>个人身份信息 (PII)
+
+默认情况下，MSAL 不会捕获或记录任何 PII。 库允许应用开发人员通过 MSALLogger 类中的某个属性启用该功能。 启用 PII 日志记录后，应用负责安全地处理高度敏感的数据并遵守任何法规要求。
+
+Objective-C
+```objc
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = YES;
+
+// PII will NOT be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = NO;
+```
+
+Swift
+```swift
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = true
+
+// PII will NOT be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = false
+```
+
+### <a name="logging-levels"></a>日志记录级别
+
+若要在使用适用于 iOS 和 macOS 的 MSAL 进行日志记录时设置日志记录级别，请使用以下值之一：
+
+|Level  |说明 |
+|---------|---------|
+| `MSALLogLevelNothing`| 禁用所有日志记录 |
+| `MSALLogLevelError` | 默认级别，仅在发生错误时输出信息 |
+| `MSALLogLevelWarning` | 警告 |
+| `MSALLogLevelInfo` |  库入口点，包含参数和各种密钥链操作 |
+|`MSALLogLevelVerbose`     |  API 跟踪       |
+
+例如：
+
+Objective-C
+```objc
+MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
+ ```
+ 
+ Swift
+```swift
+MSALGlobalConfig.loggerConfig.logLevel = .verbose
+ ```
+
+### <a name="log-message-format"></a>日志消息格式
+
+MSAL 日志消息的消息部分采用 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message` 格式
+
+例如：
+
+`TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
+
+提供关联 ID 和时间戳有助于跟踪问题。 时间戳和关联 ID 信息在日志消息中提供。 只能从 MSAL 日志记录消息中可靠地检索这些信息。
+

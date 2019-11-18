@@ -1,7 +1,6 @@
 ---
 title: 无提示的 Azure 备份服务器 V2 安装
 description: 使用 PowerShell 脚本可以无提示方式安装 Azure 备份服务器 V2。 这种类型安装也称为无人参与安装。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 3642e55728b29553a528a0e7ca9431c0b7af51a6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 82ed5b748d9ec9bad980205b8f21aa63fc8ff069
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570475"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730566"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>运行 Azure 备份服务器的无人参与安装
 
@@ -28,7 +27,7 @@ ms.locfileid: "67570475"
 
 2. 将以下代码粘贴在 MABSSetup.ini 文件中。 将括号 (\< \>) 内的文本替换为来自你环境的值。 以下文本是一个示例：
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -51,7 +50,7 @@ ms.locfileid: "67570475"
 
 3. 保存文件。 然后在安装服务器上的提升的命令提示符下，输入以下命令：
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

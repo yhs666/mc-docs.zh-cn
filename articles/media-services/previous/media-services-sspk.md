@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/20/2019
-ms.date: 09/23/2019
+origin.date: 10/21/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8b27ffd472d0ddaca8716c776bc677e9058fe0e1
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: d1937c5c9d248e5a90705debe20464bb57f37b18
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124665"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416270"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包 
 ## <a name="overview"></a>概述
@@ -79,6 +79,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 平滑流式处理客户端中期产品协议受证人
+
 * Adroit Business Solutions, Inc
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
@@ -142,6 +143,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
+* Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd

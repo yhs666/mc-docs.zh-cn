@@ -1,25 +1,20 @@
 ---
 title: 智能检测 - Application Insights 中的失败异常 | Azure Docs
 description: 将针对到 Web 应用的失败请求速率的异常变化向用户发出警报，并提供诊断分析。 无需进行配置。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 12/18/2018
 ms.date: 6/4/2019
 ms.reviewer: yossiy
 ms.author: v-lingwu
-ms.openlocfilehash: 9fbc89eaa04a563027f07dac984e7621224ee077
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a1d9898f5e41b6a4d94e8f1f4ed0ca7db983f5c0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737031"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730577"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智能检测 - 失败异常
 如果 Web 应用的失败请求速率出现异常上升，[Application Insights](../../azure-monitor/app/app-insights-overview.md) 会几乎实时地自动通知你。 它会对 HTTP 请求速率或报告为失败的依赖项调用的异常上升进行检测。 对于请求而言，失败的请求通常是响应代码为 400 或更高的请求。 为了帮助会审和诊断问题，通知中会提供失败及相关遥测的特征分析。 还提供指向 Application Insights 门户的链接，以供进一步诊断。 该功能不需要任何设置或配置，因为它使用机器学习算法来预测正常的失败率。

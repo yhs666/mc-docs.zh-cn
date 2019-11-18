@@ -1,22 +1,20 @@
 ---
 title: Azure Application Insights 快速入门 | Azure docs
 description: 提供有关快速安装 ASP.NET Core Web 应用以使用 Application Insights 进行监视的说明
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: lingliw
 ms.author: v-lingwu
 origin.date: 06/26/2019
 ms.date: 09/23/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: digimobile
-ms.openlocfilehash: 13b5a2b58c9f1471f61a54a9bd0f9841ccf2f36a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 6436949fc44ce67cd6b44361da7b117e8cfbdb52
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330273"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730382"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>开始监视 ASP.NET Core Web 应用程序
 
@@ -53,7 +51,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
     此时会显示配置对话框，请使用下表填写输入字段。
 
-    | 设置        |  Value           | 说明  |
+   | 设置        |  Value           | 说明  |
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |

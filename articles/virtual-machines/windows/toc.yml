@@ -36,18 +36,104 @@
     - name: 10 - 控制 VM
       href: tutorial-govern-resources.md
       displayName: scope policy RBAC lock tag
-    - name: 11 - 监视和更新 VM
-      href: tutorial-monitoring.md
-    - name: 13 - 安装 SQL\IIS\.NET 堆栈
+    - name: 11 - 监视 VM
+      href: tutorial-monitor.md
+    - name: 12 - 安装 SQL\IIS\.NET 堆栈
       href: tutorial-iis-sql.md
-    - name: 14 - 使用 SSL 保护 Web 服务器
+    - name: 13 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
 - name: 示例
   items:
-    - name: PowerShell
+    - name: Powershell 索引
       href: powershell-samples.md
-    - name: Azure CLI
+    - name: PowerShell
+      items:
+        - name: 创建
+          items:
+            - name: 快速
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
+            - name: 完全配置的 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
+            - name: 具有高可用性的 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
+            - name: 自定义脚本示例
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
+            - name: 使用 DSC
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
+            - name: 从上传的 VHD 创建 VM
+              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
+            - name: 附加 OS 磁盘
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+            - name: 从快照创建 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
+        - name: 管理存储
+          items:
+            - name: 从 VHD 创建托管磁盘
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+            - name: 从快照创建托管磁盘
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+            - name: 复制托管磁盘
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: 将快照作为 VHD 导出到存储帐户
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+            - name: 将托管磁盘的 VHD 导出到存储帐户
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+            - name: 从 VHD 创建快照
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+            - name: 复制快照
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: 安全
+          items:
+            - name: 加密 VM 及其数据磁盘
+              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md
+        - name: 监视
+          items:
+            - name: Azure Monitor
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
+            - name: 收集有关订阅中所有 VM 的详细信息
+              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
+    - name: Azure CLI 索引
       href: cli-samples.md
+    - name: CLI
+      items:
+        - name: 创建
+          items:
+            - name: 快速
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
+            - name: 完全配置的 VM
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
+            - name: 具有高可用性的 VM
+              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
+            - name: 自定义脚本示例
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
+            - name: 使用 DSC 配置
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
+        - name: 管理存储
+          items:
+            - name: 从 VHD 创建托管磁盘
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+            - name: 从快照创建托管磁盘
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+            - name: 复制托管磁盘
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: 将快照作为 VHD 导出到存储帐户
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+            - name: 将托管磁盘的 VHD 导出到存储帐户
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+            - name: 复制快照
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: 网络
+          items:
+            - name: 保护 VM 之间的网络流量
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
+        - name: 安全
+          items:
+            - name: 对 VM 和数据磁盘进行加密
+              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
+            - name: 监视
+              items:
+                - name: Azure Monitor
+                  href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: 概念
   items:
     - name: Azure Resource Manager
@@ -103,6 +189,8 @@
           href: managed-disks-overview.md
         - name: 选择适用于 IaaS VM 的磁盘类型
           href: disks-types.md
+        - name: Encryption
+          href: disk-encryption.md
         - name: 为实现高性能而设计
           href: premium-storage-performance.md
         - name: 磁盘的可伸缩性目标
@@ -117,8 +205,14 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 基础结构自动化
       href: infrastructure-automation.md
-    - name: 安全和策略
-      href: security-policy.md
+    - name: 安全性
+      items:
+        - name: 安全和策略
+          href: security-policy.md
+        - name: Azure 磁盘加密
+          href: disk-encryption-overview.md
+        - name: 内置安全控件
+          href: virtual-machines-windows-security-controls.md
     - name: 状态和生命周期
       href: states-lifecycle.md
     - name: 监视
@@ -127,8 +221,6 @@
       href: backup-recovery.md
     - name: 基础结构示例
       href: infrastructure-example.md
-    - name: 内置安全控件
-      href: virtual-machines-windows-security-controls.md
 - name: 操作指南
   items:
     - name: 创建 VM
@@ -158,11 +250,34 @@
           href: hybrid-use-benefit-licensing.md
     - name: 保护 VM
       items:
+        - name: 建议
+          href: security-recommendations.md
         - name: 实时访问
           href: ../../security-center/security-center-just-in-time.md
         - name: 加密
-          href: encrypt-disks.md
-          displayName: encryption
+          items:
+            - name: 适用于 Windows 的磁盘加密方案
+              href: disk-encryption-windows.md
+            - name: 使用 Azure CLI 进行 VM 加密
+              href: disk-encryption-cli-quickstart.md
+            - name: 使用 Azure PowerShell 进行 VM 加密
+              href: disk-encryption-powershell-quickstart.md
+            - name: 用于 Azure 磁盘加密的密钥保管库
+              href: disk-encryption-key-vault.md
+            - name: 磁盘加密示例脚本
+              href: disk-encryption-sample-scripts.md
+            - name: 磁盘加密故障排除
+              href: disk-encryption-troubleshooting.md
+            - name: 磁盘加密常见问题解答
+              href: disk-encryption-faq.md
+            - name: 磁盘加密 - 以前的版本 (AAD)
+              items:
+                - name: 概述
+                  href: disk-encryption-overview-aad.md
+                - name: 用于 Azure 磁盘加密的密钥保管库
+                  href: disk-encryption-key-vault-aad.md
+                - name: 适用于 Windows 的磁盘加密方案
+                  href: disk-encryption-windows-aad.md
         - name: 使用 WinRM
           href: winrm.md
         - name: 使用访问控制
@@ -301,8 +416,12 @@
           href: detach-disk.md
         - name: 使用模板部署磁盘
           href: using-managed-disks-template-deployments.md
+        - name: 将 vhd 上传到磁盘 - PowerShell
+          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 调整磁盘大小
           href: expand-os-disk.md
+        - name: 使用存储资源管理器管理磁盘
+          href: disks-use-storage-explorer-managed-disks.md
         - name: 拍摄磁盘快照
           href: snapshot-copy-managed-disk.md
         - name: 备份非托管磁盘

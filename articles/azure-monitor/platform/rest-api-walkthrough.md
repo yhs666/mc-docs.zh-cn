@@ -4,17 +4,17 @@ description: 如何对请求进行身份验证，以及如何使用 Azure Monito
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-origin.date: 05/19/2019
-ms.date: 03/19/2018
-ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 7d37a4849de1a3bd09ac6ab3fa8e9efa54c5295a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.topic: conceptual
+origin.date: 03/19/2018
+ms.date: 05/19/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 6b5eb3d49e1be3cd685ea8ce2e07762505e26850
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737387"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730334"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

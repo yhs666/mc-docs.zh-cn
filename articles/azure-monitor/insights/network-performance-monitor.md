@@ -1,25 +1,20 @@
 ---
 title: Azure 中的网络性能监视器解决方案 | Azure Docs
 description: Azure 中的网络性能监视器可以近乎实时地监视网络性能，以检测并找到网络性能瓶颈。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 02/20/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: be11caf81b5d4a1679bae12b833477a9187a80fd
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 1f9200169a39edbb2d5ac8c258efb9c11119dc5c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736632"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730343"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的网络性能监视器解决方案
 
@@ -97,7 +92,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 1. 将网络性能监视器解决方案从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)添加到工作区。 也可以使用[从解决方案库中添加 Azure Monitor 解决方案](../../azure-monitor/insights/solutions.md)中所述的过程。 
 2. 打开 Log Analytics 工作区，然后选择“概览”磁贴  。 
-3. 选择消息为 **“解决方案需要进行额外配置”**  的 *“网络性能监视器”* 磁贴。
+3. 选择带有“解决方案需要进行额外配置”  消息的“网络性能监视器”  磁贴。
 
    ![网络性能监视器磁贴](media/network-performance-monitor/npm-config.png)
 
@@ -125,7 +120,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>编辑子网和节点的监视设置 
 
-配置页的 **“子网”**  选项卡中会列出至少安装了一个代理的所有子网。 
+配置页的“子网”选项卡中会列出至少安装了一个代理的所有子网。  
 
 
 启用或禁用对特定子网的监视：
@@ -195,9 +190,9 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 ### <a name="drill-down-for-depth"></a>深入了解 
 
-可以选择解决方案仪表板中的各个链接来进一步了解任何感兴趣部分。 例如，看到警报或不正常的网络链接出现在仪表板上时，可选择它进一步进行调查。 会转到列出该特定网络链接的所有子网链接的页面。 可以看到每个子网链接的丢失、延迟和运行状况状态。 可以快速找到引发问题的子网链接。 选择“查看节点链接”   ，查看不正常的子网链接的所有节点链接。 然后，可以查看个别节点到节点链接，找到不正常的节点链接。 
+可以选择解决方案仪表板中的各个链接来进一步了解任何感兴趣部分。 例如，看到警报或不正常的网络链接出现在仪表板上时，可选择它进一步进行调查。 会转到列出该特定网络链接的所有子网链接的页面。 可以看到每个子网链接的丢失、延迟和运行状况状态。 可以快速找到引发问题的子网链接。 选择“查看节点链接”  ，查看不正常的子网链接的所有节点链接。 然后，可以查看个别节点到节点链接，找到不正常的节点链接。 
 
-选择 **“查看拓扑”**  ，查看源节点和目标节点之间路由的逐跳拓扑。 不正常的路由显示为红色。 可以查看每个跃点导致的延迟，从而快速确定网络特定部分的问题。
+选择“查看拓扑”  查看源节点和目标节点之间路由的逐跳拓扑。 不正常的路由显示为红色。 可以查看每个跃点导致的延迟，从而快速确定网络特定部分的问题。
 
  
 
@@ -237,7 +232,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 ## <a name="log-queries-in-azure-monitor"></a>Azure Monitor 中的日志查询
 
-通过网络性能监视器仪表板和向下钻取页面以图形方式显示的所有数据也可以在[日志查询](../log-query/log-query-overview.md)中以本地方式使用。 可对存储库中的数据执行交互式分析，并关联来自不同源的数据。 还可以创建自定义警报和视图，并将数据导出到 Excel、Power BI 或可共享的链接。 仪表板的 **“常见查询”**  区域中有一些查询非常有用，可以基于这些查询创建自己的查询和报表。 
+通过网络性能监视器仪表板和向下钻取页面以图形方式显示的所有数据也可以在[日志查询](../log-query/log-query-overview.md)中以本地方式使用。 可对存储库中的数据执行交互式分析，并关联来自不同源的数据。 还可以创建自定义警报和视图，并将数据导出到 Excel、Power BI 或可共享的链接。 仪表板的“常见查询”  区域中有一些查询非常有用，可以基于这些查询创建自己的查询和报表。 
 
 ## <a name="alerts"></a>警报
 
@@ -269,7 +264,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 * **UserVoice**：可以发表有关希望我们开发的网络性能监视器功能的想法。 请访问 [UserVoice 页](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)。 
 
-* **加入我们的队伍**：我们总是希望一直有新客户不断加入我们的队伍。 那样，能够在早期接触到新功能并有机会帮助我们改进网络性能监视器。 如果有兴趣加入，请填写此 [快速调查](https://aka.ms/npmcohort)。 
+* **加入我们的队伍**：我们总是希望一直有新客户不断加入我们的队伍。 那样，能够在早期接触到新功能并有机会帮助我们改进网络性能监视器。 如果有兴趣加入，请填写此[快速调查](https://aka.ms/npmcohort)。 
 
 ## <a name="next-steps"></a>后续步骤 
 详细了解[性能监视器](network-performance-monitor-performance-monitor.md)、[服务连接性监视器](network-performance-monitor-performance-monitor.md)和 [ExpressRoute 监视器](network-performance-monitor-expressroute.md)。 

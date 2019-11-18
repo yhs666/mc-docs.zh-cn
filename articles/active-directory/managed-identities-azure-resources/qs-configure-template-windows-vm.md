@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/14/2017
-ms.date: 08/05/2019
+origin.date: 09/26/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9440f8481a909e39d7a563905acf03bf11d2bbd5
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 86ad561208315f4de9ad6b1371ac05eb49107b2e
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818630"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084478"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>使用模板在 Azure VM 上配置 Azure 资源的托管标识
 
@@ -65,9 +65,8 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
    },
    ```
 
-    > [!NOTE]
-    > 可以选择通过在模板中将 Azure 资源 VM 扩展指定为 `resources` 元素来为其预配托管标识。 此步骤是可选的，因为也可以使用 Azure 实例元数据服务 (IMDS) 标识终结点来检索令牌。  有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 以进行身份验证](howto-migrate-vm-extension.md)。
-    
+
+
 3. 完成后，以下各节应当会添加到模板的 `resource` 节，该节应当呈现如下：
 
    ```JSON
@@ -177,6 +176,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     "location": "[resourceGroup().location]",
     "identity": { 
         "type": "None"
+        },
 }
 ```
 
@@ -329,6 +329,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
       "location": "[resourceGroup().location]",
       "identity": { 
           "type": "None"
+          },
     }
    ```
    
@@ -349,3 +350,4 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - [Azure 资源概述的托管标识](overview.md)。
 
 
+<!-- Update_Description: code update -->

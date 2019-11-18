@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2a18bf5d3304cb73eb493d2e2f337a12aa345b28
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: ff8cddf07e2b69458bfb5d86b574b3e30df3fd07
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538905"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116952"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>如何使用启动诊断功能来排查 Azure 中虚拟机的问题
 

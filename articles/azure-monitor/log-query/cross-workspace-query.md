@@ -1,25 +1,20 @@
 ---
 title: 使用 Azure Monitor 跨资源进行查询 | Azure Docs
 description: 本文介绍了如何在订阅中跨多个工作区以及从特定的 App Insights 应用查询资源。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 06/05/2019
 ms.date: 08/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c3466c81955e9cc9d37897dacd485dc65ce668fa
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ee15450e58ab571998d248d3a45caa21b416eb73
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737191"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730359"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure Monitor 中执行跨资源日志查询  
 

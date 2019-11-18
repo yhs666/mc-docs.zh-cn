@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 05/04/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: c583c986dfe39160df0b0d5e718687ac03966ea0
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: a7157e03f1f903c3fb7512d2f791919b8f49858b
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272631"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831277"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 
@@ -174,7 +174,7 @@ ms.locfileid: "72272631"
     sudo yum install microsoft-hyper-v
     ```
 
-    也可按照 [LIS 下载页](https://go.microsoft.com/fwlink/?linkid=403033) 上的手动安装说明进行操作，将 RPM 安装到 VM。
+    也可按照 [LIS 下载页](https://www.microsoft.com/download/details.aspx?id=51612) 上的手动安装说明进行操作，将 RPM 安装到 VM。
 
 12. 安装 Azure Linux 代理和依赖项。 启动并启用 waagent 服务：
 

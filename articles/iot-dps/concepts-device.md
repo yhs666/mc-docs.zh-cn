@@ -4,17 +4,17 @@ description: 介绍设备预配概念，特定于使用设备预配服务和 IoT
 author: nberdy
 ms.author: v-yiso
 origin.date: 04/04/2019
-ms.date: 11/04/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 33bf5f3dae9aa08190e4836588bf782b2690c913
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: c88c6259b22d07fbac7493af486c9f5cbacdb927
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913266"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831287"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中心设备预配服务设备概念
 
@@ -45,7 +45,7 @@ IoT 中心设备预配服务是一项 IoT 中心帮助程序服务，该服务�
 
 ## <a name="registration-id"></a>注册 ID
 
-注册 ID 用于唯一标识设备预配服务中的设备。 注册 ID 在预配服务 [ID 范围](#id-scope)内中必须唯一。 每个设备必须具有注册 ID。 注册 ID 是小写的字母数字，并且可包含连字符。
+注册 ID 用于唯一标识设备预配服务中的设备。 设备 ID 在预配服务 [ID范围](#id-scope)中必须是唯一的。 每个设备必须具有注册 ID。 注册 ID 是字母数字、不区分大小写，并可以包含特殊字符（包括冒号、句点、下划线和连字符）。
 
 * 对于使用 TPM 的情况，注册 ID 由 TPM 本身提供。
 * 对于使用基于 X.509 证明的情况，提供注册 ID 作为证书的使用者名称。

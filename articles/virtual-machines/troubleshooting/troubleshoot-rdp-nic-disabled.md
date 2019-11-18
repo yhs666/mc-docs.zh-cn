@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/12/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 16a88ff7debcb478f3f61960dea45eacc0038ac9
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: d637d35b9dd3d17b070e3057b5d265b3d9775706
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272711"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116884"
 ---
 # <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>无法通过远程桌面连接到 VM，因为网络接口被禁用
 
@@ -44,5 +44,4 @@ ms.locfileid: "72272711"
 
 要重置网络接口，请将 IP 地址更改为子网中可用的其他 IP 地址。 若要执行此操作，请使用 Azure 门户或 Azure PowerShell。 有关详细信息，请参阅[重置网络接口](reset-network-interface.md)。
 
-<!-- Update_Description: new articles on troubleshoot rdp nic disabled -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

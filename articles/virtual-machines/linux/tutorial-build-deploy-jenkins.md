@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 origin.date: 07/31/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: jenkins
-ms.openlocfilehash: e712458a7023bc45438570404fdd00f2fb2def8a
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 24bdffb055a7f4417112dd6520621a5b280e78a6
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272515"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831351"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教程：使用 Jenkins 和 Azure DevOps Services 将应用部署到 Azure 中的 Linux 虚拟机
 
@@ -58,7 +58,7 @@ ms.locfileid: "72272515"
 ## <a name="get-the-sample-app"></a>获取示例应用
 
 你需要一个待部署的应用，并存储在 Git 存储库中。
-对于本教程，我们建议你使用[从 GitHub 获得的此示例应用](https://github.com/azooinmyluggage/fabrikam-node)。 本教程包含用于安装 Node.js 和应用程序的示例脚本。 要使用自己的存储库，请配置一个类似的示例。
+对于本教程，我们建议你使用[从 GitHub 获得的此示例应用](https://github.com/azure-devops/fabrikam-node)。 本教程包含用于安装 Node.js 和应用程序的示例脚本。 要使用自己的存储库，请配置一个类似的示例。
 
 创建此应用的一个分支并记下位置 (URL) 以便在本教程的后续步骤中使用。 有关详细信息，请参阅[分支存储库](https://help.github.com/articles/fork-a-repo/)    
 
@@ -81,7 +81,7 @@ ms.locfileid: "72272515"
 5. 返回 Jenkins 仪表板，然后选择“管理 Jenkins”  。
 6. 选择“全局工具配置”  。 查找“NodeJS”  ，然后选择“NodeJS 安装”  。
 7. 选择“自动安装”  选项，然后输入“名称”  值。
-8. 选择**保存**。
+8. 选择“保存”  。
 
 ## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>为 Node.js 配置 Jenkins 自由风格项目
 
@@ -129,8 +129,8 @@ ms.locfileid: "72272515"
 
 需要使用[部署组](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)来注册 Azure DevOps Services 代理，以便可将发布管道部署到虚拟机。 通过部署组，可以方便地定义目标计算机的逻辑组，以进行部署，并在每台计算机上安装所需的代理。
 
-   > [!NOTE]
-   > 在以下过程中，确保安装先决条件，且不使用 sudo 权限运行脚本  。
+> [!NOTE]
+> 在以下过程中，确保安装先决条件，且不使用 sudo 权限运行脚本  。
 
 1. 打开“生成 &amp; 发布”中心的“发布”  选项卡  ，打开“部署组”  ，然后选择“+ 新建”  。
 2. 为部署组输入名称和可选说明。 然后选择“创建”  。

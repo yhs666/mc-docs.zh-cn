@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/18/2019
-ms.date: 10/25/2019
+origin.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb42187b34412ad6d136a4ad91dc95735c90f87e
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 352bfc868c610747201e9efe9db9dffe964a1bbe
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912771"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830922"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>调用 Web API 的桌面应用 - 移到生产环境
 
@@ -49,6 +49,8 @@ Microsoft 标识平台 (v2.0) 终结点不允许你一次获取多个资源的�
 
 例如：
 
+### <a name="in-msalnet"></a>在 MSAL.NET 中
+
 ```CSharp
 string[] scopesForCustomerApi = new string[]
 {
@@ -68,9 +70,39 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
+### <a name="in-msal-for-ios-and-macos"></a>在适用于 iOS 和 macOS 的 MSAL 中
+
+Objective-C：
+
+```objc
+NSArray *scopesForCustomerApi = @[@"https://mytenant.partner.onmschina.cn/customerapi/customer.read",
+                                @"https://mytenant.partner.onmschina.cn/customerapi/customer.write"];
+
+NSArray *scopesForVendorApi = @[@"https://mytenant.partner.onmschina.cn/vendorapi/vendor.read",
+                              @"https://mytenant.partner.onmschina.cn/vendorapi/vendor.write"]
+
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
+interactiveParams.extraScopesToConsent = scopesForVendorApi;
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
+```
+
+Swift：
+
+```swift
+let scopesForCustomerApi = ["https://mytenant.partner.onmschina.cn/customerapi/customer.read",
+                            "https://mytenant.partner.onmschina.cn/customerapi/customer.write"]
+
+let scopesForVendorApi = ["https://mytenant.partner.onmschina.cn/vendorapi/vendor.read",
+                          "https://mytenant.partner.onmschina.cn/vendorapi/vendor.write"]
+
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
+interactiveParameters.extraScopesToConsent = scopesForVendorApi
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
+```
+
 此调用将为你获得第一个 Web API 的访问令牌。
 
-需要调用第二个 Web API 时，可以调用：
+需要调用第二个 Web API 时，可以调用 `AcquireTokenSilent` API：
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

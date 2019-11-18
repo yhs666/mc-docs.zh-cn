@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 07/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: eb2797ae3f0ca6593507b2143d3b2f070eefa657
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 8c85534f8447021e35624f0116d1e7b0bc093ef1
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569677"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831442"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中使用托管磁盘
 
@@ -253,10 +253,9 @@ ms.locfileid: "67569677"
 * 有关使用托管磁盘的完整模板，请访问以下 Azure 快速入门存储库链接。
     * [带托管磁盘的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [带托管磁盘的 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [托管磁盘模板的完整列表](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * 请访问文章 [Azure 托管磁盘概述](../articles/virtual-machines/windows/managed-disks-overview.md)，详细了解托管磁盘。
-* 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
-* 请访问 [Microsoft.Compute/disks 模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/disks)文档，查看磁盘资源的模板参考文档。
+* 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
+* 请访问 [Microsoft.Compute/disks 模板参考](https://docs.microsoft.com/azure/templates/microsoft.compute/disks)文档，查看磁盘资源的模板参考文档。
 * 有关如何使用 Azure 虚拟机规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)文档。
 
 <!--Update_Description: wording update, update link-->

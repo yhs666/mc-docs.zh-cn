@@ -1,37 +1,30 @@
 ---
-title: 管理 Azure Monitor 中的 Log Analytics 工作区 | Azure Docs
-description: 可以通过对用户、帐户、工作区和 Azure 帐户使用各种管理任务来管理 Azure Monitor 中的 Log Analytics 工作区。
-services: log-analytics
-documentationcenter: ''
+title: 管理 Azure Monitor 中的 Log Analytics 工作区 | Microsoft Docs
+description: 可以使用资源、工作区或表级权限来管理对 Azure Monitor 的 Log Analytics 工作区中存储的数据的访问。 本文详细介绍如何完成这些操作。
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 08/26/2019
-ms.date: 08/23/2019
+origin.date: 10/22/2019
+ms.date: 11/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e47b17b0cd3a67e423c2950dc53f227bd7e98e4e
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 1ba2301d82b085abea1b0fa8e7a93c60d4197708
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970941"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730358"
 ---
-# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure Monitor 中的日志数据和工作区
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>管理对 Azure Monitor 中的日志数据和工作区的访问
 
-Azure Monitor 将[日志](data-platform-logs.md)数据存储在 Log Analytics 工作区中，该工作区本质上是一个包含数据和配置信息的容器。 若要管理对日志数据的访问，需要对工作区执行各种管理任务。
+Azure Monitor 将[日志](data-platform-logs.md)数据存储在 Log Analytics 工作区中。 工作区是包含数据和配置信息的容器。 若要管理对日志数据的访问，需要对工作区执行各种管理任务。
 
-本文介绍如何管理对日志的访问，以及如何管理包含日志的工作区，包括：
+本文介绍如何管理对日志的访问，以及如何管理包含日志的工作区，包括如何执行以下操作： 
 
-* 如何使用 Azure 基于角色的访问控制 (RBAC) 对需要访问特定资源中的日志数据的用户授予访问权限。
-
-* 如何使用工作区权限授予对工作区的访问权限。
-
-* 如何使用 Azure RBAC 对需要访问工作区中特定表中的日志数据的用户授予访问权限。
+* 使用工作区权限授予对工作区的访问权限。
+* 使用 Azure 基于角色的访问控制 (RBAC) 对需要访问特定资源中的日志数据的用户授予访问权限。
+* 使用 Azure RBAC 对需要访问工作区中特定表中的日志数据的用户授予访问权限。
 
 ## 配置访问控制模式 <a name="configure-access-control-mode"></a>
 
@@ -151,7 +144,7 @@ Log Analytics 读者角色包括以下 Azure 操作：
 
  Log Analytics 参与者角色的成员可以：
 
-* 像 Log Analytics 读者一样读取所有监视数据
+* 包括“Log Analytics 读取者角色”的所有特权，允许用户读取所有监视数据 
 * 创建和配置自动化帐户
 * 添加和删除管理解决方案
 
@@ -190,7 +183,7 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 * 资源组 - 访问资源组中的所有工作区
 * 资源 - 仅访问指定工作区
 
-应在资源（工作区）级别执行分配，以确保准确的访问控制。  使用[自定义角色](../../role-based-access-control/custom-roles.md)，创建具有所需的特定权限的角色。
+我们建议在资源级别（工作区）执行分配，以确保准确的访问控制。 使用[自定义角色](../../role-based-access-control/custom-roles.md)，创建具有所需的特定权限的角色。
 
 ### <a name="resource-permissions"></a>资源权限
 
@@ -201,9 +194,50 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>示例:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 可以查看资源的所有日志数据。  |
 | `Microsoft.Insights/diagnosticSettings/write` | 可配置诊断设置以允许设置此资源的日志。 |
 
-`/read` 权限通常是从含有 _\*/read 或_ _\*_ 权限的角色授予的，例如内置的[读取者](../../role-based-access-control/built-in-roles.md#reader)和[参与者](../../role-based-access-control/built-in-roles.md#contributor)角色。 请注意，含有特定操作的自定义角色或专用内置角色可能没有此权限。
+`/read` 权限通常是从含有 _\*/read 或_ _\*_ 权限的角色授予的，例如内置的[读取者](../../role-based-access-control/built-in-roles.md#reader)和[参与者](../../role-based-access-control/built-in-roles.md#contributor)角色。 包含特定操作的自定义角色或专用内置角色可能没有此权限。
 
 若要针对不同的表创建不同的访问控制，请参阅下面的[定义按表进行的访问控制](#table-level-rbac)。
+
+## <a name="custom-role-examples"></a>自定义角色示例
+
+1. 若要授予用户从其资源访问日志数据的权限，请执行以下操作：
+
+    * 将工作区访问控制模式配置为**使用工作区或资源权限**
+
+    * 向用户授予对其资源的 `*/read` 或 `Microsoft.Insights/logs/*/read` 权限。 如果已经为用户分配了对工作区的“[Log Analytics 读取者](../../role-based-access-control/built-in-roles.md#reader)”角色，则不需要执行额外的操作。
+
+2. 若要授予用户从其资源访问日志数据的权限并将其资源配置为向工作区发送日志，请执行以下操作：
+
+    * 将工作区访问控制模式配置为**使用工作区或资源权限**
+
+    * 为用户授予对工作区的以下权限：`Microsoft.OperationalInsights/workspaces/read` 和 `Microsoft.OperationalInsights/workspaces/sharedKeys/action`。 用户无法使用这些权限执行任何工作区级别的查询。 他们只能枚举工作区，并将其用作诊断设置或代理配置的目标。
+
+    * 为用户授予对其资源的以下权限：`Microsoft.Insights/logs/*/read` 和 `Microsoft.Insights/diagnosticSettings/write`。 如果已经为用户分配了 [Log Analytics 参与者](../../role-based-access-control/built-in-roles.md#contributor)角色、“读取者”角色或者为其授予了对此资源的 `*/read` 权限，则不需要执行额外的操作。
+
+3. 若要为用户授予从其资源访问日志数据的权限，但不允许他们读取安全事件和发送数据，请执行以下操作：
+
+    * 将工作区访问控制模式配置为**使用工作区或资源权限**
+
+    * 为用户授予对其资源的以下权限：`Microsoft.Insights/logs/*/read`。
+
+    * 添加以下 NonAction 以阻止用户读取 SecurityEvent 类型：`Microsoft.Insights/logs/SecurityEvent/read`。 NonAction 应该与提供读取权限的操作 (`Microsoft.Insights/logs/*/read`) 包含在同一个自定义角色中。 如果用户从已分配到此资源或已分配到订阅或资源组的另一个角色继承读取操作，他们将能够读取所有日志类型。 如果他们继承 `*/read`（例如，“读取者”或“参与者”角色存在的此操作），也是如此。
+
+4. 若要授予用户从其资源访问日志数据，以及从工作区读取所有 Azure AD 登录和更新管理解决方案日志数据的权限，请执行以下操作：
+
+    * 将工作区访问控制模式配置为**使用工作区或资源权限**
+
+    * 为用户授予对工作区的以下权限： 
+
+        * `Microsoft.OperationalInsights/workspaces/read` � 必须授予此权限才能让用户枚举工作区并打开 Azure 门户中的工作区边栏选项卡
+        * `Microsoft.OperationalInsights/workspaces/query/read` � 必须对可执行查询的每个用户授予此权限
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` � 用于读取 Azure AD 登录日志
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` � 用于读取更新管理解决方案日志
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` � 用于读取更新管理解决方案日志
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` � 用于读取更新管理日志
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` � 必须授予此权限才能使用更新管理解决方案
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` � 必须授予此权限才能使用更新管理解决方案
+
+    * 为用户授予对其资源的以下权限：分配给“读取者”角色的 `*/read`，或 `Microsoft.Insights/logs/*/read`。 
 
 ## <a name="table-level-rbac"></a>表级 RBAC
 
@@ -221,20 +255,24 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 
 ```
 "Actions":  [
-              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
-              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+    "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
   ],
 ```
 
 若要创建一个只有权访问 _SecurityBaseline_，而无权访问其他任何表的角色，请使用以下操作创建自定义角色：
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
-    ],
-    "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+"NotActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
 ```
 
 ### <a name="custom-logs"></a>自定义日志
@@ -244,9 +282,11 @@ Log Analytics 参与者角色包括以下 Azure 操作：
  目前无法授予或拒绝对单个自定义日志的访问权限，但可以授予或拒绝对所有自定义日志的访问权限。 若要创建一个有权访问所有自定义日志的角色，请使用以下操作创建自定义角色：
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+],
 ```
 
 ### <a name="considerations"></a>注意事项
@@ -255,7 +295,7 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 * 如果为某个用户授予按表访问权限但未授予其他任何权限，则该用户可以通过 API 访问日志数据，但不能通过 Azure 门户进行访问。 若要从 Azure 门户提供访问权限，请使用“Log Analytics 读取者”作为用户的基本角色。
 * 无论其他任何权限设置如何，订阅管理员都有权访问所有数据类型。
 * 应用按表进行的访问控制时，工作区所有者被视为类似于其他任何用户。
-* 应该将角色分配到安全组而不是个人用户，以减少分配数目。 这还有助于使用现有的组管理工具来配置和验证访问权限。
+* 我们建议将角色分配到安全组而不是个人用户，以减少分配数目。 这还有助于使用现有的组管理工具来配置和验证访问权限。
 
 ## <a name="next-steps"></a>后续步骤
 

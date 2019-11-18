@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/23/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6fa7a24e0e44711c9ada819e142ecc2b54e2b455
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b892d867b985dda71bbb81ea2f2989dfec024e8a
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272606"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116893"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 启动错误
 
@@ -77,7 +77,7 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
 4. 打开提升的 Azure PowerShell 会话（以管理员身份运行）。 运行以下命令来登录到 Azure 订阅：
 
     ```Powershell
-    Add-AzAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -Environment AzureChinaCloud -SubscriptionID [SubscriptionID]
     ```
 
 5. 运行以下脚本来检查 BEK 文件的名称：

@@ -1,5 +1,5 @@
 ---
-title: 教程 - 使用 Linux 虚拟机和 ASP.NET 控制台应用程序在 Azure Key Vault 中存储机密 | Azure Docs
+title: 教程 - 使用 Linux 虚拟机和 ASP.NET 控制台应用程序在 Azure Key Vault 中存储机密 | Azure
 description: 本教程介绍如何配置一个 ASP.NET Core 应用程序，以便从 Azure Key Vault 读取机密。
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ origin.date: 09/05/2018
 ms.date: 06/17/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 649201f6e8b857852f32d92fb3903482f716055c
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: a1424db88f1664e5a349cde4c2939c7cefa09d35
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687475"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425853"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>教程：使用 Linux VM 和 .NET 应用在 Azure Key Vault 中存储机密
 
@@ -37,7 +37,7 @@ Azure Key Vault 用于保护机密，例如访问应用程序、服务和 IT 资
 
 * [Git](https://git-scm.com/downloads)。
   * Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* [Azure CLI 2.0 或更高版本](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+* [Azure CLI 2.0 或更高版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 本教程使用托管服务标识
 
@@ -247,7 +247,7 @@ dotnet run
 
            static string GetToken()
            {
-               WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn");
+               WebRequest request = WebRequest.Create("https://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn");
                request.Headers.Add("Metadata", "true");
                WebResponse response = request.GetResponse();
                return ParseWebResponse(response, "access_token");

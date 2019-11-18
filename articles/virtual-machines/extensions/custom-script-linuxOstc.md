@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/14/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5dc5634051d4cb1c9e3f55d0c2549aaa4124ddca
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b86069f87d607e1874decc9faf883b8fb8693b0a
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272790"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831375"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -110,6 +110,7 @@ ms.locfileid: "72272790"
       "enableInternalDNSCheck": true
     },
     "protectedSettings": {
+      "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
       "storageAccountName": "<storage-account-name>",
       "storageAccountKey": "<storage-account-key>",
       "commandToExecute": "<command>"
@@ -173,6 +174,7 @@ ms.locfileid: "72272790"
       "fileUris": ["http://MyAccount.blob.core.chinacloudapi.cn/vhds/MyShellScript.sh"]
     },
     "protectedSettings": {
+      "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
       "storageAccountName": "MyAccount",
       "storageAccountKey": "<storage-account-key>",
       "commandToExecute": "sh MyShellScript.sh"

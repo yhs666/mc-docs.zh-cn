@@ -1,25 +1,21 @@
 ---
-title: 使用 Azure Monitor 工作簿创建交互式报告 | Microsoft Docs
+title: 使用用于 VM 的 Azure Monitor 包含的工作簿创建交互式报告 | Microsoft Docs
 description: 使用用于 VM 的 Azure Monitor 的预定义和自定义参数化工作簿简化复杂的报告。
-services: azure-monitor
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
+ms.subservice: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 04/05/2019
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ff23304b6576baa5d8c128b33db9d91786ba7418
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 9ed0a0c770fa94966545eff549b4300cab396f3a
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737375"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73729961"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 
@@ -252,5 +248,3 @@ Perf
 2. 单击需固定的工作簿旁的“...”按钮
 3. 单击“固定到仪表板”  。
 
-## <a name="next-steps"></a>后续步骤
-若要了解如何使用“运行状况”功能，请参阅[查看 Azure VM 运行状况](vminsights-health.md)；若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。 

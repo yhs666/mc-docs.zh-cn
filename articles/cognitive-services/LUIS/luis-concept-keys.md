@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/02/2019
-ms.date: 09/25/2019
+origin.date: 09/27/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da9cc633043de6368cd0f041f5f6a7a50934d93c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ee4b5b8167072bea0f130441d17f1b88c6a47ce0
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329923"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416394"
 ---
 # <a name="authoring-and-runtime-keys"></a>创作和运行时密钥
 
@@ -83,12 +83,30 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 用于访问运行时的终结点使用一个特定于资源所在区域的子域，该区域在下表中使用 `{region}` 表示。 
 
+
+#### <a name="v2-prediction-endpointtabv2"></a>[V2 预测终结点](#tab/V2)
+
 |Verb|示例 URL 和密钥位置|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`runtime-key` 的查询字符串值<br><br>将 `runtime-key` 的终结点查询值从创作（初学者）密钥更改为新的终结点密钥，以便使用 LUIS 终结点密钥配额率。 如果创建并分配了该密钥，但是没有更改 `runtime-key` 的终结点查询值，则不会使用终结点密钥配额。|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key` 的标头值<br>如果创建并分配了运行时密钥，但是没有更改 `Ocp-Apim-Subscription-Key` 的终结点查询值，则不会使用运行时密钥。|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
 
-在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://www.azure.cn/zh-cn/home/features/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
+#### <a name="v3-prediction-endpointtabv3"></a>[V3 预测终结点](#tab/V3)
+
+|Verb|示例 URL 和密钥位置|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.azure.cn/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.azure.cn/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
+
+* * * 
+
+**GET**：将 `runtime-key` 的终结点查询值从创作（初学者）密钥更改为新的终结点密钥，以便使用 LUIS 终结点密钥配额率。 如果创建并分配了该密钥，但是没有更改 `runtime-key` 的终结点查询值，则不会使用终结点密钥配额。
+
+**POST**：更改 `Ocp-Apim-Subscription-Key` 的标头值<br>如果创建并分配了运行时密钥，但是没有更改 `Ocp-Apim-Subscription-Key` 的终结点查询值，则不会使用运行时密钥。
+
+在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
 
 ## <a name="assignment-of-the-runtime-key"></a>分配运行时密钥
 
@@ -110,6 +128,8 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 
 对协作者的贡献的管理取决于应用的当前状态。
+
+**用于创作资源迁移应用**：_参与者_在用于创作资源的 Azure 门户中使用“访问控制(IAM)”  页进行管理。 了解如何使用协作者的电子邮件地址和_参与者_角色[添加用户](luis-how-to-collaborate.md)。 
 
 **对于尚未迁移的应用**：所有协作者  都在 LUIS 门户中通过“管理 -> 协作者”页面进行管理。 
 
@@ -160,7 +180,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 |:--|:--|
 |可供所有者和参与者使用|可供所有者、参与者以及知道应用 ID 的任何其他人使用|
 
-可以通过在服务器到服务器环境中调用 LUIS 运行时密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://azure.microsoft.com/services/active-directory/)）的服务器端 API（如 Azure [函数](https://azure.microsoft.com/services/functions/)）。 如果调用并验证服务器端 API，则在确认授权后将调用传递到 LUIS。 尽管此策略不能防范中间人攻击，但它会针对用户模糊化处理你的密钥和终结点 URL，允许你跟踪访问，并允许你添加终结点响应日志记录（如 [Application Insights](https://azure.microsoft.com/services/application-insights/)）。
+可以通过在服务器到服务器环境中调用 LUIS 运行时密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://azure.microsoft.com/services/active-directory/)）的服务器端 API（如 Azure [函数](https://azure.microsoft.com/services/functions/)）。 如果调用并验证服务器端 API，则在确认授权后将调用传递到 LUIS。 尽管此策略不能防范中间人攻击，但它会针对用户模糊化处理密钥和终结点 URL，允许你跟踪访问，并允许你添加终结点响应日志记录（如 [Application Insights](https://azure.microsoft.com/services/application-insights/)）。
 
 #### <a name="runtime-security-for-private-apps"></a>专用应用的运行时安全性
 
@@ -180,9 +200,15 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 公共应用在所有区域中发布，以便有基于区域的 LUIS 资源密钥的用户可以在与资源密钥关联的任何区域中访问该应用。
 
+## <a name="transfer-of-ownership"></a>转让所有权
+
+**用于创作资源迁移应用**：作为资源的所有者，可以添加 `contributor`。
+
+**对于尚未迁移的应用**：将应用导出为 JSON 文件。 其他 LUIS 用户可以导入应用，从而成为应用所有者。 新的应用将具有不同的应用 ID。  
+
 ## <a name="securing-the-endpoint"></a>保护终结点安全 
 
-可以通过在服务器到服务器环境中调用 LUIS 预测运行时终结点密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://azure.microsoft.com/services/active-directory/)）的服务器端 API（如 Azure [函数](https://azure.microsoft.com/services/functions/)）。 如果调用服务器端 API 并且身份验证和授权得到验证，则将调用传递到 LUIS。 尽管此策略不能防范中间人攻击，但它会针对用户模糊化处理你的终结点，允许你跟踪访问，并允许你添加终结点响应日志记录（如 [Application Insights](https://azure.microsoft.com/services/application-insights/)）。  
+可以通过在服务器到服务器环境中调用 LUIS 预测运行时终结点密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://azure.microsoft.com/services/active-directory/)）的服务器端 API（如 Azure [函数](https://azure.microsoft.com/services/functions/)）。 如果调用服务器端 API 并且身份验证和授权得到验证，则将调用传递到 LUIS。 尽管此策略不会防止中间人攻击，但它针对用户模糊化处理终结点，允许跟踪访问，并允许添加终结点响应日志记录（如 [Application Insights](https://azure.microsoft.com/services/application-insights/)）。  
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,25 +1,20 @@
 ---
 title: 使用 Log Analytics 警报 REST API
 description: 使用 Log Analytics 警报 REST API 可以在 Log Analytics 中创建和管理警报。  本文详细介绍了该 API 并提供了几个执行不同操作的示例。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-origin.date: 01/21/2019
-editor: tysonn
-ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2514325defd48aacaf7b8bd72084e3b67bff2d10
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 40273ff435fd21f42db6a503d92ce86cfa82fc58
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329935"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730031"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>在 Log Analytics 中通过 REST API 创建和管理警报规则
 使用 Log Analytics 警报 REST API 可以在 Log Analytics 中创建和管理警报。  本文详细介绍了该 API 并提供了几个执行不同操作的示例。

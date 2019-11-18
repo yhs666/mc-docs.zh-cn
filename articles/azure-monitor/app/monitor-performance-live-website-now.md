@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure Application Insights 监视实时 ASP.NET Web 应用 | Azure Docs
 description: 在不重新部署网站的情况下监视网站性能。 使用托管在本地或 VM 中的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 05/24/2019
-ms.date: 6/4/2019
+origin.date: 08/26/2019
+ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b21681f2281b5faee073ae8511ba82c0b2f0f31a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 84fab833920e12934cd34ca79f6288dcba42643d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330394"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730531"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 
@@ -26,6 +22,7 @@ ms.locfileid: "71330394"
 
 状态监视器可用于检测托管在 IIS、本地或 VM 中的 .NET 应用程序。
 
+- 如果将应用部署到 Azure VM 或 Azure 虚拟机规模集，请按照[这些说明](azure-vm-vmss-apps.md)操作。
 - 如果应用部署在 Azure 应用服务中，请遵循[这些说明](azure-web-apps.md)。
 - 如果应用部署在 Azure VM 中，则可通过 Azure 控制面板启用 Application Insights 监视。
 - （我们还单独提供了有关检测 [Azure 云服务](../../azure-monitor/app/cloudservices.md)的文章。）

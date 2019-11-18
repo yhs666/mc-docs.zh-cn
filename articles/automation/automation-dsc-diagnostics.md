@@ -7,15 +7,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 07/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 41dff03026ca399aa49d4e0256fc808eafb30cb6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 8333c250e6606ef19d484794c06294dbebe36ade
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993599"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116235"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
 
@@ -47,21 +47,21 @@ Azure Automation State Configuration 会将节点状态数据保留 30 天。
 若要开始将数据从 Azure Automation DSC 导入到 Azure Monitor 日志，请完成以下步骤：
 
 1. 通过 PowerShell 登录 Azure 帐户。 请参阅[使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
-2. 通过运行以下 PowerShell 命令获取自动化帐户的 ResourceId  ：（如果具有多个自动化帐户，选择想要配置的帐户的 ResourceID  ）。
+1. 通过运行以下 PowerShell 命令获取自动化帐户的 ResourceId  ：（如果具有多个自动化帐户，选择想要配置的帐户的 ResourceID  ）。
 
    ```powershell
    # Find the ResourceId for the Automation Account
    Get-AzResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
-3. 通过运行以下 PowerShell 命令获取 Log Analytics 工作区的 ResourceId  ：（如果具有多个工作区，选择想要配置的工作区的 ResourceID  ）。
+1. 通过运行以下 PowerShell 命令获取 Log Analytics 工作区的 ResourceId  ：（如果具有多个工作区，选择想要配置的工作区的 ResourceID  ）。
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace
    Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
-4. 运行以下 PowerShell 命令，将 `<AutomationResourceId>` 和 `<WorkspaceResourceId>` 替换为前面每个步骤中的 ResourceId  值：
+1. 运行以下 PowerShell 命令，将 `<AutomationResourceId>` 和 `<WorkspaceResourceId>` 替换为前面每个步骤中的 ResourceId  值：
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
@@ -79,7 +79,7 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ![日志搜索按钮](media/automation-dsc-diagnostics/log-search-button.png)
 
-“日志搜索”  边栏选项卡将打开，并且你会看到针对每个 State Configuration 节点的“DscNodeStatusData”  操作，以及针对在应用于该节点的节点配置中调用的每个 [DSC 资源](https://docs.microsoft.com/powershell/dsc/resources)的“DscResourceStatusData”  操作。
+“日志搜索”  边栏选项卡将打开，并且你会看到针对每个 State Configuration 节点的“DscNodeStatusData”  操作，以及针对在应用于该节点的节点配置中调用的每个 [DSC 资源](https://docs.microsoft.com/powershell/scripting/dsc/resources/resources)的“DscResourceStatusData”  操作。
 
 “DscResourceStatusData”  操作包含针对失败的任何 DSC 资源的错误信息。
 

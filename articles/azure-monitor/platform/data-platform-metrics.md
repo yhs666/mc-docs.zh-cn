@@ -5,19 +5,19 @@ documentationcenter: ''
 author: lingliw
 manager: digimobile
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 80e0012386def72e2c3294426d25429e5e012f63
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6ed66c92c030896a3dab8de2b78ecc7563088df9
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736927"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970945"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor 中的指标
 
@@ -38,10 +38,9 @@ Azure Monitor 中的指标是能够为近实时方案提供支持的轻型数据
 | 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)，用于在交互式报表中合并多个数据集。|
 | 警报 | 配置指标[警报规则](alerts-metric.md)，以便在指标值超过阈值时发送通知或执行[自动化操作](action-groups.md)。 |
 | 自动化 |  根据超过阈值的指标值，使用[自动缩放](autoscale-overview.md)来增加或减少资源。 |
-| 导出 | [将指标路由到日志](diagnostic-logs-stream-log-store.md)，以连同 Azure Monitor 日志中的数据一起分析 Azure Monitor 指标中的数据，并将指标值存储 93 天以上。<br>将指标流式传输到[事件中心](stream-monitoring-data-event-hubs.md)，以将其路由到外部系统。 |
+| 导出 | [将指标路由到日志](resource-logs-collect-storage.md)，以连同 Azure Monitor 日志中的数据一起分析 Azure Monitor 指标中的数据，并将指标值存储 93 天以上。<br>将指标流式传输到[事件中心](stream-monitoring-data-event-hubs.md)，以将其路由到外部系统。 |
 | 检索 | 使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights) 从命令行访问指标值<br>使用 [REST API](rest-api-walkthrough.md) 从自定义应用程序访问指标值。<br>使用 [CLI](https://docs.azure.cn/zh-cn/cli/monitor/metrics?view=azure-cli-latest) 从命令行访问指标值。 |
 | Archive | 出于符合性、审核或脱机报告目的，对资源的性能或运行状况历史记录进行 [存档](..//learn/tutorial-archive-data.md)。 |
-
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Azure Monitor 指标中的数据是如何构建的？
 Azure Monitor 指标收集的数据存储在时序数据库中，该数据库经过优化，可用于分析带时间戳的数据。 每组指标值是包含以下属性的时序：
@@ -101,11 +100,21 @@ Azure Monitor 从三个基本源收集指标。 在 Azure Monitor 指标数据�
 
 ## <a name="retention-of-metrics"></a>指标的保留期
 对于 Azure 中的大多数资源，指标存储 93 天。 有一些例外情况：
-  * **经典来宾 OS 指标**。 经典来宾 OS 指标会保留 14 天。 若要保留期更长，我们建议使用新的来宾 OS 指标，这些指标使用 [Windows 诊断扩展 (WAD)](../platform/diagnostics-extension-overview.md) 收集，并用于具有 [InfluxData Telegraf 代理](https://www.influxdata.com/time-series-platform/telegraf/)的 Linux 虚拟机。
-  * **Application Insights 基于日志的指标**。 在后台，[基于日志的指标](../app/pre-aggregated-metrics-log-metrics.md)将转换为日志查询。 其保留期与基础日志中事件的保留期相匹配。 对于 Application Insights 资源，日志存储 90 天。 
+
+**来宾 OS 指标**
+-   **经典来宾 OS 指标**。 这些是由 [Windows 诊断扩展 (WAD)](../platform/diagnostics-extension-overview.md) 或 [Linux 诊断扩展 (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) 收集并路由到 Azure 存储帐户的性能计数器。 这些指标的保留期为 14 天。
+-   **发送到 Azure Monitor 指标的来宾 OS 指标**。 这些是由 Windows 诊断扩展 (WAD) 收集并发送到 [Azure Monitor 接收器](diagnostics-extension-overview.md#data-storage)的性能计数器，或通过 Linux 计算机上的 [InfluxData Telegraf 代理](https://www.influxdata.com/time-series-platform/telegraf/)收集的性能计数器。 这些指标的保留期为 93 天。
+-   **Log Analytics 代理收集的来宾 OS 指标**。 这些是由 Log Analytics 代理收集并发送到 Log Analytics 工作区的性能计数器。 这些指标的保留期为 31 天，最长可延长到 2 年。
+
+**Application Insights 基于日志的指标**。 
+- 在后台，[基于日志的指标](../app/pre-aggregated-metrics-log-metrics.md)将转换为日志查询。 其保留期与基础日志中事件的保留期相匹配。 对于 Application Insights 资源，日志存储 90 天。
 
 > [!NOTE]
-> 可[将 Azure Monitor 资源的平台指标发送到 Log Analytics 工作区](diagnostic-logs-stream-log-store.md)以分析长期趋势。
+> 可[将 Azure Monitor 资源的平台指标发送到 Log Analytics 工作区](resource-logs-collect-storage.md)以分析长期趋势。
+
+
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

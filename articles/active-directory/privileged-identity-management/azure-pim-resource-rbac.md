@@ -3,30 +3,30 @@ title: 在 PIM 中查看 Azure 资源角色的活动和审核历史记录 - Azur
 description: 在 Azure AD Privileged Identity Management (PIM) 中查看 Azure 资源角色的活动和审核历史记录。
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: curtand
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 origin.date: 04/09/2019
-ms.date: 08/08/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02eee6a08b83028ce3ee3b641f4d087741f93ee8
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: d49a8961eb42f85432cfaa240af56a4d0fea27ff
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973571"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830845"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>在 PIM 中查看 Azure 资源角色的活动和审核历史记录
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中查看 Azure 资源角色的活动和审核历史记录
 
-使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，可以查看组织中的 Azure 资源角色的活动、激活和审核历史记录。 这些资源包括订阅、资源组甚至虚拟机。 Azure 门户中利用 Azure 基于角色的访问控制 (RBAC) 功能的任何资源都可以利用 PIM 中的安全和生命周期管理功能。
+使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，可以查看组织中的 Azure 资源角色的活动、激活和审核历史记录。 这些资源包括订阅、资源组甚至虚拟机。 Azure 门户中利用 Azure 基于角色的访问控制 (RBAC) 功能的任何资源都可以利用 Privileged Identity Management 中的安全和生命周期管理功能。
 
 ## <a name="view-activity-and-activations"></a>查看活动和激活
 
@@ -52,7 +52,7 @@ ms.locfileid: "68973571"
 
 ## <a name="export-role-assignments-with-children"></a>导出具有子级的角色分配
 
-你可能具有合规性要求，必须向审核者提供角色分配的完整列表。 可以使用 PIM 查询特定资源上的角色分配，这包括针对所有子资源的角色分配。 以前，管理员很难获取某个订阅的角色分配完整列表，他们必须导出每个特定资源的角色分配。 使用 PIM，可以查询某个订阅中所有处于活动状态和符合条件的角色分配，包括针对所有资源组和资源的角色分配。
+你可能具有合规性要求，必须向审核者提供角色分配的完整列表。 可以使用 Privileged Identity Management 查询特定资源上的角色分配，这包括针对所有子资源的角色分配。 以前，管理员很难获取某个订阅的角色分配完整列表，他们必须导出每个特定资源的角色分配。 使用 Privileged Identity Management，可以查询某个订阅中所有处于活动状态和符合条件的角色分配，包括针对所有资源组和资源的角色分配。
 
 1. 打开“Azure AD Privileged Identity Management”。 
 
@@ -112,7 +112,8 @@ ms.locfileid: "68973571"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 PIM 中分配 Azure 资源角色](pim-resource-roles-assign-roles.md)
-- [在 PIM 中批准或拒绝 Azure 资源角色的请求](pim-resource-roles-approval-workflow.md)
-- [在 PIM 中查看 Azure AD 角色的审核历史记录](pim-how-to-use-audit-log.md)
+- [在 Privileged Identity Management 中分配 Azure 资源角色](pim-resource-roles-assign-roles.md)
+- [在 Privileged Identity Management 中批准或拒绝 Azure 资源角色的请求](pim-resource-roles-approval-workflow.md)
+- [在 Privileged Identity Management 中查看 Azure AD 角色的审核历史记录](pim-how-to-use-audit-log.md)
 
+<!-- Update_Description: wording update -->

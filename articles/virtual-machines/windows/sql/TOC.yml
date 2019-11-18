@@ -56,16 +56,18 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: 使用 Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
+    - name: 管理
+      items:
+        - name: 用于备份和还原的 Azure 存储
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: 迁移
       items:
-        - name: 迁移 SQL Server 数据库
+        - name: SQL Server 数据库到 VM
           href: virtual-machines-windows-migrate-sql.md
         - name: VM 到新区域
           href: virtual-machines-windows-sql-move-different-region.md
     - name: 配置高可用性
       items:
-        - name: 使用 Azure 存储进行备份和还原
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Always On 可用性组
           items:
             - name: 多个区域
@@ -82,7 +84,7 @@
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
         - name: 故障转移群集实例
           items:
-            - name: 配置
+            - name: 使用存储空间直通
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
 - name: 参考
   items:

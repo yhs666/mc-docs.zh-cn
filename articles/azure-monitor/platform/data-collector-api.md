@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor HTTP 数据收集器 API | Azure Docs
 description: 可以使用 Azure Monitor HTTP 数据收集器 API，从能够调用 REST API 的任何客户端将 POST JSON 数据添加到 Log Analytics 工作区。 本文介绍如何使用 API，并提供关于如何使用不同的编程语言发布数据的示例。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 09/10/2019
-ms.date: 09/23/2019
+origin.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9aa9f0fa57d3d006a3f692142491ef4f2a745d1c
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 33386b52300f145743717fc10be013e7bc247ef2
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970950"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730544"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor
 本文介绍如何使用 HTTP 数据收集器 API 从 REST API 客户端将日志数据发送到 Azure Monitor。  其中说明了对于脚本或应用程序收集的数据，如何设置其格式、将其包含在请求中，并由 Azure Monitor 授权该请求。  将针对 PowerShell、C# 和 Python 提供示例。
@@ -63,7 +58,7 @@ Log Analytics 工作区中的所有数据都存储为具有某种特定记录类
 | Log-Type |指定正在提交的数据的记录类型。 只能包含字母、数字和下划线 (_)，不能超过 100 个字符。 |
 | x-ms-date |处理请求的日期，采用 RFC 1123 格式。 |
 | x-ms-AzureResourceId | 应该与数据关联的 Azure 资源的资源 ID。 这样会填充 `_ResourceId` 属性，并允许将数据包括在[以资源为中心](manage-access.md#access-modes)的查询中。 如果未指定此字段，则不会将数据包括在以资源为中心的查询中。 |
-| time-generated-field |数据中包含数据项时间戳的字段名称。 如果指定某一字段，其内容用于 **TimeGenerated**。 如果未指定此字段，**TimeGenerated** 的默认值是引入消息的时间。 消息字段的内容应遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
+| time-generated-field | 数据中包含数据项时间戳的字段名称。 如果指定某一字段，其内容用于 **TimeGenerated**。 如果未指定此字段，**TimeGenerated** 的默认值是引入消息的时间。 消息字段的内容应遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
 ## <a name="authorization"></a>授权
 Azure Monitor HTTP 数据收集器 API 的任何请求都必须包含授权标头。 若要验证请求，必须针对发出请求的工作区使用主要或辅助密钥对请求进行签名。 然后，传递该签名作为请求的一部分。   

@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 备份来备份和还原已加密的 Azure VM
 description: 介绍如何使用 Azure 备份服务备份和还原已加密的 Azure VM。
-services: backup
+ms.reviewer: geg
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/12/2019
 ms.date: 09/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 20c65a2f2e4855fc2962d0395890d55314f7feb9
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: dcf3d0ab62e2252434c4e3dbddfbe3ba6be86b01
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330247"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730584"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>备份和还原已加密的 Azure VM
 
@@ -153,6 +153,7 @@ Azure VM 需要拥有只读访问权限才能备份密钥和机密以及关联�
 2. 然后执行以下操作之一：
     - 使用执行还原操作期间生成的模板来自定义 VM 设置，并触发 VM 部署。 [了解详细信息](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)。
     - 使用 PowerShell 从已还原的磁盘创建新的 VM。 [了解详细信息](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
+    - 对于 Linux VM，请重置 ADE 扩展，以便打开并装载数据磁盘。 
 
 ## <a name="next-steps"></a>后续步骤
 

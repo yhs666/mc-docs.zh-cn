@@ -1,7 +1,7 @@
 ---
 title: 排查 Azure 虚拟机备份错误
 description: Azure 虚拟机备份和还原疑难解答
-services: backup
+ms.reviewer: srinathv
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 46d807abcdf5571e33c5b6914e891cdd54ac9f8f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f3995b9fa182ad0ea2987c808c32f608c0793028
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330234"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116242"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>排查 Azure 虚拟机上出现的备份失败问题
 
@@ -27,11 +27,9 @@ ms.locfileid: "71330234"
 
 * 确保 VM 代理（WA 代理）为[最新版本](/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)。
 * 确保 Windows 或 Linux VM OS 版本受支持，详见 [IaaS VM 备份支持矩阵](/backup/backup-support-matrix-iaas)。
-* 验证另一备份服务是否在运行。
-   * 若要确保没有快照扩展问题，请[卸载扩展，然后强制重新加载并重试备份](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)。
 * 验证 VM 是否已建立 Internet 连接。
    * 确保另一备份服务未运行。
-* 在 `Services.msc` 中确保 **Windows Azure 来宾代理**服务处于“正在运行”状态。  如果 **Windows Azure 来宾代理**服务缺失，请按照[在恢复服务保管库中备份 Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent) 中的说明来安装它。
+* 在 `Services.msc` 中确保 **Windows Azure 来宾代理**服务处于“正在运行”状态。  如果 **Windows Azure 来宾代理**服务缺失，请按照[在恢复服务保管库中备份 Azure VM](/backup/backup-azure-arm-vms-prepare#install-the-vm-agent) 中的说明来安装它。
 * **事件日志**可能会显示其他备份产品（例如 Windows Server 备份）的备份故障，而不是因 Azure 备份导致的故障。 通过以下步骤确定问题是否来自 Azure 备份：
    * 如果事件源或消息的“备份”  条目出现错误，请检查 Azure IaaS VM Backup 备份是否已成功，以及是否已使用所需快照类型创建一个还原点。
     * 如果 Azure 备份正常运行，则问题可能出在其他备份解决方案。

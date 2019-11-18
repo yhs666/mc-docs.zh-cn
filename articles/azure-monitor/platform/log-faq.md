@@ -1,25 +1,20 @@
 ---
 title: Log Analytics 常见问题解答 | Azure Docs
 description: 有关 Azure Log Analytics 服务的常见问题解答。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 13adeb2512a29066db9a7206d537a78c123ee00f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 688823b071bfd6c2a0d0260fdfae395abae77273
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737127"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730414"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
 

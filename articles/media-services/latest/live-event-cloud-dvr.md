@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务直播活动和云 DVR | Microsoft Docs
+title: 使用 Azure 媒体服务时间移位和直播到 VOD（点播视频）| Microsoft Docs
 description: 本文介绍了什么是实时输出，以及如何使用云 DVR。
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 08/27/2019
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: ba2f5d3fa9d5111d11390571cc3c56bba22745bd
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: acc799861671f3f597f1bef470ddaf37842a3633
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125578"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416259"
 ---
-# <a name="using-a-cloud-digital-video-recorder-dvr"></a>使用云数字视频录制器 (DVR)
+# <a name="using-time-shifting-and-live-to-vod-video-on-demand"></a>使用时间移位和直播到 VOD（点播视频）
 
 在 Azure 媒体服务中，[实时输出](https://docs.microsoft.com/rest/api/media/liveoutputs)对象类似于数字视频录制器，它会捕获实时流并将其记录到媒体服务帐户中的某个资产内。 记录的内容将保存到[资产](https://docs.microsoft.com/rest/api/media/assets)资源定义的容器中（该容器位于附加到你的帐户的 Azure 存储帐户中）。 使用实时输出还可以控制传出实时流的某些属性，例如，存档记录中保存的流的量（如云 DVR 的容量），以及观看者是否可以开始观看实时流。 磁盘上的存档是一个环形存档“窗口”，仅保存实时输出的 **archiveWindowLength** 属性中指定的内容量。 超出此窗口的内容将自动从存储容器中丢弃，且不可恢复。 archiveWindowLength 值表示一个 ISO-8601 时间跨度持续时间（例如 PTHH:MM:SS），指定 DVR 的容量，最小可设置为 3 分钟，最大为 25 小时。
 

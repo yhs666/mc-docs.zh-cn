@@ -1,25 +1,21 @@
 ---
 title: 排查 Azure Application Insights 可用性测试问题 | Microsoft Docs
 description: 排查 Azure Application Insights 中的 Web 测试问题。 当网站不可用或响应速度缓慢时接收警报。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 09/19/2019
 ms.date: 09/20/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 35c3de59f360e11f388bf628c728a8143ba774b7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e563213549921d2648d3d25d03fbcf367c5a60ad
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329976"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730492"
 ---
 # <a name="troubleshooting"></a>故障排除
 
@@ -45,7 +41,7 @@ ms.locfileid: "71329976"
 |    |正在通过（负载均衡器、异地流量管理器、Azure Express Route）重新路由某些 IP 地址。 
 |    |如果使用的是 Azure ExpressRoute，则在[发生非对称路由](/expressroute/expressroute-asymmetric-routing)时，存在着数据包可能被丢弃的情况。|
 
-## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>间歇性测试失败，出现违反协议错误
+## <a name="test-failure-with-a-protocol-violation-error"></a>测试失败，出现违反协议错误
 
 |症状/错误消息| 可能的原因| 可能的解决方法 |
 |----|---------|-----|
@@ -101,7 +97,7 @@ ms.locfileid: "71329976"
    有两个可能的解决方案：
 
    * 请将防火墙配置为允许从[我们的 Web 测试代理 IP 地址](../../azure-monitor/app/ip-addresses.md)发出的传入请求。
-   * 编写自己的代码，定期测试内部服务器。 在防火墙后的测试服务器上以后台进程的方式运行该代码。 测试进程可以通过核心 SDK 包中的 [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API 将其结果发送到 Application Insights。 这要求测试服务器能够以传出访问的方式访问 Application Insights 引入终结点，但与允许传入请求相比，这种方式的安全风险要小得多。 结果不会显示在可用性 Web 测试边栏选项卡中，但会作为可用性结果显示在分析、搜索和指标资源管理器中。
+   * 编写自己的代码，定期测试内部服务器。 在防火墙后的测试服务器上以后台进程的方式运行该代码。 测试进程可以通过核心 SDK 包中的 [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API 将其结果发送到 Application Insights。 这要求测试服务器能够以传出访问的方式访问 Application Insights 引入终结点，但与允许传入请求相比，这种方式的安全风险要小得多。 结果将显示在“可用性 Web 测试”边栏选项卡中，但是与通过门户创建的测试相比，体验会略微简化。 自定义可用性测试还会在“分析”、“搜索”和“指标”中显示为可用性结果。
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>上传多步骤 Web 测试失败
 

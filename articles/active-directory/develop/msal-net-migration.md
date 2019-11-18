@@ -1,5 +1,6 @@
 ---
-title: 迁移到 MSAL.NET | Azure
+title: 迁移到 MSAL.NET
+titleSuffix: Microsoft identity platform
 description: 了解适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 之间的差异，以及如何迁移到 MSAL.NET。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,30 +14,37 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/10/2019
-ms.date: 08/23/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81286e9d66204e169d380dcf2d2d34f30ace1da
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 0af4927ca3b3fb28d8c85c9c29f3b30dfb51637d
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830965"
 ---
 # <a name="migrating-applications-to-msalnet"></a>将应用程序迁移到 MSAL.NET
 
-适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 用于对 Azure AD 实体进行身份验证，以及从 Azure AD 请求令牌。 截止目前，大多数开发人员都是通过 Azure AD 身份验证库 (ADAL) 来请求令牌，使用面向开发人员的 Azure AD 平台 (v1.0) 来对 Azure AD 标识（工作和学校帐户）进行身份验证。 现在，使用 MSAL.NET 可以通过 Microsoft 标识平台终结点对更广泛的 Microsoft 标识（Azure AD 标识以及通过 Azure AD B2C 使用的社交和本地帐户）进行身份验证。 
+适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 用于对 Azure AD 实体进行身份验证，以及从 Azure AD 请求令牌。 截止目前，大多数开发人员都是通过 Azure AD 身份验证库 (ADAL) 来请求令牌，使用面向开发人员的 Azure AD 平台 (v1.0) 来对 Azure AD 标识（工作和学校帐户）进行身份验证。 使用 MSAL：
 
-本文介绍如何在适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 之间进行选择，并对这两个库做了比较。  
+- 你可以对更广泛的一组 Microsoft 标识进行身份验证（通过 Azure AD B2C 验证 Azure AD 标识以及社交和本地帐户），因为它使用 Microsoft 标识平台终结点，
+- 你的用户将获得最佳单一登录体验。
+- 你将从创新中受益。
+
+**MSAL.NET 现在是建议用于 Microsoft 标识平台的身份验证库**。 不会使用 ADAL.NET 实现任何新功能。 工作的重点是改进 MSAL。
+
+本文介绍适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 之间的差异，并帮助你迁移到 MSAL。  
 
 ## <a name="differences-between-adal-and-msal-apps"></a>ADAL 与 MSAL 应用之间的差异
+
 在大多数情况下都可以使用 MSAL.NET 和 Microsoft 标识平台终结点，这是最新一代的 Microsoft 身份验证库。 使用 MSAL.NET 可以获取通过 Azure AD（工作和学校帐户）或 Azure AD B2C 登录到应用程序的用户的令牌。 
 
 如果你已熟悉面向开发人员的 Azure AD (v1.0) 终结点（和 ADAL.NET），请阅读[ Microsoft 标识平台 (v2.0) 终结点有何不同？](azure-ad-endpoint-comparison.md)
 
-但是，如果应用程序需要使用早期版本的 [Active Directory 联合身份验证服务 (ADFS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services) 将用户登录，则你仍然需要使用 ADAL.NET。 有关更多详细信息，请参阅 [ADFS 支持](https://aka.ms/msal-net-adfs-support)。
+但是，如果应用程序需要使用早期版本的 [Active Directory 联合身份验证服务 (ADFS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services) 将用户登录，则你仍然需要使用 ADAL.NET。 有关详细信息，请参阅 [ADFS 支持](https://aka.ms/msal-net-adfs-support)。
 
 下图汇总了 ADAL.NET 与 MSAL.NET 之间的一些差异 ![代码比较](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
 
@@ -75,7 +83,7 @@ MSAL.NET 提供更明确的异常。 例如，当 ADAL 中的无提示身份验�
 ```csharp
 catch(AdalException exception)
 {
- if (exception.ErrorCode == “user_interaction_required”)
+ if (exception.ErrorCode == "user_interaction_required")
  {
   try
   {“try to authenticate interactively”}}
@@ -174,7 +182,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 
 ```csharp
 ResourceId = "https://graph.chinacloudapi.cn/";
-var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
+var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>警告：应在对应于 v1.0 Web API 的范围中使用一个或两个斜杠
@@ -207,7 +215,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>在客户端凭据流/守护程序应用中限定请求范围
 
-使用客户端凭据流时，要传递的范围也是 `/.default`。 这会让 Azure AD 知道管理员在应用程序注册中许可的所有应用级权限。
+使用客户端凭据流时，要传递的范围也是 `/.default`。 此范围会让 Azure AD 知道管理员在应用程序注册中许可的所有应用级权限。
 
 ## <a name="adal-to-msal-migration"></a>ADAL 到 MSAL 的迁移
 
@@ -215,9 +223,9 @@ ADAL.NET v2.X 中公开了刷新令牌，使你能够通过缓存这些令牌并
 * 当用户不再保持连接时，长时间运行的服务代表用户执行仪表板刷新等操作。 
 * 在 Web 场场景中，让客户端将 RT 引入 Web 服务（缓存在客户端以加密 Cookie 的形式执行，而不是在服务器端执行）
 
-但是，在 MSAL.NET 中做不到这一点，因为出于安全原因，我们不再建议以这种方式利用刷新令牌。 这样就很难迁移到 MSAL 3.x，因为 API 不支持传入以前获取的刷新令牌。 
+出于安全原因，MSAL.NET 不公开刷新令牌：MSAL 会为你处理刷新令牌。 
 
-幸运的是，MSAL.NET 现在会提供一个 API 用于将以前的刷新令牌迁移到 `IConfidentialClientApplication` 中 
+幸运的是，MSAL.NET 现在会提供一个 API 用于将以前的刷新令牌（通过 ADAL 获取）迁移到 `IConfidentialClientApplication` 中：
 
 ```CSharp
 /// <summary>

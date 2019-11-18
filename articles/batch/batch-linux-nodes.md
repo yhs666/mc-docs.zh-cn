@@ -15,12 +15,12 @@ origin.date: 06/01/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3df946a4d598cd58effb8523844dc917c7cf5bd
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9736d7b418b436d406c59ec828f9b57299eab88c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330278"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730540"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -39,7 +39,8 @@ ms.locfileid: "71330278"
 “虚拟机配置”  为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
 
 ### <a name="virtual-machine-image-reference"></a>虚拟机映像引用
-Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)提供虚拟机配置中的计算节点。 可以指定 [Azure 市场][vm_marketplace]中的一个映像，或者提供一个准备好的自定义映像。 有关自定义映像的详细信息，请参阅[使用自定义映像创建池](batch-custom-images.md)。
+
+Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)提供虚拟机配置中的计算节点。 可以指定 [Azure 市场][vm_marketplace]中的一个映像，或者提供一个准备好的自定义映像。 有关自定义映像的更多详细信息，请参阅[使用共享映像库创建池](batch-sig-images.md)。
 
 配置虚拟机映像引用时，需指定虚拟机映像的属性。 创建虚拟机映像引用时，需提供以下属性：
 
@@ -133,7 +134,8 @@ client.pool.add(new_pool)
 nodeagents = client.account.list_node_agent_skus()
 
 # Obtain the desired node agent
-ubuntu1404agent = next(agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
+ubuntu1404agent = next(
+    agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
 
 # Pick the first image reference from the list of verified references
 ir = ubuntu1404agent.verified_image_references[0]
@@ -327,9 +329,9 @@ Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Ba
 
 GitHub 上 [azure-batch-samples][github_samples] 存储库中的 [Python 代码示例][github_samples_py]包含演示如何执行常见 Batch 操作（例如创建池、作业和任务）的多个脚本。 Python 示例随附的 [README][github_py_readme] 文件包含有关如何安装所需包的详细信息。
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples

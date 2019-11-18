@@ -1,18 +1,18 @@
 ---
-title: 在 Azure Database for MySQL 中创建和管理只读副本 - Azure CLI、REST API
-description: 本文介绍如何使用 Azure CLI、REST API 在 Azure Database for MySQL 中设置和管理只读副本
+title: 创建和管理只读副本 - Azure Database for MySQL
+description: 了解如何使用 Azure CLI 或 REST API 在 Azure Database for MySQL 中设置和管理只读副本。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 09/14/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: c0af9b38dd831a6ad51f262bc3fdbd0af3eca1ef
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: b2c64c724dee3563cadd2623495ac317289824bd
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307863"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142152"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>如何使用 Azure CLI 和 REST API 在 Azure Database for MySQL 中创建和管理只读副本
 

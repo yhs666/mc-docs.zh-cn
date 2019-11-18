@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/24/2019
-ms.date: 06/03/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8300a768a9963fe7e36b36eb95adca28d5d5a8d3
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: bad225dae6abb9244e71927bcdbfaf86710762d1
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569772"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425892"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中心指标
 IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure IoT 资源状态。 通过 IoT 中心度量值，可评估 IoT 中心服务及其所连接的设备的总体运行状况。 面向用户的统计信息非常重要，因为它们可以帮助了解 IoT 中心的情况，并可以帮助在不联系 Azure 支持人员的情况下解决根本问题。
@@ -77,7 +77,7 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 |c2d<br>.methods<br>.failure|失败的直接方法调用数|计数|总计|所有失败直接方法调用的计数。|无维度|
 |c2d<br>.methods<br>.requestSize|直接方法调用的请求大小|字节|平均值|所有成功直接方法请求的平均、最小和最大大小。|无维度|
 |c2d<br>.methods<br>.responseSize|直接方法调用的响应大小|字节|平均值|所有成功直接方法响应的平均、最小和最大大小。|无维度|
-|c2d<br>.twin<br>.read<br>.success|后端的成功孪生读取数|计数|总计|由后端发起的所有成功孪生读取的计数。|无维度|
+|c2d<br>.twin<br>.read<br>.success|后端的成功孪生读取数|计数|总计|由后端发起的所有成功孪生读取的计数。 此计数不包括由孪生查询发起的孪生读取操作。|无维度|
 |c2d<br>.twin<br>.read<br>.failure|后端的失败孪生读取数|计数|总计|由后端发起的所有失败孪生读取的计数。|无维度|
 |c2d<br>.twin<br>.read<br>.size|后端的孪生读取的响应大小|字节|平均值|由后端发起的所有成功的孪生读取的平均、最小和最大大小。|无维度|
 |c2d<br>.twin<br>.update<br>.success|后端的成功孪生更新数|计数|总计|由后端发起的所有成功孪生更新的计数。|无维度|

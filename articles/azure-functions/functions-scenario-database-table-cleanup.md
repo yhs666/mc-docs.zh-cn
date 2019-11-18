@@ -7,21 +7,20 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/28/2018
-ms.date: 09/06/2019
+origin.date: 10/02/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5b29656f5e2d47396cdfae2829a89cd51aa89335
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 4ba88db0d5607d2eb809c328119bd1481888b7dd
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805792"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034371"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 连接 Azure SQL 数据库
 
-本文介绍如何使用 Azure Functions 创建连接到 Azure SQL 数据库实例的计划作业。 该函数代码用于清除数据库表中的行。 根据 Visual Studio 2019 中预定义的计时器触发器模板新建 C# 函数。 若要支持这种情况，还必须设置数据库连接字符串，使其成为函数应用中的应用设置。 该方案使用针对数据库的大容量操作。 
+本文介绍如何使用 Azure Functions 创建连接到 Azure SQL 数据库或 Azure SQL 托管实例的计划作业。 该函数代码用于清除数据库表中的行。 根据 Visual Studio 2019 中预定义的计时器触发器模板新建 C# 函数。 若要支持这种情况，还必须设置数据库连接字符串，使其成为函数应用中的应用设置。 对于 Azure SQL 托管实例，需要[启用公共终结点](/sql-database/sql-database-managed-instance-public-endpoint-configure)才能从 Azure Functions 进行连接。 该方案使用针对数据库的大容量操作。 
 
 如果首次使用 C# 函数，则应阅读 [Azure Functions C# 开发人员参考](functions-dotnet-class-library.md)。
 
@@ -41,7 +40,7 @@ ms.locfileid: "70805792"
 
 1. 选择左侧菜单中的“SQL 数据库”，然后在“SQL 数据库”页面上选择数据库   。
 
-1. 选择“设置”下的“连接字符串”，并复制完整的 ADO.NET 连接字符串    。
+1. 选择“设置”下的“连接字符串”，并复制完整的 ADO.NET 连接字符串    。 对于 Azure SQL 托管实例，复制公共终结点的连接字符串。
 
     ![复制 ADO.NET 连接字符串。](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -139,4 +138,4 @@ Function App 在 Azure 中托管函数的执行。 这是在函数应用设置�
 + [测试 Azure Functions](functions-test-a-function.md)  
   介绍可用于测试函数的各种工具和技巧。  
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

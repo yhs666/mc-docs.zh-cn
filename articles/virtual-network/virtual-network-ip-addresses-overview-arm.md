@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/05/2019
-ms.date: 07/22/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: b1d806c729dcc17bb9232f4cc638c7681d96b5be
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 7a0f7a42b98af385a787f757e53788262350bee4
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514237"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831367"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -160,15 +160,11 @@ ms.locfileid: "68514237"
 * 内部负载均衡器 (ILB)
 * 应用程序网关
 
-### <a name="ip-address-version"></a>IP 地址版本
-
-专用 IP 地址是使用 IPv4 地址创建的。 
-
-<!-- Not Available on IPV6 -->
-
 ### <a name="allocation-method"></a>分配方法
 
-可以根据资源所部署到的虚拟网络子网的地址范围来分配专用 IP 地址。 Azure 保留每个子网地址范围中的前四个地址，因此无法将这些地址分配给资源。 例如，如果子网的地址范围是 10.0.0.0/16，则地址 10.0.0.0-10.0.0.3 无法分配给资源。 子网的地址范围内的 IP 地址一次只能分配给一个资源。 
+可以根据资源所部署到的虚拟网络子网的地址范围来分配专用 IP 地址。 Azure 保留每个子网地址范围中的前四个地址，因此无法将这些地址分配给资源。 例如，如果子网的地址范围是 10.0.0.0/16，则地址 10.0.0.0-10.0.0.3 和 10.0.255.255 无法分配给资源。 子网的地址范围内的 IP 地址一次只能分配给一个资源。 
+
+<!--MOONCAKE: CORRECT TO ADD 10.0.255.255-->
 
 分配专用 IP 地址有两种方法：
 

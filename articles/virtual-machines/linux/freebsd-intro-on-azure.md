@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: d51f4736c036f7b2ccb1b6bdd40757e0ded5d3e4
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 990489fad06d3636d7e74551cc46093afcc1d11f
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272751"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831426"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本文概述如何在 Azure 中运行 FreeBSD 虚拟机。
@@ -30,22 +30,17 @@ Azure FreeBSD 是一种高级的计算机操作系统，用于增强新式服务
 
 我们在 Azure 上提供预先配置了 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 的 FreeBSD 映像。 目前，以下 FreeBSD 版本由 Azure 以映像形式提供：
 
-<!--Not Available on - FreeBSD 10.3-RELEASE-->
+<!--MOONCAKE: CUSTOMIZED the FreeBSD URL -->
 
-- FreeBSD 10.4-RELEASE
-- FreeBSD 11.1-RELEASE
+- [Azure 中国门户上的 FreeBSD 10.4](https://portal.azure.cn/#create/Microsoft.FreeBSD104-ARM)
+- [Azure 中国门户上的 FreeBSD 11.2](https://portal.azure.cn/#create/Microsoft.FreeBSD112-ARM)
+- [Azure 中国门户上的 FreeBSD 12.0](https://portal.azure.cn/#create/Microsoft.FreeBSD120-ARM)
+
+<!--MOONCAKE: CUSTOMIZED the FreeBSD URL -->
 
 进行首次使用时的 VM 预配（用户名、密码或 SSH 密钥、主机名等）以及为选择性 VM 扩展启用相关功能等操作时，该代理负责在 FreeBSD VM 和 Azure 结构之间进行通信。
 
 至于未来版本的 FreeBSD，所采用的策略是始终进行更新，确保在 FreeBSD 版本工程团队发布最新版本后很快就可以使用这些版本。
-
-## <a name="deploying-a-freebsd-virtual-machine"></a>部署 FreeBSD 虚拟机
-在 Azure 门户中使用来自 Azure 市场的映像部署 FreeBSD 虚拟机是一个非常简单的过程：
-
-- [Azure 中国门户上的 FreeBSD 10.4](https://portal.azure.cn/#create/Microsoft.FreeBSD104-ARM)
-- [Azure 中国门户上的 FreeBSD 11.2](https://portal.azure.cn/#create/Microsoft.FreeBSD112-ARM)
-
-<!-- Notice: Current FreeBSD 10.4 and 11.2 images are valid in Mooncake Portal -->
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>在 FreeBSD 上通过 Azure CLI 创建 FreeBSD VM
 首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。

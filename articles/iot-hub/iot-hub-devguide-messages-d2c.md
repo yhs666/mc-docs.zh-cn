@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 05/15/2019
-ms.date: 09/30/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: c789a62e9d88c6a08810a2fef83ade0cdbac2372
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: f273843ec53d99980cf2ecce7fc04f899671b660
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156003"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425907"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用 IoT 中心消息路由将设备到云消息发送到不同的终结点
 
@@ -26,13 +26,17 @@ ms.locfileid: "71156003"
 
 * **在将数据路由到各个终结点之前对数据进行筛选**，筛选方法是通过应用丰富的查询。 消息路由允许你查询消息属性和消息正文以及设备孪生标记和设备孪生属性。 深入了解如何使用[消息路由中的查询](iot-hub-devguide-routing-query-syntax.md)。
 
-IoT 中心需要这些服务终结点的写入权限，以便使用消息路由。 如果通过 Azure 门户配置终结点，则为你添加必要权限。 请确保将服务配置为支持预期吞吐量。 在首次配置 IoT 解决方案时，可能需要监视附加终结点，并针对实际负载进行任意的必要调整。
+IoT 中心需要这些服务终结点的写入权限，以便使用消息路由。 如果通过 Azure 门户配置终结点，则为你添加必要权限。 请确保将服务配置为支持预期吞吐量。 例如，如果使用事件中心作为自定义终结点，则必须为该事件中心配置**吞吐量单位**，以便它可以处理你计划通过 IoT 中心消息路由发送的事件流入量。 同样，使用服务总线队列作为终结点时，必须配置**最大大小**，以确保队列可以容纳所有流入的数据，直到它被使用者传出。 在首次配置 IoT 解决方案时，可能需要监视附加终结点，并针对实际负载进行任意的必要调整。
 
 IoT 中心为所有“设备到云”消息传递定义[通用格式](iot-hub-devguide-messages-construct.md)，以实现跨协议的互操作性。 如果某条消息与多个路由匹配，而这些路由指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此无需在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。 使用本教程了解如何[配置消息路由](tutorial-routing.md)。
 
 ## <a name="routing-endpoints"></a>路由终结点
 
-IoT 中心有一个默认的内置终结点（消息/事件），此终结点与事件中心兼容  。 可以通过将订阅中的其他服务链接到中心来创建要将消息路由到的[自定义终结点](iot-hub-devguide-endpoints.md#custom-endpoints)。 IoT 中心目前支持将以下服务作为自定义终结点：
+IoT 中心有一个默认的内置终结点（消息/事件），此终结点与事件中心兼容  。 可以通过将订阅中的其他服务链接到中心来创建要将消息路由到的[自定义终结点](iot-hub-devguide-endpoints.md#custom-endpoints)。 
+
+每条消息都路由到与它的路由查询匹配的所有终结点。 换句话说，消息可以路由到多个终结点。
+
+IoT 中心目前支持将以下服务作为自定义终结点：
 
 ### <a name="built-in-endpoint"></a>内置终结点
 
@@ -111,6 +115,11 @@ IoT 中心将在消息达到特定大小或在经过一定的事件后，对消�
 ## <a name="testing-routes"></a>测试路由
 
 在创建新路由或编辑现有路由时，应通过示例消息来测试路由查询。 可以测试单个路由或一次测试所有路由，并且在测试期间，不会有消息被路由到终结点。 可以使用 Azure 门户、Azure 资源管理器、Azure PowerShell 和 Azure CLI 来进行测试。 测试结果有助于确定示例消息是否与查询相匹配，或者测试是否因为示例消息或查询语法错误而无法运行。 若要了解详细信息，请参阅[测试路由](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/testroute)和[测试所有路由](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/testallroutes)。
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>排序保证至少传送一次
+
+IoT 中心消息路由可保证按顺序至少将消息传送到终结点一次。 这意味着可以存在重复的消息，并且可以按照原始消息顺序重新传输一系列消息。 例如，如果原始消息顺序是 [1,2,3,4]，则可能会收到类似 [1,2,1,2,3,1,2,3,4] 的消息序列。 排序保证指的是，如果收到过消息 [1]，则其后总是 [2,3,4]。
+
+为了处理消息重复项，我们建议在原点（通常是设备或模块）的消息的应用程序属性中标记一个唯一标识符。 传送消息的服务可以使用此标识符来处理重复的消息。
 
 ## <a name="latency"></a>延迟
 

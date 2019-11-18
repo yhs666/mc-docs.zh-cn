@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/12/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 2cdaa4b50f936e003e70e42c039de0df370bc798
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: b0e1310b9ae585a496f127929ef633d28b99b47d
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275512"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648708"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 Couchbase 复制数据
 
@@ -31,7 +31,7 @@ ms.locfileid: "72275512"
 
 以下活动支持此 Couchbase 连接器：
 
-- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 
 可以将数据从 Couchbase 复制到任何支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
@@ -56,7 +56,7 @@ Couchbase 链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | Type 属性必须设置为：**Couchbase** | 是 |
 | connectionString | 用于连接到 Couchbase 的 ODBC 连接字符串。 <br/>将此字段标记为 SecureString，以便安全地将其存储在数据工厂中。 还可以将凭据字符串放在 Azure 密钥保管库中，并从连接字符串中拉取 `credString` 配置。 有关更多详细信息，请参阅以下示例和[在 Azure 密钥保管库中存储凭据](store-credentials-in-key-vault.md)一文。 | 是 |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 在[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 **示例：**
 

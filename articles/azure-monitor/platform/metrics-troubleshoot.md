@@ -9,12 +9,12 @@ origin.date: 05/20/2019
 ms.date: 06/20/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 251e359e54ee5af40767f5fa5ac0beccb24cd7db
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: fee03044b947c61cf4cac70013aba1bb2194e57f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737391"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730597"
 ---
 # <a name="troubleshooting-metrics-charts"></a>排查指标图表问题
 
@@ -96,13 +96,13 @@ Azure 指标图表使用虚线样式来指示两个已知时间粒度数据点�
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>无法选取来宾 OS 命名空间和指标
 
-虚拟机和虚拟机规模集有两种类别的指标：Azure 托管环境收集的“虚拟机主机”指标，以及虚拟机上运行的[监视代理](agents-overview.md)收集的“来宾 OS”指标。   启用 [Azure 诊断扩展](diagnostics-extension-overview.md)即可安装监视代理。
+虚拟机和虚拟机规模集有两种类别的指标：Azure 托管环境收集的虚拟机主机指标，以及虚拟机上运行的[监视代理](agents-overview.md)所收集的来宾 OS（经典）指标   。 启用 [Azure 诊断扩展](diagnostics-extension-overview.md)即可安装监视代理。
 
 默认情况下，来宾 OS 指标存储在 Azure 存储帐户中，可通过资源的“诊断设置”选项卡选取这些指标。  如果未收集来宾 OS 指标或者指标资源管理器无法访问这些指标，则你只会看到“虚拟机主机”指标命名空间： 
 
 ![图表上的](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**解决方案：** 如果在指标资源管理器中未看到“来宾 OS”命名空间和指标： 
+**解决方案：** 如果在指标资源管理器中未看到“来宾 OS (经典)”命名空间和指标： 
 
 1. 确认 [Azure 诊断扩展](diagnostics-extension-overview.md)已启用并配置为收集指标。
     > [!WARNING]

@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2018
+origin.date: 11/04/2019
 ms.author: sasolank
-ms.date: 10/21/2019
-ms.openlocfilehash: 7f48756c186b9e364f53047c5babbafb49f8169e
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 11/18/2019
+ms.openlocfilehash: 342b4f437e678b313b50c5ab621ec1d78a501813
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831399"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -124,7 +124,7 @@ Azure Resource Manager 要求所有资源组指定一个位置。 此位置用�
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>为应用程序网关创建虚拟网络和子网
 
-以下示例演示如何使用 Resource Manager 创建虚拟网络。
+以下示例演示如何使用资源管理器创建虚拟网络。
 
 ### <a name="step-1"></a>步骤 1
 
@@ -205,12 +205,15 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> 若要配置旧开发人员门户连接，需要将 `-HostnameType DeveloperPortal` 替换为 `-HostnameType Portal`。
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>创建前端配置的公共 IP 地址
 

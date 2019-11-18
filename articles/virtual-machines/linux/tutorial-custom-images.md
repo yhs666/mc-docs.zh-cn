@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7ab49a5b1f2eb37bf75f38371d5c72608acb18df
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 029f3da1870ff3f7352f34834fb36cc77ca150a2
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272513"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831340"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教程：使用 Azure CLI 创建 Azure VM 的自定义映像
 
@@ -111,6 +111,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+我们建议你将单个映像的并发部署数量限制为 20 个 VM。 如果计划从同一自定义映像中同时大规模部署 20 多个 VM，则应将[共享映像库](shared-image-galleries.md)与多个映像副本一起使用。 
 
 ## <a name="image-management"></a>映像管理 
 

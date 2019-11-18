@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: d8df6f314f976d0574252cf16877d71278d09cf4
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: e0b358c2f100b8013146673f6995ff9dfe01e818
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583715"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020845"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>快速入门：使用 Python 获取“文本转语音”语音的列表
 
@@ -68,7 +68,7 @@ class GetVoices(object):
 
 ```python
 def get_token(self):
-    fetch_token_url = "https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken"
+    fetch_token_url = "https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken"
     headers = {
         'Ocp-Apim-Subscription-Key': self.subscription_key
     }
@@ -89,7 +89,7 @@ def get_token(self):
 
 ```python
 def get_voices(self):
-    base_url = 'https://chinaeast.tts.speech.microsoft.com'
+    base_url = 'https://chinaeast2.tts.speech.azure.cn'
     path = '/cognitiveservices/voices/list'
     get_voices_url = base_url + path
     headers = {

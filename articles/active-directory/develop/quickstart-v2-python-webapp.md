@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/11/2019
-ms.date: 09/30/2019
+origin.date: 09/25/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 6ea5fc9bfca8344269cd9b2984e8bac61d28e108
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: d9282dc67b8d3f02d91f919dac192b3db7268037
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292153"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830940"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入门：向 Python Web 应用添加 Microsoft 登录功能
 
@@ -38,9 +38,8 @@ ms.locfileid: "72292153"
 若要运行此示例，需要：
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) 或 [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/)、[Flask-Session](https:/pythonhosted.org/Flask-Session/)、`requests`
-- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
-- 一个 Azure Active Directory (Azure AD) 租户。 有关如何获取 Azure AD 租户的详细信息，请参阅[如何获取 Azure AD 租户](/active-directory/develop/quickstart-create-new-tenant)。
+- [Flask](http://flask.pocoo.org/)、[Flask-Session](https://pythonhosted.org/Flask-Session/)、[请求](https://requests.kennethreitz.org//en/master/)
+- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
 >
@@ -65,7 +64,7 @@ ms.locfileid: "72292153"
 > 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 > 1. 选择“新注册”。 
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+> 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
 >      - 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `python-webapp`。
 >      - 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。  
 >      - 在“重定向 URI”部分的下拉列表中，选择“Web”平台，然后将值设置为 `http://localhost:5000/getAToken`。  
@@ -102,48 +101,58 @@ ms.locfileid: "72292153"
 1. 打开 **app_config.py** 文件，该文件可以在根文件夹中找到，并替换为以下代码片段：
 
 ```python
-AUTHORITY = "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Name_Here"
 CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://microsoftgraph.chinacloudapi.cn/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+AUTHORITY = "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
 > 其中：
 >
 > - `Enter_the_Application_Id_here` - 是已注册应用程序的应用程序 ID。
-> - `Enter_the_Tenant_Info_Here` - 是下述选项之一：
->   - 如果应用程序支持“仅我的组织”，  请将该值替换为**租户 ID** 或**租户名称**（例如 contoso.partner.onmschina.cn）
->   - 如果应用程序支持“任何组织目录中的帐户”，请将该值替换为  `organizations`
 > - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”  中为注册的应用程序创建的**客户端密码**。
+> - `Enter_the_Tenant_Name_Here` - 是注册的应用程序的**目录(租户) ID** 值。
 
 #### <a name="step-4-run-the-code-sample"></a>步骤 4：运行代码示例
 
-- 需要安装 MSAL Python 库、Flask 框架、Flask-Sessions，以便使用 pip 进行服务器端会话管理和请求，如下所示：
+1. 需要安装 MSAL Python 库、Flask 框架、Flask-Sessions，以便使用 pip 进行服务器端会话管理和请求，如下所示：
 
-```Shell
-pip install msal
-pip install flask
-pip install Flask-Session
-pip install requests
-```
+   ```Shell
+   pip install -r requirements.txt
+   ```
 
-- 如果已设置 Flask 的环境变量：从 shell 或命令行运行 app.py：
+2. 从 shell 或命令行运行 app.py：
 
-```Shell
-python app.py
-```
+   ```Shell
+   python app.py
+   ```
+   > [!IMPORTANT]
+   > 本快速入门应用程序使用客户端机密将自己标识为机密客户端。 由于客户端机密是以纯文本形式添加到项目文件的，因此为了安全起见，建议在考虑将应用程序用作生产应用程序之前，使用证书来代替客户端机密。 若要详细了解如何使用证书，请参阅[这些说明](/active-directory/develop/active-directory-certificate-credentials)。
 
-- 如果未设置 Flask 的环境变量：
+   ## <a name="more-information"></a>详细信息
 
-    1. 通过导航到项目目录，在 shell 或命令行中键入以下命令：
+   ### <a name="getting-msal"></a>获取 MSAL
+   MSAL 是一个库，用于登录用户和请求令牌，此类令牌用于访问受 Microsoft 标识平台保护的 API。
+   可以使用 Pip 将 MSAL Python 添加到应用程序。
 
-```Shell
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
-flask run
-```
+   ```Shell
+   pip install msal
+   ```
+
+   ### <a name="msal-initialization"></a>MSAL 初始化
+   可以通过将以下代码添加到要使用 MSAL 的文件的顶部，来添加对 MSAL Python 的引用：
+
+   ```Python
+   import msal
+   ```
+
+## <a name="next-steps"></a>后续步骤
+
+详细了解登录用户然后调用 Web API 的 Web 应用：
+
+> [!div class="nextstepaction"]
+> [场景：登录用户的 Web 应用](scenario-web-app-sign-user-overview.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+<!-- Update_Description: wording update -->

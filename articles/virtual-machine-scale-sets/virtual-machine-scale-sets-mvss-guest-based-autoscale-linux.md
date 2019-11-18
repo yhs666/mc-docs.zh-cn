@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/26/2019
-ms.date: 05/16/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 272fdc062f74cc92c7118a0c6b727e82cddbfe2f
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: 2be85db9dfca34877e1be79698fe938c393ddd34
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917459"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831004"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>使用 Linux 规模集模板中的来宾指标执行自动缩放
 
@@ -95,6 +95,7 @@ ms.locfileid: "65917459"
 +                  "protectedSettings": {
 +                    "storageAccountName": "[parameters('storageAccountName')]",
 +                    "storageAccountSasToken": "[parameters('storageAccountSasToken')]",
++                    "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
 +                    "sinksConfig": {
 +                      "sink": [
 +                        {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/13/2019
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: b9eb141242eb2e79d7bbe1fb67b7b451490c0bc4
-ms.sourcegitcommit: ea355470e1b119b4fd6a08195bad37f46bb00061
+ms.openlocfilehash: 52b4b89e168123ade90145fe0bdc15dd713f416f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71151925"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730360"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>有助于保护使用 Azure 备份的云工作负荷的安全功能
 
@@ -120,9 +120,9 @@ Azure 存储在将数据保存到云时会自动加密数据。 加密可以保�
 
 如果保管库中存在处于软删除状态的备份项，则无法删除恢复服务保管库。 完成删除操作 14 天后，软删除的项将永久删除。 只有在清除所有软删除的项之后，才能删除保管库。  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>在删除后，如何彻底删除尚未超过 14 软删除期的数据？
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>是否可以在删除后的 14 天软删除期之前删除数据？
 
-在完成删除操作之后、尚未经过 14 天之前，无法清除数据。 如果这种情况会造成阻碍或影响合规性，请联系 Azure 支持部门。
+否。 无法强制删除软删除项，14 天后会自动删除这些项。 启用此安全功能是为了保护备份的数据不被意外删除或恶意删除。  你应等待 14 天，然后再在 VM 上执行任何其他操作。  不会对软删除项收费。  如果需要将 14 天内标记为软删除的 VM 重新保护到新保管库，请联系 Microsoft 客户支持。
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>是否可以在 PowerShell 或 CLI 中执行软删除操作？
 

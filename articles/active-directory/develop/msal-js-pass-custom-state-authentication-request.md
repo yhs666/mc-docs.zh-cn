@@ -1,9 +1,10 @@
 ---
-title: 在身份验证请求中传递自定义状态（适用于 JavaScript 的 Microsoft 身份验证库）| Azure
+title: 在身份验证请求中传递自定义状态（适用于 JavaScript 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解如何使用适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 在身份验证请求中传递自定义状态参数值。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/29/2019
-ms.date: 06/17/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f3984099cc986812652a8414288a6ce57941e44
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: d86087403c2cd5cc3a76add9b34bf6ea9c14eab1
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305872"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830970"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>使用 MSAL.js 在身份验证请求中传递自定义状态
 由 OAuth 2.0 定义的 state  参数包含在身份验证请求中，并在令牌响应中返回，以防止跨站点请求伪造攻击。 默认情况下，适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 在身份验证请求中传递随机生成的唯一 state  参数值。
@@ -53,7 +54,7 @@ export type AuthenticationParameters = {
 let loginRequest = {
     scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read", 
              "https://microsoftgraph.chinacloudapi.cn/user.write"],
-    state: “page_url”
+    state: "page_url"
 }
 
 myMSALObj.loginPopup(loginRequest);
@@ -77,3 +78,4 @@ export type AuthResponse = {
 
 若要了解详细信息，请阅读[使用 MSAL.js 生成单页应用程序 (SPA)](scenario-spa-overview.md)。
 
+<!-- Update_Description: wording update -->

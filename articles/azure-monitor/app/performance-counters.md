@@ -1,24 +1,20 @@
 ---
 title: Application Insights 中的性能计数器 | Azure Docs
 description: 监视 Application Insights 中的系统和自定义的 .NET 性能计数器。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 12/13/2018
-ms.date: 12/13/2018
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 02f350fa8ff89072f3b0f909a2271588eb89534a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6246e649a65e7aff9acdfeb150fb677f1fda9d2d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737044"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730423"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系统性能计数器
 
@@ -147,11 +143,12 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 应用程序中的性能计数器
 
-* 如果应用程序在 Azure Web 应用 (Windows) 中运行，则 [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 及更高版本将收集性能计数器
+对 ASP.NET Core 中的性能计数器的支持受到限制：
 
-* 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.0-beta3 和更高版本将收集性能计数器。
+* 如果应用程序在 Azure Web 应用 (Windows) 中运行，则 [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 版和更高版本将收集性能计数器。
+* 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.1 版和更高版本将收集性能计数器。
 * 对于面向 .NET Framework 的应用程序，所有版本的 SDK 都支持性能计数器。
-* 在非 Windows 中添加性能计数器支持后，本文将会更新。
+* SDK 2.8.0 版和更高版本支持 Linux 中的 cpu/内存计数器。 Linux 不支持其他计数器。 
 
 ## <a name="alerts"></a>警报
 与其他指标一样，可以[设置警报](../../azure-monitor/app/alerts.md)以便在性能计数器超出指定的限制时收到警报。 打开“警报”窗格，并单击“添加警报”。

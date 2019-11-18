@@ -10,12 +10,12 @@ origin.date: 07/18/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 0434835d8f43a774065829c1460102b95400afe3
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: cfafb4e7e08e7009b76c353ba1c53a909ec16067
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736808"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970967"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何使用 Azure Monitor 警报触发复杂操作
 
@@ -40,7 +40,7 @@ ms.locfileid: "70736808"
 
 1.  在 Azure 门户的左上角，选择“创建资源”  。
 
-2.  搜索并选择“逻辑应用”，然后选择“创建”。 ****  ****
+2.  搜索并选择“逻辑应用”，然后选择“创建”。  
 
 3.  为逻辑应用指定**名称**，并选择一个**资源组**。
 
@@ -285,7 +285,7 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
 
   1. 在 **if true** 条件中，添加 **For each** 循环和 Microsoft Teams 操作。 使用 HTML 和动态内容的组合定义消息。
 
-      ![“指标警报 true 件下的发布操作”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "指标警报 true 件下的发布操作")
+      ![“指标警报 true 条件下的发布操作”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "指标警报 true 条件下的发布操作")
 
   1. 在 **If false** 条件中定义一个 Microsoft Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
 

@@ -12,20 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 10/05/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 76347e0ade9a943154b57304405b79aa9d19fa11
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b76215b2be8d49e706cc633c54319a3cf7f4e9be
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272781"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831456"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
-本文介绍 [Desired State Configuration (DSC) 扩展处理程序](dsc-overview.md)的 Azure 资源管理器模板。 许多示例使用 **RegistrationURL**（以字符串形式提供）和 **RegistrationKey**（以 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=azure-dotnet) 形式提供）来通过 Azure 自动化进行加入。 有关获取这些值的详细信息，请参阅[加入 Azure Automation State Configuration 管理的计算机 - 安全注册](/automation/automation-dsc-onboarding#secure-registration)。
-
-<!--Notice: URL is correct on https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=azure-dotnet-->
+本文介绍 [Desired State Configuration (DSC) 扩展处理程序](dsc-overview.md)的 Azure 资源管理器模板。 许多示例使用 **RegistrationURL**（以字符串形式提供）和 **RegistrationKey**（以 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential) 形式提供）来通过 Azure 自动化进行加入。 有关获取这些值的详细信息，请参阅[加入 Azure Automation State Configuration 管理的计算机 - 安全注册](/automation/automation-dsc-onboarding#secure-registration)。
 
 > [!NOTE]
 > 你可能会遇到略有不同的架构示例。 2016 年 10 月发行版中发生了架构更改。 有关详细信息，请参阅[从以前的格式更新](#update-from-a-previous-format)。
@@ -196,7 +194,7 @@ DSC 扩展继承默认扩展属性。
 
 ## <a name="default-configuration-script"></a>默认配置脚本
 
-有关以下值的详细信息，请参阅[本地配置管理器基本设置](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings)。
+有关以下值的详细信息，请参阅[本地配置管理器基本设置](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings)。
 使用 DSC 扩展默认配置脚本只能配置下表中列出的 LCM 属性。
 
 | 属性名称 | 类型 | 说明 |
@@ -239,8 +237,10 @@ DSC 扩展继承默认扩展属性。
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -432,6 +432,6 @@ DSC 扩展继承默认扩展属性。
 - 了解如何[将虚拟机规模集与 Azure DSC 扩展配合使用](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)。
 - 了解有关 [DSC 的安全凭据管理](dsc-credentials.md)的更多详细信息。
 - 获取 [Azure DSC 扩展处理程序简介](dsc-overview.md)。
-- 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/dsc/overview)。
+- 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)。
 
 <!-- Update_Description: update meta propertes, wording update -->

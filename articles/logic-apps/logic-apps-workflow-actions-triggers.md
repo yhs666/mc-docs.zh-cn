@@ -1,6 +1,6 @@
 ---
-title: 工作流定义语言中的触发器和操作类型参考 - Azure 逻辑应用
-description: 有关 Azure 逻辑应用的工作流定义语言中的触发器和操作类型参考指南
+title: 触发器和操作类型的架构参考 - Azure 逻辑应用
+description: 有关 Azure 逻辑应用中工作流定义语言触发器和操作类型的架构参考指南
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,15 +9,15 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 origin.date: 06/19/2019
-ms.date: 10/08/2019
-ms.openlocfilehash: 5c5f910dcc6d131d26208776831bdeeeaf8d7c09
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: 58601d9722addfba549ddbeeaf02d925e0ac5fc5
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340854"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425964"
 ---
-# <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure 逻辑应用的工作流定义语言中的触发器和操作类型参考
+# <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>有关 Azure 逻辑应用中触发器和操作类型的架构参考指南
 
 本参考文档介绍用于在逻辑应用的基础工作流定义（由[工作流定义语言](../logic-apps/logic-apps-workflow-definition-language.md)描述和验证）中标识触发器和操作的通用类型。
 若要查找可在逻辑应用中使用的特定连接器触发器和操作，请参阅[连接器概述](/connectors/)中的列表。
@@ -2401,12 +2401,38 @@ ID,Product_Name
 
 ### <a name="change-trigger-concurrency"></a>更改触发器并发
 
-默认情况下，逻辑应用实例以并发方式同时或并行（最多达到[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)）运行。 因此，每个触发器实例会在上一个工作流实例完成运行前触发。 此限制可控制后端系统接收的请求数。 
+默认情况下，逻辑应用实例将同时（并发或并行）运行，直到达到[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 因此，每个触发器实例会在上一个工作流实例完成运行前触发。 此限制可控制后端系统接收的请求数。 
 
-若要更改此默认限制，可使用代码视图编辑器或逻辑应用设计器，因为通过设计器更改并发设置会添加或更新基础触发器定义中的 `runtimeConfiguration.concurrency.runs` 属性，反之亦然。 此属性控制可并行运行的最大工作流实例数。 
+若要更改此默认限制，可使用代码视图编辑器或逻辑应用设计器，因为通过设计器更改并发设置会添加或更新基础触发器定义中的 `runtimeConfiguration.concurrency.runs` 属性，反之亦然。 此属性控制可并行运行的最大工作流实例数。 下面是使用并发控制时的一些注意事项：
 
-> [!NOTE] 
-> 如果通过设计器或代码视图编辑器将触发器设为按顺序运行，请勿在代码视图编辑器中将触发器的 `operationOptions` 属性设置为 `SingleInstance`。 否则会出现验证错误。 有关详细信息，请参阅[按顺序触发实例](#sequential-trigger)。
+* 启用并发后，长时间运行的逻辑应用实例可能会导致新的逻辑应用实例进入等待状态。 此状态会阻止 Azure 逻辑应用创建新实例，即使并发运行次数小于指定的最大并发运行次数，也会发生这种情况。
+
+  * 若要中断此状态，请取消仍在运行  的最早实例。
+
+    1. 在逻辑应用的菜单中，选择“概述”  。
+
+    1. 在“运行历史记录”  部分中，选择仍在运行的最早实例，例如：
+
+       ![选择正在运行的最早实例](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > 若要仅查看仍在运行的实例，请打开“全部”  列表，然后选择“正在运行”  。    
+
+    1. 在“逻辑应用运行”  下，选择“取消运行”  。
+
+       ![查找正在运行的最早实例](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * 若要避免这种可能性，请为任何可能阻止这些运行的操作添加超时。 如果使用的是代码编辑器，请参阅[更改异步持续时间](#asynchronous-limits)。 否则，如果使用的是设计器，请执行以下步骤：
+
+    1. 在逻辑应用中要添加超时的操作的右上角选择省略号 ( **...** ) 按钮，然后选择“设置”  。
+
+       ![打开操作设置](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. 在“超时”  下，指定 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的超时持续时间。
+
+       ![指定超时持续时间](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* 如果要按顺序运行逻辑应用，可以使用代码视图编辑器或设计器将触发器的并发度设置为 `1`。 但是，不要在代码视图编辑器中将触发器的 `operationOptions` 属性也设置为 `SingleInstance`。 否则会出现验证错误。 有关详细信息，请参阅[按顺序触发实例](#sequential-trigger)。
 
 #### <a name="edit-in-code-view"></a>在代码视图中编辑 
 

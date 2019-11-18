@@ -4,23 +4,20 @@ description: 了解有关 Azure 数据工厂（协调和自动执行数据移动
 services: data-factory
 documentationcenter: ''
 author: WenJason
-manager: digimobile
-ms.reviewer: douglasl
+ms.author: v-jay
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
-origin.date: 01/11/2018
-ms.date: 07/08/2019
-ms.author: v-jay
-ms.openlocfilehash: a0f9bbf41f9144ef7b169c6b2cdf3a82671cebb4
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+origin.date: 09/30/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 16012b10c0a496e1537744421e45096a27aa35b5
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570318"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648744"
 ---
-# <a name="introduction-to-azure-data-factory"></a>Azure 数据工厂简介 
+# <a name="what-is-azure-data-factory"></a>什么是 Azure 数据工厂？
 
 在大数据环境中，原始、散乱的数据通常存储在关系、非关系和其他存储系统中。 但是，就其本身而言，原始数据没有适当的上下文或含义来为分析师、数据科学家或业务决策人提供有意义的见解。 
 
@@ -32,16 +29,15 @@ ms.locfileid: "67570318"
 
 为了获取见解，它希望使用云中的 Spark 群集 (Azure HDInsight) 处理加入的数据，并将转换的数据发布到云数据仓库（如 Azure SQL 数据仓库）以轻松地基于它生成报表。 公司的人员希望自动执行此工作流，并每天按计划对其进行监视和管理。 他们还希望在文件存储到 blob 存储容器中时执行该工作流。
 
-Azure 数据工厂是解决此类数据方案的平台。 它是*基于云的数据集成服务，用于在云中创建数据驱动型工作流，以便协调和自动完成数据移动和数据转换*。 可以使用 Azure 数据工厂创建和计划数据驱动型工作流（称为管道），以便从不同的数据存储引入数据。 它可以使用计算服务（例如 Azure HDInsight Hadoop、Spark 和 Azure 机器学习）处理和转换数据。 
+Azure 数据工厂是解决此类数据方案的平台。 它是*基于云的 ETL 和数据集成服务，可让你创建数据驱动型工作流，用于协调数据移动和大规模转换数据*。 可以使用 Azure 数据工厂创建和计划数据驱动型工作流（称为管道），以便从不同的数据存储引入数据。 可以构建复杂的 ETL 流程，用于通过 Azure HDInsight Hadoop 和 Azure SQL 数据库等计算服务直观转换数据。 
 
-此外，你还可以将输出数据发布到数据存储（例如 Azure SQL 数据仓库），供商业智能 (BI) 应用程序使用。 最终，通过 Azure 数据工厂，可将原始数据组织成有意义的数据存储和数据湖，以实现更好的业务决策。
+此外，你还可以将转换的数据发布到数据存储（例如 Azure SQL 数据仓库），供商业智能 (BI) 应用程序使用。 最终，通过 Azure 数据工厂，可将原始数据组织成有意义的数据存储和数据湖，以实现更好的业务决策。
 
-![数据工厂的顶级视图](media/introduction/big-picture.png)
+![数据工厂的顶级视图](media/data-flow/overview.png)
 
 ## <a name="how-does-it-work"></a>工作原理
-Azure 数据工厂中的管道（数据驱动型工作流）通常执行以下四个步骤：
 
-![数据驱动型工作流的四个步骤](media/introduction/four-steps-of-a-workflow.png)
+数据工厂包含一系列相互连接的系统，可为数据工程师提供完整的端到端平台。
 
 ### <a name="connect-and-collect"></a>连接和收集
 
@@ -54,7 +50,7 @@ Azure 数据工厂中的管道（数据驱动型工作流）通常执行以下�
 而有了数据工厂，便可以在数据管道中使用[复制活动](copy-activity-overview.md)，将数据从本地和云的源数据存储移到云的集中数据存储进行进一步的分析。 例如，还可以使用 Azure HDInsight Hadoop 群集在 Azure Blob 存储中收集数据并稍后对其进行转换。
 
 ### <a name="transform-and-enrich"></a>转换和扩充
-在云中的集中式数据存储中存在数据后，使用 HDInsight Hadoop 和 Spark 等计算服务处理或转换收集的数据。 需要按可以维护和控制的计划以可靠方式生成转换的数据，为生产环境提供可信数据。
+在云中的集中式数据存储中存在数据后，使用 HDInsight Hadoop 和 Spark 等计算服务处理或转换收集的数据。
 
 ### <a name="publish"></a>发布
 原始数据被优化为业务就绪型可使用的窗体后，请将数据载入 Azure 数据仓库、Azure SQL 数据库、Azure CosmosDB 或业务用户可从其商业智能工具中指向的任何分析引擎。
@@ -101,29 +97,15 @@ Azure 数据工厂中的管道（数据驱动型工作流）通常执行以下�
 ### <a name="control-flow"></a>控制流
 控制流是管道活动的业务流程，包括将活动按顺序链接起来、设置分支。可以在管道级别定义参数，在按需或者通过触发器调用管道时传递自变量。 它还包括自定义状态传递和循环容器，即 For-each 迭代器。
 
+### <a name="variables"></a>变量
+变量可用于在管道内存储临时值，也可以与参数结合使用，以实现在管道和其他活动之间传递值。
 
-有关数据工厂概念的详细信息，请参阅以下文章：
+## <a name="next-steps"></a>后续步骤
+下面是要浏览的重要后续步骤文档：
 
 - [数据集和链接服务](concepts-datasets-linked-services.md)
 - [管道和活动](concepts-pipelines-activities.md)
 - [集成运行时](concepts-integration-runtime.md)
-
-## <a name="supported-regions"></a>支持的区域
-
-若要查看目前提供数据工厂的 Azure 区域的列表，请在以下页面上选择感兴趣的区域，然后展开“分析”  以找到“数据工厂”  ：[可用产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 但是，数据工厂可以访问其他 Azure 区域的数据存储和计算数据，在数据存储之间移动数据或使用计算服务处理数据。
-
-Azure 数据工厂本身不存储任何数据。 它允许创建数据驱动型工作流，协调受支持数据存储之间的数据移动，以及使用计算服务在其他区域或本地环境中处理数据。 它还允许使用编程方式及 UI 机制来监视和管理工作流。
-
-尽管数据工厂只能在特定区域使用，但数据工厂中支持数据移动的服务可在全球多个区域使用。 如果数据存储位于防火墙后面，则可改用本地环境中安装的自承载 Integration Runtime 来移动数据。
-
-例如，假设计算环境（例如 Azure HDInsight 群集）即将耗尽中国北部 2 区域的资源。 可以在中国东部 2 创建并使用一个 Azure 数据工厂实例来计划中国东部 2 计算环境中的作业。 只需几毫秒时间，数据工厂就能触发计算环境上的作业，但在计算环境上运行作业所需的时间不会改变。
-
-## <a name="accessibility"></a>辅助功能
-
-可以访问 Azure 门户中的数据工厂用户体验。
-
-## <a name="next-steps"></a>后续步骤
-开始使用以下工具/SDK 之一创建数据工厂管道： 
 
 - [Azure 门户中的数据工厂 UI](quickstart-create-data-factory-portal.md)
 - [Azure 门户中的“复制数据”工具](quickstart-create-data-factory-copy-data-tool.md)

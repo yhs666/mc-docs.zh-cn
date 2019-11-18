@@ -1,5 +1,6 @@
 ---
-title: Microsoft 标识平台 JavaScript 快速入门 - Azure
+title: 在 JavaScript SPA 中登录用户并获得访问令牌 | Azure
+titleSuffix: Microsoft identity platform
 description: 了解 JavaScript 应用程序如何使用 Microsoft 标识平台调用需要访问令牌的 API。
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,34 +9,31 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97718f465c28ad2de9f6982f47caee920e3bd30b
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 256e621d312c283f890e1797db723b9a6c074f19
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134121"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830942"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>快速入门：通过 JavaScript 单页应用程序将用户登录并获取访问令牌
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>快速入门：在 JavaScript SPA 中登录用户并获得访问令牌
 
-本快速入门介绍如何使用一个代码示例，该示例演示 JavaScript 单页应用程序 (SPA) 如何将工作帐户和学校帐户的用户登录。 JavaScript SPA 还可以获取用于调用 Microsoft Graph API 或任何 Web API 的访问令牌。
-
-![本快速入门中的示例应用的工作原理](./media/quickstart-v2-javascript/javascriptspa-intro.svg)
+在本快速入门中，你将使用代码示例了解 JavaScript 单页应用程序 (SPA) 如何登录工作帐户和学校帐户的用户。 JavaScript SPA 还可以获取用于调用 Microsoft Graph API 或任何 Web API 的访问令牌。 （有关说明，请参阅[示例工作原理](#how-the-sample-works)。）
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门需要以下设置：
-* 若要使用 Node.js 服务器运行项目，请下载并安装 [Node.js](https://nodejs.org/en/download/)。
-* 若要编辑项目文件，请下载并安装 [Visual Studio Code](https://code.visualstudio.com/download)。
-* 若要将该项目作为 Visual Studio 解决方案运行，请下载并安装 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。
+* Azure 订阅 - [创建免费帐户](https://www.azure.cn/pricing/1rmb-trial)
+* [Node.js](https://nodejs.org/en/download/)。
+* [Visual Studio Code](https://code.visualstudio.com/download)（用于编辑项目文件）或 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)（或将项目作为 Visual Studio 解决方案运行）。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>注册并下载快速入门应用程序
@@ -83,8 +81,6 @@ ms.locfileid: "70134121"
 
 * （可选）若要使用 IIS 服务器运行项目，请[下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)。 将 zip 文件提取到本地文件夹（例如，C:\Azure-Samples  ）。
 
-
-
 #### <a name="step-3-configure-your-javascript-app"></a>步骤 3：配置 JavaScript 应用
 
 > [!div renderon="docs"]
@@ -97,7 +93,8 @@ ms.locfileid: "70134121"
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.partner.microsoftonline.cn/Enter_the_Tenant_info_here"
+        authority: "https://login.partner.microsoftonline.cn/Enter_the_Tenant_info_here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -144,6 +141,10 @@ var msalConfig = {
 
 ## <a name="more-information"></a>详细信息
 
+### <a name="how-the-sample-works"></a>此示例的工作原理
+
+![本快速入门中的示例应用的工作原理](./media/quickstart-v2-javascript/javascriptspa-intro.svg)
+
 ### <a name="msaljs"></a>msal.js
 
 MSAL 库会将登录用户，并请求用于访问受 Microsoft 标识平台保护的 API 的令牌。 快速入门 *index.html* 文件包含对该库的引用：
@@ -169,7 +170,8 @@ npm install msal
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Info_Here"
+        authority: "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Info_Here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -182,8 +184,9 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 > |Where  |  |
 > |---------|---------|
-> |`ClientId`     | 在 Azure 门户中注册的应用程序的应用程序 ID|
+> |`clientId`     | 在 Azure 门户中注册的应用程序的应用程序 ID|
 > |`authority`    | （可选）支持帐户类型的颁发机构 URL，如前面的配置部分所述。 默认颁发机构为 `https://login.partner.microsoftonline.cn/common`。 |
+> |`redirectURI`     | 应用程序注册配置的答复/重定向 URI。 在本例中为 `http://localhost:30662/`。 |
 > |`cacheLocation`  | （可选）针对身份验证状态设置浏览器存储。 默认为 sessionStorage。   |
 > |`storeAuthStateInCookie`  | （可选）用于存储身份验证请求状态的库，验证浏览器 Cookie 中的身份验证流时需要该状态。 此 Cookie 是针对 IE 和 Edge 浏览器设置的，目的是缓解某些[已知问题](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)。 |
 

@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 日志查询中的函数 | Azure Docs
 description: 本文介绍了如何在 Azure Monitor 中从一个日志查询中使用函数调用另一个查询。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 11/15/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6b08433ec37966e77373261e8fb69830f3320601
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 0c8614734b0360805c6562a89696a23d72707b7b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329695"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730459"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用函数
 

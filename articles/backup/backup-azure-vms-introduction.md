@@ -1,7 +1,6 @@
 ---
 title: 关于 Azure VM 备份
 description: 了解 Azure VM 备份并注意一些最佳做法。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/13/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e6a358e996846058963e3edfd7c312681152036a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8863f3abeeb5dd3809a9669eea9cec48b3fff8d0
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330236"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730591"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>概要了解 Azure VM 备份
 
@@ -134,7 +133,7 @@ Azure 备份根据备份计划创建快照。
 
 **Disk** | **最大大小** | **实际存在的数据**
 --- | --- | ---
-操作系统磁盘 | 4095 GB | 17 GB
+OS 磁盘 | 4095 GB | 17 GB
 本地/临时磁盘 | 135 GB | 5 GB（不包括在备份中）
 数据磁盘 1 | 4095 GB | 30 GB
 数据磁盘 2 | 4095 GB | 0 GB

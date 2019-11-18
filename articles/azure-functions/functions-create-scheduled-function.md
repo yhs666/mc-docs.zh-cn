@@ -7,18 +7,17 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 03/28/2018
-ms.date: 09/06/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6067f54f875f94e1e1d9ec1f63ff609cac552ba
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: fd7d1c86cd563a167e14ec0391da6a979375fd52
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805747"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934253"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
 
@@ -89,4 +88,4 @@ ms.locfileid: "70805747"
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

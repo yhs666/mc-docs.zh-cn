@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/15/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 49b231bd2c21873a62204762d414ec7ea1633b1c
-ms.sourcegitcommit: 2f7c24eff74f4de0d4a117fc2c327e00ab77ff88
+ms.openlocfilehash: 27d7fb5241b7a71128a0151558c90145ad0d8046
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70888185"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648765"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure 数据工厂中数据移动的安全注意事项
 
@@ -56,7 +56,7 @@ ms.locfileid: "70888185"
 
 ### <a name="securing-data-store-credentials"></a>保护数据存储凭据
 
-- **在 Azure 数据工厂托管存储中存储加密的凭据**。 数据工厂使用由 Azure 管理的证书对数据存储凭据加密，从而帮助为这些凭据提供保护。 这些证书每两年轮换一次（包括证书续订和凭据迁移）。 这些加密凭据安全地存储在由 Azure 数据工厂管理服务管理的 Azure 存储帐户中。 有关 Azure 存储安全的详细信息，请参阅 [Azure 存储安全概述](../security/security-storage-overview.md)。
+- **在 Azure 数据工厂托管存储中存储加密的凭据**。 数据工厂使用由 Azure 管理的证书对数据存储凭据加密，从而帮助为这些凭据提供保护。 这些证书每两年轮换一次（包括证书续订和凭据迁移）。 有关 Azure 存储安全的详细信息，请参阅 [Azure 存储安全概述](../security/security-storage-overview.md)。
 - **在 Azure Key Vault 中存储凭据**。 还可以将数据存储的凭据存储在 [Azure Key Vault](/key-vault/) 中。 数据工厂在执行某个活动期间会检索该凭据。 有关详细信息，请参阅[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。
 
 ### <a name="data-encryption-in-transit"></a>传输中的数据加密
@@ -102,14 +102,15 @@ Salesforce 支持防火墙平台加密，它允许加密所有文件、附件和
 使用命令通道可在数据工厂中的数据移动服务与自承载集成运行时之间通信。 通信包含与活动相关的信息。 数据信道用于在本地数据存储和云数据存储之间传输数据。    
 
 ### <a name="on-premises-data-store-credentials"></a>本地数据存储凭据
-本地数据存储的凭据始终经过加密并存储。 凭据可存储在自承载集成运行时计算机本地，或存储在 Azure 数据工厂托管存储中（如同云存储凭据一样）。 
+凭据可以存储在数据工厂中，也可以在运行时从 Azure 密钥保管库[由数据工厂引用](store-credentials-in-key-vault.md)。 如果将凭据存储在数据工厂中，则凭据会始终以加密方式存储在自承载集成运行时上。 
+ 
+- **在本地存储凭据**。 如果直接结合 JSON 中内联的连接字符串和凭据使用 **Set-AzDataFactoryV2LinkedService** cmdlet，则链接服务将加密并存储在自承载集成运行时中。  在这种情况下，凭据将通过 Azure 后端服务（此服务非常安全）传递到自承载集成计算机（在其中最终会对其进行加密和存储）。 自承载集成运行时使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 来加密敏感数据和凭据信息。
 
-- **在本地存储凭据**。 如果想要在自承载集成运行时本地加密并存储凭据，请遵循[在 Azure 数据工厂中加密本地数据存储的凭据](encrypt-credentials-self-hosted-integration-runtime.md)中的步骤。 所有连接器都支持此选项。 自承载集成运行时使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 来加密敏感数据和凭据信息。 
+- **在 Azure Key Vault 中存储凭据**。 还可以将数据存储的凭据存储在 [Azure Key Vault](/key-vault/) 中。 数据工厂在执行某个活动期间会检索该凭据。 有关详细信息，请参阅[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。
+
+- **在本地存储凭据，而无需通过 Azure 后端将凭据传递到自承载集成运行时**。 如果想要在自承载集成运行时本地加密并存储凭据，而不必通过数据工厂后端传递凭据，请按照[在 Azure 数据工厂中加密本地数据存储的凭据](encrypt-credentials-self-hosted-integration-runtime.md)中的步骤操作。 所有连接器都支持此选项。 自承载集成运行时使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 来加密敏感数据和凭据信息。 
 
    使用 **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdle 可加密链接服务凭据和链接服务中的敏感详细信息。 然后，可以通过 **Set-AzDataFactoryV2LinkedService** cmdlet 使用返回的 JSON（结合连接字符串中的 **EncryptedCredential** 元素）创建链接服务。  
-
-- **在 Azure 数据工厂托管存储中存储**。 如果直接结合 JSON 中内联的连接字符串和凭据使用 **Set-AzDataFactoryV2LinkedService** cmdlet，则链接服务将加密并存储在 Azure 数据工厂托管存储中。 敏感信息仍由证书加密，这些证书由 Azure 管理。
-
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>在自承载集成运行时中加密链接服务时使用的端口
@@ -145,23 +146,17 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 
 ![将 IPSec VPN 与网关配合使用](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> 防火墙配置及将 IP 地址加入允许列表
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> 防火墙配置和针对 IP 地址设置的允许列表
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>本地/专用网络的防火墙要求  
 在企业中，企业防火墙在组织的中央路由器上运行。 Windows 防火墙在安装自承载集成运行时的本地计算机上作为守护程序运行。 
 
 下表提供了企业防火墙的出站端口和域要求：
 
-| 域名                  | 出站端口 | 说明                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.chinacloudapi.cn`    | 443            | 自承载集成运行时连接到数据工厂中的数据移动服务时需要此端口。 |
-| `*.frontend.datamovement.azure.cn` | 443            | 自承载集成运行时连接到数据工厂服务时需要此端口。 |
-| `download.microsoft.com`    | 443            | 自承载集成运行时下载更新时需要此端口。 如果已禁用自动更新，则可以跳过此设置。 |
-| `*.core.chinacloudapi.cn`          | 443            | 使用[分阶段复制](copy-activity-performance.md#staged-copy)功能时，由自承载集成运行时用来连接到 Azure 存储帐户。 |
-| `*.database.chinacloudapi.cn`      | 1433           | （可选）从/向 Azure SQL 数据库或 Azure SQL 数据仓库复制时需要。 在不打开端口 1433 的情况下，使用暂存复制功能将数据复制到 Azure SQL 数据库或 Azure SQL 数据仓库。 |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> 可能需要按相应数据源的要求在企业防火墙级别管理端口/允许列表域。 此表仅以 Azure SQL 数据库和 Azure SQL 数据仓库为例。   
+> 可能需要按相应数据源的要求在企业防火墙级别为域管理端口或设置允许列表。 此表仅以 Azure SQL 数据库和 Azure SQL 数据仓库为例。   
 
 下表提供了 Windows 防火墙的入站端口要求：
 
@@ -171,10 +166,10 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 
 ![网关端口要求](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>数据存储中的 IP 配置和允许列表
-云中的某些数据存储还需要将访问存储的计算机的 IP 地址加入允许列表。 确保已在防火墙中相应地将自承载集成运行时计算机的 IP 地址加入允许列表或进行配置。
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>IP 配置和数据存储中设置的允许列表
+云中的一些数据存储还要求你允许访问存储的计算机的 IP 地址。 确保已在防火墙中相应地允许或配置自承载集成运行时计算机的 IP 地址。
 
-以下云数据存储要求将自承载集成运行时计算机的 IP 地址加入允许列表。 默认情况下，某些这类数据存储可能不需要允许列表。 
+以下云数据存储要求允许自承载集成运行时计算机的 IP 地址。 默认情况下，其中一些数据存储可能不需要允许列表。 
 
 - [Azure SQL 数据库](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -189,7 +184,7 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 
 **需要满足哪些端口要求才能让自承载集成运行时正常工作？**
 
-自承载集成运行时与访问 Internet 建立基于 HTTP 的连接。 必须打开出站端口 443，才能让自承载集成运行时建立此连接。 仅在计算机级别（不是企业防火墙级别）为凭据管理器应用程序打开入站端口 8060。 如果使用 Azure SQL 数据库或 Azure SQL 数据仓库作为源或目标，则还需要打开端口 1433。 有关详细信息，请参阅[防火墙配置和允许列表 IP 地址](#firewall-configurations-and-whitelisting-ip-address-of-gateway)部分。 
+自承载集成运行时与访问 Internet 建立基于 HTTP 的连接。 必须打开出站端口 443，才能让自承载集成运行时建立此连接。 仅在计算机级别（不是企业防火墙级别）为凭据管理器应用程序打开入站端口 8060。 如果使用 Azure SQL 数据库或 Azure SQL 数据仓库作为源或目标，则还需要打开端口 1433。 有关详细信息，请参阅[防火墙配置和针对 IP 地址设置的允许列表](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)部分。 
 
 
 ## <a name="next-steps"></a>后续步骤

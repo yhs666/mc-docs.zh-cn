@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/12/2019
-ms.date: 10/09/2019
+origin.date: 10/16/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33ab2ee3fd52e1e80d910a3d066d024f60b19e2b
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: fc28c74e3b9973912261192d476a01cf0676e1fa
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292043"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830883"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft 标识平台和隐式授权流
 
@@ -87,7 +87,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | 必填 |由应用程序生成且包含在请求中的值，以声明方式包含在生成的 id_token 中。 应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机的唯一字符串，可用以识别请求的来源。 只有请求 id_token 时才是必需的。 |
 | `prompt` | 可选 |表示需要的用户交互类型。 目前的有效值为“login”、“none”、“select_account”和“consent”。 `prompt=login` 将强制用户在该请求上输入凭据，取消单一登录。 `prompt=none` 则相反 - 它确保不对用户显示任何交互式提示。 如果请求无法通过单一登录静默完成，则 Microsoft 标识平台终结点将返回一个错误。 `prompt=select_account` 将用户发送到一个帐户选取器，其中将显示在会话中记住的所有帐户。 `prompt=consent` 会在用户登录之后触发 OAuth 同意对话框，要求用户向应用授予权限。 |
 | `login_hint`  |可选 |如果事先知道其用户名称，可用于预先填充用户登录页面的用户名称/电子邮件地址字段。 通常，应用会在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。|
-| `domain_hint` | 可选 |可以是 `consumers` 或 `organizations` 之一。 如果包含，它跳过用户在登录页上经历的基于电子邮件的发现过程，导致稍微更加流畅的用户体验。 通常，应用将在重新进行身份验证时使用此参数，方法是从 id_token 提取 `tid` 声明。 可以在重新进行身份验证期间使用 `domain_hint=organizations`。 |
+| `domain_hint` | 可选 |可以是 `organizations`。 如果包含，它跳过用户在登录页上经历的基于电子邮件的发现过程，导致稍微更加流畅的用户体验。 通常，应用将在重新进行身份验证时使用此参数，方法是从 id_token 提取 `tid` 声明。 可以在重新进行身份验证期间使用 `domain_hint=organizations`。 |
 
 此时，将请求用户输入凭据并完成身份验证。 Microsoft 标识平台终结点还会确保用户已许可 `scope` 查询参数中指定的权限。 如果用户未曾同意这些权限的任何一项，就请求用户同意请求的权限。  有关详细信息，请参阅[权限、同意和多租户应用](v2-permissions-and-consent.md)。
 
@@ -130,20 +130,6 @@ error=access_denied
 | --- | --- |
 | `error` |可用于分类发生的错误类型与响应错误的错误码字符串。 |
 | `error_description` |帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
-
-## <a name="validate-the-id_token"></a>验证 id_token
-
-仅接收 id_token 不足以对用户进行身份验证，还必须验证 id_token 的签名，并根据应用的要求验证令牌中的声明。 Microsoft 标识平台终结点使用 [JSON Web 令牌 (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公钥加密对令牌进行签名并验证其是否有效。
-
-可以选择验证客户端代码中的 `id_token`，但常见的做法是将 `id_token` 发送到后端服务器，并在那里执行验证。 验证 id_token 的签名后，需要验证一些声明。 有关详细信息，请参阅[`id_token`参考](id-tokens.md)，其中包括[验证令牌](id-tokens.md#validating-an-id_token)和[有关签名密钥滚动更新的重要信息](active-directory-signing-key-rollover.md)。 我们建议利用库来分析和验证令牌 - 对于大多数语言和平台至少有一个可用。
-
-可能还希望根据自己的方案验证其他声明。 一些常见的验证包括：
-
-* 确保用户/组织已注册应用。
-* 确保用户拥有正确的授权/权限。
-* 确保身份验证具有一定的强度，例如多重身份验证。
-
-验证 id_token 后，可以开始与用户的会话，并使用 id_token 中的声明来获取应用中的用户相关信息。 此信息可用于显示、记录和个性化等。
 
 ## <a name="get-access-tokens"></a>获取访问令牌
 

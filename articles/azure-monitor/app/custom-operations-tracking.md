@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure Application Insights .NET SDK 跟踪自定义操作 | Azure Docs
 description: 使用 Azure Application Insights .NET SDK 跟踪自定义操作
-services: application-insights
-documentationcenter: .net
-author: lingliw
-manager: digimobile
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/30/2017
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: ed4a2c6c662d148c6ceae441619725515d2b94b7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 523509da887f411eab67ee03df1642a44acc1852
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330431"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970870"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 跟踪自定义操作
 
@@ -128,6 +124,9 @@ HTTP 关联协议还声明 `Correlation-Context` 标头。 但为了简单起见
 ## <a name="queue-instrumentation"></a>队列检测
 虽然根据 [HTTP 相关协议](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)使用 HTTP 请求传递关联详细信息，但每个队列协议必须定义如何随队列消息传递相同的详细信息。 某些队列协议（如 AMQP）允许传递附加元数据，而另一些队列协议（如 Azure 存储队列）需要将上下文编码为消息有效负载。
 
+> [!NOTE]
+> * **使用 HTTP 的队列尚不支持跨组件跟踪**，如果生产者和使用者将遥测发送到不同的 Application Insights 资源，则“事务诊断体验”和“应用程序映射”将显示事务和端到端映射。 对于队列，尚不支持此项。 
+
 ### <a name="service-bus-queue"></a>服务总线队列
 Application Insights 使用新的[适用于 .NET 的世纪互联 Azure 服务总线客户端](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 3.0.0 版及更高版本跟踪服务总线消息传送调用。
 如果使用[消息处理程序模式](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler?view=azure-dotnet)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 如果手动处理消息，请参阅[使用 Azure Application Insights 跟踪的 Service Bus 客户端](../../service-bus-messaging/service-bus-end-to-end-tracing.md)。
@@ -143,7 +142,8 @@ public async Task Enqueue(string payload)
     // StartOperation is a helper method that initializes the telemetry item
     // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
-    operation.Telemetry.Type = "Queue";
+    
+    operation.Telemetry.Type = "Azure Service Bus";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
@@ -430,7 +430,7 @@ public async Task RunMyTaskAsync()
 
 释放操作会导致操作停止，因此你可以执行此操作而不用调用 `StopOperation`。
 
-*警告*：在某些情况下，未处理的异常可能会[阻止](https://docs.azure.cn/zh-cn/dotnet/csharp/language-reference/keywords/try-finally?view=azure-dotnet)调用 `finally`，因此无法跟踪操作。
+*警告*：在某些情况下，未处理的异常可能会[阻止](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally)调用 `finally`，因此无法跟踪操作。
 
 ### <a name="parallel-operations-processing-and-tracking"></a>并行处理和跟踪操作
 

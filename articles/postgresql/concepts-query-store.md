@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/21/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 7e4c3e7b4c3eb3612dd58e9b8dfec8667d3f14e3
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+origin.date: 10/14/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 2487777305167cfe599629b16ccc66175fb9b7bc
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307874"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191554"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查询存储监视性能
 
@@ -59,6 +59,10 @@ az postgres server configuration set --name pgms_wait_sampling.query_capture_mod
 
 为尽量减少空间使用量，运行时统计信息存储中的运行时执行统计信息在一个固定的、可配置的时间范围内聚合。 通过查询这些查询存储视图，这些存储中的信息是可见的。
 
+## <a name="access-query-store-information"></a>访问查询存储信息
+
+查询存储数据存储在 Postgres 服务器上的 azure_sys 数据库中。 
+
 以下查询返回有关查询存储中的查询的信息：
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -68,6 +72,9 @@ SELECT * FROM query_store.qs_view;
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+还可以将查询存储数据发送到 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)进行分析和发出警报，发送到事件中心进行流式处理，以及发送到 Azure 存储进行存档。 要配置的日志类别是 **QueryStoreRuntimeStatistics** 和 **QueryStoreWaitStatistics**。
+
 
 ## <a name="finding-wait-queries"></a>查找等待查询
 等待事件类型按相似性将不同的等待事件组合到存储桶中。 查询存储提供等待事件类型、特定等待事件名称和有争议的查询。 能将此等待信息与查询运行时统计信息相关联，意味着可更深入地了解有助于查询性能特征的因素。

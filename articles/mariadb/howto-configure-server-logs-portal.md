@@ -1,26 +1,25 @@
 ---
-title: 在 Azure 门户中配置和访问 Azure Database for MariaDB 的服务器日志
+title: 从 Azure 门户配置和访问 Azure Database for MariaDB 中的服务器日志
 description: 本文介绍如何从 Azure 门户配置和访问 Azure Database for MariaDB 中的服务器日志。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 06/11/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: a1b537bbff83857d789b6c2c6ecd697266d0f8e4
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+origin.date: 09/30/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 3eedff95001d6d84ae806ee8ff1720a88942b4c3
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308884"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191584"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
+# <a name="configure-and-access-server-logs-from-the-azure-portal"></a>从 Azure 门户配置和访问服务器日志
 
 可以从 Azure 门户配置、列出并下载 [Azure Database for MariaDB 慢查询日志](concepts-server-logs.md)。
 
 ## <a name="prerequisites"></a>先决条件
-若要逐步执行本操作方法指南，需要：
-- [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-portal.md)
+本文中的步骤要求具备 [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-portal.md)。
 
 ## <a name="configure-logging"></a>配置日志记录
 配置慢查询日志的访问权限。 
@@ -29,41 +28,58 @@ ms.locfileid: "68308884"
 
 2. 选择 Azure Database for MariaDB 服务器。
 
-3. 在侧栏“监视”部分下，选择“服务器日志”   。 
-   ![选择“服务器日志”，单击以进行配置](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
+3. 在边栏中的“监视”部分下，选择“服务器日志”   。 
+   ![“服务器日志”选项的屏幕截图](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
-4. 若要查看服务器参数，请选择标题“单击此处以启用日志并配置日志参数”  。
+4. 若要查看服务器参数，请选择“单击此处以启用日志并配置日志参数”  。
 
-5. 更改需要调整的参数，包括将“slow_query_log”转换为“启用”。 在此会话中所做的更改都突出显示为紫色。 
+5. 更改需要调整的参数，包括将“slow_query_log”  转换为“ON”  。 在此会话中所做的更改都突出显示为紫色。 
 
-   更改参数之后，可以单击“保存”  。 或者也可以放弃所做的更改  。
+   更改参数之后，请选择“保存”。  也可以放弃所做的更改。
 
-   ![只需单击“保存”或“放弃”](./media/howto-configure-server-logs-portal/3-save-discard.png)
+   ![“服务器参数”选项的屏幕截图](./media/howto-configure-server-logs-portal/3-save-discard.png)
 
-6. 单击服务器参数页上的“关闭”按钮（X 图标）返回到日志列表   。
+在“服务器参数”  页上，可以通过关闭该页来返回到日志列表。
 
 ## <a name="view-list-and-download-logs"></a>查看列表并下载日志
-日志记录开始后，可以在“服务器日志”窗格上查看可用慢查询日志列表，并下载单个日志文件。 
+日志记录开始后，可以查看可用慢查询日志列表，并下载单个日志文件。 
 
 1. 打开 Azure 门户。
 
 2. 选择 Azure Database for MariaDB 服务器。
 
-3. 在侧栏“监视”部分下，选择“服务器日志”   。 此页面将显示日志文件列表，如图所示：
+3. 在边栏中的“监视”部分下，选择“服务器日志”   。 此页将显示日志文件列表。
 
-   ![日志列表](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
+   ![“服务器日志”页的屏幕截图，其中突出显示了日志列表](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > 日志命名约定是 mysql-slow-< your server name>-yyyymmddhh.log  。 文件名称中的日期和时间是发布日志的时间。 日志文件每 24 小时或每 7 GB 轮换一次（以先达到的条件为准）。
+   > 日志命名约定是 mysql-slow-< your server name>-yyyymmddhh.log  。 文件名中使用的日期和时间是发布日志的时间。 日志文件每 24 小时或每 7.5 GB 轮换一次（以先达到的条件为准）。
 
-4. 如果需要，使用“搜索框”可快速缩小范围，找到基于日期/时间的特定日志  。 按日志名称进行搜索。
+4. 如果需要，可使用搜索框快速缩小范围，以根据日期和时间找到特定日志。 搜索按日志名称进行。
 
-5. 使用表行中日志文件旁边的“下载”按钮（向下箭头图标）下载单个日志文件，如图所示  ：
+5. 若要下载单个日志文件，请选择表行中每个日志文件旁边的向下箭头图标。
 
-   ![单击“下载”图标](./media/howto-configure-server-logs-portal/5-download.png)
+   ![“服务器日志”页的屏幕截图，其中突出显示了向下箭头图标](./media/howto-configure-server-logs-portal/5-download.png)
+
+## <a name="set-up-diagnostic-logs"></a>设置诊断日志
+
+1. 在边栏中的“监视”  部分下，选择“诊断设置”   > “添加诊断设置”  。
+
+   ![“诊断设置”选项的屏幕截图](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
+
+1. 提供诊断设置名称。
+
+1. 指定向哪些数据接收器（存储帐户、事件中心或 Log Analytics 工作区）发送慢查询日志。
+
+1. 选择 **MySqlSlowLogs** 作为日志类型。
+![“诊断设置配置”选项的屏幕截图](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
+
+1. 配置可以通过管道向其传送慢查询日志的数据接收器后，选择“保存”。 
+![“诊断设置配置”选项的屏幕截图，其中突出显示了“保存”](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
+
+1. 可以通过在配置的数据接收器中浏览慢查询日志来对其进行访问。 最多需要等待 10 分钟的时间，这些日志就会出现。
 
 ## <a name="next-steps"></a>后续步骤
+- 若要了解如何以编程方式下载慢查询日志，请参阅[在 CLI 中访问慢查询日志](howto-configure-server-logs-cli.md)。
 - 详细了解 Azure Database for MariaDB 中的[慢查询日志](concepts-server-logs.md)。
 - 有关参数定义和日志记录的详细信息，请参阅[日志](https://mariadb.com/kb/en/library/slow-query-log-overview/)上的 MariaDB 文档。
-
-<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

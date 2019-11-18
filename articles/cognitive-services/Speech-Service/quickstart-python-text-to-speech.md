@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 78ec2074a30268e509056cd4d922f53008d179bc
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 3f2ba2c75d11f957f10bb51a9df613bcdf0456cd
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583700"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020870"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>快速入门：使用 Python 将文本转换为语音
 
@@ -82,7 +82,7 @@ class TextToSpeech(object):
 
 ```python
 def get_token(self):
-    fetch_token_url = "https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken"
+    fetch_token_url = "https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken"
     headers = {
         'Ocp-Apim-Subscription-Key': self.subscription_key
     }
@@ -109,7 +109,7 @@ def get_token(self):
 
 ```python
 def save_audio(self):
-    base_url = 'https://chinaeast.tts.speech.microsoft.com/'
+    base_url = 'https://chinaeast2.tts.speech.azure.cn/'
     path = 'cognitiveservices/v1'
     constructed_url = base_url + path
     headers = {

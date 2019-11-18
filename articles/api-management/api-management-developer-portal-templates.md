@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 8a2c7be74f93b3c5bfe000314a89d99cebc1b8f3
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.date: 11/18/2019
+ms.openlocfilehash: 77e930dd15af313661652a7d9417788d11224500
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323774"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831461"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用模板自定义 Azure API 管理开发人员门户
 
@@ -31,6 +31,8 @@ ms.locfileid: "72323774"
 * [修改门户生成的页面所用的模板][portal-templates]（在本指南中进行了介绍）
 
 模板用于自定义系统生成的开发人员门户页的内容（例如，API 文档、产品、用户身份验证等）。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和一组提供的本地化字符串资源、图标和页面控件，可根据需要非常灵活地配置页面内容。
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

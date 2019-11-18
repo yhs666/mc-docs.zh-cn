@@ -8,25 +8,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-origin.date: 1/9/2019
-ms.date: 07/08/2019
+origin.date: 8/2/2019
+ms.date: 11/11/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: 7a90ad25bc8b580ba303f81b20b5d262c06e5820
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e870293913ec2b3131ef65b493676df62bf093cb
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570356"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648760"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>如何按计划启动和停止 Azure-SSIS Integration Runtime
 本文介绍如何使用 Azure 数据工厂 (ADF) 计划 Azure-SSIS Integration Runtime (IR) 的启动和停止。 Azure-SSIS IR 是专用于执行 SQL Server Integration Services (SSIS) 包的 ADF 计算资源。 运行 Azure-SSIS IR 会产生相关成本。 因此，通常只有在需要在 Azure 中运行 SSIS 包时才运行 IR，而不再需要该包时则停止 IR。 可以使用 ADF 用户界面 (UI)/应用或 Azure PowerShell [手动启动或停止 IR](manage-azure-ssis-integration-runtime.md)。
 
 或者，可以在 ADF 管道中创建 Web 活动，以按计划启动/停止 IR，例如，在早上执行每日 ETL 工作负载之前启动 IR，并在下午完成后将其停止。  还可以在启动和停止 IR 的两个 Web 活动之间链接一个执行 SSIS 包活动，这样 IR 就会按需在包执行之前/之后及时启动/停止。 有关执行 SSIS 包活动的详细信息，请参阅[在 ADF 管道中使用执行 SSIS 包活动运行 SSIS 包](how-to-invoke-ssis-package-ssis-activity.md)一文。
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 如果尚未配置 Azure-SSIS IR，请按照[教程](tutorial-create-azure-ssis-runtime-portal.md)中的说明进行配置。 

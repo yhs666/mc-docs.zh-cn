@@ -1,21 +1,20 @@
 ---
 title: Azure Application Insights 智能检测 - 即将对默认通知收件人进行的更改 | Azure Docs
 description: 使用 Azure Application Insights 监视应用程序跟踪，了解跟踪遥测数据的异常模式。
-services: application-insights
-author: lingliw
-manager: digimobile
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 ms.reviewer: mbullwin
 origin.date: 03/13/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 22bf1480ccbbfd60ea058298990a45144c7433ed
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: dac83d19257238d76381397424772b967edd0dda
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737270"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730578"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>智能检测电子邮件通知更改
 

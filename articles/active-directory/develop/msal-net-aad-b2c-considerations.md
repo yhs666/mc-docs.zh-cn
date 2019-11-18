@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C（适用于 .NET 的 Microsoft 身份验证库）| Azure
+title: Azure AD B2C（适用于 .NET 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解将 Azure AD B2C 与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/24/2019
-ms.date: 08/23/2019
+origin.date: 10/29/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbce2b97ceb4740e10dee2c3d6f21ce42ed8ef38
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 54923b41aa6c2aeeae6b2e2947a17f7c532e00a8
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830966"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 通过社交标识将用户登录
 
@@ -36,12 +37,13 @@ ms.locfileid: "69993261"
 
 ## <a name="authority-for-a-azure-ad-b2c-tenant-and-policy"></a>Azure AD B2C 租户和策略的颁发机构
 
-要使用的颁发机构是 `https://login.partner.microsoftonline.cn/tfp/{tenant}/{policyName}`，其中：
+要使用的颁发机构是 `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`，其中：
 
-- `tenant` 是 Azure AD B2C 租户的名称。 
-- `policyName` 是要应用的策略的名称（例如，“b2c_1_susi”表示登录/注册策略）。
+- `azureADB2CHostname` 是 Azure AD B2C 租户的名称加上主机（例如 `{your-tenant-name}.b2clogin.cn`），
+- `tenant` 是 Azure AD B2C 租户的完整名称（例如，`{your-tenant-name}.partner.onmschina.cn`）或租户的 GUID， 
+- `policyName` 要应用的策略或用户流的名称（例如，“b2c_1_susi”用于注册/登录）。
 
-Azure AD B2C 当前提供的指导原则是使用 `b2clogin.cn`作为颁发机构。 例如，`$"https://{your-tenant-name}.b2clogin.cn/tfp/{your-tenant-ID}/{policyname}"`。 有关详细信息，请参阅[此文档](/active-directory-b2c/b2clogin)。
+有关 Azure AD B2C 机构的详细信息，请参阅此[文档](/active-directory-b2c/b2clogin)。
 
 ## <a name="instantiating-the-application"></a>实例化应用程序
 
@@ -50,12 +52,13 @@ Azure AD B2C 当前提供的指导原则是使用 `b2clogin.cn`作为颁发机�
 ```csharp
 // Azure AD B2C Coordinates
 public static string Tenant = "fabrikamb2c.partner.onmschina.cn";
+public static string AzureADB2CHostname = "fabrikamb2c.b2clogin.cn";
 public static string ClientID = "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6";
 public static string PolicySignUpSignIn = "b2c_1_susi";
 public static string PolicyEditProfile = "b2c_1_edit_profile";
 public static string PolicyResetPassword = "b2c_1_reset";
 
-public static string AuthorityBase = $"https://fabrikamb2c.b2clogin.cn/tfp/{Tenant}/";
+public static string AuthorityBase = $"https://{AzureADB2CHostname}/tfp/{Tenant}/";
 public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
 public static string AuthorityEditProfile = $"{AuthorityBase}{PolicyEditProfile}";
 public static string AuthorityPasswordReset = $"{AuthorityBase}{PolicyResetPassword}";
@@ -71,14 +74,16 @@ application = PublicClientApplicationBuilder.Create(ClientID)
 
 ```csharp
 IEnumerable<IAccount> accounts = await application.GetAccountsAsync();
-AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
+AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
                                             .WithAccount(GetAccountByPolicy(accounts, policy))
+                                            .WithParentActivityOrWindow(ParentActivityOrWindow)
                                             .ExecuteAsync();
 ```
 
 替换为：
 
 - `policy`：前面的字符串之一（例如 `PolicySignUpSignIn`）。
+- `ParentActivityOrWindow` 对于 Android（活动）是必需的，对于支持父 UI 的其他平台（例如 Windows 中的窗口和 iOS 中的 UIViewController）是可选的。 在[此处的 UI 对话框](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow)中查看更多信息。
 - `GetAccountByPolicy(IEnumerable<IAccount>, string)`：用于在帐户中查找给定策略的方法。 例如：
 
   ```csharp
@@ -94,11 +99,11 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
   }
   ```
 
-目前可以通过调用 `AcquireTokenInteractive` 来应用策略（例如，让最终用户编辑其个人资料或重置其密码）。 如果使用这两种策略，则不会使用返回的令牌/身份验证结果。
+目前通过调用 `AcquireTokenInteractive` 来应用策略或用户流（例如，让最终用户编辑其配置文件或重置其密码）。 对于这两个策略，不使用返回的令牌/身份验证结果。
 
 ## <a name="special-case-of-editprofile-and-resetpassword-policies"></a>EditProfile 和 ResetPassword 策略的特殊情况
 
-若要提供可让最终用户使用社交标识登录，然后编辑其个人资料的体验，可以应用 Azure AD B2C EditProfile 策略。 为此，可以结合该策略的特定颁发机构，在 Prompt 设置为 `Prompt.NoPrompt` 的情况下调用 `AcquireTokenInteractive`，以避免显示帐户选择对话框（因为用户已登录）
+若要提供让最终用户使用社交标识登录，然后编辑其个人资料的体验，需要应用 Azure AD B2C 编辑配置文件策略。 为此，可以使用该策略的特定权限调用 `AcquireTokenInteractive`，并将 Prompt 设置为 `Prompt.NoPrompt` 以避免显示帐户选择对话框（因为用户已登录并拥有活动的 Cookie 会话）。
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -125,8 +130,9 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 **不建议**使用此流，因为要求用户提供其密码的应用程序是不安全的。 有关此问题的详细信息，请参阅[此文](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)。 
 
 使用用户名/密码意味着会丧失许多功能：
-- 新式标识的核心租户：密码被盗用、重放。 我们的观点是共享机密可能会被截获。 此方法与无密码登录是不兼容的。
+- 新式标识的核心原则：密码被窃取、重放。 我们的观点是共享机密可能会被截获。 此方法与无密码登录是不兼容的。
 - 需要执行 MFA 的用户将无法登录（因为没有交互）。
+- 用户无法执行单一登录。
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 配置 ROPC 流
 在 Azure AD B2C 租户中创建一个新的用户流，然后选择“使用 ROPC 登录”。  这会为租户启用 ROPC 策略。 有关更多详细信息，请参阅[配置资源所有者密码凭据流](/active-directory-b2c/configure-ropc)。
@@ -148,7 +154,6 @@ AcquireTokenByUsernamePassword(
 
 ### <a name="limitations-of-the-ropc-flow"></a>ROPC 流的限制
  - ROPC 流**仅适用于本地帐户**（使用电子邮件或用户名注册到 Azure AD B2C 的帐户）。 如果联合到 Azure AD B2C 支持的任何标识提供者，则此流不起作用。
- - 目前，在从 MSAL 实现 ROPC 流时，**不会从 Azure AD B2C 返回 id_token**。 这意味着无法创建帐户对象，因此，在缓存中，既不存在帐户，也不存在用户。 AcquireTokenSilent 流在此方案中不起作用。 但是，ROPC 不会显示 UI，因此对用户体验没有影响。
 
 ## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>在 MSAL.Net 中使用 Azure AD B2C 进行缓存 
 
@@ -181,4 +186,4 @@ MSAL.Net 支持[令牌缓存](/dotnet/api/microsoft.identity.client.tokencache?v
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS、Xamarin Android、UWP | 一个简单的 Xamarin Forms 应用，演示如何使用 MSAL.NET 通过 Azure AD B2C 对用户进行身份验证，并使用生成的令牌访问 Web API。|
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

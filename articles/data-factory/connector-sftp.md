@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 09/09/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 48ebb79aaee44be81c2a656bbd6470524c86cf57
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 10dff057b62f6cbc16b27039abeb932f4e179772
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275457"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648656"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>使用 Azure 数据工厂从 SFTP 服务器复制数据
 本文概述了如何从 SFTP 服务器复制数据。 若要了解 Azure 数据工厂，请阅读[介绍性文章](introduction.md)。
@@ -27,7 +27,7 @@ ms.locfileid: "72275457"
 
 以下活动支持此 SFTP 连接器：
 
-- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 - [GetMetadata 活动](control-flow-get-metadata-activity.md)
 - [Delete 活动](delete-activity.md)
@@ -59,7 +59,7 @@ SFTP 链接的服务支持以下属性：
 | skipHostKeyValidation | 指定是否要跳过主机密钥验证。<br/>允许的值为：true、false（默认）   。  | 否 |
 | hostKeyFingerprint | 指定主机密钥的指纹。 | 是（如果“skipHostKeyValidation”设置为 false）。  |
 | authenticationType | 指定身份验证类型。<br/>允许值包括：**Basic**、**SshPublicKey**。 有关其他属性和 JSON 示例，请分别参阅[使用基本身份验证](#using-basic-authentication)和[使用 SSH 公钥身份验证](#using-ssh-public-key-authentication)部分。 |是 |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 在[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-authentication"></a>使用基本身份验证
 

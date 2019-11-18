@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 09/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 8ab2de0f2cead11afee9135534c663666e4918db
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: 2dd16ad7c865beafbb72554f9a3734db11ee718a
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262909"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041188"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>基于 DTU 的购买模型中的服务层
 
@@ -36,7 +36,7 @@ ms.locfileid: "71262909"
 | :-- | --: |--:| --:|
 |目标工作负荷|开发和生产|开发和生产|开发和生产|
 |运行时间 SLA|99.99%|99.99%|99.99%|
-|备份保留|7 天|35 天|35 天|
+|最大备份保留期|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
 |IO 吞吐量（近似） |每个 DTU 1-5 IOPS| 每个 DTU 1-5 IOPS | 每个 DTU 25 IOPS|
 |IO 延迟（近似）|5 毫秒（读取），10 毫秒（写入）|5 毫秒（读取），10 毫秒（写入）|2 毫秒（读取/写入）|

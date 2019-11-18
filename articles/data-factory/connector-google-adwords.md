@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/01/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: f405fc4722b7d4db4757bcf9b27c7bb0537cee57
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: bf78ebe6e9acfabdc7d6a61af2b5f6ea4335322a
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275497"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648720"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 Google AdWords 复制数据
 
@@ -31,7 +31,7 @@ ms.locfileid: "72275497"
 
 以下活动支持此 Google AdWords 连接器：
 
-- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 
 

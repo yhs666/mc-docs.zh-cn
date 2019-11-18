@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/27/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1982b4c9b8d673e4b9ff7f9a0449a87f29181827
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 65aec7030cc78d0580e2fee5019a5505951b9a45
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104143"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730146"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 

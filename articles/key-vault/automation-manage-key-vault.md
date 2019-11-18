@@ -1,26 +1,21 @@
 ---
-title: 使用 Azure 自动化管理 Azure 密钥保管库 | Microsoft Docs
+title: 使用 Azure 自动化管理 Azure 密钥保管库 - Azure 密钥保管库 | Azure
 description: 了解如何使用 Azure 自动化服务来管理 Azure 密钥保管库。
 services: Key-Vault, automation
-documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: ''
-ms.assetid: 4e780762-19b6-4ca6-b894-ebb44c538f35
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/29/2016
-ms.date: 10/22/2018
-ms.author: v-biyu
-ms.openlocfilehash: 03846f500c27fb4b319c9d6aa9832e964f14a0f6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 01/07/2019
+ms.date: 10/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: 27e2e8275e8b06e23683af188f39a7f0ea2ddde1
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646928"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426079"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>使用 Azure 自动化管理 Azure 密钥保管库
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure 密钥保管库的管理。
@@ -55,4 +50,4 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 * 请参阅 Azure 自动化[入门教程](../automation/automation-first-runbook-graphical.md)。
 * 请参阅 [Azure 密钥保管库 PowerShell 脚本](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: metadata update -->

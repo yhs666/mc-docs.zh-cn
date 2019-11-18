@@ -1,7 +1,7 @@
 ---
 title: 从旧 Log Analytics 警报 API 切换到新 Azure 警报 API
 description: 概述基于 savedSearch 的旧 Log Analytics 警报 API 以及将警报规则切换到新的 ScheduledQueryRules API 的过程，其中详细说明了常见的客户问题。
-author: msvijayn
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -9,19 +9,19 @@ origin.date: 05/30/2019
 ms.date: 06/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1362773b355033f6f0f92d94a75de468bc6def87
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 2b2c7c35ef8e68995ffd33b0b786eefd7d345e8d
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330380"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970957"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切换日志警报的 API 首选项
 
 > [!NOTE]
 > 所述内容仅适用于 Azure 公有云用户，**不**适用于 Azure 政府或 Azure 中国云用户。  
 
-直到最近都是在 Microsoft Operations Management Suite 门户中管理警报规则。 新警报体验与 Microsoft Azure 中的各种服务集成（包括 Log Analytics），我们要求[将警报规则从 OMS 门户扩展到 Azure](alerts-unified-log.md)。 但是为了确保针对客户尽量减少中断，该过程未更改供其使用的编程接口（基于 SavedSearch 的 [Log Analytics 警报 API](api-alerts.md)）。
+直到最近都是在 Microsoft Operations Management Suite 门户中管理警报规则。 新的警报体验已与 Microsoft Azure 中的各种服务集成。 但是为了确保针对客户尽量减少中断，该过程未更改供其使用的编程接口（基于 SavedSearch 的 [Log Analytics 警报 API](api-alerts.md)）。
 
 但是现在宣布面向 Log Analytics 警报用户推出了真正的 Azure 编程替代方式，即 [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，这也在 [Azure 计费 - 用于日志警报](alerts-unified-log.md#pricing-and-billing-of-log-alerts)中得到了反映。 若要详细了解如何使用该 API 管理日志警报，请参阅[使用 Azure 资源模板管理日志警报](alerts-log.md#managing-log-alerts-using-azure-resource-template)和[使用 PowerShell 管理日志警报](alerts-log.md#managing-log-alerts-using-powershell)。
 

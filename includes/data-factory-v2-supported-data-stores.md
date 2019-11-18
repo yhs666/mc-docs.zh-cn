@@ -5,16 +5,16 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: include
-origin.date: 09/16/2019
-ms.date: 10/14/2019
+origin.date: 10/25/2019
+ms.date: 11/11/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 5749cc95c198761ae429ad5a3518f0f747adafda
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 2503cd6cd867489b930388cdc33e20ee72eeb925
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275417"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799649"
 ---
 | Category | 数据存储 | 支持用作源 | 支持用作接收器 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支持 | 受[自承载 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支持 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -33,12 +33,12 @@ ms.locfileid: "72275417"
 | &nbsp; |[Azure 表存储](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **数据库** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
-| &nbsp; |[演练（预览）](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
+| &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
-| &nbsp; |[Apache Impala（预览）](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  |
+| &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) |✓ | | |✓  |
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |✓ | | |✓  |
@@ -70,15 +70,15 @@ ms.locfileid: "72275417"
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[泛型 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[泛型 REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
-| **服务和应用** |[Amazon Marketplace Web Service（预览）](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| **服务和应用** |[Amazon Marketplace Web Service](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur（预览）](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Dynamics AX（预览）](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
+| &nbsp; |[Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Google AdWords（预览）](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
+| &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot（预览）](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
-| &nbsp; |[Jira（预览）](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
+| &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento（预览）](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo（预览）](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
@@ -89,14 +89,14 @@ ms.locfileid: "72275417"
 | &nbsp; |[QuickBooks（预览）](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Salesforce 服务云](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Salesforce Marketing Cloud（预览）](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  |
+| &nbsp; |[Salesforce Marketing Cloud](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify（预览）](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square（预览）](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
 | &nbsp; |[Web 表（HTML 表）](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
-| &nbsp; |[Xero（预览）](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
+| &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho（预览）](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]

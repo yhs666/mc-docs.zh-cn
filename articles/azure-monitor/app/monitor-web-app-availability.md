@@ -1,24 +1,21 @@
 ---
 title: 监视任何网站的可用性和响应能力 | Azure Docs
 description: 在 Application Insights 中设置 Web 测试。 当网站不可用或响应速度缓慢时接收警报。
-services: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 09/16/2019
 ms.date: 09/20/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 239b7f375d59612c6c774a790002465b7a525c06
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 6e44f7db76a023a0ab709a6644ada2796b3bb798
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330395"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730532"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>监视任意网站的可用性
 
@@ -26,13 +23,13 @@ ms.locfileid: "71330395"
 
 对于可以从公共 Internet 访问的任何 HTTP 或 HTTPS 终结点，均可设置可用性测试。 无需更改要测试的网站。 事实上，该网站甚至不需要是你拥有的网站。 可以测试服务所依赖的 REST API 的可用性。
 
-### 可用性测试类型：<a name="multi-step-web-tests"></a>
+### <a name="types-of-availability-tests"></a>可用性测试类型：
 
 有三种类型的可用性测试：
 
 * [URL ping 测试](#create-a-url-ping-test)：可以在 Azure 门户中创建的简单测试。
 * [多步骤 Web 测试](availability-multistep.md)：记录一系列 Web 请求，这些请求可以通过再现来测试更复杂的场景。 多步骤 Web 测试在 Visual Studio Enterprise 中创建并上传到门户执行。
-* [自定义跟踪可用性测试](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)：`TrackAvailability()` 方法可用于创建你自己的自定义可用性测试。
+* [自定义跟踪可用性测试](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)：如果决定创建自定义应用程序以运行可用性测试，则可以使用 `TrackAvailability()` 方法将结果发送到 Application Insights。
 
 **对于每个 Application Insights 资源，最多可以创建 100 个可用性测试。**
 

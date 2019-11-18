@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/04/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: aeb288eb00e4a87a09437c9806190661f844923c
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 53ba1476d07b04d19df5cb8aa03507490e22b167
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63856127"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742286"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略
 
@@ -64,7 +64,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 
 下表列出了支持的加密算法和密钥强度，客户可自行配置：
 
-| IPsec/IKEv2  | **选项**    |
+|  IPsec/IKEv2  | **选项**    |
 | ---  | --- 
 | IKEv2 加密 | AES256、AES192、AES128、DES3、DES  
 | IKEv2 完整性  | SHA384、SHA256、SHA1、MD5  |
@@ -72,7 +72,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 | IPsec 加密 | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无    |
 | IPsec 完整性  | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5 |
 | PFS 组        | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无 
-| QM SA 生存期   | （**可选**：如果未指定，则使用默认值）<br>秒（整数；至少为 300 秒/默认为 27000 秒）<br>KB（整数；至少为 1024 KB/默认为 102400000 KB）   |
+| QM SA 生存期   | （**可选**：如果未指定，则使用默认值）<br>秒（整数；  至少为 300 秒/默认为 27000 秒）<br>KB（整数；  至少为 1024 KB/默认为 102400000 KB）   |
 | 流量选择器 | UsePolicyBasedTrafficSelectors**（$True/$False; **可选**，如果未指定，则使用默认值 $False）    |
 |  |  |
 
@@ -110,7 +110,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 | 2                         | DHGroup2                 | PFS2         | 1024 位 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048 位 MODP  |
 | 19                        | ECP256                   | ECP256       | 256 位 ECP    |
-| 20 个                        | ECP384                   | ECP284       | 384 位 ECP    |
+| 20 个                        | ECP384                   | ECP384       | 384 位 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048 位 MODP  |
 
 有关更多详细信息，请参阅 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
@@ -323,7 +323,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 同样的步骤适用于 S2S 和 VNet 到 VNet 的连接。
 
 > [!IMPORTANT]
-> IPsec/IKE 策略仅受基于路由的标准 VPN 网关和高性能 VPN 网关支持。 它不适用于基本网关 SKU 或基于策略的 VPN 网关。
+> IPsec/IKE 策略仅受基于路由的标准 VPN 网关和高性能 VPN 网关支持   。 它不适用于基本网关 SKU 或基于策略的 VPN 网关。
 
 #### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.显示连接的 IPsec/IKE 策略
 

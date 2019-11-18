@@ -1,24 +1,21 @@
 ---
 title: 使用 Azure Application Insights 进行性能和负载测试 | Microsoft Docs
 description: 使用 Azure Application Insights 设置性能和负载测试
-services: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 06/19/2019
 ms.date: 06/25/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: f3444d769658bb1d0827f75621e6c3f63ddf9258
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 1696b9b42a05a14e7a50f1f39bb1e9b2aca7d07b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737042"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730421"
 ---
 # <a name="performance-testing"></a>性能测试
 

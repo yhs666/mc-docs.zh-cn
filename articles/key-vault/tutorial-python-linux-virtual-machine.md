@@ -1,5 +1,5 @@
 ---
-title: 教程 - 使用 Linux 虚拟机和 Python 应用程序在 Azure Key Vault 中存储机密 | Azure Docs
+title: 教程 - 使用 Linux 虚拟机和 Python 应用程序在 Azure Key Vault 中存储机密 | Azure
 description: 在本教程中，你会了解如何配置一个 Python 应用程序，以便从 Azure Key Vault 读取机密。
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ origin.date: 09/05/2018
 ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 51ec7aa31bbde32c955c48d780d06a46e419d18b
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: 5aedecc1f3c38ff6ff13efb2e4be89d1d7bba473
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232308"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425851"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>教程：使用 Linux VM 和 Python 应用在 Azure 密钥保管库中存储机密
 
@@ -179,7 +179,7 @@ ssh azureuser@<PublicIpAddress>
   
 # Step 1: Fetch an access token from an MSI-enabled Azure resource      
   # Note that the resource here is https://vault.azure.cn for public cloud and api-version is 2018-02-01
-  MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn"
+  MSI_ENDPOINT = "https://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn"
   r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
 
 # Extracting data in JSON format 

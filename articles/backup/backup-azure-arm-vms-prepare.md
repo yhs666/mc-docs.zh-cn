@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 04/03/2019
-ms.date: 09/23/19
+ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 51833f3c160d129f9b79aef1cd251308c30c93d2
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: bd5579489d0fe36bde0f6d09fe30a9036ceeaa8f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329807"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730393"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>将 Azure VM 备份到恢复服务保管库中
 
@@ -23,6 +23,7 @@ ms.locfileid: "71329807"
 在本文中，学习如何：
 
 > [!div class="checklist"]
+>
 > * 准备 Azure VM。
 > * 创建保管库。
 > * 发现 VM 并配置备份策略。
@@ -41,9 +42,8 @@ ms.locfileid: "71329807"
 
 此外，在某些情况下，还需要完成几项操作：
 
-- **在 VM 上安装 VM 代理**：Azure 备份通过为在计算机上运行的 Azure VM 代理安装一个扩展来备份 Azure VM。 如果 VM 是从 Azure 市场映像创建的，则代理已安装并正在运行。 如果创建了自定义 VM 或者迁移了本地计算机，则可能需要[手动安装代理](#install-the-vm-agent)。
-- **显式允许出站访问**：一般情况下，无需显式允许 Azure VM 的出站网络访问即可让它与 Azure 备份进行通信。 但是，某些 VM 在尝试进行连接时可能会遇到连接问题并显示 **ExtensionSnapshotFailedNoNetwork** 错误。 如果发生这种情况，应该[显式允许出站访问](#explicitly-allow-outbound-access)，使 Azure 备份扩展能够与备份流量的 Azure 公共 IP 地址通信。
-
+* **在 VM 上安装 VM 代理**：Azure 备份通过为在计算机上运行的 Azure VM 代理安装一个扩展来备份 Azure VM。 如果 VM 是从 Azure 市场映像创建的，则代理已安装并正在运行。 如果创建了自定义 VM 或者迁移了本地计算机，则可能需要[手动安装代理](#install-the-vm-agent)。
+* **显式允许出站访问**：一般情况下，无需显式允许 Azure VM 的出站网络访问即可让它与 Azure 备份进行通信。 但是，某些 VM 在尝试进行连接时可能会遇到连接问题并显示 **ExtensionSnapshotFailedNoNetwork** 错误。 如果发生这种情况，应该[显式允许出站访问](#explicitly-allow-outbound-access)，使 Azure 备份扩展能够与备份流量的 Azure 公共 IP 地址通信。
 
 ## <a name="create-a-vault"></a>创建保管库
 
@@ -58,23 +58,21 @@ ms.locfileid: "71329807"
 
      ![创建恢复服务保管库步骤 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
 
-4. 在“恢复服务保管库”中，键入一个易记名称用于标识保管库。    
-    - 名称对于 Azure 订阅需要是唯一的。   
-    - 该名称可以包含 2 到 50 个字符。    
-    - 名称必须以字母开头，只能包含字母、数字和连字符。   
-5. 选择要在其中创建保管库的 Azure 订阅、资源组和地理区域。 然后单击“创建”  。    
-    - 创建保管库可能需要一段时间。  
-    - 可以在门户的右上区域中监视状态通知。   
+4. 在“恢复服务保管库”中，键入一个易记名称用于标识保管库。 
+    * 名称对于 Azure 订阅需要是唯一的。
+    * 该名称可以包含 2 到 50 个字符。
+    * 名称必须以字母开头，只能包含字母、数字和连字符。
+5. 选择要在其中创建保管库的 Azure 订阅、资源组和地理区域。 然后单击“创建”  。
+    * 创建保管库可能需要一段时间。
+    * 可以在门户的右上区域中监视状态通知。
 
+创建保管库后，它会显示在恢复服务保管库列表中。 如果未看到创建的保管库，请选择“刷新”  。
 
- 创建保管库后，它会显示在恢复服务保管库列表中。 如果未看到创建的保管库，请选择“刷新”  。
- 
-![备份保管库列表](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+![备份保管库列表](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 > [!NOTE]
 > Azure 备份服务会创建一个单独的资源组（而非 VM 资源组）来存储快照，采用的命名格式为 **AzureBackupRG_geography_number**（例如：AzureBackupRG_northeurope_1）。 此资源组中的数据将按 Azure 虚拟机备份策略的“保留即时恢复快照”  部分中指定的天数保留。  对此资源组应用锁定可能会导致备份失败。<br>
 此资源组还应排除在任何名称/标记限制之外，因为限制策略会阻止在其中再次创建“资源点”集合，从而导致备份失败。
-
 
 ### <a name="modify-storage-replication"></a>修复存储复制
 
@@ -90,8 +88,9 @@ ms.locfileid: "71329807"
 3. 选择存储复制类型，然后单击“保存”  。
 
       ![设置新保管库的存储配置](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+
 > [!NOTE]
-   > 在保管库经过设置并且包含备份项之后，无法修改存储复制类型。 若要修改，需要重新创建保管库。 
+   > 在保管库经过设置并且包含备份项之后，无法修改存储复制类型。 若要修改，需要重新创建保管库。
 
 ## <a name="apply-a-backup-policy"></a>应用备份策略
 
@@ -185,10 +184,8 @@ ms.locfileid: "71329807"
 已完成 | 已失败 | 已完成，但出现警告
 已失败 | 已失败 | 已失败
 
-
 现在，借助此功能，对于相同的 VM，两个备份可以并行运行，但是，无论处于哪个阶段（“快照”、“将数据传输到保管库”），都只能有一个子任务处于运行状态。 因此，对于进行中的备份作业导致了第二天备份失败的情况，就会通过此分离功能加以避免。 如果以前某天的备份作业处于正在进行的状态，那么当“将数据传输到保管库”  阶段已跳过时，次日的备份快照可以被完成。
 在保管库中创建的增量恢复点将从在该保管库中创建的最后一个恢复点捕获所有的改动。 不会对用户产生任何成本影响。
-
 
 ## <a name="optional-steps-install-agentallow-outbound"></a>可选步骤（安装代理/允许出站访问）
 ### <a name="install-the-vm-agent"></a>安装 VM 代理
@@ -204,9 +201,8 @@ Azure 备份通过为在计算机上运行的 Azure VM 代理安装一个扩展�
 
 VM 上运行的备份扩展需要对 Azure 公共 IP 地址进行出站访问。
 
-- 一般情况下，无需显式允许 Azure VM 的出站网络访问即可让它与 Azure 备份进行通信。
-- 如果 VM 连接遇到问题，或者在尝试连接时出现 **ExtensionSnapshotFailedNoNetwork** 错误，应显式允许访问，使备份扩展能够与备份流量的 Azure 公共 IP 地址通信。 下表汇总了访问方法。
-
+* 一般情况下，无需显式允许 Azure VM 的出站网络访问即可让它与 Azure 备份进行通信。
+* 如果 VM 连接遇到问题，或者在尝试连接时出现 **ExtensionSnapshotFailedNoNetwork** 错误，应显式允许访问，使备份扩展能够与备份流量的 Azure 公共 IP 地址通信。 下表汇总了访问方法。
 
 **选项** | **操作** | **详细信息**
 --- | --- | ---
@@ -228,9 +224,9 @@ VM 上运行的备份扩展需要对 Azure 公共 IP 地址进行出站访问。
 4. 在“源端口范围”中输入一个星号 (*)，以允许从任何端口进行出站访问。 
 5. 在“目标”中，选择“服务标记”。   从列表中选择“Storage.region”。  区域是保管库和要备份的 VM 所在的位置。
 6. 在“目标端口范围”中选择端口。 
-    - 使用未加密存储帐户中的非托管磁盘的 VM：80
-    - 使用非托管磁盘和加密存储帐户的 VM：443（默认设置）
-    - 使用托管磁盘的 VM：8443。
+    * 使用未加密存储帐户中的非托管磁盘的 VM：80
+    * 使用非托管磁盘和加密存储帐户的 VM：443（默认设置）
+    * 使用托管磁盘的 VM：8443。
 7. 在“协议”中，选择“TCP”。  
 8. 在“优先级”中，为此规则指定一个优先级值，该值必须小于任何具有更高优先级的拒绝规则。 
    
@@ -254,13 +250,14 @@ VM 上运行的备份扩展需要对 Azure 公共 IP 地址进行出站访问。
 2. 运行 **PsExec.exe -i -s cmd.exe**，以便在系统帐户下运行命令提示符。
 3. 在系统上下文中运行浏览器。 例如：对于 Internet Explorer，请使用 **%PROGRAMFILES%\Internet Explorer\iexplore.exe**。  
 4. 定义代理设置。
-   - 在 Linux 计算机上：
-     - 将以下代码行添加到 **/etc/environment** 文件：
-       - **http_proxy=http:\//代理 IP 地址:代理端口**
-     - 将以下代码行添加到 **/etc/waagent.conf** 文件：
-         - **HttpProxy.Host=proxy IP address**
-         - **HttpProxy.Port=proxy port**
-   - 在 Windows 计算机上的浏览器设置中，指定要使用代理。 如果当前在用户帐户中使用代理，则可以使用此脚本在系统帐户级别应用该设置。
+   * 在 Linux 计算机上：
+     * 将以下代码行添加到 **/etc/environment** 文件：
+       * **http_proxy=http:\//代理 IP 地址:代理端口**
+     * 将以下代码行添加到 **/etc/waagent.conf** 文件：
+         * **HttpProxy.Host=proxy IP address**
+         * **HttpProxy.Port=proxy port**
+   * 在 Windows 计算机上的浏览器设置中，指定要使用代理。 如果当前在用户帐户中使用代理，则可以使用此脚本在系统帐户级别应用该设置。
+
        ```powershell
       $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
       Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings

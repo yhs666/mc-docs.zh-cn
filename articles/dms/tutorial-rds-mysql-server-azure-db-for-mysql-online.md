@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 09/21/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: e81731d983e75646264549f98df2fe588287f411
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+origin.date: 10/28/2019
+ms.date: 11/11/2019
+ms.openlocfilehash: 8d4d1659a8fd558feb443412095078152a8ff254
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416256"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831304"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>教程：使用 DMS 将 RDS MySQL 联机迁移到 Azure Database for MySQL
 
@@ -59,9 +59,6 @@ ms.locfileid: "73416256"
 * 使用 Azure 资源管理器部署模型创建 Azure 数据库迁移服务的 Azure 虚拟网络 (VNet)，它将使用 [ExpressRoute](/expressroute/expressroute-introduction) 或 [VPN](/vpn-gateway/vpn-gateway-about-vpngateways) 为本地源服务器提供站点到站点连接。 有关创建 VNet 的详细信息，请参阅[虚拟网络文档](/virtual-network/)，尤其是提供了分步详细信息的快速入门文章。
 * 请确保 VNet 网络安全组规则未阻止到 Azure 数据库迁移服务以下入站通信端口：443、53、9354、445、12000。 有关 Azure VNet NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-networks-nsg)一文。
 * 配置 [Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)（或 Linux 防火墙）以允许数据库引擎访问。 对于 MySQL 服务器，允许端口 3306 进行连接。
-* 打开 Windows 防火墙以允许 Azure 数据库迁移服务访问源 MySQL 服务器（默认 TCP 端口为 3306）。
-* 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
-* 为 Azure Database for MySQL 服务器创建服务器级[防火墙规则](/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的 VNet 子网范围。
 
 > [!NOTE]
 > Azure Database for MySQL 仅支持 InnoDB 表。 若要将 MyISAM 表转换为 InnoDB，请参阅[将表从 MyISAM 转换为 InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 一文。
@@ -73,6 +70,7 @@ ms.locfileid: "73416256"
     * binlog_format = row
     * binlog_checksum = NONE
 3. 保存新参数组。
+4. 将新参数组与 RDS MySQL 实例相关联。 可能需要重新启动。
 
 ## <a name="migrate-the-schema"></a>迁移架构
 

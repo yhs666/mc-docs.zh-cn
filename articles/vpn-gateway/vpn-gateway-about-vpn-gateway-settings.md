@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/13/2019
-ms.date: 08/05/2019
+origin.date: 10/03/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 2c5c1fd5b6da268544727b519d006a9a9141911e
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 533cb8b972ffc0a8ac8c97363641689fe99e14a0
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732405"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742295"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 
@@ -135,7 +135,9 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-创建网关子网时，需指定子网包含的 IP 地址数。 将网关子网中的 IP 地址分配到网关 VM 和网关服务。 有些配置需要具有比其他配置更多的 IP 地址。 查看要创建的配置的说明，验证要创建的网关子网是否会满足这些要求。 此外，可能需要确保网关子网包含足够的 IP 地址，以便应对将来可能会添加的配置。 尽管网关子网最小可创建为 /29，但建议创建 /28 或更大（/28、/27 和 /26 等）的网关子网。 这样一来，如果以后添加功能，就无需断开网关，删除并重新创建网关子网以容纳更多 IP 地址。
+创建网关子网时，需指定子网包含的 IP 地址数。 将网关子网中的 IP 地址分配到网关 VM 和网关服务。 有些配置需要具有比其他配置更多的 IP 地址。 
+
+规划网关子网大小时，请参阅你计划创建的配置的相关文档。 例如，ExpressRoute/VPN 网关共存配置所需的网关子网大于大多数其他配置。 此外，可能需要确保网关子网包含足够的 IP 地址，以便应对将来可能会添加的配置。 尽管网关子网最小可创建为 /29，但建议创建 /27 或更大（/27、/26 等）的网关子网（如果你有可用的地址空间来执行此操作）。 这将适合大多数配置。
 
 以下 Resource Manager PowerShell 示例显示名为 GatewaySubnet 的网关子网。 可以看到，CIDR 表示法指定了 /27，这可提供足够的 IP 地址供大多数现有配置使用。
 
@@ -173,4 +175,3 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 ## <a name="next-steps"></a>后续步骤
 
 有关可用连接配置的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
-<!--Update_Description: wording update-->

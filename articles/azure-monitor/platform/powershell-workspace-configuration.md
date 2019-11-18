@@ -1,20 +1,19 @@
 ---
 title: 使用 PowerShell 创建和配置 Log Analytics 工作区 | Azure Docs
 description: Azure Monitor 中的 Log Analytics 工作区存储来自本地或云基础结构中的服务器的数据。 当由 Azure 诊断生成时，可从 Azure 存储收集计算机数据。
-services: log-analytics
+ms.service: azure-monitor
 author: lingliw
-ms.service: log-analytics
-ms.devlang: powershell
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 05/19/2019
 ms.date: 06/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ba8fc406c2f6b50a2193d63ae48d6ccba0397222
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 987fbc8422c045f3066c2acfbed7a4e53def556e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737385"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730337"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>使用 PowerShell 管理 Azure Monitor 中的 Log Analytics 工作区
 
@@ -62,7 +61,7 @@ ms.locfileid: "70737385"
 ```powershell
 
 $ResourceGroup = "oms-example"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # List of solutions to enable
@@ -77,7 +76,7 @@ $ExportedSearches = @"
         "Query":  "Type=Event SourceSystem:AzureStorage ",
         "Version":  1
     },
-    {        
+    {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
         "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"",

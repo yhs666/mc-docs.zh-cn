@@ -1,23 +1,21 @@
 ---
 title: Azure Application Insights 快速入门 | Azure docs
 description: 提供有关快速安装移动应用以使用 Application Insights 和 App Center 进行监控的说明
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: lingliw
 ms.author: v-lingwu
 origin.date: 10/03/2018
 ms.date: 06/26/2019
-ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
-ms.topic: quickstart
-manager: digimobile
-ms.openlocfilehash: 8e6fc0e1c90d040f8a312437cdd7f7754c33835f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d1edab97567b8a632579c41b6fa18c8cdda2dd6d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736976"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730314"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>开始使用 App Center 和 Application Insights 分析移动应用
 

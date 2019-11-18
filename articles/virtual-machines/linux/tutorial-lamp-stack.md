@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 01/30/2019
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06458d6f281cf17e274d90af2547d1872eb13ed4
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: ad6c80bb0bdd9175373e5f861a0e731c3a4a6481
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921036"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831333"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LAMP Web 服务器
 

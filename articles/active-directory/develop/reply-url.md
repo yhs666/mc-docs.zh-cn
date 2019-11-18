@@ -5,19 +5,19 @@ author: SureshJa
 ms.author: v-junlch
 manager: CelesteDG
 origin.date: 06/29/2019
-ms.date: 08/21/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6254c59ff5a850ab5dc745027a142509212cc02d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: e3e8fb03cf6c1de9c32383e9e84c6f4a167adc4e
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993712"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830935"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>重定向 URI/答复 URL 限制和局限
 
@@ -25,7 +25,7 @@ ms.locfileid: "69993712"
 
 ## <a name="maximum-number-of-redirect-uris"></a>最大重定向 URI 数
 
-下表显示了注册应用时可添加的最大重定向 URI 数。 
+下表显示了注册应用时可添加的最大重定向 URI 数。
 
 | 正在登录的帐户 | 最大重定向 URI 数 | 说明 |
 |--------------------------|---------------------------------|-------------|
@@ -34,6 +34,12 @@ ms.locfileid: "69993712"
 ## <a name="maximum-uri-length"></a>最大 URI 长度
 
 对于要添加到应用注册中的每个重定向 URI，最多可以使用 256 个字符。
+
+## <a name="supported-schemes"></a>支持的方案
+Azure AD 应用程序模型目前支持 HTTP 和 HTTPS 方案，用于在任何组织的 Azure Active Directory (Azure AD) 租户中登录 Microsoft 工作或学校帐户的应用程序。 也就是说，应用程序清单中的 `signInAudience` 字段设置为“AzureADMyOrg”  或“AzureADMultipleOrgs”  。 
+
+> [!NOTE]
+> 新的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验不允许开发人员在 UI 中添加使用 HTTP 方案的 URI。 对于登录工作或学校帐户的应用，仅支持通过应用清单编辑器添加 HTTP URI。 今后，新应用将无法在重定向 URI 中使用 HTTP 方案。 但是，在重定向 URI 中包含 HTTP 方案的早期应用将继续正常运行。 开发人员必须在重定向 URI 中使用 HTTPS 方案。
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>在 URI 中使用通配符时的限制
 
@@ -69,3 +75,4 @@ ms.locfileid: "69993712"
 
 - 了解[应用程序清单](reference-app-manifest.md)
 
+<!-- Update_Description: wording update -->

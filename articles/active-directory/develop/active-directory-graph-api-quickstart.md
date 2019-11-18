@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/28/2019
-ms.date: 10/08/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0c5a656d3329e233a11f8502de0b01df1837e2
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: ee69f4d4e037cb5c95ed908e7ce6c75ce2e6d93e
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292025"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830998"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>如何：使用 Azure AD 图形 API
 
@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 
 以下示例使用 Fiddler Web 调试器在 Azure AD 目录中创建一个新的安全组“MyTestGroup”。
 
-**获取访问令牌**：若要访问 Azure AD Graph，客户端需要先成功地向 Azure AD 进行身份验证。 有关详细信息，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
+**获取访问令牌**：若要访问 Azure AD Graph，客户端需要先成功地向 Azure AD 进行身份验证。 有关详细信息，请参阅 [Azure AD 的身份验证方案](v1-authentication-scenarios.md)。
 
 **撰写和运行查询**：完成以下步骤：
 
@@ -127,4 +127,4 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 * 了解有关 [Azure AD 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * 了解有关 [Azure AD 图形 API 权限范围](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)的详细信息
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

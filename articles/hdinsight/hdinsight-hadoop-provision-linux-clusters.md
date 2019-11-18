@@ -13,15 +13,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/15/2019
-ms.date: 09/16/2019
+origin.date: 09/27/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: cec8a0009f59c82ce9c7d18d009bb07c376a9afc
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: ea5ddf478420bd2c1be3de5a69beaa30aff010e0
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737410"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425906"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集
 
@@ -47,11 +47,13 @@ Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点�
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Azure Resource Manager 模板](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## <a name="quick-create-basic-cluster-setup"></a>快速创建：基本群集设置
-本文逐步讲解如何通过 [Azure 门户](https://portal.azure.cn)进行设置：在门户中使用“快速创建”或“自定义”选项创建 HDInsight 群集。   
-![hdinsight 创建选项 - 自定义快速创建](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
+## <a name="basic-cluster-setup"></a>基本群集设置
 
-遵照屏幕上的说明执行基本的群集设置。 下面提供了各项设置的详细信息：
+本文将指导你完成 [Azure 门户](https://portal.azure.cn)中的设置，你可以在其中使用默认视图或“经典”  创建 HDInsight 群集。
+
+![hdinsight 创建选项 自定义 快速创建](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+
+按照屏幕上的说明进行操作。 下面提供了各项设置的详细信息：
 
 * [资源组名称](#resource-group-name)
 * [群集类型和配置](#cluster-types) 
@@ -118,14 +120,19 @@ SSH 用户名具有以下限制：
 
 ## <a name="storage-endpoints-for-clusters"></a>群集的存储终结点
 
-Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (HDFS)，而在云中，需使用已连接到群集的存储终结点。 HDInsight 群集使用 [Azure 存储中的 Blob](hdinsight-hadoop-use-blob-storage.md)。 使用 Azure 存储意味着可以安全删除用于计算的 HDInsight 群集，同时仍可保留数据。 
+Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (HDFS)，而在云中，需使用已连接到群集的存储终结点。 使用云存储空间意味着可以安全删除用于计算的 HDInsight 群集，同时仍可保留数据。
 
+HDInsight 群集可以使用以下存储选项：
+
+* Azure Data Lake Storage Gen2
+* Azure 存储常规用途 v2
+* Azure 存储常规用途 v1
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他位置使用其他存储帐户。
 
 在配置期间，请为默认存储终结点指定 Azure 存储帐户的某个 Blob 容器。 默认存储包含应用程序日志和系统日志。 也可以选择指定群集可访问的其他 Azure 存储链接帐户。 HDInsight 群集和相关的存储帐户必须在同一个 Azure 位置。
 
-![群集存储设置：与 HDFS 兼容的存储终结点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+![群集存储设置：与 HDFS 兼容的存储终结点](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage-blank.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -150,19 +157,13 @@ Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (
 > [!IMPORTANT]
 > 无法重用自定义 Oozie 元存储。 若要使用自定义 Oozie 元存储，必须在创建 HDInsight 群集时提供一个空的 Azure SQL 数据库。
 
+## <a name="extend-clusters-with-a-virtual-network"></a>使用虚拟网络扩展群集
 
-## <a name="custom-cluster-setup"></a>自定义群集设置
-“自定义群集设置”是在“快速创建”设置的基础之上实现的，其中添加了以下选项：
-- [HDInsight 应用程序](#install-hdinsight-applications-on-clusters)
-- [群集大小](#configure-cluster-size)
-- [脚本操作](#advanced-settings-script-actions)
-- [虚拟网络](#advanced-settings-extend-clusters-with-a-virtual-network)
+如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](https://docs.microsoft.com/azure/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
-## <a name="install-hdinsight-applications-on-clusters"></a>在群集上安装 HDInsight 应用程序
+有关在 HDInsight 中使用 Azure 虚拟网络的详细信息，请参阅[规划 HDInsight 的虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
-HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安装的应用程序。 可以使用 Microsoft、第三方提供的应用程序。
-
-大多数 HDInsight 应用程序安装在空边缘节点上。  空边缘节点是安装并配置了与头节点中相同的客户端工具的 Linux 虚拟机。 可以使用该边缘节点来访问群集、测试客户端应用程序和托管客户端应用程序。 有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)。
+有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[将 Apache Spark 结构化流式处理与 Apache Kafka 配合使用](hdinsight-apache-kafka-spark-structured-streaming.md)。 有关在 HDInsight 中使用虚拟网络的详细信息（包括虚拟网络的特定配置要求），请参阅[规划 HDInsight 的虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
 ## <a name="configure-cluster-size"></a>配置群集大小
 
@@ -173,9 +174,9 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 | 类型 | Nodes | 图示 |
 | --- | --- | --- |
 | Hadoop |头节点 (2)、工作器节点 (1+) |![HDInsight Hadoop 群集节点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |头服务器 (2)，区域服务器 (1+)，主控/ZooKeeper 节点 (3) |![HDInsight HBase 群集节点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus 节点 (2)，监督程序服务器 (1+)，ZooKeeper 节点 (3) |![HDInsight Storm 群集节点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |头节点 (2)，辅助角色节点 (1+)，ZooKeeper 节点 (3)（对于 A1 ZooKeeper VM 大小免费） |![HDInsight Spark 群集节点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| HBase |头服务器 (2)，区域服务器 (1+)，主控/ZooKeeper 节点 (3) |![HDInsight HBase 群集类型设置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Storm |Nimbus 节点 (2)，监督程序服务器 (1+)，ZooKeeper 节点 (3) |![HDInsight storm 群集类型设置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Spark |头节点 (2)，工作器节点 (1+)，ZooKeeper 节点 (3)（对于 A1 ZooKeeper VM 大小免费） |![HDInsight spark 群集类型设置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 有关详细信息，请参阅“HDInsight 中的 Hadoop 组件和版本是什么？”中的[群集的默认节点配置和虚拟机大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -196,9 +197,9 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 > 群集大小限制因 Azure 订阅而异。 可联系 [Azure 支持部门](https://www.azure.cn/support/contact/)以提高限制。
 >
 
-使用 Azure 门户配置群集时，可通过“节点定价层”  边栏选项卡查看节点大小。 在门户中，还可以查看不同节点大小的相关费用。 
+使用 Azure 门户配置群集时，可通过“配置 + 定价”  边栏选项卡查看节点大小。在门户中，还可以查看不同节点大小的相关费用。
 
-![HDInsight VM 节点大小](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
+![HDInsight 选择节点大小](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 ### <a name="virtual-machine-sizes"></a>虚拟机大小 
 部署群集时，请根据要部署的解决方案选择计算资源。 以下 VM 用于 HDInsight 群集：
@@ -209,10 +210,21 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 
 > [!IMPORTANT]
 > 如果需要在群集中使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
->
->
 
-有关详细信息，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
+有关详细信息，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight)。
+
+## <a name="classic-cluster-setup"></a>经典群集设置
+
+经典群集设置在默认创建设置的基础上实现，并添加了以下选项：
+
+* [HDInsight 应用程序](#install-hdinsight-applications-on-clusters)
+* [脚本操作](#advanced-settings-script-actions)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>在群集上安装 HDInsight 应用程序
+
+HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安装的应用程序。 可以使用 Microsoft、第三方提供的或你自己开发的应用程序。 有关详细信息，请参阅[在 Azure HDInsight 上安装第三方 Apache Hadoop 应用程序](hdinsight-apps-install-applications.md)。
+
+大多数 HDInsight 应用程序安装在空边缘节点上。  空边缘节点是安装并配置了与头节点中相同的客户端工具的 Linux 虚拟机。 可以使用该边缘节点来访问群集、测试客户端应用程序和托管客户端应用程序。 有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)。
 
 ## <a name="advanced-settings-script-actions"></a>高级设置：脚本操作
 
@@ -247,16 +259,9 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 
 有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集 ](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
-## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>高级设置：使用虚拟网络扩展群集
-如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
-
-有关在 HDInsight 中使用 Azure 虚拟网络的详细信息，请参阅[规划 HDInsight 的虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
-
-有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[将 Apache Spark 结构化流式处理与 Apache Kafka 配合使用](hdinsight-apache-kafka-spark-structured-streaming.md)。 有关在 HDInsight 中使用虚拟网络的详细信息（包括虚拟网络的特定配置要求），请参阅[规划 HDInsight 的虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
-
-
 ## <a name="next-steps"></a>后续步骤
 
+- [使用 Azure HDInsight 排除群集创建故障](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 - [什么是 HDInsight、Apache Hadoop 生态系统和 Hadoop 群集？](hadoop/apache-hadoop-introduction.md)
 - [开始在 HDInsight 中使用 Apache Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 中工作](hdinsight-hadoop-windows-tools.md)

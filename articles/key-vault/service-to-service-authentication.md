@@ -5,17 +5,17 @@ keywords: azure key-vault 身份验证本地凭据
 author: msmbaldwin
 manager: barbkess
 services: key-vault
-ms.author: v-biyu
-origin.date: 11/15/2017
-ms.date: 07/29/2019
+ms.author: v-tawe
+origin.date: 08/28/2019
+ms.date: 10/31/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 50d91b2d5ee6ff6d507d65f33f5e2f068f1c4fcf
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: eb16f55f64dad330d793f1da1b4768f6a3b6291a
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232310"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425861"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
@@ -43,7 +43,7 @@ ms.locfileid: "68232310"
 
     // Optional: Request an access token to other Azure services
     var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.chinacloudapi.cn/").ConfigureAwait(false);
     ```
 
 `AzureServiceTokenProvider` 类将令牌缓存在内存中，在过期前才将其从 Azure AD 检索出来。 结果就是，不再需要在调用 `GetAccessTokenAsync` 方法之前检查是否过期。 在需要使用令牌时直接调用该方法即可。 
@@ -80,7 +80,7 @@ ms.locfileid: "68232310"
 
 1. 安装 [Azure CLI v2.0.12](/cli/install-azure-cli) 或更高版本。 升级早期版本。 
 
-2. 使用 **az login** 登录到 Azure。
+2. 使用 **az cloud set -n AzureChinaCloud** 更改环境，然后使用 **az login** 登录到 Azure。
 
 请使用 `az account get-access-token` 验证访问权限。  如果收到错误，请验证步骤 1 是否已成功完成。 
 
@@ -88,13 +88,14 @@ ms.locfileid: "68232310"
 
 如果使用多个帐户登录到 Azure CLI，或者帐户可以访问多个订阅，则需指定要使用的具体订阅。  为此，请使用：
 
-```
+```azurecli
+az cloud set -n AzureChinaCloud
 az account set --subscription <subscription-id>
 ```
 
 此命令仅在发生故障时生成输出。  若要验证当前帐户设置，请使用：
 
-```
+```azurecli
 az account list
 ```
 
@@ -120,6 +121,7 @@ az account list
     2.  使用 Azure CLI 登录：
 
         ```
+        az cloud set -n AzureChinaCloud
         az login --service-principal -u <principal-id> --password <password> --tenant <tenant-id> --allow-no-subscriptions
         ```
 
@@ -140,7 +142,7 @@ az account list
 
 可能需要创建一个用于身份验证的 Azure AD 客户端凭据。 常见示例包括：
 
-1. 代码运行在本地开发环境中，但没有使用开发人员的标识。  例如，Service Fabric 使用 [NetworkService 帐户](https://docs.azure.cn/zh-cn/service-fabric/service-fabric-application-secret-management)进行本地开发。
+1. 代码运行在本地开发环境中，但没有使用开发人员的标识。  例如，Service Fabric 使用 [NetworkService 帐户](https://docs.azure.cn/service-fabric/service-fabric-application-secret-management)进行本地开发。
  
 2. 代码在本地开发环境中运行，而身份验证则通过自定义服务进行，因此不能使用开发人员标识。 
  
@@ -250,5 +252,5 @@ az account list
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[对应用进行身份验证和授权](https://docs.azure.cn/zh-cn/app-service/app-service-authentication-overview)的不同方式。
-- 详细了解 Azure AD [身份验证方案](https://docs.azure.cn/zh-cn/active-directory/develop/authentication-scenarios#web-browser-to-web-application)。
+- 了解[对应用进行身份验证和授权](https://docs.azure.cn/app-service/app-service-authentication-overview)的不同方式。
+- 详细了解 Azure AD [身份验证方案](https://docs.azure.cn/active-directory/develop/authentication-scenarios#web-browser-to-web-application)。

@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights 的发行说明 | Azure Docs
 description: Application Insights SDK 的最新更新。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 05/17/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8453ab97ba8b9d5c953c37e089ad360c65d98419
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 49b6a852afed67ff3c01e2ca038479d6a551402b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737259"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730581"
 ---
 # <a name="sdk-release-notes---application-insights"></a>SDK 发行说明 - Application Insights
 以下是 SDK 的详细发行说明和更新说明：

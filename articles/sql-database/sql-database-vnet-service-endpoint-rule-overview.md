@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, genemi
 origin.date: 08/27/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 87c445c36ba268f329ab87476f50637eb84cd3a7
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: 42a36337f9727a0f7c3df5fddc723e3f238cd41d
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262940"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041221"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>为数据库服务器使用虚拟网络服务终结点和规则
 
@@ -133,12 +133,12 @@ PolyBase 通常用于将数据从 Azure 存储帐户加载到 Azure SQL 数据�
    > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户**升级到 v2** 帐户。
    > - 若要了解 Azure Data Lake Storage Gen2 的已知问题，请参阅此[指南](/storage/data-lake-storage/known-issues)。
     
-2. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。   将“存储 Blob 数据参与者”  RBAC 角色分配给托管 Azure SQL 数据仓库的 Azure SQL Server，后者已在步骤 #1 中向 Azure Active Directory (AAD) 注册。
+1. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。   将“存储 Blob 数据参与者”  RBAC 角色分配给托管 Azure SQL 数据仓库的 Azure SQL Server，后者已在步骤 #1 中向 Azure Active Directory (AAD) 注册。
 
    > [!NOTE] 
    > 只有具有“所有者”特权的成员能够执行此步骤。 若要了解 Azure 资源的各种内置角色，请参阅此[指南](/role-based-access-control/built-in-roles)。
   
-3. **通过 Polybase 连接到 Azure 存储帐户：**
+1. **通过 Polybase 连接到 Azure 存储帐户：**
 
    1. 创建数据库 **[主密钥](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** （如果此前尚未创建）：
        ```SQL

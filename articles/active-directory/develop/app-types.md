@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 06/24/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e39066ace98d44a318164ef5202164c24208ab04
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: f1ceaeb007e49bfe5fe3d4fe11e13d4586363bc0
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568534"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830997"
 ---
 # <a name="application-types-in-v10"></a>v1.0 中的应用程序类型
 
@@ -83,6 +83,6 @@ Azure Active Directory (Azure AD) 支持各种新型应用体系结构的身份�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解其他 Azure AD [身份验证基础知识](authentication-scenarios.md)
+- 详细了解其他 Azure AD [身份验证基础知识](v1-authentication-scenarios.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

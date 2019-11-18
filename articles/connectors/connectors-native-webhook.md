@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 逻辑应用中创建基于事件的任务和工作流
-description: 使用 Azure 逻辑应用基于终结点上发生的事件触发、暂停和恢复自动化任务、流程和工作流
+title: 等待并响应事件 - Azure 逻辑应用
+description: 使用 Azure 逻辑应用自动执行基于服务终结点的事件触发、暂停和恢复的工作流
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,17 +8,17 @@ author: ecfan
 ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-origin.date: 07/05/2019
-ms.date: 07/29/2019
+origin.date: 10/10/2019
+ms.date: 11/11/2019
 tags: connectors
-ms.openlocfilehash: 80e2a5ee5656f0ee0db885a085a2a84f0fd8a018
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 120f82366e2a4e9bb3f44b1a7e2a441ae0e7e240
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337276"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425908"
 ---
-# <a name="automate-event-based-tasks-and-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>使用 Azure 逻辑应用的 HTTP Webhook 自动化基于事件的任务和工作流
+# <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP Webhook 创建和运行基于事件的自动化工作流
 
 使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置的 HTTP Webhook 连接器，可以通过生成逻辑应用，基于 HTTP 或 HTTPS 终结点上发生的特定事件自动化处于等待和运行状态的工作流。 例如，可以创建一个逻辑应用用于监视服务终结点：该逻辑应用可以等待特定的事件发生，然后触发工作流并运行指定的操作，这样，你就无需定期检查或轮询该终结点。 
 
@@ -38,6 +38,9 @@ HTTP Webhook 操作也基于事件，它会通过将一个回调 URL 注册到�
 * 在逻辑应用超时之前
 
 例如, Office 365 Outlook 连接器的[**发送审批电子邮件**](connectors-create-api-office365-outlook.md)操作就是遵循此模式的 Webhook 操作示例。 可以使用 Webhook 操作将此模式扩展到任何服务中。
+
+> [!NOTE]
+> 逻辑应用在收到对 HTTP Webhook 触发器或操作的回调时强制实施传输层安全性 (TLS) 1.2。 如果出现 SSL 握手错误，请确保使用 TLS 1.2。
 
 有关详细信息，请参阅以下主题：
 

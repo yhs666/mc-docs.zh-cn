@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/30/2019
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfb3d837a87b21cea8243c884a3bbc7a6449b92
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 62dd6373e8bb4eaecb362d5bcfaefb8281ed0df8
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292049"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830895"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 代码授权流来授权访问 Azure Active Directory Web 应用程序
 
@@ -69,7 +69,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |建议 |同时随令牌响应返回的请求中所包含的值。 随机生成的唯一值通常用于 [防止跨站点请求伪造攻击](https://tools.ietf.org/html/rfc6749#section-10.12)。 该状态也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 | resource | 建议 |目标 Web API 的应用 ID URI（受保护的资源）。 要查找应用 ID URI，请在 Azure 门户中，依次单击“Azure Active Directory”和“应用程序注册”，打开应用程序的“设置”页面，然后单击“属性”     。 也可能是外部资源，如 `https://microsoftgraph.chinacloudapi.cn`。 这在授权或令牌请求中是必需的。 要确保减少身份验证提示，请将其置于授权请求中以确保获得用户许可。 |
 | scope | **ignored** | 对于 v1 Azure AD 应用，必须在 Azure 门户中的应用程序“设置”  、“所需权限”  下静态配置作用域。 |
-| prompt |可选 |表示需要的用户交互类型。<p> 有效值是： <p> login  ：应该提示用户重新进行身份验证。 <p> select_account  ：系统将提示用户选择一个帐户。 用户可以选择现有已登录帐户，输入已记忆帐户的凭据，或选择使用其他帐户。 <p> *consent*：用户同意已授予，但需要进行更新。 应该提示用户授予同意。 <p> *admin_consent*：应该提示管理员代表组织中的所有用户授予同意 |
+| prompt |可选 |表示需要的用户交互类型。<p> 有效值是： <p> login  ：应该提示用户重新进行身份验证。 <p> select_account  ：系统会提示用户选择一个帐户，从而中断单一登录。 用户可以选择现有已登录帐户，输入已记忆帐户的凭据，或选择使用其他帐户。 <p> *consent*：用户同意已授予，但需要进行更新。 应该提示用户授予同意。 <p> *admin_consent*：应该提示管理员代表组织中的所有用户授予同意 |
 | login_hint |可选 |如果事先知道用户名，可用于预先填充用户登录页的用户名/电子邮件地址字段。 通常，应用在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。 |
 | domain_hint |可选 |提供有关用户应该用于登录的租户或域的提示。 domain_hint 的值是租户的已注册域。 如果该租户与本地目录联合，则 AAD 将重定向到指定的租户联合服务器。 |
 | code_challenge_method | 建议    | 用于为 `code_challenge` 参数编码 `code_verifier` 的方法。 可以是 `plain` 或 `S256` 之一。 如果已排除在外，且包含了 `code_challenge`，则假定 `code_challenge` 为纯文本。 Azure AAD v1.0 同时支持 `plain` 和 `S256`。 有关详细信息，请参阅 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
@@ -266,7 +266,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.partner.microsoftonlin
 | authorization_uri |授权服务器的 URI（物理终结点）。 此值还用作查找键，可从发现终结点获取有关服务器的详细信息。 <p><p> 客户端必须验证授权服务器是否受信任。 Azure AD 对资源进行保护时，只需验证 URL 是否以 Azure AD 支持的 https://login.partner.microsoftonline.cn 或其他主机名开头即可。 特定于租户的资源应始终返回特定于租户的授权 URI。 |
 | error |[OAuth 2.0 授权框架](https://tools.ietf.org/html/rfc6749)第 5.2 部分中定义的错误代码值。 |
 | error_description |错误的更详细说明。 此消息不是最终用户友好的。 |
-| resource_id |返回资源的唯一标识符。 客户端应用程序在请求资源的令牌时，可以使用此标识符作为 `resource` 参数的值。 <p><p> 对于客户端应用程序，验证此值非常重要，否则恶意服务可能会引发 elevation-of-privileges 攻击  <p><p> 防止攻击的建议策略是验证 `resource_id` 是否与正在访问的 Web API URL 基部分相匹配。 例如，如果正在访问 https://service.contoso.com/data ，`resource_id` 可以是 htttps://service.contoso.com/。 客户端应用程序必须拒绝不以基 URL 开头的 `resource_id` ，除非存在可靠的替代方法来验证该 ID。 |
+| resource_id |返回资源的唯一标识符。 客户端应用程序在请求资源的令牌时，可以使用此标识符作为 `resource` 参数的值。 <p><p> 对于客户端应用程序，验证此值非常重要，否则恶意服务可能会引发 elevation-of-privileges 攻击  <p><p> 防止攻击的建议策略是验证 `resource_id` 是否与正在访问的 Web API URL 基部分相匹配。 例如，如果正在访问 https://service.contoso.com/data ，则 `resource_id` 可以是 https://service.contoso.com/ 。 客户端应用程序必须拒绝不以基 URL 开头的 `resource_id` ，除非存在可靠的替代方法来验证该 ID。 |
 
 #### <a name="bearer-scheme-error-codes"></a>持有者方案错误代码
 RFC 6750 规范为在响应中使用 WWW-Authenticate 标头和持有者方案的资源定义了以下错误。

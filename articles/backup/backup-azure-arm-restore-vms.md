@@ -1,5 +1,5 @@
 ---
-title: Azure 备份：使用 Azure 门户还原虚拟机
+title: Azure 备份：使用 Azure 门户还原 VM
 description: 使用 Azure 门户从恢复点还原 Azure 虚拟机
 ms.reviewer: geg
 author: lingliw
@@ -10,18 +10,16 @@ ms.topic: conceptual
 origin.date: 09/17/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 71136bef5f82b166db20d15ab486ea0bb11848d6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1dacf99cf42417b359e9e2879fc79da5fb7d8fd4
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329704"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730409"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 门户中还原 Azure VM 数据
 
 本文介绍如何从 [Azure 备份](backup-overview.md)恢复服务保管库中存储的恢复点还原 Azure VM 数据。
-
-
 
 ## <a name="restore-options"></a>还原选项
 
@@ -30,7 +28,7 @@ Azure 备份提供多种方法用于还原 VM。
 **还原选项** | **详细信息**
 --- | ---
 **创建新 VM** | 从还原点快速创建并正常运行一个基本的 VM。<br/><br/> 可以为 VM 指定名称，选择要将其放入的资源组和虚拟网络 (VNet)，并为还原的 VM 指定存储帐户。 新 VM 必须在源 VM 所在的区域创建。
-**还原磁盘** | 还原某个 VM 磁盘，然后使用它来创建新的 VM。<br/><br/> Azure 备份提供一个模板来帮助你自定义和创建 VM。 <br/><br> 还原作业会生成一个模板，可以下载该模板，并使用它来指定自定义的 VM 设置和创建 VM。<br/><br/> 磁盘将复制到指定的存储帐户。<br/><br/> 或者，可将磁盘附加到现有 VM，或使用 PowerShell 创建新的 VM。<br/><br/> 若要自定义 VM、添加在备份时不存在的配置设置，或添加必须使用模板或 PowerShell 配置的设置，则此选项非常有用。
+**还原磁盘** | 还原某个 VM 磁盘，然后使用它来创建新的 VM。<br/><br/> Azure 备份提供一个模板来帮助你自定义和创建 VM。 <br/><br> 还原作业会生成一个模板，可以下载该模板，并使用它来指定自定义的 VM 设置和创建 VM。<br/><br/> 磁盘将复制到指定的资源组。<br/><br/> 或者，可将磁盘附加到现有 VM，或使用 PowerShell 创建新的 VM。<br/><br/> 若要自定义 VM、添加在备份时不存在的配置设置，或添加必须使用模板或 PowerShell 配置的设置，则此选项非常有用。
 **替换现有项** | 可以还原某个磁盘，并使用它来替换现有 VM 上的磁盘。<br/><br/> 当前 VM 必须存在。 如果已将其删除，则无法使用此选项。<br/><br/> Azure 备份将在替换磁盘前创建现有 VM 的快照，并将其存储在指定的暂存位置中。 连接到该 VM 的现有磁盘将替换为所选的还原点。<br/><br/> 该快照将复制到保管库，并根据保留策略予以保留。 <br/><br/> 支持替换未加密的托管 VM 的现有磁盘。 不支持对非托管磁盘、[通用化 VM](/virtual-machines/windows/capture-image-resource) 或[使用自定义映像创建的](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) VM 使用该选项。<br/><br/> 如果还原点中的磁盘数多于或少于当前 VM 中的磁盘数，则还原点中的磁盘数只反映 VM 配置。<br/><br/>
 
 > [!NOTE]
@@ -47,19 +45,16 @@ Azure 备份提供多种方法用于还原 VM。
 - **替换磁盘**：当你替换现有 VM 上的磁盘时，Azure 备份会在替换该磁盘前创建现有 VM 的快照。 该快照存储在指定的暂存位置（存储帐户）中。 此存储帐户用于在还原过程中临时存储快照，我们建议创建一个新帐户来执行此存储操作，该帐户随后可以被轻松删除。
 - **存储帐户位置**：存储帐户必须与保管库位于同一个区域中。 仅显示这些帐户。 如果该位置中没有任何存储帐户，你需要创建一个存储帐户。
 - **存储类型**：不支持 Blob 存储。
-- **存储冗余**：不支持区域冗余存储 (ZRS)。 帐户的复制和冗余信息显示在帐户名之后的括号内。 
+- **存储冗余**：不支持区域冗余存储 (ZRS)。 帐户的复制和冗余信息显示在帐户名之后的括号内。
 - **高级存储**：
-    - 在还原非高级 VM 时，高级存储帐户不受支持。
-    - 在还原托管 VM 时，使用网络规则配置的高级存储帐户不受支持。
-
+  - 在还原非高级 VM 时，高级存储帐户不受支持。
+  - 在还原托管 VM 时，使用网络规则配置的高级存储帐户不受支持。
 
 ## <a name="before-you-start"></a>开始之前
 
 若要还原 VM（创建新的 VM），请确保对“还原 VM”操作具有正确的基于角色的访问控制 (RBAC) [权限](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)。
 
 如果没有权限，则可以[还原磁盘](#restore-disks)，然后在该磁盘还原后，可以[使用模板](#use-templates-to-customize-a-restored-vm)（在执行还原操作的过程中生成）来创建新的 VM。
-
-
 
 ## <a name="select-a-restore-point"></a>选择还原点
 
@@ -135,7 +130,6 @@ Azure 备份提供多种方法用于还原 VM。
 
    ![提交模板部署](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
-
 ## <a name="replace-existing-disks"></a>替换现有磁盘
 
 作为[还原选项](#restore-options)之一，你可以使用选定的还原点替换现有的 VM 磁盘。 [查看](#restore-options)所有还原选项。
@@ -146,7 +140,6 @@ Azure 备份提供多种方法用于还原 VM。
 
    ![还原配置向导“替换现有”](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
-
 ## <a name="restore-vms-with-special-configurations"></a>采用特殊配置还原 VM
 
 在许多常见情况下，可能需要还原 VM。
@@ -154,7 +147,7 @@ Azure 备份提供多种方法用于还原 VM。
 **方案** | **指南**
 --- | ---
 **通过混合使用权益还原 VM** | 如果 Windows VM 使用[混合使用权益 (HUB) 许可](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，请还原磁盘，并使用提供的模板（将“许可证类型”设置为“Windows_Server”）或 PowerShell 创建新的 VM。    也可以在创建 VM 后应用此设置。
-**在发生 Azure 数据中心灾难期间还原 VM** | 如果保管库使用 GRS 并且 VM 的主数据中心出现故障，Azure 备份支持将已备份的 VM 还原到配对的数据中心。 在配对的数据中心选择一个存储帐户，然后像平时一样进行还原。 Azure 备份使用配对位置中的计算服务来创建已还原的 VM。 [详细了解](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)数据中心复原能力。
+**在发生 Azure 数据中心灾难期间还原 VM** | 如果保管库使用 GRS 并且 VM 的主数据中心出现故障，Azure 备份支持将已备份的 VM 还原到配对的数据中心。 在配对的数据中心选择一个存储帐户，然后像平时一样进行还原。 Azure 备份使用配对区域中的计算服务来创建已还原的 VM。 [详细了解](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)数据中心复原能力。
 **还原单个域中的单个域控制器 VM** | 像还原其他任何 VM 一样还原该 VM。 请注意：<br/><br/> 从 Active Directory 的角度来看，Azure VM 与任何其他 VM 类似。<br/><br/> 还可使用目录服务还原模式 (DSRM)，因此所有 Active Directory 恢复方案都是可行的。 [详细了解](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v)虚拟化域控制器的备份和还原注意事项。
 **还原单一域中的多个域控制器 VM** | 如果可以通过网络访问同一个域中的其他域控制器，则可以像还原任何 VM 一样还原域控制器。 对于域中剩余的最后一个域控制器，或者在隔离的网络中执行恢复，请使用[林恢复](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)。
 **还原一个林中的多个域** | 建议使用[林恢复](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)。
@@ -200,11 +193,12 @@ Azure 备份提供多种方法用于还原 VM。
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
     ```
-    - 重新生成 VM 后，请通过 Azure 门户重置本地管理员帐户和密码
-    - 使用串行控制台访问和 CMD，使 VM 从域中脱离
 
-    ```
-    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+  - 重新生成 VM 后，请通过 Azure 门户重置本地管理员帐户和密码
+  - 使用串行控制台访问和 CMD，使 VM 从域中脱离
+
+    ```cmd
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
 
 - VM 脱离并重启后，即可使用本地管理员凭据成功地通过 RDP 连接到 VM，并将 VM 成功地重新加入域。

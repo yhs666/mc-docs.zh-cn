@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 03/21/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0402f5035627eed09cc4a23b47e3ecc49e6e88c9
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: e88dc7cc502c065e46a42a13363b87cecb0c2707
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318979"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934242"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -77,13 +77,13 @@ ms.locfileid: "58318979"
 
 ### <a name="activity-log"></a>活动日志
 
-单击“活动日志”  可查看已对缓存执行的操作。 也可以使用筛选来展开此视图，以包含其他资源。 有关如何使用审核日志的详细信息，请参阅 [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)（使用 Resource Manager 执行审核操作）。 有关监视 Azure Redis 缓存事件的详细信息，请参阅[操作和警报](cache-how-to-monitor.md#operations-and-alerts)。
+单击“活动日志”  可查看已对缓存执行的操作。 也可以使用筛选来展开此视图，以包含其他资源。 有关如何使用审核日志的详细信息，请参阅[使用资源管理器审核操作](../azure-resource-manager/resource-group-audit.md)。 有关监视 Azure Redis 缓存事件的详细信息，请参阅[操作和警报](cache-how-to-monitor.md#operations-and-alerts)。
 
 ### <a name="access-control-iam"></a>访问控制 (IAM)
 
 访问控制 (IAM) 部分在 Azure 门户中为基于角色的访问控制 (RBAC) 提供支持  。 此配置有助于组织轻松准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 
-### <a name="tags"></a>标记
+### <a name="tags"></a>Tags
 
 “标记”  部分可帮助用户整理资源。 有关详细信息，请参阅[使用标记来组织 Azure 资源](../azure-resource-manager/resource-group-using-tags.md)。
 
@@ -357,7 +357,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 
 ### <a name="diagnostics"></a>诊断
 
-默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../azure-monitor/platform/data-collection.md#metrics)，然后被删除。 若要保留缓存指标的时间超过 30 天，请单击“诊断”  [配置用于存储缓存诊断的存储帐户](cache-how-to-monitor.md#export-cache-metrics)。
+默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../azure-monitor/platform/data-platform-metrics.md)，然后被删除。 若要保留缓存指标的时间超过 30 天，请单击“诊断”  [配置用于存储缓存诊断的存储帐户](cache-how-to-monitor.md#export-cache-metrics)。
 
 >[!NOTE]
 >除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Azure Monitor 日志](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
@@ -405,7 +405,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 | `maxclients` |取决于定价层<sup>2</sup> |该值是同一时间内允许的最大已连接客户端数。 一旦达到该限制，Redis 会在关闭所有新连接的同时返回“达到客户端最大数量”的错误。 |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory 策略是达到 `maxmemory`（创建缓存时所选缓存服务的大小）时，Redis 根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 `volatile-lru`，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户中配置此设置。 有关详细信息，请参阅[内存策略](#memory-policies)。 |
 | `maxmemory-samples` |3 |LRU 算法和最小 TTL 算法都是近似算法而不是精确算法，这是为了节省内存。 默认情况下，Redis 会检查三个密钥并选取最近使用较少的一个。 |
-| `lua-time-limit` |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果达到最大执行时间，Redis 会记录达到最大允许时间后仍继续执行的脚本，并开始在查询答复时出现错误。 |
+| `lua-time-limit` |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果达到最大执行时间，Redis 将记录脚本在达到最大允许时间后仍在执行，并开始以错误响应查询。 |
 | `lua-event-limit` |500 |脚本事件队列的最大大小。 |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |客户端输出缓冲区限制可用于强制断开处于某种原因（一个常见原因是发布/订阅客户端处理消息的速度慢于发布者提供消息的速度）而未从服务器快速读取数据的客户端的连接。 有关详细信息，请参阅 [https://redis.io/topics/clients](https://redis.io/topics/clients)。 |
 
@@ -430,7 +430,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 有关数据库的详细信息，请参阅[什么是 Redis 数据库？](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> `databases` 设置只能在创建缓存期间配置，并且只能使用 PowerShell、CLI 或其他管理客户端进行配置。 有关在创建缓存期间使用 PowerShell 配置 `databases` 的示例，请参阅 [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases)。
+> `databases` 设置只能在创建缓存期间配置，并且只能使用 PowerShell、CLI 或其他管理客户端进行配置。 有关在创建缓存期间使用 PowerShell 配置 `databases` 的示例，请参阅 [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases)。
 > 
 > 
 
@@ -520,4 +520,4 @@ shard1>get myKey
 ## <a name="next-steps"></a>后续步骤
 * 有关使用 Redis 命令的详细信息，请参阅[如何运行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 
-
+<!-- Update_Description: link update -->

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1a9cb09d1bfe44a4a0ebd1d5a2317483f2baebbd
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: dadfc192a7a99c1353b26f007a79e8a0ed8753c0
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71267103"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020844"
 ---
 # <a name="text-to-speech-rest-api"></a>文本转语音 REST API
 
@@ -44,10 +44,10 @@ ms.locfileid: "71267103"
 
 | 区域 | 终结点 |
 |--------|----------|
-| 中国东部 | `https://chinaeast.tts.speech.chinacloudapi.cn/cognitiveservices/voices/list` |
-| 中国东部 2 | `https://chinaeast2.tts.speech.chinacloudapi.cn/cognitiveservices/voices/list` |
-| 中国北部 | `https://chinanorth.tts.speech.chinacloudapi.cn/cognitiveservices/voices/list` |
-| 中国北部 2 | `https://chinanorth2.tts.speech.chinacloudapi.cn/cognitiveservices/voices/list` |
+| 中国东部 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list` |
+| 中国东部 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list` |
+| 中国北部 | `https://chinanorth.tts.speech.azure.cn/cognitiveservices/voices/list` |
+| 中国北部 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>请求标头
 
@@ -68,7 +68,7 @@ ms.locfileid: "71267103"
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
 
-Host: chinaeast.tts.speech.microsoft.com
+Host: chinaeast2.tts.speech.azure.cn
 Authorization: Bearer [Base64 access_token]
 ```
 
@@ -184,7 +184,7 @@ POST /cognitiveservices/v1 HTTP/1.1
 
 X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
-Host: chinaeast.tts.speech.chinacloudapi.cn
+Host: chinaeast2.tts.speech.azure.cn
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 

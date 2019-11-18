@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 5018a8a0eb257c4db416d41698f1ab7b1507c965
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+ms.date: 11/04/2019
+ms.openlocfilehash: bcad8c46e0fd0b360e057ff8c567fd3e08857c8a
+ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307755"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73191579"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>如何使用 Azure CLI 和 REST API 在 Azure Database for MariaDB 中创建和管理只读副本
 
@@ -45,7 +45,12 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | name | mydemoreplicaserver | 所创建的新副本服务器的名称。 |
 | source-server | mydemoserver | 要从中进行复制的现有主服务器的名称或 ID。 |
 
-若要创建跨区域只读副本，请使用 `--location` 参数。 下面的 CLI 示例在中国北部 2 创建副本。
+若要创建跨区域只读副本，请使用 `--location` 参数。 
+
+> [!NOTE]
+> 跨区域复制处于预览状态。
+
+下面的 CLI 示例在中国北部 2 创建副本。
 
 ```azurecli
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location chinanorth2

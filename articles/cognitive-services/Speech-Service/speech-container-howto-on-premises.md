@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin-date: 08/26/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: d885739c63b91b2e9911de6aa8a6010f8b2f9816
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 79f68aa00059b51d2140596c699bfc41c925960f
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583714"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020723"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>在 Kubernetes 和 Helm 中使用语音服务容器
 
@@ -32,7 +32,7 @@ ms.locfileid: "72583714"
 | 容器注册表访问权限 | Kubernetes 需要有权访问容器注册表才能将 Docker 映像提取到群集中。 首先需要[请求对容器注册表的访问权限][speech-preview-access]。 |
 | Kubernetes CLI | 需要使用 [Kubernetes CLI][kubernetes-cli] 来管理容器注册表中的共享凭据。 在安装 Helm（Kubernetes 包管理器）之前，也需要有 Kubernetes。 |
 | Helm CLI | 在安装 [Helm CLI][helm-install] 的过程中，还需要初始化 Helm，这会安装 [Tiller][tiller-install]。 |
-|语音资源 |若要使用这些容器，必须具有：<br><br>“语音”Azure 资源，用于获取关联的计费密钥和计费终结点 URI。  这两个值可以从 Azure 门户中的“语音概述”和“密钥”页面获得，并且是启动容器时所必需的。 <br><br>**{API_KEY}** ：资源密钥<br><br>**{ENDPOINT_URI}** ：终结点 URI 示例：`https://chinaeast.api.cognitive.china.cn/sts/v1.0`|
+|语音资源 |若要使用这些容器，必须具有：<br><br>“语音”Azure 资源，用于获取关联的计费密钥和计费终结点 URI。  这两个值可以从 Azure 门户中的“语音概述”和“密钥”页面获得，并且是启动容器时所必需的。 <br><br>**{API_KEY}** ：资源密钥<br><br>**{ENDPOINT_URI}** ：终结点 URI 示例：`https://chinaeast2.api.cognitive.azure.cn/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>建议的主机配置
 

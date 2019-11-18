@@ -7,18 +7,17 @@ author: craigshoemaker
 manager: gwallace
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: b6235645882b61450ab98e5d1111c355c07b224e
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 112e182602310ac888943cdf4da0369d1c331697
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673555"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034422"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -466,7 +465,7 @@ module.exports = function(context) {
  }
 ```
 
-在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+在 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中，对其值将写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
 
 ## <a name="output---attributes"></a>输出 - 特性
@@ -567,7 +566,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 |属性  |默认 | 说明 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|队列轮询的最大间隔时间。 最小值为 00:00:00.100（100 毫秒），可递增至 00:01:00（1 分钟）。 |
+|maxPollingInterval|00:00:01|队列轮询的最大间隔时间。 最小值为 00:00:00.100（100 毫秒），可递增至 00:01:00（1 分钟）。  在 1.x 中，数据类型是毫秒，在 2.x 中，数据类型是 TimeSpan。|
 |visibilityTimeout|00:00:00|消息处理失败时的重试间隔时间。 |
 |batchSize|16|Functions 运行时同时检索并并行处理的队列消息数。 当处理的数量下降到 `newBatchThreshold` 时，运行时可获取另一个批，并开始处理这些消息。 因此，每个函数处理的最大并发消息数是 `batchSize` 加上 `newBatchThreshold`。 此限制分别应用于各个队列触发的函数。 <br><br>如果要避免对队列上收到的消息并行执行，可以将 `batchSize` 设置为 1。 但是，只有在函数于单个虚拟机 (VM) 上运行时，此设置才可消除并发。 如果函数应用横向扩展到多个 VM，每个 VM 可运行每个队列触发的函数的一个实例。<br><br>`batchSize` 的最大值为 32。 |
 |maxDequeueCount|5|在将某个消息移到有害队列之前，尝试处理该消息的次数。|

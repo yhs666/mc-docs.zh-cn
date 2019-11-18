@@ -1,25 +1,20 @@
 ---
-title: Azure 中的管理解决方案的数据收集详细信息 | Azure Docs
-description: Azure 中的管理解决方案是逻辑、可视化效果和数据采集规则的集合，提供围绕特定问题领域制定的指标。  本文提供了 Azure 提供的管理解决方案的列表以及有关其数据收集方法和频率的详细信息。
-services: log-analytics
-documentationcenter: ''
+title: Azure 中的监视解决方案清单 | Microsoft Docs
+description: Azure Monitor 中的监视解决方案是逻辑、可视化效果和数据采集规则的集合，提供围绕特定问题领域制定的指标。  本文提供了 Microsoft 提供的监视解决方案的列表以及有关其数据收集方法和频率的详细信息。
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.subservice: logs
+ms.topic: conceptual
 origin.date: 06/26/2018
 ms.date: 8/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bde67269a35c4330bde66429641f642bd64652d6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 646b29a83c966c2b4a03a7124273f778346b920b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737324"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730469"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Azure 中的监视解决方案的清单和数据收集详细信息
 [监视解决方案](solutions.md)利用 Azure 中的服务来提供特定应用程序或服务的更多操作见解。 监视解决方案通常收集日志数据并提供查询和视图，用于分析收集的数据。 可以在 Azure Monitor 中针对你使用的任何应用程序和服务添加监视解决方案。 这些解决方案是免费提供的，但收集数据可能会产生使用费。

@@ -12,29 +12,60 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7396dd1ab43d9113b1bfa934ace9f1a52433b97
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 30025d6eda1d871724378b89a38d33e274724cfa
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305929"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830930"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>调用 Web API 的守护程序应用 - 从应用调用 Web API
 
 守护程序应用可以从 .NET 守护程序应用程序调用 Web API，也可以调用多个预先批准的 Web API。
 
-## <a name="calling-a-web-api-from-a-net-daemon-application"></a>从 .NET 守护程序应用程序调用 Web API
+## <a name="calling-a-web-api-daemon-application"></a>调用 Web API 守护程序应用程序
+
+下面介绍如何使用令牌来调用 API
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-<!--
-More includes will come later for Python and Java
--->
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+endpoint = "url to the API"
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```Java
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+// Set the appropriate header fields in the request header.
+conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Accept", "application/json");
+
+String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+int responseCode = conn.getResponseCode();
+if(responseCode != HttpURLConnection.HTTP_OK) {
+    throw new IOException(response);
+}
+
+JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+```
+
+---
 
 ## <a name="calling-several-apis"></a>调用多个 API
 
@@ -42,6 +73,20 @@ More includes will come later for Python and Java
 
 ## <a name="next-steps"></a>后续步骤
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [守护程序应用 - 移到生产环境](./scenario-daemon-production.md)
+> [守护程序应用 - 移到生产环境](/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [守护程序应用 - 移到生产环境](/active-directory/develop/scenario-daemon-production?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [守护程序应用 - 移到生产环境](/active-directory/develop/scenario-daemon-production?tabs=java)
+
+<!-- Update_Description: wording update -->
 

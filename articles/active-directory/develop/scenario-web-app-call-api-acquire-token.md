@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/09/2019
-ms.date: 10/09/2019
+origin.date: 10/30/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf7c3dab7d1d743fa7a132ae3e383d88461ed00a
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: bd967b3f6ce5f930a8b365570361fe84a21bdad5
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292054"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830917"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>调用 Web API 的 Web 应用 - 获取应用的令牌
 
@@ -30,7 +30,7 @@ ms.locfileid: "72292054"
 - 使用令牌缓存获取 Web API 的令牌。 若要获取此令牌，请调用 `AcquireTokenSilent`。
 - 使用访问令牌调用受保护的 API。
 
-## <a name="aspnet-core"></a>ASP.NET Core
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 控制器方法受 `[Authorize]` 属性的保护，该属性会强制经身份验证的用户使用 Web 应用。 下面是用于调用 Microsoft Graph 的代码。
 
@@ -38,35 +38,34 @@ ms.locfileid: "72292054"
 [Authorize]
 public class HomeController : Controller
 {
- ...
+ readonly ITokenAcquisition tokenAcquisition;
+
+ public HomeController(ITokenAcquisition tokenAcquisition)
+ {
+  this.tokenAcquisition = tokenAcquisition;
+ }
+
+ // Code for the controller actions(see code below)
+
 }
 ```
+
+`ITokenAcquisition` 服务是由 ASP.NET 通过依赖项注入来注入的。
+
 
 下面是 HomeController 操作的简化代码，该操作获取调用 Microsoft Graph 所需的令牌。
 
 ```CSharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token
+ string[] scopes = new string[]{"https://microsoftgraph.chinacloudapi.cn/user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
- // Get the account
- IAccount account = await application.GetAccountAsync(accountIdentifier);
-
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
-
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"https://microsoftgraph.chinacloudapi.cn/user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
- ...
- // use the access token to call a web API
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -74,11 +73,12 @@ public async Task<IActionResult> Profile()
 
 有许多其他的复杂情况，例如：
 
-- 为 Web 应用实现令牌缓存（本教程提供多个实现）
-- 当用户注销时从缓存中删除帐户
-- 调用多个 API，包括设置增量许可
+- 调用多个 API，
+- 处理增量许可。
 
-## <a name="aspnet"></a>ASP.NET
+这些高级步骤在教程 [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) 的第 3 章中进行处理
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 ASP.NET 中的情况类似：
 
@@ -87,6 +87,87 @@ ASP.NET 中的情况类似：
 - 最后，它调用机密客户端应用程序的 `AcquireTokenSilent` 方法。
 
 此代码类似于为 ASP.NET Core 显示的代码。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+在 Java 示例中，调用 API 的代码位于 getUsersFromGraph 方法 [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62) 中。
+
+它尝试调用 `getAuthResultBySilentFlow`。 如果用户需要许可更多作用域，则该代码会处理 `MsalInteractionRequiredException` 以质询用户。
+
+```java
+@RequestMapping("/msal4jsample/graph/me")
+public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServletResponse response)
+        throws Throwable {
+
+    IAuthenticationResult result;
+    ModelAndView mav;
+    try {
+        result = authHelper.getAuthResultBySilentFlow(httpRequest, response);
+    } catch (ExecutionException e) {
+        if (e.getCause() instanceof MsalInteractionRequiredException) {
+
+            // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
+            // so user can consent to new scopes
+            String state = UUID.randomUUID().toString();
+            String nonce = UUID.randomUUID().toString();
+
+            SessionManagementHelper.storeStateAndNonceInSession(httpRequest.getSession(), state, nonce);
+
+            String authorizationCodeUrl = authHelper.getAuthorizationCodeUrl(
+                    httpRequest.getParameter("claims"),
+                    "https://microsoftgraph.chinacloudapi.cn/user.read",
+                    authHelper.getRedirectUriGraph(),
+                    state,
+                    nonce);
+
+            return new ModelAndView("redirect:" + authorizationCodeUrl);
+        } else {
+
+            mav = new ModelAndView("error");
+            mav.addObject("error", e);
+            return mav;
+        }
+    }
+
+    if (result == null) {
+        mav = new ModelAndView("error");
+        mav.addObject("error", new Exception("AuthenticationResult not found in session."));
+    } else {
+        mav = new ModelAndView("auth_page");
+        setAccountInfo(mav, httpRequest);
+
+        try {
+            mav.addObject("userInfo", getUserInfoFromGraph(result.accessToken()));
+
+            return mav;
+        } catch (Exception e) {
+            mav = new ModelAndView("error");
+            mav.addObject("error", e);
+        }
+    }
+    return mav;
+}
+// Code omitted here.
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+在 python 示例中，调用 Microsoft graph 的代码位于 [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62) 中。
+
+它尝试从令牌缓存获取令牌，然后在设置授权标头后调用 Web API。 如果它无法这样做，它将重新登录用户。
+
+```python
+@app.route("/graphcall")
+def graphcall():
+    token = _get_token_from_cache(app_config.SCOPE)
+    if not token:
+        return redirect(url_for("login"))
+    graph_data = requests.get(  # Use token to call downstream service
+        app_config.ENDPOINT,
+        headers={'Authorization': 'Bearer ' + token['access_token']},
+        ).json()
+    return render_template('display.html', result=graph_data)
+```
 
 ## <a name="next-steps"></a>后续步骤
 

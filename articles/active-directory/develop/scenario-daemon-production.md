@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a871f0a0d36b496c12c2d5f15bfd012781f99c10
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 6e31276ea6a66cce5252bf8282bf3fdb2ab7b8ea
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305970"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830929"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>调用 Web API 的守护程序应用 - 移到生产环境
 
@@ -43,7 +43,7 @@ ms.locfileid: "67305970"
 
 下面是一些介绍详细信息的链接：
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 - 尝试[使用应用的标识获取令牌并从控制台应用中调用 Microsoft Graph API](./quickstart-v2-netcore-daemon.md)快速入门（如果尚未这样做）。
 - 以下内容的参考文档：
@@ -62,11 +62,13 @@ ms.locfileid: "67305970"
 
     ![拓扑](./media/scenario-daemon-app/damon-app-sample-web.svg)
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-MSAL Python 目前为公开预览版。 有关详细信息，请参阅 [MSAL Python 客户端凭据在存储库中的示例](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py)。
+尝试快速入门 [使用应用的标识获取令牌并从 Python 控制台应用中调用 Microsoft Graph API](./quickstart-v2-python-daemon.md)。
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL Python 目前为公开预览版。 有关详细信息，请参阅 [MSAL Java 在存储库中的示例](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples)。
+MSAL Java 目前为公共预览版。 有关详细信息，请参阅 [MSAL Java 开发示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)。
+
+<!-- Update_Description: wording update -->
 

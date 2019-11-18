@@ -3,22 +3,18 @@ title: 使用 Azure Monitor 进行持续监视 | Azure Docs
 description: 介绍使用 Azure Monitor 在整个工作流中启用持续监视的具体步骤。
 author: lingliw
 manager: digimobile
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: ''
 ms.topic: conceptual
 origin.date: 10/12/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1db828f4264d8a71ac081a921db5f5a93bcf3fca
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: f3b6a96f46a7fdc58ffb57f2f71d2d9b80f2ae8e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737005"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730580"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure Monitor 进行持续监视
 

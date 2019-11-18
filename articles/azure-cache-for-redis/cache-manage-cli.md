@@ -13,18 +13,18 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 04/17/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9e6692338913cafd84851a77d68394c2a0da9c24
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 78629a163463aa1b4b39247c500b9138cfb55138
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686361"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934239"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>如何使用 Azure 经典 CLI 创建和管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure 经典 CLI](cache-manage-cli.md)
 >
 
@@ -272,4 +272,4 @@ Azure 经典 CLI 是从任何平台管理 Azure 基础结构的好办法。 本�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -14,12 +14,12 @@ origin.date: 06/13/2017
 ms.date: 09/20/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 5283235c1ccc4b9c95fca2f5dd8b1005102804aa
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 2ba4a8640c8cf0eba547310f324883bfa1890de2
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156324"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041144"
 ---
 # <a name="create-an-external-app-service-environment"></a>创建外部应用服务环境
 
@@ -106,12 +106,35 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 10. 选择“创建”以创建 ASE  。 此过程还会创建应用服务计划和应用。 ASE、应用服务计划和应用都位于同一订阅和同一资源组中。 如果 ASE 需要单独的资源组，或者你需要 ILB ASE，请按照以下步骤自动创建 ASE。
 
 <!-- linux web apps & container is not available -->
+## <a name="create-an-ase-by-itself"></a>自动创建 ASE
 
-## <a name="app-service-environment-v1"></a>应用服务环境 v1
+如果创建独立的 ASE，则其中不含任何内容。 空的 ASE 存在基础结构，每月仍会产生费用。 按照这些步骤通过 ILB 创建 ASE，或在其自身的资源组中创建 ASE。 创建 ASE 后，可使用常规过程在其中创建应用。 选择新 ASE 作为位置。
 
-仍可创建初版应用服务环境 (ASEv1) 的实例。 若要开始该过程，请在市场内搜索“应用服务环境 v1”  。 采用与创建独立 ASE 相同的方式创建 ASE。 完成后，ASEv1 就有两个前端和两个辅助角色。 ASEv1 创建后，必须管理前端和辅助角色。 它们不会在创建应用服务计划时自动添加。 前端充当 HTTP/HTTPS 终结点，并将流量发送给辅助角色。 辅助角色是托管应用的角色。 可在创建 ASE 后，调整前端和辅助角色的数量。 
+1. 在 Azure 市场中搜索“应用服务环境”，或者选择“创建资源” > “Web 移动” > “应用服务环境”     。 
 
-若要深入了解 ASEv1，请参阅[应用服务环境 v1 简介][ASEv1Intro]。 若要深入了解如何缩放、管理和监视 ASEv1，请参阅[如何配置应用服务环境][ConfigureASEv1]。
+1. 输入 ASE 的名称。 此名称用于在 ASE 中创建的应用。 如果该名称为 mynewdemoase，则子域名为 .mynewdemoase.p.chinacloudsites.cn   。 如果创建名为 mytestapp 的应用，则可在 mytestapp.mynewdemoase.p.chinacloudsites.cn 中访问它  。 不能在名称中使用空格。 如果使用大写字符，则域名为该名称的全小写形式。 如果使用 ILB，则不在子域中使用 ASE 名称，但会在 ASE 创建过程中显式声明该名称。
+
+    ![ASE 命名][5]
+
+1. 选择订阅。 此订阅也是 ASE 中所有应用使用的订阅。 不能将 ASE 放入位于其他订阅中的 VNet。
+
+1. 选择或指定新的资源组。 用于 ASE 的资源组必须与用于 VNet 的资源组相同。 如果选择现有 VNet，则 ASE 的资源组选择会更新，以反映 VNet 的资源组。 如果使用资源管理器模板，则可使用不同于 VNet 资源组的资源组来创建 ASE  。 若要从模板创建 ASE，请参阅[从模板创建应用服务环境][MakeASEfromTemplate]。
+
+    ![资源组选择][6]
+
+1. 选择 VNet 和位置。 可选择创建新的 VNet，也可选择现有 VNet： 
+
+    * 如果选择新的 VNet，则可指定名称和位置。 
+    
+    * 新 VNet 的地址范围为 192.168.250.0/23，并拥有名为“默认”的子网。 子网定义为 192.168.250.0/24。 仅可选择一个资源管理器 VNet。 “VIP 类型”选择决定 ASE 能否从 Internet（外部）直接访问或是否使用 ILB  。 若要深入了解这些选项，请参阅[在应用服务环境中创建和使用内部负载均衡器][MakeILBASE]。 
+
+      * 如果对“VIP 类型”选择“外部”，则可选择为实现基于 IP 的 SSL 而创建系统时所用的外部 IP 地址数   。 
+    
+      * 如果对“VIP 类型”选择“内部”，则需指定 ASE 要使用的域   。 可将 ASE 部署到使用公用或专用地址范围的 VNet。 若要使用具有公用地址范围的 VNet，需要提前创建 VNet。 
+    
+    * 如果选择现有 VNet，需要在 ASE 创建期间创建新的子网。 不能在门户中使用预先创建的子网。  如果使用资源管理器模板，则可创建具有现有子网的 ASE。 若要从模板创建 ASE，请参阅[从模板创建应用服务环境][MakeASEfromTemplate]。
+
+<!-- ## App Service Environment v1 ->
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png
@@ -135,8 +158,6 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
 [NSGs]: ../../virtual-network/security-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml

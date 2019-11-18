@@ -1,25 +1,20 @@
 ---
 title: 从 Splunk 到 Azure Monitor 日志查询 | Azure Docs
 description: 帮助熟悉 Splunk 的用户学习 Azure Monitor 日志查询。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/21/2018
-ms.date: 01/21/2019
+ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7e80d102811d559ae20726607ea0e366c102d16c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 77828181ad95a26ceef9ac8092242e1b22d9a88f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737076"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730323"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>从 Splunk 到 Azure Monitor 日志查询
 
@@ -126,12 +121,12 @@ Splunk 还有一个 `eval` 函数，该函数不能与 `eval` 运算符进行比
 
 
 ### <a name="rename"></a>重命名 
-Azure Monitor 使用相同的运算符来重命名和新建字段。 Splunk 有两个独立的运算符：`eval` 和 `rename`。
+Azure Monitor 使用 `project-rename` 运算符重命名字段。 `project-rename` 允许查询利用为字段预先生成的任何索引。 Splunk 使用 `rename` 运算符来执行相同的操作。
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Azure Monitor | **project-rename** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 

@@ -1,25 +1,20 @@
 ---
-title: Azure Log Analytics 视图中的筛选器 | Azure Docs
-description: Log Analytics 视图中的筛选器使得用户可以在不修改视图本身的情况下，以特定属性的值筛选数据。  本文介绍如何使用筛选器并添加一个筛选器到自定义视图。
-services: log-analytics
-documentationcenter: ''
+title: Azure Monitor 视图中的筛选器 | Microsoft Docs
+description: 使用 Azure Monitor 视图中的筛选器用户可以在不修改视图本身的情况下，以特定属性的值筛选视图中的数据。  本文介绍如何使用筛选器并添加一个筛选器到自定义视图。
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-origin.date: 06/22/2018
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+origin.date: 06/22/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5a0ef9510f70b1d43a234a95cb82832f739067ff
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 5382e1e1531828b10487080f7d7cbd680f13d23e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737376"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730613"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure Monitor 视图中的筛选器
 [Azure Monitor 视图](view-designer.md)中的**筛选器**使得用户可以在不修改视图本身的情况下，以特定属性的值筛选视图中的数据。  例如，可以允许视图的用户在视图中筛选仅来自特定计算机或特定计算器组的数据。  可以在单个视图上创建多个筛选器，以便用户按多个属性筛选数据。  本文介绍如何使用筛选器并添加一个筛选器到自定义视图。

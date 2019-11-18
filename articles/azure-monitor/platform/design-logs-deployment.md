@@ -1,25 +1,21 @@
 ---
 title: 设计 Azure Monitor 日志部署 | Microsoft Docs
 description: 本文介绍有关客户在 Azure Monitor 中准备部署工作区时的注意事项和建议。
-services: azure-monitor
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 08/07/2019
-ms.date: 8/21/2019
+origin.date: 09/20/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5c899945cdd34d637fbc0d1b648c46ed61364299
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 26f528d1518f78824006fa069abe89fcff89f956
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330405"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730555"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>设计 Azure Monitor 日志部署
 
@@ -33,7 +29,7 @@ Log Analytics 工作区可提供：
 
 * 数据存储的地理位置。
 * 遵循建议的设计策略之一授予不同的用户访问权限，以实现数据隔离。
-* 设置配置的范围，例如[定价层级](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[数据上限](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)。
+* 设置配置的范围，例如[定价层级](/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[数据上限](/azure-monitor/platform/manage-cost-storage#daily-cap)。
 
 本文提供设计和迁移注意事项的详细概述、访问控制概述，我们为 IT 组织推荐的设计实施方案的介绍。
 
@@ -71,7 +67,7 @@ Log Analytics 工作区可提供：
 |:---|:---|
 | [访问模式](#access-mode) | 用户访问工作区的方法。  定义可用数据的范围，以及应用的访问控制模式。 |
 | [访问控制模式](#access-control-mode) | 工作区中的设置，用于定义是要在工作区级别还是资源级别应用权限。 |
-| [权限](manage-access.md#manage-accounts-and-users) | 应用到工作区或资源的个人用户或用户组的权限。 定义用户有权访问哪些数据。 |
+| [权限](manage-access.md) | 应用到工作区或资源的个人用户或用户组的权限。 定义用户有权访问哪些数据。 |
 | [表级 RBAC](manage-access.md#table-level-rbac) | 应用到所有用户（无论他们使用的是访问模式还是访问控制模式）的可选精细权限。 定义用户可以访问哪些数据类型。 |
 
 ## <a name="access-mode"></a>访问模式
@@ -105,7 +101,7 @@ Azure Monitor 根据执行日志搜索时所在的上下文自动确定正确的
 | | 工作区上下文 | 资源上下文 |
 |:---|:---|:---|
 | 每种模式适合哪类用户？ | 集中管理。 需要配置数据收集的管理员，以及需要访问各种资源的用户。 此外，需要访问 Azure 外部资源的日志的用户目前也需要使用此模式。 | 应用程序团队。 受监视 Azure 资源的管理员。 |
-| 用户需要哪些权限才能查看日志？ | 对工作区的权限。 请参阅[管理帐户和用户](manage-access.md#manage-accounts-and-users)中的“工作区权限”。  | 对资源的读取访问权限。 请参阅[管理帐户和用户](manage-access.md#manage-accounts-and-users)中的“资源权限”。  权限可以继承（例如，从包含资源组继承），也可以直接分配给资源。 系统会自动分配对资源日志的权限。 |
+| 用户需要哪些权限才能查看日志？ | 对工作区的权限。 请参阅[使用工作区权限管理访问权限](manage-access.md#manage-access-using-workspace-permissions)中的**工作区权限**。 | 对资源的读取访问权限。 请参阅[使用 Azure 权限管理访问权限](manage-access.md#manage-access-using-azure-permissions)中的**资源权限**。 权限可以继承（例如，从包含资源组继承），也可以直接分配给资源。 系统会自动分配对资源日志的权限。 |
 | 权限范围是什么？ | 工作区。 有权访问工作区的用户可以通过他们有权访问的表查询该工作区中的所有日志。 请参阅[表访问控制](manage-access.md#table-level-rbac) | Azure 资源。 用户可以通过任何工作区查询他们有权访问的资源、资源组或订阅的日志，但无法查询其他资源的日志。 |
 | 用户如何访问日志？ | <ul><li>从“Azure Monitor”菜单启动“日志”。  </li></ul> <ul><li>从“Log Analytics 工作区”启动“日志”。  </li></ul> <ul><li>从 Azure Monitor [工作簿](../visualizations.md#workbooks)。</li></ul> | <ul><li>从 Azure 资源的菜单启动“日志” </li></ul> <ul><li>从“Azure Monitor”菜单启动“日志”。  </li></ul> <ul><li>从“Log Analytics 工作区”启动“日志”。  </li></ul> <ul><li>从 Azure Monitor [工作簿](../visualizations.md#workbooks)。</li></ul> |
 
@@ -129,6 +125,19 @@ Azure Monitor 根据执行日志搜索时所在的上下文自动确定正确的
     > 如果用户只对工作区拥有资源权限，则他们只能使用资源上下文模式访问工作区（假设工作区访问模式设置为“使用资源或工作区权限”）。 
 
 若要了解如何使用门户、PowerShell 或资源管理器模板更改访问控制模式，请参阅[配置访问控制模式](manage-access.md#configure-access-control-mode)。
+
+## <a name="ingestion-volume-rate-limit"></a>引入量速率限制
+
+Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发送数 TB 的数据，并且此数据仍在不断增长。 每个工作区的默认引入速率阈值设置为 **500 MB/分钟**。 如果以更高速率将数据发送到单个工作区，则某些数据将丢弃，并且在继续超过阈值的情况下，每 6 小时将向工作区中的“操作”  表发送一个事件。 如果引入量继续超过速率限制，或者希望很快达到该限制，则可以通过建立支持请求来请求增加工作区。
+ 
+若要在工作区中收到此类事件的通知，请根据大于零的结果数，使用以下具有警报逻辑的查询创建[日志警报规则](alerts-log.md)。
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>建议
 

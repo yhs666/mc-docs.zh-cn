@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 07/01/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75ac92bfbee141db94391c416a42fd25cd1708bf
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 46033fd610837b2d410b3ad2d2be6113a1a14e62
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568710"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830905"
 ---
 # <a name="single-page-applications"></a>单页应用程序
 
@@ -69,6 +69,6 @@ ms.locfileid: "67568710"
 ## <a name="next-steps"></a>后续步骤
 
 * 详细了解其他[应用程序类型和方案](app-types.md)
-* 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
+* 了解 Azure AD [身份验证基础知识](v1-authentication-scenarios.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

@@ -1,24 +1,20 @@
 ---
 title: 监视 Windows 桌面应用的使用情况和性能
 description: 使用 Application Insights 分析 Windows 桌面应用的使用情况和性能。
-services: application-insights
-documentationcenter: windows
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 08/19/2019
+origin.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a0fc4e165ca10b60143fa46cd93a44a00b982f7c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d7c7f0e7facb81e6e4094fe756303e959a96b19d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736552"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730510"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>监视经典 Windows 桌面应用中的使用情况和性能
 
@@ -77,6 +73,44 @@ using Microsoft.ApplicationInsights;
             base.OnClosing(e);
         }
 
+```
+
+## <a name="override-storage-of-computer-name"></a>替代计算机名称的存储
+
+默认情况下，此 SDK 将收集并存储发出遥测的系统的计算机名称。 若要重写集合，需要使用遥测初始化程序：
+
+**按如下所示编写自定义 TelemetryInitializer。**
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here, you can pass an empty string if needed.
+                  telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
+            }
+        }
+    }
+}
+```
+在以下设置检测密钥的 `Program.cs` `Main()` 方法中实例化初始化程序：
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+   static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+        }
 ```
 
 ## <a name="next-steps"></a>后续步骤

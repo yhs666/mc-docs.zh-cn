@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-origin.date: 08/22/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: d278f5594048840dc221b84b206c32392c9dd79f
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+origin.date: 09/26/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: 8da7d1ccdcb6d728c63ec320310bf2af17428f6b
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262956"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041161"
 ---
 # <a name="automated-backups"></a>自动备份
 
@@ -47,10 +47,10 @@ SQL 数据库使用 SQL Server 技术，每周创建[完整备份](https://docs.
 
 | | Azure 门户 | Azure PowerShell |
 |---|---|---|
-| 更改备份保留 | [单一数据库](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [托管实例](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [单一数据库](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[托管实例](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| 更改备份保留 | [单一数据库](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [托管实例](sql-database-automated-backups.md#managed-instance-database) | [单一数据库](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[托管实例](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | 更改长期备份保留 | [单一数据库](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>托管实例 - 不可用  | [单一数据库](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>托管实例 - 不可用  |
 | 从时间点还原数据库 | [单一数据库](sql-database-recovery-using-backups.md#point-in-time-restore) | [单一数据库](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [托管实例](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| 还原已删除的数据库 | [单一数据库](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [单一数据库](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [托管实例](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| 还原已删除的数据库 | [单一数据库](sql-database-recovery-using-backups.md) | [单一数据库](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [托管实例](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | 从 Azure Blob 存储还原数据库 | 单一数据库 - 不可用 <br/>托管实例 - 不可用  | 单一数据库 - 不可用 <br/>[托管实例](/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>备份保留多长时间？
@@ -115,15 +115,19 @@ Azure SQL 数据库工程团队持续不断地自动测试放置在逻辑服务�
 > [!NOTE]
 > 这些 API 将只影响 PITR 保留期。 如果为数据库配置了 LTR，LTR 不会受到影响。 有关如何更改 LTR 保持期的详细信息，请参阅[长期保留](sql-database-long-term-retention.md)。
 
-### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>使用 Azure 门户更改 PITR 备份保持期
+### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>使用 Azure 门户更改 PITR 备份保留期
 
 若要使用 Azure 门户更改 PITR 备份保留期，请导航到要在门户中更改其保留期的服务器对象，然后根据要修改的服务器对象选择适当的选项。
 
-#### <a name="change-pitr-for-a-sql-database-server"></a>更改 SQL 数据库服务器的 PITR
+#### <a name="single-azure-sql-database"></a>单一 Azure SQL 数据库
+
+在服务器级别更改单个 Azure SQL 数据库的 PITR 备份保留期。 在服务器级别所做的更改适用于该服务器上的数据库。 若要从 Azure 门户更改 Azure SQL 数据库服务器的 PITR，请导航到“服务器概述”边栏选项卡，单击导航菜单上的“管理备份”，然后单击导航栏上的“配置保留期”。
 
 ![更改 PITR Azure 门户](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="change-pitr-for-a-managed-instance"></a>更改托管实例的 PITR
+#### <a name="managed-instance-database"></a>托管实例数据库
+
+在单个数据库级别更改 SQL 数据库托管实例的 PITR 备份保留期。 若要从 Azure 门户更改实例数据库的 PITR 备份保留期，请导航到单个数据库概述边栏选项卡，然后单击导航栏上的“配置备份保留期”。
 
 ![更改 PITR Azure 门户](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 

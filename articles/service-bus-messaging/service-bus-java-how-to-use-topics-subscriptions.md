@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/15/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b3a236e2cfd31bc980a8dea43ab78378b3c26554
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 657292bd258f33332d2660e4714bb7dede637bc5
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330295"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041204"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
@@ -42,7 +42,7 @@ ms.locfileid: "71330295"
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用了 Eclipse，则可以安装包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] 。 然后，可以将 **Azure Libraries for Java** 添加到项目：
 
-![Eclipse 生成路径中的库](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![将适用于 Java 的 Microsoft Azure 库添加到 Eclipse 项目](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 还需要将以下 JAR 添加到 Java 生成路径中：
 

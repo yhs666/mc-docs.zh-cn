@@ -8,14 +8,14 @@ ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
 origin.date: 05/15/2019
-ms.date: 09/30/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: f2ed6a855f2d5be2084e91fdc6144691e9e71e60
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.openlocfilehash: 1ad20505a8cfd739cc87d7c1ba648ab4e06c9fc1
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262919"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041210"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
@@ -43,8 +43,7 @@ ms.locfileid: "71262919"
 
 | 功能 | 详细信息 |
 | ---| --- |
-| <a href="https://docs.azure.cn/zh-cn/sql-database/transparent-data-encryption-byok-azure-sql">使用“创建自己的密钥”(BYOK) 进行透明数据加密 (TDE)</a> |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)。|
-| <a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-auto-failover-group#best-practices-of-using-failover-groups-with-managed-instances">异地分布式故障转移组</a> | 将实例的副本保留在另一个区域中并确保你的数据在发生区域性灾难的情况下仍然可用。 |
+| <a href="/sql-database/transparent-data-encryption-byok-azure-sql">使用“创建自己的密钥”(BYOK) 进行透明数据加密 (TDE)</a> |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)。|
 | <a href="https://aka.ms/managed-instance-aadlogins">实例级 Azure AD 服务器主体（登录名）</a> | 使用 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 语句创建服务器级登录名。 |
 | [事务复制](sql-database-managed-instance-transactional-replication.md) | 将表中的更改复制到托管实例、单一数据库或 SQL Server 实例上放置的其他数据库中，或者在其他托管实例或 SQL Server 实例中的某些行发生更改时更新表。 有关信息，请参阅[在 Azure SQL 数据库托管实例数据库中配置复制](replication-with-sql-database-managed-instance.md)。 |
 | 威胁检测 |有关信息，请参阅[在 Azure SQL 数据库托管实例中配置威胁检测](sql-database-managed-instance-threat-detection.md)。|
@@ -55,15 +54,21 @@ ms.locfileid: "71262919"
 
 ## <a name="new-features"></a>新增功能
 
-最近在托管实例部署模型中启用了以下功能：
-  - <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 硬件代次上有 4 个 vCore</a>
-  - 支持使用 <a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-managed-instance-resource-limits#supported-subscription-types" >Visual Studio 订阅者的 Azure 每月信用额度</a>的订阅
+### <a name="managed-instance-h2-2019-updates"></a>托管实例 H2 2019 更新
+
+- 使用[自动故障转移组](/sql-database/sql-database-auto-failover-group)可以将主实例中的所有数据库复制到另一个区域中的辅助实例。
+- 使用[全局跟踪标志](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15)配置托管实例行为。
+
+### <a name="managed-instance-h1-2019-updates"></a>托管实例 H1 2019 更新
+
+2019 年上半年在托管实例部署模型中启用了以下功能：
+  - 支持具有 <a href="/sql-database/sql-database-managed-instance-resource-limits#supported-subscription-types">Visual Studio 订阅者的 Azure 每月额度</a>和增加的[区域限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)的订阅。
   - 支持 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
-  - 在实例创建过程中<a href="https://docs.azure.cn/sql-database/sql-database-managed-instance-timezone">配置时区</a>。
-  - 使用<a href="https://docs.azure.cn/zh-cn/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template">所选服务器级排序规则</a>创建实例。 
-  - 通过“异地还原”功能可以<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">使用 PowerShell 将数据库还原到另一个数据中心</a>。
-  - 托管实例由<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">内置防火墙</a>提供保护。
-  - 为时间点还原<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-automated-backups#how-to-change-the-pitr-backup-retention-period">配置长达 35 天的备份保留期</a>。 请注意，长期备份保留（最长 10 年）仍未启用，你可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">纯副本备份</a>作为替代方法。
+  - 使用所选<a href="/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template">服务器级排序规则</a>和<a href="/sql-database/sql-database-managed-instance-timezone">时区</a>创建实例。
+  - 托管实例现在使用<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">内置防火墙</a>进行保护。
+  - 配置实例以使用[公共终结点](sql-database-managed-instance-public-endpoint-configure.md)、[代理覆盖](sql-database-connectivity-architecture.md#connection-policy)连接以获得更好的网络性能，<a href="https://aka.ms/four-cores-sql-mi-update">Gen5 硬件代次上有 4 个 vCore</a> 或<a href="/sql-database/sql-database-automated-backups#how-to-change-the-pitr-backup-retention-period">将备份保留期配置为最多 35 天</a>以便进行时间点还原。 长期备份保留（最长 10 年）仍未启用，因此可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">仅复制备份</a>作为替代方法。
+  - 利用新功能，可以<a href="/sql-database/scripts/sql-managed-instance-restore-geo-backup">使用 PowerShell 将数据库异地还原到另一个数据中心</a>、[重命名数据库](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/)、[删除虚拟群集](sql-database-managed-instance-delete-virtual-cluster.md)。
+  - 新的内置[实例参与者角色](/role-based-access-control/built-in-roles#sql-managed-instance-contributor)使职责分离 (SoD) 遵从安全原则并符合企业标准。
 
 ## <a name="fixed-known-issues"></a>修复了已知问题
 

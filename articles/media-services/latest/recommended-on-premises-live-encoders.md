@@ -6,16 +6,16 @@ keywords: 编码;编码器;媒体
 author: WenJason
 manager: digimobile
 ms.author: v-jay
-origin.date: 08/08/2019
-ms.date: 09/23/2019
+origin.date: 10/10/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 9dc1278cab07a502fc637e83df6641e56354b2aa
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: e825b438a864e34d425e0252005dd32332227dad
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125529"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416287"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建议的实时传送视频流编码器
 
@@ -38,6 +38,7 @@ ms.locfileid: "71125529"
 > 通过 RTMP 流式处理时，请检查防火墙和/或代理设置，确认出站 TCP 端口 1935 和 1936 已打开。
 
 - Adobe Flash 媒体实时编码器 3.2
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio

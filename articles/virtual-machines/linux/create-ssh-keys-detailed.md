@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 04/17/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8490cfa83978ac783dc9b82b20764c69dc83e563
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 742fc57d13487102d8b2a12ec897df14b235da93
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272767"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831285"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>详细步骤：创建和管理 Azure 中的 Linux VM 用于身份验证的 SSH 密钥 
 使用安全外壳 (SSH) 密钥对，可在 Azure 上创建默认使用 SSH 密钥进行身份验证的 Linux 虚拟机，从而无需密码即可登录。 使用 Azure 门户、Azure CLI、资源管理器模板或其他工具创建的 VM 可在部署中包含 SSH 公钥，为 SSH 连接设置 SSH 密钥身份验证。 

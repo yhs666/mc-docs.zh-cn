@@ -8,19 +8,19 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/21/2018
-ms.date: 08/26/2018
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3d0b7141bd666e4415931be08d83c794f04d1cd2
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 3c813d4af0c5936aa8fadc84650f32680a4faaff
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993459"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116218"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>使用复合资源在 Azure 自动化状态配置 (DSC) 中撰写 DSC 配置
 
-当需要通过多个所需状态配置 (DSC) 配置来管理资源时，最佳方法是使用[复合资源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)。 复合资源是一个嵌套的参数化配置，用作另一配置中的 DSC 资源。 这允许创建复杂配置，同时允许分别管理和构建基础的复合资源（参数化配置）。
+当需要通过多个所需状态配置 (DSC) 配置来管理资源时，最佳方法是使用[复合资源](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringresourcecomposite)。 复合资源是一个嵌套的参数化配置，用作另一配置中的 DSC 资源。 这允许创建复杂配置，同时允许分别管理和构建基础的复合资源（参数化配置）。
 
 Azure 自动化支持[导入和撰写复合资源](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources)。
 将复合资源导入到自动化帐户后，你将能够使用“状态配置(DSC)”页面中的“撰写配置”体验。  

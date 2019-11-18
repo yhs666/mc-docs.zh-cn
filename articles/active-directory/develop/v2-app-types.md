@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/06/2019
-ms.date: 10/25/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25a215a3c058559670001377d22a8814ed7b7083
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 7362c7b182c697bfc2a19759d735ad97fc3df69d
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912767"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830889"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 标识平台的应用程序类型
 
@@ -123,7 +123,7 @@ Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应�
 
 ## <a name="daemons-and-server-side-apps"></a>守护程序和服务器端应用
 
-包含长时间运行的进程或不需要与用户交互的应用也需要通过一种方法来访问受保护的资源，例如 Web API。 这些应用可以通过 OAuth 2.0 客户端凭据流，使用应用的标识（而不是用户的委托标识）来进行身份验证和获取令牌。 可以使用客户端机密或证书证明应用的身份。 
+包含长时间运行的进程或不需要与用户交互的应用也需要通过一种方法来访问受保护的资源，例如 Web API。 这些应用可以通过 OAuth 2.0 客户端凭据流，使用应用的标识（而不是用户的委托标识）来进行身份验证和获取令牌。 可以使用客户端机密或证书证明应用的身份。 有关详细信息，请参阅[在守护程序应用中使用证书对 Microsoft 标识平台进行身份验证](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)。
 
 在此流中，应用通过直接与 `/token` 终结点交互来获取访问权限：
 

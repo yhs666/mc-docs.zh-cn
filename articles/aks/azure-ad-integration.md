@@ -6,16 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/26/2019
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 94e9494297fcc00c612bdf9b22890e676ab7d16c
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: ae47cd1cde3b77622c047d4fdf50932d13a7ba6c
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303281"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068928"
 ---
-<!--NOTICE: MOONCAKE HAVE RELEASE THE AAD INTERGRATION-->
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>将 Azure Active Directory 与 Azure Kubernetes Service 集成
 
 可将 Azure Kubernetes 服务 (AKS) 配置为使用 Azure Active Directory (Azure AD) 进行用户身份验证。 在此配置中，你可以使用自己的 Azure AD 身份验证令牌登录到 AKS 群集。
@@ -91,7 +90,7 @@ ms.locfileid: "72303281"
 
     e. 选择“添加权限”以保存更新。 
 
-    f. 在“授予许可”下，选择“授予管理员许可”。   如果当前帐户不是租户管理员，则此按钮可用。
+    f. 在“授予许可”下，选择“授予管理员许可”。   如果正在使用的当前帐户未作为租户管理员列出，此按钮将不可用。
 
     成功授予权限后，门户中会显示以下通知：
 
@@ -173,8 +172,11 @@ az aks create \
   --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
-  --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
+  --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47 \
+  --vm-set-type AvailabilitySet
 ```
+
+<!--MOONCAKE: CORRECT TO APPEND --vm-set-type AvailabilitySet Before VMSS feature is valid on Azure China Cloud-->
 
 创建 AKS 群集需要几分钟时间。
 

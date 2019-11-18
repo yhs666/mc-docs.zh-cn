@@ -11,20 +11,20 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-origin.date: 06/20/2017
-ms.date: 09/07/2018
-ms.author: v-junlch
+origin.date: 10/24/2019
+ms.date: 11/06/2019
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40fe77295503b562701c655a7b225b7c7df21296
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8c074d014fe9e18535fac34b5e815e80b11d37c3
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330215"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730367"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动缩放公式
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动公式
 
-Azure Batch 可以根据定义的参数自动缩放池。 通过自动缩放，Batch 在任务需求提高时动态将节点添加到池中，并在任务需求降低时删除计算节点。 可以通过自动调整 Batch 应用程序使用的计算节点数来节省时间和资金。 
+Azure Batch 可以根据定义的参数自动缩放池。 通过自动缩放，Batch 在任务需求提高时动态将节点添加到池中，并在任务需求降低时删除计算节点。 可以通过自动调整 Batch 应用程序使用的计算节点数来节省时间和资金。
 
 可以通过将计算节点池与定义的自动缩放公式  关联，来启用该池的自动缩放。 Batch 服务会使用自动缩放公式确定执行工作负荷所需的计算节点数。 Batch 会响应定期收集的服务指标数据。 Batch 使用此指标数据，基于公式并按可配置的间隔来调整池中的计算节点数。
 
@@ -64,12 +64,14 @@ $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 下面是可以进行调整以适应大多数方案的两个自动缩放公式的示例。 示例公式中的变量 `startingNumberOfVMs` 和 `maxNumberofVMs` 可以根据需要进行调整。
 
 #### <a name="pending-tasks"></a>待定任务
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 对于此自动缩放公式，最初使用单个 VM 创建池。 `$PendingTasks` 指标定义正在运行或已排队的任务数。 该公式查找过去 180 秒内的平均挂起任务数，并相应地设置 `$TargetDedicatedNodes` 变量。 该公式确保专用节点的目标数永远不会超过 25 个 VM。 提交新任务时，池会自动增大。 任务完成时，VM 会逐个变为可用状态，自动缩放公式会收缩池。
@@ -77,10 +79,12 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 此公式缩放专用节点，但可对其进行修改，使其也适用于缩放低优先级节点。
 
 #### <a name="preempted-nodes"></a>已占用节点 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 此示例创建一个池，该池一开始有 25 个低优先级节点。 每次占有一个低优先级节点时，就会代之以某个专用节点。 在第一个示例中，`maxNumberofVMs` 变量防止池超出 25 个 VM。 可以通过此示例来利用低优先级 VM，同时还可确保在池的生存期内，占用数目是固定的。
@@ -100,8 +104,13 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | 可读写的服务定义变量 | 说明 |
 | --- | --- |
 | $TargetDedicatedNodes |池的专用计算节点的目标数。 专用节点数指定为目标，因为池可能永远达不到所需的节点数目。 例如，如果在池达到初始目标数之前专用节点的目标数被自动缩放评估修改，则池可能不会达到目标数数。 <br /><br /> 如果目标数超过了 Batch 帐户节点或核心配额，则使用 Batch 服务配置创建的帐户中的池无法实现其目标。 如果目标数超过了订阅的共享核心配额，则使用用户订阅配置创建的帐户中的池无法实现其目标。|
-| $TargetLowPriorityNodes |池的低先级计算节点的目标数。 低优先级节点数指定为目标，因为池可能永远达不到所需的节点数目。 例如，如果在池达到初始目标数之前低优先级的目标数被自动缩放评估修改，则池可能不会达到目标数数。 如果目标超过 Batch 帐户节点或核心配额，则池也可能不会实现其目标。 |
-| $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue**--立即终止任务并将其放回作业队列，以便重新计划这些任务。<li>**terminate**--立即终止任务并将其从作业队列中删除。<li>**taskcompletion**--等待当前运行的任务完成，并从池中删除节点。<li>**retaineddata**--等待清理节点上的本地任务保留的所有数据，并从池中删除节点。</ul> |
+| $TargetLowPriorityNodes |池的低先级计算节点的目标数。 低优先级节点数指定为目标，因为池可能永远达不到所需的节点数目。 例如，如果在池达到初始目标数之前低优先级的目标数被自动缩放评估修改，则池可能不会达到目标数数。 如果目标超过 Batch 帐户节点或核心配额，则池也可能不会实现其目标。 <br /><br /> 有关低优先级计算节点的详细信息，请参阅[在 Batch 中使用低优先级 VM](batch-low-pri-vms.md)。 |
+| $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue**-- 默认值。 立即终止任务并将其放回作业队列，以便重新计划这些任务。 此操作可确保尽可能快地达到目标节点数，但效率可能较低，因为任何正在运行的任务都将被中断并必须重启，从而浪费了它们已经完成的任何工作。 <li>**terminate**--立即终止任务并将其从作业队列中删除。<li>**taskcompletion**--等待当前运行的任务完成，并从池中删除节点。 使用此选项可以避免任务被中断和重新排队，从而浪费任务已完成的任何工作。 <li>**retaineddata**--等待清理节点上的本地任务保留的所有数据，并从池中删除节点。</ul> |
+
+> [!NOTE]
+> 还可以使用别名 `$TargetDedicated` 指定 `$TargetDedicatedNodes` 变量。 同样，可以使用别名 `$TargetLowPriority` 指定 `$TargetLowPriorityNodes` 变量。 如果全名变量及其别名都由公式设置，则分配给全名变量的值将优先。
+>
+>
 
 可以获取这些服务定义的变量的值，以根据 Batch 服务中的指标进行调整：
 
@@ -195,7 +204,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | lg(double) |Double |返回 double 的对数底数 2。 |
 | lg(doubleVecList) |doubleVec |返回 doubleVecList 的分量对数底数 2。 必须为参数显式传递 vec(double)。 否则会采用 double lg(double) 版本。 |
 | ln(double) |Double |返回 double 的自然对数。 |
-| ln(doubleVecList) |doubleVec |返回 doubleVecList 的分量对数底数 2。 必须为参数显式传递 vec(double)。 否则会采用 double lg(double) 版本。 |
+| ln(doubleVecList) |doubleVec |返回 double 的自然对数。 |
 | log(double) |Double |返回 double 的对数底数 10。 |
 | log(doubleVecList) |doubleVec |返回 doubleVecList 的分量对数底数 10。 对于单一的 double 参数，必须显式传递 vec(double)。 否则会采用 double log(double) 版本。 |
 | max(doubleVecList) |Double |返回 doubleVecList 中的最大值。 |
@@ -327,8 +336,9 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 首先，定义新自动缩放公式的要求。 该公式应可以：
 
 1. 如果 CPU 使用率高，则增加池中专用计算节点的目标数。
-2. 如果 CPU 使用率低，则减少池中专用计算节点的目标数。
-3. 始终将最大专用节点数限制为 400。
+1. 如果 CPU 使用率低，则减少池中专用计算节点的目标数。
+1. 始终将最大专用节点数限制为 400。
+1. 减少节点数量时，不要删除正在运行任务的节点；如有必要，请等到任务完成后再删除节点。
 
 若要在 CPU 使用率高时增加节点数，可定义一个语句，仅当过去 10 分钟内的最小平均 CPU 使用率高于 70% 时，该语句才会向用户定义变量 (`$totalDedicatedNodes`) 填充一个值，值的大小为专用节点当前目标数的 110%。 否则，使用当前专用节点数的值。
 
@@ -648,9 +658,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>示例 2：基于任务的调整
+
 在此示例中，池大小是根据队列中的任务数来调整的。 在公式字符串中，注释和分行符都是可以接受的。
 
 ```csharp
@@ -665,11 +677,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>示例 3：考虑并行任务
+
 此示例根据任务数调整池大小。 此公式还考虑为池设置的 [MaxTasksPerComputeNode][net_maxtasks] 值。 在对池启用了[并行任务执行](batch-parallel-node-tasks.md)的情况下，此方法特别有效。
 
 ```csharp

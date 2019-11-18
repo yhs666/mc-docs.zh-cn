@@ -1,25 +1,20 @@
 ---
 title: Azure Monitor 日志查询中的高级聚合 | Microsoft Docs
 description: 介绍一些适用于 Azure Monitor 日志查询的较高级聚合选项。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 08/16/2018
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 331dadf12909cf9fb3b228e6a4d74dd6bad5549b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6a86cd69f3beb1fb84660cf6993947a2ecc30566
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737199"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730328"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的高级聚合
 

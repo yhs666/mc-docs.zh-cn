@@ -6,14 +6,14 @@ author: spelluru
 ms.service: event-grid
 ms.topic: reference
 origin.date: 01/17/2019
-ms.date: 09/30/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: c0d31e48b6accf6533ab96f9adaec0f40c3b2725
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 1ec927861fbd2c65b836683b05a3dc745f70624b
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156075"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426081"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Blob 存储的 Azure 事件网格事件架构
 
@@ -32,6 +32,21 @@ ms.locfileid: "71156075"
 
 > [!NOTE]
 > 若要确保 **Microsoft.Storage.BlobCreated** 事件仅在块 Blob 完全提交后触发，请针对 `CopyBlob`、`PutBlob` 和 `PutBlockList` REST API 调用筛选此事件。 这些 API 调用仅在数据已完全提交到块 Blob 后才触发 **Microsoft.Storage.BlobCreated** 事件。 若要了解如何创建筛选器，请参阅[筛选事件网格的事件](/event-grid/how-to-filter-events)。
+## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure Data Lake Storage Gen 2 REST API 的事件列表
+
+如果在存储帐户上启用分层命名空间，并且客户端调用 Azure Data Lake Storage Gen2 REST API，则会触发这些事件。
+
+|事件名称|说明|
+|----------|-----------|
+|**Microsoft.Storage.BlobCreated** | 创建或替换 Blob 时触发。 <br>具体而言，当客户端使用 Azure Data Lake Storage Gen2 REST API 中提供的 `CreateFile` 和 `FlushWithClose` 操作时，会触发此事件。 |
+|**Microsoft.Storage.BlobDeleted** |删除 Blob 时触发。 <br>具体而言，当客户端调用 Azure Data Lake Storage Gen2 REST API 中提供的 `DeleteFile` 操作时，也会触发此事件。 |
+|**Microsoft.Storage.BlobRenamed**|重命名 Blob 时触发。 <br>具体而言，当客户端使用 Azure Data Lake Storage Gen2 REST API 中提供的 `RenameFile` 操作时，会触发此事件。|
+|**Microsoft.Storage.DirectoryCreated**|创建目录时触发。 <br>具体而言，当客户端使用 Azure Data Lake Storage Gen2 REST API 中提供的 `CreateDirectory` 操作时，会触发此事件。|
+|**Microsoft.Storage.DirectoryRenamed**|重命名目录时触发。 <br>具体而言，当客户端使用 Azure Data Lake Storage Gen2 REST API 中提供的 `RenameDirectory` 操作时，会触发此事件。|
+|**Microsoft.Storage.DirectoryDeleted**|删除目录时触发。 <br>具体而言，当客户端使用 Azure Data Lake Storage Gen2 REST API 中提供的 `DeleteDirectory` 操作时，会触发此事件。|
+
+> [!NOTE]
+> 若要确保 **Microsoft.Storage.BlobCreated** 事件仅在块 Blob 完全提交后触发，请针对 `FlushWithClose` REST API 调用筛选此事件。 此 API 调用仅在数据已完全提交到块 Blob 后才触发 **Microsoft.Storage.BlobCreated** 事件。 若要了解如何创建筛选器，请参阅[筛选事件网格的事件](/event-grid/how-to-filter-events)。
 
 <a id="example-event" />
 
@@ -303,10 +318,9 @@ ms.locfileid: "71156075"
 | recursive | string | 若要对所有子目录执行该操作，则为 `True`；否则为 `False`。 <br>只有对具有分层命名空间的 Blob 存储帐户触发的事件才显示此值。 |
 | sequencer | string | 一个不透明的字符串值，表示任何特定 blob 名称的事件的逻辑顺序。  用户可以使用标准字符串比较，了解同一个 blob 名称上两个事件的相对序列。 |
 | storageDiagnostics | object | Azure 存储服务中偶尔附带的诊断数据。 如果存在，事件使用者应忽略它。 |
-|属性|类型|说明|
-|-------------------|------------------------|-----------------------------------------------------------------------|
 
 ## <a name="next-steps"></a>后续步骤
 
 * 有关 Azure 事件网格的简介，请参阅[什么是事件网格？](overview.md)
 * 有关创建 Azure 事件网格订阅的详细信息，请参阅[事件网格订阅架构](subscription-creation-schema.md)。
+* 有关使用 Blob 存储事件的简介，请参阅[路由 Blob 存储事件 - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fevent-grid%2ftoc.json)。 

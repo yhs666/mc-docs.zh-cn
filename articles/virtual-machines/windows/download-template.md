@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 11/17/2017
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: cce0bfa95b0779824c5f9c2b59131b337f86df16
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: a75eb31a58757a604de6eaf3108978d2bc5c690d
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272636"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116771"
 ---
 # <a name="download-the-template-for-a-vm"></a>下载 VM 模板
 使用门户或 PowerShell 在 Azure 中创建 VM 时，系统会自动创建一个 Resource Manager 模板。 可以使用此模板快速复制部署。 该模板包含有关资源组中所有资源的信息。 对于虚拟机而言，这意味着该模板包含为在该资源组中支持该 VM 而创建的所有资源，包括网络资源。
@@ -33,10 +33,6 @@ ms.locfileid: "72272636"
 5. 从顶部菜单中选择“下载”，将 .zip 文件保存到本地计算机。 
 6. 打开该 .zip 文件，将文件解压缩到某个文件夹。 该 .zip 文件包含：
 
-    * deploy.ps1
-    * deploy.sh 
-    * deployer.rb
-    * DeploymentHelper.cs
     * parameters.json
     * template.json
 

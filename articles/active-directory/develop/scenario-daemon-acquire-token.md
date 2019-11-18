@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa12248921779d4fdb7bbe78bd629b6cd5ebfdf2
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 0de68f6ceb0c1b626edfe7b0cc9845ad01647e57
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134274"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830931"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>用于调用 Web API 的守护程序应用 - 获取令牌
 
@@ -32,45 +32,44 @@ ms.locfileid: "70134274"
 
 请求客户端凭据流时，其作用域是资源的名称后跟 `/.default`。 这种表示法告知 Azure AD 使用在应用程序注册过程中静态声明的**应用程序级权限**。 另外，如前所示，这些 API 权限必须由租户管理员授予
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-在 MSAL.Python 中，该配置文件应该如以下代码片段所示：
+在 MSAL Python 中，该配置文件应该如以下代码片段所示：
 
-```Python
+```Json
 {
-    "authority": "https://login.partner.microsoftonline.cn/organizations",
-    "client_id": "your_client_id",
-    "secret": "This is a sample only. You better NOT persist your password."
-    "scope": ["https://microsoftgraph.chinacloudapi.cn/.default"]
+    "scope": ["https://microsoftgraph.chinacloudapi.cn/.default"],
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.cn/.default";
+final static String GRAPH_DEFAULT_SCOPE = "https://microsoftgraph.chinacloudapi.cn/.default";
 ```
 
-### <a name="all"></a>全部
-
-用于客户端凭据的作用域应该始终为 resourceId+"/.default"
+---
 
 ### <a name="case-of-azure-ad-v10-resources"></a>Azure AD (v1.0) 资源的情况
 
+用于客户端凭据的作用域应该始终为 resourceId+"/.default"
+
 > [!IMPORTANT]
-> 对于为接受 v1.0 访问令牌的资源请求访问令牌的 MSAL（Microsoft 标识平台终结点），Azure AD 将获取最后一个斜杠前面的所有内容并将其用作资源标识符，从请求的范围中分析所需的受众。
+> 对于向接受 v1.0 访问令牌的资源请求访问令牌的 MSAL，Azure AD 将获取最后一个斜杠前面的所有内容并将其用作资源标识符，从请求的范围内分析所需的受众。
 > 因此，如果像 Azure SQL ( **https://database.chinacloudapi.cn** ) 一样，资源预期受众以斜杠结尾（例如 Azure SQL：`https://database.chinacloudapi.cn/` ），则需请求作用域 `https://database.chinacloudapi.cn//.default` （注意其中的双斜杠）。 另请参阅 MSAL.NET 问题 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：将省略资源 URL 的尾部斜杠，因为该斜杠会导致 SQL 身份验证失败。
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-### <a name="net"></a>.NET
+为了获取应用的令牌，你将使用 `AcquireTokenForClient` 或等效命令，具体取决于平台。
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 using Microsoft.Identity.Client;
@@ -99,13 +98,12 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>应用程序令牌缓存
-
-在 MSAL.NET 中，`AcquireTokenForClient` 使用**应用程序令牌缓存**（所有其他 AcquireTokenXX 方法使用用户令牌缓存）。请勿在调用 `AcquireTokenForClient` 之前调用 `AcquireTokenSilent`，因为 `AcquireTokenSilent` 使用**用户**令牌缓存。 `AcquireTokenForClient` 会检查**应用程序**令牌缓存本身并对其进行更新。
-
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```Python
+# The pattern to acquire a token looks like this.
+result = None
+
 # Firstly, looks up a token from cache
 # Since we are looking for token for the current app, NOT for an end user,
 # notice we give account parameter as None.
@@ -114,20 +112,42 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token
+    print(result["token_type"])
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You may need this when reporting a bug
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+这是来自 [MSAL Java 开发示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/)的摘录。
 
 ```Java
-ClientCredentialParameters parameters = ClientCredentialParameters
-        .builder(Collections.singleton(KEYVAULT_DEFAULT_SCOPE))
+ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
+        Collections.singleton(GRAPH_DEFAULT_SCOPE))
         .build();
 
-CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
+CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
 
-// You can complete the future in many different ways. Here we use .get() for simplicity
-AuthenticationResult result = future.get();
+BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
+    if (ex != null) {
+        System.out.println("Oops! We have an exception - " + ex.getMessage());
+    }
+    System.out.println("Returned ok - " + res);
+    System.out.println("ID Token - " + res.idToken());
+
+    /* call a protected API with res.accessToken() */
+};
+
+future.whenCompleteAsync(processAuthResult);
+future.join();
 ```
+
+---
 
 ### <a name="protocol"></a>协议
 
@@ -160,9 +180,11 @@ scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>详细了解协议
-
 有关详细信息，请参阅协议文档：[Microsoft 标识平台和 OAuth 2.0 客户端凭据流](v2-oauth2-client-creds-grant-flow.md)。
+
+## <a name="application-token-cache"></a>应用程序令牌缓存
+
+在 MSAL.NET 中，`AcquireTokenForClient` 使用**应用程序令牌缓存**（所有其他 AcquireTokenXX 方法使用用户令牌缓存）。请勿在调用 `AcquireTokenForClient` 之前调用 `AcquireTokenSilent`，因为 `AcquireTokenSilent` 使用**用户**令牌缓存。 `AcquireTokenForClient` 会检查**应用程序**令牌缓存本身并对其进行更新。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -191,7 +213,21 @@ Content: {
 
 ## <a name="next-steps"></a>后续步骤
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [守护程序应用 - 调用 Web API](scenario-daemon-call-api.md)
+> [守护程序应用 - 调用 Web API](/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [守护程序应用 - 调用 Web API](/active-directory/develop/scenario-daemon-call-api?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [守护程序应用 - 调用 Web API](/active-directory/develop/scenario-daemon-call-api?tabs=java)
+
+---
 
 <!-- Update_Description: wording update -->

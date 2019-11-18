@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnick, carlrab
 origin.date: 01/25/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: b36b0aa701413222492bc68d39d80681c20db2c5
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: dee65856a0caabdc66ed0b5d177185b9efee57e5
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262947"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041225"
 ---
 # <a name="monitoring-and-performance-tuning"></a>监视和性能优化
 
@@ -188,7 +188,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 识别问题后，可以优化有问题的查询，或升级计算大小或服务层级，以增加 SQL 数据库的容量来满足 CPU 要求。 
 
-有关详细信息，请参阅[在 Azure SQL 数据库中缩放单一数据库资源](sql-database-single-database-scale.md)和[在 Azure SQL 数据库中缩放弹性池资源](sql-database-elastic-pool-scale.md)。 有关缩放托管实例的信息，请参阅[实例级资源限制](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
+有关详细信息，请参阅[在 Azure SQL 数据库中缩放单一数据库资源](sql-database-single-database-scale.md)和[在 Azure SQL 数据库中缩放弹性池资源](sql-database-elastic-pool-scale.md)。 有关缩放托管实例的信息，请参阅[服务层级资源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>工作负荷量增加导致的性能问题
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL 数据库动态数据掩码 | Microsoft docs
-description: SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来控制此类数据的泄露
+title: Azure SQL 数据库和数据仓库的动态数据掩码 | Microsoft docs
+description: 动态数据掩码通过对 SQL 数据库和数据仓库的非特权用户模糊化敏感数据来限制此类数据的泄露
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,17 +10,16 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-manager: digimobile
 origin.date: 03/04/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 4e3f71be8d133ea1635a77c8f061683f00c04301
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 11/04/2019
+ms.openlocfilehash: 120fd3730c308314e6a64308b5cc3473cf16b07e
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544338"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041191"
 ---
-# <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
+# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Azure SQL 数据库和数据仓库的动态数据掩码
 
 SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 
 
@@ -28,7 +27,7 @@ SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来�
 
 例如，呼叫中心服务代表可以根据呼叫者的信用卡号的多个数字来识别其身份，但这些数据项不应完全透露给服务代表。 可以定义掩码规则，对任意查询的结果集中任何信用卡号除最后四位数以外的其他所有数字进行掩码。 另举一例，通过定义适当的数据掩码来保护个人身份信息 (PII) 数据，开发人员一方面可以查询生产环境以进行故障排除，同时又不违反法规遵从性要求。
 
-## <a name="sql-database-dynamic-data-masking-basics"></a>SQL 数据库动态数据掩码基础知识
+## <a name="dynamic-data-masking-basics"></a>动态数据掩码基础知识
 
 通过在 SQL 数据库配置边栏选项卡或设置边栏选项卡中选择“动态数据掩码”操作，在 Azure 门户中设置动态数据掩码策略。
 

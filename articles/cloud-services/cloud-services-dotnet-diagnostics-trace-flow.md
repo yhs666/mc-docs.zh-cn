@@ -9,14 +9,14 @@ editor: ''
 ms.service: cloud-services
 ms.topic: article
 origin.date: 02/20/2016
-ms.date: 07/15/2019
+ms.date: 11/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: a7b8b57b5e5c40f881c844d06a1c78240015ffd2
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0be789e8b4a1eda3e9b13760c992d55d03beddd5
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569778"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831439"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>使用 Azure 诊断跟踪云服务应用程序的流
 
@@ -70,7 +70,7 @@ Trace、Debug 和 TraceSource 都需要设置“侦听器”来收集和记录�
 
 ### <a name="to-add-trace-statement-to-your-code"></a>将 Trace 语句添加到代码
 1. 打开应用程序的源文件。 例如，用于辅助角色或 Web 角色的 \<RoleName>.cs 文件。
-2. 添加以下 using 语句（如果尚未添加）：
+2. 添加以下 using 指令（如果尚未添加）：
     ```
         using System.Diagnostics;
     ```

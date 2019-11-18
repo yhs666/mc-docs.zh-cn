@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 07/16/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: ccf45bdaa0fdc1d80c1d7d21432848e92a4393c3
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: f6e2423d826f2cfe8f3f20d954ef54acfcb69051
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262927"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041077"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL 数据库托管实例常见问题解答 (FAQ)
 
@@ -39,12 +39,19 @@ ms.locfileid: "71262927"
 
 有关 bug 和已知问题，请参阅[已知问题](sql-database-managed-instance-transact-sql-information.md#Issues)。
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>在哪里可以找到最新功能和处于公共预览状态的功能？
+
+对于新功能和预览功能，请参阅[发行说明](/sql-database/sql-database-release-notes?tabs=managed-instance)。
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>创建或更新实例或还原数据库需要多长时间？
+
+创建新的托管实例或更改服务层（vCore、存储）所需的时间取决于多个因素。 请查看[管理操作](/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>托管实例是否可与本地 SQL Server 同名？
 
 托管实例的名称必须以 *database.chinacloudapi.cn* 结尾。 若要使用其他 DNS 区域而不是默认区域，例如 **mi-another-name**.contoso.com： 
 - 使用 CliConfig 定义别名。 该工具只是一个注册表设置包装器，因此也可以使用组策略或脚本完成此操作
 - 将 *CNAME* 与 *TrustServerCertificate=true* 选项一起使用。
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>如何将数据库从托管实例移回到 SQL Server 或 Azure SQL 数据库？
 
@@ -56,7 +63,7 @@ ms.locfileid: "71262927"
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>如何将实例数据库迁移到单个 Azure SQL 数据库？
 
-一种做法是[将数据库导出到 BACPAC](sql-database-export.md)，然后[导入 BACPAC 文件]( sql-database-import.md)。 
+一种做法是[将数据库导出到 BACPAC](sql-database-export.md)，然后[导入 BACPAC 文件](sql-database-import.md)。 
 
 如果数据库小于 100 GB，我们建议使用此方法。 如果数据库中的所有表具有主键，则可以使用事务复制。
 
@@ -70,7 +77,7 @@ ms.locfileid: "71262927"
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>能否在第 4 代和第 5 代托管实例硬件代系之间联机切换？ 
 
-如果这两种硬件代系都可以在预配托管实例的区域中使用，则可以在硬件代系之间自动联机切换。 在这种情况下，Azure 门户的“定价层”部分会提供一个选项，用于在硬件代系之间切换。
+如果这两种硬件代系都可以在预配托管实例的区域中使用，则可以在硬件代系之间自动联机切换。
 
 这是一个长时间运行的操作，因为新托管实例将在后台预配，数据库将在旧实例与新实例之间自动转移，该过程结束时，可以快速故障转移。 
 
@@ -126,7 +133,8 @@ ms.locfileid: "71262927"
 托管实例案例研究：
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
 为了让用户更好地了解部署 Azure SQL 数据库托管实例的优势、成本和风险，我们还提供了一份 Forrester 案例研究：[MI 产生的总体经济影响](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)。
 

@@ -10,16 +10,16 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-origin.date: 10/12/2018
-ms.date: 10/14/2019
+origin.date: 09/30/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1ca9e97eb062da123cd7de6d8b737a9e5a665ea3
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: a5a0833aa4b495718a1f38f572af51d05ab28c15
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272512"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831341"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教程：了解如何使用 Azure CLI 管理 Linux 虚拟机
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location "China East"
 
 通常情况下，与其向单个用户分配角色，不如使用其用户需要执行类似操作的 Azure Active Directory 组， 然后向该组分配相应的角色。 就本文来说，请使用现有的组来管理虚拟机，或者使用门户来[创建 Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-创建新组或找到现有组以后，请使用 [az role assignment create](https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。
+创建新组或找到现有组以后，请使用 [az role assignment create](https://docs.azure.cn/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。
 
 ```azurecli
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -145,7 +145,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。  
 
-若要锁定虚拟机和网络安全组，请使用 [az lock create](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-create) 命令：
+若要锁定虚拟机和网络安全组，请使用 [az lock create](https://docs.azure.cn/cli/resource/lock?view=azure-cli-latest#az-resource-lock-create) 命令：
 
 ```azurecli
 # Add CanNotDelete lock to the VM
@@ -235,9 +235,6 @@ az group delete --name myResourceGroup
 > * 使用锁保护重要资源
 > * 标记用于计费和管理的资源
 
-请转到下一教程，了解如何创建高度可用的虚拟机。
+<!--Not Available on > [Manage virtual machines](tutorial-config-management.md)-->
 
-> [!div class="nextstepaction"]
-> [监视虚拟机](tutorial-monitoring.md)
-
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

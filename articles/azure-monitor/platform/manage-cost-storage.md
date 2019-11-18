@@ -11,16 +11,16 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 08/29/2019
+origin.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 69ec131b68cd7f5f8e0bc0be2182b0f3455edf43
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 62887b432396e3ff8afbb50aec95ac65ff3dcd6b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737396"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730357"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>通过 Azure Monitor 日志管理使用情况和成本
 
@@ -67,7 +67,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 查看 [Log Analytics 使用情况和预估成本](usage-estimated-costs.md)，了解数据引入趋势，以及要定义的每日数据量上限。 应该慎重考虑上限，因为在达到限制后，将无法监视资源。 
 
-### <a name="manage-the-maximum-daily-data-volume"></a>管理每日最大数据量
+### <a name="set-the-daily-cap"></a>设置每日上限
 
 以下步骤说明如何配置一个限制来管理 Log Analytics 工作区每日引入的数据量。  
 
@@ -99,12 +99,63 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 ## <a name="change-the-data-retention-period"></a>更改数据保留期 
 以下步骤说明如何配置日志数据在工作区中的保留期限。
+
+### <a name="default-retention"></a>默认保留期
+
+若要设置工作区的默认保留期，请执行以下操作： 
  
-1. 在工作区的左窗格中，选择“使用情况和预估成本”。 
+1. 在 Azure 门户的工作区的左窗格中，选择“使用情况和预估成本”。 
 2. 在“使用情况和预估成本”页面顶部，单击“数据量管理”。  
 3. 在窗格中，移动滑块以增加或减少天数，然后单击“确定”。   如果位于“免费”层，则不能修改数据保留期，需要升级到付费层才能控制这一项设置。 
 
     ![更改工作区数据保留设置](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+保留期也可使用 `retentionInDays` 参数[通过 Azure 资源管理器进行设置](/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)。 此外，如果将数据保留期设置为 30 天，则可以使用 `immediatePurgeDataOn30Days` 参数对旧数据触发立即清除，这对于合规性相关的方案可能很有用。 此功能仅通过 Azure 资源管理器公开。 
+
+两种数据类型（`Usage` 和 `AzureActivity`）默认保留 90 天，在这 90 天的保留期内不收费。 这些数据类型也没有数据引入费用。 
+
+### <a name="retention-by-data-type"></a>按数据类型分类的保留期
+
+也可为单个数据类型指定不同的保留期设置。 每个数据类型都是工作区的子资源。 例如，SecurityEvent 表可以在 [Azure 资源管理器](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中寻址，如下所示：
+
+```
+/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
+```
+
+请注意，数据类型（表）区分大小写。  若要获取特定数据类型（在此示例中为 SecurityEvent）的当前每数据类型保留期设置，请使用：
+
+```JSON
+    GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
+```
+
+若要获取工作区中所有数据类型的当前每数据类型保留期设置，请直接省略特定的数据类型，例如：
+
+```JSON
+    GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
+```
+
+若要将特定数据类型（在此示例中为 SecurityEvent）的保留期设置为 730 天，请执行以下代码
+
+```JSON
+    PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
+    {
+        "properties": 
+        {
+            "retentionInDays": 730
+        }
+    }
+```
+
+`Usage` 和 `AzureActivity` 数据类型不能使用自定义保留期进行设置。 它们会使用最大的默认工作区保留期（或 90 天）。 
+
+OSS 工具 [ARMclient](https://github.com/projectkudu/ARMClient) 是一个很好的工具，可以直接连接到 Azure 资源管理器，以便按数据类型设置保留期。  请在 [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 和 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/) 的文章中了解有关 ARMclient 的详细信息。  下面是一个示例，演示了如何使用 ARMClient 将 SecurityEvent 数据的保留期设置为 730 天：
+
+```
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
+```
+
+> [!NOTE]
+> 可以根据单个数据类型设置保留期，这样可以降低数据保留成本。  如果数据是从 2019 年 10 月（此时发布了该功能）开始收集的，则缩短某些数据类型的保留期可以降低一段时间的保留成本。  如果数据是更早之前收集的，则为单个类型设置较短的保留期不会影响保留成本。  
 
 ## <a name="legacy-pricing-tiers"></a>旧版定价层
 
@@ -125,7 +176,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 3. 在“定价层”下选择一个定价层，并单击“选择”   。  
     ![选择定价计划](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-如果要将工作区移到当前定价层，则需要[在 Azure Monitor 中更改订阅的监视定价模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)，这将更改该订阅中所有工作区的定价层。
+也可使用 `sku` 参数（在 ARM 模板中为 `pricingTier`）[通过 Azure 资源管理器设置定价层](/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)。 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>排查 Log Analytics 不再收集数据的原因
 如果采用的是旧版免费定价层并且某天已发送的数据超过 500 MB，则该天的剩余时间会停止数据收集。 达到每日限制是 Log Analytics 停止数据收集或者看起来缺少数据的常见原因。  在数据收集启动和停止时，Log Analytics 会创建一个类型为“操作”的事件。 请在搜索中运行以下查询来检查是否已达到每日限制并缺少数据： 
@@ -199,7 +250,7 @@ union withsource = tt *
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 请注意，子句“where IsBillable = true”从某些解决方案中筛选掉没有引入费用的数据类型。 
@@ -209,7 +260,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 ### <a name="data-volume-by-computer"></a>按计算机的数据量
@@ -357,7 +408,7 @@ Azure 警报支持使用搜索查询的[日志警报](alerts-unified-log.md)。
 ```kusto
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
 | where DataGB > 100
 ```
 
@@ -367,7 +418,7 @@ union withsource = $table Usage
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
 | where EstimatedGB > 100
 ```
 
@@ -380,7 +431,7 @@ union withsource = $table Usage
 - **定义警报条件**将 Log Analytics 工作区指定为资源目标。
 - **警报条件**指定下列项：
    - **信号名称**选择“自定义日志搜索”  。
-   - 将“搜索查询”  设置为 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - 将“搜索查询”  设置为 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
    - **警报逻辑** **基于** *结果数*，**条件** *大于* **阈值** *0*
    - 将“时间段”设置为 1440 分钟，“警报频率”设置为每 60 分钟，因为使用情况数据一小时才更新一次。    
 - **定义警报详细信息**指定以下项：
@@ -394,7 +445,7 @@ union withsource = $table Usage
 - **定义警报条件**将 Log Analytics 工作区指定为资源目标。
 - **警报条件**指定下列项：
    - **信号名称**选择“自定义日志搜索”  。
-   - 将“搜索查询”  设置为 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - 将“搜索查询”  设置为 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
    - **警报逻辑** **基于** *结果数*，**条件** *大于* **阈值** *0*
    - 将“时间段”设置为 180 分钟，“警报频率”设置为每 60 分钟，因为使用情况数据一小时才更新一次。    
 - **定义警报详细信息**指定以下项：

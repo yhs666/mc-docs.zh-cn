@@ -7,37 +7,46 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7f7d6f1be0d264984ec1f8b92dc256794b674753
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 8718f71c26419978d11f39c7f433e97aac17b683
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673563"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034437"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何面向 Azure Functions 运行时版本
 
-函数应用在特定版本的 Azure Functions 运行时上运行。 有两个主版本：[1.x 和 2.x](functions-versions.md)。 默认情况下，函数应用基于 2.x 版的运行时创建。 本文介绍如何在 Azure 中将函数应用配置为在所选的版本上运行。 有关如何为特定版本配置本地开发环境的信息，请参阅[在本地编码和测试 Azure Functions](functions-run-local.md)。
+函数应用在特定版本的 Azure Functions 运行时上运行。 有两个主版本：[1.x 和 2.x](functions-versions.md)，版本 3.x 处于预览状态。 默认情况下，函数应用基于 2.x 版的运行时创建。 本文介绍如何在 Azure 中将函数应用配置为在所选的版本上运行。 有关如何为特定版本配置本地开发环境的信息，请参阅[在本地编码和测试 Azure Functions](functions-run-local.md)。
 
 ## <a name="automatic-and-manual-version-updates"></a>自动和手动版本更新
 
 Azure Functions 允许你通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置来针对特定版本的运行时。 函数应用将一直保留在指定的主版本上，直到显式选择迁移到新版本。
 
-如果仅指定主版本（对于 2.x 为“~2”；对于 1.x 为“~1”），当运行时的新次要版本可用时，函数应用将自动更新到该版本。 新次要版本不会引入重大更改。 如果指定次要版本（例如，“2.0.12345”），则函数应用将被固定到该特定版本，直到显式更改它。
+如果仅指定主版本，当运行时的新次要版本可用时，函数应用将自动更新到该版本。 新次要版本不会引入重大更改。 如果指定次要版本（例如，“2.0.12345”），则函数应用将被固定到该特定版本，直到显式更改它。
 
 > [!NOTE]
 > 如果你固定到 Azure Functions 的特定版本，然后尝试使用 Visual Studio 发布到 Azure，则会弹出一个对话框窗口，提示你更新到最新版本或取消发布。 若要避免出现此情况，请在 `.csproj` 文件中添加 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` 属性。
 
 有新版本公开可用时，门户中将显示提示，让你可以升级到该版本。 升级至新版本后，始终可使用 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置移回到之前的版本。
 
-更改运行时版本会导致函数应用重启。
+下表显示了启用自动更新所需的每个主版本的 `FUNCTIONS_EXTENSION_VERSION` 值：
 
-可以在 `FUNCTIONS_EXTENSION_VERSION` 应用设置中为 1.x 运行时 启用自动更新设置的值当前为“~1”，为 2.x 运行时 启用自动更新设置的值为“~2”。
+| 主版本 | `FUNCTIONS_EXTENSION_VERSION` 值 |
+| ------------- | ----------------------------------- |
+| 3.x（预览版） | `~3` |
+| 2.x  | `~2` |
+| 1.x | `~1` |
+
+更改运行时版本会导致函数应用重启。
 
 ## <a name="view-and-update-the-current-runtime-version"></a>查看和更新当前运行时版本
 
-可以更改函数应用使用的运行时版本。 由于可能会成为中断性变更，因此只能在函数应用中创建任何函数之前更改运行时版本。 虽然运行时版本由 `FUNCTIONS_EXTENSION_VERSION` 设置决定，但你应该在 Azure 门户中进行此更改，而不是直接更改设置。 这是因为该门户会验证你的更改，并根据需要进行其他相关更改。
+可以更改函数应用使用的运行时版本。 由于可能会成为中断性变更，因此只能在函数应用中创建任何函数之前更改运行时版本。 
+
+> [!IMPORTANT]
+> 虽然运行时版本由 `FUNCTIONS_EXTENSION_VERSION` 设置决定，但你应该在 Azure 门户中进行此更改，而不是直接更改设置。 这是因为该门户会验证你的更改，并根据需要进行其他相关更改。
 
 ### <a name="from-the-azure-portal"></a>通过 Azure 门户
 

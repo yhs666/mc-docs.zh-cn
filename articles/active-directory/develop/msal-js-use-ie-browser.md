@@ -1,5 +1,6 @@
 ---
-title: 使用 Internet Explorer（适用于 JavaScript 的 Microsoft 身份验证库）| Azure
+title: 使用 Internet Explorer（适用于 JavaScript 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解如何将适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 与 Internet Explorer 浏览器配合使用。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,19 +14,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/16/2019
-ms.date: 06/17/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4033aa16f5a79ec12e3fd12f13e20e4a3513255
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 1986a27f4b9c948c96c5d77096cc917b538f7777
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305922"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830967"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>将 Internet Explorer 和 Microsoft Edge 浏览器与 MSAL.js 配合使用的已知问题
+# <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>将 Internet Explorer 和 Microsoft Edge 浏览器与 MSAL.js 配合使用
 
 适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 是为 [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) 生成的，因此可以在 Internet Explorer 中运行。 但是，需要注意几个问题。
 
@@ -61,3 +62,4 @@ ms.locfileid: "67305922"
 ## <a name="next-steps"></a>后续步骤
 详细了解[在 Internet Explorer 中使用 MSAL.js 时的已知问题](msal-js-use-ie-browser.md)。
 
+<!-- Update_Description: wording update -->

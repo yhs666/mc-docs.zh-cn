@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/19/2019
-ms.date: 09/04/2019
+origin.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 90e2e4e5a4ea8b39ed8ddd8a16dca7ec2592d4a9
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: b618426813e1530cbd022170ed3a6f7607828362
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310855"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068936"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 经典订阅管理员
 
@@ -57,12 +57,14 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 与具有“共同管理员”角色的成员用户相比，已分配“共同管理员”角色的来宾用户可能会看到一些差异。 假设出现了下面这种情景：
 
-- 具有 Azure AD 工作或学校帐户的用户 A 是 Azure 订阅的服务管理员。
+- 具有 Azure AD 帐户（工作或学校帐户）的用户 A 是 Azure 订阅的服务管理员。
 - 用户 B 是 Microsoft 帐户。
 - 用户 A 向用户 B 分配共同管理员角色。
 - 用户 B 几乎可以执行所有操作，但无法注册应用程序或查找 Azure AD 目录中的用户。
 
-你希望用户 B 可以管理所有内容。 此区别的原因在于，Microsoft 帐户作为来宾用户（而不是成员用户）添加到订阅。 与成员用户相比，来宾用户在 Azure AD 中具有不同的默认权限。 例如，成员用户可以在 Azure AD 中读取其他用户，而来宾用户不能。 成员用户可以在 Azure AD 中注册新的服务主体，而来宾用户不能。 如果来宾用户需要能够执行这些任务，则可能的解决方案是分配来宾用户所需的特定 Azure AD 管理员角色。 例如，在上一方案中，你可以分配[目录读取者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以便读取其他用户，并分配[应用程序开发人员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色以便能够创建服务主体。 有关成员和来宾用户及其权限的详细信息，请参阅 [Azure Active Directory 中的默认用户权限是什么？](../active-directory/fundamentals/users-default-permissions.md)。
+你希望用户 B 可以管理所有内容。 此区别的原因在于，Microsoft 帐户作为来宾用户（而不是成员用户）添加到订阅。 与成员用户相比，来宾用户在 Azure AD 中具有不同的默认权限。 例如，成员用户可以在 Azure AD 中读取其他用户，而来宾用户不能。 成员用户可以在 Azure AD 中注册新的服务主体，而来宾用户不能。
+
+如果来宾用户需要能够执行这些任务，则可能的解决方案是分配来宾用户所需的特定 Azure AD 管理员角色。 例如，在上一方案中，你可以分配[目录读取者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以便读取其他用户，并分配[应用程序开发人员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色以便能够创建服务主体。 有关成员和来宾用户及其权限的详细信息，请参阅 [Azure Active Directory 中的默认用户权限是什么？](../active-directory/fundamentals/users-default-permissions.md)。
 
 请注意，[Azure 资源的内置角色](../role-based-access-control/built-in-roles.md)与 [Azure AD 管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)不同。 内置角色不授予对 Azure AD 的任何访问权限。 有关详细信息，请参阅[了解不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
@@ -108,16 +110,36 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 1. 选择新的服务管理员，然后单击“保存”。 
 
+### <a name="account-center"></a>帐户中心
+
+1. 请查看服务管理员变更限制，确保自己的方案受支持。
+
+1. 以帐户管理员身份登录到[帐户中心](https://account.windowsazure.cn/subscriptions)。
+
+1. 单击某个订阅。
+
+1. 在右侧单击“编辑订阅详细信息”。 
+
+    ![显示帐户中心中“编辑订阅”按钮的屏幕截图](./media/classic-administrators/editsub.png)
+
+1. 在“服务管理员”  框中，输入新服务管理员的电子邮件地址。
+
+    ![屏幕截图：用于更改服务管理员电子邮件的框](./media/classic-administrators/change-service-admin.png)
+
+1. 单击勾选标记以保存更改。
+
 ### <a name="limitations-for-changing-the-service-administrator"></a>服务管理员变更限制
 
-每个订阅都与一个 Azure AD 目录相关联。 若要查找与订阅关联的目录，请在 Azure 门户中打开“订阅”，然后选择一个订阅以查看目录。 
+每个 Azure 订阅只能有一个服务管理员。 根据帐户管理员是 Microsoft 帐户还是 Azure AD 帐户（工作或学校帐户），更改服务管理员的行为将有所不同。
 
-如果已使用工作或学校帐户登录，则可将组织中的其他帐户添加为服务管理员。 例如，abby@contoso.com 可以添加 bob@contoso.com 作为服务管理员，但不能添加 john@notcontoso.com，除非 john@notcontoso.com 位于 contoso.com 目录中。 使用工作或学校帐户登录的用户可以继续将 Microsoft 帐户用户添加为服务管理员。 每个 Azure 订阅只能有一个服务管理员。
+| 帐户管理员帐户 | 是否可以将服务管理员更改为其他 Microsoft 帐户？ | 是否可以将服务管理员更改为同一目录中的 Azure AD 帐户？ | 是否可以将服务管理员更改为不同目录中的 Azure AD 帐户？ |
+| --- | --- | --- | --- |
+| Microsoft 帐户 | 是 | 否 | 否 |
+| Azure AD 帐户 | 是 | 是 | 否 |
 
-  | 登录方法 | 将 Microsoft 帐户用户添加为服务管理员？ | 将同一组织中的工作或学校帐户添加为服务管理员？ | 将不同组织中的工作或学校帐户添加为服务管理员？ |
-  | --- | --- | --- | --- |
-  |  Microsoft 帐户 |是 |否 |否 |
-  |  工作或学校帐户 |是 |是 |否 |
+如果帐户管理员是 Azure AD 帐户，可以将服务管理员更改为同一目录中的 Azure AD 帐户，但不能更改为不同目录中的 Azure AD 帐户。 例如，abby@contoso.com 可以将服务管理员更改为 bob@contoso.com，但不能将服务管理员更改为 john@notcontoso.com，除非 john@notcontoso.com 在 contoso.com 目录中存在。
+
+有关 Microsoft 帐户和 Azure AD 帐户的详细信息，请参阅[什么是 Azure Active Directory？](../active-directory/fundamentals/active-directory-whatis.md)。
 
 ## <a name="view-the-account-administrator"></a>查看帐户管理员
 

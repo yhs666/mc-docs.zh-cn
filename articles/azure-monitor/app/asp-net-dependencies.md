@@ -1,24 +1,20 @@
 ---
 title: 在 Azure Application Insights 中跟踪依赖项 | Azure Docs
 description: 使用 Application Insights 监视来自本地或 Microsoft Azure Web 应用程序的依赖项调用。
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 06/25/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 17a4b031f94491f8022e6ca66a3594252f21fa35
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 49b4cb21959165d3cc876b7a6e40471e786bb09f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330070"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730186"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 

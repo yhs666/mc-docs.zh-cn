@@ -9,14 +9,14 @@ keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无�
 ms.service: azure-functions
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 09/29/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: ffd748ed10fed4a08d8e4d4fa17f4419651d6308
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 88786cefde458422c785e56dcb8849e9308c76e7
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673584"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034460"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 触发器和绑定
 
@@ -685,7 +685,6 @@ Functions 允许使用密钥来增大开发期间访问 HTTP 函数终结点的�
 
 > [!NOTE]
 > 在本地运行函数时，不管指定的身份验证级别设置为何，都会禁用授权。 发布到 Azure 后，将强制执行触发器中的 `authLevel` 设置。
-
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>在生产环境中保护 HTTP 终结点

@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/18/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-ms.openlocfilehash: 86c6374be79afbbf0e71f6b29e397c55fecee9d2
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+manager: craigg
+ms.openlocfilehash: 0f70f7cef7bbf3fb4407b9c047e769d58611d634
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275409"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648771"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>创建和配置自承载集成运行时
 集成运行时 (IR) 是 Azure 数据工厂用于在不同的网络环境之间提供数据集成功能的计算基础结构。 有关 IR 的详细信息，请参阅[集成运行时概述](concepts-integration-runtime.md)。
@@ -266,19 +266,15 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 在企业防火墙级别，需配置以下域和出站端口： 
 
-域名 | 端口 | 说明
------------- | ----- | ------------
-*.servicebus.chinacloudapi.cn | 443 | 用来与后端数据移动服务通信
-*.core.chinacloudapi.cn| 443 | 用于通过 Azure Blob 存储（如果已配置）进行临时复制
-*.frontend.datamovement.azure.cn | 443 | 用来与后端数据移动服务通信
-download.microsoft.com | 443 | 用于下载更新
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 在 Windows 防火墙级别（计算机级别），通常已启用这些出站端口。  如果没有，可以在自承载集成运行时计算机上相应地配置域和端口。
 
 > [!NOTE]
-> 根据源和接收器，可能需要在企业防火墙或 Windows 防火墙中将其他域和出站端口加入允许列表。
+> 根据源和接收器，你可能必须在企业防火墙或 Windows 防火墙中允许其他域和出站端口。
 >
-> 对于部分云数据库（例如 Azure SQL 数据库），可能需要在其防火墙配置中将自承载集成运行时计算机的 IP 地址列入允许列表。
+> 对于某些云数据库（例如，Azure SQL 数据库），可能需要在其防火墙配置上允许自承载集成运行时计算机的 IP 地址。
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>将数据从源复制到接收器
 确保在企业防火墙、自承载集成运行时计算机上的 Windows 防火墙和数据存储上正确启用防火墙规则。 启用这些规则可以让自承载集成运行时成功连接到源和接收器。 为复制操作涉及的每个数据存储启用规则。
@@ -359,7 +355,7 @@ download.microsoft.com | 443 | 用于下载更新
 > [!IMPORTANT]
 > 不要忘记同时更新 diahost.exe.config 和 diawp.exe.config。
 
-还需要确保 Azure 列于公司的允许列表中。 可以从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=42064)下载有效的 Azure IP 地址列表。
+你还需要确保 Azure 在你公司的允许列表中。 可以从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=42064)下载有效的 Azure IP 地址列表。
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>防火墙和代理服务器相关问题的可能症状
 如果遇到类似于以下的错误，可能是由于防火墙或代理服务器配置错误，阻止了自承载集成运行时连接到数据工厂进行自身身份验证。 若要确保正确配置防火墙和代理服务器，请参阅上一部分。

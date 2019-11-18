@@ -1,24 +1,20 @@
 ---
 title: Application Insights 和 Log Analytics 使用的 IP 地址 | Azure Docs
 description: Application Insights 所需的服务器防火墙例外
-services: application-insights
-documentationcenter: .net
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-origin.date: 07/18/2019
-ms.date: 09/20/2019
+origin.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dcec5c513df0de03f4e9d618574ad3027db5d549
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: b5060efea12a17cdc3e44a4f3ba148b047e30bed
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329861"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730480"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 地址
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服务使用许多 IP 地址。 如果要监视的应用托管在防火墙后面，可能需要知道这些 IP 地址。
@@ -53,7 +49,7 @@ ms.locfileid: "71329861"
 | 配置 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 配置 |`auth.gfx.ms` | |`443` |
 | 配置 |`login.live.com` | |`443` |
-| 安装 |`packages.nuget.org`、`nuget.org`、`api.nuget.org`、`az320820.vo.msecnd.net`（NuGet 下载） | |`443` |
+| 安装 | `globalcdn.nuget.org`、`packages.nuget.org`、`api.nuget.org/v3/index.json`、`nuget.org`、`api.nuget.org`、`dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>可用性测试
 这是用于运行[可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)的地址列表。 如果想要对应用运行 Web 测试，但 Web 服务器局限于为特定的客户端提供服务，则必须允许来自可用性测试服务器的传入流量。

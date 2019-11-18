@@ -8,15 +8,15 @@ ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 07/29/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8f68a4a951b79028767fed5b2a201d42bab76cef
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 6766585522a52e0fc4fb6918e2883f2cddfdb6a4
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034369"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934247"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教程：在 Azure Functions 中使用 Python 和 TensorFlow 应用机器学习模型
 
@@ -180,7 +180,7 @@ copy ..\resources\predict.py classify
 帮助器库具有一些需要安装的依赖项。 在编辑器中打开 *start/requirements.txt*，并将以下依赖项添加到该文件。
 
 ```txt
-tensorflow==1.15
+tensorflow==1.14
 Pillow
 requests
 ```

@@ -1,25 +1,20 @@
 ---
 title: 管理 Azure Log Analytics 代理 | Azure Docs
-description: 本文介绍在计算机上部署的 Azure Monitoring Agent (MMA) 的生命周期中通常会执行的不同管理任务。
-services: log-analytics
-documentationcenter: ''
+description: 本文介绍在计算机上部署的 Log Analytics Windows 或 Linux 代理的生命周期中通常会执行的不同管理任务。
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 06/14/2019
 ms.date: 07/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 39cbb76675557cd73262d24c7fb56d3147a17451
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 6392bfa88245197412730ba79f0963c1c739cbcf
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737253"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730038"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理并维护 Windows 和 Linux 的 Log Analytics 代理
 
@@ -105,7 +100,7 @@ ms.locfileid: "70737253"
 
 #### <a name="remove-a-workspace-using-powershell"></a>使用 PowerShell 删除工作区
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.RemoveCloudWorkspace($workspaceId)
@@ -114,7 +109,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>使用 PowerShell 在 Azure 商业版中添加工作区
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -124,7 +119,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>使用 PowerShell 在 Azure 美国政府版中添加工作区
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'

@@ -1,6 +1,6 @@
 ---
 title: 异常处理和错误日志记录方案 - Azure 逻辑应用
-description: 介绍 Azure 逻辑应用的高级异常处理和错误日志记录的实际用例
+description: Azure 逻辑应用中高级异常处理和错误日志记录的实际用例和方案
 keywords: ''
 services: logic-apps
 author: hedidin
@@ -16,13 +16,13 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/29/2016
 ms.author: v-yiso
-ms.date: 08/26/2019
-ms.openlocfilehash: 87b776a6876cac8dcee6b8fd8e5b11d6d1326e89
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 11/11/2019
+ms.openlocfilehash: 7d814a20a2fa839a17c2061a10f8609c52d4c5aa
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538993"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425967"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>方案：逻辑应用的异常处理和错误日志记录
 
@@ -43,13 +43,13 @@ ms.locfileid: "69538993"
 * 用于查看工作流中发生的任何错误的一种方式
 
 > [!TIP]
-> 有关本项目的高级视频，请参阅[集成用户组](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group")。
+> 有关本项目的高级视频，请参阅[集成用户组](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "集成用户组")。
 
 ## <a name="how-we-solved-the-problem"></a>我们如何解决问题
 
 我们选择 [Azure Cosmos DB](/cosmos-db/ "Azure Cosmos DB") 作为日志和错误记录的存储库（Cosmos DB 将记录作为文档来引用）。 由于 Azure 逻辑应用具有用于所有响应的标准模板，因此我们不必创建自定义架构。 我们可以创建 API 应用以便对错误和日志记录进行**插入**和**查询**。 我们还可以在 API 应用中为各个操作定义架构。  
 
-另一个要求是清除特定日期之后的记录。 Cosmos DB 具有一个名为[生存时间](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL) 的属性，使用该属性可以为每个记录或集合设置“生存时间”值。  这样便无需在 Cosmos DB 中手动删除记录。
+另一个要求是清除特定日期之后的记录。 Cosmos DB 具有一个名为 [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "生存时间") (TTL) 的属性，使用该属性可以为每个记录或集合设置“生存时间”  值。 这样便无需在 Cosmos DB 中手动删除记录。
 
 > [!IMPORTANT]
 > 若要完成本教程，需要创建一个 Cosmos DB 数据库和两个集合（日志记录和错误）。
@@ -486,10 +486,10 @@ Azure Cosmos DB 中的每个文档都必须具有唯一 ID。 我们使用 `Pati
 
 ### <a name="source-code"></a>源代码
 
-逻辑应用异常管理 API 应用程序的源代码位于此 [GitHub 存储库](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "逻辑应用异常管理 API")中。
+逻辑应用异常管理 API 应用程序的源代码可在此 [GitHub 存储库](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "逻辑应用异常管理 API")中找到。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [查看更多逻辑应用示例和方案](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [了解如何监视逻辑应用](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [为逻辑应用创建自动部署模板](../logic-apps/logic-apps-create-deploy-template.md)
+* [自动完成逻辑应用部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

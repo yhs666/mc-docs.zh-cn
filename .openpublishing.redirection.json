@@ -12342,6 +12342,11 @@
       "redirect_document_id": false
   },
   {
+    "source_path": "articles/governance/policy/samples/audit-trans-data-enc-status.md",
+    "redirect_url": "/governance/policy/samples/sql-database-encryption-audit",
+    "redirect_document_id": false
+  },
+  {
       "source_path": "articles/azure-policy/scripts/billing-tags-policy-init.md",
       "redirect_url": "/governance/policy/samples/billing-tags-policy-init",
       "redirect_document_id": false
@@ -12480,6 +12485,11 @@
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
       "redirect_url": "/governance/policy/samples/require-storage-account-encryption",
       "redirect_document_id": true
+  },
+  {
+    "source_path": "articles/governance/policy/samples/require-storage-account-encryption.md",
+    "redirect_url": "/governance/policy/samples/index",
+    "redirect_document_id": false
   },
   {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
@@ -16886,6 +16896,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
+      "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
+      "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-performance-checklist.md",
       "redirect_url": "/storage/blobs/storage-performance-checklist",
       "redirect_document_id": true
@@ -17029,13 +17049,127 @@
       "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-offer-services-overview.md",
+      "redirect_url": "/azure-stack/operator/service-plan-offer-subscription-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-plan-offer-quota-overview.md",
+      "redirect_url": "/azure-stack/operator/service-plan-offer-subscription-overview",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-1905.md",
+      "redirect_url": "/azure-stack/operator/release-notes",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-1906.md",
+      "redirect_url": "/azure-stack/operator/release-notes",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-1907.md",
+      "redirect_url": "/azure-stack/operator/release-notes",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-1908.md",
+      "redirect_url": "/azure-stack/operator/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-checklist.md",
+      "redirect_url": "/azure-stack/operator/release-notes-checklist",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-known-issues-1905.md",
+      "redirect_url": "/azure-stack/operator/known-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-known-issues-1906.md",
+      "redirect_url": "/azure-stack/operator/known-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-known-issues-1907.md",
+      "redirect_url": "/azure-stack/operator/known-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-known-issues-1908.md",
+      "redirect_url": "/azure-stack/operator/known-issues",
+      "redirect_document_id": false
+    },            
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-security-updates.md",
+      "redirect_url": "/azure-stack/operator/release-notes-security-updates",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-tutorial-tenant-vm.md",
+      "redirect_url": "/azure-stack/operator/tutorial-offer-services",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-tutorial-sql-server.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-sql-resource-provider",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-tutorial-app-service.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-app-service-overview",
+      "redirect_document_id": false
+    },             
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-edge-pattern-overview.md",
+      "redirect_url": "/azure-stack/hybrid/overview-app-design-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-hybrid-cloud-patterns.md",
+      "redirect_url": "/azure-stack/hybrid/overview-patterns-solution-examples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-hybrid-cloud.md",
+      "redirect_url": "/azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling-onprem-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-hybrid-connectivity.md",
+      "redirect_url": "/azure-stack/hybrid/solution-deployment-guide-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-hybrid-identity.md",
+      "redirect_url": "/azure-stack/hybrid/solution-deployment-guide-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-sql-ha.md",
+      "redirect_url": "/azure-stack/hybrid/solution-deployment-guide-sql-ha",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-mongodb-ha.md",
+      "redirect_url": "/azure-stack/hybrid/solution-deployment-guide-mongodb-ha",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-staged-data.md",
+      "redirect_url": "https://aka.ms/tiereddatadeploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-registry/container-registry-auth-aks.md",
+      "redirect_url": "/aks/cluster-container-registry-integration",
+      "redirect_document_id": true
     }
-
-
-
-
-
-
   ]
 }
 

@@ -10,14 +10,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova
 origin.date: 08/12/2019
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 10f0e3e94c0eb5d86d1f8f974af1a0d0bfae16de
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.openlocfilehash: 3bca2ec818e0a5bd43e48fdac566a8c347731703
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262948"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041227"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>托管实例的 T-SQL 差异、限制和已知问题
 
@@ -111,7 +111,7 @@ Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
 
 请参阅 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 和 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)。 
  
-**解决方法**：编写证书或私钥的脚本，将其存储为 .sql 文件，然后从二进制文件创建证书：
+**解决方法**：请勿在创建证书备份后再还原该备份，而应[先获取证书二进制文件内容和私钥，将其存储为 .sql 文件，然后从二进制文件创建证书](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)：
 
 ```sql
 CREATE CERTIFICATE  
@@ -330,12 +330,13 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 从 Azure Blob 存储导入文件时，必须在 `BULK INSERT` 命令中指定 `DATASOURCE`。 请参阅 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)。
 - 从 Azure Blob 存储中读取文件内容时，必须在 `OPENROWSET` 函数中指定 `DATASOURCE`。 请参阅 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
+- `OPENROWSET` 可以用来从其他 Azure SQL 单一数据库、托管实例或 SQL Server 实例读取数据。 其他资源（例如 Oracle 数据库或 Excel 文件）不受支持。
 
 ### <a name="clr"></a>CLR
 
 由于托管实例无法访问文件共享和 Windows 文件夹，因此存在以下约束：
 
-- 仅支持 `CREATE ASSEMBLY FROM BINARY`。 请参阅 [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。 
+- 仅支持 `CREATE ASSEMBLY FROM BINARY`。 请参阅 [CREATE ASSEM BLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。 
 - 不支持 `CREATE ASSEMBLY FROM FILE`。 请参阅 [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。
 - `ALTER ASSEMBLY` 不能引用文件。 请参阅 [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)。
 
@@ -409,7 +410,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 支持快照和双向复制类型。 不支持合并复制、对等复制和可更新订阅。
 - [事务复制](sql-database-managed-instance-transactional-replication.md)在托管实例上为公共预览版，但存在一些约束：
-    - 所有类型的复制参与者（发布服务器、分发服务器、拉取订阅服务器和推送订阅服务器）都可以放置在托管实例上，但发布服务器和分发服务器不能放置在不同的实例上。
+    - 所有类型的复制参与者（发布服务器、分发服务器、拉取订阅服务器和推送订阅服务器）都可以放置在托管实例上，但发布服务器和分发服务器必须同时在云中或同时在本地。
     - 托管实例可以与最新版 SQL Server 通信。 请在[此处](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)查看支持的版本。
     - 事务复制有一些[其他的网络要求](sql-database-managed-instance-transactional-replication.md#requirements)。
 
@@ -537,13 +538,37 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="tempdb"></a>TEMPDB
 
-在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据实例存储大小受到限制。 在“常规用途”和“业务关键”层级上，`Tempdb` 日志文件大小均限制为 120 GB。 如果某些查询需要在 `tempdb` 中为每个核心提供 24 GB 以上的空间，或者生成 120 GB 以上的日志数据，则这些查询可能会返回错误。
+在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据实例存储大小受到限制。 在“常规用途”层级上，`Tempdb` 日志文件大小限制为 120 GB。 如果某些查询需要在 `tempdb` 中为每个核心提供 24 GB 以上的空间，或者生成 120 GB 以上的日志数据，则这些查询可能会返回错误。
 
 ### <a name="error-logs"></a>错误日志
 
-托管实例将详细信息放在错误日志中。 有很多内部系统事件记录在错误日志中。 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅[托管实例 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
+托管实例将详细信息放在错误日志中。 有很多内部系统事件记录在错误日志中。 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅[托管实例 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) 或用于 Azure Data Studio 的[托管实例扩展（预览版）](https://docs.microsoft.com/sql/azure-data-studio/azure-sql-managed-instance-extension#logs)。
 
 ## <a name="Issues"></a> 已知问题
+
+### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>内存中 OLTP 内存限制不适用
+
+**日期：** 2019 年 10 月
+
+在某些情况下，业务关键型服务层级不会正确应用[内存优化对象的最大内存限制](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space)。 托管实例可以让工作负荷使用更多的内存进行内存中 OLTP 操作，这可能影响实例的可用性和稳定性。 达到限制的内存中 OLTP 查询可能不会立即失败。 此问题即将得到解决。 使用较多内存中 OLTP 内存的查询在达到[限制](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space)的情况下会更快地失败。
+
+**解决方法：** 使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) [监视内存中 OLTP 存储使用情况](/sql-database/sql-database-in-memory-oltp-monitoring)，确保工作负荷不会使用比提供的内存更多的内存。 提高基于 vCore 数的内存限制，或者优化工作负荷，让其使用较少的内存。
+
+### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>尝试删除不为空的文件时，返回了错误的错误
+
+**日期：** 2019 年 10 月
+
+SQL Server/托管实例[不允许用户删除不为空的文件](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites)。 如果尝试使用 `ALTER DATABASE REMOVE FILE` 语句删除非空数据文件，系统会立即返回 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 错误。 托管实例会继续尝试删除该文件，操作会在 30 分钟后失败并显示`Internal server error`。
+
+**解决方法**：使用 `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` 命令删除文件的内容。 如果这是文件组中的唯一文件，则需从与此文件组关联的表或分区中删除数据，然后才能收缩文件并选择将该数据加载到另一表/分区中。
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>更改服务层级和创建实例的操作会被正在进行的数据库还原操作阻止
+
+**日期：** 2019 年 9 月
+
+正在运行的 `RESTORE` 语句、数据迁移服务的迁移过程以及内置的时间点还原都会阻止对服务层的更新操作或者对现有实例的重设大小操作以及创建新实例的操作，直至还原过程完成为止。 还原过程会阻止其运行时所在的子网的托管实例和实例池中的这些操作。 实例池中的实例不受影响。 创建或更改服务层级的操作不会失败或超时 - 一旦还原过程完成或取消，它们就会继续。
+
+**解决方法**：请等待还原过程完成，或者，如果创建或更新服务层级的操作的优先级更高，可取消还原过程。
 
 ### <a name="missing-validations-in-restore-process"></a>还原过程中缺少验证
 
@@ -575,7 +600,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 **日期：** 2019 年 8 月
 
-完成更改服务层级的操作后，跨数据库 Service Broker 对话会停止向其他数据库中的服务传递消息。 消息并未**丢失**，可在发送方队列中找到它们。 在托管实例中对 vCore 或实例存储大小进行任何更改都会导致 [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 视图中所有数据库的 `service_broke_guid` 值发生更改。 使用 [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 语句创建的、引用其他数据库中的 Service Broker 的任何 `DIALOG` 将停止向目标服务传递消息。
+完成更改服务层级的操作后，跨数据库 Service Broker 对话会停止向其他数据库中的服务传递消息。 消息并未**丢失**，可在发送方队列中找到它们。 在托管实例中对 vCore 或实例存储大小进行任何更改都会导致 [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 视图中所有数据库的 `service_broke_guid` 值发生更改。 使用 [BEGIN DIALOG](https://docs.microsoft.com/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 语句创建的、引用其他数据库中的 Service Broker 的任何 `DIALOG` 将停止向目标服务传递消息。
 
 **解决方法：** 先停止使用跨数据库 Service Broker 对话的任何活动，再更新服务层级，然后重新初始化这些活动。 如果在更改服务层级后存在任何未传递的剩余消息，请从源队列中读取消息，然后将其重新发送到目标队列。
 

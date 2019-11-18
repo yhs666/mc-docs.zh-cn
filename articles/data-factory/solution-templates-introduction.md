@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/04/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 0bf7c486f251236b72f4a852d3065ee48b3cbd0b
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 3e4825ce62baea590bc6945e3343ba75abbb18d0
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648620"
 ---
 # <a name="templates"></a>模板
 
@@ -57,7 +57,7 @@ ms.locfileid: "72275262"
 
     -   从 \<源\> 复制到 \<目标\>
 
-        -   从 Amazon S3 复制到 Azure Data Lake Store Gen 2
+        -   [从 Amazon S3 复制到 Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
         -   从 Google Big Query 复制到 Azure Data Lake Store Gen 2
 
@@ -83,5 +83,3 @@ ms.locfileid: "72275262"
 
 ![我的模板](media/solution-templates-introduction/templates-intro-image5.png)
 
-> [!NOTE]
-> 若要使用“我的模板”功能，必须启用 GIT 集成。 支持 GitHub。

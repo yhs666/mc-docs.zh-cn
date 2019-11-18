@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: troubleshooting
 origin.date: 08/13/2018
-ms.date: 09/23/2019
+ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: d46d3554b13704443f16be865aaca8ca179499d5
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: bd627e9c3d6aaa446a827a4d84979b2d2093541b
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155847"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068853"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -134,6 +134,310 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 <!--Not Avaiablle on ## I'm receiving errors after restricting my egress traffic-->
 
-<!--Not Avaiablle on [required and optional recommended](limit-egress-traffic.md)-->
+## <a name="azure-storage-and-aks-troubleshooting"></a>Azure 存储和 AKS 故障排除
+
+### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>适用于 Azure 磁盘的 Kubernetes 的建议稳定版本是什么？ 
+
+| Kubernetes 版本 | 建议的版本 |
+| -- | :--: |
+| 1.12 | 1.12.9 或更高版本 |
+| 1.13 | 1.13.6 或更高版本 |
+| 1.14 | 1.14.2 或更高版本 |
+
+### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>哪些 Kubernetes 版本在主权云中提供 Azure 磁盘支持？
+
+| Kubernetes 版本 | 建议的版本 |
+| -- | :--: |
+| 1.12 | 1.12.0 或更高版本 |
+| 1.13 | 1.13.0 或更高版本 |
+| 1.14 | 1.14.0 或更高版本 |
+
+### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Azure 磁盘的 WaitForAttach 失败: 分析 "/dev/disk/azure/scsi1/lun1": 语法无效
+
+在 Kubernetes 版本 1.10 中，MountVolume.WaitForAttach 可能会失败并出现 Azure 磁盘重装入点。
+
+在 Linux 上，可能会出现“错误的 DevicePath 格式”错误。 例如：
+
+```console
+MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
+  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
+```
+
+<!--Not Available on On Windows-->
+
+此问题已在以下版本的 Kubernetes 中得到解决：
+
+| Kubernetes 版本 | 已修复的版本 |
+| -- | :--: |
+| 1.10 | 1.10.2 或更高版本 |
+| 1.11 | 1.11.0 或更高版本 |
+| 1.12 和更高版本 | 不适用 |
+
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>在 Azure 磁盘的 mountOptions 中设置 uid 和 gid 失败
+
+Azure 磁盘默认使用 ext4,xfs 文件系统，在装载时无法设置 uid=x,gid=x 之类的 mountOptions。 例如，如果尝试设置 mountOptions uid=999,gid=999，将出现如下所示的错误：
+
+```console
+Warning  FailedMount             63s                  kubelet, aks-nodepool1-29460110-0  MountVolume.MountDevice failed for volume "pvc-d783d0e4-85a1-11e9-8a90-369885447933" : azureDisk - mountDevice:FormatAndMount failed with mount failed: exit status 32
+Mounting command: systemd-run
+Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/plugins/kubernetes.io/azure-disk/mounts/m436970985 --scope -- mount -t xfs -o dir_mode=0777,file_mode=0777,uid=1000,gid=1000,defaults /dev/disk/azure/scsi1/lun2 /var/lib/kubelet/plugins/kubernetes.io/azure-disk/mounts/m436970985
+Output: Running scope as unit run-rb21966413ab449b3a242ae9b0fbc9398.scope.
+mount: wrong fs type, bad option, bad superblock on /dev/sde,
+       missing codepage or helper program, or other error
+```
+
+可以通过执行以下操作之一来缓解此问题：
+
+* 通过在 runAsUser 中设置 uid 并在 fsGroup 中设置 gid，来[配置 pod 的安全上下文](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)。 例如，以下设置将 pod 设置为作为根运行，使其可供任何文件访问：
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+  >[!NOTE]
+  > 因为 gid 和 uid 默认作为根或 0 装载。 如果 gid 或 uid 设置为非根（例如 1000），Kubernetes 将使用 `chown` 来更改该磁盘中的所有目录和文件。 此操作可能非常耗时，并可能导致磁盘装载速度变得很慢。
+
+* 使用 initContainers 中的 `chown` 来设置 gid 和 uid。 例如：
+
+```yaml
+initContainers:
+- name: volume-mount
+  image: busybox
+  command: ["sh", "-c", "chown -R 100:100 /data"]
+  volumeMounts:
+  - name: <your data volume>
+    mountPath: /data
+```
+
+### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>删除 pod 使用的 Azure 磁盘 PersistentVolumeClaim 时出错
+
+如果尝试删除 pod 正在使用的 Azure 磁盘 PersistentVolumeClaim，可能会出现错误。 例如：
+
+```console
+$ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
+...
+Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_chinaeast2/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
+```
+
+在 Kubernetes 1.10 和更高版本中，默认已启用 PersistentVolumeClaim protection 功能以防止此错误。 如果使用的 Kubernetes 版本未解决此问题，可以通过在删除 PersistentVolumeClaim 之前使用 PersistentVolumeClaim 删除 pod 来缓解此问题。
+
+### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>将磁盘附加到节点时出现“找不到磁盘的 LUN”错误
+
+将磁盘附加到节点时，可能会出现以下错误：
+
+```console
+MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
+```
+
+此问题已在以下版本的 Kubernetes 中得到解决：
+
+| Kubernetes 版本 | 已修复的版本 |
+| -- | :--: |
+| 1.10 | 1.10.10 或更高版本 |
+| 1.11 | 1.11.5 或更高版本 |
+| 1.12 | 1.12.3 或更高版本 |
+| 1.13 | 1.13.0 或更高版本 |
+| 1.14 或更高版本 | 不适用 |
+
+如果使用的 Kubernetes 版本未解决此问题，可以等待几分钟再重试，这样就可以缓解此问题。
+
+### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>在运行多个附加/分离操作期间出现 Azure 磁盘附加/分离失败、装载问题或 I/O 错误
+
+从 Kubernetes 版本1.9.2 开始，同时运行多个附加/分离操作时，可能会出现脏 VM 缓存造成的以下磁盘问题：
+
+* 磁盘附加/分离失败
+* 磁盘 I/O 错误
+* 磁盘从 VM 意外分离
+* 由于附加不存在的磁盘导致 VM 在故障状态下运行
+
+此问题已在以下版本的 Kubernetes 中得到解决：
+
+| Kubernetes 版本 | 已修复的版本 |
+| -- | :--: |
+| 1.10 | 1.10.12 或更高版本 |
+| 1.11 | 1.11.6 或更高版本 |
+| 1.12 | 1.12.4 或更高版本 |
+| 1.13 | 1.13.0 或更高版本 |
+| 1.14 或更高版本 | 不适用 |
+
+如果使用的 Kubernetes 版本未解决此问题，可以尝试以下方法来缓解此问题：
+
+* 如果某个磁盘长时间等待分离，请尝试手动分离该磁盘
+
+### <a name="azure-disk-waiting-to-detach-indefinitely"></a>无限期等待分离的 Azure 磁盘
+
+在某些情况下，如果 Azure 磁盘首次尝试分离操作失败，该磁盘不会重试分离操作，而是保持附加到原始节点 VM。 将磁盘从一个节点移到另一个节点时，可能会发生此错误。 例如：
+
+```console
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
+```
+
+此问题已在以下版本的 Kubernetes 中得到解决：
+
+| Kubernetes 版本 | 已修复的版本 |
+| -- | :--: |
+| 1.11 | 1.11.9 或更高版本 |
+| 1.12 | 1.12.7 或更高版本 |
+| 1.13 | 1.13.4 或更高版本 |
+| 1.14 或更高版本 | 不适用 |
+
+如果使用的 Kubernetes 版本未解决此问题，可以通过手动分离磁盘来缓解此问题。
+
+### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Azure 磁盘分离失败导致潜在的争用条件问题和无效的数据磁盘列表
+
+当 Azure 磁盘无法分离时，它会重试最多六次，以使用指数回退来分离磁盘。 它还会持有数据磁盘列表中的节点级锁大约 3 分钟。 如果在该时间段内手动更新磁盘列表，例如，执行手动附加或分离操作，将会导致节点级锁持有的磁盘列表过时，并导致节点 VM 不稳定。
+
+此问题已在以下版本的 Kubernetes 中得到解决：
+
+| Kubernetes 版本 | 已修复的版本 |
+| -- | :--: |
+| 1.12 | 1.12.9 或更高版本 |
+| 1.13 | 1.13.6 或更高版本 |
+| 1.14 | 1.14.2 或更高版本 |
+| 1.15 和更高版本 | 不适用 |
+
+如果使用的 Kubernetes 版本未解决此问题，并且节点 VM 包含过时的磁盘列表，则你可以通过一个批量操作从 VM 中分离所有不存在的磁盘，以此缓解此问题。 **单独分离不存在的磁盘可能会失败。**
+
+### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>大量的 Azure 磁盘导致附加/分离速度缓慢
+
+如果将 10 个以上的 Azure 磁盘附加到节点 VM，附加和分离操作的速度可能很慢。 这是一个已知的问题，暂时没有解决方法。
+
+### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Azure 磁盘分离失败可能导致节点 VM 处于故障状态
+
+在某些极端情况下，Azure 磁盘分离操作可能部分失败，导致节点 VM 处于故障状态。
+
+此问题已在以下版本的 Kubernetes 中得到解决：
+
+| Kubernetes 版本 | 已修复的版本 |
+| -- | :--: |
+| 1.12 | 1.12.10 或更高版本 |
+| 1.13 | 1.13.8 或更高版本 |
+| 1.14 | 1.14.4 或更高版本 |
+| 1.15 和更高版本 | 不适用 |
+
+如果使用的 Kubernetes 版本未解决此问题，并且节点 VM 处于故障状态，可以使用以下方法之一手动更新 VM 状态，以此缓解此问题：
+
+* 对于基于可用性集的群集：
+    ```console
+    az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
+    ```
+
+<!--Not Available on * For a VMSS-based cluster:-->
+
+## <a name="azure-files-and-aks-troubleshooting"></a>Azure 文件存储和 AKS 故障排除
+
+### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>适用于 Azure 文件存储的 Kubernetes 的建议稳定版本是什么？
+
+| Kubernetes 版本 | 建议的版本 |
+| -- | :--: |
+| 1.12 | 1.12.6 或更高版本 |
+| 1.13 | 1.13.4 或更高版本 |
+| 1.14 | 1.14.0 或更高版本 |
+
+### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>哪些 Kubernetes 版本在主权云中提供 Azure 文件存储支持？
+
+| Kubernetes 版本 | 建议的版本 |
+| -- | :--: |
+| 1.12 | 1.12.0 或更高版本 |
+| 1.13 | 1.13.0 或更高版本 |
+| 1.14 | 1.14.0 或更高版本 |
+
+### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>使用 Azure 文件存储时的默认 mountOptions 是什么？
+
+建议的设置：
+
+| Kubernetes 版本 | fileMode 和 dirMode 值|
+| -- | :--: |
+| 1.12.0 - 1.12.1 | 0755 |
+| 1.12.2 和更高版本 | 0777 |
+
+如果使用 Kuberetes 版本为 1.8.5 或更高版本的群集并使用存储类动态创建永久性卷，则可以在存储类对象上指定装载选项。 以下示例设置 *0777*：
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
+parameters:
+  skuName: Standard_LRS
+```
+
+其他一些有用的 *mountOptions* 设置：
+
+* *mfsymlinks* 将使 Azure 文件存储装入点 (cifs) 支持符号链接
+* *nobrl* 将阻止向服务器发送字节范围锁请求。 对于中断 cifs 样式强制字节范围锁的某些应用程序，必须使用此设置。 大多数 cifs 服务器尚不支持请求建议字节范围锁。 如果不使用 *nobrl*，则中断 cifs 样式强制字节范围锁的应用程序可能导致如下所示的错误消息：
+    ```console
+    Error: SQLITE_BUSY: database is locked
+    ```
+
+### <a name="error-could-not-change-permissions-when-using-azure-files"></a>使用 Azure 文件存储时出现“无法更改权限”错误
+
+在 Azure 文件存储插件中运行 PostgreSQL 时，可能会出现如下所示的错误：
+
+```console
+initdb: could not change permissions of directory "/var/lib/postgresql/data": Operation not permitted
+fixing permissions on existing directory /var/lib/postgresql/data
+```
+
+此错误是由使用 cifs/SMB 协议的 Azure 文件存储插件造成的。 使用 cifs/SMB 协议时，在装载后无法更改文件和目录权限。
+
+若要解决此问题，请结合 Azure 磁盘插件使用 *subPath*。 
+
+> [!NOTE] 
+> 对于 ext3/4 磁盘类型，格式化磁盘后会出现一个 lost+found 目录。
+
+### <a name="azure-files-has-high-latency-compared-to-azure-disk-when-handling-many-small-files"></a>处理许多小型文件时，Azure 文件存储的延迟高于 Azure 磁盘
+
+在某些情况下（例如处理许多的小型文件时），使用 Azure 文件存储时出现的延迟可能高于 Azure 磁盘。
+
+### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>在存储帐户中启用“允许从所选网络进行访问”设置时出错
+
+如果在用于 AKS 中的动态预配的存储帐户上启用“允许从所选网络进行访问”，当 AKS 创建文件共享时会出现错误： 
+
+```console
+persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
+```
+
+出现此错误的原因是在设置“允许从所选网络进行访问”时，Kubernetes *persistentvolume-controller* 不在所选的网络中。 
+
+可以通过[对 Azure 文件存储使用静态预配](azure-files-volume.md)来缓解此问题。
+
+<!--Not Available on ### Azure Files fails to remount in Windows pod-->
+
+### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>由于存储帐户密钥已更改，Azure 文件存储装载失败
+
+如果存储帐户密钥已更改，可能会发生 Azure 文件存储装载失败。
+
+若要缓解此问题，可以使用 base64 编码的存储帐户密钥手动更新 Azure 文件机密中的 *azurestorageaccountkey* 字段。
+
+若要以 base64 编码存储帐户密钥，可以使用 `base64`。 例如：
+
+```console
+echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
+```
+
+若要更新 Azure 机密文件，请使用 `kubectl edit secret`。 例如：
+
+```console
+kubectl edit secret azure-storage-account-{storage-account-name}-secret
+```
+
+几分钟后，代理节点将使用更新的存储密钥重试 Azure 文件装载。
 
 <!--Update_Description: wording update-->

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: multiple
 ms.topic: include
 origin.date: 10/09/2018
-ms.date: 04/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: eb2913ea09067b5282059c3487b4fa281aea49f5
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: cfdf3d82183d4821bb55b9ce001039ea113174f5
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004536"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831288"
 ---
 ## <a name="terminology"></a>术语
 
@@ -25,8 +25,8 @@ Azure 中的市场映像具有以下属性：
 * **SKU**：产品/服务的实例，例如分发版的主要版本。 示例:18.04-LTS、2019-Datacenter
 * **版本**：映像 SKU 的版本号。 
 
-若要在以编程方式部署 VM 时标识市场映像，请以参数的形式单独提供这些值。 有些工具接受映像 URN，它将这些值合并，值之间用冒号 (:) 字符隔开：发布者:产品/服务:Sku:版本。 在 URN 中，可将版本号替换为“latest”，这会选择最新的映像版本。 
+若要在以编程方式部署 VM 时标识市场映像，请以参数的形式单独提供这些值。 有些工具接受映像 URN  ，它将这些值合并，值之间用冒号 (:) 字符隔开：发布者  :产品/服务  :Sku  :版本  。 在 URN 中，可将版本号替换为“latest”，这会选择最新的映像版本。 
 
-如果映像发布者提供附加许可条款和购买条款，则必须接受这些条款并启用编程部署。 以编程方式部署 VM 时，还需要提供“购买计划”参数。 请参阅[部署具有市场条款的映像](#deploy-an-image-with-marketplace-terms)。
+如果映像发布者提供附加许可条款和购买条款，则必须接受这些条款并启用编程部署。 以编程方式部署 VM 时，还需要提供“购买计划”  参数。 请参阅[部署具有市场条款的映像](#deploy-an-image-with-marketplace-terms)。
 
 <!-- Update_Description: wording update -->

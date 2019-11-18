@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 775186ca446b38f7c1cf5cd8224d1c8d851a9495
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: ad609b8a495aae11f8c077c812a3e828bb6e1f52
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578435"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020281"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -54,10 +54,10 @@ Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
-- [Azure Stack 1908 更新](azure-stack-release-notes-1908.md)
-- [Azure Stack 1907 更新](azure-stack-release-notes-1907.md)
-- [Azure Stack 1906 更新](azure-stack-release-notes-1906.md)
-- [Azure Stack 1905 更新](azure-stack-release-notes-1905.md)
+- [Azure Stack 1908 更新](/azure-stack/operator/release-notes?view=azs-1908)
+- [Azure Stack 1907 更新](/azure-stack/operator/release-notes?view=azs-1907)
+- [Azure Stack 1906 更新](/azure-stack/operator/release-notes?view=azs-1906)
+- [Azure Stack 1905 更新](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>修补程序
 
@@ -69,10 +69,10 @@ Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时
 
 有关当前可用的修补程序的信息，请参阅该更新的发行说明：
 
-- [Azure Stack 1908 修补程序](azure-stack-release-notes-1908.md#hotfixes)
-- [Azure Stack 1907 修补程序](azure-stack-release-notes-1907.md#hotfixes)
-- [Azure Stack 1906 修补程序](azure-stack-release-notes-1906.md#hotfixes)
-- [Azure Stack 1905 修补程序](azure-stack-release-notes-1905.md#hotfixes)
+- [Azure Stack 1908 修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
+- [Azure Stack 1907 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
+- [Azure Stack 1906 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
+- [Azure Stack 1905 修补程序](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 

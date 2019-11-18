@@ -1,5 +1,5 @@
 ---
-title: 重置对 Azure Linux VM 的访问权限 | Azure
+title: 配合使用 VMAccess 扩展和 Azure CLI 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘 | Azure
 description: 如何使用 VMAccess 扩展和 Azure CLI 在 Linux VM 上管理管理员用户和重置访问权限
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/10/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: ca0a21598535349f5630e50a6ceadb6724fa7178
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: e7a7bb9a54975ddcb1e5245b2981e4359b5803ff
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831403"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>配合使用 VMAccess 扩展和 Azure CLI 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 ## <a name="overview"></a>概述
@@ -55,7 +55,7 @@ VM 访问扩展可以针对这些 Linux 分发运行：
 * 使用 Azure CLI 以及所需的参数。
 * [使用 VMAccess 要处理和操作的原始 JSON 文件](#use-json-files-and-the-vmaccess-extension)。
 
-下面的示例使用 [az vm user](https://docs.azure.cn/cli/vm/user?view=azure-cli-latest) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+下面的示例使用 [az vm user](https://docs.azure.cn/cli/vm/user?view=azure-cli-latest#az-vm-user) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 ## <a name="update-ssh-key"></a>更新 SSH 密钥
 以下示例更新名为 `myVM` 的 VM 上用户 `azureuser` 的 SSH 密钥：

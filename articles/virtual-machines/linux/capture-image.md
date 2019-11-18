@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: d54a30a0b38ac9ea5d77f67c3b9180fb642e8257
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: efb45c751de3c5e9ef196b6e5421a11bbf409993
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921038"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831393"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -32,8 +32,6 @@ ms.locfileid: "70921038"
 若要创建现有 Linux VM 的副本以用于备份或调试，或从本地 VM 上传专用 Linux VHD，请参阅[上传自定义磁盘映像并根据该映像创建 Linux VM](upload-vhd.md)。  
 
 <!--Not Available on [Getting Started with Azure VM Image Builder](/virtual-machines/linux/image-builder-overview)-->
-
-还可使用 **Packer** 创建自定义配置。 有关详细信息，请参阅[如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像](build-image-with-packer.md)。
 
 在创建映像前，需要具有以下项：
 
@@ -97,6 +95,8 @@ ms.locfileid: "70921038"
     > 该映像在与源 VM 相同的资源组中创建。 可以在订阅内的任何资源组中从此映像创建 VM。 从管理角度来看，你可能希望为 VM 资源和映像创建特定的资源组。
 
     <!-- Not Available on availability zones -->
+    
+此命令返回描述 VM 映像的 JSON。 保存此输出以供以后参考。
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步骤 3：从捕获的映像创建 VM
 通过 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 使用你已创建的映像创建 VM。 以下示例基于名为 *myImage* 的映像创建名为 *myVMDeployed* 的 VM。
@@ -152,4 +152,4 @@ az vm show \
 
 有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
-<!-- Update_Description: update meta properties, wording update, update az cmdlet -->
+<!-- Update_Description: update meta properties, wording update -->

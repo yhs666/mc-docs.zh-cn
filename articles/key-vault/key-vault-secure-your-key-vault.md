@@ -1,21 +1,21 @@
 ---
-title: 保护对密钥保管库的访问 - Azure 密钥保管库 | Azure Docs
+title: 保护对密钥保管库的访问 - Azure 密钥保管库 | Azure
 description: 管理 Azure Key Vault、密钥和机密的访问权限。 介绍 Key Vault 的身份验证和授权模型以及如何保护 Key Vault。
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-origin.date: 05/10/2017
-ms.date: 07/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: c8a1e70036fd6e754fb7df83595c3d794b80a57a
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+origin.date: 01/07/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: e42481de062725d3abffd5e551ee171b5a2b55f2
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171307"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426096"
 ---
 # <a name="secure-access-to-a-key-vault"></a>保护对密钥保管库的访问
 
@@ -55,11 +55,11 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 | 访问&nbsp;平面 | 访问终结点 | 操作 | 访问&nbsp;控制机制 |
 | --- | --- | --- | --- |
 | 管理平面 | **全球：**<br> management.azure.com:443<br><br> **Azure 中国世纪互联：**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government：**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany：**<br> management.microsoftazure.de:443 | 创建、读取、更新和删除密钥保管库<br><br>设置密钥保管库访问策略<br><br>设置密钥保管库标记 | Azure 资源管理器 RBAC |
-| 数据平面 | **全球：**<br> &lt;vault-name&gt;.vault.chinacloudapi.cn:443<br><br> **Azure 中国世纪互联：**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government：**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany：**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | 密钥：解密、加密，<br> 解包、包装、验证、签名，<br> 获取、列出、更新、创建，<br> 导入、删除、备份、还原<br><br> 机密：获取、列出、设置、删除 | Key Vault 访问策略 |
+| 数据平面 | **全球：**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 中国世纪互联：**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government：**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany：**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | 密钥：解密、加密，<br> 解包、包装、验证、签名，<br> 获取、列出、更新、创建，<br> 导入、删除、备份、还原<br><br> 机密：获取、列出、设置、删除 | Key Vault 访问策略 |
 
 ## <a name="management-plane-and-rbac"></a>管理平面和 RBAC
 
-在管理平面中，使用 RBAC 对调用方可以执行的操作进行授权。 在 RBAC 模型中，每个 Azure 订阅都有一个 Azure AD 实例。 可以从此目录向用户、组和应用程序授予访问权限。 授予访问权限以管理 Azure 订阅中使用 Azure 资源管理器部署模型的资源。 若要授予访问权限，请使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI](https://docs.azure.cn/zh-cn/cli-install-nodejs)、[Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs) 或 [Azure 资源管理器 REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)。
+在管理平面中，使用 RBAC 对调用方可以执行的操作进行授权。 在 RBAC 模型中，每个 Azure 订阅都有一个 Azure AD 实例。 可以从此目录向用户、组和应用程序授予访问权限。 授予访问权限以管理 Azure 订阅中使用 Azure 资源管理器部署模型的资源。 若要授予访问权限，请使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI](https://docs.azure.cn/cli-install-nodejs)、[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或 [Azure 资源管理器 REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)。
 
 可以在资源组中创建密钥保管库，并使用 Azure AD 管理访问权限。 授予用户或组管理资源组中的密钥保管库的权限。 通过分配适当的 RBAC 角色在特定范围级别授予访问权限。 若要授予用户管理密钥保管库的访问权限，请为特定范围的用户分配预定义的 `key vault Contributor` 角色。 可以将以下范围级别分配给 RBAC 角色：
 
@@ -80,7 +80,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 可以向用户、组或应用程序授予对密钥保管库中的密钥或机密执行特定操作的访问权限。 密钥保管库最多支持 1024 个密钥保管库访问策略条目。 若要向多个用户授予对数据平面的访问权限，创建一个 Azure AD 安全组，并将用户添加到该组。
 
-<a id="key-vault-access-policies"></a> 密钥保管库访问策略单独授予对密钥、机密和证书的权限。 可以仅授予用户对密钥的访问权限，而不授予对机密的访问权限。 密钥、机密或证书的访问权限是保管库级别的。 密钥保管库访问策略不支持粒度、对象级别权限，例如特定的密钥、机密或证书。 若要为密钥保管库设置访问策略，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](https://docs.azure.cn/zh-cn/cli-install-nodejs)、[PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs) 或[密钥保管库管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)。
+<a id="key-vault-access-policies"></a> 密钥保管库访问策略单独授予对密钥、机密和证书的权限。 可以仅授予用户对密钥的访问权限，而不授予对机密的访问权限。 密钥、机密或证书的访问权限是保管库级别的。 密钥保管库访问策略不支持粒度、对象级别权限，例如特定的密钥、机密或证书。 若要为密钥保管库设置访问策略，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](https://docs.azure.cn/cli-install-nodejs)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[密钥保管库管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)。
 
 > [!IMPORTANT]
 > Key Vault 访问策略适用于保管库级别。 如果授予某个用户创建和删除密钥的权限，该用户可以针对该密钥保管库中的所有密钥执行这些操作。
@@ -147,14 +147,14 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 订阅管理员将 `key vault Contributor` 和 `User Access Administrator` 角色分配给安全团队。 这些角色使安全团队可管理对其他资源和密钥保管库的访问，且它们都位于 **ContosoAppRG** 资源组中。
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 安全团队创建密钥保管库并设置日志记录和访问权限。 有关密钥保管库访问策略权限的详细信息，请参阅[关于 Azure 密钥保管库密钥、机密和证书](about-keys-secrets-and-certificates.md)。
 
-```PowerShell
+```powershell
 # Create a key vault and enable logging
 $sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'chinanorth' -EnabledForDeployment

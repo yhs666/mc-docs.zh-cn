@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - Pow
 description: 本文介绍如何使用 PowerShell 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/13/2018
-ms.author: v-yeche
-ms.openlocfilehash: 486079e7ff082817718c5d8a38d3f5a7cad42e37
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/12/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 28e674fbbf2c5dfc8190b877cb1f1b983b1cc672
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643563"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730003"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>使用 PowerShell 通过安全组视图分析虚拟机安全性
 
@@ -31,9 +31,12 @@ ms.locfileid: "52643563"
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 PowerShell 检索虚拟机的已配置的有效安全规则
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>准备阶段
 
-在此方案中，运行 `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet 检索安全规则信息。
+在此方案中，运行 `Get-AzNetworkWatcherSecurityGroupView` cmdlet 检索安全规则信息。
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 
@@ -43,19 +46,19 @@ ms.locfileid: "52643563"
 
 ## <a name="retrieve-network-watcher"></a>检索网络观察程序
 
-第一步是检索网络观察程序实例。 将此变量传递给 `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet。
+第一步是检索网络观察程序实例。 将此变量传递给 `Get-AzNetworkWatcherSecurityGroupView` cmdlet。
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinanorth" }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinanorth" }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 ```
 
 ## <a name="get-a-vm"></a>获取 VM
 
-需要针对虚拟机运行 `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet。 以下示例获取 VM 对象。
+需要针对虚拟机运行 `Get-AzNetworkWatcherSecurityGroupView` cmdlet。 以下示例获取 VM 对象。
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
+$VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
 ## <a name="retrieve-security-group-view"></a>检索安全组视图
@@ -63,7 +66,7 @@ $VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
 下一步是检索安全组视图结果。
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## <a name="viewing-the-results"></a>查看结果

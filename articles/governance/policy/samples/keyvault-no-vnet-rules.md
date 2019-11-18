@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/26/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 3223fea4a2ed57d3f21772c9be3efbffd201c84f
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 1cd39be6961f0dd573095049af2954832c0b86d6
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526667"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020877"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>示例 - 没有虚拟网络终结点的 Key Vault 保管库
 
@@ -38,7 +38,7 @@ ms.locfileid: "72526667"
 {
    "properties": {
       "displayName": "Audit if Key Vault has no virtual network rules",
-      "description": "Audits Key Vault vaults if they do not have virtual network service endpoints set up. More information on virtual network service endpoints in Key Vault is available here: https://docs.azure.cn/zh-cn/key-vault/key-vault-overview-vnet-service-endpoints",
+      "description": "Audits Key Vault vaults if they do not have virtual network service endpoints set up. More information on virtual network service endpoints in Key Vault is available here: https://docs.azure.cn/key-vault/key-vault-overview-vnet-service-endpoints",
       "mode": "Indexed",
       "parameters": {},
       "policyRule": {
@@ -156,11 +156,11 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicydefinition) | 创建新的 Azure Policy 定义。 |
-| [Get-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Get-Azresourcegroup) | 获取单个资源组。 |
-| [New-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [Remove-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Remove-Azpolicyassignment) | 删除现有的 Azure Policy 分配。 |
-| [Remove-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Remove-Azpolicydefinition) | 删除现有的 Azure Policy 定义。 |
+| [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicydefinition) | 创建新的 Azure Policy 定义。 |
+| [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-Azresourcegroup) | 获取单个资源组。 |
+| [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| [Remove-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/Remove-Azpolicyassignment) | 删除现有的 Azure Policy 分配。 |
+| [Remove-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Remove-Azpolicydefinition) | 删除现有的 Azure Policy 定义。 |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -210,13 +210,13 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 - 创建策略定义（订阅范围）。 将[策略定义](#policy-definition) JSON 用于请求正文。
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/audit-keyvault-vnet-rules?api-version=2018-05-01
+  PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/audit-keyvault-vnet-rules?api-version=2018-05-01
   ```
 
 - 创建策略分配（资源组范围）
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/audit-keyvault-vnet-rules-assignment?api-version=2018-05-01
+  PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/audit-keyvault-vnet-rules-assignment?api-version=2018-05-01
   ```
 
   将以下 JSON 示例用于请求正文：
@@ -235,23 +235,23 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 - 删除策略分配
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/audit-keyvault-vnet-rules-assignment?api-version=2018-05-01
+  DELETE https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/audit-keyvault-vnet-rules-assignment?api-version=2018-05-01
   ```
 
 - 删除策略定义
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/audit-keyvault-vnet-rules?api-version=2018-05-01
+  DELETE https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/audit-keyvault-vnet-rules?api-version=2018-05-01
   ```
 
 ### <a name="rest-api-explanation"></a>REST API 说明
 
 | 服务 | 组 | 操作 | 注释 |
 |---|---|---|---|
-| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/zh-cn/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替换项：[在管理组中创建](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
-| 资源管理 | 策略分配 | [创建](https://docs.microsoft.com/zh-cn/rest/api/resources/policyassignments/create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/zh-cn/rest/api/resources/policyassignments/delete) | 删除现有的 Azure Policy 分配。 |
-| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/zh-cn/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替换项：[在管理组中删除](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替换项：[在管理组中创建](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 资源管理 | 策略分配 | [创建](https://docs.microsoft.com/rest/api/resources/policyassignments/create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/rest/api/resources/policyassignments/delete) | 删除现有的 Azure Policy 分配。 |
+| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替换项：[在管理组中删除](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>后续步骤
 

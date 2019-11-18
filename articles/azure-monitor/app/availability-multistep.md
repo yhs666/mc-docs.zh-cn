@@ -5,16 +5,16 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: lingliw
-origin.date: 07/25/2019
-ms.date: 07/25/2019
+origin.date: 10/23/2019
+ms.date: 11/04/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: a98c41d0fdd9ab44aad739dbcbc39bcfbe3fa9f2
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: fab476620a5ad36d7b274a5e9489040178c6191e
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970927"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730326"
 ---
 # <a name="multi-step-web-tests"></a>多步骤 Web 测试
 
@@ -35,38 +35,12 @@ ms.locfileid: "72970927"
 > [!NOTE]
 > 多步骤 Web 测试收取相关的额外费用。 若要了解详细信息，请参阅[官方定价指南](https://azure.microsoft.com/pricing/details/application-insights/)。
 
-## <a name="record-a-multi-step-web-test"></a>记录多步骤 Web 测试
+## <a name="record-a-multi-step-web-test"></a>记录多步骤 Web 测试 
 
-要创建多步骤测试，可以使用 Visual Studio Enterprise 来录制方案，然后将录制内容上传到 Application Insights。 Application Insights 按设置的间隔重放该方案，并验证响应。
+> [!WARNING]
+> 我们不再建议使用多步骤记录器。 记录器是为具有基本交互的静态 HTML 页开发的，不为新式网页提供功能体验。
 
-> [!IMPORTANT]
-> * 不能在测试中使用编码的函数或循环。 测试必须完全包含在 .webtest 脚本中。 但是，可以使用标准插件。
-> * 仅多步骤 Web 测试支持使用英文字符。 如果在其他语言中使用 Visual Studio，请更新 Web 测试定义文件以转换/排除非英文字符。
-
-使用 Visual Studio Enterprise 录制 Web 会话。
-
-1. 创建 Web 性能与负载测试项目。 “文件”   > “新建”   > “项目”   > “Visual C#”   >   “测试”
-
-    ![Visual Studio 新项目 UI](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. 打开 `.webtest` 文件并开始录制。
-
-    ![Visual Studio 测试性录制 UI](./media/availability-multistep/open-web-test.png)
-
-3. 一路单击你希望自己的测试能够在录制过程中模拟的步骤。
-
-    ![浏览器录制 UI](./media/availability-multistep/record.png)
-
-4. 编辑测试：
-
-    * 添加验证，检查收到的文本和响应代码。
-    * 删除任何不需要的交互。 也可删除图片的依赖请求，或者添加在将测试视为成功的情况下与你不相关的跟踪站点。
-    
-    请记住，只能编辑测试脚本 - 可以添加自定义代码或调用其他 Web 测试。 不要在测试中插入循环。 可以使用标准 Web 测试插件。
-
-5. 在 Visual Studio 中运行测试，验证并确保它可以正常工作。
-
-    Web 测试运行器将打开 Web 浏览器，并重复录制的操作。 确保一切表现符合预期。
+有关创建 Visual Studio Web 测试的指南，请参阅[官方 Visual Studio 2019 文档](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)。
 
 ## <a name="upload-the-web-test"></a>上传 Web 测试
 
@@ -97,7 +71,7 @@ ms.locfileid: "72970927"
 |**经典** | 我们不再建议对新的可用性测试使用经典警报。|
 |**警报位置阈值**|建议最少 3/5 个位置。 警报位置阈值和测试位置数目之间的最佳关系是警报位置阈值  =  测试位置数 - 2，至少有 5 个测试位置   。|
 
-## <a name="advanced-configuration"></a>高级配置
+## <a name="configuration"></a>配置
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>将时间和随机数插入测试
 

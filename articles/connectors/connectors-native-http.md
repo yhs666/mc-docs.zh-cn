@@ -1,6 +1,6 @@
 ---
-title: 从 Azure 逻辑应用连接到 HTTP 或 HTTPS 终结点
-description: 使用 Azure 逻辑应用在自动化任务、流程和工作流中监视 HTTP 或 HTTPS 终结点
+title: 调用 HTTP 和 HTTPS 终结点 - Azure 逻辑应用
+description: 使用 Azure 逻辑应用将传出请求发送到 HTTP 和 HTTPS 终结点
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,17 +11,19 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 origin.date: 07/05/2019
-ms.date: 10/08/2019
-ms.openlocfilehash: cb7e7b52d1a5398574d55781353beb7bdaedf638
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.date: 11/11/2019
+ms.openlocfilehash: fa818cf26d25fe8878dff869563d0f441c2f2469
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340982"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425911"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用调用 HTTP 或 HTTPS 终结点
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用将传出呼叫发送到 HTTP 或 HTTPS 终结点
 
-借助 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置的 HTTP 连接器，可以通过生成逻辑应用自动执行定期调用任何 HTTP 或 HTTPS 终结点的工作流。 例如，可按指定的计划检查该终结点，来监视网站的服务终结点。 当该终结点上发生特定的事件（例如，网站关闭）时，该事件会触发逻辑应用的工作流并运行指定的操作。
+使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置 HTTP 触发器或操作，可以创建自动化任务和工作流，定期将请求发送到任何 HTTP 或HTTPS 终结点。 若要改为接收和响应传入 HTTP 或 HTTPS 调用，请使用内置[请求触发器或响应操作](../connectors/connectors-native-reqres.md)。
+
+例如，可按指定的计划检查该终结点，来监视网站的服务终结点。 当该终结点上发生特定的事件（例如，网站关闭）时，该事件会触发逻辑应用的工作流并运行指定的操作。
 
 若要按定期计划检查或轮询某个终结点，可将 HTTP 触发器用作工作流中的第一个步骤。  每次检查时，该触发器会向该终结点发送调用或请求。  该终结点的响应确定了逻辑应用的工作流是否运行。 触发器将响应中的任何内容传递到逻辑应用中的操作。
 

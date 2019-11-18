@@ -11,12 +11,12 @@ ms.topic: overview
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 447627bacb062db716f40b1553c675c39aff7c1a
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: e307f906daed71eac377747a8fbb374d81c64c71
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267051"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020865"
 ---
 # <a name="what-are-the-speech-services"></a>什么是语音服务？
 
@@ -87,9 +87,7 @@ Azure 语音服务能够很好地与内置模型配合工作，但是，你可�
 * [语音 SDK](speech-sdk.md)
 * [语音设备 SDK](speech-devices-sdk.md)
 * [REST API：文本转语音](rest-text-to-speech.md)
-* [REST API：批量听录和自定义](https://westus.cris.ai/swagger/ui/index)
-
-<!-- this westus apps is a sample code websites -->
+* [REST API：批量听录和自定义](https://chinaeast2.cris.azure.cn/swagger/ui/index)
 
 ## <a name="next-steps"></a>后续步骤
 

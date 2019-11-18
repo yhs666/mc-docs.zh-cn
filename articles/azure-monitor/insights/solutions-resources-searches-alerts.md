@@ -1,25 +1,20 @@
 ---
-title: 管理解决方案中的已保存搜索和警报 | Azure Docs
-description: 管理解决方案通常会包括 Log Analytics 中保存的搜索，以便分析解决方案收集的数据。 它们可能还会定义警报，从而向用户发出通知或针对严重问题自动采取行动。 本文介绍如何在资源管理模板中定义 Log Analytics 保存的搜索和警报，以便将其纳入管理解决方案。
-services: monitoring
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: tysonn
+title: 管理解决方案中的已保存搜索 | Microsoft Docs
+description: 管理解决方案通常会包括 Log Analytics 中保存的搜索，以便分析解决方案收集的数据。 它们可能还会定义警报，从而向用户发出通知或针对严重问题自动采取行动。 本文介绍如何在资源管理模板中定义 Log Analytics 保存的搜索，以便将其纳入管理解决方案。
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
+ms.author: v-lingwu
 origin.date: 07/22/2019
 ms.date: 07/29/2019
-ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bb416230e461d6648814ae3c5ebe72be1534378
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 23b4e148052bd407abe3ea81d7390df9d91160a2
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329819"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970972"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>将 Log Analytics 保存的搜索和警报添加到管理解决方案（预览版）
 

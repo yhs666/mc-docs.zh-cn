@@ -1,25 +1,20 @@
 ---
 title: 使用 Azure 资源管理器模板配置 Azure Application Insights 智能检测规则设置 | Azure Docs
 description: 使用 Azure 资源管理器模板自动完成 Azure Application Insights 智能检测规则的管理和配置
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-origin.date: 12/12/2017
-ms.date: 6/4/2019
+author: lingliw
+origin.date: 06/26/2019
+ms.date: 11/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 85a77b62126647c17e24650eef93503daa01804f
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d666af9750fc19dec9b009432bc5f111c6dac2ec
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736550"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730516"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Application Insights 智能检测规则
 

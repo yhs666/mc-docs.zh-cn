@@ -1,5 +1,6 @@
 ---
-title: MSAL.js 与 ADAL.js 的差异 | Azure
+title: MSAL.js 与 ADAL.js 的差异
+titleSuffix: Microsoft identity platform
 description: 了解适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 与适用于 JavaScript 的 Azure AD 身份验证库 (ADAL.js) 之间的差异，以及如何在两者之间做出选择。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/10/2019
-ms.date: 08/23/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75e0684257f33ec91701c42fdd19725c075da3a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 2e3c3e3b2c42956758ffaca1ae9ef66c57a0e47e
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993264"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830975"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS 与 ADAL JS 的差异
 
@@ -66,7 +67,7 @@ ms.locfileid: "69993264"
 
     可以使用 API 的 URI 按“应用 ID URI/范围”格式请求任何资源 API 的范围。例如：https:\//mytenant.partner.onmschina.cn/myapi/api.read
 
-    仅对于 MS Graph API 而言，范围值 `user.read` 将映射到 https://microsoftgraph.chinacloudapi.cn/User.Read ，并且两者可以换用。
+    仅对于 MS Graph API，范围值 `user.read` 映射到 https:\//microsoftgraph.chinacloudapi.cn/User.Read，并且可互换使用。
 
     ```javascript
     var request = {

@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MySQL 服务器防火墙规则
-description: 描述 Azure Database for MySQL 服务器的防火墙规则。
+description: 了解如何使用防火墙规则启用到 Azure Database for MySQL 服务器的连接。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 02/28/2018
-ms.date: 07/15/2019
-ms.openlocfilehash: f73690a5c017187e8f4a9c8b27634572ddee0ebc
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+origin.date: 09/22/2018
+ms.date: 11/04/2019
+ms.openlocfilehash: 72535b6bf32b1ba079c0520cd346244c5326ce9f
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131850"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142093"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL 服务器防火墙规则
 
@@ -51,7 +51,7 @@ ms.locfileid: "70131850"
 ## <a name="programmatically-managing-firewall-rules"></a>以编程方式管理防火墙规则
 除了 Azure 门户外，还可使用 Azure CLI 通过编程方式管理防火墙规则。 另请参阅[使用 Azure CLI 创建和管理 Azure Database for MySQL 防火墙规则](./howto-manage-firewall-using-cli.md)
 
-## <a name="troubleshooting-the-database-firewall"></a>数据库防火墙故障排除
+## <a name="troubleshooting-firewall-issues"></a>排查防火墙问题
 对 Microsoft Azure Database for MySQL 服务器服务的访问与预期不符时，请考虑以下几点：
 
 * **对允许列表的更改尚未生效：** 对 Azure Database for MySQL 防火墙配置所做的更改可能最多需要 5 分钟的延迟才可生效。
@@ -60,9 +60,11 @@ ms.locfileid: "70131850"
 
 * **动态 IP 地址：** 如果 Internet 连接使用动态 IP 寻址，并且在通过防火墙时遇到问题，则可以尝试以下解决方法之一：
 
-* 向 Internet 服务提供商 (ISP) 询问分配给客户端计算机、用于访问 Azure Database for MySQL 服务器的 IP 地址范围，然后将该 IP 地址范围作为防火墙规则添加。
+   * 向 Internet 服务提供商 (ISP) 询问分配给客户端计算机、用于访问 Azure Database for MySQL 服务器的 IP 地址范围，然后将该 IP 地址范围作为防火墙规则添加。
 
-* 改为获取用户的客户端计算机的静态 IP 地址，并将该 IP 地址作为防火墙规则添加。
+   * 改为获取用户的客户端计算机的静态 IP 地址，并将该 IP 地址作为防火墙规则添加。
+
+* **服务器 IP 似乎为公共 IP：** 到 Azure Database for MySQL 服务器的连接通过可公开访问的 Azure 网关进行路由。 但是，实际的服务器 IP 受防火墙保护。 有关详细信息，请参阅[连接体系结构文章](concepts-connectivity-architecture.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 

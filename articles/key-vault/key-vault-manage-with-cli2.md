@@ -1,25 +1,20 @@
 ---
-title: 使用 CLI 管理 Azure Key Vault - Azure Key Vault | Azure Docs
+title: 使用 CLI 管理 Azure Key Vault - Azure Key Vault | Azure
 description: 使用本文通过 Azure CLI 自动执行密钥保管库中的常见任务
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: barbkess
-tags: azure-resource-manager
-ms.assetid: ''
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-origin.date: 06/22/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 4efae76b428a4a452eebe1cbd3449a7be0c732cf
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.topic: tutorial
+origin.date: 08/12/2019
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 7aeca956dd816f277234b8a0090dcdeb32f318d7
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171241"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426036"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
@@ -39,7 +34,7 @@ ms.locfileid: "67171241"
 > 本文未说明如何编写其中一个步骤所包括的 Azure 应用程序，但说明了如何授权应用程序使用 Key Vault 中的密钥或机密。
 >
 
-有关 Azure Key Vault 的概述，请参阅[什么是 Azure Key Vault？](key-vault-whatis.md)
+有关 Azure Key Vault 的概述，请参阅[什么是 Azure Key Vault？](key-vault-overview.md)
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -68,18 +63,20 @@ az account set -h
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>如何在 Azure 中创建强化的容器（保管库）
 
-保管库是由硬件安全模块支持的安全容器。 保管库可以集中存储应用程序机密，降低安全信息意外丢失的可能性。 Key Vault 还控制并记录外界对其所存储内容的访问。 Azure Key Vault 负责处理传输层安全性 (TLS) 证书的请求和续订事宜，其提供的功能是可靠的证书生命周期管理解决方案所必需的。 在后续步骤中，将创建一个保管库。
+保管库可以集中存储应用程序机密，降低安全信息意外丢失的可能性。 Key Vault 还控制并记录外界对其所存储内容的访问。 Azure Key Vault 负责处理传输层安全性 (TLS) 证书的请求和续订事宜，其提供的功能是可靠的证书生命周期管理解决方案所必需的。 在后续步骤中，将创建一个保管库。
 
 ### <a name="connect-to-your-subscriptions"></a>连接到订阅
 
 若要以交互方式登录，请使用以下命令：
 
 ```azurecli
+az cloud set -n AzureChinaCloud
 az login
 ```
 若要使用组织帐户登录，可以传入自己的用户名和密码。
 
 ```azurecli
+az cloud set -n AzureChinaCloud
 az login -u username@domain.com -p password
 ```
 
@@ -150,7 +147,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-现在，可以通过使用密钥的 URI，引用已创建或上传到 Azure 密钥保管库的密钥。 使用 **<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey>** 始终会获取当前版本。 使用 https://[keyvault-name].vault.azure.cn/keys/[keyname]/[key-unique-id] 获取此特定版本。 例如， **<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87>** 。 
+现在，可以通过使用密钥的 URI，引用已创建或上传到 Azure 密钥保管库的密钥。 使用 **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey** 始终会获取当前版本。 使用 https://[keyvault-name].vault.azure.cn/keys/[keyname]/[key-unique-id] 获取此特定版本。 例如， **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 。 
 
 将机密（名为 SQLPassword 的密码，其值为“hVFkk965BuUv”）添加到 Azure 密钥保管库。 
 
@@ -158,7 +155,7 @@ az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-使用此密码的 URI 引用此密码。 使用 **<https://ContosoVault.vault.azure.cn/secrets/SQLPassword>** 始终会获取当前版本，使用 https://[keyvault-name].vault.azure.cn/secret/[secret-name]/[secret-unique-id] 会获取此特定版本。 例如， **<https://ContosoVault.vault.azure.cn/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d>** 。
+使用此密码的 URI 引用此密码。 使用 **https://ContosoVault.vault.azure.cn/secrets/SQLPassword** 始终会获取当前版本，使用 https://[keyvault-name].vault.azure.cn/secret/[secret-name]/[secret-unique-id] 会获取此特定版本。 例如， **https://ContosoVault.vault.azure.cn/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 。
 
 使用 .pem 或 .pfx 将证书导入保管库。
 
@@ -197,7 +194,7 @@ az keyvault certificate list --vault-name "ContosoKeyVault"
 
 应用程序必须向 Azure Active Directory 提供这两个值才能获取令牌。 如何将应用程序配置为获取令牌取决于应用程序。 对于 [Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)，应用程序所有者会在 app.config 文件中设置这些值。
 
-有关将应用程序注册到 Azure Active Directory 的详细步骤，请参阅文章[将应用程序与 Azure Active Directory 集成](../active-directory/develop/quickstart-register-app.md)、[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)以及[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)。
+有关将应用程序注册到 Azure Active Directory 的详细步骤，请参阅文章[将应用程序与 Azure Active Directory 集成](../active-directory/develop/active-directory-integrating-applications.md)、[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)以及[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)。
 
 在 Azure Active Directory 中注册应用程序：
 
@@ -243,6 +240,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 ```azurecli 
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
  ```
+<!-- HSMs not available -->
 ## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>删除密钥保管库以及关联的密钥和机密
 
 如果不再需要 Key Vault 及其密钥或机密，可以使用 `az keyvault delete` 命令删除 Key Vault：

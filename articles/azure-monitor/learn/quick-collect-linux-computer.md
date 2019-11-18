@@ -15,14 +15,14 @@ origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: f7aaefa9422bac9c2ff4c86b47f7dbbd8c4e8e28
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 3c17a066106fb063ba703627d79f60c6edf7b041
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970886"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116197"
 ---
-# <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>快速入门：使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
 
 [Azure Monitor](../overview.md) 可以直接从环境中的物理或虚拟 Linux 计算机将数据收集到 Log Analytics 工作区中，以便进行详细分析和关联。 安装 [Log Analytics 代理](../platform/log-analytics-agent.md)可让 Azure Monitor 从数据中心或其他云环境收集数据。 本快速入门介绍如何通过几个简单步骤，从 Linux 服务器中配置和收集数据。 有关 Azure Linux VM 的信息，请参阅[收集有关 Azure 虚拟机的数据](../../azure-monitor/learn/quick-collect-azurevm.md)。  
 
@@ -45,9 +45,7 @@ ms.locfileid: "72970886"
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于“资源组”  ，选择包含一个或多个 Azure 虚拟机的现有资源组。  
    * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
-   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
-  
-        ![在 Azure 门户中创建 Log Analytics 工作区](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
+<!-- OMS is unavailable -->
 
 3. 在“Log Analytics 工作区”窗格中提供所需的信息后，选择“确定”。    
 

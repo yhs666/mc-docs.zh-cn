@@ -12,12 +12,12 @@ ms.topic: tutorial
 origin.date: 09/04/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 088fd509f7e5e5d17061d9f171b54a6ca63e5d63
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d3ddc693c6719abe238ae771f639ac16784b4db2
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329842"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730604"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>教程：通过 Node.js 使用启用了语言理解的 Web 应用机器人 
 
@@ -81,6 +81,7 @@ ms.locfileid: "71329842"
 |--|--|
 |预定机票|`Travel to Paris`|
 |取消|`bye`|
+|GetWeather|`what's the weather like?`|
 |无|应用域以外的任何内容。|
 
 ## <a name="test-the-bot-in-web-chat"></a>通过网上聊天测试机器人

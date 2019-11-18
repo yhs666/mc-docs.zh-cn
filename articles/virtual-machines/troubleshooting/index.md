@@ -10,14 +10,14 @@ ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.topic: landing-page
 origin.date: 10/03/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 44ab84d4cc4256e7b7ea10b07c84306e9930a1f5
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 065f4d14beedec44d5b6ce9b7e5c9c9f3ea17c04
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272752"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116948"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>排查 Azure 虚拟问题
 

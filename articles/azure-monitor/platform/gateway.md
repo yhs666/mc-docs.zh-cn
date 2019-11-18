@@ -1,25 +1,20 @@
 ---
 title: 使用 Log Analytics 网关连接计算机 | Azure Docs
 description: 使用 Log Analytics 网关连接设备和 Operations Manager 监视的计算机，以便在无法访问 Internet 时将数据发送到 Azure 自动化和 Log Analytics 服务。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 08/12/2019
+origin.date: 10/30/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3ccf7b0ff8f37ffb28ace4094bb1d1f2a71a558
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: d70afddd993471578299224ffe5dca4f40c63177
+ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737141"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906415"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure Monitor 中使用 Log Analytics 网关连接无法访问 Internet 的计算机
 
@@ -41,7 +36,7 @@ Log Analytics 网关直接将数据从代理传输到服务。 它不会分析�
 
 如果已将 Operations Manager 管理组与 Log Analytics 集成，可将管理服务器配置为连接到 Log Analytics 网关，以根据启用的解决方案接收配置信息并发送收集的数据。  Operations Manager 代理向管理服务器发送一些数据。 例如，代理可能会发送 Operations Manager 警报、配置评估数据、实例空间数据和容量数据。 其他大批量的数据（例如 Internet Information Services (IIS) 日志、性能数据和安全事件）将直接发送到 Log Analytics 网关。 
 
-如果在外围网络或隔离网络中部署了一个或多个 Operations Manager 网关服务器用于监视不受信任的系统，这些服务器无法与 Log Analytics 网关通信。  Operations Manager 网关服务器只能向管理服务器报告。  如果将 Operations Manager 管理组配置为与 Log Analytics 网关通信，代理配置信息会自动分发到代理管理的、配置为收集 Azure Monitor 日志数据的每台计算机，即使设置为空。    
+如果在外围网络或隔离网络中部署了一个或多个 Operations Manager 网关服务器用于监视不受信任的系统，这些服务器无法与 Log Analytics 网关通信。  Operations Manager 网关服务器只能向管理服务器报告。  如果将 Operations Manager 管理组配置为与 Log Analytics 网关通信，代理配置信息会自动分发到代理管理的、配置为收集 Azure Monitor 日志数据的每台计算机，即使设置为空。
 
 若要为通过网关与 Log Analytics 工作区通信的直接连接的组或 Operations Management 组提供高可用性，可以使用网络负载均衡 (NLB) 在多个网关服务器之间重定向和分配流量。 这样，如果一台网关服务器发生故障，流量将重定向到另一个可用节点。  
 
@@ -91,11 +86,13 @@ Log Analytics 网关支持以下语言：
 - 西班牙语(国际)
 
 ### <a name="supported-encryption-protocols"></a>支持的加密协议
+
 Log Analytics 网关仅支持传输层安全性 (TLS) 1.0、1.1 和 1.2。  它不支持安全套接字层 (SSL)。  为了确保传输到 Log Analytics 的数据的安全性，请将网关配置为至少使用 TLS 1.2。 旧版 TLS 或 SSL 容易受到攻击。 尽管这些协议目前允许后向兼容，但请勿使用。  
 
 有关其他信息，请查看[使用 TLS 1.2 安全地发送数据](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
 
 ### <a name="supported-number-of-agent-connections"></a>支持的代理连接数
+
 下表显示了可与一个网关服务器通信的大致代理数量。 此项支持基于代理每 6 秒上传约 200 KB 数据。 对于测试的每个代理，数据量约为每天 2.7 GB。
 
 |网关 |支持的代理数（近似）|  
@@ -169,7 +166,7 @@ Log Analytics 网关仅支持传输层安全性 (TLS) 1.0、1.1 和 1.2。  它�
 若要以无提示方式安装网关并使用特定的代理地址、端口号对其进行配置，请键入以下命令：
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 使用 /qn 命令行选项会在无提示安装期间隐藏安装程序，而使用 /qb 则会显示安装程序。  
@@ -177,7 +174,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 如果需要提供用于在代理服务器中进行身份验证的凭据，请键入以下命令：
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 安装完成后，可使用以下 PowerShell cmdlet 确认接受设置（不包括用户名和密码）：
@@ -269,6 +266,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 1. 选择“完成”。  Operations Manager 管理组现已配置为通过网关服务器与 Log Analytics 服务通信。
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>配置 Operations Manager，其中的特定代理使用代理服务器
+
 在大型或复杂环境中，你可能只希望特定的服务器（或组）使用 Log Analytics 网关服务器。  对于这些服务器，无法直接更新 Operations Manager 代理，因为此值会被管理组的全局值覆盖。  应该重写用于推送这些值的规则。  
 
 > [!NOTE] 
@@ -293,62 +291,25 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 1. 完成后，选择“确定”。  
 
 ### <a name="configure-for-automation-hybrid-runbook-workers"></a>配置自动化混合 Runbook 辅助角色
-如果在环境中使用自动化混合 Runbook 辅助角色，请遵循以下步骤，通过手动的临时解决方法将 OMS 网关配置为支持这些辅助角色。
 
-若要遵循本部分所述的步骤，需要知道自动化帐户所在的 Azure 区域。 若要查找该位置：
+如果在环境中使用自动化混合 Runbook 辅助角色，请遵循以下步骤，将网关配置为支持这些辅助角色。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-1. 选择 Azure 自动化服务。
-1. 选择相应的 Azure 自动化帐户。
-1. 在“位置”下面即可查看该帐户所在的区域。 
+请参阅自动化文档的[配置网络](../../automation/automation-hybrid-runbook-worker.md#network-planning)部分，查找每个区域的 URL。
 
-   ![Azure 门户中自动化帐户位置的屏幕截图](./media/gateway/location.png)
+如果计算机已自动注册为混合 Runbook 辅助角色，例如，如果为一个或多个 VM 启用了更新管理解决方案，请执行以下步骤：
 
-使用下表识别每个位置的 URL。
-
-**作业运行时数据服务 URL**
-
-| **位置** | **URL** |
-| --- | --- |
-| 美国中北部 |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| 西欧 |we-jobruntimedata-prod-su1.azure-automation.net |
-| 美国中南部 |scus-jobruntimedata-prod-su1.azure-automation.net |
-| 美国东部 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| 加拿大中部 |cc-jobruntimedata-prod-su1.azure-automation.net |
-| 北欧 |ne-jobruntimedata-prod-su1.azure-automation.net |
-| 东南亚 |sea-jobruntimedata-prod-su1.azure-automation.net |
-| 中国东部 2 |cid-jobruntimedata-prod-su1.azure-automation.net |
-| 日本 |jpe-jobruntimedata-prod-su1.azure-automation.net |
-| 中国 |ase-jobruntimedata-prod-su1.azure-automation.net |
-
-**代理服务 URL**
-
-| **位置** | **URL** |
-| --- | --- |
-| 美国中北部 |ncus-agentservice-prod-1.azure-automation.net |
-| 西欧 |we-agentservice-prod-1.azure-automation.net |
-| 美国中南部 |scus-agentservice-prod-1.azure-automation.net |
-| 美国东部 2 |eus2-agentservice-prod-1.azure-automation.net |
-| 加拿大中部 |cc-agentservice-prod-1.azure-automation.net |
-| 北欧 |ne-agentservice-prod-1.azure-automation.net |
-| 东南亚 |sea-agentservice-prod-1.azure-automation.net |
-| 中国东部 2 |cid-agentservice-prod-1.azure-automation.net |
-| 日本 |jpe-agentservice-prod-1.azure-automation.net |
-| 中国 |ase-agentservice-prod-1.azure-automation.net |
-
-如果计算机已自动注册为混合 Runbook 辅助角色，请使用“更新管理”解决方案来管理修补程序。 执行以下步骤：
-
-1. 将作业运行时数据服务 URL 添加到 Log Analytics 网关上的“允许的主机”列表。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 将作业运行时数据服务 URL 添加到 Log Analytics 网关上的“允许的主机”列表。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.cn`
 1. 使用以下 PowerShell cmdlet 重新启动 Log Analytics 网关服务：`Restart-Service OMSGatewayService`
 
 如果已使用混合 Runbook 辅助角色注册 cmdlet 将计算机加入 Azure 自动化，请遵循以下步骤：
 
-1. 将代理服务注册 URL 添加到 Log Analytics 网关上的“允许的主机”列表。 例如： `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. 将作业运行时数据服务 URL 添加到 Log Analytics 网关上的“允许的主机”列表。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 将代理服务注册 URL 添加到 Log Analytics 网关上的“允许的主机”列表。 例如： `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.cn`
+1. 将作业运行时数据服务 URL 添加到 Log Analytics 网关上的“允许的主机”列表。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.cn`
 1. 重新启动 Log Analytics 网关服务。
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>有用的 PowerShell cmdlet
+
 可以使用 cmdlet 来完成更新 Log Analytics 网关配置设置的任务。 在使用 cmdlet 之前，请确保：
 
 1. 安装 Log Analytics 网关（Microsoft Windows Installer）。
@@ -373,6 +334,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 | `Get-OMSGatewayAllowedClientCertificate` | |获取当前允许的客户端证书使用者（仅限本地配置的允许使用者，而不是自动下载的允许使用者） |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>故障排除
+
 若要收集网关记录的事件，应该安装 Log Analytics 代理。
 
 ![Log Analytics 网关日志中“事件查看器”列表的屏幕截图](./media/gateway/event-viewer.png)
@@ -411,12 +373,14 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 ![Log Analytics 网关接口的屏幕截图，其中显示了性能计数器](./media/gateway/counters.png)
 
 ## <a name="assistance"></a>帮助
+
 登录到 Azure 门户后，可以获取 Log Analytics 网关或其他任何 Azure 服务或功能的帮助。
 若要取得帮助，请选择门户右上角的问号图标，然后选择“新建支持请求”。  接下来，填写新建支持请求的表单。
 
 ![新支持请求的屏幕截图](./media/gateway/support.png)
 
 ## <a name="next-steps"></a>后续步骤
+
 [添加数据源](../../azure-monitor/platform/agent-data-sources.md)以便从连接的源中收集数据，并将数据存储在 Log Analytics 工作区中。
 
 

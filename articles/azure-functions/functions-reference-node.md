@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 02/24/2019
-ms.date: 09/06/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: d812ed8e824a57bea688376f63f0a66a09a89dbb
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 5b0fc77f70e59de6a2463d4851443bd10055bcef
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805796"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934254"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -421,7 +421,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 | Functions 版本 | Node.js 版本 | 
 |---|---|
 | 1.x | 6.11.2（运行时锁定） |
-| 2.x  | 活动 LTS 和维护 LTS Node.js 版本（建议使用 8.11.1 和 10.14.1）。   使用 WEBSITE_NODE_DEFAULT_VERSION [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)来设置版本。|
+| 2.x  | _活动 LTS_ 和_维护 LTS_ Node.js 版本（建议使用 ~10）。 通过将 WEBSITE_NODE_DEFAULT_VERSION [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)设置为 `~10` 来确定 Azure 中的版本。|
 
 可以通过查看上述应用设置或打印任何函数的 `process.version` 来查看运行时正在使用的当前版本。
 
@@ -677,8 +677,9 @@ const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 module.exports = async function (context) {
+    let data;
     try {
-        const data = await readFileAsync('./hello.txt');
+        data = await readFileAsync('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
@@ -699,4 +700,4 @@ module.exports = async function (context) {
 [`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -1,25 +1,20 @@
 ---
 title: 在 Azure Monitor 日志查询中使用日期时间值 | Microsoft Docs
 description: 介绍如何在 Azure Monitor 日志查询中使用日期和时间数据。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
 origin.date: 08/22/2019
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 4fc75f98980f2a06b3f1e0a287a43e0e751858a4
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 30000c62dd976ba1ec087f1826123a1a9a0c19f1
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989247"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730462"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用日期时间值
 

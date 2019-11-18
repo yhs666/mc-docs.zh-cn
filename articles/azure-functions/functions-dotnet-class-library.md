@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/12/2018
-ms.date: 09/06/2019
+ms.date: 10/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: f7871a9083b7ebc7435eb468b43d8b1121b130c5
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: a837f95f9d51941d918760d12dd2172741506a14
+ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805810"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034404"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -31,6 +31,10 @@ Azure Functions 支持 C# 和 C# 脚本编程语言。 如果要寻找有关[在
 
 * [Azure Functions 开发人员指南](functions-reference.md)
 * [Azure Functions Visual Studio 2019 工具](functions-develop-vs.md)
+
+## <a name="supported-versions"></a>支持的版本
+
+Azure Functions 2.x 运行时使用 .NET Core 2.2。 通过更新 Visual Studio 项目设置，函数代码可以使用 .NET Core 2.2 API。 函数模板不默认为使用 .NET Core 2.2，以避免对未安装 .NET Core 2.2 的客户产生不利影响。
 
 ## <a name="functions-class-library-project"></a>Functions 类库项目
 
@@ -55,6 +59,7 @@ Azure Functions 支持 C# 和 C# 脚本编程语言。 如果要寻找有关[在
 
 > [!IMPORTANT]
 > 生成过程将为每个函数创建一个 *function.json* 文件。 此 *function.json* 文件不应直接编辑。 无法通过编辑此文件来更改绑定配置或禁用函数。 要了解如何禁用函数，请参阅[如何禁用函数](disable-function.md#functions-2x---c-class-libraries)。
+
 
 ## <a name="methods-recognized-as-functions"></a>识别为函数的方法
 

@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/14/2019
-ms.date: 09/16/2019
+origin.date: 09/30/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2a69cd31e26bdd29087eadb0efc4bd12b7cb3bd4
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 14ad4d87c652263f7339353450a41c4343fa08c0
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736664"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425905"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop HDFS 进行故障排除
 
@@ -74,6 +74,30 @@ ms.locfileid: "70736664"
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
+
+## <a name="du"></a>du
+
+[-du](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) 命令显示给定目录中包含的文件和目录的大小或文件的长度（如果它只是一个文件）。
+
+`-s` 选项生成所显示文件长度的聚合汇总。  
+`-h` 选项设置文件大小的格式。
+
+示例：
+
+```bash
+hdfs dfs -du -s -h hdfs://mycluster/
+hdfs dfs -du -s -h hdfs://mycluster/tmp
+```
+
+## <a name="rm"></a>rm
+
+[-rm](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) 命令删除指定为参数的文件。
+
+示例：
+
+```bash
+hdfs dfs -rm hdfs://mycluster/tmp/testfile
+```
 
 ## <a name="next-steps"></a>后续步骤
 

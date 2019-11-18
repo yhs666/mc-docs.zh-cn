@@ -1,5 +1,6 @@
 ---
-title: 受保护的 Web API - 应用代码配置 | Azure Active Directory
+title: 使用受保护的 Web API 验证范围和应用角色
+titleSuffix: Microsoft identity platform
 description: 了解如何生成受保护的 Web API 和配置应用程序的代码。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,18 +14,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 08/21/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b01142489073af4f4f88000c6cd98314714fa3f6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: c8b3ce81a4d6d7b7c0b5a4757807f307193e0fa2
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993731"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830919"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>受保护的 Web API：将授权添加到 API
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>受保护的 Web API：验证范围和应用角色
 
 本文介绍如何将授权添加到 Web API。 这种保护可确保只有以下对象才能调用 API：
 
@@ -174,3 +175,4 @@ bool isAppOnlyToken = oid == sub;
 > [!div class="nextstepaction"]
 > [转移到生产环境](scenario-protected-web-api-production.md)
 
+<!-- Update_Description: wording update -->

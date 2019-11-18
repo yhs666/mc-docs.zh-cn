@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/29/2019
-ms.date: 07/22/2019
+origin.date: 09/28/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: f90a6b22e3fe6f4095e2d64c5faec391a89a8fe2
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 567b3645921fc34c6f1bab8793bc93e96d403384
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845450"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425876"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -39,19 +39,19 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在左侧菜单中，选择“+ 创建资源”  。
+1. 在左侧菜单中，导航到“+ 创建资源” >  “Analytics” > “HDInsight”    。
 
-1.  在“Azure 市场”下，选择“数据 + 分析”   。
-
-1.  在“特别推荐”下选择“HDInsight”   。
-   
     ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "在 Azure 门户中创建新群集")
+
+1. 从“创建 HDInsight 群集”  页，选择“转到经典创建体验”  。
+
+    ![转到经典创建体验](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-create-classic.png)
 
 1. 在“HDInsight”页上，选择“自定义(大小、设置、应用)”。  
 
 1. 选择“1 基础知识”  。 然后输入以下信息。
 
-    ![配置基本设置](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "在 Azure 门户中创建新群集")
+    ![HDInsight 创建群集基本信息](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "在 Azure 门户中创建新群集")
 
     * 输入**群集名称**。 此名称必须全局唯一。
 
@@ -74,7 +74,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 
     * 选择“下一步”转到下一页  。
 
-4. 在“2 安全性 + 网络”中，可以使用所提供的下拉菜单将群集连接到虚拟网络  。 如果想要将群集放入虚拟网络，请选择 Azure 虚拟网络和子网。 若要了解如何将 HDInsight 与虚拟网络配合使用，请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。 本文包含虚拟网络的特定配置要求。 
+1. 在“2 安全性 + 网络”中，可以使用所提供的下拉菜单将群集连接到虚拟网络  。 如果想要将群集放入虚拟网络，请选择 Azure 虚拟网络和子网。 有关在虚拟网络中使用 HDInsight 的信息，请参阅[为 Azure HDInsight 群集规划虚拟网络部署](hdinsight-plan-virtual-network-deployment.md)。 本文包含虚拟网络的特定配置要求。
 
     选择“下一步”转到下一页  。
 
@@ -170,5 +170,5 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 * [使用 Scala 创建独立的应用程序](spark/apache-spark-create-standalone-application.md)
 * [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
 

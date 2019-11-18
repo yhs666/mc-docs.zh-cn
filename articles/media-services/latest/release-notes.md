@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-origin.date: 09/06/2019
-ms.date: 09/23/2019
+origin.date: 10/07/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 3c08d073481e4382f0afa4a35e4212dfe3f6c5c1
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 1b0b5a547291222abef6eebf57465066e00bcb88
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124437"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416285"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
 
@@ -37,6 +37,10 @@ ms.locfileid: "71124437"
 
 ## <a name="september-2019"></a>2019 年 9 月
 
+###  <a name="media-services-v3"></a>媒体服务 v3  
+
+#### <a name="live-linear-encoding-of-live-events"></a>直播活动的实时线性编码
+
 媒体服务 v3 宣布推出对直播活动进行实时线性编码的 24 小时 x 365 天预览版。
  
 ## <a name="june-2019"></a>2019 年 7 月
@@ -49,7 +53,7 @@ ms.locfileid: "71124437"
 
 请参阅示例：
 
-* [使用 .NET 对视频进行子剪辑](subclip-video-dotnet-howto.md)
+* [使用 .NET 创建视频的子剪辑](subclip-video-dotnet-howto.md)
 * [使用 REST 对视频进行子剪辑](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>2019 年 5 月
@@ -228,4 +232,5 @@ CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DA
 
 ## <a name="next-steps"></a>后续步骤
 
-[概述](media-services-overview.md)
+- [概述](media-services-overview.md)
+- [媒体服务 v2 发行说明](../previous/media-services-release-notes.md)

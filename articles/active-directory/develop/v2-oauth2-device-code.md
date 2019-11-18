@@ -1,6 +1,6 @@
 ---
 title: 使用 Microsoft 标识平台让用户在无浏览器设备上登录 | Azure
-description: 使用设备代码授予生成嵌入式无浏览器身份验证流。
+description: 使用设备权限授予生成嵌入式无浏览器身份验证流。
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,29 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/30/2019
-ms.date: 10/09/2019
+origin.date: 10/24/2019
+ms.date: 11/06/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe7540c37174dbd6ab247bbda4cfed02cd8ad3d
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 4d14e355452377616cc83900910fa7213d33ac2d
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292044"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830884"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft 标识平台和 OAuth 2.0 设备代码流
+# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft 标识平台和 OAuth 2.0 设备权限授予流
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Microsoft 标识平台支持[设备代码授予](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12)，可让用户登录到智能电视、IoT 设备或打印机等输入受限的设备。  若要启用此流，设备会让用户在另一台设备上的浏览器中访问一个网页，以进行登录。  用户登录后，设备可以获取所需的访问令牌和刷新令牌。  
-
-> [!IMPORTANT]
-> 目前，Microsoft 标识平台终结点仅支持将设备流用于 Azure AD 租户。  这意味着，必须使用设置为租户的终结点或 `organizations` 终结点。  即将启用此支持。 
->
-> 另外请注意，目前不包含或不支持 `verification_uri_complete` 响应字段。  我们提到这一点是因为如果你阅读该标准，你会看到 `verification_uri_complete` 被列为设备代码流标准的可选部分。
+Microsoft 标识平台支持[设备权限授予](https://tools.ietf.org/html/rfc8628)，可让用户登录到智能电视、IoT 设备或打印机等输入受限设备。  若要启用此流，设备会让用户在另一台设备上的浏览器中访问一个网页，以进行登录。  用户登录后，设备可以获取所需的访问令牌和刷新令牌。  
 
 > [!NOTE]
 > Microsoft 标识平台终结点并非支持所有 Azure Active Directory 方案和功能。 若要确定是否应使用 Microsoft 标识平台终结点，请阅读 [Microsoft 标识平台限制](azure-ad-endpoint-comparison.md)。
@@ -66,7 +61,7 @@ scope=https://microsoftgraph.chinacloudapi.cn/user.read%20openid%20profile
 
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
-| `tenant` | 必须 |要向其请求权限的目录租户。 此参数可采用 GUID 或友好名称格式。  |
+| `tenant` | 必须 | 可以是 /common 或 /organizations。  它也可以是要以 GUID 或友好名称格式向其请求权限的目录租户。  |
 | `client_id` | 必须 | [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验分配给应用的**应用程序（客户端）ID**。 |
 | `scope` | 建议 | 希望用户同意的[范围](v2-permissions-and-consent.md)的空格分隔列表。  |
 
@@ -83,23 +78,27 @@ scope=https://microsoftgraph.chinacloudapi.cn/user.read%20openid%20profile
 |`interval`        | int | 在发出下一个轮询请求之前客户端应等待的秒数。 |
 | `message`        | String | 用户可读的字符串，包含面向用户的说明。 可以通过在请求中包含 `?mkt=xx-XX` 格式的**查询参数**并填充相应的语言区域性代码，将此字符串本地化。 |
 
+> [!NOTE]
+> 此时不包括或不支持 `verification_uri_complete` 响应字段。  我们提到这一点是因为如果你阅读[标准](https://tools.ietf.org/html/rfc8628)，你会看到 `verification_uri_complete` 作为设备代码流标准的可选部分列出。
+
 ## <a name="authenticating-the-user"></a>对用户进行身份验证
 
-收到 `user_code` 和 `verification_uri` 后，客户端会向用户显示这些信息，指示他们使用移动电话或电脑浏览器登录。  此外，客户端可以使用 QR 码或类似的机制来显示 `verfication_uri_complete`，这需要执行输入用户的 `user_code` 的步骤。
+收到 `user_code` 和 `verification_uri` 后，客户端会向用户显示这些信息，指示他们使用移动电话或电脑浏览器登录。
 
 尽管用户是在 `verification_uri` 中进行身份验证，但客户端应使用 `device_code` 来轮询所请求令牌的 `/token` 终结点。
 
 ``` 
-POST https://login.partner.microsoftonline.cn/tenant/oauth2/v2.0/token
+POST https://login.partner.microsoftonline.cn/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type: urn:ietf:params:oauth:grant-type:device_code
 client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
-device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
+device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
 | 参数 | 必须 | 说明|
 | -------- | -------- | ---------- |
+| `tenant`  | 必须 | 初始请求中使用的同一租户或租户别名。 | 
 | `grant_type` | 必须 | 必须是 `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | 必须 | 必须与初始请求中使用的 `client_id` 匹配。 |
 | `device_code`| 必须 | 设备授权请求中返回的 `device_code`。  |
@@ -113,7 +112,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 | `authorization_pending` | 用户尚未完成身份验证，但未取消流。 | 在至少 `interval` 秒之后重复请求。 |
 | `authorization_declined` | 最终用户拒绝了授权请求。| 停止轮询，并恢复到未经过身份验证状态。  |
 | `bad_verification_code`| 未识别已发送到 `/token` 终结点的 `device_code`。 | 验证客户端是否在请求中发送了正确的 `device_code`。 |
-| `expired_token` | 至少已经过去了 `expires_in` 秒，不再可以使用此 `device_code` 进行身份验证。 | 停止轮询，并恢复到未经过身份验证状态。 |
+| `expired_token` | 至少已经过去了 `expires_in` 秒，不再可以使用此 `device_code` 进行身份验证。 | 停止轮询，并恢复到未经过身份验证状态。 |   
 
 ### <a name="successful-authentication-response"></a>成功的身份验证响应
 

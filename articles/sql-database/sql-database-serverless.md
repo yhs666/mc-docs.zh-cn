@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 09/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 675468b2d9d0c84382fcdd9937611da401b84012
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 11/04/2019
+ms.openlocfilehash: 4d441b257bb20ef192492242078ed62eed28c57b
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262917"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041197"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL 数据库无服务器计算层（预览版）
 
@@ -161,12 +161,18 @@ Azure SQL 数据库无服务器计算层（预览版）是适用于单一数据�
    |GP_S_Gen5_1|常规用途|Gen5|1|
    |GP_S_Gen5_2|常规用途|Gen5|2|
    |GP_S_Gen5_4|常规用途|Gen5|4|
+   |GP_S_Gen5_6|常规用途|Gen5|6|
+   |GP_S_Gen5_8|常规用途|Gen5|8|
+   |GP_S_Gen5_10|常规用途|Gen5|10 个|
+   |GP_S_Gen5_12|常规用途|Gen5|12|
+   |GP_S_Gen5_14|常规用途|Gen5|14|
+   |GP_S_Gen5_16|常规用途|Gen5|16|
 
 2. （可选）指定最小 vCore 数和自动暂停延迟以更改它们的默认值。 下表显示了这些参数可用的值。
 
    |参数|可选的值|默认值|
    |---|---|---|---|
-   |最小 vCore 数|{0.5, 1, 2, 4} 中的任何值，不超过最大 vCore 数|0.5 个 vCore|
+   |最小 vCore 数|取决于配置的最大 vCore 数 - 请参阅[资源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。|0.5 个 vCore|
    |自动暂停延迟|最低：60 分钟（1 小时）<br>最大值：10080 分钟（7 天）<br>增量：60 分钟<br>禁用自动暂停：-1|60 分钟|
 
 > [!NOTE]

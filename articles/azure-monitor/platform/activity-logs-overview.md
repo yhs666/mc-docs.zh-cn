@@ -5,16 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 05/19/2019
-ms.date: 06/19/2019
+origin.date: 09/20/2019
+ms.date: 10/20/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 5012f401b6c6fc86e3109399c2d220013c6cecc0
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 118e0df0c260f7be70cbd1d1bebb885cf9b5dc94
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329739"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970767"
 ---
 # <a name="overview-of-azure-activity-log"></a>Azure 活动日志概述
 
@@ -24,10 +24,10 @@ Azure 活动日志可以方便用户深入了解 Azure 中发生的订阅级别�
 
 活动日志未包括读取 (GET) 操作或针对使用经典/RDFE 模型的资源的操作。
 
-## <a name="comparison-to-diagnostic-logs"></a>与诊断日志的比较
-每个 Azure 订阅都有一个活动日志。 它提供从外部（“控制面”）对资源执行的操作的相关数据。 [诊断日志](diagnostic-logs-overview.md)由资源发出，并提供有关该资源（“数据平面”）的操作信息。 必须为每个资源启用诊断设置。
+## <a name="comparison-to-resource-logs"></a>与资源日志比较
+每个 Azure 订阅都有一个活动日志。 它提供从外部（“控制面”）对资源执行的操作的相关数据。 [资源日志](resource-logs-overview.md)由资源发出，并提供有关该资源（“数据平面”）的操作信息。 必须为每个资源创建诊断设置以收集资源日志。
 
-![活动日志与诊断日志的比较](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![活动日志与资源日志的比较](media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 
 > [!NOTE]
@@ -70,5 +70,6 @@ Azure 活动日志可以方便用户深入了解 Azure 中发生的订阅级别�
 ## <a name="next-steps"></a>后续步骤
 
 * [创建用于导出 Azure 活动日志的日志配置文件](activity-log-export.md)
-
+* [将 Azure 活动日志流式传输到事件中心](activity-log-export.md)
+* [将 Azure 活动日志存档到存储](activity-log-export.md)
 

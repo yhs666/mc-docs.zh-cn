@@ -1,21 +1,19 @@
 ---
 title: Azure 诊断扩展 1.3 及更高版本的配置架构
-description: 世纪互联 Azure SDK 2.4 及更高版本中附带了 Azure 诊断 1.3 及更高版本的架构。
-services: azure-monitor
-author: lingliw
+description: Microsoft Azure SDK 2.4 及更高版本中附带了 Azure 诊断 1.3 及更高版本的架构。
 ms.service: azure-monitor
-ms.devlang: dotnet
+ms.subservice: diagnostic-extension
 ms.topic: reference
+author: lingliw
 origin.date: 09/20/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.subservice: diagnostic-extension
-ms.openlocfilehash: 747ebd79b682180495f334b1e774421bbbaeb093
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 16febeab9141d79be3478d2b03ebe115efd8d47f
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736861"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041102"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -28,7 +26,7 @@ ms.locfileid: "70736861"
 >
 > 在使用以下某个服务时，才需要参阅此页。
 
-此页面适用于版本 1.3 及更高版本（Azure SDK 2.4 及更高版本）。 已对较新的配置节进行注释，以显示其添加于哪一版本。  
+此页面适用于版本 1.3 及更高版本（Azure SDK 2.4 及更高版本）。 已对较新的配置节进行注释，以显示其添加于哪一版本。 架构版本 1.0 和 1.2 已存档，不再可用。 
 
 此处描述的配置文件用来在诊断监视器启动时设置诊断配置设置。  
 
@@ -49,7 +47,7 @@ ms.locfileid: "70736861"
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>  
-<DiagnosticsConfiguration  xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">   
+<DiagnosticsConfiguration  xmlns="https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">   
   <PublicConfig>  
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
@@ -416,7 +414,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
 诊断配置文件的顶级元素。  
 
 **Attribute**  xmlns - 诊断配置文件的 XML 命名空间是：  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
 |子元素|说明|  

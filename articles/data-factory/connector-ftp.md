@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 09/09/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 048284c6fd8b9db435b0412e0f44964f42f6a527
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 0e8393425465e69d3aeb3825977bfe179babec68
+ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275498"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648723"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 FTP 服务器复制数据
 
@@ -28,7 +28,7 @@ ms.locfileid: "72275498"
 
 以下活动支持此 FTP 连接器：
 
-- 带有[支持的源矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
 - [Lookup 活动](control-flow-lookup-activity.md)
 - [GetMetadata 活动](control-flow-get-metadata-activity.md)
 - [Delete 活动](delete-activity.md)
@@ -62,7 +62,7 @@ FTP 链接服务支持以下属性：
 | authenticationType | 指定身份验证类型。<br/>允许值包括：**Basic**、**Anonymous** | 是 |
 | userName | 指定有权访问 FTP 服务器的用户。 | 否 |
 | password | 指定用户 (userName) 的密码。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 否 |
-| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
+| connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 在[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >FTP 连接器支持在不使用加密或使用显式 SSL/TLS 加密的情况下访问 FTP 服务器；不支持隐式 SSL/TLS 加密。

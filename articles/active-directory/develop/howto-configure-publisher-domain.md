@@ -1,5 +1,6 @@
 ---
-title: 配置应用程序的发布者域 | Azure
+title: 配置应用程序的发布者域
+titleSuffix: Microsoft identity platform
 description: 了解如何配置应用程序的发布者域，以告知用户其信息将发送到何处。
 services: active-directory
 documentationcenter: dev-center-name
@@ -9,21 +10,21 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/05/2019
-ms.date: 06/24/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d4bf36004df4064de01e6e7f0d5d0ec1883d389
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 85b73146d6917ad0a4ea412055d3528d2d7fa210
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568480"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830981"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>如何：配置应用程序的发布者域（预览）
 
@@ -98,6 +99,12 @@ ms.locfileid: "67568480"
 
 - 如果租户包含已验证的域，请从“选择已验证的域”下拉列表中选择一个域。 
 
+>[!Note]
+> 应返回的所需“Content-Type”标头为 `application/json`。 如果使用类似 `application/json; charset=utf-8` 的其他任何内容，则可能会收到如下所述的错误 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
+
 ## <a name="implications-on-the-app-consent-prompt"></a>对应用许可提示的影响
 
 配置发布者域会影响用户在应用许可提示中看到的内容。 若要完全了解许可提示的组件，请参阅[了解应用程序许可体验](application-consent-experience.md)。
@@ -152,4 +159,4 @@ ms.locfileid: "67568480"
 
 目前，不支持使用 REST API 或 PowerShell 以编程方式配置发布者域。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

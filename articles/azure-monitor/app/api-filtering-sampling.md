@@ -1,45 +1,40 @@
 ---
 title: Azure Application Insights SDK 中的筛选和预处理 | Azure Docs
 description: 为 SDK 编写遥测处理器和遥测初始值设定项，以在将遥测发送到 Application Insights 门户之前筛选属性或将其添加到数据。
-services: application-insights
-documentationcenter: ''
-author: lingliw
-manager: digimobile
-ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 11/23/2016
+author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0a62b7aa015fc97e3c674781a6627845b58266f4
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: b2f2a6350a8fab77e62df85dc97343b76a936a23
+ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737113"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72970881"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK 中的筛选和预处理遥测 | Microsoft Azure
 
+可以为 Application Insights SDK 编写和配置插件，在将遥测发送到 Application Insights 服务之前自定义遥测的扩充和处理方式。
 
-可以为 Application Insights SDK 编写和配置插件，以在将遥测发送到 Application Insights 服务之前自定义遥测的捕获和处理方式。
-
-* [采样](../../azure-monitor/app/sampling.md)可在不影响统计信息的情况下减少遥测量。 它还保留相关数据点，以便可以在诊断问题时导航这些点。 在门户中，总计相乘以补偿采样。
-* 通过[适用于 ASP.NET](#filtering) 或 [Java](../../azure-monitor/app/java-filter-telemetry.md) 的遥测处理器筛选可先在 SDK 中选择或修改遥测，然后再将其发送到服务器。 例如，可以通过排除机器人请求减少遥测量。 但是，与采样相比，筛选是更基本的减少流量方法。 它允许更好地控制传输的内容，但你必须知道它会影响统计信息（例如，如果筛选出所有成功请求）。
-* [遥测初始值设定项将属性添加](#add-properties)到从应用发送的任何属性，包括来自标准模块的遥测。 例如，可以添加计算得出的值；或在门户中筛选数据所依据的版本号。
+* [采样](sampling.md)可在不影响统计信息的情况下减少遥测量。 它还保留相关数据点，以便可以在诊断问题时导航这些点。 在门户中，总计相乘以补偿采样。
+* 使用遥测处理器进行筛选，就可以先在 SDK 中筛选出遥测，然后再将其发送到服务器。 例如，可以通过排除机器人请求减少遥测量。 与采样相比，筛选是更基本的减少流量的方法。 它允许更好地控制传输的内容，但你必须知道它会影响统计信息（例如，如果筛选出所有成功请求）。
+* 对于从应用发送的任何遥测（包括来自标准模块的遥测），[遥测初始值设定项可以添加或修改属性](#add-properties)。 例如，可以添加计算得出的值；或在门户中筛选数据所依据的版本号。
 * [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 用于发送自定义事件和指标。
 
 开始之前：
 
-* 在应用中安装[适用于 ASP.NET](../../azure-monitor/app/asp-net.md) 或 [Java](../../azure-monitor/app/java-get-started.md) 的 Application Insights SDK。
+* 为应用程序安装相应的 SDK：[ASP.NET](asp-net.md)、[ASP.NET Core](asp-net-core.md)、[用于 .NET/.NET Core 的非 HTTP/辅助角色](worker-service.md)或 [Java](../../azure-monitor/app/java-get-started.md)。
 
 <a name="filtering"></a>
 
 ## <a name="filtering-itelemetryprocessor"></a>筛选：ITelemetryProcessor
-使用此技术可以更直接地控制要在遥测流中包含或排除的内容。 可以将其与采样结合使用，也可以单独使用。
 
-若要筛选遥测，编写遥测处理器并为 SDK 注册它。 所有遥测都通过处理器，可以选择从流中删除它或添加属性。 这包括来自标准模块的遥测（例如 HTTP 请求收集器和依赖项收集器）以及自行编写的遥测。 例如，可以筛选出有关机器人请求或成功依赖项调用的遥测。
+使用此技术可以直接控制要在遥测流中包含或排除的内容。 可以通过筛选删除要发送到 Application Insights 的遥测项。 可以将其与采样结合使用，也可以单独使用。
+
+若要筛选遥测，请编写遥测处理器并通过 `TelemetryConfiguration` 注册它。 所有遥测都通过处理器，可以选择从流中删除它或将它提供给链中的下一处理器。 这包括来自标准模块的遥测（例如 HTTP 请求收集器和依赖项收集器）以及自行跟踪的遥测。 例如，可以筛选出有关机器人请求或成功依赖项调用的遥测。
 
 > [!WARNING]
 > 使用处理器筛选从 SDK 发送的遥测会使门户中看到的统计信息出现偏差，并使它难以跟进相关项目。
@@ -49,58 +44,47 @@ ms.locfileid: "70737113"
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>创建遥测处理器 (C#)
-1. 验证项目中的 Application Insights SDK 是版本 2.0.0 或更高版本。 在“Visual Studio 解决方案资源管理器”中右键单击项目并选择“管理 NuGet 包”。 在“NuGet 包管理器”中，选中 Microsoft.ApplicationInsights.Web。
-2. 若要创建筛选器，请实现 ITelemetryProcessor。 这是另一个扩展点，如遥测模块、遥测初始值设定项和遥测通道。
 
-    请注意，遥测处理器构建一个处理链。 实例化遥测处理器时，会传递指向该链中下一个处理器的链接。 将遥测数据点传递到处理方法时，它实现该方法，然后调用该链中的下一个遥测处理器。
+1. 若要创建筛选器，请实现 `ITelemetryProcessor`。
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
+    请注意，遥测处理器构建一个处理链。 当你实例化遥测处理器时，系统会为你提供链中下一个处理器的引用。 将遥测数据点传递到处理方法时，该方法会生效，然后调用（或不调用）链中的下一个遥测处理器。
 
-public class SuccessfulDependencyFilter : ITelemetryProcessor
-{
+    ```csharp
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-    private ITelemetryProcessor Next { get; set; }
-
-    // You can pass values from .config
-    public string MyParamFromConfigFile { get; set; }
-
-    // Link processors to each other in a chain.
-    public SuccessfulDependencyFilter(ITelemetryProcessor next)
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
-        this.Next = next;
+        private ITelemetryProcessor Next { get; set; }
+
+        // next will point to the next TelemetryProcessor in the chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
+        {
+            this.Next = next;
+        }
+
+        public void Process(ITelemetry item)
+        {
+            // To filter out an item, return without calling the next processor.
+            if (!OKtoSend(item)) { return; }
+
+            this.Next.Process(item);
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
     }
-    public void Process(ITelemetry item)
-    {
-        // To filter out an item, just return
-        if (!OKtoSend(item)) { return; }
-        // Modify the item if required
-        ModifyItem(item);
+    ```
 
-        this.Next.Process(item);
-    }
+2. 添加处理器。
 
-    // Example: replace with your own criteria.
-    private bool OKtoSend (ITelemetry item)
-    {
-        var dependency = item as DependencyTelemetry;
-        if (dependency == null) return true;
-
-        return dependency.Success != true;
-    }
-
-    // Example: replace with your own modifiers.
-    private void ModifyItem (ITelemetry item)
-    {
-        item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
-    }
-}
-```
-
-3. 添加处理器
-
-**ASP.NET 应用** 在 ApplicationInsights.config 中插入此项：
+**ASP.NET 应用** 在 ApplicationInsights.config 中插入此代码片段：
 
 ```xml
 <TelemetryProcessors>
@@ -111,19 +95,16 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
 </TelemetryProcessors>
 ```
 
-（本部分与初始化采样筛选器部分相同。）
-
 可通过在类中提供公共命名属性，传递 .config 文件中的字符串值。
 
 > [!WARNING]
 > 注意将 .config 文件中的类型名称和任何属性名称匹配到代码中的类和属性名称。 如果 .config 文件引用不存在的类型或属性，该 SDK 在发送任何遥测时可能静默失败。
 >
->
 
-**或者，** 可以在代码中初始化筛选器。 在合适的初始化类（例如，Global.asax.cs 中的 AppStart）中，将处理器插入链：
+**或者，** 可以在代码中初始化筛选器。 在合适的初始化类（例如，`Global.asax.cs` 中的 AppStart）中，将处理器插入链：
 
 ```csharp
-var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 builder.Use((next) => new SuccessfulDependencyFilter(next));
 
 // If you have more processors:
@@ -134,13 +115,12 @@ builder.Build();
 
 在此点后创建的 TelemetryClients 将使用处理器。
 
-**ASP.NET Core 应用**
+**ASP.NET Core/辅助角色服务应用**
 
 > [!NOTE]
-> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效。 
+> 使用 `ApplicationInsights.config` 或 `TelemetryConfiguration.Active` 添加处理器对于 ASP.NET Core 应用程序无效，或者你在使用 Microsoft.ApplicationInsights.WorkerService SDK。
 
-
-对于 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
+对于使用 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 或 [WorkerService](worker-service.md#adding-telemetry-processors) 编写的应用，若要添加新的 `TelemetryProcessor`，请在 `IServiceCollection` 上使用 `AddApplicationInsightsTelemetryProcessor` 扩展方法，如下所示。 此方法在 `Startup.cs` 类的 `ConfigureServices` 方法中调用。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -155,8 +135,10 @@ builder.Build();
 ```
 
 ### <a name="example-filters"></a>示例筛选器
+
 #### <a name="synthetic-requests"></a>综合请求
-筛选出机器人和 Web 测试。 尽管指标资源管理器提供筛选出综合源的选项，但此选项可通过在 SDK 上筛选它们减少流量。
+
+筛选出机器人和 Web 测试。 尽管指标资源管理器提供筛选出综合源的选项，但此选项可通过在 SDK 自身中筛选它们减少流量和引入大小。
 
 ```csharp
 public void Process(ITelemetry item)
@@ -169,6 +151,7 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="failed-authentication"></a>身份验证失败
+
 筛选出带有“401”响应的请求。
 
 ```csharp
@@ -179,19 +162,21 @@ public void Process(ITelemetry item)
     if (request != null &&
     request.ResponseCode.Equals("401", StringComparison.OrdinalIgnoreCase))
     {
-        // To filter out an item, just terminate the chain:
+        // To filter out an item, return without calling the next processor.
         return;
     }
-    // Send everything else:
+
+    // Send everything else
     this.Next.Process(item);
 }
 ```
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>筛选出快速远程依赖项调用
+
 如果只想诊断速度较慢的调用，则筛选出快速调用。
 
 > [!NOTE]
-> 这会使门户上看到的统计信息出现偏差。 依赖项图看起来就像所有依赖项调用均失败一样。
+> 这会使门户上看到的统计信息出现偏差。
 >
 >
 
@@ -209,17 +194,18 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="diagnose-dependency-issues"></a>诊断依赖项问题
-[本博客](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/)介绍了通过自动将常规 Ping 发送到依赖项诊断依赖项问题的项目。
 
+[本博客](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/)介绍了通过自动将常规 Ping 发送到依赖项诊断依赖项问题的项目。
 
 <a name="add-properties"></a>
 
 ## <a name="add-properties-itelemetryinitializer"></a>添加属性：ITelemetryInitializer
-使用遥测初始值设定项定义通过所有遥测发送的全局属性；并覆盖标准遥测模块的所选行为。
 
-例如，Web 程序包的 Application Insights 将收集有关 HTTP 请求的遥测。 默认情况下，它标记为所有请求失败，并且响应代码 >= 400。 但是，如果希望将 400 视为成功，可以提供一个设置成功属性的遥测初始值设定项。
+通过遥测初始值设定项使用其他信息来扩充遥测，以及/或者重写通过标准遥测模块设置的遥测属性。
 
-如果提供了遥测初始值设定项，只要调用任何 Track*() 方法，就会调用它。 这包括由标准遥测模块调用的方法。 按照约定，这些模块不会设置已由初始值设定项设置的任何属性。
+例如，Web 包的 Application Insights 将收集有关 HTTP 请求的遥测。 默认情况下，它标记为所有请求失败，并且响应代码 >= 400。 但是，如果希望将 400 视为成功，可以提供一个设置成功属性的遥测初始值设定项。
+
+如果提供了遥测初始值设定项，只要调用任何 Track*() 方法，就会调用它。 这包括由标准遥测模块调用的 `Track()` 方法。 按照约定，这些模块不会设置已由初始值设定项设置的任何属性。 在调用遥测处理器之前调用遥测初始值设定项。 因此，由初始值设定项完成的任何扩充对于处理器来说都是可见的。
 
 **定义初始值设定项**
 
@@ -252,10 +238,11 @@ namespace MvcWebRole.Telemetry
         {
             // If we set the Success property, the SDK won't change it:
             requestTelemetry.Success = true;
+
             // Allow us to filter these requests in the portal:
-            requestTelemetry.Context.Properties["Overridden400s"] = "true";
+            requestTelemetry.Properties["Overridden400s"] = "true";
         }
-        // else leave the SDK to set the Success property      
+        // else leave the SDK to set the Success property
     }
   }
 }
@@ -287,12 +274,12 @@ protected void Application_Start()
 
 [查看此示例的详细信息。](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-**ASP.NET Core 应用：加载初始值设定项**
+**ASP.NET Core/辅助角色服务应用：加载初始值设定项**
 
 > [!NOTE]
-> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效。 
+> 使用 `ApplicationInsights.config` 或 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效，或者你在使用 Microsoft.ApplicationInsights.WorkerService SDK。
 
-对于 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
+对于使用 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 或 [WorkerService](worker-service.md#adding-telemetryinitializers) 编写的应用，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这可以在 `Startup.ConfigureServices` 方法中完成。
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -368,15 +355,49 @@ void initialize(Telemetry telemetry); }
 
 有关 telemetryItem 上可用的非自定义属性摘要，请参阅[Application Insights 导出数据模型](../../azure-monitor/app/export-data-model.md)。
 
-可添加任意数量的初始值设定项。
+可添加任意数量的初始值设定项，并按添加顺序调用它们。
+
+### <a name="example-telemetryinitializers"></a>示例 TelemetryInitializer
+
+#### <a name="add-custom-property"></a>添加自定义属性
+
+以下初始值设定项示例将自定义属性添加到每个被跟踪的遥测。
+
+```csharp
+public void Initialize(ITelemetry item)
+{
+  var itemProperties = item as ISupportProperties;
+  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+    {
+        itemProperties.Properties["customProp"] = "customValue";
+    }
+}
+```
+
+#### <a name="add-cloud-role-name"></a>添加云角色名称
+
+以下初始值设定项示例将云角色名称设置为每个被跟踪的遥测。
+
+```csharp
+public void Initialize(ITelemetry telemetry)
+{
+    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    {
+        telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+    }
+}
+```
 
 ## <a name="itelemetryprocessor-and-itelemetryinitializer"></a>ITelemetryProcessor 和 ITelemetryInitializer
+
 遥测处理器和遥测初始值设定项之间的区别是什么？
 
-* 它们的用途有一些重叠之处：二者均可用于向遥测添加属性。
+* 它们的用途有一些重叠之处：二者均可用于添加或修改遥测属性，不过建议将初始值设定项用于该目的。
 * TelemetryInitializers 始终在 TelemetryProcessors 之前运行。
+* TelemetryInitializer 可以多次调用。 按照约定，它们不会设置已设置的任何属性。
 * TelemetryProcessors 允许完全替换或丢弃遥测项。
-* TelemetryProcessors 不处理性能计数器遥测。
+* 可保证为所有遥测项调用所有注册的 TelemetryInitializer。 对于遥测处理器，SDK 保证调用刚好第一个遥测处理器。 是否调用余下的处理器取决于前面的遥测处理器。
+* 通过 TelemetryInitializer 使用其他属性来扩充遥测，或者重写现有的。 使用 TelemetryProcessor 筛选出遥测。
 
 ## <a name="troubleshooting-applicationinsightsconfig"></a>ApplicationInsights.config 故障排除
 * 确认完全限定的类型名称和程序集名称是正确的。

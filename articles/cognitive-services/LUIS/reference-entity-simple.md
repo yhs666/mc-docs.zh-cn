@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-origin.date: 07/24/2019
-ms.date: 09/02/2019
+origin.date: 09/29/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ab0083619acd6a9b41bf88d66bb1e6e1d802fa4b
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: f452c1441d8994b1ffe4101ce95c847feac83ed8
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104201"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416335"
 ---
 # <a name="simple-entity"></a>简单实体 
 
@@ -36,6 +36,8 @@ ms.locfileid: "70104201"
 
 从终结点返回的数据包括实体名称、从陈述中发现的文本、所发现文本的位置，以及评分：
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+
 ```JSON
 "entities": [
   {
@@ -47,6 +49,45 @@ ms.locfileid: "70104201"
   }
 ]
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+如果在查询字符串中设置了 `verbose=false`，则这是 JSON：
+
+```json
+"entities": {
+    "Customer": [
+        "Bob Jones"
+    ]
+}```
+
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "Customer": [
+        "Bob Jones"
+    ],
+    "$instance": {
+        "Customer": [
+            {
+                "type": "Customer",
+                "text": "Bob Jones",
+                "startIndex": 0,
+                "length": 9,
+                "score": 0.9339134,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |数据对象|实体名称|Value|
 |--|--|--|

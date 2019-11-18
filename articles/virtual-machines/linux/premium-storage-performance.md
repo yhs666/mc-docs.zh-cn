@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 origin.date: 06/27/2017
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: ce9716b5664af13ee669772d7185c772ab98014f
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 0e87d249d0a9d1d0de27020b8152d717bf9f0bec
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272822"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831355"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 

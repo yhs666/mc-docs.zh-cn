@@ -1,21 +1,21 @@
 ---
-title: 密钥保管库 .NET 2.x API 发行说明 | Azure Docs
+title: 密钥保管库 .NET 2.x API 发行说明 | Azure
 description: .NET 开发人员可使用此 API 来编写 Azure 密钥保管库的代码
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 05/02/2017
-ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: de4eb50175946b27404fb41e04f85f4bed0d6103
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+ms.date: 10/30/2019
+ms.author: v-tawe
+ms.openlocfilehash: 4bb1a5c0d3582682d109120be7613ad5d10cc2fc
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633022"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426040"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure 密钥保管库 .NET 2.0 - 发行说明和迁移指南
 以下信息有助于迁移到 C# 和 .NET 的 Azure Key Vault 库版本 2.0。  针对早期版本所编写的应用需进行更新，以支持最新版本。  为完全支持新增和改进的功能（如 Key Vault 证书），这些更改是必需的  。
@@ -49,12 +49,12 @@ Key Vault 证书管理 x509 证书，并支持以下行为：
 
 * *Secret* 更改为 *SecretBundle*
 * *Dictionary* 更改为 *IDictionary*
-* *List<T>、string []* 更改为 *IList<T>*
+* *List\<T>, string []* 更改为 *IList\<T>*
 * *NextList* 更改为 *NextPageLink*
 
 ## <a name="return-types"></a>返回类型
 
-* KeyList 和 SecretList 将返回 IPage<T> 而不是 ListKeysResponseMessage    
+* **KeyList** 和 **SecretList** 现在将返回 *IPage\<T>* 而不是 *ListKeysResponseMessage*
 * 生成的 BackupKeyAsync 将返回 BackupKeyResult，其中包含“值”（备份 blob）    。 以前，此方法会包装且仅返回值。
 
 ## <a name="exceptions"></a>异常

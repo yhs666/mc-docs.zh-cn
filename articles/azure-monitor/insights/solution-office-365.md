@@ -1,24 +1,20 @@
 ---
 title: Azure 中的 Office 365 管理解决方案 | Azure Docs
 description: 本文详细介绍如何配置和使用 Azure 中的 Office 365 解决方案。  它还详细介绍了在 Azure Monitor 中创建的 Office 365 记录。
-services: operations-management-suite
-documentationcenter: ''
 author: lingliw
 manager: digimobile
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.subservice: ''
+ms.topic: conceptual
 origin.date: 07/02/2019
 ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 987dd5225d11b1a8c2157198ad80c20e9aa6e1a6
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: d7578c045ca2aa41367b8fdfa20235b0c3687552
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970973"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730470"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
@@ -173,10 +169,16 @@ ms.locfileid: "72970973"
     ```
 
 1. 将会显示类似于以下窗口的窗口。 单击“接受”  。
-
+    
     ![管理员同意](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> 可能会重定向到不存在的页面。 将其视为成功。
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>订阅 Log Analytics 工作区
+
+最后一步是让应用程序订阅 Log Analytics 工作区。 也是使用 PowerShell 脚本执行此操作。
+
 最后一步是让应用程序订阅 Log Analytics 工作区。 也是使用 PowerShell 脚本执行此操作。
 
 1. 将以下脚本保存为 office365_subscription.ps1  。
@@ -225,19 +227,21 @@ ms.locfileid: "72970973"
                     }
 
     Function RESTAPI-Auth { 
-
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
-
+    
     Function Failure {
     $line
     $formatstring = "{0} : {1}`n{2}`n" +
@@ -248,27 +252,27 @@ ms.locfileid: "72970973"
               $_.InvocationInfo.PositionMessage,
               $_.CategoryInfo.ToString(),
               $_.FullyQualifiedErrorId
-
+    
     $formatstring -f $fields
     $_.Exception.Response
-
+    
     $line
     break
     }
-
+    
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
-
+    
     $line
     $connectionAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/connections/office365connection_' + $SubscriptionId + $OfficeTennantId + '?api-version=2017-04-26-preview'
     $connectionAPIUrl
     $line
-
+    
     $xms_client_tenant_Id ='1da8f770-27f4-4351-8cb3-43ee54f14759'
-
+    
     $BodyString = "{
                     'properties': {
                                     'AuthProvider':'Office365',
@@ -281,7 +285,7 @@ ms.locfileid: "72970973"
                     'kind': 'Connection',
                     'solution': 'Connection',
                    }"
-
+    
     $params = @{
         ContentType = 'application/json'
         Headers = @{
@@ -296,16 +300,16 @@ ms.locfileid: "72970973"
     $response = Invoke-WebRequest @params 
     $response
     $line
-
+    
     }
-
+    
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
-
+    
     $OfficeBodyString = "{
                     'properties': {
                                     'AuthProvider':'Office365',
@@ -318,7 +322,7 @@ ms.locfileid: "72970973"
                     'kind': 'Office365',
                     'solution': 'Office365',
                    }"
-
+    
     $Officeparams = @{
         ContentType = 'application/json'
         Headers = @{
@@ -330,13 +334,13 @@ ms.locfileid: "72970973"
         Method = 'Put'
         URI = $OfficeAPIUrl
       }
-
+    
     $officeresponse = Invoke-WebRequest @Officeparams 
     $officeresponse
     }
     catch{ Failure }
     }
-
+    
     #GetDetails 
     RESTAPI-Auth -ErrorAction Stop
     Connection-API -ErrorAction Stop
@@ -344,9 +348,11 @@ ms.locfileid: "72970973"
     ```
 
 2. 使用以下命令运行该脚本：
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     示例：
 
     ```powershell

@@ -1,25 +1,20 @@
 ---
-title: Azure Log Analytics 中的容量和性能解决方案 | Azure Docs
-description: 使用 Log Analytics 中的容量和性能解决方案来帮助理解 Hyper-V 服务器的容量。
-services: log-analytics
-documentationcenter: ''
+title: Azure Monitor 中的容量和性能解决方案 | Microsoft Docs
+description: 使用 Monitor 中的容量和性能解决方案来帮助了解 Hyper-V 服务器的容量。
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 07/13/2017
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 775d73ebfd8df6064387176a5adf277749a4b36a
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: ccee4da2237888c3709120dcd1774597470cb646
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970984"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730570"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>使用容量和性能解决方案（已弃用）规划 Hyper-V 虚拟机容量
 

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/18/2019
-ms.date: 09/23/2019
+origin.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 4b53ecf3d31f56873588300cec4541fab5a16065
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: c5a17f6a93e0058646d6b6dd54cf556fa462bc48
+ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125633"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416268"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>连接到媒体服务 v3 API - Java
 
@@ -130,3 +130,5 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 ## <a name="next-steps"></a>后续步骤
 
 现在可以包括 `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` 并开始操作实体。
+
+有关更多代码示例，请参阅 [Java SDK 示例](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/)存储库。

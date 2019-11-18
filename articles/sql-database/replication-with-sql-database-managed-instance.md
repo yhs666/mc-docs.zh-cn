@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
-manager: digimobile
 origin.date: 02/07/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 0a37bb9d755aa792705c9e479185dc7b58eba2db
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 10/28/2019
+ms.openlocfilehash: 7f84dd372ddd7a72ec5d604e06bae5aff9d21921
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373028"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041166"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL 数据库托管实例数据库中配置复制
 
@@ -43,7 +42,7 @@ ms.locfileid: "70373028"
 - 发布服务器托管实例位于分发服务器和订阅服务器所在的同一个虚拟网络中，或者已在所有三个实体的虚拟网络之间建立 [vNet 对等互连](../virtual-network/tutorial-connect-virtual-networks-powershell.md)。 
 - 连接时，在复制参与者之间使用 SQL 身份验证。
 - 适用于复制工作目录的 Azure 存储帐户共享。
-- 需要在托管实例的 NSG 安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。 
+- 需要在托管实例的 NSG 安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。  如果遇到错误“无法连接到 azure 存储\<存储帐户名称>，出现 os 错误53”，则需要将出站规则添加到相应 SQL 托管实例子网的 NSG。
 
 
  > [!NOTE]

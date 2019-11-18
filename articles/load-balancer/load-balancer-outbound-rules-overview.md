@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 7/17/2019
-ms.date: 08/26/2019
+ms.date: 11/11/2019
 ms.author: v-jay
-ms.openlocfilehash: 176f8268c00f4aa8fe471c03d5c4cd95869be3d6
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 4044428d3b49c6391dd0b78000f3f9d55473b25c
+ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993564"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742258"
 ---
 # <a name="load-balancer-outbound-rules"></a>负载均衡器出站规则
 
@@ -70,9 +70,9 @@ API 版本“2018-07-01”允许按如下所示构建出站规则定义：
 
 尽管出站规则只能配合单个公共 IP 地址使用，但出站规则减轻了缩放出站 NAT 的负担。 规划大规模方案时可以使用多个 IP 地址，并可以使用出站规则来缓解容易出现 [SNAT 耗尽](load-balancer-outbound-connections.md#snatexhaust)的模式。  
 
-前端提供的每个附加 IP 地址可提供 51,200 个临时端口，供负载均衡器用作 SNAT 端口。 尽管负载均衡规则或入站 NAT 规则具有单个前端，但出站规则可以扩展前端的概念，并允许为每个规则使用多个前端。  为每个规则使用多个前端时，可用 SNAT 端口的数量将与每个公共 IP 地址相乘，因此可以支持大型方案。
+前端提供的每个附加 IP 地址可提供 64,000 个临时端口，供负载均衡器用作 SNAT 端口。 尽管负载均衡规则或入站 NAT 规则具有单个前端，但出站规则可以扩展前端的概念，并允许为每个规则使用多个前端。  为每个规则使用多个前端时，可用 SNAT 端口的数量将与每个公共 IP 地址相乘，因此可以支持大型方案。
 
-此外，可以直接对出站规则使用[公共 IP 前缀](/load-balancer/load-balancer-outbound-rules-overview)。  使用公共 IP 前缀可以更轻松地缩放，并可简化将源自 Azure 部署的流加入允许列表的操作。 可以在负载均衡器资源中配置直接引用公共 IP 地址前缀的前端 IP 配置。  这样，负载均衡器将以独占方式控制公共 IP 前缀，而出站规则将自动使用公共 IP 前缀中包含的所有公共 IP 地址来建立出站连接。  公共 IP 前缀范围内的每个 IP 地址提供 51,200 个临时端口，供负载均衡器用作 SNAT 端口。   
+此外，可以直接对出站规则使用[公共 IP 前缀](/load-balancer/load-balancer-outbound-rules-overview)。  使用公共 IP 前缀可以更轻松地缩放，并可简化将源自 Azure 部署的流加入允许列表的操作。 可以在负载均衡器资源中配置直接引用公共 IP 地址前缀的前端 IP 配置。  这样，负载均衡器将以独占方式控制公共 IP 前缀，而出站规则将自动使用公共 IP 前缀中包含的所有公共 IP 地址来建立出站连接。  公共 IP 前缀范围内的每个 IP 地址提供 64,000 个临时端口，供负载均衡器用作 SNAT 端口。   
 
 使用此选项时，无法从公共 IP 前缀创建单个公共 IP 地址资源，因为出站规则必须拥有公共 IP 前缀的完全控制权。  如果需要更精细的控制，可以从公共 IP 前缀创建单个公共 IP 地址资源，并将多个公共 IP 地址单独分配到出站规则的前端。
 
@@ -85,9 +85,9 @@ API 版本“2018-07-01”允许按如下所示构建出站规则定义：
 
           "allocatedOutboundPorts": 10000
 
-出站规则的所有前端中的每个公共 IP 地址最多提供 51,200 个可用作 SNAT 端口的临时端口。  负载均衡器以 8 的倍数分配 SNAT 端口。 如果提供的值不能被 8 整除，则会拒绝配置操作。  如果尝试分配的 SNAT 端口数超过了可用端口数（基于公共 IP 地址数确定），则会拒绝配置操作。  例如，如果为每个 VM 分配 10,000 个端口，并且后端池中的 7 个 VM 共享单个公共 IP 地址，则会拒绝该配置（7 x 10,000 个 SNAT 端口 > 51,200 个 SNAT 端口）。  将更多的公共 IP 地址添加到出站规则的前端即可实现该方案。
+出站规则的所有前端中的每个公共 IP 地址最多提供 64,000 个可用作 SNAT 端口的临时端口。  负载均衡器以 8 的倍数分配 SNAT 端口。 如果提供的值不能被 8 整除，则会拒绝配置操作。  如果尝试分配的 SNAT 端口数超过了可用端口数（基于公共 IP 地址数确定），则会拒绝配置操作。  例如，如果为每个 VM 分配 10,000 个端口，并且后端池中的 7 个 VM 共享单个公共 IP 地址，则会拒绝该配置（7 x 10,000 个 SNAT 端口 > 64,000 个 SNAT 端口）。  将更多的公共 IP 地址添加到出站规则的前端即可实现该方案。
 
-可以通过将端口数指定为 0，恢复为[基于后端池大小的自动 SNAT 端口分配](load-balancer-outbound-connections.md#preallocatedports)。
+可以通过将端口数指定为 0，恢复为[基于后端池大小的自动 SNAT 端口分配](load-balancer-outbound-connections.md#preallocatedports)。 在这种情况下，根据该表，前 50 个 VM 实例将获得 1024 个端口，而 51-100 个 VM 实例将获得 512 个端口，依此类推。 让多个前端具有与出站规则关联的公共 IP 不会增加分配给每个 VM 实例的端口数。
 
 ### <a name="idletimeout"></a>控制出站流空闲超时
 
@@ -163,7 +163,7 @@ disableOutboundSNAT 参数默认为 false，这意味着，负载均衡规则**�
 
 可以使用出站规则[基于后端池大小优化自动 SNAT 端口分配](load-balancer-outbound-connections.md#preallocatedports)。
 
-例如，如果你的两个虚拟机共享用于出站 NAT 的单个公共 IP 地址，则在遇到 SNAT 耗尽时，你可能希望增加分配的 SNAT 端口数，而不再使用默认的 1024 个端口。 每个公共 IP 地址最多可以提供 51,200 个临时端口。  如果使用单个公共 IP 地址前端配置出站规则，则总共可以向后端池中的 VM 分配 51,200 个 SNAT 端口。  对于两个 VM，可以使用出站规则最多分配 25,600 个 SNAT 端口 (2x 25,600 = 51,200)。
+例如，如果你的两个虚拟机共享用于出站 NAT 的单个公共 IP 地址，则在遇到 SNAT 耗尽时，你可能希望增加分配的 SNAT 端口数，而不再使用默认的 1024 个端口。 每个公共 IP 地址最多可以提供 64,000 个临时端口。  如果使用单个公共 IP 地址前端配置出站规则，则总共可以向后端池中的 VM 分配 64,000 个 SNAT 端口。  对于两个 VM，可以使用出站规则最多分配 32,000 个 SNAT 端口 (2x32,000 = 64,000)。
 
 查看[出站连接](load-balancer-outbound-connections.md)，以及有关如何分配和使用 [SNAT](load-balancer-outbound-connections.md#snat) 端口的详细信息。
 
@@ -205,7 +205,7 @@ disableOutboundSNAT 参数默认为 false，这意味着，负载均衡规则**�
 
 ## <a name="limitations"></a>限制
 
-- 每个前端 IP 地址的最大可用临时端口数为 51,200。
+- 每个前端 IP 地址的最大可用临时端口数为 64,000。
 - 可配置的出站空闲超时范围为 4 到 120 分钟（240 到 7200 秒）。
 - 负载均衡器不支持将 ICMP 用于出站 NAT。
 - 不能使用门户来配置或查看出站规则。  请改为使用模板、REST API、Az CLI 2.0 或 PowerShell。

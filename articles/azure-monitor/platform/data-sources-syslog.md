@@ -1,25 +1,21 @@
 ---
 title: 在 Azure Monitor 中收集和分析 Syslog 消息 | Azure Docs
 description: Syslog 是普遍适用于 Linux 的事件日志记录协议。 本文介绍了如何在 Log Analytics 中配置 Syslog 消息集合以及它们创建的记录的详细信息。
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 03/22/2019
 ms.date: 04/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ff805170816e63ad1d84ca3134295c953c1423c
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 91ce1b6696cc40cd21835eb65d81b79bacb66204
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736905"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730534"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor 中的 Syslog 数据源
 Syslog 是普遍适用于 Linux 的事件日志记录协议。 应用程序将发送可能存储在本地计算机或传递到 Syslog 收集器的消息。 安装适用于 Linux 的 Log Analytics 代理后，它将配置本地 Syslog 后台程序，以将消息转发到此代理。 然后，此代理将消息发送到 Azure Monitor，将在后者中创建相应的记录。  
@@ -59,7 +55,7 @@ Syslog 收集器支持以下功能：
 
 ![配置 Syslog](media/data-sources-syslog/configure.png)
 
-默认情况下，所有配置更改均会自动推送到所有代理。 如果想在每个 Linux 代理上手动配置Syslog，则取消选中“*将下面的配置应用到我的 Linux 计算机*”框即可。
+默认情况下，所有配置更改均会自动推送到所有代理。 如果想在每个 Linux 代理上手动配置 Syslog，则取消选中“将下面的配置应用到我的计算机”  框。
 
 ### <a name="configure-syslog-on-linux-agent"></a>在 Linux 代理上配置 Syslog
 [Log Analytics 代理安装在 Linux 客户端上](../../azure-monitor/learn/quick-collect-linux-computer.md)后，它将安装可定义收集的消息的设施和严重级别的默认 syslog 配置文件。 可以修改此文件以更改配置。 此配置文件视客户端已安装的 Syslog 守护程序而异。

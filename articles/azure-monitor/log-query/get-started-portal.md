@@ -1,20 +1,20 @@
 ---
-title: Azure Monitor Log Analytics 入门 | Azure Docs
+title: Azure Monitor Log Analytics 入门 | Microsoft Docs
 description: 本文提供有关在 Azure 门户中使用 Log Analytics 编写查询的教程。
-services: log-analytics
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-ms.service: log-analytics
-ms.topic: conceptual
+ms.subservice: logs
+ms.topic: tutorial
 origin.date: 07/19/2019
 ms.date: 08/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6037e728bb2b3a5263d1559b20dc21bce01547f4
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9ff181003fe61048aef8a9f87a518a468032af3c
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329708"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730460"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 入门
 
@@ -181,7 +181,7 @@ Event
 ![保存函数](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->保存查询或编辑已保存的查询时，在“名称”  字段中支持以下字符 - `a-z, A-Z, 0-9, -, _, ., <space>, (, ), |`。
+>保存查询或编辑已保存的查询时，在“名称”  字段中支持以下字符 - `a�z, A�Z, 0-9, -, _, ., <space>, (, ), |`。
 
 Log Analytics 查询始终保存到选定的工作区中，并与该工作区的其他用户共享。
 

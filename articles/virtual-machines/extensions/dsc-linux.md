@@ -12,22 +12,23 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: a192cbb1ff9c3a95f67687d539da90229bc7ac2b
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: e41d57109c798f98b182e2f475c60d276780fd53
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272785"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831458"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) 是一个管理平台，可让你使用“配置即代码”来管理 IT 和开发基础结构。
 
-DSCForLinux 扩展由 Azure 发布并提供支持。 该扩展在 Azure 虚拟机上安装 OMI 和 DSC 代理。 DSC 扩展还能执行以下操作
+> [!NOTE]
+> 适用于 Linux 的 DSC 扩展和[适用于 Linux 的 Azure Monitor 虚拟机扩展](/virtual-machines/extensions/oms-linux)当前存在冲突，并在并列配置中不受支持。  这意味着不应在同一个 VM 上同时使用这两个解决方案。
 
-<!--MOONCAKE: CORRECT FOR Azure-->
+DSCForLinux 扩展由世纪互联发布并提供支持。 该扩展在 Azure 虚拟机上安装 OMI 和 DSC 代理。 DSC 扩展还能执行以下操作
 
 - 将 Linux VM 注册到 Azure 自动化帐户，以便从 Azure 自动化服务提取配置 (Register ExtensionAction)
 - 将 MOF 配置推送到 Linux VM (Push ExtensionAction)
@@ -122,6 +123,7 @@ $publicConfig = '{
 protected.json
 ```json
 {
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
@@ -138,6 +140,7 @@ public.json
 powershell 格式
 ```powershell
 $privateConfig = '{
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }'
@@ -169,6 +172,7 @@ $publicConfig = '{
 protected.json
 ```json
 {
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
@@ -185,6 +189,7 @@ public.json
 powershell 格式
 ```powershell
 $privateConfig = '{
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }'
@@ -215,6 +220,7 @@ $publicConfig = '{
 protected.json
 ```json
 {
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
@@ -230,6 +236,7 @@ public.json
 powershell 格式
 ```powershell
 $privateConfig = '{
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }'
@@ -341,6 +348,7 @@ $version = '< version>'
 需要根据上面部分所述的不同方案更改 $privateConfig 和 $publicConfig 的内容 
 ```
 $privateConfig = '{
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }'
@@ -364,7 +372,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 可运行以下命令登录到 Azure 帐户（Azure 资源管理器模式）：
 
 ```powershell>
-Conncet-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 ```
 
 单击[**此处**](../../azure-resource-manager/manage-resources-powershell.md)详细了解如何将 Azure PowerShell 与 Azure 资源管理器配合使用。
@@ -383,6 +391,7 @@ $version = '< version>'
 需要根据上面部分所述的不同方案更改 $privateConfig 和 $publicConfig 的内容 
 ```
 $privateConfig = '{
+  "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }'

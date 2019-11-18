@@ -1,5 +1,5 @@
 ---
-title: 教程：从 Web 应用程序使用 Azure 密钥保管库 | Azure Docs
+title: 从 Web 应用程序使用 Azure 密钥保管库 | Azure
 description: 本教程介绍如何从 Web 应用程序使用 Azure 密钥保管库。
 services: key-vault
 author: barclayn
@@ -12,12 +12,12 @@ ms.topic: tutorial
 origin.date: 07/20/2018
 ms.date: 01/14/2019
 ms.author: v-biyu
-ms.openlocfilehash: 0af6e4d2e585a69e4d55736703647b1c87de28a7
-ms.sourcegitcommit: ae1b73a4248509f7afa6ffa466f53e59449f47d5
+ms.openlocfilehash: 3b6408e15fc2e017c17ca46ae007c65077e8af75
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/21/2019
-ms.locfileid: "54417349"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426051"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>教程：从 Web 应用程序使用 Azure 密钥保管库
 
@@ -43,7 +43,7 @@ ms.locfileid: "54417349"
 
 完成 [Azure Key Vault 入门](key-vault-get-started.md)中的步骤，以获取机密 URI、客户端 ID 和客户端机密，并注册应用程序。 该 Web 应用程序将访问保管库，并必须在 Azure Active Directory 中注册。 它还需要有权访问 Key Vault。 如果它没有此访问权限，请返回入门教程中的“注册应用程序”，并重复列出的步骤。 有关创建 Azure Web 应用的详细信息，请参阅 [Web 应用概述](../app-service/app-service-web-overview.md)。
 
-此示例依赖于手动预配 Azure Active Directory 标识。 但是应当改用托管服务标识 (MSI)。 MSI 可以自动预配 Azure AD 标识。 有关详细信息，请参阅 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 中的示例，以及相关的“MSI 与应用服务和 Functions”教程。 还可以查看特定于密钥保管库的 [MSI 教程](https://docs.azure.cn/zh-cn/key-vault/tutorial-web-application-keyvault#publish-the-web-application-to-azure)
+此示例依赖于手动预配 Azure Active Directory 标识。 但是应当改用托管服务标识 (MSI)。 MSI 可以自动预配 Azure AD 标识。 有关详细信息，请参阅 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 中的示例，以及相关的“MSI 与应用服务和 Functions”教程。 还可以查看特定于密钥保管库的 [MSI 教程](https://docs.azure.cn/key-vault/tutorial-web-application-keyvault#publish-the-web-application-to-azure)
 
 
 ## <a id="packages"></a>添加 NuGet 包
@@ -171,19 +171,19 @@ $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
 
-$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $x509.NotBefore -EndDate $x509.NotAfter
+$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "https://kvwebapp" -IdentifierUris "https://kvwebapp" -CertValue $credValue -StartDate $x509.NotBefore -EndDate $x509.NotAfter
 
 
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "https://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
 ```
 
-运行这些命令后，可以在 Azure AD 中看到该应用程序。 搜索应用注册时，请务必在搜索对话框中选择“我的应用”而不是“所有应用”。 
+运行这些命令后，可以在 Azure AD 中看到该应用程序。 搜索应用注册时，请务必在搜索对话框中选择“我的应用”而不是“所有应用”。  
 
 ### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>在 Web 应用中添加代码以使用证书
 
@@ -253,7 +253,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 ### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>通过 Azure 门户向 Web 应用添加证书
 
-将证书添加到 Web 应用是一个简单的两步过程。 首先，转到 Azure 门户并导航到 Web 应用。 在 Web 应用的“设置”中，单击“SSL 设置”对应的条目。 打开此条目后，上传在以上示例中创建的证书 KVWebApp.pfx。 请务必记住该 pfx 的密码。
+将证书添加到 Web 应用是一个简单的两步过程。 首先，转到 Azure 门户并导航到 Web 应用。 在 Web 应用的“设置”中，单击“SSL 设置”对应的条目。  打开此条目后，上传在以上示例中创建的证书 KVWebApp.pfx。 请务必记住该 pfx 的密码。
 
 ![在 Azure 门户中将证书添加到 Web 应用][2]
 
@@ -266,7 +266,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 ## <a id="next"></a>后续步骤
 > [!div class="nextstepaction"]
->[Azure Key Vault 管理 API 参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/keyvault/management)。
+>[Azure Key Vault 管理 API 参考](https://docs.azure.cn/dotnet/api/overview/keyvault/management)。
 
 
 <!--Image references-->

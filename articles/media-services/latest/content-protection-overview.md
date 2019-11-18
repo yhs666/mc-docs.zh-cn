@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2019
-ms.date: 09/23/2019
+origin.date: 10/29/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: c7ce18b8ae3af00eb9f4908136f03de207e6ca17
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: f152d6ecb86385cd57627f29fc8a29c65bfcc1e8
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125624"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116249"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>使用媒体服务动态加密保护内容
 
@@ -111,8 +111,6 @@ ms.locfileid: "71125624"
 * 签名的对称或非对称验证
 * 密钥滚动更新支持（如有必要）
 
-可以使用[此 STS 工具](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt)测试 STS。 此工具支持所有三种类型的验证密钥：对称、非对称，或者带有密钥滚动更新程序的 Azure Active Directory (Azure AD)。 
-
 ## <a name="streaming-protocols-and-encryption-types"></a>流式处理协议和加密类型
 
 可以通过 Azure 媒体服务传送使用 AES 明文密钥或 DRM 加密（利用 PlayReady 或 FairPlay）动态加密的内容。 当前可以加密 HTTP Live Streaming (HLS)、MPEG DASH 和平滑流式处理格式。 每个协议支持以下加密方法。
@@ -171,12 +169,25 @@ MPEG-DASH 协议支持以下容器格式和加密方案。
 
 使用令牌限制的内容密钥策略时，内容密钥仅发送到可在许可证/密钥请求中提供有效 JWT 令牌或简单 Web 令牌 (SWT) 的客户端。 此令牌必须由 STS 颁发。 
 
-可以使用 Azure AD 作为 STS，或部署自定义的 STS。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及在令牌限制配置中指定的颁发声明进行签名。 如果满足以下两个条件，则媒体服务许可证/密钥传送服务会将请求的许可证或密钥返回到客户端：
+可以使用 Azure AD 作为 STS，或部署[自定义 STS](#using-a-custom-sts)。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及在令牌限制配置中指定的颁发声明进行签名。 如果满足以下两个条件，则媒体服务许可证/密钥传送服务会将请求的许可证或密钥返回到客户端：
 
 * 令牌有效。 
 * 令牌中的声明与为许可证或密钥配置的声明相匹配。
 
 配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含为令牌签名时使用的密钥。 颁发者是颁发令牌的 STS。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务许可证/密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
+
+### <a name="token-replay-prevention"></a>令牌重放防护
+
+*令牌重放防护*功能允许媒体服务客户对同一令牌可用于请求密钥或许可证的次数设置限制。 客户可以在令牌中添加 `urn:microsoft:azure:mediaservices:maxuses` 类型的声明，其中值是令牌可用于获取许可证或密钥的次数。 对密钥传送服务使用同一令牌的所有后续请求都将返回未经授权的响应。 请参阅“如何在 [DRM 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)中添加声明”。
+ 
+#### <a name="considerations"></a>注意事项
+
+* 客户必须控制令牌生成。 声明需要放在令牌本身中。
+* 使用此功能时，令牌过期时间超过接收请求时间一小时以上的请求将被拒绝，并返回未经授权的响应。
+* 令牌由其签名唯一标识。 对有效负荷的任何更改（例如，对到期时间或声明的更新）都会更改令牌的签名，并且该令牌将算作密钥传送服务之前没有遇到过的新令牌。
+* 如果令牌超过了客户设置的 `maxuses` 值，则播放将失败。
+* 此功能可用于所有现有的受保护内容（仅需要更改颁发的令牌）。
+* 此功能同时使用 JWT 和 SWT。
 
 ## <a name="using-a-custom-sts"></a>使用自定义 STS
 
@@ -240,4 +251,4 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 * [设计带访问控制的多 DRM 内容保护系统](design-multi-drm-system-with-access-control.md)
 * [存储端加密](storage-account-concept.md#storage-side-encryption)
 * [常见问题](frequently-asked-questions.md)
-
+* [JSON Web 令牌处理程序](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

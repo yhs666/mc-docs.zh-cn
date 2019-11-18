@@ -9,15 +9,15 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 07/24/2019
-ms.date: 09/23/2019
+origin.date: 10/04/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3b2aee7cc5930f65ace39d7880b38aca8bd088ca
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 09a185f00d1623c3b846d8dc8ee229db5e839a77
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329665"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416317"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -76,7 +76,7 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>协作
+## <a name="collaborating-and-contributing"></a>协作和参与
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>如何使用 Azure Active Directory (Azure AD) 或基于角色的访问控制 (RBAC) 来为协作者提供对 LUIS 的访问权限？
 
@@ -85,6 +85,31 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 <a name="luis-endpoint"></a>
 
 ## <a name="endpoint"></a>终结点
+
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>我收到了一个 HTTP 403 错误状态代码。 如何解决问题？
+
+当你超过你所在定价层的每秒事务数或每月事务数时，将收到 403 和 429 错误状态代码。 请提高你的定价层，或者使用语言理解[容器](luis-container-howto.md)。
+
+当你使用了所有这些免费的 1000 个终结点查询或超出定价层的每月事务配额时，将收到 HTTP 403 错误状态代码。 
+
+若要修复此错误，需要[将定价层更改](luis-how-to-azure-subscription.md#change-pricing-tier)为更高层，或者[创建新资源](get-started-portal-deploy-app.md#create-the-endpoint-resource)并[将其分配给应用](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
+
+此错误的解决方法包括：
+
+* 在 [Azure 门户](https://portal.azure.cn)中你的语言理解资源的“资源管理”->“定价层”  上，将定价层更改为更高的 TPS 层。 如果资源已分配给语言理解应用，则无需在语言理解门户中执行任何操作。
+*  如果使用量超过了最高定价层相应的使用量，请添加更多的语言理解资源，并在这些资源前面放置一个负载均衡器。 带有 Kubernetes 或 Docker Compose 的[“语言理解”容器](luis-container-howto.md)可以帮助解决此问题。
+
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>我收到了一个 HTTP 429 错误状态代码。 如何解决问题？
+
+当你超过你所在定价层的每秒事务数或每月事务数时，将收到 403 和 429 错误状态代码。 请提高你的定价层，或者使用语言理解[容器](luis-container-howto.md)。
+
+当你的每秒事务数超过你的定价层的每秒事务数时，将返回此状态代码。  
+
+解决方法包括：
+
+* 如果不在最高层，可以[提高定价层](luis-how-to-azure-subscription.md#change-pricing-tier)。
+* 如果使用量超过了最高定价层相应的使用量，请添加更多的语言理解资源，并在这些资源前面放置一个负载均衡器。 带有 Kubernetes 或 Docker Compose 的[“语言理解”容器](luis-container-howto.md)可以帮助解决此问题。
+* 收到此状态代码时，可以使用你自己实现的[重试策略](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)来限制客户端应用程序请求。 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>我的终结点查询返回了意外的结果。 我该怎么办？
 
@@ -180,7 +205,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>如何了解我需要什么密钥，从哪里获取它，以及使用它来做什么？ 
 
-若要了解[创作密钥](luis-how-to-account-settings.md)与[终结点预测密钥](luis-how-to-azure-subscription.md)之间的差异，请参阅 [LUIS 中的创作密钥和查询预测终结点密钥](luis-concept-keys.md)。 
+若要了解[创作密钥](luis-how-to-azure-subscription.md)与[终结点预测密钥](luis-how-to-azure-subscription.md)之间的差异，请参阅 [LUIS 中的创作密钥和查询预测终结点密钥](luis-concept-keys.md)。 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>我收到有关超出配额的错误。 如何解决问题？ 
 

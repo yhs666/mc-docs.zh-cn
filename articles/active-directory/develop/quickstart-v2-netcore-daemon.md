@@ -1,5 +1,6 @@
 ---
-title: Microsoft 标识平台 .NET Core 守护程序 | Azure
+title: 使用控制台应用的标识获取令牌并调用 Microsoft Graph API | Azure
+titleSuffix: Microsoft identity platform
 description: 了解 .NET Core 进程如何使用应用的自身标识获取访问令牌并调用受 Microsoft 标识平台终结点保护的 API
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,18 +15,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e23d9cb35f7bb4cfa4c42350b4e734fbf303c099
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 26154079323c7e8379127a2e0bb75fdebe74bca9
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292063"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830941"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入门：使用应用的标识获取令牌并从控制台应用中调用 Microsoft Graph API
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>快速入门：使用控制台应用的标识获取令牌并调用 Microsoft Graph API
 
 本快速入门介绍如何编写 .NET Core 应用程序，以便使用应用的自身标识获取访问令牌，然后调用 Microsoft Graph API，以便在目录中显示[用户列表](https://docs.microsoft.com/graph/api/user-list)。 此方案适用于无外设且无人参与的作业或 Windows 服务需要使用应用程序标识而非用户标识运行的情况。
 

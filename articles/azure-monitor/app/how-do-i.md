@@ -1,24 +1,20 @@
 ---
 title: 如何在 Azure Application Insights 中执行... | Azure Docs
 description: 有关 Application Insights 的常见问题解答。
-services: application-insights
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/04/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b8582b7db6b397ffdab5ef41f2ed1d23868f1d4a
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 8f7c9e5e971575a25c582eac94c374bbbeeb1c8f
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737281"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730482"
 ---
 # <a name="how-do-i--in-application-insights"></a>如何在 Application Insights 中执行...？
 ## <a name="get-an-email-when-"></a>... 时收到电子邮件

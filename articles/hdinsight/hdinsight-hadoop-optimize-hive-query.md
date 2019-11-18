@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 03/21/2019
-ms.date: 08/19/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4561f62a3ab7b6e26b8c5837b5a7efa01ab5e8fc
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 8e0d4fae629ca90ca33a7977fb09fcdce6233169
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292424"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426057"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
@@ -78,23 +78,23 @@ Hive 分区的实现方法是将原始数据重新组织成新目录。 每个�
 
 要创建分区表，请使用 *Partitioned By* 子句：
 
-   ```hive
-   CREATE TABLE lineitem_part
-       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-   STORED AS TEXTFILE;
-   ```
-   
+```sql
+CREATE TABLE lineitem_part
+      (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE;
+```
+
 创建分区表后，可以创建静态分区或动态分区。
 
 * **静态分区**表示已在相应目录中创建了分片数据。 使用静态分区可以根据目录位置手动添加 Hive 分区。 以下代码片段是一个示例。
 
-   ```hive
+   ```sql
    INSERT OVERWRITE TABLE lineitem_part
    PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
    SELECT * FROM lineitem 
@@ -139,40 +139,40 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 
 要启用 ORC 格式，请先使用 *Stored as ORC*子句创建一个表：
 
-   ```hive
-   CREATE TABLE lineitem_orc_part
-       (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   STORED AS ORC;
-   ```
-   
+```sql
+CREATE TABLE lineitem_orc_part
+      (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+STORED AS ORC;
+```
+
 接下来，从暂存表向 ORC 表插入数据。 例如：
 
-   ```hive
-   INSERT INTO TABLE lineitem_orc
-   SELECT L_ORDERKEY as L_ORDERKEY, 
-          L_PARTKEY as L_PARTKEY , 
-          L_SUPPKEY as L_SUPPKEY,
-          L_LINENUMBER as L_LINENUMBER,
-          L_QUANTITY as L_QUANTITY, 
-          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-          L_DISCOUNT as L_DISCOUNT,
-          L_TAX as L_TAX,
-          L_RETURNFLAG as L_RETURNFLAG,
-          L_LINESTATUS as L_LINESTATUS,
-          L_SHIPDATE as L_SHIPDATE,
-           L_COMMITDATE as L_COMMITDATE,
-           L_RECEIPTDATE as L_RECEIPTDATE, 
-           L_SHIPINSTRUCT as L_SHIPINSTRUCT,
-           L_SHIPMODE as L_SHIPMODE,
-           L_COMMENT as L_COMMENT
-    FROM lineitem;
-   ```
-   
+```sql
+INSERT INTO TABLE lineitem_orc
+SELECT L_ORDERKEY as L_ORDERKEY, 
+         L_PARTKEY as L_PARTKEY , 
+         L_SUPPKEY as L_SUPPKEY,
+         L_LINENUMBER as L_LINENUMBER,
+         L_QUANTITY as L_QUANTITY, 
+         L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+         L_DISCOUNT as L_DISCOUNT,
+         L_TAX as L_TAX,
+         L_RETURNFLAG as L_RETURNFLAG,
+         L_LINESTATUS as L_LINESTATUS,
+         L_SHIPDATE as L_SHIPDATE,
+         L_COMMITDATE as L_COMMITDATE,
+         L_RECEIPTDATE as L_RECEIPTDATE, 
+         L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+         L_SHIPMODE as L_SHIPMODE,
+         L_COMMENT as L_COMMENT
+FROM lineitem;
+```
+
 可在 [Apache Hive 语言手册](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)中阅读有关 ORC 格式的详细信息。
 
 ## <a name="vectorization"></a>向量化

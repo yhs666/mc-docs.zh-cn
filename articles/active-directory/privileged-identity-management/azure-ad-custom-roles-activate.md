@@ -6,22 +6,22 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/06/2019
-ms.date: 08/20/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb600409d703dbe9244ca3c16f46da1e4d3bea7
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: bb3cc357d10e145abb6293e7991a22563f7aa585
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993688"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830873"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>在 Privileged Identity Management 中激活 Azure AD 自定义角色
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 中的 Privileged Identity Management 现在�
 
 ## <a name="activate-a-role"></a>激活角色
 
-需要激活 Azure AD 自定义角色时，请通过选择 PIM 中的“我的角色”导航选项来请求激活。
+需要激活 Azure AD 自定义角色时，请通过选择 Privileged Identity Management 中的“我的角色”导航选项来请求激活。
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 1. 打开 Azure AD [Privileged Identity Management](https://portal.azure.cn/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)。
@@ -64,3 +64,4 @@ Azure Active Directory (Azure AD) 中的 Privileged Identity Management 现在�
 - [配置 Azure AD 自定义角色分配](azure-ad-custom-roles-configure.md)
 - [Azure AD 中的角色定义](../users-groups-roles/directory-assign-admin-roles.md)
 
+<!-- Update_Description: wording update -->

@@ -1,9 +1,9 @@
 ---
-title: 使用资源仪表板在 PIM 中执行访问评审 - Azure Active Directory | Microsoft Docs
+title: 使用资源仪表板在 Privileged Identity Management 中执行访问评审 - Azure Active Directory | Microsoft Docs
 description: 介绍如何使用资源仪表板在 Azure AD Privileged Identity Management (PIM) 中执行访问评审。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-origin.date: 03/30/2018
-ms.date: 08/08/2019
+origin.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095fcc3265ead86bc91f5283f84031fe2a88a4aa
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: dcafe9bb35d36f083fc6c65a6c32b19d391ec785
+ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973523"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830757"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>使用资源仪表板在 PIM 中执行访问评审
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>使用资源仪表板在 Privileged Identity Management 中执行访问评审
 
-可以使用资源仪表板在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 中执行访问评审。 “管理员视图”仪表板包含三个主要组件：
+可以使用资源仪表板在 Privileged Identity Management (PIM) 中执行访问评审。 Azure Active Directory (Azure AD) 中的“管理员视图”仪表板有三个主要组件：
 
-- 资源角色激活操作的图形表示形式。
-- 两个图表按分配类型显示了角色分配分布情况。
-- 与新角色分配相关的数据区域。
+- 资源角色激活操作的图形表示形式
+- 按分配类型显示角色分配分布情况的图表
+- 一个数据区域，其中包含有关新角色分配的信息
 
 ![管理员视图仪表板的屏幕截图，显示图形和图表](./media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
@@ -38,11 +38,9 @@ ms.locfileid: "68973523"
 
 过去七天执行的资源角色激活操作的图形表示形式。 此数据对应于选定的资源，显示最常见角色（所有者、参与者、用户访问管理员）以及所有角色的激活情况。
 
-在激活图形的右侧，有两个图表按分配类型显示了用户和组的角色分配分布情况。 选择图表中的切片会将值更改为百分比（或相反）。
+在激活图形的一侧，有两个图表按分配类型显示了用户和组的角色分配分布情况。 选择图表中的切片会将值更改为百分比（或相反）。
 
-在图表下方，可以看到在过去 30 天获得了新角色分配的用户和组数，以及按分配总数排序的角色列表（以降序排序）。
+图表下方列出了过去 30 天获得了新角色分配的用户和组的数量，以及按分配总数以降序排列的角色。
 
-## <a name="next-steps"></a>后续步骤
 
-- [在 PIM 中启动 Azure 资源角色的访问评审](pim-resource-roles-start-access-review.md) 
-
+<!-- Update_Description: wording update -->

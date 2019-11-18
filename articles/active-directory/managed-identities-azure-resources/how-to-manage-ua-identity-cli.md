@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/16/2018
-ms.date: 08/05/2019
+origin.date: 10/15/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3018b55c87ddb8c810297e5e59ac5551868dbaf6
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: ccf501839b4a89941a555ab8e7dd7b98913b1de1
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818701"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084560"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>使用 Azure CLI 创建、列出或删除用户分配的托管标识
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice-ua.md)]
 
 Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供了一个托管标识。 此标识可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中输入凭据了。 
 
@@ -81,4 +80,4 @@ az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 
 
  
-
+<!-- Update_Description: wording update -->

@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 03/12/2019
-ms.date: 06/03/2019
+ms.date: 11/18/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: a02e492fa4eb03748394bf811fc57c6fe876d541
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: e0aee5e1dce9c8cfa60a1cb3a49cacab5cecd77c
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194987"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831425"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>教程：使用 Azure CLI 和 Azure 门户配置 IoT 中心消息路由
 
@@ -31,12 +31,12 @@ ms.locfileid: "66194987"
 
 复制以下脚本并将其粘贴到 Cloud Shell，然后按 Enter。 系统每次运行脚本中的一行。 此脚本将创建本教程所需的基本资源，包括存储帐户、IoT 中心、服务总线命名空间和服务总线队列。
 
-有关调试的说明：此脚本使用续接符号（反斜杠 `\`），使脚本更方便阅读。 如果在运行脚本时遇到问题，请确保任何反斜杠后面没有空格。
+有关调试的提示：此脚本使用续接符号（反斜杠 `\`），使脚本更方便阅读。 如果在运行脚本时遇到问题，请确保任何反斜杠后面没有空格。
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
 #   in which you're logged in.
-# This field is used to set up the routing rules.
+# This field is used to set up the routing queries.
 subscriptionID=$(az account show --query id)
 
 # Concatenate this number onto the resources that have to be globally unique.

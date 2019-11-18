@@ -1,24 +1,20 @@
 ---
 title: 跨 Azure 租户将 Azure 活动日志收集到 Log Analytics 工作区中 | Microsoft Docs
 description: 使用事件中心和逻辑应用从 Azure 活动日志中收集数据，并将其发送到不同租户中 Azure Monitor 的 Log Analytics 工作区。
-services: log-analytics, logic-apps, event-hubs
-documentationcenter: ''
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
 origin.date: 02/06/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5be173159a1d00ae64c845d3224bdf13514b852b
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 0611319f19ef5b3aaf2ea3440966fdd77544d79d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737363"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730075"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>跨 Azure Active Directory 租户将 Azure 活动日志收集到 Azure Monitor 中
 

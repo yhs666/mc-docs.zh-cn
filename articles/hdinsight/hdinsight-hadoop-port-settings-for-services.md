@@ -1,8 +1,6 @@
 ---
-title: 由 HDInsight 上的 Hadoop 服务使用的端口 - Azure | Azure
-description: HDInsight 上运行的 Hadoop 服务使用的端口列表。
-services: hdinsight
-documentationcenter: ''
+title: HDInsight 上的 Hadoop 服务所使用的端口 - Azure
+description: 本文提供在 Azure HDInsight 中运行的 Apache Hadoop 服务使用的端口列表
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/27/2019
-ms.date: 10/21/2019
+origin.date: 10/15/2019
+ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 84a1d8efb4cf8c67b85f721deeaa847163d44547
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 6b913a702eea14707c64198aec56fa3ea49b1814
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292598"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426056"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上的 Apache Hadoop 服务所使用的端口
 
-本文档提供在基于 Linux 的 HDInsight 群集上运行的 Apache Hadoop 服务使用的端口列表。 此外，还提供了用于通过 SSH 连接到群集的端口的信息。
+本文档提供在 HDInsight 群集上运行的 Apache Hadoop 服务使用的端口列表。 此外，还提供了用于通过 SSH 连接到群集的端口的信息。
 
 ## <a name="public-ports-vs-non-public-ports"></a>公共端口与非公共端口
 
@@ -33,14 +31,14 @@ ms.locfileid: "72292598"
 
 在内部，HDInsight 由在 Azure 虚拟网络上运行的多个 Azure 虚拟机（群集内的节点）实现。 从虚拟网络内部可以访问不是通过 Internet 公开的端口。 例如，如果使用 SSH 连接到某个头节点，则可以从该头节点直接访问群集节点上运行的服务。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果尚未指定某个 Azure 虚拟网络作为 HDInsight 的配置选项，系统自动创建一个 Azure 虚拟网络。 但无法将其他计算机（例如其他 Azure 虚拟机或客户端开发计算机）加入到此虚拟网络中。
 
 要将其他计算机添加到虚拟网络，必须先创建虚拟网络，然后在创建 HDInsight 群集时指定该网络。 有关详细信息，请参阅[为 HDInsight 规划虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
 ## <a name="public-ports"></a>公共端口
 
-HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从 Internet 访问。 使用公共网关可以通过 Internet 访问以下端口（在所有 HDInsight 群集类型中很常见）。
+HDInsight 群集中的所有节点都位于 Azure 虚拟网络中，无法直接从 Internet 访问。 使用公共网关可以通过 Internet 访问以下端口（在所有 HDInsight 群集类型中很常见）。
 
 | 服务 | 端口 | 协议 | 说明 |
 | --- | --- | --- | --- |

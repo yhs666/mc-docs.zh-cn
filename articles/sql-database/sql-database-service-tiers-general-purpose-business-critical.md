@@ -10,22 +10,22 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake, carlrab
-origin.date: 02/23/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 8a7d1aeb8f36176b3045e396d793ef4301bd535c
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+origin.date: 10/01/2019
+ms.date: 11/04/2019
+ms.openlocfilehash: ccfad92923c0b7ad0f188fa0eb7bbbfe365f893f
+ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578538"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041187"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL 数据库服务层级
 
 Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结构已根据云环境做出调整，以确保即使在发生基础结构故障时，也仍能提供 99.99% 的可用性。 Azure SQL 数据库中使用了三个服务层级，每个服务层级具有不同的体系结构模型。 这些服务层级为：
 
-- [常规用途](sql-database-service-tier-general-purpose.md)，设计用于大部分常规工作负荷。
-- [业务关键](sql-database-service-tier-business-critical.md)，设计用于具有一个可读副本的低延迟工作负荷。
-- [超大规模](sql-database-service-tier-hyperscale.md)，设计用于具有多个可读副本的非常大的数据库（高达 100 TB）。
+- [常规用途](sql-database-service-tier-general-purpose.md)，设计用于预算导向型工作负荷。
+- [超大规模](sql-database-service-tier-hyperscale.md)，设计用于大多数业务工作负荷，可提供高度可扩展的存储，读取扩展和快速数据库还原功能。
+- [业务关键](sql-database-service-tier-business-critical.md)，设计用于低延迟工作负荷，对故障具有高复原能力并可进行快速故障转移。
 
 本文讨论了基于 vCore 的购买模型中服务层级之间的差异、常规用途和业务关键型服务层级的存储和备份注意事项。
 
@@ -35,7 +35,7 @@ Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结�
 
 | | 资源类型 | 常规用途 |  超大规模 | 业务关键 |
 |:---:|:---:|:---:|:---:|:---:|
-| **最适用于** | |  大多数业务工作负荷。 提供以预算导向的、均衡的计算和存储选项。 | 具有大数据容量要求的数据应用程序，能够将存储自动扩展到 100 TB，并流畅地缩放计算。 | 事务率较高、延迟 IO 最低的 OLTP 应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
+| **最适用于** | |  提供以预算导向的、均衡的计算和存储选项。 | 大多数业务工作负荷。 自动缩放存储大小，最大可达 100 TB，流畅的垂直和水平计算缩放，快速数据库还原。 | 事务率较高、IO 延迟较低的 OLTP 应用程序。 使用多个同步更新的副本提供最高故障复原能力和快速故障转移。|
 |  **在以下资源类型中可用：** ||单一数据库/弹性池/托管实例 | 单一数据库 | 单一数据库/弹性池/托管实例 |
 | **计算大小**|单一数据库/弹性池 | 1 - 80 个 vCore | 1 - 80 个 vCore | 1 - 80 个 vCore |
 | | 托管实例 | 4、8、16、24、32、40、64、80 个 vCore | 不适用 | 4、8、16、24、32、40、64、80 个 vCore |
@@ -52,7 +52,7 @@ Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结�
 |**备份**|全部|RA-GRS，7-35 天（默认为 7 天）| RA-GRS，7 天，恒定的时间时点恢复 (PITR) | RA-GRS，7-35 天（默认为 7 天） |
 |**内存中 OLTP** | | 不适用 | 不适用 | 可用 |
 |**只读副本**| | 0  | 0 - 4 | 1（内置，包含在价格中） |
-|**定价/计费** | 单一数据库 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 | [每个副本的 vCore 和已用存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。<br/>备份存储尚不收费。 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 |
+|**定价/计费** | 单一数据库 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 | [每个副本的 vCore 和已用存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>尚未收费的 IOPS。 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 |
 || 托管实例 | [vCore 和保留存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。<br/>备份存储尚不收费。 | 不适用 | [vCore 和保留存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。<br/>备份存储尚不收费。 | 
 
 有关详细信息，请参阅[单一数据库 (vCore)](sql-database-vcore-resource-limits-single-databases.md)、[单一数据库池 (vCore)](sql-database-dtu-resource-limits-single-databases.md)、[单一数据库 (DTU)](sql-database-dtu-resource-limits-single-databases.md)、[单一数据库池 (DTU)](sql-database-dtu-resource-limits-single-databases.md)和[托管实例](sql-database-managed-instance-resource-limits.md)页中服务层级之间的详细差异。
@@ -62,7 +62,7 @@ Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结�
 
 ## <a name="data-and-log-storage"></a>数据和日志存储
 
-以下因素影响用于数据和日志文件的存储量：
+以下因素会影响用于数据文件和日志文件的存储量，并适用于“常规用途”和“业务关键”服务层级。 有关“超大规模”服务层级中的数据和日志存储的详细信息，请参阅[“超大规模”服务层级](sql-database-service-tier-hyperscale.md)。
 
 - 分配的存储由数据文件 (MDF) 和日志文件 (LDF) 使用。
 - 每个单一数据库计算大小支持一个最大数据库大小，默认最大大小为 32 GB。

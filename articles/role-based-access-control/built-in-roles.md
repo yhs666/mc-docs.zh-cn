@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 08/27/2019
-ms.date: 09/24/2019
+origin.date: 09/25/2019
+ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9079b6e94c2eae221295c25d3b4b063a1b3d28b4
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 2c1491728fe651519199827240da464eb6d30b6a
+ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673602"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73068931"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -89,6 +89,8 @@ ms.locfileid: "71673602"
 | [DevTest 实验室用户](#devtest-labs-user) | 允许连接、启动、重启和关闭 Azure 开发测试实验室中的虚拟机。 |
 | [DNS 区域参与者](#dns-zone-contributor) | 允许管理 Azure DNS 中的 DNS 区域和记录集，但不允许控制对其访问的人员。 |
 | [DocumentDB 帐户参与者](#documentdb-account-contributor) | 可管理 Azure Cosmos DB 帐户。 Azure Cosmos DB 以前称为 DocumentDB。 |
+| [EventGrid EventSubscription 参与者](#eventgrid-eventsubscription-contributor) | 可以管理 EventGrid 事件订阅操作。 |
+| [EventGrid EventSubscription 读者](#eventgrid-eventsubscription-reader) | 可以读取 EventGrid 事件订阅。 |
 | [HDInsight 群集操作员](#hdinsight-cluster-operator) | 允许你读取和修改 HDInsight 群集配置。 |
 | [HDInsight 域服务参与者](#hdinsight-domain-services-contributor) | 可以读取、创建、修改和删除 HDInsight 企业安全性套餐所需的域服务相关操作 |
 | [Intelligent Systems 帐户参与者](#intelligent-systems-account-contributor) | 允许管理智能系统帐户，但不允许访问这些帐户。 |
@@ -169,16 +171,16 @@ ms.locfileid: "71673602"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **说明** | 允许管理所有功能（对资源的访问权限除外）。 |
+> | **说明** | 允许管理所有功能（授予对资源的访问权限除外）。 |
 > | Id  | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **操作** |  |
 > | * | 创建和管理所有类型的资源 |
 > | **不操作** |  |
-> | Microsoft.Authorization/*/Delete | 删除角色和角色分配 |
-> | Microsoft.Authorization/*/Write | 创建角色和角色分配 |
+> | Microsoft.Authorization/*/Delete | 删除角色、策略分配、策略定义和策略集定义 |
+> | Microsoft.Authorization/*/Write | 创建角色、角色分配、策略分配、策略定义和策略集定义 |
 > | Microsoft.Authorization/elevateAccess/Action | 向调用方授予租户范围的“用户访问管理员”访问权限 |
-> | Microsoft.Blueprint/blueprintAssignments/write | 创建或更新任何蓝图项目 |
-> | Microsoft.Blueprint/blueprintAssignments/delete | 删除任何蓝图项目 |
+> | Microsoft.Blueprint/blueprintAssignments/write | 创建或更新任何蓝图分配 |
+> | Microsoft.Blueprint/blueprintAssignments/delete | 删除任何蓝图分配 |
 > | **DataActions** |  |
 > | *无* |  |
 > | **NotDataActions** |  |
@@ -1408,6 +1410,49 @@ ms.locfileid: "71673602"
 > | **NotDataActions** |  |
 > | *无* |  |
 
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 参与者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 可以管理 EventGrid 事件订阅操作。 |
+> | Id  | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **操作** |  |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 按主题类型列出全局事件订阅 |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | 列出区域事件订阅 |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 按主题类型列出区域事件订阅 |
+> | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 读者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 可以读取 EventGrid 事件订阅。 |
+> | Id  | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **操作** |  |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.EventGrid/eventSubscriptions/read | 读取 eventSubscription |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 按主题类型列出全局事件订阅 |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | 列出区域事件订阅 |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 按主题类型列出区域事件订阅 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
 ## <a name="hdinsight-cluster-operator"></a>HDInsight 群集操作员
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1581,7 +1626,7 @@ ms.locfileid: "71673602"
 > | Microsoft.Web/customApis/* | 创建和管理自定义 API。 |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | 获取应用服务计划的属性 |
-> | Microsoft.Web/sites/functions/listSecrets/action | 列出机密 Web 应用函数。 |
+> | Microsoft.Web/sites/functions/listSecrets/action | 列出函数机密。 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -1751,6 +1796,7 @@ ms.locfileid: "71673602"
 > | Microsoft.Insights/Metrics/* | 读取资源的指标。 |
 > | Microsoft.Insights/Register/Action | 注册 Microsoft Insights 提供程序 |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 读取/写入/删除日志分析解决方案包。 |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | 读取/写入/删除日志分析保存的搜索。 |
 > | Microsoft.OperationalInsights/workspaces/search/action | 执行搜索查询 |
@@ -2068,6 +2114,7 @@ ms.locfileid: "71673602"
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | 读取任何复制恢复点 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | 修复复制 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | 重新保护受保护的项 |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | 交换保护容器 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 测试故障转移 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | 测试故障转移清理 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 故障转移 |
@@ -2774,6 +2821,7 @@ ms.locfileid: "71673602"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | Microsoft.Web/serverFarms/* | 创建和管理服务器场 |
+> | Microsoft.Web/hostingEnvironments/Join/Action | 加入应用服务环境 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |

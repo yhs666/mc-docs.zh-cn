@@ -1,7 +1,7 @@
 ---
 title: 将 Windows 系统状态备份到 Azure
 description: 了解如何将 Windows Server 的系统状态和/或 Windows 计算机备份到 Azure。
-services: backup
+ms.reviewer: saurse
 author: lingliw
 manager: digimobile
 keywords: 如何备份; 备份文件和文件夹
@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/23/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: fb89b7ba5f5bb0aa33f92daf898710093b84b2b1
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 32cbf5fc9e84ebf68b5f23013bcbd13499911f1d
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330274"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730590"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
 本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
@@ -164,7 +164,7 @@ ms.locfileid: "71330274"
 
 现已安装代理，且已向保管库注册计算机。 接下来可以配置和计划备份。
 
-## <a name="back-up-windows-server-system-state"></a>备份 Windows Server 系统状态 
+## <a name="back-up-windows-server-system-state"></a>备份 Windows Server 系统状态
 初始备份包括两个任务：
 
 * 计划备份
@@ -195,7 +195,7 @@ ms.locfileid: "71330274"
 
 6. 单击“下一步”  。
 
-7. 在后续页中选择系统状态备份所需的备份频率和保留策略。 
+7. 在后续页中选择系统状态备份所需的备份频率和保留策略。
 
 8. 在“确认”页上复查信息，然后单击“完成”  。
 
@@ -215,7 +215,7 @@ ms.locfileid: "71330274"
 
 5. 单击“**关闭**”以关闭向导。 如果在备份过程完成之前关闭向导，向导将继续在后台运行。
     > [!NOTE]
-    > 在每次系统状态备份之前，MARS 代理都会在预检查过程中触发 SFC /verifyonly。 这是为了确保作为系统状态一部分备份的文件具有与 Windows 版本相对应的正确版本。 在[本文](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/sfc)中详细了解系统文件检查器 (SFC)。
+    > 在每次系统状态备份之前，MARS 代理都会在预检查过程中触发 SFC /verifyonly。 这是为了确保作为系统状态一部分备份的文件具有与 Windows 版本相对应的正确版本。 在[本文](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc)中详细了解系统文件检查器 (SFC)。
     >
 
 完成初始备份后，备份控制台中显示“**作业已完成**”状态。

@@ -1,6 +1,6 @@
 ---
-title: 添加循环重复执行操作或处理数组 - Azure 逻辑应用 | Microsoft Docs
-description: 如何在 Azure 逻辑应用中创建重复执行工作流操作或处理数组的循环
+title: 添加循环以重复执行操作 - Azure 逻辑应用
+description: 在 Azure 逻辑应用中添加循环以重复执行操作或处理数组
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,13 +10,13 @@ manager: jeconnoc
 origin.date: 01/05/2019
 ms.topic: article
 ms.reviewer: klam, LADocs
-ms.date: 04/22/2019
-ms.openlocfilehash: 00860e50c05ff4c5d89dc3ac373eb85c1a1cef2a
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 11/11/2019
+ms.openlocfilehash: 437c72b432a544ba0def65ea68745bec7f236884
+ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539014"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426026"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure 逻辑应用中添加循环以重复执行操作或处理数组
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 05/29/2019
-ms.date: 07/15/2019
-ms.openlocfilehash: b5fdbf2cca0cc6c0c9f6226fc6e97c8dd319d1b9
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.date: 11/04/2019
+ms.openlocfilehash: 4d0833eca2624ce768e4e99573439a5afc574a58
+ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845111"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142148"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的慢查询日志
 
@@ -45,6 +45,9 @@ ms.locfileid: "67845111"
 - **log_queries_not_using_indexes**：确定是否将未使用索引的查询记录到 slow_query_log 中
 - **log_throttle_queries_not_using_indexes**：此参数限制可以写入到慢查询日志的非索引查询的数目。 当 log_queries_not_using_indexes 设置为 ON 时，此参数生效。
 
+> [!Note]
+> 对于 `sql_text`，如果日志超过 2048 个字符，则会截断日志。
+
 有关慢查询日志参数的完整说明，请参阅 MySQL [慢查询日志文档](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
 ## <a name="diagnostic-logs"></a>诊断日志
@@ -71,8 +74,8 @@ Azure Database for MySQL 集成了 Azure Monitor 诊断日志。 在 MySQL 服�
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | 服务器的名称 |
 | `start_time_t` [UTC] | 查询开始时间 |
-| `query_time_s` | 查询执行的总时间 |
-| `lock_time_s` | 查询被锁定的总时间 |
+| `query_time_s` | 执行查询所需的总时间（秒） |
+| `lock_time_s` | 锁定查询的总时间（秒） |
 | `user_host_s` | 用户名 |
 | `rows_sent_s` | 发送的行数 |
 | `rows_examined_s` | 检查的行数 |

@@ -1,89 +1,144 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure 数据工厂文档
+summary: Azure 数据工厂是 Azure 的云 ETL 服务，用于横向扩展无服务器数据集成和数据转换。  它提供了无代码的 UI，以用于直观创作与集中式监视和管理。 还可以将现有 SSIS 包直接迁移到 Azure，并在 ADF 中运行它们（二者完全兼容）。 SSIS Integration Runtime 提供完全托管的服务，因此无需担心基础结构管理。
 metadata:
-  title: Azure 数据工厂文档 - 教程和 API 参考 | Microsoft 文档
-  description: 了解如何使用数据工厂来与本地源与云源建立自动化数据管道，以便移动和处理要分析的数据。
+  title: Azure 数据工厂文档
+  description: 了解如何使用数据工厂（云数据集成服务）将数据存储服务、移动服务和处理服务组合成自动化数据管道。 教程和其他文档介绍了如何设置和管理数据管道，以及如何移动和转换要分析的数据。
   services: data-factory
+  ms.service: data-factory
+  ms.topic: landing-page
+  ms.collection: collection
   author: WenJason
   ms.author: v-jay
-  manager: digimobile
-  ms.service: data-factory
-  ms.tgt_pltfrm: na
-  ms.topic: overview
-  origin.date: 08/06/2018
-  ms.date: 07/08/2019
-abstract:
-  description: 了解如何使用数据工厂（云数据集成服务）将数据存储服务、移动服务和处理服务组合成自动化数据管道。 教程和其他文档介绍了如何设置和管理数据管道，以及如何移动和转换要分析的数据。
-sections:
-  - title: 5 分钟快速入门
-    items:
-      - type: paragraph
-        text: 使用以下快速入门之一，了解如何创建数据工厂管道来移动和处理数据：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /data-factory/media/index/portal.svg
-            text: 数据工厂 UI
-            href: /data-factory/quickstart-create-data-factory-portal
-          - image:
-              src: /data-factory/media/index/copy-data-tool.png
-            text: 复制数据工具
-            href: /data-factory/quickstart-create-data-factory-copy-data-tool
-          - image:
-              src: /data-factory/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /data-factory/quickstart-create-data-factory-powershell
-          - image:
-              src: /data-factory/media/index/logo_net.svg
-            text: .NET
-            href: /data-factory/quickstart-create-data-factory-dot-net
-          - image:
-              src: /data-factory/media/index/logo_python.svg
-            text: Python
-            href: /data-factory/quickstart-create-data-factory-python
-          - image:
-              src: /data-factory/media/index/logo_rest.svg
-            text: REST
-            href: /data-factory/quickstart-create-data-factory-rest-api
-          - image:
-              src: /data-factory/media/index/logo_azure_resource_manager.svg
-            text: Resource Manager 模板
-            href: /data-factory/quickstart-create-data-factory-resource-manager-template
-  - title: 分步教程
-    items:
-      - type: paragraph
-        text: 了解如何创建和监视数据工厂：
-      - type: list
-        style: unordered
-        items:
-          - html: 在云中复制数据 - <a href="/data-factory/tutorial-copy-data-tool">复制数据工具</a> | <a href="/data-factory/tutorial-copy-data-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-copy-data-dot-net">.NET</a>
-          - html: 将本地数据复制到云 - <a href="/data-factory/tutorial-hybrid-copy-data-tool">复制数据工具 | <a href="/data-factory/tutorial-hybrid-copy-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
-          - html: 批量复制数据 - <a href="/data-factory/tutorial-bulk-copy-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
-          - html: 增量复制数据 - <a href="/data-factory/tutorial-incremental-copy-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
-          - html: 使用 Spark 转换云中的数据 - <a href="/data-factory/tutorial-transform-data-spark-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
-          - html: 转换虚拟网络中的数据 - <a href="/data-factory/tutorial-transform-data-hive-virtual-network-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-          - html: 添加分支和链接 - <a href="/data-factory/tutorial-control-flow-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-control-flow">.NET</a>
-          - html: 运行 Azure 中的 SSIS 包 - <a href="/data-factory/tutorial-create-azure-ssis-runtime-portal">数据工厂 UI</a> | <a href="/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
-  - title: 示例
-    items:
-      - type: paragraph
-        text: 参考以下示例来使用数据工厂
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/data-factory/samples-powershell">PowerShell</a>
-  - title: 参考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令行
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.datafactory/">Azure PowerShell</a></p>'
-          - title: 语言
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/datafactory">REST API</a></p>'
+  origin.date: 10/02/2019
+  ms.date: 11/11/2019
+  monikerRange: ''
+  ms.openlocfilehash: 5102ecf3ae250373eac3a619ed2a2ce891d1ab64
+  ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73648747"
+landingContent:
+- title: 关于 Azure 数据工厂
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是 Azure 数据工厂？
+      url: /data-factory/introduction
+  - linkListType: reference
+    links:
+    - text: 白皮书
+      url: /data-factory/whitepapers
+    - text: 定价
+      url: https://azure.cn/pricing/details/data-factory/
+    - text: 通过示例了解定价
+      url: /data-factory/pricing-concepts
+- title: 入门
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure 数据工厂 UI
+      url: /data-factory/quickstart-create-data-factory-portal
+    - text: 复制数据工具
+      url: /data-factory/quickstart-create-data-factory-copy-data-tool
+    - text: Azure PowerShell
+      url: /data-factory/quickstart-create-data-factory-powershell
+    - text: .NET
+      url: /data-factory/quickstart-create-data-factory-dot-net
+    - text: Python
+      url: /data-factory/quickstart-create-data-factory-python
+    - text: Rest
+      url: /data-factory/quickstart-create-data-factory-rest-api
+    - text: 资源管理器模板
+      url: /data-factory/quickstart-create-data-factory-resource-manager-template
+- title: 数据移动
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: “复制活动”概述
+      url: /data-factory/copy-activity-overview
+    - text: 复制性能优化
+      url: /data-factory/copy-activity-performance
+  - linkListType: overview
+    links:
+    - text: Data lake 和数据仓库迁移
+      url: /data-factory/data-migration-guidance-overview
+  - linkListType: tutorial
+    links:
+    - text: 复制云中的数据
+      url: /data-factory/tutorial-copy-data-tool
+    - text: 将本地数据复制到云中
+      url: /data-factory/tutorial-hybrid-copy-data-tool
+    - text: 批量复制数据
+      url: /data-factory/
+    - text: 以增量方式复制数据
+      url: /data-factory/tutorial-create-azure-ssis-runtime-portal
+    - text: 加载 ADLS Gen2
+      url: /data-factory/load-azure-data-lake-storage-gen2
+    - text: 加载 SQL DW
+      url: /data-factory/load-azure-sql-data-warehouse
+    - text: 加载 SAP BW
+      url: /data-factory/load-sap-bw-data
+- title: 直接迁移 SSIS 包
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 将 SSIS 包迁移到 Azure SQL 数据库托管实例
+      url: /data-factory/scenario-ssis-migration-ssisdb-mi
+  - linkListType: tutorial
+    links:
+    - text: 在 Azure 中运行 SSIS 包
+      url: /data-factory/tutorial-deploy-ssis-packages-azure
+  - linkListType: how-to-guide
+    links:
+    - text: 预配 SSIS Integration Runtime
+      url: /data-factory/create-azure-ssis-integration-runtime
+    - text: 将 SSIS IR 加入虚拟网络
+      url: /data-factory/join-azure-ssis-integration-runtime-virtual-network
+    - text: 使用“执行 SSIS 包”活动运行 SSIS 包
+      url: /data-factory/how-to-invoke-ssis-package-ssis-activity
+    - text: 计划 SSIS integration runtime
+      url: /data-factory/how-to-schedule-azure-ssis-integration-runtime
+    - text: 自定义 SSIS IR 的安装程序
+      url: /data-factory/how-to-configure-azure-ssis-ir-custom-setup
+    - text: 安装 SSIS IR 的已许可组件
+      url: /data-factory/how-to-develop-azure-ssis-ir-licensed-components
+- title: 安全性
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 数据移动安全注意事项
+      url: /data-factory/data-movement-security-considerations
+    - text: 数据工厂的托管标识
+      url: /data-factory/data-factory-service-identity
+    - text: 在 Azure Key Vault 中存储凭据
+      url: /data-factory/store-credentials-in-key-vault
+- title: 创作、监视和管理
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 以可视化方式监视 Azure 数据工厂
+      url: /data-factory/author-visually
+    - text: 迭代开发和调试
+      url: /data-factory/iterative-development-debugging
+    - text: 直观地监视
+      url: /data-factory/monitor-visually
+    - text: 使用 Azure Monitor 进行监视
+      url: /data-factory/monitor-using-azure-monitor
+    - text: 使用 SDK 进行监视
+      url: /data-factory/monitor-programmatically
+- title: 语言
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.datafactory/
+    - text: .NET
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory/
+    - text: Python
+      url: https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python
+    - text: REST
+      url: https://docs.microsoft.com/rest/api/datafactory/
+    - text: Resource Manager 模板
+      url: https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions

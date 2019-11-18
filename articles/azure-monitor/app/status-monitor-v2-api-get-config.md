@@ -1,26 +1,22 @@
 ---
-title: Azure 状态监视器 v2 API 参考：获取配置 | Azure Docs
-description: 状态监视器 v2 API 参考 Get-ApplicationInsightsMonitoringConfig。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
-services: application-insights
-documentationcenter: .net
+title: Azure Application Insights 代理 API 参考：获取配置 | Microsoft Docs
+description: Application Insights 代理 API 参考。 Get-ApplicationInsightsMonitoringConfig。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: lingliw
 manager: digimobile
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 62ebaa6e87e311b38341d7bd8b9a8c576bb038ef
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 6f40c5ac31f70404febad6ba695a2e1e78cd3cc2
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329776"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730500"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>Application Insights 代理 API：Get-ApplicationInsightsMonitoringConfig
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
@@ -37,7 +33,7 @@ ms.locfileid: "71329776"
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-## <a name="parameters"></a>parameters 
+## <a name="parameters"></a>parameters
 
 不需要参数。
 
@@ -67,6 +63,6 @@ Filters:
 - [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
  
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
  - 使用 [Set config](status-monitor-v2-api-set-config.md) cmdlet 更改此配置。

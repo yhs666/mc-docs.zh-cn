@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-origin.date: 07/24/2019
-ms.date: 09/02/2019
+origin.date: 09/29/2019
+ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c1029ad8268e8b22dd6aab42f59cbcc8c97c502d
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 1f1b5f31374949e569095516e1ce0d5b5de27f06
+ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104202"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416330"
 ---
 # <a name="patternany-entity"></a>Pattern.any 实体 
 
@@ -42,48 +42,70 @@ Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中�
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>《口袋里的毛怪！》  是某位美国人在今年撰写的吗？|
 ||
 
+
+
 ## <a name="example-json"></a>示例 JSON
 
+请考虑下列查询：
+
+`where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
+
+将嵌入式窗体名称提取为 Pattern.any：
+
+`Understand your responsibilities as a member of the community`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+
 ```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
+"entities": [
+  {
+    "entity": "understand your responsibilities as a member of the community",
+    "type": "FormName",
+    "startIndex": 18,
+    "endIndex": 78,
+    "role": ""
+  }
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+
+如果在查询字符串中设置了 `verbose=false`，则这是 JSON：
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ]
 }
 ```
+
+如果在查询字符串中设置了 `verbose=true`，则这是 JSON：
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ],
+    "$instance": {
+        "FormName": [
+            {
+                "type": "FormName",
+                "text": "Understand your responsibilities as a member of the community",
+                "startIndex": 18,
+                "length": 61,
+                "modelTypeId": 7,
+                "modelType": "Pattern.Any Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>后续步骤
 
