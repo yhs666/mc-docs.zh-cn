@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/23/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 93cb59b60220f15eb26626dc359ac0385acaf32a
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 5f97455898a07a8a404747829e352e9bf1f1340f
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583694"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020692"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>排查语音 SDK 问题
 
@@ -57,14 +57,14 @@ ms.locfileid: "72583694"
       'Content-Length'= '0'
       'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
     }
-    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.china.cn/sts/v1.0/issueToken -Headers $FetchTokenHeader
+    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.azure.cn/sts/v1.0/issueToken -Headers $FetchTokenHeader
     $OAuthToken
     ```
 
 * cURL
 
     ```
-    curl -v -X POST "https://YOUR_REGION.api.cognitive.china.cn/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
+    curl -v -X POST "https://YOUR_REGION.api.cognitive.azure.cn/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
 如果输入了有效的订阅密钥，则该命令将返回授权令牌，否则将返回错误。

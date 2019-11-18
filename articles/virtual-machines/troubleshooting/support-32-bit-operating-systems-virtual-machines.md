@@ -14,12 +14,12 @@ ms.topic: troubleshooting
 origin.date: 09/18/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: dd958cee4fa7169d4fc2d88379f492b81d574e51
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 5b24d1d31b155c8d694b175963e277acef7391fc
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730732"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116941"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Azure 虚拟机对 32 位操作系统的支持
 
@@ -48,5 +48,4 @@ Azure 现在允许用户将其 32 位 Windows 操作系统引入 Azure。 由于
 
 或者，提交 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。
 
-<!--Update_Description: new articles on support 32 bit windows OS VM -->
-<!--New.date: 11/04/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

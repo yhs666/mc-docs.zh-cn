@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 06/03/2019
+origin.date: 07/23/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 7a108961fea338b931a08aea3444ebff3959df30
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 488bc268f7bd9138167ce1cce3805fbe5bf00cdc
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381852"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020273"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -273,7 +273,7 @@ Invoke-AzsCertificateValidation Completed
 
  - 对于部署，请根据 [Azure Stack PKI 要求文档](azure-stack-pki-certs.md)中的规定，安全地将证书传送给部署工程师，使他们能够将其复制到部署主机。
  - 对于机密轮换，可以遵循 [Azure Stack 机密轮换文档](azure-stack-rotate-secrets.md)，使用这些证书来更新 Azure Stack 环境公共基础结构终结点的旧证书。
- - 对于 PaaS 服务，可以按照[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)文档，使用证书在 Azure Stack 中安装 SQL、MySQL 和应用程序服务资源提供程序。
+ - 对于 PaaS 服务，可以按照[在 Azure Stack 中提供服务概述](service-plan-offer-subscription-overview.md)文档，使用证书在 Azure Stack 中安装 SQL、MySQL 和应用程序服务资源提供程序。
 
 ## <a name="next-steps"></a>后续步骤
 

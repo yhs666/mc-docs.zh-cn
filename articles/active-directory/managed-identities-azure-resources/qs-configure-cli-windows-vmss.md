@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/15/2018
-ms.date: 08/05/2019
+origin.date: 09/26/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef0a646d3990b4116c64b2db618c1b529630f7b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 7c3f99f168b5c4398033cd0a293c2508d579988d
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818661"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084504"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>使用 Azure CLI 在虚拟机规模集上配置 Azure 资源托管标识
 
@@ -31,7 +31,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 本文介绍如何使用 Azure CLI 在 Azure 虚拟机规模集上执行以下 Azure 资源托管标识操作：
 - 在 Azure 虚拟机规模集上启用和禁用系统分配托管标识
-- 在 Azure 虚拟机规模集上添加和删除用户分配的托管标识
+- 在 Azure 虚拟机规模集上添加和删除用户分配托管标识
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -110,8 +110,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-> [!NOTE]
-> 如果已为 Azure 资源 VM 扩展（将弃用）配置了托管标识，则需要使用 [az vmss extension delete](/cli/vm/) 将其删除。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ## <a name="user-assigned-managed-identity"></a>用户分配的托管标识
 

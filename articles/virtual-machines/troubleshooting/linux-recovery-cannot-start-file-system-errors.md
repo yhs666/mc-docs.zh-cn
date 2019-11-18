@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 10/09/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fe8be1ef840e5eedb318e299b90dd3415d89909
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 8dae287c4caa239cc07605ad692ac0a6eb6d7e6a
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730720"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116947"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>排查文件系统错误导致的 Linux VM 启动问题
 
@@ -131,5 +131,4 @@ Linux 提供了多个文件系统检查程序。 Azure 中最常见的发行版�
 * [通过使用 Azure CLI 2.0 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除](/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [使用门户将数据磁盘附加到 Linux VM](/virtual-machines/linux/attach-disk-portal)
 
-<!--Update_Description: new articles on VM troubleshoot linux recovery can not start file system error -->
-<!--New.date: 11/04/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

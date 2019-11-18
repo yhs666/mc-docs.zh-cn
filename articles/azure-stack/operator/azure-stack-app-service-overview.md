@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: cba96ce54ccd2cd80cc6a97ad999c767e9ab0f43
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 0637287a068b77b976977f93b6965c36e2a6d8d2
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578493"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020317"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上的应用服务概述
 
@@ -71,4 +71,4 @@ Azure Stack 上的应用服务使用 Azure 应用服务所用的相同用户界�
 - [在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)
 - [安装应用服务资源提供程序](azure-stack-app-service-deploy.md)
 
-还可以试用其他[平台即服务 (PaaS) 服务](azure-stack-offer-services-overview.md)，如 [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)和 [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)。
+还可以试用其他[平台即服务 (PaaS) 服务](service-plan-offer-subscription-overview.md)，如 [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)和 [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)。

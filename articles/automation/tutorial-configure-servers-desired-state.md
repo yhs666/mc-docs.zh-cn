@@ -9,13 +9,13 @@ ms.author: v-jay
 manager: digimobile
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 08/26/2019
-ms.openlocfilehash: 3ee4d192b7f6c1e3ea2bbc720c25c51bcc3c2fdb
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 11/18/2019
+ms.openlocfilehash: 2c666c37e322e41efb42e9503c215b2a42650204
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993276"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116188"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 
@@ -35,7 +35,7 @@ ms.locfileid: "69993276"
 - 一个 Azure 自动化帐户。 有关如何创建 Azure 自动化运行方式帐户的说明，请参阅 [Azure 运行方式帐户](automation-sec-configure-azure-runas-account.md)。
 - 一个运行 Windows Server 2008 R2 或更高版本的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Azure PowerShell 模块 3.6 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。
-- 熟悉所需状态配置 (DSC)。 有关 DSC 文档的信息，请参阅 [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview)
+- 熟悉所需状态配置 (DSC)。 有关 DSC 文档的信息，请参阅 [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -49,7 +49,7 @@ Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 对于本教程，我们将使用简单 DSC 配置，以确保在 VM 上安装 IIS。
 
-有关 DSC 配置的详细信息，请参阅 [DSC 配置](https://docs.microsoft.com/powershell/dsc/configurations)。
+有关 DSC 配置的详细信息，请参阅 [DSC 配置](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations)。
 
 在文本编辑器中，键入以下命令，并在本地将其保存为 `TestConfig.ps1`。
 
@@ -78,7 +78,7 @@ configuration TestConfig {
 
 必须先将 DSC 配置编译为节点配置，然后才能将它分配给节点。
 
-有关编译配置的信息，请参阅 [DSC 配置](https://docs.microsoft.com/powershell/dsc/configurations)。
+有关编译配置的信息，请参阅 [DSC 配置](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations)。
 
 调用 `Start-AzureRmAutomationDscCompilationJob` cmdlet，将 `TestConfig` 配置编译为节点配置：
 
@@ -117,7 +117,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 
 有关设置托管节点的配置属性的详细信息，请参阅 [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode)。
 
-有关 DSC 配置设置的详细信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/powershell/dsc/metaconfig)。
+有关 DSC 配置设置的详细信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)。
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>将节点配置分配给托管节点
 
@@ -128,12 +128,12 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Assign the node configuration to the DSC node
-Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -Id $node.Id
+Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -NodeId $node.Id
 ```
 
 这会将名为 `TestConfig.WebServer` 的节点配置分配到名为 `DscVm` 的已注册 DSC 节点。
 默认情况下，每隔 30 分钟会检查一次 DSC 节点是否符合节点配置。
-有关如何更改符合性检查间隔的信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/PowerShell/DSC/metaConfig)。
+有关如何更改符合性检查间隔的信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)。
 
 ## <a name="working-with-partial-configurations"></a>使用部分配置
 
@@ -155,7 +155,7 @@ Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeId $node.Id
 
 # Display the most recent report
 $reports[0]

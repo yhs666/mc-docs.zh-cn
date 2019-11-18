@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/27/2017
-ms.date: 08/05/2019
+origin.date: 09/26/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8526e7f0983b689864975e1b14c60ecd44ce9e57
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 819b64d1f8164761ec5f8bbc516abe57a7c5e72c
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818643"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084503"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>使用 PowerShell 在 Azure VM 上配置 Azure 资源的托管标识
 
@@ -58,8 +58,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
    - [使用 PowerShell 创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-powershell.md)
    - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md)
 
-> [!NOTE]
-> 可以选择为 Azure 资源 VM 扩展预配托管标识，但它不久将弃用。 我们建议使用 Azure 实例元数据标识终结点进行身份验证。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 终结点以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>在现有 Azure VM 上启用系统分配托管标识
 
@@ -78,8 +77,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-> [!NOTE]
-> 可以选择为 Azure 资源 VM 扩展预配托管标识，但它不久将弃用。 我们建议使用 Azure 实例元数据标识终结点进行身份验证。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 终结点以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>将 VM 系统分配的标识添加到组
 
@@ -135,8 +133,7 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-> [!NOTE]
-> 如果已为 Azure 资源 VM 扩展（将弃用）配置了托管标识，则需要使用 [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmextension) 将其删除。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ## <a name="user-assigned-managed-identity"></a>用户分配的托管标识
 
@@ -157,8 +154,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
     - [使用 PowerShell 创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-powershell.md)
     - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md)
 
-> [!NOTE]
-> 可以选择为 Azure 资源 VM 扩展预配托管标识，但它不久将弃用。 我们建议使用 Azure 实例元数据标识终结点进行身份验证。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 终结点以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>向现有 Azure VM 分配用户分配托管标识
 
@@ -188,8 +184,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-> [!NOTE]
-> 可以选择为 Azure 资源 VM 扩展预配托管标识，但它不久将弃用。 我们建议使用 Azure 实例元数据标识终结点进行身份验证。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 终结点以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>从 Azure VM 中删除用户分配的托管标识
 
@@ -222,3 +217,4 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
   - [使用 PowerShell 创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-powershell.md) 
   - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md) 
 
+<!-- Update_Description: wording update -->

@@ -8,12 +8,12 @@ ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b93bf2108c01686c1c8ca0a3660b73ccf5bad717
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 5b481e8cf01318173453c1f34dd71e8965c7e517
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526552"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020872"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教程：创建和管理策略以强制实施符合性
 
@@ -114,14 +114,14 @@ ms.locfileid: "72526552"
 
    若要查看其他 Azure Policy 示例，请参阅 [Azure Policy 示例](../samples/index.md)。
 
-1. 选择**保存**。
+1. 选择“保存”  。
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>使用 REST API 创建策略定义
 
 可通过适用于 Azure Policy 定义的 REST API 来创建策略。 REST API 可让你创建和删除策略定义，以及获取现有定义的信息。 若要创建策略定义，请使用以下示例：
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
 包括类似于以下示例的请求正文：

@@ -7,21 +7,21 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 01/16/2019
-ms.date: 07/22/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 9356b8b8d4e0f29cb80bf5dc08cdfa7158846b0f
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: e6860b8f39774a043bdb2ccf1bb1e9b8da65284a
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993602"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116240"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
-自动化连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 除 URL 和端口等连接信息外，还包括身份验证所需的信息，如用户名和密码。 使用连接的值将用于连接一个特定应用程序的所有属性保留在一个资产中，而不是创建多个变量。 用户可以从一个位置编辑连接的值，并且可以在单个参数中将连接名称传递给 Runbook 或 DSC 配置。 可在 Runbook 或 DSC 配置中使用 **Get-AutomationConnection** 活动访问连接的属性。 
+自动化连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 除 URL 和端口等连接信息外，还包括身份验证所需的信息，如用户名和密码。 使用连接的值将用于连接一个特定应用程序的所有属性保留在一个资产中，而不是创建多个变量。 用户可以从一个位置编辑连接的值，并且可以在单个参数中将连接名称传递给 Runbook 或 DSC 配置。 可在 Runbook 或 DSC 配置中使用 **Get-AutomationConnection** 活动访问连接的属性。
 
-创建连接时，必须指定“连接类型”  。 连接类型是定义了一组属性的模板。 
+创建连接时，必须指定“连接类型”  。 连接类型是定义了一组属性的模板。 连接为其连接类型中定义的每个属性定义值。
 
 >[!NOTE]
 >Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在系统托管的密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。 此过程由 Azure 自动化管理。
@@ -55,18 +55,18 @@ Azure 自动化中有三种类型的内置连接：
 |---|---|
 |[Get-AutomationConnection](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|获取要使用的连接。 返回包括该连接属性的哈希表。|
 
->[!NOTE] 
+>[!NOTE]
 >应避免在 **Get-AutomationConnection** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与连接资产之间的依赖关系变得复杂化。
 
- 
-## <a name="python2-functions"></a>Python2 函数 
-下表中的函数用于在 Python2 Runbook 中访问连接。 
 
-| 函数 | 说明 | 
-|:---|:---| 
-| automationassets.get_automation_connection | 检索连接。 返回包括该连接属性的字典。 | 
+## <a name="python2-functions"></a>Python2 函数
+下表中的函数用于在 Python2 Runbook 中访问连接。
 
-> [!NOTE] 
+| 函数 | 说明 |
+|:---|:---|
+| automationassets.get_automation_connection | 检索连接。 返回包括该连接属性的字典。 |
+
+> [!NOTE]
 > 必须在 Python Runbook 顶部导入“automationassets”模块才能访问资产函数。
 
 ## <a name="creating-a-new-connection"></a>创建新连接
@@ -83,7 +83,7 @@ Azure 自动化中有三种类型的内置连接：
 
 使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](https://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值  。
 
-如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
+如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
@@ -99,10 +99,10 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 
-以下示例命令演示如何使用前面所述的运行方式帐户，向 Runbook 中的 Azure Resource Manager 资源进行身份验证。  它使用表示该运行方式帐户的连接资产，该帐户引用基于证书的服务主体而不是凭据。  
+以下示例命令演示如何使用前面所述的运行方式帐户，向 Runbook 中的 Azure Resource Manager 资源进行身份验证。  它使用表示该运行方式帐户的连接资产，该帐户引用基于证书的服务主体而不是凭据。
 
 ```powershell
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
 ```
 
@@ -126,7 +126,6 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 """ Tutorial to show how to authenticate against Azure resource manager resources """
 import azure.mgmt.resource
 import automationassets
-
 
 def get_automation_runas_credential(runas_connection):
     """ Returns credentials to authenticate against Azure resoruce manager """
@@ -166,5 +165,5 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>后续步骤
 
-- 查看[图形创作中的链接](automation-graphical-authoring-intro.md#links-and-workflow)，了解如何引导和控制 Runbook 中的逻辑流。  
+- 查看[图形创作中的链接](automation-graphical-authoring-intro.md#links-and-workflow)，了解如何引导和控制 Runbook 中的逻辑流。
 

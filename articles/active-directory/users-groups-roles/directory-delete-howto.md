@@ -10,17 +10,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 04/15/2019
-ms.date: 05/13/2019
+ms.date: 11/14/2019
 ms.author: v-junlch
-ms.reviewer: elkuzmen
+ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0b2d25974895a527103463a3b1523c4cfaa4d5
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 189e95d18e34a18a98fb5688c8eaeb454abefc22
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598809"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084792"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>删除 Azure Active Directory 中的目录
 
@@ -33,23 +33,23 @@ ms.locfileid: "65598809"
 * 目录中不能有用户，只能有一个负责删除该目录的全局管理员。 只有在删除所有其他用户后，才能删除该目录。 如果用户是从本地同步的，则必须先关闭同步，并且必须使用 Azure 门户或 Azure PowerShell cmdlet 从云目录中删除这些用户。
 * 目录中不能有任何应用程序。 只有在删除所有应用程序后，才能删除目录。
 * 不能有任何多重身份验证提供程序关联到该目录。
-* 与目录关联的任何 Microsoft Online Services（例如 Azure 或 Office 365）不能存在任何订阅。 例如，如果在 Azure 中创建了一个默认目录，并且 Azure 订阅仍然依赖于此目录进行身份验证，则不能删除此目录。 类似地，如果其他用户已将订阅与某个目录相关联，则你无法删除该目录。
+* 与目录关联的任何 Microsoft Online Services（例如 Azure、Office 365 或 Azure AD Premium）不能存在任何订阅。 例如，如果在 Azure 中创建了一个默认目录，并且 Azure 订阅仍然依赖于此目录进行身份验证，则不能删除此目录。 类似地，如果其他用户已将订阅与某个目录相关联，则你无法删除该目录。
 
 ## <a name="delete-the-directory"></a>删除目录
 
 1. 使用一个其身份为组织全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“Azure Active Directory” 。
+2. 选择“Azure Active Directory”  。
 
 3. 切换到要删除的目录。
   
    ![在删除之前确认组织](./media/directory-delete-howto/delete-directory-command.png)
 
-4. 选择“删除目录”。
+4. 选择“删除目录”。 
   
    ![选择用于删除组织的命令](./media/directory-delete-howto/delete-directory-list.png)
 
-5. 如果目录没有通过一项或多项检查，则会出现一个详细说明如何通过的链接。 通过所有检查后，请选择“删除”，此过程结束。
+5. 如果目录没有通过一项或多项检查，则会出现一个详细说明如何通过的链接。 通过所有检查后，请选择“删除”  ，此过程结束。
 
 ## <a name="next-steps"></a>后续步骤
 

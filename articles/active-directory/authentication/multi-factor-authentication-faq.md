@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427538d0efe88a80a062054e3a865a12f22433cb
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: ff48a33e0bf1168f19f6049d6801004f5fe4dc11
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912732"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084475"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 
@@ -53,7 +53,7 @@ ms.locfileid: "72912732"
 
 发送短信和接收双向短信回复无法得到保障，因为它们属于可能影响服务可靠性的不可控因素。 这些因素包括目标国家/地区、移动电话运营商和信号强度。
 
-如果用户经常无法可靠地接收短信，请告诉他们改用移动应用或电话验证方法。 移动应用可以同时通过手机网络和 Wi-Fi 连接接收通知。 此外，即使设备根本没有信号，也可以生成验证码。 Microsoft 验证器应用适用于 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
+如果用户经常无法可靠地接收短信，请告诉他们改用移动应用或电话验证方法。 移动应用可以同时通过手机网络和 Wi-Fi 连接接收通知。 此外，即使设备根本没有信号，也可以生成验证码。 Microsoft 验证器应用适用于 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 和 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)。
 
 如果必须使用短信，建议尽可能使用单向短信，而不要使用双向短信。 单向短信更加可靠，并可以防止用户由于回复从其他国家/地区发来的短信而产生的全球短信费用。
 
@@ -86,6 +86,7 @@ ms.locfileid: "72912732"
 此错误的解决方法是，使用不同的用户帐户执行管理员相关操作和非管理员操作。 稍后，可以在管理员帐户与非管理员帐户之间链接邮箱，以便能够使用非管理员帐户登录到 Outlook。 若要详细了解此解决方案，请了解如何[让管理员能够打开和查看用户邮箱的内容](https://help.outlook.com/141/gg709759.aspx?sl=1)。
 
 ## <a name="next-steps"></a>后续步骤
+
 如果此处未解答问题，请将其留在页面底部的评论中。 或者，以下是一些用于获取帮助的其他选项：
 
 * 在 [Microsoft 支持知识库](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) 中搜索常见技术问题的解决方法。

@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5ee1bc2affa1fffc018c5cc15cded1bf7bbd230d
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 74f26350ac59102317a5908d4df25f6963f0fda1
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578281"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020050"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用
 
@@ -213,7 +213,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
   [在 Azure Stack 中创建套餐的订阅]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [提供对 Azure Stack 的应用程序访问权限]: ../operator/azure-stack-create-service-principals.md
   [**租户 ID]: ../operator/azure-stack-identity-overview.md
-  [**订阅 ID]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
+  [**订阅 ID]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
   [Azure Stack 资源管理器终结点**]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [API 配置文件的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject

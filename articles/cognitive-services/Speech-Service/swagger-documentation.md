@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: abe004f06b732286856df048d177d445035d1ff9
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 8d2bfa22b94bac212e6be3b0439ef66b9381c855
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267087"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020713"
 ---
 # <a name="swagger-documentation"></a>Swagger 文档
 
@@ -27,13 +27,13 @@ ms.locfileid: "71267087"
 
 ## <a name="generating-code-from-the-swagger-specification"></a>从 Swagger 规范生成代码
 
-[Swagger 规范](https://cris.ai/swagger/ui/index)包含可快速测试各种路径的选项。 但有时需要为所有路径生成代码，从而创建可基于未来的解决方案的单个调用库。 让我们看看生成 Python 库的过程。
+[Swagger 规范](https://chinaeast2.cris.azure.cn/swagger/ui/index)包含可快速测试各种路径的选项。 但有时需要为所有路径生成代码，从而创建可基于未来的解决方案的单个调用库。 让我们看看生成 Python 库的过程。
 
 你需要将 Swagger 设置为与语音服务订阅相同的区域。 可在 Azure 门户中的语音服务资源下确认区域。 有关受支持的区域的完整列表，请参阅[区域](regions.md)。
 
 1. 转到 https://editor.swagger.io
 2. 单击“文件”，然后单击“导入”  
-3. 输入 swagger URL，包括语音服务订阅的区域`https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. 输入 swagger URL，包括语音服务订阅的区域`https://<your-region>.cris.azure.cn/docs/v2.0/swagger`
 4.  单击“生成客户端”，然后选择 Python
 5. 保存客户端库
 
@@ -41,7 +41,7 @@ ms.locfileid: "71267087"
 
 ## <a name="reference-docs"></a>参考文档
 
-* [REST (Swagger)：批量听录和自定义](https://westus.cris.ai/swagger/ui/index)
+* [REST (Swagger)：批量听录和自定义](https://chinaeast2.cris.azure.cn/swagger/ui/index)
 * [REST API：文本转语音](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>后续步骤

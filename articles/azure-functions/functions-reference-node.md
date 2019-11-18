@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 02/24/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 310e6f22a9917aa864219825620b301f27c8b62c
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 5b0fc77f70e59de6a2463d4851443bd10055bcef
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034443"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934254"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -677,8 +677,9 @@ const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 module.exports = async function (context) {
+    let data;
     try {
-        const data = await readFileAsync('./hello.txt');
+        data = await readFileAsync('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
@@ -699,4 +700,4 @@ module.exports = async function (context) {
 [`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/08/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: da2609b28c28eb0fd7ee7eec9268266af9d2d680
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 05ee0b5207ae734ab2de7ab6f270e701edd869c9
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272707"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116933"
 ---
 # <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>由于静态 IP 而无法通过远程桌面连接到 Azure 虚拟机
 
@@ -58,5 +58,4 @@ VM 具有一个在 Windows 中的网络接口上定义的静态 IP 地址。 此
 
 之后，如果希望为 VM 配置静态 IP，请参阅[为 VM 配置静态 IP 地址](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)。
 
-<!-- Update_Description: new articles on troubleshoot rdp static ip -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: update meta properties, wording update -->

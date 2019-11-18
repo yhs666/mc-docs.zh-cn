@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 04/09/2018
-ms.date: 07/15/2019
-ms.openlocfilehash: 28e10f2f350ece4df004d4e0af5c7106d2756ca0
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 10/24/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 77a17f83c88b4c04981c10d40826af45ffc300bf
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845101"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020882"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL 防火墙规则
 
@@ -35,9 +35,7 @@ ms.locfileid: "67845101"
 
 3. 验证 IP 地址，并保存配置。 在某些情况下，Azure 门户识别出的 IP 地址与访问 Internet 和 Azure 服务器时所使用的 IP 地址不同。 因此，可能需要更改起始 IP 和结束 IP，以使规则正常工作。
 
-   使用搜索引擎或其他联机工具来查看自己的 IP 地址。 例如，搜索“我的 IP 地址是多少”。 
-
-   ![用必应搜索“我的 IP 是多少”](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
+   使用搜索引擎或其他联机工具来查看自己的 IP 地址。 例如，搜索“我的 IP 地址是多少”。
 
 4. 添加其他地址范围。 在 Azure Database for MySQL 防火墙规则中，可以指定单个 IP 地址，也可以指定某个范围的地址。 如果希望将规则限制为单个 IP 地址，请在“起始 IP”和“结束 IP”字段中输入相同的地址。 打开防火墙后，管理员、用户和应用程序可以访问 MySQL 服务器上他们拥有有效凭据的任何数据库。
 

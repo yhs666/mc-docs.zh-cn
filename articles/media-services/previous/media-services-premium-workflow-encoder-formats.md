@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/23/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: bfa9e4928499905be226c3a52e3a50799f004b58
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 5397962b7a417fcc0d02cd86de6fc2c783d264ae
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124604"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116250"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
 
@@ -95,8 +95,6 @@ Media Encoder Premium Workflow 输出格式和编解码器
 * Windows Media 视频/VC-1
 * JPEG 缩略图创建
 * HEVC（H.265；8 位和 10 位，Main 和 Main 10 Profile）
-
-  在某些情况下可获得对 HDR 10 的支持，有关详细信息，请联系 mepd@microsoft.com
 
 
 ### <a name="output-audio-codecs"></a>输出音频编解码器

@@ -1,5 +1,5 @@
 ---
-title: Azure 门户键盘快捷方式 | Azure Docs
+title: Azure 门户键盘快捷方式 | Azure
 description: 了解 Azure 门户中使用的键盘快捷方式。
 services: azure-portal
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/24/2017
-ms.author: kfollis
+origin.date: 04/08/2019
+ms.author: v-tawe
 ms.custom: accessibility
-ms.date: 05/06/2019
-ms.openlocfilehash: f94a56d8d6a172598a884c9692fd48847a9e6bfd
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 11/04/2019
+ms.openlocfilehash: f8913c071d3a3ab910bf3b416025f8a1435e121e
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855174"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020731"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
 
@@ -32,7 +32,7 @@ ms.locfileid: "64855174"
 |为了执行此操作 |按 |
 | --- | --- |
 |创建资源|G+N|
-|打开“所有服务”|G+B|
+| 打开“所有服务”|G+B|
 |搜索资源、服务和文档|G+/|
 |搜索资源菜单项|CTRL+/ |
 |上移所选的左边栏项 |ALT+Shift+向上键|
@@ -49,9 +49,9 @@ ms.locfileid: "64855174"
 
 |转到此位置 |按 |
 | --- | --- |
-|转到“仪表板” |G+D |
-|转到“所有资源”|G+A |
-|转到“资源组”|G+R |
+|转到“仪表板”  |G+D |
+|转到“所有资源” |G+A |
+|转到“资源组” |G+R |
 |打开此位置的左边栏项 |G+数字|
 
 ## <a name="next-steps"></a>后续步骤

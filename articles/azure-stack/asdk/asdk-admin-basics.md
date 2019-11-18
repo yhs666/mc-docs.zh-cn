@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/19/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cec9bc3be7dc83f155239cbc1e08839e98841699
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: e1ec727db5f85297b9bc54e05d8124193d388ab1
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578518"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020077"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理基础知识
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色。 熟悉此信息可确保测试用户能够尽快提高工作效率。
@@ -66,7 +66,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 还可以通过单击管理员门户右上角的“帮助”  (问号) 来访问论坛。 然后单击“帮助 + 支持”  打开“帮助 + 支持”**概述**，其中包含指向论坛的链接。 我们会定期监视 MSDN 论坛。  
 
 > [!IMPORTANT]
-> 由于 ASDK 是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
+> 由于 ASDK 是一个评估环境，因此我们不会通过 Azure 客户支持服务 (CSS) 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 [部署 ASDK](asdk-install.md)

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/06/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2734bad18d9036fcd5d2d52f30e34beac7f69cae
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 58bc600e467603e7c883a02922f368ce8f33db89
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034516"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934257"
 ---
 # <a name="developers-guide-to-durable-entities-in-net-preview"></a>有关 .NET 中的持久实体的开发人员指南（预览版）
 
@@ -121,7 +121,7 @@ public class Counter
 可以使用实体及其操作的显式字符串名称来直接访问基于类的实体。 下面提供了一些示例；有关基础概念（例如信号与调用）的更深入说明，请参阅[访问实体](durable-functions-entities.md#accessing-entities)中的介绍。 
 
 > [!NOTE]
-> 我们建议尽量[通过接口访问实体]()，因为这种方法提供更多的类型检查。
+> 我们建议尽量[通过接口访问实体](#accessing-entities-through-interfaces)，因为这种方法提供更多的类型检查。
 
 ### <a name="example-client-signals-entity"></a>示例：客户端向实体发出信号
 
@@ -513,3 +513,4 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 > [!div class="nextstepaction"]
 > [了解实体的概念](durable-functions-entities.md)
 
+<!-- Update_Description: link update -->

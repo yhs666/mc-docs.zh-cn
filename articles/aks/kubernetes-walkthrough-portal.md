@@ -9,12 +9,12 @@ origin.date: 05/31/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: fe79f74c8ae17ae953959405af5557e6e5a83df2
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 2fa5f70675a47e923c1822329017f1731d5995e1
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068887"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934219"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -59,9 +59,9 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
     > [!CAUTION]
     > 创建新的 AAD 服务主体可能需要几分钟的时间才能传播并变得可用，这样会导致 Azure 门户中出现“找不到服务主体”错误和验证失败。 如果遇到这种情况，请访问[此处](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one)进行缓解。
 
-3. 在“身份验证”  页上，配置以下选项：
-   - 通过将“服务主体”  字段保留为“(新)默认服务主体”  来创建新的服务主体。 或者，可以选择“配置服务主体”  以使用现有的服务主体。 如果使用现有的服务主体，则需要提供 SPN 客户端 ID 和机密。
-   - 启用 Kubernetes 基于角色的访问控制 (RBAC) 所对应的选项。 这样可以对部署在 AKS 群集中的 Kubernetes 资源进行更精细的访问控制。
+1. 在“身份验证”  页上，配置以下选项：
+    - 通过将“服务主体”  字段保留为“(新)默认服务主体”  来创建新的服务主体。 或者，可以选择“配置服务主体”  以使用现有的服务主体。 如果使用现有的服务主体，则需要提供 SPN 客户端 ID 和机密。
+    - 启用 Kubernetes 基于角色的访问控制 (RBAC) 所对应的选项。 这样可以对部署在 AKS 群集中的 Kubernetes 资源进行更精细的访问控制。
 
 默认情况下将使用“基本”  网络，并且会启用适用于容器的 Azure Monitor。 验证完成后，依次单击“查看 + 创建”  、“创建”  。
 

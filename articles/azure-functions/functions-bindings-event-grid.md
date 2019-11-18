@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: reference
 origin.date: 09/04/2018
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5625c82b2050bb46c03118cb1037dac17f987680
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: b2d9073e279425dc3614693753b897a2d56da9d2
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034499"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934265"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的事件网格触发器
 
@@ -218,7 +218,6 @@ module.exports = function (context, eventGridEvent) {
     ) 
     String content, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: " + content);      
   }
 ```
@@ -255,7 +254,6 @@ public class EventSchema {
     ) 
     EventSchema event, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
       context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
@@ -748,3 +746,4 @@ module.exports = function (context, req) {
 > [!div class="nextstepaction"]
 > [详细了解事件网格](../event-grid/overview.md)
 
+<!-- Update_Description: wording update -->

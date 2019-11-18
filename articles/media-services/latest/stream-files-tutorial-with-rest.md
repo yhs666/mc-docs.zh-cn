@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 04/22/2019
-ms.date: 11/04/2019
+origin.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.openlocfilehash: dbd9e1e876d8134a1f19fe98e4abf23e171bcf0c
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+ms.openlocfilehash: 2b5c623410b3c22a6fa12fd25574f26e98f019f1
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416211"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116246"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教程：基于 URL 对远程文件进行编码并流式传输视频 - REST
 
@@ -95,11 +95,12 @@ ms.locfileid: "73416211"
 在本部分中，请发送与编码和创建 URL 相关的请求，以便能够流式传输文件。 具体说来，将发送以下请求：
 
 1. 获取适用于服务主体身份验证的 Azure AD 令牌
+1. 启动流式处理终结点
 2. 创建输出资产
-3. 创建**转换**
-4. 创建**作业**
-5. 创建**流式处理定位符**
-6. 列出**流式处理定位符**的路径
+3. 创建转换
+4. 创建作业
+5. 创建流定位符
+6. 列出流式处理定位符的路径
 
 > [!Note]
 >  本教程假定你使用唯一名称创建所有资源。  
@@ -119,6 +120,33 @@ ms.locfileid: "73416211"
 4. 响应会返回此令牌并将“AccessToken”环境变量设置为令牌值。 若要查看设置“AccessToken”的代码，请单击“测试”选项卡。  
 
     ![获取 AAD 令牌](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+
+### <a name="start-a-streaming-endpoint"></a>启动流式处理终结点
+
+若要启用流式处理，必须首先启动要从中流式处理视频的[流式处理终结点](/media-services/latest/streaming-endpoint-concept)。
+
+> [!NOTE]
+> 仅当流式处理终结点处于运行状态时才进行计费。
+
+1. 在 Postman 应用的左侧窗口中，选择“流式处理和实时”。
+2. 然后，选择“启动 StreamingEndpoint”。
+3. 按“发送”。 
+
+    * 发送以下 **POST** 操作：
+
+        ```
+        https://management.chinacloudapi.cn/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * 如果请求成功，则返回 `Status: 202 Accepted`。
+
+        此状态表示已接受请求进行处理；但是，处理尚未完成。 可以根据 `Azure-AsyncOperation` 响应标头中的值查询操作状态。
+
+        例如，下面的 GET 操作返回操作的状态：
+        
+        `https://management.chinacloudapi.cn/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        [跟踪异步 Azure 操作](/azure-resource-manager/resource-manager-async-operations)一文深入说明了如何通过响应中返回的值跟踪异步 Azure 操作的状态。
 
 ### <a name="create-an-output-asset"></a>创建输出资产
 

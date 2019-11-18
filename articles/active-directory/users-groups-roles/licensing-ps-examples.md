@@ -11,16 +11,16 @@ ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 origin.date: 03/18/2019
-ms.date: 10/25/2019
+ms.date: 11/14/2019
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f534f9e42fc4ef9a8dd6e7af0428999e2e153885
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: cdabed3bb2c6444ae15d426985394802c7d013aa
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912788"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084734"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 和 Graph 示例
 
@@ -60,9 +60,9 @@ GET https://microsoftgraph.chinacloudapi.cn/v1.0/groups/99c4216a-56de-42c4-a4ac-
 ```
 HTTP/1.1 200 OK
 {
-  “value”: [
+  "value": [
 {
-  “assignedLicenses”: [
+  "assignedLicenses": [
      {
           "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
           "skuId":"c7df2760-2c81-4ef7-b578-5b5392b571df",
@@ -407,7 +407,7 @@ HTTP/1.1 200 OK
       "id": "e61ff361-5baf-41f0-b2fd-380a6a5e406a",
       "licenseAssignmentState":[
         {
-          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d”,
+          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d",
           "disabledPlans":[],
           "assignedByGroup": null, # assigned directly.
           "state": "Active",
@@ -416,7 +416,7 @@ HTTP/1.1 200 OK
         {
           "skuId": "1f3174e2-ee9d-49e9-b917-e8d84650f895",
           "disabledPlans":[],
-          "assignedByGroup": “e61ff361-5baf-41f0-b2fd-380a6a5e406a”, # assigned by this group.
+          "assignedByGroup": "e61ff361-5baf-41f0-b2fd-380a6a5e406a", # assigned by this group.
           "state": "Active",
           "error": "None"
         },
@@ -631,4 +631,4 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

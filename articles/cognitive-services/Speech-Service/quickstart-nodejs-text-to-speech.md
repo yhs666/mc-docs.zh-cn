@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 3b447452e963f3f07d1394749ca2731b3992cdf0
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 37aa3123508212cc255ded5e77ad919696aa0219
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583723"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020839"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>快速入门：使用 Node.js 将文本转换为语音
 
@@ -64,7 +64,7 @@ const xmlbuilder = require('xmlbuilder');
 function getAccessToken(subscriptionKey) {
     let options = {
         method: 'POST',
-        uri: 'https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken',
+        uri: 'https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken',
         headers: {
             'Ocp-Apim-Subscription-Key': subscriptionKey
         }
@@ -109,7 +109,7 @@ function textToSpeech(accessToken, text) {
 
     let options = {
         method: 'POST',
-        baseUrl: 'https://chinaeast.tts.speech.chinacloudapi.cn/',
+        baseUrl: 'https://chinaeast2.tts.speech.azure.cn/',
         url: 'cognitiveservices/v1',
         headers: {
             'Authorization': 'Bearer ' + accessToken,

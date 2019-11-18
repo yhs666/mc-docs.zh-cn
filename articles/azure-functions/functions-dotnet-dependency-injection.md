@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/05/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.reviewer: jehollan
-ms.openlocfilehash: ce8a75097693aaf470c360a5a4fbe2fbdef2bd12
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 2bd0e3f37115575128dc3907a043bb0f623858cd
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034399"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934250"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用依赖项注入
 
@@ -185,7 +185,6 @@ public class HttpTrigger
 
     public HttpTrigger(IOptions<MyOptions> options)
     {
-        _service = service;
         _settings = options.Value;
     }
 }
@@ -202,4 +201,4 @@ public class HttpTrigger
 
 - [适用于函数的最佳做法](functions-best-practices.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

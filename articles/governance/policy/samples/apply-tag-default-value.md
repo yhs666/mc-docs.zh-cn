@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/26/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 989262350e67096a4b2e407f2a2ae3e52feb8bb6
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 296c6fdd2994a1d04bdbf61f38f302cd04ce96b0
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526678"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020875"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>示例 - 应用标记及其默认值
 
@@ -185,11 +185,11 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicydefinition) | 创建新的 Azure Policy 定义。 |
-| [Get-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Get-Azresourcegroup) | 获取单个资源组。 |
-| [New-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [Remove-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Remove-Azpolicyassignment) | 删除现有的 Azure Policy 分配。 |
-| [Remove-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Remove-Azpolicydefinition) | 删除现有的 Azure Policy 定义。 |
+| [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicydefinition) | 创建新的 Azure Policy 定义。 |
+| [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-Azresourcegroup) | 获取单个资源组。 |
+| [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| [Remove-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/Remove-Azpolicyassignment) | 删除现有的 Azure Policy 分配。 |
+| [Remove-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Remove-Azpolicydefinition) | 删除现有的 Azure Policy 定义。 |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -288,10 +288,10 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 服务 | 组 | 操作 | 注释 |
 |---|---|---|---|
-| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/zh-cn/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替换项：[在管理组中创建](https://docs.microsoft.com/zh-cn/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
-| 资源管理 | 策略分配 | [创建](https://docs.microsoft.com/zh-cn/rest/api/resources/policyassignments/create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/zh-cn/rest/api/resources/policyassignments/delete) | 删除现有的 Azure Policy 分配。 |
-| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/zh-cn/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替换项：[在管理组中删除](https://docs.microsoft.com/zh-cn/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替换项：[在管理组中创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 资源管理 | 策略分配 | [创建](https://docs.microsoft.com/rest/api/resources/policyassignments/create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/rest/api/resources/policyassignments/delete) | 删除现有的 Azure Policy 分配。 |
+| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替换项：[在管理组中删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>后续步骤
 

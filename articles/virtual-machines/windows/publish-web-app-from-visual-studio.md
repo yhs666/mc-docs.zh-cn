@@ -12,14 +12,14 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 11/03/2017
-ms.date: 07/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 56d64e217f5b5082f19a327c648ddabc8a0ac53b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 395608276abffbd254731e190de500885815a6b7
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569831"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116964"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 
@@ -115,7 +115,7 @@ ms.locfileid: "67569831"
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>设置 CI/CD 以自动部署到 Azure VM
 
-若要使用 Azure Pipelines 设置持续交付管道，请参阅[部署到 Windows 虚拟机](https://docs.microsoft.com/zh-cn/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
+若要使用 Azure Pipelines 设置持续交付管道，请参阅[部署到 Windows 虚拟机](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
 
 <!-- THE FOLLOWING ARCHOR IS NOT AVAILABLE -->
 <!-- Not Available on [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png-->

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 07/05/2017
-ms.date: 10/29/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 757ce23a808ec494846e2d23c3c8023aa3ab708c
-ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
+ms.openlocfilehash: c2e2badd793ee9a1ec63edf9d283748bd4000de0
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068808"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934148"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Redis 缓存
 本主题介绍如何为 Azure Redis 缓存实例执行管理任务，如[重启](#reboot)和[计划更新](#schedule-updates)。
@@ -72,7 +72,7 @@ ms.locfileid: "73068808"
 如果只重新启动其中一个节点，数据通常不会丢失，但仍然存在丢失的可能。 例如，如果重新启动主节点时正在进行缓存写入，则缓存写入的数据会丢失。 发生数据丢失的另一种情况是，在重新启动一个节点时，另一个节点恰巧因故障而关闭。 有关数据丢失的可能原因的详细信息，请参阅[我在 Redis 中的数据发生了什么情况？](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>能否使用 PowerShell、CLI 或其他管理工具重新启动缓存？
-能，有关 PowerShell 说明，请参阅[重新启动 Azure Redis 缓存](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis)。
+能，有关 PowerShell 说明，请参阅[重新启动 Azure Redis 缓存](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis)。
 
 ## <a name="schedule-updates"></a>计划更新
 使用“计划更新”  边栏选项卡可以为缓存实例指定维护时段。 指定维护时段后，会在此时段内进行任何 Redis 服务器更新。 
@@ -109,4 +109,4 @@ ms.locfileid: "73068808"
 ## <a name="next-steps"></a>后续步骤
 * 了解更多 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)功能。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: link update -->

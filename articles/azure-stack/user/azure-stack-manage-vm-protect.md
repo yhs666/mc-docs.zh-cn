@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 07/29/2019
+origin.date: 10/02/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 5a27b1ff7333ead5bad3efcde48b44049e8e1df8
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: a2b8cba789d51d67a86b8cb72a854f2aeb3adbbd
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513284"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020174"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的 VM
 
@@ -163,8 +163,11 @@ Azure Stack 部署的重要注意事项：
 
 本文提供了用于保护 Azure Stack 上部署的用户 VM 的一般准则。 有关使用 Azure 服务保护用户 VM 的信息，请参阅：
 
+### <a name="azure-backup-server"></a>Azure 备份服务器
  - [使用 Azure 备份来备份 Azure Stack 上的文件和应用程序](/backup/backup-mabs-files-applications-azure-stack)
  - [针对 Azure Stack 的 Azure 备份服务器支持](/backup/ ) 
+ 
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [针对 Azure Stack 的 Azure Site Recovery 支持](/site-recovery/)  
 
 若要详细了解在 Azure Stack 上提供 VM 保护的合作伙伴产品，请参阅[保护 Azure Stack 上的应用和数据](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)。

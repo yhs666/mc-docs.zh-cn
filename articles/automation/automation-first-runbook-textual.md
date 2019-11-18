@@ -8,15 +8,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 09/24/2018
-ms.date: 07/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 85f58c2288559d5a10774d10ef56297d935ef1e4
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+ms.openlocfilehash: 56e5c1a7b30bbc7e6b2fb8ed1ebf58c234caf815
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391978"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116230"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一个 PowerShell 工作流 Runbook
 
@@ -62,7 +62,7 @@ ms.locfileid: "68391978"
    }
    ```
 
-2. 在大括号之间键入 *Write-Output "Hello World"* 。
+1. 在大括号之间键入 *Write-Output "Hello World"* 。
 
    ```powershell
    Workflow MyFirstRunbook-Workflow
@@ -71,7 +71,7 @@ ms.locfileid: "68391978"
    }
    ```
 
-3. 通过单击“保存”  保存 Runbook。
+1. 通过单击“保存”  保存 Runbook。
 
 ## <a name="step-3---test-the-runbook"></a>步骤 3 - 测试 Runbook
 
@@ -87,40 +87,40 @@ ms.locfileid: "68391978"
 
    ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 
-2. 关闭测试窗格以返回到画布。
+1. 关闭测试窗格以返回到画布。
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>步骤 4 - 发布和启动 Runbook
 
 创建的 Runbook 仍处于“草稿”模式。 必须首先发布此 Runbook，然后才能在生产中运行它。 当发布 Runbook 时，可以用草稿版本覆盖现有的已发布版本。 在此示例中，由于刚创建了 Runbook，因此还没有已发布版本。
 
 1. 单击“发布”以发布该 Runbook，并在出现提示时单击“是”   。
-2. 如果向左滚动以在“Runbook”窗格中查看该 Runbook，它会显示“已发布”的“创作状态”    。
-3. 向右滚动查看 **MyFirstRunbook-Workflow**的窗格。  
+1. 如果向左滚动以在“Runbook”窗格中查看该 Runbook，它会显示“已发布”的“创作状态”    。
+1. 向右滚动查看 **MyFirstRunbook-Workflow**的窗格。
    顶部的选项允许我们启动 Runbook，计划其在将来的某个时刻启动，或创建 [webhook](automation-webhooks.md) 以使其可以通过 HTTP 调用启动。
-4. 由于只想要启动 Runbook，因此请单击“启动”，并在出现提示时单击“是”   。
+1. 由于只想要启动 Runbook，因此请单击“启动”，并在出现提示时单击“是”   。
 
    ![启动 Runbook](media/automation-first-runbook-textual/automation-runbook-controls-start.png)
 
-5. 此时会为你创建的 Runbook 作业打开作业窗格。 可以关闭此窗格，但在此示例中，将它保持打开状态，以便查看该作业的进度。
-6. 作业状态显示在“作业摘要”中并且与测试该 Runbook 时看到的状态相匹配  。
+1. 此时会为你创建的 Runbook 作业打开作业窗格。 可以关闭此窗格，但在此示例中，将它保持打开状态，以便查看该作业的进度。
+1. 作业状态显示在“作业摘要”中并且与测试该 Runbook 时看到的状态相匹配  。
 
    ![作业摘要](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-7. 一旦此 Runbook 状态显示“已完成”，单击“输出”   。 “输出”窗格打开后，可以看到 Hello World  。
+1. 一旦此 Runbook 状态显示“已完成”，单击“输出”   。 “输出”窗格打开后，可以看到 Hello World  。
 
-   ![作业摘要](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
+   ![作业摘要](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
-8. 关闭“输出”窗格。
-9. 单击“所有日志”打开 Runbook 作业的“流”窗格  。 应该只会在输出流中看到 *Hello World*，但此视图也可以显示 Runbook 作业的其他流，例如，“详细”和“错误”（如果 Runbook 向其写入）。
+1. 关闭“输出”窗格。
+1. 单击“所有日志”打开 Runbook 作业的“流”窗格  。 应该只会在输出流中看到 *Hello World*，但此视图也可以显示 Runbook 作业的其他流，例如，“详细”和“错误”（如果 Runbook 向其写入）。
 
    ![作业摘要](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-10. 关闭“流”页和“作业”页，以便返回到“MyFirstRunbook”页。
-11. 单击“作业”打开此 Runbook 的“作业”页  。 此页列出此 runbook 创建的所有作业。 由于只运行该作业一次，应该只会看到一个列出的作业。
+1. 关闭“流”页和“作业”页，以便返回到“MyFirstRunbook”页。
+1. 单击“作业”打开此 Runbook 的“作业”页  。 此页列出此 runbook 创建的所有作业。 由于只运行该作业一次，应该只会看到一个列出的作业。
 
    ![作业](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
-12. 可以单击此作业，打开在启动 Runbook 时查看过的同一“作业”页。 这样便可以回溯并查看为特定 runbook 创建的任何作业的详细信息。
+1. 可以单击此作业，打开在启动 Runbook 时查看过的同一“作业”页。 这样便可以回溯并查看为特定 runbook 创建的任何作业的详细信息。
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>步骤 5 - 添加身份验证来管理 Azure 资源
 
@@ -145,8 +145,8 @@ ms.locfileid: "68391978"
    > [!IMPORTANT]
    > **Add-AzureRmAccount** 和 **Login-AzureRmAccount** 现在是 **Connect-AzureRMAccount** 的别名。 如果 **Connect-AzureRMAccount** cmdlet 不存在，则可以使用 **Add-AzureRmAccount** 或 **Login-AzureRmAccount**。
 
-5. 单击“测试”  窗格，以便测试 Runbook。
-6. 单击“启动”以启动测试  。 完成后，你会收到类似于以下内容的输出，显示帐户中的基本信息。 此操作是对凭据有效的确认。
+1. 单击“测试”  窗格，以便测试 Runbook。
+1. 单击“启动”以启动测试  。 完成后，你会收到类似于以下内容的输出，显示帐户中的基本信息。 此操作是对凭据有效的确认。
 
    ![身份验证](media/automation-first-runbook-textual/runbook-auth-output.png)
 
@@ -171,8 +171,8 @@ ms.locfileid: "68391978"
    }
    ```
 
-2. 保存 Runbook，并单击“测试”窗格，以便可以测试 Runbook  。
-3. 单击“启动”以启动测试  。 一旦测试完成后，检查已启动的虚拟机。
+1. 保存 Runbook，并单击“测试”窗格，以便可以测试 Runbook  。
+1. 单击“启动”以启动测试  。 一旦测试完成后，检查已启动的虚拟机。
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>步骤 7 - 将输入参数添加到 Runbook
 
@@ -186,7 +186,7 @@ Runbook 当前会启动你在 Runbook 中硬编码的虚拟机，但如果可以
     Param(
      [string]$VMName,
      [string]$ResourceGroupName
-    )  
+    )
    # Ensures you do not inherit an AzureRMContext in your runbook
    Disable-AzureRmContextAutosave -Scope Process
 
@@ -204,10 +204,11 @@ Runbook 当前会启动你在 Runbook 中硬编码的虚拟机，但如果可以
 
    ![启动 Runbook](media/automation-first-runbook-textual/automation-pass-params.png)
 
-7. 一旦 Runbook 完成后，检查已启动的虚拟机。  
+7. 一旦 Runbook 完成后，检查已启动的虚拟机。
 
 ## <a name="next-steps"></a>后续步骤
 
+* 有关 PowerShell 的详细信息（包括语言参考和学习模块），请参阅 [PowerShell 文档](https://docs.microsoft.com/powershell/scripting/overview)。
 * 若要开始使用图形 Runbook，请参阅 [我的第一个图形 Runbook](automation-first-runbook-graphical.md)
 * 若要开始使用 PowerShell Runbook，请参阅 [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * 若要了解有关 Runbook 类型、其优点和限制的详细信息，请参阅 [Azure Automation runbook types](automation-runbook-types.md)

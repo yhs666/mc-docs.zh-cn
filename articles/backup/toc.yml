@@ -19,6 +19,8 @@
       href: tutorial-backup-vm-at-scale.md
     - name: 还原磁盘
       href: tutorial-restore-disk.md
+    - name: 在 Azure VM 上备份 SQL Server
+      href: tutorial-sql-backup.md
     - name: 备份 Windows Server
       href: tutorial-backup-windows-server-to-azure.md
 - name: 示例
@@ -123,8 +125,6 @@
       items:
         - name: 配置 Azure 备份报表
           href: backup-azure-configure-reports.md
-        - name: Azure 备份报表的数据模型
-          href: backup-azure-reports-data-model.md
         - name: Azure 备份的 Log Analytics 数据模型
           href: backup-azure-log-analytics-data-model.md
     - name: 数据保护管理器
@@ -143,10 +143,20 @@
       items:
         - name: Azure 门户中的 Azure VM
           href: backup-azure-vms-automation.md
-        - name: Azure 门户中的 DPM
+        - name: Azure 门户的 DPM
           href: backup-dpm-automation.md
         - name: Azure 门户中的 Windows Server
           href: backup-client-automation.md
+    - name: 备份 Azure VM 上的 SQL Server 数据库
+      items:
+        - name: 关于 Azure VM 中的 SQL Server 备份
+          href: backup-azure-sql-database.md
+        - name: 备份 Azure VM 中的 SQL Server 数据库
+          href: backup-sql-server-database-azure-vms.md
+        - name: 还原 Azure VM 中的 SQL Server 数据库
+          href: restore-sql-database-azure-vm.md
+        - name: 管理已备份的 SQL Server 数据库
+          href: manage-monitor-sql-database-backup.md
     - name: Windows Server
       items:
         - name: 备份 Windows Server 文件和文件夹

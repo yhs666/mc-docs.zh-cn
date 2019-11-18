@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/27/2017
-ms.date: 08/05/2019
+origin.date: 09/26/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 994321138218a331121339b49b1ff3c04cabd9fc
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c07249581abfbe255be6221e687d763cea9dcfd8
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818639"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084505"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>使用 PowerShell 在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -62,8 +62,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
-> [!NOTE]
-> 可以选择为 Azure 资源虚拟机规模集扩展预配托管标识，但它不久将弃用。 我们建议使用 Azure 实例元数据标识终结点进行身份验证。 有关详细信息，请参阅[停止使用 VM 扩展并开始使用 Azure IMDS 终结点进行身份验证](howto-migrate-vm-extension.md)。
+
 
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>在现有 Azure 虚拟机规模集上启用系统分配的托管标识
@@ -82,8 +81,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-> [!NOTE]
-> 可以选择为 Azure 资源虚拟机规模集扩展预配托管标识，但它不久将弃用。 我们建议使用 Azure 实例元数据标识终结点进行身份验证。 有关详细信息，请参阅[从 VM 扩展迁移到 Azure IMDS 终结点以进行身份验证](howto-migrate-vm-extension.md)。
+
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>从 Azure 虚拟机规模集中禁用系统分配的托管标识
 
@@ -155,7 +153,7 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
   - [使用 PowerShell 创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-powershell.md) 
   - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md) 
 
-
+<!-- Update_Description: wording update -->
 
 
 

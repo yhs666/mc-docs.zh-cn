@@ -15,12 +15,12 @@ origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 1375e1a0a4584ccbd22d58783c25d57cb8cc3fc0
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 51c39a112644ebb32cefcf1ab514844791bf5c76
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730311"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116196"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Windows 计算机收集数据
 
@@ -45,9 +45,8 @@ ms.locfileid: "73730311"
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于“资源组”  ，选择包含一个或多个 Azure 虚拟机的现有资源组。  
    * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
-   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
-  
-        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
+<!-- OMS is unavailable -->
+
 
 3. 在“Log Analytics 工作区”窗格中提供所需的信息后，选择“确定”。    
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4f2effe92c29629faa9674e80b94fa9ba2b02e7
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 57de8ddf4721f30c612d17a58b39b2b551cadb1d
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272441"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116757"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
 本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -80,10 +80,14 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
 能，目前可行。 首先需停止解除分配 VM。 然后便可添加或删除 NIC（除非它是 VM 上的最后一个 NIC）。 
 
 ## <a name="are-there-any-computer-name-requirements"></a>是否有任何计算机名称要求？
-是的。 计算机名称的最大长度为 15 个字符。 有关命名资源的详细信息，请参阅[命名约定规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#compute)。
+是的。 计算机名称的最大长度为 15 个字符。
+
+<!--Not Avaialble on See [Naming conventions rules and restrictions](/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention)-->
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>是否存在资源组名称要求？
-是的。 资源组名称的最大长度为 90 个字符。 有关资源组的详细信息，请参阅[命名约定规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。
+是的。 资源组名称的最大长度为 90 个字符。
+
+<!--Not Avaialble on See [Naming conventions rules and restrictions](/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention)-->
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>创建 VM 时，用户名有什么要求？
 

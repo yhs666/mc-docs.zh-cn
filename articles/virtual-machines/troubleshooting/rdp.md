@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 12/13/2018
-ms.date: 08/12/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ad9e5333bbaaea0b23dc610cf03cff413debf88
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 0dcccc03cb4293052266c9862a4f83e917f7d4b0
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539052"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116898"
 ---
 # <a name="troubleshoot-rdp-issues"></a>排查 RDP 问题
 

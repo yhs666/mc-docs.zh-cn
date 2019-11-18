@@ -13,22 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 0dbaa48fbe08cca288ee8c2eb857d8137f500330
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 2f5415afd9df0aab71dacaddf409d75ef093023f
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857007"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020074"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>高级 ASDK 评估任务
 在熟悉 Azure Stack 开发工具包 (ASDK) 服务的基本功能后，可以通过测试更高级的方案，来进一步加深对 Azure Stack 的了解。 Azure Stack 操作员文档中全面阐述了这些更高级的评估任务。
 
 > [!NOTE]
-> 尽管 ASDK 和生产以及多节点 Azure Stack 部署支持许多操作员任务，但 ASDK 部署并非支持所有使用方案。 有关详细信息，请参阅 [ASDK 和多节点 Azure Stack 的差异](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences)。
+> 尽管 ASDK 和生产以及多节点 Azure Stack 部署支持许多操作员任务，但 ASDK 部署并非支持所有使用方案。 有关详细信息，请参阅 [ASDK 和多节点 Azure Stack 的差异](asdk-what-is.md#asdk-and-multi-node-azure-stack-hub-differences)。
 
 ## <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委托套餐
 Azure Stack 操作员经常需要委托他人来管理创建套餐以及注册用户。 例如，服务提供商可能需要经销商来代表他们注册和管理客户。 或者，如果你是企业的中心 IT 小组的成员，则可能需要下属公司在你不参与的情况下注册用户。
@@ -47,4 +47,4 @@ Azure Stack 操作员可以创建套餐，允许用户（租户）创建 Azure F
 
 ## <a name="next-steps"></a>后续步骤
 
-[详细了解如何使用 Azure Stack 集成系统提供服务](../operator/azure-stack-offer-services-overview.md)
+[详细了解如何使用 Azure Stack 集成系统提供服务](../operator/service-plan-offer-subscription-overview.md)

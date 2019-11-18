@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: d52d5f589dab45dcab13e0945c75faa5efa523b0
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: e7dcf7e0182850866106efbfe591a69974481345
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583730"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020871"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入门：使用 .NET Core 将文本转换为语音
 
@@ -130,7 +130,7 @@ Console.WriteLine("Attempting token exchange. Please wait...\n");
 
 // Add your subscription key here
 // If your resource isn't in China East, change the endpoint
-Authentication auth = new Authentication("https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
+Authentication auth = new Authentication("https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
 try
 {
     accessToken = await auth.FetchTokenAsync().ConfigureAwait(false);
@@ -148,7 +148,7 @@ catch (Exception ex)
 然后，设置文本转语音的主机和路由：
 
 ```csharp
-string host = "https://chinaeast.tts.speech.microsoft.com/cognitiveservices/v1";
+string host = "https://chinaeast2.tts.speech.azure.cn/cognitiveservices/v1";
 ```
 
 ## <a name="build-the-ssml-request"></a>生成 SSML 请求

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 10/31/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1b8bec6c8b3bf68f22107fa96404a31f378a8590
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 204ef400af0134ba0f070dda667ebce4fd207d46
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272761"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116900"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 
@@ -112,18 +112,18 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 若要设置 ProvisionGuestAgent  属性，请在 Azure PowerShell 中运行以下命令：
 
-   ```powershell
-   $vm = Get-AzureVM -ServiceName <cloud service name> -Name <VM name>
-   $vm.VM.ProvisionGuestAgent = $true
-   Update-AzureVM -Name <VM name> -VM $vm.VM -ServiceName <cloud service name>
-   ```
+```powershell
+$vm = Get-AzureVM -ServiceName <cloud service name> -Name <VM name>
+$vm.VM.ProvisionGuestAgent = $true
+Update-AzureVM -Name <VM name> -VM $vm.VM -ServiceName <cloud service name>
+```
 
 然后运行 `Get-AzureVM` 命令。 请注意，GuestAgentStatus  属性现已得到数据填充：
 
-   ```powershell
-   Get-AzureVM -ServiceName <cloud service name> -Name <VM name>
-   GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
-   ```
+```powershell
+Get-AzureVM -ServiceName <cloud service name> -Name <VM name>
+GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+```
 
 ## <a name="next-steps"></a>后续步骤
 

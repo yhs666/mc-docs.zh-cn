@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 07/05/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: d1dfa0f060c373f0fd1e8b38c4e181aabfbc4476
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: ac29be9bc911c7bc17e9fb51f8dd9ee0da7e4973
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583729"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020840"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>快速入门：使用 Node.js 获取“文本转语音”语音的列表
 
@@ -60,7 +60,7 @@ const fs = require('fs');
 function getAccessToken(subscriptionKey) {
     let options = {
         method: 'POST',
-        uri: 'https://chinaeast.api.cognitive.china.cn/sts/v1.0/issueToken',
+        uri: 'https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken',
         headers: {
             'Ocp-Apim-Subscription-Key': subscriptionKey
         }
@@ -84,7 +84,7 @@ function getAccessToken(subscriptionKey) {
 function textToSpeech(accessToken) {
     let options = {
         method: 'GET',
-        baseUrl: 'https://chinaeast.tts.speech.chinacloudapi.cn/',
+        baseUrl: 'https://chinaeast2.tts.speech.azure.cn/',
         url: 'cognitiveservices/voices/list',
         headers: {
             'Authorization': 'Bearer ' + accessToken,

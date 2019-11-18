@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/28/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9af6eb9524b5cdb0c8368931e361f270e3d5d8fc
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 341cbc02e35414f7891cd9e4baf12ca9b359091a
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272717"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116891"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示蓝屏错误
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的蓝屏错误。 本文提供用于收集支持票证数据的步骤。 
@@ -106,3 +106,5 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
 3. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 4. 启动 VM 以重现问题，然后就会生成转储文件。
 5. 将 OS 磁盘附加到恢复 VM，收集转储文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/support/support-azure/)。
+
+<!-- Update_Description: update meta properties -->

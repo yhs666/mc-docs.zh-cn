@@ -119,7 +119,7 @@
           href: rest-text-to-speech.md
           displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, rest'
         - name: 批处理听录和自定义
-          href: 'https://westus.cris.ai/swagger/ui/index'
+          href: 'https://chinaeast2.cris.azure.cn/swagger/ui/index'
           displayName: 'batch transcription, transcription, custom models, customization, model management, rest'
         - name: 对话听录
           href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2019
-ms.date: 11/04/2019
+origin.date: 10/29/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 4a9c8c82d342a8a2f1b6b1ffbaba6b3549150bf1
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+ms.openlocfilehash: f152d6ecb86385cd57627f29fc8a29c65bfcc1e8
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416267"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116249"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>使用媒体服务动态加密保护内容
 
@@ -110,8 +110,6 @@ ms.locfileid: "73416267"
 * 与内容保护中的业务要求相关的声明
 * 签名的对称或非对称验证
 * 密钥滚动更新支持（如有必要）
-
-可以使用[此 STS 工具](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt)测试 STS。 此工具支持所有三种类型的验证密钥：对称、非对称，或者带有密钥滚动更新程序的 Azure Active Directory (Azure AD)。 
 
 ## <a name="streaming-protocols-and-encryption-types"></a>流式处理协议和加密类型
 

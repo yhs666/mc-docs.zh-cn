@@ -10,14 +10,14 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
 ms.topic: reference
 origin.date: 04/01/2017
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 87fbd8ca24c440830de003ce830725d30586a26f
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 2ec5a22e8f2689a7fa4ac90a7290062d28d5f2c9
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034451"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934263"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -61,7 +61,7 @@ ms.locfileid: "73034451"
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
     string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
@@ -74,12 +74,6 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
-
-此示例适用于 Azure Functions 版本 1.x。 要使此代码适用于 2.x：
-
-- [省略访问权限参数](#trigger---configuration)
-- 将日志参数的类型从 `TraceWriter` 更改为 `ILogger`
-- 将 `log.Info` 更改为 `log.LogInformation`
 
 ### <a name="trigger---c-script-example"></a>触发器 - C# 脚本示例
 
@@ -219,7 +213,7 @@ module.exports = function(context, myQueueItem) {
 
 在 [C# 类库](functions-dotnet-class-library.md)中，请使用以下属性来配置服务总线触发器：
 
-* `ServiceBusTriggerAttribute`
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs)
 
   该特性的构造函数采用队列或者主题和订阅的名称。 在 Azure Functions 版本 1.x 中，还可以指定连接的访问权限。 如果未指定访问权限，则默认为 `Manage`。 有关详细信息，请参阅[触发器 - 配置](#trigger---configuration)部分。
 
@@ -248,7 +242,7 @@ module.exports = function(context, myQueueItem) {
 
   有关完整示例，请参阅[触发器 - C# 示例](#trigger---c-example)。
 
-* `ServiceBusAccountAttribute`
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
   提供另一种方式来指定要使用的服务总线帐户。 构造函数采用包含服务总线连接字符串的应用设置的名称。 可以在参数、方法或类级别应用该特性。 以下示例演示类级别和方法级别：
 
@@ -562,7 +556,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>输出 - 特性
 
-在 [C# 类库](functions-dotnet-class-library.md)中，使用 `ServiceBusAttribute`。
+在 [C# 类库](functions-dotnet-class-library.md)中，使用 [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs)。
 
 该特性的构造函数采用队列或者主题和订阅的名称。 也可指定连接的访问权限。 [输出 - 配置](#output---configuration)部分介绍了如何选择访问权限设置。 下面是一个示例，说明了应用于该函数的返回值的属性：
 

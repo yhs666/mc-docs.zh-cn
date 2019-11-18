@@ -8,12 +8,12 @@ ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e1b0d3fffd0e399329286f26a068b95a723132d5
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 264a320e89dc15c3fd9ae3d928120c1139eeb6d2
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526691"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020883"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -312,7 +312,7 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
             "properties": {
                 "mode": "incremental",
                 "template": {
-                    "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "fullDbName": {
@@ -373,6 +373,6 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
 - 在 [Azure Policy 示例](../samples/index.md)中查看示例。
 - 查看 [Azure Policy 定义结构](definition-structure.md)。
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
-- 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)。
-- 了解如何[修正不符合的资源](../how-to/remediate-resources.md)。
+- 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
