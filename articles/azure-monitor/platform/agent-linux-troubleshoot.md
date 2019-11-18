@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4eddde196c2e78df45f0947469d487b5d71625da
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0cc09f5c2acb61dc210226935348d45df7c25629
+ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730048"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906410"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -166,7 +166,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
     |*.ods.opinsights.azure.cn | 端口 443| 入站和出站 |  
     |*.oms.opinsights.azure.cn | 端口 443| 入站和出站 |  
     |*.blob.core.chinacloudapi.cn | 端口 443| 入站和出站 |  
-    |\* .azure-automation.net | 端口 443| 入站和出站 | 
+    |*.azure-automation.cn | 端口 443| 入站和出站 | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>问题：尝试载入时收到 403 错误
 

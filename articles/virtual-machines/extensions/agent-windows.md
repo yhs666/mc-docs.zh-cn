@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/20/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8d6cafc18bc9868f91dd334d2227787ae5651946
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 25d0a8ec930491c3f81fed49c57bfb87412abbc0
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272793"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831447"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虚拟机代理概述
 Azure 虚拟机代理（VM 代理）是受保护的轻型进程，用于管理虚拟机 (VM) 与 Azure 结构控制器的交互。 VM 代理有一个主要角色，目的是启用和执行 Azure 虚拟机扩展。 VM 扩展可用于对 VM 进行部署后配置，例如安装和配置软件。 VM 扩展还可启用恢复功能，例如重置 VM 的管理密码。 没有 Azure VM 代理，VM 扩展将无法运行。
@@ -69,7 +69,7 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 ```
 
 ### <a name="prerequisites"></a>先决条件
-Windows VM 代理至少需要 Windows Server 2008 R2（64 位）才能与 .NET Framework 4.0 一起运行。
+Windows VM 代理至少需要 Windows Server 2008 R2（64 位）才能与 .NET Framework 4.0 一起运行。 请参阅 [Azure 中的虚拟机代理的最低版本支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 ## <a name="detect-the-vm-agent"></a>检测 VM 代理
 
@@ -110,7 +110,10 @@ foreach ($vm in $vms) {
 ## <a name="upgrade-the-vm-agent"></a>升级 VM 代理
 适用于 Windows 的 Azure VM 代理会自动升级。 新 VM 部署到 Azure 后，会在 VM 预配时获得最新 VM 代理。 应手动更新自定义 VM 映像，以便在创建映像时添加新的 VM 代理。
 
+## <a name="windows-guest-agent-automatic-logs-collection"></a>Windows 来宾代理自动日志收集
+Windows 来宾代理具有自动收集一些日志的功能。 此功能由 CollectGuestLogs.exe 进程控制。 它同时适用于 PaaS 云服务和 IaaS 虚拟机，其目标是快速自动地从 VM 收集一些诊断日志 - 以便将它们用于脱机分析。 收集的日志包括事件日志、OS 日志、Azure 日志和一些注册表项。 它将生成一个 ZIP 文件，该文件将传输到 VM 的主机。 然后，工程团队和支持专业人员可以查看此 ZIP 文件，以根据拥有 VM 的客户的请求调查问题。
+
 ## <a name="next-steps"></a>后续步骤
 有关 VM 扩展的详细信息，请参阅 [Azure 虚拟机扩展和功能概述](overview.md)。
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

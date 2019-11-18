@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/12/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2ef4aa8c5f4926e374d178b7d98e1636a65c46aa
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: e3ff541099e673bcab33c3e2c5eb0f917685a9c5
+ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730039"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906411"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何排查 Log Analytics Windows 代理的问题 
 
@@ -40,7 +40,7 @@ ms.locfileid: "73730039"
 |*.ods.opinsights.azure.cn |端口 443 |出站|是 |  
 |*.oms.opinsights.azure.cn |端口 443 |出站|是 |  
 |*.blob.core.chinacloudapi.cn  |端口 443 |出站|是 |  
-|\* .azure-automation.net |端口 443 |出站|是 |  
+|*.azure-automation.cn |端口 443 |出站|是 |  
 
 可通过多种方法验证代理是否能够成功与 Azure Monitor 通信。
 

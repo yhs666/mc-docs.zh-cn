@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/13/2019
-ms.date: 09/16/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 76ad20c85a5c51e283e23f38d61d902e5887640e
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 3ae3f977b9d528b80fe5fec39f9329b318ad10df
+ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921059"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831437"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -148,6 +148,26 @@ GPT 分区仅可在数据磁盘上使用，而不可在操作系统磁盘上使�
 
 <!--Not Available on (including disks up to 32 TiB in size)-->
 <!--Not Available on Ultra SSDs do not support snapshots.-->
+<!--Not Available on ### Disk reservation-->
+
+<!--Not Available on ## Ultra disks-->
+## <a name="uploading-to-a-managed-disk"></a>上传到托管磁盘
+
+**是否可将数据上传到现有的托管磁盘？**
+
+不可以。只能在创建 **ReadyToUpload** 状态的新空磁盘期间使用上传。
+
+**如何上传到托管磁盘？**
+
+创建一个托管磁盘，并将 [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) 的 [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) 属性设置为“Upload”，然后可以将数据上传到该磁盘。
+
+**是否可将处于上传状态的磁盘附加到 VM？**
+
+否。
+
+**是否可以创建处于上传状态的托管磁盘的快照？**
+
+否。
 
 ## <a name="standard-ssd-disks"></a>标准 SSD 盘
 
@@ -239,6 +259,10 @@ Azure 标准 SSD 盘是什么？
  创建托管磁盘时，是否会默认启用 Azure 存储服务加密？
 
 是的。
+
+**默认情况下，托管磁盘上的启动卷是否已加密？**
+
+是的。 默认情况下，所有托管磁盘均已加密，包括 OS 磁盘。
 
 **加密密钥由谁管理？**
 
@@ -374,6 +398,8 @@ Azure 备份和 Azure Site Recovery 服务支持的最大磁盘大小为 4 TiB�
 **哪些区域支持大于 8 TiB、16 TiB 和 32 TiB 的托管磁盘大小？**
 
 Azure 全球、 Microsoft Azure 政府和 Azure 中国世纪互联涵盖的所有区域都支持 8 TiB、16 TiB 和 32 TiB 磁盘 SKU。
+
+<!--MOONCAKE: CORRECT ON global Azure, Microsoft Azure Government, and Azure China 21Vianet.-->
 
 **是否支持在所有磁盘大小上启用主机缓存？**
 

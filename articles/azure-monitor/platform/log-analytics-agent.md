@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 08/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 102e524f94d5164ab9523f63bdf1f3a57699acd7
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 8ef1f573dd4f630518081aa72dfc31f5bf1d2a32
+ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730537"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906413"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理收集日志数据
 
@@ -110,7 +110,7 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 |*.ods.opinsights.chinacloudapi.cn |端口 443 |出站|是 |  
 |*.oms.opinsights.chinacloudapi.cn|端口 443 |出站|是 |  
 |*.blob.core.chinacloudapi.cn |端口 443 |出站|是 |  
-|\* .azure-automation.net |端口 443 |出站|是 |  
+|*.azure-automation.cn |端口 443 |出站|是 |  
 
 
 如果计划使用 Azure 自动化混合 Runbook 辅助角色连接到自动化服务并在其中注册以在环境中使用 Runbook，则它必须可以访问“针对混合 Runbook 辅助角色配置网络”中所述的端口号和 URL。 

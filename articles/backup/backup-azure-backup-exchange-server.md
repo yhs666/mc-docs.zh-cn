@@ -1,5 +1,5 @@
 ---
-title: 使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
+title: 通过 System Center DPM 将 Exchange 服务器备份到 Azure 备份
 description: 了解如何使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 ms.reviewer: kasinh
 author: lingliw
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/31/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 29b7cac55a1aafdb5b937ea82f9b125f270a67ef
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 3bd540241da88e2bc631414d985013bfe2c0ab6b
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329800"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730390"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 本文说明如何配置 System Center 2012 R2 Data Protection Manager (DPM) 服务器，以便将 Azure Exchange 服务器备份到 Azure 备份。  
@@ -43,8 +43,9 @@ ms.locfileid: "71329800"
 2. 通过在 DPM 管理员控制台中单击“管理”>“代理”>“安装”，在 Exchange 服务器上安装代理  。 有关详细步骤，请参阅[安装 DPM 保护代理](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396)。
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>为 Exchange Server 创建保护组
+
 1. 在 DPM 管理员控制台中，单击“保护”，然后单击工具功能区上的“添加”，打开“创建新保护组”向导    。
-2. 在向导的“**欢迎**”屏幕上单击“**下一步**”。
+2. 在向导的“欢迎”  屏幕上单击“下一步”  。
 3. 在“**选择保护组类型**”屏幕上，选择“**服务器**”并单击“**下一步**”。
 4. 选择想要保护的 Exchange Server 数据库，并单击“**下一步**”。
 

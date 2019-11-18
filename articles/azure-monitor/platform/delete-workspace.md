@@ -1,25 +1,20 @@
 ---
-title: 删除 Azure Log Analytics 工作区 | Azure Docs
+title: 删除和恢复 Azure Log Analytics 工作区 | Microsoft Docs
 description: 了解在个人订阅中创建 Log Analytics 工作区后如何删除它，以及如何重构工作区模型。
-services: log-analytics
-documentationcenter: log-analytics
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 10/11/2019
-ms.date: 10/25/2019
+origin.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f7ca5c1448583c8288bde84b34117be28e6b0fac
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 31130c3d45f786a4bd49d78aa3fbb39740873cb9
+ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970944"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73730556"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>删除和还原 Azure Log Analytics 工作区
 
@@ -67,6 +62,8 @@ ms.locfileid: "72970944"
 * 资源组名称
 * 工作区名称
 * 区域
+
+执行恢复操作后，工作区及其所有数据就会恢复。 删除工作区时，会将其中的解决方案和关联的服务永久删除，因此应重新配置它们，使工作区回到以前配置的状态。 工作区恢复以后，某些数据可能不能用于查询，必须等到重新安装关联的解决方案并将其架构添加到工作区为止。
 
 > [!NOTE]
 > * 不支持在 [Azure 门户](https://portal.azure.cn)中恢复工作区。 
