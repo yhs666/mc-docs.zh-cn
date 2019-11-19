@@ -60,7 +60,7 @@ ms.locfileid: "68514244"
     |网络安全组|否| 保留设置为“无”，选择现有的[网络安全组](security-overview.md)，或[创建网络安全组](tutorial-filter-network-traffic.md)。  网络安全组可用于筛选进出网络接口的网络流量。 可向网络接口应用零个或一个网络安全组。 也可向网络接口分配到的子网应用零个或一个网络安全组。 将网络安全组应用到网络接口以及该接口分配到的子网时，有时会产生意外结果。 若要对应用到网络接口和子网的网络安全组进行故障排除，请参阅[网络安全组故障排除](diagnose-network-traffic-filter-problem.md)。|
     |订阅|是|选择一个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一订阅中。|
     |资源组|是|选择现有的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建一个资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。|
-    |Location|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为区域）中。|
+    |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为区域）中。|
 
     <!-- Not Available IPv6 -->
     <!-- Not Available IPv6 -->
