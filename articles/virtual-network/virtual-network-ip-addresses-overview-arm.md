@@ -59,7 +59,7 @@ ms.locfileid: "73831367"
 使用以下 SKU 之一创建公共 IP 地址：
 
 >[!IMPORTANT]
-> 必须为负载均衡器和公用 IP 资源使用匹配的 SKU。 不能混合使用基本 SKU 资源和标准 SKU 资源。 无法将独立的虚拟机、可用性集资源中的虚拟机或虚拟机规模集资源同时附加到两个 SKU。  新的设计应当考虑使用标准 SKU 资源。  有关详细信息，请查看[标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
+> 必须为负载均衡器和公共 IP 资源使用匹配的 SKU。 不能混合使用基本 SKU 资源和标准 SKU 资源。 无法将独立的虚拟机、可用性集资源中的虚拟机或虚拟机规模集资源同时附加到两个 SKU。  新的设计应当考虑使用标准 SKU 资源。  有关详细信息，请查看[标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
 
 #### <a name="basic"></a>基本
 
@@ -92,9 +92,9 @@ ms.locfileid: "73831367"
 
 ### <a name="allocation-method"></a>分配方法
 
-基本和标准 SKU 公用 IP 地址都支持“静态”  分配方法。  在创建资源时会为其分配 IP 地址，在删除资源时将释放 IP 地址。
+基本和标准 SKU 公共 IP 地址都支持“静态”  分配方法。  在创建资源时会为其分配 IP 地址，在删除资源时将释放 IP 地址。
 
-基本 SKU 公用 IP 地址还支持“动态”  分配方法，这是未指定分配方法时将采用的默认方法。  为基本的公用 IP 地址资源选择“动态”  分配方法意味着在创建资源时“不”分配 IP 地址。   将公用 IP 地址与虚拟机进行关联时或者将第一个虚拟机实例放置到基本负载均衡器的后端池中时，将分配公用 IP 地址。   停止（或删除）该资源时，就会释放该 IP 地址。  例如，从资源 A 中释放后，可将该 IP 地址分配到不同的资源。 如果在停止资源 A 的情况下将 IP 地址分配到不同的资源，则重启资源 A 时，会分配一个不同的 IP 地址。 如果将基本的公用 IP 地址资源的分配方法从“静态”更改为“动态”，则会释放地址。   要确保所关联资源的 IP 地址保持不变，可将分配方法显式设置为*静态*。 静态 IP 地址是立即分配的。
+基本 SKU 公共 IP 地址还支持“动态”  分配方法，这是未指定分配方法时将采用的默认方法。  为基本的公共 IP 地址资源选择“动态”  分配方法意味着在创建资源时“不”分配 IP 地址。   将公共 IP 地址与虚拟机进行关联时或者将第一个虚拟机实例放置到基本负载均衡器的后端池中时，将分配公共 IP 地址。   停止（或删除）该资源时，就会释放该 IP 地址。  例如，从资源 A 中释放后，可将该 IP 地址分配到不同的资源。 如果在停止资源 A 的情况下将 IP 地址分配到不同的资源，则重启资源 A 时，会分配一个不同的 IP 地址。 如果将基本的公共 IP 地址资源的分配方法从“静态”更改为“动态”，则会释放地址。   要确保所关联资源的 IP 地址保持不变，可将分配方法显式设置为*静态*。 静态 IP 地址是立即分配的。
 
 > [!NOTE]
 > 即使将分配方法设置为“静态”，也无法通过指定方式将实际 IP 地址分配到公共 IP 地址资源。  Azure 会从创建资源时所在的 Azure 位置的可用 IP 地址池中分配 IP 地址。
@@ -131,7 +131,7 @@ ms.locfileid: "73831367"
 
 ### <a name="vpn-gateways"></a>VPN 网关
 
-[Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)将 Azure 虚拟网络连接到其他 Azure 虚拟网络或本地网络。 需将公共 IP 地址分配到 VPN 网关才能与远程网络通信。 只能向 VPN 网关分配”动态”基本的公用 IP 地址。 
+[Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)将 Azure 虚拟网络连接到其他 Azure 虚拟网络或本地网络。 需将公共 IP 地址分配到 VPN 网关才能与远程网络通信。 只能向 VPN 网关分配”动态”基本的公共 IP 地址。 
 
 ### <a name="application-gateways"></a>应用程序网关
 

@@ -36,7 +36,7 @@ Azure Cosmos DB 的用于 MongoDB 的 API 支持以下数据库命令：
 ### <a name="query-and-write-operation-commands"></a>查询和写入操作命令
 
 - delete
-- 查找项
+- find
 - findAndModify
 - getLastError
 - getMore
@@ -80,7 +80,7 @@ Azure Cosmos DB 的用于 MongoDB 的 API 支持以下数据库命令：
 ### <a name="aggregation-commands"></a>聚合命令
 
 - aggregate
-- 计数
+- count
 - distinct
 
 ### <a name="aggregation-stages"></a>聚合阶段

@@ -45,7 +45,7 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 数据类型：
 * ascii  
 * bigint  
 * Blob  
-* 布尔值  
+* boolean  
 * counter  
 * date  
 * decimal  
@@ -68,7 +68,7 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 数据类型：
 * varint  
 * tuples  
 * udts  
-* 映射  
+* map  
 
 ## <a name="cql-functions"></a>CQL 函数
 
@@ -76,7 +76,7 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 函数：
 
 * 令牌  
 * 聚合函数
-    * 最小值、最大值、平均值、计数
+    * min, max, avg, count
 * Blob 转换函数 
     * typeAsBlob(value)  
     * blobAsType(value)
@@ -137,7 +137,7 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 * SELECT 
 * UPDATE 
 * BATCH - 仅支持未记录的命令 
-* 删除
+* DELETE
 
 通过 CQLV4 兼容的 SDK 执行的所有 crud 操作都会返回有关错误、使用的请求单位等的额外信息。 删除和更新命令在使用时需考虑资源调控，以避免过度使用预配的吞吐量。 
 * 请注意：如果指定，gc_grace_seconds 值必须为零。
