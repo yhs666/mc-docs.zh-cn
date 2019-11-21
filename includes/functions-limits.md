@@ -3,21 +3,21 @@ author: ggailey777
 ms.service: billing
 ms.topic: include
 origin.date: 05/09/2019
-ms.date: 07/17/2019
+ms.date: 11/19/2019
 ms.author: v-junlch
-ms.openlocfilehash: b6e694d010ec0bfe698dc7b8a8964f114190ef01
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 59b8d386d9d4b230127882c317f9523e646cf68e
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331945"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179224"
 ---
-| Resource | [消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan) | 高级计划 | [应用服务计划](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| 资源 | [消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan) | 高级计划 | [应用服务计划](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| 向外扩展 | 事件驱动 | 事件驱动 | [手动/自动缩放](../articles/app-service/web-sites-scale.md) | 
-| 最大实例数 | 200 | 20 个 | 10-20 |
+| 横向扩展 | 事件驱动 | 事件驱动 | [手动/自动缩放](../articles/app-service/manage-scale-up.md) | 
+| 最大实例数 | 200 | 20 | 10-20 |
 |默认[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |5 | 30 |30<sup>2</sup> |
-|最大[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |10 个 | unbounded | 不受限制<sup>3</sup> |
+|最大[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |10 | unbounded | 不受限制<sup>3</sup> |
 | 最大出站连接数（每个实例） | 600 个处于活动状态（总共 1200 个） | unbounded | unbounded |
 | 最大请求大小 (MB)<sup>4</sup> | 100 | 100 | 100 |
 | 最大查询字符串长度<sup>4</sup> | 4096 | 4096 | 4096 |
@@ -34,7 +34,7 @@ ms.locfileid: "68331945"
 <sup>2</sup> 默认情况下，应用服务计划中的 Functions 1.x 运行时的超时是无限制的。  
 <sup>3</sup> 需要将应用服务计划设置为 [Always On](../articles/azure-functions/functions-scale.md#always-on)。 按标准[费率](https://www.azure.cn/pricing/details/app-service/)付费。  
 <sup>4</sup> 这些限制[在主机中设置](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config)。  
-<sup>5</sup> 可以托管的函数应用的实际数目取决于应用的活动、计算机实例的大小和相应的资源利用率。
+<sup>5</sup> 可以托管的函数应用的实际数目取决于应用的活动、计算机实例的大小和相应的资源利用率。  
 <sup>6</sup> 存储限制是同一应用服务计划中所有应用的临时存储中的总内容大小。 消耗计划使用 Azure 文件存储作为临时存储。  
 <sup>7</sup> 当函数应用托管在[消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan)中时，仅支持 CNAME 选项。 对于[应用服务计划](../articles/azure-functions/functions-scale.md#app-service-plan)中的函数应用，可以使用 CNAME 或 A 记录映射自定义域。
 

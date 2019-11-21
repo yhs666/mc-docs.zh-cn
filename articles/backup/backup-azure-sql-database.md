@@ -2,18 +2,18 @@
 title: 将 SQL Server 数据库备份到 Azure
 description: 本教程介绍如何将 SQL Server 备份到 Azure， 此外还介绍 SQL Server 的恢复。
 author: lingliw
-manager: carmonm
+manager: digimobile
 ms.service: backup
 ms.topic: tutorial
 origin.date: 06/18/2019
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 645cfd4f05d2af2cdd57452065eaa88f3f0e2ba8
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: d1a86be1f93438c67600f8ae673fa236ad1560ed
+ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116368"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74154829"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>关于 Azure VM 中的 SQL Server 备份
 
@@ -94,8 +94,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 --- | ---
 完整 | 主要
 差异 | 主要
-日志 |  次要
-仅复制完整 |  次要
+日志 |  辅助
+仅复制完整 |  辅助
 
 * **备份首选项：次要节点**
 
@@ -103,8 +103,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 --- | ---
 完整 | 主要
 差异 | 主要
-日志 |  次要
-仅复制完整 |  次要
+日志 |  辅助
+仅复制完整 |  辅助
 
 * **无备份首选项**
 
@@ -112,8 +112,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 --- | ---
 完整 | 主要
 差异 | 主要
-日志 |  次要
-仅复制完整 |  次要
+日志 |  辅助
+仅复制完整 |  辅助
 
 ## <a name="set-vm-permissions"></a>设置 VM 权限
 
@@ -138,11 +138,11 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
       ![在“登录名 - 新建”对话框中选择“搜索”](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. 在虚拟机注册和 SQL 发现阶段已创建 Windows 虚拟服务帐户 NT SSERVICE\AzureWLBackupPluginSvc  。 输入“输入要选择的对象名称”中显示的帐户名。  选择“检查名称”以解析名称。  单击 **“确定”** 。
+  4. 在虚拟机注册和 SQL 发现阶段已创建 Windows 虚拟服务帐户 NT SSERVICE\AzureWLBackupPluginSvc  。 输入“输入要选择的对象名称”中显示的帐户名。  选择“检查名称”以解析名称。  单击“确定”。 
 
       ![选择“检查名称”以解析未知的服务名称](./media/backup-azure-sql-database/check-name.png)
 
-  5. 在“服务器角色”中，确保“sysadmin”角色已选中。   单击 **“确定”** 。 现在，所需的权限应会存在。
+  5. 在“服务器角色”中，确保“sysadmin”角色已选中。   单击“确定”。  现在，所需的权限应会存在。
 
       ![确保 sysadmin 服务器角色已选中](./media/backup-azure-sql-database/sysadmin-server-role.png)
 

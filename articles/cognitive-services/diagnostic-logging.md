@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 06/14/2019
 ms.date: 07/24/2019
 ms.author: v-junlch
-ms.openlocfilehash: 467cc57180ce68cafefc0bb7f77975fd7ea74ce6
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 261f459538df1b8004988e3bf8ec2b8abeb58eb4
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275538"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178873"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>为 Azure 认知服务启用诊断日志记录
 
@@ -26,7 +26,7 @@ ms.locfileid: "72275538"
 若要启用诊断日志记录，需要指定某个位置用于存储日志数据。 本教程使用 Azure 存储和 Log Analytics。
 
 * [Azure 存储](/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - 保留策略审核、静态分析或备份的诊断日志。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必位于发出日志的资源所在的订阅中。
- 
+
 > [!NOTE]
 > 还有其他配置选项可供使用。 有关详细信息，请参阅[从 Azure 资源收集和使用日志数据](/azure-monitor/platform/diagnostic-logs-overview)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "72275538"
 4. 输入设置名称。 依次选择“存档到存储帐户”、“发送到 Log Analytics”。  
 5. 出现配置提示时，请选择你要用来存储诊断日志的存储帐户和 OMS 工作区。 **注意**：如果你没有存储帐户或 OMS 工作区，请按提示创建一个。
 6. 依次选择“审核”  、**RequestResponse** 和 **AllMetrics**。 然后设置诊断日志数据的保留期。 如果将保留策略设置为零，则会无限期存储该日志类别的事件。
-7. 单击“保存”  。
+7. 单击“ **保存**”。
 
 最长可能需要在两个小时之后，日志数据才可供查询和分析。 因此，如果当前未显示任何内容，请不要担心。
 
@@ -118,6 +118,5 @@ by bin(TimeGenerated, 10s), OperationName
   * [什么是 Azure 事件中心？](/event-hubs/event-hubs-what-is-event-hubs)
   * [事件中心入门](/event-hubs/event-hubs-csharp-ephcs-getstarted)
 * 参阅[从 Azure 存储下载指标和诊断日志](/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs)。
-
 
 <!-- Update_Description: wording update -->

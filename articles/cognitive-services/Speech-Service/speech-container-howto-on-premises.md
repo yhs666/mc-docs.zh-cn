@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin-date: 08/26/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 79f68aa00059b51d2140596c699bfc41c925960f
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 277076a2db4f778611e6b9429a9e280773125bae
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020723"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178887"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>在 Kubernetes 和 Helm 中使用语音服务容器
 
@@ -65,7 +65,7 @@ kubectl create secret docker-registry containerpreview \
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
+>      --type=kubernetes.cn/dockerconfigjson
 > ```
 
 成功创建机密后，控制台中会列显以下输出。
@@ -84,7 +84,7 @@ kuberctl get secrets
 
 ```console
 NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
+containerpreview      kubernetes.cn/dockerconfigjson        1         30s
 ```
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>配置用于部署的 Helm 图表值
@@ -244,14 +244,14 @@ Helm 图表是分层的。 分层结构可以实现图表继承，同时还与�
 [git-download]: https://git-scm.com/downloads
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
-[kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
+[kubernetes-cli]: https://kubernetes.cn/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
 [helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/developing_charts
 [speech-preview-access]: https://aka.ms/speechcontainerspreview
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-create]: https://kubernetes.cn/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.cn/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test
 [ms-helm-hub]: https://hub.helm.sh/charts/microsoft
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise

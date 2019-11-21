@@ -15,14 +15,14 @@ ms.workload: na
 origin.date: 04/02/2019
 ms.author: v-yiso
 ms.date: 05/06/2019
-ms.openlocfilehash: d4130dfb5c61bbbe6d29ffd39c0dff8e54a3072f
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 98bc4355010dfe0e3192aca072ef9ab335b5dac7
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854987"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179004"
 ---
-# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 模板创建 IoT 中心 (PowerShell)
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure 资源管理器模板创建 IoT 中心 (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -58,7 +58,7 @@ New-AzResourceGroupDeployment `
 现在，你已使用 Azure 资源管理器模板部署了一个 IoT 中心，你可能希望进一步进行探索：
 
 * 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
-* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 若要详细了解 Azure 资源管理器功能，请阅读 [Azure 资源管理器概述][lnk-azure-rm-overview]。
 * 有关要在模板中使用的 JSON 语法和属性，请参阅 [Microsoft.Devices 资源类型](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothub-allversions)。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
@@ -73,7 +73,7 @@ New-AzResourceGroupDeployment `
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
-[lnk-status]: https://www.azure.cn/support/service-dashboard/
+[lnk-status]: https://status.azure.com/status
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md

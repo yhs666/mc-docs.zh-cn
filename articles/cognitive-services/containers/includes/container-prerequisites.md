@@ -6,15 +6,16 @@ manager: nitinme
 description: 容器的常见先决条件
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: 30104e6a143668d26c14e8c075ce594a2d040838
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+origin.date: 07/05/2019
+ms.date: 11/18/2019
+ms.author: v-tawe
+ms.openlocfilehash: afb6238a1479c855b762f7b9076cfcfe4d897c7f
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103861"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179223"
 ---
 ## <a name="prerequisites"></a>先决条件
 
-* 使用 Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+* 使用 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。

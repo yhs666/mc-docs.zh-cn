@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 04/25/2018
-ms.date: 06/03/2019
+ms.date: 11/19/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6a0518997deb466ba83bdad019a8faea8d6630e6
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: faeeb2d21e1bb8fc659b655b0f9dd2d81a040245
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491510"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178972"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式运行 Durable Functions
 
@@ -65,7 +64,7 @@ Visual Studio 还有一个 WebJob 项目模板，选择“云” > “Azure WebJ
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.4.0
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
 ```
 
 以下命令安装控制台提供程序：
@@ -155,7 +154,7 @@ while (true)
 
 你已经将 Durable Functions 设置为以 WebJob 方式运行，并且已了解其与以独立 Azure Functions 形式运行 Durable Functions 时的区别。 此时可以在示例中查看其运行情况。
 
-本部分概述如何运行[示例项目](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining)。 有关如何在本地运行 WebJobs SDK 项目并将其部署到 Azure WebJob 的详细说明，请参阅 [WebJobs SDK 入门](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob)。
+有关如何在本地运行 WebJobs SDK 项目并将其部署到 Azure WebJob 的详细说明，请参阅 [WebJobs SDK 入门](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob)。
 
 ### <a name="run-locally"></a>在本地运行
 

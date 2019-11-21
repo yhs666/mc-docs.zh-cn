@@ -5,14 +5,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: 79dfe79a9675fe6086607818afbd1988a433390f
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.date: 11/18/2019
+ms.author: v-tawe
+ms.openlocfilehash: f8b2508b4ccb7fab3abbfb28759e904af2e8c515
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103860"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178872"
 ---
 ## <a name="next-steps"></a>后续步骤 
 

@@ -4,19 +4,18 @@ description: 了解如何管理 Azure 函数的返回值
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 01/14/2019
-ms.date: 09/29/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 70f5a92049dc7e49918a19f43735992282ee7521
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: b2c0fdd61e2c7470ab505f5f97ceff9daa6a809d
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673544"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178967"
 ---
 # <a name="using-the-azure-function-return-value"></a>使用 Azure 函数返回值
 
@@ -24,21 +23,14 @@ ms.locfileid: "71673544"
 
 在支持返回值的语言中，可以将函数[输出绑定](./functions-triggers-bindings.md#binding-direction)绑定到返回值：
 
-- 在 C# 类库，请将输出绑定特性应用到方法返回值。
-- 在其他语言中，请将 *function.json* 中的 `name` 属性设置为 `$return`。
+* 在 C# 类库，请将输出绑定特性应用到方法返回值。
+* 在其他语言中，请将 *function.json* 中的 `name` 属性设置为 `$return`。
 
 如果有多个输出绑定，请只使用其中一个绑定的返回值。
 
 在 C# 和 C# 脚本中，将数据发送到输出绑定的替代方法是使用 `out` 参数和[收集器对象](functions-reference-csharp.md#writing-multiple-output-values)。
 
-请参阅演示如何使用返回值的特定于语言的示例：
-
-- [C#](#c-example)
-- [C# 脚本 (.csx)](#c-script-example)
-- [F#](#f-example)
-- [JavaScript](#javascript-example)
-
-## <a name="c-example"></a>C# 示例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 以下 C# 代码使用输出绑定的返回值，后接异步示例：
 
@@ -64,7 +56,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>C# 脚本示例
+# <a name="c-scripttabcsharp-script"></a>[C# 脚本](#tab/csharp-script)
 
 下面是 *function.json* 文件中的输出绑定：
 
@@ -97,7 +89,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>F# 示例
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 下面是 *function.json* 文件中的输出绑定：
 
@@ -119,7 +111,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>JavaScript 示例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下面是 *function.json* 文件中的输出绑定：
 
@@ -147,3 +139,4 @@ module.exports = function (context, input) {
 > [!div class="nextstepaction"]
 > [处理 Azure Functions 绑定错误](./functions-bindings-errors.md)
 
+<!-- Update_Description: wording update -->

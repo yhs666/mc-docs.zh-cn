@@ -9,15 +9,15 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.service: azure-functions
 ms.topic: quickstart
 origin.date: 03/28/2018
-ms.date: 11/11/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fd7d1c86cd563a167e14ec0391da6a979375fd52
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 7dc930d71d22f7b7b43870846668741f8355dec6
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934253"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178963"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
 
@@ -43,7 +43,7 @@ ms.locfileid: "73934253"
 
 ## <a name="create-a-timer-triggered-function"></a>创建计时器触发的函数
 
-1. 展开 Function App，单击“Functions”旁边的 + 按钮   。 如果这是函数应用中的第一个函数，请依次选择“门户中”  、“继续”  。 否则，请转到第三步。
+1. 展开 Function App，单击“Functions”旁边的 + 按钮   。 如果这是函数应用中的第一个函数，请依次选择“门户中”  、“继续”  。 否则，请转到步骤 3。
 
    ![Azure 门户中的 Functions 快速入门页](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "73934253"
     | **名称** | 默认 | 定义计时器触发的函数的名称。 |
     | **计划** | 0 \*/1 \* \* \* \* | 六字段 [CRON 表达式](functions-bindings-timer.md#ncrontab-expressions)，计划函数每分钟运行一次。 |
 
-4. 单击**创建**。 将使用所选语言创建一个每分钟运行一次的函数。
+4. 单击“创建”。  将使用所选语言创建一个每分钟运行一次的函数。
 
 5. 通过查看写入到日志的跟踪信息来验证执行情况。
 

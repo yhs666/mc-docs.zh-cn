@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 origin.date: 07/24/2017
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 14d36b2853ec7532f55b7275172c5725554671f5
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 3ee68ff689c84082858aaf8e83400429306de48c
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514244"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203659"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
-了解如何创建、删除网络接口及更改其设置。 Azure 虚拟机可通过网络接口与 Internet、Azure 及本地资源进行通信。 使用 Azure 门户创建虚拟机时，门户会使用默认设置创建一个网络接口。 可改为选择使用自定义设置创建网络接口，并在创建虚拟机时向其添加一个或多个网络接口。 还可更改现有网络接口的默认网络接口设置。 本文介绍如何使用自定义设置创建网络接口、更改现有设置（例如网络筛选器（网络安全组）分配、子网分配、DNS 服务器设置和 IP 转发）以及删除网络接口。
+了解如何创建、删除网络接口及更改其设置。 Azure 虚拟机可通过网络接口与 Internet、Azure 及本地资源进行通信。 使用 Azure 门户创建虚拟机时，门户将使用默认设置创建一个网络接口。 可改为选择使用自定义设置创建网络接口，并在创建虚拟机时向其添加一个或多个网络接口。 还可更改现有网络接口的默认网络接口设置。 本文介绍如何使用自定义设置创建网络接口、更改现有设置（例如网络筛选器（网络安全组）分配、子网分配、DNS 服务器设置和 IP 转发）以及删除网络接口。
 
 如果需要为网络接口添加、更改或删除 IP 地址，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)。 如果需要向虚拟机添加网络接口或从中删除网络接口，请参阅[添加或删除网络接口](virtual-network-network-interface-vm.md)。
 
 <a name="before"></a>
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "68514244"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -45,7 +45,7 @@ ms.locfileid: "68514244"
 
 ## <a name="create-a-network-interface"></a>创建网络接口
 
-使用 Azure 门户创建虚拟机时，门户会使用默认设置创建一个网络接口。 如果想要指定所有网络接口设置，可使用自定义设置创建网络接口并在创建虚拟机（使用 PowerShell 或 Azure CLI）时向其附加此网络接口。 还可创建网络接口并将其添加到现有的虚拟机（使用 PowerShell 或 Azure CLI）。 若要了解如何创建包含现有网络接口的虚拟机，或者要在现有虚拟机中添加或删除网络接口，请参阅[添加或删除网络接口](virtual-network-network-interface-vm.md)。 创建网络接口之前，创建该接口时所在的同一位置和订阅中必须存在现有的[虚拟网络](manage-virtual-network.md)。
+使用 Azure 门户创建虚拟机时，门户将使用默认设置创建一个网络接口。 如果想要指定所有网络接口设置，可使用自定义设置创建网络接口并在创建虚拟机（使用 PowerShell 或 Azure CLI）时向其附加此网络接口。 还可创建网络接口并将其添加到现有的虚拟机（使用 PowerShell 或 Azure CLI）。 若要了解如何创建包含现有网络接口的虚拟机，或者要在现有虚拟机中添加或删除网络接口，请参阅[添加或删除网络接口](virtual-network-network-interface-vm.md)。 创建网络接口之前，创建该接口时所在的同一位置和订阅中必须存在现有的[虚拟网络](manage-virtual-network.md)。
 
 1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。   当“网络接口”出现在搜索结果中时，请选择它。 
 2. 在“网络接口”  下选择“+ 添加”  。
@@ -53,14 +53,14 @@ ms.locfileid: "68514244"
 
     |设置|必需？|详细信息|
     |---|---|---|
-    |Name|是|名称在所选资源组中必须唯一。 随着时间推移，Azure 订阅中可能会有多个网络接口。 请参阅[命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)，获取有关创建命名约定来简化多个网络接口的管理的建议。 创建网络接口后，无法更改其名称。|
+    |Name|是|该名称在所选的资源组中必须唯一。 随着时间推移，Azure 订阅中可能会有多个网络接口。 请参阅[命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)，获取有关创建命名约定来简化多个网络接口的管理的建议。 创建网络接口后，无法更改其名称。|
     |虚拟网络|是|为网络接口选择虚拟网络。 只能将网络接口分配到与该接口位于相同订阅和位置的虚拟网络。 创建网络接口后，无法更改其分配到的虚拟网络。 将网络接口添加到的虚拟机也必须位于该接口所在的同一位置和订阅中。|
     |子网|是|在所选的虚拟网络中选择一个子网。 创建网络接口后，可更改它分配到的子网。|
-    |专用 IP 地址分配|是| 在此设置中，会为 IPv4 地址选择分配方法。 从以下分配方法中选择：**动态：** 选择此选项时，Azure 将从所选子网的地址空间中自动分配下一个可用地址。 **静态：** 选择此选项时，必须手动从所选子网的地址空间中手动分配一个可用的 IP 地址。 静态地址和动态地址保持不变，除非手动更改或删除网络接口。 创建网络接口后，可更改分配方法。 Azure DHCP 服务器将此地址分配到虚拟机操作系统中的网络接口。|
+    |专用 IP 地址分配|是| 在此设置中，将为 IPv4 地址选择分配方法。 从以下分配方法中选择：**动态：** 选择此选项时，Azure 将从所选子网的地址空间中自动分配下一个可用地址。 **静态：** 选择此选项时，必须手动从所选子网的地址空间中手动分配一个可用的 IP 地址。 静态地址和动态地址保持不变，除非手动更改或删除网络接口。 创建网络接口后，可更改分配方法。 Azure DHCP 服务器将此地址分配到虚拟机操作系统中的网络接口。|
     |网络安全组|否| 保留设置为“无”，选择现有的[网络安全组](security-overview.md)，或[创建网络安全组](tutorial-filter-network-traffic.md)。  网络安全组可用于筛选进出网络接口的网络流量。 可向网络接口应用零个或一个网络安全组。 也可向网络接口分配到的子网应用零个或一个网络安全组。 将网络安全组应用到网络接口以及该接口分配到的子网时，有时会产生意外结果。 若要对应用到网络接口和子网的网络安全组进行故障排除，请参阅[网络安全组故障排除](diagnose-network-traffic-filter-problem.md)。|
-    |订阅|是|选择一个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一订阅中。|
-    |资源组|是|选择现有的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建一个资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。|
-    |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为区域）中。|
+    |Subscription|是|选择一个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一订阅中。|
+    |Resource group|是|选择现有的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建一个资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。|
+    |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://status.azure.com/status/)（也称为区域）中。|
 
     <!-- Not Available IPv6 -->
     <!-- Not Available IPv6 -->
@@ -70,9 +70,9 @@ ms.locfileid: "68514244"
 创建网络接口时，门户不提供将网络接口分配给应用程序安全组的选项，但是 Azure CLI 和 PowerShell 提供。 但是，只要网络接口连接到虚拟机，就可以使用门户将现有网络接口分配给应用程序安全组。 要了解如何将网络接口分配给应用程序安全组，请参阅[添加到应用程序安全组或从中删除](#add-to-or-remove-from-application-security-groups)。
 
 >[!Note]
-> 只有在网络接口附加到虚拟机后首次启动虚拟机时，Azure 才向网络接口分配 MAC 地址。 无法自行指定 Azure 要分配给网络接口的 MAC 地址。 除非网络接口被删除或者分配给主网络接口的主 IP 配置的专用 IP 地址发生更改，否则该 MAC 地址会始终分配给该网络接口。 若要详细了解 IP 地址和 IP 配置，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)
+> 只有在网络接口附加到虚拟机后首次启动虚拟机时，Azure 才向网络接口分配 MAC 地址。 无法自行指定 Azure 要分配给网络接口的 MAC 地址。 除非网络接口被删除或者分配给主网络接口的主 IP 配置的专用 IP 地址发生更改，否则该 MAC 地址将始终分配给该网络接口。 若要详细了解 IP 地址和 IP 配置，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)
 
- 命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -115,12 +115,12 @@ DNS 服务器由 Azure DHCP 服务器分配到虚拟机操作系统中的网络�
 3. 选择“设置”下的“DNS 服务器”。  
 4. 选择以下任一项：
     - **从虚拟网络继承**：选择此选项可继承针对网络接口分配到的虚拟网络定义的 DNS 服务器设置。 自定义 DNS 服务器或 Azure 提供的 DNS 服务器会在虚拟网络级别定义。 Azure 提供的 DNS 服务器可解析分配到同一虚拟网络的资源的主机名。 必须使用 FQDN 解析分配到不同虚拟网络的资源。
-    - **自定义**：可自行配置 DNS 服务器来解析多个虚拟网络中的名称。 输入要用作 DNS 服务器的服务器的 IP 地址。 指定的 DNS 服务器地址仅分配到此网络接口，并会替代该网络接口分配到的虚拟网络的任何 DNS 设置。
+    - **自定义**：可自行配置 DNS 服务器来解析多个虚拟网络中的名称。 输入要用作 DNS 服务器的服务器的 IP 地址。 指定的 DNS 服务器地址仅分配到此网络接口，并将替代该网络接口分配到的虚拟网络的任何 DNS 设置。
         >[!Note]
         >如果 VM 使用属于某个可用性集的 NIC，则将继承为属于该可用性集的所有 NIC 中的每个 VM 指定的所有 DNS 服务器。
 5. 选择“保存”  。
 
- 命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -134,7 +134,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 - 接收未针对分配给任一网络接口 IP 配置的 IP 地址的网络流量。
 - 使用与分配给某一网络接口 IP 配置的源 IP 地址不同的地址发送网络流量。
 
-必须为附加到虚拟机并接收虚拟机需转发的流量的每个网络接口启用该设置。 无论虚拟机上附加了一个还是多个网络接口，该虚拟机都可转发流量。 尽管 IP 转发是一项 Azure 设置，但虚拟机也必须运行某个应用程序（例如防火墙、WAN 优化和负载均衡应用程序）才能转发流量。 运行网络应用程序的虚拟机通常称为网络虚拟设备。 可在 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=networking&page=1&subcategories=appliances)中查看可直接部署的网络虚拟设备列表。 IP 转发通常用于用户定义的路由。 若要深入了解用户定义的路由，请参阅[用户定义的路由](virtual-networks-udr-overview.md)。
+必须为附加到虚拟机并接收虚拟机需转发的流量的每个网络接口启用该设置。 无论虚拟机上附加了一个还是多个网络接口，该虚拟机都可转发流量。 尽管 IP 转发是一项 Azure 设置，但虚拟机也必须运行某个应用程序（例如防火墙、WAN 优化和负载均衡应用程序）才能转发流量。 运行网络应用程序的虚拟机通常称为网络虚拟设备。 可在 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=networking&page=1&subcategories=appliances)中查看可直接部署的网络虚拟设备列表。 IP 转发通常与用户定义的路由配合使用。 若要深入了解用户定义的路由，请参阅[用户定义的路由](virtual-networks-udr-overview.md)。
 
 1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。   当“网络接口”出现在搜索结果中时，请选择它。 
 2. 选择要为其启用或禁用 IP 转发的网络接口。
@@ -142,7 +142,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 4. 选择“启用”或“禁用”（默认设置）以更改设置。  
 5. 选择“保存”  。
 
- 命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -163,7 +163,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 4. 从“子网”下拉列表中选择要将网络接口移到的子网。 
 5. 选择“保存”  。 新的动态地址是从新子网的子网地址范围中分配的。 将网络接口分配到新子网之后，可在需要时从新子网地址范围中分配静态 IPv4 地址。 若要详细了解如何添加、更改和删除网络接口的 IP 地址，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)。
 
- 命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -177,7 +177,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 1. 在门户顶部的“搜索资源、服务和文档”框中，键入虚拟机的名称，该虚拟机具有要添加到应用程序安全组或要从应用程序安全组中删除的网络接口  。 当 VM 名称显示在搜索结果中时，将其选中。
 2. 在“设置”下选择“网络”   。  选择“配置应用程序安全组”，选中要在其中添加网络接口的应用程序安全组，或取消选中要从中删除网络接口的应用程序安全组，然后选择“保存”   。 只有位于同一虚拟网络的网络接口才能添加到同一应用程序安全组。 应用程序安全组必须与网络接口位于同一位置。
 
- 命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -193,7 +193,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 5. 选择“网络安全组”，然后选择要与网络接口相关联的网络安全组，或者选择“无”来取消关联网络安全组   。
 6. 选择“保存”  。
 
- 命令
+**命令**
 
 - Azure CLI: [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-update)
 - PowerShell：[Set-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterface)
@@ -205,12 +205,12 @@ IP 转发使网络接口附加到的虚拟机能够：
 
 1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。   当“网络接口”出现在搜索结果中时，请选择它。 
 2. 从网络接口列表中选择要删除的网络接口右侧的“...”  。
-3. 选择“删除”  。
+3. 选择“删除”。 
 4. 选择“是”确认删除该网络接口。 
 
 删除网络接口时，会释放已分配给它的所有 MAC 或 IP 地址。
 
- 命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -233,7 +233,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 
 Azure 网络观察程序的 IP 流验证功能还有助于确定安全规则是否阻止虚拟机与终结点之间的通信。 若要了解详细信息，请参阅 [IP 流验证](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fvirtual-network%2ftoc.json)。
 
- 命令
+**命令**
 
 - Azure CLI: [az network nic list-effective-nsg](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
 - PowerShell：[Get-AzEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
@@ -250,7 +250,7 @@ Azure 网络观察程序的 IP 流验证功能还有助于确定安全规则是�
 
 Azure 网络观察程序的下一个跃点功能还有助于确定路由是否阻止虚拟机与终结点之间的通信。 若要了解详细信息，请参阅[下一个跃点](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fvirtual-network%2ftoc.json)。
 
- 命令
+**命令**
 
 - Azure CLI：[az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table)
 - PowerShell：[Get-AzEffectiveRouteTable](https://docs.microsoft.com/powershell/module/az.network/get-azeffectiveroutetable)

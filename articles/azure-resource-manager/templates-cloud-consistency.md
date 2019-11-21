@@ -13,12 +13,12 @@ origin.date: 12/09/2018
 ms.date: 09/23/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 44ad6f734cfc36a8428eec1eff8aa7b966aa94f6
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 09fde3f15ec808e2a4ae75b5fd65e7381a477c18
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156208"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203671"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -224,7 +224,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 
 ## <a name="factor-in-differing-regional-capabilities"></a>区分区域功能的因素
 
-由于敏捷开发以及各种更新和新服务不断引入 Azure，[区域可能在服务和更新的可用性方面有所差异](https://www.azure.cn/support/service-dashboard/)。 经过严格的内部测试之后，通常向参与验证计划的小范围受众客户推介新服务或现有服务的更新。 客户验证成功后，就会在部分 Azure 区域中提供服务或更新，然后引入到更多区域，推广到主权云，甚至还可能提供给 Azure Stack 的客户。
+由于敏捷开发以及各种更新和新服务不断引入 Azure，[区域可能在服务和更新的可用性方面有所差异](https://status.azure.com/status/)。 经过严格的内部测试之后，通常向参与验证计划的小范围受众客户推介新服务或现有服务的更新。 客户验证成功后，就会在部分 Azure 区域中提供服务或更新，然后引入到更多区域，推广到主权云，甚至还可能提供给 Azure Stack 的客户。
 
 明白了 Azure 区域和云在其可用的服务方面可能有所差异，你就可以做出一些模板相关的积极决策。 建议首先开始检查云的可用资源提供程序。 通过资源提供程序可以了解到可用于 Azure 服务的一系列资源和操作。
 

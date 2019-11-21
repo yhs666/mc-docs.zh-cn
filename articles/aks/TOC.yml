@@ -52,7 +52,7 @@
       href: concepts-storage.md
     - name: 缩放
       href: concepts-scale.md
-    - name: 最佳实践
+    - name: 最佳做法
       items:
         - name: 概述
           href: best-practices.md
@@ -250,7 +250,7 @@
 - name: 资源
   items:
     - name: 上市区域
-      href: 'https://www.azure.cn/support/service-dashboard/'
+      href: 'https://status.azure.com/status/'
     - name: 支持策略
       href: support-policies.md
     - name: 提供产品反馈

@@ -8,14 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.author: dapine
-ms.openlocfilehash: f3a558299bb3c6f20012dfc4cc4be6c0e05b1d54
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+origin.date: 06/26/2019
+ms.date: 11/18/2019
+ms.author: v-tawe
+ms.openlocfilehash: 2a56070d364042fc1abcdaff1905611d0ba6c610
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275942"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178869"
 ---
 # <a name="create-containers-for-reuse"></a>创建要重复使用的容器
 

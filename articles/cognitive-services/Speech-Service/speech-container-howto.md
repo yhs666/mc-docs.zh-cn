@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/19/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 05ecf6bc2773d6805329f67adb4cb1bb39e85283
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: ac9a8530fc9073bc5affc4aa30e931308021c692
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275550"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178888"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安装和运行语音服务容器
 
@@ -40,9 +40,9 @@ ms.locfileid: "72275550"
 |熟悉 Docker | 应对 Docker 概念有基本的了解，例如注册表、存储库、容器和容器映像，以及基本的 `docker` 命令的知识。| 
 |语音资源 |若要使用这些容器，必须具有：<br><br>一个用于获取关联 API 密钥和终结点 URI 的 Azure 语音资源。  可在 Azure 门户的**语音**“概述”和“密钥”页上获取两个值。 必须获取这两个值才能启动容器。<br><br>**{API_KEY}** ：“密钥”页上提供的两个可用资源密钥中的一个 <br><br>**{ENDPOINT_URI}** ：“概述”页上提供的终结点 |
 
-<!-- ## Request access to the container registry -->
-<!-- You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. -->
-<!-- [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)] -->
+## <a name="request-access-to-the-container-registry"></a>请求访问容器注册表
+在请求访问容器之前，必须先填写并提交[认知服务语音容器请求表单](https://aka.ms/speechcontainerspreview/)。
+[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
@@ -144,7 +144,7 @@ docker pull containerpreview.azurecr.cn/microsoft/cognitive-services-text-to-spe
 
 **在预览期**，计费设置必须有效才能启动容器，但不会向你收取使用费。
 
-| 占位符 | Value |
+| 占位符 | 值 |
 |-------------|-------|
 |{API_KEY} | 此密钥用于启动容器，可以在 Azure 门户的“语音密钥”页上找到它。  |
 |{ENDPOINT_URI} | 可以在 Azure 门户的“语音概述”页上获取计费终结点 URI 值。|

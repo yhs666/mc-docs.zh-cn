@@ -11,12 +11,12 @@ ms.topic: include
 origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: 02d99eb910e027f7a005c3ae13281c9d0e1f68b2
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: e5a2d9d1748bcd9bbe4023fbc9d88436737f8824
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275553"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178886"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>文本转语音（子图：charts/textToSpeech）
 
@@ -36,8 +36,8 @@ ms.locfileid: "72275553"
 | `image.args.eula`（必需） | 指示已接受许可证。 唯一有效的值是 `accept` | |
 | `image.args.billing`（必需） | 可以在 Azure 门户的“语音概述”页上获取计费终结点 URI 值。 | |
 | `image.args.apikey`（必需） | 用于跟踪账单信息。 ||
-| `service.type` | **文本转语音**服务的 Kubernetes 服务类型。 请参阅 [Kubernetes 服务类型说明](https://kubernetes.io/docs/concepts/services-networking/service/)了解详细信息并验证云服务提供商支持。 | `LoadBalancer` |
+| `service.type` | **文本转语音**服务的 Kubernetes 服务类型。 请参阅 [Kubernetes 服务类型说明](https://kubernetes.cn/docs/concepts/services-networking/service/)了解详细信息并验证云服务提供商支持。 | `LoadBalancer` |
 | `service.port`|  **文本转语音**服务的端口。 | `80` |
 | `service.annotations` | 服务元数据的**文本转语音**批注。 批注是键值对。 <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
-| `service.autoScaler.enabled` | 是否启用了[水平 Pod 自动缩放程序](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)。 如果为 `true`，则 `text-to-speech-autoscaler` 将部署在 Kubernetes 群集中。 | `true` |
-| `service.podDisruption.enabled` | 是否启用了 [Pod 中断预算](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/)。 如果为 `true`，则 `text-to-speech-poddisruptionbudget` 将部署在 Kubernetes 群集中。 | `true` |
+| `service.autoScaler.enabled` | 是否启用了[水平 Pod 自动缩放程序](https://kubernetes.cn/docs/tasks/run-application/horizontal-pod-autoscale/)。 如果为 `true`，则 `text-to-speech-autoscaler` 将部署在 Kubernetes 群集中。 | `true` |
+| `service.podDisruption.enabled` | 是否启用了 [Pod 中断预算](https://kubernetes.cn/docs/concepts/workloads/pods/disruptions/)。 如果为 `true`，则 `text-to-speech-poddisruptionbudget` 将部署在 Kubernetes 群集中。 | `true` |

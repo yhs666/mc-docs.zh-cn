@@ -8,12 +8,12 @@ ms.topic: tutorial
 origin.date: 07/15/2019
 ms.date: 10/28/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0f11925a667d62964ec44d30cbf93d4108f84d59
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 7620edc290191d56972b18b557e2de284be854dc
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912898"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203669"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -47,7 +47,7 @@ SDK 只会尝试读取 PreferredLocations 中指定的区域。 因此，例如�
 ## <a name="net-sdk"></a>.NET SDK
 无需进行任何代码更改即可使用该 SDK。 在此情况下，SDK 会自动将读取和写入请求定向到当前写入区域。
 
-在 .NET SDK 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的属性。 此属性的类型为 Collection `<string>` ，应包含区域名称的列表。 字符串值已根据 [Azure 区域][regions]页上的“区域名称”列设置格式，其第一个字符的前面和最后一个字符的后面均没有空格。
+在 .NET SDK 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的属性。 此属性的类型为 Collection `<string>`，应包含区域名称的列表。 字符串值已根据 [Azure 区域][regions]页上的“区域名称”列设置格式，其第一个字符的前面和最后一个字符的后面均没有空格。
 
 当前写入终结点和读取终结点分别在 DocumentClient.WriteEndpoint 和 DocumentClient.ReadEndpoint 中提供。
 
@@ -146,7 +146,7 @@ AsyncDocumentClient client =
 
     https://{databaseaccount}.documents.azure.cn/
 
-服务返回副本的区域及其对应 Azure Cosmos DB 终结点 URI 的列表。 当前写入区域会在响应中指示。 然后，客户端可为所有其他 REST API 请求选择适当的终结点，如下所示。
+服务将返回副本的区域及其对应 Azure Cosmos DB 终结点 URI 的列表。 当前写入区域会在响应中指示。 然后，客户端可为所有其他 REST API 请求选择适当的终结点，如下所示。
 
 示例响应
 
@@ -193,17 +193,17 @@ AsyncDocumentClient client =
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中已完成以下操作：
+在本教程中，已完成以下内容：
 
 > [!div class="checklist"]
 > * 使用 Azure 门户配置多区域分发
 > * 使用 SQL API 配置多区域分发
 
-现可继续学习下一个教程，了解如何使用 Azure Cosmos DB 本地模拟器在本地开发。
+现在可以继续学习下一个教程，了解如何使用 Azure Cosmos DB 本地模拟器在本地开发。
 
 > [!div class="nextstepaction"]
 > [通过模拟器在本地开发](local-emulator.md)
 
-[regions]: https://www.azure.cn/support/service-dashboard/
+[regions]: https://status.azure.com/status/
 
 <!-- Update_Description: update meta propreties, wording update -->

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/23/2019
 ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 30f6fcb51279fc7acf357764621998b4cb527b3f
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: cb37d2c4b70f1e0359da5e00e1827774fa471dd4
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254849"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203644"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>适用于 Azure Cosmos DB 和 Java 的性能提示
 
@@ -60,9 +60,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
         ![Azure Cosmos DB 连接策略演示](./media/performance-tips-java/connection-policy.png)
 
    <a name="same-region"></a>
-2. **将客户端并置在同一 Azure 区域中以提高性能**
+2. **性能的（位于相同的 Azure 区域内）并置客户端**
 
-    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
+    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅[ Azure Regions（Azure 区域）](https://status.azure.com/status/)。
 
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png)
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     (a) ***优化 setMaxDegreeOfParallelism\:*** 并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
 
-    必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
+    请务必注意：如果数据能均匀地分散在与查询相关的所有分区上，并行查询就能带来最大的好处。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区将遇到查询的性能瓶颈。
 
     (b) ***优化 setMaxBufferedItemCount\:*** 并行查询专用于在客户端处理当前一批结果时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
 
@@ -128,7 +128,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
 
 ## <a name="throughput"></a>吞吐量
 <a name="measure-rus"></a>
@@ -153,7 +153,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     <a name="429"></a>
 1. **处理速率限制/请求速率太大**
 
-    客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
+    当客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
@@ -161,7 +161,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     SDK 全部都会隐式捕获此响应，并遵循服务器指定的 retry-after 标头，并重试请求。 除非多个客户端同时访问帐户，否则下次重试就会成功。
 
-    如果多个客户端一直以高于请求速率的方式累积运行，则客户端当前在内部设置为 9 的默认重试计数可能无法满足需要；在此情况下，客户端就会向应用程序引发 [DocumentClientException](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclientexception)，其状态代码为 429。 可以通过在 [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy) 实例上使用 [setRetryOptions](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) 来更改默认重试计数。 默认情况下，如果请求继续以高于请求速率的方式运行，则在 30 秒的累积等待时间后返回 DocumentClientException 和状态代码 429。 即使当前的重试计数小于最大重试计数（默认值 9 或用户定义的值），也会发生这种情况。
+    如果多个客户端一直以高于请求速率的方式累积运行，则客户端当前在内部设置为 9 的默认重试计数可能无法满足需要；在此情况下，客户端就会向应用程序引发 [DocumentClientException](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclientexception)，其状态代码为 429。 可以通过在 [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy) 实例上使用 [setRetryOptions](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) 来更改默认重试计数。 默认情况下，如果请求继续以高于请求速率的方式运行，则在 30 秒的累积等待时间后将返回 DocumentClientException 和状态代码 429。 即使当前的重试计数小于最大重试计数（默认值 9 或用户定义的值），也会发生这种情况。
 
     尽管自动重试行为有助于改善大多数应用程序的复原能力和可用性，但是在执行性能基准测试时可能会造成冲突（尤其是在测量延迟时）。  如果实验达到服务器限制并导致客户端 SDK 静默重试，则客户端观测到的延迟会剧增。 若要避免性能实验期间出现延迟高峰，可以测量每个操作返回的费用，并确保请求以低于保留请求速率的方式运行。 有关详细信息，请参阅[请求单位](request-units.md)。
 3. **针对小型文档进行设计以提高吞吐量**

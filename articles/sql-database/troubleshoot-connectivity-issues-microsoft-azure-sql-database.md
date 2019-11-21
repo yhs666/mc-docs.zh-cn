@@ -8,13 +8,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 09/27/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 1dde938d24e6a91f46b40147f5caadcdf50c01c1
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 11/19/2019
+ms.openlocfilehash: b0e9d2082268355ac01aef60e679d94bb631ec29
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041377"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179007"
 ---
 # <a name="troubleshooting-connectivity-issues-with-azure-sql-database"></a>排查 Azure SQL 数据库的连接问题
 
@@ -28,7 +28,7 @@ ms.locfileid: "73041377"
 
 若要解决此问题，请执行以下操作：
 
-1. 检查 Azure [服务仪表板](https://www.azure.cn/zh-cn/support/service-dashboard/)以查看是否存在任何已知的服务中断。 
+1. 检查 Azure [服务仪表板](https://status.azure.com/zh-cn/status)以查看是否存在任何已知的服务中断。 
 2. 如果未出现已知的服务中断，请转到 [Azure 支持网站](https://support.azure.cn/zh-cn/support/contact/)提出支持案例。
 
 有关详细信息，请参阅[排查“服务器上的数据库当前不可用”错误](/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors)。
@@ -166,7 +166,7 @@ ms.locfileid: "73041377"
 
 ## <a name="transient-errors-errors-40197-40545"></a>暂时性错误（错误 40197、40545）
 
-### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>错误 40197：该服务在处理你的请求时遇到错误。 请重试。 错误代码 <代码>
+### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>错误 40197：该服务在处理请求时遇到错误。 请重试。 错误代码 <代码>
 
 出现此问题的原因是在后端重新配置或故障转移期间遇到了暂时性的错误。
 
