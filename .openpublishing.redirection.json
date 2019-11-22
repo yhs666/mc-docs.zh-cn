@@ -17169,6 +17169,126 @@
       "source_path": "articles/container-registry/container-registry-auth-aks.md",
       "redirect_url": "/aks/cluster-container-registry-integration",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-backend-ssl.md",
+      "redirect_url": "/application-gateway/ssl-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-gateway-cli.md",
+      "redirect_url": "/application-gateway/quick-create-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-multi-site-overview.md",
+      "redirect_url": "/application-gateway/multiple-site-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-ssl-arm.md",
+      "redirect_url": "/application-gateway/tutorial-ssl-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-ssl-cli.md",
+      "redirect_url": "/application-gateway/tutorial-ssl-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-external-site-redirect-cli.md",
+      "redirect_url": "/application-gateway/redirect-external-site-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-external-site-redirect-powershell.md",
+      "redirect_url": "/application-gateway/redirect-external-site-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-http-redirect-cli.md",
+      "redirect_url": "/application-gateway/redirect-http-to-https-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-http-redirect-powershell.md",
+      "redirect_url": "/application-gateway/redirect-http-to-https-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-internal-site-redirect-cli.md",
+      "redirect_url": "/application-gateway/redirect-internal-site-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-internal-site-redirect-powershell.md",
+      "redirect_url": "/application-gateway/redirect-internal-site-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-crs-rulegroups-rules.md",
+      "redirect_url": "/web-application-firewall/ag/application-gateway-crs-rulegroups-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+      "redirect_url": "/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
+      "redirect_url": "/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-cli.md",
+      "redirect_url": "/web-application-firewall/ag/tutorial-restrict-web-traffic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/configure-waf-custom-rules.md",
+      "redirect_url": "/web-application-firewall/ag/configure-waf-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/create-custom-waf-rules.md",
+      "redirect_url": "/web-application-firewall/ag/create-custom-waf-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
+      "redirect_url": "/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-powershell.md",
+      "redirect_url": "/web-application-firewall/ag/application-gateway-customize-waf-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-cli.md",
+      "redirect_url": "/web-application-firewall/ag/application-gateway-customize-waf-rules-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/custom-waf-rules-overview.md",
+      "redirect_url": "/web-application-firewall/ag/custom-waf-rules-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-waf-configuration.md",
+      "redirect_url": "/web-application-firewall/ag/application-gateway-waf-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/web-application-firewall-troubleshoot.md",
+      "redirect_url": "/web-application-firewall/ag/web-application-firewall-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/waf-overview.md",
+      "redirect_url": "/web-application-firewall/ag/ag-overview",
+      "redirect_document_id": false
     }
   ]
 }
