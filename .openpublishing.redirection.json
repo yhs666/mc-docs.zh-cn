@@ -17171,6 +17171,20 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
+      "redirect_url": "/storage/blobs/data-lake-storage-integrate-with-azure-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy.md",
+      "redirect_url": "/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy-linux.md",
+      "redirect_url": "/storage/common/storage-use-azcopy-v10",
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-backend-ssl.md",
       "redirect_url": "/application-gateway/ssl-overview",
       "redirect_document_id": false
@@ -17290,6 +17304,7 @@
       "redirect_url": "/web-application-firewall/ag/ag-overview",
       "redirect_document_id": false
     }
+
   ]
 }
 
