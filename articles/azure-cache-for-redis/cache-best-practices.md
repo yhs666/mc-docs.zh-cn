@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 06/21/2019
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 37937751e566f548b346c6a805619ea492b3ca5e
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+ms.openlocfilehash: 48bc68b2573c56bb4887e331e2f7f3ea2a01d6e4
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798474"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934147"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Azure Redis 缓存的最佳做法 
 遵循这些最佳做法可帮助最大化性能并在 Azure 中经济、高效地利用 Azure Redis 缓存实例。
@@ -32,9 +32,9 @@ ms.locfileid: "72798474"
 
  * **在开发系统时让它可以处理由于修补和故障转移出现的连接故障**。
 
- * **配置 [maxmemory-reserved 设置](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)，以提高系统在遇到内存压力时的响应能力**。  对于写入密集型工作负荷，或者，如果你要在 Redis 中存储较大的值（100 KB 或更大），此设置尤为重要。  我建议从缓存大小的 10% 开始，并在处理写入密集型负载时增大此设置。 选择值时，请参阅[一些注意事项](cache-how-to-troubleshoot.md#considerations-for-memory-reservations)。
+ * **配置 [maxmemory-reserved 设置](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)，以提高系统在遇到内存压力时的响应能力**。  对于写入密集型工作负荷，或者，如果你要在 Redis 中存储较大的值（100 KB 或更大），此设置尤为重要。 建议从缓存大小的 10% 开始，如果有大量写入负载，则增加百分比。
 
- * **具有较小值的 Redis 工作性能最佳**，因此请考虑将较大数据分成多个键。  [此 Redis 介绍文章](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)中列出了一些应该仔细考虑的因素。  阅读[本文](cache-how-to-troubleshoot.md#large-requestresponse-size)了解较大值可能引起的问题示例。
+ * **具有较小值的 Redis 工作性能最佳**，因此请考虑将较大数据分成多个键。  [此 Redis 介绍文章](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)中列出了一些应该仔细考虑的因素。  阅读[本文](cache-troubleshoot-client.md#large-request-or-response-size)了解较大值可能引起的问题示例。
 
  * **将缓存实例和应用程序定位在同一区域中。**  连接到不同区域中的缓存可能会明显增大延迟并降低可靠性。  尽管可以从 Azure 外部进行连接，但不建议这样做，尤其是使用 Redis 作为缓存时。   如果只是使用 Redis 作为键/值存储，则延迟可能不是主要考虑因素。 
 
@@ -44,12 +44,11 @@ ms.locfileid: "72798474"
      > [!NOTE]
      > 本指南特定于连接尝试，而与你愿意等待 GET 或 SET 等操作完成的时间无关。  
  
+ * **避免高开销操作** - 某些 Redis 操作（例如 [KEYS](https://redis.io/commands/keys) 命令）的开销很大，应该避免。   有关详细信息，请参阅有关[长时间运行的命令](cache-troubleshoot-server.md#long-running-commands)的一些注意事项
 
- * **避免高开销命令** - 某些 Redis 操作（例如 [KEYS 命令](https://redis.io/commands/keys)）的开销很大，应该避免。   有关详细信息，请参阅[有关高开销命令的一些注意事项](cache-how-to-troubleshoot.md#expensive-commands)
-
-
+ * **使用 TLS 加密** - 默认情况下，Azure Cache for Redis 需要 TLS 加密通信。  目前支持 TLS 版本 1.0、1.1 和 1.2。  但是，TLS 1.0 和 TLS 1.1 即将在全行业范围内弃用，因此，请尽可能使用 TLS 1.2。  如果客户端库或工具不支持 TLS，则可以[通过 Azure 门户](cache-configure.md#access-ports)或[管理 API](https://docs.microsoft.com/rest/api/redis/redis/update) 来启用未加密的连接。  在无法进行加密连接的情况下，建议将缓存和客户端应用程序放入虚拟网络中。  有关将哪些端口用于 
  
-## <a name="memory-management"></a>内存管理
+## <a name="memory-management"></a>内存管理的详细信息
 可能需要考虑到与 Redis 服务器实例中内存用量相关的一些问题。  下面是一些建议：
 
  * **选择适合应用程序的[逐出策略](https://redis.io/topics/lru-cache)。**  Azure Redis 的默认策略是 *volatile-lru*，表示只有设置了 TTL 值的键才符合逐出条件。  如果没有任何键具有 TTL 值，则系统不会逐出任何键。  如果你希望系统在遇到内存压力的情况下允许逐出任何键，可能需要考虑使用 *allkeys-lru* 策略。
@@ -99,4 +98,4 @@ ms.locfileid: "72798474"
 **测试吞吐量：** 此操作结合 1k 有效负载使用管道 GET 请求。
 > redis-benchmark.exe -h yourcache.redis.cache.chinacloudapi.cn -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

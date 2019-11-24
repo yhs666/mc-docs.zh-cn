@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 09/25/2019
-ms.date: 10/30/2019
+origin.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2c1491728fe651519199827240da464eb6d30b6a
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 0892eb1f77f96b6ae0423e4e588b413c186fbb25
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068931"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934192"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -104,6 +104,7 @@ ms.locfileid: "73068931"
 | [托管应用程序读者](#managed-applications-reader) | 允许读取托管应用中的资源并请求 JIT 访问。 |
 | [托管的标识参与者](#managed-identity-contributor) | 创建、读取、更新和删除用户分配的标识 |
 | [托管的标识操作员](#managed-identity-operator) | 读取和分配用户分配的标识 |
+| [托管服务注册分配删除角色](#managed-services-registration-assignment-delete-role) | 托管服务注册分配删除角色允许管理租户用户删除分配给其租户的注册分配。 |
 | [管理组参与者](#management-group-contributor) | 管理组参与者角色 |
 | [管理组读取者](#management-group-reader) | 管理组读取者角色 |
 | [监视参与者](#monitoring-contributor) | 可以读取所有监视数据和编辑监视设置。 另请参阅 [Azure Monitor 的角色、权限和安全入门](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
@@ -269,7 +270,7 @@ ms.locfileid: "73068931"
 > | **说明** | ACR 隔离数据读取器 |
 > | Id  | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **操作** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | 从容器注册表中拉取或获取已隔离的映像 |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | 从容器注册表中拉取或获取已隔离的映像 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -284,8 +285,8 @@ ms.locfileid: "73068931"
 > | **说明** | ACR 隔离数据编写器 |
 > | Id  | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **操作** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | 从容器注册表中拉取或获取已隔离的映像 |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 写入/修改已隔离映像的隔离状态 |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | 从容器注册表中拉取或获取已隔离的映像 |
+> | Microsoft.ContainerRegistry/registries/quarantine/write | 写入/修改已隔离映像的隔离状态 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -1611,6 +1612,7 @@ ms.locfileid: "73068931"
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出存储帐户的访问密钥。 |
 > | Microsoft.ClassicStorage/storageAccounts/read | 返回包含给定帐户的存储帐户。 |
 > | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | 创建、更新或读取 Analysis Server 的诊断设置 |
 > | Microsoft.Insights/logdefinitions/* | 此权限对于需要通过门户访问活动日志的用户是必需的。 列出活动日志中的日志类别。 |
 > | Microsoft.Insights/metricDefinitions/* | 读取指标定义（资源的可用指标类型的列表）。 |
@@ -1643,6 +1645,7 @@ ms.locfileid: "73068931"
 > | **操作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Insights/alertRules/*/read | 读取 Insights 警报规则 |
+> | Microsoft.Insights/metricAlerts/*/read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | 获取逻辑应用的诊断设置 |
 > | Microsoft.Insights/metricDefinitions/*/read | 获取逻辑应用的可用指标。 |
 > | Microsoft.Logic/*/read | 读取逻辑应用资源。 |
@@ -1734,6 +1737,23 @@ ms.locfileid: "73068931"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>托管服务注册分配删除角色
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 托管服务注册分配删除角色允许管理租户用户删除分配给其租户的注册分配。 |
+> | Id  | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **操作** |  |
+> | Microsoft.ManagedServices/registrationAssignments/read | 检索托管服务注册分配的列表。 |
+> | Microsoft.ManagedServices/registrationAssignments/delete | 删除托管服务注册分配。 |
+> | Microsoft.ManagedServices/operationStatuses/read | 读取资源的操作状态。 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |

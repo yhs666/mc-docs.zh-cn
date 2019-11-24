@@ -1,23 +1,20 @@
 ---
 title: Azure Functions Java 开发人员参考 | Microsoft Docs
 description: 了解如何使用 Java 开发函数。
-services: functions
-documentationcenter: na
-author: rloutlaw
-manager: justhe
+author: ggailey777
+manager: gwallace
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务器体系结构, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: f78fd58bd9bd41fdfd91130cab3e2c0ebec0050f
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 0422ec20fd94c5481224f4ed8b4f0ad0040b0ea7
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034365"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934244"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -31,33 +28,44 @@ Azure Functions 运行时支持 [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)
 
 [触发器和绑定](functions-triggers-bindings.md)是 Azure Functions 的基本概念。 触发器启动代码的执行。 绑定可让你向函数传递数据以及从函数返回数据，而无需编写自定义的数据访问代码。
 
-## <a name="project-scaffolding"></a>项目基架
+## <a name="create-java-functions"></a>创建 Java 函数
 
-搭建基于 Java 的 Azure 函数项目的最简单方法是使用 `Apache Maven` 原型。 还可以在 Visual Studio Code 中找到项目生成向导，以及用于 Eclipse 和 IntelliJ 的 Azure 工具包。
+为了更轻松地创建 Java 函数，有一些基于 Maven 的工具和原型使用预定义的 Java 模板来帮助你创建包含特定函数触发器的项目。    
 
-Maven 目前有两种 Azure Functions 原型：
+### <a name="maven-based-tooling"></a>基于 Maven 的工具
 
-### <a name="java-archetype"></a>Java 原型
+以下开发人员环境具有 Azure Functions 工具，可用于创建 Java 函数项目： 
 
-此原型使用以下 groupId 和 artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/) 发布。
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Eclipse](functions-create-maven-eclipse.md)
++ [IntelliJ](functions-create-maven-intellij.md)
 
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
-```
+以上文章链接介绍了如何使用所选的 IDE 创建前几个函数。 
 
-### <a name="kotlin-archetype-preview"></a>Kotlin 原型（预览版）
+### <a name="project-scaffolding"></a>项目基架
 
-此原型使用以下 groupId 和 artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/) 发布。
+如果更喜欢从终端进行命令行开发，搭建基于 Java 的函数项目的最简单方法是使用 `Apache Maven` 原型。 Maven 目前有两种 Functions 原型：
 
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
++ **Java 原型**：使用以下 groupId 和 artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/) 发布：
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+        -DarchetypeArtifactId=azure-functions-archetype 
+    ```
+
+    若要开始使用此原型，请参阅 [Java 快速入门](functions-create-first-java-maven.md)。 
+
++ **Kotlin 原型（预览版）** 使用以下 groupId 和 artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/) 发布：
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+        -DarchetypeArtifactId=azure-functions-kotlin-archetype
+    ```
 
 这些原型的源代码可以在 [Azure Maven 原型 GitHub 存储库](https://github.com/microsoft/azure-maven-archetypes)中找到。
+
 
 ## <a name="folder-structure"></a>文件夹结构
 

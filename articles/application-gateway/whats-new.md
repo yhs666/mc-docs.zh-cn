@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 origin.date: 04/30/2019
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3d667bbcdeef3eee23ac071bf6987149c1f3686f
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+ms.openlocfilehash: ec0b8007ddb1cf0b913f6efb383ae39d63ed746f
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798473"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934216"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure 应用程序网关有哪些新增功能？
 
@@ -28,6 +28,7 @@ Azure 应用程序网关会不断更新。 为了让大家随时了解最新的�
 
 |功能  |说明  |添加日期  |
 |---------|---------|---------|
+|探测增强功能 |利用应用程序网关 v2 SKU 中的自定义探测增强功能，我们简化了[探测配置](/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)，加速了[按需后端运行状况测试](/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe)，并添加了[更多诊断信息](/application-gateway/application-gateway-backend-health-troubleshooting#error-messages)，以帮助你解决后端运行状况问题。  |2019 年 10 月 |
 |更多指标 |我们添加了以下新指标，可帮助你监视应用程序网关 v2 SKU：[与计时相关的指标](/application-gateway/application-gateway-metrics#timing-metrics)、后端响应状态、接收的字节数、发送的字节数、客户端 TLS 协议和当前计算单元。 请参阅[应用程序网关 V2 SKU 支持的指标](/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku)。 |2019 年 8 月 |
 |WAF 自定义规则 |应用程序网关 WAF_v2 现在支持创建自定义规则。 请参阅[应用程序网关自定义规则](custom-waf-rules-overview.md)。 |2019 年 7 月 |
 |自动缩放、区域冗余、静态 VIP 支持 GA |v2 SKU 正式版，支持自动缩放、区域冗余、增强性能、静态 VIP、密钥保管库、标头重写。 请参阅[应用程序网关自动缩放文档](application-gateway-autoscaling-zone-redundant.md)。 |2019 年 4 月 |

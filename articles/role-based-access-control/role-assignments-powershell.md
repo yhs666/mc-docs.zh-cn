@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/11/2019
-ms.date: 10/30/2019
+origin.date: 10/22/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: c3def35dff02e3c83ec556f407ff68c5b6d4d3f7
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 653686de532209e32679e3de7c6119f809aa3c30
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068929"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934236"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理对 Azure 资源的访问权限
 
@@ -154,6 +154,40 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ## <a name="list-access"></a>列出访问权限
 
 在 RBAC 中，若要列出访问权限，请列出角色分配。
+
+### <a name="list-all-role-assignments-in-a-subscription"></a>列出订阅中的所有角色分配
+
+若要获取当前订阅中所有角色分配的列表（包括从根和管理组继承的角色分配），最简单的方法是使用不带任何参数的 [Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment)。
+
+```azurepowershell
+Get-AzRoleAssignment
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+DisplayName        : Alain
+SignInName         : alain@example.com
+RoleDefinitionName : Storage Blob Data Reader
+RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Marketing
+SignInName         :
+RoleDefinitionName : Contributor
+RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
+ObjectId           : 22222222-2222-2222-2222-222222222222
+ObjectType         : Group
+CanDelegate        : False
+
+...
+```
 
 ### <a name="list-role-assignments-for-a-user"></a>列出用户的角色分配
 
@@ -429,4 +463,4 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 - [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](tutorial-custom-role-powershell.md)
 - [使用 Azure PowerShell 管理资源](../azure-resource-manager/manage-resources-powershell.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

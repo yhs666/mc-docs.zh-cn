@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-origin.date: 08/13/2019
-ms.date: 10/25/2019
+origin.date: 10/28/2019
+ms.date: 11/14/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c34a95aa29892273227e6f70b11b45c182688e0
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: aa0609514c6b2b1e3a79c8bb6b64b01015ed6e6e
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912809"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084888"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“登录活动”报告
 
@@ -33,17 +33,19 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
     - **登录** - 有关托管应用程序的使用情况和用户登录活动的信息。
     - **审核日志** - [审核日志](concept-audit-logs.md) - 有关用户和组管理、托管应用程序和目录活动的系统活动信息。
 
-本主题概述了登录报告。
+本文概述了登录报告。
 
 ## <a name="prerequisites"></a>先决条件
 
 ### <a name="who-can-access-the-data"></a>谁可以访问该数据？
+
 * 具有“安全管理员”、“安全读取者”和“报告读取者”角色的用户
 * 全局管理员
-* 此外，任何用户（非管理员）都可以访问自己的登录活动 
+* 任何用户（非管理员）都可以访问自己的登录活动 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>访问登录活动需要什么 Azure AD 许可证？
-* 租户必须具有与之关联的 Azure AD Premium 许可证，才能查看包含所有登录活动的报告。 请参阅 [Azure Active Directory Premium 入门](../fundamentals/active-directory-get-started-premium.md)来升级 Azure Active Directory 版本。 请注意，如果在升级之前没有任何活动数据，则在升级到高级版许可证后，数据需要经过几天才会显示在报表中。
+
+* 租户必须具有与之关联的 Azure AD Premium 许可证，才能查看包含所有登录活动的报告。 请参阅 [Azure Active Directory Premium 入门](../fundamentals/active-directory-get-started-premium.md)来升级 Azure Active Directory 版本。 如果在升级之前没有数据活动，则在升级到高级版许可证后，数据需要经过几天才会显示在报表中。
 
 ## <a name="sign-ins-report"></a>登录报告
 
@@ -53,7 +55,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 * 多少用户超过一周都有登录行为？
 * 这些登录的状态怎样？
 
-可以通过在 [Azure 门户](https://portal.azure.cn)的“Azure Active Directory”  边栏选项卡的“监视”  部分中选择“登录”  来访问登录报告。 请注意，某些登录记录最多可能需要两个小时才会显示在门户中。
+[Azure 门户](https://portal.azure.cn)入门。 若要访问登录报告，请选择“登录”，然后转到“监视”。   某些登录记录最多可能需要两个小时才会显示在门户中。
 
 ![登录活动](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "登录活动")
 
@@ -69,23 +71,23 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 - 风险检测的状态
 - 多重身份验证 (MFA) 要求的状态
 
-![登录活动](./media/concept-sign-ins/01.png "登录活动")
+![登录活动](./media/concept-sign-ins/sign-in-activity.png "登录活动")
 
 单击工具栏中的“列”即可自定义列表视图。 
 
 ![登录活动](./media/concept-sign-ins/19.png "登录活动")
 
-用于显示其他字段，或者删除已显示的字段。
+显示其他字段，或者删除已显示的字段。
 
 ![登录活动](./media/concept-sign-ins/02.png "登录活动")
 
 选择列表视图中的某个项可获得更详细的信息。
 
-![登录活动](./media/concept-sign-ins/03.png "登录活动")
+![登录活动](./media/concept-sign-ins/basic-sign-in.png "登录活动")
 
 ## <a name="filter-sign-in-activities"></a>筛选登录活动
 
-若要将所报告数据的范围缩小到适合你的级别，可以使用日期字段作为默认筛选器来筛选登录数据。 此外，Azure AD 还提供了一系列可以设置的其他筛选器。
+首先，将所报告数据的范围缩小到适当的级别。 接下来，使用充当默认筛选器的日期字段筛选登录数据。 Azure AD 提供了一系列可以设置的其他筛选器。
 
 ![登录活动](./media/concept-sign-ins/04.png "登录活动")
 
@@ -102,7 +104,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 “日期”筛选器用于定义已返回数据的时间范围。   
 可能的值包括：
 
-- 1 个月
+- 一个月
 - 7 天
 - 24 小时
 - 自定义时间范围
@@ -118,7 +120,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
     此筛选器显示从支持的平台（如 iOS、Android 和 Windows Phone）尝试 Exchange ActiveSync (EAS) 协议的所有登录尝试。
 - **Exchange ActiveSync（不受支持）**  
     此筛选器显示从不受支持的平台（如 Linux 发行版）尝试 EAS 协议的所有登录尝试。
-- **移动应用和桌面客户端** 此筛选器显示未使用浏览器流的所有登录尝试。 这可以是使用任何协议的任何平台上的移动应用，也可以是 Windows 或 MacOS 上的 Office 等桌面客户端应用。
+- **移动应用和桌面客户端** 此筛选器显示未使用浏览器流的所有登录尝试。 例如，使用任何协议的任何平台上的移动应用，或者 Windows 或 MacOS 上的 Office 等桌面客户端应用。
   
 - **其他客户端**
     - **IMAP**  
@@ -134,7 +136,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 ## <a name="download-sign-in-activities"></a>下载登录活动
 
-如果想要在 Azure 门户外部使用登录活动数据，可以[下载登录数据](quickstart-download-sign-in-report.md)。 单击“下载”  可以选择创建包含最近 250,000 条记录的 CSV 或 JSON 文件。  
+单击“下载”  选项即可创建包含最近 250,000 条记录的 CSV 或 JSON 文件。 如果想要在 Azure 门户外部使用登录活动数据，请先[下载登录数据](quickstart-download-sign-in-report.md)。  
 
 ![下载](./media/concept-sign-ins/71.png "下载")
 
@@ -144,7 +146,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 ## <a name="sign-ins-data-shortcuts"></a>登录数据快捷方式
 
-除了 Azure AD 之外，Azure 门户也提供了登录数据的其他入口点：
+Azure AD 和 Azure 门户都提供登录数据的其他入口点：
 
 - 标识安全保护概述
 - 用户
@@ -153,7 +155,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>标识安全保护中的用户登录数据
 
-“标识安全保护”  概述页上的用户登录图显示了指定时间内所有用户的按周汇总的登录信息。 默认时间为 30 天。
+“标识安全保护”  概述页上的用户登录图显示了按周汇总的登录信息。默认时间为 30 天。
 
 ![登录活动](./media/concept-sign-ins/06.png "登录活动")
 
@@ -192,30 +194,28 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 通过登录数据的以应用程序为中心的视图，可以回答如下问题：
 
 * 谁正在使用我的应用程序？
-* 组织中最常用的 3 个应用程序是哪些？
-* 我最近推出了一个应用程序。 它用起来怎样？
+* 组织中最常用的三个应用程序是哪些？
+* 我的最新应用程序的情况如何？
 
-该数据的入口点为“概览”部分的“企业应用程序”下面的组织过去 30 天的报告中最常用的 3 个应用程序   。
+此数据的入口点是组织中最常用的三个应用程序。 数据包含在“企业应用程序”下“概览”部分过去 30 天的报告中   。
 
 ![登录活动](./media/concept-sign-ins/10.png "登录活动")
 
-应用使用情况图显示指定时间内最常用的 3 个应用程序的按周汇总的登录信息。 默认时间为 30 天。
+应用使用情况图显示指定时间内最常用的三个应用程序的按周汇总的登录信息。 默认时间为 30 天。
 
-![登录活动](./media/concept-sign-ins/47.png "登录活动")
+![登录活动](./media/concept-sign-ins/graph-chart.png "登录活动")
 
 如果需要，可以将焦点设置在特定应用程序上。
 
-![报告](./media/concept-sign-ins/single_spp_usage_graph.png "报告")
+![报告](./media/concept-sign-ins/single-app-usage-graph.png "报告")
 
 单击应用程序使用情况图中的某一天时，可以获取登录活动的详细列表。
 
 **登录** 选项可提供应用程序的所有登录事件的完整概览。
 
-![登录活动](./media/concept-sign-ins/11.png "登录活动")
-
 ## <a name="office-365-activity-logs"></a>Office 365 活动日志
 
-可以从 [Microsoft 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 尽管 Office 365 活动和 Azure AD 活动日志共享大量的目录资源，但只有 Microsoft 365 管理中心提供 Office 365 活动日志的完整视图。 
+可以从 [Microsoft 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 要考虑到 Office 365 活动和 Azure AD 活动日志共享大量的目录资源。 只有 Microsoft 365 管理中心提供 Office 365 活动日志的完整视图。 
 
 还可以使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) 以编程方式访问 Office 365 活动日志。
 

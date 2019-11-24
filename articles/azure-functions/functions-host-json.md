@@ -1,21 +1,19 @@
 ---
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7c6ff87fb806068f1ff7cabe4cc9a94db3c3275c
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 4c08e7a63e4032017861a0f8aff937f35166ae1c
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034446"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934248"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
@@ -99,9 +97,7 @@ ms.locfileid: "73034446"
 ## <a name="functiontimeout"></a>functionTimeout
 
 指示所有函数的超时持续时间。 它采用 timespan 字符串格式。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。  
-在专用（应用服务）计划中，没有总体限制，默认值取决于运行时版本： 
-+ 版本 1.x：默认值为 null  ，表示无超时。   
-+ 版本 2.x：默认值为 30 分钟。 值 `-1` 表示无限执行。
+在专用（应用服务）计划中，没有总体限制，默认值为 30 分钟。 值 `-1` 表示无限执行。
 
 ```json
 {

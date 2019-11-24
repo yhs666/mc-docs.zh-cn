@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 04/29/2019
-ms.date: 10/29/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5f63d2a98e71dc35ac23aa4459d76472bf067fd0
-ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
+ms.openlocfilehash: 3ee1d6797ac732c6d3aba85628763dd98b4073dc
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068810"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934237"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -72,7 +72,7 @@ ms.locfileid: "73068810"
 * [围绕连接的性能注意事项](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>监视和故障排除常见问题
-本部分中的常见问题包括常见的监视和故障排除问题。 有关 Azure Redis 缓存实例监视和故障排除的详细信息，请参阅[如何监视 Azure Redis 缓存](cache-how-to-monitor.md)以及[如何排查 Azure Redis 缓存问题](cache-how-to-troubleshoot.md)。
+本部分中的常见问题包括常见的监视和故障排除问题。 有关 Azure Cache for Redis 实例监视和故障排除的详细信息，请参阅[如何监视 Azure Cache for Redis](cache-how-to-monitor.md) 和各种故障排除指南。
 
 * [如何监视缓存的运行状况和性能？](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [为何会出现超时？](#why-am-i-seeing-timeouts)
@@ -288,7 +288,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可提供此支持。
 #### <a name="stackexchangeredis-best-practices"></a>StackExchange.Redis 最佳做法
 * 将 `AbortConnect` 设置为 false，并使 ConnectionMultiplexer 自动重新连接。 [请参阅此处了解详细信息](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)。
 * 重复使用 ConnectionMultiplexer - 不要为每个请求创建一个新的 ConnectionMultiplexe。 建议使用[此处所示](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)的 `Lazy<ConnectionMultiplexer>` 模式。
-* 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 
+* 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 在 Redis 讨论中，100 kb 即可视为大型数据。 阅读[本文](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size)了解较大值可能引起的问题示例。
 * 配置 [ThreadPool 设置](#important-details-about-threadpool-growth) ，以免超时。
 * 将默认 connectTimeout 至少设置为 5 秒。 出现网络故障时，此时间间隔会给 StackExchange.Redis 足够的时间来重新建立连接。
 * 注意与正在运行的不同操作相关的性能成本。 例如，`KEYS` 命令是 O(n) 操作，应当避免。 [redis.io](https://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
@@ -423,7 +423,7 @@ Azure Redis 缓存**资源菜单**中还包含了用于对缓存进行监视和�
 <a name="cache-timeouts"></a>
 
 ### <a name="why-am-i-seeing-timeouts"></a>为何会出现超时？
-超时发生在用来与 Redis 通信的客户端中。 将某个命令发送到 Redis 服务器后，该命令会排队，Redis 服务器最终会提取该命令并执行它。 但是，客户端在此过程中可能会超时，在这种情况下，会在调用端引发异常。 有关排查超时问题的详细信息，请参阅[客户端故障排除](cache-how-to-troubleshoot.md#client-side-troubleshooting)和 [StackExchange.Redis 超时异常](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions)。
+超时发生在用来与 Redis 通信的客户端中。 将某个命令发送到 Redis 服务器后，该命令会排队，Redis 服务器最终会提取该命令并执行它。 但是，客户端在此过程中可能会超时，在这种情况下，会在调用端引发异常。 有关排查超时问题的详细信息，请参阅[客户端故障排除](cache-troubleshoot-client.md)和 [StackExchange.Redis 超时异常](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions)。
 
 <a name="cache-disconnect"></a>
 

@@ -6,14 +6,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/19/2018
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: efd0e6e51b76c761791f15113190514a24e6cb0a
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: bff585710282cfdda0bf5cfbcfec604b64819bab
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034383"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934249"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -71,6 +71,9 @@ ms.locfileid: "73034383"
       "batchSize": 16,
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
+    },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
     },
     "serviceBus": {
       "maxConcurrentCalls": 16,
@@ -138,7 +141,7 @@ ms.locfileid: "73034383"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。
+指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值为 _null_，表示没有超时。
 
 ```json
 {
@@ -225,6 +228,21 @@ ms.locfileid: "73034383"
 |batchSize|16|Functions 运行时同时检索并并行处理的队列消息数。 当处理的数量下降到 `newBatchThreshold` 时，运行时可获取另一个批，并开始处理这些消息。 因此，每个函数处理的最大并发消息数是 `batchSize` 加上 `newBatchThreshold`。 此限制分别应用于各个队列触发的函数。 <br><br>如果要避免对队列上收到的消息并行执行，可以将 `batchSize` 设置为 1。 但是，只有在函数于单个虚拟机 (VM) 上运行时，此设置才可消除并发。 如果函数应用横向扩展到多个 VM，每个 VM 可运行每个队列触发的函数的一个实例。<br><br>`batchSize` 的最大值为 32。 | 
 |maxDequeueCount|5|在将某个消息移到有害队列之前，尝试处理该消息的次数。| 
 |newBatchThreshold|batchSize/2|只要同时处理的消息数下降到此数值，运行时即检索另一个批次。| 
+
+## <a name="sendgrid"></a>SendGrid
+
+[SendGrind 输出绑定](functions-bindings-sendgrid.md)的配置设置
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|from|不适用|所有函数的发件人电子邮件地址。| 
 
 ## <a name="servicebus"></a>serviceBus
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 10/09/2019
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8918bf6a8d14836175f59b1581c21628bf28e297
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+ms.openlocfilehash: 567878a4a154971efbcfcbbc1324ab8254657f61
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798512"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934212"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>应用程序网关的后端运行状况和诊断日志
 
@@ -217,7 +217,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |timeTaken| 处理请求并发送响应所需的时长（以毫秒为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
 |sslEnabled| 与后端池的通信是否使用 SSL。 有效值为 on 和 off。|
 |sslCipher| 用于 SSL 通信的密码套件（如果已启用 SSL）。|
-|sslProtocol| 使用的 SSL 协议（如果已启用 SSL）。|
+|sslProtocol| 使用的 SSL/TLS 协议（如果已启用 SSL）。|
 |serverRouted| 应用程序网关将请求路由到的后端服务器。|
 |serverStatus| 后端服务器的 HTTP 状态代码。|
 |serverResponseLatency| 后端服务器的响应延迟。|

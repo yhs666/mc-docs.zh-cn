@@ -6,17 +6,16 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2017
-ms.date: 06/03/2019
+origin.date: 10/22/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 78ccb9e0b00a6e1d5ab0a9f4270abd11efb8cb50
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 0deaaa74c8ec5f27ea7ad7ad66c41a255da3610b
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491477"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934238"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions 中的版本控制 (Azure Functions)
 
@@ -26,11 +25,11 @@ ms.locfileid: "66491477"
 
 需要知道一些重大更改示例。 本文介绍最常见的示例。 所有这些示例背后的主题都是，新的和现有的函数业务流程均受函数代码更改所影响。
 
-### <a name="changing-activity-function-signatures"></a>更改活动函数签名
+### <a name="changing-activity-or-entity-function-signatures"></a>更改活动或实体函数签名
 
-签名更改涉及到函数名称、输入或输出的更改。 如果对活动函数进行了此类更改，则可能会中断依赖于它的业务流程协调程序函数。 如果更新业务流程协调程序函数以适应此更改，则可能会中断现有的正在进行的实例。
+签名更改涉及到函数名称、输入或输出的更改。 如果对活动或实体函数进行了此类更改，则可能会中断依赖于它的任何业务流程协调程序函数。 如果更新业务流程协调程序函数以适应此更改，则可能会中断现有的正在进行的实例。
 
-例如，假设有以下函数。
+例如，假设有以下业务流程协调程序函数。
 
 ```csharp
 [FunctionName("FooBar")]
@@ -87,7 +86,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-此更改会向“Foo”  和“Bar”  之间的“SendNotification”  添加新的函数调用。 不存在签名更改。 在从对“Bar”  的调用中恢复现有实例时，将出现问题。 在重播过程中，如果对“Foo”  的原始调用返回 `true`，则业务流程协调程序重播将调用不在其执行历史记录中的“SendNotification”  。 因此，Durable Task Framework 将失败，并且出现 `NonDeterministicOrchestrationException`，因为在它希望出现对“Bar”  的调用时出现了对“SendNotification”  的调用。
+此更改会向“Foo”  和“Bar”  之间的“SendNotification”  添加新的函数调用。 不存在签名更改。 在从对“Bar”  的调用中恢复现有实例时，将出现问题。 在重播过程中，如果对“Foo”  的原始调用返回 `true`，则业务流程协调程序重播将调用不在其执行历史记录中的“SendNotification”  。 因此，Durable Task Framework 将失败，并且出现 `NonDeterministicOrchestrationException`，因为在它希望出现对“Bar”  的调用时出现了对“SendNotification”  的调用。 添加对“durable”API 的任何调用（包括 `CreateTimer`、`WaitForExternalEvent` 等）时可能会出现相同类型的问题。
 
 ## <a name="mitigation-strategies"></a>缓解策略
 
@@ -114,9 +113,9 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 确保安全部署中断更改的最万无一失的方法是将其与较旧版本进行并行部署。 可使用以下任何方法来完成此操作：
 
-* 将所有更新部署为全新的函数（新名称）。
+* 将所有更新部署为全新的函数，保持现有函数不变。 这可能很棘手，因为新函数版本的调用方也必须按照相同的准则进行更新。
 * 将所有更新部署为使用不同存储帐户的新函数应用。
-* 部署函数应用的新副本，但具有更新的 `TaskHub` 名称。 这是建议的做法。
+* 使用相同的存储帐户但使用更新的 `taskHub` 名称来部署函数应用的新副本。 这是建议的做法。
 
 ### <a name="how-to-change-task-hub-name"></a>如何更改任务中心名称
 
@@ -127,18 +126,28 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Functions 2.x
 
-默认值为 `DurableFunctionsHub`。
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-所有 Azure 存储实体都基于 `HubName` 配置值进行命名。 通过给任务中心提供新名称，可以确保为应用程序的新版本创建单独的队列和历史记录表。
+Durable Functions v1.x 的默认值为 `DurableFunctionsHub`。 从 Durable Functions v2.0 开始，默认任务中心名称与 Azure 中的函数应用名称相同，如果在 Azure 之外运行，则为 `TestHubName`。
 
-建议将函数应用的新版本部署到一个新的[部署槽位](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)。 通过部署槽位，可以并行运行函数应用的多个副本，且仅其中一个槽位为活动生产槽位  。 当准备好向现有基础结构公开新业务流程逻辑时，它可以像将新版本交换到生产槽一样简单。
+所有 Azure 存储实体都基于 `hubName` 配置值进行命名。 通过给任务中心提供新名称，可以确保为应用程序的新版本创建单独的队列和历史记录表。 但是，函数应用将停止处理在前一任务中心名称下创建的业务流程或实体的事件。
+
+建议将函数应用的新版本部署到一个新的[部署槽位](../functions-deployment-slots.md)。 通过部署槽位，可以并行运行函数应用的多个副本，且仅其中一个槽位为活动生产槽位  。 当准备好向现有基础结构公开新业务流程逻辑时，它可以像将新版本交换到生产槽一样简单。
 
 > [!NOTE]
 > 在对业务流程协调程序函数使用 HTTP 和 webhook 触发器时，此策略效果最佳。 对于非 HTTP 触发器（如队列或事件中心），触发器定义应[派生自在交换操作过程中更新的应用设置](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)。
@@ -148,4 +157,4 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 > [!div class="nextstepaction"]
 > [了解如何处理性能和缩放问题](durable-functions-perf-and-scale.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

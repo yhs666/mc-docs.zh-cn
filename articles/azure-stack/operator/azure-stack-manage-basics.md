@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 管理基础知识 | Microsoft Docs
-description: 了解对 Azure Stack 进行管理需要知道哪些知识。
+description: 了解 Azure Stack 管理基础知识。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2019
-ms.date: 07/29/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 6551bddcba737af1b89d99482a36e9238c058589
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 5c28eec62ee31ee5e6ac474da800cdd7afc20f6c
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513445"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020208"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
 
@@ -73,10 +73,10 @@ Azure Stack 会持续增加对 Azure 服务的支持。 有关计划的路线图
 
 |帐户|Azure AD|AD FS|
 |-----|-----|-----|
-|本地管理员 (.\Administrator)|ASDK 主机管理员|ASDK 主机管理员|
-|AzureStack\AzureStackAdmin|ASDK 主机管理员<br><br>可用于登录到 Azure Stack 管理门户<br><br>拥有查看和管理 Service Fabric 环的访问权限|ASDK 主机管理员<br><br>没有 Azure Stack 管理门户的访问权限<br><br>拥有查看和管理 Service Fabric 环的访问权限<br><br>不再是默认提供程序订阅 (DPS) 的所有者|
-|AzureStack\CloudAdmin|可在特权终结点中访问和运行允许的命令|可在特权终结点中访问和运行允许的命令<br><br>无法登录到 ASDK 主机<br><br>默认提供程序订阅 (DPS) 的所有者|
-|Azure AD 全局管理员|安装期间使用<br><br>默认提供程序订阅 (DPS) 的所有者|不适用|
+|本地管理员 (.\Administrator)|ASDK 主机管理员。|ASDK 主机管理员。|
+|AzureStack\AzureStackAdmin|ASDK 主机管理员。<br><br>可用于登录到 Azure Stack 管理员门户。<br><br>拥有查看和管理 Service Fabric 环的访问权限。|ASDK 主机管理员。<br><br>无权访问 Azure Stack 管理员门户。<br><br>拥有查看和管理 Service Fabric 环的访问权限。<br><br>不再是默认提供程序订阅 (DPS) 的所有者。|
+|AzureStack\CloudAdmin|可在特权终结点中访问和运行允许的命令。|可在特权终结点中访问和运行允许的命令。<br><br>无法登录到 ASDK 主机。<br><br>默认提供程序订阅 (DPS) 的所有者。|
+|Azure AD 全局管理员|安装期间使用。<br><br>默认提供程序订阅 (DPS) 的所有者。|不适用。|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>使用哪些工具进行管理？
@@ -87,24 +87,24 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 ## <a name="your-typical-responsibilities"></a>典型责任
 
-用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 必须通过创建计划、套餐和配额来确定要提供的具体服务并将这些服务提供给用户。 有关详细信息，请参阅[概述：如何在 Azure Stack 中提供服务](azure-stack-offer-services-overview.md)。 
+用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 必须通过创建计划、套餐和配额来确定要提供的具体服务并将这些服务提供给用户。 有关详细信息，请参阅[概述：如何在 Azure Stack 中提供服务](service-plan-offer-subscription-overview.md)。 
 
-此外还需向[市场](azure-stack-marketplace.md)添加项，例如虚拟机映像。 最简单的方式是[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
+还需向 [Azure Stack 市场](azure-stack-marketplace.md)添加项。 最简单的方式是[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
 
 > [!NOTE]
 > 如需测试计划、套餐和服务，可使用[用户门户](azure-stack-manage-portals.md)而不是管理员门户。
 
-除了提供服务，还必须执行操作员的常规任务，使 Azure Stack 始终能够启动并运行。 这些任务包括以下内容：
+除了提供服务，还必须执行操作员的常规任务，使 Azure Stack 始终能够启动并运行。 这些职责包括以下任务：
 
-- 添加用户帐户（用于 [Azure Active Directory](azure-stack-add-new-user-aad.md) 部署或 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-add-users-adfs.md) 部署）
-- [分配基于角色的访问控制 (RBAC) 角色](azure-stack-manage-permissions.md)（不限管理员）
-- [监视基础结构运行状况](azure-stack-monitor-health.md)
-- 管理[网络](azure-stack-viewing-public-ip-address-consumption.md)和[存储](azure-stack-manage-storage-accounts.md)资源
-- 更换损坏的硬件，例如[更换故障磁盘](azure-stack-replace-disk.md)。
+- 添加用户帐户（针对 [Azure AD](azure-stack-add-new-user-aad.md) 部署或 [AD FS](azure-stack-add-users-adfs.md) 部署）。
+- [分配基于角色的访问控制 (RBAC) 角色](azure-stack-manage-permissions.md)（此任务不仅限于管理员。）
+- [监视基础结构运行状况](azure-stack-monitor-health.md)。
+- 管理[网络](azure-stack-viewing-public-ip-address-consumption.md)和[存储](azure-stack-manage-storage-accounts.md)资源。
+- 更换损坏的硬件。 例如，[更换有故障的磁盘](azure-stack-replace-disk.md)。
 
 ## <a name="what-to-tell-your-users"></a>需要告知用户的内容
 
-需要让用户知道如何使用 Azure Stack 中的服务、如何连接到环境，以及如何订阅套餐。 除了根据需要提供用户自定义文档，还可以引导用户访问 Azure Stack 用户文档站点。
+需要让用户知道如何使用 Azure Stack 中的服务、如何连接到环境，以及如何订阅套餐。 除了根据需要提供用户自定义文档，还可以引导用户访问 [Azure Stack 用户文档](/azure-stack/user/)。
 
 **了解如何使用 Azure Stack 中的服务**
 
@@ -118,11 +118,11 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 **以用户身份连接到 Azure Stack**
 
-在 ASDK 环境中，如果用户未使用远程桌面连接到 ASDK 主机，他们可以配置虚拟专用网络 (VPN) 连接来连接 Azure Stack。 请参阅[连接到 Azure Stack](../asdk/asdk-connect.md)。 
+在 ASDK 环境中，如果用户未使用远程桌面连接到 ASDK 主机，他们可以配置虚拟专用网络 (VPN) 连接来连接 Azure Stack。 请参阅[连接到 Azure Stack](../asdk/asdk-connect.md)。
 
 用户需要知道如何[访问用户门户](../user/azure-stack-use-portal.md)，或者如何通过 PowerShell 进行连接。 在集成系统环境中，用户门户地址随部署而变。 需向用户提供正确的 URL。
 
-如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 （资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。）用户必须[安装](azure-stack-powershell-install.md) PowerShell，[下载](azure-stack-powershell-download.md)更多的模块，然后[配置](../user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
+如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。 用户必须[安装](azure-stack-powershell-install.md) PowerShell，[下载](azure-stack-powershell-download.md)更多的模块，然后[配置](../user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
 
 **订阅套餐**
 
@@ -137,15 +137,15 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 对于集成系统，Azure 和我们的原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
 
-如果存在云服务问题，请通过 Azure 客户支持服务 (CSS) 寻求支持。 如果选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“新建支持请求”。    提出支持请求。
+如果存在云服务问题，请通过 Azure 客户支持服务 (CSS) 寻求支持。 若要提交支持请求，请选择管理员门户右上角的“帮助和支持”图标（问号），接着选择“帮助 + 支持”，再选择“支持”部分下面的“新建支持请求”。   
 
-如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。
+如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，或任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。
 
 对于其他问题，请联系 Azure CSS。
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack 开发工具包 (ASDK)
 
-对于 ASDK，可以在[论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurestack)中提出与支持相关的问题。 如果选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“MSDN 论坛”。     论坛站点将会打开。 我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此我们不会通过 Azure CSS 提供官方支持。
+对于 ASDK，可以在[论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurestack)中提出与支持相关的问题。 若要访问论坛，请选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“MSDN 论坛”。     我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此我们不会通过 Azure CSS 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 
