@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2019
-ms.date: 10/21/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 93861bb77c11d0e8f3b6f3fa09c045381e66edf8
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: f9cfce23fb49006f44c466589602738e7664dd43
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578334"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020275"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -50,7 +50,7 @@ ms.locfileid: "72578334"
 
 ## <a name="when-to-update"></a>何时更新
 
-这三种类型的更新按以下步调发布：
+这三种类型的更新按以下频率发布：
 
 - **Azure Stack 软件更新**。 Microsoft 通常每个月发布一次软件更新包。
 
@@ -66,13 +66,13 @@ ms.locfileid: "72578334"
 
 - **Microsoft 软件更新和修补程序** 
 
-    Microsoft 软件更新和修补程序的更新警报会显示在已连接到 Internet 的 Azure Stack 实例的“更新”边栏选项卡中。
+    Microsoft 软件更新和修补程序的更新警报会显示在已连接到 Internet 的 Azure Stack 实例的“更新”边栏选项卡中。 如果未显示“更新”边栏选项卡，请重启基础结构管理控制器 VM。
 
     如果在实例未连接的情况下希望获得每个修补程序版本的通知，请订阅 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 源。
 
 - **OEM 硬件供应商提供的更新**
 
-    OEM 更新取决于制造商。 需要与 OEM 建立信道，才能知道何时有需要应用的 OEM 更新。 有关 OEM 和 OEM 更新过程的详细信息，请参阅[应用 Azure Stack 原始设备制造商 (OEM) 更新](azure-stack-update-oem.md)。
+    OEM 更新取决于制造商。 你将需要与 OEM 建立信道，以便了解需要应用的来自 OEM 的更新。 有关 OEM 和 OEM 更新过程的详细信息，请参阅[应用 Azure Stack 原始设备制造商 (OEM) 更新](azure-stack-update-oem.md)。
 
 ## <a name="update-processes"></a>更新过程
 
@@ -106,4 +106,4 @@ Azure Stack 包含用于处理 Microsoft 软件更新应用程序的更新资源
 
 - 若要开始更新过程，请遵循[规划 Azure Stack 更新](azure-stack-update-plan.md)中的步骤。
 - 若要了解支持的 Azure Stack 版本，请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。  
-- 若要详细了解当前更新和最近的更新，请参阅 [Azure Stack 发行说明](azure-stack-release-notes-security-updates-1907.md)。
+- 若要详细了解当前更新和最近的更新，请参阅 [Azure Stack 发行说明](release-notes.md)。
