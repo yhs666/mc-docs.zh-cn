@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 origin.date: 05/06/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: f3aad4c13a9aaa90238640792b10038884306b5d
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: e026ab45430dbb5006c8557782947b7a748ca56e
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70856994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020073"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 Powershell 从命令行部署 ASDK
 
@@ -145,7 +145,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |参数|必需/可选|说明|
 |-----|-----|-----|
 |AdminPassword|必须|在 ASDK 部署过程中创建的所有 VM 上，设置本地管理员帐户和所有其他用户帐户。 此密码必须与当前主机上的本地管理员密码匹配。|
-|InfraAzureDirectoryTenantName|必须|设置租户目录。 使用此参数指定一个具体的目录，使 AAD 帐户有权在其中管理多个目录。 AAD 租户的 .partner.onmschina.cn 格式的完整名称，或者 Azure AD 验证的自定义域名。|
+|InfraAzureDirectoryTenantName|必须|设置租户目录。 使用此参数可指定一个特定目录，Azure AD 帐户有权在其中管理多个目录。 Azure AD 租户的 .partner.onmschina.cn 格式的完整名称，或者 Azure AD 验证的自定义域名。|
 |TimeServer|必须|使用此参数指定具体的时间服务器。 必须以有效的时间服务器 IP 地址的形式提供此参数。 不支持服务器名称。|
 |InfraAzureDirectoryTenantAdminCredential|可选|设置 Azure Active Directory 用户名和密码。 这些 Azure 凭据必须是组织 ID。|
 |InfraAzureEnvironment|可选|选择 Azure 环境，以便将此 Azure Stack 部署注册到其中。 选择“Azure - 中国”。|

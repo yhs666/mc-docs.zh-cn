@@ -1,22 +1,19 @@
 ---
 title: Azure Functions 中支持的语言
 description: 了解支持哪些语言 (GA) 以及哪些语言是实验性的或处于预览状态。
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 08/02/2018
-ms.date: 09/29/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: f85f3868620d5b0ae6ef9a63b82f7d1b44a31d6c
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: a31c3c10881cc5908f3e695509d3efa31e694ca0
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673562"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934260"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支持的语言
 
@@ -30,7 +27,7 @@ ms.locfileid: "71673562"
 * **预览** - 尚不支持，但将来应达到 GA 状态。
 * **实验性** - 不支持，将来可能会弃用；不保证最终达到预览或 GA 状态。
 
-## <a name="languages-in-runtime-1x-and-2x"></a>运行时 1.x 和 2.x 中的语言
+## <a name="languages-by-runtime-version"></a>按运行时版本列出的语言 
 
 [这两个版本的 Azure Functions 运行时](functions-versions.md)都可用。 下表显示每个运行时版本支持的语言。
 
@@ -46,22 +43,16 @@ ms.locfileid: "71673562"
 
 ### <a name="language-extensibility"></a>语言扩展性
 
-2\.x 运行时旨在提供[语言扩展性](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)。 2\.x 运行时中的 JavaScript 和 Java 语言是使用此扩展性生成的。
+从版本 2.x 开始，运行时旨在提供[语言扩展性](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)。 2\.x 运行时中的 JavaScript 和 Java 语言是使用此扩展性生成的。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何在 Azure Functions 中使用 GA 或预览版语言之一的详细信息，请参阅以下资源：
+若要详细了解如何使用支持的语言开发函数，请参阅以下资源：
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
++ [C# 类库开发人员参考](functions-dotnet-class-library.md)
++ [C# 脚本开发人员参考](functions-reference-csharp.md)
++ [Java 开发人员参考](functions-reference-java.md)
++ [JavaScript 开发人员参考](functions-reference-node.md)
++ [TypeScript 开发人员参考](functions-reference-node.md#typescript)
 
 <!-- Update_Description: wording update -->

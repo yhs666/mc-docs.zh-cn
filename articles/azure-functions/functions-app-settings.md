@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 09/29/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: d341135b8936dcb3157d0a2dcdd57636c5ab6350
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 0deea1ddec0988f3f643115bb59dc4543608b87b
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673546"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934252"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -152,11 +151,12 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-默认值为“8.11.1”。
+_仅限 Windows_。  
+设置在 Windows 上运行函数应用时要使用的 Node.js 版本。 应使用波形符 (~) 让运行时使用目标主版本的最新可用版本。 例如，当设置为 `~10` 时，将使用最新版本 Node.js 10。 当目标主版本带有波形符时，无需手动更新次版本。 
 
 |键|示例值|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 

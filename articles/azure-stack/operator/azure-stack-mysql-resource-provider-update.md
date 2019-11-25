@@ -1,6 +1,6 @@
 ---
-title: 更新 Azure Stack MySQL 资源提供程序 | Microsoft Docs
-description: 了解如何更新 Azure Stack MySQL 资源提供程序。
+title: 在 Azure Stack 中更新 MySQL 资源提供程序 | Microsoft Docs
+description: 了解如何在 Azure Stack 中更新 Azure Stack MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: WenJason
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/23/2019
-ms.date: 09/16/2019
+origin.date: 10/02/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a5f881d6a9a9aca9fcb2c79462d4d271d719566b
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: d92e7286e2572933cc7c382f022789f1ad45edac
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857238"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020001"
 ---
-# <a name="update-the-mysql-resource-provider"></a>更新 MySQL 资源提供程序 
+# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>在 Azure Stack 中更新 MySQL 资源提供程序
 
 *适用于：Azure Stack 集成系统。*
 
-更新 Azure Stack 内部版本时，可能会发布新的 MySQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 
+更新 Azure Stack 内部版本时，可能会发布新的 MySQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。
 
 从 MySQL 资源提供程序发行版 1.1.33.0 开始，更新是累积性的，不需按发布顺序进行安装，前提是你从 1.1.24.0 或更高版本开始。 例如，如果运行 1.1.24.0 版 MySQL 资源提供程序，则可升级到 1.1.33.0 或更高版本，不需先安装版本 1.1.30.0。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
@@ -38,7 +38,7 @@ ms.locfileid: "70857238"
 
 ## <a name="update-script-processes"></a>更新脚本过程
 
-**UpdateMySQLProvider.ps1** 脚本可使用最新的资源提供程序代码创建新的 VM，并可将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。 
+**UpdateMySQLProvider.ps1** 脚本使用最新的资源提供程序代码创建新的虚拟机 (VM)，并将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。
 
 >[!NOTE]
 >建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
@@ -47,7 +47,7 @@ ms.locfileid: "70857238"
 
 
 ## <a name="update-script-parameters"></a>更新脚本参数 
-运行 **UpdateMySQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。 
+运行 **UpdateMySQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
 
 | 参数名称 | 说明 | 注释或默认值 | 
 | --- | --- | --- | 
@@ -65,10 +65,10 @@ ms.locfileid: "70857238"
 | **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>更新脚本示例
-下面是可以通过权限提升的 PowerShell 控制台运行的 *UpdateMySQLProvider.ps1* 脚本的用法示例。 请务必根据需要更改变量信息和密码：  
+以下示例演示可以通过权限提升的 PowerShell 控制台运行的 *UpdateMySQLProvider.ps1* 脚本。 请务必根据需要更改变量信息和密码：
 
 > [!NOTE] 
-> 此更新过程仅适用于集成系统。 
+> 此更新过程仅适用于集成系统。
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -77,10 +77,10 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines 
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
 # Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment name is  AzureChinaCloud. 
@@ -89,24 +89,24 @@ $AzureEnvironment = "<EnvironmentName>"
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
 
-# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.partner.onmschina.cn" 
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
  
-# Set credentials for the new resource provider VM. 
+# Set credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass) 
  
-# And the cloudadmin credential required for privileged endpoint access. 
+# And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
-# Change the following as appropriate. 
+# Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
  
-# Change directory to the folder where you extracted the installation files. 
-# Then adjust the endpoints. 
+# Change directory to the folder where you extracted the installation files.
+# Then adjust the endpoints.
 .$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
@@ -119,5 +119,3 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="next-steps"></a>后续步骤
 [维护 MySQL 资源提供程序](azure-stack-mysql-resource-provider-maintain.md)
-
-<!-- Update_Description: wording update -->

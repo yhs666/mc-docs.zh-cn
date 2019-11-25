@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 45f2c561cd70de7362b7e07affba6b925c5b55f7
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 2207e6bef4b2e08ad7986c74f56e67b9f061ccfd
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578278"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020147"
 ---
 # <a name="start-and-stop-the-asdk"></a>启动和停止 ASDK
 建议不要仅仅重启 ASDK 主计算机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。
@@ -67,7 +67,7 @@ ms.locfileid: "72578278"
 若要详细了解正常关闭和重启 Azure Stack 服务的建议过程，请参阅[启动和停止 Azure Stack](../operator/azure-stack-start-and-stop.md)。
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>排查启动和关机问题 
-如果在打开 ASDK 主机后的两个小时内 Azure Stack 服务未成功启动，请执行以下步骤：
+如果在启动 ASDK 主计算机后两小时内，Azure Stack 服务没有成功启动，请执行以下步骤：
 
 1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
 2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
@@ -91,4 +91,4 @@ ms.locfileid: "72578278"
 如果运行 **Start-AzureStack** 导致失败，请访问 [Azure Stack 支持论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack)获取 ASDK 故障排除支持。 
 
 ## <a name="next-steps"></a>后续步骤 
-若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。
+若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)。

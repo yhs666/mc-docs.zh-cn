@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/16/2019
-ms.date: 10/21/2019
+origin.date: 10/02/2019
+ms.date: 11/18/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 8d67c02070aa46abf71597e3f008c4c8dee545a4
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 3593c2ebf1e60886961af31a60d3516bbcfc02c8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578298"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020084"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>使用 Azure CLI 管理资源以及将资源部署到 Azure Stack
 
@@ -176,7 +176,7 @@ ms.locfileid: "72578298"
     | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
+    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
@@ -296,7 +296,7 @@ az group create -n MyResourceGroup -l local
     | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
+    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
@@ -412,7 +412,7 @@ az group create -n MyResourceGroup -l local
     | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
+    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
@@ -523,7 +523,7 @@ az group create -n MyResourceGroup -l local
     | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
+    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |

@@ -7,18 +7,18 @@ author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 origin.date: 07/01/2018
-ms.date: 07/17/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a8b78dc38f536406253d570c7f17007257c25336
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 3d665482f3196fbeb71119b9c3b3a71273aa8902
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331888"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934251"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>使用 Java 和 Eclipse 创建第一个函数 
 
@@ -51,7 +51,7 @@ ms.locfileid: "68331888"
     - 原型项目 ID：azure-functions-archetype
     - 版本：使用[中央存储库](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     中的最新版本 **1.22** ![Eclipse Maven 创建](./media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. 单击“确定”  ，然后单击“下一步”  以输入类似以下快照的值（请使用除 **Fabrikam-Function-20170920120101928** 之外的其他 appName），最后单击“完成”  。
+1. 单击“确定”，然后单击“下一步”。    请确保填写包括 `resourceGroup`、`appName` 和 `appRegion` 在内的所有字段的值（请使用 **fabrikam-function-20170920120101928** 之外的其他 appName），并最终单击“完成”  。
     ![Eclipse Maven 创建 2](./media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven 在新文件夹中创建名为 artifactId  的项目文件。 项目中生成的代码是一个简单的回显触发 HTTP 请求正文的 [HTTP 触发](/azure-functions/functions-bindings-http-webhook)函数。

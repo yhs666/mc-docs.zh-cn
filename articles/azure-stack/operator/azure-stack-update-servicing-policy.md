@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9253ec2c1d07c92499c78f65d36d3dbb6ecacd94
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: a9df8678e79fac23b18aa1989ce8735818681c1b
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578564"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020020"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -43,7 +43,7 @@ Microsoft 软件更新包是非累积性的，其先决条件是需要前一个�
 
 ## <a name="get-support"></a>获取支持
 
-Azure Stack 遵循与 Azure 相同的支持过程。 企业客户可以[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/)。 如果你是云服务提供商 (CSP) 的客户，请联系 CSP 获得支持。 有关详细信息，请参阅 [Azure 支持常见问题解答](https://azure.cn/support/faq/)。
+Azure Stack 遵循与 Azure 相同的支持过程。 企业客户可以[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/)。 如果你是云解决方案提供商 (CSP) 的客户，请联系 CSP 获得支持。 有关详细信息，请参阅 [Azure 支持常见问题解答](https://azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 以操作员身份使用 PowerShell 连接到 Azure Stack | Microsoft Docs
-description: 了解如何以操作员身份使用 PowerShell 连接到 Azure Stack
+title: 使用 PowerShell 连接到 Azure Stack | Microsoft Docs
+description: 了解如何使用 PowerShell 连接到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 09/17/2019
-ms.date: 10/21/2019
+origin.date: 09/18/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 38132985abc6781efcb21154feafb87c32721ce1
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: cef4d077162333746871a50cefac0663826654d8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578451"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020056"
 ---
-# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
+# <a name="connect-to-azure-stack-with-powershell"></a>使用 PowerShell 连接到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -31,17 +31,16 @@ ms.locfileid: "72578451"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果已[通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请通过[开发工具包](../asdk/asdk-connect.md#connect-with-rdp)或基于 Windows 的外部客户端运行以下先决条件操作。 
+如果[已通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请通过 [Azure Stack 开发工具包 (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) 或基于 Windows 的外部客户端运行以下先决条件操作。
 
- - 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
- - 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
+- 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
+- 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
 
 ## <a name="connect-with-azure-ad"></a>与 Azure AD 连接
 
-使用 PowerShell 配置 Azure Stack 操作员环境。 运行以下脚本之一：将 Azure Active Directory (Azure AD) tenantName 和 Azure 资源管理器终结点值替换为你自己的环境配置。 
+若要使用 PowerShell 配置 Azure Stack 操作员环境，请运行以下脚本之一。 将 Azure Active Directory (Azure AD) tenantName 和 Azure 资源管理器终结点值替换为你自己的环境配置。
 
->[!Note]
->如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+[!include[Remove Account](../includes/remove-account.md)]
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -49,7 +48,7 @@ ms.locfileid: "72578451"
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
-    # Set your tenant name
+    # Set your tenant name.
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
@@ -61,8 +60,7 @@ ms.locfileid: "72578451"
 
 ## <a name="connect-with-ad-fs"></a>与 AD FS 连接
 
-使用 PowerShell 通过 Active Directory 联合身份验证服务 (Azure AD FS) 连接到 Azure Stack 操作员环境。 对于 Azure Stack 开发工具包，此 Azure 资源管理器终结点设置为 `https://adminmanagement.local.azurestack.external`。 若要获取 Azure Stack 集成系统的 Azure 资源管理器终结点，请与服务提供商联系。
-
+使用 PowerShell 通过 Active Directory 联合身份验证服务 (Azure AD FS) 连接到 Azure Stack 操作员环境。 对于 ASDK，此 Azure 资源管理器终结点设置为 `https://adminmanagement.local.azurestack.external`。 若要获取 Azure Stack 集成系统的 Azure 资源管理器终结点，请与服务提供商联系。
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -70,7 +68,7 @@ ms.locfileid: "72578451"
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
-  # Sign in to your environment
+  # Sign in to your environment.
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
@@ -79,7 +77,7 @@ ms.locfileid: "72578451"
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，请使用 PowerShell 在 Azure Stack 中创建资源。 例如，可以为应用程序创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”  的资源组。
+完成所有设置后，请使用 PowerShell 在 Azure Stack 中创建资源。 例如，可以为应用创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”  的资源组。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
@@ -87,6 +85,6 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [为 Azure Stack 开发模板](../user/azure-stack-develop-templates.md)
-- [通过 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)
-  - [Azure Stack 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  
+- [为 Azure Stack 开发模板](../user/azure-stack-develop-templates.md)。
+- [使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)。
+- [Azure Stack 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。

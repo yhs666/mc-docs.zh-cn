@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 05efbb70af54f66853a0747ad1dd0b6e4217e80b
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 24c1b31eaa6ef6981220c17852ec50776635069a
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857324"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020126"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -39,14 +39,14 @@ ms.locfileid: "70857324"
 
 需要可以直接访问 Azure Stack 或 VPN 连接，存储资源管理器才能访问 Azure Stack 订阅。 若要了解如何设置到 Azure Stack 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)。
 
-对于 Azure Stack 开发工具包 (ASDK)，需要导出 Azure Stack 颁发机构根证书。
-
 > [!Note]  
 > 对于 ASDK，如果要通过 VPN 连接到 ASDK，请不要使用在 VPN 设置过程中创建的根证书 (CA.cer)。  这是 DER 编码的证书，不允许存储资源管理器检索 Azure Stack 订阅。 请按照以下步骤导出 Base-64 编码证书，以用于存储资源管理器。
 
+对于断开连接的集成系统和 ASDK，建议使用内部企业证书颁发机构以 Base-64 格式导出根证书，然后将其导入 Azure 存储资源管理器。  
+
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>导出然后导入 Azure Stack 证书
 
-导出然后导入 ASDK 的 Azure Stack 证书。 对于集成系统，证书是公开签名的，因此此步骤不是必需的。
+为断开连接的集成系统和 ASDK 导出然后导入 Azure Stack 证书。 对于已连接的集成系统，证书是公开签名的，不需要执行此步骤。
 
 1. 在 Azure Stack 主机或已与 Azure Stack 建立 VPN 连接的本地计算机上打开 `mmc.exe`。 
 

@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/08/2019
-ms.date: 09/02/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 2980fb77023f70e83ed8be722cba6650cf4d9c07
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 23e1ac3c4aea7522135dbf4a1d51c311bb12db3c
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310768"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934371"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中设置登录特定 Azure Active Directory 组织
 
@@ -59,6 +60,8 @@ ms.locfileid: "70310768"
     ```
 
     例如，`https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/.well-known/openid-configuration`。
+
+    **请勿**使用 Azure AD v2.0 元数据终结点，例如 `https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/v2.0/.well-known/openid-configuration`。 这样做会导致在尝试登录时出现类似于 `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.partner.onmschina.cn'` 的错误。
 
 1. 对于“客户端 ID”，请输入之前记录的应用程序 ID  。
 1. 对于“客户端机密”，请输入之前记录的客户端机密  。

@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/16/2019
-ms.date: 09/16/2019
+origin.date: 10/09/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: 275da99e0661a20ef5750ce657499852ce16f27a
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 9e4c01ee06fee13832794b6e3cdecb65d38881de
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142127"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020075"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM 功能
 
@@ -42,7 +42,7 @@ Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 VM 
 | 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于磁盘所附加到的 VM 的大小。 有关详细信息，请参阅 [Azure Stack 中支持的 VM 大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 始终提供所有 VM 功能的最新 API 版本。 | Azure Stack 支持特定的 Azure 服务以及这些服务的特定 API 版本。 若要查看支持的 API 版本列表，请参阅本文的 [API 版本](#api-versions)部分。 |
 | Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和设置 VM 的正在运行的 VM 实例的信息。  | Azure Stack 不支持 Azure 实例元数据服务。 |
-| 虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）。<br>多个更新域。|多个容错域（每个区域 2 个或 3 个）。<br>单个更新域，具有实时迁移功能，可在更新期间保护工作负荷。 支持 20 个更新域以实现模板兼容性|
+| 虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）。<br>多个更新域。|多个容错域（每个区域 2 个或 3 个）。<br>单个更新域，具有实时迁移功能，可在更新期间保护工作负荷。 支持 20 个更新域以实现模板兼容性。<br>VM 和可用性集应位于相同的位置和资源组中。|
 | 虚拟机规模集|支持自动缩放。|不支持自动缩放。<br><br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
 | 云见证 | 从 Azure Stack 中提供的存储帐户属性中选择终结点。 | [云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)是一种故障转移群集仲裁见证，它使用 Azure 提供对群集仲裁的投票。<br>Azure 中的终结点与 Azure Stack 相比可能如下所示：<br>对于 Azure：<br>`https://mywitness.blob.core.chinacloudapi.cn/`<br>对于 Azure Stack：<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 |
@@ -96,7 +96,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 Azure Stack 中的 VM 功能支持以下 API 版本：
 
-![VM 资源类型](media/azure-stack-vm-considerations/vm-resoource-types.png)
+"2017-12-01", "2017-03-30", "2016-03-30", "2015-06-15"
 
 可以使用以下 PowerShell 脚本来获取 Azure Stack 环境中可用的 VM 功能的 API 版本：
 
@@ -122,4 +122,3 @@ Azure 使用 KMS 激活来激活 Windows VM。 如果将 VM 从 Azure Stack 移�
 ## <a name="next-steps"></a>后续步骤
 
 [在 Azure Stack 中使用 PowerShell 创建 Windows VM](azure-stack-quick-create-vm-windows-powershell.md)
-

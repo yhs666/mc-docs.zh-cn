@@ -1,6 +1,6 @@
 ---
 title: Azure Stack MySQL 资源提供程序 1.1.30.0 发行说明 | Microsoft Docs
-description: 了解 Azure Stack MySQL 资源提供程序最新更新版的信息，包括任何已知问题和下载位置。
+description: 查看发行说明以了解 Azure Stack MySQL 资源提供程序 1.1.30.0 更新中的新增功能。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/06/2018
-ms.date: 06/03/2019
+origin.date: 10/02/2018
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 6fe87c1a6e162d848839525b52acc095ccc6ee70
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 0b4ce0072f98a6896401dbab8fe66fa8a4c3f5f3
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381796"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74019997"
 ---
-# <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 资源提供程序 1.1.30.0 发行说明
+# <a name="mysql-resource-provider-11300-release-notes"></a>MySQL 资源提供程序 1.1.30.0 发行说明
 
-适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
+*适用于：* Azure Stack 集成系统和 Azure Stack 开发工具包
 
 本发行说明介绍 MySQL 资源提供程序 1.1.30.0 版中的改进和已知问题。
 
@@ -54,13 +54,13 @@ ms.locfileid: "66381796"
 
 - **MySQL 登录 - 更改密码边栏选项卡**。 修复了无法在“更改密码”边栏选项卡上更改密码的问题。 删除了密码更改通知中的链接。
 
-## <a name="known-issues"></a>已知问题 
+## <a name="known-issues"></a>已知问题
 
-- **MySQL SKU 最长可能需要在一小时后才显示在门户中**。 创建新的 MySQL 数据库时，新建的 SKU 最长可能需要在一小时后才显示出来并可供使用。 
+- **MySQL SKU 最长可能需要在一小时后才显示在门户中**。 创建新的 MySQL 数据库时，新建的 SKU 最长可能需要在一小时后才显示出来并可供使用。
 
     **解决方法**：无。
 
-- **重复使用 MySQL 登录名**。 尝试使用与现有登录名相同的用户名在同一订阅下创建新的 MySQL 登录名时，会导致重复使用同一登录名和现有密码的问题。 
+- **重复使用 MySQL 登录名**。 尝试使用与现有登录名相同的用户名在同一订阅下创建新的 MySQL 登录名时，会导致重复使用同一登录名和现有密码的问题。
 
     **解决方法**：在同一订阅下创建新登录名时使用不同的用户名，或者在不同订阅下使用相同的用户名创建登录名。
 

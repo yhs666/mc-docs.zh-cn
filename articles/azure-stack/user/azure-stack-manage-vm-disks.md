@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 09/16/2019
+origin.date: 10/24/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ae5d935f9b22900a48c1278a04454d75d28aaf9e
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: c0e2f8dc1fd03ab3634ef7837c7218a037c3eb16
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857310"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020182"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>在 Azure Stack 中创建 VM 磁盘存储
 
@@ -51,7 +51,7 @@ ms.locfileid: "70857310"
 
 | 方法 | 选项
 |-|-|
-|用户门户|- 向现有 VM 添加新的数据磁盘。 新磁盘由 Azure Stack 创建。 </br> </br>- 将现有的磁盘 (.vhd) 文件添加到以前创建的 VM。 若要执行此操作，必须准备 .vhd，然后将该文件上传到 Azure Stack。 |
+|用户门户|- 向现有 VM 添加新的数据磁盘。 新磁盘由 Azure Stack 创建。 </br> </br> - 将现有的磁盘 (.vhd) 文件添加到以前创建的 VM。 若要执行此操作，必须准备 .vhd，然后将该文件上传到 Azure Stack。 |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - 使用 OS 磁盘创建新的 VM，同时向该 VM 添加一个或多个数据磁盘。 |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>使用门户向 VM 添加磁盘
@@ -132,7 +132,10 @@ ms.locfileid: "70857310"
 
 1. [准备一个 .vhd 文件](/virtual-machines/windows/classic/createupload-vhd)，用作 VM 的数据磁盘。 将该 .vhd 文件上传到与要附加 .vhd 文件的 VM 一起使用的存储帐户。
 
-    计划使用一个容器来保存 .vhd 文件，该容器不同于保存 OS 磁盘的容器。
+    - 计划使用一个容器来保存 .vhd 文件，该容器不同于保存 OS 磁盘的容器。  
+    - 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的步骤操作。
+    - 开始迁移到[托管磁盘](/virtual-machines/windows/managed-disks-overview)之前，请先查看[规划迁移到托管磁盘](/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks)。
+    
     ![示例：上传 VHD 文件](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2. 上传 .vhd 文件以后，即可将该 VHD 附加到 VM。 在左侧菜单中选择“虚拟机”。   
@@ -164,7 +167,7 @@ ms.locfileid: "70857310"
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>使用 PowerShell 将多个非托管磁盘添加到 VM
 
-可以使用 PowerShell 来预配某个 VM，然后添加新的数据磁盘，或者附加预先存在的 **.vhd** 文件作为数据磁盘。
+可以使用 PowerShell 来预配某个 VM，然后添加新的数据磁盘，或者附加预先存在的 .vhd 文件作为数据磁盘。
 
 **Add-AzureRmVMDataDisk** cmdlet 可以向 VM 添加数据磁盘。 可以在创建 VM 时添加数据磁盘，也可以向现有的 VM 添加数据磁盘。 指定 **VhdUri** 参数，使磁盘分布到不同的容器。
 
@@ -216,10 +219,10 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
 使用以下 PowerShell 命令将 OS 磁盘和网络配置添加到 VM，然后启动新 VM：
 
 ```powershell
-#set variables
+# Set variables
 $rgName = "myResourceGroup"
 $location = "local"
-#Set OS Disk
+# Set OS Disk
 $osDiskUri = "https://contoso.blob.local.azurestack.external/vhds/osDisk.vhd"
 $osDiskName = "osDisk"
 

@@ -13,21 +13,21 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-origin.date: 06/11/2019
-ms.date: 10/21/2019
+origin.date: 10/05/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 4d01cc053c90bac3cef495b08b381ed7af90a476
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: d4c2016c04ea0e6bee1d94eb26c0e67e02c56fc8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578331"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020071"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加计划
 
-希望提供附加服务或将“计算机”、“存储”或“网络”配额的范围扩展到基本计划初始套餐之外时，Azure Stack 操作员可以创建附加计划来修改[基本计划](azure-stack-create-plan.md)。    附加计划对基本计划进行修改，是用户可以选择订阅的可选扩展。
+希望提供附加服务或将“计算机”、“存储”或“网络”配额的范围扩展到基本计划初始套餐之外时，Azure Stack 操作员可以创建附加计划来修改[基本计划](azure-stack-create-plan.md)。    附加计划对基本计划进行修改，是用户可以选择在其订阅中启用的可选扩展。
 
 有些情况下，将所有内容组合到单个计划中是最好的。 另一些情况下，你可能希望使用基本计划，然后通过使用附加计划来提供附加服务。 例如，可以通过基本计划提供 IaaS 服务，通过附加计划提供所有 PaaS 服务。
 
@@ -36,9 +36,7 @@ ms.locfileid: "72578331"
 > [!NOTE]
 > 如果不希望使用附加计划来扩展配额，则还可以选择[编辑配额的原始配置](azure-stack-quota-types.md#edit-a-quota)。
 
-将附加计划添加到现有的套餐订阅时，可能需要长达一小时的时间才会显示附加资源。
-
-修改现有的套餐即可创建附加计划。
+附加计划的创建方法与基本计划的[创建方法相同](azure-stack-create-plan.md)。 两者之间的差异是在将计划添加到套餐时确定的。 计划被指定为基本计划或附加计划。 将附加计划添加到现有套餐时，可能需要长达一小时的时间才会在订阅中显示附加资源。
 
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>创建附加计划（1902 及更高版本）

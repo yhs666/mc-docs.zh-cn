@@ -1,28 +1,29 @@
 ---
-title: 在 Azure Stack 上使用 MySQL Adapter RP 提供的数据库 | Microsoft Docs
-description: 如何创建和管理使用 MySQL 适配器资源提供程序预配的 MySQL 数据库
+title: 在 Azure Stack 中创建 MySQL 数据库 | Microsoft Docs
+description: 了解如何在 Azure Stack 中创建和管理使用 MySQL 适配器资源提供程序预配的 MySQL 数据库。
 services: azure-stack
 documentationCenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: mabrigg
-ms.reviewer: quying
+origin.date: 10/02/2019
+ms.date: 11/18/2019
+ms.author: v-jay
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 756106143ef08a3173e8df13c044b4813888f969
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 26056ab023ec474439b995a17eae9a6eab9d5686
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529680"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020004"
 ---
-# <a name="create-mysql-databases"></a>创建 MySQL 数据库
+# <a name="create-mysql-databases-in-azure-stack"></a>在 Azure Stack 中创建 MySQL 数据库
 订阅了包含 MySQL 数据库服务的套餐的 Azure Stack 用户可以在用户门户中创建和管理自助式 MySQL 数据库。
 
 ## <a name="create-a-mysql-database"></a>创建 MySQL 数据库
@@ -64,6 +65,3 @@ ms.locfileid: "64529680"
 
 ![更新管理密码](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="next-steps"></a>后续步骤
-
-[更新 MySQL 资源提供程序](azure-stack-mysql-resource-provider-update.md)

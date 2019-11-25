@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 10/24/2019
+origin.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: ba90c59b81aeda8627ba787c8c21f27f93029b55
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 4e2bd3c7e7b889dba54903d8e547ceed9680c3d2
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847156"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934385"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 和 PredicateValidations
 
@@ -31,6 +31,8 @@ Predicates  和 PredicateValidations  元素可用于执行验证过程，以确
 ## <a name="predicates"></a>谓词
 
 Predicate  元素定义基本验证，用以检查声明类型的值并返回 `true` 或 `false`。 可通过使用指定的 Method  元素和一组与该方法相关的 Parameter  元素来完成验证。 例如，谓词可以检查字符串声明值的长度是否在指定的最小和最大参数范围内，或者字符串声明值是否包含字符集。 如果检查失败，UserHelpText  元素将为用户提供一条错误消息。 UserHelpText  元素的值可以使用[语言自定义](localization.md)进行本地化。
+
+**Predicates** 元素必须紧跟在 [BuildingBlocks](buildingblocks.md) 元素中的 **ClaimsSchema** 元素之后。
 
 Predicates  元素包含以下元素：
 
@@ -112,6 +114,8 @@ Parameter  元素包含以下属性：
 ## <a name="predicatevalidations"></a>PredicateValidations
 
 尽管谓词定义了根据声明类型进行检查的验证，但是 PredicateValidations  会对一组谓词进行分组，以构成可应用于声明类型的用户输入验证。 每个 PredicateValidation  元素均包含一组 PredicateGroup  元素，其中包含一组指向 Predicate  的 PredicateReference  元素。 为了通过验证，声明的值应通过所有 PredicateGroup  下的任何谓词的全部测试，及其包含的一组 PredicateReference  元素。
+
+**PredicateValidations** 元素必须紧跟在 [BuildingBlocks](buildingblocks.md) 元素中的 **Predicates** 元素之后。
 
 ```XML
 <PredicateValidations>
@@ -195,7 +199,7 @@ PredicateReference  元素包含以下属性：
 - Lowercase  使用 `IncludesCharacters` 方法，验证密码包含一个小写字母。
 - Uppercase  使用 `IncludesCharacters` 方法，验证密码包含一个大写字母。
 - Number  使用 `IncludesCharacters` 方法，验证密码包含一个数字。
-- Symbol  使用 `IncludesCharacters` 方法，验证密码包含以下符号之一 `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- Symbol  使用 `IncludesCharacters` 方法验证密码是否包含几个符号字符之一。
 - PIN  使用 `MatchesRegex` 方法，验证密码仅包含数字。
 - AllowedAADCharacters  使用 `MatchesRegex` 方法，验证提供了仅限密码的无效字符。
 - DisallowedWhitespace  使用 `MatchesRegex` 方法，验证密码不以空格字符开头或结尾。
@@ -234,7 +238,7 @@ PredicateReference  元素包含以下属性：
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 

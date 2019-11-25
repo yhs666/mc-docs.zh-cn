@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2019
-ms.date: 09/16/2019
+origin.date: 10/04/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: ce7b67a272d94e2b99ebe15d10dde9ee831e7440
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: bca79d73a31554c7adfbb1f81b6d0d7fffed06e0
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857147"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020095"
 ---
 # <a name="usage-connectivity-errors"></a>使用情况连接错误
 
@@ -39,7 +39,7 @@ Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](
 
 - 验证网络配置是否允许 Azure Bridge 连接到远程服务。
 
-- 转到[“区域管理” > “属性”](azure-stack-registration.md#verify-azure-stack-registration)边栏选项卡，找到用于注册的 Azure 订阅 ID、资源组和注册资源名称。   检查注册资源是否位于 Azure 门户中的正确 Azure 订阅 ID 下。 为此，请转到 Azure 订阅 ID 下创建的**所有资源**，并选中“显示隐藏的类型”框。  如果找不到注册资源，请遵循[续订或更改注册](azure-stack-registration.md#renew-or-change-registration)中的步骤重新注册 Azure Stack。
+- 转到[“区域管理” > “属性”](azure-stack-registration.md#verify-azure-stack-registration)边栏选项卡，找到用于注册的 Azure 订阅 ID、资源组和注册资源名称。   检查注册资源是否位于 Azure 门户中的正确 Azure 订阅 ID 下。 为此，请转到 Azure 订阅 ID 下创建的**所有资源**，并选中“显示隐藏的类型”框。  如果找不到注册资源，请按照[续订或更改注册](azure-stack-registration.md#renew-or-change-registration)中的步骤重新注册 Azure Stack。
 
   ![门户](media/azure-stack-usage-issues/stackres.png)
 
@@ -56,10 +56,10 @@ Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](
 | 未授权               | Azure Bridge 无法将数据推送到 Azure 中的使用情况服务，因为 Azure 服务无法对 Azure Stack 网桥进行身份验证。 | 检查注册资源是否已修改，如果是，请重新注册 Azure Stack。 <br><br> 有时，Azure Stack 与 Azure AD 之间的时间同步问题会导致此错误。 在此情况下，请确保 Azure Stack 中 XRP VM 的时间与 Azure AD 同步。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-此外，可能需要遵循[这些步骤](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)来提供 Azure Bridge、WAS 和 WASPublic 组件的日志文件。
+此外，可能需要遵循[这些步骤](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)来提供 Azure Bridge、WAS 和 WASPublic 组件的日志文件。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解如何[向 Azure 报告 Azure Stack 使用情况数据](azure-stack-usage-reporting.md)。
 - 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
-- 详细了解[适用于云服务提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。
+- 详细了解[适用于云解决方案提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。
