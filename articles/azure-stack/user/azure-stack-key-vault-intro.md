@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 09/16/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b4362be60db3c23a217183715316f482174cb722
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 8fb0ad4f124b89b2239f794fec4bd49990e2f1ac
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857067"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020318"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 简介
 
 ## <a name="prerequisites"></a>先决条件
 
 * 订阅包含 Azure Key Vault 服务的产品/服务。  
-* [PowerShell 配置为搭配 Azure Stack 使用](azure-stack-powershell-configure-user.md)。
+* PowerShell 已安装并[配置为用于 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 ## <a name="key-vault-basics"></a>Key Vault 基础知识
 
@@ -42,7 +42,7 @@ Azure Stack 中的 Key Vault 可帮助保护云应用和服务使用的加密密
 
 密钥保管库简化了密钥管理过程，可让你控制用于访问和加密数据的密钥。 开发人员可以在几分钟内创建用于开发和测试的密钥，并无缝地将其迁移到生产密钥。 安全管理员可以根据需要授予（和撤销）密钥权限。
 
-只要拥有 Azure Stack 订阅，任何人都可以创建和使用密钥保管库。 虽然 Key Vault 使开发人员和安全管理员受益，但为组织管理其他 Azure Stack 服务的操作员可以实现和管理它。 例如，Azure Stack 操作员可以使用 Azure Stack 订阅登录，并为组织创建用于存储密钥的保管库。 完成此操作后，他们可以：
+只要拥有 Azure Stack 订阅，任何人都可以创建和使用密钥保管库。 尽管 Key Vault 能够为开发人员和安全管理员提供便利，但管理组织的其他 Azure Stack 服务的操作员也可以实现和管理 Key Vault。 例如，Azure Stack 操作员可以使用 Azure Stack 订阅登录，并为组织创建用于存储密钥的保管库。 完成此操作后，他们可以：
 
 * 创建或导入密钥或机密。
 * 撤销或删除密钥或机密。

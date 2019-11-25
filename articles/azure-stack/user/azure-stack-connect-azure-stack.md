@@ -16,12 +16,12 @@ ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 57aa092be3878d823432bb76bcbf9041df46d9a1
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 524b090d3dc06c05571012895189cc7e28b23ef3
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578314"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020278"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
@@ -42,7 +42,7 @@ ms.locfileid: "72578314"
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>使用 VPN 连接到 Azure Stack
 
-可以与 Azure Stack 开发工具包建立拆分隧道 VPN 连接。 通过 VPN 连接，可以访问管理员门户、用户门户，并使用本地安装的工具（例如 Visual Studio 和 PowerShell）来管理 Azure Stack 资源。 基于 Azure Active Directory (AAD) 和 Active Directory 联合身份验证服务 (AD FS) 的部署均支持 VPN 连接。 VPN 连接允许多个客户端同时连接到 Azure Stack。 
+可以与 Azure Stack 开发工具包建立拆分隧道 VPN 连接。 通过 VPN 连接，可以访问管理员门户、用户门户，并使用本地安装的工具（例如 Visual Studio 和 PowerShell）来管理 Azure Stack 资源。 基于 Azure Active Directory (Azure AD) 和 Active Directory 联合身份验证服务 (AD FS) 的部署均支持 VPN 连接。 VPN 连接允许多个客户端同时连接到 Azure Stack。 
 
 > [!NOTE] 
 > 此 VPN 连接不提供与 Azure Stack 基础结构 VM 的连接。 

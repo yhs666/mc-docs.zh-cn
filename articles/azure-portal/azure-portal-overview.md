@@ -1,21 +1,21 @@
 ---
-title: Azure 门户概述 | Azure Docs
+title: Azure 门户概述 | Azure
 description: 了解如何在 Azure 门户中导航以及使用它来管理服务
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: v-biyu
-origin.date: 03/22/2019
-ms.date: 06/24/2019
+ms.author: v-tawe
+origin.date: 05/24/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: f78e7e80f163fdf1c88520f776c8f1ed5cb6bb29
-ms.sourcegitcommit: b3434f6e7ee50a7f84e6b0868f418480aadb1368
+ms.openlocfilehash: e1bb0783bbb4a204c805e04c2ed426dbaf9b12d2
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66829499"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020721"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 
@@ -75,4 +75,4 @@ Azure 门户侧栏和页头是始终都会显示的全局元素。 这些持久�
 
 * 在[支持的浏览器和设备](../azure-portal/azure-portal-supported-browsers-devices.md)中详细了解可在哪些位置运行 Azure 门户
 
-* 使用 [Azure 移动应用](https://www.azure.cn/zh-cn/home/features/app-service/mobile-apps/)随时随地保持连接
+* 使用 [Azure 移动应用](https://www.azure.cn/home/features/app-service/mobile-apps/)随时随地保持连接

@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2019
-ms.date: 10/21/2019
+origin.date: 10/14/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: c7f640730f4f6243482996b22d25798ba28ebd5a
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 4f2057ed57c5d61c7ab55b72abfa8db843976ba8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578447"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020284"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -47,7 +47,7 @@ ms.locfileid: "72578447"
 
 将 Azure Stack 注册到 Azure 之前，必须准备好：
 
-- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”  。 然后，在“常规”  类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。  
+- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”  。 然后，在“常规”  类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。   最佳做法是，对生产环境和开发环境或测试环境使用单独的订阅。 
 
 - 订阅所有者的帐户用户名和密码。
 

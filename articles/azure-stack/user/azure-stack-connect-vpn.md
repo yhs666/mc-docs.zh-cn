@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/21/2019
-ms.date: 07/29/2019
+origin.date: 10/04/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 6bdff07b55d4f623231e6056f6982cee45c9a5c6
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: fb02b216bbbccebbaf130d9185af9ef0ccf30243
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513361"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020280"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 
-适用于：  Azure Stack 集成系统
+适用于：*Azure Stack 集成系统*
 
 本文介绍如何创建站点到站点 VPN，将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 

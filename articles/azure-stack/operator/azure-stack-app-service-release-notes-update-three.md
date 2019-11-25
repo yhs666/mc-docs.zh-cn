@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.reviewer: sethm
+ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 643e5f1ca25f4c7ec3f0762664b6323cc37badf2
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 6962b3574dcf13417b7c60d2644746c8c55d77c8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578488"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020314"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Azure Stack 上的应用服务 Update 3 发行说明
 
@@ -51,7 +51,7 @@ Azure Stack 上的应用服务 Update 3 的内部版本号为 **74.0.13698.31**�
 
 - 支持对 Azure 应用服务资源提供程序数据库使用 SQL Server Always On。
 
-- 为 Create-AADIdentityApp 帮助程序脚本添加了新的 Environment 参数来帮助确定作为目标的不同 AAD 区域。
+- 为 Create-AADIdentityApp 帮助程序脚本添加了新的环境参数来帮助确定作为目标的不同 Azure AD 区域。
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 

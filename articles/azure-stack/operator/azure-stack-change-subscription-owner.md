@@ -1,6 +1,6 @@
 ---
-title: 更新 Azure Stack 用户订阅的所有者 | Microsoft Docs
-description: 更改 Azure Stack 用户订阅的计费所有者。
+title: 更改 Azure Stack 用户订阅的计费所有者 | Microsoft Docs
+description: 了解如何更改 Azure Stack 用户订阅的计费所有者。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: f2f5907c9dac72be188e28ded9a51238dc8bde0f
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 3c1fcd7b9f969d559ae26d21019ee86b59f28e81
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578470"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020311"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>更改 Azure Stack 用户订阅的所有者
+# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>更改 Azure Stack 用户订阅的计费所有者
 
 Azure Stack 操作员可以使用 PowerShell 更改用户订阅的计费所有者。 例如，更改所有者的一个原因是替换已离职的用户。
 
@@ -65,8 +65,7 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
->[!Note]
->如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+[!include[Remove Account](../includes/remove-account.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

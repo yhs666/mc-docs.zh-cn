@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2019
-ms.date: 09/16/2019
+origin.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f0637165a4b3ebfc28fa1bfb14e1e91a532f6959
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: c60dcec38587b39d4c03b56109af8da352c96afd
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857179"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020319"
 ---
 # <a name="use-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 
@@ -50,7 +50,7 @@ Azure Stack 支持以下 Azure DNS 功能：
 
 你有一个用于处理来自 Web 应用的请求的负载均衡器。 负载均衡器的后面是一个在一台或多台虚拟机上运行的网站。 可以使用 DNS 名称而非 IP 地址来访问进行了负载均衡的网站。
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>使用 API 创建和管理 DNS 区域和记录
+## <a name="create-and-manage-dns-zones-and-records-using-the-apis"></a>使用 API 创建和管理 DNS 区域和记录
 
 可以在 Azure Stack 中创建和管理 DNS 区域和记录。
 
@@ -72,7 +72,7 @@ Azure Stack 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外：
 
 ### <a name="tags"></a>Tags
 
-Azure Stack DNS 支持在 DNS 区域资源上使用 Azure 资源管理器标记。 它不支持在 DNS 记录集上使用标记。 作为替代方法，在 DNS 记录集上支持“元数据”，如下一部分所述。 
+Azure Stack DNS 支持在 DNS 区域资源上使用 Azure 资源管理器标记。 它不支持 DNS 记录集上的标记。 作为替代方法，在 DNS 记录集上支持“元数据”，如下一部分所述。 
 
 ### <a name="metadata"></a>Metadata
 

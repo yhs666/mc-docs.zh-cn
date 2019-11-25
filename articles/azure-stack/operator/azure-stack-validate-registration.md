@@ -17,18 +17,18 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a76ffe7dfe4e6af29f601c10c2e19873bbb856ee
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 264fd8fa90da8d764dbad1765203ce75df8ee7bc
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513371"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020272"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
-使用 Azure Stack 就绪性检查器工具 (**AzsReadinessChecker**) 验证 Azure 订阅是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证注册。 就绪性检查器会验证下列项：
+开始 Azure Stack 部署之前，使用 Azure Stack 就绪性检查器工具 (**AzsReadinessChecker**) 验证 Azure 订阅是否已准备好与 Azure Stack 配合使用。 就绪性检查器会验证下列项：
 
-- 你使用的 Azure 订阅是受支持的类型。 订阅必须是云服务提供商 (CSP) 或企业协议 (EA)。
+- 你使用的 Azure 订阅是受支持的类型。 订阅必须是云解决方案提供商 (CSP) 或企业协议 (EA)。
 - 用来向 Azure 注册订阅的帐户可以登录到 Azure 并且是订阅所有者。
 
 有关 Azure Stack 注册的详细信息，请参阅[向 Azure 注册 Azure Stack](azure-stack-registration.md)。
@@ -51,7 +51,7 @@ ms.locfileid: "68513371"
   ```
 
 - [为 Azure Stack 配置的 PowerShell](azure-stack-powershell-install.md)。
-- 最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)。  
+- 最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory 环境
 
@@ -59,7 +59,7 @@ ms.locfileid: "68513371"
 - 标识将使用的 Azure 订阅的订阅 ID。
 - 标识将使用的 **AzureEnvironment**。 环境名称参数支持的值是 **AzureChinaCloud**，具体取决于所使用的 Azure 订阅。
 
-## <a name="steps-to-validate-azure-registration"></a>验证 Azure 注册的步骤
+## <a name="steps-to-validate-the-azure-registration"></a>验证 Azure 注册的步骤
 
 1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 **AzsReadinessChecker**：
 
@@ -74,7 +74,7 @@ ms.locfileid: "68513371"
    ```
 
    > [!NOTE]
-   > 作为 CSP，在使用共享服务或 IUR 订阅时，你必须提供来自相应 AAD 的用户的凭据。 通常这将类似于 `subscriptionowner@iurcontoso.partner.onmschina.cn`。 该用户必须具有相应的凭据，如上一步所述。
+   > 作为 CSP，在使用共享服务或 IUR 订阅时，你必须提供来自相应 Azure AD 的用户的凭据。 通常这将类似于 `subscriptionowner@iurcontoso.partner.onmschina.cn`。 该用户必须具有相应的凭据，如上一步所述。
 
 3. 在 PowerShell 提示符下运行以下命令，将 `$subscriptionID` 设置为要使用的 Azure 订阅。 将 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 替换为你自己的订阅 ID：
 
@@ -87,9 +87,9 @@ ms.locfileid: "68513371"
    - 将 AzureEnvironment 的值指定为 *AzureChinaCloud*。  
    - 提供 Azure Active Directory 管理员用户名和 Azure Active Directory 租户名称。
 
-   ```powershell
-   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureChinaCloud -RegistrationSubscriptionID $subscriptionID
-   ```
+      ```powershell
+      Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureChinaCloud -RegistrationSubscriptionID $subscriptionID
+      ```
 
 5. 运行该工具后，查看输出。 确认状态是否符合登录和注册要求。 验证成功时会显示类似于以下示例的输出：
 
@@ -109,8 +109,8 @@ ms.locfileid: "68513371"
 
 默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
-- 可以在运行命令行的末尾使用 **-OutputPath** ***&lt;path&gt;*** 参数指定一个不同的报表位置。
-- 可以在运行命令的末尾使用 **-CleanReport** 参数从 **AzsReadinessCheckerReport.json** 中清除以前运行此工具时的相关信息。
+- 在运行命令行的末尾使用 `-OutputPath <path>` 参数来指定不同的报表位置。
+- 在运行命令的末尾使用 `-CleanReport` 参数从 **AzsReadinessCheckerReport.json** 中清除有关以前运行此工具的相关信息。
 
 有关详细信息，请参阅 [Azure Stack 验证报告](azure-stack-validation-report.md)。
 
@@ -118,7 +118,7 @@ ms.locfileid: "68513371"
 
 如果验证检查失败，则有关失败的详细信息将显示在 PowerShell 窗口中。 该工具还会将信息记录到 **AzsReadinessChecker.log** 文件中。
 
-下面的示例针对常见的验证失败提供了指导：
+以下示例提供了有关常见验证失败的更多信息。
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>用户必须是订阅所有者
 

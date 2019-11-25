@@ -1,22 +1,22 @@
 ---
-title: 导出或删除 Azure 门户设置 | Microsoft Docs
+title: 导出或删除 Azure 门户设置 | Azure
 description: 了解如何在 Azure 门户中导出或删除用户设置、专用仪表板和自定义设置。
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
-origin.date: 05/18/2018
-ms.date: 05/06/2019
+origin.date: 04/08/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.author: v-biyu
-ms.openlocfilehash: 017912655c5782e0651648db5188c018e35e2963
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.author: v-tawe
+ms.openlocfilehash: 2eaaf9e9314f1604cceb532b86c6f674e8e2b266
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855232"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020738"
 ---
 # <a name="export-or-delete-user-settings"></a>导出或删除用户设置
 
@@ -33,11 +33,11 @@ ms.locfileid: "64855232"
 ## <a name="export-or-delete-your-portal-settings"></a>导出或删除门户设置
 
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
-2. 在门户的头部区域，选择“设置”。
+2. 在门户的头部区域，选择“设置”  。
 
     ![显示门户设置齿轮的屏幕截图](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
 
-3. 选择“导出所有设置”或“删除所有设置和专用仪表板”。
+3. 选择“导出所有设置”  或“删除所有设置和专用仪表板”  。
 
     ![显示了门户导出和删除设置的屏幕截图](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 

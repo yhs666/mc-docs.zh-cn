@@ -2,18 +2,18 @@
 title: 使用 Python 创建 Azure 数据资源管理器群集和数据库
 description: 了解如何使用 Python 创建 Azure 数据资源管理器群集和数据库。
 author: oflipman
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 03/25/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: ae0f5eff89f86179e3ec7c92def53536f536648c
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: d31f0da7fef0ddd02077fadc988e7c1bf659e5d7
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717338"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020690"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 创建 Azure 数据资源管理器群集和数据库
 
@@ -23,7 +23,7 @@ ms.locfileid: "67717338"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM 模板](create-cluster-database-resource-manager.md)
 
 Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本文中，将使用 Python 创建群集和数据库。
 
@@ -36,43 +36,59 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 要为 Azure 数据资源管理器 (Kusto) 安装 Python 包，请打开其路径中包含 Python 的命令提示符。 运行以下命令：
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
 ```
+## <a name="authentication"></a>身份验证
+为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 查看[创建 Azure AD 应用程序](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序，并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>创建 Azure 数据资源管理器群集
 
 1. 请使用以下命令创建群集：
 
     ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
+    from azure.common.credentials import ServicePrincipalCredentials
 
-    credentials = xxxxxxxxxxxxxxx
-    
-    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
-    location = 'China East2'
-    sku = 'D11_v2'
+    #Directory (tenant) ID
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Application ID
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Client Secret
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+
+    location = 'China East'
+    sku_name = 'Standard_D13_v2'
     capacity = 5
+    tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
     cluster_operations = kustoManagementClient.clusters
     
-    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
     ```
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
    | cluster_name | mykustocluster  | 所需的群集名称。|
-   | sku | *D11_v2* | 将用于群集的 SKU。 |
+   | sku_name | *Standard_D13_v2* | 将用于群集的 SKU。 |
+   | 层 | *标准* | SKU 层。 |
+   | 容量 | *数字* | 群集实例的数目。 |
    | resource_group_name | *testrg* | 将在其中创建群集的资源组名称。 |
 
-    可以使用其他可选参数，例如群集的容量。
-    
-1. 设置[凭据  ](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+    > [!NOTE]
+    > **创建群集**是一个长时间运行的操作。 **create_or_update** 方法返回 LROPoller 的实例，请参阅 [LROPoller 类](https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python)获取详细信息。
 
 1. 运行以下命令，检查群集是否已成功创建：
 
@@ -99,7 +115,8 @@ pip install azure-mgmt-kusto
                         soft_delete_period=softDeletePeriod,
                         hot_cache_period=hotCachePeriod)
     
-    database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+    #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
    |**设置** | **建议的值** | **字段说明**|

@@ -2,18 +2,18 @@
 title: 使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 description: 了解如何使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 author: oflipman
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 03/25/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: f1aae508fb88c25f1c89e77ac823d5089b27972a
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: ef954bdf28923fe1c4748f6b3a1397708aab5305
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717342"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020696"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 
@@ -23,9 +23,9 @@ ms.locfileid: "67717342"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM 模板](create-cluster-database-resource-manager.md)  
 
-Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本快速入门中，你将使用 Powershell 创建群集和数据库。 可以在 Windows、Linux 或 [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 中使用 [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 数据资源管理器群集和数据库。
+Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本文中，将使用 Powershell 创建群集和数据库。 可以在 Windows、Linux 或 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 中使用 [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 数据资源管理器群集和数据库。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -62,7 +62,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 1. 请使用以下命令创建群集：
 
     ```azurepowershell
-     New-AzKustoCluster -ResourceGroupName testrg -Name mykustocluster -Location 'Central US' -Sku D13_v2 -Capacity 10
+     New-AzKustoCluster -ResourceGroupName testrg -Name mykustocluster -Location 'China East 2' -Sku D13_v2 -Capacity 10
     ```
 
    |**设置** | **建议的值** | **字段说明**|
@@ -116,5 +116,5 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [其他 Az.Kusto 命令](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [其他 Az.Kusto 命令](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
 * [使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据](net-standard-ingest-data.md)

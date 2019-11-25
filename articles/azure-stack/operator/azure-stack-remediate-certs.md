@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/04/2019
-ms.date: 07/29/2019
+origin.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: e854c3151c8d75dd4aa293f4dfc64416564a0436
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: f04f1cb3bfb83783cdba7b5fd602823143cf7c64
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513413"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020283"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修复 Azure Stack PKI 证书的常见问题
 
-可以通过本文中的信息来了解并解决 Azure Stack PKI 证书的常见问题。 使用 Azure Stack 就绪性检查器工具[验证 Azure Stack PKI 证书](azure-stack-validate-pki-certs.md)时，可以发现问题。 该工具将检查以确保证书满足 Azure Stack 部署和 Azure Stack 机密轮换的 PKI 要求，并将结果记录在 [report.json 文件](azure-stack-validation-report.md)中。  
+可以通过本文中的信息来了解并解决 Azure Stack PKI 证书的常见问题。 使用 Azure Stack 就绪性检查器工具[验证 Azure Stack PKI 证书](azure-stack-validate-pki-certs.md)时，可以发现问题。 该工具将检查以确保证书满足 Azure Stack 部署和 Azure Stack 机密轮换的 PKI 要求，并将结果记录到 [report.json 文件](azure-stack-validation-report.md)。  
 
 ## <a name="pfx-encryption"></a>PFX 加密
 
@@ -94,14 +94,14 @@ ms.locfileid: "68513413"
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 
-**AzsReadinessChecker** 工具包含名为 `Repair-AzsPfxCertificate` 的帮助程序 cmdlet，它可以通过导入和导出 PFX 文件来修复常见的打包问题，这些问题包括：
+**AzsReadinessChecker** 工具包含名为 **Repair-AzsPfxCertificate** 的帮助程序 cmdlet，它可以通过导入和导出 PFX 文件来修复常见的打包问题，这些问题包括：
 
 - **PFX 加密**不是 TripleDES-SHA1。
 - **私钥**缺少本地计算机属性。
 -  证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
 - **其他证书**
 
-如果需要生成新的 CSR 并重新颁发证书，则 `Repair-AzsPfxCertificate` 无用。
+如果需要生成新的 CSR 并重新颁发证书，则 **Repair-AzsPfxCertificate** 无用。
 
 ### <a name="prerequisites"></a>先决条件
 

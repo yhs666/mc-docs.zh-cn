@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 05/13/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 43be53def85092500724e3cdf57114e646534a86
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: a50872c80d9bff44929b01e72f7607ff4d435edd
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934268"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203654"
 ---
 # <a name="create-change-or-delete-a-public-ip-prefix"></a>创建、更改或删除公共 IP 前缀
 
@@ -51,7 +51,7 @@ ms.locfileid: "73934268"
     |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)中。|
     |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。|
     |Name|是|名称在所选资源组中必须唯一。|
-    |区域|是|必须位于与公共 IP 地址相同的[区域](https://www.azure.cn/support/service-dashboard/)，你将从该范围分配地址。 |
+    |区域|是|必须位于与公共 IP 地址相同的[区域](https://status.azure.com/status/)，你将从该范围分配地址。 |
     |前缀大小|是| 所需的前缀大小。 /28 或 16 个 IP 地址为默认值。 
     
     <!--Not Available on Prefix is currently is preview in XXXXXX.-->

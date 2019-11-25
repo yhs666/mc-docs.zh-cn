@@ -1,5 +1,5 @@
 ---
-title: 以编程方式创建 Azure 仪表板 | Azure Docs
+title: 以编程方式创建 Azure 仪表板 | Azure
 description: 本文介绍如何以编程方式创建 Azure 仪表板。
 services: azure-portal
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/01/2017
-ms.author: adamab
+ms.author: v-tawe
 ms.date: 04/29/2019
-ms.openlocfilehash: 6eb10d3ad5c10c90bdc036c82a61d89a8de894f7
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: c1cfd2d15c24178c08441926e54dc0e248db3a0c
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566360"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020744"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 
@@ -81,11 +81,11 @@ Azure 中的共享仪表板与虚拟机和存储帐户一样，是一种[资源]
 
 若要在将来针对任何虚拟机发布此仪表板，需要参数化 JSON 中此字符串的每个匹配项。 
 
-在 Azure 中，有两种用于创建资源的 API。 [命令性 API](https://docs.microsoft.com/en-us/rest/api/resources/resources)：一次创建一个资源；[基于模板的部署](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)系统：可以使用单个 API 调用来安排多个从属资源的创建。 后者以本机方式支持参数化和模板化，所以我们以它为示例。
+在 Azure 中，有两种用于创建资源的 API。 [命令性 API](https://docs.microsoft.com/rest/api/resources/resources)：一次创建一个资源；[基于模板的部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)系统：可以使用单个 API 调用来安排多个从属资源的创建。 后者以本机方式支持参数化和模板化，所以我们以它为示例。
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>使用模板部署以编程方式从模板创建仪表板
 
-Azure 提供协调多资源部署的功能。 创建用于表达要部署的资源集的部署模板及资源之间的关系。  每个资源的 JSON 格式与逐个创建资源时的格式相同。 差别在于[模板语言](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates)会添加一些概念，例如变量、参数、基本功能等。 此扩展语法仅在模板部署上下文中受支持，如果与前述命令性 API 一起使用，则不起作用。
+Azure 提供协调多资源部署的功能。 创建用于表达要部署的资源集的部署模板及资源之间的关系。  每个资源的 JSON 格式与逐个创建资源时的格式相同。 差别在于[模板语言](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)会添加一些概念，例如变量、参数、基本功能等。 此扩展语法仅在模板部署上下文中受支持，如果与前述命令性 API 一起使用，则不起作用。
 
 如果要使用模板部署，则应使用模板的参数语法来实现参数化。  替换之前找到的所有资源 id 的实例，如下所示。
 
@@ -101,7 +101,7 @@ Azure 提供协调多资源部署的功能。 创建用于表达要部署的资�
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
@@ -121,7 +121,7 @@ Azure 提供协调多资源部署的功能。 创建用于表达要部署的资�
 
 __可在本文档末尾查看完整的工作模板。__
 
-设置模板后，便可使用 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) 或[门户的模板部署页](https://portal.azure.cn/#create/Microsoft.Template)部署该模板。
+设置模板后，便可使用 [REST API](https://docs.microsoft.com/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](/cli/group/deployment?view=azure-cli-latest#az_group_deployment_create) 或[门户的模板部署页](https://portal.azure.cn/#create/Microsoft.Template)部署该模板。
 
 以下是示例仪表板 JSON 的两个版本。 第一个版本是从门户导出的、已绑定到资源的模板。 第二个是可以编程方式绑定到任何 VM 并使用 Azure 资源管理器进行部署的模板版本。
 
@@ -381,7 +381,7 @@ __可在本文档末尾查看完整的工作模板。__
 
 ### <a name="template-representation-of-our-example-dashboard"></a>示例仪表板的模板表示形式
 
-仪表板的模板版本定义了三个参数，分别为virtualMachineName、virtualMachineResourceGroup 和 dashboardName。  使用这些参数可在每次部署时将此仪表板指向不同的 Azure 虚拟机。 突出显示了参数化的 id，用于指示此仪表板可以编程方式配置并部署为指向任何 Azure 虚拟机。 测试此功能的最简单方法是复制以下模板并将其粘贴到 [Azure 门户的模板部署页](https://portal.azure.cn/#create/Microsoft.Template)。 
+仪表板的模板版本定义了三个参数，分别为virtualMachineName、virtualMachineResourceGroup 和 dashboardName    。  使用这些参数可在每次部署时将此仪表板指向不同的 Azure 虚拟机。 突出显示了参数化的 id，用于指示此仪表板可以编程方式配置并部署为指向任何 Azure 虚拟机。 测试此功能的最简单方法是复制以下模板并将其粘贴到 [Azure 门户的模板部署页](https://portal.azure.cn/#create/Microsoft.Template)。 
 
 此示例自行部署了一个仪表板，但使用模板语言可部署多个资源并将其与一个或多个仪表板绑定。 
 

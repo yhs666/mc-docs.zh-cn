@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 09/16/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: c3ff572863f977e395e97e79d1512f1905f0c669
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: b3f0cbf3ac735089cc7546d7436aa5dac773df50
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857159"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020292"
 ---
 # <a name="create-vpn-gateways-for-azure-stack"></a>为 Azure Stack 创建 VPN 网关
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-必须先为虚拟网络创建虚拟网络网关，然后才能发送 Azure 虚拟网络和本地站点之间的网络流量。
+必须先为虚拟网络创建虚拟网络 (VPN) 网关，然后才能发送 Azure 虚拟网络和本地站点之间的网络流量。
 
 VPN 网关是一种通过公共连接发送加密流量的虚拟网络网关。 可以使用 VPN 网关在 Azure Stack 中的虚拟网络和 Azure 中的虚拟网络之间安全地发送流量。 还可以在虚拟网络和连接到 VPN 设备的另一个网络之间安全地发送流量。
 
@@ -43,7 +43,7 @@ VPN 网关是一种通过公共连接发送加密流量的虚拟网络网关。 
 > 例如：
 >
 > * 在 Azure 中，基本 VPN 网关 SKU 可以容纳大约 100 Mbps 的聚合吞吐量。 如果对该 VPN 网关创建两个连接，而且其中一个连接使用 50 Mbps 的带宽，则 50 Mbps 可供另一个连接使用。
-> * 在 Azure Stack 中，与基本 VPN 网关 SKU 的**每个连接**都分配了 100 Mbps 的吞吐量。
+> * 在 Azure Stack 中，与基本 VPN 网关 SKU 的每个连接都分配了 100 Mbps 的吞吐量。
 
 ## <a name="configuring-a-vpn-gateway"></a>配置 VPN 网关
 
@@ -76,7 +76,7 @@ VPN 网关连接可以使用不同的配置。 确定哪种配置最适合自己
 
 ### <a name="site-to-site"></a>站点到站点
 
-站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE (IKEv2) VPN 隧道建立的连接。  此类连接需要一个位于本地的 VPN 设备，并需要为此类连接分配公共 IP 地址。 此设备不能位于 NAT 的后面。 S2S 连接可用于跨界和混合配置。
+站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE (IKEv2) VPN 隧道建立的连接。  此类连接需要一个位于本地的 VPN 设备，并需要为此类连接分配公共 IP 地址。 此设备不能位于 NAT 之后。 S2S 连接可用于跨界和混合配置。
 
 ![站点到站点 VPN 连接配置示例](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -106,7 +106,7 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 
 ## <a name="gateway-availability"></a>网关可用性
 
-高可用性方案只能在**高性能网关**连接 SKU 上配置。 与同时通过主动/主动和主动/被动配置提供可用性的 Azure 不同，Azure Stack 仅支持主动/被动配置。 
+高可用性方案只能在**高性能网关**连接 SKU 上配置。 与同时通过主动/主动和主动/被动配置提供可用性的 Azure 不同，Azure Stack 仅支持主动/被动配置。
 
 ### <a name="failover"></a>故障转移
 
@@ -116,17 +116,17 @@ Azure Stack 中有三个多租户网关基础结构 VM。 其中两个 VM 处于
 
 下表显示网关类型和预计的网关 SKU 聚合吞吐量：
 
-|| VPN 网关吞吐量 *(1)* | VPN 网关最大 IPsec 隧道数 *(2)* |
+|| VPN 网关吞吐量 (1) | VPN 网关最大 IPsec 隧道数 (2) |
 |-------|-------|-------|
-|**基本 SKU** ***(3)*** | 100 Mbps | 20 个 |
+|**基本 SKU** **(3)** | 100 Mbps | 20 个 |
 |**标准 SKU** | 100 Mbps | 20 个 |
 |**高性能 SKU** | 200 Mbps | 10 个 |
 
-**表格注释：**
+### <a name="table-notes"></a>表格注释
 
-*注释 (1)* - VPN 吞吐量不是 Internet 上跨界连接的保证吞吐量。 这是可能的最大吞吐量度量。  
-*注释 (2)* - 最大隧道数是所有订阅的每个 Azure Stack 部署总数。  
-*注释 (3)* - 基本 SKU 不支持 BGP 路由。
+**(1)** - VPN 吞吐量不是 Internet 上跨界连接的保证吞吐量。 这是可能的最大吞吐量度量。  
+**(2)** - 最大隧道数是所有订阅的每个 Azure Stack 部署的总数。  
+**(3)** - 基本 SKU 不支持 BGP 路由。
 
 >[!NOTE]
 >在两个 Azure Stack 部署之间只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack 利用多租户网关，该网关将单一公共 IP 用于 Azure Stack 系统中的所有 VPN 网关，因此两个 Azure Stack 系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack 不允许使用同一 IP 地址创建多个本地网络网关资源。

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中的缩放单元节点操作 | Microsoft Docs
-description: 了解如何在 Azure Stack 集成系统中查看节点状态，以及使用开机、关机、禁用和恢复节点操作。
+description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack 集成系统中查看节点状态。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 origin.date: 07/18/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 60ac6ba18604a1a3b90662ffe4a2492f5c2cfd00
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 3909f8cf716d02e476a9fb0bc49064a66f3c218e
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124654"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020167"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -45,13 +45,13 @@ ms.locfileid: "71124654"
 
    查看以下信息：
 
-   - 各个节点的列表
-   - 操作状态（参阅以下列表）
-   - 电源状态（“正在运行”或“已停止”）
-   - 服务器模型
-   - 基板管理控制器 (BMC) 的 IP 地址
-   - 内核总数
-   - 总内存量
+   - 各个节点的列表。
+   - 操作状态（请参见以下列表）。
+   - 电源状态（“正在运行”或“已停止”）。
+   - 服务器模型。
+   - 基板管理控制器 (BMC) 的 IP 地址。
+   - 核心总数。
+   - 总内存量。
 
 ![缩放单元的状态](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -69,10 +69,11 @@ ms.locfileid: "71124654"
 ## <a name="scale-unit-node-actions"></a>缩放单元节点操作
 
 查看缩放单元节点的相关信息时，也可以执行节点操作，例如：
- - 启动和停止（取决于当前电源状态）
- - 禁用和恢复（取决于操作状态）
- - 修复
- - Shutdown
+
+ - 启动和停止（取决于当前电源状态）。
+ - 禁用和恢复（取决于操作状态）。
+ - 修复。
+ - 关闭。
 
 节点的工作状态确定了哪些选项可用。
 
@@ -80,7 +81,7 @@ ms.locfileid: "71124654"
 
 ## <a name="stop"></a>停止
 
-“停止”操作会关闭节点。  它的作用如同按下电源按钮。 它不会向操作系统发送关机信号。 对于计划的停止操作，请始终先尝试关闭操作。 
+“停止”操作会关闭节点。  它的作用如同按下电源按钮。 它不会向操作系统发送关闭信号。 对于计划的停止操作，请始终先尝试关闭操作。
 
 当节点处于挂起状态，不再响应请求时，通常使用此操作。
 
@@ -96,15 +97,15 @@ ms.locfileid: "71124654"
 
 ## <a name="start"></a>开始
 
-“启动”操作会打开节点。  它的作用如同按下电源按钮。 
- 
+“启动”操作会打开节点。  它的作用如同按下电源按钮。
+
 若要运行启动操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
 ```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-在启动操作不起作用的情况下（这种情况很少见），请重试操作，如果仍然失败，请改用 BMC Web 界面。
+万一启动操作不起作用，则重试该操作。 如果它再次失败，请改用 BMC Web 界面。
 
 有关详细信息，请参阅 [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode)。
 
@@ -115,7 +116,7 @@ ms.locfileid: "71124654"
 在现场更换组件期间（例如，更换整个节点），通常使用此操作。
 
 > [!Important]
-> 在执行计划内维护期间，确保只在已通知用户后才在节点上使用清空操作。 在某些情况下，活动的工作负荷可能遇到中断。
+> 在计划内维护时段内，确保只在已通知用户后才对节点进行清空操作。 在某些情况下，活动的工作负荷可能遇到中断。
 
 若要运行清空操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -140,7 +141,7 @@ ms.locfileid: "71124654"
 ## <a name="repair"></a>修复
 
 > [!CAUTION]  
-> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全威胁或阻止 Azure Stack 自动化部署操作系统。 更换硬件时，请始终参阅硬件合作伙伴的文档，以确保应用的固件与 [Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。<br>
+> 固件分级对于本文中所述的操作的成功至关重要。 当 Azure Stack 自动化部署操作系统时，缺少此步骤可能会导致系统不稳定、性能降低、安全威胁或失败。 更换硬件时，请始终参阅硬件合作伙伴的文档，以确保应用的固件与 [Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。<br><br>
 有关详细信息和合作伙伴文档的链接，请参阅[更换硬件组件](azure-stack-replace-component.md)。
 
 | 硬件合作伙伴 | 区域 | URL |
@@ -151,13 +152,14 @@ ms.locfileid: "71124654"
 | Lenovo | 全部 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 “修复”操作可修复节点。  请只在出现以下情况时才使用此操作：
- - 更换整个节点（不管是否包含新数据磁盘）时
- - 硬件组件发生故障并予以更换之后（如果现场可更换单元 (FRU) 文档中建议更换）。
+
+- 更换整个节点（不管是否包含新数据磁盘）时。
+- 硬件组件发生故障并予以更换之后（如果现场可更换单元 [FRU] 文档中建议更换）。
 
 > [!Important]  
-> 需要更换节点或单个硬件组件时，请参阅 OEM 硬件供应商的 FRU 文档，以了解具体步骤。 FRU 文档将指定在更换硬件组件之后是否需要运行修复操作。 
+> 需要更换节点或单个硬件组件时，请参阅 OEM 硬件供应商的 FRU 文档，以了解具体步骤。 FRU 文档将指定在更换硬件组件之后是否需要运行修复操作。
 
-运行修复操作时，需要指定 BMC IP 地址。 
+运行修复操作时，需要指定 BMC IP 地址。
 
 若要运行修复操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -169,7 +171,7 @@ ms.locfileid: "71124654"
 
 “关闭”  操作会先将所有活动工作负荷移到同一缩放单元中的其余节点。 然后该操作会正常关闭缩放单元节点。
 
-启动已关闭的节点后，需要运行“[恢复](#resume)”操作。 之前在节点上运行的工作负荷不会故障回复。
+启动已关闭的节点后，需要运行 [恢复](#resume)操作。 之前在节点上运行的工作负荷不会故障回复。
 
 如果关闭操作失败，请尝试“[清空](#drain)”操作，然后执行关闭操作。
 
@@ -179,8 +181,6 @@ ms.locfileid: "71124654"
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-
-
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+[了解 Azure Stack Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。

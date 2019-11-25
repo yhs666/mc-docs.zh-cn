@@ -1,5 +1,5 @@
 ---
-title: 创建和共享 Azure 门户仪表板 | Azure Docs
+title: 创建和共享 Azure 门户仪表板 | Azure
 description: 本文介绍如何在 Azure 门户中创建、自定义、发布和共享仪表板。
 services: azure-portal
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/06/2016
-ms.author: v-biyu
-ms.date: 07/29/2019
-ms.openlocfilehash: f58e7110a6709ff54d74e0113e92768200a7b3ec
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+origin.date: 07/01/2019
+ms.author: v-tawe
+ms.date: 11/04/2019
+ms.openlocfilehash: 99a54706eb5bba47089bcfc54c03665d1887ba02
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232293"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020741"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 门户中创建和共享仪表板
 

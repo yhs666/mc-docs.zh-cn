@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2019
-ms.date: 09/16/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 9c64fe6e3f0ce03bdcdcedfd662ce5539f85942b
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 30628effe80187d1af1e924c6581af786ce57f92
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578282"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020293"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -47,12 +47,16 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
 - 遵照官方说明安装 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 - 遵照官方说明安装 [Ruby](https://www.ruby-lang.org/en/documentation/installation/)。
   - 在安装时选择“将 Ruby 添加到 PATH 变量”。 
-  - 在 Ruby 安装过程中根据提示安装开发工具包。
-  - 接下来，使用以下命令安装捆绑程序：  
-    `Gem install bundler`
-- 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 [此处](../operator/azure-stack-subscribe-plan-provision-vm.md)提供创建订阅的说明。
-- 创建服务主体并保存其 ID 和机密。 [此处](../operator/azure-stack-create-service-principals.md)提供创建 Azure Stack 服务主体的说明。
-- 确保服务主体在订阅上分配有“参与者/所有者”角色。 [此处](../operator/azure-stack-create-service-principals.md)提供如何为服务主体分配角色的说明。
+  - 在 Ruby 安装过程中出现提示时，安装开发工具包。
+  - 接下来，使用以下命令安装捆绑程序： 
+
+       ```Ruby
+       Gem install bundler
+       ```
+
+- 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)一文。
+- 创建服务主体并保存其 ID 和机密。 有关为 Azure Stack 创建服务主体的说明，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)一文。
+- 确保服务主体在订阅上分配有“参与者/所有者”角色。 有关如何将角色分配给服务主体的说明，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)一文。
 
 ## <a name="install-the-rubygem-packages"></a>安装 RubyGem 包
 
@@ -63,7 +67,11 @@ gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
 gem install azure_mgmt_network
-Or use them in your Gemfile.
+```
+
+也可以在 Gemfile 中使用这些包。
+
+```Ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -88,9 +96,9 @@ gem install 'azure_sdk'
 
 | Value | 环境变量 | 说明 |
 | --- | --- | --- |
-| 租户 ID | `AZURE_TENANT_ID` | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
-| 客户端 ID | `AZURE_CLIENT_ID` | 在本文档上一部分创建服务主体时保存的服务主体应用 ID。  |
-| 订阅 ID | `AZURE_SUBSCRIPTION_ID` | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
+| 租户 ID | `AZURE_TENANT_ID` | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md)。 |
+| 客户端 ID | `AZURE_CLIENT_ID` | 在本文上一部分创建服务主体时保存的服务主体应用 ID。  |
+| 订阅 ID | `AZURE_SUBSCRIPTION_ID` | 使用[订阅 ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) 访问 Azure Stack 中的套餐。 |
 | 客户端机密 | `AZURE_CLIENT_SECRET` | 创建服务主体时保存的服务主体应用机密。 |
 | 资源管理器终结点 | `ARM_ENDPOINT` | 请参阅 [Azure Stack 资源管理器终结点](#the-azure-stack-resource-manager-endpoint)。  |
 
@@ -118,26 +126,31 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
  }
 ```
 
-### <a name="set-environmental-variables"></a>设置环境变量
+### <a name="set-environment-variables"></a>设置环境变量。
 
-**Microsoft Windows**  
-若要设置环境变量，请在 Windows 命令提示符下使用以下格式：  
-`set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+#### <a name="microsoft-windows"></a>Microsoft Windows
 
-**基于 macOS、Linux 和 Unix 的系统** <br>
-在基于 Unix 的系统中，使用以下命令：  
-`export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+若要设置环境变量，请在 Windows 命令提示符下使用以下格式：
+
+```shell
+set AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
+
+#### <a name="macos-linux-and-unix-based-systems"></a>基于 macOS、Linux 和 Unix 的系统
+
+在基于 Unix 的系统中，使用以下命令：
+
+```bash
+export AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
 
 ## <a name="existing-api-profiles"></a>现有 API 配置文件
 
-Azure_sdk 汇总 gem 包含以下三个配置文件：
+**Azure_sdk** 汇总 gem 包含以下 3 个配置文件：
 
-1. **V2019_03_01_Hybrid** <br>
-  为 Azure Stack 生成的配置文件。 使用此配置文件可利用 Azure Stack 标记版本 1904 或更高版本中提供的所有最新版服务。
-1. **V2017_03_09**  
-  为 Azure Stack 生成的配置文件。 使用此配置文件可以使服务与 Azure Stack 标记版本 1808 或更早版本最兼容。
-1. **最新**  
-  配置文件包含所有服务的最新版本。 使用所有服务的最新版本。
+- **V2019_03_01_Hybrid**：为 Azure Stack 生成的配置文件。 将此配置文件用于 Azure Stack 版本 1904 或更高版本中提供的所有最新版服务。
+- **V2017_03_09**：为 Azure Stack 生成的配置文件。 使用此配置文件可以使服务与 Azure Stack 版本 1808 或更早版本最兼容。
+- **最新**：配置文件包含所有服务的最新版本。 使用所有服务的最新版本。
 
 有关 Azure Stack 和 API 配置文件的详细信息，请参阅 [API 配置文件的摘要](azure-stack-version-profiles.md#summary-of-api-profiles)。
 
@@ -182,7 +195,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>定义 Azure Stack 环境设置函数
 
-若要通过 Azure Stack 环境进行服务主体身份验证，请使用 `get_active_directory_settings()` 来定义终结点 此方法使用的 **ARM_Endpoint** 环境变量是你在构建自己的环境变量时设置的：
+若要通过 Azure Stack 环境进行服务主体身份验证，请使用 `get_active_directory_settings()` 来定义终结点 此方法使用之前设置的 **ARM_Endpoint** 环境变量：
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -215,7 +228,7 @@ end
 若要运行示例，请确保已安装 Ruby。 如果使用 Visual Studio Code，也请下载 Ruby SDK 扩展。
 
 > [!NOTE]  
-> 在[使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)中获取示例的存储库。
+> 示例的存储库是 [Hybrid-Resource-Manager-Ruby-Resources-And-Groups](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)。
 
 1. 克隆存储库：
 
@@ -235,13 +248,14 @@ end
    有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../operator/azure-stack-create-service-principals.md)。
 
    所需值为：
+
    - 租户 ID
    - 客户端 ID
    - 客户端机密
    - 订阅 ID
    - 资源管理器终结点
 
-   使用从已创建的服务主体检索的信息设置以下环境变量。
+   使用从已创建的服务主体检索的信息设置以下环境变量：
 
    - `export AZURE_TENANT_ID={your tenant ID}`
    - `export AZURE_CLIENT_ID={your client ID}`
@@ -250,17 +264,17 @@ end
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
 
    > [!NOTE]  
-   > 在 Windows 上，请使用 set 而不是 export。
+   > 在 Windows 上，使用 `set` 而不是 `export`。
 
 4. 确保将位置变量设置为你的 Azure Stack 位置，例如 `LOCAL="local"`。
 
-5. 如果使用 Azure Stack 或其他私有云以适当的 Active Directory 终结点为目标，请添加以下代码行：
+5. 若要定位正确的活动目录终结点，如果你使用的是 Azure Stack 或其他私有云，请添加以下代码行：
 
    ```Ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. 在 options 变量中添加 Active Directory 设置和适用于 Azure Stack 的基 URL。
+6. 在 `options` 变量中添加 Active Directory 设置和适用于 Azure Stack 的基 URL：
 
    ```ruby  
    options = {
@@ -277,7 +291,7 @@ end
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. 若要通过 Azure Stack 进行服务主体身份验证，应使用 **get_active_directory_settings()** 来定义终结点。 此方法使用的 **ARM_Endpoint** 环境变量是你在构建自己的环境变量时设置的：
+8. 若要通过 Azure Stack 进行服务主体身份验证，应使用 **get_active_directory_settings()** 来定义终结点。 此方法使用之前设置的 **ARM_Endpoint** 环境变量：
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -298,7 +312,7 @@ end
 
 9. 运行示例。
 
-   ```ruby
+   ```Ruby
    bundle exec ruby example.rb
    ```
 

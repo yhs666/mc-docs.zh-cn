@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/13/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0d800738ce627bc6bf1224091ab7cae836efa39f
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: abebd90dacc54b0f833ca16e0c208f8049689fd5
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578477"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020316"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -167,7 +167,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>说明
 
-**Start-AzsReadinessChecker** cmdlet 验证证书、Azure 帐户、Azure 订阅和 Azure Active Directory (AAD)。 在部署 Azure Stack 之前或在运行 Azure Stack 服务操作（例如机密轮换）之前运行验证。 该 cmdlet 还可用于生成基础结构证书的证书签名请求，以及 PaaS 证书（可选）。 最后，该 cmdlet 可以重新打包 PFX 证书，以解决常见的打包问题。
+**Start-AzsReadinessChecker** cmdlet 验证证书、Azure 帐户、Azure 订阅和 Azure Active Directory (Azure AD)。 在部署 Azure Stack 之前或在运行 Azure Stack 服务操作（例如机密轮换）之前运行验证。 该 cmdlet 还可用于生成基础结构证书的证书签名请求，以及 PaaS 证书（可选）。 最后，该 cmdlet 可以重新打包 PFX 证书，以解决常见的打包问题。
 
 ## <a name="examples"></a>示例
 
@@ -189,7 +189,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-在此示例中，出于安全性需要输入 PFX 密码，`Start-AzsReadinessChecker` 在相对文件夹 **Certificates** 中检查区域名称为 **east**、外部 FQDN 为 **azurestack.contoso.com** 的 AAD 部署是否有适用的有效证书。
+在此示例中，出于安全性需要输入 PFX 密码，`Start-AzsReadinessChecker` 在相对文件夹 **Certificates** 中检查区域名称为 **east**、外部 FQDN 为 **azurestack.contoso.com** 的 Azure AD 部署是否有适用的有效证书。
 
 ### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>示例：使用部署数据验证证书（部署和支持）
 
@@ -238,7 +238,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 AAD 是否适用于租户目录名称为 **azurestack.contoso.com** 的 AAD 部署。
+在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 Azure AD 是否适用于租户目录名称为 **azurestack.contoso.com** 的 Azure AD 部署。
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>示例：使用部署数据验证 Azure 标识（部署支持）
 
@@ -247,7 +247,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 AAD 是否适用于其 **AzureChinaCloud** 和 **TenantName** 都是从针对部署生成的部署数据 JSON 文件中读取的 AAD 部署。
+在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 Azure AD 是否适用于其 **AzureChinaCloud** 和 **TenantName** 都是从针对部署生成的部署数据 JSON 文件中读取的 Azure AD 部署。
 
 ### <a name="example-validate-azure-registration"></a>示例：验证 Azure 注册
 
@@ -436,7 +436,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-指定要用于 Azure Stack 部署的 AAD 服务管理员。
+指定要用于 Azure Stack 部署的 Azure AD 服务管理员。
 
 |  |  |
 |----------------------------|---------|
@@ -448,7 +448,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-指定要用于 Azure Stack 部署的 AAD 名称。
+指定要用于 Azure Stack 部署的 Azure AD 名称。
 
 |  |  |
 |----------------------------|---------|
@@ -513,7 +513,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 指定只包含证书所需证书文件夹的路径。
 
-包含 AAD 标识系统的 Azure Stack 部署的所需文件夹为：
+包含 Azure AD 标识系统的 Azure Stack 部署的所需文件夹为：
 
 - ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
 
