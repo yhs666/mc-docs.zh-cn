@@ -7,15 +7,15 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 10/22/2019
-ms.date: 11/11/2019
+origin.date: 11/03/2019
+ms.date: 11/19/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0deaaa74c8ec5f27ea7ad7ad66c41a255da3610b
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: f331a33936e2ebf43bb0d23810d5ae7ea342c6e3
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934238"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178976"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions 中的版本控制 (Azure Functions)
 
@@ -33,7 +33,7 @@ ms.locfileid: "73934238"
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -44,16 +44,19 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-此更改会应用于业务流程协调程序函数的所有新实例，但会中断任何正在进行的实例。 例如，请考虑业务流程实例调用“Foo”  并先后返回布尔值和检查点这样一种情况。 如果此时部署签名更改，则检查点实例在恢复和重播对 `context.CallActivityAsync<int>("Foo")` 的调用时将立即失败。 这是因为历史记录表中的结果为 `bool`，而新代码尝试将其反序列化为 `int`。
+> [!NOTE]
+> 前面的 C# 示例以 Durable Functions 2.x 为目标。 对于 Durable Functions 1.x，必须使用 `DurableOrchestrationContext` 而不是 `IDurableOrchestrationContext`。 有关版本之间差异的详细信息，请参阅 [Durable Functions 版本](durable-functions-versions.md)一文。
 
-这只是签名更改可以中断现有实例的许多不同方法之一。 一般情况下，如果业务流程协调程序需要更改其调用函数的方式，则此更改可能会出现问题。
+此更改会应用于业务流程协调程序函数的所有新实例，但会中断任何正在进行的实例。 例如，请考虑这样一种情况：业务流程实例调用名为 `Foo` 的函数并先后返回布尔值和检查点。 如果此时部署签名更改，则检查点实例在恢复和重播对 `context.CallActivityAsync<int>("Foo")` 的调用时将立即失败。 发生此故障是因为历史记录表中的结果为 `bool`，而新代码尝试将其反序列化为 `int`。
+
+这只是签名更改可以中断现有实例的许多不同示例之一。 一般情况下，如果业务流程协调程序需要更改其调用函数的方式，则此更改可能会出现问题。
 
 ### <a name="changing-orchestrator-logic"></a>更改业务流程协调程序逻辑
 
@@ -63,7 +66,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -74,7 +77,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -85,6 +88,9 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+> [!NOTE]
+> 前面的 C# 示例以 Durable Functions 2.x 为目标。 对于 Durable Functions 1.x，必须使用 `DurableOrchestrationContext` 而不是 `IDurableOrchestrationContext`。 有关版本之间差异的详细信息，请参阅 [Durable Functions 版本](durable-functions-versions.md)一文。
 
 此更改会向“Foo”  和“Bar”  之间的“SendNotification”  添加新的函数调用。 不存在签名更改。 在从对“Bar”  的调用中恢复现有实例时，将出现问题。 在重播过程中，如果对“Foo”  的原始调用返回 `true`，则业务流程协调程序重播将调用不在其执行历史记录中的“SendNotification”  。 因此，Durable Task Framework 将失败，并且出现 `NonDeterministicOrchestrationException`，因为在它希望出现对“Bar”  的调用时出现了对“SendNotification”  的调用。 添加对“durable”API 的任何调用（包括 `CreateTimer`、`WaitForExternalEvent` 等）时可能会出现相同类型的问题。
 
@@ -100,11 +106,11 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 处理中断更改的最简单方法是使正在进行的业务流程实例失败。 新实例成功运行更改后的代码。
 
-这是否是一个问题取决于正在进行的实例的重要性。 如果你处于积极开发状态，且不关心正在进行的实例，那么这可能已足够。 但是，需要处理诊断管道中的异常和错误。 如果想要避免这些事情，请考虑使用其他版本控制选项。
+这种类型的故障是否是一个问题取决于正在进行的实例的重要性。 如果你处于积极开发状态，且不关心正在进行的实例，那么这可能已足够。 但是，你需要处理诊断管道中的异常和错误。 如果想要避免这些事情，请考虑使用其他版本控制选项。
 
 ### <a name="stop-all-in-flight-instances"></a>停止所有正在进行的实例
 
-另一个选项是停止所有正在进行的实例。 可通过清除内部“控件队列”  和“工作项队列”  队列的内容来完成此操作。 实例将永远停在其当前位置，但它们不会通过失败消息打乱遥测。 这是快速原型开发的理想情况。
+另一个选项是停止所有正在进行的实例。 可通过清除内部“control-queue”  和“workitem-queue”  队列的内容来停止所有实例。 实例将永远停滞在其当前位置，但它们不会导致日志中布满失败消息。 这是适用于快速原型开发的理想方法。
 
 > [!WARNING]
 > 这些队列的详细信息可能会随时间而发生更改，因此对于生产工作负载，请不要依赖此方法。
@@ -115,7 +121,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 * 将所有更新部署为全新的函数，保持现有函数不变。 这可能很棘手，因为新函数版本的调用方也必须按照相同的准则进行更新。
 * 将所有更新部署为使用不同存储帐户的新函数应用。
-* 使用相同的存储帐户但使用更新的 `taskHub` 名称来部署函数应用的新副本。 这是建议的做法。
+* 使用相同的存储帐户但使用更新的 `taskHub` 名称来部署函数应用的新副本。 并行部署是建议的方法。
 
 ### <a name="how-to-change-task-hub-name"></a>如何更改任务中心名称
 
@@ -131,7 +137,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {

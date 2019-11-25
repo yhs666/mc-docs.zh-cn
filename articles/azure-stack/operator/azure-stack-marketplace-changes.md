@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2019
-ms.date: 09/16/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: d1be8b1d63db3baa8249eab745da4a960a773886
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.lastreviewed: 10/01/2019
+ms.openlocfilehash: 4858d8add5a8add446c03d4b19b6c2f6516f139e
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857415"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020190"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack 市场更改
 
@@ -31,22 +31,29 @@ ms.locfileid: "70857415"
 
 ## <a name="new-marketplace-items"></a>新增市场项
 
-- 2019/1/25：A10 vThunder：L4-L7 应用程序交付控制器、全局服务器负载平衡 (GSLB)、SSL Insight
-
+- 06/27/2019： Veeam 备份和复制
 
 ## <a name="deprecated-marketplace-items"></a>弃用市场项
 
 - Codiad
 - X2Engine Sales CRM
 - SugarCRM
-- Node.js 高可用性群集
+- A10 vThunder：L4-L7 应用程序交付控制器、全局服务器负载平衡 (GSLB)、SSL Insight
+
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
-- 2019/07/30：SQL Server 2016 SP1（Express、Developer、Standard 和 Enterprise 版）13.2.20190410
-- 2019/07/30：SQL Server 2016 SP2（Express、Developer、Standard 和 Enterprise 版）13.2.20190410
-- 2019/07/30：SQL Server 2017（Express、Developer、Standard 和 Enterprise 版）14.0.20190410
-- 2019/07/30：SQLIaaSExtension 1.3.20180
+- 07/16/2019： Windows Server 2008 R2 BYOL - 版本 2.127.20190522
+- 07/16/2019： Windows Server 2008 R2 预付费 - 版本 2.127.20190522
+- 07/16/2019： Windows Server 2012 R2 Datacenter BYOL - 版本 4.127.20190522
+- 07/16/2019： Windows Server 2012 R2 Datacenter 预付费 - 版本 4.127.20190522
+- 2019/07/30：SQL Server 2016 SP1（Express、Developer、Standard 和 Enterprise 版）- 版本 13.2.20190410
+- 2019/07/30：SQL Server 2016 SP2（Express、Developer、Standard 和 Enterprise 版）- 版本 13.2.20190410
+- 2019/07/30：SQL Server 2017（Express、Developer、Standard 和 Enterprise 版）- 版本 14.0.20190410
+- 2019/07/30：SQLIaaSExtension - 版本 1.3.20180
+- 09/02/2019：AKS 基础映像 - 版本 2019.08.09 和版本 2019.08.21
+- 09/12/2019：Service Fabric - 版本 1.0.3
+- 09/25/2019：Debian 8 - 版本 8.0.20190806
 
 ## <a name="next-steps"></a>后续步骤
 

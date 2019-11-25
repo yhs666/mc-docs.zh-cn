@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 集成系统的 Azure Stack 防火墙计划 | Microsoft Docs
-description: 介绍了多节点 Azure Stack Azure 连接部署的 Azure Stack 防火墙注意事项。
+title: Azure Stack 集成系统的 Azure Stack 防火墙集成 | Microsoft Docs
+description: 了解 Azure Stack 集成系统的 Azure Stack 防火墙集成。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: mabrigg
+origin.date: 10/02/2019
+ms.date: 11/18/2019
+ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9dc01a5c43a99c7d8369c10790c919fd07227e00
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 929aa022049b3fd8e90cb5c27cc6d58ee9af264c
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529728"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020235"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack。 防火墙有助于防止分布式拒绝服务 (DDOS) 攻击之类的攻击，以及执行入侵检测和内容检查。 但是，它们也可能成为 Azure 存储服务（例如 Blob、表和队列）的吞吐量瓶颈。
@@ -43,7 +44,7 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 - 对于采用 Azure 的混合云方案，请注意 Azure 不支持使用 NAT 设置到终结点的 VPN 隧道。
 
 ### <a name="ssl-decryption"></a>SSL 解密
-当前建议禁用对所有 Azure Stack 流量的 SSL 解密。 如果将来的更新中支持此功能，那时将会提供有关如何为 Azure Stack 启用 SSL 解密的指南。
+当前建议禁用对所有 Azure Stack 流量的 SSL 解密。 如果将来的更新支持此功能，那时将会提供有关如何为 Azure Stack 启用 SSL 解密的指南。
 
 ## <a name="edge-firewall-scenario"></a>边缘防火墙方案
 在边缘部署中，Azure Stack 直接部署在边缘路由器或防火墙后面。 在这些方案中，支持将防火墙放置在边界上方（例如方案 1，在这种情况下它支持主动-主动和主动-被动防火墙配置）或让防火墙充当边界设备（例如方案 2，在这种情况下它仅支持依赖于等成本多路径 (ECMP) 的主动-主动防火墙配置，并使用 BGP 或静态路由进行故障转移）。
@@ -56,7 +57,7 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 在企业 Intranet 或外围部署中，Azure Stack 部署在多区域防火墙上或者部署在边缘防火墙与内部的公司网络防火墙之间。 然后，其流量将分布在安全的外围网络（或 DMZ）与不安全的区域之间，如下所述：
 
 - **安全区域**：这是使用内部或公司可路由 IP 地址的内部网络。 安全网络可以拆分，可以通过防火墙上的 NAT 进行 Internet 出站访问，并且通常可以通过内部网络从你的数据中心内的任何位置进行访问。 除了外部网络的公共 VIP 池之外，所有 Azure Stack 网络都应当位于安全区域中。
-- **外围区域**。 通常在外围网络中部署面向外部或 Internet 的应用程序，例如 Web 服务器。 通常由防火墙对其进行监视，以避免诸如 DDoS 和入侵（黑客进攻）之类的攻击，同时允许来自 Internet 的指定入站流量。 只有 Azure Stack 的外部网络公共 VIP 池应当位于 DMZ 区域中。
+- **外围区域**。 外围网络通常是部署外部或面向 Internet 的应用（例如 Web 服务器）的地方。 通常由防火墙对其进行监视，以避免诸如 DDoS 和入侵（黑客进攻）之类的攻击，同时仍允许来自 Internet 的指定入站流量。 只有 Azure Stack 的外部网络公共 VIP 池应当位于 DMZ 区域中。
 - **不安全区域**。 这是指外部网络，即 Internet。 建议**不要**将 Azure Stack 部署在不安全区域中。
 
 ![Azure Stack 外围网络示例](./media/azure-stack-firewall/perimeter-network-scenario.png)
