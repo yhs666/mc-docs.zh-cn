@@ -17629,6 +17629,47 @@
       "redirect_url": "/cognitive-services/speech-service/how-to-use-conversation-transcription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/load-balancer/load-balancer-multivip.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-multivip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-cloud.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-ps.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-ps.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cli.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-connections-classic.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic",
+      "redirect_document_id": false
+    }
+
   ]
 }
 
