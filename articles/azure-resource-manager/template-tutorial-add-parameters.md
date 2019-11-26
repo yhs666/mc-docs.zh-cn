@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 8e632bd9963974bf8dc85345c36b45faa3135a1d
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: e16e698a31ac503ed4020f5a5d922cbd9f1beacd
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203735"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389571"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>教程：将参数添加到资源管理器模板
 
@@ -73,7 +73,7 @@ ms.locfileid: "74203735"
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-04-01",
             "name": "[parameters('storageName')]",
-            "location": "eastus",
+            "location": "chinaeast",
             "sku": {
                 "name": "Standard_LRS"
             },
@@ -84,7 +84,7 @@ ms.locfileid: "74203735"
         }
     ]
 }
-````
+```
 
 ## <a name="deploy-the-template"></a>部署模板
 
@@ -145,9 +145,7 @@ az group deployment create \
                 "Standard_LRS",
                 "Standard_GRS",
                 "Standard_RAGRS",
-                "Standard_ZRS",
                 "Premium_LRS",
-                "Premium_ZRS",
                 "Standard_GZRS",
                 "Standard_RAGZRS"
             ]
@@ -158,7 +156,7 @@ az group deployment create \
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-04-01",
             "name": "[parameters('storageName')]",
-            "location": "eastus",
+            "location": "chinaeast",
             "sku": {
                 "name": "[parameters('storageSKU')]"
             },

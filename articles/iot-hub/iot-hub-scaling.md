@@ -11,16 +11,16 @@ ms.workload: na
 origin.date: 06/28/2019
 ms.author: v-yiso
 ms.date: 09/30/2019
-ms.openlocfilehash: 5494d9342aca0f41b95222300e6098195efb7353
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: fc9d2971ecf10609c1fb701caa395d1fca48cc24
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425961"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389369"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
-每个 IoT 解决方案都是不同的，因此 Azure IoT 中心会根据定价和缩放提供多个选项。 本文旨在介绍如何评估 IoT 中心需求。 有关 IoT 中心层的定价信息，请参阅 [IoT 中心定价](https://azure.microsoft.com/pricing/details/iot-hub)。 
+每个 IoT 解决方案都是不同的，因此 Azure IoT 中心会根据定价和缩放提供多个选项。 本文旨在介绍如何评估 IoT 中心需求。 有关 IoT 中心层的定价信息，请参阅 [IoT 中心定价](www.azure.cn/pricing/details/iot-hub)。 
 
 若要确定哪个 IoT 中心层适用于解决方案，请向自己提问两个问题：
 

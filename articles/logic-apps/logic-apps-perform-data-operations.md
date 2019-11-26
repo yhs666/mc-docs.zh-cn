@@ -11,12 +11,12 @@ origin.date: 09/20/2019
 ms.date: 11/11/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 92c2fb11f28f96eadaac76e4449ccb205e4b31db
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 97bb7be09b1bd242dcec61ae99506ba8d2de14a0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426003"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389372"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure 逻辑应用中执行数据操作
 
@@ -298,7 +298,7 @@ Oranges,2
 
 如果你偏好使用代码视图编辑器，可将本文中的示例“创建 HTML 表”和“初始化变量”操作复制到自己的逻辑应用基础工作流定义：   [数据操作代码示例 - 创建 HTML 表](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
+1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
 
    本示例使用 Azure 门户以及包含一个“重复”触发器和一个“初始化变量”操作的逻辑应用。   该操作设置用于创建一个变量，该变量的初始值是包含一些采用 JSON 格式的属性和值的数组。 稍后测试逻辑应用时，可以手动运行应用，而无需等待触发器激发。
 
@@ -457,7 +457,7 @@ Oranges,2
 
 如果你偏好使用代码视图编辑器，可将本文中的示例“筛选数组”和“初始化变量”操作复制到自己的逻辑应用基础工作流定义：   [数据操作代码示例 - 筛选数组](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
+1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
 
    本示例使用 Azure 门户以及包含一个“重复”触发器和一个“初始化变量”操作的逻辑应用。   该操作设置用于创建一个变量，该变量的初始值是包含一些示例整数的数组。 稍后测试逻辑应用时，可以手动运行应用，而无需等待触发器激发。
 
@@ -522,7 +522,7 @@ Oranges,2
 
 如果你偏好使用代码视图编辑器，可将本文中的示例“联接”和“初始化变量”操作复制到自己的逻辑应用基础工作流定义：   [数据操作代码示例 - 联接](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
+1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
 
    本示例使用 Azure 门户以及包含一个“重复”触发器和一个“初始化变量”操作的逻辑应用。   此操作设置用于创建一个变量，该变量的初始值是包含一些示例整数的数组。 稍后测试逻辑应用时，可以手动运行应用，而无需等待触发器激发。
 
@@ -582,7 +582,7 @@ Oranges,2
 
 如果你偏好使用代码视图编辑器，可将本文中的示例“分析 JSON”和“初始化变量”操作复制到自己的逻辑应用基础工作流定义：   [数据操作代码示例 - 分析 JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
+1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
 
    本示例使用 Azure 门户以及包含一个“重复”触发器和一个“初始化变量”操作的逻辑应用。   该操作设置用于创建一个变量，该变量的初始值是包含属性和值的 JSON 对象。 稍后测试逻辑应用时，可以手动运行应用，而无需等待触发器激发。
 
@@ -657,7 +657,7 @@ Oranges,2
 
 如果你偏好使用代码视图编辑器，可将本文中的示例“选择”和“初始化变量”操作复制到自己的逻辑应用基础工作流定义：   [数据操作代码示例 - 选择](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
+1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 的逻辑应用设计器中打开逻辑应用。
 
    本示例使用 Azure 门户以及包含一个“重复”触发器和一个“初始化变量”操作的逻辑应用。   该操作设置用于创建一个变量，该变量的初始值是包含一些示例整数的数组。 稍后测试逻辑应用时，可以手动运行应用，而无需等待触发器激发。
 

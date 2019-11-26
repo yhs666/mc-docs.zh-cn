@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 origin.date: 09/19/2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 611781bc110be6effcca47986c8eb42e4887a59d
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+ms.openlocfilehash: 3d2c1a0021a7f0830e04376a30929791c811bb32
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142208"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328765"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Azure Database for MySQL 管理存储过程
 
@@ -49,4 +49,3 @@ Azure Database for MySQL 中提供了以下用于管理服务器的存储过程�
 
 ## <a name="next-steps"></a>后续步骤
 - 了解如何设置[数据传入复制](howto-data-in-replication.md)
-- 了解如何使用[时区表](howto-server-parameters.md#working-with-the-time-zone-parameter)

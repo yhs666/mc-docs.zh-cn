@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/22/2019
 ms.date: 11/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9323ad6a1ca5be85fa2dfc6bb4248ba9ddd951fa
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: ddad2a6d910189e29445e1c861833bb51f42b1f8
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914525"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389445"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 监视、指标和警报
 
@@ -68,7 +68,7 @@ ms.locfileid: "72914525"
 
 ### <a name="arp-availability---split-by-peering"></a>ARP 可用性 - 按对等互连拆分  
 
-可以查看跨对等互连和对等机（主要和辅助 ExpressRoute 路由器）的近实时 [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) 可用性。 此仪表板显示跨两个对等机启动的专用对等互连 ARP 会话，该会话在跨 Microsoft 对等互连时会彻底关闭。 已跨两个对等机利用了默认聚合（平均）。  
+可以查看跨对等互连和对等机（主要和辅助 ExpressRoute 路由器）的近实时 [ARP](/expressroute/expressroute-troubleshooting-arp-resource-manager) 可用性。 此仪表板显示跨两个对等机启动的专用对等互连 ARP 会话，该会话在跨 Microsoft 对等互连时会彻底关闭。 已跨两个对等机利用了默认聚合（平均）。  
 
 ![每个对等机的 ARP 可用性](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 

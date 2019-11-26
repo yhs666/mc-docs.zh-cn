@@ -1,19 +1,20 @@
 ---
 title: Azure 存储资源管理器故障排除指南 | Microsoft Docs
 description: Azure 存储资源管理器调试方法概述
-services: virtual-machines
+services: storage
 author: WenJason
-ms.service: virtual-machines
+manager: digimobile
+ms.service: storage
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 09/30/2019
+ms.date: 11/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 6177d9e8ca64c645b14ea4764652a8a388124841
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 06f074590963fea06f294f15813cb98964607b95
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306727"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328716"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -58,7 +59,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我无法从管理员获取管理层权限，该怎么办？
 
-目前，对于此问题，我们尚未制定 RBAC 相关的解决方法。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri)。
+目前，对于此问题，我们尚未制定 RBAC 相关的解决方法。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)。
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>错误：证书链中的自签名证书（和类似错误）
 
@@ -191,7 +192,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 * 检查网络服务工具使用的端口号。
 * 输入存储资源管理器中代理设置的本地主机 URL 和网络服务工具的端口号。 如果正确完成此操作，网络服务工具将开始记录存储资源管理区向管理和服务终结点发出的网络请求。 例如，在浏览器中输入 `https://cawablobgrs.blob.core.chinacloudapi.cn/` 作为 Blob 终结点时，收到如下所示的响应：
 
-![代码示例](./media/storage-explorer-troubleshooting/4022502_en_2.png)
+  ![代码示例](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
   此响应表示资源存在，不过无法访问它。
 

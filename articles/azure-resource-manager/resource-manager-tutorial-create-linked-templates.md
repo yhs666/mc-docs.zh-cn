@@ -1,25 +1,17 @@
 ---
-title: 创建 Azure 资源管理器链接模板 | Azure
+title: 创建链接模板
 description: 了解如何创建 Azure 资源管理器链接模板，以便创建虚拟机。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-origin.date: 03/18/2019
-ms.date: 09/23/2019
+origin.date: 10/04/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 1431ec061f3300c205ac038156263f6b4dc2f00d
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 434f725486653c418f8eff0d57a2d9262dc88289
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155905"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389561"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
@@ -172,7 +164,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 <!--NOTICE: CLOUD SHELL IS INVALID ON MOONCAKE-->
 
-主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 在本教程中使用的本地 Shell 部署方法就是在[教程：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的。 主模板 (azuredeploy.json) 保存到本地电脑。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，将模板上传到该存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，该脚本会从共享位置下载一个完成的链接模板。 
+主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 在本教程中使用的本地 Shell 部署方法就是在[教程：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的。 主模板 (azuredeploy.json) 保存到本地电脑。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，将模板上传到该存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，脚本从 Github 存储库下载了一个完整的链接模板。
 
 <!--NOTICE: CLOUD SHELL IS INVALID ON MOONCAKE-->
 
@@ -187,7 +179,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -263,7 +255,7 @@ echo "Linked template URI with SAS token: $templateURI"
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -340,4 +332,4 @@ echo "Linked template URI with SAS token: $templateURI"
 > [!div class="nextstepaction"]
 > [部署虚拟机扩展](./resource-manager-tutorial-deploy-vm-extensions.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

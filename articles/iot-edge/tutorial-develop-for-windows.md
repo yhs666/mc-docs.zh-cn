@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c23b1123f75001ece763bdb0f5aa6082624c35c0
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 78f979e7d74fc15c7c1bd8a6dab3860b37529c36
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914515"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389541"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教程：开发适用于 Windows 设备的 IoT Edge 模块
 
@@ -260,7 +260,7 @@ IoT Edge 运行时需要使用注册表凭据将容器映像提取到 IoT Edge �
 
 8. 再次打开 **deployment.windows-amd64.json** 文件。 请注意，再次运行“生成并推送”命令时未创建新文件， 而是更新了同一文件以反映更改。 IotEdgeModule1 映像现在指向容器的版本 0.0.2。 在部署清单中做出此项更改的目的是告知 IoT Edge 设备有新的模块版本可供提取。 
 
-9. 若要进一步验证“生成并推送”命令执行了哪些操作，请转到 [Azure 门户](https://portal.azure.com)并导航到你的容器注册表。 
+9. 若要进一步验证“生成并推送”命令执行了哪些操作，请转到 [Azure 门户](https://portal.azure.cn)并导航到你的容器注册表。 
 
 10. 在该容器注册表中，依次选择“存储库”、“iotedgemodule1”。   验证映像的两个版本是否已推送到注册表。
 

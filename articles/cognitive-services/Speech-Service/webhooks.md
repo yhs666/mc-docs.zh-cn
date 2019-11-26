@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 09/19/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: c1feefeb09636cdb4b002ea62533a4405be87268
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 903242b79c3a483bc02c01e9dd9db5ac21a47c34
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020843"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389514"
 ---
 # <a name="webhooks-for-speech-services"></a>适用于语音服务的 Webhook
 

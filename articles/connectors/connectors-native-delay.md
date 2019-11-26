@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 05/25/2019
 ms.author: v-yiso
 ms.date: 06/24/2018
-ms.openlocfilehash: 4709c3e14b622e3d239cff6bd3ddbab57980903a
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: a889250528500273306c5d006f1aab87ccd17ca1
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135820"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388993"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>在 Azure 逻辑应用中延迟运行下一操作
 
@@ -39,7 +39,7 @@ ms.locfileid: "67135820"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册免费的 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 有关[逻辑应用](../logic-apps/logic-apps-overview.md)的基本知识。 在使用操作之前，必须先使用触发器启动逻辑应用。 在添加延迟操作之前，可以使用任何所需的触发器并添加其他操作。 本主题使用 Office 365 Outlook 触发器。 如果不熟悉逻辑应用，请了解[如何创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -61,7 +61,7 @@ ms.locfileid: "67135820"
 
    | 属性 | JSON 名称 | 必须 | 类型 | 说明 |
    |----------|-----------|----------|------|-------------|
-   | 计数 | 计数 | 是 | Integer | 要延迟的时间单位数 |
+   | 计数 | count | 是 | Integer | 要延迟的时间单位数 |
    | 计价单位 | unit | 是 | String | 时间单位，例如：`Second`、`Minute`、`Hour`、`Day`、`Week` 或 `Month` |
    ||||||
 

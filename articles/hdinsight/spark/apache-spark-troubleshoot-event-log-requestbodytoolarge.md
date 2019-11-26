@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 07/29/2019
 ms.date: 09/23/2019
-ms.openlocfilehash: bed4971556d3dd30a2ab197ad6ae2413aa2c1bbf
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 614f68a1a5e94c2a781ee34013a0151212bd9003
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921312"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389490"
 ---
 # <a name="scenario-nativeazurefilesystem--requestbodytoolarge-appears-in-log-for-apache-spark-streaming-app-in-azure-hdinsight"></a>方案：“NativeAzureFileSystem ...RequestBodyTooLarge”显示在 Azure HDInsight 上 Apache Spark 流应用的日志中
 
@@ -26,7 +26,7 @@ ms.locfileid: "70921312"
 
 Spark 事件日志文件可能达到了 WASB 的文件长度限制。
 
-在 Spark 2.3 中，每个 Spark 应用会生成一个 Spark 事件日志文件。 在 Spark 流应用运行过程中，其事件日志文件会不断增大。 目前，WASB 上的文件的块大小限制为 50000，默认块大小为 4 MB。 因此在默认配置中，最大文件大小为 195 GB。 但是，Azure 存储已将最大块大小增大至 100 MB，这有效地将单个文件的限制提升至 4.75 TB。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)。
+在 Spark 2.3 中，每个 Spark 应用会生成一个 Spark 事件日志文件。 在 Spark 流应用运行过程中，其事件日志文件会不断增大。 目前，WASB 上的文件的块大小限制为 50000，默认块大小为 4 MB。 因此在默认配置中，最大文件大小为 195 GB。 但是，Azure 存储已将最大块大小增大至 100 MB，这有效地将单个文件的限制提升至 4.75 TB。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](/storage/common/storage-scalability-targets)。
 
 ## <a name="resolution"></a>解决方法
 

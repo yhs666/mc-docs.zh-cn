@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 05/25/2019
 ms.author: v-yiso
 ms.date: 08/05/2019
-ms.openlocfilehash: a2af7efd997c3f49a7330f31b7a48d13e7f064f0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: f20c2dd27ea0f1fce6e9c4747ac6868cb930ac68
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514505"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389364"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>使用 ExpressRoute 专用对等互连进行灾难恢复设计
 
@@ -151,11 +151,11 @@ ExpressRoute 旨在实现高可用性，以便与 Microsoft 资源建立运营�
 [10]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "主动-主动 ExpressRoute 线路解决方案 2"
 
 <!--Link References-->
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
+[HA]: /expressroute/designing-for-high-availability-with-expressroute
 [Enterprise DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/
 [SMB DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/
-[con wgt]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection
-[AS Path Pre]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending
+[con wgt]: /expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection
+[AS Path Pre]: /expressroute/expressroute-optimize-routing#solution-use-as-path-prepending
 
 
 

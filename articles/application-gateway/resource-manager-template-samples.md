@@ -1,19 +1,20 @@
 ---
-title: 用于 Azure 应用程序网关的 Azure 资源管理器模板
-description: 用于 Azure 应用程序网关的 Azure 资源管理器模板
+title: Azure Resource Manager 模板
+titleSuffix: Azure Application Gateway
+description: 本文提供了指向 Azure 资源管理器模板示例的链接，因此你可以快速部署以各种方式配置的 Azure 应用程序网关。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-origin.date: 08/13/2019
-ms.date: 09/10/2019
+origin.date: 11/16/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: c029894b307b0499aa8f3fe47df956a9360442fa
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 245756ff0cf705b230fdae675cd5adb1872c7cb9
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857338"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326753"
 ---
 # <a name="azure-resource-manager-templates-for-azure-application-gateway"></a>用于 Azure 应用程序网关的 Azure 资源管理器模板
 
@@ -24,3 +25,4 @@ ms.locfileid: "70857338"
 | [具有 Web 应用程序防火墙的应用程序网关 v2](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/) | 创建具有 Web 应用程序防火墙 v2 的应用程序网关 v2。|
 | | |
 
+<!-- Update_Description: update metedata properties -->

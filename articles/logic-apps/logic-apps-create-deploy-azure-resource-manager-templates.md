@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 origin.date: 10/15/2017
 ms.date: 08/26/2019
-ms.openlocfilehash: 4568af54905f64a73d9f28e2c6e3bc328bac1ca1
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 63d40589cd90e257680a263489fa766762b95137
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538996"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389426"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板部署逻辑应用
 
@@ -34,7 +34,7 @@ ms.locfileid: "69538996"
 
 若要自动将逻辑应用模板部署到 Azure，可以选择下面的“部署到 Azure”按钮，这样可以登录到 Azure 门户，系统会提示你输入有关逻辑应用的信息。  然后，可对逻辑应用模板或参数进行任何必要的更改。
 
-[![“部署到 Azure”](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![“部署到 Azure”](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 例如，在登录到 Azure 门户后，系统会提示输入以下信息：
 
@@ -67,9 +67,9 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-* [使用 Resource Manager 模板和 Azure PowerShell 部署资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [使用 Resource Manager 模板和 Azure PowerShell 部署资源](/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment)
-* [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
+* [`New-AzDeployment`](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>
 

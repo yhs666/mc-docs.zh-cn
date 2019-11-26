@@ -1,18 +1,15 @@
 ---
-title: 创建 Azure 资源管理器参数文件
+title: 创建参数文件
 description: 创建用于在 Azure 资源管理器模板部署过程中传入值的参数文件
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 08/21/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 7ba7d6bc619206dbce4b68ff098c4848951e0fc4
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: ef29dd7b11829501b8b25d5b3b4ceaafe71d8b6f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156448"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389473"
 ---
 <!--Verify successfully-->
 # <a name="create-resource-manager-parameter-file"></a>创建资源管理器参数文件
@@ -210,5 +207,4 @@ ms.locfileid: "71156448"
 - 有关使用 Key Vault 中的值的详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](resource-manager-keyvault-parameter.md)。
 - 有关参数的详细信息，请参阅 [Azure 资源管理器模板中的参数](template-parameters.md)。
 
-<!--Update_Description: new articles on resource manager parameter files -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

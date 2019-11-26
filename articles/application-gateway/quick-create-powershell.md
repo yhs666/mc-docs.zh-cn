@@ -1,22 +1,23 @@
 ---
-title: 快速入门 - 使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell | Microsoft Docs
+title: 快速入门：使用 PowerShell 定向 Web 流量
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure PowerShell 创建 Azure 应用程序网关，以便将 Web 流量重定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-origin.date: 07/17/2019
-ms.date: 09/10/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2a553f03e579b2074171047aa8c72156cc54b68d
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 09b24c4eeb53db2d48b230a2e648712449f44166
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857184"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326646"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>快速入门：通过 Azure PowerShell 使用 Azure 应用程序网关定向 Web 流量
 
 本快速入门介绍如何使用 Azure PowerShell 快速创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
 
@@ -244,4 +245,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [通过 Azure PowerShell 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-powershell.md)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

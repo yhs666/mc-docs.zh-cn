@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 09fe466df56b5cb68f01cc5a5961532b848d2c74
-ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
+ms.openlocfilehash: 24f313bcb86505af02a9569cdbccf25834cab205
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67307598"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389549"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>快速入门：使用 Java 将 X.509 设备注册到设备预配服务
 
@@ -58,10 +58,10 @@ ms.locfileid: "67307598"
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. 在下载的源代码中，导航到示例文件夹 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 。 在所选编辑器中打开文件 ** _/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** ，添加以下详细信息：
+2. 在下载的源代码中，导航到示例文件夹 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 。 在所选编辑器中打开文件 **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** ，添加以下详细信息：
 
     1. 在门户中为预配服务添加 `[Provisioning Connection String]`，如下所示：
-        1. 在 [Azure 门户](https://portal.azure.com)中导航到预配服务。 
+        1. 在 [Azure 门户](https://portal.azure.cn)中导航到预配服务。 
         2. 打开“共享访问策略”，选择具有 *EnrollmentWrite* 权限的策略。 
         3. 复制“主密钥连接字符串”  。 
 
@@ -90,7 +90,7 @@ ms.locfileid: "67307598"
 
         5. 出现提示时，可以选择性地为证书输入“公用名称”  。
         6. 此工具在本地生成“客户端证书”、“客户端证书私钥”和“根证书”。   
-        7. 复制“根证书”，  包括 ** _-----BEGIN CERTIFICATE-----_ ** 行和 ** _-----END CERTIFICATE-----_ ** 行。 
+        7. 复制“根证书”，  包括 **_-----BEGIN CERTIFICATE-----_** 行和 **_-----END CERTIFICATE-----_** 行。 
         8. 将“根证书”的值指定给  参数 **PUBLIC_KEY_CERTIFICATE_STRING**，如下所示：
 
           ```Java
@@ -113,7 +113,7 @@ ms.locfileid: "67307598"
  
     3. 也可选择通过示例代码配置预配服务：
         - 若要将此配置添加到示例，请执行以下步骤：
-            1. 在 [Azure 门户](https://portal.azure.com)中导航到已链接到预配服务的 IoT 中心。 打开中心的“概览”选项卡，复制“主机名”。   将该“主机名”  指定给 *IOTHUB_HOST_NAME* 参数。
+            1. 在 [Azure 门户](https://portal.azure.cn)中导航到已链接到预配服务的 IoT 中心。 打开中心的“概览”选项卡，复制“主机名”。   将该“主机名”  指定给 *IOTHUB_HOST_NAME* 参数。
 
                 ```Java
                 private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";

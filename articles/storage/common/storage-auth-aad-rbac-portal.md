@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 07/25/2019
-ms.date: 09/09/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 20aa473ded3df9d51c34a9a2ca13d0d2ed83e1a0
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 60ae598e9710e088b434ed204d795d4dc2584aa0
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209393"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328720"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>在 Azure 门户中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限
 
@@ -84,7 +84,7 @@ Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../
 
 请遵循以下步骤分配“读取者”角色，使用户能够在 Azure 门户中访问 Blob。  在此示例中，分配范围限定为存储帐户：
 
-1. 在 [Azure 门户](https://portal.azure.com)中导航到存储帐户。
+1. 在 [Azure 门户](https://portal.azure.cn)中导航到存储帐户。
 1. 选择“访问控制(IAM)”以显示存储帐户的访问控制设置  。 选择“角色分配”  选项卡以查看角色分配列表。
 1. 在“添加角色分配”窗口中，选择“读取者”角色。   
 1. 在“将访问权限分配给”字段中，选择“Azure AD 用户、组或服务主体”   。

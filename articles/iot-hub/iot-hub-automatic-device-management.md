@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/28/2019
 ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8b329076b0c97a516a362b70480786d7582192b5
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 2759736c206841a1be9d3fe544e7d0e8878b4c56
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570357"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389188"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>使用 Azure 门户进行大规模自动 IoT 设备管理
 
@@ -126,7 +126,7 @@ SELECT deviceId FROM devices
 
 若要查看配置的详细信息并监视运行它的设备，请执行以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.com)中，转到 IoT 中心。 
+1. 在 [Azure 门户](https://portal.azure.cn)中，转到 IoT 中心。 
 
 2. 选择“IoT 设备配置”  。
 
@@ -170,7 +170,7 @@ SELECT deviceId FROM devices
 
 若要修改配置，请执行以下步骤： 
 
-1. 在 [Azure 门户](https://portal.azure.com)中，转到 IoT 中心。 
+1. 在 [Azure 门户](https://portal.azure.cn)中，转到 IoT 中心。 
 
 2. 选择“IoT 设备配置”  。 
 
@@ -191,7 +191,7 @@ SELECT deviceId FROM devices
 
 删除某个配置时，所有设备孪生将会采用下一个最高优先级的配置。 如果设备孪生不满足其他任何配置的目标条件，则不会应用其他任何设置。 
 
-1. 在 [Azure 门户](https://portal.azure.com)中，转到 IoT 中心。 
+1. 在 [Azure 门户](https://portal.azure.cn)中，转到 IoT 中心。 
 
 2. 选择“IoT 设备配置”  。 
 

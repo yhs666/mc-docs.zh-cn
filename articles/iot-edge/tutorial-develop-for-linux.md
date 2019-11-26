@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fb408a11f6bd7bc0263c9e7c16ec0de9f62a2977
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 031e6ffcbe53631da97f28c455b721b02752b9a9
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914527"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389553"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教程：开发适用于 Linux 设备的 IoT Edge 模块
 
@@ -250,7 +250,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
 8. 再次打开 **deployment.amd64.json** 文件。 请注意，再次运行“生成并推送”命令时未创建新文件， 而是更新了同一文件以反映更改。 SampleModule 映像现在指向容器的版本 0.0.2。 
 
-9. 若要进一步验证“生成并推送”命令执行了哪些操作，请转到 [Azure 门户](https://portal.azure.com)并导航到你的容器注册表。 
+9. 若要进一步验证“生成并推送”命令执行了哪些操作，请转到 [Azure 门户](https://portal.azure.cn)并导航到你的容器注册表。 
 
 10. 在该容器注册表中，依次选择“存储库”、“samplemodule”。   验证映像的两个版本是否已推送到注册表。
 

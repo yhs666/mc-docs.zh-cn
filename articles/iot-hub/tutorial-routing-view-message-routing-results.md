@@ -1,21 +1,21 @@
 ---
 title: 查看 Azure IoT 中心消息路由结果 (.NET) | Microsoft Docs
-description: 查看 Azure IoT 中心消息路由结果
+description: 在使用本教程的第 1 部分设置了所有资源之后，添加将消息路由到 Azure 流分析的功能并在 PowerBI 中查看结果。
 author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 03/25/2018
-ms.date: 11/18/2019
+ms.date: 12/02/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 9447cd68c2c37a7d86bf446b30a364a7a3ecc89a
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: c7ffc31fffcdb56e59ea61981d0298b586d6e7e9
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831372"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389061"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>教程：第 2 部分 - 查看路由的消息
 
@@ -39,7 +39,7 @@ ms.locfileid: "73831372"
 
 服务总线队列将用于检索指定为关键的消息。 设置一个逻辑应用，用于监视服务总线队列，并在消息添加到队列时发送电子邮件。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择“+ 创建资源”。  在搜索框中输入“逻辑应用”，并单击 Enter  。 在显示的搜索结果中选择“逻辑应用”，然后选择“创建”进入“创建逻辑应用”窗格   。 填充字段。
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择“+ 创建资源”。  在搜索框中输入“逻辑应用”，并单击 Enter  。 在显示的搜索结果中选择“逻辑应用”，然后选择“创建”进入“创建逻辑应用”窗格   。 填充字段。
 
    **名称**：此字段是逻辑应用的名称。 本教程使用 ContosoLogicApp  。
 
@@ -54,9 +54,10 @@ ms.locfileid: "73831372"
    ![“创建逻辑应用”屏幕](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
    选择“创建”  。 可能需要花费几分钟时间才能部署应用。
-   
 
-2. 现在转到该逻辑应用。 转到“逻辑应用”的最简单方法是选择“资源组”，选择你的资源组（本教程使用 **ContosoResources**），然后从资源列表中选择“逻辑应用”  。 随即将显示该逻辑应用设计器页面（可能需要向右滚动才可查看完整页面）。 在“逻辑应用设计器”页上向下滚动，直到出现带有“空白逻辑应用 +”字样的磁贴；选择该磁贴  。 默认选项卡是“为你提供”。 如果此窗格为空，请选择“全部”以查看所有可用的连接器和触发器。 
+2. 现在转到该逻辑应用。 转到“逻辑应用”的最简单方法是选择“资源组”，选择你的资源组（本教程使用 **ContosoResources**），然后从资源列表中选择“逻辑应用”  。 
+
+    随即将显示该逻辑应用设计器页面（可能需要向右滚动才可查看完整页面）。 在“逻辑应用设计器”页上向下滚动，直到出现带有“空白逻辑应用 +”字样的磁贴；选择该磁贴  。 默认选项卡是“为你提供”。 如果此窗格为空，请选择“全部”以查看所有可用的连接器和触发器。 
 
 3. 从连接器列表中选择“服务总线”。 
 
@@ -96,7 +97,7 @@ ms.locfileid: "73831372"
 
 ### <a name="create-the-stream-analytics-job"></a>创建流分析作业
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源” > “物联网” > “流分析作业”。   
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择“创建资源” > “物联网” > “流分析作业”。   
 
 2. 为作业输入以下信息。
 

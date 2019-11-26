@@ -12,12 +12,12 @@ origin.date: 09/09/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: ed87356a43f2bfe39ccc54361039dc403ff6950f
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 0346e273650a8b8dd109c9e51cd139e3be4b7543
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329686"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389548"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和密钥的边界
 LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)，它可控制 LUIS 中的意向、实体和功能。 第二个是基于密钥类型的[配额限制](#key-limits)。 边界的第三个区域是用于控制 LUIS 网站的[键盘组合](#keyboard-controls)。 第四个是 LUIS 创作网站和 LUIS [终结点](luis-glossary.md#endpoint) API 之间的[世界区域映射](luis-reference-regions.md)。 
@@ -81,7 +81,8 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 |S0 - 基本层|-|50/秒|查询 LUIS 终结点|
 |S0 - 标准层|-|50/秒|查询 LUIS 终结点|
 |[情绪分析集成](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|提供了添加情感信息（包括关键短语数据提取）的功能，而无需其他 Azure 资源。 |
-|[语音集成](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|每单位成本 1 千个终结点请求|将口语话语转为文本话语并返回 LUIS 结果|
+
+<!-- |[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 thousand endpoint requests per unit cost|Convert spoken utterance to text utterance and return LUIS results| -->
 
 ## <a name="keyboard-controls"></a>键盘控件
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c02e35fa4775c72bc2439214e0239ca59a8014b0
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: dad464f54a5fbfbd331ea0f13312d7e3acab8472
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174270"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389555"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教程：将 Azure 流分析作为 IoT Edge 模块进行部署
 
@@ -275,9 +275,9 @@ Azure IoT Edge 设备：
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/azure/storage/
-[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
+[azure-iot]: /iot-hub/
+[azure-storage]: /storage/
+[azure-stream]: /stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-quickstart-win]: quickstart.md
 [lnk-quickstart-lin]: quickstart-linux.md

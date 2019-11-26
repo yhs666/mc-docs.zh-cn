@@ -1,20 +1,21 @@
 ---
-title: 快速入门 - 使用 Azure 应用程序网关定向 Web 流量 - Azure 门户 | Microsoft Docs
+title: 快速入门：使用门户定向 Web 流量
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure 门户创建 Azure 应用程序网关，以便将 Web 流量定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-origin.date: 07/17/2019
-ms.date: 09/10/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b94d4f6b0581da647b39abc8b142d2e31ecaf145
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 6cc92908311f40a1d1f0e2677fc9165b5ed1f4b7
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857188"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326718"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -31,7 +32,7 @@ ms.locfileid: "70857188"
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
-1. 选择 Azure 门户左侧菜单上的“创建资源”  。 此时会显示“新建”窗口。 
+1. 在 Azure 门户菜单或“主页”页上，选择“创建资源”   。 此时会显示“新建”窗口。 
 
 2. 选择“网络”  ，然后在“特色”列表中选择“应用程序网关”   。
 
@@ -44,7 +45,7 @@ ms.locfileid: "70857188"
 
      ![新建应用程序网关：基础知识](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创建新的虚拟网络，或者使用现有的虚拟网络。 在此示例中，将在创建应用程序网关的同时创建新的虚拟网络。 在独立的子网中创建应用程序网关实例。 在本示例中创建两个子网：一个用于应用程序网关，另一个用于后端服务器。
+2. Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创建新的虚拟网络，或者使用现有的虚拟网络。 在此示例中，将在创建应用程序网关的同时创建新的虚拟网络。 在独立的子网中创建应用程序网关实例。 在本示例中创建两个子网：一个用于应用程序网关，另一个用于后端服务器。
 
     在“配置虚拟网络”下，通过选择“新建”创建新的虚拟网络   。 在打开的“创建虚拟网络”窗口中，输入以下值以创建虚拟网络和两个子网  ：
 
@@ -66,7 +67,7 @@ ms.locfileid: "70857188"
 
 1. 在“前端”选项卡上，验证“IP 地址类型”是否设置为“公共”    。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 本示例将选择公共前端 IP。
    > [!NOTE]
-   > 对于应用程序网关 v2 SKU，只能选择**公共**前端 IP 配置。 目前尚未为此 v2 SKU 启用专用前端 IP 配置。
+   > 对于应用程序网关 v2 SKU，只能选择**公共**前端 IP 配置。 目前仅尚未为此 v2 SKU 启用专用前端 IP 配置。 可以同时具备公共和专用前端 IP 配置。
 
 2. 为“公共 IP 地址”选择“新建”，输入“myAGPublicIPAddress”作为公共 IP 地址名称，然后选择“确定”     。 
 
@@ -136,7 +137,7 @@ ms.locfileid: "70857188"
 
 ### <a name="create-a-virtual-machine"></a>创建虚拟机
 
-1. 在 Azure 门户中，选择“创建资源”。  此时会显示“新建”窗口。 
+1. 在 Azure 门户菜单或“主页”页上，选择“创建资源”   。 此时会显示“新建”窗口。 
 2. 选择“计算”，然后在“常用”列表中选择“Windows Server 2016 Datacenter”    。 此时会显示“创建虚拟机”页。 <br>应用程序网关可将流量路由到其后端池中使用的任何类型的虚拟机。 本示例使用 Windows Server 2016 Datacenter。
 3. 对于以下虚拟机设置，请在“基本信息”选项卡中输入相应值： 
 
@@ -179,7 +180,7 @@ ms.locfileid: "70857188"
 
 ### <a name="add-backend-servers-to-backend-pool"></a>将后端服务器添加到后端池
 
-1. 选择“所有资源”，然后选择“myAppGateway”。  
+1. 在 Azure 门户菜单上，选择“所有资源”，或搜索并选择“所有资源”   。 然后选择“myAppGateway”  。
 
 2. 从左侧菜单中选择“后端池”。 
 
@@ -191,7 +192,7 @@ ms.locfileid: "70857188"
 
     ![添加后端服务器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 选择**保存**。
+6. 选择“保存”  。
 
 7. 等待部署完成之后再继续下一步。
 
@@ -208,7 +209,8 @@ ms.locfileid: "70857188"
 如果不再需要通过应用程序网关创建的资源，请删除资源组。 删除资源组时，也会删除应用程序网关和及其所有的相关资源。 
 
 若要删除资源组，请执行以下操作：
-1. 在 Azure 门户的左侧菜单上选择“资源组”  。
+
+1. 在 Azure 门户菜单上，选择“资源组”，或搜索并选择“资源组”   。
 2. 在“资源组”页的列表中搜索“myResourceGroupAG”，然后将其选中。  
 3. 在“资源组”页上，选择“删除资源组”   。
 4. 在“键入资源组名称”字段中输入“myResourceGroupAG”，然后选择“删除”   

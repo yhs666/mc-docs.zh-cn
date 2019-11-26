@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: e049318041dbec946d0ab76f5b2a68c5be20a209
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 145fb5e13b8ed501d2282eaf74dd89b086114263
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203725"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389427"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>教程：使用参数文件部署资源管理器模板
 
@@ -44,9 +44,7 @@ ms.locfileid: "74203725"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Standard_ZRS",
         "Premium_LRS",
-        "Premium_ZRS",
         "Standard_GZRS",
         "Standard_RAGZRS"
       ]

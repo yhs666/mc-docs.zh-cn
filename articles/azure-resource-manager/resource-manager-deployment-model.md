@@ -1,18 +1,15 @@
 ---
-title: Resource Manager 和经典部署 | Azure
+title: 资源管理器部署和经典部署
 description: 介绍 Resource Manager 部署模型与经典（或服务管理）部署模型之间的差异。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 08/22/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: a582d23da6ba8c24780ac92170e226ad3d7853e3
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 50f1899f1a3cc1f86f4fad11fd861d04d3a4d3fe
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156219"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389477"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure 资源管理器和经典部署：了解部署模型和资源状态
 

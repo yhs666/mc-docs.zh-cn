@@ -14,12 +14,12 @@ ms.workload: tbd
 origin.date: 09/04/2019
 ms.author: v-yiso
 ms.date: 10/21/2019
-ms.openlocfilehash: 67c22d608c1c51fbf581a4ec52b8625b7d0c2b45
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 04c833dfb2553233f97876bead55541cf0de3aa1
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292604"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389407"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用*自动*进行来宾 OS 更新，则不一定要阅读本页面。
@@ -257,7 +257,7 @@ Azure 不断地发布更新。 来宾 OS 只不过是此类更新的其中一种
 ## <a name="guest-os-supportability-and-retirement-policy"></a>来宾 OS 可支持性和停用策略
 [此处][retirepolicy]解释了来宾 OS 可支持性和停用策略。
 
-[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: /cloud-services/cloud-services-update-azure-service
 [来宾 OS 更新 RSS 源]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md

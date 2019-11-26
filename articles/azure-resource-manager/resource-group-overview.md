@@ -1,18 +1,15 @@
 ---
-title: Azure Resource Manager 概述 | Azure
+title: 概述
 description: 介绍如何使用 Azure Resource Manager 在 Azure 上部署和管理资源以及对其进行访问控制。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: overview
 origin.date: 08/29/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 62bb6ac6c4f1228a688c2330a225f3c887fe4676
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 00bbab37d1b6f9722a0070cc4d949a4a90b06735
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156091"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389595"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 
@@ -38,7 +35,7 @@ Azure 资源管理器是 Azure 的部署和管理服务。 它提供一个管理
 * **资源组** - 一个容器，用于保存 Azure 解决方案的相关资源。 资源组包括你想要作为一个组进行管理的那些资源。 根据最适合组织的情况来决定哪些资源属于哪个资源组。 请参阅 [资源组](#resource-groups)。
 * **资源提供程序** - 提供 Azure 资源的服务。 例如，Microsoft.Compute 就是一个常见的资源提供程序，它提供虚拟机资源。 Microsoft.Storage 是另一个常见的资源提供程序。 请参阅[资源提供程序和类型](resource-manager-supported-services.md)。
 * **资源管理器模板** - 一个 JavaScript 对象表示法 (JSON) 文件，用于定义一个或多个要部署到资源组或订阅的资源。 使用模板能够以一致方式反复部署资源。 请参阅[模板部署概述](template-deployment-overview.md)。
-* **声明性语法** - 一种语法，允许声明“以下是我想要创建的项目”，而不需要编写一系列编程命令来进行创建。 Resource Manager 模板便是声明性语法的其中一个示例。 在该文件中，可以定义要部署到 Azure 的基础结构的属性。  请参阅[模板部署概述](template-deployment-overview.md)。
+* **声明性语法** — 一种语法，允许声明“以下是我想要创建的项目”，而不需要编写一系列编程命令来进行创建。 Resource Manager 模板便是声明性语法的其中一个示例。 在该文件中，可以定义要部署到 Azure 的基础结构的属性。  请参阅[模板部署概述](template-deployment-overview.md)。
 
 ## <a name="the-benefits-of-using-resource-manager"></a>使用 Resource Manager 的优势
 
@@ -60,9 +57,11 @@ Azure 资源管理器是 Azure 的部署和管理服务。 它提供一个管理
 
 ## <a name="understand-scope"></a>了解范围
 
-Azure 提供四个级别的范围：[管理组](../governance/management-groups/index.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了一个这些层的示例。
+Azure 提供四个级别的范围：[管理组](../governance/management-groups/index.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了这些层的一个示例。
 
-![作用域](./media/resource-group-overview/scope-levels.png)
+<!--Not Available on 21st Nov 2019, [management groups](../governance/management-groups/overview.md)-->
+
+![范围](./media/resource-group-overview/scope-levels.png)
 
 将在上述任何级别的作用域中应用管理设置。 所选的级别确定应用设置的广泛程度。 较低级别继承较高级别的设置。 例如，将[策略](../governance/policy/overview.md)应用于订阅时，该策略将应用于订阅中的所有资源组和资源。 在资源组上应用策略时，该策略将应用于资源组及其所有资源。 但是，其他资源组没有该策略分配。
 

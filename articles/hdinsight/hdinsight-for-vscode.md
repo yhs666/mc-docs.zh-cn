@@ -10,12 +10,12 @@ ms.workload: big-data
 origin.date: 10/11/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: ab951576e015b93efd042617818621d9f2003f97
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 951f312e8f0dc9f81856bb95eb9adf3fc5de2241
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425744"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389059"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Spark 和 Hive 工具
 
@@ -373,7 +373,7 @@ ms.locfileid: "73425744"
 
 ## <a name="reader-only-role"></a>仅限读取者角色
 
-具有群集“仅限读取者”角色的用户不再可以将作业提交到 HDInsight 群集，也不可以查看 Hive 数据库。 需在 [Azure 门户](https://ms.portal.azure.com/)中联系群集管理员将你的角色升级到 [**HDInsight 群集操作员**](/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。 如果你有有效的 Ambari 凭据，可遵循以下指导手动链接群集。
+具有群集“仅限读取者”角色的用户不再可以将作业提交到 HDInsight 群集，也不可以查看 Hive 数据库。 需在 [Azure 门户](https://ms.portal.azure.cn/)中联系群集管理员将你的角色升级到 [**HDInsight 群集操作员**](/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。 如果你有有效的 Ambari 凭据，可遵循以下指导手动链接群集。
 
 ### <a name="browse-the-hdinsight-cluster"></a>浏览 HDInsight 群集  
 

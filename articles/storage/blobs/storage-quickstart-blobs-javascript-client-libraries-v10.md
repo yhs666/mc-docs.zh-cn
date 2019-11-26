@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.custom: mvc
 ms.service: storage
-ms.author: karler
+ms.author: v-jay
 origin.date: 08/29/2019
-ms.date: 09/30/2019
+ms.date: 11/25/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: aed033abe36a264c377b4c05e62c3886e8c2c3c6
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 8829cc6a3f61e681c97a5f0a397045dc4987a986
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306773"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328634"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -167,23 +167,23 @@ npx http-server
 
 ### <a name="add-the-blob-storage-client-library"></a>添加 Blob 存储客户端库
 
-若要调用 Blob 存储 API，请先[下载适用于 JavaScript 的 Azure 存储 SDK - Blob 客户端库](https://aka.ms/downloadazurestoragejsblob)，提取 zip 的内容，并将 *azure-storage.blob.js* 文件放入 *azure-blob-javascript* 文件夹。
+若要调用 Blob 存储 API，请先[下载适用于 JavaScript 的 Azure 存储 SDK - Blob 客户端库](https://aka.ms/downloadazurestoragejsblob)，提取压缩内容，并将 azure-storage.blob.js 文件放入 azure-blob-javascript 文件夹   。
 
 接下来，将以下 HTML 粘贴到 *index.html* 中的 `</body>` 结束标记的后面（请替换占位符注释）。
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-此代码添加对脚本文件的引用，并为你自己的 JavaScript 代码提供一个位置。 在本快速入门中，我们将使用 *azure-storage.blob.js* 脚本文件，以便可以在 VS Code 中打开它、读取其内容，并设置断点。 在生产环境中，应使用更精简的 *azure-storage.blob.min.js* 文件，该文件也已在 zip 文件中提供。
+此代码添加对脚本文件的引用，并为你自己的 JavaScript 代码提供一个位置。 在本快速入门中，我们将使用 azure-storage.blob.js 脚本文件，以便可以在 VS Code 中打开它、读取其内容，并设置断点  。 在生产环境中，应使用更精简的 *azure-storage.blob.min.js* 文件，该文件也已在 zip 文件中提供。
 
 可以在[参考文档](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index)中详细了解每个 Blob 存储函数。 请注意，SDK 中的某些函数只能在 Node.js 中使用，或只能在浏览器中使用。
 
-*azure-storage.blob.js* 中的代码导出名为 `azblob` 的全局变量，你将在 JavaScript 代码中使用该变量来访问 Blob 存储 API。
+azure-storage.blob.js 中的代码导出名为 `azblob` 的全局变量，你将在 JavaScript 代码中使用该变量来访问 Blob 存储 API  。
 
 ### <a name="add-the-initial-javascript-code"></a>添加初始 JavaScript 代码
 
@@ -253,7 +253,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-此代码在不使用 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 实例的情况下调用 ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) 和 [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) 函数。 为了简化本快速入门中的操作，此代码假设你的存储帐户已创建且已启用。 在生产代码中，请使用 Aborter 实例来添加超时功能。
+此代码在不使用 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 实例的情况下调用 ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) 和 [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) 函数。 为了简化本快速入门中的操作，此代码假设你的存储帐户已创建且已启用。 在生产代码中，请使用 Aborter 实例来添加超时功能。
 
 ### <a name="list-blobs"></a>列出 Blob
 
@@ -289,7 +289,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-此代码将在循环中调用 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) 函数，以确保检索所有段。 对于每个段，它会循环访问它所包含的 Blob 项列表，并更新 **Files** 列表。
+此代码将在循环中调用 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 函数，以确保检索所有段。 对于每个段，它会循环访问它所包含的 Blob 项列表，并更新 **Files** 列表。
 
 ### <a name="upload-blobs"></a>上传 Blob
 
@@ -317,7 +317,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-此代码将“Select and upload files”按钮连接到隐藏的 `file-input` 元素。  这样，按钮 `click` 事件便会触发文件输入 `click` 事件，并显示文件选取器。 选择文件并关闭对话框之后，将发生 `input` 事件并调用 `uploadFiles` 函数。 对于选择的每个文件，此函数将调用仅限浏览器的 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) 函数。 每次调用都会返回一个约定，此约定将添加到某个列表，以便可以等待一次，导致并行上传文件。
+此代码将“Select and upload files”按钮连接到隐藏的 `file-input` 元素。  这样，按钮 `click` 事件便会触发文件输入 `click` 事件，并显示文件选取器。 选择文件并关闭对话框之后，将发生 `input` 事件并调用 `uploadFiles` 函数。 对于选择的每个文件，此函数将调用仅限浏览器的 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) 函数。 每次调用都会返回一个约定，此约定将添加到某个列表，以便可以等待一次，导致并行上传文件。
 
 ### <a name="delete-blobs"></a>删除 Blob
 

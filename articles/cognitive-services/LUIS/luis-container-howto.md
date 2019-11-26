@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/30/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1746cd65342fd9367f2bf0985506ab6a5df712da
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 97e7e9799fa255e1a3383dc0aeca1581a5addddf
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416390"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389353"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安装并运行 LUIS docker 容器
  
@@ -241,9 +241,9 @@ ApiKey={API_KEY}
 |--|--|--|
 |`q`|string|用户的话语。|
 |`timezoneOffset`|number|通过 timezoneOffset 可以[更改时区](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)，该时区由预生成实体 datetimeV2 使用。|
-|`verbose`|布尔值|设置为 true 时，返回所有意向及其分数。 默认值为 false 时，仅返回评分最高的意向。|
-|`staging`|布尔值|设置为 true 时，返回过渡环境结果中的查询。 |
-|`log`|布尔值|记录查询，以便以后用于[主动学习](luis-how-to-review-endpoint-utterances.md)。 默认值为 true。|
+|`verbose`|boolean|设置为 true 时，返回所有意向及其分数。 默认值为 false 时，仅返回评分最高的意向。|
+|`staging`|boolean|设置为 true 时，返回过渡环境结果中的查询。 |
+|`log`|boolean|记录查询，以便以后用于[主动学习](luis-how-to-review-endpoint-utterances.md)。 默认值为 true。|
 
 ### <a name="query-published-app"></a>查询已发布的应用
 
@@ -347,8 +347,3 @@ LUIS 容器使用 Azure 帐户中的认知服务  资源向 Azure 发送账单�
 
 * 查看[配置容器](luis-container-configuration.md)了解配置设置
 * 若要解决与 LUIS 功能相关的问题，请参阅[故障排除](troubleshooting.md)。
-* 使用更多[认知服务容器](../cognitive-services-container-support.md)
-
-
-
-

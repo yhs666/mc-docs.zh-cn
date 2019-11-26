@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.author: v-jay
 origin.date: 12/08/2016
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: d2fbe855aef40d56d622d86d2a4f05db97e0d3ff
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 2bc7b923908b3d0c6e034275f79a97711d6024cd
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914385"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328739"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>如何通过 Java 使用队列存储
 
@@ -404,6 +404,6 @@ catch (Exception e)
 [Azure SDK for Java]: /develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure 存储客户端 SDK 参考]: http://azure.github.io/azure-storage-java/
+[Azure 存储客户端 SDK 参考]: https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/

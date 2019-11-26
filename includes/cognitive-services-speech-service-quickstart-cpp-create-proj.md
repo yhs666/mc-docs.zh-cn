@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 08/21/2019
 ms.date: 09/24/2019
 ms.author: v-tawe
-ms.openlocfilehash: e068ab6f5ad6ed097f30de0ddbf9ebb13adc267c
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: c9c082a7a7270dc49b59f5fd86f6a804fbb7e3ba
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71696062"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389958"
 ---
 若要创建 Visual Studio 项目以用于 C++ 桌面开发，需要设置 Visual Studio 开发选项，创建项目，选择目标体系结构，然后安装语音 SDK。 
 
@@ -78,4 +78,4 @@ ms.locfileid: "71696062"
 
 1. 在“预览更改”  对话框中，选择“确定”  。
 
-1. 在“接受许可证”  对话框中，查看许可证，然后选择“我接受”  。 包安装开始，安装完成后，“输出”  窗格将显示类似于以下文本的消息：`Successfully installed 'Microsoft.CognitiveServices.Speech 1.6.0' to helloworld`。 
+1. 在“接受许可证”  对话框中，查看许可证，然后选择“我接受”  。 包安装开始，安装完成后，“输出”  窗格将显示类似于以下文本的消息：`Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`。 

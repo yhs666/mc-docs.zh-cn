@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 01/03/2019
-ms.date: 09/30/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 7616f9384741c068ecd35b670a52608ec338c68c
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 8a8a45abdc84050f53d8e4da78b6b65d039d35b7
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306702"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328655"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教程：使用 Blob 存储构建高度可用的应用程序
 
@@ -80,7 +80,7 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
    | **性能** | 标准 | 对于示例方案，“标准”已足够。 |
    | **复制**| 读取访问异地冗余存储 (RA-GRS) | 这是运行示例所必需的。 |
    |**订阅** | 你的订阅 |有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
-   |**ResourceGroup** | MyResourceGroup |如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+   |**ResourceGroup** | MyResourceGroup |如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。 |
    |**Location** | 中国东部 | 选择一个位置。 |
 
 ![创建存储帐户](media/storage-create-geo-redundant-storage/createragrsstracct.png)

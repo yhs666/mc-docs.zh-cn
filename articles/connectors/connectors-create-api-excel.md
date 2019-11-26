@@ -11,12 +11,12 @@ tags: connectors
 ms.topic: article
 origin.date: 08/23/2018
 ms.date: 10/08/2019
-ms.openlocfilehash: 47b0a26952b4bf98c83025742883a38d381dd902
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 4b368fb56ac0d35329772d0bf9a2b0bdb93d3af0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340987"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389231"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Excel Online 数据
 
@@ -35,7 +35,7 @@ ms.locfileid: "71340987"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://azure.microsoft.com/free/" target="_blank">注册一个免费 Azure 帐户</a>。 
+* Azure 订阅。 如果没有 Azure 订阅，请<a href="www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。 
 
 * 用于你的工作帐户或个人 Microsoft 帐户的一个 [Office 365 帐户](https://www.office.com/) 
 
@@ -48,7 +48,7 @@ ms.locfileid: "71340987"
 
 ## <a name="add-excel-action"></a>添加 Excel 操作
 
-1. 在 [Azure 门户](https://portal.azure.com)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
+1. 在 [Azure 门户](https://portal.azure.cn)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
 
 1. 在触发器下，选择“新建步骤”。 
 

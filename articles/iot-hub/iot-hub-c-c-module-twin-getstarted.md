@@ -9,12 +9,12 @@ ms.topic: conceptual
 orgin.date: 06/25/2018
 ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 65a4dd52debe41fda965c06f3afb83afc8c2c155
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 60942ceb7d2eeff7eb3200b4931178f4d891ce3d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156025"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389171"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>IoT 中心模块标识和模块孪生 (C) 入门
 
@@ -394,7 +394,7 @@ int main(void)
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/
-[lnk-portal]: https://portal.azure.com/
+[lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/quickstart-linux.md

@@ -5,21 +5,21 @@ ms.topic: include
 origin.date: 03/29/2019
 ms.date: 09/24/2019
 ms.author: v-tawe
-ms.openlocfilehash: 399224fb3218e6333d854bb34b376e4787de5394
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 703fd80f612a974cac2afb19d50f3af604901d66
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71696253"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389355"
 ---
 ## <a name="authentication"></a>身份验证
 
 每个请求都需要一个授权标头。 下表列出了每个服务支持的标头：
 
-| 支持的授权标头 | 语音转文本 | 文本转语音 |
-|------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | 是 | 否 |
-| Authorization:持有者 | 是 | 是 |
+| 支持的授权标头 | 语音转文本 |
+|------------------------|----------------|
+| Ocp-Apim-Subscription-Key | 是 |
+| Authorization:持有者 | 是 |
 
 使用 `Ocp-Apim-Subscription-Key` 标头时，只需提供订阅密钥。 例如：
 
@@ -46,7 +46,7 @@ ms.locfileid: "71696253"
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: chinaeast.api.cognitive.chinacloudapi.cn
+Host: chinaeast2.api.cognitive.azure.cn
 Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
@@ -64,7 +64,7 @@ $FetchTokenHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
 }
 
-$OAuthToken = Invoke-RestMethod -Method POST -Uri https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
  -Headers $FetchTokenHeader
 
 # show the token received
@@ -78,7 +78,7 @@ cURL 是 Linux（及面向 Linux 的 Windows 子系统）中提供的一种命�
 
 ```cli
 curl -v -X POST
- "https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken" \
+ "https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
  -H "Content-Length: 0" \
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -92,7 +92,7 @@ curl -v -X POST
 public class Authentication
 {
     public static readonly string FetchTokenUri =
-        "https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken";
+        "https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
 
@@ -133,7 +133,7 @@ subscription_key = 'REPLACE_WITH_YOUR_KEY'
 
 
 def get_token(subscription_key):
-    fetch_token_url = 'https://chinaeast.api.cognitive.chinacloudapi.cn/sts/v1.0/issueToken'
+    fetch_token_url = 'https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken'
     headers = {
         'Ocp-Apim-Subscription-Key': subscription_key
     }
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
 Authorization: Bearer YOUR_ACCESS_TOKEN
-Host: chinaeast.stt.speech.chinacloudapi.cn
+Host: chinaeast2.stt.speech.azure.cn
 Content-type: application/ssml+xml
 Content-Length: 199
 Connection: Keep-Alive

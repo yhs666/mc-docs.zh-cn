@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 6f0c0396498b4e7cb46b98c94adc9ec8b6bc5875
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 859b6f349a150307d51917be7d5f1d06e911f0db
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203690"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389432"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>教程：创建和部署第一个 Azure 资源管理器模板
 
@@ -89,6 +89,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az cloud set -n AzureChinaCloud
 az login
 ```
 

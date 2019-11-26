@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 10/01/2018
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 2fa8111a059e605bae6d74a4064e9902b8f2d2e0
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 7e0abb23e7987141b1ab2d598b63e3bca91598c9
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020803"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389510"
 ---
-# <a name="migrate-from-the-custom-speech-service-to-the-speech-services"></a>从自定义语音服务迁移到语音服务
+# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>从自定义语音服务迁移到语音服务
 
 本文介绍如何将应用程序从自定义语音服务迁移到语音服务。
 
@@ -31,7 +31,8 @@ ms.locfileid: "74020803"
 
 1. 在应用程序的每个可用区域中创建一个 Azure 资源。 Azure 资源名称为 **Speech**。 可对同一区域中的以下服务使用单个 Azure 资源，而无需创建不同的资源：
 
-    * 文本转语音
+    * 语音转文本
+    * 自定义语音转文本
 
 2. 下载[语音 SDK](speech-sdk.md)。
 
@@ -55,6 +56,7 @@ ms.locfileid: "74020803"
 ## <a name="next-steps"></a>后续步骤
 
 * [试用语音服务](get-started.md)。
+* 了解[语音转文本](./speech-to-text.md)的概念。
 
 ## <a name="see-also"></a>另请参阅
 

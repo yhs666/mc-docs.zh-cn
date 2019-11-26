@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 01/17/2019
-ms.date: 04/16/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: 6b3303528abf8a3f9f887e7b7d1d0e55729a713f
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 7a55a771b23bbfb11b549a3e31aff6dbb72e5cba
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686349"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326809"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>应用程序网关的多站点托管功能
 
@@ -24,9 +24,9 @@ ms.locfileid: "59686349"
 > [!IMPORTANT]
 > 规则将按照门户中的列出顺序进行处理。 我们强烈建议先配置多站点侦听器，然后再配置基本侦听器。  这可以确保将流量路由到适当的后端。 如果基本侦听器先列出并且与传入请求匹配，则该侦听器将处理该请求。
 
-对 http://contoso.com 的请求路由到 ContosoServerPool，对 http://fabrikam.com 的请求路由到 FabrikamServerPool。
+对 `http://contoso.com` 的请求路由到 ContosoServerPool，对 `http://fabrikam.com` 的请求路由到 FabrikamServerPool。
 
-同样可以将同一父域的两个子域托管到同一应用程序网关部署。 例如，在单个应用程序网关部署中托管的 http://blog.contoso.com 和 http://app.contoso.com 都是使用子域。
+同样可以将同一父域的两个子域托管到同一应用程序网关部署。 例如，在单个应用程序网关部署中托管的 `http://blog.contoso.com` 和 `http://app.contoso.com` 都是使用子域。
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>主机标头和服务器名称指示 (SNI)
 
@@ -126,4 +126,4 @@ ms.locfileid: "59686349"
 了解多站点托管以后，请转到[创建使用多站点托管的应用程序网关](tutorial-multiple-sites-powershell.md)，以便创建能够支持多个 Web 应用程序的应用程序网关。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

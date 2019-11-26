@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 8616a7f49cb3c10631b6a28f52926b5704ca84e7
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 97b88acf4cbb77d11f301d24388ef2115bb95ab1
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203727"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389429"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>教程：使用 Azure 快速入门模板
 
@@ -45,7 +45,6 @@ ms.locfileid: "74203727"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Premium_ZRS",
         "Standard_GZRS",
         "Standard_RAGZRS"
       ]
@@ -140,9 +139,7 @@ ms.locfileid: "74203727"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Standard_ZRS",
         "Premium_LRS",
-        "Premium_ZRS",
         "Standard_GZRS",
         "Standard_RAGZRS"
       ]

@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   origin.date: 09/12/2019
   ms.date: 10/11/2019
-  ms.openlocfilehash: 6e402c3da3c89a353d0790ead90594005827d04c
-  ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+  ms.openlocfilehash: 13e5a80ab3a3d378309802b2bd2e4c9fda812e8f
+  ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/11/2019
-  ms.locfileid: "72275935"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74388960"
 highlightedContent:
   items:
   - title: 什么是认知服务？
@@ -29,9 +29,6 @@ highlightedContent:
   - title: 认知服务中的语言支持
     itemType: reference
     url: ./language-support.md
-  - title: 在容器中使用认知服务
-    itemType: concept
-    url: ./cognitive-services-container-support.md
 conceptualContent:
   items:
   - title: 影像
@@ -58,7 +55,7 @@ conceptualContent:
   - title: 语音
     summary: 将语音转换为文本，将文本转换为自然语音。 从一种语言翻译成另一种语言，并启用说话人验证和识别。
     links:
-    - url: ./speech-service/index.yml
+    - url: ./speech-service/index.md
       itemType: overview
       text: 语音服务
   - title: 决策服务
@@ -67,21 +64,6 @@ conceptualContent:
     - url: ./content-moderator/index.yml
       itemType: overview
       text: 内容审查器
-  - title: 容器
-    summary: Azure 认知服务中的容器支持让开发人员能够使用与 Azure 中可用的 API 一样丰富的 API，并能够灵活地选择在何处部署和托管随 Docker 容器提供的服务。
-    links:
-    - url: ./cognitive-services-container-support.md
-      itemType: overview
-      text: 认知服务的容器
-    - url: ./containers/container-reuse-recipe.md
-      itemType: overview
-      text: 创建要重复使用的容器
-    - url: ./containers/azure-kubernetes-recipe.md
-      itemType: how-to-guide
-      text: 部署到 Azure Kubernetes 服务
-    - url: ./containers/docker-compose-recipe.md
-      itemType: how-to-guide
-      text: 使用 Docker Compose 部署多个容器
 additionalContent:
   sections:
   - items:

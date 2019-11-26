@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 07/18/2019
-ms.date: 10/14/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 94db59909bafe97d18289828838b9ad047c9e900
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: b052d27906cbda7085c2338f54cc7fbc4dd9f6b5
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275171"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328751"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>存储帐户的 Azure 存储可伸缩性和性能目标
 

@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 origin.date: 11/28/2017
 ms.date: 04/01/2018
 ms.author: v-yiso
-ms.openlocfilehash: a6983c7e5c7e4b8edd738b458fd2524ccae489b8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a5948cf6f5ccb62f26afe0e93b6c9d1a3c0412b0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627210"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388966"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>重置有故障的 ExpressRoute 线路
 
 针对 ExpressRoute 线路执行的某个操作未成功完成时，该线路可能进入“故障”状态。 本文帮助你重置有故障的 Azure ExpressRoute 线路。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="reset-a-circuit"></a>重置线路
 

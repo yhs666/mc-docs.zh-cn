@@ -12,12 +12,12 @@ ms.topic: conceptual
 tags: connectors
 origin.date: 10/14/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: ecf306f982f51538f452de5dd372a3ee4d12b236
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: a2afb7354c43545b391a77fcfcc1aa5750850764
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425919"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389003"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用自动完成 SQL Server 或 Azure SQL 数据库的工作流
 
@@ -29,7 +29,7 @@ ms.locfileid: "73425919"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册免费的 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 一个 [SQL Server 数据库](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database)或 [Azure SQL 数据库](../sql-database/sql-database-get-started-portal.md)
 

@@ -10,12 +10,12 @@ origin.date: 08/07/2019
 ms.date: 10/08/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e0b86b6616d8b3cfd9daafce5939335feea647e2
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 496a544d5536585d10f12b7883f97413bd2d22bf
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340741"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389534"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 模块
 
@@ -55,7 +55,7 @@ ms.locfileid: "71340741"
 
 - 开发计算机上的 [Docker Community Edition](https://docs.docker.com/install/)。
 
-- [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure 容器注册表](/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > 对于原型和测试用途，可以使用本地 Docker 注册表，而不使用云注册表。

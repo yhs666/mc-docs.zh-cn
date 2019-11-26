@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: ef95c80177d039e029c1606c6b8ef10e8c168a51
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 80b835ab4c7e93f8bc6243a05a7195920e5334b2
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914505"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389370"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>使用对称密钥预配旧设备
 
@@ -103,7 +103,7 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>创建对称密钥注册组
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，并打开你的设备预配服务实例。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，并打开你的设备预配服务实例。
 
 2. 选择“管理注册”  选项卡，然后单击页面顶部的“添加注册组”  按钮。 
 

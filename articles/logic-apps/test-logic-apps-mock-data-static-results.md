@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: f2595910acc06acffffa1379bc296bc30323d192
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 7602832240bcfd77a03b8e22374f393cb14ec81d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195090"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389209"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>通过设置静态结果来使用模拟数据测试逻辑应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "66195090"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://azure.microsoft.com/free/" target="_blank">注册一个免费 Azure 帐户</a>。
+* Azure 订阅。 如果没有 Azure 订阅，请<a href="www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
@@ -34,7 +34,7 @@ ms.locfileid: "66195090"
 
 ## <a name="set-up-static-results"></a>设置静态结果
 
-1. 在 [Azure 门户](https://portal.azure.com)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
+1. 在 [Azure 门户](https://portal.azure.cn)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
 
 1. 针对要在其中设置静态结果的操作执行以下步骤： 
 
@@ -75,7 +75,7 @@ ms.locfileid: "66195090"
 
 如果逻辑应用中的某个先前运行包含可重用为模拟输出的输出，则你可以从该运行复制并粘贴这些输出。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
+1. 在 [Azure 门户](https://portal.azure.cn)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
 
 1. 在逻辑应用的主菜单中选择“概述”  。
 

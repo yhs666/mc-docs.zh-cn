@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: overview
 origin.date: 10/11/2019
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2034cb4c0de6648d3da754f610b21173d3b382cc
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: f83f639a1461fc15502405a56853e63d91007bbc
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914535"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328632"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 简介
 
@@ -83,7 +83,7 @@ Data Lake Storage Gen2 是用于大数据分析的附加功能，基于 Azure Bl
 
 ## <a name="supported-azure-services"></a>支持的 Azure 服务
 
-Data Lake Storage gen2 支持多个可用于引入数据、执行分析和创建可视化表示形式的 Azure 服务。 有关支持的 Azure 服务的列表，请参阅[将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-store-integrate-with-azure-services.md)。
+Data Lake Storage gen2 支持多个可用于引入数据、执行分析和创建可视化表示形式的 Azure 服务。 有关支持的 Azure 服务的列表，请参阅[将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-storage-integrate-with-azure-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -92,4 +92,4 @@ Data Lake Storage gen2 支持多个可用于引入数据、执行分析和创建
 - [分层命名空间](data-lake-storage-namespace.md)
 - [创建存储帐户](data-lake-storage-quickstart-create-account.md)
 - [Azure Data Lake Storage 的多协议访问](data-lake-storage-multi-protocol-access.md)
-- [将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-store-integrate-with-azure-services.md)；
+- [将 Azure Data Lake Storage 与 Azure 服务集成](data-lake-storage-integrate-with-azure-services.md)；

@@ -8,12 +8,12 @@ ms.date: 10/12/2019
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: a75f2c09cf9d43eee09e9c323fadf2db3e58d5be
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: e018ec39c4cdfb4a3ad23f30406d1c4587ffa0ac
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526689"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389083"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 服务概述
 
@@ -26,8 +26,6 @@ Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理策略
 
 > [!IMPORTANT]
 > 现在，无论定价层如何，为所有分配都提供了 Azure Policy 的符合性评估。 如果分配未显示符合性数据，请确保已向 Microsoft.PolicyInsights 资源提供程序注册订阅。
-
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>策略与 RBAC 有什么不同？
 

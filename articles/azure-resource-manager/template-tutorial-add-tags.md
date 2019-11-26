@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: af49d1f0fbba3868ecd01dfd33389cc156d1d642
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 9cbd85922517f5952106eb4cc19c7fbf0301deb2
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203711"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389431"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>教程：在资源管理器模板中添加标记
 
@@ -45,7 +45,6 @@ ms.locfileid: "74203711"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Premium_ZRS",
         "Standard_GZRS",
         "Standard_RAGZRS"
       ]
@@ -162,9 +161,7 @@ ms.locfileid: "74203711"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Standard_ZRS",
         "Premium_LRS",
-        "Premium_ZRS",
         "Standard_GZRS",
         "Standard_RAGZRS"
       ]

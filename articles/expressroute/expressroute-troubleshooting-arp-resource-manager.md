@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/30/2017
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 2489447360b01c7b53cefe0ef9a2fbd3c9bffc64
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 12/02/2019
+ms.openlocfilehash: eb9d651ad5ce2e137151f0128504371d9a4134ca
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529290"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389439"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中获取 ARP 表
 
@@ -36,7 +36,7 @@ ms.locfileid: "59529290"
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>地址解析协议 (ARP) 和 ARP 表
 地址解析协议 (ARP) 是在 [RFC 826](https://tools.ietf.org/html/rfc826) 中定义的第二层协议。 ARP 用于映射以太网地址（MAC 地址）和 IP 地址。

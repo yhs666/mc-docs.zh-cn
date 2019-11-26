@@ -9,16 +9,16 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 177a4c9318318e10f38900f9c725b9ba23fc2303
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: b6e457e660a00ef8969f56c9aa3899b756941741
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914489"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389237"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 
-本文提供有关在下游设备与 IoT Edge 透明网关之间建立受信任连接的说明。 在透明网关方案中，一个或多个设备可以通过与 IoT 中心保持连接的单个网关设备传递其消息。 下游设备可以是包含通过 [Azure IoT 中心](https://docs.microsoft.com/azure/iot-hub)云服务创建的标识的任何应用程序或平台。 在许多情况下，这些应用程序使用 [Azure IoT 设备 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 下游设备甚至可以是 IoT Edge 网关设备本身上运行的应用程序。 
+本文提供有关在下游设备与 IoT Edge 透明网关之间建立受信任连接的说明。 在透明网关方案中，一个或多个设备可以通过与 IoT 中心保持连接的单个网关设备传递其消息。 下游设备可以是包含通过 [Azure IoT 中心](/iot-hub)云服务创建的标识的任何应用程序或平台。 在许多情况下，这些应用程序使用 [Azure IoT 设备 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 下游设备甚至可以是 IoT Edge 网关设备本身上运行的应用程序。 
 
 成功设置透明网关连接需要完成三个常规步骤。 本文介绍其中的第三个步骤：
 
@@ -73,7 +73,7 @@ ms.locfileid: "72914489"
 
 ## <a name="provide-the-root-ca-certificate"></a>提供根 CA 证书
 
-若要验证网关设备的证书，下游设备需要提供自身的根 CA 证书副本。 如果你使用 IoT Edge Git 存储库中提供的脚本创建了测试证书，则根 CA 证书名为 **azure-iot-test-only.root.ca.cert.pem**。 如果你在执行其他下游设备准备步骤过程中尚未创建测试证书，请将此证书移到下游设备上的任意目录中。 可以使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。
+若要验证网关设备的证书，下游设备需要提供自身的根 CA 证书副本。 如果你使用 IoT Edge Git 存储库中提供的脚本创建了测试证书，则根 CA 证书名为 **azure-iot-test-only.root.ca.cert.pem**。 如果你在执行其他下游设备准备步骤过程中尚未创建测试证书，请将此证书移到下游设备上的任意目录中。 可以使用 [Azure Key Vault](/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。
 
 ## <a name="install-certificates-in-the-os"></a>在 OS 中安装证书
 

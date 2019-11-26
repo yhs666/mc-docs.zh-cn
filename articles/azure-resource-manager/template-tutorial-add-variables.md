@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 00866fe7acfbf26ea62fbe2117b0348ae24c5980
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: d5a5cb11958ee9eaa100c5a236f6fbb3f895b31c
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203683"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389428"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>教程：将变量添加到资源管理器模板
 
@@ -81,122 +81,49 @@ ms.locfileid: "74203683"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "minLength": 3,
-      "maxLength": 11
-    },
-    "storageSKU": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Standard_ZRS",
-        "Premium_LRS",
-        "Premium_ZRS",
-        "Standard_GZRS",
-        "Standard_RAGZRS"
-      ]
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    },
-    "appServicePlanName": {
-      "type": "string",
-      "defaultValue": "exampleplan"
-    },
-    "webAppName": {
-      "type": "string",
-      "metadata": {
-        "description": "Base name of the resource such as web app name and app service plan "
-      },
-      "minLength": 2
-    },
-    "linuxFxVersion": {
-      "type": "string",
-      "defaultValue": "php|7.0",
-      "metadata": {
-        "description": "The Runtime stack of current web app"
-      }
-    },
-    "resourceTags": {
-        "type": "object",
-        "defaultValue": {
-            "Environment": "Dev",
-            "Project": "Tutorial"
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 11
+        },
+        "storageSKU": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS",
+                "Standard_GZRS",
+                "Standard_RAGZRS"
+            ]
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
         }
-    }
-  },
-  "variables": {
-    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-    "webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[variables('uniqueStorageName')]",
-      "location": "[parameters('location')]",
-      "tags": "[parameters('resourceTags')]",
-      "sku": {
-        "name": "[parameters('storageSKU')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "supportsHttpsTrafficOnly": true
-      }
     },
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2016-09-01",
-      "name": "[parameters('appServicePlanName')]",
-      "location": "[parameters('location')]",
-      "tags": "[parameters('resourceTags')]",
-      "sku": {
-        "name": "B1",
-        "tier": "Basic",
-        "size": "B1",
-        "family": "B",
-        "capacity": 1
-      },
-      "kind": "linux",
-      "properties": {
-        "perSiteScaling": false,
-        "reserved": true,
-        "targetWorkerCount": 0,
-        "targetWorkerSizeId": 0
-      }
+    "variables": {
+        "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
     },
-    {
-      "type": "Microsoft.Web/sites",
-      "apiVersion": "2016-08-01",
-      "kind": "app",
-      "name": "[variables('webAppPortalName')]",
-      "location": "[parameters('location')]",
-      "tags": "[parameters('resourceTags')]",
-      "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "siteConfig": {
-          "linuxFxVersion": "[parameters('linuxFxVersion')]"
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[variables('uniqueStorageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "[parameters('storageSKU')]"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": true
+            }
         }
-      },
-      "dependsOn": [
-        "[parameters('appServicePlanName')]"
-      ]
-    }
-  ],
-  "outputs": {
-    "storageEndpoint": {
-      "type": "object",
-      "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
-    }
-  }
+    ]
 }
 ```
 

@@ -7,16 +7,16 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-origin.date: 04/17/2019
-ms.date: 05/06/2019
+origin.date: 10/28/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: a825d3d89cad8fc07f3b11eae89d1fcdebd81334
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 842d46bd0c076e186ec24473ba65df3ce872dec4
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854501"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389582"
 ---
 # <a name="what-is-azure-iot-edge"></a>什么是 Azure IoT Edge
 
@@ -25,9 +25,9 @@ Azure IoT Edge 将云分析和自定义业务逻辑移到设备，这样你的�
 分析可以提升 IoT 解决方案中的业务价值，但并非所有分析都需要在云中进行。 如果希望尽快响应突发事件，可以在边缘运行异常情况检测工作负荷。 如果想要降低带宽成本并避免传输数 TB 的原始数据，可以在本地清理和聚合数据，然后只将见解发送到云进行分析。 
 
 Azure IoT Edge 包含三个组件：
-* IoT Edge 模块是容器，可以运行 Azure 服务、第三方服务或者你自己的代码。 这些模块部署到 IoT Edge 设备，在设备上以本地方式执行。 
-* IoT Edge 运行时在每个 IoT Edge 设备上运行，并管理部署到每个设备的模块。 
-* 可以通过基于云的界面远程监视和管理 IoT Edge 设备。
+* IoT Edge 模块是容器，可以运行 Azure 服务、第三方服务或者你自己的代码  。 这些模块部署到 IoT Edge 设备，在设备上以本地方式执行。 
+* IoT Edge 运行时在每个 IoT Edge 设备上运行，并管理部署到每个设备的模块  。 
+* 可以通过基于云的界面远程监视和管理 IoT Edge 设备  。
 
 >[!NOTE]
 >Azure IoT Edge 在 IoT 中心的免费层和标准层中提供。 免费层仅用于测试和评估。 有关基本和标准层的详细信息，请参阅[如何选择合适的 IoT 中心层](../iot-hub/iot-hub-scaling.md)。
@@ -42,23 +42,23 @@ IoT Edge 模块是执行单位，以 Docker 兼容容器的方式来实现，在
 
 ### <a name="bring-your-own-code"></a>自带代码
 
-如果希望将自己的代码部署到设备，则也可使用 Azure IoT Edge。 与其他 Azure IoT 服务一样，Azure IoT Edge 始终使用同一编程模型。 同一代码可以在设备上运行，也可以在云中运行。 Azure IoT Edge 既支持 Linux，也支持 Windows，允许你根据所选平台来编码。 它支持 Java、.NET Core 2.0、Node.js、C、Python，允许开发人员使用熟悉的语言和现有的业务逻辑进行编码。
+如果希望将自己的代码部署到设备，则也可使用 Azure IoT Edge。 与其他 Azure IoT 服务一样，Azure IoT Edge 始终使用同一编程模型。 可以在设备或云中运行相同的代码。 Azure IoT Edge 既支持 Linux，也支持 Windows，允许你根据所选平台来编码。 它支持 Java、.NET Core 2.0、Node.js、C、Python，允许开发人员使用熟悉的语言和现有的业务逻辑进行编码。
 
 ## <a name="iot-edge-runtime"></a>IoT Edge 运行时
 
-Azure IoT Edge 运行时允许在 IoT Edge 设备上使用自定义逻辑和云逻辑。 它位于 IoT Edge 设备上，执行管理和通信操作。 该运行时执行多个功能：
+Azure IoT Edge 运行时允许在 IoT Edge 设备上使用自定义逻辑和云逻辑。 运行时位于 IoT Edge 设备上，并执行管理和通信操作。 该运行时执行多个功能：
 
 * 在设备上安装和更新工作负荷。
 * 维护设备上的 Azure IoT Edge 安全标准。
-* 确保 IoT Edge 模块始终处于运行状态。
-* 将模块运行状况报告给云以进行远程监视。
+* 确保 IoT Edge 模块始终运行。
+* 将模块运行状况报告给云以进行远程监控。
 * 管理下游叶设备与 IoT Edge 设备之间、IoT Edge 设备上的模块之间以及 IoT Edge 设备与云之间的通信。
 
 ![IoT Edge 运行时将见解和报告发送到 IoT 中心](./media/about-iot-edge/runtime.png)
 
 如何使用 Azure IoT Edge 设备取决于你自己。 通常使用运行时将 AI 部署到网关设备，由后者聚合和处理来自其他本地设备的数据，但此部署模型只是一个选项。 
 
-Azure IoT Edge 运行时在各种 IoT 设备上运行，因此可以通过各种方式来使用该运行时。 它支持 Linux 和 Windows 操作系统，并可提取硬件详细信息。 如果要处理的数据不多，请使用比 Raspberry Pi 3 小的设备；如果要运行资源密集型工作负荷，请使用工业服务器。
+Azure IoT Edge 运行时在各种大型 IoT 设备上运行，因此可以通过各种方式来使用该运行时。 它支持 Linux 和 Windows 操作系统，并可提取硬件详细信息。 如果要处理的数据不多，请使用比 Raspberry Pi 3 小的设备；如果要运行资源密集型工作负荷，请使用工业服务器。
 
 ## <a name="iot-edge-cloud-interface"></a>IoT Edge 云界面
 

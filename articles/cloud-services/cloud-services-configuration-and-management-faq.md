@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 07/23/2018
 ms.author: v-yiso
 ms.date: 11/18/2019
-ms.openlocfilehash: 15af5020bf9cdd442e8f1ea9c9febcc74ff8ece9
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: b0cb2b93e4a5b748c79a50178da86d76c83aeb1e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831440"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389160"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务配置和管理问题：常见问题 (FAQ)
 
@@ -147,7 +147,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 2. [通过 .Net 代码启用](/cloud-services/cloud-services-dotnet-diagnostics)
 3. [通过 Powershell 启用](/cloud-services/cloud-services-diagnostics-powershell)
 
-若要获取云服务的当前 WAD 设置，可以使用 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd，也可以通过门户从“云服务 - > 扩展”边栏选项卡查看它。
+若要获取云服务的当前 WAD 设置，可以使用 [Get-AzureServiceDiagnosticsExtensions](/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd，也可以通过门户从“云服务 - > 扩展”边栏选项卡查看它。
 
 
 ## <a name="network-configuration"></a>网络配置
@@ -241,9 +241,10 @@ Azure 订阅对可以使用的内核数存在限制。 如果已使用所有可�
 
 有关如何针对云服务将 Azure 诊断与 Application Insights 集成的详细信息，请参阅[将云服务、虚拟机或 Service Fabric 诊断数据发送到 Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-有关如何为云服务启用 Application Insights 的详细信息，请参阅[适用于 Azure 云服务的 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+有关如何为云服务启用 Application Insights 的详细信息，请参阅[适用于 Azure 云服务的 Application Insights](/azure-monitor/app/cloudservices
+)
 
-有关如何为云服务启用 Azure 诊断日志记录的详细信息，请参阅[为 Azure 云服务和虚拟机设置诊断](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+有关如何为云服务启用 Azure 诊断日志记录的详细信息，请参阅[为 Azure 云服务和虚拟机设置诊断](https://docs.microsoft.com/en-us/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>泛型
 
@@ -344,7 +345,7 @@ Azure 不会将任何数据写入 %approot% 驱动器。 从 .cspkg 创建 VHD �
 
 下面是可以在不丢失服务 IP 地址的情况下节省费用的办法：
 
-1. 在删除部署之前[保留 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md)。  这样，就只需支付此 IP 地址的费用。 有关 IP 地址计费的详细信息，请参阅 [IP 地址定价](https://azure.microsoft.com/pricing/details/ip-addresses/)。
+1. 在删除部署之前[保留 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md)。  这样，就只需支付此 IP 地址的费用。 
 2. 删除部署。 不要删除 xxx.chinacloudapp.cn，以备将来使用。
 3. 如果想要使用订阅中的相同保留 IP 来重新部署云服务，请参阅[云服务和虚拟机的保留 IP 地址](https://azure.microsoft.com/blog/reserved-ip-addresses/)。
 

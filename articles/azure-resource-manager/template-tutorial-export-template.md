@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: c28d0ecbce1ec53690eb2944a3238b4c1ec06bec
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 2c004b0e6f8516290a1450a45d9e55888de62fcd
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203755"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389430"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教程：从 Azure 门户使用导出的模板
 
@@ -147,9 +147,7 @@ ms.locfileid: "74203755"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Standard_ZRS",
         "Premium_LRS",
-        "Premium_ZRS",
         "Standard_GZRS",
         "Standard_RAGZRS"
       ]

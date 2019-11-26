@@ -9,12 +9,12 @@ metadata:
   ms.date: 11/04/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: b19e9beb1b29c3974b6cc7f51cc9b91695b35862
-  ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+  ms.openlocfilehash: 57f93b12e3be84ae18eda6aa29cbcfb2368fae97
+  ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/01/2019
-  ms.locfileid: "73416254"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74328733"
 landingContent:
 - title: 关于 Azure 数据库迁移服务
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
       url: pre-reqs.md
   - linkListType: quickstart
     links:
-    - text: 创建服务 � 门户
+    - text: 创建服务 - 门户
       url: quickstart-create-data-migration-service-portal.md
 - title: 将 SQL Server 迁移到 Azure SQL 数据库
   linkLists:

@@ -16,12 +16,12 @@ ms.topic: conceptual
 origin.date: 09/27/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: ea5ddf478420bd2c1be3de5a69beaa30aff010e0
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 05142ebb383c4809375af081257dd556af1c2788
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425906"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389528"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集
 
@@ -159,7 +159,7 @@ HDInsight 群集可以使用以下存储选项：
 
 ## <a name="extend-clusters-with-a-virtual-network"></a>使用虚拟网络扩展群集
 
-如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](https://docs.microsoft.com/azure/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
+如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
 有关在 HDInsight 中使用 Azure 虚拟网络的详细信息，请参阅[规划 HDInsight 的虚拟网络](hdinsight-plan-virtual-network-deployment.md)。
 
