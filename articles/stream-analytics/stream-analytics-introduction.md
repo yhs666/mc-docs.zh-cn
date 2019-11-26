@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: overview
 origin.date: 06/21/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: ee96d9afea7487b6d95f3514f659b8d059b30628
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: da103d6ef9bb3e77e92090b7ecbeaa610231da41
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674818"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528102"
 ---
 # <a name="what-is-azure-stream-analytics"></a>什么是 Azure 流分析？
 
@@ -64,7 +64,7 @@ Azure 流分析使用简单的基于 SQL 的查询语言，该语言已使用强
 
 流分析查询语言提供各种用于分析和处理流数据的功能。 此查询语言支持简单的数据操作、聚合函数和复杂的地理空间函数。 可以在门户中编辑查询，然后使用从实时流中提取的示例数据来测试它们。
 
-可以通过定义和调用其他函数来扩展查询语言的功能。 可以在 Azure 机器学习服务中定义函数调用，以便利用 Azure 机器学习解决方案，还可以集成 JavaScript 或 C# 用户定义的函数 (UDF) 或用户定义的聚合，以便在流分析查询中执行复杂的计算。
+可以通过定义和调用其他函数来扩展查询语言的功能。 可以在 Azure 机器学习中定义函数调用，以便利用 Azure 机器学习解决方案，还可以集成 JavaScript 或 C# 用户定义的函数 (UDF) 或用户定义的聚合，以便在流分析查询中执行复杂的计算。
 
 ## <a name="fully-managed"></a>完全托管
 
@@ -100,9 +100,7 @@ Azure 流分析遵循多个符合性认证，如 [Azure 符合性概述](https:/
 
 ## <a name="performance"></a>性能
 
-流分析可以每秒处理数百万事件，而且传送结果时的延迟也低。
-可以通过它进行纵向和横向扩展，以便操控大型实时且复杂的事件处理应用程序。 流分析可以通过分区提供性能支持，因此可以在多个流节点上对复杂查询进行并行化处理，然后执行该查询。
-Azure 流分析基于 [Trill](https://github.com/Microsoft/Trill)，这是一种与 Azure Research 合作开发的高性能内存中流式处理分析引擎。 
+流分析可以每秒处理数百万事件，而且传送结果时的延迟也极低。 可以通过它进行纵向和横向扩展，以便操控大型实时且复杂的事件处理应用程序。 流分析通过分区支持高性能，允许将复杂的查询并行化，并在多个流式处理节点上执行这些查询。 Azure 流分析基于 [Trill](https://github.com/Microsoft/Trill)，这是一种与 Microsoft Research 合作开发的高性能内存中流式处理分析引擎。
 
 ## <a name="next-steps"></a>后续步骤
 
