@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 origin.date: 5/6/2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 83007e9222bf3c83ec8dba4c0798f358103318f5
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.date: 11/20/2019
+ms.openlocfilehash: 9e8cebc6ef2cf9fcd3b7351de4e16efe5cb2398b
+ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131819"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74202754"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>使用 Azure CLI 为 Azure Database for PostgreSQL（单一服务器）创建并管理 VNet 服务终结点
 虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到你的 Azure Database for PostgreSQL 服务器。 使用便捷的 Azure 命令行接口 (CLI) 命令，可创建、更新、删除、列出和显示 VNet 服务终结点和规则，用于管理服务器。 有关 Azure Database for PostgreSQL VNet 服务终结点（包括限制）的概述，请参阅 [Azure Database for PostgreSQL Server VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for PostgreSQL 的所有支持区域中，VNet 服务终结点均可用。
@@ -25,7 +25,7 @@ ms.locfileid: "70131819"
 
 > [!NOTE]
 > 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
-> 在 VNet 对等互连的情况下，如果流量通过具有服务终结点的公共 VNet 网关，且需要流向对等机，请创建 ACL/VNet 规则，以便网关 VNet 中的 Azure 虚拟机能够访问 Azure Database for PostgreSQL 服务器。
+> 在 VNet 对等互连的情况下，如果流量通过具有服务终结点的公共 VPN 网关流动，并且应该流向对等机，请创建 ACL/VNet 规则，以便网关 VNet 中的 Azure 虚拟机能够访问 Azure Database for PostgreSQL 服务器。
 
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>配置 Azure Database for PostgreSQL Vnet 服务终结点
 [az network vnet](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest) 命令用于配置虚拟网络。

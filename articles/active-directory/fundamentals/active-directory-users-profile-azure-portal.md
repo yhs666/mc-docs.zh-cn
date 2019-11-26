@@ -2,23 +2,23 @@
 title: 添加或更新用户的配置文件信息 - Azure Active Directory | Microsoft Docs
 description: 有关如何在 Azure Active Directory 中向用户配置文件添加信息（包括图片和作业详细信息）的说明。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 05/13/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697e8fb76ef538dbc0b54f490bc05b364788d283
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: ddb2a6e1d87b074a19b30ce3e7b9d3d4ddf996c3
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598797"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084711"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>使用 Azure Active Directory 添加或更新用户的配置文件信息
 使用 Azure Active Directory (Azure AD) 添加用户个人资料信息，包括个人资料图片、工作特定信息以及某些设置。 有关添加新用户的详细信息，请参阅[如何在 Azure Active Directory 中添加或删除用户](add-users-azure-active-directory.md)。
@@ -33,11 +33,11 @@ ms.locfileid: "65598797"
 
     此时将出现“Alain Charon - 个人资料”  页面。
 
-    ![用户的个人资料页面，其中包括可编辑的信息](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
+    ![用户的个人资料页面，其中包括可编辑的信息](./media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
 3. 选择“编辑”  以有选择地添加或更新每个可用部分中包括的信息。
 
-    ![用户的个人资料页面，其中显示了可编辑的区域](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+    ![用户的个人资料页面，其中显示了可编辑的区域](./media/active-directory-users-profile-azure-portal/user-profile-edit.png)
 
     - **个人资料图片。** 为用户的帐户选择一个缩略图图像。 此图片将显示在 Azure Active Directory 中和用户的个人页面上。
 
@@ -47,7 +47,7 @@ ms.locfileid: "65598797"
 
     - **设置。** 决定用户是否可以登录到 Azure Active Directory 租户。 还可以指定用户的全局位置。
 
-    - **联系信息。** 为用户添加任何相关的联系信息。 例如，街道地址或移动电话号码。
+    - **联系信息。** 添加用户的任何相关联系信息，但某些用户的电话或移动联系信息除外（只有全局管理员才能更新具有管理员角色的用户）。
 
     - **身份验证联系信息。** 请验证此信息，以确保用户具有处于活动状态的电话号码和电子邮件地址。 此信息由 Azure Active Directory 在登录期间用来确保用户确实是该用户。 只有全局管理员可以更新身份验证联系信息。
 

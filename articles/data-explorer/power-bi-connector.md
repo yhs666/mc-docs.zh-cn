@@ -2,33 +2,29 @@
 title: 使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 description: 本文介绍如何使用三个选项中的一个选项在 Power BI 中直观显示数据：Azure 数据资源管理器的 Power BI 连接器。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 11/14/2018
-ms.date: 08/05/2019
-ms.openlocfilehash: 9bbcd5ebffb14f88f07f27568220c5430d69df61
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+origin.date: 07/10/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: c26dfe300ed705a94afd626cec6ad65f475b4b82
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371751"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020836"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 
-Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Power BI 是一种业务分析解决方案，可以用来可视化数据，并在组织内共享结果。
-
-Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的选项：使用内置连接器、从 Azure 数据资源管理器导入查询，或者使用 SQL 查询。 本文介绍如何使用内置连接器获取数据并在 Power BI 报表中直观显示这些数据。
-
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Power BI 是一种业务分析解决方案，可以用来可视化数据，并在组织内共享结果。 Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的选项：使用内置连接器、从 Azure 数据资源管理器导入查询，或者使用 SQL 查询。 本文介绍如何使用内置连接器获取数据并在 Power BI 报表中直观显示这些数据。 使用 Azure 数据资源管理器本机连接器创建 Power BI 仪表板非常简单。 Power BI 连接器支持[导入和直接查询连接模式](https://docs.microsoft.com/power-bi/desktop-directquery-about)。 根据方案、规模和性能需求，可以使用**导入**或 **DirectQuery** 模式构建仪表板。 
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本文，需要以下各项：
+若要完成本文，需要满足以下条件：
 
+* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 * 一个属于 Azure Active Directory 成员的组织电子邮件帐户，以便连接到 [Azure 数据资源管理器帮助群集](https://dataexplorer.azure.cn/clusters/help/databases/samples)。
-
 * [Power BI Desktop](https://powerbi.microsoft.com/get-started/)（选择“免费下载”  ）
 
 ## <a name="get-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器获取数据
@@ -55,6 +51,18 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
     | 高级选项 | 留空 | 查询选项，例如结果集大小。 |
     | 数据连接模式 | *DirectQuery* | 确定 Power BI 是导入数据还是直接连接到数据源。 可以对此连接器使用任一选项。 |
     | | | |
+    
+    > [!NOTE]
+    > 在**导入**模式下，数据将移到 Power BI。 在 **DirectQuery** 模式下，直接从 Azure 数据资源管理器群集查询数据。
+    >
+    > 在以下情况下使用**导入**模式：
+    > * 数据集很小。
+    > * 不需要接近实时的数据。 
+    > * 数据已聚合，或在 Kusto 中执行[聚合](https://docs.microsoft.com/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)    
+    >
+    > 在以下情况下使用 **DirectQuery** 模式：
+    > * 数据集非常大。 
+    > * 需要接近实时的数据。   
 
 1. 如果还没有连接到帮助群集，请登录。 使用组织帐户登录，然后选择“连接”。 
 
@@ -88,4 +96,4 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用 Power BI 中已导入的查询来直观显示数据](power-bi-imported-query.md)
+[有关使用 Power BI 的 Azure 数据资源管理器连接器查询数据的提示](power-bi-best-practices.md#tips-for-using-the-azure-data-explorer-connector-for-power-bi-to-query-data)

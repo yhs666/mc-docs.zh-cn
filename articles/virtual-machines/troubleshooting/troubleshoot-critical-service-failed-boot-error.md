@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/08/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: eea5e990c9aba5e5cc3fe9d64a69f3149157bc0d
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 9372fbc0d66e784dbaff195324e4245dd9bb7458
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272603"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116889"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>启动 Azure VM 时 Windows 在蓝色屏幕上显示“关键服务失败”
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能会遇到的“关键服务失败”错误， 并提供用于解决问题的故障排除步骤。 
@@ -50,7 +50,44 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
 2. [将 OS 磁盘附加到恢复 VM](./troubleshoot-recovery-disks-portal-windows.md)。 
 3. 建立到恢复 VM 的远程桌面连接。
 
-<!--Not Available on ### Enable dump logs and Serial Console-->
+<!--MOONCAKE: this Serial Console means to Windows/Vista enable Serial Console, Not Azure VM Serial Console function in Azure Portal-->
+
+### <a name="enable-dump-logs-and-serial-console"></a>启用转储日志和串行控制台
+
+转储日志可帮助我们进一步进行故障排除。
+
+<!--Not Avaiable on [Serial Console](./serial-console-windows.md)-->
+
+若要启用转储日志和串行控制台，请运行以下脚本。
+
+1. 打开提升的命令提示符会话（以管理员身份运行）。
+2. 运行以下脚本：
+
+    在此脚本中，我们假定分配给附加 OS 磁盘的驱动器号为 F。应将其替换为 VM 的相应值。
+
+    ```powershell
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+
+    REM Enable Serial Console
+    bcdedit /store F:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store F:\boot\bcd /set {bootmgr} timeout 10
+    bcdedit /store F:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store F:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    bcdedit /store F:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+    REM Suggested configuration to enable OS Dump
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    reg unload HKLM\BROKENSYSTEM
+    ```
+    
+<!--MOONCAKE: this Serial Console means to Windows/Vista enable Serial Console, Not Azure VM Serial Console function in Azure Portal-->
 
 ### <a name="replace-the-unsigned-drivers"></a>替换未签名的驱动程序
 

@@ -2,18 +2,18 @@
 title: 使用 Jupyter Notebook 分析 Azure 数据资源管理器中的数据
 description: 本主题介绍如何使用 Jupyter Notebook 和 Kqlmagic 扩展在 Azure 数据资源管理器中分析数据。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 12/19/2018
-ms.date: 05/01/2019
-ms.openlocfilehash: 6be84152397979753a92a97b2b15eb9a453cb6d8
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+origin.date: 07/10/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: a9021815127e6c467dd907af692337721857e528
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686648"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020828"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 和 Kqlmagic 扩展分析 Azure 数据资源管理器中的数据
 
@@ -38,12 +38,14 @@ Jupyter Notebook 是一种开源 Web 应用程序，可用于创建和共享包�
 1. 加载 KQL magic：
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > 通过单击“内核”>“更改内核”>“Python 3.6”将内核版本更改为 Python 3.6
+    
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>连接到 Azure 数据资源管理器 Help 群集
 
-使用以下命令可连接到 Help 群集上托管的 Samples 数据库。 对于非 Microsoft AAD 用户，请将租户名称 `Microsoft.com` 替换为你的 AAD 租户。
+使用以下命令可连接到 Help  群集上托管的 Samples  数据库。 对于非 Microsoft AAD 用户，请将租户名称 `Microsoft.com` 替换为你的 AAD 租户。
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -51,7 +53,7 @@ Jupyter Notebook 是一种开源 Web 应用程序，可用于创建和共享包�
 
 ## <a name="query-and-visualize"></a>查询和可视化
 
-查询数据使用 [render 运算符](https://docs.microsoft.com/zh-cn/azure/kusto/query/renderoperator)，而可视化数据使用 ploy.ly 库。 此查询和可视化操作提供了使用本机 KQL 的集成体验。 Kqlmagic 支持大多数图表，但是 `timepivot`、`pivotchart` 和 `ladderchart` 除外。 除 `kind`、`ysplit` 和 `accumulate` 之外的所有属性都支持 Render。 
+查询数据使用 [render 运算符](https://docs.microsoft.com/azure/kusto/query/renderoperator)，而可视化数据使用 ploy.ly 库。 此查询和可视化操作提供了使用本机 KQL 的集成体验。 Kqlmagic 支持大多数图表，但是 `timepivot`、`pivotchart` 和 `ladderchart` 除外。 除 `kind`、`ysplit` 和 `accumulate` 之外的所有属性都支持 Render。 
 
 ### <a name="query-and-render-piechart"></a>查询和呈现饼图
 
@@ -165,6 +167,9 @@ df.head(10)
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> 若要接收有关所有可用配置的信息，请使用 `%config KQLmagic`。 若要排查和捕获 Kusto 错误（例如连接问题和不正确的查询），请使用 `%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>后续步骤
 

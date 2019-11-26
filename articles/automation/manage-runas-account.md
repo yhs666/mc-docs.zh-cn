@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/24/2019
-ms.date: 08/26/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: fd0eb795b1fed3a1e14c8187d313eb3476dbff34
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 79f777f4ef5790f5a448eb31998e7f5f7459267b
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993460"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116205"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自动化运行方式帐户
 
@@ -41,7 +41,7 @@ Azure 自动化中的运行方式帐户用于提供身份验证，以使用 Azur
 
 ## <a name="permissions"></a>配置运行方式帐户时所需的权限
 
-若要创建或更新运行方式帐户，必须拥有特定的特权和权限。 Azure Active Directory 中的全局管理员和订阅中的所有者可以完成所有任务。 下表显示了在实施职责分离的情况下，所需的任务、等效 cmdlet 和权限的列表：
+若要创建或更新运行方式帐户，必须拥有特定的特权和权限。 Azure Active Directory 中的应用程序管理员和订阅中的所有者可以完成所有任务。 下表显示了在实施职责分离的情况下，所需的任务、等效 cmdlet 和权限的列表：
 
 |任务|Cmdlet  |最低权限  |设置权限的位置|
 |---|---------|---------|---|
@@ -422,7 +422,7 @@ $roleDefinition | Set-AzureRMRoleDefinition
 
 若要确定运行方式帐户使用的服务主体是否在“参与者”或自定义角色定义中，请转到你的自动化帐户，然后在“帐户设置”下选择“运行方式帐户” > “Azure 运行方式帐户”。     在“角色”下，可以看到正在使用的角色定义。 
 
-[![](media/manage-runas-account/verify-role.png "验证运行方式帐户角色")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
 若要确定自动化运行方式帐户对多个订阅或自动化帐户使用的角色定义，可以使用 PowerShell 库中的 [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) 脚本。
 

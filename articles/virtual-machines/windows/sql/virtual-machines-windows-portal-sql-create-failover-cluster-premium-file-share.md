@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 origin.date: 10/09/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7a460365487b0d9568e614d4e0c08839cd56f01d
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 82fd032fc799405bafe7092f03a39d066384c29d
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730668"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116965"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置使用高级文件共享的 SQL Server 故障转移群集实例
 
@@ -66,7 +66,7 @@ ms.locfileid: "73730668"
 
 与软件保障达成企业协议的客户有权为每个活动节点使用一个免费的被动 FCI 节点。 若要在 Azure 中利用此优势，请使用 BYOL VM 映像，然后在 FCI 的主动节点和被动节点上使用相同的许可证。 有关详细信息，请参阅[企业协议](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)。
 
-如需比较 Azure 虚拟机中 SQL Server 的 PAYG 和 BYOL 许可，请参阅 [SQL VM 入门](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
+如需比较 Azure 虚拟机中 SQL Server 的标准预付费套餐和 BYOL 许可，请参阅 [SQL VM 入门](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
 
 有关许可 SQL Server 的完整信息，请参阅[定价](https://www.microsoft.com/sql-server/sql-server-2017-pricing)。
 
@@ -105,12 +105,17 @@ ms.locfileid: "73730668"
     - 单击“可用性集”。 
     - 单击**创建**。
     - 在“创建可用性集”边栏选项卡中设置以下值： 
+        
         - **名称**：可用性集的名称。
         - **订阅**：Azure 订阅。
         - **资源组**：如果想要使用现有的组，请单击“使用现有”并从下拉列表中选择该组。  否则，请选择“新建”并键入组的名称。 
         - **位置**：设置要在其中创建虚拟机的位置。
-        - **容错域**：使用默认值 (3)。
+        - **容错域**：使用默认值 (2)。
+            
+            <!--MOONCAKE: the Fault domains is 2 on Azure China Cloud-->
+            
         - **更新域**：使用默认值 (5)。
+        
     - 单击“创建”创建可用性集。 
 
 1. 在可用性集中创建虚拟机。
@@ -340,6 +345,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddr
     - **虚拟网络**：虚拟机所在的网络。
     - **IP 地址分配**：IP 地址分配应该是“静态”。 
     - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的同一 IP 地址。
+    
     参阅下图：
 
     ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

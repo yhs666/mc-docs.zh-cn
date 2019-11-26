@@ -9,17 +9,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 07/31/2019
-ms.date: 08/20/2019
+ms.date: 11/14/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d2e38666b9e75b94c507878b10177d9ccc5e354
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 88c594807db7b3dbf707f3f2488d8e03ecc27b21
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993782"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084712"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>快速入门：授权创建无限数目的应用注册的权限
 
@@ -31,7 +31,7 @@ ms.locfileid: "69993782"
 
 创建和分配 Azure AD 自定义角色所需的最低特权角色是“特权角色管理员”。
 
-## <a name="create-a-new-custom-role-using-the-azure-portal"></a>使用 Azure 门户创建新的自定义角色
+## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>使用 Azure AD 门户创建新的自定义角色
 
 1. 使用 Azure AD 组织中的“特权角色管理员”或“全局管理员”权限登录到  [Azure 门户](https://portal.azure.cn)。
 1. 依次选择“Azure Active Directory”、“角色和管理员”、“新建自定义角色”。 ****  ****  ****
@@ -48,7 +48,7 @@ ms.locfileid: "69993782"
 
 1. 在“查看 + 创建”选项卡上查看权限，然后选择“创建”。  
 
-### <a name="assign-the-role-to-a-user-using-the-azure-portal"></a>使用 Azure 门户将角色分配给用户
+### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>使用 Azure AD 门户将角色分配给用户
 
 1. 使用 Azure AD 组织中的“特权角色管理员”或“全局管理员”权限登录到  [Azure 门户](https://portal.azure.cn)。
 1. 依次选择“Azure Active Directory”、“角色和管理员”。 ****  ****
@@ -195,3 +195,4 @@ https://microsoftgraph.chinacloudapi.cn/beta/roleManagement/directory/roleAssign
 - 有关角色以及管理员角色分配的详细信息，请参阅[分配管理员角色](directory-assign-admin-roles.md)。
 - 有关默认用户权限，请参阅[默认来宾和成员用户权限的比较](../fundamentals/users-default-permissions.md)。
 
+<!-- Update_Description: wording update -->

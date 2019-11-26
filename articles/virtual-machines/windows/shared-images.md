@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/06/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: ec7b06fc8c8bd19be57ded2224489febaeadb157
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 229cc05bcdb1478497f3da6c5f762c0373756c2c
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272693"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116958"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>使用 Azure PowerShell 创建共享映像库 
 
@@ -40,7 +40,7 @@ ms.locfileid: "72272693"
 | **映像定义** | 映像在库中定义，携带有关该映像及其在内部使用的要求的信息。 这包括了该映像是 Windows 还是 Linux 映像、发行说明以及最低和最高内存要求。 它是某种映像类型的定义。 |
 | **映像版本** | 使用库时，将使用**映像版本**来创建 VM。 可根据环境的需要创建多个映像版本。 与托管映像一样，在使用**映像版本**创建 VM 时，将使用映像版本来创建 VM 的新磁盘。 可以多次使用映像版本。 |
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+对于并行创建的每 20 个 VM，我们建议保留一个副本。 例如，如果要在区域中使用相同映像并行创建 120 个 VM，我们建议至少保留映像的 6 个副本。 有关详细信息，请参阅[缩放](/virtual-machines/windows/shared-image-galleries#scaling)。
 
 ## <a name="before-you-begin"></a>准备阶段
 

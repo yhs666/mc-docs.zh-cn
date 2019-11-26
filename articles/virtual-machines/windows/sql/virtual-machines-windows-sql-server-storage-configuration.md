@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/05/2017
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: dbda17fcf88b874b65c4e1c5e12dcb9aeae1610f
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 2b008b585456aa73ef1f86ace30c8538b6bfb1dd
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272737"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116916"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 
@@ -47,6 +47,14 @@ ms.locfileid: "72272737"
 
 ![预配期间的 SQL Server VM 存储配置](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
+在**存储优化**下选择要为其部署 SQL Server 的工作负荷类型。 使用“常规”  优化选项，默认情况下，你将拥有一个最大 IOPS 为 5000 的数据磁盘，并且你将使用此同一驱动器放置数据、事务日志和 TempDB 存储。 你还可以根据业务选择“事务处理”  (OLTP) 或“数据仓库”  。
+
+<!--MOONCAKE: CUSTOMIZATION Remove the descriptions about three kind of VM performance-->
+
+![预配期间的 SQL Server VM 存储配置](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+<!--Remove the customized on configuration-->
+
 根据所做的选择，Azure 会在创建 VM 后执行以下存储配置任务：
 
 * 创建高级 SSD 盘并将其连接到虚拟机。
@@ -61,26 +69,31 @@ ms.locfileid: "72272737"
 
 如果使用以下 Resource Manager 模板，则会默认附加两个不带存储池配置的高级数据磁盘。 但是，可以自定义这些模板，更改附加到虚拟机的高级数据磁盘的数目。
 
+>[!NOTE]
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的 VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+
+
 * [使用自动备份创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [使用自动修补创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [使用 AKV 集成创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
+
+### <a name="quickstart-template"></a>快速入门模板
+
+可以使用以下快速入门模板通过存储优化来部署 SQL Server VM。 
+
+* [通过存储优化创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [创建使用 UltraSSD 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## <a name="existing-vms"></a>现有 VM
 
 <!--MOONCAKE: CUSTOMIZE on 10/10/2019-->
 <!--Not Available on [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]-->
 
-对于现有的 SQL Server VM，可以在 Azure 门户中修改某些存储设置。 选择 VM，转到“设置”区域，并选择“SQL Server 配置”。 “SQL Server 配置”边栏选项卡显示了 VM 当前的存储用量。 此图显示了 VM 上存在的所有驱动器。 每个驱动器的存储空间都分四个部分显示：
+对于现有的 SQL Server VM，可以在 Azure 门户中修改某些存储设置。 选择 VM，转到“设置”区域，并选择“SQL Server 配置”。 
 
+<!--Not Avaialble on The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:-->
 <!--Not Available on [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)-->
 <!--MOONCAKE: CUSTOMIZE on 10/10/2019-->
-
-* SQL 数据
-* SQL 日志
-* 其他（非 SQL 存储）
-* 可用
-
-若要修改存储设置，请在“设置”  下选择“配置”  。 
 
 ![为现有 SQL Server VM 配置存储](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
@@ -111,6 +124,8 @@ Azure 根据规范创建新驱动器。 在此方案中，Azure 将执行以下�
 
 ![扩展 SQL VM 的驱动器](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
+<!--MOONCAKE: CUSTOMIZE on 10/10/2019-->
+
 ## <a name="storage-configuration"></a>存储配置
 
 本部分提供有关在 Azure 门户中预配或配置 SQL VM 期间，Azure 自动执行的存储配置更改的参考信息。
@@ -130,15 +145,10 @@ Azure 使用以下设置在 SQL Server VM 上创建存储池。
 | 磁盘大小 |每个磁盘 1 TB |
 | 缓存 |读取 |
 | 分配大小 |64 KB NTFS 分配单元大小 |
-| 即时文件初始化 |Enabled |
-| 在内存中锁定页面 |Enabled |
-| 恢复 |简单恢复（不可复原） |
-| 列数 |数据磁盘数<sup>1</sup> |
-| TempDB 位置 |存储在数据磁盘上<sup>2</sup> |
+| 恢复 | 简单恢复（不可复原） |
+| 列数 |数据磁盘数最多 8 个<sup>1</sup> |
 
 <sup>1</sup> 创建存储池后，无法更改存储池中的列数。
-
-<sup>2</sup> 此设置仅适用于使用存储配置功能创建的第一个驱动器。
 
 ## <a name="workload-optimization-settings"></a>工作负荷优化设置
 

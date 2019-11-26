@@ -7,15 +7,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 09/10/2018
-ms.date: 08/26/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 688735d50224bd0cbd3cfc84f32b2e9c534f3805
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 707c231bb344cdc5ae4a3022122610213d0528d8
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993600"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116236"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>在 Automation State Configuration 中编译 DSC 配置
 
@@ -26,7 +26,7 @@ ms.locfileid: "69993600"
    - 轻松跟踪作业状态
 
 - Windows PowerShell
-  - 从本地工作站上的 Windows PowerShell 调用
+  - 从本地工作站上的 Windows PowerShell 调用或生成服务
   - 与开发测试管道集成
   - 提供复杂的参数值
   - 大规模使用节点和非节点数据
@@ -57,7 +57,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
@@ -125,7 +125,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>在 Azure 自动化中编译包含复合资源的配置
 
-借助**复合资源**，可将 DSC 配置用作某个配置中的嵌套资源。 这样，便可将多个配置应用到单个资源。 请参阅[复合资源：将 DSC 配置用作资源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)，了解有关**复合资源**的详细信息。
+借助**复合资源**，可将 DSC 配置用作某个配置中的嵌套资源。 这样，便可将多个配置应用到单个资源。 请参阅[复合资源：将 DSC 配置用作资源](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringresourcecomposite)，了解有关**复合资源**的详细信息。
 
 > [!NOTE]
 > 若要正确编译包含**复合资源**的配置，首先必须确保复合资源所依赖的所有 DSC 资源已导入到 Azure 自动化中。
@@ -250,7 +250,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ## <a name="compiling-configurations-in-windows-powershell-and-publishing-to-azure-automation"></a>在 Windows PowerShell 中编译配置并将其发布到 Azure 自动化
 
 还可以导入已在 Azure 外部编译的节点配置 (MOF)。
-这包括从开发人员工作站进行编译。
+这包括从开发人员工作站或在服务（如 [Azure DevOps](https://dev.azure.com)）中进行编译。
 此方法有多个缺点，其中包括性能和可靠性方面的缺点。
 在 Windows PowerShell 中编译还提供了签署配置内容的选项。
 签名的节点配置在托管节点上由 DSC 代理进行本地验证，确保应用到节点的配置来自经过授权的源。
@@ -258,12 +258,12 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 > [!NOTE]
 > 要将节点配置文件导入 Azure 自动化中，则其不能大于 1 MB。
 
-若要详细了解如何为节点配置签名，请参阅 [WMF 5.1 中的改进 - 如何为配置和模块签名](https://docs.microsoft.com/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations)。
+若要详细了解如何为节点配置签名，请参阅 [WMF 5.1 中的改进 - 如何为配置和模块签名](https://docs.microsoft.com/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations)。
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>在 Windows PowerShell 中编译配置
 
 在 Windows PowerShell 中编译 DSC 配置的过程包含在以下 PowerShell DSC 文档中：[编写、编译和应用配置](https://docs.microsoft.com/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration)。
-这可以在开发人员工作站中执行。
+这可以从开发人员工作站或在生成服务（如 [Azure DevOps](https://dev.azure.com)）中执行。
 
 然后，可以将通过编译配置生成的一个或多个 MOF 文件直接导入到 Azure State Configuration 服务中。
 

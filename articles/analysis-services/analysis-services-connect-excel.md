@@ -1,26 +1,25 @@
 ---
 title: 使用 Excel 连接到 Azure Analysis Services | Azure
-description: 了解如何使用 Excel 连接到 Azure Analysis Services 服务器。
+description: 了解如何使用 Excel 连接到 Azure Analysis Services 服务器。 连接后，用户可以创建数据透视表以浏览数据。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2439f342adeb5a9515fa8191d664541eafcff0f8
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 476bc362d1bc0b3cb236d4cd7c6a93f7fb59fb4f
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993552"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203604"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
 你创建服务器并向其部署表格模型后，客户端便可以连接并开始浏览数据。 
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 用于登录的帐户必须属于具有至少读取权限的模型数据库角色。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。 
 
@@ -30,7 +29,7 @@ ms.locfileid: "69993552"
 
 1. 在 Excel 的“数据”功能区上，单击“获取外部数据” > “从其他源获取” > “从 Analysis Services 获取”     。
 
-2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。  例如，asazure://chinaeast.asazure.chinacloudapi.cn/advworks。 然后，在“登录凭据”  中，选择“使用以下用户名和密码”  ，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
+2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。  例如，asazure://chinanorth.asazure.chinacloudapi.cn/advworks. 然后，在“登录凭据”  中，选择“使用以下用户名和密码”  ，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
 
     > [!IMPORTANT]
     > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录或被要求使用多重身份验证登录，请将密码字段留空。 单击“下一步”后，系统会提示输入密码。
@@ -48,4 +47,4 @@ ms.locfileid: "69993552"
 [客户端库](analysis-services-data-providers.md)   
 [管理服务器](analysis-services-manage.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

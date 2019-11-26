@@ -1,19 +1,18 @@
 ---
 title: 使用逻辑应用对 Azure Analysis Services 模型执行刷新 | Azure
-description: 了解如何使用 Azure 逻辑应用编写异步刷新的代码。
+description: 本文介绍如何使用 Azure 逻辑应用对 Azure Analysis Services 的异步刷新进行编码。
 author: rockboyfor
-manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
-origin.date: 04/26/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1547869d83d02296ce191fdbc914f09ebfd9ec1a
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 73d1ab07f062391cac3c572c53085549c5ab3adc
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500710"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203626"
 ---
 # <a name="refresh-with-logic-apps"></a>使用逻辑应用进行刷新
 
@@ -21,7 +20,7 @@ ms.locfileid: "70500710"
 
 若要详细了解如何将 REST API 与 Azure Analysis Services 配合使用，请参阅[使用 REST API 执行异步刷新](analysis-services-async-refresh.md)。
 
-## <a name="authentication"></a>身份验证
+## <a name="authentication"></a>Authentication
 
 所有调用必须使用有效的 Azure Active Directory (OAuth 2) 令牌进行身份验证。  本文中的示例将使用服务主体 (SPN) 对 Azure Analysis Services 进行身份验证。 有关详细信息，请参阅[使用 Azure 门户创建服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。
 
@@ -66,18 +65,18 @@ ms.locfileid: "70500710"
 
 按如下所示配置 HTTP 活动：
 
-|属性  |Value  |
+|属性  |值  |
 |---------|---------|
-|**方法**     |POST         |
-|**URI**     | https://服务器区域  /servers/aas 服务器名称  /models/数据库名称  /refreshes <br /> <br /> 例如：https:\//chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWorks/refreshes|
-|**标头**     |   Content-Type、application/json <br /> <br />  ![标头](./media/analysis-services-async-refresh-logic-app/6.png)    |
-|**正文**     |   若要详细了解如何构建请求正文，请参阅[使用 REST API - POST /refreshes 执行异步刷新](analysis-services-async-refresh.md#post-refreshes)。 |
-|**身份验证**     |Active Directory OAuth         |
-|**租户**     |填写你的 Azure Active Directory 租户 ID         |
-|**受众**     |https://*.asazure.chinacloudapi.cn         |
-|**客户端 ID**     |输入你的服务主体名称客户端 ID         |
-|**凭据类型**     |Secret         |
-|**机密**     |输入你的服务主体名称机密         |
+|**方法** |POST         |
+|**URI** | https://服务器区域  /servers/aas 服务器名称  /models/数据库名称  /refreshes <br /> <br /> 例如：https:\//chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWorks/refreshes|
+|**标头** |   Content-Type、application/json <br /> <br />  ![标头](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**正文** |   若要详细了解如何构建请求正文，请参阅[使用 REST API - POST /refreshes 执行异步刷新](analysis-services-async-refresh.md#post-refreshes)。 |
+|**身份验证** |Active Directory OAuth         |
+|**租户** |填写你的 Azure Active Directory 租户 ID         |
+|**受众** |https://*.asazure.chinacloudapi.cn         |
+|**客户端 ID** |输入你的服务主体名称客户端 ID         |
+|**凭据类型** |密钥         |
+|**机密** |输入你的服务主体名称机密         |
 
 示例：
 
@@ -116,5 +115,5 @@ ms.locfileid: "70500710"
 [示例](analysis-services-samples.md)  
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
 
-<!-- Update_Description: new article about analysis services refresh logic app -->
+<!-- Update_Description: update meta properties, wording update, update link -->
 <!--ms.date: 07/22/2019-->

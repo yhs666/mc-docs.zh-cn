@@ -1,20 +1,19 @@
 ---
 title: Azure Analysis Services 数据库备份和还原 | Azure
-description: 介绍如何备份和还原 Azure Analysis Services 数据库。
+description: 本文介绍如何从 Azure Analysis Services 数据库备份和还原模型元数据和数据。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 882daa6ff8b23773c7b34a55590d703e7e1dc016
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: e676faadb5f3df69f1980d8325a6e4d15e776268
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993555"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203639"
 ---
 # <a name="backup-and-restore"></a>备份和还原
 
@@ -49,7 +48,7 @@ ms.locfileid: "69993555"
 
     ![保存备份设置](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>备份
 
 ### <a name="to-backup-by-using-ssms"></a>使用 SSMS 备份
 

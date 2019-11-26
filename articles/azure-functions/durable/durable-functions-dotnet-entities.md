@@ -8,16 +8,16 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/06/2019
-ms.date: 11/11/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 58bc600e467603e7c883a02922f368ce8f33db89
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 0ce614e1fa367c38f32d1e6ebc6012d6a78d0f73
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934257"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178992"
 ---
-# <a name="developers-guide-to-durable-entities-in-net-preview"></a>有关 .NET 中的持久实体的开发人员指南（预览版）
+# <a name="developers-guide-to-durable-entities-in-net"></a>有关 .NET 中的持久实体的开发人员指南
 
 本文详细介绍可用于在 .NET 中开发持久实体的接口，并提供示例和一般建议。 
 
@@ -118,7 +118,7 @@ public class Counter
 
 ## <a name="accessing-entities-directly"></a>直接访问实体
 
-可以使用实体及其操作的显式字符串名称来直接访问基于类的实体。 下面提供了一些示例；有关基础概念（例如信号与调用）的更深入说明，请参阅[访问实体](durable-functions-entities.md#accessing-entities)中的介绍。 
+可以使用实体及其操作的显式字符串名称来直接访问基于类的实体。 下面提供了一些示例；有关基础概念（例如信号与调用）的更深入说明，请参阅[访问实体](durable-functions-entities.md#access-entities)中的介绍。 
 
 > [!NOTE]
 > 我们建议尽量[通过接口访问实体](#accessing-entities-through-interfaces)，因为这种方法提供更多的类型检查。
@@ -131,7 +131,7 @@ public class Counter
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -148,7 +148,7 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
     [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -195,6 +195,7 @@ public interface ICounter
     Task<int> Get();
     void Delete();
 }
+
 public class Counter : ICounter
 {
     ...
@@ -213,7 +214,7 @@ public class Counter : ICounter
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -453,6 +454,9 @@ public class HttpEntity
 > [!NOTE]
 > 为了避免序列化问题，请务必排除要在序列化后存储注入值的字段。
 
+> [!NOTE]
+> 与在常规 .NET Azure Functions 中使用构造函数注入不同，必须将基于类的实体的函数入口点方法声明为 `static`。  声明非静态函数入口点可能导致正常的 Azure Functions 对象初始值设定项与持久实体对象初始值设定项之间发生冲突。
+
 ## <a name="function-based-syntax"></a>基于函数的语法
 
 前面的内容侧重于基于类的语法，因为我们预期它更适用于大多数应用程序。 但是，对于想要定义或管理自身的实体状态和操作抽象的应用程序，可能适合使用基于函数的语法。 此外，在实现需要基于类的语法所不支持的泛型的库时，也可能适合使用该语法。 
@@ -513,4 +517,4 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 > [!div class="nextstepaction"]
 > [了解实体的概念](durable-functions-entities.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

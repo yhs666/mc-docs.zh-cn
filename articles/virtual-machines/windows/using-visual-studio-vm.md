@@ -12,16 +12,16 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-origin.date: 06/24/2019
-ms.date: 10/14/2019
+origin.date: 09/24/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: fe408e16bdb668d5eee702ab051258f2f783a945
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 025c222301486c74178d864bf17c28c4406bfd82
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272523"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116841"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -36,10 +36,10 @@ ms.locfileid: "72272523"
 
 | 发行版本                                                                                                                                                | 版本              | 产品版本   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019：最新（版本 16.1）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.1.3    |
-| [Visual Studio 2019：RTW](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise、Community | 版本 16.0.5    |
-| [Visual Studio 2017：最新（版本 15.9）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise、Community | 版本 15.9.13   |
-| [Visual Studio 2017：RTW](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise、Community | 版本 15.0.24   |
+| [Visual Studio 2019：最新（版本 16.2）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.3.0    |
+| [Visual Studio 2019：RTW](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise、Community | 版本 16.0.8    |
+| [Visual Studio 2017：最新（版本 15.9）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise、Community | 版本 15.9.16   |
+| [Visual Studio 2017：RTW](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise、Community | 版本 15.0.25   |
 | [Visual Studio 2015：最新 (Update 3)](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise、Community | 版本 14.0.25431.01 |
 
 > [!NOTE]

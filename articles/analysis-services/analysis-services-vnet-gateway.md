@@ -1,24 +1,23 @@
 ---
-title: 对 Azure 虚拟网络数据源使用本地数据网关 | Azure
-description: 了解如何配置服务器以为 VNet 上的数据源使用网关。
+title: 为 VNet 数据源配置 Azure Analysis Services | Azure
+description: 了解如何配置 Azure Analysis Services 服务器以将网关用于 Azure 虚拟网络 (VNet) 上的数据源。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 09/12/2019
-ms.date: 09/23/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f845da27f6626c8225939230cf3cc75c7b74b80a
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 3087209d0b7899ab99a16b8fc474a5521602a3c1
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155812"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203547"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>为 Azure 虚拟网络 (VNet) 上的数据源使用网关
 
-本文介绍了当数据源位于 [Azure 虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 上时要使用的 **AlwaysUseGateway** 服务器属性。
+本文介绍了当数据源位于 [Azure 虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 上时要使用的 Azure Analysis Services **AlwaysUseGateway** 服务器属性。
 
 ## <a name="server-access-to-vnet-data-sources"></a>对 VNet 数据源的服务器访问
 
@@ -41,4 +40,4 @@ Azure SQL 数据库托管实例数据源使用专用 IP 地址在 Azure VNet 中
 [安装并配置本地数据网关](analysis-services-gateway-install.md)   
 [Azure 虚拟网络 (VNET)](../virtual-network/virtual-networks-overview.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update -->

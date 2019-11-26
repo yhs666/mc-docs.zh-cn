@@ -5,15 +5,15 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/06/2019
-ms.date: 09/02/2019
+origin.date: 10/25/2019
+ms.date: 11/18/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09a83a9112675679b6975678d796e6e0681c1786
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: bf5d7da6e3123fac3cdb1220d991f72313e52b64
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131869"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020826"
 ---
 # <a name="supported-postgresql-database-versions"></a>支持的 PostgreSQL 数据库版本
 Azure 致力于在 Azure Database for PostgreSQL - 单一服务器中支持 n-2 版本的 PostgreSQL 引擎。 这些版本将是 Azure 上的当前主版本 (n) 和之前的两个主版本 (-2)。
@@ -21,16 +21,16 @@ Azure 致力于在 Azure Database for PostgreSQL - 单一服务器中支持 n-2 
 Azure Database for PostgreSQL 目前支持以下主版本：
 
 ## <a name="postgresql-version-11"></a>PostgreSQL 版本 11
-当前次要版本为 11.4。 若要详细了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/11/static/release-11-4.html)。
+当前次要版本为 11.5。 若要详细了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/11/static/release-11-5.html)。
 
 ## <a name="postgresql-version-10"></a>PostgreSQL 版本 10
-当前次要版本为 10.9。 若要详细了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/10/static/release-10-9.html)。
+当前次要版本为 10.10。 若要详细了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/10/static/release-10-10.html)。
 
 ## <a name="postgresql-version-96"></a>PostgreSQL 版本 9.6
-当前次要版本为 9.6.14。 若要详细了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/9.6/static/release-9-6-14.html)。
+当前次要版本为 9.6.15。 若要详细了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html)。
 
 ## <a name="postgresql-version-95"></a>PostgreSQL 版本 9.5
-当前次要版本为 9.5.18。 若要了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/9.5/static/release-9-5-18.html)。
+当前次要版本为 9.5.19。 若要了解此次要版本中的改进和修复，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html)。
 
 ## <a name="managing-upgrades"></a>管理升级
 Azure Database for PostgreSQL 自动管理次要版本升级。 

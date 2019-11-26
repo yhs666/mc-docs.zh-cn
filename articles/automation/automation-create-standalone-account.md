@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 01/15/2019
-ms.date: 08/26/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f90077618173e27fab1a800c145ab6f318b1dedf
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: abf5bfd3415f08e91f5d36b42c13b701f20adc5e
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993601"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116238"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
@@ -29,7 +29,6 @@ ms.locfileid: "69993601"
   * 在 Azure Active Directory (Azure AD) 中创建服务主体。
   * 创建证书。
   * 向参与者分配基于角色的访问控制 (RBAC)，以便使用 Runbook 管理 Azure 资源管理器资源。
-* **经典运行方式帐户**。 此帐户上传一个管理证书。 该证书使用 Runbook 管理经典资源。
 
 使用系统创建的这些帐户，可以快速开始构建和部署 Runbook 来支持自动化需求。
 
@@ -56,12 +55,12 @@ ms.locfileid: "69993601"
 若要在 Azure 门户中创建 Azure 自动化帐户，请完成以下步骤：
 
 1. 使用帐户登录到 Azure 门户，该帐户应当是订阅管理员角色的成员并且是订阅的共同管理员。
-2. 选择“+ 创建资源”。 
-3. 搜索“自动化”  。 在搜索结果中，选择“自动化”  。
+1. 选择“+ 创建资源”。 
+1. 搜索“自动化”  。 在搜索结果中，选择“自动化”  。
 
    ![在 Azure 市场中搜索并选择“自动化和控制”](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
-4. 在下一个屏幕上选择“创建”  。
+1. 在下一个屏幕上选择“创建”  。
 
    ![添加自动化帐户](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
@@ -70,11 +69,11 @@ ms.locfileid: "69993601"
    >
    > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
 
-5. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。   此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。  已删除的自动化帐户的名称可能无法立即可用。
-6. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅  。
-7. 对于“资源组”，请输入或选择新的或现有的资源组。 
-8. 对于“位置”，请选择一个 Azure 数据中心位置。 
-9. 对于“创建 Azure 运行方式帐户”选项，请确保选择“是”，并选择“创建”    。
+1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。   此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。  已删除的自动化帐户的名称可能无法立即可用。
+1. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅  。
+1. 对于“资源组”，请输入或选择新的或现有的资源组。 
+1. 对于“位置”，请选择一个 Azure 数据中心位置。 
+1. 对于“创建 Azure 运行方式帐户”选项，请确保选择“是”，并选择“创建”    。
 
    > [!NOTE]
    > 如果对“创建 Azure 运行方式帐户”选择“否”以选择不创建运行方式帐户，则“添加自动化帐户”窗格中会显示一条消息。    尽管该帐户是在 Azure 门户中创建的，但它在经典部署模型订阅或 Azure 资源管理器订阅目录服务中没有对应的身份验证标识。 因此，自动化帐户无法访问订阅中的资源。 这会导致引用此帐户的任何 Runbook 无法进行身份验证，也无法针对这些部署模型中的资源执行任务。
@@ -84,7 +83,7 @@ ms.locfileid: "69993601"
    > 未创建服务主体时不会分配参与者角色。
    >
 
-10. 若要跟踪自动化帐户的创建进度，请在菜单中选择“通知”  。
+1. 若要跟踪自动化帐户的创建进度，请在菜单中选择“通知”  。
 
 ### <a name="resources-included"></a>包含的资源
 
@@ -98,14 +97,13 @@ ms.locfileid: "69993601"
 | AzureRunAsCertificate |在创建自动化帐户时自动创建的，或针对现有帐户使用 PowerShell 脚本创建的证书资产。 使用该证书可向 Azure 进行身份验证，以便通过 Runbook 管理 Azure 资源管理器资源。 此证书有一年的有效期。 |
 | AzureRunAsConnection |在创建自动化帐户时自动创建的，或针对现有帐户使用 PowerShell 脚本创建的连接资产。 |
 
-下表汇总了经典运行方式帐户的资源。
+## <a name="classic-run-as-accounts"></a>经典运行方式帐户
 
-| Resource | 说明 |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook |一个示例图形 Runbook。 该 Runbook 使用经典运行方式帐户（证书）获取订阅中的所有经典 VM。 然后，它显示 VM 名称和状态。 |
-| AzureClassicAutomationTutorial 脚本 Runbook |一个示例 PowerShell Runbook。 该 Runbook 使用经典运行方式帐户（证书）获取订阅中的所有经典 VM。 然后，它显示 VM 名称和状态。 |
-| AzureClassicRunAsCertificate |自动创建的证书资产。 使用该证书可向 Azure 进行身份验证，以便通过 Runbook 管理 Azure 经典资源。 此证书有一年的有效期。 |
-| AzureClassicRunAsConnection |自动创建的连接资产。 使用该资产可向 Azure 进行身份验证，以便通过 Runbook 管理 Azure 经典资源。 |
+默认情况下，创建 Azure 自动化帐户时，将不再创建经典运行方式帐户。 如果仍需要经典运行方式帐户，请执行以下步骤。
+
+1. 在“自动化帐户”页的“帐户设置”下，选择“运行方式帐户”    。
+2. 选择“Azure 经典运行方式帐户”  。
+3. 单击“创建”  ，以继续创建经典运行方式帐户。
 
 ## <a name="next-steps"></a>后续步骤
 

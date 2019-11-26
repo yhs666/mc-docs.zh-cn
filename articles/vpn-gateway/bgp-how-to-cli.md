@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 09/25/2018
-ms.date: 05/27/2019
+ms.date: 11/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 92f9f0edbb5b4f01e3434696190eeb8869079a9c
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: e8db27416873779b0c8c160f726e5f7c79e689c2
+ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236531"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74202761"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>如何使用 CLI 在 Azure VPN 网关上配置 BGP
 
@@ -47,7 +47,7 @@ BGP 是通常在 Internet 上使用的，用于在两个或更多网络之间交
 
 ![BGP 网关](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
-### <a name="before-you-begin"></a>准备阶段
+### <a name="before-you-begin"></a>开始之前
 
 安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和 [Azure CLI 入门](/cli/get-started-with-azure-cli)。
 
@@ -129,7 +129,7 @@ az network vnet-gateway list -g TestBGPRG1 
 
 ### <a name="step-1-create-and-configure-the-local-network-gateway"></a>步骤 1：创建和配置本地网关
 
-此练习将继续生成图中所示的配置。 请务必将值替换为要用于配置的值。 使用本地网络网关时，请记住以下事项：
+此练习将继续生成图中所示的配置。 请务必将值替换为用于配置的值。 使用本地网络网关时，请记住以下事项：
 
 * 本地网关可以与 VPN 网关在相同的位置和资源组中，也可以在不同的位置和资源组中。 此示例演示网关在不同位置的不同资源组中。
 * 需要为本地网关声明的最小前缀是 VPN 设备上的 BGP 对等节点 IP 地址中的主机地址。 在此示例中，它是“10.51.255.254/32”中的 /32 前缀。
@@ -143,7 +143,7 @@ az group create -n TestBGPRG5 -l chinanorth
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
-### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>步骤 2：连接 VNet 网关和本地网关
+### <a name="step-2-connect-the-vpn-gateway-and-local-network-gateway"></a>步骤 2：连接 VPN 网关和本地网关
 
 在此步骤中，创建从 TestVNet1 到 Site5 的连接。 必须指定 `--enable-bgp` 参数，以便为此连接启用 BGP。 
 

@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 08/20/2018
-ms.date: 09/02/2019
-ms.openlocfilehash: 95d1c2ba140ac632e19b1942bc2fcd948c727359
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.date: 11/20/2019
+ms.openlocfilehash: 9b72b8584c9294b316ae94d7bc179843223be657
+ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131852"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74202777"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>对 Azure Database for MySQL 使用虚拟网络服务终结点和规则
 
@@ -27,8 +27,8 @@ ms.locfileid: "70131852"
 ![VNet 服务终结点的工作原理示例](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Azure 的所有区域均提供此功能，其中 Azure Database for MySQL 部署用于常规用途和内存优化服务器。
-> 在 VNet 对等互连的情况下，如果流量通过具有服务终结点的公共 VNet 网关流动，并且应该流向对等机，请创建 ACL/VNet 规则，以便网关 VNet 中的 Azure 虚拟机能够访问 Azure Database for MySQL 服务器。
+> Azure 中的所有区域均提供此功能，其中 Azure Database for MySQL 部署用于常规用途和内存优化服务器。
+> 在 VNet 对等互连的情况下，如果流量通过具有服务终结点的公共 VPN 网关流动，并且应该流向对等机，请创建 ACL/VNet 规则，以便网关 VNet 中的 Azure 虚拟机能够访问 Azure Database for MySQL 服务器。
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -131,9 +131,9 @@ ms.locfileid: "70131852"
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在未打开 VNET 服务终结点的情况下，将 VNET 防火墙规则添加到服务器
 
-仅设置防火墙规则无助于将服务器保护到 VNet。 还必须**打开** VNet 服务终结点才能使安全性生效。 **打开**服务终结点时，VNet 子网会遇到停机，直到它完成从“关”到“开”   的转换。 这在大型 VNet 的上下文中尤其如此。 可以使用 **IgnoreMissingServiceEndpoint** 标志，减少或消除转换期间的停机时间。
+仅设置防火墙规则无助于保护连接到 VNet 的服务器。 还必须打开 VNet 服务终结点才能确保安全  。 打开服务终结点后，VNet 子网会出现停机，直到它从“关”的状态变成了“开”    。 这在大型 VNet 的上下文中尤其如此。 可以使用 **IgnoreMissingServiceEndpoint** 标志，减少或消除转换期间的停机时间。
 
-可以使用 Azure CLI 或门户设置 **IgnoreMissingServiceEndpoint** 标志。
+可使用 Azure CLI 或门户设置 IgnoreMissingServiceEndpoint 标志  。
 
 ## <a name="related-articles"></a>相关文章
 - [Azure 虚拟网络][vm-virtual-network-overview]

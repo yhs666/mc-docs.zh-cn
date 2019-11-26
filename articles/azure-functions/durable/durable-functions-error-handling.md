@@ -7,15 +7,15 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 09/29/2019
+origin.date: 11/02/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 859966375834714b389ff5daf0bf6a99a10e878b
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 16c4a18434ae724344c2d9688cc3000ea7e84847
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673595"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178990"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>处理 Durable Functions 中的错误 (Azure Functions)
 
@@ -25,13 +25,13 @@ Durable Function 业务流程采用代码实现，并可使用编程语言的内
 
 活动函数中引发的任何异常都将封送回业务流程协调程序函数，并作为 `FunctionFailedException` 引发。 可在业务流程协调程序函数中编写满足需要的错误处理和补偿代码。
 
-例如，考虑使用以下业务流程协调程序函数，将一个帐户中的资金转到另一帐户：
+例如，考虑使用以下业务流程协调程序函数，将一个帐户中的资金转移到另一帐户：
 
 ### <a name="precompiled-c"></a>预编译 C#
 
 ```csharp
 [FunctionName("TransferFunds")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -70,7 +70,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -104,7 +104,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript（仅限 Functions 2.x）
+> [!NOTE]
+> 前面的 C# 示例适用于 Durable Functions 2.x。 对于 Durable Functions 1.x，必须使用 `DurableOrchestrationContext` 而不是 `IDurableOrchestrationContext`。 有关版本之间差异的详细信息，请参阅 [Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript（仅限 Functions 2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -144,13 +147,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="automatic-retry-on-failure"></a>失败时自动重试
 
-调用活动函数或子业务流程函数时，可指定自动重试策略。 以下示例尝试调用某函数多达三次，每次重试之间等待 5 秒：
+调用活动函数或子业务流程函数时，可指定自动重试策略。 以下示例尝试调用某个函数多达 3 次，且每次重试之间等待 5 秒：
 
 ### <a name="precompiled-c"></a>预编译 C#
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -165,7 +168,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ### <a name="c-script"></a>C# 脚本
 
 ```csharp
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -177,7 +180,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript（仅限 Functions 2.x）
+> [!NOTE]
+> 前面的 C# 示例适用于 Durable Functions 2.x。 对于 Durable Functions 1.x，必须使用 `DurableOrchestrationContext` 而不是 `IDurableOrchestrationContext`。 有关版本之间差异的详细信息，请参阅 [Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript（仅限 Functions 2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -191,7 +197,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-`CallActivityWithRetryAsync` (.NET) 或 `callActivityWithRetry` (JavaScript) API 带有 `RetryOptions` 参数。 使用 `CallSubOrchestratorWithRetryAsync` (.NET) 或 `callSubOrchestratorWithRetry` (JavaScript) API 的子业务流程调用均可使用这些相同的重试策略。
+`CallActivityWithRetryAsync` (.NET) 或 `callActivityWithRetry` (JavaScript) API 带有 `RetryOptions` 参数。 使用 `CallSubOrchestratorWithRetryAsync` (.NET) 或 `callSubOrchestratorWithRetry` (JavaScript) API 的子业务流程调用可使用这些相同的重试策略。
 
 可通过多种选项自定义自动重试策略：
 
@@ -210,7 +216,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
-public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -239,7 +245,7 @@ public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationCo
 ### <a name="c-script"></a>C# 脚本
 
 ```csharp
-public static async Task<bool> Run(DurableOrchestrationContext context)
+public static async Task<bool> Run(IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -265,7 +271,10 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript（仅限 Functions 2.x）
+> [!NOTE]
+> 前面的 C# 示例适用于 Durable Functions 2.x。 对于 Durable Functions 1.x，必须使用 `DurableOrchestrationContext` 而不是 `IDurableOrchestrationContext`。 有关版本之间差异的详细信息，请参阅 [Durable Functions 版本](durable-functions-versions.md)一文。
+
+### <a name="javascript-functions-20-only"></a>JavaScript（仅限 Functions 2.0）
 
 ```javascript
 const df = require("durable-functions");
@@ -301,4 +310,4 @@ module.exports = df.orchestrator(function*(context) {
 > [!div class="nextstepaction"]
 > [了解永久业务流程](durable-functions-eternal-orchestrations.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

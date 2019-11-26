@@ -12,12 +12,12 @@ origin.date: 10/01/2018
 ms.date: 09/23/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: a2e6c9f2c3bc5437ccfc174fd98c70c4892f1001
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 2fa8111a059e605bae6d74a4064e9902b8f2d2e0
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267054"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020803"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-services"></a>从自定义语音服务迁移到语音服务
 
@@ -46,7 +46,7 @@ ms.locfileid: "71267054"
 > [!NOTE]
 > 只能迁移同一区域中的资源密钥。
 
-1. 登录到 [cris.ai](https://cris.ai/Home/CustomSpeech) 门户，然后在右上角菜单中选择订阅。
+1. 登录到 [CustomSpeech](https://chinaeast2.cris.azure.cn/) 门户，然后在右上角菜单中选择订阅。
 
 2. 选择“迁移选定的订阅”。 
 

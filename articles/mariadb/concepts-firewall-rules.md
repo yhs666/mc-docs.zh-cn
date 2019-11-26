@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 09/22/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 5abdcc41247d655d4cb9593876fcfba5b467f8f3
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+origin.date: 10/25/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 74ee033d4e222340506445fefcd35bfae83269d5
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191597"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020868"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB 服务器防火墙规则
 在指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
@@ -44,10 +44,13 @@ ms.locfileid: "73191597"
 
 ![在门户中配置“允许访问 Azure 服务”](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>从 VNet 连接
+若要从 VNet 安全连接到 Azure Database for MariaDB 服务器，请考虑使用 [VNet 服务终结点](./concepts-data-access-security-vnet.md)。 
+
 ## <a name="programmatically-managing-firewall-rules"></a>以编程方式管理防火墙规则
 除了 Azure 门户外，还可使用 Azure CLI 通过编程方式管理防火墙规则。 
 
-<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+另请参阅[使用 Azure CLI 创建和管理 Azure Database for MariaDB 防火墙规则](./howto-manage-firewall-cli.md)。
 
 ## <a name="troubleshooting-firewall-issues"></a>排查防火墙问题
 对 Azure Database for MariaDB 服务器服务的访问未按预期工作时，请考虑以下几点：
@@ -66,6 +69,5 @@ ms.locfileid: "73191597"
 
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure 门户创建和管理 Azure Database for MariaDB 防火墙规则](./howto-manage-firewall-portal.md)
-
-<!--
-- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->
+- [使用 Azure CLI 创建和管理 Azure Database for MariaDB 防火墙规则](./howto-manage-firewall-cli.md)
+- [Azure Database for MariaDB 中的 VNet 服务终结点](./concepts-data-access-security-vnet.md)

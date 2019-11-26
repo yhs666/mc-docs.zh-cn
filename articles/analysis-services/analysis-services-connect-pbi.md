@@ -1,20 +1,19 @@
 ---
 title: 使用 Power BI 连接到 Azure Analysis Services | Azure
-description: 了解如何使用 Power BI 连接到 Azure Analysis Services 服务器。
+description: 了解如何使用 Power BI 连接到 Azure Analysis Services 服务器。 连接后，用户可以浏览模型数据。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92d4f8e36de159f3c6936832bd887f643611a172
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 22f99a397e296c423a5943feb6f69a46ac6a4d02
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993347"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203637"
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -31,7 +30,7 @@ ms.locfileid: "69993347"
 
 2. 在“服务器”  中，输入服务器名称。 请务必包括完整的 URL，例如，asazure://chinanorth.asazure.chinacloudapi.cn/advworks。
 
-   <!-- Not Available on China East -->
+    <!-- Not Available on China East -->
    
 3. 在“数据库”  中，如果知道要连接到的表格模型数据库或透视的名称，请将其粘贴在此处。 如果不知道，可以将此字段留空，并在稍后选择数据库或透视。
 
@@ -39,11 +38,11 @@ ms.locfileid: "69993347"
 
     同时支持“实时连接”  和“导入”  选项。 但是，我们建议你使用实时连接，因为导入模式确实存在一些限制；最重要的是，导入过程中可能会影响服务器性能。 此外，如果要在 Power BI 服务中刷新模型，仅当选择“实时连接”  时，“允许从 Power BI 访问”  设置才适用。
 
-5. 如果出现提示，请输入登录凭据。 
+5. 如果出现系统提示，请输入登录凭据。 
 
 6. 在**导航器**中，展开服务器，选择要连接到的模型或透视，并单击“连接”  。 单击模型或透视可显示该视图的所有对象。
 
-    Power BI Desktop 中会打开模型，并且在“报表”视图中显示空白报表。 “字段”列表中会显示所有非隐藏的模型对象。 连接状态将显示在右下角。
+    Power BI Desktop 中会打开模型，并且在“报表”视图中显示空白报表。 “字段”列表中会显示所有非隐藏的模型对象。 连接状态显示在右下角。
 
 ## <a name="connect-in-power-bi-service"></a>在 Power BI（服务）中进行连接
 

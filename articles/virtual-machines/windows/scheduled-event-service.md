@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 origin.date: 08/20/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 8f8025bd38547e1454a32099c5c8f29bef570597
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: d8468bc0f2e6e0aac2fff02e90c8aff87d51b84f
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272696"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116960"
 ---
 <!--Verify full content successfully-->
 # <a name="monitoring-scheduled-events"></a>监视计划事件
@@ -160,7 +160,7 @@ New-AzVm `
 1. 在“操作”下，选择“创建操作组”。   此时将打开“添加操作组”页。 
 1. 在“操作组名称”中键入 *myActionGroup*。 
 1. 在“短名称”中键入 **myActionGroup**。 
-1. 在“资源组”中选择“*myResourceGroupAvailability**”。 
+1. 在“资源组”中选择“myResourceGroupAvailability”。  
 1. 在“操作”下的“操作名称”中键入“电子邮件”，然后选择“电子邮件/短信”。    此时将打开“电子邮件/短信”页。 
     
     <!--MOONCAKE: CORRECT ON Email/SMS-->
@@ -177,5 +177,4 @@ New-AzVm `
 
 有关详细信息，请参阅 GitHub 上的[计划事件服务](https://github.com/microsoft/AzureScheduledEventsService)页。
 
-<!--Update_Description: new articles on schedule event service -->
-<!--New.date: 08/12/2019-->
+<!--Update_Description: wording update -->

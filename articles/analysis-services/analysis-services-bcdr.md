@@ -1,20 +1,19 @@
 ---
 title: Azure Analysis Services 高可用性 | Azure
-description: 确保 Azure Analysis Services 高可用性。
+description: 本文介绍 Azure Analysis Services 如何在服务中断期间提供高可用性。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 489b46af7d69af3ed18ffd09ce3a47fd1efe5cdd
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 432a94fe3b7300ffc9dcae937d35730fad16ac5d
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993551"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203638"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 
@@ -22,7 +21,7 @@ ms.locfileid: "69993551"
 
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>在服务中断过程中确保高可用性
 
-虽然罕见，但 Azure 数据中心可能会发生服务中断。 发生服务中断时，可能会导致业务中断持续几分钟，也可能持续数小时。 通常，通过服务器冗余实现高可用性。 借助 Azure Analysis Services，可以通过在一个或多个区域中创建附加的辅助服务器来实现冗余。 创建冗余服务器时，若要确保这些服务器上的数据和元数据与区域中已脱机的服务器同步，可以执行以下操作：
+虽然罕见，但是 Azure 数据中心可能会发生服务中断。 发生服务中断时，可能会导致业务中断持续几分钟，也可能持续数小时。 通常，通过服务器冗余实现高可用性。 借助 Azure Analysis Services，可以通过在一个或多个区域中创建附加的辅助服务器实现冗余。 创建冗余服务器时，若要确保这些服务器上的数据和元数据与区域中已脱机的服务器同步，可以执行以下操作：
 
 * 将模型部署到其他区域中的冗余服务器。 此方法要求在主服务器和冗余服务器中并行处理数据，以确保所有服务器同步。
 
@@ -38,4 +37,4 @@ ms.locfileid: "69993551"
 [管理 Azure Analysis Services](analysis-services-manage.md)   
 [别名服务器名称](analysis-services-server-alias.md)
 
-<!--Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

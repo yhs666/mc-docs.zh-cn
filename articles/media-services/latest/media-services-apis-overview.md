@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-origin.date: 07/05/2019
-ms.date: 09/23/2019
+origin.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 49b70956efdc47a95631dd0b1c5101756d2bb0b6
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 68b77eceda147a321fe9516b2b13dc2e5e0e8cf2
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125507"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116194"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒体服务 v3 API 进行开发
 
@@ -33,7 +33,7 @@ ms.locfileid: "71125507"
 * **服务主体身份验证** - 用于对某个服务（例如 Web 应用、函数应用、逻辑应用、API 和微服务）进行身份验证。 常常使用这种身份验证方法的应用程序是运行守护程序服务、中间层服务或计划作业的应用程序。 例如，此方法适用于应始终位于通过服务主体连接到媒体服务的中间层中的 Web 应用程序。
 * **用户身份验证** - 用于对使用应用来与 Azure 媒体服务资源进行交互的人员进行身份验证。 交互式应用程序应先提示用户输入用户凭据。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。
 
-媒体服务 API 要求发出 REST API 请求的用户或应用程序有权访问媒体服务帐户资源，并有权使用“参与者”或“所有者”角色。   可以使用“读取者”角色访问 API，但只有“获取”或“列出”操作可用。      有关详细信息，请参阅[媒体服务帐户的基于角色的访问控制](rbac-overview.md)。
+媒体服务 API 要求发出 REST API 请求的用户或应用程序有权访问媒体服务帐户资源，并有权使用“参与者”或“所有者”角色。   可以使用“读者”角色访问 API，但只有“获取”或“列出”操作可用。    有关详细信息，请参阅[媒体服务帐户的基于角色的访问控制](rbac-overview.md)。
 
 如果不创建服务主体，可以考虑使用 Azure 资源的托管标识通过 Azure 资源管理器来访问媒体服务 API。 若要详细了解 Azure 资源的托管标识，请参阅[什么是 Azure 资源的托管标识？](../../active-directory/managed-identities-azure-resources/overview.md)。
 
@@ -109,6 +109,8 @@ Azure 媒体服务 v3 资源名称（例如，资产、作业、转换）需遵�
 
 成功提交长时间运行的操作后，你会收到“202 已接受”；必须使用返回的操作 ID 轮询操作的完成状态。
 
+[跟踪异步 Azure 操作](/azure-resource-manager/resource-manager-async-operations)一文深入说明了如何通过响应中返回的值跟踪异步 Azure 操作的状态。
+
 一个给定的实时事件或其任何关联的实时输出仅支持一个长时间运行的操作。 启动某个长时间运行的操作后，必须先完成该操作，才能针对同一个实时事件或任何关联的实时输出启动后续的长时间运行的操作。 对于包含多个实时输出的实时事件，必须等待针对一个实时输出的长时间运行的操作完成，然后才能对另一个实时输出触发长时间运行的操作。 
 
 ## <a name="sdks"></a>SDK
@@ -142,7 +144,7 @@ AMSE 是一个开源项目，由社区提供支持（可以将问题报告给 ht
 
 ## <a name="see-also"></a>另请参阅
 
-[Azure CLI](/cli/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>后续步骤
 

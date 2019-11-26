@@ -13,20 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/13/2017
-ms.date: 03/15/2019
+origin.date: 07/17/2019
+ms.date: 11/13/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4a52fcb662a5efe7090f28cbef90ad71d3ee60
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: f5cc10e54643a7947021e2417ea1e8d3e94bc191
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186658"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084673"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：再次运行安装向导
 首次运行 Azure AD Connect 安装向导时，该向导将逐步引导配置安装。 如果再次运行安装向导，它会提供维护选项。
+
+>[!IMPORTANT]
+>请注意，正在进行同步时，无法运行安装向导。  请在启动向导之前验证同步是否未运行。
 
 可以在“开始”菜单中找到名为 **Azure AD Connect**的安装向导。
 
@@ -36,9 +39,9 @@ ms.locfileid: "58186658"
 
 ![列出其他任务的页面](./media/how-to-connect-installation-wizard/additionaltasks.png)
 
-如果已使用 Azure AD Connect 安装 ADFS，则会有更多选项。 [ADFS 管理](how-to-connect-fed-management.md#ad-fs-management)中记录了可用于 ADFS 的其他选项。
+如果已使用 Azure AD Connect 安装 ADFS，则会有更多选项。 [ADFS 管理](how-to-connect-fed-management.md#manage-ad-fs)中记录了可用于 ADFS 的其他选项。
 
-请选择其中一项任务，然后单击“下一步”继续。
+请选择其中一项任务，然后单击“下一步”  继续。
 
 > [!IMPORTANT]
 > 打开安装向导时，同步引擎中的所有操作都会挂起。 请确保在完成配置更改后，立即关闭安装向导。
@@ -50,7 +53,7 @@ ms.locfileid: "58186658"
 
 ![列出所有选项及其状态的页面](./media/how-to-connect-installation-wizard/viewconfig.png)
 
-单击“上一步”可以回退。 如果选择“退出”，将关闭安装向导。
+单击“上一步”  可以回退。 如果选择“退出”  ，将关闭安装向导。
 
 ## <a name="customize-synchronization-options"></a>自定义同步选项
 此选项可用于更改同步配置。 会在自定义配置安装路径中看到一部分选项。 即使最初使用的是快速安装，也会看到此选项。
@@ -83,7 +86,7 @@ ms.locfileid: "58186658"
 ![同时显示过渡模式当前状态的选项](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>更改用户登录
-通过此选项，可将用户登录方式改为密码哈希同步或联合。 但不能更改为“不配置”。
+通过此选项，可将用户登录方式改为密码哈希同步或联合。 但不能更改为“不配置”  。
 
 有关此选项的详细信息，请参阅[用户登录](plan-connect-user-signin.md#changing-the-user-sign-in-method)。
 
@@ -95,4 +98,4 @@ ms.locfileid: "58186658"
 * [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

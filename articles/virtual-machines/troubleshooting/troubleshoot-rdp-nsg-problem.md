@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/20/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 845db16ede3fe79f73635d25133a2ee541cb1448
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: f80b2230b9300bc12021190fd851cefc0f54917a
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272709"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116931"
 ---
 <!--Verify successfully-->
 # <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>因为没有在 NSG 中启用 RDP 端口而无法远程连接到 VM
@@ -43,9 +43,8 @@ ms.locfileid: "72272709"
 4. 在“入站端口规则”  中，检查是否正确设置了 RDP 的端口。 下面是一个配置示例： 
 
     **优先级**：300 <br />
-    **端口**：3389 <br />
     **名称**：Port_3389 <br />
-    **端口**：3389 <br />
+    **端口(目标)** ：3389 <br />
     **协议**：TCP <br />
     **源**：任意 <br />
     **目标**：任意 <br />

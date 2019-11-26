@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 01/11/2019
-ms.date: 08/15/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d22343b328d28d15458e60f57a0158adddcea2
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 4daea524e8990b3e1badecd08da0aae97a2c4988
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448467"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084477"
 ---
 # <a name="how-to-configure-password-writeback"></a>操作说明：配置密码写回服务
 
@@ -60,7 +60,7 @@ ms.locfileid: "69448467"
 > 独立 Office 365 许可计划不支持“通过本地写回实现自助密码重置/更改/解锁”  ，要使此功能正常工作，需要使用上述计划之一。
 >
 
-## <a name="active-directory-permissions"></a>Active Directory 权限
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory 权限和本地密码复杂性策略 
 
 若要纳入 SSPR 范围，在 Azure AD Connect 实用工具中指定的帐户必须设置以下各项：
 
@@ -100,9 +100,12 @@ ms.locfileid: "69448467"
     * **写入 pwdLastSet**
 9. 选择“应用”/“确定”  以应用更改，并退出所有打开的对话框。
 
+由于授权源在本地，因此密码复杂性策略从同一已连接的数据源应用。 请确保已更改“最短密码长度”的现有组策略。 组策略不应设置为 1，这意味着密码至少应存在一天的时间才能更新。 需要确保将其设置为 0。 这些设置可以在“计算机配置”>“策略”>“Windows 设置”>“安全设置”>“帐户策略”  下的 `gpmc.msc` 中找到。 运行 `gpupdate /force` 以确保更改生效。 
+
 ## <a name="next-steps"></a>后续步骤
 
 [什么是密码写回？](concept-sspr-writeback.md)
 
 [Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "在 Azure AD Connect 中启用密码写回"
 
+<!-- Update_Description: wording update -->

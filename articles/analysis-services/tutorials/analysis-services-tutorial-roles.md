@@ -1,23 +1,21 @@
 ---
-title: 教程 - 配置 Azure Analysis Services 管理员和用户角色 | Azure
-description: 了解如何配置 Azure Analysis Services 角色。
+title: 教程 - 配置 Azure Analysis Services 角色 | Azure
+description: 了解如何使用 Azure 门户或 SQL Server Management Studio 配置 Azure Analysis Services 管理员和用户角色。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 01/09/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 7eef79ec3932daeacd3f167ad2478bf2c1ee840c
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: 742a6b256333396b4e3500b33737b7679658822a
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500745"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203556"
 ---
 <!--Notice: Verify successfully-->
-
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教程：配置服务器管理员和用户角色
 
  本教程介绍如何使用 SQL Server Management Studio (SSMS) 连接到 Azure 中的服务器，以便配置服务器管理员和模型数据库角色。 此外还介绍[表格模型脚本语言 (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)。 TMSL 是基于 JSON 的脚本语言，适用于 1200 和更高兼容级别的表格模型。 它可以用来自动执行许多表格建模任务。 TMSL 通常与 PowerShell 配合使用，但在本教程中，请在 SSMS 中使用 XMLA 查询编辑器。 使用本教程时，请完成以下任务： 
@@ -90,7 +88,7 @@ ms.locfileid: "70500745"
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>将用户添加到模型数据库管理员角色
 
-在此任务中，请将用户或组帐户添加到已存在于模型中的“Internet 销售管理员”角色。 此角色具有 adventureworks 示例模型数据库的完全控制（管理员）权限。 此任务在为你创建的脚本中使用 [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) TMSL 命令。
+在此任务中，请将用户或组帐户添加到已存在于模型中的“Internet 销售管理员”角色。 此角色具有 adventureworks 示例模型数据库的完全控制（管理员）权限。 此任务在为你创建的脚本中使用 [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) TMSL 命令。
 
 1. 在“对象资源管理器”  中，展开“数据库”   > “adventureworks”   >   “角色”。 
 2. 右键单击“Internet 销售管理员”，  然后单击“充当的脚本角色”   > “CREATE OR REPLACE TO”   >   “新建查询编辑器窗口”。
@@ -151,4 +149,4 @@ ms.locfileid: "70500745"
 > [!div class="nextstepaction"]
 > [教程：使用 Power BI Desktop 进行连接](analysis-services-tutorial-pbid.md)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

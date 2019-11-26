@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/26/2019
-ms.date: 08/27/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63e170f8542fb5aa19b2e3cd4025a41c077e5188
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 456ba3bba2be92729454ac9fe2754f11ee0b8861
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134328"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084596"
 ---
 # <a name="assign-users-to-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中向应用程序分配用户
 本文介绍如何将用户分配到 Azure Active Directory (Azure AD) 中的应用程序。 首先必须将用户分配给应用程序，然后管理员才能授予这些用户访问权限以执行以下操作：
@@ -47,7 +47,7 @@ ms.locfileid: "70134328"
 
 要直接将一个或多个用户分配到应用程序，请按照以下步骤操作：
 
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”  身份登录。
+1.  打开 [**Azure 门户**](https://portal.azure.cn/)并以全局管理员或非管理员应用程序所有者的身份登录  。
 
 2.  选择“Azure Active Directory”  。
 

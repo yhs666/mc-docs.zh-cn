@@ -1,20 +1,19 @@
 ---
 title: 使用服务主体自动完成 Azure Analysis Services 任务 | Azure
-description: 了解如何创建服务主体以自动完成 Azure Analysis Services 任务。
+description: 了解如何创建服务主体以自动完成 Azure Analysis Services 管理任务。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/23/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d40ca5c242c69eb15e601dc9cabce25122495f9
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: beddcd2238e414c222362a9b3abfa92958866647
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993457"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203550"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -50,7 +49,8 @@ Analysis Services 还支持由托管标识使用服务主体执行的操作。 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />使用 Az.AnalysisServices 模块
+<a name="azmodule"></a>
+#### <a name="using-azanalysisservices-module"></a>使用 Az.AnalysisServices 模块
 
 将服务主体与 [Az.AnalysisServices](https://docs.microsoft.com/powershell/module/az.analysisservices) 模块配合使用以进行资源管理操作时，请使用 `Connect-AzAccount -Environment AzureChinaCloud` cmdlet。 
 
@@ -89,7 +89,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Invoke-ProcessTable -Server "asazure://chinaeast.asazure.chinacloudapi.cn/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full" -ServicePrincipal -ApplicationId $AppId -TenantId $TenantId -Credential $Credential
+Invoke-ProcessTable -Server "asazure://chinanorth.asazure.chinacloudapi.cn/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full" -ServicePrincipal -ApplicationId $AppId -TenantId $TenantId -Credential $Credential
 ```
 
 ### <a name="amo-and-adomd"></a>AMO 和 ADOMD 
@@ -114,4 +114,4 @@ db.Model.SaveChanges();
 [使用 Azure PowerShell 进行登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)
 
-<!-- Update_Description: update meta porperties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

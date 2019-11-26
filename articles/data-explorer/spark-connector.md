@@ -2,18 +2,18 @@
 title: 使用适用于 Apache Spark 的 Azure 数据资源管理器连接器在 Azure 数据资源管理器与 Spark 群集之间移动数据。
 description: 本主题介绍如何在 Azure 数据资源管理器与 Apache Spark 群集之间移动数据。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 4/29/2019
+origin.date: 04/29/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 142bbfae2fb956a14c5496da078f0881b068c37c
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.openlocfilehash: 08c0803fb99e32a2d3841e01f669fe991a3be3de
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717353"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020857"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>适用于 Apache Spark 的 Azure 数据资源管理器连接器（预览版）
 
@@ -22,7 +22,7 @@ ms.locfileid: "67717353"
 适用于 Spark 的 Azure 数据资源管理器连接器实施数据源和数据接收器在 Azure 数据资源管理器与 Spark 群集之间移动数据，以使用两者的功能。 使用 Azure 数据资源管理器和 Apache Spark，可以构建面向数据驱动型方案（如机器学习 (ML)、提取-转换-加载 (ETL) 和 Log Analytics）的可缩放快速应用程序。 可在批处理模式和流模式下将数据写入 Azure 数据资源管理器。
 读取 Azure 数据资源管理器的操作支持列删除和谓词下推，这样，就可以通过过滤掉 Azure 数据资源管理器中的数据来减少传输的数据量。
 
-Azure 数据资源管理器 Spark 连接器是可在任何 Spark 群集上运行的[开源项目](https://github.com/Azure/azure-kusto-spark)。
+Azure 数据资源管理器 Spark 连接器是可在任何 Spark 群集上运行的[开源项目](https://github.com/Azure/azure-kusto-spark)。 Azure 数据资源管理器 Spark 连接器使 Azure 数据资源管理器成为标准 Spark 源和接收器操作（如写入、读取和 writeStream）的有效数据存储。 
 
 > [!NOTE]
 > 尽管下面的某些示例提到了 [Azure Databricks](https://docs.azuredatabricks.net/) Spark 群集，但 Azure 数据资源管理器 Spark 连接器并不直接依赖于 Databricks 或任何其他 Spark 分发版。
@@ -31,7 +31,7 @@ Azure 数据资源管理器 Spark 连接器是可在任何 Spark 群集上运行
 
 * [创建 Azure 数据资源管理器群集和数据库](/data-explorer/create-cluster-database-portal) 
 * 创建 Spark 群集
-* 安装 Azure 数据资源管理器连接器库，以及[依赖项](https://github.com/Azure/azure-kusto-spark#dependencies)中列出的库，包括以下 [Kusto Java SDK](https://docs.microsoft.com/zh-cn/azure/kusto/api/java/kusto-java-client-library) 库：
+* 安装 Azure 数据资源管理器连接器库，以及[依赖项](https://github.com/Azure/azure-kusto-spark#dependencies)中列出的库，包括以下 [Kusto Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library) 库：
     * [Kusto 数据客户端](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto 引入客户端](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
 * [Spark 2.4、Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) 的预生成库
@@ -91,7 +91,7 @@ mvn clean install
 
     ![导入 Azure 数据资源管理器库](media/spark-connector/db-create-library.png)
 
-1. 添加其他依赖项：
+1. 添加其他依赖项（如果从 maven 使用，则不需要）：
 
     ![添加依赖项](media/spark-connector/db-dependencies.png)
 
@@ -123,7 +123,7 @@ Azure 数据资源管理器 Spark 连接器允许使用 [Azure AD 应用程序](
 * 对于读取（数据源）操作，Azure AD 应用程序必须对目标数据库拥有“查看者”特权，或者对目标表拥有“管理员”特权。  
 * 对于写入（数据接收器）操作，Azure AD 应用程序必须对目标数据库拥有“引入者”特权。  此外，它必须对目标数据库拥有“用户”特权，这样才能创建新表。  如果目标表已存在，可以配置对目标表的“管理员”特权。 
  
-有关 Azure 数据资源管理器主体角色的详细信息，请参阅[基于角色的授权](https://docs.microsoft.com/zh-cn/azure/kusto/management/access-control/role-based-authorization)。 有关如何管理安全角色，请参阅[安全角色管理](https://docs.microsoft.com/zh-cn/azure/kusto/management/security-roles)。
+有关 Azure 数据资源管理器主体角色的详细信息，请参阅[基于角色的授权](https://docs.microsoft.com/azure/kusto/management/access-control/role-based-authorization)。 有关如何管理安全角色，请参阅[安全角色管理](https://docs.microsoft.com/azure/kusto/management/security-roles)。
 
 ## <a name="spark-sink-writing-to-azure-data-explorer"></a>Spark 接收器：写入 Azure 数据资源管理器
 
@@ -135,7 +135,7 @@ Azure 数据资源管理器 Spark 连接器允许使用 [Azure AD 应用程序](
  
     val appId = KustoSparkTestAppId
     val appKey = KustoSparkTestAppKey
-    val authorityId = "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    val authorityId = "72f988bf-86f1-41af-91ab-2d7cd011db47" // Optional - defaults to microsoft.com
     val cluster = "Sparktest.eastus2"
     val database = "TestDb"
     val table = "StringAndIntTable"
@@ -144,41 +144,52 @@ Azure 数据资源管理器 Spark 连接器允许使用 [Azure AD 应用程序](
 1. 将 Spark 数据帧分批写入 Azure 数据资源管理器群集：
 
     ```scala
+    import com.microsoft.kusto.spark.datasink.KustoSinkOptions
+    val conf = Map(
+            KustoSinkOptions.KUSTO_CLUSTER -> cluster,
+            KustoSinkOptions.KUSTO_TABLE -> table,
+            KustoSinkOptions.KUSTO_DATABASE -> database,
+            KustoSinkOptions.KUSTO_AAD_CLIENT_ID -> appId,
+            KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
+            KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID -> authorityId)
+    
     df.write
       .format("com.microsoft.kusto.spark.datasource")
-      .option(KustoOptions.KUSTO_CLUSTER, cluster)
-      .option(KustoOptions.KUSTO_DATABASE, database)
-      .option(KustoOptions.KUSTO_TABLE, table)
-      .option(KustoOptions.KUSTO_AAD_CLIENT_ID, appId)
-      .option(KustoOptions.KUSTO_AAD_CLIENT_PASSWORD, appKey) 
-      .option(KustoOptions.KUSTO_AAD_AUTHORITY_ID, authorityId)
+      .options(conf)
       .save()
     ```
-
+    
+   或者使用简化的语法：
+   
+    ```scala
+         import com.microsoft.kusto.spark.datasink.SparkIngestionProperties
+         import com.microsoft.kusto.spark.sql.extension.SparkExtension._
+         
+         val sparkIngestionProperties = Some(new SparkIngestionProperties()) // Optional, use None if not needed
+         df.write.kusto(cluster, database, table, conf, sparkIngestionProperties)
+    ```
+   
 1. 写入流数据：
 
     ```scala    
     import org.apache.spark.sql.streaming.Trigger
     import java.util.concurrent.TimeUnit
-    
+    import java.util.concurrent.TimeUnit
+    import org.apache.spark.sql.streaming.Trigger
+
     // Set up a checkpoint and disable codeGen. Set up a checkpoint and disable codeGen as a workaround for an known issue 
     spark.conf.set("spark.sql.streaming.checkpointLocation", "/FileStore/temp/checkpoint")
-    spark.conf.set("spark.sql.codegen.wholeStage","false")
+    spark.conf.set("spark.sql.codegen.wholeStage","false") // Use in case a NullPointerException is thrown inside codegen iterator
     
-    // Write to a Kusto table fro streaming source
-    val kustoQ = csvDf
+    // Write to a Kusto table from a streaming source
+    val kustoQ = df
           .writeStream
           .format("com.microsoft.kusto.spark.datasink.KustoSinkProvider")
-          .options(Map(
-            KustoOptions.KUSTO_CLUSTER -> cluster,
-            KustoOptions.KUSTO_TABLE -> table,
-            KustoOptions.KUSTO_DATABASE -> database,
-            KustoOptions.KUSTO_AAD_CLIENT_ID -> appId,
-            KustoOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
-            KustoOptions.KUSTO_AAD_AUTHORITY_ID -> authorityId))
-          .trigger(Trigger.Once)
+          .options(conf) 
+          .option(KustoSinkOptions.KUSTO_WRITE_ENABLE_ASYNC, "true") // Optional, better for streaming, harder to handle errors
+          .trigger(Trigger.ProcessingTime(TimeUnit.SECONDS.toMillis(10))) // Sync this with the ingestionBatching policy of the database
+          .start()
     
-    kustoQ.start().awaitTermination(TimeUnit.MINUTES.toMillis(8))
     ```
 
 ## <a name="spark-source-reading-from-azure-data-explorer"></a>Spark 源：从 Azure 数据资源管理器读取数据
@@ -186,19 +197,30 @@ Azure 数据资源管理器 Spark 连接器允许使用 [Azure AD 应用程序](
 1. 读取少量的数据时，可定义数据查询：
 
     ```scala
-    val conf: Map[String, String] = Map(
-          KustoOptions.KUSTO_AAD_CLIENT_ID -> appId,
-          KustoOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
-          KustoOptions.KUSTO_QUERY -> s"$table | where (ColB % 1000 == 0) | distinct ColA"      
-        )
-    
-    // Simplified syntax flavor
-    import org.apache.spark.sql._
-    import com.microsoft.kusto.spark.sql.extension.SparkExtension._
+    import com.microsoft.kusto.spark.datasource.KustoSourceOptions
     import org.apache.spark.SparkConf
+    import org.apache.spark.sql._
+    import com.microsoft.azure.kusto.data.ClientRequestProperties
+
+    val query = s"$table | where (ColB % 1000 == 0) | distinct ColA"
+    val conf: Map[String, String] = Map(
+          KustoSourceOptions.KUSTO_AAD_CLIENT_ID -> appId,
+          KustoSourceOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey
+        )
+
+    val df = spark.read.format("com.microsoft.kusto.spark.datasource").
+      options(conf).
+      option(KustoSourceOptions.KUSTO_QUERY, query).
+      option(KustoSourceOptions.KUSTO_DATABASE, database).
+      option(KustoSourceOptions.KUSTO_CLUSTER, cluster).
+      load()
+
+    // Simplified syntax flavor
+    import com.microsoft.kusto.spark.sql.extension.SparkExtension._
     
-    val df = spark.read.kusto(cluster, database, "", conf)
-    display(df)
+    val cpr: Option[ClientRequestProperties] = None // Optional
+    val df2 = spark.read.kusto(cluster, database, query, conf, cpr)
+    display(df2)
     ```
 
 1. 读取大量的数据时，必须提供暂用的 Blob 存储。 提供存储容器 SAS 密钥，或者存储帐户名称、帐户密钥和容器名称。 只有在当前 Spark 连接器预览版中才需要执行此步骤。
@@ -216,6 +238,10 @@ Azure 数据资源管理器 Spark 连接器允许使用 [Azure AD 应用程序](
 1. 从 Azure 数据资源管理器读取数据：
 
     ```scala
+     val conf3 = Map(
+          KustoSourceOptions.KUSTO_AAD_CLIENT_ID -> appId,
+          KustoSourceOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey
+          KustoSourceOptions.KUSTO_BLOB_STORAGE_SAS_URL -> storageSas)
     val df2 = spark.read.kusto(cluster, database, "ReallyBigTable", conf3)
     
     val dfFiltered = df2

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure VPN 网关上配置 BGP：资源管理器：PowerShell | Microsoft Docs
-description: 本文指导完成使用 Azure Resource Manager 和 PowerShell 通过 Azure VPN 网关配置 BGP。
+description: 本文指导完成使用 Azure 资源管理器和 PowerShell 通过 Azure VPN 网关配置 BGP。
 services: vpn-gateway
 documentationcenter: na
 author: WenJason
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/12/2017
-ms.date: 08/05/2019
+ms.date: 11/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 2d41bd1db9b54f7d8fb42897e739bc6b01867f23
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 30561727a40dcf1eb827f815f0b955675187bae6
+ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732350"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74202775"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 网关上配置 BGP
 本文介绍使用 Resource Manager 部署模型和 PowerShell 在跨界站点到站点 (S2S) VPN 连接和 VNet 到 VNet 连接上启用 BGP 的步骤。
@@ -52,13 +52,13 @@ BGP 是通常在 Internet 上使用的，用于在两个或更多网络之间交
 
 ![BGP 网关](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
-### <a name="before-you-begin"></a>准备阶段
+### <a name="before-you-begin"></a>开始之前
 * 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 安装 Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
 
 ### <a name="step-1---create-and-configure-vnet1"></a>步骤 1 - 创建并配置 VNet1
 #### <a name="1-declare-your-variables"></a>1.声明变量
-对于本练习，我们首先要声明变量。 以下示例使用此练习中的值来声明变量。 请务必在配置生产环境时，使用自己的值来替换该值。 如果执行这些步骤是为了熟悉此类型的配置，则可以使用这些变量。 修改变量，并将其复制并粘贴到 PowerShell 控制台中。
+对于本练习，我们首先要声明变量。 以下示例使用此练习中的值来声明变量。 请务必在配置生产环境时，使用自己的值来替换该值。 如果执行这些步骤是为了熟悉此类型的配置，则可以使用这些变量。 修改变量，然后将其复制并粘贴到 PowerShell 控制台中。
 
 ```powershell
 $Sub1 = "Replace_With_Your_Subscription_Name"
@@ -83,7 +83,7 @@ $Connection15 = "VNet1toSite5"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.连接到订阅并创建新资源组
-若要使用资源管理器 cmdlet，请确保切换到 PowerShell 模式。 有关详细信息，请参阅[将 Windows PowerShell 与资源管理器配合使用](../powershell-azure-resource-manager.md)。
+若要使用资源管理器 cmdlet，请确保切换到 PowerShell 模式。 有关详细信息，请参阅[将 Windows PowerShell 与 Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
 
 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
@@ -116,7 +116,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2.使用 AS 编号创建 VPN 网关
-为 TestVNet1 创建虚拟网络网关。 BGP 需要基于路由的 VPN 网关，还需要添加参数 -Asn 来为 TestVNet1 设置 ASN（AS 编号）。 如果未设置 ASN 参数，将分配 ASN 65515。 创建网关可能需要花费一段时间（30 分钟或更久才能完成）。
+为 TestVNet1 创建虚拟网络网关。 BGP 需要基于路由的 VPN 网关，还需要添加参数 -Asn 来为 TestVNet1 设置 ASN（AS 编号）。 如果未设置 ASN 参数，将分配 ASN 65515。 创建网关可能需要花费一段时间（30 分钟或更久）。
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
@@ -155,7 +155,7 @@ $vnet1gw.BgpSettingsText
 
 #### <a name="1-declare-your-variables"></a>1.声明变量
 
-此练习将继续生成图中所示的配置。 请务必将值替换为要用于配置的值。
+此练习将继续生成图中所示的配置。 请务必将值替换为用于配置的值。
 
 ```powershell
 $RG5 = "TestBGPRG5"
@@ -185,7 +185,7 @@ New-AzResourceGroup -Name $RG5 -Location $Location5
 New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>步骤 2 - 连接 VNet 网关和本地网关
+### <a name="step-2---connect-the-vpn-gateway-and-local-network-gateway"></a>步骤 2 - 连接 VPN 网关和本地网关
 
 #### <a name="1-get-the-two-gateways"></a>1.获取这两个网关
 
@@ -223,7 +223,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG
 
 ![VNet 到 VNet 的 BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
-以下说明延续前面的步骤。 必须完成 [第 I 部分](#enablebgp) ，以使用 BGP 创建和配置 TestVNet1 和 VPN 网关。 
+以下说明延续前面的步骤。 必须完成[第 I 部分](#enablebgp)，以使用 BGP 创建和配置 TestVNet1 和 VPN 网关。 
 
 ### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>步骤 1 - 创建 TestVNet2 和 VPN 网关
 

@@ -1,20 +1,19 @@
 ---
-title: 快速入门 - 使用 PowerShell 创建 Azure Analysis Services 服务器 | Azure
+title: 快速入门 - 使用 PowerShell Azure Analysis Services 创建 Azure Analysis Services | Azure
 description: 了解如何使用 PowerShell 创建 Azure Analysis Services 服务器
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 origin.date: 07/29/2019
-ms.date: 08/26/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 036eceadd681e35876345ee8dbb6ddda4b1d3f30
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 341c6d11499f09b169f6785245beb0923d0e600c
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993528"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203635"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 
@@ -38,7 +37,7 @@ Import-Module Az.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 命令登录到 Azure 订阅。 按屏幕说明操作。
+使用 [Connect-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 命令登录到 Azure 订阅。 按屏幕指令操作。
 
 ```powershell
 Connect-AzAccount -Environment AzureChinaCloud
@@ -56,6 +55,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "ChinaNorth"
 
 使用 [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) 命令创建新的服务器。 以下示例在 ChinaNorth 区域的 myResourceGroup 中的 B0 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
 
+<!--MOONCAKE: REMOVE D1 (free) tier-->
 <!--Notice: ChinaNorth is valid and -Sku should be B0,B1,S0-S4-->
 
 ```powershell
@@ -82,4 +82,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!--Update_Description: update meta properties-->
+<!-- Update_Description: update meta properties, wording update, update link -->

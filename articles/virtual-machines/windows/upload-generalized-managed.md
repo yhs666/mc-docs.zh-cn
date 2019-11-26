@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 09/25/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 04d9e80c15ec599661a35dd1106e62344b0ded1c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: cc9c532cafca1f116c262925446843e4c22bf09f
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272524"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116874"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 
@@ -55,66 +55,13 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 不要重新启动 VM。
 
-## <a name="get-a-storage-account"></a>获取存储帐户
-
-需要在 Azure 中创建存储帐户来存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
-
-如果要使用 VHD 为 VM 创建托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
-
-显示可用的存储帐户，请输入：
-
-```powershell
-Get-AzStorageAccount | Format-Table
-```
-
 ## <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户
 
-使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 myVHD.vhd 从 C:\Users\Public\Documents\Virtual hard disks\\ 上传到 myResourceGroup 资源组中名为 mystorageaccount 的存储帐户     。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-如果成功，会显示类似于下面的响应：
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myUploadedVHD.vhd
-```
-
-完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小。
-
-### <a name="other-options-for-uploading-a-vhd"></a>用于上传 VHD 的其他选项
-
-也可以使用以下方法之一将 VHD 上传到存储帐户：
-
-- [AzCopy](https://aka.ms/downloadazcopy)
-- [Azure 存储复制 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure 存储资源管理器上传 Blob](https://azurestorageexplorer.codeplex.com/)
-- [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)（存储导入/导出服务 REST API 参考）
--   如果预估上传时间大于 7 天，建议使用导入/导出服务。 可根据数据大小和传输单位，利用 [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) 预估时间。 
-    导入/导出可用于复制到标准存储帐户。 需要使用 AzCopy 等工具从标准存储复制到高级存储帐户。
-
-> [!IMPORTANT]
-> 如果使用 AzCopy 将 VHD 上传至 Azure，请确保在运行上传脚本前已设置 [ **/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
-> 
-> 
-
-<!--MOONCAKE: CORRECT ON [**/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append) TILL 08/15/2019-->
+现在可以直接将 VHD 上传到托管磁盘中。 有关说明，请参阅[使用 Azure PowerShell 将 VHD 上传到 Azure](disks-upload-vhd-to-managed-disk-powershell.md)。
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>通过上传的 VHD 创建托管映像 
 
-从通用 OS VHD 创建托管映像。 将以下值替换为自己的信息。
+从通用 OS 托管磁盘创建托管映像。 将以下值替换为自己的信息。
 
 首先设置一些参数：
 

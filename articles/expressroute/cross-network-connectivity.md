@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 04/03/2019
 ms.date: 08/12/2019
 ms.author: v-yiso
-ms.openlocfilehash: 74e1685168bc42c6943d3996c6a586b262b5843a
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.openlocfilehash: 2c0185703bfb29bd7ad45c03144f008bf76cb250
+ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738030"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74202768"
 ---
 # <a name="cross-network-connectivity"></a>跨网连接
 
@@ -97,7 +97,7 @@ VNet 对等互连直接将两个虚拟网络链接到一起（在上面的两个
 [![13]][13]
 
 >[!NOTE]
->在 Fabrikam 和/或 Contoso 订阅中，还可以将辐射 VNet 连接到相应的中心 VNet（本文中的体系结构图未演示中心辐射型设计）。 中心 VNet 网关与 ExpressRoute 之间的交叉连接还允许东部和西部中心与辐射之间的通信。
+>在 Fabrikam 和/或 Contoso 订阅中，还可以将辐射 VNet 连接到相应的中心 VNet（本文中的体系结构图未演示中心辐射型设计）。 中心 VPN 网关与 ExpressRoute 之间的交叉连接还允许东部和西部中心与辐射之间的通信。
 >
 
 ## <a name="cross-connecting-on-premises-networks"></a>交叉连接本地网络

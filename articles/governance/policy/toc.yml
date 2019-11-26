@@ -146,7 +146,7 @@
             - name: 允许的应用程序网关 SKU
               displayName: deny
               href: samples/allowed-app-gateway-sku.md
-            - name: 允许的 vNet 网关 SKU
+            - name: 允许的 VPN 网关 SKU
               displayName: deny
               href: samples/allowed-vnet-gateway-sku.md
             - name: 允许的负载均衡器 SKU
@@ -191,7 +191,7 @@
             - name: 如果未对区域启用网络观察程序，则进行审核
               displayName: 'auditIfNotExists, Location'
               href: samples/network-watcher-not-enabled.md
-        - name: 应用程序网关
+        - name: 应用程序网关数
           items:
             - name: 允许的应用程序网关 SKU
               displayName: deny
@@ -297,7 +297,7 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
     - name: REST
       items:
-        - name: 事件
+        - name: 活动
           href: 'https://docs.microsoft.com/rest/api/policy-insights/policyevents'
         - name: States
           href: 'https://docs.microsoft.com/rest/api/policy-insights/policystates'
@@ -313,7 +313,7 @@
           href: 'https://docs.microsoft.com/rest/api/policy-insights/remediations'
         - name: 来宾配置
           href: 'https://docs.microsoft.com/rest/api/guestconfiguration/'
-    - name: Resource Manager 模板
+    - name: 资源管理器模板
       items:
         - name: 分配
           href: /azure/templates/microsoft.authorization/policyassignments

@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 09/22/2018
-ms.date: 11/04/2019
-ms.openlocfilehash: 72535b6bf32b1ba079c0520cd346244c5326ce9f
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+origin.date: 10/25/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 9fb6c1ae612ff29837f13f79e1a8bf6680f1a62f
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142093"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020873"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL 服务器防火墙规则
 
@@ -48,11 +48,14 @@ ms.locfileid: "73142093"
 
 ![在门户中配置“允许访问 Azure 服务”](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>从 VNet 连接
+若要从 VNet 安全连接到 Azure Database for MySQL 服务器，请考虑使用 [VNet 服务终结点](./concepts-data-access-and-security-vnet.md)。 
+
 ## <a name="programmatically-managing-firewall-rules"></a>以编程方式管理防火墙规则
 除了 Azure 门户外，还可使用 Azure CLI 通过编程方式管理防火墙规则。 另请参阅[使用 Azure CLI 创建和管理 Azure Database for MySQL 防火墙规则](./howto-manage-firewall-using-cli.md)
 
 ## <a name="troubleshooting-firewall-issues"></a>排查防火墙问题
-对 Microsoft Azure Database for MySQL 服务器服务的访问与预期不符时，请考虑以下几点：
+对 Azure Database for MySQL 服务器服务的访问未按预期工作时，请考虑以下几点：
 
 * **对允许列表的更改尚未生效：** 对 Azure Database for MySQL 防火墙配置所做的更改可能最多需要 5 分钟的延迟才可生效。
 
@@ -70,3 +73,4 @@ ms.locfileid: "73142093"
 
 * [使用 Azure 门户创建和管理 Azure Database for MySQL 防火墙规则](./howto-manage-firewall-using-portal.md)
 * [使用 Azure CLI 创建和管理 Azure Database for MySQL 防火墙规则](./howto-manage-firewall-using-cli.md)
+* [Azure Database for MySQL 中的 VNet 服务终结点](./concepts-data-access-and-security-vnet.md)

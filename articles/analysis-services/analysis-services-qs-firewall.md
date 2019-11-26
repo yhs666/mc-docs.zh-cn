@@ -1,20 +1,19 @@
 ---
-title: 快速入门 - 为 Azure 中的 Analysis Services 服务器配置防火墙 | Azure
-description: 了解如何为 Azure 中的 Analysis Services 服务器实例配置防火墙。
+title: 快速入门 - 配置 Azure Analysis Services 服务器防火墙 | Azure
+description: 此快速入门可帮助你使用Azure 门户为 Azure Analysis Services 服务器配置防火墙。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 07/02/2019
-ms.date: 09/23/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6751dbf419574821ee658298cd0485ad52f1aea
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 3da8fc639d39b263dee2d14aece547de54c3362b
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155827"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203627"
 ---
 <!--Notice: Verified successfully-->
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入门：配置服务器防火墙 - 门户
@@ -23,7 +22,7 @@ ms.locfileid: "71155827"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 订阅中的 Analysis Services 服务器。 若要了解详细信息，请参阅[快速入门：创建服务器 - 门户](analysis-services-create-server.md)或[快速入门：创建服务器 - PowerShell](analysis-services-create-powershell.md)
+- 订阅中的 Analysis Services 服务器。 要了解详细信息，请参阅[快速入门：创建服务器 - 门户](analysis-services-create-server.md)或[快速入门：创建服务器 - PowerShell](analysis-services-create-powershell.md)
 - 客户端计算机的一个或多个 IP 地址范围（如果需要）。
 - 请注意，目前不支持从 Power BI Premium 导入方案。
 
@@ -37,7 +36,7 @@ ms.locfileid: "71155827"
 2. 在“设置”   > “防火墙”   > “启用防火墙”  ，单击“开”  。
 3. 若要允许从 Power BI 服务进行 DirectQuery 访问，请在“允许从Power BI 访问”  中，单击“开”  。  
 4. （可选）指定一个或多个 IP 地址范围。 输入每个范围的名称、起始和结束 IP 地址。 防火墙规则名称应限制为 128 个字符，并且只能包含大写字符、小写字符、数字、下划线和连字符。 不允许使用空格和其他特殊字符。
-5. 单击“保存”  。
+5. 单击“ **保存**”。
 
     ![防火墙设置](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 

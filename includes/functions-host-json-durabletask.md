@@ -7,17 +7,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 origin.date: 03/14/2019
-ms.date: 07/17/2019
+ms.date: 11/19/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 1101ea9f818da61022e404e628d115f59f2c40da
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 7d98f1ed6c559136a8bc359ddeaa341e1edc1027
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332797"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178960"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的配置设置。
+
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -33,7 +35,55 @@ ms.locfileid: "68332797"
     "azureStorageConnectionStringName": "AzureWebJobsStorage",
     "trackingStoreConnectionStringName": "TrackingStorage",
     "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false]
+    "traceInputsAndOutputs": false,
+    "logReplayEvents": false,
+    "eventGridTopicEndpoint": "https://topic_name.chinanorth2-1.eventgrid.chinacloudapi.cn/api/events",
+    "eventGridKeySettingName":  "EventGridKey",
+    "eventGridPublishRetryCount": 3,
+    "eventGridPublishRetryInterval": "00:00:30",
+    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+  }
+}
+```
+
+### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub",
+    "storageProvider": {
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "connectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask"
+    },
+    "tracing": {
+      "traceInputsAndOutputs": false,
+      "traceReplayEvents": false,
+    },
+    "notifications": {
+      "eventGrid": {
+        "topicEndpoint": "https://topic_name.chinanorth2-1.eventgrid.chinacloudapi.cn/api/events",
+        "keySettingName": "EventGridKey",
+        "publishRetryCount": 3,
+        "publishRetryInterval": "00:00:30",
+        "publishEventTypes": [
+          "Started",
+          "Pending",
+          "Failed",
+          "Terminated"
+        ]
+      }
+    },
+    "maxConcurrentActivityFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10,
+    "extendedSessionsEnabled": false,
+    "extendedSessionIdleTimeoutInSeconds": 30
   }
 }
 ```
@@ -54,6 +104,12 @@ ms.locfileid: "68332797"
 |trackingStoreConnectionStringName||连接字符串的名称，用于“历史记录”和“实例”表。 如果未指定，则使用 `azureStorageConnectionStringName` 连接。|
 |trackingStoreNamePrefix||指定 `trackingStoreConnectionStringName` 时用于“历史记录”和“实例”表的前缀。 如果未设置，则默认前缀值为 `DurableTask`。 如果 `trackingStoreConnectionStringName` 未指定，则“历史记录”和“实例”表会使用 `hubName` 值作为其前缀，`trackingStoreNamePrefix` 的任何设置都会被忽略。|
 |traceInputsAndOutputs |false|一个指示是否跟踪函数调用的输入和输出的值。 跟踪函数执行事件时的默认行为是在函数调用的序列化输入和输出中包括字节数。 此行为提供的有关输入和输出情况的信息是最少的，不会导致日志膨胀，也不会无意中将敏感信息公开。 将此属性设置为 true 会导致默认函数日志记录将函数输入和输出的整个内容都记录下来。|
+|logReplayEvents|false|一个值，该值指示是否将业务流程重播事件写入到 Application Insights。|
+|eventGridTopicEndpoint ||Azure 事件网格自定义主题终结点的 URL。 设置此属性后，业务流程生命周期通知事件就会发布到此终结点。 此属性支持应用设置解析。|
+|eventGridKeySettingName ||应用设置的名称，该设置包含的密钥用于在 `EventGridTopicEndpoint` 上通过 Azure 事件网格自定义主题进行身份验证。|
+|eventGridPublishRetryCount|0|发布到事件网格主题失败时要重试的次数。|
+|eventGridPublishRetryInterval|5 分钟|事件网格发布重试间隔（采用 *hh:mm:ss* 格式）。|
+|eventGridPublishEventTypes||要发布到事件网格的事件类型列表。 如果未指定，则将发布所有事件类型。 允许的值包括 `Started`、`Completed`、`Failed`、`Terminated`。|
 
 许多此类设置用于优化性能。 有关详细信息，请参阅[性能和缩放](../articles/azure-functions/durable-functions-perf-and-scale.md)。
 

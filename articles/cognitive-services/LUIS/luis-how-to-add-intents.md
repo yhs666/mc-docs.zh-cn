@@ -12,12 +12,12 @@ origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.service: cognitive-services
-ms.openlocfilehash: 9be96f7443b9eef109e7ac2e01e291f3477421e8
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 9fdf1af25ae6d3ff5669a269b95eb584a18d0304
+ms.sourcegitcommit: b787db1fd4c7c95100734b55c4d2700063b0fed6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329717"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266389"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>添加意向以确定用户的话语意向
 
@@ -55,7 +55,7 @@ ms.locfileid: "71329717"
 
 应用筛选器和视图以后，如果示例话语出现错误，则示例话语列表会显示话语和问题。
 
-![![应用筛选器和视图以后，如果示例话语出现错误，则示例话语列表会显示话语和问题。](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+[![应用筛选器和视图以后，如果示例话语出现错误，则示例话语列表会显示话语和问题。](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
 每一行会显示当前训练的示例话语预测分数、最接近的对手的分数，以及这两个分数之间的差异。 
 

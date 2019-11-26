@@ -1,20 +1,19 @@
 ---
 title: Azure Analysis Services 中支持的数据源 | Azure
-description: 介绍 Azure Analysis Services 中数据模型支持的数据源。
+description: 介绍 Azure Analysis Services 中的表格 1200 和更高版本数据模型所支持的数据源和连接器。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 09/13/2019
-ms.date: 09/23/2019
+origin.date: 11/14/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4d6cba4d23152efa9fc5eed760ed7bc9ac9a2d00
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 33c8521f4416fa8abd1a1819d2aa1c30a9eb0627
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155829"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203629"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -22,7 +21,7 @@ ms.locfileid: "71155829"
 
 ## <a name="azure-data-sources"></a>Azure 数据源
 
-|数据源  |内存中  |直接连接  |
+|数据源  |内存中  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
 |Azure SQL 数据仓库     |   是      |   是       |
@@ -48,16 +47,16 @@ ms.locfileid: "71155829"
 
 ## <a name="other-data-sources"></a>其他数据源
 
-从 Azure AS 服务器连接到本地数据源需要使用本地网关。 使用网关时，需要 64 位提供程序。
+从 Azure Analysis Services 服务器连接到本地数据源需要使用本地网关。 使用网关时，需要 64 位提供程序。
 
 ### <a name="in-memory-and-directquery"></a>内存中和 DirectQuery
 
 |数据源 | 内存中提供程序 | DirectQuery 提供程序 |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
-| SQL Server 数据仓库 |SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
-| Oracle | 用于 Oracle 的 OLE DB 提供程序、用于 .NET 的 Oracle 数据提供程序 |用于 .NET 的 Oracle 数据提供程序 |
-| Teradata |用于 Teradata 的 OLE DB 提供程序、用于 .NET 的 Teradata 数据提供程序 |用于 .NET 的 Teradata 数据提供程序 |
+| SQL Server |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL（推荐）、SQL Server Native Client 11.0、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
+| SQL Server 数据仓库 |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL（推荐）、SQL Server Native Client 11.0、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
+| Oracle | 用于 Oracle 的 OLE DB 提供程序、用于 .NET 的 Oracle 数据提供程序 |用于 .Net 的 Oracle 数据提供程序 |
+| Teradata |用于 Teradata 的 OLE DB 提供程序、用于 .NET 的 Teradata 数据提供程序 |用于 .Net 的 Teradata 数据提供程序 |
 | | | |
 
 ### <a name="in-memory-only"></a>仅限内存中
@@ -96,18 +95,18 @@ ms.locfileid: "71155829"
 
 ## <a name="specifying-a-different-provider"></a>指定不同的提供程序
 
-连接到某些数据源时，Azure Analysis Services 中的数据模型可能需要不同的数据提供程序。 在某些情况下，使用本机提供程序（如 SQL Server Native Client (SQLNCLI11)）连接到数据源的表格模型可能返回错误。 如果使用 SQLOLEDB 之外的本机提供程序，则可能会看到错误消息：**未注册提供程序“SQLNCLI11.1”** 。 或者，在某个 DirectQuery 模型连接到本地数据源时，如果使用了本机提供程序，则可能会看到错误消息：**创建 OLE DB 行集时出错。“LIMIT”附近的语法不正确**。
+连接到某些数据源时，Azure Analysis Services 中的数据模型可能需要不同的数据提供程序。 在某些情况下，使用本机提供程序（如 SQL Server Native Client (SQLNCLI11)）连接到数据源的表格模型可能返回错误。 如果使用 SQLOLEDB 之外的本机提供程序，可能会看到错误消息：**未注册提供程序“SQLNCLI11.1”** 。 或者，在某个 DirectQuery 模型连接到本地数据源时，如果使用了本机提供程序，则可能会看到错误消息：**创建 OLE DB 行集时出错。“LIMIT”附近的语法不正确**。
 
 将本地 SQL Server Analysis Services 表格模型迁移到 Azure Analysis Services 时，可能需要更改提供程序。
 
 **指定提供程序**
 
-1. 在 SSDT >“表格模型浏览器”   > “数据源”  中，右键单击数据源连接，并单击“编辑数据源”  。
+1. 在 Visual Studio >“表格模型资源管理器”   > “数据源”  中，右键单击数据源连接，并单击“编辑数据源”  。
 2. 在“编辑连接”  中，单击“高级”  ，打开“高级属性”窗口。
 3. 在“设置高级属性”   > “提供程序”  中，选择适当的提供程序。
 
 ## <a name="impersonation"></a>模拟
-某些情况下可能需要指定其他模拟帐户。 可在 Visual Studio (SSDT) 或 SSMS 中指定模拟帐户。
+某些情况下可能需要指定其他模拟帐户。 可在 Visual Studio 或 SSMS 中指定模拟帐户。
 
 对于本地数据源：
 

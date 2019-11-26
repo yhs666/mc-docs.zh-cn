@@ -2,7 +2,7 @@
 title: Azure Analysis Services 文档
 summary: 了解如何在云中使用 Analysis Services 设置数据建模。 文档介绍了如何使用表格数据模型创建企业 BI 解决方案。
 metadata:
-  title: Azure Analysis Services 文档 - 概念、操作方法指南、教程、API 参考
+  title: Azure Analysis Services 文档 | Azure
   description: Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在云中提供企业级的数据模型。
   ms.service: analysis-services
   ms.topic: landing-page
@@ -10,14 +10,14 @@ metadata:
   author: rockboyfor
   ms.author: v-yeche
   manager: digimobile
-  origin.date: 08/28/2019
-  ms.date: 09/23/2019
-  ms.openlocfilehash: 416652a0904e83e420712170ad7158108743f352
-  ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+  origin.date: 10/30/2019
+  ms.date: 11/25/2019
+  ms.openlocfilehash: c0d108f561578d70d658845b3131e815f83bfd23
+  ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71156435"
+  ms.lasthandoff: 11/20/2019
+  ms.locfileid: "74203545"
 landingContent:
 - title: 关于 Azure Analysis Services
   linkLists:

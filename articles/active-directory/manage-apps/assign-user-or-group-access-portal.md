@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 04/11/2019
-ms.date: 08/27/2019
+origin.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b4b14c73f83c25116a590a97abdd9f6f04affe
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 789f7843c176c945d3c80b8c354f8bf4b8cc60fb
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134331"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084597"
 ---
 # <a name="assign-a-user-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户
 
-若要将用户分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。 对于 Microsoft 应用程序（例如 Office 365 应用），请使用 PowerShell 将用户分配到企业应用。
+若要将用户分配到企业应用，你应该分配了以下任一管理员角色：全局管理员、应用程序管理员、云应用程序管理员或被分配为企业应用的所有者。  对于 Microsoft 应用程序（例如 Office 365 应用），请使用 PowerShell 将用户分配到企业应用。
 
 > [!NOTE]
 > 有关本文中讨论的功能的许可要求，请参阅 [Azure Active Directory 定价页](https://www.azure.cn/pricing/details/active-directory)。

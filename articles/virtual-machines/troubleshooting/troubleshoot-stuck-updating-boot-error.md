@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/09/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5c8c880c31cf792363aa5025dbb4bcb6a1c3bef
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 176442c0e78681f4fe3fd530ee3893659a689aa4
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272879"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116877"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 启动在更新 Windows 时停滞
 

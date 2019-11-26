@@ -1,20 +1,19 @@
 ---
 title: Azure Analysis Services 横向扩展 | Azure
-description: 通过横向扩展复制 Azure Analysis Services 服务器
+description: 通过横向扩展复制 Azure Analysis Services 服务器。然后，客户端查询可以分布在横向扩展查询池中的多个查询副本中。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 08/01/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c25500430823099a7c976e0004fc972aa1016de
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: ad2d93de792c08cf7165dbeec2cbac54c8d08973
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993318"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203621"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 横向扩展
 
@@ -26,14 +25,13 @@ ms.locfileid: "69993318"
 
 在典型的服务器部署中，一台服务器同时用作处理服务器和查询服务器。 如果服务器上针对模型的客户端查询数量超过服务器计划的查询处理单元 (QPU)，或模型处理与高查询工作负载同时发生，就会导致性能降低。 
 
-<!--MOONCAKE: Scale out to ONE, TWO total-->
+<!--MOONCAKE: Scale out to Seven, Eight total on China East 2 -->
 
-通过横向扩展，可以创建最多包含一个附加查询副本资源的查询池（总共两个资源，包括主服务器）  。 可以缩放查询池中的副本数目以满足关键时刻的 QPU 需求，并且随时可以从查询池中隔离处理服务器。 
+通过横向扩展，可创建查询池，最多可添加 7 个查询副本资源（包括主服务器在内共 8 个  ）。 可以缩放查询池中的副本数目以满足关键时刻的 QPU 需求，并且随时可以从查询池中隔离处理服务器。 
 
-<!--MOONCAKE: Scale out to ONE, TWO total-->
+<!--MOONCAKE: Scale out to Seven, Eight total on China East 2 -->
 
 不论查询池中查询副本的数量如何，处理工作负载都不会分布在查询副本中。 主服务器充当处理服务器。 查询副本仅为针对查询池中主服务器与每个副本之间同步的模型数据库发出的查询提供服务。 
-
 
 横向扩展时，最长可能需要花费五分钟时间来以增量方式将新的查询副本添加到查询池。 所有新的查询副本正常运行后，新的客户端连接将在查询池中的资源之间进行负载均衡。 现有的客户端连接不会从当前连接到的资源更改。 向内扩展时，将终止与正在从查询池中删除的查询池资源的任何现有客户端连接。 客户端可以重新连接到剩余的查询池资源。
 
@@ -143,7 +141,7 @@ ms.locfileid: "69993318"
 
 对于最终用户客户端连接（如 Power BI Desktop、Excel 和自定义应用），请使用“服务器名称”  。 
 
-对于 PowerShell 中的 SSMS、SSDT 和连接字符串、Azure 函数应用以及 AMO，请使用“管理服务器名称”  。 管理服务器名称包含特殊限定符 `:rw`（读取-写入）。 所有处理操作均在管理服务器（主服务器）上发生。
+对于 PowerShell 中的 SSMS、Visual Studio 和连接字符串、Azure 函数应用以及 AMO，请使用“管理服务器名称”  。 管理服务器名称包含特殊限定符 `:rw`（读取-写入）。 所有处理操作均在管理服务器（主服务器）上发生。
 
 ![服务器名称](media/analysis-services-scale-out/aas-scale-out-name.png)
 

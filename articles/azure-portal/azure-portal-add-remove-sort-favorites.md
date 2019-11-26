@@ -1,22 +1,22 @@
 ---
-title: 在 Azure 门户中对收藏夹执行添加、删除和排序操作 | Azure Docs
+title: 在 Azure 门户中对收藏夹执行添加、删除和排序操作 | Azure
 description: 了解如何在收藏夹列表中添加或删除项目并对项目排序
 services: azure-portal
 keywords: 收藏夹
 author: kfollis
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 04/03/2019
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 1de139a0cf7f998727e61b8e4d335309b989e654
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 37e3073e9a3052550c46f9cfa38431caa58b154e
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566406"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020790"
 ---
 # <a name="add-remove-and-sort-favorites"></a>对收藏夹执行添加、删除和排序操作
 
@@ -24,11 +24,11 @@ ms.locfileid: "59566406"
 
 ## <a name="add-or-remove-a-favorite"></a>添加或删除收藏
 
-列在**收藏夹**中的项目是从“所有服务”中选择的。 每项服务旁边的星形图标 ![黄色星形图标](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-star.png) 表示该项是否显示在列表中。 选择用于在**收藏夹**列表中添加或删除服务的星形图标。
+列在**收藏夹**中的项目是从“所有服务”中选择的。  每项服务旁边的星形图标 ![黄色星形图标](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-star.png) 表示该项是否显示在列表中。 选择用于在**收藏夹**列表中添加或删除服务的星形图标。
 
 ### <a name="add-cost-management--billing-to-favorites"></a>向收藏夹添加“成本管理 + 计费”
 
-1. 从侧栏的顶部选择“所有服务”。
+1. 从侧栏的顶部选择“所有服务”。 
 
     ![屏幕截图，显示已选中“所有服务”](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-all-services.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "59566406"
 
    ![屏幕截图，显示选中了“成本管理 + 计费”旁边的星号](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. “成本管理 + 计费”现在已作为最后一个项添加到**收藏夹**列表。
+1. “成本管理 + 计费”现在已作为最后一个项添加到**收藏夹**列表。 
 
 ## <a name="sort-favorites"></a>将收藏夹排序
 
@@ -48,7 +48,7 @@ ms.locfileid: "59566406"
 
 ### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>将“成本管理 + 计费”移到收藏夹顶部
 
-1. 在**收藏夹**列表中选择“成本管理 + 计费”并将其按住。
+1. 在**收藏夹**列表中选择“成本管理 + 计费”并将其按住。 
 
    ![屏幕截图，显示选中了“成本管理 + 计费”](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
 

@@ -10,22 +10,24 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 08/27/2019
+origin.date: 09/25/2019
+ms.date: 11/13/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeaef2ec208f328beb85b1c56b6fe72dafabc73e
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 397ef8451f6daa729d7602e5910734fa2383787e
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134089"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084713"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。  如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
 
 开始安装 Azure AD Connect 之前，请务必[下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)，并完成 [Azure AD Connect：硬件和先决条件](how-to-connect-install-prerequisites.md)。 此外请确保拥有 [Azure AD Connect 帐户和权限](reference-connect-accounts-permissions.md)所述的可用的必需帐户。
+
+如果自定义的设置不匹配拓扑（例如，要升级 DirSync），请参阅相关文档了解其他情况。
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义设置安装
 ### <a name="express-settings"></a>快速设置
@@ -82,6 +84,9 @@ ms.locfileid: "70134089"
 | 使用现有帐户 | 如果需要提供一个现有的 AD DS 帐户，以便在目录同步期间用在 Azure AD Connect 中以连接到 AD 林，请选择此选项。 可以采用 NetBios 或 FQDN 格式输入域部分，即 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帐户可以是普通的用户帐户，因为该帐户只需默认的读取权限。 不过，根据情况，可能会需要更多权限。 有关详细信息，请参阅 [Azure AD Connect 帐户和权限](reference-connect-accounts-permissions.md##create-the-ad-ds-connector-account)。 |
 
 ![连接目录](./media/how-to-connect-install-custom/connectdir02.png)
+
+#### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>不支持企业管理员和域管理员帐户
+从内部版本 1.4.###.# 起，不再支持使用企业管理员或域管理员帐户作为 AD DS 连接器帐户。  如果在指定“使用现有帐户”  时尝试输入是企业管理员或域管理员的帐户，你将收到错误。
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 登录配置
 在此页中，可以查看本地 AD DS 中存在的 UPN 域，以及已在 Azure AD 中验证的 UPN 域。 还可以在此页中配置要用于 userPrincipalName 的属性。

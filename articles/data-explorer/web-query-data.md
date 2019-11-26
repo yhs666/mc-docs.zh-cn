@@ -2,18 +2,18 @@
 title: 快速入门：在 Azure 数据资源管理器 Web UI 中查询数据
 description: 本快速入门介绍如何在 Azure 数据资源管理器 Web UI 中查询和共享数据。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 origin.date: 09/24/2018
 ms.date: 08/05/2019
-ms.openlocfilehash: 1b2579cd004a92e446e4865d78a016caf057426d
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+ms.openlocfilehash: a09e2864c8798867ef79878da023cbcffe593c75
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371750"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020851"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>快速入门：在 Azure 数据资源管理器 Web UI 中查询数据
 
@@ -57,7 +57,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 1. 在“添加群集”对话框中，以 `https://<ClusterName>.<Region>.kusto.chinacloudapi.cn/` 格式输入测试群集 URL，然后选择“添加”   。
 
-    在以下示例中，会看到 help 群集和一个新群集 docscluster.westus（完整 URL 为 `https://docscluster.chinanorth.kusto.chinacloudapi.cn/`）   。
+    在以下示例中，会看到 help 群集和一个新群集 docscluster.chinaeast2（完整 URL 为 `https://docscluster.chinanorth.kusto.chinacloudapi.cn/`）   。
 
     ![测试群集](media/web-query-data/test-cluster.png)
 

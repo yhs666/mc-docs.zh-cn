@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 01/18/2019
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 51309bd64ef05da315d04842b755ec795ab459f3
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: b5fa2facb666ff7221811dd92fd73eb8fbfe3e1d
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272665"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116920"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>使用 Azure 门户在 VHD 中创建 VM
 
@@ -34,6 +34,8 @@ ms.locfileid: "72272665"
 - 可以通过上传本地 VHD 并将其附加到新 VM，在本地 VHD 上创建 Azure VM。 可使用 PowerShell 或其他工具将 VHD 上传到存储帐户，然后根据 VHD 创建托管磁盘。 有关详细信息，请参阅[上传专用 VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd)。 
 
 如果想创建多个 VM，请勿使用专用磁盘。 对于较大的部署，应先[创建映像](capture-image-resource.md)，然后[使用该映像创建多个 VM](create-vm-generalized-managed.md)。
+
+我们建议你将单个快照或 VHD 的并发部署数限制为 20 个 VM。 
 
 ## <a name="copy-a-disk"></a>复制磁盘
 

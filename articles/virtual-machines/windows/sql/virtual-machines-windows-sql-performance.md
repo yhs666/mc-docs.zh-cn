@@ -9,19 +9,20 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 09/26/2018
-ms.date: 10/14/2019
+origin.date: 10/18/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 5f95ef2c9d64a8bb3edad545013d0b77b767e20e
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 09300f850805a4f987b8e713928d4a3fb8ac5614
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272811"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116914"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的性能准则
 
@@ -40,31 +41,27 @@ ms.locfileid: "72272811"
 
 | 区域 | 优化 |
 | --- | --- |
-| [VM 大小](#vm-size-guidance) | SQL Enterprise Edition：- [DS3_v2](../sizes-general.md) 或更高版本。<br/><br/> SQL Standard 和 Web Edition：- [DS2_v2](../sizes-general.md) 或更高版本。 |
-| [存储](#storage-guidance) | - 使用[高级 SSD](../disks-types.md)。 仅建议将标准存储用于开发/测试。<br/><br/> - 将[存储帐户](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 保存在相同的区域。<br/><br/> * 在存储帐户上禁用 Azure [异地冗余存储](../../../storage/common/storage-redundancy.md)（异地复制）。 |
-| [磁盘](#disks-guidance) | - 使用至少 2 个 [P30 磁盘](../disks-types.md#premium-ssd)（一个用于日志，另一个用于数据文件，包括 TempDB）。 对于需要约 50,000 IOPS 的工作负荷，请考虑使用超级 SSD。 <br/><br/> - 避免使用操作系统或临时磁盘进行数据库存储或日志记录。<br/><br/> - 在托管数据文件和 TempDB 数据文件的磁盘上启用读取缓存。<br/><br/> - 请勿在托管日志文件的磁盘上启用缓存。  **重要说明**：更改 Azure VM 磁盘的缓存设置时，请停止 SQL Server 服务。<br/><br/> - 条带化多个 Azure 数据磁盘，提高 IO 吞吐量。<br/><br/> - 使用规定的分配大小格式化。 <br/><br/> - 将 TempDB 放在本地 SSD `D:\` 驱动器上，用于任务关键型 SQL Server 工作负荷（在选择正确的 VM 大小后）。 有关详细信息，请参阅博客[使用 SSD 存储 TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)。  |
-| [I/O](#io-guidance) |- 启用数据库页面压缩。<br/><br/> - 对数据文件启用即时文件初始化。<br/><br/> - 限制数据库自动增长。<br/><br/> - 禁用数据库自动收缩。<br/><br/> - 将所有数据库（包括系统数据库）转移到数据磁盘。<br/><br/> - 将 SQL Server 错误日志和跟踪文件目录移到数据磁盘。<br/><br/> - 设置默认的备份和数据库文件位置。<br/><br/> - 启用锁定页面。<br/><br/> - 应用 SQL Server 性能修复程序。 |
-| [Feature-specific](#feature-specific-guidance) | - 直接备份到 blob 存储。 |
+| [VM 大小](#vm-size-guidance) | - 使用具有 4 个或更多 vCPU 的 VM 大小，例如 [E4S_v3](../sizes-general.md) 或更大，或者 [DS12_v2](../sizes-memory.md#dsv2-series-11-15) 或更大。<br/><br/> - [Es 和 Ds 系列](../sizes-general.md)提供最佳的内存-vCPU 比，可满足 OLTP 工作负荷的性能需求。 <br/><br/> - [M 系列](../sizes-general.md)提供最高的内存-vCPU 比，可满足任务关键型工作负荷的性能需求，非常适合用于数据仓库工作负荷。 <br/><br/> - 遵循[应用程序性能要求查检表](../premium-storage-performance.md#application-performance-requirements-checklist)收集目标工作负荷在高峰期的 [IOPS](../premium-storage-performance.md#iops)、[吞吐量](../premium-storage-performance.md#throughput)和[延迟](../premium-storage-performance.md#latency)要求，然后选择可以根据工作负荷性能要求进行缩放的 [VM 大小](../sizes-general.md)。|
+| [存储](#storage-guidance) | - 有关根据 TPC-E 和 TPC_C 基准在 Azure VM 上进行的详细 SQL Server 性能测试结果，请参阅博客文章 [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794)（优化 OLTP 性能）。 <br/><br/> - 使用[高级 SSD](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) 可获得最高性价比。 为数据文件配置[只读缓存](../premium-storage-performance.md#disk-caching)，不要为日志文件配置缓存。 <br/><br/> - 在选择磁盘类型之前，通过[监视应用程序](../premium-storage-performance.md#application-performance-requirements-checklist)来收集 SQL Server 数据、日志和临时数据库文件的存储延迟要求。 如果存储延迟必须小于 1 毫秒，请使用高级 SSD。 <br/><br/> -  建议使用[高级文件共享](/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)作为 SQL Server 故障转移群集实例的共享存储。 高级文件共享不支持缓存，与高级 SSD 磁盘相比，性能有所限制。 对于独立的 SQL 实例，请优先选择高级 SSD 托管磁盘而不是高级文件共享；但对故障转移群集实例共享存储，请利用高级文件共享，以简化维护并实现灵活缩放。 <br/><br/> - 标准存储仅建议用于开发和测试目的或备份文件，不应将其用于生产工作负荷。 <br/><br/> - 将[存储帐户](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 保存在相同的区域。<br/><br/> - 在存储帐户中禁用 Azure [异地冗余存储](../../../storage/common/storage-redundancy.md)（异地复制）。  |
+| [磁盘](#disks-guidance) | - 至少使用 2 个[高级 SSD 磁盘](../disks-types.md#premium-ssd)（1 个用于日志文件，1 个用于数据文件）。 <br/><br/> - 对于要求 IO 延迟小于 1 毫秒的工作负荷，请为 M 系列启用写入加速器。 <br/><br/> - 在托管数据文件的磁盘上启用[只读缓存](../premium-storage-performance.md#disk-caching)。<br/><br/> - [为 SQL Server 数据、日志和 TempDB 文件配置存储](virtual-machines-windows-sql-server-storage-configuration.md)时，请添加比工作负荷所需的高级 IOPS/吞吐量容量多出 20% 的容量 <br/><br/> - 避免使用操作系统或临时磁盘进行数据库存储或日志记录。<br/><br/> - 请勿在托管日志文件的磁盘上启用缓存。  **重要说明**：更改 Azure VM 磁盘的缓存设置时，请停止 SQL Server 服务。<br/><br/> - 条带化多个 Azure 数据磁盘，以提高存储吞吐量。<br/><br/> - 使用规定的分配大小格式化。 <br/><br/> - 将 TempDB 放在本地 SSD `D:\` 驱动器上，用于任务关键型 SQL Server 工作负荷（在选择正确的 VM 大小后）。 如果从 Azure 门户或 Azure 快速入门模板创建 VM，并[将临时数据库置于本地磁盘上](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)，则无需执行任何其他操作；对于所有其他情况，请遵循博客文章 [Using SSDs to store TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)（使用 SSD 存储 TempDB）中的步骤，以防止重启后失败。 如果本地驱动器的容量不足以存储临时数据库，请将临时数据库置于具有[只读缓存](../premium-storage-performance.md#disk-caching)的高级 SSD 磁盘上的[条带化](../premium-storage-performance.md)存储池中。 |
+| [I/O](#io-guidance) |- 启用数据库页面压缩。<br/><br/> - 对数据文件启用即时文件初始化。<br/><br/> - 限制数据库自动增长。<br/><br/> - 禁用数据库自动收缩。<br/><br/> - 将所有数据库（包括系统数据库）转移到数据磁盘。<br/><br/> - 将 SQL Server 错误日志和跟踪文件目录移到数据磁盘。<br/><br/> - 配置默认的备份和数据库文件位置。<br/><br/> - [在内存中启用锁定页面](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-2017)。<br/><br/> - 应用 SQL Server 性能修复程序。 |
+| [Feature-specific](#feature-specific-guidance) | - 直接备份到 blob 存储。<br/><br/>- 对于大于 12 TB 的数据库，请使用[文件快照备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)。 <br/><br/>- 使用多个临时数据库文件，每个核心处理 1 个文件，最多处理 8 个文件。<br/><br/>- 将最大服务器内存设置为操作系统剩余内存的 90% 或最大 50 GB。 <br/><br/>- 启用软 NUMA。 |
 
-有关*如何*和*为何*进行这些优化的详细信息，请参阅以下部分提供的详细信息与指导。
+<!--Not Available on Line 38  Eas, and Das Series-->
+<!--Not Available on Line 39  [provision the Ultra Disk](../disks-enable-ultra-ssd.md) -->
+<!--Not Available on Line 40  ultra disk-->
+
+有关  如何和  为何进行这些优化的详细信息，请参阅以下部分提供的详细信息与指南。
 
 ## <a name="vm-size-guidance"></a>VM 大小指导原则
 
-对于性能敏感型应用程序，建议使用以下[虚拟机大小](../sizes.md)：
-
-* **SQL Server Enterprise 版本**：DS3_v2 或更高版本
-* **SQL Server Standard 和 Web 版本**：DS2_v2 或更高版本
-
-[DSv2 系列](../sizes-general.md#dsv2-series) VM 支持高级存储，高级存储是能提供最佳性能的推荐选择。 这里推荐的大小是基线，实际选择的计算机大小取决于工作负载的需求。 DSv2 系列 VM 是常规用途的 VM，适用于各种工作负载，而其他计算机大小针对特定工作负载类型进行了优化。 例如，[M 系列](../sizes-memory.md#m-series)为最大型的 SQL Server 工作负载提供最高的 vCPU 数量和内存。 [DSv2 系列 11-15](../sizes-memory.md#dsv2-series-11-15) 经过优化，可满足较大的内存需求。 还可以在[受约束的核心大小](../../windows/constrained-vcpu.md)中选择这两种系列，这样能降低计算需求，从而节省工作负载的成本。 
-
-<!-- Not Available on [GS-series](../sizes-memory.md#gs-series)-->
-<!-- Not Available on [Ls-series](../sizes-storage.md)-->
+首先收集工作负荷在高峰期的 CPU、内存和存储吞吐量要求。 可以使用 \LogicalDisk\Disk Reads/Sec 和 \LogicalDisk\Disk Writes/Sec 性能计数器收集读取和写入 IOPS 要求，可以使用 \LogicalDisk\Disk Bytes/Sec 计数器收集数据、日志和临时数据库文件的[存储吞吐量要求](../premium-storage-performance.md#disk-caching)。 定义高峰期的 IOPS 和吞吐量要求后，评估 VM 大小是否可提供这么多的容量。 例如，如果工作负荷在高峰期需要 20K 次读取 IOPS 和 10K 次写入 IOPS，则可以选择 E16s_v3（最高提供 32K 次缓存的 IOPS 和 25600 次未缓存的 IOPS），或包含 2 个 P30 磁盘的 M16_s（最高提供 20K 次缓存的 IOPS 和 10K 次未缓存的 IOPS）。 确保了解工作负荷的吞吐量和 IOPS 要求，因为 VM 在 IOPS 和吞吐量方面具有不同的缩放限制。<br/><br/>[DSv_3 和 Es_v3 系列](../sizes-general.md#dsv2-series)托管在通用硬件上，其中配备了 Intel Haswell 或 Broadwell 处理器。 [M 系列](../sizes-memory.md#m-series)为最大的 SQL Server 工作负荷提供最高的 vCPU 计数和内存，托管在配备 Skylake 处理器系列的内存优化硬件上。 这些 VM 系列支持高级存储，建议在其上配置主机级读取缓存，以实现最佳性能。 Es_v3 和 M 系列也提供[受限核心大小](../../windows/constrained-vcpu.md)，这样可以在计算能力较低但存储容量需求较高的工作负荷上节省成本。 
 
 ## <a name="storage-guidance"></a>存储指导原则
 
-DS 系列（以及 DSv2 系列）VM 支持[高级 SSD](../disks-types.md)。 建议为所有生产工作负荷使用高级 SSD。
+有关根据 TPC-E 和 TPC_C 基准在 Azure VM 上进行的详细 SQL Server 性能测试结果，请参阅博客文章 [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794)（优化 OLTP 性能）。 
 
-<!--Not Available on GS-series -->
+对于所有生产工作负荷，建议结合使用 Azure Blob 缓存和高级 SSD。 
 
 > [!WARNING]
 > 标准 HDD 和 SSD 具有不同的延迟和带宽，建议仅用于开发/测试工作负荷。 生产工作负荷应使用高级 SSD。
@@ -89,26 +86,20 @@ Azure VM 上有三种主要磁盘类型：
 
 ### <a name="temporary-disk"></a>临时磁盘
 
-临时存储驱动器，标记为 **D**: 驱动器，不会保留到 Azure Blob 存储中。 不要在 **D**: 驱动器中存储用户数据库文件或用户事务日志文件。
+临时存储驱动器，标记为 **D** 驱动器，不会保存到 Azure Blob 存储中。 不要在 **D**: 驱动器中存储用户数据库文件或用户事务日志文件。
 
-D 系列和 Dv2 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷重度使用 TempDB（例如，要处理临时对象或复杂联接），在 **D** 驱动器上存储 TempDB 可能会提高 TempDB 吞吐量并降低 TempDB 延迟。 有关示例方案，请参阅以下博客文章中的 TempDB 讨论：[Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm)（Azure VM 上的 SQL Server 的存储配置准则）。
+将 TempDB 放在本地 SSD `D:\` 驱动器上，用于任务关键型 SQL Server 工作负荷（在选择正确的 VM 大小后）。 如果从 Azure 门户或 Azure 快速入门模板创建 VM，并[将临时数据库置于本地磁盘上](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)，则无需执行任何其他操作；对于所有其他情况，请遵循博客文章 [Using SSDs to store TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)（使用 SSD 存储 TempDB）中的步骤，以防止重启后失败。 如果本地驱动器的容量不足以存储临时数据库，请将临时数据库置于具有[只读缓存](../premium-storage-performance.md#disk-caching)的高级 SSD 磁盘上的[条带化](../premium-storage-performance.md)存储池中。
 
-<!--Not Available on G-series -->
-
-对于支持高级 SSD 的 VM（DS 系列和 DSv2 系列），建议将 TempDB 存储在支持高级 SSD 且已启用读取缓存的磁盘上。
-
-<!--Not Available on GS-series -->
-
-这项建议有一种例外情况；如果 TempDB 的使用是写入密集型的，则可以通过将 TempDB 存储在本地 D 驱动器（在这些计算机大小上也是基于 SSD）上来实现更高性能   。 有关详细信息，请查看[将 SSD 与 TempDB 配合使用](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)博客。 
-
+对于支持高级 SSD 的 VM，还可以将 TempDB 存储在支持高级 SSD 且启用了读取缓存的磁盘上。
 
 ### <a name="data-disks"></a>数据磁盘数
 
-* **将数据磁盘用于数据和日志文件**：如果不使用磁盘条带化，请使用两个高级 SSD P30 磁盘，其中一个磁盘包含日志文件，另一个磁盘包含数据和 TempDB（如上所述的任务关键型工作负荷和写入密集型工作负荷除外）。 每个高级 SSD 均根据其大小提供许多 IOP 和带宽 (MB/s)，如[选择磁盘类型](../disks-types.md)一文中所述。 如果使用磁盘条带化技术，例如存储空间，则可实现最佳性能，因为将具有两个池，一个用于日志文件，另一个用于数据文件。 但是，如果你打算使用 SQL Server 故障转移群集实例 (FCI)，则必须配置单个池。
+* **对数据文件和日志文件使用高级 SSD 磁盘**：如果不使用磁盘条带化，请使用两个高级 SSD 磁盘，其中一个磁盘包含日志文件，另一个磁盘包含数据。 每个高级 SSD 均根据其大小提供许多 IOPS 和带宽 (MB/s)，如[选择磁盘类型](../disks-types.md)一文中所述。 如果使用磁盘条带化技术，例如存储空间，则可实现最佳性能，因为将具有两个池，一个用于日志文件，另一个用于数据文件。 但是，如果你打算使用 SQL Server 故障转移群集实例 (FCI)，则必须配置单个池，或改用[高级文件共享](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)。
 
     > [!TIP]
     > - 有关针对各种磁盘和工作负荷配置的测试结果，请参阅以下博客文章：[Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)（Azure VM 上的 SQL Server 的存储配置准则）。
 
+    <!--Not Available on [Mission critical performance with Ultra SSD](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/)-->
     <!--Not Available on Ultra SSD-->
 
     > [!NOTE]
@@ -118,7 +109,7 @@ D 系列和 Dv2 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷�
 
     * 对于 Windows 8/Windows Server 2012 或更高版本，按照以下指南使用[存储空间](https://technet.microsoft.com/library/hh831739.aspx)：
 
-        1. 对于 OLTP 工作负荷，将交错（条带大小）设置为 64 KB（65536 字节），对于数据仓库工作负荷，将交错（条带大小）设置为 256 KB（262144 字节），以避免分区定位错误导致的性能影响。 这必须使用 PowerShell 设置。
+        1. 对于 OLTP 工作负荷，将交错（条带大小）设置为 64 KB（65,536 字节），对于数据仓库工作负荷，将交错（条带大小）设置为 256 KB（262,144 字节），以避免分区定位错误导致的性能影响。 这必须使用 PowerShell 设置。
         2. 设置列计数 = 物理磁盘的数量。 配置的磁盘超过 8 个时，请使用 PowerShell（而不是服务器管理器 UI）。 
 
     例如，以下 PowerShell 创建新的存储池时将交错大小设为 64 KB，将列数设为 2：
@@ -130,9 +121,9 @@ D 系列和 Dv2 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷�
     New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false 
     ```
 
-    * 对于 Windows 2008 R2 或更早版本，可以使用动态磁盘（操作系统条带化卷），条带大小始终为 64 KB。 请注意，从 Windows 8/Windows Server 2012 开始不推荐使用此选项。 有关信息，请参阅[虚拟磁盘服务正在过渡到 Windows 存储管理 API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx) 中的支持声明。
+    * 对于 Windows 2008 R2 或更早版本，可以使用动态磁盘（操作系统条带化卷），条带大小始终为 64 KB。 从 Windows 8/Windows Server 2012 开始不再提供此选项。 有关信息，请参阅[虚拟磁盘服务正在过渡到 Windows 存储管理 API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx) 中的支持声明。
 
-    * 如果将[存储空间直通 (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) 与 [SQL Server 故障转移群集实例](virtual-machines-windows-portal-sql-create-failover-cluster.md)配合使用，则必须配置单个池。 请注意，虽然可以在该单个池上创建不同的卷，但它们都拥有相同的特征，例如相同的缓存策略。
+    * 如果将[存储空间直通 (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) 与 [SQL Server 故障转移群集实例](virtual-machines-windows-portal-sql-create-failover-cluster.md)配合使用，则必须配置单个池。 虽然可以在该单个池上创建不同的卷，但它们都拥有相同的特征，例如相同的缓存策略。
 
     * 根据负载预期确定与你的存储池相关联的磁盘数。 请记住，不同的 VM 大小允许不同数量的附加数据磁盘。 有关详细信息，请参阅[虚拟机的大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
@@ -189,7 +180,7 @@ D 系列和 Dv2 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷�
 
 某些部署可以使用更高级的配置技术，获得更多的性能好处。 下面的列表主要介绍可帮助你实现更佳性能的一些 SQL Server 功能：
 
-### <a name="backup-to-azure-storage"></a>备份到 Azure 存储
+### <a name="back-up-to-azure-storage"></a>备份到 Azure 存储
 为在 Azure 虚拟机中运行的 SQL Server 执行备份时，可以使用 [SQL Server 备份到 URL](https://msdn.microsoft.com/library/dn435916.aspx)。 此功能从 SQL Server 2012 SP1 CU2 开始提供，建议在备份到附加数据磁盘时使用。 备份到 Azure 存储或从中还原时，请按照 [SQL Server 备份到 URL 最佳实践和故障排除以及从 Azure 存储中存储的备份还原](https://msdn.microsoft.com/library/jj919149.aspx)中提供的建议操作。 此外还可以使用 [Azure 虚拟机中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)自动执行这些备份。
 
 对于 SQL Server 2012 以前版本，可以使用 [SQL Server 备份到 Azure 工具](https://www.microsoft.com/download/details.aspx?id=40740)。 此工具可以通过使用多个备份条带目标帮助提高备份吞吐量。
@@ -214,4 +205,4 @@ D 系列和 Dv2 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷�
 
 查看 [Azure 虚拟机上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)中的其他 SQL Server 虚拟机文章。 如果对 SQL Server 虚拟机有任何疑问，请参阅[常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)。
 
-<!-- Update_Description: wording update, update meta properties  -->
+<!-- Update_Description: update meta properties, wording update, update link -->
