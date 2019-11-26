@@ -52,8 +52,8 @@
 ## [存储 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # 资源
-## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
+## [定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
-## [区域可用性](https://www.azure.cn/support/service-dashboard/)
+## [区域可用性](https://status.azure.com/status/)
 ## [视频](https://www.azure.cn/video-center/)
 <!-- ms.date: 10/22/2018 -->

@@ -9,14 +9,14 @@ keywords: Azure Functions，函数，事件处理，webhook，动态计算，无
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 03/25/2019
-ms.date: 10/28/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: c33864bba5043de876ac14d16b18a55eeb71de37
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 30d6484f9366b26c728786770dff56a9c18f2695
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034441"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934160"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -310,7 +310,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-此模块实现 `IsPastDue` 属性，表示该实例是一个虚构的计时器实例。
+
+此模块实现 `IsPastDue` 属性，表示该实例是一个虚构的计时器实例。 此处不需要计时器配置（如 NCRONTAB 表达式），因为测试工具只是直接调用函数以测试结果。
 
 接下来，使用 VS Code Functions 扩展[创建新的 JavaScript HTTP 函数](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01)，并将其命名为 *HttpTrigger*。 创建函数后，在名为 **index.test.js** 的同一文件夹中添加一个新文件，然后添加以下代码：
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 02/18/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: d2964689587a3c83e555a1f32045125c92b8c1e6
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 6b122ebb2e86ff7760b5544c7de27e92e444cdca
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666404"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116950"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 来宾 OS 防火墙阻止入站流量
 
@@ -46,18 +46,18 @@ ms.locfileid: "56666404"
 
 在执行这些步骤之前，请创建受影响 VM 的系统磁盘快照作为备份。 有关详细信息，请参阅 [拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
-要解决此问题，请使用[如何使用远程工具解决 Azure VM 问题](remote-tools-troubleshoot-azure-vm-issues.md)中介绍的方法远程连接到 VM，然后将来宾操作系统防火墙规则编辑为“允许”RDP 流量。
+要解决此问题，请使用[如何使用远程工具解决 Azure VM 问题](remote-tools-troubleshoot-azure-vm-issues.md)中介绍的方法远程连接到 VM，然后将来宾操作系统防火墙规则编辑为“允许”RDP 流量  。
 
 <!-- Not Available on ### Online troubleshooting -->
 <!-- Not Available on serial control-->
 
 ### <a name="offline-mitigations"></a>脱机缓解措施
 
-1.  [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
+1. [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
-2.  开始与恢复 VM 建立远程桌面连接。
+2. 开始与恢复 VM 建立远程桌面连接。
 
-3.  确保在磁盘管理控制台中将该磁盘标记为“ **联机**” 。 请留意分配给附加系统磁盘的驱动器号。
+3. 确保磁盘在磁盘管理控制台中标记为“联机”。  请留意分配给附加系统磁盘的驱动器号。
 
 #### <a name="mitigation-1"></a>缓解措施 1
 
@@ -65,13 +65,13 @@ ms.locfileid: "56666404"
 
 #### <a name="mitigation-2"></a>缓解措施 2
 
-1.  [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
+1. [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
-2.  开始与恢复 VM 建立远程桌面连接。
+2. 开始与恢复 VM 建立远程桌面连接。
 
-3.  将系统磁盘附加到恢复 VM 后，请确保在磁盘管理控制台中将该磁盘标记为“ **联机**” 。 请注意分配给附加的 OS 磁盘的驱动器号。
+3. 将系统磁盘附加到恢复 VM 后，请确保磁盘在磁盘管理控制台中标记为“联机”  。 请注意分配给附加的 OS 磁盘的驱动器号。
 
-4.  打开提升后的 CMD 实例，然后运行以下脚本：
+4. 打开提升后的 CMD 实例，然后运行以下脚本：
 
     ```cmd
     REM Backup the registry prior doing any change
@@ -92,8 +92,8 @@ ms.locfileid: "56666404"
     reg unload HKLM\BROKENSYSTEM
     ```
 
-5.  [拆离系统磁盘并重新创建 VM](troubleshoot-recovery-disks-portal-windows.md)。
+5. [拆离系统磁盘并重新创建 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
-6.  检查是否解决了问题。
+6. 检查是否解决了问题。
 
 <!-- Update_Description: update link -->

@@ -4,21 +4,21 @@ description: 排查 Azure AD 自助密码重置问题
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 origin.date: 02/01/2019
-ms.date: 08/29/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38b3c3c882cd76e6ca919b580615658f0bdf4b2
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 73fe23a78c164f60855002fd1eac2cac24ad445f
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134178"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084489"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>排查自助密码重置问题
 
@@ -127,7 +127,7 @@ ms.locfileid: "70134178"
 | 31018| KeyPairCreationSuccess| 此事件表示已成功创建密码加密密钥。 此密钥用于对从云发送到本地环境的密码进行加密。|
 | 32000| UnknownError| 此事件表示在执行密码管理操作期间发生未知的错误。 有关更多详细信息，请查看事件中的异常文本。 如果有任何问题，请尝试禁用并重新启用密码写回。 如果这没有帮助，请将事件日志的副本以及内部指定的跟踪 ID 提供给支持工程师。|
 | 32001| ServiceError| 此事件表示连接到云密码重置服务时发生错误。 此错误通常在本地服务无法连接到密码重置 web 服务时发生。|
-| 32002| ServiceBusError| 此事件表示连接到租户的服务总线实例时发生错误。 发生此错误的原因可能是在本地环境中阻止了出站连接。 请检查防火墙，确保允许基于 TCP 443 的连接或者到 https://login.partner.microsoftonline.cn/ 的连接，并重试。 如果仍然出现问题，请尝试禁用并重新启用密码写回。|
+| 32002| ServiceBusError| 此事件表示连接到租户的服务总线实例时发生错误。 发生此错误的原因可能是在本地环境中阻止了出站连接。 请检查防火墙，确保允许基于 TCP 443 的连接或者到 https://ssprdedicatedsbprodncu.servicebus.chinacloudapi.cn 的连接，并重试。 如果仍然出现问题，请尝试禁用并重新启用密码写回。|
 | 32003| InPutValidationError| 此事件表示传递给我们的 web 服务 API 的输入无效。 请重试操作。|
 | 32004| DecryptionError| 此事件表示解密从云到达的密码时出错。 这可能是因为云服务与本地环境之间存在解密密钥不匹配问题。 若要解决此问题，请在本地环境中禁用再重新启用密码写回。|
 | 32005| ConfigurationError| 在登记期间，我们将特定于租户的信息保存到本地环境中的配置文件中。 此事件表示保存此文件时出错或者启动服务时读取此文件时出错。 若要解决此问题，请尝试禁用并重新启用密码写回以强制重写此配置文件。|
@@ -135,14 +135,14 @@ ms.locfileid: "70134178"
 | 32008| ValidationError| 此事件表示我们从密码重置 web 服务收到了无效的响应。 若要解决此问题，请尝试禁用再重新启用密码写回。|
 | 32009| AuthTokenError| 此事件表示我们无法获取在设置 Azure AD Sync 期间指定的全局管理员帐户的授权令牌。 此错误可能是由于为全局管理员帐户指定了错误的用户名或密码导致的。 此错误的另一个可能原因是指定的全局管理员帐户是联合的。 若要解决此问题，请使用正确的用户名和密码重新运行配置，并确保管理员是一个托管帐户（仅云帐户或密码同步的帐户）。|
 | 32010| CryptoError| 此事件表示在生成密码加密密钥时或者解密从云服务到达的密码时发生错误。 此错误可能表示环境存在问题。 请查看事件日志的详细信息来了解详细信息并解决此问题。 还可以尝试禁用再重新启用密码写回服务。|
-| 32011| OnBoardingServiceError| 此事件表示本地服务无法正确地与密码重置 web 服务进行通信来启动登记过程。 这可能是由于防火墙规则导致的，也可能是因为获取租户的授权令牌时出现问题。 若要解决此问题，请确保没有阻止基于 TCP 443 和 TCP 9350-9354 的出站连接或者到 https://login.partner.microsoftonline.cn/ 的出站连接。 另请确保用于登记的 Azure AD 管理员帐户不是联合帐户。|
-| 32013| OffBoardingError| 此事件表示本地服务无法正确地与密码重置 web 服务进行通信来启动卸载过程。 这可能是由于防火墙规则导致的，也可能是因为获取租户的授权令牌时出现问题。 若要解决此问题，请确保没有阻止基于 443 的出站连接或者到 https://login.partner.microsoftonline.cn/ 的出站连接，并确保用于卸载的 Azure Active Directory 管理员帐户不是联合帐户。|
+| 32011| OnBoardingServiceError| 此事件表示本地服务无法正确地与密码重置 web 服务进行通信来启动登记过程。 这可能是由于防火墙规则导致的，也可能是因为获取租户的授权令牌时出现问题。 若要解决此问题，请确保没有阻止基于 TCP 443 和 TCP 9350-9354 的出站连接或者到 https://ssprdedicatedsbprodncu.servicebus.chinacloudapi.cn 的出站连接。 另请确保用于登记的 Azure AD 管理员帐户不是联合帐户。|
+| 32013| OffBoardingError| 此事件表示本地服务无法正确地与密码重置 web 服务进行通信来启动卸载过程。 这可能是由于防火墙规则导致的，也可能是因为获取租户的授权令牌时出现问题。 若要解决此问题，请确保没有阻止基于 443 的出站连接或者到 https://ssprdedicatedsbprodncu.servicebus.chinacloudapi.cn 的出站连接，并确保用于卸载的 Azure Active Directory 管理员帐户不是联合帐户。|
 | 32014| ServiceBusWarning| 此事件表示我们必须重新尝试连接到租户的服务总线实例。 正常情况下，这应当无需顾虑，但如果很多次看到此事件，请考虑检查到服务总线的网络连接，特别是当使用高延迟或低带宽连接时。|
 | 32015| ReportServiceHealthError| 为了监视密码写回服务的运行状况，我们每五分钟向我们的密码重置 web 服务发送一次检测信号数据。 此事件表示将此运行状况信息发送回云 web 服务时发生错误。 此运行状况信息不包含对象身份信息 (OII) 或个人身份信息 (PII) 数据，是纯粹的检测信号和基本的服务统计信息，以便我们可以在云中提供服务状态信息。|
 | 33001| ADUnKnownError| 此事件表示 Active Directory 返回了未知的错误。 有关详细信息，请检查 Azure AD Connect 服务器事件日志中来自 ADSync 源的事件。|
 | 33002| ADUserNotFoundError| 此事件表示在本地目录中未找到尝试重置或更改密码的用户。 如果已在本地删除了该用户但在云中未删除，则可能会发生此错误。 如果出现了同步问题，也可能发生此错误。有关详细信息，请查看同步日志以及最近运行的几次同步的详细信息。|
 | 33003| ADMutliMatchError| 当密码重置或更改请求来自云时，我们使用在 Azure AD Connect 的设置过程中指定的云定位点来确定如何将该请求链接回本地环境中的用户。 此事件表示我们在本地目录中找到了具有相同的云定位点属性的两个用户。 有关详细信息，请查看同步日志以及最近运行的几次同步的详细信息。|
-| 33004| ADPermissionsError| 此事件表示 Active Directory 管理代理 (ADMA) 服务帐户在相关帐户上没有合适的权限来设置新密码。 请确保用户的林中的 ADMA 帐户对林中的所有对象都具有重置和更改密码的权限。 有关如何设置权限的详细信息，请参阅“步骤 4：设置适当的 Active Directory 权限”。|
+| 33004| ADPermissionsError| 此事件表示 Active Directory 管理代理 (ADMA) 服务帐户在相关帐户上没有合适的权限来设置新密码。 请确保用户的林中的 ADMA 帐户对林中的所有对象都具有重置和更改密码的权限。 有关如何设置权限的详细信息，请参阅“步骤 4：设置适当的 Active Directory 权限”。 如果用户的属性 AdminCount 设置为 1，也会出现此错误。|
 | 33005| ADUserAccountDisabled| 此事件表示我们试图重置或更改在本地已被禁用的帐户的密码。 请启用该帐户，并重试操作。|
 | 33006| ADUserAccountLockedOut| 此事件表示我们试图重置或更改在本地已被锁定的帐户的密码。 如果用户在短时间内尝试了太多次更改或重置密码操作，则会发生锁定。 请解锁该帐户并重试操作。|
 | 33007| ADUserIncorrectPassword| 此事件表示用户在执行密码更改操作时指定了错误的当前密码。 请指定正确的当前密码，并重试。|
@@ -173,6 +173,9 @@ ms.locfileid: "70134178"
 若要进行更精细的访问，请参考 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)的更新列表，该列表在每周三更新，在下周一生效。
 
 有关详细信息，请查看 [Azure AD Connect 的先决条件](../hybrid/how-to-connect-install-prerequisites.md)一文中的连接先决条件。
+
+> [!NOTE]
+> 如果在本地 AD DS 中的帐户上配置了“密码永不过期”或“用户无法更改密码”设置，SSPR 也会失败。 
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>重启 Azure AD Connect Sync 服务
 

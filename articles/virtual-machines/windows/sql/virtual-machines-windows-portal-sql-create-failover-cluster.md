@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/11/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8987b056f588d16c4ac18920a4cf4c20bb4b3e2e
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: ebe8bb803d27d6c33d262ab84f86289c6ccbff49
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272766"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116966"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -83,6 +83,8 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 > [!IMPORTANT]
 > 目前，Azure 上的 SQL Server FCI 不支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。 建议从参与 FCI 的 VM 中卸载此扩展。 此扩展支持自动备份和修补之类的功能，以及适用于 SQL 的某些门户功能。 卸载代理以后，这些功能将不适用于 SQL VM。
+
+<!--Not Available on [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)-->
 
 ### <a name="what-to-have"></a>准备工作
 
@@ -378,14 +380,16 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 为负载均衡器配置以下属性：
 
-    - **名称**：标识负载均衡器的名称。
-    - **类型**：负载均衡器可以是公共的或专用的。 专用负载均衡器可从同一 VNET 内部访问。 大多数 Azure 应用程序可以使用专用负载均衡器。 如果应用程序需要通过 Internet 直接访问 SQL Server，请使用公共负载均衡器。
-    - **虚拟网络**：虚拟机所在的网络。
-    - **子网**：虚拟机所在的子网。
-    - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的同一 IP 地址。
     - **订阅**：Azure 订阅。
     - **资源组**：使用虚拟机所在的资源组。
-    - **位置**：使用虚拟机所在的 Azure 位置。
+    - **名称**：标识负载均衡器的名称。
+    - **区域**：使用虚拟机所在的 Azure 位置。
+    - **类型**：负载均衡器可以是公共的或专用的。 专用负载均衡器可从同一 VNET 内部访问。 大多数 Azure 应用程序可以使用专用负载均衡器。 如果应用程序需要通过 Internet 直接访问 SQL Server，请使用公共负载均衡器。
+    - **SKU**：负载均衡器的 SKU 应该是“标准”。 
+    - **虚拟网络**：虚拟机所在的网络。
+    - **IP 地址分配**：IP 地址分配应该是“静态”。 
+    - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的同一 IP 地址。
+    
     参阅下图：
 
     ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

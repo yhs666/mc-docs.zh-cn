@@ -1,23 +1,20 @@
 ---
 title: Azure Functions C# 脚本开发人员参考
 description: '了解如何使用 C # 脚本开发 Azure Functions。'
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
+author: craigshoemaker
+manager: gwallace
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
 ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 origin.date: 12/12/2017
-ms.date: 09/06/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6e762cbac31de32820142a1edbbd0e5ddcc9ea34
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 47dd6d6a7b64e9a5ee880d73817ecb95cf57c042
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805797"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934245"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
@@ -272,7 +269,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>取消令牌
 
-函数可以接受 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 参数，以使操作系统能够在函数即将终止时通知代码。 可以使用此通知来确保该函数不会意外终止，导致数据处于不一致状态。
+函数可以接受 [CancellationToken](https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken) 参数，以使操作系统能够在函数即将终止时通知代码。 可以使用此通知来确保该函数不会意外终止，导致数据处于不一致状态。
 
 下面的示例演示了如何检查即将发生的函数终止。
 
@@ -482,7 +479,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-`BlobAttribute` 定义[存储 Blob](functions-bindings-storage-blob.md) 输入或输出绑定，[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) 是支持的输出绑定类型。
+`BlobAttribute` 定义[存储 Blob](functions-bindings-storage-blob.md) 输入或输出绑定，[TextWriter](https://docs.microsoft.com/dotnet/api/system.io.textwriter) 是支持的输出绑定类型。
 
 ### <a name="multiple-attribute-example"></a>多属性示例
 
@@ -513,7 +510,7 @@ public static async Task Run(string input, Binder binder)
 > | 绑定 | 属性 | 添加引用 |
 > |------|------|------|
 > | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-> | 事件中心 | `Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+> | 事件中心 | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs)、`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 > | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 > | 通知中心 | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 > | 服务总线 | `Microsoft.Azure.WebJobs.ServiceBusAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |

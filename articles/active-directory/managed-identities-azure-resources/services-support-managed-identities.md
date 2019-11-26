@@ -4,19 +4,19 @@ description: 支持 Azure 资源托管标识和 Azure AD 身份验证的服务�
 services: active-directory
 author: MarkusVi
 ms.author: v-junlch
-origin.date: 06/19/2019
-ms.date: 10/11/2019
+origin.date: 09/24/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1378db8e867192e5944b52cd1c729fb988a2fd9e
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: f5a31b9fafcf993d2dbfb7e47a649226cd0a4f21
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292072"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084481"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支持 Azure 资源托管标识的服务
 
@@ -125,6 +125,10 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 | --- | --- | --- | --- | --- |
 | 系统分配 | 可用 | 不可用 | 不可用 | 不可用 |
 | 用户分配 | 预览 | 不可用 | 不可用 | 不可用 |
+
+请参阅以下列表来配置 Azure 容器注册表任务的托管标识（在可用的区域中）：
+
+- [Azure CLI](/container-registry/container-registry-tasks-authentication-managed-identity)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>支持 Azure AD 身份验证的 Azure 服务
 

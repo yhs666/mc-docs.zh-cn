@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/23/2019
-ms.date: 10/10/2019
+origin.date: 10/07/2019
+ms.date: 11/13/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0aefaf610f0b6986c1cb19f67d95e13ad0dd800
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: b285396bb7e219b8e1f1c50a47c7d9094d80a25d
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292098"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084598"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发行历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -44,10 +44,30 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 遵循此过程时，发行版的版本号将以“X”形式显示在次要版本号位置，例如“1.3.X.0”- 这表示此文档中的发行说明适用于以“1.3”开头的所有版本。 完成发布过程后，我们会立即将发行版本号更新为最近发布的版本，并将发布状态更新为“已发布供下载和自动升级”。
 并非所有版本的 Azure AD Connect 都可用于自动升级。 版本状态将指示版本是否可用于自动升级或仅供下载。 如果在 Azure AD Connect 服务器上启用了自动升级，那么该服务器将自动升级到针对自动升级发布的最新版 Azure AD Connect。 请注意，并非所有 Azure AD Connect 配置都有资格进行自动升级。 请点击此链接阅读有关[自动升级](/active-directory/hybrid/how-to-connect-install-automatic-upgrade)的详细信息
 
-## <a name="14x0"></a>1.4.X.0
+## <a name="14250"></a>1.4.25.0
+
+
 
 ### <a name="release-status"></a>版本状态
-9/10/2019：仅发布用于自动升级
+2019/9/28：已发布给选定租户，可自动升级。 不可供下载。
+
+此版本修复了一个 Bug，该 Bug 的表现是：某些服务器在从旧版本自动升级到 1.4.18.0 时遇到自助式密码重置 (SSPR) 和密码写回问题。
+
+### <a name="fixed-issues"></a>修复的问题
+
+某些情况下，自动升级到版本 1.4.18.0 的服务器在完成升级后没有重新启用自助式密码重置和密码写回。 此自动升级版本修复了该问题并重新启用自助式密码重置和密码写回。
+
+## <a name="14180"></a>1.4.18.0
+
+>[!WARNING]
+>我们正在调查一个事件：某些客户在升级到此版 Azure AD Connect 后，其现有的已加入混合 Azure AD 的设备遇到问题。 我们建议已部署混合 Azure AD 加入的客户推迟升级到此版本，等待我们完全了解这些问题的根本原因并解决这些问题。 我们会尽快提供详细信息。
+
+>[!IMPORTANT]
+>使用此版 Azure AD Connect 时，某些客户可能会看到其部分或所有 Windows 设备从 Azure AD 中消失。 这不应该担心，因为在进行条件访问授权期间，Azure AD 不使用这些设备标识。 
+
+
+### <a name="release-status"></a>版本状态
+2019/9/25：已从手动下载中删除，等待事件调查完成。
 
 ### <a name="new-features-and-improvements"></a>新增功能和改进
 - 新的故障排除工具可帮助排查“用户未同步”、“组未同步”或“组成员未同步”问题。
@@ -55,7 +75,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 应通知客户 MIIS_Service 的已弃用 WMI 终结点现已删除。 现在，任何 WMI 操作应通过 PS cmdlet 完成。
 - 通过重置 AZUREADSSOACC 对象中的约束委托来提高安全性
 - 添加/编辑同步规则时，如果在规则中使用的任何属性位于未添加到连接器的连接器架构中，会自动将这些属性添加到连接器。 规则影响的对象类型也是如此。 如果在连接器中添加了任何内容，该连接器将标记为在下一个同步周期完全导入。
-- 不再支持使用企业或域管理员作为连接器帐户。
+- 在新的 AAD Connect 部署中，不再支持使用企业或域管理员作为连接器帐户。 使用企业或域管理员作为连接器帐户的当前 AAD Connect 部署将不受此版本的影响。
 - 在同步管理器中，创建/编辑/删除规则时将运行完全同步。 如果完全导入或完全同步操作将要运行，在发生任何规则更改时将弹出通知。
 - 已将密码错误的缓解步骤添加到“连接器 > 属性 > 连接”页
 - 在连接器属性页上添加了同步服务管理器弃用警告。 此警告通知用户应通过 AADC 向导进行更改。
@@ -81,9 +101,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 改进了在初始安装后不允许 ADSync 服务启动的组策略的诊断和故障排除。
 - 修复了一个 bug：Windows 计算机的显示名称拼写错误。
 - 修复了一个 bug：Windows 计算机的 OS 类型拼写错误。
-- 修复了一个 bug：非 Windows 10 计算机意外同步。 请注意，此项更改的影响是，以前已同步的非 Windows 10 计算机现在将被删除。 这不会影响任何功能，因为 Windows 计算机同步仅用于混合 Azure AD 域加入，而后者仅适用于 Windows 10 设备。 
-- 修复了一个 bug：Windows 计算机的显示名称拼写错误。
-- 修复了一个 bug：Windows 计算机的 OS 类型拼写错误。
+- 修复了一个 bug：非 Windows 10 计算机意外同步。 请注意，此项更改的影响是，以前已同步的非 Windows 10 计算机现在将被删除。 这不会影响任何功能，因为 Windows 计算机同步仅用于混合 Azure AD 域加入，而后者仅适用于 Windows 10 设备。
 - 已将多个新的（内部）cmdlet 添加到 ADSync PowerShell 模块。
 
 
@@ -1188,7 +1206,6 @@ AD FS 管理
 * 如果属性筛选中使用可分辨名称 (DN)，则无法升级 DirSync。
 * 使用密码重置时 CPU 使用率过高。
 
-**已删除的预览功能：**
 
 ## <a name="1086410"></a>1.0.8641.0
 已发布：2015 年 6 月

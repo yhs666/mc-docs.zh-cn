@@ -13,26 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/09/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: a0db6667817319fccf1cbf04010a5db3a1c4c59d
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 874329014a000230dec83c92c98080ff5c9a0d37
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272807"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116913"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
 本文提供 Azure 中 [SQL Server 虚拟机](virtual-machines-windows-sql-server-iaas-overview.md)的定价指南。 有几个选项会影响成本，请务必选取适当的映像来平衡成本与业务需求。
 
+<!--MOONCAKE: REMOVE and SQL Server edition IN TIPS-->
+
 > [!TIP]
-> 如果只需了解特定 SQL Server 版本和虚拟机大小组合的估算成本，请参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的定价页。 从“OS/软件”列表中选择平台和 SQL Server 版本  。
+> 如果只需了解特定 SQL Server 版本和虚拟机大小组合的估算成本，请参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的定价页。 从“OS/软件”列表中选择平台  。
 >
 > ![VM 定价页上的 UI](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
 >
-> 或使用[定价计算器](https://www.azure.cn/pricing/#explore-cost)添加并配置虚拟机。 
+> 或使用[定价计算器](https://www.azure.cn/pricing/calculator/)添加并配置虚拟机。 
+
+<!--MOONCAKE: CORRECT ON https://www.azure.cn/pricing/calculator/-->
 
 ## <a name="free-licensed-sql-server-editions"></a>SQL Server 免费授权版
 
@@ -62,21 +66,25 @@ ms.locfileid: "72272807"
 | Standard | 中小型工作负荷 |
 | Enterprise | 大型或任务关键型工作负荷|
 
-可按两种方法为这些版本的 SQL Server 许可付费：“按使用情况付费”或“自带许可证 (BYOL)”。  
+<!--MOONCAKE: CORRECT ON Standard Pay-In-Advance Offer-->
 
-## <a name="pay-per-usage"></a>按使用情况付费
+可按两种方法为这些版本的 SQL Server 许可付费：标准预付费套餐  或自带许可证 (BYOL)  。
 
-“按使用情况支付 SQL Server 许可证费用”意味着 Azure VM 的每秒运行成本包括 SQL Server 许可证的费用  。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM 定价页。
+## <a name="standard-pay-in-advance-offer"></a>标准预付费套餐
+
+**标准预付费套餐**意味着 Azure VM 的每秒运行成本包括 SQL Server 许可证的费用。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM 定价页。
 
 所有版本的 SQL Server（2012 SP3 到 2017）的费用相同。 每秒许可成本取决于 VM vCPU 的数量。
 
-建议在以下情况采用“按使用情况支付 SQL Server 许可费用”：
+建议在以下情况采用“提前支付 SQL Server 许可费用”：
+
+<!--MOONCAKE: CORRECT ON Standard Pay-In-Advance Offer-->
 
 - **临时或定期工作负荷**。 例如，某应用每年需支持某事件几个月，或需在星期一支持业务分析。
 
 - **生存期或规模未知的工作负荷**。 例如，某应用可能在几个月内无需使用，或可能需要提高/降低计算能力（具体取决于需求）。
 
-若要使用上述某个按使用情况付费的映像创建 SQL Server 2017 Azure VM，请参阅以下链接：
+若要使用上述某个预付费映像创建 SQL Server 2017 Azure VM，请参阅以下链接：
 
 | 平台 | 许可的映像 |
 |---|---|
@@ -155,26 +163,15 @@ SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存�
 
 在前面的示例中可以看到，除 vCPU 以外，**Standard_DS14v2** 和 **Standard_DS14-4v2** 的规范在其他方面相同。 **Standard_DS14-4v2** 计算机大小末尾的后缀 **-4v2** 表示活动的 vCPU 数目。 由于 SQL Server 许可成本与 vCPU 数密切相关，因此，在不需要额外的 vCPU 的情况下，此计算机大小可以大幅降低 VM 的成本。 这只是其中一个示例，还有许多计算机大小的 vCPU 数目受到限制，具体数字以此后缀模式标识。 有关详细信息，请参阅博客文章 [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（宣布推出新的 Azure VM 大小来提高数据库工作的性价比）。
 
-### <a name="shut-down-your-vm-when-possible"></a>在可能的情况下关闭 VM
-
-若要使用任何不连续运行的工作负荷，请考虑在非活动期间关闭虚拟机。 仅为所用的部分付费。
-
-例如，如果只在 Azure VM 上试用 SQL Server，就不会希望因使其意外运行数周而滋生费用。 一种解决方案是使用[自动关闭功能](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)。
-
-![SQL VM 自动关闭](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-auto-shutdown.png)
-
+<!--Not Avaialble on ### Shut down your VM when possible-->
+<!--Not Avaialble on ![SQL VM autoshutdown](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-auto-shutdown.png)-->
 <!-- Not Available on  [Azure DevTest Labs](https://www.azure.cn/home/features/devtest-lab/)-->
-
-对于其他工作流，请考虑使用脚本解决方案（如 [Azure 自动化](https://www.azure.cn/home/features/automation/)）自动关闭并重启 Azure VM。
-
-> [!IMPORTANT]
-> 关闭和取消分配 VM 是避免产生费用的唯一方法。 只停止或使用电源选项关闭 VM 仍会产生使用费。
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Not Available on [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md).  -->
+有关常规 Azure 定价指南，请参阅[通过 Azure 计费和成本管理来防止意外成本](https://docs.azure.cn/zh-cn/billing/billing-getting-started/)。 有关最新的虚拟机定价（包括 SQL Server），请参阅适用于 [Windows VM](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux VM](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM Azure 定价页。
 
-有关最新的虚拟机定价（包括 SQL Server），请参阅适用于 [Windows VM](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux VM](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM Azure 定价页。
+<!--MOONCAKE: CORRECT ON https://docs.azure.cn/zh-cn/billing/billing-getting-started-->
 
 有关 Azure 虚拟机上运行的 SQL Server 概述，请参阅以下文章：
 

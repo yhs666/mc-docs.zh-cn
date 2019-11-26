@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 07/24/2019
 ms.date: 10/11/2019
 ms.author: v-tawe
-ms.openlocfilehash: ed18c2daae15174e8333595c2b82be8aeecb59b3
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 27ba687805410a6c1a3e5fd6620f0fff284f787a
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275943"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178868"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>认知服务的自定义子域名
 
@@ -35,7 +35,7 @@ ms.locfileid: "72275943"
 
 ## <a name="do-i-need-to-update-my-existing-resources"></a>是否需要更新现有的资源？
 
-否。 区域终结点仍旧适用于新的和现有的认知服务，而自定义子域名是可选的。 即使添加了自定义子域名，区域终结点也仍适用于该资源。
+不是。 区域终结点仍旧适用于新的和现有的认知服务，而自定义子域名是可选的。 即使添加了自定义子域名，区域终结点也仍适用于该资源。
 
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>如果 SDK 要求提供资源的区域，该怎么办？
 
@@ -56,7 +56,7 @@ ms.locfileid: "72275943"
 
 ## <a name="can-i-change-a-custom-domain-name"></a>是否可以更改自定义域名？
 
-否。 创建自定义子域名称并将其关联到资源后，无法对其进行更改。
+不是。 创建自定义子域名称并将其关联到资源后，无法对其进行更改。
 
 ## <a name="can-i-reuse-a-custom-domain-name"></a>是否可以重复使用某个自定义域名？
 
@@ -71,7 +71,6 @@ ms.locfileid: "72275943"
 
 | 终结点类型 | 区域 | 终结点 |
 |---------------|--------|----------|
-| 公共 | 全局（文本翻译） | `https://api.cognitive.cognitive.azure.cn` |
 | 中国 | 中国东部 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | 中国北部 | `https://chinanorth.api.cognitive.azure.cn` |
 

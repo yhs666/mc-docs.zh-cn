@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 10/03/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 61c46cca19eaad0bc2666ae94a4e8a5b3a184876
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 0b108ef13803e357a57e61d97b2d43e2bfd3f64b
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914800"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934259"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>用于将本地或云数据迁移到 Azure Cosmos DB 的选项
 
@@ -77,7 +77,7 @@ ms.locfileid: "72914800"
 
 * 若要进行详细了解，请试用那些在 [.NET](bulk-executor-dot-net.md) 和 [Java](bulk-executor-java.md) 中使用批量执行程序库的示例应用程序。 
 * 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
-* 如需大规模迁移方面的更多帮助，请通过开具支持票证来联系 Azure Cosmos DB 产品团队：选择“常规建议”问题类型，“大规模迁移(TB+)”问题子类型。 
+* 若要获得大规模迁移的更多帮助，请通过开具 [Azure 支持票证](https://support.azure.cn/support/support-azure/)联系 Azure Cosmos DB 产品团队。 
 * 使用 [Cosmos DB 启动程序](https://azurecosmosdb.github.io/CosmosBootstrap/)在 Azure Cosmos DB 中加速构建或迁移应用程序。
 
 <!--Not Available on > [Cosmos DB Bootstrap Program](https://azurecosmosdb.github.io/CosmosBootstrap/)-->

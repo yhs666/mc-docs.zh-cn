@@ -1,6 +1,6 @@
 ---
-title: 管理充当云服务提供商的 Azure Stack 的使用情况和计费 | Microsoft Docs
-description: 了解如何将 Azure Stack 注册为云提供商 (CSP) 并添加客户以便计费。
+title: 管理充当云解决方案提供商的 Azure Stack 的使用情况和计费 | Microsoft Docs
+description: 了解如何将 Azure Stack 注册为云解决方案提供商 (CSP) 并添加客户以便计费。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,29 +11,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/20/2019
-ms.date: 10/21/2019
+origin.date: 10/02/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.reviewer: alfredo
+ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b0345e03d6815c8d146b578dd4ac51c00a8732a8
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 88ff4f63bc02187a7f523405ee3af657b7e2c906
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578504"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020307"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>管理充当云解决方案提供商的 Azure Stack 的使用情况和计费
 
 *适用于：Azure Stack 集成系统*
 
-本文介绍如何将 Azure Stack 注册为云服务提供商 (CSP) 以及如何添加客户。
+本文介绍如何将 Azure Stack 注册为云解决方案提供商 (CSP) 以及如何添加客户。
 
 作为 CSP，你将与使用 Azure Stack 的各种客户协作。 每个客户在 Azure 中都有一个 CSP 订阅。 必须将使用情况从 Azure Stack 定向到每个用户订阅。
 
 下图展示了必须执行哪些步骤，以便选择共享服务帐户并将 Azure 帐户注册到 Azure Stack 帐户。 注册后，即可载入最终客户：
 
-[![以云服务提供商身份启用使用情况跟踪和管理功能的过程](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "以云服务提供商身份启用使用情况跟踪和管理功能的过程")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![以云解决方案提供商身份启用使用情况跟踪和管理功能的过程](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "以云解决方案提供商身份启用使用情况跟踪和管理功能的过程")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>创建 CSP 或 APSS 订阅
 
@@ -41,7 +41,7 @@ ms.locfileid: "72578504"
 
 选择用于 Azure Stack 的共享服务帐户的类型。 可以用来注册多租户 Azure Stack 的订阅类型为：
 
-- 云服务提供商
+- 云解决方案提供商
 - 合作伙伴共享服务订阅
 
 #### <a name="azure-partner-shared-services"></a>Azure 合作伙伴共享服务
@@ -62,7 +62,7 @@ APSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，请提供�
 
 ## <a name="add-end-customer"></a>添加最终客户
 
-若要配置 Azure Stack，以便在新租户使用资源时，系统将其使用情况报告给其 CSP 订阅，请参阅[将租户添加到 Azure Stack 以获取使用情况和计费信息](azure-stack-csp-howto-register-tenants.md)。
+若要配置 Azure Stack，以便将新租户的资源使用情况报告给其 CSP 订阅，请参阅[将租户添加到 Azure Stack 以获取使用情况和计费信息](azure-stack-csp-howto-register-tenants.md)。
 
 ## <a name="charge-the-right-subscriptions"></a>对正确的订阅收费
 
@@ -79,7 +79,7 @@ Azure Stack 使用名为“注册”  的功能。 注册是一个存储在 Azur
 
 当 Azure Stack 将使用情况信息转发到全球版 Azure 时，Azure 中的一项服务会查阅该注册，并将每个租户的使用情况映射到相应的租户订阅。 如果租户尚未注册，则该使用情况会转发到租户源自的 Azure Stack 实例的默认订阅。
 
-由于租户订阅是 CSP 订阅，其账单将发送至 CSP 合作伙伴，其使用情况信息对最终客户不可见。
+由于租户订阅是 CSP 订阅，其账单将发送至 CSP 合作伙伴，并且使用情况信息对最终客户不可见。
 
 ## <a name="next-steps"></a>后续步骤
 

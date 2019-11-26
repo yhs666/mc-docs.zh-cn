@@ -10,12 +10,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: cd50c0c182a98bfebf407ac168bb363764b2189b
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 789ddd84d71851c31a81aec42ee1b58e2587f078
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857204"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020057"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>将 C# ASP.NET Web 应用程序部署到 Azure Stack 中的 VM。
 
@@ -112,7 +112,7 @@ ms.locfileid: "70857204"
     ![将 ASP.NET Web 应用部署到 Azure Stack 发布](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. 在“发布”窗口中选择“新建配置文件”。  
-1. 选择“IIS”、“FTP”等。  
+1. 选择“IIS”、“FTP”等  。
 1. 选择“发布”  。
 1. 对于“发布方法”，请选择“Web 部署”。  
 1. 对于“服务器”，请输入前面定义的 DNS 名称，例如 *w21902.local.cloudapp.azurestack.external*。 

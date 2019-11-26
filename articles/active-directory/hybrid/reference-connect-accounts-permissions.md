@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 04/29/2019
-ms.date: 10/09/2019
+origin.date: 10/03/2019
+ms.date: 11/13/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a991e6582c5e234e3b1ac86a374efc9b6e36a2
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 089dbe2083de00c9586bb8b511b6c75ae49dc6a9
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292102"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084634"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
@@ -49,10 +49,18 @@ Azure AD Connect 使用 3 个帐户，将信息从本地或 Windows Server Activ
 
 - SQL SA 帐户（可选）：用于使用完整版 SQL Server 时创建 ADSync 数据库  。  此 SQL Server 对 Azure AD Connect 安装而言可能是本地或远程的。  此帐户可能是企业管理员的帐户。  现在，可以由 SQL 管理员在带外进行数据库预配，然后由具有数据库所有者权限的 Azure AD Connect 管理员完成安装。  有关详细信息，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md)
 
+
+>[!IMPORTANT]
+> 从内部版本 1.4.###.# 起，不再支持使用企业管理员或域管理员帐户作为 AD DS 连接器帐户。  如果在指定“使用现有帐户”  时尝试输入是企业管理员或域管理员的帐户，你将收到错误。
+
 > [!NOTE]
 > 支持从 ESAE 管理林（也称为“红林”）管理 Azure AD Connect 中使用的管理帐户。
 > 专用管理林允许组织在具有比生产环境更强的安全控制的环境中托管管理帐户、工作站和组。
 > 若要详细了解专用管理林，请参阅 [ESAE 管理林设计方法](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
+>>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> 初始设置后不需要全局管理员角色，唯一需要的帐户将是“目录同步帐户”  角色帐户。 这并不意味着你只需要删除具有全局管理员角色的帐户。 最好将角色更改为功能较弱的角色，因为如果需要再次运行向导，完全删除帐户可能会带来问题。 减小角色的权限后，如果你需要再次利用 Azure AD Connect 向导，则始终可以重新提升权限。 
 
 ## <a name="installing-azure-ad-connect"></a>安装 Azure AD Connect
 Azure AD Connect 安装向导提供提供两种不同的路径：

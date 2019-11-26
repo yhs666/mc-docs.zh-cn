@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中注册租户以便进行使用情况跟踪 | Microsoft Docs
-description: 详细介绍用于管理租户注册的操作，以及如何在 Azure Stack 中跟踪租户使用情况。
+description: 了解如何在 Azure Stack 中注册租户以及如何跟踪租户使用情况。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2019
-ms.date: 10/21/2019
+origin.date: 10/14/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: c8075bdcbe501e3512d030787172de741064a6b3
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.lastreviewed: 10/14/2019
+ms.openlocfilehash: b29b875d7628375f067c469b7f6583b7a5cbb935
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578463"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020248"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>在 Azure Stack 中注册租户以跟踪使用情况
 
 *适用于：Azure Stack 集成系统*
 
@@ -51,7 +51,7 @@ ms.locfileid: "72578463"
 | 参数                  | 说明 |
 |---                         | --- |
 | registrationSubscriptionID | 用于初始注册的 Azure 订阅。 |
-| customerSubscriptionID     | 属于要注册的客户的 Azure 订阅（非 Azure Stack）。 必须通过合作伙伴中心在云服务提供商 (CSP) 产品/服务中创建。 如果客户有多个租户，则为要登录 Azure Stack 的租户创建订阅。 |
+| customerSubscriptionID     | 属于要注册的客户的 Azure 订阅（非 Azure Stack）。 必须通过合作伙伴中心在云解决方案提供商 (CSP) 产品/服务中创建。 如果客户有多个租户，则为要登录 Azure Stack 的租户创建订阅。 |
 | resourceGroup              | Azure 中用于存储注册的资源组。 |
 | registrationName           | Azure Stack 的注册名称。 它是 Azure 中存储的对象。 该名称通常采用格式 **azurestack-CloudID**，其中 **CloudID** 是 Azure Stack 部署的云 ID。 |
 
@@ -62,15 +62,14 @@ ms.locfileid: "72578463"
 
 使用 **New-AzureRmResource** cmdlet 添加一个租户。 [连接到 Azure Stack](azure-stack-powershell-configure-admin.md)，然后从提升的提示符使用以下 cmdlet：
 
-```powershell
-New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+```powershell  
+New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API 调用
 
 **Operation**：PUT  
-**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **响应**：201 Created  
 **响应正文**：空  
 
@@ -102,9 +101,7 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 可以使用 GET 操作获取所有租户映射的列表。
 
 **Operation**：GET  
-**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
-api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **响应**：200  
 **响应正文**：
 
@@ -153,9 +150,7 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 可以使用 DELETE 操作删除租户映射。
 
 **Operation**：删除  
-**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **响应**：204 无内容  
 **响应正文**：空
 

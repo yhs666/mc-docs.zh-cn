@@ -1,5 +1,5 @@
 ---
-title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure
+title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure | Microsoft Docs
 description: 了解如何使用 ExpressRoute 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
 documentationcenter: ''
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/22/2019
-ms.date: 10/21/2019
+origin.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 9fb9f865d08d024403b941d710f312576bbd782e
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: e4735cc9e36d226a54c231ac4fc390c531a8ada8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578468"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020267"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -63,7 +63,7 @@ ms.locfileid: "72578468"
 
 ![ExpressRoute 网络](media/azure-stack-connect-expressroute/Conceptual.png)
 
-下图显示多个租户如何从 Azure Stack 基础结构通过 ExpressRoute 路由器连接到位于 Microsoft 边缘的 Azure：
+下图显示多个租户如何从 Azure Stack 基础结构通过 ExpressRoute 路由器连接到 Azure：
 
 ![使用 ExpressRoute 的多租户连接](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "72578468"
 在开始配置 Azure Stack 之前，需要：
 
 * Azure Stack 集成系统部署，或 Azure Stack 开发工具包 (ASDK) 部署。 有关部署 ASDK 的信息，请参阅 [Azure Stack 开发工具包部署快速入门](../asdk/asdk-download.md)。
-* Azure Stack 中可供用户订阅的套餐。 有关详细信息，请参阅[计划、套餐和订阅](azure-stack-plan-offer-quota-overview.md)。
+* Azure Stack 中可供用户订阅的套餐。 有关详细信息，请参阅[服务、计划、套餐和订阅概述](service-plan-offer-subscription-overview.md)。
 
 ### <a name="create-network-resources-in-azure-stack"></a>在 Azure Stack 中创建网络资源
 
@@ -143,7 +143,7 @@ ms.locfileid: "72578468"
 
 本地网络网关资源识别位于 VPN 连接另一端的远程网关。 在本示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于上图中的租户 1，远程地址为 10.60.3.255。
 
-1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“+ 创建资源”。 
+1. 登录到 Azure Stack 用户门户，选择“+ 创建资源”。 
 1. 在“Azure 市场”下，选择“网络”。  
 1. 从资源列表中选择“本地网关”。 
 1. 在“名称”字段中，键入 **ER-Router-GW**。 
@@ -180,13 +180,13 @@ ms.locfileid: "72578468"
 1. 在“虚拟网络网关”下，从资源列表中选择“概述”。   或者，可以选择“属性”。 
 1. 要记下的 IP 地址列在“公共 IP 地址”下。  对于示例配置，此地址为 192.68.102.1。
 
-#### <a name="create-a-virtual-machine"></a>创建虚拟机
+#### <a name="create-a-virtual-machine-vm"></a>创建虚拟机 (VM)
 
-若要通过 VPN 连接测试数据流量，需要使用虚拟机在 Azure Stack VNet 中发送和接收数据。 请创建一个虚拟机，并将其部署到虚拟网络的 VM 子网。
+若要通过 VPN 连接测试数据流量，需要使用 VM 在 Azure Stack VNet 中发送和接收数据。 请创建一个 VM，并将其部署到虚拟网络的 VM 子网。
 
 1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。 
 1. 在“Azure 市场”下，选择“计算”。  
-1. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
+1. 在 VM 映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
 
    >[!NOTE]
    >如果用于本文的映像不可用，请让 Azure Stack 运营商提供不同的 Windows Server 映像。
@@ -194,7 +194,7 @@ ms.locfileid: "72578468"
 1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为**名称**。  
 1. 输入有效的用户名和密码。 创建 VM 后，将使用此帐户登录到该 VM。
 1. 提供“订阅”、“资源组”和“位置”    。 选择“确定”  。
-1. 在“选择大小”下，为此实例选择一种虚拟机大小，然后选择“选择”。  
+1. 在“选择大小”下，为此实例选择一种 VM 大小，然后选择“选择”。  
 1. 在“设置”下，确认： 
 
    * 虚拟网络为 **Tenant1VNet1**。
@@ -215,12 +215,12 @@ ms.locfileid: "72578468"
 
 如果使用租户 2 作为示例，请记得更改 IP 地址以避免重叠。
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>配置用于网关遍历的 NAT 虚拟机
+### <a name="configure-the-nat-vm-for-gateway-traversal"></a>针对网关遍历配置 NAT VM
 
 > [!IMPORTANT]
-> 本部分仅适用于 Azure Stack 开发工具包 (ASDK) 部署。 多节点部署无需 NAT。
+> 本部分仅适用于 ASDK 部署。 多节点部署无需 NAT。
 
-Azure Stack 开发工具包是自主性的，与部署物理主机的网络相隔离。 网关连接到的 VIP 网络不是在外部，而是隐藏在执行网络地址转换 (NAT) 的路由器后面。
+ASDK 是自主性的，与部署物理主机的网络相隔离。 网关连接到的 VIP 网络不是在外部，而是隐藏在执行网络地址转换 (NAT) 的路由器后面。
 
 路由器是运行路由和远程访问服务 (RRAS) 角色的 ASDK 主机。 必须在 ASDK 主机上配置 NAT，才能在两端建立站点到站点 VPN 连接。
 
@@ -289,7 +289,7 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 
 示例 Azure 网络基础结构的配置方式如下：
 
-* 标准的中心 (192.168.2.0/24) 和分支 (10.100.0.0./16) VNet 模型。 
+* 标准的中心 (192.168.2.0/24) 和分支 (10.100.0.0./16) VNet 模型。 有关中心辐射型网络拓扑的详细信息，请参阅[在 Azure 中实现中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。
 * 工作负荷部署在分支 VNet 中，ExpressRoute 线路连接到中心 VNet。
 * 使用 VNet 对等互连连接这两个 VNet。
 
@@ -330,7 +330,7 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 
 ### <a name="create-a-virtual-machine"></a>创建虚拟机
 
-将工作负荷虚拟机部署到分支 VNet。
+将工作负荷 VM 部署到分支 VNet。
 
 针对 Azure 中要通过相应 ExpressRoute 线路连接的其他任何租户 VNet，重复这些步骤。
 
@@ -567,15 +567,15 @@ route-map VNET-ONLY permit 10
 
 执行以下 ping 测试：
 
-* 登录到 Azure VNet 中的虚拟机之一，然后针对 Azure Stack 中创建的虚拟机执行 ping。
-* 登录到 Azure Stack 中创建的虚拟机之一，然后针对 Azure VNet 中创建的虚拟机执行 ping。
+* 登录到 Azure VNet 中的 VM 之一，然后针对 Azure Stack 中创建的 VM 执行 ping。
+* 登录到在 Azure Stack 中创建的 VM 之一，然后针对 Azure VNet 中创建的 VM 执行 ping。
 
 >[!NOTE]
->为了确保通过站点到站点和 ExpressRoute 连接发送流量，必须在两端 ping 虚拟机的专用 IP (DIP) 地址，而不是虚拟机的 VIP 地址。
+>为了确保通过站点到站点和 ExpressRoute 连接发送流量，必须在两端 ping VM 的专用 IP (DIP) 地址，而不是 VM 的 VIP 地址。
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>允许 ICMP 通过防火墙
 
-默认情况下，Windows Server 2016 不允许通过防火墙传入 ICMP 数据包。 对于用于 ping 测试的每个虚拟机，必须允许传入 ICMP 数据包。 若要为 ICMP 创建防火墙规则，请在权限提升的 PowerShell 窗口中运行以下 cmdlet：
+默认情况下，Windows Server 2016 不允许通过防火墙传入 ICMP 数据包。 对于用于 ping 测试的每个 VM，必须允许传入 ICMP 数据包。 若要为 ICMP 创建防火墙规则，请在权限提升的 PowerShell 窗口中运行以下 cmdlet：
 
 ```powershell
 # Create ICMP firewall rule.
@@ -584,23 +584,23 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Ping Azure Stack 虚拟机
+### <a name="ping-the-azure-stack-vm"></a>Ping Azure Stack VM
 
-1. 使用租户帐户登录到 Azure Stack 用户门户。
+1. 登录到 Azure Stack 用户门户。
 
-1. 找到创建的虚拟机，并选择该虚拟机。
+1. 找到创建的 VM，然后将其选中。
 
 1. 选择“连接”  。
 
 1. 在权限提升的 Windows 或 PowerShell 命令提示符下，输入 **ipconfig /all**。 记下输出中返回的 IPv4 地址。
 
-1. 从 Azure VNet 中的虚拟机 Ping IPv4 地址。
+1. 从 Azure VNet 中的 VM Ping IPv4 地址。
 
    在示例环境中，该 IPv4 地址来自 10.1.1.x/24 子网。 在你的环境中，该地址可能不同，但是，该地址应在为租户 VNet 子网创建的子网中。
 
 ### <a name="view-data-transfer-statistics"></a>查看数据传输统计信息
 
-若要了解有多少流量通过连接，可以在 Azure Stack 用户门户中查找此信息。 此信息也很适合用于确认 ping 测试数据是否通过了 VPN 和 ExpressRoute 连接：
+若要了解有多少流量通过连接，可以在 Azure Stack 用户门户中查找此信息。 查看数据传输统计信息也很适用于确认 ping 测试数据是否通过了 VPN 和 ExpressRoute 连接：
 
 1. 登录 Azure Stack 用户门户并选择“所有资源”  。
 1. 导航到 VPN 网关的资源组，然后选择“连接”对象类型。 

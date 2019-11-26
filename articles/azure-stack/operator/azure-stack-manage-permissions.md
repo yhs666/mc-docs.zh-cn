@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure Stack 中每个用户对资源的权限（服务管理员和租户）| Microsoft Docs
-description: 作为服务管理员或租户，了解如何管理 RBAC 权限。
+title: 使用基于角色的访问控制设置访问权限 | Microsoft Docs
+description: 了解如何在 Azure Stack 中使用基于角色的访问控制 (RBAC) 设置访问权限。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 06/03/2019
+origin.date: 05/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: fd5253084885af05a0d40897042291574a5b0bdc
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 1e7013fb3f1e28c4d5f0c6b0855a443f6164f9aa
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381838"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020210"
 ---
-# <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
+# <a name="set-access-permissions-using-role-based-access-control"></a>使用基于角色的访问控制设置访问权限
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -51,5 +51,5 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 4. 在“角色”  边栏选项卡中，单击“添加”  即可添加通用组 Active Directory 组的权限。
 
 ## <a name="next-steps"></a>后续步骤
-[添加 Azure Stack 租户](azure-stack-add-new-user-aad.md)
 
+[添加 Azure Stack 租户](azure-stack-add-new-user-aad.md)

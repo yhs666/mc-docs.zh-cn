@@ -9,19 +9,21 @@ keywords: azure functions, functions, 事件处理, 计算, 无服务器体系�
 ms.service: azure-functions
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 09/29/2019
+ms.date: 11/19/2019
 ms.author: v-junlch
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: c2c18ecceb532b643d5311c3649fa938897e97e2
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: ea515a72b97cbaf38cf7b88e0a862205b3ea6dc8
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673593"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178974"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 的一个扩展，可用于在无服务器环境中编写有状态函数。 该扩展可用于管理状态、检查点和重启。
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 本文介绍了如何使用 Visual Studio Code Azure Functions 扩展在本地创建并测试“hello world”持久函数。  此函数将协调对其他函数的调用并将其链接在一起。 然后将函数代码发布到 Azure。
 

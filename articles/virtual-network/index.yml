@@ -12,12 +12,12 @@ metadata:
   ms.author: v-yeche
   origin.date: 08/28/2019
   ms.date: 09/23/2019
-  ms.openlocfilehash: 752b5f7d1f5a203fc737e512eabeb907fe124a6c
-  ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+  ms.openlocfilehash: 7157b6dbbbd5d2ef1feacbde2fed538a58b257d5
+  ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71306809"
+  ms.lasthandoff: 11/12/2019
+  ms.locfileid: "73934267"
 landingContent:
 - title: 关于虚拟网络
   linkLists:
@@ -117,11 +117,11 @@ landingContent:
     links:
     - text: IP 地址类型和分配方法
       url: virtual-network-ip-addresses-overview-arm.md
-    - text: 公共 IP 地址前缀
+    - text: 公共 IP 前缀
       url: public-ip-address-prefix.md
   - linkListType: how-to-guide
     links:
     - text: 创建、更改或删除公共 IP 地址
       url: virtual-network-public-ip-address.md
-    - text: 创建、更改或删除公共 IP 地址前缀
+    - text: 创建、更改或删除公共 IP 前缀
       url: manage-public-ip-address-prefix.md

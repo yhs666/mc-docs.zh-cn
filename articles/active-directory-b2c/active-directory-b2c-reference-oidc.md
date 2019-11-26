@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/22/2019
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1e4d6b7141812f7cc7dfe5feb877e67688fcbd99
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 459b144d74fce1659ecf8c07634c820717293c9f
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847054"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934374"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录
 
@@ -150,7 +150,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | {tenant} | 是 | Azure AD B2C 租户的名称 |
 | {policy} | 是 | 用于获取授权代码的用户流。 无法在此请求中使用不同的用户流。 将此参数添加到查询字符串中，而不是添加到 POST 正文中。 |
 | client_id | 是 | [Azure 门户](https://portal.azure.cn/)分配给应用程序的应用程序 ID。 |
-| client_secret | 是 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 此应用程序密码是重要的安全项目。 应将其安全地存储在服务器上。 请定期更新此客户端机密。 |
+| client_secret | 是，在 Web 应用中 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 客户端密码在此流中用于 Web 应用场景，在其中客户端可以安全地存储客户端密码。 对于本机应用（公共客户端）场景，客户端密码不能安全地存储，因此不能在此流上使用。 如果使用客户端密码，请定期更改。 |
 | code | 是 | 在用户流的开头获取的授权代码。 |
 | grant_type | 是 | 授予类型，该类型必须是授权代码流的 `authorization_code`。 |
 | redirect_uri | 是 | 在其中收到授权代码的应用程序的 `redirect_uri` 参数。 |
@@ -219,7 +219,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | {tenant} | 是 | Azure AD B2C 租户的名称 |
 | {policy} | 是 | 用于获取原始刷新令牌的用户流。 无法在此请求中使用不同的用户流。 将此参数添加到查询字符串中，而不是添加到 POST 正文中。 |
 | client_id | 是 | [Azure 门户](https://portal.azure.cn/)分配给应用程序的应用程序 ID。 |
-| client_secret | 是 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 此应用程序密码是重要的安全项目。 应将其安全地存储在服务器上。 请定期更新此客户端机密。 |
+| client_secret | 是，在 Web 应用中 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 客户端密码在此流中用于 Web 应用场景，在其中客户端可以安全地存储客户端密码。 对于本机应用（公共客户端）场景，客户端密码不能安全地存储，因此不能用于此调用。 如果使用客户端密码，请定期更改。 |
 | grant_type | 是 | 授予类型，必须是此授权代码流部分的刷新令牌。 |
 | refresh_token | 是 | 在流的第二部分获取的原始刷新令牌。 必须在授权和令牌请求中使用范围 `offline_access`，才能接收刷新令牌。 |
 | redirect_uri | 否 | 在其中收到授权代码的应用程序的 `redirect_uri` 参数。 |
@@ -287,4 +287,4 @@ GET https://{tenant}.b2clogin.cn/{tenant}.partner.onmschina.cn/{policy}/oauth2/v
 
 将用户定向到 `end_session` 终结点会清除用户的某些 Azure AD B2C 的单一登录状态，但是不会将用户从其社交标识提供者 (IDP) 会话中注销。 如果用户在后续登录中选择相同的 IDP，他们将重新进行身份验证，且无需输入其凭据。 用户从应用程序注销不一定意味着他们要从其微信帐户注销。 但是，如果使用了本地帐户，则用户的会话将正常结束。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

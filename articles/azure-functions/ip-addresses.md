@@ -7,24 +7,24 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 07/18/2018
-ms.date: 04/26/2019
+origin.date: 12/03/2018
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7293e7aae80536b8ca2192617d06b5691f0d6a0e
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 92e8bc5e0f756019f7fcd8b2eab1ecdffa453936
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854618"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178950"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions 中的 IP 地址
 
 本文介绍与函数应用的 IP 地址相关的以下主题：
 
-- 如何查找函数应用当前正在使用 IP 地址。
-- 哪些因素导致函数应用的 IP 地址发生更改。
-- 如何限制可访问函数应用的 IP 地址。
-- 如何获取函数应用的专用 IP 地址。
+* 如何查找函数应用当前正在使用 IP 地址。
+* 哪些因素导致函数应用的 IP 地址发生更改。
+* 如何限制可访问函数应用的 IP 地址。
+* 如何获取函数应用的专用 IP 地址。
 
 IP 地址与函数应用而不是单个函数相关联。 传入的 HTTP 请求不能使用入站 IP 地址来调用单个函数；它们必须使用默认域名 (functionappname.chinacloudsites.cn) 或自定义域名。
 
@@ -34,8 +34,8 @@ IP 地址与函数应用而不是单个函数相关联。 传入的 HTTP 请求�
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到函数应用。
-3. 选择“平台功能”。
-4. 选择“属性”，然后选择“虚拟 IP 地址”下面显示的入站 IP 地址。
+3. 选择“平台功能”。 
+4. 选择“属性”，然后选择“虚拟 IP 地址”下面显示的入站 IP 地址。  
 
 ## <a name="find-outbound-ip-addresses"></a>函数应用的出站 IP 地址
 
@@ -52,7 +52,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>数据中心出站 IP 地址
 
-如果需要将函数应用使用的出站 IP 地址加入允许列表，另一种做法是将函数应用的数据中心（Azure 区域）加入允许列表。 可以[下载列出所有 Azure 数据中心 IP 地址的 JSON 文件](https://www.microsoft.com/en-us/download/details.aspx?id=56519)。 然后，找到应用于运行函数应用的区域的 JSON 片段。
+如果需要将函数应用使用的出站 IP 地址加入允许列表，另一种做法是将函数应用的数据中心（Azure 区域）加入允许列表。 可以[下载列出所有 Azure 数据中心的 IP 地址的 JSON 文件](https://www.microsoft.com/en-us/download/details.aspx?id=56519)。 然后，找到应用于运行函数应用的区域的 JSON 片段。
 
 例如，中国北部区域的 JSON 片段可能如下所示：
 
@@ -76,11 +76,11 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 有关此文件何时更新以及 IP 地址何时更改的信息，请展开[下载中心页](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的“详细信息”部分。
+ 有关此文件何时更新以及 IP 地址何时更改的信息，请展开[下载中心页](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的“详细信息”部分。 
 
 ## <a name="inbound-ip-address-changes"></a>入站 IP 地址更改
 
- 如果执行以下操作，入站 IP 地址**可能**会更改：
+如果执行以下操作，入站 IP 地址**可能**会更改：
 
 - 删除函数应用，然后在不同的资源组中重新创建它。
 - 删除资源组和区域组合中的最后一个函数应用，然后重新创建它。
@@ -92,8 +92,8 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 如果执行以下操作，函数应用可用的出站 IP 地址集可能会更改：
 
-- 执行可能更改入站 IP 地址的任何操作。
-- 更改应用服务计划的定价层。 应用可在所有定价层中使用的所有可能出站 IP 地址列表在 `possibleOutboundIPAddresses` 属性中指定。 请参阅[查找出站 IP](#find-outbound-ip-addresses)。
+* 执行可能更改入站 IP 地址的任何操作。
+* 更改应用服务计划的定价层。 应用可在所有定价层中使用的所有可能出站 IP 地址列表在 `possibleOutboundIPAddresses` 属性中指定。 请参阅[查找出站 IP](#find-outbound-ip-addresses)。
 
 在[消耗计划](functions-scale.md#consumption-plan)中运行函数应用时，如果未执行上面所列的操作，出站 IP 地址也可能会更改。
 
@@ -109,12 +109,14 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="dedicated-ip-addresses"></a>专用 IP 地址
 
+如果需要静态专用 IP 地址，我们建议使用[应用服务环境](../app-service/environment/intro.md)（应用服务计划的[隔离层](https://www.azure.cn/pricing/details/app-service/)）。 有关详细信息，请参阅[应用服务环境 IP 地址](../app-service/environment/network-info.md#ase-ip-addresses)。
+
 确定函数应用是否在应用服务环境中运行：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到函数应用。
-3. 选择“概述”选项卡。
-4. 应用服务计划层显示在“应用服务计划/定价层”下面。 应用服务环境定价层为“隔离”。
+3. 选择“概述”选项卡。 
+4. 应用服务计划层显示在“应用服务计划/定价层”下面。  应用服务环境定价层为“隔离”。 
  
 或者，可以使用 PowerShell cmdlet：
 

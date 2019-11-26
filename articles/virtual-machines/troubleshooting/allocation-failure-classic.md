@@ -11,14 +11,14 @@ ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 11/01/2018
-ms.date: 11/26/2018
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 868717b22af3c0fcacf3ca9eabb1104365e84651
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e805dfa16e5d3700d3f88d56d79bdbdcfb091c96
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674220"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116953"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>针对经典部署模型中的分配失败情况进行故障排除的步骤
 
@@ -117,7 +117,7 @@ New_General* 或 New_VMSizeNotSupported*
 
 **群集固定的原因**
 
-在引入区域虚拟网络之前，必须先将虚拟网络与地缘组进行关联。 这样，便会根据上一部分“分配案例：地缘组（VM/服务邻近性）”中所述的相同约束，绑定已放入地缘组中的计算资源。 计算资源已绑定到一个群集。
+在引入区域虚拟网络之前，必须先将虚拟网络与地缘组进行关联。 这样，放置在地缘组中的计算资源将受到与上面“分配方案：地缘组（VM/服务邻近性）”部分中所述相同约束的约束。 计算资源已绑定到一个群集。
 
 **解决方法**
 

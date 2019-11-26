@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中的客户计费和退款 | Microsoft Docs
-description: 了解如何从 Azure Stack 中检索资源使用情况信息。
+description: 了解如何根据资源使用情况对 Azure Stack 用户进行计费，以及如何访问计费信息以进行分析和退款。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/21/2019
-ms.date: 07/29/2019
+origin.date: 10/04/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: fa1af30fd411326d9229bfa659fe1321cace6872
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 10d533defeaadc0029cef760d5fac23439827398
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513491"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020302"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack 中的使用情况和计费
 
-本文介绍了如何根据资源使用情况对 Azure Stack 用户进行计费，以及如何访问计费信息以进行分析和退款。
+本文介绍如何根据资源使用情况对 Azure Stack 用户进行计费，以及如何访问计费信息以进行分析和退款。
 
 Azure Stack 针对使用的资源收集使用情况数据并将其分组，然后将此数据转发到 Azure Commerce。 Azure Commerce 计收 Azure Stack 使用费的方式与计收 Azure 使用费相同。
 
-也可以使用计费适配器来获取使用情况数据并将其导出到自己的计费或退款系统，或者导出到商业智能工具（例如 Power BI）。
+也可以使用计费适配器来获取使用情况数据并将其导出到自己的计费或退款系统，或者导出到商业智能工具（例如 Microsoft Power BI）。
 
 ## <a name="usage-pipeline"></a>使用情况管道
 
@@ -52,9 +52,9 @@ Azure Stack 资源提供程序（例如计算、存储和网络）每隔一小�
 
 Azure 计费门户显示应计费资源的使用情况数据。 除了应计费资源之外，Azure Stack 还会捕获更广范围内资源的使用情况数据，可以通过 REST API 或 PowerShell cmdlet 在 Azure Stack 环境中访问这些数据。 Azure Stack 操作员可以获取所有用户订阅的使用情况数据。 单个用户只能获取自己的详细使用情况。
 
-## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>多租户云服务提供商的使用情况报告
+## <a name="usage-reporting-for-multi-tenant-cloud-solution-providers"></a>多租户云解决方案提供商的使用情况报告
 
-有许多 Azure Stack 客户的多租户云服务提供商 (CSP) 可以单独报告每个客户的使用情况，以便向不同的 Azure 订阅收取使用费。
+使用 Azure Stack 的多租户云解决方案提供商 (CSP) 可能希望单独报告每个客户的使用情况，以便提供商可以向不同的 Azure 订阅收取使用费用。
 
 每个客户将会获得一个按不同 Azure Active Directory (Azure AD) 租户表示的标识。 Azure Stack 支持向每个 Azure AD 租户分配一个 CSP 订阅。 可将租户及其订阅添加到基本 Azure Stack 注册。 将会针对所有 Azure Stack 实例执行基本注册。 如果没有为租户注册订阅，用户仍可使用 Azure Stack，其使用情况数据将发送到用于基本注册的订阅。
 
@@ -65,5 +65,3 @@ Azure 计费门户显示应计费资源的使用情况数据。 除了应计费�
 - [提供程序资源使用情况 API](azure-stack-provider-resource-api.md)
 - [租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)
 - [有关使用情况的常见问题解答](azure-stack-usage-related-faq.md)
-
-<!-- Update_Description: wording update -->

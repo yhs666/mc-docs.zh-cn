@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 09/19/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5b7881b4824363577e4c30ac90b2693653e15e6a
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: c1feefeb09636cdb4b002ea62533a4405be87268
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267122"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020843"
 ---
 # <a name="webhooks-for-speech-services"></a>适用于语音服务的 Webhook
 
@@ -39,7 +39,7 @@ Webhook 类似于 HTTP 回调，在语音服务中的数据可用时，应用程
 
 让我们创建一个用于脱机听录的 Webhook。 场景：用户希望使用批量听录 API 以异步方式听录一个长时间运行的音频文件。
 
-可以通过向 https://\<区域\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks 发出 POST 请求来创建 Webhook。
+可以通过向 https://\<region\>.cris.azure.cn/api/speechtotext/v2.1/transcriptions/hooks 发出 POST 请求来创建 Webhook。
 
 请求的配置参数作为 JSON 提供：
 
@@ -115,20 +115,20 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 
 ### <a name="other-webhook-operations"></a>其他 Webhook 操作
 
-获取所有已注册的 Webhook：GET https://chinaeast.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+获取所有已注册的 Webhook：GET https://chinaeast2.cris.azure.cn/api/speechtotext/v2.1/transcriptions/hooks
 
-获取一个特定的 Webhook：GET https://chinaeast.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
+获取一个特定的 Webhook：GET https://chinaeast2.cris.azure.cn/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-删除一个特定的 Webhook：DELETE https://chinaeast.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
+删除一个特定的 Webhook：DELETE https://chinaeast2.cris.azure.cn/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 > [!Note]
 > 在以上示例中，区域为“chinaeast”。 应将此区域替换为在 Azure 门户中创建了语音服务资源的区域。
 
-POST https://chinaeast.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping 正文：空
+POST https://chinaeast2.cris.azure.cn/api/speechtotext/v2.1/transcriptions/hooks/:id/ping 正文：空
 
 将 POST 请求发送到已注册的 URL。 该请求包含值为 ping 的 `X-MicrosoftSpeechServices-Event` 标头。 如果使用机密注册了 Webhook，则该请求将包含 `X-MicrosoftSpeechServices-Signature` 标头以及有效负载的 SHA256 哈希，其机密为 HMAC 密钥。 该哈希已经过 Base64 编码。
 
-POST https://chinaeast.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test 正文：空
+POST https://chinaeast2.cris.azure.cn/api/speechtotext/v2.1/transcriptions/hooks/:id/test 正文：空
 
 如果已订阅事件类型（听录）的实体在系统中存在并处于适当的状态，则将 POST 请求发送到已注册的 URL。 将从已调用 Webhook 的最后一个实体生成有效负载。 如果不存在实体，则 POST 将会响应 204。 如果可以发出测试请求，则会响应 200。 请求正文的形状与 Webhook 已订阅的特定实体（例如听录）的 GET 请求的形状相同。 请求包含如上所述的 `X-MicrosoftSpeechServices-Event` 和 `X-MicrosoftSpeechServices-Signature` 标头。
 

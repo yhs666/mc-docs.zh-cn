@@ -1,35 +1,36 @@
 ---
-title: 在 Azure Stack 上删除 MySQL 资源提供程序 | Microsoft Docs
+title: 在 Azure Stack 中删除 MySQL 资源提供程序 | Microsoft Docs
 description: 了解如何从 Azure Stack 部署中删除 MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
-ms.author: mabrigg
-ms.reviewer: quying
+origin.date: 10/02/2019
+ms.date: 11/18/2019
+ms.author: v-jay
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a5e15254377c5d47af506c7355523b18e9f46d2
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: cc8e7c00c7497dbfe803958cb2781da66d31ea5c
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529448"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74019999"
 ---
-# <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
+# <a name="remove-the-mysql-resource-provider-in-azure-stack"></a>在 Azure Stack 中删除 MySQL 资源提供程序
 
 删除 MySQL 资源提供程序之前，必须删除该提供程序的所有依赖项。 你还需要用来安装资源提供程序的部署包的副本。
 
 > [!NOTE]
 > 可以在[部署资源提供程序先决条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中找到资源提供程序安装程序的下载链接。
 
-删除 MySQL 资源提供程序不会从托管服务器中删除租户数据库。
+删除 MySQL 资源提供程序不会从宿主服务器中删除租户数据库。
 
 ## <a name="dependency-cleanup"></a>依赖项清理
 
@@ -50,12 +51,12 @@ Azure Stack 操作员负责执行以下清理任务：
 2. 获取 MySQL 资源提供程序安装包的副本，然后运行自解压程序，将内容解压缩到一个临时目录。
 3. 打开一个权限提升的 PowerShell 控制台新窗口，并切换到解压缩后的 MySQL 资源提供程序安装文件所在的目录。
 4. 使用以下参数运行 DeployMySqlProvider.ps1 脚本：
-    - **Uninstall**。 删除资源提供程序和所有关联的资源。
-    - **PrivilegedEndpoint**。 特权终结点的 IP 地址或 DNS 名称。
-    - **AzureEnvironment**。 用于部署 Azure Stack 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
-    - **CloudAdminCredential**。 访问特权终结点时所需的云管理员凭据。
+    - **Uninstall**：删除资源提供程序和所有关联的资源。
+    - **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
+    - **AzureEnvironment**：用于部署 Azure Stack 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
+    - **CloudAdminCredential**：访问特权终结点时所需的云管理员凭据。
     - **DirectoryTenantID**
-    - **AzCredential**。 Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。
+    - **AzCredential**：Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。
 
 ## <a name="next-steps"></a>后续步骤
 

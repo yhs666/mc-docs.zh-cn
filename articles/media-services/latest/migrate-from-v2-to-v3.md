@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
 origin.date: 05/01/2019
-ms.date: 09/23/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 90f2891eb830319ed18169f0f25709355982f554
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 7258282c6524cd7ec0157efa92477fd698ae4211
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124442"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116248"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>有关从媒体服务 v2 迁移到 v3 的指导
 
@@ -30,7 +30,7 @@ ms.locfileid: "71124442"
 如果你目前基于[旧版媒体服务 v2 API](../previous/media-services-overview.md) 开发了一个视频服务，则在迁移到 v3 API 之前，应查看以下指导原则和注意事项。 v3 API 中的许多优势和新功能可以改进开发体验和媒体服务的功能。 但是，如本文的[已知问题](#known-issues)部分中所述，API 版本的变化也带来了一些限制。 在媒体服务团队不断改进 v3 API 并解决版本差距的过程中，本页面会得到维护。 
 
 > [!NOTE]
-> 目前，无法使用 Azure 门户来管理 v3 资源。 请使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](/cli/ams?view=azure-cli-latest) 或受支持的 [SDK](media-services-apis-overview.md#sdks) 之一。
+> 目前，无法使用 Azure 门户来管理 v3 资源。 请使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或受支持的 [SDK](media-services-apis-overview.md#sdks) 之一。
 
 ## <a name="benefits-of-media-services-v3"></a>媒体服务 v3 的优势
   
@@ -40,7 +40,7 @@ ms.locfileid: "71124442"
 * [OpenAPI 规范（以前称为 Swagger）](https://aka.ms/ams-v3-rest-sdk)文档。
     公开所有服务组件的架构，包括基于文件的编码。
 * 适用于 [.NET](https://aka.ms/ams-v3-dotnet-ref)、.NET Core、[Node.js](https://aka.ms/ams-v3-nodejs-ref)、[Python](https://aka.ms/ams-v3-python-ref)、[Java](https://aka.ms/ams-v3-java-ref)、[Go](https://aka.ms/ams-v3-go-ref) 和 Ruby 的 SDK。
-* 简化脚本支持的 [Azure CLI](/cli/ams?view=azure-cli-latest) 集成。
+* 简化脚本支持的 [Azure CLI](https://aka.ms/ams-v3-cli-ref) 集成。
 
 ### <a name="new-features"></a>新增功能
 
@@ -74,7 +74,8 @@ ms.locfileid: "71124442"
     * 直播活动取代了频道。<br/>直播活动计费基于实时频道计量器。 有关详细信息，请参阅[计费](live-event-states-billing.md)和[定价](https://azure.cn/pricing/details/media-services/)。
     * 实时输出取代了节目。
 * 实时输出在创建时启动，在删除后停止。 v2 API 中的节目以不同的方式工作，它们必须在创建后启动。
-*  若要获取有关作业的信息，需要知道创建作业时使用的转换名称。 
+* 若要获取有关作业的信息，需要知道创建作业时使用的转换名称。 
+* 在 v2 中，XML [输入](../previous/media-services-input-metadata-schema.md)和[输出](../previous/media-services-output-metadata-schema.md)元数据文件将作为编码作业的结果生成。 在 v3 中，元数据格式已从 XML 更改为 JSON。 
 
 > [!NOTE]
 > 查看适用于[媒体服务 v3 资源](media-services-apis-overview.md#naming-conventions)的命名约定。 还要查看[命名 Blob](assets-concept.md#naming-blobs)。

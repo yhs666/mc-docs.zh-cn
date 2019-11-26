@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/14/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 211783fbd9207983913c491f3091e2c038516b5c
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+origin.date: 10/25/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: fc57485876dba976322935c9f2b45d630640a343
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191553"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020827"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的日志
 Azure Database for PostgreSQL 允许配置和访问 Postgres 的标准日志。 这些日志可用于识别、排除和修复配置错误和性能不佳问题。 可以配置和访问的日志信息包括错误、查询信息、autovacuum 记录、连接和检查点。 （无法访问事务日志）。
@@ -81,12 +81,13 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-搜索此工作区中所有 Postgres 服务器在过去 6 小时发生的所有错误
+搜索所有非 localhost 连接尝试
 ```
 AzureDiagnostics
-| where errorLevel_s == "error" and category == "PostgreSQLogs"
-| where TimeGenerated > ago(6h)
+| where Message contains "connection received" and Message !contains "host=127.0.0.1"
+| where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
+上面的查询将显示在此工作区中记录的任何 Postgres 服务器在过去 6 小时内的结果。
 
 ### <a name="log-format"></a>日志格式
 

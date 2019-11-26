@@ -1,6 +1,6 @@
 ---
 title: 适用于 Azure 虚拟机的常用 PowerShell 命令 | Azure
-description: 帮助你开始在 Azure 中创建和管理 Windows VM 的常用 PowerShell 命令
+description: 帮助你开始在 Azure 中创建和管理 Windows VM 的常用 PowerShell 命令。
 services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/01/2018
 ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7f2056335892e73d2360187795a5f4289563a8f1
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: ba7e5f6cfe9c173e3288fdbea4c974719c2f1038
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272540"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203649"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>用于创建和管理 Azure 虚拟机的常用 PowerShell 命令
 
@@ -28,9 +28,9 @@ ms.locfileid: "72272540"
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-如果在本文运行多个命令，以下变量可能对你有用：
+如果运行本文中的多个命令，以下变量可能对你有用：
 
-- $location - 虚拟机的位置。 可以使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 查找适合你的[地理区域](https://www.azure.cn/support/service-dashboard/)。
+- $location - 虚拟机的位置。 可以使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 查找适合你的[地理区域](https://status.azure.com/status/)。
 - $myResourceGroup - 包含虚拟机的资源组的名称。
 - $myVM - 虚拟机的名称。
 

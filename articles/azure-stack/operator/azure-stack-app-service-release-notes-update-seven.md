@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/29/2019
-ms.date: 10/21/2019
+origin.date: 10/11/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 31231f99eaeaef4a544005e80be2ed95deddb0c2
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: c6efbc93bb4240aad72e2932df2c05d0b92fe4c6
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578582"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020301"
 ---
 # <a name="app-service-on-azure-stack-update-7-release-notes"></a>Azure Stack 上的应用服务 Update 7 发行说明
 
@@ -57,6 +57,8 @@ Azure Stack 上的应用服务 Update 7 的内部版本号为 **84.0.2.10**
 ### <a name="new-features-and-fixes"></a>新功能和修复
 
 Azure Stack 上的 Azure 应用服务 Update 7 包含以下改进和修复：
+
+- [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) 远程代码执行漏洞的解决方案
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 

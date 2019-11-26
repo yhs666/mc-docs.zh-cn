@@ -2,18 +2,18 @@
 title: 使用 Sisense 可视化 Azure 数据资源管理器中的数据
 description: 本文介绍如何将 Azure 数据资源管理器设置为 Sisense 的数据源，然后将数据可视化。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 5/29/2019
+origin.date: 05/29/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: ea4bfea1f9c8c4b66ea1ac10b9dc2d3da617791e
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.openlocfilehash: 9e7d3597c5706ccb496c46fe5665030b9d9fdbfb
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717354"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020859"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>在 Sisense 中可视化 Azure 数据资源管理器中的数据
 

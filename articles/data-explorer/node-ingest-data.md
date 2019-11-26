@@ -2,18 +2,18 @@
 title: 使用 Azure 数据资源管理器 Node 库引入数据
 description: 本文介绍如何使用 Node.js 将数据引入（加载）到 Azure 数据资源管理器中。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: 227929edd93296bc887a080429a52ad0d0406b47
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 05631d5342f26a96cc8f30d8d34a5e05d1a94c86
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717329"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020864"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>使用 Azure 数据资源管理器 Node 库引入数据
 
@@ -57,7 +57,7 @@ Azure 数据资源管理器使用 Azure Active Directory 租户 ID，以对应�
 
 ```javascript
 const cluster = "MyCluster";
-const region = "westus";
+const region = "chinaeast2";
 const authorityId = "microsoft.com";
 const kustoUri = `https://${cluster}.${region}.kusto.chinacloudapi.cn:443`;
 const kustoIngestUri = `https://ingest-${cluster}.${region}.kusto.chinacloudapi.cn:443`;
@@ -119,6 +119,7 @@ kustoClient.executeMgmt(kustoDatabase, createMappingCommand, (err, results) => {
 ```javascript
 const defaultProps  = new IngestionProperties(kustoDatabase, destTable, DataFormat.csv, null,destTableMapping, {'ignoreFirstRecord': 'true'});
 const ingestClient = new KustoIngestClient(kcsbIngest, defaultProps);
+// All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
 
 const blobDesc = new BlobDescriptor(blobPath, 10);
 ingestClient.ingestFromBlob(blobDesc,null, (err) => {

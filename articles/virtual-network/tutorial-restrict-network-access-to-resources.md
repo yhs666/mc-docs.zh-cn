@@ -56,7 +56,7 @@ ms.locfileid: "71306478"
     |地址空间| 10.0.0.0/16|
     |订阅| 选择订阅|
     |资源组 | 选择“新建”，并输入 myResourceGroup  |
-    |Location| 选择“中国东部”  |
+    |位置| 选择“中国东部”  |
     |子网名称| 公共|
     |子网地址范围| 10.0.0.0/24|
     |服务终结点| 已禁用|
@@ -99,7 +99,7 @@ ms.locfileid: "71306478"
     |Name| myNsgPrivate |
     |订阅| 选择订阅|
     |资源组 | 选择“使用现有资源组”，再选择“myResourceGroup”   。|
-    |Location| 选择“中国东部”  |
+    |位置| 选择“中国东部”  |
 
 4. 创建网络安全组后，在门户顶部的“搜索资源、服务和文档”框中输入 *myNsgPrivate*。  当“myNsgPrivate”出现在搜索结果中时，将其选中。 
 5. 在“设置”下，选择“出站安全规则”。  
@@ -169,7 +169,7 @@ ms.locfileid: "71306478"
     |----|----|
     |Name| 输入在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。|
     |帐户类型|StorageV2（常规用途 v2）|
-    |Location| 选择“中国东部”  |
+    |位置| 选择“中国东部”  |
     |复制| 本地冗余存储 (LRS)|
     |订阅| 选择订阅|
     |资源组 | 选择“使用现有资源组”，再选择“myResourceGroup”   。|
@@ -230,7 +230,7 @@ ms.locfileid: "71306478"
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |订阅| 选择订阅。|
     |资源组| 选择“使用现有资源组”，再选择“myResourceGroup”   。|
-    |Location| 选择“中国东部”。 |
+    |位置| 选择“中国东部”。 |
 
     ![输入虚拟机的基本信息](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. 选择虚拟机的大小，然后选择“选择”  。

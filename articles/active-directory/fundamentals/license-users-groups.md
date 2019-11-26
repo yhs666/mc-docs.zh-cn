@@ -2,137 +2,142 @@
 title: 分配或删除许可证 - Azure Active Directory | Microsoft Docs
 description: 关于如何对用户或组分配或删除 Azure Active Directory 许可证的说明。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 09/05/2018
-ms.date: 10/25/2019
+origin.date: 09/18/2018
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 659542c022345ff3dedbb0f3671d5ffd9dc15810
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: f0d874b2f0fe2cc682ebb78c41abf928c658653c
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912798"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084710"
 ---
-# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户分配或删除许可证 | Microsoft Docs
-许多 Azure Active Directory (Azure AD) 服务要求激活 Azure AD 产品并且针对该产品向每个用户或组（以及关联成员）授予许可。 只有具有活动许可证的用户才能访问和使用已许可的 Azure AD 服务。
+# <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 门户中分配或删除许可证
 
-## <a name="available-product-editions"></a>可用产品版本
-有多个版本可用于 Azure AD 产品。
+许多 Azure Active Directory (Azure AD) 服务要求针对该服务向每个用户或组（以及关联成员）授予许可。 只有具有活动许可证的用户才能访问和使用符合该要求的已许可 Azure AD 服务。
+
+## <a name="available-license-plans"></a>可用许可计划
+
+有多个许可计划可用于 Azure AD 服务，其中包括：
 
 - Azure AD Free
 
-- Azure AD Basic
+- Azure AD Premium P1
 
-- Azure AD Premium 1 (Azure AD P1)
+- Azure AD Premium P2
 
-- Azure AD Premium 2 (Azure AD P2)
+有关每个许可计划的特定信息和关联许可详细信息，请参阅[需要哪个许可证？](https://www.azure.cn/pricing/details/active-directory/)。
 
-## <a name="view-your-product-edition-and-license-details"></a>查看产品版本和许可证详细信息
-可以查看可用产品（包括各个许可证），检查是否存在任何即将到来的到期日期和可用分配数。
+并非所有 Microsoft 服务都可在所有位置使用。 必须先为所有成员指定“使用位置”  ，然后才能将许可证分配给组。 可以在 Azure AD 的“Azure Active Directory”&gt;“用户”&gt;“配置文件”&gt;“设置”  区域中设置此值。 未指定使用位置的任何用户都会继承 Azure AD 组织的位置。
 
-### <a name="to-find-your-product-and-license-details"></a>查找产品和许可证详细信息
-1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn/)。
+## <a name="view-license-plans-and-plan-details"></a>查看许可计划和计划详细信息
 
-2. 选择“Azure Active Directory”，然后选择“许可证”   。
+可以查看可用服务计划（包括各个许可证）、检查即将到来的到期日期，以及查看可用分配数。
 
-    “许可证”  页随即出现。
+### <a name="to-find-your-service-plan-and-plan-details"></a>查找服务计划和计划详细信息的步骤
 
-    ![“许可证”页，显示已购买产品和已分配许可证数量](./media/license-users-groups/license-details-blade.png)
-    
-3. 选择“已购买产品”  链接可查看“产品”  页，以及查看每个特定产品版本的“已分配”  、“可用”  和“即将过期”  详细信息。
+1. 使用 Azure AD 组织中的许可证管理员帐户登录到 [Azure 门户](https://portal.azure.cn/)。
 
-    ![“产品”页，包含产品版本和关联许可证信息](./media/license-users-groups/license-products-blade-with-products.png)
+1. 选择“Azure Active Directory”，然后选择“许可证”   。
 
-4. 选择产品版本名称可查看其已许可的用户和组。
+    ![“许可证”页，显示已购买服务和已分配许可证数量](./media/license-users-groups/license-details-blade.png)
+
+1. 选择“已购买项”  链接可查看“产品”  页，以及查看许可计划的“已分配”  数、“可用”数  和“即将过期”  数。
+
+    ![“服务”页，包含服务许可计划和关联的许可证信息](./media/license-users-groups/license-products-blade-with-products.png)
+
+1. 选择计划名称可查看其已许可的用户和组。
 
 ## <a name="assign-licenses-to-users-or-groups"></a>向用户或组分配许可证
-确保使用已许可 Azure AD 服务的任何人都具有相应的许可证。 由你决定是要将许可权添加到单个用户还是整个组。
 
->[!Note]
->基于组的许可是 Azure AD 的一项公共预览版功能，可通过任何付费 Azure AD 许可证计划获得。 有关预览版的详细信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/)。<br><br>有关如何添加用户的详细信息，请参阅[如何在 Azure Active Directory 中添加或删除用户](add-users-azure-active-directory.md)。 有关如何创建组并添加成员的详细信息，请参阅[创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+确保使用已许可 Azure AD 服务的任何人都具有相应的许可证。 可将许可权添加到用户或整个组。
 
-### <a name="to-assign-a-license-to-a-specific-user"></a>向特定用户分配许可证
-1. 在“产品”  页上，选择要分配给用户的版本的名称。 例如 Azure Active Directory Premium Plan 2  。
+### <a name="to-assign-a-license-to-a-user"></a>向用户分配许可证的步骤
 
-    ![“产品”页，突出显示了产品版本](./media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. 在“产品”  页上，选择要分配给用户的许可计划的名称。
 
-2. 在“Azure Active Directory Premium 计划 2”  页上，选择“分配”  。
+    ![“服务”页，其中突出显示了服务许可计划](./media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-    ![“产品”页，突出显示了“分配”选项](./media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+1. 在“许可计划概览”页上，选择“分配”。 
 
-3. 在“分配”  页上，选择“用户和组”  ，然后搜索并选择向其分配许可证的用户。 例如，Mary Parker  。
+    ![“服务”页，突出显示了“分配”选项](./media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+
+1. 在“分配”  页上，选择“用户和组”  ，然后搜索并选择向其分配许可证的用户。
 
     ![“分配许可证”页，突出显示了搜索和“选择”选项](./media/license-users-groups/assign-license-blade-with-highlight.png)
 
-4. 选择“分配选项”  ，确保打开了相应的许可证选项，然后选择“确定”  。
+1. 选择“分配选项”  ，确保打开了相应的许可证选项，然后选择“确定”  。
 
-    ![“许可证选项”页，显示版本中的所有可用选项](./media/license-users-groups/license-option-blade-assignments.png)
+    ![“许可证选项”页，显示许可计划中的所有可用选项](./media/license-users-groups/license-option-blade-assignments.png)
 
     “分配许可证”  页会进行更新，以显示选择了用户并且配置了分配。
 
-    >[!NOTE]
-    >并非所有 Microsoft 服务都可在所有位置使用。 必须先指定“使用位置”  ，然后才能将许可证分配给用户。 可以在 Azure AD 的“Azure Active Directory”&gt;“用户”&gt;“配置文件”&gt;“设置”  区域中设置此值。
+    > [!NOTE]
+    > 并非所有 Microsoft 服务都可在所有位置使用。 必须先指定“使用位置”  ，然后才能将许可证分配给用户。 可以在 Azure AD 的“Azure Active Directory”&gt;“用户”&gt;“配置文件”&gt;“设置”  区域中设置此值。 未指定使用位置的任何用户都会继承 Azure AD 组织的位置。
 
-5. 选择“分配”。 
+1. 选择“分配”。 
 
     用户会添加到已许可用户列表，并有权访问所包含的 Azure AD 服务。
 
-### <a name="to-assign-a-license-to-an-entire-group"></a>向整个组分配许可证
-1. 在“产品”  页上，选择要分配给用户的版本的名称。 例如 Azure Active Directory Premium Plan 2  。
+### <a name="to-assign-a-license-to-a-group"></a>向组分配许可证的步骤
 
-    ![“产品”边栏选项卡，突出显示了产品版本](./media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. 在“产品”  页上，选择要分配给用户的许可计划的名称。
 
-2. 在“Azure Active Directory Premium 计划 2”  页上，选择“分配”  。
+    ![“产品”边栏选项卡，突出显示了产品许可计划](./media/license-users-groups/license-products-blade-with-product-highlight.png)
+
+1. 在“Azure Active Directory Premium 计划 2”  页上，选择“分配”  。
 
     ![“产品”页，突出显示了“分配”选项](./media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-3. 在“分配”  页上，选择“用户和组”  ，然后搜索并选择向其分配许可证的组。 例如 MDM policy - West  。
+1. 在“分配”  页上，选择“用户和组”  ，然后搜索并选择向其分配许可证的组。
 
     ![“分配许可证”页，突出显示了搜索和“选择”选项](./media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
-4. 选择“分配选项”  ，确保打开了相应的许可证选项，然后选择“确定”  。
+1. 选择“分配选项”  ，确保打开了相应的许可证选项，然后选择“确定”  。
 
-    ![“许可证选项”页，显示版本中的所有可用选项](./media/license-users-groups/license-option-blade-group-assignments.png)
+    ![“许可证选项”页，显示许可计划中的所有可用选项](./media/license-users-groups/license-option-blade-group-assignments.png)
 
     “分配许可证”  页会进行更新，以显示选择了用户并且配置了分配。
 
-    >[!NOTE]
-    >并非所有 Microsoft 服务都可在所有位置使用。 必须先为所有成员指定“使用位置”  ，然后才能将许可证分配给组。 可以在 Azure AD 的“Azure Active Directory”&gt;“用户”&gt;“配置文件”&gt;“设置”  区域中设置此值。 未指定使用位置的任何用户都会继承租户的位置。
-
-5. 选择“分配”。 
+1. 选择“分配”。 
 
     组会添加到已许可组的列表，所有成员都有权访问所包含的 Azure AD 服务。
 
 ## <a name="remove-a-license"></a>删除许可证
-可以通过“许可证”  页从用户或组删除许可证。
 
-### <a name="to-remove-a-license-from-a-specific-user"></a>从特定用户删除许可证
-1. 在产品版本的“许可的用户”  页上，选择应不再具有许可证的用户。 例如，Alain Charon  。
+可以从用户的 Azure AD 用户页删除许可证、从组分配的组概览页进行删除，也可以从 Azure AD 的“许可证”页开始查看许可证的用户和组。 
 
-2. 选择“删除许可证”  。
+### <a name="to-remove-a-license-from-a-user"></a>从用户删除许可证的步骤
+
+1. 在服务计划的“许可的用户”  页上，选择应不再具有许可证的用户。 例如，_Alain Charon_。
+
+1. 选择“删除许可证”  。
 
     ![“许可的用户”页，突出显示了“删除许可证”选项](./media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
-### <a name="to-remove-a-license-from-a-group"></a>从组删除许可证
-1. 在产品版本的“许可的组”  页上，选择应不再具有许可证的组。 例如 MDM policy - West  。
+> [!IMPORTANT]
+> 无法直接删除用户从组继承的许可证。 而是必须从继承许可证的组删除用户。
 
-2. 选择“删除许可证”  。
+### <a name="to-remove-a-license-from-a-group"></a>从组删除许可证
+
+1. 在许可计划的“许可的组”  页上，选择应不再具有许可证的组。
+
+1. 选择“删除许可证”  。
 
     ![“许可的组”页，突出显示了“删除许可证”选项](./media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
 
->[!Important]
->无法直接删除用户从组继承的许可证。 而是必须从继承许可证的组删除用户。
-
 ## <a name="next-steps"></a>后续步骤
+
 分配了许可证之后，可以执行以下过程：
 
 - [识别和解决许可证分配问题](../users-groups-roles/licensing-groups-resolve-problems.md)
@@ -141,3 +146,4 @@ ms.locfileid: "72912798"
 
 - [添加或更改个人资料信息](active-directory-users-profile-azure-portal.md)
 
+<!-- Update_Description: wording update -->

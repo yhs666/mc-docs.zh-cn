@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 10/09/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad78c841824339134fb7baf1063b1fabd697b242
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: abf0d89a385594020adb6bf3196af5478c137fa0
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730666"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116946"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>排查 fstab 错误导致的 Linux VM 启动问题
@@ -164,5 +164,4 @@ Give root password for maintenance
 * [通过使用 Azure CLI 2.0 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除](/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [通过使用 Azure 门户将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除](/virtual-machines/linux/troubleshoot-recovery-disks-portal)
 
-<!--Update_Description: new articles on troublshoot the linux can not start fstab error -->
-<!--New.date: 11/04/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

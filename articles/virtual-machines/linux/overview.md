@@ -15,12 +15,12 @@ origin.date: 11/29/2017
 ms.date: 10/14/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d4bf9047a5d60ed682cd537baa6fad639a9f50dc
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: a3e317704886565f0cb1e2912290473a14925fe8
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272581"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203662"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -29,13 +29,13 @@ Azure 是一个不断增长的集成公有云服务集合，包括分析、虚�
 
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>区域
 Azure 资源分布在中国各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。 Azure 目前（截至 2019 年 8 月）在中国正式推出了 4 个区域。 可在以下页面上找到现有区域和新宣布推出区域的更新列表：
 
 <!--MOONCAKE: CUSTOMIZE ON CHINA-->
 <!--MOONCAKE: CUSTOMIZE 4 regions on August 2019->
 
-* [Azure China Regions](https://www.azure.cn/support/service-dashboard/)
+* [Azure China Regions](https://status.azure.com/status/)
 
 ## Availability
 Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
@@ -56,12 +56,12 @@ Azure supports running a number of popular Linux distributions provided and main
 借助 Azure 虚拟机，用户可以采用灵活的方式部署各种计算解决方案。 几乎可以在任何操作系统（Windows、Linux 或从我们不断增长的合作伙伴列表中的任一合作伙伴自定义创建的操作系统）上部署几乎任何工作负荷和任何语言。 没有找到所需的映像？  别担心，也可以使用本地的自有映像。
 
 ## <a name="vm-sizes"></a>VM 大小
-VM 的[大小](sizes.md)由所要运行的工作负荷决定。 然后，选择的大小决定了处理能力、内存和存储容量等因素。 Azure 提供各种大小来支持多种类型的用途。
+VM 的[大小](sizes.md)由所要运行的工作负荷决定。 然后，所选大小又会影响多个因素，例如处理能力、内存和存储容量。 Azure 提供各种大小来支持多种类型的用途。
 
 Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azure.cn/pricing/details/virtual-machines/)。 对于不足一小时的部分，Azure 仅根据使用的分钟数计费。 存储将另行定价和收费。
 
 ## <a name="automation"></a>自动化
-若要实现适当的 DevOps 区域性，所有基础结构都必须是代码。  如果所有基础结构都是代码，便可以轻松实现重建（Phoenix 服务器）。  Azure 可与所有主要自动化工具（如 Ansible、Chef、SaltStack 和 Puppet）配合使用。  Azure 也有自己的自动化工具：
+若要实现适当的 DevOps 区域性，所有基础结构都必须是代码。  当所有基础结构都存在于代码中时，便可以轻松重新创建它（Phoenix 服务器）。  Azure 可与所有主要自动化工具（如 Ansible、Chef、SaltStack 和 Puppet）配合使用。  Azure 也有自己的自动化工具：
 
 * [Azure 模板](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
@@ -99,7 +99,7 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 <!-- Not Availalbe on 80-81 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/marketplace/partners/microsoft/acsswarms/)-->
 <!-- Notice: URL is correct on [Azure Marketplace - Jenkins Platform](https://market.azure.cn/marketplace/apps?search=jenkins)-->
 
-## <a name="getting-started-with-linux-on-azure"></a>开始在 Azure 中使用 Linux
+## <a name="getting-started-with-linux-on-azure"></a>Azure 上的 Linux 入门
 若要开始使用 Azure，需要 Azure 帐户、已安装 Azure CLI 和一对 SSH 公钥和私钥。
 
 ### <a name="sign-up-for-an-account"></a>注册帐户
@@ -117,7 +117,7 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 * [使用 CLI 创建 Linux VM](quick-create-cli.md)
 
 ### <a name="create-a-vm-in-the-portal"></a>在门户中创建 VM
-通过在 Azure Web 门户上创建 Linux VM，可以轻松地指向和单击用于访问部署的各个选项。  因此，不需要使用命令行标记或开关，而可以在布局良好的 Web 界面上查看各种选项和设置。  通过命令行接口提供的所有功能也都在门户中提供。
+通过在 Azure Web 门户上创建 Linux VM，可以轻松地指向和单击用于访问部署的各个选项。  不是使用命令行标记或开关，而是能够查看各种选项和设置的良好 Web 布局。  通过命令行接口提供的所有功能也都在门户中提供。
 
 * [使用门户创建 Linux VM](quick-create-portal.md)
 

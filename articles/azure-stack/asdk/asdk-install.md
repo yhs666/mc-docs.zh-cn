@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/06/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a1117485c5377f9e2ac5142ff20f3eb72d31f9e7
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+ms.openlocfilehash: 0a827a3db4e5f768968b3521b4accda393c66643
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142135"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020078"
 ---
 # <a name="install-the-asdk"></a>安装 ASDK
 [准备 Azure Stack 开发工具包 (ASDK) 主机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 ASDK 部署到 CloudBuilder.vhdx 映像中。
@@ -45,7 +45,7 @@ ms.locfileid: "73142135"
   
     如果选择 Azure 订阅标识提供者，则需要建立 Internet 连接、获取 domainname  .partner.onmschina.cn 格式的 Azure AD 目录租户的完整名称，或 Azure AD 验证的自定义域名。 此外，需要获取指定目录的全局管理员凭据。
 
-    部署后，不需要 Azure Active Directory (AAD) 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
+    部署后，不需要 Azure Active Directory (Azure AD) 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
     使用 AD FS 作为标识提供者时，将使用默认标记目录服务。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，要使用的密码是在设置过程中提供的。
 

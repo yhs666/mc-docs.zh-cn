@@ -2,18 +2,18 @@
 title: Azure 数据资源管理器中的机器学习功能
 description: 在 Azure 数据资源管理器中使用机器学习聚类进行根本原因分析。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/29/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 07a46a612a178fa99c08b0fa7a1075714077850a
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.openlocfilehash: e7e86b7ba67bab79a5b230232fda6a5a8a86fa1a
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717383"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020861"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Azure 数据资源管理器中的机器学习功能
 
@@ -21,7 +21,7 @@ Azure 数据资源管理器是一个大数据分析平台，它可以使用内�
 
 诊断过程比较复杂且冗长，需由领域专家完成。 该过程包括提取和联接不同的源在相同时间范围内的附加数据，查找多个维度上的值的分布变化，绘制附加变量的图表，并根据领域知识和直觉应用其他技术。 由于这些诊断方案在 Azure 数据资源管理器中很常用，其中提供了机器学习插件来简化诊断过程及缩短 RCA 的持续时间。
 
-Azure 数据资源管理器包含三个机器学习插件：[`autocluster`](https://docs.microsoft.com/zh-cn/azure/kusto/query/autoclusterplugin)、[`basket`](https://docs.microsoft.com/zh-cn/azure/kusto/query/basketplugin) 和 [`diffpatterns`](https://docs.microsoft.com/zh-cn/azure/kusto/query/diffpatternsplugin)。 所有插件实现聚类算法。 `autocluster` 和 `basket` 插件聚类单个记录集，`diffpatterns` 插件聚类两个记录集之间的差异。
+Azure 数据资源管理器包含三个机器学习插件：[`autocluster`](https://docs.microsoft.com/azure/kusto/query/autoclusterplugin)、[`basket`](https://docs.microsoft.com/azure/kusto/query/basketplugin) 和 [`diffpatterns`](https://docs.microsoft.com/azure/kusto/query/diffpatternsplugin)。 所有插件实现聚类算法。 `autocluster` 和 `basket` 插件聚类单个记录集，`diffpatterns` 插件聚类两个记录集之间的差异。
 
 ## <a name="clustering-a-single-record-set"></a>聚类单个记录集
 
@@ -74,7 +74,7 @@ demo_clustering1
 | take 20
 ```
 
-| 精度时间戳            | 区域 | 缩放单元 | 部署 ID                     | 跟踪点 | 服务主机                          |
+| PreciseTimeStamp            | 区域 | 缩放单元 | 部署 ID                     | 跟踪点 | 服务主机                          |
 |-----------------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 2016-08-23 15:00:08.7302460 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 100005     | 00000000-0000-0000-0000-000000000000 |
 | 2016-08-23 15:00:09.9496584 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007006   | 8d257da1-7a1c-44f5-9acd-f9e02ff507fd |
@@ -99,7 +99,7 @@ demo_clustering1
 
 ### <a name="use-autocluster-for-single-record-set-clustering"></a>使用 autocluster() 聚类单个记录集
 
-即使异常数不到 1000 个，也仍很难发现常见段，因为每个列中包含多个值。 可以使用 [`autocluster()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/autoclusterplugin) 插件即时提取常见段的简短列表，并在高峰的两分钟时段内找出相关的聚类，如以下查询中所示：
+即使异常数不到 1000 个，也仍很难发现常见段，因为每个列中包含多个值。 可以使用 [`autocluster()`](https://docs.microsoft.com/azure/kusto/query/autoclusterplugin) 插件即时提取常见段的简短列表，并在高峰的两分钟时段内找出相关的聚类，如以下查询中所示：
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -123,7 +123,7 @@ autocluster 使用专属算法来挖掘多个维度并提取相关的段。 “�
 
 ### <a name="use-basket-for-single-record-set-clustering"></a>使用 basket() 聚类单个记录集
 
-也可以按以下查询中所示使用 [`basket()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/basketplugin) 插件：
+也可以按以下查询中所示使用 [`basket()`](https://docs.microsoft.com/azure/kusto/query/basketplugin) 插件：
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -155,7 +155,7 @@ basket 对项集挖掘实现先验算法 (Apriori)，并提取其记录集覆盖
 
 ## <a name="clustering-the-difference-between-two-records-sets"></a>聚类两个记录集之间的差异
 
-[`diffpatterns()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/diffpatternsplugin) 插件克服了 `autocluster` 和 `basket` 的限制。 `Diffpatterns` 采用两个记录集，并提取两者之间不同的主段。 一个集通常包含正在调查的异常记录集（`autocluster` 和 `basket` 分析的集）。 另一个集包含参考记录集（基线）。 
+[`diffpatterns()`](https://docs.microsoft.com/azure/kusto/query/diffpatternsplugin) 插件克服了 `autocluster` 和 `basket` 的限制。 `Diffpatterns` 采用两个记录集，并提取两者之间不同的主段。 一个集通常包含正在调查的异常记录集（`autocluster` 和 `basket` 分析的集）。 另一个集包含参考记录集（基线）。 
 
 以下查询使用 `diffpatterns` 查找高峰的两分钟时段内的相关聚类（不同于基线中的聚类）。 我们将基线时间范围定义为 15:00 之前的 8 分钟（开始出现高峰的时间）。 我们还需要按二元列 (AB) 进行扩展，指定特定的记录是属于基线还是异常集。 `Diffpatterns` 实现监督式学习算法，其中，会按异常标志与基线标志 (AB) 生成两个类标签。
 

@@ -1,4 +1,4 @@
-- name: Azure Stack 开发工具包文档
+- name: Azure Stack Hub 开发工具包文档
   href: index.yml
 - name: 概述
   expanded: true
@@ -35,11 +35,11 @@
           href: asdk-redeploy.md
     - name: 注册 ASDK
       href: asdk-register.md
-    - name: 配置 Azure Stack 遥测设置
+    - name: 配置 Azure Stack Hub 遥测设置
       href: asdk-telemetry.md
     - name: 启动和停止 ASDK
       href: asdk-start-stop.md
-    - name: 验证 Azure Stack 备份
+    - name: 验证 Azure Stack Hub 备份
       href: asdk-validate-backup.md
     - name: 连接到 ASDK
       href: asdk-connect.md
@@ -49,13 +49,13 @@
   items:
     - name: Azure Stack PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10'
-    - name: Azure Stack CLI
+    - name: CLI
       href: /cli/?view=azure-cli-2017-03-09-profile
 - name: 相关内容
   items:
-    - name: Azure Stack 操作员文档
+    - name: Azure Stack Hub 操作员文档
       href: /azure-stack/operator
-    - name: Azure Stack 用户文档
+    - name: Azure Stack Hub 用户文档
       href: /azure-stack/user/
 - name: 资源
   items:

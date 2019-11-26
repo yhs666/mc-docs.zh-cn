@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Stack 验证工具 | Microsoft Docs
-description: 如何收集日志文件以在 Azure Stack 中进行诊断。
+title: 使用 Azure Stack 验证工具验证系统状态 | Microsoft Docs
+description: 了解如何使用 Azure Stack 验证工具验证系统状态。
 services: azure-stack
 author: WenJason
 manager: digimobile
@@ -15,12 +15,12 @@ ms.date: 09/16/2019
 ms.author: v-jay
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f20ff88cf91762c5ef7b991d12f3ec7cfab33458
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: b35796ae0f523052f064ad09b301813312ca478e
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857096"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020245"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -30,34 +30,34 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
-如前所述，验证工具是通过 PEP 运行的。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 下面概述了端到端的验证测试过程： 
+如上所述，验证工具通过 PEP 运行。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 下面概述了端到端的验证测试过程：
 
-1. 访问特权终结点 (PEP)。 运行以下命令建立 PEP 会话：
+1. 访问 PEP。 运行以下命令建立 PEP 会话：
 
    ```powershell
    Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
    ```
 
    > [!TIP]
-   > 若要访问 ASDK 主机上的 PEP，请使用 AzS-ERCS01 for -ComputerName。
+   > 若要访问 Azure Stack 开发工具包 (ASDK) 主机上的 PEP，请使用 AzS-ERCS01 作为 -ComputerName。
 
-2. 进入 PEP 后，运行： 
+2. 进入 PEP 后，运行：
 
    ```powershell
    Test-AzureStack
    ```
 
-   有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例](azure-stack-diagnostic-test.md#use-case-examples)部分。
+   有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例](azure-stack-diagnostic-test.md#use-case-examples)。
 
-3. 如果有任何测试报告了“失败”  ，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[在 Azure Stack 集成系统上运行 Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)；有关 ASDK 的说明，请参阅[在 Azure Stack 开发工具包 (ASDK) 系统上运行 Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+3. 如果有任何测试报告了“失败”  ，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[在 Azure Stack 集成系统上运行 Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)；有关 ASDK 的说明，请参阅[在 ASDK 系统上运行 Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
-   该 cmdlet 收集 Test-AzureStack 生成的日志。 如果测试报告 **WARN**（警告），则不应收集日志或联系 CSS。
+   该 cmdlet 收集 Test-AzureStack 生成的日志。 如果测试报告“WARN”（警告），建议你不要改为收集日志并联系 CSS。 
 
-4. 如果 CSS 已指示你运行验证工具，CSS 代表将会请求提供收集的日志，以便继续排查问题。
+4. 如果 CSS 已指示你运行验证工具，CSS 代表会请求你提供收集的日志，以便继续排查问题。
 
 ## <a name="tests-available"></a>可用的测试
 
-使用验证工具可以运行一系列的系统级测试和基本云方案，以洞察当前状态，并确定系统中的问题。
+使用验证工具可以运行一系列的系统级测试和基本云方案，以洞察当前状态，并修复系统中的问题。
 
 ### <a name="cloud-infrastructure-tests"></a>云基础结构测试
 
@@ -97,23 +97,23 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 除了上述基础结构测试以外，还可以运行云方案测试，以检查各基础结构组件的功能。 由于这些测试涉及到资源部署，因此需要云管理员凭据才能运行这些测试。
 
 > [!NOTE]
-> 目前不能使用 Active Directory 联合身份验证服务 (AD FS) 凭据运行云方案测试。 
+> 目前不能使用 Active Directory 联合身份验证服务 (AD FS) 凭据运行云方案测试。
 
 验证工具可测试以下云方案：
-- 资源组创建   
-- 计划创建              
-- 套餐创建            
-- 存储帐户创建   
-- 虚拟机创建 
-- Blob 存储操作   
-- 队列存储操作  
-- 表存储操作  
+- 资源组创建
+- 计划创建
+- 套餐创建
+- 存储帐户创建
+- 虚拟机 (VM) 创建
+- Blob 存储操作
+- 队列存储操作
+- 表存储操作
 
 ## <a name="parameter-considerations"></a>参数注意事项
 
 - **List** 参数可用于显示所有可用的测试类别。
 
-- **Include** 和 **Ignore** 参数可用于包含或排除测试类别。 请参阅以下部分，详细了解要与这些参数配合使用的信息。
+- **Include** 和 **Ignore** 参数可用于包含或排除测试类别。 有关这些参数的详细信息，请参阅以下部分。
 
   ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
@@ -123,7 +123,7 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
   Test-AzureStack -Ignore AzsInfraPerformance
   ```
 
-- 在执行某项云方案测试期间，会部署一个租户 VM。 可以使用 **DoNotDeployTenantVm** 来禁用此操作。
+- 在云方案测试期间，会部署一个租户 VM。 可以使用 **DoNotDeployTenantVm** 来禁用此 VM 部署。
 
 - 如[用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，需要提供 **ServiceAdminCredential** 参数才能运行云方案测试。
 
@@ -165,10 +165,10 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 ### <a name="groups"></a>组
 
-为了改善操作员体验，已启用 **Group** 参数以同时运行多个测试类别。 目前定义了 3 个组：**Default**、**UpdateReadiness** 和 **SecretRotationReadiness**。
+为了改善操作员体验，已启用 **Group** 参数以同时运行多个测试类别。 目前定义了三个组：**Default**、**UpdateReadiness** 和 **SecretRotationReadiness**。
 
 - **默认**：被视为 **Test-AzureStack** 的标准运行。 如果未选择其他组，则默认会运行此组。
-- **UpdateReadiness**：检查是否可以更新戳记。 当 **UpdateReadiness** 组已运行时，警告将作为错误显示在控制台输出中，应将其视为更新的阻碍。 以下类别属于 **UpdateReadiness** 组：
+- **UpdateReadiness**：检查是否可以更新 Azure Stack 实例。 当 **UpdateReadiness** 组运行时，警告将作为错误显示在控制台输出中，应将其视为更新的阻碍。 以下类别属于 **UpdateReadiness** 组：
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -179,7 +179,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**：检查戳记是否位于可以运行机密轮换的组中。 当 **SecretRotationReadiness** 组已运行时，警告将作为错误显示在控制台输出中，应将其视为机密轮换的阻碍。 以下类别属于 SecretRotationReadiness 组：
+- **SecretRotationReadiness**：检查 Azure Stack 实例是否处于可以运行机密轮换的状态。 当 **SecretRotationReadiness** 组运行时，警告将作为错误显示在控制台输出中，应将其视为机密轮换的阻碍。 以下类别属于 SecretRotationReadiness 组：
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -193,13 +193,13 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 #### <a name="group-parameter-example"></a>Group 参数示例
 
-在使用 **Group** 安装更新或修补程序之前，以下示例会运行 **Test-AzureStack** 来测试系统就绪状态。 在开始安装更新或修补程序之前，应运行 **Test-AzureStack** 来检查 Azure Stack 的状态：
+在使用 **Group** 安装更新或修补程序之前，以下示例会运行 **Test-AzureStack** 来测试系统就绪状态。 在开始安装更新或修补程序之前，请运行 **Test-AzureStack** 来检查 Azure Stack 的状态：
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-但是，如果 Azure Stack 运行的版本低于 1811，请使用以下 PowerShell 命令来运行 **Test-AzureStack**：
+如果 Azure Stack 运行 1811 之前的版本，请使用以下 PowerShell 命令来运行 **Test-AzureStack**：
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -208,7 +208,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>运行验证工具以测试基础结构备份设置
 
-在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。  
+在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。 
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -229,18 +229,18 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
-### <a name="run-validation-tool-to-test-network-infrastructure"></a>运行验证工具以测试网络基础结构 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>运行验证工具以测试网络基础结构
 
-此测试绕过 Azure Stack 软件定义网络 (SDN) 检查网络基础结构的连接。 它演示如何从公共 VIP 连接到配置的 DNS 转发器、NTP 服务器和身份验证终结点。 这包括使用 Azure AD 作为标识提供者时与 Azure 的连接，或者在使用 ADFS 作为标识提供者时与联合服务器的连接。 
+此测试绕过 Azure Stack 软件定义网络 (SDN) 检查网络基础结构的连接。 它演示如何从公共 VIP 连接到配置的 DNS 转发器、NTP 服务器和身份验证终结点。 这包括使用 Azure AD 作为标识提供者时与 Azure 的连接，或者在使用 AD FS 作为标识提供者时与联合服务器的连接。
 
 包括调试参数以获取命令的详细输出：
 
-```powershell 
+```powershell
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。
+若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)。
 
-若要了解有关故障排除的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
+若要了解有关故障排除的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)。

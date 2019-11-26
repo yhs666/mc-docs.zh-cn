@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
 origin.date: 09/10/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: c11bafcacf78917faadc7f43198a54bfe3fc6086
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 3e9d90f4e9a93eef22e93eee4af4ac232867bb58
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578580"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020053"
 ---
 # <a name="clear-portal-user-data-from-azure-stack"></a>从 Azure Stack 中清除门户用户数据
 
@@ -87,7 +87,7 @@ Azure Stack 操作员可以根据 Azure Stack 用户的请求，按需清除门�
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>在来宾目录中清除门户用户数据
 
-在此方案中，Azure Stack 操作员对用户所在的来宾目录没有访问权限。 如果你是云服务提供商 (CSP)，则往往会存在这种情况。
+在此方案中，Azure Stack 操作员对用户所在的来宾目录没有访问权限。 如果你是云解决方案提供商 (CSP)，这是一种常见方案。
 
 要使 Azure Stack 操作员能够删除门户用户数据，至少需要获取用户对象 ID。
 

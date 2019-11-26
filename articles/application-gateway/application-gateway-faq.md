@@ -6,14 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/31/2019
-ms.date: 09/18/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7c2ab8a34d935ad28400de5929f5c0390e29471e
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4df23b81c925d5d9f460a5f6bf3ef1b1f7d73fe0
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083267"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934204"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
@@ -73,7 +74,7 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>在应用程序网关的生存期内，其 IP 或 DNS 名称是否会变化？
 
-如果停止再启动应用程序网关，则 VIP 可能会变化。 但是，与应用程序网关关联的 DNS 名称在网关的整个生存期内不会变化。 由于 DNS 名称不会变化，因此应使用 CNAME 别名并使其指向应用程序网关的 DNS 地址。
+在应用程序网关 V1 SKU 中，如果停止再启动应用程序网关，则 VIP 可能会变化。 但是，与应用程序网关关联的 DNS 名称在网关的整个生存期内不会变化。 由于 DNS 名称不会变化，因此应使用 CNAME 别名并使其指向应用程序网关的 DNS 地址。 在应用程序网关 V2 SKU 中，可以将 IP 地址设置为静态，因此 IP 和 DNS 名称将在应用程序网关的生存期内不会更改。 
 
 ### <a name="does-application-gateway-support-static-ip"></a>应用程序网关是否支持静态 IP？
 
@@ -270,7 +271,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>应用程序网关支持使用多少个身份验证证书进行后端重新加密？
 
-应用程序网关最多支持 10 个身份验证证书。 默认值为 5。
+应用程序网关最多支持 100 个身份验证证书。
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>应用程序网关是否原生与 Azure Key Vault 集成？
 

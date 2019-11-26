@@ -10,24 +10,24 @@ ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 11/01/2018
-ms.date: 04/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: e6565033571e9d5fb6847e94976bd9a713f1f38f
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+ms.openlocfilehash: da43abb2657d4342e5e7cc21dc48cbad1afd6aba
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191599"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116896"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>排查存储资源删除错误
 
 在某些情况下，在 Azure 资源管理器部署中尝试删除 Azure 存储帐户、容器或 blob 时，可能会遇到下列错误之一：
 
-> 未能删除存储帐户 "StorageAccountName"。错误：正在使用存储帐户的项目，因此无法删除该存储帐户。 
+> 未能删除存储帐户 "StorageAccountName"。错误：正在使用存储帐户的项目，因此无法删除该存储帐户。**
 > 
-> **无法删除 # 个容器 (共 # 个):<br>vhd:容器中当前包含租约，但请求中未指定任何租约 ID。**
+> **无法删除 # 个容器 (共 # 个):<br />vhd:容器中当前包含租约，但请求中未指定任何租约 ID。**
 > 
-> **无法删除 # 个 blob (共 # 个):<br>BlobName.vhd:Blob 中当前包含租约，但请求中未指定任何租约 ID。**
+> **无法删除 # 个 blob (共 # 个):<br />BlobName.vhd:Blob 中当前包含租约，但请求中未指定任何租约 ID。**
 
 Azure VM 中使用的 VHD 是在 Azure 的标准或高级存储帐户中作为页 Blob 存储的 .vhd 文件。 有关 Azure 磁盘的详细信息，请参阅[托管磁盘简介](../linux/managed-disks-overview.md)。
 

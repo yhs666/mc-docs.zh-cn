@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/21/2019
-ms.date: 07/29/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c376d340e2a4cffe884b05e0e4bb9fd7f8fc7c1b
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: dac810fbd2f1363c732ae7760cdd6e868ad73bae
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513286"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020177"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>在 Azure Stack Key Vault 中存储服务主体凭据
 
 在 Azure Stack 上开发应用通常需要创建服务主体，并在部署之前使用这些凭据进行身份验证。 但是，有时会丢失服务主体的存储凭据。 本文介绍如何创建服务主体，并将值存储在 Azure Key Vault 中以供日后检索。
 
-有关 Key Vault 的详细信息，请参阅[此文](azure-stack-key-vault-intro.md)。
+有关 Key Vault 的详细信息，请参阅 [Azure Stack 中的 Key Vault 简介](azure-stack-key-vault-intro.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 - 包含 Azure Key Vault 服务的产品/服务的订阅。
-- PowerShell 配置为与 Azure Stack 配合使用。
+- PowerShell 已安装并配置为用于 Azure Stack。
 
 ## <a name="key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault
 
@@ -45,11 +45,11 @@ Azure Stack 中的 Key Vault 可帮助保护云应用和服务使用的加密密
 
    ![创建 Key Vault](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
-3. 在“创建密钥保管库”  窗格中，为保管库分配**名称**。 保管库名称只能包含字母数字字符和连字符 (-)， 它们不得以数字开头。
+3. 在“创建密钥保管库”  窗格中，为保管库分配**名称**。 保管库名称只能包含字母数字字符和连字符 (-)， 不能以数字开头。
 
 4. 从可用订阅列表中选择订阅。
 
-5. 选择现有的资源组，或创建一个新的资源组。
+5. 选择现有的资源组，或创建一个新的组。
 
 6. 选择定价层。
 
@@ -97,7 +97,7 @@ Azure Stack 中的 Key Vault 可帮助保护云应用和服务使用的加密密
 
 8. 选择“创建”以开始部署。 
 
-成功创建机密后，服务主体信息将存储在那里。 随时可以在“机密”下面选择该机密，并查看或修改其属性。  “属性”部分包含机密标识符，即外部应用用来访问此机密的统一资源标识符 (URI)。
+成功创建机密后，服务主体信息将存储在那里。 随时可以在“机密”下面选择该机密，并查看或修改其属性。  “属性”  部分包含机密标识符，即外部应用用来访问此机密的统一资源标识符 (URI)。
 
 ## <a name="next-steps"></a>后续步骤
 

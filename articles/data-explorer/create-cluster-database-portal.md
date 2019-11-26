@@ -2,18 +2,18 @@
 title: 快速入门：创建 Azure 数据资源管理器群集和数据库
 description: 在本快速入门中，了解如何创建 Azure 数据资源管理器群集和数据库，以及如何引入（加载）数据。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-origin.date: 03/25/2019
-ms.date: 08/12/2019
-ms.openlocfilehash: 389bff778c714e9146fcc40d94831e26f3197b2a
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+origin.date: 07/22/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 3aeb320cd0bb315e2c7596bb389dc471f3490624
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633020"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020695"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入门：创建 Azure 数据资源管理器群集和数据库
 
@@ -23,7 +23,7 @@ ms.locfileid: "68633020"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM 模板](create-cluster-database-resource-manager.md)
 
 
 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本快速入门中，你将创建群集和数据库。
@@ -56,8 +56,9 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
     | 资源组 | 你的资源组 | 使用现有资源组或创建新资源组。 |
     | 群集名称 | 唯一的群集名称 | 选择用于标识群集的唯一名称。 域名 *[region].kusto.chinacloudapi.cn* 将追加到所提供的群集名称。 名称只能包含小写字母和数字。 它必须包含 4 到 22 个字符。
     | 区域 | “中国东部”或“中国东部 2”   | 对于本快速入门，请选择“中国东部”或“中国东部 2”（如果使用可用性区域）   。 对于生产系统，请选择最能满足你需求的区域。
+    | 可用性区域 | 1  、2  和/或 3  | 将群集实例放置在同一区域的不同可用性区域中（可选）。 [Azure 可用性区域](https://www.azure.cn/support/service-dashboard/)是同一 Azure 区域中独特的物理位置。 它们保护 Azure 数据资源管理器群集和数据不会在部分区域发生故障。 默认情况下，会在同一数据中心创建群集节点。 通过选择多个可用性区域，可以消除单一故障点并确保高可用性。 仅在群集创建过程中可以部署到可用性区域，以后无法修改。
     | 计算规格 | *D13_v2* | 对于本快速入门，请选择价格最低的规范。 对于生产系统，请选择最能满足你需求的规范。
-    | | |
+    | | | |
 
 1. 选择“查看 + 创建”以查看群集的详细信息，选择“创建”以预配群集   。 预配通常需要大约 10 分钟。
 

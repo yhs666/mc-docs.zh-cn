@@ -1,25 +1,25 @@
 ---
-title: Azure Stack 数据中心集成 - DNS
-description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成
+title: Azure Stack 数据中心 DNS 集成 | Microsoft Docs
+description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成。
 services: azure-stack
 author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
 origin.date: 08/21/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 076889adc0cc7ebbb225174ddfbaa9dfee5183d9
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: b880634526578c70f58d7c65cbc054eae1ac43f5
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578456"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020233"
 ---
-# <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
+# <a name="azure-stack-datacenter-dns-integration"></a>Azure Stack 数据中心 DNS 集成
 
 若要能够从 Azure Stack 外部访问 Azure Stack 终结点（例如**门户**、**adminportal**、**管理**和 **adminmanagement**），需将 Azure Stack DNS 服务与托管 DNS 区域（要在 Azure Stack 中使用）的 DNS 服务器集成。
 
@@ -32,8 +32,8 @@ ms.locfileid: "72578456"
 |---------|---------|---------|
 |区域|Azure Stack 部署的地理位置。|`east`|
 |外部域名|需要用于 Azure Stack 部署的区域的名称。|`cloud.fabrikam.com`|
-|内部域名|在 Azure Stack 中用于基础结构服务的内部区域的名称。  它是进行了目录服务集成的，并且是专用的（无法从 Azure Stack 部署外部访问）。|`azurestack.local`|
-|DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。 如果替换 DNS 转发器，则需要更新 IP 地址。 |`10.57.175.34`<br>`8.8.8.8`|
+|内部域名|在 Azure Stack 中用于基础结构服务的内部区域的名称。 它是目录服务集成的和专用的（无法从 Azure Stack 部署外部访问）。|`azurestack.local`|
+|DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。 部署后，可以使用 [**Set-AzSDnsForwarder** cmdlet](#editing-dns-forwarder-ips) 编辑 DNS 转发器值。 
 |命名前缀（可选）|需要在 Azure Stack 基础结构角色实例计算机名称中使用的命名前缀。  如果不提供，则默认值为 `azs`。|`azs`|
 
 Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外部域名参数的组合。 使用上表中示例的值时，此 Azure Stack 部署的 FQDN 将是以下名称：
@@ -56,7 +56,7 @@ Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外
 
 ### <a name="dns-name-labels"></a>DNS 名称标签
 
-Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 这是一种方便用户通过名称访问 Azure Stack 中托管的应用程序和服务的方法。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
+Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 DNS 标签是一种方便用户通过名称访问 Azure Stack 中托管的应用和服务的方法。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
@@ -75,13 +75,13 @@ Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公�
 - 权威 DNS 服务器托管 DNS 区域。 它只应答这些区域中的 DNS 记录查询。
 - 递归 DNS 服务器不托管 DNS 区域。 它调用权威 DNS 服务器来收集所需的数据，以应答所有 DNS 查询。
 
-Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析所有项的名称，该 Azure Stack 部署的内部专用区域和外部公用 DNS 区域除外。 
+Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析所有项的名称，该 Azure Stack 部署的内部专用区域和外部公用 DNS 区域除外。
 
 ![Azure Stack DNS 体系结构](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>通过 Azure Stack 解析外部 DNS 名称
 
-若要解析 Azure Stack 外部的终结点（例如：www\.bing.com）的 DNS 名称，需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。 如果替换了 DNS 转发器，请更新 IP 地址。 
+若要解析 Azure Stack 外部终结点的 DNS 名称（例如：www\.bing.com），需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。 部署后，可以使用 [**Set-AzSDnsForwarder** cmdlet](#editing-dns-forwarder-ips) 编辑 DNS 转发器值。 
 
 ### <a name="configure-conditional-dns-forwarding"></a>配置条件性 DNS 转发
 
@@ -146,6 +146,10 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 
 - 公司 DNS 域名：`contoso.com`
 - Azure Stack 外部 DNS 域名：`azurestack.contoso.com`
+
+## <a name="editing-dns-forwarder-ips"></a>编辑 DNS 转发器 IP
+
+DNS 转发器 IP 是在 Azure Stack 部署期间设置的。 但是，如果由于任何原因需要更新转发器 IP，则可以通过连接到特权终结点并运行 `Get-AzSDnsForwarder` 和 `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` PowerShell cmdlet 来编辑值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>将外部 DNS 区域委托到 Azure Stack
 

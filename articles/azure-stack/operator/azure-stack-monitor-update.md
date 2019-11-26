@@ -10,23 +10,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 06/03/2019
+origin.date: 10/02/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 28d070158b80b50796ba6ccd4b485fac5c930b1d
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 990ed7d4759a2e05ee7738e86b3eb339bdb84f91
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381781"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020183"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 中的更新
 
 *适用于：Azure Stack 集成系统*
 
-可以使用[特权终结点](azure-stack-privileged-endpoint.md)来监视 Azure Stack 更新运行的进度，并在 Azure Stack 门户不可用时，从最后一个成功的步骤恢复失败的更新运行。  使用 Azure Stack 门户是管理 Azure Stack 中的更新的建议方法。
+可以使用[特权终结点](azure-stack-privileged-endpoint.md)来监视 Azure Stack 更新运行的进度。 也可以使用特权终结点在 Azure Stack 门户不可用时，从最后一个成功的步骤恢复失败的更新运行。 使用 Azure Stack 门户是管理 Azure Stack 中的更新的建议方法。
 
 Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 PowerShell cmdlet。
 
@@ -39,9 +39,9 @@ Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 P
 ## <a name="verify-the-cmdlets-are-available"></a>验证 cmdlet 是否可用
 由于 cmdlet 是适用于 Azure Stack 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。  具体来说，cmdlet 更新发生在**步骤：正在运行步骤 2.6 - 更新 PrivilegedEndpoint 允许列表**期间。
 
-也可以通过从特权终结点查询命令列表，来确定是否可以编程方式使用  cmdlet。 为此，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤 1。 
+也可以通过从特权终结点查询命令列表，来确定是否可以编程方式使用 cmdlet。 若要执行此查询，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤 1。
 
-1. 在 Azure Stack 环境中的任何 ERCS 虚拟机（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话。 将 Prefix  替换为环境特定的虚拟机前缀字符串。
+1. 在 Azure Stack 环境中的任何 ERCS 虚拟机 (VM)（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话。 将 Prefix  替换为环境特定的 VM 前缀字符串。
 
    ```powershell
    $cred = Get-Credential
@@ -50,7 +50,7 @@ Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 P
    ```
    系统提示输入凭据时，请使用 &lt;*Azure Stack domain*&gt;\cloudadmin 帐户或属于 CloudAdmins 组成员的帐户。 对于 CloudAdmin 帐户，请输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
-2. 获取特权终结点中可用的完整命令列表。 
+2. 获取特权终结点中可用的完整命令列表。
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
@@ -88,7 +88,7 @@ Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 P
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>连接到特权终结点并分配会话变量
 
-运行以下命令，在 Azure Stack 环境中的任何 ERCS 虚拟机（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话，并分配会话变量。
+运行以下命令，在 Azure Stack 环境中的任何 ERCS VM（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话，并分配会话变量。
 
 ```powershell
 $cred = Get-Credential
@@ -97,9 +97,9 @@ $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -Con
 ```
  系统提示输入凭据时，请使用 &lt;*Azure Stack domain*&gt;\cloudadmin 帐户或属于 CloudAdmins 组成员的帐户。 对于 CloudAdmin 帐户，请输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>获取当前更新运行的高级状态 
+### <a name="get-high-level-status-of-the-current-update-run"></a>获取当前更新运行的高级状态
 
-若要获取当前更新运行的高级状态，请运行以下命令： 
+若要获取当前更新运行的高级状态，请运行以下命令：
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -116,9 +116,9 @@ $statusString.Value
 
 可以重复运行这些命令来查看最新状态。 无需重新建立连接即可再次检查状态。
 
-### <a name="get-the-full-update-run-status-with-details"></a>获取完整更新运行状态和详细信息 
+### <a name="get-the-full-update-run-status-with-details"></a>获取完整更新运行状态和详细信息
 
-可以获取 XML 字符串形式的完整更新运行摘要。 可将此字符串写入文件供检查，或将其转换为 XML 文档，然后使用 PowerShell 进行分析。 以下命令分析 XML，以获取当前正在运行的步骤的分层列表。
+可以获取 XML 字符串形式的完整更新运行摘要。 可将此字符串写入文件供检查，或将其转换为 XML 文档，然后使用 PowerShell 进行分析。 以下命令分析 XML，以获取当前正在运行的步骤的分层列表：
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -169,10 +169,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>故障排除
 
-特权终结点适用于 Azure Stack 环境中的所有 ERCS 虚拟机。 由于未与高度可用的终结点建立连接，因此可能会遇到偶发性中断、警告或错误消息。 这些消息可能指示会话已断开，或者与 ECE 服务通信时出错。 这是预期的行为。 可以在几分钟后重试此操作，或者在其他某个 ERCS 虚拟机上新建特权终结点会话。 
+特权终结点适用于 Azure Stack 环境中的所有 ERCS VM。 由于未与高度可用的终结点建立连接，因此可能会遇到偶发性中断、警告或错误消息。 这些消息可能指示会话已断开，或者与 ECE 服务通信时出错。 这是预期的行为。 可以在几分钟后重试此操作，或者在其他某个 ERCS VM 上新建特权终结点会话。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 Azure Stack 中管理更新](azure-stack-updates.md) 
+- [在 Azure Stack 中管理更新](azure-stack-updates.md)
 
 

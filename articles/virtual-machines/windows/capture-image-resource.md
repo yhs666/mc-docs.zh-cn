@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 09/27/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0dca76430f58c9079d9f0238be7fa7debada3ea9
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 74e03137ff8e249cd893c3ccdf223b7fcaf037da
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272803"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116955"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -56,6 +56,18 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
 6. Sysprep 在完成运行后会关闭 VM。 不要重新启动 VM。
+
+    > [!TIP]
+    > **可选** 使用 [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) 优化映像并减少 VM 的首次启动时间。
+    >
+    > 若要优化映像，请通过在 Windows 资源管理器中双击 VHD 来装载它，然后使用 `/optimize-image` 参数运行 DISM。
+    >
+    > ```cmd
+    > DISM /image:D:\ /optimize-image /boot
+    > ```
+    > 其中 D：是装载的 VHD 的路径。
+    >
+    > 运行 `DISM /optimize-image` 应该是你对 VHD 所做的最后一次修改。 如果在部署之前对 VHD 进行了任何更改，则必须再次运行 `DISM /optimize-image`。
 
 ## <a name="create-a-managed-image-in-the-portal"></a>在门户中创建托管映像 
 
@@ -197,9 +209,9 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
     New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>从存储帐户中的 VHD 创建映像
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>从使用存储帐户的 VM 创建映像
 
-从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式如下： https://*mystorageaccount*.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer  的容器中的 mystorageaccount  中，且 VHD 文件名为 vhdfilename.vhd  。
+若要从不使用托管磁盘的 VM 创建托管映像，需要存储帐户中 OS VHD 的 URI，格式如下： https://*mystorageaccount*.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer  的容器中的 mystorageaccount  中，且 VHD 文件名为 vhdfilename.vhd  。
 
 1. 创建一些变量。
 

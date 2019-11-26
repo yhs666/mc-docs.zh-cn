@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 09/22/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: bb523237d8f0f918a3470dc8a115ee0cd3ff4085
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+origin.date: 10/25/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 77a90e9a36a0f5c2ea1553181d6a37a36e8ae268
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191561"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020694"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的防火墙规则
 在指定哪些计算机具有访问权限之前，Azure Database for PostgreSQL 服务器防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
@@ -41,6 +41,9 @@ ms.locfileid: "73191561"
 
 ![在门户中配置“允许访问 Azure 服务”](media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>从 VNet 连接
+若要从 VNet 安全连接到 Azure Database for PostgreSQL 服务器，请考虑使用 [VNet 服务终结点](./concepts-data-access-and-security-vnet.md)。 
+
 ## <a name="programmatically-managing-firewall-rules"></a>以编程方式管理防火墙规则
 除了 Azure 门户外，还可使用 Azure CLI 通过编程方式管理防火墙规则。
 另请参阅[使用 Azure CLI 创建和管理 Azure Database for PostgreSQL 防火墙规则](howto-manage-firewall-using-cli.md)
@@ -67,3 +70,4 @@ ms.locfileid: "73191561"
 有关如何创建服务器级和数据库级防火墙规则的文章，请参阅：
 * [使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则](howto-manage-firewall-using-portal.md)
 * [使用 Azure CLI 创建和管理 Azure Database for PostgreSQL 防火墙规则](howto-manage-firewall-using-cli.md)
+* [Azure Database for PostgreSQL 中的 VNet 服务终结点](./concepts-data-access-and-security-vnet.md)

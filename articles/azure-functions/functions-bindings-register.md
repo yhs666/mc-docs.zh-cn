@@ -6,17 +6,16 @@ documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 07/08/2019
-ms.date: 07/17/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: c89f5247cccc92940819cf9798584e6dd4fae94d
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 22dd712a7643edc40b5389dd3a03b0f16d6c5e2d
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331886"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178965"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>注册 Azure Functions 绑定扩展
 
@@ -39,34 +38,17 @@ ms.locfileid: "68331886"
 
 ## <a name="extension-bundles"></a>用于本地开发的扩展捆绑
 
-扩展捆绑是适用于版本 2.x 运行时的一种本地开发技术，可让你将一组兼容的 Functions 绑定扩展添加到函数应用项目。 部署到 Azure 时，这些扩展包将包含在部署包中。 捆绑使得 Microsoft 发布的所有绑定都可以通过 *host.json* 文件中的设置使用。 捆绑中定义的扩展包彼此兼容，这有助于避免包之间发生冲突。 进行本地开发时，请确保使用最新版本的 [Azure Functions Core Tools](functions-run-local.md#v2)。
+扩展捆绑是一种部署技术，可让你将一组兼容的 Functions 绑定扩展添加到函数应用。 生成应用时，会添加一组预定义的扩展。 捆绑中定义的扩展包彼此兼容，这有助于避免包之间发生冲突。 可以在应用的 host.json 文件中启用扩展捆绑。  
 
-对于使用 Azure Functions Core Tools 或 Visual Studio Code 进行的所有本地开发，请使用扩展捆绑。
+可以将扩展捆绑与 2.x 版和更高版本的 Functions 运行时一起使用。 进行本地开发时，请确保使用最新版本的 [Azure Functions Core Tools](functions-run-local.md#v2)。
 
-如果不使用扩展捆绑，则必须先在本地计算机上安装 .NET Core 2.x SDK，然后才能安装任何绑定扩展。 捆绑为本地开发消除了这一要求。 
+对于使用 Azure Functions Core Tools、Visual Studio Code 进行的本地开发，以及在远程生成时，请使用扩展捆绑。
+
+如果不使用扩展捆绑，则必须先在本地计算机上安装 .NET Core 2.x SDK，然后才能安装任何绑定扩展。 扩展捆绑消除了本地开发的这一要求。 
 
 若要使用扩展捆绑，请更新 *host json*文件以包含 `extensionBundle` 的以下条目：
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
-```
-
-以下属性可在 `extensionBundle` 中使用：
-
-| 属性 | 说明 |
-| -------- | ----------- |
-| **`id`** | Azure Functions 扩展捆绑的命名空间。 |
-| **`version`** | 要安装的捆绑的版本。 Functions 运行时始终选取按版本范围或间隔定义的最宽松版本。 上述版本值允许使用从 1.0.0 到 2.0.0（不含 2.0.0）的所有捆绑版本。 有关详细信息，请参阅[用于指定版本范围的间隔表示法](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards)。 |
-
-捆绑中的包发生变化时，捆绑版本将会递增。 当捆绑中的包递增一个主要版本号时，主要版本将发生变化，这通常与 Functions 运行时的主要版本更改行为相一致。  
-
-默认捆绑安装的当前扩展集将在此 [extensions.json 文件](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json)中枚举。
+ 
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
@@ -87,7 +69,7 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 ## <a name="vs-code"></a> 使用 Visual Studio Code 的 C# 类库
 
 > [!NOTE]
-> 我们建议使用[扩展捆绑](#extension-bundles)来让 Functions 自动安装一组兼容的绑定扩展包。
+> 我们建议使用[扩展捆绑](#extension-bundles)来让 Functions 自动安装一组兼容的绑定扩展包。 
 
 在 **Visual Studio Code** 中，请使用 .NET Core CLI 中的 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 命令通过命令提示符安装 C# 类库项目的包。 以下示例演示如何添加绑定：
 
@@ -97,7 +79,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 .NET Core CLI 只能用于 Azure Functions 2.x 开发。
 
-请将 `<BINDING_TYPE_NAME>` 替换为参考文章中为所需绑定提供的包名称。 可以在[支持的绑定列表](./functions-triggers-bindings.md#supported-bindings)中找到所需的绑定参考文章。
+将 `<BINDING_TYPE_NAME>` 替换为包含所需绑定的包的名称。 可以在[支持的绑定列表](./functions-triggers-bindings.md#supported-bindings)中找到所需的绑定参考文章。
 
 将示例中的 `<TARGET_VERSION>` 替换为特定包版本，例如 `3.0.0-beta5`。 在 [NuGet.org](https://nuget.org) 上的单个包页上列出了有效版本。与 Functions 运行时 1.x 或 2.x 对应的主版本在绑定的参考文章中指定。
 

@@ -1,9 +1,7 @@
-- name: Azure Stack 用户文档
+- name: Azure Stack Hub 用户文档
   href: index.yml
 - name: 概述
   items:
-    - name: 构建 Azure Stack 的解决方案
-      href: azure-stack-hybrid-cloud-patterns.md
     - name: 重要注意事项
       href: azure-stack-considerations.md
 - name: 快速入门
@@ -29,31 +27,31 @@
       items:
         - name: 订阅产品
           href: azure-stack-subscribe-services.md
-        - name: 启用云服务提供商
+        - name: 启用云解决方案提供商
           href: azure-stack-csp-enable-billing-usage-tracking.md
-        - name: 使用 Azure Stack 门户
+        - name: 使用 Azure Stack Hub 门户
           href: azure-stack-use-portal.md
         - name: 配置客户端
           items:
             - name: 设置开发环境
               href: azure-stack-dev-start.md
-            - name: 将 PowerShell 与 Azure Stack 配合使用
+            - name: 将 PowerShell 与 Azure Stack Hub 配合使用
               items:
-                - name: Azure Stack PowerShell 概述
+                - name: Azure Stack Hub PowerShell 概述
                   href: azure-stack-powershell-overview.md
                 - name: 安装 Azure Stack PowerShell
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: 使用 PowerShell 连接
                   href: azure-stack-powershell-configure-user.md
-                - name: 下载 Azure Stack 工具
+                - name: 下载 Azure Stack Hub 工具
                   href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: 使用 Docker 运行 PowerShell
                   href: azure-stack-powershell-user-docker.md
-                - name: 使用 Azure Stack 策略模块
+                - name: 使用 Azure Stack Hub 策略模块
                   href: azure-stack-policy-module.md
-            - name: 将 Azure CLI 与 Azure Stack 配合使用
+            - name: 将 Azure CLI 与 Azure Stack Hub 配合使用
               href: azure-stack-version-profiles-azurecli2.md
             - name: 使用 Visual Studio Code
               href: azure-stack-dev-start-vscode-azure.md
@@ -63,7 +61,7 @@
               href: azure-stack-dev-start-howto-ssh-public-key.md
             - name: 将 REST 客户端与 API 配合使用
               href: azure-stack-rest-api-use.md
-        - name: 使用 Azure Stack 资源管理器模板
+        - name: 使用 Azure Stack Hub 资源管理器模板
           items:
             - name: 模板概述
               href: azure-stack-arm-templates.md
@@ -71,16 +69,19 @@
               href: azure-stack-develop-templates.md
             - name: 在 Azure 中开发模板
               href: azure-stack-developer.md
-            - name: 检查模板
+            - name: 部署模板
               href: azure-stack-validate-templates.md
-            - name: 使用门户进行部署
-              href: azure-stack-deploy-template-portal.md
-            - name: 使用 PowerShell 进行部署
-              href: azure-stack-deploy-template-powershell.md
-            - name: 使用 CLI 进行部署
-              href: azure-stack-deploy-template-command-line.md
-            - name: 使用 Visual Studio 进行部署
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: 使用门户进行部署
+                  href: azure-stack-deploy-template-portal.md
+                - name: 使用 PowerShell 进行部署
+                  href: azure-stack-deploy-template-powershell.md
+                - name: 使用 CLI 进行部署
+                  href: azure-stack-deploy-template-command-line.md
+                - name: 使用 Visual Studio Code 部署
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: 使用 Visual Studio 进行部署
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: 使用 API 版本配置文件
           items:
             - name: 概述
@@ -153,9 +154,9 @@
                       href: azure-stack-vpn-s2s.md
                     - name: VPN 网关设置
                       href: azure-stack-vpn-gateway-settings.md
-                - name: 用于 Azure Stack 的 iDNS
+                - name: 用于 Azure Stack Hub 的 iDNS
                   href: azure-stack-understanding-dns.md
-                - name: Azure Stack 中的 DNS
+                - name: Azure Stack Hub 中的 DNS
                   href: azure-stack-dns.md
             - name: 密钥保管库
               items:
@@ -204,37 +205,63 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: 部署 NodeJS Web 应用
               href: azure-stack-dev-start-howto-vm-nodejs.md
-    - name: 部署混合云模式
+    - name: 部署基础模式
       items:
-        - name: 配置混合云标识
-          href: azure-stack-solution-hybrid-identity.md
-        - name: 配置混合云连接
-          href: azure-stack-solution-hybrid-connectivity.md
-        - name: 部署混合云解决方案
-          href: azure-stack-solution-hybrid-cloud.md
-        - name: 部署临时数据分析
-          href: azure-stack-solution-staged-data.md
-        - name: 部署高可用性 MongoDB
-          href: azure-stack-solution-mongodb-ha.md
-        - name: 部署高可用性 SQL Server 2016
-          href: azure-stack-solution-sql-ha.md
+        - name: VNET 对等互连
+          items:
+            - name: VNet 与 FortiGate 对等互连
+              href: azure-stack-network-howto-vnet-to-vnet.md
+            - name: VNet 与 VM 对等互连
+              href: azure-stack-network-howto-vnet-peering.md
+        - name: 将 VPN 设置到本地
+          href: azure-stack-network-howto-vnet-to-onprem.md
+        - name: VNET 到 VNET 连接
+          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+        - name: 扩展数据中心
+          href: azure-stack-network-howto-extend-datacenter.md
+        - name: 连接到 iSCSI 存储
+          href: azure-stack-network-howto-iscsi-storage.md
+        - name: 设置隧道
+          items:
+            - name: 设置多个站点到站点 VPN
+              href: network-howto-vpn-tunnel.md
+            - name: 创建 VPN 隧道 (GRE)
+              href: network-howto-vpn-tunnel-gre.md
+            - name: 创建 VPN 隧道 (IPSEC)
+              href: network-howto-vpn-tunnel-ipsec.md
+        - name: 备份和恢复
+          items:
+            - name: 使用 Commvault 在 Azure Stack 上备份 VM
+              href: azure-stack-network-howto-backup-commvault.md
+            - name: 在 Azure Stack 上备份存储帐户
+              href: azure-stack-network-howto-backup-storage.md
+            - name: 复制订阅资源
+              href: azure-stack-network-howto-backup-replicator.md
 - name: 概念
   items:
-    - name: 混合云模式
+    - name: IaaS 体系结构
       items:
-        - name: 混合云模式概述
-          href: azure-stack-edge-pattern-overview.md
+        - name: Linux VM
+          href: iaas-architecture-vm-linux.md
+        - name: Windows VM
+          href: iaas-architecture-vm-windows.md
+        - name: 使用 SQL 的 N 层应用
+          href: iaas-architecture-windows-sql-n-tier.md
+        - name: 多个区域中的 N 层应用
+          href: iaas-architecture-sql-n-tier-multi-region.md
+        - name: 网络虚拟设备
+          href: iaas-architecture-nva-architecture.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0'
-    - name: Azure Stack REST API 浏览器
+    - name: Azure Stack Hub REST API 浏览器
       href: 'https://docs.microsoft.com/rest/api/'
-    - name: Azure Stack CLI
+    - name: Azure CLI
       href: /cli/reference-index?view=azure-cli-2017-03-09-profile
 - name: 相关内容
   items:
-    - name: Azure Stack 操作员文档
+    - name: Azure Stack Hub 操作员文档
       href: /azure-stack/operator/
     - name: ASDK 文档
       href: /azure-stack/asdk/

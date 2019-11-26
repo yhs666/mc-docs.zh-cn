@@ -1,20 +1,19 @@
 ---
-title: 快速入门 - 使用 Azure 门户创建 Analysis Services 服务器 | Azure
-description: 了解如何在 Azure 中创建 Analysis Services 服务器实例。
+title: 快速入门 - 在 Azure 门户中创建 Analysis Services 服务器 | Azure
+description: 了解如何使用 Azure 门户快速创建 Azure Analysis Services 服务器实例。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 07/02/2019
-ms.date: 07/22/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b0bdc7e8283fe47bbc682f3e80728e48b61d9dea
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: ba1ee19686638a2621ff7a900a97efb8073405a9
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308847"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203603"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -23,7 +22,7 @@ ms.locfileid: "68308847"
 ## <a name="prerequisites"></a>先决条件 
 
 * **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
-* **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用该 Azure Active Directory 中的一个帐户登录 Azure。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
+* **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用 Azure Active Directory 中的一个帐户登录 Azure。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户 
 
@@ -41,14 +40,14 @@ ms.locfileid: "68308847"
 
     * **服务器名称**：键入用于引用服务器的唯一名称。 服务器名称必须以小写字符开头，并且包含 3 到 128 个小写字符和数字。 不允许使用空格和特殊字符。
     * **订阅**：选择此服务器要关联到的订阅。
-    * **资源组**：创建一个新资源组或选择一个现有资源组。 资源组旨在帮助管理 Azure 资源的集合。 若要了解详细信息，请参阅[资源组](../azure-resource-manager/resource-group-overview.md)。
-    * **位置**：此 Azure 数据中心位置承载着该服务器。 选择最接近最大用户群的位置。
+    * **资源组**：创建一个新资源组或选择一个现有资源组。 资源组旨在帮助管理 Azure 资源的集合。 有关详细信息，请参阅[资源组](../azure-resource-manager/resource-group-overview.md)。
+    * **位置**：此 Azure 数据中心位置托管该服务器。 选择最接近最大用户群的位置。
     * **定价层**：选择定价层。 如果要进行测试且想要安装示例模型数据库，请选择免费的 D1 层  。 若要了解详细信息，请参阅 [Azure Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。 
     * **管理员**：默认情况下，这是用于登录的帐户。 可从 Azure Active Directory 选择其他帐户。
     * **备份存储设置**：可选。 如果已有[存储帐户](../storage/common/storage-introduction.md)，则可将其指定为默认模型数据库备份帐户。 稍后还可指定[备份和还原](analysis-services-backup.md)设置。
     * **存储密钥有效期**：可选。 指定存储密钥的有效期。
 
-创建服务器通常不超过一分钟的时间。 如果选择“添加到门户”  ，请导航到门户查看新服务器。 或者，导航到“所有服务”   > “Analysis Services”  ，查看服务器是否就绪。 服务器支持 1200 和更高兼容级别的表格模型。 模型兼容性级别在 SSDT 或 SSMS 中指定。
+创建服务器通常不超过一分钟的时间。 如果选择“添加到门户”  ，请导航到门户查看新服务器。 或者，导航到“所有服务”   > “Analysis Services”  ，查看服务器是否就绪。 服务器支持 1200 和更高兼容级别的表格模型。 模型兼容性级别在 Visual Studio 或 SSMS 中指定。
 
 ## <a name="clean-up-resources"></a>清理资源
 

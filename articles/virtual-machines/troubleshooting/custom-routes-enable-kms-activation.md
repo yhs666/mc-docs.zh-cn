@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 自定义路由通过强制隧道启用 KMS 激活 | Azure
+title: 在强制隧道方案中，Windows 激活失败 | Azure
 description: 介绍如何在 Azure 中使用强制隧道时，使用 Azure 自定义路由启用 KMS 激活。
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 12/20/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 14d59398b18ff09dd3ecc2f8895d1d0d19e3ecb2
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 2ada76ff8e83be04009feeda5d084c942447200e
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272755"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116951"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>在强制隧道方案中，Windows 激活失败
 

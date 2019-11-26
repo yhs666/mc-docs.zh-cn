@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/12/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 44b57e05810c7a0926829566aac009178750bf48
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: b84c41099dc60e81fc6215d0a8addda79cbc686d
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857141"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020274"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据
 
@@ -32,7 +32,7 @@ ms.locfileid: "70857141"
 > [!IMPORTANT]
 > 所有工作负荷都[必须部署在租户订阅](#are-users-charged-for-the-infrastructure-vms)下，才符合 Azure Stack 的许可条款。
 
-根据预支付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包 (ASDK) 用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
+根据预支付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的。 对于 Azure Stack 开发工具包 (ASDK) 用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
 
 ![计费流](media/azure-stack-usage-reporting/billing-flow.png)
 
@@ -97,7 +97,7 @@ ASDK 可以免费使用资源。 对于 Azure Stack 多节点系统，工作负�
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>是否可以在主权云中运行用量数据报告？
 
-在 Azure Stack 开发工具包中，用量数据报告需要全球 Azure 系统中创建的订阅。 在某个主权云（Azure 政府、Azure 德国和 Azure 中国云）中创建的订阅无法注册到 Azure，因此不支持用量数据报告。
+在 Azure Stack 开发工具包中，用量数据报告需要全球 Azure 系统中创建的订阅。 在某个主权云（Azure 政府、Azure 德国和 Azure 中国世纪互联云）中创建的订阅无法注册到 Azure，因此不支持用量数据报告。
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>为何 Azure Stack 中报告的用量与从 Azure 帐户中心生成的报告不匹配？
 
@@ -108,4 +108,4 @@ Azure Stack 用量 API 报告用量数据的时间与 Azure 帐户中心报告�
 - [提供者使用情况 API](azure-stack-provider-resource-api.md)  
 - [租户使用情况 API](azure-stack-tenant-resource-usage-api.md)
 - [使用情况常见问题](azure-stack-usage-related-faq.md)
-- [以云服务提供商身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
+- [作为云解决方案提供商管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)

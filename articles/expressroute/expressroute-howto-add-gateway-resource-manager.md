@@ -1,6 +1,6 @@
 ---
 title: '向 ExpressRoute 的 VNet 添加虚拟网络网关：PowerShell：Azure '
-description: 本文介绍如何将 VNet 网关添加到为 ExpressRoute 创建的 Resource Manager VNet。
+description: 本文指导将 VPN 网关添加到已为 ExpressRoute 创建的资源管理器 VNet 中。
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/21/2019
 ms.author: v-yiso
 ms.date: 04/01/2019
-ms.openlocfilehash: 17ed79254cd10b93be63e085681d60f580bf029f
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: f3476af370078c350ca4c2e30c95f290e7992cce
+ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348529"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74202764"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关
 > [!div class="op_single_selector"]
@@ -44,4 +44,4 @@ ms.locfileid: "58348529"
 
 ## <a name="next-steps"></a>后续步骤
 
-创建 VNet 网关之后，可以将 VNet 链接到 ExpressRoute 线路。 请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)。
+创建 VPN 网关之后，可以将 VNet 链接到 ExpressRoute 线路。 请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)。

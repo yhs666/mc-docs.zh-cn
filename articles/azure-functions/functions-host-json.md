@@ -1,21 +1,19 @@
 ---
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 10/28/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7c6ff87fb806068f1ff7cabe4cc9a94db3c3275c
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 1daf148eebf445aad81ec35b76bbca3e9e58e582
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034446"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178954"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
@@ -48,6 +46,10 @@ ms.locfileid: "73034446"
         "sendGrid": {},
         "serviceBus": {}
     },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "healthMonitor": {
@@ -56,6 +58,9 @@ ms.locfileid: "73034446"
         "healthCheckWindow": "00:02:00",
         "healthCheckThreshold": 6,
         "counterThreshold": 0.80
+    },
+    "managedDependency": {
+        "enabled": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -86,6 +91,12 @@ ms.locfileid: "73034446"
 
 返回包含所有特定于绑定的设置的对象的属性，例如 [http](#http) 和 [eventHub](#eventhub)。
 
+## <a name="extensionbundle"></a>extensionBundle 
+
+扩展捆绑可让你将一组兼容的 Functions 绑定扩展添加到函数应用。 若要了解详细信息，请参阅[用于本地开发的扩展捆绑](functions-bindings-register.md#extension-bundles)。
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
+
 ## <a name="functions"></a>functions
 
 作业主机运行的函数列表。 空数组表示运行所有函数。 仅供在[本地运行](functions-run-local.md)时使用。 在 Azure 的函数应用中，应改为按照[如何在 Azure Functions 中禁用函数](disable-function.md)中的步骤禁用特定函数，而不是使用此设置。
@@ -99,9 +110,7 @@ ms.locfileid: "73034446"
 ## <a name="functiontimeout"></a>functionTimeout
 
 指示所有函数的超时持续时间。 它采用 timespan 字符串格式。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。  
-在专用（应用服务）计划中，没有总体限制，默认值取决于运行时版本： 
-+ 版本 1.x：默认值为 null  ，表示无超时。   
-+ 版本 2.x：默认值为 30 分钟。 值 `-1` 表示无限执行。
+在专用（应用服务）计划中，没有总体限制，默认值为 30 分钟。 值 `-1` 表示无限执行。
 
 ```json
 {
@@ -135,24 +144,20 @@ ms.locfileid: "73034446"
 
 ## <a name="http"></a>http
 
-可在 [http 触发器和绑定](functions-bindings-http-webhook.md)中查找配置设置。
+可在 [http 触发器和绑定](functions-bindings-http-webhook.md#hostjson-settings)中查找配置设置。
+
+
+## <a name="manageddependency"></a>managedDependency
+
+托管依赖项是一项功能，目前仅支持基于 PowerShell 的函数。 它使依赖项可以由服务自动管理。 `enabled` 属性设置为 `true` 时，`requirements.psd1` 文件会被处理。 发布任何次要版本时会更新依赖项。 
 
 ```json
 {
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
+    "managedDependency": {
+        "enabled": true
     }
 }
 ```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
-
 
 ## <a name="queues"></a>queues
 

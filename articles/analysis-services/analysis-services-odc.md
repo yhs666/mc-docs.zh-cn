@@ -1,20 +1,19 @@
 ---
-title: 创建 .odc 文件以连接到 Azure Analysis Services 服务器 | Azure
+title: 使用 .odc 文件连接到 Azure Analysis Services | Azure
 description: 了解如何创建 Office 数据连接文件以连接到 Azure 中的 Analysis Services 服务器并从中获取数据。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2018
-ms.date: 01/28/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4810d7e4832d221eababa27bf55cdb5be90531fd
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: d59be06b2760deddfae8c4cb4fdcf411acb9a857
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085645"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203569"
 ---
 # <a name="create-an-office-data-connection-file"></a>创建 Office 数据连接文件
 
@@ -24,15 +23,15 @@ ms.locfileid: "55085645"
 
 2. 在 `odc:ConnectionString` 中，更改以下属性：
 
-    *   在 `Data Source=asazure://<region>.asazure.chinacloudapi.cn/<servername>;` 中，将 `<region>` 更改为你 Analysis Services 服务器的区域，将 `<servername>` 更改为你服务器的名称。
+    * 在 `Data Source=asazure://<region>.asazure.chinacloudapi.cn/<servername>;` 中，将 `<region>` 更改为你 Analysis Services 服务器的区域，将 `<servername>` 更改为你服务器的名称。
 
-    *   在 `Initial Catalog=<database>;` 中，将 `<database>` 更改为你数据库的名称。
+    * 在 `Initial Catalog=<database>;` 中，将 `<database>` 更改为你数据库的名称。
 
 3. 在 `<odc:CommandText>Model</odc:CommandText>` 中，将 `Model` 更改为你的模型或者视角的名称。 
 
 4. 将带有 `.odc` 扩展名的文件保存到 C:\Users\\*username*\Documents\My Data Sources 文件夹。
 
-5. 右键单击该文件，并单击“在 Excel 中打开”。 或者在 Excel 的“数据”功能区上，单击“现有连接”，选择文件，然后单击“打开”。
+5. 右键单击文件，并单击“在 Excel 中打开”  。 或者在 Excel 的“数据”  功能区上，单击“现有连接”  、选择你的文件，并单击“打开”  。
 
 **示例连接文件**
 ```
@@ -62,12 +61,14 @@ xmlns="https://www.w3.org/TR/REC-html40">
  </odc:OfficeDataConnection>
 </xml>
 <style>
+
 <!--
     .ODCDataSource
     {
     behavior: url(dataconn.htc);
     }
 -->
+
 </style>
 
 </head>
@@ -143,4 +144,4 @@ function init() {
 
 ```
 
-<!--Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

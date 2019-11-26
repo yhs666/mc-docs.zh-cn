@@ -9,12 +9,12 @@ origin.date: 03/26/2018
 ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8a709242f874d6c2e9a53d9fc33bb9003301ec64
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+ms.openlocfilehash: 2d3fc4b776911674a56c1ba8338c92decf968cf7
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73198346"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125409"
 ---
 <!-- Not Available on [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8] -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "73198346"
 
 <a name="addregion"></a>
 ## <a name="add-global-database-regions-using-the-azure-portal"></a>使用 Azure 门户添加全局数据库区域
-在中国的所有 [Azure 区域][azureregions]都可使用 Azure Cosmos DB。 为数据库帐户选择默认的一致性级别后，可以关联一个或多个区域（具体取决于所选的默认一致性级别和多区域分发需求）。
+在中国的所有 [Azure 区域][azureregions]中都可使用 Azure Cosmos DB。 为数据库帐户选择默认的一致性级别后，可以关联一个或多个区域（具体取决于所选的默认一致性级别和多区域分发需求）。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)的左侧栏中，单击“Azure Cosmos DB”  。
 2. 在“Azure Cosmos DB”  页中，选择要修改的数据库帐户。
@@ -68,6 +68,9 @@ While all regions associated with your Cosmos DB database account can serve read
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 <!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
-[一致性]: ../articles/cosmos-db/consistency-levels.md [azureregions]: https://www.azure.cn/support/service-dashboard/ [产品/服务]: https://www.azure.cn/pricing/details/cosmos-db/
+
+[consistency]: ../articles/cosmos-db/consistency-levels.md
+[azureregions]: https://www.azure.cn/support/service-dashboard/
+[offers]: https://www.azure.cn/pricing/details/cosmos-db/
 
 <!--Update_Description: wording update-->

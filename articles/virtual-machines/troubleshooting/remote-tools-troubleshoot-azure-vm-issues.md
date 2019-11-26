@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 01/11/2018
-ms.date: 05/20/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 13898f2ac8ba022f8c6401cd317d602810ff5e8c
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: f88424262d8c29ef3d53b84e4fcf02c8bb693a25
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427822"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116945"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -32,7 +32,7 @@ ms.locfileid: "67427822"
 
 ## <a name="remote-cmd"></a>远程 CMD
 
-下载 [PsExec](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psexec)。 运行以下命令连接到 VM：
+下载 [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)。 运行以下命令连接到 VM：
 
 ```cmd
 psexec \\<computer> -u user -s cmd
@@ -109,7 +109,7 @@ $vmLocation = "<<DATACENTER>>"
 
 #Setup the Azure Powershell module and ensure the access to the subscription
 Import-Module Az
-Login-AzAccount -Environment AzureChinaCloud #Ensure Login with account associated with subscription ID
+Connect-AzAccount -Environment AzureChinaCloud #Ensure Login with account associated with subscription ID
 Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
 #Setup the access to the storage account and upload the script 
@@ -178,6 +178,6 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 PsExec 包含在 [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip) 中。
 
-有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](https://docs.microsoft.com/zh-cn/sysinternals/downloads/pstools)。
+有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](https://docs.microsoft.com/sysinternals/downloads/pstools)。
 
-<!-- Update_Description: wording update  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

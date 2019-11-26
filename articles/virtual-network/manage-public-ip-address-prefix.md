@@ -1,7 +1,7 @@
 ---
-title: 创建、更改或删除 Azure 公共 IP 地址前缀
+title: 创建、更改或删除 Azure 公共 IP 前缀
 titlesuffix: Azure Virtual Network
-description: 了解如何创建、更改或删除公共 IP 地址前缀。
+description: 了解如何创建、更改或删除公共 IP 前缀。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 origin.date: 05/13/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4bd0a38d959886c223ca53853e7a388fe8480f03
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: a50872c80d9bff44929b01e72f7607ff4d435edd
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514175"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203654"
 ---
-# <a name="create-change-or-delete-a-public-ip-address-prefix"></a>创建、更改或删除公共 IP 地址前缀
+# <a name="create-change-or-delete-a-public-ip-prefix"></a>创建、更改或删除公共 IP 前缀
 
-了解公共 IP 地址前缀，以及如何创建、更改和删除此类地址。 公共 IP 地址前缀是基于指定的公共 IP 地址数量的连续地址范围。 地址会分配给你的订阅。 创建公共 IP 地址资源时，可以从前缀分配一个静态公共 IP 地址，并将该地址关联到虚拟机、负载均衡器或其他资源，以启用 Internet 连接。 如果不熟悉公共 IP 地址前缀，请参阅[公共 IP 地址前缀概述](public-ip-address-prefix.md)
+了解公共 IP 前缀，以及如何创建、更改和删除此类前缀。 公共 IP 前缀是基于你指定的公共 IP 地址数的连续地址范围。 地址会分配给你的订阅。 创建公共 IP 地址资源时，可以从前缀分配一个静态公共 IP 地址，并将该地址关联到虚拟机、负载均衡器或其他资源，以启用 Internet 连接。 如果你不熟悉公共 IP 前缀，请参阅[公共 IP 前缀概述](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -37,21 +37,21 @@ ms.locfileid: "68514175"
 
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
-公共 IP 地址前缀会产生费用。 有关详细信息，请参阅[定价](https://www.azure.cn/pricing/details/ip-addresses/)。
+公共 IP 前缀要收费。 有关详细信息，请参阅[定价](https://www.azure.cn/pricing/details/ip-addresses/)。
 
-## <a name="create-a-public-ip-address-prefix"></a>创建公共 IP 地址前缀
+## <a name="create-a-public-ip-prefix"></a>创建公共 IP 前缀
 
 1. 在门户左上角的顶部选择“+ 创建资源”  。
-2. 在“在市场中搜索”  框中输入“公共 IP 地址前缀”  。 当“公共 IP 地址前缀”  出现在搜索结果中时，请选择它。
-3. 在“公共 IP 地址前缀”  下，选择“创建”  。
-4. 在“创建公共 IP 地址前缀”  下为以下设置输入或选择值，然后选择“创建”  ：
+2. 在“搜索市场”  框中输入“公共 IP 前缀”  。 当“公共 IP 前缀”  出现在搜索结果中时，请选择它。
+3. 在“公共 IP 前缀”  下，选择“创建”  。
+4. 在“创建公共 IP 前缀”  下为以下设置输入或选择值，然后选择“创建”  ：
 
     |设置|必需？|详细信息|
     |---|---|---|
     |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)中。|
     |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。|
     |Name|是|名称在所选资源组中必须唯一。|
-    |区域|是|必须位于与公共 IP 地址相同的[区域](https://www.azure.cn/support/service-dashboard/)，你将从该范围分配地址。 |
+    |区域|是|必须位于与公共 IP 地址相同的[区域](https://status.azure.com/status/)，你将从该范围分配地址。 |
     |前缀大小|是| 所需的前缀大小。 /28 或 16 个 IP 地址为默认值。 
     
     <!--Not Available on Prefix is currently is preview in XXXXXX.-->
@@ -66,7 +66,7 @@ ms.locfileid: "68514175"
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>从前缀创建静态公共 IP 地址
 在创建前缀后，必须从前缀创建静态 IP 地址。 为此，请执行以下步骤。
 
-1. 在 Azure 门户顶部包含“搜索资源”  文本的框中，键入“公共 IP 地址前缀”  。 当“公共 IP 地址前缀”  出现在搜索结果中时，请选择它。
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“公共 IP 前缀”。   当“公共 IP 前缀”  出现在搜索结果中时，请选择它。
 2. 选择想要通过其创建公共 IP 的前缀。
 3. 当出现在搜索结果中，选择它，然后单击“概述”部分中的“+添加 IP 地址”  。
 4. 在“创建公共 IP 地址”  下为以下设置输入或选择值。 由于前缀适用于标准 SKU、IPv4 和静态，因此只需提供以下信息：
@@ -86,11 +86,11 @@ ms.locfileid: "68514175"
 
 ## <a name="view-or-delete-a-prefix"></a>查看或删除前缀
 
-1. 在 Azure 门户顶部包含“搜索资源”  文本的框中，键入“公共 IP 地址前缀”  。 当“公共 IP 地址前缀”  出现在搜索结果中时，请选择它。
-2. 选择要查看、更改其设置或从列表中删除的公共 IP 地址前缀的名称。
-3. 根据是要查看、删除还是更改公共 IP 地址前缀，完成以下选项之一。
-    - **视图**：“概述”  部分显示公共 IP 地址前缀的关键设置，如前缀。
-    - **删除**：若要删除公共 IP 地址前缀，请在“概述”  部分中选择“删除”  。 如果前缀中的地址关联到公共 IP 地址资源，必须先删除公共 IP 地址资源。 请参阅[删除公共 IP 地址](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address)。
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“公共 IP 前缀”。   当“公共 IP 前缀”  出现在搜索结果中时，请选择它。
+2. 选择要查看、更改其设置或从列表中删除的公共 IP 前缀的名称。
+3. 根据是要查看、删除还是更改公共 IP 前缀，完成以下选项之一。
+    - **视图**：“概述”  部分显示公共 IP 前缀的关键设置，如前缀。
+    - **删除**：若要删除公共 IP 前缀，请在“概述”  部分中选择“删除”  。 如果前缀中的地址关联到公共 IP 地址资源，必须先删除公共 IP 地址资源。 请参阅[删除公共 IP 地址](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address)。
 
  命令
 
@@ -101,13 +101,13 @@ ms.locfileid: "68514175"
 
 ## <a name="permissions"></a>权限
 
-若要在公共 IP 地址前缀上执行任务，必须将你的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有下表中所列适当操作的[自定义](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)角色：
+若要对公共 IP 前缀执行任务，必须将你的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有下表中所列相应操作的[自定义](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)角色：
 
 | 操作                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
-| Microsoft.Network/publicIPPrefixes/read                           | 读取公共 IP 地址前缀                                |
-| Microsoft.Network/publicIPPrefixes/write                          | 创建或更新公共 IP 地址前缀                    |
-| Microsoft.Network/publicIPPrefixes/delete                         | 删除公共 IP 地址前缀                              |
+| Microsoft.Network/publicIPPrefixes/read                           | 读取公共 IP 前缀                                |
+| Microsoft.Network/publicIPPrefixes/write                          | 创建或更新公共 IP 前缀                    |
+| Microsoft.Network/publicIPPrefixes/delete                         | 删除公共 IP 前缀                              |
 |Microsoft.Network/publicIPPrefixes/join/action                     | 从前缀创建公共 IP 地址 |
 
 ## <a name="next-steps"></a>后续步骤

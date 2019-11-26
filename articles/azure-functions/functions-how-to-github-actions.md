@@ -6,21 +6,18 @@ manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 09/16/2019
-ms.date: 10/28/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 630421d82e8b3467b609e407e95ebb20b0d1b658
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 21313a1929bbbf00c92324a061bd11ea198a3923
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034473"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178953"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 Github Actions 进行持续交付
 
 可以通过 [GitHub Actions](https://github.com/features/actions) 定义一个工作流，以便自动生成函数代码并将其部署到 Azure 中的函数应用。 
-
-> [!IMPORTANT]  
-> GitHub Actions 目前为 Beta 版。 必须先使用 GitHub 帐户[注册加入预览版](https://github.com/features/actions)。
 
 在 GitHub Actions 中，[工作流](https://help.github.com/articles/about-github-actions#workflow)是在 GitHub 存储库中定义的自动化过程。 此过程告知 GitHub 如何在 GitHub 中生成和部署函数应用项目。 
 
@@ -34,6 +31,9 @@ ms.locfileid: "73034473"
 | **生成** | <ol><li>设置环境。</li><li>生成函数应用。</li></ol> |
 | **部署** | <ol><li>部署函数应用。</li></ol>|
 
+> [!NOTE]
+> 如果决定使用发布配置文件进行身份验证，则不需创建服务主体。
+
 ## <a name="create-a-service-principal"></a>创建服务主体
 
 可以在 [Azure CLI](/cli/) 中使用 [az ad sp create-for-rbac](/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令创建[服务主体](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 
@@ -43,9 +43,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 在此示例中，请将资源中的占位符替换为你的订阅 ID、资源组以及函数应用名称。 输出是用于访问函数应用的角色分配凭据。 请复制此 JSON 对象，它可以用来从 GitHub 进行身份验证。
-
-> [!NOTE]
-> 如果决定使用发布配置文件进行身份验证，则不需创建服务主体。
 
 > [!IMPORTANT]
 > 始终应授予最小访问权限。 这是在上一示例中将范围限制为特定的函数应用而不是整个资源组的原因。
@@ -191,8 +188,9 @@ GitHub 现在可以针对 Azure 中的函数应用进行身份验证了。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要查看完整的工作流 .yaml，请参阅 [Azure GitHub Actions 工作流示例存储库](https://github.com/Azure/actions-workflow-samples)中名称包含 `functionapp` 的文件之一。 可以使用这些示例作为工作流的起点。
+若要查看完整的工作流 .yaml，请参阅 [Azure GitHub Actions 工作流示例存储库](https://aka.ms/functions-actions-samples)中名称包含 `functionapp` 的文件之一。 可以使用这些示例作为工作流的起点。
 
 > [!div class="nextstepaction"]
 > [详细了解 GitHub Actions](https://help.github.com/en/articles/about-github-actions)
 
+<!-- Update_Description: wording update -->

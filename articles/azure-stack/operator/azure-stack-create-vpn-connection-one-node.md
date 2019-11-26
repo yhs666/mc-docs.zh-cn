@@ -1,6 +1,6 @@
 ---
-title: 在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接 | Microsoft Docs
-description: 逐步指导云管理员在两个单节点 Azure Stack 开发工具包环境之间创建站点到站点 VPN 连接。
+title: 在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接 | Microsoft Docs
+description: 向云操作员介绍如何在两个单节点 Azure Stack 开发工具包 (ASDK) 环境之间创建站点到站点 VPN 连接的教程。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/16/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.reviewer: scottnap
+ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 057216b7052ddf7fb6be80408e1aff3db4afde80
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 9127e070d56b216817b1c2ba6ab6e157b278a1f3
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857051"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020254"
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 
 ## <a name="overview"></a>概述
 
@@ -42,7 +42,7 @@ ms.locfileid: "70857051"
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
 * 满足[快速入门：评估 Azure Stack 开发工具包](../asdk/asdk-download.md)中所述 Azure Stack 开发工具包硬件要求的两个服务器和其他必备组件。
-* [Azure Stack 开发工具包](https://azure.microsoft.com/overview/azure-stack/try/)部署包。
+* [ASDK](https://azure.microsoft.com/overview/azure-stack/try/) 部署包。
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>部署 Azure Stack 开发工具包环境
 
@@ -53,7 +53,7 @@ ms.locfileid: "70857051"
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>在 POC1 和 POC2 中准备产品
 
-在 POC1 和 POC2 中准备一个产品，使用户能够订阅该产品并部署虚拟机。 有关如何创建产品的信息，请参阅[向 Azure Stack 用户提供虚拟机](azure-stack-tutorial-tenant-vm.md)。
+在 POC1 和 POC2 中准备一个产品，使用户能够订阅该产品并部署虚拟机 (VM)。 有关如何创建产品的信息，请参阅[向 Azure Stack 用户提供 VM](azure-stack-tutorial-tenant-vm.md)。
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>查看并填写网络配置表
 
@@ -144,9 +144,9 @@ ms.locfileid: "70857051"
 
 在此 Azure Stack 评估部署中实现*本地网关* 稍微不同于实际 Azure 部署中的情况。
 
-在 Azure 部署中，本地网关代表一个本地（租户处）物理设备，用于连接到 Azure 中的虚拟网络网关。 在此 Azure Stack 评估部署中，连接的两端都是虚拟网络网关。
+在 Azure 部署中，本地网络网关代表用于连接到 Azure 中的虚拟网络网关的本地（租户位置）物理设备。 在此 Azure Stack 评估部署中，连接的两端都是虚拟网络网关。
 
-从更通用的角度来看，存在本地网关资源通常意味着在连接的另一端存在远程网关。 由于Azure Stack 开发工具包的设计方式，必须提供另一个 ASDK 的网络地址转换 (NAT) VM 上的外部网络适配器 IP 地址作为局域网络网关的公共 IP 地址。 然后需要在 NAT VM 上创建 NAT 映射，确保正确连接两端。
+从更通用的角度来看，存在本地网关资源通常意味着在连接的另一端存在远程网关。 由于ASDK 的设计方式，必须提供另一个 ASDK 的网络地址转换 (NAT) VM 上的外部网络适配器 IP 地址作为局域网络网关的公共 IP 地址。 然后需要在 NAT VM 上创建 NAT 映射，确保正确连接两端。
 
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网关资源
 
@@ -172,17 +172,17 @@ ms.locfileid: "70857051"
 9. 在“共享密钥(PSK)”中输入 **12345**，然后选择“确定”。  
 10. 在“摘要”边栏选项卡上，选择“确定”。  
 
-### <a name="create-a-vm"></a>创建 VM
+### <a name="create-a-virtual-machine"></a>创建虚拟机
 
-若要验证通过 VPN 连接传输的数据，需要使用虚拟机在每个 Azure Stack 开发工具包中发送和接收数据。 现在请在 POC1 中创建虚拟机，然后将它放在虚拟网络的 VM 子网上：
+若要通过 VPN 连接验证数据传输，需要 VM 在每个 ASDK 中发送和接收数据。 现在请在 POC1 中创建一个 VM，然后将其置于虚拟网络中的 VM 子网上：
 
 1. 在 Azure 门户中，选择“+ 创建资源”。 
 2. 转到“市场”，选择“计算”。  
-3. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
+3. 在 VM 映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
 4. 在“基本”边栏选项卡的“名称”中，输入 **VM01**。  
 5. 输入有效的用户名和密码。 创建 VM 之后，将使用此帐户来登录 VM。
 6. 提供“订阅”、“资源组”和“位置”，并选择“确定”。    
-7. 在“大小”边栏选项卡上，为此实例选择一种虚拟机大小，然后选择“选择”。  
+7. 在“大小”边栏选项卡上，为此实例选择一种 VM 大小，然后选择“选择”。  
 8. 在“设置”边栏选项卡上接受默认值。  务必选择 **VNET-01** 虚拟网络。 确认子网已设置为 **10.0.10.0/24**。 然后选择“确定”。 
 9. 在“摘要”边栏选项卡上检查设置，并选择“确定”   。
 
@@ -225,7 +225,7 @@ ms.locfileid: "70857051"
 5. 若要选择虚拟网络，请选择“虚拟网络”。  然后从列表中选择 **VNET-02**。
 6. 选择“公共 IP 地址”。  当“选择公共 IP 地址”边栏选项卡打开时，选择“新建”   。
 7. 在“名称”中输入 **GW2-PiP**，然后选择“确定”。  
-8. 对于“VPN 类型”，默认已选择“基于路由”。   保留“基于路由”VPN 类型。 
+8. 对于“VPN 类型”，默认选择“基于路由”。   保留“基于路由”VPN 类型。 
 9. 验证“订阅”和“位置”是否正确。   可将资源固定到仪表板。 选择“创建”  。
 
 ### <a name="create-local-network-gateway-resource"></a>创建本地网络网关资源
@@ -253,40 +253,40 @@ ms.locfileid: "70857051"
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-现在请在 POC2 中创建虚拟机，并将其放在虚拟网络中的 VM 子网上。
+现在请在 POC2 中创建一个 VM，然后将其置于虚拟网络的 VM 子网上：
 
 1. 在 Azure 门户中，选择“+ 创建资源”。 
 2. 转到“市场”，选择“计算”。  
-3. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
+3. 在 VM 映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
 4. 在“基本”边栏选项卡上的“名称”中，输入 **VM02**。  
-5. 输入有效的用户名和密码。 创建虚拟机之后，将使用此帐户来登录虚拟机。
+5. 输入有效的用户名和密码。 创建 VM 之后，将使用此帐户来登录 VM。
 6. 提供“订阅”、“资源组”和“位置”，并选择“确定”。    
-7. 在“大小”边栏选项卡上，为此实例选择一种虚拟机大小，然后选择“选择”。  
+7. 在“大小”边栏选项卡上，为此实例选择一种 VM 大小，然后选择“选择”。  
 8. 在“设置”边栏选项卡上，可以接受默认值。  确保选择 **VNET-02** 虚拟网络，并确认子网已设置为 **10.0.20.0/24**。 选择“确定”  。
 9. 在“摘要”边栏选项卡上检查设置，然后选择“确定”   。
 
-## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>在每个 Azure Stack 开发工具包上配置 NAT 虚拟机以进行网关遍历
+## <a name="configure-the-nat-vm-on-each-asdk-for-gateway-traversal"></a>在每个 ASDK 中针对网关遍历配置 NAT VM
 
 由于 ASDK 是自主性的并独立于已部署物理主机所在的网络，因此网关连接到的外部 VIP 网络实际上并非位于外部，  而是隐藏在执行网络地址转换的路由器后面。
 
-该路由器是一个名为 **AzS-bgpnat01** 的 Windows Server 虚拟机，在 ASDK 基础结构中充当路由和远程访问服务 (RRAS) 角色。 必须对 AzS-bgpnat01 虚拟机上的 NAT 进行配置，允许站点到站点 VPN 连接在两端进行连接。
+该路由器是一个名为 **AzS-bgpnat01** 的 Windows Server VM，在 ASDK 基础结构中充当路由和远程访问服务 (RRAS) 角色。 必须对 AzS-bgpnat01 VM 上的 NAT 进行配置，允许站点到站点 VPN 连接在两端进行连接。
 
-若要配置 VPN 连接，必须创建静态 NAT 映射路由，将 BGPNAT 虚拟机上的外部接口映射到边缘网关池的 VIP。 VPN 连接中的每个端口都必须有一个静态 NAT 映射路由。
+若要配置 VPN 连接，必须创建静态 NAT 映射路由，将 BGPNAT VM 上的外部接口映射到边缘网关池的 VIP。 VPN 连接中的每个端口都必须有一个静态 NAT 映射路由。
 
 > [!NOTE]
-> 只有 Azure Stack 开发工具包环境才需要此配置。
+> 只有 ASDK 环境才需要使用此配置。
 
 ### <a name="configure-the-nat"></a>配置 NAT
 
 > [!IMPORTANT]
 > 必须对上述两个 ASDK 环境完成此过程。
 
-1. 确定要在以下 PowerShell 脚本中使用的“内部 IP 地址”。  打开虚拟网络网关（GW1 和 GW2），然后在“概述”边栏选项卡上，保存“公共 IP 地址”的值供稍后使用。  
+1. 确定要在以下 PowerShell 脚本中使用的“内部 IP 地址”。  打开虚拟网络网关（GW1 和 GW2）。 在“概述”边栏选项卡上，保存“公共 IP 地址”的值供稍后使用。  
 
    ![内部 IP 地址](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
 2. 登录到 POC1 的 Azure Stack 物理机。
-3. 复制并编辑以下 PowerShell 脚本。 若要在每个 Azure Stack 开发工具包中配置 NAT，请在权限提升的 Windows PowerShell ISE 中运行该脚本。 在该脚本中，将值添加到 `External BGPNAT address` 和 `Internal IP address` 占位符：
+3. 复制并编辑以下 PowerShell 脚本。 若要在每个 ASDK 中配置 NAT，请在权限提升的 Windows PowerShell ISE 中运行该脚本。 在该脚本中，将值添加到 `External BGPNAT address` 和 `Internal IP address` 占位符：
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -332,9 +332,9 @@ ms.locfileid: "70857051"
 
 ## <a name="test-the-connection"></a>测试连接
 
-建立站点到站点连接以后，应验证其流量是否正常。 若要验证，请登录到在任一 ASDK 环境中创建的虚拟机之一。 然后，ping 另一环境中创建的虚拟机。
+建立站点到站点连接以后，应验证其流量是否正常。 若要验证，请登录到在任一 ASDK 环境中创建的 VM 之一。 然后，ping 另一环境中创建的 VM。
 
-为了确保流量通过站点到站点连接，必须 ping 远程子网上虚拟机的直接 IP (DIP) 地址，而不是 VIP。 为此，请找到连接另一端的 DIP 地址。 保存该地址供稍后使用。
+为了确保流量通过站点到站点连接，必须 ping 远程子网上 VM 的直接 IP (DIP) 地址，而不是 VIP。 为此，请找到连接另一端的 DIP 地址。 保存该地址供稍后使用。
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>登录到 POC1 中的租户 VM
 
@@ -345,11 +345,11 @@ ms.locfileid: "70857051"
 
      ![“连接”按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
-5. 使用创建虚拟机时所配置的帐户登录。
+5. 使用创建 VM 时所配置的帐户登录。
 6. 打开权限提升的 **Windows PowerShell** 窗口。
 7. 输入 **ipconfig /all**。
 8. 在输出中找到“IPv4 地址”，然后保存该地址供稍后使用。  这是要从 POC2 ping 的地址。 在示例环境中，该地址为 **10.0.10.4**，但用户环境中的该地址可能有所不同。 该地址应在此前创建的 **10.0.10.0/24** 子网范围内。
-9. 若要创建允许虚拟机响应 ping 的防火墙规则，请运行以下 PowerShell 命令：
+9. 若要创建允许 VM 响应 ping 的防火墙规则，请运行以下 PowerShell 命令：
 
    ```powershell
    New-NetFirewallRule `
@@ -361,13 +361,13 @@ ms.locfileid: "70857051"
 
 1. 登录 POC2 的 Azure Stack 物理机，然后使用租户帐户登录到用户门户。
 2. 在左侧导航栏中，单击“计算”  。
-3. 在虚拟机列表中，找到前面创建的 **VM02**，并选择它。
-4. 在虚拟机边栏选项卡上，单击“连接”。 
-5. 使用创建虚拟机时所配置的帐户登录。
+3. 在 VM 列表中，找到前面创建的 **VM02**，并选择它。
+4. 在 VM 的边栏选项卡上，单击“连接”  。
+5. 使用创建 VM 时所配置的帐户登录。
 6. 打开权限提升的 **Windows PowerShell** 窗口。
 7. 输入 **ipconfig /all**。
 8. 将显示 **10.0.20.0/24** 范围内的 IPv4 地址。 在示例环境中，该地址为 **10.0.20.4**，但你的地址可能有所不同。
-9. 若要创建允许虚拟机响应 ping 的防火墙规则，请运行以下 PowerShell 命令：
+9. 若要创建允许 VM 响应 ping 的防火墙规则，请运行以下 PowerShell 命令：
 
    ```powershell
    New-NetFirewallRule `
@@ -375,16 +375,16 @@ ms.locfileid: "70857051"
     -Protocol ICMPv4
    ```
 
-10. 在 POC2 上的虚拟机中，通过隧道 ping POC1 上的虚拟机。 为此，请 ping 从 VM01 中记录的 DIP。 在示例环境中，该地址为 **10.0.10.4**，但请确保 ping 实验室中记下的地址。 应会看到以下示例所示的结果：
+10. 在 POC2 上的 VM 中，通过隧道 ping POC1 上的 VM。 为此，请 ping 从 VM01 中记录的 DIP。 在示例环境中，该地址为 **10.0.10.4**，但请确保 ping 实验室中记下的地址。 应会看到以下示例所示的结果：
 
     ![ping 成功](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. 获得远程虚拟机的答复表示测试成功。 可以关闭虚拟机窗口。 若要测试连接，可以尝试其他类型的数据传输，例如文件复制。
+11. 获得远程 VM 的答复表示测试成功。 此时可关闭“VM”窗口。 若要测试连接，可以尝试其他类型的数据传输，例如文件复制。
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>通过网关连接查看数据传输统计信息
 
 若要了解通过站点到站点连接传送的数据量，可在“连接”边栏选项卡中查看该信息。  也可利用此测试来验证刚发送的 ping 是否确实通过了 VPN 连接。
 
-1. 在已登录到 POC2 中租户虚拟机的情况下，使用租户帐户登录到用户门户。
+1. 在已登录到 POC2 中租户 VM 的情况下，使用租户帐户登录到用户门户。
 2. 转到“所有资源”，选择“POC2-POC1”连接。   此时会显示“连接”。 
 3. 在“连接”窗口中显示了“传入数据”和“传出数据”的统计信息。    在以下屏幕截图中，较大的数字是附加的文件传输造成的。 应会看到其中有一些非零值。
 

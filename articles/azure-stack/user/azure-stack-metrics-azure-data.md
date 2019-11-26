@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/27/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 3b7526150949e92e2112f236db5ec828e84a3165
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 23d9388d38f0082176bdc5a3a21c10ef3935075f
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578310"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020306"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
@@ -42,8 +42,8 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
 1. 打开 Azure Stack 用户门户。
-2. 选择“套餐”。 
-3. 选择与订阅关联的套餐。
+2. 选择 **订阅**。
+3. 选择要注册的订阅。
 4. 在“设置”下，选择“资源提供程序”。   
 5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”  。
 

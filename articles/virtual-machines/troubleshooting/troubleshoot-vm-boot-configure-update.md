@@ -12,24 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 09/18/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 41b8ef2003b7f788c6c6aaf0696bfe6eef232ad1
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: eddbb05c638f2ca52a4816d1d1dd866c714ee8f7
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272881"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116926"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 启动时停滞，并在 Azure 中显示“正在准备 Windows。 请不要关闭计算机”
 
-本文可帮助解决虚拟机 (VM) 在启动时停滞，并显示“正在准备 Windows。 请不要关闭计算机”的问题。
+本文介绍了在 Azure 中启动 Windows 虚拟机 (VM) 时可能会遇到的“准备就绪”和“准备 Windows 就绪”屏幕。 本文提供用于收集支持票证数据的步骤。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>症状
 
-当使用“启动诊断”获取 VM 的屏幕截图时，操作系统无法完全启动  。 VM 显示消息“正在准备 Windows。 请不要关闭计算机。”
+Windows VM 无法启动。 使用**启动诊断**来获取 VM 的屏幕截图时，可能会看到 VM 显示消息“准备就绪”或“准备 Windows 就绪”。
 
 ![Windows Server 2012 R2 的消息示例](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -39,179 +39,77 @@ ms.locfileid: "72272881"
 
 当服务器在配置发生更改后执行最终的重启时，通常会发生此问题。 配置更改可能通过 Windows 更新或通过更改服务器的角色/功能进行初始化。 对于 Windows 更新，如果更新的大小较大，则操作系统将需要更多时间来重新配置更改。
 
-## <a name="back-up-the-os-disk"></a>备份 OS 磁盘
-
-在尝试解决该问题之前，请备份 OS 磁盘。
-
-### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>对于有加密磁盘的 VM，必须先解锁磁盘
-
-请按照下列步骤确定 VM 是否为已加密 VM。
-
-1. 在 Azure 门户中，打开 VM，然后浏览到磁盘。
-
-2. 查看“加密”列，查看是否启用了加密  。
-
-如果 OS 磁盘已加密，请解锁加密的磁盘。 要解锁磁盘，请按照下列步骤操作。
-
-1. 创建一个恢复 VM，该 VM 与受影响的 VM 位于相同的资源组、存储帐户和位置中。
-
-2. 在 Azure 门户中，删除受影响的 VM 并保留磁盘。
-
-3. 以管理员身份运行 PowerShell。
-
-4. 运行以下 cmdlet，获取机密名称。
-
-    ```Powershell
-    Login-AzAccount -Environment AzureChinaCloud
-
-    $vmName = "VirtualMachineName"
-    $vault = "AzureKeyVaultName"
-
-    # Get the Secret for the C drive from Azure Key Vault
-    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.Tags.VolumeLetter -eq "C:\") -and ($_.ContentType -eq 'BEK')}
-
-    # OR Use the below command to get BEK keys for all the Volumes
-    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq 'BEK')}
-    ```
-
-5. 获得机密名称后，在 PowerShell 中运行以下命令。
-
-    ```Powershell
-    $secretName = 'SecretName'
-    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $secretname
-    $bekSecretBase64 = $keyVaultSecret.SecretValueText
-    ```
-
-6. 将 Base64 编码的值转换为字节，并将输出写入到一个文件。 
-
-    > [!Note]
-    > 如果使用 USB 解锁选项，则 BEK 文件名必须与原始 BEK GUID 匹配。 在执行这些步骤之前，请在 C 驱动器上创建一个名为“BEK”的文件夹。
-
-    ```Powershell
-    New-Item -ItemType directory -Path C:\BEK
-    $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
-    $path = "c:\BEK\$secretName.BEK"
-    [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
-    ```
-
-7. 在电脑上创建 BEK 文件后，将该文件复制到附加了锁定 OS 磁盘的恢复 VM。 通过使用 BEK 文件位置来运行以下命令。
-
-    ```Powershell
-    manage-bde -status F:
-    manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
-    ```
-    可选  ：在某些情况下，可能需要通过使用以下命令来解密该磁盘。
-
-    ```Powershell
-    manage-bde -off F:
-    ```
-
-    > [!Note]
-    > 上一个命令假定要加密的磁盘为盘符为 F。
-
-8. 如果需要收集日志，请转到路径“DRIVE LETTER:\Windows\System32\winevt\Logs”  。
-
-9. 将驱动器与恢复计算机分离。
-
-### <a name="create-a-snapshot"></a>创建快照
-
-若要创建快照，请执行[创建磁盘快照](../windows/snapshot-copy-managed-disk.md)中的步骤。
-
 ## <a name="collect-an-os-memory-dump"></a>收集 OS 内存转储
 
-当 VM 在配置阶段停滞时，请使用[收集 OS 转储](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)部分中的步骤。
+如果等待更改处理后问题仍未解决，则需要收集内存转储文件并与支持部门联系。 若要收集转储文件，请执行以下步骤：
+
+### <a name="attach-the-os-disk-to-a-recovery-vm"></a>将 OS 磁盘附加到恢复 VM
+
+1. 拍摄受影响的 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
+2. [将 OS 磁盘附加到恢复 VM](../windows/troubleshoot-recovery-disks-portal.md)。
+3. 通过远程桌面连接到恢复 VM。 
+4. 如果 OS 磁盘已加密，则必须先关闭加密，然后才能进入下一步。 有关详细信息，请参阅[在无法启动的 VM 中解密加密的 OS 磁盘](troubleshoot-bitlocker-boot-error.md#solution)。
+
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>找到转储文件并提交支持票证
+
+1. 在恢复 VM 上，转到附加的 OS 磁盘中的 Windows 文件夹。 如果分配给附加 OS 磁盘的驱动器号为 F，则需转到 F:\Windows。
+2. 找到 memory.dmp 文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/support/support-azure/)。 
+
+如果找不到转储文件，请转到下一步以启用转储日志和串行控制台。
+
+<!--MOONCAKE: THE Serial Console means that the windows serial console not Azure VM serial console-->
+
+### <a name="enable-dump-log-and-serial-console"></a>启用转储日志和串行控制台
+
+若要启用转储日志和串行控制台，请运行以下脚本。
+
+1. 打开提升的命令提示符会话（以管理员身份运行）。
+2. 运行以下脚本：
+
+    在此脚本中，假定分配给附加 OS 磁盘的驱动器号为 F。将其替换为 VM 中的相应值。
+
+    ```powershell
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+
+    REM Enable Serial Console
+    bcdedit /store F:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store F:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store F:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store F:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    bcdedit /store F:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+    REM Suggested configuration to enable OS Dump
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    reg unload HKLM\BROKENSYSTEM
+    ```
+
+    1. 请确保磁盘上有足够的空间来分配与 RAM 一样多的内存，具体取决于为此 VM 选择的大小。
+    2. 如果没有足够的空间，或者这是大型 VM（G、GS 或 E 系列），则可随后更改创建此文件时所在的位置，将该位置指向任何其他附加到 VM 的数据磁盘。 为此，需更改以下密钥：
+
+            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+
+            REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+            REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+
+            reg unload HKLM\BROKENSYSTEM
+
+3. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](../windows/troubleshoot-recovery-disks-portal.md)。
+4. 启动 VM 并访问串行控制台。
+5. 选择“发送不可屏蔽中断(NMI)”  以触发内存转储。
+    
+    ![有关发送不可屏蔽中断的位置的插图](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+    
+6. 再次将 OS 磁盘附加到恢复 VM，收集转储文件。
 
 ## <a name="contact-azure-support"></a>联系 Azure 支持部门
 
 收集转储文件后，请联系 [Azure 支持部门](https://support.azure.cn/support/support-azure/)来分析根本原因。
 
-## <a name="rebuild-the-vm-by-using-powershell"></a>使用 PowerShell 重新生成 VM
-
-收集内存转储文件后，请按照以下步骤重新生成 VM。
-
-**对于非托管磁盘**
-
-```powershell
-# To log in to Azure Resource Manager
-Login-AzAccount -Environment AzureChinaCloud
-
-# To view all subscriptions for your account
-Get-AzSubscription
-
-# To select a default subscription for your current session
-Get-AzSubscription -SubscriptionID "SubscriptionID" | Select-AzSubscription
-
-$rgname = "RGname"
-$loc = "Location"
-$vmsize = "VmSize"
-$vmname = "VmName"
-$vm = New-AzVMConfig -VMName $vmname -VMSize $vmsize;
-
-$nic = Get-AzNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
-$nicId = $nic.Id;
-
-$vm = Add-AzVMNetworkInterface -VM $vm -Id $nicId;
-
-$osDiskName = "OSdiskName"
-$osDiskVhdUri = "OSdiskURI"
-
-$vm = Set-AzVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
-
-New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
-```
-
-**对于托管磁盘**
-
-```powershell
-# To log in to Azure Resource Manager
-Login-AzAccount -Environment AzureChinaCloud
-
-# To view all subscriptions for your account
-Get-AzSubscription
-
-# To select a default subscription for your current session
-Get-AzSubscription -SubscriptionID "SubscriptionID" | Select-AzSubscription
-
-#Fill in all variables
-$subid = "SubscriptionID"
-$rgName = "ResourceGroupName";
-$loc = "Location";
-$vmSize = "VmSize";
-$vmName = "VmName";
-$nic1Name = "FirstNetworkInterfaceName";
-#$nic2Name = "SecondNetworkInterfaceName";
-$avName = "AvailabilitySetName";
-$osDiskName = "OsDiskName";
-$DataDiskName = "DataDiskName"
-
-#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
-$osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
-$dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
-
-$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize;
-
-#Uncomment to add Availability Set
-#$avSet = Get-AzAvailabilitySet -Name $avName -ResourceGroupName $rgName;
-#$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
-
-#Get NIC Resource Id and add
-$nic1 = Get-AzNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
-$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
-
-#Uncomment to add a secondary NIC
-#$nic2 = Get-AzNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
-#$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic2.Id;
-
-#Windows VM
-$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
-
-#Linux VM
-#$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
-
-#Uncomment to add additional Data Disk
-#Add-AzVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
-
-New-AzVM -ResourceGroupName $rgName -Location $loc -VM $vm;
-```
-
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

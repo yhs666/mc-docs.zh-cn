@@ -17,12 +17,12 @@ ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 072b91ca4947ed8981b4616611811e96cb448c05
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 91c9c9729251e4118cd03ce0a469502aa1643215
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578491"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020023"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Azure Stack 上的应用服务 Update 4 发行说明
 
@@ -160,9 +160,9 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. 将登录名迁移到包含的数据库用户。
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)

@@ -1,45 +1,44 @@
 ---
 title: Azure Analysis Services 服务器别名 | Azure
-description: 介绍如何创建和使用服务器别名。
+description: 了解如何创建 Azure Analysis Services 服务器名称别名。 然后，用户可以使用较短的别名，而不是服务器名称连接到服务器。
 author: rockboyfor
-manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 10/29/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c8af9c068c951fa8da3dc1c8e5f6e53c6e7c0c0
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 4cd1f3a5556c2d471053ee7076ab21cc76749d50
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085670"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203623"
 ---
-# <a name="alias-server-names"></a>服务器别名
+# <a name="alias-server-names"></a>别名服务器名称
 
-有了服务器别名，用户就可以在连接到 Azure Analysis Services 服务器时使用较短的别名来代替服务器名称。 从客户端应用程序进行连接时，可以使用 **link://** 协议格式将别名指定为终结点。 然后，终结点会返回进行连接所需的真实的服务器名称。
+通过使用服务器名称别名，用户可以使用较短的“别名”  而非服务器名称来连接到 Azure Analysis Services 服务器。 从客户端应用程序进行连接时，将使用 **link://** 协议格式将别名指定为终结点。 然后，终结点返回实际的服务器名称以便进行连接。
 
-服务器别名适用于：
+别名服务器名称在下列方面具有优势：
 
-- 在服务器间迁移模型而不影响用户。 
-- 用户更容易记住友好的服务器名称。 
-- 在一天的不同时间将用户定向到不同的服务器。 
-- 将不同区域的用户定向到从地理上来说更近的实例，这与使用 Azure 流量管理器时的情况类似。 
+- 在不影响用户的情况下在服务器之间迁移模型。 
+- 友好的服务器名称更方便用户记忆。 
+- 在一天中的不同时间将用户定向到不同的服务器。 
+- 将不同区域中的用户定向到在地理上更近的实例，就像使用 Azure 流量管理器时一样。 
 
 任何返回有效的 Azure Analysis Services 服务器名称的 HTTPS 终结点都可以充当别名。 终结点必须通过端口 443 支持 HTTPS，且不得在 URI 中指定端口。
 
 ![使用链接格式的别名](media/analysis-services-alias/aas-alias-browser.png)
 
-从客户端进行连接时，服务器别名是使用 **link://** 协议格式输入的。 例如，在 Power BI Desktop 中：
+从客户端进行连接时，将使用 **link://** 协议格式输入别名服务器名称。 例如，在 Power BI Desktop 中：
 
 ![Power BI Desktop 连接](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
 ## <a name="create-an-alias"></a>创建别名
 
-若要创建别名终结点，可以使用任何返回有效的 Azure Analysis Services 服务器名称的方法。 例如，可以引用 Azure Blob 存储中包含真实服务器名称的文件，也可以创建并发布 ASP.NET Web 窗体应用程序。
+若要创建别名终结点，可以使用可返回有效的 Azure Analysis Services 服务器名称的任何方法。 例如，引用 Azure Blob 存储中包含实际服务器名称的一个文件，或者创建并发布一个 ASP.NET Web 窗体应用程序。
 
-此示例的 ASP.NET Web 窗体应用程序在 Visual Studio 中创建。 从 Default.aspx 页中删除了母版页引用和用户控件。 Default.aspx 的内容只是以下 Page 指令：
+在此示例中，ASP.NET Web 窗体应用程序是在 Visual Studio 中创建的。 母版页引用和用户控件已从 Default.aspx 页面中删除。 Default.aspx 的内容只是以下 Page 指令：
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2019
-ms.date: 09/16/2019
+origin.date: 10/08/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: cf30b9522ff85bf7204d9f25e22a569ff9cc093b
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+ms.reviewer: shisab
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: d1743eba1f56b4113851fa73a97b41be9397fbc8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142113"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020270"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>配置 Azure Stack 诊断日志自动收集
 
@@ -101,7 +101,6 @@ ms.locfileid: "73142113"
 >[!NOTE]
 >随时可以禁用和重新启用自动日志收集。 SAS URL 配置不会更改。 如果重新启用自动日志收集，系统会对以前输入的 SAS URL 进行相同的验证检查，已过期的 SAS URL 将被拒绝。 
 
-
 ## <a name="view-log-collection"></a>查看日志集合
 
 以往从 Azure Stack 收集的日志显示在“帮助和支持”中的“日志收集”页上，其中提供了以下日期和时间： 
@@ -117,6 +116,38 @@ ms.locfileid: "73142113"
 操作员还可以在存储帐户中检查自动收集的日志。 例如，以下屏幕截图显示从 Azure 门户使用存储资源管理器预览版收集的日志：
 
 ![显示日志集合的屏幕截图](media/azure-stack-automatic-log-collection/check-storage-account.png)
+
+## <a name="automatic-diagnostic-log-collection-alerts"></a>自动诊断日志收集警报 
+
+如果启用，则仅在必要时才进行自动诊断日志收集。 仅下表中的警报触发收集。 
+
+例如，**更新失败**是触发自动诊断日志收集的警报。 如果启用了自动收集，则会在更新失败时主动捕获诊断日志，以帮助 CSS 排查问题。 仅在引发**更新失败**的警报时才收集诊断日志。 
+
+|警报标题  | FaultIdType|    
+|-------------|------------|
+|无法连接到远程服务 |  UsageBridge.NetworkError|
+|更新失败 |    Urp.UpdateFailure   |          
+|存储资源提供程序基础结构/依赖项不可用 |  StorageResourceProviderDependencyUnavailable     |     
+|节点未连接到控制器|  ServerHostNotConnectedToController   |     
+|路由发布失败 |    SlbMuxRoutePublicationFailure | 
+|存储资源提供程序内部数据存储不可用 |    StorageResourceProvider。 DataStoreConnectionFail     |       
+|存储设备发生故障 | Microsoft.Health.FaultType.VirtualDisks.Detached   |      
+|运行状况控制器无法访问存储帐户 | Microsoft.Health.FaultType.StorageError |    
+|与物理磁盘的连接已丢失 |    Microsoft.Health.FaultType.PhysicalDisk.LostCommunication    |    
+|Blob 服务未在节点上运行 | StorageService.The.blob.service.is.not.running.on.a.node-Critical | 
+|基础结构角色不正常 |    Microsoft.Health.FaultType.GenericExceptionFault |        
+|表服务错误 | StorageService.Table.service.errors-Critical |              
+|文件共享已利用超过 80% |    Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |       
+|缩放单元节点已脱机 | FRP.Heartbeat.PhysicalNode |  
+|基础结构角色实例不可用 | FRP.Heartbeat.InfraVM   |    
+|基础结构角色实例不可用  |    FRP.Heartbeat.NonHaVm     |        
+|基础结构角色“目录管理”报告了时间同步错误 |  DirectoryServiceTimeSynchronizationError |     
+|挂起的外部证书过期 |  CertificateExpiration.ExternalCert.Warning |
+|挂起的外部证书过期 |  CertificateExpiration.ExternalCert.Critical |
+|由于内存容量不足，无法针对特定类别和大小预配虚拟机 |  AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|无法访问节点以供虚拟机放置 |  AzureStack.ComputeController.HostUnresponsive | 
+|备份失败  | AzureStack.BackupController.BackupFailedGeneralFault |    
+|由于与失败的操作发生冲突，已跳过计划的备份  | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |   
 
 
 ## <a name="see-also"></a>另请参阅

@@ -15,12 +15,12 @@ origin.date: 07/25/2019
 ms.date: 08/12/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 9763a94799a606012a25b91e9cbdb7c4a6398dc9
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: ad71c76c93806595fc6e9d667939b2d95b7c589d
+ms.sourcegitcommit: 855ac08e4d9518ea5fd3277b07a1bcdb0b3e46cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806673"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230977"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
 本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。
@@ -161,7 +161,7 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 
 * ASP 定价层费用 - 应用需要属于“标准”、“高级”或“高级 V2”应用服务计划。 可在此处了解这些费用的更多详细信息：[应用服务定价][ASPricing]。 
 * 数据传输费用 - 数据传出会产生费用，即使 VNet 在同一数据中心也是如此。 [数据传输定价详细信息][DataPricing]中对这些费用进行了说明。 
-* VPN 网关费用 - 点到站点 VPN 所需的 VNet 网关会产生费用。 [VPN 网关定价][VNETPricing]页上介绍了详细信息。
+* VPN 网关费用 - 点到站点 VPN 所需的 VPN 网关会产生费用。 [VPN 网关定价][VNETPricing]页上介绍了详细信息。
 
 
 ## <a name="troubleshooting"></a>故障排除
@@ -226,7 +226,7 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 
 ## <a name="powershell-automation"></a>PowerShell 自动化
 
-可以使用 PowerShell 将应用服务与 Azure 虚拟网络进行集成。 有关就绪可运行的脚本，请参阅 [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)（将 Azure 应用服务中的应用连接到 Azure 虚拟网络）。
+可以使用 PowerShell 将应用服务与 Azure 虚拟网络集成。 对于准备好运行的脚本，请参阅[将 Azure 应用服务中的应用连接到 Azure 虚拟网络](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)。
 
 
 <!--Image references-->

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 04/18/2017
-ms.date: 11/26/2018
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5b579420ead026e5014e09a0a7588d1fb48fe5cd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6e0426ae318576f0c0cde8f95578c3d829d667f3
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675239"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116772"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式下的 Azure CLI 命令
 本文提供常用于在 Azure Resource Manager 部署模型中创建和管理 Azure 资源的 Azure 命令行接口 (CLI) 命令的语法和选项。 通过在 Resource Manager (arm) 模式下运行 CLI 可以访问这些命令。 本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。 有关 Azure 资源和资源组的一般概述，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。  
 
 > [!NOTE]
-> 本文介绍了 Azure CLI（有时亦称为“Azure 经典 CLI”）中的资源管理器模式命令。 若要使用 Resource Manager 模型，还可试用下一代多平台 CLI，即 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
-> 了解有关 [旧版和新版 Azure CLI](https://docs.azure.cn/zh-cn/cli/old-and-new-clis?view=azure-cli-latest)的详细信息。
+> 本文介绍了 Azure CLI（有时亦称为“Azure 经典 CLI”）中的资源管理器模式命令。 若要使用 Resource Manager 模型，还可试用下一代多平台 CLI，即 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)。
+>了解有关 [旧版和新版 Azure CLI](https://docs.azure.cn/cli/old-and-new-clis?view=azure-cli-latest)的详细信息。
 >
 
-若要开始，请先[安装 Azure CLI](../cli-install-nodejs.md) 并[连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
+若要开始，请先[安装 Azure CLI](../cli-install-nodejs.md) 并[连接到 Azure 订阅](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
 
 要在 Resource Manager 模式下在命令行中查看当前的命令语法和选项，请键入 `azure help`；要显示某个命令的帮助，请键入 `azure help [command]`。 还可以在创建和管理特定 Azure 服务的说明文档中找到 CLI 示例。
 
@@ -306,7 +306,7 @@ ms.locfileid: "52675239"
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights：与监视 Insights（事件、警报规则、自动缩放设置、度量值）相关的命令
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights：与监视 Insights（事件、警报规则、自动缩放设置、指标）相关的命令
 **检索订阅、correlationId、资源组、资源或资源提供程序的操作日志**
 
     insights logs list [options]
@@ -358,7 +358,7 @@ ms.locfileid: "52675239"
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
      -s, --subscription <subscription>          the subscription identifier
-<BR>
+<br />
 
     network vnet set [options] <resource-group> <name>
 
@@ -406,7 +406,7 @@ ms.locfileid: "52675239"
 
        --no-tags                                  remove all existing tags
        -s, --subscription <subscription>          the subscription identifier
-<BR>
+<br />
 
     network vnet list [options] <resource-group>
 
@@ -432,7 +432,7 @@ ms.locfileid: "52675239"
       -g, --resource-group <resource-group>  the name of the resource group
       -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<br />
 
     network vnet show [options] <resource-group> <name>
 该命令显示资源组中的虚拟网络属性。
@@ -453,7 +453,7 @@ ms.locfileid: "52675239"
     data:    Subnets:
     data:
     info:    network vnet show command OK
-<BR>
+<br />
 
     network vnet delete [options] <resource-group> <name>
 该命令删除虚拟网络。
@@ -509,7 +509,7 @@ ms.locfileid: "52675239"
      -o, --network-security-group-name <network-security-group-name>  the network security group name
      -s, --subscription <subscription>                                the subscription identifier
 
-<BR>
+<br />
 
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
@@ -527,7 +527,7 @@ ms.locfileid: "52675239"
     data:    Provisioning state:        Succeeded
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet set command OK
-<BR>
+<br />
 
     network vnet subnet list [options] <resource-group> <vnet-name>
 
@@ -545,7 +545,7 @@ ms.locfileid: "52675239"
     data:    Provisioning state:        Succeeded
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet set command OK
-<BR>
+<br />
 
     network vnet subnet show [options] <resource-group> <vnet-name> <name>
 显示虚拟网络子网属性
@@ -571,7 +571,7 @@ ms.locfileid: "52675239"
     -e, --vnet-name <vnet-name>            the name of the virtual network
     -n, --name <name>                      the name of the subnet
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+<br />
 
     network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
 从现有虚拟网络中删除子网。
@@ -625,7 +625,7 @@ ms.locfileid: "52675239"
      Can be multiple. In the format of "name=value".
      Name is required and value is optional. For example, -t tag1=value1;tag2
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+<br />
 
     network lb list [options] <resource-group>
 列出资源组中的负载均衡器资源。
@@ -646,7 +646,7 @@ ms.locfileid: "52675239"
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+<br />
 
     network lb show [options] <resource-group> <name>
 
@@ -672,7 +672,7 @@ ms.locfileid: "52675239"
     -n, --name <name>                      the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<br />
 
     network lb delete [options] <resource-group> <name>
 
@@ -724,7 +724,7 @@ ms.locfileid: "52675239"
     -c, --count <count>                    the number of probes
     -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<br />
 
     network lb probe set [options] <resource-group> <lb-name> <name>
 
@@ -752,7 +752,7 @@ ms.locfileid: "52675239"
     -i, --interval <interval>              the new value for probe interval in seconds
     -c, --count <count>                    the new value for number of probes
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+<br />
 
     network lb probe list [options] <resource-group> <lb-name>
 
@@ -814,7 +814,7 @@ ms.locfileid: "52675239"
     data:
     info:    network lb frontend-ip create command OK
 
-<BR>
+<br />
 
     network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
@@ -864,7 +864,7 @@ ms.locfileid: "52675239"
     Please use subnet-id if that is not the case.
     -s, --subscription <subscription>                                  the subscription identifier
 
-<BR>
+<br />
 
     network lb frontend-ip list [options] <resource-group> <lb-name>
 
@@ -887,7 +887,7 @@ ms.locfileid: "52675239"
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+<br />
 
     network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
 删除与负载均衡器关联的前端 IP 对象
@@ -940,7 +940,7 @@ ms.locfileid: "52675239"
     -n, --name <name>                      the name of the backend address pool
     -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<br />
 
     network lb address-pool list [options] <resource-group> <lb-name>
 
@@ -964,7 +964,8 @@ ms.locfileid: "52675239"
      -l, --lb-name <lb-name>                the name of the load balancer
      -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+<br />
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 从负载均衡器中删除后端 IP 池范围资源。
@@ -1018,7 +1019,7 @@ ms.locfileid: "52675239"
     data:
     info:    network lb rule create command OK
 
-<BR>
+<br />
 
     network lb rule set [options] <resource-group> <lb-name> <name>
 
@@ -1153,7 +1154,7 @@ ms.locfileid: "52675239"
     Please use vm-id if that is not the case.
     this parameter will be ignored if --vm-id is specified
     -s, --subscription <subscription>              the subscription identifier
-<BR>
+<br />
 
     network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
 更新现有的入站 NAT 规则。 在以下示例中，我们已将入站侦听端口从 80 更改为 81。
@@ -1195,7 +1196,7 @@ ms.locfileid: "52675239"
     This virtual machine must exist in the same resource group as the lb.
     Please use vm-id if that is not the case
     -s, --subscription <subscription>              the subscription identifier
-<BR>
+<br />
 
     network lb inbound-nat-rule list [options] <resource-group> <lb-name>
 
@@ -1220,7 +1221,7 @@ ms.locfileid: "52675239"
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+<br />
 
     network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
@@ -1284,7 +1285,7 @@ ms.locfileid: "52675239"
     Name is required and value is optional.
     For example, -t tag1=value1;tag2
     -s, --subscription <subscription>            the subscription identifier
-<br>
+<br />
 
     network public-ip set [options] <resource-group> <name>
 更新现有的公共 IP 资源的属性。 在以下示例中，我们已将公共 IP 地址从动态更改为静态。
@@ -1325,8 +1326,10 @@ ms.locfileid: "52675239"
     --no-tags                                    remove all existing tags
     -s, --subscription <subscription>            the subscription identifier
 
-<br>
-    network public-ip list [options] <resource-group> 列出资源组中的所有公共 IP 资源。
+<br />
+
+    network public-ip list [options] <resource-group>
+列出资源组中的所有公共 IP 资源。
 
     azure network public-ip list -g myresourcegroup
 
@@ -1346,7 +1349,9 @@ ms.locfileid: "52675239"
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
-<BR>
+
+<br />
+
     network public-ip show [options] <resource-group> <name>
 
 显示资源组中公共 IP 资源的公共 IP 属性。
@@ -1452,7 +1457,7 @@ ms.locfileid: "52675239"
     data:
     info:    network nic create command OK
 
-<BR>
+<br />
 
     network nic set [options] <resource-group> <name>
 
@@ -1671,7 +1676,7 @@ ms.locfileid: "52675239"
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag：用于管理 Resource Manager 标记的命令
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag：用于管理资源管理器标记的命令
 **添加标记**
 
     tag create [options] <name> <value>
@@ -1775,5 +1780,4 @@ ms.locfileid: "52675239"
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-
-<!-- Update_Description: update meta properties, wording update, update link  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 11/16/2018
-ms.date: 02/18/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3a160fc1ff7501076b61942c57d8512da907fae2
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 3115bc7f489a02656a767e3cb880fe66763de75e
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666027"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116944"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何为 Azure Windows VM 重置网络接口 
 
@@ -35,18 +35,18 @@ ms.locfileid: "56666027"
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>对于部署在资源组模型中的 VM
 
-1.  转到 [Azure 门户](https://portal.azure.cn)。
-2.  选择受影响的虚拟机。
-3.  选择“网络”  ，然后选择 VM 的网络接口。
+1. 转到 [Azure 门户](https://portal.azure.cn)。
+2. 选择受影响的虚拟机。
+3. 选择“网络”  ，然后选择 VM 的网络接口。
 
     ![网络接口位置](./media/reset-network-interface/select-network-interface-vm.png)
 
-4.  选择“IP 配置”  。
-5.  选择 IP。 
-6.  如果“专用 IP 分配”  不是“静态”  ，则将其更改为“静态”  。
-7.  将“IP 地址”  更改为子网中可用的其他 IP 地址。
+4. 选择“IP 配置”  。
+5. 选择 IP。 
+6. 如果“专用 IP 分配”  不是“静态”  ，则将其更改为“静态”  。
+7. 将“IP 地址”  更改为子网中可用的其他 IP 地址。
 8. 虚拟机将重新启动以将新的 NIC 初始化到系统。
-9.  尝试通过 RDP 连接到计算机。 如果成功，可以根据需要将专用 IP 地址更改回原始 IP 地址。 否则，可以保留它。 
+9. 尝试通过 RDP 连接到计算机。  如果成功，可以根据需要将专用 IP 地址更改回原始 IP 地址。 否则，可以保留它。 
 
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
@@ -79,15 +79,15 @@ ms.locfileid: "56666027"
 
 #### <a name="use-azure-portal"></a>使用 Azure 门户
 
-1.  转到 [Azure 门户]( https://portal.azure.cn)。
-2.  选择“虚拟机(经典)”  。
-3.  选择受影响的虚拟机。
-4.  选择“IP 地址”  。
-5.  如果“专用 IP 分配”  不是“静态”  ，则将其更改为“静态”  。
-6.  将“IP 地址”  更改为子网中可用的其他 IP 地址。
-7.  选择**保存**。
-8.  虚拟机将重新启动以将新的 NIC 初始化到系统。
-9.  尝试通过 RDP 连接到计算机。 如果成功，可以选择将专用 IP 地址重新还原为原始 IP 地址。  
+1. 转到 [Azure 门户]( https://portal.azure.cn)。
+2. 选择“虚拟机(经典)”  。
+3. 选择受影响的虚拟机。
+4. 选择“IP 地址”  。
+5. 如果“专用 IP 分配”  不是“静态”  ，则将其更改为“静态”  。
+6. 将“IP 地址”  更改为子网中可用的其他 IP 地址。
+7. 选择**保存**。
+8. 虚拟机将重新启动以将新的 NIC 初始化到系统。
+9. 尝试通过 RDP 连接到计算机。  如果成功，可以选择将专用 IP 地址重新还原为原始 IP 地址。  
 
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
@@ -117,11 +117,11 @@ ms.locfileid: "56666027"
 ## <a name="delete-the-unavailable-nics"></a>删除不可用的 NIC
 通过远程桌面连接到计算机后，必须删除旧的 NIC 以避免出现潜在问题：
 
-1.  打开“设备管理器”。
-2.  选择“视图”   > “显示隐藏的设备”  。
-3.  选择“网络适配器”  。 
-4.  找到名为“Microsoft Hyper-V 网络适配器”的适配器。
-5.  此时可能会看到灰显的不可用适配器。右键单击该适配器，然后选择“卸载”。
+1. 打开“设备管理器”。
+2. 选择“视图”   > “显示隐藏的设备”  。
+3. 选择“网络适配器”  。 
+4. 找到名为“Microsoft Hyper-V 网络适配器”的适配器。
+5. 此时可能会看到灰显的不可用适配器。右键单击该适配器，然后选择“卸载”。
 
     ![NIC 图像](media/reset-network-interface/nicpage.png)
 
@@ -130,6 +130,6 @@ ms.locfileid: "56666027"
     >
     >
 
-6.  现在，所有不可用的适配器应该都已从系统中清除。
+6. 现在，所有不可用的适配器应该都已从系统中清除。
 
 <!-- Update_Description: wording update, update link -->

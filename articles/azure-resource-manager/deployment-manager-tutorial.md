@@ -14,13 +14,14 @@ origin.date: 03/05/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: dc8dd9179f57df643c62fde97b6b18b240b1b696
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: 1c12b81834d906947a55767d4b787d34ad203920
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276458"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203653"
 ---
+<!--MOONCAKE: DO NOT RELEASE TO AZURE CHINA CLOUD DUE TO MISSING RESOURCE PROVIDER OF Microsoft.DeploymentManager-->
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教程：将 Azure 部署管理器与资源管理器模板配合使用（个人预览版）
 
 了解如何使用 Azure 部署管理器跨多个区域部署应用程序。 若要使用部署管理器，需要创建两个模板：
@@ -67,7 +68,7 @@ ms.locfileid: "67276458"
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
     ```
 
-* [Azure 存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)。 Azure 存储资源管理器不是必需的，但可以简化操作。
+* [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。 Azure 存储资源管理器不是必需的，但可以简化操作。
 
 ## <a name="understand-the-scenario"></a>了解方案
 
@@ -342,7 +343,7 @@ variables 节定义资源的名称。 请确保服务拓扑名称、服务名称
         -Verbose
     ```
 
-    在运行此 cmdlet 之前，必须先安装部署管理器 PowerShell cmdlet。 请参阅“先决条件”。 可以使用 -Verbose 开关来查看整个输出。
+    在运行此 cmdlet 之前，必须先安装部署管理器 PowerShell cmdlet。 请参阅“先决条件”。 -Verbose 开关可用于查看整个输出。
 
     以下示例显示正在运行状态：
 

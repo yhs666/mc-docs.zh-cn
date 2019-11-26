@@ -13,16 +13,16 @@ ms.workload: na
 origin.date: 12/06/2018
 ms.date: 09/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 0a4c6944099af230b2844369c5c5536276e879fb
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: b1cfd55d291d8f2b9e09a10176f26a138f0cdf80
+ms.sourcegitcommit: 855ac08e4d9518ea5fd3277b07a1bcdb0b3e46cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872932"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230976"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>事件中心消息传送异常 - .NET
 
-本文列出了 Azure 服务总线消息传送 .NET API 库生成的一些 .NET 异常，其中包括 .NET Framework 事件中心 API。 此参考信息随时更改，请不时返回查看更新内容。
+本文列出了 Azure 服务总线消息传送 .NET API 库生成的一些 .NET 异常，其中包括 .NET Framework 事件中心 API。 这些参考信息可随时更改，请不时返回查看更新内容。
 
 ## <a name="exception-categories"></a>异常类别
 
@@ -40,8 +40,8 @@ ms.locfileid: "72872932"
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
 | [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |服务器在 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings?view=azure-dotnet#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 控制的指定时间内未响应请求的操作。 服务器可能已完成请求的操作。 此异常可能是由于网络或其他基础结构延迟造成的。 |检查系统状态的一致性，并根据需要重试。<br /> 请参阅 [TimeoutException](#timeoutexception)。 | 在某些情况下，重试可能会有帮助；在代码中添加重试逻辑。 |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |不允许在服务器或服务中执行请求的用户操作。 有关详细信息，请查看异常消息。 例如，如果在 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode?view=azure-dotnet) 模式下收到消息，则 [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) 将生成此异常。 | 检查代码和文档。 确保请求的操作有效。 | 重试不会解决问题。 |
-| [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | 尝试对已关闭、中止或释放的对象调用某个操作。 在极少数情况下，环境事务已释放。 | 检查代码并确保代码不会对已释放的对象调用操作。 | 重试不会解决问题。 |
-| [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider?view=azure-dotnet) 对象无法获取令牌、该令牌无效，或者令牌不包含执行操作所需的声明。 | 确保使用正确的值创建令牌提供程序。 检查访问控制服务的配置。 | 在某些情况下，重试可能会有帮助；在代码中添加重试逻辑。 |
+| [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | 尝试对已关闭、中止或释放的对象调用某个操作。 在极少数的情况下，已释放环境事务。 | 检查代码并确保代码不会对已释放的对象调用操作。 | 重试不会解决问题。 |
+| [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider?view=azure-dotnet) 对象无法获取令牌，该令牌无效，或者令牌不包含执行操作所需的声明。 | 确保使用正确的值创建令牌提供程序。 检查访问控制服务的配置。 | 在某些情况下，重试可能会有帮助；在代码中添加重试逻辑。 |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | 提供给该方法的一个或多个参数均无效。 提供给 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) 或 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory?view=azure-dotnet#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) 的 URI 包含路径段。 提供给 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) 或 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory?view=azure-dotnet#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) 的 URI 方案无效。 属性值大于 32 KB。 | 检查调用代码并确保参数正确。 | 重试不会解决问题。 |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception?view=azure-dotnet) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception?view=azure-dotnet) | 与操作关联的实体不存在或已被删除。 | 确保该实体存在。 | 重试不会解决问题。 |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception?view=azure-dotnet) | 客户端无法与事件中心建立连接。 |确保提供的主机名正确并且主机可访问。 | 如果存在间歇性的连接问题，重试可能会有帮助。 |
@@ -69,15 +69,15 @@ ms.locfileid: "72872932"
 此错误有两个常见的原因：配置不正确或暂时性服务错误。
 
 1. **配置不正确** ：运行条件下的操作超时值可能太小。 客户端 SDK 的操作超时默认值为 60 秒。 请查看代码是否将该值设置得过小。 请注意，网络和 CPU 使用率的状况会影响完成特定操作所用的时间，因此，操作超时不应设置为很小的值。
-2. **暂时性服务错误** ：有时，事件中心服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://www.azure.cn/support/service-dashboard/)，看是否有任何已知的服务中断。
+2. **暂时性服务错误**有时，事件中心服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://status.azure.com/status/)，看是否有任何已知的服务中断。
 
 ## <a name="serverbusyexception"></a>ServerBusyException
 
-[Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception?view=azure-dotnet) 或 [Microsoft.Azure.EventHubs.ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception?view=azure-dotnet) 指示服务器已重载。 此异常有两个相关的错误代码。
+[Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception?view=azure-dotnet) 或 [Microsoft.Azure.EventHubs.ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception?view=azure-dotnet) 指示服务器已过载。 此异常有两个相关的错误代码。
 
 ### <a name="error-code-50002"></a>错误代码 50002
 
-导致此错误发生的原因可能是以下之一：
+此错误发生的原因可能是以下之一：
 
 1. 负载未均匀分布在事件中心的所有分区上，并且一个分区达到了本地吞吐量单位限制。
 

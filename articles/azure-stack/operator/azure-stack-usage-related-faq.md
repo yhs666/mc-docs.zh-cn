@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/31/2019
-ms.date: 07/29/2019
+origin.date: 09/25/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 4883a4131fbe7471d68d71388b199034d68e74df
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: fa56e1b9ff463561f416d3ec1056e756ab7859e3
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513372"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020072"
 ---
-# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
+# <a name="frequently-asked-questions-about-azure-stack-usage"></a>有关 Azure Stack 使用情况的常见问题解答
 
-本文解答有关 Azure Stack 用量 API 的一些常见问题。
+本文解答有关 Azure Stack 使用情况和 Azure Stack 使用情况 API 的一些常见问题。
 
 ## <a name="what-meter-ids-can-i-see"></a>可以查看哪些计量 ID？
 
@@ -323,7 +323,7 @@ ms.locfileid: "68513372"
 **计量 ID**：190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **计量名称**：应用服务  
 **单元**：虚拟核心小时数  
-**注释**：用于运行应用服务的虚拟核心数。 注意：Azure 使用此计量对基于 Azure Stack 的应用服务收费。 云服务提供商可能使用其他应用服务计量（见下）来计算其租户的用量。  
+**注释**：用于运行应用服务的虚拟核心数。 注意：Azure 使用此计量对基于 Azure Stack 的应用服务收费。 云解决方案提供商可能使用其他应用服务计量（如下所示）来计算其租户的使用情况。  
   
 **计量 ID**：67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **计量名称**：Functions 请求  
@@ -414,6 +414,16 @@ ms.locfileid: "68513372"
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM 收费政策是什么？
 
 正在运行的和已停止的 VM 会生成使用情况数据。 与 Azure 一致的是，必须解除分配才能停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，则会发出使用情况数据。
+
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>如何通过 Azure Stack 使用情况 API 提取使用情况数据？
+
+若要在 Azure Stack 上通过本地使用情况 API 提取使用情况数据，最简单的方法是使用 [GitHub 上的使用情况摘要脚本](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)。 该脚本需要将开始日期和结束日期作为输入参数。
+
+或者，可以使用 REST API，如[提供程序资源使用情况 API](azure-stack-provider-resource-api.md) 和[租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md) 文章中所述。
+
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>如何将通过 Azure 使用情况 API 提取的使用情况与特定的 Azure Stack 用户订阅相关联？
+
+使用情况记录包括名为 **additionalinfo** 的属性包，其中包括 Azure Stack 订阅 ID。 此订阅是发出相应使用情况记录的用户订阅。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,8 +6,8 @@
       href: ../functions-overview.md
     - name: 关于 Durable Functions
       href: durable-functions-overview.md
-    - name: 预览功能
-      href: durable-functions-preview.md
+    - name: Durable Functions 版本
+      href: durable-functions-versions.md
 - name: 快速入门
   expanded: true
   items:
@@ -23,6 +23,8 @@
       href: durable-functions-sequence.md
     - name: 扇入/扇出
       href: durable-functions-cloud-backup.md
+    - name: 发布到事件网格
+      href: durable-functions-event-publishing.md
 - name: 示例
   items:
     - name: 代码示例
@@ -73,8 +75,8 @@
       href: durable-functions-bindings.md
     - name: HTTP API
       href: durable-functions-http-api.md
-    - name: Durable 扩展 API
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet-preview'
+    - name: .NET API
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet'
 - name: 操作指南
   items:
     - name: 开发
@@ -113,7 +115,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
-    - name: Stack Overflow
+    - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/azure-functions'
     - name: 提供产品反馈
       href: 'https://feedback.azure.com/forums/355860-azure-functions'

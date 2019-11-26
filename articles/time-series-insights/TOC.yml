@@ -135,10 +135,10 @@
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 上市区域
-      href: 'https://www.azure.cn/support/service-dashboard/'
+      href: 'https://status.azure.com/status'
     - name: MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
-    - name: Stack Overflow
+    - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: 支持选项
       href: 'https://support.azure.cn/zh-cn/support/contact'

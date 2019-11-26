@@ -13,21 +13,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/29/2018
-ms.date: 08/05/2019
+ms.date: 11/13/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 265abb655acb6754f712273b3f3bb361679435ce
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 0290b82ddcb04409685534f04ca01fbd05b4cee0
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818683"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084559"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>在 Azure 门户中查看托管标识的服务主体
 
 Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供了一个自动托管标识。 此标识可用于通过支持 Azure AD 身份验证的任何服务的身份验证，这样就无需在代码中插入凭据了。 
 
 本文将介绍如何在 Azure 门户中查看托管标识的服务主体。
+
+ > [!NOTE] 
+ > 服务主体是企业应用程序。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -50,3 +53,4 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 [Azure 资源的托管标识](/active-directory/managed-identities-azure-resources/overview)
 
 
+<!-- Update_Description: wording update -->

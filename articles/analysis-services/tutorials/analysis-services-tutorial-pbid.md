@@ -1,23 +1,21 @@
 ---
-title: 教程 - 使用 Power BI Desktop 连接到 Azure Analysis Services | Azure
+title: 教程 - 使用 Power BI Desktop 连接 Azure Analysis Services | Azure
 author: rockboyfor
-manager: digimobile
-description: 了解如何使用 Power BI Desktop 连接到 Azure Analysis Services。
+description: 了解如何从 Azure 门户获取 Analysis Services 服务器名称，然后使用 Power BI Desktop 连接到服务器。
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 04/25/2019
-ms.date: 08/26/2019
+origin.date: 10/30/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 0ff0e15b1ba7c14d34558fa44fda9a0c8d031f9d
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.openlocfilehash: df569cee4a843a1a06cee97b5dd0c13b035759e6
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500708"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203618"
 ---
 <!--Notice: Verify sucessfully-->
-
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接
 
 在本教程中，你使用 Power BI Desktop 连接到服务器上的 adventureworks 示例模型数据库。 你完成的任务将模拟到模型的典型用户连接和基于模型数据创建基本报表。
@@ -61,7 +59,7 @@ ms.locfileid: "70500708"
 
 3. 在系统提示时输入凭据。 你输入的帐户必须至少具有 adventureworks 示例模型数据库的读取权限。
 
-    adventureworks 模型将在 Power BI Desktop 中打开，并且“报表”视图中将显示一个空白报表。 “字段”列表中会显示所有非隐藏的模型对象。  连接状态将显示在右下角。
+    adventureworks 模型将在 Power BI Desktop 中打开，并且“报表”视图中将显示一个空白报表。 “字段”列表中会显示所有非隐藏的模型对象。  连接状态显示在右下角。
 
 4. 在“可视化效果”  中，选择“簇状条形图”  ，单击“格式”  （滚漆筒图标），然后启用“数据标签”。  
 
@@ -80,4 +78,4 @@ ms.locfileid: "70500708"
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已了解了如何使用 Power BI Desktop 连接到服务器上的数据模型并创建基本报表。 如果不熟悉如何创建数据模型，请参阅 SQL Server Analysis Services 文档中的 [Adventure Works Internet Sales 表格数据建模教程](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

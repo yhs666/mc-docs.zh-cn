@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 04/01/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 01f8202e6825e22f3cadada0768a65333e3b5a80
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 66e4ba3a37fe6ae2604b3808769b287cefd93de9
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003947"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116949"
 ---
 <!-- Verify part successfully-->
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>在 Azure VM 中禁用来宾 OS 防火墙
@@ -35,13 +35,9 @@ ms.locfileid: "59003947"
 
 如果该 VM 处于联机状态且可以在同一虚拟网络中的另一个 VM 上对其进行访问，则可以使用另一个 VM 执行以下缓解措施。
 
-#### <a name="mitigation-1-custom-script-extension-feature"></a>缓解措施 1：自定义脚本扩展功能
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>缓解措施 1：自定义脚本扩展或运行命令功能
 
-<!-- Not Available on Run Command feature-->
-
-如果有正在工作的 Azure 代理，则可以使用[自定义脚本扩展](../extensions/custom-script-windows.md)来远程运行以下脚本。
-
-<!-- Not Available on [Run Commands](../windows/run-command.md)-->
+如果有正在运行的 Azure 代理，则可以使用[自定义脚本扩展](../extensions/custom-script-windows.md)或[运行命令](../windows/run-command.md)功能（仅限资源管理器 VM）来远程运行以下脚本。
 
 > [!Note]
 > * 如果在本地设置防火墙，请运行以下脚本：
@@ -64,11 +60,11 @@ ms.locfileid: "59003947"
 
 #### <a name="mitigation-2-pstools-commands"></a>缓解措施 2：PSTools 命令
 
-1.  在故障排除 VM 上，下载 [PSTools](https://docs.microsoft.com/zh-cn/sysinternals/downloads/pstools)。
+1. 在故障排除 VM 上，下载 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)。
 
-2.  打开 CMD 实例，然后通过其 DIP 访问 VM。
+2. 打开 CMD 实例，然后通过其 DIP 访问 VM。
 
-3.  运行以下命令：
+3. 运行以下命令：
 
     ```cmd
     psexec \\<DIP> -u <username> cmd
@@ -80,9 +76,9 @@ ms.locfileid: "59003947"
 
 按以下步骤来使用[远程注册表](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1.  在故障排除 VM 上，启动注册表编辑器，然后转到“文件” > “连接网络注册表”。
+1. 在故障排除 VM 上，启动注册表编辑器，然后转到“文件” > “连接网络注册表”   。
 
-2.  打开  *TARGET MACHINE*\SYSTEM 分支，指定以下值：
+2. 打开 TARGET MACHINE  \SYSTEM 分支，指定以下值：
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -90,41 +86,41 @@ ms.locfileid: "59003947"
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  重启服务。 由于无法使用远程注册表执行此操作，因此必须使用“删除服务控制台”。
+3. 重启服务。 由于无法使用远程注册表执行此操作，因此必须使用“删除服务控制台”。
 
-4.  打开  **Services.msc** 的实例。
+4. 打开 **Services.msc** 的实例。
 
-5.  单击“服务(本地)”。
+5. 单击“服务(本地)”  。
 
-6.  选择“连接到另一台计算机”。
+6. 选择“连接到另一台计算机”。 
 
-7.  输入问题 VM 的 **专用 IP 地址 (DIP)** 。
+7. 输入问题 VM 的**专用 IP 地址 (DIP)** 。
 
-8.  重启本地防火墙策略。
+8. 重启本地防火墙策略。
 
-9.  尝试从本地计算机再次通过 RDP 连接到该 VM。
+9. 尝试从本地计算机再次通过 RDP 连接到该 VM。
 
 ### <a name="offline-solutions"></a>脱机解决方案 
 
 如果遇到无法通过任何方法访问该 VM 的情况，则自定义脚本扩展将失败，你必须直接通过系统磁盘在脱机模式下工作。 为此，请执行以下步骤：
 
-1.  [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
+1. [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
-2.  开始与恢复 VM 建立远程桌面连接。
+2. 开始与恢复 VM 建立远程桌面连接。
 
-3.  确保磁盘在磁盘管理控制台中标记为“联机”。 请留意分配给附加系统磁盘的驱动器号。
+3. 确保磁盘在磁盘管理控制台中标记为“联机”。 请留意分配给附加系统磁盘的驱动器号。
 
-4.  在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回滚更改。
+4. 在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回滚更改。
 
-5.  在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。 
+5. 在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。 
 
-6.  对于此故障排除过程，我们将配置单元装载为 BROKENSYSTEM 和 BROKENSOFTWARE。
+6. 对于此故障排除过程，我们将配置单元装载为 BROKENSYSTEM 和 BROKENSOFTWARE。
 
-7.  突出显示 HKEY_LOCAL_MACHINE 项，然后从菜单中选择“文件”>“加载配置单元”。
+7. 突出显示 HKEY_LOCAL_MACHINE 项，然后从菜单中选择“文件”>“加载配置单元”。
 
-8.  在附加的系统磁盘上找到 \windows\system32\config\SYSTEM 文件。
+8. 在附加的系统磁盘上找到 \windows\system32\config\SYSTEM 文件。
 
-9.  打开提升的 PowerShell 实例，然后运行以下命令：
+9. 打开提升的 PowerShell 实例，然后运行以下命令：
 
     ```cmd
     # Load the hives - If your attached disk is not F, replace the letter assignment here

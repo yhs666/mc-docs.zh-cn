@@ -1,0 +1,129 @@
+### YamlMime:Hub
+title: Azure Stack 文档
+summary: Azure Stack 是将 Azure 扩展到数据中心或边缘的产品和解决方案系列。 包括 Azure Stack Hub、Azure Stack HCI 和 Azure Stack Edge。
+brand: azure
+metadata:
+  title: Azure Stack 文档
+  description: Azure Stack 是将 Azure 扩展到数据中心或边缘的产品和解决方案系列。 包括 Azure Stack Hub、Azure Stack HCI 和 Azure Stack Edge。
+  ms.service: azure-stack
+  ms.topic: hub-page
+  author: WenJason
+  ms.author: v-jay
+  origin.date: 11/04/2019
+  ms.date: 11/18/2019
+  ms.openlocfilehash: 869a8b192da4e69de820ae67874bc5d23e7984ac
+  ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74020331"
+highlightedContent:
+  items:
+  - title: Azure Stack 系列公告
+    itemType: overview
+    url: http://aka.ms/AzsFamAnnounce
+  - title: 比较 Azure Stack 系列的产品和解决方案
+    itemType: overview
+    url: /azure-stack/operator/compare-azure-azure-stack
+productDirectory:
+  items:
+  - title: Azure Stack Hub
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-overview
+      text: 什么是 Azure Stack Hub？
+  - title: Azure Stack HCI
+    imageSrc: media/index/azure-stack-hci.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-hci-overview
+      text: Azure Stack HCI 概述
+conceptualContent:
+  title: 混合模式和解决方案示例
+  summary: 使用模式和解决方案示例，指导你完成跨 Azure 和 Azure Stack 的混合解决方案开发。
+  items:
+  - title: 了解混合
+    links:
+    - url: /azure-stack/hybrid/overview-patterns-solution-examples
+      itemType: overview
+      text: 什么是模式和解决方案示例？
+    - url: /azure-stack/hybrid/overview-app-design-considerations
+      itemType: concept
+      text: 混合应用设计注意事项
+  - title: 探索混合模式
+    links:
+    - url: /azure-stack/hybrid/pattern-cross-cloud-scale
+      itemType: architecture
+      text: 跨云缩放
+    - url: /azure-stack/hybrid/pattern-cicd-pipeline
+      itemType: architecture
+      text: DevOps 混合 CI/CD
+    - url: /azure-stack/hybrid/pattern-geo-distributed
+      itemType: architecture
+      text: 地理分散的应用
+  - title: 部署混合解决方案示例
+    links:
+    - url: /azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling
+      itemType: tutorial
+      text: 跨云缩放
+    - url: https://aka.ms/hybriddevopsdeploy
+      itemType: tutorial
+      text: DevOps 混合 CI/CD
+    - url: /azure-stack/hybrid/solution-deployment-guide-geo-distributed
+      itemType: tutorial
+      text: 地理分散的应用
+additionalContent:
+  sections:
+  - title: Azure Stack Hub
+    items:
+    - title: 运算符
+      links:
+      - url: /azure-stack/operator/azure-stack-manage-portals
+        text: 使用管理员门户
+      - url: /azure-stack/operator/release-notes
+        text: 发行说明
+      - url: /azure-stack/operator/azure-stack-servicing-policy
+        text: Azure Stack Hub 服务策略
+      - url: /azure-stack/operator/azure-stack-create-service-principals
+        text: 使用应用标识访问资源
+    - title: User
+      links:
+      - url: /azure-stack/user/azure-stack-quick-windows-portal
+        text: 部署 VM
+      - url: /azure-stack/user/azure-stack-vm-sizes
+        text: 支持的 VM 大小
+      - url: /azure-stack/user/azure-stack-considerations
+        text: 构建应用的重要注意事项
+      - url: /azure-stack/user/azure-stack-key-vault-manage-portal
+        text: 创建和管理密钥保管库
+    - title: Azure Stack Hub 开发工具包 (ASDK)
+      links:
+      - url: /azure-stack/asdk/asdk-deploy-considerations
+        text: ASDK 要求和注意事项
+      - url: /azure-stack/asdk/asdk-download
+        text: 下载并提取 ASDK
+      - url: /azure-stack/asdk/asdk-prepare-host
+        text: 准备 ASDK 主机
+  - title: Azure Stack HCI
+    items:
+    - title: 解决方案
+      links:
+      - url: https://azure.microsoft.com/overview/azure-stack/hci/
+        text: Azure Stack HCI 解决方案概述
+      - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+        text: Azure Stack HCI 目录
+    - title: 管理
+      links:
+      - url: https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center
+        text: Windows 管理中心
+      - url: https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure
+        text: Azure 混合服务
+    - title: 基础技术
+      links:
+      - url: https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+        text: Hyper-V
+      - url: https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+        text: 存储空间直通
+      - url: https://docs.microsoft.com/windows-server/networking/sdn
+        text: 软件定义的网络
+      - url: https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview
+        text: 故障转移群集

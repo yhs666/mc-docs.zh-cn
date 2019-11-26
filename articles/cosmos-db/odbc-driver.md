@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 10/02/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: c9b046d22369bde57722c950d90bca278a9995f4
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 20b82f98c415837193b7387939db1ed6bc02b458
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914428"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73934256"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -65,7 +65,9 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
     - **说明**：数据源的简短说明。
     - **主机**：Azure Cosmos DB 帐户的 URI。 可在 Azure 门户的“Azure Cosmos DB 密钥”页中检索此信息，如以下屏幕截图所示。 
     - **访问密钥**：从 Azure 门户中“Azure Cosmos DB 密钥”页获取的主要或辅助读写或只读密钥，如以下屏幕截图所示。 如果 DSN 用于只读数据的处理和报告，我们建议使用只读密钥。
+        
         ![“Azure Cosmos DB 密钥”页](./media/odbc-driver/odbc-cosmos-account-keys.png)
+        
     - **加密以下对象的访问密钥**：根据此计算机的用户选择最合适的选项。 
 
 1. 单击“测试”按钮，确保可以连接到 Azure Cosmos DB 帐户。  
@@ -80,7 +82,9 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
         - 通过右键单击添加新的**字符串**值：
             - 值名称：**IgnoreSessionToken**
             - 值数据：**1**
+
             ![注册表编辑器设置](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+            
     - **查询一致性**：选择操作的[一致性级别](consistency-levels.md)。 默认值为“会话”。
     - **重试次数**：输入当初始请求因服务速率限制而未能完成时，重试操作的次数。
     - **架构文件**：此处有多个选项供你选择。

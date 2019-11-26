@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 07/15/2019
-ms.openlocfilehash: 521d8a767a94cd96ee711336759ca15c37ada487
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 2ebf96942cb8f7113af4f6df906f8095171de627
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569713"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179014"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "67569713"
     using System.Threading;
     ```
 
-6. 在 Program.cs 中，将占位符值替换为以下静态变量。 在本教程前面的介绍中，已记下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。 资源组名称  是创建 IoT 中心时要使用的资源组名称。 可以使用现有的资源组或新资源组。 “IoT 中心名称”  是你创建的 IoT 中心的名称，例如“MyIoTHub”  。 IoT 中心的名称必须全局唯一。 **部署名称**是部署的名称，例如 **Deployment_01**。
+6. 在 Program.cs 中，将占位符值替换为以下静态变量。 在本教程前面的介绍中，已记下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。 资源组名称  是创建 IoT 中心时要使用的资源组名称。 可以使用现有的资源组或新资源组。 “IoT 中心名称”  是你创建的 IoT 中心的名称，例如“MyIoTHub”  。 IoT 中心的名称必须是全局唯一的。 **部署名称**是部署的名称，例如 **Deployment_01**。
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -75,7 +75,7 @@ ms.locfileid: "67569713"
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>使用资源提供程序 REST API 创建 IoT 中心
-在资源组中使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建 IoT 中心。 还可使用资源提供程序 REST API 更改现有的 IoT 中心。
+在资源组中使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建 IoT 中心。 还可以使用资源提供程序 REST API 更改现有的 IoT 中心。
 
 1. 将以下方法添加到 Program.cs：
 
@@ -85,13 +85,13 @@ ms.locfileid: "67569713"
 
     }
     ```
-2. 将以下代码添加到 **CreateIoTHub** 方法。 该代码创建一个 **HttpClient** 对象，在标头中使用身份验证令牌：
+2. 将以下代码添加到 **CreateIoTHub** 方法中。 该代码使用标头中的身份验证令牌创建 **HttpClient** 对象：
 
     ```csharp
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
-3. 将以下代码添加到 **CreateIoTHub** 方法。 此代码描述要创建的 IoT 中心，并生成 JSON 表示形式。 有关支持 IoT 中心的位置的最新列表，请参阅 [Azure 状态][lnk-status]：
+3. 将以下代码添加到 **CreateIoTHub** 方法中。 此代码描述要创建的 IoT 中心，并生成 JSON 表示形式。 有关支持 IoT 中心的位置的最新列表，请参阅 [Azure 状态][lnk-status]：
 
     ```csharp
     var description = new
@@ -109,7 +109,7 @@ ms.locfileid: "67569713"
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
 
-4. 将以下代码添加到 **CreateIoTHub** 方法。 使用此代码将 REST 请求提交到 Azure。 然后该代码会检查响应，并检索可用于监视部署任务状态的 URL：
+4. 将以下代码添加到 **CreateIoTHub** 方法中。 使用此代码将 REST 请求提交到 Azure。 然后该代码会检查响应，并检索可用于监视部署任务状态的 URL：
 
     ```csharp
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -124,7 +124,7 @@ ms.locfileid: "67569713"
 
     var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
-5. 将以下代码添加到 **CreateIoTHub** 方法的末尾。 该代码使用在上一步检索的 **asyncStatusUri** 地址等待部署完成：
+5. 将以下代码添加到 **CreateIoTHub** 方法的末尾。 该代码使用上一个步骤中检索的 **asyncStatusUri** 地址来等待部署完成：
 
     ```csharp
     string body;
@@ -145,7 +145,7 @@ ms.locfileid: "67569713"
     ```
 
 ## <a name="complete-and-run-the-application"></a>完成并运行应用程序
-现在，可以调用 **CreateIoTHub** 方法来完成应用程序，并生成并运行该应用程序。
+现在，可以调用 CreateIoTHub  方法来完成应用程序，然后生成并运行该应用程序。
 
 1. 将以下代码添加到 **Main** 方法末尾：
 
@@ -159,12 +159,12 @@ ms.locfileid: "67569713"
 4. 若要验证应用程序是否添加了新的 IoT 中心，请访问 [Azure 门户][lnk-azure-portal]并查看资源列表。 另外，也可以使用 **Get-AzResource** PowerShell cmdlet。
 
 > [!NOTE]
-> 本示例应用程序会添加用于对你计费的 S1 标准 IoT 中心。 在完成任务后，可以通过 [Azure 门户][lnk-azure-portal]或者使用 **Remove-AzResource** PowerShell cmdlet 删除该 IoT 中心。
+> 本示例应用程序将添加用于对你计费的 S1 标准 IoT 中心。 在完成任务后，可以通过 [Azure 门户][lnk-azure-portal]或者使用 **Remove-AzResource** PowerShell cmdlet 删除该 IoT 中心。
 > 
 > 
 
 ## <a name="next-steps"></a>后续步骤
-现已使用资源提供程序 REST API 部署了 IoT 中心，接下来可更进一步探索：
+现在，已使用资源提供程序 REST API 部署了一个 IoT 中心，接下来可以进一步进行探索：
 
 * 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
 * 若要详细了解 Azure 资源管理器功能，请阅读 [Azure 资源管理器概述][lnk-azure-rm-overview]。
@@ -181,7 +181,7 @@ ms.locfileid: "67569713"
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
-[lnk-status]: https://www.azure.cn/support/service-dashboard/
+[lnk-status]: https://status.azure.com/status
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md

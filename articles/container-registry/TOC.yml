@@ -73,7 +73,7 @@
           href: container-registry-helm-repos.md
     - name: 安全性和身份验证
       items:
-        - name: 身份验证
+        - name: Authentication
           items:
             - name: 身份验证概述
               href: container-registry-authentication.md
@@ -133,7 +133,7 @@
 - name: 资源
   items:
     - name: 上市区域
-      href: 'https://www.azure.cn/support/service-dashboard/'
+      href: 'https://status.azure.com/status/'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/container-registry/'
     - name: 提供产品反馈

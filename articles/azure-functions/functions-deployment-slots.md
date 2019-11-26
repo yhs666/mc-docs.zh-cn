@@ -1,23 +1,20 @@
 ---
 title: Azure Functions 部署槽
 description: 了解如何在 Azure Functions 中创建和使用部署槽
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: azure functions, functions
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 origin.date: 08/12/2019
-ms.date: 09/05/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: eab9fef840f3d2255bd11376d018680087f2a53d
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 205982b77636bcd00649b3a8aa5d946d6f7491c1
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70805822"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178969"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 部署槽
 
@@ -29,7 +26,7 @@ Azure Functions 部署槽使函数应用能够运行不同的实例（称作“�
 - 如果交换期间某个函数正在运行，则执行将会继续，后续触发器将路由到交换的应用实例。
 
 > [!NOTE]
-> 槽不适用于 Linux 消耗计划。
+> 槽目前不适用于 Linux 消耗计划。
 
 ## <a name="why-use-slots"></a>为何要使用槽？
 
@@ -53,7 +50,7 @@ Azure Functions 部署槽使函数应用能够运行不同的实例（称作“�
 
 1. **重复操作：** 源槽包含先前位于目标槽中的预交换应用后，通过应用所有设置并重启源槽的实例来执行相同的操作。
 
-请记住以下几点：
+请注意以下几点：
 
 - 在执行交换操作期间的任何时候，已交换应用的初始化将在源槽上发生。 准备源槽时，无论交换是成功还是失败，目标槽都会保持联机。
 
@@ -78,7 +75,7 @@ Azure Functions 部署槽使函数应用能够运行不同的实例（称作“�
 - 在“平台功能”>“常规设置”下，单击“配置”  
 - 单击要粘滞到当前槽的设置名称
 - 单击“部署槽设置”复选框 
-- 单击“确定” 
+- 单击 **“确定”**
 - 设置边栏选项卡消失后，单击“保存”以保留更改 
 
 ![部署槽设置](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
@@ -160,7 +157,7 @@ Azure Functions 部署槽使函数应用能够运行不同的实例（称作“�
 
 1. 选择一个新的应用服务计划或创建新计划
 
-1. 单击“确定” 
+1. 单击 **“确定”**
 
     ![更改应用服务计划](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
@@ -183,13 +180,12 @@ Azure Functions 部署槽存在以下限制：
 | OS/托管计划           | 支持级别     |
 | ------------------------- | -------------------- |
 | Windows 消耗计划       | 正式版 |
-| Windows 高级计划（预览版） | 预览              |
 | Windows 专用计划         | 正式版 |
 | Linux 消耗计划         | 不支持          |
-| Linux 高级计划（预览版）   | 预览              |
 | Linux 专用计划           | 正式版 |
 
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Functions 中的部署技术](./functions-deployment-technologies.md)
 
+<!-- Update_Description: wording update -->

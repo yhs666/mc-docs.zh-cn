@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中委托套餐 | Microsoft Docs
-description: 了解如何委托他人来管理创建套餐以及为你注册用户的事情。
+description: 了解如何委托任务（例如创建套餐和注册用户）。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/12/2019
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3d862edd4c1012e10d1d0b4189ff41c7fa39d3ca
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 4119e0fdc4e26e17747ecef6143407d925205df8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857048"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020253"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委托套餐
 
@@ -31,7 +31,7 @@ ms.locfileid: "70857048"
 
 委托比你自己进行更容易联系和管理更多的用户，如下图所示：
 
-![委托级别](media/azure-stack-delegated-provider/image1.png)
+![Azure Stack 中的委托级别](media/azure-stack-delegated-provider/image1.png)
 
 借助委托，委托的提供商可以管理套餐（称为“委托套餐”  ），最终客户可获取该套餐中的订阅，而无需系统管理员介入。
 
@@ -55,7 +55,7 @@ ms.locfileid: "70857048"
 
 下图显示设置委托的步骤：
 
-![创建委托的提供商，并允许其注册用户](media/azure-stack-delegated-provider/image2.png)
+![在 Azure Stack 中创建委托的提供商并允许其注册用户的步骤](media/azure-stack-delegated-provider/image2.png)
 
 ### <a name="delegated-provider-requirements"></a>委托的提供商要求
 
@@ -77,7 +77,7 @@ ms.locfileid: "70857048"
 | User |User |
 
  > [!NOTE]
- > 对于 CSP 经销商，若要创建此委托的提供商，这些用户必须在租户目录（用户 AAD）中存在。 Azure Stack 操作员必须[先载入](azure-stack-enable-multitenancy.md)该租户 AAD，然后遵循[这些步骤](azure-stack-csp-howto-register-tenants.md)配置用量和计费。
+ > 对于 CSP 经销商，若要创建此委托的提供商，这些用户必须在租户目录（用户 Azure AD）中存在。 Azure Stack 操作员必须[先载入](azure-stack-enable-multitenancy.md)该租户 Azure AD，然后遵循[这些步骤](azure-stack-csp-howto-register-tenants.md)设置用量和计费。
 
 ### <a name="identify-the-delegated-provider"></a>确定委托的提供商
 
@@ -92,14 +92,14 @@ ms.locfileid: "70857048"
 
    c.  依次选择“订阅”、“添加”、“新建租户订阅”，将委托的提供商作为订阅方添加到此套餐。   
 
-   ![将委托的提供商添加为订户](media/azure-stack-delegated-provider/image3.png)
+   ![在 Azure Stack 管理员门户中将委托的提供商添加为订户](media/azure-stack-delegated-provider/image3.png)
 
    > [!NOTE]
    > 对于所有 Azure Stack 套餐，可以选择将其公开给用户注册，也可以选择不公开，让 Azure Stack 操作员管理注册。 委托的提供商通常是一个小的组。 需要控制其成员，因此大多数情况下不应公开此产品/服务。
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack 操作员创建委托的套餐
 
-下一步是创建要委托的可供用户使用的计划和套餐。 最好是将此套餐准确地定义成想要用户看到的那种规格，因为委托的提供商不能更改该套餐中包括的计划和配额。
+下一步是创建要委托的可供用户使用的计划和套餐。 最好是将此套餐定义成想要用户看到的那种规格，因为委托的提供商不能更改该套餐中包括的计划和配额。
 
 1. 以 Azure Stack 操作员的身份[创建计划](azure-stack-create-plan.md)以及基于该计划的[套餐](azure-stack-create-offer.md)。 本文使用名为 **DelegatedOffer** 的套餐作为示例。
 
@@ -110,7 +110,7 @@ ms.locfileid: "70857048"
 
 3. 从下拉列表中选择委托的提供商的订阅，然后选择“委托”。 
 
-   ![添加委托的提供商](media/azure-stack-delegated-provider/image4.png)
+   ![在 Azure Stack 管理员门户中添加委托的提供商](media/azure-stack-delegated-provider/image4.png)
 
 ### <a name="delegated-provider-customizes-the-offer"></a>委托的提供商自定义产品/服务
 
@@ -118,14 +118,14 @@ ms.locfileid: "70857048"
 
 1. 依次选择“+ 创建资源”、“租户套餐 + 计划”、“套餐”。   
 
-    ![创建新的产品/服务](media/azure-stack-delegated-provider/image5.png)
+    ![在 Azure Stack 用户门户中创建新套餐](media/azure-stack-delegated-provider/image5.png)
 
 2. 为产品/服务指定一个名称。 本示例使用 **ResellerOffer**。 选择委托的套餐作为模板，然后选择“创建”。 
 
-   ![指定名称](media/azure-stack-delegated-provider/image6.png)
+   ![在 Azure Stack 用户门户中分配名称](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >必须知道，委托的提供商只能选择委托给他们的套餐。 他们无法对这些套餐进行更改。 只有 Azure Stack 操作员能够更改这些套餐，例如更改其计划和配额。 委托的提供商不会根据基础计划和附加计划来构造套餐。
+   >必须知道，委托的提供商只能选择委托给他们的套餐。 他们无法对这些套餐进行更改。 只有 Azure Stack 操作员能够更改这些套餐。 例如，只有操作员可以更改其计划和配额。 委托的提供商不会根据基础计划和附加计划来构造套餐。
 
 3. 委托的提供商通过自己的门户 URL 公开这些套餐。 若要公开套餐，请依次选择“浏览”、“套餐”。   选择产品/服务，然后选择“更改状态”。 
 
@@ -135,7 +135,7 @@ ms.locfileid: "70857048"
 
     b.  将门户 URL 复制到单独的位置，例如记事本。
 
-    ![选择委托的提供商订阅](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![在 Azure Stack 用户门户中选择委托的提供商订阅](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    现已完成创建委托的套餐作为委托的提供商的过程。 以委托的提供商身份注销，并关闭浏览器窗口。
 
@@ -148,16 +148,16 @@ ms.locfileid: "70857048"
 
 1. 在仪表板中，选择“获取订阅”  。 可以看到，只向用户提供由委托的提供商创建的委托的套餐。
 
-   ![查看和选择产品/服务](media/azure-stack-delegated-provider/image8.png)
+   ![在 Azure Stack 用户门户中查看并选择套餐](media/azure-stack-delegated-provider/image8.png)
 
 委托套餐的过程已完成。 现在，用户可以通过获取套餐订阅来注册此套餐。
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>在委托的提供商之间移动订阅
 
-如果需要，可在属于同一目录租户的新的或现有委托的提供商订阅之间移动订阅。 使用 PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin) 完成此操作。
+如果需要，可在属于同一目录租户的新的或现有委托的提供商订阅之间移动订阅。 可以使用 PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin) 移动它们。
 
-此操作在以下情况下十分有用：
+在以下情况下可以移动订阅：
 
 * 登记将要充当委托的提供商角色的新团队成员，并想要将以前在“默认提供商订阅”中创建的用户订阅分配给此团队成员。
-* 有多个委托的提供商订阅在同一目录租户 (Azure Active Directory) 中，并需要在这些订阅之间移动用户订阅。 当团队成员在团队之间移动，并且必须将其订阅分配给新团队时，可能会发生这种情况。
+* 有多个委托的提供商订阅在同一目录租户 (Azure AD) 中，并需要在这些订阅之间移动用户订阅。 当团队成员在团队之间移动，并且必须将其订阅分配给新团队时，可能会发生这种情况。
 

@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/02/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e23a00a5d06a9fc404881e4f996ab51bf5bbe91f
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: e0cfc2999be8cff6b2e9f0d2fad8b6f338b35bf7
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578304"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020299"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>用于优化 Azure Stack 性能的 SQL Server 最佳做法
 
@@ -99,12 +99,12 @@ Azure Stack VM 上有三种主要磁盘类型：
 
 ### <a name="data-disks"></a>数据磁盘数
 
-- **将数据磁盘用于数据和日志文件。** 如果不使用磁盘条带化，请使用支持高级存储的 VM 中的两个数据磁盘，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个数据磁盘均提供可观的 IOPS 和带宽（MB/秒），具体取决于 VM 系列，如 [Azure Stack 中支持的 VM 大小](azure-stack-vm-sizes.md)中所述。 如果使用磁盘条带化方法（例如存储空间），请将所有数据文件和日志文件（包括 TempDB）放在同一驱动器上。 此配置可以为你提供最大数目的 IOPS 供 SQL Server 使用，不管哪个文件在特定时刻需要它们。
+- **将数据磁盘用于数据和日志文件。** 如果不使用磁盘条带化，请使用支持高级存储的 VM 中的两个数据磁盘，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个数据磁盘均提供可观的 IOPS，具体取决于 VM 系列，如 [Azure Stack 中支持的 VM 大小](azure-stack-vm-sizes.md)中所述。 如果使用磁盘条带化方法（例如存储空间），请将所有数据文件和日志文件（包括 TempDB）放在同一驱动器上。 此配置可以为你提供最大数目的 IOPS 供 SQL Server 使用，不管哪个文件在特定时刻需要它们。
 
 > [!NOTE]  
 > 在门户中预配 SQL Server VM 时，你可以编辑存储配置。 Azure Stack 根据配置来配置一个或多个磁盘。 多个磁盘会组合成一个存储池。 数据文件和日志文件一起位于此配置中。
 
-- **磁盘条带化：** 为提高吞吐量，可以添加更多的数据磁盘，并使用磁盘条带化。 若要确定所需数据磁盘数，请分析日志文件以及数据和 TempDB 文件所需的 IOPS 数和带宽。 请注意，IOPS 限制是按数据磁盘来设置的，取决于 VM 系列而不是 VM 大小。 但是，网络带宽限制取决于 VM 大小。 请参阅 [Azure Stack 中的 VM 大小](azure-stack-vm-sizes.md)中的表，了解更多详细信息。 遵循以下指南：
+- **磁盘条带化：** 为提高吞吐量，可以添加更多的数据磁盘，并使用磁盘条带化。 若要确定所需的数据磁盘数，请分析日志文件以及数据和 TempDB 文件所需的 IOPS 数。 请注意，IOPS 限制是按数据磁盘来设置的，取决于 VM 系列而不是 VM 大小。 但是，网络带宽限制取决于 VM 大小。 请参阅 [Azure Stack 中的 VM 大小](azure-stack-vm-sizes.md)中的表，了解更多详细信息。 遵循以下指南：
 
   - 对于 Windows Server 2012 或更高版本，请按照以下指南使用[存储空间](https://technet.microsoft.com/library/hh831739.aspx)：
 

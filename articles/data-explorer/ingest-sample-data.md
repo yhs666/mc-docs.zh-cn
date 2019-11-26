@@ -2,25 +2,25 @@
 title: 将示例数据引入 Azure 数据资源管理器
 description: 了解如何将与天气相关的示例数据引入（加载）到 Azure 数据资源管理器。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 05/01/2019
-ms.openlocfilehash: 1c42a1715544d1fd07019d006facd9ab938f6b9a
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+origin.date: 08/12/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: c17a9af0c65e44d659f733afcdcc895aa1f7cdbc
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310854"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020860"
 ---
-# <a name="ingest-sample-data-into-azure-data-explorer"></a>将示例数据引入 Azure 数据资源管理器
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>快速入门：将示例数据引入 Azure 数据资源管理器
 
 本文介绍如何将示例数据引入（加载）到 Azure 数据资源管理器数据库。 有[多种方法可以引入数据](ingest-data-overview.md)；本文重点介绍适用于测试目的的基本方法。
 
 > [!NOTE]
-> 如果你完成了[快速入门：使用 Azure 数据资源管理器 Python 库引入数据](python-ingest-data.md)，则已拥有此数据。
+> 如果你已完成[使用 Azure 数据资源管理器 Python 库引入数据](python-ingest-data.md)，则已拥有此数据。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -57,11 +57,6 @@ StormEvents  示例数据集包含[美国国家环境信息中心](https://www.n
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [快速入门：在 Azure 数据资源管理器中查询数据](web-query-data.md)
-
-> [!div class="nextstepaction"]
-> [编写查询](write-queries.md)
-
-> [!div class="nextstepaction"]
-> [Azure 数据资源管理器数据引入](ingest-data-overview.md)
+* 请参阅 [Azure 数据资源管理器数据引入](ingest-data-overview.md)详细了解引入方法。
+* [快速入门：在 Azure 数据资源管理器 Web UI 中查询数据](web-query-data.md)。
+* 使用 Kusto 查询语言[编写查询](write-queries.md)。

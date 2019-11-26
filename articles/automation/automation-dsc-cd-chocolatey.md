@@ -7,15 +7,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2018
-ms.date: 03/04/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ba7912fb334139c4a624472f972f2cecbc84dc2b
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 76928b063fdc6241a7e59b39348a38aee78a58da
+ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987116"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116237"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用情况示例：使用 Automation State Configuration 和 Chocolatey 持续部署到虚拟机
 
@@ -37,7 +37,7 @@ DevOps 领域中有许多工具可帮助你处理持续集成管道中的各个�
 [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 之类的包管理器在 Linux 领域耳熟能详，但在 Windows 领域并不被大家所熟悉。
 [Chocolatey](https://chocolatey.org/) 就是这样一个工具，Scott Hanselman 的有关该工具主题的[博客](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)对此工具进行了深入介绍。 简单的说，Chocolatey 可让你使用命令行从包的中央存储库将包安装到 Windows 系统。 可以创建和管理自己的存储库，Chocolatey 可以从指定的任何数量的存储库来安装包。
 
-Desired State Configuration (DSC)（[概述](https://docs.microsoft.com/powershell/dsc/overview)）是一个 PowerShell 工具，可使用它为计算机声明所需的配置。 例如，可以说“我想要安装 Chocolatey、我想要安装 IIS、我想要打开端口 80、我想要安装网站 1.0.0 版”。 DSC 本地配置管理器 (LCM) 实现该配置。 DSC“拉”服务器有一个存储库用于保存计算机的配置。 每台计算机上的 LCM 定期检查计算机的配置是否与存储的配置匹配。 它可以报告状态，也可以尝试让计算机恢复到与存储的配置匹配。 可以编辑“拉”服务器上存储的配置，使一台计算机或一组计算机与更改的配置匹配。
+Desired State Configuration (DSC)（[概述](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)）是一个 PowerShell 工具，可使用它为计算机声明所需的配置。 例如，可以说“我想要安装 Chocolatey、我想要安装 IIS、我想要打开端口 80、我想要安装网站 1.0.0 版”。 DSC 本地配置管理器 (LCM) 实现该配置。 DSC“拉”服务器有一个存储库用于保存计算机的配置。 每台计算机上的 LCM 定期检查计算机的配置是否与存储的配置匹配。 它可以报告状态，也可以尝试让计算机恢复到与存储的配置匹配。 可以编辑“拉”服务器上存储的配置，使一台计算机或一组计算机与更改的配置匹配。
 
 Azure 自动化是 Azure 中的托管服务，允许使用 Runbook、节点、凭据、资源以及资产（如计划和全局变量），自动执行各种任务。
 Azure Automation State Configuration 扩展了此自动化功能，包含 PowerShell DSC 工具。 以下是一个不错的 [概述](automation-dsc-overview.md)。

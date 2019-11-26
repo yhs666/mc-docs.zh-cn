@@ -1,29 +1,29 @@
 ---
 title: 在 Azure Stack 中提供虚拟机规模集 | Microsoft Docs
-description: 了解云操作员如何向 Azure Stack 市场中添加虚拟机规模集
+description: 了解云操作员如何向 Azure Stack 市场中添加虚拟机规模集。
 services: azure-stack
 author: WenJason
 manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-origin.date: 06/04/2019
-ms.date: 07/29/2019
+origin.date: 10/04/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 080d2d5a4cce135a8996b0fa0721f2364d843b8b
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 0330bbbf908a1faf0ac2eb6906847122427d9a35
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513479"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020269"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
 *适用于：* Azure Stack 集成系统和 Azure Stack 开发工具包
   
-虚拟机规模集是一种 Azure Stack 计算资源。 可以使用它们部署和管理一组相同的虚拟机。 由于所有虚拟机的配置方式相同，因此规模集不需要预配虚拟机。 可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
+虚拟机规模集是一种 Azure Stack 计算资源。 可以使用它们部署和管理一组相同的虚拟机 (VM)。 由于所有 VM 的配置方式相同，因此规模集不需要预配 VM。 可以更轻松构建面向大型计算、大数据、容器化工作负荷的大规模服务。
 
 本文将指导你完成在 Azure Stack 市场中提供规模集的过程。 完成此过程之后，用户将可以将虚拟机规模集添加到其订阅。
 
@@ -36,7 +36,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 ## <a name="prerequisites"></a>先决条件
 
-* **市场：** 将 Azure Stack 注册到全球 Azure 以启用市场中项目的可用性。 请遵照[将 Azure Stack 注册到 Azure](azure-stack-registration.md) 中的说明操作。
+* **Azure Stack 市场：** 将 Azure Stack 注册到全球 Azure 以启用 Azure Stack 市场中项目的可用性。 请遵照[将 Azure Stack 注册到 Azure](azure-stack-registration.md) 中的说明操作。
 * **操作系统映像：** 在创建虚拟机规模集之前，必须从 [Azure Stack 市场](azure-stack-download-azure-marketplace-item.md)下载 VM 映像，以便在规模集中使用。 必须已存在映像，然后用户才能创建新的规模集。
 
 ## <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
@@ -51,10 +51,10 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
    ![创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
 3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。    对于“使用托管磁盘”，请选择“是”。   然后单击“创建”  。
-    ![配置和创建](media/azure-stack-compute-add-scalesets/create.png)
+    ![配置和创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create.png)
 
 4. 若要查看新的虚拟机规模集，请转到“所有资源”  ，搜索该虚拟机规模集名称，然后在搜索结果中单击其名称。
-   ![查看规模集](media/azure-stack-compute-add-scalesets/search.png)
+   ![查看虚拟机规模集](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>添加虚拟机规模集（版本 1808 之前的版本）
 
@@ -63,11 +63,11 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 1. 打开 Azure Stack 市场并连接到 Azure。 选择“市场管理”，然后单击“+ 从 Azure 添加”。  
 
-    ![市场管理](media/azure-stack-compute-add-scalesets/image01.png)
+    ![Azure Stack 市场管理](media/azure-stack-compute-add-scalesets/image01.png)
 
 2. 添加并下载虚拟机规模集市场项。
 
-    ![虚拟机规模集](media/azure-stack-compute-add-scalesets/image02.png)
+    ![虚拟机规模集市场项](media/azure-stack-compute-add-scalesets/image02.png)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虚拟机规模集中的映像
 
@@ -90,9 +90,9 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
    必须先下载新映像，然后纵向扩展才能使用新映像：  
 
-   * 当市场中的映像版本比规模集中的映像版本要新时，下载新映像来替换旧映像。 替换映像后，用户可以继续纵向扩展。
+   * 当 Azure Stack 市场中的映像版本比规模集中的映像版本要新时，下载新映像来替换旧映像。 替换映像后，用户可以继续纵向扩展。
 
-   * 当市场中的映像版本与规模集中的映像版本相同时，删除规模集中使用的映像，然后下载新映像。 在删除原始映像之后、下载新映像之前，无法执行纵向扩展。
+   * 当 Azure Stack 市场中的映像版本与规模集中的映像版本相同时，删除规模集中使用的映像，然后下载新映像。 在删除原始映像之后、下载新映像之前，无法执行纵向扩展。
 
    需要执行此过程以重新合成利用稀疏文件格式（在版本 1803 中引入）的映像。
 
@@ -110,7 +110,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 2. 使用滑动条为此虚拟机规模集设置新的缩放级别，然后单击“保存”。 
 
-     ![缩放集](media/azure-stack-compute-add-scalesets/scale.png)
+     ![缩放虚拟机规模集](media/azure-stack-compute-add-scalesets/scale.png)
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>删除虚拟机规模集
 
@@ -121,7 +121,7 @@ Remove-AzsGalleryItem
 ```
 
 > [!NOTE]
-> 库项可能不会立即删除。 可能需要多次刷新门户，该项才会显示为已从市场中删除。
+> 库项可能不会立即删除。 可能需要多次刷新门户，该项才会显示为已从 Azure Stack 市场中删除。
 
 ## <a name="next-steps"></a>后续步骤
 

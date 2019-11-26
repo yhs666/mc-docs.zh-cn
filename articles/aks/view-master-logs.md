@@ -6,20 +6,20 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 01/03/2019
-ms.date: 11/04/2019
+ms.date: 11/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 341ece74718838300a0f617a88990b6f4111ee8b
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 73d1f716b6e59fa51064ec6010852d0c12415e04
+ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73083618"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74154828"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
 使用 Azure Kubernetes 服务 (AKS)，可以提供 *kube-apiserver* 和 *kube-controller-manager* 等主组件作为托管服务。 创建和管理运行 *kubelet* 与容器运行时的节点，并通过托管的 Kubernetes API 服务器部署应用程序。 为帮助排查应用程序和服务问题，可能需要查看这些主组件生成的日志。 本文介绍如何使用 Azure Monitor 日志从 Kubernetes 主组件启用和查询日志。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 本文要求在 Azure 帐户中运行一个现有的 AKS 群集。 如果还没有 AKS 群集，请使用 [Azure CLI][cli-quickstart] 或 [Azure 门户][portal-quickstart]创建一个。 Azure Monitor 日志适用于支持 RBAC 和不支持 RBAC 的 AKS 群集。
 
@@ -36,6 +36,7 @@ Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS �
     <!--Not Available on  Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_chinaeast2*.-->
     
 1. 在左侧选择“诊断设置”。 
+
 1. 选择资源组和 AKS 群集（例如，“myResourceGroup”  和“myAKSCluster”  ），然后选择“添加诊断设置”  。
 
     <!--MOONCAKE: CUSTOMIZE, UPDATE BEFORE CONFIRM-->
@@ -87,16 +88,36 @@ pod/nginx created
 
 ![选择 AKS 群集的 Log Analytics 工作区](media/view-master-logs/select-log-analytics-workspace.png)
 
-<!--MOONCAKE: CUSTOMIZED-->
-<!--REMOVE THE QUERY SENTENCE DUE TO NO CATEGORY COLUMN -->
-<!--REMOVE THE QUERY SENTENCE DUE TO NO CATEGORY COLUMN -->
-<!--MOONCAKE: CUSTOMIZED-->
+在左侧选择“日志”。  若要查看 *kube-apiserver*，请在文本框中输入以下查询：
+
+```
+AzureDiagnostics
+| where Category == "kube-apiserver"
+| project log_s
+```
+
+可能返回了 API 服务器的多个日志。 若要缩小查询范围，以便查看上一步骤中创建的 NGINX pod 的相关日志，请额外添加一个 *where* 语句来搜索 *pod/nginx*，如以下示例查询中所示：
+
+```
+AzureDiagnostics
+| where Category == "kube-apiserver"
+| where log_s contains "pods/nginx"
+| project log_s
+```
+
+此时会显示 NGINX pod 的特定日志，如以下示例屏幕截图中所示：
+
+![示例 NGINX pod 的 Log Analytics 查询结果](media/view-master-logs/log-analytics-query-results.png)
+
+若要查看其他日志，可将针对 *Category* 名称的查询更新为 *kube-controller-manager* 或 *kube-scheduler*，具体取决于启用的其他日志。 然后，可以使用附加的 *where* 语句来具体化要查找的事件。
+
+有关如何查询和筛选日志数据的详细信息，请参阅[查看或分析使用 Log Analytics 日志搜索收集的数据][analyze-log-analytics]。
 
 ## <a name="log-event-schema"></a>日志事件架构
 
 为帮助分析日志数据，下表详细说明了用于每个事件的架构：
 
-| 字段名称               | 说明 |
+| 字段名               | 说明 |
 |--------------------------|-------------|
 | *resourceId*             | 生成日志的 Azure 资源 |
 | *time*                   | 上传日志的时间戳 |
@@ -131,12 +152,14 @@ pod/nginx created
 
 <!--MOONCAKE: CORRECT TO REDIRCT URL OF azure-monitor/log-query/log-query-overview.md-->
 
-[analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
+[analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
+
+<!--MOONCAKE: CORRECT TO REDIRCT URL OF azure-monitor/log-query/get-started-portal.md-->
+
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-register
 [az-feature-list]: https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-list
 [az-provider-register]: https://docs.azure.cn/cli/provider?view=azure-cli-latest#az-provider-register
 
-<!--Update_Description: new articles on view master logs -->
-<!--New.date: 11/04/2019-->
+<!--Update_Description: wording update -->

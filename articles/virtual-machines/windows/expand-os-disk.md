@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: ddec3d5aeac04150ee566ecd85f77a1631268f24
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: f9d6eb0fa79c4a1168ae935a3d264fdaa9ecadfd
+ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272632"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116766"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何扩展虚拟机的 OS 驱动器
 
@@ -31,7 +31,7 @@ ms.locfileid: "72272632"
 - 从本地迁移具有较大 OS 驱动器的物理电脑或虚拟机。
 
 > [!IMPORTANT]
-> 调整 Azure 虚拟机的 OS 磁盘大小会导致其重启。
+> 若要调整 Azure 虚拟机的 OS 磁盘大小，需要解除分配虚拟机。
 >
 > 扩展磁盘后，需要[扩展 OS 中的卷](#expand-the-volume-within-the-os)才能使用更大的磁盘。
 > 

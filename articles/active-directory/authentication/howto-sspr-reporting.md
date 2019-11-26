@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 08/15/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0b455ec93d3785b076f4ce67bd4f62d724c6cb
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 514a56f81c7e05180a99e56c5d08524e8b40a3c9
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448470"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084485"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>用于 Azure AD 密码管理的报告选项
 
@@ -172,6 +172,7 @@ ms.locfileid: "69448470"
 
 ## <a name="next-steps"></a>后续步骤
 
+* [SSPR 和 MFA 使用情况和见解报告](howto-authentication-methods-usage-insights.md)
 * [如何成功推出 SSPR？](howto-sspr-deployment.md)
 * [重置或更改密码](../user-help/active-directory-passwords-update-your-own-password.md)。
 * [注册自助服务密码重置](../user-help/active-directory-passwords-reset-register.md)。
@@ -186,3 +187,4 @@ ms.locfileid: "69448470"
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD 中的 SSPR 活动审核日志示例"
 
+<!-- Update_Description: wording update -->

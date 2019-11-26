@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 35f5bd73b16c00fcdd678096c53c05999d7eca9c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: f557893922590d0fd2425047b6dcfd1ecc9c5633
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272873"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203646"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 
@@ -121,6 +121,6 @@ VM 可能因自身问题重启。 在 VM 上运行的工作负荷或角色可能
 
 ### <a name="other-incidents"></a>其他事件
 
-在极少数情况下，普遍的问题可能影响 Azure 数据中心内的多台服务器。 如果出现这种问题，Azure 团队会向受影响订阅者发送电子邮件通知。 可查看 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)和 Azure 门户，了解正在进行的服务中断和过去事件的状态。
+在极少数情况下，普遍的问题可能影响 Azure 数据中心内的多台服务器。 如果出现这种问题，Azure 团队会向受影响订阅者发送电子邮件通知。 可查看 [Azure 服务运行状况仪表板](https://status.azure.com/status/)和 Azure 门户，了解正在进行的服务中断和过去事件的状态。
 
 <!-- Update_Description: update meta properties, wording update -->

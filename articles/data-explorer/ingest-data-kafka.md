@@ -2,18 +2,18 @@
 title: 将数据从 Kafka 引入到 Azure 数据资源管理器
 description: 本文介绍如何将数据从 Kafka 引入（加载）到 Azure 数据资源管理器中。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-origin.date: 11/19/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: 97a828728bc461cfbcb51c20b991d3d0acba5b14
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+origin.date: 06/03/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: c5bb81dc08db68ceb362eb573adab32055b11e92
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717335"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020807"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>将数据从 Kafka 引入到 Azure 数据资源管理器
  

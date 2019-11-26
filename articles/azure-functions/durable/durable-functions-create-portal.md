@@ -8,15 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 09/29/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 23d47878f3a4b6c9637e68299cfd8eca452d5464
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: c7e1547b19162f4ce76a38916cc252d48cb7dbb8
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673597"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178994"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>使用 Azure 门户创建 Durable Functions
 
@@ -52,7 +52,7 @@ Azure Functions 的 [Durable Functions](durable-functions-overview.md) 扩展是
     ```json
     {
       "dependencies": {
-        "durable-functions": "^1.1.2"
+        "durable-functions": "^1.3.1"
       }
     }
     ```
@@ -142,4 +142,4 @@ Azure Functions 的 [Durable Functions](durable-functions-overview.md) 扩展是
 > [!div class="nextstepaction"]
 > [了解常见的持久函数模式](durable-functions-overview.md#application-patterns)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

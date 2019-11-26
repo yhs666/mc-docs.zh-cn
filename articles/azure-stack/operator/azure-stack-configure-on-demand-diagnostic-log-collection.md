@@ -1,6 +1,6 @@
 ---
-title: 立即收集 Azure Stack 诊断日志 | Microsoft Docs
-description: 如何在 Azure Stack“帮助 + 支持”中配置按需诊断日志收集。
+title: 按需收集 Azure Stack 诊断日志 | Microsoft Docs
+description: 了解如何使用“帮助和支持”或特权终结点 (PEP) 在 Azure Stack 中按需收集诊断日志。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,25 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2019
-ms.date: 09/16/2019
+origin.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: v-jay
-ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: a07c7ec5964d8a4661aa6f8ae12095066a0e2ff6
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.reviewer: shisab
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: caf0a4f3537a4171cf79f2e9b6c3953907a53ce8
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857413"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020268"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>立即收集 Azure Stack 诊断日志（按需）
+# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 诊断日志
 
 *适用于：Azure Stack 集成系统*
 
-在故障排除过程中，Azure 客户支持服务 (CSS) 可能需要分析诊断日志。 从 1907 版开始，Azure Stack 操作员可以通过“帮助和支持”将按需诊断日志上传到 Azure 中的 Blob 容器。  如果门户不可用，操作员可以通过特权终结点 (PEP) 使用 Get-AzureStackLog 来收集日志，这是一种备用方法。 本主题介绍如何通过这两种方法按需收集诊断日志。
+在故障排除过程中，Microsoft 客户支持服务 (CSS) 可能需要分析诊断日志。 从 1907 版开始，Azure Stack 操作员可以通过“帮助和支持”将按需诊断日志上传到 Azure 中的 Blob 容器。  如果门户不可用，操作员可以通过特权终结点 (PEP) 使用 Get-AzureStackLog 来收集日志。 本主题介绍如何通过这两种方法按需收集诊断日志。
 
-## <a name="using-help-and-support"></a>使用“帮助和支持”
+>[!Note]
+>作为按需收集日志的备用方案，可以通过启用[诊断日志自动收集](azure-stack-configure-automatic-diagnostic-log-collection.md)功能来简化故障排除过程。 如果需要调查系统运行状况，请自动上传日志供 CSS 分析。 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>使用“帮助和支持”按需收集诊断日志
 
 为了排查问题，CSS 可能会请求 Azure Stack 操作员根据需要收集上周特定时间范围的诊断日志。 在这种情况下，CSS 会为操作员提供一个 SAS URL 来上传收集的内容。 使用以下步骤，通过 CSS 提供的 SAS URL 配置按需日志收集：
 
@@ -44,13 +47,13 @@ ms.locfileid: "70857413"
 >[!NOTE]
 >如果启用了诊断日志自动收集，“帮助和支持”会显示何时在进行日志收集。  如果单击“立即收集日志”以收集特定时间的日志，而此时系统正在进行自动日志收集，则当自动日志收集完成后，按需收集就会开始。  
 
-## <a name="using-pep"></a>使用 PEP
+## <a name="using-pep-to-collect-diagnostic-logs"></a>使用 PEP 收集诊断日志
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 可以通过 Azure Stack 诊断工具轻松高效地进行日志收集。 下图显示了诊断工具的工作原理：
 
-![Azure Stack 诊断工具](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack 诊断工具工作流图](media/azure-stack-diagnostics/get-azslogs.png)
 
 ### <a name="trace-collector"></a>跟踪收集器
 
@@ -149,8 +152,8 @@ if ($session) {
 
   若要为存储帐户生成 SAS 令牌，需要以下权限：
 
-  * 对 Blob 存储服务的访问权限
-  * 对容器资源类型的访问权限
+  * 对 Blob 存储服务的访问权限。
+  * 对容器资源类型的访问权限。
 
   若要生成要用于 `-OutputSasUri` 参数的 SAS URI 值，请执行以下步骤：
 
@@ -210,11 +213,11 @@ if ($session) {
   |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
   |   |   |   |    |     | 
 
-### <a name="additional-considerations"></a>其他注意事项
+### <a name="additional-considerations-on-diagnostic-logs"></a>有关诊断日志的其他注意事项
 
 * 此命令需要一些时间来运行，具体取决于日志收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack 环境中的节点数。
 * 当日志收集运行时，请查看在 **OutputSharePath** 参数（在命令中指定）中创建的新文件夹。
-* 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具。 选择角色的所有压缩文件，然后选择“解压缩到此处”。  这样就会将该角色的所有日志文件解压缩到单个合并的文件夹中。
+* 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具。 选择角色的所有压缩文件，然后选择“解压缩到此处”。  该角色的所有日志文件会解压缩到单个合并的文件夹中。
 * 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。 有时，日志文件包含 `PS>TerminatingError` 条目，除非运行日志收集后缺少预期的日志文件，否则可以放心忽略这些条目。
 * 调查某个特定的故障时，可能需要多个组件中的日志。
 
@@ -224,7 +227,7 @@ if ($session) {
   * ACS 日志收集在“存储”角色  和 **ACS** 角色中。
 
 > [!NOTE]
-> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，从而确保该空间不会充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志可能因为这些限制而不再存在了。 因此，**强烈建议**每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 另外，请确保该存储位置已加密。
+> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，以免该空间充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志因为这些限制而不再存在了。 因此，**强烈建议**每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 还应确保该存储位置已加密。
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
@@ -237,7 +240,7 @@ if ($session) {
 * SLB
 * 网关
 
-#### <a name="example-of-collecting-on-demand-logs"></a>收集按需日志的示例
+#### <a name="example-of-collecting-on-demand-diagnostic-logs"></a>收集按需诊断日志的示例
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.

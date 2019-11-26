@@ -17,18 +17,18 @@ ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: cd08ab0e969585d15787a38cdb8e3cc6eb88abe1
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: f133caf2bb75455bc16a9d9037ae7573c3ad47e5
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578448"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020287"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-[配额](azure-stack-plan-offer-quota-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源都可以有自已的配额类型。
+[配额](service-plan-offer-subscription-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源都可以有自已的配额类型。
 
 > [!IMPORTANT]
 > 在用户门户中出现可用的新配额或者强制实施更改的配额可能需要长达两小时的时间。
@@ -118,7 +118,5 @@ ms.locfileid: "72578448"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
+- [详细了解服务、计划、套餐和配额。](service-plan-offer-subscription-overview.md)
 - [创建计划时创建配额。](azure-stack-create-plan.md)
-
-<!-- Update_Description: add edit a quota -->

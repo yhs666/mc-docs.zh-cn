@@ -4,13 +4,13 @@ ms.service: data-explorer
 ms.topic: include
 origin.date: 11/14/2018
 ms.date: 05/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: 74150b665cb99e5c7b5cbd8ffcfa2aaa044be8bd
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.author: v-tawe
+ms.openlocfilehash: 6e6c937b37d31431d6482f5d5e36b065564df299
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686663"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020833"
 ---
 Power BI Desktop 中有了数据以后，即可创建基于该数据的报表。 将创建一个简单的包含柱状图的报表，以便按州显示作物损坏情况。
 
@@ -18,7 +18,7 @@ Power BI Desktop 中有了数据以后，即可创建基于该数据的报表。
 
     ![报表视图](media/data-explorer-power-bi-visualize-basic/report-view.png)
 
-1. 在“可视化”窗格中，选择“簇状柱形图”。
+1. 在“可视化”  窗格中，选择“簇状柱形图”。
 
     ![添加柱形图](media/data-explorer-power-bi-visualize-basic/add-column-chart.png)
 
@@ -26,7 +26,7 @@ Power BI Desktop 中有了数据以后，即可创建基于该数据的报表。
 
     ![空白图](media/data-explorer-power-bi-visualize-basic/blank-chart.png)
 
-1. 在“字段”列表中，选择“DamageCrops”和“州”。
+1. 在“字段”  列表中，选择“DamageCrops”  和“州”  。
 
     ![选择字段](media/data-explorer-power-bi-visualize-basic/select-fields.png)
 

@@ -1,19 +1,19 @@
 ---
 title: 有助于保护使用 Azure 备份的云工作负荷的安全功能
 description: 了解如何在 Azure 备份中使用安全功能，使备份更加安全。
-author: dcurwin
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 09/20/2019
-ms.author: dacurwin
-ms.openlocfilehash: 52b4b89e168123ade90145fe0bdc15dd713f416f
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.date: 11/14/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 35be4cc6f4b79ff139e5bc20ad3349fea3a898d7
+ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730360"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74154826"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>有助于保护使用 Azure 备份的云工作负荷的安全功能
 
@@ -68,6 +68,29 @@ ms.locfileid: "73730360"
 
 有关详细信息，请参阅下面的[常见问题解答](backup-azure-security-feature-cloud.md#frequently-asked-questions)部分。
 
+## <a name="disabling-soft-delete"></a>禁用软删除
+
+软删除在新创建的保管库上默认启用。 如果禁用软删除安全功能，则无法确保备份数据不被意外删除或恶意删除。 如果没有软删除功能，则只要删除受保护的项，就会导致即时删除，不可还原。 由于备份数据处于“软删除”状态并不会导致系统对客户收费，因此建议不要禁用此功能。 唯一应该考虑禁用软删除的情况是，你打算将受保护的项移到新保管库，需要在删除后重新进行保护，因此等不及要求的 14 天（例如在测试环境中）。
+
+### <a name="prerequisites-for-disabling-soft-delete"></a>禁用软删除的先决条件
+
+- 只能通过 Azure 门户为保管库（没有受保护的项）启用或禁用软删除。 这适用于：
+  - 新创建的不包含受保护项的保管库
+  - 现有的保管库，其受保护项已删除并过期（超出固定的 14 天保留期）
+- 如果禁用保管库的软删除功能，可以重新启用它，但如果保管库包含受保护项，则不能撤消该选择并再次禁用它。
+- 如果保管库包含受保护项或包含的项处于软删除状态，则不能禁用软删除。 如果需要那样做，则请执行以下步骤：
+  - 对于所有受保护项，停止保护已删除的数据。
+  - 等待 14 天的安全保留期到期。
+  - 禁用软删除。
+
+若要禁用软删除，请确保符合先决条件，然后执行以下步骤：
+
+1. 在 Azure 门户中转到保管库，然后转到“设置” -> “属性”。  
+2. 在“属性”窗格中选择“安全设置” -> “更新”。  
+3. 在“安全设置”窗格的“软删除”下，选择“禁用”。 
+
+![禁用软删除](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
 ## <a name="other-security-features"></a>其他安全功能
 
 ### <a name="storage-side-encryption"></a>存储端加密
@@ -88,7 +111,7 @@ Azure 存储在将数据保存到云时会自动加密数据。 加密可以保�
 
 有关详细信息，请参阅[使用基于角色的访问控制管理 Azure 备份恢复点](/backup/backup-rbac-rs-vault)。
 
-## <a name="frequently-asked-questions"></a>常见问题解答
+## <a name="frequently-asked-questions"></a>常见问题
 
 ### <a name="soft-delete"></a>软删除
 
@@ -99,30 +122,30 @@ Azure 存储在将数据保存到云时会自动加密数据。 加密可以保�
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>是否可以配置在完成删除操作后，以软删除状态保留数据的天数？
 
 否。删除操作完成后，数据将额外保留固定的 14 天。
- 
+
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>是否需要支付这额外 14 天数据保留的费用？
 
 否。14 天额外保留是软删除功能免费附送的。
- 
+
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>如果数据处于软删除状态，是否可以执行还原操作？
 
 否。需要取消删除已软删除的资源才能还原。 取消删除操作会将资源恢复到“停止保护并保留数据”状态，然后，你可以还原到任意时间点。  在此状态下，垃圾回收器将保持暂停状态。
- 
+
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>快照的生命周期是否与保管库中恢复点的生命周期相同？
 
 是的。
- 
+
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>如何针对软删除的资源再次触发计划的备份？
 
 先取消删除，然后执行恢复操作，即可再次保护资源。 恢复操作将关联某个备份策略，以触发具有选定保留期的计划备份。 此外，在恢复操作完成后，垃圾回收器会立即运行。 若要从超出过期日期的恢复点执行还原，我们建议在触发恢复操作之前执行此还原操作。
- 
+
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>如果保管库中存在软删除的项，我是否可以删除该保管库？
 
 如果保管库中存在处于软删除状态的备份项，则无法删除恢复服务保管库。 完成删除操作 14 天后，软删除的项将永久删除。 只有在清除所有软删除的项之后，才能删除保管库。  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>是否可以在删除后的 14 天软删除期之前删除数据？
 
-否。 无法强制删除软删除项，14 天后会自动删除这些项。 启用此安全功能是为了保护备份的数据不被意外删除或恶意删除。  你应等待 14 天，然后再在 VM 上执行任何其他操作。  不会对软删除项收费。  如果需要将 14 天内标记为软删除的 VM 重新保护到新保管库，请联系 Microsoft 客户支持。
+不是。 无法强制删除软删除项，14 天后会自动删除这些项。 启用此安全功能是为了保护备份的数据不被意外删除或恶意删除。  你应等待 14 天，然后再在 VM 上执行任何其他操作。  不会对软删除项收费。  如果需要将 14 天内标记为软删除的 VM 重新保护到新保管库，请联系 Microsoft 支持部门。
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>是否可以在 PowerShell 或 CLI 中执行软删除操作？
 
@@ -130,8 +153,8 @@ Azure 存储在将数据保存到云时会自动加密数据。 加密可以保�
 
 #### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>其他云工作负荷（例如 Azure VM 中的 SQL Server，以及 Azure VM 中的 SAP HANA）是否支持软删除？
 
-否。 目前只有 Azure 虚拟机支持软删除。
+不是。 目前只有 Azure 虚拟机支持软删除。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解 [Azure 备份的安全控制](backup-security-controls.md)。
+- 了解 [Azure 备份的安全控制](backup-security-controls.md)。

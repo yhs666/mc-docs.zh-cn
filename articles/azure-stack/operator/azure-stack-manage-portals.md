@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用管理门户 | Microsoft Docs
-description: 向 Azure Stack 操作员介绍管理门户的用法。
+title: 在 Azure Stack 中使用管理员门户 | Microsoft Docs
+description: 了解如何在 Azure Stack 中使用管理员门户。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 06/07/2019
-ms.date: 07/29/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 4d83b1939f81bd908734495ba464f28c011e10fd
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 710a33c72fd743dbe222ef3ab3c5c0b6a907cc36
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513448"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020209"
 ---
-# <a name="quickstart-use-the-azure-stack-administration-portal"></a>快速入门：使用 Azure Stack 管理门户
+# <a name="use-the-administrator-portal-in-azure-stack"></a>在 Azure Stack 中使用管理员门户
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 中有两种门户：管理门户和用户门户（有时称作租户门户）。  Azure Stack 操作员可以使用管理门户进行日常的 Azure Stack 管理和操作。
+Azure Stack 中有两种门户：管理员门户和用户门户。 Azure Stack 操作员使用管理员门户进行日常的 Azure Stack 管理和操作。
 
 ## <a name="access-the-administrator-portal"></a>访问管理员门户
 
-若要访问管理员门户，请浏览到门户 URL，然后使用 Azure Stack 操作员的凭据登录。 对于集成系统，门户 URL 根据 Azure Stack 部署的区域名称和外部完全限定域名 (FQDN) 而有所不同。 Azure Stack 开发工具包 (ASDK) 部署的管理门户 URL 始终是相同的。 
+若要访问管理员门户，请浏览到门户 URL，然后使用 Azure Stack 操作员凭据登录。 对于集成系统，门户 URL 根据 Azure Stack 部署的区域名称和外部完全限定域名 (FQDN) 而有所不同。 Azure Stack 开发工具包 (ASDK) 部署的管理员门户 URL 始终是相同的。
 
 | 环境 | 管理员门户 URL |   
 | -- | -- | 
@@ -43,41 +43,41 @@ Azure Stack 中有两种门户：管理门户和用户门户（有时称作租�
 > [!TIP]
 > 对于 ASDK 环境，首先需确保可以通过远程桌面连接或虚拟专用网络 (VPN) [连接到开发工具包主机](../asdk/asdk-connect.md)。
 
- ![管理门户](media/azure-stack-manage-portals/admin-portal.png)
+ ![Azure Stack 管理员门户](media/azure-stack-manage-portals/admin-portal.png)
 
-所有 Azure Stack 部署的默认时区都设置为协调世界时 (UTC)。 
+所有 Azure Stack 部署的默认时区都设置为协调世界时 (UTC)。
 
 在管理员门户中，可以执行如下所述的操作：
 
 * [将 Azure Stack 注册到 Azure](azure-stack-registration.md)
 * [充实市场](azure-stack-download-azure-marketplace-item.md)
-* [为用户创建计划、套餐和订阅](azure-stack-plan-offer-quota-overview.md)
+* [为用户创建计划、套餐和订阅](service-plan-offer-subscription-overview.md)
 * [监视运行状况和警报](azure-stack-monitor-health.md)
 * [管理 Azure Stack 更新](azure-stack-updates.md)
 
 “快速入门教程”磁贴提供最常见任务的联机文档链接。 
 
-尽管操作员可在管理门户中创建虚拟机、虚拟网络和存储帐户等资源，但应该[登录到用户门户](../user/azure-stack-use-portal.md)来创建和测试资源。
+尽管操作员可在管理员门户中创建虚拟机 (VM)、虚拟网络和存储帐户等资源，但应该[登录到用户门户](../user/azure-stack-use-portal.md)来创建和测试资源。
 
 >[!NOTE]
->使用快速入门教程磁贴中的“创建虚拟机”链接可在管理员门户中创建虚拟机，但这只是用于验证 Azure Stack 部署是否成功。 
+>使用快速入门教程磁贴中的“创建虚拟机”链接可在管理员门户中创建 VM，但这只是用于验证 Azure Stack 部署是否成功。 
 
 ## <a name="understand-subscription-behavior"></a>了解订阅行为
 
-默认会在管理门户中创建三个订阅：消耗、默认提供者和计量。 操作员主要使用“默认提供者订阅”。  无法添加其他订阅并在管理门户中使用它们。 
+默认会在管理员门户中创建三个订阅：消耗、默认提供者和计量。 操作员主要使用“默认提供者订阅”。  无法添加其他订阅并在管理员门户中使用它们。
 
-用户可以在用户门户中根据你为他们创建的计划和套餐创建其他订阅。 但是，在用户门户中无法访问管理门户的任何管理或操作功能。
+用户可以在用户门户中根据你为他们创建的计划和套餐创建其他订阅。 但是，在用户门户中无法访问管理员门户的任何管理或操作功能。
 
-管理门户和用户门户基于 Azure 资源管理器的独立实例。 由于 Azure 资源管理器的分隔性，订阅不会跨门户。 例如，如果以 Azure Stack 操作员的身份登录到用户门户，则无法访问默认提供商订阅。  虽然无法访问任何管理功能，但你可以通过提供的公共套餐为自己创建订阅。 只要你登录到用户门户，系统就会将你视为租户用户。
+管理员门户和用户门户基于 Azure 资源管理器的独立实例。 由于 Azure 资源管理器的分隔性，订阅不会跨门户。 例如，如果以 Azure Stack 操作员的身份登录到用户门户，则无法访问默认提供商订阅。  虽然无法访问任何管理功能，但你可以通过提供的公共套餐为自己创建订阅。 只要你登录到用户门户，系统就会将你视为租户用户。
 
   >[!NOTE]
-  >在 ASDK 环境中，如果某个用户与 Azure Stack 操作员属于同一个租户目录，则系统不会阻止他们登录到管理门户。 但是，他们无法访问任何管理功能，或者添加订阅来访问用户门户中可供他们使用的套餐。
+  >在 ASDK 环境中，如果某个用户与 Azure Stack 操作员属于同一个租户目录，则系统不会阻止他们登录到管理员门户。 但是，他们无法访问任何管理功能，或者添加订阅来访问用户门户中可供他们使用的套餐。
 
-## <a name="administration-portal-tips"></a>管理门户提示
+## <a name="administrator-portal-tips"></a>管理员门户提示
 
 ### <a name="customize-the-dashboard"></a>自定义仪表板
 
-仪表板包含一组默认磁贴。 可以选择“编辑仪表板”  来修改默认仪表板，或者选择“新建仪表板”来添加自定义仪表板。  可以轻松地将磁贴添加到仪表板中。 例如，可以选择“+ 创建资源”，右键单击“套餐 + 计划”，然后选择“固定到仪表板”。   
+仪表板包含一组默认磁贴。 可以选择“编辑仪表板”  来修改默认仪表板，或者选择“新建仪表板”来添加自定义仪表板。  也可将磁贴添加到仪表板中。 例如，选择“+ 创建资源”，右键单击“套餐 + 计划”，然后选择“固定到仪表板”。   
 
 有时可能会在门户中看到空白的仪表板。 若要恢复仪表板，请单击“编辑仪表板”，然后单击右键并选择“重置为默认状态”。  
 
@@ -94,6 +94,6 @@ Azure Stack 中有两种门户：管理门户和用户门户（有时称作租�
 
 ## <a name="next-steps"></a>后续步骤
 
-[将 Azure Stack 注册到 Azure](azure-stack-registration.md)，并使用提供给用户的项充实 [Azure Stack 市场](azure-stack-marketplace.md)。 
+[将 Azure Stack 注册到 Azure](azure-stack-registration.md)，并使用提供给用户的项充实 [Azure Stack 市场](azure-stack-marketplace.md)。
 
 <!-- Update_Description: wording update -->

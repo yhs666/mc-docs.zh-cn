@@ -194,7 +194,7 @@ ms.locfileid: "68514428"
 
 ### <a name="static"></a>静态
 
-（可选）可为 IP 配置分配公共或专用静态 IPv4 地址。 若要详细了解 Azure 如何分配静态公用 IPv4 地址，请参阅[公用 IP 地址](virtual-network-public-ip-address.md)。
+（可选）可为 IP 配置分配公共或专用静态 IPv4 地址。 若要详细了解 Azure 如何分配静态公共 IPv4 地址，请参阅[公共 IP 地址](virtual-network-public-ip-address.md)。
 
 <!-- Not Available on IPv6 -->
 

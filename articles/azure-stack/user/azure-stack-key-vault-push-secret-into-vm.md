@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/11/2019
-ms.date: 07/29/2019
+origin.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: dab8ba26939953fba5bef9ae98285a62972f7092
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 6ce21bd6e0ef9737291352e4395c0a58f4358e13
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513287"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020179"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>使用安全地存放在 Azure Stack 上的证书部署 VM 
 
@@ -166,7 +166,7 @@ Set-AzureKeyVaultSecret `
 使用以下 PowerShell 脚本部署模板：
 
 ```powershell
-# Deploy a Resource Manager template to create a VM and push the secret onto it
+# Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzureRmResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
@@ -174,7 +174,7 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-成功部署模板后，会生成以下输出：
+成功部署模板后，会显示以下输出：
 
 ![模板部署结果](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 

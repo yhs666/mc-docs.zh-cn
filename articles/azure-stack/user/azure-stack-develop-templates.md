@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/21/2019
-ms.date: 09/16/2019
+origin.date: 10/01/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 7927b374f6c032494919334ac33ca1bdbeffdcf3
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 4186e7eb437116f6a0be42645f75a28c325ad6ee
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857309"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020320"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>使用 Azure 资源管理器开发 Azure Stack 的模板
 

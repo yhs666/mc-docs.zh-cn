@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 07/11/2019
-ms.date: 08/15/2019
+origin.date: 10/28/2019
+ms.date: 11/12/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d617e9cfe0938511563003818a252e141b567adb
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: d63610c0b0e57b2cfd10936f90f2976066ec13dc
+ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448484"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084456"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>如何：从 Windows 登录屏幕启用密码重置
 
@@ -25,30 +25,10 @@ ms.locfileid: "69448484"
 
 ![Windows 7 和 10 登录屏幕示例，其中显示了 SSPR 链接](./media/howto-sspr-windows/windows-reset-password.png)
 
-## <a name="general-prerequisites"></a>常规先决条件
-
-- 管理员必须通过 Azure 门户启用 Azure AD 自助式密码重置。
-- **用户必须在使用此功能之前注册 SSPR**
-- 网络代理要求
-   - Windows 10 设备 
-       - 连接到 `passwordreset.activedirectory.windowsazure.cn` 和 `ajax.aspnetcdn.com` 的端口 443
-       - Windows 10 设备仅支持计算机级别的代理配置
-   - Windows 7、8 和 8.1 设备
-       - 连接到 `passwordreset.activedirectory.windowsazure.cn` 的端口 443
-
 ## <a name="general-limitations"></a>一般限制
 
 - 目前不支持从远程桌面或从 Hyper-V 增强的会话进行密码重置。
-- 不支持帐户解锁、移动应用通知和移动应用代码。
 - 此功能不适用于部署了 802.1x 网络身份验证的网络和“在用户登录前立即执行”选项。 对于部署了 802.1x 网络身份验证的网络，建议使用计算机身份验证来启用此功能。
-
-## <a name="windows-10-password-reset"></a>Windows 10 密码重置
-
-### <a name="windows-10-specific-prerequisites"></a>特定于 Windows 10 的先决条件
-
-- 至少运行 Windows 10 2018 年 4 月更新版 (v1803)，且设备必须符合下述条件之一：
-    - 已加入 Azure AD
-    - 已加入混合 Azure AD
 - 若要使用新密码并更新缓存的凭据，已加入混合 Azure AD 的计算机必须能够通过网络连接到域控制器。
 - 如果使用映像，请确保在运行 sysprep 之前先为内置 Administrator 清除 Web 缓存，再执行 CopyProfile 步骤。 有关此步骤的更多信息，可参阅支持文章：[使用自定义默认用户配置文件时性能较差](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile)。
 - 已知以下设置会干扰在 Windows 10 设备上使用和重置密码的功能
@@ -62,7 +42,21 @@ ms.locfileid: "69448484"
 - 组合使用下面三个特定的设置可能会导致此功能失效。
     - 交互式登录：不需要 CTRL+ALT+DEL = Disabled
     - DisableLockScreenAppNotifications = 1 或 Enabled
-    - IsContentDeliveryPolicyEnforced = 1 或 True 
+    - IsContentDeliveryPolicyEnforced = 1 或 True
+
+## <a name="windows-10-password-reset"></a>Windows 10 密码重置
+
+### <a name="windows-10-prerequisites"></a>Windows 10 先决条件
+
+- 管理员必须通过 Azure 门户启用 Azure AD 自助式密码重置。
+- **用户必须在使用此功能之前注册 SSPR**
+- 网络代理要求
+   - Windows 10 设备 
+       - 连接到 `passwordreset.activedirectory.windowsazure.cn` 和 `ajax.aspnetcdn.com` 的端口 443
+       - Windows 10 设备仅支持计算机级别的代理配置
+- 至少运行 Windows 10 2018 年 4 月更新版 (v1803)，且设备必须符合下述条件之一：
+    - 已加入 Azure AD
+    - 已加入混合 Azure AD
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>为使用注册表的 Windows 10 启用此功能
 
@@ -71,7 +65,6 @@ ms.locfileid: "69448484"
 1. 设置以下注册表项
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
-
 
 #### <a name="troubleshooting-windows-10-password-reset"></a>排查 Windows 10 密码重置问题
 
@@ -83,8 +76,13 @@ Azure AD 审核日志将包含有关密码重置发生的 IP 地址和 ClientTyp
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Windows 7、8、8.1 密码重置
 
-### <a name="windows-7-8-and-81-specific-prerequisites"></a>特定于 Windows 7、8、8.1 的先决条件
+### <a name="windows-7-8-and-81-prerequisites"></a>Windows 7、8、8.1 先决条件
 
+- 管理员必须通过 Azure 门户启用 Azure AD 自助式密码重置。
+- **用户必须在使用此功能之前注册 SSPR**
+- 网络代理要求
+   - Windows 7、8 和 8.1 设备
+       - 连接到 `passwordreset.activedirectory.windowsazure.cn` 的端口 443
 - 修补的 Windows 7 或 Windows 8.1 操作系统。
 - 根据[传输层安全性 (TLS) 注册表设置](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)中的指导启用的 TLS 1.2。
 - 如果在计算机上启用了多个第三方凭据提供程序，用户会在登录屏幕上看到多个用户配置文件。
@@ -129,5 +127,6 @@ Azure AD 审核日志将包含有关密码重置发生的 IP 地址和 ClientTyp
 
 现在，用户在尝试登录时，可以看到“重置密码”或“忘记了密码”链接，该链接用于在登录屏幕上打开自助式密码重置体验。   此功能允许用户重置其密码，不需使用其他设备来访问 Web 浏览器。
 
-用户可以在[重置工作或学校密码](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中发现此功能的使用指南
+用户可以在[重置工作或学校密码](../user-help/active-directory-passwords-update-your-own-password.md)中发现此功能的使用指南
 
+<!-- Update_Description: wording update -->

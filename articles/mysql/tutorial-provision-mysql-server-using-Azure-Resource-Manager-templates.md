@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 origin.date: 12/21/2018
-ms.date: 11/04/2019
+ms.date: 11/18/2019
 ms.custom: mvc
-ms.openlocfilehash: 60f44308c1888b9e97619b72c13e5a45ee445b64
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+ms.openlocfilehash: c5e70e5d2b2d065761a04a25ec94add01b16d7f3
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142059"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020878"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -81,7 +81,7 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 ```
 在此请求中，需要进行自定义的值有：
 +   `name` - 指定 MySQL 服务器的名称（不带域名）。
-+   `location` - 为 MySQL 服务器指定有效的 Azure 数据中心区域。 例如 chinanorth。
++   `location` - 为 MySQL 服务器指定有效的 Azure 数据中心区域。 例如，chinanorth2。
 +   `properties/version` - 指定要部署的 MySQL 服务器版本。 例如 5.6 或 5.7。
 +   `properties/administratorLogin` - 指定服务器的 MySQL 管理员登录名。 管理员登录名不能为 azure_superuser、admin、administrator、root、guest 或 public。
 +   `properties/administratorLoginPassword` - 为上述指定的 MySQL 管理员用户指定密码。
@@ -91,8 +91,8 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 +   `storageProfile/geoRedundantBackup` - 根据 Geo-DR 需求指定“已启用/已禁用”。
 +   `sku/tier` - 指定部署的 Basic、GeneralPurpose 或 MemoryOptimized 层。
 +   `sku/capacity` - 指定 vCore 容量。 可能值包括 2、4、8、16、32 或 64。
-+   `sku/family` - 指定 Gen4 或 Gen5 以选择用于服务器部署的硬件代系。
-+   `sku/name` - 指定 TierPrefix_family_capacity。 例如 B_Gen4_1、GP_Gen5_16、MO_Gen5_32。 请参阅[定价层](./concepts-pricing-tiers.md)文档，了解每个区域和每个层的有效值。
++   `sku/family` - 指定 Gen5 以选择用于服务器部署的硬件代系。
++   `sku/name` - 指定 TierPrefix_family_capacity。 例如 B_Gen5_1、GP_Gen5_16、MO_Gen5_32。 请参阅[定价层](./concepts-pricing-tiers.md)文档，了解每个区域和每个层的有效值。
 +   `resources/properties/virtualNetworkSubnetId` - 指定 Azure MySQL 服务器应位于的 VNet 中的子网的 Azure 标识符。 
 +   `tags(optional)` - 指定可选标记为用于对资源进行分类，以便计费等的键值对。
 
@@ -107,7 +107,7 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 
 ```azurecli
 az login
-az group create -n ExampleResourceGroup  -l "China North"
+az group create -n ExampleResourceGroup  -l "China North 2"
 az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
@@ -124,13 +124,13 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
   "administratorLoginPassword": null,
   "fullyQualifiedDomainName": "mydemoserver.mysql.database.chinacloudapi.cn",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
-  "location": "chinanorth",
+  "location": "chinanorth2",
   "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

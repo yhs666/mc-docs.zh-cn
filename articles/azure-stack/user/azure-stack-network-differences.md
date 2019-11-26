@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: WenJason
 manager: digimobile
-origin.date: 07/10/2019
-ms.date: 07/29/2019
+origin.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 28edf42a7042337b75c7d3140fee12e20035a1ca
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: adf8fcbad881c603ef4a887a6bf5b33525da97ab
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513269"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020304"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Azure Stack 网络的差异和注意事项
 
@@ -76,6 +76,23 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 | 应用程序网关 | 7 层负载均衡 | 支持 | 尚不支持。 |
 | 流量管理器 | 路由传入的流量，以获得最佳应用程序性能和可靠性。 | 支持 | 尚不支持。 |
 |Express Route|设置快速专用连接，从本地基础结构或共置设施连接到 Azure 云服务。|支持|支持将 Azure Stack 连接到 Express Route 线路。|
+
+## <a name="api-versions"></a>API 版本 
+
+Azure Stack 网络支持以下 API 版本： 
+
+- 2018-11-01
+- 2018-10-01
+- 2018-08-01
+- 2018-07-01
+- 2018-06-01
+- 2018-05-01
+- 2018-04-01
+- 2018-03-01
+- 2018-02-01
+- 2018-01-01
+- 2017-11-01
+- 2017-10-01
 
 ## <a name="next-steps"></a>后续步骤
 

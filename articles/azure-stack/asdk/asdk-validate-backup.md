@@ -8,16 +8,16 @@ cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 origin.date: 07/31/2019
-ms.date: 10/21/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 43fd4f115e649ae25c1087cc6b268643376cc49f
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 211e5f384336aa1b7ef560bd76c1453567b7f14f
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578510"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020134"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额和订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -89,9 +89,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-接下来，将最新的 Azure Stack 备份文件复制到新创建的共享。 共享中的文件夹结构应该是：`\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`。
+接下来，将最新的 Azure Stack 备份文件复制到新创建的共享。 请确保复制 `<BackupID>` 文件夹的父文件夹，这是创建备份时的时间戳。 共享中的文件夹结构应该是：`\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`。 
 
-最后，将解密证书 (.pfx) 复制到证书目录：`C:\CloudDeployment\Setup\Certificates\`，并将文件重命名为 `BackupDecryptionCert.pfx`。
+最后，将解密证书 (.pfx) 复制到证书目录：`C:\CloudDeployment\Setup\BackupDecryptionCert\`，并将文件重命名为 `BackupDecryptionCert.pfx`。
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>在云恢复模式下部署 ASDK
 

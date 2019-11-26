@@ -3,14 +3,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: include
 origin.date: 06/05/2019
-ms.date: 10/25/2019
+ms.date: 11/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: b753314d2051fd2d1aaeffa54e9cd48a15939c5a
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: b79ff893cccbb30903ac04fa5ae9e454cb6f6df1
+ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958453"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73987379"
 ---
 | Resource | 默认/最大限制 | 注意 |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "72958453"
 | 后端 HTTP 设置 |100<sup>1</sup> | |
 | 每个网关的实例 |32 | |
 | SSL 证书 |100<sup>1</sup> |每个 HTTP 侦听器 1 个 |
-| 最大 SSL 证书大小 |V1 SKU - 10 KB| |
+| 最大 SSL 证书大小 |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | 身份验证证书 |100 | |
 | 受信任的根证书 |100 | |
 | 请求超时最小值 |1 秒 | |

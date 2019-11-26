@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 07/29/2019
+origin.date: 10/02/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f420504d917272b94c1e3142d8e7b9dabc93dbaf
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: ff272e7e0e880f1b8ac5be9054562f9183546984
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513354"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020277"
 ---
 # <a name="introduction-to-azure-stack-vms"></a>Azure Stack VM 简介
 
@@ -24,7 +24,7 @@ ms.locfileid: "68513354"
 
 Azure Stack 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 如果需要以更大的力度控制计算环境，可以选择 VM。 本文提供创建第一个 VM 之前所需的详细信息。
 
-Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补和安装在 VM 上运行的软件）来维护 VM。
+Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补/更新和安装在 VM 上运行的软件）来维护 VM。
 
 可通过多种方式使用 Azure Stack VM。 例如：
 

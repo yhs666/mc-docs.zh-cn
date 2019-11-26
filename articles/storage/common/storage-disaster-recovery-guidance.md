@@ -5,28 +5,30 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 02/01/2019
-ms.date: 02/25/2019
+origin.date: 02/25/2019
+ms.date: 11/19/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 28b3d883477a6328ad988b8ac22c85c51c1076de
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7b1013b9821d3037f84acff4f6ff4b4aa071eb37
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665420"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179006"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 存储中的灾难恢复和存储帐户故障转移（预览版）
 
 Azure 致力于确保 Azure 服务一直可用。 不过，可能会发生计划外服务中断。 如果应用程序需要复原能力，Azure 建议使用异地冗余存储，这样就可以将数据复制到另一个区域。 此外，客户还应制定用于处理区域服务中断的灾难恢复计划。 灾难恢复计划的一个重要组成部分是，准备在主终结点不可用时将故障转移到辅助终结点。 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="choose-the-right-redundancy-option"></a>选择正确的冗余选项
 
 为了实现冗余，所有存储帐户都会进行复制。 为帐户选择哪个冗余选项取决于所需的复原能力水平。 若要防止区域中断，请选择有权或无权从次要区域读取数据的异地冗余存储：  
 
-**异地冗余存储 (GRS)**：在至少相距数百英里的两个地理区域之间异步复制数据。 如果主要区域遭遇服务中断，次要区域便会成为数据的冗余源。 可以通过启动故障转移，将辅助终结点转换为主终结点。
+**异地冗余存储 (GRS)** ：在至少相距数百英里的两个地理区域之间异步复制数据。 如果主要区域遭遇服务中断，次要区域便会成为数据的冗余源。 可以通过启动故障转移，将辅助终结点转换为主终结点。
 
-**读取访问权限异地冗余存储 (RA-GRS)**：为异地冗余存储提供附加优势，即对辅助终结点的读取访问权限。 如果主终结点发生中断，配置了 RA-GRS 且旨在实现高可用性的应用程序可以继续从辅助终结点读取数据。 我们建议对应用程序使用 RA-GRS，以获取最大复原能力。
+**读取访问权限异地冗余存储 (RA-GRS)** ：为异地冗余存储提供附加优势，即对辅助终结点的读取访问权限。 如果主终结点发生中断，配置了 RA-GRS 且旨在实现高可用性的应用程序可以继续从辅助终结点读取数据。 我们建议对应用程序使用 RA-GRS，以获取最大复原能力。
 
 > [!WARNING]
 > 异地冗余存储有数据丢失风险。 数据是异步复制到次要区域。也就是说，数据写入主要区域与数据写入次要区域之间存在延迟。 在服务中断的情况下，对主终结点执行、但尚未复制到辅助终结点的写入操作将会丢失。 
@@ -47,7 +49,7 @@ Azure 致力于确保 Azure 服务一直可用。 不过，可能会发生计划
 
 ## <a name="track-outages"></a>跟踪服务中断
 
-客户可以订阅 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)，以跟踪 Azure 存储和其他 Azure 服务的运行状况和状态。
+客户可以订阅 [Azure 服务运行状况仪表板](https://status.azure.com/zh-cn/status)，以跟踪 Azure 存储和其他 Azure 服务的运行状况和状态。
 
 Azure 还建议将应用程序设计为可以应对可能出现的写入故障。 应用程序应公开写入故障，以提醒你主要区域可能存在服务中断。
 

@@ -2,18 +2,18 @@
 title: 从 Azure 数据资源管理器中删除数据
 description: 本文介绍了 Azure 数据资源管理器中的批量删除方案，包括清除和基于保留期的删除。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 05/01/2019
-ms.openlocfilehash: 6e4b8b701fc614eea7c375ddee20f8a1c002fb28
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 04d307fac3b74634386b9679708a73eff6701a0b
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686592"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020822"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器中删除数据
 

@@ -65,6 +65,8 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: 常见错误消息
   href: error-messages.md
+- name: 对 32 位操作系统的支持
+  href: support-32-bit-operating-systems-virtual-machines.md
 - name: 脱机安装 Windows VM 代理
   href: install-vm-agent-offline.md
 - name: 重新部署 VM
@@ -87,12 +89,18 @@
   href: storage-resource-deletion-errors.md
 - name: 删除经典存储资源时出错
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: 附加 VHD 的 VM 意外重新启动
-  href: unexpected-reboots-attached-vhds.md
-- name: Windows 激活问题
-  href: troubleshoot-activation-problems.md
-- name: 强制隧道的激活问题
-  href: custom-routes-enable-kms-activation.md
+- name: 排查 VM 重启问题
+  items:
+    - name: 附加 VHD 的 VM 意外重新启动
+      href: unexpected-reboots-attached-vhds.md
+    - name: 了解系统重新启动
+      href: understand-vm-reboot.md
+- name: Windows 激活
+  items:
+    - name: Windows 激活问题
+      href: troubleshoot-activation-problems.md
+    - name: 强制隧道的激活问题
+      href: custom-routes-enable-kms-activation.md
 - name: 应用程序访问问题
   href: troubleshoot-app-connection.md
 - name: 新建 VM 部署
@@ -148,7 +156,11 @@
   href: troubleshooting-throttling-errors.md
 - name: 使用嵌套虚拟化
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: 了解系统重新启动
-  href: understand-vm-reboot.md
 - name: 远程故障排除工具
   href: remote-tools-troubleshoot-azure-vm-issues.md
+- name: 虚拟机修复
+  items:
+    - name: 使用 Azure 虚拟机修复命令修复 Windows VM
+      href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+    - name: 使用 Azure 虚拟机修复命令修复 Linux VM
+      href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md

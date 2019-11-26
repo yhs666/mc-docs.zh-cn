@@ -2,18 +2,18 @@
 title: 在 Azure 数据资源管理器中处理重复数据
 description: 本主题介绍如何在使用 Azure 数据资源管理器时通过各种方法来处理重复数据。
 author: orspod
-ms.author: v-biyu
+ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 12/19/2018
-ms.date: 05/01/2019
-ms.openlocfilehash: 2edc6c8c5defd4d2e80337fc2ff6687a3d83c3fe
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.date: 11/18/2019
+ms.openlocfilehash: 10593fcfc61e98ab69584d336c2d1305cb85f106
+ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686521"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020823"
 ---
 # <a name="handle-duplicate-data-in-azure-data-explorer"></a>在 Azure 数据资源管理器中处理重复数据
 
@@ -48,7 +48,7 @@ _data
 
 ### <a name="solution-2-handle-duplicate-rows-during-query"></a>解决方法 #2：在查询过程中处理重复行
 
-另一种做法是在查询过程中筛选出数据中的重复行。 使用 [`arg_max()`](https://docs.microsoft.com/zh-cn/azure/kusto/query/arg-max-aggfunction) 聚合函数可以筛选出重复记录，并基于时间戳（或另一列）返回最后一条记录。 使用此方法的优点是引入速度更快，因为重复数据删除是在查询期间发生的。 此外，所有记录（包括重复项）都可用于审核和故障排除。 使用 `arg_max` 函数的缺点是，每次查询数据都会增大查询时间和 CPU 负载。 根据查询的数据量，此解决方法可能不起作用或者消耗过多的内存，因此需要改用其他做法。
+另一种做法是在查询过程中筛选出数据中的重复行。 使用 [`arg_max()`](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction) 聚合函数可以筛选出重复记录，并基于时间戳（或另一列）返回最后一条记录。 使用此方法的优点是引入速度更快，因为重复数据删除是在查询期间发生的。 此外，所有记录（包括重复项）都可用于审核和故障排除。 使用 `arg_max` 函数的缺点是，每次查询数据都会增大查询时间和 CPU 负载。 根据查询的数据量，此解决方法可能不起作用或者消耗过多的内存，因此需要改用其他做法。
 
 在以下示例中，我们将查询针对一组列引入的最后一条记录来确定唯一的记录：
 
@@ -71,7 +71,7 @@ DeviceEventsAll
 
 ### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>解决方法 #3：在引入过程中筛选重复项
 
-另一种解决方法是在引入过程中筛选重复项。 在引入到 Kusto 表期间，系统将忽略重复数据。 删除重复行之后，将数据引入到临时表并复制到另一个表中。 此解决方法的优点是，相比前一种解决方法，查询性能可以得到明显的改善。 缺点包括增大引入时间和数据存储成本。
+另一种解决方法是在引入过程中筛选重复项。 在引入到 Kusto 表期间，系统将忽略重复数据。 删除重复行之后，将数据引入到临时表并复制到另一个表中。 此解决方法的优点是，相比前一种解决方法，查询性能可以得到明显的改善。 缺点包括增大引入时间和数据存储成本。 此外，仅当不同时引入重复项时，此解决方案才有效。 如果有多个并发引入包含重复记录，则可能会全部引入，因为重复数据消除过程将在表中找不到任何现有的匹配记录。    
 
 以下示例演示了此方法：
 
@@ -100,7 +100,7 @@ DeviceEventsAll
     > [!NOTE]
     > 联接是 CPU 密集型操作，会在系统中施加一个额外的负载。
 
-1. 针对 `DeviceEventsUnique` 表设置[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/management/update-policy)。 新数据进入 `DeviceEventsAll` 表时会激活更新策略。 创建新的[范围](https://docs.microsoft.com/zh-cn/azure/kusto/management/extents-overview)时，Kusto 引擎会自动执行该函数。 处理范围限定为新建的数据。 以下命令将源表 (`DeviceEventsAll`)、目标表 (`DeviceEventsUnique`) 和函数 `RemoveDuplicatesDeviceEvents` 拼接在一起，以创建更新策略。
+1. 针对 `DeviceEventsUnique` 表设置[更新策略](https://docs.microsoft.com/azure/kusto/management/update-policy)。 新数据进入 `DeviceEventsAll` 表时会激活更新策略。 创建新的[范围](https://docs.microsoft.com/azure/kusto/management/extents-overview)时，Kusto 引擎会自动执行该函数。 处理范围限定为新建的数据。 以下命令将源表 (`DeviceEventsAll`)、目标表 (`DeviceEventsUnique`) 和函数 `RemoveDuplicatesDeviceEvents` 拼接在一起，以创建更新策略。
 
     ```kusto
     .alter table DeviceEventsUnique policy update

@@ -6,14 +6,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/19/2018
-ms.date: 10/28/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: efd0e6e51b76c761791f15113190514a24e6cb0a
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: 7250b1f9d43b96f26869cc53b75e7dbc48a50b21
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034383"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178959"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -71,6 +71,9 @@ ms.locfileid: "73034383"
       "batchSize": 16,
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
+    },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
     },
     "serviceBus": {
       "maxConcurrentCalls": 16,
@@ -138,7 +141,7 @@ ms.locfileid: "73034383"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。
+指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值为 _null_，表示没有超时。
 
 ```json
 {
@@ -185,11 +188,14 @@ ms.locfileid: "73034383"
 }
 ```
 
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|dynamicThrottlesEnabled|false|启用时，将为此设置将导致请求处理管道，以定期检查系统性能计数器类似连接/线程/进程/内存/CPU 等，并通过内置的高阈值 (80%)，如果有任何这些计数器请求拒绝与 429“太忙”响应，直至恢复到正常水平的计数器。|
+|maxConcurrentRequests|无限制 (`-1`)|要并行执行的 http 函数数目上限。 这样，可以控制并发性，从而帮助管理资源利用率。 例如，某个 http 函数可能使用了大量系统资源（内存/CPU/插槽），从而在并发性过高时导致问题。 或者，某个函数向第三方服务发出出站请求，则可能需要限制这些调用的速率。 在这种情况下，应用限制可能有帮助。|
+|maxOutstandingRequests|无限制 (`-1`)|在任意给定时间搁置的未完成请求数上限。 此限制包括已排队但尚未开始执行的请求，以及正在执行的所有请求。 超出此限制的任何传入请求将被拒绝，并返回 429“太忙”响应。 允许调用方使用基于时间的重试策略，还可帮助控制最大请求延迟。 此设置仅控制脚本宿主执行路径中发生的排队。 其他队列（例如 ASP.NET 请求队列）仍有效，不受此设置的影响。|
+|routePrefix|api|应用到所有路由的路由前缀。 使用空字符串可删除默认前缀。 |
 
 ## <a name="id"></a>id
-
-*仅限版本 1.x*。
 
 作业宿主的唯一 ID。 可以是不带短划线的小写 GUID。 在本地运行时必须指定。 在 Azure 中运行时，我们建议你不要设置 ID 值。 省略 `id` 时，Azure 中会自动生成 ID。 
 
@@ -225,6 +231,21 @@ ms.locfileid: "73034383"
 |batchSize|16|Functions 运行时同时检索并并行处理的队列消息数。 当处理的数量下降到 `newBatchThreshold` 时，运行时可获取另一个批，并开始处理这些消息。 因此，每个函数处理的最大并发消息数是 `batchSize` 加上 `newBatchThreshold`。 此限制分别应用于各个队列触发的函数。 <br><br>如果要避免对队列上收到的消息并行执行，可以将 `batchSize` 设置为 1。 但是，只有在函数于单个虚拟机 (VM) 上运行时，此设置才可消除并发。 如果函数应用横向扩展到多个 VM，每个 VM 可运行每个队列触发的函数的一个实例。<br><br>`batchSize` 的最大值为 32。 | 
 |maxDequeueCount|5|在将某个消息移到有害队列之前，尝试处理该消息的次数。| 
 |newBatchThreshold|batchSize/2|只要同时处理的消息数下降到此数值，运行时即检索另一个批次。| 
+
+## <a name="sendgrid"></a>SendGrid
+
+[SendGrind 输出绑定](functions-bindings-sendgrid.md)的配置设置
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|from|不适用|所有函数的发件人电子邮件地址。| 
 
 ## <a name="servicebus"></a>serviceBus
 

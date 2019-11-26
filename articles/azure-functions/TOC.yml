@@ -66,7 +66,7 @@
           href: functions-bindings-return-value.md
         - name: 处理绑定错误
           href: functions-bindings-errors.md
-    - name: 语言
+    - name: Languages
       items:
         - name: 支持的语言
           href: supported-languages.md
@@ -76,7 +76,7 @@
           href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
-        - name: Javascript
+        - name: JavaScript
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
@@ -179,6 +179,8 @@
           href: install-update-binding-extensions-manual.md
         - name: 禁用函数
           href: disable-function.md
+        - name: 异地灾难恢复
+          href: functions-geo-disaster-recovery.md
     - name: 安全
       items:
         - name: 对用户进行身份验证
@@ -195,8 +197,6 @@
           href: ../app-service/overview-managed-identity.md
         - name: 从 Key Vault 引用机密
           href: ../app-service/app-service-key-vault-references.md
-        - name: 异地灾难恢复
-          href: functions-geo-disaster-recovery.md
     - name: 集成
       items:
         - name: 添加绑定
@@ -251,7 +251,7 @@
           href: functions-bindings-http-webhook.md
         - name: Microsoft Graph
           href: functions-bindings-microsoft-graph.md
-        - name: Mobile Apps
+        - name: 移动应用
           href: functions-bindings-mobile-apps.md
         - name: 通知中心
           href: functions-bindings-notification-hubs.md
@@ -287,7 +287,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
-    - name: Stack Overflow
+    - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/azure-functions'
     - name: 提供产品反馈
       href: 'https://feedback.azure.com/forums/355860-azure-functions'

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 10/18/2018
 ms.date: 10/17/2019
 ms.author: v-tawe
-ms.openlocfilehash: 599580bfd51c1fd7e69c7a621a5564d1d0d3792c
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 2837e8a95e435f668e8bd9905cdc870baa3bae63
+ms.sourcegitcommit: 855ac08e4d9518ea5fd3277b07a1bcdb0b3e46cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584028"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233570"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 后端连接功能中的互操作性：测试配置详细信息
 
@@ -179,7 +179,7 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 
 中心辐射型 VNet 体系结构的使用非常广泛。 中心是 Azure 中的一个 VNet，充当辐射 VNet 与本地网络之间的连接中心点。 辐射是与中心对等互连的 VNet，可用于隔离工作负荷。 流量通过 ExpressRoute 或 VPN 连接在本地数据中心与中心之间流动。 有关详细信息，请参阅“体系结构”。
 
-在区域内的 VNet 对等互连中，辐射 VNet 可以使用中心 VNet 网关（VPN 和 ExpressRoute 网关）来与远程网络通信。
+在区域内的 VNet 对等互连中，辐射 VNet 可以使用中心 VPN 网关（VPN 和 ExpressRoute 网关）来与远程网络通信。
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>使用站点到站点 VPN 建立分支 VNet 连接
 

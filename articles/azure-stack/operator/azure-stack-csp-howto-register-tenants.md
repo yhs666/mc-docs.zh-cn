@@ -1,6 +1,6 @@
 ---
 title: 将租户添加到 Azure Stack 以获取用量和计费信息 | Microsoft Docs
-description: 将最终用户添加到云服务提供商 (CSP) 管理的 Azure Stack 所要执行的步骤。
+description: 了解如何将租户添加到 Azure Stack 以获取用量和计费信息。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,40 +11,42 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2019
-ms.date: 10/21/2019
+origin.date: 09/25/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9093ede07be810608525f4751a25ee1a543f1e7e
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 3ebd10239da5b99524b5855702aa9b087748e9c0
+ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578464"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74020251"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
 *适用于：Azure Stack 集成系统*
 
-本文介绍将最终用户添加到云服务提供程序 (CSP) 管理的 Azure Stack 部署所要执行的步骤。 当新租户使用资源时，Azure Stack 会向其 CSP 订阅报告用量。
+本文介绍如何将租户添加到云解决方案提供商 (CSP) 管理的 Azure Stack 部署。 当新租户使用资源时，Azure Stack 会向其 CSP 订阅报告用量。
 
-CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服务。 将租户添加到 Azure Stack 注册可确保向相应的 CSP 订阅报告每个租户的用量并计收费用。 如果未完成本文中的步骤，则会向 Azure Stack 初始注册中使用的订阅计收租户使用费。 在将最终用户添加到 Azure Stack 以跟踪用量并管理其租户之前，必须将 Azure Stack 配置为 CSP。 有关步骤和资源，请参阅[管理充当云服务提供程序的 Azure Stack 的用量的计费](azure-stack-add-manage-billing-as-a-csp.md)。
+CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服务。 将租户添加到 Azure Stack 注册可确保向相应的 CSP 订阅报告每个租户的用量并计收费用。 如果未完成本文中的步骤，则会向 Azure Stack 初始注册中使用的订阅计收租户使用费。 在将最终用户添加到 Azure Stack 以跟踪用量并管理其租户之前，必须将 Azure Stack 配置为 CSP。 有关步骤和资源，请参阅[管理充当云解决方案提供商的 Azure Stack 的用量的计费](azure-stack-add-manage-billing-as-a-csp.md)。
 
-下图演示了 CSP 需要执行哪些步骤才能让新客户使用 Azure Stack，并针对客户设置用量跟踪。 添加最终用户还可以管理 Azure Stack 中的资源。 可通过两个选项来管理这些资源：
+下图演示了 CSP 需要执行哪些步骤才能让新的最终客户使用 Azure Stack，并针对客户设置用量跟踪。 添加最终用户还可以管理 Azure Stack 中的资源。 可通过两个选项来管理这些资源：
 
 - 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
-- 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
+- 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。
 
 ## <a name="add-an-end-customer"></a>添加最终客户
 
+在添加最终客户之前，必须在注册中启用多租户计费。 若要启用多租户计费，请将注册订阅 ID、资源组名称和注册名称发送到 `azstcsp@microsoft.com`。 启用多租户通常需要 1-2 个工作日。
+
 执行以下步骤以添加最终客户，如下图所示：
 
-![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
+![设置云解决方案提供商以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>在合作伙伴中心创建新客户
 
-在合作伙伴中心，为客户创建新的 Azure 订阅。 有关说明，请参阅[添加新客户](https://msdn.microsoft.com/partner-center/add-a-new-customer)。
+在合作伙伴中心，为客户创建新的 Azure 订阅。 有关说明，请参阅[添加新客户](https://docs.microsoft.com/partner-center/add-a-new-customer)。
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>为最终客户创建 Azure 订阅
 
@@ -52,7 +54,7 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-默认情况下，作为 CSP 你将无权访问最终客户的 Azure Stack 订阅。 但是，如果客户希望你管理其资源，那么他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack 订阅。 为此，他们需要将你的帐户作为来宾用户添加到其 AAD 租户。 建议你使用与 Azure CSP 帐户不同的帐户来管理客户的 Azure Stack 订阅，以确保你不会失去访问客户的 Azure 订阅的权限。
+默认情况下，作为 CSP 你将无权访问最终客户的 Azure Stack 订阅。 但是，如果客户希望你管理其资源，那么他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack 订阅。 为此，他们需要将你的帐户作为来宾用户添加到其 Azure AD 租户。 建议你使用与 Azure CSP 帐户不同的帐户来管理客户的 Azure Stack 订阅，以确保你不会失去访问客户的 Azure 订阅的权限。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
@@ -81,7 +83,7 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 | 参数 | 说明 |
 | --- | --- |
 |registrationSubscriptionID | 用于 Azure Stack 初始注册的 Azure 订阅。|
-| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不是 Azure Stack）。 必须在 CSP 产品中创建；在实践中，这意味着通过合作伙伴中心创建。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack 的租户中创建此订阅。 客户订阅 ID 必须使用小写字母。 |
+| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不是 Azure Stack）。 必须在 CSP 套餐中创建。 实际上，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack 的租户中创建此订阅。 客户订阅 ID 必须使用小写字母。 |
 | resourceGroup | Azure 中用于存储注册的资源组。 |
 | registrationName | Azure Stack 的注册名称。 它是 Azure 中存储的对象。 |
 | 属性 | 指定资源的属性。 使用此参数指定特定于资源类型的属性的值。
@@ -101,4 +103,4 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 - 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
 - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
-- 若要了解最终客户如何将你添加为 CSP 或其 Azure Stack 租户的管理员，请参阅[让云服务提供程序管理 Azure Stack 订阅](../user/azure-stack-csp-enable-billing-usage-tracking.md)。
+- 若要了解最终客户如何将你 (CSP) 添加为其 Azure Stack 租户的管理员，请参阅[让云解决方案提供商管理 Azure Stack 订阅](../user/azure-stack-csp-enable-billing-usage-tracking.md)。
