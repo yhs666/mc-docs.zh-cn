@@ -8,19 +8,16 @@ author: mgoedtel
 ms.author: v-lingwu
 origin.date: 07/02/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: a0c21fa6e35d8f791c376858dfb243b90dba1d5a
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: cac880db8b90b700e354dc061c53fbd6dda4019e
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970906"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528419"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager 与用于 VM 的 Azure Monitor 的映射功能的集成
 
 在用于 VM 的 Azure Monitor 中，可以查看在 Azure 或你的环境中运行的 Windows 和 Linux 虚拟机 (VM) 上发现的应用程序组件。 通过映射功能与 System Center Operations Manager 的此集成，可以根据用于 VM 的 Azure Monitor 中的动态依赖关系映射，在 Operations Manager 中自动创建分布式应用程序关系图。 
-
->[!NOTE]
->如果已部署服务映射，可以在用于 VM 的 Azure Monitor 中查看映射，其中包括监视 VM 运行状况和性能的附加功能。 用于 VM 的 Azure Monitor 的映射功能旨在替代独立的服务映射解决方案。 若要了解详细信息，请参阅[面向 VM 的 Azure Monitor 概述](vminsights-overview.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

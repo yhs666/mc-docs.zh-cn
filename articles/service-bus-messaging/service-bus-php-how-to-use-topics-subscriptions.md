@@ -1,6 +1,6 @@
 ---
-title: 如何通过 PHP 使用服务总线主题 | Azure
-description: 了解如何通过 PHP 使用 Azure 中的服务总线主题。
+title: 快速入门：如何通过 PHP 使用服务总线主题
+description: 快速入门：了解如何通过 PHP 使用 Azure 中的服务总线主题。
 services: service-bus-messaging
 documentationcenter: php
 author: lingliw
@@ -11,22 +11,22 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-origin.date: 04/15/2019
-ms.date: 09/15/2019
+ms.topic: quickstart
+origin.date: 11/05/2019
+ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9987c4099ef8ed2416fdf7592170e7cd20203e22
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 417b6bb4a50ca65322f731b5a0457392f6e145ba
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330134"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527986"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>快速入门：如何通过 PHP 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文说明如何使用服务总线主题和订阅。 示例采用 PHP 编写并使用 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的方案包括：
+本文说明如何使用服务总线主题和订阅。 示例采用 PHP 编写并使用 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)。 涉及的方案包括：
 
 - 创建主题和订阅 
 - 创建订阅筛选器 
@@ -360,6 +360,9 @@ catch(ServiceException $e){
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
+
+> [!NOTE]
+> 可以使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer/)管理服务总线资源。 服务总线资源管理器允许用户连接到服务总线命名空间并以一种简单的方式管理消息传送实体。 该工具提供高级功能，如导入/导出功能或用于对主题、队列、订阅、中继服务、通知中心和事件中心进行测试的功能。 
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。

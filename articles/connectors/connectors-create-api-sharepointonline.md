@@ -16,12 +16,12 @@ ms.workload: integration
 origin.date: 07/19/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
-ms.openlocfilehash: b0762c3592e85d71314dfea0abf40ffc167b7796
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fc0967902b7ca85483b595b767ed430d3584f2db
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649649"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528415"
 ---
 # <a name="get-started-with-the-sharepoint-online-connector"></a>SharePoint Online 连接器入门
 使用 SharePoint Online 连接器管理 SharePoint 列表。  
@@ -30,22 +30,22 @@ ms.locfileid: "52649649"
 
 ## <a name="connect-to-sharepoint-online"></a>连接到 SharePoint Online
 在逻辑应用访问任何服务之前，必须先创建到该服务的*连接*。 [连接](connectors-overview.md)提供逻辑应用和其他服务之间的连接性。  
-
-### <a name="create-a-connection-to-sharepoint-online"></a>创建到 SharePoint Online 的连接
+<!-- 
+### Create a connection to SharePoint Online
 > [!INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
 
-## <a name="use-a-sharepoint-online-trigger"></a>使用 SharePoint Online 触发器
-触发器是用于启动在逻辑应用中定义的工作流的事件。 [了解有关触发器的详细信息](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
+## Use a SharePoint Online trigger
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
 
-## <a name="use-a-sharepoint-online-action"></a>使用 SharePoint Online 操作
-操作是指在逻辑应用中定义的工作流所执行的操作。 [了解有关操作的详细信息](../logic-apps/logic-apps-overview.md#logic-app-concepts)。  
+## Use a SharePoint Online action
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
-
+-->
 
 ## <a name="connector-specific-details"></a>特定于连接器的详细信息
 

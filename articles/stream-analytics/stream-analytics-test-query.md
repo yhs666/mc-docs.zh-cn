@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/23/2019
 ms.date: 09/23/2019
-ms.openlocfilehash: a1b53add7595fd9b5a5b8a37105f42c1a9d5b9a9
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: e547b9a956d499fa85d068ea82c350a1756aa7f0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674751"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528423"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>使用样本数据测试 Azure 流分析作业
 
-在 Azure 流分析中，无需启动或停止作业即可测试查询。 可以在 Azure 门户上，针对输入接收器传入的数据或者从本地文件上传的示例数据测试查询。 还可以在 [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) 和 [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run) 中，基于本地示例数据或实时数据在本地测试查询。 
+在 Azure 流分析中，无需启动或停止作业即可测试查询。 可以在 Azure 门户上，针对输入接收器传入的数据或者从本地文件上传的示例数据测试查询。 还可以在 [Visual Studio](stream-analytics-live-data-local-testing.md) 和 [Visual Studio Code](vscode-local-run.md) 中，基于本地示例数据或实时数据在本地测试查询。 
 
 ## <a name="sample-incoming-data-from-input"></a>来自输入的示例传入数据
 
@@ -106,4 +106,4 @@ Azure 流分析自动从流输入中提取事件。 可以针对默认示例运�
 
 * [理解 Azure 流分析的输入](stream-analytics-add-inputs.md)
 
-* [理解 Azure 流分析的输出](stream-analytics-define-outputs.md)
+* [了解 Azure 流分析的输出](stream-analytics-define-outputs.md)

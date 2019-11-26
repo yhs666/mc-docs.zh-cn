@@ -9,12 +9,12 @@ ms.author: v-lingwu
 origin.date: 07/22/2019
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23b4e148052bd407abe3ea81d7390df9d91160a2
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: d86ff78b3afdca70cc560e1f387cee28c33b0ec7
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970972"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528418"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>将 Log Analytics 保存的搜索和警报添加到管理解决方案（预览版）
 
@@ -384,10 +384,10 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
             "value": "myAccount"
         },
         "workspaceregionId": {
-            "value": "East US"
+            "value": "China East"
         },
         "regionId": {
-            "value": "East US 2"
+            "value": "China East 2"
         },
         "pricingTier": {
             "value": "Free"

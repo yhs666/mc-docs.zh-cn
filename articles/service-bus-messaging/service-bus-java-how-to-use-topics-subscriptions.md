@@ -1,32 +1,32 @@
 ---
-title: 通过 Java 使用 Azure 服务总线主题和订阅
-description: 在 Azure 中使用服务总线主题和订阅。
+title: 快速入门：通过 Java 使用 Azure 服务总线主题和订阅
+description: 快速入门：在 Azure 中使用服务总线主题和订阅。
 services: service-bus-messaging
 documentationcenter: java
 author: lingliw
 manager: digimobile
-editor: ''
+editor: spelluru
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-origin.date: 04/15/2019
-ms.date: 09/23/2019
+ms.topic: quickstart
+origin.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 657292bd258f33332d2660e4714bb7dede637bc5
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 4ef9dc1f01f1cb54a035c8ea6bd25a2190e3db62
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041204"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528024"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>快速入门：通过 Java 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-在本快速入门中，先编写 Java 代码，将消息发送到某个 Azure 服务总线主题，然后从该主题的订阅中接收消息。 
+在本快速入门中，你将编写一些 Java 代码，用于将消息发送到 Azure 服务总线主题，然后从该主题的订阅接收消息。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,7 +35,7 @@ ms.locfileid: "73041204"
     1. 创建一个服务总线**命名空间**。
     2. 获取**连接字符串**。
     3. 在此命名空间中创建一个**主题**。
-    4. 在此命名空间中创建对此主题的**三个订阅**。
+    4. 在命名空间中创建对该主题的**三个订阅**。
 3. [Azure SDK for Java][Azure SDK for Java]。
 
 
@@ -133,7 +133,7 @@ public class MyServiceBusTopicClient {
 public class MyServiceBusTopicClient {
 
     static final Gson GSON = new Gson();
-
+    
     public static void main(String[] args) throws Exception, ServiceBusException {
         SubscriptionClient subscription1Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription1"), ReceiveMode.PEEKLOCK);
         SubscriptionClient subscription2Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription2"), ReceiveMode.PEEKLOCK);
@@ -143,7 +143,7 @@ public class MyServiceBusTopicClient {
         registerMessageHandlerOnClient(subscription2Client);
         registerMessageHandlerOnClient(subscription3Client);
     }
-
+    
     static void registerMessageHandlerOnClient(SubscriptionClient receiveClient) throws Exception {
 
         // register the RegisterMessageHandler callback
@@ -173,12 +173,13 @@ public class MyServiceBusTopicClient {
                 }
                 return receiveClient.completeAsync(message.getLockToken());
             }
-
+            
             public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
                 System.out.printf(exceptionPhase + "-" + throwable.getMessage());
             }
         };
 
+ 
         receiveClient.registerMessageHandler(
                     messageHandler,
                     // callback invoked when the message handler has an exception to report

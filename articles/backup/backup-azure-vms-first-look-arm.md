@@ -5,14 +5,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/13/2019
+origin.date: 06/13/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ba472db855992be7401fe5f96b86ed360a900ef2
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ef5dffc041e5934f269027d6f798b91e97245e58
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730344"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528271"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>通过 VM 设置备份 Azure VM
 
