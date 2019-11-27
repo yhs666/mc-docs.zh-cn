@@ -14,12 +14,12 @@ ms.workload: tbd
 origin.date: 09/04/2019
 ms.author: v-yiso
 ms.date: 10/21/2019
-ms.openlocfilehash: 0f8fdf876e8ddd4ddf86676e89d51570fdee0bf8
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: e0333942b8bfd2ca653172d9bdb1c145784f066d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292573"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389408"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
@@ -75,11 +75,11 @@ ms.locfileid: "72292573"
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6.1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.1]: /cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: /cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: /cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: /cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: /cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>2019 年 7 月来宾 OS

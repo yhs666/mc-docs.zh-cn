@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: add5ee601f968f558b71abf443452047315b3e98
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 8827e72c9ed68dd0ebda1c25301e89e99625336c
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520862"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389402"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight：.NET 示例
 
@@ -26,7 +26,7 @@ ms.locfileid: "65520862"
 * 有关群集创建任务的示例链接。
 * 有关其他管理任务的参考内容链接。
 
-可以[激活 Visual Studio 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
+可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
 
 ## <a name="prerequisites"></a>先决条件
 

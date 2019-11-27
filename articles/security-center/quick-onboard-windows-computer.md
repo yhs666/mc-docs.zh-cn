@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 12/3/2018
 ms.date: 05/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0dffaaffc4340c753f788d734b3e06d6bcee3635
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: f8a89962c0c209b5d8cfb5bfc49645b8bb676bee
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674833"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528312"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入门：将 Windows 计算机加入安全中心
 加入 Azure 订阅之后，可以通过预配 Microsoft Monitoring Agent 为 Azure 外部（例如，本地或在其他云中）运行的资源启用安全中心。
@@ -66,7 +66,7 @@ ms.locfileid: "71674833"
 4. 在“目标文件夹”页面上更改或保留默认安装文件夹，然后选择“下一步”   。
 5. 在“代理安装选项”页上，选择将代理连接到 Azure Log Analytics，然后选择“下一步”。  
 6. 在 **Azure Log Analytics** 页上，粘贴在前面步骤中复制到记事本的“工作区 ID” 和“工作区密钥(主密钥)”   。
-7. 如果计算机应向 Azure 政府云中的 Log Analytics 工作区报告，请从“Azure 云”  下拉列表中选择 **“Azure 美国政府”** 。  如果计算机需要通过代理服务器来与 Log Analytics 服务通信，请选择“高级”并提供代理服务器的 URL 和端口号。 
+7. 如果计算机应向 Azure 政府云中的 Log Analytics 工作区报告，请从“Azure 云”  下拉列表中选择 **“Azure 美国政府”** 。 如果计算机需要通过代理服务器来与 Log Analytics 服务通信，请选择“高级”并提供代理服务器的 URL 和端口号。 
 8. 提供所需的配置设置后，选择“下一步”。 
 
    ![安装代理][5]

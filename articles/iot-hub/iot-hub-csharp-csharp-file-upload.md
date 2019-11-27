@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/04/2017
 ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0a829f97fe5a7a09743e1ca55014ae944185a865
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: ff58b1409b1d9f996a3c29b6de78bc0587c2a1a2
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156012"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389489"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将文件从设备上传到云
 
@@ -171,7 +171,7 @@ ms.locfileid: "71156012"
 
 1. 在“常用属性”   >   “启动项目”中，选择“多个启动项目”，然后针对 **ReadFileUploadNotification** 和 **SimulatedDevice** 选择“启动”操作。   选择“确定”  保存更改。
 
-1. 按 **F5**。 这两个应用程序应该都会启动。 你将在其中一个控制台应用中看到上传已完成，同时还会看到另一个控制台应用收到的上传通知消息。 可使用 [Azure 门户](https://portal.azure.com/)或 Visual Studio 服务器资源管理器检查 Azure 存储帐户中是否存在上传的文件。
+1. 按 **F5**。 这两个应用程序应该都会启动。 你将在其中一个控制台应用中看到上传已完成，同时还会看到另一个控制台应用收到的上传通知消息。 可使用 [Azure 门户](https://portal.azure.cn/)或 Visual Studio 服务器资源管理器检查 Azure 存储帐户中是否存在上传的文件。
 
     ![显示输出屏幕的屏幕截图](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 

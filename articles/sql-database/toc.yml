@@ -38,6 +38,8 @@
               href: sql-database-service-tier-hyperscale.md
             - name: “超大规模”常见问题解答
               href: sql-database-service-tier-hyperscale-faq.md
+            - name: 从高级 RS 迁移
+              href: sql-database-service-tiers-prs.md
 - name: 快速入门
   expanded: true
   items:

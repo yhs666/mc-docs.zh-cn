@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/20/2019
-  ms.date: 09/30/2019
-  ms.openlocfilehash: e1e25c17ed34003dbde08ad64d91cb9b7b910340
-  ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+  ms.date: 11/25/2019
+  ms.openlocfilehash: f1dcd0ab9e14993d2d5a76ab2191b15c734b973a
+  ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71306850"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74328727"
 landingContent:
 - title: 关于 Blob 存储
   linkLists:
@@ -30,9 +30,9 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 使用 Azure 门户
+    - text: 上传、下载和列出 Blob - 门户
       url: storage-quickstart-blobs-portal.md
-    - text: 使用存储资源管理器
+    - text: 使用存储资源管理器管理 Blob
       url: storage-quickstart-blobs-storage-explorer.md
   - linkListType: concept
     links:
@@ -56,6 +56,8 @@ landingContent:
     links:
     - text: 处理大数据
       url: data-lake-storage-data-scenarios.md
+    - text: 多协议访问
+      url: data-lake-storage-multi-protocol-access.md
     - text: 最佳实践
       url: data-lake-storage-best-practices.md
   - linkListType: tutorial

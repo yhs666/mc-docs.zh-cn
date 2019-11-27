@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/06/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: f8566b1b324b13089e065b166b106afa5048875d
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: b4a11e41acea216ced213c5ee0815c5eae7c42ac
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878729"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389260"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集
 
@@ -106,7 +106,7 @@ ms.locfileid: "68878729"
 |专用终结点|群集的专用终结点。|
 |安全外壳 (SSH)|用于通过 SSH 访问群集的用户名和主机名。|
 |状态|下列其中一项：Aborted、Accepted、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、Operational、Running、Error、Deleting、Deleted、Timedout、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued 或 ClusterCustomization。|
-|区域|Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://azure.microsoft.com/pricing/details/hdinsight/)中的“区域”  下拉列表框。|
+|区域|Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](www.azure.cn/pricing/details/hdinsight/)中的“区域”  下拉列表框。|
 |创建日期|部署群集的日期。|
 |操作系统|“Windows”或“Linux”。  |
 |类型|Hadoop、HBase、Storm、Spark。|

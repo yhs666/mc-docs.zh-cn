@@ -10,12 +10,12 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a751fdf82e41271490791d5996251edcc55e610
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 04bac18c93f30a8232afe6392c8fd00136b32dd5
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337537"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389461"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 门户大规模部署和监视 IoT Edge 模块
 
@@ -217,7 +217,7 @@ Azure 市场是一个应用程序和服务在线市场，可在其中浏览各�
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.cn
 [lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
 [lnk-deployments]: module-deployment-monitoring.md
 

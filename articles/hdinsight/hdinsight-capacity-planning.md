@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: 0ef2f6ba1bed532d179cf79224c17da8c3a6636b
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: b06a63c8c7a15bb5fdaf2efa249cb94e73b92e9e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425949"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389404"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -123,7 +123,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 可以[联系支持部门来请求提高配额](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 
-但是，存在一些固定的配额限制，例如，单个 Azure 订阅最多只能有 10,000 个核心。 有关这些限制的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
+但是，存在一些固定的配额限制，例如，单个 Azure 订阅最多只能有 10,000 个核心。 有关这些限制的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](/azure-subscription-service-limits)。
 
 ## <a name="next-steps"></a>后续步骤
 

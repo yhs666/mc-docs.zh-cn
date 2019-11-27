@@ -12,12 +12,12 @@ ms.topic: article
 tags: connectors
 origin.date: 07/05/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: fa818cf26d25fe8878dff869563d0f441c2f2469
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 538ccb96acdd35d28dbb0c3b51bb07feb57f836f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425911"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388986"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用将传出呼叫发送到 HTTP 或 HTTPS 终结点
 
@@ -33,7 +33,7 @@ ms.locfileid: "73425911"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 要调用的目标终结点的 URL
 
@@ -45,7 +45,7 @@ ms.locfileid: "73425911"
 
 此内置触发器对终结点的指定 URL 发出 HTTP 调用，并返回响应。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 在逻辑应用设计器中打开空白逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 在逻辑应用设计器中打开空白逻辑应用。
 
 1. 在设计器的搜索框中，输入“http”作为筛选器。 在“触发器”列表中，选择“HTTP”触发器。  
 
@@ -69,7 +69,7 @@ ms.locfileid: "73425911"
 
 此内置操作对终结点的指定 URL 发出 HTTP 调用，并返回响应。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 在逻辑应用设计器中打开逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 在逻辑应用设计器中打开逻辑应用。
 
    此示例的第一步是使用 HTTP 触发器。
 

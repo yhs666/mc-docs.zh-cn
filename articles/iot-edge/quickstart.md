@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 88c32f8c9e804e9b8a2d847ab570aa373c710a17
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 8380bd34d82c0f43575a33786d54c137e425917e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340767"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389379"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入门：将第一个 IoT Edge 模块部署到虚拟 Windows 设备
 
@@ -115,7 +115,7 @@ IoT Edge 设备：
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 复制 JSON 输出中 `connectionString` 键的值并保存。 该值为设备连接字符串。 在下一部分中配置 IoT Edge 运行时时将用到此连接字符串。
+3. 复制 JSON 输出中 `connectionString` 键的值并保存。 该值为设备连接字符串。 在下一部分配置 IoT Edge 运行时中，将用到此连接字符串。
 
    ![从 CLI 输出中检索连接字符串](./media/quickstart/retrieve-connection-string.png)
 
@@ -266,7 +266,7 @@ iotedge logs SimulatedTemperatureSensor -f
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-account]: https://azure.microsoft.com/free
-[lnk-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.cn
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 

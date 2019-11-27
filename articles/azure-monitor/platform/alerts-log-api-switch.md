@@ -9,12 +9,12 @@ origin.date: 05/30/2019
 ms.date: 06/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 2b2c7c35ef8e68995ffd33b0b786eefd7d345e8d
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: ddc0a8a42c10248dca3871ac1d4e2985488c83bd
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970957"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528402"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切换日志警报的 API 首选项
 
@@ -39,7 +39,7 @@ ms.locfileid: "72970957"
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>从旧日志警报 API 进行切换的过程
 
-用户可以自由使用[旧 Log Analytics 警报 API](api-alerts.md) 或新 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 通过任一 API 创建的警报规则都*只能由同一 API 进行管理* - 以及从 Azure 门户进行管理。 默认情况下，Azure Monitor 将继续使用[旧版 Log Analytics 警报 API](api-alerts.md) 从 Azure 门户为 Log Analytics 的现有工作区创建任何新警报规则。 随着[宣布在 2019 年 6 月 1 日或之后创建新的日志工作区](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)，默认情况下将自动使用新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，包括在 Azure 门户中。
+用户可以自由使用[旧 Log Analytics 警报 API](api-alerts.md) 或新 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 通过任一 API 创建的警报规则都*只能由同一 API 进行管理* - 以及从 Azure 门户进行管理。 默认情况下，Azure Monitor 将继续使用[旧版 Log Analytics 警报 API](api-alerts.md) 从 Azure 门户为 Log Analytics 的现有工作区创建任何新警报规则。 随着[宣布在 2019 年 6 月 1 日或之后创建新的日志工作区](https://www.azure.cn/zh-cn/what-is-new/)，默认情况下将自动使用新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，包括在 Azure 门户中。
 
 下面汇总了首选项切换为 scheduledQueryRules API 的影响：
 

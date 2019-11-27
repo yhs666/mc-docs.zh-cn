@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/08/2019
 ms.author: v-yiso
 ms.date: 09/16/2019
-ms.openlocfilehash: 6f17e75dbb5d8b6ea1a6d832b51a134269b0d610
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: a0e67dabfdf90aa90314fb66915ce538c3054a2d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736642"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389041"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>用于 Go 的 HDInsight SDK（预览版）
 
@@ -25,7 +25,7 @@ ms.locfileid: "70736642"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 Azure 帐户。 如果没有帐户，可[获取一个免费试用帐户](https://azure.microsoft.com/free/)。
+* 一个 Azure 帐户。 如果没有帐户，可[获取试用帐户](www.azure.cn/pricing/1rmb-trial)。
 * [Go](https://golang.org/dl/)。
 
 ## <a name="sdk-installation"></a>SDK 安装
@@ -351,7 +351,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>启用 OMS 监视
 
 > [!NOTE]
-> 若要启用 OMS 监视，必须已有一个 Log Analytics 工作区。 如果尚未创建工作区，可在此了解创建方法：[在 Azure 门户中创建 Log Analytics 工作区](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
+> 若要启用 OMS 监视，必须已有一个 Log Analytics 工作区。 如果尚未创建工作区，可在此了解创建方法：[在 Azure 门户中创建 Log Analytics 工作区](/log-analytics/log-analytics-quick-create-workspace)。
 
 在群集上启用 OMS 监视：
 

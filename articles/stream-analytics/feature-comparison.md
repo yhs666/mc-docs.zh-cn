@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/27/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: e9f9cee76341acb8868c27e6392f5efc29fec804
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: d0c537e4dfe4bf4eb4ba37dba55f3e929b2ca8bc
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674680"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528216"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure 流分析功能比较
 
@@ -60,7 +60,7 @@ ms.locfileid: "71674680"
 |使用示例文件进行查询测试     |是         |是         |否         |
 |在多个查询之间共享输入和输出     |否         |是         |否         |
 |C# UDF     |否         |是         |否         |
-|提交、启动和停止作业     |是         |是         |否         |
+|提交作业     |是         |是         |否         |
 |列出作业和查看作业实体     |是         |是         |否         |
 |查看作业指标和关系图     |是         |部分         |否         |
 |查看作业运行时错误     |是         |部分         |否         |

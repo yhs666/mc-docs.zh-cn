@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 04/03/2019
 ms.date: 08/12/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2c0185703bfb29bd7ad45c03144f008bf76cb250
-ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
+ms.openlocfilehash: 57c36b764e4f9daf82766d2428f7cc51ff624071
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74202768"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389365"
 ---
 # <a name="cross-network-connectivity"></a>跨网连接
 
@@ -141,12 +141,12 @@ Global Reach 是按国家/地区推出的。 若要查看 Global Reach 是否在
 [16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "配置 Global Reach 后的 Fabrikam ExpressRoute 路由表"
 
 <!--Link References-->
-[Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[connection]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
-[Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-global-reach
-[Configure VNet peering]: https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions
-[Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[Subscription limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
-[Connect-ER-VNet]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
-[ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq
+[Virtual network peering]: /virtual-network/virtual-network-peering-overview
+[connection]: /expressroute/expressroute-howto-linkvnet-portal-resource-manager
+[Global Reach]: /expressroute/expressroute-global-reach
+[Configure VNet peering]: /virtual-network/create-peering-different-subscriptions
+[Configure Global Reach]: /expressroute/expressroute-howto-set-global-reach
+[Subscription limits]: /azure-subscription-service-limits#networking-limits
+[Connect-ER-VNet]: /expressroute/expressroute-howto-linkvnet-portal-resource-manager
+[ER-FAQ]: /expressroute/expressroute-faqs
+[VNet-FAQ]: /virtual-network/virtual-networks-faq

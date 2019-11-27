@@ -12,12 +12,12 @@ ms.topic: article
 tags: connectors
 origin.date: 06/18/2019
 ms.date: 10/08/2019
-ms.openlocfilehash: c797415b518b1db235b8432186e5dba45f2ee093
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 53196457633685fbfba45bb69d19d8d33eceb7bb
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340981"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389006"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用监视、创建和管理 SFTP 文件
 
@@ -36,7 +36,7 @@ SFTP 连接器仅处理 *50 MB 或更小*的文件，不支持[消息分块](../
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * SFTP 服务器地址和帐户凭据，可让逻辑应用访问 SFTP 帐户。 若要使用[安全外壳 (SSH)](https://www.ssh.com/ssh/protocol/) 协议，还需要有权访问 SSH 私钥和 SSH 私钥密码。
 
@@ -68,7 +68,7 @@ SFTP 触发器的工作原理是轮询 SFTP 文件系统并查找自上次轮询
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
 
 1. 对于空白逻辑应用，请在搜索框中输入“sftp”作为筛选器。 在触发器列表下，选择所需的触发器。
 

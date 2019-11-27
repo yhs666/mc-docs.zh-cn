@@ -9,12 +9,12 @@ origin.date: 03/26/2018
 ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 2d3fc4b776911674a56c1ba8338c92decf968cf7
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: c9d6bb010fcf890a537f82571463c34c304753e7
+ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125409"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74203668"
 ---
 <!-- Not Available on [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8] -->
 
@@ -70,7 +70,7 @@ While all regions associated with your Cosmos DB database account can serve read
 <!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
 
 [consistency]: ../articles/cosmos-db/consistency-levels.md
-[azureregions]: https://www.azure.cn/support/service-dashboard/
+[azureregions]: https://status.azure.com/status/
 [offers]: https://www.azure.cn/pricing/details/cosmos-db/
 
 <!--Update_Description: wording update-->

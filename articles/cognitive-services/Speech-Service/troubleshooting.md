@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5f97455898a07a8a404747829e352e9bf1f1340f
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 716aa837d8d654f45ddb8c900aa4d3061d8b2cb6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020692"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389263"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>排查语音 SDK 问题
 
@@ -80,7 +80,7 @@ ms.locfileid: "74020692"
 
     ```Powershell
     $SpeechServiceURI =
-    'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
+    'https://YOUR_REGION.stt.speech.azure.cn/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
 
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
@@ -101,7 +101,7 @@ ms.locfileid: "74020692"
 * cURL
 
     ```
-    curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
+    curl -v -X POST "https://YOUR_REGION.stt.speech.azure.cn/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
 如果输入了有效的授权令牌，则该命令将返回音频文件的听录，否则将返回错误。

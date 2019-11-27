@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 19cbb4ee0ed55cb074bdf743a2b51b132c532b63
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 9b33706cfa0e819191e5439714cc2b34b124a726
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845150"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389585"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中心设备预配服务将设备预配到 IoT 中心
 
@@ -90,7 +90,7 @@ IoT 设备可以是真实设备，也可以是模拟设备。 因为 IoT 设备�
 
     ![成功连接到门户中的中心](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-有关详细信息，请参阅预配设备客户端示例 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)。 此示例演示了如何使用 TPM、X.509 证书和对称密钥预配模拟设备。 请回头参阅 [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device)、[X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) 和[对称密钥](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key)证明快速入门，了解有关如何使用示例的分步说明。
+有关详细信息，请参阅预配设备客户端示例 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)。 此示例演示了如何使用 TPM、X.509 证书和对称密钥预配模拟设备。 请回头参阅 [TPM](/iot-dps/quick-create-simulated-device)、[X.509](/iot-dps/quick-create-simulated-device-x509) 和[对称密钥](/iot-dps/quick-create-simulated-device-symm-key)证明快速入门，了解有关如何使用示例的分步说明。
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已学习了如何执行以下操作：

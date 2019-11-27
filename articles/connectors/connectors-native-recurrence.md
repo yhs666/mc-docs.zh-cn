@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 05/25/2019
 ms.author: v-yiso
 ms.date: 10/08/2019
-ms.openlocfilehash: 089d55092a3fd944ef0575acbf17bfb623b00d1a
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 915a04f17f8e14bba9e6493ac5952a25a29c08f7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340977"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388977"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>使用 Azure 逻辑应用中的定期触发器创建、计划和运行重复任务和工作流
 
@@ -46,13 +46,13 @@ ms.locfileid: "71340977"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册免费的 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 有关[逻辑应用](../logic-apps/logic-apps-overview.md)的基本知识。 如果不熟悉逻辑应用，请了解[如何创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="add-recurrence-trigger"></a>添加“定期”触发器
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 创建空白逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
 
 1. 显示逻辑应用设计器后，在搜索框中输入“定期”作为筛选器。 逻辑应用工作流的第一步是从触发器列表中选择此触发器。**定期**
 

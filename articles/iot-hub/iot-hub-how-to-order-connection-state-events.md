@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/11/2019
 ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 62a70ebc2c585f42b2fcda590e00491ae45ecaac
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 50ff09213d3844d782bc9bfbdbd6fa4c9605ceef
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514426"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389173"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
 
@@ -23,7 +23,7 @@ ms.locfileid: "68514426"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 帐户。 如果没有帐户，可以[创建一个免费帐户](https://azure.microsoft.com/pricing/free-trial/)。
+* 有效的 Azure 帐户。 如果没有，可以[创建试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 有效的 Azure Cosmos DB SQL API 帐户。 如果尚未创建此帐户，请参阅[创建数据库帐户](../cosmos-db/create-sql-api-java.md#create-a-database-account)中的演练。
 
@@ -138,7 +138,7 @@ ms.locfileid: "68514426"
 
 ### <a name="create-a-logic-app-resource"></a>创建逻辑应用资源
 
-1. 在 [Azure 门户](https://portal.azure.com)中，依次选择“+ 创建资源”、“集成”、“逻辑应用”。   
+1. 在 [Azure 门户](https://portal.azure.cn)中，依次选择“+ 创建资源”、“集成”、“逻辑应用”。   
 
    ![创建逻辑应用](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
@@ -361,7 +361,7 @@ ms.locfileid: "68514426"
 
 3. 选择“删除”  。 
 
-若要在 Azure 门户中删除 Azure Cosmos DB 帐户，请右键单击该帐户名，然后单击“删除帐户”。  参阅有关[删除 Azure Cosmos DB 帐户](https://docs.microsoft.com/azure/cosmos-db/manage-account)的详细说明。
+若要在 Azure 门户中删除 Azure Cosmos DB 帐户，请右键单击该帐户名，然后单击“删除帐户”。  参阅有关[删除 Azure Cosmos DB 帐户](/cosmos-db/manage-account)的详细说明。
 
 ## <a name="next-steps"></a>后续步骤
 

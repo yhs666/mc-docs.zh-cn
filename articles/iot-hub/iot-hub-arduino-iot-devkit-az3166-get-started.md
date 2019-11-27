@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 06/25/2019
 ms.author: v-yiso
 ms.date: 09/30/2019
-ms.openlocfilehash: 314e9b82bd271582da02b391ed7a246c36f31cd3
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 864acada810c429fd7c973982da9ada4fb74f32b
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156212"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389220"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -202,7 +202,7 @@ DevKit 将连接到 IoT 中心内特定于设备的终结点，并发送温度�
 
 [ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) 是 IoT DevKit 用来与开发计算机通信的 USB 接口。 需要将它安装在 Windows 上才能将编译的设备代码刷写到 DevKit。 遵循 OS 特定的步骤，使计算机能够访问你的设备。
 
-* Windows  ：从 [STMicroelectronics 网站](https://www.st.com/en/development-tools/stsw-link009.html)下载并安装 USB 驱动程序。
+* **Windows**：从 [STMicroelectronics 网站](https://www.st.com/en/development-tools/stsw-link009.html)下载并安装 USB 驱动程序。
 * **macOS**：macOS 无需驱动程序。
 * **Ubuntu**：在终端中运行以下命令，然后注销并登录，使组更改生效：
     ```bash
@@ -252,7 +252,7 @@ IoT DevKit 包含丰富的示例库，可以使用这些示例来了解如何将
 1. 选择要使用的订阅。
     ![选择订阅](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. 然后选择或新建一个[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology)。
+1. 然后选择或新建一个[资源组](/azure-resource-manager/resource-group-overview#terminology)。
     ![选择资源组](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 
 1. 在指定的资源组中，遵循指南选择或新建 Azure IoT 中心。
@@ -355,7 +355,7 @@ DevKit 将重新启动并开始运行代码。
 
 可以使用 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)监视 IoT 中心内的设备到云 (D2C) 消息。
 
-1. 登录 [Azure 门户](https://portal.azure.com/)，并找到创建的 IoT 中心。
+1. 登录 [Azure 门户](https://portal.azure.cn/)，并找到创建的 IoT 中心。
     ![Azure 门户](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. 在“共享访问策略”窗格中单击“iothubowner 策略”，并记下 IoT 中心的连接字符串。  

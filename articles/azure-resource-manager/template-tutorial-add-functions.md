@@ -6,12 +6,12 @@ origin.date: 10/04/2019
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: c29fe3dfc9a4be0062f2547d6712e63be11a72c9
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 5488ddae84b536472cbf480ea81f7ddbdc53bd0e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203689"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389578"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>教程：将模板函数添加到资源管理器模板
 
@@ -45,7 +45,6 @@ ms.locfileid: "74203689"
                 "Standard_GRS",
                 "Standard_RAGRS",
                 "Premium_LRS",
-                "Premium_ZRS",
                 "Standard_GZRS",
                 "Standard_RAGZRS"
             ]
@@ -98,9 +97,7 @@ ms.locfileid: "74203689"
                 "Standard_LRS",
                 "Standard_GRS",
                 "Standard_RAGRS",
-                "Standard_ZRS",
                 "Premium_LRS",
-                "Premium_ZRS",
                 "Standard_GZRS",
                 "Standard_RAGZRS"
             ]

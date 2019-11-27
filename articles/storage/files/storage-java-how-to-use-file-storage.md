@@ -1,26 +1,19 @@
 ---
-title: 使用 Java 针对 Azure 文件进行开发 | Azure
+title: 使用 Java 针对 Azure 文件进行开发 | Microsoft Docs
 description: 了解如何开发使用 Azure 文件来存储文件数据的 Java 应用程序和服务。
-services: storage
-documentationcenter: java
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: Java
-ms.topic: article
+ms.topic: conceptual
 origin.date: 09/19/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: e406dc951042106498a9acd6c38b2721502187fd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 11/25/2019
+ms.author: v-jay
+ms.subservice: files
+ms.openlocfilehash: a1586b02b54d7182ce1c544fea16334227a23cbf
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653653"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328741"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -68,7 +61,7 @@ public static final String storageConnectionString =
 > 
 
 ## <a name="connecting-to-an-azure-storage-account"></a>连接到 Azure 存储帐户
-若要连接到存储帐户，需要使用 CloudStorageAccount 对象，将连接字符串传递到其 parse 方法。
+若要连接到存储帐户，需要使用 CloudStorageAccount  对象，将连接字符串传递到其 parse  方法。
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account
@@ -82,7 +75,7 @@ try {
 **CloudStorageAccount.parse** 会引发 InvalidKeyException，因此恤将其置于 try/catch 块内。
 
 ## <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
-Azure 文件中的所有文件和目录都位于名为 Share 的容器内。 存储帐户可以拥有无数的共享，只要帐户容量允许。 要获得共享及其内容的访问权限，需要使用 Azure 文件客户端。
+Azure 文件中的所有文件和目录都位于名为 Share 的容器内  。 存储帐户可以拥有无数的共享，只要帐户容量允许。 要获得共享及其内容的访问权限，需要使用 Azure 文件客户端。
 
 ```java
 // Create the Azure Files client.
@@ -104,7 +97,7 @@ if (share.createIfNotExists()) {
 }
 ```
 
-而在目前，share 保留对名为 sampleshare 的共享的引用。
+而在目前，share  保留对名为 sampleshare  的共享的引用。
 
 ## <a name="delete-an-azure-file-share"></a>删除 Azure 文件共享
 删除共享时，可针对 CloudFileShare 对象调用 **deleteIfExists** 方法。 以下是具有此类功能的示例代码。
@@ -236,9 +229,8 @@ if ( file.deleteIfExists() ) {
 * [面向 Java 开发人员的 Azure](https://docs.azure.cn/zh-cn/java/)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
-* [Azure 存储客户端 SDK 参考](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure 存储客户端 SDK 参考](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
 * [使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md)
 * [排查 Azure 文件问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-<!--Update_Description: wording update-->

@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/19/2019
 ms.date: 10/08/2019
 tags: connectors
-ms.openlocfilehash: 1bc181dcc4ca16c7ab2fa3bfcad8524c7be674f1
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 75caf752b56a0b115882296e2809c5928b86f236
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340990"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389233"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用创建、监视和管理 FTP 文件
 
@@ -55,7 +55,7 @@ FTP 触发器的工作原理是轮询 FTP 文件系统并查找自上次轮询�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * FTP 主机服务器地址和帐户凭据
 
@@ -69,7 +69,7 @@ FTP 触发器的工作原理是轮询 FTP 文件系统并查找自上次轮询�
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
 
 1. 对于空白逻辑应用，请在搜索框中输入“ftp”作为筛选器。 在触发器列表下，选择所需的触发器。
 
@@ -95,7 +95,7 @@ FTP 触发器的工作原理是轮询 FTP 文件系统并查找自上次轮询�
 
 下面是一个展示了此触发器的示例：**添加或修改文件时**
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
 
 1. 对于空白逻辑应用，请在搜索框中输入“ftp”作为筛选器。 在触发器列表中选择此触发器：**添加或修改字段时 - FTP**
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/10/2016
+origin.date: 12/06/2018
 ms.author: v-yiso
-ms.date: ''
-ms.openlocfilehash: cd523b42edaa46d9d05ac06d819459a82947c42d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/02/2019
+ms.openlocfilehash: d5c2e5990e110bded2a270d624dc940462587106
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666967"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389459"
 ---
 # <a name="router-configuration-samples-to-setup-and-manage-routing"></a>用于设置和管理路由的路由器配置示例
 
-本页提供适用于 Cisco IOS XE 和 Juniper MX 系列路由器的接口与路由配置示例。 这些示例仅供指导，不能按原样使用。 可以与供应商合作，以便为网络指定适当的配置。 
+本页提供处理 ExpressRoute 时适用于 Cisco IOS XE 和 Juniper MX 系列路由器的接口与路由配置示例。 这些示例仅供指导，不能按原样使用。 可以与供应商合作，以便为网络指定适当的配置。 
 
 >[!IMPORTANT]
 > 本页中的示例仅供指导。 必须与供应商的销售/技术团队和网络团队合作，以便指定符合需要的适当配置。 对于本页中所列配置的相关问题，Microsoft 不提供支持。 有关支持问题，必须与设备供应商联系。

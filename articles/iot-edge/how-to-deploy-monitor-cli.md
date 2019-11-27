@@ -10,12 +10,12 @@ ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 65cec472b0081e18c28bb08e09b3f8069abb4c99
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 8c502128aa4771ce36c9fe0bb7e07e040459d8ef
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173983"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389547"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大规模部署并监视 IoT Edge 模块
 
@@ -226,7 +226,7 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.cn
 [lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
 [lnk-deployments]: module-deployment-monitoring.md
 

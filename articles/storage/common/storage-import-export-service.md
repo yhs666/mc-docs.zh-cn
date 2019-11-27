@@ -9,12 +9,12 @@ origin.date: 05/07/2019
 ms.date: 10/28/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: bc264e4113ac589c7d82e967214ccf9ae57810bc
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 4342521d473b405d3fa799044ca0b4ee7d657254
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914432"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328714"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -124,10 +124,10 @@ ms.locfileid: "72914432"
 
 WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作系统](#operating-system) 部分以了解受支持的特定 OS 版本。
 
-下载最新版本的 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)。 有关使用 WAImportExport 工具的详细信息，请参阅[使用 WAImportExport 工具](storage-import-export-tool-how-to.md)。
+下载最新版本的 [WAImportExport 工具](https://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)。 有关使用 WAImportExport 工具的详细信息，请参阅[使用 WAImportExport 工具](storage-import-export-tool-how-to.md)。
 
 >[!NOTE]
->**以前的版本：** 可以[下载 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，并参考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 WAImportExpot V1 版本的工具支持在已将数据预先写入磁盘的情况下准备磁盘  。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
+>**以前的版本：** 可以[下载 WAImportExpot V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，并参考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 WAImportExpot V1 版本的工具支持在已将数据预先写入磁盘的情况下准备磁盘  。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
 
 >
 
@@ -178,7 +178,7 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 寄送包裹时，必须遵循 [Azure 服务条款](https://www.azure.cn/support/legal/services-terms/)中的条款。
 
 > [!IMPORTANT]
-> 请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在寄送物理介质之前，请咨询顾问以验证介质和数据是否可以合法地寄送到所确定的数据中心。 这有助于确保它可以及时到达 Microsoft。 例如，任何跨国界的包裹都需要附上商业发票（除非在欧盟内跨越国界）。 可从快递商网站打印填写好的商业发票的副本。 比如，商业发票可以是 [FedEx 商业发票](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf)。 请确保 Microsoft 未被指定为导出者。
+> 请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在寄送物理介质之前，请咨询顾问以验证介质和数据是否可以合法地寄送到所确定的数据中心。 这有助于确保它可以及时到达 Microsoft。 例如，任何跨国界的包裹都需要附上商业发票（除非在欧盟内跨越国界）。 可从快递商网站打印填写好的商业发票的副本。 比如，商业发票可以是 [FedEx 商业发票](https://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf)。 请确保 Microsoft 未被指定为导出者。
 > 
 > 
 
@@ -315,7 +315,7 @@ H,Format,SilentMode,Encrypt,
 
 在上面的示例中，假设附加了两个磁盘，并创建了盘符为 G:\ 和 H:\ 的基本 NTFS 卷。 工具会格式化并加密托管 H:\ 的磁盘，但不会格式化或加密托管卷 G:\ 的磁盘。
 
-6. 使用 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)将数据复制到一个或多个硬盘驱动器。
+6. 使用 [WAImportExport 工具](https://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)将数据复制到一个或多个硬盘驱动器。
 7. 可以通过在驱动器集 CSV 中的 Encryption 字段内指定“Encrypt”，在硬盘驱动器上启用 BitLocker 加密。 也可以手动在硬盘驱动器上启用 BitLocker 加密，并在运行工具时，在驱动器集 CSV 文件中指定“AlreadyEncrypted”并提供密钥。
 
 8. 完成磁盘准备操作以后，请勿修改硬盘驱动器上的数据，也勿修改日志文件。
@@ -523,11 +523,11 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 默认情况下，Azure 导入/导出服务使用 AES 128 BitLocker 加密进行加密，但在复制数据前，可以使用 BitLocker 进行手动加密，从而将加密提升为 AES 256。 
 
-如果使用的是 [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，下面展示了示例命令
+如果使用的是 [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，下面展示了示例命令
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```
-如果使用的是 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，请指定“AlreadyEncrypted”，并在驱动集 CSV 中提供密钥。
+如果使用的是 [WAImportExport 工具](https://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，请指定“AlreadyEncrypted”，并在驱动集 CSV 中提供密钥。
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

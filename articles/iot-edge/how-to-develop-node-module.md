@@ -10,12 +10,12 @@ origin.date: 09/21/2018
 ms.date: 12/10/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 49f95ca3f43ae52d6b38f666f3fe382b8f4353f6
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 7079e27536ecb63c414145fe06313cf2c1d785fc
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890202"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389495"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试用于 Azure IoT Edge 的 Node.js 模块
 
@@ -35,10 +35,10 @@ ms.locfileid: "58890202"
 若要创建模块，需要采用一个 Node.js，并在其中包括用来生成项目文件夹的 npm、用来生成模块映像的 Docker 以及用来存放模块映像的容器注册表：
 * [Node.js](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
-* [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+* [Azure 容器注册表](/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 对于原型和测试用途，可以使用本地 Docker 注册表，而不使用云注册表。 
 
-若要设置本地开发环境以调试、运行和测试 IoT Edge 解决方案，需要 [Azure IoT EdgeHub 开发工具](https://pypi.org/project/iotedgehubdev/)。 安装 [Python (2.7/3.6) 和 Pip](https://www.python.org/)。 Python 安装程序包含 Pip。 然后，通过在终端中运行以下命令来安装 iotedgehubdev。
+若要设置本地开发环境以调试、运行和测试 IoT Edge 解决方案，需要 [Azure IoT EdgeHub 开发工具](https://pypi.org/project/iotedgehubdev/)。 安装 [Python (2.7/3.6) 和 Pip](https://www.python.org/)。 Python 安装程序包含 Pip。 然后，通过在终端中运行以下命令来安装 iotedgehubdev  。
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -51,22 +51,22 @@ ms.locfileid: "58890202"
 
 以下步骤介绍了如何使用 Visual Studio Code 和 Azure IoT Edge 扩展来创建基于 Node.js 的 IoT Edge 模块。 首先创建一个解决方案，然后生成该解决方案中的第一个模块。 每个解决方案可以包含多个模块。 
 
-1. 在 Visual Studio Code 中，选择“视图” > “集成终端”。
+1. 在 Visual Studio Code 中，选择“视图” > “集成终端”   。
 2. 在集成的终端中，输入以下命令来安装（或更新）Node.js 的 Azure IoT Edge 模块模板的最新版本：
 
    ```cmd/sh
    npm install -g yo generator-azure-iot-edge-module
    ```
-3. 在 Visual Studio Code 中，选择“视图” > “命令面板”。 
+3. 在 Visual Studio Code 中，选择“视图” > “命令面板”。   
 4. 在命令面板中，键入并运行 **`Azure IoT Edge: New IoT Edge Solution`** 命令。
 
    ![运行新的 IoT Edge 解决方案](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. 浏览到要在其中创建新解决方案的文件夹，然后单击“选择文件夹”。 
+5. 浏览到要在其中创建新解决方案的文件夹，然后单击“选择文件夹”  。 
 6. 为解决方案提供一个名称。 
-7. 选择“Node.js 模块”作为解决方案中第一个模块的模板。
+7. 选择“Node.js 模块”  作为解决方案中第一个模块的模板。
 8. 为模块提供一个名称。 选择一个在容器注册表中唯一的名称。 
-9. 为模块提供映像存储库。 VS Code 会自动填充模块名称，因此，只需将 **localhost:5000** 替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，那么可以使用 localhost。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：\<registry name\>.azurecr.io。 仅替换字符串的 localhost 部分，不要删除模块名。
+9. 为模块提供映像存储库。 VS Code 会自动填充模块名称，因此，只需将 **localhost:5000** 替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，那么可以使用 localhost。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：\<registry name\>.azurecr.io  。 仅替换字符串的 localhost 部分，不要删除模块名。
 
    ![提供 Docker 映像存储库](./media/how-to-develop-node-module/repository.png)
 
@@ -84,7 +84,7 @@ VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后�
 
 ## <a name="develop-your-module"></a>开发模块
 
-解决方案附带的默认 Node.js 代码位于模块 > [你的模块名称] > app.js。 设置模块和 deployment.template.json 文件，以便可以生成解决方案，将其推送到容器注册表，然后部署到设备以开始测试而无需触及任何代码。 该模块构建为只需从源（在此示例中，为模拟数据的 tempSensor 模块）获取输入并通过管道将其传送到 IoT Hub。 
+解决方案附带的默认 Node.js 代码位于模块  > [你的模块名称] > app.js  。 设置模块和 deployment.template.json 文件，以便可以生成解决方案，将其推送到容器注册表，然后部署到设备以开始测试而无需触及任何代码。 该模块构建为只需从源（在此示例中，为模拟数据的 tempSensor 模块）获取输入并通过管道将其传送到 IoT Hub。 
 
 当你准备使用自己的代码自定义 Node.js 模板时，请使用 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md) 生成模块，以满足 IoT 解决方案的关键需求（例如安全性、设备管理和可靠性）。 
 
@@ -95,7 +95,7 @@ IoT Edge Node.js 模块依赖于 Azure IoT Node.js 设备 SDK。 在默认的模
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>为单个模块应用设置 IoT Edge 模拟器
 
-1. 若要设置和启动模拟器，请在 VS Code 命令面板中键入并选择 **`Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module`**。 此外，还需要为单个模块应用程序指定输入名称，键入 input1 并按 Enter。 该命令将触发 iotedgehubdev CLI 并启动 IoT Edge 模拟器并测试实用程序模块容器。 如果模拟器已成功以单模块模式启动，则可以在集成终端中看到下面的输出。 还可以看到 `curl` 命令以帮助发送消息。 稍后将使用它。
+1. 若要设置和启动模拟器，请在 VS Code 命令面板中键入并选择 **`Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module`** 。 此外，还需要为单个模块应用程序指定输入名称，键入 input1  并按 Enter。 该命令将触发 iotedgehubdev  CLI 并启动 IoT Edge 模拟器并测试实用程序模块容器。 如果模拟器已成功以单模块模式启动，则可以在集成终端中看到下面的输出。 还可以看到 `curl` 命令以帮助发送消息。 稍后将使用它。
 
    ![为单个模块应用设置 IoT Edge 模拟器](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -103,9 +103,9 @@ IoT Edge Node.js 模块依赖于 Azure IoT Node.js 设备 SDK。 在默认的模
 
    ![模拟器模块状态](media/how-to-develop-csharp-module/simulator-status.png)
 
-   edgeHubDev 容器是本地 IoT Edge 模拟器的核心。 它可以在没有 IoT Edge 安全守护程序的情况下在开发计算机上运行，并为本机模块应用或模块容器提供环境设置。 input 容器公开 restAPI 以帮助将消息桥接到模块上的目标输入通道。
+   edgeHubDev  容器是本地 IoT Edge 模拟器的核心。 它可以在没有 IoT Edge 安全守护程序的情况下在开发计算机上运行，并为本机模块应用或模块容器提供环境设置。 input  容器公开 restAPI 以帮助将消息桥接到模块上的目标输入通道。
 
-2. 在 VS Code 命令面板中，键入并选择 **`Azure IoT Edge: Set Module Credentials to User Settings`**，以在用户设置中将模块环境设置设为 `azure-iot-edge.EdgeHubConnectionString` 和 `azure-iot-edge.EdgeModuleCACertificateFile`。 可以在 .vscode  >  launch.json 和[ VS Code 用户设置](https://code.visualstudio.com/docs/getstarted/settings)中找到这些环境设置。
+2. 在 VS Code 命令面板中，键入并选择 **`Azure IoT Edge: Set Module Credentials to User Settings`** ，以在用户设置中将模块环境设置设为 `azure-iot-edge.EdgeHubConnectionString` 和 `azure-iot-edge.EdgeModuleCACertificateFile`。 可以在 .vscode   >  launch.json  和[ VS Code 用户设置](https://code.visualstudio.com/docs/getstarted/settings)中找到这些环境设置。
 
 ### <a name="debug-nodejs-module-in-launch-mode"></a>在启动模式下调试 Node.js 模块
 
@@ -117,55 +117,55 @@ IoT Edge Node.js 模块依赖于 Azure IoT Node.js 设备 SDK。 在默认的模
 
 2. 导航到 `app.js`。 在此文件中添加一个断点。
 
-3. 导航到 VS Code 调试视图。 选择调试配置“ModuleName 本地调试(Node.js)”。 
+3. 导航到 VS Code 调试视图。 选择调试配置“ModuleName 本地调试(Node.js)”  。 
 
-4. 单击“开始调试”或按 F5。 将启动调试会话。
+4. 单击“开始调试”  或按 F5  。 将启动调试会话。
 
-5. 在 VS Code 集成终端中，运行以下命令向模块发送 Hello World 消息。 这是在前面的步骤中成功设置 IoT Edge 模拟器时所显示的命令。 如果当前终止被阻止，可能需要创建或切换到另一个集成终端。
+5. 在 VS Code 集成终端中，运行以下命令向模块发送 Hello World  消息。 这是在前面的步骤中成功设置 IoT Edge 模拟器时所显示的命令。 如果当前终止被阻止，可能需要创建或切换到另一个集成终端。
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 
    > [!NOTE]
-   > 如果使用的是 Windows，请确保 VS Code 集成终端的 shell 为 Git Bash 或 WSL Bash。 无法在 PowerShell 中或命令提示符中运行 `curl` 命令。 
+   > 如果使用的是 Windows，请确保 VS Code 集成终端的 shell 为 Git Bash  或 WSL Bash  。 无法在 PowerShell 中或命令提示符中运行 `curl` 命令。 
    
    > [!TIP]
    > 还可以使用 [PostMan](https://www.getpostman.com/) 或其他 API 工具（而不是 `curl`）来发送消息。
 
 6. 在 VS Code 调试视图中，将在左侧面板中看到变量。 
 
-7. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5。 在 VS Code 命令面板中键入并选择 **`Azure IoT Edge: Stop IoT Edge Simulator`**，停止并清理模拟器。
+7. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5  。 在 VS Code 命令面板中键入并选择 **`Azure IoT Edge: Stop IoT Edge Simulator`** ，停止并清理模拟器。
 
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>生成用于调试的模块容器并在附加模式下进行调试
 
-默认解决方案包含两个模块，一个是模拟的温度传感器模块，另一个是 Node.js 管道模块。 模拟的温度传感器不断向 Node.js 管道模块发送消息，然后将消息通过管道传送到 IoT 中心。 在创建的模块文件夹中，有适用于不同容器类型的多个 Docker 文件。 使用以扩展名 .debug 结尾的任何文件来生成用于测试的模块。 目前，Node.js 模块仅支持在 linux-amd64、windows-amd64 和 linux-arm32v7 容器中进行调试。
+默认解决方案包含两个模块，一个是模拟的温度传感器模块，另一个是 Node.js 管道模块。 模拟的温度传感器不断向 Node.js 管道模块发送消息，然后将消息通过管道传送到 IoT 中心。 在创建的模块文件夹中，有适用于不同容器类型的多个 Docker 文件。 使用以扩展名 .debug 结尾的任何文件来生成用于测试的模块  。 目前，Node.js 模块仅支持在 linux-amd64、windows-amd64 和 linux-arm32v7 容器中进行调试。
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>为 IoT Edge 解决方案设置 IoT Edge 模拟器
 
 在开发计算机中，可以启动 IoT Edge 模拟器（而不是安装 IoT Edge 安全守护程序）以运行 IoT Edge 解决方案。 
 
-1. 在左侧的设备资源管理器中，右键单击 IoT Edge 设备 ID，选择“设置 IoT Edge 模拟器”以使用设备连接字符串启动模拟器。
+1. 在左侧的设备资源管理器中，右键单击 IoT Edge 设备 ID，选择“设置 IoT Edge 模拟器”  以使用设备连接字符串启动模拟器。
 
 2. 可以看到 IoT Edge 模拟器已在集成终端中成功设置。
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>生成和运行用于调试的容器并在附加模式下进行调试
 
-1. 在 VS Code 中，导航到 `deployment.template.json` 文件。 通过在末尾添加 .debug 来更新模块映像 URL。
+1. 在 VS Code 中，导航到 `deployment.template.json` 文件。 通过在末尾添加 .debug 来更新模块映像 URL  。
 
 2. 将 **deployment.template.json** 中的 Node.js 模块 createOptions 替换为以下内容并保存此文件： 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
-5. 导航到 VS Code 调试视图。 选择模块的调试配置文件。 调试选项名称应类似于“ModuleName 远程调试(Node.js)”或“ModuleName 远程调试(Windows 容器中的 Node.js)”，具体取决于开发计算机上的容器类型。
+5. 导航到 VS Code 调试视图。 选择模块的调试配置文件。 调试选项名称应类似于“ModuleName 远程调试(Node.js)”或“ModuleName 远程调试(Windows 容器中的 Node.js)”，具体取决于开发计算机上的容器类型。  
 
-6. 选择“开始调试”或选择 F5。 选择要附加到的进程。
+6. 选择“开始调试”或选择 F5   。 选择要附加到的进程。
 
 7. 在 VS Code 调试视图中，将在左侧面板中看到变量。
 
-8. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5。 在 VS Code 命令面板中，键入并选择 **`Azure IoT Edge: Stop IoT Edge Simulator`**。
+8. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5  。 在 VS Code 命令面板中，键入并选择 **`Azure IoT Edge: Stop IoT Edge Simulator`** 。
 
 > [!NOTE]
 > 上面的示例展示了如何调试容器上的 Node.js IoT Edge 模块。 它在模块容器 createOptions 中添加了公开的端口。 完成 Node.js 模块的调试后，建议你为就绪可用于生产的 IoT Edge 模块删除那些公开的端口。

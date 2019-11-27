@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: 4e4cdab1a3bf6420a6cfd9ebb32d60028a4630a2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e53bd0b9f266cf3a68fbf70107adfe19afe20cb6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627693"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389441"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 线路预配工作流和线路状态
 本页从较高层面引导完成服务预配和路由配置工作流。 
@@ -51,7 +51,7 @@ ms.locfileid: "58627693"
 
 “状态”表示 Microsoft 的预配状态。 创建 Expressroute 线路时，此属性设置为 Enabled
 
-连接服务提供商预配状态表示连接服务提供商一端的状态。 该状态可能是“NotProvisioned”、“Provisioning” 或“Provisioned”。 ExpressRoute 线路必须处于 Provisioned 状态才可供使用。
+连接服务提供商预配状态表示连接服务提供商一端的状态。 该状态可能是“NotProvisioned”  、“Provisioning”  或“Provisioned”  。 ExpressRoute 线路必须处于 Provisioned 状态才可供使用。
 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>ExpressRoute 线路的可能状态
 
@@ -106,7 +106,7 @@ BGP 预配状态可让你知道 Microsoft 边缘是否已启用 BGP 会话。 �
 如果播发的公共前缀状态设置为 *需要验证* 状态，则不会启用 BGP 会话，因为播发的前缀不符合任何路由注册表中的 AS 编号。 
 
 >[!IMPORTANT]
-> 如果播发的公共前缀状态是手动验证状态，则必须向 [Microsoft 支持](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证，并提供拥有播发 IP 地址的证明以及相关的自治系统编号。
+> 如果播发的公共前缀状态是手动验证  状态，则必须向 [Microsoft 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证，并提供拥有播发 IP 地址的证明以及相关的自治系统编号。
 > 
 > 
 

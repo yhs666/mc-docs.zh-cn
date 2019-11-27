@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1fb786c129a4309fb3d94b16b0762b24bb5c9ff9
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 5a4c20c1e6c67688bf6d4dd7e92fbf976638f24a
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178885"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389281"
 ---
 # <a name="about-the-speech-sdk"></a>关于语音 SDK
 
@@ -34,7 +34,7 @@ ms.locfileid: "74178885"
 
 * C#（UWP 和 .NET）、C++：可以引用和使用语音 SDK NuGet 包的最新版本。 此包包括 32 位和 64 位客户端库，以及托管 (.NET) 库。 可以使用 NuGet 在 Visual Studio 中安装该 SDK。 搜索 Microsoft.CognitiveServices.Speech NuGet  。
 
-* Java:可以引用和使用语音 SDK Maven 包的最新版本，该包仅支持 Windows x64。 在 Maven 项目中，将 `https://csspeechstorage.blob.core.chinacloudapi.cn/maven/` 添加为附加存储库，并将 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 引用为一个依赖项。
+* Java:可以引用和使用语音 SDK Maven 包的最新版本，该包仅支持 Windows x64。 在 Maven 项目中，将 `https://csspeechstorage.blob.core.windows.net/maven/` 添加为附加存储库，并将 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 引用为一个依赖项。
 
 ### <a name="linux"></a>Linux
 
@@ -66,11 +66,11 @@ sudo apt-get install libssl1.0.2 libasound2
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
   ```
 
-* Java:可以引用和使用语音 SDK Maven 包的最新版本。 在 Maven 项目中，将 `https://csspeechstorage.blob.core.chinacloudapi.cn /maven/` 添加为附加存储库，并将 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 引用为一个依赖项。
+* Java:可以引用和使用语音 SDK Maven 包的最新版本。 在 Maven 项目中，将 `https://csspeechstorage.blob.core.windows.net/maven/` 添加为附加存储库，并将 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 引用为一个依赖项。
 
 * C++：将 SDK 下载为 [.tar 包](https://aka.ms/csspeech/linuxbinary)，并将文件解压缩到所选的一个目录中。 下表显示了 SDK 文件夹结构：
 
-  |路径|说明|
+  |`Path`|说明|
   |-|-|
   |`license.md`|许可|
   |`ThirdPartyNotices.md`|第三方声明|
@@ -89,7 +89,7 @@ sudo apt-get install libssl1.0.2 libasound2
 * 在项目级 build.gradle 文件中，向 `repository` 部分添加以下内容：
 
   ```gradle
-  maven { url 'https://csspeechstorage.blob.core.chinacloudapi.cn /maven/' }
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
 * 在模块级 build.gradle 文件中，向 `dependencies` 部分添加以下内容：
@@ -105,3 +105,4 @@ Java SDK 也是[语音设备 SDK](speech-devices-sdk.md) 的一部分。
 ## <a name="next-steps"></a>后续步骤
 
 * [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)
+* [了解如何在 C# 中识别语音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

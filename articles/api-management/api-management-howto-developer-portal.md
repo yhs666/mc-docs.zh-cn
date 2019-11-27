@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 11/04/2019
 ms.date: 11/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 93df0058a85630b27de83746d80117a349c105dd
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: be7c1dd8c2c733a596b69f4c1998313a2317da2e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831418"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389074"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理开发人员门户概述
 
@@ -115,7 +115,7 @@ API 管理内容包括 API、操作、产品和订阅等实体。
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>使用交互式控制台时出现 CORS 错误。 我该怎么办？
 
-交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数 (例如，来源为 https://contoso.com) ，或使用通配符值 `*` 。
+交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数 (例如，来源为 https://contoso.com) ，或使用通配符值 `*` 。
 
 ## <a name="next-steps"></a>后续步骤
 

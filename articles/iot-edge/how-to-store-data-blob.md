@@ -10,12 +10,12 @@ ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 64735fd186493b5e346796c458a4c650ebf24ba0
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 388dea96d59ec6f17a18f1b7b72cf646aa4b40fc
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340738"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389533"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>使用 IoT Edge 上的 Azure Blob 存储在边缘中存储数据
 
@@ -137,8 +137,8 @@ sudo chmod -R 700 <blob-dir>
 如果需要以非 **absie** 的用户身份运行服务，可以在部署清单中“User”属性下的 createOptions 中指定自定义用户 ID。 在这种情况下，需要使用默认组 ID 或 root 组 ID `0`。
 
 ```json
-�createOptions�: { 
-  �User�: �<custom user ID>:0� 
+"createOptions": { 
+  "User": "<custom user ID>:0" 
 } 
 ```
 现在，为容器用户授予对目录的访问权限
@@ -149,7 +149,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## <a name="configure-log-files"></a>配置日志文件
 
-若要了解如何为模块配置日志文件，请参阅这些[生产最佳做法](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics)。
+若要了解如何为模块配置日志文件，请参阅这些[生产最佳做法](/iot-edge/production-checklist#set-up-logs-and-diagnostics)。
 
 ## <a name="connect-to-your-blob-storage-module"></a>连接到 blob 存储模块
 

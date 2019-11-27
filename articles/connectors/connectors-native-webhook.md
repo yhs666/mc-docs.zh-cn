@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 10/10/2019
 ms.date: 11/11/2019
 tags: connectors
-ms.openlocfilehash: 120f82366e2a4e9bb3f44b1a7e2a441ae0e7e240
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 836585d89c0e619ce0511c9f063bd13ccd2f0d63
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425908"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389406"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP Webhook 创建和运行基于事件的自动化工作流
 
@@ -50,7 +50,7 @@ HTTP Webhook 操作也基于事件，它会通过将一个回调 URL 注册到�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 适当支持[逻辑应用中 Webhook 触发器](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)或[逻辑应用中 Webhook 操作](../logic-apps/logic-apps-create-api-app.md#webhook-actions) Webhook 订阅和取消订阅模式的已部署终结点或 API 的 URL
 
@@ -62,7 +62,7 @@ HTTP Webhook 操作也基于事件，它会通过将一个回调 URL 注册到�
 
 此内置触发器将一个回调 URL 注册到指定的服务，并等待该服务向该 URL 发送 HTTP POST 请求。 发生此事件时，触发器将会激发，并立即运行逻辑应用。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 在逻辑应用设计器中打开空白逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 在逻辑应用设计器中打开空白逻辑应用。
 
 1. 在设计器的搜索框中，输入“http webhook”作为筛选器。 在“触发器”列表中选择“HTTP Webhook”触发器。  
 

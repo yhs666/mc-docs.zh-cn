@@ -9,12 +9,12 @@ origin.date: 05/01/2019
 ms.date: 09/23/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 6126569b10595eafcdcc979b7eba0287892a2325
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: f90e6f66282d8bab017276c9163b388349c53adc
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124357"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378200"
 ---
 ## <a name="access-the-media-services-api"></a>访问媒体服务 API
 
@@ -33,7 +33,7 @@ az ams account sp create --account-name amsaccount --resource-group amsResourceG
 ```json
 {
   "AadClientId": "00000000-0000-0000-0000-000000000000",
-  "AadEndpoint": "https://login.microsoftonline.com",
+  "AadEndpoint": "https://login.chinacloudapi.cn",
   "AadSecret": "00000000-0000-0000-0000-000000000000",
   "AadTenantId": "00000000-0000-0000-0000-000000000000",
   "AccountName": "amsaccount",

@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: c8d1122572764dda1fc550a06ae254109e3bf033
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 453eeff695edbf65994fab2c3fc6a59e794227f6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653700"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389013"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用管理 RSS 源
 
@@ -31,7 +31,7 @@ RSS（极具特色的网站摘要），也称为“真正简单的整合”，�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://azure.microsoft.com/free/" target="_blank">注册一个免费 Azure 帐户</a>。 
+* Azure 订阅。 如果没有 Azure 订阅，请<a href="www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。 
 
 * RSS 源的 URL
 
@@ -41,7 +41,7 @@ RSS（极具特色的网站摘要），也称为“真正简单的整合”，�
 
 ## <a name="connect-to-an-rss-feed"></a>连接到 RSS 源
 
-1. 登录 [Azure门户](https://portal.azure.com)，然后在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
+1. 登录 [Azure门户](https://portal.azure.cn)，然后在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
 
 1. 选择路径： 
 
@@ -49,7 +49,7 @@ RSS（极具特色的网站摘要），也称为“真正简单的整合”，�
 
      -或-
 
-   * 对于现有逻辑应用，请在要添加操作的步骤下，选择“新建步骤”。 在搜索框中，输入“rss”作为筛选器。 在操作列表下，选择所需的操作。
+   * 对于现有逻辑应用，请在要添加操作的步骤下，选择“新建步骤”  。 在搜索框中，输入“rss”作为筛选器。 在操作列表下，选择所需的操作。
 
 1. 为所选触发器或操作提供所需的详细信息，然后继续生成逻辑应用的工作流。
 

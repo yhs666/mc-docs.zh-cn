@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: d646af3bad442156746bb77af7267bc9048cbba7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988644"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389583"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>跨负载均衡的 IoT 中心预配设备
 
@@ -23,10 +23,10 @@ ms.locfileid: "57988644"
 > [!div class="checklist"]
 > * 使用 Azure 门户将另一台设备预配到另一个 IoT 中心 
 > * 添加第二台设备的注册列表条目
-> * 将设备预配服务分配策略设置为“均匀分发”
+> * 将设备预配服务分配策略设置为“均匀分发” 
 > * 将新的 IoT 中心链接到设备预配服务
 
-如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,9 +40,9 @@ ms.locfileid: "57988644"
 
 注册列表会告知设备预配服务该设备当前使用的证明方法（即确认设备标识的方法）。 下一步，添加第二台设备的注册列表条目。 
 
-1. 在设备预配服务的页面中，单击“管理注册”。 随即出现“添加注册列表条目”页。 
-2. 在页面顶部，单击“添加”。
-2. 填写字段，然后单击“保存”。
+1. 在设备预配服务的页面中，单击“管理注册”  。 随即出现“添加注册列表条目”页  。 
+2. 在页面顶部，单击“添加”  。
+2. 填写字段，然后单击“保存”  。
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>设置设备预配服务分配策略
 
@@ -54,19 +54,19 @@ ms.locfileid: "57988644"
 
 请按照以下步骤设置分配策略：
 
-1. 若要设置分配策略，请单击“设备预配服务”页上的“管理分配策略”。
-2. 将分配策略设置为“均匀加权分发”。
-3. 单击“保存” 。
+1. 若要设置分配策略，请单击“设备预配服务”页上的“管理分配策略”  。
+2. 将分配策略设置为“均匀加权分发”  。
+3. 单击“保存”  。
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>将新的 IoT 中心链接到设备预配服务
 
 链接设备预配服务和 IoT 中心，以便设备预配服务可向该中心注册设备。
 
-1. 在“所有资源”页上，单击之前创建的设备预配服务。
-2. 在“设备预配服务”页上，单击“链接 IoT 中心”。
-3. 单击“添加” 。
-4. 在“将链接添加到 IoT 中心”页上，使用单选按钮指定链接的 IoT 中心位于当前订阅中还是其他订阅中。 然后，从“IoT 中心”框中选择该 IoT 中心的名称。
-5. 单击“保存” 。
+1. 在“所有资源”页上，单击之前创建的设备预配服务  。
+2. 在“设备预配服务”页上，单击“链接 IoT 中心”  。
+3. 单击“添加”  。
+4. 在“将链接添加到 IoT 中心”页上，使用单选按钮指定链接的 IoT 中心位于当前订阅中还是其他订阅中  。 然后，从“IoT 中心”框中选择该 IoT 中心的名称  。
+5. 单击“保存”  。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -75,7 +75,7 @@ ms.locfileid: "57988644"
 > [!div class="checklist"]
 > * 使用 Azure 门户将另一台设备预配到另一个 IoT 中心 
 > * 添加第二台设备的注册列表条目
-> * 将设备预配服务分配策略设置为“均匀分发”
+> * 将设备预配服务分配策略设置为“均匀分发” 
 > * 将新的 IoT 中心链接到设备预配服务
 
 <!-- Advance to the next tutorial to learn how to 

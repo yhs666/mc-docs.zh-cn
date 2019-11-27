@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 020a04cbbe5f8eed532afde6ea94cbca17a0ed9e
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: f1da96294ce4af68a0fbc9306ba082316a5cb497
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267089"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389298"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>排查语音设备 SDK 问题
 
@@ -38,5 +38,4 @@ ms.locfileid: "71267089"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [查看发行说明](devices-sdk-release-notes.md)
+* [查看发行说明](devices-sdk-release-notes.md)

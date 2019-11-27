@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 7e82b9b3259cfabaf0f648bfd31b849f21e90a01
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 60bf983fec739bf0daf97df3fb3ba5c62eb2c8d0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267131"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389300"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>设备：Roobo 智能音频开发工具包
 
@@ -53,7 +53,7 @@ ms.locfileid: "71267131"
    ```
 
     > [!NOTE]
-    > 这些命令使用 Android Debug Bridge `adb.exe`，它是 Android Studio 安装的一部分。 此工具位于 C:\Users\[用户名]\AppData\Local\Android\Sdk\platform-tools 中。 可将该目录添加到你的路径，以便更轻松地调用 `adb`。 否则，必须在调用 `adb` 的每个命令中指定安装 adb.exe 的完整路径。
+    > 这些命令使用 Android Debug Bridge `adb.exe`，它是 Android Studio 安装的一部分。 此工具位于 C:\Users\[用户名]\AppData\Local\Android\Sdk\platform-tools 中。 可将该目录添加到你的路径，以便更轻松地调用 `adb`。 否则，必须在调用 `adb` 必须在每个调用 adb 的命令中指定到 adb.exe 的完整安装路径。
     >
     > 如果看到 `no devices/emulators found` 错误，请检查 USB 电缆是否已连接以及是否为高品质电缆。 可使用 `adb devices` 检查并确保计算机可与开发工具包通信，因为它将返回设备列表。
     >

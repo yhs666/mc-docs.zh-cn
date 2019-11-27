@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 05/22/2018
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 8588aa7c6695413953d92945eb68410d4a056299
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 76acfe2e95881910a4aca37c66d135327049e3b6
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912887"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328743"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
@@ -103,7 +103,7 @@ Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Rob
 ### <a name="azcopy"></a>AzCopy
 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。 AzCopy 操作简单：
 
-1. 下载[最新版本的 AzCopy on Windows](https://aka.ms/downloadazcopy) 或 [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy)。
+1. 下载[最新版本的 AzCopy on Windows](https://aka.ms/downloadazcopy) 或 [AzCopy on Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy)。
 2. 在命令行处使用 `azcopy` 将数据移动到 Azure 文件共享。 对于 Windows，其语法如下： 
 
     ```

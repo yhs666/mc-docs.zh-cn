@@ -10,12 +10,12 @@ origin.date: 04/16/2019
 ms.date: 09/16/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 1034fc56ca8ff99b018dd3116650ea4f0cc5b45d
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 6e51bef9d18c944b7e8a2acdb4a2252f0b68a645
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730542"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528112"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 
@@ -31,7 +31,7 @@ ms.locfileid: "73730542"
 
 ## <a name="sign-in-and-register"></a>登录和注册
 
-1. 使用 `Connect-AzAccount` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+1. 运行 `Connect-AzAccount` 命令以登录 Azure 订阅，并按照屏幕上的说明操作。
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
@@ -41,7 +41,6 @@ ms.locfileid: "73730542"
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
@@ -107,17 +106,17 @@ ms.locfileid: "73730542"
 
 ## <a name="start-a-backup-job"></a>启动备份作业
 
-备份会根据备份策略中指定的计划来运行。 还可以运行临时备份：
+备份会根据备份策略中指定的计划来运行。 你还可以运行按需备份：
 
 - 第一个初始备份作业会创建一个完整恢复点。
 - 初始备份之后，每个备份作业都会创建增量恢复点。
 - 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
 
-若要运行临时备份，可使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。 
+若要运行按需备份，可使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。 
 - 使用 [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) 指定保管库中保存备份数据的容器。
 - 要备份的每个 VM 被视为一个项。 若要启动备份作业，请使用 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 获取有关 VM 的信息。
 
-运行临时备份作业，如下所示：
+运行按需备份作业，如下所示：
 
 1. 指定容器，获取 VM 信息，并运行备份。
 
@@ -145,7 +144,7 @@ ms.locfileid: "73730542"
     ```
     输出类似于以下示例，该示例显示作业处于“正在进行”  状态：
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
@@ -153,7 +152,6 @@ ms.locfileid: "73730542"
     ```
 
 2. 当作业状态是“已完成”  时，VM 受保护并存储了完整恢复点。
-
 
 ## <a name="clean-up-the-deployment"></a>清理部署
 

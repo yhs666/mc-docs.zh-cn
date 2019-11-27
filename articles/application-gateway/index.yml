@@ -10,13 +10,13 @@ metadata:
   author: vhorne
   ms.author: v-junlch
   origin.date: 09/18/2019
-  ms.date: 10/23/2019
-  ms.openlocfilehash: 6295bf44ad03d96ae3792697b1a2034a7fb9cd33
-  ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+  ms.date: 11/21/2019
+  ms.openlocfilehash: 971f0dca850cbb532f1944447387ee82c3d4fd56
+  ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2019
-  ms.locfileid: "72798485"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74327159"
 landingContent:
 - title: 了解应用程序网关
   linkLists:
@@ -56,6 +56,16 @@ landingContent:
     links:
     - text: 创建可改进 Web 应用程序访问的应用程序网关
       url: tutorial-autoscale-ps.md
+- title: AKS 的入口控制器
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 什么是 AKS 的入口控制器
+      url: ingress-controller-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 创建 AKS 的入口控制器
+      url: ingress-controller-install-new.md
 - title: 排查应用程序网关问题
   linkLists:
   - linkListType: overview

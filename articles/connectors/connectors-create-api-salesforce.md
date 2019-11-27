@@ -11,12 +11,12 @@ ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 03c250f153402c68889c2e3ac187ccab3e2d858b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8bfff6a5da9e13b2200526940c10e7be83a0f9dd
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662236"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389008"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用监视、创建和管理 Salesforce 资源
 
@@ -29,7 +29,7 @@ ms.locfileid: "52662236"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://azure.microsoft.com/free/" target="_blank">注册一个免费 Azure 帐户</a>。 
+* Azure 订阅。 如果没有 Azure 订阅，请<a href="www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。 
 
 * 一个 [Salesforce 帐户](https://salesforce.com/)
 
@@ -41,7 +41,7 @@ ms.locfileid: "52662236"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 登录 [Azure门户](https://portal.azure.com)，然后在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
+1. 登录 [Azure门户](https://portal.azure.cn)，然后在逻辑应用设计器中打开逻辑应用（如果尚未打开）。
 
 1. 选择路径： 
 
@@ -50,7 +50,7 @@ ms.locfileid: "52662236"
 
      -或-
 
-   * 对于现有逻辑应用，请在要添加操作的步骤下，选择“新建步骤”。 在搜索框中，输入“salesforce”作为筛选器。 在操作列表下，选择所需的操作。
+   * 对于现有逻辑应用，请在要添加操作的步骤下，选择“新建步骤”  。 在搜索框中，输入“salesforce”作为筛选器。 在操作列表下，选择所需的操作。
 
 1. 如果系统提示你登录 Salesforce，请立即登录并允许访问。
 

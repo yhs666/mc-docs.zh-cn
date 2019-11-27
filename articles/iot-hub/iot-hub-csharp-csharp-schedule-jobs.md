@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/20/2019
 ms.date: 09/30/2019
 ms.author: v-yiso
-ms.openlocfilehash: cc22fecc5ced10acdf67cfddd190c28d74f63bb1
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: efca7db24f4c8c8f62470f05c54e7bc200ea0193
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156019"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389554"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>计划和广播作业 (.NET)
 
@@ -258,7 +258,7 @@ ms.locfileid: "71156019"
     ```
 
     > [!NOTE]
-    > 有关查询语法的详细信息，请参阅 [IoT 中心查询语言](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language)。
+    > 有关查询语法的详细信息，请参阅 [IoT 中心查询语言](/iot-hub/iot-hub-devguide-query-language)。
     > 
 
 1. 最后，在 **Main** 方法中添加以下行：

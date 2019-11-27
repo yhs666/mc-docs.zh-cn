@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/30/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 75ffb89a79c0a455860bd873ccd4b967575290d9
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: fabbd05f3eb08e1dc894f0c08f3b44d0e80cd9b6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426087"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389213"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>使用 AMQP 协议来与 IoT 中心通信
 
@@ -42,7 +42,7 @@ import urllib
 import time
 
 # Use generate_sas_token implementation available here: 
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# https://docs.azure.cn/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -153,7 +153,7 @@ import uamqp
 import urllib
 import time
 
-# Use the generate_sas_token implementation that's available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# Use the generate_sas_token implementation that's available here: https://docs.azure.cn/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -224,7 +224,7 @@ import urllib
 import uuid
 
 # Use generate_sas_token implementation available here: 
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# https://docs.azure.cn/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'

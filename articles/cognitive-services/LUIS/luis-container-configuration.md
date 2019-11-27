@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/18/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08ed3df2d924cffc7f7cd14f33972c9d5da27227
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 4e6c3a19cd33d8199401de661055ccdc613763aa
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330175"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389352"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>配置语言理解 Docker 容器 
 
@@ -173,4 +173,3 @@ Logging:Console:LogLevel:Default=Information
 
 * 查看[如何安装和运行容器](luis-container-howto.md)
 * 若要解决与 LUIS 功能相关的问题，请参阅[故障排除](troubleshooting.md)。
-* 使用更多[认知服务容器](../cognitive-services-container-support.md)

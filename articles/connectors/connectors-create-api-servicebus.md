@@ -11,12 +11,12 @@ ms.topic: conceptual
 oriring.date: 09/19/2019
 ms.date: 11/11/2019
 tags: connectors
-ms.openlocfilehash: 2fc6033f5ef6cd8c33f32692e0c78b32f638cb23
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 66bbbec939d316354f36b30afdfb919c1b641d0a
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425921"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389014"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>使用 Azure 逻辑应用和 Azure 服务总线在云中交换消息
 
@@ -35,7 +35,7 @@ ms.locfileid: "73425921"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 * 服务总线命名空间和消息传送实体，例如队列。 这些项和你的逻辑应用需使用同一 Azure 订阅。 如果没有这些项，请了解如何[创建服务总线命名空间和队列](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 
@@ -49,7 +49,7 @@ ms.locfileid: "73425921"
 
 确认逻辑应用有权访问服务总线命名空间。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 转到服务总线的命名空间。  在命名空间页上的“设置”下，选择“共享访问策略”。   在“声明”下，检查你是否有该命名空间的“管理”权限。  
 
@@ -70,7 +70,7 @@ ms.locfileid: "73425921"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，然后在逻辑应用设计器中打开空白逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后在逻辑应用设计器中打开空白逻辑应用。
 
 1. 在搜索框中，输入“Azure 服务总线”作为筛选器。 在触发器列表中，选择所需的触发器。
 
@@ -114,7 +114,7 @@ ms.locfileid: "73425921"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，然后在逻辑应用设计器中打开逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后在逻辑应用设计器中打开逻辑应用。
 
 1. 在要添加操作的步骤下，选择“新建步骤”。 
 

@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 08/20/2018
 ms.author: v-yiso
 ms.date: 11/11/2019
-ms.openlocfilehash: b80d7419355314cb07fc64f44cb93b2fb1b6ab89
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: abdf0577f61223f07fd6f8dfe7b51da2adb59d40
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425787"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389049"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个自动化工作流 - Azure 门户
 
@@ -26,7 +26,7 @@ ms.locfileid: "73425787"
 
 若要按照本快速入门进行操作，你需要逻辑应用支持的提供商（例如 Office 365 Outlook、Outlook.com 或 Gmail）提供的电子邮件帐户。 至于其他提供商，请[查看此处的连接器列表](https://docs.microsoft.com/connectors/)。 此逻辑应用使用 Office 365 Outlook 帐户。 如果使用其他电子邮件帐户，整个步骤仍然是相同的，但 UI 可能稍有不同。
 
-另外，如果还没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
+另外，如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
 ms.date: 11/04/2019
-ms.openlocfilehash: 6ffffca042413829078c8b95cd87f99cb4dd034c
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: d8e7471f0d0827f16eb93f919d67f32c02ed4bb7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913255"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389015"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -455,7 +455,7 @@ status code and media type. If no example or schema found, the content is empty.
 |属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |条件|一个布尔文本或[表达式](./api-management-policy-expressions.md)，指定是应停止重试 (`false`) 还是应继续重试 (`true`)。|是|不适用|  
-|计数|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
+|count|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
 |interval|一个以秒为单位的正数，指定两次重试之间的等待时间。|是|不适用|  
 |max-interval|一个以秒为单位的正数，指定两次重试之间的最长等待时间， 用于实现指数重试算法。|否|不适用|  
 |delta|一个以秒为单位的正数，指定等待时间间隔增量， 用于实现线性和指数重试算法。|否|不适用|  
@@ -946,7 +946,7 @@ status code and media type. If no example or schema found, the content is empty.
 | ------- | ------------- | -------- |
 | trace   | 根元素。 | 是      |
 | message | 要记录的字符串或表达式。 | 是 |
-| metadata | 将自定义属性添加到 Application Insights [跟踪](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry)遥测。 | 否 |
+| metadata | 将自定义属性添加到 Application Insights [跟踪](/azure-monitor/app/data-model-trace-telemetry)遥测。 | 否 |
 
 ### <a name="attributes"></a>属性
 

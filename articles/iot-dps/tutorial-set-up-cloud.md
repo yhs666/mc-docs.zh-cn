@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1354ca9c816697e930c38a01d088bed5a6faf2f7
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 930c9a94ea954ae0307a202cc0b069a1eb1feca8
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845153"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389584"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>通过 IoT 中心设备预配服务配置云资源以进行设备预配
 
@@ -27,11 +27,11 @@ ms.locfileid: "67845153"
 > * 将 IoT 中心链接到设备预配服务
 > * 设置设备预配服务上的分配策略
 
-如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
-登录到 [Azure 门户](https://portal.azure.com/)。
+登录到 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>创建设备预配服务实例并获取 ID 范围
 

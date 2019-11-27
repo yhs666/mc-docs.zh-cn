@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/21/2019
 ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: dd54e861c01ddfa545d7fe525a086cee771d1b5e
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: f16005cd2be1682f46dc8475fbb165a94f2b7896
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845001"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389050"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>将语言检测容器部署到 Azure Kubernetes 服务
 
@@ -506,7 +506,6 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>后续步骤 
 
-* 使用更多[认知服务容器](../../cognitive-services-container-support.md)
 * 使用[文本分析连接服务](../vs-text-connected-service.md)
 
 

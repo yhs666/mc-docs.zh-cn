@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2019
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: f3476af370078c350ca4c2e30c95f290e7992cce
-ms.sourcegitcommit: dbc3523b993c0850393071d97722b5efe5f40e61
+ms.date: 12/02/2019
+ms.openlocfilehash: 6988dbd19bedfe0f639fe521b6c058a511b84019
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74202764"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389456"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "74202764"
 
 ### <a name="working-with-powershell"></a>使用 PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ### <a name="configuration-reference-list"></a>配置参考列表
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]

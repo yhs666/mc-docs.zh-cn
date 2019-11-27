@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 08/12/2019
-ms.date: 09/09/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: e4ebbe171ba614c5e713864830c29deb1ddc241e
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 3fffb053a83c0d570f66cd3b2581ea8c402b1379
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209376"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328715"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -96,5 +96,5 @@ Azure 导入/导出服务支持以下类型的存储帐户：
 
 * [设置 WAImportExport 工具](storage-import-export-tool-how-to.md)
 * [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
-* [Azure 导入/导出 REST API 示例](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure 导入/导出 REST API 示例](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 

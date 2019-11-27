@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 5f1ee87a97f2ec69b2778fb95540689cc287c15d
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 522940df3ef13b647f4ab792b08584c38096da47
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173972"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389524"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自定义分配策略
 
@@ -90,7 +90,7 @@ ms.locfileid: "70173972"
 
 在本部分中，将创建一个使用自定义分配策略的新注册组。 为简单起见，本文将在注册中使用[对称密钥证明](concepts-symmetric-key-attestation.md)。 对于更安全的解决方案，请考虑使用具有信任链的 [X.509 证书证明](concepts-security.md#x509-certificates)。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，并打开你的设备预配服务实例。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，并打开你的设备预配服务实例。
 
 2. 选择“管理注册”  选项卡，然后单击页面顶部的“添加注册组”  按钮。 
 

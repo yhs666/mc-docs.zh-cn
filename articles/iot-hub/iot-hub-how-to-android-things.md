@@ -8,15 +8,15 @@ ms.topic: conceptual
 origin.date: 01/30/2019
 ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: b109a41ee841e6ab85dc6fe26e3a18ba348c86ef
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 3f835f5e798e6f0400b886daa898901073e23f49
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570254"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389360"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>使用 Azure IoT SDK 针对 Android Things 平台进行开发
-[Azure IoT 中心 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 为 Windows、Linux、OSX、MBED 等流行平台，以及 Android 和 iOS 等移动平台提供第一层支持。  作为我们在 IoT 部署中实现更多选择和灵活性的承诺的一部分，Java SDK 还支持 [Android Things](https://developer.android.com/things/) 平台。  使用 [Azure IoT 中心](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)作为可扩展到数百万个同时连接的设备的中央消息中心时，开发人员可以在设备端利用 Android Things 操作系统的好处。 
+[Azure IoT 中心 SDK](/iot-hub/iot-hub-devguide-sdks) 为 Windows、Linux、OSX、MBED 等流行平台，以及 Android 和 iOS 等移动平台提供第一层支持。  作为我们在 IoT 部署中实现更多选择和灵活性的承诺的一部分，Java SDK 还支持 [Android Things](https://developer.android.com/things/) 平台。  使用 [Azure IoT 中心](/iot-hub/about-iot-hub)作为可扩展到数百万个同时连接的设备的中央消息中心时，开发人员可以在设备端利用 Android Things 操作系统的好处。 
 
 本教程概述使用 Azure IoT Java SDK 在 Android Things 上构建设备端应用程序的步骤。
 

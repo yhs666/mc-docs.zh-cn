@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/01/2018
 ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 82d53faed9bdeaf0bec3b760abe9404c1bdab23f
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 05e0a32a99be303740e99e4a22fc45b4735bfa32
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292476"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389503"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>如何设置或编辑 Azure API 管理策略
 
@@ -31,7 +31,7 @@ ms.locfileid: "72292476"
 
 若要设置或编辑策略，请执行以下步骤：
 
-1. 在 [https://portal.azure.com](https://portal.azure.cn) 中登录 Azure 门户。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 浏览到自己的 APIM 实例。
 3. 单击“API”选项卡。 
 

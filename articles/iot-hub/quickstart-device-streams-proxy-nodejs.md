@@ -10,12 +10,12 @@ ms.custom: mvc
 origin.date: 03/14/2019
 ms.author: v-yiso
 ms.date: 11/11/2019
-ms.openlocfilehash: e4a42eb986c29e77d6f327f70216218daf6cdb22
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 5ac5e271d1881529ac827e7497e709e74bf649a3
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426032"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389056"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>快速入门：使用 Node.js 代理应用程序通过 IoT 中心设备流实现 SSH 和 RDP 方案（预览）
 
@@ -36,7 +36,7 @@ Microsoft Azure IoT 中心目前支持设备流作为[预览版功能](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 

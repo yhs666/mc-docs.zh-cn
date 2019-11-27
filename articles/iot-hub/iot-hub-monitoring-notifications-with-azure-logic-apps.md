@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 07/18/2019
 ms.date: 09/02/2019
 ms.author: rangv
-ms.openlocfilehash: 4fd72de7b63305dc617ff27eaf70eaaa2d12f22a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 7dd33dd65bac975e5ab6a5e1db3c69bbf4930b67
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993608"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389403"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>通过连接 IoT 中心和邮箱的 Azure 逻辑应用进行 IoT 远程监视并发送通知
 
@@ -105,7 +105,7 @@ ms.locfileid: "69993608"
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>将自定义终结点和路由规则添加到 IoT 中心
 
-将服务总线队列的自定义终结点添加到 IoT 中心，并创建一个消息路由规则，以将包含温度警报的消息定向到该终结点，而逻辑应用将在该终结点中拾取这些消息。 路由规则使用路由查询 `temperatureAlert = "true"`，根据设备上运行的客户端代码设置的 `temperatureAlert` 应用程序属性值来转发消息。 有关详细信息，请参阅[基于消息属性的消息路由查询](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties)。
+将服务总线队列的自定义终结点添加到 IoT 中心，并创建一个消息路由规则，以将包含温度警报的消息定向到该终结点，而逻辑应用将在该终结点中拾取这些消息。 路由规则使用路由查询 `temperatureAlert = "true"`，根据设备上运行的客户端代码设置的 `temperatureAlert` 应用程序属性值来转发消息。 有关详细信息，请参阅[基于消息属性的消息路由查询](/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties)。
 
 ### <a name="add-a-custom-endpoint"></a>添加自定义终结点
 

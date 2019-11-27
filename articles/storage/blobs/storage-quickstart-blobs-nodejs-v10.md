@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Storage v10 SDK for JavaScript 上载、下载、列出和删除 blob
-description: 使用 Azure 存储在 Node.js 中创建、上载和删除 blob 与容器
+title: 快速入门：适用于 JavaScript 的 Azure Blob 存储客户端库 v10
+description: 使用适用于 JavaScript 的 Azure 存储客户端库 v10 在 Node.js 中创建、上传和删除 blob 与容器
 author: WenJason
 ms.author: v-jay
 origin.date: 09/24/2018
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5a178afe19c20d70869f6559883ff614ef97d6d9
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 831388cf01b15feb243c042cb21abf4ce2919f7c
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914495"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328723"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>快速入门：使用 Azure Storage v10 SDK for JavaScript 上载、下载、列出和删除 blob
+# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>快速入门：适用于 JavaScript 的 Azure Blob 存储客户端库 v10
 
 本快速入门介绍如何在 Node.js 中使用 [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js) 来上载、下载、列出和删除 blob 以及管理容器。
 

@@ -1,19 +1,19 @@
 ---
-title: 教程 - 使用 SSL 终端配置应用程序网关 - Azure 门户
+title: 教程：在门户中配置 SSL 终端 - Azure 应用程序网关
 description: 在本教程中，你将了解如何使用 Azure 门户配置应用程序网关并为 SSL 终端添加证书。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-origin.date: 09/27/2019
-ms.date: 10/23/2019
+origin.date: 11/13/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: b6cbec7e10d89714d32df5e88caf7c7f8936de1d
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+ms.openlocfilehash: 17b3445b73049dbe8262ba6ea6092a81d88b4050
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798505"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327160"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>教程：通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -63,7 +63,7 @@ E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 > 请勿在 .pfx 文件密码中使用任何特殊字符。 仅支持字母数字字符。
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -83,7 +83,7 @@ Export-PfxCertificate `
    - **资源组**：选择 **myResourceGroupAG** 作为资源组。 如果该资源组不存在，请选择“新建”，创建一个新的  。
    - **应用程序网关名称**：输入 *myAppGateway* 作为应用程序网关的名称。
 
-     ![新建应用程序网关：基础知识](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![新建应用程序网关：基础知识](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创建新的虚拟网络，或者使用现有的虚拟网络。 在此示例中，将在创建应用程序网关的同时创建新的虚拟网络。 在独立的子网中创建应用程序网关实例。 在本示例中创建两个子网：一个用于应用程序网关，另一个用于后端服务器。
 
@@ -99,7 +99,7 @@ Export-PfxCertificate `
 
     选择“确定”以关闭“创建虚拟网络”窗口，并保存虚拟网络设置   。
 
-     ![新建应用程序网关：虚拟网络](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![新建应用程序网关：虚拟网络](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. 在“基本信息”  选项卡上，接受其他设置的默认值，然后选择“下一步:  前端”。
 
@@ -111,7 +111,7 @@ Export-PfxCertificate `
 
 2. 为“公共 IP 地址”选择“新建”，输入“myAGPublicIPAddress”作为公共 IP 地址名称，然后选择“确定”     。 
 
-     ![新建应用程序网关：前端](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![新建应用程序网关：前端](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. 在完成时选择“下一步:**后端**。
 
@@ -128,7 +128,7 @@ Export-PfxCertificate `
 
 3. 在“添加后端池”窗口中，选择“添加”以保存后端池配置并返回到“后端”选项卡    。
 
-     ![新建应用程序网关：后端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![新建应用程序网关：后端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. 在“后端”  选项卡上，选择“下一步:  配置”。
 
@@ -151,9 +151,9 @@ Export-PfxCertificate `
 
    - **PFX 证书文件** - 浏览到并选择前面创建的 c:\appgwcert.pfx 文件。
    - **证书名称** - 键入“mycert1”  作为证书的名称。
-   - **密码** - 输入“Azure123456!”  密码。
+   - **密码** - 输入“Azure123456”作为“密码”  。
   
-      接受“侦听器”选项卡上其他设置的默认值，然后选择“后端目标”选项卡以配置剩余的传递规则   。
+        接受“侦听器”选项卡上其他设置的默认值，然后选择“后端目标”选项卡以配置剩余的传递规则   。
 
    ![新建应用程序网关：侦听器](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
@@ -165,7 +165,7 @@ Export-PfxCertificate `
 
 6. 在“添加传递规则”窗口上，选择“添加”以保存传递规则并返回到“配置”选项卡    。
 
-     ![新建应用程序网关：传递规则](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![新建应用程序网关：传递规则](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. 在完成时选择“下一步:  标记”，然后选择“下一步:  查看 + 创建”。
 
@@ -195,7 +195,7 @@ Export-PfxCertificate `
     - **资源组**：选择 **myResourceGroupAG** 作为资源组名称。
     - **虚拟机名称**：输入 *myVM* 作为虚拟机的名称。
     - **用户名**：输入 *azureuser* 作为管理员用户名。
-    - **密码**：输入 *Azure123456!* 作为管理员密码。
+    - **密码**：输入“Azure123456”作为管理员密码  。
 4. 接受其他默认值，然后选择“下一步:**磁盘”** 。  
 5. 接受“磁盘”**选项卡的默认值**，然后选择“下一步:**网络”** 。
 6. 在“网络”  选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”  设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。

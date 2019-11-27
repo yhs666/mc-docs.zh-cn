@@ -1,23 +1,22 @@
 ---
-title: 快速入门：浏览 Azure 时序见解预览版演示环境 | Microsoft Docs
-description: 了解 Azure 时序见解预览版演示环境。
+title: 快速入门：浏览预览版演示环境 - Azure 时序见解 | Microsoft Docs
+description: 通过示例快速入门了解 Azure 时序见解预览版演示环境。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: v-yiso
 manager: cshankar
-ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-origin.date: 07/08/2019
-ms.openlocfilehash: 7190b2982cbee1f172cbf3e99663818508cf3fc4
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.date: 10/24/2019
+origin.date: 12/02/2019
+ms.openlocfilehash: fd6c824020093bf5d2ff07605fcbbc14051448f7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993148"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388964"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入门：浏览 Azure 时序见解预览版演示环境
 
@@ -42,14 +41,14 @@ ms.locfileid: "69993148"
 
 1. 在“Contoso 发电厂 1”中查看风力涡轮机“W7”   。  
 
-   1. 将视图范围更改为“1/1/17 20:00 至 3/10/17 20:00 (UTC)”  。
+   1. 将视图范围更改为“1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)”  。
    1. 若要选择传感器，请选择“Contoso 发电厂 1” > “W7” > “发电机系统” > “GeneratorSpeed”。     然后，查看显示的值。
 
       [![Contoso 发电厂 1 中的 W7](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. 最近，Contoso 公司发现风力涡轮机 W7 起火  。 起火原因的观点各不相同。 在时序见解中，我们可以看到火警传感器在起火期间激活。
 
-   1. 将视图范围更改为“3/9/17 20:00 至 3/10/17 20:00 (UTC)”  。
+   1. 将视图范围更改为“3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)”  。
    1. 选择“安全系统” > “FireAlert”。  
 
       [![Contoso 公司发现风力涡轮机 W7 起火](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -63,7 +62,7 @@ ms.locfileid: "69993148"
 
 1. 油压和活动警告传感器在起火之前的那一刻达到高峰。 展开显示的时序，以查看导致起火的其他很明显的迹象。 这两个传感器都不断地波动了一段时间， 这表示一直存在令人担忧的模式。
 
-    * 将视图范围更改为“2/24/17 20:00 至 3/10/17 20:00 (UTC)”  。
+    * 将视图范围更改为“2/24/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)”  。
 
       [![油压和活动警告传感器也达到了高峰](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -73,22 +72,22 @@ ms.locfileid: "69993148"
 
       [![查看历史模式](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-使用时序见解和传感器遥测数据，我们发现历史数据中隐藏着长期的有问题趋势。 使用这些新的见解，我们可以：
+使用时序见解和传感器遥测数据，我们发现历史数据中隐藏着长期的趋势。 使用这些新的见解，我们可以：
 
 * 解释实际发生了什么问题。
 * 纠正问题。
-* 部署高级警报通知系统。
+* 部署更好的警报通知系统。
 
 ## <a name="root-cause-analysis"></a>根本原因分析
 
-1. 某些方案需要使用复杂分析从数据中找到微秒的线索。 选择日期 **6/25** 时的风力涡轮机 **W6**。
+1. 某些方案需要进行复杂分析从数据中找到线索。 选择日期 **6/25** 时的风力涡轮机 **W6**。
 
-    1. 将视图范围更改为“6/1/17 20:00 至 7/1/17 20:00 (UTC)”  。
+    1. 将视图范围更改为“6/1/17 20:00:00.00 to 7/1/17 20:00:00.00 (UTC)”  。
     1. 选择“Contoso 发电厂 1” > “W6” > “安全系统” > “VoltageActuatorSwitchWarning”。    
 
        [![更改视图范围并选择 W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. 警告指示发电机输出的电压出现问题。 在当前时间间隔内，发电机的总体功率输出在正常参数范围内。 但增大间隔后，我们发现了另一种模式。 出现明显的衰减。
+1. 警告指示发电机的电压出现问题。 在当前时间间隔内，发电机的总体功率输出在正常参数范围内。 增大间隔后，我们发现了另一种模式。 即存在明显的衰减。
 
     1. 删除 **VoltageActuatorSwitchWarning** 传感器。
     1. 选择“发电机系统” > “ActivePower”。  
@@ -119,9 +118,9 @@ ms.locfileid: "69993148"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-现在你已完成本教程，请清除已创建的资源：
+现在你已完成本快速入门，请清除已创建的资源：
 
-1. 从 [Azure 门户](https://portal.azure.cn)的左侧菜单中，选择“所有资源”  ，找到“Azure 时序见解”资源组。
+1. 从 [Azure 门户](https://portal.azure.cn)的左侧菜单中，选择“所有资源”，找到“Azure 时序见解”资源组  。
 1. 通过选择“删除”  来删除整个资源组（以及其中包含的所有资源），或者单独删除每个资源。
 
 ## <a name="next-steps"></a>后续步骤
@@ -131,7 +130,7 @@ ms.locfileid: "69993148"
 > [!div class="nextstepaction"]
 > [计划时序见解预览版环境](time-series-insights-update-plan.md)
 
-了解如何浏览演示及其功能：
+了解如何使用演示及其功能：
 
 > [!div class="nextstepaction"]
 > [时序见解预览版资源管理器](time-series-insights-update-explorer.md)

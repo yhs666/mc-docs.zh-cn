@@ -13,18 +13,18 @@ ms.topic: article
 origin.date: 08/26/2019
 ms.date: 10/21/2019
 ms.author: apimpm
-ms.openlocfilehash: edb2929aaa82aa26af087c3a5cadb84b6120cedd
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: d1e8e94c206ea946cbe7a6e5452aaaa319b7a08c
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292685"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389064"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>如何跨区域迁移 Azure API 管理
 若要将 API 管理实例从一个 Azure 区域迁移到另一个 Azure 区域，可以使用[备份和还原](api-management-howto-disaster-recovery-backup-restore.md)功能。 应该在源和目标区域选择相同的 API 管理定价层。 
 
 > [!NOTE]
-> 在不同的云类型之间迁移时，备份和还原无效。 因此，需要[以模板形式](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates)导出资源。 然后，改编目标 Azure 区域的已导出模板并重新创建资源。 
+> 在不同的云类型之间迁移时，备份和还原无效。 因此，需要[以模板形式](/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates)导出资源。 然后，改编目标 Azure 区域的已导出模板并重新创建资源。 
 
 ## <a name="option-1-use-a-different-api-management-instance-name"></a>选项 1：使用另一个 API 管理实例名称
 

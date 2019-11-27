@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 08/15/2019
 ms.date: 09/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4e27ec94119ffba7b243a374c49cb8487425eabd
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 164c50406db586510b296d60029e425c48814299
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921236"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389502"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Storm 进行故障排除
 
@@ -95,7 +95,7 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
 
 /usr/hdp 中可能包含特定 HDP 版本的多个二进制文件（例如 `/usr/hdp/2.5.0.1233/storm`）。 `/usr/hdp/current/storm-client` 文件夹与群集上运行的最新版本建立了符号链接。
 
-有关详细信息，请参阅[使用 SSH 连接到 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/)。
+有关详细信息，请参阅[使用 SSH 连接到 HDInsight 群集](/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/)。
 
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>如何确定 Storm 群集的部署拓扑？
 首先，请识别连同 HDInsight Storm 一起安装的所有组件。 Storm 群集由四个节点类别组成：

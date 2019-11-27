@@ -9,12 +9,12 @@ ms.author: v-lingwu
 origin.date: 06/26/2019
 ms.date: 09/23/2019
 ms.custom: mvc
-ms.openlocfilehash: 6436949fc44ce67cd6b44361da7b117e8cfbdb52
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: cdfe2f0925720c34ed963646eb84d7e32c396c50
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730382"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528208"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>开始监视 ASP.NET Core Web 应用程序
 
@@ -55,7 +55,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 中国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 

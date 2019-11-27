@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 origin.date: 11/05/2019
 ms.author: v-tawe
-ms.openlocfilehash: 67e9ca73b1d62ec56dbb00b684b8a0206b0179ff
-ms.sourcegitcommit: a1eba709b343bc413f366b2ebe88c498aef12d1b
+ms.openlocfilehash: 20281c9655493f7174942bd54a4b4bddbc2ca4ce
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611985"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389529"
 ---
 # <a name="why-use-batch-transcription"></a>为何使用批量听录？
 
@@ -182,7 +182,7 @@ ms.locfileid: "73611985"
 ## <a name="sample-code"></a>代码示例
 
 
-`samples/batch` 子目录内的 [GitHub 示例存储库](https://aka.ms/csspeech/samples)中提供了完整示例。
+`samples/batch` 子目录内的 [GitHub 示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中提供了完整示例。
 
 如要使用自定义声学或语言模型，必须使用订阅信息、服务区域、指向要转录的音频文件的 SAS URI 和模型 ID 来自定义示例代码。
 
@@ -271,7 +271,7 @@ foreach (var transcription in transcriptions)
 }
 ```
 
-有关上述调用的完整详细信息，请参阅 [Swagger 文档](https://chinaeast2.cris.azure.cn/swagger/ui/index)。 有关此处所示的完整示例，请转到 `samples/batch` 子目录中的 [GitHub](https://aka.ms/csspeech/samples)。
+有关上述调用的完整详细信息，请参阅 [Swagger 文档](https://chinaeast2.cris.azure.cn/swagger/ui/index)。 有关此处所示的完整示例，请转到 `samples/batch` 子目录中的 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)。
 
 请注意用于发布音频和接收听录状态的异步设置。 创建的客户端是一个 .NET HTTP 客户端。 `PostTranscriptions` 方法用于发送音频文件详细信息，`GetTranscriptions` 方法用于接收结果。 `PostTranscriptions` 返回句柄，`GetTranscriptions` 使用此句柄创建一个句柄来获取听录状态。
 
@@ -282,7 +282,7 @@ foreach (var transcription in transcriptions)
 
 ## <a name="download-the-sample"></a>下载示例
 
-可以在 [GitHub 示例存储库](https://aka.ms/csspeech/samples)的 `samples/batch` 目录中查找到该示例。
+可以在 [GitHub 示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)的 `samples/batch` 目录中查找到该示例。
 
 > [!NOTE]
 > 批量听录作业是在最大努力的基础上进行安排的，没有对作业何时会变为运行状态作时间估计。 进入运行状态后，实际转录处理速度比实时音频快。

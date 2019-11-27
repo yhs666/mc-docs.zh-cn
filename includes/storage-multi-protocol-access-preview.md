@@ -3,16 +3,16 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 07/22/2019
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d966922b7f6a209e9aba7180d8ee95d68e4d16ac
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: bc2f06c3d7c745d6773f119bfc428446e3cd1d4d
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912917"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328647"
 ---
 > [!NOTE]
-> 仅当你注册了 [Data Lake Storage 上的多协议访问](/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)公共预览版时，具有分层命名空间的帐户才可使用本文中所述的功能。  若要查看限制，请参阅[已知问题](/storage/blobs/data-lake-storage-known-issues)一文。
+> 本文中所述的功能现在可用于具有分层命名空间的帐户。 若要查看限制，请参阅 [Azure Data Lake Storage Gen2 的已知问题](/storage/blobs/data-lake-storage-known-issues)一文。
 
 

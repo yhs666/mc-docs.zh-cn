@@ -9,12 +9,12 @@ ms.author: v-lingwu
 origin.date: 07/12/2019
 ms.date: 08/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0214ee9036685f08021dad4885e67dce59d1d371
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 38945c4db0bc63e2c60877d192da487726cb9c63
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730313"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528410"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>快速入门：使用 Azure Application Insights 开始监视 Node.js Web 应用程序
 
@@ -53,7 +53,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **应用程序类型** | Node.js 应用程序 | 所监视的应用的类型 |
-   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 中国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 选择“创建”  。
 

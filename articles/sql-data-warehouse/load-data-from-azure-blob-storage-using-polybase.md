@@ -11,12 +11,12 @@ origin.date: 04/26/2019
 ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 09d8351b384400ed6c188803e684e47f5e9dc854
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: a3d3e2b8e26a693fbd53dd57c7ad9d6abdf5c33b
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131881"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328730"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -73,7 +73,7 @@ ms.locfileid: "70131881"
     | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
     | 服务器管理员登录名  | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
     | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
-    | **Location** | 任何有效的位置 | 有关区域的信息，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。 |
+    | **Location** | 任何有效的位置 | 有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 |
 
     ![创建数据库服务器](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 

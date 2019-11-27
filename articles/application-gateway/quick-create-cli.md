@@ -1,20 +1,21 @@
 ---
-title: 快速入门 - 使用 Azure 应用程序网关定向 Web 流量 - Azure CLI | Microsoft Docs
+title: 快速入门：使用 CLI 定向 Web 流量
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure CLI 创建 Azure 应用程序网关，用以将 Web 流量定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-origin.date: 07/19/2019
-ms.date: 09/10/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c9c17c7eb980ae671608d211afe06c1d073aa107
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 7730cf121977d8afe96316401609c84ab3f172b5
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857182"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326682"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
@@ -196,4 +197,4 @@ az group delete --name myResourceGroupAG
 > [通过 Azure CLI 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-cli.md)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

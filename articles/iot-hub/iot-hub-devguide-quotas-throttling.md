@@ -1,7 +1,7 @@
 ---
 title: 了解 Azure IoT 中心配额和限制 | Microsoft Docs
 description: 开发人员指南 - 介绍适用于 IoT 中心的配额和预期限制行为。
-author: dominicbetts
+author: robinsh
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2019
 ms.author: v-yiso
-ms.date: 11/11/2019
-ms.openlocfilehash: fc453f3065b56b04a736100ffaf7da22d62f0ba7
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.date: 12/02/2019
+ms.openlocfilehash: 500bd9a07db4b78a7f5d97442db2ef6e4fa0383d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425764"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388965"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -70,7 +70,7 @@ ms.locfileid: "73425764"
 
 *  就 S2 层级的作业设备操作（更新孪生、调用直接方法）来说，  50/秒/单位仅适用于使用作业来调用方法的情况。 如果直接调用直接方法，则适用原始的 24 MB/秒/单位（针对 S2）限制。
 
-*  **配额**是每天可以在中心发送的聚合消息数。  可以在 [IoT 中心定价页](https://azure.microsoft.com/pricing/details/iot-hub/)上的“消息总数/天”列下找到中心的配额限制。 
+*  **配额**是每天可以在中心发送的聚合消息数。  可以在 [IoT 中心定价页](www.azure.cn/pricing/details/iot-hub/)上的“消息总数/天”列下找到中心的配额限制。 
 
 *  云到设备和设备到云限制决定了发送消息的最大速率（在不考虑 4 KB 区块情况下的消息数）。  每条消息最大可以为 256 KB（[最大消息大小](iot-hub-devguide-quotas-throttling.md#other-limits)）。
 
@@ -134,3 +134,7 @@ IoT 中心致力于降低所有操作的延迟。 但是，由于网络条件和
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
 * [IoT 中心终结点](iot-hub-devguide-endpoints.md)
+
+
+
+[lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub

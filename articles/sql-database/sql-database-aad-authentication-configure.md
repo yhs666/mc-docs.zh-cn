@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: vanto, carlrab
 origin.date: 10/16/2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 455d00df261ae5dc3dede7110290e0dc871fb970
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 59fb059c7321f53f3f7b676d041f9b6653d57d60
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041177"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328725"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -36,7 +36,7 @@ ms.locfileid: "73041177"
 
 创建 Azure AD 并对其填充用户和组。 Azure AD 可以是初始 Azure AD 托管域。 Azure AD 也可以是本地 Active Directory 域服务，该服务可以与 Azure AD 联合。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](/active-directory/fundamentals/add-custom-domain)、[Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview) 和[混合标识所需端口和协议](../active-directory/hybrid/reference-connect-ports.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](/active-directory/fundamentals/add-custom-domain)、[Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview) 和[混合标识所需端口和协议](../active-directory/hybrid/reference-connect-ports.md)。
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>将 Azure 订阅关联或添加到 Azure Active Directory
 
@@ -342,7 +342,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
-CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
+CREATE USER [alice@fabrikam.partner.onmschina.cn] FROM EXTERNAL PROVIDER;
 ```
 
 若要创建代表 Azure AD 或联合域组的包含的数据库用户，请提供安全组的显示名称：

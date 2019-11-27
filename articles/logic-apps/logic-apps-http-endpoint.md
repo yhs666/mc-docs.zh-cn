@@ -17,12 +17,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 03/31/2017
 ms.author: v-yiso
 ms.date: 11/11/2019
-ms.openlocfilehash: 651d59acf0a260c7c2b0f4b4deafeb06181a975b
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: d389c1cc3333ea66be2d9b6a9770d3e29b57167e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425970"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389424"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP 终结点调用、触发或嵌套逻辑应用
 
@@ -290,7 +290,7 @@ ms.locfileid: "73425970"
 答：可以，HTTP 终结点支持通过 [**API 管理**](../api-management/api-management-key-concepts.md)进行更高级的配置。 此服务还提供相应的功能，使你能够以一致的方式管理所有 API（包括逻辑应用）、设置自定义域名和使用其他身份验证方法等等，例如：
 
 * [更改请求方法](/api-management/api-management-advanced-policies#SetRequestMethod)
-* [更改请求的 URL 段](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
+* [更改请求的 URL 段](/api-management/api-management-transformation-policies#RewriteURL)
 * 在 [Azure 门户](https://portal.azure.cn/ "Azure 门户")中设置 API 管理域
 * 设置用于检查基本身份验证的策略。
 

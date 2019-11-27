@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 07/29/2019
 tags: connectors
-ms.openlocfilehash: 01b37cd3ae26fd9f3b5483c4c1bb25e951224b84
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: a6ed47dd73953b2c24868d707e1b94b49180df78
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337493"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388990"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用调用 REST 终结点
 
@@ -139,7 +139,7 @@ ms.locfileid: "68337493"
 
 1. [创建 Blob 容器](../storage/blobs/storage-quickstart-blobs-portal.md)。 在容器的“概述”窗格中，选择“更改访问级别”。   在“公共访问级别”列表中，选择“Blob (仅限对 Blob 进行匿名读取访问)”，然后选择“确定”。   
 
-1. 通过 [Azure 门户](https://portal.azure.com)或 [Azure 存储资源管理器](https://storageexplorer.com/)[将 Swagger 文件上传到 Blob容器](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)。
+1. 通过 [Azure 门户](https://portal.azure.cn)或 [Azure 存储资源管理器](https://storageexplorer.com/)[将 Swagger 文件上传到 Blob容器](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)。
 
 1. 若要在 Blob 容器中引用该文件，请使用以下格式的 HTTPS 链接（区分大小写）：
 

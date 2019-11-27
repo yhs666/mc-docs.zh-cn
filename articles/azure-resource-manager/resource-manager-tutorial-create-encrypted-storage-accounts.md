@@ -1,26 +1,18 @@
 ---
-title: 利用 Azure 资源管理器模板参考 | Azure
+title: 利用模板参考
 description: 利用 Azure 资源管理器模板参考创建用于部署加密存储帐户的模板。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 04/15/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 75958b550ef278eeb56a3732c35c26ac1e68b40c
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 85b3fcf0ae0e2dcfe7a059eea2e149de47f5adcd
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529149"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389563"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教程：利用 Azure 资源管理器模板参考
 
@@ -53,14 +45,14 @@ ms.locfileid: "59529149"
 
 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
-2. 在“文件名”中粘贴以下 URL：
+1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
+2. 在“文件名”中粘贴以下 URL： 
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. 选择“打开”以打开该文件。
-4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
+3. 选择“打开”以打开该文件。 
+4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。  
 
 ## <a name="understand-the-schema"></a>了解架构
 
@@ -75,7 +67,7 @@ ms.locfileid: "59529149"
     * **resources**：指定已在资源组中部署或更新的资源类型。
     * **outputs**：指定部署后返回的值。
 
-2. 展开“resources”。 已定义 `Microsoft.Storage/storageAccounts` 资源。 此模板创建非加密存储帐户。
+2. 展开“resources”  。 已定义 `Microsoft.Storage/storageAccounts` 资源。 此模板创建非加密存储帐户。
 
     ![资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
@@ -114,10 +106,10 @@ ms.locfileid: "59529149"
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 在“按名称筛选”字段中输入资源组名称。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 在“按名称筛选”字段中输入资源组名称。 
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 

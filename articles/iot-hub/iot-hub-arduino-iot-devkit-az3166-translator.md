@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 12/19/2018
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5447a4e12bfe8b55b80a7f72511551860a95797b
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: cb41d55d04b9d3d6c2bbdd2a749cc0568583493f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890142"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389198"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>将 IoT DevKit AZ3166 与 Azure Functions 和认知服务配合使用生成语言翻译
 
@@ -31,11 +31,11 @@ ms.locfileid: "58890142"
 
 ## <a name="create-azure-cognitive-service"></a>创建 Azure 认知服务
 
-1. 在 Azure 门户中，点击“创建资源”，然后搜索“语音”。 填写窗体，创建语音服务。
+1. 在 Azure 门户中，点击“创建资源”，然后搜索“语音”   。 填写窗体，创建语音服务。
 
    ![语音服务](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
 
-2. 转到刚才创建的语音服务，单击“Keys”部分进行复制，记下访问它的 DevKit 的 Key1。
+2. 转到刚才创建的语音服务，单击“Keys”部分进行复制，记下访问它的 DevKit 的 Key1   。
 
    ![复制密钥](media/iot-hub-arduino-iot-devkit-az3166-translator/copy-keys.png)
 
@@ -43,15 +43,15 @@ ms.locfileid: "58890142"
 
 1. 确保 IoT DevKit **未连接**到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
-2. 单击 `F1` 以打开命令面板，键入并选择 **`Azure IoT Device Workbench: Open Examples...`**。 然后选择“IoT DevKit”作为开发板。
+2. 单击 `F1` 以打开命令面板，键入并选择 **`Azure IoT Device Workbench: Open Examples...`** 。 然后选择“IoT DevKit”作为开发板。 
 
-3. 在 IoT Workbench 的“示例”页中，找到 DevKit Translator 并单击“打开示例”。 然后选择用于下载示例代码的默认路径。
+3. 在 IoT Workbench 的“示例”页中，找到 DevKit Translator 并单击“打开示例”   。 然后选择用于下载示例代码的默认路径。
 
    ![打开示例](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
 
 ## <a name="use-speech-service-with-azure-functions"></a>配合使用语音服务和 Azure Functions
 
-1. 在 VS Code 中，单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Provision Azure Services...`**。
+1. 在 VS Code 中，单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Provision Azure Services...`** 。
 
    ![预配 Azure 服务](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
 
@@ -67,20 +67,20 @@ ms.locfileid: "58890142"
    // Subscription Key of Speech Service
    const string speechSubscriptionKey = "";
 
-   // Region of the speech service, see https://docs.microsoft.com/azure/cognitive-services/speech-service/regions for more details.
+   // Region of the speech service, see https://docs.azure.cn/cognitive-services/speech-service/regions for more details.
    const string speechServiceRegion = "";
 
    // Device ID
    const string deviceName = "";
    ```
 
-4. 单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Deploy to Azure...`**。 如果 VS Code 要求对重新部署进行确认，请单击“是”。
+4. 单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Deploy to Azure...`** 。 如果 VS Code 要求对重新部署进行确认，请单击“是”  。
    ![部署警告](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-warning.png)
 
 5. 请确保部署成功。
    ![部署成功](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-success.png)
 
-6. 在 Azure 门户中，转到 Function App 部分，找到刚刚创建的 Azure 函数应用。 单击 `devkit_translator`，然后单击“</> 获取函数 URL”以复制 URL。
+6. 在 Azure 门户中，转到 Function App 部分，找到刚刚创建的 Azure 函数应用  。 单击 `devkit_translator`，然后单击“</> 获取函数 URL”以复制 URL  。
    ![复制函数 URL](media/iot-hub-arduino-iot-devkit-az3166-translator/get-function-url.png)
 
 7. 将 URL 粘贴到 `azure_config.h` 文件。
@@ -91,21 +91,21 @@ ms.locfileid: "58890142"
 
 ## <a name="build-and-upload-device-code"></a>生成并上传设备代码
 
-1. 按以下方式，将 DevKit 切换为配置模式：
-   * 按住按钮 A。
-   * 按下然后松开“重置”按钮。
+1. 按以下方式，将 DevKit 切换为配置模式  ：
+   * 按住按钮 A  。
+   * 按下然后松开“重置”按钮  。
 
-   屏幕将显示 DevKit ID 和“配置”。
+   屏幕将显示 DevKit ID 和“配置”  。
 
    ![DevKit 配置模式](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-2. 单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String`**。 选择 **`Select IoT Hub Device Connection String`**，将其配置为 DevKit。
+2. 单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String`** 。 选择 **`Select IoT Hub Device Connection String`** ，将其配置为 DevKit。
    ![配置连接字符串](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
 3. 操作成功后，将看到通知。
    ![成功配置连接字符串](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string-success.png)
 
-4. 再次单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Upload Device Code`**。 它启动编译，并将代码上传到 DevKit。
+4. 再次单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Upload Device Code`** 。 它启动编译，并将代码上传到 DevKit。
    ![设备上传](media/iot-hub-arduino-iot-devkit-az3166-translator/device-upload.png)
 
 ## <a name="test-the-project"></a>测试项目
@@ -141,7 +141,7 @@ IoT DevKit 会记录你的声音，然后发送 HTTP 请求以触发 Azure Funct
 如果遇到问题，请参阅 [IoT DevKit 常见问题解答](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)，或通过以下渠道联系我们：
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [堆栈溢出](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,12 +11,12 @@ ms.topic: overview
 origin.date: 11/04/2019
 ms.date: 10/18/2019
 ms.author: v-tawe
-ms.openlocfilehash: cc2a01c7d58981c6f5428776d455a1b58e1575c5
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 1bf52d4a9f952524a8ae0e9e763fb0596a22541c
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178884"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389089"
 ---
 # <a name="what-are-azure-cognitive-services"></a>什么是 Azure 认知服务？
 
@@ -69,21 +69,21 @@ Azure 认知服务是 API、SDK 和服务，可帮助开发人员生成智能应
 
  认知服务在服务级别支持各种区域性语言。 可以在[支持的语言列表](language-support.md)中找到每个 API 的语言可用性。
 
-## <a name="container-support"></a>容器支持
+<!-- ## Container support -->
 
- 认知服务提供用于在 Azure 云或本地部署的容器。 详细了解[认知服务容器](cognitive-services-container-support.md)。
+<!-- Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md). -->
 
-## <a name="certifications-and-compliance"></a>认证和合规性
+## <a name="certifications-and-compliance"></a>认证和符合性
 
-认知服务已获得 CSA STAR 认证、FedRAMP 中等 和HIPAA BAA 等认证。
+认知服务已获得多种认证，例如 CSA STAR Certification、FedRAMP Moderate 和 HIPAA BAA。
 
 <!-- You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews. -->
 
-若要了解隐私和数据管理，请访问[信任中心](https://www.trustcenter.cn/)。
+若要了解隐私和数据管理，请转到[信任中心](https://www.trustcenter.cn/)。
 
 ## <a name="support"></a>支持
 
-* 有关支持和技术问题，请在 [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive) 上发帖
+* 如有支持和技术问题，请在 [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive) 上发贴
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 2/14/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d5fa495d592a181675ff93b7faede2eaab13c0e9
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 36a3fe526682885753a5f3b63aba1468ea6531e0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730595"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528426"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -154,7 +154,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | 参数 | value |
 | --- | --- |
 | Name |simpletestdiskwrite |
-| 此警报规则的位置 |美国东部 |
+| 此警报规则的位置 | 中国东部 |
 | resourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | 创建的警报的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 646ca465b081ea5db30a9819cc3ad4b666ebd54c
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: d8db8cea392d5be0cd10f0ed1e36f21d94e77a2f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988649"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389587"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>使用适用于 IoT 中心设备预配服务的 Java 设备和服务 SDK 与组登记来创建和预配模拟的 X.509 设备
 
@@ -30,31 +30,31 @@ ms.locfileid: "57988649"
 
 1. 下载并安装 [Maven](https://maven.apache.org/install.html)。
 
-1. 确保在计算机上安装 `git` 并将其添加到可供命令窗口访问的环境变量。 请参阅[软件自由保护组织提供的 Git 客户端工具](https://git-scm.com/download/)，了解要安装的最新版 `git` 工具，其中包括 Git Bash，这是一个命令行应用，可以用来与本地 Git 存储库交互。 
+1. 确保在计算机上安装 `git` 并将其添加到可供命令窗口访问的环境变量。 请参阅[软件自由保护组织提供的 Git 客户端工具](https://git-scm.com/download/)，了解要安装的最新版 `git` 工具，其中包括  Git Bash，这是一个命令行应用，可以用来与本地 Git 存储库交互。 
 
 1. 使用以下[证书概述](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)创建测试证书。
 
     > [!NOTE]
-    > 此步骤需要 [OpenSSL](https://www.openssl.org/)，可以通过源代码生成并安装此工具，也可以通过[第三方](https://wiki.openssl.org/index.php/Binaries)（例如[此处](https://sourceforge.net/projects/openssl/)）下载并安装此工具。 如果已创建根证书、中间证书和设备证书，则可以跳过此步骤。
+    > 此步骤需要 [OpenSSL](https://www.openssl.org/)，可以通过源代码生成并安装此工具，也可以通过[第三方软件](https://wiki.openssl.org/index.php/Binaries)（例如[此软件](https://sourceforge.net/projects/openssl/)）下载并安装此工具。 如果已创建根证书、中间证书和设备证书，则可以跳过此步骤。   
     >
 
-    1. 运行头两个步骤即可创建根证书和中间证书。
+    1. 运行头两个步骤即可创建根证书和中间证书。  
 
-    1. 登录到 Azure 门户，单击左侧菜单上的“所有资源”按钮，打开预配服务。
+    1. 登录到 Azure 门户，单击左侧菜单上的“所有资源”按钮，打开预配服务  。
 
-        1. 在设备预配服务摘要边栏选项卡上选择“证书”，然后单击顶部的“添加”按钮。
+        1. 在设备预配服务摘要边栏选项卡上选择“证书”，然后单击顶部的“添加”按钮。  
 
-        1. 在“添加证书”下输入以下信息：
+        1. 在“添加证书”下  输入以下信息：
             - 输入唯一的证书名称。
-            - 选择创建的 RootCA.pem 文件。
-            - 完成后，单击“保存”按钮。
+            - 选择创建的 RootCA.pem  文件。
+            - 完成后，单击“保存”按钮  。
 
            ![添加证书](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. 选择新建的证书：
-            - 单击“生成验证码”。 复制生成的代码。
-            - 运行验证步骤。 输入验证码，或者在运行的 PowerShell 窗口中右键单击进行粘贴。  按 **Enter**。
-            - 在 Azure 门户中选择新建的 **_verifyCert4.pem_** 文件。 单击“验证”。
+            - 单击“生成验证码”。  复制生成的代码。
+            - 运行验证步骤。 输入验证码，或者在运行的 PowerShell 窗口中右键单击进行粘贴。   按 **Enter**。
+            - 在 Azure 门户中选择新建的 **_verifyCert4.pem_** 文件。 单击“验证”。 
 
               ![验证证书](./media/tutorial-group-enrollments/validate-certificate.png)
 
@@ -73,27 +73,27 @@ ms.locfileid: "57988649"
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. 在下载的源代码中，导航到示例文件夹 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**。 在所选编辑器中打开文件 **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_**，添加以下详细信息：
+1. 在下载的源代码中，导航到示例文件夹 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 。 在所选编辑器中打开文件 **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** ，添加以下详细信息：
 
     1. 在门户中为预配服务添加 `[Provisioning Connection String]`，如下所示：
 
-        1. 在 [Azure 门户](https://portal.azure.com)中导航到预配服务。
+        1. 在 [Azure 门户](https://portal.azure.cn)中导航到预配服务。
 
-        1. 打开“共享访问策略”，选择具有 *EnrollmentWrite* 权限的策略。
+        1. 打开“共享访问策略”，选择具有 *EnrollmentWrite* 权限的策略。 
 
-        1. 复制“主密钥连接字符串”。
+        1. 复制“主密钥连接字符串”  。
 
             ![从门户获取预配连接字符串](./media/tutorial-group-enrollments/provisioning-string.png)  
 
-        1. 在示例代码文件 **_ServiceEnrollmentGroupSample.java_** 中，将 `[Provisioning Connection String]` 替换为“主密钥连接字符串”。
+        1. 在示例代码文件 **_ServiceEnrollmentGroupSample.java_** 中，将 `[Provisioning Connection String]` 替换为“主密钥连接字符串”。 
 
             ```java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. 在文本编辑器中打开中间签名证书文件。 使用中间签名证书的值更新 `PUBLIC_KEY_CERTIFICATE_STRING` 值。
+    1. 在文本编辑器中打开在中间签名证书文件。 使用中间签名证书的值更新 `PUBLIC_KEY_CERTIFICATE_STRING` 值。
 
-        如果是使用 Bash shell 生成的设备证书，则 ./certs/azure-iot-test-only.intermediate.cert.pem 包含中间证书密钥。 如果是使用 PowerShell 生成的证书，则 ./Intermediate1.pem 会是中间证书文件。
+        如果是使用 Bash shell 生成的设备证书，则 ./certs/azure-iot-test-only.intermediate.cert.pem  包含中间证书密钥。 如果是使用 PowerShell 生成的证书，则 ./Intermediate1.pem  会是中间证书文件。
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -111,7 +111,7 @@ ms.locfileid: "57988649"
                 "-----END CERTIFICATE-----\n";
         ```
 
-    1. 在 [Azure 门户](https://portal.azure.com)中导航到已链接到预配服务的 IoT 中心。 打开中心的“概览”选项卡，复制“主机名”。 将该“主机名”指定给 *IOTHUB_HOST_NAME* 参数。
+    1. 在 [Azure 门户](https://portal.azure.cn)中导航到已链接到预配服务的 IoT 中心。 打开中心的“概览”选项卡，复制“主机名”。   将该“主机名”  指定给 *IOTHUB_HOST_NAME* 参数。
 
         ```java
         private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
@@ -127,7 +127,7 @@ ms.locfileid: "57988649"
 
     1. 保存 _ServiceEnrollmentGroupSample.java_ 文件。
 
-1. 打开命令窗口，导航到文件夹 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**。
+1. 打开命令窗口，导航到文件夹 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 。
 
 1. 使用以下命令生成示例代码：
 
@@ -146,11 +146,11 @@ ms.locfileid: "57988649"
 
     ![成功登记](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. 在 Azure 门户中导航到预配服务。 单击“管理注册”。 请注意，X.509 设备组显示在“注册组”选项卡下，带有自动生成的“组名称”。
+1. 在 Azure 门户中导航到预配服务。 单击“管理注册”。  请注意，X.509 设备组显示在“注册组”选项卡下，带有自动生成的“组名称”。  
 
 ## <a name="simulate-the-device"></a>模拟设备
 
-1. 在设备预配服务摘要边栏选项卡上选择“概览”，记下“ID 范围”和“预配服务全局终结点”。
+1. 在设备预配服务摘要边栏选项卡上选择“概览”，记下“ID 范围”和“预配服务全局终结点”。   
 
     ![服务信息](./media/tutorial-group-enrollments/extract-dps-endpoints.png)
 
@@ -160,7 +160,7 @@ ms.locfileid: "57988649"
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. 编辑 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`，使之包括前面记下的“ID 范围”和“预配服务全局终结点”。
+1. 编辑 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`，使之包括前面提到的“ID 范围”和“预配服务全局终结点”。  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -175,9 +175,9 @@ ms.locfileid: "57988649"
 
     如果是使用 PowerShell 生成的设备证书，则文件 mydevice* 包含设备的公钥、私钥和 PFX。
 
-    如果是使用 Bash shell 生成的设备证书，则 ./certs/new-device.cert.pem 包含公钥。 设备的私钥位于 ./private/new-device.key.pem 文件中。
+    如果是使用 Bash shell 生成的设备证书，则 ./certs/new-device.cert.pem 包含公钥。 设备的私钥处于 ./private/new-device.key.pem 文件中。
 
-    打开公钥文件并使用该值更新 `leafPublicPem` 变量。 复制从 -----BEGIN PRIVATE KEY----- 到 -----END PRIVATE KEY----- 的文本。
+    打开公钥文件并使用该值更新 `leafPublicPem` 变量。 复制从 -----BEGIN PRIVATE KEY-----  到 -----END PRIVATE KEY-----  的文本。
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -189,7 +189,7 @@ ms.locfileid: "57988649"
         "-----END CERTIFICATE-----\n";
     ```
 
-    打开私钥文件并使用该值更新 `leafPrivatePem` 变量。 复制从 -----BEGIN RSA PRIVATE KEY----- 到 -----END RSA PRIVATE KEY----- 的文本。
+    打开私钥文件并使用该值更新 `leafPrivatePem` 变量。 复制从 -----BEGIN RSA PRIVATE KEY-----  到 -----END RSA PRIVATE KEY-----  的文本。
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
@@ -201,9 +201,9 @@ ms.locfileid: "57988649"
         "-----END RSA PRIVATE KEY-----\n";
     ```
 
-1. 就在 `leafPrivateKey` 下方为中间证书添加新变量。 将此新变量命名为 `intermediateKey`。 向它提供中间签名证书的值。
+1. 就在 `leafPrivateKey` 下方为中间证书添加新变量。 此新变量命名为 `intermediateKey`。 向它提供中间签名证书的值。
 
-    如果是使用 Bash shell 生成的设备证书，则 ./certs/azure-iot-test-only.intermediate.cert.pem 包含中间证书密钥。 如果是使用 PowerShell 生成的证书，则 ./Intermediate1.pem 会是中间证书文件。
+    如果是使用 Bash shell 生成的设备证书，则 ./certs/azure-iot-test-only.intermediate.cert.pem  包含中间证书密钥。 如果是使用 PowerShell 生成的证书，则 ./Intermediate1.pem  会是中间证书文件。
 
     ```java
     private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
@@ -242,7 +242,7 @@ ms.locfileid: "57988649"
 
     ![注册成功](./media/tutorial-group-enrollments/registration.png)
 
-1. 在门户中导航到已链接到预配服务的 IoT 中心，然后打开“Device Explorer”边栏选项卡。 将模拟的 X.509 设备成功预配到中心以后，设备 ID 会显示在“Device Explorer”边栏选项卡上，“状态”为“已启用”。 请注意，如果在运行示例设备应用程序之前已打开边栏选项卡，则可能需要单击顶部的“刷新”按钮。 
+1. 在门户中导航到已链接到预配服务的 IoT 中心，然后打开“Device Explorer”边栏选项卡。  将模拟的 X.509 设备成功预配到中心以后，设备 ID 会显示在“Device Explorer”边栏选项卡上，“状态”为“已启用”。    请注意，如果在运行示例设备应用程序之前已打开边栏选项卡，则可能需要单击顶部的“刷新”按钮。  
 
     ![设备注册到 IoT 中心](./media/tutorial-group-enrollments/hub-registration.png) 
 
@@ -252,8 +252,8 @@ ms.locfileid: "57988649"
 如果打算继续使用和探索设备客户端示例，请勿清理在本快速入门中创建的资源。 如果不打算继续学习，请通过以下步骤删除通过本快速入门创建的所有资源。
 
 1. 关闭计算机上的设备客户端示例输出窗口。
-1. 在 Azure 门户的左侧菜单中单击“所有资源”，然后选择设备预配服务。 打开服务的“管理注册”边栏选项卡，然后单击“单个注册”选项卡。选择在本快速入门中注册的设备的“注册 ID”，然后单击顶部的“删除”按钮。 
-1. 在 Azure 门户的左侧菜单中单击“所有资源”，然后选择 IoT 中心。 打开中心的“IoT 设备”边栏选项卡，选择在本快速入门中注册的设备的“设备 ID”，然后单击顶部的“删除”按钮。
+1. 在 Azure 门户的左侧菜单中单击“所有资源”，然后选择设备预配服务  。 打开服务的“管理注册”边栏选项卡，然后单击“单个注册”选项卡。   选择在本快速入门中注册的设备的“注册 ID”，然后单击顶部的“删除”按钮。   
+1. 在 Azure 门户的左侧菜单中单击“所有资源”，然后选择 IoT 中心  。 打开中心的“IoT 设备”边栏选项卡，选择在本快速入门中注册的设备的“设备 ID”，然后单击顶部的“删除”按钮。   
 
 
 ## <a name="next-steps"></a>后续步骤

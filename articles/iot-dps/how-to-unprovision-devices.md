@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 3c6e2a9006d73d269422292dc959866d3f6d8a82
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: f1a1c1e53ded7953b7a2a518abb800e2daa5345b
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988608"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389522"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>如何取消预配以前自动预配的设备 
 
@@ -26,7 +26,7 @@ ms.locfileid: "57988608"
    - 若要了解如何取消注册某个设备，请参阅[如何从 Azure IoT 中心设备预配服务中取消注册某个设备](how-to-revoke-device-access-portal.md)。
    - 若要了解如何使用某个预配服务 SDK 以编程方式取消注册某个设备，请参阅[使用服务 SDK 管理设备注册](how-to-manage-enrollments-sdks.md)。
 
-2. 从 IoT 中心取消注册设备，防止未来的通信和数据传输。 另外，可以在预配设备的 IoT 中心的标识注册表中临时禁用或永久删除该设备的条目。 若要详细了解禁用，请参阅[禁用设备](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices)。 对于 IoT 中心资源，请参阅 [Azure 门户](https://portal.azure.com)中的“设备管理/IoT 设备”。
+2. 从 IoT 中心取消注册设备，防止未来的通信和数据传输。 另外，可以在预配设备的 IoT 中心的标识注册表中临时禁用或永久删除该设备的条目。 若要详细了解禁用，请参阅[禁用设备](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices)。 对于 IoT 中心资源，请参阅 [Azure 门户](https://portal.azure.cn)中的“设备管理/IoT 设备”。
 
 取消预配设备所需执行的确切步骤取决于其证明机制和其适用于预配服务的注册条目。 以下部分概述了此过程，具体取决于注册和证明类型。
 
@@ -48,9 +48,9 @@ ms.locfileid: "57988608"
 
 若要查看已通过某个登记组预配的设备列表，可以查看该登记组的详细信息。 这样，便可以轻松了解每个设备已预配到哪个 IoT 中心。 查看设备列表： 
 
-1. 登录到 Azure 门户，单击左侧菜单中的“所有资源”。
+1. 登录到 Azure 门户，单击左侧菜单中的“所有资源”。 
 2. 在资源列表中单击预配服务。
-3. 在预配服务中，单击“管理注册”，然后选择“注册组”选项卡。
+3. 在预配服务中，单击“管理注册”，然后选择“注册组”选项卡   。
 4. 单击登记组将其打开。
 
    ![在门户中查看登记组条目](./media/how-to-unprovision-devices/view-enrollment-group.png)
