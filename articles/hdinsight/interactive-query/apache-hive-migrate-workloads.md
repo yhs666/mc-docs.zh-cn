@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 04/24/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: c18159d599b3dee3c09db4572efe1c231ac69fb4
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+ms.openlocfilehash: 0ef4045732b04c364fbbcdb1d9ea42243b51df60
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191541"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179010"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>将 Azure HDInsight 3.6 Hive 工作负荷迁移到 HDInsight 4.0
 
@@ -101,32 +101,62 @@ alter table myacidtable compact 'major';
 
 <!--PAY ATTENTION HERE-->
 
-使用“头节点”作为执行的节点类型，针对群集启动某个脚本操作。 
+<!--Launch a script action against your cluster, with "Head nodes" as the node type for execution. -->
 
-在[此处](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-data-analytics-studio.sh)下载脚本，将脚本中的“azurehdinsight.net”替换为“azurehdinsight.cn”，并在本地另存为 `YOUR_LOCAL_PATH/install-data-analytics-studio.sh`。 
+1. 在[此处](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-data-analytics-studio.sh)下载脚本，将脚本中的“azurehdinsight.net”替换为“azurehdinsight.cn”，并使用名称 `install-data-analytics-studio.sh` 在本地保存。 
 
-运行以下脚本以安装 DAS。 请注意，占位符 `YOUR_LOCAL_PATH` 应替换为上面刚刚保存的实际路径。 
+    将脚本文件上传到 Azure 存储帐户，完成后，Azure 门户中该文件的 URL 将会为 `https://<storage_account_name>.blob.core.chinacloudapi.cn/<container_name>/install-data-analytics-studio.sh`。 
 
-```shell
-#!/bin/sh
-set -e
-set -x
+    > [!NOTE]
+    > 这些说明假定你已在 [Azure 门户](https://portal.azure.cn)中创建了存储帐户。 若要详细了解如何创建存储帐户并上传文件，请参阅[创建存储帐户](https://docs.azure.cn/zh-cn/storage/common/storage-quickstart-create-account?tabs=azure-portal)和[使用 Azure 门户上传、下载和列出 blob](https://docs.azure.cn/zh-cn/storage/blobs/storage-quickstart-blobs-portal)。
+    > 
 
-echo "Launching DAS installation setup script."
+2. 将以下脚本以本地方式另存为 `LaunchDASInstaller.sh`，然后将其上传到 Azure 存储帐户。 请注意，脚本中的 `<storage_account_name>` 和 `<container_name>` 应替换为在步骤 1 中创建的实际名称。
 
-sudo wget YOUR_LOCAL_PATH/install-data-analytics-studio.sh -O /tmp/install-das.sh
-sudo chmod +x /tmp/install-das.sh
+    ```shell
+    #!/bin/sh
+    set -e
+    set -x
 
-# Fire-and-forget the das installer to circumvent Ambari operation deadlock
-# We also make sure the script cleans up after itself
+    echo "Launching DAS installation setup script."
 
-nohup sh -c '/tmp/install-das.sh && rm -f /tmp/install-das.sh' &
+    sudo wget https://<storage_account_name>.blob.core.chinacloudapi.cn/<container_name>/install-data-analytics-studio.sh -O /tmp/install-das.sh
+    sudo chmod +x /tmp/install-das.sh
 
-echo "Das installation launch succeeded."
-exit 0
-```
+    # Fire-and-forget the das installer to circumvent Ambari operation deadlock
+    # We also make sure the script cleans up after itself
+
+    nohup sh -c '/tmp/install-das.sh && rm -f /tmp/install-das.sh' &
+
+    echo "Das installation launch succeeded."
+    exit 0
+    ```
+
+    请记下文件 URL（在 Azure 门户中为 `https://<storage_account_name>.blob.core.chinacloudapi.cn/<container_name>/LaunchDASInstaller.sh`），以便在下一步使用。 
+
+
+3. 使用“头节点”作为执行的节点类型，针对群集启动某个脚本操作。
+
+    转到 [Azure 门户](https://portal.azure.cn)，导航到已创建的 HDInsight 群集。
+    
+    在默认视图中的“设置”下，选择“脚本操作”  。
+
+    ![](media/apache-hive-migrate-workloads/1.png)
+
+    在“脚本操作”页顶部，选择“+ 提交新项”   。
+
+    ![](media/apache-hive-migrate-workloads/2.png)
+
+    对于“脚本类型”，请选择“自定义”。  然后，请提供**名称**并将在上一步保存的 URI `https://<storage_account_name>.blob.core.chinacloudapi.cn/<container_name>/LaunchDASInstaller.sh` 粘贴到标为“Bash 脚本 URI”的文本框中。  最后，选择“创建”按钮将脚本应用到群集。 
+
+    ![](media/apache-hive-migrate-workloads/3.png)
+
+
+<!--End here-->
 
 等待 5 到 10 分钟，然后使用以下 URL 启动 Data Analytics Studio： https://\<clustername>.azurehdinsight.cn/das/
+
+![](media/apache-hive-migrate-workloads/4.png)
 
 安装 DAS 后，如果看不到在查询查看器中运行的查询，请执行以下步骤：
 
