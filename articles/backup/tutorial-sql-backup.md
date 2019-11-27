@@ -8,12 +8,12 @@ ms.topic: tutorial
 origin.date: 06/18/2019
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47fa3817b739111a3267a8a8c45b10b38d63b75d
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 144c22fbed811df066af10b886f049534dc59902
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116381"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528224"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>在 Azure VM 中备份 SQL Server 数据库
 
@@ -22,10 +22,11 @@ ms.locfileid: "74116381"
 本教程介绍如何将 Azure VM 上运行的 SQL Server 数据库备份到 Azure 备份恢复服务保管库。 在本文中，学习如何：
 
 > [!div class="checklist"]
+>
 > * 创建并配置保管库。
 > * 发现数据库并设置备份。
 > * 为数据库设置自动保护。
-> * 运行即席备份。
+> * 运行按需备份。
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -37,7 +38,6 @@ ms.locfileid: "74116381"
 3. 验证 VM 是否已建立[网络连接](backup-sql-server-database-azure-vms.md#establish-network-connectivity)。
 4. 检查是否根据 Azure 备份的[命名准则](#verify-database-naming-guidelines-for-azure-backup)命名了 SQL Server 数据库。
 5. 验证是否未为该数据库启用了其他任何备份解决方案。 在设置此方案之前，请禁用其他所有 SQL Server 备份。 可以同时针对某个 Azure VM 以及该 VM 上运行的 SQL Server 数据库启用 Azure 备份，而不会发生任何冲突。
-
 
 ### <a name="establish-network-connectivity"></a>建立网络连接
 
@@ -109,12 +109,12 @@ ms.locfileid: "74116381"
 
 8. Azure 备份将发现该 VM 上的所有 SQL Server 数据库。 在发现期间，后台将发生以下情况：
 
-    - Azure 备份将 VM 注册到用于备份工作负荷的保管库。 已注册 VM 上的所有数据库只能备份到此保管库。
-    - Azure 备份在 VM 上安装 **AzureBackupWindowsWorkload** 扩展。 不会在 SQL 数据库中安装任何代理。
-    - Azure 备份在 VM 上创建服务帐户 **NT Service\AzureWLBackupPluginSvc**。
-      - 所有备份和还原操作使用该服务帐户。
-      - **NT Service\AzureWLBackupPluginSvc** 需要 SQL sysadmin 权限。 在 Azure 市场中创建的所有 SQL Server VM 已预装 **SqlIaaSExtension**。 **AzureBackupWindowsWorkload** 扩展使用 **SQLIaaSExtension** 自动获取所需的权限。
-    - 如果 VM 不是从市场创建的，则该 VM 上未安装 **SqlIaaSExtension**，并且发现操作将会失败并出现错误消息 **UserErrorSQLNoSysAdminMembership**。 请按照[说明](backup-azure-sql-database.md#set-vm-permissions)解决此问题。
+    * Azure 备份将 VM 注册到用于备份工作负荷的保管库。 已注册 VM 上的所有数据库只能备份到此保管库。
+    * Azure 备份在 VM 上安装 **AzureBackupWindowsWorkload** 扩展。 不会在 SQL 数据库中安装任何代理。
+    * Azure 备份在 VM 上创建服务帐户 **NT Service\AzureWLBackupPluginSvc**。
+      * 所有备份和还原操作使用该服务帐户。
+      * **NT Service\AzureWLBackupPluginSvc** 需要 SQL sysadmin 权限。 在 Azure 市场中创建的所有 SQL Server VM 已预装 **SqlIaaSExtension**。 **AzureBackupWindowsWorkload** 扩展使用 **SQLIaaSExtension** 自动获取所需的权限。
+    * 如果 VM 不是从市场创建的，则该 VM 上未安装 **SqlIaaSExtension**，并且发现操作将会失败并出现错误消息 **UserErrorSQLNoSysAdminMembership**。 请按照[说明](backup-azure-sql-database.md#set-vm-permissions)解决此问题。
 
         ![选择 VM 和数据库](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -145,9 +145,9 @@ ms.locfileid: "74116381"
 
 5. 在“选择备份策略”中选择一个策略，然后单击“确定”。  
 
-   - 选择默认策略：HourlyLogBackup。
-   - 选择前面为 SQL 创建的现有备份策略。
-   - 根据 RPO 和保留范围定义新策略。
+   * 选择默认策略：HourlyLogBackup。
+   * 选择前面为 SQL 创建的现有备份策略。
+   * 根据 RPO 和保留范围定义新策略。
 
      ![选择“备份策略”](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -163,36 +163,36 @@ ms.locfileid: "74116381"
 
 备份策略定义备份创建时间以及这些备份的保留时间。
 
-- 策略是在保管库级别创建的。
-- 多个保管库可以使用相同的备份策略，但必须向每个保管库应用该备份策略。
-- 创建备份策略时，每日完整备份是默认设置。
-- 可以添加差异备份，但仅在将完整备份配置为每周发生时，才能这样做。
-- [了解](backup-architecture.md#sql-server-backup-types)不同类型的备份策略。
+* 策略是在保管库级别创建的。
+* 多个保管库可以使用相同的备份策略，但必须向每个保管库应用该备份策略。
+* 创建备份策略时，每日完整备份是默认设置。
+* 可以添加差异备份，但仅在将完整备份配置为每周发生时，才能这样做。
+* [了解](backup-architecture.md#sql-server-backup-types)不同类型的备份策略。
 
 创建备份策略：
 
 1. 在保管库中，单击“备份策略” > “添加”。  
-2. 在“添加”菜单中，单击“Azure VM 中的 SQL Server”   。 随即会定义策略类型。
+2. 在“添加”菜单中，单击“Azure VM 中的 SQL Server”以定义策略类型   。
 
    ![为新的备份策略选择策略类型](./media/backup-azure-sql-database/policy-type-details.png)
 
 3. 在“策略名称”处输入新策略的名称  。
 4. 在“完整备份策略”中选择“备份频率”，然后选择“每日”或“每周”。    
 
-   - 如果选择“每日”，请选择备份作业开始时的小时和时区。 
-   - 必须运行完整备份，因为不能禁用“完整备份”选项  。
-   - 单击“完整备份”以查看策略  。
-   - 对于每日完整备份，无法创建差异备份。
-   - 如果选择“每周”，请选择备份作业开始时的星期、小时和时区。 
+   * 如果选择“每日”，请选择备份作业开始时的小时和时区。 
+   * 必须运行完整备份，因为不能禁用“完整备份”选项  。
+   * 单击“完整备份”以查看策略  。
+   * 对于每日完整备份，无法创建差异备份。
+   * 如果选择“每周”，请选择备份作业开始时的星期、小时和时区。 
 
      ![新备份策略字段](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. 对于“保留范围”，默认已选择所有选项。  清除你不需要的所有保留范围限制，并设置要使用的间隔。
 
-    - 任何类型的备份（完整/差异/日志）的最短保持期均为 7 天。
-    - 恢复点已根据其保留范围标记为保留。 例如，如果选择每日完整备份，则每天只触发一次完整备份。
-    - 根据每周保留范围和每周保留设置，将会标记并保留特定日期的备份。
-    - 每月和每年保留范围的行为类似。
+    * 任何类型的备份（完整/差异/日志）的最短保持期均为七天。
+    * 恢复点已根据其保留范围标记为保留。 例如，如果选择每日完整备份，则每天只触发一次完整备份。
+    * 根据每周保留范围和每周保留设置，将会标记并保留特定日期的备份。
+    * 每月和每年保留范围的行为类似。
 
    ![保留范围间隔设置](./media/backup-azure-sql-database/retention-range-interval.png)
 
@@ -204,8 +204,8 @@ ms.locfileid: "74116381"
 
 8. 在“差异备份策略”中，选择“启用”打开频率和保留控件。  
 
-    - 每天最多可以触发一次差异备份。
-    - 差异备份最多可以保留 180 天。 如果需要保留更长时间，必须使用完整备份。
+    * 每天最多可以触发一次差异备份。
+    * 差异备份最多可以保留 180 天。 如果需要保留更长时间，必须使用完整备份。
 
 9. 选择“确定”保存策略，并返回“备份策略”主菜单。  
 
@@ -216,12 +216,12 @@ ms.locfileid: "74116381"
     ![编辑日志备份策略](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. 在“备份策略”菜单中，选择是否启用“SQL 备份压缩”。  
-    - 默认已禁用压缩。
-    - Azure 备份在后端使用 SQL 本机备份压缩。
+    * 默认已禁用压缩。
+    * Azure 备份在后端使用 SQL 本机备份压缩。
 
 14. 完成备份策略的编辑后，选择“确定”。 
 
-## <a name="run-an-ad-hoc-backup"></a>运行即席备份
+## <a name="run-an-on-demand-backup"></a>运行按需备份
 
 1. 在恢复服务保管库中，选择“备份项目”。
 2. 单击“Azure VM 中的 SQL”。
@@ -230,16 +230,16 @@ ms.locfileid: "74116381"
 5. 选择“确定”，开始备份。
 6. 通过转到恢复服务保管库并选择“备份作业”来监视备份作业。
 
-
 ## <a name="next-steps"></a>后续步骤
 
 本教程使用 Azure 门户执行了以下操作：
 
 > [!div class="checklist"]
+>
 > * 创建并配置保管库。
 > * 发现数据库并设置备份。
 > * 为数据库设置自动保护。
-> * 运行即席备份。
+> * 运行按需备份。
 
 继续阅读下一教程，学习如何从磁盘还原 Azure 虚拟机。
 

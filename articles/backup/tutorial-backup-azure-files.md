@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 备份服务备份 Azure 文件存储文件共享
-description: 本教程介绍如何备份 Azure 文件共享。
+description: 在本教程中，了解如何使用 Azure 门户配置恢复服务保管库并备份 Azure 文件共享。
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -8,18 +8,20 @@ ms.topic: tutorial
 origin.date: 06/10/2019
 ms.date: 10/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c8adc16c5e9d54c6b5a2d8540123a0e0e3e5f538
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 14121cfdffcdc3f139dbd1dfd5740b87baabce33
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584114"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528225"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>在 Azure 门户中备份 Azure 文件共享
+
 本教程介绍如何使用 Azure 门户备份 [Azure 文件共享](../storage/files/storage-files-introduction.md)。
 
 本指南介绍如何：
 > [!div class="checklist"]
+>
 > * 将恢复服务保管库配置为备份 Azure 文件
 > * 运行按需备份作业，以创建还原点
 
@@ -69,8 +71,8 @@ Azure 文件共享备份处于预览状态。 常规用途 v1 和常规用途 v2
     建立备份策略以后，系统会在计划的时间拍摄文件共享的快照，并会将恢复点保留选定的一段时间。
 
 ## <a name="create-an-on-demand-backup"></a>创建按需备份
-配置备份策略后，你将需要创建按需备份，以确保你的数据在下一次计划备份之前受到保护。
 
+配置备份策略后，你将需要创建按需备份，以确保你的数据在下一次计划备份之前受到保护。
 
 ### <a name="to-create-an-on-demand-backup"></a>创建按需备份的步骤
 
@@ -90,12 +92,12 @@ Azure 文件共享备份处于预览状态。 常规用途 v1 和常规用途 v2
 
    ![选择恢复点保留期的日期](./media/backup-file-shares/backup-now-menu.png)
 
-
 ## <a name="next-steps"></a>后续步骤
 
 本教程使用 Azure 门户执行了以下操作：
 
 > [!div class="checklist"]
+>
 > * 将恢复服务保管库配置为备份 Azure 文件
 > * 运行按需备份作业，以创建还原点
  

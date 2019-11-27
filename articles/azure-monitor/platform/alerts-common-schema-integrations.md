@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 05/27/2019
 ms.date: 06/27/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c1aed9c97bf15ed3e4bfb59218d043ec52e503bf
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 0e3cf2400de6bf63109267b10f2e0bbc301ef032
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970960"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528424"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>如何将常见警报架构与逻辑应用集成
 
@@ -30,111 +30,6 @@ ms.locfileid: "72970960"
 * 设置警报规则（[指标](/azure-monitor/platform/alerts-metric)、[日志](/azure-monitor/platform/alerts-log)、[活动日志](/azure-monitor/platform/alerts-activity-log)）
 * 设置[操作组](/azure-monitor/platform/action-groups)
 * 从操作组中启用[常见警报架构](/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema)
-
-## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>创建一个利用常见警报架构的逻辑应用
-
-1. 请按照[概述的步骤创建逻辑应用](/azure-monitor/platform/action-groups-logic-app)。 
-
-1.  选择触发器：**当收到 HTTP 请求时**。
-
-    ![逻辑应用触发器](media/action-groups-logic-app/logic-app-triggers.png "逻辑应用触发器")
-
-1.  选择“编辑”更改 HTTP 请求触发器。 
-
-    ![HTTP 请求触发器](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP 请求触发器")
-
-
-1.  复制并粘贴以下架构：
-
-    ```json
-        {
-            "type": "object",
-            "properties": {
-                "schemaId": {
-                    "type": "string"
-                },
-                "data": {
-                    "type": "object",
-                    "properties": {
-                        "essentials": {
-                            "type": "object",
-                            "properties": {
-                                "alertId": {
-                                    "type": "string"
-                                },
-                                "alertRule": {
-                                    "type": "string"
-                                },
-                                "severity": {
-                                    "type": "string"
-                                },
-                                "signalType": {
-                                    "type": "string"
-                                },
-                                "monitorCondition": {
-                                    "type": "string"
-                                },
-                                "monitoringService": {
-                                    "type": "string"
-                                },
-                                "alertTargetIDs": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "originAlertId": {
-                                    "type": "string"
-                                },
-                                "firedDateTime": {
-                                    "type": "string"
-                                },
-                                "resolvedDateTime": {
-                                    "type": "string"
-                                },
-                                "description": {
-                                    "type": "string"
-                                },
-                                "essentialsVersion": {
-                                    "type": "string"
-                                },
-                                "alertContextVersion": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "alertContext": {
-                            "type": "object",
-                            "properties": {}
-                        }
-                    }
-                }
-            }
-        }
-    ```
-
-1. 依次选择“+ 新建步骤”、“添加操作”。   
-
-    ![添加操作](media/action-groups-logic-app/add-action.png "添加操作")
-
-1. 在此阶段，可以根据具体的业务要求添加各种连接器（Microsoft Teams、Slack、Salesforce 等）。 可以使用现成的“重要字段”。 
-
-    ![重要字段](media/alerts-common-schema-integrations/logic-app-essential-fields.png "重要字段")
-    
-    或者，可以使用“表达式”选项基于警报类型编写条件逻辑。
-
-    ![逻辑应用表达式](media/alerts-common-schema-integrations/logic-app-expressions.png "逻辑应用表达式")
-    
-     [“monitoringService”字段](alerts-common-schema-definitions.md#alert-context)可用于唯一标识警报类型，基于该警报类型，可以创建条件逻辑。
-
-    
-    例如，以下代码片段会检查警报是否为基于 Application Insights 的日志警报，如果是，则会输出搜索结果。 否则，输出“不可用”。
-
-    ```text
-      if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
-    ```
-    
-     详细了解如何[编写逻辑应用表达式](/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions)。
 
     
 

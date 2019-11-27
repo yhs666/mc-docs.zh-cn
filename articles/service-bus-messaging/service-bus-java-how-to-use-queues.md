@@ -10,16 +10,16 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-origin.date: 01/23/2019
-ms.date: 09/23/2019
+ms.topic: quickstart
+origin.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c7c963683786ccb66cca590fb4743c2ed33dd55a
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: d27dc039b9afc2acbd46e0b3157a5e409e1e1aed
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041206"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528029"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>通过 Java 使用 Azure 服务总线队列发送和接收消息
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "73041206"
     1. 阅读服务总线**队列**的快速**概述**。 
     2. 创建一个服务总线**命名空间**。 
     3. 获取**连接字符串**。
-    4. 创建一个服务总线**队列**。
+    4. 创建服务总线**队列**。
 3. 安装 [Azure SDK for Java][Azure SDK for Java]。 
 
 
@@ -108,6 +108,7 @@ public void run() throws Exception {
         }
         return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
     }
+
 ```
 
 发送到服务总线队列以及从服务总线队列收到的消息是 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 类的实例。 Message 对象包含一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及大量任意应用程序数据。 应用程序可通过将任何可序列化对象传入到 Message 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。 或者，可提供 java.IO.InputStream 对象  。
@@ -192,4 +193,4 @@ public void run() throws Exception {
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 
 [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
-[BrokeredMessage]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage

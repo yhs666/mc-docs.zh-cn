@@ -10,12 +10,12 @@ origin.date: 03/14/2019
 ms.date: 6/4/2019
 ms.reviewer: vitalyg
 ms.author: v-lingwu
-ms.openlocfilehash: 9b7e76de9a3fe8ff7199b1d405e1343c44f78fc0
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0b56e2910caabbf26a23d2af968cb85a2714086b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730378"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528233"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -532,7 +532,7 @@ ASP.NET 和 ASP.NET Core SDK 中的默认采样行为是什么？
 
 *我总是想要查看某些罕见的事件。如何让它们通过采样模块？*
 
-* 为此，最佳方法是编写一个自定义的 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)，以便在想要保留的遥测项中将 `SamplingPercentage` 设置为 100，如下所示。 由于保证初始化程序将在遥测处理器（包括采样）之前运行，因此可以确保所有采样技术都会出于任何采样考虑而忽略此项目。
+* 为此，最佳方法是编写一个自定义的 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)，以便在想要保留的遥测项中将 `SamplingPercentage` 设置为 100，如下所示。 由于保证初始化程序将在遥测处理器（包括采样）之前运行，因此可以确保所有采样技术都会出于任何采样考虑而忽略此项目。
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

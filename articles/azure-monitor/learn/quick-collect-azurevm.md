@@ -10,12 +10,12 @@ origin.date: 08/19/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: e9ef30c4dcc12af2be40a5621b8a7f6d9c26c977
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: d24266cd6696a1382d9dcfe5da25a337d4d452fe
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116198"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528239"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>使用 Azure Monitor 从 Azure 虚拟机收集数据
 
@@ -37,7 +37,7 @@ ms.locfileid: "74116198"
    * 为新的 Log Analytics 工作区  提供名称，如 DefaultLAWorkspace  。  
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于“资源组”  ，选择包含一个或多个 Azure 虚拟机的现有资源组。  
-   * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
+   * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/zh-cn/home/features/products-by-region)。
 <!-- OMS is unavailable -->
 
 3. 在“Log Analytics 工作区”窗格中提供所需的信息后，选择“确定”。    

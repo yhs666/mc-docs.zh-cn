@@ -1,20 +1,21 @@
 ---
 title: Azure 快速入门 - 使用资源管理器模板备份 VM
 description: 了解如何使用 Azure 资源管理器模板备份虚拟机
-author: dcurwin
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/14/2019
-ms.author: dacurwin
+origin.date: 05/14/2019
+ms.date: 09/16/2019
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 7ecc61f3a211287f8fff4c4984885026ac46485c
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: fcd6949956437711d57f4b0e10e109dfffa3f899
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730171"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528242"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>使用资源管理器模板在 Azure 中备份虚拟机
 

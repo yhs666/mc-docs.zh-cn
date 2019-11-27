@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-origin.date: 09/04/2019
-ms.date: 10/31/2019
+origin.date: 11/04/2019
+ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 411eb56ff895ac2ad8b8e4a4114ad3af828819a5
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 68ffab92e364f463202b7a7c99a3d04fa3e17d85
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416395"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528373"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中创建新应用
 
@@ -24,11 +24,12 @@ ms.locfileid: "73416395"
 
 生成应用是免费的操作，不需要 Azure 订阅。 做好部署应用的准备以后，请参阅[有关如何部署应用的快速入门](get-started-portal-deploy-app.md)。 该快速入门介绍如何创建 Azure 认知服务资源并将其分配到应用。
 
+
 ## <a name="create-an-app"></a>创建应用
 
-1. 在上下文工具栏中选择“创建新应用”。 
+1. 在上下文工具栏中选择“+ 创建”  。
 
-   [![在 LUIS 门户中创建新应用](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![在 LUIS 门户中创建新应用](./media/create-app-in-portal.png)](./media/create-app-in-portal.png)
 
 1. 在弹出窗口中使用以下设置配置应用，然后选择“完成”。 
 
@@ -36,8 +37,8 @@ ms.locfileid: "73416395"
    |--|--|--|
    |Name|`myEnglishApp`|唯一的 LUIS 应用名称<br>必填|
    |环境|**英语**|用户的言语语言：**en-us**<br>必填|
-   |说明|`App made with LUIS Portal`|应用的说明<br>可选|
-   | | | |
+   |说明（可选）|`App made with LUIS Portal`|应用的说明<br>可选|
+   |预测资源（可选） |-  |请不要选择。 LUIS 免费提供一个初学者密钥用于创作和发出 1,000 个预测终结点请求。 |
 
    ![输入新应用设置](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -57,13 +58,11 @@ ms.locfileid: "73416395"
 
 若要创建意向，请完成以下步骤：
 
-1. 创建应用后，会转到“生成”部分的“意向”页。   选择“创建新意向”  。
+1. 创建应用后，会转到“生成”部分的“意向”页。   选择“创建”  。
 
-   [![选择“创建新意向”按钮](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![选择“创建”以创建新意向](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. 输入意向名称 `FindForm`，然后选择“完成”。 
-
-   ![输入意向名称 FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>添加示例话语
 
@@ -109,13 +108,16 @@ ms.locfileid: "73416395"
 
 1. 在左侧菜单中选择“实体”。 
 
-1. 在“实体”页上选择“创建新实体”。  
+1. 在“实体”页上选择“创建”。  
 
-1. 输入名称 `Human Resources Form Number`，选择“正则表达式”实体类型，然后输入正则表达式 `hrf-[0-9]{6}`。  此条目匹配文本字符 `hrf-`，允许对刚好 6 位数进行匹配。
+1. 输入名称 `Human Resources Form Number`，选择“Regex”实体类型，然后选择“下一步”。  
 
-   ![输入正则表达式实体的实体信息](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![创建正则表达式实体](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. 选择“完成”  。
+1. 输入正则表达式 (**RegEx**) `hrf-[0-9]{6}`。 此条目匹配文本字符 `hrf-`（只能包含 6 位数）。然后选择“下一步”。 
+
+   ![输入实体的正则表达式](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>将话语示例添加到 None 意向
 
@@ -133,11 +135,9 @@ ms.locfileid: "73416395"
    |Order a pizza for me|
    |Penguins in the ocean|
 
-   对于此人力资源应用，这些示例言语在域的范围以外。 如果人力资源域包括动物、食物或海洋，则应将其他示例话语用于 **None** 意向。
+   对于此应用，这些示例言语在域的范围以外。 如果域包括动物、食物或海洋，则应将其他示例言语用于 **None** 意向。
 
 ## <a name="train-the-app"></a>训练应用
-
-在右上方的菜单中选择“训练”，将意向和实体模型更改应用到当前版本的应用。 
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>在示例言语中查找正则表达式实体
 
@@ -164,8 +164,6 @@ ms.locfileid: "73416395"
 ## <a name="clean-up-resources"></a>清理资源
 
 完成本快速入门后，如果不继续学习下一快速入门，请在顶部导航菜单中选择“我的应用”。  接着在列表中选中应用左侧的复选框，然后在列表上方的上下文工具栏中选择“删除”  。
-
-[![从“我的应用”列表中删除应用](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>后续步骤
 

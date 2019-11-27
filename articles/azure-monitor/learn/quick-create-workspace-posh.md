@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 03/12/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7c49c16ec930ed209bc3ba7f44da59106bff8929
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: fd5ceb29ce09ebbf811cad0d2fa056f433b46ddc
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730309"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528383"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 创建 Log Analytics 工作区
 
@@ -42,7 +42,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 ## <a name="create-a-workspace"></a>创建工作区
 使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在 eastus  位置的资源组 Lab  中创建名为 TestWorkspace  的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 
 
-若要了解支持的区域，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)，然后在“搜索产品”字段中搜索 Azure Monitor。  
+若要了解支持的区域，请参阅[提供 Log Analytics 的区域](https://status.azure.com/zh-cn/status)，然后在“搜索产品”字段中搜索 Azure Monitor。  
 
 以下参数设置默认值：
 

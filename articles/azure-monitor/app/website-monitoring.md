@@ -9,12 +9,12 @@ ms.author: v-lingwu
 origin.date: 07/15/2019
 ms.date: 8/4/2019
 ms.custom: mvc
-ms.openlocfilehash: c476d28a0d125b08e5c7cf681797be025ea3d5e2
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0cb1b8874c8845429649aec8791463bddf1ac092
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730514"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528361"
 ---
 # <a name="start-monitoring-your-website"></a>开始监视网站
 
@@ -41,7 +41,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 1. 选择“创建资源”   > “管理工具”   >   “Application Insights”。
 
    > [!NOTE]
-   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)一文来了解更多信息。
+   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)一文来了解更多信息。
 
    此时会显示配置对话框，请使用下表填写输入字段。
 
@@ -49,7 +49,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 中国北部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 

@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 09/20/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 16febeab9141d79be3478d2b03ebe115efd8d47f
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 17695cec488e20dc1b5d9862ae06079c000ed521
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041102"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528348"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -47,7 +47,7 @@ ms.locfileid: "73041102"
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>  
-<DiagnosticsConfiguration  xmlns="https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">   
+<DiagnosticsConfiguration  xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">   
   <PublicConfig>  
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
@@ -414,7 +414,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
 诊断配置文件的顶级元素。  
 
 **Attribute**  xmlns - 诊断配置文件的 XML 命名空间是：  
-https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+`http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |子元素|说明|  

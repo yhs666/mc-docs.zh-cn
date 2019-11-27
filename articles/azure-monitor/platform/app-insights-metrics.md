@@ -9,12 +9,12 @@ origin.date: 07/03/2019
 ms.date: 8/4/2019
 ms.author: v-lingwu
 ms.subservice: application-insights
-ms.openlocfilehash: 44a4bd85b74f0d68a0db180992191842cf0a8034
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 077f47760b727c82a2b059dc8ea0e43b88b03dc3
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737331"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528401"
 ---
 # <a name="application-insights-log-based-metrics"></a>基于 Application Insights 日志的指标
 
@@ -226,7 +226,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>失败的请求数 (请求/失败)
 
-标记为失败的受跟踪服务器请求计数。  默认情况下，Application Insights SDK 会自动将返回 HTTP 响应代码 5xx 或 4xx 的每个服务器请求标记为失败的请求。 可以通过在[自定义遥测初始化表达式](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)中修改请求遥测项的 *success* 属性来自定义此逻辑。
+标记为失败的受跟踪服务器请求计数。  默认情况下，Application Insights SDK 会自动将返回 HTTP 响应代码 5xx 或 4xx 的每个服务器请求标记为失败的请求。 可以通过在[自定义遥测初始化表达式](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)中修改请求遥测项的 *success* 属性来自定义此逻辑。
 
 |度量单位|支持的聚合|预先聚合的维度|注释|
 |---|---|---|---|

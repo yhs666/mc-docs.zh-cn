@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 09/05/2018
 ms.date: 08/29/2019
 ms.author: aschhab
-ms.openlocfilehash: b591eb18000e2130bcbf57b5c1c9148f8ce3114b
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e9671ca1926a37f18ba6f90b5531b55bb3a14e40
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329998"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528328"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服务总线到事件网格的集成概述
 
@@ -140,7 +140,7 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
 
 执行以下代码：
 
- ```azurecli-interactive
+ ```
 az login
 
 az account set -s "<Azure subscription name>"
@@ -156,8 +156,8 @@ az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR 
 
 确保已安装 Azure PowerShell。 [下载安装程序](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 按 **Windows + X**，然后使用管理员权限打开新的 PowerShell 控制台。 或者，也可以在 Azure 门户中使用命令外壳。
 
-```powershell-interactive
-Connect-AzAccount
+```
+Connect-AzAccount -Environment AzureChinaCloud
 
 Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 

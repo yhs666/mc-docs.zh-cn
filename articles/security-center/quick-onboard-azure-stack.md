@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 04/02/2019
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bd5592d74f04340efa7975a761e33a6aea24bfd2
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 5f2de1036c8ddeb5acc45ad46c2b4762da49b485
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674794"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528313"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入门：将 Azure Stack 虚拟机载入安全中心
 载入 Azure 订阅后，可以通过从 Azure Stack 市场添加“Azure 监视、更新和配置管理”虚拟机扩展，启用安全中心来保护 Azure Stack 上运行的虚拟机。 
@@ -71,7 +71,7 @@ ms.locfileid: "71674794"
 > 如果在市场中没有看到“Azure Monitor、更新和配置管理”扩展，请联系 Azure Stack 操作员以将其列出  。
 
 6. 在“安装扩展”配置边栏选项卡上，粘贴在前面步骤中复制到记事本的“工作区 ID” 和“工作区密钥(主密钥)”。   
-7.  提供所需的配置设置后，请单击“确定”  。
+7. 提供所需的配置设置后，请单击“确定”  。
 8. 扩展安装完成后，其状态将显示为“预配成功”。  最长可能需要经过一小时，该虚拟机才会显示在安全中心门户中。
 
 有关安装和配置 Windows 代理的详细信息，请参阅[连接 Windows 计算机](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)。

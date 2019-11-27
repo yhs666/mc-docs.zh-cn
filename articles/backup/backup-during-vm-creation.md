@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2e5724b6f843d3fe0d9d6b694771529a49ca5c90
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 4133cc103f496af2ea73c842eff216a0c3fc31ee
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818469"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528379"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>在创建 Azure VM 时启用备份
 
@@ -41,16 +41,16 @@ ms.locfileid: "68818469"
 6. 接受建议的保管库名称或自己指定名称。
 7. 指定或创建保管库将位于其中的资源组。 资源组保管库可以不同于 VM 资源组。
 
-    ![为 VM 启用备份](./media/backup-during-vm-creation/enable-backup.png) 
+    ![为 VM 启用备份](./media/backup-during-vm-creation/enable-backup.png)
 
 8. 接受默认备份策略，或修改设置。
-    - 备份策略指定执行 VM 备份快照的频率和这些备份副本的保留期。 
+    - 备份策略指定执行 VM 备份快照的频率和这些备份副本的保留期。
     - 默认策略每天备份 VM 一次。
     - 你可以为 Azure VM 自定义你自己的备份策略以便每日或每周进行备份。
     - [详细了解](backup-azure-vms-introduction.md#backup-and-restore-considerations) Azure VM 的备份注意事项。
     - [详细了解](backup-instant-restore-capability.md)即时还原功能。
 
-      ![默认备份策略](./media/backup-during-vm-creation/daily-policy.png) 
+      ![默认备份策略](./media/backup-during-vm-creation/daily-policy.png)
 
 
 > [!NOTE]
@@ -60,26 +60,24 @@ ms.locfileid: "68818469"
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>在创建 VM 后启动备份
 
-你的 VM 备份将根据备份策略运行。 但是，我们建议你运行一个初始备份。 
+你的 VM 备份将根据备份策略运行。 但是，我们建议你运行一个初始备份。
 
 创建 VM 后，请执行以下操作：
 
 1. 在 VM 属性中，单击“备份”。  VM 状态将保持为“初始备份挂起”，直到初始备份运行
 2. 单击“立即备份”  来运行按需备份。
 
-    ![运行按需备份](./media/backup-during-vm-creation/run-backup.png) 
+    ![运行按需备份](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>使用资源管理器模板部署一个受保护的 VM
 
 前面的步骤说明了如何使用 Azure 门户来创建虚拟机，以及使用恢复服务保管库来保护该虚拟机。 若要快速部署一台或多台虚拟机并在恢复服务保管库中保护它们，请参阅模板[部署 Windows VM 并启用备份](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)。
 
-
-
-## <a name="next-steps"></a>后续步骤 
+## <a name="next-steps"></a>后续步骤
 
 现在，你已保护了你的 VM，请了解如何管理和还原它们。
 
-- [管理和监视 VM](backup-azure-manage-vms.md) 
-- [还原 VM](backup-azure-arm-restore-vms.md) 
+- [管理和监视 VM](backup-azure-manage-vms.md)
+- [还原 VM](backup-azure-arm-restore-vms.md)
 
 如果遇到任何问题，请[查看](backup-azure-vms-troubleshoot.md)故障排除指南。

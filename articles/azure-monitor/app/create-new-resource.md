@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 08/16/2019
 ms.date: 08/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 87a97e414f1570cf92a1fbb690572eee43ed24bc
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 2137f62667ce5a483c1a53d57ce387d01d2f4c96
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970919"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528289"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 
@@ -33,7 +33,7 @@ Azure Application Insights 在 Microsoft Azure *资源*中显示有关应用程�
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称。 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组或现有资源组的名称。 |
-   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置。 |
+   | **Location** | 中国北部 | 选择离你近的位置或离托管应用的位置近的位置。 |
 
 在必填字段中输入适当的值，然后选择“查看 + 创建”  。
 

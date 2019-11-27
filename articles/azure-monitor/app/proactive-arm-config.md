@@ -9,12 +9,12 @@ origin.date: 06/26/2019
 ms.date: 11/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: d666af9750fc19dec9b009432bc5f111c6dac2ec
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: e317a232d6281677c6528de3469d2fd6728afebc
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730516"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528344"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Application Insights 智能检测规则
 
@@ -31,6 +31,8 @@ ms.locfileid: "73730516"
 
 为了让用户通过 Azure 资源管理器配置规则设置，智能检测规则配置现已在 Application Insights 资源中提供一个名为 **ProactiveDetectionConfigs** 的内部资源。
 为了提供最大的灵活性，可为每个智能检测规则配置独特的通知设置。
+
+## 
 
 ## <a name="examples"></a>示例
 
@@ -145,8 +147,9 @@ ms.locfileid: "73730516"
             "type": "microsoft.alertsmanagement/smartdetectoralertrules",
             "apiVersion": "2019-03-01",
             "name": "Failure Anomalies - my-app",
+            "location": "china", 
             "properties": {
-                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
                   "state": "Enabled",
                   "severity": "2",
                   "frequency": "PT1M",

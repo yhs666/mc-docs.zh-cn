@@ -9,21 +9,21 @@ manager: digimobile
 origin.date: 09/16/2019
 ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 14580c08e451a60d6d1954951d12a74810379363
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 274c2dfbbff0dfdad9993a82d08b409420b215da
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730496"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528232"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>为本地服务器部署 Azure Monitor Application Insights 代理
 
 > [!IMPORTANT]
-> 对于 Application Insights 代理的本地和非 Azure 云部署，建议使用本指南。 下面是建议用于 [Azure 虚拟机和虚拟机规模集部署](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)的方法。
+> 对于 Application Insights 代理的本地和非 Azure 云部署，建议使用本指南。 下面是建议用于 [Azure 虚拟机和虚拟机规模集部署](/azure-monitor/app/azure-vm-vmss-apps)的方法。
 
 Application Insights 代理（以前称为状态监视器 V2）是发布到 [PowerShell 库](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模块。
 它将替换[状态监视器](/azure-monitor/app/monitor-performance-live-website-now)。
-遥测数据将发送到 Azure 门户，你可以在其中[监视](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)应用。
+遥测数据将发送到 Azure 门户，你可以在其中[监视](/azure-monitor/app/app-insights-overview)应用。
 
 > [!NOTE]
 > 目前，该模块仅支持使用 IIS 托管的 .NET Web 应用的无代码检测。 使用 SDK 检测 ASP.NET Core、Java 和 Node.js 应用程序。
@@ -64,12 +64,12 @@ Application Insights 代理位于此处： https://www.powershellgallery.com/pac
 
 - 状态监视器 v2 是否支持 ASP.NET Core 应用程序？
 
-  *不*。 有关启用对 ASP.NET Core 应用程序的监视的说明，请参阅[适用于 ASP.NET Core 应用程序的 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)。 无需为 ASP.NET Core 应用程序安装 StatusMonitor。 即使 ASP.NET Core 应用程序托管在 IIS 中，也是如此。
+  *不*。 有关启用对 ASP.NET Core 应用程序的监视的说明，请参阅[适用于 ASP.NET Core 应用程序的 Application Insights](/azure-monitor/app/asp-net-core)。 无需为 ASP.NET Core 应用程序安装 StatusMonitor。 即使 ASP.NET Core 应用程序托管在 IIS 中，也是如此。
 
 - 如何验证启用是否成功？
 
   - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet 可用于验证启用是否成功。
-  - 我们建议你使用[实时指标](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)来快速确定应用是否正在发送遥测数据。
+  - 我们建议你使用[实时指标](/azure-monitor/app/live-stream)来快速确定应用是否正在发送遥测数据。
 
   - 还可以使用 [Log Analytics](../log-query/get-started-portal.md) 列出当前正在发送遥测数据的所有云角色：
       ```Kusto

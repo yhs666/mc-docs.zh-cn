@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 origin.date: 10/04/2019
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.author: v-tawe
-ms.openlocfilehash: fd021f7373d4d3e5b78972572d6eacff6157adf8
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 331faaf06886b13b4f5733895bcb787ba06aeac2
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178882"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528120"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令行接口 (CLI) 创建认知服务资源
 
@@ -163,7 +163,7 @@ az login
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>获取资源的当前配额使用情况
 
-使用 [az cognitiveservices account list-usage](/cli/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 命令获取认知服务资源的使用情况。
+使用 [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 命令获取认知服务资源的使用情况。
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -188,6 +188,5 @@ az group delete --name storage-resource-group
 
 * [什么是 Azure 认知服务？](Welcome.md)
 * [自然语言支持](language-support.md)
-* [Docker 容器支持](cognitive-services-container-support.md)
 
 <!-- Update_Description: content update -->

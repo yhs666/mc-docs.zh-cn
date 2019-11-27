@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 09/15/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c4ebbe4b05a2c883de004804317b340c6f8d9434
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: bad0b827667e1e89915e7b1e3849bbd84f5b2b0d
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730528"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528257"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>从 Go（预览版）收集分布式跟踪
 
@@ -41,7 +41,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
    ![添加 Application Insights 资源](./media/opencensus-Go/0001-create-resource.png)
 
  > [!NOTE]
-   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)一文来了解更多信息。
+   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)一文来了解更多信息。
 
    此时会显示配置对话框，请使用下表填写输入字段。
 
@@ -49,7 +49,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 中国北部| 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 

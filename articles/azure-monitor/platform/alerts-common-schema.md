@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 03/14/2019
 ms.date: 04/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2da46d9936e98ca2f3b211a57f633cc8db9712e1
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 224b83b9b7e68a3dc38cea4f61a73d2ba3680f44
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730486"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528422"
 ---
 # <a name="common-alert-schema"></a>常见警报架构
 
@@ -56,7 +56,6 @@ ms.locfileid: "73730486"
 > 1. 以下警报类型默认支持通用架构（不需选择加入）：
 >     * 智能检测警报
 > 1. 以下警报类型目前不支持通用架构：
->     * 由[用于 VM 的 Azure Monitor](/azure-monitor/insights/vminsights-overview) 生成的警报
 >     * 由 [Azure 成本管理](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)生成的警报
 
 ### <a name="through-the-azure-portal"></a>通过 Azure 门户

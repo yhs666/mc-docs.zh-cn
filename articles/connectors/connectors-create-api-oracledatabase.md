@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 03/29/2017
 ms.author: v-yiso
 ms.date: 02/25/2019
-ms.openlocfilehash: 913bf79519746b8448a47007fd09c79026a21f5a
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: eea9f4b0791c670fff17b41eeaeb1d3f974a3f6e
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302992"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528367"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 数据库连接器入门
 
@@ -41,9 +41,9 @@ ms.locfileid: "56302992"
 * 安装本地数据网关。 [从逻辑应用连接到本地数据](../logic-apps/logic-apps-gateway-connection.md)一文列出了相关步骤。 若要连接到 Oracle 数据库，或者连接到安装了 Oracle DB 的 Azure VM，网关是必需的。 
 
     > [!NOTE]
-    > 本地数据网关的作用好似一架桥，提供本地数据（不在云中的数据）与逻辑应用之间的安全数据传输。 可以将同一网关用于多个服务和多个数据源。 因此，可能只需安装网关一次。
+    > 本地数据网关的作用好似一架桥，提供本地数据（不在云中的数据）与逻辑应用之间的安全数据传输。 可以将同一网关用于多个服务和多个数据源。 因此，可能只需安装网关一次。
 
-* 将 Oracle 客户端与本地数据网关安装在同一计算机上。 请务必安装 Oracle 提供的 64 位用于 .Net 的 Oracle 数据提供程序：  
+* 将 Oracle 客户端与本地数据网关安装在同一计算机上。 请务必安装 Oracle 提供的 64 位用于 .Net 的 Oracle 数据提供程序：  
 
   [用于 Windows x64 的 64 位 ODAC 12c Release 4 (12.1.0.2.4)](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -102,25 +102,25 @@ ms.locfileid: "56302992"
 
 #### <a name="error-cannot-reach-the-gateway"></a>**错误**：无法访问网关
 
-**原因：** 本地数据网关不能连接到云。 
+**原因：** 本地数据网关不能连接到云。 
 
-**缓解措施**：请确保网关正在安装了该网关的本地计算机上运行，并确保该网关可以连接到 Internet。  建议不要将网关安装在可能会关闭或进入睡眠状态的计算机上。 还可以重新启动本地数据网关服务 (PBIEgwService)。
+**缓解措施**：请确保网关正在安装了该网关的本地计算机上运行，并确保该网关可以连接到 Internet。  建议不要将网关安装在可能会关闭或进入睡眠状态的计算机上。 还可以重新启动本地数据网关服务 (PBIEgwService)。
 
 #### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**错误**：所使用的提供程序已弃用：“System.Data.OracleClient 需要 Oracle 客户端软件 8.1.7 版或更高版本”。 请参阅 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 安装正式的提供程序。
 
-**原因：** Oracle 客户端 SDK 未安装在运行本地数据网关的计算机上。  
+**原因：** Oracle 客户端 SDK 未安装在运行本地数据网关的计算机上。  
 
 **解决方法**：下载 Oracle 客户端 SDK 并将其与本地数据网关安装在同一计算机上。
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**错误**：表“[表名]”未定义任何键列
 
-**原因：** 该表没有主键。  
+**原因：** 该表没有主键。  
 
 **解决方法**：Oracle Database 连接器要求使用包含主键列的表。
 
 #### <a name="currently-not-supported"></a>目前不受支持。
 
-* 视图 
+* 视图 
 * 包含复合键的任意表
 * 表中的嵌套对象类型
  

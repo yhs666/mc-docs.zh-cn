@@ -9,16 +9,15 @@ origin.date: 4/23/2019
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: df3e1bb87e5ab7f17770bd073439af6b4853612c
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: a87bb121c75c1fe1bfffeb7741a3109732c2f5d0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970925"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528290"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>适用于 Azure Functions 的 Application Insights 支持功能
 
-Azure Functions 提供与 Application Insights 的[内置集成](/azure-functions/functions-monitoring)功能（通过 ILogger Interface 可用）。 以下是当前受支持的功能列表。 有关[入门](https://github.com/Azure/Azure-Functions/wiki/App-Insights)信息，请参阅 Azure Functions 指南。
 
 ## <a name="supported-features"></a>受支持的功能
 

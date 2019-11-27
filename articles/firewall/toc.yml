@@ -76,4 +76,4 @@
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/azure-firewall/'
     - name: 区域可用性
-      href: 'https://www.azure.cn/support/service-dashboard/'
+      href: 'https://status.azure.com/status/'

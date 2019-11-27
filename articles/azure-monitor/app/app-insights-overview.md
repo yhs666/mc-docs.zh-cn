@@ -6,15 +6,15 @@ ms.subservice: application-insights
 ms.topic: overview
 author: lingliw
 ms.custom: mvc
-originate.date: 06/03/2019
+origin.date: 06/03/2019
 ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 973e716286b49469207f31d8f759df5df632ab84
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 47366de07aa9bdd3675657c0932f70263f348371
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970936"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528347"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是多个平台上面向 Web 开发人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时 Web 应用程序。 它会自动检测性能异常。 其中包含强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。

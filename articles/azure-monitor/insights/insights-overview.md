@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 05/22/2019
 ms.date: 06/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 375ed47775e1014ba08eabb11bfa1d378fe91243
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: a1917cfc6a9b9978589a6e20ae69a894f3376cf8
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970829"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528280"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Azure Monitor 中的 Insights 概述
 Insights 在 Azure Monitor 中为特定的应用程序和服务提供了自定义的监视体验。 他们将数据存储在 [Azure Monitor 数据平台](../platform/data-platform.md)中，并利用其他 Azure Monitor 功能进行分析和发警报，但可能会收集其他数据，并在 Azure 门户中提供独特的用户体验。 从 Azure 门户中 Azure Monitor 菜单的 **Insights** 部分访问 Insights。
@@ -40,13 +40,6 @@ Application Insights 是多个平台上面向 Web 开发人员的可扩展应用
 请参阅[使用 Azure Monitor（预览版）监视资源组](../insights/resource-group-insights.md)。
 
 ![用于资源组的 Azure Monitor](media/insights-overview/resource-group-insights.png)
-
-## <a name="azure-monitor-for-vms-preview"></a>用于 VM 的 Azure Monitor（预览版）
-用于 VM 的 Azure Monitor 可以大规模监视 Azure 虚拟机 (VM) 和虚拟机规模集。 它分析 Windows 和 Linux VM 的性能和运行状况，并监视它们的进程及其对其他资源和外部进程的依赖关系。
-
-请参阅[什么是用于 VM 的 Azure Monitor？](vminsights-overview.md)
-
-![用于 VM 的 Azure Monitor](media/insights-overview/vm-insights.png)
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解 Insights 利用的 [Azure Monitor 数据平台](../platform/data-platform.md)。

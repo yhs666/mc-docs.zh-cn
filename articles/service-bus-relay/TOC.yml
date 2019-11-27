@@ -80,9 +80,9 @@
     - name: 博客
       href: 'https://blogs.msdn.microsoft.com/servicebus/'
     - name: 定价
-      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
+      href: 'https://www.azure.cn/pricing/details/service-bus/'
     - name: 定价计算器
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+      href: 'https://www.azure.cn/pricing/calculator/'
     - name: 示例
       href: 'https://github.com/azure/azure-relay/tree/master/samples'
     - name: Stack Overflow

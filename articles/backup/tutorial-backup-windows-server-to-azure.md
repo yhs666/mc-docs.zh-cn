@@ -10,24 +10,22 @@ origin.date: 08/25/2018
 ms.date: 8/22/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 2ce2309b81da6fe749ff874a1b47699849f3892e
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 37281f1f1f85d79c6ac8bb8bc453e1681ccebebf
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730165"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528223"
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
-
-可使用 Azure 备份保护 Windows Server 免受损坏、攻击和灾难影响。 Azure 备份提供一个名为 Azure 恢复服务 (MARS) 代理的轻量工具。 MARS 代理安装在 Windows Server 上，用于通过 Windows Server 系统状态保护文件、文件夹和服务器配置信息。 本教程介绍如何使用 MARS 代理将 Windows Server 备份到 Azure。 本教程介绍如何执行下列操作： 
-
+可使用 Azure 备份保护 Windows Server 免受损坏、攻击和灾难影响。 Azure 备份提供一个名为 Microsoft Azure 恢复服务 (MARS) 代理的轻量工具。 MARS 代理安装在 Windows Server 上，用于通过 Windows Server 系统状态保护文件、文件夹和服务器配置信息。 本教程介绍如何使用 MARS 代理将 Windows Server 备份到 Azure。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
+>
 > * 下载和设置 MARS 代理
 > * 为服务器备份配置备份时间和保留计划
-> * 执行临时备份
-
+> * 执行按需备份
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -35,7 +33,7 @@ ms.locfileid: "73730165"
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
-备份 Windows Server 前，必须创建一个存储备份或还原点的位置。 [恢复服务保管库](backup-azure-recovery-services-vault-overview.md)是 Azure 中存储来自 Windows Server 的备份的容器。 按照以下步骤在 Azure 门户中创建恢复服务保管库。 
+备份 Windows Server 前，必须创建一个存储备份或还原点的位置。 [恢复服务保管库](backup-azure-recovery-services-vault-overview.md)是 Azure 中存储来自 Windows Server 的备份的容器。 按照以下步骤在 Azure 门户中创建恢复服务保管库。
 
 1. 在左侧菜单上，选择“所有服务”，然后在服务列表中键入“恢复服务”   。 单击“恢复服务保管库”  。
 
@@ -61,44 +59,44 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 1. 在恢复服务保管库列表中，选择“myRecoveryServicesVault”以打开其仪表板  。
 
-    ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
 2. 在保管库仪表板菜单中，单击“备份”  。
 
 3. 在“备份目标”菜单  上：
 
-   * 对于“工作负载的运行位置?”，请选择“本地”   ； 
+   * 对于“工作负载的运行位置?”，请选择“本地”  
    * 对于“要备份的项?”，请选择“文件和文件夹”以及“系统状态”   
 
-     ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
+   ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
 4. 单击“准备基础结构”以打开“准备基础结构”菜单   。
 
-5. 在“准备基础结构”菜单上，单击“下载 Windows Server 或 Windows 客户端的代理”，下载 MARSAgentInstaller.exe    。 
+5. 在“准备基础结构”菜单上，单击“下载 Windows Server 或 Windows 客户端的代理”，下载 MARSAgentInstaller.exe    。
 
     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     安装程序单独打开浏览器并下载 MARSAgentInstaller.exe  。
- 
+
 6. 运行此下载文件前，请在“准备基础结构”菜单上单击“下载”，并保存“保管库凭据”文件   。 需要保管库凭据才能将 MARS 代理与恢复服务保管库连接。
 
     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
- 
+
 ## <a name="install-and-register-the-agent"></a>安装并注册代理
 
 1. 找到并双击已下载的 MARSagentinstaller.exe  。
-2. 此时会显示 Azure 恢复服务代理安装向导。  执行向导的过程中，显示提示时请提供以下信息，然后单击“注册”  。
-   - 文件夹的安装和缓存位置。
-   - 代理服务器信息（如果使用代理服务器连接到 Internet）。
-   - 用户名和密码详细信息（如果使用经验证的代理）。
+2. “Microsoft Azure 恢复服务代理安装向导”随即出现  。 执行向导的过程中，显示提示时请提供以下信息，然后单击“注册”  。
+   * 文件夹的安装和缓存位置。
+   * 代理服务器信息（如果使用代理服务器连接到 Internet）。
+   * 用户名和密码详细信息（如果使用经验证的代理）。
 
-     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
 
 3. 向导结束时，单击“继续注册”，并提供先前过程中下载的“保管库凭据”文件   。
- 
+
 4. 出现提示时，请提供在 Windows Server 中加密备份的加密密码。 请将密码保存于安全位置，因为若密码丢失，Microsoft 无法恢复密码。
 
-5. 单击“完成”  。 
+5. 单击“完成”  。
 
 ## <a name="configure-backup-and-retention"></a>配置备份和保留期
 
@@ -120,7 +118,7 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 7. 在“选择保留策略(系统状态)”页上，为系统状态的备份副本选择“保留策略”，然后单击“下一步”   。
 
-8. 同样，为选择的文件和文件夹选择备份计划和保留策略。 
+8. 同样，为选择的文件和文件夹选择备份计划和保留策略。
 
 9. 在“选择初始备份类型”页上，选择“自动通过网络”，然后单击“下一步”    。
 
@@ -128,30 +126,30 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
-## <a name="perform-an-ad-hoc-back-up"></a>执行临时备份
+## <a name="perform-an-on-demand-backup"></a>执行按需备份
 
 备份作业运行时表示计划已建立。 但服务器尚未备份。 运行按需备份是灾难恢复最佳做法，可确保服务器的数据弹性。
 
-1. 在 Azure 恢复服务代理控制台中，单击“立即备份”  。
+1. 在 Microsoft Azure 恢复服务代理控制台中，单击“立即备份”  。
 
     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2. 在“立即备份”  向导上，从“文件和文件夹”  或“系统状态”  中选择要备份的内容，然后单击“下一步”  。 
+2. 在“立即备份”  向导上，从“文件和文件夹”  或“系统状态”  中选择要备份的内容，然后单击“下一步”  。
 3. 在“确认”页上，检查“立即备份”向导用于备份服务器的设置   。 然后单击“备份”  。
 4. 单击“**关闭**”以关闭向导。 如果在备份过程完成之前关闭向导，向导将继续在后台运行。
 5. 完成初始备份后，MARS 代理控制台的“作业”窗格中会显示“作业已完成”状态   。
 
-
 ## <a name="next-steps"></a>后续步骤
 
-本教程使用 Azure 门户执行了以下操作： 
- 
-> [!div class="checklist"] 
-> * 创建恢复服务保管库 
-> * 下载 Azure 恢复服务代理 
-> * 安装代理 
-> * 为 Windows Server 配置备份 
-> * 执行按需备份 
+本教程使用 Azure 门户执行了以下操作：
+
+> [!div class="checklist"]
+>
+> * 创建恢复服务保管库
+> * 下载 Microsoft Azure 恢复服务代理
+> * 安装代理
+> * 为 Windows Server 配置备份
+> * 执行按需备份
 
  
 

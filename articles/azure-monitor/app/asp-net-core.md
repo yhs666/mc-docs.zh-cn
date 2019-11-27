@@ -4,16 +4,16 @@ description: 监视 ASP.NET Core Web 应用程序的可用性、性能和使用�
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-originate.date: 05/22/2019
+origin.date: 05/22/2019
 author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 00918ac222dee3bc84e4839aa5b8e1f065bd4eb0
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 9ff011a0f0da316e6f23b97e4aacc467a101914a
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970934"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528338"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>适用于 ASP.NET Core 应用程序的 Application Insights
 
@@ -125,7 +125,7 @@ ms.locfileid: "72970934"
 
 ### <a name="live-metrics"></a>实时指标
 
-[实时指标](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)可用于快速验证是否正确配置了 Application Insights 监视。 尽管可能需要在几分钟时间后遥测数据才开始显示在门户和分析结果中，但实时指标能够近实时地显示正在运行的进程的 CPU 使用率。 它还可以显示其他遥测数据，例如请求、依赖项、跟踪等。
+[实时指标](/azure-monitor/app/live-stream)可用于快速验证是否正确配置了 Application Insights 监视。 尽管可能需要在几分钟时间后遥测数据才开始显示在门户和分析结果中，但实时指标能够近实时地显示正在运行的进程的 CPU 使用率。 它还可以显示其他遥测数据，例如请求、依赖项、跟踪等。
 
 ### <a name="ilogger-logs"></a>ILogger 日志
 
@@ -137,12 +137,12 @@ ms.locfileid: "72970934"
 
 ### <a name="performance-counters"></a>性能计数器
 
-对 ASP.NET Core 中的[性能计数器](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)的支持限制如下：
+对 ASP.NET Core 中的[性能计数器](/azure-monitor/app/web-monitor-performance)的支持限制如下：
 
 * 如果应用程序在 Azure Web 应用 (Windows) 中运行，则 SDK 2.4.1 和更高版本将收集性能计数器。
 * 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.1 和更高版本将收集性能计数器。
 * 对于面向 .NET Framework 的应用程序，所有版本的 SDK 都支持性能计数器。
-* SDK 版本 2.8.0 和更高版本支持 Linux 中的 cpu/内存计数器。 Linux 不支持其他计数器。 在 Linux（和其他非 Windows 环境）中，获取系统计数器的建议方法是使用 [EventCounter](#eventcounter)
+* SDK 2.8.0 版和更高版本支持 Linux 中的 cpu/内存计数器。 Linux 不支持其他计数器。 在 Linux（和其他非 Windows 环境）中，获取系统计数器的建议方法是使用 [EventCounter](#eventcounter)
 
 ### <a name="eventcounter"></a>EventCounter
 
@@ -150,7 +150,7 @@ ms.locfileid: "72970934"
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>为 Web 应用程序启用客户端遥测
 
-完成前面所述的步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循后续步骤开始收集[使用情况遥测数据](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)。
+完成前面所述的步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循后续步骤开始收集[使用情况遥测数据](/azure-monitor/app/usage-overview)。
 
 1. 在 `_ViewImports.cshtml` 中添加注入代码：
 
@@ -250,7 +250,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="adding-telemetry-processors"></a>添加遥测处理程序
 
-可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 在[高级筛选方案](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中使用遥测处理器。 使用以下示例。
+可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 在[高级筛选方案](/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中使用遥测处理器。 使用以下示例。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

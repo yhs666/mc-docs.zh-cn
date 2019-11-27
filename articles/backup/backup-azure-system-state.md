@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/23/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 32cbf5fc9e84ebf68b5f23013bcbd13499911f1d
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: a53b9e94cb0477db29b57edf963392d4b1936813
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730590"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528277"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
 本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
@@ -132,7 +132,7 @@ ms.locfileid: "73730590"
 
     ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
-   > 保管库凭据只能保存到打算使用代理的 Windows Server 的本地位置。 
+   > 保管库凭据只能保存到打算使用代理的 Windows Server 的本地位置。
    >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]

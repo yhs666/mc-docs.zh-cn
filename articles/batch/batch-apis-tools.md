@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 09e170299db6d6382bdf67e02e89f63e9a4d0c26
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 36a780ac73d3753afaae293a7ba6b379261a197c
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330216"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528390"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -38,7 +38,7 @@ ms.locfileid: "71330216"
 | API | API 参考 | 下载 | 教程 | 代码示例 | 更多信息 |
 | --- | --- | --- | --- | --- | --- |
 | **批处理 REST** |[docs.azure.cn][batch_rest] |不适用 |- |- | [支持的版本](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.azure.cn][api_net] |[NuGet ][api_net_nuget] | 教程 |[GitHub][api_sample_net] | [发行说明](http://aka.ms/batch-net-dataplane-changelog) |
+| **Batch .NET** |[docs.azure.cn][api_net] |[NuGet ][api_net_nuget] | 教程 |[GitHub][api_sample_net] | [发行说明](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.azure.cn][api_python] |[PyPI][api_python_pypi] | 教程 |[GitHub][api_sample_python] | [自述文件](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **批处理 Node.js** |[docs.azure.cn][api_nodejs] |[npm][api_nodejs_npm] |[教程](batch-nodejs-get-started.md) |- | [自述文件](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **批处理 Java** |[docs.azure.cn][api_java] |[Maven][api_java_jar] |- |[自述文件][api_sample_java] | [自述文件](https://github.com/Azure/azure-batch-sdk-for-java)|
@@ -86,8 +86,8 @@ ms.locfileid: "71330216"
 [azure_storage]: https://www.azure.cn/home/features/storage/
 [api_java]: https://docs.microsoft.com/java/api/overview/batch
 [api_java_mgmt]: /java/api/batch/managementapi?view=azure-java-stable
-[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_java_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
+[api_java_mgmt_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: https://docs.microsoft.com/rest/api/batchmanagement/
@@ -106,10 +106,9 @@ ms.locfileid: "71330216"
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://docs.microsoft.com/powershell/module/azurerm.batch/
 [batch_rest]: https://docs.microsoft.com/rest/api/batchservice/
-[free_account]: https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [batch_labs]: https://azure.github.io/BatchExplorer/
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [portal]: https://portal.azure.cn
 
 <!-- Update_Description: link update -->

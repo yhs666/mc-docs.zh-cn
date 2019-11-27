@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 05/14/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5d10abd6d1b7429aaf5905263bebbb3aa2f7f1bf
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d73f47869aa49bcd94473997c4a8df71d0385efa
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730494"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528362"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights 中的遥测通道
 
@@ -36,7 +36,7 @@ Application Insights .NET 和 .NET Core SDK 随附了两个内置通道：
 
     此通道随附在较大的 Microsoft.ApplicationInsights NuGet 包中，是未配置任何其他通道时，SDK 使用的默认通道。
 
-* `ServerTelemetryChannel`：一个更高级的通道，它具有重试策略，并可以在本地磁盘上存储数据。 如果发生暂时性错误，此通道会重试发送遥测数据。 在网络中断或者遥测量较高时，此通道还会使用本地磁盘存储在磁盘上保留项。 由于这些重试机制和本地磁盘存储，我们认为此通道更可靠，建议在所有生产方案中使用。 此通道是根据官方文档配置的 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 和 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 应用程序的默认通道。 此通道已针对长时间运行的服务器方案进行优化。 此通道实现的 [`Flush()`](#which-channel-should-i-use) 方法不是同步的。
+* `ServerTelemetryChannel`：一个更高级的通道，它具有重试策略，并可以在本地磁盘上存储数据。 如果发生暂时性错误，此通道会重试发送遥测数据。 在网络中断或者遥测量较高时，此通道还会使用本地磁盘存储在磁盘上保留项。 由于这些重试机制和本地磁盘存储，我们认为此通道更可靠，建议在所有生产方案中使用。 此通道是根据官方文档配置的 [ASP.NET](/azure-monitor/app/asp-net) 和 [ASP.NET Core](/azure-monitor/app/asp-net-core) 应用程序的默认通道。 此通道已针对长时间运行的服务器方案进行优化。 此通道实现的 [`Flush()`](#which-channel-should-i-use) 方法不是同步的。
 
     此通道作为 Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel NuGet 包交付，使用 Microsoft.ApplicationInsights.Web 或 Microsoft.ApplicationInsights.AspNetCore NuGet 包时可自动获取它。
 

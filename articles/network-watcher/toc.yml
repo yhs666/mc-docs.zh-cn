@@ -157,7 +157,7 @@
     - name: Ruby
       href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher'
     - name: Python
-      href: /python/api/overview/azure/network
+      href: 'https://docs.microsoft.com/python/api/overview/azure/network'
     - name: .NET
       href: 'https://docs.azure.cn/en-us/dotnet/api/overview/virtual-network?view=azure-dotnet'
     - name: Node.js

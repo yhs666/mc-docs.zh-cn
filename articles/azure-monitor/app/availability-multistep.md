@@ -9,12 +9,12 @@ origin.date: 10/23/2019
 ms.date: 11/04/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: fab476620a5ad36d7b274a5e9489040178c6191e
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: f000f57c534722df79a2d298d133ca8f28d7f6b3
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730326"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528293"
 ---
 # <a name="multi-step-web-tests"></a>多步骤 Web 测试
 
@@ -33,7 +33,7 @@ ms.locfileid: "73730326"
 ![Visual Studio 安装程序 UI 的屏幕截图，已选中“各个组件”，并且在“Web 性能和负载测试工具”对应的项旁白有一个复选框](./media/availability-multistep/web-performance-load-testing.png)
 
 > [!NOTE]
-> 多步骤 Web 测试收取相关的额外费用。 若要了解详细信息，请参阅[官方定价指南](https://azure.microsoft.com/pricing/details/application-insights/)。
+> 多步骤 Web 测试收取相关的额外费用。 若要了解详细信息，请参阅[官方定价指南](https://www.azure.cn/zh-cn/pricing/details/monitor/)。
 
 ## <a name="record-a-multi-step-web-test"></a>记录多步骤 Web 测试 
 

@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 09/19/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f29a21b249c00aa51bfb4cf0c140fa854e0cefba
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c902cd8713f8b8c7d60f555dcb14541bbc7ef737
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730452"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528370"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights 使用分析
 
@@ -40,7 +40,7 @@ Web 或移动应用有哪些最热门的功能？ 用户是否使用应用实现
     </script>
     ```
 
-    若要了解更多用于监视网站的高级配置，请查看 [JavaScript SDK 参考文章](https://docs.microsoft.com/azure/azure-monitor/app/javascript)。
+    若要了解更多用于监视网站的高级配置，请查看 [JavaScript SDK 参考文章](/azure-monitor/app/javascript)。
 
 3. **移动应用代码：** 通过[按照此指南操作](../../azure-monitor/learn/mobile-center-quickstart.md)，使用 App Center SDK 收集应用中的事件，然后将这些事件的副本发送到 Application Insights 进行分析。
 
@@ -127,7 +127,7 @@ Web 或移动应用有哪些最热门的功能？ 用户是否使用应用实现
 
 在 Application Insights 门户中根据属性值筛选和拆分数据，以便比较不同的版本。
 
-为此，请[设置遥测初始值设定项](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)：
+为此，请[设置遥测初始值设定项](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)：
 
 **ASP.NET 应用**
 

@@ -6,15 +6,15 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: lingliw
 ms.reviewer: mbullwin
-origin.date: 08/06/2018
-ms.date: 11/4/2019
+origin.date: 11/08/2019
+ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 82d4c6386c408b89b2444a3db69066b4335f225e
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: a2335b10527cc96e8b4da7490864e5449543302b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730381"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528366"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>使用 Application Insights Profiler 探查在 Azure 虚拟机或虚拟机规模集上运行的 Web 应用
 
@@ -90,15 +90,15 @@ Azure Application Insights Profiler 也可以部署在以下服务上：
 
     ![检查是否安装了 WAD 扩展][wadextension]
 
-1. 查找你的 VM 的 VM 诊断扩展。 展开你的资源组、Microsoft.Compute 虚拟机、虚拟机名称和扩展。  
+2. 查找你的 VM 的 VM 诊断扩展。 转到[https://resources.azure.com](https://resources.azure.com)。 展开你的资源组、Microsoft.Compute 虚拟机、虚拟机名称和扩展。  
 
     ![在 Azure 资源浏览器中导航到 WAD 配置][azureresourceexplorer]
 
-1. 将 Application Insights Profiler 接收器添加到 WadCfg 下的 SinksConfig 节点。 如果还没有 SinksConfig 部分，可能需要添加一个。 确保在设置中指定正确的 Application Insights iKey。 你需要在右上角将资源管理器模式切换为“读取/写入”，然后按蓝色的“编辑”按钮。
+3. 将 Application Insights Profiler 接收器添加到 WadCfg 下的 SinksConfig 节点。 如果还没有 SinksConfig 部分，可能需要添加一个。 确保在设置中指定正确的 Application Insights iKey。 你需要在右上角将资源管理器模式切换为“读取/写入”，然后按蓝色的“编辑”按钮。
 
     ![添加 Application Insights Profiler 接收器][resourceexplorersinksconfig]
 
-1. 编辑完配置后，按“Put”。 如果 put 操作成功，则屏幕中间会显示一个绿色的对号。
+4. 编辑完配置后，按“Put”。 如果 put 操作成功，则屏幕中间会显示一个绿色的对号。
 
     ![发送 put 请求以应用更改][resourceexplorerput]
 

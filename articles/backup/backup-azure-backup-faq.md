@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 07/07/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 56ae9664d8a77d850ff602e2a14e9ae107eba345
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 35785b2923780d23e3e6dc953532267ed7af289c
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730389"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528416"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -26,9 +26,10 @@ ms.locfileid: "73730389"
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>可针对每个保管库注册的服务器/计算机数量是否有限制？
 每个保管库最多可以注册 1000 个 Azure 虚拟机。 如果使用世纪互联 Azure 备份代理，每个保管库最多可以注册 50 个 MAB 代理。 可以将 50 个 MAB 服务器/DPM 服务器注册到一个保管库。
 
-### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>在保管库中可以保护多少个数据源/项？ 
-在一个保管库中，可以跨所有工作负荷（IaaS VM、SQL、AFS 等）保护多达 2000 个数据源/项。<br>  
-例如，如果已在保管库中保护了 500 个VM 和 400 个 Azure 文件共享，则最多只能保护其中的 1100 个 SQL 数据库。 
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>在保管库中可以保护多少个数据源/项？
+
+在一个保管库中，可以跨所有工作负荷（IaaS VM、SQL、AFS 等）保护多达 2000 个数据源/项。
+例如，如果已在保管库中保护了 500 个VM 和 400 个 Azure 文件共享，则最多只能保护其中的 1100 个 SQL 数据库。
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>每个保管库可以创建多少个策略？ 
 每个保管库最多只能有 200 个策略。
@@ -140,8 +141,8 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 
 ![计划备份和保持](./media/backup-azure-backup-faq/Schedule.png)
 
+### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point"></a>如果备份保留了很长一段时间，是否需要更多时间才能恢复较旧的数据点？
 
-### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>如果备份保留了很长一段时间，是否需要更多时间才能恢复较旧的数据点？ <br/>
 否。 恢复最旧或最新时间点所需的时间相同。 每个恢复点的行为类似一个完整的点。
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>如果每个恢复点相当于完整的点，它会影响总体可计费备份存储吗？

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/10/2018
 ms.date: 9/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ddc8d709d79a7edfdc50f581b7f84e15952f5878
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: f5592b5fd682366a9aa2d00dbc4b7a39c53949f0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674654"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528388"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>使用网络观察程序功能所需的基于角色的访问控制权限
 
@@ -110,7 +110,7 @@ ms.locfileid: "71674654"
 | Microsoft.Authorization/\*/Read                                     | 用于提取 RBAC 角色分配和策略定义          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | 用于枚举订阅中的所有资源组    |
 | Microsoft.Storage/storageAccounts/Read                              | 用于获取指定存储帐户的属性   |
-| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| 用于获取共享访问签名 (SAS)，启用[对存储帐户的安全访问](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)并写入存储帐户 |
+| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| 用于获取共享访问签名 (SAS)，启用[对存储帐户的安全访问](/storage/common/storage-sas-overview)并写入存储帐户 |
 | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| 用于登录到 VM、执行数据包捕获，并将其上传到存储帐户|
 | Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| 用于检查网络观察程序扩展是否存在，并在需要时进行安装 |
 | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| 用于访问虚拟机规模集、执行数据包捕获并将其上传到存储帐户|

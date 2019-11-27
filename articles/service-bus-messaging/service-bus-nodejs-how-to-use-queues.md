@@ -1,6 +1,6 @@
 ---
-title: 如何通过 Node.js 使用服务总线队列 | Azure
-description: 了解如何在来自 Node.js 应用程序的 Azure 中使用服务总线队列。
+title: 快速入门：在 Node.js 中使用 Azure 服务总线队列
+description: 快速入门：了解如何在来自 Node.js 应用程序的 Azure 中使用服务总线队列。
 services: service-bus-messaging
 documentationcenter: nodejs
 author: lingliw
@@ -11,18 +11,19 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-origin.date: 04/10/2019
-ms.date: 09/23/2019
+ms.topic: quickstart
+origin.date: 11/05/2019
+ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9cd3cf488a80d3aa7c7c846f40c3978e1ed19389
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ba67b4c9b53e830f4d4769c270e43764acf90d87
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329870"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528003"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>如何将服务总线队列与 Node.js 和 azure-sb 包配合使用
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>快速入门：通过 Node.js 和 azure-sb 包使用 Azure 中的服务总线队列
+
 > [!div class="op_multi_selector" title1="编程语言" title2="Node.js 包"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)

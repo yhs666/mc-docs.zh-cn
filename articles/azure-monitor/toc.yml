@@ -563,38 +563,6 @@
                   href: platform/data-sources-custom-logs.md
                 - name: 自定义字段
                   href: platform/custom-fields.md
-            - name: 用于 VM 的 Azure Monitor
-              items:
-                - name: 概述
-                  href: insights/vminsights-overview.md
-                - name: 已知问题
-                  href: insights/vminsights-known-issues.md
-                - name: 常见问题
-                  href: insights/vminsights-faq.md
-                - name: 启用监视
-                  items:
-                    - name: 启用监视概述
-                      href: insights/vminsights-enable-overview.md
-                    - name: 为单个 Azure VM 启用
-                      href: insights/vminsights-enable-single-vm.md
-                    - name: 使用 Azure Policy 启用
-                      href: insights/vminsights-enable-at-scale-policy.md
-                    - name: 使用 Azure PowerShell 启用
-                      href: insights/vminsights-enable-at-scale-powershell.md
-                    - name: 为混合环境启用
-                      href: insights/vminsights-enable-hybrid-cloud.md
-                    - name: 与 Operations Manager 集成
-                      href: insights/service-map-scom.md
-                - name: 监视运行状况
-                  href: insights/vminsights-health.md
-                - name: 映射依赖项
-                  href: insights/vminsights-maps.md
-                - name: 使用工作簿
-                  href: insights/vminsights-workbooks.md
-                - name: 使用日志查询分析数据
-                  href: insights/vminsights-log-search.md
-                - name: 禁用监视
-                  href: insights/vminsights-optout.md
             - name: 容量和性能解决方案
               href: insights/capacity-performance.md
             - name: VMware 分析解决方案
@@ -825,8 +793,6 @@
               href: platform/alerts-rate-limiting.md
             - name: 使用资源管理器创建操作组
               href: platform/action-groups-create-resource-manager-template.md
-            - name: 实现逻辑应用操作
-              href: platform/action-groups-logic-app.md
             - name: 将常见警报架构与逻辑应用集成
               href: platform/alerts-common-schema-integrations.md
         - name: 警报管理解决方案

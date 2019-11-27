@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 10/31/2016
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ad5c65f62ac72b69b0f59c80bad8034ee88118e9
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 3530289cde91cb3608dd1a17ed84ecfee7957fe0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730419"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528236"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>使用 PowerShell 在 Application Insights 中设置警报
 
@@ -57,7 +57,7 @@ ms.locfileid: "73730419"
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US" // must be East US at present
+     -Location "East US" // must be China North at present
      -RuleType Metric
 
 

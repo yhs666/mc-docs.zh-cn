@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e8e3481d88515c9bcd3a442475d1153eff2ed029
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 1153f0abe7ecf1118c865696a9d1e774a679696d
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730533"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528254"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 
@@ -63,7 +63,6 @@ ms.locfileid: "73730533"
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
 | Backup | VMware VM 的联机恢复点创建作业失败。 DPM 在尝试获取 ChangeTracking 信息时遇到 VMware 错误。 ErrorCode - FileFaultFault (ID 33621) |  <ol><li> 在 VMware 上对受影响的 VM 重置 CTK。</li> <li>检查 VMware 上是否未部署独立磁盘。</li> <li>停止对受影响 VM 的保护，然后使用“刷新”按钮重新保护。  </li><li>对受影响的 VM 运行 CC（一致性检查）。</li></ol>|
-
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>代理操作失败，因为服务器上的 DPM 代理协调器服务出现通信错误
 

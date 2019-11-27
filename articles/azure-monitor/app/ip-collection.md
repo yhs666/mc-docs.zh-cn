@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 09/11/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c3ed29bd4e6f1c087a8ba7f30d70f23e40586e75
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c757e38a4064da7e1d679bd1139763f2f9498e2e
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730479"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528235"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>地理位置和 IP 地址处理
 
@@ -95,8 +95,7 @@ IP 地址作为遥测数据的一部分发送到 Application Insights。 IP 地�
     如果再次选择并编辑模板，只会看到默认模板，而看不到新添加的属性及其关联值。 如果未看到 IP 地址数据并希望确认是否已设置 `"DisableIpMasking": true`， 请运行以下 PowerShell：（请将 `Fabrikam-dev` 替换为相应的资源和资源组名称。）
     
     ```powershell
-    # If you aren't using the cloud shell you will need to connect to your Azure account
-    # Connect-AzAccount 
+    # Connect-AzAccount -Environment AzureChinaCloud
     $AppInsights = Get-AzResource -Name 'Fabrikam-dev' -ResourceType 'microsoft.insights/components' -ResourceGroupName 'Fabrikam-dev'
     $AppInsights.Properties
     ```
@@ -239,6 +238,6 @@ requests
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解 Application Insights 中的[个人数据收集](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)。
+* 详细了解 Application Insights 中的[个人数据收集](/azure-monitor/platform/personal-data-mgmt)。
 
 * 详细了解 Application Insights 中 [IP 地址收集](https://apmtips.com/blog/2016/07/05/client-ip-address/)的工作原理。 （这是我们的某位工程师在较早前撰写的一篇外部博客文章。 其中所述的机制不同当前的默认行为，现在，IP 地址将记录为 `0.0.0.0`，不过此文更深入地描述了内置 `ClientIpHeaderTelemetryInitializer` 的机制。）

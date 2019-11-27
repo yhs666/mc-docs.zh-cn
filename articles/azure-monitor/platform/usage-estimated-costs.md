@@ -10,12 +10,12 @@ ms.date: 11/4/2019
 ms.author: v-lingwu
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: af5f22e5b446a403eeb418bc7787fc98fc0acbcb
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 9ce85790b6bb383e81b2e5b8509c8507d378a8aa
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730592"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528417"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure Monitor 中监视使用情况和预估成本
 
@@ -26,9 +26,9 @@ ms.locfileid: "73730592"
 
 ## <a name="azure-monitor-pricing-model"></a>Azure Monitor 定价模型
 
-基本 Azure Monitor 计费模型是云友好的基于消耗量的定价模型（“即用即付”）。 仅为所用的部分付费。 我们已提供适用于[警报、指标和通知](https://azure.microsoft.com/pricing/details/monitor/)、[Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 及 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 的定价详细信息。 
+基本 Azure Monitor 计费模型是云友好的基于消耗量的定价模型（“即用即付”）。 仅为所用的部分付费。 我们已提供适用于[警报、指标和通知](https://www.azure.cn/zh-cn/pricing/details/monitor/)、[Log Analytics](https://www.azure.cn/zh-cn/pricing/details/monitor/) 及 [Application Insights](https://www.azure.cn/zh-cn/pricing/details/monitor/) 的定价详细信息。 
 
-除了适用于日志数据的即用即付模型以外，Log Analytics 还提供容量预留，与即用即付价格相比，该模型最多可将成本节省 25%。 容量预留定价模型允许每天购买 100 GB 的初始预留容量。 超过预留级别的任何用量将按即用即付费率计费。 [详细了解](https://azure.microsoft.com/pricing/details/monitor/)容量预留定价。
+除了适用于日志数据的即用即付模型以外，Log Analytics 还提供容量预留，与即用即付价格相比，该模型最多可将成本节省 25%。 容量预留定价模型允许每天购买 100 GB 的初始预留容量。 超过预留级别的任何用量将按即用即付费率计费。 [详细了解](https://www.azure.cn/zh-cn/pricing/details/monitor/)容量预留定价。
 
 某些客户有权访问[传统 Log Analytics 定价层](https://www.azure.cn/zh-cn/pricing/details/monitor/)和[传统 Enterprise Application Insights 定价层](/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier)。 
 
@@ -46,9 +46,9 @@ ms.locfileid: "73730592"
 
 在上述每种情况下，定价计算器都可帮助你根据预期用量估算可能的成本。
 
-例如，对于 Log Analytics，可以输入 VM 数目，以及要从每个 VM 收集的数据量 (GB)。 通常每月会从一个典型的 Azure VM 引入 1 GB 到 3 GB 数据。 如果已经评估了 Azure Monitor 日志，则可以使用自己环境中的数据统计信息。 请参阅下文来了解如何确定[受监视 VM 数](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data)和[工作区引入的数据量](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume)。
+例如，对于 Log Analytics，可以输入 VM 数目，以及要从每个 VM 收集的数据量 (GB)。 通常每月会从一个典型的 Azure VM 引入 1 GB 到 3 GB 数据。 如果已经评估了 Azure Monitor 日志，则可以使用自己环境中的数据统计信息。 请参阅下文来了解如何确定[受监视 VM 数](/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data)和[工作区引入的数据量](/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume)。
 
-类似于 Application Insights，如果启用“基于应用程序活动估算数据量”功能，则可以提供有关应用程序的输入（如果收集客户端遥测数据，请提供每月请求数和页面视图数），然后，计算器会告知类似应用程序收集的中间值和第 90 百分位的数据量。 这些应用程序超过了 Application Insights 的配置范围（例如，有些应用程序采用默认采样，而有些应用程序根本不使用采样，等等），因此，你仍可以通过采样控制，将引入的数据量降到远远低于中位水平。 但这只是了解其他类似客户看到的情况的一个起点。 [详细了解](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application)如何估算 Application Insights 的成本。
+类似于 Application Insights，如果启用“基于应用程序活动估算数据量”功能，则可以提供有关应用程序的输入（如果收集客户端遥测数据，请提供每月请求数和页面视图数），然后，计算器会告知类似应用程序收集的中间值和第 90 百分位的数据量。 这些应用程序超过了 Application Insights 的配置范围（例如，有些应用程序采用默认采样，而有些应用程序根本不使用采样，等等），因此，你仍可以通过采样控制，将引入的数据量降到远远低于中位水平。 但这只是了解其他类似客户看到的情况的一个起点。 [详细了解](/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application)如何估算 Application Insights 的成本。
 
 
 

@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a5fda56dd8bf4f03885a15b75aba9422bde65df6
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 849df79188470562a11e4cd7de7ceb63a4ed8ed8
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104140"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527901"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虚拟网络中创建 Azure Batch 池
 

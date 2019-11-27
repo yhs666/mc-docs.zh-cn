@@ -1,6 +1,6 @@
 ---
-title: 如何通过 PHP 使用服务总线队列 | Azure
-description: 了解如何在 Azure 中使用服务总线队列。 用 PHP 编写的代码示例。
+title: 快速入门：如何通过 PHP 使用服务总线队列
+description: 快速入门：了解如何在 Azure 中使用服务总线队列。 用 PHP 编写的代码示例。
 services: service-bus-messaging
 documentationcenter: php
 author: lingliw
@@ -11,18 +11,18 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-origin.date: 04/10/2019
-ms.date: 09/14/2019
+ms.topic: quickstart
+origin.date: 11/05/2019
+ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6027d70749fb90eaa50679f8d300b9ddc18af603
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 3b17297d6dba5e72af609680e446d132616709ac
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330136"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527994"
 ---
-# <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
+# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>快速入门：如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本教程介绍如何创建 PHP 应用程序，以便向服务总线队列发送消息以及从中接收消息。 
@@ -164,7 +164,7 @@ catch(ServiceException $e){
 }
 ```
 
-发送到服务总线队列（以及从服务总线队列收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和用来保存特定于应用程序的自定义属性的属性，以及大量的任意应用程序数据。
+发送到服务总线队列（以及从服务总线队列收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和属性，用于保存特定于自定义应用程序的属性，以及大量随机应用程序数据。
 
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
 

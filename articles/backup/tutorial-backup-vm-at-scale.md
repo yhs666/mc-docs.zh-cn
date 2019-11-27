@@ -1,6 +1,6 @@
 ---
 title: 大规模备份 Azure 虚拟机
-description: 同时将多个虚拟机备份到 Azure
+description: 在本教程中，了解如何创建恢复服务保管库、定义备份策略以及同时备份多个虚拟机。
 keywords: 虚拟机备份; 虚拟机备份; 备份 vm; 备份 vm; 备份 Azure vm; 备份和灾难恢复
 author: lingliw
 manager: digimobile
@@ -10,24 +10,25 @@ ms.date: 09/23/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 63a3aca54a83e4d6d5ff09c73ea849586a2934a1
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d3219aca204495cc2eb3e2fae18b7153d42ba828
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730173"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528429"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 门户备份多个虚拟机
 
-在 Azure 中备份数据时，数据存储在名为恢复服务保管库的 Azure 资源中。 恢复服务保管库资源位于大多数 Azure 服务的“设置”菜单中。 在大多数 Azure 服务的“设置”菜单中集成恢复服务保管库的好处在于显著简化数据备份。 但是，单独处理公司中的每个数据库或虚拟机非常麻烦。 如果希望将所有虚拟机的数据备份到一个部门或一个位置，应该怎么办？ 通过创建备份策略和将此策略应用到目标虚拟机，可轻松备份多个虚拟机。 本教程介绍了如何完成以下操作：
+在 Azure 中备份数据时，数据存储在名为恢复服务保管库的 Azure 资源中。 恢复服务保管库资源位于大多数 Azure 服务的“设置”菜单中。 在大多数 Azure 服务的“设置”菜单中集成恢复服务保管库的好处在于轻松备份数据。 但是，单独处理公司中的每个数据库或虚拟机非常麻烦。 如果希望将所有虚拟机的数据备份到一个部门或一个位置，应该怎么办？ 通过创建备份策略和将此策略应用到目标虚拟机，可轻松备份多个虚拟机。 本教程介绍了如何完成以下操作：
 
 > [!div class="checklist"]
+>
 > * 创建恢复服务保管库
 > * 定义备份策略
 > * 应用备份策略以保护多个虚拟机
 > * 对保护的虚拟机触发按需备份作业
 
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
@@ -78,12 +79,12 @@ ms.locfileid: "73730173"
     ![选择工作负荷](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. 对于“备份策略”菜单中的“策略名称”，请键入“财务”    。 对备份策略输入以下更改：
-   - 对于“备份频率”，请将时区设置为“中部时间”   。 由于此综合体育中心位于德克萨斯，其所有者希望时间为当地时间。 将备份频率设置为每日凌晨 3:30。
-   - 对于“每日备份点的保留期”，请将时间段设置为 90 天  。
-   - 对于“每周备份点的保留期”，请使用“星期一”还原点并将其保留 52 周   。
-   - 对于“每月备份点的保留期”，使用当月第一个星期日作为还原点，并将其保留 36 个月  。
-   - 取消选中“每年备份点的保留期”选项  。 财务主管不希望数据保留期超过 36 个月。
-   - 单击“确定”以创建备份策略。 
+   * 对于“备份频率”，请将时区设置为“中部时间”   。 由于此综合体育中心位于德克萨斯，其所有者希望时间为当地时间。 将备份频率设置为每日凌晨 3:30。
+   * 对于“每日备份点的保留期”，请将时间段设置为 90 天  。
+   * 对于“每周备份点的保留期”，请使用“星期一”还原点并将其保留 52 周   。
+   * 对于“每月备份点的保留期”，使用当月第一个星期日作为还原点，并将其保留 36 个月  。
+   * 取消选中“每年备份点的保留期”选项  。 财务主管不希望数据保留期超过 36 个月。
+   * 单击“确定”以创建备份策略。 
 
      ![选择工作负荷](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
@@ -172,12 +173,12 @@ ms.locfileid: "73730173"
 
     删除此保管库后，将返回恢复服务保管库列表。
 
-
 ## <a name="next-steps"></a>后续步骤
 
 本教程使用 Azure 门户执行了以下操作：
 
 > [!div class="checklist"]
+>
 > * 创建恢复服务保管库
 > * 设置保管库以保护虚拟机
 > * 创建自定义备份和保留策略

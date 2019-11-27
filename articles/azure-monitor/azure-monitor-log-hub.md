@@ -10,12 +10,12 @@ ms.topic: hub-page
 origin.date: 01/29/2019
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bed492e911e7f0963af52062ec7694d93b236e94
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 9a2e9197e86c016b6693309109a47dda7c93faec
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737004"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528359"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -48,10 +48,10 @@ ms.locfileid: "70737004"
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3>了解基础知识</h3> 
                                                                     <p> 
-                                                                        <a href="/azure/azure-monitor/overview">Azure Monitor 是什么？</a><br/>
-                                                                        <a href="/azure/azure-monitor/terminology">品牌更改</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/data-sources">监视数据源</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/service-providers">服务提供程序的设计注意事项</a><br/>
+                                                                        <a href="/azure-monitor/overview">Azure Monitor 是什么？</a><br/>
+                                                                        <a href="/azure-monitor/terminology">品牌更改</a><br/>
+                                                                        <a href="/azure-monitor/platform/data-sources">监视数据源</a><br/>
+                                                                        <a href="/azure-monitor/platform/service-providers">服务提供程序的设计注意事项</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -72,17 +72,17 @@ ms.locfileid: "70737004"
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3>了解安全性</h3> 
                                                                     <p>
-                                                                        <a href="/azure/azure-monitor/platform/data-security">日志数据</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">个人日志数据处理</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/roles-permissions-security">角色权限和安全</a><br/>
+                                                                        <a href="/azure-monitor/platform/data-security">日志数据</a><br/>
+                                                                        <a href="/azure-monitor/platform/personal-data-mgmt">个人日志数据处理</a><br/>
+                                                                        <a href="/azure-monitor/platform/roles-permissions-security">角色权限和安全</a><br/>
                                                                     </p>
                                                                     <br>
                                                                      <h3>管理工作区</h3>
                                                                     <p>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace">在 Azure 门户中创建工作区</a><br/>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">使用 Azure CLI 创建工作区</a><br/>
-                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">使用 Azure PowerShell 创建工作区</a><br/>
-                                                                  <a href="/azure/azure-monitor/platform/delete-workspace">删除工作区</a><br/>
+                                                                    <a href="/azure-monitor/learn/quick-create-workspace">在 Azure 门户中创建工作区</a><br/>
+                                                                    <a href="/azure-monitor/learn/quick-create-workspace-cli">使用 Azure CLI 创建工作区</a><br/>
+                                                                   <a href="/azure-monitor/learn/quick-create-workspace-posh">使用 Azure PowerShell 创建工作区</a><br/>
+                                                                  <a href="/azure-monitor/platform/delete-workspace">删除工作区</a><br/>
                                                                  </p>
                                                                 </div>
                                                             </div>
@@ -99,24 +99,24 @@ ms.locfileid: "70737004"
                                                     <div class="cardText">
                                                     <h3>监视</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-collection">指标和日志</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">日志数据引入时间</a><br/>
+                                                            <a href="/azure-monitor/platform/data-collection">指标和日志</a><br/>
+                                                            <a href="/azure-monitor/platform/data-ingestion-time">日志数据引入时间</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>数据源</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-sources">概述<br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-windows-events">Windows 事件</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Windows 和 Linux 性能计数器</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-linux-applications">Linux 应用程序性能</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-json">自定义 JSON 数据</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-collectd">Collectd 性能数据</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Nagios 和 Zabbix 警报</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-syslog">Syslog</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-iis-logs">IIS 日志</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-custom-logs">自定义日志</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/custom-fields">自定义字段</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-collector-api">数据收集器 API</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources">概述<br/>
+                                                            <a href="/azure-monitor/platform/data-sources-windows-events">Windows 事件</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-performance-counters">Windows 和 Linux 性能计数器</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-linux-applications">Linux 应用程序性能</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-json">自定义 JSON 数据</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-collectd">Collectd 性能数据</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Nagios 和 Zabbix 警报</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-syslog">Syslog</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-iis-logs">IIS 日志</a><br/>
+                                                            <a href="/azure-monitor/platform/data-sources-custom-logs">自定义日志</a><br/>
+                                                            <a href="/azure-monitor/platform/custom-fields">自定义字段</a><br/>
+                                                            <a href="/azure-monitor/platform/data-collector-api">数据收集器 API</a><br/>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -135,20 +135,20 @@ ms.locfileid: "70737004"
                                                     <div class="cardText">
                                                         <h3>分析数据</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/log-query/get-started-queries">查询入门</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/search-queries">了解日志查询</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/log-query-overview">日志查询门户</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/query-language">日志查询语言参考</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/cross-workspace-query">跨资源查询</a><br/>
+                                                            <a href="/azure-monitor/log-query/get-started-queries">查询入门</a><br/>
+                                                            <a href="/azure-monitor/log-query/search-queries">了解日志查询</a><br/>
+                                                            <a href="/azure-monitor/log-query/log-query-overview">日志查询门户</a><br/>
+                                                            <a href="/azure-monitor/log-query/query-language">日志查询语言参考</a><br/>
+                                                            <a href="/azure-monitor/log-query/cross-workspace-query">跨资源查询</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>事件响应</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/alerts-overview">警报概述</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/autoscale-overview">自动缩放</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">日志警报</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">活动日志警报</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/action-groups">操作组</a><br/>
+                                                            <a href="/azure-monitor/platform/alerts-overview">警报概述</a><br/>
+                                                            <a href="/azure-monitor/platform/autoscale-overview">自动缩放</a><br/>
+                                                            <a href="/azure-monitor/platform/alerts-unified-log">日志警报</a><br/>
+                                                            <a href="/azure-monitor/platform/alerts-activity-log">活动日志警报</a><br/>
+                                                            <a href="/azure-monitor/platform/action-groups">操作组</a><br/>
                                                         </p>
                                                     </div>
                                                 </div>

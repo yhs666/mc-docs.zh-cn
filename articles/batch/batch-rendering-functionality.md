@@ -8,12 +8,12 @@ ms.author: v-junlch
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9b0b132313ceaea8ee18072ebe96a838ba0912e9
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 85cac746f494aa7b66bbd809a5378983863c043c
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330359"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528194"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 的渲染功能
 
@@ -27,7 +27,7 @@ ms.locfileid: "71330359"
 
 如果只需使用预装的应用程序，则可以在池配置中指定 Azure 市场渲染 VM 映像。
 
-有一个 Windows 2016 映像和一个 CentOS 映像。  在 [Azure 市场](https://azuremarketplace.microsoft.com)中，可以通过搜索“batch 渲染”找到 VM 映像。
+有一个 Windows 2016 映像和一个 CentOS 映像。  在 [Azure 市场](https://market.azure.cn/)中，可以通过搜索“batch 渲染”找到 VM 映像。
 
 有关示例池配置，请参阅 [Azure CLI 渲染教程](/batch/tutorial-rendering-cli)。  Azure 门户和 Batch Explorer 提供了 GUI 工具用于在创建池时选择渲染 VM 映像。  如果使用 Batch API，请在创建池时，为 [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) 指定以下属性值：
 
@@ -50,7 +50,7 @@ ms.locfileid: "71330359"
 需在池配置中指定要使用的并且会产生许可费的应用程序。
 
 * [创建池](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)时指定 `applicationLicenses` 属性。  可在字符串数组中指定以下值 -“vray”、“arnold”、“3dsmax”、“maya”。
-* 指定一个或多个应用程序时，这些应用程序的费用将与 VM 费用相加。  [Azure Batch 定价页面](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering)上列出了应用程序价格。
+* 指定一个或多个应用程序时，这些应用程序的费用将与 VM 费用相加。  [Azure Batch 定价页面](https://www.azure.cn/pricing/details/batch/#graphic-rendering)上列出了应用程序价格。
 
 > [!NOTE]
 > 若改为通过连接到许可证服务器来使用渲染应用程序，则不要指定 `applicationLicenses` 属性。

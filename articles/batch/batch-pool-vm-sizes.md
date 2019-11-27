@@ -15,12 +15,12 @@ origin.date: 09/12/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 9cb749d43f4b6e309cdbc8a671e289924591b072
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1147200b740fb6d31734a1cd7f9bbb6d11509e73
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330363"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528333"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -87,7 +87,7 @@ ms.locfileid: "71330363"
 
 * **不同任务的负载级别** - 池中的所有节点都是相同大小。 如果打算运行具有不同系统要求和/或负载级别的应用程序，建议使用不同的池。 
 
-* **区域可用性** - 某个 VM 系列或大小在创建 Batch 帐户的区域中可能无法使用。 若要检查大小是否可用，请参阅[可用产品（按区域）](https://www.azure.cn/support/service-dashboard/)。
+* **区域可用性** - 某个 VM 系列或大小在创建 Batch 帐户的区域中可能无法使用。 若要检查大小是否可用，请参阅[可用产品（按区域）](https://status.azure.com/zh-cn/status)。
 
 * **配额** - Batch 帐户中的[核心配额](batch-quota-limit.md#resource-quotas)会限制可添加到 Batch 池的给定大小的节点数。 若要请求增加配额，请参阅[此文](batch-quota-limit.md#increase-a-quota)。 
 

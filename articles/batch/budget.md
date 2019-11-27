@@ -11,12 +11,12 @@ ms.workload: big-compute
 origin.date: 08/26/2019
 ms.date: 07/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d55b39d67acd444d7ec2df5586039702a5cfa8e7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: dea4448a1a8d694155be854deb02f40530d73e7e
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330078"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527971"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Azure Batch 的成本分析和预算
 
@@ -42,7 +42,7 @@ Batch 池使用网络资源。 具体而言，对于 **VirtualMachineConfigurati
 - 虚拟网络
 - 包含图形应用程序的 VM
 
-根据在 Batch 解决方案中使用的服务，可能会产生额外的费用。 请参阅[定价计算器](https://azure.microsoft.com/pricing/calculator/)来确定每个附加服务的成本。
+根据在 Batch 解决方案中使用的服务，可能会产生额外的费用。 请参阅[定价计算器](https://www.azure.cn/pricing/calculator/)来确定每个附加服务的成本。
 
 ## <a name="cost-analysis-and-budget-for-a-pool"></a>池的成本分析和预算
 

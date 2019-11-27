@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/15/2019
 ms.date: 09/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 188524c583f0a31b470dcd84824f4a947ab509cb
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 4593a313d44434ce623ffe8a7df13d79664a2c1b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330006"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528325"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何通过 Ruby 使用服务总线主题和订阅
  
@@ -178,7 +178,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
 - 请参阅[队列、主题和订阅](./service-bus-queues-topics-subscriptions.md)。
-- [SqlFilter](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter)的 API 参考。
+- [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter)的 API 参考。
 - 访问 GitHub 上的 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 存储库。
 
 [Azure portal]: https://portal.azure.cn

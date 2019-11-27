@@ -8,12 +8,12 @@ author: axisc
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 12711ca7a3175903422ecc6407e1ab9b8c3c1ef3
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 18b1c8c5cec1068e2fa2cfbc671aafa77e16c14e
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041384"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528332"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>使用 Azure Active Directory 对应用程序进行身份验证和授权，使之能够访问 Azure 服务总线实体
 Azure 服务总线支持使用 Azure Active Directory (Azure AD) 授权对服务总线实体（队列、主题、订阅或筛选器）的请求。 可以通过 Azure AD 使用基于角色的访问控制 (RBAC) 授予对服务主体的访问权限，该服务主体可能是用户、组或应用程序服务主体。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../
 > [!NOTE]
 > 下面介绍的步骤为服务总线命名空间分配一个角色。 可以按照相同的步骤向其他受支持的范围（资源组、订阅等）分配角色。
 
-1. 在 [Azure 门户](https://portal.azure.com/)中，导航到你的服务总线命名空间。 选择左侧菜单上的“访问控制(标识和访问管理)”，显示命名空间的访问控制设置  。 如果需要创建服务总线命名空间，请按此文中的说明操作：[创建服务总线消息传送命名空间](service-bus-create-namespace-portal.md)。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，导航到你的服务总线命名空间。 选择左侧菜单上的“访问控制(标识和访问管理)”，显示命名空间的访问控制设置  。 如果需要创建服务总线命名空间，请按此文中的说明操作：[创建服务总线消息传送命名空间](service-bus-create-namespace-portal.md)。
 
     ![在左侧菜单中选择“访问控制”](./media/authenticate-application/select-access-control-menu.png)
 1. 选择“角色分配”  选项卡以查看角色分配列表。 在工具栏上选择“添加”按钮，然后选择“添加角色分配”。   
@@ -94,7 +94,7 @@ Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../
 有关 OAuth 2.0 代码授权流的概述，请参阅[使用 OAuth 2.0 代码授权流来授权访问 Azure Active Directory Web 应用程序](../active-directory/develop/v2-oauth2-auth-code-flow.md)。
 
 ### <a name="register-your-application-with-an-azure-ad-tenant"></a>将应用程序注册到 Azure AD 租户
-使用 Azure AD 授权访问服务总线实体的第一步是，通过 [Azure 门户](https://portal.azure.com/)在 Azure AD 租户中注册客户端应用程序。 注册客户端应用程序时，需要向 AD 提供关于应用程序的信息。 Azure AD 随后会提供客户端 ID（也称为应用程序 ID）。在运行时，可以使用该 ID 将应用程序与 Azure AD 关联。 若要详细了解客户端 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 
+使用 Azure AD 授权访问服务总线实体的第一步是，通过 [Azure 门户](https://portal.azure.cn/)在 Azure AD 租户中注册客户端应用程序。 注册客户端应用程序时，需要向 AD 提供关于应用程序的信息。 Azure AD 随后会提供客户端 ID（也称为应用程序 ID）。在运行时，可以使用该 ID 将应用程序与 Azure AD 关联。 若要详细了解客户端 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 
 
 下图显示了注册 Web 应用程序的步骤：
 
@@ -126,7 +126,7 @@ Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../
     ![客户端机密](./media/authenticate-application/client-secret.png)
 
 ### <a name="permissions-for-the-service-bus-api"></a>服务总线 API 的权限
-如果应用程序是一个控制台应用程序，则必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。  本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目标。 对于此示例请使用 `https://servicebus.microsoft.com`，因为示例代码已使用了该 URI。
+如果应用程序是一个控制台应用程序，则必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。  本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目标。 对于此示例请使用 `https://servicebus.chinacloudapi.cn`，因为示例代码已使用了该 URI。
 
 ### <a name="client-libraries-for-token-acquisition"></a>用于获取令牌的客户端库  
 注册应用程序并向其授予在 Azure 服务总线发送/接收数据的权限后，可将代码添加到应用程序，以便对安全主体进行身份验证并获取 OAuth 2.0 令牌。 若要进行身份验证并获取令牌，可以使用 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)，或者其他支持 OpenID 或 Connect 1.0 的开源库。 然后，应用程序可以使用访问令牌授权针对 Azure 服务总线发出的请求。

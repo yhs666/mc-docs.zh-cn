@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 08/28/2019
 ms.date: 10/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da5814491e2f29f5721ec7a83245adcda16ebb57
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 5957c912476161ca7cd19f136214bf69e0f126cd
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041363"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528262"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>使用共享映像库创建自定义池
 
@@ -78,7 +78,7 @@ ms.locfileid: "73041363"
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>基于一个或多个快照创建映像
 
-若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](/cli/azure/image) 命令。 通过指定 OS 磁盘快照并有选择性地指定一个或多个数据磁盘快照来创建映像。
+若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](/cli/image) 命令。 通过指定 OS 磁盘快照并有选择性地指定一个或多个数据磁盘快照来创建映像。
 
 ### <a name="create-a-shared-image-gallery"></a>创建共享映像库
 

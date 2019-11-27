@@ -9,14 +9,14 @@ ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2019
-ms.date: 09/23/2019
+ms.date: 11/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 647925f352beb0551c5d1ae5c874223fd14d57da
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f45d2633536d48e5c41f8b839c50b624867f2388
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330309"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528027"
 ---
 # <a name="use-firewall-rules"></a>使用防火墙规则
 
@@ -51,7 +51,6 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 > - 与 Azure 事件网格的集成
 > - Azure IoT 中心路由
 > - Azure IoT Device Explorer
-> - Azure 数据资源管理器
 >
 > 以下 Azure 服务必须在虚拟网络中
 > - Azure 应用服务

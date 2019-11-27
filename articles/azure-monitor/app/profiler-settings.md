@@ -9,12 +9,12 @@ ms.reviewer: mbullwin
 origin.date: 08/06/2018
 ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bfbece8179c97d2695b2f34e7b5c302bb57d9463
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 4d51807b4643c32d1d95b04cbc4bc3adf310d189
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73729967"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528365"
 ---
 # <a name="configure-application-insights-profiler"></a>配置 Application Insights Profiler
 
@@ -44,7 +44,7 @@ ms.locfileid: "73729967"
 ## <a name="profile-now"></a>立即探查
 使用此选项可以按需启动探查会话。 单击此链接时，向此 Application Insights 实例发送数据的所有 Profiler 代理将开始捕获探查数据。 5 到 10 分钟后，探查会话将显示在下面的列表中。
 
-用户若要手动触发 Profiler 会话，他们至少需要对其 Application Insights 组件角色具有“写入”访问权限。 在大多数情况下，可以自动获得此访问权限，不需要额外的工作。 如果遇到问题，则要添加的订阅范围角色将是“Application Insights 组件参与者”角色。 [详细了解如何使用 Azure 监视进行角色访问控制](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control)。
+用户若要手动触发 Profiler 会话，他们至少需要对其 Application Insights 组件角色具有“写入”访问权限。 在大多数情况下，可以自动获得此访问权限，不需要额外的工作。 如果遇到问题，则要添加的订阅范围角色将是“Application Insights 组件参与者”角色。 [详细了解如何使用 Azure 监视进行角色访问控制](/azure-monitor/app/resources-roles-access-control)。
 
 ## <a name="trigger-settings"></a>触发器设置
 ![触发器设置浮出控件][trigger-settings-flyout]

@@ -7,15 +7,15 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 03/14/2019
-ms.date: 09/29/2019
+origin.date: 11/03/2019
+ms.date: 11/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: cb3b0dbed0903a6135f2b779ba522f6c3e0ba714
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: d15c82ca6ffee9c302663b96ae7e0154c2c6d4d8
+ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673591"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74178984"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -31,9 +31,9 @@ ms.locfileid: "71673591"
 
 ## <a name="instances-table"></a>实例表
 
-“实例”表是另一个 Azure 存储表，包含任务中心内所有业务流程实例的状态。  创建实例时，会在此表中添加新行。 此表的分区键是业务流程实例 ID，行键是固定的常量。 每个业务流程实例对应一行。
+“实例”表是另一个 Azure 存储表，包含任务中心内所有业务流程和实体实例的状态。  创建实例时，会在此表中添加新行。 此表的分区键是业务流程实例 ID 或实体键，行键是固定的常量。 每个业务流程或实体实例对应一行。
 
-使用此表可以满足来自 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) 和 `getStatus` (JavaScript) API 以及[状态查询 HTTP API](durable-functions-http-api.md#get-instance-status) 的实例查询请求。 它与前面所述的“历史记录”表内容保持最终一致。  
+使用此表可以满足来自 `GetStatusAsync` (.NET) 和 `getStatus` (JavaScript) API 以及[状态查询 HTTP API](durable-functions-http-api.md#get-instance-status) 的实例查询请求。 它与前面所述的“历史记录”表内容保持最终一致。  
 
 ## <a name="internal-queue-triggers"></a>内部队列触发器
 
@@ -45,7 +45,7 @@ Durable Functions 中的每个任务中心都有一个工作项队列。 它是�
 
 ### <a name="control-queues"></a>控制队列
 
-Durable Functions 中的每个任务中心有多个控制队列。  与较为简单的工作项队列相比，控制队列更加复杂。  控制队列用于触发有状态的业务流程协调程序函数。 由于业务流程协调程序函数实例是有状态的单一实例，无法使用竞争性使用者模型在 VM 之间分配负载。 业务流程协调程序消息会在控制队列之间进行负载均衡。 后续部分将会更详细地介绍此行为。
+Durable Functions 中的每个任务中心有多个控制队列。  与较为简单的工作项队列相比，控制队列更加复杂。  控制队列用于触发有状态的业务流程协调程序和实体函数。 由于业务流程协调程序和实体函数实例是有状态的单一实例，无法使用竞争性使用者模型在 VM 之间分配负载。 业务流程协调程序和实体消息会在控制队列之间进行负载均衡。 后续部分将会更详细地介绍此行为。
 
 控制队列包含各种业务流程生命周期消息类型。 示例包括[业务流程协调程序控制消息](durable-functions-instance-management.md)、活动函数响应消息和计时器消息。  在单次轮询中，最多会从一个控制队列中取消 32 条消息的排队。 这些消息包含有效负载数据以及元数据，包括适用的业务流程实例。 如果将多个取消排队的消息用于同一业务流程实例，将会批处理这些消息。
 
@@ -53,26 +53,30 @@ Durable Functions 中的每个任务中心有多个控制队列。  与较为简
 
 Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮询对存储事务成本造成的影响。 当找到消息时，运行时会立即检查另一条消息；如果未找到消息，它将等待一定的时间，然后重试。 如果后续尝试获取队列消息失败，则等待时间会继续增加，直到达到最长等待时间（默认为 30 秒）。
 
-可以通过 [host.json 文件](../functions-host-json.md#durabletask)中的 `maxQueuePollingInterval` 属性配置最大轮询延迟。 将此项设置为较高的值时，可能导致的消息处理延迟也越高。 只有在不活动的时间段过后，才会出现较高的延迟。 将此项设置为较低的值时，可能导致的存储成本会较高，因为存储事务数增高。
+可以通过 [host.json 文件](../functions-host-json.md#durabletask)中的 `maxQueuePollingInterval` 属性配置最大轮询延迟。 将此属性设置为较高的值时，可能导致的消息处理延迟也越高。 只有在不活动的时间段过后，才会出现较高的延迟。 将此属性设置为较低的值时，可能导致的存储成本会较高，因为存储事务数增高。
 
 > [!NOTE]
 > 在 Azure Functions 消耗计划中运行时，[Azure Functions 缩放控制器](../functions-scale.md#how-the-consumption-plans-work)每隔 10 秒就会轮询每个控件和工作项队列一次。 若要确定何时激活函数应用实例并进行缩放决策，这种额外的轮询是必需的。 在撰写本文时，这种 10 秒的时间间隔为常量，不能进行配置。
 
 ## <a name="storage-account-selection"></a>存储帐户的选择
 
-在配置的 Azure 存储帐户中创建 Durable Functions 使用的队列、表和 Blob。 可以使用 **host.json** 文件中的 `durableTask/azureStorageConnectionStringName` 设置指定要使用的帐户。
+在配置的 Azure 存储帐户中创建 Durable Functions 使用的队列、表和 Blob。 可以使用 **host.json** 文件中的 `durableTask/storageProvider/connectionStringName` 设置（或 Durable Functions 1.x 中的 `durableTask/azureStorageConnectionStringName` 设置指定要使用的帐户。
 
-### <a name="functions-1x"></a>Functions 1.x
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
 ```json
 {
-  "durableTask": {
-    "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  "extensions": {
+    "durableTask": {
+      "storageProvider": {
+        "connectionStringName": "MyStorageAccountAppSetting"
+      }
+    }
   }
 }
 ```
 
-### <a name="functions-2x"></a>Functions 2.x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -88,19 +92,23 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 ## <a name="orchestrator-scale-out"></a>业务流程协调程序横向扩展
 
-活动函数是无状态的，可通过添加 VM 自动进行横向扩展。 另一方面，业务流程协调程序函数已在一个或多个控制队列中分区。  控制队列的数目在 **host.json** 文件中定义。 以下示例 host.json 片段将 `durableTask/partitionCount` 属性设置为 `3`。
+活动函数是无状态的，可通过添加 VM 自动进行横向扩展。 另一方面，业务流程协调程序函数和实体已在一个或多个控制队列中分区。  控制队列的数目在 **host.json** 文件中定义。 以下示例 host.json 片段将 `durableTask/storageProvider/partitionCount` 属性（或 Durable Functions 1.x 中的 `durableTask/partitionCount`）设置为 `3`。
 
-### <a name="functions-1x"></a>Functions 1.x
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
 ```json
 {
-  "durableTask": {
-    "partitionCount": 3
+  "extensions": {
+    "durableTask": {
+      "storageProvider": {
+          "partitionCount": 3
+      }
+    }
   }
 }
 ```
 
-### <a name="functions-2x"></a>Functions 2.x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -114,7 +122,7 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 可将任务中心配置为包含 1 到 16 个分区。 如果未指定分区数，则会使用默认分区数 **4**。
 
-横向扩展到多个函数主机实例（通常在不同的 VM 上）时，每个实例会获取某个控制队列上的锁。 这些锁在内部实现为 Blob 存储租约，确保一个业务流程实例每次只在一个主机实例上运行。 如果为任务中心配置了三个控制队列，则最多可在三个 VM 上对业务流程实例进行负载均衡。 可以添加更多的 VM，以提高活动函数执行容量。
+横向扩展到多个函数主机实例（通常在不同的 VM 上）时，每个实例会获取某个控制队列上的锁。 这些锁在内部实现为 Blob 存储租约，确保一个业务流程实例或实体每次只在一个主机实例上运行。 如果为任务中心配置了三个控制队列，则最多可在三个 VM 上对业务流程实例和实体进行负载均衡。 可以添加更多的 VM，以提高活动函数执行容量。
 
 下图演示了 Azure Functions 主机如何与横向扩展环境中的存储实体交互。
 
@@ -122,9 +130,9 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 如上图所示，所有 VM 都会争用工作项队列中的消息。 但是，只有三个 VM 可从控制队列获取消息，每个 VM 锁定了单个控制队列。
 
-业务流程实例分布在所有控制队列实例之间。 可以通过哈希处理业务流程的实例 ID 来执行分布。 实例 ID 默认是随机的 GUID，确保将实例均匀分布在所有控制队列之间。
+业务流程实例和实体分布在所有控制队列实例之间。 可以通过哈希处理业务流程的实例 ID 或实体的名称和键对来执行分布。 业务流程实例实例 ID 默认是随机的 GUID，确保将实例均匀分布在所有控制队列之间。
 
-一般而言，业务流程协调程序函数是轻量型的，应该不需要大量的计算能力。 因此，无需创建大量的控制队列分区即可获得极佳的吞吐量。 大部分繁重工作应在可无限横向扩展的无状态活动函数中完成。
+一般而言，业务流程协调程序函数是轻量型的，应该不需要大量的计算能力。 因此，无需创建大量的控制队列分区即可获得业务流程的极佳吞吐量。 大部分繁重工作应在可无限横向扩展的无状态活动函数中完成。
 
 ## <a name="auto-scale"></a>自动缩放
 
@@ -138,24 +146,15 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 活动函数的行为与队列触发的正则函数完全相同。 它们可以安全地执行 I/O、执行 CPU 密集型操作和使用多个线程。 由于活动触发器是无状态的，因此可以任意横向扩展到不限数量的 VM。
 
+实体函数也在单个线程上执行，操作是逐个处理的。 但是，实体函数对于可执行的代码类型没有任何限制。
+
 ## <a name="concurrency-throttles"></a>并发限制
 
-Azure Functions 支持在单个应用实例中并发执行多个函数。 这种并发执行有助于提高并行度，将典型的应用在一段时间内遇到的“冷启动”次数减到最少。 但是，高并发性可能导致每个 VM 的内存用量偏高。 根据函数应用的需求，可能有必要限制每个实例的并发性，以免在负载较高的情况下出现内存不足的问题。
+Azure Functions 支持在单个应用实例中并发执行多个函数。 这种并发执行有助于提高并行度，将典型的应用在一段时间内遇到的“冷启动”次数减到最少。 但是，高并发性可能会耗尽每个 VM 的系统资源，例如网络连接或可用内存。 根据函数应用的需求，可能有必要限制每个实例的并发性，以免在负载较高的情况下出现内存不足的问题。
 
-可以在 **host.json** 文件中配置活动函数和业务流程协调程序函数的并发限制。 相关的设置分别为 `durableTask/maxConcurrentActivityFunctions` 和 `durableTask/maxConcurrentOrchestratorFunctions`。
+可以在 **host.json** 文件中配置活动、业务流程协调程序和实体函数的并发限制。 相关的设置为活动函数的 `durableTask/maxConcurrentActivityFunctions`，以及业务流程协调程序和实体函数的 `durableTask/maxConcurrentOrchestratorFunctions`。
 
-### <a name="functions-1x"></a>Functions 1.x
-
-```json
-{
-  "durableTask": {
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10
-  }
-}
-```
-
-### <a name="functions-2x"></a>Functions 2.x
+### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {
@@ -168,30 +167,29 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 }
 ```
 
-在前面的示例中，最多 10 个业务流程协调程序函数和 10 个活动函数可在单个 VM 上并发运行。 如果未指定数量，并发活动函数和业务流程协调程序函数的执行数限制为 VM 上核心数的 10 倍。
-
-> [!NOTE]
-> 这些设置有助于管理单个 VM 上的内存和 CPU 用量。 但是，在跨多个 VM 横向扩展后，每个 VM 有自身的一组限制。 无法使用这些设置来全局控制并发性。
-
-## <a name="orchestrator-function-replay"></a>业务流程协调程序函数重播
-
-如前所述，业务流程协调程序函数是使用“历史记录”表的内容重播的。  默认情况下，每当从控制队列中取消一批消息的排队时，都会重播业务流程协调程序函数代码。
-
-可以通过启用**扩展会话**来禁用这种激进的重播行为。 启用扩展会话后，业务流程协调程序函数实例将在内存中保存更长时间，同时，无需完全重播即可处理新消息。 在 **host.json** 文件中将 `durableTask/extendedSessionsEnabled` 设置为 `true` 即可启用扩展会话。 `durableTask/extendedSessionIdleTimeoutInSeconds` 设置用于控制空闲会话在内存中的保存时间长短：
-
 ### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
-    "extendedSessionsEnabled": true,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "maxConcurrentActivityFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
   }
 }
 ```
 
-### <a name="functions-2x"></a>Functions 2.x
+在前面的示例中，最多 10 个业务流程协调程序或实体函数和 10 个活动函数可在单个 VM 上并发运行。 如果未指定数量，并发活动函数和业务流程协调程序或实体函数的执行数限制为 VM 上核心数的 10 倍。
 
+> [!NOTE]
+> 这些设置有助于管理单个 VM 上的内存和 CPU 用量。 但是，在跨多个 VM 横向扩展后，每个 VM 有自身的一组限制。 无法使用这些设置来全局控制并发性。
+
+## <a name="extended-sessions"></a>扩展会话
+
+扩展会话是一种设置，可将业务流程和实体保留在内存中，即使它们已处理完消息。 启用扩展会话的典型效果是减少针对 Azure 存储帐户的 I/O，并总体提高吞吐量。
+
+可以通过在 **host.json** 文件中将 `durableTask/extendedSessionsEnabled` 设置为 `true` 来启用扩展会话。 `durableTask/extendedSessionIdleTimeoutInSeconds` 设置可用于控制空闲会话在内存中的保存时间长短：
+
+**Functions 2.0**
 ```json
 {
   "extensions": {
@@ -203,17 +201,44 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 }
 ```
 
-启用扩展会话的典型效果是减少针对 Azure 存储帐户的 I/O，并总体提高吞吐量。
+**Functions 1.0**
+```json
+{
+  "durableTask": {
+    "extendedSessionsEnabled": true,
+    "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
 
-但是，此功能的一个潜在弊端是，空闲的业务流程协调程序函数实例将在内存中保留更长时间。 需要注意两点影响：
+需要注意此设置的两个潜在缺点：
 
-1. 函数应用内存用量总体增大。
-2. 如果存在许多并发的且生存期较短的业务流程协调程序函数执行，则吞吐量会总体下降。
+1. 函数应用内存用量会总体增大。
+2. 如果存在许多并发的且生存期较短的业务流程协调程序或实体函数执行，吞吐量可能会总体下降。
 
-例如，如果 `durableTask/extendedSessionIdleTimeoutInSeconds` 设置为 30 秒，则执行时间不超过 1 秒的、生存期较短的业务流程协调程序函数周期仍会占用内存 30 秒。 这种消耗还会计入前面所述的 `durableTask/maxConcurrentOrchestratorFunctions` 配额，从而可能导致其他业务流程协调程序函数无法运行。
+例如，如果 `durableTask/extendedSessionIdleTimeoutInSeconds` 设置为 30 秒，则执行时间不超过 1 秒的、生存期较短的业务流程协调程序或实体函数周期仍会占用内存 30 秒。 这种消耗还会计入前面所述的 `durableTask/maxConcurrentOrchestratorFunctions` 配额，从而可能导致其他业务流程协调程序或实体函数无法运行。
+
+后续部分将描述扩展会话对业务流程协调程序和实体函数的具体影响。
+
+### <a name="orchestrator-function-replay"></a>业务流程协调程序函数重播
+
+如前所述，业务流程协调程序函数是使用“历史记录”表的内容重播的。  默认情况下，每当从控制队列中取消一批消息的排队时，都会重播业务流程协调程序函数代码。 启用扩展会话后，业务流程协调程序函数实例将在内存中保存更长时间，同时，无需重播完整历史记录即可处理新消息。
+
+对于以下情况，往往可以观测到扩展会话对性能的改进：
+
+* 当并发运行的业务流程实例数量有限时。
+* 当业务流程包含大量可快速完成的连续操作（例如数百个活动函数调用）时。
+* 当业务流程扇出和扇入可在大致相同的时间完成的大量操作时。
+* 当业务流程协调程序函数需要处理大型消息或执行任何 CPU 密集型数据处理时。
+
+在所有其他情况下，通常观测不到业务流程协调程序函数有明显的性能改进。
 
 > [!NOTE]
-> 只能在全面开发并测试业务流程协调程序函数之后才使用这些设置。 在开发期间，默认的激进重播行为可用于检测业务流程协调程序函数中的幂等性错误。
+> 只能在全面开发并测试业务流程协调程序函数之后才使用这些设置。 在开发时，默认的激进重播行为可用于检测[业务流程协调程序函数代码约束](durable-functions-code-constraints.md)违规，因此默认已禁用此行为。
+
+### <a name="entity-function-unloading"></a>实体函数卸载
+
+实体函数最多可以处理单个批中的 20 个操作。 实体处理完一批操作后，会保持自身的状态并从内存中卸载。 可以使用扩展会话设置来延迟从内存中卸载实体。 实体继续像以前一样保持其状态更改，但会在内存中保留配置的一段时间，以减少 Azure 存储中的负载数。 Azure 存储中的负载减少可以改善经常访问的实体的总体吞吐量。
 
 ## <a name="performance-targets"></a>性能目标
 
@@ -223,18 +248,20 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 * **并行活动执行**：此方案描述的业务流程协调程序函数使用[扇出扇入](durable-functions-cloud-backup.md)模式并行执行多个活动函数。
 * **并行响应处理**：此方案是[扇出扇入](durable-functions-cloud-backup.md)模式的后半部分。 它侧重于扇入性能。 必须注意，与扇出不同，扇入是由单个业务流程协调程序函数实例执行的，因此只能在单个 VM 上运行。
 * **外部事件处理**：此方案表示一次等待一个[外部事件](durable-functions-external-events.md)的单个业务流程协调程序函数实例。
+* **实体操作处理**：此方案测试单个[计数器实体](durable-functions-entities.md)处理恒定操作流的速度。 
 
 > [!TIP]
 > 与扇出不同，扇入操作限制为单个 VM。 如果应用程序使用扇出扇入模式，并且你关注扇入性能，请考虑在多个[子业务流程](durable-functions-sub-orchestrations.md)之间分割活动函数扇出。
 
 下表显示了前面所述方案的预期最大吞吐量数字。  “实例”是指在 Azure 应用服务中单个小型 ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM 上运行的业务流程协调程序函数的单个实例。 在各种情况下，都假设已启用[扩展会话](#orchestrator-function-replay)。 实际结果可能根据函数代码执行的 CPU 或 I/O 工作而异。
 
-| 方案 | 最大吞吐量 |
+| 场景 | 最大吞吐量 |
 |-|-|
 | 顺序活动执行 | 每个实例每秒 5 个活动 |
 | 并行活动执行（扇出） | 每个实例每秒 100 个活动 |
 | 并行响应处理（扇入） | 每个实例每秒 150 个响应 |
 | 外部事件处理 | 每个实例每秒 50 个事件 |
+| 实体操作处理 | 每秒 64 个操作 |
 
 > [!NOTE]
 > 上述数字是截止 Durable Functions 扩展 v1.4.0（正式版）发布后的最新数字。 随着功能的不断成熟和优化，这些数字今后可能会有变化。

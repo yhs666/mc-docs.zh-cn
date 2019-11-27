@@ -9,12 +9,12 @@ origin.date: 05/20/2019
 ms.date: 03/14/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: cca5a344c65cf8ae969f22ba486412ae1ed01fa5
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 5ac9fa375e9986e57bc8222dfc27479fed96c47b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970629"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528428"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -37,12 +37,6 @@ Alert Logic Log Manager 收集 VM、应用程序和 Azure 平台日志以进行�
 AppDynamics Application Performance Management (APM) 可让应用程序所有者快速针对性能瓶颈进行故障排除，优化 Azure 环境中运行的应用程序的性能。 它可以监视 Azure 云服务 (PaaS)、Web 角色和辅助角色、虚拟机 (IaaS)、远程服务检测（Microsoft Azure 服务总线）、Microsoft Azure 队列、Microsoft Azure 远程服务 (Azure Blob)、Azure 队列（Microsoft 服务总线）、数据存储和 Microsoft Azure Blob 存储。 AppDynamics APM 在 Azure 市场中提供。
 
 [查看相关文档。][appdynamics-doc]
-
-## <a name="microfocus-arcsight"></a>Microfocus ArcSight
-
-ArcSight 为 Azure Monitor 事件中心提供了一个智能连接器。
-
-[了解详细信息。][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 

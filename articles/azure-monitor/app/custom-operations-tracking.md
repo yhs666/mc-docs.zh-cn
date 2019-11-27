@@ -9,12 +9,12 @@ origin.date: 06/30/2017
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 523509da887f411eab67ee03df1642a44acc1852
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 795eb84e679369a97287a629135e324ead133e29
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970870"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528284"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 跟踪自定义操作
 
@@ -351,7 +351,7 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>依赖项类型
 
-Application Insights 使用依赖项类型来自定义 UI 体验。 对于队列，它识别出以下可改善[事务诊断体验](/azure/azure-monitor/app/transaction-diagnostics)的 `DependencyTelemetry` 类型：
+Application Insights 使用依赖项类型来自定义 UI 体验。 对于队列，它识别出以下可改善[事务诊断体验](/azure-monitor/app/transaction-diagnostics)的 `DependencyTelemetry` 类型：
 - `Azure queue` 适用于 Azure 存储队列
 - `Azure Event Hubs` 适用于 Azure 事件中心
 - `Azure Service Bus` 适用于 Azure 服务总线

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/02/2019
 ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d7578c045ca2aa41367b8fdfa20235b0c3687552
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 93eec5279b075a3f4addffdc6f5c703683f6a6e7
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730470"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528391"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
@@ -219,7 +219,7 @@ ms.locfileid: "73730470"
            "USGov Virginia" { 
                              $domain='login.partner.microsoftonline.cn';
                               $authority = "https://login.chinacloudapi.cn/$adTenant";
-                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
+                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # China Gov Virginia
            default {
                     $domain='login.partner.microsoftonline.cn'; 
                     $authority = "https://login.chinacloudapi.cn/$adTenant";
@@ -423,7 +423,7 @@ At line:12 char:18
            "USGov Virginia" { 
                              $domain='login.partner.microsoftonline.cn';
                               $authority = "https://login.chinacloudapi.cn/$adTenant";
-                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
+                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # China Gov Virginia
            default {
                     $domain='login.partner.microsoftonline.cn'; 
                     $authority = "https://login.chinacloudapi.cn/$adTenant";

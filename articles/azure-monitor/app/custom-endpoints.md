@@ -8,14 +8,14 @@ author: lingliw
 origin.date: 05/25/2019
 ms.date: 07/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3a9d00aefe81ca92cda30560b67204ff9fb4e9c1
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: c8f2722eda4d2a90343b483f1e466fd9c2f39dbb
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970916"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528288"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>替代默认终结点的 Application Insights
+# <a name="application-insights-overriding-default-endpoints"></a>替代默认终结点的 Application Insights
 
 若要将 Application Insights 中的数据发送到某些区域，需要替代默认终结点地址。 每个 SDK 都需要进行稍有不同的修改，本文将对所有这些修改进行说明。 这些更改需要调整示例代码，并将 `QuickPulse_Endpoint_Address`、`TelemetryChannel_Endpoint_Address` 和 `Profile_Query_Endpoint_address` 的占位符值替换为特定区域的实际终结点地址。 本文末尾包含指向需要此配置的区域的终结点地址的链接。
 

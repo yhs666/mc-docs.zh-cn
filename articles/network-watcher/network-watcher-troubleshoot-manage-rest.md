@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: d1049caa797e71da02dc2b4938f4bb62ed1e236d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3b44e267c0ba4b4dd041560edc22b25f87c81d62
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649506"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528389"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 
@@ -34,8 +34,8 @@ ms.locfileid: "52649506"
 
 本文逐步讲解如何完成当前可用于资源故障排除的不同管理任务。
 
-- [排查虚拟网络网关问题](#troubleshoot-a-virtual-network-gateway)
-- [排查连接问题](#troubleshoot-connections)
+- [排查虚拟网络网关问题](#troubleshoot-a-virtual-network-gateway) 
+- [排查连接问题](#troubleshoot-connections) 
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -160,7 +160,7 @@ armclient get "https://management.chinacloudapi.cn/subscriptions/00000000-0000-0
         },
         {
           "actionText": "If your VPN gateway isn't up and running by the expected resolution time, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://support.azure.cn/zh-cn/support/contact/",
           "actionUriText": "contact support"
         }
       ]
@@ -177,7 +177,7 @@ armclient get "https://management.chinacloudapi.cn/subscriptions/00000000-0000-0
         },
         {
           "actionText": "If you are experiencing problems you believe are caused by Azure, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://support.azure.cn/zh-cn/support/contact/",
           "actionUriText": "contact support"
         }
       ]
@@ -293,7 +293,7 @@ is a transient state while the Azure platform is being updated.",
         },
         {
           "actionText": "If your VPN Connection isn't up and running by the expected resolution time, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://support.azure.cn/zh-cn/support/contact/",
           "actionUriText": "contact support"
         }
       ]
@@ -310,7 +310,7 @@ is a transient state while the Azure platform is being updated.",
         },
         {
           "actionText": "If you are experiencing problems you believe are caused by Azure, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://support.azure.cn/zh-cn/support/contact/",
           "actionUriText": "contact support"
         }
       ]

@@ -9,12 +9,12 @@ origin.date: 03/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 64969b4b0373d7009be25db88ce7e922c90b5ca0
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8e965904dcd54832800f8a5499e475c5f7b9a585
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330094"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528221"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>使用 PowerShell 备份 Azure VM
 
@@ -33,11 +33,10 @@ ms.locfileid: "71330094"
 > [!IMPORTANT]
 > 本教程假定已创建资源组和 Azure 虚拟机。
 
+## <a name="sign-in-and-register"></a>登录和注册
 
-## <a name="log-in-and-register"></a>登录和注册
 
-
-1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+1. 运行 `Connect-AzAccount -Environment AzureChinaCloud` 命令以登录 Azure 订阅，并按照屏幕上的说明操作。
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
@@ -48,14 +47,12 @@ ms.locfileid: "71330094"
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
 [恢复服务保管库](backup-azure-recovery-services-vault-overview.md)是一个逻辑容器，用于存储受保护资源（例如 Azure VM）的备份数据。 运行备份作业时，该作业会在恢复服务保管库中创建一个恢复点。 然后，可以使用其中一个恢复点将数据还原到给定的时间点。
 
-
-- 在本教程中，会在与要备份的 VM 相同的资源组和位置中创建保管库。
-- Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
+* 在本教程中，会在与要备份的 VM 相同的资源组和位置中创建保管库。
+* Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
 
 按如下所述创建保管库：
 
@@ -72,8 +69,8 @@ ms.locfileid: "71330094"
     
 3. 使用 [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext) 设置保管库上下文。
 
-   - 保管库上下文是在保管库中受保护的数据的类型。
-   - 设置上下文后，它将应用于所有后续 cmdlet
+   * 保管库上下文是在保管库中受保护的数据的类型。
+   * 设置上下文后，它将应用于所有后续 cmdlet
 
      ```powershell
      Get-AzRecoveryServicesVault -Name "myRSVault" | Set-AzRecoveryServicesVaultContext
@@ -83,17 +80,17 @@ ms.locfileid: "71330094"
 
 备份会根据备份策略中指定的计划来运行。 在创建恢复服务保管库时，它附带了默认的保护和保留策略。
 
-- 默认保护策略在一天的指定时间触发备份作业。
-- 默认保留策略将每日恢复点保留 30 天。 
+* 默认保护策略在一天的指定时间触发备份作业。
+* 默认保留策略将每日恢复点保留 30 天。
 
 为了在本教程中启用和备份 Azure VM，我们执行以下操作：
 
 1. 使用 [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer) 指定保管库中保存备份数据的容器。
 2. 进行备份的每个 VM 都是一个项目。 若要启动备份作业，请使用 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 获取有关 VM 的信息。
-3. 使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 运行临时备份。 
-    - 第一个初始备份作业会创建一个完整恢复点。
-    - 初始备份之后，每个备份作业都会创建增量恢复点。
-    - 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
+3. 使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 运行按需备份。
+    * 第一个初始备份作业会创建一个完整恢复点。
+    * 初始备份之后，每个备份作业都会创建增量恢复点。
+    * 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
 
 启用并运行备份，如下所示：
 
@@ -103,14 +100,13 @@ $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadTyp
 $job = Backup-AzRecoveryServicesBackupItem -Item $item
 ```
 
-## <a name="troubleshooting"></a>故障排除 
+## <a name="troubleshooting"></a>故障排除
 
 如果在备份虚拟机时遇到问题，请参阅此[故障排除文章](backup-azure-vms-troubleshoot.md)。
 
 ### <a name="deleting-a-recovery-services-vault"></a>删除恢复服务保管库
 
 如果需要删除保管库，请首先删除保管库中的恢复点，然后将保管库取消注册，如下所示：
-
 
 ```powershell
 $Cont = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
@@ -122,8 +118,8 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 
 ## <a name="next-steps"></a>后续步骤
 
-- [查看](backup-azure-vms-automation.md)使用 PowerShell 备份和还原 Azure VM 的更详细演练。 
-- [管理和监视 Azure VM](backup-azure-manage-vms.md)
-- [还原 Azure VM](backup-azure-arm-restore-vms.md)
+* [查看](backup-azure-vms-automation.md)使用 PowerShell 备份和还原 Azure VM 的更详细演练。
+* [管理和监视 Azure VM](backup-azure-manage-vms.md)
+* [还原 Azure VM](backup-azure-arm-restore-vms.md)
 
 <!-- Update_Description: update metedata properties -->
