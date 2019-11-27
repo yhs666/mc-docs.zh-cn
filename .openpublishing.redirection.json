@@ -17668,8 +17668,47 @@
       "source_path": "articles/load-balancer/load-balancer-outbound-connections-classic.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-deploy-spring-boot-web-app-on-azure.md",
+      "redirect_url": "https://docs.microsoft.com//java/spring-framework/deploy-spring-boot-java-web-app-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-deploy-spring-boot-app-with-maven-plugin.md",
+      "redirect_url": "https://docs.microsoft.com//java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-security-attributes.md",
+      "redirect_url": "/app-service/app-service-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/environment/index.md",
+      "redirect_url": "/app-service/environment/intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nodejs-specify-node-version-azure-apps.md",
+      "redirect_url": "/app-service/containers/app-service-linux-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-java-add-app.md",
+      "redirect_url": "/app-service/app-service-web-get-started-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
+      "redirect_url": "/app-service/containers/tutorial-java-spring-cosmosdb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-jre-support.md",
+      "redirect_url": "/app-service/configure-language-java",
+      "redirect_document_id": false
     }
-
   ]
 }
 
