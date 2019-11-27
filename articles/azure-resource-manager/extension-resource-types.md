@@ -4,12 +4,12 @@ description: 列出用于扩展其他资源类型的功能的 Azure 资源类型
 ms.topic: conceptual
 origin.date: 10/24/2019
 ms.date: 11/25/2019
-ms.openlocfilehash: 45b97832a1de25b4fa3be8d09e93d4770c42b775
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: bba8ce4da8b51949fd6db0ebc2a00acf2aedbec1
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203684"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389415"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>用于扩展其他资源的功能的资源类型
 
@@ -31,48 +31,14 @@ ms.locfileid: "74203684"
 - Microsoft.Authorization/policySetDefinitions
 - Microsoft.Authorization/roleAssignments
 - Microsoft.Authorization/roleDefinitions
-- Microsoft.Billing/billingPeriods
-- Microsoft.Billing/billingPermissions
-- Microsoft.Billing/billingRoleAssignments
-- Microsoft.Billing/billingRoleDefinitions
-- Microsoft.Billing/createBillingRoleAssignment
-- Microsoft.Blueprint/blueprintAssignments
-- Microsoft.Blueprint/blueprints
-- Microsoft.Consumption/AggregatedCost
-- Microsoft.Consumption/Balances
-- Microsoft.Consumption/Budgets
-- Microsoft.Consumption/Charges
-- Microsoft.Consumption/CostTags
-- Microsoft.Consumption/Forecasts
-- Microsoft.Consumption/Marketplaces
-- Microsoft.Consumption/OperationResults
-- Microsoft.Consumption/OperationStatus
-- Microsoft.Consumption/Pricesheets
-- Microsoft.Consumption/ReservationDetails
-- Microsoft.Consumption/ReservationRecommendations
-- Microsoft.Consumption/ReservationSummaries
-- Microsoft.Consumption/ReservationTransactions
-- Microsoft.Consumption/Tags
-- Microsoft.Consumption/Terms
-- Microsoft.Consumption/UsageDetails
-- Microsoft.Consumption/credits
-- Microsoft.Consumption/events
-- Microsoft.Consumption/lots
-- Microsoft.Consumption/products
-- Microsoft.Consumption/tenants
-- Microsoft.ContainerInstance/serviceAssociationLinks
-- Microsoft.CostManagement/Alerts
-- Microsoft.CostManagement/Budgets
-- Microsoft.CostManagement/Dimensions
-- Microsoft.CostManagement/Exports
-- Microsoft.CostManagement/ExternalSubscriptions
-- Microsoft.CostManagement/Forecast
-- Microsoft.CostManagement/Query
-- Microsoft.CostManagement/Reportconfigs
-- Microsoft.CostManagement/Reports
-- Microsoft.CostManagement/Views
-- Microsoft.CostManagement/showbackRules
-- Microsoft.CustomProviders/associations
+
+    <!--Not Available on - Microsoft.Billing/*-->
+    <!--Not Available on - Microsoft.Blueprint/*-->
+    <!--Not Available on - Microsoft.Consumption/*-->
+    <!--Not Available on - Microsoft.ContainerInstance/*-->
+    <!--Not Available on - Microsoft.CostManagement/*-->
+    <!--Not Available on - Microsoft.CustomProviders/*-->
+    
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
 - Microsoft.GuestConfiguration/configurationProfileAssignments
@@ -96,13 +62,14 @@ ms.locfileid: "74203684"
 - microsoft.insights/metrics
 - microsoft.insights/myWorkbooks
 - microsoft.insights/vmInsightsOnboardingStatuses
-- Microsoft.KubernetesConfiguration/sourceControlConfigurations
-- Microsoft.Maintenance/applyUpdates
-- Microsoft.Maintenance/configurationAssignments
-- Microsoft.Maintenance/updates
+    
+    <!--Not Available on - Microsoft.KubernetesConfiguration/*-->
+    <!--Not Available on - Microsoft.Maintenance/*-->
+    
 - Microsoft.ManagedIdentity/Identities
-- Microsoft.ManagedServices/registrationAssignments
-- Microsoft.ManagedServices/registrationDefinitions
+
+    <!--Not Available on - Microsoft.ManagedServices/*-->
+    
 - Microsoft.OperationalInsights/storageInsightConfigs
 - Microsoft.OperationsManagement/managementassociations
 - Microsoft.PolicyInsights/policyEvents
@@ -130,24 +97,12 @@ ms.locfileid: "74203684"
 - Microsoft.Security/deviceSecurityGroups
 - Microsoft.Security/networkData
 - Microsoft.Security/serverVulnerabilityAssessments
-- Microsoft.SecurityInsights/aggregations
-- Microsoft.SecurityInsights/alertRuleTemplates
-- Microsoft.SecurityInsights/alertRules
-- Microsoft.SecurityInsights/bookmarks
-- Microsoft.SecurityInsights/cases
-- Microsoft.SecurityInsights/dataConnectors
-- Microsoft.SecurityInsights/entities
-- Microsoft.SecurityInsights/entityQueries
-- Microsoft.SecurityInsights/officeConsents
-- Microsoft.SecurityInsights/settings
-- Microsoft.SoftwarePlan/hybridUseBenefits
-- Microsoft.Subscription/CreateSubscription
-- microsoft.support/createsupportticket
-- microsoft.support/supporttickets
-- Microsoft.WorkloadMonitor/components
-- Microsoft.WorkloadMonitor/monitorInstances
-- Microsoft.WorkloadMonitor/monitors
-- Microsoft.WorkloadMonitor/notificationSettings
+
+    <!--Not Available on - Microsoft.SecurityInsights/*-->
+    <!--Not Available on - Microsoft.SoftwarePlan/*-->
+    <!--Not Available on - Microsoft.Subscription/*-->
+    <!--Not Available on - microsoft.support/*-->
+    <!--Not Available on - Microsoft.WorkloadMonitor/*-->
 
 ## <a name="next-steps"></a>后续步骤
 

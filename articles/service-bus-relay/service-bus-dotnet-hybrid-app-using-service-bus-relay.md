@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 11/01/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ec1f7b41268433eb1a1def05fd7875d99c8bf58f
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 6ca981f49a1cf80f502b676b96177c7685e3b0ce
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169635"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527961"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务 
 本文演示如何使用 Azure 和 Visual Studio 生成混合云应用程序。 创建一个使用多个 Azure 资源的应用程序，让其在云中启动并运行。
@@ -43,8 +43,8 @@ ms.locfileid: "70169635"
 
 若要完成本教程，需要满足以下先决条件：
 
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://azure.microsoft.com/free/)。
-- [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017。
+- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- [Visual Studio 2015 或更高版本](https://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017。
 - 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://azure.microsoft.com/downloads/)安装它。
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Azure 中继功能将为混合解决方案带来哪些帮助
@@ -66,7 +66,7 @@ ms.locfileid: "70169635"
 在开始开发 Azure 应用程序之前，需要下载工具并设置开发环境：
 
 1. 从 SDK [下载页](https://www.azure.cn/downloads/)安装用于 .NET 的 Azure SDK。
-2. 在“.NET”  列中，单击要使用的 [Visual Studio](http://www.visualstudio.com) 版本。 本教程中的步骤使用 Visual Studio 2017。
+2. 在“.NET”  列中，单击要使用的 [Visual Studio](https://www.visualstudio.com) 版本。 本教程中的步骤使用 Visual Studio 2017。
 3. 当提示是要运行还是保存安装程序时，单击“运行”  。
 4. 在“Web 平台安装程序”  中，单击“安装”  ，并继续安装。
 5. 安装完成后，就有了开始开发应用所需的一切。 SDK 包含了一些工具，可利用这些工具在 Visual Studio 中轻松开发 Azure 应用程序。
@@ -86,7 +86,7 @@ ms.locfileid: "70169635"
 
    ![“新建项目”对话框][11]
 4. 单击“确定”  创建“ProductsServer”  项目。
-5. 如果已为 Visual Studio 安装 NuGet 包管理器，请跳到下一步骤。 否则，请访问 [NuGet][NuGet]，然后单击[安装 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示操作以安装 NuGet 包管理器，然后重启 Visual Studio。
+5. 如果已为 Visual Studio 安装 NuGet 包管理器，请跳到下一步骤。 否则，请访问 [NuGet][NuGet]，然后单击[安装 NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示操作以安装 NuGet 包管理器，然后重启 Visual Studio。
 6. 在解决方案资源管理器中，右键单击“ProductsServer”  项目，然后单击“管理 NuGet 程序包”  。
 7. 单击“浏览”  选项卡，然后搜索“WindowsAzure.ServiceBus”  。 选择“WindowsAzure.ServiceBus”包  。
 8. 单击“安装”  并接受使用条款。
@@ -186,7 +186,7 @@ ms.locfileid: "70169635"
         }
     }
     ```
-12. 在“解决方案资源管理器”中，双击“App.config”  文件以在 Visual Studio 编辑器中将其打开。 在 `<system.ServiceModel>` 元素的底部（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码：确保将 yourServiceNamespace 替换为命名空间的名称，并将 *yourKey* 替换为之前从门户中检索到的 SAS 密钥：
+12. 在“解决方案资源管理器”中，双击“App.config”  文件以在 Visual Studio 编辑器中将其打开。 在 `<system.ServiceModel>` 元素的底部（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码：确保将 *yourServiceNamespace* 替换为命名空间的名称，并将 *yourKey* 替换为之前从门户中检索到的 SAS 密钥：
 
     ```xml
     <system.serviceModel>
@@ -349,7 +349,7 @@ ms.locfileid: "70169635"
 
    ![添加为链接][24]
 
-6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：确保将 yourServiceNamespace 替换为你的服务命名空间的名称，并将 *yourKey* 替换为你的 SAS 密钥。 这会使客户端能够调用本地服务，并返回调用的结果。
+6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：确保将 *yourServiceNamespace* 替换为你的服务命名空间的名称，并将 *yourKey* 替换为你的 SAS 密钥。 这会使客户端能够调用本地服务，并返回调用的结果。
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -437,7 +437,7 @@ ms.locfileid: "70169635"
 
 1. 在 Visual Studio 中，右键单击“ProductsPortal”项目，然后单击“属性”   。
 2. 在左侧列中，单击“Web”  。
-3. 在“启动操作”  部分中，单击“启动 URL”  按钮，然后在文本框中输入先前部署的 Web 应用的 URL；例如 `http://productsportal1234567890.chinacloudsites.cn/`。
+3. 在“启动操作”  部分中，单击“启动 URL”  按钮，然后在文本框中输入先前部署的 Web 应用的 URL；例如 `https://productsportal1234567890.chinacloudsites.cn/`。
 
     ![启动 URL][27]
 
