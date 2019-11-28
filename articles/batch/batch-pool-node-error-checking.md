@@ -8,12 +8,12 @@ ms.author: markscu
 origin.date: 08/23/2019
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: e40b26957376a831cf04bb40ee6e7fbdfa0d20da
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 43acf1db8c1962b38e81181e8042b0eda6ef050e
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330367"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528334"
 ---
 # <a name="check-for-pool-and-node-errors"></a>检查池和节点错误
 
@@ -37,17 +37,17 @@ ms.locfileid: "71330367"
   - 在大多数情况下，默认超时 15 分钟已足够长，在此期限内可以完成池节点的分配或删除。
   - 若要分配大量的节点，我们建议将大小调整超时设置为 30 分钟。 例如，要在 Azure 市场映像中将大小调整为 1,000 个以上的节点，或者在自定义 VM 映像中将大小调整为 300 个以上的节点时。
 - 核心配额不足
-  - Batch 帐户在所有池中可分配的核心数有限制。 一旦达到该配额，Batch 就会停止分配节点。 [可以提高](https://docs.microsoft.com/azure/batch/batch-quota-limit)核心配额，使 Batch 能够分配更多的节点。
-- 当[池处于虚拟网络](https://docs.microsoft.com/azure/batch/batch-virtual-network)，子网 IP 不足
+  - Batch 帐户在所有池中可分配的核心数有限制。 一旦达到该配额，Batch 就会停止分配节点。 [可以提高](/batch/batch-quota-limit)核心配额，使 Batch 能够分配更多的节点。
+- 当[池处于虚拟网络](/batch/batch-virtual-network)，子网 IP 不足
   - 虚拟网络子网必须能够提供可分配到每个请求的池节点的、尚未分配的足够 IP 地址。 否则无法创建节点。
-- 当[池处于虚拟网络](https://docs.microsoft.com/azure/batch/batch-virtual-network)，资源不足
+- 当[池处于虚拟网络](/batch/batch-virtual-network)，资源不足
   - 你可能会在 Batch 帐户所在的同一订阅中创建负载均衡器、公共 IP 和网络安全组等资源。 请检查这些资源的订阅配额是否足够。
 - 使用自定义 VM 映像的大型池
-  - 使用自定义 VM 映像的大型池可能需要更长的时间进行分配，并且可能发生大小调整超时。  有关限制和配置的建议，请参阅[使用自定义映像创建虚拟机池](https://docs.microsoft.com/azure/batch/batch-custom-images)。
+  - 使用自定义 VM 映像的大型池可能需要更长的时间进行分配，并且可能发生大小调整超时。  有关限制和配置的建议，请参阅[使用自定义映像创建虚拟机池](/batch/batch-custom-images)。
 
 ### <a name="automatic-scaling-failures"></a>自动缩放功能
 
-也可以将 Azure Batch 设置为自动缩放池中的节点数。 定义[池自动缩放公式](https://docs.microsoft.com/azure/batch/batch-automatic-scaling)的参数。 Batch 服务使用该公式定期评估池中的节点数，并设置新的目标数。 可能会发生以下类型问题：
+也可以将 Azure Batch 设置为自动缩放池中的节点数。 定义[池自动缩放公式](/batch/batch-automatic-scaling)的参数。 Batch 服务使用该公式定期评估池中的节点数，并设置新的目标数。 可能会发生以下类型问题：
 
 - 自动缩放评估失败。
 - 生成的大小调整操作失败和超时。
@@ -55,7 +55,7 @@ ms.locfileid: "71330367"
 
 可以使用 [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) 属性获取有关上次自动缩放评估的信息。 此属性将报告评估时间、值和结果，以及任何性能错误。
 
-[池大小调整完成事件](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)捕获有关所有评估的信息。
+[池大小调整完成事件](/batch/batch-pool-resize-complete-event)捕获有关所有评估的信息。
 
 ### <a name="delete"></a>Delete
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 09/06/2019
 ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 81f2eee06df11cb2d4be2cb94f65297327256967
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 39861fece9e9595a9da069335c983e73a473e9c5
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179034"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389511"
 ---
 # <a name="what-is-custom-speech"></a>什么是自定义语音？
 
@@ -30,7 +30,7 @@ ms.locfileid: "74179034"
 
 ![突出显示组成自定义语音门户的不同组件。](./media/custom-speech/custom-speech-overview.png)
 
-1. [订阅和创建项目](#set-up-your-azure-account) - 创建 Azure 帐户并订阅语音服务。 使用此统一订阅可以访问语音转文本、文本转语音、语音翻译和[自定义语音门户](https://chinaeast2.cris.azure.cn/Home/CustomSpeech)。 然后，可以使用语音服务订阅创建第一个自定义语音项目。
+1. [订阅和创建项目](#set-up-your-azure-account) - 创建 Azure 帐户并订阅语音服务。 使用此统一订阅可以访问“语音转文本”和[自定义语音门户](https://chinaeast2.cris.azure.cn/Home/CustomSpeech)。 然后，可以使用语音服务订阅创建第一个自定义语音项目。
 
 2. [上传测试数据](how-to-custom-speech-test-data.md) - 上传测试数据（音频文件），以便针对你的应用程序、工具和产品评估 Microsoft 的语音转文本产品/服务。
 
@@ -44,7 +44,7 @@ ms.locfileid: "74179034"
 
 ## <a name="set-up-your-azure-account"></a>设置 Azure 帐户
 
-在使用[自定义语音门户](https://chinaeast2.cris.azure.cn/Home/CustomSpeech)创建自定义模型之前，需要获取一个语音服务订阅。 请遵照这些说明创建标准语音服务订阅：[创建语音订阅](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)。
+在使用[自定义语音门户](https://chinaeast2.cris.azure.cn/Home/CustomSpeech)创建自定义模型之前，需要获取一个语音服务订阅。 请遵照这些说明创建标准语音服务订阅：[创建语音订阅](/cognitive-services/speech-service/get-started#new-azure-account)。
 
 > [!NOTE]
 > 请务必创建标准 (S0) 订阅。免费试用 (F0) 订阅不受支持。

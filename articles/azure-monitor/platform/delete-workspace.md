@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/28/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 31130c3d45f786a4bd49d78aa3fbb39740873cb9
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 08f8f851429ee225324f69ef891ce236f4322a0b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730556"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528393"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>删除和还原 Azure Log Analytics 工作区
 
@@ -41,11 +41,11 @@ ms.locfileid: "73730556"
 > [!NOTE] 
 > 已安装的解决方案和关联的服务（例如 Azure 自动化帐户）会在系统执行删除操作时从工作区中永久删除，无法恢复。 这些内容应该在恢复操作后重新进行配置，使工作区回到以前配置的状态。
 
-可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0)、[REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 或 [Azure 门户](https://portal.azure.com)删除工作区。
+可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0)、[REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 或 [Azure 门户](https://portal.azure.cn)删除工作区。
 
 ### <a name="delete-workspace-in-azure-portal"></a>在 Azure 门户中删除工作区
 
-1. 若要登录，请转到 [Azure 门户](https://portal.azure.com)。 
+1. 若要登录，请转到 [Azure 门户](https://portal.azure.cn)。 
 2. 在 Azure 门户中，选择“所有服务”。  在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”  。
 3. 在 Log Analytics 工作区列表中选择一个工作区，然后从中间窗格的顶端单击“删除”。 
    ![从工作区属性窗格中删除选项](media/delete-workspace/log-analytics-delete-workspace.png)

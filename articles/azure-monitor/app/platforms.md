@@ -10,12 +10,12 @@ origin.date: 07/18/2019
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: 2f1e46639d6e892bdfa0cbc0d542ac957662cb7a
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 2d7ad276b37a1fb847c261b7b4fc32494ddd9730
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730420"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528275"
 ---
 # <a name="supported-languages"></a>支持的语言
 
@@ -31,7 +31,7 @@ ms.locfileid: "73730420"
 * [Azure 应用服务](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - 适用于已处于活动状态的应用](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure 云服务](../../azure-monitor/app/cloudservices.md)，包括 Web 角色和辅助角色
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+* [Azure Functions](/azure-functions/functions-monitoring)
 ### <a name="instrumentation-through-code-sdks"></a>通过代码进行检测 (SDK)
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
