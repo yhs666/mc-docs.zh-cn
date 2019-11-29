@@ -1,0 +1,94 @@
+### YamlMime:Yaml
+ms.openlocfilehash: ceffa6ea258738cf3b7debd9ddd7dfe5ec342aea
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528591"
+groups:
+- id: programming-languages-set-one
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+- id: cogsvcs-text-analytics-features
+  title: 文本分析功能
+  prompt: 选择文本分析功能产品/服务
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: 关键短语提取
+  - id: text-analytics-language-detection
+    title: 语言检测
+  - id: text-analytics-sentiment-analysis
+    title: 情绪分析
+- id: client-operating-system
+  title: 编程语言
+  prompt: 选择客户端操作系统
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+- id: programming-languages-set-two
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: 更多语言...
+- id: programming-languages-set-three
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-four
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: 更多语言...
+- id: programming-languages-set-five
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
