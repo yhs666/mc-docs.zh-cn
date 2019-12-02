@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/22/2019
 ms.date: 11/04/2019
-ms.openlocfilehash: b7beb0157e63a97ab74a0aa9a5ad055d8a110dcd
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+ms.openlocfilehash: 1f1d1a5ae4836be5dc5da5a691ddff2550f8089e
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191593"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655453"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中创建用户
 本文介绍了如何在 Azure Database for PostgreSQL 服务器中创建用户。 
@@ -74,7 +74,7 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
 
 5. 指定选定的数据库并使用新用户名和密码，登录到服务器。 此示例显示了 psql 命令行。 使用此命令，会提示你输入用户名的密码。 替换你自己的服务器名称、数据库名称和用户名。
 
-   ```azurecli-interactive
+   ```azurecli
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 

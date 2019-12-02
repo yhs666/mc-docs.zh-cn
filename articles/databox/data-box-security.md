@@ -6,19 +6,21 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-origin.date: 09/24/2018
-ms.date: 06/10/2019
+origin.date: 09/23/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: f3aad9d1ec9355cb4485675503c09e0d4ccc7a0c
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 48e433c99de70f9815036867b162f4923f8c3b08
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726514"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530605"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 安全性和数据保护
 
 Data Box 确保只有经过授权的实体能够查看、修改或删除你的数据，为数据保护提供安全的解决方案。 本文介绍了帮助保护每个 Data Box 解决方案组件及其存储的数据的 Azure Data Box 安全功能。 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="data-flow-through-components"></a>通过组件运行的数据流
 
@@ -57,7 +59,7 @@ Data Box 设备由以下功能提供保护：
 
 - 用于静态数据的 AES 256 位加密。
 - 可以为传输中数据使用加密的协议。
-- 将数据上传到 Azure 后，从设备中安全擦除数据。 数据擦除根据 NIST 800-88r1 标准进行。 数据擦除事件将记录在[订单历史记录](data-box-logs.md#download-order-history)中。
+- 将数据上传到 Azure 后，从设备中安全擦除数据。 数据擦除符合 [NIST 800-88r1 标准中 ATA 硬盘驱动器的附录 A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) 中的准则。 数据擦除事件将记录在[订单历史记录](data-box-logs.md#download-order-history)中。
 
 ### <a name="data-box-service-protection"></a>Data Box 服务保护
 
@@ -105,7 +107,7 @@ Data Box 中实现了以下安全准则：
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 对不利运输条件的承受力          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 安全的固件更新         |
 |[FIPS 140-2 级别 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | 数据保护         |
-|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 数据清理         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) 中 ATA 硬盘驱动器的附录 A      | 数据清理         |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,23 +3,27 @@ title: 使用 ODBC 连接到 Azure 数据资源管理器
 description: 本文介绍如何设置与 Azure 数据资源管理器的开放式数据库连接 (ODBC) 连接。
 author: orspod
 ms.author: v-tawe
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/30/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: ac03a287eab6cb128da19399ff2c0ea697dadc1e
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: d6ae42e1d14d4c4e4e4e8058deaedfbafa35aba3
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020698"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657959"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>使用 ODBC 连接到 Azure 数据资源管理器
 
 开放式数据库连接 ([ODBC](https://docs.microsoft.com/sql/odbc/reference/odbc-overview)) 是一种广泛接受的应用程序编程接口 (API)，适用于数据库访问。 使用 ODBC 可从没有专用连接器的应用程序连接到 Azure 数据资源管理器。
 
 在后台，应用程序会在 ODBC 接口中调用函数，这些函数在特定于数据库的模块（称为“驱动程序”）中实现。  Azure 数据资源管理器支持部分 SQL Server 通信协议 ([MS-TDS](https://docs.microsoft.com/azure/kusto/api/tds/))；因此，它可以使用适用于 SQL Server 的 ODBC 驱动程序。
+
+<!-- Using the following video, you can learn to create an ODBC connection.  -->
+
+<!-- > [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog] -->
 
 或者，可以[配置 ODBC 数据源](#configure-the-odbc-data-source)，如下所述。 
 
@@ -37,7 +41,7 @@ ms.locfileid: "74020698"
 
 1. 在 Windows 中搜索“ODBC 数据源”，  打开 ODBC 数据源桌面应用。
 
-1. 选择“设置”  （应用程序对象和服务主体对象）。
+1. 选择“添加”   。
 
     ![添加数据源](media/connect-odbc/add-data-source.png)
 

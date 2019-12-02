@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/01/2019
-ms.date: 05/20/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 3426c90ef892c39f4bdd3a6db700677b3ddb9509
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 1c4ea16d126ba8b5d494ae797b3ca8d8b035cdf7
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732307"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530648"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在标准负载均衡器中配置负载均衡和出站规则
 
@@ -48,7 +48,7 @@ ms.locfileid: "68732307"
     --resource-group myresourcegroupoutbound \
     --name myvnetoutbound \
     --address-prefix 192.168.0.0/16 \
-    --subnet-name mysubnetoutbound
+    --subnet-name mysubnetoutbound \
     --subnet-prefix 192.168.0.0/24
 ```
 

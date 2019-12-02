@@ -14,15 +14,15 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: sample
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 045e39479ff7d2036c4244a3a2e9e786708cc60b
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 11ee05f5237e0284936e73ebfb85328cb024dffa
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806799"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555951"
 ---
 # <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>使用 Azure CLI 从 GitHub 通过部署创建应用服务应用
 

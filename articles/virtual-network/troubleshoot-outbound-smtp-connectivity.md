@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/20/2018
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 33c30e13aac1609d7aff709503fe9f5ec3101905
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 40da890160e7a632eb1b0de0de287bcbbcfe345f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306491"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658058"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>在 Azure 中排查出站 SMTP 连接问题
 
@@ -63,4 +63,4 @@ ms.locfileid: "71306491"
 
 <!--MOONCAKE CORRECT ON support type: **Subscription Management** service type: **Maintenance notification related issue**-->
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

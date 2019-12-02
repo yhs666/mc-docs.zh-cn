@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 07/25/2019
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8353f2300ec7fcb3c695134954590949d4403975
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 95bb6715ff60492d8a8402e9d32bbacc718a808a
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730484"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658073"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到世纪互联 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  
@@ -156,7 +156,6 @@ Where
 ## <a name="export-samples"></a>导出示例
 
 * [使用流分析导出到 SQL][exportasa]
-* [流分析示例 2](export-stream-analytics.md)
 
 如果数据规模较大，可以考虑 [HDInsight](/hdinsight/) - 云中的 Hadoop 群集。 HDInsight 提供多种技术用于管理和分析大数据。可以使用 HDInsight 来处理从 Application Insights 导出的数据。
 
@@ -189,7 +188,6 @@ Where
 
 ## <a name="code-samples"></a>代码示例
 
-* [流分析示例](export-stream-analytics.md)
 * [使用流分析导出到 SQL][exportasa]
 * [属性类型和值的详细数据模型参考。](export-data-model.md)
 

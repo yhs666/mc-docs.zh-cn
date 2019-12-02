@@ -1,19 +1,19 @@
 ---
-title: 创建策略以识别不符合的资源
+title: 使用门户创建策略以审核资源
 description: 本文引导你完成创建策略定义的步骤，以识别不合规的资源。
 author: DCtheGeek
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 12/06/2018
-ms.date: 10/12/2019
+ms.date: 12/02/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7efcf3f6bcc597111017a0b1dcfbf83b273d3114
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 6104c1640dc7b1ac5356c24174bd49bfbc43ed22
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526695"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657598"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>快速入门：创建策略分配以识别不合规资源
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/18/2018
-ms.date: 05/13/2019
+origin.date: 11/25/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 82ea3ee489d3443825f03bf7ddfb951814f9ccee
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 78164cf90bccde9e8f81493b10dadc0826814fbb
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250572"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657838"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>部署 Azure 虚拟网络容器网络接口插件
 
@@ -35,7 +35,7 @@ Azure 虚拟网络容器网络接口 (CNI) 插件安装在 Azure 的虚拟机中
 ACS-Engine 使用 Azure 资源管理器模板部署 Kubernetes 群集。 群集配置在 JSON 文件中指定，该文件在生成模板时传递给工具。 若要详细了解受支持的群集设置及其说明的完整列表，请参阅 [Azure 容器服务引擎 - 群集定义](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md)。 该插件是使用 ACS-Engine 创建的集群的默认网络插件。 配置插件时，以下网络配置设置非常重要：
 
   | 设置                              | 说明                                                                                                           |
-  |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
+  |--------------------------------------|------------------------------------------------------------------------------------------------------ |
   | firstConsecutiveStaticIP             | 分配给主节点的 IP 地址。 这是必需设置。                                     |
   | kubernetesConfig 下的 clusterSubnet | 在其中部署集群并将 IP 地址分配给 Pod 的虚拟网络子网的 CIDR   |
   | masterProfile 下的 vnetSubnetId     | 指定在其中部署群集的子网的 Azure 资源管理器资源 ID                    |
@@ -45,8 +45,8 @@ ACS-Engine 使用 Azure 资源管理器模板部署 Kubernetes 群集。 群集�
 ### <a name="example-configuration"></a>示例配置
 
 下面的 json 示例适用于具有以下属性的群集：
--   1 个主节点和 2 个代理节点 
--   部署在名为 KubeClusterSubnet (10.0.0.0/20) 的子网中，主节点和代理节点都驻留其中  。
+- 1 个主节点和 2 个代理节点 
+- 部署在名为 KubeClusterSubnet (10.0.0.0/20) 的子网中，主节点和代理节点都驻留其中  。
 
 ```json
 {
@@ -162,10 +162,10 @@ CNI 网络配置文件以 JSON 格式描述。 默认情况下，它出现在 `/
 
 - **cniVersion**：Azure 虚拟网络 CNI 插件支持  [CNI 规范](https://github.com/containernetworking/cni/blob/master/SPEC.md)的 0.3.0 和 0.3.1版本。
 - **name**：网络的名称。 此属性可以设置为任何唯一值。
-- **类型**：网络插件的名称。 设置为“azure vnet” ** 。
+- **类型**：网络插件的名称。 设置为 azure vnet  。
 - **模式**：操作模式。 此字段可选。 支持的唯一模式是“桥接”。 有关详细信息，请参阅 [操作模式](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)。
 - **桥**：将用于将容器连接到虚拟网络的桥的名称。 此字段可选。 如果省略，则插件会根据主接口索引自动选择唯一名称。
-- **ipam 类型**：IPAM 插件的名称。 始终设置为 azure vnet ipam ** 。
+- **ipam 类型**：IPAM 插件的名称。 始终设置为 azure vnet ipam  。
 
 ## <a name="download-and-install-the-plug-in"></a>下载并安装插件
 
@@ -176,15 +176,14 @@ CNI 网络配置文件以 JSON 格式描述。 默认情况下，它出现在 `/
 
 将 [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) 或 [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) 的安装脚本复制到计算机。 将脚本保存到计算机上的 `scripts` 目录，对于 Linux，将文件命名为 `install-cni-plugin.sh`；对于 Windows，将文件命名为 `install-cni-plugin.ps1`。 要安装插件，请为你的平台运行相应的脚本，指定正在使用的插件的版本。 例如，可以指定 v1.0.12-rc3  ：
 
-   ```bash
-   \$scripts/install-cni-plugin.sh [version]
-   ```
+```bash
+\$scripts/install-cni-plugin.sh [version]
+```
 
-   ```powershell
-   scripts\\ install-cni-plugin.ps1 [version]
-   ```
+```powershell
+scripts\\ install-cni-plugin.ps1 [version]
+```
 
 针对 Linux，该脚本在 `/opt/cni/bin` 下安装插件；针对 Windows，该脚本在 `c:\cni\bin` 下安装插件。 安装的插件附带简单的网络配置文件，该配置文件可在安装后运行。 它不需要更新。 要了解有关文件中设置的详细信息，请参阅 [CNI 网络配置文件](#cni-network-configuration-file)。
 
-<!--Update_Description: new articles on deploy container networking -->
-<!--ms.date: 06/03/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

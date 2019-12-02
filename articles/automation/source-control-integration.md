@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 04/26/2019
-ms.date: 08/26/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 65a4e16c730cc6bcd72a4925820e75963c2f9084
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 378452d0133b7ed0755d833e5a17760ceea6a8b1
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993568"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530629"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自动化中的源代码管理集成
 
@@ -177,7 +177,7 @@ Source Control Sync Summary:
 
 目前，无法从门户更新源代码管理中的访问令牌。 在个人访问令牌过期或撤销后，可以通过以下方式使用新的访问令牌更新源代码管理：
 
-* 通过 [REST API](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update)。
+* 通过 [REST API](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update)。
 * 使用 [Update-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet。
 
 ## <a name="next-steps"></a>后续步骤

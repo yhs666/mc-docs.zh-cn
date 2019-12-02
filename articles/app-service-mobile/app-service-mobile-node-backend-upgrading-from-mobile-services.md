@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/28/2019
 ms.author: v-biyu
-ms.openlocfilehash: 15169499bdf062a5f8bba4817b935e3a816c090d
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: 6d0efa04ddbdfb96592ce197994949fb53b11c31
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307626"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657793"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>将现有 Node.js Azure 移动服务升级到应用服务
 应用服务移动应用是使用 Azure 生成移动应用程序的新方式。 若要了解详细信息，请参阅[什么是移动应用？]。
@@ -65,9 +65,9 @@ ms.locfileid: "54307626"
 
 ## <a name="obtain-ams-scripts"></a> 获取 Azure 移动服务脚本
 * 登录到 [Azure 门户]。
-* 使用“所有资源”或“应用服务”找到移动服务站点。
-* 在站点内单击“工具” -> “Kudu” -> “转到”，打开 Kudu 站点。
-* 单击“调试控制台” -> “PowerShell”打开调试控制台。
+* 使用“所有资源”  或“应用服务”  找到移动服务站点。
+* 在站点内单击“工具”   -> “Kudu”   -> “转到”  ，打开 Kudu 站点。
+* 单击“调试控制台”   -> “PowerShell”  打开调试控制台。
 * 依次单击每个目录导航到 `site/wwwroot/App_Data/config`
 * 单击 `scripts` 目录旁边的下载图标。
 
@@ -91,16 +91,16 @@ ms.locfileid: "54307626"
 
 ### <a name="create-a-new-mobile-app"></a>创建新的移动应用
 1. 在 [Azure 门户]登录。
-2. 单击“+新建” > “Web + 移动” > “移动应用”，然后提供移动应用后端的名称。
-3. 对于“资源组”，请选择现有资源组，或创建新组（使用与应用相同的名称。）
+2. 单击“+新建”   > “Web + 移动”   > “移动应用”  ，然后提供移动应用后端的名称。
+3. 对于“资源组”  ，请选择现有资源组，或创建新组（使用与应用相同的名称。）
 
     可以选择其他应用服务计划或创建新的计划。 若要深入了解应用服务计划以及如何在不同定价层和所需位置中创建新计划，请参阅 [Azure App Service 计划深入概述](../app-service/overview-hosting-plans.md)。
-4. 对于“应用服务计划”，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/app-service-plan-manage.md#create-an-app-service-plan)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
+4. 对于“应用服务计划”  ，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/app-service-plan-manage.md#create-an-app-service-plan)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
 
-    做出有关计划的决定后，单击“创建” 。 这会创建移动应用后端。
+    做出有关计划的决定后，单击“创建”  。 这会创建移动应用后端。
 
 ### <a name="run-createviewssql"></a>运行 CreateViews.SQL
-带有基架的应用包含名为 `createViews.sql`的文件。  必须对目标数据库执行此脚本。  可以在“设置”页的“连接字符串”下从已迁移的移动服务获取目标数据库的连接字符串。  `MS_TableConnectionString`。
+带有基架的应用包含名为 `createViews.sql`的文件。  必须对目标数据库执行此脚本。  可以在“设置”  页的“连接字符串”  下从已迁移的移动服务获取目标数据库的连接字符串。  `MS_TableConnectionString`。
 
 可以从 SQL Server Management Studio 或 Visual Studio 内部运行此脚本。
 
@@ -109,12 +109,12 @@ ms.locfileid: "54307626"
 将现有数据库链接到应用服务：
 
 * 在 [Azure 门户]中，打开应用服务。
-* 选择“所有设置” -> “数据连接”。
-* 单击“+添加”。
+* 选择“所有设置”   -> “数据连接”  。
+* 单击“+添加”  。
 * 在下拉列表中，选择“SQL 数据库” 
-* 在“SQL 数据库”下，选择现有数据库，然后单击“选择”。
-* 在“连接字符串”下，输入数据库的用户名和密码，然后单击“确定”。
-* 在“添加数据连接”页中，单击“确定”。
+* 在“SQL 数据库”  下，选择现有数据库，然后单击“选择”  。
+* 在“连接字符串”  下，输入数据库的用户名和密码，然后单击“确定”  。
+* 在“添加数据连接”  页中，单击“确定”  。
 
 查看已迁移的移动服务中目标数据库的连接字符串，即可找到用户名和密码。
 
@@ -158,8 +158,6 @@ Azure 移动应用允许在服务中配置 Azure Active Directory 和 Microsoft 
 [Azure Scheduler]: ../scheduler/index.md
 [Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
 [.NET server SDK overview]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [身份验证概念]: ../app-service/app-service-authentication-overview.md

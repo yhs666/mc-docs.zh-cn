@@ -3,17 +3,17 @@ title: 使用 Power BI 的 Azure 数据资源管理器连接器直观显示数�
 description: 本文介绍如何使用三个选项中的一个选项在 Power BI 中直观显示数据：Azure 数据资源管理器的 Power BI 连接器。
 author: orspod
 ms.author: v-tawe
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 07/10/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: c26dfe300ed705a94afd626cec6ad65f475b4b82
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 798e9614a3791fbdecf53c9f3af5a551f66535f8
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020836"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657955"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 

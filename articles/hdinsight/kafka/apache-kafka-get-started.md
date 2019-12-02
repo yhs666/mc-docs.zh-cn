@@ -8,14 +8,14 @@ ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/12/2019
-ms.date: 11/11/2019
-ms.openlocfilehash: 0f4839fbc236060c264c75b41b2948f5144aa3a4
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+origin.date: 10/01/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: fc888045b2e4b17dd7f8e7ed265318856594a806
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425670"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657942"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入门：使用 Azure 门户在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -50,7 +50,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
     |订阅    |  选择 Azure 订阅。 |
     |资源组     | 创建资源组，或选择现有资源组。  资源组是 Azure 组件的容器。  在此示例中，资源组包含 HDInsight 群集和依赖的 Azure 存储帐户。 |
     |群集名称   | 输入 Hadoop 群集的名称。 由于 HDInsight 中的所有群集共享同一 DNS 命名空间，因此该名称必须唯一。 该名称最多可以有 59 个字符，包括字母、数字和连字符。 名称的第一个和最后一个字符不能为连字符。 |
-    |Location    | 选择要在其中创建群集的 Azure 位置。  为获得更佳性能，请选择离你较近的位置。 |
+    |位置    | 选择要在其中创建群集的 Azure 位置。  为获得更佳性能，请选择离你较近的位置。 |
     |群集类型| 选择“选择群集类型”  。 然后选择“Kafka”作为群集类型。 |
     |版本|将指定群集类型的默认版本。 若要指定不同的版本，请从下拉列表中选择。|
     |群集登录用户名和密码    | 默认登录名为“admin”  。密码长度不得少于 10 个字符，且至少必须包含一个数字、一个大写字母和一个小写字母、一个非字母数字字符（' " ` \)字符除外）。 请确保不提供常见密码，如“Pass@word1”  。|
@@ -74,7 +74,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
     |主存储帐户|使用下拉列表选择现有存储帐户，或选择“新建”  。 如果创建新帐户，名称的长度必须在 3 到 24 个字符之间，并且只能包含数字和小写字母|
     |容器|使用自动填充的值。|
 
-    ![HDInsight Linux 入门之提供群集存储值](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "提供用于创建 HDInsight 群集的存储值")
+    ![HDInsight Linux 入门 - 提供群集存储值](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "提供用于创建 HDInsight 群集的存储值")
 
     选择“安全性 + 网络”选项卡。 
 
@@ -146,28 +146,29 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
     sudo apt -y install jq
     ```
 
-2. 设置环境变量。 将 `PASSWORD` 和 `CLUSTERNAME` 分别替换为群集登录密码和群集名称，然后输入命令：
+1. 设置密码变量。 将 `PASSWORD` 替换为群集登录密码，然后输入以下命令：
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-3. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
+1. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令将获取实际的大小写，然后将其存储在变量中。 输入以下命令：
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.cn/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > 如果要从群集外部执行此过程，存储群集名称的过程则有所不同。 从 Azure 门户中获取采用小写格式的群集名称。 然后，将以下命令中的 `<clustername>` 替换为群集名称，并执行：`export clusterName='<clustername>'`。
 
-4. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令。 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
+
+1. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令。 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
 
-
-    此命令直接查询群集头节点上的 Ambari 服务。 也可以使用公用地址 `https://$CLUSTERNAME.azurehdinsight.cn:80/` 访问 ambari。 某些网络配置可以阻止访问公用地址。 例如，使用网络安全组 (NSG) 限制对虚拟网络中的 HDInsight 的访问。
+    > [!Note]  
+    > 此命令需要 Ambari 访问权限。 如果群集位于 NSG 后面，请在可访问 Ambari 的计算机上运行此命令。 
 
 5. 若要验证是否已正确设置了环境变量，请使用以下命令：
 
@@ -182,10 +183,13 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
 5. 若要使用 Apache Kafka 代理主机信息来设置环境变量，请使用以下命令：
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-7. 若要验证是否已正确设置了环境变量，请使用以下命令：
+    > [!Note]  
+    > 此命令需要 Ambari 访问权限。 如果群集位于 NSG 后面，请在可访问 Ambari 的计算机上运行此命令。 
+
+1. 若要验证是否已正确设置了环境变量，请使用以下命令：
 
     ```bash   
     echo $KAFKABROKERS

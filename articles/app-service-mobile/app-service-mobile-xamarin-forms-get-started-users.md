@@ -1,6 +1,6 @@
 ---
 title: Xamarin Forms 应用中的移动应用身份验证入门 | Azure
-description: 了解如何使用移动应用通过各种标识提供者（包括 AAD、Google、Facebook、Twitter 和 Microsoft）对 Xamarin Forms 应用的用户进行身份验证。
+description: 了解如何使用移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 Xamarin Forms 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 597b37b326b790e059f6be33d79d527eab7268a8
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: a55d4ba12f6cbae02b75b2552b446918f8c8c32e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583575"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657778"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>向 Xamarin Forms 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

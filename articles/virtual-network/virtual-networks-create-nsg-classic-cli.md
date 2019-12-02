@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 11/12/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5653a06b6718e9a22b7f1adf39329859f3921d38
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7f2674490b4929e03e417450c30070656a297722
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644885"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658036"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "52644885"
 
 ## <a name="create-an-nsg-for-the-front-end-subnet"></a>为前端子网创建 NSG
 
-1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-cli-version-1.0?view=azure-cli-latest)。
+1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](https://docs.azure.cn/cli/install-classic-cli?view=azure-cli-latest)。
 2. 切换到经典模式：
 
     ```azurecli
@@ -67,7 +67,7 @@ ms.locfileid: "52644885"
 
     ```azurecli
     azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
-   ```
+    ```
 
 ## <a name="create-the-nsg-for-the-back-end-subnet"></a>为后端子网创建 NSG
 
@@ -75,19 +75,19 @@ ms.locfileid: "52644885"
 
     ```azurecli
     azure network nsg create -l chinanorth -n NSG-BackEnd
-   ```
+    ```
 
 2. 创建一个允许从前端子网访问端口 1433 (SQL) 的规则：
 
     ```azurecli
     azure network nsg rule create -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
-   ```
+    ```
 
 3. 创建一个拒绝访问 Internet 的规则：
 
     ```azurecli
     azure network nsg rule create -a NSG-BackEnd -n web-rule -c Deny -p Tcp -r Outbound -y 200 -f * -o * -e Internet -u 80
-   ```
+    ```
 
 4. 将 NSG 关联到后端子网：
 
@@ -95,5 +95,4 @@ ms.locfileid: "52644885"
     azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
     ```
 
-<!-- Update_Description: wording update, update link -->
-<!--ms.date:06/11/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

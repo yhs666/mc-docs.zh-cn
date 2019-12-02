@@ -26,7 +26,7 @@ Azure Monitor 提供用于收集、分析和处理来自云与本地环境的遥
 
 
 ## <a name="overview"></a>概述
-下图提供了 Azure Monitor 的概要视图。 示意图的中心是用于存储指标和日志（Azure Monitor 使用的两种基本类型的数据）的数据存储。 左侧是用于填充这些数据存储的监视数据源。 右侧是 Azure Monitor 针对这些收集的数据执行的不同功能，例如分析、警报和流式传输到外部系统。
+下图提供了 Azure Monitor 的概要视图。 示意图的中心是用于存储指标和日志（Azure Monitor 使用的两种基本数据类型）的数据存储。 左侧是用于填充这些数据存储的监视数据源。 右侧是 Azure Monitor 针对这些收集的数据执行的不同功能，例如分析、警报和流式传输到外部系统。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,11 +47,11 @@ Azure Monitor 使用 Azure 数据资源管理器使用的 [Kusto 查询语言](h
 ![日志](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure Monitor 收集哪些数据？
-Azure Monitor 可从各种源收集数据。 可将应用程序的监视数据视为划分了层次，范围从应用程序、应用程序依赖的任何操作系统和服务，直到平台本身。 Azure Monitor 从以下每个层收集数据：
+Azure Monitor 可从各种源收集数据。 可以将应用程序的监视数据按层划分，范围从应用程序、应用程序依赖的任何操作系统和服务，到平台本身。 Azure Monitor 从以下每个层收集数据：
 
 - **应用程序监视数据**：有关编写的代码的性能和功能的数据，不管平台是什么。
 - **来宾 OS 监视数据**：有关运行应用程序的操作系统的数据。 此应用程序可以在 Azure 中运行，也可以在其他云中或本地运行。 
-- **Azure 资源监视数据**：有关 Azure 资源的操作的数据。
+- **Azure 资源监视数据**：有关 Azure 资源操作的数据。
 - **Azure 订阅监视数据**：有关 Azure 订阅操作和管理的数据，以及有关 Azure 本身运行状况和操作的数据。 
 - **Azure 租户监视数据**：有关租户级 Azure 服务（例如 Azure Active Directory）操作的数据。
 
@@ -66,7 +66,7 @@ Azure Monitor 可以使用[数据收集器 API](platform/data-collector-api.md) 
 
 
 
-## <a name="insights"></a>洞察力
+## <a name="insights"></a>见解
 仅当能够有利于洞察计算环境的操作时，监视数据才有作用。 Azure Monitor 包含多种功能和工具，可以提供应用程序及其依赖的其他资源的有用见解。 [监视解决方案](insights/solutions.md)和 [Application Insights](app/app-insights-overview.md) 与[用于容器的 Azure Monitor](insights/container-insights-overview.md) 等功能在应用程序和特定 Azure 服务的不同方面提供深入见解。 
 
 ### <a name="application-insights"></a>Application Insights
@@ -98,7 +98,7 @@ Azure Monitor 中的警报规则使用[操作组](platform/action-groups.md)，�
 ![自动缩放](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>可视化监视数据
-图表和表等[可视化效果](visualizations.md)是用于汇总监视数据并向不同的受众呈现这些数据的有效工具。 Azure Monitor 具有自身的可视化监视数据的功能，并可利用其他 Azure 服务将这些数据发布到不同的受众。
+图表和表等[可视化效果](visualizations.md)是用于汇总监视数据并向不同的受众呈现这些数据的有效工具。 Azure Monitor 自身具有可视化监视数据的功能，并可利用其他 Azure 服务将这些数据发布到不同的受众。
 
 ### <a name="dashboards"></a>仪表板
 使用 [Azure 仪表板](../azure-portal/azure-portal-dashboards.md)可将不同类型的数据（包括指标和日志）合并到 [Azure 门户](https://portal.azure.cn)的单个窗格中。 可以选择与其他 Azure 用户共享仪表板。 除了任何日志查询或指标图表的输出以外，还可将整个 Azure Monitor 中的元素添加到 Azure 仪表板。 例如，可以创建一个包含多个磁贴的仪表板，这些磁贴分别用于显示指标图、活动日志表、Application Insights 的使用情况图表，以及日志查询的输出。
@@ -118,7 +118,7 @@ Azure Monitor 中的警报规则使用[操作组](platform/action-groups.md)，�
 [Azure 事件中心](/event-hubs)是一个流式传输平台和事件引入服务，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储数据。 使用事件中心可[将 Azure Monitor 数据流式传输](platform/stream-monitoring-data-event-hubs.md)到合作伙伴 SIEM 和监视工具。
 
 
-### <a name="logic-apps"></a>Logic Apps
+### <a name="logic-apps"></a>逻辑应用
 使用[逻辑应用](/logic-apps/)服务可以通过与不同系统和服务集成的工作流将任务和业务流程自动化。 其中提供了用于在 Azure Monitor 中读取和写入指标与日志的活动，使你能够生成与其他各种系统相集成的工作流。
 
 

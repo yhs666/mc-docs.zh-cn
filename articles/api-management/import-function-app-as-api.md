@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 08/28/2018
-ms.date: 07/15/2019
+origin.date: 06/28/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: e2f70775806dfb10f0ed236b65ff25e2cf774f7b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0f3f0ae4bbc93cd02cf3efa20e773d56a5e5cf58
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569656"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657626"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中将 Azure Function App 作为 API 导入
 
@@ -142,7 +142,7 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
 
 ![从 Function App 添加](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> 在 Azure 门户中测试新的 API 管理 API
+## <a name="test-in-azure-portal"></a> 在 Azure 门户中测试新的 API
 
 可直接从 Azure 门户调用操作。 使用 Azure 门户可以方便地查看和测试 API 的操作。  
 
@@ -155,23 +155,6 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
 4. 选择“发送”。 
 
     后端以“200 正常”和某些数据做出响应  。
-
-## <a name="test-in-developer-portal"></a> 从开发人员门户调用操作
-
-也可从开发人员门户调用操作来测试 API。 
-
-1. 选择在“导入和发布后端 API”中创建的 API。
-
-2. 选择“开发人员门户”。 
-
-    开发人员门户站点随即打开。
-    
-3. 选择创建的 **API**。
-4. 选择要测试的操作。
-5. 选择“试用”。 
-6. 选择“发送”。 
-    
-    调用操作后，开发人员门户会显示**响应状态**、**响应标头**以及任何**响应内容**。
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

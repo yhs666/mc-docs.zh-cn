@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/04/2019
 ms.date: 10/08/2019
 ms.author: v-tawe
-ms.openlocfilehash: 94aaa4972c372674dfae1363566b90cbd039c9f3
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 5fa30d3d0a8010e93bd2ac4842fe6e384e92b27a
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272622"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657973"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 部署和管理通知中心
 
@@ -96,8 +96,8 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 1. `$Namespace`：将此变量设置为要在其中创建通知中心的命名空间的名称。
 2. `$Path`：将此路径设置为新通知中心的名称。  例如“MyHub”。
-3. `$WnsPackageSid`：从 [Windows 开发人员中心](https://developer.microsoft.com/en-us/windows)将此变量设置为 Windows 应用的包 SID。
-4. `$WnsSecretkey`：从 [Windows 开发人员中心](https://developer.microsoft.com/en-us/windows)将此变量设置为 Windows 应用的机密密钥。
+3. `$WnsPackageSid`：从 [Windows 开发人员中心](https://developer.microsoft.com/windows)将此变量设置为 Windows 应用的包 SID。
+4. `$WnsSecretkey`：从 [Windows 开发人员中心](https://developer.microsoft.com/windows)将此变量设置为 Windows 应用的机密密钥。
 
 这些变量可用于连接命名空间，以及创建配置为使用 Windows 应用 Windows 通知中心 (WNS) 凭据处理 WNS 通知的新通知中心。 有关获取包 SID 和机密密钥的信息，请参阅[通知中心入门](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教程。
 
@@ -159,7 +159,7 @@ else
 [Member Offers]: https://www.azure.cn/pricing/
 [1 元试用]: https://www.azure.cn/pricing/1rmb-trial/
 [安装和配置 Azure PowerShell]: /powershell-install-configure
-[通知中心的 .NET API]: https://docs.azure.cn/zh-cn/dotnet/api/overview/notification-hubs?view=azure-dotnet
+[通知中心的 .NET API]: https://docs.azure.cndotnet/api/overview/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
 [Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

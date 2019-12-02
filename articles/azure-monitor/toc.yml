@@ -77,7 +77,7 @@
         - name: 日志数据引入时间
           displayname: latency
           href: platform/data-ingestion-time.md
-    - name: 洞察力
+    - name: 见解
       href: insights/insights-overview.md
     - name: 监视解决方案
       href: insights/solutions-inventory.md
@@ -107,8 +107,6 @@
           href: platform/alerts-action-rules.md
         - name: 智能组
           href: platform/alerts-smartgroups-overview.md
-        - name: 更改分析
-          href: app/change-analysis.md
     - name: 可视化数据
       href: visualizations.md
     - name: 合作伙伴集成
@@ -182,8 +180,6 @@
                     - name: Web 应用
                       displayname: java
                       href: app/java-get-started.md
-                    - name: Docker 应用
-                      href: app/docker.md
                     - name: 日志跟踪
                       href: app/java-trace-logs.md
                     - name: Unix 指标
@@ -302,27 +298,6 @@
                   href: app/metrics-explorer.md
             - name: 搜索
               href: app/diagnostic-search.md
-            - name: 探查器
-              items:
-                - name: 概述
-                  displayname: 'profiling, debugging, code performance, perf'
-                  href: app/profiler-overview.md
-                - name: 为应用服务启用 Profiler
-                  href: app/profiler.md
-                - name: 为云服务启用 Profiler
-                  href: app/profiler-cloudservice.md
-                - name: 为 Service Fabric 应用程序启用 Profiler
-                  href: app/profiler-servicefabric.md
-                - name: 为 Azure VM 启用 Profiler
-                  href: app/profiler-vm.md
-                - name: 用于 Linux 应用服务的 Profiler（预览版）
-                  href: app/profiler-aspnetcore-linux.md
-                - name: Profiler 设置
-                  href: app/profiler-settings.md
-                - name: 跟踪请求以进行分析
-                  href: app/profiler-trackrequests.md
-                - name: 排查 Profiler 问题
-                  href: app/profiler-troubleshooting.md
             - name: 快照调试器
               items:
                 - name: 概述
@@ -381,8 +356,6 @@
                   href: app/usage-troubleshoot.md
             - name: Azure DevOps
               items:
-                - name: 版本注释
-                  href: app/annotations.md
                 - name: 持续监视
                   href: app/continuous-monitoring.md
             - name: 高级配置
@@ -432,8 +405,6 @@
               items:
                 - name: 连续导出
                   href: app/export-telemetry.md
-                - name: 导出到流分析
-                  href: app/export-stream-analytics.md
                 - name: 使用流分析导出到 SQL
                   href: app/code-sample-export-sql-stream-analytics.md
                 - name: 导出数据模型

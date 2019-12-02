@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/26/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3074fb2324e8d7059c3b3938d269b2158f8b68e
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: ed807b92da1ad4a6b7f5e077ee9a8a9149c4ac8a
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416393"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657733"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>在预测之前或预测期间更改话语数据
 LUIS 提供在预测之前或预测期间操作陈述的方法。 这些方法包括修复拼写，以及修复预生成 datetimeV2 的时区问题。 
@@ -33,10 +33,10 @@ LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加�
 
 |Param|Value|
 |--|--|
-|`spellCheck`|布尔值|
-|`bing-spell-check-subscription-key`|[必应拼写检查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 终结点密钥|
+|`spellCheck`|boolean|
+|`bing-spell-check-subscription-key`|[必应拼写检查 API V7](https://www.azure.cn/home/features/cognitive-services/spell-check/) 终结点密钥|
 
-[必应拼写检查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
+[必应拼写检查 API V7](https://www.azure.cn/home/features/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
 

@@ -5,20 +5,21 @@ description: 了解 Azure 中的公共 IP 地址和专用 IP 地址（经典）�
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
+manager: digimobile
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 04/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: ff5e02e6804b4f09cc77f985bfc142e95f583567
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: fc8adae2086a690151b19e62dae0e29dfce29d96
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276467"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658045"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -147,7 +148,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 | 应用程序网关前端 |是 |是 |是 |
 
 ## <a name="limits"></a>限制
-下表显示 Azure 中每个订阅的 IP 寻址的限制。 可以[与支持人员联系](https://support.azure.cn/zh-cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+下表显示 Azure 中每个订阅的 IP 寻址的限制。 可以[与支持人员联系](https://support.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 |  | 默认限制 | 最大限制 |
 | --- | --- | --- |
@@ -159,24 +160,23 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 确保已阅读 Azure 中所有的[网络限制](../azure-subscription-service-limits.md#networking-limits)。
 
 ## <a name="pricing"></a>定价
-在大多数情况下，公共 IP 地址是免费的。 使用额外和/或静态公共 IP 地址要收取少许费用。 确保你了解[公共 IP 的定价结构](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
+在大多数情况下，公共 IP 地址是免费的。 使用额外和/或静态公共 IP 地址要收取少许费用。 确保你了解[公共 IP 的定价结构](https://www.azure.cn/pricing/details/ip-addresses/)。
 
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager 与经典部署之间的差异
 下面是 Resource Manager 和经典部署模型中的 IP 寻址功能的比较。
 
-
-|                        |              Resource               |                       经典                        |                         Resource Manager                          |
-|------------------------|-------------------------------------|------------------------------------------------------|-------------------------------------------------------------------|
-| **公共 IP 地址**  |              ***VM***               |        称为 ILPIP（仅限动态）        |          称为公共 IP（动态或静态）           |
-|                        |                                     |    分配到 IaaS VM 或 PaaS 角色实例    |                    与 VM 的 NIC 关联                     |
-|                        | ***面向 Internet 的负载均衡器*** | 称为 VIP（动态）或保留 IP（静态） |          称为公共 IP（动态或静态）           |
-|                        |                                     |             分配到云服务              |        与负载均衡器的前端配置关联         |
-|                        |                                     |                                                      |                                                                   |
-| **专用 IP 地址** |              ***VM***               |                 称为 DIP                 |                称为专用 IP 地址                |
-|                        |                                     |    分配到 IaaS VM 或 PaaS 角色实例    |                     分配到 VM 的 NIC                      |
-|                        | ***内部负载均衡器 (ILB)***  |       分配到 ILB（动态或静态）        | 分配到 ILB 的前端配置（动态或静态） |
+|  | Resource | 经典 | Resource Manager |
+| --- | --- | --- | --- |
+| **公共 IP 地址** |***VM*** |称为 ILPIP（仅限动态） |称为公共 IP（动态或静态） |
+|  ||分配到 IaaS VM 或 PaaS 角色实例 |与 VM 的 NIC 关联 |
+|  |***面向 Internet 的负载均衡器*** |称为 VIP（动态）或保留 IP（静态） |称为公共 IP（动态或静态） |
+|  ||分配到云服务 |与负载均衡器的前端配置关联 |
+|  | | | |
+| **专用 IP 地址** |***VM*** |称为 DIP |称为专用 IP 地址 |
+|  ||分配到 IaaS VM 或 PaaS 角色实例 |分配到 VM 的 NIC |
+|  |***内部负载均衡器 (ILB)*** |分配到 ILB（动态或静态） |分配到 ILB 的前端配置（动态或静态） |
 
 ## <a name="next-steps"></a>后续步骤
 * 通过 Azure 门户[部署具有静态专用 IP 地址的 VM](virtual-networks-static-private-ip-classic-pportal.md)。
 
-<!--Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

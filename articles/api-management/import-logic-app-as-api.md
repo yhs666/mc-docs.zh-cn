@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 origin.date: 08/01/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: 7bd051b8685496a919bb41d86c7903360c375ce6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 12/09/2019
+ms.openlocfilehash: 8da20365c166e864bff6ea0f441f85cfd926e3ed
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736689"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657694"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>将逻辑应用导入为 API
 
@@ -59,7 +59,7 @@ ms.locfileid: "70736689"
     * **不受限制**   
 7. 选择“创建”  。
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>在 Azure 门户中测试导入的 API
+## <a name="test-the-api-in-the-azure-portal"></a>在 Azure 门户中测试 API
 
 可直接从 Azure 门户调用操作，这样可以方便地查看和测试 API 的操作。  
 
@@ -72,21 +72,6 @@ ms.locfileid: "70736689"
 4. 按“发送”。 
 
     后端以“200 正常”和某些数据做出响应  。
-
-## <a name="call-operation"></a>从开发人员门户调用操作
-
-此外，也可从“开发人员门户”调用操作来测试 API  。 
-
-1. 选择在“导入和发布后端 API”步骤中创建的 API。
-2. 按“开发人员门户”  。
-
-    “开发人员门户”站点随即打开。
-3. 选择创建的 **API**。
-4. 单击要测试的操作。
-5. 按“试用”  。
-6. 按“发送”。 
-    
-    调用操作后，开发人员门户会显示**响应状态**、**响应标头**以及任何**响应内容**。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

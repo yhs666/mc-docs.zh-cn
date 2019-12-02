@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 09/17/2019
 ms.date: 10/30/2019
 ms.author: v-tawe
-ms.openlocfilehash: f3f0368e9d3d04864564adc7f996d517e0c7baad
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 291ff81f7bd2bb70840d7f6bf166286dd672eb2e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426114"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657979"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>快速入门：使用资源管理器模板设置机密以及从 Azure Key Vault 检索机密
 
@@ -59,7 +59,7 @@ ms.locfileid: "73426114"
 
 ```json
 {
-  "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "keyVaultName": {
@@ -221,7 +221,7 @@ ms.locfileid: "73426114"
 
 1. 选择下图登录到 Azure 并打开一个模板。 该模板将创建 Key Vault 和机密。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. 选择或输入以下值。
 

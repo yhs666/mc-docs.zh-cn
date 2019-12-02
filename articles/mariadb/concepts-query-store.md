@@ -5,21 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 10/17/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: fba7dc9bc47ee9e346da4e2015b78aa41c3e04e6
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+origin.date: 11/04/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: 26458e4646f1115027e3949ed7a2bb929ffa9825
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191581"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530649"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>使用查询存储监视 Azure Database for MariaDB 的性能
 
 **适用于：** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> 查询存储目前以预览版提供。
 
 使用 Azure Database for Mariadb 中的查询存储功能可以跟踪一段时间内的查询性能。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for MariaDB 实例的 **mysql** 架构数据库中。
 

@@ -8,14 +8,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 05/20/2019
 ms.date: 09/23/2019
-ms.author: v-lingwus
+ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: bd7c1a79729d29cda30c286cd431fb7d1b2ca551
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 7387d5f42c3bdb11fd7d989cd821dc7ec18026af
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527915"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657741"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>将 Azure 活动日志导出到存储或 Azure 事件中心
 [Azure 活动日志](activity-logs-overview.md)提供 Azure 订阅中发生的订阅级事件的见解。 除了在 Azure 门户中查看活动日志或者将其复制到 Log Analytics 工作区（在其中可以结合 Azure Monitor 收集的其他数据一起分析这些日志）以外，还可以创建一个日志配置文件，以将活动日志存档到 Azure 存储帐户或流式传输到事件中心。

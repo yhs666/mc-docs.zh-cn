@@ -1,5 +1,5 @@
 ---
-title: 示例 - 审核是否未在 Linux VM 中安装应用程序
+title: 示例 - 在 Linux VM 上审核缺少的应用程序
 description: 此示例“策略来宾配置”计划和定义会审核是否未在 Linux 虚拟机中安装指定的应用程序。
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 05/02/2019
 ms.date: 10/12/2019
 ms.author: dacoulte
-ms.openlocfilehash: ab309d79824a99934e3bcb1a8fea13e488bfb5cd
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 375aeee767063f7b0f8188bb1034792ec916a118
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526709"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658074"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>示例 - 审核是否未在 Linux VM 中安装指定的应用程序
 
@@ -458,7 +458,7 @@ $scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 $initParam = '{ "applicationName": { "value": "python,powershell" } }'
 
 # Create the initiative assignment
-$assignment = New-AzPolicyAssignment -Name 'guestconfig-installed-application-linux-assignment' -DisplayName 'GuestConfig - Python and PowerShell apps on Linux' -Scope $scope.ResourceID -PolicySetDefinition $initDef -PolicyParameter $initParam -AssignIdentity -Location 'westus2'
+$assignment = New-AzPolicyAssignment -Name 'guestconfig-installed-application-linux-assignment' -DisplayName 'GuestConfig - Python and PowerShell apps on Linux' -Scope $scope.ResourceID -PolicySetDefinition $initDef -PolicyParameter $initParam -AssignIdentity -Location 'chinaeast2'
 
 # Get the system-assigned managed identity created by the assignment with -AssignIdentity
 $saIdentity = $assignment.Identity.principalId
@@ -521,7 +521,7 @@ $scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 $policyParam  = '{ "applicationName": { "value": "python,powershell" } }'
 
 # Create the policy assignment
-$assignment = New-AzPolicyAssignment -Name 'guestconfig-installed-application-linux-deployIfNotExists-assignment' -DisplayName 'GuestConfig - Deploy VM extension to audit that Python and PowerShell are installed inside Linux VMs' -Scope $scope.ResourceID -PolicyDefinition $definition -PolicyParameter $policyParam -AssignIdentity -Location 'westus2'
+$assignment = New-AzPolicyAssignment -Name 'guestconfig-installed-application-linux-deployIfNotExists-assignment' -DisplayName 'GuestConfig - Deploy VM extension to audit that Python and PowerShell are installed inside Linux VMs' -Scope $scope.ResourceID -PolicyDefinition $definition -PolicyParameter $policyParam -AssignIdentity -Location 'chinaeast2'
 
 # Get the system-assigned managed identity created by the assignment with -AssignIdentity
 $saIdentity = $assignment.Identity.principalId

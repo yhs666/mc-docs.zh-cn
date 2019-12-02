@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: d9d80356ac6f2950c5ef191e5e9a8c581ece5d3c
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.date: 12/09/2019
+ms.openlocfilehash: b503ab29123ffa8fe741212a2916640121969abf
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72323790"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657623"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理模板资源
 Azure API 管理提供以下类型的资源，适用于开发人员门户模板。  
@@ -28,6 +28,8 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 -   [字符串资源](#strings)  
   
 -   [字形资源](#glyphs)  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   

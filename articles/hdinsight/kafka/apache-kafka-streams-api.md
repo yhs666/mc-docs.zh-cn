@@ -8,14 +8,14 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-origin.date: 06/25/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: c13626dd140d52b79a6c15a57f095a332fabc8d2
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+origin.date: 10/08/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 6c8c3cf7d2317b212130de825f7c9eb06825b272
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878747"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657720"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用 Apache Kafka Streams API
 
@@ -162,33 +162,32 @@ public class Stream
     sudo apt -y install jq
     ```
 
-3. 设置环境变量。 将 `PASSWORD` 和 `CLUSTERNAME` 分别替换为群集登录密码和群集名称，然后输入命令：
+3. 设置密码变量。 将 `PASSWORD` 替换为群集登录密码，然后输入以下命令：
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
-
+4. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令将获取实际的大小写，然后将其存储在变量中。 输入以下命令：
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.cn/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
+    > [!Note]  
+    > 如果要从群集外部执行此过程，存储群集名称的过程则有所不同。 从 Azure 门户中获取采用小写格式的群集名称。 然后，将以下命令中的 `<clustername>` 替换为群集名称，并执行：`export clusterName='<clustername>'`。  
 
 5. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。 系统会提示输入密码两次。
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
-    https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
-    export KAFKABROKERS=`curl -sS -u admin:$password -G \
-    https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
+
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-4. 若要创建流式处理操作所使用的主题，请使用以下命令：
+> [!Note]  
+> 这些命令需要 Ambari 访问权限。 如果群集位于 NSG 后面，请在可访问 Ambari 的计算机上运行这些命令。 
+
+6. 若要创建流式处理操作所使用的主题，请使用以下命令：
 
     > [!NOTE]
     > 可能会收到错误：`test` 主题已存在。 此错误可忽略，因为该主题可能在生成者和使用者 API 教程中创建。

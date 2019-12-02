@@ -9,15 +9,15 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-origin.date: 12/06/2018
-ms.date: 09/16/2019
+origin.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: acc181778a8c8329a68c0023c591d7b788c3dcd8
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 88b1b30d56bea9d34d967b0cd914db09d3b0d536
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872907"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658004"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
@@ -79,6 +79,7 @@ New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name 
 - [Go](event-hubs-go-get-started-send.md)
 - [C（仅发送）](event-hubs-c-getstarted-send.md)
 - [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
+
 
 [创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps

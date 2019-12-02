@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/07/2019
-ms.date: 11/07/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bd2cbf40ad66f59f87bde47867daa57a5a717a6
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: f555e856ba5c8a5565584f68c53cfc225bbd8b50
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830957"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655313"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入门：配置客户端应用程序以访问 Web API
 
@@ -58,7 +58,8 @@ ms.locfileid: "73830957"
 
 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中，选择“Azure Active Directory”服务  ，然后选择“应用注册”。 
+1. 搜索并选择“Azure Active Directory”  。 
+1. 在左侧窗格中，选择“应用注册”  。
 1. 找到并选择要配置的应用程序。 选择应用以后，会看到应用程序的“概览”页或主注册页。 
 1. 按步骤将应用程序配置为访问 Web API：
     * [将重定向 URL 添加到应用程序](#add-redirect-uris-to-your-application)
@@ -154,14 +155,14 @@ ms.locfileid: "73830957"
 
     1. 选择“上传证书”。 
     1. 选择要上传的文件。 它必须是以下文件类型之一：.cer、.pem、.crt。
-    1. 选择“设置”  （应用程序对象和服务主体对象）。
+    1. 选择“添加”   。
 
 1. 若要添加客户端机密，请执行以下步骤：
 
     1. 选择“新建客户端机密”。 
     1. 添加客户端机密的说明。
     1. 选择持续时间。
-    1. 选择“设置”  （应用程序对象和服务主体对象）。
+    1. 选择“添加”   。
 
 > [!NOTE]
 > 保存配置更改后，最右边的列会包含客户端机密值。 **请务必复制此值**，以便在客户端应用程序代码中使用，因为退出此页后将无法访问此密钥。
@@ -171,13 +172,40 @@ ms.locfileid: "73830957"
 若要添加从客户端访问资源 API 的权限，请执行以下操作：
 
 1. 在应用的“概览”页中，选择“API 权限”部分。  
-1. 选择“添加权限”  按钮。
+1. 在“已配置权限”部分下，选择“添加权限”按钮。  
 1. 默认情况下，此视图允许从“Microsoft API”进行选择。  选择感兴趣的 API 部分。
     * **Microsoft API** - 用于选择 Microsoft API（例如 Microsoft Graph）的权限。
     * **组织使用的 API** - 用于选择由组织公开的 API 或组织已与之集成的 API 的权限。
     * **我的 API** - 用于选择你已经公开的 API 的权限。
 1. 选择 API 后，会看到“请求 API 权限”页。  如果 API 公开委托的权限和应用程序权限，请选择应用程序需要哪种类型的权限。
 1. 完成后，请选择“添加权限”  。 此时会返回到“API 权限”页，其中的权限已保存并添加到表。 
+
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>了解 API 权限和管理员同意 UI
+
+### <a name="configured-permissions"></a>已配置权限
+
+此部分显示已在应用程序对象上显式配置的权限（这些权限是应用程序所需的资源访问列表的一部分）。 可以在此表中添加或删除权限。 作为管理员，你还可以为此部分中的一组 API 权限或单个权限授予/撤销管理员同意。
+
+### <a name="other-permissions-granted"></a>授予的其他权限
+
+如果你的应用程序已在租户中注册，则你可能会看到一个名为“为租户授予的其他权限”的附加部分  。 此部分显示已为租户授予但尚未在应用程序对象上显式配置的权限（例如，动态请求和同意的权限）。 仅当至少有一个应用的权限时，才会显示此部分。
+
+可以将此部分中显示的一组 API 权限或单个权限添加到“已配置权限”部分  。 作为管理员，你还可以撤销此部分中各个 API 或权限的管理员同意。
+
+### <a name="admin-consent-button"></a>管理员同意按钮
+
+如果你的应用程序已在租户中注册，你将看到“为租户授予管理员同意”按钮  。 如果你不是管理员，或者没有为应用程序配置任何权限，则将禁用此按钮。
+通过此按钮，管理员可以轻松地向为应用程序配置的权限授予管理员同意。 单击“管理员同意”按钮将启动一个新窗口，其中包含显示了所有已配置权限的同意提示。
+
+> [!NOTE]
+> 为应用程序配置的权限与在同意提示下显示的权限之间存在延迟。 如果在同意提示中看不到所有配置的权限，请将其关闭并重新启动。
+
+如果你具有已授予但尚未配置的权限，则在单击“管理员同意”按钮时，系统将提示你决定如何处理这些权限。 可以将它们添加到已配置的权限，也可以将其删除。
+
+同意提示提供“接受”或“取消”选项   。 如果选择“接受”  ，则将授予管理员同意。 如果选择“取消”  ，则不授予管理员同意，你将看到一条错误，指出同意已被拒绝。
+
+> [!NOTE]
+> 授予管理员同意（在同意提示中选择“接受”  ）与在 UI 中反映的管理员同意状态之间存在延迟。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,27 +1,24 @@
 ---
-title: Azure PowerShell 脚本示例 - 对等互连两个虚拟网络 | Azure
+title: 对等互连两个虚拟网络 - Azure PowerShell 脚本示例
 description: Azure PowerShell 脚本示例 - 对等互连两个虚拟网络
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 03/20/2018
-ms.date: 06/10/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9c96afbf5330db54c108418359afe2b448fe6864
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 43fbb74c383acc354a621e506e0e7cdcb2120a46
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250473"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658065"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 
@@ -84,4 +81,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 可在[虚拟网络 PowerShell 示例](../powershell-samples.md)中查找其他虚拟网络 PowerShell 脚本示例。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

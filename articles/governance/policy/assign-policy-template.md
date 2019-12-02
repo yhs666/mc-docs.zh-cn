@@ -1,19 +1,19 @@
 ---
-title: 使用资源管理器模板创建策略分配
+title: 使用资源管理器模板创建分配
 description: 本文逐步讲解如何使用资源管理器模板创建策略分配，以识别不合规的资源。
 author: DCtheGeek
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 03/13/2019
-ms.date: 10/12/2019
+ms.date: 12/02/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 34d234014db8cac16f3aac38efd638b63f8c4dd1
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 8a7e395680bc6081ce5525951354e42bde3dceed
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526692"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657595"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>快速入门：使用资源管理器模板创建策略分配以识别不合规的资源
 
@@ -83,7 +83,7 @@ ms.locfileid: "72526692"
    |------|-------|
    | 订阅 | 选择 Azure 订阅。 |
    | 资源组 | 选择“新建”，指定名称，然后选择“确定”。   在屏幕截图中，资源组名称为 mypolicyquickstart\<MMDD 格式的日期>rg  。 |
-   | Location | 选择区域。 例如，**中国北部**。 |
+   | 位置 | 选择区域。 例如，**中国北部**。 |
    | 策略分配名称 | 指定策略分配名称。 如果需要，可以使用策略定义显示名称。 例如，“审核不使用托管磁盘的 VM”。  |
    | 资源组名称 | 指定要将策略分配到的资源组名称。 本快速入门使用默认值 **[resourceGroup().name]** 。 **[resourceGroup()](/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** 是检索资源组的模板函数。 |
    | 策略定义 ID | 指定 **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**。 |

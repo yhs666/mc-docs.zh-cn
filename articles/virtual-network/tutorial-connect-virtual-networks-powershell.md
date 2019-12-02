@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: f4cde142e46e637dbb7eec8dc5c16c856bc8c4fe
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 7193ba6702ee8135dd10c828788da7b0ab74ec09
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514439"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658056"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>通过 PowerShell 使用虚拟网络对等互连连接虚拟网络
 
@@ -164,7 +164,7 @@ New-AzVm `
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-可以从 Internet 连接到 VM 的公用 IP 地址。 使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 返回 VM 的公共 IP 地址。 以下示例返回 myVm1 VM 的公共 IP 地址  ：
+可以从 Internet 连接到 VM 的公共 IP 地址。 使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 返回 VM 的公共 IP 地址。 以下示例返回 myVm1 VM 的公共 IP 地址  ：
 
 ```powershell
 Get-AzPublicIpAddress `
@@ -218,4 +218,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 可以通过 VPN [将自己的计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)，并可与虚拟网络或对等虚拟网络中的资源进行交互。 有关用来完成虚拟网络文章中涉及的许多任务的可重用脚本，请参阅[脚本示例](powershell-samples.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/24/2016
-ms.date: 12/17/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ff2c72ad6d8383f033207df5dfb30c90f4d0adc
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 85ffec4fb795c531ad78fbbc11aa6e49f2796c9a
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389366"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658017"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>在服务配置文件中指定 DNS 设置
 ## <a name="dns-elements"></a>DNS 元素
@@ -45,5 +45,6 @@ ms.locfileid: "53389366"
 [Azure 虚拟网络配置架构](https://go.microsoft.com/fwlink/?LinkId=248093)
 
 [使用网络配置文件配置虚拟网络](/virtual-network/virtual-networks-create-vnet-classic-portal)
+
 <!-- Not Available on [About Virtual Network settings in the Management Portal](https://go.microsoft.com/fwlink/?LinkId=248092) -->
 <!-- Update_Description: update meta properties -->

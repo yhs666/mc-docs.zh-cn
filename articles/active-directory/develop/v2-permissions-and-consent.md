@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 08/27/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c38d9f53911db49f2b5eb59ed4f05f3efc914b44
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: f990460a9493c42cdc9f0d16a761149529fee7a0
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134212"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655396"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 标识平台终结点中的权限和许可
 
@@ -187,29 +187,26 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 
 ```
 // Line breaks are for legibility only.
-
-GET https://login.partner.microsoftonline.cn/{tenant}/adminconsent?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&state=12345
-&redirect_uri=http://localhost/myapp/permissions
+  GET https://login.partner.microsoftonline.cn/{tenant}/v2.0/adminconsent?
+  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+  &state=12345
+  &redirect_uri=http://localhost/myapp/permissions
+  &scope=
+  https://microsoftgraph.chinacloudapi.cn/calendars.read 
+  https://microsoftgraph.chinacloudapi.cn/mail.send
 ```
 
-```
-// Pro tip: Try pasting the below request in a browser!
-```
 
-```
-https://login.partner.microsoftonline.cn/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
-```
-
-| 参数 | 条件 | 说明 |
-| --- | --- | --- |
+| 参数     | 条件     | 说明                                                                               |
+|:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 必须 | 要向其请求权限的目录租户。 可以采用 GUID 或友好名称格式提供或使用 `common` 以一般方式引用，如示例所示。 |
 | `client_id` | 必须 | [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验分配给应用的**应用程序（客户端）ID**。 |
 | `redirect_uri` | 必须 |要向其发送响应，供应用处理的重定向 URI。 必须与在应用注册门户中注册的重定向 URI 之一完全匹配。 |
 | `state` | 建议 | 同样随令牌响应返回的请求中所包含的值。 其可以是关于想要的任何内容的字符串。 使用该状态可在身份验证请求出现之前，在应用中编码用户的状态信息，例如用户过去所在的页面或视图。 |
+|`scope`        | 必须      | 定义应用程序请求的权限集。 这可以是静态范围（使用 /.default）或动态范围。  这可以包括 OIDC 范围（`openid`、`profile`、`email`）。 | 
 
-此时，Azure AD 会要求租户管理员进行登录来完成请求。 系统要求管理员批准在应用注册门户中针对应用请求的所有权限。
+
+此时，Azure AD 要求租户管理员登录，以完成请求。 系统要求管理员批准你在 `scope` 参数中请求的所有权限。  如果你使用了静态 (`/.default`) 值，则其功能将类似于 v1.0 管理员许可终结点，并请求对应用所需权限中找到的所有范围的许可。
 
 #### <a name="successful-response"></a>成功的响应
 

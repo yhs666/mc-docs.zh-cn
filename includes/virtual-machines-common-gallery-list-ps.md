@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/07/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e28a6c70bad772f91a5699010dd1f63d6645c1b8
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 01e90bfb9c20b6b53df2b007f03833bea46f1383
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835812"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655484"
 ---
 ## <a name="shared-image-management"></a>共享映像管理 
 
@@ -21,28 +21,28 @@ ms.locfileid: "65835812"
 
 按名称列出所有库。
 
-```azurepowershell-interactive
+```azurepowershell
 $galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
 $galleries.Name
 ```
 
 按名称列出所有映像定义。
 
-```azurepowershell-interactive
+```azurepowershell
 $imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
 $imageDefinitions.Name
 ```
 
 按名称列出所有映像版本。
 
-```azurepowershell-interactive
+```azurepowershell
 $imageVersions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images/versions
 $imageVersions.Name
 ```
 
-删除映像版本。 此示例将删除名为“1.0.0”的映像版本。
+删除映像版本。 此示例将删除名为“1.0.0”的映像版本  。
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzGalleryImageVersion `
    -GalleryImageDefinitionName myImageDefinition `
    -GalleryName myGallery `
@@ -50,7 +50,4 @@ Remove-AzGalleryImageVersion `
    -ResourceGroupName myGalleryRG
 ```
 
-
-
-
-
+<!--Update_Description: wording update-->

@@ -23,7 +23,7 @@ ms.lasthandoff: 11/20/2019
 ms.locfileid: "74203662"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
-Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
+Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web &mdash; 是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许你根据客户所需的任何规模，随时扩展和缩减解决方案。
 
 <!-- Not Available on  Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)-->
 
@@ -53,7 +53,7 @@ Azure supports running a number of popular Linux distributions provided and main
 
 如果首选的 Linux 分发版目前不在库中，可以通过[在 Azure 中创建和上传 Linux VHD](create-upload-generic.md) 来“自带 Linux”VM。
 
-借助 Azure 虚拟机，用户可以采用灵活的方式部署各种计算解决方案。 几乎可以在任何操作系统（Windows、Linux 或从我们不断增长的合作伙伴列表中的任一合作伙伴自定义创建的操作系统）上部署几乎任何工作负荷和任何语言。 没有找到所需的映像？  别担心，也可以使用本地的自有映像。
+借助 Azure 虚拟机，用户可以采用灵活的方式部署各种计算解决方案。 几乎可以在任何操作系统（Windows、Linux 或是由我们不断增长的合作伙伴自定义创建的操作系统）上部署几乎任何工作负荷和任何语言。 没有找到所需的映像？  别担心，也可以使用本地的自有映像。
 
 ## <a name="vm-sizes"></a>VM 大小
 VM 的[大小](sizes.md)由所要运行的工作负荷决定。 然后，所选大小又会影响多个因素，例如处理能力、内存和存储容量。 Azure 提供各种大小来支持多种类型的用途。
@@ -73,7 +73,7 @@ Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](https://
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md)
 
 ## <a name="quotas"></a>配额
-每个 Azure 订阅都有默认的配额限制，此限制会在为项目部署大量 VM 时造成影响。 每个订阅的当前限制是每区域 20 个 VM。  若要快速轻松地提高配额限制，可以开具支持票证来请求提高限制。  有关配额限制的更多详细信息，请参阅：
+每个 Azure 订阅都有默认的配额限制，此限制会在为项目部署大量 VM 时造成影响。 每个订阅的当前限制是每区域 20 个 VM。  若要快速轻松地提高配额限制，可以提交支持票证来请求提高限制。  有关配额限制的更多详细信息，请参阅：
 
 * [Azure 订阅服务限制](../../azure-subscription-service-limits.md)
 
@@ -86,7 +86,7 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 * Canonical - [Azure 市场 - Ubuntu Server 16.04 LTS](https://market.azure.cn/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure 市场 - Debian 8 "Jessie"](https://market.azure.cn/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure 市场 - FreeBSD](https://market.azure.cn/marketplace/apps?search=FreeBSD)
-* CoreOS - [Azure 市场 - CoreOS (Stable)](https://market.azure.cn/marketplace/partners/coreos/coreosstable/)
+* CoreOS - [Azure 市场 - CoreOS （稳定）](https://market.azure.cn/marketplace/partners/coreos/coreosstable/)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
 * Jenkins - [Azure 市场 - Jenkins Platform](https://market.azure.cn/marketplace/apps?search=jenkins)
 
@@ -112,17 +112,17 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 现在已有 Azure 帐户、Azure Web 门户和 Azure CLI。  下一步是创建 SSH 密钥对，使用它可以通过 SSH 连接到 Linux 而无需使用密码。  [在 Linux 和 Mac 上创建 SSH 密钥](mac-create-ssh-keys.md)可启用无密码登录和更高的安全性。
 
 ### <a name="create-a-vm-using-the-cli"></a>使用 CLI 创建 VM
-使用 CLI 创建 Linux VM 是部署 VM 的一种快速方法，无需离开正在使用的终端。  通过命令行标志或开关提供可以在 Web 门户上指定的所有内容。  
+使用 CLI 创建 Linux VM 是部署 VM 的一种快速方法，无需离开正在使用的终端。  所有可以在 Web 门户上指定的内容都可以通过命令行标志或开关提供。  
 
 * [使用 CLI 创建 Linux VM](quick-create-cli.md)
 
 ### <a name="create-a-vm-in-the-portal"></a>在门户中创建 VM
-通过在 Azure Web 门户上创建 Linux VM，可以轻松地指向和单击用于访问部署的各个选项。  不是使用命令行标记或开关，而是能够查看各种选项和设置的良好 Web 布局。  通过命令行接口提供的所有功能也都在门户中提供。
+通过在 Azure Web 门户上创建 Linux VM，可以轻松地指向和单击用于访问部署的各个选项。  你可以在布局良好的 Web 界面上查看各种选项和设置，不需要使用命令行标记或开关。  通过命令行接口提供的所有功能也都在门户中提供。
 
 * [使用门户创建 Linux VM](quick-create-portal.md)
 
 ### <a name="log-in-using-ssh-without-a-password"></a>不使用密码通过 SSH 登录
-VM 现在正在 Azure 上运行，用户可以登录。  使用密码通过 SSH 登录既不安全耗时也长。  使用 SSH 密钥是最安全且最快捷的登录方式。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 的过程中使用 SSH 公钥选项。
+VM 现在正在 Azure 上运行，用户可以登录。  使用密码通过 SSH 登录既不安全耗时也长。  使用 SSH 密钥是最安全且最快捷的登录方式。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 时使用 SSH 公钥选项。
 
 ## <a name="related-azure-components"></a>相关 Azure 组件
 ## <a name="storage"></a>存储
@@ -139,7 +139,7 @@ VM 现在正在 Azure 上运行，用户可以登录。  使用密码通过 SSH 
 <!-- Not Avaialble ## Containers-->
 
 ## <a name="next-steps"></a>后续步骤
-现在已概要了解 Azure 上的 Linux。  下一步是进一步的研究，并创建一些 VM 组件！
+现在已了解 Azure 上的 Linux 概要。  下一步是深入研究，并创建一些 VM 组件！
 
 * [通过 Azure CLI 浏览不断增多的常见任务的示例脚本列表](cli-samples.md)
 

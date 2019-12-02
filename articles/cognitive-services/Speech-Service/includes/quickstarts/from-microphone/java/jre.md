@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 08/06/2019
 ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 87842a4545ea73bb2dedc059f11a6b0589ee7e4c
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 6c215125b895b71a6a919862f2f60f4910ac872e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74390059"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74663587"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -47,7 +47,7 @@ ms.locfileid: "74390059"
             try {
                 // Replace below with your own subscription key
                 String speechSubscriptionKey = "YourSubscriptionKey";
-                // Replace below with your own service region (e.g., "westus").
+                // Replace below with your own service region (e.g., "chinaeast2").
                 String serviceRegion = "YourServiceRegion";
     
                 int exitCode = 1;

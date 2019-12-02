@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: virtual-network
 ms.topic: article
 origin.date: 08/31/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5c0bb455d276705736d7e64c776fb66266a59e8
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 456e2d3840e253e0e8b5e1cad6ea217ea694e3ed
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306840"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657981"
 ---
 <!--Pending Verify-->
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>使用 Azure PowerShell 将 Azure 网络安全组 (NSG) 移到另一个区域
@@ -56,15 +56,15 @@ Azure 安全组不能从一个区域移到另一个区域。 但是，可以使�
     ```
 3. 将源 NSG 导出到执行 [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) 命令时所在的目录中的某个 .json 文件：
 
-   ```powershell
-   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
-   ```
+    ```powershell
+    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
+    ```
 
 4. 已下载的文件将根据从其导出了资源的资源组来命名。  找到通过名为 **\<resource-group-name>.json** 的命令导出的文件，在所选编辑器中将其打开：
 
-   ```azurepowershell
-   notepad <source-resource-group-name>.json
-   ```
+    ```azurepowershell
+    notepad <source-resource-group-name>.json
+    ```
 
 5. 若要编辑 NSG 名称的参数，请将源 NSG 名称的属性 **defaultValue** 更改为目标 NSG 的名称，确保对名称使用引号：
 
@@ -232,5 +232,4 @@ Remove-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source
 - [将资源移到新资源组或订阅中](/azure-resource-manager/resource-group-move-resources)
 - [将 Azure VM 移到另一区域](/site-recovery/azure-to-azure-tutorial-migrate)
 
-<!-- Update_Description: new article about move across regions nsg powershell -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

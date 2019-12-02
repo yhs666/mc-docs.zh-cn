@@ -7,15 +7,15 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 07/03/2019
-ms.date: 07/22/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ea24de2c796dd6bad1d7eb6591ff14e5f44f5ce2
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: c199c09e418ba92115f6cc80cc0089c46e98537a
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298133"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530621"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>教程：订购 Azure Data Box Disk
 
@@ -50,7 +50,10 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
 ## <a name="order-data-box-disk"></a>订购 Data Box 磁盘
 
+登录到：
+
 在 [Azure 门户](https://portal.azure.cn)中执行以下步骤订购 Data Box 磁盘。
+按照以下步骤订购 Data Box Disk。
 
 1. 在门户的左上角单击“+ 创建资源”，然后搜索“Azure Data Box”。   单击“Azure Data Box”。 
     
@@ -97,7 +100,7 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
     ![托管磁盘的 Data Box Disk 订单](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 上传到临时存储帐户，然后将其转换为托管磁盘并转移到资源组。 有关详细信息，请参阅[验证将数据上传到 Azure 的功能](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure)。
+    为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 上传到临时存储帐户，然后将其转换为托管磁盘并转移到资源组。 有关详细信息，请参阅[验证将数据上传到 Azure 的功能](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure)。
 
 13. 单击“下一步”  。
 

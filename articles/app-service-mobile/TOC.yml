@@ -112,6 +112,14 @@
               href: app-service-mobile-node-backend-how-to-use-server-sdk.md
             - name: 客户端和服务器版本控制
               href: app-service-mobile-client-and-server-versioning.md
+        - name: 应用服务环境
+          items:
+            - name: 在应用服务环境中创建 Web 应用
+              href: ../app-service/environment/intro.md?toc=%2fapp-service-mobile%2ftoc.json
+            - name: 创建和使用内部负载均衡器
+              href: ../app-service/environment/create-ilb-ase.md?toc=%2fapp-service-mobile%2ftoc.json
+            - name: 使用模板创建 ASE
+              href: ../app-service/environment/create-from-template.md?toc=%2fapp-service-mobile%2ftoc.json
     - name: 部署
       items:
         - name: 过渡环境
@@ -123,7 +131,12 @@
     - name: 缩放
       items:
         - name: 扩展应用
-          href: ../app-service/web-sites-scale.md?toc=%2fapp-service-mobile%2ftoc.json
+          href: ../app-service/manage-scale-up.md?toc=%2fapp-service-mobile%2ftoc.json
+        - name: 应用服务环境
+          href: ../app-service/environment/intro.md?toc=%2fapp-service-mobile%2ftoc.json
+          items:
+            - name: 应用服务环境的异地分布式缩放
+              href: ../app-service/environment/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fapp-service-mobile%2ftoc.json
     - name: 管理
       items:
         - name: 配置通用设置
@@ -143,6 +156,8 @@
           items:
             - name: 使用 Web 作业运行后台任务
               href: ../app-service/webjobs-create.md?toc=%2fapp-service-mobile%2ftoc.json
+            - name: 自定义配置设置
+              href: ../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fapp-service-mobile%2ftoc.json
     - name: 安全
       items:
         - name: 使用标识提供者进行身份验证
@@ -157,6 +172,10 @@
               href: ../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fapp-service-mobile%2ftoc.json
             - name: 使用在其他位置获取的 SSL 证书
               href: ../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fapp-service-mobile%2ftoc.json
+        - name: 保护应用服务环境
+          items:
+            - name: 配置 Web 应用程序防火墙
+              href: ../app-service/environment/app-service-app-service-environment-web-application-firewall.md?toc=%2fapp-service-mobile%2ftoc.json
     - name: Backup
       items:
         - name: 在 Azure 中备份应用

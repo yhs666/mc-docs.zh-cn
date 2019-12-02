@@ -17,12 +17,12 @@ origin.date: 03/20/2017
 ms.date: 09/04/2019
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 1d036d1c9be57b165622d94ba6374f0252d94c4f
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: c63a6347d0acc027f57c5bf7b0aff7954eedf9d4
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806710"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555935"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>将应用服务应用连接到 SQL 数据库
 
@@ -68,7 +68,7 @@ New-AzSqlServerFirewallRule -FirewallRuleName "AllowYourIp" -StartIpAddress $Sta
 New-AzSQLDatabase -ServerName $ServerName -DatabaseName MySampleDatabase -ResourceGroupName $ResourceGroup
 
 # Assign Connection String to Connection String 
-Set-AzWebApp -ConnectionStrings @{ MyConnectionString = @{ Type="SQLAzure"; Value ="Server=tcp:$ServerName.database.windows.net;Database=MySampleDatabase;User ID=$Username@$ServerName;Password=$password;Trusted_Connection=False;Encrypt=True;" } } -Name $AppName -ResourceGroupName $ResourceGroup
+Set-AzWebApp -ConnectionStrings @{ MyConnectionString = @{ Type="SQLAzure"; Value ="Server=tcp:$ServerName.database.chinacloudapi.cn;Database=MySampleDatabase;User ID=$Username@$ServerName;Password=$password;Trusted_Connection=False;Encrypt=True;" } } -Name $AppName -ResourceGroupName $ResourceGroup
 
 ```
 

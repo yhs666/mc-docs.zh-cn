@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/27/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ee4b5b8167072bea0f130441d17f1b88c6a47ce0
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 2368da1569bff677ffad7a31aa3ba802d7411783
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416394"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657853"
 ---
 # <a name="authoring-and-runtime-keys"></a>创作和运行时密钥
 
@@ -106,7 +106,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 **POST**：更改 `Ocp-Apim-Subscription-Key` 的标头值<br>如果创建并分配了运行时密钥，但是没有更改 `Ocp-Apim-Subscription-Key` 的终结点查询值，则不会使用运行时密钥。
 
-在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
+在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://www.azure.cn/home/features/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
 
 ## <a name="assignment-of-the-runtime-key"></a>分配运行时密钥
 
@@ -180,7 +180,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 |:--|:--|
 |可供所有者和参与者使用|可供所有者、参与者以及知道应用 ID 的任何其他人使用|
 
-可以通过在服务器到服务器环境中调用 LUIS 运行时密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://azure.microsoft.com/services/active-directory/)）的服务器端 API（如 Azure [函数](https://azure.microsoft.com/services/functions/)）。 如果调用并验证服务器端 API，则在确认授权后将调用传递到 LUIS。 尽管此策略不能防范中间人攻击，但它会针对用户模糊化处理密钥和终结点 URL，允许你跟踪访问，并允许你添加终结点响应日志记录（如 [Application Insights](https://azure.microsoft.com/services/application-insights/)）。
+可以通过在服务器到服务器环境中调用 LUIS 运行时密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://www.azure.cn/home/features/active-directory/)）的服务器端 API（如 Azure [函数](https://www.azure.cn/home/features/functions/)）。 如果调用并验证服务器端 API，则在确认授权后将调用传递到 LUIS。 尽管此策略不能防范中间人攻击，但它会针对用户模糊化处理密钥和终结点 URL，允许你跟踪访问，并允许你添加终结点响应日志记录（如 [Application Insights](https://www.azure.cn/home/features/application-insights/)）。
 
 #### <a name="runtime-security-for-private-apps"></a>专用应用的运行时安全性
 
@@ -208,7 +208,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 ## <a name="securing-the-endpoint"></a>保护终结点安全 
 
-可以通过在服务器到服务器环境中调用 LUIS 预测运行时终结点密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://azure.microsoft.com/services/active-directory/)）的服务器端 API（如 Azure [函数](https://azure.microsoft.com/services/functions/)）。 如果调用服务器端 API 并且身份验证和授权得到验证，则将调用传递到 LUIS。 尽管此策略不会防止中间人攻击，但它针对用户模糊化处理终结点，允许跟踪访问，并允许添加终结点响应日志记录（如 [Application Insights](https://azure.microsoft.com/services/application-insights/)）。  
+可以通过在服务器到服务器环境中调用 LUIS 预测运行时终结点密钥来控制谁可以查看该密钥。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://www.azure.cn/home/features/active-directory/)）的服务器端 API（如 Azure [函数](https://www.azure.cn/home/features/functions/)）。 如果调用服务器端 API 并且身份验证和授权得到验证，则将调用传递到 LUIS。 尽管此策略不会防止中间人攻击，但它针对用户模糊化处理终结点，允许跟踪访问，并允许添加终结点响应日志记录（如 [Application Insights](https://www.azure.cn/home/features/application-insights/)）。  
 
 ## <a name="next-steps"></a>后续步骤
 

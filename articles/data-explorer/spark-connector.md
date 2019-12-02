@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/29/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 08c0803fb99e32a2d3841e01f669fe991a3be3de
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: f5f455490e7f5d64471fd84f22092a26524c7f25
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020857"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657657"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>适用于 Apache Spark 的 Azure 数据资源管理器连接器（预览版）
 
@@ -136,7 +136,7 @@ Azure 数据资源管理器 Spark 连接器允许使用 [Azure AD 应用程序](
     val appId = KustoSparkTestAppId
     val appKey = KustoSparkTestAppKey
     val authorityId = "72f988bf-86f1-41af-91ab-2d7cd011db47" // Optional - defaults to microsoft.com
-    val cluster = "Sparktest.eastus2"
+    val cluster = "Sparktest.chinanorth2"
     val database = "TestDb"
     val table = "StringAndIntTable"
     ```

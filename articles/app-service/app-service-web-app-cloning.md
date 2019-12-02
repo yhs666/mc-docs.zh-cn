@@ -16,12 +16,12 @@ origin.date: 01/14/2018
 ms.date: 08/12/2019
 ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 750e121b69ad11a72d0d25bf4b95fe01a18e4a1b
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 91bb3ed27dead409d05d03ebcecc4bcef106a79e
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878561"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74556002"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 克隆 Azure App Service 应用
 
@@ -114,7 +114,8 @@ $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<
 * 不会克隆 TiP 规则
 * 不会克隆数据库内容
 * 如果克隆到不同的缩放单元，出站 IP 地址会更改
-* 不适用于 Linux 应用
+
+<!-- * Not available for Linux Apps -->
 
 ### <a name="references"></a>参考
 * [应用服务克隆](app-service-web-app-cloning.md)

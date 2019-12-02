@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: d613047ff48746138e8d84d5dfe40ee3cdf8e390
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 1af59328dfa9cdc0c04f792becba93612acc4701
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583589"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657933"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>为 Cordova 移动应用启用脱机同步
 
@@ -166,7 +166,7 @@ ms.locfileid: "72583589"
 
 ```
 // Login to the service.
-// client.login('twitter')
+// client.login('microsoftaccount')
 //    .then(function () {
 syncContext.initialize(store).then(function () {
 // Leave the rest of the code in this callback function  uncommented.
@@ -234,7 +234,7 @@ syncContext.initialize(store).then(function () {
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Visual Studio Community 2015]: https://www.visualstudio.com/
-[用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

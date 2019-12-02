@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 06/11/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0f3c8bc5f437210a13f7e434f7e94f50f0e1e03
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 50af35d2f4135c73c084f054089e9eb673092746
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664577"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658035"
 ---
 # <a name="create-a-network-security-group-classic-using-powershell"></a>使用 PowerShell 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "52664577"
     ```powershell   
     New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location chinanorth `
       -Label "Front end subnet NSG"
-   ```
+    ```
 
 3. 创建一个允许从 Internet 访问端口 3389 的安全规则：
 
@@ -55,7 +55,7 @@ ms.locfileid: "52664577"
       -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
       -SourceAddressPrefix Internet  -SourcePortRange '*' `
       -DestinationAddressPrefix '*' -DestinationPortRange '3389'
-   ```
+    ```
 
 4. 创建一个允许从 Internet 访问端口 80 的安全规则：
 
@@ -95,4 +95,5 @@ ms.locfileid: "52664577"
       -SourceAddressPrefix '*'  -SourcePortRange '*' `
       -DestinationAddressPrefix Internet -DestinationPortRange '*'
    ```
+
 <!-- Update_Description: wording update, update link -->

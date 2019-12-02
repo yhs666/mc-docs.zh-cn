@@ -8,14 +8,14 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 3a1b95c86826bb9958bfc33f437668680f9072ec
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: d745de8c1b4997e7e307f26dc925e53726a0ba94
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526658"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657745"
 ---
-# <a name="sample---allowed-sql-db-skus"></a>示例 - 允许的 SQL DB SKU
+# <a name="sample---allowed-sql-database-skus"></a>示例 - 允许的 SQL 数据库 SKU
 
 此策略要求 SQL 数据库使用已批准的 SKU。 指定一个允许的 SKU ID 的数组或允许的 SKU 名称的数组。
 

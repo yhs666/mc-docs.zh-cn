@@ -1,20 +1,20 @@
 ---
-title: Azure VPN 网关 | Microsoft Docs
+title: 关于 Azure VPN 网关
 description: 了解什么是 VPN 网关，以及可以通过什么方式将 VPN 网关用于连接到 Azure 虚拟网络。 包括 IPsec/IKE 站点到站点跨界解决方案和 VNet 到 VNet 解决方案，以及点到站点 VPN。
 services: vpn-gateway
 author: WenJason
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-origin.date: 05/22/2019
-ms.date: 08/05/2019
+origin.date: 11/13/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: e9faa5779bc0a785950d0045cc6e455028d2b874
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.openlocfilehash: 8c7689fa5f10888c8af0021d833d6e0addc6dbd3
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68732411"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552986"
 ---
 # <a name="what-is-vpn-gateway"></a>什么是 VPN 网关？
 
@@ -22,9 +22,11 @@ VPN 网关是特定类型的虚拟网关，用于跨公共 Internet 在 Azure �
 
 ## <a name="whatis"></a>什么是虚拟网关？
 
-虚拟网关由两个或更多虚拟机组成，这些虚拟机会部署到所创建的名为“网关子网”的特定子网。  创建虚拟网关时，将创建位于网关子网中的 VM。 虚拟网络网关 VM 配置为包含特定于该网关的路由表和网关服务。 无法直接配置属于虚拟网关的 VM，且绝不应该将其他资源部署到网关子网。
+虚拟网络网关由两个或多个 VM 组成，这些 VM 部署到所创建的名为“网关子网”的特定子网  。 虚拟网络网关 VM 包含路由表，并运行特定的网关服务。 这些 VM 是在创建虚拟网络网关时创建的。 不能直接配置属于虚拟网络网关的 VM。
 
-创建虚拟网关可能需要多达 45 分钟才能完成。 创建虚拟网关时，会将网关 VM 部署到网关子网，并使用指定的设置进行配置。 配置的设置之一是网关类型。 网关类型“vpn”指定创建的虚拟网关类型为 VPN 网关。 在创建 VPN 网关以后，即在一个 VPN 网关和另一个 VPN 网关之间（VNet 到 VNet）创建 IPsec/IKE VPN 隧道连接，或者在 VPN 网关和本地 VPN 设备（站点到站点）之间创建跨界 IPsec/IKE VPN 隧道连接。 也可创建点到站点 VPN 连接（基于 IKEv2 或 SSTP 的 VPN），以便从远程位置（例如从会议或家）连接到虚拟网络。
+为虚拟网络网关配置的一项设置是网关类型。 网关类型指定如何使用虚拟网络网关以及网关所采取的操作。 网关类型“vpn”指定创建的虚拟网关类型为“VPN 网关”，而非 ExpressRoute 网关。 一个虚拟网络可以有两个虚拟网络网关：一个 VPN 网关和一个 ExpressRoute 网关，与[共存](#coexisting)连接配置的情况相同。 有关详细信息，请参阅[网关类型](vpn-gateway-about-vpn-gateway-settings.md#gwtype)。
+
+创建虚拟网关可能需要多达 45 分钟才能完成。 创建虚拟网关时，会将网关 VM 部署到网关子网，并使用指定的设置进行配置。 在创建 VPN 网关以后，即在一个 VPN 网关和另一个 VPN 网关之间（VNet 到 VNet）创建 IPsec/IKE VPN 隧道连接，或者在 VPN 网关和本地 VPN 设备（站点到站点）之间创建跨界 IPsec/IKE VPN 隧道连接。 也可创建点到站点 VPN 连接（基于 IKEv2 或 SSTP 的 VPN），以便从远程位置（例如从会议或家）连接到虚拟网络。
 
 ## <a name="configuring"></a>配置 VPN 网关
 
@@ -50,7 +52,10 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 ## <a name="gwsku"></a>网关 SKU
 
-创建虚拟网络网关时，需指定要使用的网关 SKU。 请根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。 有关网关 SKU 的详细信息（包括支持的功能、生产和开发测试以及配置步骤），请参阅 [VPN 网关设置 - 网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 一文。 有关旧版 SKU 的信息，请参阅[使用旧版 SKU](vpn-gateway-about-skus-legacy.md)。
+创建虚拟网络网关时，需指定要使用的网关 SKU。 请根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。
+
+* 有关网关 SKU 的详细信息（包括支持的功能、生产和开发测试以及配置步骤），请参阅 [VPN 网关设置 - 网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 一文。
+* 有关旧版 SKU 的信息，请参阅[使用旧版 SKU](vpn-gateway-about-skus-legacy.md)。
 
 ### <a name="benchmark"></a>按隧道、连接和吞吐量列出的网关 SKU
 
@@ -90,7 +95,6 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 与 S2S 连接不同，P2S 连接不需要本地面向公众的 IP 地址或 VPN 设备。 可以通过同一 VPN 网关将 P2S 连接与 S2S 连接结合使用，前提是这两种连接的所有配置要求都兼容。 有关点到站点连接的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
 
-
 ![Azure VPN 网关点到站点连接示例](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
 ### <a name="deployment-models-and-methods-for-p2s"></a>适用于 P2S 的部署模型和方法
@@ -122,7 +126,7 @@ Azure 当前具有两个部署模型：经典模型和 Resource Manager 模型�
 
 ## <a name="ExpressRoute"></a>ExpressRoute（专用连接）
 
-使用 ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Azure 云。 使用 ExpressRoute 可与 Azure 云服务建立连接。 可以从任意位置之间的 (IP VPN) 网络、点到点以太网或在共置设施上通过连接服务提供商的虚拟交叉连接来建立这种连接。
+使用 ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Azure、Office 365 和 CRM Online 等 Microsoft 云服务建立连接。 可以从任意位置之间的 (IP VPN) 网络、点到点以太网或在共置设施上通过连接服务提供商的虚拟交叉连接来建立这种连接。
 
 ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连接相比，ExpressRoute 连接提供更高的可靠性、更快的速度、更低的延迟和更高的安全性。
 
@@ -155,4 +159,3 @@ ExpressRoute 是从 WAN （不通过公共 Internet）到 Microsoft 服务（包
 - 有关更多信息，请查看 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
 - 查看[订阅和服务限制](../azure-subscription-service-limits.md#networking-limits)。
 - 了解 Azure 的一些其他关键[网络功能](../networking/networking-overview.md)。
-<!--Update_Description: wording update-->

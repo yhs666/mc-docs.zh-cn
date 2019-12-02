@@ -16,12 +16,12 @@ origin.date: 03/20/2017
 ms.date: 09/04/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e9d6291ad16e289b2ce975cd55a11654c7d194be
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 64ccd7cef0c137bab72afb3a693b1c4b55967466
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806719"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555936"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>使用 PowerShell 将自定义域分配到 Web 应用
 
@@ -49,7 +49,7 @@ New-AzAppServicePlan -Name $webappname -Location $location `
 New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
 -ResourceGroupName $webappname
 
-Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
+Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
 Read-Host "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
@@ -62,7 +62,7 @@ Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname `
 
 # Add a custom domain name to the web app. 
 Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `
--HostNames @($fqdn,"$webappname.azurewebsites.net")
+-HostNames @($fqdn,"$webappname.chinacloudsites.cn")
 
 ```
 ## <a name="clean-up-deployment"></a>清理部署 

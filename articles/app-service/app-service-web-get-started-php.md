@@ -10,18 +10,17 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 09/03/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: d849b76bd93d770c25355ae509e6dd079ae71683
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 040469214494efd1261297dd70de44ebc51518da
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806834"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555998"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -179,17 +178,19 @@ git push azure master
 
 ## <a name="manage-your-new-azure-app"></a>管理新的 Azure 应用
 
-转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
+1. 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。 搜索并选择“应用服务”  。
 
-在左侧菜单中单击“应用程序服务”  ，然后单击 Azure 应用的名称。
+    ![搜索应用服务, Azure 门户, 创建 PHP web 应用](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![在门户中导航到 Azure 应用](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. 选择 Azure 应用名称。
 
-此时将显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。
+    ![在门户中导航到 Azure 应用](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![Azure 门户中的应用服务页](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    此时会显示 Web 应用的“概览”页。  可在此处执行基本的管理任务，例如浏览、停止、重启和删除。    
 
-左侧菜单提供用于配置应用的不同选项。 
+    ![Azure 门户中的“应用服务”页](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    Web 应用菜单提供用于配置应用的不同选项。 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

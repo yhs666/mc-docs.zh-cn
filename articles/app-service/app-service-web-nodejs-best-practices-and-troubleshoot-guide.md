@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 11/25/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e2b4870d331f3b6adc7bb176d15ff685f1811748
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 89e2f71888a105efe5bfafd8b434ef1e73618180
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878560"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555859"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
@@ -286,3 +286,5 @@ NODE.exe 具有名为 `NODE_PENDING_PIPE_INSTANCES` 的设置。 在 Azure 应�
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
 * [Azure 应用服务 Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)
+
+<!-- * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/) -->

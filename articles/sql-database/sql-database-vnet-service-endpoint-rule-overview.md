@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, genemi
 origin.date: 08/27/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 42a36337f9727a0f7c3df5fddc723e3f238cd41d
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/02/2019
+ms.openlocfilehash: f82c904ff4525a01a429053dc0402c1461f9cd37
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041221"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655454"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>为数据库服务器使用虚拟网络服务终结点和规则
 
@@ -306,7 +306,7 @@ Azure SQL 数据库的虚拟网络规则功能已在 2017 年 9 月末推出。
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.azure.cn/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

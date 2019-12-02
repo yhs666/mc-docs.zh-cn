@@ -16,12 +16,12 @@ origin.date: 07/01/2016
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 4943b5975a93c940a435b99a401959627c2eeaa8
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 07d56d018d580df43ea54190f46aaf34b67d51ed
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155811"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74556017"
 ---
 # <a name="best-practices-for-azure-app-service"></a>有关 Azure 应用服务的最佳实践
 本文汇总了有关使用 [Azure App Service](overview.md) 的最佳实践。 
@@ -57,13 +57,13 @@ const request = https.request(options, function(response) {
 });
 ```
 
-如果在具有多个核心的计算机中的 Linux 应用服务 上运行，另一种最佳做法是使用 PM2 启动多个 Node.js 进程执行应用程序。 可以通过指定容器的启动命令来执行此操作。
+<!-- If you are running on App Service on Linux on a machine with multiple cores, another best practice is to use PM2 to start multiple Node.js processes to execute your application. You can do it by specifying a startup command to your container. -->
 
-例如，若要启动四个实例：
+<!-- For example, to start four instances: -->
 
-```
-pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
-```
+<!-- ``` -->
+<!-- pm2 start /home/site/wwwroot/app.js --no-daemon -i 4 -->
+<!-- ``` -->
 
 ## <a name="appbackup"></a>当应用备份开始失败时
 应用备份失败的两个最常见原因：存储设置无效和数据库配置无效。 这些失败通常发生在对存储或数据库资源或其访问方式进行了更改（例如更新了备份设置中所选数据库的凭据）时。 备份通常按计划运行并且只需访问存储（以便输出备份后的文件）和数据库（以便复制和读取备份中要包含的内容）。 其中任一资源访问失败会导致持续备份失败。 

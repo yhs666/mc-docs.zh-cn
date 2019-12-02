@@ -16,12 +16,12 @@ ms.custom: mvc
 origin.date: 03/22/2019
 ms.date: 10/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 3f39cb960a345f71e18e99cedd35bb8b5396dc64
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 9dc03fb3c1a6de3a8e1bf56f6749b82f6fa03dac
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272484"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657990"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教程：向运行通用 Windows 平台应用程序的特定 Windows 设备推送通知
 
@@ -36,7 +36,7 @@ ms.locfileid: "72272484"
 在通知中心创建注册时，通过加入一个或多个*标记*来启用广播方案。 将通知发送到标记时，已注册该标记的所有设备将接收通知。 有关标记的详细信息，请参阅[注册中的标记](notification-hubs-tags-segment-push-message.md)。
 
 > [!NOTE]
-> Visual Studio 2017 中不支持 Windows 应用商店和 Windows Phone 项目 8.1 及更早的版本。 有关详细信息，请参阅 [Visual Studio 2017 平台目标以及兼容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
+> Visual Studio 2017 中不支持 Windows 应用商店和 Windows Phone 项目 8.1 及更早的版本。 有关详细信息，请参阅 [Visual Studio 2017 平台目标以及兼容性](https://www.visualstudio.com/productinfo/vs2017-compatibility-vs)。
 
 在本教程中，我们将执行以下步骤：
 

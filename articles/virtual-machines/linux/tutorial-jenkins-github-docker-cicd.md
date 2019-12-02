@@ -16,12 +16,12 @@ origin.date: 03/27/2017
 ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fbe510a7683b95508a3d143d49aacfed000bdcd8
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: 7dbd859a01c3aaa8de8e5212cf0d806e1be70a4e
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831374"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592715"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 
@@ -72,6 +72,8 @@ runcmd:
   - usermod -aG docker jenkins
   - service jenkins restart
 ```
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后才能创建 VM。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroupJenkins* 的资源组：
 

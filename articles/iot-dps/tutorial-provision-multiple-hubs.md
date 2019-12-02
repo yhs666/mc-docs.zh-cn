@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d646af3bad442156746bb77af7267bc9048cbba7
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 507bc9debe1ee7db2e217012e3f7e6f788f34e8f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389583"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657873"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>跨负载均衡的 IoT 中心预配设备
 
@@ -26,7 +26,7 @@ ms.locfileid: "74389583"
 > * 将设备预配服务分配策略设置为“均匀分发” 
 > * 将新的 IoT 中心链接到设备预配服务
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 

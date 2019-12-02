@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/09/2019
-ms.date: 11/07/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67f43efc0d48e261fe09837e27923c3938f3485a
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 8b54d65c6092cbd367e418ac1f957b3ac1eb959f
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830956"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655304"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入门：将应用程序注册到 Microsoft 标识平台
 
@@ -35,7 +35,7 @@ ms.locfileid: "73830956"
 
 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中，选择“Azure Active Directory”服务  ，然后选择“应用注册”>“新建注册”。 
+1. 搜索并选择“Azure Active Directory”。  在“Active Directory”页上选择“应用注册”，然后选择“新建注册”   。 
 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
 
    - **名称**：输入一个会显示给应用用户的有意义的应用程序名称。

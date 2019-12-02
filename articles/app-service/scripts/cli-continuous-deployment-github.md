@@ -14,15 +14,15 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f8c0f2f887f4fb8dbe3e1999993e81e80e10a463
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 325525d7f68d10bf91ff65efe79887691f00152a
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806806"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555938"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>使用 CLI 从 GitHub 通过持续部署创建应用服务应用
 

@@ -6,16 +6,17 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-origin.date: 06/13/2019
-ms.date: 07/22/2019
+origin.date: 09/04/2019
+ms.date: 12/02/2019
 ms.author: v-jay
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0ff201633977d3702a41a0c3208acff77a2ffbd3
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: 61b096c675bbce06cf2337b1aaa966e7e3df5b10
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298109"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530620"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教程：打开包装、连接和解锁 Azure Data Box 磁盘
 
@@ -28,6 +29,14 @@ ms.locfileid: "68298109"
 > * 连接到磁盘并获取支持密钥
 > * 在 Windows 客户端上解锁磁盘
 > * 在 Linux 客户端上解锁磁盘
+
+::: zone target="chromeless"
+
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>打开包装、连接和解锁 Azure Data Box 磁盘
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -174,7 +183,7 @@ ms.locfileid: "68298109"
  
 5. 键入 `y` 继续安装。 脚本安装的包为： 
    - **epel-release** - 包含以下三个包的存储库。 
-   - **dislocker 和 fuse-dislocker** - 此实用工具可帮助解密 BitLocker 加密的磁盘。 
+   - **dislocker 和 fuse-dislocker** - 这些实用工具可帮助解密 BitLocker 加密的磁盘。 
    - **ntfs-3g** - 帮助装载 NTFS 卷的包。 
  
      成功安装包后，终端将显示相关的通知。     
@@ -260,6 +269,54 @@ ms.locfileid: "68298109"
 
 如果解锁磁盘时遇到任何问题，请参阅如何[排查解锁问题](data-box-disk-troubleshoot-unlock.md)。 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+1. 打开磁盘包装并使用附带的电缆将磁盘连接到客户端计算机。
+2. 下载 Data Box Disk 工具集并将其解压缩到将用于复制数据的同一台计算机上。
+
+    > [!div class="nextstepaction"]
+    > [下载适用于 Windows 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolswin)
+
+    或
+    > [!div class="nextstepaction"]
+    > [下载适用于 Linux 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolslinux) 
+
+3. 若要在 Windows 客户端上解锁磁盘，请打开命令提示符窗口，或者在同一台计算机上以管理员身份运行 Windows PowerShell：
+
+    - 在安装了 Data Box Disk 解锁工具的同一文件夹中键入以下命令。
+
+        ``` 
+        .\DataBoxDiskUnlock.exe
+        ```
+    -  从 Azure 门户中的“常规”>“设备详细信息”  获取密钥，并在此处提供。 此时会显示分配给磁盘的驱动器号。 
+4. 若要在 Linux 客户端上解锁磁盘，请打开终端。 转到软件下载到的文件夹。 键入以下命令以更改文件权限，以便可以执行这些文件： 
+
+    ```
+    chmod +x DataBoxDiskUnlock_x86_64
+    chmod +x DataBoxDiskUnlock_Prep.sh
+    ``` 
+    执行脚本以安装所有必需的二进制文件。
+
+    ```
+    sudo ./DataBoxDiskUnlock_Prep.sh
+    ```
+    运行 Data Box Disk 解锁工具。 从 Azure 门户中的“常规”>“设备详细信息”  获取密钥，并在此处提供。 （可选）在单引号内指定要解锁的 BitLocker 加密卷列表。
+
+    ```
+    sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
+    ```      
+5. 将来每次重新插入磁盘，都需要重复解锁步骤。 如需 Data Box 磁盘解锁工具的帮助，请使用 help 命令。
+
+解锁磁盘后，可以查看磁盘的内容。
+
+有关如何设置和解锁磁盘的详细信息，请参阅[设置 Data Box Disk](data-box-disk-deploy-set-up.md)。
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="next-steps"></a>后续步骤
 
 本教程介绍了有关 Azure Data Box 磁盘的主题，例如：
@@ -275,4 +332,6 @@ ms.locfileid: "68298109"
 
 > [!div class="nextstepaction"]
 > [复制 Data Box 磁盘上的数据](./data-box-disk-deploy-copy-data.md)
+
+::: zone-end
 

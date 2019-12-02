@@ -10,12 +10,12 @@ origin.date: 09/03/2010
 ms.date: 10/30/2019
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 5dd1e434b50f2c09b5608ab1fb3e34b8df3e308e
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: e426500ec3d4b79f5707666c5984cbfcadb06338
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425865"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657976"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入门：使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 
 
@@ -118,7 +118,7 @@ npm install
 
 ## <a name="publish-the-web-app-to-azure"></a>将 Web 应用发布到 Azure
 
-创建 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)计划。 可以在此计划中存储多个 Web 应用。
+创建 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)计划。 可以在此计划中存储多个 Web 应用。
 
     ```
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup

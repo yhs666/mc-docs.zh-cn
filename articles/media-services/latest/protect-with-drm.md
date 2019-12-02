@@ -1,6 +1,6 @@
 ---
 title: 将 DRM 动态加密和许可证传送服务与 Azure 媒体服务配合使用 | Microsoft Docs
-description: 可以使用 Azure 媒体服务来传送通过 Microsoft PlayReady、Google Widevine 或 Apple FairPlay 许可证加密的流。
+description: 可以使用 Azure 媒体服务来传送通过 Microsoft PlayReady 或 Apple FairPlay 许可证加密的流。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2019
-ms.date: 09/23/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 1814c9339d0df205d1956d78fd20c904a7071344
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: a7f84f0be363efa945799481f9cb344a1246f672
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125530"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655465"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教程：使用 DRM 动态加密和许可证传送服务
 
@@ -286,7 +286,6 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
             = new ContentKeyPolicyTokenRestriction(Issuer, Audience, primaryKey, ContentKeyPolicyRestrictionTokenType.Jwt, alternateKeys, requiredClaims);
 
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         // ContentKeyPolicyFairPlayConfiguration fairplayConfig = ConfigureFairPlayPolicyOptions();
 
         List<ContentKeyPolicyOption> options = new List<ContentKeyPolicyOption>();

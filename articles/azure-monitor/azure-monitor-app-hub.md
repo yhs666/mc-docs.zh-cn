@@ -11,12 +11,12 @@ ms.topic: landing-page
 origin.date: 01/15/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1b452a81db4b595147c8bc6b6acebf67e7e64fa3
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 7ccff3dcb7792025a18c34213eb4e439c4993ce4
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329962"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657975"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -153,7 +153,7 @@ ms.locfileid: "71329962"
                                                           <h3>.NET Core 应用程序</h3>
                                                         <p>
                                                             <a href="./app/asp-net-core.md">深入的监视配置</a><br>
-                                                            <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core 分析</a><br>
+                            
                                                             <a href="./app/api-custom-events-metrics.md">自定义事件和指标</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">开源 .NET Core SDK GitHub 存储库</a>
                                                         </p>

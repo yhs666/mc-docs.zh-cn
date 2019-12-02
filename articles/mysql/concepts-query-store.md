@@ -5,21 +5,21 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 10/17/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 641a623a2092da0fa7f8e127651933dab27b24c9
-ms.sourcegitcommit: cb2caa72ec0e0922a57f2fa1056c25e32c61b570
+origin.date: 11/04/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: ffd1828de53c51d2ce1ad6c256ce508172ce579c
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142091"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530654"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>使用查询存储监视 Azure Database for MySQL 的性能
 
-**适用于：** Azure Database for MySQL 5.7
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-> [!IMPORTANT]
-> 查询存储目前以预览版提供。
+**适用于：** Azure Database for MySQL 5.7
 
 使用 Azure Database for MySQL 中的查询存储功能可以跟踪一段时间内的查询性能。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for MySQL 实例上的 **mysql** 架构数据库中。
 

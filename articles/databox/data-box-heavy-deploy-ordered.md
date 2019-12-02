@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 origin.date: 07/03/2019
-ms.date: 07/22/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 1f7923dac6d67cd09242d06b40242468e4ddeb4e
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: 4b64c4c52d502c4c91e4f7150ead6783f3d0318a
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298149"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655402"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>教程：订购 Azure Data Box Heavy
 
@@ -47,7 +47,8 @@ Azure Data Box Heavy 是一个混合解决方案，可以快速、方便、可�
 在开始之前，请确保：
 - 具有 Microsoft Azure 存储帐户和访问凭据。
 - 确保用于 Data Box 服务的订阅是下述类型之一：
-    - Microsoft 企业协议 (EA)。 详细了解 [EA 订阅](https://azure.cn/pricing/enterprise-agreement/)。
+    - Microsoft 企业协议 (EA)。 详细了解 [EA 订阅](https://azure.microsoft.com/pricing/enterprise-agreement/)。
+    - 云解决方案提供商 (CSP)。 详细了解 [Azure CSP 计划](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
     - Microsoft Azure 赞助。 详细了解 [Azure 赞助计划](https://azure.microsoft.com/offers/ms-azr-0036p/)。
 
 - 确保拥有订阅所有者或参与者访问权限，以便创建 Data Box Heavy 订单。
@@ -69,7 +70,7 @@ Azure Data Box Heavy 是一个混合解决方案，可以快速、方便、可�
 
 在 Azure 门户中执行以下步骤以订购设备。
 
-1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.com](https://portal.azure.cn)。
+1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.cn](https://portal.azure.cn)。
 2. 选择“+ 创建资源”并搜索 *Azure Data Box*。  选择“Azure Data Box”  。
     
    [![搜索“Azure Data Box 1”](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)

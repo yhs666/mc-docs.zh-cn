@@ -9,12 +9,12 @@ origin.date: 05/06/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c972a3f4b7a14877dd4338f876146af518e631c5
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: 057ded0a2567d21e4772e8e25ee60daad3aadccd
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831221"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655489"
 ---
 共享映像库是一种可以帮助你围绕托管映像构建结构和组织的服务。 共享映像库提供以下功能：
 
@@ -218,6 +218,7 @@ ms.locfileid: "73831221"
 
 不可以，无法将共享映像库资源移到其他订阅。 但是，可根据需要将库中的映像版本复制到其他区域。
 
+<a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-public-cloud-or-azure-germany-or-azure-china-cloud-cloud"></a>是否可以跨云（例如，Azure 公有云、Azure 德国和 Azure 中国云）复制映像版本？
 
 <!--MOONCAKE: CORRECT ON Azure Public Cloud-->

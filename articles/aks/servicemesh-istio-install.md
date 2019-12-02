@@ -8,12 +8,12 @@ origin.date: 10/09/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: fae0fb35b418ffa911b6c586a07141d72395f31a
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 7025e4355c5d7b7f9962c7ab1563692526633b5b
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425888"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655407"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装和使用 Istio
 
@@ -109,11 +109,8 @@ istio-init-crd-12-1.3.2   1/1           14s        14s
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - check CRD count](includes/servicemesh/istio/install-check-crd-count-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - check CRD count](includes/servicemesh/istio/install-check-crd-count-powershell.md)]-->
 
 如果达到了这一步，即表示你已成功安装 Istio CRD。 现在，请转到[在 AKS 上安装 Istio 组件](#install-the-istio-components-on-aks)部分。
 
@@ -135,11 +132,8 @@ istio-init-crd-12-1.3.2   1/1           14s        14s
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell check for CRDs](includes/servicemesh/istio/install-create-secrets-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell check for CRDs](includes/servicemesh/istio/install-create-secrets-powershell.md)]-->
 
 ### <a name="install-istio-components"></a>安装 Istio 组件
 
@@ -158,7 +152,10 @@ istio-init-crd-12-1.3.2   1/1           14s        14s
 >
 > **节点选择器**
 >
-> Istio 目前必须计划在 Linux 节点上运行。 如果群集中有 Windows Server 节点，则必须确保 Istio Pod 仅计划在 Linux 节点上运行。 我们将使用[节点选择器][kubernetes-node-selectors]来确保将 Pod 调度到相应的节点。
+> Istio 目前必须计划在 Linux 节点上运行。
+
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on  If you have Windows Server nodes in your cluster, you must ensure that the Istio pods are only scheduled to run on Linux nodes. We'll use [node selectors][kubernetes-node-selectors] to make sure pods are scheduled to the correct nodes.-->
 
 > [!CAUTION]
 > [SDS（机密发现服务）][istio-feature-sds]和 [Istio CNI][istio-feature-cni] Istio 功能目前为 [Alpha][istio-feature-stages] 版，因此在启用它们之前应谨慎。 另外，[服务帐户令牌卷投影][kubernetes-feature-sa-projected-volume] Kubernetes 功能（SDS 所必需的）在当前的 AKS 版本中未启用。
@@ -175,11 +172,8 @@ istio-init-crd-12-1.3.2   1/1           14s        14s
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - install Istio components](includes/servicemesh/istio/install-components-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - install Istio components](includes/servicemesh/istio/install-components-powershell.md)]-->
 
 `istio` Helm 图表会部署大量的对象。 上述 `helm install` 命令的输出会显示对象列表。 部署 Istio 组件应该不到 2 分钟就能完成，具体取决于群集环境。
 
@@ -334,11 +328,8 @@ kubectl delete namespace istio-system
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-powershell.md)]-->
 
 ## <a name="next-steps"></a>后续步骤
 

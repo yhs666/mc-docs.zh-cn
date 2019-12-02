@@ -7,14 +7,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: article
 origin.date: 06/03/2019
-ms.date: 09/09/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: ff2623edb5aabd85827749c600f40244937f1c08
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 63170d1b8ead3b312f1e5fa502febd87e5d9c299
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209384"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655439"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>选择 Azure 数据传输解决方案
 
@@ -48,7 +48,7 @@ ms.locfileid: "70209384"
 - [阅读 AzCopy 概述](/storage/common/storage-use-azcopy-v10)。
 - [将 Azure PowerShell 与 Azure 存储一起使用](/storage/common/storage-powershell-guide-full)
 - [将 Azure CLI 用于 Azure 存储](/storage/common/storage-azure-cli)
-- [了解什么是 Azure 数据工厂](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)。
+- [了解什么是 Azure 数据工厂](/data-factory/copy-activity-overview)。
 - 使用 REST API 传输数据
 
     - [在 .NET 中](/dotnet/api/overview/storage)

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/26/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: af9cbc6761b668e3c371ba23ee8fdaad55d7e225
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 8229c261599c782d0019579b90259342bb035d23
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021021"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657956"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 Azure 数据资源管理器群集和数据库
 
@@ -37,7 +37,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ```json
 {
-  "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "clusters_kustocluster_name": {

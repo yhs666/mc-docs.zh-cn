@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/04/2019
 ms.date: 10/08/2019
 ms.author: v-tawe
-ms.openlocfilehash: ccf08f80b2dba0f68227d4c25d12e45473c683ec
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: c62198062542a2d86da6027ef5727fa08f4f98fa
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272623"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657974"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向用户发送跨平台通知
 
@@ -29,7 +29,7 @@ ms.locfileid: "72272623"
 本文演示了如何利用模板在单个请求中向所有平台发送不区分平台的通知。 有关模板的更多详细信息，请参阅 [Azure 通知中心概述][Templates]。
 
 > [!IMPORTANT]
-> Visual Studio 2017 不支持使用 Windows Phone 项目 8.1 及更早的版本。 有关详细信息，请参阅 [Visual Studio 2017 平台目标以及兼容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
+> Visual Studio 2017 不支持使用 Windows Phone 项目 8.1 及更早的版本。 有关详细信息，请参阅 [Visual Studio 2017 平台目标以及兼容性](https://www.visualstudio.com/productinfo/vs2017-compatibility-vs)。
 
 > [!NOTE]
 > 通过通知中心，设备可使用同一标记注册多个模板。 在这种情况下，针对该标签的传入的邮件将导致系统向设备发送多个通知（每个通知对应一个模板）。 此过程可以在多个可视通知中显示同一消息，如显示为 Windows 应用商店应用中的徽章和 toast 通知。

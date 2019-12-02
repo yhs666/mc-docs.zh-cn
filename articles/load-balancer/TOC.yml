@@ -99,27 +99,6 @@
       items:
         - name: 对 Azure 负载均衡器进行故障排除
           href: load-balancer-troubleshoot.md
-    - name: 经典部署模型文章
-      items:
-        - name: 出站连接（经典）
-          href: load-balancer-outbound-connections-classic.md
-        - name: 为云服务配置多个 VIP
-          href: load-balancer-multivip.md
-          items:
-            - name: 为云服务配置内部负载均衡器
-              href: load-balancer-get-started-ilb-classic-cloud.md
-              items:
-                - name: 为云服务配置内部负载均衡器 (PowerShell)
-                  href: load-balancer-get-started-ilb-classic-ps.md
-                - name: 为云服务配置内部负载均衡器 (CLI)
-                  href: load-balancer-get-started-ilb-classic-cli.md
-            - name: 配置公共负载均衡器（经典 PowerShell）
-              href: load-balancer-get-started-internet-classic-ps.md
-              items:
-                - name: 配置公共负载均衡器（经典云）
-                  href: load-balancer-get-started-internet-classic-cloud.md
-                - name: 配置公共负载均衡器（经典 CLI）
-                  href: load-balancer-get-started-internet-classic-cli.md
 - name: 参考
   items:
     - name: 代码示例
@@ -137,7 +116,7 @@
     - name: Ruby
       href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers'
     - name: Python
-      href: 'https://docs.microsoft.com/en-us/python/api/azure-mgmt-network/azure.mgmt.network.v2017_10_01.models.LoadBalancer?view=azure-python'
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
     - name: REST
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
 - name: 相关内容

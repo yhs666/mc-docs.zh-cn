@@ -1,6 +1,6 @@
 ---
-title: 使用 Apache Storm 接收事件 - Azure 事件中心 | Azure
-description: 本文提供有关如何使用 Apache Storm 从 Azure 事件中心接收事件的信息。
+title: 快速入门：使用 Apache Storm 接收事件 - Azure 事件中心
+description: 快速入门：本文提供有关如何使用 Apache Storm 从 Azure 事件中心接收事件的信息。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,19 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
-ms.topic: article
-origin.date: 12/06/2018
-ms.date: 05/06/2019
-ms.author: v-biyu
-ms.openlocfilehash: 2e619d418241f95a6c3c177cfb7d4e1f2d0c7c6d
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.topic: quickstart
+ms.custom: seodec18
+origin.date: 11/05/2019
+ms.date: 12/02/2019
+ms.author: v-tawe
+ms.openlocfilehash: a9142addf0c48e81c8ae3d6c816f10e94a00ec75
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872844"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657999"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 从事件中心接收事件
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>快速入门：使用 Apache Storm 从事件中心接收事件
 
 [Apache Storm](https://storm.incubator.apache.org) 是一个分布式实时计算系统，它简化了对未绑定的数据流进行可靠处理的过程。 本节演示如何使用 Azure 事件中心 Storm Spout 从事件中心接收事件。 使用 Apache Storm，可以在承载于不同节点的多个进程间拆分事件。 事件中心与 Storm 集成后，通过使用风暴的 Zookeeper 安装以透明方式对事件使用进度执行检查点操作、管理持久检查点以及从事件中心并行接收，简化了事件使用。
 
@@ -135,7 +136,7 @@ ms.locfileid: "72872844"
     }
     ```
 
-    此 Storm 螺栓记录接收到的事件的内容。 在存储服务中，它可以轻松扩展为存储元组。 [使用事件中心的 HDInsight Storm 示例][]使用此同一方法将数据存储到 Azure 存储和 Power BI。
+    此 Storm 螺栓记录接收到的事件的内容。 在存储服务中，它可以轻松扩展为存储元组。 [使用事件中心的 HDInsight Storm 示例]使用此同一方法将数据存储到 Azure 存储和 Power BI。
 11. 使用以下代码创建一个名为 **LogTopology** 的类：
 
     ```java

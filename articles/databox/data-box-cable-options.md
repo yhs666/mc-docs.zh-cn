@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: overview
 origin.date: 10/24/2018
-ms.date: 02/25/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 4a1868b67b6c17d500dfa2dab62ddf09313fb5e5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 33f08fef81c6e24aeece71fbbb4950564b7dd17b
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626638"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530625"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box 的布线选项
 
@@ -37,8 +37,8 @@ ms.locfileid: "58626638"
 
 2. 在服务器上，请完成以下设置：
 
-    - 将“IP 地址”设置为 192.168.100.5
-    - 将“子网”设置为 255.255.255.0
+    - 将“IP 地址”设置为  192.168.100.5
+    - 将“子网”  设置为 255.255.255.0
 
 3. 通过 192.168.100.10 访问设备的本地 Web UI。 在 Azure 门户中使用解锁密码登录并解锁 Data Box。
 
@@ -63,8 +63,8 @@ ms.locfileid: "58626638"
 2. 使用用于 DATA 3 的 RJ45 或 SFP+ 电缆将 DATA 1 或 DATA 2 连接到充当数据源的服务器。 建议使用 10-GbE DATA 1 或 DATA 2 端口以确保良好的性能。
 3. 在服务器上，请完成以下设置：
 
-   - 将“IP 地址”设置为 192.168.100.5
-   - 将“子网”设置为 255.255.255.0
+   - 将“IP 地址”设置为  192.168.100.5
+   - 将“子网”  设置为 255.255.255.0
 
      ![双端口设置](media/data-box-cable-options/cabling-2-port-setup.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "58626638"
 
 若要为设备布线，请执行以下步骤。
 
-1. 使用从服务器直接连接到 MGMT 端口的 RJ45 以太网电缆进行配置。
+1. 使用 RJ45 以太网电缆从单独的计算机直接连接到 MGMT 端口进行配置。
 2. 使用用于 DATA 3 的 RJ45 或 SFP+ 电缆将 DATA 1 或 DATA 2 连接到服务器。 建议使用 10-GbE DATA 1 或 DATA 2 端口以确保良好的性能。 数据端口通过 10-GbE 交换机连接到包含数据的服务器。
 3. 配置所用笔记本的以太网适配器，以便通过以下设置连接到设备：
 

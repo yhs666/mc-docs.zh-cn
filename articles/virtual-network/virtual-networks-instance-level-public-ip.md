@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/03/2018
-ms.date: 12/17/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3b37dddd78edc449aa3693b859091df78ee0195
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 191cbaff96eb92f212373d20a6ee2b66e5712e21
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389394"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658024"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>实例层级公共 IP（经典）概述
 实例层级公共 IP (ILPIP) 是可直接分配至 VM 或云服务角色实例（而非 VM 或角色实例所在的云服务）的公共 IP 地址。 ILPIP 不会取代分配给云服务的虚拟 IP (VIP)。 而是可以用来直接连接到 VM 或角色实例的其他 IP 地址。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 本文介绍使用经典部署模型。 Azure 建议通过 Resource Manager 创建 VM。 请确保你了解 [IP 地址](virtual-network-ip-addresses-overview-classic.md)在 Azure 中的工作原理。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 本文介绍使用经典部署模型的情况。 Azure 建议通过 Resource Manager 创建 VM。 请确保你了解 [IP 地址](virtual-network-ip-addresses-overview-classic.md) 在 Azure 中的工作原理。
 
 ![ILPIP 和 VIP 之间的差异](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -46,8 +46,8 @@ ms.locfileid: "53389394"
 ## <a name="why-would-i-request-an-ilpip"></a>为什么要请求 ILPIP？
 如果想要能够通过直接向其分配的 IP 地址链接到 VM 或角色实例，请为 VM 或角色实例请求 ILPIP，而不是使用云服务VIP:&lt;端口号&gt;。
 
-* **主动 FTP** - 通过向 VM 分配 ILPIP，可在任何端口上接收流量。 VM 不需要终结点来接收流量。  有关 FTP 协议的详细信息，请参阅 [FTP 协议概述](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)。
-* **出站 IP** - 源自 VM 的出站流量会映射到充当源的 ILPIP，而 ILPIP 唯一标识针对外部实体的 VM。
+* **主动 FTP** - 通过为 VM 分配 ILPIP，可在任何端口上接收流量。 VM 不需要终结点来接收流量。  有关 FTP 协议的详细信息，请参阅 [FTP 协议概述](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)。
+* **出站 IP** - 源自 VM 的出站流量映射到 ILPIP，以便源和 ILPIP 可唯一标识针对外部实体的 VM。
 
 > [!NOTE]
 > ILPIP 地址以前被称为公共 IP (PIP) 地址。
@@ -57,7 +57,7 @@ ms.locfileid: "53389394"
 在以下任务中，可通过 VM 创建、分配和删除 ILPIP：
 
 ### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>在 VM 创建期间如何使用 PowerShell 请求 ILPIP
-下面的 PowerShell 脚本将创建名为 *FTPService* 的云服务，然后从 Azure 中检索映像，并使用检索到的映像创建名为 *FTPInstance* 的 VM，接着将 VM 设置为使用 ILPIP，最后再将 VM 添加到新服务：
+下面的 PowerShell 脚本将创建名为 *FTPService* 的云服务，从 Azure 中检索映像，并使用检索到的映像创建名为 *FTPInstance* 的 VM，接着将 VM 设置为使用 ILPIP，最后再将 VM 添加到新服务：
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "China North"
@@ -75,7 +75,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "China North"
 
 ```
-如果要将另一个存储帐户指定为新 VM 磁盘的位置，可使用 MediaLocation 参数：
+如果要将另一个存储帐户指定为新 VM 磁盘的位置，可使用 MediaLocation 参数  ：
 
 ```powershell
     New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
@@ -85,7 +85,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>如何检索 VM 的 ILPIP 信息
-要查看使用以上脚本创建的 VM 的 ILPIP 信息，请运行以下 PowerShell 命令，并观察 *PublicIPAddress* 和 *PublicIPName* 的值：
+如果要查看使用以上脚本创建的 VM 的 ILPIP 信息，请运行以下 PowerShell 命令，并观察 *PublicIPAddress* 和 *PublicIPName* 的值：
 
 ```powershell
 Get-AzureVM -Name FTPInstance -ServiceName FTPService

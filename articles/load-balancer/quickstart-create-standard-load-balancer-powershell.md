@@ -1,7 +1,7 @@
 ---
 title: 快速入门：创建标准负载均衡器 - Azure PowerShell
-titlesuffix: Azure Load Balancer
-description: 本快速入门介绍如何使用 PowerShell 创建标准负载均衡器
+titleSuffix: Azure Load Balancer
+description: 本快速入门介绍如何使用 Azure PowerShell 创建标准负载均衡器
 services: load-balancer
 documentationcenter: na
 author: WenJason
@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/07/2019
-ms.date: 05/20/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 25d9065602aa858878d23d17101ccd9e94112ff3
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.openlocfilehash: 770c23c55dd36107adf82e027f22f398bdb1cfa4
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731910"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530643"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建标准负载均衡器
 
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
 
-若要通过 Internet 访问应用，负载均衡器需要具有一个公共 IP 地址。 使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 创建一个公共 IP 地址。 以下示例在 *myResourceGroupLB* 资源组中创建名为 *myPublicIP* 的公用 IP 地址：
+若要通过 Internet 访问应用，负载均衡器需要具有一个公共 IP 地址。 使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 创建一个公共 IP 地址。 以下示例在 *myResourceGroupSLB* 资源组中创建名为 *myPublicIP* 的公共 IP 地址：
 
 ```powershell
 $publicIp = New-AzPublicIpAddress `
@@ -253,7 +253,7 @@ $nicVM3 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location 
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com//powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，在前一步骤中创建的 NIC（*MyNic1*、*MyNic2* 和 *MyNic3*）将分配到虚拟机 *myVM1*、*myVM2* 和 *VM3*。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，在前一步骤中创建的 NIC（*MyNic1*、*MyNic2* 和 *MyNic3*）将分配到虚拟机 *myVM1*、*myVM2* 和 *VM3*。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
 
 ```powershell
 

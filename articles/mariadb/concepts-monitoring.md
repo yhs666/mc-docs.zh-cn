@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 06/12/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: abd1b81824f6ba29d2b9d56431d2b4d379342785
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+origin.date: 11/04/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: a2ed4ec41374aa6317fad82e523b00b01dbc9cdd
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308929"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530657"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中进行监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MariaDB 提供了各种指标来帮助用户深入了解服务器的行为。
@@ -47,7 +47,7 @@ ms.locfileid: "68308929"
 
 ## <a name="query-store"></a>查询存储
 
-[查询存储](concepts-query-store.md)是一项公共预览功能，可以随着时间的推移跟踪查询性能，包括查询运行时统计信息和等待事件。 此功能将查询运行时性能信息保留在 **mysql** 架构中。 你可以通过各种配置旋钮控制数据的收集和存储。
+[查询存储](concepts-query-store.md)可以随着时间的推移跟踪查询性能，包括查询运行时统计信息和等待事件。 此功能将查询运行时性能信息保留在 **mysql** 架构中。 你可以通过各种配置旋钮控制数据的收集和存储。
 
 ## <a name="next-steps"></a>后续步骤
 

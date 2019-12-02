@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/23/2017
-ms.date: 01/21/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d3019c2ef94175ed1f642b492f18d764ac799a02
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 8a045afaf277aa24ced095fa7b1d63ee2a4eae3f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193024"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658013"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 > [!IMPORTANT]
@@ -69,11 +69,11 @@ ms.locfileid: "54193024"
 
 ### <a name="example-xml-for-use-with-powershell"></a>用于 PowerShell 的示例 XML
 
-以下示例网络配置文件在“中国东部”Azure 区域创建名为 *myVirtualNetwork*、地址空间为 *10.0.0.0/16* 的虚拟网络。 该虚拟网络包含一个名为 *mySubnet*、地址前缀为 *10.0.0.0/24* 的子网。
+以下示例网络配置文件在“中国东部”Azure 区域创建名为 *myVirtualNetwork*、地址空间为 *10.0.0.0/16* 的虚拟网络。  该虚拟网络包含一个名为 *mySubnet*、地址前缀为 *10.0.0.0/24* 的子网。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns />
     <VirtualNetworkSites>
@@ -96,7 +96,7 @@ ms.locfileid: "54193024"
 
 ### <a name="example-json-for-use-with-the-classic-cli"></a>用于经典 CLI 的示例 JSON
 
-以下示例网络配置文件在“中国东部”Azure 区域创建名为 *myVirtualNetwork*、地址空间为 *10.0.0.0/16* 的虚拟网络。 该虚拟网络包含一个名为 *mySubnet*、地址前缀为 *10.0.0.0/24* 的子网。
+以下示例网络配置文件在“中国东部”Azure 区域创建名为 *myVirtualNetwork*、地址空间为 *10.0.0.0/16* 的虚拟网络。  该虚拟网络包含一个名为 *mySubnet*、地址前缀为 *10.0.0.0/24* 的子网。
 
 ```json
 {
@@ -137,7 +137,7 @@ ms.locfileid: "54193024"
 
 ### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
-1. [安装 Azure 经典 CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?view=azure-cli-latest)。 通过经典 CLI 命令提示符完成剩余的步骤。
+1. [安装 Azure 经典 CLI](https://docs.azure.cn/cli/install-classic-cli?view=azure-cli-latest)。 通过经典 CLI 命令提示符完成剩余的步骤。
 2. 输入 `azure login -e AzureChinaCloud` 命令登录到 Azure。
 3. 输入 `azure config mode asm` 命令确保处于 asm 模式。
 4. 在以下命令中根据需要更改目录和文件名，然后运行该命令导入网络配置文件：

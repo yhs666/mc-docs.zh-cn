@@ -1,5 +1,5 @@
 ---
-title: 示例 - 审核 SQL 数据库的透明数据加密
+title: 示例 - 审核 SQL 的透明数据加密
 description: 如果 SQL 数据库未启用透明数据加密，则此示例策略定义会进行审核。
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: fd603f0b7aaabffac908fd411a48075ef1b28abe
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 0bff51eb3a7c44525303d873e2b0d22187e275f6
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526576"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657924"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>示例 - 审核 SQL 数据库加密
 

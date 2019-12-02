@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.author: larryfr
-ms.openlocfilehash: 11e3370250881f4001e830c59f71d859f8144857
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: 6e89d5dc87075221277555a7ad3fff620ffbdd2f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70921073"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657940"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -35,6 +35,8 @@ ms.locfileid: "70921073"
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * 已安装 PowerShell [Az 模块](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -88,7 +90,7 @@ New-AzStorageAccount `
 
 HDInsight 在 blob 容器中的存储帐户中存储数据。 使用 [New-AzStorageContainer](https://docs.microsoft.com/en-us/powershell/module/Az.Storage/New-AzStorageContainer) 创建新容器。
 
-```powershell
+```azurepowershell
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -104,7 +106,7 @@ New-AzStorageContainer -Name $containerName -Context $storageContext
 
 通过 [New-AzHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/az.HDInsight/New-azHDInsightCluster) 创建 Apache Kafka on HDInsight 群集。
 
-```powershell
+```azurepowershell
 # Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"

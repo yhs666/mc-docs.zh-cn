@@ -9,12 +9,12 @@ origin.date: 10/23/2019
 ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: d620896e3bdfe8405e2b74f63287a36f79cd90a4
-ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
+ms.openlocfilehash: 1eab2aeff3ee621dff4c6274ab407029899fd014
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328763"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655459"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>创建 Azure Data Lake Storage Gen2 存储帐户
 
@@ -166,7 +166,7 @@ az login
 
 若要通过 Azure CLI 创建新的资源组，请使用 [az group create](/cli/group) 命令。
 
-```azurecli-interactive
+```azurecli
 az group create `
     --name storage-quickstart-resource-group `
     --location chinaeast
@@ -179,7 +179,7 @@ az group create `
 
 若要使用本地冗余存储从 Azure CLI 创建常规用途 v2 存储帐户，请使用 [az storage account create](/cli/storage/account) 命令。
 
-```azurecli-interactive
+```azurecli
 az storage account create `
     --name storagequickstart `
     --resource-group storage-quickstart-resource-group `
@@ -193,7 +193,7 @@ az storage account create `
 
 若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [az group delete](/cli/group) 命令。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 

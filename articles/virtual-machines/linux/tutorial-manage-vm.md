@@ -96,7 +96,7 @@ exit
 
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
-Azure 市场包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在市场中搜索 CentOS 映像，此映像稍后用于部署第二个虚拟机。 
+Azure 市场包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，使用 Azure CLI 在市场中搜索 CentOS 映像，此映像稍后用于部署第二个虚拟机。 
 
 若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令。
 
@@ -231,13 +231,13 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，可能会删除临时磁盘上的所有数据。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
+如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，临时磁盘上的所有数据可能已删除。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-解除分配后，可能会发生大小调整。 
+解除分配后，可进行大小调整。 
 
 ```azurecli 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
@@ -310,7 +310,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>删除资源组
 
-删除资源组还会删除其包含的所有资源，例如 VM、虚拟网络和磁盘。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
+删除资源组还会删除其包含的所有资源，例如 VM、虚拟网络和磁盘。 `--no-wait` 参数会使光标返回提示符处，无需等待操作完成。 `--yes` 参数将确认是否希望删除资源，而不会有额外提示。
 
 ```azurecli 
 az group delete --name myResourceGroupVM --no-wait --yes

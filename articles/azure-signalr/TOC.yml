@@ -53,7 +53,7 @@
       href: signalr-concept-messages-and-connections.md
     - name: 性能注意事项
       href: signalr-concept-performance.md
-    - name: Authentication
+    - name: 身份验证
       href: signalr-concept-authenticate-oauth.md
     - name: 事件处理
       href: signalr-concept-event-grid-integration.md
@@ -86,19 +86,19 @@
 - name: 资源
   items:
     - name: 客户案例
-      href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
+      href: 'https://customers.microsoft.com/search?sq=signalr'
     - name: SignalR 路线图
       href: 'https://github.com/aspnet/Home/wiki/Roadmap'
     - name: 服务更新
       href: 'https://azure.microsoft.com/updates/'
     - name: 上市区域
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
-    - name: 常见问题解答
+    - name: 常见问题
       href: signalr-resource-faq.md
     - name: SignalR 服务订阅级别限制
       href: 'https://docs.azure.cn/azure-subscription-service-limits#signalr-service-limits'
     - name: 定价
-      href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
+      href: 'https://www.azure.cn/pricing/details/signalr-service/'
     - name: 视频
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
     - name: StackOverflow

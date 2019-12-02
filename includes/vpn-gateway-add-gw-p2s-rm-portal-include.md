@@ -6,21 +6,20 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 09/24/2019
-ms.date: 11/11/2019
+ms.date: 11/12/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: be16fca96f3666b6363a0b4241ec775e7b02038e
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: 38c9c92358184db08522e543bc9ec0bc18b99fd8
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742282"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655486"
 ---
 1. 在门户左侧单击“+ 创建资源”  ，然后在搜索框中键入“虚拟网关”。 在搜索返回结果中找到“虚拟网络网关”，并单击该条目  。 在“虚拟网络网关”页上，单击“创建”   。 这会打开“创建虚拟网关”页  。
 
    ![“创建虚拟网关”页字段](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "“创建虚拟网关”页字段")
 
-   ![“创建虚拟网关”页字段](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "“创建虚拟网关”页字段")
 2. 在“创建虚拟网关”页中，填写虚拟网关的值。 
 
    **项目详细信息**

@@ -1,5 +1,5 @@
 ---
-title: 示例 - 确保 HTTPS 流量仅用于存储帐户
+title: 示例 - 确保 HTTPS 流量用于存储帐户
 description: 此示例策略定义要求存储帐户使用 HTTPS 流量。
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 551002ffa03764b8392713ab5ed4e5571c8e068d
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 024a23d842f7560c3ab1838dbad83b82965ec7cc
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526668"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657984"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>示例 - 确保 HTTPS 流量仅用于存储帐户
 

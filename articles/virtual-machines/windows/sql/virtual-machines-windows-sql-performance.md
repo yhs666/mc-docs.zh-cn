@@ -17,12 +17,12 @@ origin.date: 10/18/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 09300f850805a4f987b8e713928d4a3fb8ac5614
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: 0518a7ef0d2d1285a2733109f774bce86db29cf6
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116914"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655299"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的性能准则
 
@@ -94,7 +94,9 @@ Azure VM 上有三种主要磁盘类型：
 
 ### <a name="data-disks"></a>数据磁盘数
 
-* **对数据文件和日志文件使用高级 SSD 磁盘**：如果不使用磁盘条带化，请使用两个高级 SSD 磁盘，其中一个磁盘包含日志文件，另一个磁盘包含数据。 每个高级 SSD 均根据其大小提供许多 IOPS 和带宽 (MB/s)，如[选择磁盘类型](../disks-types.md)一文中所述。 如果使用磁盘条带化技术，例如存储空间，则可实现最佳性能，因为将具有两个池，一个用于日志文件，另一个用于数据文件。 但是，如果你打算使用 SQL Server 故障转移群集实例 (FCI)，则必须配置单个池，或改用[高级文件共享](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)。
+* **对数据文件和日志文件使用高级 SSD 磁盘**：如果不使用磁盘条带化，请使用两个高级 SSD 磁盘，其中一个磁盘包含日志文件，另一个磁盘包含数据。 每个高级 SSD 均根据其大小提供许多 IOPS 和带宽 (MB/s)，如[选择磁盘类型](../disks-types.md)一文中所述。 如果使用磁盘条带化技术，例如存储空间，则可实现最佳性能，因为将具有两个池，一个用于日志文件，另一个用于数据文件。
+    
+    <!--Not Available on  However, if you plan to use SQL Server failover cluster instances (FCI), you must configure one pool, or utilize [premium file shares](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)-->
 
     > [!TIP]
     > - 有关针对各种磁盘和工作负荷配置的测试结果，请参阅以下博客文章：[Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)（Azure VM 上的 SQL Server 的存储配置准则）。

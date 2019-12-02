@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 09/16/2019
 ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 811f91ba61ef211327629cef80adc7809de4a958
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 95dcd7724ab3489beac5a3271d378ff69e321dc0
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730490"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657953"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -40,7 +40,6 @@ ms.locfileid: "73730490"
 * [Node.js 应用](nodejs.md)
 * [Azure 上的 Web 应用](azure-web-apps.md)
 * [Azure 上的云服务](cloudservices.md)
-* [在 Docker 中运行的应用服务器](docker.md)
 * [单页 Web 应用](javascript.md)
 * [SharePoint](sharepoint.md)
 * [Windows 桌面应用](windows-desktop.md)

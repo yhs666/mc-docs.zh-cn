@@ -156,17 +156,17 @@
     - name: 参考
       items:
         - name: C++
-          href: 'https://docs.microsoft.com/zh-cn/cpp/cognitive-services/speech/index'
+          href: 'https://docs.microsoft.comcpp/cognitive-services/speech/index'
         - name: 'C#'
-          href: 'https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet'
+          href: 'https://docs.microsoft.comdotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.com/zh-cn/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable'
+          href: 'https://docs.microsoft.comjava/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable'
         - name: Javascript
-          href: 'https://docs.microsoft.com/zh-cn/javascript/api/microsoft-cognitiveservices-speech-sdk/?view=azure-node-latest'
+          href: 'https://docs.microsoft.comjavascript/api/microsoft-cognitiveservices-speech-sdk/?view=azure-node-latest'
         - name: Objective-C
-          href: 'https://docs.microsoft.com/zh-cn/objectivec/cognitive-services/speech/'
+          href: 'https://docs.microsoft.comobjectivec/cognitive-services/speech/'
         - name: Python
-          href: 'https://docs.microsoft.com/zh-cn/python/api/azure-cognitiveservices-speech/?view=azure-python'
+          href: 'https://docs.microsoft.compython/api/azure-cognitiveservices-speech/?view=azure-python'
         - name: 语音 SDK 发行说明
           href: releasenotes.md
 - name: 迁移

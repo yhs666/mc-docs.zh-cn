@@ -6,17 +6,17 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-origin.date: 05/23/2019
-ms.date: 06/10/2019
+origin.date: 08/29/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 44483a7afa19c922f8baadad51480928a90f1d60
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 416de75e28427865da6e0d0f361d25488e8d03dc
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726534"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530618"
 ---
-# <a name="what-is-azure-data-box-disk"></a>什么是 Azure Data Box 磁盘？
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk：常见问题解答
 
 使用 Azure Data Box 磁盘云解决方案可以通过快速、经济、可靠的方式将 TB 量级的数据发送到 Azure。 本常见问题解答文章包含在 Azure 门户中使用 Data Box 磁盘时可能遇到的问题及其解答。 
 
@@ -43,7 +43,7 @@ A. 使用 Azure Data Box 磁盘能够快速、经济、安全地将 TB 量级的
 A. 如果需要将 40 TB（或更少）的数据传输到 Azure，则使用 Data Box Disk 会很有利。
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>问： Data Box 磁盘的价格是多少？
-A. 有关 Data Box Disk 的价格，请访问[定价页](https://azure.cn/pricing/details/storage/databox/disk/)。
+A. 有关 Data Box Disk 的价格，请访问[定价页](https://azure.cn/pricing/details/databox/disk/)。
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>问： 如何获取 Data Box 磁盘？ 
 A.  若要获取 Azure Data Box Disk，请登录到 Azure 门户并创建磁盘的 Data Box 订单。 提供联系信息和通知详细信息。 在你提交订单后，我们会在 10 天内将磁盘寄送给你，具体时间取决于磁盘的供货情况。
@@ -52,7 +52,7 @@ A.  若要获取 Azure Data Box Disk，请登录到 Azure 门户并创建磁盘�
 A. 如果使用 5 个磁盘，并且磁盘具有 8 TB 容量（7 TB 可用容量），则最大可用容量为 35 TB。 因此，可在一个实例中传输 35 TB 数据。 若要传输更多数据，需订购更多的磁盘。
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>问： 如何检查 Data Box 磁盘是否在我的区域中可用？ 
-A.  若要查看目前提供 Data Box Disks 的区域，请转到[区域可用性](data-box-disk-overview.md#)。  
+A.  若要查看目前提供 Data Box Disks 的区域，请转到[区域可用性](data-box-disk-overview.md#region-availability)。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>问： 使用 Data Box 磁盘可在哪些区域存储数据？
 A. 中国东部、中国东部 2、中国北部、中国北部 2 的所有区域都支持 Data Box 磁盘。 仅支持 Azure 公有云区域。
@@ -111,7 +111,7 @@ A.  若要加快复制过程：
 - 使用多个会话。
 - 不通过网络共享进行复制（否则可能受到网络速度的限制）可确保使数据驻留在磁盘所连接到计算机本地。
 - 在整个复制过程中，确保使用 USB 3.0 或更高版本。 下载并使用 [USBView 工具](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)，以识别已连接到计算机的 USB 控制器和 USB 设备。
-- 为用于复制数据的计算机建立性能基准。 下载并使用 [Bluestop FIO 工具](https://bluestop.org/fio/)来建立服务器硬件的性能基准。
+- 为用于复制数据的计算机建立性能基准。 下载并使用 [Bluestop FIO 工具](https://ci.appveyor.com/project/axboe/fio)来建立服务器硬件的性能基准。 选择最新的 x86 或 x64 版本，选择“项目”  选项卡，然后下载 MSI。
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>问： 如果源数据包含小型文件（几个 KB 或 MB），如何加速数据复制？
 A.  若要加快复制过程：
@@ -130,8 +130,9 @@ A. 随 Data Box Disk 提供的工具集包含三个工具：
  - **Data Box Disk 拆分复制工具**：如果使用多个磁盘，并且需要拆分大型数据集并将其复制到所有磁盘中，请使用此工具。 此工具当前可用于 Windows。 托管磁盘不支持此工具。 此工具还会在复制数据时进行验证，因此可以在使用此工具时跳过验证步骤。
 
 此工具集可用于 Windows 和 Linux。 可以从以下位置下载此工具集：
- - [下载适用于 Windows 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolswin) 
- - [下载适用于 Linux 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolslinux)
+- [下载适用于 Windows 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolswin) 
+- [下载适用于 Linux 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolslinux)
+ 
 
 
 ## <a name="verify-and-upload"></a>验证和上传

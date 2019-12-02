@@ -1,21 +1,21 @@
 ---
-title: 以编程方式创建策略和查看符合性数据
+title: 以编程方式创建策略
 description: 本文逐步讲解如何以编程方式创建和管理适用于 Azure Policy 的策略。
 author: DCtheGeek
 ms.author: v-tawe
 origin.date: 01/31/2019
-ms.date: 10/15/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: de1b5a624247d23be00973e64110d637a5496c60
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 3eb26f058001690cf5eb8f3070501ad26324e320
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526663"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657920"
 ---
-# <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
+# <a name="programmatically-create-policies"></a>以编程方式创建策略
 
 本文逐步讲解如何以编程方式创建和管理策略。 Azure Policy 定义对资源强制实施不同的规则和效果。 强制实施可确保资源始终符合企业标准和服务级别协议。
 
@@ -144,7 +144,7 @@ ms.locfileid: "72526663"
    armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
    ```
 
-   将前面的 {subscriptionId} 替换为你的订阅的 ID，或将 {managementGroupId} 替换为你的[管理组](../../management-groups/index.md)的 ID。
+   将前面的 {subscriptionId} 替换为你的订阅的 ID，或将 {managementGroupId} 替换为你的[管理组](../../management-groups/overview.md)的 ID。
 
    有关查询结构的详细信息，请参阅 [Azure Policy 定义 - 创建或更新](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate)和[策略定义 - 在管理组中创建或更新](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
@@ -250,4 +250,4 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 - [Azure PowerShell 模块](https://docs.microsoft.com/powershell/module/az.resources/#policies)
 - [Azure CLI 策略命令](/cli/policy?view=azure-cli-latest)
 - [Azure Policy Insights 资源提供程序 REST API 参考](https://docs.microsoft.com/rest/api/policy-insights)
-- [使用 Azure 管理组来组织资源](../../management-groups/index.md)
+- [使用 Azure 管理组来组织资源](../../management-groups/overview.md)。

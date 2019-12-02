@@ -5,16 +5,16 @@ author: WenJason
 ms.service: azure-stack
 ms.topic: article
 origin.date: 11/05/2019
-ms.date: 11/18/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3a82df2bd878894e4756037bab93ad078e145f95
-ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+ms.openlocfilehash: 81a3df9b9f0792413703df561f66f33cc3d05c10
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020596"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655448"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用本地数据的应用程序，并使用 Azure 和 Azure Stack Hub 进行跨云缩放
 
@@ -42,7 +42,7 @@ ms.locfileid: "74020596"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Azure Stack Hub 是 Azure 的扩展。 Azure Stack Hub 将云计算的灵活性和创新性带入本地环境，并支持唯一的混合云，支持在任何地方生成和部署混合应用。  
+> Azure Stack Hub 是 Azure 的扩展。 Azure Stack Hub 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
@@ -221,13 +221,13 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 ### <a name="configure-a-custom-domain-in-azure"></a>在 Azure 中配置自定义域
 
-1. 通过[将 CNAME 映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)，将 **app.northwind.com** 主机名添加到 Azure Web 应用。
+1. 通过[将 CNAME 映射到 Azure 应用服务](/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)，将 **app.northwind.com** 主机名添加到 Azure Web 应用。
 
 ### <a name="configure-custom-domains-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置自定义域
 
-1. 通过[将 A 记录映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)，将 **azurestack.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 对应用服务应用请使用可通过 Internet 路由的 IP 地址。
+1. 通过[将 A 记录映射到 Azure 应用服务](/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)，将 **azurestack.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 对应用服务应用请使用可通过 Internet 路由的 IP 地址。
 
-2. 通过[将 CNAME 映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)，将 **app.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 使用在前一步骤 (1) 中配置的主机名作为 CNAME 的目标。
+2. 通过[将 CNAME 映射到 Azure 应用服务](/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)，将 **app.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 使用在前一步骤 (1) 中配置的主机名作为 CNAME 的目标。
 
 ## <a name="configure-ssl-certificates-for-cross-cloud-scaling"></a>为跨云缩放配置 SSL 证书
 
@@ -241,9 +241,9 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 1. 确保获取的 SSL 证书对于所创建的子域有效。 （也可以使用通配符证书。）
 
-2. 在 Azure 中，按照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。   为“SSL 类型”选择“基于 SNI 的 SSL”。  
+2. 在 Azure 中，按照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。   为“SSL 类型”选择“基于 SNI 的 SSL”。  
 
-3. 将所有流量重定向到 HTTPS 端口。 遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“强制实施 HTTPS”部分的说明操作。 
+3. 将所有流量重定向到 HTTPS 端口。 遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](/app-service/app-service-web-tutorial-custom-ssl)一文的“强制实施 HTTPS”部分的说明操作。 
 
 将 SSL 添加到 Azure Stack Hub：
 
@@ -338,7 +338,7 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
 
 3. 将“冷却时间”设置为 **5**。 
 
-4. 选择“设置”  （应用程序对象和服务主体对象）。
+4. 选择“添加”   。
 
 5. 选择“+添加规则”  。
 
@@ -371,7 +371,7 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
    - 将“实例计数”设置为 **1**。 
    - 将“冷却时间”设置为 **5**。 
 
-2. 选择“设置”  （应用程序对象和服务主体对象）。
+2. 选择“添加”   。
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>创建流量管理器配置文件并配置跨云缩放
 
@@ -401,7 +401,7 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
 
 2. 在“流量管理器配置文件”中的“设置”下面，选择“终结点”    。
 
-3. 选择“设置”  （应用程序对象和服务主体对象）。
+3. 选择“添加”   。
 
 4. 在“添加终结点”中，对 Azure Stack Hub 使用以下设置： 
 

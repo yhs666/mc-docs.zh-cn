@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 78b438ad5a3ffc09fb605caac96f76a5a0748c7c
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: a214d30faee1a1ec0cbcb8bf6c2a955f0436737b
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526686"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657991"
 ---
 # <a name="sample---allow-custom-vm-image-from-a-resource-group"></a>示例 - 允许使用来自资源组的自定义 VM 映像
 

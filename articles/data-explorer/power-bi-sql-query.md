@@ -3,17 +3,17 @@ title: 在 Power BI 中使用 SQL 查询直观显示 Azure 数据资源管理器
 description: 本文介绍如何使用三个选项中的一个选项在 Power BI 中直观显示数据：针对 Azure 数据资源管理器群集进行 SQL 查询。
 author: orspod
 ms.author: v-tawe
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 07/10/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: c73187e35d1f44570442576f0989ae1107b6ac48
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: e9db92e2a35e21b3cbf6b0f95be70842bb4ef5b0
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020834"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657604"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>在 Power BI 中使用 SQL 查询直观显示 Azure 数据资源管理器中的数据
 

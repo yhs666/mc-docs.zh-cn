@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: virtual-network
 ms.topic: article
 origin.date: 08/29/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: e17f5aca745286cac5c5c51b8f9c51810a56a230
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: f1f87973d358fbfc7335b7f8cb5bc6cf24ea6017
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306876"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657914"
 ---
 <!--Pending Verify-->
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>使用 Azure PowerShell 将 Azure 公共 IP 移到另一个区域
@@ -56,15 +56,15 @@ Azure 公共 IP 特定于区域，不能从一个区域移到另一个区域。 
     ```
 3. 将源虚拟网络导出到执行 [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) 命令时所在的目录中的某个 .json 文件：
 
-   ```powershell
-   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
-   ```
+    ```powershell
+    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
+    ```
 
 4. 已下载的文件将根据从其导出了资源的资源组来命名。  找到通过名为 **\<resource-group-name>.json** 的命令导出的文件，在所选编辑器中将其打开：
 
-   ```azurepowershell
-   notepad <source-resource-group-name>.json
-   ```
+    ```azurepowershell
+    notepad <source-resource-group-name>.json
+    ```
 
 5. 若要编辑公共 IP 名称的参数，请将源公共 IP 名称的属性 **defaultValue** 更改为目标公共 IP 的名称，确保对名称使用引号：
 
@@ -118,45 +118,45 @@ Azure 公共 IP 特定于区域，不能从一个区域移到另一个区域。 
 
     * **Sku** - 可以在配置中将公共 IP 的 sku 从“标准”更改为“基本”或从“基本”更改为“标准”，只需在 **\<resource-group-name>.json** 文件中更改 **sku** > **name** 属性即可：
 
-         ```json
-            "resources": [
-                   {
-                    "type": "Microsoft.Network/publicIPAddresses",
-                    "apiVersion": "2019-06-01",
-                    "name": "[parameters('publicIPAddresses_myPubIP_name')]",
-                    "location": "<target-region>",
-                    "sku": {
-                        "name": "Basic",
-                        "tier": "Regional"
-                    },
-         ```
-
-         若要详细了解基本的和标准的 sku 公共 IP 的区别，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
-
-    * **公共 IP 分配方法**和**空闲超时** - 可以在模板中更改这两个选项，只需将 **publicIPAllocationMethod** 属性从 **Dynamic** 更改为 **Static** 或从 **Static** 更改为 **Dynamic** 即可。 若要更改空闲超时，可以将 **idleTimeoutInMinutes** 属性更改为所需时间。  默认为 **4**：
-
-         ```json
-         "resources": [
-                {
+        ```json
+        "resources": [
+               {
                 "type": "Microsoft.Network/publicIPAddresses",
                 "apiVersion": "2019-06-01",
                 "name": "[parameters('publicIPAddresses_myPubIP_name')]",
                 "location": "<target-region>",
-                  "sku": {
-                  "name": "Basic",
-                  "tier": "Regional"
-                 },
-                "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
-                "ipAddress": "52.177.6.204",
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
-                "idleTimeoutInMinutes": 4,
-                "ipTags": []
-                   }
-                }            
-         ```
+                "sku": {
+                    "name": "Basic",
+                    "tier": "Regional"
+                },
+        ```
+
+        若要详细了解基本的和标准的 sku 公共 IP 的区别，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
+
+    * **公共 IP 分配方法**和**空闲超时** - 可以在模板中更改这两个选项，只需将 **publicIPAllocationMethod** 属性从 **Dynamic** 更改为 **Static** 或从 **Static** 更改为 **Dynamic** 即可。 若要更改空闲超时，可以将 **idleTimeoutInMinutes** 属性更改为所需时间。  默认为 **4**：
+
+        ```json
+        "resources": [
+            {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+            "location": "<target-region>",
+              "sku": {
+              "name": "Basic",
+              "tier": "Regional"
+             },
+            "properties": {
+            "provisioningState": "Succeeded",
+            "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
+            "ipAddress": "52.177.6.204",
+            "publicIPAddressVersion": "IPv4",
+            "publicIPAllocationMethod": "Dynamic",
+            "idleTimeoutInMinutes": 4,
+            "ipTags": []
+               }
+            }            
+        ```
 
         若要详细了解分配方法和空闲超时值，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
 
@@ -221,5 +221,4 @@ Remove-AzPublicIpAddress -Name <source-publicip-name> -ResourceGroupName <resour
 - [将资源移到新资源组或订阅中](/azure-resource-manager/resource-group-move-resources)
 - [将 Azure VM 移到另一区域](/site-recovery/azure-to-azure-tutorial-migrate)
 
-<!-- Update_Description: new article about move across regions publicip powershell -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

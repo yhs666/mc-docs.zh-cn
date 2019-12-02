@@ -1,19 +1,19 @@
 ---
 title: 创建自定义策略定义
-description: 创建 Azure Policy 的自定义策略定义以强制实施自定义业务规则。
+description: 创建 Azure Policy 的自定义策略定义以在 Azure 资源上强制实施自定义业务规则。
 author: DCtheGeek
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 04/23/2019
-ms.date: 10/12/2019
+ms.date: 12/02/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 21186d63ce8bbe755268d5ef5b4ef7cf3d5976bb
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 3782d1b4f853b5033c9fc4b594389b3f268e9777
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526549"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657916"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教程：创建自定义策略定义
 
@@ -286,17 +286,17 @@ Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1
     "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id": [],
     "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].state": [],
     "Microsoft.Storage/storageAccounts/primaryEndpoints": {
-        "blob": "https://mystorageaccount.blob.core.windows.net/",
-        "file": "https://mystorageaccount.file.core.windows.net/",
-        "queue": "https://mystorageaccount.queue.core.windows.net/",
-        "table": "https://mystorageaccount.table.core.windows.net/"
+        "blob": "https://mystorageaccount.blob.core.chinacloudsites.cn/",
+        "file": "https://mystorageaccount.file.core.chinacloudsites.cn/",
+        "queue": "https://mystorageaccount.queue.core.chinacloudsites.cn/",
+        "table": "https://mystorageaccount.table.core.chinacloudsites.cn/"
     },
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.windows.net/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.chinacloudsites.cn/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.chinacloudsites.cn/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.chinacloudsites.cn/",
+    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.chinacloudsites.cn/",
     "Microsoft.Storage/storageAccounts/primaryEndpoints.web": null,
-    "Microsoft.Storage/storageAccounts/primaryLocation": "eastus2",
+    "Microsoft.Storage/storageAccounts/primaryLocation": "chinanorth2",
     "Microsoft.Storage/storageAccounts/provisioningState": "Succeeded",
     "Microsoft.Storage/storageAccounts/sku.name": "Standard_LRS",
     "Microsoft.Storage/storageAccounts/sku.tier": "Standard",

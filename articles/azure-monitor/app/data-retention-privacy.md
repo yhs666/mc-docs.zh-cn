@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 09/29/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c2ec65e36a5596e20f7a7f5dfbb3fdbe8b5e37b1
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9d70fbb6dab86bfa8b69af983f38d7018b84e77e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528342"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658072"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -274,7 +274,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 可以通过[编辑 ApplicationInsights.config 来关闭某些数据][config]
 
 > [!NOTE]
-> 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。 若要了解有关个人数据处理的详细信息，推荐参阅这一篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果需要存储 IP 地址数据，我们的[“IP 地址收集”一文](ip-collection.md)会指导你完成选择。
+> 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。
 
 ## <a name="credits"></a>致谢
 此产品包含 MaxMind 创建的 GeoLite2 数据，可从 [https://www.maxmind.com](https://www.maxmind.com) 获取。

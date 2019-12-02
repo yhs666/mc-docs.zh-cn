@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: article
 origin.date: 05/24/2019
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: ac284d28906af531071d7da839321c4dd4ee3559
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 3caaf724c148170f052e713e3b3d624d44219437
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726525"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655226"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>使用 Azure Data Box 或 Azure Data Box Heavy 将数据发送到合适的 Azure 存储 Blob 层
 
@@ -34,7 +34,7 @@ Azure 存档存储层是脱机的，其存储成本最低，但访问成本最�
 
 Data Box 或 Data Box Heavy 中的数据会上传到与存储帐户关联的存储层。 创建存储帐户时，可以将访问层指定为“热”或“冷”。 根据工作负荷和成本的访问模式，可以将数据从默认层级移动到另一个存储层。
 
-只能在 Blob 存储或常规用途 v2 (GPv2) 帐户中对对象存储数据分层。 常规用途 v1 (GPv1) 帐户不支持分层。 若要为数据选择适当的存储层，请查看 [Azure Blob 存储：高级、热、冷和存档存储层](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)中详细介绍的注意事项。
+只能在 Blob 存储或常规用途 v2 (GPv2) 帐户中对对象存储数据分层。 常规用途 v1 (GPv1) 帐户不支持分层。 若要为数据选择适当的存储层，请查看 [Azure Blob 存储：高级、热、冷和存档存储层](/storage/blobs/storage-blob-storage-tiers)中详细介绍的注意事项。
 
 ## <a name="set-a-default-blob-tier"></a>设置默认 Blob 层
 
@@ -48,6 +48,7 @@ Data Box 或 Data Box Heavy 中的数据会上传到与存储帐户关联的存�
 
 Data Box 设备中的数据上传到默认层后，可能需要将数据移到非默认层。 可通过两种方法将数据移动到非默认层。
 
+- Azure Blob 存储生命周期管理 - 可以使用基于策略的方法自动将数据分层，或使其在生命周期结束时过期  。 有关详细信息，请转到[管理 Azure Blob 存储生命周期](/storage/common/storage-lifecycle-managment-concepts)。
 - 脚本 - 可以通过 Azure PowerShell 使用脚本的方法来启用 Blob 级别分层  。 可以调用 `SetBlobTier` 操作在 Blob 上设置层。
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>使用 Azure PowerShell 设置 Blob 层
@@ -113,4 +114,8 @@ Data Box 设备中的数据上传到默认层后，可能需要将数据移到�
     ```
    > [!TIP]
    > 如果想要将数据引入到存档存储层，请将默认帐户层设置为热存储层。 如果默认层为冷存储层，同时数据要立即移动到存档存储层，则会对提前 30 天删除进行惩罚。
+
+## <a name="next-steps"></a>后续步骤
+
+-  了解如何[使用生命周期策略规则解决通用数据分层方案](/storage/blobs/storage-lifecycle-management-concepts#examples)
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: bd9f8726db33424a0ee7236889ead0f11c542cd2
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 2b01fc5f49dd2e2889a767c0bbe23416f86f1f90
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514441"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658052"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 
@@ -334,8 +334,8 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，我们创建了一个路由表并将其关联到了某个子网。 我们还创建了一个简单网络虚拟设备，用于将流量从公共子网路由到专用子网。 从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/category/networking)部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置网络虚拟设备。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
+在本文中，我们创建了一个路由表并将其关联到了某个子网。 我们还创建了一个简单网络虚拟设备，用于将流量从公共子网路由到专用子网。 从 [Azure 市场](https://market.azure.cn/marketplace/apps/category/networking)部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置网络虚拟设备。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
 
 尽管可以在一个虚拟网络中部署多个 Azure 资源，但无法将某些 Azure PaaS 服务的资源部署到虚拟网络。 不过，仍可以限制为只允许来自某个虚拟网络子网的流量访问某些 Azure PaaS 服务的资源。 若要了解如何操作，请参阅[限制对 PaaS 资源的网络访问](tutorial-restrict-network-access-to-resources-powershell.md)。
 
-<!-- Update_Description: update link, wording update  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

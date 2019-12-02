@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 origin.date: 12/06/2018
-ms.date: 09/11/2019
+ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4e490cd29c406ab9f3708b805f92a34b88cae201
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 443e726aec502331e8f4cecd8930595651ff135d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72873039"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658007"
 ---
 <!--event hubs dedicate is supported in mooncake, but event hubs cluster not availible, so don't update this content-->
 <!--This article do not need to update-->

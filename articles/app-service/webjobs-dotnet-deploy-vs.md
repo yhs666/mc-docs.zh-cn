@@ -1,30 +1,26 @@
 ---
 title: 使用 Visual Studio 开发和部署 WebJobs - Azure
 description: 了解如何使用 Visual Studio 开发 Azure WebJobs 并将其部署到 Azure 应用服务。
-services: app-service
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 origin.date: 02/18/2019
-ms.date: 08/12/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4a1f1b4b68570f9df795f4a93e6b0c98a99975f6
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 6bf337a12857e447b3dd5ab829430f65c52f14e8
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806850"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555929"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 开发和部署 WebJobs - Azure 应用服务
 
-本文介绍如何使用 Visual Studio 将控制台应用程序项目作为 [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226) 部署到[应用服务](overview.md)中的 Web 应用。 有关如何使用 [Azure 门户](https://portal.azure.cn)部署 WebJobs 的信息，请参阅[使用 WebJobs 运行后台任务](webjobs-create.md)。
+本文介绍如何使用 Visual Studio 将控制台应用程序项目作为 [Azure WebJob](https://github.com/Azure/azure-webjobs-sdk/wiki) 部署到[应用服务](overview.md)中的 Web 应用。 有关如何使用 [Azure 门户](https://portal.azure.cn)部署 WebJobs 的信息，请参阅[使用 WebJobs 运行后台任务](webjobs-create.md)。
 
 可将多个 WebJob 发布到单个 Web 应用。 请确保 Web 应用中的每个 WebJob 具有唯一的名称。
 
@@ -90,7 +86,7 @@ ms.locfileid: "70806850"
 
 如果使用的是 Visual Studio 2015，请安装[用于 .NET 的 Azure SDK (Visual Studio 2015)](https://azure.microsoft.com/downloads/)。
 
-如果使用的是 Visual Studio 2019，请安装 [Azure 开发工作负荷](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)。
+如果使用的是 Visual Studio 2017，请安装 [Azure 开发工作负荷](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)。
 
 ### <a id="convert"></a> 为现有控制台应用程序项目启用 WebJobs 部署
 
@@ -229,6 +225,8 @@ WebJobs 使用 *settings.job* 文件确定某个 WebJob 是否已运行。 使�
 ### <a name="cron-expressions"></a>CRON 表达式
 
 WebJobs 使用的 CRON 计划表达式与 Azure Functions 中的计时器触发器相同。 若要详细了解 CRON 支持，请参阅[计时器触发器参考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ### <a name="settingjob-reference"></a>setting.job 参考
 

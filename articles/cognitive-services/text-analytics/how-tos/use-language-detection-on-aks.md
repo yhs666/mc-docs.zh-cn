@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/21/2019
 ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: f16005cd2be1682f46dc8475fbb165a94f2b7896
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: fd278e7db4ae7b0f5b18bb9d2ebb7376140b057e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389050"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657833"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>将语言检测容器部署到 Azure Kubernetes 服务
 
@@ -64,6 +64,7 @@ ms.locfileid: "74389050"
 1. 登录 Azure CLI
 
     ```azurecli
+    az cloud set -n AzureChinaCloud
     az login
     ```
 

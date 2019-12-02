@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 筛选 VM 网络流量 | Azure
+title: 筛选 VM 网络流量 - Azure PowerShell 脚本示例
 description: Azure PowerShell 脚本示例 - 筛选入站和出站 VM 网络流量。
 services: virtual-network
 documentationcenter: virtual-network
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 03/20/2018
-ms.date: 06/10/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: f08ee233e69d29b3cb60a326be05e39935ee76bc
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: b0106c4c4ec7fc55fd3058276d3fbb20562e219f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250476"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657886"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>筛选入站和出站 VM 网络流量脚本示例
 

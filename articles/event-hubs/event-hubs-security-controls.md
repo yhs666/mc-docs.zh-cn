@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/23/2019
 ms.date: 10/23/2019
 ms.author: v-tawe
-ms.openlocfilehash: d12411e9772b14b4144bdf9716866ce9e54ff55a
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 2eb1aa8ade9542fa89713de8171226102c3d5141
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887685"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658000"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Azure 事件中心的安全控制
 
@@ -46,6 +46,7 @@ ms.locfileid: "72887685"
 | 授权|  是 | | [使用 Azure Active Directory 验证托管标识以访问事件中心资源](authenticate-managed-identity.md)、[使用 Azure Active Directory 验证应用程序以访问事件中心资源](authenticate-application.md)、[使用共享访问签名 (SAS) 验证对事件中心资源的访问](authenticate-shared-access-signature.md) |
 
 <!-- ## Data protection -->
+
 
 ## <a name="configuration-management"></a>配置管理
 

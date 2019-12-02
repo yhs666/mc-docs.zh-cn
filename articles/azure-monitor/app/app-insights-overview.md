@@ -9,12 +9,12 @@ ms.custom: mvc
 origin.date: 06/03/2019
 ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47366de07aa9bdd3675657c0932f70263f348371
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 354906537ba39127477eef6d3b8cbcfca6d03511
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528347"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658116"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是多个平台上面向 Web 开发人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时 Web 应用程序。 它会自动检测性能异常。 其中包含强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
@@ -56,7 +56,6 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 | --- | --- |
 | [**智能检测和手动警报**](../../azure-monitor/app/proactive-diagnostics.md)<br/>当某些内容处于异常模式时，自动警报适应应用的遥测和触发器正常模式。 还可以在自定义或标准指标的特定级别上[设置警报](../../azure-monitor/app/alerts.md)。 |![警报示例](./media/app-insights-overview/alerts-tn.png) |
 | [**应用程序映射**](../../azure-monitor/app/app-map.md)<br/>应用的组件，包含关键指标和警报。 |![应用程序映射](./media/app-insights-overview/appmap-tn.png)  |
-| [**探查器**](../../azure-monitor/app/profiler.md)<br/>检查抽样请求的执行配置文件。 |![探查器](./media/app-insights-overview/profiler.png) |
 | [**使用情况分析**](../../azure-monitor/app/usage-overview.md)<br/>分析用户细分和保留情况。|![留存情况工具](./media/app-insights-overview/retention.png) |
 | [**实例数据的诊断搜索**](../../azure-monitor/app/diagnostic-search.md)<br/>搜索和筛选事件，例如请求、异常、依赖项调用、日志跟踪和页面视图。  |![搜索遥测](./media/app-insights-overview/search-tn.png) |
 | [**聚合数据的指标资源管理器**](../../azure-monitor/app/metrics-explorer.md)<br/>浏览、筛选和细分聚合的数据，例如请求率、故障率和异常率；响应时间、页面加载时间。 |![指标](./media/app-insights-overview/metrics-tn.png) |

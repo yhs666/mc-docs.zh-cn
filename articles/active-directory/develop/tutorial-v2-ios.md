@@ -10,17 +10,17 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 origin.date: 08/30/2019
-ms.date: 11/06/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7426ddfb82a42e95e9797856646db34d6285a7
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 2a80a66d1bab587c94f6e6b7d43ae40d986c27d1
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830898"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655398"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>从 iOS 或 macOS 应用将用户登录并调用 Microsoft Graph
 
@@ -138,15 +138,15 @@ import MSAL
 let kClientID = "Your_Application_Id_Here"
 
 // Additional variables for Auth and Graph API
-let kGraphURI = "https://microsoftgraph.chinacloudapi.cn/v1.0/me/"
-let kScopes: [String] = ["https://microsoftgraph.chinacloudapi.cn/user.read"]
-let kAuthority = "https://login.partner.microsoftonline.cn/common"
+let kGraphURI = "https://microsoftgraph.chinacloudapi.cn/v1.0/me/" // the Microsoft Graph endpoint
+let kScopes: [String] = ["https://microsoftgraph.chinacloudapi.cn/user.read"] // request permission to read the profile of the signed-in user
+let kAuthority = "https://login.partner.microsoftonline.cn/common" // this authority allows a work or school account in any organization’s Azure AD tenant to sign in
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
-var webViewParamaters : MSALWebviewParameters?
+var webViewParameters : MSALWebviewParameters?
 ```
 
-将分配给 `kClientID` 的值修改为应用程序 ID。 此值是你在本教程开头的步骤中保存的 MSAL 配置数据的一部分，该步骤用于在 Azure 门户中注册应用程序。
+需要修改的唯一值是分配给 `kClientID` 作为[应用程序 ID](/active-directory/develop/developer-glossary#application-id-client-id) 的值。 此值是你在本教程开头的步骤中保存的 MSAL 配置数据的一部分，该步骤用于在 Azure 门户中注册应用程序。
 
 ## <a name="for-ios-only-configure-url-schemes"></a>仅对于 iOS，配置 URL 方案
 
@@ -323,7 +323,7 @@ func initUI() {
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(parentViewController: self)
+        self.webViewParameters = MSALWebviewParameters(parentViewController: self)
     }
 ```
 
@@ -331,8 +331,8 @@ func initWebViewParams() {
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters()
-        self.webViewParamaters?.webviewType = .wkWebView
+        self.webViewParameters = MSALWebviewParameters()
+        self.webViewParameters?.webviewType = .wkWebView
     }
 ```
 
@@ -426,7 +426,7 @@ MSAL 公开了获取令牌的两种主要方法：`acquireTokenSilently()` 和 `
 func acquireTokenInteractively() {
         
     guard let applicationContext = self.applicationContext else { return }
-    guard let webViewParameters = self.webViewParamaters else { return }
+    guard let webViewParameters = self.webViewParameters else { return }
         
     // #1
     let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)

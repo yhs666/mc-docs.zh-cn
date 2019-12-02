@@ -17,12 +17,12 @@ origin.date: 03/08/2017
 ms.date: 01/21/2019
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 24e97d19db8eed0df5afbe6fc33f72cf43c56516
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: b692b467f5eedcec475c0497f825312d94fe7746
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806905"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555939"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Azure 应用服务的 PowerShell 示例
 
@@ -31,8 +31,6 @@ ms.locfileid: "70806905"
 | | |
 |-|-|
 |**创建应用**||
-| [从 GitHub 使用部署创建应用](./scripts/powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 创建从 GitHub 提取代码的应用服务应用。 |
-| [从 GitHub 使用连续部署创建应用](./scripts/powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 创建从 GitHub 持续部署代码的应用服务应用。 |
 | [使用 FTP 创建应用并部署代码](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 使用 FTP 从本地目录创建应用服务应用并上传文件。 |
 | [从本地 Git 存储库创建应用并部署代码](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 创建应用服务应用并配置从本地 Git 存储库进行的代码推送。 |
 | [创建应用并将代码部署到过渡环境](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 创建应用服务应用并为其配置用于暂存代码更改的部署槽位。 |

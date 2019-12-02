@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 06/11/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: c695d412ac3aba50c79c2d9670dcbab921ff9016
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e53c494dff24eb9c9cea6904963e58541476b0c4
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658036"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658028"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>使用 Azure 门户创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -35,6 +35,5 @@ ms.locfileid: "52658036"
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
-<!-- Update_Description: wording update, update link -->
-<!--The parent file of includes file of virtual-networks-create-vnet-classic-pportal-include.md-->
-<!--ms.date:06/11/2018-->
+
+<!-- Update_Description: update meta properties, wording update, update link -->

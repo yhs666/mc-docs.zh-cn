@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2016
-ms.date: 12/17/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3fae657334a230df4f2929989fccf79f736c7ae4
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 242d872d960522c901f5fd9956d2933ac1c29a9d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389375"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658018"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>在虚拟网络配置文件中指定 DNS 设置
-网络配置文件有两个可用于指定域名系统 (DNS) 设置的元素：**DnsServers** 和 **DnsServerRef**。 可以通过指定服务器的 IP 地址和 **DnsServers** 元素的引用名添加 DNS 服务器列表。 然后可以使用 **DnsServerRef** 元素指定 DnsServers 元素中的哪些 DNS 服务器条目用于虚拟网络中的不同网络站点。
+网络配置文件有两个可用于指定域名系统 (DNS) 设置的元素：**DnsServers** 和 **DnsServerRef**。 可以通过指定服务器的 IP 地址和 **DnsServers** 元素的引用名添加 DNS 服务器列表。 然后可以使用 **DnsServerRef** 元素指定 DnsServers 元素中的哪些 DNS 服务器实体用于虚拟网络内的不同网络站点。
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 

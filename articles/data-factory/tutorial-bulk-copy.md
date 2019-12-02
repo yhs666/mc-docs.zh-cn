@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/22/2018
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 214c2a1ddcd77d55cbd7a64e6ab21b96e1411752
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 58d423cd9f2d4fb086ba5df8591bd9fde5397252
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569690"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655443"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure 数据工厂批量复制多个表
 本教程演示如何**将 Azure SQL 数据库中的多个表复制到 Azure SQL 数据仓库**。 在其他复制方案中，也可以应用相同的模式。 例如，将 SQL Server/Oracle 中的表复制到 Azure SQL 数据库/数据仓库/Azure Blob，将 Blob 中的不同路径复制到 Azure SQL 数据库表。
@@ -98,7 +98,7 @@ ms.locfileid: "67569690"
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "China East 2" -Name $dataFactoryName
     ```
 
     请注意以下几点：

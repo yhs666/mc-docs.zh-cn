@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-origin.date: 11/05/2019
+origin.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 20281c9655493f7174942bd54a4b4bddbc2ca4ce
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: dd3ef2acf532d91ca6033e6e4aba1ab478c57aa2
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389529"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658066"
 ---
 # <a name="why-use-batch-transcription"></a>为何使用批量听录？
 
@@ -30,6 +30,10 @@ ms.locfileid: "74389529"
 
 >[!NOTE]
 > 若要使用批量听录，需要具备语音服务的标准订阅 (S0)。 免费订阅密钥 (F0) 不可用。 有关详细信息，请参阅[定价和限制](https://www.azure.cn/pricing/details/cognitive-services/speech-services/)。
+
+### <a name="custom-models"></a>自定义模式
+
+如果计划自定义声学或语言模型，请遵循[自定义声学模型](how-to-customize-acoustic-models.md)和[自定义语言模型](how-to-customize-language-model.md)中的步骤。 若要在批量听录中使用所创模型，则需要其模型 ID。 此 ID 不是在“终结点详细信息”视图中查找到的终结点 ID，而是选择模型“详细信息”时可检索到的模型 ID。
 
 ## <a name="the-batch-transcription-api"></a>批量听录 API
 

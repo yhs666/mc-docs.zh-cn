@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 04/23/2019
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: c30ca847a0b1885d185556d3ec00d322cbe3338b
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: afa6ffef3db7466c53414fb1567b756ca8875988
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726494"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655416"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教程：订购 Azure Data Box
 
@@ -53,7 +53,7 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 
 在 Azure 门户中执行以下步骤以订购设备。
 
-1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.com](https://portal.azure.cn)。
+1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.cn](https://portal.azure.cn)。
 2. 单击“+ 创建资源”并搜索 *Azure Data Box*。  单击“Azure Data Box”。 
     
    [![搜索“Azure Data Box 1”](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)

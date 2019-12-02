@@ -5,20 +5,21 @@ description: 了解如何使用 Azure 经典命令行接口 (CLI) 为虚拟机�
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
+manager: digimobile
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 02/18/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: ef7cb09bf910df0d0382779ea0793e7cea62d70c
-ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
+ms.openlocfilehash: d57ac76fa68149d4d4923ed7ebb308cc7debdecb
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725212"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658016"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 为虚拟机（经典）配置专用 IP 地址
 
@@ -35,7 +36,7 @@ ms.locfileid: "67725212"
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>如何在创建 VM 时指定静态专用 IP 地址
 若要根据上述方案在名为 *TestService* 的新云服务中创建名为 *DNS01* 的新 VM，请按照以下步骤进行操作：
 
-1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?view=azure-cli-latest)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
+1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](https://docs.azure.cn/cli/install-classic-cli?view=azure-cli-latest)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
 
     <!--MOONCAKE CORRECT ON install-classic-cli-->
 
@@ -125,4 +126,4 @@ ms.locfileid: "67725212"
 * 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
 * 查阅[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

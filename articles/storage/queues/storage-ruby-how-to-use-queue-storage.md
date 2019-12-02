@@ -8,15 +8,15 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 12/10/2018
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.component: queues
-ms.openlocfilehash: 02d0d9e0275d3ebd28d867b5f6e9eb324e4163ab
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 632d4cf2d7b17dbbd6cb384ad59d8a472794bc29
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236653"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655417"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "67236653"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)。
+创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](/app-service/containers/quickstart-ruby)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 要使用 Azure 存储，需下载和使用 Ruby Azure 包，其中包括与存储 REST 服务进行通信的一组方便的库。

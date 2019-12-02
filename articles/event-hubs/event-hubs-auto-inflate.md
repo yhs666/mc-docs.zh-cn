@@ -14,14 +14,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2018
-ms.date: 10/22/2019
+ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: f3f4ae19c02545a530eb9d405608349d7949ab8b
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 49b942d669608fa88617ac4b99e215a299e1a307
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72873086"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657848"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自动增加 Azure 事件中心吞吐量单位
 Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开始使用该服务后事件中心使用量通常会增加。 这样的使用量需要增加预先确定的[吞吐量单位](event-hubs-scalability.md#throughput-units)，以扩展事件中心和处理更大的传输速率。 事件中心的自动膨胀功能通过增加吞吐量单位数进行自动纵向扩展，以便满足使用量需求  。 增加吞吐量单位数可防止出现限制情况，在这些情况下：

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/29/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: cef43f1b3c4cb7e991dc5d42e938c83c4d8cb260
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: e814873989b997b273e77d902d329e3c0b6aa8dd
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116759"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592431"
 ---
 <!--Verify sucessfully-->
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure 上的第 2 代 VM 支持（预览版）
@@ -54,8 +54,7 @@ Azure 中的所有 VM 大小都支持第 1 代 VM。 Azure 目前为以下选定
     <!--Not Available on * [NCv2-series](/virtual-machines/windows/sizes-gpu#ncv2-series)-->
     <!--Not Available on * [ND-series](/virtual-machines/windows/sizes-gpu#nd-series)-->
     
-> [!NOTE]
-> 第 2 代 VM 映像通常用于 Mv2 系列 VM，因为 Mv2 系列只使用第 2 代 VM 映像。 Mv2 系列 VM 不支持第 1 代 VM 映像。 
+<!--Not Available [!NOTE] due to Mv2 series not available on Azure China Cloud-->
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure 市场中的第 2 代 VM 映像
 

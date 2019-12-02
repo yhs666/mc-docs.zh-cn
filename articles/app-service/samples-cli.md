@@ -17,12 +17,12 @@ origin.date: 12/12/2017
 ms.date: 01/21/2019
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: d5a00d0d86d4838ea7ba74e69d9f00fed8d391ec
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 4fe6eacb1d870ddcb4f176d89609fb136ae255a4
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806885"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555950"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>针对 Azure 应用服务的 CLI 示例
 
@@ -32,8 +32,6 @@ ms.locfileid: "70806885"
 |-|-|
 |**创建应用**||
 | [创建应用并使用 FTP 部署文件](./scripts/cli-deploy-ftp.md?toc=%2fcli%2ftoc.json)| 创建应用服务应用并使用 FTP 将文件部署到该应用。 |
-| [创建应用并从 GitHub 部署代码](./scripts/cli-deploy-github.md?toc=%2fcli%2ftoc.json)| 创建应用服务应用并从公共 GitHub 存储库部署代码。 |
-| [从 GitHub 使用连续部署创建应用](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2ftoc.json)| 创建应用服务应用并从你拥有的 GitHub 存储库持续向其发布代码。 |
 | [从本地 Git 存储库创建应用并部署代码](./scripts/cli-deploy-local-git.md?toc=%2fcli%2ftoc.json) | 创建应用服务应用并配置从本地 Git 存储库进行的代码推送。 |
 | [创建应用并将代码部署到过渡环境](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2ftoc.json) | 创建应用服务应用并为其配置用于暂存代码更改的部署槽位。 |
 |**配置应用**||

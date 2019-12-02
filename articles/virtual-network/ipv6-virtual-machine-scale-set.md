@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 10/29/2019
 ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 30bbcb7098c20ed9f33d408ee266a9c89a297bb5
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 074bf7218fa039852f879d7a7d7388ae51f974c8
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203698"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657811"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>在 Azure 中部署使用 IPv6 的虚拟机规模集
 
@@ -33,61 +33,61 @@ ms.locfileid: "74203698"
 只有一个步骤与创建单个 VM 不同，那就是创建使用虚拟机规模集资源的网络接口 (NIC) 配置：networkProfile/networkInterfaceConfigurations。 JSON 结构类似于单个 VM 使用的 Microsoft.Network/networkInterfaces 对象，不过，其中添加了使用 **"primary": true** 属性将 NIC 和 IPv4 IpConfiguration 设置为主接口的代码，如以下示例中所示：
 
 ```json
-          "networkProfile": {
-            "networkInterfaceConfigurations": [
-              {
+    "networkProfile": {
+        "networkInterfaceConfigurations": [
+            {
                 "name": "[variables('nicName')]",
                 "properties": {
-                  "primary": true,
-          "networkSecurityGroup": {
-            "id": "[resourceId('Microsoft.Network/networkSecurityGroups','VmssNsg')]"
-          },                  
-                  "ipConfigurations": [
-                    {
-                      "name": "[variables('ipConfigName')]",
-                      "properties": {
-                        "primary": true,
-                        "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'MyvirtualNetwork','Mysubnet')]"
-                        },
-                        "privateIPAddressVersion":"IPv4",                       
-                        "publicipaddressconfiguration": {
-                          "name": "pub1",
+                    "primary": true,
+                    "networkSecurityGroup": {
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups','VmssNsg')]"
+                    },                  
+                    "ipConfigurations": [
+                        {
+                          "name": "[variables('ipConfigName')]",
                           "properties": {
-                            "idleTimeoutInMinutes": 15
-                          }
+                                "primary": true,
+                                "subnet": {
+                                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'MyvirtualNetwork','Mysubnet')]"
+                                },
+                                "privateIPAddressVersion":"IPv4",                       
+                                "publicipaddressconfiguration": {
+                                  "name": "pub1",
+                                  "properties": {
+                                    "idleTimeoutInMinutes": 15
+                                  }
+                                },
+                                "loadBalancerBackendAddressPools": [
+                                  {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer', 'bePool'))]"
+                                  }
+                                ],
+                                "loadBalancerInboundNatPools": [
+                                  {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/inboundNatPools', 'loadBalancer', 'natPool')]"
+                                  }
+                                ]
+                            }
                         },
-                        "loadBalancerBackendAddressPools": [
-                          {
-                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer', 'bePool'))]"
-                          }
-                        ],
-                        "loadBalancerInboundNatPools": [
-                          {
-                            "id": "[resourceId('Microsoft.Network/loadBalancers/inboundNatPools', 'loadBalancer', 'natPool')]"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "name": "[variables('ipConfigNameV6')]",
-                      "properties": {
-                        "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets','MyvirtualNetwork','Mysubnet')]"
-                        },
-                        "privateIPAddressVersion":"IPv6",
-                        "loadBalancerBackendAddressPools": [
-                          {
-                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer','bePoolv6')]"
-                          }
-                        ],                        
-                      }
-                    }
-                  ]
+                        {
+                          "name": "[variables('ipConfigNameV6')]",
+                          "properties": {
+                                "subnet": {
+                                  "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets','MyvirtualNetwork','Mysubnet')]"
+                                },
+                                "privateIPAddressVersion":"IPv6",
+                                "loadBalancerBackendAddressPools": [
+                                      {
+                                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer','bePoolv6')]"
+                                      }
+                                ],                        
+                            }
+                        }
+                    ]
                 }
-              }
-            ]
-          }
+            }
+        ]
+    }
 
 ```
 

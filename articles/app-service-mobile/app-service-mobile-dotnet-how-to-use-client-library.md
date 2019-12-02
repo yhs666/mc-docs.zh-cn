@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 06265c3db3f970e68ee78af99386fd536006c961
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: adbbd3d864391ef249920761bc43fa3c76589824
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006583"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657930"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -1076,7 +1076,7 @@ public class MyHandler : DelegatingHandler
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Windows 开发人员中心]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[Windows Live SDK]: https://msdn.microsoft.com/zh-cn/library/bb404787.aspx
+[Windows Live SDK]: https://msdn.microsoft.comlibrary/bb404787.aspx
 [PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Notification Hubs APIs]: https://msdn.microsoft.com/library/azure/dn495101.aspx

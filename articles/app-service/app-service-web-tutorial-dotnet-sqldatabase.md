@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 06/25/2018
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 11/25/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 66110867fff04e968f97f709861333a198ace999
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 7b2c002db4077b903af8354b958144379d275746
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806896"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555839"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
@@ -393,11 +393,11 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ## <a name="manage-your-azure-app"></a>管理 Azure 应用
 
-转到 [Azure 门户](https://portal.azure.cn)查看创建的应用。 
+转到 [Azure 门户](https://portal.azure.cn)管理 Web 应用。 搜索并选择“应用服务”。  
 
+![搜索 Azure 应用服务](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-从左侧菜单中单击“应用服务”，并单击 Azure 应用的名称。 
+选择 Azure 应用名称。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

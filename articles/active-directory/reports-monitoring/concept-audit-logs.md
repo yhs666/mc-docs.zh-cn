@@ -3,7 +3,7 @@ title: Azure Active Directory 门户中的“审核活动”报告 | Microsoft D
 description: Azure Active Directory 门户中的审核活动报告简介
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 07/17/2019
-ms.date: 10/25/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5da80362526cb74a4c1d7dbe3732c7141db855
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 0bd14fd05b6464b60bd77b7315462166ab4b6aae
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912700"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655414"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 
@@ -40,7 +40,6 @@ ms.locfileid: "72912700"
 ## <a name="who-can-access-the-data"></a>谁可以访问该数据？
 
 * 具有**安全管理员**、**安全读取者**、**报表读取者**或**全局管理员**角色的用户
-* 此外，所有用户（非管理员）都可以都查看其自己的审核活动
 
 ## <a name="audit-logs"></a>审核日志
 

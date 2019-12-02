@@ -4,25 +4,24 @@ description: 获取 Azure 应用服务 Web 应用功能的部署相关常见问�
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 origin.date: 11/01/2018
-ms.date: 08/12/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 6918ef5f6b02fa815c1180854f32d8aaa54570f0
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 93353b5eee1361f296d424954146591f13a64e75
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806744"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555960"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -61,10 +60,13 @@ ms.locfileid: "70806744"
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>尝试通过 FTP 传输文件时出现“FTP 错误 550 - 磁盘空间不足”，应如何解决？
 
 如果看到此消息，磁盘空间可能即将达到 Web 应用服务计划中的磁盘配额。 可能需要基于磁盘空间需求提升到较高服务层级。 有关定价计划和资源限制的详细信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+<!-- ## How do I set up continuous deployment for my App Service web app? -->
 
-## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>如何对从 GitHub 和 Bitbucket 进行持续部署的问题进行故障排除？
+<!-- You can set up continuous deployment from several resources, including Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](deploy-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment. -->
 
-若要帮助调查从 GitHub 或 Bitbucket 进行持续部署的问题，请参阅[调查持续部署](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)。
+<!-- ## How do I troubleshoot issues with continuous deployment from GitHub and Bitbucket? -->
+
+<!-- For help investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment). -->
 
 ## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>无法通过 FTP 传输到我的站点并发布代码。 如何解决此问题？
 
@@ -83,17 +85,7 @@ Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署�
 
 若要了解应用程序部署在哪些情况下可能导致重启，请参阅 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts")（部署与运行时问题）。 如本文所述，应用服务将文件部署到 wwwroot 文件夹。 这决不会直接重启应用。
 
-## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>如何将 Azure DevOps 代码与应用服务集成？
-
-有两个选项可用于将持续部署与 Azure DevOps 一起使用：
-
-*   使用 Git 项目。 使用部署中心通过应用服务进行连接。
-*   使用 Team Foundation 版本控制 (TFVC) 项目。 通过对应用服务使用生成代理来进行部署。
-
-这两个选项的持续代码部署都依赖于现有开发人员工作流和签入过程。 有关详细信息，请参阅以下文章： 
-
-*   [实现应用到 Azure 网站的持续部署](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [设置 Azure DevOps 组织，以便它可以部署到 Web 应用](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+<!-- ## How do I integrate Azure DevOps code with App Service? -->
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>如何使用 FTP 或 FTPS 将应用部署到应用服务？
 

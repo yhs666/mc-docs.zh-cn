@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/04/2018
-ms.date: 10/21/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4db969d241fe237f40cc171d3ef36ee198272cab
-ms.sourcegitcommit: 9324f87df6b9b7ea31596b423d33b6cb5fd41aad
+ms.openlocfilehash: b93f9fab6ce8bcc37880936efdf8e23d7eb18724
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72749604"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658041"
 ---
 <!--NOT SUITABLE TO AZURE CHINA CLOUD-->
 <!--UPDATE CAREFULLY-->
@@ -81,7 +81,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-若要记录其中一个类别的数据而不是两个类别都记录，请将 `-Categories` 选项添加到前一命令，后跟 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 若要记录到 Log Analytics 工作区之外的[目标](#log-destinations)，请使用适合 Azure [存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fvirtual-network%2ftoc.json)的参数。
+若要记录其中一个类别的数据而不是两个类别都记录，请将 `-Categories` 选项添加到前一命令，后跟 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 若要记录到 Log Analytics 工作区之外的[目标](#log-destinations)，请使用适合 Azure [存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fvirtual-network%2ftoc.json)或[事件中心](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fvirtual-network%2ftoc.json)的参数。
 
 <!--Not Available on  or [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fvirtual-network%2ftoc.json)-->
 
@@ -125,7 +125,7 @@ az monitor diagnostic-settings create \
 
 如果没有现成的工作区，则可以使用 [Azure 门户](../azure-monitor/learn/quick-create-workspace.md?toc=%2fvirtual-network%2ftoc.json)或 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) 创建一个。 可以为日志启用两种类别的日志记录。
 
-如果只想记录一种类别或另一种类别的数据，请在上一个命令中删除不想记录其数据的类别。 若要记录到 Log Analytics 工作区之外的[目标](#log-destinations)，请使用适合 Azure [存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fvirtual-network%2ftoc.json)的参数。
+如果只想记录一种类别或另一种类别的数据，请在上一个命令中删除不想记录其数据的类别。 若要记录到 Log Analytics 工作区之外的[目标](#log-destinations)，请使用适合 Azure [存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fvirtual-network%2ftoc.json)或[事件中心](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fvirtual-network%2ftoc.json)的参数。
 
 <!--Not Available on or [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fvirtual-network%2ftoc.json)-->
 
@@ -203,19 +203,21 @@ az monitor diagnostic-settings create \
 
 ## <a name="view-and-analyze-logs"></a>查看和分析日志
 
-<!--Not Available on [Azure Diagnostic Logs overview](../azure-monitor/platform/resource-logs-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+若要了解如何查看诊断日志数据，请参阅 [Azure 诊断日志概述](../azure-monitor/platform/resource-logs-overview.md?toc=%2fvirtual-network%2ftoc.json)。 如果将诊断数据发送到：
 
-如果将诊断数据发送到：
 - **Azure Monitor 日志**：则可使用[网络安全组分析](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 )解决方案来获取增强的见解。 此解决方案提供 NSG 规则的可视化效果，此类规则可以根据 MAC 地址允许或拒绝虚拟机中网络接口的流量。
 - **Azure 存储帐户**，则将数据写入 PT1H.json 文件。 可以找到：
-  - 事件日志，位于以下路径：`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-  - 规则计数器日志，位于以下路径：`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+    - 事件日志，位于以下路径：`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+    - 规则计数器日志，位于以下路径：`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>后续步骤
 
-<!--Not Available on [Activity logging](../azure-monitor/platform/resource-logs-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
-
+- 详细了解[活动日志记录](../azure-monitor/platform/resource-logs-overview.md?toc=%2fvirtual-network%2ftoc.json)（以前称为审核或操作日志）。 默认情况下，对通过任一 Azure 部署模型创建的 NSG 启用活动日志记录。 若要在活动日志中确定完成了哪些 NSG 相关操作，请查看含有以下资源类型的条目：
+  - Microsoft.ClassicNetwork/networkSecurityGroups
+  - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+  - Microsoft.Network/networkSecurityGroups
+  - Microsoft.Network/networkSecurityGroups/securityRules
 - 若要了解如何记录诊断信息，使日志包含每个流的源 IP 地址，请参阅 [NSG 流日志记录](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fvirtual-network%2ftoc.json)。
 
 <!--NOT SUITABLE TO AZURE CHINA CLOUD-->

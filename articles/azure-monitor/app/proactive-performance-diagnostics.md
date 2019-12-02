@@ -9,12 +9,12 @@ origin.date: 05/04/2017
 ms.date: 6/4/2019
 ms.reviewer: antonfr
 ms.author: v-lingwu
-ms.openlocfilehash: 993055d23b62d473af2617aad142a8245e49b7d0
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 87f81dbc8f13648bcffbde43677f32e730a9950c
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730574"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657992"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 
@@ -48,7 +48,7 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 2. **范围**。 该问题是影响所有流量，还是只影响某些页面？ 它是否只出现在特定的浏览器或位置中？ 可以从通知中获取此信息。
 3. **诊断**。 通常，通知的诊断信息会提示问题的性质。 例如，如果请求率较高时响应速度变慢，则表示服务器或依赖项过载。 
 
-    否则，可在 Application Insights 中打开“性能”边栏选项卡， 在其中可以找到[探查器](profiler.md)数据。 如果引发了异常，还可以尝试[快照调试器](../../azure-monitor/app/snapshot-debugger.md)。
+    否则，可在 Application Insights 中打开“性能”边栏选项卡，
 
 
 
@@ -177,7 +177,6 @@ Application Insights 可以找到只会影响一部分用户，或者只会在�
 ## <a name="next-steps"></a>后续步骤
 这些诊断工具可帮助检查应用中的遥测数据：
 
-* [探查器](profiler.md) 
 * [快照调试器](../../azure-monitor/app/snapshot-debugger.md)
 * [分析](../../azure-monitor/log-query/get-started-portal.md)
 * [分析智能诊断](../../azure-monitor/log-query/log-query-overview.md)

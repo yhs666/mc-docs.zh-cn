@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 06/11/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 50cd1e5600de1acc12893c9e35c79fdbe11c06d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6192c1b156f57009a7cb6c4ae5cd2d8fe3bfb39d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646929"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658034"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>使用 Azure CLI 创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -36,5 +36,4 @@ ms.locfileid: "52646929"
 
 [!INCLUDE [virtual-networks-create-vnet-classic-cli-include](../../includes/virtual-networks-create-vnet-classic-cli-include.md)]
 
-<!--The parent file of includes file of virtual-networks-create-vnet-classic-cli-include.md-->
-<!--ms.date:06/11/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

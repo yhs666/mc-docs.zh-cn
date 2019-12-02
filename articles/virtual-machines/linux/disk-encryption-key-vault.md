@@ -8,12 +8,12 @@ ms.author: v-yeche
 origin.date: 08/06/2019
 ms.date: 11/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 551d8ac59294a5dc99e10114c3c050c12085e8e0
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ad7c078ffafc4f42ed22962f6e742dfd7a8020f0
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730641"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655438"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>创建和配置用于 Azure 磁盘加密的 Key Vault
 
@@ -187,6 +187,8 @@ Azure 磁盘加密不支持将端口号指定为 Key Vault 机密和 KEK URL 的
 
 使用 Azure CLI [az keyvault key create](https://docs.azure.cn/cli/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) 命令生成新 KEK 并将其存储在 Key Vault 中。
 
+<!--MOONCAKE: CHANGE RSA-HSM to RSA-->
+
 ```azurecli
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
@@ -205,9 +207,13 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 
 使用 Azure PowerShell [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey?view=azps-2.5.0) cmdlet 生成新 KEK 并将其存储在 Key Vault 中。
 
- ```powershell
-Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
+<!--MOONCAKE: CHANGE HSM to Softeware-->
+
+```powershell
+Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "Software"
 ```
+
+<!--MOONCAKE: CHANGE HSM to Softeware-->
 
 可以改用 Azure PowerShell [az keyvault key import](https://docs.azure.cn/cli/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 命令导入私钥。
 

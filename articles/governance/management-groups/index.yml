@@ -1,0 +1,40 @@
+### YamlMime:Landing
+title: Azure 管理组文档
+summary: Azure 管理组可帮助你组织资源和订阅。
+metadata:
+  title: Azure 管理组文档
+  description: Azure 管理组可帮助你组织资源和订阅。
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: v-tawe
+  origin.date: 09/26/2019
+  ms.date: 12/02/2019
+  ms.openlocfilehash: 4eb342c9edd45708dd2b75b7d7d180665e64e99e
+  ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 11/29/2019
+  ms.locfileid: "74658182"
+landingContent:
+- title: 关于 Azure 治理
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 中的管理服务概述
+      url: ../azure-management.md
+- title: 关于 Azure 管理组
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 管理组
+      url: ./overview.md
+- title: 组织资源
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 创建管理组
+      url: ./create.md
+    - text: 管理资源
+      url: ./manage.md

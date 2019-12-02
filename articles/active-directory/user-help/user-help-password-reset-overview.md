@@ -1,5 +1,5 @@
 ---
-title: 概述：重置自己的工作或学校密码 - Azure Active Directory | Microsoft Docs
+title: 概述：重置自己的工作或学校密码 - Azure AD
 description: 提供一系列文章链接，介绍如何在没有管理员协助的情况下注册并重置工作或学校密码。
 services: active-directory
 author: eross-msft
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
 origin.date: 05/15/2019
-ms.date: 11/14/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a559f4c94a3a7f800696261f4e19b701c046c2
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: 7fc92ad7cc2682cb9eecb8bfb80a2ef6c41f376f
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084812"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655434"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>概述：重置自己的工作或学校密码
 
@@ -35,7 +35,7 @@ ms.locfileid: "74084812"
 
 |文章 |说明 |
 |------|------------|
-| [注册自助式密码重置](active-directory-passwords-reset-register.md)说明如何验证身份验证方法并注册自助式密码重置，以便重置自己的密码。|
-| [Reset your password](active-directory-passwords-update-your-own-password.md)说明如何重置或解锁工作或学校帐户的密码。|
+| [注册自助密码重置](active-directory-passwords-reset-register.md) | 说明如何验证身份验证方法并注册自助密码重置，以便重置自己的密码。 |
+| [重置密码](active-directory-passwords-update-your-own-password.md) | 说明如何重置或解锁工作或学校帐户的密码。 |
 
 <!-- Update_Description: wording update -->

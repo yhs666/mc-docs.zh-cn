@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 04/15/2019
 ms.date: 09/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: e4c23393bffe6fb615d049974935093f01ce9820
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 9c5ba76ee3fc3418e42d4f70f249175d31fcafb9
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872988"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658006"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>使用 .NET Core 将事件发送到 Azure 事件中心或从其接收事件
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。

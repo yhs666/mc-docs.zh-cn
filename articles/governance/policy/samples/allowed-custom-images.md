@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/26/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 6258adad879df69e7e0a697d2fd57b9f499dbd17
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 506bf270d09b3a8c329921374eddb4ee3a72a065
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526684"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658111"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>示例 - 已批准的虚拟机映像
 
@@ -142,7 +142,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-portal"></a>Azure 门户
 
-[![将策略示例部署到 Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](../media/deploy/deploybutton.png)](https://portal.azure.cn/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

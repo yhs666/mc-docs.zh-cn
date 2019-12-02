@@ -151,3 +151,5 @@
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 服务更新
       href: 'https://www.azure.cn/what-is-new/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-eventhub'

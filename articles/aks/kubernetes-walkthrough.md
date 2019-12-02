@@ -71,7 +71,7 @@ az group create --name myResourceGroup --location chinaeast2
 
 ## <a name="create-aks-cluster"></a>创建 AKS 群集
 
-使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为  myAKSCluster 的群集。 也可通过 *--enable-addons monitoring* 参数启用用于容器的 Azure Monitor。  此操作将需要几分钟才能完成。
+使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为  myAKSCluster 的群集。 用于容器的 Azure Monitor也已通过 *--enable-addons monitoring* 参数启用。  此操作将需要几分钟才能完成。
 
 > [注意] 创建 AKS 群集时，会自动创建另一个资源组来存储 AKS 资源。 有关详细信息，请参阅[为什么使用 AKS 创建两个资源组？](/aks/faq#why-are-two-resource-groups-created-with-aks)
 

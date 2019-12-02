@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/21/2019
 ms.date: 07/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2d14a954369ac6576bcda94c39b1daef135ac932
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: fa32d6e94bc4d648bc19586a4213b9487325427f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845000"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657834"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-services-aks"></a>将情绪分析容器部署到 Azure Kubernetes 服务 (AKS)
 
@@ -73,6 +73,7 @@ ms.locfileid: "67845000"
 1. 打开 Azure CLI 并登录到 Azure
 
     ```azurecli
+    az cloud set -n AzureChinaCloud
     az login
     ```
 

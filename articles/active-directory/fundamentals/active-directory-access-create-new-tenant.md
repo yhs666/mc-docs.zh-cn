@@ -9,16 +9,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 origin.date: 09/10/2018
-ms.date: 08/27/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 351532add37b6e275ac2697c64804299f7dcace8
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: ee24af4d2a3abeed6c0d7b2866d76bec598a5885
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134209"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655393"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中创建一个新租户
 可以使用 Azure Active Directory (Azure AD) 门户执行所有管理任务，包括为组织创建新的租户。 
@@ -27,22 +27,24 @@ ms.locfileid: "70134209"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
-使用全局管理员帐户登录到组织的 [Azure 门户](https://portal.azure.cn/)。
-
-![Azure 门户屏幕，包含 Azure AD 选项](./media/active-directory-access-create-new-tenant/azure-ad-portal.png)
-
 ## <a name="create-a-new-tenant-for-your-organization"></a>为组织创建新的租户
 登录到 Azure 门户后，即可为组织创建新的租户。 新的租户代表你的组织，可帮助你管理面向内部和外部用户的特定 Azure 云服务实例。
 
 ### <a name="to-create-a-new-tenant"></a>创建新的租户
-1. 依次选择“创建资源”、“标识”、“Azure Active Directory”    。
+
+1. 使用全局管理员帐户登录到组织的 [Azure 门户](https://portal.azure.cn/)。
+
+1. 在 Azure 门户菜单中，选择“创建资源”  。  
+
+    ![Azure Active Directory 的“创建资源”页](./media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+
+1. 选择“标识”，然后选择“Azure Active Directory”   。
 
     随即出现“创建目录”页面  。
 
     ![Azure Active Directory“创建”页面](./media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-2.  在“创建目录”页面上，输入以下信息  ：
+1.  在“创建目录”页面上，输入以下信息  ：
     
     - 在“组织名称”框中键入 _Contoso_。 
 
@@ -50,7 +52,7 @@ ms.locfileid: "70134209"
 
     - 保留“国家或地区”框中的“美国”选项   。
 
-3. 选择“创建”  。
+1. 选择“创建”  。
 
 将使用域 contoso.partner.onmschina.cn 创建新租户。
 
@@ -74,4 +76,3 @@ ms.locfileid: "70134209"
 
 - 了解 Azure AD，包括[基本许可信息、术语和关联的功能](active-directory-whatis.md)。
 
-<!-- Update_Description: wording update -->

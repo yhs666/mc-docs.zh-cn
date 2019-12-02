@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: b18abca17a3c044379afe230e761a06f65903ab6
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 589e9611a3c6998cd68027a801563377bdfbe7dd
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006597"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657934"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -368,35 +368,12 @@ string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
 SID 派生自提供程序特定的用户 ID，对于给定的用户和登录提供程序而言是静态的。  对于无效的身份验证令牌，SID 为 null。
 
-应用服务还允许向登录提供程序请求特定声明。 每个标识提供者可使用标识提供者 SDK 提供详细信息。  例如，可以使用 Facebook Graph API 获取好友信息。  可以在 Azure 门户的提供程序边栏选项卡中指定请求的声明。 某些声明需要对标识提供者进行其他配置。
+应用服务还允许向登录提供程序请求特定声明。 每个标识提供者可使用标识提供者 SDK 提供详细信息。
 
-下面的代码调用 **GetAppServiceIdentityAsync** 扩展方法获取登录凭据，其中包含向 Facebook Graph API 发出请求所需的访问令牌：
+<!-- For example, you can use the Facebook Graph API for friends information.  You can specify claims that are requested in the provider blade in the Azure portal. Some claims require additional configuration with the identity provider. -->
 
-```
-// Get the credentials for the logged-in user.
-var credentials =
-    await this.User
-    .GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
-
-if (credentials.Provider == "Facebook")
-{
-    // Create a query string with the Facebook access token.
-    var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token="
-        + credentials.AccessToken;
-
-    // Create an HttpClient request.
-    var client = new System.Net.Http.HttpClient();
-
-    // Request the current user info from Facebook.
-    var resp = await client.GetAsync(fbRequestUrl);
-    resp.EnsureSuccessStatusCode();
-
-    // Do something here with the Facebook user information.
-    var fbInfo = await resp.Content.ReadAsStringAsync();
-}
-```
-
-为 `System.Security.Principal` 添加 using 语句，提供 **GetAppServiceIdentityAsync** 扩展方法。
+<!-- The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token
+needed to make requests against the Facebook Graph API: -->
 
 ### <a name="authorize"></a>如何：限制已获授权用户的数据访问
 上一部分已说明如何检索经过身份验证的用户的用户 ID。 可以根据此值来限制对数据和其他资源的访问。 例如，将 userId 列添加到表以及根据用户 ID 筛选查询结果，是将返回的数据局限于已获授权用户的简单方式。 以下代码只会在 SID 与 TodoItem 表上 UserId 列中的值匹配时才返回数据行：

@@ -8,12 +8,12 @@ origin.date: 04/26/2019
 author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eb4cbd8f5ceaac67ae27f497f95172f553f550e8
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: be90cd5131ae3f94d8cb09a41809dfbb5c9d94fc
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528343"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657790"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -373,7 +373,6 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 有关 Application Insights 代理/扩展的最新信息，请查看[发行说明](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)。
 
 ## <a name="next-steps"></a>后续步骤
-* [在实时应用上运行探查器](../app/profiler.md)。
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - 使用 Application Insights 监视 Azure Functions
 * [将 Azure 诊断配置为](../platform/diagnostics-extension-to-application-insights.md)向 Application Insights 发送数据。
 * [监视服务运行状况指标](../platform/data-platform.md)以确保服务可用且做出快速响应。

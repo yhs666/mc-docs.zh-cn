@@ -7,12 +7,12 @@ origin.date: 05/20/2019
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: ab3ffd732cd46c23a9c2b8b4cb502d6ae304ab85
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: fa65add0e5eea17304a8d07af3a6895841c4c7f9
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425862"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657978"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>快速入门：适用于 .NET 的 Azure Key Vault 客户端库
 
@@ -87,7 +87,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 > 每个密钥保管库必须具有唯一的名称。 在以下示例中，将 <your-unique-keyvault-name> 替换为密钥保管库的名称。
 
 ```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
+az group create --name "myResourceGroup" -l "chinanorth"
 
 az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 ```
@@ -207,7 +207,7 @@ var keyvaultSecret = await kvClient.GetSecretAsync($"{kvURL}", secretName).Confi
 可以使用 Azure CLI 或 Azure PowerShell 来删除不再需要的 Key Vault 和相应的资源组。
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup" -l "chinanorth" 
 ```
 
 ```azurepowershell

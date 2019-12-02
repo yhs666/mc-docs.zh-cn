@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4479f5178362ead4350b34349141dfaf25d9c6d6
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 764ebd5dec741d032771f94e62ed368c5634f301
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528396"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657961"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -156,7 +156,7 @@ Azure Monitor 中的详细应用程序监视是通过 [Application Insights](/az
 | Azure Monitor 指标 | Application Insights 将描述应用程序的性能和运行情况的指标以及在应用程序中定义的自定义指标收集到 Azure Monitor 指标数据库中。 | [Application Insights 中基于日志的指标和预先聚合的指标](../app/pre-aggregated-metrics-log-metrics.md)<br>[用于处理自定义事件和指标的 Application Insights API](../app/api-custom-events-metrics.md) |
 | Azure 存储 | 将应用程序数据发送到 Azure 存储进行存档。 | [从 Application Insights 导出遥测数据](../app/export-telemetry.md) |
 |            | 可用性测试的详细信息存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。 可用性测试的结果存储在 Azure Monitor 日志中。 | [监视任何网站的可用性和响应能力](../app/monitor-web-app-availability.md) |
-|            | Profiler 跟踪数据存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。  | [使用 Application Insights 探查 Azure 中的生产应用程序](../app/profiler-overview.md) 
+|            | Profiler 跟踪数据存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。  | 使用 Application Insights 探查 Azure 中的生产应用程序
 |            | 针对一部分异常捕获的调试快照数据存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。  | [快照的工作原理](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>监视解决方案和见解

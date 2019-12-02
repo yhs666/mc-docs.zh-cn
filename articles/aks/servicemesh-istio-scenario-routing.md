@@ -8,12 +8,12 @@ origin.date: 10/09/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 84ed898b18c711e86be26025dea9087e96f9b898
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: a48ca39e40c3d444b716405f9cb1d6687aa9c319
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73083625"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655428"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>借助 Istio 在 Azure Kubernetes 服务 (AKS) 中使用智能路由和 Canary 发布
 
@@ -131,11 +131,8 @@ voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s   app
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-powershell.md)]-->
 
 创建 Istio [网关][istio-reference-gateway]和[虚拟服务][istio-reference-virtualservice]后，才能连接到投票应用。 这些 Istio 资源将来自默认 Istio Ingress 网关的流量路由到应用程序。
 
@@ -217,11 +214,8 @@ deployment.apps/voting-analytics-1-1 created
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]-->
 
 下面的示例输出显示了网站在两个版本之间切换时返回的网站的相关部分：
 
@@ -280,11 +274,8 @@ virtualservice.networking.istio.io/voting-storage created
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]-->
 
 下面的示例输出显示了返回的网站的相关部分：
 
@@ -316,11 +307,8 @@ istioctl authn tls-check <pod-name[.namespace]> [<service>]
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-powershell.md)]-->
 
 以下示例输出显示对上述每个查询强制实施了相互 TLS。 输出中还显示了强制实施相互 TLS 的策略和目标规则：
 

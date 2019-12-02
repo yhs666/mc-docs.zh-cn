@@ -10,12 +10,12 @@ ms.topic: landing-page
 origin.date: 05/25/2018
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: c9a57de782a40abad00b19655b984019a704c76b
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: fed27cb4926983496c0c87cf21918f7edcc7c828
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006543"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657954"
 ---
 # <a name="mobile-apps-documentation"></a>移动应用文档
 
@@ -34,24 +34,6 @@ ms.locfileid: "71006543"
                     </div>
                     <div class="cardText">
                         <h3>了解移动应用</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/i_video.svg" alt="Videos" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>应用服务视频库</h3>
                     </div>
                 </div>
             </div>
@@ -196,12 +178,12 @@ ms.locfileid: "71006543"
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/overview/mobileapps/client?view=azure-dotnet&redirectedfrom=MSDN">.NET 后端 SDK</a></p>
+                        <p><a href="https://docs.azure.cndotnet/api/overview/mobileapps/client?view=azure-dotnet&redirectedfrom=MSDN">.NET 后端 SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
-                        <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/overview/mobileapps/client?view=azure-dotnet&redirectedfrom=MSDN">Windows/Xamarin 客户端 SDK</a></p>
+                        <p><a href="https://docs.azure.cndotnet/api/overview/mobileapps/client?view=azure-dotnet&redirectedfrom=MSDN">Windows/Xamarin 客户端 SDK</a></p>
                     </div>
                 </div>
             </div>

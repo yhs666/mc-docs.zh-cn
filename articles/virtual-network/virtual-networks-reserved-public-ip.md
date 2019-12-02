@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/12/2018
-ms.date: 12/17/2018
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: a9fe2200d77a5f5787a1804025b802670e27a1b8
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: a2f37d5d5589c19057ba470026b9bf8f47647395
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389410"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658019"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>保留 IP 地址（经典部署）
 
@@ -29,26 +29,26 @@ ms.locfileid: "53389410"
 要防止 IP 地址更改，可将其设置为保留 IP 地址。 保留 IP 只能用作 VIP，可确保云服务的 IP 地址即使在关闭资源或停止（释放）资源的情况下也保持不变。 此外，还可以将用作 VIP 的现有动态 IP 转换为保留 IP 地址。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)保留静态公共 IP 地址。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)保留静态公共 IP 地址。
 
 若要详细了解 Azure 中的 IP 地址，请阅读 [IP 地址](virtual-network-ip-addresses-overview-classic.md)一文。
 
 ## <a name="when-do-i-need-a-reserved-ip"></a>何时需要保留 IP？
-* **想要确保将 IP 保留在订阅中**。 如果想要保留一个 IP 地址，使得该 IP 地址在任何情况下都不会从订阅中释放，则应使用保留的公共 IP。  
+* **你想要确保将 IP 保留在订阅中**。 如果想要保留一个 IP 地址，使得该 IP 地址在任何情况下都不会从订阅中释放，则应使用保留的公共 IP。  
 * **想要 IP 始终与云服务相关联，即使 VM 处于停止或释放状态下**。 如果想要通过即使在云服务中的 VM 处于关闭或停止（释放）状态下也不会更改的 IP 地址来访问服务。
 * **想要确保 Azure 的出站流量使用可预测的 IP 地址**。 可以将本地防火墙配置为仅允许来自特定 IP 地址的流量。 通过保留 IP，可以了解源 IP 地址，无需因为 IP 更改而更新防火墙规则。
 
-## <a name="faqs"></a>常见问题解答
+## <a name="faqs"></a>常见问题
 - 可以将保留 IP 用于所有 Azure 服务吗？
-    不是。 保留 IP 只能用于通过 VIP 公开的 VM 和云服务实例角色。
+    否。 保留 IP 只能用于通过 VIP 公开的 VM 和云服务实例角色。
 - 我可以有多少个保留 IP？
     有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 - 保留 IP 是否收费？
-    有时。 有关定价详细信息，请参阅[保留 IP 地址定价详细信息](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
+    有时需要关闭。 有关定价详细信息，请参阅[保留 IP 地址定价详细信息](https://www.azure.cn/pricing/details/ip-addresses/)。
 - 如何保留某个 IP 地址？
     可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 门户](https://portal.azure.cn)在 Azure 区域中保留 IP 地址。 保留 IP 地址将关联到订阅。
 - 我是否可将保留 IP 用于基于地缘组的 VNet？
-    不是。 仅区域 VNet 支持保留 IP。 与地缘组关联的 VNet 不支持保留 IP。 有关如何将 VNet 与区域或地缘组关联的详细信息，请参阅[关于区域 VNet 和地缘组](virtual-networks-migrate-to-regional-vnet.md)一文。
+    否。 仅区域 VNet 支持保留 IP。 与地缘组关联的 VNet 不支持保留 IP。 有关如何将 VNet 与区域或地缘组关联的详细信息，请参阅[关于区域 VNet 和地缘组](virtual-networks-migrate-to-regional-vnet.md)一文。
 
 ## <a name="manage-reserved-vips"></a>管理保留 VIP
 
@@ -85,7 +85,7 @@ Get-AzureReservedIP
     OperationStatus      : Succeeded
 
 >[!NOTE]
->使用 PowerShell 创建保留 IP 地址时，不能指定要在其中创建保留 IP 的资源组。 Azure 将其自动放置于名为默认网络  的资源组中。 如果使用 [Azure 门户](http://portal.azure.cn)创建保留 IP，可指定所选的任何资源组。 但是，如果在默认网络  以外的资源组中创建保留 IP，每当使用 `Get-AzureReservedIP` 和 `Remove-AzureReservedIP` 等命令引用保留 IP 时，必须引用名称“Group resource-group-name reserved-ip-name”  。  例如，如果在名为 myResourceGroup  的资源组中创建名为 myReservedIP  的保留 IP，必须将保留 IP 的名称引用为“Group myResourceGroup myReservedIP”  。   
+>使用 PowerShell 创建保留 IP 地址时，不能指定要在其中创建保留 IP 的资源组。 Azure 将其自动放置于名为默认网络  的资源组中。 如果使用 [Azure 门户](https://portal.azure.cn)创建保留 IP，可指定所选的任何资源组。 但是，如果在默认网络  以外的资源组中创建保留 IP，每当使用 `Get-AzureReservedIP` 和 `Remove-AzureReservedIP` 等命令引用保留 IP 时，必须引用名称“Group resource-group-name reserved-ip-name”  。  例如，如果在名为 myResourceGroup  的资源组中创建名为 myReservedIP  的保留 IP，必须将保留 IP 的名称引用为“Group myResourceGroup myReservedIP”  。   
 
 某个 IP 成为保留 IP 后，它就会始终与订阅相关联，直至将它删除。 删除保留 IP，如下所示：
 
@@ -97,7 +97,7 @@ Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
 使用 Azure 经典 CLI 从中国北部位置提供的公共 IP 地址池创建保留 IP，如下所示  ：
 
 > [!NOTE]
-> 对于经典部署，必须使用 Azure 经典 CLI。 有关安装 Azure 经典 CLI 的信息，请参阅[安装 Azure 经典 CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?view=azure-cli-latest)
+> 对于经典部署，必须使用 Azure 经典 CLI。 有关安装 Azure 经典 CLI 的信息，请参阅[安装 Azure 经典 CLI](https://docs.azure.cn/cli/install-classic-cli?view=azure-cli-latest)
 
  命令：
 
@@ -127,7 +127,7 @@ azure network reserved-ip list
  azure network reserved-ip delete MyReservedIP
  ```
 ## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>保留现有云服务的 IP 地址
-添加 `-ServiceName` 参数即可保留现有云服务的 IP 地址。 保留中国北部位置中 TestService 云服务的 IP 地址，如下所示   ：
+可通过添加 `-ServiceName` 参数保留现有云服务的 IP 地址。 保留中国北部位置中 TestService 云服务的 IP 地址，如下所示   ：
 
 - 使用 Azure PowerShell（经典）：
 
@@ -149,7 +149,7 @@ azure network reserved-ip list
     ```
 
 ## <a name="associate-a-reserved-ip-to-a-new-cloud-service"></a>将保留 IP 关联到新的云服务
-下面的脚本将创建新的保留 IP，然后将其关联到名为 TestService  的新云服务。
+下面的脚本将创建新的保留 IP，并将其关联到名为 TestService  的新云服务。
 
 ### <a name="using-azure-powershell-classic"></a>使用 Azure PowerShell（经典）
 ```powershell
@@ -208,7 +208,7 @@ azure network reserved-ip delete MyReservedIP
 
 ### <a name="using-azure-powershell-classic"></a>使用 Azure PowerShell（经典）
 
-以下命令将使用名为 TestVM2  的新 VM 创建名为 TestService2  的云服务。 然后，名为 MyReservedIP  的现有保留 IP 将关联到云服务。
+以下命令使用名为 TestVM2  的新 VM 创建名为 TestService2  的云服务。 然后，名为 MyReservedIP  的现有保留 IP 将关联到云服务。
 
 ```powershell
 $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -256,4 +256,4 @@ azure network reserved-ip associate MyReservedIP TestService asmtest8942
 * 了解[保留专用 IP 地址](virtual-networks-reserved-private-ip.md)。
 * 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

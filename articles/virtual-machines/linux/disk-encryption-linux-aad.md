@@ -8,12 +8,12 @@ ms.author: v-yeche
 origin.date: 03/15/2019
 ms.date: 11/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc358b8eb340a957eace36cbbbd3ed12ed6cc1dd
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 718a4038038d02103afa6db83dba820ba8d2362e
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730629"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655436"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>在 Linux VM 上使用 Azure AD 启用 Azure 磁盘加密（以前版本）
 
@@ -203,18 +203,18 @@ ms.locfileid: "73730629"
 
 **使用客户端机密和 EncryptFormatAll 加密正在运行的 VM：** 例如，以下脚本会初始化变量，并结合 EncryptFormatAll 参数运行 Set-AzVMDiskEncryptionExtension cmdlet。 作为先决条件，应已事先创建资源组、VM、Key Vault、AAD 应用和客户端机密。 将 MyKeyVaultResourceGroup、MyVirtualMachineResourceGroup、MySecureVM、MySecureVault、My-AAD-client-ID 和 My-AAD-client-secret 替换为自己的值。
 
-    ```azurepowershell
-    $KVRGname = 'MyKeyVaultResourceGroup';
-    $VMRGName = 'MyVirtualMachineResourceGroup'; 
-    $aadClientID = 'My-AAD-client-ID';
-    $aadClientSecret = 'My-AAD-client-secret';
-    $KeyVaultName = 'MySecureVault';
-    $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
-    $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-    $KeyVaultResourceId = $KeyVault.ResourceId;
+```azurepowershell
+$KVRGname = 'MyKeyVaultResourceGroup';
+$VMRGName = 'MyVirtualMachineResourceGroup'; 
+$aadClientID = 'My-AAD-client-ID';
+$aadClientSecret = 'My-AAD-client-secret';
+$KeyVaultName = 'MySecureVault';
+$KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+$diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+$KeyVaultResourceId = $KeyVault.ResourceId;
 
-    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
-    ```
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
+```
 
 ### <a name="bkmk_EFALVM"></a>结合逻辑卷管理器 (LVM) 使用 EncryptFormatAll 参数 
 我们建议采用 LVM-on-crypt 设置。 对于下面的所有示例，请将设备路径和装载点替换为适合用例的任何值。 可按如下所述完成此设置：

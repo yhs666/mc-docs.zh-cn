@@ -16,12 +16,14 @@ origin.date: 02/21/2019
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 39b75053de318b052ed98cabdbd427e79c939f69
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+experimental: false
+experiment_id: a231f2b4-2625-4d
+ms.openlocfilehash: 5e710c8d9f6b83a3af3b3a98188bc854ffa804e8
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155821"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555999"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -125,7 +127,7 @@ cd nodejs-docs-hello-world
 zip -r myUpdatedAppFiles.zip *.*
 ```
 
-使用 [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令将 ZIP 文件部署到 Web 应用。  
+使用 [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令将 ZIP 文件部署到 Web 应用。  
 
 ```azurecli
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src myUpdatedAppFiles.zip
@@ -181,7 +183,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
 
-在左侧菜单中单击“应用程序服务”  ，然后单击 Azure 应用的名称。
+在左侧菜单中单击**应用程序服务**，然后单击 Azure 应用的名称。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

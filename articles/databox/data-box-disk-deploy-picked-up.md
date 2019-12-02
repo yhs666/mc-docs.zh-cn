@@ -6,31 +6,38 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-origin.date: 05/06/2019
-ms.date: 06/10/2019
+origin.date: 09/19/2019
+ms.date: 12/02/2019
 ms.author: v-jay
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: d49142baefdd4ea96ed1e69b60c0c07fd21d0263
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 88bf7c2e856dd443a90a8ddf2d4470c59ccc004f
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726478"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530619"
 ---
-# <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教程：退回 Azure Data Box Disk 并验证到 Azure 的数据上传
+# <a name="tutorial-return-azure-data-box-disk"></a>教程：退回 Azure Data Box Disk 
 
-这是本系列的最后一个教程：部署 Azure Data Box Disk。 在本教程中，将了解如何：
+::: zone target="docs"
+
+本教程介绍如何安排取件以退回 Azure Data Box Disk。 取件说明取决于你将设备退回的位置。 
+
+在本教程中，将了解如何：
 
 > [!div class="checklist"]
 > * 将 Data Box 磁盘寄送到 Azure
-> * 验证 Azure 中的数据上传
-> * 从 Data Box 磁盘中擦除数据
+> * 在不同区域中提取 Data Box Disk
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始之前，请确保已完成[教程：将数据复制到 Azure Data Box Disk 并进行验证](data-box-disk-deploy-copy-data.md)。
 
+
 ## <a name="ship-data-box-disk-back"></a>寄回 Data Box 磁盘
+
+::: zone-end
 
 1. 数据验证完成后，请取出磁盘。 拔下连接线。
 2. 将磁盘和连接线包装在汽泡袋中，并在其放入包装箱。 如果缺少附件，我们可能会收取费用。

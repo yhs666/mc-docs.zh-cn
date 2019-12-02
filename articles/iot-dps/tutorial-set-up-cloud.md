@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 930c9a94ea954ae0307a202cc0b069a1eb1feca8
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: e26e90e3b674286c461a27075c96f78b5f86ff5e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389584"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657908"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>通过 IoT 中心设备预配服务配置云资源以进行设备预配
 
@@ -27,7 +27,7 @@ ms.locfileid: "74389584"
 > * 将 IoT 中心链接到设备预配服务
 > * 设置设备预配服务上的分配策略
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

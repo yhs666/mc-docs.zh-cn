@@ -17,12 +17,12 @@ ms.author: v-yeche
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 8bdadcebeaac23d7e97eeab006ea7eee6ac5b3d8
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 5daf089891334d8a74f7fd5422ecaaf31019d79b
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272489"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655442"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ ms.locfileid: "72272489"
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>连接到同一云服务中的 SQL Server
-可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)。 本方案介绍一台虚拟机上的客户端尝试连接到运行于同一云服务中另一虚拟机的 SQL Server 时的情况。
+可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service)。 本方案介绍一台虚拟机上的客户端尝试连接到运行于同一云服务中另一虚拟机的 SQL Server 时的情况。
 
 在此方案中，可使用 VM **名称**（在门户中也显示为**计算机名**或**主机名**）进行连接。 这是你在创建 VM 时为其提供的名称。 例如，如果将 SQL VM 命名为 **mysqlvm**，则同一云服务中的客户端 VM 可以使用以下连接字符串进行连接：
 
@@ -65,7 +65,7 @@ ms.locfileid: "72272489"
 
     "Server=mycloudservice.chinacloudapp.cn,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-尽管客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+尽管客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。
 
 > [!NOTE]
 > 务必注意，使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都服从一般[出站数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)。
