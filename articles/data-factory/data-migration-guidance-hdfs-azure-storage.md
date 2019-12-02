@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 数据工厂将数据从本地 Hadoop 群集迁移到 Azure 存储 | Microsoft Docs
+title: 使用 Azure 数据工厂将数据从本地 Hadoop 群集迁移到 Azure 存储
 description: 了解如何使用 Azure 数据工厂将数据从本地 Hadoop 群集迁移到 Azure 存储。
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 8/30/2019
-ms.date: 11/11/2019
-ms.openlocfilehash: 14a012797ac8ff9c3ec645f01bcd3c95a35377b6
-ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
+ms.date: 12/02/2019
+ms.openlocfilehash: 3caad68ec5bc451fb4ccf985c1cd38fa43f036e4
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648768"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655415"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>使用 Azure 数据工厂将数据从本地 Hadoop 群集迁移到 Azure 存储 
 
@@ -26,7 +26,7 @@ Azure 数据工厂提供高性能、稳健且经济高效的机制用于将数�
 
 数据工厂提供两种基本方法用于将数据从本地 HDFS 迁移到 Azure。 你可以根据自己的情况选择所需的方法。 
 
-- **数据工厂 DistCp 模式**（建议）：在数据工厂中，可以使用 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html)（分布式复制）将文件按原样复制到 Azure Blob 存储（包括[分阶段复制](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)）或 Azure Data Lake Store Gen2。 使用与 DistCp 集成的数据工厂可以利用现有的强大群集来实现最佳复制吞吐量。 此外，还能受益于数据工厂提供的灵活计划功能和统一的监视体验。 根据数据工厂配置，复制活动会自动构造 DistCp 命令，将数据提交到 Hadoop 群集，然后监视复制状态。 建议使用数据工厂 DistCp 模式将数据从本地 Hadoop 群集迁移到 Azure。
+- **数据工厂 DistCp 模式**（建议）：在数据工厂中，可以使用 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html)（分布式复制）将文件按原样复制到 Azure Blob 存储（包括[分阶段复制](/data-factory/copy-activity-performance#staged-copy)）或 Azure Data Lake Store Gen2。 使用与 DistCp 集成的数据工厂可以利用现有的强大群集来实现最佳复制吞吐量。 此外，还能受益于数据工厂提供的灵活计划功能和统一的监视体验。 根据数据工厂配置，复制活动会自动构造 DistCp 命令，将数据提交到 Hadoop 群集，然后监视复制状态。 建议使用数据工厂 DistCp 模式将数据从本地 Hadoop 群集迁移到 Azure。
 - **数据工厂本机集成运行时模式**：DistCp 并非在所有情况下都适用。 例如，在 Azure 虚拟网络环境中，DistCp 工具不支持使用 Azure 存储虚拟网络终结点的 Azure ExpressRoute 专用对等互连。 此外，在某些情况下，你不希望使用现有的 Hadoop 群集作为引擎来迁移数据，因此你不会在群集上施加繁重的负载，这可能影响现有 ETL 作业的性能。 可以改用数据工厂集成运行时的本机功能作为引擎，将数据从本地 HDFS 复制到 Azure。
 
 本文提供上述两种方法的以下信息：

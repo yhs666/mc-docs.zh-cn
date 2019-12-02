@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 03/25/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: a8f7c812b74f44c159ab3157cc738ebf6ae1dd34
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 2600de09d298865540d29ee9efe6883c5d44f653
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63821558"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655221"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：
@@ -61,7 +61,7 @@ ms.locfileid: "63821558"
 ## <a name="importexport-jobs"></a>导入/导出作业
 
 ### <a name="can-i-cancel-my-job"></a>是否可以取消我的作业？
-是的。 可以取消状态为“正在创建”或“正在寄送”的作业。 在这些阶段之外，无法取消作业，它将一直执行到最终阶段。
+是的。 可以取消状态为“正在创建”或“正在寄送”的作业。   在这些阶段之外，无法取消作业，它将一直执行到最终阶段。
 
 ### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>在 Azure 门户中可以查看多长时间的已完成作业的状态？
 可以查看最长 90 天的已完成作业的状态。 已完成作业在 90 天后会被删除。
@@ -117,7 +117,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 视情况而定。 准备驱动器时，可以使用数据集 CSV 文件中名为 /Disposition:<rename|no-overwrite|overwrite> 的字段指定是否应覆盖或忽略目标文件。 默认情况下，该服务会将新文件重命名，而不是覆盖现有 Blob 或文件。
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 工具是否与 32 位操作系统兼容？
-否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。 
+否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](/storage/common/storage-import-export-requirements)。 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 导入/导出支持的最大块 Blob 和页 Blob 大小是多少？

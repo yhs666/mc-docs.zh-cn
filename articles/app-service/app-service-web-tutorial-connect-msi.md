@@ -11,16 +11,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 08/06/2019
-ms.date: 09/03/2019
+origin.date: 09/16/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 295f4542af434d55c20c1657ff90d07166720a46
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 7ad3abd06fa3e96690142e6f51455ecc0a9029cb
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583579"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555858"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
 
@@ -58,9 +58,11 @@ ms.locfileid: "72583579"
 若要使用 SQL 数据库作为后端调试应用程序，请确保已经允许从计算机连接客户端。 否则，请遵循[使用 Azure 门户管理服务器级 IP 防火墙规则](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)中的步骤添加客户端 IP。
 
 
-## <a name="grant-azure-ad-user-access-to-database"></a>授予 Azure AD 用户对数据库的访问权限
+## <a name="grant-database-access-to-azure-ad-user"></a>向 Azure AD 用户授予数据库访问权限
 
-首先，通过将 Azure AD 用户指定为 SQL 数据库服务器的 Active Directory 管理员，对 SQL 数据库启用 Azure AD 身份验证。 此用户与用于注册 Azure 订阅的 Microsoft 帐户不同。 它必须是你在 Azure AD 中创建、导入、同步或邀请到其中的用户。 有关允许的 Azure AD 用户的详细信息，请参阅 [SQL 数据库中的 Azure AD 功能和限制](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)。 
+首先，通过将 Azure AD 用户指定为 SQL 数据库服务器的 Active Directory 管理员，对 SQL 数据库启用 Azure AD 身份验证。 此用户与用于注册 Azure 订阅的 Microsoft 帐户不同。 它必须是你在 Azure AD 中创建、导入、同步或邀请到其中的用户。 有关允许的 Azure AD 用户的详细信息，请参阅 [SQL 数据库中的 Azure AD 功能和限制](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)。
+
+如果 Azure AD 租户还没有用户，请按照[使用 Azure Active Directory 添加或删除用户](../active-directory/fundamentals/add-users-azure-active-directory.md)中的步骤创建一个用户。
 
 使用 [`az ad user list`](/cli/ad/user?view=azure-cli-latest#az-ad-user-list) 查找 Azure AD 用户的对象 ID，并替换 \<user-principal-name>  。 结果会保存到变量中。
 
@@ -81,10 +83,23 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 
 ## <a name="set-up-visual-studio"></a>设置 Visual Studio
 
-若要在 Visual Studio 中启用开发和调试，请在 Visual Studio 中添加 Azure AD 用户，方法是从菜单中依次选择“文件” > “帐户设置”，然后单击“添加帐户”    。
+### <a name="windows"></a>Windows
+Visual Studio for Windows 集成了 Azure AD 身份验证。 若要在 Visual Studio 中启用开发和调试，请在 Visual Studio 中添加 Azure AD 用户，方法是从菜单中依次选择“文件” > “帐户设置”，然后单击“添加帐户”    。
 
 若要设置进行 Azure 服务身份验证的 Azure AD 用户，请从菜单中依次选择“工具” > “选项”，然后依次选择“Azure 服务身份验证” > “帐户选择”     。 选择已添加的 Azure AD 用户，然后单击“确定”  。
 
+现已准备好将 SQL 数据库作为后端，使用 Azure AD 身份验证来开发和调试应用程序。
+
+### <a name="macos"></a>MacOS
+
+Visual Studio for Mac 未集成 Azure AD 身份验证。 不过，稍后将使用的 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 库可以使用 Azure CLI 中的令牌。 若要在 Visual Studio 中启用开发和调试，首先需要在本地计算机上[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+
+在本地计算机上安装 Azure CLI 后，请使用 Azure AD 用户通过以下命令登录 Azure CLI：
+
+```bash
+az cloud set -n AzureChinaCloud
+az login --allow-no-subscriptions
+```
 现已准备好将 SQL 数据库作为后端，使用 Azure AD 身份验证来开发和调试应用程序。
 
 ## <a name="modify-your-project"></a>修改项目
@@ -170,7 +185,13 @@ var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.chinacloudapi.cn/").Result;
 ```
 
-这就是连接到 SQL 数据库所要完成的所有准备工作。 在 Visual Studio 中调试时，代码将使用[设置 Visual Studio](#set-up-visual-studio) 中配置的 Azure AD 用户。 稍后你将设置 SQL 数据库服务器，以允许应用服务应用的托管标识建立连接。
+> [!TIP]
+> 为清楚起见，此演示代码是同步的。 有关详细信息，请参阅[构造函数的异步指南](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors)。
+
+这就是连接到 SQL 数据库所要完成的所有准备工作。 在 Visual Studio 中调试时，代码将使用[设置 Visual Studio](#set-up-visual-studio) 中配置的 Azure AD 用户。 稍后你将设置 SQL 数据库服务器，以允许应用服务应用的托管标识建立连接。 `AzureServiceTokenProvider` 类将令牌缓存在内存中，在过期前才将其从 Azure AD 检索出来。 不需要任何自定义代码就可以刷新该令牌。
+
+> [!TIP]
+> 如果你配置的 Azure AD 用户可以访问多个租户，请使用所需的租户 ID 调用 `GetAccessTokenAsync("https://database.chinacloudapi.cn/", tenantid)` 以检索正确的访问令牌。
 
 键入 `Ctrl+F5`，再次运行该应用。 浏览器中相同的 CRUD 应用程序现使用 Azure AD 身份验证直接连接到 Azure SQL 数据库。 此设置使你能够从 Visual Studio 运行数据库迁移。
 
@@ -201,7 +222,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 若要授予此标识对 SQL 数据库的访问权限，需要将其添加到 [Azure AD 组](../active-directory/fundamentals/active-directory-manage-groups.md)。 在 CLI 中，将其添加到名为 myAzureSQLDBAccessGroup 的新组中，如以下脚本所示  ：
 
-```azurecli-interactive
+```azurecli
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
 az ad group member add --group $groupid --member-id $msiobjectid

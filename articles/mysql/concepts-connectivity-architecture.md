@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 05/22/2019
-ms.date: 07/15/2019
-ms.openlocfilehash: d7255adad434bdea682016943630de0736f1f96e
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.date: 12/02/2019
+ms.openlocfilehash: 45f735438dd15e541cf30c68d96be848230cdaff
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845547"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530652"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的连接体系结构
 本文介绍 Azure Database for MySQL 的连接体系结构，以及如何在 Azure 内部和外部将流量从客户端定向到 Azure Database for MySQL 实例。
@@ -29,9 +29,9 @@ ms.locfileid: "67845547"
 
 | **区域名称** | **主 IP 地址** | **次要 IP 地址** |
 |:----------------|:-------------|:------------------------|
-| 中国东部 1 | 139.219.130.35 | |
+| 中国东部 | 139.219.130.35 | |
 | 中国东部 2 | 40.73.82.1 | |
-| 中国北部 1 | 139.219.15.17 | |
+| 中国北部 | 139.219.15.17 | |
 | 中国北部 2 | 40.73.50.0 | |
 ||||
 

@@ -4,25 +4,24 @@ description: 获取有关 Azure 应用服务 Web 应用功能的可用性、性�
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 origin.date: 10/31/2018
-ms.date: 08/12/2019
-ms.author: v-johch
+ms.date: 11/25/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 79dc9c9bcc90484365cee729f13c0a1780ee4def
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: c552a4e9b8aa5ee125cac5302b978c1f6ad98815
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806756"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555961"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 

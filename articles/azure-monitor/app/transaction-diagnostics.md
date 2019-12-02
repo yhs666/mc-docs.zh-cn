@@ -10,12 +10,12 @@ origin.date: 01/19/2018
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 8269e8f28c0fd70431d80f926913ad7f2a75fbaa
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 86fb8e3c2e561d726c5061bb26d594ad5ea34d2b
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730493"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658069"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>统一的跨组件事务诊断
 
@@ -67,16 +67,6 @@ ms.locfileid: "73730493"
 此可折叠窗格会显示符合筛选条件的其他结果。 单击任何结果可更新上面列出的 3 个部分的相应详细信息。 我们试图找到最可能从所有组件中获得详细信息的样本，即使在任何一个组件中采样都是有效的。 这些显示为“建议的”样本。
 
 ![搜索结果](media/transaction-diagnostics/searchResults.png)
-
-## <a name="profiler-and-snapshot-debugger"></a>探查器和快照调试器
-
-[Application Insights 探查器](../../azure-monitor/app/profiler.md)或[快照调试器](snapshot-debugger.md)有助于对性能和失败问题进行代码级诊断。 通过此体验，仅需一次单击即可查看任意组件的探查器跟踪或快照。
-
-如果无法让 Profiler 正常工作，请联系 **https://support.azure.cn/zh-cn/support/contact/**
-
-如果无法让快照调试器正常工作，请联系 **https://support.azure.cn/zh-cn/support/contact/**
-
-![探查器集成](media/transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>常见问题
 

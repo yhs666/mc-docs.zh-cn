@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 56b8ff35719768217a227247aff8ef496b46b5eb
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 015b638f0aa4a5322b812ad8f46ef2ed59e78809
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006589"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657938"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
@@ -687,4 +687,3 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/configure-authentication-provider-aad.md
 [8]:../active-directory/develop/quickstart-v1-ios.md
-[10]: https://developers.facebook.com/docs/ios/getting-started

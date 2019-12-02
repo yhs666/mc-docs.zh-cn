@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/05/2019
-ms.date: 08/26/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f7aff77ae75fd28b5a2bf9c28fa09a1bfeec8398
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 7fcffd6db2e9f11315c8bd98d329bf784aae1713
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993462"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530637"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 
@@ -120,4 +120,4 @@ PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation
 * 若要详细了解图形 Runbook 创作，请参阅 [Azure 自动化中的图形创作](automation-graphical-authoring-intro.md)
 * 若要了解 Runbook 的 PowerShell 和 PowerShell 工作流之间的差异，请参阅[了解 Windows PowerShell 工作流](automation-powershell-workflow.md)
 * 有关如何创建或导入 Runbook 的详细信息，请参阅 [创建或导入 Runbook](manage-runbooks.md)
-* 有关 PowerShell 的详细信息（包括语言参考和学习模块），请参阅 [PowerShell 文档](https://docs.microsoft.com/en-us/powershell/scripting/overview)。
+* 有关 PowerShell 的详细信息（包括语言参考和学习模块），请参阅 [PowerShell 文档](https://docs.microsoft.com/powershell/scripting/overview)。

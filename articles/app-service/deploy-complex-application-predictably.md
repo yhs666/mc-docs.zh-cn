@@ -10,18 +10,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2016
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 65317168a8f0391ea497fcf3f7070c2a897732a4
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 81b2f34968122ccc5f7a872da5b55e5edb5396fd
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806883"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555820"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 本教程演示如何通过使用 JSON 资源组模板和 PowerShell 脚本以一种可预见的方式，在 [Azure App Service](https://www.azure.cn/home/features/app-service/) 中将由[微服务](https://en.wikipedia.org/wiki/Microservices)构成的应用程序设置并部署为单个单元。 
@@ -40,7 +39,7 @@ ms.locfileid: "70806883"
 在本教程中，将使用以下工具。 由于对工具的讨论并不全面，我将坚持使用端到端方案，并只提供每个方案的简要介绍及在哪里可找到它的详细信息。 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager 模板 (JSON)
-例如，每次在 Azure 应用服务中创建应用时，Azure 资源管理器都将使用 JSON 模板来创建具有组件资源的整个资源组。 [Azure 市场](https://market.azure.cn/)中的复杂模板可以包含数据库、存储帐户、应用服务计划、应用本身、警报规则、应用设置、自动缩放设置等等，可以通过 PowerShell 使用所有这些模板。 有关 Azure 资源管理器模板的详细信息，请参阅[创作 Azure 资源管理器模板](/azure-resource-manager/manage-resources-powershell)。
+例如，每次在 Azure 应用服务中创建应用时，Azure 资源管理器都将使用 JSON 模板来创建具有组件资源的整个资源组。 [Azure 市场](https://market.azure.cn/)中的复杂模板可以包含数据库、存储帐户、应用服务计划、应用本身、警报规则、应用设置、自动缩放设置等等，可以通过 PowerShell 使用所有这些模板。 有关 Azure 资源管理器模板的详细信息，请参阅[创作 Azure 资源管理器模板](/azure-resource-manager/resource-group-authoring-templates)。
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio
 最新的 SDK 包含对 JSON 编辑器中 Resource Manager 模板支持的改进。 可以使用它快速从头开始创建资源组模板，或打开现有 JSON 模板（例如下载的库模板）以进行修改、填充参数文件，甚至直接从 Azure 资源组解决方案部署资源组。
@@ -51,6 +50,9 @@ ms.locfileid: "70806883"
 从版本 0.8.0 开始，Azure PowerShell 安装除了包括 Azure 模块外还包括 Azure Resource Manager 模块。 此新模块使你能够编写资源组部署的脚本。
 
 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)
+
+<!-- ### Azure Resource Explorer -->
+<!-- This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure Portal](https://portal.azure.cn/), then inspect its JSON definitions in the explorer tool to help you templatize the resource group. -->
 
 ### <a name="deploy-to-azure-button"></a>“部署到 Azure”按钮
 如果你将 GitHub 用于源代码管理，则可将一个 [“部署到 Azure”按钮](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)放入 README.MD，这将对 Azure 启用统包部署 UI。 可为任何简单的应用执行此操作，同时可扩展这一操作，通过将 azuredeploy.json 文件放入存储库根来实现对整个资源组的部署。 “部署到 Azure”按钮将使用此包含资源组模板的 JSON 文件来创建资源组。 有关示例，请参阅将在本教程中使用的 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 示例。
@@ -174,16 +176,18 @@ ms.locfileid: "70806883"
 > 
 > 
 
+<!-- ## Compare the JSON template with deployed resource group -->
+
 ## <a name="deploy-the-resource-group-template-yourself"></a>自己部署资源组模板
  “部署到 Azure”按钮太好用了，但是只有当你已将 azuredeploy.json 推送到 GitHub 时，它才允许你部署 azuredeploy.json 中的资源组模板。 Azure.NET SDK 还提供了工具，使你能够直接从本地计算机部署任何 JSON 模板文件。 为此，请执行以下步骤：
 
 1. 在 Visual Studio 中，单击“文件”   > “新建”   > “项目”  。
 2. 单击“Visual C#” > “云” > “Azure 资源组”，然后单击“确定”     。
-
+   
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. 在“选择 Azure 模板”中，选择“空白模板”，然后单击“确定”    。
 4. 将 azuredeploy.json 拖动到新项目的“模板”  文件夹。
-
+   
    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. 从解决方案资源管理器中打开复制的 azuredeploy.json。
 6. 为方便演示，现在单击“添加资源”，将一些标准 Application Insight 资源添加到 JSON 文件。  如果只对部署 JSON 文件感兴趣，请跳至部署步骤。
@@ -252,3 +256,14 @@ ms.locfileid: "70806883"
 * [将 Azure PowerShell 与 Azure Resource Manager 结合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure 中的资源组部署故障排除](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
+## <a name="next-steps"></a>后续步骤
+
+要了解本文中部署的资源类型的 JSON 语法和属性，请参阅：
+
+* [Microsoft.Sql/servers](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)
+* [Microsoft.Sql/servers/databases](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft.Sql/servers/firewallRules](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](https://docs.microsoft.com/azure/templates/microsoft.web/sites)
+* [Microsoft.Web/sites/slots](https://docs.microsoft.com/azure/templates/microsoft.web/sites/slots)
+* [Microsoft.Insights/autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)

@@ -1,5 +1,5 @@
 ---
-title: 使用 CORS 托管 RESTful API - Azure 应用服务 | Azure
+title: 教程：使用 CORS 托管 RESTful API - Azure 应用服务
 description: 了解如何通过 Azure 应用服务来托管包含 CORS 支持的 RESTful API。
 services: app-service\api
 documentationcenter: dotnet
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/21/2018
-ms.date: 09/03/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 47cb4a7fa86d26541b2102ab6697f9bf0f814334
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: e0964170f1c23b074d77b77e1fb7a655a068111a
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806884"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555988"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教程：在 Azure 应用服务中托管启用了 CORS 的 RESTful API
 
@@ -73,7 +73,7 @@ dotnet run
 
 在浏览器中导航到 `http://localhost:5000/swagger`，以便使用 Swagger UI。
 
-![在本地运行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/local-run.png)
+![在本地运行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 导航到 `http://localhost:5000/api/todo`，此时会看到 ToDo JSON 项的列表。
 
@@ -158,7 +158,7 @@ dotnet run
 
 导航到浏览器应用 (`http://localhost:5000`)。 在浏览器中打开开发人员工具窗口（在用于 Windows 的 Chrome 中使用 `Ctrl`+`Shift`+`i`），检查“控制台”选项卡。  此时会看到错误消息：`No 'Access-Control-Allow-Origin' header is present on the requested resource`。
 
-![浏览器客户端中的 CORS 错误](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![浏览器客户端中的 CORS 错误](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 由于浏览器应用 (`http://localhost:5000`) 和远程资源 (`http://<app_name>.chinacloudsites.cn`) 的域不匹配，并且由于应用服务中的 API 未发送 `Access-Control-Allow-Origin` 标头，因此浏览器已阻止跨域内容在浏览器应用中加载。
 
@@ -181,7 +181,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 刷新浏览器应用 (`http://localhost:5000`)。 “控制台”窗口中的错误消息现在已消失，  可以看到已部署 API 中的数据并与之交互。 远程 API 现在支持对本地运行的浏览器应用使用 CORS。 
 
-![CORS 在浏览器客户端中成功](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![CORS 在浏览器客户端中成功](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 恭喜！你在包含 CORS 支持的 Azure 应用服务中运行了 API。
 
@@ -210,3 +210,4 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 > [!div class="nextstepaction"]
 
+<!-- > [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md) -->

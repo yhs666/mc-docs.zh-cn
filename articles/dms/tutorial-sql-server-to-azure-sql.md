@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 07/09/2019
-ms.date: 08/12/2019
-ms.openlocfilehash: 2689a60efb2403eaec2c484a6934c57201fdeaa1
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+origin.date: 11/05/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: 4008868bb7d9d467b57a2d7913ebe0959b93506e
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952144"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655450"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>教程：使用 DMS 将 SQL Server 脱机迁移到 Azure SQL 数据库中的单一数据库或共用数据库
 
@@ -65,7 +65,7 @@ ms.locfileid: "68952144"
 - 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
 - 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
 - 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
-- 为 Azure SQL 数据库服务器创建服务器级 IP [防火墙规则](/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的 VNET 子网范围。
+- 为 Azure SQL 数据库服务器创建服务器级 IP [防火墙规则](/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的 VNet 子网范围。
 - 确保用于连接到源 SQL Server 实例的凭据具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 权限。
 - 确保用于连接到目标 Azure SQL 数据库实例的凭据具有目标 Azure SQL 数据库的 CONTROL DATABASE 权限。
 
@@ -107,6 +107,7 @@ ms.locfileid: "68952144"
 
 > [!NOTE]
 > 在数据迁移助手中创建迁移项目之前，请确保已按照先决条件中的说明预配了 Azure SQL 数据库。 出于本教程的目的，假设 Azure SQL 数据库的名称是“AdventureWorksAzure”，但是你可按照自己意愿使用任意名称命名  。
+
 > [!IMPORTANT]
 > 如果你使用 SSIS，则 DMA 目前不支持迁移源 SSISDB，但你可以将 SSIS 项目/包重新部署到由 Azure SQL 数据库托管的目标 SSISDB。 有关如何迁移 SSIS 包的详细信息，请参阅[将 SQL Server Integration Services 包迁移到 Azure](/dms/how-to-migrate-ssis-packages)。
 
@@ -125,7 +126,7 @@ ms.locfileid: "68952144"
 
     ![数据迁移助手源连接详细信息](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
-6. 在“连接到目标服务器”  下选择“下一步”  ，指定 Azure SQL 数据库的目标连接详细信息，选择“连接”  ，然后选择在 Azure SQL 数据库中已预配的“AdventureWorksAzure”  数据库。
+6. 在“连接到目标服务器”  下选择“下一步”  ，指定 Azure SQL 数据库的目标连接详细信息，选择“连接”  ，然后选择已在 Azure SQL 数据库中预配的“AdventureWorksAzure”  数据库。
 
     ![数据迁移助手目标连接详细信息](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
@@ -198,7 +199,7 @@ ms.locfileid: "68952144"
     ![查找 Azure 数据库迁移服务实例](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
 3. 选择“+ 新建迁移项目”  。
-4. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“SQL Server”，在“目标服务器类型”文本框中选择“Azure SQL 数据库”，然后在“选择活动类型”中选择“脱机数据迁移”。        
+4. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“SQL Server”，在“目标服务器类型”文本框中选择“Azure SQL 数据库”，然后在“选择活动类型”中选择“脱机数据迁移”。       
 
     ![创建数据库迁移服务项目](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
@@ -230,7 +231,7 @@ ms.locfileid: "68952144"
 
 2. 选择“保存”，然后在“映射到目标数据库”屏幕上，映射源和目标数据库以进行迁移。  
 
-    如果目标数据库包含的数据库名称与源数据库的相同，则 Azure 数据库迁移服务会默认选择目标数据库。
+    如果目标数据库包含的数据库名称与源数据库的相同，则 Azure 数据库迁移服务默认会选择目标数据库。
 
     ![映射到目标数据库](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
 
@@ -270,7 +271,7 @@ ms.locfileid: "68952144"
 
 ### <a name="additional-resources"></a>其他资源
 
-- [使用 Azure 数据迁移服务 (DMS) 进行 SQL 迁移](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587)练习实验室。
+- [使用 Azure 数据迁移服务进行 SQL 迁移](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587)练习实验室。
 - 若要了解联机迁移到 Azure SQL 数据库时的已知问题和限制，请参阅 [Azure SQL 数据库联机迁移的已知问题和解决方法](known-issues-azure-sql-online.md)一文。
 - 若要了解 Azure 数据库迁移服务，请参阅[什么是 Azure 数据库迁移服务？](/dms/dms-overview)一文。
 - 若要了解 Azure SQL 数据库，请参阅[什么是 Azure SQL 数据库服务？](/sql-database/sql-database-technical-overview)一文。

@@ -10,12 +10,12 @@ origin.date: 08/13/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 1fb231c57b820b198e60ff0209ed02750c78e74a
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 7285d91ac5ee9b5a173fa947a4eb5d5ae8b928fd
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730331"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657791"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 查找和诊断性能问题
 
@@ -36,7 +36,6 @@ Azure Application Insights 从应用程序收集遥测，以帮助分析操作�
     - ASP.NET 和 Web 开发
     - Azure 开发
 - 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。
-- 对应用程序[启用 Application Insights profiler](../../azure-monitor/app/profiler.md#installation)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户。

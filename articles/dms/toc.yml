@@ -75,6 +75,8 @@
       items:
         - name: 可用于数据迁移方案的服务和工具
           href: dms-tools-matrix.md
+        - name: Azure 数据库迁移指南
+          href: 'https://aka.ms/datamigration'
         - name: 数据迁移助手
           href: 'https://aka.ms/dma'
         - name: SQL Server 迁移助手

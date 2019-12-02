@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/25/2019
-ms.date: 11/06/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: d9282dc67b8d3f02d91f919dac192b3db7268037
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 23b0ce47af6d012769cd712e8096310d465e5079
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830940"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655307"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入门：向 Python Web 应用添加 Microsoft 登录功能
 
@@ -75,6 +75,13 @@ ms.locfileid: "73830940"
 >      - 选择密钥持续时间“1 年”。 
 >      - 单击“添加”时，将显示密钥值。 
 >      - 复制密钥的值。 稍后需要用到此值。
+> 1. 选择“API 权限”部分 
+>
+>      - 单击“添加权限”  按钮，然后
+>      - 确保已选中“Microsoft API”选项卡 
+>      - 在“常用 Microsoft API”部分中，单击“Microsoft Graph”  
+>      - 在“委托的权限”部分中，确保已勾选正确的权限  ：**User.ReadBasic.All**。 如有必要，请使用搜索框。
+>      - 选择“添加权限”按钮 
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -84,9 +91,10 @@ ms.locfileid: "73830940"
 >
 > 1. 将答复 URL 添加为 `http://localhost:5000/getAToken`。
 > 1. 创建客户端机密。
+> 1. 添加 Microsoft Graph API 的 User.ReadBasic.All 委托的权限。
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [执行此更改]()
+> > [为我进行这些更改]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已配置](./media/quickstart-v2-aspnet-webapp/green-check.png) 应用程序已使用此属性进行配置
 
@@ -129,22 +137,22 @@ AUTHORITY = "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Name_Here
    > [!IMPORTANT]
    > 本快速入门应用程序使用客户端机密将自己标识为机密客户端。 由于客户端机密是以纯文本形式添加到项目文件的，因此为了安全起见，建议在考虑将应用程序用作生产应用程序之前，使用证书来代替客户端机密。 若要详细了解如何使用证书，请参阅[这些说明](/active-directory/develop/active-directory-certificate-credentials)。
 
-   ## <a name="more-information"></a>详细信息
+## <a name="more-information"></a>详细信息
 
-   ### <a name="getting-msal"></a>获取 MSAL
-   MSAL 是一个库，用于登录用户和请求令牌，此类令牌用于访问受 Microsoft 标识平台保护的 API。
-   可以使用 Pip 将 MSAL Python 添加到应用程序。
+### <a name="getting-msal"></a>获取 MSAL
+MSAL 是一个库，用于登录用户和请求令牌，此类令牌用于访问受 Microsoft 标识平台保护的 API。
+可以使用 Pip 将 MSAL Python 添加到应用程序。
 
-   ```Shell
-   pip install msal
-   ```
+```Shell
+pip install msal
+```
 
-   ### <a name="msal-initialization"></a>MSAL 初始化
-   可以通过将以下代码添加到要使用 MSAL 的文件的顶部，来添加对 MSAL Python 的引用：
+### <a name="msal-initialization"></a>MSAL 初始化
+可以通过将以下代码添加到要使用 MSAL 的文件的顶部，来添加对 MSAL Python 的引用：
 
-   ```Python
-   import msal
-   ```
+```Python
+import msal
+```
 
 ## <a name="next-steps"></a>后续步骤
 

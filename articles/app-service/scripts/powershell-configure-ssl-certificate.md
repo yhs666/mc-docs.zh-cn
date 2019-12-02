@@ -16,12 +16,12 @@ origin.date: 03/20/2017
 ms.date: 09/04/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f33e64f35914ef33e4830fc4fecb061beeaef72e
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 316e7849a186edaffa719585355a03e837406ce7
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806718"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555949"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>使用 PowerShell 将自定义 SSL 证书绑定到 Web 应用
 
@@ -55,7 +55,7 @@ New-AzAppServicePlan -Name $webappname -Location $location `
 New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
 -ResourceGroupName $webappname
 
-Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
+Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
 Read-Host "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
@@ -68,7 +68,7 @@ Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname `
 
 # Add a custom domain name to the web app. 
 Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `
--HostNames @($fqdn,"$webappname.azurewebsites.net")
+-HostNames @($fqdn,"$webappname.chinacloudsites.cn")
 
 # Upload and bind the SSL certificate to the web app.
 New-AzWebAppSSLBinding -WebAppName $webappname -ResourceGroupName $webappname -Name $fqdn `

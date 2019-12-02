@@ -1,40 +1,40 @@
 ---
-title: 快速入门：Azure AD 自助服务密码重置
-description: 在本快速入门中，将快速配置 Azure AD 自助服务密码重置来允许用户重置其自己的密码
+title: 快速入门：Azure AD 自助式密码重置
+description: 在本快速入门中，将快速配置 Azure AD 自助式密码重置来允许用户重置其自己的密码
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: quickstart
 origin.date: 07/17/2018
-ms.date: 08/15/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a49ddd3eaebd15a78835af737d8495b39fd77f31
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 37a5ba2668757157a21b27067df18fdb77000173
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448465"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655291"
 ---
-# <a name="quickstart-self-service-password-reset"></a>快速入门：自助密码重置
+# <a name="quickstart-self-service-password-reset"></a>快速入门：自助式密码重置
 
-本快速入门分步展示了 IT 管理员如何配置自助服务密码重置 (SSPR)，通过这种简单方法使用户能够重置其密码或解锁其帐户。
+本快速入门分步展示了 IT 管理员如何配置自助式密码重置 (SSPR)，通过这种简单方法使用户能够重置其密码或解锁其帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
 * 一个至少启用了试用版许可证的有效 Azure AD 租户。
 * 一个具有全局管理员权限的帐户。
 * 一个你知道其密码的非管理员测试用户，如果需要创建用户，请参阅[快速入门：向 Azure Active Directory 添加新用户](../add-users-azure-active-directory.md)。
-* 非管理员测试用户所属的用于测试的一个试点组，如果需要创建组，请参阅[在 Azure Active Directory 中创建组并添加成员](../active-directory-groups-create-azure-portal.md)一文。
+* 一个用于测试的试点组，其成员包括非管理员测试用户，如果需要创建组，请参阅[在 Azure Active Directory 中创建组并添加成员](../active-directory-groups-create-azure-portal.md)一文。
 
-## <a name="enable-self-service-password-reset"></a>启用自助服务密码重置
+## <a name="enable-self-service-password-reset"></a>启用自助式密码重置
 
-1. 在现有的 Azure AD 租户（位于 **Azure 门户**的 **Azure Active Directory** 下）中选择“密码重置”。 
+1. 在现有的 Azure AD 租户中，从 Azure 门户菜单或主页，选择“Azure Active Directory”   。 然后，选择“密码重置”  。
 
-2. 在“属性”页中，在“启用自助密码重置”选项下，选择“选定”。   
+2. 在“属性”页中，在“启用自助式密码重置”选项下，选择“选定”。   
     * 在“选择组”  中，选择在本文的先决条件部分中创建的试点组。
     * 单击“保存”  。
 
@@ -43,7 +43,7 @@ ms.locfileid: "69448465"
    * 用户可以使用的方法：
       * **电子邮件**
       * **移动应用代码（预览版）**
-   * 单击“保存”  。
+   * 单击“ **保存**”。
 
      ![为 SSPR 选择身份验证方法][Authentication]
 
@@ -51,7 +51,7 @@ ms.locfileid: "69448465"
    * 要求用户在登录时注册：**是**
    * 设置用户必须在几天后重新确认其身份验证信息：365 
 
-## <a name="test-self-service-password-reset"></a>测试自助服务密码重置
+## <a name="test-self-service-password-reset"></a>测试自助式密码重置
 
 现在，让我们使用测试用户来测试 SSPR 配置。 因为 Microsoft 对 Azure 管理员帐户强制实施强身份验证要求，所以，使用管理员帐户进行测试可能会改变结果。 有关管理员密码策略的详细信息，请参阅[密码策略](concept-sspr-policy.md)文章。
 
@@ -64,14 +64,15 @@ ms.locfileid: "69448465"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-禁用自助密码重置很容易。 打开 Azure AD 租户，转到“属性” > “密码重置”，然后在“已启用自助服务密码重置”下选择“无”     。
+禁用自助式密码重置很容易。 打开 Azure AD 租户，转到“属性” > “密码重置”，然后在“已启用自助式密码重置”下选择“无”     。
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何快速为纯云用户配置自助服务密码重置。 若要了解如何完成更详细的推广，请继续学习我们的推广指南。
+本快速入门介绍了如何快速为纯云用户配置自助式密码重置。 若要了解如何完成更详细的推广，请继续学习我们的推广指南。
 
 > [!div class="nextstepaction"]
-> [推广自助服务密码重置](howto-sspr-deployment.md)
+> [推广自助式密码重置](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "可用的 Azure AD 身份验证方法和所需数量"
 
+<!-- Update_Description: wording update -->

@@ -17,12 +17,12 @@ ms.date: 10/21/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: d2d7b9ac5e8be7cea6dfbd31799205d20e4dfbbe
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: d6a8046efba03137f600e5353f161eb928a402ad
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578492"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655451"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Azure Stack 上的应用服务 Update 5 发行说明
 
@@ -138,9 +138,9 @@ Azure Stack 上的 Azure 应用服务 Update 5 包含以下改进和修复：
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. 将登录名迁移到包含的数据库用户。
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)

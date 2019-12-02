@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 10/26/2019
-ms.date: 11/11/2019
-ms.openlocfilehash: 2416bbacebe482854357a62dac86fcdaf3c18f61
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+origin.date: 11/06/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: 607b38ae5a39a1b18b215fd1a6804db306f17c80
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831303"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655449"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 数据库托管实例
 
@@ -35,7 +35,7 @@ ms.locfileid: "73831303"
 
 > [!IMPORTANT]
 > 若要使用 Azure 数据库迁移服务从 SQL Server 联机迁移到 SQL 数据库托管实例，必须在 SMB 网络共享中提供完整的数据库备份和后续日志备份，供服务用来迁移数据库。 Azure 数据库迁移服务不启动任何备份，而是使用现有备份进行迁移。你可能已经在灾难恢复计划中有了这些备份。
-> 确保[使用 WITH CHECKSUM 选项进行备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)。 另外，请确保不要将多个备份（即完整备份和 t-log 备份）追加到单个备份介质中；请在单独的备份文件上进行每一次备份。
+> 确保[使用 WITH CHECKSUM 选项进行备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)。 另外，请确保不要将多个备份（即完整备份和 t-log 备份）追加到单个备份介质中；请在单独的备份文件上进行每一次备份。 最后，可以使用压缩的备份来减少遇到与迁移大型备份相关的潜在问题的可能性。
 
 > [!NOTE]
 > 使用 Azure 数据库迁移服务执行联机迁移需要基于“高级”定价层创建实例。

@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/09/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 380ea97a3fdeb337ed3d0c54a4a2e9aca2ccc88b
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: da500c2591c37c5722b5ef2b55e25f6f0f51bc60
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416386"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657993"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>使用创作和运行时资源密钥
 
@@ -85,7 +85,8 @@ ms.locfileid: "73416386"
 
 1. 登录 Azure CLI：
 
-    ```console
+    ```azurecli
+    az cloud set -n AzureChinaCloud
     az login
     ```
 
@@ -93,13 +94,13 @@ ms.locfileid: "73416386"
 
 1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS.Authoring`、名称为 `my-luis-authoring-resource` 的 **LUIS 创作资源**。  
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS`、名称为 `my-luis-prediction-resource` 的 **LUIS 预测终结点资源**。  如果需要比免费层更高的吞吐量，请将 `F0` 更改为 `S0`。 详细了解[定价层和吞吐量](luis-boundaries.md#key-limits)。
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 

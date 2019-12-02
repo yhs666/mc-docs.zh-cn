@@ -1,6 +1,6 @@
 ---
-title: 从 Python 应用读取捕获的数据 - Azure 事件中心 | Azure
-description: 使用 Azure Python SDK 演示事件中心捕获功能的脚本。
+title: 快速入门：从 Python 应用读取捕获的数据 - Azure 事件中心
+description: 快速入门：使用 Azure Python SDK 演示事件中心捕获功能的脚本。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/10/2019
-ms.date: 10/23/2019
+ms.topic: quickstart
+origin.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: 6d99f4830d452a1f82405b5addf048d5f25507cd
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 4b69d829f3be6bf7cf2966ea3f4ef76d114e9761
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72873055"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658092"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>事件中心捕获演练：Python
+# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>快速入门：事件中心捕获演练：Python
 
 捕获是 Azure 事件中心的一项功能。 可使用捕获功能自动将事件中心内的流数据传送到所选的 Azure Blob 存储帐户。 使用此功能，可以轻松地对实时流数据执行批处理操作。 本文介绍如何通过 Python 使用事件中心捕获功能。 有关事件中心捕获功能的详细信息，请参阅[通过 Azure 事件中心捕获事件][Overview of Event Hubs Capture]。
 
@@ -74,7 +74,6 @@ ms.locfileid: "72873055"
 5. 在“捕获”屏幕上，选择“保存更改”。   
 
 ## <a name="create-a-python-script-to-send-events-to-event-hub"></a>创建用于将事件发送到事件中心的 Python 脚本
-
 此脚本将向事件中心发送 200 个事件。 事件是以 JSON 格式发送的简单环境读数。
 
 1. 打开常用的 Python 编辑器，如 [Visual Studio Code][Visual Studio Code]。
@@ -201,5 +200,4 @@ ms.locfileid: "72873055"
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-
 <!--Update_Description: content refresh -->

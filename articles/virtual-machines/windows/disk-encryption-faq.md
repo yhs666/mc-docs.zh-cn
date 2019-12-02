@@ -8,20 +8,18 @@ ms.author: v-yeche
 origin.date: 06/05/2019
 ms.date: 11/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79eb82162ebe6046dfe24814d3880bcdb189ae68
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ca3b6808cb2308897c3443cf0d47792b34317874
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730681"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655463"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>适用于 Windows VM 的 Azure 磁盘加密常见问题解答
 
 本文提供有关适用于 Windows VM 的 Azure 磁盘加密的常见问题解答 (FAQ)。 有关此服务的详细信息，请参阅 [Azure 磁盘加密概述](disk-encryption-overview.md)。
 
-## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>哪里有正式发布版 (GA) 的 Azure 磁盘加密？
-
-Azure 磁盘加密已在所有 Azure 公共区域推出了正式版。
+<!--Not Available on ## Where is Azure Disk Encryption in general availability (GA)?-->
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Azure 磁盘加密提供哪些用户体验？
 

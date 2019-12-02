@@ -1,5 +1,5 @@
 ---
-title: 示例 - 在资源组强制执行标记及其值
+title: 示例 - 在资源组强制执行标记及值
 description: 此示例策略定义要求对资源组使用标记和值。
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: f01984dc7ba30722f9c31c14f7661cf1d294a36f
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 678654cf0f9e3cdf89af59f567954563dd417a89
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020842"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657958"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>示例 - 在资源组强制执行标记及其值
 

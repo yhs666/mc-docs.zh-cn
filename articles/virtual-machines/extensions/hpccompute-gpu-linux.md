@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 驱动程序扩展 - Azure Linux VM | Azure
+title: 适用于 Linux 的 NVIDIA GPU 驱动程序扩展 | Azure
 description: 用于在运行 Linux 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Azure 扩展。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 20c3981479824432375003efdc08ca1e78384a72
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: 457b8ea854d545de1fe9e0acbe668eba3fdc01fe
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831387"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74593688"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>适用于 Linux 的 NVIDIA GPU 驱动程序扩展
 
@@ -88,9 +88,9 @@ ms.locfileid: "73831387"
 
 | Name | 说明 | 默认值 | 有效值 | 数据类型 |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | 更新内核，即使安装驱动程序时不需要更新 | false | true、false | 布尔值 |
+| updateOS | 更新内核，即使安装驱动程序时不需要更新 | false | true、false | boolean |
 | driverVersion | NC：CUDA 工具包版本。 将自动安装所选 CUDA 的最新驱动程序。 | 最新 | CUDA：“10.0.130”、“9.2.88”、“9.1.85” | string |
-| installCUDA | 安装 CUDA 工具包。 仅适用于 NC/ND 系列 VM。 | 是 | true、false | 布尔值 |
+| installCUDA | 安装 CUDA 工具包。 仅适用于 NC/ND 系列 VM。 | 是 | true、false | boolean |
 
 <!--Not Available on NV: GRID driver version<br>-->
 <!--Not Avaialble on ND-->

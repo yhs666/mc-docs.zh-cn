@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 07/12/2019
-ms.date: 08/12/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 74c8f11990754563a236fba873478c6d465f5ce7
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.openlocfilehash: 05162466748581fe07b8cca93bacd5ecc192a0dd
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68733527"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657696"
 ---
 # <a name="import-an-openapi-specification"></a>导入 OpenAPI 规范
 
@@ -67,41 +67,18 @@ ms.locfileid: "68733527"
 > [!NOTE]
 > API 导入限制在[另一篇文章](api-management-api-import-restrictions.md)中介绍。
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>在 Azure 门户中测试新的 APIM API
+## <a name="test-the-new-api-in-the-azure-portal"></a>在 Azure 门户中测试新的 API
 
-可直接从 Azure 门户调用操作，这样可以方便地查看和测试 API 的操作。  
+![测试 API 映射](./media/api-management-get-started/01-import-first-api-01.png)
 
-![测试 API](./media/api-management-get-started/01-import-first-api-01.png)
+可直接从 Azure 门户调用操作，这样可以方便地查看和测试 API 的操作。
 
-1. 选择上一步中创建的 API。
+1. 从“API”选项卡选择在上一步骤中创建的 API。 
 2. 按“测试”选项卡  。
-3. 单击“GetSpeakers”  。
-
-    该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 如果创建了 APIM 实例，那么你已是管理员，因此会自动填充该密钥。 
-
+3. 单击“GetSpeakers”  。 该页显示查询参数（在此示例中无）和标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 将自动填充该密钥。
 4. 按“发送”。 
 
     后端以“200 正常”和某些数据做出响应  。
-
-## <a name="call-operation"> </a>从开发人员门户调用操作
-
-此外，也可从“开发人员门户”调用操作来测试 API  。 
-
-1. 选择在“导入和发布后端 API”步骤中创建的 API。
-2. 按“开发人员门户”  。
-
-    ![在开发人员门户中进行测试](./media/api-management-get-started/developer-portal.png)
-
-    “开发人员门户”站点随即打开。
-3. 选择“API”  。
-4. 选择“演示会议 API”  。
-5. 单击“GetSpeakers”  。
-
-    该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 如果创建了 APIM 实例，那么你已是管理员，因此会自动填充该密钥。
-6. 按“试用”  。
-7. 按“发送”。 
-
-    调用操作后，开发人员门户会显示**响应状态**、**响应标头**以及任何**响应内容**。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 示例 - 如果未对区域启用网络观察程序，则进行审核
+title: 示例 - 无网络观察程序的区域审核
 description: 如果未对指定区域启用网络观察程序，则此示例策略定义会进行审核
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: e41e6cb8f654be160c70ab651e24b8157b9db59c
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: f273485520c7e3ba24caa6a50a7ee332cc45bfab
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526626"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657928"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>示例 - 如果未对区域启用网络观察程序，则进行审核
 

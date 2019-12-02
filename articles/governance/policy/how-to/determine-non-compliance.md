@@ -1,27 +1,26 @@
 ---
-title: 确定不合规的原因
+title: 确定导致非符合性的原因
 description: 有多种可能的原因会导致资源不合规。 了解如何查明导致不合规的原因。
 author: DCtheGeek
 ms.author: v-tawe
 origin.date: 04/26/2019
-ms.date: 10/15/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 62c6b84840cdf3c23704a24b0865c34600da91fd
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 03bbb553806956f67a3da883b2de600cf45aaea8
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526715"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657987"
 ---
-# <a name="determine-causes-of-non-compliance"></a>确定不合规的原因
+# <a name="determine-causes-of-non-compliance"></a>确定导致非符合性的原因
 
 在判定某个 Azure 资源不符合某个策略规则时，了解该资源不符合该规则的哪个部分会很有帮助。 这还有助于了解哪项更改改变了以前合规的资源，导致它现在不合规。 可通过两种方式查找此信息：
 
 > [!div class="checklist"]
 > - [合规性详细信息](#compliance-details)
-> - [更改历史记录（预览版）](#change-history-preview)
 
 ## <a name="compliance-details"></a>合规性详细信息
 
@@ -80,11 +79,11 @@ ms.locfileid: "72526715"
 > [!NOTE]
 > 若要保护数据，当属性值是机密时，当前值将显示星号。 
 
-这些详细信息将解释资源当前不合规的原因，但不显示何时对该资源做出了更改，导致它不合规。 如需查看该信息，请参阅下面的[更改历史记录（预览版）](#change-history-preview)。
+这些详细信息将解释资源当前不合规的原因，但不显示何时对该资源做出了更改，导致它不合规。
 
 ### <a name="compliance-reasons"></a>合规性原因
 
-以下矩阵将每个可能的原因映射到策略定义中的控制条件：  [](../concepts/definition-structure.md#conditions)
+以下矩阵将每个可能的原因映射到策略定义中的控制 [条件：](../concepts/definition-structure.md#conditions) 
 
 |Reason | 条件 |
 |-|-|
@@ -203,4 +202,4 @@ Audit that an application is installed inside Windows VMs                 NonCom
 - 了解如何[以编程方式创建策略](programmatically-create.md)。
 - 了解如何[获取合规性数据](getting-compliance-data.md)。
 - 了解如何[修正不合规的资源](remediate-resources.md)。
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

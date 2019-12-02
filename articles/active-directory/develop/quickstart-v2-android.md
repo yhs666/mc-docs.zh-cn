@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/15/2019
-ms.date: 11/06/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0ebb72fca10dd8cc5640771b65713f8dbc2c680
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: af0899a9fdca1caa4e9f38fe5b0f46ded619a0eb
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830948"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655305"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
@@ -50,11 +50,11 @@ ms.locfileid: "73830948"
 > > ![已配置](./media/quickstart-v2-android/green-check.png) 应用程序已使用这些属性进行了配置
 >
 > ### <a name="step-2-download-the-project"></a>步骤 2：下载项目 
-> * [下载代码示例](https://github.com/Azure-Samples/ms-identity-android-java)
+> * [下载代码示例](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > ### <a name="step-3-configure-your-project"></a>步骤 3：配置项目
 > 1. 解压缩该项目并将其在 Android Studio 中打开。
-> 2. 在 app > src > main > res > raw 中打开 auth_config_multiple_account.json 并将其替换为以下代码：
+> 2. 在“app” > “src” > “main” > “res” > “raw”中，打开 auth_config_multiple_account.json 并将其替换为以下代码       ：
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -75,7 +75,7 @@ ms.locfileid: "73830948"
 > ```
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. 在 app > src > main > res > raw 中打开 auth_config_single_account.json 并将其替换为以下代码：
+> 3. 在“app” > “源” > “main” > “res” > “raw”中，打开 auth_config_single_account.json 并将其替换为以下代码       ：
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -96,27 +96,27 @@ ms.locfileid: "73830948"
 > ```
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 4. 在 **app** > **src** > **main** 中打开 **AndroidManifest.xml**。
-> 5. 在 **manifest\application** 节点中，将 **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** 节点替换为以下内容：  
+> 4. 在“app” > “src” > “main”中，打开 AndroidManifest.xml     。
+> 5. 在 manifest\application 节点中，将 activity android:name="com.microsoft.identity.client.BrowserTabActivity" 节点替换为以下内容   ：    
 > ```xml
 > <!--Intent filter to catch Microsoft's callback after Sign In-->
 > <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
 >     <intent-filter>
->     <action android:name="android.intent.action.VIEW" />
->     <category android:name="android.intent.category.DEFAULT" />
->     <category android:name="android.intent.category.BROWSABLE" />
+>         <action android:name="android.intent.action.VIEW" />
+>         <category android:name="android.intent.category.DEFAULT" />
+>         <category android:name="android.intent.category.BROWSABLE" />
 >         <!--
 >             Add in your scheme/host from registered redirect URI 
 >             note that the leading "/" is required for android:path
 >         -->
->         <data android:scheme="msauth"
->             android:host="Enter_the_Package_Name_here"
->             android:path="Enter_the_Signature_Hash_here"
->             android:scheme = "msauth" />
+>         <data 
+>             android:host="Enter_the_Package_Name"
+>             android:path="/Enter_the_Signature_Hash"
+>             android:scheme= "msauth" />
 >     </intent-filter>
 > </activity>
 > ```
-> 6. 运行应用！
+> 6. 运行应用！   
 > 示例应用将在“单帐户模式”屏幕上启动。  默认情况下，会提供默认范围 **user.read**，在调用 Microsoft Graph API 期间读取你自己的配置文件数据时，将使用该范围。 默认提供 Microsoft Graph API 调用的 URL。 可根据需要更改这两个默认值。
 >
 > ![显示单帐户和多帐户用法的 MSAL 示例应用](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -137,7 +137,7 @@ ms.locfileid: "73830948"
 > [!div renderon="docs"]
 > ## <a name="step-1-get-the-sample-app"></a>步骤 1：获取示例应用
 >
-> [克隆代码](https://github.com/Azure-Samples/ms-identity-android-java.git)。
+> [下载代码](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)。
 >
 > ## <a name="step-2-run-the-sample-app"></a>步骤 2：运行示例应用
 >
@@ -215,9 +215,9 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
             @Override
             public void onCreated(ISingleAccountPublicClientApplication application) {
                 /**
-                    * This test app assumes that the app is only going to support one account.
-                    * This requires "account_mode" : "SINGLE" in the config json file.
-                    **/
+                 * This test app assumes that the app is only going to support one account.
+                 * This requires "account_mode" : "SINGLE" in the config json file.
+                 **/
                 mSingleAccountApp = application;
                 loadAccount();
             }
@@ -284,7 +284,7 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
  *  - password change
  *  - the resource you're acquiring a token for has a stricter set of requirement than your Single Sign-On refresh token.
  *  - you're introducing a new scope which the user has never consented for.
- */
+ **/
 mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
@@ -292,9 +292,9 @@ mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCal
 
 ```java
 /**
-  * Once you've signed the user in,
-  * you can perform acquireTokenSilent to obtain resources without interrupting the user.
-  */
+ * Once you've signed the user in,
+ * you can perform acquireTokenSilent to obtain resources without interrupting the user.
+ **/
   mSingleAccountApp.acquireTokenSilentAsync(getScopes(), AUTHORITY, getAuthSilentCallback());
 ```
 
@@ -395,7 +395,7 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 在 `MultipleAccountModeFragment.java` 文件中的 `onCreateView()` 内，多帐户应用对象 (`IMultipleAccountPublicClientApplication`) 是使用 `auth_config_multiple_account.json file` 中存储的配置信息创建的：
 
 ```java
-// Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
+// Creates a PublicClientApplication object with res/raw/auth_config_multiple_account.json
 PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(),
         R.raw.auth_config_multiple_account,
         new IPublicClientApplication.IMultipleAccountApplicationCreatedListener() {
@@ -420,8 +420,8 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(
 
 ```java
 /**
-     * Load currently signed-in accounts, if there's any.
-    */
+ * Load currently signed-in accounts, if there's any.
+ **/
 private void loadAccounts() {
     if (mMultipleAccountApp == null) {
         return;
@@ -467,7 +467,7 @@ private void loadAccounts() {
  *  - password change
  *  - the resource you're acquiring a token for has a stricter set of requirement than your SSO refresh token.
  *  - you're introducing a new scope which the user has never consented for.
- */
+ **/
 mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
@@ -488,12 +488,12 @@ mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
 
 #### <a name="remove-an-account"></a>删除帐户
 
-用于删除帐户以及该帐户的所有已缓存令牌的代码位于“删除帐户”按钮的处理程序的 `MultipleAccountModeFragment.java` 文件中的 `initializeUI()` 内。 在删除帐户之前，需要提供从 `getAccounts()` 和 `acquireToken()` 等 MSAL 函数获取的帐户对象。 由于删除帐户是一个异步操作，因此需提供 `onRemoved` 回调来更新 UI。
+用于删除帐户以及该帐户的所有已缓存令牌的代码位于“删除帐户”按钮的处理程序的 `initializeUI()` 中的 `MultipleAccountModeFragment.java` 文件内。 在删除帐户之前，需要提供从 `getAccounts()` 和 `acquireToken()` 等 MSAL 方法获取的帐户对象。 由于删除帐户是一个异步操作，因此需提供 `onRemoved` 回调来更新 UI。
 
 ```java
 /**
-  * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
-  */
+ * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
+ **/
 mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelectedItemPosition()),
         new IMultipleAccountPublicClientApplication.RemoveAccountCallback() {
             @Override
@@ -557,4 +557,6 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 > [适用于 Android 库 wiki 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+<!-- Update_Description: wording update -->
 

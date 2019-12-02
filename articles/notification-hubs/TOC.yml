@@ -135,7 +135,7 @@
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/notification-hubs/'
     - name: MSDN 论坛
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=notificationhubs'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
     - name: 上市区域

@@ -4,6 +4,8 @@
   items:
     - name: 关于 Web 应用
       href: overview.md
+    - name: 关于应用服务环境
+      href: environment/intro.md
 - name: 快速入门
   expanded: true
   items:
@@ -37,8 +39,8 @@
       href: app-service-web-tutorial-rest-api.md
     - name: 映射自定义域
       href: app-service-web-tutorial-custom-domain.md
-    - name: 绑定 SSL 证书
-      href: app-service-web-tutorial-custom-ssl.md
+    - name: 使用 SSL 保护域
+      href: configure-ssl-bindings.md
 - name: 示例
   items:
     - name: Azure CLI
@@ -49,8 +51,6 @@
       href: samples-resource-manager-templates.md
 - name: 概念
   items:
-    - name: 应用服务工作方式
-      href: app-service-how-works-readme.md
     - name: 应用服务计划
       href: overview-hosting-plans.md
     - name: OS 功能
@@ -63,8 +63,8 @@
           href: overview-authentication-authorization.md
         - name: OS 和运行时修补
           href: overview-patch-os-runtime.md
-        - name: 安全属性
-          href: app-service-security-attributes.md
+        - name: 内置安全控件
+          href: app-service-security-controls.md
         - name: 安全概述
           href: overview-security.md
     - name: 入站和出站 IP
@@ -115,6 +115,8 @@
           href: manage-custom-dns-migrate-domain.md
     - name: 安全应用
       items:
+        - name: 添加 SSL 证书
+          href: configure-ssl-certificate.md
         - name: 对用户进行身份验证
           items:
             - name: 使用 Azure AD 进行身份验证
@@ -129,14 +131,14 @@
           href: overview-managed-identity.md
         - name: 从 Key Vault 引用机密
           href: app-service-key-vault-references.md
-        - name: 在应用程序代码中使用 SSL 证书
-          href: app-service-web-ssl-cert-load.md
+        - name: 在代码中使用 SSL 证书
+          href: configure-ssl-certificate-in-code.md
         - name: 配置 TLS 相互身份验证
           href: app-service-web-configure-tls-mutual-auth.md
     - name: 缩放应用
       items:
         - name: 纵向扩展服务器容量
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: 配置 PremiumV2 层
           href: app-service-configure-premium-tier.md
         - name: 横向扩展到多个实例
@@ -179,6 +181,8 @@
       href: 'https://docs.microsoft.com/powershell'
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/appservice/'
+    - name: Resource Manager 模板
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.web/allversions'
 - name: 资源
   items:
     - name: 定价
@@ -189,6 +193,8 @@
       href: 'https://www.azure.cn/what-is-new'
     - name: 最佳实践
       href: app-service-best-practices.md
+    - name: 示例
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
     - name: 故障排除
       items:
         - name: 使用 Visual Studio 排除故障

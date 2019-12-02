@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/22/2019
-ms.date: 11/18/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d626c91df120e18853e08d528de711084d55f846
-ms.sourcegitcommit: 99c408fd0f1fc264acaed41f1a77fea4ebbc0e0f
+ms.openlocfilehash: d3e6d65d7c1be139674a3adb9a8f4fe34b25fc21
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74354352"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655375"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 存储传输数据
 
@@ -291,7 +291,7 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 如果将 `--delete-destination` 标志设置为 `true`，AzCopy 将删除文件且不提供提示。 若要在 AzCopy 删除文件之前显示提示，请将 `--delete-destination` 标志设置为 `prompt`。
 
 > [!NOTE]
-> 为了防止意外删除，请务必在使用 `--delete-destination=prompt|true` 标志之前启用[软删除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)功能。
+> 为了防止意外删除，请务必在使用 `--delete-destination=prompt|true` 标志之前启用[软删除](/storage/blobs/storage-blob-soft-delete)功能。
 
 有关详细参考文档，请参阅 [azcopy sync](storage-ref-azcopy-sync.md)。
 

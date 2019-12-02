@@ -6,15 +6,16 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-origin.date: 02/22/2019
-ms.date: 07/22/2019
+origin.date: 09/04/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 0fc87e15e4d857af2e0dc3b38ac1b938a13c0b4f
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.localizationpriority: high
+ms.openlocfilehash: c5bb8ad2d0f761b64138788599d122d6f88d5e5a
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298135"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530607"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk 系统要求
 
@@ -22,6 +23,17 @@ ms.locfileid: "68298135"
 
 系统要求包括连接到磁盘的客户端支持的平台、支持的存储帐户和存储类型。
 
+::: zone target="chromeless"
+
+## <a name="review-prerequisites"></a>查看先决条件
+
+1. 你一定已使用[教程：订购 Azure Data Box Disk](data-box-disk-deploy-ordered.md) 订购了 Data Box Disk。 你已收到磁盘，每个磁盘都连接一根电缆。
+2. 你有一台可用的客户端计算机，可以从中复制数据。 客户端计算机必须：
+
+    - 运行受支持的操作系统。
+    - 安装其他必需的软件。
+
+::: zone-end
 
 ## <a name="supported-operating-systems-for-clients"></a>客户端支持的操作系统
 
@@ -80,8 +92,11 @@ ms.locfileid: "68298135"
 | Azure 文件  | |
 | 托管磁盘 | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>后续步骤
 
 * [部署 Azure Data Box 磁盘](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 

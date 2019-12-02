@@ -13,12 +13,12 @@ ms.workload: infrastructure
 origin.date: 10/31/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: a72bf17ab7c18bf0aae4e3067d6ff0627e5264c3
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: 124b15e22d015b1675e4034eb4431af673287d7c
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116935"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594045"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>排查 Azure VM 的常规 RDP 错误
 
@@ -75,51 +75,51 @@ RDP 侦听器配置不当。
 4. 开始与恢复 VM 建立远程桌面连接。
 5. 打开权限提升的命令提示符会话（“以管理员身份运行”）。  运行以下脚本。 对于此脚本，我们假设分配给附加 OS 磁盘的驱动器号为 F。请将此驱动器号替换为 VM 中的相应值。
 
-      ```
-      reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
-      reg load HKLM\BROKENSOFTWARE F:\windows\system32\config\SOFTWARE.hiv 
+    ```
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
+    reg load HKLM\BROKENSOFTWARE F:\windows\system32\config\SOFTWARE.hiv 
 
-      REM Ensure that Terminal Server is enabled 
+    REM Ensure that Terminal Server is enabled 
 
-      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
-      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
 
-      REM Ensure Terminal Service is not set to Drain mode 
-      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
-      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
+    REM Ensure Terminal Service is not set to Drain mode 
+    reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
 
-      REM Ensure Terminal Service has logon enabled 
-      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
-      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
+    REM Ensure Terminal Service has logon enabled 
+    reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
 
-      REM Ensure the RDP Listener is not disabled 
-      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
-      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
+    REM Ensure the RDP Listener is not disabled 
+    reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
 
-      REM Ensure the RDP Listener accepts logons 
-      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
-      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
+    REM Ensure the RDP Listener accepts logons 
+    reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
 
-      REM RDP component is enabled 
-      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
-      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
-      reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+    REM RDP component is enabled 
+    reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+    reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+    reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
 
-      reg unload HKLM\BROKENSYSTEM 
-      reg unload HKLM\BROKENSOFTWARE 
-      ```
+    reg unload HKLM\BROKENSYSTEM 
+    reg unload HKLM\BROKENSOFTWARE 
+    ```
 
 6. 如果 VM 已加入域，请检查以下注册表项，以查看是否有某个组策略禁用了 RDP。 
 
-      ```
-      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-      ```
+    ```
+    HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+    ```
 
-      如果此注册表项的值设置为 1，则表示策略禁用了 RDP。 若要通过 GPO 策略启用远程桌面，请在域控制器中更改以下策略：
+    如果此注册表项的值设置为 1，则表示策略禁用了 RDP。 若要通过 GPO 策略启用远程桌面，请在域控制器中更改以下策略：
 
-      **计算机配置\策略\管理模板：**
+    **计算机配置\策略\管理模板：**
 
-      策略定义\Windows 组件\远程桌面服务\远程桌面会话主机\连接\允许用户使用远程桌面服务进行远程连接
+    策略定义\Windows 组件\远程桌面服务\远程桌面会话主机\连接\允许用户使用远程桌面服务进行远程连接
 
 7. 从救援 VM 拆离磁盘。
 8. [从磁盘创建新的 VM](../windows/create-vm-specialized.md)。

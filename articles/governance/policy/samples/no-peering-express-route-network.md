@@ -1,5 +1,5 @@
 ---
-title: 示例 - 没有与 Express Route 网络对等互连的网络
+title: 示例 - 没有与 Express Route 对等互连的网络
 description: 此示例策略定义禁止将网络对等互连关联到指定资源组中的网络。
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8aedcb5ba4ceee00309de2e6d1cfe7bd6638f507
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: c7e2db3a536353c9c7a4bea4d16e9e3bf16c854e
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526625"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657925"
 ---
 # <a name="sample---no-network-peering-to-express-route-network"></a>示例 - 没有与 Express Route 网络对等互连的网络
 

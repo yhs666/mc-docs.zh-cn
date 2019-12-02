@@ -10,19 +10,18 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 origin.date: 08/12/2019
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8e29b6e37412b15deb941dea28d93cc0989f4aca
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 3aa6f0906f390f01fcd15be4a8381772918c97bc
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806815"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555944"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 
@@ -30,7 +29,7 @@ ms.locfileid: "70806815"
 > 目前，Azure 应用服务和 Azure Functions 不支持 AAD V2（包括 MSAL）。 请回头查看是否有更新。
 >
 
-Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应用、RESTful API、移动后端和 [Azure Functions](../azure-functions/functions-overview.md) 中编写少量的代码或根本无需编写代码，就能让用户登录和访问数据。 本文介绍应用服务如何帮助简化应用的身份验证和授权。 
+Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应用、RESTful API、移动后端和 [Azure Functions](../azure-functions/functions-overview.md) 中编写少量的代码或根本无需编写代码，就能让用户登录和访问数据。 本文介绍应用服务如何帮助简化应用的身份验证和授权。
 
 安全身份验证和授权需要对联合身份验证、加密、[JSON Web 令牌 (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 管理、[授权类型](https://oauth.net/2/grant-types/)等安全性方面有深度的了解。 应用服务提供这些实用工具，让你将更多的时间和精力花费在为客户提供业务价值上。
 
@@ -140,6 +139,9 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 
 ## <a name="more-resources"></a>更多资源
 
+<!-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md) -->
+
+<!-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)   -->
 
 [在应用服务中自定义身份验证和授权](app-service-authentication-how-to.md)
 
@@ -149,7 +151,6 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 * [如何：对应用程序使用自定义身份验证][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
-
 [MSA]: configure-authentication-provider-microsoft.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth

@@ -14,28 +14,24 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 origin.date: 05/29/2019
-ms.date: 08/12/2019
-ms.author: v-johch
-ms.custom: mvc, seo-java-july2019
-ms.openlocfilehash: 53e34da7575551f4419d4e078116ed7912db8162
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.author: v-tawe
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: ce2db4eb365db309d3fa6b5671070586c5ccec9e
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155814"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555876"
 ---
-# <a name="quickstart-create-a-java-app-in-app-service"></a>快速入门：在应用服务中创建 Java 应用
-
-> [!NOTE]
-> 本文将应用部署到 Windows 上的应用服务。
->
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>快速入门：在 Windows 上的 Azure 应用服务中创建 Java 应用
 
 [Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门介绍如何将 [Azure CLI](/cli/get-started-with-azure-cli) 与[用于 Azure 应用服务的 Maven 插件](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)配合使用来部署 Java Web 存档 (WAR) 文件。
 
 > [!NOTE]
 > 也可使用 IntelliJ 和 Eclipse 等常见 IDE 执行相同的操作。 请查看 [Azure Toolkit for IntelliJ 快速入门](/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)或 [Azure Toolkit for Eclipse 快速入门](/java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)中的类似文档。
 >
-![在 Azure 中运行的示例应用](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![在 Azure 应用服务中运行的示例应用](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -67,15 +63,15 @@ code pom.xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
+        <version>1.8.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
             <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
+            <subscriptionId>SUBSCRIPTION_ID</subscriptionId>
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
             <!-- Java Runtime Stack for App Service on Windows-->
             <runtime>
                 <os>windows</os>
@@ -97,8 +93,8 @@ code pom.xml
 </plugins>
 ```
 
-> [!NOTE]
-> 在本文中，我们仅使用在 WAR 文件中打包的 Java 应用。 该插件还支持 JAR Web 应用程序。若要试用，请访问[在 Linux 上将 Java SE JAR 文件部署到应用服务](/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+<!-- > [!NOTE] -->
+<!-- > In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out. -->
 
 
 更新插件配置中的以下占位符：
@@ -120,7 +116,7 @@ mvn package azure-webapp:deploy
 
 部署完成后，在 Web 浏览器中使用以下 URL 浏览到已部署的应用程序，例如 `http://<webapp>.chinacloudsites.cn/`。
 
-![在 Azure 中运行的示例应用](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![在 Azure 应用服务中运行的示例应用](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **祝贺你！** 现已将第一个 Java 应用部署到 Windows 应用服务。
 

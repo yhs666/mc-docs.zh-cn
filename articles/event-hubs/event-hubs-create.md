@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 Azure 门户创建事件中心 | Azure
+title: Azure 快速入门 - 使用 Azure 门户创建事件中心
 description: 本快速入门介绍如何使用 Azure 门户创建 Azure 事件中心，然后使用 .NET Standard SDK 发送和接收事件。
 services: event-hubs
 documentationcenter: ''
@@ -7,15 +7,16 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
-origin.date: 01/23/2019
-ms.date: 05/06/2019
-ms.author: v-biyu
-ms.openlocfilehash: 8b0e813e5dc242f6fee64e34241e919752c153bd
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.custom: mvc
+origin.date: 11/05/2019
+ms.date: 12/02/2019
+ms.author: v-tawe
+ms.openlocfilehash: a9fd006109d5d62a9b494ebc889f33fd53937386
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72873045"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657866"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。

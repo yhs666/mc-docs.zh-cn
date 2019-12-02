@@ -10,16 +10,16 @@ origin.date: 04/22/2019
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 7afb8d95c29d3545e72aa649e44545c225a12dae
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: d18bca05cef87155c1ba3ec7e13ca0dea74e7963
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528047"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658075"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>实时指标流：以 1 秒的延迟进行监视和诊断
 
-通过使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的实时指标流探测实时和生产时的 Web 应用程序的信号。 选择并筛选指标和性能计数器进行实时监视，且服务不会受到任何干扰。 从失败请求和异常的样本中检查堆栈跟踪。 与 [Profiler](../../azure-monitor/app/profiler.md)、[Snapshot Debugger](../../azure-monitor/app/snapshot-debugger.md) 一起使用。 实时指标流为实时网站提供了功能强大的非侵入式诊断工具。
+通过使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的实时指标流探测实时和生产时的 Web 应用程序的信号。 选择并筛选指标和性能计数器进行实时监视，且服务不会受到任何干扰。 从失败请求和异常的样本中检查堆栈跟踪。
 
 使用实时指标流可实现以下操作：
 
@@ -209,7 +209,6 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 ## <a name="next-steps"></a>后续步骤
 * [使用 Application Insights 监视使用情况](../../azure-monitor/app/usage-overview.md)
 * [使用诊断搜索](../../azure-monitor/app/diagnostic-search.md)
-* [探查器](../../azure-monitor/app/profiler.md)
 * [快照调试器](../../azure-monitor/app/snapshot-debugger.md)
 
 

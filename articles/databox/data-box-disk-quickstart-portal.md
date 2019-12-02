@@ -6,26 +6,23 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-origin.date: 02/26/2019
-ms.date: 03/18/2019
+origin.date: 09/03/2019
+ms.date: 12/02/2019
 ms.author: v-jay
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: baab2044f53138cfaab11fe6016b43c87745d4a9
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: aa38ed47a020ca340677163b67a900411cb63684
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298157"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530615"
 ---
-::: zone target="docs"
-
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Data Box Disk
-
-::: zone-end
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>通过 Azure 门户开始使用 Azure Data Box Disk
+## <a name="get-started-with-azure-data-box-disk"></a>Azure Data Box Disk 入门 
 
 ::: zone-end
 
@@ -41,7 +38,7 @@ ms.locfileid: "68298157"
 
 ::: zone target="chromeless"
 
-本快速入门介绍如何使用 Azure 门户部署 Azure Data Box 磁盘。 这些步骤包括检查先决条件、解锁磁盘、连接数据并将数据复制到磁盘，以便上传到 Azure。
+本指南将指导你完成在 Azure 门户中使用 Azure Data Box Disk 的步骤。 本指南可帮助解答以下问题。
 
 ::: zone-end
 
@@ -61,16 +58,16 @@ ms.locfileid: "68298157"
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>先决条件
-
-- 已按照以下教程订购了 Data Box Disk：[教程：订购 Azure Data Box Disk](data-box-disk-deploy-ordered.md)。
-- 已收到磁盘，并且门户中的作业状态已更新为“已交付”。 
-- 你有一台可用的客户端计算机，可以从中复制数据。 客户端计算机必须：
-
-    - 运行[支持的操作系统](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)。
-    - 已安装[其他所需软件](data-box-disk-system-requirements.md#other-required-software-for-windows-clients)（如果是 Windows 客户端）。
+> [!div class="checklist"]
+>
+> - **检查先决条件**：检查磁盘和电缆的数量、操作系统和其他软件。
+> - **连接和解锁**：连接设备并解锁磁盘以复制数据。
+> - **将数据复制到磁盘并进行验证**：将数据复制到磁盘上预先创建的文件夹中。
+> - **退回设备**：将磁盘退回 Azure 数据中心，数据将那里上传到你的存储帐户。
+> - **在 Azure 中验证数据**：验证数据是否已上传到存储帐户，然后再将其从源数据服务器中删除。
 
 ::: zone-end
+
 
 ::: zone target="docs"
 

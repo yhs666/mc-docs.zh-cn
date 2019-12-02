@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 03/18/2019
 ms.date: 05/27/2019
 ms.author: v-biyu
-ms.openlocfilehash: 96673abae1349f6cd61629c647125a77f7d12d0e
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: d20746688f7d06bb541c7f659bc3ccae677b44fa
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272330"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657982"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>批量导出和导入 Azure 通知中心注册
 在某些情况下，我们需要在通知中心创建或修改大量的注册。 其中的某些情况是先进行标记更新，再进行批量计算，或者迁移现有的推送实施方案以使用通知中心。
@@ -58,7 +58,7 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 ```
 
 > [!IMPORTANT]
-> 上面的代码在内存中序列化注册，然后将整个流上传到 Blob。 如果上传的文件大小只有几个 MB，请参阅有关如何执行这些步骤的 Azure Blob 指导，例如 [块 Blob](https://docs.microsoft.com/zh-cn/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)。
+> 上面的代码在内存中序列化注册，然后将整个流上传到 Blob。 如果上传的文件大小只有几个 MB，请参阅有关如何执行这些步骤的 Azure Blob 指导，例如 [块 Blob](https://docs.microsoft.comrest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)。
 
 ### <a name="create-url-tokens"></a>创建 URL 标记
 上传输入文件后，生成要提供给通知中心的输入文件 URL 和输出目录 URL。 可为输入和输出使用两个不同的 Blob 容器。

@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 origin.date: 11/01/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: da43abb2657d4342e5e7cc21dc48cbad1afd6aba
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: b2563cea67b4ecad25792a16e12b0919a2625612
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116896"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594646"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>排查存储资源删除错误
 
@@ -53,7 +53,7 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 4. 在“blob 元数据”窗格中，查看并记录 MicrosoftAzureCompute_VMName  的值。 此值是 VHD 附加到的 VM 名称。 （如果看不到此字段，请参阅“重要提示”  ）
 5. 在“blob 元数据”窗格中，查看并记录 MicrosoftAzureCompute_DiskType  的值。 此值确定了附加磁盘是 OS 磁盘，还是数据磁盘（如果此字段不存在，请参阅“重要提示”  ）。 
 
-     ![门户屏幕截图，其中打开了存储“blob 元数据”窗格](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
+    ![门户屏幕截图，其中打开了存储“blob 元数据”窗格](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
 6. 如果 blob 磁盘类型为 OSDisk，请按照[步骤 2  ：删除 VM 以拆离 OS 磁盘](#step-2-delete-vm-to-detach-os-disk)操作。 否则，如果 blob 磁盘类型为 DataDisk  ，请按照[步骤 3：将数据磁盘与 VM 拆离](#step-3-detach-data-disk-from-the-vm)操作。 
 
@@ -97,7 +97,7 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 7. 选择“磁盘”  窗格顶部的“编辑”  。
 8. 单击要删除的数据磁盘的拆离图标  。
 
-     ![门户屏幕截图，其中打开了存储“blob 元数据”窗格](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+    ![门户屏幕截图，其中打开了存储“blob 元数据”窗格](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. 选择**保存**。 此时该磁盘将与 VM 分离，并且 VHD 将不再租用。 可能需要几分钟才能释放租约。 若要验证租用是否已解除，请转到 blob 位置，再检查“blob 属性”  窗格中的“租用状态”  值是否为“已解锁”  或“可租用”  。
 

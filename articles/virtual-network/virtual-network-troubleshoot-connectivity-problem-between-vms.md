@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/30/2018
-ms.date: 02/18/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad376e4cb26542ef49204c79f4e40399f969bb27
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 29cf4b4b1967099ed34b4d38523c801b880c563a
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306097"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658037"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>排查 Azure VM 间的连接问题
 
@@ -88,7 +88,7 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
     netstat -l
 
-- 对虚拟机本身运行 telnet 命令，测试端口。 如果测试失败，则应用程序或服务未配置为侦听该端口。
+- 对虚拟机本身运行 telnet 命令，测试端口  。 如果测试失败，则应用程序或服务未配置为侦听该端口。
 
 ### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>步骤 5：检查问题是否由 SNAT 引起
 
@@ -96,7 +96,7 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>步骤 6：检查 ACL 是否阻止了经典 VM 的流量
 
-利用访问控制列表 (ACL)，可以选择允许还是拒绝虚拟机终结点的流量。 有关详细信息，请参阅 [管理终结点上的 ACL](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+利用访问控制列表 (ACL)，可以选择允许还是拒绝虚拟机终结点的流量。 有关详细信息，请参阅 [管理终结点上的 ACL](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>步骤 7：检查是否为经典 VM 创建了终结点
 
@@ -111,6 +111,6 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 使用[网络观察程序 IP 流验证](../network-watcher/network-watcher-ip-flow-verify-overview.md)和 [NSG 流日志记录](../network-watcher/network-watcher-nsg-flow-logging-overview.md)确定是否存在干扰流量流的 NSG 或 UDR。 还可在[此处](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)验证 Vnet 间配置。
 
 ### <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
-如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
+如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/support/support-azure/) 来快速解决问题。
 
 <!--Update_Description: wording update, update meta properties -->

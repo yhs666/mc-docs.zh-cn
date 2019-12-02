@@ -8,12 +8,12 @@ origin.date: 10/09/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 8f31214d80b7f206ac177518115a07c48acaf998
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 30b2dd7d4f3f03992cd05feeff0654a252d2ef9c
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73083654"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655425"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装并使用 Consul
 
@@ -57,11 +57,9 @@ ms.locfileid: "73083654"
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [Windows - download](includes/servicemesh/consul/download-powershell.md)]-->
 
-[!INCLUDE [Windows - download](includes/servicemesh/consul/download-powershell.md)]
-
-::: zone-end
 
 使用 Helm 和下载的 `consul-helm` 图表将 Consul 组件安装到 AKS 群集的 `consul` 命名空间中。 
 
@@ -76,7 +74,10 @@ ms.locfileid: "73083654"
 >
 > **节点选择器**
 >
-> Consul 目前必须安排在 Linux 节点上运行。 如果群集中有 Windows Server 节点，则必须确保 Consul Pod 仅安排在 Linux 节点上运行。 我们将使用[节点选择器][kubernetes-node-selectors]来确保将 Pod 安排到正确的节点。
+> Consul 目前必须安排在 Linux 节点上运行。
+
+<!--Not Available on  If you have Windows Server nodes in your cluster, you must ensure that the Consul pods are only scheduled to run on Linux nodes. We'll use [node selectors][kubernetes-node-selectors] to make sure pods are scheduled to the correct nodes.-->
+<!--Not Available on [node selectors][kubernetes-node-selectors]-->
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -90,11 +91,8 @@ ms.locfileid: "73083654"
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - install Istio components](includes/servicemesh/consul/install-components-powershell.md)]
-
-::: zone-end
+<!--MOONCAKE: ONLY LINUX NODE ON AZURE CHINA CLOUD-->
+<!--Not Available on [!INCLUDE [PowerShell - install Istio components](includes/servicemesh/consul/install-components-powershell.md)]-->
 
 `Consul` Helm 图表将部署许多对象。 上述 `helm install` 命令的输出会显示对象列表。 部署 Consul 组件可能需要大约 3 分钟才能完成，具体取决于群集环境。
 

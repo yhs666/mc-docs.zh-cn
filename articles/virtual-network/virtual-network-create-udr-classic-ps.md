@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/21/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3207b1f9e606cf544d86721977bd11e4811e3bae
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 5c1cd0593b39044a7ef44d6c441fa5b7e405f6af
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193069"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658048"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>使用 PowerShell 控制路由和使用虚拟设备（经典）
 

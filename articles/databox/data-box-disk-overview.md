@@ -6,16 +6,16 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-origin.date: 01/09/2019
-ms.date: 02/25/2019
+origin.date: 06/18/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 0cbe1c50e8bb8120fa573b0bb7cb8598e7568c52
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 01e173debe48217b6ad30fc1f5d7b7fc419bd128
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666578"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530616"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什么是 Azure Data Box 磁盘？
 
@@ -88,9 +88,14 @@ Data Box 磁盘旨在将大量数据移到 Azure，且不影响网络。 该解�
 |管理                                               | Azure 门户 |
 
 
+## <a name="region-availability"></a>上市区域
+
+有关适用地区的信息，请转到 [Azure 可用产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
+
+
 ## <a name="pricing"></a>定价
 
-有关定价的信息，请访问[定价页](https://azure.cn/pricing/details/storage/databox/disk/)。
+有关定价的信息，请访问[定价页](https://azure.cn/pricing/details/databox/disk/)。
 
 ## <a name="next-steps"></a>后续步骤
 

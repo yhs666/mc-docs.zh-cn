@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 6d72784320b33071e19931ac2b7435a037d008a5
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 2cc67810e478fe09297d090c64709be2cab91ed1
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806705"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555933"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>从 GitHub 创建 Web 应用并部署代码
 

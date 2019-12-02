@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: e34935ebf2974fddc1e2212571454731e44de38f
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 9437f89ec58fb38f39720b1e4c0f0d82431b0307
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006588"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657932"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Add authentication to your iOS app（将身份验证添加到 iOS 应用）
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "71006588"
         QSAppDelegate *appDelegate = (QSAppDelegate *)[UIApplication sharedApplication].delegate;
         appDelegate.qsTodoService = self.todoService;
 
-        [self.todoService.client loginWithProvider:@"google" urlScheme:@"appname" controller:self animated:YES completion:^(MSUser * _Nullable user, NSError * _Nullable error) {
+        [self.todoService.client loginWithProvider:@"microsoftaccount" urlScheme:@"appname" controller:self animated:YES completion:^(MSUser * _Nullable user, NSError * _Nullable error) {
             if (error) {
                 NSLog(@"Login failed with error: %@, %@", error, [error userInfo]);
             }
@@ -163,7 +163,7 @@ ms.locfileid: "71006588"
             }
         }
 
-        client.login(withProvider:"google", urlScheme: "appname", controller: self, animated: true, completion: loginBlock)
+        client.login(withProvider:"microsoftaccount", urlScheme: "appname", controller: self, animated: true, completion: loginBlock)
 
     }
     ```

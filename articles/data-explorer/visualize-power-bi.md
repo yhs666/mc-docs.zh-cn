@@ -3,17 +3,17 @@ title: 教程：在 Power BI 中可视化 Azure 数据资源管理器中的数�
 description: 在本教程中，你将学习如何使用 Power BI 连接到 Azure 数据资源管理器，并可视化数据。
 author: orspod
 ms.author: v-tawe
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 09/24/2018
 ms.date: 05/01/2019
-ms.openlocfilehash: 759b2a9834295b639217fa5d2deb80cc9b9e04b2
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 59c257d33ad10aecf50d486528e0a5029b75d088
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020854"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657671"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>教程：在 Power BI 中可视化 Azure 数据资源管理器中的数据
 

@@ -8,18 +8,18 @@ manager: jpconnoc
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 origin.date: 08/14/2019
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
+ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: f266d3dae85b405f9860e55a51680c4176a68e3b
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 6edfabcc58dae84b4e838c851d50a3710a8573e6
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806871"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555970"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure 订阅凭据不同。

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: overview
 origin.date: 09/24/2018
 ms.date: 11/18/2019
-ms.openlocfilehash: 9988be29e32b84819a3c32d12fd6321cd9a0b093
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 4df5405cc91943a76349cd213c9ee55cc6206615
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020825"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657780"
 ---
 # <a name="what-is-azure-data-explorer"></a>什么是 Azure 数据资源管理器？
 
@@ -66,7 +66,7 @@ Azure 数据资源管理器同样可以处理大量的结构化、半结构化�
 - 提出问题
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
   - [Microsoft 技术社区](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
-  - [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=windowsazurezhchs)
+  - [MSDN](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs)
 - [在 User Voice 中提出产品建议](https://support.azure.cn/support/contact)
 
 ## <a name="next-steps"></a>后续步骤

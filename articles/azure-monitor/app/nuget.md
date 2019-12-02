@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 10/16/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e526cddb6a7a51bfe6e9e1171bca65a594004e77
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c1659ee8afae9fd2da51ce83a4d4c7fcf89687ec
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730529"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657608"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 包
 
@@ -97,7 +97,6 @@ ms.locfileid: "73730529"
 ## <a name="next-steps"></a>后续步骤
 
 - 监视 [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)。
-- 分析 ASP.NET Core [Azure Linux Web 应用](../../azure-monitor/app/profiler-aspnetcore-linux.md)。
 - 调试 ASP.NET [快照](../../azure-monitor/app/snapshot-debugger.md)。
 
 

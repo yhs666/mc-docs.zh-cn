@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/26/2018
-ms.date: 06/10/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3bafbb0d2f18c4941cba0ee02db554348c9f5dd1
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: e1b80b68dd9f1bcf9e6263b886f5be8c9b4a5bcb
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250451"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658033"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的网络虚拟设备问题
 
@@ -124,7 +124,7 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 ## <a name="advanced-network-administrator-troubleshooting"></a>高级网络管理员故障排除
 
 ### <a name="capture-network-trace"></a>捕获网络跟踪
-运行 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping) 或 Nmap 时，请在源 VM、NVA 和目标 VM 上捕获同步网络跟踪，并停止跟踪   。
+运行 [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) 或 Nmap 时，请在源 VM、NVA 和目标 VM 上捕获同步网络跟踪，并停止跟踪   。
 
 1. 若要捕获同步网络跟踪，请运行以下命令：
 

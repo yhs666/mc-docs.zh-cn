@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/09/2019
-ms.date: 11/06/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 693e6fc34fb4e03e71b65a99adea35e16740c643
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: f2d7d861cdd1a61749b54953c9398f171e460b52
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830951"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655306"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入门：向 Java Web 应用添加 Microsoft 登录功能
 
@@ -43,22 +43,22 @@ ms.locfileid: "73830951"
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>注册并下载快速入门应用
 > 可以使用两个选项来启动快速入门应用程序：“快速”（选项 1）和“手动”（选项 2）
-> 
+>
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>选项 1：注册并自动配置应用，然后下载代码示例
-> 
+>
 > 1. 访问 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)。
 > 1. 输入应用程序的名称并选择“注册”  。
 > 1. 遵照说明下载内容，系统会自动配置新应用程序。
-> 
+>
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>选项 2：注册并手动配置应用程序和代码示例
-> 
+>
 > #### <a name="step-1-register-your-application"></a>步骤 1：注册应用程序
-> 
+>
 > 若要注册应用程序并将应用的注册信息手动添加到解决方案，请执行以下步骤：
-> 
+>
 > 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
 > 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-> 
+>
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](/active-directory/develop/)页。
 > 1. 选择“新注册”。 
 > 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
@@ -67,10 +67,9 @@ ms.locfileid: "73830951"
 > 1. 在“概述”页上，找到应用程序的“应用程序(客户端) ID”和“目录(租户) ID”值。    复制这些值供稍后使用。
 > 1. 从菜单中选择“身份验证”，然后添加以下信息  ：
 >    - 在“重定向 URI”中添加 `http://localhost:8080/msal4jsamples/secure/aad` 和 `http://localhost:8080/msal4jsamples/graph/me`。 
->    - 在“高级设置”中，将 `https://localhost:8080/msal4jsample/sign-out` 添加到“注销 URL”。  
 >    - 选择“保存”  。
 > 1. 从菜单中选择“证书和机密”  ，并在“客户端密码”  部分中，单击“新建客户端密码”  ：
-> 
+>
 >    - 键入实例应用机密的密钥说明。
 >    - 选择密钥持续时间“1 年”。 
 >    - 选择“添加”  时，将显示密钥值。
@@ -78,9 +77,9 @@ ms.locfileid: "73830951"
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步骤 1：在 Azure 门户中配置应用程序
-> 
+>
 > 若要正常运行本快速入门中的代码示例，需要：
-> 
+>
 > 1. 添加 `http://localhost:8080/msal4jsamples/secure/aad` 和 `http://localhost:8080/msal4jsamples/graph/me` 作为回复 URL。
 > 1. 创建客户端机密。
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -146,12 +145,12 @@ MSAL4J 是一个 Java 库，用于用户登录和请求令牌，此类令牌用�
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
-    <version>0.6.0-preview</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.6.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
 ### <a name="msal-initialization"></a>MSAL 初始化

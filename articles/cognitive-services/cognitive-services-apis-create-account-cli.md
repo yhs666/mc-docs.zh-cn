@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/04/2019
 ms.date: 11/19/2019
 ms.author: v-tawe
-ms.openlocfilehash: 331faaf06886b13b4f5733895bcb787ba06aeac2
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: eb937e00361b18bb6c63ce4e14320c2f3d2c9e3d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528120"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657939"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令行接口 (CLI) 创建认知服务资源
 
@@ -165,7 +165,7 @@ az login
 
 使用 [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 命令获取认知服务资源的使用情况。
 
-```azurecli-interactive
+```azurecli
 az cognitiveservices account list-usage \
     --name anomaly-detector-resource \
     --resource-group cognitive-services-resource-group \

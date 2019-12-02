@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/05/2019
-ms.date: 11/05/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85b73146d6917ad0a4ea412055d3528d2d7fa210
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 89e0cec7d9e814c1169a4790c83f0c1d7a906da7
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830981"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655255"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>如何：配置应用程序的发布者域（预览）
+# <a name="how-to-configure-an-applications-publisher-domain"></a>如何：配置应用程序的发布者域
 
 应用程序的发布者域将在[应用程序的许可提示](application-consent-experience.md)中显示给用户，以告知用户其信息将发送到何处。 在 2019 年 5 月 21 日之后注册的且没有发布者域的多租户应用程序将显示为 **unverified**。 多租户应用程序是支持单个组织目录外部的帐户的应用程序；例如，它们支持所有 Azure AD 帐户。
 

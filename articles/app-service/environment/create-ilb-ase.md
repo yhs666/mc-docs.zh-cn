@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 origin.date: 08/05/2019
-ms.date: 09/20/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 98d1a9c8ad82454f82cca056e1239c1f0aabb79d
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: d09f2b42360ee8bb5803e784a8e8d3dbf7ae1f27
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041129"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555964"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>创建和使用内部负载均衡器应用服务环境 
 
@@ -108,9 +108,10 @@ ILB ASE 上同时支持函数和 Web 作业，但对于与其配合使用的门�
 若要配置 DNS：
 
 - 为 *&lt;ASE 名称&gt;.appserviceenvironment.cn* 创建一个区域
-- 在该区域中创建一条指向* ILB IP 地址的 A 记录 
+- 在该区域中创建一条指向* ILB IP 地址的 A 记录
+- 在该区域中创建一条指向 @ ILB IP 地址的 A 记录
 - 在 *&lt;ASE 名称&gt;.appserviceenvironment.cn* 中创建名为 scm 的区域
-- 在 scm 区域中创建一条指向 ILB IP 地址的 A 记录
+- 在 scm 区域中创建一条指向 * ILB IP 地址的 A 记录
 
 ## <a name="publish-with-an-ilb-ase"></a>使用 ILB ASE 发布
 

@@ -14,15 +14,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 06/10/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 16ea7652e326529572744c39e136e60fe8577576
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 9f109fcdfc8997ceace98e2f8fbd77c9c5d1f783
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250571"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657977"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>启用容器以使用 Azure 虚拟网络功能
 
@@ -61,7 +61,9 @@ Pod 将显示在属于虚拟网络一部分的虚拟机中。 Pod 的 IP 地址�
 可采用以下方式来使用该插件，以提供 Pod 或 Docker 容器的基本虚拟网络连接：
 
 - **Azure Kubernetes 服务**：该插件已集成到 Azure Kubernetes 服务 (AKS) 中，选择“高级网络”  选项即可使用该插件。 使用高级网络，可在现有或新的虚拟网络中部署 Kubernetes 群集。 如需深入了解高级网络及其设置步骤，请参阅 [AKS 中的网络配置](../aks/configure-azure-cni.md?toc=%2fvirtual-network%2ftoc.json)。
+    
     <!--MOONCAKE: URL networking-overview.md DIRECT TO configure-azure-cni.md-->
+    
 - **AKS-Engine**：AKS-Engine 是一项工具，用于生成 Azure 资源管理器模板，以便在 Azure 中部署 Kubernetes 群集。 如需详细说明，请参阅[为 AKS-Engine Kubernetes 群集部署插件](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in)。
 - **在 Azure 中创建自己的 Kubernetes 群集**：该插件可用于为自行部署的 Kubernetes 群集中的 Pod 提供基本网络，无需依赖于 AKS 或 AKS-Engine 之类的工具。 在这种情况下，群集中的每个虚拟机上都已安装并启用该插件。 如需详细说明，请参阅[为自行部署的 Kubernetes 群集部署插件](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster)。
 - **Azure 中 Docker 容器的虚拟网络附加**：不希望创建 Kubernetes 群集，而希望创建在虚拟机中附加虚拟网络的 Docker 容器时，可使用该插件。 如需详细说明，请参阅[为容器部署插件](deploy-container-networking.md#deploy-plug-in-for-docker-containers)。
@@ -70,5 +72,4 @@ Pod 将显示在属于虚拟网络一部分的虚拟机中。 Pod 的 IP 地址�
 
 为 Kubernetes 群集或 Docker 容器[部署插件](deploy-container-networking.md)
 
-<!--Update_Description: new articles on container networking overview -->
-<!--ms.date: 06/03/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

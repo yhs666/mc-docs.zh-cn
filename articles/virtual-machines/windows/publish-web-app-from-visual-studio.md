@@ -1,5 +1,5 @@
 ---
-title: 通过 Visual Studio 将 Web 应用发布到 Azure VM
+title: 通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 description: 通过 Visual Studio 将 ASP.NET Web 应用程序发布到 Azure 虚拟机
 services: virtual-machines-windows
 author: rockboyfor
@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 11/03/2017
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 395608276abffbd254731e190de500885815a6b7
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: 7cb29c07c75ec127ef9eac8a633a774bf24e9ba6
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116964"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74593823"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 

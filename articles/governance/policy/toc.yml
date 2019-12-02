@@ -28,6 +28,9 @@
     - name: 创建自定义策略定义
       displayName: 'disabled, parameters, rule, mode'
       href: ./tutorials/create-custom-policy-definition.md
+    - name: 管理标记治理
+      displayName: 'modify, append, effects'
+      href: ./tutorials/govern-tags.md
 - name: 示例
   items:
     - name: 索引
@@ -191,7 +194,7 @@
             - name: 如果未对区域启用网络观察程序，则进行审核
               displayName: 'auditIfNotExists, Location'
               href: samples/network-watcher-not-enabled.md
-        - name: 应用程序网关数
+        - name: 应用程序网关
           items:
             - name: 允许的应用程序网关 SKU
               displayName: deny
@@ -212,9 +215,6 @@
             - name: 审核 SQL Server 级别的审核设置
               displayName: auditIfNotExists
               href: samples/audit-sql-server-audit-setting.md
-            - name: 需要 SQL Server 版本 12.0
-              displayName: 'deny, builtin'
-              href: samples/require-sql-12.md
         - name: SQL 数据库
           items:
             - name: 允许的 SQL DB SKU
@@ -254,11 +254,23 @@
     - name: 了解 Policy 效果
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure Policy 分配结构
+      displayName: 'parameters, enforcementmode, policyDefinitionId'
+      href: ./concepts/assignment-structure.md
+    - name: 评估新策略的影响
+      displayName: 'audit, enforcementmode, compliance'
+      href: ./concepts/evaluate-impact.md
+    - name: 将策略设计为代码工作流
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./concepts/policy-as-code.md
     - name: 使用来宾配置审核 VM
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
 - name: 操作指南
   items:
+    - name: 用于 VSCode 的 Azure Policy 扩展
+      displayName: visual studio code
+      href: ./how-to/extension-for-vscode.md
     - name: 以编程方式创建策略
       displayName: 'assign, definition'
       href: ./how-to/programmatically-create.md
@@ -295,9 +307,17 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: 策略定义
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - name: 用于 Python 的 Azure SDK
+      items:
+        - name: 策略
+          href: 'https://docs.microsoft.com/python/api/azure-mgmt-resource/azure.mgmt.resource.policy'
+        - name: 策略客户端
+          href: 'https://docs.microsoft.com/python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient'
+        - name: 策略见解
+          href: 'https://docs.microsoft.com/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights'
     - name: REST
       items:
-        - name: 活动
+        - name: 事件
           href: 'https://docs.microsoft.com/rest/api/policy-insights/policyevents'
         - name: States
           href: 'https://docs.microsoft.com/rest/api/policy-insights/policystates'
@@ -313,7 +333,7 @@
           href: 'https://docs.microsoft.com/rest/api/policy-insights/remediations'
         - name: 来宾配置
           href: 'https://docs.microsoft.com/rest/api/guestconfiguration/'
-    - name: 资源管理器模板
+    - name: Resource Manager 模板
       items:
         - name: 分配
           href: /azure/templates/microsoft.authorization/policyassignments
@@ -325,7 +345,5 @@
   items:
     - name: GitHub - Azure Policy 示例
       href: 'https://github.com/Azure/azure-policy'
-    - name: 视频 - Build 2018
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'

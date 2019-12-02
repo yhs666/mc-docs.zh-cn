@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.topic: article
 origin.date: 04/04/2018
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 11/25/2019
+ms.author: v-tawe
+ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: ddbbd9043f39d34bb03069d5ab9e2ed589aabe9f
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: c1d9021dcec5c966dc2d6b152902e8501f6e92fc
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083719"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555992"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>在 Azure 中从快照还原应用
 本文介绍如何在 [Azure 应用服务](../app-service/overview.md)中从快照还原应用。 可以根据应用的某个快照将应用还原到以前的状态。 不需启用快照备份，平台会自动保存所有应用的快照，用于数据恢复。
@@ -30,7 +31,7 @@ ms.locfileid: "54083719"
 - 没有存储大小限制。
 - 不需配置。
 
-从快照还原适用于在**高级**层或更高层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](web-sites-scale.md)。
+从快照还原适用于在**高级**层或更高层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](manage-scale-up.md)。
 
 ## <a name="limitations"></a>限制
 
@@ -39,24 +40,25 @@ ms.locfileid: "54083719"
 - 用于服务在执行还原操作时会停止目标应用或目标槽。
 - 应用服务保留三个月的快照，用于平台数据恢复。
 - 只能还原过去 30 天的快照。
+- 在应用服务环境上运行的应用服务不支持快照。
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>从快照还原应用
 
-1. 在 [Azure 门户](https://portal.azure.cn)中应用的“设置”页上，单击“备份”以显示“备份”页。 然后，在“快照(预览)”部分下单击“还原”。
+1. 在 [Azure 门户](https://portal.azure.cn)中应用的“设置”页上，单击“备份”以显示“备份”页    。 然后，在“快照(预览)”部分下单击“还原”。  
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. 在“还原”页中选择要还原的快照。
+2. 在“还原”页中选择要还原的快照。 
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
-3. 在“还原目标”中指定应用还原的目标。
+3. 在“还原目标”中指定应用还原的目标。 
    
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > 如果选择“覆盖”，则会清除并覆盖应用的当前文件系统中的所有现有数据。 在单击“确定”之前，请确保该操作是想要执行的操作。
+   > 如果选择“覆盖”  ，则会清除并覆盖应用的当前文件系统中的所有现有数据。 在单击“确定”  之前，请确保该操作是想要执行的操作。
    > 
    > 
       
@@ -71,4 +73,4 @@ ms.locfileid: "54083719"
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 
-5. 单击 **“确定”**。
+5. 单击 **“确定”** 。
