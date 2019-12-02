@@ -1,20 +1,18 @@
 ---
-title: Resource Manager 模板函数 | Azure
+title: 模板函数
 description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 503be68bd5eebc5b350a9b7151fa221624c293f8
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 10/24/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 8fd9196ca3f53e69097fe5540d863f02ab1825cd
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156197"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389390"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
+
 本文介绍可以在 Azure 资源管理器模板中使用的所有函数。 若要了解如何在模板中使用函数，请参阅[模板语法](template-expressions.md)。
 
 若要创建自己的函数，请参阅[用户定义函数](resource-group-authoring-templates.md#functions)。
@@ -124,6 +122,7 @@ Resource Manager 提供以下用于处理整数的函数：
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
+<a name="extensionResourceId" aria-hidden="true" />
 <a name="listkeys" aria-hidden="true" />
 <a name="list" aria-hidden="true" />
 <a name="providers" aria-hidden="true" />
@@ -131,10 +130,13 @@ Resource Manager 提供以下用于处理整数的函数：
 <a name="resourcegroup" aria-hidden="true" />
 <a name="resourceid" aria-hidden="true" />
 <a name="subscription" aria-hidden="true" />
+<a name="subscriptionResourceId" aria-hidden="true" />
+<a name="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Resource functions
 Resource Manager 提供以下用于获取资源值的函数：
 
+* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
@@ -144,6 +146,8 @@ Resource Manager 提供以下用于获取资源值的函数：
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
+* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
 
 <a name="base64" aria-hidden="true" />
 <a name="base64tojson" aria-hidden="true" />
@@ -214,6 +218,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>后续步骤
+
 * 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）
 * 要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)
 * 若要在创建资源类型时迭代指定的次数，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）

@@ -1,18 +1,15 @@
 ---
-title: 使用 Azure 门户部署 Azure 资源 | Azure
-description: 使用 Azure 门户和 Azure Resource Manager 来部署资源。
-author: rockboyfor
-ms.service: azure-resource-manager
+title: 使用 Azure 门户部署资源
+description: 使用 Azure 门户和 Azure 资源管理器将资源部署到订阅中的资源组。
 ms.topic: conceptual
 origin.date: 06/27/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1d560359a214713201715228f17c35c4772dddf6
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.date: 11/25/2019
+ms.openlocfilehash: bcb528efde90e627d1d85d074a3d18b83df16cd9
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337473"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389467"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -79,63 +76,59 @@ ms.locfileid: "68337473"
 
 如果想要执行部署，但不使用市场中的任何模板，可以创建自定义模板来针对解决方案定义基础结构。 若要了解如何创建模板，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 
+<!--MOONCAKE: AZURE CHINA CLOUD HAS FOLLOW GLOBAL SITE -->
+
 > [!NOTE]
 > 门户界面不支持引用[来自 Key Vault 的密码](resource-manager-keyvault-parameter.md)。 请改用 [PowerShell](resource-group-template-deploy.md) 或 [Azure CLI](resource-group-template-deploy-cli.md)，从本地或从外部 URI 部署模板。
-
 
 1. 若要通过门户部署自定义模板，请选择“创建资源”  ，搜索“模板”  ， 然后选择“模板部署”  。
 
     ![搜索模板部署](./media/resource-group-template-deploy-portal/search-template.png)
-    
-    <!--MOONCAKE: CUSTOMIZE, EDIT CAREFULLY-->
-    
+
 1. 选择“创建”  。
+1. 此时，会看到用于创建模板的几个选项：
 
-    ![选择“创建”](./media/resource-group-template-deploy-portal/show-template-option.png)
+    - **在编辑器中生成自己的模板**：使用门户模板编辑器创建一个模板。  编辑器能够添加源模板架构。
+    - **常用模板**：有四种常用模板，分别用于创建 Linux 虚拟机、Windows 虚拟机、Web 应用程序、Azure SQL 数据库。
+    - **加载 GitHub 快速入门模板**：使用现有的[快速入门模板](https://github.com/Azure/azure-quickstart-templates/)。
+
+        ![视图选项](./media/resource-group-template-deploy-portal/see-options.png)
+
+    本教程提供了加载快速入门模板的说明。
+
+1. 在“加载 GitHub 快速入门模板”下，键入或选择 **101-storage-account-create**。 
+
+    可以使用两个选项：
+
+    - **选择模板**：部署模板。
+    - **编辑模板**：在部署快速入门模板之前对其进行编辑。
+
+1. 选择“编辑模板”，浏览门户模板编辑器。  模板会加载到编辑器中。 请注意，有两个参数：**storageAccountType** 和 **location**。
     
-   <!--MOONCAKE: NOT VALID ON ![View options](./media/resource-group-template-deploy-portal/see-options.png)-->
+    >[!NOTE]
+    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的 VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
-1. 选择“编辑模板”。  你已具有可用于自定义的空白模板。
+    ![创建模板](./media/resource-group-template-deploy-portal/show-json.png)
 
-    ![创建模板](./media/resource-group-template-deploy-portal/blank-template.png)
+1. 对模板进行小的更改。 例如，将 **storageAccountName** 变量更新为：
 
-1. 可以手动编辑 JSON 语法，也可以从[模板库快速入门](https://github.com/Azure/azure-quickstart-templates/)中选择预建模板。 但是，本文使用的是“添加资源”  选项。
+    ```json
+    "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
+    ```
 
-    ![编辑模板](./media/resource-group-template-deploy-portal/select-add-resource.png)
+1. 选择“保存”  。 现在会看到门户模板部署界面。 请注意在模板中定义的两个参数。
+1. 输入或选择属性值：
 
-1. 选择“存储帐户”  并为其提供名称。 完成提供值后，选择“确定”  。
+    - **订阅**：选择 Azure 订阅。
+    - **资源组**：选择“新建”并指定名称。 
+    - **位置**：选择 Azure 位置。
+    - **存储帐户类型**：使用默认值。
+    - **位置**：使用默认值。
+    - **我同意上述条款和条件**：（选中）
 
-    ![选择存储帐户](./media/resource-group-template-deploy-portal/add-storage-account.png)
+1. 选择“购买”。 
 
-1. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“保存”  。
-
-    ![显示模板](./media/resource-group-template-deploy-portal/show-json.png)
-
-1. 现在，可以选择部署模板中定义的资源。 若要部署，请同意条款和条件，然后选择“购买”  。
-
-    ![部署模板](./media/resource-group-template-deploy-portal/provide-custom-template-values.png)
-
-## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>从保存到帐户中的模板部署资源
-
-该门户允许用户将模板保存到 Azure 帐户，以便以后重新部署它。 有关模板的详细信息，请参阅[创建和部署第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。
-
-1. 若要查找已保存模板，请选择“更多服务”  。
-
-    ![其他服务](./media/resource-group-template-deploy-portal/more-services.png)
-
-1. 搜索模板  并选择该选项。
-
-    ![搜索模板](./media/resource-group-template-deploy-portal/find-templates.png)
-
-1. 从已保存到帐户的模板列表中，选择要使用的模板。
-
-    ![已保存模板](./media/resource-group-template-deploy-portal/saved-templates.png)
-
-1. 选择“部署”  以重新部署该已保存模板。
-
-    ![部署已保存模板](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
-
-<!--MOONCAKE: CUSTOMIZE, EDIT CAREFULLY-->
+<!--MOONCAKE: AZURE CHINA CLOUD HAS FOLLOW GLOBAL SITE -->
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -144,4 +137,4 @@ ms.locfileid: "68337473"
 - 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
 
 <!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
-<!--Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

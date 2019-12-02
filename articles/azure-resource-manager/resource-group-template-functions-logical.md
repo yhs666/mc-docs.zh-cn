@@ -1,22 +1,19 @@
 ---
-title: Azure 资源管理器模板函数 - 逻辑 | Azure
+title: 模板函数 - 逻辑
 description: 介绍 Azure 资源管理器模板中用于确定逻辑值的函数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 903f6d64fbd39c505889b0c1a8d93d97689dd151
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 655a5b06d23af542176b868e8acdc41a8605bc9a
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156198"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389392"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>用于 Azure 资源管理器模板的逻辑函数
 
-资源管理器提供了多个用于在模板中进行比较的函数。
+Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 * [and](#and)
 * [bool](#bool)
@@ -24,19 +21,19 @@ ms.locfileid: "71156198"
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>and
+## <a name="and"></a>和
 
 `and(arg1, arg2, ...)`
 
 检查所有参数值是否均为 true。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数 | 必需 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布尔值 |第一个值，需检查其是否为 true。 |
-| arg2 |是 |布尔值 |要检查是否为 true 的第二个值。 |
-| 其他参数 |否 |布尔值 |用于检查是否为 true 的其他参数。 |
+| arg1 |是 |boolean |第一个值，需检查其是否为 true。 |
+| arg2 |是 |boolean |要检查是否为 true 的第二个值。 |
+| 其他参数 |否 |boolean |用于检查是否为 true 的其他参数。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -70,7 +67,7 @@ ms.locfileid: "71156198"
 
 前述示例的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -82,9 +79,9 @@ ms.locfileid: "71156198"
 
 将参数转换为布尔值。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数 | 必需 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |字符串或整数 |要转换为布尔值的值。 |
 
@@ -123,7 +120,7 @@ ms.locfileid: "71156198"
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -136,11 +133,11 @@ ms.locfileid: "71156198"
 
 根据条件为 true 或 false 返回值。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数 | 必需 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| 条件 |是 |布尔值 |要检查是为 true 还是为 false 的值。 |
+| 条件 |是 |boolean |要检查是为 true 还是为 false 的值。 |
 | trueValue |是 | 字符串、int、对象或数组 |条件为 true 时返回的值。 |
 | falseValue |是 | 字符串、int、对象或数组 |条件为 false 时返回的值。 |
 
@@ -181,7 +178,7 @@ ms.locfileid: "71156198"
 
 前述示例的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | yesOutput | String | 是 |
 | noOutput | String | 否 |
@@ -241,11 +238,11 @@ ms.locfileid: "71156198"
 
 将布尔值转换为其相反值。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数 | 必需 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布尔值 |要转换的值。 |
+| arg1 |是 |boolean |要转换的值。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -279,7 +276,7 @@ ms.locfileid: "71156198"
 
 前述示例的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -303,23 +300,23 @@ ms.locfileid: "71156198"
 
 前述示例的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>or
+## <a name="or"></a>或
 
 `or(arg1, arg2, ...)`
 
 检查任何参数值是否为 true。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数 | 必需 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布尔值 |第一个值，需检查其是否为 true。 |
-| arg2 |是 |布尔值 |要检查是否为 true 的第二个值。 |
-| 其他参数 |否 |布尔值 |用于检查是否为 true 的其他参数。 |
+| arg1 |是 |boolean |第一个值，需检查其是否为 true。 |
+| arg2 |是 |boolean |要检查是否为 true 的第二个值。 |
+| 其他参数 |否 |boolean |用于检查是否为 true 的其他参数。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -353,7 +350,7 @@ ms.locfileid: "71156198"
 
 前述示例的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -362,8 +359,8 @@ ms.locfileid: "71156198"
 ## <a name="next-steps"></a>后续步骤
 
 * 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
-* 若要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。
+* 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
+* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
 <!--Update_Description: update meta properties -->

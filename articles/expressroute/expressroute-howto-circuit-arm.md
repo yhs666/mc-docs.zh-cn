@@ -1,5 +1,5 @@
 ---
-title: 创建和修改 ExpressRoute 线路：PowerShell：Azure 资源管理器 | Azure
+title: Azure ExpressRoute：修改线路：PowerShell
 description: 创建、预配、验证、更新、删除和取消预配 ExpressRoute 线路。
 services: expressroute
 author: ganesr
@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/20/2019
-ms.date: 08/12/2019
+origin.date: 11/13/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8a290c1139a21cf18a05b2ac5ec17613beee4486
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.openlocfilehash: 1b2ebc0b52e308c83cb072c3ad2a393ac1ad080f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68733539"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389455"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "68733539"
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 ## <a name="create"></a>创建和预配 ExpressRoute 线路
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1.登录到 Azure 帐户，然后选择订阅
 要开始配置，请登录到 Azure 帐户。 使用下面的示例来帮助连接：

@@ -1,18 +1,15 @@
 ---
-title: 查看 Azure 活动日志，以便监视资源 | Azure
+title: 查看 Azure 活动日志以监视资源
 description: 使用活动日志查看用户操作和错误。 显示 Azure 门户、PowerShell、Azure CLI 和 REST。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 05/13/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: cd40a40cbbd0d159fa9a15d424e7f293e5d3f216
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.date: 11/25/2019
+ms.openlocfilehash: a5fae2889b485cf6a82f8f0afe44038de885969f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857301"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389348"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>查看活动日志以监视对资源的操作
 
@@ -56,7 +53,7 @@ ms.locfileid: "70857301"
 
     ![查看筛选器](./media/resource-group-audit/view-filters.png)
 
-1. 若要专注于特定操作，请更改筛选器或应用新的筛选器。 例如，下图显示了“时间跨度”的新值，且“资源类型”设置为存储帐户   。 
+1. 若要专注于特定操作，请更改筛选器或应用新的筛选器。 例如，下图显示了“时间跨度”的新值，且“资源类型”设置为存储帐户   。
 
     ![设置筛选器选项](./media/resource-group-audit/set-filter.png)
 
@@ -126,11 +123,11 @@ Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller,
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-<!--Not Available on [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md)-->
+可以使用 Resource Graph 查看资源的更改历史记录。 有关详细信息，请参阅[获取资源更改](../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要检索日志条目，请运行带有偏移量（用于指示时间跨度）的 [az monitor activity-log list](https://docs.azure.cn/zh-cn/cli/monitor/activity-log?view=azure-cli-latest#az-monitor-activity-log-list) 命令。
+若要检索日志条目，请运行带有偏移量（用于指示时间跨度）的 [az monitor activity-log list](https://docs.azure.cn/cli/monitor/activity-log?view=azure-cli-latest#az-monitor-activity-log-list) 命令。
 
 ```azurecli
 az monitor activity-log list --resource-group ExampleGroup --offset 7d
@@ -162,7 +159,7 @@ az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query
 
 可以选择特定值来限制返回的数据。
 
-  ```azurecli
+```azurecli
 az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
 ```
 
@@ -172,7 +169,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation:
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-<!--Not Available on [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md)-->
+可以使用 Resource Graph 查看资源的更改历史记录。 有关详细信息，请参阅[获取资源更改](../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="rest-api"></a>REST API
 
@@ -182,8 +179,9 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 
 * Azure 活动日志可以与 Power BI 一起使用，以便更深入地了解在订阅中执行的操作。 请参阅 [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）。
 * 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
+* 若要查看有关从基础结构层一直到应用程序部署的应用程序更改的详细信息，请参阅[在 Azure Monitor 中使用应用程序更改分析](../azure-monitor/app/change-analysis.md)。
 * 若要了解用于查看部署操作的命令，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 * 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 * 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!-- Update_Description: update meta properties, wording update, update link -->

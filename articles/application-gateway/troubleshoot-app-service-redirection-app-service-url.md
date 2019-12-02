@@ -1,19 +1,20 @@
 ---
-title: 排查 Azure 应用程序网关与应用服务的问题 - 重定向到应用服务的 URL
+title: 排查重定向到应用服务 URL 的问题
+titleSuffix: Azure Application Gateway
 description: 本文介绍如何排查将 Azure 应用程序网关与 Azure 应用服务配合使用时出现的重定向问题
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-origin.date: 07/19/2019
-ms.date: 09/18/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: a0e71527d03a1a42da4b0affe7489e2448f169d2
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: c9ffe537445da90902a67c938187256bd5966fb8
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083256"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326470"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>排查应用程序网关中的应用服务问题
 
@@ -77,7 +78,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-在以上示例中，可以看到响应标头包含 301 重定向状态代码。 location 标头包含应用服务的主机名，而不是原始主机名 www.contoso.com。
+在以上示例中，可以看到响应标头包含 301 重定向状态代码。 location 标头包含应用服务的主机名，而不是原始主机名 `www.contoso.com`。
 
 ## <a name="solution-rewrite-the-location-header"></a>解决方案：重写 location 标头
 
@@ -98,9 +99,9 @@ X-Powered-By: ASP.NET
 
     ![应用服务自定义域列表](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- 应用服务现已准备好接受主机名 www.contoso.com。 更改 DNS 中的 CNAME 条目，使其指回到应用程序网关的 FQDN，例如 appgw.chinanorth.chinacloudapp.cn。
+- 应用服务现已准备好接受主机名 `www.contoso.com`。 更改 DNS 中的 CNAME 条目，使其重新指向应用程序网关的 FQDN，例如 `appgw.chinanorth.chinacloudapp.cn`。
 
-- 确保执行 DNS 查询时，域 www.contoso.com 解析为应用程序网关的 FQDN。
+- 确保执行 DNS 查询时，域 `www.contoso.com` 解析为应用程序网关的 FQDN。
 
 - 设置自定义探测以禁用“从后端 HTTP 设置中选取主机名”。  在 Azure 门户中，清除探测设置中的复选框。 在 PowerShell 中，请不要在 **Set-AzApplicationGatewayProbeConfig** 命令中使用 **-PickHostNameFromBackendHttpSettings** 开关。 在探测的主机名字段中，输入应用服务的 FQDN：example.chinacloudsites.cn。 从应用程序网关发送的探测请求会在 host 标头中携带此 FQDN。
 
@@ -111,7 +112,7 @@ X-Powered-By: ASP.NET
 
 - 将自定义探测重新关联到后端 HTTP 设置，并验证后端是否正常。
 
-- 现在，应用程序网关应会将同一主机名 www.contoso.com 转发到应用服务。 重定向在同一主机名中发生。 检查以下示例请求和响应标头。
+- 现在，应用程序网关应会将同一主机名 `www.contoso.com` 转发到应用服务。 重定向在同一主机名中发生。 检查以下示例请求和响应标头。
 
 若要使用 PowerShell 对现有设置执行上述步骤，请使用以下示例 PowerShell 脚本。 请注意，我们没有在探测和 HTTP 设置配置中使用 **-PickHostname** 开关。
 

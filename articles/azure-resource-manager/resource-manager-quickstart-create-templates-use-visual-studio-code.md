@@ -1,31 +1,23 @@
 ---
-title: 使用 Visual Studio Code 创建 Azure 资源管理器模板 | Azure
+title: 创建模板 - Visual Studio Code
 description: 使用 Visual Studio Code 和可在资源管理器模板上运行的 Azure 资源管理器工具扩展。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 03/18/2019
+ms.date: 11/25/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 19f4059864fb7d4b4512eb2982f32f26f6a3a415
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: f45677a2a7bbab0849c24e4d67936b7e0649e40b
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348034"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389581"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板
 
 了解如何使用 Visual Studio Code 和 Azure 资源管理器工具扩展创建和编辑 Azure 资源管理器模板。 可以在 Visual Studio Code 中不使用扩展创建资源管理器模板，但是该扩展提供自动完成选项，可以简化模板开发。 若要了解与部署和管理 Azure 解决方案相关联的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
 
-在本教程中，你将部署存储帐户：
+在本快速入门中，你将部署存储帐户：
 
 ![资源管理器模板快速入门 visual studio 代码关系图](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
@@ -40,8 +32,8 @@ ms.locfileid: "58348034"
 
     1. 打开 Visual Studio Code。
     2. 按 **CTRL+SHIFT+X** 打开“扩展”窗格
-    3. 搜索“Azure 资源管理器工具”，然后选择“安装”。
-    4. 选择“重新加载”完成扩展安装。
+    3. 搜索“Azure 资源管理器工具”，然后选择“安装”。  
+    4. 选择“重新加载”完成扩展安装  。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
@@ -49,15 +41,15 @@ ms.locfileid: "58348034"
 
 本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
-2. 在“文件名”中粘贴以下 URL：
+1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
+2. 在“文件名”中粘贴以下 URL： 
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 
-3. 选择“打开”以打开该文件。
-4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
+3. 选择“打开”以打开该文件。 
+4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。  
 
 ## <a name="edit-the-template"></a>编辑模板
 
@@ -91,19 +83,20 @@ ms.locfileid: "58348034"
 
     ![资源管理器模板 - Visual Studio Code - IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. 选择“文件”>“保存”以保存文件。
+2. 选择“文件”>“保存”以保存文件。  
 
 ## <a name="deploy-the-template"></a>部署模板
 
-可通过多种方法来部署模板。  在本快速入门中，使用 Azure 本地 Shell 或 Azure PowerShell 部署模板。
+可通过多种方法来部署模板。  在本快速入门中，使用 Azure CLI 或 Azure PowerShell 部署模板。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 <!--Not Available on Cloud Shell-->
+
 1. 从 Azure 本地 shell 运行以下命令。 选择用于显示 PowerShell 代码或 CLI 代码的选项卡。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     az cloud set -n AzureChinaCloud
     az login
     echo "Enter the Resource Group name:" &&
@@ -130,7 +123,7 @@ ms.locfileid: "58348034"
 
     ---
 
-    如果将模板文件保存到了 **azuredeploy.json** 之外的其他文件中，其更新其名称。 
+    如果将模板文件保存到了 **azuredeploy.json** 之外的其他文件中，其更新其名称。
 
     以下屏幕截图显示了示例部署：
 
@@ -173,18 +166,18 @@ ms.locfileid: "58348034"
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 在“按名称筛选”字段中输入资源组名称。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 在“按名称筛选”字段中输入资源组名称。 
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门的主要关注点是如何使用 Visual Studio Code 编辑 Azure 快速入门模板中的现有模板。 此外还介绍了如何通过本地电脑使用 CLI 或 PowerShell 部署模板。 Azure 快速入门模板中的模板可能并未提供你所需的一切。 下一教程介绍如何从模板参考中查找信息，以便创建加密的 Azure 存储帐户。
+本快速入门的主要关注点是如何使用 Visual Studio Code 编辑 Azure 快速入门模板中的现有模板。 此外还介绍了如何通过本地电脑使用 CLI 或 PowerShell 部署模板。 Azure 快速入门模板中的模板可能并未提供你所需的一切。若要详细了解模板开发，请参阅新的初学者教程系列：
 
 <!--Not Available on Cloud Shell-->
 
 > [!div class="nextstepaction"]
-> [创建加密的存储帐户](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [初学者教程](./template-tutorial-create-first-template.md)
 
-<!-- Update_Description: update meta properties, wording update, update cmdlet -->
+<!-- Update_Description: update meta properties, wording update, update link -->

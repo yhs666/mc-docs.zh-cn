@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/17/2019
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8d92eb3456bd5e633a6380ad300d35a5feba6d53
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 0ea4dac311092ccf816eaa2fdd4dd33b41c6ef10
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914438"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328718"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用 Azure Active Directory 和 Azure 资源的托管标识授权对 Blob 和队列的访问权限
 

@@ -1,24 +1,20 @@
 ---
-title: 创建支持内部重定向的应用程序网关 - Azure CLI | Microsoft Docs
+title: 使用 CLI 进行内部重定向
+titleSuffix: Azure Application Gateway
 description: 了解如何创建应用程序网关，将内部 web 流量重定向到相应的池中使用 Azure CLI。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 07/14/2018
-ms.date: 08/06/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0fef759a81805d32890fa83b531fc1c04f7ee3a7
-ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
+ms.openlocfilehash: d2d603c1c98b4140fe15b97c86470bb19103ad99
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818817"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326642"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持内部重定向的应用程序网关
 
@@ -228,4 +224,4 @@ az network public-ip show `
 > * 使用后端池创建虚拟机规模集
 > * 在域中创建 CNAME 记录
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

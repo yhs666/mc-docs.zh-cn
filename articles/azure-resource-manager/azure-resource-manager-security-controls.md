@@ -1,20 +1,15 @@
 ---
-title: Azure 资源管理器的安全控制
-description: 用于评估 Azure 资源管理器的安全控制的清单
-services: azure-resource-manager
-author: rockboyfor
-manager: digimobile
-ms.service: azure-resource-manager
+title: 安全控件
+description: 用于评估 Azure 资源管理器服务的内置安全控制的清单。
 ms.topic: conceptual
 origin.date: 09/04/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: fc12186cb3add2c71329f2f5e262397f75e0073d
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 4f0c8f2e4959d658df8ba71f1a1c4cfcc3492bf4
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156451"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389423"
 ---
 <!--Verify successfully-->
 # <a name="security-controls-for-azure-resource-manager"></a>Azure 资源管理器的安全控制
@@ -66,5 +61,4 @@ ms.locfileid: "71156451"
 <!--Not Available on ## Next steps-->
 <!--Not Available on [built-in security controls across Azure services](../security/fundamentals/security-controls.md)-->
 
-<!--Update_Description: new articles on azure resource manager security controls -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

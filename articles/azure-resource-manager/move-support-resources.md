@@ -1,24 +1,22 @@
 ---
-title: Azure 资源类型支持的移动操作
+title: 资源类型支持的移动操作
 description: 列出可移到新资源组或订阅的 Azure 资源类型。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 09/06/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 14786c3a88d8f19d8ef59f73115f9b6469878e24
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+origin.date: 10/24/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 8919d1c9b4f08b7e234ee5155d78f1935d3124ed
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303276"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389349"
 ---
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
 本文列出某个 Azure 资源类型是否支持移动操作。 它还提供了有关移动资源时要考虑的特殊条件的信息。
 
 跳转到资源提供程序命名空间：
 > [!div class="op_single_selector"]
+> - [Microsoft.AAD](#microsoftaad)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
@@ -27,7 +25,6 @@ ms.locfileid: "72303276"
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Cache](#microsoftcache)
 > - [Microsoft.Cdn](#microsoftcdn)
@@ -50,6 +47,7 @@ ms.locfileid: "72303276"
 > - [Microsoft.HDInsight](#microsofthdinsight)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.Logic](#microsoftlogic)
@@ -70,14 +68,22 @@ ms.locfileid: "72303276"
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Web](#microsoftweb)
 
-<!--Not Available on ## Microsoft.AAD-->
+## <a name="microsoftaad"></a>Microsoft.AAD
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | domainservices | 否 | 否 |
+> | domainservices/replicasets | 否 | 否 |
+
 <!--Not Available on ## microsoft.aadiam-->
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -141,19 +147,14 @@ ms.locfileid: "72303276"
 > | ------------- | ----------- | ---------- |
 > | b2cdirectories | 是 | 是 |
 
+<!-- Not Available on ## Microsoft.AzureData-->
+
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 资源组 | 订阅 |
 > | ------------- | ----------- | ---------- |
 > | registrations | 是 | 是 |
-
-## <a name="microsoftbackup"></a>Microsoft.Backup
-
-> [!div class="mx-tableFixed"]
-> | 资源类型 | 资源组 | 订阅 |
-> | ------------- | ----------- | ---------- |
-> | backupvault | 否 | 否 |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -255,6 +256,7 @@ ms.locfileid: "72303276"
 
 > [!IMPORTANT]
 > 请参阅[虚拟机移动指南](./move-limitations/virtual-machines-move-limitations.md)。
+
 <!-- Not Available on ## Microsoft.Container-->
 <!-- Not Available on ## Microsoft.ContainerInstance-->
 
@@ -297,6 +299,7 @@ ms.locfileid: "72303276"
 > | ------------- | ----------- | ---------- |
 > | datafactories | 是 | 是 |
 > | factories | 是 | 是 |
+
 <!-- Not Available on ## Microsoft.DataLake-->
 <!-- Not Available on ## Microsoft.DataLakeAnalytics-->
 <!-- Not Available on ## Microsoft.DataLakeStore-->
@@ -349,7 +352,6 @@ ms.locfileid: "72303276"
 
 <!-- Not Available on ## Microsoft.DevSpaces-->
 <!-- Not Available on ## Microsoft.DevTestLab-->
-<!-- Not Available on ## microsoft.dns-->
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -395,6 +397,7 @@ ms.locfileid: "72303276"
 <!-- Not Available on ## Microsoft.HealthcareApis-->
 <!-- Not Available on ## Microsoft.HybridCompute-->
 <!-- Not Available on ## Microsoft.HybridData-->
+
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
@@ -426,15 +429,21 @@ ms.locfileid: "72303276"
 > [!IMPORTANT]
 > 确保移到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#monitor-limits)。
 
-<!--MOONCAKE: CORRECT ON #monitor-limits -->
+## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
-<!-- Not Available on ## Microsoft.IoTCentral-->
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | iotapps | 是 | 是 |
+
 <!-- Not Available on ## Microsoft.IoTSpaces-->
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| vaults | 是 | 是 |
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | vaults | 是 | 是 |
 
 <!--MOONCAKE: HSM IS NOT SUPPORT ON MOONCAKE-->
 
@@ -532,7 +541,6 @@ ms.locfileid: "72303276"
 > | publicipprefixes | 是 | 是 |
 > | routefilters | 否 | 否 |
 > | routetables | 是 | 是 |
-> | securegateways | 是 | 是 |
 > | serviceendpointpolicies | 是 | 是 |
 > | trafficmanagerprofiles | 是 | 是 |
 > | virtualhubs | 否 | 否 |
@@ -613,7 +621,8 @@ ms.locfileid: "72303276"
 > | ------------- | ----------- | ---------- |
 > | vaults | 是 | 是 |
 
-<!--MOONCAKE: Not Availabl on backup/backup-azure-move-recovery-services-vault-->
+> [!IMPORTANT]
+> 请参阅[恢复服务移动指南](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure-resource-manager/toc.json)。
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -630,6 +639,7 @@ ms.locfileid: "72303276"
 > | 查询 | 是 | 是 |
 
 <!--Not Available on ## Microsoft.SaaS-->
+
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tableFixed"]
@@ -675,16 +685,23 @@ ms.locfileid: "72303276"
 <!-- Not Available on ## Microsoft.ServiceFabricMesh-->
 <!-- Not Available on ## Microsoft.SignalRService-->
 
-## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
+## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 资源组 | 订阅 |
 > | ------------- | ----------- | ---------- |
-> | siterecoveryvault | 否 | 否 |
+> | signalr | 是 | 是 |
 
-<!--MOONCAKE: Not Available on backup/backup-azure-move-recovery-services-vault-->
+## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
-<!--Not Available on ## Microsoft.Solutions-->
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | appliancedefinitions | 否 | 否 |
+> | appliances | 否 | 否 |
+> | applicationdefinitions | 否 | 否 |
+> | applications | 否 | 否 |
+> | jitrequests | 否 | 否 |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -712,6 +729,7 @@ ms.locfileid: "72303276"
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | 是 | 是 |
 
+<!-- Not Available on ## Microsoft.StorageCache-->
 <!-- Not Available on ## Microsoft.StorageSync-->
 <!-- Not Available on ## Microsoft.StorageSyncDev-->
 <!-- Not Available on ## Microsoft.StorageSyncInt-->
@@ -764,8 +782,8 @@ ms.locfileid: "72303276"
 > 请参阅[应用服务移动指南](./move-limitations/app-service-move-limitations.md)。
 
 <!-- Not Available on ## Microsoft.WindowsIoT-->
-
 <!-- Not Available on ## Microsoft.WindowsVirtualDesktop-->
+
 ## <a name="third-party-services"></a>第三方服务
 
 第三方服务目前不支持移动操作。

@@ -1,20 +1,21 @@
 ---
-title: 快速入门 - 使用 Azure 应用程序网关配置端到端 SSL 加密 - Azure 门户 | Microsoft Docs
+title: 使用门户配置端到端 SSL 加密
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure 门户创建启用端到端 SSL 加密的应用程序网关。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 04/30/2019
-ms.date: 10/23/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c88622054a35a8da526fbc4b8831fdd73b07127b
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+ms.openlocfilehash: d54d098252df15155e333fa05db66883b4d18aca
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798495"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327161"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>在门户中使用应用程序网关配置端到端 SSL
 
@@ -126,4 +127,4 @@ ms.locfileid: "72798495"
 > [!div class="nextstepaction"]
 > [通过 Azure CLI 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

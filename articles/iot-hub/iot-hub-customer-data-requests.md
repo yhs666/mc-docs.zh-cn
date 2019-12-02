@@ -1,17 +1,18 @@
 ---
-title: 客户数据请求功能
-author: dominicbetts
+title: Azure IoT 中心设备的客户数据请求功能
+description: Azure IoT 中心中管理的大多数设备都不是个人的，但有些设备是个人的。 本文讨论管理员能够从设备导出或删除个人数据。
+author: robinsh
 ms.author: v-yiso
 origin.date: 05/16/2018
-ms.date: 10/29/2018
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: daf2e9fb8d829530483da4683fd23be31faa6a68
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 32c9f671941e3ed9d7d9c959965dfd079547179e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028360"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389551"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 
@@ -27,6 +28,8 @@ Azure IoT 中心是一项基于 REST API 的云服务，其目标是企业客户
 
 如果使用 Azure IoT 中心服务的路由功能将设备消息转发给其他服务，则若要完成给定设备的完整请求，必须由每个路由终结点的租户管理员执行数据请求。 如需更多详细信息，请参阅每个终结点的参考文档。 有关支持的终结点的详细信息，请参阅[参考 - IoT 中心终结点](iot-hub-devguide-endpoints.md)。
 
+如果使用 Azure IoT 中心服务的 Azure 事件网格集成功能，则必须由这些事件的每个订阅服务器的租户管理员执行数据请求操作。 有关详细信息，请参阅[使用事件网格响应 IoT 中心事件](iot-hub-event-grid.md)。
+
 如果使用 Azure IoT 中心服务的 Azure Monitor 集成功能来创建诊断日志，则必须由租户管理员针对存储的日志执行数据请求操作。 有关详细信息，请参阅[监视 Azure IoT 中心的运行状况](iot-hub-monitor-resource-health.md)。
 
 ## <a name="deleting-customer-data"></a>删除客户数据
@@ -37,12 +40,12 @@ Azure IoT 中心是一项基于 REST API 的云服务，其目标是企业客户
 
 ## <a name="exporting-customer-data"></a>导出客户数据
 
-在 Azure 门户中，租户管理员可以利用 Azure IoT 中心扩展的 IoT 设备边栏选项卡中的复制和粘贴功能来导出与设备关联的数据。
+在 Azure 门户中，租户管理员可以利用 Azure IoT 中心扩展的 IoT 设备窗格中的复制和粘贴功能来导出与设备关联的数据。
 
 也可使用 REST API 对设备执行导出操作。 有关详细信息，请参阅[服务 - 获取设备](https://docs.microsoft.com/rest/api/iothub/service/getdevice)。
 
 > [!NOTE]
-> 当你使用 Microsoft 的企业服务时，Microsoft 会生成一些信息，称为系统生成的日志。 租户管理员无法访问或导出 Azure IoT 中心的某些系统生成日志。 这些日志包含在服务中执行的实际操作以及与个人设备相关的诊断数据。
+> 当你使用 Microsoft 的企业服务时，Microsoft 会生成一些信息，称为系统生成的日志。 租户管理员无法访问或导出 Azure IoT 中心系统生成的某些日志。 这些日志包含在服务中执行的实际操作以及与个人设备相关的诊断数据。
 
 ## <a name="links-to-additional-documentation"></a>其他文档的链接
 

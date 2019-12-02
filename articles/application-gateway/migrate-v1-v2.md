@@ -1,19 +1,19 @@
 ---
-title: 将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2
+title: 从 v1 迁移到 v2 - Azure 应用程序网关
 description: 本文介绍如何将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/10/2019
-ms.date: 09/10/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: b5ebfca422bd9fa57dcae8ddb78c04342c295920
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 0035c144979ee209b7795472fe04d40a4433dbcf
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857389"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326807"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2
 
@@ -67,7 +67,7 @@ ms.locfileid: "70857389"
 
 ### <a name="install-using-the-script-directly"></a>直接使用脚本安装
 
-如果已安装某些 Azure Az 模块并且无法卸载它们（或者不想卸载），可以使用脚本下载链接中的“手动下载”选项卡手动下载该脚本。  此脚本将作为原始 nupkg 文件下载。 若要安装此 nupkg 文件中的脚本，请参阅[手动下载包](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download)。
+如果已安装某些 Azure Az 模块并且无法卸载它们（或者不想卸载），可以使用脚本下载链接中的“手动下载”选项卡手动下载该脚本。  此脚本将作为原始 nupkg 文件下载。
 
 若要运行该脚本，请执行以下操作：
 
@@ -157,7 +157,7 @@ ms.locfileid: "70857389"
 
   * 如果在应用程序网关上使用公共 IP 地址，则可以使用流量管理器配置文件执行受控的粒度迁移，以增量方式将流量路由到新的 v2 网关（加权流量路由方法）。
 
-    为此，可将 v1 和 v2 应用程序网关的 DNS 标签添加到[流量管理器配置文件](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)，并通过 CNAME 将自定义 DNS 记录（例如 www.contoso.com）指向流量管理器域（例如 contoso.trafficmanager.cn）。
+    为此，可将 v1 和 v2 应用程序网关的 DNS 标签添加到[流量管理器配置文件](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)，并通过 CNAME 将自定义 DNS 记录（例如 `www.contoso.com`）指向流量管理器域（例如 contoso.trafficmanager.cn）。
   * 或者，可以更新自定义域的 DNS 记录，使其指向新 v2 应用程序网关的 DNS 标签。 根据 DNS 记录中配置的 TTL，可能需要一段时间才能将所有客户端流量迁移到新的 v2 网关。
 * **客户端连接到应用程序网关的前端 IP 地址**。
 
@@ -197,3 +197,4 @@ ms.locfileid: "70857389"
 
 [了解应用程序网关 v2](application-gateway-autoscaling-zone-redundant.md)
 
+<!-- Update_Description: wording update -->

@@ -1,35 +1,88 @@
 ---
-title: 请求限制 - Azure 资源管理器 | Microsoft Azure
+title: 请求限制
 description: 介绍在达到订阅限制后如何对 Azure Resource Manager 请求进行限制。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/09/2019
-ms.date: 08/26/2019
-ms.author: v-yeche
+origin.date: 10/26/2019
+ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01a9f49ece3c8d68822060a1b45c63a1f1d6bf49
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 52ac0fca8bd96694d6bb11433453bebe69814e39
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993455"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389580"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 
-对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制的范围是发出请求的安全主体（用户或应用程序）和订阅 ID 或租户 ID。 如果请求来自多个安全主体，则对订阅或租户的限制大于每小时 12,000 个和每小时 1,200 个。
+本文介绍 Azure 资源管理器如何限制请求。 其中介绍了如何在达到限制之前跟踪剩余的请求数，以及在达到限制时如何采取应对措施。
 
-请求将应用到订阅或租户。 订阅请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户请求不包括订阅 ID，例如，检索有效的 Azure 位置。
+限制在两个级别发生。 Azure 资源管理器限制对订阅和租户的请求。 如果请求低于订阅和租户的限制，资源管理器会将该请求路由到资源提供程序。 资源提供程序应用针对该订阅和租户的操作专门指定的限制。 下图显示了在请求从用户转到 Azure 资源管理器和资源提供程序时如何应用限制。
 
-这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，在实践中，限制实际上比上述限制要高得多，因为用户请求通常是由多个不同的实例提供服务。
+![请求限制](./media/resource-manager-request-limits/request-throttling.svg)
 
-如果应用程序或脚本达到了这些限制，则需对请求数进行限制。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
+## <a name="subscription-and-tenant-limits"></a>订阅和租户限制
 
-达到限制时，会收到 HTTP 状态代码“429 请求过多”  。
+每个订阅级别和租户级别的操作都会受到限制。 订阅请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户请求不包括订阅 ID，例如，检索有效的 Azure 位置。
 
-<!--Not Available on [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling)-->
+下表显示了每小时的默认限制。
+
+| 作用域 | 操作 | 限制 |
+| ----- | ---------- | ------- |
+| 订阅 | 读取 | 12000 |
+| 订阅 | 删除 | 15000 |
+| 订阅 | 写入 | 1200 |
+| 租户 | 读取 | 12000 |
+| 租户 | 写入 | 1200 |
+
+这些限制的范围是发出请求的安全主体（用户或应用程序）和订阅 ID 或租户 ID。 如果请求来自多个安全主体，则对订阅或租户的限制大于每小时 12,000 个和每小时 1,200 个。
+
+这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，实践中的限制要高于这些限制。 来自用户的请求通常由不同的 Azure 资源管理器实例进行处理。
+
+## <a name="resource-provider-limits"></a>资源提供程序限制
+
+资源提供程序应用自身的限制。 由于资源管理器按主体 ID 和资源管理器实例进行限制，因此资源提供程序收到的请求数可能会超过上一部分所述的默认限制。
+
+本部分讨论某些广泛使用的资源提供程序的限制。
+
+### <a name="storage-throttling"></a>存储限制
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### <a name="network-throttling"></a>网络限制
+
+Microsoft.Network 资源提供程序应用以下限制：
+
+| 操作 | 限制 |
+| --------- | ----- |
+| 写入/删除 (PUT) | 每 5 分钟 1000 次 |
+| 读取 (GET) | 每 5 分钟 10000 次 |
+
+### <a name="compute-throttling"></a>计算限制
+
+有关计算操作的限制的信息，请参阅[排查 API 限制错误 - 计算](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)。
+
+若要检查虚拟机规模集中的虚拟机实例，请使用[虚拟机规模集操作](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms)。 例如，使用[虚拟机规模集 VM - 列出](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list)和相应的参数来检查虚拟机实例的电源状态。 此 API 可减少请求数。
+
+### <a name="azure-resource-graph-throttling"></a>Azure Resource Graph 限制
+
+Azure Resource Graph 会限制对其操作发出的请求数。 本文所述的用于确定剩余请求数以及在达到限制时如何采取应对措施的步骤同样适用于 Resource Graph。 但是，Resource Graph 设置了自身的限制和重置速率。 有关详细信息，请参阅 [Azure Resource Graph 中的限制](../governance/resource-graph/overview.md#throttling)。
+
+## <a name="request-increase"></a>请求增加
+
+有时可以提高限制。 若要确定是否可以提高你的方案限制，请创建支持请求。 我们将详细评估你的调用模式。
+
+## <a name="error-code"></a>错误代码
+
+达到限制时，会收到 HTTP 状态代码“429 请求过多”  。 响应包含 **Retry-After** 值，该值指定在发送下一个请求之前应用程序应该等待（或休眠）的秒数。 如果在尚未达到重试时间值的情况下发送请求，该请求不会得到处理，并会返回一个新的重试时间值。
+
+等待指定的时间后，还可以关闭再重新打开与 Azure 的连接。 通过重置连接，可以连接到 Azure 资源管理器的其他实例。
+
+如果使用的是 Azure SDK，该 SDK 可能会采用自动重试配置。 有关详细信息，请参阅 [Azure 服务的重试指南](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)。
+
+某些资源提供程序返回 429 来报告暂时性问题。 该问题可能是一种过载状态，它不是由你的请求直接造成的。 或者，它可能表示目标资源或依赖资源的状态相关的暂时性错误。 例如，当目标资源被另一个操作锁定时，网络资源提供程序将返回 429 和 **RetryableErrorDueToAnotherOperation** 错误代码。 若要确定错误是由限制还是暂时性的状况造成，请查看响应中的错误详细信息。
 
 ## <a name="remaining-requests"></a>剩余请求数
+
 可以通过检查响应标头确定剩余请求数。 读取请求在标头中返回一个值，表示剩余读取请求的数目。 写入请求包含的值表示剩余写入请求的数目。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
 
 | 响应标头 | 说明 |
@@ -43,7 +96,10 @@ ms.locfileid: "69993455"
 | x-ms-ratelimit-remaining-tenant-resource-requests |划归到租户的剩余资源类型请求数。<br /><br />仅当服务重写了默认限制时，才为租户级别的请求添加此标头。 Resource Manager 将累加此值而不是租户读取/写入数。 |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |划归到租户的剩余资源类型集合请求数。<br /><br />仅当服务重写了默认限制时，才为租户级别的请求添加此标头。 |
 
+资源提供程序还可以返回包含剩余请求数相关信息的响应标头。 有关“计算”资源提供程序返回的响应标头的信息，请参阅[调用速率参考性响应标头](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers)。
+
 ## <a name="retrieving-the-header-values"></a>检索标头值
+
 检索代码或脚本中的这些标头值与检索任何标头值没有什么不同。 
 
 例如，在 **C#** 中，可使用以下代码从名为 **response** 的 **HttpWebResponse** 对象中检索标头值：
@@ -138,13 +194,10 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="waiting-before-sending-next-request"></a>在发送下一请求之前等待
-达到请求限制时，Resource Manager 会在标头中返回 **429** HTTP 状态代码和 **Retry-After** 值。 **Retry-After** 值指定在发送下一个请求之前应用程序应该等待（或休眠）的秒数。 如果在尚未达到重试时间值的情况下发送请求，该请求不会得到处理，并会返回一个新的重试时间值。
-
 ## <a name="next-steps"></a>后续步骤
 
 * 有关完整的 PowerShell 示例，请参阅[查看订阅的资源管理器限制](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI)。
 * 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

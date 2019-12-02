@@ -1,30 +1,30 @@
 ---
 title: 了解 Azure IoT 中心设备孪生
 description: 开发人员指南 - 使用设备孪生在 IoT 中心与设备之间同步状态和配置数据
-author: fsautomata
+author: wesmc7777
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 01/29/2018
-ms.date: 04/08/2019
+origin.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: ec712458645e87766713a021aaaa8e921ad0a1c9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2df38212ec805979f2f96eac9d77f4afe1b1d6ef
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625187"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389590"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
-设备孪生是存储设备状态信息（例如元数据、配置和条件）的 JSON 文档。 Azure IoT 中心为连接到 IoT 中心的每台设备保留一个设备孪生。 
+设备孪生是存储设备状态信息（例如元数据、配置和条件）的 JSON 文档  。 Azure IoT 中心为连接到 IoT 中心的每台设备保留一个设备孪生。 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本文介绍：
 
-* 设备孪生的结构：标记、所需的属性和报告的属性。
+* 设备孪生的结构：标记、所需的属性和报告的属性    。
 * 设备应用和后端可在设备孪生上执行的操作。
 
 使用设备孪生可以：
@@ -43,7 +43,7 @@ ms.locfileid: "58625187"
 * 设备和后端可以使用这些信息来同步设备状态和配置。
 * 解决方案后端可以使用这些信息来查询和定位长时间运行的操作。
 
-设备孪生的生命周期链接到相应的 [设备标识][lnk-identity]。 在 IoT 中心创建或删除设备标识时，将隐式创建和删除设备孪生。
+设备孪生的生命周期链接到相应的[设备标识][lnk-identity]。 在 IoT 中心创建或删除设备标识时，将隐式创建和删除设备孪生。
 
 设备孪生是一个 JSON 文档，其中包含：
 
@@ -106,7 +106,7 @@ ms.locfileid: "58625187"
 在上面的示例中，设备孪生包含设备应用报告的 `batteryLevel` 属性。 使用此属性可以根据上次报告的电池电量水平查询和操作设备。 其他示例包括让设备应用报告设备功能或连接选项。
 
 > [!NOTE]
-> 报告的属性如何简化解决方案后端获取属性最后一个已知值的方案。 如果解决方案后端需要以带时间戳事件序列（例如时间序列）的形式处理设备遥测数据，可以使用[设备到云的消息][lnk-d2c]。
+> 报告的属性如何简化解决方案后端获取属性最后一个已知值的方案。 如果解决方案后端需要以带时间戳的事件序列（例如时间序列）的形式处理设备遥测数据，可以使用[设备到云的消息][lnk-d2c]。
 
 ### <a name="desired-property-example"></a>所需属性示例
 在上面的示例中，解决方案后端和设备应用使用 `telemetryConfig` 设备孪生的所需和报告属性来同步此设备的遥测配置。 例如：
@@ -172,7 +172,7 @@ ms.locfileid: "58625187"
 
   - 属性
 
-    | Name | 值 |
+    | Name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  发送通知的时间 |
@@ -209,7 +209,7 @@ ms.locfileid: "58625187"
     }
     ``` 
 
-上述所有操作支持[乐观并发][lnk-concurrency]，需要[安全性][lnk-security]一文中定义的 **ServiceConnect** 权限。
+上述所有操作均支持[乐观并发][lnk-concurrency]，并需要[安全性][lnk-security]一文中定义的 **ServiceConnect** 权限。
 
 除了上述操作以外，解决方案后端还可以：
 
@@ -219,13 +219,14 @@ ms.locfileid: "58625187"
 ## <a name="device-operations"></a>设备操作
 设备应用使用以下原子操作对设备孪生执行操作：
 
-* **检索设备孪生**。 此操作返回当前连接的设备的设备孪生文档（包括标记、所需的系统属性和报告的系统属性）。
+* **检索设备孪生**。 此操作返回当前连接的设备的设备孪生文档（包括所需的系统属性和报告的系统属性）。 （标记对设备应用不可见。）
+
 * **部分更新报告属性**。 使用此操作可以部分更新当前连接的设备的报告属性。 此操作使用的 JSON 更新格式与解决方案后端用于部分更新所需属性的格式相同。
 * **观察所需属性**。 当前连接的设备可以选择在所需属性发生更新时接收通知。 设备收到的更新格式与解决方案后端执行的更新格式相同（部分或完全替换）。
 
 上述所有操作都需要[控制对 IoT 中心的访问](iot-hub-devguide-security.md)中定义的 **DeviceConnect** 权限。
 
-借助 [Azure IoT 设备 SDK][lnk-sdks]，可通过多种语言和平台轻松使用上述操作。 有关 IoT 中心内用于同步所需属性的基元详细信息，请参阅[设备重新连接流][lnk-reconnection]。
+借助 [Azure IoT 设备 SDK][lnk-sdks]，可通过多种语言和平台轻松使用上述操作。 有关用于同步所需属性的 IoT 中心基元的详细信息，请参阅[设备重新连接流][lnk-reconnection]。
 
 ## <a name="tags-and-properties-format"></a>标记和属性格式
 标记、所需的属性和报告的属性是具有以下限制的 JSON 对象：
@@ -341,9 +342,9 @@ IoT 中心不会保留已断开连接设备的所需属性更新通知。 它遵
 IoT 中心开发人员指南中的其他参考主题包括：
 
 * [IoT 中心终结点][lnk-endpoints]一文介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
-* [限制和配额][lnk-quotas]一文介绍了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks]一文列出了开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]一文介绍了可用来从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
+* [限制和配额][lnk-quotas]一文介绍了适用于 IoT 中心服务的配额，以及使用服务时应会碰到的限制行为。
+* [Azure IoT 设备和服务 SDK][lnk-sdks] 一文列出了开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]一文介绍了可用于从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt]一文提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤

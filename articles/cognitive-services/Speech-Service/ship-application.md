@@ -1,7 +1,7 @@
 ---
 title: 使用语音 SDK 开发应用 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用语音 SDK 创建应用。
+description: 了解如何在支持的平台上部署使用语音 SDK 的应用程序。
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: ea0dbc5d7db190482bb12d97a7fa3be74356a603
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 703e274769eb16b43a220657ccd3e007b1f0d9e7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267046"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389336"
 ---
 # <a name="ship-an-application"></a>交付应用程序
 
-分发 Azure 认知服务语音 SDK 时，阅读[语音 SDK 许可](https://aka.ms/csspeech/license201809)和[第三方软件通知](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)。 此外，请查看 [Azure 隐私声明](https://www.azure.cn/support/legal/privacy-statement/)。
+分发 Azure 认知服务语音 SDK 时，阅读[语音 SDK 许可](https://csspeechstorage.blob.core.windows.net/drop/license201809.html)和[第三方软件通知](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)。 此外，请查看 [Azure 隐私声明](https://www.azure.cn/support/legal/privacy-statement/)。
 
 不同平台存在不同的依赖项来执行应用程序。
 
@@ -40,15 +40,15 @@ ms.locfileid: "71267046"
 
 所需语音 SDK 文件可部署在与应用程序相同的目录中。 这样，应用程序便可直接访问库。 请确保选择与应用程序匹配的正确版本 (Win32/x64)。
 
-| Name | 函数
-|:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK，对于本机和托管部署是必需的
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | 对于托管部署是必需的
+| Name | 函数 |
+| :--- | :------- |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | 核心 SDK，对于本机和托管部署是必需的 |
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | 对于托管部署是必需的                      |
 
->[!NOTE]
+> [!NOTE]
 > 从版本 1.3.0 开始，不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
->[!NOTE]
+> [!NOTE]
 > 对于 Windows 窗体应用 (.NET Framework) C# 项目，请确保项目的部署设置中包含这些库。 你可以在 `Properties -> Publish Section` 下查看此内容。 单击 `Application Files` 按钮并从向下滚动列表中查找相应的库。 请确保将值设置为 `Included`。 Visual Studio 将在发布/部署项目时包含该文件。
 
 ## <a name="linux"></a>Linux
@@ -57,9 +57,9 @@ ms.locfileid: "71267046"
 对于本机应用程序，需要交付语音 SDK 库 `libMicrosoft.CognitiveServices.Speech.core.so`。
 请确保选择与应用程序匹配的版本（x86、x64）。 根据 Linux 版本，可能还需要包括以下依赖项：
 
-* GNU C 库的共享库（包括 POSIX 线程编程库 `libpthreads`）
-* OpenSSL 库（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
-* ALSA 应用程序的共享库 (`libasound.so.2`)
+- GNU C 库的共享库（包括 POSIX 线程编程库 `libpthreads`）
+- OpenSSL 库（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
+- ALSA 应用程序的共享库 (`libasound.so.2`)
 
 举例来说，应该已默认安装 GNU C 库。 可使用以下命令安装后三个依赖项：
 
@@ -77,4 +77,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>后续步骤
 
-* [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)
+- [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)
+- [了解如何在 C# 中识别语音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

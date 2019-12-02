@@ -1,22 +1,19 @@
 ---
-title: 使用 Azure CLI 和模板部署资源 | Azure
+title: 使用 Azure CLI 和模板部署资源
 description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 08/21/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: eff32a74f5255a6c68aa8bdb88b1cd859d581440
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 10/09/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: cc67de18c8aaf70dd072423ebbfe08134281005a
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156094"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389340"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
-本文介绍了如何将 Azure CLI 与资源管理器模板配合使用将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure 资源管理器概述](resource-group-overview.md)。  
+本文介绍了如何将 Azure CLI 与资源管理器模板配合使用将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure 资源管理器概述](resource-group-overview.md)。
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -38,9 +35,11 @@ az group deployment create --resource-group <resource-group-name> --template-fil
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-目前，仅通过 REST API 支持管理组部署。 请参阅[使用资源管理器模板和资源管理器 REST API 部署资源](resource-group-template-deploy-rest.md)。
+有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
-本文中的示例使用资源组部署。 有关订阅部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
+目前，仅通过 REST API 支持管理组部署。 有关管理组级部署的详细信息，请参阅[在管理组级别创建资源](deploy-to-management-group.md)。
+
+本文中的示例使用资源组部署。
 
 ## <a name="deploy-local-template"></a>部署本地模板
 
@@ -50,7 +49,7 @@ az deployment create --location <location> --template-file <path-to-template>
 2. 创建用作已部署资源的容器的资源组。 资源组名称只能包含字母数字字符、句点、下划线、连字符和括号。 它最多可以包含 90 个字符。 它不能以句点结尾。
 3. 将定义了要创建的资源的模板部署到资源组
 
-模板可以包括可用于自定义部署的参数。 例如，可以提供为特定环境（如开发环境、测试环境和生产环境）定制的值。 示例模板定义了存储帐户 SKU 的参数。 
+模板可以包括可用于自定义部署的参数。 例如，可以提供为特定环境（如开发环境、测试环境和生产环境）定制的值。 示例模板定义了存储帐户 SKU 的参数。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -89,41 +88,7 @@ az group deployment create \
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 <!--MOONCAKE: Not Available on Cloud Shell and corresponding code -->
-
-## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
-
-此功能也称为“出错时回滚”  。 部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `--rollback-on-error` 参数。 如果基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
-
-- 重新部署使用与以前运行它时相同的参数以相同的方式运行。 无法更改参数。
-- 以前的部署是使用[完整模式](./deployment-modes.md#complete-mode)运行的。 以前的部署中未包括的任何资源都将被删除，任何资源配置都将设置为以前的状态。 请确保你完全理解[部署模式](./deployment-modes.md)。
-- 重新部署只会影响资源，而不会影响任何数据更改。
-- 只有资源组部署支持此功能，订阅级部署不支持此功能。 有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](./deploy-to-subscription.md)。
-
-若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
-
-若要重新部署最后一个成功的部署，请将 `--rollback-on-error` 参数添加为标志。
-
-```azurecli
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS \
-  --rollback-on-error
-```
-
-若要重新部署某个特定部署，请使用 `--rollback-on-error` 参数并提供部署名称。
-
-```azurecli
-az group deployment create \
-  --name ExampleDeployment02 \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS \
-  --rollback-on-error ExampleDeployment01
-```
-
-指定的部署必须已成功。
+<!--Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]-->
 
 ## <a name="parameters"></a>parameters
 
@@ -178,9 +143,31 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
+## <a name="handle-extended-json-format"></a>处理扩展 JSON 格式
+
+若要部署包含多行字符串或注释的模板，必须使用 `--handle-extended-json-format` 开关。  例如：
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
 ## <a name="test-a-template-deployment"></a>测试模板部署
 
-若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-validate)。 
+若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-validate)。
 
 ```azurecli
 az group deployment validate \
@@ -205,8 +192,8 @@ az group deployment validate \
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
       value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
     "target": null
   },
@@ -231,7 +218,7 @@ az group deployment validate \
 
 ## <a name="next-steps"></a>后续步骤
 
-- 本文中的示例将资源部署到默认订阅中的资源组。 若要使用其他订阅，请参阅[管理多个 Azure 订阅](https://docs.azure.cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。
+- 若要在出错时回退到成功的部署，请参阅[出错时回退到成功的部署](rollback-on-error.md)。
 - 若要指定如何处理存在于资源组中但未在模板中定义的资源，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
 - 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 - 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。

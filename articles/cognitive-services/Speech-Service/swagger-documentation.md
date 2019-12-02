@@ -9,21 +9,21 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
 origin.date: 07/05/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 8d2bfa22b94bac212e6be3b0439ef66b9381c855
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 2d158f13f05f6cd78713aab4f036c316f5005d62
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020713"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389271"
 ---
 # <a name="swagger-documentation"></a>Swagger 文档
 
 语音服务提供了一个 Swagger 规范，用于与少量 REST API 交互，这些 REST API 用于导入数据、创建模型、测试模型准确性、创建自定义终结点、排列批量听录以及管理订阅。 可使用这些 API 以编程方式完成通过自定义语音门户提供的大部分操作。
 
 > [!NOTE]
-> 支持将文本转语音操作作为 REST API 使用，而后者记录在 Swagger 规范中。
+> 支持将语音转文本操作作为 REST API 使用，而这些 API 记录在 Swagger 规范中。
 
 ## <a name="generating-code-from-the-swagger-specification"></a>从 Swagger 规范生成代码
 
@@ -42,9 +42,9 @@ ms.locfileid: "74020713"
 ## <a name="reference-docs"></a>参考文档
 
 * [REST (Swagger)：批量听录和自定义](https://chinaeast2.cris.azure.cn/swagger/ui/index)
-* [REST API：文本转语音](rest-text-to-speech.md)
+* [REST API：语音转文本](rest-speech-to-text.md)
 
 ## <a name="next-steps"></a>后续步骤
 
 * [GitHub 上的语音服务示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk)。
-* [免费获取语音服务订阅密钥](get-started.md)
+* [获取语音服务订阅密钥以进行试用](get-started.md)

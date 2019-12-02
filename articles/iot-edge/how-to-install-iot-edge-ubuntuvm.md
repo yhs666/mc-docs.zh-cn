@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 07/09/2019
-ms.date: 09/09/2019
+ms.date: 12/02/2019
 ms.author: gregman
-ms.openlocfilehash: 535494af5c233e83e06039c657746a659c93062e
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: a26c9530b20ff1becf24cb25a9c7f33c0f241c95
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174040"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389560"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虚拟机上运行 Azure IoT Edge
 
@@ -34,7 +34,7 @@ ms.locfileid: "70174040"
     *   首次试用 VM 时，在公共入站端口菜单中可以十分方便地使用密码和启用 SSH。 
     *   如果你有资源密集型工作负荷，应通过添加更多 CPU 和/或内存来升级虚拟机大小。
 4.  部署虚拟机后，请将其配置为连接到 IoT 中心：
-    1.  复制在 IoT 中心创建的 IoT Edge 设备中的设备连接字符串（如果你不熟悉此过程，可以遵循[从 Azure 门户注册新的 Azure IoT Edge 设备](how-to-register-device-portal.md)操作指南）
+    1.  从在 IoT 中心中创建的 IoT Edge 设备复制设备连接字符串（如果你不熟悉此过程，可以按照[在 Azure 门户中检索连接字符串](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal)进行操作）
     1.  在 Azure 门户中选择新建的虚拟机资源，并打开“运行命令”选项 
     1.  选择“RunShellScript”选项 
     1.  使用设备连接字符串通过命令窗口执行以下脚本：`/etc/iotedge/configedge.sh “{device_connection_string}”`
@@ -86,7 +86,7 @@ ms.locfileid: "70174040"
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. 设置设备连接字符串（如果你不熟悉此过程，可以遵循[使用 Azure CLI 注册新的 Azure IoT Edge 设备](how-to-register-device-cli.md)操作指南）：
+1. 设置设备连接字符串（如果你不熟悉此过程，可以按照[使用 Azure CLI 检索连接字符串](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli)过程进行操作）：
 
    ```azurecli
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"

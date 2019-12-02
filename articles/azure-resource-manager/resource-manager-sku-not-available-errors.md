@@ -1,29 +1,19 @@
 ---
-title: Azure SKU 不可用错误 | Azure
-description: 介绍如何解决部署过程中 SKU 不可用错误。
-services: azure-resource-manager
-documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: SKU 不可用错误
+description: 介绍在使用 Azure 资源管理器部署资源时如何解决 SKU 不可用错误。
 ms.topic: troubleshooting
 origin.date: 10/19/2018
-ms.date: 02/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: a6de29e19dac26c127d246744b84f7d3a28a9168
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.date: 11/25/2019
+ms.openlocfilehash: a489d4a6ffe86b3e5dc1338ecb4983ab12d39dd7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857108"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389570"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解决 SKU 不可用错误
 
-本文介绍如何解决 **SkuNotAvailable** 错误。 如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://support.azure.cn/zh-cn/support/support-azure/)提交到 Azure 支持。
+本文介绍如何解决 **SkuNotAvailable** 错误。 如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://support.azure.cn/support/support-azure/)提交到 Azure 支持。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,7 +35,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 要确定区域中可用的 SKU，请使用 [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) 命令。 按位置对结果进行筛选。 必须安装最新版本 PowerShell 才能运行此命令。
 
-```azurepowershell
+```powershell
 Get-AzComputeResourceSku | where {$_.Locations -icontains "chinaeast"}
 ```
 

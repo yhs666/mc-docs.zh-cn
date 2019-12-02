@@ -1,28 +1,29 @@
 ---
-title: 使用适用于容器的 Azure Monitor 监视 AKS 群集性能 | Azure Docs
+title: 使用适用于容器的 Azure Monitor 监视 Kubernetes 群集性能 | Microsoft Docs
 description: 本文介绍如何使用适用于容器的 Azure Monitor 查看和分析性能和日志数据。
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-origin.date: 09/17/2019
-ms.date: 09/20/2019
-ms.openlocfilehash: e3c715f91ec8655a01a988d8e9e9d1f024c5b65d
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+origin.date: 10/15/2019
+ms.date: 11/19/2019
+ms.openlocfilehash: 459be7f4c2421c1cf07d2f24378d8a756a2d87a5
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970854"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528364"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 AKS 群集性能
-借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度查看 Azure Kubernetes 服务 (AKS) 群集的工作负荷。 可以直接从 AKS 群集进行监视，或者可以从 Azure Monitor 监视订阅中的所有 AKS 群集。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例。
+# <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 Kubernetes 群集性能
+
+借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度监视托管在 Azure Kubernetes 服务 (AKS)、Azure Stack 或其他环境上的 Kubernetes 群集的工作负荷。 可以直接从群集进行监视，也可以从 Azure Monitor 查看订阅中的所有群集。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例。
 
 本文将帮助你了解这两个角度，并介绍 Azure Monitor 如何帮助你快速评估、调查和解决检测到的问题。
 
 若要了解如何启用适用于容器的 Azure Monitor，请参阅[载入适用于容器的 Azure Monitor](container-insights-onboard.md)。
 
-Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署的所有运行 Linux 和 Windows Server 2019 的受监视 AKS 群集的运行状况。 它显示发现的不受解决方案监视的 AKS 群集。 可以即时了解群集运行状况，并且可以从这里向下钻取到节点和控制器性能页，或者进行导航来查看群集的性能图表。 对于发现的标识为“不受监视”的 AKS 群集，可以随时为该群集启用监视功能。 
+Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署的所有运行 Linux 和 Windows Server 2019 的受监视 Kubernetes 群集的运行状况。 它显示跨所有环境发现的不受解决方案监视的群集。 可以即时了解群集运行状况，并且可以从这里向下钻取到节点和控制器性能页，或者进行导航来查看群集的性能图表。 对于发现的标识为“不受监视”的 AKS 群集，可以随时为该群集启用监视功能。 
 
 使用适用于容器的 Azure Monitor 监视 Windows Server 群集与监视 Linux 群集的主要差异如下：
 
@@ -37,9 +38,11 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>从 Azure Monitor 获得的多群集视图
 
-若要查看已部署的所有 AKS 群集的运行状况，请在 Azure 门户的左窗格中选择“监视”。  在“见解”部分，选择“容器”。   
+若要查看已部署的所有 Kubernetes 群集的运行状况，请在 Azure 门户的左窗格中选择“监视”。  在“见解”部分，选择“容器”。   
 
-![Azure Monitor 多群集仪表板示例](./media/container-insights-analyze/azmon-containers-multiview.png)
+![Azure Monitor 多群集仪表板示例](./media/container-insights-analyze/azmon-containers-multiview.png) 若要查看特定环境中的群集，请在页面左上角的“环境”框中将其选中。 
+
+![“环境”框选择器示例](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
 
 在“受监视的群集”选项卡上，了解以下情况： 
 
@@ -82,18 +85,21 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 | |关键 |<60% |
 | |未知 |如果未在过去 30 分钟报告 |
 
-在群集列表中，可以通过选择群集名称向下钻取到“群集”页。  然后选择该特定群集的“节点”列中的节点汇总转到“节点”性能页。   或者，可以通过选择“用户 Pod”或“系统 Pod”列的汇总向下钻取到“控制器”性能页。     
+在群集列表中，可以通过选择群集名称向下钻取到“群集”页。  然后选择该特定群集的“节点”列中的节点汇总转到“节点”性能页。   或者，可以通过选择“用户 Pod”或“系统 Pod”列的汇总向下钻取到“控制器”性能页。   
 
-## <a name="view-performance-directly-from-an-aks-cluster"></a>直接从 AKS 群集查看性能
+## <a name="view-performance-directly-from-a-cluster"></a>直接从群集查看性能
 
-可以直接从 AKS 群集访问适用于容器的 Azure Monitor，只需从左窗格中选择“见解”即可。  有关 AKS 群集的信息组织成四个透视图：
+可以直接从 AKS 群集访问适用于容器的 Azure Monitor，方法是：从左窗格中选择“见解” > “群集”，或者从多群集视图中选择一个群集。   有关群集的信息组织成四个透视图：
 
 - 群集
 - Nodes 
 - 控制器 
 - 容器
 
-选择“见解” > “群集”时会打开默认页。   四个性能图表显示群集的重要性能指标。 
+>[!NOTE]
+>本文剩余部分所述体验也适用于查看从多群集视图中选中时托管在 Azure Stack 或其他环境上的 Kubernetes 群集的性能和运行状况。 
+
+默认页会打开并显示四个线形性能图表，这些图表会显示群集的主要性能指标。 
 
 ![“群集”选项卡上的性能图表示例](./media/container-insights-analyze/containers-cluster-perfview.png)
 
@@ -136,13 +142,9 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 
 切换到“节点”、“控制器”和“容器”选项卡时，页面右侧会自动显示属性窗格    。 它显示所选项的属性，包括定义用于组织 Kubernetes 对象的标签。 选择一个 Linux 节点时，“本地磁盘容量”部分还会显示可用磁盘空间以及用于每个提供给节点的磁盘的百分比。  单击窗格中的 **>>** 链接可查看或隐藏窗格。
 
-![示例 Kubernetes 透视属性窗格](./media/container-insights-analyze/perspectives-preview-pane-01.png)
-
-在层次结构中展开对象时，属性窗格将根据所选对象进行更新。 在窗格中，还可通过选择窗格顶部的“查看 Kubernetes 事件日志”链接，查看具有预定义日志搜索的 Kubernetes 事件  。 有关如何查看 Kubernetes 日志数据的详细信息，请参阅[搜索日志以分析数据](container-insights-log-search.md)。 查看群集资源时，可以实时查看容器日志和事件。 有关此功能以及授予和控制访问权限所需的配置的详细信息，请参阅[使用适用于容器的 Azure Monitor 实时查看日志](container-insights-live-logs.md)。 
+在层次结构中展开对象时，属性窗格将根据所选对象进行更新。 在窗格中，还可通过选择窗格顶部的“查看实时数据(预览)”链接，查看 Kubernetes 容器日志 (stdout/stderror)、事件和 Pod 指标  。 查看群集资源时，可以实时查看容器中的该数据。若要根据预定义的日志搜索查看工作区中存储的 Kubernetes 日志数据，请从“在 Analytics 中查看”下拉列表中选择“查看容器日志”。   有关此主题的其他信息，请参阅[搜索日志以分析数据](container-insights-log-search.md#search-logs-to-analyze-data)。
 
 使用页面顶部的“+ 添加筛选器”选项可按“服务”、“节点”、“命名空间”或“节点池”筛选视图的结果。      选择筛选范围后，选择“选择值”字段中显示的某个值。  筛选器在配置后会在用户查看任何视角的 AKS 群集时进行全局应用。 公式只支持等号。 可以在第一个筛选器的基础上添加更多的筛选器，进一步缩小结果范围。 例如，如果指定了一个按“节点”筛选的筛选器，则只能为第二个筛选器选择“服务”或“命名空间”。   
-
-![通过筛选器缩小结果范围的示例](./media/container-insights-analyze/add-filter-option-01.png)
 
 在一个选项卡中指定一个筛选器后，如果又选择一个筛选器，则前者会继续应用。 在选择指定筛选器旁边的 **x** 符号后，该筛选器会被删除。 
 

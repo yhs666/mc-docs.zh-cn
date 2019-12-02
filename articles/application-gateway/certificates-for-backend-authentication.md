@@ -1,19 +1,20 @@
 ---
-title: 将 Azure 应用程序网关中的后端加入白名单所需的证书
-description: 本文通过示例演示如何将 SSL 证书转换为身份验证证书和受信任的根证书，将 Azure 应用程序网关中的后端实例加入白名单时需要这些证书
+title: 允许后端服务器所需的证书
+titleSuffix: Azure Application Gateway
+description: 本文通过示例演示如何将 SSL 证书转换为允许 Azure 应用程序网关中的后端实例所需的身份验证证书和受信任根证书
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 07/23/2019
-ms.date: 09/10/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 45780c2f0d4340eb400fc23fd66a72c1f50eb85a
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 22497c3c9b4151e673f2272b79b5962878ff1009
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857274"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326811"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>创建证书以允许 Azure 应用程序网关中的后端
 
@@ -109,4 +110,4 @@ ms.locfileid: "70857274"
 现已创建采用 Base-64 编码的 X.509(.CER) 格式身份验证证书/受信任的根证书。 可将此证书添加到应用程序网关，以将后端服务器加入白名单进行端到端的 SSL 加密。 参阅[如何配置端到端 SSL 加密](/application-gateway/application-gateway-end-to-end-ssl-powershell)。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

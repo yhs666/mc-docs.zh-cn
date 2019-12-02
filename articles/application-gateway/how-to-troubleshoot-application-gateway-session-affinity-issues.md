@@ -1,19 +1,20 @@
 ---
-title: 排查 Azure 应用程序网关会话相关性问题
+title: 排查会话相关性问题
+titleSuffix: Azure Application Gateway
 description: 本文介绍如何排查 Azure 应用程序网关中的会话相关性问题
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-origin.date: 02/22/2019
-ms.date: 06/11/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: a64b2d06a27d57851110eaa4f157fbe58f1ea459
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: b6f702009e7ddb02fb1d46178c83f8c1593bcaff
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027445"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327422"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>排查 Azure 应用程序网关会话相关性问题
 
@@ -210,4 +211,4 @@ Fiddler 之类的 Web 调试工具可以捕获 Internet 与测试计算机之间
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

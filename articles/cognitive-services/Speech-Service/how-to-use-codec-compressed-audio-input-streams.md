@@ -1,39 +1,42 @@
 ---
 title: 使用语音 SDK 流式传输编解码器压缩的音频 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用语音 SDK 将压缩音频流式传输到 Azure 语音服务。 适用于面向 Linux 的 C++、C# 和 Java。
+description: 了解如何使用语音 SDK 将压缩音频流式传输到 Azure 语音服务。 适用于用于 Linux 的 C++、C# 和 Java，Android 中的 Java 和 iOS 中的 Objective-C。
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 07/05/2019
-ms.date: 09/23/2019
+origin.date: 09/20/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 463f03a0487afb16df7fddd83b8de0d49bed2cce
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 29d7a69e011e24b676c82cd8bec7ddd7bbceab0f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267085"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389507"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>在语音 SDK 中使用编解码器压缩的音频输入
 
 语音 SDK 的**压缩音频输入流** API 提供了一种使用 PullStream 或 PushStream 将压缩音频流式传输到语音服务的方法。
 
 > [!IMPORTANT]
-> 仅在 Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9）上的 C++、C# 和 Java 支持流式传输压缩音频。
-> 需要语音 SDK 版本 1.4.0 或更高版本。
+> 目前，Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9）上的 C++、C# 和 Java 支持流式传输压缩输入音频。 [Android 中的 Java](how-to-use-codec-compressed-audio-input-streams-android.md) 和 [iOS 中的 Objective-C](how-to-use-codec-compressed-audio-input-streams-ios.md) 平台也支持该功能。
+> 需要语音 SDK 版本 1.7.0 或更高版本。
 
 有关 wav/PCM，请参阅主线语音文档。  在 wav/PCM 之外，支持以下编解码器压缩的输入格式：
 
 - MP3
 - OPUS/OGG
+- FLAC
+- wav 容器中的 ALAW
+- wav 容器中的 MULAW
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>使用编解码器压缩的音频输入的先决条件
+## <a name="prerequisites"></a>先决条件
 
-安装这些附加依赖项，以便在适用于 Linux 的语音 SDK 中使用压缩的音频输入：
+处理压缩音频是使用 [GStreamer](https://gstreamer.freedesktop.org) 实现的。 由于许可原因，GStreamer 二进制文件没有编译并与语音 SDK 链接。 因此，应用程序开发人员需要在 18.04、16.04 和 Debian 9 上安装以下项才能使用压缩输入音频。
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -65,3 +68,4 @@ var text = result.GetText();
 ## <a name="next-steps"></a>后续步骤
 
 - [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)
+* [查看如何在 Java 中识别语音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

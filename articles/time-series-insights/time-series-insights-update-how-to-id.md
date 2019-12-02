@@ -1,60 +1,79 @@
 ---
-title: 在 Azure 时序见解预览版中选择时序 ID 的最佳做法 | Microsoft Docs
-description: 了解在 Azure 时序见解预览中选择时序 ID 时的最佳做法。
-author: ashannon7
-ms.author: anshan
-ms.workload: big-data
+title: 有关选择时序 ID 的最佳做法 - Azure 时序见解 | Microsoft Docs
+description: 了解在 Azure 时序见解预览版中选择时序 ID 时的最佳做法。
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+origin.date: 10/22/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c90f23bf3c416b4f7a07ce61cf115536afd67df
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 1e50cc28b80af750ce42ab6f0cb2ee34c0bacce3
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348959"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389368"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>选择时序 ID 的最佳做法
 
-本文介绍 Azure 时序见解预览分区键、时序 ID 以及选择 ID 的最佳做法。
+本文总结了 Azure 时序见解预览版环境的时序 ID 的重要性，以及有关选择时序 ID 的最佳做法。
 
 ## <a name="choose-a-time-series-id"></a>选择时间序列 ID
 
-选择时序 ID 与为数据库选择分区键相同。 此决定十分重要，应在设计时确定。 无法更新现有时序见解预览环境来使用其他时序 ID。 换言之，如果通过时序 ID 创建了环境，则无法更改不可变的策略属性。
+选择时序 ID 与为数据库选择分区键相同。 需要在创建时序见解预览版环境时选择时序 ID。 时序 ID 是一个不可变的属性。  也就是说，在使用时序 ID 创建时序见解预览版环境后，无法更改该环境的时序 ID。 
 
 > [!IMPORTANT]
-> 时序 ID 需区分大小写，且不可更改（设置后不能更改）。
+> 时序 ID 区分大小写。
 
-考虑到这一点，选择合适的时序 ID 至关重要。 选择时序 ID 时，请考虑遵循以下最佳做法：
-* 选择的属性名称应具有范围较宽的值，并采用均衡的访问模式。 采用具有大量（例如，几百甚至几千个）非重复性值的分区键是最佳做法。 对许多客户而言，这与 JSON 中的 DeviceID 或 SensorID 类似。
+选择适当的时序 ID 至关重要。 下面是一些可遵循的最佳做法：
+
+* 选择具有许多（例如，几百甚至几千个）非重复值的分区键。 在许多情况下，该键可能是 JSON 中的设备 ID、传感器 ID 或标记 ID。
 * 在[时序模型](./time-series-insights-update-tsm.md)的叶节点级别，时序 ID 应是唯一的。
-* 时序 ID 属性名称字符串最多可包含 128 个字符，时序 ID 属性值最多可包含 1024 个字符。
-* 如果缺少某些唯一时序 ID 属性值，这些值将被视为 null 值，并参与唯一性约束。
-
-此外，最多可选择三 (3) 个键属性作为时序 ID。
+* 如果事件源是 IoT 中心，则时序 ID 很可能是 *iothub-connection-device-id*。
+* 时序 ID 属性名称字符串的字符数限制为 128 个。 时序 ID 属性值的字符数限制为 1024 个。
+* 如果时序 ID 的某个唯一属性值缺失，该值将被视为 null 值，并遵循相同的唯一性约束规则。
+* 此外，最多可以选择三个键属性作为时序 ID。  这些属性的组合将是表示时序 ID 的组合键。  
 
   > [!NOTE]
-  > 三 (3) 个键属性必须是字符串。
+  > 三个键属性必须是字符串。
+  > 必须针对此组合键运行查询，而不能每次查询一个属性。
 
-以下方案介绍了选择多个键属性作为时序 ID 的情况：  
+以下方案描述如何选择多个键属性作为时序 ID。  
 
-### <a name="scenario-1"></a>方案 1
+### <a name="example-1-time-series-id-with-a-unique-key"></a>示例 1：具有唯一键的时序 ID
 
-* 拥有旧资产组，且每组资产都有一个唯一的密钥。 
-* 例如，一个组由唯一属性 deviceId 标识，另一个组的唯一属性为 objectId。 两个组都不包含对方的唯一属性。 在此示例中，将选择两个键 deviceId 和 objectId 作为唯一键。 
-* 我们接受 null 值，且如果事件负载中缺少属性，则计为 `null` 值。 向两个不同事件源发送数据时，这种方法同样合适，其中每个事件源中的数据具有唯一的时序 ID。
+* 你有两个传统的资产群。 每个群有一个唯一键。
+* 其中一个群以属性 **deviceId** 进行唯一标识。 另一个群的唯一属性为 **objectId**。 这两个群都不包含对方的唯一属性。 在此示例中，可选择两个键 **deviceId** 和 **objectId** 作为唯一键。
+* 我们接受 null 值，且如果事件有效负载中缺少某个属性，则计为 null 值。 向两个事件源发送数据时，这种方法同样合适，其中每个事件源中的数据具有唯一的时序 ID。
 
-### <a name="scenario-2"></a>方案 2
+### <a name="example-2-time-series-id-with-a-composite-key"></a>示例 2：具有组合键的时序 ID
 
 * 同一组资产中需要多个唯一的属性。 
-* 例如，假设你是智能建筑制造商，并且要在每个房间部署传感器。 通常每个房间的 sensorId 的值相同，例如 sensor1、sensor2 和 sensor3。
-* 此外，在 flrRm 属性中，多处建筑物的楼层和房间号存在重叠，其值为 1a、2b、3a 等等。
-* 最后还有一个位置属性，其中包含雷德蒙德、巴塞罗纳和东京等值。 若要创建唯一性，可将以下三个属性指定为时序 ID 键：sensorId、flrRm 和位置。
+* 你是一家智能建筑制造商，希望在每个房间部署传感器。 对于每个房间，通常对 **sensorId** 使用相同的值。 例如，**sensor1**、**sensor2** 和 **sensor3**。
+* 建筑物在属性 **flrRm** 中包含不同场地的重叠楼层号和房间号。 这些数字使用类似于 **1a**、**2b** 和 **3a** 的值。
+* **location** 属性包含类似于 **Redmond**、**Barcelona** 和 **Tokyo** 的值。 若要实现唯一性，可将以下三个属性指定为时序 ID 键：**sensorId**、**flrRm** 和 **location**。
+
+示例原始事件：
+
+```JSON
+{
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
+}
+```
+
+在 Azure 门户中，可按如下所示输入此组合键： 
+
+`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解[数据模型](./time-series-insights-update-tsm.md)。
-* 计划 [Azure 时序见解（预览）环境](./time-series-insights-update-plan.md)。
+* 详细了解[数据建模](./time-series-insights-update-tsm.md)。
+
+* 规划 [Azure 时序见解预览版环境](./time-series-insights-update-plan.md)。

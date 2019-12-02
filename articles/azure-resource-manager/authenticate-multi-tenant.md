@@ -1,18 +1,15 @@
 ---
-title: 跨租户进行身份验证 - Azure 资源管理器
+title: 跨租户进行身份验证
 description: 介绍了 Azure 资源管理器如何跨租户处理身份验证请求。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 01/07/2019
-ms.date: 08/26/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1d8fecf18e673e973153a2ad2f79fd9a13cd489a
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+origin.date: 10/11/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: f9fbc31fd3c46d21433b56bed0c21d9fbc9ace5d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993582"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388972"
 ---
 # <a name="authenticate-requests-across-tenants"></a>跨租户对请求进行身份验证
 
@@ -38,7 +35,8 @@ ms.locfileid: "69993582"
 当请求引用了其他租户的资源时，资源管理器会检查辅助令牌来确定是否可以处理该请求。 标头中的所有辅助标记必须有效且未过期。 如果有任何令牌已过期，则资源管理器将返回 401 响应代码。 响应包括无效令牌中的客户端 ID 和租户 ID。 如果辅助标头包含租户的有效令牌，则会处理跨租户请求。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解如何通过 Azure 资源管理器 API 发送身份验证请求，请参阅[使用资源管理器身份验证 API 访问订阅](resource-manager-api-authentication.md)。
-* 有关令牌的详细信息，请参阅 [Azure Active Directory 访问令牌](/active-directory/develop/access-tokens)。
 
-<!-- Update_Description: update meta properties -->
+* 若要了解身份验证请求，请参阅[身份验证流和应用程序方案](../active-directory/develop/authentication-flows-app-scenarios.md)。
+* 有关令牌的详细信息，请参阅 [Azure Active Directory 访问令牌](../active-directory/develop/access-tokens.md)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

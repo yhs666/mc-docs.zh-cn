@@ -1,24 +1,19 @@
 ---
-title: 创建托管多个站点的应用程序网关 - Azure CLI | Microsoft Docs
+title: 使用 CLI 托管多个站点 - Azure 应用程序网关
 description: 了解如何使用 Azure CLI 创建托管多个站点的应用程序网关。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 07/14/2018
-ms.date: 09/03/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: d1e283b52cc83b25269c2e17789cab7621dce4e2
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: fd48e77689e0c17e4d2c1c9ff14eac88b1304694
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310848"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326471"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>使用 Azure CLI 创建托管多个站点的应用程序网关
 
@@ -248,4 +243,4 @@ az network public-ip show \
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

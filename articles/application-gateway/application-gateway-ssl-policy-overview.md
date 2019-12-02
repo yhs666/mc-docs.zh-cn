@@ -1,26 +1,19 @@
 ---
-title: Azure 应用程序网关的 SSL 策略概述 | Microsoft Docs
-description: 了解 Azure 应用程序网关如何允许用户配置 SSL 策略
+title: Azure 应用程序网关的 SSL 策略概述
+description: 了解如何为 Azure 应用程序网关配置 SSL 策略，并减少后端服务器场的加密和解密开销。
 services: application gateway
-documentationcenter: na
 author: amsriva
-manager: ''
-editor: ''
-tags: azure resource manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure services
-origin.date: 08/03/2017
-ms.date: 09/02/2019
+origin.date: 11/16/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 93ff489f49d68fa5031892be63906a80be7f752e
-ms.sourcegitcommit: 7fcf656522eec95d41e699cb257f41c003341f64
+ms.openlocfilehash: b264ff276a35d0c4a9c756a013de09820580d142
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310863"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327139"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>应用程序网关 SSL 策略概述
 
@@ -110,4 +103,4 @@ SSL 策略包括 SSL 协议版本控制和 SSL 握手期间会使用的密码套
 
 若要了解如何配置 SSL 策略，请参阅[配置应用程序网关上的 SSL 策略](application-gateway-configure-ssl-policy-powershell.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

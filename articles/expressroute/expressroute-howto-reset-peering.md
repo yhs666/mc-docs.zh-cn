@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 08/15/2018
+origin.date: 10/25/2019
 ms.author: v-yiso
-ms.date: 04/01/2018
-ms.openlocfilehash: 58984a858b006645ee03392b5753f2c5100ea14c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 12/02/2019
+ms.openlocfilehash: 51dda7766705e4e1d588cda3e12b303ba717fa46
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627513"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389446"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>重置 ExpressRoute 线路对等互连
 
@@ -21,11 +21,11 @@ ms.locfileid: "58627513"
 
 存在几个有助于重置 ExpressRoute 对等互连的方案。
 * 测试灾难恢复设计和实现。 例如，你有两条 ExpressRoute 线路。 可以禁用一条线路的对等互连，并强制网络流量故障转移到另一条线路。
-* 对 ExpressRoute 线路的 Azure 专用对等互连启用双向转发检测 (BFD)。 如果 ExpressRoute 线路在 2018 年 8 月 1 日之后创建，将默认启用 BFD。 如果线路在此之前创建，则未启用 BFD。 可以通过禁用对等互连并重新启用它来启用 BFD。 应注意，BFD 仅在 Azure 专用对等互连上受支持。
+* 对 ExpressRoute 线路的 Azure 专用对等互连或 Microsoft 对等互连启用双向转发检测 (BFD)。 如果 ExpressRoute 线路是在 2018 年 8 月 1 日之后创建的，则默认情况下会对 Azure 专用对等互连启用 BFD；如果 ExpressRoute 线路是在 2019 年 10 月 1 日之后创建的，则默认情况下会对 Microsoft 对等互连启用 BFD。 如果线路在此之前创建，则未启用 BFD。 可以通过禁用对等互连并重新启用它来启用 BFD。 
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 ## <a name="reset-a-peering"></a>重置对等互连
 
 1. 如果在本地运行 PowerShell，请使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
@@ -48,7 +48,7 @@ ms.locfileid: "58627513"
    ```powershell
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. 标识要禁用或启用的对等互连。 对等互连是一个数组。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Azure 公共对等互连。
+5. 标识要禁用或启用的对等互连。 对等互连是一个数组  。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Azure 公共对等互连。
 
    ```powershell
    Name                             : ExpressRouteARMCircuit

@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: jamesbak
 origin.date: 12/06/2018
-ms.date: 09/09/2019
+ms.date: 11/25/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 0feeac68b39595a2ab83adb310008e15547a44ee
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 197cc34567334ed42a38901e7962ffa92d189f72
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209409"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328736"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob FileSystem 驱动程序 (ABFS)：用于 Hadoop 的专用 Azure 存储驱动程序
 
-要访问 Azure Data Lake Storage Gen2 中的数据，一种主要方式是通过 [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)。 Data Lake Storage Gen2 允许 Azure Blob 存储的用户访问新驱动程序、Azure Blob 文件系统驱动程序或 `ABFS`。 ABFS 是 Apache Hadoop 的一部分，Hadoop 的许多商业分发均带有此程序。 借助此驱动程序，许多应用程序和框架无需显式引用 Data Lake Storage Gen2 的任何代码，即可访问 Azure Blob 存储中的数据。
+要访问 Azure Data Lake Storage Gen2 中的数据，一种主要方式是通过 [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)。 Data Lake Storage Gen2 允许 Azure Blob 存储的用户访问新驱动程序、Azure Blob 文件系统驱动程序或 `ABFS`。 ABFS 是 Apache Hadoop 的一部分，Hadoop 的许多商业分发均带有此程序。 借助此驱动程序，许多应用程序和框架无需显式引用 Data Lake Storage Gen2 的任何代码，即可访问 Azure Blob 存储中的数据。 
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>以前的功能：Windows Azure 存储 Blob 驱动程序
 
@@ -51,15 +51,18 @@ ABFS 驱动程序支持两种形式的身份验证，以便 Hadoop 应用程序�
 
 - **Azure Active Directory OAuth 持有者令牌：** 驱动程序使用最终用户或所配置的某个服务主体的标识获取和刷新 Azure AD 持有者令牌。 使用此身份验证模型时，所有访问都是使用与所提供的令牌关联的标识以调用为单位进行授权的，并且依据所分配的 POSIX 访问控制列表 (ACL) 进行评估。
 
+   > [!NOTE] 
+   > Azure Data Lake Storage Gen2 仅支持 Azure AD v1.0 终结点。
+
 ### <a name="configuration"></a>配置
 
 ABFS 驱动程序的所有配置均存储在 <code>core-site.xml</code> 配置文件中。 在带有 [Ambari](https://ambari.apache.org/) 的 Hadoop 分发上，还可使用 Web 门户或 Ambari REST API 管理配置。
 
-要详细了解所有受支持的配置条目，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)。
+要详细了解所有受支持的配置条目，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)。
 
 ### <a name="hadoop-documentation"></a>Hadoop 文档
 
-要完整了解 ABFS 驱动程序，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
+要完整了解 ABFS 驱动程序，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
 
 ## <a name="next-steps"></a>后续步骤
 

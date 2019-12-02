@@ -1,9 +1,9 @@
 ---
-title: 如何缩放 Azure 时序见解环境 | Microsoft Docs
-description: 本文介绍如何缩放 Azure 时序见解环境。 使用 Azure 门户增加或减少定价 SKU 中的容量。
+title: 如何缩放环境 - Azure 时序见解 | Microsoft Docs
+description: 了解如何使用 Azure 门户缩放 Azure 时序见解环境。
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: v-yiso
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,14 +11,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e7477cab1aa6bbd6dce525a777d314b058bff5b
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: e03f08b833ae3b1d8c57f4885c0bd0258cf8e7dc
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914364"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389099"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何缩放时序见解环境
 
@@ -28,22 +28,9 @@ ms.locfileid: "72914364"
 
 但是，不允许更改定价层 SKU。 例如，不能将定价 SKU 为 S1 的环境转换为 S2，反之亦然。 
 
+## <a name="ga-limits"></a>GA 限制
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU 入口速率和容量
-
-| S1 SKU 容量 | 入口速率 | 最大存储容量
-| --- | --- | --- |
-| 1 | 1 GB（1 百万个事件） | 每月 30 GB（3 千万个事件） |
-| 10 个 | 10 GB（1 千万个事件） | 每月 300 GB（3 亿个事件） |
-
-## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU 入口速率和容量
-
-| S2 SKU 容量 | 入口速率 | 最大存储容量
-| --- | --- | --- |
-| 1 | 10 GB（1 千万个事件） | 每月 300 GB（3 亿个事件） |
-| 10 个 | 100 GB（1 亿个事件） | 每月 3 TB（30 亿个事件） |
-
-容量呈线性增长，因此容量为 2 的 S1 SKU 每日入口速率支持 2 GB（2 百万）的事件，每月支持 60 GB（6 千万）的事件。
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
 ## <a name="change-the-capacity-of-your-environment"></a>更改环境容量
 
@@ -61,6 +48,12 @@ ms.locfileid: "72914364"
 
 1. 选择“保存”以缩放环境。  在提交更改之前，进度指示器会短暂显示。
 
+1. 检查新容量是否[足以防止出现限制情况](time-series-insights-diagnose-and-solve-problems.md)。
+
 ## <a name="next-steps"></a>后续步骤
 
-- 检查新容量是否[足以防止出现限制情况](time-series-insights-diagnose-and-solve-problems.md)。
+- 有关详细信息，请参阅[了解时序见解中的保留期](time-series-insights-concepts-retention.md)。
+
+- 了解如何[在 Azure 时序见解中配置数据保留](time-series-insights-how-to-configure-retention.md)。
+
+- 了解如何[规划环境](time-series-insights-environment-planning.md)。

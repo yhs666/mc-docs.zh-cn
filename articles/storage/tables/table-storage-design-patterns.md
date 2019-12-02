@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 09/09/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: tables
-ms.openlocfilehash: ef5ef9c41f1a1f6bec63079e8eb1e3416a2e824c
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 76535664228b6d04d3dfec4fbe45566e2e01386f
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209406"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328766"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -141,7 +141,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 * 存储在同一个表的两个不同分区中的实体、存储在不同表中的实体，或存储在不同存储帐户中的实体。  
 * 存储在表服务中的实体和存储在 Blob 服务中的 blob。  
 * 表服务中存储的实体和文件系统中的文件。  
-* 实体存储在表服务中还使用 Azure Search 服务编制了索引。  
+* 存储在表服务中的实体还使用 Azure 认知搜索服务编制了索引。  
 
 ### <a name="solution"></a>解决方案
 通过使用 Azure 队列，可以实现一种解决方案，用于在两个或更多个分区或存储系统之间提供最终一致性。

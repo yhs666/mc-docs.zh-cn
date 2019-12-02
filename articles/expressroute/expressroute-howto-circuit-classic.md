@@ -1,19 +1,19 @@
 ---
-title: 修改 ExpressRoute 线路：PowerShell：Azure 经典 | Azure
+title: Azure ExpressRoute：修改线路：PowerShell：经典
 description: 本文逐步讲解检查状态以及更新或删除并预配 ExpressRoute 经典部署模型线路的步骤。
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 08/12/2019
+origin.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 05770ecb9ccf29ef2c397f30351a88fb65432588
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.openlocfilehash: 63509b957da9128184f8d64ae1b1937b05eaf1d0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68733540"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389454"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 
@@ -33,39 +33,18 @@ ms.locfileid: "68733540"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="before-you-begin"></a>准备阶段
 
-安装最新版本的 Azure 服务管理 (SM) PowerShell 模块和 ExpressRoute 模块。  使用以下示例时，请注意，当更新版本的 cmdlet 发布时，版本号（在此示例中为 5.1.1）将更改。
+安装最新版本的 Azure 服务管理 (SM) PowerShell 模块和 ExpressRoute 模块。 不能使用 Azure CloudShell 环境来运行 SM 模块。
 
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-如果需要有关 Azure PowerShell 的更多信息，请参阅 [Azure PowerShell cmdlet 入门](../powershell-install-configure.md)来获取有关如何配置计算机以使用 Azure PowerShell 模块的分步指导。
-
-若要登录到 Azure 帐户，请使用以下示例：
-
-1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
+1. 按照[安装服务管理模块](/powershell/azure/servicemanagement/install-azure-ps)一文中的说明安装 Azure 服务管理模块。 如果已安装 Az 或 RM 模块，请确保使用“-AllowClobber”。
+2. 导入已安装的模块。 使用以下示例时，请调整路径以反映已安装的 PowerShell 模块的位置。
 
    ```powershell
-   Connect-AzAccount -Environment AzureChinaCloud
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
    ```
-2. 检查该帐户的订阅。
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. 如果有多个订阅，请选择要使用的订阅。
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
+3. 若要登录到 Azure 帐户，请使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用以下示例帮助你通过服务管理模块进行连接：
 
    ```powershell
    Add-AzureAccount -Environment AzureChinaCloud

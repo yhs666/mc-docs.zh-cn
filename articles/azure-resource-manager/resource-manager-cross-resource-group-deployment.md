@@ -1,18 +1,15 @@
 ---
-title: 将 Azure 资源部署到多个订阅和资源组 | Azure
+title: 跨订阅和资源组部署资源
 description: 介绍如何在部署期间将多个 Azure 订阅和资源组作为目标。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 06/02/2018
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: e88073c9eddd89e51da213e2498aef812f31e648
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.date: 11/25/2019
+ms.openlocfilehash: e9a2a42dcde038119d8e6e28728aabb4a387ec73
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337421"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389387"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>将 Azure 资源部署到多个订阅或资源组
 

@@ -1,23 +1,19 @@
 ---
-title: 创建支持 HTTP 到 HTTPS 重定向的应用程序网关 - Azure PowerShell | Microsoft Docs
+title: 使用 PowerShell 进行 HTTP 到 HTTPS 重定向 - Azure 应用程序网关
 description: 了解如何使用 Azure PowerShell 创建支持从 HTTP 到 HTTPS 重定向流量的应用程序网关。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-origin.date: 07/13/2018
-ms.date: 06/12/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: e7a070eeb4bd4f6bd98c5458570d592cb1bfd354
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 3e140c99c3ccc297f2d92f2b3bbb2099db685303
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027436"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326647"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -348,4 +344,4 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 > * 添加侦听器和重定向规则
 > * 使用默认后端池创建虚拟机规模集
 
-<!-- Update_Description: code and link update -->
+<!-- Update_Description: update metedata properties -->

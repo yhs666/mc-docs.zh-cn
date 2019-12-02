@@ -1,22 +1,20 @@
 ---
-title: 使用证书创建应用程序网关 - Azure CLI | Microsoft Docs
+title: 使用 CLI 进行 HTTP 到 HTTPS 重定向
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure CLI 创建应用程序网关并为 SSL 终端添加证书。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-origin.date: 07/14/2018
-ms.date: 02/11/2019
+origin.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 326326401c45d28a428678b925323fdda7a15557
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 2b0119deed87d6ee132a692785a1765542de4a03
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079671"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326644"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -236,4 +234,4 @@ az network public-ip show `
 
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

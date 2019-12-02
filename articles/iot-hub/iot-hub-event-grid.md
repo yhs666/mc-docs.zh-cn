@@ -1,20 +1,20 @@
 ---
 title: Azure IoT 中心和事件网格 | Microsoft Docs
 description: 使用 Azure 事件网格根据 IoT 中心发生的操作来触发流程。
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 02/20/2019
-ms.date: 09/30/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7c7291ed2f13eb6eb4b9a30b5c2e50a42cae9437
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 8ac022407443f2e5f990492f3e582af983db01cd
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155977"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389359"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>通过使用事件网格触发操作来响应 IoT 中心事件
 
@@ -24,6 +24,9 @@ ms.locfileid: "71155977"
 
 ![Azure 事件网格体系结构](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
+## <a name="regional-availability"></a>区域可用性
+
+事件网格集成适用于支持事件网格的区域中的 IoT 中心。 有关区域的最新列表，请参阅 [Azure 事件网格简介](../event-grid/overview.md)。
 
 ## <a name="event-types"></a>事件类型
 
@@ -174,13 +177,21 @@ devices/{deviceId}
 
 事件网格还允许基于每个事件的属性（包括数据内容）进行筛选。 这允许你选择基于遥测消息的内容传送哪些事件。 请参阅[高级筛选](../event-grid/event-filtering.md#advanced-filtering)来查看示例。 若要对遥测消息正文进行筛选，必须在消息[系统属性](/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。 这两个属性都不区分大小写。
 
-对于非遥测事件，例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted，在创建订阅时，可以使用事件网格筛选。 对于遥测事件，除了在事件网格中进行筛选之外，用户还可以通过消息路由查询基于设备孪生、消息属性和正文进行筛选。 我们将根据你对设备遥测的事件网格订阅在 IoT 中心内创建一个默认[路由](iot-hub-devguide-messages-d2c.md)。 此单一路由可以处理你的所有事件网格订阅。 若要在发送遥测数据之前筛选消息，可以更新你的[路由查询](iot-hub-devguide-routing-query-syntax.md)。 请注意，只有当消息正文为 JSON 时，才能将路由查询应用于消息正文。 还必须在消息[系统属性](/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。
+对于非遥测事件，例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted，在创建订阅时，可以使用事件网格筛选。 对于遥测事件，除了在事件网格中进行筛选之外，用户还可以通过消息路由查询基于设备孪生、消息属性和正文进行筛选。 
+
+通过事件网格订阅遥测事件时，IoT 中心会创建一个默认的消息路由，用于将数据源类型设备消息发送到事件网格。 有关消息路由的详细信息，请参阅 [IoT 中心消息路由](iot-hub-devguide-messages-d2c.md)。 该路由会在门户的“IoT 中心”>“消息路由”下显示。 不管为遥测事件创建多少个 EG 订阅，都只会创建一个通往事件网格的路由。 因此，如果需要多个使用不同筛选器的订阅，可以在同一路由的这些查询中使用 OR 运算符。 通过事件网格订阅遥测事件即可控制路由的创建和删除。 无法使用 IoT 中心消息路由创建或删除通往事件网格的路由。
+
+若要在发送遥测数据之前筛选消息，可以更新你的[路由查询](iot-hub-devguide-routing-query-syntax.md)。 请注意，只有当消息正文为 JSON 时，才能将路由查询应用于消息正文。 还必须在消息[系统属性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中将 contentType 设置为 **application/json**，将 contentEncoding 设置为 **UTF-8**。
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>设备已连接和设备已断开连接事件的限制
 
 若要接收设备已连接和设备已断开连接事件，必须为设备打开 D2C 链路或 C2D 链路。 如果设备使用的是 MQTT 协议，IoT 中心将保持 C2D 链路打开。 对于 AMQP，可以通过调用[接收异步 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) 来打开 C2D 链路。
 
-如果正在发送遥测数据，则 D2C 链路是打开的。 如果设备连接闪烁，则意味着设备频繁连接和断开连接，我们将不会发送每个连接状态，但将发布每分钟拍摄的快照的连接状态。 如果 IoT 中心发生服务中断，我们将在服务中断结束后立即发布设备连接状态。 如果设备在服务中断期间断开连接，则设备已断开连接事件将在 10 分钟内发布。
+如果正在发送遥测数据，则 D2C 链路是打开的。 
+
+如果设备连接闪烁，则意味着设备频繁连接和断开连接，我们不会发送每个连接状态，但会发布最后的连接状态，该状态最终是一致的。  例如，如果设备一开始一直处于连接状态，然后连接闪烁了几秒钟，接着回到连接状态， 则不会发布新的设备连接状态事件（自初始连接状态以后）。 
+
+如果 IoT 中心发生服务中断，我们将在服务中断结束后立即发布设备连接状态。 如果设备在服务中断期间断开连接，则设备已断开连接事件将在 10 分钟内发布。
 
 ## <a name="tips-for-consuming-events"></a>使用事件的提示
 

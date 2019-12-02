@@ -1,24 +1,20 @@
 ---
-title: 创建支持内部重定向的应用程序网关 - Azure PowerShell | Microsoft Docs
+title: 使用 PowerShell 进行内部重定向
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure Powershell 创建将内部 Web 流量重定向到相应的后端服务器池的应用程序网关。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 07/13/2018
-ms.date: 09/18/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: d68ef18b11a30fa8267b5da9b73639afa0d449ff
-ms.sourcegitcommit: b47a38443d77d11fa5c100d5b13b27ae349709de
+ms.openlocfilehash: a8b321963e80707f9e08e57639ae2defdf440437
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083257"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326589"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持内部重定向的应用程序网关
 
@@ -299,7 +295,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在应用程序网关中测试 contoso 站点](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-将地址更改为其他域（例如 http://www.contoso.org ），应会看到流量已被重定向回 www.contoso.com 的侦听器。
+将地址更改为其他域（例如 https://www.contoso.org ），应会看到流量已被重定向回 `www.contoso.com` 的侦听器。
 
 ## <a name="next-steps"></a>后续步骤
 

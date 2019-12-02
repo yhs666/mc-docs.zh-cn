@@ -1,19 +1,19 @@
 ---
-title: 路由要求 - ExpressRoute：Azure
+title: Azure ExpressRoute：路由要求
 description: 本页提供有关为 ExpressRoute 线路配置和管理路由的详细要求。
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 09/04/2019
+origin.date: 09/19/2019
 ms.author: v-yiso
-ms.date: 10/01/2019
-ms.openlocfilehash: dea351090c4d1ecf4ec26924d589d328bfe0d92e
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.date: 12/02/2019
+ms.openlocfilehash: a94467597e3e710fa6bfbe6a602f2071ac73a0f6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330386"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389444"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -84,7 +84,21 @@ ms.locfileid: "71330386"
 可选择使用用于专用对等互连的公共或专用 IPv4 地址。 我们会对用户的流量进行端到端隔离，因此在进行专用对等互连时，不可能出现与其他客户的地址发生重叠的情况。 这些地址不会播发到 Internet。 
 
 ### <a name="microsoft-peering"></a>Microsoft 对等互连
-Microsoft 在 Microsoft 对等互连上支持双向连接。 定向到 Microsoft 云服务的流量必须使用有效的公共 IPv4 地址才能进入 Microsoft 网络。
+可以使用 Microsoft 对等互连路径连接到 Microsoft 云服务。 服务列表包括 Office 365 服务，例如 Exchange Online、SharePoint Online、Skype for Business 和 Microsoft Teams。 Microsoft 在 Microsoft 对等互连上支持双向连接。 定向到 Microsoft 云服务的流量必须使用有效的公共 IPv4 地址才能进入 Microsoft 网络。
+
+确保 IP 地址和 AS 号码已在下列其中一个注册表中注册：
+
+* [ARIN](https://www.arin.net/)
+* [APNIC](https://www.apnic.net/)
+* [AFRINIC](https://www.afrinic.net/)
+* [LACNIC](https://www.lacnic.net/)
+* [RIPENCC](https://www.ripe.net/)
+* [RADB](https://www.radb.net/)
+* [ALTDB](https://altdb.net/)
+
+如果没有在前述注册表中为你分配前缀和 AS 编号，需开立一个支持案例，以便手动验证前缀和 ASN。 支持需要文档，例如证明你有权使用相关资源的授权书。
+
+专用 AS 编号可以用于 Microsoft 对等互连，但也需手动验证。 此外，对于收到的前缀，我们会删除 AS PATH 中的专用 AS 数字。 因此，无法在 AS PATH 中追加专用 AS 数字来[影响 Microsoft 对等互连的路由](expressroute-optimize-routing.md)。 
 
 > [!IMPORTANT]
 > 不要将相同的公共 IP 路由播发到公共 Internet 和通过 ExpressRoute 播发。 为了降低错误配置导致不对称路由的风险，我们强烈建议通过 ExpressRoute 播发到 Microsoft 的 NAT IP 地址应该来自完全没有播发到 Internet 的范围。 如果无法实现这一点，则必须确保通过 ExpressRoute 播发的范围比 Internet 连接上的范围更具体。 除了要进行 NAT 的公共路由外，还可以在本地网络中通过 ExpressRoute 播发与 Microsoft 中的 Office 365 终结点通信的服务器使用的公共 IP 地址。 
@@ -101,7 +115,7 @@ Azure 公共对等互连路径使用户能够通过其公共 IP 地址连接到 
 公共对等互连允许使用专用 AS 编号。
 
 ## <a name="dynamic-route-exchange"></a>动态路由交换
-路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 
+路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 有关配置 BGP 会话的信息，请参阅[配置路由](how-to-routefilter-portal.md)及[线路预配工作流和线路状态](expressroute-workflows.md)。
 
 ## <a name="autonomous-system-numbers"></a>自治系统编号
 Microsoft 使用 AS 12076 进行 Azure 公共、Azure 专用和 Microsoft 对等互连。 我们保留了 ASN 65515-65520 供内部使用。 支持 16 和 32 位 AS 编号。

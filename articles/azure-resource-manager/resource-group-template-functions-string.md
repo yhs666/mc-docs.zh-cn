@@ -1,18 +1,15 @@
 ---
-title: Azure Resource Manager 模板函数 - 字符串 | Azure
+title: 模板函数 - 字符串
 description: 介绍了可在 Azure Resource Manager 模板中用来处理字符串的函数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 5606de5551eace0358213fc40061194d998bfad0
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: e320f6e41c480bc33cfb42696fc68e16c7e5c0ff
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156088"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389391"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的字符串函数
 
@@ -1098,7 +1095,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 
 newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。 每次结合相同的参数调用 guid 都会返回相同的标识符。 需要为特定的环境可靠地生成相同的 GUID 时，请使用 guid。 如果每次需要不同的标识符（例如，将资源部署到测试环境），请使用 newGuid。
 
-如果[使用相应的选项来重新部署以前已成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而以前的部署包含一个使用 newGuid 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
+如果[使用相应的选项来重新部署以前已成功的部署](rollback-on-error.md)，而以前的部署包含一个使用 newGuid 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
 
 在测试环境中，可能需要重复部署生存期较短的资源。 无需构造唯一的名称，可以结合 [uniqueString](#uniquestring) 使用 newGuid 来创建唯一的名称。
 
@@ -1914,10 +1911,26 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| baseUri |是 |string |基本 uri 字符串。 |
+| baseUri |是 |string |基本 uri 字符串。 请注意观察与处理尾随斜杠 ('/') 有关的行为，如下表所述。  |
 | relativeUri |是 |string |要添加到基本 uri 字符串的相对 uri 字符串。 |
 
-**baseUri** 参数的值可包含特定文件，但在构造 URI 时，只使用基路径。 例如，将 `http://contoso.com/resources/azuredeploy.json` 作为 baseUri 参数传递会生成 `http://contoso.com/resources/` 的基 URI。
+* 如果 **baseUri** 以尾随斜杠结尾，则结果就是 **baseUri** 后跟 **relativeUri**。
+
+* 如果 **baseUri** 不以尾随斜杠结尾，则会出现以下两种情况之一。  
+
+    * 如果 **baseUri** 根本没有斜杠（除了前面的“/”之外），则结果就是 **baseUri** 后跟 **relativeUri**。
+
+    * 如果 **baseUri** 包含一些斜杠，但不是以斜杠结尾，则从 **baseUri** 中删除从最后一个斜杠开始的所有内容，结果是 **baseUri** 后跟 **relativeUri**。
+
+下面是一些示例：
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+有关完整的详细信息，请按照 [RFC 3986 第 5 部分](https://tools.ietf.org/html/rfc3986#section-5)中的说明解析 **baseUri** 和 **relativeUri** 参数。
 
 ### <a name="return-value"></a>返回值
 
@@ -1964,9 +1977,9 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | Name | 类型 | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2019,9 +2032,9 @@ URI 编码值的字符串。
 
 | Name | 类型 | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2074,9 +2087,9 @@ URI 编码值的解码后字符串。
 
 | Name | 类型 | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2088,13 +2101,13 @@ URI 编码值的解码后字符串。
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| format |否 |string |要转换为字符串的 URI 编码值。 使用[标准格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
+| format |否 |string |要转换为字符串的 URI 编码值。 使用[标准格式字符串](https://docs.microsoft.com//dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com//dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
 
 ### <a name="remarks"></a>备注
 
 只能在表达式中对参数的默认值使用此函数。 在模板中的其他任何位置使用此函数都会返回错误。 不允许在模板的其他部分使用该函数，因为每次调用该函数，都会返回不同的值。 使用相同的参数部署同一模板不能可靠地生成相同的结果。
 
-如果[使用相应的选项来重新部署以前已成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而以前的部署包含一个使用 utcNow 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
+如果[使用相应的选项来重新部署以前已成功的部署](rollback-on-error.md)，而以前的部署包含一个使用 utcNow 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
 
 重新部署依赖于 utcNow 函数提供默认值的模板时请保持谨慎。 如果重新部署且不提供参数的值，则会重新评估该函数。 若要更新现有的资源而不是新建资源，请传入以前部署中的参数值。
 

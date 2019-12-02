@@ -1,25 +1,15 @@
 ---
-title: Azure 资源提供程序注册错误 | Azure
-description: 说明如何解决 Azure 资源提供程序注册错误。
-services: azure-resource-manager
-documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: 资源提供程序注册错误
+description: 说明在使用 Azure 资源管理器部署资源时如何解决 Azure 资源提供程序注册错误。
 ms.topic: troubleshooting
 origin.date: 02/15/2019
-ms.date: 03/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: c06048a2a618456ee167d6fc2f97636cae96ebee
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.date: 11/25/2019
+ms.openlocfilehash: 8b0f543786d34db49657df5755da5495d384b38d
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348104"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389573"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 
@@ -64,7 +54,7 @@ Message: The client '<identifier>' with object id '<identifier>' does not have a
 
 ## <a name="solution-1---powershell"></a>解决方案 1 - PowerShell
 
-对于 PowerShell，请使用 Get-AzResourceProvider 查看注册状态。
+对于 PowerShell，请使用 Get-AzResourceProvider 查看注册状态  。
 
 ```powershell
 Get-AzResourceProvider -ListAvailable
@@ -112,7 +102,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 可以通过门户查看注册状态，并注册资源提供程序命名空间。
 
-1. 在门户中，选择“所有服务”。
+1. 在门户中，选择“所有服务”。 
 
    ![选择所有服务](./media/resource-manager-register-provider-errors/select-all-services.png)
 
@@ -124,11 +114,11 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![选择订阅以注册资源提供程序](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
 
-1. 对于订阅，选择“资源提供程序”。
+1. 对于订阅，选择“资源提供程序”  。
 
    ![选择资源提供程序](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. 查看资源提供程序列表，根据需要选择“注册”链接，注册尝试部署的类型的资源提供程序。
+1. 查看资源提供程序列表，根据需要选择“注册”链接，注册尝试部署的类型的资源提供程序  。
 
    ![列出资源提供程序](./media/resource-manager-register-provider-errors/list-resource-providers.png)
 

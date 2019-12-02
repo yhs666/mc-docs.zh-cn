@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 08/19/2019
 ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c767117d29e98e273a3efe0fa459858c079d16f
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 360641ab15fc5a3fb51e38629510f9764addac07
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156101"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389347"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>将资源移到新的资源组或订阅
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 3378e32882a8aaaf950717f90fbe1311e1ecfd61
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 33b8902f9cacdd4350a622e6966e3df99ac2955e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63822086"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389527"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>如何使用 Azure CLI 和 IoT 扩展来管理 IoT 中心设备预配服务
 
@@ -41,7 +41,7 @@ IoT 扩展丰富了 Azure CLI 的功能，例如设备管理和完整的 IoT Edg
 ## <a name="basic-device-provisioning-service-operations"></a>基本的设备预配服务操作
 该示例演示如何使用 CLI 命令登录到 Azure 帐户、创建 Azure 资源组（保存 Azure 解决方案相关资源的容器）、创建 IoT 中心、创建设备预配服务、列出现有的设备预配服务，以及如何创建链接的 IoT 中心。 
 
-在开始之前，请完成前面所述的安装步骤。 如果没有 Azure 帐户，可以立即[创建一个免费帐户](https://azure.microsoft.com/free/?v=17.39a)。 
+在开始之前，请完成前面所述的安装步骤。 如果还没有 Azure 帐户，可以立即[创建一个试用帐户](www.azure.cn/pricing/1rmb-trial)。 
 
 
 ### <a name="1-log-in-to-the-azure-account"></a>1.登录到 Azure 帐户

@@ -1,18 +1,15 @@
 ---
-title: 为逻辑组织标记 Azure 资源 | Azure
+title: 为逻辑组织标记资源
 description: 演示如何应用标记来组织 Azure 资源进行计费和管理。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/17/2019
-ms.date: 08/26/2019
-ms.author: v-yeche
-ms.openlocfilehash: f9f91278d11010b602b3de801a75224924307620
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+origin.date: 10/30/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 8657cf1ada297957f7e84cc86e5502fdeb02d351
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993548"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389395"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -24,7 +21,7 @@ ms.locfileid: "69993548"
 
 ## <a name="policies"></a>策略
 
-可以使用 [Azure 策略](../governance/policy/overview.md)来强制实施标记规则和约定。 通过创建策略，可以避免将与预期的组织标记不相符的资源部署到订阅。 无需手动应用标记或搜索不符合的资源，可以创建一个策略，在部署期间自动应用所需标记。 以下部分展示标记策略示例。
+可以使用 [Azure Policy ](../governance/policy/overview.md)来强制实施标记规则和约定。 通过创建策略，可以避免将与预期的组织标记不相符的资源部署到订阅。 无需手动应用标记或搜索不符合的资源，可以创建一个策略，在部署期间自动应用所需标记。 现在，还可以通过新的 [Modify](../governance/policy/concepts/effects.md#modify) 效果和[修正任务](../governance/policy/how-to/remediate-resources.md)将标记应用于现有资源。 以下部分展示标记策略示例。
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -418,4 +415,4 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 * 并非所有资源类型都支持标记。 若要确定是否可以将标记应用到资源类型，请参阅 [Azure 资源的标记支持](tag-support.md)。
 * 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](manage-resource-groups-portal.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

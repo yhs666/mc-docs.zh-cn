@@ -10,32 +10,32 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 824a1557772926b363dddc6524a6a53bef366609
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 15c0418cf2b0338ac219e2a2cf93e2e46ec7d7b6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340739"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389532"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 
 IoT Edge 运行时是将某个设备转换为 IoT Edge 设备的程序集合。 在 IoT Edge 运行时组件的共同作用下，IoT Edge 设备可以接收要在边缘上运行的代码并传递结果。 
 
-IoT Edge 运行时在 IoT Edge 设备上执行以下功能：
+IoT Edge 运行时负责 IoT Edge 设备上的以下功能：
 
 * 在设备上安装和更新工作负荷。
 * 维护设备上的 Azure IoT Edge 安全标准。
 * 确保 [IoT Edge 模块](iot-edge-modules.md)始终处于运行状态。
 * 将模块运行状况报告给云以进行远程监视。
-* 促进下游叶设备与 IoT Edge 设备之间的通信。
-* 促进 IoT Edge 设备上的模块间的通信。
-* 促进 IoT Edge 设备和云之间的通信。
+* 管理下游设备与 IoT Edge 设备之间的通信。
+* 管理 IoT Edge 设备上的模块间的通信。
+* 管理 IoT Edge 设备和云之间的通信。
 
 ![运行时向 IoT 中心传达见解和模块运行状况](./media/iot-edge-runtime/Pipeline.png)
 
 IoT Edge 运行时的职责分为两类：通信和模块管理。 这两个角色由作为 IoT Edge 运行时一部分的两个组件执行。 IoT Edge 中心  负责通信，而 IoT Edge 代理  则负责部署和监视模块。 
 
-IoT Edge 中心和 IoT Edge 代理都是模块，就像 IoT Edge 设备上运行的其他任何模块一样。 
+IoT Edge 中心和 IoT Edge 代理都是模块，就像 IoT Edge 设备上运行的其他任何模块一样。 有时将它们称为“运行时模块”。  
 
 ## <a name="iot-edge-hub"></a>IoT Edge 中心
 
@@ -46,7 +46,7 @@ IoT Edge 中心是组成 Azure IoT Edge 运行时的两个模块之一。 它通
 
 IoT Edge 中心不是在本地运行的完整版本的 IoT 中心。 有一些功能是 IoT Edge 中心以静默方式委托给 IoT 中心的。 例如，设备首次尝试连接时，IoT Edge 中心会将身份验证请求转发给 IoT 中心。 建立第一个连接之后，IoT Edge 中心会在本地缓存安全信息。 无需在云中进行身份验证即可允许该设备的后续连接。 
 
-为减少 IoT Edge 解决方案使用的带宽，IoT Edge 中心优化了对云的实际连接数量。 IoT Edge 中心采用来自客户端（如模块或叶设备）的逻辑连接，并将它们组合为连接到云的单个物理连接。 此过程的详细信息对解决方案的其他部分透明。 即使客户端都通过相同连接进行发送，它们也会认为具有自己的云连接。 
+为减少 IoT Edge 解决方案使用的带宽，IoT Edge 中心优化了对云的实际连接数量。 IoT Edge 中心采用来自客户端（如模块或下游设备）的逻辑连接，并将它们组合为连接到云的单个物理连接。 此过程的详细信息对解决方案的其他部分透明。 即使客户端都通过相同连接进行发送，它们也会认为具有自己的云连接。 
 
 ![IoT Edge 中心是物理设备和 IoT 中心之间的网关](./media/iot-edge-runtime/Gateway.png)
 
@@ -63,18 +63,18 @@ IoT Edge 中心促进模块间通信。 使用 IoT Edge 中心作为消息中转
    ```csharp
    ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
-   await client.SendEventAsync(“output1”, message); 
+   await client.SendEventAsync("output1", message); 
    ```
 
 若要接收消息，请注册一个回叫，用于处理在特定输入上传入的消息。 下面的伪代码注册要用于处理在 **input1** 上接收到的所有消息的函数 messageProcessor：
 
    ```csharp
-   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
 有关 ModuleClient 类及其通信方法的更多信息，请参阅首选 SDK 语言的 API 参考：[C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)、[C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)、[Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python)、[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) 或 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)。
 
-解决方案开发者负责指定用于确定 IoT Edge 中心如何在模块间传递消息的规则。 路由规则在云中定义，并向下推送到其设备孪生中的 IoT Edge 中心。 使用 IoT 中心路由的同一语法定义在 Azure IoT Edge 中的模块之间的路由。 有关详细信息，请参阅[了解如何在 IoT Edge 中部署模块和建立路由](module-composition.md)。   
+解决方案开发者负责指定用于确定 IoT Edge 中心如何在模块间传递消息的规则。 路由规则在云中定义，并向下推送到其模块孪生中的 IoT Edge 中心。 使用 IoT 中心路由的同一语法定义在 Azure IoT Edge 中的模块之间的路由。 有关详细信息，请参阅[了解如何在 IoT Edge 中部署模块和建立路由](module-composition.md)。   
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
@@ -82,7 +82,7 @@ IoT Edge 中心促进模块间通信。 使用 IoT Edge 中心作为消息中转
 
 ## <a name="iot-edge-agent"></a>IoT Edge 代理
 
-IoT Edge 代理是构成 Azure IoT Edge 运行时的其他模块。 它负责实例化模块、确保它们继续运行以及报告返回到 IoT 中心的模块的状态。 就和其他任何模块一样，IoT Edge 代理使用其模块孪生来存储此配置数据。 
+IoT Edge 代理是构成 Azure IoT Edge 运行时的其他模块。 它负责实例化模块、确保它们继续运行以及报告返回到 IoT 中心的模块的状态。 此配置数据作为 IoT Edge 代理模块孪生的属性写入。 
 
 [IoT Edge 安全守护程序](iot-edge-security-manager.md)在设备启动时启动 IoT Edge 代理。 该代理从 IoT 中心检索其模块孪生并检查部署清单。 部署清单是一个 JSON 文件，它声明了需要启动的模块。 
 
@@ -101,6 +101,9 @@ IoT Edge 代理是构成 Azure IoT Edge 运行时的其他模块。 它负责实
    * `on-failure` - 如果模块崩溃，IoT Edge 代理会重启它。 如果该模块完全关闭，IoT Edge 代理不会重启它。
    * `on-unhealthy` - 如果模块崩溃或被视为不正常，IoT Edge 代理会重启它。
    * `always` - 如果模块崩溃、被视为不正常或者以任何方式关闭，IoT Edge 代理会重启它。 
+* **imagePullPolicy** - IoT Edge 代理是否会尝试自动拉取模块的最新映像。 如果未指定值，则默认值为 *onCreate*。 可能的值包括： 
+   * `on-create` - 启动模块或根据新的部署清单更新模块时，IoT Edge 代理会尝试从容器注册表拉取模块映像。
+   * `never` - IoT Edge 代理从来不会尝试从容器注册表拉取模块映像。 预期是这样的：模块映像缓存在设备上，任何模块映像更新都通过手动进行，或者由第三方解决方案进行管理。 
 
 IoT Edge 代理会将运行时响应发送到 IoT 中心。 下面是可能的响应的列表：
   * 200 - 正常

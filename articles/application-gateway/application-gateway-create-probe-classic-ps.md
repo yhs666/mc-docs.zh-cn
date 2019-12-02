@@ -1,27 +1,19 @@
 ---
-title: 创建自定义探测 - Azure 应用程序网关 - PowerShell 经典 | Microsoft Docs
+title: 使用 PowerShell 创建自定义探测 - Azure 应用程序网关
 description: 了解如何使用经典部署模型中的 PowerShell 创建应用程序网关的自定义探测
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 04/26/2017
-ms.date: 04/15/2019
+origin.date: 11/13/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: bdbcfb462525afcc88e79634aa862fad20ada10f
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 0f34d2b7cfc2d89f25bf3db4fd8a73e8fffe9f26
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686413"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327000"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
@@ -156,7 +148,7 @@ Get-AzureApplicationGateway AppGwTest
 | **Host** 和 **Path** | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http:\//contoso.com/，则可以为“http:\//contoso.com/path/custompath.htm”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。|
 | **时间间隔** | 配置探测检查间隔（以秒为单位）。|
 | **超时** | 定义 HTTP 响应检查的探测超时。|
-| **UnhealthyThreshold** | 将后端实例标记为“不正常”所需的失败 HTTP 响应数目。|
+| **UnhealthyThreshold** | 将后端实例标记为“不正常”  所需的失败 HTTP 响应数目。|
 
 \<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
 
@@ -170,7 +162,7 @@ Get-AzureApplicationGateway AppGwTest
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-2. 在文本编辑器中打开 XML 文件。 将 `<probe>` 节添加到 `<frontendport>` 的后面。
+1. 在文本编辑器中打开 XML 文件。 将 `<probe>` 节添加到 `<frontendport>` 的后面。
 
    ```xml
    <Probes>
@@ -201,7 +193,7 @@ Get-AzureApplicationGateway AppGwTest
 
    保存该 XML 文件。
 
-3. 通过 `Set-AzureApplicationGatewayConfig` 使用新的 XML 文件更新应用程序网关配置。 此 cmdlet 使用新配置更新应用程序网关。
+1. 通过 `Set-AzureApplicationGatewayConfig` 使用新的 XML 文件更新应用程序网关配置。 此 cmdlet 使用新配置更新应用程序网关。
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"

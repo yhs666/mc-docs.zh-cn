@@ -1,27 +1,25 @@
 ---
 title: 在 Linux 中排查 Azure 文件问题 | Microsoft Docs
 description: 在 Linux 中排查 Azure 文件问题
-services: storage
 author: WenJason
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 08/05/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: bb8a726ebba732beb8eec9e133684f0c040a4d92
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: df5ef5bc9987fb26f573d1accbc841e2029918f6
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732322"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328740"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 
 本文列出了从 Linux 客户端进行连接时，与 Azure 文件相关的常见问题。 并提供了这些问题的可能原因和解决方法。 
 
-除本文中的疑难解答步骤之外，还可使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) 确保 Linux 客户端满足正确的先决条件。 AzFileDiagnostics 自动检测本文中提到的大多数症状。 它有助于设置环境以获得最佳性能。
+除本文中的疑难解答步骤之外，还可使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) 确保 Linux 客户端满足正确的先决条件。 AzFileDiagnostics 自动检测本文中提到的大多数症状。 它有助于设置环境以获得最佳性能。 也可以在 [Azure 文件共享疑难解答](/storage/files/storage-troubleshoot-windows-file-connection-problems)中找到此信息。 疑难解答提供了帮助你解决连接、映射和装载 Azure 文件共享问题的步骤。
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>无法连接或装载 Azure 文件共享
 
@@ -40,7 +38,7 @@ ms.locfileid: "68732322"
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- 客户端上未安装 CIFS 实用程序 (cfs-utils)。
+- 客户端上未安装 CIFS 实用程序 (cifs-utils)。
 - 客户端上未安装最低的 SMB/CIFS 版本 2.1。
 - 客户端不支持 SMB 3.0 加密。 上表列出的 Linux 发行版支持使用加密从本地装载以及跨区域装载。 其他分发要求内核 4.11 及更高版本。
 - 试图通过不受支持的 TCP 端口 445 连接到存储帐户。
@@ -63,7 +61,7 @@ ms.locfileid: "68732322"
 
 出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 如果在存储帐户中启用[需要安全传输](/storage/common/storage-require-secure-transfer)设置，则还可以阻止同一数据中心中未加密的连接。 仅当用户的客户端 OS 支持 SMB 加密时，才提供加密的信道。
 
-若要了解详细信息，请参阅[使用 Linux 和 cifs-utils 包装载 Azure 文件共享的先决条件](/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package)。 
+若要了解详细信息，请参阅[使用 Linux 和 cifs-utils 包装载 Azure 文件共享的先决条件](storage-how-to-use-files-linux.md#prerequisites)。 
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解决方案
 
@@ -129,7 +127,7 @@ ms.locfileid: "68732322"
 
 ### <a name="solution"></a>解决方案
 
-4\.11 内核中引入了适用于 Linux 的 SMB 3.0 加密功能。 使用此功能可从本地或不同 Azure 区域装载 Azure 文件共享。 [具有相应装载功能的最低建议版本（SMB 版本 2.1 与 SMB 版本 3.0）](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30)中列出的 Linux 分发包含此功能。 其他分发要求内核 4.11 及更高版本。
+4\.11 内核中引入了适用于 Linux 的 SMB 3.0 加密功能。 使用此功能可从本地或不同 Azure 区域装载 Azure 文件共享。 某些 Linux 分发版可能已将 4.11 内核中的更改向后移植到它们维护的旧版本 Linux 内核。 若要帮助确定 Linux 版本是否支持带加密功能的 SMB 3.0，请参考[在 Linux 中使用 Azure 文件存储](storage-how-to-use-files-linux.md)。 
 
 如果 Linux SMB 客户端不支持加密，请使用 SMB 2.1 从文件共享所在的同一数据中心上的 Azure Linux VM 装载 Azure 文件。 验证是否已在存储帐户中禁用[需要安全传输](/storage/common/storage-require-secure-transfer)设置。 
 
@@ -284,7 +282,7 @@ Linux 内核中的此重新连接问题现已在以下更改中进行了修复�
 - [CIFS：修复重新连接期间潜在的内存损坏](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS：修复重新连接期间潜在的互斥双锁（对于内核 v4.9 及更高版本）](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-但是，这些更改可能尚未移植到所有的 Linux 发行版。 此修补程序和其他重新连接修补程序可在[将 Azure 文件用于 Linux](storage-how-to-use-files-linux.md) 一文的[具有相应装载功能的最低建议版本（SMB 版本 2.1 与 SMB 版本 3.0）](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30)部分中找到。 可以通过升级到建议的这些内核版本之一来完成此修复。
+但是，这些更改可能尚未移植到所有的 Linux 发行版。 如果使用的是常用的 Linux 发行版，可以查看[在 Linux 上使用 Azure 文件存储](storage-how-to-use-files-linux.md)，以了解发行版的哪个版本进行了必要的内核更改。
 
 ### <a name="workaround"></a>解决方法
 

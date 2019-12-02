@@ -1,25 +1,15 @@
 ---
-title: Azure 存储帐户名称错误 | Azure
+title: 存储帐户名称错误
 description: 说明指定存储帐户名称时可能遇到的错误。
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 origin.date: 03/09/2018
-ms.date: 03/26/2018
-ms.author: v-yeche
-ms.openlocfilehash: 865694b8f1754257b0f680f31b534ca646113c72
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 11/25/2019
+ms.openlocfilehash: 64c4f8a46d29dfe94fbd58582df6488f45b950b6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649417"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389568"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>解决存储帐户名称错误
 

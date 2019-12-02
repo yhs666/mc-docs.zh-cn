@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/24/2019
-ms.date: 09/23/2019
+origin.date: 07/05/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1c9840e0797d622acb093822dc3f8873d99317c1
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 399f5b93befdcf978a2111d32e1e51ba46418d4a
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267032"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389508"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>语音 SDK 的音频输入流 API 简介
 
-语音 SDK 的音频输入流 API 可使流式音频流入识别器，无需使用麦克风或输入文件 API  。
+使用语音 SDK 的音频输入流 API 可将音频流式传输到识别器，无需使用麦克风或输入文件 API  。
 
 使用音频输入流时需按以下步骤操作：
 
@@ -30,7 +30,7 @@ ms.locfileid: "71267032"
 
   SDK 中用于创建音频格式的相应代码如下所示：
 
-  ```
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
   int samplesPerSecond = 16000;
@@ -41,7 +41,7 @@ ms.locfileid: "71267032"
 
 - 自行创建派生自 `PullAudioInputStreamCallback` 的音频输入流类。 实现 `Read()` 和 `Close()` 元素。 确切的函数签名取决于语言，但代码可能与如下代码示例类似：
 
-  ```
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -62,7 +62,7 @@ ms.locfileid: "71267032"
 
 - 根据音频格式和输入流创建音频配置。 创建识别器时同时传入常规语音配置和音频输入配置。 例如：
 
-  ```
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);
@@ -76,4 +76,5 @@ ms.locfileid: "71267032"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)
+- [获取语音试用订阅](https://www.azure.cn/home/features/cognitive-services/)
+- [了解如何在 C# 中识别语音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

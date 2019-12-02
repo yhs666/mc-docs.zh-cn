@@ -11,14 +11,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: f428174cc7a08e884040c94d9440c620e58c7129
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: f8e15e4e59a74e4f7bfdedfbeb8e19498d463a89
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914362"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389120"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>规划 Azure 时序见解正式版环境
 
@@ -26,7 +26,7 @@ ms.locfileid: "72914362"
 
 ## <a name="best-practices"></a>最佳实践
 
-若要开始使用时序见解，最好要知道没分钟想要推送的数据量以及需要存储数据的时间。  
+若要开始使用 Azure 时序见解，最好是知道每分钟想要推送的数据量以及需要存储数据的时间。  
 
 有关时序见解 SKU 的容量和保留期的详细信息，请参阅[时序见解定价](https://www.azure.cn/pricing/details/time-series-insights/)。
 
@@ -71,16 +71,13 @@ Azure 时序见解具有两种模式：
 
 ## <a name="ingress-capacity"></a>入口容量
 
-在规划时序见解环境时，需要重点考虑的第二个方面是*流入容量*。 流入容量是每分钟分配量的一个衍生属性。
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
+
+### <a name="environment-planning"></a>环境规划
+
+在规划时序见解环境时，需要重点考虑的第二个方面是流入容量。 流入容量是每分钟分配量的一个衍生属性。
 
 从限制的角度看，大小达到 32 KB 的流入数据包被视为 32 个事件，每个事件的大小为 1 KB。 允许的最大事件为 32 KB。 大于 32 KB 的数据包将被截断。
-
-下表汇总了每个时序见解 SKU 的每单位流入容量：
-
-|SKU  |每月事件计数  |每月事件大小  |每分钟事件计数  |每分钟事件大小  |
-|---------|---------|---------|---------|---------|
-|S1     |   3000 万     |  30 GB     |  720    |  720 KB   |
-|S2     |   3 亿    |   300 GB   | 7,200   | 7,200 KB  |
 
 可以在单一环境中，将 S1 或 S2 SKU 的容量增加到 10 个单位。 无法从 S1 环境迁移到 S2 环境。 无法从 S2 环境迁移到 S1 环境。
 

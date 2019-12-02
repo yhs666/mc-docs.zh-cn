@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/07/2019
-ms.date: 10/14/2019
+ms.date: 11/18/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 61b4db6ca1e4241943af53b1e2ace37d725c2a5d
-ms.sourcegitcommit: aea45739ba114a6b069f782074a70e5dded8a490
+ms.openlocfilehash: 30e5cb62d3f70e0a3602e936ba5631f546a37063
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275563"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328722"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 
@@ -45,7 +45,7 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 ### <a name="general-purpose-v1-accounts"></a>常规用途 v1 帐户
 
-常规用途 v1 帐户可以访问所有 Azure 存储服务，但可能没有最新功能，其单 GB 定价也可能不是最低的。 常规用途 v1 存储帐户支持以下 Azure 存储服务：
+常规用途 v1 存储帐户可以访问所有 Azure 存储服务，但可能没有最新功能，其单 GB 定价也可能不是最低的。 常规用途 v1 存储帐户支持以下 Azure 存储服务：
 
 - Blob（所有类型）
 - 文件
@@ -61,9 +61,11 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 * 使用早于 2014-02-14 的[存储服务 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 的版本或使用版本低于 4.x 的客户端库，并且无法升级应用程序。
 
-### <a name="filestorage-storage-accounts"></a>FileStorage 存储帐户
+### <a name="filestorage-accounts"></a>FileStorage 帐户
 
-FileStorage 存储帐户是用于存储和创建高级文件共享的专用存储帐户。 FileStorage 存储帐户提供了独特的性能专用特征，例如 IOPS 突发。 有关这些特征的更多信息，请参阅文件规划指南的[文件共享性能层](../files/storage-files-planning.md#file-share-performance-tiers)部分。
+FileStorage 帐户是用于存储和创建高级文件共享的专用存储帐户。 此存储帐户类型支持文件，但不支持块 blob、追加 blob、页 blob、表或队列。 
+
+FileStorage 帐户提供了独特的性能专用特征，例如 IOPS 突发。 有关这些特征的更多信息，请参阅文件规划指南的[文件共享性能层](../files/storage-files-planning.md#file-share-performance-tiers)部分。
 
 ## <a name="naming-storage-accounts"></a>为存储帐户命名
 

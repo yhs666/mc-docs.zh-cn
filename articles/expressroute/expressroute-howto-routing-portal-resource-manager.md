@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/28/2019
 ms.author: v-yiso
-ms.date: 10/01/2019
-ms.openlocfilehash: 35a77af23c33d5ed7086036dc18ce5d76d875879
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.date: 12/02/2019
+ms.openlocfilehash: cab3bdad374af0f279da6d2a525e50211c6c6eef
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329972"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389448"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的对等互连
 
@@ -66,11 +66,11 @@ ms.locfileid: "71329972"
 
    **线路 - 提供商状态：未预配**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "提供程序状态：未预配")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
    **线路 - 提供商状态：已预配**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "提供程序状态 = 已预配")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. 配置线路的 Microsoft 对等互连。 在继续下一步之前，请确保已准备好以下信息。
 
    * 主链路的 /30 子网。 这必须是你拥有且已在 RIR/IRR 中注册的有效公共 IPv4 前缀。 在此子网中，Microsoft 将第二个可用的 IP 用于其路由器时，你将为你的路由器分配第一个可用的 IP 地址。
@@ -87,6 +87,12 @@ ms.locfileid: "71329972"
 4. 配置 Microsoft 对等互连。 指定所有参数后，请**保存**配置。 下图显示了一个示例配置：
 
    ![配置 Microsoft 对等互连](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
+
+> [!IMPORTANT]
+> Microsoft 会验证是否在 Internet 路由注册表中为你分配了指定的“播发公共前缀”和“对等 ASN”（或“客户 ASN”）。 如果要从另一个实体获取公共前缀，并且该分配没有记录在路由注册表中，则自动验证将不会完成，并且将需要手动验证。 如果自动验证失败，你将看到消息“需要验证”。 
+>
+> 如果看到消息“需要验证”，请收集显示公共前缀将由路由注册表中作为前缀所有者列出的实体分配给你组织的文档，并通过开具支持票证提交这些文档进行手动验证，如下所示。 
+>
 
    如果线路达到“需要验证”状态，则必须打开支持票证以向我们的支持团队显示前缀所有权的证明。 可以直接从门户中打开支持票证，如以下示例中所示：
 
@@ -124,11 +130,11 @@ ms.locfileid: "71329972"
 
    **线路 - 提供商状态：未预配**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "提供商状态 = 未预配")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **线路 - 提供商状态：已预配**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "提供商状态 = 已预配")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. 配置线路的 Azure 专用对等互连。 在继续执行后续步骤之前，请确保已准备好以下各项：
 
@@ -140,7 +146,7 @@ ms.locfileid: "71329972"
    * **可选** - MD5 哈希（如果选择使用）。
 3. 选择“Azure 专用”对等互连行，如下面的示例中所示：
 
-   [![选择“专用对等互连”行](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "选择“专用对等互连”行")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+   [![选择专用对等互连行](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "选择专用对等互连行")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
 4. 配置专用对等互连。 指定所有参数后，请**保存**配置。
 
    ![配置专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)

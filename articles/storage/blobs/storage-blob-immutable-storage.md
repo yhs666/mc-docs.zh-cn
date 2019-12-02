@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/01/2019
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 876033e95790fa33a26f53bb665de4c110d886d8
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 466092157bafe47cf3c0cc725f1582b730ea419b
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914392"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328726"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>将业务关键型数据永久存储在 Azure Blob 存储中 
 
@@ -109,7 +109,7 @@ Azure Blob 存储的不可变存储支持两类 WORM 或不可变策略：基于
 
 最新版本的 [Azure 门户](https://portal.azure.cn)、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 和 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) 支持 Azure Blob 存储的不可变存储。 此外还提供[客户端库支持](#client-libraries)。
 
-### <a name="azure-portal"></a>Azure 门户
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. 请创建新的容器或选择现有容器，以便存储需要保持不可变状态的 Blob。
  容器必须位于 GPv2 或 Blob 存储帐户中。
@@ -145,11 +145,11 @@ Azure Blob 存储的不可变存储支持两类 WORM 或不可变策略：基于
 
 9. 若要清除法定保留，只需删除应用的法定保留标识符标记。
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 以下命令组包含该功能：`az storage container immutability-policy` 和 `az storage container legal-hold`。 对这些命令运行 `-h` 可查看命令。
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Az.Storage 模块支持不可变存储。  若要启用该功能，请执行以下步骤：
 
@@ -158,6 +158,8 @@ Az.Storage 模块支持不可变存储。  若要启用该功能，请执行以�
 3. 安装 Azure PowerShell：`Install-Module Az –Repository PSGallery –AllowClobber`。
 
 本文稍后的[示例 PowerShell 代码](#sample-powershell-code)部分演示了该功能的用法。
+
+---
 
 ## <a name="client-libraries"></a>客户端库
 
@@ -172,7 +174,7 @@ Az.Storage 模块支持不可变存储。  若要启用该功能，请执行以�
 
 **你们是否可以提供有关 WORM 合规性的文档？**
 
-是的。 为了表明我们的合规性，Azure 一直在与一家领先的独立评估机构 Cohasset Associates 保持合作。该机构专业从事记录管理和信息监管，可以评估 Azure 不可变的 Blob 存储及其是否符合金融服务行业的相关要求。 经 Cohasset 验证，在用于保留 WORM 状态的基于时间的 Blob 时，Azure 不可变 Blob 存储符合 CFTC 规则 1.31(c)-(d)、FINRA 规则 4511 和 SEC 规则 17a-4 的相关存储要求。 Azure 以这一套规则为目标，因为这些规则代表了全球最规范的金融机构记录保留准则。 [Azure 服务信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)已提供 Cohasset 的报告。
+是的。 为了表明我们的合规性，Azure 一直在与一家领先的独立评估机构 Cohasset Associates 保持合作。该机构专业从事记录管理和信息监管，可以评估 Azure 不可变的 Blob 存储及其是否符合金融服务行业的相关要求。 经 Cohasset 验证，在用于保留 WORM 状态的基于时间的 Blob 时，Azure 不可变 Blob 存储符合 CFTC 规则 1.31(c)-(d)、FINRA 规则 4511 和 SEC 规则 17a-4 的相关存储要求。 Azure 以这一套规则为目标，因为这些规则代表了全球最规范的金融机构记录保留准则。 [Azure 服务信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)已提供 Cohasset 的报告。 若要向 Azure 请求有关 WORM 合规性的证明信，请联系 Azure 支持。
 
 **此功能是只适用于块 Blob，还是也适用于页 Blob 和追加 Blob？**
 

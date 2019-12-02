@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 09/30/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7d831745fa62743155d5e0834aba8e16f24e49be
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 99508a542d227e36bc7856f256b614fb038e6f24
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306772"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328731"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -91,7 +91,7 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 | **执行 (X)** | 不表示 Data Lake Storage Gen2 上下文中的任何内容 | 需要遍历目录的子项 |
 
 > [!NOTE]
-> 如果仅使用 ACL（无 RBAC）授予权限，则要授予服务主体对文件的读或写访问权限，需要授予服务主体对容器以及通向该文件的文件夹层次结构中每个文件夹的“执行”  权限。
+> 如果仅使用 ACL（无 RBAC）授予权限，则要授予安全主体对文件的读取或写入访问权限，需要授予安全主体对容器以及通向该文件的文件夹层次结构中每个文件夹的“执行”  权限。
 
 #### <a name="short-forms-for-permissions"></a>权限的简短形式
 

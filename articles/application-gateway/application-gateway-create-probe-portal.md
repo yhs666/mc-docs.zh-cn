@@ -1,27 +1,20 @@
 ---
-title: 创建自定义探测 - Azure 应用程序网关 - Azure 门户 | Microsoft Docs
+title: 使用门户创建自定义探测
+titleSuffix: Azure Application Gateway
 description: 了解如何使用门户创建应用程序网关的自定义探测
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 10/14/2019
-ms.date: 11/11/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 78b6a65e49aa9ffec68703b1175e68322ac6a5a8
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: acd89787ca6ef0a7426e567bd620e239c416a996
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934234"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326475"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关的自定义探测
 

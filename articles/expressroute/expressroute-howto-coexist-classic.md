@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/21/2017
-ms.date: 03/26/2018
+origin.date: 12/06/2018
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: c9359c45e53553d449cd46d0f5bf30fcc4382cc5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2eec68537b814eb35af2c3895d62de35ac11fbe7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674396"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389453"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>配置 ExpressRoute 和站点到站点并存连接（经典）
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "52674396"
 > 
 > 
 
-能够配置站点到站点 VPN 和 ExpressRoute 具有多项优势。 可以将站点到站点 VPN 配置为 ExpressRoute 的安全故障转移路径，或者使用站点到站点 VPN 连接到不是通过 ExpressRoute 进行连接的站点。 我们会在本文中介绍这两种方案的配置步骤。 本文适用于经典部署模型。 此配置在门户中不可用。
+本文有助于配置可共存的 ExpressRoute 和站点到站点 VPN 连接。 能够配置站点到站点 VPN 和 ExpressRoute 具有多项优势。 可以将站点到站点 VPN 配置为 ExpressRoute 的安全故障转移路径，或者使用站点到站点 VPN 连接到不是通过 ExpressRoute 进行连接的站点。 我们会在本文中介绍这两种方案的配置步骤。 本文适用于经典部署模型。 此配置在门户中不可用。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -227,7 +227,7 @@ ms.locfileid: "52674396"
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
       
-5. 如果以前的网关是站点到站点 VPN，则还必须将连接类型更改为 “专用”。
+5. 如果以前的网关是站点到站点 VPN，则还必须将连接类型更改为 “专用”  。
    
                  <Gateway>
                   <ConnectionsToLocalNetwork>

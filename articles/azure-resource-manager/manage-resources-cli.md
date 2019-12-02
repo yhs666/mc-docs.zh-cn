@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure CLI 管理 Azure 资源 | Azure
-description: 使用 Azure CLI 和 Azure 资源管理器管理资源。
-services: azure-resource-manager
-documentationcenter: ''
+title: 管理资源 - Azure CLI
+description: 使用 Azure CLI 和 Azure 资源管理器管理资源。 演示如何部署和删除资源。
 author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9d0efda033c6127377e081e7d434509c06c93678
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 71aa8cc9f8ae3a698c761fbfe6cc5fbb863fe2ba
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337502"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389410"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源
 
@@ -27,7 +24,7 @@ ms.locfileid: "68337502"
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>将资源部署到现有的资源组
 
-可以使用 Azure PowerShell 直接部署 Azure 资源，也可以部署资源管理器模板来创建 Azure 资源。
+可以使用 Azure CLI 直接部署 Azure 资源，也可以通过部署资源管理器模板来创建 Azure 资源。
 
 ### <a name="deploy-a-resource"></a>部署资源
 
@@ -60,7 +57,7 @@ az group deployment create --resource-group $resourceGroupName --template-uri "h
 
 ## <a name="deploy-a-resource-group-and-resources"></a>部署资源组和资源
 
-可以创建一个资源组，然后将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+可以创建一个资源组，然后将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#resource-group-and-resources)。
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>将资源部署到多个订阅或资源组
 

@@ -1,7 +1,7 @@
 ---
 title: 语音 SDK 日志记录 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 在语音 SDK 中启用日志记录。
+description: 了解如何在语音 SDK（C++、C#、Python、Objective-C、Java）中启用日志记录。
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 0c78db324b32a2132edd695446665405f587e0a9
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 130876db7082ab630331747c6c33f1d529c61709
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267081"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389506"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>在语音 SDK 中启用日志记录
 

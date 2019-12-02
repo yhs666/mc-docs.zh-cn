@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: abb968e4be13c9782c81ea39643fe03c6afa69f0
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 9a499ce4ec9446f634fe6466a51313ba7678dceb
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914377"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328699"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -39,7 +39,7 @@ Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure �
 
 本演练需要 Azure PowerShell 模块 Az 版本 0.7 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 
 
-对于本演练，可以将命令键入到一个常规的 PowerShell 窗口中，也可以使用 [Windows PowerShell 集成脚本环境 (ISE)](https://docs.microsoft.com/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) 并将命令键入到编辑器中，然后在浏览示例时测试一个或多个命令。 可以突出显示想要执行的行，并单击“运行所选项”来仅运行这些命令。
+对于本演练，可以将命令键入到一个常规的 PowerShell 窗口中，也可以使用 [Windows PowerShell 集成脚本环境 (ISE)](https://docs.microsoft.com/powershell/scripting/components/ise/exploring-the-windows-powershell-ise) 并将命令键入到编辑器中，然后在浏览示例时测试一个或多个命令。 可以突出显示想要执行的行，并单击“运行所选项”来仅运行这些命令。
 
 有关存储帐户的详细信息，请参阅[存储简介](storage-introduction.md)和[关于 Azure 存储帐户](storage-create-storage-account.md)。
 
@@ -53,7 +53,7 @@ Connect-AzAccount -EnvironmentName AzureChinaCloud
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>列出订阅中的存储帐户
 
-运行 [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/Get-azStorageAccount) cmdlet 来检索当前订阅中的存储帐户列表。 
+运行 [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/Get-azStorageAccount) cmdlet 来检索当前订阅中的存储帐户列表。
 
 ```powershell
 Get-AzStorageAccount | Select StorageAccountName, Location
@@ -65,7 +65,7 @@ Get-AzStorageAccount | Select StorageAccountName, Location
 
 ### <a name="use-an-existing-storage-account"></a>使用现有的存储帐户
 
-若要检索现有的存储帐户，则需要资源组的名称和存储帐户的名称。 为这两个字段设置变量，然后使用 [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/Get-azStorageAccount) cmdlet。 
+若要检索现有的存储帐户，则需要资源组的名称和存储帐户的名称。 为这两个字段设置变量，然后使用 [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/Get-azStorageAccount) cmdlet。
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
@@ -108,7 +108,7 @@ $ctx = $storageAccount.Context
 
 *   [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) -- 检索有效位置的列表。 该示例使用 `chinanorth` 作为位置。
 
-*   [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) -- 创建新资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 我们的资源组称为 `teststoragerg`。 
+*   [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) -- 创建新资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 我们的资源组称为 `teststoragerg`。
 
 *   [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) -- 创建存储帐户。 该示例使用 `testpshstorage`。
 
@@ -186,15 +186,15 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [Update-AzStorageAccountNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
-## <a name="use-storage-analytics"></a>使用存储分析  
+## <a name="use-storage-analytics"></a>使用存储分析
 
-[Azure 存储分析](storage-analytics.md)由[存储分析度量值](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-metrics)和[存储分析日志记录](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)组成。 
+[Azure 存储分析](storage-analytics.md)由[存储分析度量值](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-metrics)和[存储分析日志记录](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)组成。
 
 存储分析度量值  用于收集 Azure 存储帐户的度量值，可用于监视存储帐户的运行情况。 可针对 blob、文件、表和队列启用度量值。
 
 存储分析日志记录  在服务器端执行，可用于记录对存储帐户的成功和失败请求的相关详细信息。 使用这些日志，可以查看针对表、队列和 Blob 的读取、写入和删除操作的详细信息，以及请求失败的原因。 日志记录不可用于 Azure 文件。
 
-可以使用 [Azure 门户](https://portal.azure.cn)或 PowerShell 配置监视，也可以使用存储客户端库以编程方式配置监视。 
+可以使用 [Azure 门户](https://portal.azure.cn)或 PowerShell 配置监视，也可以使用存储客户端库以编程方式配置监视。
 
 > [!NOTE]
 > 可以使用 PowerShell 启用分钟分析。 此功能在门户中不可用。
@@ -253,4 +253,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Azure 存储控制平面 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.storage/)
 * [Azure 存储数据平面 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azure.storage/)
-* [Windows PowerShell Reference](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)（Windows PowerShell 参考）
+* [Windows PowerShell Reference](https://docs.microsoft.com/powershell/scripting/overview)（Windows PowerShell 参考）

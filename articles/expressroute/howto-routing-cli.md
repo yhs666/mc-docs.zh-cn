@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/23/2018
+origin.date: 04/24/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: f1c3ac839da2db472c95b6c0be9aa5b389cc1aa7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.date: 12/02/2019
+ms.openlocfilehash: 9e24df4524f65575c7fad8d3dad86ab33a67512c
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330416"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389435"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>使用 CLI 创建和修改 ExpressRoute 线路的对等互连
 
@@ -129,6 +129,12 @@ ms.locfileid: "71330416"
 ```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
+> [!IMPORTANT]
+> Microsoft 会验证是否在 Internet 路由注册表中为你分配了指定的“播发公共前缀”和“对等 ASN”（或“客户 ASN”）。 如果要从另一个实体获取公共前缀，并且该分配没有记录在路由注册表中，则自动验证将不会完成，并且将需要手动验证。 如果自动验证失败，你将在上述命令的输出中看到“AdvertisedPublicPrefixesState”为“Validation needed”。 
+> 
+> 如果看到消息“需要验证”，请收集显示公共前缀将由路由注册表中作为前缀所有者列出的实体分配给你组织的文档，并通过开具支持票证提交这些文档进行手动验证，如下所示。 
+> 
+>
 
 输出类似于以下示例：
 

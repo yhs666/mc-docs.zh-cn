@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.devlang: Java
 ms.topic: article
-origin.date: 02/28/2017
-ms.date: 08/05/2019
+origin.date: 08/13/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 2057cd440c1a5e96751bafdf2fda1e86de1e1a92
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: e93d1796ba56be32305d56aac892b9d827f5c239
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732262"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328711"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>将 Azure 存储用于 Hudson 持续集成解决方案
 ## <a name="overview"></a>概述
@@ -50,7 +50,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 
   3. 在浏览器中，打开 `http://localhost:8080/`。 这会打开 Hudson 仪表板。
   4. 首次使用 Hudson 时，在以下网址完成初始设置：`http://localhost:8080/`。
-  5. 完成初始设置后，取消运行 Hudson WAR 的实例，再次启动 Hudson WAR，然后重新打开 Hudson 仪表板 (`http://localhost:8080/`)，此仪表板可用于安装和配置 Azure 存储插件。
+  5. 完成初始设置后，取消正在运行的 Hudson WAR 实例，再次启动 Hudson WAR，然后重新打开 Hudson 仪表板 (`http://localhost:8080/`)，此仪表板可用于安装和配置 Azure 存储插件。
      
       虽然典型 Hudson CI 解决方案会设置为作为一个服务运行，但在本教程中，通过命令行运行 Hudson war 就足够了。
 * 一个 Azure 帐户。 可以在 <https://www.azure.cn> 中注册 Azure 帐户。
@@ -74,9 +74,9 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 2. 在“管理 Hudson”  页，单击“配置系统”  。
 3. 在“Azure 存储帐户配置”  部分中：
    
-    a. 输入存储帐户名，该帐户名可从 [Azure 门户](https://portal.azure.cn)获取。
+    a. 输入存储帐户名称，可以从 [Azure 门户](https://portal.azure.cn)获取该帐户名称。
    
-    b. 输入存储帐户密钥，该密钥同样可从 [Azure 门户](https://portal.azure.cn)获取。
+    b. 输入存储帐户密钥，同样可以从 [Azure 门户](https://portal.azure.cn)获取该密钥。
    
     c. 如果要使用公共 Azure 云，请对“BLOB 服务终结点 URL”  使用默认值。 如果要使用其他 Azure 云，请使用在 [Azure 门户](https://portal.azure.cn)中为存储帐户指定的终结点。
    
@@ -108,8 +108,8 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
    
     **提示**
    
-    针对“执行 Windows 批处理命令”  输入脚本的“命令”  部分下方，有一个指向 Hudson 所识别环境变量的链接。 单击此链接可了解环境变量名称和说明。 请注意，不允许将包含特殊字符的环境变量（如 **BUILD_URL** 环境变量）用作容器名称或通用虚拟路径。
-8. 对于此示例，请单击“默认将新容器设为公开”  。 （如果要使用私有容器，需要创建共享访问签名以允许访问。 这超出了本文的范围。 可在[使用共享访问签名 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)中了解有关共享访问签名的详细信息。）
+    针对“执行 Windows 批处理命令”  输入脚本的“命令”  部分下方，有一个指向 Hudson 所识别环境变量的链接。 单击此链接可了解环境变量名称和说明。 不允许将包含特殊字符的环境变量（如 BUILD_URL 环境变量）用作容器名称或通用虚拟路径  。
+8. 对于此示例，请单击“默认将新容器设为公开”  。 （如果要使用私有容器，需要创建共享访问签名以允许访问。 这超出了本文的范围。 可在[使用共享访问签名 (SAS)](storage-sas-overview.md)中了解有关共享访问签名的详细信息。）
 9. [可选] 如果要在上传生成项目之前清除容器的内容，请单击“在上传前清除容器”  （如果不希望清除容器的内容，则使该复选框保持未选中状态）。
 10. 对于“要上传的项目列表”  ，请输入 **text/*.txt**。
 11. 对于“已上传项目的通用虚拟路径”  ，请输入 **${BUILD\_ID}/${BUILD\_NUMBER}** 。
@@ -127,7 +127,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
     
     e. 单击名为 **myjob** 的容器，该名称是创建 Hudson 作业时分配的作业名称的小写形式。 在 Azure 存储中，容器名称和 Blob 名称都是小写的（并且区分大小写）。 在名为 **myjob** 的容器的 Blob 列表中，应能看到 **hello.txt** 和 **date.txt**。 复制这两项中任一项的 URL 并在浏览器中打开。 会看到已作为生成项目上传的文本文件。
 
-每个作业只能创建一个用于将项目上传到 Azure Blob 存储的生成后操作。 请注意，单个生成后操作用于将项目上传到 Azure Blob 存储，它可在“要上传的项目列表”  中使用分号作为分隔符指定不同的文件（包括通配符）和文件路径。 例如，如果 Hudson 版本在工作区的 **build** 文件夹中生成了 JAR 文件和 TXT 文件，并且希望将两者都上传到 Azure Blob 存储，请使用以下项作为“要上传的项目列表”  值：**build/\*.jar;build/\*.txt**。 还可以使用双冒号语法指定要在 Blob 名称内使用的路径。 例如，如果要在 Blob 路径中使用 **binaries** 上传 JAR 并在 Blob 路径中使用 **notices** 上传 TXT 文件，请使用以下项作为“要上传的项目列表”  值：**build/\*.jar::binaries;build/\*.txt::notices**。
+每个作业只能创建一个用于将项目上传到 Azure Blob 存储的生成后操作。 单个生成后操作用于将项目上传到 Azure Blob 存储，它可在“要上传的项目列表”中使用分号作为分隔符指定不同的文件（包括通配符）和文件路径  。 例如，如果 Hudson 版本在工作区的 **build** 文件夹中生成了 JAR 文件和 TXT 文件，并且希望将两者都上传到 Azure Blob 存储，请使用以下项作为“要上传的项目列表”  值：**build/\*.jar;build/\*.txt**。 还可以使用双冒号语法指定要在 Blob 名称内使用的路径。 例如，如果要在 Blob 路径中使用 **binaries** 上传 JAR 并在 Blob 路径中使用 **notices** 上传 TXT 文件，请使用以下项作为“要上传的项目列表”  值：**build/\*.jar::binaries;build/\*.txt::notices**。
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>如何创建从 Azure Blob 存储进行下载的生成步骤
 以下步骤演示了如何配置从 Azure Blob 存储下载项目的生成步骤。 如果希望在生成中包括这些项（例如你保存在 Azure Blob 存储中的 JAR），则这会非常有用。
@@ -161,7 +161,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 ## <a name="next-steps"></a>后续步骤
 * [Hudson 简介](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-* [Azure 存储客户端 SDK 参考](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure 存储客户端 SDK 参考](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
 

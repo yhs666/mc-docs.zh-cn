@@ -4,17 +4,17 @@ description: 了解如何创建生命周期策略规则，以将陈旧数据从�
 author: WenJason
 ms.author: v-jay
 origin.date: 05/21/2019
-ms.date: 09/30/2019
+ms.date: 11/25/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: fa1d064afb6b002c322e0a9020a65ce0a83c1555
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: c52b5b887d97e4d2e8dbe3a08e7e7b2348ac9d77
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306777"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328652"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 存储生命周期
 
@@ -29,6 +29,8 @@ ms.locfileid: "71306777"
 
 假设某个数据集在生命周期的早期阶段频繁被访问，两周后只是偶尔被访问。 一个月以后，该数据集很少被访问。 在这种场景下，早期阶段最适合使用热存储。 在偶尔访问阶段最适合使用冷存储。 在一个月后数据陈旧时，存档存储便是最佳的层选项。 通过根据数据陈旧程度调整存储层，可根据需求设计出最具性价比的存储选项。 若要实现这种过渡，可以使用生命周期管理策略规则将陈旧数据转移到较冷的存储层。
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## <a name="storage-account-support"></a>存储帐户支持
 
 生命周期管理策略适用于常规用途 v2 (GPv2) 帐户和 Blob 存储帐户。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。  
@@ -39,7 +41,7 @@ ms.locfileid: "71306777"
 
 ## <a name="regional-availability"></a>区域可用性
 
-生命周期管理功能已在所有区域中推出。
+生命周期管理功能在所有 Azure 区域中均可用。
 
 ## <a name="add-or-remove-a-policy"></a>添加或删除策略
 
@@ -55,7 +57,7 @@ ms.locfileid: "71306777"
 > [!NOTE]
 > 如果为存储帐户启用了防火墙规则，生命周期管理请求可能会被阻止。 可以通过为受信任的 Azure 服务提供例外来取消阻止这些请求。 有关详细信息，请参阅[配置防火墙和虚拟网络](/storage/common/storage-network-security#exceptions)中的“例外”部分。
 
-### <a name="azure-portal"></a>Azure 门户
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 可以在 Azure 门户中通过两种方式添加策略。 
 
@@ -125,7 +127,7 @@ ms.locfileid: "71306777"
 
 6. 有关此 JSON 示例的详细信息，请参阅[策略](#policy)和[规则](#rules)部分。
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
 
 使用以下 PowerShell 脚本可将策略添加到存储帐户。 必须使用资源组名称初始化 `$rgname` 变量。 必须使用存储帐户名称初始化 `$accountName` 变量。
 
@@ -155,7 +157,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-## <a name="azure-resource-manager-template-with-lifecycle-management-policy"></a>包含生命周期管理策略的 Azure 资源管理器模板
+# <a name="templatetabtemplate"></a>[模板](#tab/template)
 
 可以使用 Azure 资源管理器模板定义生命周期管理。 以下示例模板可以使用生命周期管理策略部署 RA-GRS GPv2 存储帐户。
 
@@ -196,6 +198,8 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
   "outputs": {}
 }
 ```
+
+---
 
 ## <a name="policy"></a>策略
 
@@ -344,6 +348,9 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 某些数据在云中保持空闲状态，并且在存储后很少（如果有）被访问。 以下生命周期策略配置为在引入数据后立即存档数据。 此示例将容器 `archivecontainer` 中的存储帐户中的块 Blob 转移到存档层。 转移是通过在上次修改后的 0 天内处理 Blob 实现的：
 
+> [!NOTE] 
+> 建议将 blob 直接上传到存档层以提高效率。 可以将 [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 或 [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 的 x-ms-acess-tier 标头用于 REST 版本 2018-11-09 和更新版本或我们的最新 Blob 存储客户端库。 
+
 ```json
 {
   "rules": [
@@ -426,9 +433,11 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 **我创建了一个新策略，但操作为什么没有立即运行？**  
 平台每天运行一次生命周期策略。 配置策略后，某些操作可能需要在长达 24 小时之后才能首次运行。  
 
-**我手动解冻了某个存档的 Blob，如何防止它暂时性地移回到存档层？**  
-将 Blob 从一个访问层移到另一个访问层后，其上次修改时间不会更改。 如果手动将存档的 Blob 解冻到热层，生命周期管理引擎会将它移回到存档层。 暂时禁用影响此 Blob 的规则可防止该 Blob 再次存档。 如果需要将 Blob 永久保留在热层，请将其复制到另一个位置。 可以安全地将 Blob 移回到存档层时，重新启用该规则即可。 
+**如果更新现有策略，运行操作需要多长时间？**  
+已更新的策略最多需要 24 小时才能生效。 策略生效后，最多可能需要 24 小时才能执行操作。 因此，该策略最多可能需要 48 小时才能执行。   
 
+**我手动解冻了某个存档的 Blob，如何防止它暂时性地移回到存档层？**  
+将 Blob 从一个访问层移到另一个访问层后，其上次修改时间不会更改。 如果手动将存档的 Blob 解冻到热层，生命周期管理引擎会将它移回到存档层。 暂时禁用影响此 Blob 的规则可防止该 Blob 再次存档。 可以安全地将 Blob 移回到存档层时，重新启用该规则即可。 如果需要将 Blob 永久保留在热层或冷层，也可以将其复制到另一个位置。
 
 ## <a name="next-steps"></a>后续步骤
 

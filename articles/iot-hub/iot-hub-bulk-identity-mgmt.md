@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 05/11/2019
+origin.date: 10/02/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: b07d6de68dfe5d3459f5235abcc85e214c4482d6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 12/02/2019
+ms.openlocfilehash: 5906b6b33ada95463c8353d9d104e7ac2cbb78d4
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570449"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389179"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>批量导入和导出 IoT 中心设备标识
 
@@ -411,7 +411,12 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ```
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，已学习如何对 IoT 中心内的标识注册表执行批量操作。 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
+
+在本文中，已学习如何对 IoT 中心内的标识注册表执行批量操作。 其中许多操作（包括如何将设备从一个中心移到另一个中心）在[“如何克隆 IoT 中心”的“管理注册到 IoT 中心的设备”部分](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub)中使用。 
+
+克隆文章有一个与之关联的工作示例，位于本页的 IoT C# 示例中：[适用于 C# 的 Azure IoT 示例](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)，项目为 ImportExportDevicesSample。 可以下载该示例并进行试用；[如何克隆 IoT 中心](iot-hub-how-to-clone.md)一文中提供了相关说明。
+
+若要详细了解如何管理 Azure IoT 中心，请查看以下文章：
 
 * [IoT 中心指标](iot-hub-metrics.md)
 * [IoT 中心日志](iot-hub-monitor-resource-health.md)

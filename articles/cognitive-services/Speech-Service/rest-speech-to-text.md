@@ -8,24 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: erhopf
-ms.openlocfilehash: 9c071c66c6bed311eb4607392dc1a014552ffc38
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+origin.date: 07/05/2019
+ms.date: 11/25/2019
+ms.author: v-tawe
+ms.openlocfilehash: 3ac49d81a22c5bed9abcdcb9d5395498a450bc4a
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179031"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389356"
 ---
 # <a name="speech-to-text-rest-api"></a>语音转文本 REST API
 
 作为[语音 SDK](speech-sdk.md) 的一种替代方法，语音服务允许使用 REST API 转换语音转文本。 每个可访问的终结点都与某个区域相关联。 应用程序需要所用终结点的订阅密钥。
 
 使用语音转文本 REST API 之前，请先了解：
-* 使用 REST API 的请求只能包含 10 秒的录制音频。
+
+* 使用 REST API 并直接传输音频的请求最多只能包含 60 秒的音频。
 * 语音转文本 REST API 仅返回最终结果。 不提供部分结果。
 
-如果必须为应用程序发送更长的音频，请考虑使用[语音 SDK](speech-sdk.md) 或[批处理脚本](batch-transcription.md)。
+如果应用程序需要发送更长的音频，请考虑使用[语音 SDK](speech-sdk.md) 或基于文件的 REST API，如[批量转录](batch-transcription.md)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -33,7 +35,7 @@ ms.locfileid: "74179031"
 
 使用 REST API 的语音转文本听录支持以下区域。 请务必选择与订阅区域匹配的终结点。
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## <a name="query-parameters"></a>查询参数
 
@@ -56,13 +58,13 @@ ms.locfileid: "74179031"
 | `Content-type` | 描述所提供音频数据的格式和编解码器。 接受的值为 `audio/wav; codecs=audio/pcm; samplerate=16000` 和 `audio/ogg; codecs=opus`。 | 必须 |
 | `Transfer-Encoding` | 指定要发送分块的音频数据，而不是单个文件。 仅当要对音频数据进行分块时才使用此标头。 | 可选 |
 | `Expect` | 如果使用分块传输，则发送 `Expect: 100-continue`。 语音服务将确认初始请求并等待附加的数据。| 如果发送分块的音频数据，则是必需的。 |
-| `Accept` | 如果提供此标头，则值必须是 `application/json`。 语音服务以 JSON 格式提供结果。 如果未指定默认值，则某些 Web 请求框架会提供不兼容的默认值，因此，最佳做法是始终包含 `Accept`。 | 可选，但建议提供。 |
+| `Accept` | 如果提供此标头，则值必须是 `application/json`。 语音服务以 JSON 格式提供结果。 某些请求框架提供不兼容的默认值。 最好始终包含 `Accept`。 | 可选，但建议提供。 |
 
 ## <a name="audio-formats"></a>音频格式
 
 在 HTTP `POST` 请求的正文中发送音频。 它必须采用下表中的格式之一：
 
-| 格式 | 编解码器 | Bitrate | 采样率 |
+| 格式 | 编解码器 | 比特率 | 采样率 |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16 位 | 16 kHz，单声道 |
 | OGG | OPUS | 16 位 | 16 kHz，单声道 |
@@ -72,14 +74,14 @@ ms.locfileid: "74179031"
 
 ## <a name="sample-request"></a>示例请求
 
-这是一个典型的 HTTP 请求。 以下示例包括主机名和必需的标头。 必须注意，服务同时预期提供音频数据，但此示例未包括这些数据。 如前所述，建议进行分块，但不是非要这样做。
+以下示例包括主机名和必需的标头。 必须注意，服务同时预期提供音频数据，但此示例未包括这些数据。 如前所述，建议进行分块，但不是非要这样做。
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
 Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
+Host: chinaeast2.stt.speech.azure.cn
 Transfer-Encoding: chunked
 Expect: 100-continue
 ```
@@ -92,13 +94,13 @@ Expect: 100-continue
 |------------------|-------------|-----------------|
 | 100 | 继续 | 已接受初始请求。 继续发送剩余的数据。 （与分块传输配合使用。） |
 | 200 | OK | 请求成功；响应正文是一个 JSON 对象。 |
-| 400 | 错误的请求 | 语言代码未提供或不是支持的语言；音频文件无效。 |
+| 400 | 错误的请求 | 语言代码未提供、不是支持的语言、音频文件无效等。 |
 | 401 | 未授权 | 指定区域中的订阅密钥或授权令牌无效，或终结点无效。 |
 | 403 | 禁止 | 缺少订阅密钥或授权令牌。 |
 
 ## <a name="chunked-transfer"></a>分块传输
 
-分块传输 (`Transfer-Encoding: chunked`) 有助于降低识别延迟，因为它允许语音服务在传输期间开始处理音频文件。 REST API 不提供部分结果或临时结果。 此选项专门用于改善响应能力。
+分块传输 (`Transfer-Encoding: chunked`) 有助于降低识别延迟。 它允许语音服务在传输音频文件时开始处理该文件。 REST API 不提供部分结果或临时结果。
 
 此代码示例演示如何以块的形式发送音频。 只有第一个区块应该包含音频文件的标头。 `request` 是连接到相应 REST 终结点的 HTTPWebRequest 对象。 `audioFile` 是音频文件在磁盘上的路径。
 
@@ -177,7 +179,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="sample-responses"></a>示例响应
 
-这是 `simple` 识别的典型响应。
+`simple` 识别的典型响应：
 
 ```json
 {
@@ -188,7 +190,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-这是 `detailed` 识别的典型响应。
+`detailed` 识别的典型响应：
 
 ```json
 {
@@ -216,6 +218,6 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="next-steps"></a>后续步骤
 
-- [获取语音试用订阅](https://azure.microsoft.com/try/cognitive-services/)
-- [自定义声学模型](how-to-custom-speech-train-model.md)
-- [自定义语言模型](how-to-custom-speech-train-model.md)
+- [获取试用订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- [自定义声学模型](how-to-customize-acoustic-models.md)
+- [自定义语言模型](how-to-customize-language-model.md)

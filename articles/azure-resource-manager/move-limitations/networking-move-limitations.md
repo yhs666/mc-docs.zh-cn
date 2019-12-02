@@ -1,18 +1,15 @@
 ---
-title: 将 Azure 网络资源移到新的订阅或资源组 | Azure
+title: 将 Azure 网络资源移到新订阅或资源组
 description: 使用 Azure 资源管理器将虚拟网络和其他网络资源移到新的资源组或订阅。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 08/19/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: a3c7299e8a5d0bc46ae6fca4fccd741715c3c047
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 10/16/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 5dd44106db1fbece02aa62f5f0dc05f1aa8297a0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156205"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389464"
 ---
 <!--Verify successfully-->
 # <a name="move-guidance-for-networking-resources"></a>网络资源移动指南
@@ -23,7 +20,9 @@ ms.locfileid: "71156205"
 
 移动虚拟网络时，还必须移动其从属资源。 对于 VPN 网关，必须移动 IP 地址、虚拟网络网关和所有关联的连接资源。 本地网络网关可以位于不同的资源组中。
 
-若要移动带网络接口卡的虚拟机，必须移动所有依赖的资源。 移动与该网络接口卡对应的虚拟网络、该虚拟网络的所有其他网络接口卡，以及 VPN 网关。
+若要将带有网络接口卡的虚拟机移到新订阅，必须移动所有相关资源。 移动与该网络接口卡对应的虚拟网络、该虚拟网络的所有其他网络接口卡，以及 VPN 网关。
+
+有关详细信息，请参阅[跨订阅移动方案](../resource-group-move-resources.md#scenario-for-move-across-subscriptions)。
 
 ## <a name="peered-virtual-network"></a>对等的虚拟网络
 
@@ -37,4 +36,4 @@ ms.locfileid: "71156205"
 
 有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](../resource-group-move-resources.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

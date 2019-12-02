@@ -1,28 +1,26 @@
 ---
-title: 如何使用语音 SDK 选择音频输入设备 - 语音服务
+title: 如何使用语音 SDK 选择音频输入设备
 titleSuffix: Azure Cognitive Services
-description: 了解如何在语音 SDK 中选择音频输入设备。
+description: 了解如何通过获取连接到系统的音频设备的 ID 在语音 SDK（C++、C#、Python、Objective-C、Java、JavaScript）中选择音频输入设备。
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 8/20/2019
-ms.date: 09/23/2019
+origin.date: 07/05/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 261ada24f5bedfb43d5f3f93df4ec8e064f4afa5
-ms.sourcegitcommit: b328fdef5f35155562f10817af44f2a4e975c3aa
+ms.openlocfilehash: 89e295cf7f1beb8b6d46093d9ae3d4fb6f7dd615
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267033"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389509"
 ---
-# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>使用语音 SDK 选择音频输入设备
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>如何：使用语音 SDK 选择音频输入设备
 
-语音 SDK 1.3.0 版引入了一个 API，用于选择音频输入。
-本文介绍如何获取连接到系统的音频设备的 ID。
-然后，可以通过 `AudioConfig` 对象配置音频设备，以便在语音 SDK 中使用这些项目：
+语音 SDK 1.3.0 版引入了一个 API，用于选择音频输入。 本文介绍如何获取连接到系统的音频设备的 ID。 然后，可以通过 `AudioConfig` 对象配置音频设备，以便在语音 SDK 中使用这些项目：
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -47,12 +45,14 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > 在 Node.js 中运行的 JavaScript 无法使用麦克风
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>在 Windows 桌面版应用程序上的音频设备 ID
 
-可以从 Windows 桌面版应用程序中的 [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) 对象中检索音频设备[终结点 ID 字符串](/windows/desktop/CoreAudio/endpoint-id-strings)。
+可以从 Windows 桌面版应用程序中的 [`IMMDevice`](https://docs.microsoft.com/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) 对象中检索音频设备[终结点 ID 字符串](https://docs.microsoft.com/windows/desktop/CoreAudio/endpoint-id-strings)。
+
 下面的代码示例说明了如何使用它在 C++ 中枚举音频设备：
 
 ```cpp
@@ -177,6 +177,7 @@ namespace ConsoleApp
 ## <a name="audio-device-ids-on-uwp"></a>UWP 上的音频设备 ID
 
 在通用 Windows 平台 (UWP) 上，音频输入设备可以使用相应 [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) 对象的 `Id()` 属性来获取。
+
 以下代码示例演示了如何在 C++ 和 C# 中执行此操作：
 
 ```cpp
@@ -227,13 +228,16 @@ namespace helloworld {
 ## <a name="audio-device-ids-on-linux"></a>Linux 上的音频设备 ID
 
 设备 ID 是使用标准 ALSA 设备 ID 进行选择的。
+
 附加到系统的输入的 ID 包含在命令 `arecord -L` 的输出中。
 也可使用 [ALSA C 库](https://www.alsa-project.org/alsa-doc/alsa-lib/)来获取它们。
+
 示例 ID 为 `hw:1,0` 和 `hw:CARD=CC,DEV=0`。
 
 ## <a name="audio-device-ids-on-macos"></a>macOS 上的音频设备 ID
 
 在 Objective-C 中实现的以下函数可创建一个列表，其中包含附加到 Mac 的音频设备的名称和 ID。
+
 `deviceUID` 字符串用于标识 macOS 版语音 SDK 中的设备。
 
 ```objc
@@ -362,8 +366,8 @@ CFArrayRef CreateInputDeviceArray()
 
 ## <a name="audio-device-ids-on-ios"></a>iOS 上的音频设备 ID
 
-iOS 不支持通过语音 SDK 来选择音频设备。
-但是，使用 SDK 的应用可以通过 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework 影响音频路由。
+iOS 不支持通过语音 SDK 来选择音频设备。 但是，使用 SDK 的应用可以通过 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework 影响音频路由。
+
 例如，可以按照说明
 
 ```objc
@@ -375,9 +379,14 @@ iOS 不支持通过语音 SDK 来选择音频设备。
 
 ## <a name="audio-device-ids-in-javascript"></a>JavaScript 中的音频设备 ID
 
-在 JavaScript 中，[MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) 方法可用于枚举媒体设备并查找要传递给 `fromMicrophone(...)` 的设备 ID。
+在 JavaScript 中，[MediaDevices.enumerateDevices()](https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices) 方法可用于枚举媒体设备并查找要传递给 `fromMicrophone(...)` 的设备 ID。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [浏览 GitHub 上的示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## <a name="see-also"></a>另请参阅
+
+- [自定义声学模型](how-to-customize-acoustic-models.md)
+- [自定义语言模型](how-to-customize-language-model.md)

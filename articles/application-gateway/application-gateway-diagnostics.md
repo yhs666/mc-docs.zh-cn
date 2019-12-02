@@ -1,23 +1,24 @@
 ---
-title: 监视 Azure 应用程序网关的访问日志、性能日志、后端运行状况及指标
+title: 后端运行状况和诊断日志
+titleSuffix: Azure Application Gateway
 description: 了解如何启用和管理 Azure 应用程序网关的访问日志和性能日志
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 10/09/2019
-ms.date: 11/11/2019
+origin.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 567878a4a154971efbcfcbbc1324ab8254657f61
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: e0b7634d55a1c4cefa8b295ec069ebde3b14e647
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934212"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327158"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>应用程序网关的后端运行状况和诊断日志
 
-可以使用 Azure 应用程序网关通过以下方式监视资源：
+可以通过以下方式监视 Azure 应用程序网关资源：
 
 * [后端运行状况](#back-end-health)：应用程序网关提供通过 Azure 门户和 PowerShell 监视后端池中的服务器运行状况的功能。 还可通过性能诊断日志找到后端池的运行状况。
 
@@ -34,7 +35,7 @@ ms.locfileid: "73934212"
 后端运行状况报告反映对后端实例的应用程序网关运行状况探测的输出。 如果探测成功且后端能够接收流量，则可认为后端运行状况正常， 否则不正常。
 
 > [!IMPORTANT]
-> 如果应用程序网关子网上存在网络安全组 (NSG)，则请在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
+> 如果应用程序网关子网上存在网络安全组 (NSG)，请在应用程序网关子网上打开端口范围 65503-65534（适用于 v1 SKU）和 65200-65535（适用于 v2 SKU），以便接收入站流量。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>通过门户查看后端运行状况
@@ -214,7 +215,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |httpVersion     | 请求的 HTTP 版本。        |
 |receivedBytes     | 接收的数据包的大小（以字节为单位）。        |
 |sentBytes| 发送的数据包的大小（以字节为单位）。|
-|timeTaken| 处理请求并发送响应所需的时长（以毫秒为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
+|timeTaken| 处理请求并发送其响应所需的时长（以**秒**为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
 |sslEnabled| 与后端池的通信是否使用 SSL。 有效值为 on 和 off。|
 |sslCipher| 用于 SSL 通信的密码套件（如果已启用 SSL）。|
 |sslProtocol| 使用的 SSL/TLS 协议（如果已启用 SSL）。|

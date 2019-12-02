@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure PowerShell 管理 Azure 资源管理器组 | Azure
-description: 使用 Azure PowerShell 管理 Azure 资源管理器组。
-services: azure-resource-manager
-documentationcenter: ''
+title: 管理资源组 - Azure PowerShell
+description: 使用 Azure PowerShell 通过 Azure 资源管理器管理资源组。 说明如何创建、列出和删除资源组。
 author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 017300f0029454a910af8580f0ad38a5e804916c
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: b06518718d9b8eba3862faeb3f31b2c0ef3a9d5f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337290"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389411"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源管理器资源组
 
@@ -82,11 +79,11 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="deploy-a-resource-group-and-resources"></a>部署资源组和资源
 
-可以使用资源管理器模板创建一个资源组并将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+可以使用资源管理器模板创建一个资源组并将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#resource-group-and-resources)。
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-此功能也称为“出错时回滚”  。 有关详细信息，请参阅[在部署失败时重新部署](./resource-group-template-deploy.md#redeploy-when-deployment-fails)。
+此功能也称为“出错时回滚”  。 有关详细信息，请参阅[在部署失败时重新部署](./rollback-on-error.md)。
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>移到另一个资源组或订阅
 

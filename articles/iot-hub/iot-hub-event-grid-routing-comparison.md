@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 02/20/2019
-ms.date: 09/30/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6dfebb6e93a7f0dd375232575aeec2602f4d64c8
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: a4db8852ccc03eb3e565271741dacf3b2f45b375
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155984"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389516"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>比较 IoT 中心的消息路由和事件网格
 
@@ -24,7 +24,7 @@ Azure IoT 中心可以从已连接的设备流式传输数据并将该数据集�
 
 **[IoT 中心消息路由](iot-hub-devguide-messages-d2c.md)** ：借助此 IoT 中心功能，用户可将设备到云消息路由到服务终结点，如 Azure 存储容器、事件中心、服务总线队列和服务总线主题。 路由还提供了一种查询功能，让你先筛选数据，再将其路由到终结点。 除了设备遥测数据之外，还可以发送可用于触发操作的[非遥测事件](iot-hub-devguide-messages-d2c.md#non-telemetry-events)。 
 
-**IoT 中心与事件网格的集成**：Azure 事件网格是一种完全托管的事件路由服务，使用发布-订阅模型。 IoT 中心和事件网格共同协作，准实时地[将 IoT 中心事件集成到 Azure 和非 Azure 服务中](iot-hub-event-grid.md)。 IoT 中心会发布[设备事件](iot-hub-event-grid.md#event-types)（正式版），现在还会发布遥测事件（目前为公共预览版）。
+**IoT 中心与事件网格的集成**：Azure 事件网格是一种完全托管的事件路由服务，使用发布-订阅模型。 IoT 中心和事件网格共同协作，准实时地[将 IoT 中心事件集成到 Azure 和非 Azure 服务中](iot-hub-event-grid.md)。 IoT 中心同时发布[设备事件](iot-hub-event-grid.md#event-types)和遥测事件。
 
 ## <a name="differences"></a>差异
 

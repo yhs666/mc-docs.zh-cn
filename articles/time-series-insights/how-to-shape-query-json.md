@@ -10,12 +10,12 @@ origin.date: 10/09/2019
 ms.date: 11/04/2019
 ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: d11b6ddc419bc4dd9e4bed6e70a8095aa28f8c28
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 6a4bba1628ad593f5d43f9abb8e822d5ff1edbaa
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914453"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389512"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查询性能 
 
@@ -30,6 +30,9 @@ ms.locfileid: "72914453"
 1. 确保不会达到时序见解的以下最大属性限制：
    - 对于 S1 环境，属性（列）数目不能超过 600 个。
    - 对于 S2 环境，属性（列）数目不能超过 800 个。
+
+> [!TIP]
+> 查看 Azure 时序见解预览版中的[限制和规划](time-series-insights-update-plan.md)。
 
 以下指导可帮助实现最佳查询性能：
 
@@ -53,7 +56,7 @@ ms.locfileid: "72914453"
 
 以下示例涉及到单个 Azure IoT 中心消息，其中的外部数组包含通用维度值的共享节。 该外部数组使用参考数据来提高消息的效率。 参考数据包含设备元数据，这些数据不会根据每个事件变化，但提供有用的属性用于数据分析。 批处理通用维度值和采用参考数据都能减少通过网络发送的字节数，这可以提高消息的效率。
 
-请考虑使用 [IoT 设备消息对象](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet)发送到时序见解 GA 环境的以下 JSON 有效负载，该有效负载在发送到 Azure 云时会序列化为 JSON：
+请考虑使用 [IoT 设备消息对象](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet)发送到时序见解 GA 环境的以下 JSON 有效负载（在发送到 Azure 云时会序列化为 JSON）：
 
 
 ```JSON

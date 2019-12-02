@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: d3c4683a1e890fb7905703a62c42a0c31ddafe24
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 25a03be6b04fdae50a9f0e5b48e6e70c75627de0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988554"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389535"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>控制对 Azure IoT 中心设备预配服务的访问
 
-本文介绍了用于保护 IoT 设备预配服务的选项。 预配服务使用“权限”向每个终结点授予访问权限。 权限可根据功能限制对服务实例的访问。
+本文介绍了用于保护 IoT 设备预配服务的选项。 预配服务使用“权限”向每个终结点授予访问权限  。 权限可根据功能限制对服务实例的访问。
 
 本文介绍：
 
@@ -32,7 +32,7 @@ ms.locfileid: "57988554"
 
 可以通过以下方式授予 [权限](#device-provisioning-service-permissions) ：
 
-* 共享访问授权策略。 共享访问策略可以授予任意[权限](#device-provisioning-service-permissions)组合。 可在 [Azure 门户][lnk-management-portal]中定义策略，也可使用[设备预配服务 REST API][lnk-resource-provider-apis] 以编程方式进行定义。 新建的预配服务有以下默认策略：
+* 共享访问授权策略  。 共享访问策略可以授予任意[权限](#device-provisioning-service-permissions)组合。 可在 [Azure 门户][lnk-management-portal]中定义策略，也可使用[设备预配服务 REST API][lnk-resource-provider-apis] 以编程方式进行定义。 新建的预配服务有以下默认策略：
 
 * **provisioningserviceowner**：包含所有权限的策略。
 
@@ -48,7 +48,7 @@ Azure IoT 中心设备预配服务通过针对共享访问策略验证令牌，�
 
 有关如何构造和使用安全令牌的详细信息，请参阅下一部分。
 
-HTTP 是唯一受支持的协议，它通过在“Authorization”请求标头中包含有效的令牌来实现身份验证。
+HTTP 是唯一受支持的协议，它通过在“Authorization”请求标头中包含有效的令牌来实现身份验证  。
 
 #### <a name="example"></a>示例
 ```csharp
@@ -75,7 +75,7 @@ SharedAccessSignature sr =
 
 以下是预期值：
 
-| 值 | 说明 |
+| Value | 说明 |
 | --- | --- |
 | {signature} |HMAC-SHA256 签名字符串的格式为： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要说明**：密钥是从 base64 解码得出的，用作执行 HMAC-SHA256 计算的密钥。|
 | {expiry} |从纪元 1970 年 1 月 1日 00:00:00 UTC 时间至今秒数的 UTF8 字符串。 |
@@ -148,7 +148,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |提供用于检索和管理设备注册状态的操作。 |
 
 
-例如，使用名为 enrollmentread 的预创建共享访问策略生成的服务将使用以下参数创建令牌：
+例如，使用名为 enrollmentread 的预创建共享访问策略生成的服务将使用以下参数创建令牌  ：
 
 * 资源 URI： `{mydps}.azure-devices-provisioning.net`，
 * 签名密钥： `enrollmentread` 策略的密钥之一，
@@ -179,16 +179,16 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 | 权限 | 注释 |
 | --- | --- |
-| ServiceConfig |授予用于更改服务配置的访问权限。 <br/>后端云服务将使用此权限。 |
-| EnrollmentRead |授予对设备注册和注册组的读取访问权限。 <br/>后端云服务将使用此权限。 |
-| EnrollmentWrite |授予对设备注册和注册组的写入访问权限。 <br/>后端云服务将使用此权限。 |
-| RegistrationStatusRead |授予对设备注册状态的读取访问权限。 <br/>后端云服务将使用此权限。 |
-| RegistrationStatusWrite  |授予对设备注册状态的删除访问权限。 <br/>后端云服务将使用此权限。 |
+| ServiceConfig  |授予用于更改服务配置的访问权限。 <br/>后端云服务将使用此权限。 |
+| EnrollmentRead  |授予对设备注册和注册组的读取访问权限。 <br/>后端云服务将使用此权限。 |
+| EnrollmentWrite  |授予对设备注册和注册组的写入访问权限。 <br/>后端云服务将使用此权限。 |
+| RegistrationStatusRead  |授予对设备注册状态的读取访问权限。 <br/>后端云服务将使用此权限。 |
+| RegistrationStatusWrite   |授予对设备注册状态的删除访问权限。 <br/>后端云服务将使用此权限。 |
 
 <!-- links and images -->
 
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-management-portal]: https://portal.azure.com
+[lnk-management-portal]: https://portal.azure.cn
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

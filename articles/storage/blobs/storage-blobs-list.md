@@ -1,24 +1,26 @@
 ---
 title: 使用 .NET 列出 Blob - Azure 存储
-description: 了解如何使用 .NET 客户端库列出 Azure 存储帐户容器中的 Blob。
+description: 了解如何使用 .NET 客户端库列出 Azure 存储帐户容器中的 Blob。 代码示例演示如何在平面列表中列出 blob，或者如何分层列出 blob，就像它们被组织到目录或文件夹中一样。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 09/04/2019
-ms.date: 10/28/2019
+origin.date: 11/08/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 819557c80754e9359fac86d788d364f21a7045e0
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 4e06bb367a37e652c41c87e1e3720e721cd4cc3d
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914845"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328759"
 ---
 # <a name="list-blobs-with-net"></a>使用 .NET 列出 Blob
 
-通过代码列出 Blob 时，可以指定多个选项来管理如何从 Azure 存储返回结果。 本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage/client)列出 Blob。  
+通过代码列出 Blob 时，可以指定多个选项来管理如何从 Azure 存储返回结果。 可以指定要在每个结果集中返回的结果数，然后检索后续结果集。 可以指定前缀以返回名称以该字符或字符串开头的 blob。 而且，可以在平面列表结构中列出 blob，也可以分层列出 blob。 分层列表返回 blob，就像它们被组织到文件夹中一样。 
+
+本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage/client)列出 Blob。  
 
 ## <a name="understand-blob-listing-options"></a>了解 Blob 列出选项
 
@@ -54,7 +56,7 @@ ms.locfileid: "72914845"
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>平面列表与分层列表
 
-Azure 存储中的 Blob 以平面范式进行组织，而不是以分层范式（类似于经典文件系统）进行组织。 不过，可以将 Blob 组织成虚拟目录，以模拟分层范式。  虚拟目录是由分隔符划分的 Blob 名称的一部分。
+Azure 存储中的 Blob 以平面范式进行组织，而不是以分层范式（类似于经典文件系统）进行组织。 但是，可以将 Blob 组织到虚拟目录  中，以便模拟文件夹结构。 虚拟目录构成 blob 名称的一部分，并由分隔符表示。
 
 若要将 Blob 组织成虚拟目录，请在 Blob 名称中使用分隔符。 默认分隔符是正斜杠 (/)，但你可以指定任何字符作为分隔符。
 

@@ -1,6 +1,6 @@
 ---
-title: 诊断、排查和解决 Azure 时序见解中的问题 | Microsoft Docs
-description: 本文介绍如何诊断、排查和解决可能在 Azure 时序见解环境中遇到的常见问题。
+title: 诊断、排查和解决问题 - Azure 时序见解 | Microsoft Docs
+description: 本文介绍如何诊断、排查和解决 Azure 时序见解环境中的常见问题。
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,15 +9,15 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-origin.date: 08/27/2019
-ms.date: 10/21/2019
+origin.date: 10/10/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: eb1815693ac8b2eb93f1e686cdc015df792376c4
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 79b5765b4dbc675e420e9a6d3a53be4cbfb0912e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292429"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389123"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>诊断和解决时序见解环境中的问题
 
@@ -26,7 +26,7 @@ ms.locfileid: "72292429"
 
 ## <a name="problem-no-data-is-shown"></a>问题：未显示数据
 
-[Azure 时序见解资源管理器](https://insights.timeseries.azure.com)中可能会出于多种常见原因而不显示数据：
+[Azure 时序见解资源管理器](https://insights.timeseries.azure.cn)中可能会出于多种常见原因而不显示数据：
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>原因 A：事件源数据不是 JSON 格式。
 
@@ -109,6 +109,4 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 ## <a name="next-steps"></a>后续步骤
 
-- 如需帮助，请在 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) 中开始交流。
-
-- 如需辅助支持，请使用 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)。
+- 了解[如何减少 Azure 时序见解中的延迟](time-series-insights-environment-mitigate-latency.md)。

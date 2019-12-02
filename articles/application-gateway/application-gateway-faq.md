@@ -6,15 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/31/2019
-ms.date: 11/11/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df23b81c925d5d9f460a5f6bf3ef1b1f7d73fe0
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: ee4f2b3a6cbf35e3dac837847f30819cee3f220e
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934204"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327283"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
@@ -291,10 +290,6 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 是的。 WAF 支持标准 SKU 中的所有功能。
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>应用程序网关支持哪些 CRS 版本？
-
-应用程序网关支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 和 CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)。
-
 ### <a name="how-do-i-monitor-waf"></a>如何监视 WAF？
 
 通过诊断日志记录监视 WAF。 有关详细信息，请参阅[应用程序网关的诊断日志记录和指标](application-gateway-diagnostics.md)。
@@ -309,7 +304,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>WAF 目前支持哪些规则？
 
-WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 和 [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)。 这些规则针对开放 Web 应用程序安全项目 (OWASP) 识别到的 10 大漏洞中的大多数漏洞提供基准安全性。 
+WAF 目前支持 CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229)、[3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30) 和 [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31)。 这些规则针对开放 Web 应用程序安全项目 (OWASP) 识别到的 10 大漏洞中的大多数漏洞提供基准安全性。 
 
 * SQL 注入保护
 * 跨站点脚本防护
@@ -328,6 +323,19 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有从 v1 SKU 迁移到 v2 SKU 的指导？
 
 是的。 有关详细信息，请参阅[将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2](migrate-v1-v2.md)。
+
+## <a name="configuration---ingress-controller-for-aks"></a>配置 - AKS 的入口控制器
+
+### <a name="what-is-an-ingress-controller"></a>什么是入口控制器？
+
+Kubernetes 允许创建 `deployment` 和 `service` 资源，以便在群集内部公开一组 Pod。 为了向外公开同一服务，定义了一个 [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) 资源，它提供了负载均衡、SSL 终止和基于名称的虚拟主机。
+为了满足此 `Ingress` 资源，需要一个入口控制器来侦听对 `Ingress` 资源进行的任何更改并配置负载均衡器策略。
+
+借助应用程序网关入口控制器，可将 [Azure 应用程序网关](https://www.azure.cn/home/features/application-gateway/)用作 [Azure Kubernetes 服务](https://www.azure.cn/home/features/kubernetes-service/)（也称为 AKS 群集）的入口。
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>单个入口控制器实例是否可以管理多个应用程序网关？
+
+目前，入口控制器的一个实例只能关联到一个应用程序网关。
 
 ## <a name="diagnostics-and-logging"></a>诊断和日志记录
 

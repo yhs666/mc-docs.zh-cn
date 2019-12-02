@@ -1,5 +1,5 @@
 ---
-title: 将线路从经典移至资源管理器 - ExpressRoute：PowerShell：Azure
+title: Azure ExpressRoute：将经典线路移到资源管理器
 description: 本页面介绍如何使用 PowerShell 将经典线路移动到 Resource Manager 部署模型。
 services: expressroute
 author: ganesr
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/25/2019
-ms.date: 04/01/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: b71df3280426920773897040aa0e91435e53c2f5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d050a246240bb353c91be3d46a148e87c4be4be6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625209"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389447"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型
 
@@ -24,7 +24,7 @@ ms.locfileid: "58625209"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 * 验证是否已在本地计算机上安装经典模块和 Az Azure PowerShell 模块。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 * 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。

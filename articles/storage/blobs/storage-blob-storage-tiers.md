@@ -4,17 +4,17 @@ description: Azure 存储帐户的热、冷、存档访问层。
 author: WenJason
 ms.author: v-jay
 origin.date: 03/23/2019
-ms.date: 10/28/2019
+ms.date: 11/25/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c2c5a36f5fa48173fa970fc15f4ad2cce1bd31da
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: d32132d55fe311db4992652e94ae58f7e1aca02f
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041223"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328761"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 存储：热、冷、存档访问层
 
@@ -80,7 +80,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性  。 使用
 
 使用 Blob 级分层功能即可通过名为[设置 Blob 层](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier)的单一操作在对象级别更改数据的层。 可以在使用模式更改时轻松地在热、冷或存档层之间更改 Blob 的访问层，不需在帐户之间移动数据。 所有层级更改都会立即执行。 但是，从存档层中解除冻结 blob 可能需要几个小时。
 
-上次 Blob 层更改的时间通过 Blob 属性“访问层更改时间”  公开。 如果 Blob 位于存档层中，则无法被覆盖，因此在这种情况下，不允许上传相同的 Blob。 覆盖热层和冷层中的 Blob 时，新的 Blob 会继承被覆盖的 Blob 的层。
+上次 Blob 层更改的时间通过 Blob 属性“访问层更改时间”  公开。 如果 Blob 位于存档层中，则无法被覆盖，因此在这种情况下，不允许上传相同的 Blob。 覆盖热层或冷层中的 blob 时，除非在创建时显式设置了新的 blob 访问层，否则新创建的 blob 将继承被覆盖的 blob 的层的属性。
 
 > [!NOTE]
 > 存档存储和 Blob 级别分层仅支持块 Blob。 此外，目前无法更改包含快照的块 Blob 的层。
@@ -188,7 +188,7 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 **能否将默认帐户访问层设置为存档层？**
 
-否。 只能将默认帐户访问层设置为热访问层或冷访问层。 只能在对象级别设置存档层。
+否。 只能将默认帐户访问层设置为热访问层或冷访问层。 只能在对象级别设置存档层。 上传 blob 时，无论默认帐户层是哪个，都可以将所选访问层指定为热层、冷层或存档层。 使用此功能可以将数据直接写入存档层，从而从在 Blob 存储中创建数据的那一刻起就实现了节省成本。
 
 **哪些区域提供了热、冷、存档访问层？**
 

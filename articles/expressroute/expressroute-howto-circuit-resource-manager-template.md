@@ -1,20 +1,20 @@
 ---
-title: 创建 ExpressRoute 线路 - 资源管理器模板：Azure | Microsoft Docs
+title: Azure ExpressRoute 模板：创建 ExpressRoute 线路
 description: 创建、预配、删除和取消预配 ExpressRoute 线路。
 services: expressroute;azure-resource-manager
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-origin.date: 07/05/2019
-ms.date: 08/12/2019
+origin.date: 11/13/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
 ms.reviewer: ganesr
-ms.openlocfilehash: 9b2ef9ed9d818e21c929e614d1be00ff35271431
-ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
+ms.openlocfilehash: 854e20a7e13b6bfb222a2a104df6ace876be1b92
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738041"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389450"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 ExpressRoute 线路
 
@@ -62,8 +62,8 @@ ms.locfileid: "68738041"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * “层”  决定是启用 ExpressRoute 标准版外接程序还是 ExpressRoute 高级版外接程序。 可以指定“Standard”  以获取标准 SKU，或指定“Premium”  以获取高级版外接程序。
-
+   * **SKU 层**确定 ExpressRoute 线路是[本地](expressroute-faqs.md#expressroute-local)线路、标准线路还是[高级](expressroute-faqs.md#expressroute-premium)线路。 可以指定“本地”  、“标准”  或“高级”  。
+   * **SKU 系列**确定计费类型。 可以指定“Metereddata”  以获取数据流量套餐，指定“Unlimiteddata”  以获取无限制流量套餐。 可以将计费类型从“Metereddata”更改为“Unlimiteddata”，但不能将类型从“Unlimiteddata”更改为“Metereddata”。     “本地”  线路仅为 Unlimiteddata  。
    * “对等互连位置”  是与 Microsoft 建立对等互连的实际位置。
 
      > [!IMPORTANT]

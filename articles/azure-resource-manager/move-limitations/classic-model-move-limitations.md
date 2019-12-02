@@ -1,18 +1,15 @@
 ---
-title: 将 Azure 经典部署资源移到新的订阅或资源组
+title: 移动 Azure 经典部署资源
 description: 使用 Azure 资源管理器将经典部署资源移到新的资源组或订阅。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/09/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: 218dc62cc3e2ec69e5c765add9073c8823c6af50
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.date: 11/25/2019
+ms.openlocfilehash: bd4d5878b66400df063628b037dfe5b28f0efd7f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337564"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389465"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>针对经典部署模型资源的移动指南
 
@@ -100,9 +97,8 @@ ms.locfileid: "68337564"
 
 ## <a name="next-steps"></a>后续步骤
 
-如果移动经典资源时遇到问题，请与[支持部门](https://support.azure.cn/zh-cn/support/support-azure/)联系。
+如果移动经典资源时遇到问题，请与[支持部门](https://support.azure.cn/support/support-azure/)联系。
 
 有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](../resource-group-move-resources.md)。
 
-<!-- Update_Description: new articles on classic model move limitation -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

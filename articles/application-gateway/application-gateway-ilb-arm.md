@@ -1,26 +1,19 @@
 ---
-title: 搭配使用 Azure 应用程序网关和内部负载均衡器 - PowerShell | Microsoft Docs
+title: 与内部负载均衡器搭配使用 | Azure 应用程序网关
 description: 本页提供有关使用 Azure Resource Manager 创建、配置、启动和删除具有内部负载均衡器 (ILB) 的 Azure 应用程序网关的说明
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 05/23/2018
-ms.date: 03/11/2019
+origin.date: 11/13/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 657d448bea34c7d9bb20d237c852d7d709e9a00f
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 5ae2b472248af4c466308a60e6e208d1e652790c
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63824993"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327157"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>创建具有内部负载均衡器 (ILB) 的应用程序网关
 
@@ -276,4 +269,4 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 * [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

@@ -1,21 +1,22 @@
 ---
-title: 通过 Azure 应用程序网关保护 Web 应用 - PowerShell
+title: 使用 PowerShell 配置应用服务
+titleSuffix: Azure Application Gateway
 description: 本文提供的指南介绍如何在现有的或新的应用程序网关上将 Web应用配置为后端主机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 03/12/2019
+origin.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 59cf9274b298c51e80c8fc46f37d582dd26e3586
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 3ac341e7963de411fbdb3eee722f1b4445e4fbe1
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788691"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327230"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>使用应用程序网关配置应用服务
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>使用 PowerShell 通过应用程序网关配置应用服务
 
 可以通过应用程序网关将应用服务应用或其他多租户服务配置为后端池成员。 本文介绍如何通过应用程序网关配置应用服务应用。 第一个示例介绍如何将现有的应用程序网关配置为使用 Web 应用作为后端池成员。 第二个示例介绍如何新建一个将 Web 应用用作后端池成员的应用程序网关。
 
@@ -168,4 +169,4 @@ DnsSettings              : {
 
 了解如何配置重定向，请访问：[使用 PowerShell 在应用程序网关上配置重定向](redirect-overview.md)。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

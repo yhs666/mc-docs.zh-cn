@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 06/17/2019
-ms.date: 07/22/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 43e4d241ceb9bf5a2e3edf80963fa10ded78aafb
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 869f35b6a21854506153bc0a4757df32ea32d659
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845403"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389378"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 代理和 IoT Edge 中心模块孪生的属性
 
@@ -56,6 +56,7 @@ IoT Edge 代理的模块孪生被称为 `$edgeAgent`，用于协调在设备上�
 | modules.{moduleId}.type | 必须为“docker” | 是 |
 | modules.{moduleId}.status | {"running" \| "stopped"} | 是 |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | 是 |
+| modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | 否 |
 | modules.{moduleId}.settings.image | 模块映像的 URI。 | 是 |
 | modules.{moduleId}.settings.createOptions | 字符串化的 JSON 包含模块容器的创建选项。 [Docker 创建选项](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | modules.{moduleId}.configuration.id | 部署此模块的部署 ID。 | 此属性是在使用部署来应用清单时由 IoT 中心设置。 不是部署清单的一部分。 |

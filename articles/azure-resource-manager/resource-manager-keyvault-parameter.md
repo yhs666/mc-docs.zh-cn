@@ -1,18 +1,15 @@
 ---
-title: Key Vault 机密与 Azure 资源管理器模板 | Azure
+title: 密钥保管库机密与模板
 description: 说明在部署期间如何以参数形式从密钥保管库传递机密。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 05/09/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 24afc70facf6359a999b5389796b669f27688963
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 78145575fe539e8d70d2bf6e74187b48c2149937
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155899"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389475"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
@@ -54,8 +51,6 @@ $secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' 
 作为密钥保管库的所有者，你可以自动获得创建机密的权限。 如果使用机密的用户不是密钥保管库的所有者，请使用以下命令授予访问权限：
 
 ```azurecli
-userPrincipalName='<your-email-address-associated-with-your-subscription>'
-
 az keyvault set-policy \
   --upn $userPrincipalName \
   --name $keyVaultName \
@@ -125,7 +120,7 @@ Set-AzKeyVaultAccessPolicy `
 
     此示例在资源组级别为用户分配自定义角色。  
     
-  <!-- Not Available on [Managed Application](../managed-applications/overview.md)-->
+    <!-- Not Available on [Managed Application](../managed-applications/overview.md)-->
 
 ## <a name="reference-secrets-with-static-id"></a>通过静态 ID 引用机密
 

@@ -1,25 +1,17 @@
 ---
-title: Azure 资源策略的 RequestDisallowedByPolicy 错误 | Azure
-description: 说明 RequestDisallowedByPolicy 错误的原因。
-services: azure-resource-manager
-documentationcenter: ''
+title: RequestDisallowedByPolicy 错误
+description: 描述使用 Azure 资源管理器部署资源时出现 RequestDisallowedByPolicy 错误的原因。
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 04/15/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: d49c2a59f833bfb8804ed5f45e8d46d937c9bde8
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: fa76f765e00ef0c0cf38006f3369b3176a71f569
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529116"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389469"
 ---
 <!--Verified Successfully-->
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 资源策略的 RequestDisallowedByPolicy 错误
@@ -28,7 +20,7 @@ ms.locfileid: "59529116"
 
 ## <a name="symptom"></a>症状
 
-部署过程中，可能会收到阻止创建资源的 RequestDisallowedByPolicy 错误。 以下示例显示错误：
+部署过程中，可能会收到阻止创建资源的 RequestDisallowedByPolicy 错误  。 以下示例显示错误：
 
 ```json
 {
@@ -60,13 +52,15 @@ ms.locfileid: "59529116"
 <!--MOONCAKE: Get all the policy definition name-->
 
 ```azurecli
-az policy definition list --query [*].name  #get all the name collection with Azure CLI
+# Get all the name collection with Azure CLI
+az policy definition list --query [*].name 
+ 
 az policy definition show --name {regionPolicyAssignment}
 ```
 
 ## <a name="solution"></a>解决方案
 
-为了安全性和符合性，订阅管理员可能会分配限制资源部署方式的策略。 例如，订阅可能具有阻止创建公共 IP 地址、网络安全组、用户定义的路由或路由表的策略。 “症状”部分中的错误消息显示策略的名称。
+为了安全性和符合性，订阅管理员可能会分配限制资源部署方式的策略。 例如，订阅可能具有阻止创建公共 IP 地址、网络安全组、用户定义的路由或路由表的策略。 “症状”部分中的错误消息显示策略的名称  。
 要解决此问题，请查看资源策略，并确定如何部署符合这些策略的资源。
 
 有关详细信息，请参阅以下文章：

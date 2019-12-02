@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/09/2019
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3bca0424263755240820b023188ed4d080d38428
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 4ae8b2771676fc6fd08eba9aa3b98e8a33d58cc2
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914367"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389556"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>准备在生产环境中部署 IoT Edge 解决方案
 
@@ -103,6 +103,8 @@ IoT Edge 中心和代理模块使用本地存储来保留状态，并允许在�
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>在受限的设备上不要进行性能优化
 
 IoT Edge 中心默认已进行性能优化，因此它会尝试分配较大的内存区块。 在 Raspberry Pi 等小型设备上，此配置可能会影响稳定性。 如果部署的设备的资源受限，建议在 IoT Edge 中心将 **OptimizeForPerformance** 环境变量设置为 **false**。 
+
+当 **OptimizeForPerformance** 设置为 **true** 时，MQTT 协议标头将使用 PooledByteBufferAllocator，它具有更好的性能，但分配了更多内存。 分配器在 32 位操作系统或内存较低的设备上不能很好地工作。 此外，如果针对性能进行了优化，RocksDb 会为其作为本地存储提供程序的角色分配更多内存。 
 
 有关详细信息，请参阅[资源受限设备的稳定性问题](troubleshoot.md#stability-issues-on-resource-constrained-devices)。
 
@@ -222,7 +224,7 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
 
 将此信息添加（或附加）到名为 `daemon.json` 的文件，然后将此文件放到设备平台上的适当位置。
 
-| 平台 | Location |
+| 平台 | 位置 |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

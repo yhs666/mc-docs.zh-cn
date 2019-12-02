@@ -1,18 +1,15 @@
 ---
-title: 将 Azure 应用服务资源移到新的订阅或资源组
+title: 移动 Azure 应用服务资源
 description: 使用 Azure 资源管理器将应用服务资源移到新的资源组或订阅。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/09/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: e7aea47ef53b0d066e4fd972aaca9259a6f9d891
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.date: 11/25/2019
+ms.openlocfilehash: badfefa39ff418d87a9418be22a2b80980d954a8
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857308"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389468"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>针对应用服务资源的移动指南
 
@@ -63,5 +60,4 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](../resource-group-move-resources.md)。
 
-<!-- Update_Description: new articles on app service move limitations -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: update meta properties, wording update -->

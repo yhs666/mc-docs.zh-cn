@@ -1,25 +1,15 @@
 ---
-title: Azure 保留资源名称错误 | Azure
+title: 保留资源名称错误
 description: 描述了如何解决提供的资源名称包括保留字的错误。
-services: azure-resource-manager
-documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 origin.date: 11/08/2017
-ms.date: 11/27/2017
-ms.author: v-yeche
-ms.openlocfilehash: acd21835fe3b81c1e344f8a7e8cd86ab58d4443f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 11/25/2019
+ms.openlocfilehash: fb07ed3ecac3fbb2e2d5bba645cc1c969c2447ac
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663212"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389569"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>解决保留资源名称错误
 
@@ -81,4 +71,4 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 请提供一个不使用其中任一保留字的名称。
 
-<!-- Update_Description: new articles on azure resource manager on reserved resource name -->
+<!-- Update_Description: update meta properties, wording update, update link -->

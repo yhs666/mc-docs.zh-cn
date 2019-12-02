@@ -1,18 +1,15 @@
 ---
-title: Azure 无效模板错误 | Azure
-description: 说明如何解决无效模板错误。
-author: rockboyfor
-ms.service: azure-resource-manager
+title: 无效模板错误
+description: 说明如何在部署 Azure 资源管理器模板时解决无效模板错误。
 ms.topic: troubleshooting
 origin.date: 03/08/2018
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: 7674d67f380f480ff6cb1378567e43fad3d1ba7f
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.date: 11/25/2019
+ms.openlocfilehash: 7fde779ade3ff7eedf110524d71d24b480812ed0
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337409"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389476"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解决无效模板错误
 

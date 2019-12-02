@@ -1,19 +1,16 @@
 ---
-title: 异步操作的状态 - Azure 资源管理器
+title: 异步操作的状态
 description: 介绍如何在 Azure 中跟踪异步操作。 它显示用于获取长时间运行操作的状态的值。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 12/09/2018
-ms.date: 07/22/2019
-ms.author: v-yeche
+ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47d217b3a3c1a205713fbab1953295f4e3a9b859
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 278babfc6503485253c17259e78809ecdb0d154e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337422"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389389"
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
 某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本文介绍如何通过响应中返回的值跟踪异步操作的状态。  

@@ -1,29 +1,30 @@
 ---
-title: 对 Azure 时序见解预览版进行诊断和故障排除 | Microsoft Docs
-description: 了解如何诊断和排查 Azure 时序见解预览版的问题。
-author: ashannon7
-ms.author: dpalled
-ms.workload: big-data
+title: 对预览版环境进行诊断和故障排除 - Azure 时序见解 | Microsoft Docs
+description: 了解如何对 Azure 时序见解预览版环境进行诊断和故障排除。
+author: deepakpalled
+ms.author: v-yiso
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+origin.date: 10/22/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd532091c25bc0efe56abd5744da7cd46908b45f
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 0a25d0ca0fb8ef6ce9554896db30c77352e38520
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456465"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388947"
 ---
-# <a name="diagnose-and-troubleshoot"></a>诊断和故障排除
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>对预览版环境进行诊断和故障排除
 
 本文汇总了在使用 Azure 时序见解预览版环境时可能会遇到的多个常见问题。 本文还介绍了每个问题的可能原因和解决方案。
 
 ## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>问题：在预览版资源管理器中找不到环境
 
-如果无权访问时序见解环境，则可能会发生此问题。 用户需要读者级别访问角色才能查看其时序见解环境。 若要验证当前访问级别并授予其他访问权限，请在 [Azure 门户](https://portal.azure.cn/)中访问时序见解资源上的“数据访问策略”部分。
+如果无权访问时序见解环境，则可能会发生此问题。 用户需要读者级别访问角色才能查看其时序见解环境。 若要验证当前访问级别并授予其他访问权限，请在 [Azure 门户](https://portal.azure.cn/)中转到时序见解资源上的“数据访问策略”部分。 
 
   [![环境](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
@@ -56,7 +57,7 @@ ms.locfileid: "67456465"
 
 - 提供的使用者组并非时序见解所独有。
 
-    IoT 中心或事件中心注册期间，请指定用于读取数据的使用者组。 请不要共享该使用者组。 如果共享了此使用者组，则基础事件中心会随机自动断开一个读取器的连接。 请提供唯一的使用者组，供时序见解从中读取。
+    IoT 中心或事件中心注册期间，请指定用于读取数据的使用者组。 此使用者组必须在环境中独一无二。 如果共享了此使用者组，则基础事件中心会随机自动断开一个读取器的连接。 请提供唯一的使用者组，供时序见解从中读取。
 
 - 在预配时指定的时序 ID 属性不正确、缺失或为 null。
 
@@ -83,22 +84,27 @@ ms.locfileid: "67456465"
 若要确保捕获 Timestamp 属性名称并让其正常运行，最简单的方法是使用时序见解预览版资源管理器。 在时序见解预览版资源管理器中使用此图表，在提供 Timestamp 属性名称以后选择一个时间段。 右键单击所做的选择，然后选择“浏览事件”选项。  第一个列标头为 Timestamp 属性名称。 它应该有 `($ts)` 位于 `Timestamp` 一词的旁边，而不是：
 
 * `(abc)`，指示时序见解将数据值作为字符串来读取。
-* 日历图标，指示时序见解将数据值作为日期/时间来读取。
+* **日历**图标，指示时序见解将数据值作为日期/时间来读取。
 * `#`，指示时序见解将数据值作为整数来读取。
 
 如果 Timestamp 属性未显式指定，则会将事件的 IoT 中心或事件中心的“排队时间”用作默认的时间戳。
+
+## <a name="problem-i-cant-view-data-from-my-warm-store-in-the-explorer"></a>问题：我无法在资源管理器中查看我的暖存储中的数据
+
+- 你可能最近预配了你的暖存储，数据仍在流入。
+- 你可能已删除了暖存储，这种情况下，你已经丢失了数据。
 
 ## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>问题：无法查看或编辑时序模型
 
 - 你可能在访问时序见解 S1 或 S2 环境。
 
-   时序模型仅在 PAYG 环境中受支持。 若要详细了解如何从时序见解预览版资源管理器访问 S1/S2 环境，请参阅[可视化资源管理器中的数据](./time-series-insights-update-explorer.md)。
+   时序模型仅在即用即付环境中受支持。 若要详细了解如何从时序见解预览版资源管理器访问 S1 或 S2 环境，请参阅[可视化资源管理器中的数据](./time-series-insights-update-explorer.md)。
 
    [![访问](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - 你可能无权查看和编辑此模型。
 
-   用户需要有参与者级别访问权限才能编辑和查看其时序模型。 若要验证当前访问级别并授予其他访问权限，请在 Azure 门户中访问时序见解资源上的“数据访问策略”部分。
+   用户需要有参与者级别访问权限才能编辑和查看其时序模型。 若要验证当前访问级别并授予其他访问权限，请在 Azure 门户中转到时序见解资源上的“数据访问策略”部分。 
 
 ## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>问题：预览版资源管理器中的所有实例缺少父级
 
@@ -111,3 +117,4 @@ ms.locfileid: "67456465"
 - 阅读[使用时序模型](./time-series-insights-update-how-to-tsm.md)。
 
 - 了解[支持的 JSON 形状](./how-to-shape-query-json.md)。
+- 查看 Azure 时序见解预览版中的[规划和限制](./time-series-insights-update-plan.md)。

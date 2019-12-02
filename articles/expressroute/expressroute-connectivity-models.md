@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/09/2017
-ms.date: 03/24/2017
+origin.date: 09/18/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: e991168e30a675fcf23877d00438c12aeafa4d66
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 19754dae03b998a8a04d8625eb5aa5b7affe0e56
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656797"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389458"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute 连接模型
 在本地网络和 Microsoft 云之间创建连接时，可以采用三种不同的方式：[CloudExchange 归置](#CloudExchange)、[点到点以太网连接](#Ethernet)、[任意位置之间的 (IPVPN) 连接](#IPVPN)。 连接服务提供商可以提供一个或多个连接模型。 可以咨询连接服务提供商来选择最合适的模型。
@@ -42,7 +42,7 @@ ms.locfileid: "52656797"
 * 了解 ExpressRoute 功能。 请参阅 [ExpressRoute 技术概述](./expressroute-introduction.md)
 * 查找服务提供商。 请参阅 [ExpressRoute 合作伙伴和对等位置](./expressroute-locations.md)。
 * 确保符合所有先决条件。 请参阅 [ExpressRoute 先决条件](./expressroute-prerequisites.md)。
-* 请参阅[路由](./expressroute-routing.md)的要求。
+* 请参阅[路由](expressroute-routing.md)、[NAT](expressroute-nat.md) 的要求。
 * 配置 ExpressRoute 连接。
   * [创建 ExpressRoute 线路](./expressroute-howto-circuit-portal-resource-manager.md)
   * [配置路由](./expressroute-howto-routing-portal-resource-manager.md)

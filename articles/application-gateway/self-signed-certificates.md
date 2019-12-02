@@ -1,19 +1,20 @@
 ---
-title: 使用自定义根 CA 生成 Azure 应用程序网关自签名证书
+title: 使用自定义根 CA 生成自签名证书
+titleSuffix: Azure Application Gateway
 description: 了解如何使用自定义根 CA 生成 Azure 应用程序网关自签名证书
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 07/23/2019
-ms.date: 09/10/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 057c1365be4e6dceb13a1cb8db825310f9ca853b
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: 9a67c0683921712c51c5bfce3709d9a9d0b89de3
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857404"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327301"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>使用自定义根 CA 生成 Azure 应用程序网关自签名证书
 
@@ -88,7 +89,7 @@ ms.locfileid: "70857404"
 CSR 是请求证书时向 CA 提供的公钥。 CA 将针对此特定请求颁发证书。
 
 > [!NOTE]
-> 服务器证书的 CN（公用名）必须与颁发者的域不同。 例如，在本例中，颁发者的 CN 是 www.contoso.com，服务器证书的 CN 是 www.fabrikam.com
+> 服务器证书的 CN（公用名）必须与颁发者的域不同。 例如，在本例中，颁发者的 CN 是 `www.contoso.com`，服务器证书的 CN 是 `www.fabrikam.com`。
 
 
 1. 使用以下命令生成 CSR：
@@ -274,3 +275,4 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 若要详细了解应用程序网关中的 SSL\TLS，请参阅[应用程序网关的 SSL 终止和端到端 SSL 概述](ssl-overview.md)。
 
 
+<!-- Update_Description: wording update -->

@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure 门户管理 Azure 资源管理器组 | Azure
-description: 使用 Azure 门户管理 Azure 资源管理器组。
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
+title: 管理资源组 - Azure 门户
+description: 使用 Azure 门户通过 Azure 资源管理器管理资源组。 说明如何创建、列出和删除资源组。
 author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 03/26/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 21c7db6ab3c586bce51128dd7611f85ef20d558f
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 85cb834eae6a69a2571e29770aa80d7697531598
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337297"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389414"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -41,7 +38,7 @@ ms.locfileid: "68337297"
 2. 选择“资源组” 
 
     ![添加资源组](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
-3. 选择“设置”  （应用程序对象和服务主体对象）。
+3. 选择“添加”   。
 4. 输入以下值：
 
     - **订阅**：选择 Azure 订阅。 

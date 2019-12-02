@@ -1,22 +1,19 @@
 ---
-title: 使用基于 URL 路径的路由规则创建应用程序网关 - Azure CLI | Microsoft Docs
+title: 使用 CLI 创建基于 URL 路径的路由规则 - Azure 应用程序网关
 description: 了解如何使用 Azure CLI 为应用程序网关和虚拟机规模集创建基于 URL 路径的路由规则。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-origin.date: 07/14/2018
-ms.date: 05/20/2019
+origin.date: 11/13/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: d5b09bbc0925b779fe1f008e69cfdce42c5daca7
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: 5480e5a3d4ea74d38cbb5ae0eccd2c33a7013cdf
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960895"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326474"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>通过 Azure CLI 使用基于 URL 路径的路由规则创建应用程序网关
 

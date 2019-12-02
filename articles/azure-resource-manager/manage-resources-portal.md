@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure 门户管理 Azure 资源 | Azure
-description: 使用 Azure 门户和 Azure 资源管理器管理资源。
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
+title: 管理资源 - Azure 门户
+description: 使用 Azure 门户和 Azure 资源管理器管理资源。 演示如何部署和删除资源。
 author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 75991a60b9a36b7af5eec93c68a307f5bdd80953
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 266961dad77abb83c027ccde14071e756aa3f7ae
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337503"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388989"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源
 

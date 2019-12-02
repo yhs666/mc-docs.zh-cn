@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板中的子资源名称和类型
+title: 模板中的子资源
 description: 介绍如何在 Azure 资源管理器模板中设置子资源的名称和类型。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 08/26/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 83c13f3d20e171a0426ac3cd3ba0e3f4d8bde988
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 7f1106eeed18288db0213b73095be29c0291a0f2
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155892"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389421"
 ---
 <!--Verify Successfully-->
 # <a name="set-name-and-type-for-child-resources"></a>设置子资源的名称和类型

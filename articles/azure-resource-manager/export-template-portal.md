@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure 门户导出 Azure 资源管理器模板
+title: 在 Azure 门户中导出模板
 description: 使用 Azure 门户从订阅中的资源导出 Azure 资源管理器模板。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 06/19/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: 977421ad67dc6e5dbab97fd60daa806ac9235ab9
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+origin.date: 10/11/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 20f77a83e765472fa38eb10f51b406d35d92ae60
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337335"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389420"
 ---
-# <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>在 Azure 门户中将单个资源和多个资源导出到模板
+# <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>在 Azure 门户中将单资源和多资源导出到模板
 
 为了帮助创建 Azure 资源管理器模板，可以从现有的资源导出模板。 导出的模板可帮助你了解用于部署资源的 JSON 语法和属性。 若要自动完成将来的部署，可从导出的模板着手，根据具体的方案修改此模板。
 
@@ -49,39 +46,36 @@ ms.locfileid: "68337335"
 * 想要一个易于重复使用的模板。
 * 不需要包含原始部署之后所做的更改。
 
-## <a name="export-template-from-resource-group"></a>从资源组导出模板
+## <a name="export-template-from-a-resource-group"></a>从资源组导出模板
 
 若要从资源组中导出一个或多个资源：
 
 1. 选择包含所要导出的资源的资源组。
 
-1. 若要导出资源组中的所有资源，请依次选择“全部”、“导出模板”。  只有在至少选择了一个资源之后，才会启用“导出模板”选项。 
+1. 通过选中相应的复选框选择一个或多个资源。  若要全选，请选中**名称**左侧的复选框。 “导出模板”  菜单项只有在你选择了至少一个资源之后才会启用。
 
     ![导出所有资源](./media/export-template-portal/select-all-resources.png)
 
-1. 若要选取要导出的特定资源，请选中这些资源旁边的复选框。 然后选择“导出模板”。 
+    在屏幕截图中，只选择了存储帐户。
+1. 选择“导出模板”  。
 
-    ![选择要导出的资源](./media/export-template-portal/select-resources.png)
-
-1. 随后，导出的模板将会显示，并可供下载。
+1. 此时将显示导出的模板，并可供下载和部署。
 
     ![显示模板](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>从资源导出模板
+## <a name="export-template-from-a-resource"></a>从资源导出模板
 
 导出一个资源：
 
 1. 选择包含所要导出的资源的资源组。
 
-1. 选择要导出的资源。
-
-    ![选择资源](./media/export-template-portal/select-link-resource.png)
+1. 选择要导出的资源以打开资源。
 
 1. 在左窗格中选择该资源对应的“导出模板”。 
 
     ![导出资源](./media/export-template-portal/export-single-resource.png)
 
-1. 随后，导出的模板将会显示，并可供下载。 模板只包含单个资源。
+1. 此时将显示导出的模板，并且该模板可供下载和部署。 模板只包含单个资源。
 
 ## <a name="export-template-before-deployment"></a>在部署之前导出模板
 
@@ -93,9 +87,7 @@ ms.locfileid: "68337335"
 
     ![下载模板](./media/export-template-portal/download-before-deployment.png)
 
-1. 随后，该模板将会显示，并可供下载。
-
-    ![显示模板](./media/export-template-portal/show-template-before-deployment.png)
+1. 此时将显示该模板，并且该模板可供下载和部署。
 
 ## <a name="export-template-after-deployment"></a>在部署之后导出模板
 
@@ -121,7 +113,6 @@ ms.locfileid: "68337335"
 - 若要了解资源管理器模板语法，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
 
-<!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/azure/templates/)-->
 
-<!-- Update_Description: new article about export template portal -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,18 +1,15 @@
 ---
-title: 使用 Azure 资源管理器模板进行条件部署
+title: 使用模板进行条件部署
 description: 介绍如何在 Azure 资源管理器模板中有条件地部署资源。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/03/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 2b4c840256cb5352629b0663dcc5595171ba0aa4
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: a5f15006886227a11a8cc88ea87b04c2ee582701
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156449"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389418"
 ---
 <!--Verify successfully-->
 # <a name="conditional-deployment-in-resource-manager-templates"></a>资源管理器模板中的条件部署
@@ -84,10 +81,13 @@ ms.locfileid: "71156449"
 
 请使用 [if](resource-group-template-functions-logical.md#if) 函数，以确保仅当资源已部署时，才根据条件评估函数。 请查看示例模板的 [if 函数](resource-group-template-functions-logical.md#if)，该模板将 if 和 reference 用于进行条件部署的资源。
 
+## <a name="condition-with-complete-mode"></a>完整模式条件
+
+如果以[完整模式](deployment-modes.md)部署模板并且由于条件的计算结果为 false 而未部署资源，则结果取决于用于部署模板的 REST API 版本。 如果使用 2019-05-10 之前的版本，则**不会删除**该资源。 如果使用 2019-05-10 或更高版本，则**会删除**该资源。 最新版本的 Azure PowerShell 和 Azure CLI 在条件为 false 时会删除该资源。
+
 ## <a name="next-steps"></a>后续步骤
 
 * 有关创建模板的建议，请参阅 [Azure 资源管理器模板的最佳做法](template-best-practices.md)。
 * 若要创建资源的多个实例，请参阅 [Azure 资源管理器模板中的资源、属性或变量迭代](resource-group-create-multiple.md)。
 
-<!--Update_Description: new articles on conditional resource deployment -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

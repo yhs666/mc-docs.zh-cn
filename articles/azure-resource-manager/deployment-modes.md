@@ -1,30 +1,31 @@
 ---
-title: Azure 资源管理器部署模式 | Azure
+title: 部署模式
 description: 介绍如何使用 Azure 资源管理器指定是使用完整部署模式还是增量部署模式。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/01/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 559335b53adf470c16a844b5a6f0217c00f1560c
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 11/11/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 6abf594cb7a07ded4128bac005b9d848d076bb48
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155880"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389416"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure 资源管理器部署模式
 
-部署资源时，可以指定部署为增量更新还是完整更新。  这两种模式的主要区别是资源管理器如何处理资源组中不在模板中的现有资源。 默认模式为增量模式。
+部署资源时，可以指定部署为增量更新还是完整更新。  这两种模式之间的区别在于资源管理器如何处理资源组中不在模板中的现有资源。 默认模式为增量模式。
 
 对于这两种模式，资源管理器都会尝试创建模板中指定的所有资源。 如果资源已存在于资源组中且其设置未更改，则不会对该资源执行任何操作。 如果更改资源的属性值，则使用这些新值更新资源。 如果尝试更新现有资源的位置或类型，则部署会失败并出现错误。 请改用所需的位置或类型部署新资源。
 
 ## <a name="complete-mode"></a>完整模式
 
-在完整模式下，资源管理器删除资源组中已存在但尚未在模板中指定的资源  。 由于[条件](conditional-resource-deployment.md)的计算结果为 false，因此不会删除模板中指定但未部署的资源。
+在完整模式下，资源管理器删除资源组中已存在但尚未在模板中指定的资源  。
+
+如果模板包含由于[条件](conditional-resource-deployment.md)的计算结果为 false 而未部署的资源，则结果取决于用于部署模板的 REST API 版本。 如果使用 2019-05-10 之前的版本，则**不会删除**该资源。 如果使用 2019-05-10 或更高版本，则**会删除**该资源。 最新版本的 Azure PowerShell 和 Azure CLI 会删除该资源。
 
 将完整模式与[复制循环](resource-group-create-multiple.md)一起使用时要小心。 在解析复制循环后会删除模板中未指定的任何资源。
+
+如果部署到[模板中的多个资源组](resource-manager-cross-resource-group-deployment.md)，则可以删除部署操作中指定的资源组中的资源。 辅助资源组中的资源不会被删除。
 
 资源类型处理完整模式删除的方式有所不同。 当父资源不在以完整模式部署的模板中时，将自动删除该资源。 而某些子资源不在模板中时，不会将其自动删除。 但是，如果删除父资源，则会删除这些子资源。 
 

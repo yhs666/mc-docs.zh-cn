@@ -8,15 +8,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 10/04/2019
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1301c3e0e1995ddf35511f5cbcf9fc220f41094f
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: ad8d95243be08ab5ead155735ad5e28da3eb7830
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914484"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389558"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安装 Azure IoT Edge 运行时
 
@@ -123,7 +123,7 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 在这第二个选项中，使用 IoT 中心设备预配服务来预配设备。 提供设备预配服务实例的**范围 ID** 以及特定于首选[证明机制](../iot-dps/concepts-security.md#attestation-mechanism)的任何其他信息：
 
-* [在 Windows 上创建和预配模拟 TPM Edge 设备](how-to-auto-provision-simulated-device-windows.md)
+* [在 Windows 上使用虚拟 TPM 创建和预配模拟 IoT Edge 设备](how-to-auto-provision-simulated-device-windows.md)
 * [使用对称密钥证明创建和预配 IoT Edge 设备](how-to-auto-provision-symmetric-keys.md)
 
 自动安装和预配设备时，可以使用附加的参数来修改安装，包括：

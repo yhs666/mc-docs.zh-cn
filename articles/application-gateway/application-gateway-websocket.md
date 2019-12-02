@@ -1,19 +1,19 @@
 ---
-title: Azure 应用程序网关中的 WebSocket 支持 | Microsoft Docs
-description: 此页概述了应用程序网关的 WebSocket 支持。
+title: Azure 应用程序网关中的 WebSocket 支持
+description: 应用程序网关跨所有网关大小为 WebSocket 提供本机支持。 没有用户可配置的设置。
 author: vhorne
 ms.author: v-junlch
 ms.service: application-gateway
+services: application-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-origin.date: 03/18/2019
-ms.date: 10/23/2019
-ms.openlocfilehash: 9de820d8a6484b9d75eaea9fb534fa0b0c04b695
-ms.sourcegitcommit: 24b69c0a22092c64c6c3db183bb0655a23340420
+origin.date: 11/16/2019
+ms.date: 11/21/2019
+ms.openlocfilehash: afce35b7472b909bb568a0513b76c5c90ccaa96f
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798510"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327231"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>应用程序网关中的 WebSocket 支持概述
 
@@ -126,5 +126,4 @@ ms.locfileid: "72798510"
 
 了解 WebSocket 支持后，请转到[创建应用程序网关](quick-create-powershell.md)，开始使用已启用 WebSocket 的 Web 应用程序。
 
-
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

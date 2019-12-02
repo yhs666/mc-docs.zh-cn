@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 03/19/2018
 ms.date: 09/10/2018
 ms.author: liydu
-ms.openlocfilehash: 5ebad5b6882ca7a4a4696a059ae1060601539509
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 85e1a837bc4269e9253c763aa51620871b25c643
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625695"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389217"
 ---
 # <a name="door-monitor"></a>门监视器          
 
@@ -42,7 +42,7 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 一个有效的 Azure 订阅。 如果没有订阅，可以通过以下方法之一进行注册：
 
 * 激活 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 声明你的 [Azure 信用额度](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)（如果你是 MSDN 或 Visual Studio 订阅者）。
+* 声明你的 [Azure 信用额度](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)（如果你是 MSDN 或 Visual Studio 订阅者）。
 
 ## <a name="deploy-the-sendgrid-service-in-azure"></a>在 Azure 中部署 SendGrid 服务
 
@@ -53,11 +53,11 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 
 ### <a name="sendgrid-deployment"></a>SendGrid 部署
 
-若要预配 Azure 服务，请使用“部署到 Azure”按钮。 可以通过此按钮将开源项目轻松快捷地部署到 Microsoft Azure。
+若要预配 Azure 服务，请使用“部署到 Azure”按钮。  可以通过此按钮将开源项目轻松快捷地部署到 Microsoft Azure。
 
-单击下面的“部署到 Azure”按钮。 
+单击下面的“部署到 Azure”  按钮。 
 
-[![“部署到 Azure”](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
+[![“部署到 Azure”](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
 如果尚未登录到 Azure 帐户，请立即登录。 
 
@@ -67,7 +67,7 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 
 完成注册表单：
 
-* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
+* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](/azure/azure-resource-manager/resource-group-portal)。
 
 * **名称**：SendGrid 服务的名称。 选择一个不同于你的其他服务的唯一名称。
 
@@ -75,19 +75,19 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 
 * **电子邮件**：SendGrid 服务将向此电子邮件地址发送验证。
 
-选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后单击“购买”以提交注册表单。
+选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后单击“购买”以提交注册表单   。
  
 ### <a name="sendgrid-api-key-creation"></a>创建 SendGrid API 密钥
 
-完成部署后，请单击此部署，然后单击“管理”按钮。 此时将显示 SendGrid 帐户页，需要在其中验证电子邮件地址。
+完成部署后，请单击此部署，然后单击“管理”按钮  。 此时将显示 SendGrid 帐户页，需要在其中验证电子邮件地址。
 
 ![SendGrid 的“管理”按钮](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-在 SendGrid 页上，单击“设置” > “API 密钥” > “创建 API 密钥”。
+在 SendGrid 页上，单击“设置”   >   “API 密钥” >   “创建 API 密钥”。
 
 ![SendGrid 的第一个“创建 API”](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
-在“创建 API 密钥”页上，输入 API 密钥名称，然后单击“创建和查看”。
+在“创建 API 密钥”页上，输入 API 密钥名称，然后单击“创建和查看”    。
 
 ![SendGrid 的第二个“创建 API”](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-second.png)
 
@@ -97,9 +97,9 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 以下步骤将预配其他 Azure IoT 相关服务并为此项目部署 Azure Functions。
 
-单击下面的“部署到 Azure”按钮。 
+单击下面的“部署到 Azure”  按钮。 
 
-[![“部署到 Azure”](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
+[![“部署到 Azure”](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
 此时会显示注册表单。
 
@@ -107,15 +107,15 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 填充注册表单上的字段。
 
-* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
+* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
 
 * **IoT 中心名称**：IoT 中心的名称。 选择一个不同于你的其他服务的唯一名称。
 
-  * **IoT 中心 SKU**：F1（一个订阅仅限一个）是免费的。 可在[定价页](https://azure.microsoft.com/pricing/details/iot-hub/)上查看定价详细信息。
+  * **IoT 中心 SKU**：F1（一个订阅仅限一个）是免费的。 可在[定价页](www.azure.cn/pricing/details/iot-hub/)上查看定价详细信息。
 
   * **发件人电子邮件**：此字段的值应与设置 SendGrid 服务时使用的电子邮件地址相同。
 
-选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后准备好继续下一步时单击“购买”。
+选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后准备好继续下一步时单击“购买”   。
  
 ## <a name="build-and-upload-the-code"></a>生成并上传代码
 
@@ -132,11 +132,11 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 ### <a name="open-arduino-examples-folder"></a>打开 Arduino 示例文件夹
 
-展开左侧的“ARDUINO 示例”部分，浏览到“MXCHIP AZ3166 的示例 > AzureIoT”，然后选择“DoorMonitor”。 此操作会打开一个新的 VS Code 窗口，其中包含一个项目文件夹。
+展开左侧的“ARDUINO 示例”  部分，浏览到  “MXCHIP AZ3166 的示例 > AzureIoT”，然后选择“DoorMonitor”  。 此操作会打开一个新的 VS Code 窗口，其中包含一个项目文件夹。
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-还可以从命令面板打开示例应用。 使用 `Ctrl+Shift+P`（macOS: `Cmd+Shift+P`）打开命令面板，键入“Arduino”，然后找到并选择“Arduino:Examples”。
+还可以从命令面板打开示例应用。 使用 `Ctrl+Shift+P`（macOS: `Cmd+Shift+P`）打开命令面板，键入“Arduino”，然后找到并选择“Arduino:   Examples”。
 
 ### <a name="provision-azure-services"></a>预配 Azure 服务
 
@@ -185,9 +185,9 @@ DevKit 将重新启动并开始运行代码。
 
 初始化以后，屏幕上会显示 `Door closed`。 磁场变化时，状态更改为 `Door opened`。 门状态一变化，你就会收到电子邮件通知。 （收到这些电子邮件可能需要长达五分钟的时间。）
 
-![磁铁靠近传感器：门已关闭](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "磁铁靠近传感器：门已关闭")
+![磁铁靠近传感器：门已关闭](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "磁铁靠近传感器：门关闭")
 
-![磁铁从传感器移开：门已打开](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "磁铁从传感器移开：门已打开")
+![磁铁从传感器移开：门已打开](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "磁铁从传感器移开：门打开")
 
 ## <a name="problems-and-feedback"></a>问题和反馈
 
@@ -198,7 +198,6 @@ DevKit 将重新启动并开始运行代码。
 
 ## <a name="next-steps"></a>后续步骤
 
-已经了解如何将 DevKit 设备连接到 Azure IoT 远程监视解决方案加速器并使用 SendGrid 服务来发送电子邮件。 下面是建议的后续步骤：
+你已经了解了如何将 DevKit 设备连接到 Azure IoT 远程监视解决方案加速器并使用 SendGrid 服务来发送电子邮件。 下面是建议的后续步骤：
 
-* [Azure IoT 远程监视解决方案加速器概述](https://docs.microsoft.com/azure/iot-suite/)
 * [将 MXChip IoT DevKit 设备连接到 Azure IoT Central 应用程序](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -1,18 +1,15 @@
 ---
-title: Azure 服务的 Azure 资源管理器资源提供程序
+title: 按 Azure 服务列出的资源提供程序
 description: 列出 Azure 资源管理器的所有资源提供程序命名空间，并显示该命名空间的 Azure 服务。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 06/25/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: e8e4c32213a97a6dd3f319956bcdfba93ae46f4c
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 11/11/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: d3a371b6425378c88f13792e0ce07eaf82f38872
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155890"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389422"
 ---
 <!--Verify sucessfully-->
 # <a name="resource-providers-for-azure-services"></a>Azure 服务的资源提供程序
@@ -23,6 +20,7 @@ ms.locfileid: "71155890"
 
 | 资源提供程序命名空间 | Azure 服务 |
 | --------------------------- | ------------- |
+| Microsoft.AAD | [Azure Active Directory 域服务 |
 | Microsoft.Advisor | [Azure 顾问](/advisor/index/) |
 | Microsoft.AlertsManagement | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](/analysis-services/) |
@@ -40,7 +38,7 @@ ms.locfileid: "71155890"
 | Microsoft.ClassicStorage | 经典部署模型存储 |
 | Microsoft.ClassicSubscription | 经典部署模型 |
 | Microsoft.CognitiveServices | [认知服务](/cognitive-services/) |
-| Microsoft.Compute | [虚拟机](/virtual-machines/) |
+| Microsoft.Compute | [虚拟机](/virtual-machines/)<br />[虚拟机规模集](/virtual-machine-scale-sets/) |
 | Microsoft.ContainerRegistry | [容器注册表](/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes 服务 (AKS)](/aks/) |
 | Microsoft.DataFactory | [数据工厂](/data-factory/) |
@@ -57,11 +55,10 @@ ms.locfileid: "71155890"
 | Microsoft.HDInsight | [HDInsight](../hdinsight/index.yml) |
 | Microsoft.ImportExport | [Azure 导入/导出](../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../azure-monitor/index.yml) |
+| Microsoft.IoTCentral | IoT Central |
 | Microsoft.KeyVault | [密钥保管库](../key-vault/index.yml) |
 | Microsoft.Kusto | [Azure 数据资源管理器](../data-explorer/index.yml) |
-| Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [逻辑应用](../logic-apps/index.yml) |
-| Microsoft.ManagedIdentity | Azure 资源的托管标识 |
 | Microsoft.ManagedIdentity | [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.Management | [管理组](/governance/management-groups/) |
 | Microsoft.Media | [媒体服务](../media-services/index.yml) |
@@ -82,8 +79,10 @@ ms.locfileid: "71155890"
 | Microsoft.Security | [安全中心](../security-center/index.yml) |
 | Microsoft.ServiceBus | [服务总线](/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../service-fabric/index.yml) |
+| Microsoft.SignalRService | Azure SignalR 服务 |
 | Microsoft.SiteRecovery | [站点恢复](../site-recovery/index.yml) |
-| Microsoft.Sql | [Azure SQL 数据库](../sql-database/index.yml) |
+| Microsoft.Solutions | Azure 托管应用程序 |
+| Microsoft.Sql | [Azure SQL 数据库](../sql-database/index.yml)<br />[SQL 数据仓库](/sql-data-warehouse/) |
 | Microsoft.Storage | [存储](../storage/index.yml) |
 | Microsoft.StreamAnalytics | [流分析](../stream-analytics/index.yml) |
 | Microsoft.TimeSeriesInsights | [时序见解](../time-series-insights/index.yml) |
@@ -92,3 +91,5 @@ ms.locfileid: "71155890"
 ## <a name="next-steps"></a>后续步骤
 
 有关资源提供程序的详细信息，请参阅 [Azure 资源提供程序和类型](resource-manager-supported-services.md)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

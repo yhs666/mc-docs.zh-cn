@@ -1,5 +1,5 @@
 ---
-title: '将虚拟网络链接到 ExpressRoute 线路：PowerShell：经典：Azure '
+title: ExpressRoute：将 VNet 链接到线路：经典
 description: 本文档概述如何使用经典部署模型和 PowerShell 将虚拟网络 (VNet) 链接到 ExpressRoute 线路。
 services: expressroute
 documentationcenter: na
@@ -8,13 +8,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 07/27/2018
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 052d834ab6b06bf58a716cfcef55e9c228433a76
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.date: 12/02/2019
+ms.openlocfilehash: 16eab25c885f4b5ccda0aa6943fe769deeb4f276
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "65835791"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389449"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
@@ -34,8 +34,6 @@ ms.locfileid: "65835791"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 

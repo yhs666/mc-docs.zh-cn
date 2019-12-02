@@ -1,18 +1,15 @@
 ---
-title: Azure Resource Manager 模板函数 - 部署 | Azure
+title: 模板函数 - 部署
 description: 介绍可在 Azure Resource Manager 模板中使用的用于检索部署信息的函数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8ae99b9335760445e6d2a9a50209e72ed3d23ed2
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 4121c99b147134c7737be7dd37bb2e953575e37f
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156200"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389462"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的部署函数 
 
@@ -341,4 +338,4 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update, update cmdlet-->
+<!--Update_Description: update meta properties, wording update -->

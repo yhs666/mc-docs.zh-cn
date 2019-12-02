@@ -10,12 +10,12 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 origin.date: 01/16/2019
 ms.date: 08/26/2019
-ms.openlocfilehash: 811fb9d995321fac31d2928595feac4f14b91fae
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: f13ca90dd1c16ecf97f3a1a1e4736810ea9538f6
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539016"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389518"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure 逻辑应用中发送、接收和批处理消息
 
@@ -35,7 +35,8 @@ ms.locfileid: "69539016"
 
 若要按照此示例进行操作，需要以下这些项：
 
-* Azure 订阅。 如果没有订阅，可以[从免费的 Azure 帐户着手](https://azure.microsoft.com/free/)。 或者，[注册即用即付订阅](https://azure.microsoft.com/pricing/purchase-options/)。
+* Azure 订阅。 如果没有订阅，可以[从 Azure 试用帐户着手](www.azure.cn/pricing/1rmb-trial)。 
+
 
 * 具有任何 [Azure 逻辑应用支持的电子邮件提供商](../connectors/apis-list.md)的电子邮件帐户
 
@@ -49,7 +50,7 @@ ms.locfileid: "69539016"
 
 在将消息发送到某个批之前，该批必须存在且充当这些消息要发送到的目标。 因此，首先必须创建可以通过“批处理”触发器启动的“批接收方”逻辑应用。  这样，在创建“批发送方”逻辑应用时，便可以选择批接收方逻辑应用。 批接收方会持续收集消息，直到满足发布和处理这些消息的指定条件。 尽管批接收方不需要知道有关批发送方的任何信息，但批发送方必须知道要将消息发送到的目标。 
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 中，创建具有以下名称的一个逻辑应用：“BatchReceiver” 
+1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 中，创建具有以下名称的一个逻辑应用：“BatchReceiver” 
 
 2. 在逻辑应用设计器中，添加**批**触发器，这会启动逻辑应用工作流。 在搜索框中，输入“批”作为筛选器。 选择此触发器：**批处理消息**
 

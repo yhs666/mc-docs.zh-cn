@@ -4,16 +4,16 @@ description: 升级到常规用途 v2 存储帐户。
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: article
-origin.date: 02/28/2019
-ms.date: 04/08/2019
+ms.topic: conceptual
+origin.date: 03/26/2019
+ms.date: 11/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 94656a7c3514e8eef408578812655e790830651e
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 86ff49dae66e4c4acf0fde5dea282e13963abfed
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890141"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328721"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
@@ -22,18 +22,20 @@ ms.locfileid: "58890141"
 从常规用途 v1 帐户或 Blob 存储帐户升级到常规用途 v2 存储帐户的过程很简单。 可以使用 Azure 门户、PowerShell 或 Azure CLI 升级。
 
 > [!IMPORTANT]
-> 将 v1 存储帐户升级到常规用途 v2 是永久性的，不能撤消。
+> 将常规用途 v1 或 Blob 存储帐户升级到常规用途 v2 是永久性的，不能撤消。
 
-## <a name="upgrade-using-the-azure-portal"></a>使用 Azure 门户升级
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到存储帐户。
-3. 在“设置”部分单击“配置”。
-4. 在“帐户类型”下单击“升级”。
-5. 在“确认升级”下键入帐户名称。
-6. 单击边栏选项卡底部的“升级”。
+3. 在“设置”部分单击“配置”。  
+4. 在“帐户类型”下单击“升级”   。
+5. 在“确认升级”下键入帐户名称。 
+6. 单击边栏选项卡底部的“升级”。 
 
-## <a name="upgrade-with-powershell"></a>使用 PowerShell 进行升级
+    ![升级帐户种类](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,8 +46,7 @@ ms.locfileid: "58890141"
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
-
-## <a name="upgrade-with-azure-cli"></a>使用 Azure CLI 进行升级
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要使用 Azure CLI 将常规用途 v1 帐户升级为常规用途 v2 帐户，请先安装最新版的 Azure CLI。 请参阅 [Install the Azure CLI 2.0](/cli/install-azure-cli?view=azure-cli-latest)（安装 Azure CLI 2.0），了解如何安装 CLI。 
 
@@ -55,13 +56,15 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```
 
+---
+
 ## <a name="specify-an-access-tier-for-blob-data"></a>指定 Blob 数据的访问层
 
 常规用途 v2 帐户支持所有 Azure 存储服务和数据对象，但访问层仅适用于 Blob 存储中的块 Blob。 升级到常规用途 v2 存储帐户时，可以指定 Blob 数据的访问层。
 
 使用访问层可以根据预期使用模式选择最具经济效益的存储。 块 Blob 可以存储在热层、冷层或存档层中。 有关访问层的详细信息，请参阅 [Azure Blob 存储：热、冷、存档存储层](../blobs/storage-blob-storage-tiers.md)。
 
-默认情况下，新的存储帐户在热访问层中创建，常规用途 v1 存储帐户将升级到热访问层。 如果你正在探讨要将哪个访问层用于升级后的数据，请考虑具体的场景。 有两种典型的用户场景适合迁移到常规用途 v2 帐户：
+默认情况下，新存储帐户在热访问层中创建，常规用途 v1 存储帐户将升级到热访问层。 如果你正在探讨要将哪个访问层用于升级后的数据，请考虑具体的场景。 有两种典型的用户场景适合迁移到常规用途 v2 帐户：
 
 * 已经有了一个常规用途 v1 存储帐户，想要使用适合 Blob 数据的存储访问层来评估对常规用途 v2 存储帐户所做的升级。
 * 已经决定使用常规用途 v2 存储帐户，或者已经有了一个这种帐户，想要评估一下是应使用热存储访问层还是冷存储访问层来存储 Blob 数据。
@@ -112,9 +115,9 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 > Blob 存储帐户公开表服务终结点的目的只是为了存储和访问该帐户的指标数据。
 
 若要监视 Blob 存储的存储消耗情况，需启用容量指标。
-启用此功能后，会每天为存储帐户的 Blob 服务记录容量数据，并将容量数据记录为表条目写入到同一存储帐户中的 $MetricsCapacityBlob 表。
+启用此功能后，会每天为存储帐户的 Blob 服务记录容量数据，并将容量数据记录为表条目写入到同一存储帐户中的  $MetricsCapacityBlob 表。
 
-若要监视 Blob 存储的数据访问模式，需通过 API 启用每小时事务指标。 启用每小时事务指标后，会每小时聚合按 API 进行的事务，并将这些事务记录为表条目写入到同一存储帐户中的 *$MetricsHourPrimaryTransactionsBlob* 表。 在使用 RA-GRS 存储帐户时，$MetricsHourSecondaryTransactionsBlob 表会将事务记录到辅助终结点。
+若要监视 Blob 存储的数据访问模式，需通过 API 启用每小时事务指标。 启用每小时事务指标后，会每小时聚合按 API 进行的事务，并将这些事务记录为表条目写入到同一存储帐户中的 *$MetricsHourPrimaryTransactionsBlob* 表。 在使用 RA-GRS 存储帐户时，  $MetricsHourSecondaryTransactionsBlob 表会将事务记录到辅助终结点。
 
 > [!NOTE]
 > 如果有一个常规用途存储帐户，在其中存储了页 Blob、虚拟机磁盘、队列、文件、表以及块 Blob 数据和追加 Blob 数据，则不适合使用此估算过程。 容量数据不区分块 Blob 与其他类型，因此不会给出其他数据类型的容量数据。 如果使用这些类型，则也可查看最新账单上的数量，作为一种替代方法。
@@ -130,18 +133,18 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 #### <a name="capacity-costs"></a>容量费用
 
-容量度量值表 *$MetricsCapacityBlob* 中行键为 *'data'* 的最新条目显示了用户数据所占用的存储容量。 容量度量值表 *$MetricsCapacityBlob* 中行键为 *'analytics'* 的最新条目显示了分析日志所占用的存储容量。
+容量度量值表 *$MetricsCapacityBlob* 中行键为 *'data'* 的最新条目显示了用户数据所占用的存储容量。 容量指标表 $MetricsCapacityBlob  中行键为 'analytics'  的最新条目显示了分析日志所占用的存储容量。
 
 用户数据和分析日志（如果已启用）所占用的这个总容量就可以用来估算在存储帐户中存储数据的费用。 也可以使用相同方法来估算 GPv1 存储帐户中的存储成本。
 
 #### <a name="transaction-costs"></a>事务成本
 
-事务度量值表中某个 API 的所有条目的“ *TotalBillableRequests*”计得之和表示该特定 API 的事务总数。 例如，通过对行健为 'user;GetBlob' 的所有条目的计费请求进行求和可以算出一段给定时间中 'GetBlob' 事务的总数。
+事务度量值表中某个 API 的所有条目的“ *TotalBillableRequests*”计得之和表示该特定 API 的事务总数。 例如  ，通过对行健为 'user;GetBlob'  的所有条目的计费请求进行求和可以算出一段给定时间中 'GetBlob'  事务的总数。
 
 若要估算 Blob 存储帐户的事务费用，需将事务细分成三组，因为这些事务价格不一样。
 
-* 写入事务，例如 *'PutBlob'*、*'PutBlock'*、*'PutBlockList'*、*'AppendBlock'*、*'ListBlobs'*、*'ListContainers'*、*'CreateContainer'*、*'SnapshotBlob'* 和 *'CopyBlob'*。
-* 删除事务，例如 *'DeleteBlob'* 和 *'DeleteContainer'*。
+* 写入事务，例如 *'PutBlob'* 、 *'PutBlock'* 、 *'PutBlockList'* 、 *'AppendBlock'* 、 *'ListBlobs'* 、 *'ListContainers'* 、 *'CreateContainer'* 、 *'SnapshotBlob'* 和 *'CopyBlob'* 。
+* 删除事务，例如 *'DeleteBlob'* 和 *'DeleteContainer'* 。
 * 所有其他事务。
 
 若要估算 GPv1 存储帐户的事务成本，需聚合所有事务而不考虑操作/API。
@@ -154,7 +157,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 * 从存储帐户检索的数据量可以通过查看主要为 *'GetBlob'* 和 *'CopyBlob'* 操作的 *'TotalEgress'* 计得之和来估算。
 
-* 写入到存储帐户的数据量可以通过查看主要为 'PutBlob'、'PutBlock'、'CopyBlob' 和 'AppendBlock' 操作的 'TotalIngress' 计得之和来估算。
+* 写入到存储帐户的数据量可以通过查看主要为 'PutBlob'  、'PutBlock'  、'CopyBlob'  和 'AppendBlock'  操作的 'TotalIngress'  计得之和来估算。
 
 在使用 GRS 或 RA-GRS 存储帐户时，也可以通过所写入数据量的估算值来计算 Blob 存储帐户的异地复制数据传输费用。
 

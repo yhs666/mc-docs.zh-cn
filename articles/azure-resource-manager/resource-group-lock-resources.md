@@ -1,20 +1,17 @@
 ---
-title: 锁定 Azure 资源以防止更改 | Azure
+title: 锁定资源以防止更改
 description: 通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 05/14/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: ecf8d8b47d5409886ce7f2e611f5a6314f468bab
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.date: 11/25/2019
+ms.openlocfilehash: 903c0fd42e90c180a165c5afea09cef33962178e
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337455"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389341"
 ---
-# <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
+# <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改
 
 管理员可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 在门户中，锁定分别称为**删除**和**只读**。
 
@@ -162,7 +159,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-create) 命令锁定已部署的资源。
+可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-create) 命令锁定已部署的资源。
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
@@ -176,7 +173,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-list)。 若要获取订阅中的所有锁，请使用：
+若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-list)。 若要获取订阅中的所有锁，请使用：
 
 ```azurecli
 az lock list
@@ -224,4 +221,4 @@ az lock delete --ids $lockid
 * 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../governance/policy/overview.md)。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

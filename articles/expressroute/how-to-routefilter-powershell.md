@@ -1,20 +1,20 @@
 ---
-title: 配置用于 Microsoft 对等互连的路由筛选器 - ExpressRoute：PowerShell：Azure | Microsoft Docs
+title: ExpressRoute：路由筛选器 - Microsoft 对等互连：Azure PowerShell
 description: 本文介绍如何使用 PowerShell 配置用于 Microsoft 对等互连的路由筛选器
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 02/25/2019
-ms.date: 10/01/2019
+ms.date: 12/02/2019
 ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: ca5f2ac7034fa9fe41e7379074db7823f2e300f5
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f828218e365b2a9bdc969bc2c095ac32a425a1be
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330465"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389437"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>配置用于 Microsoft 对等互连的路由筛选器：PowerShell
 > [!div class="op_single_selector"]
@@ -35,9 +35,9 @@ ms.locfileid: "71330465"
 
 ### <a name="about"></a>关于路由筛选器
 
-在 ExpressRoute 线路上配置 Microsoft 对等互连时，Microsoft 边缘路由器会建立你的或你连接提供商的边缘路由器的一对 BGP 会话。 不会将任何路由播发到网络。 若要能够将路由播发到网络，必须关联路由筛选器。
+在 ExpressRoute 线路上配置 Microsoft 对等互连后，Microsoft 网络边缘路由器将与边缘路由器（你的或连接提供商的）建立一对 BGP 会话。 不会将任何路由播发到网络。 若要能够将路由播发到网络，必须关联路由筛选器。
 
-使用路由筛选器可标识要通过 ExpressRoute 线路的 Microsoft 对等互连使用的服务。 它实质上是所有 BGP 团体值的允许列表。 定义路由筛选器资源并将其附加到 ExpressRoute 线路后，映射到 BGP 团体值的所有前缀均会播发到网络。
+使用路由筛选器可标识要通过 ExpressRoute 线路的 Microsoft 对等互连使用的服务。 它实质上是所有 BGP 社区值的允许列表。 定义路由筛选器资源并将其附加到 ExpressRoute 线路后，映射到 BGP 团体值的所有前缀均会播发到网络。
 
 
 > [!IMPORTANT]
@@ -73,7 +73,7 @@ ms.locfileid: "71330465"
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 
 ### <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户

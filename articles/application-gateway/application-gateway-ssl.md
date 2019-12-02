@@ -1,26 +1,19 @@
 ---
-title: 配置 SSL 卸载 - Azure 应用程序网关 - PowerShell 经典 | Microsoft Docs
+title: 使用 PowerShell 进行 SSL 卸载 - Azure 应用程序网关
 description: 本文提供有关使用 Azure 经典部署模型创建支持 SSL 卸载的应用程序网关的说明
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 12/19/2018
+origin.date: 11/13/2019
+ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: e479c935a9a166809d0e343fc513c765bf6693ef
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: e3f3403f3864dee9233c6133cdbada36a0f645c3
+ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656520"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327138"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>使用经典部署模型配置应用程序网关以进行 SSL 卸载
 
@@ -34,7 +27,7 @@ ms.locfileid: "53656520"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页](/downloads/)的“Windows PowerShell”  部分下载并安装最新版本。
 2. 请确认已创建包含有效子网、可正常运行的虚拟网络。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP 地址或虚拟 IP 地址 (VIP)。
 
@@ -57,7 +50,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 若要验证是否已创建网关，可以输入 `Get-AzureApplicationGateway` cmdlet。
 
-在此示例中，Description、InstanceCount 和 GatewaySize 是可选参数。 InstanceCount 的默认值为 2，最大值为 10。 GatewaySize 的默认值为 Medium。 其他可用值为 Small 和 Large。 VirtualIPs 和 DnsName 显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后创建。
+在此示例中，Description、InstanceCount 和 GatewaySize 是可选参数    。 InstanceCount  的默认值为 2  ，最大值为 10  。 GatewaySize  的默认值为 Medium  。 其他可用值为 Small 和 Large。 VirtualIPs  和 DnsName  显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后创建。
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -100,17 +93,17 @@ State..........: Provisioned
 
 有效值为：
 
-- **后端服务器池**：后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP 或 VIP 地址。
-- **后端服务器池设置**：每个池具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器。
-- **前端端口**：此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
-- **侦听器**：侦听器具有前端端口、协议（Http 或 Https；这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
-- **规则**：规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时要将流量定向到的后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分发模式。
+* **后端服务器池**：后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP 或 VIP 地址。
+* **后端服务器池设置**：每个池具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器。
+* **前端端口**：此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
+* **侦听器**：侦听器具有前端端口、协议（Http 或 Https；这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+* **规则**：规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时要将流量定向到的后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分发模式。
 
 **其他配置说明**
 
-对于 SSL 证书配置，HttpListener 中的协议应更改为 Https（区分大小写）。 需要将“SslCert”元素添加到“HttpListener”，其值设置为[上传 SSL 证书](#upload-ssl-certificates)部分中使用的名称。 前端端口应更新为 443。
+对于 SSL 证书配置，HttpListener 中的协议应更改为 Https（区分大小写）   。 需要将“SslCert”  元素添加到“HttpListener”  ，其值设置为[上传 SSL 证书](#upload-ssl-certificates)部分中使用的名称。 前端端口应更新为 443  。
 
-**启用基于 Cookie 的相关性**：可以配置应用程序网关，以确保来自客户端会话的请求始终被定向到 Web 场中的同一 VM。 这种情况可通过插入允许网关适当定向流量的会话 Cookie 实现。 若要启用基于 Cookie 的相关性，请在 BackendHttpSettings 元素中将 CookieBasedAffinity 设置为 Enabled。
+**启用基于 Cookie 的相关性**：可以配置应用程序网关，以确保来自客户端会话的请求始终被定向到 Web 场中的同一 VM。 这种情况可通过插入允许网关适当定向流量的会话 Cookie 实现。 若要启用基于 Cookie 的相关性，请在 BackendHttpSettings 元素中将 CookieBasedAffinity 设置为 Enabled    。
 
 可以通过创建配置对象或使用配置 XML 文件来构造配置。
 若要使用配置 XML 文件构造配置，请输入以下示例：
@@ -186,7 +179,7 @@ Start-AzureApplicationGateway AppGwTest
 
 ## <a name="verify-the-gateway-status"></a>验证网关状态
 
-输入 `Get-AzureApplicationGateway` cmdlet 检查网关状态。 如果前一步骤中的 `Start-AzureApplicationGateway` 成功，则“状态”应为“正在运行”，VirtualIPs 和 DnsName 应包含有效的条目。
+输入 `Get-AzureApplicationGateway` cmdlet 检查网关状态。 如果前一步骤中的 `Start-AzureApplicationGateway` 成功，则“状态”  应为“正在运行”  ，VirtualIPs  和 DnsName  应包含有效的条目。
 
 此示例演示了一个正常运行并已准备好接收流量的应用程序网关：
 
@@ -210,7 +203,7 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.chinacloudapp.cn
 
 有关负载均衡选项的其他常规信息，请参阅：
 
-- [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
-- [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
+* [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
+* [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

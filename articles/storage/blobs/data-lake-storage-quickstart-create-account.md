@@ -4,23 +4,23 @@ description: 快速学习使用 Azure 门户、Azure PowerShell 或 Azure CLI �
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-origin.date: 08/19/2019
-ms.date: 09/30/2019
+ms.topic: conceptual
+origin.date: 10/23/2019
+ms.date: 11/25/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: cb3f4338962dbfedb18dd1acd94942e271f6e25a
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: d620896e3bdfe8405e2b74f63287a36f79cd90a4
+ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306836"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328763"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>创建 Azure Data Lake Storage Gen2 存储帐户
 
 Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introduction.md)，该命名空间提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于本机目录的容器。 可以通过 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
 
-本快速入门展示了如何使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或通过 [Azure CLI](/cli/?view=azure-cli-latest) 创建帐户。
+本文演示了如何使用 Azure 门户、Azure PowerShell 或通过 Azure CLI 创建帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -29,63 +29,48 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 |           | 先决条件 |
 |-----------|--------------|
 |门户     | 无         |
-|PowerShell | 本快速入门需要 PowerShell 模块 Az.Storage 0.7 或更高版本  。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以下的版本，则必须升级 powershell 模块  。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
+|PowerShell | 本文需要 PowerShell 模块 Az.Storage 0.7 或更高版本  。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以下的版本，则必须升级 powershell 模块  。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
 |CLI        | 可以安装 CLI 并在本地运行 CLI 命令。|
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI
 
-可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.38 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+可在本地安装和使用 Azure CLI。 本文要求运行 Azure CLI 2.0.38 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>创建启用了 Azure Data Lake Storage Gen2 的存储帐户
 
-在创建帐户前，首先创建一个资源组，使其充当你创建的存储帐户或任何其他 Azure 资源的逻辑容器。 若要清理本快速入门创建的资源，可以直接删除资源组。 删除资源组也会删除相关联的存储帐户，以及与资源组相关联的任何其他资源。 有关资源组的详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。
+Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队列、表和磁盘。 存储帐户为你的 Azure 存储数据提供了一个唯一的命名空间，可以从世界上的任何位置通过 HTTP 或 HTTPS 访问该命名空间。 Azure 存储帐户中的数据是持久的，高度可用、安全且可大规模缩放。
 
 > [!NOTE]
 > 必须将新的存储帐户创建为 **StorageV2(常规用途 v2 )** 类型才能利用 Data Lake Storage Gen2 功能。  
 
 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
-为存储帐户命名时，请记住以下规则：
-
-- 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。
-- 存储帐户名称在 Azure 中必须是唯一的。 没有两个存储帐户可以有相同的名称。
-
 ## <a name="create-an-account-using-the-azure-portal"></a>使用 Azure 门户创建帐户
 
 登录到 [Azure 门户](https://portal.azure.cn)。
 
-### <a name="create-a-resource-group"></a>创建资源组
+### <a name="create-a-storage-account"></a>创建存储帐户
 
-若要在 Azure 门户中创建资源组，请执行以下步骤：
-
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”。 
-2.  单击“添加”按钮添加新的资源组。
-3. 输入新资源组的名称。
-4. 选择要在其中创建新资源组的订阅。
-5. 选择资源组的位置。
-6. 单击“创建”  按钮。  
-
-   ![显示 Azure 门户中资源组创建情况的屏幕截图](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
-
-### <a name="create-a-general-purpose-v2-storage-account"></a>创建常规用途 v2 存储帐户
+每个存储帐户都必须属于 Azure 资源组。 资源组是对 Azure 资源进行分组的逻辑容器。 在创建存储帐户时，可以选择创建新的资源组，也可以使用现有资源组。 本文介绍如何创建新资源组。
 
 若要在 Azure 门户中创建常规用途 v2 存储帐户，请执行以下步骤：
 
 > [!NOTE]
 > 分层命名空间目前在所有公共区域中提供。
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。  然后向下滚动到“存储”  ，接着选择“存储帐户”  。 在显示的“存储帐户”窗口中，选择“添加”。  
-2. 选择之前创建的订阅和资源组   。
-3. 输入存储帐户的名称。
-4. 将“位置”设置为“中国东部”  
-5. 将这些字段保留设置为其默认值：性能、帐户类型、复制、访问层     。
-6. 选择要在其中创建存储帐户的订阅。
-7. 选择“下一步:  高级 >”
-8. 将“SECURITY”和“VIRTUAL NETWORKS”字段下的值设置为默认值   。
-9. 在“Data Lake Storage Gen2”  部分中，将“分层命名空间”设置为“已启用”。  
-10. 单击“查看 + 创建”以创建存储帐户  。
+1. 选择要在其中创建存储帐户的订阅。
+2. 在 Azure 门户中，选择“创建资源”  按钮，然后选择“存储帐户”  。
+3. 在“资源组”  字段下，选择“新建”  。 输入新资源组的名称。
+   
+   资源组是对 Azure 资源进行分组的逻辑容器。 在创建存储帐户时，可以选择创建新的资源组，也可以使用现有资源组。
 
-    ![显示 Azure 门户中存储帐户创建情况的屏幕截图](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+4. 然后，输入存储帐户的名称。 所选名称在 Azure 中必须唯一。 该名称还必须为 3 到 24 个字符，并且只能包含数字和小写字母。
+5. 选择一个位置。
+6. 确保“StorageV2 (常规用途 v2)”  在“帐户类型”  下拉列表中显示为选中状态。
+7. （可选）更改以下每个字段中的值：**性能**、**复制**、**访问层**。 若要详细了解这些选项，请参阅 [Azure 存储简介](/storage/common/storage-introduction#azure-storage-services)。
+8. 选择“高级”选项卡  。
+10. 在“Data Lake Storage Gen2”  部分中，将“分层命名空间”设置为“已启用”。  
+11. 单击“查看 + 创建”以创建存储帐户  。
 
 现在已通过门户创建了存储帐户。
 
@@ -214,6 +199,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建了一个具有 Data Lake Storage Gen2 功能的存储帐户。 若要了解如何通过存储帐户上传和下载 Blob，请参阅以下主题。
+在本文中，你已创建了一个具有 Data Lake Storage Gen2 功能的存储帐户。 若要了解如何通过存储帐户上传和下载 Blob，请参阅以下主题。
 
 * [AzCopy V10](/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

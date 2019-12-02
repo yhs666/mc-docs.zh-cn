@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 08/17/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: cd302025b3a82e628f73a32fe4407b1acd8e52d5
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: a5fd8dc3b6f2aa50cda6ad74f792a4ae19dc8a92
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878766"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74388979"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -99,7 +99,7 @@ http.createServer(function (req, res) {
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
 
 > [!NOTE]
-> 若要完成本教程，需要一个 Azure 帐户。 可以[激活 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)。
+> 若要完成本教程，需要一个 Azure 帐户。 可以[注册试用帐户](www.azure.cn/pricing/1rmb-trial)。
 
 ### <a name="download-the-azure-publishing-settings"></a>下载 Azure 发布设置
 

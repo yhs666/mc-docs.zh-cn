@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure PowerShell 管理 Azure 资源 | Azure
-description: 使用 Azure PowerShell 和 Azure 资源管理器管理资源。
-services: azure-resource-manager
-documentationcenter: ''
+title: 管理资源 - Azure PowerShell
+description: 使用 Azure PowerShell 和 Azure 资源管理器管理资源。 演示如何部署和删除资源。
 author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 683f6155e1e51eee9358af58c2aa1aeb4d978a79
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 3b25d44cb226b7d0bdeabf7af3ebf8d142b9e8d2
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337325"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389409"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源
 
@@ -63,7 +60,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="deploy-a-resource-group-and-resources"></a>部署资源组和资源
 
-可以创建一个资源组，然后将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+可以创建一个资源组，然后将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#resource-group-and-resources)。
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>将资源部署到多个订阅或资源组
 
@@ -146,4 +143,4 @@ Remove-AzResourceLock -LockId $lockId
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
 
 <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -2,18 +2,18 @@
 title: Azure ExpressRoute 常见问题解答
 description: ExpressRoute 常见问题包含有关支持的 Azure 服务、费用、数据和连接、SLA、提供商和位置、带宽的信息和其他技术详细信息。
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 09/18/2019
+origin.date: 10/28/2019
 ms.author: v-yiso
-ms.date: 11/04/2019
-ms.openlocfilehash: 666df4cc359d023edf30b069c9ca61707ceafd96
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/02/2019
+ms.openlocfilehash: 230ea7d2438ea5ad11bdf24dc18604d96532ff38
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914504"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389457"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -79,6 +79,13 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
     * 多重身份验证
     * 流量管理器
 
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>在配置 Microsoft 对等互连时，为什么会看到“播发公共前缀”状态为“需要验证”？
+
+Microsoft 会验证是否在 Internet 路由注册表中为你分配了指定的“播发公共前缀”和“对等 ASN”（或“客户 ASN”）。 如果要从另一个实体获取公共前缀，并且该分配没有记录在路由注册表中，则自动验证将不会完成，并且将需要手动验证。 如果自动验证失败，你将看到消息“需要验证”。
+
+如果看到消息“需要验证”，请收集显示公共前缀将由路由注册表中作为前缀所有者列出的实体分配给你组织的文档，并通过开具支持票证提交这些文档进行手动验证，如下所示。
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 ## <a name="data-and-connections"></a>数据和连接
 
 ### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute"></a>对于使用 ExpressRoute 可以传输的数据量是否有限制？
@@ -116,6 +123,12 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何确保连接到 ExpressRoute 的虚拟网络上的高可用性？
 
 可以通过将不同对等互连位置的 ExpressRoute 线路连接到虚拟网络来实现高可用性。如果一个 ExpressRoute 线路出现故障，则连接将故障转移到另一条 ExpressRoute 线路。 默认情况下，将基于等成本多路径路由 (ECMP) 对离开虚拟网络的流量进行路由。 可以使用连接权重来使一条线路优先于另一条线路。 有关详细信息，请参阅[优化 ExpressRoute 路由](expressroute-optimize-routing.md)。
+
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>如何确保我发往 Azure 公共服务（如 Microsoft 对等互连或公共对等互连上的 Azure 存储和 Azure SQL）流量在 ExpressRoute 路径上是优先的？
+
+必须在路由器上实现“本地优先级”  属性，以确保从本地到 Azure 的路径在 ExpressRoute 线路上始终是首选路径。
+
+请在[此处](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings)查看有关 BGP 路径选择和常见路由器配置的其他详细信息。 
 
 ### <a name="onep2plink"></a>如果我不在云交换中共置，而我的服务提供商提供点到点连接，我需要在本地网络与 Microsoft 之间订购两个物理连接吗？
 
@@ -204,6 +217,9 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 是的。 对于专用对等互连，我们最多接受 4000 个路由前缀；对于 Microsoft 对等互连，接受 200 个。 如果启用 ExpressRoute 高级功能，可以将专用对等互连的此限制提高为 10,000 个路由。
 
+### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>对可以通过 BGP 会话播发的 IP 地址范围是否有限制？
+
+对于 Microsoft 对等 BGP 会话中，不接受私有前缀 (RFC1918)。 对于 Microsoft 和专用对等互连，我们都接受任何前缀大小（最大为 /32）。
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>如果超过 BGP 限制，会发生什么情况？
 会将 BGP 会话删除。 当前缀计数低于限制后，将重置这些会话。

@@ -1,30 +1,21 @@
 ---
-title: Azure 资源提供程序和资源类型 | Azure
+title: 资源提供程序和资源类型
 description: 介绍支持 Resource Manager 的资源提供程序及其架构和可用 API 版本，以及可托管资源的区域。
-services: azure-resource-manager
-documentationcenter: na
-author: rockboyfor
-ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 08/29/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 9a3f603ba0fa48f2c0b2d6ed97215c3453aa0a64
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 7184bcfdb868b50f944a08665b2f52138b1e7c17
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156100"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389572"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
 部署资源时，经常需要检索有关资源提供程序和类型的信息。 例如，若要存储密钥和机密，请使用 Microsoft.KeyVault 资源提供程序。 此资源提供程序提供名为“保管库”的资源类型，用于创建密钥保管库。
 
-资源类型的名称采用以下格式：{resource-provider}/{resource-type}  。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults**。
+资源类型的名称采用以下格式： **{resource-provider}/{resource-type}** 。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults**。
 
 在本文中，学习如何：
 
@@ -117,7 +108,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ProviderNamespace : Microsoft.Batch
 RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
-Locations         : {China North, China East, China East 2, China North 2}
+Locations         : {China East, China North, China East 2, China North 2}
 ```
 
 当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
@@ -134,7 +125,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 {ProviderNamespace : Microsoft.Batch
 RegistrationState : Registered
 ResourceTypes     : {batchAccounts}
-Locations         : {China North, China East, China East 2, China North 2}
+Locations         : {China East, China North, China East 2, China North 2}
 
 ...
 ```
@@ -183,8 +174,8 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 返回：
 
 ```powershell
-China North
 China East
+China North
 China East 2
 China North 2
 ```
@@ -288,8 +279,8 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 ```azurecli
 Result
 ---------------
-China North
 China East
+China North
 China East 2
 China North 2
 ...
@@ -299,7 +290,7 @@ China North 2
 
 * 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。 
 
-<!--Not Available on [Template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
+    <!--Not Available on [Template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
 
 * 有关将资源提供程序映射到 Azure 服务的列表，请参阅 [Azure 服务的资源提供程序](azure-services-resource-providers.md)。
 * 若要查看资源提供程序的操作，请参阅 [Azure REST API](https://docs.microsoft.com/rest/api/)。
